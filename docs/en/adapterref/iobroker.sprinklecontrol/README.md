@@ -2,7 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
-BADGE-Dependency Status: https://img.shields.io/david/Dirk-Peter-md/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
@@ -241,6 +240,23 @@ Activate the Notifications tab. The communication settings are then made on the 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2022-09-06)
+* (Dirk-Peter-md) various bugs fixed
+* (Dirk-Peter-md) Preparing the stable release
+
+### 0.2.12 (2022-07-17)
+* (Dirk-Peter-md) fixDay(twoNd,threeRd) => postpone by one day
+* (Dirk-Peter-md) Bug fixed => autoOn
+* (Dirk-Peter-md) Additional post-watering => in case of high evaporation / switchable externally
+
+### 0.2.11 (2022-05-22)
+* (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
+* (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
+
+### 0.2.10 (2022-05-15)
+* (Dirk-Peter-md) manual watering limited to a maximum of 100%
+* (Dirk-Peter-md) Error whatsapp message fixed
+
 ### 0.2.9 (2022-04-10)
 * (Dirk-Peter-md) Bug-Initialisierungsroutine
 
@@ -283,32 +299,17 @@ Activate the Notifications tab. The communication settings are then made on the 
 * (Dirk-Peter-md) Beschreibung in englischer Sprache hinzugefügt
 * (Dirk-Peter-md) bereit für stable
 
-### 0.1.6 (18.05.2021)
-* (Dirk-Peter-md) AutoOn-Schalter pro Bewässerungskreis hinzugefügt
-* (Dirk-Peter-md) weitere Fehler beseitigt (js-Controller)
-* (Dirk-Peter-md) Niederschlagszähler von der Verdunstung gelöst
-
 ### 0.1.5 (05.05.2021)
 * (Dirk-Peter-md) Zurücksetzen der Regenmenge im 24-Stunden-Modus hinzugefügt
 
 ### 0.1.4 (21.04.2021)
 * (Dirk-Peter-md) Fehler bei deaktivierter Wettervorhersage behoben
 
-### 0.1.3 (18.04.2021)
-* (Dirk-Peter-md) Schaltabstand zwischen den Ventilen eingebaut, main.js aufgeteilt
-
 ### 0.1.2 (30.12.2020)
 * (Dirk-Peter-md) Beschreibung von SprinkleControl überarbeitet
 
-### 0.1.1 (08.11.2020)
-* (Dirk-Peter-md) Integration von Nachrichten per Telegramm, E-Mail, Pushover und WhatsApp
-
 ### 0.0.12 (10.10.2020)
 * (Dirk-Peter-md) Bewässerung über eine 2. Pumpe (Zisterne mit Vorrangschaltung) in abhängigkeit vom Füllstand hinzugefügt.
-
-### 0.0.11 (30.08.2020)
-* (Dirk-Peter-md) Bug in der Verarbeitung der Regenvorhersage vom Adapter "Das Wetter"
-* (Dirk-Peter-md) Bug auf Travis CI
 
 
 *************************************************************************************************************************************

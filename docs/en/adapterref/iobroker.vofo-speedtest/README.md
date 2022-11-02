@@ -1,12 +1,12 @@
 ![Logo](admin/vofo-speedtest.png)
 # ioBroker.vofo-speedtest
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
 ![Number of Installations (latest)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
-[![Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vofo-speedtest.svg)](https://david-dm.org/peterbaumert/iobroker.vofo-speedtest)
-[![Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest/badge.svg)](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest)
+[![NPM version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
+
+![Test and Release](https://github.com/peterbaumert/iobroker.vofo-speedtest/workflows/Test%20and%20Release/badge.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)](https://www.npmjs.com/package/iobroker.vofo-speedtest)
 
 [![NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)](https://nodei.co/npm/iobroker.vofo-speedtest/)
 
@@ -29,7 +29,13 @@ When the adapter crashes or an other Code error happens, this error message that
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.13 (2022-06-06)
+* some more "already running" fixes
+
+### 0.0.12 (2022-05-28)
+* rerelease for 0.0.11 because of missing version in io-package.json
+
+### 0.0.11 (2022-05-27)
 * updating dependencies
 * adding some timeouts trying to fix "already running with pid"
 * fix extracting API key from js-code (thanks Zwer2k) [#112][pr112]

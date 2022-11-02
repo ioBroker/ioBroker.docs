@@ -74,7 +74,7 @@ Based on the python library "pyrainbird" from https://github.com/jbarrancos/pyra
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Marius Burkard
+Copyright (c) 2022 Marius Burkard m.burkard@pixcept.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

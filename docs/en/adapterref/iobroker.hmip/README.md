@@ -11,6 +11,10 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+## Disclaimer
+**All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
+**HomeMatic is a trademark of ELV Elektronik AG**
+
 ## Description
 This adapter allows the communication with a HomematicIP CloudAccessPoint via the Rest API of the Homematic IP Cloud
 
@@ -60,6 +64,42 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.20.0 (2022-09-19)
+* IMPORTANT: Node.js 12.x is now required at minimum
+* Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
+* Add valve position for FLOOR_TERMINAL_BLOCK_MECHANIC_CHANNEL
+* Add several more states for SWITCH_CHANNEL, DIMMER_CHANNEL, WEATHER_SENSOR_CHANNEL, SHUTTER_CHANNEL 
+* Add channel label
+
+### 1.19.2 (2022-09-07)
+* Optimize Reconnect handling
+
+### 1.19.1 (2022-08-21)
+* Fix datatype of selfCalibrationInProgress
+
+### 1.19.0 (2022-08-14)
+* Add several more device settings that can be modified via adapter
+  * accelerationSensorMode
+  * accelerationSensorSensitivity
+  * accelerationSensorTriggerAngle
+  * accelerationSensorEventFilterPeriod
+  * accelerationSensorNeutralPosition
+  * notificationSoundTypeHighToLow
+  * notificationSoundTypeLowToHigh
+  * routerModuleEnabled
+  * minimumFloorHeatingValvePosition
+  * sirenWaterAlarmTrigger
+  * inAppWaterAlarmTrigger
+  * acousticAlarmSignal
+  * acousticAlarmTiming
+  * acousticWaterAlarmTrigger
+  * boostDuration
+* Other fixes and optimizations
+
+### 1.18.0 (2022-06-17)
+* (Apollon77) Added support for PARTICULATE_MATTER_SENSOR_CHANNEL
+* (Apollon77) Correctly ignore some channels without meaningful data
+
 ### 1.17.0 (2022-04-26)
 * (Apollon77) Also reinitialize objects when new groups or clients are detected
 * (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels

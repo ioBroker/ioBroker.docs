@@ -1,30 +1,51 @@
 ![Logo](admin/netatmo.png)
 # ioBroker.netatmo
 
-![Number of Installations](http://iobroker.live/badges/netatmo-installed.svg) ![Number of Installations](http://iobroker.live/badges/netatmo-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.netatmo.svg)](https://www.npmjs.com/package/iobroker.netatmo)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo.svg)](https://www.npmjs.com/package/iobroker.netatmo)
+![Number of Installations](http://iobroker.live/badges/netatmo-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/netatmo-stable.svg) 
+[![NPM version](http://img.shields.io/npm/v/iobroker.netatmo.svg)](https://www.npmjs.com/package/iobroker.netatmo)
 
-[![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)](https://nodei.co/npm/iobroker.netatmo/)
+![Test and Release](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo.svg)](https://www.npmjs.com/package/iobroker.netatmo)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 Netatmo adapter for ioBroker
 
-## Installation and Configuration
-Just enter your Netatmo username & password within the adapter settings.
+## __Important Note for Authentication changes October 2022__
+According to Netatmo the "old" way to authenticate with username and password directly by entering them into the adapter will be disabled by October 2022.
 
-By default a general API key is used to do the requests which limits the update interval to 10 Minutes! 
+Version 2.0 of the adapter addresses this change and adjust the authentication. All upgrades before October 2022 should allow a seamless upgrade to 2.0.0 on the first start automatically - else requires a new authentication.
+
+## __Important Note for v2.0.0!__
+With v 2.0 of the adapter the object structure will change completely! Instead of names we decided to better use the unique IDs to make sure that duplicate or changing names do not produce issues.
+
+
+## Installation and Configuration
+You need to authenticate with your NetAtmo account using the Adapter Admin UI. 
+
+First select all relevant device types you want to sync data for. When you change them you need to do the Authentication again later.
+
+If you want to use a dedicated client-id/secret (see below) you can also enter them before the Authentication.
+
+Use the "Authenticate with Netatmo" Button to start the authentication flow. A new Windows/Tab will be opened with the Netatmo Login page. After logging in and acknowledging the data access you are redirected back to your admin page.
+
+In case of success just close the window and reload the adapter configuration. In case of an error check the error message and try again
+
+By default, a general API key is used to do the requests which limits the update interval to 10 Minutes! 
 
 To increase the interval or to get live updates from Welcome & Presence, CO- und Smoke-Detectors are only you need to enter an own ID/Secret from your NetAtmo App.
 To do so, go to the following URL, login with your Netatmo account and fill out the requested form on https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com%2Fapps%2Fcreateanapp !
 
-Please make sure to configurer your limits that they respect https://dev.netatmo.com/guideline#rate-limits (and have in mind that these linits also exist for ALL USERS if you do not use an own ID/Secret)
+Please make sure to configure your limits that they respect https://dev.netatmo.com/guideline#rate-limits (and have in mind that these linits also exist for ALL USERS if you do not use an own ID/Secret)
 
 ## sendTo support
 
+### setAway
 You can also use the sendTo command to set all persons as away (for example if in use as alarm system)
 ```
-sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
+sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
 ```
 or
 ```
@@ -40,14 +61,42 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 The parameter homeId is the string listed behind the name of your Camera within the Objects tab (optional, if multiple cameras are installed),
 the personsId is the id within the "Known" persons folder
 
+### setHome
+Basically the same functionality as described for "setAway" above also is existing for "setHome" to set persons or full homes as "occupied".
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 2.1.1 (2022-09-30)
+* (Apollon77) Make sure device types that require custom credentials are not selectable in UI without entering them
+* (Apollon77) Fix a potential crash case
 
-### __WORK IN PROGRESS__
-* (Apollon77) Integrate Doorbell (WIP!)
+### 2.1.0 (2022-09-23)
+* (Apollon77) Fix setAway
+* (Apollon77) Adjust setAway/setHome message responses to return all errors/responses when multiple calls where done for multiple homes or persons
+
+### 2.0.5 (2022-09-16)
+* (Apollon77) Catch communication errors better
+
+### 2.0.4 (2022-09-15)
+* (Apollon77) Fix crash case with Smoke detector events
+
+### 2.0.3 (2022-09-14)
+* (Apollon77) Fixes and Optimizations for Doorbell devices
+
+### 2.0.2 (2022-09-12)
+IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
+* BREAKING: Object structure changes completely and now uses unique IDs instead of names!
+* (Apollon77) Change the Authentication method as requested by Netatmo till October 2022
+* (Apollon77) Doorbell integration
+* (Apollon77) Converted to new APIs, values of several objects might be different
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) Adjust setAway to the current API
+* (Apollon77) Added setHome function (Welcome only) to mark all or specific persons as home (requires your own API key!)
+* (Apollon77) setAway and setHome now also return the result of the call as callback tzo the message
+* (Apollon77) Allow to edit floodlight and monitoring-state
 
 ### 1.7.1 (2022-03-30)
 * (Apollon77) Fix Event cleanup

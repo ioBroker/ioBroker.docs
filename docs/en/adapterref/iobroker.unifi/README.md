@@ -1,16 +1,22 @@
 <img height="100px" src="admin/unifi.png" align="left"><br/>
 # ioBroker.unifi
 
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.unifi/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.unifi/actions/workflows/test-and-release.yml) ![Number of Installations](http://iobroker.live/badges/unifi-installed.svg) ![Number of Installations](http://iobroker.live/badges/unifi-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.unifi.svg)](https://www.npmjs.com/package/iobroker.unifi) [![Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)](https://www.npmjs.com/package/iobroker.unifi)
+![Number of Installations](http://iobroker.live/badges/unifi-installed.svg)
+![Number of Installations](http://iobroker.live/badges/unifi-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.unifi.svg)](https://www.npmjs.com/package/iobroker.unifi)
 
-[![NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)](https://nodei.co/npm/iobroker.unifi/)
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.unifi/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/unifi/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)](https://www.npmjs.com/package/iobroker.unifi)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 This ioBroker adapter allows the monitoring and limited controlling of [UniFi devices](http://www.ubnt.com/), such as UniFi WiFi Access Points using the public UniFi Controller Web-API.
 
 ## Configuration
 ###  Minimum required information
 To get this adapter up and running the following information is needed:
-* IP address and port of your UniFi controller (Leave the port empty in case your controller is running on UbiOS (e.g. UDM-Pro))
+* IP address and port of your UniFi controller (Leave the port empty in case your controller is running on UniFiOS (e.g. UDM-Pro))
 * Local username and password (2FA **cannot** be supported)
 * Update interval
 
@@ -52,7 +58,7 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 | DPI         | https://IP:PORT/api/s/SITE/stat/dpi         |
 | Alarms      | https://IP:PORT/api/s/SITE/stat/alarm       |
 
-### UbiOS/UDM-Pro endpoints
+### UniFiOS (UDM-Pro) endpoints
 
 | Information | API URL                                              |
 |-------------|------------------------------------------------------|
@@ -75,9 +81,26 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.3 (2022-10-08)
+* (jens-maus) Bumped node-unifi to latest 2.2.1 (fixes #613)
+
+### 0.6.2 (2022-10-07)
+* (jens-maus) Bumped node-unifi to latest 2.2.0
+* (maximilian-1) port-overrides structures added
+* (Scrounger) poe power switch added
+* (Scrounger) client reconnect added
+
+### 0.6.1 (2022-06-08)
+* (jens-maus) Bumped node-unifi to latest 2.1.0
+* (jens-maus) updated translations
+
+### 0.6.0 (2022-06-05)
+* IMPORTANT: js-controller 2.0 or higher is required
+* IMPORTANT: If Login do not work please re-enter the password in the instance configuration
+* (Apollon77) Migrate to new version of unifi library
+* (Apollon77) Allow to specify if SSL error should be ignored or not  (Default is to ignore errors as in former versions)
 * (jens-maus) Fixed more device state object definitions to get rid of state warnings.
-* (jens-maus) Updated dependencies.
+* (jens-maus/Apollon77) Updated dependencies, make compatible to newest firmwares
 
 ### 0.5.10 (2021-05-27)
 * (jens-maus) Changed "Update done" output to be output as debug info.
@@ -137,7 +160,7 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
 
 ### 0.4.0 (2020-04-16)
 * (bluefox) Refactoring
-  
+
 ### 0.3.1
 * (jens-maus) added support for multi-site environments.
 
@@ -165,8 +188,8 @@ This adapter uses functionality from the following third-party nodejs modules:
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2016-2022 Jens Maus &lt;mail@jens-maus.de&gt;
 Copyright (c) 2020 braindead1 &lt;os.braindead1@gmail.com&gt;
-Copyright (c) 2016-2020 Jens Maus &lt;mail@jens-maus.de&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

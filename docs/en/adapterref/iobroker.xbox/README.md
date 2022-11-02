@@ -24,46 +24,27 @@ Microsoft Corporation, or any associated subsidiaries, logos or trademarks.
 * Install the adapter and control your Xbox One or Xbox One X
 
 ## Requirements
-
-* You need to have Python >= 3.7 installed
-* For Linux additional packages are required.
-   
-   The required packages will automatically be installed. Due to this fact root privileges are required as well as the 
-   --unsafe-perm flag. If this fails, you have to install the packages manually (`build-essential libssl-dev libffi-dev 
-   python3-dev`).
 * If you want to power your Xbox on with this adapter, you have to
 [configure the instant-on power modus](https://support.xbox.com/en-GB/xbox-one/console/learn-about-power-modes) on your Xbox.
 
 ## Acknowledgement
 Thanks to [Team Open Xbox](https://openxbox.org/) for developing and maintaining the
-[xbox-rest-server](https://github.com/OpenXbox/xbox-smartglass-rest-python) and the related libraries.
+[xbox-rest-server](https://github.com/OpenXbox/xbox-smartglass-core-node) and the related libraries.
 Without their effort, developing this package would not be possible.
 
 ## Installation
 You can install the adapter via Admin interface or on your terminal.
 
-### Admin
 1. Open your ioBroker web interface in a browser (eg: 192.168.30.70:8081)
 2. Click on Tab "Adapters"
 3. Type "Xbox" in the filter
 4. Click on the three points and then on the "+" symbol of the Xbox adapter <br/>
 ![Add Adapter](/docs/en/img/plusAddAdapter.png)
 
-### Terminal
-Navigate into your ioBroker folder and execute the following command (on Linux Root privileges are required to install 
-the additional packages, use sudo):
- 
-```bash
-npm i iobroker.xbox --unsafe-perm
-```
-
-### Setup
+## Setup
 1. Fill in the Live ID of your Xbox in the settings of the adapter. You can find the Live ID in the settings of your console.
-2. Fill in the ip address of your Xbox. <br/>
-![Adapter Configuration](/docs/en/img/adapter-configuration.png)
-3. If you want to use the features which require authentication on Xbox Live,
-you have to enable the authenticate checkbox.
-4. Provide the e-mail address as well as the password of you Xbox Live account.
+2. Fill in the ip address of your Xbox.
+3. Use the Link from the log to start login procedure, then paste the API key which can be found after `code=` in the url.
 
 ## States
 In this section you can find a description of every state of the adapter.
@@ -77,16 +58,6 @@ In this section you can find a description of every state of the adapter.
     |boolean|R|
    
    *Read-only boolean indicator. Is true if adapter is connected to Xbox.*
-
-* info.currentTitles
-
-    |Data type|Permission|
-    |:---:|:---:|
-    |string|R|
-
-   *Read-only JSON string, which consits of key-value pairs. The key is the name of an active title,
-   while the value is the title id converted to hexadecimal. The hex title id can be used to launch a
-   title via the settings.launchTitlte state.*
 
 * info.activeTitleName
 
@@ -110,8 +81,7 @@ In this section you can find a description of every state of the adapter.
     |:---:|:---:|
     |string|R|
 
-    *Contains the link to the active title (which is focused) cover image as a string.
-    The state is only available when authenticate is activated in the settings.*
+    *Contains the link to the active title (which is focused) cover image as a string.* 
 
 * info.activeTitleType
 
@@ -127,17 +97,31 @@ In this section you can find a description of every state of the adapter.
     |:---:|:---:|
     |string|R|
 
-    *String which contains the gamertag of the currently authenticated user.
-    The state is only available when authenticate is activated in the settings.*
+    *String which contains the gamertag of the currently authenticated user.* 
+
+* info.gamerscore
+
+  |Data type|Permission|
+  |:---:|:---:|
+  |number|R|
+
+  *Number which contains the gamerscore of the currently authenticated user.*
+
+* info.installedApplications
+
+  |Data type|Permission|
+  |:---:|:---:|
+  |string|R|
+
+  *String which contains a comma-separated list of the currently installed applicaitons. DLCs are excluded.*
 
 * info.authenticated
 
-    |Data type|Permission|
-    |:---:|:---:|
-    |boolean|R|
+  |Data type|Permission|
+  |:---:|:---:|
+  |boolean|R|
 
-    *Boolean value which indicates if you are successfully authenticated on Xbox Live.
-    The state is only available when authenticate is activated in the settings.*
+  *Boolean value which indicates if you are successfully authenticated on Xbox Live.* 
    
 ### Channel Settings
 
@@ -149,7 +133,7 @@ In this section you can find a description of every state of the adapter.
 
    *Boolean-value to turn your Xbox on and off. State also indicates current power status of the Xbox.*
 
-* settings.launchTitle
+* settings.launchTitle/launchStoreTitle
 
     |Data type|Permission|
     |:---:|:---:|
@@ -164,6 +148,9 @@ In this section you can find a description of every state of the adapter.
     ```javascript
     setState('settings.launchTitle', '2340236c', false); // Launch Red Dead Redemption 2
     ```
+  
+    With `launchStoreTitle` you can use real names. The adapter will search for the title in store and take the ID of
+    the first result.
 
 * settings.inputText
 
@@ -332,11 +319,61 @@ In this section you can find a description of every state of the adapter.
 
    *View button for media content.*
 
+### Folder friends
+For every friend a channel will be created. Under this channel you will find several read-only states.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.0 (2022-09-09)
+* (foxriver76) updated dependencies
+* (foxriver76) see previous beta versions
+
+### 1.0.0-beta.10 (2022-08-20)
+* (foxriver76) we now determine correct store locale for germany if system language is "de"
+
+### 1.0.0-beta.9 (2022-08-07)
+* (foxriver76) we fixed `activeTitleName` of applications which have no short title
+
+### 1.0.0-beta.8 (2022-08-03)
+* (foxriver76) removed unused messagebox
+
+### 1.0.0-beta.7 (2022-08-02)
+* (foxriver76) we have revived acknowledgment flag for power on state
+
+### 1.0.0-beta.6 (2022-08-02)
+* (foxriver76) we are now synchronizing friends
+
+### 1.0.0-beta.5 (2022-08-01)
+* (foxriver76) fixed `activeTitleImage` which is now the cover and always an url
+* (foxriver76) optimized `launchStoreTitle` by preventing API calls for DLCs
+* (foxriver76) added gamerscore as state (synched every 10 minutes)
+* (foxriver76) added list of installed applications to a new state
+
+### 1.0.0-beta.4 (2022-07-30)
+* (foxriver76) we have optimized `launchStoreTitle` to check for installed apps first
+* (foxriver76) we have optimized error logging
+
+### 1.0.0-beta.2 (2022-07-30)
+* (foxriver76) added `launchStoreTitle` state to launch apps by their names
+
+### 1.0.0-beta.1 (2022-07-29)
+* (foxriver76) fixed missing state objects
+
+### 1.0.0-beta.0 (2022-07-29)
+* (foxriver76) complete TypeScript rewrite
+* (foxriver76) removed Python dependencies by siwtching to Xbox API written in Node.js
+* (foxriver76) fixed title launch (closes #39)
+* (foxriver76) fixed Xbox Live Auth (closes #63)
+
+### 0.7.10 (2022-05-20)
+* (foxriver76) fixed error with mising admin ui on new installations
+
+### 0.7.9 (2022-05-20)
+* (foxriver76) fixed wrong default value of `media.seek` (closes #113)
+
 ### 0.7.8 (2022-02-20)
 * (foxriver76) we now set `unsafePerm` flag to ensure compatibility with future controller
 * (foxriver76) updated dependencies

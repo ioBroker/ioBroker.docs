@@ -5,13 +5,14 @@ This ioBroker adapter (formerly ioBroker.Nuki2) allows to control and monitor th
 [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/chvoelkel)
 
 ![Number of Installations](http://iobroker.live/badges/nuki-extended-installed.svg)
-![Stable Version](http://iobroker.live/badges/nuki-extended-stable.svg)
-[![NPM Version](http://img.shields.io/npm/v/iobroker.nuki-extended.svg)](https://www.npmjs.com/package/iobroker.nuki-extended)
-[![Commits since last release](https://img.shields.io/github/commits-since/Zefau/ioBroker.nuki-extended/latest.svg)](https://github.com/Zefau/ioBroker.nuki-extended/releases/latest)
-[![Travis CI](https://travis-ci.com/Zefau/ioBroker.nuki-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.nuki-extended)
+![Number of Installations](http://iobroker.live/badges/nuki-extended-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.nuki-extended.svg)](https://www.npmjs.com/package/iobroker.nuki-extended)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.nuki-extended/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/nuki-extended/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.nuki-extended.svg)](https://www.npmjs.com/package/iobroker.nuki-extended)
 
-[![NPM](https://nodei.co/npm/iobroker.nuki-extended.png?downloads=true)](https://nodei.co/npm/iobroker.nuki-extended/)
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 
 **Table of contents**
@@ -503,6 +504,31 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
 
 <!-- ### __WORK IN PROGRESS__ -->
+### 2.6.5 (2022-06-17)
+* (Apollon77) Fix some crash cases reported by Sentry
+
+### 2.6.4 (2022-06-16)
+* (Apollon77) Fix some crash cases reported by Sentry
+
+### 2.6.3 (2022-06-13)
+* (theimo1221) Fix Web Api SetAction Call
+
+### 2.6.2 (2022-06-13)
+* (theimo1221) Fix Web Api Polling
+
+### 2.6.1 (2022-06-09)
+* (Apollon77) Fix Bridge functionality
+* (simatec) Fix Admin display in dark mode
+
+### 2.6.0 (2022-06-03)
+* (Matze2010) Make additional refresh after callback configurable
+* (theimo1221) Optimizations and fixes
+
+### 2.5.0 (2022-05-27)
+- (StrathCole) Allow web-api-only operation
+- (Apollon77) Make compatible with Node.js 18.x
+- (Apollon77) Add Sentry for crash reporting
+
 ### 2.4.0 (2021-12-13)
 - (smaragdschlange) added support for Nuki Smart Door and Nuki Smart Lock 3.0 (Pro)
 
@@ -576,7 +602,7 @@ Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smash
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 Zefau <zefau@mailbox.org>
+Copyright (c) 2019-2022 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

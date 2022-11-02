@@ -112,9 +112,12 @@ History with InfluxDB). Он может быть использован как 
 ![](img/Flot-use1.jpg)
 
 ## Changelog
+### 1.11.0 (2022-05-26)
+* (Apollon77) Trust GetHistory results to contain ms resolution timestamps
+
 ### 1.10.7 (2021-08-31)
 * (sbormann) Enhanced the preset list (now shows the full link and the edit link)
- 
+
 ### 1.10.6 (2020-12-21)
 * (nobodyMO) added the X value mover and Y value multiplication
 

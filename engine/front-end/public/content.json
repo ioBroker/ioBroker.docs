@@ -112,9 +112,9 @@
         "Glossary": {
           "title": {
             "en": "Glossary",
-            "de": "Glossar",
-            "ru": "глоссарий",
-            "zh-cn": "词汇表"
+            "de": "Begriffserklärungen",
+            "ru": "без названия",
+            "zh-cn": "无题"
           },
           "content": "basics/glossary.md"
         }
@@ -175,7 +175,7 @@
             "Docker": {
               "title": {
                 "en": "Docker",
-                "de": "Installation",
+                "de": "Docker",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -194,7 +194,7 @@
             "Node.js": {
               "title": {
                 "en": "Node.js",
-                "de": "Installation",
+                "de": "Node.js und npm",
                 "ru": "установка",
                 "zh-cn": "安装"
               },
@@ -236,21 +236,21 @@
             "ru": "обновить",
             "zh-cn": "更新"
           },
-          "content": "install/update.md"
+          "content": "install/update.md",
           "pages": {
             "ioBroker": {
               "title": {
                 "en": "ioBroker",
-                "de": "ioBroker",
-                "ru": "ioBroker",
-                "zh-cn": "ioBroker"
+                "de": "Installation",
+                "ru": "установка",
+                "zh-cn": "安装"
               },
               "content": "install/updateself.md"
             },
             "Adapter": {
               "title": {
                 "en": "Adapter",
-                "de": "Adapter updaten",
+                "de": "Update eines Adapters",
                 "ru": "Обновите адаптер",
                 "zh-cn": "更新适配器"
               },
@@ -576,7 +576,7 @@
         "Blockly": {
           "title": {
             "en": "Blockly",
-            "de": "Logik",
+            "de": "Blockly",
             "ru": "логика",
             "zh-cn": "逻辑"
           },
@@ -585,7 +585,7 @@
         "JavaScript": {
           "title": {
             "en": "JavaScript",
-            "de": "Logik",
+            "de": "JavaScript",
             "ru": "логика",
             "zh-cn": "逻辑"
           },
@@ -594,7 +594,7 @@
         "TypeScript": {
           "title": {
             "en": "TypeScript",
-            "de": "Logik",
+            "de": "TypeScript",
             "ru": "логика",
             "zh-cn": "逻辑"
           },
@@ -603,7 +603,7 @@
         "Node Red": {
           "title": {
             "en": "Node Red",
-            "de": "Logik",
+            "de": "Node-RED",
             "ru": "логика",
             "zh-cn": "逻辑"
           },
@@ -621,7 +621,7 @@
         "Best Practices": {
           "title": {
             "en": "Best Practices",
-            "de": "Logik",
+            "de": "Beispiele",
             "ru": "логика",
             "zh-cn": "逻辑"
           },
@@ -1205,7 +1205,7 @@
         "Add new device": {
           "title": {
             "en": "Add new device",
-            "de": "So fügen Sie das Gerät zu Alexa oder Google Home hinzu",
+            "de": "Gerät zu Sprachassistenten hinzufügen",
             "ru": "Как добавить устройство в Alexa или Google Home",
             "zh-cn": "如何将设备添加到 alexa 或 google home"
           },

@@ -18,9 +18,10 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [subscribe - same as on](#subscribe---same-as-on)
     - [unsubscribe](#unsubscribe)
     - [getSubscriptions](#getsubscriptions)
+    - [getFileSubscriptions](#getfilesubscriptions)
     - [schedule](#schedule)
         - [Time schedule](#time-schedule)
-        - [Astro-function](#astro--function)
+        - [Astro-function](#astro-function)
     - [getSchedules](#getschedules)
     - [clearSchedule](#clearschedule)
     - [getAttr](#getattr)
@@ -61,6 +62,8 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [readFile](#readfile)
     - [writeFile](#writefile)
     - [delFile](#delFile)
+    - [onFile](#onFile)
+    - [offFile](#offFile)
     - [onStop](#onstop)
     - [getHistory](#gethistory)
     - [runScript](#runscript)
@@ -90,12 +93,12 @@ so they will be called again and again even if the new version of script exists 
 ```js
 var http = require('http');
 // Read www.google.com page
-http.request('www.google.com', function(res) {
+http.request('www.google.com', function (res) {
         res.setEncoding('utf8');
         res.on('data', function (chunk) {
         log('BODY: ' + chunk);
         });
-}).on('error', function(e) {
+}).on('error', function (e) {
         log('problem with request: ' + e.message, 'error');
 });
 ```
@@ -105,13 +108,13 @@ was deleted by user before callback returns. The callback will be executed anywa
 You can use `cb` function to wrap you callback, like this
 
 ```js
-http.request('www.google.com', cb(function(res) {
-      res.setEncoding('utf8');
-      res.on('data', function (chunk) {
-        log('BODY: ' + chunk);
-      }));
-}).on('error', cb(function(e) {
-      log('problem with request: ' + e.message, 'error');
+http.request('www.google.com', cb(function (res) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
+      log('BODY: ' + chunk);
+    });
+})).on('error', cb(function (e) {
+    log('problem with request: ' + e.message, 'error');
 }));
 ```
 to be sure, that no callback will be called if script is deleted or modified.
@@ -189,20 +192,20 @@ on(pattern, callbackOrId, value);
 The callback function will return the object as parameter with following content:
 ```js
     {
-    	'id' : 'javascript.0.myplayer',
-    	'state' : {
-    		'val' :  'new state',
-    		'ts' :   1416149118,
-    		'ack' :  true,
-    		'lc' :   1416149118,
-    		'from' : 'system.adapter.sonos.0'
+    	'id': 'javascript.0.myplayer',
+    	'state': {
+    		'val':  'new state',
+    		'ts':   1416149118,
+    		'ack':  true,
+    		'lc':   1416149118,
+    		'from': 'system.adapter.sonos.0'
     	},
-    	'oldState' : {
-    		'val' :  'old state',
-    		'ts' :   1416148233,
-    		'ack' :  true,
-    		'lc' :   1416145154,
-    		'from' : 'system.adapter.sonos.0'
+    	'oldState': {
+    		'val':  'old state',
+    		'ts':   1416148233,
+    		'ack':  true,
+    		'lc':   1416145154,
+    		'from': 'system.adapter.sonos.0'
     	}
     }
 ```
@@ -344,10 +347,10 @@ Trigger on all states with ID `'*.STATE'` if they are acknowledged and have new 
 
 ```js
 {
-    id: /\.STATE$/,
-    val: true,
-    ack: true,
-    logic: "and"
+    "id": /\.STATE$/,
+    "val": true,
+    "ack": true,
+    "logic": "and"
 }
 ```
 
@@ -426,13 +429,29 @@ Get the list of subscriptions.
 Example of result:
 ```js
 {
-	"megad.0.dataPointName" : [
+	"megad.0.dataPointName": [
 		{
 			"name" : "script.js.NameOfScript",
 			"pattern" : {
 				"id" : "megad.0.dataPointName",
 				"change" : "ne"
 			}
+		}
+	]
+}
+```
+
+### getFileSubscriptions
+Get the list of file subscriptions.
+
+Example of result:
+```js
+{
+	"vis.0$%$main/*": [
+		{
+			"name" : "script.js.NameOfScript",
+			"id" : "vis.0",
+            "fileNamePattern": "main/*"
 		}
 	]
 }
@@ -568,6 +587,7 @@ on({astro: "sunset", shift: 10}, function () {
     log((new Date()).toString() + " - 10 minutes after sunset!");
 });
 ```
+
 ### getSchedules
 ```js
 const list = getSchedules(true);
@@ -588,7 +608,6 @@ Example output:
 2020-11-01 20:15:19.929  - {"type":"cron","pattern":"0 * * * *","scriptName":"script.js.Heizung","id":"cron_1604258108384_74924"}
 2020-11-01 20:15:19.931  - {"type":"schedule","schedule":"{"period":{}}","scriptName":"script.js.Heizung","id":"schedule_19576"}
 ```
- 
 
 ### clearSchedule
 If **no** "astro" function used you can cancel the schedule later. To allow this the schedule object must be saved:
@@ -612,7 +631,7 @@ If the first attribute is string, the function will try to parse the string as J
 ```js
 getAstroDate(pattern, date);
 ```
-Returns a javascript Date object for the specified pattern. For valid pattern values see the [Astro](#astro--function) section in the *schedule* function.
+Returns a javascript Date object for the specified astro-name (e.g. "sunrise" or "sunriseEnd"). For valid values see the list of allowed values in the [Astro](#astro--function) section in the *schedule* function.
 
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
@@ -624,6 +643,9 @@ let today = new Date();
 let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 let tomorrowNight = getAstroDate("night", tomorrow);
 ```
+
+**Nore: Depending on your geographical location there can be cases where e.g. 'night'/'nightEnd' do not exist on certain timepoints (e.g. locations north in may/June each year!**
+You can use webpages like [suncalc.net](http://suncalc.net) to check if the timepoints are correct.
 
 ### isAstroDay
 ```js
@@ -641,21 +663,20 @@ If `timeToCompare` is not given, so the actual time will be used.
 
 The following operations are possible:
 
-- `">"` - if given time is greater as startTime
-- `">="` - if given time is greater or equal to startTime
-- `"<"` - if given time is less as startTime
-- `"<="` - if given time is less or equal to startTime
-- `"=="` - if given time is equal to startTime
-- `"<>"` - if given time is not equal to startTime
-- `"between"` - if given time is between startTime and endTime
-- `"not between"` - if given time is not between startTime and endTime
+- `">"` - if given time is greater than `startTime`
+- `">="` - if given time is greater or equal to `startTime`
+- `"<"` - if given time is less than `startTime`
+- `"<="` - if given time is less or equal to `startTime`
+- `"=="` - if given time is equal to `startTime`
+- `"<>"` - if given time is not equal to `startTime`
+- `"between"` - if given time is between `startTime` and `endTime`
+- `"not between"` - if given time is not between `startTime` and `endTime`
 
 Time can be Date object or Date with time or just time.
 
 You can use astro-names for the time definition. All 3 parameters can be set as astro time.
-Following values are possible: 'sunrise', 'sunset', 'sunriseEnd', 'sunsetStart', 'dawn', 'dusk', 'nauticalDawn', 'nauticalDusk', 'nightEnd', 'night', 'goldenHourEnd', 'goldenHour'.
+Following values are possible: `sunrise`, `sunset`, `sunriseEnd`, `sunsetStart`, `dawn`, `dusk`, `nauticalDawn`, `nauticalDusk`, `nightEnd`, `night`, `goldenHourEnd`, `goldenHour`.
 See [Astro](#astro--function) for detail.
-
 
 ```js
 console.log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise' : 'Now is no sunrise');
@@ -701,8 +722,7 @@ setBinaryState(id, state, callback);
 ```
 Same as setState, but for the binary states, like files, images, buffers.
 The difference is that such a state has no ack, ts, lc, quality and so on flags und should be used only for binary things.
-The object's common.type must be equal to 'file'.
-
+The object's `common.type` must be equal to 'file'.
 
 ### setStateDelayed
 ```js
@@ -755,7 +775,7 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 ]
 ```
 
-If you will ask for all IDS the answer will looks like:
+If you ask for all IDS the answer will look like:
 
 ```js
 getStateDelayed();
@@ -782,7 +802,7 @@ You can ask by timerId directly. In this case the answer will be:
 getStateDelayed(3);
 
 // returns an object like
-{id: "hm-rpc.0.LQE91119.2.LEVEL", left: 5679, delay: 10000, val: 100,  ack: false}
+{"id": "hm-rpc.0.LQE91119.2.LEVEL", "left": 5679, "delay": 10000, "val": 100,  "ack": false}
 ```
 
 ### getState
@@ -800,7 +820,7 @@ Returns state with the given id in the following form:
 }
 ```
 
-If state does not exist, a warning will be printed in the logs and the object: ```{val: null, notExist: true}``` will be returned.
+If state does not exist, a warning will be printed in the logs and the object: `{val: null, notExist: true}` will be returned.
 To suppress the warning check if the state exists before calling getState (see [existsState](#existsState)).
 
 ### getBinaryState
@@ -994,7 +1014,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'});
 ```
 
 Some adapters also support responses to the sent messages. (e.g. history, sql, telegram)
-The response is only returned in the callback if the message is sent to a specific instance!
+The response is only returned to the callback if the message is sent to a specific instance!
 
 Example with response:
 
@@ -1179,7 +1199,7 @@ Lets take a look at:
 ```js
 $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(function (obj) {
    log('New state ' + obj.id + ' = ' + obj.state.val);
-}
+});
 ```
 This code searches in channels.
 Find all channels with `common.role="switch"` and belongs to `enum.rooms.Wohnzimmer`.
@@ -1199,7 +1219,9 @@ You can interrupt the "each" loop by returning the false value, like:
 // print two first IDs of on all switches in "Wohnzimmer"
 $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each(function (id, i) {
     console.log(id);
-    if (i == 1) return false;
+    if (i == 1) {
+        return false;
+    }
 });
 ```
 
@@ -1268,6 +1290,39 @@ delFile(adapter, fileName, function (error) {});
 Delete file or directory. fileName is the name of file or directory in DB.
 
 This function is alias for *unlink*.
+
+### onFile
+```js
+onFile(id, fileName, withFile, function (id, fileName, size, fileData, mimeType) {});
+// or 
+onFile(id, fileName, function (id, fileName, size) {});
+```
+
+Subscribe on file changes:
+- `id` is ID of object of type `meta`, like `vis.0` 
+- `fileName` is file name or pattern, like `main/*` or `main/vis-view.json`
+- `withFile` if the content of file should be delivered in callback or not. the delivery of file content costs memory and time, so if you want to be just informed about changes, set `withFile`to false.
+
+Arguments in callback: 
+- `id` - ID of `meta` object;
+- `fileName` - file name (not pattern);
+- `size` - new file size;
+- `fileData` - file content of type `Buffer` if file is binary (detected by extension) or `string`. Delivered only if `withFile`;
+- `mimeType` - mime type of file, like `image/jpeg`. Delivered only if `withFile`;
+
+**Important**: this functionality is only available with js-controller@4.1.x or newer.
+
+### offFile
+```js
+offFile(id, fileName);
+// or 
+onFile(id, fileName);
+```
+Unsubscribe from file changes:
+- `id` is ID of object of type `meta`, like `vis.0`
+- `fileName` is file name or pattern, like `main/*` or `main/vis-view.json`
+
+**Important**: this functionality is only available with js-controller@4.1.x or newer.
 
 ### onStop
 ```js
@@ -1472,7 +1527,7 @@ messageTo('messageName', dataWithNoResponse);
 
 ### onMessage
 ```
-onMessage('messageName', (data, callback) => {console.log('Received data: ' + data); callback(null, Date.now())});
+onMessage('messageName', (data, callback) => {console.log('Received data: ' + data); callback({result: Date.now()})});
 ```
 
 Subscribes on javascript adapter message bus and delivers response via callback.
@@ -1552,7 +1607,7 @@ onLogUnregister(logHandler);
 onLogUnregister('warn');
 ```
 
-Unsubscribes from this logs.
+Unsubscribes from these logs.
 
 ## Global script variables
 ### scriptName
@@ -1601,28 +1656,25 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.7.0 (2022-05-08)
-* (Apollon77) Allow sending of messages to scripts also from adapters and CLI by sending "toScript" message (see [onMessage Documentation](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md#onmessage))
-* (Apollon77) Lists returned by $-selector are now unified and do not contain double entries 
-* (Apollon77) Fix subscribe multiple object ID lists in blockly
+### 6.0.3 (2022-09-14)
+* (AlCalzone) Downgrade Typescript to prevent errors with global typescript scripts
 
-### 5.6.1 (2022-05-03)
-* (Apollon77) Allow to subscribe multiple object ID lists in blockly
-* (Apollon77) Make sure lists returned by $-selector do not contain duplicates
+### 6.0.1 (2022-08-19)
+* (bluefox) Fixed the wizard schedule
+* (bluefox) Done small fixes on GUI
 
-### 5.6.0 (2022-04-24)
-* (Apollon77) Make state properties c(omment) and user available to scripts too
-* (Apollon77) make sure values of new or changed alias objects are initialized properly
-* (winnyschuster) Enhance scheduler logic and astro events offered by wizard
-* (Apollon77) Respect expected value changes when determining if a value is changed
-* (Apollon77) Fix remembering intermediate state values when state values are subscribed
-* (Apollon77) fix setState logic when states are not subscribed
+### 6.0.0 (2022-07-18)
+* (bluefox) Removed support of coffeescript
+* (bluefox) All coffee-scripts will be compiled to javascript permanently
 
-### 5.5.4 (2022-04-03)
-* (bluefox) Tried to solve problem with the font
+### 5.8.10 (2022-07-15)
+* (klein0r) Added variable timeout block
+* (klein0r) Added `getInterval` and `getTimeout` blocks
+* (klein0r) Added `sendTo` for scripts and message trigger blocks
+* (bluefox) Corrected the syntax highlighting
 
-### 5.5.3 (2022-03-25)
-* (bluefox) Fixed getObjectAsync function if object does not exist
+### 5.8.8 (2022-07-13)
+* (bluefox) Corrected error by start of GUI
 
 ## License
 The MIT License (MIT)

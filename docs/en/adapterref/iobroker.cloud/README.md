@@ -20,7 +20,7 @@ This is application key that the user can get on [https://iobroker.net](https://
 ![Intro](img/intro.png)
 
 ### Instance
-All requests from cloud adapter will be routed to some WEB Instance. User must specify here the WEB instance, that will be showed to user, when he logs in https://iobroker.net site.
+All requests from cloud adapter will be routed to specific WEB Instance. User must specify here the WEB instance, that will be showed to user, when he logs in https://iobroker.net site.
 
 ### Allow self-signed certificates
 If you use standard iobroker.net cloud, you can deactivate it. This option is only important if own cloud used.
@@ -75,13 +75,30 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 4.3.0 (2022-10-27)
+* (bluefox) Corrected work with lovelace
+
+### 4.2.3 (2022-10-10)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Corrected error with iobroker.pro and delete object
+
+### 4.2.2 (2022-08-24)
+* (bluefox) Corrected error with services list and admin6
+
+### 4.2.1 (2022-07-20)
+* (bluefox) Used new version of socket library.
+
+### 4.2.0 (2022-07-05)
+* (bluefox) Added preparations for Admin 6
+
+### 4.1.2 (2022-06-22)
+* (bluefox) Added preparations for Admin 6
 * (bluefox) Added better error reporting
 * (bluefox) Removed outdated `request` library
 * (bluefox) Used common sockets (could be buggy)
 
 ### 4.1.1 (2022-02-19)
-* Important: Requires js-controller 3.1 at least!
+* Important: Requires `js-controller` 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data
 * (Apollon77) FIx some crash cases reported by Sentry
 * (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)

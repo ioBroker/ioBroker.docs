@@ -17,6 +17,10 @@ Adapter for FordPass
 
 ## Changelog
 
+### 0.0.12
+* fix login
+### 0.0.11
+* fix login
 ### 0.0.8
 * (TA2k) add remote control for refresh
 ### 0.0.7

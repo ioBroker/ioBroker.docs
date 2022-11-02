@@ -1,9 +1,15 @@
 ![Logo](admin/bosesoundtouch.png)
 # ioBroker.bosesoundtouch
 
+![Number of Installations](http://iobroker.live/badges/bosesoundtouch-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/bosesoundtouch-stable.svg)
-![Number of Installations](http://iobroker.live/badges/bosesoundtouch-installed.svg)  
-[![NPM](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)](https://nodei.co/npm/iobroker.bosesoundtouch/)
+[![NPM version](http://img.shields.io/npm/v/iobroker.bosesoundtouch.svg)](https://www.npmjs.com/package/iobroker.bosesoundtouch)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.bosesoundtouch.svg)](https://www.npmjs.com/package/iobroker.bosesoundtouch)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 Bose SoundTouch adapter for ioBroker IoT platform
 
@@ -62,12 +68,20 @@ Soundtouch Application itself.
 
 | State      | Description |
 | :---       | :---        |
-| masterOf   | Display the MAC addresses of the slaves of a speaker (split by ";") (read-only)
-| memberOf   | Display the MAC address of the master of this speaker (read-only)
-| addMasterOf| Add MAC address of the speaker you would like to add to this master speaker. Also possible to put more then one speaker (split by ";").
-| removeMasterOf| Add MAC address of the speaker you would like to remove from this master speaker. Also possible to put more then one speaker (split by ";").
+| masterOf   | Display the MAC addresses of the slaves of a speaker (split by ";") (read-only) |
+| memberOf   | Display the MAC address of the master of this speaker (read-only)|
+| addMasterOf| Add MAC address of the speaker you would like to add to this master speaker. Also possible to put more then one speaker (split by ";").|
+| removeMasterOf| Add MAC address of the speaker you would like to remove from this master speaker. Also possible to put more then one speaker (split by ";").|
 
 ## Changelog
+### 0.10.3 (2022-06-17)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 0.10.2 (2022-06-12)
+* (Apollon77) Check if adapter is configured properly before trying to connect
+
+### 0.10.1 (2022-06-02)
+* (Apollon77) Add Sentry for crash reporting
 
 ### 0.10.0 (2021-07-30)
 * IMPORTANT: The adapter now requires at least js-controller 2.0
@@ -193,4 +207,4 @@ Soundtouch Application itself.
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>

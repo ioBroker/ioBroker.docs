@@ -46,10 +46,16 @@ Better if every device belongs to both categories. Because every device has the 
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.2.2 (2022-10-18)
+* (bluefox) migrated to MUIv5
+* (bluefox) corrected error with blinds
+* (bluefox) corrected error with echarts
+* (bluefox) corrected error with background upload
+
 ### 1.1.2 (2021-12-28)
 * (bluefox) Fixed double sending in the switch control
 

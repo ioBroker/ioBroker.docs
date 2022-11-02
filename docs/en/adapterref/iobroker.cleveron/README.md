@@ -27,6 +27,10 @@ Erhalte deine Daten aus der CLEVERON - API (<https://www.cleveron.ch>)
 
 ## Changelog
 
+### v0.0.6
+
+-   dependencies updated
+
 ### v0.0.5
 
 -   introduced axios

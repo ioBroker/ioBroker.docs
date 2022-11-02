@@ -14,19 +14,21 @@
 
 ## Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
 
-Parcel tracking / Sendungsverfolgung 
+Parcel tracking / Sendungsverfolgung
 Verfolge mit deinem ioBroker SmartHome deine Pakete von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
 
 ## Loginablauf
 
 **DHL:**
-* DHL App Login eingeben
-* SMS/EMail Code erhalten
-* In die Instanzeinstellungen eingeben und speichern
+
+- DHL App Login eingeben
+- SMS/EMail Code erhalten
+- In die Instanzeinstellungen eingeben und speichern
 
 **Amazon:**
-* Login eingeben
-* Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
+
+- Login eingeben
+- Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
 
 **DPD, GLS, UPS, 17Track User:**
 
@@ -36,7 +38,7 @@ Login und Passwort eingeben
 
 In den Instanz Einstellung aktivieren und z.B. telegram.0 eingeben
 
-## Vis ##
+## Vis
 
 **Sendungen als Vis Table darstellen**
 
@@ -51,7 +53,6 @@ parcel.0.inDelivery
 Anleitung:
 https://www.smarthome-tricks.de/software-iobroker/iobroker-vis-json-table-widget-teil-1-basics/
 
-
 **DHL Briefverfolgung in Vis anzeigen.**
 
 Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Object ID zuordnen
@@ -62,9 +63,17 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 
 ## Changelog
 
+### 0.0.19
+
+- Fix GLS Parcel
+
+### 0.0.18
+
+- Fix UPS/GLS Login
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

@@ -40,50 +40,32 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### 2.6.0 (2022-05-10)
-Updated `zwave-js` to `9.2.2`. Notable changes include:
-* The `doorStatus/latchStatus/boltStatus` states are no longer created if unsupported by the door lock
-* Fixed an issue where some 500-series controllers would incorrectly be detected as not supporting Smart Start
-* Fixed an issue where some incoming reports would not be processed while an API command was ongoing
-* Fixed an issue where changing the color of some devices would use a random duration
-* Value changes now also get verified when the device sends an intermediate report
-* Retry the initial connection to sticks hosted via TCP
-* When the Z-Wave stick is disconnected while the adapter is running, the adapter will automatically try to reconnect again
-* Improvements to healing and Smart Start
+### 3.0.4 (2022-09-21)
+Updated `zwave-js` to `10.2.0`. This includes the following changes:
+* Fixed an issue where the possible states for `Notification` values could be incomplete
+* Fixed an issue where setting the time on some devices would always use UTC, even this should be done with local time
 * New and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
 
-### 2.5.0 (2022-04-03)
-Updated `zwave-js` to `9.0.1`. This includes many changes, including the following:
-* Worked around an issue where certain 500-series controllers take too long to respond when attempting communication with unreachable nodes
-* Node queries now timeout faster if no response is received. This should avoid battery-powered nodes to go back to sleep mid-interview.
-* Add support for `Irrigation CC`
-* The legacy network cache file `<homeid>.json` was converted to an appendonly `.jsonl` file in order to prevent data loss
-* Almost all CC API methods now validate their arguments, making it safer to execute custom commands from user code
-* User codes and network keys are no longer included in logfiles
-* Support for legacy devices which only support the obsolete `Multi Channel CC V1`
+### 3.0.3 (2022-09-06)
+Fixed some more communication issues. If a device isn't working properly after upgrading to 3.x, try to re-interview it.
+
+### 3.0.2 (2022-08-30)
+* Fixed some crashes and communication issues
+
+### 3.0.1 (2022-08-27)
+* Fixed crashes related to missing or incorrectly loaded dependencies
+
+### 3.0.0 (2022-08-25)
+Updated `zwave-js` to `10.0.0`. This includes a ton of changes, including:
+* Dropped support for Node.js 12
+* Several improvements to secure communication, especially with Security S2
+* Changed how nodes are sent to sleep, preventing the queue from stalling when the node is already sleeping
+* Changed how `Supervision CC Reports` are sent out, preventing the queue from stalling
+* Obfuscated more sensitive data in logfiles
+* Fixed a bug where commands that should be discarded would still store their values
+* Improved the handling of incoming commands which are received out of order
+* Made it possible to disable SmartStart provisioning entries. When excluding a node, its provisioning entry will now be disabled instead of removed.
 * New and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
-
-### 2.4.5 (2022-02-20)
-* Update `zwave-js` to `8.11.6`
-* After healing, battery-powered nodes are sent back to sleep again
-* Added a workaround for thermostats that don't advertise all their supported thermostat modes. When such a thermostat enters such an "unsupported" mode, the mode is now dynamically added to the list of supported modes.
-* New and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
-
-### 2.4.3 (2022-01-18)
-* Updated translations
-* Updated `zwave-js` from `8.9.1` to `8.11.2`. Check out the [releases](https://github.com/zwave-js/node-zwave-js/releases) for a detailed overview over the new and changed configuration files.
-* Add support for `Humidity Control Mode CC`
-* Add support for `Humidity Control Operating State CC`
-* Add support for `Humidity Control Setpoint CC`
-* Work around an issue where some devices could not be interviewed due to an incorrect `Version CC` response.
-* Fixed an issue where `Supervision Get` requests were not answered for sleeping nodes
-* Re-interviewing sleeping nodes now only resets the known information when the node wakes up
-* The `colors` dependency was recently [corrupted on purpose](https://www.theverge.com/2022/1/9/22874949/developer-corrupts-open-source-libraries-projects-affected). This patch updates all dependencies that depended on an affected version, directly or indirectly.
-
-### 2.4.2 (2021-12-23)
-* Fix: Additional node-related commands now respect and update the node status
-* Fixed an issue where the communication could get stuck after aborting a command
-* New and updated configuration files, see [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.0) and [here](https://github.com/zwave-js/node-zwave-js/releases/tag/v8.9.1)
 
 ## License
 

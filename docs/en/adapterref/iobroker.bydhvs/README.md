@@ -8,15 +8,15 @@ BYD HVS Battery poll data
 
 ## Introduction
 
-This Adapter takes data from a byd PV battery ( https://www.bydbatterybox.com/ ) and puts them into datapoints in the adapter. Unfortunally there is no official API and no documentation, so I used wireshark and a byd-hvs-simulater to try to understand the communication. My adapter simulates the byd-app, sends similar packets to the device and analyses the responses. 
+This Adapter takes data from a byd PV battery ( https://www.bydbatterybox.com/ ) and puts them into datapoints in the adapter. Unfortunately there is no official API and no documentation, so I used wireshark and a byd-hvs-simulator to try to understand the communication. My adapter simulates the byd-app, sends similar packets to the device and analyses the responses. 
 
 ## be careful
 
-There are two steps in the beConnect app, in the first step you get the normal data, in the second step you get detail-data for all cells (individual cell temperature and voltage and some more details) To get the detail-data there has to be a delay after one of the data-packets till I can get the result. I think in the meantime alle cells are measured, but I am not sure. I am definetely not shure if you harm your battery with polling this data too often, so be aware: You are on your own risk!
+There are two steps in the beConnect app, in the first step you get the normal data, in the second step you get detail-data for all cells (individual cell temperature and voltage and some more details) To get the detail-data there has to be a delay after one of the data-packets till I can get the result. I think in the meantime alle cells are measured, but I am not sure. I am definitely not sure if you harm your battery with polling this data too often, so be aware: You are on your own risk!
 
-## hint for systems with 5 modules
+## support for up to 5 modules
 
-People who have 5 modules: The cell details are read only for the first 4 modules - the protocol is the same for 2-4 modules. I would like to extend it for 5 modules but either somebody buys me the three missing modules ;-) so I can analyse the protocol or I get a wireshark capture from a working connection.
+Up to 5 HVS Modules are now supported.
 
 ## settings
 
@@ -45,7 +45,7 @@ Batterie-Details: Steuerung, ob die Details zu den Zellen gelesen werden sollen
 
 Lesezyklen zu Batterie-Details: Anzahl der "Normal-Lese-Zyklen" bis wieder einmal die Diagnose-Daten gelesen werden. Hier die Warnung dazu: Ich habe keine Idee ob man sich durch häufige Diagnose-Messungen Nachteile einhandelt, daher empfehle ich den Wert möglichst hoch zu setzen. Ich wüsste auch nicht was man mit den Diagnose-Daten im regelmäßigen Poll anfangen sollte. 
 
-Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen und ZellSpannungen bei 2,3 und 4 Batterie-Modulen. Bei einem System mit 5 Modulen werden nur die Zellspannungen der ersten 128 Zellen angezeigt. Für die Zellen 129 bis 160 ist mir nicht bekannt wo die Daten gespeichert werden. Ich würde das gerne mit in den Adapter einbauen, benötige aber dafür einen Wireshark-Mittschnitt der Kommunikation zwischen der beConnect App und dem Speicher. Ich helfe auch gerne wenn jemand nicht weiß wie man den Mittschnitt machen kann, entweder per Teamviewer oder per Postings im Forum. Offensichtlich funktioniert die Kommunikation für die 5. Einheit anders als bei den ersten 4 Einheiten. 
+Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und ZellSpannungen bei 2-5 Batterie-Modulen. 
 
 
 ## Changelog
@@ -53,12 +53,14 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### 1.3.1 - testing
+### 1.4.0 (2022-10-31)
+* Update of referred modules (mainly around testing)
+* improvmenets contributed by Tapter (5 modules, readme and better readable code)
 * Better detection of battery type and inverter
 * SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
 * removed frequency limit for battery detail data
 * increased max count of temperature measurements for HVS to 64
+* support for up to 5 HVS modules
 
 ### 1.3.0 (2021-11-06)
 * updated even more dependencies
@@ -73,10 +75,6 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 
 ### 1.2.2 (2021-06-14)
 * bump to new patch-level (to get rid of the "-0")
-
-### 1.2.2-0 (2021-05-30)
-* Create States for Diagnose-Data only if necessary
-* changes according review of the adapter
 
 ###
 

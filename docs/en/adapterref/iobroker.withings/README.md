@@ -47,6 +47,8 @@ Client id und Client Secret eintragen
 
 ## Changelog
 
+### 0.0.8
+* (TA2k) Problem behoben mit zuvielen Datenpunkten unter sleep
 ### 0.0.1
 * (TA2k) initial release
 

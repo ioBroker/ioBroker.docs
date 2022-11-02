@@ -62,6 +62,9 @@ Note, that there are two different sonnen API's so if you are missing states, th
 ### States
 Note: The old and legacy API states (API port 3480/7979) are currently not or only partially documented
 
+#### Channel: configurations
+With API v2 the new channel configurations can be used, for write states you can also change the configuration, like Operating Mode.
+
 #### Channel: info
 
 * info.connection
@@ -87,7 +90,8 @@ Note: The old and legacy API states (API port 3480/7979) are currently not or on
     |string|R|
 
    *Read-only JSON string, which contains configuration information of your battery.*
-   
+   *Only API v1, v2 has the channel `configurations`*
+
 * info.powerMeter
 
     |Data type|Permission|                                                                       
@@ -266,6 +270,14 @@ Note: The old and legacy API states (API port 3480/7979) are currently not or on
 
    *Read-only boolean which is true if your sonnen battery is online.* 
 
+* status.systemStatus
+
+  |Data type|Permission|                                                                       
+  |:---:|:---:|
+  |string|R|
+
+  *Read-only string, which indicates if the battery is connected to the grid.*
+
 #### Channel: control
 
 * control.charge
@@ -314,6 +326,23 @@ The channel consists of read-only states of type `boolean`, providing informatio
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.0 (2022-10-28)
+* (foxriver76) added `latestData` endpoint providing eclipse LED status and time since last full charge
+
+### 1.12.3 (2022-10-27)
+* (foxriver76) readded widget (closes #189)
+
+### 1.12.2 (2022-10-27)
+* (foxriver76) fixed issue with data types of configuration
+
+### 1.12.1 (2022-09-26)
+* (foxriver76) we now use the V2 API for the powermeter endpoint
+* (foxriver76) we have ported the code to TypeScript
+* (foxriver76) added configuration for V2 API, including ability to change it via adapter
+
+### 1.11.0 (2022-06-22)
+* (foxriver76) added `status.systemStatus` to indicate if the battery is connected to the grid (closes #139)
+
 ### 1.10.0 (2022-04-18)
 * (rivengh) added battery discrete io states
 

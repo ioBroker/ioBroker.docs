@@ -21,7 +21,7 @@ This adapter saves state history into InfluxDB.
 If you have an InfluxDB 1.x installation (preferably 1.8.x or 1.9.x) then you choose " 1.x" in the adapter configuration and enter the Host-IP and Port together with Username and Password for the Access.
 You can also define a database name. The default is "iobroker". On first adapter start this database is created.
 
-When doing custom queries via the "query" message you can use InfluxQL to select the data you want.
+When doing custom queries via the "query" message you can use InfluxQL to select the data you want. FluxQL with InfluxDB 1.x is not supported (and will also not be added).
 
 ### InfluxDB 2.x
 Since 2.0 of the adapter also InfluxDB 2.x is supported which works a bit different.
@@ -66,6 +66,8 @@ On exit of the adapter the buffer is stored on disk and reinitialized with next 
 InfluxDB is very strict on data types. The datatype for a measurement value is defined with it's first write.
 The adapter tries to write with the correct value, but if the datatype changes for the same state then there may be the write
 errors in the InfluxDB. The adapter detects this and will write these potential conflicting data points always directly, but write errors mean that the value is not written into the DB at all. So make sure to check the logs for such cases.
+
+**In Version 1.x and 2.x of the adapter it could also be that some values were converted wrong when no datatype was defined. E.g. a String like "37.5;foo bar" was converted to a number 37.5 in older versions. The version 3 odf the adapter will detect that this is not a valid number and will not convert this value. This could lead to type conflicts after the update. Please check these values and think if you need to store it and how (for the future).**
 
 Additionally, InfluxDB do not support "null" values, so these are not written at all into the DB.
 
@@ -183,7 +185,7 @@ Possible options:
 - **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
 - **removeBorderValues** - By default additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
 - **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit" this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
-- **aggregate** - aggregate method:
+- **aggregate** - aggregate method (Default: 'average'):
   - *minmax* - used special algorithm. Splice the whole time range in small intervals and find for every interval max, min, start and end values.
   - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
   - *min* - Same as max, but take minimal value.
@@ -287,7 +289,9 @@ sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h); fr
 If you want to write other data into the InfluxDB you can use the build in system function **storeState**.
 This function can also be used to convert data from other History adapters like History or SQL.
 
-The given ids are not checked against the ioBroker database and do not need to be set up there, but can only be accessed directly.
+A successful response do not mean that the data are really written out to the disk. It just means that they were processed.
+
+The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
 
 The Message can have one of the following three formats:
 * one ID and one state object
@@ -321,6 +325,9 @@ sendTo('history.0', 'storeState', [
 ```
 
 Additionally, you can add attribute `rules: true` in message to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on
+
+In case of errors an array with all single error messages is returned and also a successCount to see how many entries were stored successfully.
+
 ## delete state
 If you want to delete entry from the Database you can use the build in system function **delete**:
 
@@ -441,10 +448,46 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 3.2.0 (2022-09-19)
+* (Apollon77) Adjust cache file to be different per instance when having multiple instances
+
+### 3.1.8 (2022-08-13)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 3.1.7 (2022-06-27)
+* (Apollon77) Allow to remove a configuration value for "round" in config again
+
+### 3.1.6 (2022-06-27)
+* (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
+
+### 3.1.5 (2022-06-12)
+* (Apollon77) Make sure debug log is active according to the settings
+
+### 3.1.4 (2022-06-08)
+* (Apollon77) Performance optimizations for GetHistory calls, especially for "minmax" aggregate method
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 3.1.3 (2022-06-01)
+* (Apollon77) Corrected issue when testing connection to InfluxDBv1 with weird passwords
+
+### 3.1.2 (2022-05-31)
+* (Apollon77) Workaround an admin issue when testing connection to InfluxDB
+
+### 3.1.0 (2022-05-27)
+* (Apollon77) Data are not converted to number if they are other data types on getHistory to respect the saved data formats as defined in the datapoint settings for storage.
+* (Apollon77) Fix retention change to lower checkbox in UI
+* (Apollon77) Allow storeState again to write to InfluxDB for "unknown state ids" - "rules" usage is not supported in for this and storeState would be silently discarded in this case!
+* (Apollon77) Fix several crash cases reported by Sentry
+* (Apollon77) Make sure disabling "Log changes only" also really do not log the changes anymore
+* (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
+
+### 3.0.2 (2022-05-12)
+* (Apollon77) handle an empty Path for InfluxDB 2.0 correctly in all cases
+
 ### 3.0.1 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.

@@ -313,6 +313,32 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Prepare for future js-controller versions
+
+### 2.1.5 (2022-08-24)
+* (bluefox) Caught error by subscribe
+
+### 2.1.3 (2022-07-08)
+* (bluefox) Corrected getAdapterInstances method
+
+### 2.1.2 (2022-06-20)
+* (bluefox) Allowed to overload the system language
+
+### 2.1.1 (2022-06-09)
+* (bluefox) Do not show requireLog message
+
+### 2.1.0 (2022-05-21)
+* (bluefox) Updated ws library to 8.6.0
+* (bluefox) Corrected the load of `iobroker.ws` as integrated socket
+
+### 2.0.3 (2022-05-19)
+* (bluefox) Hide warn messages
+
+### 2.0.2 (2022-05-16)
+* (bluefox) Process `writeDirAsZip` locally
+
 ### 2.0.0 (2022-05-12)
 * (bluefox) Used common sockets (could be buggy)
 

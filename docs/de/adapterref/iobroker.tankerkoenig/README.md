@@ -2,10 +2,7 @@
 BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.tankerkoenig/badge.svg?targetFile=package.json
 BADGE-NPM: https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg
-BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true
 ---
 ![Logo](../../admin/tankerkoenig.png)
 # ioBroker.tankerkoenig
@@ -207,8 +204,6 @@ Der Adapter ist im Kompaktmodus von ioBroker lauffähig.
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 pix
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -226,3 +221,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2016-2022 pix

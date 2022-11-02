@@ -112,6 +112,9 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.43 (2022-07-28)
+* (foxriver76) if LGW is not reachable we now set duty cycle to `null` instead of `-1` in all cases (closes #298)
+
 ### 3.0.40 (2022-04-03)
 * (foxriver76) if LGW is not reachable we now set duty cycle to `null` instead of `-1`
 

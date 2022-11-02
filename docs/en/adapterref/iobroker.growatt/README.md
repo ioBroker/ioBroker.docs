@@ -9,6 +9,14 @@
 
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
+## Important: please read
+
+Growatt's cloud servers are very unstable. There are error messages and timeouts when data is requested.
+If you are still thinking about getting an inverter, it is better to use a good product. Devices that transmit the data directly in the house via modbus-ip are best.
+There is also the [Grott project](https://github.com/johanmeijer/grott) that intercepts the data from the communication. Here, however, it also happens that older data sets are transmitted or the transmission is suspended, since this only listens in and temporarily stores the data.
+
+---
+
 ### growatt adapter for ioBroker
 
 ioBroker Growatt Adapter to communiacte with Growatt Shine Server.
@@ -85,6 +93,10 @@ The interval at which the data is requested from the server. The time required f
 
 If an error occurs when querying the values at the Growatt server, this time is used instead of the cycle time. The default value is 120 seconds
 
+#### Growatt server
+
+Another url can be entered here, for example to use the US domain. But it must start with "https://". The default is blank, so https://server.growatt.com is used.
+
 ### Manage Objects
 
 Here you can define what should happen to each value (object) that is picked up by the inverter.
@@ -104,9 +116,48 @@ After the update, only the ID and the action are displayed because the object no
 
 The object remains, the values ​​from the inverter are discarded.
 
+### Manage Loggers
+
+The instance must be running and logged in to the server. Then the settings of the data logger can be called up via the refresh button in this tab.
+The data is not requested automatically, the request can only be made via the button.
+The fields displayed for the data logger cannot be changed. It is only about retrieved data.
+Buttons are displayed for each logger. Settings can be edited with the button.
+_When using GROTT, changing settings in the INI must be enabled._
+Please do not use the settings if a value appears that you did not expect.
+Attention this is based on reingeneering. I am not liable for damage to the device.
+
+#### Button interval
+
+The current interval in minutes is read from the data logger and an input form appears in which the value can be adjusted.
+If you get a successful response, the data logger should be restarted to activate the settings.
+
+#### Button server ip
+
+The server for data transmission on the logger can be set here. When using Grott or US, the local or US IP can be specified here.
+If you get a successful response, the data logger should be restarted to activate the settings.
+
+#### Button server port
+
+The port on the server for data transmission on the logger can be set here.
+If you get a successful response, the data logger should be restarted to activate the settings.
+
+#### Button check firmware
+
+It will be asked whether the firmware of the data logger is up to date.
+The update must be done on the growatt page.
+
+#### Button restart datalogger
+
+Every boot is good.
+The settings are accepted.
+
 ---
 
-## Speedup data interval new method
+## Speedup data interval internal method
+
+Have a look at Manage Loggers and Button Interval
+
+## Speedup data interval external app method
 
 - Open the ShinePhone app
 - Click on attachment below
@@ -125,44 +176,38 @@ The object remains, the values ​​from the inverter are discarded.
 - Click and apply changes
 - Exit hotspot mode
 
----
+## Speedup data interval external old method
 
-## Speedup data interval old method
-
-### You can set the logger interval from 5 minutes to 1 minute
-
-Remove the rubber plug of the KEY button from ShineWiFi-S, and short press the button inside. The blue LED
-will light up. Use your phone or computer to connect to the wireless network emitted by the
-ShineWiFi-S module. The network name/SSID is the serial number of the ShineWiFi-S
-module.
-
-### Login Page
-
-After the connection is successfully established, open the web browser on your phone or
-computer and type 192.168.10.100 in the address bar. The username is admin, the
-default password is 12345678.
-
-![Login Page](docs/login.png)
-
-### Advanced Settings
-
-Change the data interval time to 1 minute
-
-![Advanced Settings](docs/advancedsettings.png)
-
-### System Restart
-
-Restart your ShineWiFi-S module on this page, click “Restart Immediate” to
-enable the new settings you just made and logout from the internal webserver of your
-ShineWiFi module.
-
-![System Restart](docs/restart.png)
+In hotspot mode it is only possible to change the interval on the old firmware.
+Growatt has removed the website from the firmware.
+Therefore, the description has also been removed.
 
 **There is no change to the charts on growatt side. There you can only see a change in the data from the datalogger.**
 
 -\*-
 
 ## Changelog
+
+### 2.0.0 (06.10.2022)
+
+- (PLCHome) Data logger settings can be called up and changed.
+- (PLCHome) The server url can be changed.
+
+### 1.2.1 (21.09.2022)
+
+- (PLCHome) Added an offset to numeric values. My inverter reset te total quantity by itself. Now the total quantity can be corrected.
+
+### 1.1.19 (30.08.2022)
+
+- (PLCHome) HTML Header
+
+### 1.1.17 (10.08.2022)
+
+- (PLCHome) JSON Loopkiller
+
+### 1.1.16 (10.08.2022)
+
+- (PLCHome) https rejectUnauthorized false
 
 ### 1.1.15 (28.04.2022)
 

@@ -1,9 +1,10 @@
 ![Logo](admin/huum-sauna.png)
 # ioBroker.huum-sauna
 
-
+[![NPM version](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)](https://www.npmjs.com/package/iobroker.huum-sauna)
+![Number of Installations](https://iobroker.live/badges/huum-sauna-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.huum-sauna)](https://www.npmjs.com/package/iobroker.huum-sauna)
-![Number of Installations](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+[![Number of Installations (latest)](https://iobroker.live/badges/huum-sauna-installed.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)](https://app.snyk.io/org/chris-1965/iobroker.huum-sauna)
 
 [![NPM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)](https://nodei.co/npm/iobroker.huum-sauna/)
@@ -16,12 +17,12 @@ The specification of HUUM Devive for the sauna control can be found [here](https
 - 3 refresh     .. Refresh to load HUUM data from the device
 - 4 lightpath   .. Optional Lightpath (state) for switching external light. If empty HUUM switch method is used
 - 5 AstroLight  .. When set the light is automatically switched on by sunset (for outdoor saunas).
-  
+
 ## Usage example
 ![grafik](https://user-images.githubusercontent.com/56934142/150417838-425261da-a6c7-47b3-bf1b-2af6035ffd59.png)
 
 ## [Changelog](CHANGELOG.md)
-  
+
 ## License
 MIT License
 

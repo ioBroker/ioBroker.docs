@@ -1,12 +1,13 @@
 ![Logo](admin/sonos.png)
 # ioBroker.sonos
 
-![Number of Installations](http://iobroker.live/badges/sonos-installed.svg) 
-![Number of Installations](http://iobroker.live/badges/sonos-stable.svg) 
+![Number of Installations](http://iobroker.live/badges/sonos-installed.svg)
+![Number of Installations](http://iobroker.live/badges/sonos-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.sonos.svg)](https://www.npmjs.com/package/iobroker.sonos)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)](https://www.npmjs.com/package/iobroker.sonos)
 
-[![NPM](https://nodei.co/npm/iobroker.sonos.png?downloads=true)](https://nodei.co/npm/iobroker.sonos/)
+![Test and Release](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)](https://www.npmjs.com/package/iobroker.sonos)
 
 Control and monitor SONOS devices with ioBroker.
 
@@ -44,6 +45,20 @@ Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.2.3 (2022-07-04)
+* (Rello) Added track number state
+
+### 2.2.2 (2022-06-12)
+* (Apollon77) Prevent js-controller warnings
+
+### 2.2.1 (2022-06-12)
+* (Apollon77) fix group volume state
+
+### 2.2.0 (2022-06-08)
+* (Apollon77) Remove logic that adjusted the group volume after one member volume was set
+* (Apollon77) Make sure to not set state values for devices that are not configured
+* (Apollon77) Try to catch network errors
+
 ### 2.1.7 (2021-12-20)
 * (bluefox) Corrected error with "SONOS not found"
 

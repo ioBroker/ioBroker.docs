@@ -36,6 +36,13 @@ Sie können für S7TIME 4 Zeitversatzmodi verwenden:
 S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_des_Datentyps_S5TIME_Zeitdauer.htm
 
 ## Changelog
+### 1.3.14 (2022-09-27)
+* (bluefox) Updated GUI packages
+
+### 1.3.13 (2022-08-02)
+* (bluefox) Added preparations for ioBroker cloud
+* (bluefox) Migrate GUI tu muiV5
+
 ### 1.3.12 (2022-04-03)
 * (jogibear9988) Removed duplicated code
 * (jogibear9988) Implemented S5TIME support (must be tested on real device)
@@ -85,7 +92,7 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 * (Apollon77) Prevent warnings in js-controller 3.2
 
 ### 1.2.1 (2021-01-25)
-* (Apollon77) fix info.connection state
+* (Apollon77) fix `info.connection` state
 
 ### 1.2.0 (2021-01-25)
 * (Apollon77) Prevent error case (Sentry IOBROKER-S7-4)
@@ -159,7 +166,7 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 * (bluefox) add translation
 
 ### 0.2.3 (2015.09.24)
-* (bluefox) add suppor of Logo!
+* (bluefox) added support of Logo!
 
 ### 0.2.2 (2015.09.11)
 * (bluefox) add S7time
@@ -195,7 +202,7 @@ S5 dekodiert wie hier beschrieben: http://www.plccenter.cn/Siemens_Step7/Format_
 ### 0.1.3 (2015.06.04)
 * (bluefox) translate admin
 * (bluefox) remove jshint warnings
-* (bluefox) add info.connected and rename info.connection to info.state
+* (bluefox) add `info.connected` and rename `info.connection` to `info.state`
 
 ### 0.1.2
 * Bugfix startup

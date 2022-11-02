@@ -101,6 +101,11 @@ It is important that the retrieved data is transmitted in the correct type! The 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 1.1.6 (2022-09-06)
+* (Scrounger) global interval for update informations added
+* (Scrounger) fix invalid object host
+
 ### 1.1.5 (2022-05-03)
 * (Scrounger) Dependencies updated
 

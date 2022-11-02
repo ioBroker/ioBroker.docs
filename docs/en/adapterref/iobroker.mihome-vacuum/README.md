@@ -68,11 +68,16 @@ Please install canvas and the libs manually with:
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ``
 
-switch into : `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` then `sudo npm install canvas --unsafe-perm=true`
+switch into : `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` then `sudo npm install canvas`
 
 ###  HTTP error when getting token cookie{}
 Sometimes you can't connect to the xiaomi cloud. 
 Please open Browser, go to Mihome and login. Enter the code you received via mail. After that, the connection should work.
+
+PLease be sure, that you robot is connected with the Mihome App and NOT with the Roborock App
+
+### No connection with S7
+Currently there is a problem, if the robot and ioBroker are not use the same subnet.
 
 ## Configuration
 Currently, finding the token is the biggest problem.
@@ -101,7 +106,7 @@ If this option is disabled, the vacuum will start a new "normal cleaning" when y
 - Experimental: Using the checkbox "Send your own commands" objects are created, via which you can send and receive your own commands to the robot.
 
 #### Second robot
-If two robots are to be controlled via ioBroker, two instances must be created. The second robot must change its own port (default: 53421) so that both robots have different ports.
+If two robots are to be controlled via ioBroker, two instances must be created. For the second robot the own port (default: 53421) for IoBroker must changed, so that both robots can archieve ioBroker via different ports.
 
 ## Map Config
 There are two ways to get the map. The first get the map from the cloud. Therefore, you have to log in and select the right robot from the list
@@ -199,26 +204,28 @@ NOTE: This function should only be used by experts, as the sucker might be damag
 
 The robot distinguishes between the commands in methods (methods) and parameters (params) which serve to specify the methods.
 Under the object `mihome-vacuum.X.control.X_send_command` you can send your own commands to the robot.
-The object structure must look as follows: method; [params]
+The object structure must look as follows: method; [params], eg ``` app_segment_clean;[18,20] ```
 
 Under the object `mihome-vacuum.X.control.X_get_response`, the response is entered by the robot after sending. 
 If parameters were queried, they appear here in the JSON format. If only one command was sent, the robot responds only with "0".
 
 The following methods and parameters are supported:
 
-| method          | params                                                              | Description                                                                                            |
-|-----------      |-------                                                              |-------------------                                                                                     |
-| get_timer       |                                                                     | Returns the set timerSetting the suction times BSp. 12 o'clock 30 in 5 days                            |
-| set_timer       | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]`       | Enable / disable timer                                                                                 |
-| upd_timer       | `["1481997713308","on/off"]`                                        |                                                                                                        |
-|                 |                                                                     | Rescues the times of the Do Not Disturb                                                                |
-| get_dnd_timer   |                                                                     | Delete DND times                                                                                       |
-| close_dnd_timer |                                                                     | DND Setting h, min, h, min                                                                             |
-| set_dnd_timer   | `[22,0,8,0]`                                                        |                                                                                                        |
-|                 |                                                                     |                                                                                                        |
-| app_rc_start    |                                                                     | Start Remote Control                                                                                   |
-| app_rc_end      |                                                                     | Finish Remote Control                                                                                  |
-| app_rc_move     | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Move. Sequence number must be continuous, VALUE1 (speed) = -0.3-0.3, VALUE2 (rotation) = -3.1-3.1, VALUE3 (duration)
+| method          | params                                                              | Description                                                                              |
+|-----------      |-------                                                              |-------------------                                                                       |
+| get_timer       |                                                                     | Returns the set timerSetting the suction times BSp. 12 o'clock 30 in 5 days              |
+| set_timer       | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]`       | Enable / disable timer                                                                   |
+| upd_timer       | `["1481997713308","on/off"]`                                        |                                                                                          |
+|                 |                                                                     | Rescues the times of the Do Not Disturb                                                  |
+| get_dnd_timer   |                                                                     | Delete DND times                                                                         |
+| close_dnd_timer |                                                                     | DND Setting h, min, h, min                                                               |
+| set_dnd_timer   | `[22,0,8,0]`                                                        |                                                                                          |
+|                 |                                                                     |                                                                                          |
+| app_rc_start    |                                                                     | Start Remote Control                                                                     |
+| app_rc_end      |                                                                     | Finish Remote Control                                                                    |
+| app_rc_move     | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Move. Sequence number must be continuous, VALUE1 (speed) = -0.3-0.3, VALUE2 (rotation) = -3.1-3.1, VALUE3 (duration)|
+|                 |                                                                     |                                                                                          |
+| app_segment_clean | `[12,15]`                                                         | clean romm with Index 12 and 15                                                          |
 
 
 more methods and parameters you can find here ([Link](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
@@ -237,10 +244,31 @@ A couple of predefined commands can also be issued this way:
 ```
 sendTo("mihome-vacuum.0", 
     commandName, 
+    param, 
+    function (response) { /* do something with the result */}
+);
+sendTo("mihome-vacuum.0", 
+    commandName, 
     {param1: value1, param2: value2, ...}, 
     function (response) { /* do something with the result */}
 );
+
 ```
+if only a single param is possible, you can send a string only otherwise you have to use an object with expected params, eg:
+```
+sendTo("mihome-vacuum.0", 
+    "setFanSpeed", 
+    "105", 
+    function (response) { /* do something with the result */}
+);
+sendTo("mihome-vacuum.0", 
+    "setFanSpeed", 
+    {"fanSpeed" : 105}, 
+    function (response) { /* do something with the result */}
+);
+
+```
+
 The supported commands are:
 
 | Description | `commandName` | Required params | Remarks |
@@ -265,12 +293,19 @@ The supported commands are:
 | Delete the *do not disturb* timer | `deleteDNDTimer` | - none - |  |
 | Retrieve the current fan speed | `getFanSpeed` | - none - |  |
 | Set a new fan speed | `setFanSpeed` | `fanSpeed` | `fanSpeed` is a number between 1 and 100 |
+| Retrieve the current waterbox mode | `getWaterBoxMode` | - none - |  |
+| Set a mop mode | `setMopMode` | `mopMode` | `mopMode` is a number between 300 and 303 |
+| Retrieve the current mop mode | `getMopMode` | - none - |  |
+| Set a waterbox mode | `setWaterBoxMode` | `waterBoxMode` | `waterBoxMode` is a number between 200 and 204 |
 | Start the remote control function | `startRemoteControl` | - none - |  |
 | Issue a move command for remote control | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Sequence number must be sequentially, Duration is in ms |
 | End the remote control function | `stopRemoteControl` | - none - |  |
 | clean room/rooms | `cleanRooms` | `rooms` | `rooms` is a comma separated String with enum.rooms.XXX |
-| clean segment | `cleanSegments` | `rooms` | `rooms` is an Array with mapIndex or comma separated String with mapIndex |
-| clean zone | `cleanZone` | `coordinates` | `coordinates` ist a String with coordinates and count, see [zoneClean](#zonecleaning) |
+| clean segment | `cleanSegments` | `rooms` \| {rooms:`rooms`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `rooms` is a number or an Array with mapIndex or comma separated String with mapIndex |
+| clean zone | `cleanZone` | `coordinates` \| {coordinates:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `coordinates` is a String with coordinates and count, see [zoneClean](#zonecleaning) |
+| start Dust collecting | `startDustCollect` | - none - |  |
+| stop Dust collecting | `stopDustCollect` | - none - |  |
+
 
 ## Widget
 ![Widget](widgets/mihome-vacuum/img/previewControl.png)
@@ -279,13 +314,56 @@ The supported commands are:
 - Occasional disconnections, however, this is not due to the adapter but mostly on its own networks
 - Widget at the time without function
 
-## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.8.3 (2022-11-01)
+* (deher) change logging from timeouts
+* (deher) hide parts of token in log
 
-### __WORK IN PROGRESS__
+### 3.8.2 (2022-10-31)
+* (deher) Bump canvas to 2.10.2
+* (deher) disable map, if CANVAS not installed #681
+
+### 3.8.1 (2022-10-30)
+* (deher) remove deprecated node 12.x Version for workflow
+
+### 3.8.0 (2022-10-30)
+* (deher) fix missing stock command for mop_mode
+* (deher) add mop mode also for cleanSegments and cleanZone
+* (deher) add mop mode also for rooms
+* (MeisterTR) map zooming amd show carpet
+
+### 3.7.0 (2022-10-28)
+* (deher) accept custom commands with single paramter
+* (deher) optional parameter waterboxMode and fanSpeed for cleanSegments and cleanZone 
+* (deher) fix crash on message send (#652)
+* (deher) add mop mode (#670)
+* (deher) adapt fan_power for S7 Ultra(#677)
+
+### 3.6.0 (2022-07-07)
+* (deher) add dust collecting
+
+### 3.5.0 (2022-06-29)
+* (deher) add Roborock S6 Pure model
+* (deher) add/extend some Hints in readme
+* (deher) add additional log info for cleanRooms
+* (deher) fix error for wrong map-dp
+
+### 3.4.2 (2022-06-24)
+* (Apollon77) Update dependencies to allow better automatic rebuild
+
+### 3.4.1 (2022-05-31)
+* (deher) add missed Vacuum states
+* (deher) add dock state Waste water tank full
+
+### 3.4.0 (2022-05-28)
 * (Apollon77) Fix several potential crash cases reported by Sentry
 
 ### 3.3.6 (2022-05-03)
 * (Dirkhe) fix spotcleaning
+
 ### 3.3.5 (2022-02-07)
 * (Dirkhe) fixed some errors
 * (lasthead0) fix cyrillic issue RC4 lib#

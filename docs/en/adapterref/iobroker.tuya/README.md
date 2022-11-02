@@ -22,6 +22,10 @@ The adapter is proofed to work very well with all devices that are "always in wi
 
 One adapter instance can handle all devices in one network that routes UDP packages.
 
+## Disclaimer
+**All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
+**TUYA is a trademark of Tuya Global Inc.**
+
 ## Compatible Mobile Apps and versions
 The currently versions of the Tuya Smart and also Smartlife App are **no longer compatible** with the way the adapter works because Tuya encrypted all traffic that the adapter could sniff. For now still some older versions of the Apps work ...
 
@@ -87,6 +91,15 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 3.7.2 (2022-10-23)
+* (Apollon77) Prevent warnings for invalid min/max values
+
+### 3.7.0 (2022-10-22)
+* (Apollon77) Optimizations for Proxy mode to prevent certificate issues
+* (Apollon77) Allow to also "click" on the certificate to download the certificate file
+* (Apollon77) Adjust min/max values if a scale is defined
+* (Apollon77) More schema information added
+
 ### 3.6.15 (2022-01-24)
 * (Apollon77) More schema information added
 * (Apollon77) Recreate Proxy SSL certificates once older than 3 months to prevent ssl errors

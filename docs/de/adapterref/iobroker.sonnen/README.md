@@ -97,6 +97,10 @@ der Tastenkombination "STRG + F".
 ### States
 Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sind derzeit nicht oder nur partiell dokumentiert
 
+#### Channel: configurations
+Mit API v2 kann hier die Konfiguration der Batterie in verschiedenen States eingesehen werden. Beschreibbare States können
+genutzt werden, um die Konfiguration zu ändern.
+
 #### Channel: info
 
 * info.connection
@@ -122,6 +126,7 @@ Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sin
     |string|R|
 
    *Nur lesbarer JSON String, mit Konfigurationsinformationen der sonnenBatterie.*
+   *Nur in API v1, v2 hat hierfür den channel `configurations`*
    
    
 * info.powerMeter
@@ -305,6 +310,14 @@ Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sin
     |boolean|R|
 
    *Nur lesbarer boolscher Wert, welcher true ist, die sonnenBatterie online ist.*
+
+* status.systemStatus
+
+  |Datentyp|Berechtigung|                                                                       
+  |:---:|:---:|
+  |string|R|
+
+  *Nur lesbare Zeichenkette, welcher angibt, ob die Batterie mit dem Netz verbunden ist.*
    
 #### Channel: control
 
@@ -363,6 +376,23 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `boolean`, die Info
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.0 (2022-10-28)
+* (foxriver76) added `latestData` endpoint providing eclipse LED status and time since last full charge
+
+### 1.12.3 (2022-10-27)
+* (foxriver76) readded widget (closes #189)
+
+### 1.12.2 (2022-10-27)
+* (foxriver76) fixed issue with data types of configuration
+
+### 1.12.1 (2022-09-26)
+* (foxriver76) we now use the V2 API for the powermeter endpoint
+* (foxriver76) we have ported the code to TypeScript
+* (foxriver76) added configuration for V2 API, including ability to change it via adapter
+
+### 1.11.0 (2022-06-22)
+* (foxriver76) added `status.systemStatus` to indicate if the battery is connected to the grid (closes #139)
+
 ### 1.10.0 (2022-04-18)
 * (rivengh) added battery discrete io states
 

@@ -71,6 +71,9 @@ default: state-ID converted to a mqtt topic.
 -->
 
 ## Changelog
+### 1.6.3 (2022-06-16)
+* (Apollon77) Prevent potential crash cases reported by Sentry
+
 ### 1.6.2 (2022-04-02)
 * (Apollon77) Prevent potential crash cases reported by Sentry
 

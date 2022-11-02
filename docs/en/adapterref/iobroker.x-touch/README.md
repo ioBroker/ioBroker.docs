@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/x-touch-stable.svg)
 ![Test and Release](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
-[![Dependency Status](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)](https://david-dm.org/Bannsaenger/iobroker.x-touch)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch)
 
 [![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)](https://nodei.co/npm/iobroker.x-touch/)
@@ -16,10 +15,8 @@
 Communicate with a Behringer X-Touch Control Surface (DAW Controller)
 
 ## ToDo
-- Add the encoders and their LEDs -> done, left is sync_global and checks on database changes
-- Add the timecode display -> done
-- Add the functionality of bank and fader channel switches -> done, needs additional testing
 - Add the syncGlobal functionality
+- Add the recreation of banks if option is set
 
 ## Message Box
 There a two acepted commands:
@@ -27,8 +24,27 @@ There a two acepted commands:
 * `import` imports the youngest file from the userdata folder. Additionally you can specify `file` and/or the `devicegroup` number to restore. If `path` is specified the entire filesystem will be used and a `file` name is mandatory.  
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.6.2 (2022-10-07)
+* (Bannsaenger) test-and-release without build
+
+### 0.6.1 (2022-10-07)
+* (Bannsaenger) confusion with the release script
+
+### 0.6.0 (2022-10-07)
+
+* (Bannsaenger) updated to adapter-dev and release script
+* (Bannsaenger) introducing admin 5 UI (jsonConfig)
+
+### 0.5.1
+* (Bannsaenger) updated dependencies
+
 ### 0.5.0
-* (Bannsanger) fixes in db creation for js controller 4.x
+* (Bannsaenger) fixes in db creation for js controller 4.x
 
 ### 0.4.2
 * (Bannsaenger) changed sort order in changelog

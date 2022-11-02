@@ -20,9 +20,9 @@ It's greatly appreciated if you verify functionality with other inverters and pl
 
 ## Settings
 Be aware that your inverter has to be updated to Kostal UI >= 6.11!
-To connect to the Kostal Pico (BA) inverter, setting its IP-address into the config is mandatory.
+To connect to the Kostal Pico (BA) inverter, setting its IP-address in the config is mandatory.
 You could also edit the update frequencies of live data, daily and livetime statistics.
-If needed, set the mark for read-out the 4 analog values, too.
+If needed, set the mark for read-out of the 4 analog values, too.
 
 ## Notes
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -31,6 +31,26 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.0.2 (16.10.2022)
+* (HombachC) fixed small sentry reported error
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.1 (11.10.2022)
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.0 (28.08.2022)
+* (HombachC) BREAKING: Dropped support for Node.js 12
+* (HombachC) changed the minimal required js-controller version to 3.2.16
+* (HombachC) added state of inverter as string
+* (HombachC) bumped dependencies
+### 1.5.0 (05.08.2022)
+* (HombachC) added minimum values for poll times to prevent communication errors
+* (HombachC) bumped dependencies
+### 1.4.7 (26.06.2022)
+* (HombachC) bumped dependency because of security vulnerability
+### 1.4.6 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, added tests for node.js 18
+* (HombachC) removed tests for node.js 12 -> it's recommended to switch to node.js 14, adapter still working with node 12
 ### 1.4.5 (03.05.2022)
 * (HombachC) added UI version to sentry feedback and documentation
 ### 1.4.4 (01.05.2022)

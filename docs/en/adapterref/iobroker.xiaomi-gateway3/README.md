@@ -271,6 +271,9 @@ _**Attantion:** You should to keep in mind this is not really statistic of zigbe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.6 (2022-06-14)
+* Fixes and improvements
+
 ### 0.3.5 (2022-05-08)
 * Added configuration for devices
 * Added cutting SPAM messages at log

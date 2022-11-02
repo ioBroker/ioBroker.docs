@@ -1,19 +1,40 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.lametric.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.lametric?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lametric?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.lametric?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.lametric?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.lametric?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.lametric?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.lametric?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.lametric?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.lametric?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.lametric/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.lametric?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.lametric.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
 BADGE-Installed: http://iobroker.live/badges/lametric-installed.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.lametric/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.lametric.png?downloads=true
 chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/README.md"},"en/adapterref/iobroker.lametric/apps.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/apps.md"},"en/adapterref/iobroker.lametric/my-data-diy.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/my-data-diy.md"},"en/adapterref/iobroker.lametric/notifications.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/notifications.md"},"en/adapterref/iobroker.lametric/blockly.md":{"title":{"en":"ioBroker.lametric"},"content":"en/adapterref/iobroker.lametric/blockly.md"}}}
 ---
 ![Logo](../../admin/lametric.png)
 
 # ioBroker.lametric
 
+## Table of contents
+
+- [Apps](apps.md)
+- [Blockly](blockly.md)
+- [My Data DIY](my-data-diy.md)
+- [Notifications](notifications.md)
+
 ## Requirements
 
-- *LaMetric Time* with firmware *2.2.2* (or later)
+- nodejs 14.5 (or later)
+- js-controller 4.0.15 (or later)
+- Admin Adapter 6.0.0 (or later)
+- _LaMetric Time_ with firmware _2.3.0_ (or later)
+
+[Firmware-Changelog](https://firmware.lametric.com)
 
 ## Configuration
 
@@ -29,17 +50,10 @@ You can get your device API key [here](https://developer.lametric.com/user/devic
 - Activate/Deactivate bluetooth and change bluetooth name
 - Switch between apps (next, previous, go to specific app)
 - Send notifications with blockly (with configurable priority, sound, icons, text, ...)
-- Control special apps like ``clock``, ``radio``, ``stopwatch`` or ``weather``
-- Use *My Data (DIY)* LaMetric App to display persistent information
+- Control special apps like `clock`, `radio`, `stopwatch` or `weather`
+- Use _My Data (DIY)_ LaMetric App to display persistent information
 
 Features are limited by the [official API features](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html).
-
-## Table of contents
-
-- [Apps](apps.md)
-- [Blockly](blockly.md)
-- [My Data DIY](my-data-diy.md)
-- [Notifications](notifications.md)
 
 ## Changelog
 
@@ -47,10 +61,25 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.0 (2022-11-01)
+
+NodeJS 14.5 is required
+
+* (klein0r) Added web extension to get My Data DIY object
+* (klein0r) Allow colon in My Data DIY object ID
+* (klein0r) Fixed duration of My Data DIY frames (milliseconds)
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.0
+* (klein0r) Dropped Admin 5 support
+* (klein0r) Minor optimizations
+
+### 2.0.0 (2022-05-17)
 
 NodeJS 14.x is required (NodeJS 12.x is EOL)
 
+* (klein0r) Added states for clock alarm widget configuration
+* (klein0r) Added duration for My Data DIY frame configuration
+* (klein0r) Updated LaMetric firmware version recommendation to 2.2.3
+* (klein0r) Updated dependencies
 * (klein0r) Updated depedency for js-controller to 4.0.15
 
 ### 1.6.0 (2022-02-27)
@@ -69,117 +98,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Updated dependencies
 * (klein0r) Updated documentation
-
-### 1.5.1
-
-* (klein0r) Translated all objects
-* (klein0r) Fixed HTTPS option
-
-### 1.5.0
-
-* (klein0r) Fixed myData DIY data type **(BREAKING CHANGE - requires SimpleAPI 2.6.2 or later to use json parameter)**
-* (klein0r) Added version check
-
-### 1.4.1
-
-* (klein0r) Fixed missing translations
-
-### 1.4.0
-
-* (klein0r) Admin 5 Support
-
-### 1.3.2
-
-* (klein0r) Updated dependencies
-
-### 1.3.1
-
-* (klein0r) Added local start and end time for screensaver
-
-### 1.3.0
-
-* (klein0r) Encrypt sensitive information **(BREAKING CHANGE - RE-ENTER YOUR API KEY)**
-
-### 1.2.1
-
-* (klein0r) Extended regex for My Data (DIY)
-
-### 1.2.0
-
-* (klein0r) Added hide if value for My Data (DIY)
-* (klein0r) Remove frames without text from My Data (DIY)
-* (klein0r) Allow dynamic states for My Data (DIY) icons
-
-### 1.1.3
-
-* (klein0r) Fixed async object creation
-
-### 1.1.2
-
-* (klein0r) Delete app channels if app was deleted on LaMetric
-* (klein0r) Custom app configuration (clockface, countdown duration)
-
-### 1.1.1
-
-* (klein0r) Fixed replacement issue for My Data (DIY)
-* (klein0r) Updated README with more configuration details
-
-### 1.1.0
-
-* (klein0r) Added support for My Data (DIY)
-
-### 1.0.1
-
-* (klein0r) Added chart data support to notification
-
-### 1.0.0
-
-* (klein0r) First stable release
-* (klein0r) Added iobroker sentry
-* (klein0r) Added brightness and volume limit information (min, max)
-
-### 0.0.10
-
-* (klein0r) Switched to axios lib
-
-### 0.0.9
-
-* (klein0r) Added missing translations
-* (GermanBluefox) Improved Blockly and main.js
-
-### 0.0.8
-
-* (klein0r) Updated dependencies
-
-### 0.0.7
-
-* (klein0r) fixed blockly
-
-### 0.0.6
-
-* (klein0r) switched to setTimeout instead of setInterval, improved logging and fixes eslint complaints
-
-### 0.0.5
-
-* (klein0r) Fixed notification, html, updated github template, enable and disable screensaver
-
-### 0.0.4
-
-* (klein0r) Refactored blockly sendTo / notifications
-
-### 0.0.3
-
-* (klein0r) Added app switching support, refactored everything
-* (bluefox) The deletion of the actual shown information was added
-
-### 0.0.2
-
-* (Sigi74) Change message_value for variables message
-* (Sigi74) Leave sound none
-
-### 0.0.1
-
-* (klein0r) initial release
 
 ## License
 

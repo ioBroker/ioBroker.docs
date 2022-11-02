@@ -65,6 +65,12 @@ to be done in admin
 
 
 ## Changelog:
+### 1.0.3
+* (atl285) correction wrong type of baudRate config, causing adapter crash
+
+### 1.0.2
+* (foxthefox) upper range temperature 50->70
+
 ### 1.0.1
 * (foxthefox) round -> this round
 * (foxthefox) baudrate settings in admin as number

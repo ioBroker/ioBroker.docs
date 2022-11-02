@@ -48,20 +48,20 @@ Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennu
 Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
 Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld zwingend die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
-Eine Firmware Version größer 2.30.20 darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi Sticks führt.
+Eine Firmware Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3) darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi Sticks führt.
 
 Wie man die Firmware Version prüfen kann und ein Downgrade auf die korrekte Version hinbekommt, wird hier erklärt.
 
 Um die Firmware auf dem Stick zu prüfen, müsst ihr euch mit dem Hotspot des Sticks verbinden.
-Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
+Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX` oder `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
 
 Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse in euren Browser auf das Webinterface des Wifi-Sticks: `5.8.8.8`<br>
 Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
 
 <span><img src="docs/en/img/webif.png"></span>
 
-Im Webinterface geht ihr auf den Tab "System" und findet dort die aktull installierte Firmware-Version.<br>
-Sollte die Version größer 2.033.20 sein, könnt ihr im gleichen Tab über den Menüpunkt "Update Firmware (.usb)" die korrekte Version flashen.
+Im Webinterface geht ihr auf den Tab "System" und findet dort die aktuell installierte Firmware-Version.<br>
+Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, könnt ihr im gleichen Tab über den Menüpunkt "Update Firmware (.usb)" die korrekte Version flashen.
 
 Die Version 2.033.20 könnt ihr euch unter folgenden Link herunterladen:
 
@@ -73,8 +73,9 @@ Nun könnt Ihr den Downgrade starten und werdet nach ca. 20-30 Sekunden eine Mel
 Nach erfolgreichen Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure lokale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
 
 Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die korrekte Firmware installiert ist.
+Der Stick aktualisiert die Firmware nicht automatisch und ist mit der Version 2.033.20 voll funktionsfähig.
 
-Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
 
 
 **************************************************************************************************************
@@ -103,12 +104,12 @@ What you need for this is an account with Solax, your token ID and the serial nu
 The local connection is currently only supported by the Pocket Wifi Sticks. LAN sticks can only be operated in cloud mode.
 
 Attention, if you activate the local mode in the expert settings, you should check the current firmware version of your Pocket Wifi Stick in advance.<br>
-The stick must not have a firmware version greater than 2.30.20 installed, since Solax blocks local access in higher versions and causes the Wifi stick to crash.
+The stick must not have a firmware version greater than 2.30.20 (Wifi-Pocket V1/V2) and smaler than 3.001 (Wifi-Pocket V3) installed, since Solax blocks local access in higher versions and causes the Wifi stick to crash.
 
 How to check the firmware version and how to downgrade to the correct version is explained here.
 
 To check the firmware on the stick, you have to connect to the stick's hotspot.
-Your hotspot name should look like this: `Solax_SWXXXXXXXX`. XXXXXXXX will be replaced with your serial number.
+Your hotspot name should look like this: `Solax_SWXXXXXXXX` or `Wifi_SWXXXXXXXX`. XXXXXXXX will be replaced with your serial number.
 
 If you are connected to the hotspot, go to the web interface of the Wifi stick in your browser with the following IP address: `5.8.8.8`<br>
 If you did not change your password during the initial setup, the default login data is admin:admin
@@ -116,7 +117,7 @@ If you did not change your password during the initial setup, the default login 
 <span><img src="docs/en/img/webif.png"></span>
 
 In the web interface you go to the "System" tab and you will find the currently installed firmware version there.<br>
-If the version is greater than 2.033.20, you can flash the correct version in the same tab via the "Update Firmware (.usb)" menu item.
+If the version is greater than 2.033.20 (Wifi-Pocket V1/V2) and smaler than 3.001 (Wifi-Pocket V3), you can flash the correct version in the same tab via the "Update Firmware (.usb)" menu item.
 
 You can download version 2.033.20 from the following link:
 
@@ -128,6 +129,7 @@ Now you can start the downgrade and after about 20-30 seconds you will get a mes
 After a successful restart, you can now access the WiFi stick via the hotspot with the IP address `5.8.8.8` or via your local IP in your network.
 
 Before connecting to the adapter, please check again whether the downgrade was successful and the correct firmware is installed.
+Fortunately the stick does not perform an automatic firmware upgrade and is fully functional with version 2.033.20.
 
 The local IP address (not the hotspot IP) and the password of the web interface must be entered in the adapter and you now have a local analysis of your inverter that is accurate to the second
 
@@ -143,6 +145,32 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.5.7 (2022-11-01)
+* (simatec) Dependencies updated
+
+### 0.5.6 (2022-09-21)
+* (simatec) local mode for X1 boost added
+
+### 0.5.5 (2022-09-21)
+* (simatec) small Bugfixes
+
+### 0.5.4 (2022-09-20)
+* (simatec) small Bugfixes
+
+### 0.5.3 (2022-09-20)
+* (simatec) Hybrid-G4 added
+* (simatec) small Bugfixes
+* (simatec) appveyor test removed
+* (simatec) travis test removed
+
+### 0.5.1 (2022-09-13)
+* (simatec) feedin added
+
+### 0.5.0 (2022-09-12)
+* (simatec) Dependencies updated
+* (simatec) small Bugfixes
+* (clausmuus) Add support for firmware version 3.001
+
 ### 0.4.6 (2022-04-11)
 * (simatec) Fix states
 

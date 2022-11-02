@@ -5,6 +5,7 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
 
 ![Test and Release](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
 
 =================
@@ -15,6 +16,15 @@ This adapter is based on homebridge-platform-wemo plugin.
 Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 
 ## Changelog
+### 3.0.2 (2022-09-15)
+* (Apollon77) update to latest ham version
+
+### 3.0.1 (2022-09-12)
+* (Apollon77) homebridge version and dependencies updated
+
+### 3.0.0 (2022-06-28)
+* Important: Requires at least a current Node.js 14 or 16
+* (Apollon77) wemo plugin changed to "homebridge-wemo" and homebridge updated - check wem plugin changelog!
 
 ### 2.0.0 (2021-05-08)
 * (Apollon77) wemo plugin and homebridge updated - check wem plugin changelog!
@@ -23,7 +33,6 @@ Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 ### 1.1.1 (2021-03-24)
 * (Apollon77) js-controller 2.0 now needed as minimum
 * (Apollon77) homebridge version and dependencies updated
-
 
 ### 1.1.0 (2020-08-08)
 * (Apollon77) BREAKING: Nodejs 10.17.0+ needed as minimum version
@@ -47,7 +56,7 @@ Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

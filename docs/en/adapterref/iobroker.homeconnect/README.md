@@ -42,26 +42,49 @@ Then go to **Applications** and then to **Register Application**.
 
 ![Screenshot](img/application2.JPG)
 
-Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren das
-letzte Feld kann leer bleiben. Dann Speichern und dann hat man die benötigte ClientID.
+Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren. 
+**Home Connect User Account for Testing** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
+Dann Speichern und dann hat man die benötigte ClientID.
 
-For **Application ID** enter a name for the application, e.g. ioBroker. With **OAuth Flow** Device Flow select the
-The last field can remain empty. Then save and you have the required ClientID.
+For **Application ID** enter a name for the application, e.g. ioBroker. With **OAuth Flow** Device Flow select.
+**Home Connect User Account for Testing** can remain empty. For **Success Redirect** enter a URI, e.g. https://example.com.
+Then save and you have the required ClientID.
 
 ## Konfiguration
 
-In der Adapter-Config muss nur die ClientID eingetragen werden. Wenn der Adapter läuft, wird eine Authorization-URL generiert, diese wird in den Einstellungen nach dem Speichern der ClientID angezeigt. Einfach nach dem Speichern die Einstellungen neuöffnen
+In der Adapter-Config muss der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
 
-## Configuration
-
-Only the ClientID must be entered in the adapter configuration. If the adapter is running, an authorization URL is generated. This url you can see in the settings after save, wait and reopen the settings.
 
 ## Benutzung
 
 Mit den states in commands kannst du das Programm stoppen, pausieren oder fortführen.
+
 Mit den states in settings kannst du das Gerät ein oder ausschalten.
+
 Ändern des States programs.active.BSH_Common_Root_ActiveProgram führt zum starten eines Programms
+
 Ändern des States programs.selected.BSH_Common_Root_SelectedProgram führt zum auswählen des Programms oder Optionen
+
+Wenn man checken möchte, ob ein Programm fertig ist muss
+
+status.BSH_Common_Status_OperationState
+
+auf den kompletten Status Name übrprüft werden:
+
+BSH.Common.EnumType.OperationState.Finished
+
+Weitere Zustände sind noch:
+
+"BSH.Common.EnumType.OperationState.Inactive": "Inactive",
+"BSH.Common.EnumType.OperationState.Ready": "Ready",
+"BSH.Common.EnumType.OperationState.Run": "Run",
+"BSH.Common.EnumType.OperationState.ActionRequired": "ActionRequired",
+"BSH.Common.EnumType.OperationState.Finished": "Finished"
+
+Oder ob ein Gerät geöffnet ist
+
+"BSH.Common.EnumType.DoorState.Open": "Open",
+"BSH.Common.EnumType.DoorState.Closed": "Closed"
 
 ## Usage
 
@@ -72,6 +95,13 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 ## Changelog
 
+### 1.0.3
+
+- Add manually login for SingleKey User
+  
+### 1.0.2
+
+- Adapter complete rewriten. Includes a lot of Bugfixes
 ### 0.0.36
 
 - fix for js.controller 3.3. Please delete the device in Objects manually

@@ -18,8 +18,8 @@ Adapter for Gigaset Elements (https://gigaset.com/smart-home)
 
 ## Requirements
 
--   NodeJS >= 12.x
--   ioBroker >= 3.x, with admin >= 5.x
+-   NodeJS >= 14.x
+-   ioBroker >= 4.x, with admin >= 5.x
 -   Gigaset Elements system
 
 ## Installation
@@ -44,11 +44,12 @@ The adapter currently only reads data and does not allow to change anything.
 
 So far, the adapter has been tested/is known to work with the following Elements, and test data is available via [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api):
 
-| Element type | Element name          | Tested by |
-| ------------ | --------------------- | --------- |
-| is01         | Siren                 | matthsc   |
-| um01         | Universal/Window/Door | matthsc   |
-| wd01         | Water                 | matthsc   |
+| Element type | Element name            | Tested by   |
+| ------------ | ----------------------- | ----------- |
+| is01         | Siren                   | matthsc     |
+| um01         | Universal/Window/Door   | matthsc     |
+| wd01         | Water                   | matthsc     |
+| sd01         | Smoke (only test alarm) | HomeControl |
 
 The adapter also supports the following other devices:
 
@@ -122,6 +123,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.2.2 (2022-09-17)
+
+-   (matthsc) fix probably_open state
+-   (matthsc) dependency updates
+
+### 0.2.1 (2022-07-02)
+
+-   (matthsc) add initial support for smoke detectors
+-   (matthsc) dependency updates
+
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones

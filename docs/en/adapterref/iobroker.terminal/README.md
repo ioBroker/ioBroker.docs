@@ -20,6 +20,14 @@ Please use it only for administration purposes.
 ![Screenshot](img/screen1.png)
 
 ## Changelog
+### 1.0.0 (2022-10-08)
+* (bluefox) Check only port of the interface and not of all interfaces
+* (Apollon77) Fix some crash cases reported by Sentry
+* (Apollon77) Prepare for future js-controller versions
+
+### 0.2.6 (2022-05-12)
+* (Apollon77) Fix crash cases as reported by Sentry
+
 ### 0.2.5 (2022-04-25)
 * (Apollon77/GottZ) Optimize process kill behaviour when using CTRL-C
 

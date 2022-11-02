@@ -31,10 +31,6 @@ IP of your KNX IP gateway.
 ### Port
 this is normally port 3671 of the KNX IP gateway.
 
-### phys. KNX Adress
-Fill in physical address of the KNX IP gateway in the format 1/1/1.
-Two level group addresses can be transformed manually if needed.
-
 ### Local IPv4 network interface
 The interface that is connected to the KNX IP gateway.
 
@@ -42,7 +38,9 @@ The interface that is connected to the KNX IP gateway.
 Searches via a standardized protocol all available KNX IP Gateways on the given network interface.
 
 ### Frames delay [ms]
-This settings protects the KNX bus from data flooding by limiting data frames to a certain rate. Not sent frames are put into a fifo buffer. If you experience disconnects from your KNX IP Gateway  in the log then increase this number.
+This settings protects the KNX bus from data flooding by limiting data frames to a certain rate.
+Not sent frames are delay until the delay time since last send on bus is elapsed. If more send requests are waiting, send order is random.
+If you experience disconnects from your KNX IP Gateway  in the log then increase this number.
 
 ### Add only new Objects
 If checked, the import will skip overwriting existing communication objects.
@@ -147,36 +145,38 @@ IoBroker state roles (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE
 
 Autoread is set to false where it is clear from the DPT that this is a trigger signal. This applies to scene numbers.
 
-    {
-    "_id": "path.and.name.to.object",                       //derieved from the KNX structure
+```json
+{
+    "_id": "path.and.name.to.object",                       // derieved from the KNX structure
     "type": "state",
-    "common": {                                             //values here can be interpreted by iobroker
-        "desc": "Basetype: 1-bit value, Subtype: switch",   //informative, from dpt
-        "name": "Aussen Melder Licht schalten",             //informative description from ets export
-        "read": true,                                       //default set, if false incoming bus values are not updating the object
-        "role": state,                                      //default state, derieved from DPT
-        "type": "boolean",                                  //boolean, number, string, object, derieved from dpt
-        "unit": "",                                         //derived from dpt
-        "write": true                                       //default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
+    "common": {                                             // values here can be interpreted by iobroker
+        "desc": "Basetype: 1-bit value, Subtype: switch",   // informative, from dpt
+        "name": "Aussen Melder Licht schalten",             // informative description from ets export
+        "read": true,                                       // default set, if false incoming bus values are not updating the object
+        "role": "state",                                    // default state, derieved from DPT
+        "type": "boolean",                                  // boolean, number, string, object, derieved from dpt
+        "unit": "",                                         // derived from dpt
+        "write": true                                       // default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
     },
-    "native": {                                             //values here can be interpreted by openknx adapter
-        "address": "0/1/2",                                 //knx group address
-        "answer_groupValueResponse": false,                 //default false, if set to true adapter responds with value on GroupValue_Read
-        "autoread": true,                                   //default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
-        "bitlength": 1,                                     //size ob knx data, derived from dpt
-        "dpt": "DPT1.001",                                  //DPT
-        "encoding": {                                       //informative
+    "native": {                                             // values here can be interpreted by openknx adapter
+        "address": "0/1/2",                                 // knx group address
+        "answer_groupValueResponse": false,                 // default false, if set to true adapter responds with value on GroupValue_Read
+        "autoread": true,                                   // default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
+        "bitlength": 1,                                     // size ob knx data, derived from dpt
+        "dpt": "DPT1.001",                                  // DPT
+        "encoding": {                                       // informative
         "0": "Off",
         "1": "On"
         },
-        "force_encoding": "",                               //informative
-        "signedness": "",                                   //informative
-        "valuetype": "basic"                                //composite means set via a specific javascript object
+        "force_encoding": "",                               // informative
+        "signedness": "",                                   // informative
+        "valuetype": "basic"                                // composite means set via a specific javascript object
     },
     "from": "system.adapter.openknx.0",
     "user": "system.user.admin",
     "ts": 1638913951639
-    }
+}
+```
 
 # Adapter communication Interface Description
 Handeled DPTs are: 1-21,232,237,238  
@@ -186,27 +186,31 @@ Where number datatype is used please note that interface values can be scaled.
 ### API call
 IoBroker defines States as communication interface.
 
-    setState(
-    @param {string}                                 id of the object with path
-    @param {object|string|number|boolean}           state simple value or object with attribues.
-    {
-    val:    value,
-    ack:    true|false,                             optional, should be false by convention
-    ts:     timestampMS,                            optional, default - now
-    q:      qualityAsNumber,                        optional, set it to value 0x10 to trigger a bus read to this object, given StateValue is ignored
-    from:   origin,                                 optional, default - this adapter
-    c:      comment,                                optional, set it to value GroupValue_Read to trigger a bus read to this object, given StateValue is ignored
-    expire: expireInSeconds                         optional, default - 0
-    lc:     timestampMS                             optional, default - calculated value
-    }
-    @param {boolean} [ack]                          optional, should be false by convention
-    @param {object} [options]                       optional, user context
-    @param {ioBroker.SetStateCallback} [callback]   optional, return error and id
+```javascript
+setState(
+    '',                                             // @param {string}                                id of the object with path
+    {                                               // @param {object|string|number|boolean}          state simple value or object with attribues.
+	val:    value,
+	ack:    true|false,                         // optional, should be false by convention
+	ts:     timestampMS,                        // optional, default - now
+	q:      qualityAsNumber,                    // optional, set it to value 0x10 to trigger a bus read to this object, given StateValue is ignored
+	from:   origin,                             // optional, default - this adapter
+	c:      comment,                            // optional, set it to value GroupValue_Read to trigger a bus read to this object, given StateValue is ignored
+	expire: expireInSeconds                     // optional, default - 0
+	lc:     timestampMS                         // optional, default - calculated value
+    },
+    false,                                          // @param {boolean} [ack]                         optional, should be false by convention
+    {},                                             // @param {object} [options]                      optional, user context
+    (err, id) => {}                                 // @param {ioBroker.SetStateCallback} [callback]  optional, return error and id
+);
+```
 
 example to trigger a GroupValue_Read:
 
-    setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
-    setState(myState, {val: false, ack: false, q:0x10});
+```javascript
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
+setState(myState, {val: false, ack: false, q:0x10});
+```
 
 GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumber value 0x10 instead.
 
@@ -306,8 +310,21 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 - only IPv4 supported
 
 ## Changelog
-### 0.1.26 (2022-05-)
-* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+
+### 0.2.7 (2022-08-26)
+* bugfix: fix issue with writing to dpt 19 object
+
+### 0.2.6 (2022-07-09)
+* bugfix: fix filtering of addresses 1.1.1
+
+### 0.2.5 (2022-06-22)
+* feature: option remove existing KNX objects that are not in import file
+
+### 0.2.4 (2022-05-27)
+* feature: cleanly disconnect on shutdown, upgrade to knx lib 2.5.2
+
+### 0.2.2 (2022-05-26)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset) #133
 * bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
 * bugfix: remove error log when answering to GroupValueRead: #183
 * bugfix: improve warning logs on intended and unintended disconnects

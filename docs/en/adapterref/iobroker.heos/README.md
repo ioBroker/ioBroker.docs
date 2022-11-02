@@ -127,6 +127,29 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (withstu) update some dependencies
+* (withstu) improve failure handling
+
+### 1.11.2 (2022-10-16)
+* (withstu) adopt to new adapter structure
+
+### 1.11.1 (2022-10-16)
+* (withstu) fix release
+
+### 1.11.0 (2022-10-16)
+* (withstu) improve player failure detection
+* (withstu) fix bug in regex mute
+* (withstu) fix upnp NaN warning #192
+
+### 1.10.0 (2022-06-16)
+* (foxriver76) fix default value of `sid` (closes #174)
+
 ### 1.9.2 (2022-01-22)
 * (withstu) add volume lock
 

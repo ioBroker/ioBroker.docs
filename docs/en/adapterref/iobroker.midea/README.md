@@ -11,9 +11,9 @@
 
 [![NPM](https://nodei.co/npm/iobroker.midea.png?downloads=true)](https://nodei.co/npm/iobroker.midea/)
 
-## midea adapter for ioBroker
+## midea adapter for ioBroker that also Supports Carrier devices
 
-Midea Adapter
+Midea and Carrier Adapter
 
 ## Changelog
 

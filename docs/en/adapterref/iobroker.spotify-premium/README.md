@@ -89,6 +89,13 @@ Click for widget source.
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 1.2.2 (2022-06-17)
+* (Apollon77) Fix potential crash cases reported by Sentry
+* (Apollon77) Optimize adapter stop behaviour
+
+### 1.2.1 (2022-05-12)
+* (Apollon77) Prevent js-controller warnings
+
 ### 1.2.0 (2022-05-11)
 * (duczz) Fix tracklist request issues
 * (Apollon77) Fix several potential crash cases and object warnings

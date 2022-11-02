@@ -13126,6 +13126,10 @@ The adapter uses the following libraries:
 
 <!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) JSON Chart Widget: method to use css color variables added
+* (Scrounger) Pie Chart Widget: method to use css color variables added
+* (Scrounger) Bar Chart Widget: method to use css color variables added
+* (Scrounger) IconList Widget: sub text color activ added
 * (Scrounger) css default color variables added
 * (Scrounger) Icon Button Slider Widget added
 * (Scrounger) Button Toggle Widgets: bug fix for state on runtime load

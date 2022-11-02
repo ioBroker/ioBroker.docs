@@ -257,12 +257,18 @@ If activated so by every command (no matter if the request came via state or sen
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to v5
+
+### 2.2.2 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 2.2.1 (2022-02-21)
-* (bluefox) Checked the existence of sayit instance before output
+* (bluefox) Checked the existence of `sayit` instance before output
 * (bluefox) Added the decimal places settings to temperature  
 * (bluefox) Added the second object ID to user queries
 * (bluefox) Added the option: "No negative answer"

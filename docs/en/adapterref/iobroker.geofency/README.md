@@ -1,6 +1,5 @@
 ![Logo](admin/geofency.png)
 # ioBroker.geofency
-====================
 
 ![Number of Installations](http://iobroker.live/badges/geofency-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/geofency-stable.svg)
@@ -15,20 +14,40 @@
 This Adapter is able to receive [geofency](http://www.geofency.com/) events when entering or leaving a defined area with your mobile device.
 All values of the geofency-webhook of the request are stored under the name of the location in ioBroker.
 
-## configuration on mobile device:
+## Configuration on mobile device
 * for any location -> properties -> webhook settings:
- * URL for entry & exit: &lt;your ioBroker Domain&gt;:&lt;configured port&gt;/&lt;any locationname&gt;
- * Post Format: JSON-encoded: enabled
- * authentication: set user / password from iobroker.geofency config
+ * URL for entry and exit: `<your ioBroker Domain>:<configured port>/<any locationname>`;
+ * Post Format: `JSON-encoded`: enabled
+ * authentication: set user / password from `iobroker.geofency` config
 
-## in ioBroker Forum (German)
+## In ioBroker Forum (German)
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
-## security note:
+## Security note:
 It is not recommended to expose this adapter to the public internet.
 Some kind of WAF/proxy/entry Server should be put before ioBroker. (e.g. nginx is nice and easy to configure).
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 1.2.4 (2022-10-08)
+* (Apollon77) Fix atHome states
+* (Apollon77) Catch errors when creating webserver
+
+### 1.2.3 (2022-10-01)
+* (Apollon77) Optimize usage of credentials (requires iOS App 7.5.1+!)
+
+### 1.2.2 (2022-08-29)
+* (bluefox) Corrected handling of SSL certificates
+* (bluefox) Added possibility of binding to specific interface and not only 0.0.0.0
+
+### 1.2.1 (2022-08-16)
+* (bluefox) Corrected error with no credentials
+* (bluefox) Added JSON config and made refactoring
+* (atl285) Corrected handling of SSL certificates
+
 ### 1.1.1 (2022-03-18)
 * (Apollon77) Prevent warning logs for newly added states in last release
 

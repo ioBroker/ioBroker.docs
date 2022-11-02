@@ -1,15 +1,15 @@
 ![Logo](admin/wlanthermo-nano.png)
 # ioBroker.wlanthermo-nano
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)](https://www.npmjs.com/package/iobroker.wlanthermo-nano)
+[![NPM version](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)](https://www.npmjs.com/package/iobroker.wlanthermo-nano)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)](https://www.npmjs.com/package/iobroker.wlanthermo-nano)
+![Number of Installations](https://iobroker.live/badges/wlanthermo-nano-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 [![Dependency Status](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)](https://david-dm.org/DrozmotiX/iobroker.wlanthermo-nano)
-![Number of Installations](http://iobroker.live/badges/wlanthermo-nano-installed.svg) ![Number of Installations](http://iobroker.live/badges/wlanthermo-nano-stable.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/DrozmotiX/ioBroker.wlanthermo-nano/badge.svg)](https://snyk.io/test/github/DrozmotiX/ioBroker.wlanthermo-nano)
 
 [![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)](https://nodei.co/npm/iobroker.wlanthermo-nano/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/DrozmotiX/ioBroker.wlanthermo-nano/master.svg)](https://travis-ci.org/DrozmotiX/ioBroker.wlanthermo-nano)
+**Tests:** ![Test and Release](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
 
 ## wlanthermo-nano adapter for ioBroker
 
@@ -18,15 +18,12 @@
 ## Configuration
 
 The adapter can be installed and configured within the admin interface.
-Please enter IP-adress, username and password in the instance configuration.
+Please enter IP-address, username and password in the instance configuration.
 
 ## To-Do
 
-* [ ] Optimize pitmaster settings, make states only writable in related modus otherwise read only
 * [ ] Implement auto device detect
-* [ ] Implement device online state
-* [x] allow multiple devices
-* [ ] code cleanup
+* [ ] Optimize pitmaster settings, make states only writable in related modus otherwise read only
 
 ## Join the Discord server to discuss everything about ioBroker-WlanThermo integration!
 
@@ -37,14 +34,30 @@ If you like my work, please feel free to provide a personal donation
 (this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
-
 ## Changelog
+### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
+* (DutchmanNL) Initialization error for Nano V1 solved
+* (DutchmanNL) Error logging and reporting improved
+
+### 0.2.0 (2022-06-04) - PitMaster Control & ESP32 support
+* (DutchmanNL) Support multiple devices
+* (DutchmanNL) Refactor code to TypeScript
+* (DutchmanNL) Error/debug logging Improved
+* (DutchmanNL) Added data points for features
+* (DutchmanNL) Test & Release workflow updated
+* (DutchmanNL) Added indicator for connection status
+* (DutchmanNL) Reconnecting to offline devices improved
+* (DutchmanNL) Allow alarm to be activated / disabled #6
+* (DutchmanNL) Allow control of pitmaster & system settings
+* (DutchmanNL) Ensure support of all WLANThermo-Nano Devices
+* (DutchmanNL) Implemented dropdown menu for Pitmaster to select available profiles
+* (DutchmanNL) Added data points for PID profiles including capability to change profile settings
 
 ### 0.1.2
 * (DutchmanNL) Support multiple devices
 
 ### 0.1.1
-* (DutchmanNL) Code optimalisation
+* (DutchmanNL) Code optimisation
 * (DutchmanNL) Implement state_attr.js to handle state options outside of source code
 * (DutchmanNL) Optimised state creation in 1 function
 * (DutchmanNL) Small cleanups

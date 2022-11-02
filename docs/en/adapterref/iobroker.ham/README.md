@@ -39,14 +39,38 @@ The installation of the homebridge modules is also done via ioBroker.
 ### Global-Homebridge-Mode
 If you already use Homebridge (Apple OpenSource SmartHome) as a global installation on the host where also ioBroker runs on,
 then you can use this existing Homebridge installation and start this Homebridge
-installation as ioBroker process. In this case the Homebridge server is started by ioBroker.
-Additionally all states from Homebridge are available as states in ioBroker and allow to be controlled from ioBroker.
+installation as ioBroker process. **In this case the Homebridge server is started by ioBroker.**
 
-For this to work you need to provide the location of the systems global node-modules folder. For this call **npm root -g**. Additionally you need to provide the path of the homebridge configuration directory (usually .homebridge in the "users" folder).
+**IMPORTANT: You need to make sure the global service is NOT started by the system or such. ioBroker itself will do the start! See below for best practice setup details.**
+
+**IMPORTANT: Because ioBroker starts the Homebridge also the logging is done by ioBroker. YOu can set the loglevel from the instance to silly to also see all Homebridge logs, else it will be filtered for the important stuff.**
+
+Additionally, all states from Homebridge are available as states in ioBroker and allow to be controlled from ioBroker.
+
+For this to work you need to provide the location of the systems global node-modules folder. For this call **npm root -g**. Additionally, you need to provide the path of the homebridge configuration directory (usually .homebridge in the "users" folder).
 
 **IMPORTANT: ioBroker runs as user "iobroker", but homebridge normally as root or homebridge user (depending on how you installed it). You need to make sure that the homebride "persistance" folder can be accessed by the ioBroker user, else you will see errors that the file can not be saved (which can crash the adapter!)**
 
-**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessable!**
+**IMPORTANT: When using child bridges (new homebridge feature since 1.3.x) the adapter CAN NOT access the data provided by these child bridges! Only the main bridge is accessible!**
+
+#### Install as Global Bridge details
+Thanks to @Anzic23 here some details on how to set up homebridge ideally for global mode:
+
+1. `sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x`
+2. install hb-service (sudo hb-service install --user homebridge) This step is needed to create the necessary files and directories
+3. uninstall hb-service (sudo hb-service uninstall)
+4. after installing homebridge
+```
+sudo chmod 777 -R /var/lib/homebridge/
+sudo chmod 777 -R /usr/lib/node_modules/homebridge
+```
+in iobroker
+Global Homebridge Path:
+/usr/lib/node_modules/homebridge
+
+Global Homebridge Config Directory Path:
+/var/lib/homebridge
+
 
 ## Following plugins were tested in Default mode
 
@@ -66,6 +90,7 @@ For this to work you need to provide the location of the systems global node-mod
 ## TODO
 * Tests
 * More documentation?!
+* Test and find out if ESM modules will work in which mode (I expect none)
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -73,6 +98,47 @@ For this to work you need to provide the location of the systems global node-mod
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize value determination on accessory initialization
+
+### 5.3.1 (2022-09-28)
+* (bluefox) Updated GUI packages
+
+### 5.3.0 (2022-09-15)
+* (Apollon77) Add option to enable homebridge debug logging
+
+### 5.2.4 (2022-09-15)
+* (Apollon77) Prevent crash when accessing a state which is not controllable anymore
+
+### 5.2.3 (2022-09-14)
+* (Apollon77) Optimize Accessory processing
+
+### 5.2.2 (2022-09-14)
+* (Apollon77) make compatible to more plugins
+
+### 5.2.1 (2022-09-12)
+* (Apollon77) make compatible to more plugins
+
+### 5.1.0 (2022-08-17)
+* IMPORTANT update homebridge and wrapper to 1.5.0 (latest as of today). IMPORTANT: Requires also homebridge 1.5.x installed when using global mode and local mode will update to 1.5.x too! Check your plugins for updates!
+
+### 5.0.2 (2022-07-20)
+* (bluefox) Update tab GUI
+
+### 5.0.1 (2022-06-28)
+* (Apollon77) Make sure values are set after objects were created
+
+### 5.0.0 (2022-06-27)
+* IMPORTANT update homebridge and wrapper to 1.4.1 (latest as of today). IMPORTANT: Requires also homebridge 1.4.x installed when using global mode and local mode will update to 1.4.x too! Check your plugins for updates!
+* (Apollon77) Sync forbidden characters with ioBroker standard - Object IDs might change with this version!
+* (Apollon77) Basically allow to specify http URLS as plugins in the main configuration list (not the tab!)
+* (Apollon77) Also try to register on external accessories like cameras (experimental)
+* (Apollon77) Fix loading issues with the tab
+
+### 4.0.4 (2022-06-07)
+* (bluefox) Corrected configuration in dark theme
+
 ### 4.0.3 (2022-03-20)
 * (bluefox) Update packages
 
@@ -94,7 +160,7 @@ For this to work you need to provide the location of the systems global node-mod
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
 
 ### 1.1.2 (2019-07-08)
-* (Apollon77) Allow more then 149 accessories in wrapper mode
+* (Apollon77) Allow more than 149 accessories in wrapper mode
 
 ### 1.1.1 (2019-07-05)
 * (Apollon77) Add option to update NPM modules in Admin. Reinstall will happen after saving settings
@@ -132,7 +198,7 @@ For this to work you need to provide the location of the systems global node-mod
 * (Apollon77) Updates for Homebridge-Wrapper
 
 ### 0.2.5 (2018.06.18)
-* (Apollon77) Catch all console logs from Homegridge and make available as debug log
+* (Apollon77) Catch all console logs from Homebridge and make available as debug log
 
 ### 0.2.4 (2018.06.18)
 * (Apollon77) Updates for Homebridge-Wrapper

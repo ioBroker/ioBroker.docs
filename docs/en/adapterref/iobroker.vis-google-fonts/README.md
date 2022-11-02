@@ -53,6 +53,9 @@ Following fonts will be included:
 -->
 
 ## Changelog
+### 1.0.4 (2022-10-08)
+* (Apollon77) prepare for future js-controller versions
+
 ### 1.0.3 (2021-11-11)
 * (bluefox) Support of compact mode added
 

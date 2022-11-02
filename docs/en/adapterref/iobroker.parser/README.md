@@ -21,11 +21,21 @@ This default poll interval value will be used, if no individual poll interval va
 **Note:** 
 Do not use a too aggressive poll interval especially for website URLs. For example, if you want to retrieve the price of your shares from a certain website, you probably should be good with an interval of just every 24 hours (= 86400000 ms), if you are not a day trader. If you try to retrieve data from certain URLs too often, the website may ban you and put you on a server blacklist. So please use the poll interval with care.
 
-### 2. Table
+### 2. Request timeout
+Specify how long the adapter waits for an HTTP response when doing website queries
+
+### 3. Accept invalid certificates
+Specify if self-signed/invalid SSL/TLS certificates are accepted or declined when doing HTTPS requests
+
+### 4. Use insecure HTTP parser
+Specify to use an insecure HTTP parser that accepts invalid HTTP headers. This may allow interoperability with non-conformant HTTP implementations.
+Using the insecure parser should be avoided.
+
+### 5. Table
 Click the "Plus" button to add a new entry to the table.
 
 **Performance Note:**
-If you enter the same URL or filename more than once into different table rows, and if the values of the column "Interval" are the same, the content of the URL or filename will be retrieved only **once** and cached for proccesing multiple table rows matching URL/filename and Interval. This allows you to apply multiple regex (so multiple table rows) to a single URL or filename, without the need of retrieving the data multiple times from the source.
+If you enter the same URL or filename more than once into different table rows, and if the values of the column "Interval" are the same, the content of the URL or filename will be retrieved only **once** and cached for processing multiple table rows matching URL/filename and Interval. This allows you to apply multiple regex (so multiple table rows) to a single URL or filename, without the need of retrieving the data multiple times from the source.
 
 **Table fields:**
 
@@ -62,8 +72,6 @@ If you enter the same URL or filename more than once into different table rows, 
 
 *Note:* While applying regex to the retrieved URL/file data, all line breaks will be replaced with spaces to allow multi-line search.
 
-
-
 ## About Regular expressions (RegExp)
 Regular expressions are a powerful tool to parse and extract certain data from strings, and even more important: it allows to extract certain values/text from a given string (like from the HTML of a webpage, or text from a file) by applying rules.
 
@@ -93,6 +101,8 @@ Further information on RegExp:
 ### Other useful expressions
 
 - (-?\d+) get number (both negative and positive numbers)
+- [+-]?([0-9]+.?[0-9]|.[0-9]+) get a number with decimal places (and . as decimal separator)
+- [+-]?([0-9]+,?[0-9]|,[0-9]+) get a number with decimal places (and , as decimal separator)
 
 ## Quality codes
 
@@ -107,6 +117,23 @@ Values can have quality codes:
 
 
 ## Changelog
+### 1.2.1 (2022-09-15)
+* (Apollon77) Always use raw response and not try to parse it
+
+### 1.2.0 (2022-09-12)
+* (Apollon77) Allow to specify if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
+* (Apollon77) Allow to specify if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
+* (Apollon77) Allow to specify the HTTP request timeout
+
+### 1.1.8 (2022-06-27)
+* (Apollon77) Check that a link is configured
+
+### 1.1.7 (2022-06-16)
+* (Apollon77) Fix potential crash cases reported by Sentry
+
+### 1.1.6 (2022-05-28)
+* (Apollon77) Set method to "GET" when requesting URLs
+
 ### 1.1.5 (2022-04-19)
 * (Apollon77) Ignore objects without configuration for parser and log it
 

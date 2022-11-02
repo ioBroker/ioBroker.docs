@@ -1,10 +1,19 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.trashschedule.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.trashschedule?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.trashschedule?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.trashschedule?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.trashschedule?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.trashschedule?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.trashschedule?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.trashschedule?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.trashschedule?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.trashschedule?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.trashschedule?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.trashschedule/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.trashschedule?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.trashschedule.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/trashschedule-stable.svg
 BADGE-Installed: http://iobroker.live/badges/trashschedule-installed.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.trashschedule/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.trashschedule.png?downloads=true
 chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/README.md"},"de/adapterref/iobroker.trashschedule/blockly.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/blockly.md"},"de/adapterref/iobroker.trashschedule/faq.md":{"title":{"de":"ioBroker.trashschedule"},"content":"de/adapterref/iobroker.trashschedule/faq.md"}}}
 ---
 ![Logo](../../admin/trashschedule.png)
@@ -43,6 +52,23 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Dropped Admin 5 support
+
+### 2.0.3 (2022-06-02)
+
+* (klein0r) Allow whitespaces in the match pattern
+
+### 2.0.2 (2022-05-27)
+
+* (klein0r) Fixed error handling for trash types with empty name
+
+### 2.0.1 (2022-05-24)
+
+* (klein0r) Added ical instance as comment for states
+* (klein0r) Just update states if value changed
+
 ### 2.0.0 (2022-05-04)
 
 NodeJS 14.x is required (NodeJS 12.x is EOL)
@@ -56,19 +82,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 ### 1.4.5 (2022-03-21)
 
 * (klein0r) Allow spaces in next text seperator
-
-### 1.4.4 (2022-03-14)
-
-* (klein0r) Updated dependencies
-
-### 1.4.3 (2022-02-21)
-
-* (klein0r) Updated state roles
-* (klein0r) Added hint for Admin 4 configuration
-
-### 1.4.2 (2022-02-07)
-
-* (klein0r) Added check for ical configuration
 
 ## License
 

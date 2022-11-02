@@ -2,12 +2,9 @@
 # ioBroker.homepilot
 
 ![Number of Installations](http://iobroker.live/badges/homepilot-installed.svg) ![Number of Installations](http://iobroker.live/badges/homepilot-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/41e0e541711c47b996f11a2439a6663c)](https://www.codacy.com/app/Pix---/ioBroker.homepilot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Pix---/ioBroker.homepilot&amp;utm_campaign=Badge_Grade) [![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.homepilot/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.homepilot?targetFile=package.json)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.homepilot.svg)](https://www.npmjs.com/package/iobroker.homepilot)
 
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.homepilot/master.svg)](https://travis-ci.org/Pix---/ioBroker.homepilot)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.homepilot?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-homepilot/)
 
 Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019). Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)
 NodeJS 10 or higher required
@@ -32,7 +29,7 @@ NodeJS 10 or higher required
 
 ## Changelog
 ### 1.1.7a (2021-08-25)
-* (pix) DeviceId should be string [#27](https://github.com/Pix---/ioBroker.homepilot/issues/27)
+* (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 
 ### 1.1.6 (2021-05-05)
 * (pix) connectionType and dataSource added
@@ -148,7 +145,7 @@ Contributions are welcome!
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 pix
+Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

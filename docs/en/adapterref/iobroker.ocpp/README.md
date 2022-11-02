@@ -23,6 +23,24 @@ Adapter to connect an OCPP 1.6 supported wallbox
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.8.0 (2022-10-10)
+* (foxriver76) we now support wallboxes with multiple connectors (closes #16)
+* (foxriver76) we added a new state `lastTransactionConsumption`
+* (foxriver76) implemented a `transactionId` handling
+__The structure of the datapoints has changed to support wallboxes with multiple connectors. Please delete states once and adjust your scripts!__
+
+### 0.7.0 (2022-09-21)
+* (foxriver76) we have introduced a state to sepcify if chargeLimit is in watts or ampere
+
+### 0.6.0 (2022-08-14)
+* (foxriver76) we now handle `DataTransfer` messages
+
+### 0.5.1 (2022-07-17)
+* (foxriver76) we have optimized some log messages
+
+### 0.5.0 (2022-07-17)
+* (foxriver76) added possibility to define the `idTag` of the transaction (closes #13)
+
 ### 0.4.0 (2022-03-21)
 * (foxriver76) implemented authentication
 

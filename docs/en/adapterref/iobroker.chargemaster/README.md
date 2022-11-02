@@ -26,6 +26,15 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+
+### 0.6.2 (11.09.2022)
+* (HombachC) fixed error in calc with active charge current
+### 0.6.1 (08.09.2022)
+* (HombachC) bump @iobroker/testing from 3.0.2 to 4.1.0
+### 0.6.0 (09.08.2022)
+* (HombachC) fix error in max total current, fix error in charge manager
+### 0.5.1 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, small code tweaks
 ### 0.5.0 (09.05.2022)
 * (HombachC) BREAKING: dropped node.js 12 support
 * (HombachC) Add tests for node.js 18, removed for node.js 12

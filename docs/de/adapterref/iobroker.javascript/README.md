@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"}}}
 ---
-** Hinweis: Momentan beinhaltet die Englishe Version viel mehr infomation und wir empfehlen die zu lesen**
+** Hinweis: Momentan beinhaltet die Englishe Version viel mehr Information und wir empfehlen die zu lesen**
 
 Der javascript-Adapter dient dazu komfortabel Skripte zu erstellen, editieren und zu verwalten.
 
@@ -14,13 +14,13 @@ Der javascript-Adapter dient dazu komfortabel Skripte zu erstellen, editieren un
 
 
 ![Einstellungsmenü Javascript Adapter](img/javascript_Einstellungen-Javascript.png)
-   Die eigentliche Konfiguration besteht aus der Eingabe von zusätzlichen zu ladenden npm-Module (durch Komma getrennt), sowie der Geo-Koordinaten, die für diverse Berechnungen benutzt werden sollen. Um die Koordinaten zu erhalten, kann man z.B. _google maps_ ziemlich weit aufzoomen und an der gewünschten Stelle anklicken. Die Koordinaten werden dann angezeigt. Nach dem Speichern muss der Adapter noch über die rote Play-Taste aktiviert werden aktiviert werden.
+   Die eigentliche Konfiguration besteht aus der Eingabe von zusätzlichen zu ladenden npm-Module (durch Komma getrennt), sowie der Geo-Koordinaten, die für diverse Berechnungen benutzt werden sollen. Um die Koordinaten zu erhalten, kann man z.B. _google maps_ ziemlich weit aufzoomen und an der gewünschten Stelle anklicken. Die Koordinaten werden dann angezeigt. Nach dem Speichern muss der Adapter noch über die rote Play-Taste aktiviert werden.
 
 * * *
 
 ## Bedienung
 
-Bei der Installation wird ein weiterer Reiter _Scripte_ in der _Admin_-Oberfläche gezeigt. Hier wird ein neuer Ordner angelegt indem auf das (+) in der Symbolleiste (roter Kreis) geklickt wird.  Ein neues Skript wird über das "leere Blatt"-Icon links davon angelegt. Ein Fenster öffnet sich und fragt den Namen und Speicherort in der Ordnerstruktur ab. 
+Bei der Installation wird ein weiterer Reiter _Scripte_ in der _Admin_-Oberfläche gezeigt. Hier wird ein neuer Ordner angelegt, indem auf das (+) in der Symbolleiste (roter Kreis) geklickt wird.  Ein neues Skript wird über das "leere Blatt"-Icon links davon angelegt. Ein Fenster öffnet sich und fragt den Namen und Speicherort in der Ordnerstruktur ab. 
 ![Javascript Adapter](img/javascript_Javascript-Adapter.png)
 
 
@@ -38,7 +38,7 @@ Hat man vorher einen Namen vergeben, wird dieser hier angezeigt und kann geände
 
 #### Speicherort
 
-In diesem Dropdown werden alle angelegten Ordner angezeigt. Zur Zeit sind sie in der chronologischen Folge ihrer Erstellung sortiert.
+In diesem Dropdown werden alle angelegten Ordner angezeigt. Zurzeit sind sie in der chronologischen Folge ihrer Erstellung sortiert.
 
 #### Enginetyp
 
@@ -59,7 +59,7 @@ Um Skripte im Zweifel wiederherstellen zu können, sei die Sicherung per _Copy &
 ### Test-Instanz
 
 Es hat sich bewährt, zum Testen von neuen Skripten, eine weitere Javascript-Instanz anzulegen und das Skript in dieser Instanz zu starten. 
-Hinter dem Skriptnamen lässt sich per Dropdown die gewünschtes Instanz einstellen. 
+Hinter dem Skriptnamen lässt sich per Dropdown die gewünschte Instanz einstellen. 
 Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätzliche Testinstanz, nicht die Produktivinstanz. 
 
 ![Instanz Javascript Adapter wählen](img/screen.jpg)
@@ -69,28 +69,25 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.7.0 (2022-05-08)
-* (Apollon77) Allow sending of messages to scripts also from adapters and CLI by sending "toScript" message (see [onMessage Documentation](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md#onmessage))
-* (Apollon77) Lists returned by $-selector are now unified and do not contain double entries 
-* (Apollon77) Fix subscribe multiple object ID lists in blockly
+### 6.0.3 (2022-09-14)
+* (AlCalzone) Downgrade Typescript to prevent errors with global typescript scripts
 
-### 5.6.1 (2022-05-03)
-* (Apollon77) Allow to subscribe multiple object ID lists in blockly
-* (Apollon77) Make sure lists returned by $-selector do not contain duplicates
+### 6.0.1 (2022-08-19)
+* (bluefox) Fixed the wizard schedule
+* (bluefox) Done small fixes on GUI
 
-### 5.6.0 (2022-04-24)
-* (Apollon77) Make state properties c(omment) and user available to scripts too
-* (Apollon77) make sure values of new or changed alias objects are initialized properly
-* (winnyschuster) Enhance scheduler logic and astro events offered by wizard
-* (Apollon77) Respect expected value changes when determining if a value is changed
-* (Apollon77) Fix remembering intermediate state values when state values are subscribed
-* (Apollon77) fix setState logic when states are not subscribed
+### 6.0.0 (2022-07-18)
+* (bluefox) Removed support of coffeescript
+* (bluefox) All coffee-scripts will be compiled to javascript permanently
 
-### 5.5.4 (2022-04-03)
-* (bluefox) Tried to solve problem with the font
+### 5.8.10 (2022-07-15)
+* (klein0r) Added variable timeout block
+* (klein0r) Added `getInterval` and `getTimeout` blocks
+* (klein0r) Added `sendTo` for scripts and message trigger blocks
+* (bluefox) Corrected the syntax highlighting
 
-### 5.5.3 (2022-03-25)
-* (bluefox) Fixed getObjectAsync function if object does not exist
+### 5.8.8 (2022-07-13)
+* (bluefox) Corrected error by start of GUI
 
 ## License
 The MIT License (MIT)

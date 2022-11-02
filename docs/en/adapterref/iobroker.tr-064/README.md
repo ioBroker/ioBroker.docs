@@ -95,6 +95,10 @@ iobroker upload tr-064
 ```
 
 ## Changelog
+### 4.2.17 (2022-09-16)
+* (simatec/Apollon77) Prevent duplication of entries in configuration
+* (Apollon77) Make sure active status of devices in jsonDeviceList is correct
+
 ### 4.2.16 (2022-03-21)
 * (Apollon77) Fix info logs on callee/caller
 * (Apollon77) Add special handling for potential broken external image links in phonebook

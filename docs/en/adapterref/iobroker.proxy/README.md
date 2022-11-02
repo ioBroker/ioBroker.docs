@@ -37,13 +37,19 @@ You can read more about context [here](https://www.npmjs.com/package/http-proxy-
 Additionally the user can define the route path for proxy requests.
 
 ## Changelog
+### 1.3.2 (2022-10-01)
+* (Apollon77) Allow to also proxy files directly
 
-### __WORK IN PROGRESS__
+### 1.3.1 (2022-06-02)
+* (Apollon77) Revert the automatic WS upgrade call added in 1.3.0 because produced sometimes issues with websocket connections
+
+### 1.3.0 (2022-05-30)
+* (Apollon77) Allow to configure the maximum parallel requests by route and/or globally. Default is 10 as of now too
 * (Apollon77) Try to prevent crashes by socket errors
 
 ### 1.2.2 (2021-03-07)
 * (Apollon77) Fallback to "application/octet-stream" when mime type for a file could not be determined
-* (Apollon77) Cut filenames when looking them up in the filesystem if "?" or "#" are included 
+* (Apollon77) Cut filenames when looking them up in the filesystem if "?" or "#" are included
 
 ### 1.2.1 (2020-04-14)
 * (bluefox) Corrected error with access to local files
@@ -76,7 +82,7 @@ Additionally the user can define the route path for proxy requests.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

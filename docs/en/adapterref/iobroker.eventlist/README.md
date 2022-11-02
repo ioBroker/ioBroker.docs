@@ -73,7 +73,7 @@ sendTo('eventlist.0', 'insert', 'My custom text');
 // or
 setState('eventlist.0.insert', 'My custom text');
 // or
-setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
+setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
 User can request formatted JSON list for specific ID. Of course the ID must be enabled in the `eventlist` before.
@@ -137,10 +137,22 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.1 (2022-10-12)
+* (bluefox) Fixed icons of devices
+* (bluefox) Migrated GUI to `mui5`
+* (bluefox) Allowed the editing of list name
+* (Hirsch-DE) corrected events without unit
+
+### 1.0.1 (2022-06-22)
+* (bluefox) Added preparations for ioBroker cloud
+
+### 1.0.0 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
 * (Apollon77) Add Sentry also for the Node.js part

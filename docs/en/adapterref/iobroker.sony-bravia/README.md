@@ -25,6 +25,9 @@ This is an ioBroker adapter for your Sony Bravia Smart-TV with Android OS. Teste
 * On the TV go to Settings > Network > Home network setup > Remote device/Renderer > Simple IP Control > On
 
 ## Changelog
+### 1.0.9 (2022-06-27)
+* (Apollon77) Fix crash case on send introduced with last version
+
 ### 1.0.8 (2022-04-25)
 * (Apollon77) Fix crash cases reported by sentry
 

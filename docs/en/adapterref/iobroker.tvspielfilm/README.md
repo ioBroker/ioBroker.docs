@@ -2,10 +2,7 @@
 BADGE-Number of Installations: http://iobroker.live/badges/tvspielfilm-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tvspielfilm.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json
 BADGE-NPM: https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg
-BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tvspielfilm?branch=master&svg=true
 ---
 # :uk: Documentation
 ## Description
@@ -189,7 +186,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 pix
+Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

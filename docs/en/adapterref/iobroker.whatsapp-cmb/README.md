@@ -21,7 +21,7 @@ Big thanks to free [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-
 
 You need to get the API key form the bot before using the API:
 
-- Add the phone number **+34 644 44 21 48** into your Phone Contacts. (Name it it as you wish.)
+- Add the phone number XXXX (get the current one from the CallMeBot page) into your Phone Contacts. (Name it it as you wish.)
 - Send this message `I allow callmebot to send me messages` (in english) to the new contact created (using WhatsApp of course).
 - Wait until you receive the message `API Activated for your phone number. Your APIKEY is 123123` from the bot. As this is still in beta testing, the activation can take up to 2 minutes.
 - The WhatsApp message from the bot will contain the API key needed to send messages using the API.
@@ -50,6 +50,9 @@ Inf you want to send emojies please refer to https://www.callmebot.com/uncategor
 	### __WORK IN PROGRESS__
 -->
 ## Changelog
+### 0.2.3 (2022-08-29)
+* (Apollon77) Refer to website for current phone number
+
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 

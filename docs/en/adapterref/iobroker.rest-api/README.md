@@ -24,6 +24,7 @@ Some request examples:
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - read state as JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - read state as string (only value)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - write state with GET (only for back compatibility with simple-api)
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - send message to javascript.0 in script `scriptName`
 
 ## Subscribe on state or object changes
 Your application could get notifications by every change of the state or object.
@@ -108,13 +109,13 @@ You cannot send POST request to commands via GUI.
 - `checkFeatureSupported(feature)` - check if feature is supported by js-controller.
 - `decrypt(encryptedText)` - decrypt string with system secret
 - `encrypt(plainText)` - encrypt string with system secret
-- `getAdapterInstances(adapterName)` - get objects of type "instance". You can define optionally adapterName
 - `getAdapters(adapterName)` - get objects of type "adapter". You can define optionally adapterName
 - `updateLicenses(login, password)` - read licenses from ioBroker.net portal
 - `getCompactInstances()` - read list of instances with short information
 - `getCompactAdapters()` - read list of installed adapters with short information
 - `getCompactInstalled(host)` - read short information about installed adapters
 - `getCompactSystemConfig()` - read short system config
+- `getCompactSystemRepositories()`
 - `getCompactRepository(host)` - read short repository
 - `getCompactHosts()` - get short information about hosts
 - `addUser(user, pass)` - add new user
@@ -137,14 +138,41 @@ You cannot send POST request to commands via GUI.
 - `getUserPermissions()` - read object with user permissions
 - `getVersion()` - read adapter name and version
 - `getAdapterName()` - read adapter name (always rest-api)
+- `getAdapterInstances(adapterName)` - get objects of type "instance". You can define optionally adapterName
 
 <!-- END -->
+
+## Todo
+- [ ] Implement GET,PATCH,POST,DELETE file operations
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.4 (2022-08-31)
+* (bluefox) Check if the port is occupied only on defined interface
+
+### 1.0.2 (2022-07-27)
+* (bluefox) Implemented binary read/write operations
+
+### 1.0.1 (2022-07-27)
+* (bluefox) Increased the max size of body to 100Mb
+
+### 1.0.0 (2022-05-19)
+* (bluefox) Final release
+
+### 0.6.0 (2022-05-18)
+* (bluefox) Added sendTo path
+
+### 0.5.0 (2022-05-17)
+* (bluefox) Some access errors were corrected
+
 ### 0.4.0 (2022-04-26)
 * (bluefox) Added socket commands
 

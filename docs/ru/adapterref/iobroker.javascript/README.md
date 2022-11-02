@@ -54,6 +54,8 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
         - [Очистка расписания](#clear-schedule)
         - [CRON диалог](#cron-dialog)
         - [CRON правило](#cron-rule)
+        - [Событие при обновлении файла](#событие-при-обновлении-файла)
+        - [Отменить событие при обновлении файла](#отменить-событие-при-обновлении-файла)
     - [Таймауты](#timeouts)
         - [Задержка выполнения](#delayed-execution)
         - [Очистить отложенное выполнение](#clear-delayed-execution)
@@ -1736,8 +1738,52 @@ sendTo("sql.0", "getHistory", {
 
 Этот блок может использоваться (как и [CRON диалог](#cron-dialog)) только с [Именованное расписание](#named-schedule).
 
-## Таймауты
+### Событие при обновлении файла
+![onFile](img/trigger_onFile_ru.png)
 
+Вы можете подписаться на обновления файлов и выполнить какое-либо действие. Например, здесь содержимое vis будет распечатываться при каждом обновлении проекта:
+```
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="@-v}))=J7?dr9n$tR,=j">data</variable>
+  </variables>
+  <block type="onFile" id="4`C)*,R0DVN@nRaM@/[N" x="188" y="37">
+    <field name="WITH_FILE">TRUE</field>
+    <value name="OID">
+      <shadow type="field_oid_meta" id="K^Qc~2T8{V+K017=]c^d">
+        <field name="oid">vis.0</field>
+      </shadow>
+    </value>
+    <value name="FILE">
+      <shadow type="text" id="A7UXrl-.!o]Oi9g[eBxr">
+        <field name="TEXT">main/*</field>
+      </shadow>
+    </value>
+    <statement name="STATEMENT">
+      <block type="debug" id="fl3BZ)}mE7qw[`W*ZUx}">
+        <field name="Severity">log</field>
+        <value name="TEXT">
+          <shadow type="text" id="se+gg@!ryr*!AO~Bx3uX">
+            <field name="TEXT">test</field>
+          </shadow>
+          <block type="variables_get" id="E{)LJvx~EH~shD%3!);w">
+            <field name="VAR" id="@-v}))=J7?dr9n$tR,=j">data</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
+```
+**Важно**: эта функция доступна только с js-controller@4.1.x или новее.
+
+### Отменить событие при обновлении файла
+![onFile](img/trigger_offFile_ru.png)
+С помощью этого блока вы можете отписаться от событий при обновлении файла.
+
+**Важно**: эта функция доступна только с js-controller@4.1.x или новее.
+
+## Таймауты
 ### Задержка выполнения
 ![Delayed execution](img/timeouts_timeout_en.png)
 
@@ -2640,28 +2686,25 @@ return 'your result';
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.7.0 (2022-05-08)
-* (Apollon77) Allow sending of messages to scripts also from adapters and CLI by sending "toScript" message (see [onMessage Documentation](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md#onmessage))
-* (Apollon77) Lists returned by $-selector are now unified and do not contain double entries 
-* (Apollon77) Fix subscribe multiple object ID lists in blockly
+### 6.0.3 (2022-09-14)
+* (AlCalzone) Downgrade Typescript to prevent errors with global typescript scripts
 
-### 5.6.1 (2022-05-03)
-* (Apollon77) Allow to subscribe multiple object ID lists in blockly
-* (Apollon77) Make sure lists returned by $-selector do not contain duplicates
+### 6.0.1 (2022-08-19)
+* (bluefox) Fixed the wizard schedule
+* (bluefox) Done small fixes on GUI
 
-### 5.6.0 (2022-04-24)
-* (Apollon77) Make state properties c(omment) and user available to scripts too
-* (Apollon77) make sure values of new or changed alias objects are initialized properly
-* (winnyschuster) Enhance scheduler logic and astro events offered by wizard
-* (Apollon77) Respect expected value changes when determining if a value is changed
-* (Apollon77) Fix remembering intermediate state values when state values are subscribed
-* (Apollon77) fix setState logic when states are not subscribed
+### 6.0.0 (2022-07-18)
+* (bluefox) Removed support of coffeescript
+* (bluefox) All coffee-scripts will be compiled to javascript permanently
 
-### 5.5.4 (2022-04-03)
-* (bluefox) Tried to solve problem with the font
+### 5.8.10 (2022-07-15)
+* (klein0r) Added variable timeout block
+* (klein0r) Added `getInterval` and `getTimeout` blocks
+* (klein0r) Added `sendTo` for scripts and message trigger blocks
+* (bluefox) Corrected the syntax highlighting
 
-### 5.5.3 (2022-03-25)
-* (bluefox) Fixed getObjectAsync function if object does not exist
+### 5.8.8 (2022-07-13)
+* (bluefox) Corrected error by start of GUI
 
 ## License
 The MIT License (MIT)

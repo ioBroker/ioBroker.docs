@@ -2,12 +2,9 @@
 BADGE-Number of Installations: http://iobroker.live/badges/feiertage-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.feiertage.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.feiertage.svg
-BADGE-Tests: https://travis-ci.org/Pix---/ioBroker.feiertage.svg?branch=master
-BADGE-Open Issues: http://githubbadges.herokuapp.com/Pix---/ioBroker.feiertage/issues.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.feiertage/badge.svg?targetFile=package.json
 BADGE-NPM: https://nodei.co/npm/iobroker.feiertage.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.feiertage/master.svg
-BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.feiertage?branch=master&svg=true
+BADGE-Travis-CI: http://img.shields.io/travis/iobroker-community-adapters/ioBroker.feiertage/master.svg
+BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.feiertage?branch=master&svg=true
 ---
 ![Logo](../../admin/feiertage.png)
 # ioBroker.feiertage

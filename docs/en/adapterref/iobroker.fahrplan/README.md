@@ -223,9 +223,12 @@ With +-Button new entries can be added to the table.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.2.2 (2022-08-04)
+* (Gaudes) Upgrade dependency
 
-### __WORK IN PROGRESS__
+### 1.2.1 (2022-08-04)
 * (Gaudes) Fix channel description for timetables (Git #176)
+* (Gaudes) Fix smaller bugs (Sentry)
 * (Gaudes) Include Dependabot updates
 
 ### 1.2.0 (2021-09-19)
@@ -243,17 +246,6 @@ With +-Button new entries can be added to the table.
 ### 1.1.0 (2021-06-04)
 * (Gaudes) Time offset for routes and departure tables (Git #88)
 * (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.7 (2021-04-06)
-* (Gaudes) Update HAFAS client to 5.15.2 (Fix error 'invalid json response body' with OEBB profile)
-* (Gaudes) Configurable colors for delays and on time
-* (Gaudes) Prepare for WebLate translations
-* (Gaudes) Include Dependabot updates
-
-### 1.0.6 (2021-03-16)
-* (Gaudes) Fix route selection in delay config
-* (Gaudes) Fix SBB product suburban-train (Sentry #21)
 * (Gaudes) Include Dependabot updates
 
 ## License

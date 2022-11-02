@@ -80,8 +80,25 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.1 (2022-08-23)
+* (bluefox) Added preparations for vis2.0
+
+### 1.1.0 (2022-07-05)
+* (bluefox) Made it work with ioBroker cloud
+* (bluefox) GUI migrated to mui5
+
+### 1.0.10 (2022-06-20)
+* (bluefox) Corrected the problem with `socket.io`
+
+### 1.0.9 (2022-06-17)
+* (bluefox) Added 2 weeks as relative period
+
+### 1.0.8 (2022-06-01)
+* (bluefox) Added option `shift+mouse move` to scale Y axis
+
+### 1.0.7 (2022-05-13)
 * (bluefox) Added background to export image
+* (bluefox) Added integral and percentile aggregate methods
 
 ### 1.0.5 (2022-02-16)
 * (bluefox) Added "i" in tooltips by interpolated values

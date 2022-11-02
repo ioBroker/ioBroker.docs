@@ -30,9 +30,13 @@ smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Changelog
 
+### 0.0.3
+
+- (TA2k) add relogin information
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

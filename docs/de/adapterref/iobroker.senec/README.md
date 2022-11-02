@@ -582,6 +582,18 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
+### 1.3.9 (Nobl)
+* Added (some) Wallbox Datapoints to high-prio polling
+* Added more state definitions
+
+### 1.3.8 (NoBl)
+* Removed (unnecessary) admin tab
+
+### 1.3.7 (NoBl, noffycws, git-ZeR0)
+* Updates to state translations (new values when SENEC turned off appliances)
+* Added state definitions
+* Added high priority datapoints: temperatures, voltages, ... to better monitor safety relevant data
+
 ### 1.3.6 (NoBl)
 * Fixed log.warning error
 

@@ -123,10 +123,12 @@ This factor is used to multiply the read value from Bus for static scaling. So t
 This offset is added to the read value after above multiplication. So the calculation looks like following val = x * Factor + Offset
 
 ### Formula
-This field can be used for advanced calculations if Factor and Offset is not sufficient. If this field is set, then the Factor and Offset field is ignored.
+This field can be used for advanced calculations if Factor and Offset is not sufficient. **If this field is set, then the Factor and Offset field is ignored.**
 The Formula is executed by the eval() function. Therefore, all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about upper and lower cases.
 
 In the formula, "x" has to be used for the read value from Modbus. E.g. `x * Math.pow(10, sf['40065'])`
+
+Using the "sf" array (see above example) you can access other read modbus values if they are flagged as "Scale Factor" in the config (see below infos on "SF" flag).
 
 If the formula cannot be evaluated during runtime, then the Adapter writes a warning message to the log.
 
@@ -276,6 +278,19 @@ There are some programs in folder *test' to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 5.0.8 (2022-09-27)
+* (bluefox) GUI packages updated
+
+### 5.0.5 (2022-08-13)
+* (Apollon77) Prevent some crash cases reported by Sentry
+
+### 5.0.4 (2022-06-15)v
+* (bluefox) Corrected the coils reading in slave mode
+* (bluefox) Corrected type of connection indicator
+
+### 5.0.3 (2022-05-13)
+* (bluefox) Fixed error with mutli-devices
+
 ### 5.0.0 (2022-05-11)
 * BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
 * (Apollon77) Catch error reported by sentry when invalid Master port is entered
