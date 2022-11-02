@@ -594,7 +594,7 @@ function buildAdapterContent(adapter, noDownload) {
                 }};
 
                 let promises = Object.keys(repo)
-                    .filter(a => a !== 'js-controller' && (!adapter || a === adapter))
+                    .filter(a => a !== 'js-controller' && (!adapter || a === adapter) && a !== '_repoInfo')
                     .map(adapter =>
                         processAdapter(adapter, repo[adapter], content));
 
@@ -615,8 +615,13 @@ function buildAdapterContent(adapter, noDownload) {
                                 });
                             });
 
-                            fs.writeFileSync(consts.FRONT_END_DIR + 'adapters.json', JSON.stringify(content, null, 2));
-                            resolve(content);
+                            // sort by name
+                            const names = Object.keys(content.pages).sort();
+                            const sorted = {pages: {}};
+                            names.forEach(name => sorted.pages[name] = content.pages[name]);
+
+                            fs.writeFileSync(consts.FRONT_END_DIR + 'adapters.json', JSON.stringify(sorted, null, 2));
+                            resolve(sorted);
                         });
                     });
 

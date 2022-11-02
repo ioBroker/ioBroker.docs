@@ -20,11 +20,11 @@ import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Tooltip from '@material-ui/core/Tooltip';
 import Snackbar from '@material-ui/core/Snackbar';
 
-import {MdClose as IconClose, MdExpandMore as IconExpandMore} from 'react-icons/md';
-import {MdReorder as IconList} from 'react-icons/md';
-import {MdViewModule as IconCards} from 'react-icons/md';
-import {MdUnfoldMore as IconExpandAll} from 'react-icons/md';
-import {MdUnfoldLess as IconCollapseAll} from 'react-icons/md';
+import { MdClose as IconClose, MdExpandMore as IconExpandMore } from 'react-icons/md';
+import { MdReorder as IconList } from 'react-icons/md';
+import { MdViewModule as IconCards } from 'react-icons/md';
+import { MdUnfoldMore as IconExpandAll } from 'react-icons/md';
+import { MdUnfoldLess as IconCollapseAll } from 'react-icons/md';
 
 import Loader from '../Components/Loader';
 import I18n from '../i18n';
@@ -371,7 +371,7 @@ class Adapters extends Component {
     }
 
     renderAdapterStatistics() {
-            return this.state.stats ? (<AdapterStatistics
+            return this.state.stats ? <AdapterStatistics
                 key="statistics"
                 onClose={() => this.setState({stats: ''})}
                 mobile={this.props.mobile}
@@ -380,12 +380,12 @@ class Adapters extends Component {
                 language={this.props.language}
                 adapter={this.state.stats}
                 statistics={this.state.statistics}
-            />) : null;
+            /> : null;
     }
 
     renderAdapterMain(adapter, obj) {
         return [
-            (<CardActionArea key="main" onClick={() => this.onNavigate(obj.content)}>
+            <CardActionArea key="main" onClick={() => this.onNavigate(obj.content)}>
                 <div
                     className={this.props.classes.cardMedia}
                     style={{backgroundImage: 'url(' + this.props.language + '/' + obj.icon + ')'}}
@@ -398,19 +398,19 @@ class Adapters extends Component {
                     </p>
                     <p>{obj.description ? obj.description[this.props.language] || obj.description.en : ''}</p>
                     <div className={this.props.classes.cardInfo}>
-                        {obj.authors ? (<div><span className={this.props.classes.cardName}>{this.words.authors}</span><span className={this.props.classes.cardValue}>{obj.authors.map(item => item.name).join(', ')}</span></div>) : null}
-                        {obj.version ? (<div><span className={this.props.classes.cardName}>{this.words.stable}</span><span className={this.props.classes.cardValue}>{obj.version}</span></div>) : null}
-                        {this.state.statistics.adapters[adapter] ? (<div><span className={this.props.classes.cardName}>{this.words.installs}</span><span className={this.props.classes.cardValue}>{this.state.statistics.adapters[adapter]}</span></div>) : null}
-                        {obj.stars > 0 ? (<div><span className={this.props.classes.cardName}>{this.words.githubStars}</span><span className={this.props.classes.cardValue} title={'Score: ' + (Math.floor(obj.score * 10) / 10)}>{obj.stars}</span></div>) : null}
-                        {obj.weekDownloads ? (<div><span className={this.props.classes.cardName}>{this.words.weekDownloads}</span><span className={this.props.classes.cardValue}>{obj.weekDownloads}</span></div>) : null}
+                        {obj.authors ? <div><span className={this.props.classes.cardName}>{this.words.authors}</span><span className={this.props.classes.cardValue}>{obj.authors.map(item => item.name).join(', ')}</span></div> : null}
+                        {obj.version ? <div><span className={this.props.classes.cardName}>{this.words.stable}</span><span className={this.props.classes.cardValue}>{obj.version}</span></div> : null}
+                        {this.state.statistics.adapters[adapter] ? <div><span className={this.props.classes.cardName}>{this.words.installs}</span><span className={this.props.classes.cardValue}>{this.state.statistics.adapters[adapter]}</span></div> : null}
+                        {obj.stars > 0 ? <div><span className={this.props.classes.cardName}>{this.words.githubStars}</span><span className={this.props.classes.cardValue} title={'Score: ' + (Math.floor(obj.score * 10) / 10)}>{obj.stars}</span></div> : null}
+                        {obj.weekDownloads ? <div><span className={this.props.classes.cardName}>{this.words.weekDownloads}</span><span className={this.props.classes.cardValue}>{obj.weekDownloads}</span></div> : null}
                     </div>
                 </CardContent>
-            </CardActionArea>),
-            (<CardActions key="actions">
+            </CardActionArea>,
+            <CardActions key="actions">
                 <Button size="small" color="primary" onClick={() => this.onNavigate(obj.content)}>{this.words.read}</Button>
                 <Button size="small" color="primary" onClick={() => Utils.openLink(obj.github)}>{this.words.github}</Button>
                 <Button size="small" color="primary" onClick={() => this.setState({stats: adapter})}>{this.words.stats}</Button>
-            </CardActions>)];
+            </CardActions>];
     }
 
     renderAdapterCard(type, adapter, obj) {
@@ -426,9 +426,9 @@ class Adapters extends Component {
         this.words.githubScore = this.words.githubScore || I18n.t('Github score:');
         this.words.weekDownloads = this.words.weekDownloads || I18n.t('Week downloads') + ':';
 
-        return (<Card key={adapter} className={this.props.classes.card} style={{width: this.cardWidth}}>
+        return <Card key={adapter} className={this.props.classes.card} style={{ width: this.cardWidth }}>
             {this.renderAdapterMain(adapter, obj)}
-        </Card>);
+        </Card>;
     }
 
     getWidthOfCard() {
@@ -452,7 +452,7 @@ class Adapters extends Component {
 
     onExpandAll() {
         const expanded = Object.keys(this.state.content.pages);
-        this.setState({expanded});
+        this.setState({ expanded });
         this.saveExpanded(expanded);
     }
 
@@ -463,9 +463,9 @@ class Adapters extends Component {
 
     onExpand(id, e) {
         e && e.stopPropagation();
-        if (this.state.expanded.indexOf(id) === -1) {
+        if (!this.state.expanded.includes(id)) {
             const expanded = this.state.expanded.concat([id]);
-            this.setState({expanded});
+            this.setState({ expanded });
             this.saveExpanded(expanded);
         }
     }
@@ -476,15 +476,14 @@ class Adapters extends Component {
         if (pos !== -1) {
             const expanded = this.state.expanded.concat([]);
             expanded.splice(pos, 1);
-            this.setState({expanded});
+            this.setState({ expanded });
             this.saveExpanded(expanded);
         }
     }
 
     onToggle(id, e) {
         e && e.stopPropagation();
-        const pos = this.state.expanded.indexOf(id);
-        if (pos === -1) {
+        if (!this.state.expanded.includes(id)) {
             this.onExpand(id, e);
         } else {
             this.onCollapse(id, e);
@@ -496,15 +495,15 @@ class Adapters extends Component {
         this.filterTimeout && clearTimeout(this.filterTimeout);
         this.filterTimeout = setTimeout(() => {
             this.filterTimeout = null;
-            this.setState({filter: this.filter});
+            this.setState({ filter: this.filter });
             window.localStorage && window.localStorage.setItem('Docs.afilter', this.filter);
         }, immediate ? 0 : 300);
     }
 
     renderHeader() {
-        return (<div className={this.props.classes.pageHeader} key="header">
+        return <div className={this.props.classes.pageHeader} key="header">
             <span className={this.props.classes.pageTitle}>{this.props.mobile ? I18n.t('Adapters') : I18n.t('List of adapters')}</span>
-            {!this.props.mobile ? (<IconButton
+            {!this.props.mobile ? <IconButton
                 className={this.props.classes.headerButtonMode}
                 title={this.state.tableView ? I18n.t('Switch to tile view') : I18n.t('Switch to table view')}
                 onClick={() => {
@@ -513,7 +512,7 @@ class Adapters extends Component {
                 }}
             >{
                 this.state.tableView ? (<IconCards fontSize="small"/>) : (<IconList fontSize="small"/>)
-            }</IconButton>) : null}
+            }</IconButton> : null}
             <div className={this.props.classes.cardFilterDiv}>
                 <Input placeholder={I18n.t('Filter')}
                    inputRef={this.myFilterRef}
@@ -521,22 +520,22 @@ class Adapters extends Component {
                    onChange={e => this.onFilter(e.target.value)}
             />{
                 this.state.filter ?
-                    (<IconButton className={this.props.classes.filterCloseButton} onClick={() => this.onFilter('', true)}><IconClose  fontSize="small"/></IconButton>) :
+                    <IconButton className={this.props.classes.filterCloseButton} onClick={() => this.onFilter('', true)}><IconClose  fontSize="small"/></IconButton> :
                     null
             }
             </div>
             <div className={this.props.classes.headerGapButtons}/>
             <div className={this.props.classes.headerDivButtons}>
-                {this.props.mobile || !this.state.tableView ? (<IconButton key="expandAll" className={this.props.classes.headerButtons} title={I18n.t('Expand all')} onClick={() => this.onExpandAll()}><IconExpandAll fontSize="small"/></IconButton>) : null}
-                {(this.props.mobile || !this.state.tableView) && this.state.expanded.length ? (<IconButton key="collapseAll" className={this.props.classes.headerButtons} title={I18n.t('Collapse all')} onClick={() => this.onCollapseAll()}><IconCollapseAll fontSize="small"/></IconButton>) : null}
+                {this.props.mobile || !this.state.tableView ? <IconButton key="expandAll" className={this.props.classes.headerButtons} title={I18n.t('Expand all')} onClick={() => this.onExpandAll()}><IconExpandAll fontSize="small"/></IconButton> : null}
+                {(this.props.mobile || !this.state.tableView) && this.state.expanded.length ? <IconButton key="collapseAll" className={this.props.classes.headerButtons} title={I18n.t('Collapse all')} onClick={() => this.onCollapseAll()}><IconCollapseAll fontSize="small"/></IconButton> : null}
             </div>
 
-            {this.props.mobile || !this.state.tableView ? (<Button className={this.props.classes.pageTitleNew} color={this.state.showNew ? 'secondary' : ''} onClick={() => {
+            {this.props.mobile || !this.state.tableView ? <Button className={this.props.classes.pageTitleNew} color={this.state.showNew ? 'secondary' : ''} onClick={() => {
                 this.setState({showNew: !this.state.showNew});
                 window.localStorage && window.localStorage.setItem('Docs.anew', this.state.showNew ? 'false' : 'true');
-            }}>{(this.props.mobile ? I18n.t('New:') : I18n.t('New in last month:')) + ' ' + this.state.newMonth}</Button>) : null}
-            <span className={this.props.classes.pageTitleTotal}>{I18n.t('Total:') + ' ' + this.state.total}{this.props.mobile || this.state.tableView ? '' : ', '}</span>
-        </div>);
+            }}>{`${this.props.mobile ? I18n.t('New:') : I18n.t('New in last month:')} ${this.state.newMonth}`}</Button> : null}
+            <span className={this.props.classes.pageTitleTotal}>{`${I18n.t('Total:')} ${this.state.total}`}{this.props.mobile || this.state.tableView ? '' : ', '}</span>
+        </div>;
     }
 
     isAdapterVisible(obj, adapter, filter) {
@@ -566,7 +565,9 @@ class Adapters extends Component {
 
     renderType(type, i) {
         const items = this.state.content.pages[type];
-        if (!items || !items.pages) return;
+        if (!items || !items.pages) {
+            return;
+        }
 
         const isExpanded = this.state.expanded.indexOf(type) !== -1;
 
@@ -577,7 +578,7 @@ class Adapters extends Component {
         }
         const filter = this.state.filter.toLowerCase();
 
-        return (<Accordion key={type} expanded={isExpanded} onChange={e => this.onToggle(type, e)}>
+        return <Accordion key={type} expanded={isExpanded} onChange={e => this.onToggle(type, e)}>
             <AccordionSummary
                 expandIcon={<IconExpandMore />}
                 style={{width: 'calc(100% - 48px)'}} //workaround because of the bug. On mobile devices the first element is broken
@@ -588,7 +589,7 @@ class Adapters extends Component {
             <AccordionActions classes={{root: this.props.classes.details}} style={this.props.mobile ? {textAlign: 'center'} :  {}}>
                 {isExpanded && Object.keys(items.pages).map(adapter => this.isAdapterVisible(items.pages[adapter], adapter, filter) && this.renderAdapterCard(type, adapter, items.pages[adapter]))}
             </AccordionActions>
-        </Accordion>);
+        </Accordion>;
     }
 
     formatDate(date) {
@@ -596,36 +597,36 @@ class Adapters extends Component {
         if (date.getFullYear().toString() === 'NaN') {
             return '';
         }
-        return date.getFullYear() + '.' + Utils.padding(date.getMonth() + 1) + '.' + Utils.padding(date.getDate());
+        return `${date.getFullYear()}.${Utils.padding(date.getMonth() + 1)}.${Utils.padding(date.getDate())}`;
     }
 
     formatAuthor(author, email) {
         if (email) {
-            return (<span key={email} className={this.props.classes.tableEmail} title={I18n.t('Click to copy %s', email)} onClick={e => {
+            return <span key={email} className={this.props.classes.tableEmail} title={I18n.t('Click to copy %s', email)} onClick={e => {
                 Utils.onCopy(e, email);
                 this.setState({tooltip: I18n.t('Copied')});
-            }}>{author}</span>);
+            }}>{author}</span>;
         } else {
-            return (<span key={author} className={this.props.classes.tableAuthor}>{author}</span>);
+            return <span key={author} className={this.props.classes.tableAuthor}>{author}</span>;
         }
     }
 
     renderVersion(obj) {
         if (obj.version !== obj.latestVersion) {
             return [
-                (<div key="stable" className={this.props.classes.versionTitle}>stable</div>),
+                <div key="stable" className={this.props.classes.versionTitle}>stable</div>,
                 obj.version,
-                (<br key="br"/>),
-                (<div key="latest" className={this.props.classes.versionTitle}>latest</div>),
+                <br key="br"/>,
+                <div key="latest" className={this.props.classes.versionTitle}>latest</div>,
                 obj.latestVersion
             ];
         } else {
-            return [(<div key="version" className={this.props.classes.versionTitle}>&nbsp;</div>), obj.version];
+            return [<div key="version" className={this.props.classes.versionTitle}>&nbsp;</div>, obj.version];
         }
     }
 
     renderTableLine(name, obj, width) {
-        return (<TableRow className={this.props.classes.tableRow} key={name} onClick={() => {
+        return <TableRow className={this.props.classes.tableRow} key={name} onClick={() => {
             this.onNavigate(`adapterref/iobroker.${name}/README.md`);
         }}>
             <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnIcon} align="left" padding="none">{(<img className={this.props.classes.tableLogo} alt="logo" src={this.props.language + '/' + obj.icon}/>)}</TableCell>
@@ -640,7 +641,7 @@ class Adapters extends Component {
             <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnAuthor} align="right" padding="none">{obj.authors ? obj.authors.map(item => [this.formatAuthor(item.name, item.email), (<br key="br"/>)]) : ''}</TableCell>
             <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnCreated} align="right" padding="none">{this.formatDate(obj.published)}</TableCell>
             <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnVersions} align="right" padding="none">{this.renderVersion(obj)}</TableCell>
-        </TableRow>)
+        </TableRow>;
     }
 
     sortHandler(col) {
@@ -657,8 +658,8 @@ class Adapters extends Component {
     }
 
     renderHeaderCell(className, type, align) {
-        return (<TableCell
-            className={this.props.classes.tableCell + ' ' + className}
+        return <TableCell
+            className={`${this.props.classes.tableCell} ${className}`}
             align={align}
             sortDirection={this.state.orderBy === type ? this.state.order : false}
         >
@@ -673,11 +674,11 @@ class Adapters extends Component {
                     onClick={() => this.sortHandler(type)}
                 >{I18n.t(type)}</TableSortLabel>
             </Tooltip>
-        </TableCell>);
+        </TableCell>;
     }
 
     renderSnackbar() {
-        return (<Snackbar
+        return <Snackbar
             key="snackbar"
             anchorOrigin={{vertical: 'top', horizontal: 'right'}}
             open={!!this.state.tooltip}
@@ -695,7 +696,7 @@ class Adapters extends Component {
                     <IconClose />
                 </IconButton>,
             ]}
-        />);
+        />;
     }
 
     renderTable() {
@@ -763,7 +764,7 @@ class Adapters extends Component {
             }
         }
 
-        return (<div className={this.props.classes.tableRoot} key="table"><Table key="table" padding="none" className={this.props.classes.table}>
+        return <div className={this.props.classes.tableRoot} key="table"><Table key="table" padding="none" className={this.props.classes.table}>
             <TableHead>
                 <TableRow>
                     <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnIcon} align="left">{I18n.t('Icon')}</TableCell>
@@ -783,12 +784,12 @@ class Adapters extends Component {
             <TableBody>
                 {names.map(a => this.renderTableLine(a, this.state.adapters[a], width))}
             </TableBody>
-        </Table></div>)
+        </Table></div>;
     }
 
     render() {
         if (this.state.loadTimeout && !this.state.content) {
-            return (<Loader theme={this.props.theme}/>);
+            return <Loader theme={this.props.theme}/>;
         }
 
         this.cardWidth = this.getWidthOfCard();
@@ -796,9 +797,9 @@ class Adapters extends Component {
         return [
             this.renderHeader(),
             !this.props.mobile && this.state.tableView ? this.renderTable() :
-            (<div key="body" className={this.props.classes.root} ref={this.contentRef}>
+            <div key="body" className={this.props.classes.root} ref={this.contentRef}>
                 {this.state.content && Object.keys(this.state.content.pages).map(type => this.renderType(type))}
-            </div>),
+            </div>,
             this.renderAdapterStatistics(),
             this.renderSnackbar(),
         ];
