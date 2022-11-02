@@ -538,6 +538,12 @@ function downloadRepo() {
                 return axios('http://iobroker.live/repo/sources-dist-latest.json')
                     .then(result => {
                         const latest = result.data;
+                        if (latest._repoInfo) {
+                            delete latest._repoInfo;
+                        }
+                        if (stable._repoInfo) {
+                            delete stable._repoInfo;
+                        }
                         // get stable versions
                         Object.keys(latest).forEach(adapter => {
                             latest[adapter].latestVersion = latest[adapter].version;
@@ -626,7 +632,7 @@ function buildAdapterContent(adapter, noDownload) {
 function copyAdapterToFrontEnd(lang, adapter) {
     return downloadRepo()
         .then(repo => {
-            const dirName = consts.SRC_DOC_DIR + lang + '/adapterref/iobroker.' + adapter;
+            const dirName = `${consts.SRC_DOC_DIR + lang}/adapterref/iobroker.${adapter}`;
             if (fs.existsSync(dirName)) {
                 const files = utils.getAllFiles(dirName, false)
                     .filter(f => !f.match(/affiliate\.json$/));
@@ -635,7 +641,7 @@ function copyAdapterToFrontEnd(lang, adapter) {
                 files.forEach(file => {
                     if (!file.match(/\.md$/i)) {
                         const data = fs.readFileSync(file);
-                        utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}${file.replace(dirName, '')}`, data);
+                        utils.writeSafe(`${consts.FRONT_END_DIR}${lang}/adapterref/iobroker.${adapter}${file.replace(dirName, '')}`, data);
                     }
                 });
 
@@ -676,33 +682,34 @@ function copyAdapterToFrontEnd(lang, adapter) {
                             .replace('raw.githubusercontent.com', 'github.com')
                             .replace('/master/', '/edit/master/')
                             .replace('/main/', '/edit/main/')
-                    }).then(result => {
-                        if (result) {
-                            utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}${result.name}`, result.body);
+                    })
+                        .then(result => {
+                            if (result) {
+                                utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}${result.name}`, result.body);
 
-                            if (!repo[adapter].extIcon) {
-                                console.error(`WARNING adapter ${adapter} has no extIcon!!`);
-                            }
+                                if (!repo[adapter].extIcon) {
+                                    console.error(`WARNING adapter ${adapter} has no extIcon!!`);
+                                }
 
-                            const dst = `${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}/${(repo[adapter].extIcon || '').split('/').pop().split('?')[0]}`;
-                            if (!fs.existsSync(dst)) {
-                                const src = `${consts.FRONT_END_DIR}${result.logo}`;
+                                const dst = `${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}/${(repo[adapter].extIcon || '').split('/').pop().split('?')[0]}`;
+                                if (!fs.existsSync(dst)) {
+                                    const src = `${consts.FRONT_END_DIR}${result.logo}`;
 
-                                // copy logo into main dir
-                                if (fs.existsSync(src) && (src.toLowerCase().endsWith('.png') || src.toLowerCase().endsWith('.svg') || src.toLowerCase().endsWith('.jpg'))) {
-                                    const logo = fs.readFileSync(src);
-                                    utils.writeSafe(dst, logo);
-                                } else {
-                                    return getIcon(repo[adapter].extIcon)
-                                        .then(icon =>
-                                            icon && utils.writeSafe(dst, icon));
+                                    // copy logo into main dir
+                                    if (fs.existsSync(src) && (src.toLowerCase().endsWith('.png') || src.toLowerCase().endsWith('.svg') || src.toLowerCase().endsWith('.jpg'))) {
+                                        const logo = fs.readFileSync(src);
+                                        utils.writeSafe(dst, logo);
+                                    } else {
+                                        return getIcon(repo[adapter].extIcon)
+                                            .then(icon =>
+                                                icon && utils.writeSafe(dst, icon));
+                                    }
                                 }
                             }
-                        }
-                    });
+                        });
                 }));
             } else {
-                console.error('No local files found for ' + adapter + ' in ' + lang);
+                console.error(`No local files found for ${adapter} in ${lang}`);
                 return Promise.resolve();
             }
         })
@@ -711,7 +718,7 @@ function copyAdapterToFrontEnd(lang, adapter) {
 function copyAllAdaptersToFrontEnd() {
     return new Promise(resolve => {
         return Promise.all(consts.LANGUAGES.map(lang => {
-            const dirs = fs.readdirSync(consts.SRC_DOC_DIR + lang + '/adapterref/');
+            const dirs = fs.readdirSync(`${consts.SRC_DOC_DIR + lang}/adapterref/`);
             return Promise.all(dirs.map(adapter =>
                 copyAdapterToFrontEnd(lang, adapter.replace('iobroker.', ''))));
         }))
