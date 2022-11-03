@@ -1,5 +1,5 @@
 ---
-title:       "Installation"
+title:       "js-Controller"
 lastChanged: "13.09.2018"
 ---
 
