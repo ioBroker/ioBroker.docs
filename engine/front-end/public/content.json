@@ -377,22 +377,14 @@
         "ru": "Уроки",
         "zh-cn": "教程文档"
       },
+	  "content": "tutorial/README.md"
       "pages": {
-        "Introduction": {
-          "title": {
-            "en": "Introduction",
-            "de": "Tutorial",
-            "ru": "Руководство",
-            "zh-cn": "教程"
-          },
-          "content": "tutorial/README.md"
-        },
         "First setup": {
           "title": {
-            "en": "First setup",
+            "en": "Erste Einrichtung",
             "de": "Tutorial",
-            "ru": "Руководство",
-            "zh-cn": "教程"
+            "ru": "Первая установка",
+            "zh-cn": "首次设置"
           },
           "content": "tutorial/setup.md"
         },
