@@ -42,8 +42,7 @@
   * [User](admin/users)
   * [Hosts](admin/hosts)
 
-* en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档
-  * [Introduction](tutorial/README)
+* [en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档](tutorial/README.md)
   * [First setup](tutorial/setup)
   * [User interface](tutorial/admin)
   * [Manage adapters](tutorial/adapter)
