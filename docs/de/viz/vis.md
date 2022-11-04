@@ -40,6 +40,7 @@ Nach Schließen des Editors über das Close-Window Icon ( (x) rechts oben) wird 
 in der Funktionsansicht dargestellt. 
 Dieser kann jederzeit aufgerufen werden mit `<IPdesServers>:8082/vis/index.html#ViewName` 
 Der Editor teilt sich in verschiedene Bereiche auf.
+
 ![](media/vis_ioBroker_vis_Editor_002-300x165.jpg)
 
 
