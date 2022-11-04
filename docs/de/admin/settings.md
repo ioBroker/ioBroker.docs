@@ -46,13 +46,19 @@ sind mehrere vorhanden, kann man einen auswählen.
 
 **Expertenmodus**
 
+tbd
+
 **Standardprotokollstufe**
+
+tbd
 
 **Erster Tag der Woche**
 
+tbd
+
 **Lokale Einstellungen**
 
-
+tbd
 
 ## Repositories
 ![](media/ADMIN_Settings_repos.png)
