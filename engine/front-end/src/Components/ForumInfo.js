@@ -3,15 +3,17 @@ import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 
-import {FaUsers as IconForum} from 'react-icons/fa';
-import {FaAddressCard as IconUsers} from 'react-icons/fa';
-import {FaComments as IconPosts} from 'react-icons/fa';
-import {FaComment as IconThemes} from 'react-icons/fa';
+import {
+    FaUsers as IconForum,
+    FaAddressCard as IconUsers,
+    FaComments as IconPosts,
+    FaComment as IconThemes,
+} from 'react-icons/fa';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = theme => ({
+const styles = () => ({
     forumDiv: {
         width: 'calc(100% - 60px)',
         textAlign: 'center',
@@ -46,14 +48,14 @@ const styles = theme => ({
         height: 32,
     },
     forumDivInfoText: {
-        fontSize: 20
+        fontSize: 20,
     },
     forumDivInfoValue: {
-        fontSize: 32
+        fontSize: 32,
     },
     forumDivInfoValueMobile: {
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     forumButton: {
         display: 'inline-block',
@@ -70,7 +72,7 @@ class ForumInfo extends Component {
             users: 18490,
             topics: 23000,
             posts: 250000,
-            date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()
+            date: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
         };
         this.load();
     }
@@ -90,41 +92,47 @@ class ForumInfo extends Component {
     }
 
     load() {
-        Utils.fetchLocal(`data/forum.json`)
+        fetch('data/forum.json')
+            .then(res => res.json())
             .then(stats => {
-                try {
-                    stats = JSON.parse(stats);
-                    stats.date = new Date(stats.date).toLocaleDateString() + ' ' + new Date(stats.date).toLocaleTimeString();
-                    this.setState(stats);
-                } catch (e) {
-                    console.error('cannot parse answer: ' + e);
-                }
-            });
+                stats.date = `${new Date(stats.date).toLocaleDateString()} ${new Date(stats.date).toLocaleTimeString()}`;
+                this.setState(stats);
+            })
+            .catch(e => console.error(`Cannot load forum stats: ${e}`));
     }
 
     render() {
-        return (<div key="forum" className={this.props.classes.forumDiv + ' '  + (this.props.backClass || '')}>
-            <IconForum className={this.props.classes.forumIconMain}/><br/>
-            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span><br/>
+        return (<div key="forum" className={`${this.props.classes.forumDiv} ${this.props.backClass || ''}`}>
+            <IconForum className={this.props.classes.forumIconMain} />
+            <br />
+            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span>
+            <br />
             <div className={this.props.classes.forumDivInfo}>
                 <div className={this.props.classes.forumDivInfoBox}>
                     <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconPosts className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span><br/>
-                        <span className={this.props.classes.forumDivInfoValue + ' ' + (this.props.mobile ? this.props.classes.forumDivInfoValueMobile : '')} >{this.state.posts}</span>
+                        <IconPosts className={this.props.classes.forumDivInfoIcon} />
+                        <br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span>
+                        <br />
+                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.posts}</span>
                     </div>
                     <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconUsers className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span><br/>
-                        <span className={this.props.classes.forumDivInfoValue + ' ' + (this.props.mobile ? this.props.classes.forumDivInfoValueMobile : '')}>{this.state.users}</span>
+                        <IconUsers className={this.props.classes.forumDivInfoIcon} />
+                        <br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span>
+                        <br />
+                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.users}</span>
                     </div>
                     <div className={this.props.classes.forumDivInfoCard} title={this.state.date}>
-                        <IconThemes className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span><br/>
-                        <span className={this.props.classes.forumDivInfoValue + ' ' + (this.props.mobile ? this.props.classes.forumDivInfoValueMobile : '')}>{this.state.topics}</span>
+                        <IconThemes className={this.props.classes.forumDivInfoIcon} />
+                        <br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span>
+                        <br />
+                        <span className={`${this.props.classes.forumDivInfoValue} ${this.props.mobile ? this.props.classes.forumDivInfoValueMobile : ''}`}>{this.state.topics}</span>
                     </div>
                 </div>
-            </div><br/>
+            </div>
+            <br />
             <Button variant="contained" color="secondary" className={this.props.classes.forumButton} onClick={() => this.onGoToForum()}>
                 {I18n.t('Join now')}
             </Button>
@@ -134,7 +142,6 @@ class ForumInfo extends Component {
 
 ForumInfo.propTypes = {
     language: PropTypes.string,
-    theme: PropTypes.string,
     mobile: PropTypes.bool,
     backClass: PropTypes.string,
 };

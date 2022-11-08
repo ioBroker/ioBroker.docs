@@ -20,7 +20,6 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
 
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
@@ -38,7 +37,7 @@ import ImgTShirt from '../assets/t-shirt.png';
 import I18n from '../i18n';
 import Utils from '../Utils';
 
-const styles = theme => ({
+const styles = () => ({
     mainButton: {
         position: 'absolute',
         top: 10,
@@ -48,17 +47,17 @@ const styles = theme => ({
         '&:hover': {
             animation: 'none',
             background: '#ff9d00',
-        }
+        },
     },
     dialog: {
-        textAlign: 'center'
+        textAlign: 'center',
     },
     dialogDesktop: {
         minWidth: 550,
     },
     mainButtonIcon: {
         marginRight: 5,
-        width: 32
+        width: 32,
     },
     card: {
         width: 'calc(50% - 20px)',
@@ -66,7 +65,7 @@ const styles = theme => ({
         margin: 8,
         verticalAlign: 'top',
         textAlign: 'center',
-        minHeight: 312
+        minHeight: 312,
     },
     media: {
         height: 100,
@@ -92,27 +91,23 @@ const AMAZON_LINK = 'https://www.amazon.de/s?k=homematic&tag=httpwwwiobron-21';
 const MUG_LINK = 'https://teespring.com/iobroker';
 const TSHIRT_LINK = 'https://teespring.com/t-shirt-iobroker';
 
-function Transition(props) {
-    return <Slide direction="up" {...props} />;
-}
-
 class SupportUs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            opened: false
+            opened: false,
         };
     }
 
-    onPaypal() {
+    static onPaypal() {
         window.document.getElementById('paypalFormSubmit').click();
     }
 
     renderPaypal() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
         return <Card key="paypal" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
-            <CardActionArea onClick={() => this.onPaypal()}>
+            <CardActionArea onClick={() => SupportUs.onPaypal()}>
                 <CardMedia
                     className={classes.media}
                     image={ImgPayPal}
@@ -123,10 +118,13 @@ class SupportUs extends Component {
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                         <input type="hidden" name="cmd" value="_s-xclick" />
                         <input type="hidden" name="hosted_button_id" value="2EHHSVEKASKGC" />
-                        <input type="image" src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif"
-                               name="submit" title={I18n.t('PayPal - The safer, easier way to pay online!')}
-                               alt={I18n.t('Donate with PayPal button')}
-                               id="paypalFormSubmit"
+                        <input
+                            type="image"
+                            src="https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif"
+                            name="submit"
+                            title={I18n.t('PayPal - The safer, easier way to pay online!')}
+                            alt={I18n.t('Donate with PayPal button')}
+                            id="paypalFormSubmit"
                         />
                         <img alt="" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
                     </form>
@@ -196,13 +194,12 @@ class SupportUs extends Component {
         return <Dialog
             key="dialogSupport"
             open={this.state.opened}
-            TransitionComponent={Transition}
             keepMounted
             fullScreen={this.props.mobile}
             fullWidth
             maxWidth="md"
             className={`${this.props.classes.dialog} ${this.props.mobile ? '' : this.props.classes.dialogDesktop}`}
-            onClose={() => this.setState({opened: false})}
+            onClose={() => this.setState({ opened: false })}
             aria-labelledby="alert-dialog-support-title"
             aria-describedby="alert-dialog-support-description"
         >
@@ -216,7 +213,7 @@ class SupportUs extends Component {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button onClick={() => this.setState({opened: false})} color="primary">{I18n.t('Close')}</Button>
+                <Button onClick={() => this.setState({ opened: false })} color="primary">{I18n.t('Close')}</Button>
             </DialogActions>
         </Dialog>;
     }
@@ -227,10 +224,9 @@ class SupportUs extends Component {
                 key="button"
                 color="grey"
                 className={`${this.props.classes.mainButton} hue-animation`}
-                onClick={() => this.setState({opened: true})}
+                onClick={() => this.setState({ opened: true })}
             >
-                {/*<IconSupport className={this.props.classes.mainButtonIcon}/>*/}
-                <img src={ImgMugSmall} className={this.props.classes.mainButtonIcon} alt="logo"/>
+                <img src={ImgMugSmall} className={this.props.classes.mainButtonIcon} alt="logo" />
                 {I18n.t('Support us!')}
             </Button>,
             this.renderDialog(),
@@ -239,9 +235,7 @@ class SupportUs extends Component {
 }
 
 SupportUs.propTypes = {
-    language: PropTypes.string,
-    theme: PropTypes.string,
-    mobile: PropTypes.bool
+    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(SupportUs);

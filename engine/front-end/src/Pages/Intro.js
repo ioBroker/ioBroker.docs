@@ -9,12 +9,6 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 
 import {
-    FaUsers as IconForum,
-    FaAddressCard as IconUsers,
-    FaComments as IconPosts,
-    FaComment as IconThemes,
-} from 'react-icons/fa';
-import {
     MdCloud as IconCloud,
     MdClose as IconClose,
 } from 'react-icons/md';
@@ -35,7 +29,6 @@ import Screenshots from '../Components/Screenshots';
 import BackImage from '../assets/background.jpg';
 import LinusShell from '../Components/LinusShell';
 import I18n from '../i18n';
-import Utils from '../Utils';
 
 const styles = theme => ({
     content: theme.content,
@@ -43,7 +36,7 @@ const styles = theme => ({
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundImage: 'url(' + BackImage + ')',
+        backgroundImage: `url(${BackImage})`,
         height: 'calc(100vh - 50px)',
         textAlign: 'center',
     },
@@ -63,11 +56,11 @@ const styles = theme => ({
     },
     titleMain: {
         fontSize: 48,
-        fontFamily: 'Audiowide'
+        fontFamily: 'Audiowide',
     },
     titleSecond: {
         fontSize: 32,
-        fontFamily: 'Audiowide'
+        fontFamily: 'Audiowide',
     },
     titleDescription: {
         fontSize: 24,
@@ -84,7 +77,7 @@ const styles = theme => ({
         fontSize: 20,
         opacity: 0.9,
         fontFamily: 'Audiowide, sans-serif',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     cloudButtonSale: {
         marginTop: 100,
@@ -98,7 +91,7 @@ const styles = theme => ({
         fontSize: 20,
         opacity: 0.9,
         fontFamily: 'Audiowide, sans-serif',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     cloudButtonSaleIcon: {
         width: 48,
@@ -119,7 +112,7 @@ const styles = theme => ({
         fontSize: 20,
         opacity: 0.9,
         fontFamily: 'Audiowide, sans-serif',
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     serverButtonImage: {
         width: 50,
@@ -161,7 +154,7 @@ const styles = theme => ({
     saleText: {
         fontSize: 24,
         textAlign: 'center',
-    }
+    },
 });
 
 class Intro extends Component {
@@ -169,55 +162,10 @@ class Intro extends Component {
         super(props);
         this.state = {
             showActionDialog: false,
-        }
+        };
 
         const d = new Date();
         this.action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 9);
-
-        setTimeout(() => this.setState({loading: false}), 500);
-    }
-
-    onGoToForum() {
-        if (this.props.language === 'ru') {
-            Utils.openLink('https://forum.iobroker.net/category/28/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9');
-        } else if (this.props.language === 'zh-cn') {
-            Utils.openLink('https://bbs.iobroker.cn/');
-        } else if (this.props.language === 'de') {
-            Utils.openLink('https://forum.iobroker.net/category/4/deutsch');
-        }  else if (this.props.language === 'nl') {
-            Utils.openLink('https://forum.iobroker.net/category/40/nederlands');
-        } else {
-            Utils.openLink('https://forum.iobroker.net/');
-        }
-    }
-
-    renderForum() {
-        return <div className={this.props.classes.forumDiv}>
-            <IconForum className={this.props.classes.forumIconMain}/><br />
-            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span><br />
-            <div className={this.props.classes.forumDivInfo}>
-                <div className={this.props.classes.forumDivInfoBox}>
-                    <div className={this.props.classes.forumDivInfoCard}>
-                        <IconPosts className={this.props.classes.forumDivInfoIcon}/><br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span><br />
-                        <span className={this.props.classes.forumDivInfoValue}>245000+</span>
-                    </div>
-                    <div className={this.props.classes.forumDivInfoCard}>
-                        <IconUsers className={this.props.classes.forumDivInfoIcon}/><br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span><br />
-                        <span className={this.props.classes.forumDivInfoValue}>18400+</span>
-                    </div>
-                    <div className={this.props.classes.forumDivInfoCard}>
-                        <IconThemes className={this.props.classes.forumDivInfoIcon}/><br />
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span><br />
-                        <span className={this.props.classes.forumDivInfoValue}>21000+</span>
-                    </div>
-                </div>
-            </div><br />
-            <Button variant="contained" color="secondary" className={this.props.classes.forumButton} onClick={() => this.onGoToForum()}>
-                {I18n.t('Join now')}
-            </Button>
-        </div>;
     }
 
     renderCloud() {
@@ -225,12 +173,16 @@ class Intro extends Component {
 
         const long = I18n.getLanguage() === 'ru';
 
-        return <div style={{
-            marginTop: smallMargin ? 10 : undefined,
-            width: long ? 330 : 230,
-            marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)'
-        }} className={this.props.classes.cloudButton} onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'}>
-            <IconCloud className={this.props.classes.cloudButtonIcon}/>
+        return <div
+            style={{
+                marginTop: smallMargin ? 10 : undefined,
+                width: long ? 330 : 230,
+                marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)',
+            }}
+            className={this.props.classes.cloudButton}
+            onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'}
+        >
+            <IconCloud className={this.props.classes.cloudButtonIcon} />
             <div className={this.props.classes.cloudButtonText}>{I18n.t('get cloud')}</div>
         </div>;
     }
@@ -238,7 +190,7 @@ class Intro extends Component {
     renderActionDialog() {
         return this.state.showActionDialog ? <Dialog
             key="dialog"
-            open={true}
+            open={!0}
             onClose={() => this.setState({ showActionDialog: false })}
         >
             <DialogContent>
@@ -252,8 +204,8 @@ class Intro extends Component {
                 <Button variant="contained" onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'} autoFocus color="primary">
                     {I18n.t('Get it!')}
                 </Button>
-                <Button onClick={() => this.setState({ showActionDialog: false })} >
-                    <IconClose/>
+                <Button onClick={() => this.setState({ showActionDialog: false })}>
+                    <IconClose />
                 </Button>
             </DialogActions>
         </Dialog> : null;
@@ -270,14 +222,12 @@ class Intro extends Component {
                 style={{
                     marginTop: smallMargin ? 10 : undefined,
                     width: long ? 300 : 300,
-                    marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)'
+                    marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)',
                 }}
                 className={this.props.classes.cloudButtonSale}
-                onClick={() => {
-                    this.setState({ showActionDialog: true });
-                }}
+                onClick={() => this.setState({ showActionDialog: true })}
             >
-                <img className={this.props.classes.cloudButtonSaleIcon} src={ChristmasSale} alt="sale"/>
+                <img className={this.props.classes.cloudButtonSaleIcon} src={ChristmasSale} alt="sale" />
                 <div className={this.props.classes.cloudButtonText}>{I18n.t('cloud sale!')}</div>
             </div>,
             this.renderActionDialog(),
@@ -290,19 +240,19 @@ class Intro extends Component {
         const long = I18n.getLanguage() === 'ru';
 
         return <div
-                    style={{
-                        marginTop: smallMargin ? 10 : undefined,
-                        width: long ? 500 : 350,
-                        marginLeft: long ? 'calc(50% - 250px)' : 'calc(50% - 175px)'
-                    }}
-                    className={ this.props.classes.serverButton }
-                    onClick={() => {
-                        const win = window.open('https://iobroker.com/shop', '_blank');
-                        win.focus();
-                    }}
+            style={{
+                marginTop: smallMargin ? 10 : undefined,
+                width: long ? 500 : 350,
+                marginLeft: long ? 'calc(50% - 250px)' : 'calc(50% - 175px)',
+            }}
+            className={this.props.classes.serverButton}
+            onClick={() => {
+                const win = window.open('https://iobroker.com/shop', '_blank');
+                win.focus();
+            }}
         >
-            <img className={ this.props.classes.serverButtonImage } src={ServerImg} alt="server"/>
-            <div className={ this.props.classes.serverButtonText }>{I18n.t('buy IOB server')}</div>
+            <img className={this.props.classes.serverButtonImage} src={ServerImg} alt="server" />
+            <div className={this.props.classes.serverButtonText}>{I18n.t('buy IOB server')}</div>
         </div>;
     }
 
@@ -316,14 +266,14 @@ class Intro extends Component {
                 marginLeft: 'calc(50% - 275px)',
                 background: '#144578',
             }}
-            className={ this.props.classes.serverButton }
+            className={this.props.classes.serverButton}
             onClick={() => {
                 const win = window.open('https://shop.haus-automatisierung.com/iobroker-master-kurs.html?refid=iobroker', '_blank');
                 win.focus();
             }}
         >
-            <img className={ this.props.classes.hausButtonImage } src={HausAutomatisierungImg} alt="server"/>
-            <div className={ this.props.classes.serverButtonText }>{I18n.t('Video course from our partner')}</div>
+            <img className={this.props.classes.hausButtonImage} src={HausAutomatisierungImg} alt="server" />
+            <div className={this.props.classes.serverButtonText}>{I18n.t('Video course from our partner')}</div>
         </div>;
     }
 
@@ -337,7 +287,6 @@ class Intro extends Component {
     //
     // - Very robust architecture
     //   Every adapter runs in own process and do not disturb each others.
-
 
     // Configure all only with your web browser
 
@@ -372,30 +321,30 @@ class Intro extends Component {
         }
 
         return [
-            <div className={this.props.classes.content + ' ' + this.props.classes.backImage} key="content">
+            <div className={`${this.props.classes.content} ${this.props.classes.backImage}`} key="content">
                 <div className={this.props.classes.title}>
                     <div className={this.props.classes.titleDiv}>
                         <div className={this.props.classes.titleMain}>ioBroker</div>
                         <div className={this.props.classes.titleSecond}>Automate your life</div>
-                        <div  className={this.props.classes.titleDescription}>Open source automation platform</div>
+                        <div className={this.props.classes.titleDescription}>Open source automation platform</div>
                     </div>
                 </div>
                 {middleButton}
-                {!this.props.mobile ? (<LinusShell
+                {!this.props.mobile ? <LinusShell
                     header={I18n.t('install on linux')}
                     copyTitle={I18n.t('copy to clipboard')}
                     copiedText={I18n.t('copied to clipboard')}
                     typedText="curl -sLf https://iobroker.net/install.sh | bash -"
-                />) : null}
+                /> : null}
             </div>,
-            <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language}/>,
-            <ForumInfo key="forum" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language}/>,
-            <About key="about" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language}/>,
-            <Subscribe key="subscribe" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language}/>,
-            <Press key="press" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language}/>,
-            <Adapters key="adapters" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate}/>,
-            <Screenshots key="screenshots" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate}/>,
-            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/>,
+            <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <ForumInfo key="forum" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <About key="about" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Subscribe key="subscribe" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Press key="press" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <Adapters key="adapters" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
+            <Screenshots key="screenshots" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
+            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
         ];
     }
 }
@@ -404,7 +353,7 @@ Intro.propTypes = {
     language: PropTypes.string,
     onNavigate: PropTypes.func,
     theme: PropTypes.string,
-    mobile: PropTypes.bool
+    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(Intro);
