@@ -11,7 +11,7 @@
   {
     "file": "https://hub.docker.com/r/buanet/iobroker/",
     "platform": "Docker",
-    "date": "20221108",
+    "date": "",
     "device": "Docker",
     "details": "Docker image",
     "picture": "docker.png",
@@ -20,7 +20,7 @@
   {
     "file": "https://github.com/buanet/ioBroker.raspberry-os/releases",
     "platform": "Raspberry OS",
-    "date": "20221108",
+    "date": "",
     "device": "Raspberry Pi",
     "details": "Raspberry OS Image with ioBroker",
     "picture": "Pi4.png",
