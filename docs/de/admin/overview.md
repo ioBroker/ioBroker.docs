@@ -1,10 +1,10 @@
 ---
 title:       "Übersicht"
-lastChanged: "26.03.2019"
+lastChanged: "08.11.2022"
 ---
 
 
-# Der Reiter Übersicht
+# Reiter Übersicht
 
 Hier werden Informationen zu allen Adaptern mit eigenem Webinterface sowie zu den Hosts 
 angezeigt.
