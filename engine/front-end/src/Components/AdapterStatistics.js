@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Paper from '@material-ui/core/Paper';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableSortLabel from '@mui/material/TableSortLabel';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
@@ -25,7 +25,7 @@ const styles = theme => ({
         textAlign: 'center',
     },
     dialogContentMobile: {
-        padding: 5
+        padding: 5,
     },
     paper: {
         display: 'inline-block',
@@ -64,8 +64,8 @@ const styles = theme => ({
         cursor: 'pointer',
         height: 24,
         '&:hover': {
-            background: '#DDDDDD'
-        }
+            background: '#DDDDDD',
+        },
     },
     tableCell:{
         padding: '0 5px',
@@ -114,7 +114,7 @@ class AdapterStatistics extends Component {
 
     renderHeaderCell(className, type, align) {
         return (<TableCell
-            className={this.props.classes.tableCell + ' ' + className}
+            className={`${this.props.classes.tableCell} ${className}`}
             align={align}
             sortDirection={this.state.orderBy === type ? this.state.order : false}
         >
@@ -158,15 +158,15 @@ class AdapterStatistics extends Component {
                 <TableRow>
                     {this.renderHeaderCell(this.props.classes.tableColumnVersion, 'Version', 'right')}
                     {this.renderHeaderCell(this.props.classes.tableColumnCount, 'Count', 'left')}
-                    <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnPercent} align="left">%</TableCell>
+                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`} align="left">%</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {versions.map(v => (
                     <TableRow className={this.props.classes.tableRow}>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnVersion}>{v}</TableCell>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnCount}>{stats[v]}</TableCell>
-                        <TableCell className={this.props.classes.tableCell + ' ' + this.props.classes.tableColumnPercent}>{Math.round((stats[v] / sum) * 10000) / 100}%</TableCell>
+                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnVersion}`}>{v}</TableCell>
+                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnCount}`}>{stats[v]}</TableCell>
+                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>{Math.round((stats[v] / sum) * 10000) / 100}%</TableCell>
                     </TableRow>))}
             </TableBody>
         </Table>);
@@ -176,7 +176,7 @@ class AdapterStatistics extends Component {
         const { classes } = this.props;
         return [
             (<h2>{I18n.t('Total count: ')} {this.props.statistics.adapters[this.props.adapter]}</h2>),
-            (<Paper className={classes.paper + ' ' + classes.paperPie + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>
+            (<Paper className={`${classes.paper} ${classes.paperPie} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>
                 <PieStats
                     data={this.props.statistics.versions[this.props.adapter]}
                     size={'45%'}
@@ -186,34 +186,32 @@ class AdapterStatistics extends Component {
                     series={I18n.t('Count')}
                 />
             </Paper>),
-            (<Paper className={classes.paper + ' ' + classes.paperTable + ' ' + (this.state.mobile ? this.props.classes.paperMobile : '')}>{this.renderTable()}</Paper>)
+            (<Paper className={`${classes.paper} ${classes.paperTable} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>{this.renderTable()}</Paper>)
         ]
     }
 
     render() {
-        return (
-            <Dialog
-                className={this.props.classes.dialog}
-                fullWidth={this.state.mobile}
-                maxWidth="xl"
-                open={true}
-                onClose={() => this.props.onClose()}
-                aria-labelledby="max-width-dialog-title"
-            >
-                <DialogTitle id="max-width-dialog-title">{I18n.t('Adapter %s statistics', this.props.adapter)}</DialogTitle>
-                <DialogContent className={this.props.classes.dialogContent + ' ' + (this.state.mobile ? this.props.classes.dialogContentMobile : '')}>
-                    {
-                        !this.props.statistics ||
-                        !this.props.statistics.versions ||
-                        !this.props.statistics.versions[this.props.adapter] ? (<Paper>No info</Paper>) :
-                            this.renderContent()
-                    }
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => this.props.onClose()} color="primary">{I18n.t('Close')}</Button>
-                </DialogActions>
-            </Dialog>
-        );
+        return <Dialog
+            className={this.props.classes.dialog}
+            fullWidth={this.state.mobile}
+            maxWidth="xl"
+            open={true}
+            onClose={() => this.props.onClose()}
+            aria-labelledby="max-width-dialog-title"
+        >
+            <DialogTitle id="max-width-dialog-title">{I18n.t('Adapter %s statistics', this.props.adapter)}</DialogTitle>
+            <DialogContent className={`${this.props.classes.dialogContent} ${this.state.mobile ? this.props.classes.dialogContentMobile : ''}`}>
+                {
+                    !this.props.statistics ||
+                    !this.props.statistics.versions ||
+                    !this.props.statistics.versions[this.props.adapter] ? <Paper>No info</Paper> :
+                        this.renderContent()
+                }
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={() => this.props.onClose()} color="primary">{I18n.t('Close')}</Button>
+            </DialogActions>
+        </Dialog>;
     }
 }
 

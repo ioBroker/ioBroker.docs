@@ -1,8 +1,8 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
 
 import Footer from '../Footer';
 import Loader from '../Components/Loader';

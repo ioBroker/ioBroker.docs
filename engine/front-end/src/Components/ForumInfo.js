@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 import {FaUsers as IconForum} from 'react-icons/fa';
 import {FaAddressCard as IconUsers} from 'react-icons/fa';

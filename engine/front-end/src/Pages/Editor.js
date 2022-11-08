@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar from '@material-ui/core/Snackbar';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import CircularProgress from '@mui/material/CircularProgress';
 
 import {MdClose as IconClose} from 'react-icons/md';
 import {FaGithub as IconGithub} from 'react-icons/fa';
@@ -147,14 +147,17 @@ class Editor extends Component {
         return <div className={this.props.classes.editor}>
             <div className={this.props.classes.buttonTab}>
                 <Button
-                    className={this.props.classes.copyButton + ' ' + (this.state.changed ? this.props.classes.copyButtonChanged : '')}
+                    color="grey"
+                    className={`${this.props.classes.copyButton} ${this.state.changed ? this.props.classes.copyButtonChanged : ''}`}
                     onClick={e => {
                         Utils.onCopy(e, this.state.text);
                         this.setState({tooltip: I18n.t('Copied')})
-                    }}>
+                    }}
+                >
                     <IconCopy/>{I18n.t('Copy to clipboard')}
                 </Button>
                 <Button
+                    color="grey"
                     className={this.props.classes.githubButton}
                     onClick={e =>
                         this.state.noInstructions ? this.openGithub(e) : this.setState({showInstructions: true}, () => console.log(this.state.showInstructions))}>
@@ -163,7 +166,7 @@ class Editor extends Component {
                 <Button
                     color="primary"
                     className={this.props.classes.closeButton}
-                    onClick={e => this.props.onClose()}>
+                    onClick={() => this.props.onClose()}>
                     <IconClose/>{I18n.t('Close')}
                 </Button>
             </div>

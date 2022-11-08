@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { withStyles } from '@mui/styles';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import I18n from '../i18n';
 
@@ -19,28 +19,30 @@ class DialogError extends React.Component {
     };
 
     render() {
-        return (
-            <Dialog
-                open={true}
-                maxWidth="sm"
-                fullWidth={true}
-                onClose={() => this.handleOk()}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
+        return <Dialog
+            open={!0}
+            maxWidth="sm"
+            fullWidth
+            onClose={() => this.handleOk()}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+        >
+            <DialogTitle
+                className={this.props.classes.titleBackground}
+                classes={{root: this.props.classes.titleColor}}
+                id="alert-dialog-title"
             >
-                <DialogTitle className={this.props.classes.titleBackground}
-                             classes={{root: this.props.classes.titleColor}}
-                             id="alert-dialog-title">{this.props.title || I18n.t('Error')}</DialogTitle>
-                <DialogContent>
-                    <DialogContentText id="alert-dialog-description">
-                        {this.props.text || I18n.t('Unknown error!')}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => this.handleOk()} color="primary" autoFocus>{I18n.t('Ok')}</Button>
-                </DialogActions>
-            </Dialog>
-        );
+                {this.props.title || I18n.t('Error')}
+            </DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                    {this.props.text || I18n.t('Unknown error!')}
+                </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={() => this.handleOk()} color="primary" autoFocus>{I18n.t('Ok')}</Button>
+            </DialogActions>
+        </Dialog>;
     }
 }
 

@@ -377,7 +377,7 @@
         "ru": "Уроки",
         "zh-cn": "教程文档"
       },
-	  "content": "tutorial/README.md"
+	  "content": "tutorial/README.md",
       "pages": {
         "First setup": {
           "title": {

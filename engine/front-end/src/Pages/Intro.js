@@ -1,19 +1,23 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 
-import {FaUsers as IconForum} from 'react-icons/fa';
-import {FaAddressCard as IconUsers} from 'react-icons/fa';
-import {FaComments as IconPosts} from 'react-icons/fa';
-import {FaComment as IconThemes} from 'react-icons/fa';
-import {MdCloud as IconCloud} from 'react-icons/md';
-import {MdClose as IconClose} from 'react-icons/md';
+import {
+    FaUsers as IconForum,
+    FaAddressCard as IconUsers,
+    FaComments as IconPosts,
+    FaComment as IconThemes,
+} from 'react-icons/fa';
+import {
+    MdCloud as IconCloud,
+    MdClose as IconClose,
+} from 'react-icons/md';
 import ServerImg from '../assets/iob-server.png';
 import HausAutomatisierungImg from '../assets/haus_automatisierung.png';
 import ChristmasSale from '../assets/christmas.svg';
@@ -175,41 +179,41 @@ class Intro extends Component {
 
     onGoToForum() {
         if (this.props.language === 'ru') {
-            Utils.openLink('https://forum.iobroker.net/category/28/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9')
+            Utils.openLink('https://forum.iobroker.net/category/28/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9');
         } else if (this.props.language === 'zh-cn') {
-            Utils.openLink('https://bbs.iobroker.cn/')
+            Utils.openLink('https://bbs.iobroker.cn/');
         } else if (this.props.language === 'de') {
-            Utils.openLink('https://forum.iobroker.net/category/4/deutsch')
+            Utils.openLink('https://forum.iobroker.net/category/4/deutsch');
         }  else if (this.props.language === 'nl') {
-            Utils.openLink('https://forum.iobroker.net/category/40/nederlands')
+            Utils.openLink('https://forum.iobroker.net/category/40/nederlands');
         } else {
-            Utils.openLink('https://forum.iobroker.net/')
+            Utils.openLink('https://forum.iobroker.net/');
         }
     }
 
     renderForum() {
         return <div className={this.props.classes.forumDiv}>
-            <IconForum className={this.props.classes.forumIconMain}/><br/>
-            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span><br/>
+            <IconForum className={this.props.classes.forumIconMain}/><br />
+            <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span><br />
             <div className={this.props.classes.forumDivInfo}>
                 <div className={this.props.classes.forumDivInfoBox}>
                     <div className={this.props.classes.forumDivInfoCard}>
-                        <IconPosts className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span><br/>
+                        <IconPosts className={this.props.classes.forumDivInfoIcon}/><br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Posts')}</span><br />
                         <span className={this.props.classes.forumDivInfoValue}>245000+</span>
                     </div>
                     <div className={this.props.classes.forumDivInfoCard}>
-                        <IconUsers className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span><br/>
+                        <IconUsers className={this.props.classes.forumDivInfoIcon}/><br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Users')}</span><br />
                         <span className={this.props.classes.forumDivInfoValue}>18400+</span>
                     </div>
                     <div className={this.props.classes.forumDivInfoCard}>
-                        <IconThemes className={this.props.classes.forumDivInfoIcon}/><br/>
-                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span><br/>
+                        <IconThemes className={this.props.classes.forumDivInfoIcon}/><br />
+                        <span className={this.props.classes.forumDivInfoText}>{I18n.t('Themes')}</span><br />
                         <span className={this.props.classes.forumDivInfoValue}>21000+</span>
                     </div>
                 </div>
-            </div><br/>
+            </div><br />
             <Button variant="contained" color="secondary" className={this.props.classes.forumButton} onClick={() => this.onGoToForum()}>
                 {I18n.t('Join now')}
             </Button>
@@ -226,8 +230,8 @@ class Intro extends Component {
             width: long ? 330 : 230,
             marginLeft: long ? 'calc(50% - 165px)' : 'calc(50% - 115px)'
         }} className={this.props.classes.cloudButton} onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'}>
-            <IconCloud className={ this.props.classes.cloudButtonIcon }/>
-            <div className={ this.props.classes.cloudButtonText }>{I18n.t('get cloud')}</div>
+            <IconCloud className={this.props.classes.cloudButtonIcon}/>
+            <div className={this.props.classes.cloudButtonText}>{I18n.t('get cloud')}</div>
         </div>;
     }
 
@@ -235,12 +239,12 @@ class Intro extends Component {
         return this.state.showActionDialog ? <Dialog
             key="dialog"
             open={true}
-            onClose={() => this.setState({showActionDialog: false})}
+            onClose={() => this.setState({ showActionDialog: false })}
         >
             <DialogContent>
                 <DialogContentText className={this.props.classes.saleText}>
                     <img src={SaleImage} alt="sale" className={this.props.classes.saleImage} />
-                    <br/>
+                    <br />
                     {I18n.t('33% discount on Remote access and Assistants!')}
                 </DialogContentText>
             </DialogContent>
@@ -248,7 +252,7 @@ class Intro extends Component {
                 <Button variant="contained" onClick={() => window.document.location = 'https://iobroker.pro/accountRemote'} autoFocus color="primary">
                     {I18n.t('Get it!')}
                 </Button>
-                <Button onClick={() => this.setState({showActionDialog: false})} >
+                <Button onClick={() => this.setState({ showActionDialog: false })} >
                     <IconClose/>
                 </Button>
             </DialogActions>
@@ -270,11 +274,11 @@ class Intro extends Component {
                 }}
                 className={this.props.classes.cloudButtonSale}
                 onClick={() => {
-                    this.setState({showActionDialog: true});
+                    this.setState({ showActionDialog: true });
                 }}
             >
-                <img className={ this.props.classes.cloudButtonSaleIcon } src={ChristmasSale} alt="sale"/>
-                <div className={ this.props.classes.cloudButtonText }>{I18n.t('cloud sale!')}</div>
+                <img className={this.props.classes.cloudButtonSaleIcon} src={ChristmasSale} alt="sale"/>
+                <div className={this.props.classes.cloudButtonText}>{I18n.t('cloud sale!')}</div>
             </div>,
             this.renderActionDialog(),
         ];

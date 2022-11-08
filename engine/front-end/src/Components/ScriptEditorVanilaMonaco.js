@@ -116,12 +116,24 @@ class ScriptEditor extends React.Component {
      * @param {Partial<{readOnly: boolean, lineWrap: boolean, language: EditorLanguage, typeCheck: boolean}>} options
      */
     setEditorOptions(options) {
-        if (!options) return;
-        if (options.language) this.setEditorLanguage(options.language);
-        if (options.readOnly !== undefined) this.editor.updateOptions({readOnly: options.readOnly});
-        if (options.lineWrap !== undefined) this.editor.updateOptions({wordWrap: options.lineWrap ? 'on' : 'off'});
-        if (options.typeCheck !== undefined) this.setTypeCheck(options.typeCheck);
-        if (options.isDark !== undefined) this.monaco.editor.setTheme(this.props.theme === 'dark' ? 'vs-dark' : 'vs');
+        if (!options) {
+            return;
+        }
+        if (options.language) {
+            this.setEditorLanguage(options.language);
+        }
+        if (options.readOnly !== undefined) {
+            this.editor.updateOptions({ readOnly: options.readOnly });
+        }
+        if (options.lineWrap !== undefined) {
+            this.editor.updateOptions({ wordWrap: options.lineWrap ? 'on' : 'off' });
+        }
+        if (options.typeCheck !== undefined) {
+            this.setTypeCheck(options.typeCheck);
+        }
+        if (options.isDark !== undefined) {
+            this.monaco.editor.setTheme(this.props.theme === 'dark' ? 'vs-dark' : 'vs');
+        }
     }
 
     componentWillUnmount() {
@@ -146,9 +158,8 @@ class ScriptEditor extends React.Component {
         const code = model.getValue();
         const uri = model.uri.path;
         const filenameWithoutExtension =
-            typeof uri === 'string' && uri.indexOf('.') > -1
-                ? uri.substr(0, uri.lastIndexOf('.'))
-                : 'index';
+            typeof uri === 'string' && uri.includes('.') ? uri.substr(0, uri.lastIndexOf('.')) : 'index';
+
         const extension =
             language === 'markdown' ? 'md'
                 : language === 'javascript' ? 'js'
@@ -163,7 +174,9 @@ class ScriptEditor extends React.Component {
         const newLanguage = (language === 'javascript' || language === 'typescript') ? 'typescript' : language;
 
         const newModel = this.monaco.editor.createModel(
-            code, newLanguage, this.monaco.Uri.from({path: `${filenameWithoutExtension}${index++}.${extension}`})
+            code,
+            newLanguage,
+            this.monaco.Uri.from({path: `${filenameWithoutExtension}${index++}.${extension}`}),
         );
         this.editor.setModel(newModel);
     }

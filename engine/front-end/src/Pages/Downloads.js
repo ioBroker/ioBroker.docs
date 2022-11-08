@@ -1,29 +1,31 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Paper from '@material-ui/core/Paper';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Input from '@material-ui/core/Input';
-import IconButton from '@material-ui/core/IconButton';
-import Snackbar from '@material-ui/core/Snackbar';
 
-import Select from '@material-ui/core/Select';
+import Paper from '@mui/material/Paper';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import MenuItem from '@mui/material/MenuItem';
+import FormHelperText from '@mui/material/FormHelperText';
+import FormControl from '@mui/material/FormControl';
+import Input from '@mui/material/Input';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import Select from '@mui/material/Select';
+
+import { MdContentCopy as IconCopy } from 'react-icons/md';
+import { MdClose as IconClose } from 'react-icons/md';
+
 import Loader from '../Components/Loader';
 import I18n from '../i18n';
 import Footer from '../Footer';
 import Utils from '../Utils';
-import {MdContentCopy as IconCopy} from 'react-icons/md';
-import {MdClose as IconClose} from 'react-icons/md';
-import Dialog from '@material-ui/core/Dialog';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogActions from '@material-ui/core/DialogActions';
 import Markdown from '../Markdown';
 import Router from '../Router';
 
@@ -48,7 +50,7 @@ const styles = theme => ({
         margin: MARGIN,
         minWidth: 220,
         maxWidth: 350,
-        //minHeight: 300,
+        // minHeight: 300,
         display: 'inline-block',
         verticalAlign: 'top',
     },
@@ -63,7 +65,7 @@ const styles = theme => ({
         top: 5,
         right: 5,
         zIndex: 0,
-        borderRadius: 3
+        borderRadius: 3,
     },
     cardTitle: {
         width: '100%',
@@ -71,7 +73,7 @@ const styles = theme => ({
         top: 0,
         left: 16,
         zIndex: 1,
-        whiteSpace: 'nowrap'
+        whiteSpace: 'nowrap',
     },
     cardContent: {
         zIndex: 1,
@@ -80,11 +82,12 @@ const styles = theme => ({
     },
     cardLine: {
         display: 'flex',
-        marginBottom: 3
+        marginBottom: 3,
     },
     cardLineName: {
         fontWeight: 'bold',
         flex: 1,
+        marginRight: theme.spacing(1),
     },
     cardLineValue: {},
     instructionDiv: {
@@ -102,16 +105,16 @@ const styles = theme => ({
             color: '#ff5a5a',
             fontSize: 24,
             paddingRight: 10,
-            //borderRadius: '50%',
-            //background: '#008aff',
-        }
+            // borderRadius: '50%',
+            // background: '#008aff',
+        },
     },
     instructionCode: {
         position: 'relative',
         background: '#999999',
         padding: 5,
         borderRadius: 3,
-        color: '#FFFFFF'
+        color: '#FFFFFF',
     },
     instructionCopy: {
         position: 'absolute',
@@ -124,7 +127,7 @@ const styles = theme => ({
     },
 });
 
-const IGONRED_ATTRS = ['file', 'date', 'linux', 'picture', 'device', 'info', 'details'];
+const IGNORED_ATTRS = ['file', 'date', 'linux', 'picture', 'device', 'info', 'details'];
 class Downloads extends Router {
     constructor(props) {
         super(props);
@@ -140,7 +143,8 @@ class Downloads extends Router {
         };
         this.load();
         // Give 300ms to load the page. After that show the loading indicator.
-        setTimeout(() => !this.state.content && this.setState({loadTimeout: true}), 300);
+        setTimeout(() =>
+            !this.state.content && this.setState({ loadTimeout: true }), 300);
 
         this.contentRef = React.createRef();
     }
@@ -150,7 +154,7 @@ class Downloads extends Router {
 
         fetch(`downloads.json?t=${d.getFullYear()}_${d.getMonth()}_${d.getDate()}_${d.getHours()}`)
             .then(res => res.json())
-            .then(content => this.setState({content}));
+            .then(content => this.setState({ content }));
     }
 
     /* {
@@ -182,12 +186,13 @@ class Downloads extends Router {
                 .replace(/<\/?\w+>/g, '')
                 .replace(/^ioBroker/, '')
         );
-        return (<div>{lines.map(line => [line, (<br key="br"/>)])}</div>);
+
+        return <div>{lines.map(line => [line, (<br key="br"/>)])}</div>;
     }
 
     closeDialog() {
         this.onNavigate(null, null, null, '');
-        this.setState({info: ''})
+        this.setState({ info: '' });
     }
 
     onNavigate(language, tab, page, chapter) {
@@ -203,15 +208,15 @@ class Downloads extends Router {
             className={this.props.classes.dialog}
             fullWidth={this.state.mobile}
             maxWidth="xl"
-            open={true}
+            open={!0}
             onClose={() => this.closeDialog()}
             aria-labelledby="max-width-dialog-title"
         >
 
-            <DialogContent className={this.props.classes.dialogContent + ' ' + (this.state.mobile ? this.props.classes.dialogContentMobile : '')}>
+            <DialogContent className={`${this.props.classes.dialogContent} ${this.state.mobile ? this.props.classes.dialogContentMobile : ''}`}>
                 {this.state.info.endsWith('.md') ?
                     <Markdown
-                        path={'downloads/' + this.state.info}
+                        path={`downloads/${this.state.info}`}
                         rootPath="documentation"
                         language={this.props.language}
                         theme={this.props.theme}
@@ -219,7 +224,7 @@ class Downloads extends Router {
                         editMode={false}
                         editEnabled={false}
                         onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
-                    /> : <div dangerouslySetInnerHTML={{ __html: this.state.info}}/>}
+                    /> : <div dangerouslySetInnerHTML={{ __html: this.state.info}} />}
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => this.closeDialog()} color="primary">{I18n.t('Close')}</Button>
@@ -232,7 +237,7 @@ class Downloads extends Router {
             Utils.openLink(link);
         } else {
             link.endsWith('.md') && this.onNavigate(null, null, null, link);
-            this.setState({info: link});
+            this.setState({ info: link });
         }
     }
 
@@ -244,7 +249,7 @@ class Downloads extends Router {
         return <Card key={image.file} className={this.props.classes.card} style={{width: this.cardWidth}}>
             <CardActionArea>
                 <div className={this.props.classes.cardMedia}
-                     style={{backgroundImage: 'url(img/' + image.picture + ')'}}
+                     style={{backgroundImage: `url(img/${image.picture})`}}
                 />
                 <div  className={this.props.classes.cardTitle}>
                     <h2>{image.device}</h2>
@@ -253,14 +258,14 @@ class Downloads extends Router {
                     <h2>&nbsp;</h2>
                     <div className={this.props.classes.cardInfo}>
                         <div>
-                            {this.renderLine('Date', this.formatDate(image.date))}
+                            {image.date ? this.renderLine('Date', this.formatDate(image.date)) : null}
                             {image.linux === 'Windows' ? this.renderLine('OS', image.linux) : this.renderLine('Linux', image.linux)}
 
                             {Object.keys(image)
-                                .filter(attr => IGONRED_ATTRS.indexOf(attr) === -1)
+                                .filter(attr => IGNORED_ATTRS.indexOf(attr) === -1)
                                 .map(attr => {
                                     if (image[attr].match(/^https?:/)) {
-                                        return this.renderLine(attr, (<a href={image[attr]} target="_blank" rel="noopener noreferrer">I18n.t('link')</a>));
+                                        return this.renderLine(attr, <a href={image[attr]} target="_blank" rel="noopener noreferrer">I18n.t('link')</a>);
                                     } else {
                                         return this.renderLine(attr, image[attr]);
                                     }
@@ -272,7 +277,7 @@ class Downloads extends Router {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={() => Utils.openLink(image.file.startsWith('http') ? image.file : 'https://iobroker.live/images/' + image.file)}>{I18n.t('Download')}</Button>
+                <Button size="small" color="primary" onClick={() => Utils.openLink(image.file.startsWith('http') ? image.file : `https://iobroker.live/images/${image.file}`)}>{I18n.t('Download')}</Button>
                 {image.info && <Button size="small" color="primary" onClick={() => this.onLink(image.info)}>{I18n.t('Info')}</Button>}
             </CardActions>
         </Card>;
@@ -281,17 +286,17 @@ class Downloads extends Router {
     renderSnackbar() {
         return <Snackbar
             key="snackbar"
-            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={!!this.state.tooltip}
             autoHideDuration={6000}
-            onClose={() => this.setState({tooltip: ''})}
+            onClose={() => this.setState({ tooltip: '' })}
             message={<span id="message-id">{this.state.tooltip}</span>}
             action={[
                 <IconButton
                     key="close"
                     color="inherit"
                     className={this.props.classes.close}
-                    onClick={() => this.setState({tooltip: ''})}
+                    onClick={() => this.setState({ tooltip: '' })}
                 >
                     <IconClose />
                 </IconButton>,
@@ -310,8 +315,11 @@ class Downloads extends Router {
                     title={I18n.t( 'copy to clipboard')}
                     onClick={e => {
                         Utils.onCopy(e, 'curl -sLf https://iobroker.net/install.sh | bash -');
-                        this.setState({tooltip: I18n.t('Copied')});
-                    }}><IconCopy fontSize="small"/></IconButton>
+                        this.setState({ tooltip: I18n.t('Copied') });
+                    }}
+                >
+                    <IconCopy fontSize="small"/>
+                </IconButton>
             </pre>
             {I18n.t('instruction3')}
         </Paper>;
@@ -322,10 +330,11 @@ class Downloads extends Router {
             return;
         }
         const types = [];
-        this.state.content.forEach(item => types.indexOf(item.device) === -1 && types.push(item.device));
+        this.state.content.forEach(item => !types.includes(item.device) && types.push(item.device));
 
         return <FormControl key="selector" className={this.props.classes.formControl}>
             <Select
+                variant="standard"
                 value={this.state.filter}
                 onChange={e => this.setState({filter: e.target.value})}
                 input={<Input name="type" id="type-helper" />}
@@ -333,22 +342,24 @@ class Downloads extends Router {
                 <MenuItem value="all"><em>{I18n.t('All')}</em></MenuItem>
                 {types.map(type => <MenuItem key={type} value={type}>{type}</MenuItem>)}
             </Select>
-            <FormHelperText>{I18n.t('Platform')}</FormHelperText>
+            <FormHelperText>
+                {I18n.t('Platform')}
+            </FormHelperText>
         </FormControl>;
     }
 
     render() {
         if (this.state.loadTimeout && !this.state.content) {
-            return <Loader theme={this.props.theme}/>;
+            return <Loader theme={this.props.theme} />;
         }
 
         return [
             this.renderInfoAboutInstall(),
             this.renderSelector(),
-            <div key="table" className={this.props.classes.root + ' ' + (this.props.mobile ? this.props.classes.rootMobile : '')}>
+            <div key="table" className={`${this.props.classes.root} ${this.props.mobile ? this.props.classes.rootMobile : ''}`}>
                 {this.state.content && this.state.content.map(image => this.renderImage(image))}
             </div>,
-            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/>,
+            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
             this.renderSnackbar(),
             this.renderInfo(),
         ];

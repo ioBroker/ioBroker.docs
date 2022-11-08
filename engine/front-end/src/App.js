@@ -1,26 +1,26 @@
 import React from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import clsx from 'clsx';
 import ReactGA from 'react-ga';
 
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Toolbar from '@material-ui/core/Toolbar';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import IconButton from '@material-ui/core/IconButton';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import Input from '@material-ui/core/Input';
-import Popper from '@material-ui/core/Popper';
-import Paper from '@material-ui/core/Paper';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Toolbar from '@mui/material/Toolbar';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import Drawer from '@mui/material/Drawer';
+import List from '@mui/material/List';
+import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import Input from '@mui/material/Input';
+import Popper from '@mui/material/Popper';
+import Paper from '@mui/material/Paper';
 
-import {MdLanguage as IconLanguage} from 'react-icons/md';
-import {MdMenu as IconMenu} from 'react-icons/md';
-import {MdSearch as IconSearch} from 'react-icons/md';
+import { MdLanguage as IconLanguage } from 'react-icons/md';
+import { MdMenu as IconMenu } from 'react-icons/md';
+import { MdSearch as IconSearch } from 'react-icons/md';
 
 import DialogError from './Dialogs/Error';
 import MDPage from './MDPage';
@@ -65,7 +65,7 @@ const styles = theme => ({
         height: theme.tabs.height - 10,
         cursor: 'pointer'
     },
-    tabs: Object.assign({display: 'flex'}, theme.tabs),
+    tabs: Object.assign({ display: 'flex' }, theme.tabs),
     tabsNoTabs: {
         paddingLeft: 0,
     },
@@ -164,38 +164,47 @@ const styles = theme => ({
 });
 
 const LANGUAGES = {
-    'en': {full: 'English', short: 'En'},
-    'de': {full: 'Deutsch', short: 'De'},
-    'ru': {full: 'Русский', short: 'Ру'},
-    'zh-cn': {full: '简体中文', short: 'zh-cn'},
+    'en': { full: 'English', short: 'En' },
+    'de': { full: 'Deutsch', short: 'De' },
+    'ru': { full: 'Русский', short: 'Ру' },
+    'zh-cn': { full: '简体中文', short: 'zh-cn' },
 };
 
 const PAGES = {
-    'blog':           {tabIndex: 1, component: Blog,      icon: null, name: 'Blog'},
-    'download':       {tabIndex: 2, component: Downloads, icon: null, name: 'Download'},
-    'documentation':  {tabIndex: 3, name: 'Documentation', content: 'content.json'},
-    'adapters':       {tabIndex: 4, name: 'Adapters',      content: 'adapters.json'},
-    'forum':          {tabIndex: 5, name: 'Forum',
+    blog: { tabIndex: 1, component: Blog, icon: null, name: 'Blog' },
+    download: { tabIndex: 2, component: Downloads, icon: null, name: 'Download' },
+    documentation: { tabIndex: 3, name: 'Documentation', content: 'content.json' },
+    adapters: { tabIndex: 4, name: 'Adapters', content: 'adapters.json' },
+    forum: { tabIndex: 5, name: 'Forum',
         links: {
             en: 'https://forum.iobroker.net',
             nl: 'https://forum.iobroker.net/category/40/nederlands',
             de: 'https://forum.iobroker.net/category/4/deutsch',
             ru: 'https://forum.iobroker.net/category/28/%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9',
-            'zh-cn': 'https://bbs.iobroker.cn/'
-        }, target: '_self'},
-    'about':          {tabIndex: 6, name: 'About', menu: [
-            {tab: 'statistics', name: 'Statistics', icon: null},
-            {name: 'Imprint', tab: 'imprint', icon: null},
+            'zh-cn': 'https://bbs.iobroker.cn/',
+        },
+        target: '_self',
+    },
+    about:          {
+        tabIndex: 6,
+        name: 'About',
+        menu: [
+            { tab: 'statistics', name: 'Statistics', icon: null },
+            { name: 'Imprint', tab: 'imprint', icon: null },
         ]},
-    'cloud':          {tabIndex: 7, name: 'Cloud', menu: [
-            {link: 'https://iobroker.net', name: 'Free', target: 'this'},
-            {link: 'https://iobroker.pro', name: 'Pro', target: 'this'},
-            {link: 'https://iobroker.link', name: 'VPN', target: 'this'},
-        ]},
-    'intro':         {component: PageIntro, name: 'intro'},
-    'imprint':       {name: 'imprint', md: 'imprint.md'},
-    'privacy':       {name: 'privacy', md: 'privacy.md'},
-    'statistics':    {component: Statistics},
+    cloud: {
+        tabIndex: 7,
+        name: 'Cloud',
+        menu: [
+            { link: 'https://iobroker.net', name: 'Free', target: 'this' },
+            { link: 'https://iobroker.pro', name: 'Pro', target: 'this' },
+            { link: 'https://iobroker.link', name: 'VPN', target: 'this' },
+        ],
+    },
+    intro:         { component: PageIntro, name: 'intro' },
+    imprint:       { name: 'imprint', md: 'imprint.md' },
+    privacy:       { name: 'privacy', md: 'privacy.md' },
+    statistics:    { component: Statistics },
 };
 
 const MOBILE_WIDTH = 650;
@@ -233,7 +242,7 @@ class App extends Router {
             lastSeenBlog: window.localStorage.getItem('iobroker.net.lastSeenBlog') ? new Date(window.localStorage.getItem('iobroker.net.lastSeenBlog')).getTime() : 0,
         };
 
-        // init google analytics
+        // init Google Analytics
         ReactGA.initialize('UA-86900958-1', {
             debug: window.location.hostname === 'localhost'
         });
@@ -283,12 +292,10 @@ class App extends Router {
             newState.selectedPage = location.tab;
             changed = true;
         }
-        if (location.language !== this.state.language) {
-            if (LANGUAGES[location.language]) {
-                newState.language = location.language;
-                I18n.setLanguage(newState.language);
-                changed = true;
-            }
+        if (location.language !== this.state.language && LANGUAGES[location.language]) {
+            newState.language = location.language;
+            I18n.setLanguage(newState.language);
+            changed = true;
         }
 
         ReactGA.pageview(window.location.hash.replace(/^#/, '/'));
@@ -301,7 +308,7 @@ class App extends Router {
             return null;
         }
 
-        return <DialogError text={this.state.text} onClose={() => this.setState({errorText: ''})} />;
+        return <DialogError text={this.state.text} onClose={() => this.setState({ errorText: '' })} />;
     }
 
     tabName2index(name) {
@@ -319,23 +326,33 @@ class App extends Router {
 
     renderLanguage() {
         return [
-            <div key="langButton" style={{display: 'inherit'}} onClick={e => {
-                this.setState({languageMenu: true, anchorMenu: e.target});
-            }}>
+            <div key="langButton" style={{display: 'inherit'}} onClick={e => this.setState({languageMenu: true, anchorMenu: e.target})}
+            >
                 <IconLanguage className={this.props.classes.languageButton} />
                 <span className={this.props.classes.languageText}>{LANGUAGES[this.state.language].short}</span>
             </div>,
             this.state.languageMenu ? [
-                <Menu key="langMenu" id="language-menu" transitionDuration={0} anchorEl={this.state.anchorMenu} open={true} onClose={() => {
-                    this.setState({languageMenu: false, anchorMenu: null});
-                }}>
+                <Menu
+                    key="langMenu"
+                    id="language-menu"
+                    transitionDuration={0}
+                    anchorEl={this.state.anchorMenu}
+                    open
+                    onClose={() => this.setState({ languageMenu: false, anchorMenu: null })}
+                >
                     {Object.keys(LANGUAGES).map(lang => (
-                        <MenuItem key={lang} selected={this.state.language === lang} onClick={() =>
-                            this.setState({languageMenu: false, anchorMenu: null}, () => {
-                                const location = Router.getLocation();
-                                this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
-                            })
-                        }>{LANGUAGES[lang].full}</MenuItem>
+                        <MenuItem
+                            key={lang}
+                            selected={this.state.language === lang}
+                            onClick={() =>
+                                this.setState({languageMenu: false, anchorMenu: null}, () => {
+                                    const location = Router.getLocation();
+                                    this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
+                                }
+                            )}
+                        >
+                            {LANGUAGES[lang].full}
+                        </MenuItem>
                     ))}
                 </Menu>
             ] : null
@@ -346,39 +363,42 @@ class App extends Router {
         if (this.state.search || this.searchValue) {
             window.fetch(`search?ln=${this.state.language}&q=${encodeURIComponent(this.state.search || this.searchValue)}`)
                 .then(data => data.json())
-                .then(searchResults => this.setState({searchResults}));
+                .then(searchResults => this.setState({ searchResults }));
         } else {
-            this.setState({searchResults: null});
+            this.setState({ searchResults: null });
         }
     }
 
     renderSearch() {
-        return <div className={this.props.classes.searchDiv}><Input
-            className={clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
-            //value={this.state.search}
-            placeholder={I18n.t('Search...')}
-            classes={{input: this.props.classes.searchInput}}
-            onFocus={() => this.setState({searchFocus: true})}
-            onBlur={() => setTimeout(() => this.setState({searchFocus: false}), 100)}
-            onChange={e => {
-                this.searchAnchor = this.searchAnchor || e.target;
-                this.searchValue = e.target.value;
+        return <div className={this.props.classes.searchDiv}>
+            <Input
+                className={clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
+                //value={this.state.search}
+                placeholder={I18n.t('Search...')}
+                classes={{ input: this.props.classes.searchInput }}
+                onFocus={() => this.setState({ searchFocus: true })}
+                onBlur={() => setTimeout(() => this.setState({ searchFocus: false }), 100)}
+                onChange={e => {
+                    this.searchAnchor = this.searchAnchor || e.target;
+                    this.searchValue = e.target.value;
 
-                //this.setState({search: e.target.value});
-                this.searchTimeout && clearTimeout(this.searchTimeout);
-                this.searchTimeout = setTimeout(() => {
-                    this.searchTimeout = null;
-                    this.onSearch();
-                }, 300);
-            }}
-            onKeyUp={e => {
-                if (e.keyCode === 13) {
+                    //this.setState({search: e.target.value});
                     this.searchTimeout && clearTimeout(this.searchTimeout);
-                    this.searchTimeout = null;
-                    this.onSearch();
-                }
-            }}
-        /><IconSearch className={this.props.classes.searchButton}/></div>;
+                    this.searchTimeout = setTimeout(() => {
+                        this.searchTimeout = null;
+                        this.onSearch();
+                    }, 300);
+                }}
+                onKeyUp={e => {
+                    if (e.keyCode === 13) {
+                        this.searchTimeout && clearTimeout(this.searchTimeout);
+                        this.searchTimeout = null;
+                        this.onSearch();
+                    }
+                }}
+            />
+            <IconSearch className={this.props.classes.searchButton}/>
+        </div>;
     }
 
     renderSearchResult(result, last) {
@@ -404,17 +424,22 @@ class App extends Router {
             disablePortal={false}
             anchorEl={this.searchAnchor}
             open={!!this.state.searchResults && this.state.searchFocus}
-            modifiers={{
-                flip: {
+            modifiers={[
+                {
+                    name: 'flip',
                     enabled: true,
                 },
-                arrow: {
+                {
+                    name: 'arrow',
                     enabled: true,
-                    element: this.searchAnchor,
+                    options: {
+                        element: this.searchAnchor,
+                    },
                 },
-            }}
+            ]}
             children={this.state.searchResults && this.state.searchResults.length ?
-                <Paper className={this.props.classes.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper> :
+                <Paper className={this.props.classes.searchResultsDiv}>{this.state.searchResults.map((link, i) => this.renderSearchResult(link, len - 1 === i))}</Paper>
+                :
                 <Paper className={this.props.classes.searchResultsDiv}>{I18n.t('No results found')}</Paper>}
         />;
     }
@@ -427,29 +452,38 @@ class App extends Router {
     }
 
     renderMenu(name) {
-        if (this.state.menuOpened.indexOf(name) !== -1) {
-            return <Menu id="simple-menu" transitionDuration={0} anchorEl={this.state.anchorMenu} open={true} onClose={() => {
-                const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                const pos = menuOpened.indexOf(name);
-                if (pos !== -1) {
-                    menuOpened.splice(pos, 1);
-                    this.setState({menuOpened, anchorMenu: null});
-                }}
-            }>
+        if (this.state.menuOpened.includes(name)) {
+            return <Menu
+                id="simple-menu"
+                transitionDuration={0}
+                anchorEl={this.state.anchorMenu}
+                open
+                onClose={() => {
+                    const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                    const pos = menuOpened.indexOf(name);
+                    if (pos !== -1) {
+                        menuOpened.splice(pos, 1);
+                        this.setState({ menuOpened, anchorMenu: null });
+                    }}
+                }
+            >
                 {PAGES[name].menu.map(item =>
-                    <MenuItem key={item.name} onClick={() => {
-                        if (item.link) {
-                            Utils.openLink(item.link, item.target)
-                        } else if (item.tab) {
-                            this.onNavigate(null, item.tab);
-                        }
-                        const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                        const pos = menuOpened.indexOf(name);
-                        if (pos !== -1) {
-                            menuOpened.splice(pos, 1);
-                            this.setState({menuOpened, anchorMenu: null});
-                        }
-                    }}>
+                    <MenuItem
+                        key={item.name}
+                        onClick={() => {
+                            if (item.link) {
+                                Utils.openLink(item.link, item.target);
+                            } else if (item.tab) {
+                                this.onNavigate(null, item.tab);
+                            }
+                            const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                            const pos = menuOpened.indexOf(name);
+                            if (pos !== -1) {
+                                menuOpened.splice(pos, 1);
+                                this.setState({menuOpened, anchorMenu: null});
+                            }
+                        }}
+                    >
                         {item.icon || ''}{I18n.t(item.name)}
                         {this.state.last}
                     </MenuItem>
@@ -491,7 +525,6 @@ class App extends Router {
                   }
               }}
         >
-
             {Object.keys(PAGES).map(tab => {
                 if (!PAGES[tab].tabIndex) {
                     return null;
@@ -499,7 +532,12 @@ class App extends Router {
 
                 if (PAGES[tab].menu) {
                     return [
-                        <Tab classes={{root: this.props.classes.tab}} key={tab} fullWidth={false} label={PAGES[tab].icon ? [(<span>{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}/>,
+                        <Tab
+                            classes={{root: this.props.classes.tab}}
+                            key={tab}
+                            fullWidth={false}
+                            label={PAGES[tab].icon ? [<span>{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
+                        />,
                         this.renderMenu(tab)
                     ];
                 } else {
@@ -509,7 +547,12 @@ class App extends Router {
                             star = true;
                         }
                     }
-                    return <Tab key={tab} classes={{root: clsx(this.props.classes.tab, star && this.props.classes.tabAction) }} fullWidth={false} label={PAGES[tab].icon ? [(<span>{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}/>;
+                    return <Tab
+                        key={tab}
+                        classes={{ root: clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
+                        fullWidth={false}
+                        label={PAGES[tab].icon ? [(<span>{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
+                    />;
                 }
             })}
 
@@ -584,61 +627,62 @@ class App extends Router {
 
     renderAppBar() {
         const noTabs = this.state.width <= TABS_WIDTH;
-        return <Toolbar position="static" variant="dense" className={this.props.classes.tabs + ' ' + (noTabs ? this.props.classes.tabsNoTabs : '')}>
+
+        return <Toolbar position="static" variant="dense" className={`${this.props.classes.tabs} ${noTabs ? this.props.classes.tabsNoTabs : ''}`}>
             {this.renderLogo()}
             {this.renderLanguage()}
             {this.renderSearch()}
-            <div style={{flex: 1}}/>
-            {noTabs ? (<IconButton key="menuButton" onClick={() => this.setState({showTabMenu: true})}>
+            <div style={{ flex: 1 }}/>
+            {noTabs ? <IconButton key="menuButton" onClick={() => this.setState({ showTabMenu: true })}>
                 <IconMenu />
-            </IconButton>) : null}
+            </IconButton> : null}
             {noTabs ? this.renderPagesMenu() : this.renderTabs()}
         </Toolbar>;
     }
 
     render() {
         if (!this.state.loaded) {
-            return (<Loader theme={this.state.themeType}/>);
+            return <Loader theme={this.state.themeType} />;
         }
 
         const selectedPage = this.state.selectedPage || 'intro';
         const PageComponent = PAGES[selectedPage] && PAGES[selectedPage].component;
 
-        return (
-            <div className="App">
-                {this.renderAppBar()}
-                <div className={this.props.classes.tabContent} ref={this.contentRef}>
-                    {PageComponent ? <PageComponent
-                        theme={this.state.themeType}
-                        mobile={this.state.mobile}
-                        onNavigate={this.onNavigate.bind(this)}
-                        language={this.state.language}
-                        contentWidth={this.state.width}
-                    /> : null}
-                    {PAGES[selectedPage] && PAGES[selectedPage].md ? (<MDPage
-                        path={PAGES[selectedPage].md}
-                        theme={this.state.themeType}
-                        mobile={this.state.mobile}
-                        onNavigate={this.onNavigate.bind(this)}
-                        contentWidth={this.state.width}
-                        language={this.state.language} />) : null}
-                    {PAGES[selectedPage] && PAGES[selectedPage].content ? (<TreePage
-                        contentPath={PAGES[selectedPage].content}
-                        theme={this.state.themeType}
-                        mobile={this.state.mobile}
-                        onNavigate={this.onNavigate.bind(this)}
-                        contentWidth={this.state.width}
-                        language={this.state.language} />) : null}
-                </div>
-                {this.renderError()}
-                {this.renderSearchResults()}
-                <Cookies theme={this.state.themeType}
-                         mobile={this.state.mobile}
-                         onNavigate={this.onNavigate.bind(this)}
-                         language={this.state.language}
-                         contentWidth={this.state.width} />
+        return <div className="App">
+            {this.renderAppBar()}
+            <div className={this.props.classes.tabContent} ref={this.contentRef}>
+                {PageComponent ? <PageComponent
+                    theme={this.state.themeType}
+                    mobile={this.state.mobile}
+                    onNavigate={this.onNavigate.bind(this)}
+                    language={this.state.language}
+                    contentWidth={this.state.width}
+                /> : null}
+                {PAGES[selectedPage] && PAGES[selectedPage].md ? <MDPage
+                    path={PAGES[selectedPage].md}
+                    theme={this.state.themeType}
+                    mobile={this.state.mobile}
+                    onNavigate={this.onNavigate.bind(this)}
+                    contentWidth={this.state.width}
+                    language={this.state.language} /> : null}
+                {PAGES[selectedPage] && PAGES[selectedPage].content ? <TreePage
+                    contentPath={PAGES[selectedPage].content}
+                    theme={this.state.themeType}
+                    mobile={this.state.mobile}
+                    onNavigate={this.onNavigate.bind(this)}
+                    contentWidth={this.state.width}
+                    language={this.state.language} /> : null}
             </div>
-        );
+            {this.renderError()}
+            {this.renderSearchResults()}
+            <Cookies
+                theme={this.state.themeType}
+                 mobile={this.state.mobile}
+                 onNavigate={this.onNavigate.bind(this)}
+                 language={this.state.language}
+                 contentWidth={this.state.width}
+            />
+        </div>;
     }
 }
 

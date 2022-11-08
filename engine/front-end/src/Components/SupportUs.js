@@ -11,21 +11,21 @@
 // <img alt="" border="0" src="https://www.paypal.com/en_DE/i/scr/pixel.gif" width="1" height="1" />
 // </form>
 
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import Slide from '@material-ui/core/Slide';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import Slide from '@mui/material/Slide';
 
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
 // import {FaHandsHelping as IconSupport} from 'react-icons/fa';
 
@@ -136,78 +136,72 @@ class SupportUs extends Component {
     }
 
     renderAmazon() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
-        return (
-            <Card key="amazon" className={classes.card + ' ' + (this.props.mobile ? this.props.classes.cardMobile : '')}>
-                <CardActionArea onClick={() => Utils.openLink(AMAZON_LINK)}>
-                    <CardMedia
-                        className={classes.media}
-                        image={ImgAmazon}
-                        title={I18n.t('Buy what you need at amazon')}
-                    />
-                    <CardContent>
-                        <h5>{I18n.t('Amazon Affiliate Links')}</h5>
-                        <Button className={classes.amazonButton} onClick={() => Utils.openLink(AMAZON_LINK)}>{I18n.t('Buy at Amazon')}</Button>
-                        <div style={{textAlign: 'left'}}>{I18n.t('Amazon explanation')}</div>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        );
+        return <Card key="amazon" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+            <CardActionArea onClick={() => Utils.openLink(AMAZON_LINK)}>
+                <CardMedia
+                    className={classes.media}
+                    image={ImgAmazon}
+                    title={I18n.t('Buy what you need at amazon')}
+                />
+                <CardContent>
+                    <h5>{I18n.t('Amazon Affiliate Links')}</h5>
+                    <Button className={classes.amazonButton} onClick={() => Utils.openLink(AMAZON_LINK)}>{I18n.t('Buy at Amazon')}</Button>
+                    <div style={{ textAlign: 'left' }}>{I18n.t('Amazon explanation')}</div>
+                </CardContent>
+            </CardActionArea>
+        </Card>;
     }
 
     renderMug() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
-        return (
-            <Card key="mug" className={classes.card + ' ' + (this.props.mobile ? this.props.classes.cardMobile : '')}>
-                <CardActionArea onClick={() => Utils.openLink(MUG_LINK)}>
-                    <CardMedia
-                        className={classes.media +  ' '+ classes.goodsMedia}
-                        image={ImgMug}
-                        title={I18n.t('Support us and buy a mug with ioBroker logo!')}
-                    />
-                    <CardContent>
-                        <h5>{I18n.t('Mug with logo')}</h5>
-                        <Button className={classes.amazonButton} onClick={() => Utils.openLink(MUG_LINK)}>{I18n.t('Buy a mug')}</Button>
-                        <p style={{textAlign: 'left'}}>{I18n.t('Mug explanation')}</p>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        );
+        return <Card key="mug" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+            <CardActionArea onClick={() => Utils.openLink(MUG_LINK)}>
+                <CardMedia
+                    className={`${classes.media} ${classes.goodsMedia}`}
+                    image={ImgMug}
+                    title={I18n.t('Support us and buy a mug with ioBroker logo!')}
+                />
+                <CardContent>
+                    <h5>{I18n.t('Mug with logo')}</h5>
+                    <Button className={classes.amazonButton} onClick={() => Utils.openLink(MUG_LINK)}>{I18n.t('Buy a mug')}</Button>
+                    <p style={{ textAlign: 'left' }}>{I18n.t('Mug explanation')}</p>
+                </CardContent>
+            </CardActionArea>
+        </Card>;
     }
 
     renderTShirt() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
-        return (
-            <Card key="tshirt" className={classes.card + ' ' + (this.props.mobile ? this.props.classes.cardMobile : '')}>
-                <CardActionArea onClick={() => Utils.openLink(TSHIRT_LINK)}>
-                    <CardMedia
-                        className={classes.media +  ' '+ classes.goodsMedia}
-                        image={ImgTShirt}
-                        title={I18n.t('Support us and buy a t-shirt with ioBroker logo!')}
-                    />
-                    <CardContent>
-                        <h5>{I18n.t('T-shirt with logo')}</h5>
-                        <Button className={classes.amazonButton} onClick={() => Utils.openLink(TSHIRT_LINK)}>{I18n.t('Buy a t-shirt')}</Button>
-                        <div style={{ textAlign: 'left' }}>{ I18n.t('T-Shirt explanation') }</div>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        );
+        return <Card key="tshirt" className={`${classes.card} ${this.props.mobile ? this.props.classes.cardMobile : ''}`}>
+            <CardActionArea onClick={() => Utils.openLink(TSHIRT_LINK)}>
+                <CardMedia
+                    className={`${classes.media} ${classes.goodsMedia}`}
+                    image={ImgTShirt}
+                    title={I18n.t('Support us and buy a t-shirt with ioBroker logo!')}
+                />
+                <CardContent>
+                    <h5>{I18n.t('T-shirt with logo')}</h5>
+                    <Button className={classes.amazonButton} onClick={() => Utils.openLink(TSHIRT_LINK)}>{I18n.t('Buy a t-shirt')}</Button>
+                    <div style={{ textAlign: 'left' }}>{ I18n.t('T-Shirt explanation') }</div>
+                </CardContent>
+            </CardActionArea>
+        </Card>;
     }
 
     renderDialog() {
-        return (<Dialog
+        return <Dialog
             key="dialogSupport"
             open={this.state.opened}
             TransitionComponent={Transition}
             keepMounted
             fullScreen={this.props.mobile}
-            fullWidth={true}
+            fullWidth
             maxWidth="md"
-            className={this.props.classes.dialog + ' ' + (this.props.mobile ? '' : this.props.classes.dialogDesktop)}
+            className={`${this.props.classes.dialog} ${this.props.mobile ? '' : this.props.classes.dialogDesktop}`}
             onClose={() => this.setState({opened: false})}
             aria-labelledby="alert-dialog-support-title"
             aria-describedby="alert-dialog-support-description"
@@ -224,20 +218,21 @@ class SupportUs extends Component {
             <DialogActions>
                 <Button onClick={() => this.setState({opened: false})} color="primary">{I18n.t('Close')}</Button>
             </DialogActions>
-        </Dialog>);
+        </Dialog>;
     }
 
     render() {
         return [
-            (<Button
-            key="button"
-            className={this.props.classes.mainButton + ' hue-animation'}
-            onClick={() => this.setState({opened: true})}
-        >
+            <Button
+                key="button"
+                color="grey"
+                className={`${this.props.classes.mainButton} hue-animation`}
+                onClick={() => this.setState({opened: true})}
+            >
                 {/*<IconSupport className={this.props.classes.mainButtonIcon}/>*/}
-            <img src={ImgMugSmall} className={this.props.classes.mainButtonIcon} alt="logo"/>
-            {I18n.t('Support us!')}
-            </Button>),
+                <img src={ImgMugSmall} className={this.props.classes.mainButtonIcon} alt="logo"/>
+                {I18n.t('Support us!')}
+            </Button>,
             this.renderDialog(),
         ];
     }

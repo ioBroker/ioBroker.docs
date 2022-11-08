@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
+import Button from '@mui/material/Button';
 
 import I18n from '../i18n';
 
@@ -39,7 +39,7 @@ const styles = theme => ({
         display: 'inline-block',
     },
     buttonMore: {
-        color: theme.palette.secondary.main,
+        color: theme.palette.secondary.light,
         lineHeight: 'normal',
         overflow: 'hidden',
         padding: 24,
@@ -82,7 +82,7 @@ class Cookies extends Component {
             <div className={classes.mainDiv + ' ' + (this.props.mobile ? classes.mainDivMobile : '')}>
                 <div className={classes.text}>{I18n.t('cookies_text')}</div>
                 <div className={classes.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
-                <Button variant="contained" className={classes.buttonOk + ' ' + (this.props.mobile ? '' : classes.buttonOkDesktop)} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
+                <Button variant="contained" className={`${classes.buttonOk} ${this.props.mobile ? '' : classes.buttonOkDesktop}`} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
             </div>);
     }
 }

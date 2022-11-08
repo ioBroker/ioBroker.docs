@@ -1,36 +1,36 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ChartistGraph from 'react-chartist';
+import { withStyles } from '@mui/styles';
+import PropTypes from 'prop-types';
 
 import I18n from '../i18n';
-import {withStyles} from '@material-ui/core/styles';
-import PropTypes from "prop-types";
 
-const styles = theme => ({
+const styles = () => ({
     cardChart: {
         width: '100%',
         height: '100%',
     },
-    chartColor0: {fill: '#96e7ff'},
-    chartColor1: {fill: '#86ffb9'},
-    chartColor2: {fill: '#ffff77'},
-    chartColor3: {fill: '#ff6e00'},
-    chartColor4: {fill: '#ffadc7'},
-    chartColor5: {fill: '#d7c1ff'},
-    chartColor6: {fill: '#ff8ed2'},
-    chartColor7: {fill: '#f4fffd'},
-    chartColor8: {fill: '#418aff'},
-    chartColor9: {fill: '#5ffcff'},
-    chartColor10: {fill: '#47ff9a'},
-    chartColor11: {fill: '#bfff2b'},
-    chartColor12: {fill: '#ffb227'},
-    chartColor13: {fill: '#ff3c0a'},
-    chartColor14: {fill: '#ff0867'},
-    chartColor15: {fill: '#ff099a'},
-    chartColor16: {fill: '#dc1eff'},
-    chartColor17: {fill: '#771eff'},
-    chartColor18: {fill: '#3b15ff'},
-    chartColor19: {fill: '#1685ff'},
-    chartColor20: {fill: '#00fbff'},
+    chartColor0: { fill: '#96e7ff' },
+    chartColor1: { fill: '#86ffb9' },
+    chartColor2: { fill: '#ffff77' },
+    chartColor3: { fill: '#ff6e00' },
+    chartColor4: { fill: '#ffadc7' },
+    chartColor5: { fill: '#d7c1ff' },
+    chartColor6: { fill: '#ff8ed2' },
+    chartColor7: { fill: '#f4fffd' },
+    chartColor8: { fill: '#418aff' },
+    chartColor9: { fill: '#5ffcff' },
+    chartColor10: { fill: '#47ff9a' },
+    chartColor11: { fill: '#bfff2b' },
+    chartColor12: { fill: '#ffb227' },
+    chartColor13: { fill: '#ff3c0a' },
+    chartColor14: { fill: '#ff0867' },
+    chartColor15: { fill: '#ff099a' },
+    chartColor16: { fill: '#dc1eff' },
+    chartColor17: { fill: '#771eff' },
+    chartColor18: { fill: '#3b15ff' },
+    chartColor19: { fill: '#1685ff' },
+    chartColor20: { fill: '#00fbff' },
 });
 
 class PieStats2 extends Component {
@@ -85,6 +85,7 @@ class PieStats2 extends Component {
                 break;
             }
         }
+
         const ddd = labels.map((n, i) => {
             return {
                 value: series[i],
@@ -94,13 +95,13 @@ class PieStats2 extends Component {
             };
         });
 
-        return (<ChartistGraph
+        return <ChartistGraph
             className={this.props.classes.cardChart}
             data={{series: ddd}}
             options={{
                 labelInterpolationFnc: (value, index) => {
                     console.log(value);
-                    return labels[index];// + ' - ' + (Math.round(value / sum * 1000) / 10) + '%';
+                    return labels[index]; // + ' - ' + (Math.round(value / sum * 1000) / 10) + '%';
                 }
             }}
             responsiveOptions={[
@@ -117,7 +118,8 @@ class PieStats2 extends Component {
                     }
                 ]
             ]}
-            type={'Pie'} />);
+            type="Pie"
+        />;
     }
 }
 

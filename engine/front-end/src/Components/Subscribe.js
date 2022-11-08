@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import Input from '@material-ui/core/Input';
-import Snackbar from '@material-ui/core/Snackbar';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import Snackbar from '@mui/material/Snackbar';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import {FaMailBulk as IconEmail} from 'react-icons/fa';
 import {FaEnvelopeOpen as IconSubscribe} from 'react-icons/fa';
@@ -90,9 +90,9 @@ class Subscribe extends Component {
             return null;
         }
 
-        return (<Dialog
-            open={true}
-            fullWidth={true}
+        return <Dialog
+            open={!0}
+            fullWidth
             maxWidth="lg"
             onClose={() => this.setState({showUnsubscribe: ''})}
         >
@@ -110,7 +110,7 @@ class Subscribe extends Component {
                     {I18n.t('Send me an email with instructions to unsubscribe')}
                 </Button>
             </DialogActions>
-        </Dialog>);
+        </Dialog>;
     }
 
     onUnsubscribe() {
@@ -193,13 +193,13 @@ class Subscribe extends Component {
             /><br/>
             <Button
                 color="primary"
-                className={this.props.classes.button + ' ' + (this.state.inputFocused || this.state.email ? this.props.classes.buttonFull : '')}
+                className={`${this.props.classes.button} ${this.state.inputFocused || this.state.email ? this.props.classes.buttonFull : ''}`}
                 disabled={error || !this.state.email}
                 onClick={() => this.onSubscribe()}>
                 <IconEmail fontSize="small" style={{marginRight: 5}}/>
                 {this.state.inputFocused ? I18n.t('Subscribe') : ''}
             </Button>
-            <div className={this.props.classes.promise + ' ' + (this.state.inputFocused || this.state.email ? this.props.classes.promiseHide : '')}>{I18n.t('We will not spam you. Promise!')}</div>
+            <div className={`${this.props.classes.promise} ${this.state.inputFocused || this.state.email ? this.props.classes.promiseHide : ''}`}>{I18n.t('We will not spam you. Promise!')}</div>
             {this.renderSnackbar()}
             {this.renderUnsubscribeDialog()}
         </div>);

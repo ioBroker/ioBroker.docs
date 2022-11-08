@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import { Component } from 'react';
 
 class Router extends Component {
     constructor(props) {
@@ -30,31 +30,33 @@ class Router extends Component {
         }
     }
 
+    /*
     onNavigate(language, tab, page, chapter) {
         if (tab === null || language === null || page === null) {
-            let location = Router.getLocation();
+            const location = Router.getLocation();
             if (tab === null) {
-                tab      = tab || location.tab;
+                tab = tab || location.tab;
             }
             if (page === null) {
-                page     = page || location.page;
+                page = page || location.page;
             }
             language = language || location.language;
         }
         // rooter: #LN/TAB/PAGE?chapterOnPage
         // rooter: #LN/TAB?chapterOnPage
         // rooter: #?chapterOnPage
-        window.location.hash = `#${language}/${tab}${page ? '/' + page : ''}${chapter ? '?' + chapter : ''}`;
+        window.location.hash = `#${language}/${tab}${page ? `/${page}` : ''}${chapter ? `?${chapter}` : ''}`;
     }
+    */
 
     static getLocation() {
-        let hash = window.location.hash.substring(1);
+        const hash = window.location.hash.substring(1);
         let pos = hash.indexOf('/');
         const result = {
             language: '',
             tab: '',
             page: '',
-            chapter: ''
+            chapter: '',
         };
 
         if (pos !== -1) {
@@ -92,7 +94,5 @@ class Router extends Component {
         return result;
     }
 }
-
-
 
 export default Router;
