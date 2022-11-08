@@ -72,6 +72,7 @@ Sollten aus einer älteren Installation hier noch andere Repositories eingetrage
 sollten diese gelöscht werden, da sie nicht mehr gepflegt werden.
 
 ## Lizenzen
+![](media/ADMIN_Settings_licences.png)
 
 ## Zertifikate
 ![Zertifikate](media/ADMIN_Settings_certificates.png)
