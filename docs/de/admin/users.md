@@ -1,6 +1,6 @@
 ---
 title:       "Benutzer"
-lastChanged: "27.03.2019"
+lastChanged: "09.11.2022"
 ---
 
 # Die Seite Benutzer
