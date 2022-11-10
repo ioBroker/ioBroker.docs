@@ -28,9 +28,9 @@ function init() {
         httpsOptions = {};
     } else {
         httpsOptions = {
-            key:  fs.readFileSync(config.certs.key   || (__dirname + '/certs/cert.key')),
-            cert: fs.readFileSync(config.certs.cert  || (__dirname + '/certs/cert.crt')),
-            ca:   fs.readFileSync(config.certs.chain || (__dirname + '/certs/chain.crt'))
+            key:  fs.readFileSync(config.certs.key   || (`${__dirname}/certs/cert.key`)),
+            cert: fs.readFileSync(config.certs.cert  || (`${__dirname}/certs/cert.crt`)),
+            ca:   fs.readFileSync(config.certs.chain || (`${__dirname}/certs/chain.crt`))
         };
     }
 

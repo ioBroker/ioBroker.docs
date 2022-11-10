@@ -30,7 +30,7 @@ class Router extends Component {
         }
     }
 
-    /*
+    // eslint-disable-next-line class-methods-use-this, react/no-unused-class-component-methods
     onNavigate(language, tab, page, chapter) {
         if (tab === null || language === null || page === null) {
             const location = Router.getLocation();
@@ -47,7 +47,6 @@ class Router extends Component {
         // rooter: #?chapterOnPage
         window.location.hash = `#${language}/${tab}${page ? `/${page}` : ''}${chapter ? `?${chapter}` : ''}`;
     }
-    */
 
     static getLocation() {
         const hash = window.location.hash.substring(1);
