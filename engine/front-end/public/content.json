@@ -335,20 +335,11 @@
         "Log": {
           "title": {
             "en": "Log",
-            "de": "Log",
+            "de": "Protokolle",
             "ru": "журнал",
             "zh-cn": "日志"
           },
           "content": "admin/log.md"
-        },
-        "Events": {
-          "title": {
-            "en": "Events",
-            "de": "Ereignisse",
-            "ru": "События",
-            "zh-cn": "事件"
-          },
-          "content": "admin/events.md"
         },
         "User": {
           "title": {
@@ -367,6 +358,14 @@
             "zh-cn": "主机"
           },
           "content": "admin/hosts.md"
+        "Files": {
+          "title": {
+            "en": "Files",
+            "de": "Dateien",
+            "ru": "Файлы",
+            "zh-cn": "文件"
+          },
+          "content": "admin/files.md"
         }
       }
     },
