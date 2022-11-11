@@ -69,8 +69,7 @@
         * [Rgraph](viz/rgraph)
   * [App](viz/app)
 
-* en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计
-  * [Introduction](logic/README)
+* [en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计](logic/README.md)
   * [Blockly](logic/blockly)
   * [JavaScript](logic/javascript)
   * [TypeScript](logic/typescript)

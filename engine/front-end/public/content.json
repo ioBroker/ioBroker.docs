@@ -554,16 +554,8 @@
         "ru": "Автоматизация",
         "zh-cn": "自动化设计"
       },
+	  "content": "logic/README.md"
       "pages": {
-        "Introduction": {
-          "title": {
-            "en": "Introduction",
-            "de": "Logik",
-            "ru": "логика",
-            "zh-cn": "逻辑"
-          },
-          "content": "logic/README.md"
-        },
         "Blockly": {
           "title": {
             "en": "Blockly",
