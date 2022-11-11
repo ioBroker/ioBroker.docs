@@ -1,17 +1,17 @@
 ---
 title:       "Admin"
-lastChanged: "30.10.2022"
+lastChanged: "11.11.2022"
 ---
 
-# Die Admin-Oberfläche
+# Die Benutzer-Oberfläche
 
 !> **Wegen des Umfangs der Dokumentation ist dies nur eine Übersicht, ausführliche 
 Informationen sind in den Seiten hinterlegt, die über die Überschriften der 
 Abschnitte zu den Reitern verlinkt sind. Bitte die Überschriften anklicken.**
 
 
-Der Adapter Admin dient der Bedienung der gesamten ioBroker-Installation. 
-Er stellt ein Webinterface zur Verfügung. Dieses wird unter der 
+Der Adapter Admin ist der Grundlegende Adapter und dient zur Bedienung der gesamten 
+ioBroker-Installation. Er stellt ein Webinterface zur Verfügung. Dieses wird unter der 
 ``<IP-Adresse des Servers>:8081`` aufgerufen.
 
 Dieser Adapter wird direkt bei der Installation von ioBroker angelegt eine manuelle 
@@ -23,13 +23,13 @@ Installation ist nicht notwendig
 Funktionen abgerufen werden:
 
 * Eingabe von systemweiten Einstellungen
-* Installation weiterer Adapter und Instanzen
+* Installation weiterer Adapter und deren Instanzen
 * Zugriff auf die Konfiguration der Instanzen
-* Zugriff auf Objektübersicht
-* Zugriff auf die Zustandsübersicht der Objekte
+* Zugriff auf Objekt und deren Zustandsübersicht
 * Zugriff auf die Administration von Benutzern und Gruppen
-* Zugriff auf das Logfile
+* Zugriff auf Logfiles (Protokolle)
 * Verwaltung der Hosts
+* Dateiverwaltung
 
 Die Adapteransicht teilt sich auf in die Bereiche 1 - Menüleiste, 2 - Hauptfenster 
 und 3 - Systemeinstellungen
@@ -80,28 +80,26 @@ bestätigt (ack = false).
 [Aufzählungen](https://www.iobroker.net/#de/documentation/admin/enums.md)
 Hier werden die Favoriten, Gewerke und Räume aus der Homematic-CCU aufgelistet.
 
-[Log](https://www.iobroker.net/#de/documentation/admin/log.md)
+[Protokolle](https://www.iobroker.net/#de/documentation/admin/log.md)
 Hier wird das log angezeigt
 
 Im Reiter Instanzen kann bei den einzelnen Instanzen der zu loggende Loglevel 
 eingestellt werden. In dem Auswahlmenü wird der anzuzeigende Mindest-Loglevel 
 ausgewählt. Sollte ein Error auftreten, erscheint die Beschriftung des Reiters in roter Farbe.
 
-
-[Ereignisse](https://www.iobroker.net/#de/documentation/admin/events.md)
-Eine Liste der laufenden Aktualisierung der Zustände.
-
 [Benutzer](https://www.iobroker.net/#de/documentation/admin/users.md)
 Hier können Benutzer angelegt und zu den bestehenden Gruppen hinzugefügt werden.
-
-[Skripte](scripts.md)
-Bei installierten Java-Skript Adapter kann auf dieser Seite eigene Skripte mit 
-javascript, Blockly oder Typescript erstellt werden.
 
 [Hosts](https://www.iobroker.net/#de/documentation/admin/hosts.md)
 Informationen über den Rechner, auf dem ioBroker installiert ist.  Liegt eine neue Version vor, 
 erscheint ein Hinweis in diesem Eintrag der Menüleiste.
 
+[Skripte](scripts.md)
+Bei installierten Java-Skript Adapter kann auf dieser Seite eigene Skripte mit 
+javascript, Blockly oder Typescript erstellt werden.
+
+[Dateien](https://www.iobroker.net/#de/documentation/admin/files.md)
+Dateimanager zur Verwaltung von Dateien.
 
 ## Systemeinstellungen
 In dem sich hier öffnenden Menü werden [Systemeinstellungen](https://www.iobroker.net/#de/documentation/admin/settings.md) wie Sprache, Zeit- 
@@ -116,7 +114,7 @@ Auch die Repositories und Sicherheitseinstellungen können hier eingestellt werd
 [Objekte]: https://www.iobroker.net/#de/documentation/admin/objects.md
 [Aufzählungen]: https://www.iobroker.net/#de/documentation/admin/enums.md
 [Log]: https://www.iobroker.net/#de/documentation/admin/log.md
-[Ereignisse]: https://www.iobroker.net/#de/documentation/admin/events.md
+[Dateien](https://www.iobroker.net/#de/documentation/admin/files.md)
 [Benutzer]: https://www.iobroker.net/#de/documentation/admin/users.md
 [Hosts]: https://www.iobroker.net/#de/documentation/admin/hosts.md
 [Systemeinstellungen]: https://www.iobroker.net/#de/documentation/admin/settings.md
