@@ -3,13 +3,13 @@
 const axios = require('axios');
 const fs = require('fs');
 let lastRequest = null;
-const {Translate} = require('@google-cloud/translate').v2;
+const { Translate } = require('@google-cloud/translate').v2;
 // Your Google Cloud Platform project ID
 const projectId = 'web-site-1377';
-process.env.GOOGLE_APPLICATION_CREDENTIALS = __dirname + '/../google-keys.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = `${__dirname}/../google-keys.json`;
 
 // Instantiates a client
-const translate = new Translate({projectId: projectId,});
+const translate = new Translate({ projectId });
 
 const TRANSLATE_DELAY = 5000;
 
@@ -18,6 +18,7 @@ const TRANSLATE_DELAY = 5000;
  * @param {string} text The text to translate
  * @param {string} targetLang The target language
  * @param {string} yandex api key
+ * @param {string} sourceLang source language
  * @returns {Promise<string>}
  */
 async function _translateText(text, targetLang, yandex, sourceLang) {
@@ -48,10 +49,10 @@ async function translateYandex(text, targetLang, yandex) {
                     if (json && json.text && json.text[0]) {
                         return json.text[0];
                     } else {
-                        throw new Error('Invalid answer: ' + json);
+                        throw new Error(`Invalid answer: ${json}`);
                     }
                 } catch (e) {
-                    throw new Error('Cannot parse answer: ' + json);
+                    throw new Error(`Cannot parse answer: ${json}`);
                 }
             });
     } catch (e) {
@@ -83,11 +84,11 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
         countGoogle.count += text.length;
 
         translate
-            .translate(text, {to: targetLang, from: sourceLang})
+            .translate(text, { to: targetLang, from: sourceLang })
             .then(results => cb(null, results[0]))
             .catch(err => cb(err));
     } else {
-        return cb(null, 'TR: ' + text);
+        return cb(null, `TR: ${text}`);
         if (lastRequest && Date.now() - lastRequest < TRANSLATE_DELAY) {
             return setTimeout(() => translateGoogleSync(text, targetLang, sourceLang, cb), TRANSLATE_DELAY - Date.now() + lastRequest);
         }
@@ -106,15 +107,15 @@ function translateGoogleSync(text, targetLang, sourceLang, cb) {
                         // we got a valid response
                         cb(null, json[0][0][0]);
                     } else {
-                        cb('Invalid answer: ' + result.data);
+                        cb(`Invalid answer: ${result.data}`);
                     }
                 } catch (e) {
-                    cb('Cannot parse answer: ' + result.data);
+                    cb(`Cannot parse answer: ${result.data}`);
                 }
             })
             .catch(error => {
                 if (error.response.status === 429) {
-                    cb(null, 'TR: ' + text);
+                    cb(null, `TR: ${text}`);
                 } else {
                     cb(error.response.data || error.response.status);
                 }
@@ -214,7 +215,7 @@ function partsTake(text, addIds) {
             if (parts[last]) {
                 parts[last].id = parseInt(line.substring('<!-- ID: '.length, line.length - 4));
             } else {
-                console.warn('ID ' + line.substring('<!-- ID: '.length, line.length - 4) + ' skipped');
+                console.warn(`ID ${line.substring('<!-- ID: '.length, line.length - 4)} skipped`);
             }
             current = '';
         } else
@@ -293,7 +294,7 @@ function partsTake(text, addIds) {
                         });
                     }
 
-                    line = line.replace(item, '§§IIIII_' + (parts[last].images.length - 1) + '§§');
+                    line = line.replace(item, `§§IIIII_${parts[last].images.length - 1}§§`);
                     changed = true;
                 }
             });
@@ -318,7 +319,7 @@ function partsTake(text, addIds) {
                         link: mm[2].trim(),
                     });
 
-                    line = line.replace(item, '§§LLLLL_' + (parts[last].links.length - 1) + '§§');
+                    line = line.replace(item, `§§LLLLL_${parts[last].links.length - 1}§§`);
                     changed = true;
                 }
             });
@@ -338,7 +339,7 @@ function partsTake(text, addIds) {
                     parts[last].codes = parts[last].codes || [];
                     parts[last].codes.push({code: mm[1], single: false});
                     // do not CAOT, because it can be replaced with cyrillic one
-                    line = line.replace(item, '§§JJJJJ_' + (parts[last].codes.length - 1) + '§§');
+                    line = line.replace(item, `§§JJJJJ_${parts[last].codes.length - 1}§§`);
                     changed = true;
                 }
             });
@@ -357,7 +358,7 @@ function partsTake(text, addIds) {
                 if (mm) {
                     parts[last].codes = parts[last].codes || [];
                     parts[last].codes.push({code: mm[1], single: true});
-                    line = line.replace(item, '§§SSSSS_' + (parts[last].codes.length - 1) + '§§');
+                    line = line.replace(item, `§§SSSSS_${parts[last].codes.length - 1}§§`);
                     changed = true;
                 }
             });
@@ -431,7 +432,7 @@ function partsSave(parts, saveNoSource) {
             if (part.images) {
                 part.images.forEach((item, i) => {
                     const reg = new RegExp(`§§I+_${i}§§`);
-                    text = text.replace(reg, `![${item.text}](${item.link}${item.title ? ' "' + item.title + '"' : ''})`);
+                    text = text.replace(reg, `![${item.text}](${item.link}${item.title ? ` "${item.title}"` : ''})`);
                 });
             }
 
@@ -439,18 +440,18 @@ function partsSave(parts, saveNoSource) {
                 // if last line is empty, put <!----> just before it
                 if (text.match(/\n$/)) {
                     lines.push(text);
-                    !saveNoSource && lines.push('<!-- SOURCE: ' + part.id + ' ' + part.original.replace(/\n$/, '') + ' -->\n');
+                    !saveNoSource && lines.push(`<!-- SOURCE: ${part.id} ${part.original.replace(/\n$/, '')} -->\n`);
                 } else {
                     lines.push(text + '\n');
-                    !saveNoSource && lines.push('<!-- SOURCE: ' + part.id + ' ' + part.original.replace(/\n$/, '') + ' -->\n');
+                    !saveNoSource && lines.push(`<!-- SOURCE: ${part.id} ${part.original.replace(/\n$/, '')} -->\n`);
                 }
             } else {
                 if (text.match(/\n$/)) {
                     lines.push(text);
-                    !saveNoSource && lines.push('<!-- ID: ' + part.id + ' -->\n');
+                    !saveNoSource && lines.push(`<!-- ID: ${part.id} -->\n`);
                 } else {
                     lines.push(text + '\n');
-                    !saveNoSource && lines.push('<!-- ID: ' + part.id + ' -->\n');
+                    !saveNoSource && lines.push(`<!-- ID: ${part.id} -->\n`);
                 }
             }
 
@@ -517,7 +518,9 @@ function partsTranslate(fromLang, partsSource, toLang, partsTarget, cb) {
     let untranslated;
     for (let i = 0; i < partsSource.length; i++) {
         // do not translate twice
-        if (partsSource[i].translated) continue;
+        if (partsSource[i].translated) {
+            continue;
+        }
         // do not translate code, but copy that
         if (partsSource[i].type === 'code' || partsSource[i].type === 'decoration') {
             if (!partsTarget[i] || partsSource[i].lines.join().trim() !== partsTarget[i].lines.join().trim()) {
@@ -554,21 +557,21 @@ function partsTranslate(fromLang, partsSource, toLang, partsTarget, cb) {
             .then(text => {
                 if (partsTarget[untranslated].type === 'table') {
                     if (!text.trim().startsWith('|')) {
-                        text = '| ' + text;
+                        text = `| ${text}`;
                     }
                     if (!text.trim().endsWith('|')) {
-                        text = text + ' |';
+                        text = `${text} |`;
                     }
                 }
 
                 partsTarget[untranslated].text = text; // remember translated text
-                //setTimeout(() => partsTranslate(fromLang, partsSource, toLang, partsTarget, cb), 0);
+                // setTimeout(() => partsTranslate(fromLang, partsSource, toLang, partsTarget, cb), 0);
                 translateLinks(fromLang, partsTarget[untranslated], toLang, () => {
                     partsSource[untranslated].translated = true;
                     setTimeout(() => partsTranslate(fromLang, partsSource, toLang, partsTarget, cb), 0);
                 });
             }).catch(e => {
-                console.error('Cannot translate: ' + e);
+                console.error(`Cannot translate: ${e}`);
                 partsSource[untranslated].translated = true;
                 partsTarget[untranslated].text = partsTarget[untranslated].original;
             });
@@ -626,7 +629,7 @@ function translateText(fromLang, text, toLang) {
     }
 
     // remove new lines, because translator thinks it is end of sentence.
-    if (text.indexOf('\n') !== -1) {
+    if (text.includes('\n')) {
         // allow \n only after .
         const lines = text.split('\n');
         const newLines = [lines[0].trim()];
@@ -687,7 +690,7 @@ function translateText(fromLang, text, toLang) {
                             if (i % 2 === 0){
                                 text += part;
                             } else {
-                                text += ' ***' + part.trim() + '*** ';
+                                text += ` ***${part.trim()}*** `;
                             }
                         });
                         text = text.replace(/\s\s/g, ' ');
@@ -698,14 +701,14 @@ function translateText(fromLang, text, toLang) {
                 let parts = (text + ' ').split(/ \*\*_| _\*\*/);
                 if (parts.length > 1) {
                     if (parts.length % 2 === 0) {
-                        console.error('Cannot restore formatting!: ' + text);
+                        console.error(`Cannot restore formatting!: ${text}`);
                     } else {
                         text = '';
                         parts.forEach((part, i) => {
                             if (i % 2 === 0){
                                 text += part;
                             } else {
-                                text += ' **_' + part.trim() + '_** ';
+                                text += ` **_${part.trim()}_** `;
                             }
                         });
                         text = text.replace(/\s\s/g, ' ');
@@ -718,14 +721,14 @@ function translateText(fromLang, text, toLang) {
                 let parts = (text + ' ').split(/ \*\*[^*]/);
                 if (parts.length > 1) {
                     if (parts.length % 2 === 0) {
-                        console.error('Cannot restore formatting!: ' + text);
+                        console.error(`Cannot restore formatting!: ${text}`);
                     } else {
                         text = '';
                         parts.forEach((part, i) => {
                             if (i % 2 === 0) {
                                 text += part;
                             } else {
-                                text += ' **' + part.trim() + '** ';
+                                text += ` **${part.trim()}** `;
                             }
                         });
                     }
@@ -745,14 +748,14 @@ function translateText(fromLang, text, toLang) {
                 let parts = (text + ' ').split(/ \*[^*]/);
                 if (parts.length > 1) {
                     if (parts.length % 2 === 0) {
-                        console.error('Cannot restore formatting!: ' + text);
+                        console.error(`Cannot restore formatting!: ${text}`);
                     } else {
                         text = '';
                         parts.forEach((part, i) => {
                             if (i % 2 === 0) {
                                 text += part;
                             } else {
-                                text += ' *' + part.trim() + '* ';
+                                text += ` *${part.trim()}* `;
                             }
                         });
                         text = text.replace(/\s\s/g, ' ');

@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "iOS App"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/iosapp.md"
+template:    true
 ---
 
 # Die iOS App

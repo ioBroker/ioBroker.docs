@@ -4,13 +4,6 @@ lastChanged: "14.09.2018"
 ---
 
 # Fehlerbehebung
-
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), 
-   damit die Änderungen einfacher übernommen werden können.
-
 @@@   
 Übergreifende Verfahren. Auf individuelle Hilfe beim jeweiligen, Adapter,
 Installationsverfahren und -plattform verweisen.  
@@ -20,11 +13,11 @@ Installationsverfahren und -plattform verweisen.
 Auf dieser Seite findet Ihr Informationen zu Problemen und deren Lösungen bzw Ansätze für Lösungen.
 Bitte schaut die Themen durch, ob Euer Problem hier bzw auf den Unterseiten bereits enthalten ist und damit ggf auch schon die Lösung.
 
-## Erste-Hilfe-Checkliste "Mein ioBroker funktioniert nicht mehr" - Was sollte ich zu allerest prüfen und im Forum immer posten?
+## Erste-Hilfe-Checkliste "Mein ioBroker funktioniert nicht mehr" - Was sollte ich zu alle erst prüfen und im Forum immer posten?
 
 Wichtige Informationen sind immer die folgenden Versionsangaben:
 * `node -v`: ioBroker unterstützt die "LTS-Versionen" von nodejs (gerade Versionsnummern). Neuinstallationen müssen mindestens nodejs 8.12 nutzen. **Achtung:** Entwicklungsversionen von nodejs (ungerade Versionsnummern) werden offiziell nicht unterstützt! Bitte auch ganz neue LTS-Versionen erst nach Forums-Informationen nutzen. Empfohlen ist nodejs 8.15 oder höher. 
-* `npm -v`: ioBroker unterstützt npm in Version 3 und >5.7.1, Empfohlen ist 6.4.1 oder höher
+* `npm -v`: ioBroker unterstützt npm in Version 3 und >5.7.1. Empfohlen ist 6.4.1 oder höher
 * `iobroker -v`
 * Versionsnummer des/der Adapter um die es geht
 * Betriebssystem (Linux, MacOS, Windows)
@@ -97,7 +90,7 @@ Nach einer Änderung der Log-Stufe wird die Instanz automatisch neu gestartet.
 ## Es hat alles funktioniert, ich habe nichts geändert und jetzt läuft etwas nicht mehr?
 * Kommunikationsfehler
 * Filesystemfehler
-## Nach Stromausfall/Strom weg ohne sauberem shutdown Fehler
+## Nach Stromausfall/Strom weg ohne sauberen shutdown Fehler
 ## iobroker updates? Adapter? Controller? Wann npm?
 ## Warnungen bei ppm Aktionen?
 * No Access
@@ -105,4 +98,4 @@ Nach einer Änderung der Log-Stufe wird die Instanz automatisch neu gestartet.
 ## Reconnection to DB
 ## Error 7 Adapter läuft schon
 ## Reinstall/rebuild (und Fehler shell script)
-## Habe kein Backup gemacht aber habe noch das Biobroker Verzeichnis? Reicht für Restore?
+## Habe kein Backup gemacht aber habe noch das ioBroker Verzeichnis? Reicht für Restore?

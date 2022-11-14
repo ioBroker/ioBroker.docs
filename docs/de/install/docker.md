@@ -1,6 +1,7 @@
 ---
 title:       "Docker"
 lastChanged: "28.10.2022"
+template:    true
 ---
 
 

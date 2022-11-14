@@ -2,6 +2,7 @@
 title:       "Testing"
 lastChanged: "06.05.2021"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/adaptertemplate.md"
+template:    true
 ---
 
 # Javascript-Template als Basis für eigene Adapter

@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "Alexa Custom-Skill"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/alexacustom.md"
+template:    true
 ---
 
 # Der Alexa Custom-Skill

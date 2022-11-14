@@ -1,6 +1,7 @@
 ---
 title:       "Tutorial"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Durchführen von Updates

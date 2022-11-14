@@ -1,6 +1,7 @@
 ---
 title:       "TypeScript"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
 ?> ***Dies ist ein Platzhalter***.

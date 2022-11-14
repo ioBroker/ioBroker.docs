@@ -219,11 +219,11 @@ function replaceImages(text, sourceFile, targetFile) {
 
 async function translateFile(sourceFileName, fromLang, toLang, root) {
     root = root || consts.SRC_DOC_DIR;
-    const targetFileName = sourceFileName.replace('/' + fromLang + '/', '/' + toLang + '/');
+    const targetFileName = sourceFileName.replace(`/${fromLang}/`, `/${toLang}/`);
 
     const resultSrc = utils.extractHeader(fs.readFileSync(sourceFileName).toString('utf-8'));
     if (!resultSrc) {
-        console.error('File ' + sourceFileName  + ' is empty!!!');
+        console.error(`File ${sourceFileName} is empty!!!`);
         return Promise.resolve();
     }
 
@@ -235,23 +235,23 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
 
     header.translatedFrom = fromLang;
     header.translatedWarning = consts.TRANSLATION_NOTICE[toLang];
-    header.editLink = consts.GITHUB_EDIT_ROOT + 'docs/' + targetFileName.replace(root, '');
+    header.editLink = `${consts.GITHUB_EDIT_ROOT}docs/${targetFileName.replace(root, '')}`;
 
     const data = utils.extractLicenseAndChangelog(resultSrc.body);
-    const {badges, body} = utils.extractBadges(data.body);
+    const { badges, body } = utils.extractBadges(data.body);
 
     let localHash = utils.getFileHash(body);
 
     let actualText;
     if (fs.existsSync(targetFileName)) {
-        let result = utils.extractHeader(fs.readFileSync(targetFileName).toString('utf-8'));
-        actualText = result.body;
-        if (result.header.translatedFrom !== fromLang) {
+        let resultTarget = utils.extractHeader(fs.readFileSync(targetFileName).toString('utf-8'));
+        actualText = resultTarget.body;
+        if (resultTarget.header.translatedFrom !== fromLang) {
             return Promise.resolve();
         }
 
         // Check src hash and compare it with stored one
-        if (result.header.hash === localHash) {
+        if (resultTarget.header.hash === localHash && (resultTarget.header.template || false) === (header.template || false)) {
             return Promise.resolve();
         }
     }
@@ -264,7 +264,8 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
             actualText = replaceImages(actualText, sourceFileName, targetFileName);
             header.title = header.title || utils.getTitle(body);
             return translation.translateText(fromLang, header.title, toLang);
-        }).then(title => {
+        })
+        .then(title => {
             header.title = title;
             header.translatedFrom = fromLang;
             header.translatedWarning = consts.TRANSLATION_NOTICE[toLang];
@@ -348,7 +349,7 @@ function syncDocs(testDir, cb) {
     consts.LANGUAGES.map(lang => {
         consts.LANGUAGES
             .filter(lang2 => lang2 !== lang)
-            .map(lang2 => tasks.push({fromLang: lang, toLang: lang2}));
+            .map(lang2 => tasks.push({ fromLang: lang, toLang: lang2 }));
     });
     processTasks(tasks, testDir, cb);
 }

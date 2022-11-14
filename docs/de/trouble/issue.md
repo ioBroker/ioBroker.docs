@@ -1,6 +1,7 @@
 ---
 title:       "Fehler melden"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Melden von Fehlern auf GitHub

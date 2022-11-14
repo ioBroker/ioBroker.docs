@@ -1,31 +1,29 @@
 ---
 title: Welcome
-lastChanged: 13.04.2022
+lastChanged: 28.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/README.md
-hash: Vl1Ki8iGS+qkjEwBli5Fm5dyjho2LelXu58xxVlfvJc=
+hash: bXYXoaKv6bbKkk1r/GTkTOonDls5iUgP5zsjLIeiK50=
 ---
-# Welcome
-## Note on the current documentation
+***Note on the current documentation***
+
 ?> The documentation is under construction and is constantly being expanded.
-It can therefore happen that links do not yet work or that content is missing. We are grateful for any help in creating new articles or improvements. Information about this is available here [in the forum][].
+It can therefore happen that links do not yet work or that content is missing. We appreciate any help in creating new articles or making improvements. Information on this can be found here in [Forum](https://forum.iobroker.net/category/186/dokumentations-support).
 
 **Until all content has been adopted, the old documentation is still [to be found here](https://www.iobroker.net/docu/).
 It will be successively replaced by this new documentation.**
 
-&nbsp;
-
-# IoBroker - Automate your life
+## IoBroker - Automate your life
 ioBroker is a software solution to automate your home. It allows a wide variety of smart home systems, which would remain isolated solutions without ioBroker, to be connected and thus controlled comprehensively.
 
 ioBroker is therefore **the** integration platform for the Internet of Things and enables the integration of commercial products from almost all areas of life or the integration of a self-created solution.
 
-The ioBroker system has a modular structure and can be expanded to meet individual requirements by installing individual [adapters][].
+The ioBroker system has a modular structure and can be expanded by installing individual [adapters](https://www.iobroker.net/#de/adapters/adapters.md) to meet individual requirements.
 
 Over 450 adapters implement the integration of various platforms, systems and devices from A for Alexa to Z for Zigbee and many other automation options.
 
-## IoBroker connects different smart home systems
+### IoBroker connects a wide variety of smart home systems
 ![](../de/media/iobroker-simple-overview.png)
 
 This graphic shows how ioBroker coordinates and connects the various smart home systems and other services (e.g. calendar) as a central system.
@@ -44,19 +42,17 @@ By using the logic modules (adapter logic programming) in ioBroker, the user can
 
 Using the available visualization adapters, the user can build individual status and control pages for his Hue lamps and shutters, which can be accessed with mobile devices from home or on vacation (e.g. using ioBroker Cloud Services or VPN).
 
-&nbsp;
-
-# Strengths of ioBroker
-## Platform independent
+## Strengths of ioBroker
+### Platform independent
 ioBroker can be installed on almost all hardware platforms (single-board computers like a Raspberry Pi, servers, NAS, servers with virtualization environments like Proxmox, desktop computers, ...) running Linux, OSX, Windows, Docker.
 
 A simple installation routine from a single line (one-line installer) enables a user-friendly installation under Linux and thus a quick start in ioBroker.
 
-## Scalable
+### Scalable
 If additional smart home systems are to be connected over time, these can be implemented by the user at any time using additional adapters during operation.
 ioBroker itself is also scalable: Several ioBroker servers can be connected to form a multihost system. It is even possible to mix operating system platforms and link single-board computers with large multi-core servers.
 
-## Individual programming of processes
+### Individual programming of processes
 With the logic adapters, ioBroker offers the possibility to create individual processes and scripts.
 In a script, for example, a value can be monitored by an adapter (vacation is entered in the calendar for today) and an action can be triggered (switch on all Hue lights at 6 p.m.).
 
@@ -70,29 +66,25 @@ Several visualization adapters offer the user the option of graphically realizin
 Some visualization adapters and their main properties are briefly presented below.
 
 ### VIS
-[adapter side vis][]
+[Adapter side vis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md)
 
 With the VIS adapter (visualization), ioBroker provides a powerful tool for creating individual visualizations. Current values from sensors can be displayed graphically in the same way as historical trends. Live images from surveillance cameras, the implementation of an alarm system, heating systems and air conditioning - almost anything imaginable can also be implemented.
 
-With the use of VIS, the user has maximum freedom of design in the implementation. Ready-made building blocks for easy use help the user to put together the UI. But not only the display of information is possible. Devices can also be controlled quickly via the visualization interface. The operation of the interface can be adapted to a wide variety of end devices - from smartphones to wall tablets with touch functions to PCs - everything can be implemented with a simple drag and drop.
+With the use of VIS, the user has maximum freedom of design in the implementation. Ready-made building blocks for easy use help the user to put together the UI. But not only the display of information is possible. Devices can also be controlled quickly via the visualization interface. The operation of the interface can be adapted to a wide variety of end devices - from smartphones to wall tablets with touch functions to PCs - everything can be implemented with simple drag and drop.
 
 ![](../de/media/iobroker-visualisation-vis.png)
 
 ![VIS](media/vis2.png) ![](../de/media/iobroker-visualisation-vis-wetter.png)
 
-&nbsp;
-
 ### Materials UI
 React and Material UI interface.
 
-[Adapter Side Material][]
+[Adapter side material](https://www.iobroker.net/#de/adapters/adapterref/iobroker.material/README.md)
 
 ![](../de/media/iobroker-visualisation-material.png)
 
-&nbsp;
-
 ### Jarvis
-[Jarvis adapter page][]
+[Adapter side Jarvis](https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md)
 
 Jarvis is a Material Design visualization based on Material UI. Jarvis provides a structure and modules that are used for visualization but can be configured very flexibly.
 
@@ -101,8 +93,6 @@ Jarvis is responsive and adapts to the size of the screen and offers a standardi
 The layout can be flexibly configured. The layout can be divided by any number of tabs. Each tab can then either be displayed in full screen mode or divided by individual columns (columns).
 
 ![](media/iobroker-visualisation-jarvis.png) ![](../de/media/iobroker-visualisation-jarvisDevices.png)
-
-&nbsp;
 
 ### IQControl
 Reach your goal quickly - but still flexible, that's what distinguishes iQontrol:
@@ -117,23 +107,19 @@ Video [iQontrol demo video][]
 
 <img src="media/iobroker-visualisation-iqontrol.png" width="200"> <img src="media/iobroker-visualisation-iqontrol2.png" width="200"> <img src="media/iobroker-visualisation-iqontrol3.png" width="200"> <img src="media/iobroker-visualisation-iqontrol4.png" width="200"> <img src="media/iobroker-visualisation-iqontrol5.png" width="200">
 
-&nbsp;
-
 ### Lovelace
-[adapter side lovelace][]
+[Adapter side lovelace](https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md)
 
 With the Lovelace adapter, the HomeAssistant UI Lovelace can be used for ioBroker. Lovelace has a responsive design and thus automatically adapts to the layout of the PC, tablet or smartphone screen.
 
 In Lovelace, the devices with their properties are available for viewing / control, which are stored in ioBroker (e.g. on/off for a lamp, brightness, color temperature).
 
-The Lovelace Editor (WYSIWYG principle - What you see is what you get principle) enables the simple creation of modern UIs in just a few steps. Custom cards and the YAML editor are available for the implementation of more complex requirements and wishes. Inspiration for a Lovelace UI can be collected in the HomeAssistant world and then implemented in ioBroker.
+The Lovelace Editor (WYSIWYG principle - what you see is what you get principle) enables the simple creation of modern UIs in just a few steps. Custom cards and the YAML editor are available for the implementation of more complex requirements and wishes. Inspirations for a Lovelace UI can be collected in the HomeAssistant world and then implemented in ioBroker.
 
 ![](../de/media/iobroker-visualisation-lovelace.png)
 
-&nbsp;
-
-# Who is behind ioBroker?
-ioBroker is an open source project developed by the ioBroker community and administrated by [Bluefox][] as project owner.
+## Who is behind ioBroker?
+ioBroker is an open source project developed by the ioBroker community and administrated by [Bluefox](https://github.com/GermanBluefox) as project owner.
 
 Many developers and many other helpers work on the central ioBroker system components, the many adapters, the social media support, the documentation and much more on a voluntary basis in their free time.
 With the large and helpful community, a solution has been found to every problem so far.
@@ -148,24 +134,20 @@ Decisions on the direction of the central components and the overall project are
 
 The ioBroker core development team consists of:
 
-* [bluefox][]
-* [Apollon77][]
-* [foxriver76][]
-* [AlCalzone][]
+* [Bluefox](https://github.com/EnglishBluefox)
+* [Apollon77](https://github.com/Apollon77)
+* [foxriver76](https://github.com/foxriver76)
+* [AlCalzone](https://github.com/AlCalzone)
 
-A list of [ioBroker Developers][] can be found in the ioBroker Forum.
+You can find a list of [ioBroker Developer](https://forum.iobroker.net/groups/developer) in the ioBroker Forum.
 
-&nbsp;
+### Licenses and costs
+Many ioBroker projects are available together with the source code on [GitHub](https://github.com/ioBroker). In most cases the source code is licensed under the MIT license. Sometimes, however, licenses such as GPL, CC BY-NC or others are used, which must be taken into account, but do not make a big difference for the end user! The developer of an adapter determines the license for the respective adapter himself.
 
-# Licenses and costs
-Many ioBroker projects are available together with the source code on [GitHub][]. In most cases the source code is licensed under the MIT license. Sometimes, however, licenses such as GPL, CC BY-NC or others are used, which must be taken into account, but do not make a big difference for the end user! The developer of an adapter determines the license for the respective adapter himself.
+In very rare cases (<5 adapters currently) a (sometimes chargeable) license is required to use an adapter. For example, ioBroker GmbH provides a free license for private use for the "VIS" adapter - but a paid license is required for commercial use.
+An overview and the ordering of the license for these adapters can be found on this page [iobrokerPrices](https://iobroker.net/www/pricing). The cost of using these adapters commercially is also listed there.
 
-In very rare cases (<5 adapters currently) a license (sometimes chargeable) is required to use an adapter. For example, ioBroker GmbH provides a free license for private use for the "VIS" adapter - but a paid license is required for commercial use.
-An overview and the ordering of the license for these adapters is done on this page [iobrokerPrices][]. The cost of using these adapters commercially is also listed there.
-
-&nbsp;
-
-# How is ioBroker financed?
+### How is ioBroker funded?
 All central components and almost all other adapters are available free of charge and the source code of the vast majority of adapters is openly available on GitHub.
 
 Since an open source project cannot generate any income, e.g. to buy servers, an official company form is required for these things, the ioBroker GmbH. Among other things, ioBroker GmbH also offers commercial support for the ioBroker software or sells an ioBroker server, for example.
@@ -174,30 +156,24 @@ ioBroker GmbH provides the infrastructure (e.g. the forum server) for the commun
 
 The ioBroker Free Cloud is also a free service provided to the community by ioBroker GmbH. The Pro Cloud and the iot service are commercial offers from ioBroker GmbH, with the costs just covering the operating costs.
 
-&nbsp;
-
-# Remote access to your ioBroker installation via the ioBroker Cloud
+## Remote access to your ioBroker installation via the ioBroker Cloud
 Remote administration of a locally installed ioBroker system 24/7 is possible for the user or for system integrators via an optional cloud-based access. Access control can be freely configured by the user using users and groups.
 The following graphic shows the ioBroker Cloud Service products at a glance.
 
 ![](../de/media/iobroker-cloud-services-overview.png)
 
-&nbsp;
-
-# Community
-Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many benefits. In the specially set up [Forum][], users and developers meet and exchange their experiences and suggestions. On the ioBroker [Discord][] server, experiences can be exchanged in live chat and live debug sessions can be held at short notice to track down current problems.
+## Community
+Since 2014, ioBroker has secured broad support from thousands of users and developers due to its many benefits. Users and developers meet in the specially set up [Forum](https://forum.iobroker.net) and exchange their experiences and suggestions there. On the ioBroker [discord](https://discord.gg/sGWE65zF) server, experiences can be exchanged in live chat and live debug sessions can be held at short notice in order to find out about current problems.
 
 Link collection of the official ioBroker communities:
 
-- ioBroker Forum: [Forum][]
-- Discord ioBroker servers: [Discord][]
-- Facebook group "ioBroker SmartHome and IoT": [FacebookioBrokerSmartHomeIoT][]
-- Facebook group "ioBroker and smart home international": [FacebookioBrokerSmartHomeIoTInternational][]
+- ioBroker Forum: [Forum](https://forum.iobroker.net)
+- Discord ioBroker Server: [Discord](https://discord.gg/sGWE65zF)
+- Facebook group "ioBroker SmartHome and IoT": [FacebookioBrokerSmartHomeIoT](https://www.facebook.com/groups/440499112958264)
+- Facebook group "ioBroker and smart home international": [FacebookioBrokerSmartHomeIoTInternational](https://www.facebook.com/groups/iobrokerinternational)
 
-&nbsp;
-
-# IoBroker statistics
-On [ioBrokerStatistics][] you will find an overview page with some interesting ioBroker statistics.
+## IoBroker stats
+On [ioBrokerStatistics](https://www.iobroker.net/#de/statistics) you will find an overview page with some interesting ioBroker statistics.
 
 [Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
 

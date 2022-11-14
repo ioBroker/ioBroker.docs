@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "Android App"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/androidapp.md"
+template:    true
 ---
 
 # Die Android App

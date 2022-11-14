@@ -2,6 +2,7 @@
 title:       "Styleguide UI"
 lastChanged: "06.05.2021"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/styleguideui.md"
+template:    true
 ---
 
 # Style Guide für das ioBroker-Userinterface

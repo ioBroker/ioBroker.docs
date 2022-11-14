@@ -2,6 +2,7 @@
 title:       "Backend-Entwicklung"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/controller.md"
+template:    true
 ---
 
 # ioBroker Backend-Entwicklung

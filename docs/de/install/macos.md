@@ -1,6 +1,7 @@
 ---
 title:       "OS X"
 lastChanged: "31.07.2019"
+template:    true
 ---
 
 # Installation von ioBroker unter OS X

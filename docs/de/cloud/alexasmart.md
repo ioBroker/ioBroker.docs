@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "Alexa Smarthome-Skill"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/alexasmart.md"
+template:    true
 ---
 
 # Der Alexa Smarthome-Skill

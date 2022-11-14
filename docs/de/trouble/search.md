@@ -1,6 +1,7 @@
 ---
 title:       "Fehlersuche"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Fehlersuche und Fehlereingrenzung

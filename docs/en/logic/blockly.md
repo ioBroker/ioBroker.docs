@@ -7,4 +7,4 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/logic/bl
 hash: 6f+dXfYgIc+mvidXZeHZ6JHbGOHACmxuFrVfhbdBNgI=
 ---
 # Blocky
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+[Blockly-Doku](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/blockly.md)

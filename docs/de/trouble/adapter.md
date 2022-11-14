@@ -1,6 +1,7 @@
 ---
 title:       "Adapterfehler"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Lösen von Fehlern bei Adaptern

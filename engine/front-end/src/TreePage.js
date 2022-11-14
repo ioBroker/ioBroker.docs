@@ -311,7 +311,10 @@ class TreePage extends Router {
                     onClick={() => this.onNavigate(item, root)}
                 >
                     {this.renderFolderButtons(item, root.pages, isExpanded)}
-                    {root.pages ? <ListItemIcon className={this.props.classes.listExpandIcon}>{isExpanded ? <IconFolderOpened /> : <IconFolder />}</ListItemIcon> : null}
+                    {root.pages ? <ListItemIcon
+                        className={this.props.classes.listExpandIcon}
+                        onClick={isExpanded ? e => this.onCollapse(item, e) : e => this.onExpand(item, e)}
+                    >{isExpanded ? <IconFolderOpened /> : <IconFolder />}</ListItemIcon> : null}
                     <ListItemText
                         classes={{ root: this.props.classes.listItem, primary: (root.content && root.content === this.state.path ? this.props.classes.selected : '') }}
                         style={{}}
@@ -328,8 +331,20 @@ class TreePage extends Router {
 
     getBottomButtons() {
         return [
-            <IconExpandAll key="expandAll" className={`${this.props.classes.footerButtons} ${this.props.classes.footerButtonsRight}`} title={I18n.t('Expand all')} onClick={() => this.onExpandAll()} />,
-            this.state.expanded.length ? <IconCollapseAll key="collapseAll" className={`${this.props.classes.footerButtons} ${this.props.classes.footerButtonsRight}`} title={I18n.t('Collapse all')} onClick={() => this.onCollapseAll()} /> : null,
+            <IconExpandAll
+                key="expandAll"
+                className={`${this.props.classes.footerButtons}
+                ${this.props.classes.footerButtonsRight}`}
+                title={I18n.t('Expand all')}
+                onClick={() => this.onExpandAll()}
+            />,
+            this.state.expanded.length ? <IconCollapseAll
+                key="collapseAll"
+                className={`${this.props.classes.footerButtons}
+                ${this.props.classes.footerButtonsRight}`}
+                title={I18n.t('Collapse all')}
+                onClick={() => this.onCollapseAll()}
+            /> : null,
         ];
     }
 
@@ -351,7 +366,12 @@ class TreePage extends Router {
                 value={this.state.filter}
                 className={`${this.props.classes.searchInput} ${this.state.filter ? this.props.classes.searchInputWithClear : ''}`}
             />,
-            this.state.filter ? <IconButton className={this.props.classes.searchClear} onClick={() => this.setState({ filter: '' })}><IconClear fontSize="small" /></IconButton> : null,
+            this.state.filter ? <IconButton
+                className={this.props.classes.searchClear}
+                onClick={() => this.setState({ filter: '' })}
+            >
+                <IconClear fontSize="small" />
+        </IconButton> : null,
         ];
     }
 
