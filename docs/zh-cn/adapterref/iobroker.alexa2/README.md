@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: NijMVngzrnt/k/2vB8tq+a9a7YvRaQ8Leg3awprDsfA=
+hash: PqfeIIlQZTVkbwckefEF4Z9wCUkhC7prs+UoxLvVC2g=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
@@ -227,7 +227,7 @@ hash: NijMVngzrnt/k/2vB8tq+a9a7YvRaQ8Leg3awprDsfA=
 
 |州名 |意义 |价值 |
 | - | - | - |
-| <id>.customVolume |为此提醒设置自定义音量。音量在提醒触发前 2 秒设置，并在计时器（或适配器认为！）停止后立即重新设置为之前的值 - 最迟在 120 秒之后！当自定义卷和触发时间重叠时，将在最后恢复一次！|数字 0..100 |
+| <id>.customVolume |为此提醒设置自定义音量。音量在提醒触发前 2 秒设置，并在计时器停止（或适配器认为！）停止前重新设置为之前的值 - 最迟在 120 秒之后！当自定义卷和触发时间重叠时，将在最后恢复一次！|数字 0..100 |
 | <id>.日期 |覆盖现有警报的日期以设置此警报的新日期。如果您有现有的警报，您可以在此处更改日期，只需以 YYYY-MM-DD 格式覆盖时间。使用每天多次重复设置时可能无效！ |日期输出 |
 | <id>.delete |按钮删除警报 |删除为真 |
 | <id>.enabled |显示警报状态并允许更改它：使用 true 激活警报 - 使用 false 停用警报 |真/假|
@@ -259,7 +259,7 @@ Alexa App 中设置的例程概览。自己创建的例程有一个序列号，�
 
 |活动定时器列表 | JSON 数组，包含 ID、标签和触发时间点的活动计时器列表作为 unix 时间戳，单位为 ms | JSON 数组 |下一个时间日期 |包含下一个预期触发的时间点，以毫秒为单位的 unix epoch |号码 |号码 |下一个定时器 ID |下一个要触发的定时器ID |字符串 |停止定时器 ID |使用定时器 ID 控制来停止定时器（如果定时器正在响铃，也会停止！） |字符串 |触发 |一个定时器被触发了——事实上它是“nextTimerId”一个 |真假
 
-**请注意，iobroker主机的时区设置为与您的本地时区匹配很重要，否则触发的时间检测可能是错误的！**
+**请注意，iobroker 主机的时区设置为与您的本地时区匹配很重要，否则触发的时间检测可能是错误的！**
 
 ### Alexa2.0.Echo-Devices.Serialnumber.online
 这个 Alexa 设备是否在线并连接到亚马逊云？
@@ -299,9 +299,9 @@ Alexa App 中设置的例程概览。自己创建的例程有一个序列号，�
 | #删除 |从 Alexa 中删除智能家居设备 |按钮
 
 | #启用 |智能家居设备是否处于活动状态？启用/禁用状态和控制。状态将在与智能家居设备数据相同的时间间隔内与云同步。 |真/假|
-| #includeInIntervalQuery |该设备是否应该包含在间隔查询中？ |真/假|
+| #includeInAllQuery |查询所有设备状态时是否应包括此设备？ |真/假|
 | #查询 |此设备的查询数据，仅在智能家居设备/技能支持检索信息时可见 |按钮 |
-|活跃 |显示可以激活/停用的场景 |真/假|
+|活跃 |显示可以激活/停用的场景|真/假|
 |电源状态 |打开/关闭电源 |多变，真/假 |
 | ... |更多可能的状态取决于智能家居设备的类型 |信息或多变:-) |
 
@@ -483,12 +483,13 @@ adapter.sendTo(
 删除未使用的设备后，请重新启动适配器以将它们也删除。
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77) Optimize state value loading
-* (Apollon77) Fix enabling/disabling of Alarms in combination with non-default music for the alarm
-* (Apollon77) Prevent Timers or Alarms that are long in the future to trigger their trigger state too early
-* (Apollon77) Fix deleting own user Messages
+### 3.21.0 (2022-11-03)
+* IMPORTANT: Because of rate limits by Amazon I decided to remove the update of smart home device values in intervals because it seems to produce too much load in Skills and Amazon systems.
+* (Apollon77) Optimizes loading of smart home device states
+* (Apollon77) Fixed issue with enabling/disabling of Alarms in combination with non-default music for the alarm
+* (Apollon77) Prevented that Timers or Alarms that are long in the future to trigger their trigger state too early
+* (Apollon77) Fixed deleting own user Messages state
+* (Apollon77) Already request Notification updates when history registered a Notification action and do not wait for Push info to come in
 
 ### 3.20.1 (2022-10-29)
 * (Apollon77) make sure caching works correctly with multiple instances of the adapter

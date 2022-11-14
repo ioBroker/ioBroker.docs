@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa2/README.md
 title: ioBroker.alexa2
-hash: NijMVngzrnt/k/2vB8tq+a9a7YvRaQ8Leg3awprDsfA=
+hash: PqfeIIlQZTVkbwckefEF4Z9wCUkhC7prs+UoxLvVC2g=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
@@ -72,7 +72,7 @@ Alarmeinstellungen (Wecker) für jedes Gerät, falls verfügbar.
 | <id>.sound | Enthält den eingestellten Ton für diesen Alarm. Kann gewechselt werden. Auch ein Wechsel zwischen Musiksoundeingabe und "eingebauten Sounds" ist möglich. | ID aus Liste |
 | <ID>.Zeit | Zeit für Alarm. Überschreiben Sie die Zeit für den vorhandenen Alarm, um eine neue Zeit für diesen Alarm festzulegen. Falls Sie einen bestehenden Alarm haben, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh:mm:ss überschreiben, Sekunden müssen nicht eingestellt werden. Hat möglicherweise keine Auswirkungen, wenn mehrmals täglich wiederkehrende Einstellungen verwendet wurden! | Zeiteingabe |
 | <ID>.ausgelöst | wahr, wenn Alarm erreicht und ausgelöst wird. Die Uhr muss mit Amazon und iobroker synchronisiert sein. Verwenden Sie dies, um andere Aktionen auszulösen, sobald die Weckzeit erreicht ist | wahr / falsch |
-| Neu | Daten zum Erstellen einer neuen Erinnerung als String im folgenden Format, getrennt durch ; als "timestamp;[label];[sound];[recurring]. timestamp als Unix-Timestamp in ms, Label als Text, sound als Sound-ID, wiederkehrend entweder einmalig leer, "DAILY" für täglich oder "WEEKLY=MO,TU ,WE,DO,FR,SA,SO" mit kommaseparierter wöchentlicher Tagesliste. Felder im obigen Beispiel in Klammern bedeuten, dass sie optional sind! | String |
+| Neu | Daten zum Erstellen einer neuen Erinnerung als String im folgenden Format, getrennt durch ; als "timestamp;[label];[sound];[recurring]. timestamp als Unix-Timestamp in ms, label als Text, sound als Sound-ID, wiederkehrend entweder einmalig leer, "DAILY" für täglich oder "WEEKLY=MO,TU ,WE,DO,FR,SA,SO" mit kommaseparierter wöchentlicher Tagesliste. Felder im obigen Beispiel in Klammern bedeuten, dass sie optional sind! | String |
 | ausgelöst | ID des zuletzt auf diesem Gerät ausgelösten Alarms | Ausweis |
 
 Wenn das Ändern eines Alarms nicht funktioniert, vergewissern Sie sich bitte, dass der Alarmzeitpunkt in der Zukunft liegt - ändern Sie also z. "Ton" bei einem Alarm in der Vergangenheit wird _nicht_ funktionieren!
@@ -163,7 +163,7 @@ Zustände, um die Wiedergabe des Geräts zu steuern und den aktuellen Status und
 | - | - | - |
 | erlaubenWeiter | Ist die Aktion Weiter/Weiter zulässig? | Informationen |
 | AllowPlayPause | Ist die Play/Pause-Aktion erlaubt? | Informationen |
-| AllowPrevious | Ist die vorherige Aktion zulässig? | Informationen |
+| AllowPrevious | Ist die vorherige Aktion erlaubt? | Informationen |
 | AllowRepeat | Kann die Wiederholungsfunktion verwendet werden? | Informationen |
 | AllowShuffle | Kann die Shuffle-Funktion verwendet werden? | Informationen |
 | Inhaltstyp | Textfeld zum Eingeben des gewünschten Inhalts zum Abspielen auf diesem Gerät | Informationen |
@@ -210,7 +210,7 @@ Hier finden Sie einige Geräteeinstellungen.
 | - | - |
 | ringNotificationsEnabled | Zeigt an, ob die Klingelbenachrichtigungen aktiviert sind oder nicht, und ermöglicht die Bearbeitung (true/false). Der Status wird von der Cloud mit dem Gerätekonfigurationsintervall | aktualisiert |
 | Benachrichtigungsvolumen | Die für das Gerät eingestellte Benachrichtigungslautstärke. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | Zahl 0..100 |
-| aufsteigender Alarmzustand | Der für das Gerät festgelegte aufsteigende Alarmzustand. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | Boolesch |
+| aufsteigender Alarmzustand | Der für das Gerät festgelegte aufsteigende Alarmstatus. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | Boolesch |
 | auxPort-*-Richtung | Die Richtung des AuxPorts (falls unterstützt). Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | „EINGANG“ oder „AUSGANG“ |
 | verbundenLautsprecher | Der Lautsprecher mit wird für die Geräteausgabe verwendet. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | „InternalSpeaker“, „Bluetooth“ oder „Aux“ (falls vom Gerät unterstützt! siehe App) |
 | defaultAlarmNotificationSound | Der für das Gerät eingestellte Standard-Alarmton. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | ID aus Liste |
@@ -220,7 +220,7 @@ Hier finden Sie einige Geräteeinstellungen.
 | displayHelligkeit | Helligkeit des Displays. Der Wert wird einmalig beim Adapterstart geladen und dann nicht mit Cloud-Diensten synchronisiert, sondern änderbar | 0..100% |
 | EqualizerBass | Equalizer-Bass-Einstellung. Wert wird bei Änderung aktualisiert, wenn Push-Verbindung aktiviert ist | Nummer |
 | EqualizerMidRange | Equalizer-Mitteltoneinstellung. Wert wird bei Änderung aktualisiert, wenn Push-Verbindung aktiviert ist | Nummer |
-| EqualizerHöhen | Equalizer-Höheneinstellung. Wert wird bei Änderung aktualisiert, wenn Push-Verbindung aktiviert ist | Zahl |
+| EqualizerHöhen | Equalizer-Höheneinstellung. Wert wird bei Änderung aktualisiert, wenn Push-Verbindung aktiviert ist | Nummer |
 
 ### Alexa2.0.Echo-Geräte.Seriennummer.Erinnerung.*
 Erinnerungseinstellungen für jedes Gerät, falls verfügbar.
@@ -228,7 +228,7 @@ Erinnerungseinstellungen für jedes Gerät, falls verfügbar.
 | Staatsname | Bedeutung | Wert |
 | - | - | - |
 | <id>.customVolume | Legen Sie eine benutzerdefinierte Lautstärke für diese Erinnerung fest. Die Lautstärke wird 2s vor dem Auslösen der Erinnerung eingestellt und auf den vorherigen Wert zurückgesetzt, sobald der Timer (oder der Adapter denkt!) gestoppt wird - spätestens nach 120s! Wenn sich benutzerdefinierte Lautstärken und Auslösezeiten überschneiden, wird es am Ende einmal wiederhergestellt!| Zahl 0..100 |
-| <ID>.Datum | Überschreiben Sie das Datum für den vorhandenen Alarm, um ein neues Datum für diesen Alarm festzulegen. Falls Sie einen bestehenden Alarm haben, können Sie hier das Datum ändern, indem Sie einfach die Zeit im Format JJJJ-MM-TT überschreiben. Hat möglicherweise keine Auswirkungen, wenn mehrmals täglich wiederkehrende Einstellungen verwendet wurden! | Datumsausgabe |
+| <ID>.Datum | Überschreiben Sie das Datum für den vorhandenen Alarm, um ein neues Datum für diesen Alarm festzulegen. Falls Sie einen bestehenden Alarm haben, können Sie hier das Datum ändern, indem Sie einfach die Uhrzeit im Format JJJJ-MM-TT überschreiben. Hat möglicherweise keine Auswirkungen, wenn mehrmals täglich wiederkehrende Einstellungen verwendet wurden! | Datumsausgabe |
 | <id>.löschen | Schaltfläche zum Löschen des Alarms | löschen mit wahr |
 | <id>.aktiviert | Zeigt den Status des Alarms an und ermöglicht dessen Änderung: Alarm aktivieren mit true - Alarm deaktivieren mit false | wahr / falsch |
 | <id>.nächstes Triggerdatum | Enthält den Zeitpunkt der nächsten erwarteten Auslösung als Unix-Epoche in ms | Nummer |
@@ -238,7 +238,7 @@ Erinnerungseinstellungen für jedes Gerät, falls verfügbar.
 | <id>.sound | Enthält den eingestellten Ton für diesen Alarm. Kann angepasst werden | ID aus Liste |
 | <ID>.Zeit | Zeit für Alarm. Überschreiben Sie die Zeit für den vorhandenen Alarm, um eine neue Zeit für diesen Alarm festzulegen. Falls Sie einen bestehenden Alarm haben, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh:mm:ss überschreiben, Sekunden müssen nicht eingestellt werden. Hat möglicherweise keine Auswirkungen, wenn mehrmals täglich wiederkehrende Einstellungen verwendet wurden! | Zeiteingabe |
 | <ID>.ausgelöst | wahr, wenn Alarm erreicht und ausgelöst wird. Die Uhr muss mit Amazon und iobroker synchronisiert sein. Verwenden Sie dies, um andere Aktionen auszulösen, sobald die Weckzeit erreicht ist | wahr / falsch |
-| Neu | Daten zum Erstellen einer neuen Erinnerung als String im folgenden Format, getrennt durch ; als "timestamp;label;[sound];[recurring]. timestamp als Unix-Timestamp in ms oder Text wie "HH:MM", Label als Text (erforderlich), Sound als Sound-ID, wiederkehrend entweder einmal leer, "DAILY" für täglich oder "WEEKLY=MO,TU,WE,TH,FR,SA,SU" mit kommaseparierter wöchentlicher Tagesliste. Für volle Flexibilität kann recurring auch ein JSONified Objekt mit allen Daten sein, die durchgereicht werden. Felder im Beispiel oben in Klammern bedeuten, dass sie optional sind! | String |
+| Neu | Daten zum Erstellen einer neuen Erinnerung als String im folgenden Format, getrennt durch ; als "timestamp;label;[sound];[recurring]. timestamp als Unix-Timestamp in ms oder Text wie "HH:MM", Label als Text (erforderlich), Sound als Sound-ID, wiederkehrend entweder einmal leer, "DAILY" für täglich oder "WEEKLY=MO,TU,WE,TH,FR,SA,SU" mit kommaseparierter wöchentlicher Tagesliste. Für volle Flexibilität kann recurring auch ein JSONified-Objekt mit allen Daten sein, die durchgereicht werden. Felder im Beispiel oben in Klammern bedeuten, dass sie optional sind! | String |
 | ausgelöst | ID des zuletzt auf diesem Gerät ausgelösten Alarms | Ausweis |
 
 Wenn das Ändern einer Erinnerung nicht funktioniert, vergewissern Sie sich bitte, dass der Zeitpunkt der Erinnerung in der Zukunft liegt - ändern Sie also z.B. "Ton" bei einer Erinnerung in der Vergangenheit wird _nicht_ funktionieren!
@@ -299,7 +299,7 @@ Beinhaltet alle Smart-Home-Geräte, die Alexa von Ihren Skills kennt. Staaten wi
 | #löschen | Smart-Home-Gerät von Alexa löschen | Taste
 
 | #aktiviert | Ist das Smart-Home-Gerät aktiv? Status und Steuerung zum Aktivieren/Deaktivieren. Der Status wird im gleichen Intervall wie die Smarthome-Gerätedaten mit der Cloud synchronisiert. | wahr / falsch |
-| #includeInIntervalQuery | Soll dieses Gerät in die Intervallabfrage aufgenommen werden? | wahr / falsch |
+| #includeInAllQuery | Soll dieses Gerät bei der Abfrage aller Gerätezustände berücksichtigt werden? | wahr / falsch |
 | #Abfrage | Abfragedaten für dieses Gerät, nur sichtbar, wenn das Smart-Home-Gerät/der Skill das Abrufen von Informationen unterstützt | Schaltfläche |
 | aktiv | für Szenen angezeigt, wenn sie aktiviert/deaktiviert werden können | wahr / falsch |
 | powerState | Strom ein-/ausschalten | veränderbar, wahr / falsch |
@@ -316,7 +316,7 @@ Beinhaltet alle Smart-Home-Geräte, die Alexa von Ihren Skills kennt. Staaten wi
 | FarbeRGB | RGB-Code des tatsächlichen Farbaufbaus aus Farb-*-Werten | Informationen, #rrggbb |
 | Farbname | Name der Farbe wie von Alexa definiert - feste Werte | änderbar auf eingestellte Farbe, 0-144 |
 | colorTemperarureInKelvin | Farbtemperatur in Kelvin | Informationen, 1000-10000K |
-| Farbtemperaturname | Name der Farbtemperatur wie von Alexa definiert - feste Werte | änderbar auf Set, 0-18 |
+| FarbtemperaturName | Name der Farbtemperatur wie von Alexa definiert - feste Werte | änderbar auf Set, 0-18 |
 
 Mit #brightness können Sie die Helligkeit Ihres Lichts anpassen, #colorName dient zur Auswahl einer vordefinierten Farbe (0-144). Für HUE Ambient Light können Sie zwischen 19 Werten von 0-18 in #colorTemperatureName wählen. Alle Lichter können mit #powerState ein- und ausgeschaltet werden.
 
@@ -483,12 +483,13 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 Nach dem Löschen nicht verwendeter Geräte starten Sie bitte den Adapter neu, um sie auch dort zu entfernen.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77) Optimize state value loading
-* (Apollon77) Fix enabling/disabling of Alarms in combination with non-default music for the alarm
-* (Apollon77) Prevent Timers or Alarms that are long in the future to trigger their trigger state too early
-* (Apollon77) Fix deleting own user Messages
+### 3.21.0 (2022-11-03)
+* IMPORTANT: Because of rate limits by Amazon I decided to remove the update of smart home device values in intervals because it seems to produce too much load in Skills and Amazon systems.
+* (Apollon77) Optimizes loading of smart home device states
+* (Apollon77) Fixed issue with enabling/disabling of Alarms in combination with non-default music for the alarm
+* (Apollon77) Prevented that Timers or Alarms that are long in the future to trigger their trigger state too early
+* (Apollon77) Fixed deleting own user Messages state
+* (Apollon77) Already request Notification updates when history registered a Notification action and do not wait for Push info to come in
 
 ### 3.20.1 (2022-10-29)
 * (Apollon77) make sure caching works correctly with multiple instances of the adapter

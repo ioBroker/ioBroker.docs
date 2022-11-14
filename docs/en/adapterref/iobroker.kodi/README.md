@@ -119,6 +119,10 @@ sendTo("kodi.0", {
  - Suspend - приостанавливает Kodi
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize Adapter unload
+
 ### 2.0.8
 * Important: js-controller >= 2.0.0 is required at least
 * (Apollon77) Update kode-ws dependency
@@ -234,7 +238,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2022 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

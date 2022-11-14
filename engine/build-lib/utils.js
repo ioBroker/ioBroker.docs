@@ -82,7 +82,7 @@ function trim(text, char) {
 }
 
 function getTitle(text) {
-    let {body, header} = extractHeader(text);
+    let { body, header } = extractHeader(text);
     if (!header.title) {
         // remove {docsify-bla}
         body = body.replace(/{[^}]*}/g, '');

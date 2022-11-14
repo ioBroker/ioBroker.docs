@@ -2683,28 +2683,28 @@ return 'your result';
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 6.1.4 (2022-11-14)
+* (bluefox) Corrected small error in rules
+* (bluefox) Tried to fix debug mode
+
+### 6.1.3 (2022-11-03)
+* (Apollon77) Prevent adapter crash when script could not be compiled
+
+### 6.1.2 (2022-11-03)
+* (bluefox) Added ukrainian translation
+
+### 6.1.0 (2022-11-03)
+* (Apollon77) Add a configurable check for number of setStates per Minute to prevent scripts from taking down ioBroker. Default are 1000 setState per minute. Only stops if the number is reached 2 minutes in a row!
+* (Apollon77) Add createAlias method to create aliases for states
+* (Apollon77) Add setStateDelayed to selector
+* (Apollon77) Add options to exec command
+* (Apollon77) Fix issues with cancelling schedules when stopping scripts
+* (bluefox) Corrected debug mode
+
 ### 6.0.3 (2022-09-14)
 * (AlCalzone) Downgrade Typescript to prevent errors with global typescript scripts
-
-### 6.0.1 (2022-08-19)
-* (bluefox) Fixed the wizard schedule
-* (bluefox) Done small fixes on GUI
-
-### 6.0.0 (2022-07-18)
-* (bluefox) Removed support of coffeescript
-* (bluefox) All coffee-scripts will be compiled to javascript permanently
-
-### 5.8.10 (2022-07-15)
-* (klein0r) Added variable timeout block
-* (klein0r) Added `getInterval` and `getTimeout` blocks
-* (klein0r) Added `sendTo` for scripts and message trigger blocks
-* (bluefox) Corrected the syntax highlighting
-
-### 5.8.8 (2022-07-13)
-* (bluefox) Corrected error by start of GUI
 
 ## License
 The MIT License (MIT)

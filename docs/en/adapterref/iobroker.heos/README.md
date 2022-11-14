@@ -29,7 +29,7 @@ The seek functionality is not working on all sources. Spotify and Amazon Music a
 
 HEOS CLI specification: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
 
-### HEOS Command State
+### HEOS Command State (heos.0.command)
 
 * "system/connect": Try to Connect to HEOS
 * "system/disconnect": Disconnect from HEOS
@@ -46,7 +46,7 @@ HEOS CLI specification: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecifica
 * "scope/[cmd]": Send the command to the configured scope all players, leading players or comma separated player pids in scope_pids
 * "...": All other commands are tried to send to HEOS
 
-### Player Command State
+### Player Command State (heos.0.players.123456789.command)
 
 Note: Multiple commands are possible, if they are separated with the pipe e.g. set_volume&level=20|play_preset&preset=1
 
@@ -133,8 +133,15 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 -->
 
 ### **WORK IN PROGRESS**
+* (withstu) optimize scope handling
+
+### 1.11.4 (2022-11-04)
+* (withstu) improve play all button in browse feature
+
+### 1.11.3 (2022-11-04)
 * (withstu) update some dependencies
 * (withstu) improve failure handling
+* (withstu) improve play all button in browse feature
 
 ### 1.11.2 (2022-10-16)
 * (withstu) adopt to new adapter structure

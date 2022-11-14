@@ -52,8 +52,11 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2022-11-10)
 
+NodeJS >= 14.5 is required
+
+* (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
 * (klein0r) Dropped Admin 5 support
 
 ### 4.0.0 (2022-05-29)
@@ -77,10 +80,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Translated all objects
 * (klein0r) Updated dependencies
-
-### 2.0.3 (2021-11-07)
-
-* (klein0r) Fixed missing VIS widget
 
 ## License
 

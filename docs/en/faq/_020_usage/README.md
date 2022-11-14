@@ -5,4 +5,4 @@ editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_020
 title: General questions
 hash: r+xs78o3xnC8PyivmT4FH3IUArETqBefgwCe8HT+YaQ=
 ---
-# General questions
+# Usage

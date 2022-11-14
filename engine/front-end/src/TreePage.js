@@ -149,7 +149,7 @@ class TreePage extends Router {
         }
         if (root.pages) {
             for (const attr in root.pages) {
-                if (root.pages.hasOwnProperty(attr)) {
+                if (Object.prototype.hasOwnProperty.call(root.pages, attr)) {
                     const result = this.findFirstPage(root.pages[attr]);
                     if (result) {
                         return result;
@@ -314,7 +314,9 @@ class TreePage extends Router {
                     {root.pages ? <ListItemIcon
                         className={this.props.classes.listExpandIcon}
                         onClick={isExpanded ? e => this.onCollapse(item, e) : e => this.onExpand(item, e)}
-                    >{isExpanded ? <IconFolderOpened /> : <IconFolder />}</ListItemIcon> : null}
+                    >
+                        {isExpanded ? <IconFolderOpened /> : <IconFolder />}
+                    </ListItemIcon> : null}
                     <ListItemText
                         classes={{ root: this.props.classes.listItem, primary: (root.content && root.content === this.state.path ? this.props.classes.selected : '') }}
                         style={{}}
@@ -371,7 +373,7 @@ class TreePage extends Router {
                 onClick={() => this.setState({ filter: '' })}
             >
                 <IconClear fontSize="small" />
-        </IconButton> : null,
+            </IconButton> : null,
         ];
     }
 

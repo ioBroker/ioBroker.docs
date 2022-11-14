@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
+hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -28,16 +28,14 @@ Bauen Sie auf den folgenden Projekten auf:
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Anweisungen
-1. In ioBroker installieren
-   1. Gehen Sie zu Ihrem ioBroker-Adapter-Tab
-   2. Google Home-Adapter auswählen und installieren
-2. Fügen Sie eine Instanz des Google Home-Adapters hinzu
-   * Es sollte nach der Installation automatisch ausgeführt werden
-3. (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
+1. Installieren Sie diesen Adapter in ioBroker
+
+2 (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
+
    * Sie benötigen eine ioBroker-Webserverinstanz
-4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten sehen
-5. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zu chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
-6. Die URL sollte auf Ihrem Gerät abgespielt werden
+3. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten sehen
+4. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zu chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
+5. Die URL sollte auf Ihrem Gerät abgespielt werden
 
 ## Merkmale
 * Geräte mit Multicast-DNS erkennen
@@ -67,6 +65,14 @@ Bauen Sie auf den folgenden Projekten auf:
 * mehr testen
 
 ## Changelog
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
+
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
 * (Bjoern3003) set album name as song if provided in icy-name

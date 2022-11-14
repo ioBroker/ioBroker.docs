@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
+hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -28,16 +28,14 @@ hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Инструкции
-1. Установить в ioBroker
-   1. Перейдите на вкладку «Адаптеры ioBroker».
-   2. Выберите и установите адаптер Google Home.
-2. Добавьте экземпляр адаптера Google Home.
-   * он должен запускаться автоматически после установки
-3. (необязательно) Если вы планируете транслировать локальные файлы, вам необходимо настроить адаптер
+1. Установите этот адаптер в ioBroker
+
+2 (необязательно) Если вы планируете передавать локальные файлы, вам необходимо настроить адаптер
+
    * вам необходимо иметь экземпляр веб-сервера ioBroker
-4. Проверьте свой журнал: вы должны увидеть журналы об обнаруженных устройствах.
-5. Напишите URL-адрес, например [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) на chromecast.0.`<ваше имя chromecast>`.player.url2play
-6. URL-адрес должен начать воспроизводиться на вашем устройстве.
+3. Проверьте свой журнал: вы должны увидеть журналы об обнаруженных устройствах.
+4. Напишите URL-адрес, например [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) на chromecast.0.`<ваше имя chromecast>`.player.url2play
+5. URL-адрес должен начать воспроизводиться на вашем устройстве.
 
 ## Функции
 * обнаруживать устройства с multicast-dns
@@ -67,6 +65,14 @@ hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 * больше испытаний
 
 ## Changelog
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
+
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
 * (Bjoern3003) set album name as song if provided in icy-name

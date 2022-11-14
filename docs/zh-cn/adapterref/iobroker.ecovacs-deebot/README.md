@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: kWOGYisqyqdwwWuf3Xbar3G6Oix+zKtuU71w+esCSaM=
+hash: RWItAUWGP3WRa+IVDylpIGWlDLTzDWH7mm4LyyKJ2K8=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -73,7 +73,7 @@ hash: kWOGYisqyqdwwWuf3Xbar3G6Oix+zKtuU71w+esCSaM=
 * 地宝 T10 系列
 * 地宝 X1 系列
 
-#### Yeedi（实验性）
+#### Yeedi（从 1.4.5 版开始，仍处于试验阶段）
 * 怡迪k650
 * yeedi 2 混合动力车
 * yeedi vac 混合动力车
@@ -123,15 +123,16 @@ npm install canvas --unsafe-perm=true
 * “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
 * “移动”功能不适用于 Deebot OZMO T8 AIVI（可能也适用于其他一些型号）
 * T9 系列上的一些“cleaninglog”状态为空（“last20Logs”、“lastCleaningDate”和“lastCleaningMapImageURL”）
+* Deebot X1 系列可能无法正常生成地图图像
 
 ## 免责声明
 我与 ECOVACS 没有任何关系。
 
 ## Changelog
 
-### 1.4.8 (alpha)
+### 1.4.8 (latest beta)
 * Breaking change: Bumped minimum required version of Node.js to 14.x
-* Bumped ecovacs-deebot.js to 0.9.0-beta.0
+* Bumped ecovacs-deebot.js to 0.9.0-beta.2
 * Bumped several other dependencies
 
 ### 1.4.7
@@ -154,7 +155,7 @@ npm install canvas --unsafe-perm=true
   * yeedi vac hybrid
   * yeedi mop station
 
-### 1.4.4
+### 1.4.4 (latest stable)
 * Bumped ecovacs-deebot.js to 0.8.2
 * Bugfix for non 950 type models with mopping system (e.g. OZMO 930)
 * Some minor improvements
@@ -208,8 +209,8 @@ npm install canvas --unsafe-perm=true
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
+* Breaking change: The minimum required version of Node.js is now 12.x
 * Using library version 0.7.0 (beta)
-* The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

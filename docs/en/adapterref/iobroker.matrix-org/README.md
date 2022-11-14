@@ -74,7 +74,7 @@ Join this room and try it out with your own credentials
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.3 (2022-11-03)
 * updates of dependencies
 
 ### 0.1.2 (2022-08-12)

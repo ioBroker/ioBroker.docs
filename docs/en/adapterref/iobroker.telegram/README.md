@@ -706,13 +706,12 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### __WORK IN PROGRESS__
-* (Steff42) Make sure the userid is a string to revent warnings in the log
-* 
+### 1.15.2 (2022-11-04)
+* (Steff42) Make sure the userid is a string to show warnings in the log
+* (bluefox) Added ukrainian language
 
 ### 1.15.0 (2022-09-28)
-* (klein0r) Fixed custom component (user name was missing)
+* (klein0r) Fixed custom component (username was missing)
 * (klein0r) Translated all objects
 * (bluefox) Updated GUI packages and corrected build process
 
@@ -725,9 +724,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 ### 1.13.0 (2022-06-01)
 * (klein0r) Added Admin 5 UI config
 * (bluefox) Added rule block for javascript as plugin
-
-### 1.12.6 (2022-04-23)
-* (Apollon77) Fixed crash cases reported by Sentry
 
 ## License
 

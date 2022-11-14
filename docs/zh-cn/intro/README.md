@@ -1,15 +1,15 @@
 ---
-title: 纪录片的结构
+title: 文档的结构
 lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/intro/README.md
-hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
+hash: 4qnNEeC0RZEuSKq+nskiHOiQSq3TjltlnSv7wyMg9uA=
 ---
 **本文档是所有 ioBroker 用户的核心参考：**
 
 ## 页面结构
-此页面是在***响应式设计***中创建的。这意味着，根据阅读器显示器（PC/平板电脑/移动设备）的分辨率，它将以不同的方式显示，以实现最佳可读性。
+此页面是在***响应式设计***中创建的。这意味着根据阅读器显示器（PC/平板电脑/移动设备）的分辨率，它将以不同的方式显示，以实现最佳可读性。
 
 在低（有效）分辨率的情况下，一些控制元素也被隐藏起来为主窗口腾出空间。
 
@@ -76,7 +76,7 @@ hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
 
 我们感谢每一个帮助之手。如果您想为 ioBroker 的进一步发展做出贡献，您可以在 [开发者专区][] 中找到信息。
 
-该文档正在不断扩展。如果您认为缺少某些内容或应该更好地描述某些内容，请[帮助我们][] 改进文档！
+该文档正在不断扩展。如果您认为缺少某些内容或应该更好地描述，请[帮助我们][] 改进文档！
 
 [Grundlagen]: https://www.iobroker.net/#de/documentation/basics/README.md
 

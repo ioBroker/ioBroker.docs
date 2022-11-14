@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synology/README.md
 title: адаптер ioBroker Synology
-hash: WkVual2m2dT72rLqP5brHKeJT9eWswnA4uloqjj13Og=
+hash: 4tAxsbrofhQu1Y669v0bO0D6JTmSndG8lOnXZK54eL8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -26,7 +26,7 @@ hash: WkVual2m2dT72rLqP5brHKeJT9eWswnA4uloqjj13Og=
 Адаптер будет делать это через SSH, начиная с версии 2.1.4, поэтому укажите порт SSH в настройках адаптера. Вы можете увидеть это в настройках Synology: ![графика](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![графика](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
 
 ### Метод отправки
-Вы можете отправить любую команду (метод), установив объект sendMethod, например: Получить информацию о SurveillanceStation — это метод getInfo без дополнительных параметров.
+Вы можете отправить любую команду (метод), задав объект sendMethod, например: Получить информацию о SurveillanceStation — это метод getInfo без дополнительных параметров.
 
 ```{"method": "getInfo", "params": {}}```
 
@@ -75,7 +75,10 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## __РАБОТА В ПРОЦЕССЕ__
 -->
 
-### 2.1.12 (2022-10-26) *(McM1957) Удалена запись пароля в виде открытого текста.
+### 2.1.13 (2022-11-05) *(McM1957) Код подготовлен для предстоящего выпуска js-контроллера. Ссылка на utils.controllerDir удалена. (#198) *(McM1957) Несколько базовых модулей были обновлены.
+### 2.1.12 (2022-10-26)
+*(McM1957) Удалена запись пароля в виде открытого текста.
+
 ### 2.1.11 (2022-10-24)
 *(McM1957) Адаптер адаптирован для совместимости с node14.
 

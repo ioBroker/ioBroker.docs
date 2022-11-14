@@ -28,6 +28,14 @@ Manage and create devices for using it in other adapters like material, iot,...
 -->
 
 ## Changelog
+### 1.1.2 (2022-11-09)
+* (Garfonso) corrected the double states in light devices
+* (Garfonso) added CIE color type as equivalent to `rgbSingle` type
+
+### 1.1.1 (2022-11-03)
+* (bluefox) Corrected delete dialog
+* (bluefox) Added ukrainian translation
+
 ### 1.1.0 (2022-09-27)
 * (bluefox) Migrated GUI to v5
 

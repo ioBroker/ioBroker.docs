@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: kWOGYisqyqdwwWuf3Xbar3G6Oix+zKtuU71w+esCSaM=
+hash: RWItAUWGP3WRa+IVDylpIGWlDLTzDWH7mm4LyyKJ2K8=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -73,7 +73,7 @@ Es besteht natürlich kein Anspruch auf volle Funktionalität.
 * Deebot T10-Serie
 * Deebot X1-Serie
 
-#### Yeedi (experimentell)
+#### Yeedi (seit Version 1.4.5, noch experimentell)
 * yeedi k650
 * Yeedi 2-Hybrid
 * Yeedi-Vac-Hybrid
@@ -123,15 +123,16 @@ an [Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.
 * Die "Edge"-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Die "Verschieben"-Funktionen funktionieren nicht mit Deebot OZMO T8 AIVI (und möglicherweise auch mit einigen anderen Modellen)
 * Einige „cleaninglog“-Zustände sind bei der T9-Serie leer („last20Logs“, „lastCleaningDate“ und „lastCleaningMapImageURL“)
+* Die Generierung von Kartenbildern funktioniert möglicherweise nicht richtig mit der Deebot X1-Serie
 
 ## Haftungsausschluss
 Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.4.8 (alpha)
+### 1.4.8 (latest beta)
 * Breaking change: Bumped minimum required version of Node.js to 14.x
-* Bumped ecovacs-deebot.js to 0.9.0-beta.0
+* Bumped ecovacs-deebot.js to 0.9.0-beta.2
 * Bumped several other dependencies
 
 ### 1.4.7
@@ -154,7 +155,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
   * yeedi vac hybrid
   * yeedi mop station
 
-### 1.4.4
+### 1.4.4 (latest stable)
 * Bumped ecovacs-deebot.js to 0.8.2
 * Bugfix for non 950 type models with mopping system (e.g. OZMO 930)
 * Some minor improvements
@@ -208,8 +209,8 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
+* Breaking change: The minimum required version of Node.js is now 12.x
 * Using library version 0.7.0 (beta)
-* The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

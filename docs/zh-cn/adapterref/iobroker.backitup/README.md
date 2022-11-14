@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: ioBroker.backitup
-hash: agY2uYHmio4mpnO/XDEL2kHOMrvXUDhZTGI67yqJh0M=
+hash: QSMklYYey2wS2oiRP08GCXFON/Xz8uKAGsFSU9wyJoY=
 ---
 ![标识](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
@@ -93,13 +93,16 @@ iobroker.backitup 对 iobroker 启动后的还原没有任何影响。这一切�
 
 # 依赖
 * 必须为 CIFS 挂载安装 cifs-utils。
-    -`sudo apt-get install cifs-utils`
+    -`sudo apt install cifs-utils`
 
 * 必须为 NFS 挂载安装 nfs-common。
-    -`sudo apt-get install nfs-common`
+    - `sudo apt install nfs-common`
 
-* 要使用 MySql 备份，必须在系统上安装 mysqldump
-    - `sudo apt-get install mysql-client` 或在 Debian 上`sudo apt-get install default-mysql-client`
+* 使用MySql系统的MySql备份，系统必须安装mysqldump
+    - `sudo apt install mysql-client` 或在 Debian 上`sudo apt install default-mysql-client`
+
+* 要使用 MariaDB 系统的 MySql 备份，必须在系统上安装 mysqldump
+    -`sudo apt install mariadb-client`
 
 * 要使用 PostgreSQL 备份，必须在系统上安装 mysqldump
     - [PostgreSQL 安装指南](https://www.postgresql.org/download/linux/debian/)
@@ -130,7 +133,7 @@ ioBroker.backitup 提供了许多选项来循环执行不同的备份类型或�
 此备份提供了备份 Homematic 安装的 3 个不同版本（CCU-Original / pivCCU / Raspberrymatic）的可能性。也可以使用适配器配置或 OneClick Backup 小部件中指定的设置执行此备份。<br><br>如果您不只是想备份 CCU，您可以激活“备份多个系统”选项，然后在表格中定义您的 Homematic 中心。
 
 ## Mysql备份
-如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br>这里重要的是，即使 mysql 服务器运行在远程系统上，mysqldump 也必须运行在 ioBroker 系统上。<br>对于 Linux 系统，安装命令将是：`sudo apt-get install mysql-client` 或在 Debian `sudo apt-get install default-mysql-client`。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
+如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br>这里重要的是，即使 mysql 服务器运行在远程系统上，mysqldump 也必须运行在 ioBroker 系统上。<br>对于 Linux 系统，安装命令如下：`sudo apt install mysql-client` 或在 Debian `sudo apt install default-mysql-client` 或 MariaDB 系统 `sudo apt install mariadb-client`。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
 ## Redis 备份
 如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br>要将 Redis 与 ioBroker.backitup 一起使用，应调整 iobroker 用户的权限：<br>
@@ -212,13 +215,13 @@ bind-address = "0.0.0.0:8088"
 如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br> ***可以从 Jarvis 版本 2.2.0-beta.7 备份 Jarvis 配置。***
 
 ## Zigbee 备份
-如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。
+如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。
 
 ## Grafana 备份
-如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br> **为了创建 Grafana 备份，需要 Grafana 用户名和密码。**<br><br> **此外，必须在 Grafana Web 界面中生成 API 密钥才能访问仪表板。**<br> API密钥可以在***“配置→API密钥”***下创建。
+如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br> **为了创建 Grafana 备份，需要 Grafana 用户名和密码。**<br><br> **此外，必须在 Grafana Web 界面中生成 API 密钥才能访问仪表板。**<br> API密钥可以在***“配置→API密钥”***下创建。
 
 ## Yahka 备份
-如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br>将备份所有 Homkit 系统设置和设备设置。
+如果它被激活，这个可单独调整的备份与每个备份 ioBroker 一起创建，并且在指定的保留时间到期后也会被删除。如果设置为其他 ioBroker 备份类型，则 FTP 或 CIFS 对此备份也有效。<br><br>将备份所有 Homkit 系统设置和设备设置。
 
 ### [返回](#Inhalt)
 ---
@@ -340,7 +343,7 @@ FTP 可在所有操作系统上使用，并可作为 CIFS 挂载的替代方案<
    ```
 
 4. 带有状态文本的 OneClick 按钮
-   - 如果 OneClick 数据点设置为 true，则相应的备份开始，并且在预定义的时间后，该数据点再次设置为 false。可以创建一个带状态的按钮，修改以下行并在 Vis 中作为按钮输入文本：
+   - 如果 OneClick 数据点设置为 true，则相应的备份开始，并且在预定义的时间后，该数据点再次设置为 false。可以创建一个带状态的按钮，修改以下行并将其输入 Vis 作为按钮文本：
 
 ```
 {wert: backitup.0.oneClick.iobroker; wert === "true" || wert === true ? "Minimal Backup </br> wird erstellt" : "Minimal Backup </br> starten"}
@@ -379,7 +382,7 @@ iobroker.backitup 对 iobroker 启动后的还原没有任何影响。这一切�
 
 可以从所有存储介质执行恢复。<br><br> **基本上，最安全的方法是在本地运行还原。**<br><br>如果您选择最安全的方式并希望在本地执行还原，则必须将备份文件存储在 iobroker 备份文件夹中。在 Linux 系统上，此文件夹位于以下路径下：`/opt/iobroker/backups`
 
-使用备份类型“iobroker”和“redis”，iobroker 在恢复期间停止，然后自动重新启动。<br>停止 iobroker 后，将打开一个新的浏览器选项卡，可以在其中查看还原进度。<br><br> ***如果此选项卡未打开，请检查浏览器设置以阻止弹出窗口。***<br><br>
+使用备份类型“iobroker”和“redis”，iobroker 在恢复过程中会停止，然后自动重新启动。<br>停止 iobroker 后，将打开一个新的浏览器选项卡，可以在其中查看还原进度。<br><br> ***如果此选项卡未打开，请检查浏览器设置以阻止弹出窗口。***<br><br>
 
 **对于所有其他备份类型，iobroker 不会停止。这里只有受影响的适配器会短暂停止。**<br><br>
 
@@ -418,10 +421,10 @@ iobroker.backitup 对 iobroker 启动后的还原没有任何影响。这一切�
 1. Olifall（来自论坛）的问题是ioBroker的Web界面在恢复后无法访问，他通过控制台通过以下步骤解决了这个问题：
     - sudo iobroker 状态
     - 消息 =“没有连接到状态 127.0.0.0:6379[redis]”
-    - sudo apt-get install redis-server
+    - sudo apt 安装 redis 服务器
 
 2. 如果不能使用IP地址挂载CIFS，请使用NAS的主机名
-3. 如果您在 cifs-mount 中使用带有特殊字符的密码，用户已经注意到密码必须用引号括起来存储在配置中。
+3. 如果您在 cifs-mount 中使用带有特殊字符的密码，用户会注意到密码必须用引号括起来存储在配置中。
 4. 根据一些用户的说法，cifs-mount 不能处理很长的密码。如果挂载不起作用，请稍微缩短密码（12 个字符对我有用）。
 5.如果无法安装适配器，请检查您的node和nodejs版本。适配器不支持版本 < 节点 8。
 6. 如果您的 iobroker 系统是使用新的安装程序脚本安装的，您可能没有新用户 iobroker 的所有权限。
@@ -455,6 +458,21 @@ sudo reboot
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.5.6 (2022-11-14)
+* (simatec) Fix Grafana Backup
+* (simatec) Fix Downloadserver
+* (simatec) Translation updated
+
+### 2.5.5 (2022-11-13)
+* (simatec) Design Fix
+* (simatec) Docker DB Support added
+
+### 2.5.4 (2022-11-02)
+* (simatec) Fix maxBuffer for DB-Backups
+* (simatec) Docu updated
+* (simatec) Fix Dropbox error messages
+* (simatec) Grafana self signed Certificates added
+
 ### 2.5.3 (2022-11-01)
 * (simatec) dependencies updated
 

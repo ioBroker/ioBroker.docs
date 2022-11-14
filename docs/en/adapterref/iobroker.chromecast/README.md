@@ -24,20 +24,14 @@ Build on top of the following projects:
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Instructions
-
-1. Install into ioBroker
-   1. Go to your ioBroker Adapters tab
-   2. Select and install Google Home adapter
-2. Add an instance of the Google Home adapter
-   * it should automatically run after it is installed
-3. (optional) If you plan to stream local files you need to configure the adapter
+1. Install this adapter into ioBroker
+2(optional) If you plan to stream local files you need to configure the adapter
    * you need to have an ioBroker web server instance
-4. Check your log: you should see logs about the detected devices
-5. Write an URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
-6. The URL should start playing on your device
+3. Check your log: you should see logs about the detected devices
+4. Write a URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
+5. The URL should start playing on your device
 
 ## Features
-
 * detect devices with multicast-dns
   * optionally add additional manually configured devices in admin pannel
 * create ioBroker objects for each found device
@@ -60,13 +54,19 @@ Build on top of the following projects:
 * Play again last played stream: just set _chromecast.0.`<your device>`.status.playing_ to _true_
 
 ## What is missing?
-
 * add state machine to track states: detected ->connected -> player loader -> playing
 * add retries: sometimes the Google Home fails to respond to a request
 * more testing
 
-
 ## Changelog
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
+
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
 * (Bjoern3003) set album name as song if provided in icy-name

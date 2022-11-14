@@ -135,6 +135,7 @@ sendTo('twinkly.0', 'generateFrame', {
 -->
 ### **WORK IN PROGRESS**
 * Fixed polling (ledBri, ledSat)
+* Added Connection-Info
 
 ### 1.0.5 (2022-10-16)
 * Fixed error when changing active movie (#173)

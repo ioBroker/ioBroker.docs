@@ -301,7 +301,7 @@ Includes all smart home devices Alexa knows from your skills. States as follows,
 | - | - | - |
 | #delete | delete smart home device from Alexa | Button
 | #enabled | Is the smart home device active? Status and control to enable/disable. State will be synced with the cloud in the same interval as the smarthome deice data. | true / false |
-| #includeInIntervalQuery | Should this device be included in the interval query ? | true / false |
+| #includeInAllQuery | Should this device be included when querying all device states ? | true / false |
 | #query | query data for this device, only visible when the smart home device/skill supports to retrieve information | Button |
 | active | shown for scenes when they can be activated/deactivated | true / false |
 | powerState | Switch power on / off | changeable, true / false |
@@ -484,12 +484,13 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting unused device please restart the adapter to remove them there too.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77) Optimize state value loading
-* (Apollon77) Fix enabling/disabling of Alarms in combination with non-default music for the alarm
-* (Apollon77) Prevent Timers or Alarms that are long in the future to trigger their trigger state too early
-* (Apollon77) Fix deleting own user Messages
+### 3.21.0 (2022-11-03)
+* IMPORTANT: Because of rate limits by Amazon I decided to remove the update of smart home device values in intervals because it seems to produce too much load in Skills and Amazon systems.
+* (Apollon77) Optimizes loading of smart home device states
+* (Apollon77) Fixed issue with enabling/disabling of Alarms in combination with non-default music for the alarm
+* (Apollon77) Prevented that Timers or Alarms that are long in the future to trigger their trigger state too early
+* (Apollon77) Fixed deleting own user Messages state
+* (Apollon77) Already request Notification updates when history registered a Notification action and do not wait for Push info to come in
 
 ### 3.20.1 (2022-10-29)
 * (Apollon77) make sure caching works correctly with multiple instances of the adapter

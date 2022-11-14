@@ -23,6 +23,11 @@ link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn
 
 ## Changelog
 
+### v0.11.4
+* icons in settings fixed
+* dependencies updated
+* orphan keys clean up added
+
 ### v0.11.3
 * a way to allow write operations on whitelisted variables added
 * bug fixes

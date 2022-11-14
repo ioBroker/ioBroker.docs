@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: +C87oHkqvE+qBow9a/ahrgXJDedttowaAjxvXZ4SxWY=
+hash: DsREMFfOaw9z0dlnNY49Qlc84whjR++0OdAKQiGehj0=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -43,8 +43,6 @@ Mit diesem Adapter können Sie den Xiaomi-Staubsauger steuern.
 - [Änderungsprotokoll](#Änderungsprotokoll)
 
 ## Unterstützte Geräte und Funktionen
-Reiniger nicht unterstützt? [Stimmen Sie hier ab!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
-
 | Gerät | Basissteuerung | Geschichte | Zimmer | Karte |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | :heavy_check_mark: | :x: |:x: | :x: |
@@ -66,12 +64,13 @@ wenn Ihre Installation fehlerhaft ausgeführt wird. Das Canvas-Paket konnte nich
 
 Bitte installieren Sie Canvas und die Bibliotheken manuell mit: `` sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ``
 
-wechseln in: `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` dann `sudo npm install canvas`
+wechseln in: `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` dann `npm install canvas`
 
 ### HTTP-Fehler beim Abrufen des Token-Cookies{}
 Manchmal können Sie keine Verbindung zur Xiaomi-Cloud herstellen.
 Bitte öffnen Sie den Browser, gehen Sie zu Mihome und melden Sie sich an. Geben Sie den Code ein, den Sie per Mail erhalten haben. Danach sollte die Verbindung funktionieren.
 
+### Ruft nur Helo Message Timeout ab
 BITTE stellen Sie sicher, dass Ihr Roboter mit der Mihome App und NICHT mit der Roborock App verbunden ist
 
 ### Keine Verbindung mit S7
@@ -100,10 +99,10 @@ Es wird automatisch ein intelligentes Gerät im Cloud-Adapter erstellt mit dem N
 Wenn diese Option aktiviert ist, setzt der Staubsauger die Zonenreinigung fort, wenn der Status „Start“ auf „true“ gesetzt wird, wenn er während einer laufenden Zonenreinigung angehalten wurde.
 Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue "normale Reinigung", wenn Sie den Startbefehl senden, auch wenn er während einer laufenden Zonenreinigung angehalten wurde.
 
-- Experimentell: Mit der Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
+- Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
 
 #### Zweiter Roboter
-Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen angelegt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
+Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen erstellt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
 
 ## Kartenkonfig
 Es gibt zwei Möglichkeiten, die Karte zu erhalten. Die ersten holen sich die Karte aus der Cloud. Daher müssen Sie sich anmelden und den richtigen Roboter aus der Liste auswählen
@@ -326,45 +325,55 @@ Die unterstützten Befehle sind:
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
+### 3.8.6 (2022-11-12)
+* (deher) Fixtyp für roomMopMode
+
+### 3.8.5 (2022-11-10)
+* (Dirkhe) parseErrors auf Debug-Level verschieben
+* (Dirkhe) Neuinstanziierung bei Reconnect vermeiden
+
+### 3.8.4 (2022-11-07)
+* (Dirkhe) Logging für sendMessage auf debug ändern
+
 ### 3.8.3 (2022-11-01)
-* (deher) Protokollierung von Zeitüberschreitungen ändern
-* (deher) Teile des Tokens im Log verstecken
+* (Dirkhe) Logging von Timeouts ändern
+* (Dirkhe) Teile des Tokens im Log verstecken
 
 ### 3.8.2 (2022-10-31)
-* (deher) Bump-Leinwand auf 2.10.2
-* (deher) Karte deaktivieren, wenn CANVAS nicht installiert ist #681
+* (Dirkhe) Bump Canvas auf 2.10.2
+* (Dirkhe) Karte deaktivieren, wenn CANVAS nicht installiert ist #681
 
 ### 3.8.1 (2022-10-30)
-* (deher) Entfernen Sie die veraltete Version des Knotens 12.x für den Workflow
+* (Dirkhe) entfernt die veraltete Node 12.x-Version für den Workflow
 
 ### 3.8.0 (2022-10-30)
-* (deher) fehlenden Bestandsbefehl für mop_mode behoben
-* (deher) Mop-Modus auch für cleanSegments und cleanZone hinzufügen
-* (deher) Wischmodus auch für Räume hinzufügen
+* (Dirkhe) fehlenden Bestandsbefehl für mop_mode behoben
+* (Dirkhe) Mop-Modus auch für cleanSegments und cleanZone hinzugefügt
+* (Dirkhe) Wischmodus auch für Räume hinzufügen
 * (MeisterTR) Karte zoomen und Teppich anzeigen
 
 ### 3.7.0 (2022-10-28)
-* (deher) benutzerdefinierte Befehle mit einem einzigen Parameter akzeptieren
-* (deher) optionale Parameter waterboxMode und fanSpeed für cleanSegments und cleanZone
-* (deher) Absturz beim Senden einer Nachricht behoben (#652)
-* (deher) Wischmodus hinzufügen (#670)
-* (deher) fan_power für S7 Ultra anpassen (#677)
+* (Dirkhe) Akzeptiere benutzerdefinierte Befehle mit einem einzigen Parameter
+* (Dirkhe) optionale Parameter waterboxMode und fanSpeed für cleanSegments und cleanZone
+* (Dirkhe) Absturz beim Senden einer Nachricht behoben (#652)
+* (Dirkhe) Wischmodus hinzufügen (#670)
+* (Dirkhe) fan_power für S7 Ultra anpassen (#677)
 
 ### 3.6.0 (2022-07-07)
-* (deher) Staubsammeln hinzufügen
+* (Dirkhe) Staubsammeln hinzufügen
 
 ### 3.5.0 (2022-06-29)
-* (deher) Roborock S6 Pure-Modell hinzufügen
-* (deher) einige Hinweise in Readme hinzufügen/erweitern
-* (deher) füge zusätzliche Protokollinformationen für cleanRooms hinzu
-* (deher) Fehler bei falschem Map-DP behoben
+* (Dirkhe) Roborock S6 Pure-Modell hinzugefügt
+* (Dirkhe) einige Hinweise in Readme hinzugefügt/erweitert
+* (Dirkhe) zusätzliche Protokollinformationen für cleanRooms hinzugefügt
+* (Dirkhe) Fehler bei falschem Map-DP behoben
 
 ### 3.4.2 (2022-06-24)
 * (Apollon77) Abhängigkeiten aktualisieren, um einen besseren automatischen Neuaufbau zu ermöglichen
 
 ### 3.4.1 (2022-05-31)
-* (deher) fehlende Vakuumzustände hinzufügen
-* (deher) add dock state Abwassertank voll
+* (Dirkhe) fehlende Vakuumzustände hinzugefügt
+* (Dirkhe) hinzufügen Hafenzustand Abwassertank voll
 
 ### 3.4.0 (2022-05-28)
 * (Apollon77) Mehrere potenzielle Absturzfälle behoben, die von Sentry gemeldet wurden

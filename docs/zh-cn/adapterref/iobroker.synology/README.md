@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synology/README.md
 title: ioBroker Synology 适配器
-hash: WkVual2m2dT72rLqP5brHKeJT9eWswnA4uloqjj13Og=
+hash: 4tAxsbrofhQu1Y669v0bO0D6JTmSndG8lOnXZK54eL8=
 ---
 ![标识](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -75,7 +75,10 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ＃＃ __工作正在进行中__
 -->
 
-### 2.1.12 (2022-10-26) *(McM1957) 已删除以明文形式记录密码。
+### 2.1.13 (2022-11-05) *(McM1957) 已为即将发布的 js-controller 版本准备了代码。对 utils.controllerDir 的引用已被删除。 (#198) *(McM1957) 几个基本模块已更新。
+### 2.1.12 (2022-10-26)
+*(McM1957) 已删除以明文形式记录密码。
+
 ### 2.1.11 (2022-10-24)
 *(McM1957) 适配器已适配为与 node14 兼容。
 

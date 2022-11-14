@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 47wcjRNt9JN181aO/2m61BNn/e7jnBVmTildkY7jrN4=
+hash: mZ7bHg2S3PbO4ltPcbz6xUhmp9adNnCH49Q+aMtArq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -231,20 +231,20 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
-| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen ||
+| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
-| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
+| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte ||
 | DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 ||
 | DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
 | DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
 | DPT-9 | Zahl | | 2-Byte-Gleitkommawert ||
 | DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
 | DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
-| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
+| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
 | DPT-15 | Nummer | | 4 Byte ||
-| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
+| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Nummer | | 1 Byte ||
-| DPT-238 | Zahl | | 1 Byte ||
+| DPT-238 | Nummer | | 1 Byte ||
 | DPT-10 | Zahl für Datumsobjekt | | - ||
 | DPT-11 | Zahl für Datumsobjekt | | - ||
 | DPT-19 | Zahl für Datumsobjekt | | - ||
@@ -313,6 +313,10 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
+
+### 0.2.9 (2022-11-13)
+* feature: setting autoreadEnabled autoread
+* bugfix: keep correct order of send datagrams in case of burst write
 
 ### 0.2.7 (2022-08-26)
 * bugfix: fix issue with writing to dpt 19 object

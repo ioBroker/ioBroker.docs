@@ -468,6 +468,11 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2022-11-03)
+* (Garfonso) do not crash if no history instance selected.
+* (Garfonso) notifications working again.
+* (Garfonso) repaired color temperature handling.
+
 ### 3.0.0 (2022-10-28)
 * (agross) added: per instance language support
 * (Garfonso) entity_id for devices with only one non english name should be ok again.
@@ -500,9 +505,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 2.1.3 (2022-01-07)
 * (Garfonso) Fixed: remove backup of old frontend (sorry)
-
-### 2.1.2 (2022-01-06)
-* (Garfonso) Fixed: Menu was broken in frontend.
 
 ## License
 

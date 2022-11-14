@@ -141,6 +141,10 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 1.2.0 (2022-11-12)
+* (bluefox) Fixed error with edit of the state settings
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
 ### 1.1.1 (2022-10-12)
 * (bluefox) Fixed icons of devices
 * (bluefox) Migrated GUI to `mui5`

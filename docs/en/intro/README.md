@@ -1,10 +1,10 @@
 ---
-title: Structure of the documentary
+title: Structure of the documentation
 lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/intro/README.md
-hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
+hash: 4qnNEeC0RZEuSKq+nskiHOiQSq3TjltlnSv7wyMg9uA=
 ---
 **This documentation is the central reference for all ioBroker users:**
 

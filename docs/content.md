@@ -111,8 +111,7 @@
   * [Installation Fixer](trouble/install_fixer)
 
 * en:FAQ;de:FAQ;ru:ЧаВо;zh-cn:FAQ
-  * [Basics](faq/basic)
-
+  
 * en:Support;de:Unterstützung;ru:Поддержка;zh-cn:加入社区
   * [Introduction](community/README)
   * [Work im team](community/project)

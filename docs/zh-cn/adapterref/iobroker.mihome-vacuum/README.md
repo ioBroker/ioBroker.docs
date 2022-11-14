@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-vacuum 适配器
-hash: +C87oHkqvE+qBow9a/ahrgXJDedttowaAjxvXZ4SxWY=
+hash: DsREMFfOaw9z0dlnNY49Qlc84whjR++0OdAKQiGehj0=
 ---
 ![标识](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -43,8 +43,6 @@ hash: +C87oHkqvE+qBow9a/ahrgXJDedttowaAjxvXZ4SxWY=
 - [变更日志](#changelog)
 
 ## 支持的设备和功能
-不支持清洁器？ [在这里投票！](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
-
 |设备 |基本控制 |历史 |房间 |地图 |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | :heavy_check_mark: | :x: |:x:| :x: |
@@ -66,12 +64,13 @@ hash: +C87oHkqvE+qBow9a/ahrgXJDedttowaAjxvXZ4SxWY=
 
 请使用以下命令手动安装画布和库： sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 
-切换到：`cd /opt/iobroker/node_modules/iobroker.mihome-vacuum`然后`sudo npm install canvas`
+切换到：`cd /opt/iobroker/node_modules/iobroker.mihome-vacuum`然后`npm install canvas`
 
 ### 获取令牌 cookie 时出现 HTTP 错误{}
 有时连不上小米云。
 请打开浏览器，进入米家并登录。输入您通过邮件收到的代码。之后，连接应该可以工作。
 
+### 仅获取 Helo 消息超时
 请确保您的机器人与 Mihome 应用程序连接，而不是与 Roborock 应用程序连接
 
 ### 与 S7 无连接
@@ -326,45 +325,55 @@ sendTo("mihome-vacuum.0",
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
+### 3.8.6 (2022-11-12)
+* (deher) 修复 roomMopMode 的类型
+
+### 3.8.5 (2022-11-10)
+* (Dirkhe) 将 parseErrors 移至调试级别
+*（Dirkhe）在重新连接时避免新的实例
+
+### 3.8.4 (2022-11-07)
+* (Dirkhe) 将 sendMessage 的日志记录更改为调试
+
 ### 3.8.3 (2022-11-01)
-*（deher）从超时更改日志记录
-* (deher) 在日志中隐藏部分令牌
+*（Dirkhe）从超时更改日志记录
+* (Dirkhe) 在日志中隐藏部分令牌
 
 ### 3.8.2 (2022-10-31)
-* (deher) 将画布凹凸到 2.10.2
-* (deher) 禁用地图，如果未安装 CANVAS #681
+*（Dirkhe）将画布凹凸到 2.10.2
+* (Dirkhe) 禁用地图，如果未安装 CANVAS #681
 
 ### 3.8.1 (2022-10-30)
-* (deher) 删除工作流的弃用节点 12.x 版本
+* (Dirkhe) 删除工作流的弃用节点 12.x 版本
 
 ### 3.8.0 (2022-10-30)
-* (deher) 修复 mop_mode 缺少的库存命令
-* (deher) 为 cleanSegments 和 cleanZone 添加拖把模式
-*（deher）也为房间添加拖把模式
+* (Dirkhe) 修复 mop_mode 缺少的库存命令
+* (Dirkhe) 也为 cleanSegments 和 cleanZone 添加拖把模式
+*（Dirkhe）也为房间添加拖把模式
 * (MeisterTR) 地图缩放和显示地毯
 
 ### 3.7.0 (2022-10-28)
-* (deher) 接受带有单个参数的自定义命令
-* (deher) cleanSegments 和 cleanZone 的可选参数 waterboxMode 和 fanSpeed
-* (deher) 修复消息发送崩溃 (#652)
-* (deher) 添加拖把模式 (#670)
-* (deher) 为 S7 Ultra 适配 fan_power(#677)
+* (Dirkhe) 接受带有单个参数的自定义命令
+* (Dirkhe) cleanSegments 和 cleanZone 的可选参数 waterboxMode 和 fanSpeed
+* (Dirkhe) 修复消息发送崩溃 (#652)
+* (Dirkhe) 添加拖把模式 (#670)
+* (Dirkhe) 为 S7 Ultra 适配 fan_power(#677)
 
 ### 3.6.0 (2022-07-07)
-*（deher）添加除尘
+*（Dirkhe）添加除尘
 
 ### 3.5.0 (2022-06-29)
-* (deher) 添加 Roborock S6 Pure 模型
-* (deher) 在自述文件中添加/扩展一些提示
-* (deher) 为 cleanRooms 添加额外的日志信息
-* (deher) 修复错误 map-dp 的错误
+* (Dirkhe) 添加 Roborock S6 Pure 模型
+* (Dirkhe) 在自述文件中添加/扩展一些提示
+* (Dirkhe) 为 cleanRooms 添加额外的日志信息
+* (Dirkhe) 修复错误 map-dp 的错误
 
 ### 3.4.2 (2022-06-24)
 * (Apollon77) 更新依赖以允许更好的自动重建
 
 ### 3.4.1 (2022-05-31)
-* (deher) 添加错过的真空状态
-* (deher) 添加码头状态 废水箱已满
+*（Dirkhe）添加错过的真空状态
+*（Dirkhe）添加码头状态废水箱已满
 
 ### 3.4.0 (2022-05-28)
 * (Apollon77) 修复 Sentry 报告的几个潜在崩溃案例

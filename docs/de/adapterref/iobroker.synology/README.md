@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: WkVual2m2dT72rLqP5brHKeJT9eWswnA4uloqjj13Og=
+hash: 4tAxsbrofhQu1Y669v0bO0D6JTmSndG8lOnXZK54eL8=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -75,7 +75,10 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## __IN ARBEIT__
 -->
 
-### 2.1.12 (2022-10-26) *(McM1957) Protokollierung des Passworts im Klartext wurde entfernt.
+### 2.1.13 (2022-11-05) *(McM1957) Code wurde für die kommende Version des js-Controllers vorbereitet. Der Verweis auf utils.controllerDir wurde entfernt. (#198) *(McM1957) Mehrere Basismodule wurden aktualisiert.
+### 2.1.12 (2022-10-26)
+*(McM1957) Passwortprotokollierung im Klartext wurde entfernt.
+
 ### 2.1.11 (2022-10-24)
 *(McM1957) Der Adapter wurde angepasst, um mit node14 kompatibel zu sein.
 

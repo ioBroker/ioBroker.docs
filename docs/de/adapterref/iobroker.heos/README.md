@@ -3,30 +3,30 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: xMScfDEp8hMGPeoSdX8S0DZ9fWX9k0DpFcVmOSakMnA=
+hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
 ---
 ![Logo](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.heos.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.heos.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/heos-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/heos-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/heos-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/withstu/iobroker.heos.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/withstu/ioBroker.heos/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/withstu/ioBroker.heos/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.heos.png?downloads=true)
 
 # IoBroker.heos
-## Heos Adapter für ioBroker
-Mit dem Adapter können Sie HEOS von ioBroker aus steuern
+## Heos-Adapter für ioBroker
+Der Adapter ermöglicht die Steuerung von HEOS über ioBroker
 
 ## Aufbau
-* **AutoPlay** Spielt automatisch Musik ab, nachdem der Player angeschlossen oder die Stummschaltung aufgehoben wurde. Kann global in der Konfiguration konfiguriert werden. Wenn es global aktiviert ist, können Sie es für einen bestimmten Spieler mit dem Status "auto_play" deaktivieren.
-* **Befehlsbereich** Definiert, an welche Spieler der Befehl von `` `scope / [cmd]` `` gesendet wird. Es kann an alle Spieler, alle führenden Spieler oder an alle PIDs im durch Kommas getrennten Zustand gesendet werden: `` `heos.0.command_scope_pid```
-* **Regex stumm schalten**
+* **AutoPlay**: Spielt automatisch Musik ab, nachdem der Player angeschlossen oder die Stummschaltung aufgehoben wurde. Kann global in der Konfiguration konfiguriert werden. Wenn es global aktiviert ist, können Sie es für einen bestimmten Spieler mit dem Status ```auto_play``` deaktivieren.
+* **Command scope**: Legt fest, an welche Spieler der Befehl von ```scope/[cmd]``` gesendet wird. Es kann an alle Spieler, alle führenden Spieler oder an alle PIDs im kommagetrennten Zustand gesendet werden: ```heos.0.command_scope_pid```
+* **Regex stummschalten**:
 
-In der Konfiguration können Sie eine Funktion aktivieren, um den Player basierend auf einer Regex-Übereinstimmung mit den Songinformationen stummzuschalten. Damit können Anzeigen automatisch stummgeschaltet werden. Für Spotify können Sie beispielsweise den folgenden regulären Ausdruck verwenden: ```spotify:ad:|Advertisement```.
+In der Konfiguration können Sie eine Funktion aktivieren, um den Player basierend auf einem Regex-Match auf die Songinformationen stummzuschalten. Dies kann verwendet werden, um Anzeigen automatisch stummzuschalten. Für Spotify können Sie beispielsweise die folgende Regex verwenden: ```spotify:ad:|Advertisement```.
 
-* **ignore_broadcast_cmd** Dieser Player-Status wird konfiguriert, wenn der Player Befehle an alle Player ignorieren soll, z. player / set_mute & state = on oder Drücken der Wiedergabetaste für Voreinstellungen / Wiedergabelisten
+* **ignore_broadcast_cmd**: Dieser Player State konfiguriert, ob der Player Befehle an alle Player ignorieren soll, z.B. player/set_mute&state=on oder Drücken der Play-Taste für Presets/Playlists
 
 ## Suchen
 Die Suchfunktion funktioniert nicht bei allen Quellen. Spotify und Amazon Music unterstützen die Suche.
@@ -34,100 +34,163 @@ Die Suchfunktion funktioniert nicht bei allen Quellen. Spotify und Amazon Music 
 ## Befehlsstatus
 HEOS CLI-Spezifikation: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
 
-### HEOS-Befehlsstatus
-* "system / connect": Versuchen Sie, eine Verbindung zu HEOS herzustellen
-* "System / Trennen": Trennen Sie die Verbindung zum HEOS
-* "system / reconnect": Trennen und verbinden
-* "system / load_sources": Quellen neu laden
-* "System / Neustart": Starten Sie den angeschlossenen Player neu
-* "system / reboot_all": Starten Sie alle Player neu
-* "group / set_group? pid = <pid1>, <pid2>, ...": Gruppe mit der Liste der Spieler-IDs festlegen, z. "group / set_group? pid = 12345678,12345679".
-* "group / set_group? pid = <pid1>": Löschen Sie eine vorhandene Gruppe, z. "group / set_group? pid = 12345678"
-* "group / ungroup_all": Alle Gruppen löschen
-* "group / group_all": Gruppiert alle Spieler in einer Gruppe
-* "player / [cmd]": Sende den Befehl an alle Spieler. z.B. player / set_mute & state = on
-* "Anführer / [cmd]": Senden Sie den Befehl an alle führenden Spieler. z.B. führer / set_mute & state = on
-* "scope / [cmd]": Senden Sie den Befehl an den konfigurierten Bereich aller Spieler, führenden Spieler oder durch Kommas getrennten Spieler-Pids in scope_pids
-* "...": Alle anderen Befehle werden versucht, an HEOS zu senden
+### HEOS-Befehlsstatus (heos.0.command)
+* „system/connect“: Versuchen Sie, sich mit HEOS zu verbinden
+* „system/disconnect“: Verbindung zu HEOS trennen
+* „system/reconnect“: Trennen und Verbinden
+* "system/load_sources": Quellen neu laden
+* "system/reboot": Angeschlossenen Player neu starten
+* "system/reboot_all": Alle Spieler neu starten
+* "group/set_group?pid=<pid1>,<pid2>,...": Setze Gruppe mit der Liste der Spieler-IDs, z.B. "group/set_group?pid=12345678,12345679".
+* "group/set_group?pid=<pid1>" : Bestehende Gruppe löschen z.B. "group/set_group?pid=12345678"
+* "group/ungroup_all" : Alle Gruppen löschen
+* "group/group_all" : Gruppiere alle Spieler in einer Gruppe
+* "player/[cmd]": Sende den Befehl an alle Spieler. z.B. player/set_mute&state=on
+* "leader/[cmd]": Sende den Befehl an alle führenden Spieler. z.B. Leader/set_mute&state=on
+* "scope/[cmd]": Sende den Befehl an den konfigurierten Bereich alle Spieler, führende Spieler oder kommagetrennte Spieler-PIDs in scope_pids
+* "...": Alle anderen Befehle werden versucht an HEOS zu senden
 
-### Player-Befehlsstatus
-Hinweis: Mehrere Befehle sind möglich, wenn sie mit der Pipe getrennt sind, z. set_volume & level = 20 | play_preset & preset = 1
+### Player-Befehlsstatus (heos.0.players.123456789.command)
+Hinweis: Mehrere Befehle sind möglich, wenn sie mit dem senkrechten Strich getrennt werden, z. set_volume&level=20|play_preset&preset=1
 
-* "set_volume & level = 0 | 1 | .. | 100": Stellen Sie die Lautstärke des Players ein
-* "set_play_state & state = play | pause | stop": Legt den Player-Status fest
-* "set_play_mode & repeat = on_all | on_one | off & shuffle = on | off": Set Repeat and Shuffle-Modus
-* "set_mute & state = on | off": Spieler stumm schalten
-* "volume_down & step = 1..10": Niedrigere Lautstärke
-* "volume_up & step = 1..10": Erhöhen Sie die Lautstärke
-* "play_next": Weiter spielen
-* "play_previous": Vorherige spielen
-* "play_preset & preset = 1 | 2 | .. | n": Preset n abspielen
-* "play_stream & url = url_path": URL-Stream abspielen
-* "add_to_queue & sid = 1025 & aid = 4 & cid = [CID]": Wiedergabeliste mit [CID] auf dem Player abspielen (Hilfe: 1 - jetzt spielen; 2 - als nächstes spielen; 3 - zum Ende hinzufügen; 4 - ersetzen und spielen)
+* "set_volume&level=0|1|..|100": Stellen Sie die Player-Lautstärke ein
+* "set_play_state&state=play|pause|stop": Legt den Spielerstatus fest
+* "set_play_mode&repeat=on_all|on_one|off&shuffle=on|off": Stellen Sie den Repeat- und Shuffle-Modus ein
+* "set_mute&state=on|off": Spieler stumm schalten
+* "volume_down&step=1..10": Lautstärke verringern
+* "volume_up&step=1..10": Lautstärke erhöhen
+* "play_next": Als nächstes spielen
+* "play_ previous": Vorheriges abspielen
+* "play_preset&preset=1|2|..|n": Preset n wiedergeben
+* "play_stream&url=url_path": URL-Stream abspielen
+* "add_to_queue&sid=1025&aid=4&cid=[CID]": Wiedergabeliste mit [CID] auf Player abspielen (Hilfe: 1 – jetzt spielen; 2 – als nächstes spielen; 3 – zum Ende hinzufügen; 4 – ersetzen und abspielen)
 
-## Bildfarbenextraktion
-Mit Version 1.7.6 werden die markanten Farben des Songcovers extrahiert und in drei neuen Player-Status gespeichert:
+## Bildfarbextraktion
+Mit Version 1.7.6 werden die markanten Farben des Songcovers extrahiert und in drei neue Player-Zustände gespeichert:
 
-* **current_image_color_palette** Prominente Farben, die von node-vibrierend ausgewählt werden.
-* **current_image_color_background** Farbe mit der größten Population im Bild. Kann als Hintergrundfarbe für Player-Steuerelemente in VIS verwendet werden.
-* **current_image_color_foreground** Farbe mit der zweitgrößten Population im Bild und einem guten Lesekontrast zur Hintergrundfarbe. Kann als Textfarbe für Player-Steuerelemente in VIS verwendet werden.
+* **current_image_color_palette**: Auffällige Farben, ausgewählt von node-vibrant.
+* **current_image_color_background**: Farbe mit der größten Population im Bild. Kann als Hintergrundfarbe für Player-Steuerelemente in VIS verwendet werden.
+* **current_image_color_foreground**: Farbe mit der zweitgrößten Population im Bild und einem guten Lesekontrast zur Hintergrundfarbe. Kann als Textfarbe für Player-Steuerelemente in VIS verwendet werden.
 
 ## Sag es
-[SayIt Adapter](https://github.com/ioBroker/ioBroker.sayit) wird unterstützt.
+[SayIt-Adapter](https://github.com/ioBroker/ioBroker.sayit) wird unterstützt.
 
-![Sag es](docs/media/sayit.png) ![Sayit Config](../../../en/adapterref/iobroker.heos/docs/media/sayit-config.png)
+![Sag es](docs/media/sayit.png) ![Sayit-Konfiguration](../../../en/adapterref/iobroker.heos/docs/media/sayit-config.png)
 
-## Material UI
-[Material UI Adapter](https://github.com/ioBroker/ioBroker.material) wird unterstützt.
+## Material-UI
+[Material-UI-Adapter](https://github.com/ioBroker/ioBroker.material) wird unterstützt.
 
 ![Material](../../../en/adapterref/iobroker.heos/docs/media/material-ui.png)
 
 ## Voreinstellungen und Wiedergabelisten
-Der Adapter fordert die aktuellen Wiedergabelisten und Voreinstellungen nicht automatisch an. Um die Daten zu aktualisieren / anzufordern und die Wiedergabestatus zu erstellen, müssen Sie zuerst die Quellen durchsuchen:
+Der Adapter fordert nicht automatisch die aktuellen Wiedergabelisten und Voreinstellungen an. Um die Daten zu aktualisieren/anzufordern und die Spielstände zu erstellen, müssen Sie zuerst die Quellen durchsuchen:
 
-- Voreinstellungen / Favoriten: `` `heos.0.sources.1028.browse```
-- Wiedergabelisten: `` `heos.0.sources.1025.browse```
+- Voreinstellungen/Favoriten: ```heos.0.sources.1028.browse```
+- Wiedergabelisten: ```heos.0.sources.1025.browse```
 
 ## VIS
 ### Installation
-* Erstellen Sie folgende Zeichenfolgenzustände:
+* Erstellen Sie folgende String-Zustände:
     * 0_userdata.0.heos.queue_pid
     * 0_userdata.0.heos.queue_html
     * 0_userdata.0.heos.browse_result_html
 
-### Player-Ansicht
-* Öffnen Sie die Datei: [player_view.json] (docs / vis / views / player_view.json)
-* Ersetzen Sie 123456789 durch die Player-PID
+### Spieleransicht
+* Öffnen Sie die Datei: [player_view.json](docs/vis/views/player_view.json)
+* Ersetzen Sie 123456789 durch die Spieler-PID
 * Ansicht in VIS importieren
 
 ![Spieleransicht](../../../en/adapterref/iobroker.heos/docs/media/player-view.png)
 
 ### Voreinstellungen
-* Klicken Sie auf die Schaltfläche `` `heos.0.sources.1028.browse```, um Presets zu laden
-* Öffnen Sie die Datei: [presets_view.json] (docs / vis / views / presets_view.json)
+* Klicken Sie auf die Schaltfläche ```heos.0.sources.1028.browse```, um Voreinstellungen zu laden
+* Öffnen Sie die Datei: [presets_view.json](docs/vis/views/presets_view.json)
 * Ansicht in VIS importieren
 
-![Presets config](docs/media/presets-config.png) ![Voreinstellungen](../../../en/adapterref/iobroker.heos/docs/media/presets.png)
+![Voreinstellungen Konfig](docs/media/presets-config.png) ![Voreinstellungen](../../../en/adapterref/iobroker.heos/docs/media/presets.png)
 
 ### Warteschlange
-* Warteschlangen-Widget: [queue_player_widget.json] (docs / vis / views / queue_player_widget.json)
-* Warteschlangenansicht: [queue_view.json] (docs / vis / views / queue_view.json)
-* Warteschlangen-HTML-Generierungsskript: [queue.js] (docs / vis / scripts / queue.js)
+* Warteschlangen-Widget: [queue_player_widget.json](docs/vis/views/queue_player_widget.json)
+* Warteschlangenansicht: [queue_view.json](docs/vis/views/queue_view.json)
+* Warteschlangen-HTML-Generierungsskript: [queue.js](docs/vis/scripts/queue.js)
 
 ![Warteschlangen-Widget](../../../en/adapterref/iobroker.heos/docs/media/queue-widget.png)
 
 ### Quellen durchsuchen
-* Widget durchsuchen: [browse_player_widget.json] (docs / vis / views / browse_player_widget.json)
-* Ansicht durchsuchen: [browse_view.json] (docs / vis / views / browse_view.json)
-* HTML-Generierungsskript durchsuchen: [browse.js] (docs / vis / scripts / browse.js)
+* Durchsuchen-Widget: [browse_player_widget.json](docs/vis/views/browse_player_widget.json)
+* Ansicht durchsuchen: [browse_view.json](docs/vis/views/browse_view.json)
+* HTML-Generierungsskript durchsuchen: [browse.js](docs/vis/scripts/browse.js)
 
-![Widget durchsuchen](docs/media/browse-widget.png) ![Quellen durchsuchen](docs/media/browse-sources.png) ![Tunein durchsuchen](../../../en/adapterref/iobroker.heos/docs/media/browse-tunein.png)
+![Durchsuchen-Widget](docs/media/browse-widget.png) ![Quellen durchsuchen](docs/media/browse-sources.png) ![Durchsuchen Sie tunein](../../../en/adapterref/iobroker.heos/docs/media/browse-tunein.png)
 
 Alternativ können Sie das Skript von Uhula verwenden: https://forum.iobroker.net/post/498779
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
-### 1.7.8 (2021-02-25)
+### **WORK IN PROGRESS**
+* (withstu) optimize scope handling
+
+### 1.11.4 (2022-11-04)
+* (withstu) improve play all button in browse feature
+
+### 1.11.3 (2022-11-04)
+* (withstu) update some dependencies
+* (withstu) improve failure handling
+* (withstu) improve play all button in browse feature
+
+### 1.11.2 (2022-10-16)
+* (withstu) adopt to new adapter structure
+
+### 1.11.1 (2022-10-16)
+* (withstu) fix release
+
+### 1.11.0 (2022-10-16)
+* (withstu) improve player failure detection
+* (withstu) fix bug in regex mute
+* (withstu) fix upnp NaN warning #192
+
+### 1.10.0 (2022-06-16)
+* (foxriver76) fix default value of `sid` (closes #174)
+
+### 1.9.2 (2022-01-22)
+* (withstu) add volume lock
+
+### 1.9.1 (2021-08-17)
+* (withstu) fix type issues
+* (withstu) fix roles and repeat state
+
+### 1.9.0 (2021-07-27)
+* (stephanritscher) add option to configure udp source port
+
+### 1.8.6 (2021-06-13)
+* (withstu) test fixed pipeline
+
+### 1.8.4 (2021-06-13)
+* (withstu) improve stability
+
+### 1.8.3 (2021-05-13)
+* (withstu) fix upnp values on failure
+
+### 1.8.2 (2021-05-12)
+* (withstu) BREAKING: add queue paging
+* (withstu) BREAKING: volume_max -> volume_limit
+* (foxriver76) Fix type issues and some more minor changes
+
+### 1.8.1 (2021-05-07)
+* (withstu) fix reboot loop
+
+### 1.8.0 (2021-04-24)
+* (withstu) add reboot on failure configuration
+
+### 1.7.9 (2021-04-07)
+* (withstu) fix reboot
+* (withstu) add power state
+
+### 1.7.8 (2021-04-05)
 * (withstu) add reboot
 
 ### 1.7.7 (2021-02-25)
@@ -237,7 +300,7 @@ Alternativ können Sie das Skript von Uhula verwenden: https://forum.iobroker.ne
 ## License
 MIT License
 
-Copyright (c) 2021 withstu <withstu@gmx.de>
+Copyright (c) 2022 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

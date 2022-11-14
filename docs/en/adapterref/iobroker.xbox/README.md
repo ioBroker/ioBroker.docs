@@ -327,6 +327,9 @@ For every friend a channel will be created. Under this channel you will find sev
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.1 (2022-11-02)
+* (foxriver76) we have optimized error logging messages
+
 ### 1.0.0 (2022-09-09)
 * (foxriver76) updated dependencies
 * (foxriver76) see previous beta versions

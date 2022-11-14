@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 47wcjRNt9JN181aO/2m61BNn/e7jnBVmTildkY7jrN4=
+hash: mZ7bHg2S3PbO4ltPcbz6xUhmp9adNnCH49Q+aMtArq4=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -21,7 +21,7 @@ hash: 47wcjRNt9JN181aO/2m61BNn/e7jnBVmTildkY7jrN4=
 所有生成的通信对象最初都配置为可读和可写，在适配器重新启动时从 knx 总线获取值。
 
 ＃ 安装
-该适配器在最新 / beta 存储库中可用。如果在 ioBroker 系统设置中将其选为标准存储库，则可以在“openknx”下的适配器列表中搜索该适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
+该适配器在最新 / beta 存储库中可用。如果在 ioBroker 系统设置中将其选为标准存储库，则可以在“openknx”下的适配器列表中搜索适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
 
 # 适配器配置
 ![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接管更改。
@@ -42,7 +42,7 @@ KNX IP 网关的 IP。
 ＃＃＃ 探测
 通过标准化协议搜索给定网络接口上所有可用的 KNX IP 网关。
 
-### 帧延迟 [ms]
+### 帧延迟 [毫秒]
 此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。
 未发送的帧会延迟，直到经过总线上最后一次发送后的延迟时间。如果有更多的发送请求在等待，发送顺序是随机的。
 如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
@@ -313,6 +313,10 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
+
+### 0.2.9 (2022-11-13)
+* feature: setting autoreadEnabled autoread
+* bugfix: keep correct order of send datagrams in case of burst write
 
 ### 0.2.7 (2022-08-26)
 * bugfix: fix issue with writing to dpt 19 object

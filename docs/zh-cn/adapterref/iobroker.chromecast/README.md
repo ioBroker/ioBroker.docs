@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
+hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ---
 ![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
@@ -28,16 +28,14 @@ hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ＃＃ 指示
-1.安装到ioBroker
-   1. 转到您的 ioBroker 适配器选项卡
-   2. 选择并安装 Google Home 适配器
-2. 添加 Google Home 适配器的实例
-   * 它应该在安装后自动运行
-3.（可选）如果您打算流本地文件，则需要配置适配器
+1.将此适配器安装到ioBroker
+
+2（可选）如果你打算流本地文件，你需要配置适配器
+
    * 您需要有一个 ioBroker Web 服务器实例
-4. 检查您的日志：您应该会看到有关检测到的设备的日志
-5. 写一个URL比如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
-6. URL 应该开始在您的设备上播放
+3. 检查您的日志：您应该会看到有关检测到的设备的日志
+4.写一个URL如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
+5. URL 应该开始在您的设备上播放
 
 ＃＃ 特征
 * 使用多播-dns 检测设备
@@ -67,6 +65,14 @@ hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 * 更多测试
 
 ## Changelog
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
+
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
 * (Bjoern3003) set album name as song if provided in icy-name

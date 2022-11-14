@@ -2,7 +2,6 @@
 const utils = require('./utils');
 const consts = require('./consts');
 const translation = require('./translation');
-const faq = require('./faq');
 const fs = require('fs');
 const path = require('path');
 
@@ -41,10 +40,11 @@ async function translateTitle(title, inFolder) {
         if (!words[lang]) {
             words[lang] = (words.en || words.de);
             if (words[lang][2] !== '!') {
-                words[lang] = lang + '!' + words[lang];
+                words[lang] = `${lang}!${words[lang]}`;
             }
         }
     });
+
     // read title from file
     if (words.link) {
         consts.LANGUAGES.forEach(lang => {
@@ -52,7 +52,7 @@ async function translateTitle(title, inFolder) {
             if (fs.existsSync(name)) {
                 const data = fs.readFileSync(name).toString('utf-8');
                 const title = utils.getTitle(data);
-                if ((!words[lang] || words[lang].includes('!')) && title) {
+                if ((!words[lang] || words[lang].includes('!') || words[lang].startsWith('_')) && title) {
                     words[lang] = title;
                 }
             }
@@ -103,7 +103,10 @@ async function processContent(filePath) {
 
                 if (words.en === 'FAQ') {
                     obj.pages = obj.pages || {};
-                    const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq')).filter(name => name.match(/^_\d/)).sort();
+                    const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq'))
+                        .filter(name => name.match(/^_\d/))
+                        .sort();
+
                     return Promise.all(files.map(async file => {
                         if (fs.existsSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq', file, 'README.md'))) {
                             const words = await translateTitle(`[${file}](faq/${file.replace(/\.md$/, '')})`, consts.FRONT_END_DIR);
@@ -215,7 +218,7 @@ function replaceImages(text, sourceFile, targetFile) {
                         link = link.substring(0, pos);
                     }
                     if (!link.match(/^https?:/)) {
-                        link = prefix + (link[0] === '/' ? link : '/' + link);
+                        link = path.normalize(prefix + (link[0] === '/' ? link : `/${link}`)).replace(/\\/g, '/');
 
                         lines[i] = lines[i].replace(item, `![${text}](${link}${title ? ` "${title}"` : ''})`);
                     }
@@ -395,14 +398,14 @@ if (!module.parent) {
             return processFiles(consts.SRC_DOC_DIR);
         });
     });*/
-    processContent(path.join(consts.SRC_DOC_DIR, 'content.md')).then(content => {
+    /*processContent(path.join(consts.SRC_DOC_DIR, 'content.md')).then(content => {
         console.log(JSON.stringify(content));
-    });
+    });*/
 
-    /*translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru')
+    translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru')
         .then(() => {
             console.log('done');
-        })*/
+        })
     //console.log(replaceImages(fs.readFileSync('C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md').toString(), 'C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.fritzbox/README.md', 'C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md'));
     //sync2Languages('de', 'en', () => console.log('done1'), ['C:/pWork/ioBroker.docs/docs/de/README.md'])
     //syncDocs(() => console.log('DONE'));

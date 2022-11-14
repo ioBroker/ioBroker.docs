@@ -13,8 +13,8 @@
           "title": {
             "en": "Introduction",
             "de": "Aufbau der Dokumentation",
-            "ru": "Структура документального фильма",
-            "zh-cn": "纪录片的结构"
+            "ru": "Структура документации",
+            "zh-cn": "文档的结构"
           },
           "content": "intro/README.md"
         }
@@ -501,68 +501,41 @@
         "zh-cn": "FAQ"
       },
       "pages": {
-        "Basics": {
+        "General questions": {
           "title": {
-            "en": "Basics",
-            "de": "no title",
-            "ru": "Без названия",
-            "zh-cn": "没有标题"
-          },
-          "content": "faq/basic.md"
-        },
-        "_010_general": {
-          "title": {
-            "en": "_010_general",
-            "de": "Generelle Fragen",
+            "en": "General questions",
+            "de": "Cloud",
             "ru": "Общие вопросы",
-            "zh-cn": "一般问题"
+            "zh-cn": "no title"
           },
-          "content": "faq/_010_general.md"
+          "content": "faq/_050_cloud.md"
         },
-        "_020_installation": {
+        "Questions about installation": {
           "title": {
-            "en": "_020_installation",
-            "de": "Fragen über installation",
+            "en": "Questions about installation",
+            "de": "Installation",
             "ru": "Вопросы по установке",
-            "zh-cn": "关于安装的问题"
+            "zh-cn": "no title"
           },
           "content": "faq/_020_installation.md"
         },
-        "_020_usage": {
+        "Usage": {
           "title": {
-            "en": "_020_usage",
-            "de": "Generelle Fragen",
+            "en": "Usage",
+            "de": "Benutzung",
             "ru": "Общие вопросы",
-            "zh-cn": "一般问题"
+            "zh-cn": "no title"
           },
           "content": "faq/_020_usage.md"
         },
-        "_040_contibution": {
+        "Answers for advanced users": {
           "title": {
-            "en": "_040_contibution",
-            "de": "Generelle Fragen",
-            "ru": "Общие вопросы",
-            "zh-cn": "一般问题"
-          },
-          "content": "faq/_040_contibution.md"
-        },
-        "_050_advanced": {
-          "title": {
-            "en": "_050_advanced",
-            "de": "Antworten für Fortgeschrittener",
+            "en": "Answers for advanced users",
+            "de": "Fortgeschrittener",
             "ru": "Ответы для продвинутых",
-            "zh-cn": "高级答案"
+            "zh-cn": "如何在调试中切换驱动程序？"
           },
           "content": "faq/_050_advanced.md"
-        },
-        "_050_cloud": {
-          "title": {
-            "en": "_050_cloud",
-            "de": "Generelle Fragen",
-            "ru": "Общие вопросы",
-            "zh-cn": "一般问题"
-          },
-          "content": "faq/_050_cloud.md"
         }
       }
     },

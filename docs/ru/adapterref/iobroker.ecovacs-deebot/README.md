@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: kWOGYisqyqdwwWuf3Xbar3G6Oix+zKtuU71w+esCSaM=
+hash: RWItAUWGP3WRa+IVDylpIGWlDLTzDWH7mm4LyyKJ2K8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -73,7 +73,7 @@ hash: kWOGYisqyqdwwWuf3Xbar3G6Oix+zKtuU71w+esCSaM=
 * Серия Deebot T10
 * Серия Deebot X1
 
-#### Йеди (экспериментальный)
+#### Yeedi (начиная с версии 1.4.5, все еще экспериментальная)
 * йеди к650
 * йеди 2 гибрид
 * yeedi вакуумный гибрид
@@ -123,15 +123,16 @@ npm install canvas --unsafe-perm=true
 * Функция «край» не работает с Deebot U2 (вместо этого запускается автоматическая очистка)
 * Функции "перемещения" не работают с Deebot OZMO T8 AIVI (а возможно и с некоторыми другими моделями)
 * Некоторые состояния журнала очистки в серии T9 пусты ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL").
+* Генерация изображений карты может не работать должным образом с серией Deebot X1.
 
 ## Отказ от ответственности
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
 
-### 1.4.8 (alpha)
+### 1.4.8 (latest beta)
 * Breaking change: Bumped minimum required version of Node.js to 14.x
-* Bumped ecovacs-deebot.js to 0.9.0-beta.0
+* Bumped ecovacs-deebot.js to 0.9.0-beta.2
 * Bumped several other dependencies
 
 ### 1.4.7
@@ -154,7 +155,7 @@ npm install canvas --unsafe-perm=true
   * yeedi vac hybrid
   * yeedi mop station
 
-### 1.4.4
+### 1.4.4 (latest stable)
 * Bumped ecovacs-deebot.js to 0.8.2
 * Bugfix for non 950 type models with mopping system (e.g. OZMO 930)
 * Some minor improvements
@@ -208,8 +209,8 @@ npm install canvas --unsafe-perm=true
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
+* Breaking change: The minimum required version of Node.js is now 12.x
 * Using library version 0.7.0 (beta)
-* The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 

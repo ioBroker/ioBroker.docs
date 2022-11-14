@@ -50,6 +50,9 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.2.5 (2022-11-02)
+* (bluefox) Corrected error with charts
+
 ### 1.2.2 (2022-10-18)
 * (bluefox) migrated to MUIv5
 * (bluefox) corrected error with blinds

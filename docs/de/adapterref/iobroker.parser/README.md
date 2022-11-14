@@ -2,17 +2,16 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
-title: kein Titel
-hash: gqjnxeWBrdIDed3rjdlPH6JkSC8aInhP2MLTdcpW53E=
+title: ioBroker-Parser-Adapter
+hash: +XYwQT5Dyh/iO+GD5Kyw1Mv3LLzRKeJbJQ3SAlFwrrk=
 ---
-![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png) ioBroker-Parser-Adapter
+![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/parser-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.parser.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.parser.svg)
 
-=================
-
+# IoBroker-Parser-Adapter
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.parser/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/parser/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
@@ -28,14 +27,21 @@ Dieser Standardwert für das Abfrageintervall wird verwendet, wenn für einen Ei
 ### 2. Timeout anfordern
 Geben Sie an, wie lange der Adapter bei Websiteabfragen auf eine HTTP-Antwort wartet
 
-### 3. Akzeptieren Sie ungültige Zertifikate
+### 3. Verzögerung zwischen Anfragen
+Geben Sie an, wie lange der Adapter beim Ausführen von Remoteabfragen zwischen HTTP-Anforderungen wartet. Nützlich beim Abrufen von Daten von langsamen Hosts oder über langsame Verbindungen, um eine Überlastung beider zu vermeiden. Null (Standard) bedeutet keine Verzögerung.
+
+Diese Verzögerung gilt pro Host. Wenn Remote-Abfragen so konfiguriert sind, dass sie von mehreren Remote-Hosts abrufen, wird jeder Host parallel abgefragt.
+
+Die Verzögerung ist ein Mindestwert zwischen dem Initiieren jeder Anforderung. D.h. Wenn das Lesen einer Abfrage länger dauert als dieser Verzögerungsparameter, wird die nächste gestartet, sobald der Lesevorgang abgeschlossen ist.
+
+### 4. Akzeptieren Sie ungültige Zertifikate
 Geben Sie an, ob selbstsignierte/ungültige SSL/TLS-Zertifikate bei HTTPS-Anforderungen akzeptiert oder abgelehnt werden
 
-### 4. Verwenden Sie einen unsicheren HTTP-Parser
+### 5. Verwenden Sie einen unsicheren HTTP-Parser
 Geben Sie an, dass ein unsicherer HTTP-Parser verwendet werden soll, der ungültige HTTP-Header akzeptiert. Dies kann die Interoperabilität mit nicht konformen HTTP-Implementierungen ermöglichen.
 Die Verwendung des unsicheren Parsers sollte vermieden werden.
 
-### 5. Tabelle
+### 6. Tabelle
 Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag hinzuzufügen.
 
 **Leistungshinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehrmals in verschiedene Tabellenzeilen eingeben und die Werte der Spalte "Intervall" gleich sind, wird nur der Inhalt der URL oder des Dateinamens abgerufen ** einmal** und zwischengespeichert, um mehrere Tabellenzeilen zu verarbeiten, die mit URL/Dateiname und Intervall übereinstimmen. Auf diese Weise können Sie mehrere Regex (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen Dateinamen anwenden, ohne die Daten mehrmals von der Quelle abrufen zu müssen.
@@ -47,7 +53,7 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 - ***RegEx*** - Regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen von Regula-Ausdrücken: [regex101](https://regex101.com/). Z.B. *temp swip">(-?\d+)˚<* für die obige Zeile.
 - ***Item*** (deutsch: "Num") - eine Regex kann mehrere Einträge finden (matchen). Mit dieser Option können Sie festlegen, welche Übereinstimmung ausgewählt werden soll. 0 = erste Übereinstimmung, 1 = zweite Übereinstimmung, 2 = dritte Übereinstimmung usw. Der Standardwert ist 0 (erste Übereinstimmung).
 - ***Rolle*** - eine der Rollen:
-    - custom - user definiert sich über *admin" die Rolle
+    - custom - user definiert sich via *admin* die Rolle
     - Temperatur - Der Wert ist die Temperatur
     - value - der Wert ist eine Zahl (z. B. Dimmer)
     - Jalousien - der Wert ist eine Blindposition
@@ -56,12 +62,10 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
     - Indikator - boolescher Indikator
 - ***Typ*** – der Variablentyp gemäß dem Pulldown-Menü.
 - ***Einheit*** - Optional: Einheit des Werts, der dem Zustandseintrag hinzugefügt wird. Z.B. `°C`, `€`, `GB` usw.
-- ***Alt*** - Wenn aktiviert, wird der Status *nicht* aktualisiert, wenn der Wert nicht gelesen oder im angegebenen Datum (URL oder Datei) gefunden werden kann, so dass in diesem Fall der alte Wert beibehalten wird.
+- ***Alt*** - Wenn aktiviert, wird der Status *nicht* aktualisiert, wenn der Wert nicht gelesen oder im angegebenen Datum (URL oder Datei) gefunden werden kann, also behält er in diesem Fall den alten Wert.
 - ***Subs*** - Optional: Ersatz-URL oder Dateiname. Dieser Ersatz-URL/Dateiname wird verwendet, wenn der URL/Dateiname der ersten Spalte nicht verfügbar ist.
 - ***Factor/Offset*** (nur für "Typ"-Nummern) - ermöglicht die Änderung der abgerufenen Daten vor dem Setzen in den Zustand:
-
-*berechneter Wert* = *xtrahierter Wert** Faktor + Offset , um sofort Wertänderungen vorzunehmen
-
+  - *berechneter Wert* = *extrahierter Wert* * Faktor + Offset , um sofort Wertänderungen vorzunehmen
 - ***Intervall*** - Abfrageintervall in ms (Millisekunden). Wenn leer oder 0, wird das Standardabfrageintervall verwendet. Weitere Informationen finden Sie oben.
 
 ## Beispieleinstellungen
@@ -69,14 +73,14 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 |-------------------|:-----------------------------------------------------|:----------------------|--------------|---------|------|----------|
 | TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Nummer | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | boolesch | | 60000 |
-| CPUTemperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Nummer | °C | 30000 |
+| CPUTemperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Zahl | °C | 30000 |
 | stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Nummer | € | 86400000 |
 | stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?= <span>EUR&lt;\/span&gt;)` | Wert | Nummer | € | 86400000 |</span> |
 
 *Hinweis:* Beim Anwenden von Regex auf die abgerufenen URL-/Dateidaten werden alle Zeilenumbrüche durch Leerzeichen ersetzt, um eine mehrzeilige Suche zu ermöglichen.
 
 ## Über reguläre Ausdrücke (RegExp)
-Reguläre Ausdrücke sind ein leistungsfähiges Werkzeug zum Analysieren und Extrahieren bestimmter Daten aus Zeichenfolgen, und noch wichtiger: Sie ermöglichen das Extrahieren bestimmter Werte/Texte aus einer bestimmten Zeichenfolge (z. B. aus dem HTML einer Webseite oder Text aus einer Datei), indem Regeln angewendet werden .
+Reguläre Ausdrücke sind ein leistungsstarkes Werkzeug zum Analysieren und Extrahieren bestimmter Daten aus Zeichenfolgen, und noch wichtiger: Sie ermöglichen das Extrahieren bestimmter Werte/Texte aus einer bestimmten Zeichenfolge (z. B. aus dem HTML einer Webseite oder Text aus einer Datei), indem Regeln angewendet werden .
 
 Für boolesche Typen ist die Regex ziemlich einfach. Bei numerischen Typen sollten Sie die Zahl mit Klammern markieren - "()". Z.B. Um die Zahl aus *Die Temperatur beträgt 5°C* zu extrahieren, sollten Sie den Ausdruck " (\d+)" verwenden.
 
@@ -114,10 +118,18 @@ Werte können Quality Codes haben:
 - 0x44 - Zahl oder Stringwert nicht im Text gefunden
 
 ## Die Unterstützung
-1. Allgemein: [ioBroker-Forum](https://forum.iobroker.net/). Deutschsprachige Benutzer: siehe [ioBroker-Forenthread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
-2. Bei Problemen lesen Sie bitte [ioBroker Parser Adapter: Github Issues](https://github.com/ioBroker/ioBroker.parser/issues).
+1. Allgemein: [ioBroker-Forum](https://forum.iobroker.net/). Deutschsprachige Nutzer: siehe [ioBroker Forum Thread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
+2. Bei Problemen lesen Sie bitte [ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues).
+
+<!--
+
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.3.1 (2022-11-09)
+* (raintonr) added delay option for slow connections
+* (bluefox) added compact mode
+
 ### 1.2.1 (2022-09-15)
 * (Apollon77) Always use raw response and not try to parse it
 

@@ -25,6 +25,11 @@ The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but w
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+**WORK IN PROGRESS**
+* (smarthausleben) FIX: [interfaceBusy] flag was not reset after AXIOS interface handler error
+* (smarthausleben) ADD: 'WatchDog' function for interfaceBusy flag. Flag will be reset after defined amount of requests
+
 ### 0.2.13 (2022-10-12)
 * (smarthausleben) add: new property "createoOnStartup" in DeviceParameter
 * (smarthausleben) add: new property "saveRawData" in DeviceParameter

@@ -52,7 +52,7 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 2.3.0 (2022-11-03)
 NodeJS 14.5.0 is required
 
 * (klein0r) Added hourly, weekly, monthly, ... averages
@@ -79,9 +79,6 @@ NodeJS 14.5.0 is required
 ### 2.0.0 (2022-06-13)
 * (klein0r) Added Admin 5 configuration
 * (klein0r) Updated translations
-
-### 1.1.1 (2022-04-17)
-* Prevent warn logs when using non-number states as statistic source
 
 ## License
 
