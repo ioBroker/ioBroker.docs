@@ -3,12 +3,12 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/README.md
 title: FAQ
-hash: Vl15GS8RY54eOBDxIohzQqNiJ0Wvvpux+ot1u4Dnzyc=
+hash: uNyNyjUy0B8kfH4WXOawn1Vv5MHIF4SrObn0UZOHoYs=
 ---
 #FAQ
 ## General questions
 ### What is ioBroker?
-### What hardware does ioBroker run on? What are recommendations? (incl. platforms, power supply, SD card quality ...)
+### What hardware does ioBroker run on? What are recommendations? (including platforms, power supply, SD card quality...)
 ## Installation
 ### What do I need? Which nodejs/npm versions are supported? How do I install them?
 ### How do I install ioBroker? (Link list depending on the OS)
@@ -18,11 +18,11 @@ hash: Vl15GS8RY54eOBDxIohzQqNiJ0Wvvpux+ot1u4Dnzyc=
 ### What is the js controller?
 ### How do I install adapters?
 ### What are the differences between stable and latest repository?
-### When should I install versions directly from Github?
+### When should I install versions directly from GitHub?
 ### When should I manually do something with npm in my system?
-### What is the difference between the adapter traffic light red/yellow/green?
+### What is the difference between adapter traffic light red/amber/green?
 ### Where can I find log files?
-### How do I change log level, including log level "Debug"
+### How to change log level, log level "Debug"
 ## Cooperation
 ### What is GitHub and how do I create an issue?
 ### I created an issue but no developer is taking care of it.
@@ -32,9 +32,9 @@ hash: Vl15GS8RY54eOBDxIohzQqNiJ0Wvvpux+ot1u4Dnzyc=
 ### Link to iot's FAQ :-)
 ### Amazon/Cloud/iot/Alexa2: how to do it?
 ## Extended usage (better name?)
-### Should I make a backup? Of what?
+### Should I make a backup? About what?
 ### How do I install my own SSL certificate?
 ### What is Redis? When is it worth it? and what do I have to consider? Redis persist, backup
-### What is a Multihast system? How do I install a multihst system? Differences master and slave?
+### What is a multihost system? How do I install a multihost system? Differences master and slave?
 ### How twice on calculator/docker?
-### RAM consumption? https://forum.iobroker.net/viewtopic.php?p=226073#p226073
+### RAM usage? https://forum.iobroker.net/viewtopic.php?p=226073#p226073

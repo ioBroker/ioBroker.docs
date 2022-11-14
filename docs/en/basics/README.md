@@ -4,7 +4,7 @@ lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: +bZCouq04wYooLDZN2tuopO9UJJu5nB9b0nuUMsCRVc=
+hash: AmA1ZvnW3SNWQ3FZ5TRleBlAX4ldH+b7dGJL3uCgcY0=
 ---
 ioBroker is a pure software solution to connect different IoT systems to a complete system. Accordingly, a control center (gateway/interface) is still required for each system in order to be able to integrate its devices.
 
@@ -29,7 +29,7 @@ An ioBroker server can be installed on almost any hardware. The only condition i
 
 !> As of October 2022, Node.js 16.x is recommended for ioBroker.
 
-For a larger installation, a working memory (RAM) of at least 2GB, better 4GB, is recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing, as a slave for a few adapters in a multi-host environment even smaller computers are sufficient.
+For a larger installation, a working memory (RAM) of at least 2 GB, better 4 GB, is also recommended. A Raspberry Pi 2/3 with 1 GB RAM is sufficient for testing, as a slave for a few adapters in a multi-host environment even smaller computers are sufficient.
 
 ###Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.
@@ -38,7 +38,7 @@ There is a so-called namespace for each adapter, which contains all the data for
 
 Within this area, ioBroker creates the devices, their channels and in turn their data points with their values (states).
 
-![object structure](../../de/basics/../admin/media/ADMIN_Objekte_status_tree.png)
+![object structure](../../de/admin/media/ADMIN_Objekte_status_tree.png)
 
 in this example it is a self-created namespace for your own measured values.
 

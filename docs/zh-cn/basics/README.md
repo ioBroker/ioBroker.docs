@@ -4,7 +4,7 @@ lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/README.md
-hash: +bZCouq04wYooLDZN2tuopO9UJJu5nB9b0nuUMsCRVc=
+hash: AmA1ZvnW3SNWQ3FZ5TRleBlAX4ldH+b7dGJL3uCgcY0=
 ---
 ioBroker 是一个纯软件解决方案，用于将不同的物联网系统连接到一个完整的系统。因此，每个系统仍然需要一个控制中心（网关/接口），以便能够集成其设备。
 
@@ -29,7 +29,7 @@ ioBroker 服务器几乎可以安装在任何硬件上。唯一的条件是对�
 
 !> 自 2022 年 10 月起，推荐 ioBroker 使用 Node.js 16.x。
 
-对于较大的安装，建议使用至少 2GB 的工作内存 (RAM)，最好是 4GB。具有 1GB RAM 的 Raspberry Pi 2/3 足以进行测试，作为多主机环境中一些适配器的从属设备，即使更小的计算机也足够了。
+对于较大的安装，还建议使用至少 2 GB，最好是 4 GB 的工作内存 (RAM)。具有 1 GB RAM 的 Raspberry Pi 2/3 足以进行测试，作为多主机环境中一些适配器的从属设备，即使更小的计算机也足够了。
 
 ＃＃＃软件
 ioBroker 管理数据库中的数据。相应地组织数据的结构。
@@ -38,7 +38,7 @@ ioBroker 管理数据库中的数据。相应地组织数据的结构。
 
 在这个区域内，ioBroker 创建设备、它们的通道以及它们的数据点以及它们的值（状态）。
 
-![对象结构](../../de/basics/../admin/media/ADMIN_Objekte_status_tree.png)
+![对象结构](../../de/admin/media/ADMIN_Objekte_status_tree.png)
 
 在本例中，它是为您自己的测量值创建的命名空间。
 

@@ -504,17 +504,17 @@
         "General questions": {
           "title": {
             "en": "General questions",
-            "de": "Cloud",
+            "de": "Generelle Fragen",
             "ru": "Общие вопросы",
             "zh-cn": "no title"
           },
-          "content": "faq/_050_cloud.md"
+          "content": "faq/_010_general.md"
         },
-        "Questions about installation": {
+        "Installation": {
           "title": {
-            "en": "Questions about installation",
+            "en": "Installation",
             "de": "Installation",
-            "ru": "Вопросы по установке",
+            "ru": "Монтаж",
             "zh-cn": "no title"
           },
           "content": "faq/_020_installation.md"
@@ -523,19 +523,37 @@
           "title": {
             "en": "Usage",
             "de": "Benutzung",
-            "ru": "Общие вопросы",
+            "ru": "Применение",
             "zh-cn": "no title"
           },
           "content": "faq/_020_usage.md"
+        },
+        "Contribution": {
+          "title": {
+            "en": "Contribution",
+            "de": "Contribution",
+            "ru": "Вклад",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_040_contibution.md"
         },
         "Answers for advanced users": {
           "title": {
             "en": "Answers for advanced users",
             "de": "Fortgeschrittener",
-            "ru": "Ответы для продвинутых",
+            "ru": "Передовой",
             "zh-cn": "如何在调试中切换驱动程序？"
           },
           "content": "faq/_050_advanced.md"
+        },
+        "Cloud": {
+          "title": {
+            "en": "Cloud",
+            "de": "Cloud",
+            "ru": "Облако",
+            "zh-cn": "no title"
+          },
+          "content": "faq/_050_cloud.md"
         }
       }
     },
