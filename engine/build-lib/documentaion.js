@@ -101,6 +101,7 @@ async function processContent(filePath) {
                 levels[level].pages[words.en] = obj;
                 levels[level + 1] = obj;
 
+                // special case for FAQ
                 if (words.en === 'FAQ') {
                     obj.pages = obj.pages || {};
                     const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq'))
@@ -121,6 +122,8 @@ async function processContent(filePath) {
                                 _obj.content = link;
                             }
                             obj.pages[words.en] = _obj;
+                        } else {
+                            console.error(`DOCUMENT ${file} does not exist, but listed in content.md!`);
                         }
                         return file;
                     }));
