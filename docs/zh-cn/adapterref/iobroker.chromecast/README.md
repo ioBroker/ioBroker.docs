@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
+hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 ---
 ![标识](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![安装数量](http://iobroker.live/badges/chromecast-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
-![构建状态](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![新PM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
+![测试和发布](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
 ## IoBroker 的 Google Home 适配器
 此插件允许检测视频和/或音频 Google Home 设备。对于每个检测到的 Home 设备，都会创建一个 ioBroker 设备。此设备显示设备的状态并允许向其发送新的 URL 以进行投射。
 
@@ -25,19 +27,16 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ## 加入 Discord 服务器，讨论有关 ioBroker 集成的一切！
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [赞助商](./SPONSORS.md)
-如果您喜欢我的工作，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
 ＃＃ 指示
 1.安装到ioBroker
    1. 转到您的 ioBroker 适配器选项卡
    2. 选择并安装 Google Home 适配器
 2. 添加 Google Home 适配器的实例
    * 它应该在安装后自动运行
-3.（可选）如果您打算流式传输本地文件，则需要配置适配器
+3.（可选）如果您打算流本地文件，则需要配置适配器
    * 您需要有一个 ioBroker Web 服务器实例
 4. 检查您的日志：您应该会看到有关检测到的设备的日志
-5.写一个URL如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
+5. 写一个URL比如[http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) 到 chromecast.0。`<您的 chromecast 名称>`.player.url2play
 6. URL 应该开始在您的设备上播放
 
 ＃＃ 特征
@@ -62,15 +61,17 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
   * 注意：这不适用于 SSDP -> 在适配器设置中默认禁用
 * 再次播放上次播放的流：只需将 _chromecast.0.`<your device>`.status.playing_ 设置为 _true_
 
-＃＃ 缺什么？
+＃＃ 什么不见了？
 * 添加状态机来跟踪状态：检测到 -> 连接 -> 播放器加载器 -> 播放
 * 添加重试：有时 Google Home 无法响应请求
 * 更多测试
 
 ## Changelog
-### 3.0.0 (2021-08-25)
-* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
-
+### 3.0.3 (2022-08-26)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names
+* (Bjoern3003) set album name as song if provided in icy-name
+* (Apollon77/aortmannm) Make compatible with Node.js 16+
+* (Apollon77) Add Sentry for crash reporting
 
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
@@ -222,7 +223,7 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

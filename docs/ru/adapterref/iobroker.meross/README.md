@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
+hash: UkhR9pGFku6oVV/spKKs8sdPvyjBzH8HOhaDYx5ktpk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -15,6 +15,9 @@ hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 ![Тестируйте и выпускайте](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+## Отказ от ответственности
+**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.** **MEROSS является торговой маркой Chengdu Meross Technology Co., Ltd.**
 
 ## Описание
 Этот адаптер позволяет управлять устройствами Meross, подключаясь к облачным серверам Meross.
@@ -41,7 +44,46 @@ hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Режим эксперта -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от администратора, потому что администратор обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Changelog
+
 ### __WORK IN PROGRESS__
+* (Apollon77) Add support for MAP100 air purifier
+
+### 1.14.0 (2022-08-12)
+* (Apollon77) Add Smoke Sensor
+
+### 1.13.0 (2022-07-12)
+* (Apollon77) Add new option to prevent the Cloud communication fallback when the device is not available locally for data queries (enabled by default).
+
+### 1.12.2 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.1 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.0 (2022-06-24)
+* (Apollon77) Add new state to allow controlling whether to connect locally first or not for each device (but global setting takes precedence if set there to never use local connection!)
+* (Apollon77) Detect reconnection issues to Meross Cloud and try to handle them better
+
+### 1.11.0 (2022-06-02)
+* (Apollon77) Add online status configuration to show online status in Admin UI
+* (Apollon77) Optimize device initialization to make sure it finishes also whe not all devices are initialized successfully
+
+### 1.10.5 (2022-04-14)
+* (Apollon77) Adjust to recent API changes from Meross services
+
+### 1.10.4 (2022-03-15)
+* (Apollon77) Add battery value for ms100 devices in hub if supported
+
+### 1.10.3 (2022-03-11)
+* (Apollon77) Fix switch state for thermostats
+
+### 1.10.2 (2022-02-19)
+* (Apollon77) Correctly set the garageDoorWorking flag after starting a control action
+
+### 1.10.1 (2022-01-26)
+* (Apollon77) Fix pot. crash case
+
+### 1.10.0 (2022-01-20)
 * (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
 * (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
 * (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful

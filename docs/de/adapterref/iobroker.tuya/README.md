@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: DY7VQfUXfceuWSnAalQY8HJ3/9rQ6vj52aEE3vK+/Fg=
+hash: SQyjRXL7+otuEJazMqCx6EzjAzkVkIRoJ2nQurrs4Zc=
 ---
 ![Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -25,6 +25,9 @@ Neben Geräten, die mit der Smart Live App nutzbar sind, soll auch die Nutzung d
 Der Adapter funktioniert nachweislich sehr gut mit allen Geräten, die "immer im WLAN" sind. Geräte, die erst bei einem Ereignis online gehen, ihre Daten senden und wieder offline gehen, werden nicht unterstützt. Das bedeutet, dass **batteriebetriebene Geräte normalerweise NICHT funktionieren!**
 
 Eine Adapterinstanz kann alle Geräte in einem Netzwerk verwalten, das UDP-Pakete weiterleitet.
+
+## Haftungsausschluss
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit betrieben und hat kein geschäftliches Ziel.** **TUYA ist eine Marke von Tuya Global Inc.**
 
 ## Kompatible mobile Apps und Versionen
 Die aktuellen Versionen des Tuya Smart und auch der Smartlife App sind **nicht mehr kompatibel** mit der Funktionsweise des Adapters, da Tuya den gesamten Datenverkehr verschlüsselt, den der Adapter ausspionieren könnte. Vorerst funktionieren noch einige ältere Versionen der Apps ...
@@ -53,7 +56,7 @@ Der einfachste Weg, diesen Verschlüsselungsschlüssel zu erhalten, besteht dari
 **Wichtiger Hinweis für iOS-Benutzer:** Der hier beschriebene Proxy-Ansatz funktioniert nicht mehr. Sobald Sie die Smart Life App Version 3.10 oder höher haben, ist die Kommunikation von der App für den Proxy nicht mehr sichtbar. Aber es funktioniert immer noch mit allen Android-App-Versionen, daher ist der beste Ansatz ein Androis-Emulator, wie grob beschrieben unter https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte- ger%C3%A4te/19
 
 Dazu müssen Sie zunächst ein benutzerdefiniertes Root-Zertifikat auf Ihrem Mobilgerät hinzufügen.
-Wenn Sie in der Konfiguration der Adapterinstanz auf "Proxy starten" klicken, wird das Zertifikat für Ihr System erstellt und zeigt einen QR-Code zum Download-Speicherort. Scannen Sie idealerweise den QR-Code mit Ihrem mobilen Gerät und folgen Sie dem Prozess, um dieses Root-Zertifikat hinzuzufügen und ihm zu vertrauen.
+Wenn Sie in der Konfiguration der Adapterinstanz auf „Proxy starten“ klicken, wird das Zertifikat für Ihr System erstellt und zeigt einen QR-Code zum Download-Speicherort. Scannen Sie idealerweise den QR-Code mit Ihrem mobilen Gerät und folgen Sie dem Prozess, um dieses Root-Zertifikat hinzuzufügen und ihm zu vertrauen.
 Wenn der Ort des QR-Codes nicht erreichbar ist (kann passieren, wenn Sie Docker oder ähnliches verwenden), öffnen Sie den „Proxy Web Info Port“ in Ihrem Browser und klicken Sie in der Navigation auf „Root-CA“ und Sie können auch die CA-Datei herunterladen.
 
 Stellen Sie nun sicher, dass Sie die jeweilige Tuya Smart App schließen / beenden.
@@ -86,6 +89,15 @@ Bitte verwenden Sie hierfür GitHub-Issues.
 Am besten stellen Sie den Adapter auf den Debug-Protokollmodus ein (Instanzen -> Expertenmodus -> Spaltenprotokollebene). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen kürzt). Wenn Sie es nicht im GitHub-Issue bereitstellen möchten, können Sie es mir auch per E-Mail (iobroker@fischer-ka.de) zusenden. Bitte fügen Sie einen Verweis auf das relevante GitHub-Problem hinzu UND beschreiben Sie auch, was ich zu welchem Zeitpunkt im Protokoll sehe.
 
 ## Changelog
+### 3.7.2 (2022-10-23)
+* (Apollon77) Prevent warnings for invalid min/max values
+
+### 3.7.0 (2022-10-22)
+* (Apollon77) Optimizations for Proxy mode to prevent certificate issues
+* (Apollon77) Allow to also "click" on the certificate to download the certificate file
+* (Apollon77) Adjust min/max values if a scale is defined
+* (Apollon77) More schema information added
+
 ### 3.6.15 (2022-01-24)
 * (Apollon77) More schema information added
 * (Apollon77) Recreate Proxy SSL certificates once older than 3 months to prevent ssl errors

@@ -1,79 +1,39 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-coap.md
-title: TR: ioBroker.shelly
-hash: 4JbV6CdWbjaA6vp5oyOgb8Lcum1+pJOzrX/9qdgUe30=
+title: ioBroker.shelly
+hash: caVSRUn5lV64VZTjAIYf8TiMzwy1C2bVXiaYDsVE7PU=
 ---
-![TR: Logo](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
+![标识](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
-TR: # ioBroker.shelly
-TR: ## CoAP
-TR: Im Standard wird das CoAP-Protokoll verwendet.
+# IoBroker.shelly
+## CoAP
+![iobroker_general_coap](../../../de/adapterref/iobroker.shelly/./img/iobroker_general_coap.png)
 
-TR: Falls Du einen Shelly mit einer Firmware kleiner oder gleich 1.9.4 verwendest, ist keine weitere Konfiguration notwendig. Deine Geräte werden automatisch vom Adapter gefunden.
+**如果使用高于 1.9.4 的固件版本，则必须在 Shelly 设备上配置 CoIoT 服务器（单播）。**
 
-TR: **Falls Du eine Version größer als 1.9.4 verwendest, musst Du einen CoIoT-Server für CoAP auf den Shelly-Geräten konfigurieren.** Trag als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port ```5683```. Wenn dein ioBroker beispielsweise unter der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT.
+输入 ioBroker 服务器的 IP 地址作为 CoIoT 服务器 - 后跟端口```5683```。例如，如果您的 ioBroker 可以通过地址 ```192.168.1.2``` 联系到，请输入 ```192.168.1.2:5683``` 并激活 CoIoT。
 
-TR: **Wichtig: Da CoAP Multicast UDP Pakete verwendet, müssen deine Shelly-Geräte im gleichen Subnetz wie dein ioBroker Server sein.**
+![shelly_coap](../../../de/adapterref/iobroker.shelly/./img/shelly_coap.png)
 
-TR: Falls Du ioBroker in einem Docker-Container laufen hast, muss der Container im Netzwerkmodus ```host``` oder ```macvlan``` konfiguriert sein. Sollte der Docker-Container im Netzwerkmodus ```bridge``` laufen, werden keine Shelly-Geräte gefunden.
+CoAP 添加网络中的所有设备。如果要排除个别设备，可以在黑名单中进行配置。为此，请在表中输入序列号：
 
-![TR: iobroker_restrict_login](../../../de/adapterref/iobroker.shelly/./img/iobroker_general_coap.png)
+![iobroker_coap](../../../de/adapterref/iobroker.shelly/./img/iobroker_coap.png)
 
-TR: CoAP fügt alle Geräte in deinem Netzwerk hinzu. Falls Du einzelne Geräte ausschließen möchtest, kannst Du diese in der Blacklist konfigurieren. Füge dafür die Seriennummern in die Tabelle ein:
+### 旧固件
+如果您使用的 Shelly 固件版本低于或等于 1.9.4，则无需进一步配置。适配器将自动找到您的设备。
 
-![TR: iobroker_coap](../../../de/adapterref/iobroker.shelly/./img/iobroker_coap.png)
+**重要提示：由于 CoAP 使用多播 UDP 数据包，因此 Shelly 设备必须与 ioBroker 服务器位于同一子网中。**
 
-![TR: shelly_coap](../../../de/adapterref/iobroker.shelly/./img/shelly_coap.png)
+### 重要说明
+#### 码头工人
+如果您在 Docker 容器中运行 ioBroker，则容器必须配置为网络模式§§YYYY_0§§ 或 §§YYYYY_1§§。如果 Docker 容器在 ```bridge``` 网络模式下运行，将找不到 Shelly 设备。
 
-TR: ### Wichtige Hinweise
-TR: #### Shelly Firmware 1.8.0 (oder neuer)
-TR: - Falls Du das CoAP-Protokoll nutzt, muss ab dieser Version der Adapter in Version 4.0.0 (oder neuer) genutzt werden.
-TR: - Für Geräte mit älterer Firmware (außer Shelly 4 Pro) muss der Adapter in Version 3.3.6 (oder älter) genutzt werden. Die Adapter-Version 4.0.0 (oder neuer) ist nicht mit älteren Firmware-Versionen kompatibel!
+#### Shelly 固件 1.8.0（或更新版本）
+- 如果您使用 CoAP 协议，则从该版本开始，适配器必须是 4.0.0 版（或更高版本）。
+- 对于固件较旧的设备（Shelly 4 Pro 除外），必须使用适配器版本 3.3.6（或更早）。适配器版本 4.0.0（或更高版本）与旧固件版本不兼容！
 
-TR: #### Shelly Firmware 1.9.4 (oder neuer)
-TR: - Ab dieser Version muss ein CoIoT-Server auf jedem Shelly hinterlegt werden, falls das CoAP-Protokoll genutzt wird. Mehr Details im CoAP-Abschnitt in dieser Dokumentation.
-
-TR: ### Fehlersuche
-TR: In manchen Fällen kann es vorkommen, dass der Shelly-Adapter nicht alle Geräte im CoAP-Modus findet. Versuche dann folgendes:
-
-TR: 1. Stoppe deine Instanz des Shelly-Adapters. **Es ist nicht nötig, den Adapter zu deinstallieren!**
-TR: 2. Öffne ein Terminal-Fenster und führe die folgenden Befehle auf dem ioBroker-Server aus:
-
-```
-cd /opt/iobroker/node_modules/iobroker.shelly/
-node coaptest.js
-```
-
-TR: Alternativ kann ```tcpdump``` verwendet werden:
-
-```
-# Install tcpdump if it is not installed
-sudo apt-get update
-sudo apt-get install tcpdump
-
-# tcpdump with IP address of Shelly device on network device eth1
-sudo tcpdump -i eth1 src <IP-OF-SHELLY> and port 5683 -A
-
-# tcpdump with IP address of Shelly device
-sudo tcpdump src <IP-OF-SHELLY> and port 5683 -A
-
-# tcpdump of all Shelly devices on network device eth1
-sudo tcpdump  -i eth1 port 5683 -A
-
- # tcpdump of all Shelly devices
-sudo tcpdump port 5683 -A
-```
-
-TR: Nun solltest Du alle CoAP-Nachrichten von den Shelly-Geräten sehen. Solltest Du keine Nachrichten sehen, hast Du ein Netzwerkproblem mit UDP oder Multicast-Nachrichten.
-
-TR: CoAP-Nachrichten sehen wie folgt aus:
-
-``` 
-UDP Server listening on 0.0.0.0:5683
-2020-08-19T19:33:29.484Z - 192.168.20.233:5683 - P-B3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-2020-08-19T19:33:29.827Z - 192.168.20.233:5683 - P-C3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-2020-08-19T19:33:33.942Z - 192.168.20.233:5683 - P-D3citsml	SHBTN-1#AXXXXXXXXXX#2RC{"G":[[0,9103,0],[0,2102,"S"],[0,2103,1],[0,3115,0],[0,3112,0],[0,3111,100],[0,9102,["button"]]]}
-```
+#### Shelly 固件 1.9.4（或更新版本）
+- 从这个版本开始，如果使用 CoAP 协议（单播），则必须在每个 Shelly 上存储 CoIoT 服务器。

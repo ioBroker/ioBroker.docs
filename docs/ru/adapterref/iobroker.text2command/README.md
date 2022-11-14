@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: HjxcicBThtHHwhyfzr6p95FmkFztTHJhPTshaNBN52I=
+hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -111,7 +111,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 | крыша | крыша | дахштуль | крыша |
 | терминал | терминал | аншлюссраум | сени |
 | прачечная | уборная | моющее средство | прачечная |
-| тепловая комната | тепловая | помещение для обогрева / помещение для отдыха | котельная |
+| тепловая комната | тепловая | помещение для обогрева/heizungsraum | котельная |
 | лачуга | лачуга | schuppen/scheune | сарай |
 | летний дом | беседка | садовый дом | теплица |
 
@@ -134,7 +134,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 Пользователь должен указать идентификатор состояния, где считывать наружную температуру.
 Ответ настраивается. По умолчанию: `Outside temperature is %s %u` **`%s`** будет заменено температурой, округленной до целого числа. **`%u`** будут заменены единицами этого состояния или единицами измерения температуры системы.
 
-### Какова внутренняя температура?
+### Какая внутренняя температура?
 Пользователь должен указать идентификатор состояния, где считывать внутреннюю температуру.
 Ответ настраивается. По умолчанию: `Inside temperature is %s %u` **`%s`** будет заменено температурой, округленной до целого числа. **`%u`** будут заменены единицами этого состояния или единицами измерения температуры системы.
 
@@ -182,11 +182,11 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 НАПРИМЕР. для правила:
 
-- `Установить уровень освещенности`, идентификатор объекта: `hm-rpc.0.light.STATE`, значение: `10`, ответ: `Уровень установлен на %s%`.
+- «Установить уровень освещенности», идентификатор объекта: «hm-rpc.0.light.STATE», значение: «10», ответ: «Уровень установлен на %s%».
 
-Если команда имеет вид `Set light level to 50%`, то в `hm-rpc.0.light.STATE` будет записано 50 и ответ будет `Level set to 50%`.
+Если команда имеет вид `Set light level to 50%`, то в `hm-rpc.0.light.STATE` будет записано 50 и ответом будет `Level set to 50%`.
 
-Если команда похожа на `Set light level`, то в `hm-rpc.0.light.STATE` будет записано 10, а ответ будет `Level set to 10%`.
+Если команда похожа на `Set light level`, то в `hm-rpc.0.light.STATE` будет записано 10 и ответом будет `Level set to 10%`.
 
 ### Спросите о чем-нибудь
 Пользователь должен указать идентификатор состояния устройства, значение которого будет считано.
@@ -200,7 +200,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 ### Отправить текст в состояние
 Вы можете записать некоторый текст в состояние. Пользователь должен указать идентификатор состояния, чтобы записать в него текст.
 
-Например. правило: `email [to] wife`, Идентификатор объекта: `javascript.0.emailToWife`, Подтверждение: `Email sent` Текст: `Send email to my wife: I will be late`. Адаптер ищет последнее слово из ключевых слов (в данном случае `wife`), извлекает текст из следующего слова (в данном случае `I will be late`) и записывает этот текст в `javascript.0.emailToWife`.
+Например. правило: `email [to] wife`, идентификатор объекта: `javascript.0.emailToWife`, подтверждение: `Email sent` текст: `Send email to my wife: I will be late`. Адаптер ищет последнее слово из ключевых слов (в данном случае `wife`), извлекает текст из следующего слова (в данном случае `I will be late`) и записывает этот текст в `javascript.0.emailToWife`.
 Слово `to` не требуется для срабатывания правила, но оно будет удалено из текста.
 
 ### Ты хорош (просто для удовольствия)
@@ -261,11 +261,17 @@ createState("textProcessor", '', function () {
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to v5
+
+### 2.2.2 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 2.2.1 (2022-02-21)
-* (bluefox) Checked the existence of sayit instance before output
+* (bluefox) Checked the existence of `sayit` instance before output
 * (bluefox) Added the decimal places settings to temperature  
 * (bluefox) Added the second object ID to user queries
 * (bluefox) Added the option: "No negative answer"

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: TGkZ37UAzp6N7uKaul0Jn8YKSymXW9f+K7/cAkgoz5E=
+hash: 47wcjRNt9JN181aO/2m61BNn/e7jnBVmTildkY7jrN4=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -36,10 +36,6 @@ KNX IP 网关的 IP。
 ＃＃＃ 港口
 这通常是 KNX IP 网关的端口 3671。
 
-###物理。 KNX 地址
-以 1/1/1 格式填写 KNX IP 网关的物理地址。
-如果需要，可以手动转换两级组地址。
-
 ### 本地 IPv4 网络接口
 连接到 KNX IP 网关的接口。
 
@@ -47,7 +43,9 @@ KNX IP 网关的 IP。
 通过标准化协议搜索给定网络接口上所有可用的 KNX IP 网关。
 
 ### 帧延迟 [ms]
-此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。未发送的帧被放入 fifo 缓冲区。如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
+此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。
+未发送的帧会延迟，直到经过总线上最后一次发送后的延迟时间。如果有更多的发送请求在等待，发送顺序是随机的。
+如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
 
 ### 仅添加新对象
 如果选中，导入将跳过覆盖现有通信对象。
@@ -66,12 +64,12 @@ KNX IP 网关的 IP。
 错误对话框将在导入过程中发现问题，并提示如何清理 ets 数据库。
 可以在日志中找到其他信息。
 
-ETS 配置提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
+关于 ETS 配置的提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 没有 DPT 基本类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
 
 ### 别名
-KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入并使用另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
+KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入，另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
 在此处查找更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ### 正则表达式
@@ -132,13 +130,13 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 
 # 如何使用适配器和基本概念
 ### ACK 标志
-应用程序永远不会设置 ack 标志，如果数据更新，则通过 ack 标志从该适配器通知应用程序。
-如果另一个 knx 主机写入总线，KNX 堆栈在收到组地址时设置相应 ioBroker 对象的 ack 标志。
+应用程序永远不会设置 ack 标志，如果数据更新，应用程序会通过 ack 标志从该适配器通知。
+如果另一个 knx 主机写入总线，则 KNX 堆栈在收到组地址时设置相应 ioBroker 对象的 ack 标志。
 由应用程序写入对象触发的 KNX 上发送的帧不会导致立即向该对象发送确认消息。
 如果写入来自此适配器，则在隧道模式下的积极确认时生成 ack 标志。
 
 ### Node Red 复杂数据类型示例
-创建连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
+创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
 msg.payload = {“优先级”：1，“数据”：0}；返回味精；
 
 # 日志级别
@@ -153,7 +151,38 @@ ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STAT
 
 自动读取设置为假，从 DPT 可以清楚地看出这是一个触发信号。这适用于场景编号。
 
-{ "_id": "path.and.name.to.object", //源自 KNX 结构 "type": "state", "common": { //这里的值可以被 iobroker 解释 "desc": "Basetype: 1-bit value, Subtype: switch", //informative, from dpt "name": "Aussen Melder Licht schalten", //来自 ets export "read": true, //default set, if false传入的总线值不更新对象 "role": state, //默认状态, 派生自 DPT "type": "boolean", //boolean, number, string, object, 派生自 dpt "unit": "", //派生自 dpt "write": true //默认为 true，如果对象上的设置更改触发 knx 写入，则成功。 write sets then ack flag to true }, "native": { //这里的值可以被openknx适配器解释 "address": "0/1/2", //knx组地址 "answer_groupValueResponse": false, //default false，如果设置为 true，则适配器响应 GroupValue_Read 上的值 "autoread": true, //默认为非触发信号的 true，适配器在开始时发送 GroupValue_read 以同步其状态 "bitlength": 1, //size ob knx 数据，源自 dpt "dpt": "DPT1.001", //DPT "encoding": { //信息性 "0": "Off", "1": "On" }, "force_encoding": "", // informationative "signness": "", //informative "valuetype": "basic" //复合意味着通过特定的 javascript 对象设置 }, "from": "system.adap ter.openknx.0”，“用户”：“system.user.admin”，“ts”：1638913951639 }
+```json
+{
+    "_id": "path.and.name.to.object",                       // derieved from the KNX structure
+    "type": "state",
+    "common": {                                             // values here can be interpreted by iobroker
+        "desc": "Basetype: 1-bit value, Subtype: switch",   // informative, from dpt
+        "name": "Aussen Melder Licht schalten",             // informative description from ets export
+        "read": true,                                       // default set, if false incoming bus values are not updating the object
+        "role": "state",                                    // default state, derieved from DPT
+        "type": "boolean",                                  // boolean, number, string, object, derieved from dpt
+        "unit": "",                                         // derived from dpt
+        "write": true                                       // default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
+    },
+    "native": {                                             // values here can be interpreted by openknx adapter
+        "address": "0/1/2",                                 // knx group address
+        "answer_groupValueResponse": false,                 // default false, if set to true adapter responds with value on GroupValue_Read
+        "autoread": true,                                   // default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
+        "bitlength": 1,                                     // size ob knx data, derived from dpt
+        "dpt": "DPT1.001",                                  // DPT
+        "encoding": {                                       // informative
+        "0": "Off",
+        "1": "On"
+        },
+        "force_encoding": "",                               // informative
+        "signedness": "",                                   // informative
+        "valuetype": "basic"                                // composite means set via a specific javascript object
+    },
+    "from": "system.adapter.openknx.0",
+    "user": "system.user.admin",
+    "ts": 1638913951639
+}
+```
 
 #适配器通信接口说明
 Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写为原始缓冲区，接口是十六进制数字的顺序字符串。例如，写入 '0102feff' 以在总线上发送值 0x01 0x02 0xfe 0xff。
@@ -162,12 +191,31 @@ Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写为原始缓冲区�
 ### API 调用
 ioBroker 将状态定义为通信接口。
 
-setState( @param {string} 具有路径的对象的 ID @param {object|string|number|boolean} 状态简单值或具有属性的对象。
-{ val: value, ack: true|false, optional, 按照惯例应该是 false忽略自：origin，可选，默认 - 此适配器 c：注释，可选，将其设置为值 GroupValue_Read 以触发对该对象的总线读取，给定 StateValue 被忽略 expire：expireInSeconds 可选，默认 - 0 lc：timestampMS 可选，默认 -计算值 } @param {boolean} [ack] 可选，按照约定应该为 false @param {object} [options] 可选，用户上下文 @param {ioBroker.SetStateCallback} [callback] 可选，返回错误和 id
+```javascript
+setState(
+    '',                                             // @param {string}                                id of the object with path
+    {                                               // @param {object|string|number|boolean}          state simple value or object with attribues.
+	val:    value,
+	ack:    true|false,                         // optional, should be false by convention
+	ts:     timestampMS,                        // optional, default - now
+	q:      qualityAsNumber,                    // optional, set it to value 0x10 to trigger a bus read to this object, given StateValue is ignored
+	from:   origin,                             // optional, default - this adapter
+	c:      comment,                            // optional, set it to value GroupValue_Read to trigger a bus read to this object, given StateValue is ignored
+	expire: expireInSeconds                     // optional, default - 0
+	lc:     timestampMS                         // optional, default - calculated value
+    },
+    false,                                          // @param {boolean} [ack]                         optional, should be false by convention
+    {},                                             // @param {object} [options]                      optional, user context
+    (err, id) => {}                                 // @param {ioBroker.SetStateCallback} [callback]  optional, return error and id
+);
+```
 
 触发 GroupValue_Read 的示例：
 
-setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, {val: false, ack: false, q:0x10});
+```javascript
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
+setState(myState, {val: false, ack: false, q:0x10});
+```
 
 GroupValue_Read 注释不适用于 javascript 适配器。请改用 qualityAsNumber 值 0x10。
 
@@ -212,17 +260,17 @@ DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的字符�
 DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志。
 
 日期和时间 DPT (DPT10, DPT11) 请记住，Javascript 和 KNX 具有非常不同的时间和日期基本类型。
-DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置常规的 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的 JS 日期。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
+DPT10 是时间 (hh:mm:ss) 加上“星期几”。此概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的 JS 日期。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
 ### 组值写入
 通过写入通信对象触发发送。
-当总线上接收到一个写帧时触发通信对象。
+当总线上接收到写帧时触发通信对象。
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
-接收，如果配置将触发实际c.o的组值响应（限制：此时组值写入）。值，见下文。
+接收，如果配置会触发实际c.o.的组值响应（限制：此时组值写入）值，见下文。
 
 ### 组值响应
 如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
@@ -249,7 +297,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 ＃ 特征
 * 稳定可靠的knx堆栈
 * 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取和组值写入和组值响应
+* 支持KNX组值读取、组值写入和组值响应
 * 免费开源
 * 不依赖云服务，无需互联网访问即可运行
 * 开始时自动读取
@@ -265,8 +313,21 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 仅支持 IPv4
 
 ## Changelog
-### 0.1.26 (2022-05-)
-* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+
+### 0.2.7 (2022-08-26)
+* bugfix: fix issue with writing to dpt 19 object
+
+### 0.2.6 (2022-07-09)
+* bugfix: fix filtering of addresses 1.1.1
+
+### 0.2.5 (2022-06-22)
+* feature: option remove existing KNX objects that are not in import file
+
+### 0.2.4 (2022-05-27)
+* feature: cleanly disconnect on shutdown, upgrade to knx lib 2.5.2
+
+### 0.2.2 (2022-05-26)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset) #133
 * bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
 * bugfix: remove error log when answering to GroupValueRead: #183
 * bugfix: improve warning logs on intended and unintended disconnects

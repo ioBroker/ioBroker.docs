@@ -3,68 +3,104 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: JNG2u5ob50WeA6YDs9uIdJwkkjLcM4JW5m2HxnDnJAw=
+hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
 ---
-![商标](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
+![标识](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![建立状态](https://travis-ci.org/dna909/ioBroker.homeconnect.svg?branch=master)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
+![构建状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
 
-＃ioBroker.homeconnect
-## Voraussetzungen vor der安装
-ES介意Node.js版本8安装程序！！
+# IoBroker.homeconnect
+## Voraussetzungen vor der 安装
+Es muß mindestens Node.js 版本 8 installiert sein!!
 
-可以使用ClientIDbenötigt的适配器。坚果和坚果的注册。
+Für den Adapter wird eine ClientID benötigt。 Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen。
 
 ##安装前的要求
-至少必须安装Node.js版本8！
+至少必须安装 Node.js 版本 8！
 
-适配器需要ClientID。使用每个步骤的设置进行注册。
+适配器需要 ClientID。使用每个步骤的设置进行注册。
 
 <https://developer.home-connect.com>
 
-![屏幕截图](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
+![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **“用于测试的默认Home Connect用户帐户” **电子邮件地址和地址，仅限于Home-Connect-App的注册人，也可以通过Authorization-Prozessbenötigt。
+Bei **用于测试的默认 Home Connect 用户帐户** die E-Mail-Adresse angeben，mit der die Home-Connect-App registriert wurde，diese wird später auch beim Authorization-Prozess benötigt。
 
-对于“用于测试的默认Home Connect用户帐户”，指定用于发送Home Connect应用程序的电子邮件地址。
-已注册，以后的授权过程中也需要这样做。
+对于**用于测试的默认 Home Connect 用户帐户**，指定发送 Home Connect 应用程序的电子邮件地址。
+已注册，这也是授权过程后期需要的。
 
-![屏幕截图](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
+![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **帐户类型**个人auswählen。 Die restlichen Daten sofern vorhandenergänzen（凯恩·阿洪（Keine Ahnung），《环球影业》（ob dasgeprüftwird）。
+贝**帐户类型**个人auswählen。 Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird)。
 
-对于“帐户类型”，选择个人。添加剩余的数据（如果可用）（不知道是否将被选中）。
+对于**帐户类型**，选择个人。如果可用，添加剩余的数据（不知道是否会检查）。
 
-![屏幕截图](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
+![截屏](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Dann auf **应用程序**和anschließendauf **注册应用程序** gehen。
+Dann auf **Applications** 和 anschließend auf **Register Application** gehen。
 
-然后转到“应用程序” **，然后转到“注册应用程序” **。
+然后转到**Applications**，然后转到**Register Application**。
 
-![屏幕截图](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
+![截屏](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **请ID** einen Namenfürdie Application eintragen，z.B. ioBroker。 Bei **OAuth Flow** 备流selektieren das letzte Feld kann leer bleiben。 Dann Speichern和dann hat manbenötigteClientID。
+Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker。北 **OAuth 流** 设备流选择。
+**用于测试的 Home Connect 用户帐户** kann leer bleiben。贝 **成功重定向** eine URI eintragen, z.B. https://example.com。
+Dann Speichern 和 dann hat man die benötigte ClientID。
 
-对于“应用程序ID”，请输入应用程序的名称，例如ioBroker。使用** OAuth Flow **设备流选择最后一个字段可以保留为空。然后保存，您将拥有所需的ClientID。
-
-## Konfiguration
-在Adapter-Config中，您可以使用ClientID进行身份验证。 Wenn der Adapterläuft，无线授权URL生成器，在ClientID的Einstellungen nach dem Speichern中失效。 Einfach nach dem Speichern die Einstellungenneuöffnen
+对于 **Application ID** 输入应用程序的名称，例如ioBroker。使用 **OAuth 流程** 设备流程选择。
+**用于测试的 Home Connect 用户帐户** 可以保持为空。对于 **Success Redirect** 输入一个 URI，例如https://example.com。
+然后保存，您就有了所需的 ClientID。
 
 ##配置
-必须在适配器配置中仅输入ClientID。如果适配器正在运行，那么将生成授权URL。保存后，您可以在设置中看到此网址，请等待并重新打开设置。
+在 der Adapter-Config muss der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden。
 
-## Benutzung
-密西根州州长命令中的州制停火站，州立炮台。
-密特根州（Kitst du dasGerätein oder ausschalten）的州陈述。
-进入国家程序。
+## 贝努宗
+Mit den 在命令 kannst du das Programm stoppen, pausieren oder fortführen 中声明。
 
-##用法
-使用命令中的状态，您可以停止，暂停和继续执行程序。
-设置状态后，您可以关闭或打开设备。更改程序的值。active.BSH_Common_Root_ActiveProgram导致启动程序。更改程序的值。selected.BSH_Common_Root_SelectedProgram导致选择程序或选项。
+Mit den states in settings kannst du das Gerät ein oder ausschalten。
+
+Ändern des States programs.active.BSH_Common_Root_ActiveProgram führt zum starten eines Programms
+
+Ändern des States programs.selected.BSH_Common_Root_SelectedProgram führt zum auswählen des Programms oder Optionen
+
+Wenn man checken möchte, ob ein Programm fertig ist muss
+
+status.BSH_Common_Status_OperationState
+
+auf den kompletten 状态名称 übrprüft werden:
+
+BSH.Common.EnumType.OperationState.Finished
+
+Weitere Zustände sind noch：
+
+“BSH.Common.EnumType.OperationState.Inactive”：“非活动”、“BSH.Common.EnumType.OperationState.Ready”：“就绪”、“BSH.Common.EnumType.OperationState.Run”：“运行”、“BSH .Common.EnumType.OperationState.ActionRequired”：“ActionRequired”，“BSH.Common.EnumType.OperationState.Finished”：“完成”
+
+Oder ob ein Gerät geöffnet ist
+
+“BSH.Common.EnumType.DoorState.Open”：“打开”，“BSH.Common.EnumType.DoorState.Closed”：“关闭”
+
+＃＃ 用法
+使用命令中的状态，您可以停止、暂停和恢复程序。
+使用设置中的状态，您可以关闭或打开设备 更改程序的值。active.BSH_Common_Root_ActiveProgram 导致启动程序
 
 ## Changelog
+
+### 1.0.3
+
+- Add manually login for SingleKey User
+  
+### 1.0.2
+
+- Adapter complete rewriten. Includes a lot of Bugfixes
+### 0.0.36
+
+- fix for js.controller 3.3. Please delete the device in Objects manually
+
+### 0.0.32 (29.12.2020)
+
+- (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)
 
 ### 0.0.31
 

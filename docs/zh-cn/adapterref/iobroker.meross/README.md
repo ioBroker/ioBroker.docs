@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
+hash: UkhR9pGFku6oVV/spKKs8sdPvyjBzH8HOhaDYx5ktpk=
 ---
 ![标识](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
@@ -16,6 +16,9 @@ hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
+## 免责声明
+**所有产品和公司名称或徽标均为其各自所有者的商标™ 或注册® 商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！这个个人项目是业余时间维护的，没有商业目标。** **MEROSS是成都美洛斯科技有限公司的商标**
+
 ＃＃ 描述
 该适配器允许通过连接到 Meross 云服务器来控制 Meross 设备。
 
@@ -24,7 +27,7 @@ hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 一个适配器实例将显示来自一个 Meross Cloud 帐户的所有设备并允许控制它们。
 
 ## 已知的工作设备
-根据我目前的知识，所有设备都应该工作。但请检查日志或报告任何未创建状态的功能或新设备类型（新设备类型需要我手动添加，因此问题很重要）。
+根据我目前的知识，所有设备都应该工作。但请检查日志或报告未创建状态的任何功能或新设备类型（新设备类型需要我手动添加，因此问题很重要）。
 
 报告的工作至少是：
 
@@ -38,10 +41,49 @@ hash: C8mfqCpHbJp+lHIzqw+XNTb9He6Zko83hjyeUHzB+NI=
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
 
-最好将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
+最好是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
 
 ## Changelog
+
 ### __WORK IN PROGRESS__
+* (Apollon77) Add support for MAP100 air purifier
+
+### 1.14.0 (2022-08-12)
+* (Apollon77) Add Smoke Sensor
+
+### 1.13.0 (2022-07-12)
+* (Apollon77) Add new option to prevent the Cloud communication fallback when the device is not available locally for data queries (enabled by default).
+
+### 1.12.2 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.1 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.0 (2022-06-24)
+* (Apollon77) Add new state to allow controlling whether to connect locally first or not for each device (but global setting takes precedence if set there to never use local connection!)
+* (Apollon77) Detect reconnection issues to Meross Cloud and try to handle them better
+
+### 1.11.0 (2022-06-02)
+* (Apollon77) Add online status configuration to show online status in Admin UI
+* (Apollon77) Optimize device initialization to make sure it finishes also whe not all devices are initialized successfully
+
+### 1.10.5 (2022-04-14)
+* (Apollon77) Adjust to recent API changes from Meross services
+
+### 1.10.4 (2022-03-15)
+* (Apollon77) Add battery value for ms100 devices in hub if supported
+
+### 1.10.3 (2022-03-11)
+* (Apollon77) Fix switch state for thermostats
+
+### 1.10.2 (2022-02-19)
+* (Apollon77) Correctly set the garageDoorWorking flag after starting a control action
+
+### 1.10.1 (2022-01-26)
+* (Apollon77) Fix pot. crash case
+
+### 1.10.0 (2022-01-20)
 * (Apollon77) Optimize Meross Communication to first try to communicate with the device locally before sending data to MQTT - enabled by default, you can disable it in settings!
 * (Apollon77) Optimize Meross Communication by using only one MQTT connection instead of one per device when cloud is used
 * (Apollon77) Add new state "disabled" to ignore connection error of a device; reconnections are still tried, but no error are logged if not successful

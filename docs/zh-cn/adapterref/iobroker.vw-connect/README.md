@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
+hash: KIGSWEenLlnD26sTLydYCkUVnwZBpqA8BdCy8WePGn0=
 ---
 ![标识](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -11,8 +11,8 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 ![下载](https://img.shields.io/npm/dm/iobroker.vw-connect.svg)
 ![依赖状态](https://img.shields.io/david/ta2k/iobroker.vw-connect.svg)
 ![已知漏洞](https://snyk.io/test/github/ta2k/ioBroker.vw-connect/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
-![特拉维斯CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
+![新PM](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
+![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
 # IoBroker.vw-connect
 ## IoBroker 的 vw-connect 适配器
@@ -22,7 +22,9 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
 ＃＃ 用法
-使用远程控制状态远程控制您的汽车。
+使用远程控制状态来远程控制您的汽车。
+正常刷新是从 VAG 云接收数据的轮询间隔 强制刷新是针对非 E-Car 强制刷新的，此次数受 VAG 限制，直到汽车再次启动。
+行程数据仅适用于非电动汽车。
 
 ## 讨论和问题
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
@@ -34,7 +36,7 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 - 锁定：2
 - 关闭：3
 
-###条目列表
+### 条目列表
 ```
 "1MAINTENANCE_INTERVAL_DISTANCE_TO_OIL_CHANGE", 0, "0x0203010001"); // 0x0203FFFFFF.0x0203010001, oilInspectionData_km
 "2MAINTENANCE_INTERVAL_TIME_TO_OIL_CHANGE",     1, "0x0203010002"); // 0x0203FFFFFF.0x0203010002, oilInspectionData_days
@@ -114,6 +116,15 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 ```
 
 ## Changelog
+
+### 0.0.51
+
+- fix audi etron login
+  
+### 0.0.48
+
+- fix login, fix audi update, add limit for wallbox
+  
 
 ### 0.0.43
 

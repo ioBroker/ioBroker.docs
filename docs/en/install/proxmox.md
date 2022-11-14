@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: 5XcP3j7kvxla4TvmlJMjXyIAQynyxf2IBmlTUhOeK/g=
+hash: AzCAKVIwH8fViCVYiDvlTrcVtIFPhiO12fiiVz3eZrM=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -150,7 +150,7 @@ Now it continues in the browser (example https://10.1.1.89:8006). First, however
 
 </details>
 
-The login then takes place with the user root and the password selected during installation. You can switch the language to German **first**, otherwise the Proxmox interface will be displayed in English and you don't have to enter your username and password a second time.
+The login then takes place with the user root and the password selected during installation. You can switch the language to German here **first**, otherwise the Proxmox interface will be displayed in English and you don't have to enter your username and password a second time.
 
 <details><summary>registration</summary>
 
@@ -216,7 +216,7 @@ It is of course also possible to update the Proxmox server via the command line 
 
 ~~~ apt update && apt dist-upgrade ~~~
 
-The only important thing here is that you use an **apt dist-upgrade** (on “normal” Debian/Ubuntu machines, you tend to use apt upgrade). However, the "dist-upgrade" is important with Proxmox, since dependencies that are required to operate Proxmox are resolved better here.
+The only important thing here is that you use an **apt dist-upgrade** (on “normal” Debian/Ubuntu machines, you tend to use apt upgrade). However, the "dist upgrade" is important with Proxmox, since dependencies that are required to operate Proxmox are resolved better here.
 
 In this respect, Proxmox is now complete in its basic configuration. If you want to deal more extensively with Proxmox, it's worth taking a look at [Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) or to the [official forum](https://forum.proxmox.com/).
 
@@ -246,12 +246,12 @@ To do this, go to local > ISO images. There are two options there.
 </details>
 
 ### 2 - Create VM
-Clicking on the blue **Create VM** button opens a window in which the following settings must be made.
+Clicking on the blue button **Create VM** opens a window in which the following settings must be made.
 
 - General: assignment of the hostname and password, ID is given (starts with 100), can be changed, but not later.
 - OS: Storage selection(local) and ISO image(debian-11-netinst.iso)
 - System: everything stays in the default setting, **check Qemu Agent**
-- Disks: Storage local-lvm, disk size 10GB (10-20GB should be sufficient, changing later is possible, but is not described further here).
+- Disks: Storage local-lvm, disk size 10GB (10-20GB should be sufficient, changing it later is possible, but is not described further here).
 - CPU: Depends on how powerful the computer is (can also be adjusted at any time, VM must be restarted for this)
 - Memory: RAM size in MiB (can also be adjusted at any time, VM must be restarted for this)
 - Network: vmbr0, everything else stays as default
@@ -347,7 +347,7 @@ You will be guided through the installation and have to make some settings durin
 </details>
 
 ### 4 - Set up VM
-After the VM has been restarted, log in with the "Username" and "Password" assigned from the installation. Then with the command
+Restart the VM, then log in with the "Username" and "Password" assigned from the installation. Then with the command
 
 ~~~ ip addr ~~~
 
@@ -510,7 +510,7 @@ It is pointed out directly that the time zone still has to be set.
 
 </details>
 
-Now **sudo** and **curl** will be installed. Sudo is required, as in the next step, to correctly create a user that will be used on the console in the future. Curl is necessary to call the ioBroker installation script in the last step.
+Now **sudo** and **curl** will be installed. Sudo is required, as in the next step, to correctly create a user that will be used in the future to work on the console. Curl is necessary to call the ioBroker installation script in the last step.
 
 ~~~ apt install sudo curl ~~~
 
@@ -523,6 +523,10 @@ Now **sudo** and **curl** will be installed. Sudo is required, as in the next st
 Now create the future user. Replace "username" in that case. Password assignment for the user. The rest can be confirmed with ENTER.
 
 ~~~ adduser username ~~~
+
+The user must then be assigned to the sudo group.
+
+~~~ usermod -aG sudo username ~~~
 
 <details><summary>Create users</summary>
 
@@ -835,7 +839,7 @@ and added the following content:
 
 Finally, run the following command to activate the udev rule:
 
-~~~ udevadm control –reload ~~~
+~~~ udevadm control --reload ~~~
 
 </details>
 

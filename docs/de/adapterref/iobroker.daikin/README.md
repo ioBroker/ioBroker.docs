@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daikin/README.md
 title: ioBroker.daikin
-hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
+hash: 15a/Y6Geu6hlOpHJrvLlbLQ3z86g6IL579HYrY6Vpqw=
 ---
 ![Logo](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
@@ -14,20 +14,25 @@ hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
 # IoBroker.daikin
 ![Testen und freigeben](https://github.com/Apollon77/iobroker.daikin/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/daikin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 Dieser Adapter wird an ein Daikin-Klimaanlagengerät angeschlossen und ermöglicht die Steuerung des Geräts und das Lesen von Werten daraus.
 Das Daikin-Gerät muss mit einem Daikin Wifi-Controller ausgestattet sein. Normalerweise sollten alle WLAN-Controller unterstützt werden, die von der Daikin-App unterstützt werden.
 
 Laut Daikin Support Documents sollten (mindestens) die folgenden Geräte kompatibel sein:
 
-Kompatible Einheiten in Kombination mit BRP069A41: FTXG20LV1BW, FTXG20LV1BS, FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS,
+Compatible units in combination with **BRP069A41**: FTXG20LV1BW, FTXG20LV1BS , FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS ,
 
-Kompatible Einheiten in Kombination mit BRP069A42: FTXZ25NV1B, FTXZ35NV1B, FTXZ50NV1B, FTXS35K2V1B, FTXS35K3V1B, FTXS42K2V1B, FTXS42K3V1B, FTXS50K2V1B, FTXS50K3V1B, FTXLS25K2V1B, FTXLS35K2V1B, FTXM35K3V1B, FTXM42K3V1B, FTXM50K3V1B, FTXS60GV1B, FTXS71GV1B, ATXS35K2V1B, ATXS35K3V1B, ATXS50K2V1B, ATXS50K3V1B, FTX50GV1B , FTX60GV1B, FTX71GV1B, FVXG25K2V1B, FVXG35K2V1B, FVXG50K2V1B, FVXS25FV1B, FVXS35FV1B, FVXS50FV1B, FLXS25BAVMB, FLXS25BVMA, FLXS25BVMB, FLXS35BAVMB, FLXS35BAVMB9, FLXS35BVMA, FLXS35BVMB, FLXS50BAVMB, FLXS50BVMA, FLXS50BVMB, FLXS60BAVMB, FLXS60BVMA, FLXS60BVMB,
+Compatible units in combination with **BRP069A42**: FTXZ25NV1B, FTXZ35NV1B, FTXZ50NV1B, FTXS35K2V1B, FTXS35K3V1B, FTXS42K2V1B, FTXS42K3V1B, FTXS50K2V1B, FTXS50K3V1B, FTXLS25K2V1B, FTXLS35K2V1B,FTXM35K3V1B, FTXM42K3V1B, FTXM50K3V1B, , FTXS60GV1B, FTXS71GV1B, ATXS35K2V1B, ATXS35K3V1B, ATXS50K2V1B, ATXS50K3V1B, , FTX50GV1B, FTX60GV1B, FTX71GV1B, , FVXG25K2V1B, FVXG35K2V1B, FVXG50K2V1B, , FVXS25FV1B, FVXS35FV1B, FVXS50FV1B, , FLXS25BAVMB, FLXS25BVMA, FLXS25BVMB, FLXS35BAVMB, FLXS35BAVMB9, FLXS35BVMA, FLXS35BVMB, FLXS50BAVMB, FLXS50BVMA, FLXS50BVMB, FLXS60BAVMB, FLXS60BVMA, FLXS60BVMB,
 
-Kompatible Einheiten in Kombination mit BRP069A43 (?): CTXS15K2V1B, CTXS15K3V1B, FTXS20K2V1B, FTXS20K3V1B, FTXS25K2V1B, FTXS25K3V1B, CTXS35K2V1B, CTXS35K3V1B, FTXM20K3V1B, FTXM25K3V1B, ATXS20K2V1B, ATXS20K3V1B, ATXS25K2V1B, ATXS25K3V1B, FTX20J2V1B, FTX25J2V1B, FTX35J2V1B, FTX20J3V1B, FTX25J3V1B, FTX35J3V1B, FTXL25J2V1B, FTXL35J2V1B, FTX20KV1B, FTX25KV1B, FTX35KV1B, FTX20GV1B, FTX25GV1B, FTX35GV1B, ATX20J2V1B, ATX20J3V1B, ATX25J2V1B, ATX25J3V1B, ATX35J2V1B, ATX35J3V1B, ATX20KV1B, ATX25KV1B, ATX35KV1B, ATXL25J2V1B, ATXL35J2V1B,
+Compatible units in combination with **BRP069A43 (?)**: CTXS15K2V1B, CTXS15K3V1B, FTXS20K2V1B, FTXS20K3V1B, FTXS25K2V1B, FTXS25K3V1B, CTXS35K2V1B, CTXS35K3V1B, FTXM20K3V1B, FTXM25K3V1B, , ATXS20K2V1B, ATXS20K3V1B, ATXS25K2V1B, ATXS25K3V1B, , FTX20J2V1B, FTX25J2V1B, FTX35J2V1B, FTX20J3V1B, FTX25J3V1B, FTX35J3V1B, , FTXL25J2V1B, FTXL35J2V1B, , FTX20KV1B, FTX25KV1B, FTX35KV1B, FTX20GV1B, FTX25GV1B, FTX35GV1B, , ATX20J2V1B, ATX20J3V1B, ATX25J2V1B, ATX25J3V1B, ATX35J2V1B, ATX35J3V1B, ATX20KV1B, ATX25KV1B, ATX35KV1B, , ATXL25J2V1B, ATXL35J2V1B,
 
-Kompatible Einheiten in Kombination mit BRP069A44 (?): FTX50KV1B, FTX60KV1B
+Kompatible Einheiten in Kombination mit **BRP069A44 (?)**: FTX50KV1B, FTX60KV1B
+
+Hinweis: Für Geräte mit neueren WLAN-Adaptern wie **BRP069C4x**, die nur von der Onecta App verwendet werden können, verwenden Sie bitte stattdessen den Adapter [Daikin-Cloud](https://github.com/Apollon77/ioBroker.daikin-cloud).
+
+## Haftungsausschluss
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit betrieben und hat kein geschäftliches Ziel.** **Daikin ist eine Marke von DAIKIN INDUSTRIES, LTD.**
 
 ## Beschreibung der Parameter
 ### DaikinIp
@@ -52,8 +57,14 @@ Nachdem der Adapter mit dem Daikin-Gerät verbunden wurde, wird eine Objektstruk
 * VIS-Widget
 
 ## Changelog
+### 1.4.2 (2022-07-25)
+* (Apollon77) Make sure polling still works after setting special mode states
 
-### __WORK IN PROGRESS__
+### 1.4.1 (2022-06-27)
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 1.4.0 (2022-06-09)
+* (Apollon77) Add Connection identifier for Admin and Device
 * (Apollon77) Optimize unload handling
 
 ### 1.3.3 (2021-06-24)
@@ -120,7 +131,7 @@ Nachdem der Adapter mit dem Daikin-Gerät verbunden wurde, wird eine Objektstruk
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

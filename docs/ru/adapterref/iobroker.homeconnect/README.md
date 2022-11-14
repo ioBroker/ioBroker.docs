@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: JNG2u5ob50WeA6YDs9uIdJwkkjLcM4JW5m2HxnDnJAw=
+hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![Статус сборки](https://travis-ci.org/dna909/ioBroker.homeconnect.svg?branch=master)
+![Статус сборки](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
 
 # IoBroker.homeconnect
 ## Voraussetzungen vor der Installation
-Es muß mindestens Node.js Version 8 installiert sein !!
+Вы должны установить Node.js версии 8 сразу!!
 
-Für den Adapter wird eine ClientID benötigt. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
+Для адаптера Wird eine ClientID bentigt. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
 
 ## Требования перед установкой
 Должен быть установлен как минимум Node.js версии 8!
@@ -24,47 +24,83 @@ Für den Adapter wird eine ClientID benötigt. Nutze die Einstellungen um jeden 
 
 <https://developer.home-connect.com>
 
-![Снимок экрана](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
+![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Учетная запись пользователя Home Connect по умолчанию для тестирования** адрес электронной почты и адрес приложения Home-Connect, зарегистрированный в приложении, не требующий авторизации.
+Bei **Учетная запись пользователя Home Connect по умолчанию для тестирования** с адресом электронной почты, зарегистрированным в Home-Connect-App, не может быть изменен и одобрен процесс авторизации.
 
-Для **Учетная запись пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, с которым будет отправлено приложение Home Connect.
-был зарегистрирован, это также потребуется позже в процессе авторизации.
+Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, с которого должно быть отправлено приложение Home Connect.
+был зарегистрирован, это также требуется позже в процессе авторизации.
 
-![Снимок экрана](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
+![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Тип учетной записи** Индивидуальный auswählen. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
+Bei **Тип счета** Индивидуальный учет. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
 
-Для **Тип учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверяться).
+Для **Типа учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверено).
 
-![Снимок экрана](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
+![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Dann auf **Applications** und anschließend auf **Register Application** gehen.
+Dann auf **Applications** и anschließend auf **Register Application** gehen.
 
-Затем перейдите в **Приложения** а затем в **Зарегистрировать приложение**
+Затем перейдите в **Приложения**, а затем в **Зарегистрировать приложение**.
 
-![Снимок экрана](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
+![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow select das letzte Feld kann leer bleiben. Данн Шпайхерн и Данн знают, как получить ClientID.
+Bei **Идентификатор приложения** einen Namen für die Application eintragen, z.B. ioБрокер. Выберите **OAuth Flow** Device Flow.
+**Учетная запись пользователя Home Connect для тестирования** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
+Dann Speichern и Dann Hat Man Di Benötigte ClientID.
 
-В поле **Application ID** введите имя приложения, например ioBroker. С **OAuth Flow** Device Flow выберите Последнее поле может оставаться пустым. Затем сохраните, и у вас будет требуемый ClientID.
+В поле **Идентификатор приложения** введите имя приложения, например. ioБрокер. Выберите **OAuth Flow** Device Flow.
+**Учетная запись пользователя Home Connect для тестирования** может оставаться пустой. Для **Успешного перенаправления** введите URI, например. https://example.com.
+Затем сохраните, и у вас есть необходимый ClientID.
 
 ## Конфигурация
-В конфигурации Adapter-Config указано значение ClientID. Wenn der Adapter läuft, wird eine Authorization-URL generiert, diese wird in den Einstellungen nach dem Speichern der ClientID angezeigt. Einfach nach dem Speichern die Einstellungen neuöffnen
+В адаптере-конфигурации должно быть указано имя пользователя и пароль приложения Homeconnect, а также идентификатор клиента.
 
-## Конфигурация
-В конфигурации адаптера необходимо ввести только ClientID. Если адаптер запущен, создается URL-адрес авторизации. Этот URL вы можете увидеть в настройках после сохранения, подождите и снова откройте настройки.
+## Обращение
+Mit den заявляет в командах kannst du das Programm stoppen, pausieren oder fortführen.
 
-## Benutzung
-Mit den указывает в командах kannst du das Programm stoppen, pausieren oder fortführen.
 Mit den заявляет в настройках kannst du das Gerät ein oder ausschalten.
-Современные программы состояний.active.BSH_Common_Root_ActiveProgram führt zum start eines Programms Современные программы состояний.selected.BSH_Common_Root_SelectedProgram führt zum auswählen des Programms or Optionen
+
+Дополнительные программы для штатов.active.BSH_Common_Root_ActiveProgram для запуска программ
+
+Внутренние программы государств.
+
+Wenn man checken möchte, ob ein Programm fertig ist muss
+
+status.BSH_Common_Status_OperationState
+
+auf den kompletten Название статуса übrprüft werden:
+
+BSH.Common.EnumType.OperationState.Finished
+
+Weitere Zustände sind noch:
+
+"BSH.Common.EnumType.OperationState.Inactive": "Неактивно", "BSH.Common.EnumType.OperationState.Ready": "Готово", "BSH.Common.EnumType.OperationState.Run": "Выполнить", "BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Finished"
+
+Oder ob ein Gerät geöffnet ist
+
+"BSH.Common.EnumType.DoorState.Open": "Открыто", "BSH.Common.EnumType.DoorState.Closed": "Закрыто"
 
 ## Применение
-С помощью состояний в командах вы можете останавливать, приостанавливать и возобновлять программу.
-С помощью состояний в настройках вы можете выключить или включить устройство. Изменение значения программ. Active.BSH_Common_Root_ActiveProgram приводит к запуску программы. Изменение значения программ .selected.BSH_Common_Root_SelectedProgram приводит к выбору программы или параметров.
+С помощью состояний в командах вы можете остановить, приостановить и возобновить программу.
+С состояниями в настройках можно выключить или включить устройство Изменение значенияprograms.active.BSH_Common_Root_ActiveProgram приводит к запуску программы Изменение значенияprograms.selected.BSH_Common_Root_SelectedProgram ведет к выбору программы или опций
 
 ## Changelog
+
+### 1.0.3
+
+- Add manually login for SingleKey User
+  
+### 1.0.2
+
+- Adapter complete rewriten. Includes a lot of Bugfixes
+### 0.0.36
+
+- fix for js.controller 3.3. Please delete the device in Objects manually
+
+### 0.0.32 (29.12.2020)
+
+- (Morluktom) bugfix for devices that are completely switched off (e.g. washing machine, dryer)
 
 ### 0.0.31
 

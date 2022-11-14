@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
+hash: vEjyWua+e9aFAOjJ9e4iuTp9KHgOlrZXKSMj8aaFqVQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
@@ -37,7 +37,7 @@ Drücken Sie die Suchtaste für die Entdeckung. Wenn Sie mehrere Geräte haben, 
 
 In dem unwahrscheinlichen Fall, dass 2 oder mehr Geräte dieselbe ID liefern, ändern Sie eine ID geringfügig. Sonst kann der Adapter die 2 Geräte nicht unterscheiden.
 
-Wenn Sie möchten, dass die Spielzeit für die von Ihnen gehörten Titel aktualisiert wird, aktivieren/markieren Sie bitte das entsprechende Kontrollkästchen. Beachten Sie, dass sich die Anzahl der Nachrichten erhöht (jede Sekunde für jedes Gerät das Pingpong von Updates).
+Wenn Sie möchten, dass die Wiedergabezeit für die von Ihnen gehörten Titel aktualisiert wird, aktivieren/markieren Sie bitte das entsprechende Kontrollkästchen. Beachten Sie, dass sich die Anzahl der Nachrichten erhöht (jede Sekunde für jedes Gerät das Pingpong von Updates).
 
 ## Verfügbare Objekte
 Aktuell sind folgende Objekte implementiert:
@@ -55,6 +55,7 @@ Aktuell sind folgende Objekte implementiert:
 |{zone}.act_vol_mode_list|text|-|tatsächliche Lautstärke in dB-Modi|
 |{zone}.input|text|x|Eingaben je nach Gerät|
 |{zone}.input_list|text|-|mögliche Eingaben|
+|{zone}.input_text|text|-|ausgewählte Eingabe als Text|
 |{zone}.sound_program|text|x|Soundprogramm einstellen|
 |{zone}.sound_program_list|text|-|mögliche Soundprogramme|
 |{zone}.surr_decoder_type|Text|?|Surround-Typ festlegen|
@@ -74,10 +75,18 @@ Aktuell sind folgende Objekte implementiert:
 |{zone}.tone_mode|boolean|?|Tonsteuerungsmodus|
 |{zone}.balance|value|x|level balance|
 |{zone}.direct|boolesch|x|direkt setzen|
-|{zone}.pure_direct|boolesch|x|rein direkt setzen|
-|{zone}.enhancer|boolean|x|set-enhancer|
+|{zone}.pure_direct|boolean|x|rein direkt setzen|
+|{zone}.enhancer|boolean|x|enhancer einstellen|
 |{zone}.bass_extension|boolesch|x|Basserweiterung festlegen|
 |{Zone}.sleep|Wert|x|Sleep-Timer|
+
+|{zone}.disable_flags|boolesch|x|disable_flags setzen|
+|{zone}.contents_display|boolesch|x|set content_display|
+|{zone}.party_enable|boolean|x|set party_enable|
+|{zone}.extra_bass|boolean|x|set extra_bass|
+|{zone}.adaptive_drc|boolesch|x|set adaptive_drc|
+|{zone}.dts_dialogue_control|value|x|set dts_dialogue_control|
+|{zone}.adaptive_dsp_level|boolesch|x|set adaptive_dsp_level|
 
 ### Netzusb
 |Objekt|Wert|einstellbar|Beschreibung|
@@ -86,7 +95,7 @@ Aktuell sind folgende Objekte implementiert:
 |netusb.playPause|boolesch|x|Wiedergabe/Pause einstellen|
 |netusb.playback|text|-|status net player|
 |netusb.stop|boolesch|x|set Stop|
-|netusb.auto_stop|boolesch|-|automatisch gestoppt|
+|netusb.auto_stop|boolean|-|automatisch gestoppt|
 |netusb.next|boolesch|x|weiterleiten|
 |netusb.prev|boolesch|x|Rücklauf einstellen|
 |netusb.shuffle|boolesch|x|Zufallswiedergabe umschalten|
@@ -105,7 +114,8 @@ Aktuell sind folgende Objekte implementiert:
 |netusb.preset_info|json|-|gespeicherte Voreinstellungen/Favoriten|
 |netusb.presetrecallnumber|value|x|rufe die # in der Favoritenliste auf|
 |netusb.usb_devicetype|text|-|Typ des angeschlossenen USB-Geräts|
-|netusb.attribute|value|-|welche Möglichkeiten der Dienst hat, zu entschlüsseln|
+|netusb.attribute|value|-|welche Möglichkeiten hat der Dienst, zu entschlüsseln|
+|netusb.recallRecentItem|value|x|welche Möglichkeiten der Dienst hat, zu entschlüsseln|
 
 ### System
 |Objekt|Wert|einstellbar|Beschreibung|
@@ -125,7 +135,7 @@ Aktuell sind folgende Objekte implementiert:
 |cd.stop|boolesch|x|set Stop|
 |cd.next|boolesch|x|weiterleiten|
 |cd.prev|boolesch|x|Rücklauf einstellen|
-|cd.shuffle|boolean|x|Zufallswiedergabe umschalten|
+|cd.shuffle|boolesch|x|Zufallswiedergabe umschalten|
 |cd.shuffle_stat|text|-|Zufallsstatus|
 |cd.repeat|boolesch|x|Wiederholung umschalten|
 |cd.repeat_stat|Text|-|Status wiederholen|
@@ -190,7 +200,7 @@ Aktuell sind folgende Objekte implementiert:
 |clock.{day}.enable|boolean|x|Gültigkeit der Uhreinstellung|
 |clock.{day}.time|string|-|Startzeit des Uhralarms hhmm 00-23,00-59|
 |clock.{day}.beep|boolean|x|Gültigkeit des Uhrsignals|
-|clock.{day}.playback_type|string|-|Uhr-Alarm-Wiedergabetyp fortsetzen/voreinstellen|
+|clock.{day}.playback_type|string|-|Wiedergabetyp des Weckers fortsetzen/voreinstellen|
 |clock.{day}.resume_input|string|-|Uhralarm-Wiederaufnahme-Eingangs-ID|
 |clock.{day}.preset_type|string|-|Voreingestellter Typ des Weckers|
 |clock.{day}.preset_num|number|-|Voreingestellte Eingangs-ID des Uhralarms|
@@ -207,7 +217,7 @@ Aktuell sind folgende Objekte implementiert:
 * Dialogebene
 
 ## 1.0.0 AKTUELLE ÄNDERUNGEN
-* Die Geräte-ID war zuvor die System-ID, die nicht eindeutig ist. Jetzt wird die DeviceId verwendet, dies verändert den Objektbaum
+* Die DeviceId war zuvor die SystemId, die nicht eindeutig ist. Jetzt wird die DeviceId verwendet, dies verändert den Objektbaum
 * Musiccast-API 2.0.0
 * Die Gerätesuche kann jetzt mehr als 1 Gerät zurückgeben
 * Neue Ausgabe für Entwickler im Admin-Panel
@@ -229,13 +239,13 @@ Aktuell sind folgende Objekte implementiert:
 * (Scrounger) Fehlerbehandlung, wenn Gerät nicht erreichbar ist
 
 #### 0.1.4
-* (Scrounger) Korrektur von Type Mismatch (Array-Objekt)
+* (Scrounger) Korrektur von Typ-Mismatch (Array-Objekt)
 
 #### 0.1.3
 * (foxthefox) Schrift für linkControl/linkAudioDelay/linkAudioQuality hinzugefügt
 
 #### 0.1.2
-* (Scrounger) Korrektur des Typ-Mismatch (string boolean)
+* (Scrounger) Korrektur des Typ-Mismatch (String boolean)
 
 #### 0.1.1
 * Korrektur für Uhr "oneday"
@@ -292,7 +302,32 @@ Aktuell sind folgende Objekte implementiert:
 * Verfügbare Befehle Power, Mute, Volume
 
 ## Changelog
-### 1.0.01
+### 1.0.8
+* error correction add_to_group/remove_from_group
+
+### 1.0.7
+* error correction in link/unlink/distribution
+
+### 1.0.6
+* (scrounger) recallRecentItem added
+
+#### 1.0.5
+* usage of new IOB test library
+
+#### 1.0.4
+* correction for setting the input ("setInput")
+
+#### 1.0.3
+* new datapoint "extra_bass"
+* new datapoint "adaptive_drc"
+* new datapoint "dts_dialogue_control"
+* new datapoint "adaptive_dsp_level"
+* these are only read in, most likely they are commands, but the API is unknown
+
+#### 1.0.2
+* new datapoint "input_text"
+
+#### 1.0.1
 * changed algorithm for developer support
 
 ## License

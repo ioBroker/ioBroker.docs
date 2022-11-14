@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP 云接入点适配器
-hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
+hash: Kralf0GncOLRR7KFU6xsIHqXXzkKbZYW5rKEt+x/BAM=
 ---
 ![标识](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -15,6 +15,9 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 ![测试和发布](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+## 免责声明
+**所有产品和公司名称或徽标均为其各自所有者的商标™ 或注册® 商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！这个个人项目是在业余时间维护的，没有商业目标。** **HomeMatic 是 ELV Elektronik AG 的商标**
 
 ＃＃ 描述
 此适配器允许通过 Homematic IP Cloud 的 Rest API 与 HomematicIP CloudAccessPoint 通信
@@ -32,7 +35,7 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 我会不断改进它，但这需要时间。来自社区的任何帮助，例如拉取请求将不胜感激。
 
 对于不工作的 HmIP 设备，请使用此信息创建一个问题（请为每个设备提供一个，如果可能，请在主题中提供技术名称）。
-将 ioBroker 中的适配器日志切换为 silly 模式，并将打印到问题日志中的设备的 json 添加到日志中。
+将 ioBroker 中的适配器日志切换到 silly 模式，并将打印到问题日志中的设备的 json 添加到日志中。
 我可能还需要状态更改的 json。
 
 谢谢
@@ -44,7 +47,7 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 例如设备之间的直接连接在应用程序中没有事件，也不能通过这个适配器触发！！！
 
 ## 设置
-* 输入您的 SGTIN（接入点背面）和 PIN（如果之前设置），并通过按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
+* 输入您的 SGTIN（接入点背面）和 PIN（如果之前设置），然后通过按下蓝色 LED 按钮验证数据。这将创建一个身份验证令牌。
 
 ##特殊设置
 ### HMIP-DLD（门锁驱动器）
@@ -61,6 +64,42 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.20.0 (2022-09-19)
+* IMPORTANT: Node.js 12.x is now required at minimum
+* Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
+* Add valve position for FLOOR_TERMINAL_BLOCK_MECHANIC_CHANNEL
+* Add several more states for SWITCH_CHANNEL, DIMMER_CHANNEL, WEATHER_SENSOR_CHANNEL, SHUTTER_CHANNEL 
+* Add channel label
+
+### 1.19.2 (2022-09-07)
+* Optimize Reconnect handling
+
+### 1.19.1 (2022-08-21)
+* Fix datatype of selfCalibrationInProgress
+
+### 1.19.0 (2022-08-14)
+* Add several more device settings that can be modified via adapter
+  * accelerationSensorMode
+  * accelerationSensorSensitivity
+  * accelerationSensorTriggerAngle
+  * accelerationSensorEventFilterPeriod
+  * accelerationSensorNeutralPosition
+  * notificationSoundTypeHighToLow
+  * notificationSoundTypeLowToHigh
+  * routerModuleEnabled
+  * minimumFloorHeatingValvePosition
+  * sirenWaterAlarmTrigger
+  * inAppWaterAlarmTrigger
+  * acousticAlarmSignal
+  * acousticAlarmTiming
+  * acousticWaterAlarmTrigger
+  * boostDuration
+* Other fixes and optimizations
+
+### 1.18.0 (2022-06-17)
+* (Apollon77) Added support for PARTICULATE_MATTER_SENSOR_CHANNEL
+* (Apollon77) Correctly ignore some channels without meaningful data
+
 ### 1.17.0 (2022-04-26)
 * (Apollon77) Also reinitialize objects when new groups or clients are detected
 * (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels

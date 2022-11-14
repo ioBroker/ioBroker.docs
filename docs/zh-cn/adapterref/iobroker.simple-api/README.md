@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.simple-api/README.md
 title: 简单的api
-hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
+hash: B7EURS7YZmfmC18HdaJukWQ+PiJU+wjy1ykIjavUi0U=
 ---
 ![标识](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -28,7 +28,7 @@ hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
   "get": "http://ipaddress:8087/get/stateID/?prettyPrint",
   "getBulk": "http://ipaddress:8087/getBulk/stateID1,stateID2/?prettyPrint",
   "set": "http://ipaddress:8087/set/stateID?value=1&prettyPrint",
-  "toggle": "http://ipaddress:8087/toggle/stateID&prettyPrint",
+  "toggle": "http://ipaddress:8087/toggle/stateID?prettyPrint",
   "setBulk": "http://ipaddress:8087/setBulk?stateID1=0.7&stateID2=0&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&type=adapter&prettyPrint",
@@ -188,7 +188,7 @@ Grafana JSON / SimpleJSON 插件需要此命令。
 Grafana JSON / SimpleJSON 插件需要此命令。
 
 ＃＃＃ 帮助
-将[这](#usage)输出返回
+将[这个](#usage)输出返回
 
 ＃＃ 安装
 ```node iobroker.js add simple-api```
@@ -614,6 +614,17 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ### **正在进行中** -->
 
 ## Changelog
+### 2.7.2 (2022-10-08)
+* (Apollon77) Prepare for future js-controller versions
+
+### 2.7.1 (2022-08-29)
+* (bluefox) Check if the port is occupied only on defined interface
+* (bluefox) Added JSON config
+
+### 2.7.0 (2022-05-31)
+* (crycode-de) Allow use of ack flag for setBulk post requests
+* (Apollon77) Return ack flag too on getBulk
+
 ### 2.6.5 (2022-04-14)
 * Added support aggregate and count for queries
 
@@ -621,7 +632,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (Apollon77) Optimize performance, especially when using names instead of object ids
 
 ### 2.6.3 (2022-02-19)
-* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Optimize error message for multi-language objects
 * (Apollon77) Do not overwrite state properties by object properties
 
 ### 2.6.2 (2021-11-12)
@@ -718,7 +729,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (bluefox) new web server plugin support
 
 ### 1.3.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.2.0 (2016-08-27)
 * (bluefox) support of letsencrypt certificates

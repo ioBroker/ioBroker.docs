@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: HUBxVg5wWIo2qX34/a2x74UiyQ7rBdb6Bi8u4BJtnDI=
+hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -44,21 +44,21 @@ Dieser Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für i
 <span><img src="docs/en/img/wifi-stick.png"></span>
 
 #### Experteneinstellungen
-Локальное подключение Wird aktuell nur dem Pocket Wifi Sticks unterstützt. LAN-Sticks подключены к облачному модусу.
+Локальное подключение Wird aktuell Nur dem Pocket Wifi Sticks unterstützt. LAN-Sticks подключены к облачному модусу.
 
 Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld zwingend die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
-Eine Firmware Version больше 2.30.20 darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi Sticks führt.
+Самая старая версия прошивки 2.30.20 (Wifi-Pocket V1/V2) и более поздняя, чем 3.001 (Wifi-Pocket V3), недоступна для установки на Stick, от Solax в более ранней версии Локален Заблокировано и отключено Absturz des Wifi Sticks führt .
 
 Wie man die Версия микропрограммы prüfen kann und ein Downgrade auf die correkte Version hinbekommt, wird hier erklärt.
 
 Um die Firmware auf dem Stick zu prüfen, müsst ihr euch mit dem Hotspot des Sticks verbinden.
-Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
+Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX` или `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
 
 Если вы используете Hotspot verbunden seit, dann geht ihr mit fogender IP-адрес в вашем браузере на веб-интерфейсе Wi-Fi-Sticks: `5.8.8.8`<br> Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
 
 <span><img src="docs/en/img/webif.png"></span>
 
-Я открываю веб-интерфейс на вкладке «Система» и нахожу актуальную версию встроенного ПО.<br> Если версия выше 2.033.20, то она должна быть обновлена Вкладка в меню «Обновление встроенного ПО (.usb)» с исправлением версии.
+Я открываю веб-интерфейс на вкладке «Система» и нахожу актуальную версию встроенного ПО.<br> Все версии выше 2.033.20 (Wifi-Pocket V1/V2) и выше 3.001 (Wifi-Pocket V3), а также обновлены вкладки в меню «Обновление прошивки (.usb)» с исправлением версии.
 
 Die Version 2.033.20 könnt ihr euch unter folgenden Link herunterladen:
 
@@ -69,8 +69,9 @@ Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung &quot;.u
 Nach erfolgreichen Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure locale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
 
 Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die correkte Firmware installiert ist.
+Der Stick aktualisiert die Firmware nicht Automaticisch und ist mit der Version 2.033.20 voll funktionsfähig.
 
-Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden und ihr habt nun eine sekundengenaue lokale Analyze eures Wechselrichters
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyze eures Wechselrichters
 
 **************************************************************************************************************
 
@@ -91,18 +92,18 @@ Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort
 #### Экспертные настройки
 Локальное соединение в настоящее время поддерживается только Pocket Wifi Sticks. Сетевые флешки могут работать только в облачном режиме.
 
-Внимание, если вы активируете локальный режим в экспертных настройках, вам следует заранее проверить текущую версию прошивки вашего Pocket Wifi Stick.<br> На флешке не должна быть установлена версия прошивки выше 2.30.20, поскольку Solax блокирует локальный доступ в более высоких версиях и вызывает сбой флешки Wifi.
+Внимание, если вы активируете локальный режим в экспертных настройках, вам следует заранее проверить текущую версию прошивки вашего Pocket Wifi Stick.<br> На флешке не должна быть установлена версия прошивки выше 2.30.20 (Wifi-Pocket V1/V2) и ниже 3.001 (Wifi-Pocket V3), так как Solax блокирует локальный доступ в более высоких версиях и вызывает сбой Wifi флешки.
 
 Здесь объясняется, как проверить версию прошивки и как перейти на правильную версию.
 
 Чтобы проверить прошивку на флешке, необходимо подключиться к точке доступа флешки.
-Имя вашей точки доступа должно выглядеть следующим образом: `Solax_SWXXXXXXXX`. XXXXXXXX будет заменен вашим серийным номером.
+Имя вашей точки доступа должно выглядеть следующим образом: `Solax_SWXXXXXXXX` или `Wifi_SWXXXXXXXX`. XXXXXXXX будет заменен вашим серийным номером.
 
 Если вы подключены к точке доступа, перейдите в веб-интерфейс Wifi-модуля в браузере со следующим IP-адресом: `5.8.8.8`<br> Если вы не меняли пароль во время первоначальной настройки, данные для входа по умолчанию — admin:admin.
 
 <span><img src="docs/en/img/webif.png"></span>
 
-В веб-интерфейсе вы переходите на вкладку «Система» и там вы найдете текущую версию установленной прошивки.<br> Если версия выше 2.033.20, можно прошить нужную версию в той же вкладке через пункт меню &quot;Обновить прошивку (.usb)&quot;.
+В веб-интерфейсе вы переходите на вкладку «Система» и там вы найдете текущую версию установленной прошивки.<br> Если версия больше 2.033.20 (Wifi-Pocket V1/V2) и меньше 3.001 (Wifi-Pocket V3), вы можете прошить правильную версию в той же вкладке через пункт меню «Обновить прошивку (.usb)». .
 
 Вы можете скачать версию 2.033.20 по следующей ссылке:
 
@@ -113,6 +114,7 @@ Zip-файл необходимо распаковать и выбрать фа�
 После успешного перезапуска вы можете получить доступ к WiFi-модулю через точку доступа с IP-адресом `5.8.8.8` или через локальный IP-адрес в вашей сети.
 
 Перед подключением к адаптеру еще раз проверьте, прошел ли даунгрейд успешно и установлена ли правильная прошивка.
+К счастью, флешка не выполняет автоматическое обновление прошивки и полностью функциональна с версией 2.033.20.
 
 Локальный IP-адрес (не IP-адрес точки доступа) и пароль веб-интерфейса должны быть введены в адаптер, и теперь у вас есть локальный анализ вашего инвертора с точностью до секунды.
 
@@ -127,6 +129,49 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.5.7 (2022-11-01)
+* (simatec) Dependencies updated
+
+### 0.5.6 (2022-09-21)
+* (simatec) local mode for X1 boost added
+
+### 0.5.5 (2022-09-21)
+* (simatec) small Bugfixes
+
+### 0.5.4 (2022-09-20)
+* (simatec) small Bugfixes
+
+### 0.5.3 (2022-09-20)
+* (simatec) Hybrid-G4 added
+* (simatec) small Bugfixes
+* (simatec) appveyor test removed
+* (simatec) travis test removed
+
+### 0.5.1 (2022-09-13)
+* (simatec) feedin added
+
+### 0.5.0 (2022-09-12)
+* (simatec) Dependencies updated
+* (simatec) small Bugfixes
+* (clausmuus) Add support for firmware version 3.001
+
+### 0.4.6 (2022-04-11)
+* (simatec) Fix states
+
+### 0.4.5 (2022-04-04)
+* (simatec) Dependencies updated
+* (simatec) small Bugfixes
+
+### 0.4.4 (2022-03-14)
+* (simatec) Dependencies updated
+* (simatec) battery data for local request added
+* (simatec) night mode turn on/off added
+
+### 0.4.3 (2022-02-03)
+* (simatec) refactoring Sourcecode
+* (simatec) Dependencies updated
+* (simatec) Fix API Request
+
 ### 0.4.2 (2022-01-27)
 * (simatec) Fix json state
 

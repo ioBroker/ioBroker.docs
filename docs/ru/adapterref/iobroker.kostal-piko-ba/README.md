@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
+hash: 1z/q2F7cs7U06ZA3JiDVA9+w+bNU7biWcBvR5T9O86Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -24,17 +24,37 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Имейте в виду, что ваш инвертор должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA) обязательна установка его IP-адреса в конфиге.
+Имейте в виду, что ваш инвертор должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA) установка его IP-адреса в конфиге обязательна.
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
-При необходимости установите метку для считывания 4 аналоговых значений.
+При необходимости также установите метку для считывания 4 аналоговых значений.
 
-## Примечания
+## Заметки
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.0.2 (16.10.2022)
+* (HombachC) fixed small sentry reported error
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.1 (11.10.2022)
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.0 (28.08.2022)
+* (HombachC) BREAKING: Dropped support for Node.js 12
+* (HombachC) changed the minimal required js-controller version to 3.2.16
+* (HombachC) added state of inverter as string
+* (HombachC) bumped dependencies
+### 1.5.0 (05.08.2022)
+* (HombachC) added minimum values for poll times to prevent communication errors
+* (HombachC) bumped dependencies
+### 1.4.7 (26.06.2022)
+* (HombachC) bumped dependency because of security vulnerability
+### 1.4.6 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, added tests for node.js 18
+* (HombachC) removed tests for node.js 12 -> it's recommended to switch to node.js 14, adapter still working with node 12
 ### 1.4.5 (03.05.2022)
 * (HombachC) added UI version to sentry feedback and documentation
 ### 1.4.4 (01.05.2022)

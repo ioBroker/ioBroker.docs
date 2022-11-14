@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
+hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 ---
+![稳定版](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![安装数量（最新）](http://iobroker.live/badges/sureflap-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/sureflap-stable.svg)
-![依赖状态](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
 ![已知漏洞](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
 ![应用程序](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
@@ -19,15 +18,15 @@ hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 
 # IoBroker.sureflap
 ## Sure Petcare® 的智能宠物设备适配器
-<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
+<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ＃＃ 配置
 在适配器配置页面上从您的 Sure Petcare® 帐户添加用户名和密码。
 
 ＃＃ 描述
-适配器提供有关您的宠物皮瓣、猫皮瓣或喂食器的设置和状态的信息。
+该适配器提供有关您的宠物皮瓣、猫皮瓣、喂食器或饮水机的设置和状态的信息。
 
-它还显示您的宠物的位置及其食物消耗（带喂食器）。
+它还显示您的宠物的位置以及它们的食物和水消耗量（带有喂食器和/或饮水机）。
 
 它可以让您控制襟翼的锁定模式和宵禁，并设置宠物的位置。
 
@@ -46,14 +45,25 @@ hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 ＃＃＃ 结构
 适配器创建以下层次结构：
 
-适配器<br>├ 户名<br>│ ├ hub_name<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├assigned_pets<br> │ │ │ │ └ 宠物名<br>│ │ │ ├ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ 目标<br>│ │ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ close_delay<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ curfew_active<br> │ │ ├ 在线<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁定模式<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └assigned_pets<br> │ │ └ 宠物名<br>│ │ └ 控制<br>│ │ └ 类型<br>│ ├ 历史<br>│ │ └ 0..24<br> │ │ └ ...<br> │ └ 宠物<br>│ └ 宠物名<br>│ ├ 里面<br>│ ├ 名称<br>│ ├ 自<br>│ └ 食物<br>│ ├ last_time_eaten<br> │ ├ time_spent<br> │ ├ times_eaten<br> │ └ 干..湿<br>│ └ 重量<br>└ 信息<br>├ all_devices_online<br> ├ 连接<br>└ last_update<br>
+适配器<br>├ 户名<br>│ ├ hub_name<br> │ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├assigned_pets<br> │ │ │ │ └ 宠物名<br>│ │ │ └ 水<br>│ │ │ └ 重量<br>│ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├assigned_pets<br> │ │ │ │ └ 宠物名<br>│ │ │ ├ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ 目标<br>│ │ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ close_delay<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ curfew_active<br> │ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁定模式<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ 启用<br>│ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └assigned_pets<br> │ │ └ 宠物名<br>│ │ └ 控制<br>│ │ └ 类型<br>│ ├ 历史<br>│ │ └ 0..24<br> │ │ └ ...<br> │ └ 宠物<br>│ └ 宠物名<br>│ ├ 里面<br>│ ├ 名称<br>│ ├ 自<br>│ ├ 食物<br>│ │ ├ last_time_eaten<br> │ │ ├ time_spent<br> │ │ ├ times_eaten<br> │ │ └ 干..湿<br>│ │ └ 重量<br>│ └ 水<br>│ ├ last_time_drunk<br> │ ├ time_spent<br> │ ├ times_drunk<br> │ └ 重量<br>└ 信息<br>├ all_devices_online<br> ├ 连接<br>└ last_update<br>
 
 ## 备注
-SureFlap® 和 Sure Petcare® 是 [SureFlap 有限公司](https://www.surepetcare.com/) 的注册商标
+SureFlap®、Sure Petcare® 和 Felaqua® 是 [SureFlap 有限公司](https://www.surepetcare.com/) 的注册商标
 
-猫皮瓣、集线器和智能手机应用程序的图片从[Sure Petcare®](https://www.surepetcare.com/en-us/press)免费提供。
+SureFlap® 设备的图片从[Sure Petcare®](https://www.surepetcare.com/en-us/press)免费提供。
 
 ## Changelog
+
+### 1.1.5 (2022-09-10)
+* (Sickboy78) added display of serial numbers
+
+### 1.1.4 (2022-09-07)
+* (Sickboy78) added Felaqua support
+* (Sickboy78) improved battery and battery percentage indicator (reduced outliers)
+
+### 1.1.3 (2022-03-28)
+* (Sickboy78) code improvements
+* (Sickboy78) improved error handling if no pet has been assigned yet
 
 ### 1.1.2 (2022-03-06)
 * (Sickboy78) improved error and timeout handling

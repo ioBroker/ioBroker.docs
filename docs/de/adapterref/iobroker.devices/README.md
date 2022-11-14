@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
+hash: nJ4G65zStOOtewUyE15k8mlpSbPBBiY6fjuFbToDjZ0=
 ---
 ![Logo](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
@@ -11,26 +11,46 @@ hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
 
-# IoBroker.devices
+# IoBroker.Geräte
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Geräteadapter für ioBroker
-Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie Material, IOT,...
+Verwalten und erstellen Sie Geräte zur Verwendung in anderen Adaptern wie Material, IoT usw.
 
-**Wichtig: Registerkarte im Admin aktivieren, wie Protokoll und Skripte**
+**Wichtig: Registerkarte im Adminbereich aktivieren, wie Protokoll und Skripte**
 
 ![Bildschirm](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Machen
-- Beschreibungen für Staaten hinzufügen
+- Beschreibungen für Zustände hinzufügen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.1.0 (2022-09-27)
+* (bluefox) Migrated GUI to v5
+
+### 1.0.12 (2022-06-09)
+* (bluefox) Allowed to work with devices behind reverse proxy
+* (bluefox) Replaced the function icon
+
+### 1.0.11 (2022-06-08)
+* (bluefox) Updated some libraries
+
+### 1.0.10 (2022-02-13)
+* (bluefox) Corrected edit of folders
+* (bluefox) Updated some libraries
+
+### 1.0.9 (2021-07-11)
+* (bluefox) Implement the narrow rows
+
+### 1.0.8 (2021-07-04)
+* (bluefox) Corrected creation of the devices
+
 ### 1.0.7 (2021-06-30)
 * (bluefox) Corrected creation the folders
 
@@ -50,7 +70,7 @@ Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie 
 * (bluefox) Added new devices
 
 ### 0.3.16 (2021-03-11)
-* (bluefox) Fixed the error for IDs with the strange characters 
+* (bluefox) Fixed the error for IDs with the strange characters
 
 ### 0.3.15 (2020-12-13)
 * (bluefox) Updated the select ID dialog
@@ -97,7 +117,7 @@ Verwalten und erstellen Sie Geräte für die Verwendung in anderen Adaptern wie 
 ## License
 MIT License
 
-Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

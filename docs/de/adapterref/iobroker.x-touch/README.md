@@ -3,37 +3,56 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: vZUjz6IKTGCMypAhyjRvgKvaS2wX8gPXdaSA9yKq1tw=
+hash: MJoAQn3DaO5JfVYgyIFzPw1TEQ6JpcybU8qs8lRb6Lw=
 ---
 ![Logo](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.x-touch.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/x-touch-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/x-touch-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
-#ioBroker.x-touch
+# IoBroker.x-touch
 ![Testen und freigeben](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
 
 ## X-touch-Adapter für ioBroker
-Kommunizieren mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
+Kommunizieren Sie mit einer Behringer X-Touch-Bedienoberfläche (DAW-Controller)
 
 ## Machen
-- Encoder und deren LEDs hinzufügen -> fertig, links ist sync_global und prüft auf Datenbankänderungen
-- Timecode-Anzeige hinzufügen -> fertig
-- Funktionalität von Bank- und Fader-Kanalschaltern hinzufügen -> fertig, benötigt zusätzliche Tests
 - Fügen Sie die syncGlobal-Funktionalität hinzu
+- Fügen Sie die Wiederherstellung von Banken hinzu, wenn die Option gesetzt ist
 
 ## Nachrichtenbox
 Es gibt zwei akzeptierte Befehle:
 
-* `export` exportiert die in den Zuständen der Gerätegruppen gespeicherten Istwerte in den Benutzerdatenordner x-touch.0
-* `import` importiert die jüngste Datei aus dem userdata-Ordner. Zusätzlich können Sie `file` und/oder die `devicegroup`-Nummer für die Wiederherstellung angeben. Wenn `Pfad` angegeben wird, wird das gesamte Dateisystem verwendet und ein `Datei`-Name ist obligatorisch.
+* `export` exportiert die in den Zuständen der Gerätegruppen gespeicherten aktuellen Werte in den Benutzerdatenordner x-touch.0
+* `import` importiert die jüngste Datei aus dem Userdata-Ordner. Zusätzlich können Sie `file` und/oder die `devicegroup` Nummer für die Wiederherstellung angeben. Wenn `path` angegeben wird, wird das gesamte Dateisystem verwendet und ein `file`-Name ist obligatorisch.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.6.2 (2022-10-07)
+* (Bannsaenger) test-and-release without build
+
+### 0.6.1 (2022-10-07)
+* (Bannsaenger) confusion with the release script
+
+### 0.6.0 (2022-10-07)
+
+* (Bannsaenger) updated to adapter-dev and release script
+* (Bannsaenger) introducing admin 5 UI (jsonConfig)
+
+### 0.5.1
+* (Bannsaenger) updated dependencies
+
+### 0.5.0
+* (Bannsaenger) fixes in db creation for js controller 4.x
+
 ### 0.4.2
 * (Bannsaenger) changed sort order in changelog
 
@@ -76,7 +95,7 @@ Es gibt zwei akzeptierte Befehle:
 ## License
 MIT License
 
-Copyright (c) 2021 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2022 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
+hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
 ---
 ![标识](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -31,7 +31,7 @@ hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
 ##安装步骤
 * 检查您的 WireGuard 主机是否正在运行 ssh 服务器。如果没有 - 安装一个。如果您可以使用 putty（或类似工具）打开命令行，则您正在运行 ssh 服务器。
 * 确保您喜欢使用的用户能够执行 `wg`（Windows 和 Linux 相同）。 **此用户需要管理员权限！**
-* 总结一下测试：打开远程命令行，登录并执行`wg show`命令。如果您收到正确的结果，您就完成了并且可以使用这些数据来运行适配器。
+* 总结一下测试：打开一个远程命令行，登录并执行`wg show`命令。如果您收到正确的结果，您就完成了并且可以使用这些数据来运行适配器。
 * 为您想要监控的每个主机执行此操作
 * 安装适配器并配置它
 
@@ -41,14 +41,20 @@ hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
 * 主页
   - 名称：只是主机的象征性名称，因为它比 IP 地址更方便、更容易记住
   - 主机地址：主机的 IP 地址。 fqdn 或 dns 名称也可以。如果你在同一台主机上运行 WireGuard 和 ioBroker，你可以使用 `localhost` 作为 IP。
+  - 端口：您的 ssh 服务器的端口号。默认值：22
   - 用户：在主机上执行脚本的用户（将被加密存储）
   - 密码：此用户的密码（将加密存储）
   - sudo：是否应该使用 sudo 执行 wg 命令（需要有效的 sudoers 配置！-> 参见 [安全提示]）
   - Docker：执行 `docker exec` 命令以到达 docker 容器内的 wireguard 服务器。请检查它是否符合您的需求，或者您是否可以切换到受支持的容器。
   - 轮询间隔：以秒为单位在每次轮询之间暂停（也会延迟适配器启动后的第一次运行）
+  - 容器：您的 docker 容器的名称。通常是“wireguard”，但可能会有所不同，尤其是在单个服务器上运行多个时
 * 翻译页面
     - 公钥：您的同行之一的公钥
     - 组名：此对等点的符号名称
+* 配置文件页面
+  - 名称：必须与主页上的相同
+  - 接口：存储在此配置文件中的接口名称（wg0，wg1，...）
+  - 配置文件：此接口的配置文件的完全限定路径和名称（/etc/wireguard/wg0.conf，...）
 
 ### 执行的命令行取决于复选框：
 * 没有选中复选框：`wg show all dump` 将被执行（对于类似 root 的用户和使用 SetUID-Bit）
@@ -56,43 +62,49 @@ hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
 * Docker 复选框被选中：`docker exec -it wireguard /usr/bin/wg show all dump` 将被执行
 * Sudo 和 Docker 复选框被选中：`sudo docker exec -it wireguard /usr/bin/wg show all dump` 将被执行
 
-> 如果您在 docker 容器中使用 WireGuard，我假设您对技术和安全概念都足够熟悉，可以配置您的系统以不要求任何密码的方式执行所示命令。
+> 如果您在 docker 容器中使用 WireGuard，我假设您对技术和安全概念都足够熟悉，可以将您的系统配置为以不要求任何密码的方式执行所示命令。
 
 ### 码头工人
 基本上，关于常规安装的所有内容也适用于 docker，并且工作方式相同。
-除了执行正确命令所需的复选框和所需的 sudoers 行。如果您在 docker 容器中使用 WireGuard，您可能需要类似以下的 sudoers 行：
+除了执行正确命令所需的复选框和所需的 sudoers 行。如果您在 docker 容器中使用 WireGuard，您可能需要类似于以下内容的 sudoers 行：
 
 ```
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg show all dump
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * remove
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * allowed-ips *
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg syncconf * *
 ```
 
 此适配器需要 WireGuard 容器的名称 `wireguard` 以及容器内 `/usr/bin/`中的 `wg` 命令。
 目前无法自定义这些值。
 
 ＃＃ 这个怎么运作
-* 适配器的 info.connection 用于指示至少有一个 WireGuard 接口在线并由 `wg show all` 报告。如果没有 Wireguard 接口在线 - 不报告任何内容。在这种情况下，将记录错误并且适配器的交通灯变为黄色。
+* 适配器的 info.connection 用于指示至少有一个 WireGuard 接口在线并由 `wg show all` 报告。如果没有 Wireguard 接口在线 - 不报告任何内容。在这种情况下，会记录一个错误并且适配器的交通灯变为黄色。
 * 此适配器在每个配置的主机上打开一个 ssh shell，执行 `wg show all dump` 命令，删除 shell 并解析结果。
 * 由于每个公钥都是唯一的，适配器使用它们将公钥转换为用户友好、可读和可识别的名称。
 * 不幸的是，WireGuard 本身并不提供“已连接”状态。它只提供最后一次握手信息。
 
-由于握手通常每 120 秒发生一次 - 此适配器以这种方式计算连接状态，它假定在不到 130 秒前收到最后一次握手时已连接对等体。
+由于握手通常每 120 秒发生一次 - 此适配器以这种方式计算连接状态，它假设在不到 130 秒之前收到最后一次握手时，它假定对等方已连接。
 
 ## 安全提示
 > 我强烈推荐在 Linux 下使用 sudoers！
 
-这些安全提示主要依赖于 linux，因为它的安全系统比 windows 系统更复杂。在 Windows 服务器上，您只需要使用管理用户。
+这些安全提示主要依赖于 linux，因为它的安全系统比 windows 更复杂。在 Windows 服务器上，您只需要使用管理用户。
 由于 `wg` 命令（执行该命令以获取 WireGuard 的状态）需要管理权限，因此请仔细考虑您在此处执行的操作以及如何配置放置在 config 中的用户。
 为了尽可能保护这些凭据 - 用户名和密码 - 均已加密。
 
 基本上有三种方式来执行命令：
 
 * 使用管理用户（root 或类似用户）。这将起作用，但会暴露您的整个服务器，以防凭证丢失/被盗。
-* SetUID-Bit 的使用：通过设置这个位（据我所知），每个用户都可以使用管理权限执行标记的文件，而无需任何密码。 **这包括黑客**。因此，在 wg 命令上设置此位会公开整个 wg 命令及其所有功能。如果您愿意，请以管理员身份执行 `chmod u+s /usr/bin/wg`。
+* SetUID-Bit 的使用：通过设置此位（据我所知），每个用户都可以使用管理权限执行标记的文件，而无需任何密码。 **这包括黑客**。因此，在 wg 命令上设置此位会公开整个 wg 命令及其所有功能。如果您愿意，请以管理员身份执行 `chmod u+s /usr/bin/wg`。
 * sudoers 的使用：从我的角度来看，最安全的方法是设置一个具有基本权限的新简单用户，并在 sudoers 文件中添加一个简单的行，允许该用户在不输入密码的情况下执行所需的命令 - 仅此而已命令。请参阅您的发行版文档以获取有关编辑 sudoers 文件和使用 visudo 的正确信息。下面的屏幕截图显示了需要添加到文件中的内容。 `wireguard-monitoring-user` 是您选择的用户。其余的需要和你看到的完全一样。
 
 ```
 #iobroker.wireguard adapter
 wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * remove
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * allowed-ips *
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 ```
 
 此设置允许 `ALL` 主机上的 `<wireguard-monitoring-user>` 从目录 `/usr/bin/` 执行 `wg show all dump` 命令（可能需要在您的发行版中更改），而无需密码（§§ SSSSS_4§§)。
@@ -103,15 +115,35 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
 
 ##哨兵.io
 该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。
-[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件的功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
+[ioBroker.sentry 插件](https://github.com/ioBroker/plugin-sentry)用于它。请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不希望通过您的崩溃信息来支持作者。
 
 ### 免责声明
-该项目与 WireGuard 没有任何关系。 WireGuard 名称和 WireGuard 徽标仅用于指代该项目，并且是其所有者的财产。他们不是这个项目的一部分。
+该项目与 WireGuard 没有任何关系。 WireGuard 名称和 WireGuard 徽标仅用于指代该项目，是其所有者的财产。他们不是这个项目的一部分。
 
 ##版权
 版权所有 (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### v1.4.1 (2022-10-26)
+* (grizzelbee) New: Showing number of currently connected peers for each interface
+
+### v1.4.0 (2022-09-09)
+* (grizzelbee) New: [#37](https://github.com/Grizzelbee/ioBroker.wireguard/issues/37) Added config options for port and docker container name
+* (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
+
+### v1.3.2 (2022-09-07)
+* (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
+
+### v1.3.1 (2022-06-26)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer
+
+### v1.3.0 (2022-06-25)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added buttons to suspend single and restore all peers of an interface
+* (grizzelbee) Chg: Changed polling log entry from info to debug 
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.2.1 (2022-04-24)
 * (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
 

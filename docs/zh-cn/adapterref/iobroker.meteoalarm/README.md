@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
+hash: /vORLnUCUd3thgw0OfhRyfqUqpIgDnAPpJ/JAKnxP2M=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -19,11 +19,13 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 
 免责声明：本网站与 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与的国家气象局发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
 
+开发者不能保证警告及时处理或者有错误和问题导致根本不处理警告！
+
 ＃＃ 如何使用它
 选择你的国家，然后选择你想要警告的地区。如果您不确定您所在地区的名称，请访问 https://meteoalarm.org 并尝试在地图上找到它。
 
 ## 将其添加到您的 vis
-将它添加到 vis 的最简单方法是使用小部件基本 - 字符串，然后选择数据点 htmlToday。这为您提供了一个预先设计的 HTML 小部件，您可以在设置中对其进行调整。
+将它添加到 vis 的最简单方法是使用基本小部件 - html，然后输入 {meteoalarm.0.htmlToday}。这为您提供了一个预先设计的 HTML 小部件，您可以在设置中对其进行调整。
 
 ## 警报类型
 |报警类型|说明|
@@ -63,6 +65,23 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 |橙色|天气很危险。已经预测到不寻常的气象现象。很可能发生损坏和事故。要非常细心和小心，并及时了解预期的气象条件。 |
 |红色|天气很危险。预计会出现异常强烈的气象现象。极端损坏和事故，通常发生在大面积区域，威胁生命和财产。 |
 
+## 通知
+可以让适配器通过邮件、电报、信号或推倒向您发送通知。
+
+* 信号
+* 邮件
+* 俯卧撑
+* 电报
+*同步聊天
+
+可用设置：
+
+* 显示位置：如果激活此设置，位置名称将添加到通知中
+* 文字警告级别：在警告符号之外添加文字警告级别
+* 没有详细信息：不要在通知中添加警告的描述 - 例如。为 Alexa
+* 发送“无警告”：如果所有警报都结束并且当前没有警告，则发送通知
+* 警告级别符号：选择应添加到通知中的符号
+
 ## 支持的国家
 * 奥地利
 * 德国
@@ -101,6 +120,30 @@ ioBroker 的meteoalarm 适配器 ---------------------------------------------- 
 ##不可能的国家
 * 葡萄牙（meteoalarm.org 的地理编码文件可能不正确）
 * 保加利亚（meteoalarm.org 的地理编码文件可能不正确）
+
+## 2.3.0 (2022-09-15)
+* (jack-blackson) 能够向其他适配器发送警报（Telegramm、电子邮件、Pushover、Signal、Synochat
+* (jack-blackson) 修复警报文件夹中的链接
+
+## 2.2.1 (2022-07-28)
+* (jack-blackson) 修正 noOfAlarms 和对象编号
+
+## 2.2.0 (2022-07-05)
+* (jack-blackson) 添加了包含 JSON 格式的所有活动错误的对象 JSON（例如，对于 iqontrol 的用户）
+* (jack-blackson) 摆脱重复错误信息的第一步
+
+## 2.1.5 (2022-06-13)
+* (jack-blackson) 修复错误“来自 InMemDB 的错误：错误：不存在”
+
+## 2.1.4 (2022-05-26)
+* (jack-blackson) 为 Sentry 添加了面包屑以查看哪个位置产生了错误
+* (jack-blackson) 发送没有地理编码的 XML 时在 Sentry 中开始跟踪
+
+## 2.1.3 (2022-05-23)
+* (jack-blackson) 处理没有地理编码的警告 -> Sentry IOBROKER-METEOALARM-3B
+
+## 2.1.2 (2022-05-16)
+* (jack-blackson) 修改 xml 的修正（使用了错误的警告链接）-> Sentry IOBROKER-METEOALARM-2Y 和 IOBROKER-METEOALARM-31
 
 ## 2.1.1 (2022-02-08)
 * (jack-blackson) 更新了许可证信息

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-элементы
-hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
+hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -21,11 +21,11 @@ hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
 ![Тестируйте и выпускайте](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
 
 ## Требования
-- NodeJS >= 12.x
-- ioBroker >= 3.x, с администратором >= 5.x
+- NodeJS >= 14.x
+- ioBroker >= 4.x, с администратором >= 5.x
 - Система Gigaset Elements
 
-## Установка
+## Монтаж
 Пока адаптер не является частью последнего или стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm или github.
 
 После установки создайте новый экземпляр и настройте параметры:
@@ -45,10 +45,11 @@ hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
 На данный момент адаптер был протестирован/работает со следующими элементами, а тестовые данные доступны через [Gigaset-элементы-API](https://github.com/matthsc/gigaset-elements-api):
 
 | Тип элемента | Имя элемента | Протестировано |
-| ------------ | --------------------- | --------- |
+| ------------ | ----------------------- | ----------- |
 | is01 | Сирена | математика |
 | мм01 | Универсальный/Оконный/Дверной | математика |
 | wd01 | Вода | математика |
+| сд01 | Дым (только тестовая сигнализация) | Управление домом |
 
 Адаптер также поддерживает следующие другие устройства:
 
@@ -114,6 +115,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.2.2 (2022-09-17)
+
+-   (matthsc) fix probably_open state
+-   (matthsc) dependency updates
+
+### 0.2.1 (2022-07-02)
+
+-   (matthsc) add initial support for smoke detectors
+-   (matthsc) dependency updates
+
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones

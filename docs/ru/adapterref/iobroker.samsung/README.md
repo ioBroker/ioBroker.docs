@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.samsung/README.md
 title: без заголовка
-hash: jh8cSyMnRQLumhvkFReWrgiKqYwaL3zAjaUcM4Y07Js=
+hash: fMqJKEXdLxR/Yz6PqBYEwadR+vbNNnWrf9oAuEToQ3Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.samsung/admin/samsung.png)
 
@@ -25,28 +25,62 @@ hash: jh8cSyMnRQLumhvkFReWrgiKqYwaL3zAjaUcM4Y07Js=
 
 #### Конфигурация
 Введите IP-адрес вашего телевизора Samsung.
-Выберите свой API: Samsung Remote — телевизоры до 2014 г. После установки вам необходимо подтвердить новое подключение на вашем телевизоре Samsung HJ — 2014 и 2015 гг. После первого подключения вам необходимо ввести PIN-код, отображаемый на вашем телевизоре.
+Выберите свой API: Samsung Remote — телевизоры до 2014 г. После установки вам необходимо подтвердить новое подключение на телевизоре Samsung HJ — 2014 и 2015 гг. После первого подключения вам необходимо ввести PIN-код, отображаемый на вашем телевизоре.
 Samsung2016 — самоочевидный SamsungTV — телевизоры Tizen после 2016 года
 
-#### Установка
-через администратора ioBroker.
+#### Монтаж
+через админку ioBroker.
 
-В противном случае выполните следующую команду в корневом каталоге iobroker (например, в /opt/iobroker)
+В противном случае выполните следующую команду в корневом каталоге ioBroker (например, в /opt/iobroker)
 
 ```
 iobroker install samsung
 ```
 
-или
+или же
 
 ```
 npm install iobroker.samsung
 ```
 
 #### Требования
-Самсунг ТВ<br> Серия HJ проверена мной на UE55HU7200. Поддержка устройств с 2016 года экспериментальная, если что-то не работает, смотрите в лог.
+Самсунг ТВ<br> Серия HJ тестировалась мной на UE55HU7200. Поддержка устройств с 2016 года экспериментальная, если что-то не работает, смотрите в лог.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Only Wake-On-Lan SamsungTVs on adapterstart if no token is configured
+
+### 0.5.11 (2022-06-02)
+* (Apollon77) Optimize checkOnOff logic on adapter start
+
+### 0.5.10 (2022-05-27)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.9 (2022-05-27)
+* (Apollon77) fix crash when initializing a SamsungTV (Tizen)
+
+### 0.5.8 (2022-04-23)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.7 (2022-04-19)
+* (Apollon77) Adjust logic to detect if TV is on or off
+
+### 0.5.6 (2022-03-31)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.5 (2022-03-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.4 (2022-03-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.3 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.2 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 0.5.1 (2022-03-25)
 * (Apollon77) General updates
 * (Apollon77) Add Sentry for Crash reporting

@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: HjxcicBThtHHwhyfzr6p95FmkFztTHJhPTshaNBN52I=
+hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
 ---
 ![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/text2command-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.text2command.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
+![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
 # IoBroker.text2command
@@ -97,7 +97,7 @@ Folgende Räume werden unterstützt:
 | Arbeiten/Büro | Büro | Arbeitszimmer | кабинет |
 | Kinder/Kind/Kindergarten | Kindergarten | Kinderzimmer | детская |
 | Gäste-WC/Gästeschrank | Gäste-WC | gästewc | гостевой туалет |
-| WC/Schrank | WC | WC | туалет |
+| WC/Schrank | Toilette | Toilette | туалет |
 | Etage/eintreten | Etage | diele/gang/flur | коридор/прихожая |
 | Küche | Küche | küche/küche | кухня |
 | Balkon/Terrasse/Patio | Terrasse | Balkon/Terrasse | терраса/балкон |
@@ -108,7 +108,7 @@ Folgende Räume werden unterstützt:
 | Hof/Hof | Gericht | Hof | двор |
 | Gästezimmer | Gästezimmer | Gästezimmer | гостевая |
 | Dachboden | Dachboden | Speicher | кладовка |
-| Dach | Dach | Dachstuhl | крыша |
+| Dach | Dach | dachstuhl | крыша |
 | Klemme | Klemme | Anschlussraum | сени |
 | Waschraum | Waschraum | Waschraum | прачечная |
 | Wärmeraum | Heizraum | heizungsraum/heizungsraum | котельная |
@@ -127,7 +127,7 @@ Folgende Befehle werden unterstützt:
 ### Wie spät ist es?
 Antwort: 14:56 (aktuelle Zeit)
 
-### Wie ist dein Name?
+### Wie heißen Sie?
 Die Antwort ist anpassbar. Standard: `My name is Alpha`
 
 ### Wie ist die Außentemperatur?
@@ -160,21 +160,21 @@ Schlüsselwörter zum Hochfahren der Jalousien sind: *Jalousien hoch*, z. `set b
 
 Stichworte zum Herunterfahren der Jalousie sind: *Jalousie runter*, z.B. `move blinds down in office`
 
-Sie können die exakte Jalousieposition in Prozent angeben, z. `move blinds to 40 percent in office`
+Sie können die genaue Jalousieposition in Prozent angeben, z. `move blinds to 40 percent in office`
 
 Antwort wird auf Wunsch automatisch generiert: ` in %room%`, wobei %room% durch gefundenen Gerätetyp und Standort ersetzt wird.
 
 ### Etwas ein-/ausschalten
 Der Benutzer muss die Zustands-ID des zu steuernden Geräts und den zu schreibenden Wert angeben.
 
-Sie sollten für jede Position eine Regel erstellen (z. B. für `on` und für `off`).
+Sie sollten eine Regel für jede Position erstellen (z. B. für `on` und für `off`).
 
 Die Antwort ist anpassbar. Standard: `Switched on`
 
 Z.B.:
 
 - `Alarm deaktivieren`, Objekt-ID: `hm-rpc.0.alarm`, Wert: `false`, Antwort: `Alarm ist deaktiviert/Deaktiviert`. In diesem Fall wird die Antwort zwischen *Alarm ist deaktiviert* und *Deaktiviert* randomisiert.
-- `Alarm aktivieren`, Objekt-ID: `hm-rpc.0.alarm`, Wert: `true`, Antwort: `Alarm ist aktiviert/Aktiviert/Fertig` . In diesem Fall wird die Antwort zufällig zwischen *Alarm ist aktiviert*, *Aktiviert* und *Fertig* gesetzt.
+- `Alarm aktivieren`, Objekt-ID: `hm-rpc.0.alarm`, Wert: `true`, Antwort: `Alarm ist aktiviert/Aktiviert/Fertig` . In diesem Fall wird die Antwort zwischen *Alarm ist aktiviert*, *Aktiviert* und *Fertig* gemischt.
 
 *Deaktivieren* muss in der Liste an erster Stelle stehen, da es länger ist.
 
@@ -194,7 +194,7 @@ Diese Vorlage antwortet mit Informationen aus einem bestimmten Staat.
 
 Z.B.:
 
-- „Fenster geöffnet“, Objekt-ID: „javascript.0.countOpenedWindows“, Bestätigung: „Tatsächlich %s Fenster geöffnet“.
+- `Fenster geöffnet`, Objekt-ID: `javascript.0.countOpenedWindows`, Bestätigung: `Tatsächlich %s Fenster geöffnet`
 - `Temperatur Schlafraum`, Objekt-ID: `hm-rpc.0.sleepingRoomSensor.TEMPERATURE`, Bestätigung: `Aktuelle Temperatur im Schlafraum ist %s %u/%s %u`. In diesem Fall wird die Antwort randomisiert zwischen *Aktuelle Temperatur im Schlafzimmer ist %s %u* und *%s %u*.
 
 ### Text an Staat senden
@@ -219,7 +219,7 @@ Z.B.:
 
 Hier können Sie mehr über Bindungen lesen: (Bindungen von Objekten)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Zusätzlich kann die bisherige Zeit durch `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 Minuten und 12 Sekunden vor **) abgerufen werden.
+Zusätzlich können Sie die bisherige Zeit durch `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 Minuten und 12 Sekunden **vor**) abrufen.
 
 ## Externe Regeln mit Javascript
 Es besteht die Möglichkeit, die Javascript-Engine zu verwenden, um Befehle in text2command zu verarbeiten.
@@ -261,11 +261,17 @@ Bei Aktivierung durch jeden Befehl (egal ob die Anfrage über state oder sendTo 
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to v5
+
+### 2.2.2 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 2.2.1 (2022-02-21)
-* (bluefox) Checked the existence of sayit instance before output
+* (bluefox) Checked the existence of `sayit` instance before output
 * (bluefox) Added the decimal places settings to temperature  
 * (bluefox) Added the second object ID to user queries
 * (bluefox) Added the option: "No negative answer"

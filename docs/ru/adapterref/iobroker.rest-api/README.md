@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: REST-API-адаптер
-hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
+hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -22,9 +22,9 @@ hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
 
 Он имеет очень полезный веб-интерфейс для игры с запросами:
 
-![Снимок экрана](../../../en/adapterref/iobroker.rest-api/img/screen.png)
+![Скриншот](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
-## Использование
+## Применение
 Вызовите в браузере ```http://ipaddress:8093/``` и используйте пользовательский интерфейс Swagger для запроса и изменения состояний и объектов.
 
 Некоторые примеры запросов:
@@ -32,6 +32,7 @@ hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - читать состояние как JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - чтение состояния в виде строки (только значение)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - записать состояние с помощью GET (только для обратной совместимости с simple-api)
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение на javascript.0 в скрипте `scriptName`
 
 ## Подписка на изменения состояния или объекта
 Ваше приложение может получать уведомления при каждом изменении состояния или объекта.
@@ -119,13 +120,13 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `checkFeatureSupported(feature)` - проверить, поддерживается ли функция js-контроллером.
 - `decrypt(encryptedText)` - расшифровать строку с системным секретом
 - `encrypt(plainText)` - зашифровать строку системным секретом
-- `getAdapterInstances(имя_адаптера)` - получить объекты типа "экземпляр". Вы можете определить дополнительно имя адаптера
 - `getAdapters(adapterName)` - получить объекты типа "адаптер". Вы можете определить дополнительно имя адаптера
 - `updateLicenses(логин, пароль)` - прочитать лицензии с портала ioBroker.net
 - `getCompactInstances()` - прочитать список экземпляров с краткой информацией
 - `getCompactAdapters()` - прочитать список установленных адаптеров с краткой информацией
 - `getCompactInstalled(host)` - прочитать краткую информацию об установленных адаптерах
 - `getCompactSystemConfig()` - прочитать краткую системную конфигурацию
+- `getCompactSystemRepositories()`
 - `getCompactRepository(host)` - прочитать краткий репозиторий
 - `getCompactHosts()` - получить краткую информацию о хостах
 - `addUser(user, pass)` - добавить нового пользователя
@@ -148,12 +149,40 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getUserPermissions()` - прочитать объект с правами пользователя
 - `getVersion()` - прочитать имя и версию адаптера
 - `getAdapterName()` - прочитать имя адаптера (всегда rest-api)
+- `getAdapterInstances(имя_адаптера)` - получить объекты типа "экземпляр". Вы можете определить дополнительно имя адаптера
 
-<!-- END --> <!-- Заполнитель для следующей версии (в начале строки):
+<!-- КОНЕЦ -->
+
+## Сделать
+- [] Реализовать файловые операции GET,PATCH,POST,DELETE.
+
+<!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.4 (2022-08-31)
+* (bluefox) Check if the port is occupied only on defined interface
+
+### 1.0.2 (2022-07-27)
+* (bluefox) Implemented binary read/write operations
+
+### 1.0.1 (2022-07-27)
+* (bluefox) Increased the max size of body to 100Mb
+
+### 1.0.0 (2022-05-19)
+* (bluefox) Final release
+
+### 0.6.0 (2022-05-18)
+* (bluefox) Added sendTo path
+
+### 0.5.0 (2022-05-17)
+* (bluefox) Some access errors were corrected
+
 ### 0.4.0 (2022-04-26)
 * (bluefox) Added socket commands
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
+hash: /vORLnUCUd3thgw0OfhRyfqUqpIgDnAPpJ/JAKnxP2M=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -13,17 +13,19 @@ hash: VBnLZTz9acrcKjC7PStNAN1GVFTId+gNbMbT2nBCJEY=
 ![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
 
 # IoBroker.meteoalarm
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
-meteoalarm Adapter für ioBroker ---------------------------------------------- --------------------------------- Dieser Adapter bezieht Wetteralarme von https://meteoalarm.org, einschließlich Wind , Schnee, Regen, hohe und niedrige Temperaturen usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+meteoalarm Adapter für ioBroker ---------------------------------------------- --------------------------------- Dieser Adapter zieht Wetteralarme von https://meteoalarm.org, einschließlich Wind , Schnee, Regen, hohe und niedrige Temperaturen usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
 
-Haftungsausschluss: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu Alarmstufen, wie sie von den teilnehmenden nationalen Wetterdiensten veröffentlicht werden, verwenden Sie bitte https://www.meteoalarm.org.
+HAFTUNGSAUSSCHLUSS: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu Alarmstufen, wie sie von den teilnehmenden nationalen Wetterdiensten veröffentlicht werden, verwenden Sie bitte https://www.meteoalarm.org.
+
+Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig behandelt werden oder dass es Fehler und Probleme gibt, die dazu führen, dass Warnungen überhaupt nicht behandelt werden!
 
 ## Wie man es benutzt
 Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
 ## Fügen Sie es Ihrem Vis hinzu
-Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - string verwenden und dort den Datenpunkt htmlToday auswählen. Dadurch erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
+Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - html verwenden und dort {meteoalarm.0.htmlToday} eingeben. Dadurch erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
 
 ## Alarmtypen
 |Alarmtyp|Beschreibung|
@@ -63,6 +65,23 @@ Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - strin
 |Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
 |Rot|Das Wetter ist sehr gefährlich. Ungewöhnlich intensive meteorologische Phänomene wurden vorhergesagt. Extreme Schäden und Unfälle, oft über große Flächen, bedrohen Leben und Sachwerte. |
 
+## Benachrichtigungen
+Es ist möglich, dass der Adapter Ihnen die Benachrichtigungen per Mail, Telegramm, Signal oder Pushover sendet.
+
+*Signal
+* Post
+* Schwächling
+* Telegramm
+* Synochat
+
+Verfügbare Einstellungen:
+
+* Standort anzeigen: Wenn diese Einstellung aktiviert ist, wird der Standortname der Benachrichtigung hinzugefügt
+* Warnstufe in Worten: Fügen Sie zusätzlich zu den Warnsymbolen die Warnstufe in Worten hinzu
+* Keine Details: Fügen Sie der Benachrichtigung keine Beschreibung der Warnung hinzu - z. für Alexa
+* "Keine Warnungen senden": Senden Sie eine Benachrichtigung, wenn alle Alarme beendet sind und im Moment keine Warnung vorliegt
+* Warnstufensymbole: Wählen Sie aus, welche Symbole der Benachrichtigung hinzugefügt werden sollen
+
 ## Unterstützte Länder
 * Österreich
 * Deutschland
@@ -70,7 +89,7 @@ Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - strin
 * BosnienHerzegowina
 * Kroatien
 * Zypern
-* Tschechien
+* Tschechische Republik
 * Dänemark
 * Estland
 * Finnland
@@ -96,11 +115,35 @@ Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - strin
 * Schweiz
 * Großbritannien
 
-Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf GitHub, und ich werde es gerne hinzufügen
+Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf Github, und ich werde es gerne hinzufügen
 
 ## Nicht mögliche Länder
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.3.0 (2022-09-15)
+* (jack-blackson) Fähigkeit, Alarme an andere Adapter zu senden (Telegramm, eMail, Pushover, Signal, Synochat
+* (jack-blackson) Link im Alarmordner reparieren
+
+## 2.2.1 (2022-07-28)
+* (jack-blackson) Bugfix noOfAlarms und Nummerierung von Objekten
+
+## 2.2.0 (2022-07-05)
+* (jack-blackson) Objekt JSON hinzugefügt, das alle aktiven Fehler im JSON-Format enthält (z. B. für Benutzer von iqontrol)
+* (jack-blackson) Erster Schritt, um doppelte Fehlermeldungen loszuwerden
+
+## 2.1.5 (2022-06-13)
+* (jack-blackson) Fehler „Fehler von InMemDB: Fehler: Nicht vorhanden“ behoben
+
+## 2.1.4 (2022-05-26)
+* (jack-blackson) Breadcrumb für Sentry hinzugefügt, um zu sehen, an welcher Stelle ein Fehler aufgetreten ist
+* (jack-blackson) Tracking in Sentry starten, wenn XMLs ohne Geocode gesendet werden
+
+## 2.1.3 (2022-05-23)
+* (jack-blackson) Umgang mit Warnungen, die ohne Geocode gesendet werden -> Sentry IOBROKER-METEOALARM-3B
+
+## 2.1.2 (2022-05-16)
+* (jack-blackson) Bugfix für Änderung in xml (falscher Link für Warnung wurde verwendet) -> Sentry IOBROKER-METEOALARM-2Y und IOBROKER-METEOALARM-31
 
 ## 2.1.1 (08.02.2022)
 * (jack-blackson) Aktualisierte Lizenzinformationen
@@ -149,7 +192,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf GitHub, und 
 ## 2.0.2 (2021-07-15)
 * (Jack-Blackson) Fehlerbehebung
 
-## 2.0.1 (08.07.2021)
+## 2.0.1 (2021-07-08)
 * (jack-blackson) Name des Alarmordners in Alarm_X geändert
 * (jack-blackson) Legen Sie im Setup fest, welche Alarme Sie sehen möchten
 * (jack-blackson) Alarme nach Datum des Inkrafttretens sortieren
@@ -181,7 +224,7 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf GitHub, und 
 * (jack-blackson) Fehler behebt Adapterprüfer
 
 ## 1.1.2 (2021-03-29)
-* (jack-blackson) Bugfix für nicht funktionierende Datenaktualisierung, automatische Generierung von Links aufgrund von CORS-Fehlern entfernt
+* (jack-blackson) Bugfix für nicht funktionierende Datenaktualisierung, automatische Linkgenerierung aufgrund von CORS-Fehlern entfernt
 
 ## 1.1.1 (2020-10-28)
 * (Jack-Blackson) Bugfix HTML-Daten

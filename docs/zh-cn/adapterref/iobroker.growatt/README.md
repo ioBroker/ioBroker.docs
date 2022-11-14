@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
+hash: DCWXE3a0M+TwFXpYSMfkRsoD7F56SUPQdrOuzkwScTA=
 ---
-![商标](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
+![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.growatt.svg)
@@ -14,6 +14,13 @@ hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
 ![新PM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
+## 重要提示：请阅读
+Growatt 的云服务器非常不稳定。请求数据时会出现错误消息和超时。
+如果你还在考虑买逆变器，那还是用好产品吧。通过 modbus-ip 在家里直接传输数据的设备是最好的。
+还有 [格罗特项目](https://github.com/johanmeijer/grott) 从通信中截取数据。然而，这里也会发生传输旧数据集或暂停传输的情况，因为这只是侦听并临时存储数据。
+
+---
+
 ### IoBroker 的 growatt 适配器
 ioBroker Growatt 适配器与 Growatt Shine 服务器通信。
 我不隶属。
@@ -73,6 +80,9 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 #### 错误循环时间以秒为单位
 如果在 Growatt 服务器上查询值时发生错误，则使用此时间而不是循环时间。默认值为 120 秒
 
+#### Growatt 服务器
+可以在此处输入另一个 url，例如使用美国域。但它必须以“https://”开头。默认为空白，因此使用 https://server.growatt.com。
+
 ### 管理对象
 在这里，您可以定义逆变器获取的每个值（对象）应该发生什么。
 有很多值不属于你的逆变器。这些可以在这里删除。
@@ -88,9 +98,40 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 ####没有更新
 对象保留，来自逆变器的值被丢弃。
 
+### 管理记录器
+实例必须正在运行并登录到服务器。然后可以通过此选项卡中的刷新按钮调用数据记录器的设置。
+数据不会自动请求，只能通过按钮进行请求。
+为数据记录器显示的字段无法更改。它仅与检索到的数据有关。
+为每个记录器显示按钮。可以使用按钮编辑设置。
+_使用 GROTT 时，必须启用更改 INI 中的设置。_ 如果出现您未预料到的值，请不要使用设置。
+注意这是基于再造的。我不对设备损坏负责。
+
+#### 按键间隔
+从数据记录器中读取当前间隔（以分钟为单位），并出现一个输入表格，可以在其中调整值。
+如果您获得成功响应，则应重新启动数据记录器以激活设置。
+
+#### 按钮服务器ip
+可在此处设置记录仪数据传输的服务器。使用 Grott 或 US 时，可在此处指定本地或美国 IP。
+如果您获得成功响应，则应重新启动数据记录器以激活设置。
+
+#### 按钮服务器端口
+可在此处设置记录仪上用于数据传输的服务器端口。
+如果您获得成功响应，则应重新启动数据记录器以激活设置。
+
+####按钮检查固件
+将询问数据记录器的固件是否是最新的。
+更新必须在 growatt 页面上完成。
+
+#### 按钮重启数据记录器
+每个靴子都很好。
+接受设置。
+
 ---
 
-##加速数据间隔新方法
+##加速数据区间内部方法
+看看管理记录器和按钮间隔
+
+##加速数据间隔外部应用方法
 - 打开 ShinePhone 应用程序
 - 点击下面的附件
 - 右上角 +，然后列出数据记录器
@@ -108,32 +149,49 @@ HTTP 请求的默认超时。默认值 60 秒，与 Web 浏览器一样
 - 单击并应用更改
 - 退出热点模式
 
----
-
-##加速数据间隔旧方法
-### 您可以将记录器间隔设置为 5 分钟到 1 分钟
-从 ShineWiFi-S 上取下 KEY 按钮的橡胶塞，短按里面的按钮。蓝色 LED 将亮起。使用手机或电脑连接 ShineWiFi-S 模块发出的无线网络。网络名称/SSID 是 ShineWiFi-S 模块的序列号。
-
-### 登录页面
-连接成功后，打开手机或电脑的浏览器，在地址栏输入192.168.10.100。用户名为 admin，默认密码为 12345678。
-
-![登录页面](../../../en/adapterref/iobroker.growatt/docs/login.png)
-
-＃＃＃ 高级设置
-将数据间隔时间更改为 1 分钟
-
-![高级设置](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
-
-### 系统重启
-在此页面重新启动您的 ShineWiFi-S 模块，单击“立即重启”以启用您刚刚所做的新设置并从您的 ShineWiFi 模块的内部网络服务器注销。
-
-![系统重启](../../../en/adapterref/iobroker.growatt/docs/restart.png)
+##加速数据间隔外部旧方法
+在热点模式下，只能更改旧固件的时间间隔。
+Growatt 已从固件中删除了该网站。
+因此，描述也已被删除。
 
 **成长方的图表没有变化。在那里，您只能看到数据记录器中数据的变化。**
 
 -\*-
 
 ## Changelog
+
+### 2.0.0 (06.10.2022)
+
+- (PLCHome) Data logger settings can be called up and changed.
+- (PLCHome) The server url can be changed.
+
+### 1.2.1 (21.09.2022)
+
+- (PLCHome) Added an offset to numeric values. My inverter reset te total quantity by itself. Now the total quantity can be corrected.
+
+### 1.1.19 (30.08.2022)
+
+- (PLCHome) HTML Header
+
+### 1.1.17 (10.08.2022)
+
+- (PLCHome) JSON Loopkiller
+
+### 1.1.16 (10.08.2022)
+
+- (PLCHome) https rejectUnauthorized false
+
+### 1.1.15 (28.04.2022)
+
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+
+### 1.1.14 (26.04.2022)
+
+- (PLCHome) Restart loop when exception
+
+### 1.1.13 (08.04.2022)
+
+- (PLCHome) total data and history data missing for type inv
 
 ### 1.1.12 (06.04.2022)
 

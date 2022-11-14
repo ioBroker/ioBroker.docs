@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
+hash: DCWXE3a0M+TwFXpYSMfkRsoD7F56SUPQdrOuzkwScTA=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,6 +14,13 @@ hash: UePucYgAZvrPSsKt2tfAhyq4K2JEmq+DYWaN9ZFQbs4=
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
+## Wichtig: Bitte lesen
+Die Cloud-Server von Growatt sind sehr instabil. Beim Anfordern von Daten kommt es zu Fehlermeldungen und Timeouts.
+Wer dennoch über die Anschaffung eines Wechselrichters nachdenkt, greift besser zu einem guten Produkt. Am besten eignen sich Geräte, die die Daten direkt im Haus per modbus-ip übertragen.
+Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt. Hier kommt es aber auch vor, dass ältere Datensätze übertragen werden oder die Übertragung ausgesetzt wird, da diese die Daten nur mithört und zwischenspeichert.
+
+---
+
 ### Growatt-Adapter für ioBroker
 ioBroker Growatt Adapter zur Kommunikation mit Growatt Shine Server.
 Ich bin nicht angeschlossen.
@@ -73,6 +80,9 @@ Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Date
 #### Fehlerzykluszeit in Sekunden
 Tritt bei der Abfrage der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert ist 120 Sekunden
 
+#### Growatt-Server
+Hier kann eine andere URL eingetragen werden, um beispielsweise die US-Domain zu verwenden. Aber es muss mit "https://" beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
+
 ### Objekte verwalten
 Hier können Sie festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Umrichter abgeholt wird.
 Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können hier entfernt werden.
@@ -88,15 +98,46 @@ Nach der Aktualisierung werden nur die ID und die Aktion angezeigt, da das Objek
 #### Kein Update
 Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
 
+### Logger verwalten
+Die Instanz muss ausgeführt werden und beim Server angemeldet sein. Anschließend können die Einstellungen des Datenloggers über den Aktualisieren-Button in diesem Reiter aufgerufen werden.
+Die Daten werden nicht automatisch abgefragt, die Abfrage kann nur über die Schaltfläche erfolgen.
+Die angezeigten Felder für den Datenlogger können nicht geändert werden. Es geht nur um abgerufene Daten.
+Für jeden Logger werden Schaltflächen angezeigt. Einstellungen können mit der Schaltfläche bearbeitet werden.
+_Bei Verwendung von GROTT muss das Ändern von Einstellungen in der INI aktiviert sein._ Bitte verwenden Sie die Einstellungen nicht, wenn ein Wert erscheint, den Sie nicht erwartet haben.
+Achtung, dies basiert auf Reingeneering. Ich übernehme keine Haftung für Schäden am Gerät.
+
+#### Tastenintervall
+Das aktuelle Intervall in Minuten wird aus dem Datenlogger ausgelesen und es erscheint eine Eingabemaske, in der der Wert angepasst werden kann.
+Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+
+#### Button-Server-IP
+Hier kann der Server für die Datenübertragung auf den Logger eingestellt werden. Bei Verwendung von Grott oder US kann hier die lokale oder US-IP angegeben werden.
+Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+
+#### Button-Server-Port
+Hier kann der Port auf dem Server für die Datenübertragung auf den Logger eingestellt werden.
+Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
+
+#### Taste Firmware prüfen
+Es wird gefragt, ob die Firmware des Datenloggers aktuell ist.
+Das Update muss auf der growatt Seite durchgeführt werden.
+
+#### Schaltfläche Datenlogger neu starten
+Jeder Stiefel ist gut.
+Die Einstellungen werden übernommen.
+
 ---
 
-## Datenintervall beschleunigen neue Methode
+## Interne Methode zum Beschleunigen des Datenintervalls
+Werfen Sie einen Blick auf Logger verwalten und Schaltflächenintervall
+
+## Datenintervall externe App-Methode beschleunigen
 - Öffnen Sie die ShinePhone-App
 - Klicken Sie unten auf den Anhang
 - Oben rechts +, dann Datenlogger auflisten
 - Klicken Sie auf vorhandenen Datenlogger
 - Datenlogger konfigurieren
-- WLAN-Hotspot-Modus
+- Drahtloser Hotspot-Modus
 - Bringen Sie den Stick in den AP-Modus
 - Mit WLAN-Hotspot verbinden, PW 123456789 ? <- erneut prüfen
 - Fortsetzen
@@ -106,34 +147,51 @@ Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
 - Geben Sie das Passwort growattJJJJMMTT ein (z. B. growatt20220209)
 - Freischalten
 - Klicken Sie auf und übernehmen Sie die Änderungen
-- Beenden Sie den Hotspot-Modus
+- Verlassen Sie den Hotspot-Modus
 
----
-
-## Datenintervall beschleunigen alte Methode
-### Sie können das Logger-Intervall von 5 Minuten bis 1 Minute einstellen
-Entfernen Sie den Gummistopfen der KEY-Taste von ShineWiFi-S und drücken Sie kurz die Taste im Inneren. Die blaue LED leuchtet auf. Verwenden Sie Ihr Telefon oder Ihren Computer, um sich mit dem drahtlosen Netzwerk zu verbinden, das vom ShineWiFi-S-Modul ausgegeben wird. Der Netzwerkname/SSID ist die Seriennummer des ShineWiFi-S-Moduls.
-
-### Loginseite
-Nachdem die Verbindung erfolgreich hergestellt wurde, öffnen Sie den Webbrowser auf Ihrem Telefon oder Computer und geben Sie 192.168.10.100 in die Adressleiste ein. Der Benutzername ist admin, das Standardpasswort ist 12345678.
-
-![Loginseite](../../../en/adapterref/iobroker.growatt/docs/login.png)
-
-### Erweiterte Einstellungen
-Ändern Sie die Datenintervallzeit auf 1 Minute
-
-![Erweiterte Einstellungen](../../../en/adapterref/iobroker.growatt/docs/advancedsettings.png)
-
-### Systemneustart
-Starten Sie Ihr ShineWiFi-S-Modul auf dieser Seite neu, klicken Sie auf „Sofort neu starten“, um die neuen Einstellungen zu aktivieren, die Sie gerade vorgenommen haben, und melden Sie sich vom internen Webserver Ihres ShineWiFi-Moduls ab.
-
-![Systemneustart](../../../en/adapterref/iobroker.growatt/docs/restart.png)
+## Datenintervall beschleunigen externe alte Methode
+Im Hotspot-Modus ist es nur möglich, das Intervall auf der alten Firmware zu ändern.
+Growatt hat die Website aus der Firmware entfernt.
+Daher wurde auch die Beschreibung entfernt.
 
 **Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort sehen Sie nur eine Änderung der Daten des Datenloggers.**
 
 -\*-
 
 ## Changelog
+
+### 2.0.0 (06.10.2022)
+
+- (PLCHome) Data logger settings can be called up and changed.
+- (PLCHome) The server url can be changed.
+
+### 1.2.1 (21.09.2022)
+
+- (PLCHome) Added an offset to numeric values. My inverter reset te total quantity by itself. Now the total quantity can be corrected.
+
+### 1.1.19 (30.08.2022)
+
+- (PLCHome) HTML Header
+
+### 1.1.17 (10.08.2022)
+
+- (PLCHome) JSON Loopkiller
+
+### 1.1.16 (10.08.2022)
+
+- (PLCHome) https rejectUnauthorized false
+
+### 1.1.15 (28.04.2022)
+
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+
+### 1.1.14 (26.04.2022)
+
+- (PLCHome) Restart loop when exception
+
+### 1.1.13 (08.04.2022)
+
+- (PLCHome) total data and history data missing for type inv
 
 ### 1.1.12 (06.04.2022)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
+hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -42,6 +42,40 @@ Gehen Sie zur Installation wie folgt vor:
 4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
 6. Geben Sie das client_secret und die client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Passwort von der App.
 
+## Aufbau
+### Grundkonfig
+Um diesen Adapter zum Laufen zu bringen, benötigen Sie mindestens:
+
+* Miele@Home User (aus der Smartphone-App)
+* Miele@Home Passwort (aus der Smartphone-App)
+* Miele Client_id (von https://www.miele.com/developer/)
+* Miele Client_secret (von https://www.miele.com/developer/ )
+
+### Vom Server gesendete Ereignisse
+Seit V6.2.0 haben Sie die Möglichkeit zwischen zu wählen
+
+* Server-Sent Events (Server-Sent Events Checkbox ist aktiviert - Standard)
+* Zeitbasiertes Daten-Polling (Server-Sent Events Checkbox ist deaktiviert)
+* Verzögerte Verarbeitung
+
+#### Vom Server gesendete Ereignisse
+Vom Server gesendete Ereignisse sind eine sehr praktische Methode, um Daten von den Miele-Servern zu erhalten, da die Server Ihnen bei jeder Änderung Daten senden. Kein nutzloses Abfragen alle xx Sekunden, das ignoriert, ob es Änderungen gab oder nicht. Leider gibt es Probleme mit diesem Verbindungstyp - er schlägt ziemlich oft fehl und nur ein Neustart des Adapters löst das Problem.
+
+#### Zeitbasierte Datenabfrage
+Um die Stabilität des Adapters zu verbessern, habe ich die Datenabfrage als Konfigurationsoption wieder eingeführt, die Sie verwenden können, wenn SSE bei Ihnen fehlschlägt.
+Nichtsdestotrotz ist SSE der Standard, und ich empfehle dringend, es auszuprobieren und zu verwenden, da es viele Ressourcen auf Ihrer und auf Mieles-Seite spart. Ansonsten konzentriere ich mich auf SSE seit Version 5.x.x.
+Die zeitbasierte Datenabfrage basiert auf den beiden Konfigurationsoptionen:
+
+* Abfrageintervall
+* Abfrageintervalleinheit (Sekunden/Minuten)
+
+#### Verzögerte Bearbeitung
+Falls Sie einige Miele-Geräte besitzen und gleichzeitig verwenden, kann es vorkommen, dass die API in kurzer Zeit viele Nachrichten sendet. Abhängig von Ihrer ioBroker-Hardware kann dies Ihren Server überlasten und zu einer nicht reagierenden Visualisierung oder einem überhaupt nicht reagierenden Broker führen. Um dies zu vermeiden, reduziert diese Konfigurationsoption die Anzahl der verarbeiteten Nachrichten auf eine Nachricht alle xxx Millisekunden.
+Verwandte Konfigurationsoptionen:
+
+* verzögerte Bearbeitung
+* Nachrichtenverzögerung
+
 ## Steuerung Ihrer Geräte
 ### Aktionen
 Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.5).
@@ -63,135 +97,7 @@ Weitere Informationen finden Sie in der allgemeinen Miele API-Dokumentation (unt
   * Diese Programme werden grundsätzlich seit v6.0.0 des Adapters unterstützt. Außer Programme, die zusätzliche Parameter benötigen.
 
 ## Dokumentation
-Bitte beziehen Sie sich hauptsächlich auf die von Miele veröffentlichte API-Hauptdokumentation
-
-* [Allgemeine Dokumentation](https://www.miele.com/developer/swagger-ui/index.html)
-* [Voraussetzungen um eine Aktion auf einem Gerät auszuführen](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
-
-Es sind einige Datenpunkte in 2 Arten verfügbar. Als menschenlesbarer Text und als Zahl.
-Diese numerischen Datenfelder, die zu einem Textfeld gehören, haben den gleichen Namen, aber ein angehängtes "_raw".
-Die Felder, die eine allgemeine Bedeutung haben, sind unten aufgeführt.
-Die nicht aufgeführten Felder haben von Gerät zu Gerät unterschiedliche Bedeutung und sind von Miele nicht dokumentiert.
-Wenn Sie in Skripten auf diese Felder verweisen müssen, verwenden Sie immer die _raw-Werte.
-Die Textwerte können sich zukünftig ändern und sind auch sprachabhängig.
-Hier ist eine Liste, wofür diese Rohwerte stehen:
-
-### Gerätetypen
-| Rohwert | Zustand |
-|-----------|--------------------------------------------------|
-| 1 | WASCHMASCHINE |
-| 2 | WÄSCHETROCKNER |
-| 7 | GESCHIRRSPÜLMASCHINE |
-| 8 | GESCHIRRSPÜLER SEMI-PROF |
-| 12 | OFEN |
-| 13 | OFEN MIKROWELLE |
-| 14 | KOCHFELD-HIGHLIGHT |
-| 15 | DAMPFBACKOFEN |
-| 16 | MIKROWELLE |
-| 17 | KAFFEESYSTEM |
-| 18 | HAUBE |
-| 19 | KÜHLSCHRANK |
-| 20 | GEFRIERSCHRANK |
-| 21 | KÜHL-/GEFRIERKOMBINATION |
-| 23 | STAUBSAUGER, AUTOMATISCHER ROBOTERSTAUBSAUGER |
-| 24 | WASCHTROCKNER |
-| 25 | GESCHIRRWÄRMER |
-| 27 | KOCHFELD INDUKTION |
-| 28 | KOCHFELD GAS |
-| 31 | DAMPFBACKOFEN-KOMBINATION |
-| 32 | WEINSCHRANK |
-| 33 | WEINKLIMAANLAGE |
-| 34 | WEINLAGER-KONDITIONIEREINHEIT |
-| 39 | DOPPELTER OFEN |
-| 40 | DOPPELTER DAMPFBACKOFEN |
-| 41 | DOPPELTE DAMPFBACKOFEN-KOMBINATION |
-| 42 | DOPPELTE MIKROWELLE |
-| 43 | DOPPEL-MIKROWELLENHERD |
-| 45 | DAMPFBACKOFEN MIKROWELLENKOMBINATION |
-| 48 | VAKUUMSCHUBLADE |
-| 67 | DIALOGOFEN |
-| 68 | WEINSCHRANK-GEFRIERKOMBINATION |
-
-### Zustand/Status
-| Rohwert | Zustand |
-|-----------|-----------------------------|
-| 1 | AUS |
-| 2 | STAND_BY |
-| 3 | PROGRAMMIERT |
-| 4 | PROGRAMMED_WAITING_TO_START |
-| 5 | LAUFEND |
-| 6 | PAUSE |
-| 7 | END_PROGRAMMIERT |
-| 8 | AUSFALL |
-| 9 | PROGRAMM_UNTERBROCHEN |
-| 10 | LEERLAUF |
-| 11 | SPÜLEN_HALTEN |
-| 12 | DIENST |
-| 13 | SUPERGEFRIEREN |
-| 14 | UNTERKÜHLUNG |
-| 15 | ÜBERHITZUNG |
-| 144 | STANDARD |
-| 145 | GESPERRT |
-| 146 | SUPERCOOLING_SUPERFREEZING |
-| 255 | Gerät offline |
-
-### Programmtyp/Programmart
-| Rohwert | Zustand |
-|-----------|------------------------|
-| 0 | Normaler Betriebsmodus |
-| 1 | Eigenes Programm |
-| 2 | Automatikprogramm |
-| 3 | Reinigungs-/Pflegeprogramm |
-
-### DryStep/Trockenstufe
-| Rohwert | Zustand |
-|-----------|-------------------|
-| 0 | Extratrocken |
-| 1 | Normal Plus |
-| 2 | Normal |
-| 3 | Leicht trocken |
-| 4 | Bügelfeucht Stufe 1 |
-| 5 | Bügelfeucht Stufe 2 |
-| 6 | Maschinenbügeleisen |
-
-### Programmbezeichnung
-| Rohwert | Zustand | verfügbar für |
-|-----------|-------------------------|-----------------|
-| 1 | "Baumwolle" / "Cotton" | Waschmaschine |
-| 3 | Pflegeleicht | Waschmaschine |
-| 4 | "Feinwäsche" | Waschmaschine |
-| 8 | "Wolle" | Waschmaschine |
-| 9 | "Seide" | Waschmaschine |
-| 21 | "Pumpen/Schleudern" | Waschmaschine |
-| 23 | "Oberhemden" | Waschmaschine |
-| 27 | "Imprägnieren" | Waschmaschine |
-| 29 | "Sportwäsche" | Waschmaschine |
-| 31 | "Automatisches Plus" | Waschmaschine |
-| 37 | "Im Freien" | Waschmaschine |
-| 48 | "Flusen ausspülen" | Waschtrockner |
-| 50 | "Dunkle Wäsche" | Waschtrockner |
-| 52 | "Nur Spülen/Stärken" | Waschmaschine |
-| 122 | "Express 20" | Waschtrockner |
-| 123 | "Dunkles/Jeans" | Waschmaschine |
-
-### Programmphase
-| Rohwert | Zustand | verfügbar für |
-|-----------|---------------------------|-----------------------------|
-| 258 | "Einweichen" | Waschmaschine |
-| 260 | "Waschen" / "Waschen" | Waschmaschine |
-| 261 | "Spülen" / "Spülen" | Waschmaschine |
-| 265 | "Pumpen" | Waschmaschine |
-| 266 | "Schleudern" / "Spinnen" | Waschmaschine |
-| 267 | "Strickschutz" / "" | Waschmaschine |
-| 268 | "Ende" / "Ende" | Waschmaschine |
-| 256 | "Vorbügeln" | Waschmaschine |
-| 512 | "Ende" / "Fertig" | Wäschetrockner |
-| 514 | "Trocknen" / "Trocknen" | Waschtrockner, Wäschetrockner |
-| 519 | "Abkühlen" / "Cool down" | Waschtrockner |
-| 521 | "Strickschutz" / "" | Wäschetrockner |
-| 522 | "Ende" / "Fertig" | Wäschetrockner |
-| 531 | "Komfortkühlen" | Wäschetrockner |
-| 532 | "Flusen ausspülen" | Waschtrockner |
+Wenn Sie ein tieferes Verständnis erlangen möchten oder eine Rohwertübersetzung benötigen, lesen Sie bitte [diese Dokumentation.](machine_states.md)
 
 ## Sentry.io
 Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch an den Autor zu melden. Dafür wird das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) verwendet. Bitte beachten Sie die [Plugin-Homepage](https://github.com/ioBroker/plugin-sentry) für detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie es deaktiviert werden kann, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
@@ -201,6 +107,57 @@ Copyright (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.4.1 (2022-10-12) (Dying for an Angel)
+* (grizzelbee) Chg: Dependencies got Updated
+* (grizzelbee) Chg: Important: Requires at least Node.js 14
+
+### 6.4.0 (2022-09-07) (Dying for an Angel)
+* (grizzelbee) Fix: program names get localized now
+* (grizzelbee) New: moved Admin-UI to jsonConfig
+* (grizzelbee) Chg: BREAKING CHANGE: removed duplicate en-/decryption of passwords due to jsonConfig
+* (grizzelbee) Chg: Moved some documentation from the readme file to machine_states.md
+
+### V6.3.4 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) enabled decryption of passwords again since this issue is a bug in Admin 6.2.0
+
+### V6.3.3 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [258](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/258) Improved error handling in case of line outages 
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) Removed double decryption of passwords
+* (grizzelbee) Chg: Dependencies got updated
+
+### V6.3.2 (2022-06-02) (Black Wings)
+* (grizzelbee) New: Added new config option "delayed processing" to prevent overload on less powerful hardware
+* (grizzelbee) Fix: changed actions info message during polling to log level debug
+* (grizzelbee) Fix: Fixed german translation bug "minutes" -> "protokoll" (thanks to rekorboi)
+
+### V6.3.1 (2022-05-25) (Black Wings)
+* (grizzelbee) Fix: Fixed bad log entry for error delay (delay is logged bad - but is executed okay)
+* (grizzelbee) Chg: Improved connection error handling
+* (grizzelbee) Fix: Fixed Sentry error: [MIELECLOUDSERVICE-3K](https://sentry.io/organizations/grizzelbee/issues/3281137250)
+
+### V6.3.0 (2022-05-23) (Black Wings)
+* (grizzelbee) New: [247](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/247) Added a User-Agent to http-requests to enable Miele to identify requests made by this adapter 
+* (grizzelbee) New: [248](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/248) Added exponential backoff in case of errors
+* (grizzelbee) Fix: [249](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/249) Handling undefined devices properly when executing actions
+* (grizzelbee) Fix: [250](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/250) Fixed light switch action which did not work due to [228](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/228) 
+* (grizzelbee) Fix: [246](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/246) switched http response from warn to debug
+* (grizzelbee) Chg: Some minor log improvements
+  
+### V6.2.2 (2022-05-17) (Black Wings)
+* (grizzelbee) Fix: Starting programs on devices is working now.
+
+### V6.2.1 (2022-05-16) (Black Wings)
+* (grizzelbee) Fix: [242](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/242) VentilationStep needs to be type number but was boolean
+* (grizzelbee) Fix: ACTIONS.programId is invalid: obj.common.type has an invalid value (integer) ...
+
+### V6.2.0 (2022-05-12) (Black Wings)
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Reintroduced data polling as a config option for all who has troubles with Server-Sent Events
+* (grizzelbee) New: Added some additional error handling code when Server Send Events report errors.
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Added reconnect delay in case od an error 
+* (grizzelbee) New: [192](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/192) Improved handling of adapter traffic light in case of an error 
+* (grizzelbee) New: Waiting for code to complete in case of an occurring event 
+* (grizzelbee) Chg: Changed watchdog log entry from info to debug
 
 ### V6.1.5 (2022-05-05) (Black Wings)
 * (grizzelbee) Fix: Changed State-Changed log entry from info to debug 

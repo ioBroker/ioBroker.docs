@@ -3,19 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
+hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/chromecast-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
-![Build-Status](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
+![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
 ## Ein Google Home-Adapter für ioBroker
-Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casting zu senden.
+Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audiogeräten von Google Home. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casting zu senden.
 
 Bauen Sie auf den folgenden Projekten auf:
 
@@ -24,9 +26,6 @@ Bauen Sie auf den folgenden Projekten auf:
 
 ## Tritt dem Discord-Server bei, um alles über die ioBroker-Integration zu diskutieren!
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
-
-## [Sponsoren](./SPONSORS.md)
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für Jey Cee, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ## Anweisungen
 1. In ioBroker installieren
@@ -42,7 +41,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 
 ## Merkmale
 * Geräte mit Multicast-DNS erkennen
-  * optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
+  * Optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
 * Erstellen Sie ioBroker-Objekte für jedes gefundene Gerät
 * Status-, Player-, Medien- und Metadatenkanäle
 * Steuern Sie das Google Home-Gerät über den Adapter
@@ -68,9 +67,11 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 * mehr testen
 
 ## Changelog
-### 3.0.0 (2021-08-25)
-* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
-
+### 3.0.3 (2022-08-26)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names
+* (Bjoern3003) set album name as song if provided in icy-name
+* (Apollon77/aortmannm) Make compatible with Node.js 16+
+* (Apollon77) Add Sentry for crash reporting
 
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
@@ -222,7 +223,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

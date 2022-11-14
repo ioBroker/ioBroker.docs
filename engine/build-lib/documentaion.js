@@ -64,14 +64,17 @@ async function translateTitle(title, inFolder) {
 
 async function processContent(filePath) {
     const lines = fs.readFileSync(filePath).toString().replace(/\r/g, '').split('\n');
-    const content = {pages: {}};
+    const content = { pages: {} };
     const levels = [content, null, null, null];
-    return new Promise(resolve => {
-        return Promise.all(lines.map(async line => {
+    return new Promise(resolve => Promise.all(
+        lines.map(async line => {
             const pos = line.indexOf('*');
             if (pos !== -1) {
                 const level = pos / 2;
                 const words = await translateTitle(line.substring(pos + 1));
+                // Capitalize first letter of title
+                words.ru = words.ru[0].toUpperCase() + words.ru.substring(1);
+
                 const link = words.link;
                 if (link) {
                     // ignore links if en/"link" does not exist
@@ -79,6 +82,12 @@ async function processContent(filePath) {
                         console.error(`DOCUMENT ${link} does not exist, but listed in content.md!`);
                         return;
                     }
+                    const header = utils.extractHeader(fs.readFileSync(path.join(consts.SRC_DOC_DIR, 'en', link)).toString('utf8'));
+                    if (header.header && header.header.template) {
+                        console.error(`DOCUMENT ${link} is just template, do not include it into content.`);
+                        return;
+                    }
+
                     // check if this file exists in en
                     delete words.link;
                 }
@@ -115,12 +124,12 @@ async function processContent(filePath) {
                 }
             }
             return line;
-        })).then(result => {
-            const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
-            fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
-            resolve(content);
-        });
-    });
+        }))
+            .then(result => {
+                const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
+                fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
+                resolve(content);
+            }));
 }
 
 // read file and copy it in the front-end directory
@@ -132,7 +141,7 @@ async function processFile(fileName, lang, root) {
     if (fileName.match(/\.md$/)) {
         let {header, body} = utils.extractHeader(data.toString());
 
-        header.editLink = consts.GITHUB_EDIT_ROOT + 'docs/' + fileName.replace(root, '');
+        header.editLink = `${consts.GITHUB_EDIT_ROOT}docs/${fileName.replace(root, '')}`;
 
         let prefix = fileName.replace(root, '');
         let pos = prefix.lastIndexOf('/');
@@ -208,7 +217,7 @@ function replaceImages(text, sourceFile, targetFile) {
                     if (!link.match(/^https?:/)) {
                         link = prefix + (link[0] === '/' ? link : '/' + link);
 
-                        lines[i] = lines[i].replace(item, `![${text}](${link}${title ? ' "' + title + '"' : ''})`);
+                        lines[i] = lines[i].replace(item, `![${text}](${link}${title ? ` "${title}"` : ''})`);
                     }
                 }
             });

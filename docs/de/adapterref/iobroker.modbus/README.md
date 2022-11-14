@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: 1UC/4LI62QKWFPnDBX9RhoLf4c0z5k9i2CzBLFrI6ZY=
+hash: Sb020lslki6ZXpGnYu1JKyZBEyYnJYYr2SBb1hxZZFs=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -14,7 +14,7 @@ hash: 1UC/4LI62QKWFPnDBX9RhoLf4c0z5k9i2CzBLFrI6ZY=
 # Iobroker.modbus
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 Implementierung von ModBus Slave und Master für ioBroker. Folgende Typen werden unterstützt:
 
@@ -101,7 +101,7 @@ Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs. `In
 Mit diesem Flag ist der Name `Inputs.Input10`. Ohne => `Inputs_Input10`
 
 ## Parameter für einzelne Adresszeile in Konfig
-### Die Anschrift
+### Adresse
 Zu lesende Modbus-Adresse
 
 ### Slave-ID
@@ -123,16 +123,17 @@ Vom Bus zu lesender Datentyp. Einzelheiten zu den möglichen Datentypen finden S
 Länge des Parameters. Für die meisten Parameter wird dies anhand des Datentyps bestimmt, aber für Strings definiert dies die Länge in Bytes / Zeichen
 
 ### Faktor
-Dieser Faktor wird verwendet, um den gelesenen Wert von Bus für die statische Skalierung zu multiplizieren. Die Berechnung sieht also wie folgt aus: val = x * Factor + Offset
+Dieser Faktor wird verwendet, um den gelesenen Wert von Bus für die statische Skalierung zu multiplizieren. Die Berechnung sieht also folgendermaßen aus: val = x * Factor + Offset
 
 ### Versatz
 Dieser Offset wird nach obiger Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also folgendermaßen aus: val = x * Factor + Offset
 
 ### Formel
-Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. Wenn dieses Feld gesetzt ist, werden die Felder Factor und Offset ignoriert.
-Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Vor allem die Math-Funktionen. Die Formel muss der Javascript-Syntax entsprechen, also auch auf Groß- und Kleinschreibung achten.
+Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. **Wenn dieses Feld gesetzt ist, werden die Felder Faktor und Offset ignoriert.** Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Vor allem die Math-Funktionen. Die Formel muss der Javascript-Syntax entsprechen, also auch auf Groß- und Kleinschreibung achten.
 
 In der Formel muss "x" für den gelesenen Wert von Modbus verwendet werden. Z.B. `x * Math.pow(10, sf['40065'])`
+
+Mit dem "sf"-Array (siehe obiges Beispiel) können Sie auf andere gelesene Modbus-Werte zugreifen, wenn sie als "Scale Factor" in der Konfiguration gekennzeichnet sind (siehe unten Infos zum "SF"-Flag).
 
 Wenn die Formel zur Laufzeit nicht ausgewertet werden kann, schreibt der Adapter eine Warnmeldung in das Protokoll.
 
@@ -172,7 +173,7 @@ Wert als Skalierungsfaktor verwenden. Dies wird benötigt, um dynamische Skalier
 - `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
 - `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
 - `uint8be` - `Unsigned 8 bit (Big Endian): AA => AA`
-- `uint8le` - `Unsigned 8 bit (Little Endian): AA => AA`
+- `uint8le` - `8 Bit ohne Vorzeichen (Little Endian): AA => AA`
 - `int8be` - `Vorzeichenbehaftetes 8-Bit (Big Endian): AA => AA`
 - `int8le` - `Vorzeichenbehaftetes 8-Bit (Little Endian): AA => AA`
 - `floatbe` - `Float (Big Endian): AABBCCDD => AABBCCDD`
@@ -193,11 +194,11 @@ Dieser Komfort kommt jedoch nicht ohne Komplikationen, und das Modbus RTU-Nachri
 ### Die Bedeutung der Byte-Reihenfolge
 Modbus selbst definiert keinen Gleitkommadatentyp, aber es ist allgemein anerkannt, dass es 32-Bit-Gleitkommadaten unter Verwendung des IEEE-754-Standards implementiert. Der IEEE-Standard hat jedoch keine klare Definition der Byte-Reihenfolge der Nutzdaten. Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
 
-Beispielsweise sieht die Zahl 123/456,00, wie sie im IEEE 754-Standard für 32-Bit-Gleitkommazahlen mit einfacher Genauigkeit definiert ist, wie folgt aus:
+Beispielsweise sieht die Zahl 123/456.00, wie sie im IEEE 754-Standard für 32-Bit-Gleitkommazahlen mit einfacher Genauigkeit definiert ist, wie folgt aus:
 
 ![Bild1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen verschiedener Byte-Reihenfolgen sind erheblich. Beispielsweise wird die Anordnung der 4 Datenbytes, die 123456,00 darstellen, in einer `B A D C`-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkommadatentyp ist das Ergebnis ganz anders:
+Die Auswirkungen verschiedener Byte-Reihenfolgen sind signifikant. Beispielsweise wird die Anordnung der 4 Datenbytes, die 123456,00 darstellen, in einer `B A D C`-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkommadatentyp ist das Ergebnis ganz anders:
 
 ![Bild2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
@@ -223,7 +224,7 @@ Da das Modbus-RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreich
 
 Als Faustregel bestimmt die Familie des Mikroprozessors eines Geräts dessen Endianness. Typischerweise wird der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs gefunden, die mit einem Motorola-Prozessor entwickelt wurden. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, gefolgt vom höherwertigen Byte) ist im Allgemeinen in CPUs zu finden, die die Intel-Architektur verwenden. Es ist eine Frage der persönlichen Perspektive, welcher Stil als „rückständig“ gilt.
 
-Wenn jedoch Byte-Reihenfolge und Endianness keine konfigurierbare Option sind, müssen Sie bestimmen, wie das Byte interpretiert werden soll. Dies kann durch Anfordern eines bekannten Fließkommawerts vom Slave erfolgen. Wenn ein unmöglicher Wert zurückgegeben wird, z. B. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss die Byte-Reihenfolge höchstwahrscheinlich geändert werden.
+Wenn jedoch Byte-Reihenfolge und Endianness keine konfigurierbare Option sind, müssen Sie festlegen, wie das Byte interpretiert werden soll. Dies kann durch Anfordern eines bekannten Fließkommawerts vom Slave erfolgen. Wenn ein unmöglicher Wert zurückgegeben wird, z. B. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss die Byte-Reihenfolge höchstwahrscheinlich geändert werden.
 
 ### Praktische Hilfe
 Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsverschiebungen, die 32-Bit-Ganzzahlen und 32-Bit-Float-Werte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Bytesequenzierung berücksichtigen. Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
@@ -264,7 +265,7 @@ Angesichts der verschiedenen Verschiebungen von FieldServer-Funktionen hängt di
 
 Beachten Sie, dass unterschiedliche Byte- und Wortreihenfolgen die Verwendung der entsprechenden FieldServer-Funktion move erfordern. Sobald die richtige Funktion Move ausgewählt ist, können die Daten in beide Richtungen konvertiert werden.
 
-Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolge. Eines dieser Dienstprogramme befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
+Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolgen. Eines dieser Dienstprogramme befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
 
 ![Bild5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
@@ -282,6 +283,19 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 5.0.8 (2022-09-27)
+* (bluefox) GUI packages updated
+
+### 5.0.5 (2022-08-13)
+* (Apollon77) Prevent some crash cases reported by Sentry
+
+### 5.0.4 (2022-06-15)v
+* (bluefox) Corrected the coils reading in slave mode
+* (bluefox) Corrected type of connection indicator
+
+### 5.0.3 (2022-05-13)
+* (bluefox) Fixed error with mutli-devices
+
 ### 5.0.0 (2022-05-11)
 * BREAKING: All space characters will be replaced with underscores now in the Objects IDs, not only the first one.
 * (Apollon77) Catch error reported by sentry when invalid Master port is entered

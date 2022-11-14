@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: 54SbCSmbVHFPAQ4YRK3Aw20SEbncQGbr0fB2dNpTqX0=
+hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -41,14 +41,20 @@ Da WireGuard intern nur die öffentlichen Schlüssel zur Identifizierung von Pee
 * Hauptseite
   - Name: Nur ein symbolischer Name für den Host, da er bequemer und besser einprägsam ist als seine IP-Adresse
   - Hostadresse: IP-Adresse des Hosts. Ein FQDN- oder DNS-Name funktioniert auch. Wenn Sie WireGuard und ioBroker auf demselben Host ausführen, können Sie einfach „localhost“ als IP verwenden.
+  - Port: Portnummer Ihres SSH-Servers. Standard: 22
   - Benutzer: Der Benutzer, der das Skript auf dem Host ausführt (wird verschlüsselt gespeichert)
   - Passwort: Passwort für diesen Benutzer (wird verschlüsselt gespeichert)
   - sudo: ob der wg-Befehl mit sudo ausgeführt werden soll oder nicht (erfordert gültige Konfiguration von sudoers! -> siehe [Sicherheitshinweise])
   - Docker: Führt einen „docker exec“-Befehl aus, um einen Wireguard-Server innerhalb eines Docker-Containers zu erreichen. Bitte prüfen Sie, ob es Ihren Anforderungen entspricht oder ob Sie zu einem unterstützten Container wechseln können.
   - Abfrageintervall: Pause zwischen jeder Abfrage in Sekunden (verzögert auch den ersten Lauf nach Adapterstart)
+  - Container: Name Ihres Docker-Containers. Oft "Wireguard", kann sich aber unterscheiden, insbesondere wenn mehr als einer auf einem einzelnen Server ausgeführt wird
 * Übersetzungsseite
     - Öffentlicher Schlüssel: Der öffentliche Schlüssel eines Ihrer Kollegen
     - Gruppenname: Ein symbolischer Name für diesen Peer
+* Seite mit Konfigurationsdateien
+  - Name: Muss derselbe sein wie auf der Hauptseite
+  - Interface: Name des in dieser Konfigurationsdatei hinterlegten Interfaces (wg0, wg1, ...)
+  - Konfigurationsdatei: vollständig qualifizierter Pfad und Name der Konfigurationsdatei für diese Schnittstelle (/etc/wireguard/wg0.conf, ...)
 
 ### Ausgeführte Befehlszeile hängt von Kontrollkästchen ab:
 * Keine Checkbox aktiviert: `wg show all dump` wird ausgeführt (für root-ähnliche Benutzer und Verwendung des SetUID-Bits)
@@ -60,10 +66,13 @@ Da WireGuard intern nur die öffentlichen Schlüssel zur Identifizierung von Pee
 
 ### Docker
 Grundsätzlich gilt alles, was zu regulären Installationen gesagt wurde, auch für Docker und funktioniert genauso.
-Außer den erforderlichen Kontrollkästchen, um den richtigen Befehl auszuführen, und der erforderlichen sudoers-Zeile. Wenn Sie WireGuard in einem Docker-Container verwenden, benötigen Sie möglicherweise eine Sudoers-Zeile ähnlich der folgenden:
+Außer den erforderlichen Kontrollkästchen, um den richtigen Befehl auszuführen, und der erforderlichen sudoers-Zeile. Wenn Sie WireGuard in einem Docker-Container verwenden, benötigen Sie möglicherweise ähnliche Sudoers-Zeilen wie diese:
 
 ```
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg show all dump
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * remove
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * allowed-ips *
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg syncconf * *
 ```
 
 Dieser Adapter erwartet den Namen `wireguard` für Ihren WireGuard-Container und den Befehl `wg` in `/usr/bin/`innerhalb des Containers.
@@ -93,6 +102,9 @@ Grundsätzlich gibt es drei Möglichkeiten, den Befehl auszuführen:
 ```
 #iobroker.wireguard adapter
 wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * remove
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * allowed-ips *
+wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 ```
 
 Diese Einstellung erlaubt `<wireguard-monitoring-user>` auf `ALL` Hosts, den Befehl `wg show all dump` aus dem Verzeichnis `/usr/bin/` auszuführen (muss möglicherweise auf Ihrer Distribution geändert werden), ohne dass ein Passwort erforderlich ist (§§ SSSSS_4§§).
@@ -112,6 +124,26 @@ Dieses Projekt hat in keiner Weise mit WireGuard zu tun. Der Name WireGuard und 
 Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### v1.4.1 (2022-10-26)
+* (grizzelbee) New: Showing number of currently connected peers for each interface
+
+### v1.4.0 (2022-09-09)
+* (grizzelbee) New: [#37](https://github.com/Grizzelbee/ioBroker.wireguard/issues/37) Added config options for port and docker container name
+* (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
+
+### v1.3.2 (2022-09-07)
+* (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
+
+### v1.3.1 (2022-06-26)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer
+
+### v1.3.0 (2022-06-25)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added buttons to suspend single and restore all peers of an interface
+* (grizzelbee) Chg: Changed polling log entry from info to debug 
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.2.1 (2022-04-24)
 * (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
 

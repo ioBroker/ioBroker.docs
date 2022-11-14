@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
+hash: 5JwxeHhAXaIpDmkqes8qvbpxd9+IpiVI8CrPE9sGl/E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -26,13 +26,13 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 
 - данные из ebusd с использованием html
 
-В этом случае ebusd должен работать и должен иметь возможность отправлять данные, например, на проводник через http://IP:port/data (http://192.168.0.123:8889/data) Текущая версия ebusd вкл. конфигурационные файлы можно скопировать с https://github.com/john30/ebusd Все поля с данными, lastup и из глобальной секции парсятся. Все остальные на данный момент игнорируются.
+В этом случае ebusd должен работать и должен иметь возможность отправлять данные, например, на Проводник через http://IP:port/data (http://192.168.0.123:8889/data) Текущая версия ebusd вкл. конфигурационные файлы можно скопировать с https://github.com/john30/ebusd Все поля с данными, lastup и из глобальной секции парсятся. Все остальные на данный момент игнорируются.
 
 Существует возможность опрашивать данные, которые не опрашиваются ebusd напрямую. Команда 'read -f' используется для принудительного чтения через ebus.
 
 Еще одна функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
 
-текущая поддерживаемая версия ebusd: 22.2
+текущая поддерживаемая версия ebusd: 22.3
 
 **Внимание** с ebusd - путь конфигурации версии 22.1 был изменен на http://cfg.ebusd.eu/. Убедитесь, что вы изменили его при установке ebusd.
 подробности см. в [список изменений](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -50,10 +50,10 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 Внимание: команда в datapoint ebus.0.cmd удаляется после выполнения команды!
 
 ## Известные вопросы
-* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или хотите добавить новые функции
+* Пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или хотите добавить новые функции
 
 ## 2.4.3 (21.10.2021)
-* (Рене) см. проблему № 58: исправление ошибки для предупреждения: игнорирование значения истории 1 (недопустимое)», когда значения истории не установлены
+* (Рене) см. проблему № 58: исправление ошибки для предупреждения: игнорирование значения истории 1 (недействительное)», когда значения истории не установлены
 
 ## 2.4.2 (2021-10-19)
 * (Рене) см. выпуск № 55: исправление ошибки
@@ -78,7 +78,7 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 ## 2.2.4 (2021-02-17)
 * (Рене) см. проблему № 42: Uncaught ReferenceError: oView не определен в виджете.
 
-## 2.2.3 (24.10.2020)
+## 2.2.3 (2020-10-24)
 * (Рене) создать историю DP, если она недоступна
 
 ## 2.2.0 (2020-09-06)
@@ -103,14 +103,14 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 ## 0.8.1 (2019-10-31)
 * (Рене) обновить флот до версии 3.0
 
-### 0.8.0 (2019-02-24)
+### 0.8.0 (24 февраля 2019 г.)
 * (Рене) значение hcmode2 5 = EVU Sperrzeit
 
 ### 0.7.0 (28 января 2019 г.)
 * (Рене) добавлен регулируемый тайм-аут
 
 ### 0.6.0 (06.01.2019)
-* (René) поддержка компактного режима
+* (Rene) поддержка компактного режима
 
 ### 0.5.5 (2018-11-04)
 * (Рене) очистка кода
@@ -157,6 +157,19 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 * (Рене) первоначальный выпуск
 
 ## Changelog
+
+### 3.0.7 (2022-08-20)
+* (René) support ebusd 22.3
+
+### 3.0.6 (2022-08-19)
+* (René) bug fix in tooltip in wizard
+
+### 3.0.4 (2022-08-18)
+* (René) tooltip in wizard added
+* (René) flot and dependencies updated
+* (René) errors from ebusd are shown as warning here in adapter, details schould be checked in logs of ebusd
+* (René) bug fix in widget: if less data available x axes grid point were not shown
+* (René) except null as valid value from ebusd (e.g. to reset CurrentError)
 
 ### 3.0.2 (2022-04-02)
 * (René) message for installation added

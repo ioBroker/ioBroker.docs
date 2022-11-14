@@ -3,25 +3,25 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.midea/README.md
 title: ioBroker.midea
-hash: bZ4K2sxFwu+0biDzHybU2KAAYQnMicZ9WPD4CzVP9Sg=
+hash: xn3Q0Ied5NuaILh2JB7oapxbwnHnD1vO5/4ULJnOerc=
 ---
-![логотип](../../../en/adapterref/iobroker.midea/admin/midea.png)
+![Логотип](../../../en/adapterref/iobroker.midea/admin/midea.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.midea.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.midea.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.midea.svg)
-![Количество установок (последняя)](http://iobroker.live/badges/midea-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/midea-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/midea-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.midea.svg)
 ![Известные уязвимости](https://snyk.io/test/github/TA2k/ioBroker.midea/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.midea.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.midea.png?downloads=true)
 
 # IoBroker.midea
-## Адаптер midea для ioBroker
-Midea адаптер
+## Адаптер midea для ioBroker, который также поддерживает устройства Carrier
+Midea и несущий адаптер
 
 ## Changelog
 
-### 0.0.4
+### 0.0.6
 
 -   (TA2k) initial release
 

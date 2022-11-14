@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
+hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
 ---
 # IoBroker.nibeuplink
 
@@ -19,7 +19,7 @@ hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
 Этот адаптер ioBroker получает данные от теплового насоса Nibe от Nibe Uplink.
 
 ## Использование этого адаптера
-1. Вам нужен тепловой насос Nibe — пока, если у вас его нет ;-)
+1. Вам нужен тепловой насос Nibe — купите его, если у вас его нет ;-)
 2. Вам нужна учетная запись на Nibe Uplink: https://www.nibeuplink.com/
 3. После входа в систему у вас есть URL-адрес в следующем виде: https://www.nibeuplink.com/System/XXXXX/Status/Overview.
 4. Вместо ХХХХХ стоит число. Это ваш идентификатор системы. Нам нужен этот идентификатор.
@@ -31,7 +31,7 @@ hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
 10. Далее вы получаете Идентификатор и Секрет - они нам нужны
 11. Установите этот адаптер в ioBroker
 12. На странице настройки адаптера заполните Идентификатор и Секрет.
-13. Щелкните ссылку «Щелкните здесь, чтобы сгенерировать код аутентификации на восходящем канале NIBE».
+13. Щелкните ссылку «Щелкните здесь, чтобы сгенерировать код авторизации на восходящем канале NIBE».
 14. Следуйте инструкциям. В конце вы получите свой код nibe-fetcher
 15. Скопируйте этот код и вставьте его в настройках адаптера в «Код авторизации».
 16. Введите свой системный идентификатор из URL-адреса Nibe Uplink.
@@ -52,10 +52,21 @@ https://api.nibeuplink.com/docs/v1/Parameters (раздел настроек)
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.2.1 (2022-10-03)
+- Fix getting data directory
 
-### 1.1.0 - 2022-02-06:
+### 1.2.0 (2022-10-02)
+- Requires js-controller >= 3.3.22 and admin >= 5.0.0
+- Update some files from up-to-date adapter creator
+- Bump dependencies
 
-- Switch to TypeSctipt
+### 1.1.1 - 2022-04-02
+- Fix write support (does not send zero) #6 #128
+- Bump dependencies
+
+### 1.1.0 - 2022-02-06
+
+- Switch to TypeScript
 - Use axios instead of wreck
 
 ### 1.0.1 - 2021-12-31

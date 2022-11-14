@@ -1,7 +1,8 @@
 ---
-title: cloud
+title: Alexa Custom Skill
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/alexacustom.md
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 hash: kzXej9KzwAKqF9RkVwVhw6koO0hJQ5hiByInc6BRDeg=

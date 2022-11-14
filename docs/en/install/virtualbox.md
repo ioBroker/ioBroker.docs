@@ -4,19 +4,17 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/virtualbox.md
-hash: ojdJt/Bd/RzAa+nPIcMrXd0dcayKGusHGKxwmcoeNJY=
+hash: slUqfVNS38ZC/Qkic41PwsrfkOker7g3nElPwh6kQAM=
 ---
 # Set up and install ioBroker in VirtualBox
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
-
 @@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
 
 First, let's get a recent stable version of Debian https://www.debian.org/CD/http-ftp/#stable
 
 A little further down under CD we click on AMD64
 
-Now we download the “debian-8.4.0-amd64-netinst.iso” If there is a newer version, use it, at the time of download Debian 8.4.0 was up to date.
-I use the Netinst because the file is small and the installation only reloads small things from the network.
+Now we download the `debian-8.4.0-amd64-netinst.iso`. If there is a newer version, use it, at the time of download Debian 8.4.0 was up to date.
+I use the `Netinst` because the file is small and the installation only loads small things from the network.
 
 After that we create a new virtual machine and give it a name.
 In my example ioBroker_Debian_Jessie_x64 Recording87.jpg Then specify the amount of main memory that we want to allocate to the VM.
@@ -29,7 +27,7 @@ Choose VDI (Virtual Image Box) Capture90.jpg
 When it comes to the type of storage, it is up to you what you choose.
 In my example I use DYNAMIC ALLOCATED Recording91.jpg
 
-Now we can change the file name of the VM (if we want to) and enter the size of the available partition for our VM. In my example 10GB Recording92.jpg
+Now we can still change the file name of the VM (if we want to) and enter the size of the available partition for our VM. In my example 10GB Recording92.jpg
 
 Now the VM is set up.
 If we now click CHANGE, we can set a few more things about the VM.
@@ -73,7 +71,7 @@ Repeat user password: Your user password again Recording107.jpg Time zone: We ch
 
 Recording108.jpg
 
-Partition Disk 1: We choose GUIDED – USE FULL DISK Recording109.jpg
+Partition Disk 1: We select GUIDED - USE FULL DISK Recording109.jpg
 
 Hard disk partitioning 2: We select our hard disk from Recording110.jpg
 
@@ -222,7 +220,7 @@ You can restore the previous version with one click.
 
 Memory consumption: a dynamic VM with 10 GB and Ubuntu 16.10 Full + iobroker occupies about 1.7 GB of memory. My 11 snapshots occupy 8.6 GB.
 
-I automatically copy my entire personal area, including the VirtualBOX VM directory, to a second hard drive every night using the “Back in Time” program. Several versions are kept there and automatically deleted after a certain period of time.
+Every night I automatically copy my entire personal area, including the VirtualBOX VM directory, to a second hard drive using the “Back in Time” program. Several versions are kept there and automatically deleted after a certain period of time.
 Screenshot dated 2016-04-26 22-55-23.png This is running VirtualBox.
 
 ```

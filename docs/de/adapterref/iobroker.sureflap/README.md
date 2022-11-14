@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
+hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 ---
+![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![Anzahl der Installationen (neueste)](http://iobroker.live/badges/sureflap-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/sureflap-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
 ![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
@@ -19,20 +18,20 @@ hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 
 # IoBroker.sureflap
 ## Adapter für Smart Pet Devices von Sure Petcare®
-<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
+<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ## Aufbau
 Fügen Sie den Benutzernamen und das Passwort Ihres Sure Petcare®-Kontos auf der Adapterkonfigurationsseite hinzu.
 
 ## Beschreibung
-Der Adapter gibt Auskunft über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe oder Ihres Futterautomaten.
+Der Adapter gibt Auskunft über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe, Futterautomat oder Wasserspender.
 
-Es zeigt auch den Aufenthaltsort Ihrer Haustiere und deren Futteraufnahme (mit Futternapf).
+Es zeigt auch den Standort Ihrer Haustiere und deren Futter- und Wasserverbrauch (mit Futternapf und/oder Wasserspender).
 
 Damit können Sie den Sperrmodus und die Ausgangssperre Ihrer Klappe steuern und den Standort Ihrer Haustiere festlegen.
 
 ### Veränderbare Werte
-Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. in Ihrer Sure Petcare®-App wiedergegeben.
+Die folgenden Status können geändert werden und werden auf Ihrem Gerät wirksam bzw. in Ihrer Sure Petcare®-App wiedergegeben.
 
 | Zustand | Beschreibung | zulässige Werte |
 |-------|-------------|----------------|
@@ -46,14 +45,25 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ kontrollieren<br> │ │ │ └ led_mode<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ ├ Schalen<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Lebensmitteltyp<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ kontrollieren<br> │ │ │ └ Schließverzögerung<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ kontrollieren<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_haustiere<br> │ │ └ pet_name<br> │ │ └ kontrollieren<br> │ │ └ eingeben<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ innen<br> │ ├ Namen<br> │ ├ seit<br> │ └ Essen<br> │ ├ zuletzt_gegessen<br> │ ├ aufgewendete Zeit<br> │ ├ mal_gegessen<br> │ └ trocken..nass<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> └ letzte_aktualisierung<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ kontrollieren<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ ├ Schalen<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Lebensmitteltyp<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ kontrollieren<br> │ │ │ └ Schließverzögerung<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ kontrollieren<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_haustiere<br> │ │ └ pet_name<br> │ │ └ kontrollieren<br> │ │ └ eingeben<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ innen<br> │ ├ Namen<br> │ ├ seit<br> │ ├ Essen<br> │ │ ├ zuletzt_gegessen<br> │ │ ├ aufgewendete Zeit<br> │ │ ├ mal_gegessen<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ mal_betrunken<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> └ letzte_aktualisierung<br>
 
 ## Anmerkungen
-SureFlap® und Sure Petcare® sind eingetragene Warenzeichen von [SureFlap Ltd.](https://www.surepetcare.com/)
+SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Warenzeichen von [SureFlap Ltd.](https://www.surepetcare.com/)
 
-Das Bild der Katzenklappe, des Hubs und der Smartphone-App wird von [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
+Die Bilder der SureFlap®-Geräte werden ab [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
 
 ## Changelog
+
+### 1.1.5 (2022-09-10)
+* (Sickboy78) added display of serial numbers
+
+### 1.1.4 (2022-09-07)
+* (Sickboy78) added Felaqua support
+* (Sickboy78) improved battery and battery percentage indicator (reduced outliers)
+
+### 1.1.3 (2022-03-28)
+* (Sickboy78) code improvements
+* (Sickboy78) improved error handling if no pet has been assigned yet
 
 ### 1.1.2 (2022-03-06)
 * (Sickboy78) improved error and timeout handling

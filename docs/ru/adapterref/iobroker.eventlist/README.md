@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
+hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -80,7 +80,7 @@ sendTo('eventlist.0', 'insert', 'My custom text');
 // or
 setState('eventlist.0.insert', 'My custom text');
 // or
-setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
+setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
 Пользователь может запросить отформатированный список JSON для определенного идентификатора. Конечно, идентификатор должен быть активирован в `eventlist` заранее.
@@ -130,16 +130,16 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 - %n - имя (`%n изменил состояние на %s` => `Устройство A изменило состояние на 5`),
 - %t - время (`Состояние изменено на %t` => `Состояние изменено сен пт, 16:32:00`),
 - %r - относительное время (`Состояние изменено %r` => `Состояние изменено 5 секунд назад`),
-- %d - продолжительность (`Состояние было в предыдущем состоянии в течение %d` => `Состояние было в предыдущем состоянии в течение 5 с`),
+- %d - продолжительность (`Состояние было в предыдущем состоянии %d` => `Состояние было в предыдущем состоянии 5 с`),
 - %g - разница значений (`Состояние было изменено на %g%` => `Состояние было изменено на 1%`),
 - %o - разница значений (`Состояние изменилось с %o на %` => `Состояние изменилось на 1%`)
 
 ## Использование нескольких экземпляров в сети
 Например. вы можете показать конкретный список для экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
-Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf` и, например, под номером 1 в `eventlist/report-1.pdf`.
+Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf`, а под номером 1 — в `eventlist/report-1.pdf`.
 
-## Делать
+## Сделать
 - Изменить начальные тексты в PDF на соответствующем языке
 - Множество предустановленных иконок (минимум 100)
 - Материальный виджет
@@ -147,9 +147,21 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.1.1 (2022-10-12)
+* (bluefox) Fixed icons of devices
+* (bluefox) Migrated GUI to `mui5`
+* (bluefox) Allowed the editing of list name
+* (Hirsch-DE) corrected events without unit
+
+### 1.0.1 (2022-06-22)
+* (bluefox) Added preparations for ioBroker cloud
+
+### 1.0.0 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
 * (Apollon77) Add Sentry also for the Node.js part

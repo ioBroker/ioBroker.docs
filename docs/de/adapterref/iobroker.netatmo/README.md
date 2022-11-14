@@ -3,35 +3,53 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: SL5lZ9scvkpwCjRYSdXWbjlrZvTu6XwF2XF6+8Obl7Y=
+hash: VmfYceI3tFL2ZaSlWXVhBiFFSN/IIsAiy6z2xNBwESU=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/netatmo-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
-![NPM](https://nodei.co/npm/iobroker.netatmo.png?downloads=true)
 
 # IoBroker.netatmo
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+![Testen und freigeben](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 Netatmo-Adapter für ioBroker
 
+## __Wichtiger Hinweis für Änderungen bei der Authentifizierung im Oktober 2022__
+Laut Netatmo wird die „alte“ Möglichkeit, sich mit Benutzername und Passwort direkt durch Eingabe in den Adapter zu authentifizieren, bis Oktober 2022 deaktiviert.
+
+Version 2.0 des Adapters adressiert diese Änderung und passt die Authentifizierung an. Alle Upgrades vor Oktober 2022 sollten beim ersten Start automatisch ein nahtloses Upgrade auf 2.0.0 ermöglichen - ansonsten ist eine erneute Authentifizierung erforderlich.
+
+## __Wichtiger Hinweis für v2.0.0!__
+Mit v 2.0 des Adapters ändert sich die Objektstruktur komplett! Anstelle von Namen haben wir uns entschieden, die eindeutigen IDs besser zu verwenden, um sicherzustellen, dass doppelte oder geänderte Namen keine Probleme verursachen.
+
 ## Installation und Konfiguration
-Geben Sie einfach Ihren Netatmo-Benutzernamen und Ihr Passwort in den Adaptereinstellungen ein.
+Sie müssen sich mit Ihrem NetAtmo-Konto über die Adapter-Admin-Benutzeroberfläche authentifizieren.
+
+Wählen Sie zunächst alle relevanten Gerätetypen aus, für die Sie Daten synchronisieren möchten. Wenn Sie sie ändern, müssen Sie die Authentifizierung später erneut durchführen.
+
+Wenn Sie eine dedizierte Client-ID/Secret verwenden möchten (siehe unten), können Sie diese auch vor der Authentifizierung eingeben.
+
+Verwenden Sie die Schaltfläche "Mit Netatmo authentifizieren", um den Authentifizierungsablauf zu starten. Ein neues Fenster/eine neue Registerkarte wird mit der Netatmo-Anmeldeseite geöffnet. Nach dem Einloggen und Bestätigen des Datenzugriffs werden Sie zurück auf Ihre Admin-Seite geleitet.
+
+Im Erfolgsfall einfach das Fenster schließen und die Adapterkonfiguration neu laden. Überprüfen Sie im Fehlerfall die Fehlermeldung und versuchen Sie es erneut
 
 Standardmäßig wird für die Anfragen ein allgemeiner API-Schlüssel verwendet, der das Aktualisierungsintervall auf 10 Minuten begrenzt!
 
-Um das Intervall zu erhöhen oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
+Um das Intervall zu verlängern oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
 Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an und füllen Sie das angeforderte Formular auf https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% aus. 2Fapps%2Ferstelle eine App !
 
 Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
 
 ## SendTo support
+### Entfernt angesiedelt
 Sie können auch den Befehl sendTo verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmsystem).
 
 ```
-sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: []});
+sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
 ```
 
 oder
@@ -48,13 +66,57 @@ Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu marki
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte "Objekte" aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner "Bekannte" Personen
+Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte „Objekte“ aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner „Bekannte“ Personen
+
+### SetHome
+Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ beschrieben auch für „setHome“ vorhanden, um Personen oder ganze Wohnungen als „belegt“ zu setzen.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.1.1 (2022-09-30)
+* (Apollon77) Make sure device types that require custom credentials are not selectable in UI without entering them
+* (Apollon77) Fix a potential crash case
+
+### 2.1.0 (2022-09-23)
+* (Apollon77) Fix setAway
+* (Apollon77) Adjust setAway/setHome message responses to return all errors/responses when multiple calls where done for multiple homes or persons
+
+### 2.0.5 (2022-09-16)
+* (Apollon77) Catch communication errors better
+
+### 2.0.4 (2022-09-15)
+* (Apollon77) Fix crash case with Smoke detector events
+
+### 2.0.3 (2022-09-14)
+* (Apollon77) Fixes and Optimizations for Doorbell devices
+
+### 2.0.2 (2022-09-12)
+IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
+* BREAKING: Object structure changes completely and now uses unique IDs instead of names!
+* (Apollon77) Change the Authentication method as requested by Netatmo till October 2022
+* (Apollon77) Doorbell integration
+* (Apollon77) Converted to new APIs, values of several objects might be different
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) Adjust setAway to the current API
+* (Apollon77) Added setHome function (Welcome only) to mark all or specific persons as home (requires your own API key!)
+* (Apollon77) setAway and setHome now also return the result of the call as callback tzo the message
+* (Apollon77) Allow to edit floodlight and monitoring-state
+
+### 1.7.1 (2022-03-30)
+* (Apollon77) Fix Event cleanup
+
+### 1.7.0 (2022-03-24)
+* IMPORTANT: js-controller 3.3.19 is needed at least!
+* (Apollon77) Activate events again (manually delete objects once if you get type errors)
+* (Apollon77) Adjust some roles and written data to prevent warnings in logs
+
+### 1.6.0 (2022-03-13)
+* (Apollon77) Important: In person names (Welcome) in state IDs forbidden characters are now replaces by _!!
+* (Apollon77) Fix another potential crash case reported by sentry
+
 ### 1.5.1 (2022-03-09)
 * (Apollon77) Fix jsonconfig for Client secret
 

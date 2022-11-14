@@ -1,36 +1,44 @@
 ---
-chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/README.md"},"de/adapterref/iobroker.shelly/protocol-coap.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-coap.md"},"de/adapterref/iobroker.shelly/protocol-mqtt.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/protocol-mqtt.md"},"de/adapterref/iobroker.shelly/restricted-login.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/restricted-login.md"},"de/adapterref/iobroker.shelly/state-changes.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/state-changes.md"},"de/adapterref/iobroker.shelly/faq.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/faq.md"},"de/adapterref/iobroker.shelly/debug.md":{"title":{"de":"ioBroker.shelly"},"content":"de/adapterref/iobroker.shelly/debug.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/restricted-login.md
-title: TR: ioBroker.shelly
-hash: KSwWPyMo0b2e/iCwIZGpuh/Be6fKXaP6aO2Ypui9tbI=
+title: ioBroker.шелли
+hash: 12+LDyaR+6pN2ryvIDARzC297K5BCZkj2QnshinnNuM=
 ---
-![TR: Logo](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
+![логотип](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
 
-TR: # ioBroker.shelly
-TR: ## Geschützter Login
-TR: Um die Shelly-Geräte vor unbefugtem Zugriff zu schützen, setze in der ioBroker Konfiguration einen beliebigen Benutzernamen und Passwort im Tab *Allgemeine Einstellungen*.
+# IoBroker.шелли
+## Защищенный вход
+Чтобы защитить устройства Shelly от несанкционированного доступа, установите любой логин и пароль на вкладке *Общие настройки* в конфигурации ioBroker.
 
-![TR: iobroker_general_restrict_login](../../../de/adapterref/iobroker.shelly/./img/iobroker_general_restrict_login.png)
+![iobroker_general_restrict_login](../../../de/adapterref/iobroker.shelly/./img/iobroker_general_restrict_login.png)
 
-TR: Aktiviere den geschützten Zugriff auf allen Shelly-Geräten.
+Затем активируйте защищенный доступ на всех устройствах Shelly.
 
-TR: **Generation 2 bieten keine Option für einen Benutzernamen. Falls Du Gen 1 und Gen 2 Geräte nutzt, konfiguriere auf allen Geräten das gleiche Passwort.**
+** Поколение 2 не предлагает вариант имени пользователя. Если вы используете устройства Gen 1 и Gen 2, настройте один и тот же пароль на всех устройствах.**
 
-TR: ### Gen 1
-TR: 1. Öffne die Shelly-Webkonfiguration in einem Browser (nicht in der Shelly App!)
-TR: 2. Gehe zu ```Internet & Security settings -> Restricted Login```
-TR: 3. Setze den Haken für den gesicherten Zugriff und gib die gerade konfigurierten Zugangsdaten ein
-TR: 4. Speichere die Konfiguration - der Shelly startet automatisch neu
-TR: 5. Stelle sicher, dass auf allen Shelly-Geräten die identischen Zugangsdaten konfiguriert werden
+### Предупреждения
+Если в ioBroker настроен пароль устройства, адаптер будет писать предупреждения в лог, если некоторые устройства Shelly не защищены!
 
-![TR: shelly gen 1](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen1.png)
+Чтобы прекратить получать предупреждения, либо
 
-TR: ### Gen 2
-TR: 1. Öffne die Shelly-Webkonfiguration in einem Browser (nicht in der Shelly App!)
-TR: 2. Gehe zu ```Device -> Authentication```
-TR: 3. Aktiviere das Passwort-Feature und gibt das gerade konfigurierte Passwort ein
-TR: 4. Speichere die KOnfiguration
+- пароль можно удалить из конфигурации адаптера (= пароль не требуется) или
+- Активировать защищенный доступ на всех устройствах Shelly
 
-![TR: shelly gen 2](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen2.png)
+### Устройства первого поколения
+1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
+2. Перейдите в «Настройки Интернета и безопасности -> Ограниченный вход».
+3. Установите флажок для безопасного доступа и введите данные доступа, которые вы только что настроили.
+4. Сохраните конфигурацию — Shelly перезапустится автоматически.
+5. Убедитесь, что одинаковые учетные данные настроены на всех устройствах Shelly.
+
+![Шелли ген 1](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen1.png)
+
+### Устройства поколения 2 (Plus и Pro)
+1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
+2. Перейдите к ```Устройство -> Аутентификация```
+3. Активируйте функцию пароля и введите только что настроенный пароль.
+4. Сохраните конфигурацию
+
+![Шелли ген 2](../../../de/adapterref/iobroker.shelly/./img/shelly_restrict_login-gen2.png)

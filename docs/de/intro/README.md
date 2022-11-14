@@ -1,5 +1,5 @@
 ---
-title:       "Aufbau der Doku"
+title:       "Aufbau der Dokumentation"
 lastChanged: "10.05.2021"
 ---
 
@@ -12,13 +12,13 @@ bedeutet, dass sie je nach Auflösung der Anzeige des Lesegeräts (PC/Tablet/Han
 für optimale Lesbarkeit anders dargestellt wird. 
 
 So werden bei niedrigen (effektiven) Auflösungen auch teilweise Bedienelemente 
-versteckt um Platz für die Hauptfenster zu schaffen. 
+versteckt, um Platz für die Hauptfenster zu schaffen. 
 
 Daher kann es durchaus sein, dass die aktuelle Darstellung von den Screenshots 
 abweicht. 
 
 ### Verschiedene Menüs
-Um eine größtmögliche Übersicht zu erhalten gibt es insgesamt drei verschiedene 
+Um eine größtmögliche Übersicht zu erhalten, gibt es insgesamt drei verschiedene 
 Menüs: 
 
 ![Seiten-Menüs](media/Seite_numbers.png)
@@ -32,13 +32,13 @@ Dann  muss es durch Anklicken des Burger-Icons geöffnet werden:
 
 ![Seiten-Menü](media/Hauptmenu.png)
 
-Nach Anklicken eines Menüpunktes schließt sich das Menü automatisch um mehr 
+Nach Anklicken eines Menüpunktes schließt sich das Menü automatisch, um mehr 
 Platz für den Inhalt zu machen.
 
 ---
 #### 2 - Doku-Menü
 Dieses Menü ist am PC üblicherweise sichtbar, wird bei niedrigen Auflösungen 
-ausgeblendet. Dann  muss es durch Anklicken des Burger-Icons geöffnet werden:
+ausgeblendet. Dann muss es durch Anklicken des Burger-Icons geöffnet werden:
 
 ![Doku-Menü](media/Dokumenu.png)
 
@@ -46,7 +46,7 @@ In der obersten Zeile befindet sich ein Filterfeld. Durch Eingabe eines Begriffs
 wird der gesamte Menübaum nach diesem Begriff gefiltert und nur noch passende 
 Menüpunkte angezeigt.
 
-Über das Icon mit dem Pfeil kann das Menü wieder versteckt werden um mehr Platz 
+Über das Icon mit dem Pfeil kann das Menü wieder versteckt werden, um mehr Platz 
 für den Inhalt zu machen.
 
 ---

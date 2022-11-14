@@ -3,12 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
 title: Сетевые инструменты
-hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
+hash: biyMNvPKtoKQkW+U+RYyqU3SdvcXnkGWYkH04cZN/SA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
 ![Количество установок](http://iobroker.live/badges/net-tools-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.net-tools.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.net-tools.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
 ![Тесты](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
 ![НПМ](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
@@ -16,34 +16,42 @@ hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 # Сетевые инструменты
 | [Спонсоры](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
 |---|---|
-| [![Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
-| [! [Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)] (https://www.paypal.com/cgi-bin/ webscr? cmd = _s-xclick &amp; hosted_button_id = 95YZN2LR59Q64 &amp; source = url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/ webscr?cmd=_s-xclick&amp;hosted_button_id=95YZN2LR59Q64&amp;source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
 
 ### Обнаружение устройств в сети
 Установите для объекта обнаружения значение true, чтобы обнаруживать устройства в вашей сети, этот процесс занимает некоторое время.
-Эта функция предоставляется адаптером обнаружения, что означает, что обнаружение будет установлено, если оно не установлено, и оно должно быть запущено.
+Эта функция предоставляется адаптером обнаружения, что означает, что обнаружение будет установлено, если оно не установлено, и его необходимо запустить.
 
-Примечание: эта функция ограничена подсетью хоста ioBroker.
+Примечание. Эта функция ограничена подсетью хоста ioBroker.
 
-### Pings настроили IP-адреса
-Пингует указанные IP-адреса через определенный интервал и отслеживает результаты. (жив, об / с, время)
+### Добавить ручные устройства
+Если вы добавляете устройство вручную, то можете оставить MAC пустым, адаптер попытается его получить.
+Существует 50% вероятность того, что этот автоматический поиск завершится ошибкой и устройства не будут добавлены. В этом случае вы должны ввести MAC.
+
+### Пингует настроенные IP-адреса
+Пингует указанные IP-адреса с заданным интервалом и отслеживает результаты. (жив, об/с, время)
 
 ### Wake On LAN
-Установите для объекта wol значение true, и на ваше устройство будут отправлены 3 пакета WOL с паузой в 750 мсек.
+Установите для объекта wol значение true, и на ваше устройство будут отправлены 3 пакета WOL с паузой в 750 мс.
 
 ### Сканирование портов
-Установите для сканирования значение true, при этом будут сканироваться все открытые порты в диапазоне 0-65535. Этот процесс требует времени.
+Вы можете ввести список портов или диапазон в конфиге, которые должны сканироваться по умолчанию. Если это поле не заполнено, диапазон 0-65535 будет принят по умолчанию.
+Также можно указать список или диапазон для каждого устройства, которое будет использоваться для одного сканирования.
+
+Введите список или диапазон портов в объект portList, если хотите. Это перезаписывает настройку в config.
+Установите для сканирования значение true, это будет сканировать все открытые порты в диапазоне 0-65535 или то, что определено в списке портов. Этот процесс занимает некоторое время.
 Результат будет записан в порты объекта.
 
 ---
 
 ## Для разработчиков
-#### Получить Mac для определенного устройства
+#### Получить mac для конкретного устройства
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
 
-Примечание: эта функция ограничена подсетью хоста ioBroker.
+Примечание. Эта функция ограничена подсетью хоста ioBroker.
 
-#### Пинг определенного IP-адреса
+#### Пингуем определенный IP-адрес
 `sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
 
 #### Wake On LAN
@@ -51,9 +59,15 @@ hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 
 ---
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
+### 0.2.0 (2022-05-16)
+ * add feature to define ports they should be scanned
+ * fix crash if no MAC address can be found by the adapter
+
+### 0.1.7 (2021-07-31)
+* fix device settings in adapter configuration
 
 ### 0.1.5
 * changes on testing
@@ -68,7 +82,6 @@ hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 * added device discovery to configuration page
 * start discovery if it is not started and stop it afterwards
 
-
 ### 0.1.1 
 * initial release
 
@@ -76,7 +89,7 @@ hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2021, Jey Cee <jey-cee@live.com>
+Copyright (c) 2020-2022, Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

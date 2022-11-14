@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: DAEYajTWcSq2Of3dk9x1q6BjQ68r2EBRFNHuapLJUnM=
+hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Количество установок](http://iobroker.live/badges/sonos-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonos.svg)
-![НПМ](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
 # IoBroker.sonos
+![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Контролируйте и контролируйте устройства SONOS с помощью ioBroker.
 
 ## Обработка групп
 * Состояния для обработки групп SONOS:
-   * **`координатор`**: установить/получить координатора, то есть устройство SONOS, которое является главным и координирует группу. Он требует, чтобы IP-адрес (имя канала) устройства SONOS был координатором, но с подчеркиванием `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`. Если устройство не принадлежит ни к одной группе, то значение равно собственному имени канала (IP).
+   * **`координатор`**: установить/получить координатора, то есть устройство SONOS, которое является главным и координирует группу. Для этого требуется, чтобы IP-адрес (имя канала) устройства SONOS был координатором, но с подчеркиванием `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`. Если устройство не принадлежит ни к одной группе, то значение равно собственному имени канала (IP).
    * **`group_volume`**: громкость группы
    * **`group_muted`**: статус отключения звука группы.
    * **`add_to_group`**: добавить определенное устройство SONOS к устройству SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
@@ -47,9 +48,23 @@ hash: DAEYajTWcSq2Of3dk9x1q6BjQ68r2EBRFNHuapLJUnM=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.2.3 (2022-07-04)
+* (Rello) Added track number state
+
+### 2.2.2 (2022-06-12)
+* (Apollon77) Prevent js-controller warnings
+
+### 2.2.1 (2022-06-12)
+* (Apollon77) fix group volume state
+
+### 2.2.0 (2022-06-08)
+* (Apollon77) Remove logic that adjusted the group volume after one member volume was set
+* (Apollon77) Make sure to not set state values for devices that are not configured
+* (Apollon77) Try to catch network errors
+
 ### 2.1.7 (2021-12-20)
 * (bluefox) Corrected error with "SONOS not found"
 

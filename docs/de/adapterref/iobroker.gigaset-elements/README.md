@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
+hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -21,8 +21,8 @@ Adapter für Gigaset Elements (https://gigaset.com/smart-home)
 ![Testen und freigeben](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
 
 ## Anforderungen
-- NodeJS >= 12.x
-- ioBroker >= 3.x, mit Admin >= 5.x
+- NodeJS >= 14.x
+- ioBroker >= 4.x, mit Admin >= 5.x
 - Gigaset Elements-System
 
 ## Installation
@@ -45,10 +45,11 @@ Der Adapter liest derzeit nur Daten und lässt keine Änderungen zu.
 Bisher wurde der Adapter getestet/es ist bekannt, dass er mit den folgenden Elementen funktioniert, und Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
 
 | Elementtyp | Elementname | Getestet von |
-| ------------ | --------------------- | --------- |
+| ------------ | ----------------------- | ----------- |
 | ist01 | Sirene | matthsc |
 | um01 | Universal/Fenster/Tür | matthsc |
 | wd01 | Wasser | matthsc |
+| sd01 | Rauch (nur Testalarm) | Haussteuerung |
 
 Der Adapter unterstützt auch die folgenden anderen Geräte:
 
@@ -114,6 +115,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.2.2 (2022-09-17)
+
+-   (matthsc) fix probably_open state
+-   (matthsc) dependency updates
+
+### 0.2.1 (2022-07-02)
+
+-   (matthsc) add initial support for smoke detectors
+-   (matthsc) dependency updates
+
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones

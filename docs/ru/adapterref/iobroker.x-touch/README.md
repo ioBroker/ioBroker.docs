@@ -3,37 +3,56 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.x-touch/README.md
 title: ioBroker.x-touch
-hash: vZUjz6IKTGCMypAhyjRvgKvaS2wX8gPXdaSA9yKq1tw=
+hash: MJoAQn3DaO5JfVYgyIFzPw1TEQ6JpcybU8qs8lRb6Lw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.x-touch/admin/x-touch.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.x-touch.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.x-touch.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.x-touch.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/x-touch-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/x-touch-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/x-touch-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Bannsaenger/iobroker.x-touch.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bannsaenger/ioBroker.x-touch/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.x-touch.png?downloads=true)
 
 # IoBroker.x-touch
-![Тестирование и выпуск](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/bannsaenger/iobroker.x-touch/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер x-touch для ioBroker
-Общайтесь с панелью управления Behringer X-Touch (контроллером DAW)
+Связь с панелью управления Behringer X-Touch (контроллером DAW)
 
-## Делать
-- Добавьте кодировщики и их светодиоды -> готово, слева - sync_global и проверяет изменения в базе данных.
-- Добавить отображение тайм-кода -> готово
-- Добавлена функциональность переключателей каналов банка и фейдера -> готово, требуется дополнительное тестирование
-- Добавить функцию syncGlobal
+## Сделать
+- Добавить функциональность syncGlobal
+- Добавить воссоздание банков, если опция установлена
 
 ## Окно сообщения
 Есть две принятые команды:
 
-* `export` экспортирует фактические значения, хранящиеся в состояниях групп устройств, в папку пользовательских данных x-touch.
-* `import` импортирует самый молодой файл из папки userdata. Дополнительно вы можете указать файл и / или номер группы устройств для восстановления. Если указан путь, будет использоваться вся файловая система, а имя файла обязательно.
+* `export` экспортирует фактические значения, хранящиеся в состояниях групп устройств, в папку пользовательских данных x-touch.0
+* `import` импортирует самый младший файл из папки userdata. Кроме того, вы можете указать «файл» и/или номер «группы устройств» для восстановления. Если указан `путь`, будет использоваться вся файловая система, и имя `файла` является обязательным.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.6.2 (2022-10-07)
+* (Bannsaenger) test-and-release without build
+
+### 0.6.1 (2022-10-07)
+* (Bannsaenger) confusion with the release script
+
+### 0.6.0 (2022-10-07)
+
+* (Bannsaenger) updated to adapter-dev and release script
+* (Bannsaenger) introducing admin 5 UI (jsonConfig)
+
+### 0.5.1
+* (Bannsaenger) updated dependencies
+
+### 0.5.0
+* (Bannsaenger) fixes in db creation for js controller 4.x
+
 ### 0.4.2
 * (Bannsaenger) changed sort order in changelog
 
@@ -76,7 +95,7 @@ hash: vZUjz6IKTGCMypAhyjRvgKvaS2wX8gPXdaSA9yKq1tw=
 ## License
 MIT License
 
-Copyright (c) 2021 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2022 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: cJYAxbH8rsp4s5RpKhtYFPKhcMVO2f1J7ZOCJEjsGmc=
+hash: rF75FeEj3Bi1VVhPAPj1pKQYcElzGEG3Ogc26MwBNuE=
 ---
 ![标识](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
@@ -40,10 +40,10 @@ hash: cJYAxbH8rsp4s5RpKhtYFPKhcMVO2f1J7ZOCJEjsGmc=
 - **Blocktime** - 定义在存储最后一个值后多长时间不再存储任何值。当以毫秒为单位的给定时间结束时，将记录满足所有其他检查的下一个值。
 - **仅记录更改** - 此功能确保仅记录更改的值，如果它们满足其他检查（见下文）。不会记录相同的值。
 - **仍然记录相同的值（秒）** - 当使用“仅记录更改”时，您可以在此处设置以秒为单位的时间间隔，之后不变的值也将重新登录到数据库中。您可以使用“from”字段检测适配器重新记录的值。
-- **与上一个值的最小差异** - 当使用“仅记录更改”时，您可以定义新值和上一个值之间所需的最小差异。如果未达到此值，则不记录该值。
+- **与上一个值的最小差异** - 使用“仅记录更改”时，您可以定义新值和上一个值之间所需的最小差异。如果未达到此值，则不记录该值。
 - **忽略 0 或空值 (==0)** - 您可以定义是否应忽略 0 或空值。
 - **忽略零以下的值 (<0)** - 您可以定义是否应忽略零以下的值。
-- **禁用跳过值的图表优化记录** - 默认情况下，适配器尝试记录优化图表的值。这可能意味着会自动记录附加值（例如，未完成上述所有检查）。如果不需要，您可以禁用此功能。
+- **禁用跳过值的图表优化记录** - 默认情况下，适配器尝试记录优化图表的值。这可能意味着自动记录附加值（例如，未完成上述所有检查）。如果不需要，您可以禁用此功能。
 - **Alias-ID** - 您可以为 ID 定义别名。如果您更改了设备并想要连续记录数据，这将非常有用。请考虑在未来切换到真正的别名状态！
 - **存储保留** - 过去有多少值将存储在磁盘上。到达时间后，一旦为数据点存储新数据，数据就会被删除。
 - **存储在 RAM 中的值的最大数量** - 定义在将它们保存到磁盘之前将在 RAM 中保存多少个值。您可以控制完成多少 I/O。
@@ -99,7 +99,7 @@ FLUSH PRIVILEGES;
 
 在“windows”上，它可以通过安装程序轻松安装：https://dev.mysql.com/downloads/installer/。
 
-注意认证方法。 `node.js`还不支持 MySQL 8.0 中的新加密算法，您必须选择旧的身份验证方法。
+注意认证方法。 `node.js`尚不支持 MySQL 8.0 中的新加密算法，您必须选择旧式身份验证方法。
 
 ![视窗](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
@@ -183,7 +183,7 @@ FLUSH PRIVILEGES;
 | ts |大整数/整数 |以毫秒为单位的时间，直到纪元。可以使用“new Date(ts)”转换为时间 |
 |值 |真实 |价值 |
 
-此表存储计数器交换时的值，并且该值没有增加，但未能达到零或更低的值。
+此表存储计数器交换时的值，并且该值没有增加，但未能为零或更低的值。
 
 ### 字符串
 “字符串”类型的状态值。
@@ -275,7 +275,7 @@ sendTo('sql.0', 'getHistory', {
 
 - **开始** - （可选）以毫秒为单位的时间 - *Date.now()*'
 - **end** - （可选）以毫秒为单位的时间 - *Date.now()*'，默认为（现在 + 5000 秒）
-- **step** - （可选）用于聚合（最大、最小、平均、总计、...）步长，以毫秒为单位
+- **step** - （可选）用于聚合（最大、最小、平均、总计、...）步长（以毫秒为单位）
 - **count** - 如果聚合为“onchange”，则为值数，如果为其他聚合方法，则为间隔数。如果设置了步长，计数将被忽略，否则默认为 500，如果未设置
 - **from** - 如果 *from* 字段应包含在答案中
 - **ack** - 如果 *ack* 字段应包含在答案中
@@ -286,7 +286,7 @@ sendTo('sql.0', 'getHistory', {
 - **ignoreNull** - 如果应包含空值 (false)，则替换为最后一个非空值 (true) 或替换为 0 (0)
 - **removeBorderValues** - 默认情况下会返回额外的边框值以优化图表。如果不需要，请将此选项设置为 true（例如，用于脚本数据处理）
 - **returnNewestEntries** - 返回的数据始终按时间戳升序排序。当使用聚合“none”并提供“count”或“limit”时，这意味着通常会返回最旧的条目（除非没有提供开始数据）。将此选项设置为 true 以获取最新条目。
-- **聚合** - 聚合方法：
+- **aggregate** - 聚合方法（默认值：'average'）：
     - *minmax* - 使用特殊算法。以小间隔拼接整个时间范围，并找到每个间隔的最大值、最小值、开始值和结束值。
     - *max* - 以小间隔拼接整个时间范围，并为每个间隔查找最大值并将其用于此间隔（将忽略空值）。
     - *min* - 与 max 相同，但取最小值。
@@ -308,7 +308,7 @@ sendTo('sql.0', 'getHistory', {
 如果您手动请求一些聚合，您应该忽略第一个和最后一个值，因为它们是根据周期之外的值计算的。
 
 ## 获取计数器
-用户可以询问特定时间段内某个计数器的值（type=number，counter=true）。
+用户可以询问特定时期的某个计数器的值（类型=数字，计数器=真）。
 
 ```
 var now = Date.now();
@@ -373,7 +373,9 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 如果您想将其他数据写入 InfluxDB/SQL，您可以使用内置系统函数 **storeState**。
 此函数还可用于转换来自其他历史适配器（如 History 或 SQL）的数据。
 
-给定的 ID 不会根据 ioBroker 数据库检查，也不需要在那里设置，但只能直接访问。
+成功的响应并不意味着数据真的写到了磁盘上。这只是意味着它们已被处理。
+
+没有根据 ioBroker 数据库检查给定的 id，也不需要在那里设置或启用。如果在没有设置的情况下使用自己的 ID，则不支持“规则”参数，并会导致错误。默认的“RAM 值中存储的最大数量”用于此类 ID。
 
 消息可以具有以下三种格式之一：
 
@@ -408,6 +410,8 @@ sendTo('history.0', 'storeState', [
 ```
 
 此外，您可以在消息中添加属性`rules: true`以激活所有规则，如`counter`、`changesOnly`、`de-bounce`等。
+
+如果出现错误，则返回一个包含所有单个错误消息的数组以及一个 successCount，以查看成功存储了多少条目。
 
 ## 删除状态
 如果要从数据库中删除条目，可以使用内置系统函数 **delete**：
@@ -525,6 +529,44 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __工作进行中__ -->
 
 ## Changelog
+### 2.2.0 (2022-09-19)
+* IMPORTANT: Node.js 14.x is now needed at minimum!
+* (Apollon77) Fix potential crash cases with upcoming js-controller versions
+
+### 2.1.8 (2022-08-13)
+* (riversource/Apollon77) Optimize getHistory query by using "UNION ALL"
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.7 (2022-06-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.6 (2022-06-27)
+* (Apollon77) Allow to remove a configuration value for "round" in config again
+
+### 2.1.5 (2022-06-27)
+* (Apollon77) When no count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
+* (Apollon77) Fix the initialization of types and IDs for some cases.
+
+### 2.1.3 (2022-06-12)
+* (Apollon77) Make sure debug log is active according to the settings
+
+### 2.1.2 (2022-06-08)
+* (Apollon77) Huge performance optimizations for GetHistory calls
+
+### 2.1.1 (2022-05-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.0 (2022-05-27)
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) Fix several places where pooled connections might have not been returned to pool correctly and add logging for it
+* (Apollon77) Work around an issue in used Pooling library that potentially gave out too many connections
+* (Apollon77) Optimize retention check to better spread the first checks over time
+* (Apollon77) Default to not use datapoint buffering as in 1.x when set to 0
+* (Apollon77) Make sure disabling "Log changes only" also really do not log the changes anymore
+* (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
+* (Apollon77) Adjust the fallback logic for type detection to use the type of the state value to log as last fallback
+* (Apollon77) Fix storing booleans on MSSQL
+
 ### 2.0.2 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.

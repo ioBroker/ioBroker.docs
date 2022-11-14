@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
+hash: ZTBWJAnetq9rvbuTiYF9vq8Xd14N37QFDBakVlV32WY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![Количество установок](http://iobroker.live/badges/chromecast-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
-![Статус сборки](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
 ## Адаптер Google Home для ioBroker
 Этот плагин позволяет обнаруживать видео и/или аудио устройства Google Home. Для каждого обнаруженного домашнего устройства создается устройство ioBroker. Это устройство отображает состояние устройства и позволяет отправить ему новый URL-адрес для приведения.
 
@@ -25,15 +27,12 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ## Присоединяйтесь к серверу Discord, чтобы обсудить все об интеграции с ioBroker!
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Спонсоры](./SPONSORS.md)
-Если вам нравится моя работа, пожалуйста, сделайте личное пожертвование (это личная ссылка для пожертвований для Jey Cee, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
 ## Инструкции
 1. Установить в ioBroker
    1. Перейдите на вкладку «Адаптеры ioBroker».
    2. Выберите и установите адаптер Google Home.
 2. Добавьте экземпляр адаптера Google Home.
-   * он должен автоматически запускаться после установки
+   * он должен запускаться автоматически после установки
 3. (необязательно) Если вы планируете транслировать локальные файлы, вам необходимо настроить адаптер
    * вам необходимо иметь экземпляр веб-сервера ioBroker
 4. Проверьте свой журнал: вы должны увидеть журналы об обнаруженных устройствах.
@@ -63,14 +62,16 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 * Воспроизведите последний воспроизведенный поток: просто установите для _chromecast.0.`<your device>`.status.playing_ значение _true_
 
 ## Чего не хватает?
-* добавлен конечный автомат для отслеживания состояний: обнаружен -> подключен -> загрузчик плеера -> играет
+* добавлен конечный автомат для отслеживания состояний: обнаружено -> подключено -> загрузчик плеера -> играет
 * добавить повторы: иногда Google Home не отвечает на запрос
 * больше испытаний
 
 ## Changelog
-### 3.0.0 (2021-08-25)
-* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
-
+### 3.0.3 (2022-08-26)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names
+* (Bjoern3003) set album name as song if provided in icy-name
+* (Apollon77/aortmannm) Make compatible with Node.js 16+
+* (Apollon77) Add Sentry for crash reporting
 
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
@@ -222,7 +223,7 @@ hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

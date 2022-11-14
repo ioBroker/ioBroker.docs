@@ -1,14 +1,14 @@
 ---
 title: ioBroker basics
-lastChanged: 14.05.2021
+lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: mh1WOboVhuaTSvYa9KGeULQYTEenY+8obvOVWZ8+Xxo=
+hash: +bZCouq04wYooLDZN2tuopO9UJJu5nB9b0nuUMsCRVc=
 ---
 ioBroker is a pure software solution to connect different IoT systems to a complete system. Accordingly, a control center (gateway/interface) is still required for each system in order to be able to integrate its devices.
 
-In special cases, a control center can be simulated using software or plugged into the ioBroker server as hardware (USB stick or similar).
+In special cases, such a control center can be simulated using software or plugged into the ioBroker server as hardware (USB stick or similar).
 
 ## Modularity
 ioBroker has a modular structure. These modules are called ***Adapter*** at ioBroker.
@@ -27,9 +27,9 @@ A special feature of ioBroker is that the tasks **can** be distributed to severa
 ### Hardware requirements
 An ioBroker server can be installed on almost any hardware. The only condition is that there is a current version of [nodejs](https://nodejs.org/en/download/) for the corresponding operating system.
 
-!> As of February 2022, Node.js 14.x is still recommended for ioBroker.
+!> As of October 2022, Node.js 16.x is recommended for ioBroker.
 
-For a larger installation, a working memory (RAM) of at least 2GB is also recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing, as a slave for individual adapters in a multihost environment, even smaller small computers are sometimes sufficient.
+For a larger installation, a working memory (RAM) of at least 2GB, better 4GB, is recommended. A Raspberry Pi 2/3 with 1GB RAM is sufficient for testing, as a slave for a few adapters in a multi-host environment even smaller computers are sufficient.
 
 ###Software
 ioBroker manages the data in a database. The structure of the data is organized accordingly.

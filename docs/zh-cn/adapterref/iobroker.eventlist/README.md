@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
+hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 ---
 ![标识](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -80,7 +80,7 @@ sendTo('eventlist.0', 'insert', 'My custom text');
 // or
 setState('eventlist.0.insert', 'My custom text');
 // or
-setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
+setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
 用户可以请求特定 ID 的格式化 JSON 列表。当然ID必须在`eventlist`之前启用。
@@ -130,8 +130,8 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 - %n - 名称（`%n 将状态更改为 %s` => `设备 A 将状态更改为 5`），
 - %t - time (`State changed state on %t` => `State changed state on Sep Fr, 16:32:00`),
 - %r - 相对时间（`State changed state %r` => `State changed state 5 seconds ago`），
-- %d - 持续时间（`状态处于先前状态持续 %d` => `状态处于先前状态持续 5 秒`），
-- %g - 值差异（`状态在 %g% 上发生了变化` => `状态在 1% 上发生了变化`），
+- %d - 持续时间（`状态处于先前状态 %d` => `状态处于先前状态 5s`），
+- %g - 值差异（`状态在 %g% 上改变` => `状态在 1% 上改变`），
 - %o - 值差异（`State changed value from %o to %` => `State was changed on 1%`）
 
 ## Web 中多个实例的使用
@@ -147,9 +147,21 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 1.1.1 (2022-10-12)
+* (bluefox) Fixed icons of devices
+* (bluefox) Migrated GUI to `mui5`
+* (bluefox) Allowed the editing of list name
+* (Hirsch-DE) corrected events without unit
+
+### 1.0.1 (2022-06-22)
+* (bluefox) Added preparations for ioBroker cloud
+
+### 1.0.0 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
 * (Apollon77) Add Sentry also for the Node.js part

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
+hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
 ---
 # IoBroker.nibeuplink
 
@@ -19,16 +19,16 @@ hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
 Dieser ioBroker-Adapter empfängt Daten von einer Nibe-Wärmepumpe von Nibe Uplink.
 
 ## Mit diesem Adapter
-1. Sie brauchen eine Nibe-Wärmepumpe - tschüss, wenn Sie keine haben ;-)
+1. Sie brauchen eine Nibe-Wärmepumpe - kaufen Sie eine, wenn Sie keine haben ;-)
 2. Sie benötigen ein Konto bei Nibe Uplink: https://www.nibeuplink.com/
 3. Nach dem Einloggen haben Sie eine URL in dieser Form: https://www.nibeuplink.com/System/XXXXX/Status/Overview
-4. Anstelle von XXXXX steht eine Nummer. Dies ist Ihre System-ID. Wir brauchen diesen Ausweis.
+4. Anstelle von XXXXX steht eine Zahl. Dies ist Ihre System-ID. Wir brauchen diesen Ausweis.
 5. Gehen Sie zu Nibe Uplink Api: https://api.nibeuplink.com/Account/LogIn und melden Sie sich an
 6. Klicken Sie auf „MEINE ANWENDUNGEN“ und dann auf „Bewerbung erstellen“
 7. Ausfüllen: Name und Beschreibung können alles sein, z. ioBroker
 8. Die Callback-URL ist wichtig. Sie können https://sebilm.github.io/ioBroker.nibeuplink/nibe.html verwenden
 9. Akzeptieren Sie den Servicevertrag für die NIBE Uplink API und klicken Sie auf „Anwendung erstellen“.
-10. Dann erhalten Sie einen Identifier und ein Secret – wir brauchen sie
+10. Dann erhalten Sie einen Identifier und ein Secret - wir brauchen sie
 11. Installieren Sie diesen Adapter in ioBroker
 12. Geben Sie auf der Seite mit den Adaptereinstellungen die Kennung und das Geheimnis ein.
 13. Klicken Sie auf den Link „Klicken Sie hier, um den Auth-Code auf NIBE Uplink zu generieren“.
@@ -52,10 +52,21 @@ Sie können andere Werte lesen, aber ich denke, Sie können keine anderen Werte 
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.2.1 (2022-10-03)
+- Fix getting data directory
 
-### 1.1.0 - 2022-02-06:
+### 1.2.0 (2022-10-02)
+- Requires js-controller >= 3.3.22 and admin >= 5.0.0
+- Update some files from up-to-date adapter creator
+- Bump dependencies
 
-- Switch to TypeSctipt
+### 1.1.1 - 2022-04-02
+- Fix write support (does not send zero) #6 #128
+- Bump dependencies
+
+### 1.1.0 - 2022-02-06
+
+- Switch to TypeScript
 - Use axios instead of wreck
 
 ### 1.0.1 - 2021-12-31

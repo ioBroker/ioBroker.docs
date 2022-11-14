@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bydbatt/README.md
 title: ioBroker.bydbatt HV
-hash: 8/Bv2JfckFaBGkFTyAwJjp29luEh+gzWpCLseS7pHJA=
+hash: PQZjjKoL5XkBqZeRMry3vzljPXavpxCi3xM4yi3LNzQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.bydbatt/admin/byd-batterybox.png)
 
@@ -15,13 +15,26 @@ hash: 8/Bv2JfckFaBGkFTyAwJjp29luEh+gzWpCLseS7pHJA=
 # IoBroker.bydbatt HV
 =================
 
-byd Battery Informationen erhalten Sie von der BYD Battery Box (Solarbatterien) ------------------------------------- -----------------------------------------
+byd Battery erhält Informationen aus der BYD Battery Box (Solarbatterien) ------------------------------------- -----------------------------------------
 
-<b>Knoten &gt;&gt; 10.xx.</b>
+<b>NodeJs &gt;&gt; 10.xx</b>
 
 ein Passwort ist erforderlich. Sie können es in den Einstellungen von BYD Manager einstellen
 
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
+
 ## Changelog
+### 1.0.8 (2022-10-09)
+* io-package corr
+
+### 1.0.5  (2021-05-16)
+* (arteck) add user selector and Batteryarray up to 9
+
+### 1.0.4  (2021-04-14)
+* (arteck)corr psw save method"
+
 ### 1.0.1  (2021-01-20)
 * (arteck) new js-controller upd
 
@@ -31,7 +44,7 @@ ein Passwort ist erforderlich. Sie können es in den Einstellungen von BYD Manag
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2022 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

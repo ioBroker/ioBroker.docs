@@ -3,68 +3,82 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bosesoundtouch/README.md
 title: ioBroker.bosesoundtouch
-hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
+hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
 ---
 ![Logo](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/bosesoundtouch-installed.svg)
-![NPM](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)
+![Anzahl der Installationen](http://iobroker.live/badges/bosesoundtouch-stable.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.bosesoundtouch.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.bosesoundtouch.svg)
 
-#ioBroker.bosesoundtouch
+# IoBroker.bosesoundtouch
+![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
 Bose SoundTouch-Adapter für die ioBroker IoT-Plattform
 
-## Kontrollzustände
+## Steuerzustände
 Um Ihren Lautsprecher zu steuern, können die folgenden Objekte geschrieben werden:
 
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | :---           | :---        |
-| Schlüssel | Einer der folgenden Schlüssel zum Senden:<br><br> ABSPIELEN<br> PAUSE<br> STOPPEN<br> PREV_TRACK<br> NÄCHSTER TITEL<br> DAUMEN HOCH<br> DAUMEN RUNTER<br> LESEZEICHEN<br> ENERGIE<br> STUMM<br> VOLUME_UP<br> LAUTSTÄRKE RUNTER<br> PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br> PRESET_6<br> AUX_INPUT<br> SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> WIEDERHOLE ALLES<br> SPIELPAUSE<br> FAVORIT HINZUFÜGEN<br> REMOVE_FAVORITE<br> INVALID_KEY |
-| gedämpft | Schalten Sie das Gerät stumm oder heben Sie die Stummschaltung auf. |
+| Schlüssel | Einer der folgenden Schlüssel zum Senden:<br><br> ABSPIELEN<br> PAUSE<br> PAUSE<br> PREV_TRACK<br> NÄCHSTER TITEL<br> DAUMEN HOCH<br> DAUMEN RUNTER<br> LESEZEICHEN<br> ENERGIE<br> STUMM<br> LAUTSTÄRKE_UP<br> LAUTSTÄRKE RUNTER<br> PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br> VOREINSTELLUNG_6<br> AUX_INPUT<br> SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> WIEDERHOLE ALLES<br> SPIELPAUSE<br> FAVORIT HINZUFÜGEN<br> REMOVE_FAVORITE<br> UNGÜLTIGER_SCHLÜSSEL |
+| stumm | Schalten Sie das Gerät stumm oder heben Sie die Stummschaltung auf. |
 | auf | Schalten Sie das Gerät ein oder aus. |
-| Überall spielen | Definieren Sie Lautsprecher als Zonenmaster und spielen Sie seinen Inhalt auf allen anderen Lautsprechern ab. |
-| Lautstärke | Gerätelautstärke zwischen 0 und 100 ändern. |
+| playEverywhere | Definieren Sie den Lautsprecher als Zonenmaster und spielen Sie seinen Inhalt auf allen anderen Lautsprechern ab. |
+| Volumen | Ändern Sie die Gerätelautstärke zwischen 0 und 100. |
 
-## Info-Staaten
-Die folgenden Informationen werden von Ihrem Sprecher gesammelt (schreibgeschützte Zustände):
+## Info Staaten
+Die folgenden Informationen werden von Ihrem Lautsprecher erfasst (schreibgeschützte Zustände):
 
 ### Geräteinformationen
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | :---       | :---        |
-| IP-Adresse | Die Geräte-IP-Adresse, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
+| IP-Adresse | Die IP-Adresse des Geräts, normalerweise dieselbe, die Sie in den Adaptereinstellungen konfiguriert haben. |
 | macAdresse | Die MAC-Adresse des Geräts |
 | Name | Der Name, den Sie mit Ihrer SoundTouch App konfiguriert haben. |
 | Typ | Der Gerätetyp (z. B. SoundTouch 300). |
 
 ### Läuft gerade
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | :---       | :---        |
-| Album | Das aktuell abgespielte Album. |
+| Album | Das aktuell wiedergegebene Album. |
 | Kunst | Die URL der Quellgrafik. |
-| Künstler | Der aktuell spielende Künstler. |
-| Genre | Das Genre des aktuell wiedergegebenen Titels. |
-| Quelle | Der Typ oder Name des wiedergegebenen Dienstes. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, prüfen Sie, ob source == STANDBY ist. |
-| Bahnhof | Der Name des Senders oder der Playlist. |
+| Künstler | Der aktuell spielende Interpret. |
+| Gattung | Das Genre des aktuell wiedergegebenen Titels. |
+| Quelle | Der Typ oder Name des wiedergegebenen Dienstes. Um festzustellen, ob sich das Produkt im Standby-Modus befindet, prüfen Sie, ob source == STANDBY. |
+| Bahnhof | Der Name des Senders oder der Wiedergabeliste. |
 | verfolgen | Der aktuell wiedergegebene Titel. |
 
-###Voreinstellungen
+### Voreinstellungen
 Die folgenden Zustände sind für jede der 6 verfügbaren Voreinstellungen vorhanden:
 
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | :---       | :---        |
-| iconURL | Die URL der Quellgrafik. |
-| Name | Der Name von Album, Sender, Playlist, Song, Telefon usw. hängt von der Quelle ab. |
+| SymbolUrl | Die URL der Quellgrafik. |
+| Name | Der Name des Albums, des Senders, der Wiedergabeliste, des Titels, des Telefons usw. je nach Quelle. |
 | Quelle | Der Typ oder Name des Dienstes. |
 
 ### Zonen
-Die folgende Beschreibung hilft Ihnen bei der Gruppenbildung mit Ihrem Multiroom-System. Die schreibgeschützten Felder werden von den Soundtouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen durch die Soundtouch-Anwendung selbst ändern.
+Die folgende Beschreibung hilft Ihnen, Gruppen mit Ihrem Multiroom-System zu erstellen. Die schreibgeschützten Felder werden von den Soundtouch-Geräten automatisch aktualisiert, auch wenn Sie die Gruppen von der Soundtouch-Anwendung selbst ändern.
 
-| Staat | Beschreibung |
+| Zustand | Beschreibung |
 | :---       | :---        |
-
-| masterOf | Anzeige der MAC-Adressen der Slaves eines Lautsprechers (getrennt durch ";") (schreibgeschützt) | MitgliedOf | Zeigt die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt) | addMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (getrennt durch ";").
-| entfernenMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie von diesem Master-Lautsprecher entfernen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (getrennt durch ";").
+| MeisterVon | Anzeige der MAC-Adressen der Slaves eines Lautsprechers (getrennt durch „;“) (schreibgeschützt) |
+| MitgliedVon | Zeigt die MAC-Adresse des Masters dieses Lautsprechers an (schreibgeschützt)|
+| addMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie diesem Master-Lautsprecher hinzufügen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (unterteilt durch ";").|
+| entferneMasterOf| Fügen Sie die MAC-Adresse des Lautsprechers hinzu, den Sie von diesem Master-Lautsprecher entfernen möchten. Es ist auch möglich, mehr als einen Lautsprecher zu platzieren (unterteilt durch ";").|
 
 ## Changelog
+### 0.10.3 (2022-06-17)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 0.10.2 (2022-06-12)
+* (Apollon77) Check if adapter is configured properly before trying to connect
+
+### 0.10.1 (2022-06-02)
+* (Apollon77) Add Sentry for crash reporting
 
 ### 0.10.0 (2021-07-30)
 * IMPORTANT: The adapter now requires at least js-controller 2.0
@@ -190,4 +204,4 @@ Die folgende Beschreibung hilft Ihnen bei der Gruppenbildung mit Ihrem Multiroom
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>

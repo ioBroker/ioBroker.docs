@@ -3,17 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
+hash: KFMlkLFzEOqxifB+qeIRbYsjzdUZkCm5Sy6azU+sU3o=
 ---
-![商标](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
+![标识](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
 ![安装数量](http://iobroker.live/badges/geofency-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.geofency.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.geofency.svg)
 
 # IoBroker.geofency
-====================
-
 ![测试和发布](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
@@ -21,20 +19,43 @@ hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 当您使用移动设备进入或离开定义的区域时，此适配器能够接收 [地理围栏](http://www.geofency.com/) 事件。
 请求的 geofency-webhook 的所有值都存储在 ioBroker 中的位置名称下。
 
-## 移动设备上的配置：
+##在移动设备上配置
 * 对于任何位置 -> 属性 -> webhook 设置：
- * 进入和退出的 URL：&lt;您的 ioBroker 域&gt;：&lt;配置的端口&gt;/&lt;任何位置名称&gt;
- * 帖子格式：JSON 编码：启用
- * 身份验证：从 iobroker.geofency 配置设置用户/密码
+ * 进入和退出的 URL：`<your ioBroker Domain>:<configured port>/<any locationname>`;
+ * 发布格式：`JSON-encoded`：启用
+ * 身份验证：从 `iobroker.geofency` 配置设置用户/密码
 
-## 在 ioBroker 论坛（德语）
+## 在 ioBroker 论坛中（德语）
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
-##安全提示：
+## 安全提示：
 不建议将此适配器公开到公共 Internet。
-某种 WAF/proxy/entry Server 应该放在 ioBroker 之前。 （例如 nginx 很好并且易于配置）。
+某种 WAF/proxy/entry Server 应该放在 ioBroker 之前。 （例如 Nginx 很好并且易于配置）。
+
+<!-- 下一个版本的占位符（在行首）：
+
+### **正在进行中** -->
 
 ## Changelog
+### 1.2.4 (2022-10-08)
+* (Apollon77) Fix atHome states
+* (Apollon77) Catch errors when creating webserver
+
+### 1.2.3 (2022-10-01)
+* (Apollon77) Optimize usage of credentials (requires iOS App 7.5.1+!)
+
+### 1.2.2 (2022-08-29)
+* (bluefox) Corrected handling of SSL certificates
+* (bluefox) Added possibility of binding to specific interface and not only 0.0.0.0
+
+### 1.2.1 (2022-08-16)
+* (bluefox) Corrected error with no credentials
+* (bluefox) Added JSON config and made refactoring
+* (atl285) Corrected handling of SSL certificates
+
+### 1.1.1 (2022-03-18)
+* (Apollon77) Prevent warning logs for newly added states in last release
+
 ### 1.1.0 (2022-03-11)
 * IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
 * (Apollon77) Add new json state with the json of the last incoming data

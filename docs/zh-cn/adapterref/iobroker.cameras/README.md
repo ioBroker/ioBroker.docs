@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: rkEQc8p9gM+aVqfA3IA620G6qf8s8DUlwClM7/Ip8jw=
+hash: 2uDPwFWgeeStYJD68nZG4CAXgHvqzsEJzpanUWWaKwU=
 ---
 ![标识](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -43,9 +43,12 @@ sendTo('cameras.0', 'image', {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 0.2.0 (2022-09-27)
+* (bluefox) GUI updated to MUIv5
+
 ### 0.1.8 (2022-02-13)
 * (bluefox) replaced the deprecated package `request` with `axios`
 

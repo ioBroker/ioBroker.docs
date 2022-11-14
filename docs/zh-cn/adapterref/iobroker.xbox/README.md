@@ -6,167 +6,182 @@ BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xbox/README.md
-title: Xbox转接器
-hash: gJUPhFPBZB+5r5FRM0+F0rvSIBZIOpQQ2Jsy0KuoTkE=
+title: Xbox 适配器
+hash: pcG+8TxQ7pCADt2NJ++C/N0wn/OapckjMTSm7DFFkEY=
 ---
-![商标](../../../de/adapterref/iobroker.xbox/media/xbox.png)
+![标识](../../../de/adapterref/iobroker.xbox/media/xbox.png)
 
-＃Xbox适配器
-通过Xbox适配器，可以将Xbox One或Xbox One X游戏控制台集成到ioBroker系统中。
+# Xbox 适配器
+Xbox 适配器可以将 Xbox One 或 Xbox One X 游戏机集成到 ioBroker 系统中。
 
-##概述
-### Xbox One游戏机
-Xbox One是Microsoft开发的游戏机，目前可以玩流行的视频游戏。此外，Xbox One能够控制家庭影院系统的各种组件，并允许使用Microsoft应用程序。<br/> Xbox One的其他版本目前是Xbox One X和Xbox One S，它们提供与原始控制台相同的功能，但性能有所提高。
+＃＃ 概述
+### Xbox One 游戏机
+Xbox One 是微软开发的一款游戏机，可以玩目前流行的视频游戏。此外，Xbox One 能够控制家庭影院系统的各种组件，并支持使用 Microsoft 应用程序。<br/> Xbox One 的进一步表现目前是 Xbox One X 和 Xbox One S，它们提供与原始控制台相同的功能，但性能有所提高。
 
-### Xbox适配器
-可以为每个Xbox One控制台设置Xbox适配器，从而可以控制和读出信息。<br/>适配器以对象的形式自动创建所有命令和状态。大多数状态也可以读出，例如B.当前标题，打开状态等。通过故意写入或读取创建的对象，可以更改其状态以及触发或查询操作。
+### Xbox 适配器
+可以为每个 Xbox One 控制台设置 Xbox 适配器，从而可以控制和读取信息。<br/>适配器自动以对象的形式创建所有命令和状态。也可以读出大部分状态，例如B、当前标题、开机状态等。通过专门写入或读取创建的对象，可以改变其状态，触发或查询动作。
 
-##安装前的要求
-1.在添加适配器之前，主机系统上至少必须有Python 3.5
+##预安装要求
+1、在添加适配器之前，主机系统上至少要安装Python 3.5
 
 被安装。
 
-2.如果要通过适配器打开Xbox，则Xbox
+2. 如果 Xbox 要通过适配器开机，则
 
-必须在控制台中配置[快速启动模式](https://support.xbox.com/de-DE/xbox-one/console/learn-about-power-modes)。
+['快速启动](https://support.xbox.com/de-DE/xbox-one/console/learn-about-power-modes)必须在控制台中配置。
 
-＃＃ 谢谢
-非常感谢[团队开放Xbox](https://openxbox.org/)开发和提供[xbox-rest-server](https://github.com/OpenXbox/xbox-smartglass-rest-python)及其关联的库。
+## 致谢
+非常感谢 [团队打开 Xbox](https://openxbox.org/) 开发和提供 [xbox-rest-服务器](https://github.com/OpenXbox/xbox-smartglass-rest-python) 和相关的库。
 
-##安装
-适配器的实例是通过ioBroker管理界面安装的。有关必要安装步骤的详细说明，请参见此处（TODO：LINK）。<br/><br/>适配器实例的安装完成后，配置窗口将自动打开。
+＃＃ 安装
+适配器的一个实例是从 ioBroker 管理界面安装的。可在此处找到必要安装步骤的详细说明 (TODO:LINK)。<br/><br/>完成适配器实例的安装后，会自动打开一个配置窗口。
 
-##配置
-![适配器配置](../../../de/adapterref/iobroker.xbox/media/adapter-configuration.png "组态")<br/> <span style="color:grey">*管理界面*</span>
+＃＃ 配置
+![适配器配置](../../../de/adapterref/iobroker.xbox/media/adapter-configuration.png "配置")<br/> <span style="color:grey">*管理界面*</span>
 
-|领域描述 |
+|领域 |说明 |
 |:-------------|:-------------|
-| Xbox Live ID |在此处输入Xbox Live ID，可以在控制台设置中找到它。 |
-| IP |控制台的IP地址应在此处输入。 |
-| Xbox Live的身份验证|如果选中了此复选框，则将使用您的电子邮件地址和密码登录到Xbox Live。 |
-| 回到顶端|提供反馈解决方案|电子邮件地址| Xbox Live帐户的电子邮件地址应在此处输入。 |
-|密码| Xbox Live帐户的关联密码应在此处输入。 |
+|Xbox Live ID |这里应该输入Xbox的Live ID，可以在控制台的设置中找到。|
+|IP |此处应输入控制台的 IP 地址。|
+|在 Xbox Live 上进行身份验证|如果选中该复选框，将使用电子邮件地址和密码登录 Xbox Live。|
+|电子邮件地址|应在此处输入 Xbox Live 帐户的电子邮件地址。|
+|密码 |应在此处输入 Xbox Live 帐户的关联密码。|
 
 完成配置后，使用`SPEICHERN UND SCHLIEßEN`退出配置对话框。
-这将导致适配器重新启动。
+这会导致适配器重新启动。
 
-##个实例
-适配器的安装已在`Instanzen`节中创建了Xbox适配器的活动实例。<br/><br/> ![实例](../../../de/adapterref/iobroker.xbox/media/instance.png "实例")<br/> <span style="color:grey">* 第一个例子 *</span>
+## 实例
+适配器的安装已在`Instanzen`部分中创建了 Xbox 适配器的活动实例。<br/><br/> ![实例](../../../de/adapterref/iobroker.xbox/media/instance.png "实例")<br/> <span style="color:grey">*第一个例子*</span>
 
-可以在ioBroker服务器上创建几个Xbox适配器实例。一台也可以同时连接到多台ioBroker服务器。如果一台ioBroker服务器要控制多个设备，则应为每个Xbox创建一个实例。<br/><br/>实例的状态字段的颜色指示适配器是已激活还是已连接到Xbox。如果鼠标指针指向该符号，则会显示更多详细信息。
+可以在 ioBroker 服务器上创建多个 Xbox 适配器实例。一个也可以同时连接到多个 ioBroker 服务器。如果要由 ioBroker 服务器控制多台设备，则应为每个 Xbox 创建一个实例。<br/><br/>适配器是激活还是连接到 Xbox 由实例状态字段的颜色指示。如果鼠标指针指向该符号，则会显示更多详细信息。
 
-##适配器的对象
-在`Objekte`节中，Xbox支持的所有信息和活动都以树形结构列出。此外，还提供有关与Xbox的通信是否运行顺利的信息。
+## 适配器的对象
+在 `Objekte` 部分，Xbox 支持的所有信息和活动都以树状结构列出。此外，还会告知与 Xbox 的通讯是否顺畅。
 
-![对象](../../../de/adapterref/iobroker.xbox/media/objects.png "Xbox对象")</br> <span style="color:grey">* Xbox适配器对象*</span>
+![对象](../../../de/adapterref/iobroker.xbox/media/objects.png "Xbox 对象")</br> <span style="color:grey">*Xbox 适配器项目*</span>
 
-在下文中，根据通道将对象划分。
-列出了每个数据点及其关联的数据类型及其授权。只要是按钮，就不再需要类型和权限的描述。
-可以读取（R）和写入（W）授权。每个数据点至少可以读取（R），而其他数据点也可以写入。要搜索特定的数据点，我们建议使用组合键“ CTRL + F”。
+对象根据下面的通道进行细分。
+列出每个数据点及其关联的数据类型和权限。只要是按钮，就省略类型和权限的描述。
+权限可以是读 (R) 或写 (W)。每个数据点至少可以读取 (R)，而其他数据点也可以写入。要搜索特定数据点，我们建议使用组合键“STRG + F”。
 
-###频道：信息
-*信息连接
+### 频道：关于
+* info.connection
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |布尔值| R |
+    |布尔|R|
 
-   * ioBroker连接到Xbox时为true的只读指示器。
+   *只读指示器，当 ioBroker 连接到 Xbox 时为真。*
 
 * info.currentTitles
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-*仅可读的JSON字符串，由键值对组成。关键字是当前标题的名称，该值将标题的ID转换为十六进制系统。该ID可用于使用settings.launchTitle状态来开始所需的标题。
+*由键值对组成的只读 JSON 字符串。 Key 是运行轨迹的名称，Value 是轨迹的 16 进制 ID。此 ID 可用于使用 settings.launchTitle 状态启动所需的标题。*
 
 * info.activeTitleName
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-    *包含活动标题的名称（前景中的标题），以字符串形式。
+    *包含活动标题的名称（标题在前面），以字符串的形式。*
 
 * info.activeTitleId
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-    *包含标题的ID，该标题的ID作为字符串转换为前台的十六进制系统。
+    *包含转换为十六进制字符串的前景轨道的 ID。*
 
 * info.activeTitleImage
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-*以字符串的形式包含指向前景中标题封面图像的链接。
-仅在适配器设置中激活了身份验证后，此状态才可用并且可以运行。
+    *以字符串的形式包含指向前景中标题的封面图像的链接。*
 
 * info.activeTitleType
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-    *包含以只读字符串形式出现在前台的标题类型，例如B.“游戏”。
+    *包含以只读字符串形式出现在前台的标题类型，例如'游戏'。*
 
 * info.gamertag
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R |
+    |字符串|R|
 
-*包含当前已验证帐户的游戏标记的字符串值。
-仅在适配器设置中激活了身份验证后，此状态才可用并且可以运行。
+    *包含当前已验证帐户的玩家代号的字符串值。*
 
-*信息已认证
+* info.gamerscore
 
-    |数据类型|授权|
+  |数据类型|权限|
+  |:---:|:---:|
+  |编号|R|
+
+  *包含当前已验证帐户的玩家分数的数值。*
+
+* info.installedApplications
+
+  |数据类型|权限|
+  |:---:|:---:|
+  |字符串|R|
+
+  *String 包含当前安装的应用程序的逗号分隔列表。不包括 DLC。 *
+
+* info.authenticated
+
+    |数据类型|权限|
     |:---:|:---:|
-    |布尔值| R |
+    |布尔|R|
 
-*布尔值，如果通过Xbox Live的身份验证成功，则为true，否则为false。
-仅在适配器设置中激活了身份验证后，此状态才可用并且可以运行。
+    *布尔值，如果与 Xbox Live 的身份验证成功，则为 true，否则为 false。*
 
-###频道：设置
-* settings.power
+### 频道：设置
+* 设置.power
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
     |布尔值|读/写|
 
-*可以用来打开和关闭Xbox的布尔值。该值还可以指示Xbox是否打开或关闭。
+*可用于打开和关闭 Xbox 的布尔值。该值还可以作为 Xbox 是打开还是关闭的指示器。*
 
-* settings.launchTitle
+* settings.launchTitle/launchStoreTitle
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R / W |
+    |字符串|读/写|
 
-*通过将字符串值设置为十六进制标题ID，可以在Xbox上启动标题。
-可以从info.currentTitles状态中找到有效游戏的标题ID。
-状态一旦被传输到Xbox便被确认，这并不意味着该命令已被实际执行。
+*通过将字符串值设置为十六进制标题 ID，可以在 Xbox 上启动标题。
+活动游戏的标题 ID 可以通过 info.currentTitles 状态找到。
+状态会在提交到 Xbox 后立即得到确认，这并不意味着命令已执行。*
 
-   *例：*
+   *例子：*
 
 ```javascript
 setState('settings.launchTitle', '2340236c', false); // Starte Red Dead Redemption 2
 ```
 
+   *`launchStoreTitle`允许设置有意义的名称*
+
 * settings.inputText
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| R / W |
+    |字符串|读/写|
 
-*通过描述字符串状态，可以将文本插入活动输入字段，例如B.发送私人消息或输入密码。
-状态一旦被传输到Xbox便被确认，这并不意味着该命令已被实际执行。
+*通过描述字符串状态，可以将文本插入到活动输入字段中，例如B. 发送私信或输入代码。
+状态会在提交到 Xbox 后立即得到确认，这并不意味着命令已执行。*
 
-   *例：*
+   *例子：*
 
 ```javascript
 setState('settings.inputText', 'H1 M8 h0w d0 u do?', false); // Versendet einen nerdigen Text
@@ -174,154 +189,227 @@ setState('settings.inputText', 'H1 M8 h0w d0 u do?', false); // Versendet einen 
 
 * settings.gameDvr
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |字符串| W |
+    |字符串|W|
 
-*记录游戏定义时间的可写字符串。如果已在设置中进行认证，则状态为可用。
-经过身份验证的帐户也必须在Xbox上注册，并且游戏必须在前台。
+*记录游戏定义时间的可写字符串。如果已在设置中完成身份验证，则该状态可用。
+此外，经过身份验证的帐户必须登录到 Xbox，并且游戏必须在前台。
 
-    *例：*
+    *例子：*
 
 ```javascript
 setState('settings.gameDvr', '-60,30', false); // zeichne die letzten 60 Sekunden bis zu den nächsten 30 Sekunden auf (90 Sekunden gesamt)
 ```
 
-###频道：游戏手柄
-* gamepad.a
+### 频道：游戏手柄
+* 游戏手柄.a
 
-   *模拟控制器上的A按钮。
+   *模拟控制器的 A 按钮。*
 
-* gamepad.b
+* 游戏手柄.b
 
-   *模拟控制器上的B按钮。
+   *模拟控制器的 B 按钮。*
 
-* gamepad.x
+* 游戏手柄.x
 
-   *模拟控制器上的X按钮。
+   *模拟控制器的 X 按钮。*
 
-* gamepad.y
+* 游戏手柄.y
 
-   *模拟控制器上的Y按钮。
+   *模拟控制器的 Y 按钮。*
 
-* gamepad.clear
+* 游戏手柄.clear
 
-   *模拟控制器的“清除”按钮。
+   *模拟控制器的“清除”按钮。*
 
-* gamepad.dPadDown
+* 游戏手柄.dPadDown
 
-   *模拟控制器上的DPAD向下按钮。
+   *模拟控制器上的 DPAD 向下按钮。*
 
-* gamepad.dPadUp
+* 游戏手柄.dPadUp
 
-   *模拟控制器上的DPAD向上按钮。
+   *模拟控制器的 DPAD 向上按钮。*
 
-* gamepad.dPadRight
+* 游戏手柄.dPadRight
 
-   *模拟控制器右侧的DPAD按钮。
+   *模拟控制器上的 DPAD 右键。*
 
-* gamepad.dPadLeft
+* 游戏手柄.dPadLeft
 
-   *模拟控制器左侧的DPAD按钮。
+   *模拟控制器上的 DPAD 左按钮。*
 
-* gamepad.enroll
+* 游戏手柄.注册
 
-   *模拟控制器的“注册”按钮。
+   *模拟控制器的“注册”按钮。*
 
-* gamepad.left肩
+* 游戏手柄.leftShoulder
 
-   *模拟按下控制器上的左肩按钮。
+   *模拟按下控制器的左肩按钮。*
 
-* gamepad.right肩
+* 游戏手柄.rightShoulder
 
-   *模拟按下控制器上的右肩按钮。
+   *模拟按下控制器的右肩按钮。*
 
-* gamepad.leftThumbstick
+* 游戏手柄.leftThumbstick
 
-   *模拟按下控制器的左操纵杆。
+   *模拟控制器上的左摇杆推动。*
 
-* gamepad.rightThumbstick
+* 游戏手柄.rightThumbstick
 
-   *模拟按下控制器的右摇杆。
+   *模拟控制器上的右摇杆推动。*
 
-* gamepad.menu
+* 游戏手柄.menu
 
-   *模拟控制器上的菜单按钮。
+   *模拟控制器的菜单按钮。*
 
-* gamepad.nexus
+* 游戏手柄.nexus
 
-   *模拟控制器上的Nexus（Xbox）按钮。
+   *模拟控制器上的 Nexus (Xbox) 按钮。*
 
-* gamepad.view
+* 游戏手柄.view
 
-   *模拟控制器上的“查看”按钮。
+   *模拟控制器上的“查看”按钮。*
 
-###频道：媒体
+### 渠道：媒体
 * media.seek
 
-    |数据类型|授权|
+    |数据类型|权限|
     |:---:|:---:|
-    |号| R / W |
+    |数字|读/写|
 
-*数字值，可跳至媒体内容中的特定点。状态一旦到达服务器即被确认，这并不意味着它实际上已被执行。
+*跳转到媒体内容中特定点的数值。状态一到服务器就被确认了，并不代表它实际上已经被执行了。*
 
-* media.play
+* 媒体播放
 
-   *用于播放媒体内容的按钮。
+   *播放媒体内容的按钮。*
 
-* media.pause
+*媒体.暂停
 
-   *用于暂停媒体内容的按钮。
+   *用于暂停媒体内容的按钮。*
 
-* media.playPause
+* 媒体播放暂停
 
-   *用于媒体内容的组合播放/暂停按钮。
+   *媒体内容的组合播放/暂停按钮。*
 
-* media.back
+* 媒体.back
 
-   *返回按钮以显示媒体内容。
+   *媒体内容的后退按钮。*
 
 * media.channelDown
 
-   *向下切换媒体内容频道的按钮。
+   *向下切换媒体内容频道的按钮。*
 
 * media.channelUp
 
-   *用于向上切换媒体内容频道的按钮。
+   *向上切换媒体内容频道的按钮。*
 
-* media.fastForward
+* 媒体.fastForward
 
-   *用于快速转发媒体内容的按钮。
+   *用于快进媒体内容的按钮。*
 
-* media.menu
+*媒体.菜单
 
-   *媒体内容的菜单按钮。
+   *媒体内容的菜单按钮。*
 
 * media.nextTrack
 
-   *播放媒体内容时跳至下一首曲目的按钮。
+   *播放媒体内容时跳至下一曲目的按钮。*
 
 * media.previousTrack
 
-   *播放媒体内容时跳至上一个标题的按钮。
+   *播放媒体内容时跳到上一首曲目的按钮。*
 
-* media.record
+* 媒体记录
 
-   *录制媒体内容的按钮。
+   *媒体内容的录制按钮。*
 
-* media.rewind
+*媒体.倒带
 
-   *倒带媒体内容的按钮。
+   *用于倒带媒体内容的按钮。*
 
-* media.stop
+*媒体.停止
 
-   *媒体内容的停止按钮。
+   *媒体内容的停止按钮。*
 
-* media.view
+* 媒体.view
 
-   *查看媒体内容的按钮。
+   *媒体内容的查看按钮。*
+
+### 文件夹：朋友
+为每个朋友创建一个频道，其中有几个只读状态。
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 1.0.0 (2022-09-09)
+* (foxriver76) updated dependencies
+* (foxriver76) see previous beta versions
+
+### 1.0.0-beta.10 (2022-08-20)
+* (foxriver76) we now determine correct store locale for germany if system language is "de"
+
+### 1.0.0-beta.9 (2022-08-07)
+* (foxriver76) we fixed `activeTitleName` of applications which have no short title
+
+### 1.0.0-beta.8 (2022-08-03)
+* (foxriver76) removed unused messagebox
+
+### 1.0.0-beta.7 (2022-08-02)
+* (foxriver76) we have revived acknowledgment flag for power on state
+
+### 1.0.0-beta.6 (2022-08-02)
+* (foxriver76) we are now synchronizing friends
+
+### 1.0.0-beta.5 (2022-08-01)
+* (foxriver76) fixed `activeTitleImage` which is now the cover and always an url
+* (foxriver76) optimized `launchStoreTitle` by preventing API calls for DLCs
+* (foxriver76) added gamerscore as state (synched every 10 minutes)
+* (foxriver76) added list of installed applications to a new state
+
+### 1.0.0-beta.4 (2022-07-30)
+* (foxriver76) we have optimized `launchStoreTitle` to check for installed apps first
+* (foxriver76) we have optimized error logging
+
+### 1.0.0-beta.2 (2022-07-30)
+* (foxriver76) added `launchStoreTitle` state to launch apps by their names
+
+### 1.0.0-beta.1 (2022-07-29)
+* (foxriver76) fixed missing state objects
+
+### 1.0.0-beta.0 (2022-07-29)
+* (foxriver76) complete TypeScript rewrite
+* (foxriver76) removed Python dependencies by siwtching to Xbox API written in Node.js
+* (foxriver76) fixed title launch (closes #39)
+* (foxriver76) fixed Xbox Live Auth (closes #63)
+
+### 0.7.10 (2022-05-20)
+* (foxriver76) fixed error with mising admin ui on new installations
+
+### 0.7.9 (2022-05-20)
+* (foxriver76) fixed wrong default value of `media.seek` (closes #113)
+
+### 0.7.8 (2022-02-20)
+* (foxriver76) we now set `unsafePerm` flag to ensure compatibility with future controller
+* (foxriver76) updated dependencies
+
+### 0.7.7 (2021-04-18)
+* (foxriver76) do not log rest server logging on levels above debug, so it can be activated when needed
+
+### 0.7.6 (2021-03-29)
+* (foxriver76) added `requests` package as pip dev
+* (foxriver76) added logging for rest server
+
+### 0.7.3 (2020-12-25)
+* (foxriver76) fixed debug logging on discovery
+
+### 0.7.2 (2020-11-23)
+* (foxriver76) removed logging of error on adapter stoppage due to rest server termination
+* (foxriver76) removed warn logging for debugging
+* (foxriver76) fixed currentTitles and activeTitle states
+
 ### 0.7.0 (2020-11-04)
 * (foxriver76) replaced deprecated requests module by axios
 * (foxriver76) migrated to xbox-smartglass 1.3
@@ -509,7 +597,7 @@ self detected and prevents reconnection on shutdown
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

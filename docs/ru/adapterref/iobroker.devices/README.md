@@ -3,34 +3,54 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.devices/README.md
 title: ioBroker.devices
-hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
+hash: nJ4G65zStOOtewUyE15k8mlpSbPBBiY6fjuFbToDjZ0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
 ![Количество установок](http://iobroker.live/badges/devices-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.devices.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.devices.svg)
 
 # IoBroker.devices
-![Тестирование и выпуск](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Адаптер устройств для ioBroker
-Управляйте и создавайте устройства для использования в других адаптерах, таких как материал, iot, ...
+Адаптер ## устройств для ioBroker
+Управляйте и создавайте устройства для использования в других адаптерах, таких как материалы, iot,...
 
-** Важно: включить вкладку в админке, например журнал и скрипты **
+**Важно: включите вкладку в админке, например лог и скрипты**
 
 ![Экран](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Делать
-- добавить описания состояний
+## Сделать
+- добавить описания для состояний
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.1.0 (2022-09-27)
+* (bluefox) Migrated GUI to v5
+
+### 1.0.12 (2022-06-09)
+* (bluefox) Allowed to work with devices behind reverse proxy
+* (bluefox) Replaced the function icon
+
+### 1.0.11 (2022-06-08)
+* (bluefox) Updated some libraries
+
+### 1.0.10 (2022-02-13)
+* (bluefox) Corrected edit of folders
+* (bluefox) Updated some libraries
+
+### 1.0.9 (2021-07-11)
+* (bluefox) Implement the narrow rows
+
+### 1.0.8 (2021-07-04)
+* (bluefox) Corrected creation of the devices
+
 ### 1.0.7 (2021-06-30)
 * (bluefox) Corrected creation the folders
 
@@ -50,7 +70,7 @@ hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 * (bluefox) Added new devices
 
 ### 0.3.16 (2021-03-11)
-* (bluefox) Fixed the error for IDs with the strange characters 
+* (bluefox) Fixed the error for IDs with the strange characters
 
 ### 0.3.15 (2020-12-13)
 * (bluefox) Updated the select ID dialog
@@ -97,7 +117,7 @@ hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ## License
 MIT License
 
-Copyright (c) 2019-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

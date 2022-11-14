@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
+hash: KFMlkLFzEOqxifB+qeIRbYsjzdUZkCm5Sy6azU+sU3o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
@@ -12,8 +12,6 @@ hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.geofency.svg)
 
 # IoBroker.geofency
-====================
-
 ![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
@@ -21,20 +19,43 @@ hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 Этот адаптер может получать события [геозона](http://www.geofency.com/) при входе или выходе из определенной области с помощью вашего мобильного устройства.
 Все значения geofency-webhook запроса хранятся под именем локации в ioBroker.
 
-## Конфигурация на мобильном устройстве:
+## Конфигурация на мобильном устройстве
 * для любого местоположения -> свойства -> настройки вебхука:
- * URL для входа и выхода: &lt;ваш домен ioBroker&gt;:&lt;настроенный порт&gt;/&lt;любое имя местоположения&gt;
- * Формат сообщения: JSON-кодированный: включен
+ * URL для входа и выхода: `<ваш домен ioBroker>:<настроенный порт>/<любое имя местоположения>`;
+ * Формат сообщения: `JSON-encoded`: включен
  * аутентификация: установить пользователя/пароль из конфига iobroker.geofency
 
 ## На форуме ioBroker (немецкий)
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 
 ## Примечание по безопасности:
-Не рекомендуется размещать этот адаптер в открытом доступе в Интернете.
+Не рекомендуется размещать этот адаптер в общедоступном Интернете.
 Перед ioBroker должен быть установлен какой-то WAF/прокси/входной сервер. (например, nginx удобен и прост в настройке).
 
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **В РАБОТЕ** -->
+
 ## Changelog
+### 1.2.4 (2022-10-08)
+* (Apollon77) Fix atHome states
+* (Apollon77) Catch errors when creating webserver
+
+### 1.2.3 (2022-10-01)
+* (Apollon77) Optimize usage of credentials (requires iOS App 7.5.1+!)
+
+### 1.2.2 (2022-08-29)
+* (bluefox) Corrected handling of SSL certificates
+* (bluefox) Added possibility of binding to specific interface and not only 0.0.0.0
+
+### 1.2.1 (2022-08-16)
+* (bluefox) Corrected error with no credentials
+* (bluefox) Added JSON config and made refactoring
+* (atl285) Corrected handling of SSL certificates
+
+### 1.1.1 (2022-03-18)
+* (Apollon77) Prevent warning logs for newly added states in last release
+
 ### 1.1.0 (2022-03-11)
 * IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
 * (Apollon77) Add new json state with the json of the last incoming data

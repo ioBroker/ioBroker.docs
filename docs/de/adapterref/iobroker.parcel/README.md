@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
+hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
 ---
 ![Logo](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -18,19 +18,19 @@ hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 **Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.parcel/workflows/Test%20and%20Release/badge.svg)
 
 ##Paketverfolgung/Sendungsverfolgung Adapter für ioBroker
-Paketverfolgung / Sendungsverfolgung Folgen mit deinem ioBroker SmartHome Pakete deine von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
+Paketverfolgung / Sendungsverfolgung Folgen mit deinem ioBroker SmartHome Pakete deine von Amazon, DHL, DPD, Hermes, UPS und GLS. Außerdem wirst du über die Briefverfolgung von der Deutschen Post informiert. Direkt per Push auf Telegram, Pushover oder Signal.
 
 ## Anmeldeablauf
 **DHL:**
 
-* DHL-App-Login eingeben
-* SMS/EMail-Code erhalten
-* In die Instanzeinstellungen eingeben und speichern
+- DHL-App-Login eingeben
+- SMS/EMail-Code erhalten
+- In die Instanzeinstellungen eingeben und speichern
 
 **Amazonas:**
 
-* Anmelden eingeben
-* Wenn nötig vorab ein OTP-Token aus der 2FA-App vor dem ersten Login eingeben.
+- Einloggen eingeben
+- Wenn nötig vorab ein OTP-Token aus der 2FA App vor dem ersten Login eingeben.
 
 **DPD, GLS, UPS, 17Track-Benutzer:**
 
@@ -40,7 +40,7 @@ Login und Passwort eingeben
 
 In den Instanz Einstellung aktivieren und z.B. Telegramm.0 eingeben
 
-## Sicht ##
+## Vis
 **Sendungen als Vis Table darstellen**
 
 Datenpunkte alle Sendungen: packet.0.allProviderJson
@@ -60,9 +60,17 @@ Den Datenpunkt packet.0.dhl.briefe....image ein "String img src"-Element als Obj
 
 ## Changelog
 
+### 0.0.19
+
+- Fix GLS Parcel
+
+### 0.0.18
+
+- Fix UPS/GLS Login
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

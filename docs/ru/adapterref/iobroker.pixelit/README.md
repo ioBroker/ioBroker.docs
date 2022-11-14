@@ -3,40 +3,59 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pixelit/README.md
 title: ioBroker.pixelit
-hash: m0sZpNPFijRIUS62MPeOk2ykpvSm5/5WphPyFWR41Nk=
+hash: erGjB+XP1UczfNvLFyPT9RjhYcsW4KvY60vFQiX6bEA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pixelit/admin/pixelit.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.pixelit.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.pixelit.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pixelit.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/pixelit-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/pixelit-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/pixelit-stable.svg)
-![Статус зависимости](https://img.shields.io/david/o0shojo0o/iobroker.pixelit.svg)
 ![НПМ](https://nodei.co/npm/iobroker.pixelit.png?downloads=true)
 
 # IoBroker.pixelit
 ## Адаптер PixelIt для ioBroker
-Этот адаптер позволяет отправлять сообщения из ioBroker Screen в [PixelIt](https://www.bastelbunker.de/pixel-it/).
-В адаптере также есть точки данных для дополнительных датчиков [PixelIt] (https://www.bastelbunker.de/pixel-it/), а также API [Pixel Gallery](https://pixelit.bastelbunker.de/PixelGallery).
-Более подробную информацию о точках данных можно найти в этом [документация](https://docs.bastelbunker.de/ioBroker_pixelit/options.html).
+Этот адаптер позволяет отправлять сообщения с экрана ioBroker на [PixelIt](https://github.com/pixelit-project/PixelIt).
+В адаптере также реализованы точки данных для дополнительных датчиков [PixelIt](https://github.com/pixelit-project/PixelIt), а также API галереи Pixel](https://pixelit.bastelbunker.de/PixelGallery).
+Дополнительную информацию о точках данных можно найти в этом [документация](https://pixelit-project.github.io/iobroker.html).
 
 ## Конфигурация
-Создайте новый экземпляр адаптера. Заполните IP и получайте удовольствие :)
+Создайте новый экземпляр адаптера Заполните IP и получайте удовольствие :)
 
 ## Changelog
 
 <!--
  https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
+    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
+    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ### **WORK IN PROGRESS**
+**!!! Breaking changes works only with PixelIt v2.1.3 and higher !!!**
+- (d4rkd3v1l)  removed parameters from "show_clock" call
 
--   (o0shojo0o) added datapoints info.hostname, info.note, sensor.pressure
+### 0.2.0 (2022-08-19)
+
+-   (o0Shojo0o) added sleep_mode state
+
+### 0.1.0 (2022-07-22)
+**!!! Breaking changes works only with PixelIt v1.0.0 and higher !!!**
+-   (o0Shojo0o) change conncetion to websocket
+-   (o0Shojo0o) add buttons datapoints
+-   (o0Shojo0o) add sensor gas datapoint
+
+### 0.0.8 (2021-08-19)
+
+-   (o0Shojo0o) fix translation
+
+### 0.0.7 (2021-08-18)
+
+-   (o0Shojo0o) change UI to JSONConfig
+-   (o0shojo0o) added datapoints info->hostname, info->note, sensor->pressure
 -   (o0shojo0o) adjustments based on the adapter review
 
 ### 0.0.6 (2021-05-01)
@@ -73,7 +92,7 @@ hash: m0sZpNPFijRIUS62MPeOk2ykpvSm5/5WphPyFWR41Nk=
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2022 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

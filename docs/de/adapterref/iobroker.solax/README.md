@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: HUBxVg5wWIo2qX34/a2x74UiyQ7rBdb6Bi8u4BJtnDI=
+hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 ---
 ![Logo](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -47,18 +47,18 @@ Was dazu benötigt WIRD, ist ein Konto bei Solax, eine Token-ID und die Seriennu
 Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
 Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
-Eine Firmware-Version größer 2.30.20 darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi-Sticks führt.
+Eine Firmware-Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3) darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi-Sticks führt .
 
 Wie man die Firmware-Version prüfen kann und ein Downgrade auf die korrekte Version hinbekommt, wird hier erklärt.
 
 Um die Firmware auf dem Stick zu prüfen, müsstet ihr euch mit dem Hotspot des Sticks verbinden.
-Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
+Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX` oder `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
 
 Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse in euren Browser auf das Webinterface des Wifi-Sticks: `5.8.8.8`<br> Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
 
 <span><img src="docs/en/img/webif.png"></span>
 
-Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 sein, könnt ihr im gleichen Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
+Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, kannst du ihr im selben Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
 
 Die Version 2.033.20 könnt ihr euch unter folgendem Link herunterladen:
 
@@ -69,8 +69,9 @@ Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung „.usb�
 Nach erfolgreichem Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure lokale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
 
 Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die Firmware korrekt installiert ist.
+Der Stick aktualisiert die Firmware nicht automatisch und ist mit der Version 2.033.20 voll funktionsfähig.
 
-Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces eingetragen werden und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
 
 **************************************************************************************************************
 
@@ -91,18 +92,18 @@ Was Sie dazu benötigen, ist ein Konto bei Solax, Ihre Token-ID und die Seriennu
 #### Experteneinstellungen
 Die lokale Verbindung wird derzeit nur von den Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
-Achtung, wenn Sie in den Experteneinstellungen den lokalen Modus aktivieren, sollten Sie vorab die aktuelle Firmware-Version Ihres Pocket Wifi Sticks prüfen.<br> Auf dem Stick darf keine Firmware größer als 2.30.20 installiert sein, da Solax in höheren Versionen den lokalen Zugriff blockiert und den WLAN-Stick zum Absturz bringt.
+Achtung, wenn Sie in den Experteneinstellungen den lokalen Modus aktivieren, sollten Sie vorab die aktuelle Firmware-Version Ihres Pocket Wifi Sticks prüfen.<br> Auf dem Stick darf keine Firmware-Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) installiert sein, da Solax in höheren Versionen den lokalen Zugriff blockiert und den WLAN-Stick zum Absturz bringt.
 
 Wie Sie die Firmware-Version überprüfen und auf die richtige Version downgraden, wird hier erklärt.
 
 Um die Firmware auf dem Stick zu überprüfen, müssen Sie sich mit dem Hotspot des Sticks verbinden.
-Ihr Hotspot-Name sollte folgendermaßen aussehen: `Solax_SWXXXXXXXX`. XXXXXXXX wird durch Ihre Seriennummer ersetzt.
+Ihr Hotspot-Name sollte folgendermaßen aussehen: `Solax_SWXXXXXXXX` oder `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch Ihre Seriennummer ersetzt.
 
 Wenn Sie mit dem Hotspot verbunden sind, gehen Sie in Ihrem Browser auf die Weboberfläche des WLAN-Sticks mit folgender IP-Adresse: `5.8.8.8`<br> Wenn Sie Ihr Passwort bei der Ersteinrichtung nicht geändert haben, lauten die Standard-Anmeldedaten admin:admin
 
 <span><img src="docs/en/img/webif.png"></span>
 
-Im Webinterface gehen Sie auf den Reiter „System“ und finden dort die aktuell installierte Firmware-Version.<br> Wenn die Version größer als 2.033.20 ist, können Sie im selben Reiter über den Menüpunkt „Firmware aktualisieren (.usb)“ die richtige Version flashen.
+Im Webinterface gehen Sie auf den Reiter „System“ und finden dort die aktuell installierte Firmware-Version.<br> Ist die Version größer als 2.033.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3), können Sie im gleichen Reiter über den Menüpunkt „Firmware aktualisieren (.usb)“ die richtige Version flashen .
 
 Sie können die Version 2.033.20 unter folgendem Link herunterladen:
 
@@ -113,6 +114,7 @@ Die Zip-Datei muss entpackt und die Datei mit der Endung „.usb“ ausgewählt 
 Nach erfolgreichem Neustart können Sie nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder über Ihre lokale IP in Ihrem Netzwerk auf den WLAN-Stick zugreifen.
 
 Bitte überprüfen Sie vor dem Verbinden mit dem Adapter noch einmal, ob das Downgrade erfolgreich war und die richtige Firmware installiert ist.
+Glücklicherweise führt der Stick kein automatisches Firmware-Upgrade durch und ist mit der Version 2.033.20 voll funktionsfähig.
 
 Die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces müssen im Adapter eingetragen werden und schon haben Sie eine sekundengenaue lokale Analyse Ihres Wechselrichters
 
@@ -127,6 +129,49 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.5.7 (2022-11-01)
+* (simatec) Dependencies updated
+
+### 0.5.6 (2022-09-21)
+* (simatec) local mode for X1 boost added
+
+### 0.5.5 (2022-09-21)
+* (simatec) small Bugfixes
+
+### 0.5.4 (2022-09-20)
+* (simatec) small Bugfixes
+
+### 0.5.3 (2022-09-20)
+* (simatec) Hybrid-G4 added
+* (simatec) small Bugfixes
+* (simatec) appveyor test removed
+* (simatec) travis test removed
+
+### 0.5.1 (2022-09-13)
+* (simatec) feedin added
+
+### 0.5.0 (2022-09-12)
+* (simatec) Dependencies updated
+* (simatec) small Bugfixes
+* (clausmuus) Add support for firmware version 3.001
+
+### 0.4.6 (2022-04-11)
+* (simatec) Fix states
+
+### 0.4.5 (2022-04-04)
+* (simatec) Dependencies updated
+* (simatec) small Bugfixes
+
+### 0.4.4 (2022-03-14)
+* (simatec) Dependencies updated
+* (simatec) battery data for local request added
+* (simatec) night mode turn on/off added
+
+### 0.4.3 (2022-02-03)
+* (simatec) refactoring Sourcecode
+* (simatec) Dependencies updated
+* (simatec) Fix API Request
+
 ### 0.4.2 (2022-01-27)
 * (simatec) Fix json state
 

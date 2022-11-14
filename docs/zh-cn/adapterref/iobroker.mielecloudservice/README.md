@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
+hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -38,22 +38,56 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 * latest Repo - 获取最新的测试版本（可能不稳定）
 * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
 2. 在 Miele 智能手机 App 中为 Miele@Home 创建 App-Account
-3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者帐户
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
 4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
 6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及来自 App 的 account-id 和密码。
+
+＃＃ 配置
+### 基本配置
+要运行此适配器，您至少需要：
+
+* Miele@Home 用户（来自智能手机应用程序）
+* Miele@Home 密码（来自智能手机应用程序）
+* Miele Client_id（来自 https://www.miele.com/developer/）
+* Miele Client_secret（来自 https://www.miele.com/developer/ ）
+
+### 服务器发送的事件
+从 V6.2.0 开始，您有机会在
+
+* 服务器发送事件（服务器发送事件复选框被选中 - 默认）
+* 基于时间的数据轮询（服务器发送事件复选框未选中）
+* 延迟处理
+
+#### 服务器发送的事件
+服务器发送事件是从 miele 服务器获取数据的一种非常简洁的方法，因为服务器会在发生更改时向您发送数据。没有无用的轮询每 xx 秒忽略是否有变化。不幸的是，使用这种连接类型存在问题——它经常失败，只有重新启动适配器才能解决这个问题。
+
+#### 基于时间的数据轮询
+为了提高适配器的稳定性，我重新引入了数据轮询作为配置选项，您可以在 SSE 失败四次时使用。
+尽管如此，SSE 是默认设置，我强烈建议您尝试使用它，因为它可以节省您和 Mieles 方面的许多资源。除此之外，我从版本 5.x.x 开始关注 SSE。
+基于时间的数据轮询依赖于两个配置选项：
+
+* 轮询间隔
+* 轮询间隔单位（秒/分钟）
+
+#### 延迟处理
+如果您拥有一些 Miele 设备并同时使用它们，则 API 可能会在短时间内发送许多消息。根据您的 ioBroker 硬件，这可能会使您的服务器过载并导致无响应的可视化或完全无响应的代理。为避免这种情况，此配置选项将处理的消息数量减少为每 xxx 毫秒处理一条消息。
+相关配置选项：
+
+* 延迟处理
+* 消息延迟
 
 ## 控制你的设备
 ### 行动
 实现了所有设备的所有当前支持和记录的操作 (API V1.0.5)。
-> 请记住，只有当您将设备置于适当的状态（例如 Mobile Control、powerOn、...）时，Actions 才会起作用。
+> 请记住，只有将设备置于适当的状态（例如 Mobile Control、powerOn、...）时，Actions 才会起作用。
 有关操作的更多信息，请参阅[Miele-文档](#documentation)。
 
 ### 程序（在 API V1.0.5 中引入）
 在 API V1.0.5 中，德国美诺 Miele 引入了一个名为“/programs”的新端点。
-对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
 **选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
-在发布适配器时，德国美诺 Miele 记录了一些支持此端点的设备类别，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
+在发布适配器时，德国美诺 Miele 记录了一些设备类别来支持此端点，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
 但德国美诺 Miele 正在努力并定期提供支持。
 有关更多信息，请参阅通用 Miele API 文档（如下）。
 
@@ -63,135 +97,7 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
   * 从适配器 v6.0.0 开始基本支持这些程序。需要附加参数的程序除外。
 
 ## 文档
-请主要参考 Miele 发布的主要 API 文档
-
-* [一般文档](https://www.miele.com/developer/swagger-ui/index.html)
-* [在设备上执行操作的前提条件](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
-
-有一些数据点有 2 种。作为人类可读的文本和数字。
-这些属于文本字段的数字数据字段具有相同的名称，但附加了“_raw”。
-下面列出了具有一般含义的字段。
-未列出的字段的含义因设备而异，并且 Miele 未记录。
-如果您需要在脚本中引用这些字段，请始终使用 _raw 值。
-文本值将来可能会发生变化，并且还取决于语言。
-以下是这些原始值所代表的列表：
-
-### 设备类型
-|原始值 |状态 |
-|-----------|--------------------------------------------------|
-| 1 |洗衣机 |
-| 2 |滚筒式烘干机 |
-| 7 |洗碗机 |
-| 8 |洗碗机半专业 |
-| 12 |烤箱 |
-| 13 |微波炉 |
-| 14 |滚刀亮点 |
-| 15 |蒸烤箱 |
-| 16 |微波 |
-| 17 |咖啡系统 |
-| 18 |引擎盖 |
-| 19 |冰箱 |
-| 20 |冷冻机 |
-| 21 |冰箱-/冷冻机组合 |
-| 23 |吸尘器，自动机器人吸尘器 |
-| 24 |洗衣机烘干机 |
-| 25 |餐具加热器 |
-| 27 |滚刀感应 |
-| 28 |燃气灶 |
-| 31 |蒸烤箱组合 |
-| 32 |酒柜 |
-| 33 |葡萄酒调节装置 |
-| 34 |葡萄酒储存调节装置 |
-| 39 |双烤箱 |
-| 40 |双蒸炉 |
-| 41 |双蒸烤箱组合 |
-| 42 |双微波 |
-| 43 |双微波炉 |
-| 45 |蒸汽烤箱微波炉组合 |
-| 48 |真空抽屉 |
-| 67 | DIALOGOVEN |
-| 68 |酒柜冰柜组合 |
-
-### 状态/状态
-|原始值 |状态 |
-|-----------|-----------------------------|
-| 1 |关闭 |
-| 2 |待机 |
-| 3 |编程 |
-| 4 | PROGRAMMED_WAITING_TO_START |
-| 5 |运行 |
-| 6 |暂停 |
-| 7 | END_PROGRAMMED |
-| 8 |失败 |
-| 9 | PROGRAMME_INTERRUPTED |
-| 10 |空闲 |
-| 11 |冲洗保持 |
-| 12 |服务 |
-| 13 |超冷冻 |
-| 14 |过冷 |
-| 15 |过热 |
-| 144 |默认 |
-| 145 |锁定 |
-| 146 | SUPERCOOLING_SUPERFREEZING |
-| 255 |设备离线 |
-
-### 程序类型/程序集
-|原始值 |状态 |
-|-----------|------------------------|
-| 0 |正常运行模式 |
-| 1 |自己的程序 |
-| 2 |自动程序 |
-| 3 |清洁/护理计划 |
-
-### 干燥步骤/Trockenstufe
-|原始值 |状态 |
-|-----------|-------------------|
-| 0 |超干 |
-| 1 |普通加 |
-| 2 |正常 |
-| 3 |微干 |
-| 4 |手熨斗 1 级 |
-| 5 |手熨斗 2 级 |
-| 6 |机铁 |
-
-### 程序设计
-|原始值 |状态 |可用于 |
-|-----------|-------------------------|-----------------|
-| 1 | “鲍姆沃勒”/“棉花” |洗衣机 |
-| 3 | “Pflegeleicht” |洗衣机 |
-| 4 | “范瓦舍” |洗衣机 |
-| 8 | “沃勒” |洗衣机 |
-| 9 | 《赛德》 |洗衣机 |
-| 21 | “Pumpen/Schleudern” |洗衣机 |
-| 23 | “奥伯黑登” |洗衣机 |
-| 27 | “印章” |洗衣机 |
-| 29 | “运动” |洗衣机 |
-| 31 | 《自动加号》 |洗衣机 |
-| 37 | 《户外》 |洗衣机 |
-| 48 | "Flusen ausspülen" |洗衣机烘干机 |
-| 50 | “邓克尔瓦舍” |洗衣机烘干机 |
-| 52 | “Nur Spülen/Stärken” |洗衣机 |
-| 122 | 《快20》 |洗衣机烘干机 |
-| 123 | “Dunkles/牛仔裤” |洗衣机 |
-
-### 程序阶段
-|原始值 |状态 |可用于 |
-|-----------|---------------------------|-----------------------------|
-| 258 | 《恩薇臣》 |洗衣机 |
-| 260 | “Waschen”/“洗涤” |洗衣机 |
-| 261 | “Spülen”/“冲洗”|洗衣机 |
-| 265 | “泵” |洗衣机 |
-| 266 | “Schleudern”/“纺纱” |洗衣机 |
-| 267 | “针织”/“”|洗衣机 |
-| 268 | “结束” / “结束” |洗衣机 |
-| 256 | “沃尔比根” |洗衣机 |
-| 512 | “结束”/“完成” |滚筒式干衣机 |
-| 514 | “Trocknen”/“干燥”|洗衣机烘干机，滚筒式烘干机 |
-| 519 | “Abkühlen” / “冷静下来” |洗衣机烘干机 |
-| 521 | “针织”/“”|滚筒式烘干机 |
-|第522章“结束”/“完成” |滚筒式干衣机 |
-|第531章“康福特库伦” |滚筒式干衣机 |
-|第532章"Flusen ausspülen" |洗衣机烘干机 |
+如果您想更深入地了解或需要原始值翻译，请参阅[本文档。](machine_states.md)
 
 ##哨兵.io
 该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
@@ -201,6 +107,57 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.4.1 (2022-10-12) (Dying for an Angel)
+* (grizzelbee) Chg: Dependencies got Updated
+* (grizzelbee) Chg: Important: Requires at least Node.js 14
+
+### 6.4.0 (2022-09-07) (Dying for an Angel)
+* (grizzelbee) Fix: program names get localized now
+* (grizzelbee) New: moved Admin-UI to jsonConfig
+* (grizzelbee) Chg: BREAKING CHANGE: removed duplicate en-/decryption of passwords due to jsonConfig
+* (grizzelbee) Chg: Moved some documentation from the readme file to machine_states.md
+
+### V6.3.4 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) enabled decryption of passwords again since this issue is a bug in Admin 6.2.0
+
+### V6.3.3 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [258](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/258) Improved error handling in case of line outages 
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) Removed double decryption of passwords
+* (grizzelbee) Chg: Dependencies got updated
+
+### V6.3.2 (2022-06-02) (Black Wings)
+* (grizzelbee) New: Added new config option "delayed processing" to prevent overload on less powerful hardware
+* (grizzelbee) Fix: changed actions info message during polling to log level debug
+* (grizzelbee) Fix: Fixed german translation bug "minutes" -> "protokoll" (thanks to rekorboi)
+
+### V6.3.1 (2022-05-25) (Black Wings)
+* (grizzelbee) Fix: Fixed bad log entry for error delay (delay is logged bad - but is executed okay)
+* (grizzelbee) Chg: Improved connection error handling
+* (grizzelbee) Fix: Fixed Sentry error: [MIELECLOUDSERVICE-3K](https://sentry.io/organizations/grizzelbee/issues/3281137250)
+
+### V6.3.0 (2022-05-23) (Black Wings)
+* (grizzelbee) New: [247](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/247) Added a User-Agent to http-requests to enable Miele to identify requests made by this adapter 
+* (grizzelbee) New: [248](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/248) Added exponential backoff in case of errors
+* (grizzelbee) Fix: [249](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/249) Handling undefined devices properly when executing actions
+* (grizzelbee) Fix: [250](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/250) Fixed light switch action which did not work due to [228](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/228) 
+* (grizzelbee) Fix: [246](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/246) switched http response from warn to debug
+* (grizzelbee) Chg: Some minor log improvements
+  
+### V6.2.2 (2022-05-17) (Black Wings)
+* (grizzelbee) Fix: Starting programs on devices is working now.
+
+### V6.2.1 (2022-05-16) (Black Wings)
+* (grizzelbee) Fix: [242](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/242) VentilationStep needs to be type number but was boolean
+* (grizzelbee) Fix: ACTIONS.programId is invalid: obj.common.type has an invalid value (integer) ...
+
+### V6.2.0 (2022-05-12) (Black Wings)
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Reintroduced data polling as a config option for all who has troubles with Server-Sent Events
+* (grizzelbee) New: Added some additional error handling code when Server Send Events report errors.
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Added reconnect delay in case od an error 
+* (grizzelbee) New: [192](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/192) Improved handling of adapter traffic light in case of an error 
+* (grizzelbee) New: Waiting for code to complete in case of an occurring event 
+* (grizzelbee) Chg: Changed watchdog log entry from info to debug
 
 ### V6.1.5 (2022-05-05) (Black Wings)
 * (grizzelbee) Fix: Changed State-Changed log entry from info to debug 

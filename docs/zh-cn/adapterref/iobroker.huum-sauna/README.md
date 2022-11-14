@@ -3,12 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-桑拿
-hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
+hash: ZtfvKGj2AxLNomQzQSstTax5oxI7QRdMv6XxaRy7S7Q=
 ---
-![商标](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
+![标识](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
+![NPM 版本](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)
+![安装数量](https://iobroker.live/badges/huum-sauna-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.huum-sauna)
-![安装数量](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+![安装数量（最新）](https://iobroker.live/badges/huum-sauna-installed.svg)
 ![已知漏洞](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
 ![新PM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 

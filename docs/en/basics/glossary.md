@@ -1,13 +1,12 @@
 ---
-Title: Begriffserklärungen
-lastChanged: 02.05.2021
+title: Explanations of terms
+lastChanged: 28.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/glossary.md
-title: no title
-hash: YHltgX7oCBrfgffqJry+MOvUzBLV28rn4SoXbROJAMc=
+hash: wIB/Rt7lx1TqV208Dztkn1HTXXZwKM/eb/hDyFvChRM=
 ---
-To make it easy to get started and to make further help more understandable, the most important terms that occur in and around ioBroker are explained here.
+In order to make it easy to get started and to make further help more understandable, the most important terms that occur in and around the ioBroker are explained here.
 
 * **Adaptor**
 
@@ -40,7 +39,7 @@ Homematic devices are available in wireless and wired versions (wired bus).
 
 * **CSS**
 
-Cascading Style Sheets. Using CSS, the display of websites can be described independently of the content. As a complement to the page structure defined in HTML, CSS defines how the page is rendered.
+Cascading Style Sheets. Using CSS, the display of websites can be described independently of the content. In addition to the page structure defined in HTML, CSS defines how the page is rendered.
 
 * **Cubietruck/Cubieboard 3**
 
@@ -82,7 +81,7 @@ Programming language with which everything is programmed at ioBroker and also ow
 * **js-controller**
 
 The js-controller is the main process of ioBroker and provides the necessary central basic functionality for all other modules.
-It also establishes access to the central object and status databases, coordinates and monitors all running adapter instances and processes. If necessary, adapters are restarted by the js-controller.
+It also provides access to the central object and status databases, coordinates and monitors all running adapter instances and processes. If necessary, adapters are restarted by the js-controller.
 
 * **Channel**
 
@@ -94,7 +93,7 @@ The master is the host, which is responsible for the administration of all insta
 
 * **Multihost Mode**
 
-ioBroker's multihost mode can be used to distribute control tasks to several computers if they require special interfaces (e.g. reading electricity meters in the basement). Furthermore, multiple hosts can be used to evenly distribute the load or memory usage. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of the instances to the slaves.
+ioBroker's multihost mode can be used to distribute control tasks to several computers if they require special interfaces (e.g. reading electricity meters in the basement). Furthermore, multiple hosts can be used to evenly distribute the load or memory usage. In multihost mode, one host is defined as the master; all others are slaves. The master controls all slaves and also the distribution of instances to the slaves.
 
 * **Node Red**
 
@@ -133,7 +132,7 @@ A No-SQL database that holds your data in memory and can be used in ioBroker to 
 
 * **vis**
 
-The VIS adapter allows you to create your own user and visualization interfaces for ioBroker and display them on different devices. The interfaces are composed of customizable widgets and your own HTML code, and their appearance can be changed using CSS.
+The VIS adapter allows you to create your own operating and visualization interfaces for ioBroker and display them on different devices. The interfaces are composed of customizable widgets and your own HTML code, and their appearance can be changed using CSS.
 
 * **Widget**
 

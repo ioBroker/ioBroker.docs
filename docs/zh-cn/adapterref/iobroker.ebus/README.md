@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
+hash: 5JwxeHhAXaIpDmkqes8qvbpxd9+IpiVI8CrPE9sGl/E=
 ---
-![商标](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
+![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
 ![安装数量](http://iobroker.live/badges/ebus-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ebus.svg)
@@ -32,7 +32,7 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 
 另一个功能是将任何命令发送到 ebusd 并接收答案以使用例如脚本。
 
-当前支持的 ebusd 版本：22.2
+当前支持的 ebusd 版本：22.3
 
 **注意** 使用 ebusd - 22.1 版配置路径已更改为 http://cfg.ebusd.eu/。确保在安装 ebusd 时更改它。
 详情见[变更日志](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -47,19 +47,19 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 
 结果也是逗号分隔的示例：2000, ERR: element not found, 10.5
 
-注意：datapoint ebus.0.cmd 中的命令在执行命令后会被删除！
+注意：datapoint ebus.0.cmd 中的命令在命令执行后被删除！
 
 ＃＃ 已知的问题
 * 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.ebus/issues) 创建问题
 
 ## 2.4.3 (2021-10-21)
-* (René) 请参阅问题 #58：警告错误修复：忽略历史记录值 1（无效）“当没有设置历史记录值时
+* (René) 请参阅问题 #58：警告错误修复：忽略历史值 1（无效）“当没有设置历史值时
 
 ## 2.4.2 (2021-10-19)
 * (René) 请参阅问题 #55：错误修复
 
 ## 2.4.0 (2021-10-17)
-*（René）读取数据点和历史数据点的过度处理，可选添加电路
+* (René) 读取数据点和历史数据点的过度处理，可选添加电路
 * (René) 命令现在可以包含多个命令，只需使用 ',' 分隔命令
 * (René) 请参阅问题 #55：警告更改为调试消息
 
@@ -157,6 +157,19 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 * (René) 初始版本
 
 ## Changelog
+
+### 3.0.7 (2022-08-20)
+* (René) support ebusd 22.3
+
+### 3.0.6 (2022-08-19)
+* (René) bug fix in tooltip in wizard
+
+### 3.0.4 (2022-08-18)
+* (René) tooltip in wizard added
+* (René) flot and dependencies updated
+* (René) errors from ebusd are shown as warning here in adapter, details schould be checked in logs of ebusd
+* (René) bug fix in widget: if less data available x axes grid point were not shown
+* (René) except null as valid value from ebusd (e.g. to reset CurrentError)
 
 ### 3.0.2 (2022-04-02)
 * (René) message for installation added

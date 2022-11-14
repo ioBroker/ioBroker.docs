@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bydhvs/README.md
 title: без заголовка
-hash: Xu7CAnCfg6NNW84Iow+g4D7jl5exZKaoGiLMOGKkBHg=
+hash: fp0JFosNG9bcdhM2vBDHTsHIuTrwMY0S97qqFoofkS4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bydhvs/admin/bydhvs.png)
 
@@ -12,13 +12,13 @@ hash: Xu7CAnCfg6NNW84Iow+g4D7jl5exZKaoGiLMOGKkBHg=
 
 ## Английский:
 ## Введение
-Этот адаптер получает данные от фотоэлектрической батареи byd (https://www.bydbatterybox.com/) и помещает их в точки данных в адаптере. К сожалению, официального API и документации нет, поэтому я использовал wireshark и симулятор byd-hvs-simulator, чтобы попытаться понять связь. Мой адаптер имитирует byd-app, отправляет подобные пакеты на устройство и анализирует ответы.
+Этот адаптер получает данные от фотоэлектрической батареи byd (https://www.bydbatterybox.com/) и помещает их в точки данных в адаптере. К сожалению, официального API и документации нет, поэтому я использовал wireshark и симулятор byd-hvs-simulator, чтобы попытаться понять общение. Мой адаптер имитирует byd-app, отправляет подобные пакеты на устройство и анализирует ответы.
 
 ## Будь осторожен
-В приложении beConnect есть два шага: на первом этапе вы получаете обычные данные, на втором шаге вы получаете подробные данные для всех ячеек (температура и напряжение отдельной ячейки и некоторые другие подробности). быть задержкой после одного из пакетов данных, пока я не получу результат. Я думаю, тем временем все клетки измеряются, но я не уверен. Я определенно не уверен, что вы повредите свою батарею слишком частым опросом этих данных, поэтому имейте в виду: вы действуете на свой страх и риск!
+В приложении beConnect есть два шага: на первом этапе вы получаете обычные данные, на втором шаге вы получаете подробные данные для всех ячеек (температура и напряжение отдельной ячейки и некоторые другие подробности). быть задержкой после одного из пакетов данных, пока я не получу результат. Я думаю, тем временем все клетки измеряются, но я не уверен. Я определенно не уверен, что вы навредите своей батарее, слишком часто опрашивая эти данные, поэтому имейте в виду: вы действуете на свой страх и риск!
 
-## Подсказка для систем с 5 модулями
-Люди у которых 5 модулей: Детали ячейки читаются только для первых 4-х модулей - протокол одинаковый для 2-4 модулей. Я хотел бы расширить его на 5 модулей, но либо кто-нибудь купит мне три недостающих модуля ;-) чтобы я мог проанализировать протокол, либо я получу захват wireshark с рабочего соединения.
+## Поддержка до 5 модулей
+Теперь поддерживается до 5 модулей HVS.
 
 ## Настройки
 Интервал: Это просто: как часто (с) будут опрашиваться данные. IP-адрес: Это самоочевидно. Либо вы используете стандартный адрес (192.168.16.254) и меняете маршрутизацию дома, например: https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID=2215343#post2215343. Преимущество в том, что приложение beConnect тоже работает. Другая возможность: вы меняете IP-адрес ящика. Но: Будьте осторожны: текст на веб-странице сбивает с толку, и если вы не совсем уверены в том, что делаете: ПОЖАЛУЙСТА, не трогайте настройки. На немецких форумах читал от людей которые залочили свою систему и пути назад нет, либо быд присылает тебе замену ХВУ либо приходится покупать новый.
@@ -40,18 +40,21 @@ Batterie-Details: Steuerung, ob die Details zu den Zellen gelesen werden sollen
 
 Lesezyklen zu Batterie-Details: Anzahl der "Normal-Lese-Zyklen" bis wieder einmal die Diagnose-Daten gelesen werden. Hier die Warnung dazu: Ich habe keine Idee ob man sich durch häufige Diagnose-Messungen Nachteile einhandelt, daher empfehle ich den Wert möglichst hoch zu setzen. Ich wüsste auch nicht was man mit den Diagnose-Daten im regelmäßigen Poll anfangen sollte.
 
-Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen und ZellSpannungen bei 2,3 и 4 Batterie-Modulen. Bei einem System mit 5 Modulen werden nur die Zellspannungen der ersten 128 Zellen angezeigt. Für die Zellen 129 bis 160 ist mir nicht bekannt wo die Daten gespeichert werden. Ich würde das gerne mit in den Adapter einbauen, benötige aber dafür einen Wireshark-Mittschnitt der Kommunikation zwischen der beConnect App und dem Speicher. Ich helper auch gerne wenn jemand nicht weiß wie man den Mittschnitt machen kann, entweder для Teamviewer или для сообщений на форуме. Offensichtlich funktioniert die Kommunikation für die 5. Einheit anders als bei den ersten 4 Einheiten.
+Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und ZellSpannungen bei 2-5 Batterie-Modulen.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### 1.3.1 - testing
+### 1.4.0 (2022-10-31)
+* Update of referred modules (mainly around testing)
+* improvmenets contributed by Tapter (5 modules, readme and better readable code)
 * Better detection of battery type and inverter
 * SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
 * removed frequency limit for battery detail data
+* increased max count of temperature measurements for HVS to 64
+* support for up to 5 HVS modules
 
 ### 1.3.0 (2021-11-06)
 * updated even more dependencies
@@ -66,10 +69,6 @@ Zu den Batterie-Größen: Der Adapter funktioniert auch für Zelltemperaturen un
 
 ### 1.2.2 (2021-06-14)
 * bump to new patch-level (to get rid of the "-0")
-
-### 1.2.2-0 (2021-05-30)
-* Create States for Diagnose-Data only if necessary
-* changes according review of the adapter
 
 ###
 

@@ -3,117 +3,114 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
+hash: hKBh/vsSutkuEpmM1XfMSQyQ0+irKy7rl/Gvbc02pKk=
 ---
-![商标](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
+![标识](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.smartcontrol.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.smartcontrol.svg)
 ![安装数量（最新）](http://iobroker.live/badges/smartcontrol-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/smartcontrol-stable.svg)
-![依赖状态](https://img.shields.io/david/Mic-M/iobroker.smartcontrol.svg)
-![已知漏洞](https://snyk.io/test/github/Mic-M/ioBroker.smartcontrol/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.smartcontrol.png?downloads=true)
+![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.smartcontrol/badge.svg)
+![新PM](https://nodei.co/npm/iobroker.smartcontrol.png?downloads=true)
 
-＃ioBroker.smartcontrol
-**测试：**![测试与发布](https://github.com/Mic-M/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.smartcontrol
+**测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker的智能控制适配器
-*[单击此处跳到下面的“简介”部分](#introduction)*
-
-没有ioBroker社区有关UI，功能请求，测试和错误报告等方面的宝贵宝贵意见，就不会存在该适配器。非常感谢所有贡献者！
-
-以下是我想与您分享的社区非常积极反馈的摘要：lush（脸红）（从最旧到最新，以及德语）：
-
-* * Ein收费适配器和Entwicklungsarbeit！* [来源]（https://forum.iobroker.net/post/461724）
-* * Ich finde das Hilfssystem einfachGenial.👍* [来源]（https://forum.iobroker.net/post/463066）
-* *死奥斯威斯坦教徒这么卑鄙的Übersichtlicher！绝对要举行！ 🙂Die Eierlegende selbstversorgende Wollmilchsau ist amlaufen..🙂* [来源]（https://forum.iobroker.net/post/470948）
-* *人在阿尔伯特（EstDanmalschönfürdie Arbeit）。 Möchtenicht wissen wieviele Stunden da drin stecken👍* [来源]（https://forum.iobroker.net/post/474350）
-* *还包括mus susgen：TOP Arbeit！* [来源]（https://forum.iobroker.net/post/476116）
-* *超级用户，超级用户和用户群！* [来源]（https://forum.iobroker.net/post/476117）
-* *Die Geschwindigkeit mit der der Den den Adapter nach vorne treibst ist echt erschreckend，因此schlimm und schnell das manching Mal mit dem testen nicht hinterher kommt👍RESPEKTABEL* [source]（https://forum.iobroker.net/post/204 ）
-* ICH斌奥赫recht begeistert冯DEM适配器，SCHÖNEArbeit。 Hab jetzt schonlängereZeit浸泡式mal wieder verschiedene Systeme getestet，FHEM，Nodered和jetzt seit kurzem Iobroker。所以schnell hab ich meine LichtsteuerungüberBewegungsmelder noch nie hinbekommen。* [source]（https://forum.iobroker.net/post/482899）
-* * Super Sache die du da gebaut hast🙂* [来源]（https://forum.iobroker.net/post/485306）
-* *适配器由贝米尔米尔·伊因萨兹和洛伊特·塞古特提供。 DankefürDeine Arbeit。* [来源]（https://forum.iobroker.net/post/485463）
-* *发现不符合要求的人，必须在适配器和其他适配器之间进行连接。回复<br>Bis jetzt konnte ichtatsächlichalles如此，所以这是Blockly在apt migrieren的收费地区。<br> Ichwürdemirwünschen，温特·德·适配器，所以，他的适配器，“ forkst”和diesen dann ebenfalls，所以usernah weiterentwickelst🙄* [来源]（https://forum.iobrokerker.net/post / 488090）
-* * Ersmal Hut Ab。在Adapterlog上的适配器和lass sich nach einer gewissen的Einarbeitungszeit适配器。 （...）Trotzdem nochmal dickes Lob，viele Dinge laufen damit seit einiger Zeit reibungslos和übersichtlicherals通过Skript。 👍* [来源]（https://forum.iobroker.net/post/492035）
-* * Dankefürden coolen适配器-da kann ich nur meinen Hut davor ziehen！* [来源]（https://forum.iobroker.net/post/496452）
-* * ein dickes Lobfürden Adapter und Deine vorbildliche Arbeit👍* [来源]（https://forum.iobroker.net/post/497110）
-** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * **
-* * Danke，man das Teil ist somächtiggeworden，aber GENIAL！* [来源]（https://forum.iobroker.net/post/500518）
+## IoBroker 的智能控制适配器
+如果没有 Mic-M，这个适配器就不会存在。他启动了这个糟糕的适配器并将其带到一个运行良好的适配器上。由于个人问题，他停止了这方面的工作。感谢您的工作。欢迎您接管它或在这个非常有用的适配器上一起工作。这个适配器的很多粉丝都要求继续这样做，这将发生在 iobroker-community-adapter 内部。
 
 ＃＃ 介绍
-在我们的[ioBroker](https://github.com/ioBroker/ioBroker)家庭自动化中，我们有几个触发器，例如
+在我们的 [ioBroker](https://github.com/ioBroker/ioBroker) 家庭自动化中，我们有几个触发器，例如
 
- *走廊触发器中的运动传感器，
+ * 走廊中的运动传感器触发，
  *按下墙壁开关，
- *发生特定时间（例如，日落之后30分钟或周一至周五的7:00）
+ * 出现特定时间（例如日落后 30 分钟或周一至周五 7:00）
 
-一旦触发了这样的触发条件，我们通常会希望（不）满足其他条件（例如，“今天是假期”，“客厅窗户打开”，亮度大于100勒克斯等）。
+一旦触发了这样的触发器，我们通常希望（不）满足其他条件（例如，“今天是假期”、“客厅窗户开着”、亮度大于 100 勒克斯等）。
 
-这些可选验证通过后，应切换目标状态（即“目标设备” **）。
+一旦这些可选验证通过，目标状态（即**目标设备**）应该被切换。
 
-此外，应在触发运动传感器后运行计时器，该定时器（一旦没有运动发生）将在设置的秒数后关闭目标设备。
+此外，在触发运动传感器后，计时器应该运行，它（一旦不再有运动）在设定的秒数后关闭目标设备。
 
-所有这些都可以通过此适配器轻松完成，甚至更多;-)
+所有这一切都可以通过这个适配器轻松完成，甚至更多;-)
 
-该适配器的目的是为您提供各种需求的非常“用户友好”的环境**，尽管以上只是使用IFTTT的一个简单示例（*如果是，那么*），您可以配置您家中的许多不同情况（在适配器选项中称为“区域”）。
-另外，如果您使用的是Javascript / Blockly，通常应该可以使用此适配器替换多个脚本，这还将确保更高的一致性，更稳定的环境，尤其是用户友好的配置方式。
+这个适配器的目的是为您提供一个非常**用户友好的环境**，用于您需要的各种场景，虽然上面只是一个使用 IFTTT 的简单示例（*如果这样，那么那样*），您可以配置您家的许多不同场景（在适配器选项中称为“区域”）。
+此外，如果您使用的是 Javascripts/Blockly，您通常应该能够使用此适配器替换多个脚本，这也将确保更高的一致性、稳定的环境，尤其是一种用户友好的配置方式。
 
-##安装
-只需通过ioBroker管理界面定期安装适配器。该适配器位于最新的稳定存储库中。<br>完成后，相应地添加适配器实例。
+＃＃ 安装
+只需通过 ioBroker 管理界面定期安装适配器即可。该适配器位于最新且稳定的存储库中。<br>完成后，相应地添加一个适配器实例。
 
-##说明
-我已经在此适配器的管理员设置中包含了所有说明。
+＃＃ 指示
+我已在此适配器的管理设置中包含所有说明。
 
-<sub>原因：我们有一个很好的德语用语[Medienbruch](https://de.wikipedia.org/wiki/Medienbruch)，这对于“破坏”当前媒体并切换到其他媒体（例如不同的网站，程序等）来执行/完成是不必要的要求任务等。由于这很麻烦，因此我已将所有说明包括在此适配器的管理设置中。</sub>
+<sub>原因：我们在德语中有一个很好的术语[媒体布鲁赫](https://de.wikipedia.org/wiki/Medienbruch)，这是“打破”当前媒体并切换到不同媒体（如不同网站、程序等）执行/完成的不必要要求任务等。由于这很麻烦，我已在此适配器的管理设置中包含所有说明。</sub>
 
-另外，您也可以在此处阅读大多数说明：
+此外，您还可以在此处阅读这些说明中的大部分内容：
 
-* [**基本适配器说明**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md）-对于德语[单击此处（德语） ]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md）
-* [**目标设备**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md）-对于德语[单击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md）
-* [**附加条件**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md）-对于德语[点击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md）
-* [**触发器：运动传感器**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_zh.md）-对于德语[单击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md）
-* [**触发：其他设备（墙壁开关等）**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_en .md）-对于德语[单击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de.md）
-* [**触发器：与时间有关**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc/md/table-trigger-times_en.md）-对于德语[单击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md）
-* [**区域**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md）-对于德语[点击此处（德语） ]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md）
-* [**执行设置**]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md）-对于德语[点击此处（德语）]（https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md）
+* [**基本适配器说明**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) - 德语 [点击这里 ( Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
+* [**目标设备**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) - 德语 [单击此处（德语）]（https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md）
+* [**附加条件**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) - 德语 [点击这里(德语)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
+* [**触发器：运动传感器**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) - 用于德语 [单击此处 (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
+* [**触发器：其他设备（墙壁开关等）**]（https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger -devices_en.md) - 德语 [单击此处 (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de。 md)
+* [**触发器：时间相关**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) -对于德语 [单击此处 (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
+* [**Zones**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) - 德语 [点击这里 ( Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
+* [**执行设置**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) - 德语 [点击这里(德语)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
 
-##适配器选项的屏幕截图（2020年9月17日）
+## 适配器选项的屏幕截图（2020 年 9 月 17 日）
 请注意，这些屏幕截图是快照，并不反映最新的适配器选项。
 这只是为您提供适配器选项的概述。
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
 
-![SmartControl选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
+![智能控制选项](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
 
-##链接和资源
-* [**永久性的Smart Control ioBroker论坛链接（启动页面）**]（https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page）
+## 链接和资源
+* [**永久智能控制 ioBroker 论坛链接（启动页面）**]（https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page）
 
-##注意
-*此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[Sentry-Plugin文档]（https://github.com/ioBroker/plugin -sentry＃plugin-sentry）！ Sentry报告从js-controller 3.0开始使用。
-*由[flatpi.com]（https://www.flaticon.com/）的[freepik]（https://www.flaticon.com/authors/freepik）制作的适配器图标。</ sup> </ sub>
+## 备注
+* 此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅 [Sentry-Plugin 文档](https://github.com/ioBroker/plugin -sentry#plugin-sentry）！从 js-controller 3.0 开始使用哨兵报告。
+* 由 [flaticon.com](https://www.flaticon.com/) 的 [freepik](https://www.flaticon.com/authors/freepik) 制作的适配器图标。</sup></sub>
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.1 (2022-10-20)
+* (simatec) (oelison) dark mode fix #5
+* (oelison) log info type error #16
 
-### Latest Development Version (not yet published on npm)
+### 1.3.0 (2022-10-14)
+* (oelison) remove errors and warnings ocured during deploy
+* (oelison) comment for zones added
+
+### 1.2.2 (2022-10-11)
+* (oelison) migration to links in iobroker-community-adapters
+* (oelison) update due to open PR of original repo
+* (oelison) node testing to 12, 14, 16
+
+### 1.2.1
+* (Mic-M) Enhancement: Now, all adapter config validations take place while saving the adapter configuration, and all identified errors are shown in a dialog. Addresses issue [#61](https://github.com/Mic-M/ioBroker.smartcontrol/issues/61)
+
+### 1.2.0
 * (Mic-M) Fix: [#60 - Linked triggers of motion sensors issue](https://github.com/Mic-M/ioBroker.smartcontrol/issues/60)
 * (Mic-M) Several code improvements
-
+* (Mic-M) Issues [#35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) and [#43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) confirmed as resolved, therefore all workaround code removed.
 
 ### 1.1.1 
 * (Mic-M) Fix: Most likely finally fixes [issue #43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) as well as workaround for [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) (scheduleJob() of node-schedule module: now applying 'cancel' method prior to reschedule every midnight)
@@ -122,7 +119,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 1.1.0 
 * (Mic-M) Improvement: if multiple motion sensors assigned to zone, zone will not switch off if any other motion sensor assigned to same zone is still motion=true (addresses [issue #45](https://github.com/Mic-M/ioBroker.smartcontrol/issues/45))
 * (Mic-M) Internal: align testing with latest adapter creator (remove travis and use github test only)
-
 
 ### 1.0.0 
 * (Mic-M) No changes - just prepared versioning to add adapter to stable repository per adapter development documentation, [Versioning section](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
@@ -145,7 +141,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.5.10
 * (Mic-M) Potential fix / workaround: for issue #35 to verify if schedule was called before at the same time
 
-
 ### 0.5.9
 * (Mic-M) **Breaking Change** New feature: 'Target Devices' -> 'Target URLs': added separate URL field to switch device off. This is breaking, since adapter admin config will have blank fields of 'Target URLs' once you update the adapter, and state ids will change as well. 
 * (Mic-M) Enhancement: 'Target Devices' -> 'Target URLs' : [Allow DNS name](https://forum.iobroker.net/post/510154)
@@ -157,7 +152,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) Various code fixes and improvements
 * (Mic-M) Potentially fix of [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) - to be tested
 * (Mic-M) Enhancement for 'Target Devices': Add table to call URLs als target (implementation of [issue #1](https://github.com/Mic-M/ioBroker.smartcontrol/issues/1))
-
 
 ### 0.5.6
 * (Mic-M) Hotfix: loading admin settings for enums
@@ -185,13 +179,11 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) New feature: ZONES - New option "Delay for switching zone on (in seconds)" - [issue #31](https://github.com/Mic-M/ioBroker.smartcontrol/issues/31)
 * (Mic-M) New feature: ZONES - New option "Never switch off if..." - [issue #32](https://github.com/Mic-M/ioBroker.smartcontrol/issues/32)
 
-
 ### 0.4.4
 * (Mic-M) New feature: allow comparison operators `!=` / `<>` in 'TRIGGERS -> Other triggers' to trigger if state value is unequal. Example: `<>30` or `!=30` - see [Forum](https://forum.iobroker.net/post/496133)
 * (Mic-M) Fix: Don't create `smartcontrol.x.options.TargetDevices.` states for enums since this does not make sense for enums.
 * (Mic-M) Fix: Don't create `smartcontrol.x.targetDevices.` states for enums since this does not make sense for enums.
 * (Mic-M) Moved log `Trigger xyz was already activated x seconds ago and is ignored...` from regular info log to debug/'extended info log' - [Forum](https://forum.iobroker.net/post/496604)
-
 
 ### 0.4.3
 * (Mic-M) New feature in adapter options: configure number of entries in 'smartcontrol.x.info.log.zoneActivations.json'
@@ -204,12 +196,10 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.4.1
 * (Mic-M) Fixed io-package.json
 
-
 ### 0.4.0
 * (Mic-M) New feature: Tab 'Target Devices': New table 'Targets: Enum functions' to **support enum functions**, and optionally limit to certain enum rooms. [issue #29](https://github.com/Mic-M/ioBroker.smartcontrol/issues/29).
 * (Mic-M) New feature: New JSON state for recent zone activations: 'smartcontrol.x.info.log.zoneActivations.json'. [issue #30](https://github.com/Mic-M/ioBroker.smartcontrol/issues/30).
 * (Mic-M) Code fixes
-
 
 ### 0.3.10
 * (Mic-M) Fixed io-package.json
@@ -220,7 +210,7 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.3.8
 * (Mic-M) Updated readme since adapter [is now in latest repository](https://github.com/ioBroker/ioBroker.repositories/pull/930)
 * (Mic-M) Updated translations, which also addresses [#26](https://github.com/Mic-M/ioBroker.smartcontrol/issues/26)
-* (Mic-M) Fixed/improved 'admin/index_m.js' 
+* (Mic-M) Fixed/improved 'admin/index_m.js'
 
 ### 0.3.7
 * (Mic-M) Mini update, just under the hood.
@@ -234,7 +224,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.3.4
 * (Mic-M) Test: Implementation of markdown documentation files within adapter configuration by using [zero-md](https://github.com/zerodevx/) for tables 'Target Devices' and 'Additional Conditions' to prepare adapter for multiple languages. Based on your language set in the adapter configuration, either German will be displayed (if language set to German) or English, if set language is not German.
 
-
 ### 0.3.3
 * (Mic-M) New feature for Motion sensors: the timer duration and brightness threshold can now be changed via states. These states are available under `smartcontrol.0.options.TriggerMotion.xxx.<duration|briThreshold>` for each of your motion sensors. Please note that any change will cause an adapter restart (for initializing and clearing all existing timers to apply the new values). [Issue #18](https://github.com/Mic-M/ioBroker.smartcontrol/issues/18)
 
@@ -243,7 +232,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) Fix [adapter-check.iobroker.in](https://adapter-check.iobroker.in/) error [E144] "common.installedFrom field found in io-package.json. Must be removed."
 * (Mic-M) Fix for adapter unload: check schedule variable for undefined.
 * (Mic-M) Fixed debug log line
-
 
 ### 0.3.1
 * (Mic-M) Fix error if no duration is set for motion sensor - [Forum Link](https://forum.iobroker.net/post/487630)
@@ -257,8 +245,6 @@ can have an effect to your existing configuration.
 * (Mic-M) New feature: Time triggers - added options for additional conditions for 'any' or 'all'. [issue #24](https://github.com/Mic-M/ioBroker.smartcontrol/issues/24)
 * (Mic-M) New feature: Zones > Execution - added options for additional conditions for 'any' or 'all'. 
 * (Mic-M) Many fixes under the hood
-
-
 
 ### 0.2.2
 * (Mic-M) New feature: In '3. TRIGGERS', 'Other Triggers', you can now easily create own states as triggers under 'smartcontrol.x.userstates'
@@ -319,10 +305,8 @@ Change Log for 0.2.0:
 * (hombach) corrected translations in docs/translations.md
 * (hombach) extended Travis tests to include ARM CPUs
 
-
 ### 0.1.1-beta.2
 * (Mic-M) Fix: Perform configuration validation and correction also for non-active table rows, since these can be switched on thru `smartcontrol.x.options.xxx.xxx.active` states.
-
 
 ### 0.1.1-beta.1
 * (Mic-M) New feature: New option in motion sensor table: if activated, motion triggers will not set a timeout if target device was turned on previously without a motion trigger ("manually"). [Forum Link](https://forum.iobroker.net/post/433871)
@@ -377,6 +361,8 @@ Change Log for 0.2.0:
 MIT License
 
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
+
+Copyright (c) 2022 Oelison <iobrokersmartcontrol@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

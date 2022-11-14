@@ -4,22 +4,20 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/README.md
-hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
+hash: W+/co4COdTvqKagf7wpknh4QlFhRta+RivJ18eihIac=
 ---
 # Troubleshooting
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
-
 @@@ Comprehensive procedures. Refer to individual help for specific adapter, installation procedure, and platform.
 @@@
 
 On this page you will find information about problems and their solutions or approaches to solutions.
-Please look through the topics to see whether your problem is already included here or on the subpages and, if so, the solution.
+Please look through the topics to see whether your problem is already included here or on the subpages and the solution may already be there.
 
 ## First Aid Checklist "My ioBroker has stopped working" - What should I check first and always post in the forum?
 Important information is always the following version information:
 
 * `node -v`: ioBroker supports the "LTS versions" of nodejs (even version numbers). New installations must use at least nodejs 8.12. **Attention:** Development versions of nodejs (odd version numbers) are not officially supported! Please only use completely new LTS versions after forum information. Nodejs 8.15 or higher is recommended.
-* `npm -v`: ioBroker supports npm in version 3 and >5.7.1, recommended is 6.4.1 or higher
+* `npm -v`: ioBroker supports npm in version 3 and >5.7.1. 6.4.1 or higher is recommended
 * `iobroker -v`
 * Version number of the adapter(s) in question
 * Operating system (Linux, MacOS, Windows)
@@ -32,7 +30,7 @@ Furthermore, BEFORE a forum request, please check this troubleshooting page and 
 Please check the logs for helpful entries from the relevant adapters at the time of the problem. Always put logs and scripts etc. in spoilers.
 
 ## Where can I find logs?
-In the simplest case, logs can be found in the admin UI in the web browser. Please note that the log lines in the admin are truncated after about 200 characters. As a result, important information may be lost or incomplete.
+In the simplest case, logs can be found in the admin UI in the web browser. Please note that the log lines in the admin are cut off after about 200 characters. As a result, important information may be lost or incomplete.
 Furthermore, the logs in the admin are only available for the current browser session.
 
 ioBroker continues to write all logs to a log file. This is located in the ioBroker directory in the "log" subdirectory and is normally available there for 7 days. Simply open it with a text editor and send excerpts if necessary.
@@ -102,4 +100,4 @@ After changing the log level, the instance is automatically restarted.
 ## Reconnection to DB
 ## Error 7 Adapter is already running
 ## Reinstall/rebuild (and error shell script)
-## Didn't make a backup but still have the Biobroker directory? Is it enough for restore?
+## Didn't make a backup but still have the ioBroker directory? Is it enough for restore?

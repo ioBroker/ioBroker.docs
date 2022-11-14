@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
+hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -30,7 +30,7 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 * Miele Client_id (с https://www.miele.com/developer/)
 * Miele Client_secret (с https://www.miele.com/developer/)
 
-## Установка
+## Монтаж
 Чтобы установить, сделайте следующее:
 
 1. Установить через Admin с помощью
@@ -40,7 +40,41 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 2. создайте учетную запись приложения для Miele@Home в приложении Miele для смартфона.
 3. Создайте учетную запись разработчика на странице https://www.miele.com/f/com/en/register_api.aspx.
 4. Добавьте свои устройства Miele в приложение (если они не добавляются автоматически).
-6. Заполните client_secret и client_id, полученные от команды разработчиков Miele, а также идентификатор учетной записи и пароль из приложения.
+6. Введите client_secret и client_id, полученные от команды разработчиков Miele, а также идентификатор учетной записи и пароль из приложения.
+
+## Конфигурация
+### Базовая конфигурация
+Чтобы запустить этот адаптер, вам потребуется как минимум:
+
+* Пользователь Miele@Home (из приложения для смартфона)
+* Пароль Miele@Home (из приложения для смартфона)
+* Miele Client_id (с https://www.miele.com/developer/)
+* Miele Client_secret (с https://www.miele.com/developer/)
+
+### События, отправленные сервером
+Начиная с версии 6.2.0 у вас есть возможность выбирать между
+
+* Server-Sent Events (флажок Server-Sent Events отмечен флажком — по умолчанию)
+* Опрос данных на основе времени (флажок Server-Sent Events снят)
+* Отложенная обработка
+
+#### События, отправленные сервером
+События, отправленные сервером, — это очень удобный способ получения данных с серверов Miele, поскольку серверы будут отправлять вам данные всякий раз, когда происходят изменения. Никаких бесполезных опросов каждые xx секунд, игнорирующих, были ли изменения или нет. К сожалению, при использовании этого типа подключения возникают проблемы - довольно часто происходит сбой, и это решается только перезапуском адаптера.
+
+#### Опрос данных на основе времени
+Чтобы повысить стабильность адаптера, я снова ввел опрос данных в качестве параметра конфигурации, который вы можете использовать, когда SSE терпит неудачу.
+Тем не менее, SSE используется по умолчанию, и я настоятельно рекомендую попробовать и использовать его, поскольку он экономит много ресурсов как на вашей стороне, так и на стороне Mieles. Кроме того, я сосредоточился на SSE, начиная с версии 5.x.x.
+Опрос данных на основе времени зависит от двух параметров конфигурации:
+
+* интервал опроса
+* Единица интервала опроса (секунды/минуты)
+
+#### Отложенная обработка
+Если у вас есть несколько бытовых приборов Miele и вы используете их одновременно, может случиться так, что API будет отправлять много сообщений за короткий период времени. В зависимости от вашего оборудования ioBroker это может привести к перегрузке вашего сервера и привести к зависанию визуализации или зависанию брокера вообще. Чтобы избежать этого, этот параметр конфигурации уменьшает количество обрабатываемых сообщений до одного сообщения каждые xxx миллисекунд.
+Связанные параметры конфигурации:
+
+* отложенная обработка
+* задержка сообщения
 
 ## Управление вашими устройствами
 ### Действия
@@ -63,135 +97,7 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
   * Эти программы в основном поддерживаются начиная с v6.0.0 адаптера. Кроме программ, которым нужны дополнительные параметры.
 
 ## Документация
-Пожалуйста, в основном обращайтесь к основной документации по API, опубликованной Miele.
-
-* [Общая документация] (https://www.miele.com/developer/swagger-ui/index.html)
-* [Необходимые условия для выполнения действия на устройстве](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
-
-Есть некоторые точки данных, доступные в 2 видах. Как человекочитаемый текст и как число.
-Эти поля числовых данных, принадлежащие текстовому полю, имеют то же имя, но с добавлением «_raw».
-Те поля, которые имеют общее значение, перечислены ниже.
-Поля, которые не указаны в списке, различаются по своему значению от устройства к устройству и не задокументированы Miele.
-Если вам нужно ссылаться в скриптах на эти поля, всегда используйте значения _raw.
-Текстовые значения могут измениться в будущем, а также зависят от языка.
-Вот список того, что означают эти необработанные значения:
-
-### Типы устройств
-| Исходное значение | государство |
-|-----------|--------------------------------------------------|
-| 1 | СТИРАЛЬНАЯ МАШИНА |
-| 2 | СУШИЛЬНАЯ МАШИНА |
-| 7 | ПОСУДОМОЕЧНАЯ МАШИНА |
-| 8 | ПОСУДОМОЕЧНАЯ МАШИНА ПОЛУПРОФ |
-| 12 | ПЕЧЬ |
-| 13 | ПЕЧЬ МИКРОВОЛНОВАЯ ПЕЧЬ |
-| 14 | ОСОБЕННОСТИ варочной панели |
-| 15 | ПАРОВАЯ ПЕЧЬ |
-| 16 | МИКРОВОЛНОВАЯ ПЕЧЬ |
-| 17 | КОФЕЙНАЯ СИСТЕМА |
-| 18 | ВЫТЯЖКА |
-| 19 | ХОЛОДИЛЬНИК |
-| 20 | МОРОЗИЛЬНАЯ КАМЕРА |
-| 21 | КОМБИНАЦИЯ ХОЛОДИЛЬНИК/МОРОЗИЛЬНИК |
-| 23 | ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ РОБОТ-ПЫЛЕСОС |
-| 24 | СТИРАЛЬНАЯ МАШИНА |
-| 25 | ПОДОГРЕВ ПОСУДА |
-| 27 | ИНДУКЦИОННАЯ ПЛИТА |
-| 28 | ПЛИТА ГАЗ |
-| 31 | КОМБИНАЦИЯ ПАРОВОЙ ПЕЧИ |
-| 32 | ВИННЫЙ ШКАФ |
-| 33 | БЛОК КОНДИЦИОНИРОВАНИЯ ВИНА |
-| 34 | БЛОК КОНДИЦИОНИРОВАНИЯ ВИНА |
-| 39 | ДВОЙНАЯ ПЕЧЬ |
-| 40 | ДВОЙНАЯ ПАРОВАЯ ПЕЧЬ |
-| 41 | ДВОЙНАЯ ПАРОВАЯ КОМБИНАЦИЯ |
-| 42 | ДВОЙНАЯ МИКРОВОЛНА |
-| 43 | ДВОЙНАЯ МИКРОВОЛНОВАЯ ПЕЧЬ |
-| 45 | ПАРОВАЯ ПЕЧЬ МИКРОВОЛНОВАЯ КОМБИНАЦИЯ |
-| 48 | ВАКУУМНЫЙ ЯЩИК |
-| 67 | ДИАЛОГОВЕН |
-| 68 | ВИННЫЙ ШКАФ С МОРОЗИЛЬНОЙ КАМЕРОЙ |
-
-### Состояние/Статус
-| Исходное значение | состояние |
-|-----------|-----------------------------|
-| 1 | ВЫКЛ |
-| 2 | STAND_BY |
-| 3 | ЗАПРОГРАММИРОВАННЫЙ |
-| 4 | PROGRAMMED_WAITING_TO_START |
-| 5 | БЕГ |
-| 6 | ПАУЗА |
-| 7 | END_PROGRAMMED |
-| 8 | НЕУДАЧА |
-| 9 | PROGRAMME_INTERRUPTED |
-| 10 | ПРОСТОЕ |
-| 11 | RINSE_HOLD |
-| 12 | СЕРВИС |
-| 13 | СУПЕРЗАМОРАЖИВАНИЕ |
-| 14 | ПЕРЕОХЛАЖДЕНИЕ |
-| 15 | ПЕРЕГРЕВ |
-| 144 | ПО УМОЛЧАНИЮ |
-| 145 | ЗАКРЫТО |
-| 146 | СУПЕРОХЛАЖДЕНИЕ_СУПЕРЗАМОРАЖИВАНИЕ |
-| 255 | Устройство в автономном режиме |
-
-### ProgramType/Programmart
-| Исходное значение | состояние |
-|-----------|------------------------|
-| 0 | Нормальный режим работы |
-| 1 | Собственная программа |
-| 2 | Автоматическая программа |
-| 3 | Программа очистки/ухода |
-
-### СушкаStep/Trockenstufe
-| Исходное значение | государство |
-|-----------|-------------------|
-| 0 | Экстра сухой |
-| 1 | Обычный Плюс |
-| 2 | Нормальный |
-| 3 | Слегка сухой |
-| 4 | Ручной утюг уровень 1 |
-| 5 | Ручной утюг уровень 2 |
-| 6 | Машинное железо |
-
-### Programmbezeichnung
-| Исходное значение | состояние | доступно для |
-|-----------|-------------------------|-----------------|
-| 1 | "Baumwolle" / "Хлопок" | Стиральная машина |
-| 3 | "Пфлегельихт" | Стиральная машина |
-| 4 | "Фейнвеше" | Стиральная машина |
-| 8 | "Волле" | Стиральная машина |
-| 9 | "Сейде" | Стиральная машина |
-| 21 | "Помпен/Шлейдерн" | Стиральная машина |
-| 23 | "Оберхемден" | Стиральная машина |
-| 27 | "Импрегниер" | Стиральная машина |
-| 29 | "Спортвеше" | Стиральная машина |
-| 31 | "Автомат плюс" | Стиральная машина |
-| 37 | "Открытый" | Стиральная машина |
-| 48 | "Flusen ausspülen" | Стиральная машина сушилка |
-| 50 | "Дункл Вэше" | Стиральная машина сушилка |
-| 52 | "Нур Спюлен/Штаркен" | Стиральная машина |
-| 122 | "Экспресс 20" | Стиральная машина сушилка |
-| 123 | "Данклс/Джинсы" | Стиральная машина |
-
-### ProgramPhase
-| Исходное значение | состояние | доступно для |
-|-----------|---------------------------|-----------------------------|
-| 258 | "Айнвайхен" | Стиральная машина |
-| 260 | "Вашен" / "Стирка" | Стиральная машина |
-| 261 | "Spülen" / "Полоскание" | Стиральная машина |
-| 265 | "Помпен" | Стиральная машина |
-| 266 | "Шлейдерн" / "Спиннинг" | Стиральная машина |
-| 267 | "Вязание" / "" | Стиральная машина |
-| 268 | «Энде» / «Конец» | Стиральная машина |
-| 256 | "Форбюгельн" | Стиральная машина |
-| 512 | «Энде» / «Готово» | Сушильные машины |
-| 514 | «Трокнен» / «Сушка» | Стиральная машина, Сушилка для белья |
-| 519 | "Abkühlen" / "Остыть" | Стиральная машина сушилка |
-| 521 | "Вязание" / "" | Сушильная машина |
-| 522 | «Энде» / «Готово» | Сушильная машина |
-| 531 | "Комфорткюлен" | Сушильная машина |
-| 532 | "Flusen ausspülen" | Стиральная машина сушилка |
+Если вы хотите получить более глубокое понимание или нуждаетесь в переводе необработанных значений, обратитесь к [эта документация.](machine_states.md)
 
 ## Сентри.ио
 Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения об этом автору. Для этого используется плагин [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
@@ -201,6 +107,57 @@ hash: nUCOIR+oScY4QRmUPEjexUlrZyTU3cix2THDuRyLkdY=
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.4.1 (2022-10-12) (Dying for an Angel)
+* (grizzelbee) Chg: Dependencies got Updated
+* (grizzelbee) Chg: Important: Requires at least Node.js 14
+
+### 6.4.0 (2022-09-07) (Dying for an Angel)
+* (grizzelbee) Fix: program names get localized now
+* (grizzelbee) New: moved Admin-UI to jsonConfig
+* (grizzelbee) Chg: BREAKING CHANGE: removed duplicate en-/decryption of passwords due to jsonConfig
+* (grizzelbee) Chg: Moved some documentation from the readme file to machine_states.md
+
+### V6.3.4 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) enabled decryption of passwords again since this issue is a bug in Admin 6.2.0
+
+### V6.3.3 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [258](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/258) Improved error handling in case of line outages 
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) Removed double decryption of passwords
+* (grizzelbee) Chg: Dependencies got updated
+
+### V6.3.2 (2022-06-02) (Black Wings)
+* (grizzelbee) New: Added new config option "delayed processing" to prevent overload on less powerful hardware
+* (grizzelbee) Fix: changed actions info message during polling to log level debug
+* (grizzelbee) Fix: Fixed german translation bug "minutes" -> "protokoll" (thanks to rekorboi)
+
+### V6.3.1 (2022-05-25) (Black Wings)
+* (grizzelbee) Fix: Fixed bad log entry for error delay (delay is logged bad - but is executed okay)
+* (grizzelbee) Chg: Improved connection error handling
+* (grizzelbee) Fix: Fixed Sentry error: [MIELECLOUDSERVICE-3K](https://sentry.io/organizations/grizzelbee/issues/3281137250)
+
+### V6.3.0 (2022-05-23) (Black Wings)
+* (grizzelbee) New: [247](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/247) Added a User-Agent to http-requests to enable Miele to identify requests made by this adapter 
+* (grizzelbee) New: [248](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/248) Added exponential backoff in case of errors
+* (grizzelbee) Fix: [249](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/249) Handling undefined devices properly when executing actions
+* (grizzelbee) Fix: [250](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/250) Fixed light switch action which did not work due to [228](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/228) 
+* (grizzelbee) Fix: [246](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/246) switched http response from warn to debug
+* (grizzelbee) Chg: Some minor log improvements
+  
+### V6.2.2 (2022-05-17) (Black Wings)
+* (grizzelbee) Fix: Starting programs on devices is working now.
+
+### V6.2.1 (2022-05-16) (Black Wings)
+* (grizzelbee) Fix: [242](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/242) VentilationStep needs to be type number but was boolean
+* (grizzelbee) Fix: ACTIONS.programId is invalid: obj.common.type has an invalid value (integer) ...
+
+### V6.2.0 (2022-05-12) (Black Wings)
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Reintroduced data polling as a config option for all who has troubles with Server-Sent Events
+* (grizzelbee) New: Added some additional error handling code when Server Send Events report errors.
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Added reconnect delay in case od an error 
+* (grizzelbee) New: [192](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/192) Improved handling of adapter traffic light in case of an error 
+* (grizzelbee) New: Waiting for code to complete in case of an occurring event 
+* (grizzelbee) Chg: Changed watchdog log entry from info to debug
 
 ### V6.1.5 (2022-05-05) (Black Wings)
 * (grizzelbee) Fix: Changed State-Changed log entry from info to debug 

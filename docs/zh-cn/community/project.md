@@ -2,6 +2,7 @@
 title: 发展
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/community/project.md
+template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 hash: HmjA9FxgHIt1aJQNniA0CUJqNrAxFRVJqJYDUi4rk34=

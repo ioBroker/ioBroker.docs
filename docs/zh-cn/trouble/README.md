@@ -4,11 +4,9 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/trouble/README.md
-hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
+hash: W+/co4COdTvqKagf7wpknh4QlFhRta+RivJ18eihIac=
 ---
 ＃ 故障排除
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意 [ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
-
 @@@ 综合程序。有关特定适配器、安装过程和平台的信息，请参阅个别帮助。
 @@@
 
@@ -19,7 +17,7 @@ hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 重要信息始终是以下版本信息：
 
 * `node -v`：ioBroker 支持 nodejs 的“LTS 版本”（甚至版本号）。新安装必须至少使用 nodejs 8.12。 **注意：** 官方不支持nodejs的开发版本（奇数版）！请仅在论坛信息后使用全新的 LTS 版本。建议使用 Nodejs 8.15 或更高版本。
-* `npm -v`: ioBroker 支持版本 3 和 >5.7.1 的 npm，推荐 6.4.1 或更高版本
+* `npm -v`：ioBroker 在版本 3 和 >5.7.1 中支持 npm。建议使用 6.4.1 或更高版本
 * `iobroker -v`
 * 相关适配器的版本号
 * 操作系统（Linux、MacOS、Windows）
@@ -32,10 +30,10 @@ hash: NAHfCKNrau6ZZZiSXWF0k0KN7z/OGtn4WhfS7IzATmk=
 请在出现问题时检查日志以获取来自相关适配器的有用条目。始终将日志和脚本等放入剧透中。
 
 ## 我在哪里可以找到日志？
-在最简单的情况下，可以在 Web 浏览器的管理 UI 中找到日志。请注意，管理员中的日志行在大约 200 个字符后被截断。因此，重要信息可能会丢失或不完整。
+在最简单的情况下，可以在 Web 浏览器的管理 UI 中找到日志。请注意，管理员中的日志行在大约 200 个字符后被切断。因此，重要信息可能会丢失或不完整。
 此外，管理员中的日志仅适用于当前浏览器会话。
 
-ioBroker 继续将所有日志写入日志文件。它位于“log”子目录中的 ioBroker 目录中，通常在 7 天内可用。只需使用文本编辑器打开它，并在必要时发送摘录。
+ioBroker 继续将所有日志写入日志文件。它位于“log”子目录中的 ioBroker 目录中，通常在那里可用 7 天。只需使用文本编辑器打开它，并在必要时发送摘录。
 
 ## 如何更改适配器实例的日志级别？
 默认情况下，js-controller 和适配器运行在“info”日志级别。这意味着适配器开发人员认为有用的信息将写入日志。总共有以下日志级别：
@@ -49,7 +47,7 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 可以在 Admin WebUI 中设置实例的日志级别。为此，请在“实例”下激活专家模式，并在实例的同名列中设置日志级别。
 更改日志级别后，实例会自动重启。
 
-**注意：** 根据日志级别（尤其是调试和愚蠢），磁盘上的日志文件可能会变得非常大。注意可用的存储空间。
+**注意：** 根据日志级别（尤其是调试和傻瓜），磁盘上的日志文件可能会变得非常大。注意可用的存储空间。
 
 ## 操作系统更新后，ioBroker 不再工作（检查节点版本等）
 ## 适配器/ioBroker 不再以错误 "wrong node version native package.bla" 开头？ （npm 重建等）
@@ -61,7 +59,7 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 ## 整个主机在适配器更新时冻结（例如 sql 安装）
 ## 如何手动重新安装 js 控制器，何时应该这样做？我需要考虑什么？
 ## 如何手动重新安装适配器，何时应该这样做？我需要考虑什么？
-## 安装适配器时，出现“index.html not found”的窗口？ （安装 Admin3）
+## 安装适配器时出现“index.html not found”的窗口？ （安装 Admin3）
 ## 我的适配器都不见了？
 ...
 
@@ -102,4 +100,4 @@ ioBroker 继续将所有日志写入日志文件。它位于“log”子目录�
 ## 重新连接到数据库
 ## 错误 7 适配器已在运行
 ## 重新安装/重建（和错误的 shell 脚本）
-## 没有进行备份但仍有 Biobroker 目录？够还原吗？
+## 没有进行备份但仍有 ioBroker 目录？够还原吗？

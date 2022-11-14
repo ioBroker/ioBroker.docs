@@ -4,19 +4,17 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/virtualbox.md
-hash: ojdJt/Bd/RzAa+nPIcMrXd0dcayKGusHGKxwmcoeNJY=
+hash: slUqfVNS38ZC/Qkic41PwsrfkOker7g3nElPwh6kQAM=
 ---
 # 在 VirtualBox 中设置和安装 ioBroker
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
-
 @@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
 
 首先，让我们获取 Debian 的最新稳定版本 https://www.debian.org/CD/http-ftp/#stable
 
 在 CD 下再往下一点，我们点击 AMD64
 
-现在我们下载“debian-8.4.0-amd64-netinst.iso” 如果有更新的版本，请使用它，在下载时 Debian 8.4.0 是最新的。
-我使用 Netinst 是因为文件很小，而且安装只从网络重新加载小东西。
+现在我们下载`debian-8.4.0-amd64-netinst.iso`。如果有更新的版本，请使用它，在下载时 Debian 8.4.0 是最新的。
+我使用`Netinst`，因为文件很小，安装只从网络加载小东西。
 
 之后，我们创建一个新的虚拟机并为其命名。
 在我的示例中 ioBroker_Debian_Jessie_x64 Recording87.jpg 然后指定我们要分配给 VM 的主内存量。
@@ -29,7 +27,7 @@ hash: ojdJt/Bd/RzAa+nPIcMrXd0dcayKGusHGKxwmcoeNJY=
 当涉及到存储类型时，您可以选择什么。
 在我的示例中，我使用 DYNAMIC ALLOCATED Recording91.jpg
 
-现在我们可以更改虚拟机的文件名（如果我们愿意的话）并输入虚拟机可用分区的大小。在我的示例中为 10GB Recording92.jpg
+现在我们仍然可以更改虚拟机的文件名（如果我们愿意的话）并输入虚拟机可用分区的大小。在我的示例中为 10GB Recording92.jpg
 
 现在虚拟机设置好了。
 如果我们现在单击更改，我们可以设置更多关于 VM 的内容。
@@ -55,7 +53,7 @@ Debian 的安装就可以开始了。
 键盘布局：从 Recording98.jpg 中选择 GERMAN
 
 计算机名称：我们输入要安装的计算机的名称。
-在我的示例 ioBrokerVM 中（如果有人想从他们的 ioBroker 生产系统播放备份作为测试，请输入与您的 Rasp Pi / Cubie / BananaPi 等相同的名称。）Recording100.jpg
+在我的示例 ioBrokerVM 中（如果有人想从他们的 ioBroker 生产系统回放备份作为测试，请输入与您的 Rasp Pi / Cubie / BananaPi 等相同的名称） Recording100.jpg
 
 域名：该字段可以留空 Recording101.jpg
 
@@ -222,20 +220,20 @@ exit 0
 
 内存消耗：10 GB 的动态 VM 和 Ubuntu 16.10 Full + iobroker 占用约 1.7 GB 内存。我的 11 个快照占用 8.6 GB。
 
-我每天晚上使用“Back in Time”程序自动将我的整个个人区域（包括 VirtualBOX VM 目录）复制到第二个硬盘驱动器。有几个版本保留在那里，并在一段时间后自动删除。
+每天晚上，我都会使用“Back in Time”程序自动将我的整个个人区域（包括 VirtualBOX VM 目录）复制到第二个硬盘驱动器。有几个版本保留在那里，并在一段时间后自动删除。
 截图日期为 2016-04-26 22-55-23.png 这是运行 VirtualBox。
 
 ```
 sudo apt-get install virtualbox virtualbox-qt virtualbox-dkms
 ```
 
-您还可以安装扩展包，它还支持例如从主机到客户端的 USB 2.0 或 3.0 设备的连接、从主机到客户端的网络摄像头直通和 AES 加密。您可以在这里下载它 [URL:https://www.virtualbox.org/wiki/Downloads] – 第 2 点（扩展包）[/url] 下载此文件并以管理员身份打开它或通过 VirtualBOX 打开并安装它/全局设置/附加包（但以管理员身份启动 VirtualBOX）。
+您还可以安装扩展包，它还支持例如从主机到客户端的 USB 2.0 或 3.0 设备的连接、从主机到客户端的网络摄像头直通和 AES 加密。您可以在这里下载它 [URL:https://www.virtualbox.org/wiki/Downloads] – 第 2 点（扩展包）[/url] 下载此文件并以管理员身份打开它或通过 VirtualBOX/ 打开并安装它全局设置/附加包（但以管理员身份启动 VirtualBOX）。
 
 最低硬件要求非常低。你必须弄清楚它是如何适合的。理论上，512 RAM 和旧的 Intel 处理器就足够了。例如，它应该在所有英特尔 NUC 代上平稳运行。
 为了连续运行，拥有一台省电的主机当然很重要。如今，您可以轻松地修补功能强大的 10 瓦以下的计算机。 Internet 上有各种 10 瓦 PC 手册。重要的是尽可能不要（自己的）显卡，并拥有在较低负载范围内高效的电源单元，并且不要使用高端主板，因为它具有的功能越多，芯片就越多在权力。
 我真的可以推荐适用于 Windows 或 Ubuntu 的英特尔 NUC 系列。我将引用我的签名： iobroker in an Ubuntu VM with VirtualBOX on an Intel NUC NUC6i3SYH (i3 Skylake)、M.2 SSD、8 GB RAM、Ubuntu 16.10。 6-8W空闲。
 
-在 Virtualbox 中，我将 VM 的网卡设置为“Bridged”，也就是说，VM 像单独的计算机一样连接到 LAN 路由器。
+在 Virtualbox 中，我将 VM 的网卡设置为“Bridged”，即 VM 像单独的计算机一样连接到 LAN 路由器。
 
 并且固定IP通过安装的操作系统在VM中非常正常地设置。
 这在 Debian 上可以这样工作：
@@ -264,4 +262,4 @@ sudo nano /etc/network/interfaces
         gateway 192.168.1.1
 ```
 
-其中 eth0 是您自己的 LAN 设备的名称，在 VM 中可能会以不同的方式调用它，更改时您需要将两个 eth0 单词替换为正确的名称。
+其中 eth0 是您自己的 LAN 设备的名称，它在 VM 中可能会以不同的方式调用，更改时您需要将两个 eth0 单词替换为正确的名称。

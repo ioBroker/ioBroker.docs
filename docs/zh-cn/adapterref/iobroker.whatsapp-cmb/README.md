@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
+hash: VayoHyRhoOZpZqXHrVIK93S336vYLW20Or9dvVRkWt8=
 ---
-![商标](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
+![标识](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
 ![安装数量](http://iobroker.live/badges/whatsapp-cmb-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.whatsapp-cmb.svg)
@@ -17,16 +17,16 @@ hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## IoBroker 的 whatsapp-cmb 适配器
-非常感谢免费的[呼叫我机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/)服务，此适配器允许您将 WhatsApp 消息发送给自己或其他号码。
+非常感谢免费的 [呼叫我机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/) 服务，此适配器允许您向自己或其他号码发送 WhatsApp 消息。
 
 **注意**：*免费 API 仅供个人使用！*
 
 ＃＃＃ 配置
-*以下文档是从[呼叫机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/)页面复制的。*
+*以下文档是从 [呼叫机器人](https://www.callmebot.com/blog/free-api-whatsapp-messages/) 页复制的。*
 
 在使用 API 之前，您需要从机器人获取 API 密钥：
 
-- 将电话号码 **+34 644 44 21 48** 添加到您的电话联系人中。 （随意命名。）
+- 将电话号码 XXXX（从 CallMeBot 页面获取当前号码）添加到您的电话联系人中。 （随意命名。）
 - 将此消息“我允许 callmebot 向我发送消息”（英文）发送给创建的新联系人（当然使用 WhatsApp）。
 - 等到您收到消息“API 已为您的电话号码激活”。您的 APIKEY 是来自机器人的 123123`。由于这仍处于 Beta 测试阶段，因此激活可能需要 2 分钟。
 - 来自机器人的 WhatsApp 消息将包含使用 API 发送消息所需的 API 密钥。
@@ -56,6 +56,9 @@ sendTo('whatsapp-cmb.0', 'send', {
 ### __工作进行中__ -->
 
 ## Changelog
+### 0.2.3 (2022-08-29)
+* (Apollon77) Refer to website for current phone number
+
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 

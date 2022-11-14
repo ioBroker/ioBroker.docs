@@ -1,7 +1,8 @@
 ---
-title: cloud
+title: IFTTT
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/ifttt.md
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 hash: d54JegGTv7x+JHzn/4ZWs/hAMJ0AM3Y7W4WZXl73J48=

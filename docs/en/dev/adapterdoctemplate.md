@@ -4,11 +4,9 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: hRDZ9tHsP1S4T38BJqbTomoyaJfJq/U9sroihjXdOl4=
+hash: S62aqyeF/7VQpWq4NzquyWKDXOOwfj0o/ISm+YD2BSE=
 ---
 # Template for creating an adapter documentation
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
-
 ```
 ---
 title:       "{Seitentitel}"
@@ -36,8 +34,6 @@ im Abschnitt "Überblick".
 ![{alt BildName}](../../de/dev/media/{Bild} "{Bildbeschreibung") <span style="color:grey">
 *{Bildbeschreibung}*</span>
 
-
-
 <details open><summary>Inhaltsverzeichnis</summary><p>
 
 | Navigation                          |
@@ -55,8 +51,6 @@ im Abschnitt "Überblick".
 | 11 [Links](#links)                  |
 | 12 [Historie](#historie)            |
 </p></details>
-
-
 
 <a name="steckbrief"/>
 
@@ -80,8 +74,6 @@ im Abschnitt "Überblick".
 | Keywords                | `Suchworte`                  |
 | Abhängigkeiten          | `dependencies`               |
 
-
-
 <a name="überblick"/>
 
 ## Überblick
@@ -97,8 +89,6 @@ eines Geräteadapters Information zu dem Gerät sein, oder bei einem Adapter fü
 ein Kommunikationsprotokoll Grundlagen zu dem Protokoll.
 Trotzdem sollte dieser Text allgemeinverständlich auch für Einsteiger sein.
 
-
-
 <a name="voraussetzungen"/>
 
 ## Voraussetzungen vor der Installation
@@ -106,8 +96,6 @@ Der Anwender erhält hier Informationen, welche Schritte ggf. vor der Installati
 des Adapters u.a. auf externen Systemen auszuführen sind. Dazu gehören z.B. die
 Registrierung von API-Keys oder die Konfiguration von angebundenen System
 nach Herstellerdokumentation.
-
-
 
 <a name="installation"/>
 
@@ -121,14 +109,11 @@ oder die Freischaltung von Ports auf dem Server sein.
   Die ausführliche Anleitung für die dazu notwendigen Installatonschritte ist
   **hier** beschrieben.
 
-
-
 <a name="konfiguration"/>
 
 ##  Konfiguration
 Kurzer Einleitungssatz zur Konfiguration. Für jedes Admin-Fenster ist ein separter
 Abschnitt vorzusehen.
-
 
 <a name="{Eindeutiger Fensterbezeichner}"/>
 
@@ -313,8 +298,6 @@ Lorem ipsum
 Irgendwo kommen auch noch Links zu GitHub (Entwicklerbereich?) und
 externen Ressourcen? Aber bitte nicht gleich am Doku-Anfang, eher am Ende.
 Zuerst die leichte Kost.
-
-
 
 ## Entwicklerbereich
 ```

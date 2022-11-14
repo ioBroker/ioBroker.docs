@@ -1,24 +1,24 @@
 ---
+title: The Redis database for ioBroker
+lastChanged: 27.02.2021
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/config/redis.md
-title: The Redis database for ioBroker
-hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
+hash: iS5fXBj9lEj5zQk1a5bbY7utI+8y43A3Sw9PKYfM8jw=
 ---
-# The Redis database for ioBroker
 Redis is an open source in-memory database.
 More information can be found at https://redis.io/
 
 The big advantage of Redis:
 
-Compared to the internal ioBroker databases, Redis offers advantages in the areas of data access speed, IO management in the file system and better use of CPU resources.
+Compared to the internal ioBroker databases, Redis mainly offers advantages in the areas of data access speed, IO management in the file system and better use of CPU resources.
 The js controller is offloaded. A previously sluggish system can become faster again.
 However, it is important that enough RAM is available, since Redis keeps all data in RAM. Depending on what exactly is stored in Redis, the RAM requirement ranges from a few MB (e.g. if only states are in Redis) to over 200 MB (if e.g. objects and files are also stored there).
 
 ## Redis FAQ
 1. Do I need Redis for my ioBroker or not?
 
-ioBroker's own databases are usually sufficient for all standard installations! Only when the js-controller permanently needs 50-70% or more CPU and the system feels sluggish at the same time does it make sense to deal with the topic of Redis.
+ioBroker's own databases are usually sufficient for all standard installations! Only when the js-controller permanently needs 50-70% or more CPU and the system feels sluggish at the same time, it makes sense to deal with the topic of Redis.
 Alternatively, it becomes necessary if you are aiming for a highly available ioBroker system, but a few more things are necessary for this.
 
 2. How do I find out if I'm using Redis or not?
@@ -27,7 +27,7 @@ Since ioBroker's own databases also use the Redis protocol for communication, it
 A call to `iobroker status` shows which database type is used for the States and Objects databases.
 "file" means that ioBroker's own databases are used. "redis" means that a Redis is in use.
 
-A detailed explanation of Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
+A detailed explanation on the subject of Redis with further information can be found in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick)
 
 ## Redis persistence
 Typically, Redis is an "in-memory database". So the data is stored in RAM. When Redis exits, they're gone.
@@ -47,7 +47,7 @@ More details on persistence are available at https://redis.io/topics/persistence
 If the computer with the master Redis is defective, the data still exist on the slave almost in real time.
 You can use this to create a dump to set up the master again, or as a quick solution you can make the slave the master and change the database IPs in ioBroker and you are almost online again. This can also be found in more detail in [Forum](https://forum.iobroker.net/topic/26327/redis-in-iobroker-%C3%BCberblick) or at https://raw.githubusercontent.com/antirez/redis/5.0/redis.conf
 
-**However, a slave does not protect against the accidental deletion of data, as these are also deleted on the slave immediately afterwards. Only backups can help here.**
+**However, a slave does not protect against the accidental deletion of data, since these are also deleted on the slave immediately afterwards. Only backups can help here.**
 
 ## Installing Redis
 Redis must be installed and configured as a separate service and the data should also be taken into account when backing up.
@@ -75,12 +75,12 @@ sudo apt-get install redis-server
 You can check with `sudo systemctl status redis-server`.
 If it doesn't start automatically after a reboot, `sudo systemctl enable redis-server` will help.
 Redis uses port 6379 by default and also comes with a command line tool for accessing the database: `redis-cli` opens a shell.
-The command `info` displays some information about the system, memory consumption and the saved data ("keyspace"), which is of course still empty at the moment.
+The command `info` displays some information about the system, memory usage and the saved data ("keyspace"), which of course is currently empty.
 
 If you run a single-host system or run ioBroker on the same host, then that's about it.
 
 If other hosts should also be able to access this Redis server (slaves or something), then this must still be allowed.
-To do this, /etc/redis/redis.conf must be edited and the line **bind 127.0.0.1** changed to **bind 0.0.0.0** and directly below the **protected_mode** set to **no** will.
+To do this, /etc/redis/redis.conf must be edited and the line **bind 127.0.0.1** changed to **bind 0.0.0.0** and the **protected_mode** set to **no** directly below will.
 
 Afterwards, `sudo systemctl restart redis-server` restarts the server with the updated configuration.
 

@@ -3,29 +3,34 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bosesoundtouch/README.md
 title: ioBroker.bosesoundtouch
-hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
+hash: UIuNWeecy5izhYdfQFSTQpoFV4kTaU+3tUfHe/ATGTk=
 ---
 ![标识](../../../en/adapterref/iobroker.bosesoundtouch/admin/bosesoundtouch.png)
 
-![安装数量](http://iobroker.live/badges/bosesoundtouch-installed.svg)
-![新产品管理](https://nodei.co/npm/iobroker.bosesoundtouch.png?downloads=true)
+![安装数量](http://iobroker.live/badges/bosesoundtouch-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.bosesoundtouch.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.bosesoundtouch.svg)
 
-# IoBroker.boseoundtouch
-适用于 ioBroker IoT 平台的 Bose SoundTouch 适配器
+# IoBroker.bosesoundtouch
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.bosesoundtouch/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bosesoundtouch/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+用于 ioBroker 物联网平台的 Bose SoundTouch 适配器
 
 ## 控制状态
-要控制扬声器，可以编写以下对象：
+要控制您的扬声器，可以编写以下对象：
 
 |状态 |说明 |
 | :---           | :---        |
-|键 |要发送的以下键之一：<br><br>玩<br>暂停<br>停止<br>PREV_TRACK<br>下一条轨道<br>竖起大拇指<br>不看好<br>书签<br>力量<br>沉默的<br>提高音量<br>音量减小<br>预设_1<br>预设_2<br>预设_3<br>预设_4<br>预设_5<br>预设_6<br>辅助输入<br>SHUFFLE_OFF<br> SHUFFLE_ON<br> REPEAT_OFF<br> REPEAT_ONE<br> REPEAT_ALL<br> PLAY_PAUSE<br>添加_收藏夹<br>REMOVE_FAVORITE<br> INVALID_KEY |
-|静音 |将设备静音或取消静音。 |
+|关键 |要发送的以下密钥之一：<br><br>玩<br>暂停<br>停止<br>PREV_TRACK<br> NEXT_TRACK<br>竖起大拇指<br>不看好<br>书签<br>力量<br>沉默的<br>提高音量<br>音量减小<br>PRESET_1<br> PRESET_2<br> PRESET_3<br> PRESET_4<br> PRESET_5<br>预设_6<br>辅助输入<br>随机关闭<br>随机播放<br>REPEAT_OFF<br>重复一次<br>REPEAT_ALL<br> PLAY_PAUSE<br> ADD_FAVORITE<br> REMOVE_FAVORITE<br>无效键 |
+|静音 |使设备静音或取消静音。 |
 |上 |打开或关闭设备。 |
 |到处玩|将扬声器定义为区域主控并在所有其他扬声器上播放其内容。 |
-|音量 |在 0 到 100 之间更改设备音量。 |
+|体积 |在 0 到 100 之间更改设备音量。 |
 
 ## 信息状态
-以下信息是从您的扬声器收集的（只读状态）：
+从您的扬声器收集以下信息（只读状态）：
 
 ＃＃＃ 设备信息
 |状态 |说明 |
@@ -40,14 +45,14 @@ hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
 | :---       | :---        |
 |专辑 |当前播放的专辑。 |
 |艺术 |源艺术的 URL。 |
-|艺术家 |当前播放的艺术家。 |
-|流派|当前播放曲目的类型。 |
-|来源 |正在播放的服务的类型或名称。要确定产品是否处于待机模式，请检查 source == STANDBY。 |
-|站 |电台或播放列表名称。 |
-|跟踪|当前播放的曲目。 |
+|艺术家 |目前正在演奏的艺人。 |
+|流派 |当前播放曲目的类型。 |
+|来源 |播放服务的类型或名称。要确定产品是否处于待机模式，请检查 source == STANDBY。 |
+|车站 |电台或播放列表名称。 |
+|跟踪 |当前播放的曲目。 |
 
-###预设
-6 个可用预设中的每一个都有以下状态：
+### 预设
+6 个可用预设中的每一个都存在以下状态：
 
 |状态 |说明 |
 | :---       | :---        |
@@ -56,15 +61,24 @@ hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
 |来源 |服务的类型或名称。 |
 
 ### 区域
-以下说明将帮助您使用多房间系统创建群组。只读字段由 soundtouch 设备自动更新，如果您通过 Soundtouch 应用程序本身更改组也是如此。
+以下描述将帮助您使用多房间系统创建组。 soundtouch 设备会自动更新只读字段，如果您通过 Soundtouch 应用程序本身更改组也是如此。
 
 |状态 |说明 |
 | :---       | :---        |
-
-|大师|显示扬声器从机的MAC地址（以“;”分隔）（只读）|会员|显示此音箱主控的MAC地址（只读）| addMasterOf|添加您要添加到此主扬声器的扬声器的 MAC 地址。也可以放置不止一个扬声器（用“;”分隔）。
-|移除MasterOf|添加要从此主扬声器中删除的扬声器的 MAC 地址。也可以放置不止一个扬声器（用“;”分隔）。
+|大师 |显示扬声器从属设备的 MAC 地址（以“;”分隔）（只读） |
+|会员 |显示此音箱主控的MAC地址（只读）|
+| addMasterOf|添加您要添加到此主扬声器的扬声器的 MAC 地址。也可以放置一个以上的扬声器（用“;”分隔）。|
+|删除MasterOf|添加要从此主扬声器中删除的扬声器的 MAC 地址。也可以放置一个以上的扬声器（用“;”分隔）。|
 
 ## Changelog
+### 0.10.3 (2022-06-17)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 0.10.2 (2022-06-12)
+* (Apollon77) Check if adapter is configured properly before trying to connect
+
+### 0.10.1 (2022-06-02)
+* (Apollon77) Add Sentry for crash reporting
 
 ### 0.10.0 (2021-07-30)
 * IMPORTANT: The adapter now requires at least js-controller 2.0
@@ -190,4 +204,4 @@ hash: EQkIheOfB3+GIXK55QxZ1pS+XER1FIKvlwMEdpzYPWY=
 
 [The MIT License (MIT)](LICENSE)
 
-Copyright (c) 2019-2021 SwedishChef <swedish.chef@gmx.at>
+Copyright (c) 2019-2022 SwedishChef <swedish.chef@gmx.at>

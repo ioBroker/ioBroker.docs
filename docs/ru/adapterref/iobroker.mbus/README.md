@@ -3,51 +3,52 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mbus/README.md
 title: ioBroker.mbus
-hash: VYmc7Ban2UKbt4GPEY2mZLxw9ZZIdg/T5nLNfIXz9Eg=
+hash: tyTLsMMCuxELtkp/VoxbH58o6dhpl/Pep6sPfwIfx+Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mbus/admin/mbus.png)
 
-![Количество установок](http://iobroker.live/badges/mbus-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mbus.svg)
+![Количество установок (последние)](https://iobroker.live/badges/mbus-installed.svg)
+![Количество установок (стабильно)](https://iobroker.live/badges/mbus-stable.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.mbus.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mbus.svg)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.mbus/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.mbus?branch=master&svg=true)
-![НПМ](https://nodei.co/npm/iobroker.mbus.png?downloads=true)
 
 # IoBroker.mbus
 ======================
 
-[![Code Climate] (https://codeclimate.com/github/Apollon77/ioBroker.mbus/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.mbus)
+![Тестируйте и выпускайте](https://github.com/Apollon77/ioBroker.mbus/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-Этот адаптер для ioBroker подключается к M-Bus Master через TCP или последовательный порт, чтобы предоставить статус и подробную информацию о подключенных устройствах M-Bus.
+Этот адаптер для ioBroker подключается к ведущему устройству M-Bus через TCP или последовательный порт для предоставления статуса и сведений о подключенных устройствах M-Bus.
 
 ## Описание параметров
-### Порт IP / TCP шлюза
-IP-адрес и порт M-Bus Master / Gateway при использовании TCP.
+### IP-адрес шлюза/TCP-порт
+IP-адрес и порт M-Bus Master/Gateway при использовании TCP.
 
-### Последовательный порт / скорость передачи
-Последовательный порт и скорость передачи данных M-Bus Master / Gateway.
+### Последовательный порт/скорость передачи
+Последовательный порт и скорость передачи M-Bus Master/Gateway.
 
 ### Интервал обновления
-Интервал в секундах для обновления данных. По умолчанию (если пусто) - 3600 с (1 час). Подумайте, как запитываются устройства на шине M-Bus, чтобы предотвратить разряд батарей. Если вы установите интервал равным 0, тогда устройство будет считываться только один раз при запуске адаптера, но затем больше не автоматически.
+Интервал в секундах для обновления данных. По умолчанию (если пусто) 3600 с (1 час). Подумайте, как питаются устройства на шине M-Bus, чтобы предотвратить разрядку батарей. Если вы установите интервал равным 0, то устройство считывается только один раз при запуске адаптера, но не автоматически.
 
 ### Идентификаторы устройств
-Вы можете использовать первичный (1-250) и вторичный (длиной 16 символов) идентификаторы M-Bus.
+Вы можете использовать первичные (1-250) и вторичные (длиной 16 символов) идентификаторы M-Bus.
 
 ## Как читать Устройство по запросу?
-В созданных состояниях для каждого устройства существует одно состояние, называемое «updateNow». Когда вы устанавливаете это значение true (как управляющее действие с ack = false), устройство немедленно обновляется. Если интервал настроен, интервал возобновляется после получения данных.
+В созданных состояниях для каждого устройства существует одно состояние, называемое «updateNow». Когда вы устанавливаете это значение в true (как управляющее действие с ack=false), устройство обновляется немедленно. Если интервал настроен, интервал перезапускается после получения данных.
 
-## Делать
-* зашифрованная обработка полезной нагрузки (если кому-то понадобится)
+## Сделать
+* зашифрованная обработка полезной нагрузки (если кому-то нужно)
 
-## Как сообщить о проблемах и запросах функций
-Пожалуйста, используйте для этого проблемы GitHub.
+## Как сообщать о проблемах и запросах функций
+Пожалуйста, используйте для этого задачи GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Режим эксперта -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от администратора, потому что администратор обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
 
 ## Changelog
+### 2.4.0 (2022-06-30)
+* IMPORTANT: Node.js 12.x is now required at least
+* (Apollon77) Several updates and optimizations
 
 ### 2.3.4 (2021-03-07)
 * (Apollon77) Send a reset to the device before reading data
@@ -128,7 +129,7 @@ IP-адрес и порт M-Bus Master / Gateway при использовани
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

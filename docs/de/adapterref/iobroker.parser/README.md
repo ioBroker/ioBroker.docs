@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
 title: kein Titel
-hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
+hash: gqjnxeWBrdIDed3rjdlPH6JkSC8aInhP2MLTdcpW53E=
 ---
 ![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png) ioBroker-Parser-Adapter
 
@@ -15,17 +15,27 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.parser/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/parser/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
-Dieser Adapter analysiert per URL oder aus einer Datei empfangene Daten mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird ein Status unter `parser.<instance number>` erstellt und mit den geparsten Informationen gefüllt und aktualisiert.
+Dieser Adapter analysiert per URL oder aus einer Datei empfangene Daten mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird unter `parser.<instance number>` ein Status erstellt und mit den geparsten Informationen gefüllt und aktualisiert.
 
 ## Einstellungen
 ### 1. Standardabfrageintervall
 Dieser Standardwert für das Abfrageintervall wird verwendet, wenn für einen Eintrag in der Konfigurationstabelle (Spalte: "Intervall") kein individueller Wert für das Abfrageintervall angegeben ist. Das Intervall wird in Millisekunden angegeben und definiert, wie oft der Link oder die Datei gelesen und die Zustände aktualisiert werden.
 
-**Hinweis:** Verwenden Sie insbesondere für Website-URLs kein zu aggressives Abfrageintervall. Wenn Sie beispielsweise den Kurs Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und Sie auf eine Server-Blacklist setzen. Verwenden Sie das Abfrageintervall daher mit Bedacht.
+**Hinweis:** Verwenden Sie insbesondere für Website-URLs kein zu aggressives Abfrageintervall. Wenn Sie beispielsweise den Kurs Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und Sie auf eine Server-Blacklist setzen. Verwenden Sie daher das Abfrageintervall mit Bedacht.
 
-### 2. Tabelle
+### 2. Timeout anfordern
+Geben Sie an, wie lange der Adapter bei Websiteabfragen auf eine HTTP-Antwort wartet
+
+### 3. Akzeptieren Sie ungültige Zertifikate
+Geben Sie an, ob selbstsignierte/ungültige SSL/TLS-Zertifikate bei HTTPS-Anforderungen akzeptiert oder abgelehnt werden
+
+### 4. Verwenden Sie einen unsicheren HTTP-Parser
+Geben Sie an, dass ein unsicherer HTTP-Parser verwendet werden soll, der ungültige HTTP-Header akzeptiert. Dies kann die Interoperabilität mit nicht konformen HTTP-Implementierungen ermöglichen.
+Die Verwendung des unsicheren Parsers sollte vermieden werden.
+
+### 5. Tabelle
 Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag hinzuzufügen.
 
 **Leistungshinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehrmals in verschiedene Tabellenzeilen eingeben und die Werte der Spalte "Intervall" gleich sind, wird nur der Inhalt der URL oder des Dateinamens abgerufen ** einmal** und zwischengespeichert, um mehrere Tabellenzeilen zu verarbeiten, die mit URL/Dateiname und Intervall übereinstimmen. Auf diese Weise können Sie mehrere Regex (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen Dateinamen anwenden, ohne die Daten mehrmals von der Quelle abrufen zu müssen.
@@ -57,11 +67,11 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 ## Beispieleinstellungen
 | Name | URL oder Dateiname | RegEx | Rolle | Geben Sie | ein Einheit | Intervall |
 |-------------------|:-----------------------------------------------------|:----------------------|--------------|---------|------|----------|
-| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Zahl | °C | 180000 |
+| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Nummer | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | boolesch | | 60000 |
-| CPUTemperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Zahl | °C | 30000 |
-| stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Zahl | € | 86400000 |
-| stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?= <span>EUR&lt;\/span&gt;)` | Wert | Zahl | € | 86400000 |</span> |
+| CPUTemperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Nummer | °C | 30000 |
+| stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Nummer | € | 86400000 |
+| stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?= <span>EUR&lt;\/span&gt;)` | Wert | Nummer | € | 86400000 |</span> |
 
 *Hinweis:* Beim Anwenden von Regex auf die abgerufenen URL-/Dateidaten werden alle Zeilenumbrüche durch Leerzeichen ersetzt, um eine mehrzeilige Suche zu ermöglichen.
 
@@ -78,14 +88,14 @@ Weitere Informationen zu RegExp:
 ### Beispiele
 - *.at* stimmt mit jeder dreistelligen Zeichenfolge überein, die mit „at“ endet, einschließlich „Hut“, „Katze“ und „Fledermaus“.
 - *[hc]at* passt auf "Hut" und "Katze".
-- *[^b]at* stimmt mit allen Zeichenfolgen überein, die mit .at übereinstimmen, außer "bat".
-- *[^hc]at* stimmt mit allen Zeichenfolgen überein, die mit .at übereinstimmen, mit Ausnahme von "hat" und "cat".
+- *[^b]at* stimmt mit allen Strings überein, die mit .at übereinstimmen, außer "bat".
+- *[^hc]at* stimmt mit allen Zeichenfolgen überein, die mit .at übereinstimmen, außer "hat" und "cat".
 - *^[hc]at* findet "Hut" und "Katze", aber nur am Anfang des Strings oder der Zeile.
 - *[hc]at$* passt auf "Hut" und "Katze", aber nur am Ende des Strings oder der Zeile.
 - *\[.\]* entspricht jedem einzelnen Zeichen, das von "[" und "]" umgeben ist, da die Klammern maskiert sind, zum Beispiel: "[a]" und "[b]".
 - *s.\** stimmt mit s gefolgt von null oder mehr Zeichen überein, zum Beispiel: "s" und "saw" und "seed".
 - *[hc]+at* stimmt mit "hat", "cat", "hhat", "chat", "hcat", "cchchat" usw. überein, aber nicht mit "at".
-- *[hc]?at* passt auf "hat", "cat" und "at".
+- *[hc]?at* findet "hat", "cat" und "at".
 - *[hc]\*at* passt auf „hat“, „cat“, „hhat“, „chat“, „hcat“, „cchchat“, „at“ und so weiter.
 - *Katze|Hund* passt auf "Katze" oder "Hund".
 - *(\d+)* - erhält die Nummer aus der Zeichenfolge
@@ -93,6 +103,8 @@ Weitere Informationen zu RegExp:
 
 ### Andere nützliche Ausdrücke
 - (-?\d+) Zahl abrufen (sowohl negative als auch positive Zahlen)
+- [+-]?([0-9]+.?[0-9]|.[0-9]+) erhält eine Zahl mit Dezimalstellen (und . als Dezimaltrennzeichen)
+- [+-]?([0-9]+,?[0-9]|,[0-9]+) erhält eine Zahl mit Dezimalstellen (und , als Dezimaltrennzeichen)
 
 ## Qualitätscodes
 Werte können Quality Codes haben:
@@ -101,11 +113,37 @@ Werte können Quality Codes haben:
 - 0x82 - Die URL oder Datei kann nicht gelesen werden.
 - 0x44 - Zahl oder Stringwert nicht im Text gefunden
 
-## Unterstützung
+## Die Unterstützung
 1. Allgemein: [ioBroker-Forum](https://forum.iobroker.net/). Deutschsprachige Benutzer: siehe [ioBroker-Forenthread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
 2. Bei Problemen lesen Sie bitte [ioBroker Parser Adapter: Github Issues](https://github.com/ioBroker/ioBroker.parser/issues).
 
 ## Changelog
+### 1.2.1 (2022-09-15)
+* (Apollon77) Always use raw response and not try to parse it
+
+### 1.2.0 (2022-09-12)
+* (Apollon77) Allow to specify if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
+* (Apollon77) Allow to specify if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
+* (Apollon77) Allow to specify the HTTP request timeout
+
+### 1.1.8 (2022-06-27)
+* (Apollon77) Check that a link is configured
+
+### 1.1.7 (2022-06-16)
+* (Apollon77) Fix potential crash cases reported by Sentry
+
+### 1.1.6 (2022-05-28)
+* (Apollon77) Set method to "GET" when requesting URLs
+
+### 1.1.5 (2022-04-19)
+* (Apollon77) Ignore objects without configuration for parser and log it
+
+### 1.1.4 (2022-03-21)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 1.1.3 (2022-03-20)
+* (Apollon77) if regex did not match set defined replacement value (or null)
+
 ### 1.1.2 (2022-03-09)
 * (Apollon77) Fix initialization of new parser objects
 

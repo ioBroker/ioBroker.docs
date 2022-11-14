@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synology/README.md
 title: ioBroker Synology-Adapter
-hash: YmWDJpDaHt3Fn/BXAlSuhPTnPJLWGEF1TYima9OFckI=
+hash: WkVual2m2dT72rLqP5brHKeJT9eWswnA4uloqjj13Og=
 ---
 ![Logo](../../../en/adapterref/iobroker.synology/admin/synology.png)
 
@@ -14,13 +14,13 @@ hash: YmWDJpDaHt3Fn/BXAlSuhPTnPJLWGEF1TYima9OFckI=
 # IoBroker-Synology-Adapter
 ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.synology/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/synology/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Beschreibung
 Mit dem Treiber können Sie Daten empfangen und Ihren Synology NAS-Server verwalten.
 
 ### 2FA-Einstellungen
-Wenn Sie 2FA in DSM6 verwenden, siehe Anweisungen [Hier](docs/en/template.md)
+Wenn Sie 2FA in DSM6/7 verwenden, siehe Anleitung [hier](docs/en/template.md)
 
 ### Neustart und Herunterfahren
 Der Adapter tut dies seit v2.1.4 über SSH, also stellen Sie bitte den SSH-Port in den Adaptereinstellungen ein. Sie können es in den Synology-Einstellungen sehen: ![Grafik](https://user-images.githubusercontent.com/6681528/161436776-bd04b0c6-cfb2-47ab-9bee-7ea700575bbb.png) ![Grafik](https://user-images.githubusercontent.com/6681528/161436897-174f3396-c2bb-4248-b91c-707005f7d2a8.png)
@@ -42,7 +42,7 @@ Sie können jeden Befehl (Methode) senden, indem Sie das sendMethod-Objekt festl
 
 ***SurveillanceStation.HomeMode.status_on*** – Aktueller Status und Homemode aktivieren/deaktivieren
 
-***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer abrufen, die Datei wird im Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
+***SurveillanceStation.getSnapshotCamera*** - Schnappschuss nach Kameranummer erhalten, die Datei wird im Verzeichnis ``...iobroker-data\synology_0\snapshotCam_2.jpg`` gespeichert
 
 ***AudioStation.players.{PLAYERID}***:
 
@@ -72,142 +72,166 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 });
 ```
 
-## Changelog
+## __IN ARBEIT__
+-->
+
+### 2.1.12 (2022-10-26) *(McM1957) Protokollierung des Passworts im Klartext wurde entfernt.
+### 2.1.11 (2022-10-24)
+*(McM1957) Der Adapter wurde angepasst, um mit node14 kompatibel zu sein.
+
+### 2.1.10 (2022-10-23)
+*(McM1957) Umgang mit Passwörtern, die Sonderzeichen (z. B. ein Dollarzeichen) enthalten, wurde korrigiert (#180) *(McM1957) Basismodule wurden aktualisiert, wie von dependentabot vorgeschlagen.
+
+### 2.1.9 (2022-07-01)
+* (Apollon77) Versuchen Sie, Kontosperren zu verhindern, wenn Sie 2FA bei Neustarts des NAS verwenden
+
+### 2.1.8 (2022-06-12)
+* (Apollon77) verlangsamt Wiederverbindungen zum DSM
+
+### 2.1.7 (2022-04-26)
+* (Apollon77) Versuchen Sie, Kontosperren zu verhindern, wenn Sie 2FA bei Neustarts des NAS verwenden
+
+### 2.1.6 (2022-04-04)
+* (Apollon77) 2FA korrigieren
+
 ### 2.1.5 (2022-04-03)
-* (Apollon77) fix DSM version detection
+* (Apollon77) Korrektur der DSM-Versionserkennung
 
 ### 2.1.4 (2022-04-03)
-* (arteck) workaround for shutdown and reboot(configure your ssh port in the settings)
-* (Apollon77) prevent error when setting FileStation.info.items on start once
+* (arteck) Problemumgehung für das Herunterfahren und Neustarten (konfigurieren Sie Ihren SSH-Port in den Einstellungen)
+* (Apollon77) verhindert Fehler beim einmaligen Setzen von FileStation.info.items beim Start
 
 ### 2.1.1 (2022-03-26)
-* (Apollon77) Optimize object type determination and adjustments
+* (Apollon77) Optimieren Sie die Objekttypbestimmung und Anpassungen
 
 ### 2.1.0 (2022-03-25)
-* IMPORTANT: You need to re-enter the password once after installing this version!
-* (Apollon77) Camera snapshots are now also stored in ioBroker storage to be easier used in visualizations!
-* (foxriver76) Hide password display in Admin when using Admin5
-* (Apollon77) Fix volume description
-* (Apollon77) Fix type issues since js-controller 3.3
+* WICHTIG: Nach der Installation dieser Version müssen Sie das Passwort einmalig neu eingeben!
+* (Apollon77) Kameraschnappschüsse werden jetzt auch im ioBroker-Speicher gespeichert, um sie einfacher in Visualisierungen verwenden zu können!
+* (foxriver76) Passwortanzeige in Admin ausblenden, wenn Admin5 verwendet wird
+* (Apollon77) Datenträgerbeschreibung korrigiert
+* (Apollon77) Typprobleme seit js-controller 3.3 behoben
 
 ### 2.0.1 (2021-09-17)
-* (MeisterTR) Workaround JSON config Password
+* (MeisterTR) Problemumgehung JSON-Konfigurationskennwort
 
 ### 2.0.0
-* (instalator) DSM7 support
+* (Installationsprogramm) DSM7-Unterstützung
 
 ### 1.1.3 (2021-08-23)
-* (MeisterTR) Fixed 2FA
+* (MeisterTR) 2FA behoben
 
 ### 1.1.2 (2021-08-12)
-* (MeisterTR) Fixed datatypes
-* (MeisterTR) added new ConfigJson (if you use 2FA pleease retype in config)
-* (MeisterTR) Fixed snapshot again
+* (MeisterTR) Feste Datentypen
+* (MeisterTR) neuen ConfigJson hinzugefügt (wenn Sie 2FA verwenden, bitte erneut in Config eingeben)
+* (MeisterTR) Snapshot wieder korrigiert
 
 ### 1.1.1 (2021-08-09)
-* (MeisterTR) fix type of uptime
-* (MeisterTR) fix broken snapshot link
+* (MeisterTR) Art der Betriebszeit behoben
+* (MeisterTR) defekten Snapshot-Link behoben
 
 ### 1.1.0 (2021-08-07)
-* (MeisterTR) fixes for DSM7
-* (MeisterTR) added release-script
-* (MeisterTR) change testing
-* (MeisterTR) change syno repo to default
+* (MeisterTR) Korrekturen für DSM7
+* (MeisterTR) Release-Skript hinzugefügt
+* (MeisterTR) Änderungstest
+* (MeisterTR) Syno-Repo auf Standard ändern
 
 ### 1.0.1
-* (thost96) fix for wrong type number [issue 78](https://github.com/instalator/ioBroker.synology/issues/78)
+* (thost96) Korrektur für falsche Typennummer [Problem 78](https://github.com/instalator/ioBroker.synology/issues/78)
 
 ### 1.0.0
-* (instalator) changed name objects in hdd_info [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
-* (Apollon77) BREAKING CHANGE: Please set password new in admin!
-* (Apollon77) js-controller 3.0 is now needed minimum!
-* (Apollon77 store password now encrypted)
+* (Instalator) Namensobjekte in hdd_info geändert [issues 51](https://github.com/instalator/ioBroker.synology/issues/51)
+* (Apollon77) BREAKING CHANGE: Bitte Passwort im Admin neu setzen!
+* (Apollon77) js-controller 3.0 wird jetzt mindestens benötigt!
+* (Apollon77 Store-Passwort jetzt verschlüsselt)
 
 ### 0.1.20
-* (instalator) fixed error
+* (Installationsprogramm) behobener Fehler
 
 ### 0.1.18
-* (instalator) change link for album cover
+* (Instalator) Link für Albumcover ändern
 
 ### 0.1.17
-* (instalator) added Sentry plugin support
+* (Instalator) Sentry-Plugin-Unterstützung hinzugefügt
 
 ### 0.1.16
-* (instalator) fixed error
+* (Installationsprogramm) behobener Fehler
 
 ### 0.1.15
-* (instalator) fixed error in parse Info
-* (instalator) fixed api undefined
+* (Instalator) Fehler beim Parsen von Info behoben
+* (Instalator) API undefiniert behoben
 
 ### 0.1.14
-* (instalator) fixed missing [datapoints](https://github.com/instalator/ioBroker.synology/issues/43)
-* (instalator) refactoring
-* (instalator) Changed the logging of some errors
-* (instalator) Changed format session in syno package
+* (Instalator) fehlende [Datenpunkte] behoben (https://github.com/instalator/ioBroker.synology/issues/43)
+* (Instalator) Refactoring
+* (Instalator) Protokollierung einiger Fehler geändert
+* (Instalator) Sitzungsformat im Syno-Paket geändert
 
 ### 0.1.11
-* (instalator) added motionDetected state
-* (SpectreKr*) Adding to FS Sharing
+* (Installateur) Bewegungserkennungsstatus hinzugefügt
+* (SpectreKr*) Hinzufügen zur FS-Freigabe
 
 ### 0.1.10
-* (instalator) fixed copy cover file
-* (instalator) fix get packages for DSM 5.x
-* (instalator) Added option to select services for receiving data
+* (Installationsprogramm) Cover-Datei mit fester Kopie
+* (Instalator) Fix zum Abrufen von Paketen für DSM 5.x
+* (Instalator) Option hinzugefügt, um Dienste zum Empfangen von Daten auszuwählen
 
 ### 0.1.8
-* (instalator) fix error addDownload
-* (instalator) fixed listRadios
-* (instalator) fixed get cover
+* (Installationsprogramm) Fehler beheben addDownload
+* (Instalator) feste ListeRadios
+* (Installateur) behobene Abdeckung erhalten
 
 ### 0.1.7
-* (instalator) fixed 2FA
-* (instalator) Added setup guide 2FA
+* (Installateur) 2FA behoben
+* (Installationsprogramm) Einrichtungsanleitung 2FA hinzugefügt
 
 ### 0.1.6
-* (instalator) fix for 2fa
-* (instalator) fix error
-* (instalator) change error log
-* (instalator) fix io-package
-* (instalator) fix error status player
+* (Installationsprogramm) Fix für 2fa
+* (Installationsprogramm) Fehler behoben
+* (Installationsprogramm) Fehlerprotokoll ändern
+* (Installationsprogramm) io-Paket reparieren
+* (Instalator) Fehlerstatus-Player beheben
 
 ### 0.1.4
-* (instalator) change for DownloadStation
-* (instalator) added playlist favorite radio
-* (instalator) added clearPlaylist button
-* (instalator) refactoring
+* (Installations-)Änderung für DownloadStation
+* (Instalator) Playlist Lieblingsradio hinzugefügt
+* (Instalator) ClearPlaylist-Schaltfläche hinzugefügt
+* (Instalator) Refactoring
 
 ### 0.1.3
-* (instalator) change obj for ss info fix for cover song 
-* (instalator) fix for info.connection 
-* (instalator) add 6.2.3 fix for player browser files 
-* (instalator) fix for 2FA
-* (instalator) fixed error add download 
-* (instalator) added DownloadStation task list
+* (Instalator) ändere obj für ss info fix für Coversong
+* (Instalator) Fix für info.connection
+* (Installationsprogramm) 6.2.3 Fix für Player-Browser-Dateien hinzugefügt
+* (Installationsprogramm) Fix für 2FA
+* (Installationsprogramm) Fehler beim Hinzufügen des Downloads behoben
+* (Installationsprogramm) DownloadStation-Aufgabenliste hinzugefügt
 
 ### 0.1.2
-* (instalator) fixed error
+* (Installationsprogramm) behobener Fehler
 
 ### 0.1.1
-* (instalator) added messagebox for snapshot
-* (instalator) update readme
-* (instalator) added ss link for different streams
-* (instalator) fix error
-* (instalator) refactoring
+* (Instalator) Messagebox für Snapshot hinzugefügt
+* (Instalator) Update-Readme
+* (Instalator) SS-Link für verschiedene Streams hinzugefügt
+* (Installationsprogramm) Fehler behoben
+* (Instalator) Refactoring
 
 ### 0.1.0
-* (instalator) added HomeMode switch 
-* (instalator) change for audiostation 
-* (instalator) change for as and ss
-* (instalator) added snapshot functional 
-* (instalator) fixed systemConfig 
-* (instalator) fixed many error
+* (Installateur) HomeMode-Schalter hinzugefügt
+* (Installations-)Änderung für Audiostation
+* (installateur) ändern für as und ss
+* (Instalator) Snapshot-Funktion hinzugefügt
+* (Installateur) feste systemConfig
+* (Installationsprogramm) viele Fehler behoben
 
 ### 0.0.4 (2018-10-07)
-* (instalator) Изменен репозиторий библиотеки
-* (instalator) Добавлено в конфиг время опроса
+* (Installationsprogramm) Изменен репозиторий библиотеки
+* (Installationsprogramm) Добавлено в конфиг время опроса
 
 ### 0.0.3 (2018-01-03)
-* (instalator) initial
+* (Installateur) Anfangsbuchstabe
+
+## Changelog
+<!--
 
 ## License
 The MIT License (MIT)

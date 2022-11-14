@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: W0fmYpVw3g+J7EmmUo9mCAdjbGAHGZhMXls7g27bYcQ=
+hash: pGj5S8Xe7mVY7Xlaq+RDr/n57LPM2/bvOeTbyhPmAm8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -38,7 +38,7 @@ hash: W0fmYpVw3g+J7EmmUo9mCAdjbGAHGZhMXls7g27bYcQ=
 
 ## Панели
 ### Панель сигнализации
-ioBroker пока не поддерживает такое устройство, но его можно смоделировать. Если вы создадите такой скрипт:
+ioBroker пока не поддерживает такое устройство, но его можно смоделировать. Если вы создаете такой скрипт:
 
 ```
 createState(
@@ -114,7 +114,7 @@ common: {
     }
 ```
 
-другими словами, в IoB также должен быть выбор ввода.
+другими словами, in также должен быть input select в IoB.
 
 ### Таймер
 Таймер можно смоделировать с помощью следующего скрипта:
@@ -206,7 +206,7 @@ createState(
 - daswetter.0.NextDays.Location_1
 - год.0.прогноз
 
-Протестировано с драйвером AccuWeather v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Протестировано с драйвером AccuWeather версии 1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
 Пользовательская карта Lovelace, созданная в поддержку прогноза погоды Accuweather - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Список покупок
@@ -311,11 +311,11 @@ createState('location.latitude', 39.5681295, false, {
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
-или
+или же
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-в конфигурационном файле ловеласа. Подробнее о предыстории ловеласа [здесь](https://www.home-assistant.io/lovelace/views/#background).
+в конфигурационном файле ловеласа. Узнайте больше о происхождении в ловеласе [здесь](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Темы
 Темы можно определить в диалоговом окне конфигурации ioBroker.
@@ -402,7 +402,7 @@ sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full
 sendTo('lovelace.0', 'send', 'Message text'); // short version
 ```
 
-или
+или же
 
 ```
 setState('lovelace.0.notifications.add', '{"message": "Message text", "title": "Title"}'); // full version
@@ -426,30 +426,32 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Исправление проблем
 Если вы перепутали код YAML и видите пустую страницу, но все еще имеете верхнее меню, вы можете включить режим редактирования (если он еще не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидеть полный код YAML и почистить его.
-Если это не поможет, вы можете открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
+Если это не поможет, можно открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
 
 ## Исходники ловеласа
 Использованные исходники здесь https://github.com/GermanBluefox/home-assistant-polymer.
 
 ## Сделать
-Безопасность должна быть получена от текущего пользователя, а не от default_user
+Безопасность должна быть взята с текущего пользователя, а не с default_user
 
 ## Разработка
 ### Версия
-Используемая версия home-assistant-frontend@20201021.4
+Используемая версия home-assistant-frontend@20220707.0
 
 ### Как собрать новую версию Lovelace
-Прежде всего, фактическая https://github.com/home-assistant/frontend (ветвь разработки) должна быть **вручную** объединена с https://github.com/GermanBluefox/home-assistant-polymer.git (* ветка **иоб***!).
+Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/GermanBluefox/home-assistant-polymer.git (* ветка **иоб***!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
-На данный момент (20201021.4) были изменены следующие файлы:
+На данный момент (20221027.0) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - добавить новую задачу gulp
 - `build-scripts/gulp/webpack.js` - добавить новую задачу gulp
 - `src/data/lovelace.ts` - добавить опцию скрытия панели инструментов
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды с URL-адреса.
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку настроек объекта и удалить состояние погоды и историю
+- `src/dialogs/more-info/const.ts` - удалить состояние погоды и историю
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек объекта
+- `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку "показать больше" в истории
 - `src/dialogs/more-info/controls/more-info-climate.ts` - имя режима печати для неподдерживаемых режимов
 - `src/dialogs/more-info/controls/more-info-weather.ts` - добавлена поддержка отображения значка погоды с URL-адреса.
 - `src/entrypoints/core.ts` - изменен процесс аутентификации
@@ -461,7 +463,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 - `.gitignore` - добавить `.idea` игнорировать
 - `package.json` - удалить хук хриплого коммита
 
-После этого загрузите измененную версию в папку `./build`. Потом.
++ После этого загрузите модифицированную версию в папку `./build`. Затем.
 
 1. перейдите в каталог ./build.
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` это форк https://github.com/home-assistant/frontend.git, но некоторые вещи изменены ( см. список файлов ранее).
@@ -470,7 +472,8 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 5. «установить пряжу»
 6. `gulp build-app` для выпуска или `gulp development-iob` для отладочной версии. Чтобы собрать веб после изменений, вы можете вызвать `webpack-dev-app` для более быстрой сборки, но вам все равно нужно вызывать `build-app` после того, как версия будет готова к использованию.
 7. скопируйте все файлы из `./build/home-assistant-polymer/hass_frontend` в `./hass_frontend` в этом репозитории
-8. Запустите задачу `gulp rename`.
+8. Запустите задачу `gulp rename` несколько раз (пока не произойдет никаких изменений).
+9. Обновите версию в файле Readme, а также в константе VERSION в server.js.
 
 ## Changelog
 
@@ -478,6 +481,33 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2022-10-28)
+* (agross) added: per instance language support
+* (Garfonso) entity_id for devices with only one non english name should be ok again.
+* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
+* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
+* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
+* (Garfonso) removed: lovelace_reload and window_reload states
+* (Garfonso) removed: name state, not supported by browser_mod anymore
+* (Garfonso) added: Support for toasts with action button (either json or ;-string)
+* (Garfonso) added: activity state will show if user is currently using a certain browser
+* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
+* (Garfonso) crash if notification was malformed json.
+* (Garfonso) some translation stuff
+* (Garfonso) crash case when states were updated before websocket was ready
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) tried to make html requests relative
+
+### 2.2.0 (2022-06-05)
+* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
+* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
+* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
+* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
+* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
+* (Garfonso) added: support auto entities card and subscription.
+* (Garfonso) added: improve support for input_datetime & string states.
+* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+
 ### 2.1.4 (2022-01-09)
 * (Garfonso) Dependency update
 
@@ -486,13 +516,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ### 2.1.2 (2022-01-06)
 * (Garfonso) Fixed: Menu was broken in frontend.
-
-### 2.1.1 (2022-01-06)
-* (Garfonso) Fixed: Entity update in some cases.
-
-### 2.1.0 (2022-01-06)
-* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
-* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
+hash: eJh5/gIM69lEEeZ8iTArvSmUvI2XbbgBa7azNe6+CCE=
 ---
 ![Logo](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
@@ -14,20 +14,41 @@ hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
 # IoBroker.openweathermap
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.openweathermap/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/openweathermap/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 Ruft 5 Tage Wettervorhersage von [https://openweathermap.org/](openweathermap.org) ab
 
-Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach Registrierung [Hier](https://home.openweathermap.org/api_keys).
+Sie benötigen einen API-Schlüssel, um auf die Daten zuzugreifen. Den API-Schlüssel erhalten Sie kostenlos nach Registrierung [hier](https://home.openweathermap.org/api_keys).
+
+<!--
+
+### **IN ARBEIT** -->
 
 ## Changelog
+### 0.3.3 (2022-10-24)
+* (Bluefox) Updated widget for vis 2.0
 
-### 0.2.0
+### 0.3.0 (2022-07-12)
+* (Bluefox) Added new widget for vis 2.0
 
+### 0.2.5 (2022-06-12)
+* (Apollon77) Make sure all forecast data are processed correctly
+
+### 0.2.4 (2022-04-19)
+* (Apollon77) Fix crash case when states have invalid metadata
+
+### 0.2.3 (2022-03-15)
+* (Apollon77) Increase timeout to read data to 10s
+
+### 0.2.2 (2022-03-11)
+* (Apollon77) Fix crash case (Sentry IOBROKER-OPENWEATHERMAP-1)
+
+### 0.2.1 (2022-03-10)
+* (Apollon77) Move schedule if default is used and adjust to once an hour to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
 * (klein0r) updated everything
+* (Apollon77) updated unload/stop handling
 
 ### 0.1.0
-
 * (bluefox) first release
 
 ## License

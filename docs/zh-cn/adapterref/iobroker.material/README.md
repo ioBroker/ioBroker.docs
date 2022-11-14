@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
+hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 ---
 ![标识](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -21,7 +21,7 @@ React 和 Material UI 界面。
 **重要！** 此适配器无法直接从 GitHub 安装。仅来自 npm。
 
 ＃＃ 用法
-了解这一点非常重要，该适配器仅显示添加到某些类别的设备，例如 *rooms* 或 *function*。
+知道这一点非常重要，该适配器仅显示添加到某些类别的设备，例如 *rooms* 或 *function*。
 如果每个设备都属于这两个类别，那就更好了。因为每个设备都有类型和位置。
 
 ## 支持的类型
@@ -50,9 +50,15 @@ React 和 Material UI 界面。
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 1.2.2 (2022-10-18)
+* (bluefox) migrated to MUIv5
+* (bluefox) corrected error with blinds
+* (bluefox) corrected error with echarts
+* (bluefox) corrected error with background upload
+
 ### 1.1.2 (2021-12-28)
 * (bluefox) Fixed double sending in the switch control
 

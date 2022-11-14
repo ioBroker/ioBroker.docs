@@ -4,14 +4,12 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/requirements.md
-hash: NnusBp9LIYL0mxqJO8Ohn7FRQ4r50VpSNamCW2xe7lc=
+hash: Opfh6IzsupO+aH9II8ZSGygSZ/9Gh1AWeFjbpBIXsi4=
 ---
 # System requirements
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
-
 @@@ Table with RAM, CPU, OS, Node.js, npm, build-tools, network, disk space, SD card size @@@
 
-### Reinstall
+## Reinstall
 | | Variants | versions |
 |---|:---------:|:-------:|
 
@@ -19,7 +17,7 @@ hash: NnusBp9LIYL0mxqJO8Ohn7FRQ4r50VpSNamCW2xe7lc=
 
 ioBroker can be installed on all systems where Node.js is available.
 
-### Existing installations
+## Existing installations
 | | Variants | versions |
 |---|:---------:|:-------:|
 
@@ -31,7 +29,7 @@ ioBroker can be installed on all systems where Node.js is available.
 - noolite (due to serialport dependency)
 - wetty (due to pty.js dependency)
 
-### Supported Operating Systems
+## Supported Operating Systems
 | | Variants |
 |---|:---------:|
 

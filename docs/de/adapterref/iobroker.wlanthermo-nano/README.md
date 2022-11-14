@@ -3,46 +3,61 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: TCdxIYuhBO7sdgAgrQ053kqmZav2Q3PI+b5kJoAlLac=
+hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
 ---
 ![Logo](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/wlanthermo-nano-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)
-![Anzahl der Installationen](http://iobroker.live/badges/wlanthermo-nano-stable.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/DrozmotiX/ioBroker.wlanthermo-nano/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/DrozmotiX/ioBroker.wlanthermo-nano/master.svg)
 
 # IoBroker.wlanthermo-nano
-## Wlanthermo-nano Adapter für ioBroker
-[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), der digitale Vorteil für Ihren Grillsport
+**Tests:** ![Testen und freigeben](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+
+## Wlanthermo-nano-Adapter für ioBroker
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano"), der digitale Vorteil für deinen Grillsport
 
 ## Aufbau
-Der Adapter kann über die Administrationsoberfläche installiert und konfiguriert werden.
-Bitte geben Sie IP-Adresse, Benutzername und Passwort in die Instanzkonfiguration ein.
+Der Adapter kann innerhalb der Admin-Oberfläche installiert und konfiguriert werden.
+Bitte geben Sie IP-Adresse, Benutzername und Passwort in der Instanzkonfiguration ein.
 
 ## Machen
-* [] Optimiere die Pitmaster-Einstellungen, mache Zustände nur im verwandten Modus beschreibbar, sonst schreibgeschützt
-* [] Automatische Geräteerkennung implementieren
-* [] Implementieren Sie den Online-Status des Geräts
-* [x] mehrere Geräte zulassen
-* [] Codebereinigung
+* [ ] Automatische Geräteerkennung implementieren
+* [ ] Pitmaster-Einstellungen optimieren, Zustände im zugehörigen Modus nur schreibbar machen, sonst nur lesbar
 
-## Treten Sie dem Discord-Server bei, um alles über die Integration von ioBroker-WlanThermo zu besprechen!
+## Tritt dem Discord-Server bei, um alles über die ioBroker-WlanThermo-Integration zu diskutieren!
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## Unterstütze mich
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende leisten (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Beziehung zum ioBroker-Projekt!) [![Spenden] (https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
+Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für DutchmanNL, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
+* (DutchmanNL) Initialization error for Nano V1 solved
+* (DutchmanNL) Error logging and reporting improved
+
+### 0.2.0 (2022-06-04) - PitMaster Control & ESP32 support
+* (DutchmanNL) Support multiple devices
+* (DutchmanNL) Refactor code to TypeScript
+* (DutchmanNL) Error/debug logging Improved
+* (DutchmanNL) Added data points for features
+* (DutchmanNL) Test & Release workflow updated
+* (DutchmanNL) Added indicator for connection status
+* (DutchmanNL) Reconnecting to offline devices improved
+* (DutchmanNL) Allow alarm to be activated / disabled #6
+* (DutchmanNL) Allow control of pitmaster & system settings
+* (DutchmanNL) Ensure support of all WLANThermo-Nano Devices
+* (DutchmanNL) Implemented dropdown menu for Pitmaster to select available profiles
+* (DutchmanNL) Added data points for PID profiles including capability to change profile settings
 
 ### 0.1.2
 * (DutchmanNL) Support multiple devices
 
 ### 0.1.1
-* (DutchmanNL) Code optimalisation
+* (DutchmanNL) Code optimisation
 * (DutchmanNL) Implement state_attr.js to handle state options outside of source code
 * (DutchmanNL) Optimised state creation in 1 function
 * (DutchmanNL) Small cleanups

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: oizGluvB1KwZNa10YMC2lcX6xuD+KLjziu4mOSkNqpk=
+hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -24,13 +24,12 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 ## Es kann über Web-API-Aufrufe mit dem Heizsystem verbunden werden:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von Bosch Group)
 * ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip.
-* Bis zu dieser Version werden auch die alten ESP8266 Gateways mit API V2 unterstützt.
+* Die alten ESP8266-Gateways mit API V2 werden mit eingeschränkter Funktionalität ebenfalls unterstützt. Es wird jedoch dringend empfohlen, auf ESP32 zu aktualisieren.
 
-Der ems-esp-Adapter kann Daten auf beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
+Der ems-esp Adapter kann Daten zu beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
 Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
 
 Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.3.1 getestet.
-Alte Systeme mit einem ESP 8266 werden nur noch bis zu dieser Adapterversion unterstützt.
 
 ## Wichtige Einstellungen im EMS-ESP:
 * API V2: MQTT-Einstellungen müssen im booleschen Format 1/0 sein!
@@ -41,7 +40,7 @@ Alte Systeme mit einem ESP 8266 werden nur noch bis zu dieser Adapterversion unt
 Bei Auswahl des Kontrollkästchens wird entweder die km200-ähnliche Gerätestruktur für ems-ESP-Datenfelder verwendet oder die ursprüngliche EMS-ESP-Geräteansicht beibehalten: Boiler, Thermostat, Mischer usw. Bei paralleler Verwendung des km200-Gateways wird empfohlen, die km200-Daten zu verwenden Struktur. Dann befinden sich alle Entitäten / Zustände innerhalb der Objektstruktur von ioBroker an derselben Stelle.
 
 ## Abfrage
-Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Requests und ist in der Lage, Zustandsänderungen zu abonnieren und die entsprechenden http (post)-Befehle entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
+Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Requests und ist in der Lage, Statusänderungen zu abonnieren und die entsprechenden http (post)-Befehle entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
 
 * EMS-ESP Read Polling ist ein Parameter (Standard 60 Sekunden) und kann nicht unter 15 Sekunden eingestellt werden.
 * KM200 Polling ist ebenfalls ein Parameter (Standard 300 Sekunden) und der minimal einstellbare Wert beträgt 90 Sekunden.
@@ -65,14 +64,14 @@ Nicht benötigte Zeilen (Felder) können gelöscht werden, um die Anzahl der aus
 Die meisten modernen Heizsysteme verfügen über ein IP-Inside-Gateway und unterstützen Energiestatistiken:
 
 * Aufzeichnung von Stromverbrauch und Temperaturstatistik
-* Für diese Systeme und wo diese Aufzeichnungsdaten verfügbar sind, werden die entsprechenden Statistiken abgefragt und in Zuständen gespeichert.
+* Für diese Systeme und wo diese Aufzeichnungsdaten verfügbar sind, werden die jeweiligen Statistiken abgefragt und in Zuständen gespeichert.
 
 Verfügbar sind stündliche, tägliche und monatliche Statistiken und gespeichert als Array-Daten in Zuständen und wenn eine db-Instanz ausgewählt ist, auch in Zuständen, die mit db-Einträgen gefüllt sind. (Zustandsnamen beginnen mit "_")
 
 * Die Checkbox Aufzeichnungen muss aktiviert und die Datenbankinstanz (mySQL oder InfluxDB) definiert sein. SQL oder InfluxDB History Adapter müssen installiert und aktiv sein, um diese Option zu verwenden.
 * Die von Web-API-Aufrufen gelesenen Originalaufzeichnungsdaten werden unter der Statusstruktur km200 gespeichert.
 * DB-Statistiken, die in Flot-Graphen oder Grafana angezeigt werden sollen, sind bisher nur für mySQL- und InfluxDB-Datenbanken verfügbar.
-* Für InfluxDB V1 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden. (Aufbewahrungsrichtlinie global ändern für iobroker-Dauer 170w;)
+* Für InfluxDB V1 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden. (Änderung der Aufbewahrungsrichtlinie global auf iobroker-Dauer 170w;)
 * Für InfluxDB V2 wird die globale Aufbewahrungsrichtlinie vom influxdb-Adapter festgelegt - bitte stellen Sie innerhalb des influxdb-Adapters die Aufbewahrungszeit des Speichers auf "kein automatisches Löschen" !
 
 Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken und schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit ist stündlich.
@@ -92,7 +91,7 @@ Jeder Zeitraum muss innerhalb des Adapters durch 3 API-Aufrufe gelesen werden:
 * Tageswerte: aktueller Monat, letzte Monate, Monat -2
 * Monatswerte: aktuelles Jahr, letztes Jahr, Jahr -2
 
-Innerhalb des von der Web-API gelesenen Datenfeldes wird die Summe der Abtastwerte im y-Wert gespeichert, die Anzahl der Abtastwerte im c-Wert.
+Innerhalb des von Web-API gelesenen Datenfeldes wird die Summe der Abtastwerte im y-Wert gespeichert, die Anzahl der Abtastwerte im c-Wert.
 (siehe Originalwerte in json-data in km200... Feldern.)
 
 Da manchmal Samples fehlen, können die Energiewerte interpoliert werden. Interpolation ist konfigurierbar (ein/aus).
@@ -117,11 +116,11 @@ Der Kesselwirkungsgrad kann berechnet werden, wenn die Parameter ausgefüllt sin
 * Bei manchen Heizungsanlagen führt diese Funktion zu Fehlern - bitte ausschalten !!!
 
 ## Veränderungen in der Staatsstruktur
-Wann immer eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden sie während des Adapterlaufs verarbeitet. Trotzdem werden veraltete Datenfelder nicht automatisch vom Adapter gelöscht.
-Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zustände beim Neustart des Adapters gelöscht werden (Zustände mit Historie / db-Einträgen bleiben erhalten)
+Immer wenn eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden sie während des Adapterlaufs verarbeitet. Trotzdem werden veraltete Datenfelder nicht automatisch vom Adapter gelöscht.
+Es besteht die Möglichkeit, die Zustandsstruktur neu aufzubauen, indem Zustände beim Neustart des Adapters gelöscht werden (Zustände mit History / db-Einträgen bleiben erhalten)
 
 ## Wärmebedarfssteuerung
-V1.9.x beta - Erklärung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher Sprache verfügbar: https://github.com/tp1de/ioBroker.ems-esp/wiki
+Erklärung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher Sprache verfügbar: https://github.com/tp1de/ioBroker.ems-esp/wiki
 
 # Iobroker.ems-esp
 
@@ -130,6 +129,32 @@ V1.9.x beta - Erklärung zur Berechnung und Konfiguration des Wärmebedarfs. Nur
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* pepare for enum as v alues and not just index
+* ioBroker and Home Assistant can be used in parallel
+* new parameters for "Room" and "Function" for adapter states
+* adjust roles of generated states
+
+### 1.15.0 (2022-06-06)
+* adjustments for ems-esp RC310 holiday modes
+
+### 1.14.0 (2022-05-18)
+* split parameters for dallas & analog sensors
+* improve warning messages if sensors are missing
+
+### 1.13.0 (2022-05-17)
+* add visibility attributes within ems-esp states
+* error processing dallas / analog sensors of ems-esp
+
+### 1.12.1 (2022-05-16)
+* corrections for heatdemand function
+* enable expert view
+* vis views for syslog analysis in expert views
+
+### 1.12.0 (2022-05-15)
+* add analog sensors for ems-esp gateway, remove ems-esp settings
+
 ### 1.11.2 (2022-04-27)
 * code optimization and error processing for ems-esp gateway
 

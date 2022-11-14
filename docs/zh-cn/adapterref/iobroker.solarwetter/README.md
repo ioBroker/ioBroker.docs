@@ -3,80 +3,77 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solarwetter/README.md
 title: ioBroker.solarwetter
-hash: qUc6gzg0wBE4IZgRqKmyeSbUWQ4qCowDUgGox8K/Otc=
+hash: nJnn/B5IPBfUOftcQmBXS+tWm06nbK79ueA7VZm6fC4=
 ---
-![商标](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
+![标识](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
 
 ![安装数量](http://iobroker.live/badges/solarwetter-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.solarwetter.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.solarwetter.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.solarwetter.svg)
-![开放式问题](http://githubbadges.herokuapp.com/Pix---/ioBroker.solarwetter/issues.svg)
-![NPM](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)
-![特拉维斯-CI](http://img.shields.io/travis/Pix---/ioBroker.solarwetter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.solarwetter?branch=master&svg=true)
+![新PM](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)
 
-＃ioBroker.solarwetter
-## Beschreibung /描述
-：de：Dieser Adapter liefert den prognostizierten SolarstromTagesertragfüreinebestimmte Region。 Die Daten kommenvon[http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com)。
+# IoBroker.solarwetter
+## Beschreibung / 描述
+:de: Dieser Adapter liefert den prognostizierten Solarstrom Tagesertrag für eine bestimmte Region。 Die Daten kommen von [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com)。
 Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage。
 
-：uk：此适配器提供供应商[http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com)对特定区域的每日太阳能发电量的预测。
+:uk: 此适配器提供来自供应商[http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com)的特定地区每日太阳能量的预测。
 翻译！！！！
 
-## Einstellungen /配置
-###用户/密码
-Seit 2017 ist die Authentifizierung beimAnbieternötig。 Dazu muss kostenpflichtig beim Anbieter ein Zugang erstanden werden。 Die Login-Datenkönnennunhier im Adapter hinterlegt werden。
+## Einstellungen / 配置
+### 用户/密码
+Seit 2017 ist die Authentifizierung beim Anbieter nötig。 Dazu muss kostenpflichtig beim Anbieter ein Zugang erstanden werden。 Die Login-Datan können nun hier im Adapter hinterlegt werden。
 
-自2017年以来，提供商正在收取服务费用。可以在solar-wetter.com上获得个人登录信息。用户名和密码将存储在此处。
+自 2017 年以来，该提供商对其服务收费。可以在 solar-wetter.com 上获得个人登录信息。用户名和密码将存储在这里。
 
-### Standort / Location
-ÖrtlichkeitdurchAuswahl des Postleitzahlenbereichs bestimmen Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
+### 标准/位置
+Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
 
-从邮政编码列表中选择，选择您所在的地区。
-输入太阳能发电厂的功率来计算能量输出。
+从邮政编码列表中选择您所在的地区。
+输入您的太阳能发电厂的功率以计算能量输出。
 
-### Solaranlage /太阳能电厂
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Bechnung der vorraussichtlich erzeugten Energiemenge eingegeben werden（auchDezimalzahlenmöglich）。
+### Solaranlage / 太阳能电站
+Hier kann die Gesamtleistung der eigenen Solaranlage zur Bechnung der vorraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich)。
 
-投入太阳能发电厂的总功率来计算能源产量的每日预测（可能的小数分隔符）
+输入太阳能发电厂的总功率来计算能源生产的每日预测（可以使用小数分隔符）
 
-### 4-Tage-Prognose / 4天预报
-WählenSiehier eine Stadt。 Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose（Datenpunkt solarwetter.0.forecast.chart .__ url__）。
+### 4-Tage-Prognose / 4-day-预测
+Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt solarwetter.0.forecast.chart.__url__ )。
 
-选择一个城市，让适配器建立一个4天预测图表的链接（datapoint solarwetter.0.forecast.chart .__ url__）。
+选择一个城市，让适配器建立一个指向 4 天预测图表的链接（数据点 solarwetter.0.forecast.chart.__url__ ）。
 
 ![替代文字](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "截图设置")
 
-## Aktivierung / Schedule
-Der Adapter starteteinmaltäglich。
+## 活动/时间表
+Der Adapter startet einmal täglich。
 
 适配器每天启动一次。
 
-## Datenpunkte / Datapoints
-solarwetter.0.forecast .__ clearSky__（* value *）
+## Datenpunkte / 数据点
+solarwetter.0.forecast.__clearSky__（*值*）
 
-solarwetter.0.forecast .__ realSky_min __（*值*）
+solarwetter.0.forecast.__realSky_min__(*value*)
 
-solarwetter.0.forecast .__ realSky_max __（* value *）
+solarwetter.0.forecast.__realSky_max__ (*值*)
 
-solarwetter.0.forecast .__ Datum __（*字符串，没有时间戳*）
+solarwetter.0.forecast.__Datum__（*字符串，无时间戳*）
 
-solarwetter.0.forecast .__ Region__（* value *）
+solarwetter.0.forecast.__Region__ (*value*)
 
-solarwetter.0.forecast.home .__ clearSky __（* value *）
+solarwetter.0.forecast.home.__clearSky__ (*value*)
 
-solarwetter.0.forecast.home .__ realSky_min __（*值*）
+solarwetter.0.forecast.home.__realSky_min__(*value*)
 
-solarwetter.0.forecast.home .__ realSky_max __（* value *）
+solarwetter.0.forecast.home.__realSky_max__ (*值*)
 
-solarwetter.0.forecast.home .__ Leistung__（* value *）
+solarwetter.0.forecast.home.__Leistung__ (*value*)
 
-solarwetter.0.forecast.chart .__ city __（* value *）
+solarwetter.0.forecast.chart.__city__ (*value*)
 
-solarwetter.0.forecast.chart .__ url __（* value *）
+solarwetter.0.forecast.chart.__url__ (*value*)
 
 ＃＃ 去做
-* Datapoints的翻译
+* 数据点的翻译
 *设置窗口的俄语翻译
 
 ## Changelog
@@ -120,7 +117,7 @@ solarwetter.0.forecast.chart .__ url __（* value *）
 
 The MIT License (MIT)
 
-Copyright (c) 2017 pix
+Copyright (c) 2020 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

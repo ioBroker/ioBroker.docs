@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: 5XcP3j7kvxla4TvmlJMjXyIAQynyxf2IBmlTUhOeK/g=
+hash: AzCAKVIwH8fViCVYiDvlTrcVtIFPhiO12fiiVz3eZrM=
 ---
 # Proxmox
 ![proxmox 徽标](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -42,7 +42,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 安装时，必须使用此 ISO 映像创建可引导的 U 盘。这应该至少有 2 GB 的内存。有几种方法可以创建可启动棒，请参阅[准备安装介质](https://pve.proxmox.com/wiki/Prepare_Installation_Media#_instructions_for_windows)
 
 ＃＃＃ 安装
-系统必须在 UEFI/BIOS 中进行配置，以便可以从 USB 设备启动。插入 U 盘后，过一会儿会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为启动介质（在大多数主板上，您可以使用 F8 或 F11 来执行此操作）。
+系统必须在 UEFI/BIOS 中进行配置，以便可以从 USB 设备启动。插入 U 盘后，过一会儿会出现 Proxmox 安装菜单（如果没有，您也可以手动指定 U 盘作为引导介质（在大多数主板上，您可以使用 F8 或 F11 进行此操作）。
 
 **Install Proxmox VE** 现在只需在安装菜单中选择。
 
@@ -77,7 +77,7 @@ Proxmox 在其自己的 Web 界面中“打包”QEMU/KVM，从而使管理变�
 </详情>
 
 Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume_Manager) (LVM)。借助此时的扩展选项，可以详细配置 LVM 等。
-安装程序创建名为 pve 的卷组 (VG) 和名为 root 的附加逻辑卷 (LV)（此处安装 Proxmox 本身）、数据（存储 VM 的虚拟磁盘的存储）和交换（此处存储交换文件）。
+安装程序创建一个名为 pve 的卷组 (VG) 和名为 root 的附加逻辑卷 (LV)（此处安装 Proxmox 本身）、数据（存储 VM 的虚拟磁盘的存储）和交换（此处存储交换文件）。
 
 <details><summary>使用高级设置，可以在此处指定某些参数：</summary>
 
@@ -92,7 +92,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 通常，您可以将所有选项保留为默认设置（即此处未指定任何内容）。这些已经为大多数安装进行了优化设置。
 
-为 Proxmox 选择硬盘后，会查询本地化选项（国家、时间和相关的键盘布局）：
+为 Proxmox 选择硬盘后，将查询本地化选项（国家、时间和相关的键盘布局）：
 
 <details><summary>本土化</summary>
 
@@ -100,7 +100,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-然后输入 root 用户的密码。此处还要求提供电子邮件地址。这用于在收到重要系统消息时向此处指定的地址发送电子邮件。但是，这不一定是真实的电子邮件地址（然后，作为管理员，您将不再通过电子邮件收到重要系统事件的通知）。
+然后输入 root 用户的密码。此处还要求提供电子邮件地址。这用于在收到重要系统消息时向此处指定的地址发送电子邮件。但是，这不一定是真实的电子邮件地址（作为管理员，您将不再通过电子邮件收到重要系统事件的通知）。
 
 <details><summary>密码和邮箱</summary>
 
@@ -150,7 +150,7 @@ Proxmox 使用 [逻辑卷管理器](https://de.wikipedia.org/wiki/Logical_Volume
 
 </详情>
 
-然后使用 root 用户和安装期间选择的密码进行登录。您可以将语言切换为德语**先**，否则Proxmox界面将显示为英文，您不必再次输入您的用户名和密码。
+然后使用 root 用户和安装期间选择的密码进行登录。您可以在这里**先**切换语言为德语，否则Proxmox界面将显示为英文，您不必再次输入您的用户名和密码。
 
 <details><summary>登记</summary>
 
@@ -216,21 +216,21 @@ Web 控制台将在此处打开，您可以监控进度。
 
 ~~~ apt update && apt dist-upgrade ~~~
 
-这里唯一重要的是您使用 **apt dist-upgrade**（在“普通”Debian/Ubuntu 机器上，您倾向于使用 apt upgrade）。但是，“dist-upgrade”对于 Proxmox 很重要，因为运行 Proxmox 所需的依赖关系在这里得到了更好的解决。
+这里唯一重要的是您使用 **apt dist-upgrade**（在“普通”Debian/Ubuntu 机器上，您倾向于使用 apt upgrade）。但是，“dist 升级”对于 Proxmox 很重要，因为运行 Proxmox 所需的依赖关系在这里得到了更好的解决。
 
 在这方面，Proxmox 现在已经完成了基本配置。如果您想更广泛地处理 Proxmox，值得一看 [Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) 或前往[官方论坛](https://forum.proxmox.com/)。
 
 ---
 
 ## Proxmox - 创建一个虚拟 Qemu/KVM 机器 (VM) + ioBroker 安装之后
-本示例指南展示了如何创建一个 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
+本示例指南展示了如何创建 [虚拟机](https://pve.proxmox.com/wiki/Qemu/KVM_Virtual_Machines) (debian11)，然后在其中安装 ioBroker。
 
 当然可以使用 Ubuntu 代替 Debian，但请确保使用 Ubuntu Server **LTS 版本**。
 
 为了清楚起见，可以打开图像描述和附加信息。
 
 ### 1 - 下载 ISO 映像
-首先，需要一个[ISO 映像](https://www.debian.org/distrib/)(64-bit PC Netinst-ISO)，它必须在基本安装中加载到根目录（本地）（如果没有创建其他驱动器）。
+首先，需要一个[ISO 映像](https://www.debian.org/distrib/)（64 位 PC Netinst-ISO），它必须在基本安装中加载到根目录（本地）（如果没有创建其他驱动器）。
 
 为此，请转到本地 > ISO 映像。那里有两个选择。
 
@@ -246,16 +246,16 @@ Web 控制台将在此处打开，您可以监控进度。
 </详情>
 
 ### 2 - 创建虚拟机
-单击蓝色的 **Create VM** 按钮打开一个窗口，必须在其中进行以下设置。
+单击蓝色按钮 **Create VM** 打开一个窗口，必须在其中进行以下设置。
 
 - 常规：分配主机名和密码，ID 已给出（以 100 开头），可以更改，但不能稍后更改。
 - 操作系统：存储选择（本地）和 ISO 映像（debian-11-netinst.iso）
 - 系统：一切都保持在默认设置，**检查 Qemu 代理**
 - 磁盘：存储 local-lvm，磁盘大小 10GB（10-20GB 应该足够了，以后可以更改，但这里不再赘述）。
-- CPU：取决于电脑的强大程度（也可以随时调整，为此必须重新启动VM）
+- CPU：取决于计算机的强大程度（也可以随时调整，为此必须重新启动VM）
 - 内存：以 MiB 为单位的 RAM 大小（也可以随时调整，为此必须重新启动 VM）
 - 网络：vmbr0，其他一切保持默认
-- 确认：在这里您可以再次看到摘要（检查 **Start after creation**）然后单击 **Finish** 以创建 VM。
+- 确认：在这里您可以再次看到摘要（检查**创建后开始**），然后单击**完成**以创建 VM。
 
 <details><summary>系列图像 创建虚拟机</summary>
 
@@ -347,7 +347,7 @@ Web 控制台将在此处打开，您可以监控进度。
 </详情>
 
 ### 4 - 设置虚拟机
-重新启动 VM 后，使用安装时分配的“用户名”和“密码”登录。然后用命令
+重新启动虚拟机，然后使用安装时分配的“用户名”和“密码”登录。然后用命令
 
 ~~~ ip地址~~~
 
@@ -359,7 +359,7 @@ Web 控制台将在此处打开，您可以监控进度。
 
 </详情>
 
-现在可以通过 ssh（例如 putty）访问 VM。在这里您也可以使用“用户名”和“密码”再次登录。
+现在可以通过 ssh（例如 Putty）访问 VM。在这里，您再次使用“用户名”和“密码”登录。
 然后可以将网络地址从**dhcp**更改为**static**。 （推荐用于服务器操作）
 
 ~~~ sudo nano /etc/network/interfaces ~~~
@@ -448,7 +448,7 @@ Web 控制台将在此处打开，您可以监控进度。
 - 模板：存储选择（本地）和模板（debian-11-standard）
 - Disks：磁盘大小的分配（不要太大方，可以随时放大）
 - CPU：取决于电脑的强大程度（也可以随时调整）
-- 内存：Ram/Swap 分配（可随时调整，甚至在运行期间）
+- 内存：Ram/Swap 分配（可随时调整，即使在操作期间）
 - 网络：静态 IP/CIDR 分配、网关，如果没有设置 IPv6，则设置为 SLAAC
 - DNS：通常什么都没有改变（使用来自主机的值）
 - 确认：摘要（勾选**创建后开始**）然后点击**完成**创建容器。
@@ -524,6 +524,10 @@ Web 控制台将在此处打开，您可以监控进度。
 
 ~~~ 添加用户名~~~
 
+然后必须将用户分配到 sudo 组。
+
+~~~ usermod -aG sudo 用户名~~~
+
 <details><summary>创建用户</summary>
 
 ![lxc-adduser](../../de/install/media/proxmox/lxc-adduser.png)
@@ -580,7 +584,7 @@ Web 控制台将在此处打开，您可以监控进度。
 
 ~~~ ioBroker 安装成功在浏览器中打开http://10.1.1.222:8081 开始配置！ ~~~
 
-同时，这也意味着现在可以通过地址在浏览器中调用 ioBroker。如果一切正常，您将看到 ioBroker 设置。现在只有几个步骤，您将在助手的指导下完成。
+同时，这也意味着现在可以通过地址在浏览器中调用ioBroker。如果一切正常，您将看到 ioBroker 设置。现在只有几个步骤，您将在助手的指导下完成。
 
 <details><summary>系列图像 ioBroker 助手</summary>
 
@@ -617,7 +621,7 @@ Web 控制台将在此处打开，您可以监控进度。
 ---
 
 ## Proxmox - LXC (Linux Containers) -> 通过 USB 设备
-本指南的这一部分逐步解释了如何通过 Proxmox 中的 USB 设备（USB 直通）到 LXC（Linux 容器）。
+这部分指南逐步解释了如何通过 Proxmox 中的 USB 设备（USB 直通）到 LXC（Linux 容器）。
 
 使用虚拟机，可以直接通过 Proxmox Web 界面传递 USB 设备。使用 Linux 容器，目前需要手动编辑 lxc 的配置文件。
 
@@ -656,7 +660,7 @@ Web 控制台将在此处打开，您可以监控进度。
 
 ![proxmoxlxc02](../../de/install/media/proxmox/proxmoxlxc02.PNG)
 
-此示例中的 USB 设备的主要设备编号为 **189**，在文本文件中记下您的设备的值，并带有注释：#1
+此示例中的 USB 设备的主设备号为 **189**，在文本文件中记下您的设备的值，并带有注释：#1
 
 ![proxmoxlxc03](../../de/install/media/proxmox/proxmoxlxc03.PNG)
 
@@ -674,7 +678,7 @@ Web 控制台将在此处打开，您可以监控进度。
 
 ![proxmoxlxc06](../../de/install/media/proxmox/proxmoxlxc06.PNG)
 
->*如果没有输出，用“ls -l /dev/serial/by-id/”检查USB设备是否被系统集成为ttyUSB，如果是则替换下面所有引用**ttyACM的命令。 ..* * 从 **ttyUSB...** 获取，如果没有输出，则它不是 USB CDC 类设备（串行通信），因此可以忽略从 ttyACM 包含的所有点。*
+>*如果没有输出，用“ls -l /dev/serial/by-id/”检查USB设备是否被系统集成为ttyUSB，如果是，则替换以下所有引用**ttyACM的命令。 ..* * 从 **ttyUSB...** 获取，如果没有输出，则它不是 USB CDC 类设备（串行通信），因此可以忽略从 ttyACM 包含的所有点。*
 
 所以我们在lxc的配置文件中记下了集成所需的来自USB设备的**三个**值。
 
@@ -685,7 +689,7 @@ Web 控制台将在此处打开，您可以监控进度。
 ### 2.) 编辑 LXC 配置文件
 <details>
 
-更改到 Proxmox 主机上的 LXC 配置目录：
+使用以下命令切换到 Proxmox 主机上的 LXC 配置目录：
 
 ~~~ cd /etc/pve/lxc ~~~
 
@@ -788,7 +792,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 * 如屏幕截图所示，容器现在可以访问 USB 设备。
 
-* 重要的是 ttyACM0 在屏幕截图中具有相同的权限，即 **crw-rw-rw- 1 nobody nogroup**
+* 重要的是 ttyACM0 在截图中具有相同的权限，即 **crw-rw-rw- 1 nobody nogroup**
 
 >***如果不检查配置文件中的所有值是否都按照描述设置，权限还是不匹配则跳转到第5点***
 
@@ -835,7 +839,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 最后，运行以下命令激活 udev 规则：
 
-~~~ udevadm control –reload ~~~
+~~~ udevadm control --reload ~~~
 
 </详情>
 

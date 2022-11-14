@@ -8,15 +8,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bring/README.md
 title: ioBroker.bring
-hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
+hash: n6gj+FadnEAVuCqrbe2EjFPQ5wpAhfWqqMdNwo4T0LQ=
 ---
-![商标](../../../en/adapterref/iobroker.bring/admin/bring.png)
+![标识](../../../en/adapterref/iobroker.bring/admin/bring.png)
 
 ![安装数量](http://iobroker.live/badges/bring-installed.svg)
 ![稳定版](http://iobroker.live/badges/bring-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.bring.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bring.svg)
-![新产品管理](https://nodei.co/npm/iobroker.bring.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
 
 # IoBroker.bring
 ===========================
@@ -24,21 +24,21 @@ hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
 ![构建状态](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
 
 ## 免责声明
-本模块的开发者绝不是Bring! 的背书者或附属者！ Labs AG 或任何关联的子公司、徽标或商标。
+此模块的开发人员绝不会得到Bring的认可或附属！ Labs AG 或任何相关子公司、徽标或商标。
 
 ＃＃ 状态
-有关创建状态的说明，请参见下文。
+有关创建状态的描述，请参见下文。
 
 ### 频道：信息
 * info.connection
 
     |数据类型|权限|
     |:---:|:---:|
-    |布尔值|R|
+    |布尔|R|
 
-   *只读布尔指标。如果您的经纪人已登录，则状态为真，否则为假。*
+   *只读布尔指标。如果您的经纪人在带来时登录，则状态为真，否则为假。*
 
-* info.user
+* 信息用户
 
     |数据类型|权限|
     |:---:|:---:|
@@ -47,7 +47,7 @@ hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
    *只读字符串。包含登录用户的名称。*
 
 ### 购物清单
-对于每个购物清单，将创建一个具有以下状态的频道：
+对于每个购物清单，将创建一个具有以下状态的通道：
 
 * *list*.content / *list*.contentHtml/NoHead
 
@@ -56,7 +56,7 @@ hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
     |字符串|R|
 
 *只读格式为列表或 html 表格的 json/html 字符串。包含当前在您的购物清单上的项目。
-NoHead Html 表没有表头。*
+NoHead Html 表格没有表格标题。内容通过字典翻译，以允许在可视化适配器中使用。*
 
 * *list*.recentContent / *list*.recentContentHtml/NoHead
 
@@ -64,39 +64,42 @@ NoHead Html 表没有表头。*
     |:---:|:---:|
     |字符串|R|
 
-*只读格式为列表或 html 表格的 json/html 字符串。包含最近在您的购物清单上的项目。
-NoHead Html 表没有表头。*
+*只读格式为列表或 html 表格的 json/html 字符串。包含最近在您的购物清单上的物品。
+NoHead Html 表格没有表格标题。内容通过字典翻译，以允许在可视化适配器中使用。*
 
-* *列表*.removeItem
+* *list*.removeItem/已翻译
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|读/写|
 
-*选择一个应该从购物清单和最近内容清单中删除的项目。
-当命令被Bring 确认时，状态将被确认！ API.*
+*选择应从购物清单和最近内容清单中删除的项目。
+当命令被 Bring! 确认时，状态将被确认。 API。
+请注意，翻译后的状态在与 API 交互之前使用字典。*
 
-* *列表*.moveToRecentContent
+* *list*.moveToRecentContent/已翻译
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|读/写|
 
 *选择应移动或添加到最近内容列表的项目。
-当命令被Bring 确认时，状态将被确认！ API.*
+当命令被 Bring! 确认时，状态将被确认。 API。
+请注意，翻译后的状态在与 API 交互之前使用字典。*
 
-* *列表*.saveItem
+* *list*.saveItem/已翻译
 
     |数据类型|权限|
     |:---:|:---:|
     |字符串|读/写|
 
-*选择应该添加到购物清单的项目。您还可以通过以下模式设置状态来指定项目的附加信息：*
+*选择应添加到购物清单中的项目。您还可以通过以下模式设置状态来指定项目的附加信息：*
 
 ```Apple, 2.50 $, the green ones```
 
 *请注意，逗号后面的所有内容都描述了规范。
-当命令被Bring 确认时，状态将被确认！ API.*
+当命令被 Bring! 确认时，状态将被确认。 API。
+请注意，翻译后的状态在与 API 交互之前使用字典。*
 
 * *list*.users / *list*.usersHtml/NoHead
 
@@ -104,8 +107,8 @@ NoHead Html 表没有表头。*
     |:---:|:---:|
     |字符串|R|
 
-*只读格式为列表或 html 表格的 json/html 字符串。包含属于购物清单一部分的用户，以及他们的电子邮件地址。
-NoHead Html 表没有表头。*
+*只读格式为列表或 html 表格的 json/html 字符串。包含属于购物清单的用户，以及他们的电子邮件地址。
+NoHead Html 表格没有表格标题。*
 
 * *列表*.count
 
@@ -113,7 +116,7 @@ NoHead Html 表没有表头。*
     |:---:|:---:|
     |编号|R|
 
-   *只读数字，表示列表中包含的项目数。*
+   *只读数字，表示列表包含的项目数。*
 
 * *list*.messageTrigger
 
@@ -130,9 +133,9 @@ NoHead Html 表没有表头。*
     |字符串|R|
 
 *只读字符串，其中包含可朗读形式的购物清单项目的枚举。
-这可以使用 e。 G。通过智能助手进行语音输出。*
+这可以用于 e。 G。通过智能助手进行语音输出。*
 
-* *列表*.translation
+* *列表*.翻译
 
     |数据类型|权限|
     |:---:|:---:|
@@ -141,6 +144,40 @@ NoHead Html 表没有表头。*
     *只读 json 字符串，其中包含将瑞士项目名称翻译成列表语言的字典。*
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.8.1 (2022-06-01)
+* (foxriver76) implemented a minor fix for acknowledgment of `translated` objects
+
+### 1.8.0 (2022-06-01)
+* (foxriver76) introduced new states for `save/remove/movetoRecentContent` which translates the article before passing it to the API (closes #149)
+
+### 1.7.16 (2022-05-31)
+* (foxriver76) we now ensure that all states which can be used directly are translated (closes #149)
+
+### 1.7.15 (2022-05-26)
+* (foxriver76) widget: fixed `margin-top` calculation of item name
+
+### 1.7.14 (2022-05-22)
+* (foxriver76) log the error message instead of object, if we catch errors in the widget
+
+### 1.7.13 (2022-02-05)
+* (foxriver76) fixed the onclick handler if someone added just a number
+
+### 1.7.12 (2022-02-05)
+* (foxriver76) fixed infinity loop in some browsers, if the fallback image of an article cannot be recevied (closes #109)
+
+### 1.7.11 (2022-01-21)
+* (foxriver76) fixed telegram user selection
+
+### 1.7.9 (2021-12-07)
+* (foxriver76) we fixed default value of `count` state beeing an empty string
+
+### 1.7.8 (2021-08-04)
+* (foxriver76) widget: fix blue border on input text field in Safari when focussing
+
 ### 1.7.7 (2020-12-12)
 * (foxriver76) fix potential crash on `pollAllLists` function
 
@@ -221,10 +258,10 @@ NoHead Html 表没有表头。*
 
 ### 1.0.0
 * (foxriver76) stable release
-   
+
 ### 0.0.10
 * (foxriver76) set info.connection state to false, when cannot get data
-   
+
 ### 0.0.9
 * (foxriver76) also update no head states on normal polling
 * (foxriver76) fix bug where polling could grow exponentially
@@ -233,7 +270,7 @@ NoHead Html 表没有表头。*
 ### 0.0.8
 * (foxriver76) add html states w/o header
 * (foxriver76) minor fixes
-   
+
 ### 0.0.7
 * (foxriver76) fixed a potential memory leak by setTimeout functions
 
@@ -250,7 +287,7 @@ NoHead Html 表没有表头。*
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,12 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-сауна
-hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
+hash: ZtfvKGj2AxLNomQzQSstTax5oxI7QRdMv6XxaRy7S7Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
+![версия NPM](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)
+![Количество установок](https://iobroker.live/badges/huum-sauna-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.huum-sauna)
-![Количество установок](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+![Количество установок (последние)](https://iobroker.live/badges/huum-sauna-installed.svg)
 ![Известные уязвимости](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 
@@ -18,7 +20,7 @@ hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
 
 ## Параметры
 - 1 + 2 учетных данных пользователя для веб-страницы HUUM «https://api.huum.eu/action/home/»
-- 3 обновления .. Обновить, чтобы загрузить данные HUUM с устройства
+- 3 обновления .. Обновите, чтобы загрузить данные HUUM с устройства
 - 4 lightpath.. Дополнительный Lightpath (состояние) для переключения внешнего света. Если используется пустой метод переключения HUUM
 - 5 AstroLight .. При настройке свет автоматически включается с заходом солнца (для саун на открытом воздухе).
 

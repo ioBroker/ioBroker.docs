@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parser/README.md
 title: 无题
-hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
+hash: gqjnxeWBrdIDed3rjdlPH6JkSC8aInhP2MLTdcpW53E=
 ---
-![商标](../../../en/adapterref/iobroker.parser/admin/parser.png) ioBroker 解析器适配器
+![标识](../../../en/adapterref/iobroker.parser/admin/parser.png) ioBroker 解析器适配器
 
 ![安装数量](http://iobroker.live/badges/parser-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.parser.svg)
@@ -25,17 +25,27 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 
 **注意：** 不要使用过于激进的轮询间隔，尤其是对于网站 URL。例如，如果您想从某个网站检索您的股票价格，如果您不是日内交易者，您可能应该每隔 24 小时（= 86400000 毫秒）间隔一次。如果您过于频繁地尝试从某些 URL 检索数据，该网站可能会禁止您并将您列入服务器黑名单。所以请谨慎使用轮询间隔。
 
-### 2. 表
+### 2. 请求超时
+指定适配器在进行网站查询时等待 HTTP 响应的时间
+
+### 3. 接受无效证书
+指定在进行 HTTPS 请求时是接受还是拒绝自签名/无效 SSL/TLS 证书
+
+### 4. 使用不安全的 HTTP 解析器
+指定使用接受无效 HTTP 标头的不安全 HTTP 解析器。这可能允许与不符合标准的 HTTP 实现的互操作性。
+应避免使用不安全的解析器。
+
+### 5. 表
 单击“加号”按钮将新条目添加到表中。
 
-**性能说明：**如果在不同的表格行中多次输入相同的 URL 或文件名，并且如果“Interval”列的值相同，则只会检索 URL 或文件名的内容 **一次**并缓存用于处理匹配 URL/文件名和间隔的多个表行。这允许您将多个正则表达式（即多个表行）应用于单个 URL 或文件名，而无需从源中多次检索数据。
+**性能说明：**如果在不同的表格行中多次输入相同的 URL 或文件名，并且如果“Interval”列的值相同，则只会检索 URL 或文件名的内容 **一次**并缓存以处理匹配 URL/文件名和间隔的多个表行。这允许您将多个正则表达式（即多个表行）应用于单个 URL 或文件名，而无需从源中多次检索数据。
 
 **表格字段：**
 
 - ***Name*** - 在 `parser.<instance number>` 下创建的状态名称。不允许有空格。您可以使用点“。”作为分隔符来创建子文件夹。示例：`Shares.Microsoft.Current` 将产生 `parser.<instance number>.Shares.Micosoft.Current`。
 - ***URL 或文件名*** - 网站的 URL 或我们要检索其信息的文件的路径。示例`https://darksky.net/forecast/48.1371,11.5754/si24/de`（慕尼黑天气信息）或`/opt/iobroker/test/testdata.txt`（来自ioBroker的文件）。
 - ***RegEx*** - 正则表达式，如何从链接中提取数据。有一个很好的服务来测试正则表达式：[regex101](https://regex101.com/)。例如。 *temp swip">(-?\d+)˚<* 对于上面的行。
-- ***Item***（德语：“Num”）- 正则表达式可以找到（匹配）多个条目。使用此选项，您可以定义要选择的匹配项。 0 = 第一个匹配，1 = 第二个匹配，2 = 第三个匹配等。默认值为 0（第一个匹配）。
+- ***Item***（德语：“Num”）- 正则表达式可以找到（匹配）多个条目。使用此选项，您可以定义要选择的匹配项。 0 = 第一次匹配，1 = 第二次匹配，2 = 第三次匹配等。默认值为 0（第一次匹配）。
 - ***角色*** - 角色之一：
     - 自定义 - 用户通过“*admin”角色定义自己
     - 温度 - 值是温度
@@ -47,7 +57,7 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 - ***Type*** - 每个下拉菜单的变量类型。
 - ***Unit*** - 可选：添加到状态条目的值的单位。例如。 `°C`、`€`、`GB`等。
 - ***旧*** - 如果激活，如果在提供的日期（URL 或文件）中无法读取或找到该值，则状态将 *不* 更新，因此在这种情况下它将保留以前的值。
-- ***Subs*** - 可选：替换 URL 或文件名。如果第一列的 URL/文件名不可用，将使用此替代 URL/文件名。
+- ***Subs*** - 可选：替换 URL 或文件名。如果第一列的 URL/文件名不可用，则将使用此替代 URL/文件名。
 - ***因子/偏移量***（仅适用于“类型”数字）-允许在设置为状态之前修改检索到的数据：
 
 *计算值* = *取值** 因子 + 偏移量，立即修改值
@@ -63,10 +73,10 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 |股票价格.Visa | `https://www.finanzen.net/aktien/visa-aktie`| `\d{0,3},\d{2}(?=<span>EUR<\/span>)`|价值 |号码 |欧元 | 86400000 |
 |股票价格.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?= <span>EUR&lt;\/span&gt;)` |价值 |号码 |欧元 | 86400000 |</span> |
 
-*注意：* 将正则表达式应用于检索到的 URL/文件数据时，所有换行符将替换为空格以允许多行搜索。
+*注意：* 将正则表达式应用于检索的 URL/文件数据时，所有换行符将替换为空格以允许多行搜索。
 
 ## 关于正则表达式 (RegExp)
-正则表达式是从字符串中解析和提取某些数据的强大工具，甚至更重要的是：它允许通过应用规则从给定字符串（如网页的 HTML 或文件中的文本）中提取某些值/文本.
+正则表达式是从字符串中解析和提取某些数据的强大工具，更重要的是：它允许通过应用规则从给定字符串（如网页的 HTML 或文件中的文本）中提取某些值/文本.
 
 对于布尔类型，正则表达式相当简单。对于数字类型，您应该用括号标记数字 - “()”。例如。要从 *The temperature is 5°C* 中提取数字，您应该使用 " (\d+)" 表达式。
 
@@ -93,6 +103,8 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 
 ### 其他有用的表达方式
 - (-?\d+) 获取数字（负数和正数）
+- [+-]?([0-9]+.?[0-9]|.[0-9]+) 得到一个带小数位的数字（和 . 作为小数分隔符）
+- [+-]?([0-9]+,?[0-9]|,[0-9]+) 得到一个带小数位的数字（和，作为小数分隔符）
 
 ## 质量代码
 值可以有质量代码：
@@ -103,9 +115,35 @@ hash: Z4TTveWrEIESbRwKmwbuvx+V2GBGyBZ6frRYpyeK5Wo=
 
 ＃＃ 支持
 1. 一般：[ioBroker 论坛](https://forum.iobroker.net/)。德语用户：请参阅 [ioBroker 论坛主题 Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex)。
-2. 如有问题请查看【ioBroker Parser Adapter: Github Issues】（https://github.com/ioBroker/ioBroker.parser/issues）。
+2. 如有问题请查看【ioBroker Parser Adapter: Github Issues】(https://github.com/ioBroker/ioBroker.parser/issues)。
 
 ## Changelog
+### 1.2.1 (2022-09-15)
+* (Apollon77) Always use raw response and not try to parse it
+
+### 1.2.0 (2022-09-12)
+* (Apollon77) Allow to specify if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
+* (Apollon77) Allow to specify if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
+* (Apollon77) Allow to specify the HTTP request timeout
+
+### 1.1.8 (2022-06-27)
+* (Apollon77) Check that a link is configured
+
+### 1.1.7 (2022-06-16)
+* (Apollon77) Fix potential crash cases reported by Sentry
+
+### 1.1.6 (2022-05-28)
+* (Apollon77) Set method to "GET" when requesting URLs
+
+### 1.1.5 (2022-04-19)
+* (Apollon77) Ignore objects without configuration for parser and log it
+
+### 1.1.4 (2022-03-21)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 1.1.3 (2022-03-20)
+* (Apollon77) if regex did not match set defined replacement value (or null)
+
 ### 1.1.2 (2022-03-09)
 * (Apollon77) Fix initialization of new parser objects
 

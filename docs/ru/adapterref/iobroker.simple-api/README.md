@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.simple-api/README.md
 title: Простой API
-hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
+hash: B7EURS7YZmfmC18HdaJukWQ+PiJU+wjy1ykIjavUi0U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -18,7 +18,7 @@ hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-## Использование
+## Применение
 Вызовите в браузере `http://ipaddress:8087/help`, чтобы получить справку по API. Результат:
 
 ```
@@ -28,7 +28,7 @@ hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
   "get": "http://ipaddress:8087/get/stateID/?prettyPrint",
   "getBulk": "http://ipaddress:8087/getBulk/stateID1,stateID2/?prettyPrint",
   "set": "http://ipaddress:8087/set/stateID?value=1&prettyPrint",
-  "toggle": "http://ipaddress:8087/toggle/stateID&prettyPrint",
+  "toggle": "http://ipaddress:8087/toggle/stateID?prettyPrint",
   "setBulk": "http://ipaddress:8087/setBulk?stateID1=0.7&stateID2=0&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&type=adapter&prettyPrint",
@@ -113,7 +113,7 @@ http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
 ### GetBulk
 Получите много состояний с одним запросом, возвращенным как массив объектов в порядке списка в запросе и id/val/ts как подобъект
 
-### Набор
+### Установлен
 Позвоните, например:
 
 ```
@@ -166,14 +166,14 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 Установите много состояний одним запросом. Этот запрос также поддерживает метод POST, поскольку данные POST должны быть в теле, а не в URL.
 
 ### SetValueFromBody
-Позволяет установить значение данного состояния, которое будет установлено содержимым тела POST.
+Позволяет установить значение данного состояния в соответствии с содержимым тела POST.
 
 ### Объекты
 Читать объекты определенного типа из БД.
 
 Вызов, например: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - чтобы прочитать все перечисления
 
-или
+или же
 
 `http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - прочитать все состояния в ветке `system.adapter.admin.0`
 
@@ -193,7 +193,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ## Установить
 ```node iobroker.js add simple-api```
 
-## Использование
+## Применение
 Предположим, у нас нет защиты, и сервер работает на порту 8087 по умолчанию.
 
 Для всех запросов можно указать название или id состояния.
@@ -325,7 +325,7 @@ http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
   }
 ```
 
-### Набор
+### Установлен
 Запишите состояния с указанными идентификаторами. Вы можете указать опцию *wait* в миллисекундах, чтобы дождаться ответа от водителя.
 
 ```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
@@ -539,7 +539,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ```
 
 ### Запрос
-Если указан источник данных (История, SQL), данные из указанных точек данных считываются за указанный период.
+Если указан источник данных (история, SQL), данные из указанных точек данных считываются за указанный период.
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
 
@@ -614,6 +614,17 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.7.2 (2022-10-08)
+* (Apollon77) Prepare for future js-controller versions
+
+### 2.7.1 (2022-08-29)
+* (bluefox) Check if the port is occupied only on defined interface
+* (bluefox) Added JSON config
+
+### 2.7.0 (2022-05-31)
+* (crycode-de) Allow use of ack flag for setBulk post requests
+* (Apollon77) Return ack flag too on getBulk
+
 ### 2.6.5 (2022-04-14)
 * Added support aggregate and count for queries
 
@@ -621,7 +632,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (Apollon77) Optimize performance, especially when using names instead of object ids
 
 ### 2.6.3 (2022-02-19)
-* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Optimize error message for multi-language objects
 * (Apollon77) Do not overwrite state properties by object properties
 
 ### 2.6.2 (2021-11-12)
@@ -718,7 +729,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 * (bluefox) new web server plugin support
 
 ### 1.3.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.2.0 (2016-08-27)
 * (bluefox) support of letsencrypt certificates

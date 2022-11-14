@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: 5OFWZlX5LeVW7mbTRyecXZH6MKb9qgNrjiiZDQ9s5JA=
+hash: +C87oHkqvE+qBow9a/ahrgXJDedttowaAjxvXZ4SxWY=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -19,13 +19,13 @@ hash: 5OFWZlX5LeVW7mbTRyecXZH6MKb9qgNrjiiZDQ9s5JA=
 
 Mit diesem Adapter können Sie den Xiaomi-Staubsauger steuern.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Inhalt
  - [Bekannte Fehler](#known_errors)
     - [Fehler bei der Installation (Leinwand)](#error_at_installation)
     - [HTTP-Fehler beim Abrufen des Token-Cookies{}](#http_error_when_getting_token_cookie{})
-- [Einrichtung](#Konfiguration)
+- [Setup](#Konfiguration)
     - [Adapter konfigurieren](#adapter-configuration)
         - [Steuerung über Alexa] (#control-over-alexa)
         - [Zweiter Roboter](#second-robot)
@@ -66,11 +66,16 @@ wenn Ihre Installation fehlerhaft ausgeführt wird. Das Canvas-Paket konnte nich
 
 Bitte installieren Sie Canvas und die Bibliotheken manuell mit: `` sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ``
 
-wechseln in: `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` dann `sudo npm install canvas --unsafe-perm=true`
+wechseln in: `cd /opt/iobroker/node_modules/iobroker.mihome-vacuum` dann `sudo npm install canvas`
 
 ### HTTP-Fehler beim Abrufen des Token-Cookies{}
 Manchmal können Sie keine Verbindung zur Xiaomi-Cloud herstellen.
 Bitte öffnen Sie den Browser, gehen Sie zu Mihome und melden Sie sich an. Geben Sie den Code ein, den Sie per Mail erhalten haben. Danach sollte die Verbindung funktionieren.
+
+BITTE stellen Sie sicher, dass Ihr Roboter mit der Mihome App und NICHT mit der Roborock App verbunden ist
+
+### Keine Verbindung mit S7
+Aktuell gibt es ein Problem, wenn der Robot und ioBroker nicht dasselbe Subnetz verwenden.
 
 ## Aufbau
 Derzeit ist das Auffinden des Tokens das größte Problem.
@@ -89,16 +94,16 @@ Ansonsten folgen Sie bitte der Anleitung im Link:
 #### Kontrolle über Alexa
 Für Alexa wird der spezielle Steuerungszustand `clean_home` erstellt.
 Es ist ein Schalter, der bei `true` dem Sauger startet und bei `false` nach Hause geht.
-Es wird automatisch ein intelligentes Gerät im Cloud-Adapter mit dem Namen „Staubsauger“ erstellt, der im Cloud-Adapter geändert werden kann.
+Es wird automatisch ein intelligentes Gerät im Cloud-Adapter erstellt mit dem Namen „Staubsauger“, der im Cloud-Adapter geändert werden kann.
 
 #### Angehaltene Zonenreinigung mit Starttaste fortsetzen
 Wenn diese Option aktiviert ist, setzt der Staubsauger die Zonenreinigung fort, wenn der Status „Start“ auf „true“ gesetzt wird, wenn er während einer laufenden Zonenreinigung angehalten wurde.
 Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue "normale Reinigung", wenn Sie den Startbefehl senden, auch wenn er während einer laufenden Zonenreinigung angehalten wurde.
 
-- Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
+- Experimentell: Mit der Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
 
 #### Zweiter Roboter
-Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen angelegt werden. Der zweite Roboter muss seinen eigenen Port (Standard: 53421) ändern, damit beide Roboter unterschiedliche Ports haben.
+Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen angelegt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
 
 ## Kartenkonfig
 Es gibt zwei Möglichkeiten, die Karte zu erhalten. Die ersten holen sich die Karte aus der Cloud. Daher müssen Sie sich anmelden und den richtigen Roboter aus der Liste auswählen
@@ -138,7 +143,7 @@ Sie können beide Bilder als Bildquelle im gewünschten VIS verwenden. Im HTML-S
 Mit zusätzlichen Style-Tags können Sie den Kartenstil in der Größe ändern und/oder formatieren.
 
 Um die Karte in `jarvis` zu verwenden, verwenden Sie einfach einen der Datenpunkte als URL des DisplayImage-Widgets.
-Dort können Sie die Größe des Bildes oder des gesamten Widgets ändern. Im Falle des responsiven Designs von jarvis passt sich die Karte an die Anzeigegröße an.
+Dort können Sie die Größe des Bildes oder des gesamten Widgets ändern. Im Falle des responsiven Designs von jarvis passt sich die Größe der Karte an die Anzeigegröße an.
 
 Um die Karte in `ioBroker VIS` anzuzeigen, können Sie ein normales HTML-Widget verwenden, z. B.:
 
@@ -151,7 +156,7 @@ Die Verwendung der base64-Karte ist schneller und zeigt die Position des Roboter
 ## Funktionen
 ### Befehle des S50 (zweite Generation)
 Die Kartengröße ist immer 52000 mm x 52000 mm, somit sind Werte von 0 bis 51999 mm möglich.
-Leider kann die Position und Lage der Karte nicht abgefragt werden, diese kann sich von Saugen zu Saugen ändern. Als Grundlage dient immer die letzte Saugkarte, sowie in der App.
+Position und Lage der Karte kann leider nicht abgefragt werden, diese kann sich von Saugen zu Saugen ändern. Als Grundlage dient immer die letzte Saugkarte, sowie in der App.
 Nimmt der Roboter nur einen Bereich auf und baut die Karte immer gleich auf, kann man ihn zuverlässig an Orte schicken oder den Bereich saugen lassen.
 
 #### Gehe zu
@@ -205,7 +210,7 @@ HINWEIS: Diese Funktion sollte nur von Experten verwendet werden, da der Sauger 
 
 Der Roboter unterscheidet zwischen den Befehlen in Methoden (methods) und Parametern (params), die zur Spezifikation der Methoden dienen.
 Unter dem Objekt `mihome-vacuum.X.control.X_send_command` können Sie eigene Befehle an den Roboter senden.
-Die Objektstruktur muss wie folgt aussehen: method; [Parameter]
+Die Objektstruktur muss wie folgt aussehen: method; [params], zB ``` app_segment_clean;[18,20] ```
 
 Unter dem Objekt `mihome-vacuum.X.control.X_get_response` wird die Antwort vom Roboter nach dem Absenden eingetragen.
 Wurden Parameter abgefragt, erscheinen diese hier im JSON-Format. Wurde nur ein Befehl gesendet, antwortet der Roboter nur mit „0“.
@@ -213,7 +218,7 @@ Wurden Parameter abgefragt, erscheinen diese hier im JSON-Format. Wurde nur ein 
 Die folgenden Methoden und Parameter werden unterstützt:
 
 | Methode | Parameter | Beschreibung |
-|-----------      |-------                                                              |-------------------                                                                                     |
+|-----------      |-------                                                              |-------------------                                                                       |
 | get_timer | | Gibt den eingestellten Timer zurückSetzen der Saugzeiten BSp. 12 Uhr 30 in 5 Tagen |
 | set_timer | `[["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]` | Timer aktivieren / deaktivieren |
 | upd_timer | `["1481997713308","ein/aus"]` | |
@@ -221,10 +226,12 @@ Die folgenden Methoden und Parameter werden unterstützt:
 | get_dnd_timer | | DND-Zeiten löschen |
 | set_dnd_timer | `[22,0,8,0]` | |
 | set_dnd_timer | `[22,0,8,0]` | |
-|                 |                                                                     |                                                                                                        |
+|                 |                                                                     |                                                                                          |
 | app_rc_start | | Starten Sie die Fernsteuerung |
-| app_rc_end | | Fernsteuerung beenden |
-| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Umzug. Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer) |
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
+| app_segment_clean | `[12,15]` | Reinraum mit Index 12 und 15 |
+| app_segment_clean | `[12,15]` | Reinraum mit Index 12 und 15 |
 
 weitere Methoden und Parameter finden Sie hier ([Verknüpfung](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
@@ -245,9 +252,31 @@ Einige vordefinierte Befehle können auch auf diese Weise ausgegeben werden:
 ```
 sendTo("mihome-vacuum.0",
     commandName,
+    param,
+    function (response) { /* do something with the result */}
+);
+sendTo("mihome-vacuum.0",
+    commandName,
     {param1: value1, param2: value2, ...},
     function (response) { /* do something with the result */}
 );
+
+```
+
+Wenn nur ein einzelner Parameter möglich ist, können Sie nur einen String senden, andernfalls müssen Sie ein Objekt mit erwarteten Parametern verwenden, z.
+
+```
+sendTo("mihome-vacuum.0",
+    "setFanSpeed",
+    "105",
+    function (response) { /* do something with the result */}
+);
+sendTo("mihome-vacuum.0",
+    "setFanSpeed",
+    {"fanSpeed" : 105},
+    function (response) { /* do something with the result */}
+);
+
 ```
 
 Die unterstützten Befehle sind:
@@ -264,7 +293,7 @@ Die unterstützten Befehle sind:
 | Status der Verbrauchsmaterialien (Pinsel usw.) zurücksetzen | `resetConsumables` | `consumable` | String: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
 | Erhalten Sie eine Zusammenfassung aller bisherigen Reinigungsvorgänge | `getCleaningSummary` | - Keine - | |
 | Erhalten Sie eine detaillierte Zusammenfassung eines früheren Reinigungsvorgangs | `getCleaningRecord` | `recordId` | |
-| Holen Sie sich eine Karte | `getMap` | - Keine - | Unbekannt, was mit dem Ergebnis zu tun ist |
+| Holen Sie sich eine Karte | `getMap` | - Keine - | Unbekannt, was mit dem Ergebnis geschehen soll |
 | Holen Sie sich den aktuellen Status des Roboters | `getStatus` | - Keine - | |
 | Rufen Sie die Seriennummer des Roboters ab | `getSerialNumber` | - Keine - | |
 | Detaillierte Geräteinformationen abrufen | `getDeviceDetails` | - Keine - | |
@@ -273,13 +302,19 @@ Die unterstützten Befehle sind:
 | Löschen Sie den *Bitte-nicht-stören*-Timer | `deleteDNDTimer` | - Keine - | |
 | Abrufen der aktuellen Lüftergeschwindigkeit | `getFanSpeed` | - Keine - | |
 | Stellen Sie eine neue Lüftergeschwindigkeit ein | `setFanSpeed` | `fanSpeed` | `fanSpeed` ist eine Zahl zwischen 1 und 100 |
+| Abrufen des aktuellen Waterbox-Modus | `getWaterBoxMode` | - Keine - | |
+| Legen Sie einen Mop-Modus fest | `setMopMode` | `mopMode` | `mopMode` ist eine Zahl zwischen 300 und 303 |
+| Rufen Sie den aktuellen Mop-Modus ab | `getMopMode` | - Keine - | |
+| Stellen Sie einen Waterbox-Modus ein | `setWaterBoxMode` | `waterBoxMode` | `waterBoxMode` ist eine Zahl zwischen 200 und 204 |
 | Starten Sie die Fernbedienungsfunktion | `startRemoteControl` | - Keine - | |
 | Geben Sie einen Bewegungsbefehl für die Fernsteuerung aus | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Die Sequenznummer muss fortlaufend sein, die Dauer ist in ms |
-| Fernbedienungsfunktion beenden | `stopRemoteControl` | - Keine - | |
+| Beenden Sie die Fernbedienungsfunktion | `stopRemoteControl` | - Keine - | |
 | Reinraum/Reinräume | `cleanRooms` | `rooms` | `rooms` ist ein kommaseparierter String mit enum.rooms.XXX |
-| sauberes Segment | `cleanSegments` | `rooms` | `rooms` ist ein Array mit mapIndex oder ein kommaseparierter String mit mapIndex |
-| saubere Zone | `cleanZone` | `coordinates` | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
-| saubere Zone | `cleanZone` | "Koordinaten" | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
+| sauberes Segment | `cleanSegments` | `rooms` \| {Räume:`rooms`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `rooms` ist eine Zahl oder ein Array mit mapIndex oder ein kommaseparierter String mit mapIndex |
+| saubere Zone | `cleanZone` | `coordinates` \| {Koordinaten:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,Lüftergeschwindigkeit:`fanSpeed`} | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
+| start Entstaubung | `startDustCollect` | - Keine - | |
+| stop Staubansammlung | `stopDustCollect` | - Keine - | |
+| stop Staubansammlung | `stopDustCollect` | - Keine - | |
 
 ##-Widget
 ![Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
@@ -288,182 +323,231 @@ Die unterstützten Befehle sind:
 - Gelegentliche Verbindungsabbrüche liegen aber nicht am Adapter sondern meist an den eigenen Netzen
 - Widget zur Zeit ohne Funktion
 
-## Changelog
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
+### 3.8.3 (2022-11-01)
+* (deher) Protokollierung von Zeitüberschreitungen ändern
+* (deher) Teile des Tokens im Log verstecken
+
+### 3.8.2 (2022-10-31)
+* (deher) Bump-Leinwand auf 2.10.2
+* (deher) Karte deaktivieren, wenn CANVAS nicht installiert ist #681
+
+### 3.8.1 (2022-10-30)
+* (deher) Entfernen Sie die veraltete Version des Knotens 12.x für den Workflow
+
+### 3.8.0 (2022-10-30)
+* (deher) fehlenden Bestandsbefehl für mop_mode behoben
+* (deher) Mop-Modus auch für cleanSegments und cleanZone hinzufügen
+* (deher) Wischmodus auch für Räume hinzufügen
+* (MeisterTR) Karte zoomen und Teppich anzeigen
+
+### 3.7.0 (2022-10-28)
+* (deher) benutzerdefinierte Befehle mit einem einzigen Parameter akzeptieren
+* (deher) optionale Parameter waterboxMode und fanSpeed für cleanSegments und cleanZone
+* (deher) Absturz beim Senden einer Nachricht behoben (#652)
+* (deher) Wischmodus hinzufügen (#670)
+* (deher) fan_power für S7 Ultra anpassen (#677)
+
+### 3.6.0 (2022-07-07)
+* (deher) Staubsammeln hinzufügen
+
+### 3.5.0 (2022-06-29)
+* (deher) Roborock S6 Pure-Modell hinzufügen
+* (deher) einige Hinweise in Readme hinzufügen/erweitern
+* (deher) füge zusätzliche Protokollinformationen für cleanRooms hinzu
+* (deher) Fehler bei falschem Map-DP behoben
+
+### 3.4.2 (2022-06-24)
+* (Apollon77) Abhängigkeiten aktualisieren, um einen besseren automatischen Neuaufbau zu ermöglichen
+
+### 3.4.1 (2022-05-31)
+* (deher) fehlende Vakuumzustände hinzufügen
+* (deher) add dock state Abwassertank voll
+
+### 3.4.0 (2022-05-28)
+* (Apollon77) Mehrere potenzielle Absturzfälle behoben, die von Sentry gemeldet wurden
+
+### 3.3.6 (2022-05-03)
+* (Dirkhe) Fleckreinigung behoben
+
 ### 3.3.5 (2022-02-07)
-* (Dirkhe) fixed some errors
-* (lasthead0) fix cyrillic issue RC4 lib#
+* (Dirkhe) hat einige Fehler behoben
+* (lasthead0) kyrillisches Problem behoben RC4 lib#
+
 ### 3.3.3 (2022-01-20)
-* (Dirkhe) fixed some errors
-* (Dirkhe) add RC4
+* (Dirkhe) hat einige Fehler behoben
+* (Dirkhe) füge RC4 hinzu
 
 ### 3.3.1 (2021-10-02)
-* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-Z
-* (MeisterTR) fix some errors
+* (MeisterTR) IOBROKER-MIHOME-VACUUM-Z behoben
+* (MeisterTR) behebt einige Fehler
 
 ### 3.3.0 (2021-10-01)
-* (MeisterTR) fix no rooms for S5
-* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
-* (MeisterTR) fix connection error
+* (MeisterTR) fix keine Räume für S5
+* (MeisterTR) Fix IOBROKER-MIHOME-VACUUM-4 DB geschlossen
+* (MeisterTR) Verbindungsfehler behoben
 
 ### 3.2.2 (2021-07-16)
-* (bluefox) the communication is corrected
-* (bluefox) Added roles to be detected by type-detector
+* (Bluefox) Die Kommunikation ist korrigiert
+* (Blaufuchs) Rollen hinzugefügt, die vom Typ-Detektor erkannt werden sollen
 
 ### 3.2.1 (2021-07-02)
-* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
+* (Apollon77) Mehrere Absturzfälle anpassen (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER -MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
 ### 3.2.0 (02.06.2021)
-* (MeisterTR) release candidate
-* (MeisterTR) get consumable after reset
+* (MeisterTR) Veröffentlichungskandidat
+* (MeisterTR) Verbrauchsmaterial nach Reset erhalten
 
 ### 3.1.10 (23.05.2021)
-* error fixed
-* add sentry
+* Fehler behoben
+* Wachposten hinzufügen
 
 ### 3.1.6 (05.05.2021)
-* minimize Disk write
-* minimized Messages 
-* changed warn Messages to debug
-* extend Debuglog to find error for e2 vacuum
-* added getStates when map is changed
+* Festplattenschreiben minimieren
+* minimierte Nachrichten
+* Warnmeldungen zum Debuggen geändert
+* Debuglog erweitern, um Fehler für e2-Vakuum zu finden
+* getStates hinzugefügt, wenn die Karte geändert wird
 
 ### 3.1.5 (03.05.2021)
-* try to fix the map error
-* Map64 changed. now without img tags
-* add Multimap support (get rooms and map when map is changed)
-* select Multimaps
-* fix error with zone coordinates
-* add WiFi
-* fix connection Problems
-* fix Valetudo map
-* add Mop state
-* fix some objects
+* Versuchen Sie, den Kartenfehler zu beheben
+* Map64 geändert. jetzt ohne img-tags
+* Multimap-Unterstützung hinzufügen (Räume und Karte erhalten, wenn die Karte geändert wird)
+* Wählen Sie Multimaps
+* Fehler mit Zonenkoordinaten behoben
+* WLAN hinzufügen
+* Verbindungsprobleme beheben
+* Korrigieren Sie die Valetudo-Karte
+* Mop-Zustand hinzufügen
+* Repariere einige Objekte
 
 ### 3.1.1 (18.4.2021)
- * Full rewrite
- * Fix map bug with multiple vacuums
- * fix performance Problems
- * better connection to vacuum
- * fix bug in ReloadMap button
- * Show Goto and Zone States ti find places
- * and many more...
+ * Vollständig neu schreiben
+ * Kartenfehler mit mehreren Staubsaugern behoben
+ * Leistungsprobleme beheben
+ * bessere Verbindung zum Vakuum
+ * Fehler im ReloadMap-Button behoben
+ * Show Goto und Zone States, um Orte zu finden
+ * und viele mehr...
 
 ### 2.2.5 (2021-04-02)
-* added S7 Support
-* bugfixes for S5 Max and others
+* S7-Unterstützung hinzugefügt
+* Fehlerbehebungen für S5 Max und andere
 
 ### 2.2.4 (2020-09-15)
-* (dirkhe) add config for send Pause Before Home
+* (dirche) füge eine Konfiguration für send Pause Before Home hinzu
 
 ### 2.2.3 (2020-08-20)
-* (dirkhe) room DP are not deleted, on map change
+* (dirkhe) Raum DP werden nicht gelöscht, bei Kartenwechsel
 
 ### 2.2.0 (2020-08-13)
-* (MeisterTR) add test for Viomi and Dreame Api
+* (MeisterTR) Test für Viomi und Dreame Api hinzugefügt
 
 ### 2.1.1 (2020-07-10)
-* (bluefox) Refactoring
-* (bluefox) Support of compact mode added
+* (Bluefox) Refactoring
+* (Bluefox) Unterstützung des Kompaktmodus hinzugefügt
 
 ### 2.0.10 (2020-07-05)
-* try to start the cleaning 3 times, if robot not answers and some fixes
+* Versuchen Sie dreimal, die Reinigung zu starten, wenn der Roboter nicht antwortet, und einige Korrekturen
 
 ### 2.0.9 (2020-03-05)
-* (dirkhe) add state info for room channels and change queue info from number to JSON
+* (dirche) füge Statusinformationen für Raumkanäle hinzu und ändere Warteschlangeninformationen von Nummer zu JSON
 
 ### 2.0.8 (2020-02-26)
-* (dirkhe) decreased communication with robot
+* (dirche) verringerte Kommunikation mit dem Roboter
 
 ### 2.0.7 (2020-02-25)
-* (dirkhe) add Resuming after pause for rooms
+* (dirkhe) add Wiederaufnahme nach Pause für Räume
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
+* (MeisterTR) Räume für s50 mit Karte hinzufügen (Cloud oder Valetudo benötigt)
 
 ### 2.0.4 (2020-02-13)
-* (MeisterTR) add cloud login to get token
-* (MeisterTR) add cloud Map
-* (MeisterTR) add new and old Map format
-* (MeisterTR) rebuild config page
+* (MeisterTR) Cloud-Login hinzufügen, um Token zu erhalten
+* (MeisterTR) Cloud Map hinzufügen
+* (MeisterTR) neues und altes Kartenformat hinzugefügt
+* (MeisterTR) Konfigurationsseite neu erstellen
 
 ### 1.10.5 (2020-02-11)
-* send Ping only if not connected, otherwise get_status
-* set button states to true, if clicked
-* move timer manager and room manager to own libs
+* Ping nur senden wenn nicht verbunden, sonst get_status
+* Schaltflächenstatus auf wahr setzen, wenn sie angeklickt werden
+* Timer-Manager und Room-Manager in eigene Bibliotheken verschieben
 
 ### 1.10.4 (2020-02-06)
-* (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
+* (MeiserTR) Valetudo-Kartenunterstützung für gen3 und gen2 2XXX hinzugefügt
 
 ### 1.10.1 (2020-01-20)
-* (dirkhe) added zone as room handling
-* (dirkhe) timer could room channels directly
+* (dirkhe) Zone als Roomhandling hinzugefügt
+* (dirkhe) Timer könnte Zimmerkanäle direkt
 
 ### 1.10.0 (2020-01-17)
-* (dirkhe) added room handling
-* (dirkhe) added Timer 
-* (dirkhe) changed feature handling
+* (dirkhe) Raumhandhabung hinzugefügt
+* (dirche) Timer hinzugefügt
+* (dirkhe) Feature-Handling geändert
 
 ### 1.1.6 (2018-12-06)
-* (JoJ123) Added fan speed for MOP (S50+).
+* (JoJ123) Lüftergeschwindigkeit für MOP (S50+) hinzugefügt.
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
-* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
+* (BuZZy1337) Beschreibung für Status 16 und 17 hinzugefügt (goTo und Zonenreinigung).
+* (BuZZy1337) Einstellung für die automatische Wiederaufnahme der pausierten Zonenreinigung hinzugefügt.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Möglichkeit hinzugefügt, eine angehaltene Zonenreinigung fortzusetzen (Zustand: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
-* (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
+* (BuZZy1337) Behoben, dass der zoneCleanup-Status nicht funktioniert (Vakuum verließ nur das Dock, sagte "Finished ZoneCleanup" und kehrte sofort zum Dock zurück)
 
 ### 1.1.2 (2018-07-05)
-* (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
+* (BuZZy1337) Erkennung neuer Firmware / Vakuum der zweiten Generation behoben
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) error caught , added states for new fw
+* (MeisterTR) Fehler abgefangen, Status für neue FW hinzugefügt
 
 ### 1.1.0 (2018-04-10)
-* (mswiege) Finished the widget
+* (mswiege) Das Widget ist fertig
 
 ### 1.0.1 (2018-01-26)
-* (MeisterTR) ready for admin3
-* (MeisterTR) support SpotClean and voice level (v1)
-* (MeisterTR) support second generation (S50)
-* (MeisterTR) Speed up data requests
+* (MeisterTR) bereit für admin3
+* (MeisterTR) unterstützt SpotClean und Sprachpegel (v1)
+* (MeisterTR) unterstützt zweite Generation (S50)
+* (MeisterTR) Datenanfragen beschleunigen
 
 ### 0.6.0 (2017-11-17)
-* (MeisterTR) use 96 char token from Ios Backup
-* (MeisterTR) faster connection on first use
+* (MeisterTR) verwendet 96-Zeichen-Token von Ios Backup
+* (MeisterTR) schnellere Verbindung bei der ersten Nutzung
 
 ### 0.5.9 (2017-11-03)
-* (MeisterTR) fix communication error without i-net
-* (AlCalzone) add selection of predefined power levels
+* (MeisterTR) Kommunikationsfehler ohne i-net behoben
+* (AlCalzone) Auswahl vordefinierter Leistungsstufen hinzufügen
 
 ### 0.5.7 (2017-08-17)
-* (MeisterTR) compare system time and Robot time (fix no connection if system time is different)
-* (MeisterTR) update values if robot start by cloud
+* (MeisterTR) Systemzeit und Roboterzeit vergleichen (keine Verbindung beheben, wenn Systemzeit unterschiedlich)
+* (MeisterTR) Werte aktualisieren, wenn Roboter per Cloud starten
 
 ### 0.5.6 (2017-07-23)
-* (MeisterTR) add option for crate switch for Alexa control
+* (MeisterTR) Option für Kistenschalter für Alexa-Steuerung hinzufügen
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) add states, features, fix communication errors
+* (MeisterTR) Zustände, Funktionen hinzufügen, Kommunikationsfehler beheben
 
 ### 0.3.2 (2017-06-07)
-* (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)
+* (MeisterTR) keine Kommunikation nach Softwareupdate behoben (Vers. 3.3.9)
 
 ### 0.3.1 (2017-04-10)
-* (MeisterTR) fix setting the fan power
-* (bluefox) catch error if port is occupied
+* (MeisterTR) Einstellung der Lüfterleistung korrigiert
+* (Bluefox) Fehler abfangen, wenn Port belegt ist
 
 ### 0.3.0 (2017-04-08)
-* (MeisterTR) add more states
+* (MeisterTR) füge weitere Staaten hinzu
 
 ### 0.0.2 (2017-04-02)
-* (steinwedel) implement better decoding of packets
+* (steinwedel) Implementierung einer besseren Decodierung von Paketen
 
 ### 0.0.1 (2017-01-16)
-* (bluefox) initial commit
+* (Bluefox) anfängliches Commit
 
 ## License
 The MIT License (MIT)

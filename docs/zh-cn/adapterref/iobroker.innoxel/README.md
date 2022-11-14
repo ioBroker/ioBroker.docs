@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: zylei5wGtI1BkOrVUAkm/O7G4yKwgTd+32tp5Z2XmEk=
+hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
 ---
 ![标识](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -22,8 +22,8 @@ Innoxel Master 3 适配器 (https://innoxel.ch)
 ![测试和发布](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃ 要求
--NodeJS >= 12.x
-- ioBroker >= 3.x，管理员 >= 5.x
+-NodeJS >= 14.x
+- ioBroker >= 4.x，管理员 >= 5.x
 - Innoxel Master 3 智能家居系统
 
 ＃＃ 安装
@@ -104,6 +104,22 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.1.5 (2022-02-12)
+
+-   (matthsc) don't always terminate adapter on errors while updating identities
+-   (matthsc) improve error messages
+
+### 0.1.4 (2022-01-25)
+
+-   (matthsc) fix double decryption issues with password in adapter admin
+-   (matthsc) change input field types in adapter admin
+
 ### 0.1.3 (2022-01-16)
 
 -   (matthsc) improve error messages

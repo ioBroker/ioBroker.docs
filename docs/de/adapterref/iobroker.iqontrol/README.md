@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 4vozauMONjoO9EzgeRfoem6G4lB7Huzys2MA+nl5a0M=
+hash: bdRYAJjCRojOf3+7mWRhYtdA4FOG9G1qP669r/Haj3o=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -14,7 +14,6 @@ hash: 4vozauMONjoO9EzgeRfoem6G4lB7Huzys2MA+nl5a0M=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/sbormann/ioBroker.iqontrol/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.iqontrol.png?downloads=true)
 ![Travis-CI](https://img.shields.io/travis/sbormann/ioBroker.iqontrol/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/sbormann/ioBroker.iqontrol?branch=master&svg=true)
 
 # IoBroker.iqontrol
 <!-- [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/iqontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) -->
@@ -24,21 +23,33 @@ hash: 4vozauMONjoO9EzgeRfoem6G4lB7Huzys2MA+nl5a0M=
 | Linux/Mac/Windows: | Cross-Browser-Checking: |
 |---------------------------------------------------------------------------------------------------------------------------------------| --- |
 
-\ **Wenn es dir gefällt, erwäge bitte eine Spende:**
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LDHZMNPXKRX2N&source=url)
 
 ****
 
-## Iqontrol-Adapter für ioBroker
+## IQontrol-Adapter für ioBroker
 Schnelle Web-App zur Visualisierung.
 
-<img src="img/screenshot_kueche.png" width="200"><img src="img/screenshot_licht.png" width="200"><img src="img/screenshot_heizung.png" width="200"><img src="img/screenshot_rauchmelder.png" width="200"><img src="img/screenshot_flot.png" width="200"> © von dslraser:<img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser"> © von muuulle:<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle"> © von peks-64:<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67">
+<img src="img/screenshot_kueche.png" width="200" /> <img src="img/screenshot_licht.png" width="200" /> <img src="img/screenshot_heizung.png" width="200" /> <img src="img/screenshot_rauchmelder.png" width="200" /> <img src="img/screenshot_flot.png" width="200" />
+
+&Kopieren; von dslraser:
+
+<img src="img/screenshot_dslraser.jpg" width="200" alt="© von dslraser" />
+
+&Kopieren; von Muuule:
+
+<img src="img/screenshot_muuulle.jpg" width="200" alt="© von muuulle" />
+
+&Kopieren; von peks-64:
+
+<img src="img/screenshot_peks-67.jpg" width="200" alt="© von peks-67" />
 
 Läuft in jedem Browser.
 Einfach einzurichten, obwohl es vollständig anpassbar und reaktionsschnell ist.
 
-> **Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+> **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Video-Tutorial (Deutsch):
 [![Demo-Video](img/play_demo.png "Tutorial auf Youtube öffnen")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
@@ -56,7 +67,7 @@ Dies funktioniert auch auf Ihrem PC mit Chrome:
 * Nodejs 10 oder höher
 * Web-Adapter mit einer Instanz, die dasselbe Protokoll (http oder https) wie der Admin-Adapter ausführt, socket.IO auf 'integrated' gesetzt und 'Force Web-Sockets' deaktiviert
     * Wenn dies im Widerspruch zu anderen Adaptern steht, fügen Sie einfach eine weitere Instanz mit den obigen Einstellungen hinzu - iQontrol sucht die am besten passende Web-Adapter-Instanz und verwendet sie für die Kommunikation
-* Für die Verbindung über *iobroker.pro-Cloud* sollten sowohl der Admin- als auch der Web-Adapter auf http (nicht https) eingestellt sein
+* Für die Verbindung über *iobroker.pro-Cloud* sollten sowohl Admin- als auch Web-Adapter auf http (nicht https) eingestellt sein
 
 * Wenn Sie auf Probleme stoßen, lesen Sie bitte den Abschnitt [Fehlerbehebung](#Fehlerbehebung) am Ende dieser Readme-Datei
 
@@ -68,7 +79,7 @@ Besuchen Sie den Entwickler-Thread [iobroker-Forum](https://forum.iobroker.net/t
 Schau mal ins Wiki [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki).
 
 ## Wie benutzt man
-**Hab keine Angst vor den vielen Möglichkeiten, die du hast.** Die meisten Dinge funktionieren sofort nach dem Auspacken. Sie *können*, müssen aber nicht alle Konfigurationsmöglichkeiten nutzen, die iQontrol bietet! Beginnen Sie einfach so:
+**Hab keine Angst vor den vielen Optionen, die du hast.** Die meisten Dinge funktionieren sofort nach dem Auspacken. Sie *können*, müssen aber nicht alle Konfigurationsmöglichkeiten nutzen, die iQontrol bietet! Beginnen Sie einfach so:
 
 * Beginnen Sie mit dem Erstellen von Ansichten.
 
@@ -113,7 +124,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Verwenden Sie die folgenden Parameter, um die Rückkehr nach Zeiteinstellungen festzulegen oder zu überschreiben:
 * `returnAfterTimeTreshold=<time in seconds> ` um die Zeit einzustellen, nach der die Zielansicht aufgerufen wird. Verwenden Sie &#39;0&#39;, um die Rückkehr nach Zeitfunktion zu deaktivieren.
 * `returnAfterTimeDestinationView=<viewID>` um die Ansicht zu setzen, die nach dem Schwellwert aufgerufen wird. Wenn nicht angegeben, wird die Startansicht verwendet.
-* Diese Optionen sind hilfreich, wenn Sie iQontrol von einem an der Wand montierten Tablet aufrufen, das nach der Verwendung automatisch zur Home-Ansicht zurückkehren sollte
+* Diese Optionen sind hilfreich, wenn Sie iQontrol von einem an der Wand montierten Tablet aus aufrufen, das nach der Verwendung automatisch zur Home-Ansicht zurückkehren sollte
 * Um die Seite ohne Symbolleiste zu laden, können Sie `noToolbar=true` hinzufügen
 * Um die Seite ohne Panel zu laden, können Sie `noPanel=true` hinzufügen
 * Um die Seite ohne Symbolleiste und Panel zu laden, Wischen deaktiviert, kein Lade-Spinner und mit transparentem Ladebildschirm können Sie `isBackgroundView=true` hinzufügen
@@ -170,12 +181,12 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand `iqontrol.x.Popup.Message`
-* Beim Übergeben von Werten an diesen Zustand wird eine Popup-Nachricht (oder Toast) angezeigt
+* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder Toast) angezeigt
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * `Duration`: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
     * `ClickedValue` und `ClickedDestinationState`: Wenn das Popup vom Benutzer angeklickt wird, wird der Wert von `ClickedValue` an `iqontrol.x.Popup.POPUP_CLICKED` gesendet und, falls angegeben, zusätzlich zum Datenpunkt in `ClickedDestinationState`
-        * Wenn kein Wert angegeben ist, wird „true“ verwendet
+        * Wenn kein Wert angegeben ist, wird "true" verwendet
     * `ButtonNames`: Hier können Sie eine kommaseparierte Liste von Buttons angeben, die unten im Popup angezeigt werden (zB "OK,Abbruch")
         * `ButtonValues` und `ButtonDestinationStates`: Dies sind kommagetrennte Listen von Werten, die an `iqontrol.x.Popup.BUTTON_CLICKED` gesendet werden und, falls angegeben, zusätzlich zum Datenpunkt in `ButtonDestinationStates`, wenn der Benutzer auf das entsprechende klickt Taste
 * Anstelle eines Datenpunkts können Sie die Befehle `COMMAND:renderView` und `COMMAND:openDialog` als ButtonDestinationState verwenden, um eine Ansicht zu rendern oder einen Dialog zu öffnen
@@ -202,7 +213,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 <details><summary>Widget-Entwicklung (nur für Experten): (<ins> zum Öffnen anklicken</ins> )</summary>
 
 ### PostMessage-Kommunikation
-* Technisch gesehen wird der Inhalt vonROUND_VIEW/URL/HTML innerhalb eines HTML-Elements namens iframe platziert, das eine Website innerhalb einer Website ist
+* Technisch gesehen wird der Inhalt vonROUND_VIEW/URL/HTML in ein HTML-Element namens iframe platziert, das eine Website innerhalb einer Website ist
 * Durch Aktivieren der Option "PostMessage-Kommunikation für Background_VIEW/URL/HTML zulassen" können Sie die PostMessage-Kommunikation zwischen der Website in diesem iFrame und iQontrol selbst aktivieren
 * Um Befehle an iQontrol zu senden, können Sie den folgenden Javascript-Befehl verwenden: `window.parent.postMessage(message, "*");`
     * „Nachricht“ ist ein Javascript-Objekt im Format „{ Befehl: Befehl, Status-ID: Status-ID, Wert: Wert }“.
@@ -212,15 +223,15 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetState", stateId: <widgetStateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetStateSubscribed", stateId: <widgetStateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
+* Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
 * Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
-* Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
+* Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
-* Dadurch wird der ioBroker-Status `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
+* Dadurch wird der ioBroker-Zustand `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
@@ -448,9 +459,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
           ```
 
  * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* „type“ ist optional und kann „text“ (standardmäßig), „number“, „checkbox“, „color“, „select“, „multipleSelect“, „combobox“, „historyInstance“, „datapoint“ sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
+* `type` ist optional und kann `text` (Standard), `number`, `checkbox`, `color`, `select`, `multipleSelect`, `combobox`, `historyInstance`, `datapoint` sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
 * Wenn der Typ „select“, „multipleSelect“ oder „combobox“ ist, müssen Sie die möglichen Optionen angeben, indem Sie „/<selectOptions>“ hinzufügen, wobei „<selectOptions>“ eine Zeichenfolge im Format „<value1>,<“ ist caption1>/<value2>,<caption2>/...` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
-* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Höchst- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
+* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Maximal- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
 * Die Typen `section`, `divider`, `info` und `link` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für `link` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
 * Type `hidden` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String (wie `widget.html?parameter=value&parameter2=value2`) übergeben.
@@ -524,7 +535,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
+* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
@@ -546,9 +557,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: "2"
 * `directionUncertainValue` (Wert von DIRECTION für 'uncertain') - nur gültig für Rolle Window:
 * Standard: "3"
-* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Window:
+* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Fenster:
 * Standard: "Lieblingsposition"
-* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Fenster:
+* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Window:
 * Vorgabe: „Stopp“
 * `downCaption` (Beschriftung für DOWN) - nur gültig für Rolle Window:
 * Standard: "Nach unten"
@@ -561,7 +572,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: ""
 * `timeFormat` (Format von TIME (wie im Datenpunkt gespeichert, siehe Readme)) - nur gültig für Rolle DateAndTime:
 * Standard: "x"
-* `timeDisplayFormat` (Anzeige-Format von TIME (wie es angezeigt werden soll, siehe Readme)) - nur gültig für Rolle DateAndTime:
+* `timeDisplayFormat` (Display-Format von TIME (wie es angezeigt werden soll, siehe Readme)) - nur gültig für Rolle DateAndTime:
 * Standard: "tttt, TT.MM.JJJJ HH:mm:ss"
 * `timeDisplayDontShowDistance` (Entfernung anzeigen) - nur gültig für die Rolle DateAndTime:
 * Mögliche Werte: ""|`false`|`true`
@@ -577,7 +588,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `coverImageReloadDelay` (Reload des Cover-Bildes verzögern [ms]) - nur gültig für Rolle Media:
 * Mögliche Werte: Zahl von 0 bis 5000
 * Standard: ""
-* `coverImageNoReloadOnTitleChange: ` (Kein erzwungenes Neuladen des Cover-Bildes bei Änderung des TITLE) - nur gültig für Rolle Media:
+* `coverImageNoReloadOnTitleChange: ` (Kein erzwungenes Neuladen des Coverbildes bei Änderung des TITLE) - nur gültig für Rolle Media:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `statePlayValue` (Wert von STATE für 'play') - nur gültig für Rolle Media:
@@ -625,7 +636,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `renderLinkedViewInParentInstance` (Verknüpfte Ansicht in übergeordneter Instanz öffnen, wenn diese Ansicht als Background_VIEW verwendet wird):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `renderLinkedViewInParentInstanceClosesPanel` (Schließen Sie das Bedienfeld nach dem Öffnen der verknüpften Ansicht in der übergeordneten Instanz (falls es geschlossen werden kann)):
+* `renderLinkedViewInParentInstanceClosesPanel` (Nach dem Öffnen der verknüpften Ansicht in der übergeordneten Instanz das Bedienfeld schließen (falls es geschlossen werden kann)):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * Tile-Verhalten (allgemein):
@@ -725,7 +736,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `bigIconActive` (Großes Icon anzeigen, wenn Gerät aktiv):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `iconNoPointerEventsActive` (Ignoriere Mausereignisse für das Symbol, wenn das Gerät aktiv ist):
+* `iconNoPointerEventsActive` (Mausereignisse für das Icon ignorieren, wenn Gerät aktiv):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `transparentIfActive` (Hintergrund transparent machen, wenn Gerät aktiv):
@@ -770,7 +781,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `bigIconEnlarged` (Großes Icon anzeigen, wenn Gerät vergrößert):
 * Mögliche Werte: `true`|`false`
 * Standard: „true“.
-* `iconNoPointerEventsEnlarged` (Ignoriere Mausereignisse für das Symbol, wenn das Gerät vergrößert wird):
+* `iconNoPointerEventsEnlarged` (Mausereignisse für das Icon ignorieren, wenn Gerät vergrößert wird):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `transparentIfEnlarged` (Hintergrund transparent machen, wenn Gerät vergrößert wird):
@@ -794,7 +805,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `tileEnlargeShowInPressureMenuActive` (Vergrößern im Menü anzeigen, wenn Gerät aktiv)
 * Mögliche Werte: `true`|`false`
 * Standard: „true“.
-* `visibilityBackgroundURLEnlarged` (Sichtbarkeit des Hintergrunds von Background_VIEW/URL/HTML, wenn Gerät vergrößert):
+* `visibilityBackgroundURLEnlarged` (Sichtbarkeit des Hintergrunds aus Background_VIEW/URL/HTML, wenn Gerät vergrößert):
 * Mögliche Werte: ""|"visibleIfEnlarged"|"hideIfEnlarged"
 * Standard: ""
 * `hideDeviceNameIfEnlarged` (Gerätenamen ausblenden, wenn das Gerät vergrößert wird):
@@ -852,7 +863,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `backgroundURLAllowPostMessage` (PostMessage-Kommunikation für Background_VIEW/URL/HTML zulassen):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `backgroundURLNoPointerEvents` (Mausereignisse auf die Kachel richten statt auf den Inhalt vonbackground_VIEW/URL/HTML):
+* `backgroundURLNoPointerEvents` (Mausereignisse auf die Kachel richten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `overlayAboveBackgroundURL` (Positions-Overlay über Background_VIEW/URL/HTML):
@@ -896,7 +907,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `additionalInfoCaption` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
 
-</details>
+</Details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -987,7 +998,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ```
 
-</Details>
+</details>
 
 <details><summary>Zeigen Sie ein fortgeschritteneres Beispiel: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1256,7 +1267,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Sie können auch mit mehreren Werten gleichzeitig vergleichen, wenn Sie eine durch Kommas getrennte Liste von Argumenten bereitstellen
 * Beispiel: `|remove|ID|does't end with|.error,.overheat|` entfernt alle IDs, die nicht mit '.error' ODER mit '.overheat' enden
 * Wert: Der Wert, mit dem der Vergleichsoperator vergleicht
-* Sie können auch **nach Aliassen filtern**: Dies ist nützlich, wenn Sie beispielsweise eine Liste erstellen, die Geräte mit schwachem Akku zählt. Aber Sie möchten nicht, dass sowohl das ursprüngliche Gerät als auch sein Alias gezählt werden. Filter Alias sorgt also dafür, dass Datenpunkte, die einen Alias in der Liste haben, entfernt werden
+* Sie können auch **nach Aliassen filtern**: Dies ist nützlich, wenn Sie beispielsweise eine Liste erstellen, die Geräte mit schwachem Akku zählt. Aber Sie möchten nicht, dass sowohl das Originalgerät als auch sein Alias gezählt werden. Filter Alias sorgt also dafür, dass Datenpunkte, die einen Alias in der Liste haben, entfernt werden
 * Als nächstes können Sie **Zähler** definieren:
 * Sie können mehrere Zähler definieren, die für bestimmte Bedingungen in Ihrer TOTAL_LIST zählen. Angenommen, Sie haben eine Liste mit all Ihren LOW-BATTERY-Datenpunkten erstellt. Nun wollen Sie zählen, wie viele davon gerade aktiv sind, also den Status „true“ haben. Das macht ein Zähler
 * Sie müssen jedem Zähler einen Namen zuweisen
@@ -1274,7 +1285,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Kombinationen können verwendet werden, um verschiedene Datenpunkte mit Text zu kombinieren.
 * Das 'Prefix' wird vor, das 'Postfix' nach dem Wert der angegebenen ID gesetzt.
 * In der 'Only If'-Sektion können Sie eine Bedingung definieren, ob die Linie platziert werden soll oder nicht.
-* Durch Aktivieren von 'Nur Präfix' wird nur das Präfix gesetzt (nicht der Wert oder das Postfix), wenn die Bedingung zutrifft.
+* Bei Aktivierung von 'Nur Präfix' wird nur das Präfix gesetzt (nicht der Wert oder das Postfix), wenn die Bedingung zutrifft.
 * Sie können auch einen 'Sonst'-Text angeben, der platziert wird, wenn die Bedingung nicht zutrifft.
 * Zumindest können Sie **Protokolle** definieren:
 * Protokolle können verwendet werden, um Änderungen an Datenpunkten mit Zeitstempel in einer Tabelle zu protokollieren.
@@ -1282,7 +1293,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Durch Hinzufügen einer Entprellzeit können Sie verhindern, dass sie zu häufig aktualisiert wird (z. B. wenn sich einige Werte fast gleichzeitig ändern).
 * Das Protokoll ist eine Tabelle, die aus beliebig vielen Spalten besteht.
 * Sie müssen den Spalten eindeutige Namen zuweisen.
-* Anschließend kann der Inhalt der Spalte definiert werden: die Eintragsnummer, ein Zeitstempel oder der Wert einer ID.
+* Dann kann der Inhalt der Spalte definiert werden: die Eintragsnummer, ein Zeitstempel oder der Wert einer ID.
 * Das Ergebnis des Logs wird als JSON-Code gespeichert und kann über das JSON-Table-Widget angezeigt werden.
 
 * Die Ergebnisse der Listen mit Zählern, Berechnungen, Kombinationen und Protokollen werden in Datenpunkten gespeichert, die Sie unter iqontrol.x.Listen finden
@@ -1298,7 +1309,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 
 	![Liste Bearbeiten Nicht erreichbar](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
 
-* Und zuletzt werden alle Datenpunkte mit dem Wert „true“ gezählt, die diesen Zustand für mindestens 15 Sekunden haben
+* Und schließlich werden alle Datenpunkte mit dem Wert „wahr“ gezählt, die diesen Zustand für mindestens 15 Sekunden haben
 * Es gibt einige eingebaute Standardlisten, die Sie hinzufügen können, zum Beispiel komplexe Service-Meldungen und einen Adapter-Monitor. Klicken Sie einfach auf die Schaltfläche „Standardlisten hinzufügen“ und wählen Sie aus, was Sie hinzufügen möchten. Fühlen Sie sich frei, die Listen zu untersuchen, um ein besseres Verständnis dafür zu bekommen, wie die Arbeit funktioniert.
 
 ###Wiki
@@ -1306,7 +1317,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
-Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
+Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol in der neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
 
 ![CustomDialog-Aufruf](img/custom_call.png) ![CustomDialog-Beispiel](../../../en/adapterref/iobroker.iqontrol/img/custom_dialog.png)
 
@@ -1314,7 +1325,7 @@ Hier kannst du:
 
 * Readonly-Flag setzen
 * Invert-Flag setzen
-* Confirm-Flag setzen (zwingt den Benutzer zu bestätigen, bevor eine Änderung auf einen Datenpunkt geschrieben wird)
+* Confirm-Flag setzen (zwingt den Benutzer zu bestätigen, bevor eine Änderung in einen Datenpunkt geschrieben wird)
 * PIN-Code setzen (zwingt den Benutzer, diesen PIN-Code einzugeben, bevor eine Änderung auf einen Datenpunkt geschrieben wird - aber Vorsicht: dies ist nur von geringer Sicherheit, da die PIN im Frontend überprüft wird! Verwenden Sie eine Zahl, um einen Vollbildmodus anzuzeigen -Pin-Pad, wenn nach Code gefragt wird)
 * Ändern Sie die Einheit des Datenpunkts, getrennt für Null-, Singular- und Pluralwerte
 * Min und Max des Datenpunkts ändern
@@ -1343,11 +1354,11 @@ Um die Rolle und die Zustände eines Geräts zu bearbeiten, klicken Sie auf den 
 #### ZUSTAND und LEVEL
 Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-State. In den meisten Fällen stellt dies die Hauptfunktion des Geräts dar. Sie können ihm iobroker-states der folgenden Typen zuweisen:
 
-* *boolean* - wenn möglich, wird es in einen sinnvollen Text wie 'ein/aus', 'geöffnet/geschlossen' oder ähnliches übersetzt. Wenn Sie auf das Symbol einer Kachel klicken, wird versucht, den booleschen Wert umzuschalten (z. B. um ein Licht ein- oder auszuschalten). Wenn es nicht schreibgeschützt ist, wird es einen Kippschalter im Dialog erzeugen
+* *boolean* - wenn möglich, wird es in einen sinnvollen Text wie `on/off`, `open/closed` oder ähnliches übersetzt. Wenn Sie auf das Symbol einer Kachel klicken, wird versucht, den booleschen Wert umzuschalten (z. B. um ein Licht ein- oder auszuschalten). Wenn es nicht schreibgeschützt ist, wird es einen Kippschalter im Dialog erzeugen
 * *Zahl* - wird mit der entsprechenden Einheit angezeigt und generiert einen Schieberegler im Dialog
 * *string* - ein anzuzeigender Text
 * *value-list* - der ausgewählte Wert wird angezeigt. Wenn es nicht schreibgeschützt ist, wird im Dialog ein Dropdown-Menü generiert
-  *Technisch gesehen ist eine* erteliste* ein Wert mit einer entsprechenden Übersetzungsliste, die im Objekt 'common.custom.iqontrol.<instance>.states', 'native.states' oder 'common.states' des Datenpunkts definiert ist :
+  *Technisch gesehen ist eine* erteliste* ein Wert mit einer entsprechenden Übersetzungsliste, definiert im Objekt `common.custom.iqontrol.<instance>.states`, `native.states` oder `common.states` des Datenpunkts :
 
 ```
 "native": {
@@ -1358,9 +1369,9 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-State. In den m
 
     * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt ändern (Schraubenschlüssel-Symbol, oder besser gesagt Zahnrad-Symbol im neuen React-UI, hinter dem Datenpunkt im Objekt-Tab von iobroker, siehe oben)
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
-* wenn Typ 'Zahlen' ist und die Werteliste genau so viele Einträge hat, wie Schritte zwischen Min- und Max des Datenpunktes oder
-* wenn der Typ 'boolean' ist, aber die Rolle nicht 'switch' ist oder
-* wenn Typ 'String' ist oder
+* wenn type `number` ist und die valueList genau so viele Einträge hat, wie Schritte zwischen Min- und Max des Datenpunktes oder
+* wenn der Typ `boolean` ist, aber die Rolle nicht `switch` ist oder
+* wenn Typ `String` ist oder
 * wenn "Option zur Eingabe von Freitext hinzufügen" aktiviert ist
 * Ob die Geräte-Kachel als aktiv oder inaktiv angezeigt wird, wird auch vom STATE- oder LEVEL-Datenpunkt bestimmt. Darüber hinaus können Sie das Verhalten im Optionsbereich „Bedingungen für eine aktive Kachel“ frei anpassen. Sie können sogar einen weiteren externen Datenpunkt setzen, der den Zustand der Kachel bestimmt
 
@@ -1371,7 +1382,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 
     ![INFO_A und INFO_B](../../../en/adapterref/iobroker.iqontrol/img/info_a_info_b.png)
 
-* **ADDITIONAL_CONTROLS**: *array* - ein Array von Datenpunkten, die zusätzliche Steuerelemente definieren, die im Info-Dialog angezeigt werden. Sie können Variablen in Namen und Beschriftungen verwenden (verwenden Sie die gleiche Syntax wie für normale Gerätenamen).
+* **ADDITIONAL_CONTROLS**: *array* - ein Array von Datenpunkten, die zusätzliche Steuerelemente definieren, die im Info-Dialog angezeigt werden. Sie können Variablen in Namen und Beschriftungen verwenden (verwenden Sie dieselbe Syntax wie für normale Gerätenamen).
 * **ADDITIONAL_INFO**: *array* - ein Array von Datenpunkten, das unten im Info-Dialog angezeigt wird
 * **URL**: CONSTANT oder DATAPOINT *string* - diese URL wird als Iframe im Dialog geöffnet
 * **HTML**: CONSTANT oder DATAPOINT *string* - dieses Markup wird im Iframe angezeigt, wenn kein URL-Datenpunkt angegeben ist
@@ -1382,13 +1393,13 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * **ERROR**: *boolean* - wenn wahr, wird ein kleines Ausrufezeichen-Symbol angezeigt
 * **UNREACH**: *boolean* - wenn wahr, wird ein kleines Wireless-Icon angezeigt
     * Das Verhalten kann im Abschnitt „Allgemein“ der Optionen umgekehrt werden (verwenden Sie „verbunden“ anstelle von „nicht erreichbar“)
-* **ENLARGE_TILE**: *boolean* - wenn wahr, wird die Kachel vergrößert. Sie können dies überschreiben, indem Sie auf die Schaltfläche „Vergrößern/Verkleinern“ klicken. Aber jedes Mal, wenn sich der Zustand von ENLARGE_TILE ändert, übernimmt es wieder die Kontrolle über den Vergrößerungszustand der Kacheln. Wenn die Rolle von `ENLARGE_TILE` `button` ist, wird jede Statusänderung den Vergrößerungsstatus umschalten
+* **ENLARGE_TILE**: *boolean* - wenn wahr, wird die Kachel vergrößert. Sie können dies überschreiben, indem Sie auf die Schaltfläche „Vergrößern/Verkleinern“ klicken. Aber jedes Mal, wenn sich der Zustand von ENLARGE_TILE ändert, übernimmt es wieder die Kontrolle über den Vergrößerungszustand der Kacheln. Wenn die Rolle von `ENLARGE_TILE` `button` ist, wird jede Zustandsänderung den Vergrößerungszustand umschalten
 * **BADGE**: *number* or *string* - wenn ein anderer Wert als null/false vorhanden ist, dann wird ein Badge in der oberen linken Ecke mit diesem Wert angezeigt
   ***BADGE_COLOR**:* tring* – jede gültige HTML-Farbzeichenfolge (wie „green“, „#00FF00“, „rgba(0,255,0,0.5)“ usw.), die die Farbe des Abzeichens darstellt . Wenn nicht vorhanden oder ungültig, wird Rot mit 20 % Transparenz verwendet.
 
     ![Abzeichen](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** und **OVERLAY_ACTIVE_COLOR**: *string* - ein beliebiger gültiger HTML-Farbstring (wie 'green', '#00FF00', 'rgba(0,255,0,0.5)' und so weiter), der stellt die Farbe der Überlagerung der Kachel dar (abhängig davon, ob die Kachel aktiv oder inaktiv ist). Wenn kein gültiger Farbstring angegeben wird, wird die Standard-Overlay-Farbe (die in den iQontrol-Optionen konfiguriert werden kann) verwendet. Denken Sie daran, dass es eine Option gibt, um die Transparenz des Overlays in den iQontrol-Optionen zu definieren, was sich auf das Erscheinungsbild der eingestellten Overlay-Farbe auswirkt.
+* **OVERLAY_INACTIVE_COLOR** und **OVERLAY_ACTIVE_COLOR**: *string* - jeder gültige HTML-Farbstring (wie 'green', '#00FF00', 'rgba(0,255,0,0.5)' und so weiter), der stellt die Farbe der Überlagerung der Kachel dar (abhängig davon, ob die Kachel aktiv oder inaktiv ist). Wenn kein gültiger Farbstring angegeben wird, wird die Standard-Overlay-Farbe (die in den iQontrol-Optionen konfiguriert werden kann) verwendet. Beachten Sie, dass es eine Option zum Definieren der Transparenz des Overlays in den iQontrol-Optionen gibt, die sich auf das Erscheinungsbild der eingestellten Overlay-Farbe auswirkt.
 * Für Lichter können Sie auch die Option "Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden" verwenden, die in den gerätespezifischen Optionen zu finden ist.
 
     ![Überlagerungsfarbe](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
@@ -1403,7 +1414,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * Hat keine weiteren Zustände
 * Die **linked-view-property** wird direkt geöffnet
 
-###<img src="img/icons/switch_on.png" width="32"> Schalten:
+###<img src="img/icons/switch_on.png" width="32"> Schalter:
 * **STATE**: *boolean* - Anzeigen und Setzen des Ein/Aus-Zustands
 * **LEISTUNG**: *Zahl* - Stromverbrauch, der klein in der oberen rechten Ecke angezeigt wird
 
@@ -1412,7 +1423,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * **SET_VALUE**: CONSTANT *string* - dies ist eine Konstante (kein verknüpfter iobroker-Zustand!), die dem STATE zugewiesen wird, wenn die Schaltfläche gedrückt wird
 * **OFF_SET_VALUE**: CONSTANT *string* - dies ist eine Konstante (kein verknüpfter iobroker-Zustand!). Wenn definiert, wird STATE nach der in den Optionen definierten Zeit oder 100 ms auf diesen Wert zurückgesetzt
 
-###<img src="img/icons/light_on.png" width="32"> Hell:
+###<img src="img/icons/light_on.png" width="32"> Licht:
 Jedes Licht kann einen oder beide der folgenden Zustände haben:
 
 * **STATE**: *boolean* - Ein-/Aus-Zustand anzeigen und setzen
@@ -1497,8 +1508,8 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
 ###<img src="img/icons/garagedoor_closed.png" width="32"> Garagentor:
 * **STATE**: *boolean* - Anzeige, ob die Tür geöffnet oder geschlossen ist
-  *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'geneigt' anzuzeigen
-  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen
+  *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'gekippt' anzuzeigen
+  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen.
 * **TOGGLE**: *boolean* - zeigt einen 'Toggle'-Button und wird auf true gesetzt, wenn er gedrückt wird
 
 ###<img src="img/icons/door_locked.png" width="32"> Tür mit Schloss:
@@ -1512,7 +1523,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * **RICHTUNG**: *Werteliste* - kann Stop, Up und Down sein. Die Werte, die Stop, Up, Down und Unknown darstellen, können konfiguriert werden
 * **STOP**: *boolean* - wird auf true gesetzt, wenn die Stop-Taste gedrückt wird. Zusätzlich können Sie über den Datenpunkt **STOP_SET_VALUE** einen Wert definieren. Wenn definiert, wird dieser Wert statt wahr gesendet, wenn die Stopp-Schaltfläche gedrückt wird
 * **UP** / **DOWN**: *boolean* - wird auf true gesetzt, wenn die Up / Down-Taste gedrückt wird (für Geräte, die UP- und DOWN-Datenpunkte anstelle oder zusätzlich zu LEVEL verwenden). Zusätzlich können Sie über die Datenpunkte **UP_SET_VALUE** / **DOWN_SET_VALUE** einen Wert definieren. Wenn definiert, wird dieser Wert statt wahr gesendet, wenn die Up / Down-Taste gedrückt wird
-* **FAVORITE_POSITION**: *boolean* - kann verwendet werden, um eine Lieblingsposition abzurufen. Wenn die Favoriten-Schaltfläche (Schaltflächenbeschriftung in den Geräteeinstellungen konfigurierbar) gedrückt wird, wird true an diesen Datenpunkt gesendet. Zusätzlich können Sie über den Datenpunkt **FAVORITE_POSITION_SET_VALUE** einen Wert definieren. Falls definiert, wird dieser Wert statt true gesendet, wenn die Favoritentaste gedrückt wird
+* **FAVORITE_POSITION**: *boolesch* - kann verwendet werden, um eine Lieblingsposition abzurufen. Wenn die Favoriten-Schaltfläche (Schaltflächenbeschriftung in den Geräteeinstellungen konfigurierbar) gedrückt wird, wird true an diesen Datenpunkt gesendet. Zusätzlich können Sie über den Datenpunkt **FAVORITE_POSITION_SET_VALUE** einen Wert definieren. Falls definiert, wird dieser Wert statt wahr gesendet, wenn die Favoritentaste gedrückt wird
 * **SLATS_LEVEL**: *number* - Position der Lamellen in Prozent
 
 ###<img src="img/icons/fire_on.png" width="32"> Brandmelder:
@@ -1640,7 +1651,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
     ![Glühen](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
-</details>
+</Details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
 * **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
@@ -1663,7 +1674,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * **REPEAT**: *boolean* - Zustand für Wiederholungsfunktion oder *String* - 3 Zustände können über die entsprechenden Optionen definiert werden: Wert für aus, alles wiederholen und eins wiederholen
 * **DAUER, ELAPSED**: *Zahl* - Dauer und verstrichene Zeit des aktuellen Titels - wird verwendet, um eine Suchleiste anzuzeigen
 * **VOLUME**: *Zahl* - für Lautstärkeregler
-* **QUELLE, PLAYLIST**: *Werteliste* - Auswahlmenü anzeigen, um eine Quelle oder einen Titel aus der Wiedergabeliste auszuwählen
+* **QUELLE, PLAYLIST**: *Werteliste* - Auswahlmenü anzeigen, um eine Quelle oder einen Titel aus der Playlist auszuwählen
 
 ##### Zur Anzeige einer *Universalfernbedienung* können Sie folgende Zustände definieren:
 * **REMOTE_NUMBER**: *string* - zeigt einen Nummernblock und gibt die entsprechende Zahl zurück, wenn eine Zahl angeklickt wird
@@ -1672,13 +1683,13 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
     * 'ok' wenn die Mitte des Pads angeklickt wird,
 * 'links', 'rechts', 'oben' oder 'unten', wenn die Ränder des Pads angeklickt oder das Pad in die entsprechende Richtung gewischt wird bzw
 * 'Zurück', 'Home' oder 'Menü'*, wenn die entsprechenden Schaltflächen angeklickt werden
-* Denken Sie daran: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, oder besser gesagt das Zahnrad-Symbol in der neuen Benutzeroberfläche jedes Datenpunkts) verwenden, um abhängig vom zurückgegebenen Datenpunkt von einem Datenpunkt zu mehreren Datenpunkten zu verlinken Wert (siehe Abschnitt „Ändern von Datenpunkten“ oben)
+* Denken Sie daran: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, oder besser gesagt das Zahnrad-Symbol in der neuen Reaktions-Benutzeroberfläche jedes Datenpunkts) verwenden, um je nach Rückgabewert von einem Datenpunkt zu mehreren Datenpunkten zu verlinken Wert (siehe Abschnitt „Ändern von Datenpunkten“ oben)
 * **REMOTE_COLOR**: *string* - zeigt farbige Buttons und liefert die entsprechende Farbe ('rot', 'grün', 'gelb' oder 'blau'), wenn eine Farbe angeklickt wird
 * **REMOTE_CHANNELS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_HIDE_REMOTE**: *boolean* - wenn wahr, wird der komplette Fernbedienungsbereich ausgeblendet (z. B. um ihn nur anzuzeigen, wenn eine gültige Quelle ausgewählt ist)
 
-###<img src="img/icons/popup.png" width="32"> Pop-up:
+###<img src="img/icons/popup.png" width="32"> Aufpoppen:
 * **STATE**: *any* - kann verwendet werden, um weitere Informationen anzuzeigen
 
 ###<img src="img/icons/link.png" width="32"> Externer Link:
@@ -1708,7 +1719,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * Browser-Cache löschen
 * Starten Sie ioBroker neu
 
-### Wenn Sie weitere Probleme haben, stellen Sie bitte das Protokoll der Debugging-Konsole Ihres Browsers und Screenshots der fehlerhaften Leitung zur Verfügung:
+### Wenn Sie weitere Probleme haben, stellen Sie bitte das Protokoll aus der Debugging-Konsole Ihres Browsers und Screenshots der fehlerhaften Leitung zur Verfügung:
 * Starten Sie iQontrol mit geöffneter Debugging-Konsole Ihres Browsers (meistens müssen Sie <kbd>F12</kbd> drücken, um sie zu öffnen)
 * Wechseln Sie in das Konsolenfenster und reproduzieren Sie den Fehler
 * Suchen Sie nach Meldungen im Konsolenfenster
@@ -1728,6 +1739,11 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.
 * (sbormann) Subheading with no visible tiles beneath are now hided.
 * (sbormann) Added option to hide STATE and LEVEL in dialog.
+* (sbormann) Fixed default icons for ERROR, UNREACH and BATTERY (if you have changed them in a previous version you might need to change them again).
+* (sbormann) Fixed size of custom toolbar icons.
+* (sbormann) Added DISCHARGE to Battery.
+* (sbormann) Fixed Favorites not working in map-widget with instance-number.
+* (sbormann) Enhance JSON-Table to work with alexa-shoppinglist-adapter.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.

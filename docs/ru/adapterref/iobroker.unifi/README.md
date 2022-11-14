@@ -3,30 +3,33 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
+hash: tyFQ5E7Y9sRhtqHpKh4zs/HV5MOYsU5argoNWrFk7HM=
 ---
 ![Количество установок](http://iobroker.live/badges/unifi-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.unifi.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.unifi.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.unifi.svg)
-![НПМ](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
 <img height="100px" src="admin/unifi.png" align="left"><br/>
 
 # IoBroker.unifi
-Этот адаптер ioBroker позволяет осуществлять мониторинг и ограниченное управление [Устройства UniFi](http://www.ubnt.com/), например точками доступа UniFi WiFi, с помощью общедоступного веб-API UniFi Controller.
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.unifi/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/unifi/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+
+Этот адаптер ioBroker позволяет осуществлять мониторинг и ограниченное управление [UniFi-устройства](http://www.ubnt.com/), такими как точки доступа UniFi WiFi, с помощью общедоступного веб-API контроллера UniFi.
 
 ## Конфигурация
 ### Минимальная необходимая информация
-Для запуска этого адаптера необходима следующая информация:
+Для установки и запуска этого адаптера необходима следующая информация:
 
-* IP-адрес и порт вашего контроллера UniFi (оставьте порт пустым, если ваш контроллер работает на UbiOS (например, UDM-Pro))
+* IP-адрес и порт вашего контроллера UniFi (оставьте порт пустым, если ваш контроллер работает на UniFiOS (например, UDM-Pro))
 * Локальное имя пользователя и пароль (2FA **не может** поддерживаться)
 * Интервал обновления
 
-По умолчанию информация обновляется каждые 60 секунд. В зависимости от вашего оборудования ioBroker и размера вашей сети (количества клиентов, устройств UniFi и т. Д.) Рекомендуется сохранять этот интервал и не уменьшать его в дальнейшем.
+По умолчанию информация обновляется каждые 60 секунд. В зависимости от вашего оборудования ioBroker и размера вашей сети (количество клиентов, устройств UniFi и т. д.) рекомендуется сохранить этот интервал и воздержаться от дальнейшего его уменьшения.
 
 ### Фильтровать объекты
-Адаптер обновляет как можно больше информации с вашего контроллера UniFi, но предлагает возможность ограничить обновленную информацию.
+Адаптер обновляет как можно больше информации с вашего контроллера UniFi, но предлагает возможность ограничить обновляемую информацию.
 
 Можно отключить обновление выбранной информации или отфильтровать определенные объекты этой информации.
 
@@ -34,54 +37,54 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 |-------------|-----------------------------------------|
 | Клиенты | Имя, имя хоста, IP-адрес, MAC-адрес |
 | Устройства | Имя, IP-адрес, MAC-адрес |
-| WiFis | Имя |
-| Сети | Имя |
+| Wi-Fi | Имя |
+| сети | Имя |
 | Здоровье | Подсистема |
 
 ## Контроль
-### Включение / отключение WiFis
-Изменив состояние «включено» Wi-Fi, можно включить / отключить его. Через несколько секунд изменение будет внесено в точки доступа.
+### Включить/отключить Wi-Fi
+Изменяя состояние «включено» WiFi, можно включать/отключать его. Через несколько секунд изменение будет передано точкам доступа.
 
 ### Создание ваучера
-С помощью кнопки `vouchers.create_vouchers` можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты для загрузки и скачивания.
+С помощью кнопки `vouchers.create_vouchers` можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить ограничения для загрузки и загрузки.
 
 ## Отсутствующие точки данных
-Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему контроллеру UniFi. Чтобы упростить задачу, не все доступные точки данных втягиваются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, ПОРТ и САЙТ своими настройками)
+Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к контроллеру UniFi. Чтобы упростить задачу, не все доступные точки данных загружаются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, PORT и SITE своими настройками)
 
 | Информация | URL API |
 |-------------|---------------------------------------------|
-| Сайты | https:// IP: ПОРТ / api / self / sites |
-| SysInfo | https:// IP: ПОРТ / api / s / SITE / stat / sysinfo |
-| Клиенты | https:// IP: ПОРТ / api / s / SITE / stat / sta |
-| Устройства | https:// IP: ПОРТ / api / s / SITE / stat / device |
-| WiFis | https:// IP: ПОРТ / api / s / SITE / rest / wlanconf |
-| Сети | https:// IP: ПОРТ / api / s / SITE / rest / networkconf |
-| Здоровье | https:// IP: PORT / api / s / SITE / stat / health |
-| Ваучеры | https:// IP: PORT / api / s / SITE / stat / voucher |
-| DPI | https:// IP: ПОРТ / api / s / SITE / stat / dpi |
-| Сигнализация | https:// IP: ПОРТ / api / s / SITE / stat / alarm |
+| Сайты | https://IP:PORT/api/self/sites |
+| Системная информация | https://IP:PORT/api/s/SITE/stat/sysinfo |
+| Клиенты | https://IP:PORT/api/s/SITE/stat/sta |
+| Устройства | https://IP:PORT/api/s/SITE/stat/device |
+| Wi-Fi | https://IP:PORT/api/s/SITE/rest/wlanconf |
+| сети | https://IP:PORT/api/s/SITE/rest/networkconf |
+| Здоровье | https://IP:PORT/api/s/SITE/stat/health |
+| Ваучеры | https://IP:PORT/api/s/SITE/stat/voucher |
+| Точек на дюйм | https://IP:PORT/api/s/SITE/stat/dpi |
+| Сигналы тревоги | https://IP:PORT/api/s/SITE/stat/alarm |
 
-### Конечные точки UbiOS / UDM-Pro
+### Конечные точки UniFiOS (UDM-Pro)
 | Информация | URL API |
 |-------------|------------------------------------------------------|
-| Сайты | https:// IP / прокси / сеть / api / self / sites |
-| SysInfo | https:// IP / прокси / сеть / api / s / SITE / stat / sysinfo |
-| Клиенты | https:// IP / прокси / сеть / api / s / SITE / stat / sta |
-| Устройства | https:// IP / прокси / сеть / api / s / SITE / stat / device |
-| WiFis | https:// IP / прокси / сеть / api / s / SITE / rest / wlanconf |
-| Сети | https:// IP / прокси / сеть / api / s / SITE / rest / networkconf |
-| Здоровье | https:// IP / прокси / сеть / api / s / SITE / stat / health |
-| Ваучеры | https:// IP / прокси / сеть / api / s / SITE / stat / voucher |
-| DPI | https:// IP / прокси / сеть / api / s / SITE / stat / dpi |
-| Сигнализация | https:// IP / прокси / сеть / api / s / SITE / stat / alarm |
+| Сайты | https://IP/proxy/network/api/self/sites |
+| Системная информация | https://IP/proxy/network/api/s/SITE/stat/sysinfo |
+| Клиенты | https://IP/proxy/network/api/s/SITE/stat/sta |
+| Устройства | https://IP/proxy/network/api/s/SITE/stat/device |
+| Wi-Fi | https://IP/proxy/network/api/s/SITE/rest/wlanconf |
+| сети | https://IP/proxy/network/api/s/SITE/rest/networkconf |
+| Здоровье | https://IP/proxy/network/api/s/SITE/stat/health |
+| Ваучеры | https://IP/proxy/network/api/s/SITE/stat/voucher |
+| Точек на дюйм | https://IP/proxy/network/api/s/SITE/stat/dpi |
+| Сигналы тревоги | https://IP/proxy/network/api/s/SITE/stat/alarm |
 
-## Известные проблемы
-* Состояние is_wired клиентов неверно после того, как клиент перешел в автономный режим. Это известная проблема контроллера UniFi, не связанная с адаптером. (см. https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
+## Известные вопросы
+* Состояние is_wired клиентов неверно после того, как клиент отключился. Это известная проблема контроллера UniFi, не связанная с адаптером. (см. https://community.ui.com/questions/Wireless-clients-show-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
 
-## Рекомендации
+## Использованная литература
 Этот адаптер использует функции следующих сторонних модулей nodejs:
 
-* [узел-unifi] (https://github.com/jens-maus/node-unifi)
+* [узел-унифи] (https://github.com/jens-maus/node-unifi)
 * [json-logic-js] (https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
@@ -89,6 +92,27 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.3 (2022-10-08)
+* (jens-maus) Bumped node-unifi to latest 2.2.1 (fixes #613)
+
+### 0.6.2 (2022-10-07)
+* (jens-maus) Bumped node-unifi to latest 2.2.0
+* (maximilian-1) port-overrides structures added
+* (Scrounger) poe power switch added
+* (Scrounger) client reconnect added
+
+### 0.6.1 (2022-06-08)
+* (jens-maus) Bumped node-unifi to latest 2.1.0
+* (jens-maus) updated translations
+
+### 0.6.0 (2022-06-05)
+* IMPORTANT: js-controller 2.0 or higher is required
+* IMPORTANT: If Login do not work please re-enter the password in the instance configuration
+* (Apollon77) Migrate to new version of unifi library
+* (Apollon77) Allow to specify if SSL error should be ignored or not  (Default is to ignore errors as in former versions)
+* (jens-maus) Fixed more device state object definitions to get rid of state warnings.
+* (jens-maus/Apollon77) Updated dependencies, make compatible to newest firmwares
+
 ### 0.5.10 (2021-05-27)
 * (jens-maus) Changed "Update done" output to be output as debug info.
 * (jens-maus) Updated dependencies.
@@ -147,7 +171,7 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 
 ### 0.4.0 (2020-04-16)
 * (bluefox) Refactoring
-  
+
 ### 0.3.1
 * (jens-maus) added support for multi-site environments.
 
@@ -169,8 +193,8 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2016-2022 Jens Maus &lt;mail@jens-maus.de&gt;
 Copyright (c) 2020 braindead1 &lt;os.braindead1@gmail.com&gt;
-Copyright (c) 2016-2020 Jens Maus &lt;mail@jens-maus.de&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
