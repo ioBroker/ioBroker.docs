@@ -3,18 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-Sauna
-hash: aU0jjpssM3SwaO7SgNk2hq7ngOl6nohYqjvWz06NWe4=
+hash: ZtfvKGj2AxLNomQzQSstTax5oxI7QRdMv6XxaRy7S7Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
+![NPM-Version](https://img.shields.io/npm/v/iobroker.huum-sauna.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/huum-sauna-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.huum-sauna)
-![Anzahl der Installationen](https://img.shields.io/npm/v/iobroker.huum-sauna/latest)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/huum-sauna-installed.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 
 # IoBroker.huum-Sauna
 Dieser Adapter integriert das Saunasteuergerät HUUM in iobroker.
-Die Spezifikation von HUUM Devive für die Saunasteuerung finden Sie [Hier](https://huum.de/)
+Die Spezifikation von HUUM Devive für die Saunasteuerung finden Sie [hier](https://huum.de/)
 
 ## Parameter
 - 1 + 2 Benutzeranmeldeinformationen für die HUUM-Webseite "https://api.huum.eu/action/home/"

@@ -11,6 +11,11 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
+
+## Disclaimer
+**All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
+**MEROSS is a trademark of Chengdu Meross Technology Co., Ltd.**
+
 ## Description
 This adapter allows to control Meross devices by connecting to the Meross cloud servers.
 
@@ -38,6 +43,30 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add support for MAP100 air purifier
+
+### 1.14.0 (2022-08-12)
+* (Apollon77) Add Smoke Sensor
+
+### 1.13.0 (2022-07-12)
+* (Apollon77) Add new option to prevent the Cloud communication fallback when the device is not available locally for data queries (enabled by default).
+
+### 1.12.2 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.1 (2022-06-27)
+* (Apollon7) prevent crash case reported by Sentry
+
+### 1.12.0 (2022-06-24)
+* (Apollon77) Add new state to allow controlling whether to connect locally first or not for each device (but global setting takes precedence if set there to never use local connection!)
+* (Apollon77) Detect reconnection issues to Meross Cloud and try to handle them better
+
+### 1.11.0 (2022-06-02)
+* (Apollon77) Add online status configuration to show online status in Admin UI
+* (Apollon77) Optimize device initialization to make sure it finishes also whe not all devices are initialized successfully
+
 ### 1.10.5 (2022-04-14)
 * (Apollon77) Adjust to recent API changes from Meross services
 

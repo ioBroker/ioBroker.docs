@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: Wa01f7YH+BEzeP60HT6+danUNiUEIpgu+XOB+JpT350=
+hash: zkZXcslBa/4upJZAxaBfbeYY8UUByjrbYb3XjQmjSUg=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -34,20 +34,51 @@ Mit dem Adapter lassen sich die wichtigsten Aktionen durchführen. Außerdem bie
 Weitere Informationen zu den Geräten finden Sie unter [GARDENA deutsche Website](https://www.gardena.com/de/produkte/smart/smartsystem/) und [hier auf englisch](https://www.gardena.com/uk/products/smart/smart-system/).
 
 ## Anforderungen
-Um diesen Adapter zu verwenden, benötigen Sie zwei Dinge:
+Um diesen Adapter zu verwenden, benötigen Sie folgende Dinge:
 
 1. ein GARDENA smart system Konto
 1. einen GARDENA Applikationsschlüssel
+1. ein GARDENA Anwendungsgeheimnis
 
-Um beides zu bekommen, gehen Sie bitte zu [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
+Um diese Dinge zu erhalten, gehen Sie bitte zum Husqvarna Developer Portal unter [https://developer.husqvarnagroup.cloud/](https://developer.husqvarnagroup.cloud/).
 
-![getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
+Bitte registrieren Sie sich oder melden Sie sich an, wenn Sie bereits ein Konto haben, und erstellen Sie eine neue Anwendung, um Ihren *Anwendungsschlüssel* und Ihr *Anwendungsgeheimnis* zu erhalten.
+
+Derzeit sieht die Seite wie in den folgenden Screenshots aus.
+
+---
+
+![meine Anwendungen](../../../en/adapterref/iobroker.smartgarden/img/myapplications.png)
+
+Drücken Sie die Taste **NEUE ANWENDUNG**
+
+---
+
+![neue Anwendung erstellen](../../../en/adapterref/iobroker.smartgarden/img/createnewapplication.png)
+
+Formular mit eigenen Daten bearbeiten. Derzeit wird das Feld *Umleitungs-URLs* nicht verwendet. Deshalb können Sie derzeit einen beliebigen Wert eingeben.
+Drücken Sie die Schaltfläche **ERSTELLEN**
+
+---
+
+![mysmartgarden-Anwendung](../../../en/adapterref/iobroker.smartgarden/img/mysmartgardenapplication.png)
+
+Auf der nächsten Seite erhalten Sie den *Application Key* und das *Application Secret*.
+Sie benötigen diese Werte für Ihre Adapterinstanzkonfiguration.
+Und Sie müssen die APIs verbinden
+
+  - Authentifizierungs-API ***und***
+  - GARDENA Smart-System-API.
+
+Drücken Sie dazu die Schaltfläche **NEUE API VERBINDEN** und wählen Sie die erste API aus. Und wiederholen Sie dies für die zweite API.
+
+---
 
 **Notiz:**
 
   - Wenn Sie bereits einen Husqvarna Automower® Connect oder a
 
-GARDENA smart system Konto, können Sie sich mit diesem Konto anmelden und mit Schritt 2, Anwendung erstellen, fortfahren, um den Anwendungsschlüssel zu erhalten.
+GARDENA smart system-Konto können Sie sich mit diesem Konto anmelden und mit Anwendung erstellen fortfahren, um den Anwendungsschlüssel und das Anwendungsgeheimnis zu erhalten.
 
 	---
 
@@ -55,11 +86,11 @@ GARDENA smart system Konto, können Sie sich mit diesem Konto anmelden und mit S
 
 	---
 
-  - Stellen Sie sicher, dass Sie die Anwendung (aus Schritt 2) mit den APIs verbunden haben
+  - Stellen Sie sicher, dass Sie die Anwendung mit den APIs verbunden haben
     - Authentifizierungs-API ***und***
 - GARDENA Smart-System-API.
 
-Und natürlich benötigen Sie eine laufende ioBroker-Installation und Sie sollten mindestens eine funktionierende [GARDENA smart-Gerät](#supported-devices) besitzen.
+Und natürlich benötigen Sie eine laufende ioBroker-Installation (mindestens mit admin5 UI) und Sie sollten mindestens einen funktionierenden [GARDENA smart-Gerät](#supported-devices) besitzen.
 
 ## Inhaltsverzeichnis
   * [ioBroker smartgarden adapter for GARDENA smart system](#iobroker-smartgarden-adapter-for-gardena-smart-system)
@@ -85,10 +116,9 @@ Und natürlich benötigen Sie eine laufende ioBroker-Installation und Sie sollte
   * [Wünsche für Datenpunkte](#Wünsche-für-Datenpunkte)
   * [Anmerkung](#Anmerkung)
   * [Änderungsprotokoll](#Änderungsprotokoll)
+     * [2.0.0](#200)
      * [1.0.6](#106)
-     * [1.0.5](#105)
-     * [1.0.4](#104)
-     * [vorherige Versionen](#103)
+     * [vorherige Versionen](#105)
   * [Credits](#Credits)
   * [Lizenz](#Lizenz)
 
@@ -107,35 +137,53 @@ Eine Beschreibung zur Installation von GitHub ist in [hier](https://www.iobroker
 
    **Wenn Sie einen Wert dieser Einstellungen ändern, starten Sie bitte Ihren Adapter neu.**
 
-3.1 Benutzername, Passwort und Anwendungsschlüssel in der Konfiguration der Hauptinstanz bearbeiten
+3.1 Anwendungsschlüssel und Anwendungsgeheimnis und/oder optionalen Benutzernamen und Passwort in der Konfiguration der Hauptinstanz bearbeiten
 
       | Parameter | Beschreibung |
       | - | - |
-      | Benutzername | Benutzername für GARDENA smart system |
-      | Passwort | entsprechendes Passwort |
-      | API-Schlüssel | API Key (Anwendungsschlüssel), z.B. unter [Anforderungen](#requirements) |
+|***obligatorisch***||
+      | Anwendungsschlüssel | Anwendungsschlüssel (API-Schlüssel), z. unter [Anforderungen](#requirements) |
+| entweder *Anwendungsgeheimnis*<br> oder *Benutzername und Passwort* \*) \*\*)||
+      | Anwendungsgeheimnis \*)| Anwendungsgeheimnis, z. unter [Anforderungen](#requirements) - nur wenn *username* und *password* leer sind (neu in v2.0.0)*|
+      | Anwendungsgeheimnis \*)| Anwendungsgeheimnis, z. unter [Anforderungen](#Anforderungen) - nur wenn *Benutzername* und *Passwort* leer sind (neu in v2.0.0)*|
+|***nicht empfohlen***||
+      | Benutzername \*) \*\*)| Benutzername für GARDENA smart system - nur wenn *Anwendungsgeheimnis* leer ist|
+      | Passwort \*) \*\*)| entsprechendes Passwort - nur wenn *Benutzername* angegeben ist|
 
-Bitte beachten Sie, dass Passwort und Anwendungsschlüssel im Adapter verschlüsselt und gespeichert sind und nur zur Authentifizierung beim GARDENA Anwendungshost entschlüsselt werden.
+**ANMERKUNGEN:** \*)
+
+     - Ab Release v2.0.0 **bevorzugtes Login-Verfahren mit *Anwendungsschlüssel* und
+
+*Anwendungsgeheimnis*** als früheres Login-Verfahren mit *Benutzername* und *Passwort* wird von Gardena nicht mehr unterstützt, funktioniert aber dennoch für viele Benutzer.
+Aus diesem Grund ist es hier noch verfügbar, aber im Fehlerfall gibt es dafür keinen Support mehr.
+Es wird daher empfohlen, *Anwendungsschlüssel* und *Anwendungsgeheimnis* zu verwenden!
+
+     - *Anwendungsschlüssel*, *Anwendungsgeheimnis* und *Passwort* werden verschlüsselt und darin gespeichert
+
+     den Adapter und werden zur Authentifizierung beim GARDENA Applikationshost einfach entschlüsselt.
+
+   \*\*)
+
+     - Parameter wird eingestellt und ist möglicherweise in einer zukünftigen Version nicht mehr verfügbar
 
 3.2 Überprüfen Sie die Standardwerte verschiedener Einstellungen und schalten Sie Optionen in der Instanzkonfiguration ein/aus. Für die meisten Benutzer sind die Standardwerte in Ordnung.
 
       | Parameter | Beschreibung |
       | - | - |
-      | Zustände vordefinieren | alle Zustände der Gardena-API vordefinieren, unabhängig davon, ob sie gerade übertragen werden; ein- oder ausschalten; wenn eingeschaltet, werden alle Zustände der GARDENA smart system API erstellt, unabhängig davon, ob sie gerade vom GARDENA Service übertragen werden oder nicht; Standard: aus; *(neu in v0.4.0)*|
       | Prognose | Prognose für Ladezeit und Restzeit des Mähers verwenden; prognostizierte Lade- und Mähzeit des Mähers ein-/ausschalten; Standard: aus; *(neu in v0.5.0)*|
       | Zyklen | Anzahl der MÄHER-Verlaufszyklen; Sie können jede Zahl ab 3 (Minimum) verwenden, aber 10 (Standard) scheint ein guter Wert zu sein; nur relevant, wenn obige *'Prognose'* eingeschaltet ist; *(neu in v0.5.0)*|
       | Bewässerungscheck| Verwenden Sie die Überprüfung, ob während des Mähens bewässert werden darf; Ein-/ Ausschalten; Standard: aus; *(neu in v0.6.0)*|
+| Überwachungsgrenze | Überwachung der Ratenbegrenzungen der Gardena Smart System API verwenden; Ein-/ Ausschalten; Standard: aus; *(neu in v1.0.2)*|
 
 3.3 Überprüfen Sie die Standardwerte der Systemeinstellungen und schalten Sie Optionen in der Instanzkonfiguration ein/aus. **Die meisten Benutzer müssen auf dieser Registerkarte nichts ändern.**
 
       | Parameter | Beschreibung |
       | - | - |
-      | Protokollebene | Loglevel: 0 = kein Log, 1 = einige Logs, 2 = einige weitere Logs, 3 = alle Logs; Standard: 0|
+      | Protokollebene | Loglevel: 0 = keine Logeinträge, 1 = einige Logeinträge, 2 = einige weitere Logeinträge, 3 = alle Logeinträge; Standard: 0 - keine Logeinträge|
       | Protokoll verschönern | Zustands-IDs im Protokoll kürzer machen; Ein-/ Ausschalten; Standard ein; *(neu in v1.0.5)*|
-| Überwachung von Ratenbegrenzungen | Überwachung der Ratenbegrenzungen der Gardena Smart System API verwenden; Ein-/ Ausschalten; Standard: aus; *(neu in v1.0.2)*|
       | Verbindungswiederholungsintervall | Intervall für den erneuten Verbindungsversuch zum Gardena Webservice im Fehlerfall (in Sekunden); Standard: 300, Minimum: 60; *(neu in v1.0.3)*|
-      | Ping-Frequenz | Sendehäufigkeit von Ping's an den Gardena Webservice (in Sekunden); Standard: 150, Minimum: 1, Maximum: 300|
-      | Authentifizierungsfaktor | Faktor für die Gültigkeit des Authentifizierungstokens; Standard: 1,001 |
+      | Ping-Intervall | Intervall für das Senden von Ping's an den Gardena Webservice (in Sekunden); Standard: 150, Minimum: 1, Maximum: 300|
+      | Authentifizierungsfaktor | Faktor für die Gültigkeit des Authentifizierungstokens; Standard: 0,999 |
       | Auth-URL| URL des Authentifizierungshosts; Standard: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
       | Basis-URL| Webservice Basis-URL; Standard: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
 
@@ -180,7 +228,7 @@ Das einzige, was getan wird (ab Version 1.0.0), ist die Überprüfung der Art vo
 | Zahlen | wenn eine Zahl keine gültige Zahl ist, wird stattdessen "-1" verwendet. Wenn Sie also diese Nummer sehen, melden Sie sich bitte. |
 
 Anfragen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Smart Gateway akzeptiert wurde. Eine erfolgreiche Ausführung des Befehls auf dem Gerät selbst kann durch einen entsprechenden Zustandswechsel beobachtet werden.
-*Beispiel:* Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der `activity_value`-Datenpunkt des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
+*Beispiel:* Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der Datenpunkt `activity_value` des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
 
 **Anmerkungen:**
 
@@ -259,7 +307,7 @@ Sie werden erst angelegt, wenn die Funktion in der Instanzkonfiguration ausgewä
 
 Zur Prognose eines Wertes wird eine Historie der letzten paar Lade- und Mähzyklen in zwei Zuständen `info.saveMowingHistory` und `info.saveChargingHistory` gespeichert.
 
-Diese Funktion kann in der Adapterinstanzkonfiguration zusammen mit der Anzahl der gespeicherten Lade- und Mähzyklen im Verlauf ein-/ausgeschaltet werden.
+Diese Funktion kann in der Konfiguration der Adapterinstanz zusammen mit der Anzahl der gespeicherten Lade- und Mähzyklen im Verlauf ein-/ausgeschaltet werden.
 
 Um diese Funktion in Betrieb zu nehmen, **achten Sie bitte darauf, dass mindestens ein Mäh- und Ladezyklus fehlerfrei abläuft (z. B. nicht manuell oder sensorgesteuert unterbrochen wird).** Besser ist es, wenn mindestens drei Durchgänge fehlerfrei abgeschlossen werden.
 Diese Funktion versucht den Normalfall zu erkennen und geht zunächst davon aus, dass der nächste Prozess ein Normalfall ist. Ist dieser fehlerhaft, so wird dieser fehlerhafte Lauf als Normalfall angesehen und die dann normal durchlaufenden Läufe als Fehlerfall. Wenn während des Laufs ein Fehler auftritt, stoppen Sie bitte den Adapter, löschen Sie die beiden Datenpunkte und starten Sie erneut.
@@ -284,7 +332,7 @@ In diesem Fall empfiehlt es sich, diese beiden Datenpunkte zu löschen und den A
 4. Diese Funktion sollte für mehr als einen Mäher funktionieren, ist es aber
 
 nicht getestet *(das kann ich nicht, da ich nur einen Mäher habe)*.
-Wenn Sie mehr als einen Mäher haben, testen Sie ihn bitte und melden Sie Fehler und melden Sie natürlich, ob er wie vorgesehen funktioniert. Danke im Voraus dafür.
+Wenn Sie mehr als einen Mäher haben, testen und melden Sie Fehler und natürlich, ob er wie vorgesehen funktioniert. Danke im Voraus dafür.
 
 - `lastErrorCode_value`
 
@@ -462,7 +510,7 @@ Adapter. Also bitte ab und zu manuell löschen oder die Überwachung ausschalten
 
 ## Bewässerung während des Mähens nicht erlaubt
 ### Was ist das Problem?
-Wenn Sie sowohl einen Mäher als auch eine Beregnungsanlage mit Versenkregnern haben, besteht die Gefahr, dass Ihr Mäher bei laufender Beregnung auf einen Versenkregner stößt und ihn beschädigt oder selbst Schaden anrichtet.
+Wenn Sie sowohl einen Mäher als auch eine Beregnungsanlage mit Versenkregnern haben, besteht die Gefahr, dass Ihr Mäher bei laufender Beregnung auf einen Versenkregner stößt und diesen beschädigt oder selbst Schaden anrichtet.
 
 Um dies zu verhindern, sollten während des Mähens die Beregnungsanlage oder besser einzelne Ventile abgeschaltet werden.
 
@@ -489,15 +537,9 @@ Sie werden zur Konfiguration und zum Melden von Warnungen verwendet.
 
   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
 
-Sie können diese Mäher-ID aus der Registerkarte „Objekte“ von ioBroker kopieren, siehe roter Pfeil in den folgenden Bildern.
+Sie können diese Mäher-ID aus der Registerkarte „Objekte“ von ioBroker kopieren, siehe roter Pfeil im folgenden Bild.
 
-  *mit Admin v4.x.y:*
-
-    ![Mäher-ID](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
-
-  *mit Admin v5.x.y:*
-
-    ![Mäher-ID](../../../en/adapterref/iobroker.smartgarden/mowerid_admin5.jpg)
+    ![Mäher-ID](../../../en/adapterref/iobroker.smartgarden/img/mowerid_admin5.jpg)
 
 * ***Warncodes***
 
@@ -536,6 +578,21 @@ Vielen Dank an GARDENA/Husqvarna für die Bereitstellung dieser [öffentliche AP
 Smartgarden-Logo: http://www.freepik.com Entworfen von Freepik
 
 ## Changelog
+### 2.0.0
+* (jpgorganizer) 2022-Jun-13
+  - support for new login procedure to Gardena webservice: using *Application secret* and *Application key* 
+    instead of *username* and *password*. 
+    [Issue 47](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/47)
+  
+    Procedure with *username* and *password* is still available, as it's still working for some users.
+	
+    **TODO** for all existing users: please re-enter your login data, even if you will still use *username* and *password*!
+  - **support for admin4 UI removed; at least admin5 is needed!**
+  - new configuration page
+  - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
+  - documentation has been adjusted
+
+
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
   - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
@@ -704,4 +761,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->
+<!--- SVN: $Rev: 2832 $ $Date: 2022-06-13 14:12:51 +0200 (Mo, 13 Jun 2022) $ --->

@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
+hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/rest-api-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.rest-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rest-api.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
+![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.rest-api.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.rest-api.png?downloads=true)
 
 # REST-API-Adapter
@@ -30,8 +30,9 @@ Rufen Sie den Browser ```http://ipaddress:8093/``` auf und verwenden Sie die Swa
 Einige Anfragebeispiele:
 
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - Status als JSON lesen
-- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Zustand als String lesen (nur Wert)
+- `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - Status als String lesen (nur Wert)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - Status mit GET schreiben (nur für Rückkompatibilität mit simple-api)
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - Nachricht an javascript.0 senden im Skript `scriptName`
 
 ## Status- oder Objektänderungen abonnieren
 Ihre Anwendung könnte Benachrichtigungen über jede Status- oder Objektänderung erhalten.
@@ -96,7 +97,7 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 - `delObject(id, options)` - Objekt nach ID löschen
 
 ### Dateien
-- `readFile(adapter, fileName)` - Datei lesen, z.B. adapter=vis.0, fileName=main/vis-views.json. Darüber hinaus können Sie die Option in der Abfrage „binary=true“ festlegen, um die Antwort als Datei und nicht als JSON zu erhalten
+- `readFile(adapter, fileName)` - Datei lesen, z.B. adapter=vis.0, fileName=main/vis-views.json. Außerdem können Sie die Option in der Abfrage „binary=true“ festlegen, um die Antwort als Datei und nicht als JSON zu erhalten
 - `readFile64(adapter, fileName)` - Datei als base64-String lesen, z.B. adapter=vis.0, fileName=main/vis-views.json. Außerdem können Sie die Option in der Abfrage „binary=true“ festlegen, um die Antwort als Datei und nicht als JSON zu erhalten
 - `writeFile64(adapter, fileName, data64, options)` - Datei schreiben, z.B. adapter=vis.0, fileName=main/vis-test.json, data64=eyJhIjogMX0=
 - `unlink(adapter, name)` - Datei oder Ordner löschen
@@ -119,13 +120,13 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 - `checkFeatureSupported(feature)` - prüft, ob das Feature vom js-Controller unterstützt wird.
 - `decrypt(encryptedText)` - String mit Systemgeheimnis entschlüsseln
 - `encrypt(plainText)` - Zeichenkette mit Systemgeheimnis verschlüsseln
-- `getAdapterInstances(adapterName)` - Objekte vom Typ "Instanz" abrufen. Sie können optional adapterName definieren
-- `getAdapters(adapterName)` - Holt Objekte vom Typ "Adapter". Sie können optional adapterName definieren
+- `getAdapters(adapterName)` - Objekte vom Typ "Adapter" abrufen. Sie können optional adapterName definieren
 - `updateLicenses(login, password)` - Lizenzen vom ioBroker.net-Portal lesen
 - `getCompactInstances()` - Liste von Instanzen mit kurzen Informationen lesen
 - `getCompactAdapters()` - Liste der installierten Adapter mit Kurzinformationen lesen
 - `getCompactInstalled(host)` - kurze Informationen über installierte Adapter lesen
 - `getCompactSystemConfig()` - kurze Systemkonfiguration lesen
+- `getCompactSystemRepositories()`
 - `getCompactRepository(host)` - kurzes Repository lesen
 - `getCompactHosts()` - erhält kurze Informationen über Hosts
 - `addUser(user, pass)` - neuen Benutzer hinzufügen
@@ -148,12 +149,40 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 - `getUserPermissions()` - Objekt mit Benutzerrechten lesen
 - `getVersion()` - Adaptername und Version lesen
 - `getAdapterName()` - Adapternamen lesen (immer rest-api)
+- `getAdapterInstances(adapterName)` - Objekte vom Typ "Instanz" abrufen. Sie können optional adapterName definieren
 
-<!-- END --> <!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- ENDE -->
+
+## Machen
+- [ ] Implementierung von GET-, PATCH-, POST- und DELETE-Dateioperationen
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.4 (2022-08-31)
+* (bluefox) Check if the port is occupied only on defined interface
+
+### 1.0.2 (2022-07-27)
+* (bluefox) Implemented binary read/write operations
+
+### 1.0.1 (2022-07-27)
+* (bluefox) Increased the max size of body to 100Mb
+
+### 1.0.0 (2022-05-19)
+* (bluefox) Final release
+
+### 0.6.0 (2022-05-18)
+* (bluefox) Added sendTo path
+
+### 0.5.0 (2022-05-17)
+* (bluefox) Some access errors were corrected
+
 ### 0.4.0 (2022-04-26)
 * (bluefox) Added socket commands
 

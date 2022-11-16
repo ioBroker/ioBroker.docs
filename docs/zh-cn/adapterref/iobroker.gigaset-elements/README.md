@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: dr6+nr1+Dowx9ZjTlJlvvhfyb8/EoxK62tPsvY6OueY=
+hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
 ---
 ![标识](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -21,8 +21,8 @@ Gigaset 元件适配器 (https://gigaset.com/smart-home)
 ![测试和发布](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃ 要求
--NodeJS >= 12.x
-- ioBroker >= 3.x，管理员 >= 5.x
+-NodeJS >= 14.x
+- ioBroker >= 4.x，管理员 >= 5.x
 - Gigaset 元素系统
 
 ＃＃ 安装
@@ -45,10 +45,11 @@ Gigaset 元件适配器 (https://gigaset.com/smart-home)
 到目前为止，适配器已经过测试/已知可与以下元素一起使用，测试数据可通过[gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api)获得：
 
 |元素类型 |元素名称 |测试者 |
-| ------------ | --------------------- | --------- |
+| ------------ | ----------------------- | ----------- |
 | is01 |警笛 |数学 |
 | um01 |万能/窗/门 |数学 |
 | wd01 |水 |数学 |
+| sd01 |烟雾（仅测试警报）|家庭控制 |
 
 该适配器还支持以下其他设备：
 
@@ -82,7 +83,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 如果操作成功，则回调响应为<code>{ response: object }</code> ，如果出现问题，则为<code>{ error: &quot;&lt;error message&gt;&quot; }</code> 。
 
 #### 准备测试数据
-从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即用于尚未有测试数据的新事件或元素。
+从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即用于尚无测试数据的新事件或元素。
 
 从 API 加载基站、元素和事件，减少它以最小化数据量，并尝试从数据中去除姓名和 ID 等个人信息。
 
@@ -93,7 +94,7 @@ sendTo("gigaset-elements.0", "debug", { action: "prepare-test-data" from?: Date 
 ```
 
 #### 加载基站和元素数据
-以<code>{ response: { bs: [], elements: []} }</code>对象的形式加载并返回原始基站和元素数据。
+加载并返回原始基站和元素数据作为<code>{ response: { bs: [], elements: []} }</code>对象。
 
 ```ts
 sendTo("gigaset-elements.0", "test", { action: "load-bases-elements" }, callback);
@@ -114,6 +115,22 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.2.2 (2022-09-17)
+
+-   (matthsc) fix probably_open state
+-   (matthsc) dependency updates
+
+### 0.2.1 (2022-07-02)
+
+-   (matthsc) add initial support for smoke detectors
+-   (matthsc) dependency updates
+
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones

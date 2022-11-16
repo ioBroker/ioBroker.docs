@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: D6Ehnm9VxRfXBY2U36r8YLIy8Omlq15Atc6y2A3ACIU=
+hash: fjRq+bQPWv/JY4QBvKwwJ5HxsfN9JE98OjQbXJmZkjQ=
 ---
-![商标](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
+![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![安装数量](http://iobroker.live/badges/snmp-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
@@ -17,50 +17,162 @@ hash: D6Ehnm9VxRfXBY2U36r8YLIy8Omlq15Atc6y2A3ACIU=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 信息
-此适配器轮询来自 SNMP 设备的信息，例如打印机、网络...
+此适配器可用于使用 SNMP 协议从打印机、网络设备等设备轮询信息。
 
-## Changelog
-### __WORK IN PROGRESS__
-* IMPORTANT: This release will change the object structures!!
-* (McM1957) reduce latency for update of info.connection 
-* (McM1957) avoid excessive error logs if target is unreachable, optimize logging
-* (McM1957) add additional online at ip base to indicate target is reachable
-* (McM1957) output warning if OIDs specify different communities for one device
-* (Apollon77) Add Sentry for crash reporting
+＃＃ __工作正在进行中__
+-->
+
+### 2.2.1 (2022-10-18)
+* (McM1957) 修复了 io-package.json 中的错误。
+
+### 2.2.0 (2022-10-18)
+* (McM1957) 兼容性标志现已弃用，将在未来版本中删除。如果需要，请调整配置。
+* (McM1957) 添加了 SNMP V3 支持 (#71)
+* (McM1957) 添加了对 IPv6 的支持 (#138)
+* (McM1957) 代码已按照 eslint 的建议进行了清理
+* (McM1957) 基本模块已升级到当前版本
+* (McM1957) 文档已更新 (en, de, ru)
+
+### 2.1.10 (2022-09-22)
+* (McM1957) OID 和设备名称的验证已得到增强，哨兵报告了崩溃 (#169)
+
+### 2.1.9 (2022-09-13)
+* (McM1957) 已读取对 (IPv4) 域名的支持 (#165)
+* (McM1957) 没有任何活动 oid 的设备不再导致致命错误，而只会记录警告 (#155)
+* (McM1957) 现在更严格地验证计时器值 (#156, #164)
+* (McM1957) 修复了哨兵报告的一些崩溃问题 (#167)
+* (McM1957) 外部包已由dependabot 更新
+
+### 2.1.8 (2022-09-08)
+* (McM1957) HOTFIX：从以前的版本更新到版本 v2.x.x 时，参数“community”尚未迁移。 (#163)
+
+### 2.1.7 (2022-08-27)
+* (McM1957) README.md 中的文档已更新 (#133)
+
+### 2.1.6 (2022-08-19)
+* (McM1957) sentry 报告的一些问题已得到修复 (#151, #152)
+
+### 2.1.5 (2022-08-11)
+* (McM1957) 选项“可选”的功能已恢复。 (#147)
+
+### 2.1.4 (2022-08-08)
+* (McM1957) HOTFIX - 修复了 SNMP v1 错误导致的系统崩溃 (#145)
+
+### 2.1.3 (2022-08-07)
+* (McM1957) 添加了一个新选项来控制单个请求中的 OID 数量以避免 TOOBIG 错误 (#72)
+
+### 2.1.2 (2022-08-02)
+* (McM1957) 浮点值的转换已更正 (#16)
+
+### 2.1.1 (2022-08-01)
+* (McM1957) 部分外部包已更新
+
+### 2.1.0 (2022-07-30)
+* (McM1957) net-snmp 已升级到版本 3.8.2
+* (McM1957) 添加了对 SNMP v2c 的支持 (#116)
+* (McM1957) 状态对象的质量标记将在错误或超时的情况下使用
+* (McM1957) OID 标记“可选”已实现。此标记抑制不总是可用的 OID 的错误。 (#116)
+* (McM1957) 添加了对 Counter64 OID 的支持。 (#57)
+* (McM1957) 现在将记录 snmp 通信返回的数据并提供更多详细信息。
+* (McM1957) 紧凑模式已启用。 (#20)
+* (McM1957) 已知限制：目前仅支持 SNMP V1 和 SNMP V2c。
+* (McM1957) 已知限制：OID 属性可写尚未实现。
+
+### 2.0.1 (2022-07-22)
+* (McM1957) 兼容模式标志的错误处理已得到纠正 (#135)
+* (McM1957) 更正无效 OID 的错误记录 (#134)
+
+### 2.0.0 (2022-07-21)
+* 重要提示：此版本将更改配置结构！
+
+请在开始安装之前备份您的配置。
+安装将尝试转换旧配置 - 但不能保证在所有情况下都能成功。
+
+* (McM1957) 很多部分的代码已经重写
+* (McM1957) 适配器现在使用 admin5 接口
+* (McM1957) 现在可以为每个设备设置不同的计时器值 (#105)
+* (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
+* (McM1957) 现在可以命名设备的状态对象。旧行为可作为一个选项使用。
+* (McM1957) 已知限制：目前仅支持 SNMP V1。
+* (McM1957) 已知限制：OID 属性可选和可写尚未实现。
+
+### 1.0.0 (2022-03-21)
+* 重要提示：此版本将更改对象结构！
+* (McM1957) info.connection 更新延迟已减少
+* (McM1957) 如果目标无法访问，则会出现过多的错误日志记录已优化
+* (McM1957) 在 ip base 处添加了额外的在线对象以指示目标是可到达的
+* (McM1957) 如果 OID 为一个设备指定不同的社区，则会输出警告
+* (Apollon77) 添加了崩溃报告的哨兵
 
 ### 0.5.0
-* (Marcolotti) Add documentation (de,en,ru)
-* (Marcolotti) Add languages (de,en,ru)
+* (Marcolotti) 添加文档 (de,en,ru)
+* (Marcolotti) 添加语言 (de,en,ru)
 
 ### 0.0.3
-* (Apollon77)  Fix Object Type
+* (Apollon77) 修复对象类型
 
 ### 0.0.2
-* (Bluefox)    Fixes
+* (Bluefox) 修复
 
 ### 0.0.1
-* (Bluefox)    refactoring
-* (Marcolotti) initial release
+* (Bluefox) 重构
+* (Marcolotti) 初始版本
 
-## License
-The MIT License (MIT)
+## __适配器配置__
+适配器查询指定的 oid，这些 oid 分组在 oid 组中，这些组又分配给设备。配置数据在几个选项卡中输入：
 
-Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, ioBroker Community Developers 
+### __TAB OID-组__
+在这里，您指定适配器要查询的所有 oid，每行一个 oid。
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+|参数 |类型 |说明 |评论 |
+|---------------|-------------|-----------------------------------|-------------------------------------|
+|活跃 |布尔值 |如果设置为 true，将使用 OID |可用于禁用单个 OID |
+| OID-集团 |正文 | OID 组的名称 |将用于将组分配给设备 |
+| OID-名称 |正文 |分配给 OID 的名称 |将用于命名数据点 |
+|标识 |正文 | oid 字符串 (1.2.3.4.) |设备供应商指定的 oid 字符串 |
+|可写 |布尔值 |如果 OID 是可写的，则应该设置为 true |留作将来使用 |
+|可选 |布尔值 |如果 OID 是可选的，则应设置为 true |如果设置为 true，如果 oid 未知，则不会引发错误 |
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+### __TAB 设备__
+您可以在此处指定应查询哪些设备。
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+|参数 |类型 |说明 |评论 |
+|---------------|-------------|-----------------------------------|-------------------------------------|
+|活跃 |布尔值 |如果设置为true，将使用该设备|可用于禁用单个设备 |
+|姓名 |正文 |设备名称 |将用于创建数据点的名称 |
+| IP 地址 |正文 |带有可选端口号的 IP 地址（IPv4 或 IPv6）|注意：目前仅支持 IPv4 |
+| OID-集团 |正文 |在选项卡 IOD 组中指定的 OID 组 |一个 OID 组可以分配给多个设备 | |
+| SNMP 版本 |选择 |要使用的 SNMP 版本 |注意：尚不支持 SNMPv3 |
+|社区 (v1, v2c) 或 Auth-ID (v3) |正文 | SNMP v1 或 V2c 的社区，SNMP v3 的授权组 |注意：尚不支持 SNMPv3 |
+|超时（秒）|号码 |处理超时（以秒为单位）| |
+|重试（秒） |号码 |以秒为单位重试间隔 | |
+|轮询（秒） |号码 |以秒为单位的轮询间隔 | |
+
+### __TAB 授权__
+此选项卡包含 SNMP V3 授权信息。请注意，SNMP V3 尚未实施。
+
+|参数 |类型 |说明 |评论 |
+|---------------|-------------|-----------------------------------|-------------------------------------|
+
+### __TAB 选项__
+在这里您指定一些常规选项
+
+|参数 |类型 |说明 |评论 |
+|---------------|-------------|-----------------------------------|-------------------------------------|
+|包大小 |整数 |单个请求中发送的最大 OID 数 |如果出现 TOOBIG 错误，请减小此值 |
+|兼容模式 |布尔值 |如果激活此选项，数据点名称将基于 IP 地址 |注意：已过时 - 不再使用。此标志不适用于 IPv6 地址。在未来的版本中可能会被删除。 |
+
+＃＃ __执照__
+麻省理工学院许可证 (MIT)
+
+版权所有 (c) 2017-2022 Marcolotti <info@ct-j.de>，McM1957 <mcm57@gmx.at>，ioBroker 社区开发者
+
+特此免费授予任何人获得本软件和相关文档文件（“软件”）的副本，以不受限制地处理本软件，包括但不限于使用、复制、修改、合并的权利、发布、分发、再许可和/或出售本软件的副本，并允许向其提供本软件的人这样做，但须符合以下条件：
+
+上述版权声明和本许可声明应包含在本软件的所有副本或大部分内容中。
+
+本软件按“原样”提供，不提供任何形式的明示或暗示保证，包括但不限于适销性、特定用途适用性和非侵权保证。在任何情况下，作者或版权持有人均不对任何索赔、损害或其他责任承担任何责任，无论是在合同、侵权或其他方面，由本软件或本软件的使用或其他交易引起或与之相关。软件。
+
+## Changelog
+
+<!--

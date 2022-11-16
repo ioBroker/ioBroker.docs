@@ -1,10 +1,10 @@
 ---
 title: 更新 NodeJS
-lastChanged: 05.02.2022
+lastChanged: 29.10.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/updatenode.md
-hash: DQTeytJpqltpLrFO/hbAsPe65ae0PWlctqjRtOgtwXc=
+hash: oazpYy+PiXB6o3KoKB2y5HvacmA17vhc6tJYAJKDIyk=
 ---
 # Node.js 更新
 | js 控制器 | Node.js | npm |
@@ -12,14 +12,14 @@ hash: DQTeytJpqltpLrFO/hbAsPe65ae0PWlctqjRtOgtwXc=
 | < 4.x | 12.x、14.x、16.x | 6.x |
 | 4.x | 12.x、14.x、16.x | 6.x、7.x、8.x |
 
-## 为什么需要更新？
+##为什么要更新这个？
 与许多开源技术一样，Node.js 正在迅速发展。
 增加**稳定性**和**安全性**甚至添加**新功能**的更新会定期出现。
 
 ioBroker 不能在没有 Node.js 的情况下工作，有关详细信息，请参阅 [建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
 如果您想了解有关 Node.js 的更多信息，请参阅[维基百科 Node.js](https://de.wikipedia.org/wiki/Node.js)。
 
-?> **在Node.js版本变更的情况下，如有必要，必须提前检查和纠正某些要求。
+?> **在 Node.js 版本变更的情况下，如有必要，必须提前检查和更正某些要求。
 请务必注意安装所在的路径。**
 
 ＃＃＃ 方法
@@ -56,14 +56,16 @@ ioBroker 不能在没有 Node.js 的情况下工作，有关详细信息，请�
 ioBroker 使用自己的控制台命令或系统服务管理停止
 
 #### 5 - 检查进程是否仍在运行
-这通常会终止所有进程。为了安全起见，您应该再次检查是否确实没有任何进程（适配器、备份）在运行。也可以使用“top”之类的工具来检查是否还有以“io”开头的进程。开球。
+这通常会终止所有进程。为了安全起见，您应该再次检查是否确实没有任何进程（适配器、备份）在运行。也可以使用“top”之类的工具来检查是否还有以“io”开头的进程。开始。
 
 #### 6 - Node.js 更新
 下一步是将 Node.js 更新到所需的新版本。
-但是，更新根据安装的操作系统而有所不同，请参阅说明**注意**节点包管理器，简称`npm`，也会更新，这可能必须达到 js-controller 版本 3，具体取决于在要恢复到 npm v6.x 的 Node.js 版本上。从 js-controller 版本 4 开始，还支持 npm v7/8。
+但是，更新因安装的操作系统而异，请参阅说明
+
+?> 节点包管理器，缩写为 `npm`，也已更新，这可能必须重置为 npm v6.x 到 js-controller 版本 3，具体取决于使用的 Node.js 版本。从 js-controller 版本 4 开始，还支持 npm v7/8。
 
 #### 7 - 检查版本和路径
-更新完成后，再次检查路径和安装版本。
+更新完成后，再次检查路径和安装的版本。
 
 #### 8 - 运行 ioBroker 修复程序
 由于 Node.js 的安装，如开头所述，对系统进行了一些更改，因此需要在之后运行 ioBroker 修复程序。
@@ -91,7 +93,7 @@ ioBroker 尝试自动检测由于需要更新而无法启动的适配器。这�
 
 不幸的是，在某些特殊情况下，上述选项也不进行重建，其中之一是串行端口。
 
-日志可能看起来像这样（在所有重建尝试之后）。
+日志可能看起来像这样（即使在所有重建尝试之后）。
 
 <details><summary>日志</summary>
 
@@ -100,8 +102,8 @@ ioBroker 尝试自动检测由于需要更新而无法启动的适配器。这�
 </详情>
 
 还有其他错误消息，但它们都归结为同一件事。
-然后最简单的选择是在 **right** 目录中手动重建。
-在这种情况下，查找带有“绑定”的目录 - 上面是 */opt/iobroker/node_modules/serialport/node_modules/bindings ...* 在较新的版本上，它也可以是 */opt/iobroker/node_modules/serialport /node_modules /@serialport/bindings*.
+最简单的选择是在 **正确的** 目录中手动重建。
+在这种情况下，查找带有“bindings”的目录 - 上面是 */opt/iobroker/node_modules/serialport/node_modules/bindings ...* 在较新的版本上，它也可以是 */opt/iobroker/node_modules/serialport /node_modules /@serialport/bindings*.
 
 然后切换到这个目录，执行`npm install --production`。然后再次重新启动适配器。
 
@@ -150,6 +152,7 @@ ps aux | grep 'io\|PID'
 
 ```
 ps aux | grep 'backup\|PID'
+
 ```
 
 - 如果进程仍在运行
@@ -162,11 +165,15 @@ sudo kill -9 <ProzessID>
 - [Node.Js] 的详细信息（https://github.com/nodesource/distributions#installation-instructions）
 
 ```
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
 
-- 对于 Node.js 16，只需将 URL 中的 14 替换为 16。
+- 对于其他 Node.js 版本，只需将 URL 中的 16 替换为其他版本号。
+
+!> 自 2022 年 10 月起，推荐 ioBroker 使用 Node.js 版本 16！
+
+!> 可能无法使用奇怪的 Node.js 版本。
 
 #### 7 - 检查版本/路径
 ```
@@ -258,7 +265,6 @@ iobroker rebuild <adaptername> --install
 
 - 只需在 shell 中手动运行它。理想情况下，一切都应该自动完成。
 
-＃ 一个通知
-?> 只要 js 控制器低于版本 4，[ioBroker 修复程序](https://www.iobroker.net/#de/documentation/install/linux.md) 也必须在主要版本中使用 Node.js 更新执行。
+?> 只要 js 控制器低于版本 4，[ioBroker 修复程序](https://www.iobroker.net/#de/documentation/install/linux.md) 也必须在主要版本中使用 Node.js 更新来执行。
 使用版本 4 中的未来 js 控制器，重建是完全自动处理的。
 然后不再支持手动重建。

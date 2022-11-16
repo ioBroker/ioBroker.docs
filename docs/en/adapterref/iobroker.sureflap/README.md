@@ -4,11 +4,10 @@
 
 # ioBroker.sureflap
 
+![Stable Version](http://iobroker.live/badges/sureflap-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.sureflap.svg)](https://www.npmjs.com/package/iobroker.sureflap)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)](https://www.npmjs.com/package/iobroker.sureflap)
 ![Number of Installations (latest)](http://iobroker.live/badges/sureflap-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/sureflap-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)](https://david-dm.org/Sickboy78/iobroker.sureflap)
 [![Known Vulnerabilities](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap)
 
 ![Test and Release](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg) Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)](https://travis-ci.com/Sickboy78/ioBroker.sureflap) Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)](https://ci.appveyor.com/project/Sickboy78/ioBroker.sureflap/)
@@ -19,6 +18,10 @@
 <p align="center">
   <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" />
 </p>
+<p align="center">
+  <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" />
+  <img src="/admin/Sure_Petcare_Felaqua_Connect.png" />
+</p>
 
 ## Configuration
 
@@ -26,9 +29,9 @@ Add username and password from your Sure Petcare® account on the adapter config
 
 ## Description
 
-The adapter provides information about the settings and status of your pet flap, cat flap or feeder.
+The adapter provides information about the settings and status of your pet flap, cat flap, feeder or water dispenser.
 
-It also shows the location of your pets and their food consumption (with feeder).
+It also shows the location of your pets and their food and water consumption (with feeder and/or water dispenser).
 
 It lets you control the lockmode and curfew of your flap and set the location of your pets.
 
@@ -53,12 +56,23 @@ adapter<br>
 ├ household_name<br>
 │ ├ hub_name<br>
 │ │ ├ online<br>
+│ │ ├ serial_number<br>
 │ │ ├ control<br>
 │ │ │ └ led_mode<br>
+│ │ ├ felaqua_name<br>
+│ │ │ ├ battery<br>
+│ │ │ ├ battery_percentage<br>
+│ │ │ ├ online<br>
+│ │ │ ├ serial_number<br>
+│ │ │ ├ assigned_pets<br>
+│ │ │ │ └ pet_name<br>
+│ │ │ └ water<br>
+│ │ │ &nbsp;&nbsp;&nbsp; └ weight<br>
 │ │ ├ feeder_name<br>
 │ │ │ ├ battery<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
+│ │ │ ├ serial_number<br>
 │ │ │ ├ assigned_pets<br>
 │ │ │ │ └ pet_name<br>
 │ │ │ ├ bowls<br>
@@ -73,6 +87,7 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ battery_percentage<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ curfew_active<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ online<br>
+│ │ &nbsp;&nbsp;&nbsp; ├ serial_number<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ control<br>
 │ │ &nbsp;&nbsp;&nbsp; │ ├ curfew<br>
 │ │ &nbsp;&nbsp;&nbsp; │ └ lockmode<br>
@@ -98,12 +113,17 @@ adapter<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ inside<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ name<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ since<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ food<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ last_time_eaten<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ food<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_time_eaten<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ time_spent<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ times_eaten<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ └ dry..wet<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; └ weight<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ water<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ last_time_drunk<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ time_spent<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ times_eaten<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ dry..wet<br>
-│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ weight<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ times_drunk<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ weight<br>
 └ info<br>
 &nbsp;&nbsp;&nbsp; ├ all_devices_online<br>
 &nbsp;&nbsp;&nbsp; ├ connection<br>
@@ -111,13 +131,20 @@ adapter<br>
 
 ## Notes
 
-SureFlap® and Sure Petcare® are registered trademarks of [SureFlap Ltd.](https://www.surepetcare.com/)
+SureFlap®, Sure Petcare® and Felaqua® are registered trademarks of [SureFlap Ltd.](https://www.surepetcare.com/)
 
-The picture of the cat flap, hub and smartphone app is provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
+The pictures of the SureFlap® devices are provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
 
-### 1.1.3 (2021-03-28)
+### 1.1.5 (2022-09-10)
+* (Sickboy78) added display of serial numbers
+
+### 1.1.4 (2022-09-07)
+* (Sickboy78) added Felaqua support
+* (Sickboy78) improved battery and battery percentage indicator (reduced outliers)
+
+### 1.1.3 (2022-03-28)
 * (Sickboy78) code improvements
 * (Sickboy78) improved error handling if no pet has been assigned yet
 

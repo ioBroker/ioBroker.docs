@@ -13,17 +13,28 @@
 [![NPM](https://nodei.co/npm/iobroker.fuelpricemonitor.png?downloads=true)](https://nodei.co/npm/iobroker.fuelpricemonitor/)
 
 ## fuelpricemonitor adapter for ioBroker
-
-This adapter retrieves the fuel (Diesel, Super95 and CNG) prices from the offical Austria database based on your configered geo-position. Additional locations can be added.
+This adapter retrieves the fuel (Diesel, Super95 and CNG) prices from the offical Austria database based on your configered geo-position. The API delivers the prices only for the first 5 station. For the other 5 stations the prices are not available. Additional locations can be added.
 Default schedule is done every 20 minutes as cron job in the instance tab.  
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!  
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+
+## Breaking changes in 0.3.0
+* Requires NodeJS 14.16 or higher
+* Requires ioBroker host (js-controller) 4.0 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.1 (2022-10-25)
+* (HGlab01) Add option to exclude closed gas stations (#407)
+
+### 0.3.0 (2022-08-30)
+* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
+* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
+* (HGlab01) Bump is-online from 9.0.1 to 10.0.0
+
 ### 0.2.10 (2022-02-24)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness
@@ -35,52 +46,6 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 ### 0.2.8 (2021-11-16)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.7
 * (HGlab01) Improve error handling
-
-### 0.2.7 (2021-10-16)
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.2
-* (HGlab01) don't report getaddrinfo issue on Sentry (IOBROKER-FUELPRICEMONITOR-2)
-* (HGlab01) add attribute 'uuid' (IOBROKER-FUELPRICEMONITOR-1B)
-
-### 0.2.6 (2021-07-24)
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.1
-* (HGlab01) Check internet connection on startup
-
-### 0.2.5 (2021-04-30)
-* (HGlab01) improve for js-controller v3.3.1
-* (HGlab01) Bump iobroker-jsonexplorer to v0.0.0-19
-
-### 0.2.4 (2021-04-21)
-* (HGlab01) add feature (experimental!) to sort by ID instead of price (helps to monitor one specific gas station)
-* (HGlab01) add attributes 'from', 'to', 'day' and 'orders'
-* (HGlab01) Bump iobroker-jsonexplorer to v0.0.0-18
-
-### 0.2.3 (2021-03-26)
-* (HGlab01) switch library from deprecated "request" to "axios"
-
-### 0.2.2 (2021-03-13)
-* (HGlab01) improve error handling and debug log
-
-### 0.2.1 (2021-03-08)
-* (HGlab01) Bump js-controller to 3.2.16 for proper device/channel/state deletion
-* (HGlab01) use function deleteEverything from json-Explorer@0.0.13
-* (HGlab01) improve device/channel/state cleaning
-
-### 0.2.0 (2021-03-04)
-* (HGlab01) additional locations can be added
-* (HGlab01) for a proper working of the new version a uninstall/install is recommended
-* (HGlab01) small improvements
-
-### 0.1.4 (2021-02-22)
-* (HGlab01) optimize device/channel deletion
-* (HGlab01) improve Sentry handling
-
-### 0.1.3 (2021-02-20)
-* (HGlab01) add attributes accessMod and clubCardText
-* (HGlab01) Improve logs
-* (HGlab01) fuel type (Diesel, Super95, CNG) can be selected
-
-### 0.1.2 (2021-02-17)
-* (HGlab01) first beta version
 
 ## License
 MIT License

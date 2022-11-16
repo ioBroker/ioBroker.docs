@@ -75,8 +75,13 @@ after 5 minutes.
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (Apollon77) make sure reconnects work correctly
+
+### 1.2.1 (2022-06-16)
 * (Apollon77) register error handler for Yeelight instance
 * (Apollon77) Prevent to register too many event listeners on discovery
+* (Apollon77) Set some states after object creation
+* (Apollon77) Prevent some crash cases reported by Sentry
 
 ### 1.2.0 (2022-04-13)
 * (Apollon77) Optimize unload handling and async executions

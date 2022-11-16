@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: Wa01f7YH+BEzeP60HT6+danUNiUEIpgu+XOB+JpT350=
+hash: zkZXcslBa/4upJZAxaBfbeYY8UUByjrbYb3XjQmjSUg=
 ---
 ![标识](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -34,20 +34,51 @@ hash: Wa01f7YH+BEzeP60HT6+danUNiUEIpgu+XOB+JpT350=
 有关设备的更多信息，请参阅[GARDENA 德国网站](https://www.gardena.com/de/produkte/smart/smartsystem/) 和 [这里是英文](https://www.gardena.com/uk/products/smart/smart-system/)。
 
 ＃＃ 要求
-要使用此适配器，您需要两件事：
+要使用此适配器，您需要以下内容：
 
 1. GARDENA智能系统账号
 1. GARDENA 应用程序密钥
+1. GARDENA 应用程序的秘密
 
-要获得这两样东西，请转到[https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/)。
+要获得这些东西，请访问 [https://developer.husqvarnagroup.cloud/](https://developer.husqvarnagroup.cloud/) 的 Husqvarna 开发者门户。
 
-![获取应用程序密钥](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
+如果您已经有一个帐户，请注册或登录并创建一个新应用程序以获取您的*应用程序密钥*和*应用程序密码*。
+
+目前，该站点如下面的屏幕截图所示。
+
+---
+
+![我的应用程序](../../../en/adapterref/iobroker.smartgarden/img/myapplications.png)
+
+按下按钮**新应用程序**
+
+---
+
+![创建新应用程序](../../../en/adapterref/iobroker.smartgarden/img/createnewapplication.png)
+
+使用您自己的数据编辑表单。目前没有使用 *Redirect URLs* 字段。这就是您当前可以输入任何值的原因。
+按下按钮**创建**
+
+---
+
+![我的智能花园应用](../../../en/adapterref/iobroker.smartgarden/img/mysmartgardenapplication.png)
+
+在下一页您将获得*应用程序密钥* 和*应用程序秘密*。
+您将需要这些值用于您的适配器实例配置。
+而且您必须连接 API
+
+  - 身份验证 API ***和***
+  - GARDENA 智能系统 API。
+
+为此按下按钮 **CONNECT NEW API** 并选择第一个 API。并重复第二个 API。
+
+---
 
 **笔记：**
 
   - 如果您已经拥有 Husqvarna Automower® Connect 或
 
-GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创建应用程序以获取应用程序密钥。
+GARDENA 智能系统账户，您可以使用该账户登录并继续创建应用程序以获取应用程序密钥和应用程序机密。
 
 	---
 
@@ -55,11 +86,11 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
 	---
 
-  - 确保您已将应用程序（从第 2 步开始）连接到 API
+  - 确保您已将应用程序连接到 API
     - 身份验证 API ***和***
 - GARDENA 智能系统 API。
 
-当然，您需要一个正在运行的 ioBroker 安装，并且您应该拥有至少一个工作的[GARDENA 智能设备](#supported-devices)。
+当然，您需要一个正在运行的 ioBroker 安装（至少使用 admin5 UI）并且您应该拥有至少一个工作的[GARDENA 智能设备](#supported-devices)。
 
 ＃＃ 目录
   * [用于 GARDENA 智能系统的 ioBroker smartgarden 适配器](#iobroker-smartgarden-adapter-for-gardena-smart-system)
@@ -85,10 +116,9 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
   * [希望数据点](#Wishes-for-data-points)
   * [注](#注)
   * [更新日志](#changelog)
+     * [2.0.0](#200)
      * [1.0.6](#106)
-     * [1.0.5](#105)
-     * [1.0.4](#104)
-     * [以前的版本](#103)
+     * [以前的版本](#105)
   * [积分](#credits)
   * [许可证](#license)
 
@@ -107,35 +137,53 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
    **如果您更改这些设置的任何值，请重新启动您的适配器。**
 
-3.1 在主实例配置中编辑用户名、密码和应用程序密钥
+3.1 在主实例配置中编辑应用程序密钥和应用程序秘密和/或可选用户名、密码
 
       |参数 |说明 |
       | - | - |
-      |用户名 | GARDENA 智能系统用户名 |
-      |密码 |对应密码 |
-      | API 密钥 | API Key（应用程序密钥），例如根据[要求](#requirements)|
+|***必填***||
+      |应用密钥 |应用程序密钥（API 密钥），例如根据[要求](#requirements)|
+| *应用程序秘密*<br>或*用户名和密码* \*) \*\*)||
+      |应用程序机密\*)|应用程序机密，例如根据 [要求](#requirements) - 仅当 *username* 和 *password* 为空（v2.0.0 中的新功能）*|
+      |应用程序机密\*)|应用程序机密，例如在 [Requirements](#requirements) 下 - 仅当 *username* 和 *password* 为空时（v2.0.0 中的新功能）*|
+|***不推荐***||
+      |用户名 \*) \*\*)| GARDENA 智能系统的用户名 - 仅当 *application secret* 为空时|
+      |密码 \*) \*\*)|相应的密码 - 仅当指定了 *username* 时|
 
-请注意，密码和应用程序密钥被编码并存储在适配器中，并被解码以用于 GARDENA 应用程序主机的身份验证。
+**注：** \*)
+
+     - 从版本 v2.0.0 **首选的登录程序是使用 *应用程序密钥*和
+
+*应用程序密码***作为以前使用 *用户名* 和 *密码* 的登录程序，Gardena 不再支持，但它仍然适用于许多用户。
+出于这个原因，它仍然可以在此处使用，但如果出现错误，则不再支持它。
+所以推荐使用*application key*和*application secret*！
+
+     - *应用程序密钥*、*应用程序秘密*和*密码*被加密并存储在
+
+     适配器并被解密以便与 GARDENA 应用程序主机进行身份验证。
+
+   \*\*)
+
+     - 参数已停产，可能在未来版本中不再可用
 
 3.2 验证其他设置的默认值，并在实例配置中打开/关闭选项。对于大多数用户来说，默认值就可以了。
 
       |参数 |说明 |
       | - | - |
-      |预定义状态 |预定义 Gardena API 的所有状态，无论它们当前是否被传输；打开或关闭；如果打开，则 GARDENA 智能系统 API 的所有状态都会被创建，无论它们当前是否由 GARDENA 服务传输；默认值：关闭； *(v0.4.0 新增)*|
       |预测 |充电时间和割草机剩余时间使用预测；切换预测充电和割草机开/关时间；默认值：关闭； *(v0.5.0 新增)*|
       |周期 | MOWER 历史周期数；您可以使用 3（最小值）中的任何数字，但 10（默认）似乎是一个不错的值；仅当上述 *'forecast'* 开启时才相关； *(v0.5.0 新增)*|
       |灌溉检查|修剪时使用检查是否允许灌溉；打开/关闭；默认值：关闭； *(v0.6.0 新增)*|
+|监控限制 |对 Gardena 智能系统 API 的速率限制进行监控；打开/关闭；默认值：关闭； *(v1.0.2 新增)*|
 
 3.3 验证系统设置的默认值并在实例配置中打开/关闭选项。 **大多数用户无需更改此选项卡上的任何内容。**
 
       |参数 |说明 |
       | - | - |
-      |日志级别 |日志级别：0 = 无日志，1 = 一些日志，2 = 更多日志，3 = 所有日志；默认值：0|
+      |日志级别 |日志级别：0 = 没有日志条目，1 = 一些日志条目，2 = 更多日志条目，3 = 所有日志条目；默认值：0 - 无日志条目|
       |美化日志 |使日志中的状态 ID 更短；打开/关闭；默认值：开； *(v1.0.5 新增)*|
-|监控速率限制 |对 Gardena 智能系统 API 的速率限制进行监控；打开/关闭；默认值：关闭； *(v1.0.2 新增)*|
       |连接重试间隔 |发生错误时重试连接到 Gardena Webservice 的时间间隔（以秒为单位）；默认值：300，最小值：60； *(v1.0.3 新增)*|
-      | ping 频率 |向 Gardena Webservice 发送 Ping 的频率（以秒为单位）；默认值：150，最小值：1，最大值：300|
-      |身份验证因素 |验证令牌有效性的因素；默认值：1.001 |
+      | ping 间隔 |将 Ping 发送到 Gardena Webservice 的时间间隔（以秒为单位）；默认值：150，最小值：1，最大值：300|
+      |身份验证因素 |验证令牌有效性的因素；默认值：0.999 |
       |认证网址|身份验证主机 URL；默认值：[https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
       |基本网址|网络服务基 URL；默认：[https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
 
@@ -200,7 +248,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
   更改此数据点以启动割草机。
 
-  - 要在定义的时间开始，请将值设置为计划的持续时间
+  - 要在定义的时间开始，将值设置为计划的持续时间
 
   秒（请使用 60 的倍数）
 
@@ -235,7 +283,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 详情请参阅下表。
 
   | `activity_value`| `activity_mowing_i`|
-  |`OK_CHARGING`割草机必须在割草，但电量不足将其保留在充电站中。 |假 |
+  |`OK_CHARGING`割草机必须在割草，但电量不足使其留在充电站。 |假 |
   |`PARKED_TIMER`割草机根据计时器停放，将在配置的时间重新启动。 |假 |
   |`PARKED_PARK_SELECTED`割草机已停放，直至另行通知。 |假 |
   |`PARKED_AUTOTIMER`割草机因草高不足而跳过割草。 |假 |
@@ -262,7 +310,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 可以在适配器实例配置中打开/关闭此功能以及历史上保存的充电和割草周期数。
 
 要使用此功能，**请确保至少一个割草和充电循环运行无错误（例如没有手动中断或传感器控制）。**最好至少完成三个运行且无错误。
-此函数尝试识别正常情况，并最初假设下一个过程是正常情况。如果这是故障，则将这次故障运行视为正常情况，然后将正常通过的运行视为故障情况。如果运行过程中出现错误，请停止适配器，删除两个数据点，然后重新启动。
+此函数尝试识别正常情况并最初假设下一个过程是正常情况。如果这是故障，则将这次故障运行视为正常情况，然后将正常通过的运行视为故障情况。如果运行过程中出现错误，请停止适配器，删除两个数据点，然后重新启动。
 
 有关一般预测机制的更多信息，请参阅[预测.md](FORECAST.md)。
 
@@ -279,7 +327,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
     3. 如果您断开割草机与 GARDENA 智能系统的连接，并且
 
 再次重新连接，历史记录丢失，因为您的割草机在 GARDENA 智能系统中获得了一个新 ID。这意味着适配器无法将割草机识别为以前的割草机 - 可能是第二台割草机。
-在这种情况下，建议删除这两个数据点并重新启动适配器，这样以前的（现在是旧的）历史记录集就不会被不断地读取和写入。然后适配器开始构建新的历史。
+在这种情况下，建议删除这两个数据点并重新启动适配器，这样以前的（现在旧的）历史记录集就不会被不断地读取和写入。然后适配器开始构建新的历史。
 
 4. 这个功能应该适用于不止一台割草机，但它是
 
@@ -412,7 +460,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
 为了帮助您查看是否达到了这些速率限制，您可以使用参数 *monitoring Rate Limits* 在实例配置中打开监控。
 
-如果您启用了监控状态 `info.RateLimitCounter` 会在每个请求中实现。
+如果您启用了监控状态`info.RateLimitCounter`会在每个请求中实现。
 此状态保存一个数据结构，其中包含过去 30 天和 31 天每月、每天、每小时的请求数。
 
 结构在[JSON](https://en.wikipedia.org/wiki/JSON)，看起来像
@@ -462,9 +510,9 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
 ##割草时不允许灌溉
 ＃＃＃ 有什么问题？
-如果您同时拥有割草机和带有弹出式喷头的灌溉系统，则您的割草机可能会在灌溉运行时遇到弹出式喷头并损坏它或造成损坏。
+如果您同时拥有一台割草机和一个带有弹出式喷水器的灌溉系统，那么您的割草机可能会在灌溉运行时遇到弹出式喷水器并损坏它或造成损坏。
 
-为防止这种情况发生，在割草机割草时应关闭灌溉系统或更好的单个阀门。
+为防止这种情况，在割草机割草时应关闭灌溉系统或更好的单个阀门。
 
 ###正在做什么？
 使用此功能，当割草机在草坪上时，可以停止灌溉。这可以为每个阀门单独定义。
@@ -491,13 +539,7 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 
 您可以从 ioBroker 的对象选项卡中复制此割草机 ID，请参见下图中的红色箭头。
 
-  *使用管理员 v4.x.y:*
-
-    ![割草机 ID](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
-
-  *使用管理员 v5.x.y:*
-
-    ![割草机 ID](../../../en/adapterref/iobroker.smartgarden/mowerid_admin5.jpg)
+    ![割草机 ID](../../../en/adapterref/iobroker.smartgarden/img/mowerid_admin5.jpg)
 
 * ***警告代码***
 
@@ -525,17 +567,32 @@ GARDENA智能系统账户，您可以使用该账户登录并继续步骤2，创
 **因此，由您的应用程序确保不会发生这种冲突。**
 
 ## 希望数据点
-该适配器将**每个值**报告为通过 GARDENA 智能系统 API 提供的数据点。如果有人想要更多值，请联系 GARDENA 并告知他们此值也将包含在 API 中。为此，请在[GARDENA 开发者门户](https://developer.husqvarnagroup.cloud)的页脚中访问***联系我们并留下反馈***。
+该适配器将**每个值**报告为通过 GARDENA 智能系统 API 提供的数据点。如果有人想要更多值，请联系 GARDENA 并告知他们该值也将包含在 API 中。为此，请在[GARDENA 开发者门户](https://developer.husqvarnagroup.cloud)的页脚中访问***联系我们并留下反馈***。
 
 ＃＃ 笔记
 这是一个私人项目。我与 GARDENA 或 Husqvarna 没有任何关联。
 
 ## 学分
-非常感谢 GARDENA/Husqvarna 提供此[公共 API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general)，并特别感谢您的支持团队提供非常好的和非常快速的支持。
+非常感谢 GARDENA/Husqvarna 提供此[公共 API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general)，并特别感谢您的支持团队提供了非常好的和非常快速的支持。
 
 smartgarden logo：http://www.freepik.com 由 Freepik 设计
 
 ## Changelog
+### 2.0.0
+* (jpgorganizer) 2022-Jun-13
+  - support for new login procedure to Gardena webservice: using *Application secret* and *Application key* 
+    instead of *username* and *password*. 
+    [Issue 47](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/47)
+  
+    Procedure with *username* and *password* is still available, as it's still working for some users.
+	
+    **TODO** for all existing users: please re-enter your login data, even if you will still use *username* and *password*!
+  - **support for admin4 UI removed; at least admin5 is needed!**
+  - new configuration page
+  - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
+  - documentation has been adjusted
+
+
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
   - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
@@ -704,4 +761,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->
+<!--- SVN: $Rev: 2832 $ $Date: 2022-06-13 14:12:51 +0200 (Mo, 13 Jun 2022) $ --->

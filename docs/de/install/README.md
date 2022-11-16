@@ -1,6 +1,7 @@
 ---
 title:       "Introduction"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
 # Introduction
@@ -12,7 +13,7 @@ lastChanged: "13.09.2018"
    damit die Änderungen einfacher übernommen werden können.
 
 @@@   
-Dieses Dokument:   
+Dieses Dokument:
 Was erwartet mich in diesem Abschnitt. Leitfaden geben, wie ich mich am
 besten bei der Wahl der Installationsart verhalte. Roter Faden durch das
 Kapitel.

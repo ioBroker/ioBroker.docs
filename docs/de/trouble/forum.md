@@ -1,6 +1,7 @@
 ---
 title:       "Forum"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Hilfe im Forum

@@ -3,61 +3,59 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: wN18juysKPSF8CRtXU2o7IO+98KeQ0F3ee1AtnacO50=
+hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ---
-![商标](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
+![标识](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
 ![安装数量](http://iobroker.live/badges/schoolfree-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.schoolfree.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.schoolfree.svg)
-![依赖状态](https://img.shields.io/david/simatec/iobroker.schoolfree.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.schoolfree.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.schoolfree.svg)
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
-![特拉维斯](http://img.shields.io/travis/simatec/ioBroker.schoolfree/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/simatec/ioBroker.schoolfree?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.schoolfree.png?downloads=true)
+![执照](https://img.shields.io/github/license/simatec/ioBroker.schoolfree?style=flat)
+![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
-＃ioBroker.schoolfree
-![测试与发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.schoolfree
+![测试和发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
-该适配器使用服务Sentry.io向开发人员自动向我报告异常和代码错误以及新设备架构。更多详细信息请参见下文！
+此适配器使用服务 Sentry.io 自动向作为开发人员的我报告异常和代码错误以及新设备模式。更多详情见下文！
 
-##适用于ioBroker的schoolfree适配器
-**如果您愿意，请考虑捐赠：**
+## IoBroker 的免费学校适配器
+**如果你喜欢它，请考虑捐赠：**
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
-###德意志银行（Deutsche Beschreibung）：
-校内免费安装适配器。
-在Datenpunkteübergeben的Schulgerien auswerten und Mit dem Adapter。
-Die Datenpunktekönnensomitfürweitere Funktionen wie Heizungssteuerungen，Rolladen- and Anwesenheitssteuerungen ausgewertet and verarbeitet werden。
+### 德意志银行：
+Schoolfree ist ein Adapter für iobroker Installationen。
+Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben。
+Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden。
 
-API的https://www.mehr-schulferien.de
+Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
 
-德国和德国之间的友谊。
+Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt。
 
-从学校到学校的日程安排：
+Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung:
 
-* info.current.end：Datumfürdas Ende der aktuellen Ferien
-* info.current.name：Bezeichnung der aktuellen Schulferien
-* info.current.start：开始日期
-* info.next.end：费恩（Fer das Ende dernächstenFerien）
-*信息名称：Bezeichnung dernächstenSchulferien
-* info.next.start：开始日期Ferien
-*今日信息：切换到静态状态（真/假）
-* info。明天：Switch forfürden aktuellen Status morgen（true / false）
+* info.current.end: Datum für das Ende der aktuellen Ferien
+* info.current.name: Bezeichnung der aktuellen Schulferien
+* info.current.start: Startdatum der aktuellen Ferien
+* info.next.end: Datum für das Ende der nächsten Ferien
+* info.next.name: Bezeichnung der nächsten Schulferien
+* info.next.start: Startdatum der nächsten Ferien
+* info.today: Switch für den aktuellen Status heute (true/false)
+* info.tomorrow: Switch für den aktuellen Status morgen (true/false)
 
 *************************************************************************************************************************************
 
 ###英文说明：
-Schoolfree是用于iobroker安装的适配器。
-使用适配器，可以评估学校假期并将其转移到数据点。
-因此，可以针对其他功能（例如加热控制，快门和存在控制）对数据点进行评估和处理。
+Schoolfree 是 iobroker 安装的适配器。
+使用适配器，可以评估学校假期并将其传输到数据点。
+因此，可以针对其他功能（例如加热控制、快门和存在控制）评估和处理数据点。
 
-当前的学校假期订阅是通过https://www.mehr-schulferien.de的API进行的
+当前的学校假期订阅是通过 https://www.mehr-schulferien.de 的 API
 
-目前，支持德国的学校假期和放假时间。
+目前，支持德国的学校假期和休息日。
 
-以下数据点可用于Schoolfree的进一步处理：
+以下数据点可用于 Schoolfree 的进一步处理：
 
 * info.current.end：当前假期结束的日期
 * info.current.name：当前学校假期的名称
@@ -65,17 +63,25 @@ Schoolfree是用于iobroker安装的适配器。
 * info.next.end：下一个假期结束的日期
 * info.next.name：下一个学校假期的名称
 * info.next.start：下一个假期的开始日期
-*今天的信息：今天切换为当前状态（是/否）
-* info。明天：明天切换为当前状态（对/错）
+* info.today：切换到今天的当前状态（真/假）
+* info.tomorrow：明天切换当前状态（真/假）
 
-###什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+### Sentry.io 是什么以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息将提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，还包括您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
+<!--### __WORK IN PROGRESS__-->
+### 1.1.0 (2022-11-01)
+(simatec) Dependencies updated
+(simatec) test and release updated
+
+### 1.0.1 (2021-11-18)
+(simatec) Dependencies updated
+(simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -155,7 +161,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2021 simatec
+Copyright (c) 2019 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

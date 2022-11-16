@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "Mediola-Plugin"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/mediola.md"
+template:    true
 ---
 
 # Das Mediola-Plugin

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: DY7VQfUXfceuWSnAalQY8HJ3/9rQ6vj52aEE3vK+/Fg=
+hash: Ewia+qvur97RITkQTmXU/gfhaVZ6TCaKBMr5XZWoOTA=
 ---
 ![标识](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -22,33 +22,46 @@ ioBroker 适配器，用于连接几个小而便宜的 Wifi 设备，这些设�
 
 除了可与 Smart Live App 一起使用的设备外，还应该可以使用 Jinvoo Smart App、Xenon Smart 应用程序、eFamilyCloud、io.e（Luminea 等）应用程序。如果成功请反馈。 <img src="https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **适配器仅适用于涂鸦和兼容的应用程序，只要它们的版本是 &lt;3.14 (!!)**
 
-该适配器经证明可以很好地与“始终处于 wifi 状态”的所有设备配合使用。不支持仅在发生事件时才上线、发送数据并再次下线的设备。这意味着**电池供电的设备通常不工作！**
+适配器在本地连接到“始终处于 wifi 状态”的所有设备。仅在有事件时才上线、发送数据并再次下线的设备（主要是**电池供电设备**）仅支持使用涂鸦 IoT 平台 MQTT 连接。
 
-一个适配器实例可以处理一个网络中路由 UDP 包的所有设备。
+一个适配器实例可以在本地发现并连接到路由 UDP 包的网络中的所有设备！对于 Docker 环境，这需要额外的操作，可能还有 Macvlan 或类似的！
 
-## 兼容的移动应用程序和版本
+## 免责声明
+**所有产品和公司名称或徽标均为其各自所有者的商标™ 或注册® 商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！本个人项目为业余时间维护，无商业目的。** **TUYA是涂鸦全球公司的商标**
+
+## 功能：仅限本地与云支持的功能
+如果需要，这个适配器可以在没有涂鸦云的情况下大部分工作。
+
+如果需要这样做，则需要在添加新设备后立即与涂鸦云 App 帐户进行一次同步。这可以通过在适配器配置中输入云凭据并计时“同步一次”按钮来完成。不需要存储云凭证！
+
+**注意：App Sync 完成后，可能是涂鸦手机应用通知安卓设备登录涂鸦账号。这是来自适配器！**
+
+然后适配器将侦听本地 UDP 消息以查找设备的本地 IP 并建立本地连接。这只有在涂鸦 App 未在任何设备上打开时才有可能，因为大多数设备只允许一个本地连接。
+
+如果您决定将涂鸦 App 登录凭据（智能生活 App 或涂鸦智能 App）存储在适配器配置中，则设备会随着每个适配器自动启动而更新。此外，还可以通过涂鸦云轮询和控制本地未连接设备的状态。
+
+支持本地未连接的设备的实时更新，例如基于电池的设备，您可以另外在涂鸦物联网平台上注册一个帐户并链接您的应用帐户并使用 Cloud-MQTT 连接。要在涂鸦物联网平台上注册自己的帐户，请按照[涂鸦物联网平台](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx)的说明进行操作。
+**注：物联网平台账号仅激活一段时间，之后需要每月延期！**
+
+使用此功能集，您可以在所有可用选项之间进行选择，并在不使用涂鸦云系统的情况下使用或（除了一次性同步）。你决定。
+
+“以前的” App-Proxy-Sync 在适配器配置中仍然可用，但不再推荐。执行新的 One Time Cloud Sync 要容易得多。
+
+### 如果 UDP 发现不起作用
+如果未通过其 UDP 包正确检测到设备，您可以通过编辑设备对象手动设置 IP。见 https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
+
+### 电池供电设备的注意事项
+如上所述，仅使用本地连接时，此适配器不支持电池供电的设备！原因是为了省电，他们不是一直在线。每当他们收到信号时，他们就会上线，将更新发送到涂鸦云服务器，然后再次下线。它们不发出任何 UDP 包或在线时间足够长，以便适配器可以连接到它们。
+
+通过使用涂鸦 App Cloud 可以轮询特征数据，但这对于门/窗/存在检测器来说可能仍然不够。它们应该只适用于涂鸦 IoT 平台 MQTT 连接。
+
+## 代理同步（后备）：兼容的移动应用程序和版本
 当前版本的涂鸦智能和 Smartlife App **不再兼容**适配器的工作方式，因为涂鸦加密了适配器可以嗅探的所有流量。目前仍有一些旧版本的应用程序可以工作......
 
 * Smartlife App <3.14，最好 3.12.6！！
 * 涂鸦智能 App <3.14，最好 3.12.x
 * STL Smart Home App 1.1.1（最后日期为 2019 年 9 月）
 * Ucomen 家庭应用程序 (??)
-
-＃＃ 重要的提示
-如果未通过其 UDP 包正确检测到设备，您可以通过编辑设备对象手动设置 IP。见 https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
-
-## 适配器的工作原理
-### 基本功能
-适配器监控本地网络中涂鸦（旧固件，仅未加密）设备的 UDP 数据包。需要将运行适配器的ioBroker主机与设备放在同一网段，并且需要路由器支持UDP组播！
-
-所有检测到的设备都被添加到适配器中，并且作为基本功能，适配器在定义的轮询间隔内请求数据。如果不与相应的移动应用程序同步（见下文），则无法实现实时更新或控制等其他功能。
-
-在您进行设备同步之前，不会显示较新的加密设备（请参阅下一个 ...）
-
-### 设备同步后的高级功能
-要获得适配器的全部功能并支持具有新加密固件的设备，适配器需要知道加密密钥。
-
-接收此加密密钥的最简单方法是从使用过的移动应用程序中获取它们。为此，适配器提供了一个代理来捕获应用程序与涂鸦服务器的通信并获取所需的信息。
 
 **iOS 用户重要提示：** 此处描述的代理方法不再有效。一旦您拥有 Smart Life App 3.10 或更高版本，来自 App 的通信就不再对代理可见。但它仍然适用于所有 Android 应用程序版本，因此最好的方法是 Android 模拟器，大致描述在 https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte-格%C3%A4te/19
 
@@ -69,23 +82,77 @@ ioBroker 适配器，用于连接几个小而便宜的 Wifi 设备，这些设�
 
 某些移动操作系统的一些图像可以在[代理页面](PROXY.md)找到。
 
-## 不适用于电池供电的设备
-此适配器通常不支持电池供电的设备！原因是为了省电，他们不是一直在线。每当他们收到信号时，他们就会上线，将更新发送到涂鸦云服务器，然后再次下线。它们不发出任何 UDP 包或在线时间足够长，以便适配器可以连接到它们。
-一旦有人找到直接从涂鸦云获取数据的方法，这可能会改变。
+## 红外网关功能
+对象树中有不同类型的 IR 设备
+
+### IR 网关/发送器设备
+这是您作为硬件拥有的真实设备。该设备由移动应用程序中定义的子设备使用（见下文），可用于学习和发送自定义 IR 代码。
+
+此设备中的“ir-learn”状态是一个触发器，可用于学习 IR 代码。然后以“202”状态接收学习代码作为 base64 编码数据。
+
+“ir-send”状态可用于向设备发送 base64 编码的 IR 代码。这可用于从“ir-learn”状态发送学习代码。
+
+**这种控制方式仅适用于“主红外设备”并且仅在本地连接（无云连接）时（现在）。**
+
+### IR 子设备
+IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码的按钮。 ir 状态应与移动应用中按钮的布局相匹配。
+
+某些设备具有组合状态，例如“M0_T20_S3”（由大金空调发现），这意味着模式 0、温度 20 和（风扇）速度 3。事实上，您需要选择正确的按钮。到目前为止，我们还没有找到一种通用/自动化的方法来找出哪个按钮是哪个。
+移动应用程序本身也会尝试记住这些设置，因此一旦您使用适配器（或设备的真实 ir 控制器）触发任何操作，来自应用程序的信息就会过时。
+
+**这种控制方式仅在输入应用云凭证时有效。这些命令现在也将通过云发送出去。**
+
+## 场景功能
+输入并存储应用程序云凭据后，适配器还会从应用程序中读取场景并将它们创建为适配器中的对象。可以通过将场景状态设置为 true 来触发场景。
+
+然后将触发发送到云端。
 
 ## 学分
-如果没有 @codetheweb、@kueblc 和 @NorthernMan54 (https://github.com/codetheweb/tuyapi) 和 https://github.com/clach04/python-tuya 的出色工作，适配器的工作是不可能实现的还有很多。
-
-＃＃ 去做
-* 增强测试：状态检查和 setState 的
-* 增强文档
+如果没有 @codetheweb、@kueblc 和 @NorthernMan54 (https://github.com/codetheweb/tuyapi) 和 https://github.com/clach04/python-tuya 的出色工作，适配器的工作是不可能实现的,https://github.com/uzlonewolf/tinytuya 等等。
 
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
 
-最好将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
+最好是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
+
+当涂鸦应用云同步出现问题时，可以通过以下过程生成额外的日志记录：
+
+* 在 Admin 中停止适配器
+* 在 ioBroker 主机上打开一个 shell
+* 执行`DEBUG=@tuyapi/cloud* iobroker debug tuya`
+* 从命令行获取日志
+
+将参考生成的 GitHub 问题的日志发送到 iobroker@fischer-ka.de
 
 ## Changelog
+### 3.9.1 (2022-11-14)
+* (Apollon77) Add support for local control of Tuya protocols 3.2 and 3.4
+* (TA2k/Apollon77) Add basic support for IR devices (Gateway and Sub Devices)
+* (Apollon77) Convert special colour/colour_data values to an additional rgb state
+* (Apollon77) Allow to define that devices do not connect locally (this prevents error logs, and they work via cloud if data are provided)
+* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
+* (Apollon77) Add support for more cloud MQTT notifications
+* (Apollon77) More schema information added/updated
+
+### 3.8.1 (2022-11-06)
+* (TA2k/Apollon77) Add App-Cloud Sync deceasing the proxy
+* (Apollon77) Add support for device polling using App-Cloud for devices not connected
+* (Apollon77) Add support for realtime cloud state updates using Tuya IoT Platform MQTT connection
+* (Apollon77) Allow to update names of device objects when changed in App
+* (Apollon77) Use read Schema details from Sync instead the already contained ones
+* (Apollon77) React to device infos from MQTT connection and update/add device objects
+* (Apollon77) When Datapoints (e.g sockets) have custom names, also use them as State Names
+* (Apollon77) More schema information added
+
+### 3.7.2 (2022-10-23)
+* (Apollon77) Prevent warnings for invalid min/max values
+
+### 3.7.0 (2022-10-22)
+* (Apollon77) Optimizations for Proxy mode to prevent certificate issues
+* (Apollon77) Allow to also "click" on the certificate to download the certificate file
+* (Apollon77) Adjust min/max values if a scale is defined
+* (Apollon77) More schema information added
+
 ### 3.6.15 (2022-01-24)
 * (Apollon77) More schema information added
 * (Apollon77) Recreate Proxy SSL certificates once older than 3 months to prevent ssl errors

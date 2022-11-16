@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
+hash: 1z/q2F7cs7U06ZA3JiDVA9+w+bNU7biWcBvR5T9O86Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -24,17 +24,37 @@ Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15,
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Beachten Sie, dass Ihr Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA) zu verbinden, muss seine IP-Adresse in der Konfiguration festgelegt werden.
+Beachten Sie, dass Ihr Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
 Sie können auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livezeit-Statistiken bearbeiten.
 Setzen Sie bei Bedarf auch die Markierung zum Auslesen der 4 Analogwerte.
 
 ## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.0.2 (16.10.2022)
+* (HombachC) fixed small sentry reported error
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.1 (11.10.2022)
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.0 (28.08.2022)
+* (HombachC) BREAKING: Dropped support for Node.js 12
+* (HombachC) changed the minimal required js-controller version to 3.2.16
+* (HombachC) added state of inverter as string
+* (HombachC) bumped dependencies
+### 1.5.0 (05.08.2022)
+* (HombachC) added minimum values for poll times to prevent communication errors
+* (HombachC) bumped dependencies
+### 1.4.7 (26.06.2022)
+* (HombachC) bumped dependency because of security vulnerability
+### 1.4.6 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, added tests for node.js 18
+* (HombachC) removed tests for node.js 12 -> it's recommended to switch to node.js 14, adapter still working with node 12
 ### 1.4.5 (03.05.2022)
 * (HombachC) added UI version to sentry feedback and documentation
 ### 1.4.4 (01.05.2022)

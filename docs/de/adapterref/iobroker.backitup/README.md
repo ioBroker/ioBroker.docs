@@ -20,9 +20,17 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
 
 
-**Wenn Ihnen Backitup gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn Ihnen ioBroker.backitup gefällt, denken Sie bitte über eine Spende nach:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+
+**************************************************************************************************************
+
+## Haftungsausschluss
+**ioBroker.backitup ist ein Backup-Plugin nur für die Smart Home Software ioBroker.**<br>
+**Es steht in keiner Verbindung zu [Nero BackItUp](https://www.nero.com/deu/products/nero-backitup/?vlang=de) (ein Tool zur Datensicherung unter Windows-Systemen) und wird auch nicht von diesem unterstützt.**
+
+**Dieses persönliche Projekt ioBroker.backitup wird in der Freizeit betrieben und hat keine geschäftlichen Ziele.**
 
 **************************************************************************************************************
 
@@ -61,35 +69,38 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 ---
 
 # Grundlegendes
-Backitup ist eine Backuplösung, mit der das zyklische Sichern einer IoBroker-Installation sowie einer Homematic CCU möglich ist.
+ioBroker.backitup ist eine Backuplösung, mit der das zyklische Sichern einer IoBroker-Installation sowie einer Homematic CCU möglich ist.
 
 Der Adapter ist für Multiplattformen geeignet und kann  neben Linux-Installationen auch auf Windows und Mac Installationen verwendet werden.
 
 Des Weiteren besteht die Möglichkeit verschiedene optionale Backups wie z.B. SQL-Datenbanken, Influx-Datenbanken und einige Adapter- und Geräte Einstellungen zu sichern.
 
-Backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl `iobroker backup`.
+ioBroker.backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl `iobroker backup`.
 
 Es werden hier identisch dem Standard Backup des js-controllers alle States und Objects, sowie die Nutzerdateien wie z.B. VIS gesichert.
 
 Auch der Restore ist komplett identisch dem CLI Befehl `iobroker restore <backupname>` des js-controllers.
 
-Bei einem Restore werden alle States, Objects und Nutzerdaten von Backitup wiederhergestellt.
+Bei einem Restore werden alle States, Objects und Nutzerdaten von ioBroker.backitup wiederhergestellt.
 Nach dem Restore startet euer iobroker neu und ab da übernimmt die Installation fehlender Adapter dann wieder der js-controller.
 
-Backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
+ioBroker.backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
 
 ### [zurück](#Inhalt)
 ---
 
 # Abhängigkeiten
 * Für den CIFS Mount muss zwingend cifs-utils installiert sein.
-    - `sudo apt-get install cifs-utils`
+    - `sudo apt install cifs-utils`
 
 * Für den NFS Mount muss zwingend nfs-common installiert sein.
-    - `sudo apt-get install nfs-common`
+    - `sudo apt install nfs-common`
 
-* Für die verwendung des MySql-Backups muss mysqldump auf dem System installiert sein
-    - `sudo apt-get install mysql-client` oder unter Debian `sudo apt-get install default-mysql-client`
+* Für die Verwendung des MySql-Backups von MySql Systemen muss mysqldump auf dem System installiert sein
+    - `sudo apt install mysql-client` oder unter Debian `sudo apt install default-mysql-client`
+
+* Für die Verwendung des MySql-Backups von MariaDB Systemen muss mysqldump auf dem System installiert sein
+    - `sudo apt install mariadb-client`
 
 * Für die verwendung des PostgreSQL-Backups muss mysqldump auf dem System installiert sein
     - [Installationsanleitung PostgreSQL](https://www.postgresql.org/download/linux/debian/)
@@ -103,9 +114,9 @@ Backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherst
 ---
 
 # Benutzung und Bedienung
-Backitup kann in den Adapter-Instanzen konfiguriert werden. Dort stehen alle folgenden Einstellungsmöglichkeiten zur Verfügung.<br><br>
-Für die tägliche Arbeit und Bedienung von Backitup steht im Admin-Tab ein Reiter zur Verfügung.<br>
-Ist dieser Reiter im Tab-Menü der Admin-Oberfläche aktiv, kann Backitup direkt über den Reiter in der linken Tab-Leiste des iobrokers bedient werden.<br><br>
+ioBroker.backitup kann in den Adapter-Instanzen konfiguriert werden. Dort stehen alle folgenden Einstellungsmöglichkeiten zur Verfügung.<br><br>
+Für die tägliche Arbeit und Bedienung von ioBroker.backitup steht im Admin-Tab ein Reiter zur Verfügung.<br>
+Ist dieser Reiter im Tab-Menü der Admin-Oberfläche aktiv, kann ioBroker.backitup direkt über den Reiter in der linken Tab-Leiste des iobrokers bedient werden.<br><br>
 Dort stehen Informationen zu den erstellten Backups zur Verfügung, es können Backups erstellt werden und es besteht die Möglichkeit einen Restore des Backups auszuführen.
 
 ![adminTab](img/adminTab.png)
@@ -116,7 +127,7 @@ Dort stehen Informationen zu den erstellten Backups zur Verfügung, es können B
 ---
 
 # Backuptypen
-Backitup bietet sehr viele Möglichkeiten verschiedene Backuptypen zyklisch oder auf Knopfdruck durch zu führen. Jedes Backup wird standardmäßig im Verzeichnis /opt/iobroker/backups/ abgelegt. Optional kann ein FTP-Upload eingerichtet oder alternativ ein CIFS/NFS-Mount genutzt werden.
+ioBroker.backitup bietet sehr viele Möglichkeiten verschiedene Backuptypen zyklisch oder auf Knopfdruck durch zu führen. Jedes Backup wird standardmäßig im Verzeichnis /opt/iobroker/backups/ abgelegt. Optional kann ein FTP-Upload eingerichtet oder alternativ ein CIFS/NFS-Mount genutzt werden.
 
 ## ioBroker Backup
 Dieses Backup entspricht dem in IoBroker enthaltenen Backup welches man in der Konsole über den Aufruf `iobroker backup` starten kann. Nur wird es hier durch die festgelegten Einstellungen in der Adapterkonfiguration oder dem Widget OneClick-Backup durchgeführt ohne die Konsole verwenden zu müssen.
@@ -128,18 +139,18 @@ Wer nicht nur eine CCU sichern will, kann die Option "Sicherung mehrerer Systeme
 
 ## Mysql-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-Wichig hierbei ist, dass auch wenn der Mysql-Server auf einem entferten System läuft, die mysqldump auf dem ioBroker System laufen muss.<br>Für Linuxsysteme wäre der Installationsbefehl wie folgt: `sudo apt-get install mysql-client` oder unter Debian `sudo apt-get install default-mysql-client`.<br><br>
+Wichig hierbei ist, dass auch wenn der Mysql-Server auf einem entferten System läuft, die mysqldump auf dem ioBroker System laufen muss.<br>Für Linuxsysteme wäre der Installationsbefehl wie folgt: `sudo apt install mysql-client` oder unter Debian `sudo apt install default-mysql-client` bzw. für MariaDB Systeme `sudo apt install mariadb-client`.<br><br>
 Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
 
 ## Redis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br>
-Zur Verwendung von Redis mit Backitup sollten die Rechte für den iobroker-User angepasst werden:<br>
+Zur Verwendung von Redis mit ioBroker.backitup sollten die Rechte für den iobroker-User angepasst werden:<br>
 ```
 sudo usermod -a -G redis iobroker
 sudo reboot
 ```
 
-Ab Backitup Version 2.3.x ist es möglich ein Remote Backup für Redis zu erstellen.
+Ab ioBroker.backitup Version 2.3.x ist es möglich ein Remote Backup für Redis zu erstellen.
 
 Für ein Remote-Backup wird auf dem loaklen iobroker System redis-cli benötigt.
 
@@ -150,7 +161,7 @@ Hier müsst ihr euren Host und Port des entfernten Redis Servers angeben und die
 
 Dies ist gerade für Docker User ein wichtiges Feature.
 
-Bitte beachtet, dass ein Redis Restore für Remote Systeme nicht über die Backitup GUI möglich ist.
+Bitte beachtet, dass ein Redis Restore für Remote Systeme nicht über die ioBroker.backitup GUI möglich ist.
 Redis unterstützt dies nicht.
 Hier muss die im tar.gz Archiv enthaltene dump.rdb händisch wiederhergestellt werden.
 
@@ -209,9 +220,9 @@ Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer S
 
 ## Javascript-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-Ab Backitup-Version 2.2.0 werden Skripte direkt aus den Objekten gesichert. Javascript-Backups aus älteren Backitup-Version sind für einen Restore nicht kompatibel!!<br><br>
-Um mit Backitup-Versionen < 2.2.0 Javascript Sicherungen durchführen zu können, muss im Vorfeld in der Javascript-Adapter Konfiguration die Menüpunkte "Spiegeln von Skripten in den Dateipfad" und "Instanz, die Spiegelung macht" festgelegt werden.<br>
-Backitup kann dann im Konfiguartionsmenü die Einstellungen übernehmen.
+Ab ioBroker.backitup-Version 2.2.0 werden Skripte direkt aus den Objekten gesichert. Javascript-Backups aus älteren ioBroker.backitup-Version sind für einen Restore nicht kompatibel!!<br><br>
+Um mit ioBroker.backitup-Versionen < 2.2.0 Javascript Sicherungen durchführen zu können, muss im Vorfeld in der Javascript-Adapter Konfiguration die Menüpunkte "Spiegeln von Skripten in den Dateipfad" und "Instanz, die Spiegelung macht" festgelegt werden.<br>
+ioBroker.backitup kann dann im Konfiguartionsmenü die Einstellungen übernehmen.
 
 ## Jarvis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
@@ -259,12 +270,12 @@ Hier muss in den CIFS-Einstellungen die Pfadangabe eingetragen werden, wo hin ko
 Die Angabe der IP Adresse muss für die Copy-Funktion leer bleiben.
   
 ## Dropbox
-Um die Sicherung in der Dropbox zu nutzen, muss man einen Access Token holen. Das kann man auf der Konfigurationsseite von Backitup machen.<br>
+Um die Sicherung in der Dropbox zu nutzen, muss man einen Access Token holen. Das kann man auf der Konfigurationsseite von ioBroker.backitup machen.<br>
 ioBroker greift nur auf die definierte Bereiche.<br><br>
 Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
 
 
-Wer seine eigene Dropbox API App erzeugen möchte, kann dies in den Einstellungen von Backitup auswählen und muss im Anschluss folgende Schritte durchführen.
+Wer seine eigene Dropbox API App erzeugen möchte, kann dies in den Einstellungen von ioBroker.backitup auswählen und muss im Anschluss folgende Schritte durchführen.
  
 > Hinweis: Eigene Apps haben nur noch einen "short_live" Token, welcher lediglich 4 Stunden Gültigkeit hat. Wir empfehlen, die iobroker Standard App zu verwenden.
  
@@ -275,7 +286,7 @@ Um die Sicherung in der Dropbox zu nutzen, muss ein Access Token und eine APP un
 * Schritt 4: "Name your app" vergeben und "Create App" Button wählen
 * Schritt 5: Im Tab-Reiter "Permissions" alle 4 Häckchen im Bereich "Files and folders" setzen
 * Schritt 6: Im Tab-Reiter "Settings" die "Access token expiration" auf "No expiration" stellen
-* Schritt 7: "Generated access token" Button drücken (Dieser erzeugte Token wird in den Einstellungen von Backitup eingetragen)<br><br>
+* Schritt 7: "Generated access token" Button drücken (Dieser erzeugte Token wird in den Einstellungen von ioBroker.backitup eingetragen)<br><br>
 In deiner Dropbox gibt es nun einen neuen Ordner mit dem Namen "Apps"
   
 ## Google Drive
@@ -284,7 +295,7 @@ ioBroker greift nur auf die definierten Bereiche. Den Code für oAuth kann man [
 Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
 
 ## WebDAV
-Mit WebDAV bietet Backitup die Möglichkeit mehrere Cloudsysteme anzusprechen.<br>Die bekannteste ist hier NextCloud.
+Mit WebDAV bietet ioBroker.backitup die Möglichkeit mehrere Cloudsysteme anzusprechen.<br>Die bekannteste ist hier NextCloud.
 Um eine WebDAV-Verbindung herzustellen, weren der Username und das Passwort des Cloud Accounts benötigt.<br>
 Die Verbindung zur Cloud erfolgt über eine verschlüsselte Verbindung.<br><br>
 Um eine Verbindung aufbauen zu können, muss der Hostname der Cloud alle Sicherheitszertifikate erfüllen.<br><br>
@@ -295,8 +306,8 @@ Eine Verbindung mit lokaler IP-Adresse ist nur möglich, wenn die Option "Nur si
 ---
 
 # Multihost Unterstützung
-Ab Backitup Version 2.2.0 wird Multihost für die Sicherung entfernter Systeme (z.B. Zigbee oder entfernte Datenbanken) unterstützt. Multihost für Backitup kann mit mehreren Instanzen von Backitup auf verschiedenen Hosts arbeiten.<br>
-Ein Instanz von Backitup muss zur Unterstützung als Master konfiguriert. Alle weiteren Instanzen, die sich auf entfernten Hosts befinden, werden als Slave konfiguriert.<br><br>
+Ab ioBroker.backitup Version 2.2.0 wird Multihost für die Sicherung entfernter Systeme (z.B. Zigbee oder entfernte Datenbanken) unterstützt. Multihost für ioBroker.backitup kann mit mehreren Instanzen von ioBroker.backitup auf verschiedenen Hosts arbeiten.<br>
+Ein Instanz von ioBroker.backitup muss zur Unterstützung als Master konfiguriert. Alle weiteren Instanzen, die sich auf entfernten Hosts befinden, werden als Slave konfiguriert.<br><br>
 Das Management der automatischen Backups übernimmt der Master. Alle Slave Instanzen können im Master über das Menü ausgewählt werden.<br>
 Für die Slave Instanzen können folgende Backup-Optionen aktiviert werden:<br>
 * Redis
@@ -312,7 +323,7 @@ Für die Slave Instanzen können folgende Backup-Optionen aktiviert werden:<br>
 Da in einer Slave Instanz die automatischen Backups durch den Master geregelt werden, sind iobroker-Backups, Javascript-Backups und CCU-Backups nicht auswählbar.<br><br>
 Die Speicherorte für die einzelnen Backups können auf jedem Slave frei konfiguriert werden. So kann jeder sein Dateiablagesystem unabhängig vom Master gestallten.<br><br>
 
-Bei Systemen mit begrenzten RAM kann der Backitup Master die Slave Instanzen für den Backupprozess automatisch starten und im Anschluss wieder stoppen.<br>
+Bei Systemen mit begrenzten RAM kann der ioBroker.backitup Master die Slave Instanzen für den Backupprozess automatisch starten und im Anschluss wieder stoppen.<br>
 Diese Option ist im Menü konfigurierbar. 
 
 ### [zurück](#Inhalt)
@@ -321,7 +332,7 @@ Diese Option ist im Menü konfigurierbar.
 # Docker Unterstützung
 Ab Version 2.2.0 wird das Backup und der Restore im offizielen Docker-Container unterstützt.<br><br>
 Da im Docker keine Datenbanksysteme installiert werden sollten, werden Backups sämtlicher Datenbanken nicht unterstützt und sind bei einem erkannten Docker-Container nicht auswählbar.<br>
-Die Unterstützung für Backitup wird im offizielen iobroker Docker Container ab Version v5.2.0-beta4 unterstützt.
+Die Unterstützung für ioBroker.backitup wird im offizielen iobroker Docker Container ab Version v5.2.0-beta4 unterstützt.
 
 ### [zurück](#Inhalt)
 ---
@@ -384,7 +395,7 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
 ---
 
 # Benachichtigungen
- Backitup unterstützt für die Benachrichtigung nach einem erfolgreichen Backup folgende Messenger.
+ ioBroker.backitup unterstützt für die Benachrichtigung nach einem erfolgreichen Backup folgende Messenger.
  Zur Verwendung müssen die jeweiligen Adapter installiert und eigerichtet sein.
 
    * Telegram
@@ -398,17 +409,17 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
 
 # Restore
 
-Mit Backitup ist es möglich, alle erzeugten Backup-Typen über das Konfiguartionsmenü im ioBroker auch wiederherzustellen.<br><br>
-Backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl "iobroker backup".
+Mit ioBroker.backitup ist es möglich, alle erzeugten Backup-Typen über das Konfiguartionsmenü im ioBroker auch wiederherzustellen.<br><br>
+ioBroker.backitup arbeitet sehr eng mit dem js-controller zusammen und erstellt ein iobroker Backup identisch dem CLI Befehl "iobroker backup".
 
 Es werden hier identisch dem Standard Backup des js-controllers alle States und Objects, sowie die Nutzerdateien wie z.B. VIS gesichert.
 
 Auch der Restore ist komplett identisch dem CLI Befehl des js-controllers.
 
-Bei einem Restore werden alle States, Objects und Nutzerdaten von Backitup wiederhergestellt.
+Bei einem Restore werden alle States, Objects und Nutzerdaten von ioBroker.backitup wiederhergestellt.
 Nach dem Restore startet euer iobroker neu und ab da übernimmt die Installation fehlender Adapter dann wieder der js-controller.
 
-Backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
+ioBroker.backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wiederherstellung. Dies passiert alles im Hintergrund und übernimmt der js-controller anhand der wiederhergestellten Informationen in den States und Objects.
 
 Es kann aus allen Speichermedien ein Restore ausgeführt werden.<br><br>
 **Grundsätzlich ist aber der sicherste Weg, den Restore lokal auszuführen.**<br><br>
@@ -429,7 +440,7 @@ Wer seine Backups lieber manuell wiederherstellen möchte, sollte folgende Punkt
     - Nach dem Restore ist ein `iobroker upload all` nötig
 
 
-Eine detailierte Anleitung zum Restore mit Backitup und auch zum manuellen Restore ist [hier](https://forum.iobroker.net/topic/27271/howto-iobroker-restore-unter-linux-durchf%C3%BChren) zu finden.
+Eine detailierte Anleitung zum Restore mit ioBroker.backitup und auch zum manuellen Restore ist [hier](https://forum.iobroker.net/topic/27271/howto-iobroker-restore-unter-linux-durchf%C3%BChren) zu finden.
 
 **Das CCU-Backup muss weiterhin über das Webinterface der CCU wiederhergestellt werden.**
 
@@ -444,7 +455,7 @@ Eine detailierte Anleitung zum Restore mit Backitup und auch zum manuellen Resto
 ---
 
 # Fehlersuche
-    Um Fehler zu loggen, muss Backitup in unter dem IoBroker Reiter Instanzen auf Log-Stufe "debug" gestellt werden.
+    Um Fehler zu loggen, muss ioBroker.backitup in unter dem IoBroker Reiter Instanzen auf Log-Stufe "debug" gestellt werden.
 
 ### [zurück](#Inhalt)
 --- 
@@ -455,7 +466,7 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 1.	Olifall (aus dem Forum) hatte das Problem dass nach dem Restore das Webinterface des IoBrokers nicht mehr erreichbar war, durch folgende Schritte über die Konsole konnte er dies beheben:
     - sudo iobroker status
     - Meldung = "No connection to states 127.0.0.0:6379[redis]"
-    - sudo apt-get install redis-server
+    - sudo apt install redis-server
 
 2.	Sollte der CIFS-Mount mit IP-Adresse nicht möglich sein, sollte der Hostname des NAS verwendet werden
 3.  Wenn ihr beim cifs-mount ein Passwort mit Sonderzeichen verwendet, haben User festgestellt, dass dann das Passwort mit Anführungszeichen in der Config hinterlegt werden muss.
@@ -481,13 +492,87 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
     ```
     Wenn ihr nicht mit dem Installerscript eure Iobroker Installation aufgesetzt habt und euer User einen anderen Namen hat, bitte in dem Befehl "iobroker" durch euren User ersetzen.
 
-8.  Wenn eine Fritzbox als NAS mit einer Firmware >= 7.21 verwendet wird, sollten in Backitup die SMB-Einstellungen auf "3.1.1" eingestellt und die Option "noserverino" aktiviert werden.
+8.  Wenn eine Fritzbox als NAS mit einer Firmware >= 7.21 verwendet wird, sollten in ioBroker.backitup die SMB-Einstellungen auf "3.1.1" eingestellt und die Option "noserverino" aktiviert werden.
 
 ### [zurück](#Inhalt)
 ---
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.5.6 (2022-11-14)
+* (simatec) Fix Grafana Backup
+* (simatec) Fix Downloadserver
+* (simatec) Translation updated
+
+### 2.5.5 (2022-11-13)
+* (simatec) Design Fix
+* (simatec) Docker DB Support added
+
+### 2.5.4 (2022-11-02)
+* (simatec) Fix maxBuffer for DB-Backups
+* (simatec) Docu updated
+* (simatec) Fix Dropbox error messages
+* (simatec) Grafana self signed Certificates added
+
+### 2.5.3 (2022-11-01)
+* (simatec) dependencies updated
+
+### 2.5.2 (2022-10-26)
+* (simatec) Bugfix Google Drive
+
+### 2.5.1 (2022-10-26)
+* (simatec) Bugfix Google Drive
+
+### 2.5.0 (2022-10-18)
+* (bluefox) Google Drive authentication was fixed
+* (simatec) small Bugfix
+
+### 2.4.16 (2022-10-04)
+* (simatec) small Bugfix
+
+### 2.4.15 (2022-10-03)
+* (simatec) adapter-core updated
+* (simatec) path fix
+
+### 2.4.14 (2022-09-29)
+* (simatec) small Bugfix
+
+### 2.4.13 (2022-09-28)
+* (simatec) dependencies updated
+* (simatec) Fix Grafana Backup
+* (simatec) Appveyor testing removed
+* (simatec) Fix Test & Release
+
+### 2.4.12 (2022-08-11)
+* (simatec) Fix WebDav Error Handling
+
+### 2.4.11 (2022-08-10)
+* (simatec) Filesize Check added
+* (simatec) dependencies updated
+* (simatec) Fix mySql Backup
+* (simatec) Fix pgSql Backup
+
+### 2.4.10 (2022-07-05)
+* (simatec) Code cleaning
+* (simatec) dependencies updated
+* (simatec) Disclaimer added
+* (simatec) Travis Support removed
+* (simatec) Fix backup-download with ssl
+
+### 2.4.9 (2022-05-25)
+* (simatec) German Wiki added
+* (simatec) English Wiki added
+* (simatec) ignore .tar.gz files for zigbee Backups
+
+### 2.4.8 (2022-05-18)
+* (simatec) Fix restore from local Mount path
+
+### 2.4.7 (2022-05-16)
+* (simatec) dependencies updated
+* (simatec) many small bugfixes
+* (simatec) Fix Sentry Error Messages
+* (simatec) Default SMB Version 3.1.1
+
 ### 2.4.6 (2022-04-06)
 * (simatec) https support for Download added
 
@@ -1058,7 +1143,7 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ### 0.3.0 (24.09.2018)
 * (bluefox/simatec) Add Multiplatform (Windows/Linux/Mac)
-* (bluefox/simatec) Backitup switched to Javascript
+* (bluefox/simatec) ioBroker.backitup switched to Javascript
 * (bluefox/simatec) shell support removed
 * (bluefox/simatec) Deleting old backups up to the last X backups added
 * (bluefox/simatec) restore feature added (beta)

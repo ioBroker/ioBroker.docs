@@ -1,6 +1,7 @@
 ---
 title: Tutorial
 lastChanged: 13.09.2018
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/tutorial/README.md
@@ -11,13 +12,13 @@ hash: xuCzsFfBnKhF4T65zqiU5PrmCbohMrq/mDbDrRMUtSg=
 
 @@@
 
-#### The idea is now a collection of self-contained short tutorials for closed subject areas, target group-oriented for beginners (and advanced users). The tutorials here should build on each other.
+#### Idea is now a collection of self-contained short tutorials for self-contained subject areas, suitable for target groups for beginners (and advanced users). The tutorials here should build on each other.
 Tutorials possibly also as videos.
 
 #### Idea was once
 Introduce a common thread through a sample project tutorial here.
 
-After completing the tutorial, the user should have created a small example project that works everywhere, which includes adapter installation, configuration, mini-scripting and mini-visualization as well as history with diagram display.
+After completing the tutorial, the user should have created a small example project that works everywhere, which includes adapter installation, configuration, mini-scripting and mini-visualization as well as a historization with diagram display.
 
 Always refer to the "Configuration" chapter for more details.
 @@@

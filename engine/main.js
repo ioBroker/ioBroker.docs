@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-if (process.argv.indexOf('--debug') !== -1) {
+if (process.argv.includes('--debug')) {
     process.env.DEBUG = '*';
 } else {
     process.env.NODE_ENV = 'production';

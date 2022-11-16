@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
+hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -58,7 +58,7 @@ hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
 - Команда: "установить свет на 20%". *диммер* => 20%, *переключатель* => ВЫКЛ. Значение диммера не будет запомнено, так как оно находится ниже *уровня ВЫКЛ*.
 - Команда: «включи свет». *диммер* => 40%, *переключатель* => ВКЛ.
 
-### От ВКЛ.
+### По ВКЛ.
 Вы можете выбрать поведение команды ON для состояния номера. Можно выбрать конкретное значение или будет использоваться последнее ненулевое значение.
 
 ### Написать ответ на
@@ -105,7 +105,7 @@ Alexa, lock the "lock name"
 
 - состояние должно быть доступно для записи: `common.write` = true
 - диммер состояния должен иметь `common.type` в качестве 'number'
-- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K', а `common.type` как `число`
+- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K' и `common.type` как `число`
 
 Если состояние находится только в «функциях», а не в какой-либо «комнате», будет использоваться имя состояния.
 
@@ -120,7 +120,7 @@ Alexa, lock the "lock name"
 Диалоговое окно конфигурации позволяет удобно удалять и добавлять отдельные состояния в виртуальные группы или как одно устройство.
 ![Конфигурация](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-Если в группе только одно состояние, его можно переименовать, так как для этого будет использоваться smartName состояния.
+Если у группы только одно состояние, его можно переименовать, так как для этого будет использоваться smartName состояния.
 Если группа имеет более одного состояния, группу необходимо переименовать с помощью имен перечисления.
 
 Для создания собственных групп пользователь может установить адаптер «сцены» или создать «скрипт» в адаптере Javascript.
@@ -132,7 +132,7 @@ Alexa, lock the "lock name"
 ## Вспомогательные состояния
 - **smart.lastObjectID**: это состояние будет установлено, если только одно устройство контролировалось домашним навыком (alexa, google home).
 - **smart.lastFunction**: Имя функции (если существует), для которой была выполнена последняя команда.
-- **smart.lastRoom**: Имя комнаты (если существует), для которой была выполнена последняя команда.
+- **smart.lastRoom**: имя комнаты (если существует), для которой была выполнена последняя команда.
 - **smart.lastCommand**: Последняя выполненная команда. Команда может быть: true(ON), false(OFF), число(%), -X(уменьшение на x), +X(увеличение на X)
 - **smart.lastResponse**: текстовый ответ на команду. Его можно отправить на какой-нибудь движок text2speech (sayit).
 
@@ -151,11 +151,11 @@ Alexa, lock the "lock name"
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-или
+или же
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Если задать в настройках в поле "Белый список для сервисов" имя *custom_test*, и вызвать с "custom_test" в качестве имени сервиса, то состояние **cloud.0.services.custom_test** будет установлено в *myString *.
+Если задать в настройках в поле "Белый список для сервисов" имя *custom_test*, и вызвать с "custom_test" в качестве имени сервиса, то состояние **cloud.0.services.custom_test** будет установлено на *myString *.
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
@@ -193,25 +193,30 @@ Alexa, lock the "lock name"
 * **smart.lastCommand** содержит полученный текст, включая информацию о типе запроса (намерении). Пример: «спросить статус устройства Rasenmäher»
 * **smart.lastCommandObj*** содержит строку JSON, которая может быть преобразована в объект, содержащий следующую информацию
   * **words** содержит полученные слова в массиве
-  * **намерение** содержит тип запроса. Возможные значения в настоящее время: «askDevice», «controlDevice», «actionStart», «actionEnd», «askWhen», «askWhere», «askWho».
+  * **намерение** содержит тип запроса. Возможные значения в настоящее время:
+    * Навык v1: "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+    * Навык v2: "queryIntent", когда был захвачен весь указанный текст, "controlDevice" для отката с частичным текстом
   * **deviceId** содержит идентификатор устройства, идентифицирующий устройство, на которое был отправлен запрос, доставленный Amazon, будет пустой строкой, если не указан
-  * **sessionId** содержит sessionId сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
+  * **deviceRoom** содержит сопоставленный идентификатор комнаты, который можно настроить в пользовательском интерфейсе администратора IoT для собранных идентификаторов устройств.
+  * **sessionId** содержит идентификатор сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
   * **userId** содержит идентификатор пользователя от владельца устройства (или, возможно, позже пользователя, который взаимодействовал с навыком), предоставленный Amazon, будет пустой строкой, если не указан
+  * **userName** содержит сопоставленное имя пользователя, которое можно настроить в пользовательском интерфейсе администратора iot для собранных идентификаторов пользователей.
 
  Более подробную информацию о том, как обнаруживаются слова и какие типы запросов различает Alexa Custom Skill, см. на странице https://forum.iobroker.net/viewtopic.php?f=37&t=17452.
 
 **Вернуть результат через состояние smart.lastResponse**
 
 Ответ должен быть отправлен в течение 200 мс в состоянии «smart.lastResponse» и может быть простой текстовой строкой или объектом JSON.
-Если это текстовая строка, то этот текст будет отправлен в качестве ответа на навык.
+Если это текстовая строка, то этот текст будет отправлен как ответ на навык.
 если текст является объектом JSON, можно использовать следующие ключи:
 
 * **responseText** должен содержать текст для возврата в Amazon
 * **shouldEndSession** является логическим значением и определяет, будет ли сеанс закрыт после произнесения ответа или останется открытым, чтобы принять другой голосовой ввод.
+* **sessionId** должен содержать идентификатор sessionId, для которого предназначен ответ. В идеале предоставьте его, чтобы разрешить одновременные сеансы. Если не указано, предполагается, что первый сеанс ожидает ответа.
 
-**Вернуть результат через сообщение в экземпляр iot**
+**Вернуть результат через сообщение в экземпляр IoT**
 
-Экземпляр IoT также принимает сообщение с именем «alexaCustomResponse», содержащее ключ «response» с объектом, который может содержать ключи **responseText** и **shouldEndSession**, как описано выше.
+Экземпляр IoT также принимает сообщение с именем «alexaCustomResponse», содержащее ключ «response» с объектом, который может содержать ключи **responseText** и **shouldEndSession** и **sessionId**, как описано выше.
 На сообщение не будет ответа от экземпляра iot!
 
 **Пример скрипта, использующего тексты**
@@ -233,14 +238,15 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     const request = JSON.parse(obj.state.val);
     const response = {
         'responseText': 'Received phrase is: ' + request.words.join(' ') + '. Bye',
-        'shouldEndSession': true
+        'shouldEndSession': true,
+        'sessionId': request.sessionId
     };
 
     // Return response via state
     setState('iot.0.smart.lastResponse', JSON.stringify(response)); // important, that ack=false (default)
 
     // or alternatively return as message
-    sendTo('iot.0', response);
+    sendTo('iot.0', 'alexaCustomResponse', response);
 });
 ```
 
@@ -270,9 +276,40 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.12.2 (2022-10-01)
+* (Apollon77) Fix crash case
+
+### 1.12.1 (2022-09-27)
+* (bluefox) Corrected error in GUI with empty password
+
+### 1.12.0 (2022-09-27)
+* (Apollon77) Do not control saturation with a percentage request via alexa
+* (bluefox) Migrated GUI to v5
+
+### 1.11.9 (2022-07-22)
+* (Apollon77) Fix temperature controlling for thermostats via alexa
+
+### 1.11.8 (2022-06-24)
+* (Apollon77) Update dependencies to allow better automatic rebuild
+
+### 1.11.7 (2022-06-13)
+* (bluefox) Tried to correct URL key creation for Google home
+
+### 1.11.5 (2022-06-03)
+* (kirovilya) Alisa: update for binary-sensor "motion" and "contact"
+
+### 1.11.4 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.11.3 (2022-03-23)
+* (bluefox) Added the generation of URL key for services
+
+### 1.11.2 (2022-03-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3P)
+
 ### 1.11.1 (2022-03-18)
 * (Apollon77) Optimize logging when many devices are used
 

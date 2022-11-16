@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: DAEYajTWcSq2Of3dk9x1q6BjQ68r2EBRFNHuapLJUnM=
+hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sonos-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)
-![NPM](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
 # IoBroker.sonos
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 
 ## Umgang mit Gruppen
-* Status für den Umgang mit SONOS-Gruppen:
-   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, aber mit Unterstrich `_` anstelle des Punktes `.`, verwenden Sie also zum Beispiel `192_168_0_100` für die IP-Adresse `192.168.0.100`. Wenn das Gerät keiner Gruppe angehört, entspricht der Wert dem eigenen Kanalnamen (IP).
+* Zustände für den Umgang mit SONOS-Gruppen:
+   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, aber mit Unterstrich `_` anstelle des Punktes `.`, verwenden Sie also zum Beispiel `192_168_0_100` für die IP-Adresse `192.168.0.100`. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
    * **`group_volume`**: die Lautstärke der Gruppe
    * **`group_muted`**: Mute-Status der Gruppe.
    * **`add_to_group`**: Fügen Sie ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, unter dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
@@ -26,9 +27,9 @@ Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 *) Diese Zustände werden bei Änderungen in der SONOS App aktualisiert.
 
 ## Verwendung mit dem sayIt-Adapter
-Zur Verwendung wird [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) mit diesem SONOS-Adapter, stellen Sie sicher, dass der [web adapter](https://github.com/ioBroker/ioBroker.web) instanziiert und läuft ebenfalls. Der Webadapter wird benötigt, damit der SONOS-Adapter die generierte MP3-Datei aus dem sayit-Adapter lesen kann.
+Zur Verwendung wird [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) mit diesem SONOS-Adapter, stellen Sie sicher, dass die [web adapter](https://github.com/ioBroker/ioBroker.web) instanziiert und läuft ebenfalls. Der Webadapter wird benötigt, damit der SONOS-Adapter die generierte MP3-Datei aus dem sayit-Adapter lesen kann.
 
-### Warnung: Stabilitätsprobleme in Verbindung mit sayIt Adapter
+### Warnung: Stabilitätsprobleme in Verbindung mit sayIt-Adapter
 Bitte beachten: Dieser SONOS-Adapter hat Stabilitätsprobleme, wenn „Text to Speech“ mit dem sayIt-Adapter verwendet wird. Beobachtete Symptome:
 
 1. Willkürliche Volumenänderung auf 0 oder 100 %.
@@ -50,6 +51,20 @@ Problemumgehung für Text-to-Speech ist die Verwendung von [SONOS-HTTP-API](http
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.2.3 (2022-07-04)
+* (Rello) Added track number state
+
+### 2.2.2 (2022-06-12)
+* (Apollon77) Prevent js-controller warnings
+
+### 2.2.1 (2022-06-12)
+* (Apollon77) fix group volume state
+
+### 2.2.0 (2022-06-08)
+* (Apollon77) Remove logic that adjusted the group volume after one member volume was set
+* (Apollon77) Make sure to not set state values for devices that are not configured
+* (Apollon77) Try to catch network errors
+
 ### 2.1.7 (2021-12-20)
 * (bluefox) Corrected error with "SONOS not found"
 

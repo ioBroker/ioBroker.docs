@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: hCuILSwuMbtUJCOktc8XL5+HlsucbR19k2kGfr90IvM=
+hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 ---
-![商标](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
+![标识](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
 
 ![安装数量](http://iobroker.live/badges/xterm-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.xterm.svg)
@@ -24,30 +24,43 @@ hash: hCuILSwuMbtUJCOktc8XL5+HlsucbR19k2kGfr90IvM=
 
 基于 xterm.js 和 node-pty 包。
 
-如果启用了身份验证，则只有 ioBroker“admin”用户可以登录。
+如果启用了身份验证，则只有 ioBroker "admin" 用户可以登录。
 
 ＃＃ 用法
 适配器支持2种模式：
 
 - 启动 cmd.exe(windows) 或 bash(linux)。在 Linux 上，bash 在 `iobroker` 用户下运行，也许您应该切换到具有更多权限的其他用户（通过 `su USER`）。
-- 或使用 node.js 模拟 shell（如果第一个选项不起作用，您可以激活此选项）
+- 或者使用 node.js 模拟 shell（如果第一个选项不起作用，您可以激活此选项）
 
 注意：一些具有交互性的终端命令不起作用。例如。 `nano`和其他一些。
 
 ＃＃ 去做
 - 模拟：Ctrl + R（历史）
-- 模拟：更多编码页面。如果您找到适合您系统的代码页，请创建问题。可以在 [此处](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings) 找到可能的编码页面。
+- 模拟：更多编码页面。如果您找到适合您系统的代码页，请创建问题。可以在 [这里](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings) 找到可能的编码页面。
 - 支持多个会话（标签）
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 1.1.0 (2022-10-08)
+* (Apollon77) Update xterm library
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.0 (2022-08-29)
+* (bluefox) Check only port of the interface and not of all interfaces
+
+### 0.3.2 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.3.1 (2022-03-18)
+* (Apollon77) Fix a crash case reported by Sentry
+
 ### 0.3.0 (2022-03-12)
 * (Apollon77) Prevent some warnings in js-controller 3+
 * (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that noone is connected
+* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
 * (Apollon77) Update all dependencies
 * (Apollon77) Add sentry for crash reporting
 

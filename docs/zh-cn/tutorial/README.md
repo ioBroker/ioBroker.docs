@@ -1,6 +1,7 @@
 ---
 title: 教程
 lastChanged: 13.09.2018
+template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/tutorial/README.md
@@ -11,7 +12,7 @@ hash: xuCzsFfBnKhF4T65zqiU5PrmCbohMrq/mDbDrRMUtSg=
 
 @@@
 
-#### 这个想法现在是封闭主题领域的自包含简短教程的集合，面向初学者（和高级用户）的目标群体。这里的教程应该相互建立。
+#### Idea 现在是一个自包含主题领域的自包含简短教程的集合，适合初学者（和高级用户）的目标群体。这里的教程应该相互建立。
 教程也可能作为视频。
 
 #### 想法曾经
@@ -22,7 +23,7 @@ hash: xuCzsFfBnKhF4T65zqiU5PrmCbohMrq/mDbDrRMUtSg=
 有关详细信息，请始终参阅“配置”一章。
 @@@
 
-<details><summary>更多的信息</summary>
+<details><summary>更多信息</summary>
 
 + 降价列表 1 + 嵌套列表 1 + 嵌套列表 2 + 降价列表 2
 

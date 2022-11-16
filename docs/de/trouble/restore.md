@@ -1,6 +1,7 @@
 ---
 title:       "Wiederherstellung"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Wiederherstellung aus einer Datensicherung

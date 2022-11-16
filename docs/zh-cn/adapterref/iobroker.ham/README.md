@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ham/README.md
 title: ioBroker Homebridge 配件经理
-hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
+hash: YWFx1PvhxXq7iwHc0gKP5lLvYFgwg1b+x09oPZ8cidA=
 ---
-![商标](../../../en/adapterref/iobroker.ham/admin/ham.png)
+![标识](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
 ![安装数量](http://iobroker.live/badges/ham-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.ham.svg)
@@ -40,20 +40,42 @@ homebridge 模块的安装也是通过 ioBroker 完成的。
 **重要提示：使用子网桥（自 1.3.x 以来的新 homebridge 功能）时，适配器无法访问这些子网桥提供的数据！只有主桥可以进入！**
 
 ### 全球家庭桥模式
-如果您已经在运行 ioBroker 的主机上使用 Homebridge（Apple OpenSource SmartHome）作为全局安装，那么您可以使用这个现有的 Homebridge 安装并将这个 Homebridge 安装作为 ioBroker 进程启动。在这种情况下，Homebridge 服务器由 ioBroker 启动。
+如果您已经在运行 ioBroker 的主机上使用 Homebridge (Apple OpenSource SmartHome) 作为全局安装，那么您可以使用这个现有的 Homebridge 安装并将这个 Homebridge 安装作为 ioBroker 进程启动。 **在这种情况下，Homebridge 服务器由 ioBroker 启动。**
+
+**重要提示：您需要确保系统等未启动全局服务。 ioBroker 本身将开始！有关最佳实践设置详细信息，请参见下文。**
+
+**重要提示：因为 ioBroker 启动 Homebridge，所以日志记录也是由 ioBroker 完成的。您可以将实例的 loglevel 设置为 silly 以查看所有 Homebridge 日志，否则它将被过滤掉重要的东西。**
+
 此外，来自 Homebridge 的所有状态都可以作为 ioBroker 中的状态使用，并允许从 ioBroker 进行控制。
 
 为此，您需要提供系统全局节点模块文件夹的位置。对于这个调用 **npm root -g**。此外，您需要提供 homebridge 配置目录的路径（通常是“users”文件夹中的 .homebridge）。
 
-**重要提示：ioBroker 以用户“iobroker”身份运行，但 homebridge 通常以 root 或 homebridge 用户身份运行（取决于您的安装方式）。您需要确保 ioBroker 用户可以访问 homebride “persistance”文件夹，否则您会看到无法保存文件的错误（这可能会导致适配器崩溃！）**
+**重要提示：ioBroker 以用户“iobroker”身份运行，但 homebridge 通常以 root 或 homebridge 用户身份运行（取决于您的安装方式）。您需要确保 ioBroker 用户可以访问 homebride “persistance”文件夹，否则您将看到无法保存文件的错误（这可能会导致适配器崩溃！）**
 
 **重要提示：使用子网桥（自 1.3.x 以来的新 homebridge 功能）时，适配器无法访问这些子网桥提供的数据！只有主桥可以进入！**
+
+#### 安装为 Global Bridge 详细信息
+感谢@Anzic23，这里有一些关于如何为全局模式理想地设置 homebridge 的详细信息：
+
+1.`sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x`
+2.安装hb-service (sudo hb-service install --user homebridge) 这一步是需要创建必要的文件和目录
+3.卸载hb-service（sudo hb-service卸载）
+4.安装homebridge后
+
+```
+sudo chmod 777 -R /var/lib/homebridge/
+sudo chmod 777 -R /usr/lib/node_modules/homebridge
+```
+
+在 iobroker 全局 Homebridge 路径：/usr/lib/node_modules/homebridge
+
+全局 Homebridge 配置目录路径：/var/lib/homebridge
 
 ## 以下插件在默认模式下进行了测试
 * homebridge-chamberlain v1.0.1 - 带有 MyQ 的张伯伦车库开门器插件
 * homebridge-doorbird v0.0.4 - Doorbird 插件
 * homebridge-dyson-link v2.2.2 - Dyson Link 设备
-* homebridge-edomoticz v2.1.11 - 一个成熟的 Domoticz 最新插件
+* homebridge-edomoticz v2.1.11 - 一个成熟的 Domoticz 插件
 * homebridge-Fibaro-HC2 v2.1.5 - Fibaro HomeCenter 集成
 * homebridge-homee v0.2.4 - 一个成熟的、最新的 Homee 插件
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
@@ -67,12 +89,54 @@ homebridge 模块的安装也是通过 ioBroker 完成的。
 ＃＃ 去做
 * 测试
 * 更多文档？！
+* 测试并确定 ESM 模块是否可以在哪种模式下工作（我希望没有）
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize value determination on accessory initialization
+
+### 5.3.1 (2022-09-28)
+* (bluefox) Updated GUI packages
+
+### 5.3.0 (2022-09-15)
+* (Apollon77) Add option to enable homebridge debug logging
+
+### 5.2.4 (2022-09-15)
+* (Apollon77) Prevent crash when accessing a state which is not controllable anymore
+
+### 5.2.3 (2022-09-14)
+* (Apollon77) Optimize Accessory processing
+
+### 5.2.2 (2022-09-14)
+* (Apollon77) make compatible to more plugins
+
+### 5.2.1 (2022-09-12)
+* (Apollon77) make compatible to more plugins
+
+### 5.1.0 (2022-08-17)
+* IMPORTANT update homebridge and wrapper to 1.5.0 (latest as of today). IMPORTANT: Requires also homebridge 1.5.x installed when using global mode and local mode will update to 1.5.x too! Check your plugins for updates!
+
+### 5.0.2 (2022-07-20)
+* (bluefox) Update tab GUI
+
+### 5.0.1 (2022-06-28)
+* (Apollon77) Make sure values are set after objects were created
+
+### 5.0.0 (2022-06-27)
+* IMPORTANT update homebridge and wrapper to 1.4.1 (latest as of today). IMPORTANT: Requires also homebridge 1.4.x installed when using global mode and local mode will update to 1.4.x too! Check your plugins for updates!
+* (Apollon77) Sync forbidden characters with ioBroker standard - Object IDs might change with this version!
+* (Apollon77) Basically allow to specify http URLS as plugins in the main configuration list (not the tab!)
+* (Apollon77) Also try to register on external accessories like cameras (experimental)
+* (Apollon77) Fix loading issues with the tab
+
+### 4.0.4 (2022-06-07)
+* (bluefox) Corrected configuration in dark theme
+
 ### 4.0.3 (2022-03-20)
 * (bluefox) Update packages
 
@@ -94,7 +158,7 @@ homebridge 模块的安装也是通过 ioBroker 完成的。
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
 
 ### 1.1.2 (2019-07-08)
-* (Apollon77) Allow more then 149 accessories in wrapper mode
+* (Apollon77) Allow more than 149 accessories in wrapper mode
 
 ### 1.1.1 (2019-07-05)
 * (Apollon77) Add option to update NPM modules in Admin. Reinstall will happen after saving settings
@@ -132,7 +196,7 @@ homebridge 模块的安装也是通过 ioBroker 完成的。
 * (Apollon77) Updates for Homebridge-Wrapper
 
 ### 0.2.5 (2018.06.18)
-* (Apollon77) Catch all console logs from Homegridge and make available as debug log
+* (Apollon77) Catch all console logs from Homebridge and make available as debug log
 
 ### 0.2.4 (2018.06.18)
 * (Apollon77) Updates for Homebridge-Wrapper

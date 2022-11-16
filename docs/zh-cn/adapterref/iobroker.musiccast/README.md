@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
+hash: vEjyWua+e9aFAOjJ9e4iuTp9KHgOlrZXKSMj8aaFqVQ=
 ---
 ![标识](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
@@ -55,6 +55,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.act_vol_mode_list|text|-|dB 模式下的实际音量|
 |{zone}.input|text|x|取决于设备的输入|
 |{zone}.input_list|文本|-|可能的输入|
+|{zone}.input_text|text|-|选择输入为文本|
 |{zone}.sound_program|text|x|设置声音程序|
 |{zone}.sound_program_list|text|-|可能的声音节目|
 |{zone}.surr_decoder_type|text|?|设置环绕类型|
@@ -78,6 +79,14 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.enhancer|boolean|x|设置增强器|
 |{zone}.bass_extension|boolean|x|设置低音扩展|
 |{zone}.sleep|value|x|睡眠定时器|
+
+|{zone}.disable_flags|boolean|x|set disable_flags|
+|{zone}.contents_display|boolean|x|设置内容显示|
+|{zone}.party_enable|boolean|x|设置party_enable|
+|{zone}.extra_bass|boolean|x|设置 extra_bass|
+|{zone}.adaptive_drc|boolean|x|设置adaptive_drc|
+|{zone}.dts_dialogue_control|值|x|设置 dts_dialogue_control|
+|{zone}.adaptive_dsp_level|boolean|x|设置adaptive_dsp_level|
 
 ### Netusb
 |对象|值|可设置|描述|
@@ -105,7 +114,8 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |netusb.preset_info|json|-|保存的预设/收藏夹|
 |netusb.presetrecallnumber|value|x|召回收藏列表中的#|
 |netusb.usb_devicetype|text|-|连接的 USB 设备的类型|
-|netusb.attribute|value|-|哪些可能性有服务，待解码|
+|netusb.attribute|value|-|哪些可能有服务，待解码|
+|netusb.recallRecentItem|value|x|哪些可能性有服务，待解码|
 
 ＃＃＃ 系统
 |对象|值|可设置|描述|
@@ -131,7 +141,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |cd.repeat_stat|文本|-|重复状态|
 |cd.device_stat|文本|-|设备状态|
 |cd.playtime|value|-|当前播放时间|
-|cd.totaltime|值|-|当前曲目总时间|
+|cd.totaltime|value|-|当前曲目总时间|
 |cd.disctime|值|-|CD 总时间|
 |cd.tracknumber|value|-|当前正在播放的曲目|
 |cd.totaltracks|值|-|CD 曲目总数|
@@ -159,7 +169,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.dab.freq|数字|-|DAB 频率|
 |tuner.dab.category|字符串|-|主要/次要|
 |tuner.dab.audio_mode|字符串|-|DAB 单声道/立体声|
-|tuner.dab.bit_rate|number|-|DAB 比特率（kpbs）|
+|tuner.dab.bit_rate|number|-|DAB 比特率 (kpbs)|
 |tuner.dab.quality|number|-|DAB 质量 0-100|
 |tuner.dab.tune_aid|编号|-|DAB 信号强度 0-100|
 |tuner.dab.off_air|布尔值|-|DAB 关闭空气|
@@ -292,7 +302,32 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * 可用命令电源、静音、音量
 
 ## Changelog
-### 1.0.01
+### 1.0.8
+* error correction add_to_group/remove_from_group
+
+### 1.0.7
+* error correction in link/unlink/distribution
+
+### 1.0.6
+* (scrounger) recallRecentItem added
+
+#### 1.0.5
+* usage of new IOB test library
+
+#### 1.0.4
+* correction for setting the input ("setInput")
+
+#### 1.0.3
+* new datapoint "extra_bass"
+* new datapoint "adaptive_drc"
+* new datapoint "dts_dialogue_control"
+* new datapoint "adaptive_dsp_level"
+* these are only read in, most likely they are commands, but the API is unknown
+
+#### 1.0.2
+* new datapoint "input_text"
+
+#### 1.0.1
 * changed algorithm for developer support
 
 ## License

@@ -35,15 +35,21 @@ Since WireGuard internally only uses the public keys to identify peers, but they
 * Main page
   - Name: Just a symbolic name for the host, since it's more convenient and better memorable than it's IP address
   - Host address: IP address of the host. A fqdn or dns name works also. If you're running WireGuard and ioBroker on the same host you can just use `localhost` as IP.
+  - Port: Port number of your ssh server. Default: 22
   - User: The user which executes the script on the host (will be stored encrypted)
   - Password: Password for this user (will be stored encrypted)
   - sudo: whether the wg command should be executed using sudo or not (requires valid config of sudoers! -> see [security hints])
   - Docker: Executes a `docker exec`command to reach a wireguard server inside a docker container. Please check if it fits your needs or whether you may switch to a supported container.
-  - poll interval: pause between each poll in seconds (will also delay the first run after adapter start) 
+  - poll interval: pause between each poll in seconds (will also delay the first run after adapter start)
+  - Container: Name of your docker container. Often "wireguard", but may differ especially when running more than one on a single server
 * Translation page
     - Public Key: The public key of one of your peers
     - group name: A symbolic name for this peer
- 
+* Config files page
+  - Name: Must be the same as on the Main page 
+  - Interface: Name of the interface stored in this config file (wg0, wg1, ...)
+  - config file: fully qualified path and name of the config file for this interface (/etc/wireguard/wg0.conf, ...)
+
 ### executed command line depends on checkboxes:
 * No checkbox checked: `wg show all dump` will be executed (for root-like users and use of the SetUID-Bit)
 * Sudo checkbox is checked: `sudo wg show all dump` will be executed (works with proper sudoers line)
@@ -55,9 +61,12 @@ Since WireGuard internally only uses the public keys to identify peers, but they
 ### Docker 
 Basically everything said about regular installations also applies for docker and works the same way.
 Except the needed checkboxes to get the proper command executed and the needed sudoers line. If you use WireGuard inside 
-a docker container you may need a sudoers line similar to this:
+a docker container you may need sudoers lines similar to this:
 ```
 <wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg show all dump
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * remove
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg set * peer * allowed-ips *
+<wg-monitoring-user> ALL=NOPASSWD:/usr/bin/docker exec -it wireguard /usr/bin/wg syncconf * * 
 ```
 This adapter expects the name `wireguard` for your WireGuard container and the `wg` command in `/usr/bin/`inside the container. 
 These values currently can't be customized.
@@ -84,6 +93,9 @@ Basically there are three ways to execute the command:
   ```
   #iobroker.wireguard adapter
   wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg show all dump
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * remove
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg set * peer * allowed-ips *
+  wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * * 
   ```
   This setting allows the `<wireguard-monitoring-user>` on `ALL` hosts to execute the `wg show all dump` command from the directory `/usr/bin/` (may need to be changed on your distribution) without needing a password (`NOPASSWD`).
 ![Image](admin/sudoers_config.png)
@@ -92,6 +104,26 @@ Basically there are three ways to execute the command:
 * none
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+### v1.4.1 (2022-10-26)
+* (grizzelbee) New: Showing number of currently connected peers for each interface
+
+### v1.4.0 (2022-09-09)
+* (grizzelbee) New: [#37](https://github.com/Grizzelbee/ioBroker.wireguard/issues/37) Added config options for port and docker container name
+* (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
+
+### v1.3.2 (2022-09-07)
+* (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
+
+### v1.3.1 (2022-06-26)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer
+
+### v1.3.0 (2022-06-25)
+* (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added buttons to suspend single and restore all peers of an interface
+* (grizzelbee) Chg: Changed polling log entry from info to debug 
+* (grizzelbee) Upd: dependencies got updated
+
 ### v1.2.1 (2022-04-24)
 * (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
 

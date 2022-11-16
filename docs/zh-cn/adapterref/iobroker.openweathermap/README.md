@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openweathermap/README.md
 title: ioBroker.openweathermap
-hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
+hash: eJh5/gIM69lEEeZ8iTArvSmUvI2XbbgBa7azNe6+CCE=
 ---
-![商标](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
+![标识](../../../en/adapterref/iobroker.openweathermap/admin/openweathermap.png)
 
 ![安装数量](http://iobroker.live/badges/openweathermap-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.openweathermap.svg)
@@ -20,14 +20,35 @@ hash: s5CWmMPsnKxv36nwXhF6OCP4IZJE39aUJhs2FpXSI58=
 
 您需要一个 api 密钥来访问数据。注册后可免费获得的api密钥[这里](https://home.openweathermap.org/api_keys)。
 
+<!--
+
+### **正在进行中** -->
+
 ## Changelog
+### 0.3.3 (2022-10-24)
+* (Bluefox) Updated widget for vis 2.0
 
-### 0.2.0
+### 0.3.0 (2022-07-12)
+* (Bluefox) Added new widget for vis 2.0
 
+### 0.2.5 (2022-06-12)
+* (Apollon77) Make sure all forecast data are processed correctly
+
+### 0.2.4 (2022-04-19)
+* (Apollon77) Fix crash case when states have invalid metadata
+
+### 0.2.3 (2022-03-15)
+* (Apollon77) Increase timeout to read data to 10s
+
+### 0.2.2 (2022-03-11)
+* (Apollon77) Fix crash case (Sentry IOBROKER-OPENWEATHERMAP-1)
+
+### 0.2.1 (2022-03-10)
+* (Apollon77) Move schedule if default is used and adjust to once an hour to better spread the requests over time to prevent peaks; Additionally add a random delay in the start minute
 * (klein0r) updated everything
+* (Apollon77) updated unload/stop handling
 
 ### 0.1.0
-
 * (bluefox) first release
 
 ## License

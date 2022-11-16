@@ -2,14 +2,25 @@
 
 # ioBroker.youtube
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.youtube.svg)](https://www.npmjs.com/package/iobroker.youtube)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.youtube.svg)](https://www.npmjs.com/package/iobroker.youtube)
-[![Stable](http://iobroker.live/badges/youtube-stable.svg)](http://iobroker.live/badges/youtube-stable.svg)
-[![installed](http://iobroker.live/badges/youtube-installed.svg)](http://iobroker.live/badges/youtube-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.youtube/badge.svg)](https://snyk.io/test/github/klein0r/ioBroker.youtube)
-![Test and Release](https://github.com/klein0r/ioBroker.youtube/workflows/Test%20and%20Release/badge.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.youtube?style=flat-square)](https://www.npmjs.com/package/iobroker.youtube)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.youtube)
+![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square)
 
-[![NPM](https://nodei.co/npm/iobroker.youtube.png?downloads=true)](https://nodei.co/npm/iobroker.youtube/)
+![GitHub](https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/klein0r/iobroker.youtube/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square)
+![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square)
+
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/youtube-stable.svg)
+![Installed](http://iobroker.live/badges/youtube-installed.svg)
 
 Statistics like views, subscribers and videos
 
@@ -41,11 +52,18 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2022-11-10)
+
+NodeJS >= 14.5 is required
+
+* (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
+* (klein0r) Dropped Admin 5 support
+
+### 4.0.0 (2022-05-29)
 
 NodeJS 14.x is required (NodeJS 12.x is EOL)
 
-* (klein0r) Updated depedency for js-controller to 4.0.15
+* (klein0r) Fixed last update time
 
 ### 3.0.1 (2022-03-17)
 
@@ -62,14 +80,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Translated all objects
 * (klein0r) Updated dependencies
-
-### 2.0.3 (2021-11-07)
-
-* (klein0r) Fixed missing VIS widget
-
-### 2.0.1 (2021-11-06)
-
-* (klein0r) Fixed missing translations
 
 ## License
 

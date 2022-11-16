@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.Kameras
-hash: rkEQc8p9gM+aVqfA3IA620G6qf8s8DUlwClM7/Ip8jw=
+hash: 2uDPwFWgeeStYJD68nZG4CAXgHvqzsEJzpanUWWaKwU=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -43,9 +43,12 @@ Dies ist eine URL-Anforderung für ein Bild, bei der sich alle Parameter in der 
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 0.2.0 (2022-09-27)
+* (bluefox) GUI updated to MUIv5
+
 ### 0.1.8 (2022-02-13)
 * (bluefox) replaced the deprecated package `request` with `axios`
 

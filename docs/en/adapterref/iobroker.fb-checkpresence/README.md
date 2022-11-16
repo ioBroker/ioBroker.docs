@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
 ![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
-[![Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)](https://david-dm.org/afuerhoff/iobroker.fb-checkpresence)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence)
 [![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)](https://nodei.co/npm/iobroker.fb-checkpresence/)
 
@@ -17,6 +16,13 @@ The adapter checks the presence of family members over the fritzbox.
 You must fill in the name of the family member and the mac-address (or ip-address) of the used device. 
 The comment is optional and you can enable or disable the family member. 
 The datapoint is based on the member name.
+
+### Used open source code
+#### npm dateformat v4.5.3
+(c)  2007-2009 Steven Levithan <stevenlevithan.com>
+npm: https://www.npmjs.com/package/dateformat
+github: https://github.com/felixge/node-dateformat
+license: MIT
 
 ### Adapter pre conditions
 For the correct function you have to install a history adapter. You can choose
@@ -78,8 +84,7 @@ In this case the adapter tries to connect without https.
 
 ### Interval
 You have separate intervals for family members and Fritzbox devices.
-The interval for Fritzbox devices can be configured from 1 to 59 minutes. Normally a value between 1 and 5 minutes is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle 
-is finished.
+The interval for Fritzbox devices can be configured from 10s to 3600s. Normally a value between 60 and 300 seconds is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle is finished.
 
 ### Filter time
 If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.  
@@ -121,6 +126,17 @@ You can also enable the filtering for a member. If the state is true the state c
 If the state is in both cases false then the state changes to false. Otherwise it does not change.
 
 To get the speed information in the objects you have to select fb-devices option.
+
+### Manually trigger presence
+In javascript you can trigger the presence manually. When you send the message to the adapter 
+every new message is blocked for 10 seconds. You receive a negative result (false) if the message is blocked.
+True if the message is received from the adapter. 
+`
+sendTo('fb-checkpresence.0', 'triggerPresence', {}
+    , function (result) {
+        log(result, 'info');
+});
+`
 
 ### Whitelist settings
 In the white list you can insert every known device. Any unknown devices are listed in the blacklist object. 
@@ -197,26 +213,25 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
-### 1.1.14 (2022-03-31)
-* (afuerhoff) dependencies updated
-* (afuerhoff) issue [#85](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/85) bugfix
-* (afuerhoff) issue [[#91](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/91)] bugfix
-* (afuerhoff) whitelist.html bug fixed
-* (afuerhoff) issue [#92](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/92) bugfix
-
-### 1.1.13 (2022-01-18)
-* (afuerhoff) issue #73: bugfix
-
-### 1.1.12 (2022-01-13)
-* (afuerhoff) issue #74: bugfix
+### 1.1.21 (2022-09-05)
 * (afuerhoff) dependencies updated
 
-### 1.1.11 (2021-12-22)
-* (afuerhoff) dependencies updated
-* (afuerhoff) bugfix blacklist
+### 1.1.20 (2022-09-05)
+* (afuerhoff) issue [#136](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/136) force update on demand
+* (afuerhoff) issue [#139](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/139) Add family members fixed
+* (afuerhoff) issue [#140](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/140) Add family members dialogbox fixed
+* (afuerhoff) issue [#129](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/129) Dateformat library changed
 
-### 1.1.10 (2021-09-24)
-* (afuerhoff) dependencies updated
+### 1.1.19 (2022-07-08)
+* (afuerhoff) issue [#137](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/137) guest device listed twice
+
+### 1.1.18 (2022-07-04)
+* (afuerhoff) issue [#67](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/67) fbdevices states for vpn connection added
+* (afuerhoff) issue [#128](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/128) Restart adapter after cycle error
+
+### 1.1.17 (2022-06-15)
+* (afuerhoff) issue [#126](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/126) bugfix undefined historyAlive object
+* (afuerhoff) log optimized
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
 title: Адаптер ioBroker HomeMatic IP Cloud AccessPoint
-hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
+hash: Kralf0GncOLRR7KFU6xsIHqXXzkKbZYW5rKEt+x/BAM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -16,12 +16,15 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
+## Отказ от ответственности
+**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.** **HomeMatic является торговой маркой ELV Elektronik AG**
+
 ## Описание
 Этот адаптер обеспечивает связь с HomematicIP CloudAccessPoint через Rest API облака Homematic IP.
 
 **Важное примечание:** Пожалуйста, ограничьте запросы управления до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
 
-## Установка
+## Монтаж
 Этому адаптеру требуется node-js версии >= 10.0.
 
 Вот пошаговое видео по установке на YouTube https://youtu.be/kXWfJRUYJIA
@@ -37,7 +40,7 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 
 Спасибо
 
-Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют в комбинации три состояния сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
+Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
 
 ## Важная информация, что можно сделать с этим адаптером
 !!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через исходное приложение Homematic IP.
@@ -48,7 +51,7 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ PIN-код вашей системы! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
+Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий язык: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ PIN-код вашей системы!! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
 Дополнительно добавьте клиент "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
@@ -61,6 +64,42 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.20.0 (2022-09-19)
+* IMPORTANT: Node.js 12.x is now required at minimum
+* Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
+* Add valve position for FLOOR_TERMINAL_BLOCK_MECHANIC_CHANNEL
+* Add several more states for SWITCH_CHANNEL, DIMMER_CHANNEL, WEATHER_SENSOR_CHANNEL, SHUTTER_CHANNEL 
+* Add channel label
+
+### 1.19.2 (2022-09-07)
+* Optimize Reconnect handling
+
+### 1.19.1 (2022-08-21)
+* Fix datatype of selfCalibrationInProgress
+
+### 1.19.0 (2022-08-14)
+* Add several more device settings that can be modified via adapter
+  * accelerationSensorMode
+  * accelerationSensorSensitivity
+  * accelerationSensorTriggerAngle
+  * accelerationSensorEventFilterPeriod
+  * accelerationSensorNeutralPosition
+  * notificationSoundTypeHighToLow
+  * notificationSoundTypeLowToHigh
+  * routerModuleEnabled
+  * minimumFloorHeatingValvePosition
+  * sirenWaterAlarmTrigger
+  * inAppWaterAlarmTrigger
+  * acousticAlarmSignal
+  * acousticAlarmTiming
+  * acousticWaterAlarmTrigger
+  * boostDuration
+* Other fixes and optimizations
+
+### 1.18.0 (2022-06-17)
+* (Apollon77) Added support for PARTICULATE_MATTER_SENSOR_CHANNEL
+* (Apollon77) Correctly ignore some channels without meaningful data
+
 ### 1.17.0 (2022-04-26)
 * (Apollon77) Also reinitialize objects when new groups or clients are detected
 * (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels

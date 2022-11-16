@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cloud/README.md
 title: облачный адаптер ioBroker
-hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
+hash: 4r/Wxr+2EjpbmN7uLOTJNUVz9ZPeqqpWt+taAd4r5uo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -25,8 +25,8 @@ hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 
 ![вступление](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
-### Экземпляр
-Все запросы от облачного адаптера будут направляться в какой-либо веб-экземпляр. Пользователь должен указать здесь экземпляр WEB, который будет показан пользователю, когда он войдет на сайт https://iobroker.net.
+### Пример
+Все запросы от облачного адаптера будут направляться на конкретный веб-экземпляр. Пользователь должен указать здесь экземпляр WEB, который будет показан пользователю, когда он войдет на сайт https://iobroker.net.
 
 ### Разрешить самозаверяющие сертификаты
 Если вы используете стандартное облако iobroker.net, вы можете отключить его. Этот параметр важен, только если используется собственное облако.
@@ -58,7 +58,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 Зарезервированные имена: «ifttt», «text2command», «simpleApi», «swagger». Они должны использоваться без префикса `"custom_"`.
 
 ### Команда text2
-Вы можете записать `text2command` в белый список, вы можете отправить запрос POST в `https://iobroker.net/service/text2command/<user-app-key>` для записи данных в переменную `text2command.X.text`.
+Вы можете записать `text2command` в белый список, вы можете отправить POST-запрос на `https://iobroker.net/service/text2command/<user-app-key>` для записи данных в переменную `text2command.X.text`.
 
 «X» можно определить в настройках с помощью опции «Использовать экземпляр text2command».
 
@@ -81,13 +81,30 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 4.3.0 (2022-10-27)
+* (bluefox) Corrected work with lovelace
+
+### 4.2.3 (2022-10-10)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Corrected error with iobroker.pro and delete object
+
+### 4.2.2 (2022-08-24)
+* (bluefox) Corrected error with services list and admin6
+
+### 4.2.1 (2022-07-20)
+* (bluefox) Used new version of socket library.
+
+### 4.2.0 (2022-07-05)
+* (bluefox) Added preparations for Admin 6
+
+### 4.1.2 (2022-06-22)
+* (bluefox) Added preparations for Admin 6
 * (bluefox) Added better error reporting
 * (bluefox) Removed outdated `request` library
 * (bluefox) Used common sockets (could be buggy)
 
 ### 4.1.1 (2022-02-19)
-* Important: Requires js-controller 3.1 at least!
+* Important: Requires `js-controller` 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data
 * (Apollon77) FIx some crash cases reported by Sentry
 * (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)

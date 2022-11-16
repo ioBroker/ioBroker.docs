@@ -49,7 +49,7 @@ For every shopping list a channel with the following states will be created:
     |string|R|
 
    *Read only json/html string formatted as a list or html table. Contains the items which are currently on your shopping list.
-   The NoHead Html tables are w/o table headers.*
+   The NoHead Html tables are w/o table headers. The content is translated via the dictionary to allow usage in visualization adapters.*
    
 * *list*.recentContent / *list*.recentContentHtml/NoHead
 
@@ -58,28 +58,31 @@ For every shopping list a channel with the following states will be created:
     |string|R|
 
    *Read only json/html string formatted as a list or html table. Contains the items which were recently on your shopping list.
-   The NoHead Html tables are w/o table headers.*
+   The NoHead Html tables are w/o table headers. The content is translated via the dictionary to allow usage in visualization adapters.*
    
-* *list*.removeItem
+* *list*.removeItem/Translated
 
     |Data type|Permission|                                                                       
     |:---:|:---:|
     |string|R/W|
 
    *Select an item which should be removed from the shopping list and recent content list. 
-   The state will be acknowledged when the command is acknowledged by the Bring! API.*
+   The state will be acknowledged when the command is acknowledged by the Bring! API. 
+   Note, that the translated states are using the dictionary before interacting with the API.*
+
    
    
-* *list*.moveToRecentContent
+* *list*.moveToRecentContent/Translated
 
     |Data type|Permission|                                                                       
     |:---:|:---:|
     |string|R/W|
 
    *Select an item which should be moved or added to recent content list. 
-   The state will be acknowledged when the command is acknowledged by the Bring! API.*
+   The state will be acknowledged when the command is acknowledged by the Bring! API.
+   Note, that the translated states are using the dictionary before interacting with the API.* 
    
-* *list*.saveItem
+* *list*.saveItem/Translated
 
     |Data type|Permission|                                                                       
     |:---:|:---:|
@@ -91,7 +94,8 @@ For every shopping list a channel with the following states will be created:
    ```Apple, 2.50 $, the green ones```
    
    *Note, that everything behind the comma describes the specification. 
-   The state will be acknowledged when the command is acknowledged by the Bring! API.*
+   The state will be acknowledged when the command is acknowledged by the Bring! API.
+   Note, that the translated states are using the dictionary before interacting with the API.*
     
 * *list*.users / *list*.usersHtml/NoHead
 
@@ -142,6 +146,21 @@ For every shopping list a channel with the following states will be created:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2022-06-01)
+* (foxriver76) implemented a minor fix for acknowledgment of `translated` objects
+
+### 1.8.0 (2022-06-01)
+* (foxriver76) introduced new states for `save/remove/movetoRecentContent` which translates the article before passing it to the API (closes #149)
+
+### 1.7.16 (2022-05-31)
+* (foxriver76) we now ensure that all states which can be used directly are translated (closes #149)
+
+### 1.7.15 (2022-05-26)
+* (foxriver76) widget: fixed `margin-top` calculation of item name
+
+### 1.7.14 (2022-05-22)
+* (foxriver76) log the error message instead of object, if we catch errors in the widget
+
 ### 1.7.13 (2022-02-05)
 * (foxriver76) fixed the onclick handler if someone added just a number
 

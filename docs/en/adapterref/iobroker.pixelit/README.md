@@ -5,16 +5,14 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.pixelit.svg)](https://www.npmjs.com/package/iobroker.pixelit)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pixelit.svg)](https://www.npmjs.com/package/iobroker.pixelit)
 ![Number of Installations (latest)](http://iobroker.live/badges/pixelit-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/pixelit-stable.svg)
-[![Dependency Status](https://img.shields.io/david/o0shojo0o/iobroker.pixelit.svg)](https://david-dm.org/o0shojo0o/iobroker.pixelit)
-
+![Number of Installations (stable)](http://iobroker.live/badges/pixelit-stable.svg)  
 [![NPM](https://nodei.co/npm/iobroker.pixelit.png?downloads=true)](https://nodei.co/npm/iobroker.pixelit/)
 
 ## PixelIt adapter for ioBroker
 
-This adapter allows you to send from ioBroker Screen to [PixelIt](https://www.bastelbunker.de/pixel-it/).  
-There are also data points for the optional sensors of [PixelIt](https://www.bastelbunker.de/pixel-it/), as well as the API of the [Pixel Gallery](https://pixelit.bastelbunker.de/PixelGallery) is implemented in the adapter.  
-More information about the data points can be found in this [documentation](https://docs.bastelbunker.de/ioBroker_pixelit/options.html).
+This adapter allows you to send from ioBroker Screen to [PixelIt](https://github.com/pixelit-project/PixelIt).  
+There are also data points for the optional sensors of [PixelIt](https://github.com/pixelit-project/PixelIt), as well as the API of the [Pixel Gallery](https://pixelit.bastelbunker.de/PixelGallery) is implemented in the adapter.  
+More information about the data points can be found in this [documentation](https://pixelit-project.github.io/iobroker.html).
 
 ## Configuration
 
@@ -25,12 +23,27 @@ Fill the IP and have fun :)
 
 <!--
  https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
+    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
+    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+**!!! Breaking changes works only with PixelIt v2.1.3 and higher !!!**
+- (d4rkd3v1l)  removed parameters from "show_clock" call
+
+### 0.2.0 (2022-08-19)
+
+-   (o0Shojo0o) added sleep_mode state
+
+### 0.1.0 (2022-07-22)
+**!!! Breaking changes works only with PixelIt v1.0.0 and higher !!!**
+-   (o0Shojo0o) change conncetion to websocket
+-   (o0Shojo0o) add buttons datapoints
+-   (o0Shojo0o) add sensor gas datapoint
 
 ### 0.0.8 (2021-08-19)
 

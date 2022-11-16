@@ -2,7 +2,6 @@
 const utils = require('./utils');
 const consts = require('./consts');
 const translation = require('./translation');
-const faq = require('./faq');
 const fs = require('fs');
 const path = require('path');
 
@@ -41,10 +40,11 @@ async function translateTitle(title, inFolder) {
         if (!words[lang]) {
             words[lang] = (words.en || words.de);
             if (words[lang][2] !== '!') {
-                words[lang] = lang + '!' + words[lang];
+                words[lang] = `${lang}!${words[lang]}`;
             }
         }
     });
+
     // read title from file
     if (words.link) {
         consts.LANGUAGES.forEach(lang => {
@@ -52,7 +52,7 @@ async function translateTitle(title, inFolder) {
             if (fs.existsSync(name)) {
                 const data = fs.readFileSync(name).toString('utf-8');
                 const title = utils.getTitle(data);
-                if ((!words[lang] || words[lang].includes('!')) && title) {
+                if ((!words[lang] || words[lang].includes('!') || words[lang].startsWith('_')) && title) {
                     words[lang] = title;
                 }
             }
@@ -64,14 +64,17 @@ async function translateTitle(title, inFolder) {
 
 async function processContent(filePath) {
     const lines = fs.readFileSync(filePath).toString().replace(/\r/g, '').split('\n');
-    const content = {pages: {}};
+    const content = { pages: {} };
     const levels = [content, null, null, null];
-    return new Promise(resolve => {
-        return Promise.all(lines.map(async line => {
+    return new Promise(resolve => Promise.all(
+        lines.map(async line => {
             const pos = line.indexOf('*');
             if (pos !== -1) {
                 const level = pos / 2;
                 const words = await translateTitle(line.substring(pos + 1));
+                // Capitalize first letter of title
+                words.ru = words.ru[0].toUpperCase() + words.ru.substring(1);
+
                 const link = words.link;
                 if (link) {
                     // ignore links if en/"link" does not exist
@@ -79,6 +82,12 @@ async function processContent(filePath) {
                         console.error(`DOCUMENT ${link} does not exist, but listed in content.md!`);
                         return;
                     }
+                    const header = utils.extractHeader(fs.readFileSync(path.join(consts.SRC_DOC_DIR, 'en', link)).toString('utf8'));
+                    if (header.header && header.header.template) {
+                        console.error(`DOCUMENT ${link} is just template, do not include it into content.`);
+                        return;
+                    }
+
                     // check if this file exists in en
                     delete words.link;
                 }
@@ -92,9 +101,13 @@ async function processContent(filePath) {
                 levels[level].pages[words.en] = obj;
                 levels[level + 1] = obj;
 
+                // special case for FAQ
                 if (words.en === 'FAQ') {
                     obj.pages = obj.pages || {};
-                    const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq')).filter(name => name.match(/^_\d/)).sort();
+                    const files = fs.readdirSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq'))
+                        .filter(name => name.match(/^_\d/))
+                        .sort();
+
                     return Promise.all(files.map(async file => {
                         if (fs.existsSync(path.join(consts.SRC_DOC_DIR, 'de', 'faq', file, 'README.md'))) {
                             const words = await translateTitle(`[${file}](faq/${file.replace(/\.md$/, '')})`, consts.FRONT_END_DIR);
@@ -109,18 +122,20 @@ async function processContent(filePath) {
                                 _obj.content = link;
                             }
                             obj.pages[words.en] = _obj;
+                        } else {
+                            console.error(`DOCUMENT ${file} does not exist, but listed in content.md!`);
                         }
                         return file;
                     }));
                 }
             }
             return line;
-        })).then(result => {
-            const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
-            fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
-            resolve(content);
-        });
-    });
+        }))
+            .then(result => {
+                const name = filePath.replace(/\\/g, '/').split('/').pop().replace(/\.md$/, '.json');
+                fs.writeFileSync(consts.FRONT_END_DIR + name, JSON.stringify(content, null, 2));
+                resolve(content);
+            }));
 }
 
 // read file and copy it in the front-end directory
@@ -132,7 +147,7 @@ async function processFile(fileName, lang, root) {
     if (fileName.match(/\.md$/)) {
         let {header, body} = utils.extractHeader(data.toString());
 
-        header.editLink = consts.GITHUB_EDIT_ROOT + 'docs/' + fileName.replace(root, '');
+        header.editLink = `${consts.GITHUB_EDIT_ROOT}docs/${fileName.replace(root, '')}`;
 
         let prefix = fileName.replace(root, '');
         let pos = prefix.lastIndexOf('/');
@@ -206,9 +221,9 @@ function replaceImages(text, sourceFile, targetFile) {
                         link = link.substring(0, pos);
                     }
                     if (!link.match(/^https?:/)) {
-                        link = prefix + (link[0] === '/' ? link : '/' + link);
+                        link = path.normalize(prefix + (link[0] === '/' ? link : `/${link}`)).replace(/\\/g, '/');
 
-                        lines[i] = lines[i].replace(item, `![${text}](${link}${title ? ' "' + title + '"' : ''})`);
+                        lines[i] = lines[i].replace(item, `![${text}](${link}${title ? ` "${title}"` : ''})`);
                     }
                 }
             });
@@ -219,11 +234,11 @@ function replaceImages(text, sourceFile, targetFile) {
 
 async function translateFile(sourceFileName, fromLang, toLang, root) {
     root = root || consts.SRC_DOC_DIR;
-    const targetFileName = sourceFileName.replace('/' + fromLang + '/', '/' + toLang + '/');
+    const targetFileName = sourceFileName.replace(`/${fromLang}/`, `/${toLang}/`);
 
     const resultSrc = utils.extractHeader(fs.readFileSync(sourceFileName).toString('utf-8'));
     if (!resultSrc) {
-        console.error('File ' + sourceFileName  + ' is empty!!!');
+        console.error(`File ${sourceFileName} is empty!!!`);
         return Promise.resolve();
     }
 
@@ -235,23 +250,23 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
 
     header.translatedFrom = fromLang;
     header.translatedWarning = consts.TRANSLATION_NOTICE[toLang];
-    header.editLink = consts.GITHUB_EDIT_ROOT + 'docs/' + targetFileName.replace(root, '');
+    header.editLink = `${consts.GITHUB_EDIT_ROOT}docs/${targetFileName.replace(root, '')}`;
 
     const data = utils.extractLicenseAndChangelog(resultSrc.body);
-    const {badges, body} = utils.extractBadges(data.body);
+    const { badges, body } = utils.extractBadges(data.body);
 
     let localHash = utils.getFileHash(body);
 
     let actualText;
     if (fs.existsSync(targetFileName)) {
-        let result = utils.extractHeader(fs.readFileSync(targetFileName).toString('utf-8'));
-        actualText = result.body;
-        if (result.header.translatedFrom !== fromLang) {
+        let resultTarget = utils.extractHeader(fs.readFileSync(targetFileName).toString('utf-8'));
+        actualText = resultTarget.body;
+        if (resultTarget.header.translatedFrom !== fromLang) {
             return Promise.resolve();
         }
 
         // Check src hash and compare it with stored one
-        if (result.header.hash === localHash) {
+        if (resultTarget.header.hash === localHash && (resultTarget.header.template || false) === (header.template || false)) {
             return Promise.resolve();
         }
     }
@@ -264,7 +279,8 @@ async function translateFile(sourceFileName, fromLang, toLang, root) {
             actualText = replaceImages(actualText, sourceFileName, targetFileName);
             header.title = header.title || utils.getTitle(body);
             return translation.translateText(fromLang, header.title, toLang);
-        }).then(title => {
+        })
+        .then(title => {
             header.title = title;
             header.translatedFrom = fromLang;
             header.translatedWarning = consts.TRANSLATION_NOTICE[toLang];
@@ -348,7 +364,7 @@ function syncDocs(testDir, cb) {
     consts.LANGUAGES.map(lang => {
         consts.LANGUAGES
             .filter(lang2 => lang2 !== lang)
-            .map(lang2 => tasks.push({fromLang: lang, toLang: lang2}));
+            .map(lang2 => tasks.push({ fromLang: lang, toLang: lang2 }));
     });
     processTasks(tasks, testDir, cb);
 }
@@ -385,14 +401,14 @@ if (!module.parent) {
             return processFiles(consts.SRC_DOC_DIR);
         });
     });*/
-    processContent(path.join(consts.SRC_DOC_DIR, 'content.md')).then(content => {
+    /*processContent(path.join(consts.SRC_DOC_DIR, 'content.md')).then(content => {
         console.log(JSON.stringify(content));
-    });
+    });*/
 
-    /*translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru')
+    translateFile('C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.harmony/README.md', 'de', 'ru')
         .then(() => {
             console.log('done');
-        })*/
+        })
     //console.log(replaceImages(fs.readFileSync('C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md').toString(), 'C:/pWork/ioBroker.docs/docs/de/adapterref/iobroker.fritzbox/README.md', 'C:/pWork/ioBroker.docs/docs/ru/adapterref/iobroker.fritzbox/README.md'));
     //sync2Languages('de', 'en', () => console.log('done1'), ['C:/pWork/ioBroker.docs/docs/de/README.md'])
     //syncDocs(() => console.log('DONE'));

@@ -3,117 +3,114 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartcontrol/README.md
 title: ioBroker.smartcontrol
-hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
+hash: hKBh/vsSutkuEpmM1XfMSQyQ0+irKy7rl/Gvbc02pKk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.smartcontrol/admin/smartcontrol-banner.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.smartcontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.smartcontrol.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/smartcontrol-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/smartcontrol-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/smartcontrol-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Mic-M/iobroker.smartcontrol.svg)
-![Известные уязвимости](https://snyk.io/test/github/Mic-M/ioBroker.smartcontrol/badge.svg)
+![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.smartcontrol/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.smartcontrol.png?downloads=true)
 
 # IoBroker.smartcontrol
-** Тесты: ** ![Тестирование и выпуск](https://github.com/Mic-M/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Smart Control для ioBroker
-*[нажмите здесь, чтобы перейти к разделу "Введение" ниже](#introduction)*
-
-Этот адаптер не мог бы существовать без потрясающего и ценного вклада сообщества ioBroker, связанного с пользовательским интерфейсом, запросами функций, тестированием и отчетами об ошибках и т. Д. Большое спасибо всем, кто внес свой вклад!
-
-Это краткое изложение очень положительных отзывов сообщества, которыми я хочу поделиться с вами 😊 (румянец) (от самого старого до новейшего, на немецком языке):
-
-* *Ein toller Adapter und Entwicklungsarbeit!* [Источник] (https://forum.iobroker.net/post/461724)
-* *Ich finde das Hilfssystem einfach Genial.👍* [источник] (https://forum.iobroker.net/post/463066)
-* *die Auswahl ist so viel viel Übersichtlicher! Bist mein absoluter Held! 🙂 Die Eierlegende selbstversorgende Wollmilchsau ist am laufen .. 🙂* [источник] (https://forum.iobroker.net/post/470948)
-* *erstmal ein Dankeschön für die Arbeit. Möchte nicht wissen wieviele Stunden da drin stecken 👍* [источник] (https://forum.iobroker.net/post/474350)
-* *Также ich muss sagen: TOP Arbeit!* [Источник] (https://forum.iobroker.net/post/476116)
-* *super, du hast echt klasse Ideen und setzt diese sehr Userfreundlich um!* [источник] (https://forum.iobroker.net/post/476117)
-* *Die Geschwindigkeit mit der Du den Adapter nach vorne treibst ist echt erschreckend, so schlimm und schnell das manches Mal mit dem testen nicht hinterher kommt 👍 RESPEKTABEL* [источник] (https://forum.iobroker204/post/477 )
-* *ich bin auch recht begeistert von dem Adapter, schöne Arbeit. Hab jetzt schon längere Zeit immer mal wieder verschiedene Systeme getestet, FHEM, Nodered und jetzt seit kurzem Iobroker. So schnell hab ich meine Lichtsteuerung über Bewegungsmelder noch nie hinbekommen.* [Источник] (https://forum.iobroker.net/post/482899)
-* *super sache die du da gebaut hast 🙂* [источник] (https://forum.iobroker.net/post/485306)
-* *Адаптер находится под миром Einsatz und läuft sehr gut. Danke für Deine Arbeit.* [Источник] (https://forum.iobroker.net/post/485463)
-* *ich finde es nahezu unassbar mit welcher Hingabe und Geschwindigkeit Du hier den Adapter nach vorne assignst. РЕСПЕКТ<br> Bis jetzt konnte ich tatsächlich alles был таким образом, чтобы Blockly&#39;s hatte in den Adapter migrieren, echt toll.<br> Ich würde mir wünschen, wenn der Adapter so weit fertig ist, das Du Dir dein ein oder anderen Adapter vornimmst, &quot;forkst&quot; und diesen dann ebenfalls so usernah weiterentwickelst 🙄* [источник] (https://forum.iobroker.net/post / 488090)
-* *erstmal Hut ab. Der Adapter ist echt gut gelungen und es lassen sich nach einer gewissen Einarbeitungszeit in die Adapterlogik sehr viele meiner Skripte damit adaptieren. (...) Trotzdem nochmal dickes Lob, viele Dinge laufen damit seit einiger Zeit reibungslos und übersichtlicher als через скрипт. 👍* [источник] (https://forum.iobroker.net/post/492035)
-* *Адаптер Danke für den coolen - da kann ich nur meinen Hut davor ziehen!* [Источник] (https://forum.iobroker.net/post/496452)
-* *ein dickes Lob für den Adapter und Deine vorbildliche Arbeit 👍* [источник] (https://forum.iobroker.net/post/497110)
-* *vielen Dank für die wahnsinnig gute Arbeit!* [источник] (https://forum.iobroker.net/post/500373)
-* *Danke, man das Teil ist so mächtig geworden, aber GENIAL!* [Источник] (https://forum.iobroker.net/post/500518)
+Этот адаптер не существовал бы без Mic-M. Он запустил этот классный адаптер и довел его до хорошо работающего адаптера. Из-за личных проблем он прекратил работу над этим. Спасибо вам за вашу работу. Вы можете взять его на себя или вместе работать над этим очень полезным адаптером. Многие поклонники этого адаптера просили продолжить это, и это произойдет внутри iobroker-community-adapters.
 
 ## Введение
-В нашей домашней автоматизации [ioBroker](https://github.com/ioBroker/ioBroker) у нас есть несколько триггеров, например
+В нашей домашней автоматизации [ioBroker](https://github.com/ioBroker/ioBroker) у нас есть несколько триггеров, например.
 
- * датчик движения в коридоре срабатывает,
+ * срабатывает датчик движения в коридоре,
  * настенный выключатель нажат,
- * наступает определенное время (например, 30 минут после захода солнца или пн-пт в 7:00)
+ * наступает определенное время (например, через 30 минут после захода солнца или с понедельника по пятницу в 7:00)
 
-При срабатывании такого триггера мы часто хотим, чтобы выполнялись (не) дополнительные условия (например, «сегодня выходной», «окно гостиной открыто», яркость больше 100 люкс и т. Д.).
+После срабатывания такого триггера мы часто хотим, чтобы (не) выполнялись дополнительные условия (например, «Сегодня выходной», «Окно гостиной открыто», яркость выше 100 люкс и т. д.).
 
-После прохождения этих дополнительных проверок целевые состояния (т.е. **Целевые устройства** должны быть переключены.
+После прохождения этих необязательных проверок целевые состояния (например, **Целевые устройства**) должны быть переключены.
 
-Кроме того, после срабатывания датчика движения должен запускаться таймер, который (как только движение прекращается) отключает целевые устройства через заданное количество секунд.
+Кроме того, после срабатывания датчика движения должен запускаться таймер, который (как только движения больше нет) отключает целевые устройства через заданное количество секунд.
 
-Все это можно легко сделать с помощью этого адаптера и даже многое другое ;-)
+Все это можно легко сделать с помощью этого адаптера, и даже многое другое ;-)
 
-Цель этого адаптера - предоставить вам очень **удобную среду** для различных сценариев, которые вам нужны, и хотя приведенный выше был всего лишь одним простым примером с использованием IFTTT (* если это, то это *), вы можете настроить множество различных сценариев (называемых «зонами» в варианте адаптера) для вашего дома.
-Кроме того, если вы используете Javascripts / Blockly, вы, как правило, сможете заменить несколько скриптов этим адаптером, что также обеспечит большую согласованность, стабильную среду и, особенно, более удобную для пользователя конфигурацию.
+Цель этого адаптера — предоставить вам очень **удобную среду** для различных сценариев, которые вам нужны, и, хотя приведенное выше было всего лишь одним простым примером использования IFTTT (*если это, то это*), вы можете настроить множество различных сценариев (называемых «зонами» в опции адаптера) для вашего дома.
+Кроме того, если вы используете Javascripts/Blockly, вы, как правило, сможете заменить несколько сценариев этим адаптером, что также обеспечит большую согласованность, стабильную среду и особенно более удобную для пользователя конфигурацию.
 
-## Установка
-Просто регулярно устанавливайте адаптер через интерфейс администратора ioBroker. Адаптер находится как в последней версии, так и в стабильном репозитории.<br> После этого добавьте соответствующий экземпляр адаптера.
+## Монтаж
+Просто регулярно устанавливайте адаптер через интерфейс администратора ioBroker. Адаптер находится как в последнем, так и в стабильном репозитории.<br> После этого добавьте соответствующий экземпляр адаптера.
 
 ## Инструкции
 Я включил все инструкции прямо в настройки администратора этого адаптера.
 
-<sub>Причина: у нас есть хороший термин [Medienbruch](https://de.wikipedia.org/wiki/Medienbruch) на немецком языке, который является ненужным требованием для «разрыва» текущего носителя и переключения на другой носитель (например, другой веб-сайт, программу и т. Д.) Для выполнения / завершения задача и т.д. Поскольку это громоздко, я включил все инструкции в настройки администратора этого адаптера.</sub>
+<sub>Причина: у нас есть хороший термин [Медиенбрух](https://de.wikipedia.org/wiki/Medienbruch) в немецком языке, который является ненужным требованием для «слома» текущего носителя и переключения на другой носитель (например, другой веб-сайт, программу и т. д.) для выполнения/завершения. задача и т. д. Поскольку это громоздко, я включил все инструкции в настройки администратора этого адаптера.</sub>
 
-Также вы можете прочитать большинство этих инструкций здесь:
+Кроме того, вы можете прочитать большую часть этих инструкций здесь:
 
-* [** Основные инструкции адаптера **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) - для немецкого языка [щелкните здесь (Deutsch) ] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
-* [** Целевые устройства **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) - для немецкого языка [щелкните здесь (Deutsch)] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
-* [** Дополнительные условия **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) - для немецкого языка [щелкните здесь (Deutsch )] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
-* [** Триггеры: датчики движения **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) - для немецкого [ щелкните здесь (Deutsch)] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
-* [** Триггеры: другие устройства (настенный выключатель и т. Д.) **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_en .md) - для немецкого языка [щелкните здесь (Deutsch)] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de.md)
-* [** Триггеры: зависящие от времени **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - для немецкого [щелкните здесь (Deutsch)] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
-* [** Zones **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) - для немецкого языка [щелкните здесь (Deutsch) ] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
-* [** Настройки выполнения **] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) - для немецкого языка [щелкните здесь (Deutsch )] (https://github.com/Mic-M/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
+* [**Основные инструкции по адаптеру**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) — для немецкого языка [нажмите здесь ( Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
+* [**Целевые устройства**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) — для немецкого [ нажмите здесь (немецкий)] (https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
+* [**Дополнительные условия**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) — для немецкого языка [нажмите здесь (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
+* [**Триггеры: датчики движения**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) — для Немецкий [нажмите здесь (немецкий)] (https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
+* [**Триггеры: другие устройства (настенный выключатель и т. д.)**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger -devices_en.md) — для немецкого языка [нажмите здесь (Deutsch)] (https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de. мкр)
+* [**Триггеры: зависят от времени**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - для немецкого языка [нажмите здесь (Deutsch)] (https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
+* [**Зоны**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) — для немецкого языка [нажмите здесь ( Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
+* [**Настройки выполнения**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) — для немецкого языка [нажмите здесь (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
 
-## Скриншоты вариантов адаптера (17-сен-2020)
-Обратите внимание, что эти снимки экрана являются снимками и не отражают последние параметры адаптера.
+## Скриншоты вариантов адаптера (17 сентября 2020 г.)
+Обратите внимание, что эти снимки экрана являются моментальными снимками и не отражают последние параметры адаптера.
 Это просто для того, чтобы предоставить вам обзор вариантов адаптера.
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-start.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-motion.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-other.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-triggers-time.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-target-devices.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-conditions.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-zones-execution.png)
 
-![Параметры SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
+![Опции SmartControl](../../../en/adapterref/iobroker.smartcontrol/admin/img/option-screenshots/tab-further-options.png)
 
 ## Ссылки и ресурсы
-* [** Постоянная ссылка на форум ioBroker для Smart Control (заставка) **] (https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
+* [**Постоянная ссылка на форум Smart Control ioBroker (страница-заставка)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
 
-## Примечания
-* Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin] (https://github.com/ioBroker/plugin -sentry # плагин-часовой)! Сторожевые отчеты используются начиная с js-controller 3.0.
-* Значок адаптера сделан [freepik] (https://www.flaticon.com/authors/freepik) из [flaticon.com] (https://www.flaticon.com/). </sup> </sub>
+## Заметки
+* Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. ** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по Sentry-Plugin] (https://github.com/ioBroker/plugin -sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+* Значок адаптера создан [freepik](https://www.flaticon.com/authors/freepik) с сайта [flaticon.com](https://www.flaticon.com/).</sup></sub>
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.1 (2022-10-20)
+* (simatec) (oelison) dark mode fix #5
+* (oelison) log info type error #16
 
-### Latest Development Version (not yet published on npm)
+### 1.3.0 (2022-10-14)
+* (oelison) remove errors and warnings ocured during deploy
+* (oelison) comment for zones added
+
+### 1.2.2 (2022-10-11)
+* (oelison) migration to links in iobroker-community-adapters
+* (oelison) update due to open PR of original repo
+* (oelison) node testing to 12, 14, 16
+
+### 1.2.1
+* (Mic-M) Enhancement: Now, all adapter config validations take place while saving the adapter configuration, and all identified errors are shown in a dialog. Addresses issue [#61](https://github.com/Mic-M/ioBroker.smartcontrol/issues/61)
+
+### 1.2.0
 * (Mic-M) Fix: [#60 - Linked triggers of motion sensors issue](https://github.com/Mic-M/ioBroker.smartcontrol/issues/60)
 * (Mic-M) Several code improvements
-
+* (Mic-M) Issues [#35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) and [#43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) confirmed as resolved, therefore all workaround code removed.
 
 ### 1.1.1 
 * (Mic-M) Fix: Most likely finally fixes [issue #43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) as well as workaround for [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) (scheduleJob() of node-schedule module: now applying 'cancel' method prior to reschedule every midnight)
@@ -122,7 +119,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 1.1.0 
 * (Mic-M) Improvement: if multiple motion sensors assigned to zone, zone will not switch off if any other motion sensor assigned to same zone is still motion=true (addresses [issue #45](https://github.com/Mic-M/ioBroker.smartcontrol/issues/45))
 * (Mic-M) Internal: align testing with latest adapter creator (remove travis and use github test only)
-
 
 ### 1.0.0 
 * (Mic-M) No changes - just prepared versioning to add adapter to stable repository per adapter development documentation, [Versioning section](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
@@ -145,7 +141,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.5.10
 * (Mic-M) Potential fix / workaround: for issue #35 to verify if schedule was called before at the same time
 
-
 ### 0.5.9
 * (Mic-M) **Breaking Change** New feature: 'Target Devices' -> 'Target URLs': added separate URL field to switch device off. This is breaking, since adapter admin config will have blank fields of 'Target URLs' once you update the adapter, and state ids will change as well. 
 * (Mic-M) Enhancement: 'Target Devices' -> 'Target URLs' : [Allow DNS name](https://forum.iobroker.net/post/510154)
@@ -157,7 +152,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) Various code fixes and improvements
 * (Mic-M) Potentially fix of [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) - to be tested
 * (Mic-M) Enhancement for 'Target Devices': Add table to call URLs als target (implementation of [issue #1](https://github.com/Mic-M/ioBroker.smartcontrol/issues/1))
-
 
 ### 0.5.6
 * (Mic-M) Hotfix: loading admin settings for enums
@@ -185,13 +179,11 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) New feature: ZONES - New option "Delay for switching zone on (in seconds)" - [issue #31](https://github.com/Mic-M/ioBroker.smartcontrol/issues/31)
 * (Mic-M) New feature: ZONES - New option "Never switch off if..." - [issue #32](https://github.com/Mic-M/ioBroker.smartcontrol/issues/32)
 
-
 ### 0.4.4
 * (Mic-M) New feature: allow comparison operators `!=` / `<>` in 'TRIGGERS -> Other triggers' to trigger if state value is unequal. Example: `<>30` or `!=30` - see [Forum](https://forum.iobroker.net/post/496133)
 * (Mic-M) Fix: Don't create `smartcontrol.x.options.TargetDevices.` states for enums since this does not make sense for enums.
 * (Mic-M) Fix: Don't create `smartcontrol.x.targetDevices.` states for enums since this does not make sense for enums.
 * (Mic-M) Moved log `Trigger xyz was already activated x seconds ago and is ignored...` from regular info log to debug/'extended info log' - [Forum](https://forum.iobroker.net/post/496604)
-
 
 ### 0.4.3
 * (Mic-M) New feature in adapter options: configure number of entries in 'smartcontrol.x.info.log.zoneActivations.json'
@@ -204,12 +196,10 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.4.1
 * (Mic-M) Fixed io-package.json
 
-
 ### 0.4.0
 * (Mic-M) New feature: Tab 'Target Devices': New table 'Targets: Enum functions' to **support enum functions**, and optionally limit to certain enum rooms. [issue #29](https://github.com/Mic-M/ioBroker.smartcontrol/issues/29).
 * (Mic-M) New feature: New JSON state for recent zone activations: 'smartcontrol.x.info.log.zoneActivations.json'. [issue #30](https://github.com/Mic-M/ioBroker.smartcontrol/issues/30).
 * (Mic-M) Code fixes
-
 
 ### 0.3.10
 * (Mic-M) Fixed io-package.json
@@ -220,7 +210,7 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.3.8
 * (Mic-M) Updated readme since adapter [is now in latest repository](https://github.com/ioBroker/ioBroker.repositories/pull/930)
 * (Mic-M) Updated translations, which also addresses [#26](https://github.com/Mic-M/ioBroker.smartcontrol/issues/26)
-* (Mic-M) Fixed/improved 'admin/index_m.js' 
+* (Mic-M) Fixed/improved 'admin/index_m.js'
 
 ### 0.3.7
 * (Mic-M) Mini update, just under the hood.
@@ -234,7 +224,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 ### 0.3.4
 * (Mic-M) Test: Implementation of markdown documentation files within adapter configuration by using [zero-md](https://github.com/zerodevx/) for tables 'Target Devices' and 'Additional Conditions' to prepare adapter for multiple languages. Based on your language set in the adapter configuration, either German will be displayed (if language set to German) or English, if set language is not German.
 
-
 ### 0.3.3
 * (Mic-M) New feature for Motion sensors: the timer duration and brightness threshold can now be changed via states. These states are available under `smartcontrol.0.options.TriggerMotion.xxx.<duration|briThreshold>` for each of your motion sensors. Please note that any change will cause an adapter restart (for initializing and clearing all existing timers to apply the new values). [Issue #18](https://github.com/Mic-M/ioBroker.smartcontrol/issues/18)
 
@@ -243,7 +232,6 @@ hash: LTyXvXQ7NKSdp3PDFlpGo1n1Fm0yT+V45+Ss1T7j24o=
 * (Mic-M) Fix [adapter-check.iobroker.in](https://adapter-check.iobroker.in/) error [E144] "common.installedFrom field found in io-package.json. Must be removed."
 * (Mic-M) Fix for adapter unload: check schedule variable for undefined.
 * (Mic-M) Fixed debug log line
-
 
 ### 0.3.1
 * (Mic-M) Fix error if no duration is set for motion sensor - [Forum Link](https://forum.iobroker.net/post/487630)
@@ -257,8 +245,6 @@ can have an effect to your existing configuration.
 * (Mic-M) New feature: Time triggers - added options for additional conditions for 'any' or 'all'. [issue #24](https://github.com/Mic-M/ioBroker.smartcontrol/issues/24)
 * (Mic-M) New feature: Zones > Execution - added options for additional conditions for 'any' or 'all'. 
 * (Mic-M) Many fixes under the hood
-
-
 
 ### 0.2.2
 * (Mic-M) New feature: In '3. TRIGGERS', 'Other Triggers', you can now easily create own states as triggers under 'smartcontrol.x.userstates'
@@ -319,10 +305,8 @@ Change Log for 0.2.0:
 * (hombach) corrected translations in docs/translations.md
 * (hombach) extended Travis tests to include ARM CPUs
 
-
 ### 0.1.1-beta.2
 * (Mic-M) Fix: Perform configuration validation and correction also for non-active table rows, since these can be switched on thru `smartcontrol.x.options.xxx.xxx.active` states.
-
 
 ### 0.1.1-beta.1
 * (Mic-M) New feature: New option in motion sensor table: if activated, motion triggers will not set a timeout if target device was turned on previously without a motion trigger ("manually"). [Forum Link](https://forum.iobroker.net/post/433871)
@@ -377,6 +361,8 @@ Change Log for 0.2.0:
 MIT License
 
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
+
+Copyright (c) 2022 Oelison <iobrokersmartcontrol@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,6 +2,7 @@
 title:       "Entwicklung - Dokumentation"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/community/doc.md"
+template:    true
 ---
 
 # Mithilfe bei der Erstellung der Dokumentation

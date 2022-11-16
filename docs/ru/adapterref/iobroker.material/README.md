@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
+hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -17,17 +17,17 @@ hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
 
 ![Скриншоты](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
-## Установка
+## Монтаж
 **Важно!** Этот адаптер нельзя установить напрямую с GitHub. Только из нпм.
 
-## Использование
+## Применение
 Очень важно знать, что адаптер показывает только те устройства, которые добавлены в некоторые категории, например *комнаты* или *функции*.
 Лучше, если каждое устройство будет относиться к обеим категориям. Потому что каждое устройство имеет тип и место.
 
 ## Поддерживаемые типы
 ### Выключатель
 ### Диммер
-### Медиа-плейер
+### Медиа плеер
 ### Объем
 ### Громкость группы
 ## Сделать
@@ -50,9 +50,15 @@ hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.2.2 (2022-10-18)
+* (bluefox) migrated to MUIv5
+* (bluefox) corrected error with blinds
+* (bluefox) corrected error with echarts
+* (bluefox) corrected error with background upload
+
 ### 1.1.2 (2021-12-28)
 * (bluefox) Fixed double sending in the switch control
 

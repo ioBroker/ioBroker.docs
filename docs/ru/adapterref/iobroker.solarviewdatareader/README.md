@@ -3,83 +3,85 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarviewdatareader/README.md
 title: ioBroker.solarviewdatareader
-hash: DGtXy5iIPV0aJXSBR+TGxY/qUvt9Dhwsqoorf7fJtlU=
+hash: giiX9+hLwLWA5HvDhp/CfEdsy2+ubQ+cvWtQJK0h248=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
-![Статус зависимости](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
 ![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
 
 # IoBroker.solarviewdatareader
-** Тесты: ** ![Тестирование и выпуск](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер solarviewdatareader для ioBroker
-Адаптер считывает данные из регистратора данных Solarview.
+## Адаптер SolarViewDataReader для ioBroker
+Адаптер считывает данные с регистратора данных Solarview.
 Здесь вы можете найти дополнительную информацию о Solarview: https://www.solarview.info/solarlogger.aspx
 
 ## Конфигурация
 ### IP-адрес, порт
-Чтобы получить данные от регистратора данных, вы должны ввести IP-адрес и порт вашего TCP-сервера Solarview.
-Стандартный порт - 15000. См. Документацию Solarview https://www.solarview.info/solarlogger.aspx.
+Для получения данных из регистратора данных необходимо ввести ip-адрес и порт с вашего TCP-сервера solarview.
+Стандартный порт — 15000. См. документацию Solarview https://www.solarview.info/solarlogger.aspx.
 
-### Конвертер D0
+### Преобразователь D0
 Если у вас есть преобразователь D0, подключенный к регистратору данных Solarview, вы можете включить эту опцию.
-По вопросам обращайтесь к документации Solarview.
+Если у вас возникнут вопросы, обратитесь к документации Solarview.
 
 ### Сумма счетчика собственного потребления и от 1 до 4
 Если у вас есть измеритель S0, вы можете включить эту опцию.
-Вы можете иметь до 4-х счетчиков собственного потребления и сумму со всех счетчиков.
-По вопросам обращайтесь к документации Solarview.
+Вы можете иметь до 4 счетчиков собственного потребления и сумму со всех счетчиков.
+Если у вас возникнут вопросы, обратитесь к документации Solarview.
 
-### Инверторы с 1 по 4
+### Инвертор с 1 по 4
 Каждый инвертор можно включить отдельно.
-По вопросам обращайтесь к документации Solarview.
+Если у вас возникнут вопросы, обратитесь к документации Solarview.
 
 ### Интервал, начало интервала, конец интервала
-Здесь вы можете настроить временной диапазон и интервал. Диапазон времени для 24 часов - с 00:00 до 23:59.
+Здесь вы можете настроить временной диапазон и интервал. Временной диапазон для 24-часового режима составляет от 00:00 до 23:59.
 Не с 00:00 до 00:00.
 
-### Установить системную переменную CCU, Системную переменную
-Это особенность Homematic CCU. Вы можете определить системную переменную в CCU.
+### Установка системной переменной CCU, Системная переменная
+Это специальная функция для домашнего CCU. Вы можете определить системную переменную в CCU.
 В этой системной переменной сохраняется фактическое значение PAC.
-Вы должны указать состояние ioBroker для этой системной переменной -> **например. "hm-rega.0.12345"**
+Вы должны заполнить состояние ioBroker для этой системной переменной -> ** например. "hm-rega.0.12345"**
 
 ### Созданные состояния
-#### Pvig, pvi1..4, d0supply, d0потребление
-daily = дневная выработка (кВтч) ежемесячно = ежемесячная выработка (кВтч) годовая = годовая выработка (кВтч) общая = общая выработка (кВтч) ток = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжение генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза 1 питания сети UL2, IL2 = напряжение сети, фаза 2 питания сети UL3, IL3 = напряжение сети, фаза 3 питания сети TKK = Инвертор температуры
+#### Pvig, pvi1..4, d0supply, d0consumment
+daily = дневная выработка (кВтч) monthly = месячная выработка (кВтч) yearly = годовая выработка (кВтч) total = общая выработка (кВтч) current = мощность генератора в Вт UDC, UDCB, UDCC, UDCD = напряжения генератора в вольтах на MPP-Tracker IDC, IDCB, IDCC, IDCD = ток генератора в амперах на MPP-Tracker UL1, IL1 = напряжение сети, фаза 1 сети UL2, IL2 = напряжение сети, фаза 2 сети UL3, IL3 = напряжение сети, фаза 3 сети TKK = Инвертор температуры
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.6 (2022-07-04)
+* (afuerhoff) dependencies updated
+* (afuerhoff) Interval settings changed from minutes to seconds
+* (afuerhoff) States only writen after changes
+
+### 1.0.5 (2022-02-17)
+* (afuerhoff) dependencies updated
+* (afuerhoff) test and release updated
+* (afuerhoff) smaller changes
+
+### 1.0.4 (2022-02-09)
+* (afuerhoff) dependencies updated
+* (afuerhoff) issue #20 fixed
+
+### 1.0.3 (2021-12-08)
+* (afuerhoff) dependencies updated
+
 ### 1.0.2 (2021-05-07)
 * (afuerhoff) node.js 14 and 16 compatibilty
 * (afuerhoff) dependencies updated
 
-### 1.0.1 (2021-05-01)
-* (afuerhoff) changes due to js-controller 3.3.x
-
-### 1.0.0 (2021-04-25)
-* (afuerhoff) dependencies updated
-* (afuerhoff) documentation changed
-* (afuerhoff) minor changes
-* (afuerhoff) due to stable state version set to 1.0.0
-
-### 0.2.1
-* (afuerhoff) self consumption meter optimized
-### 0.2.0
-* (afuerhoff) Error handling optimized, self consumption meter implemented
-
 ## License
 MIT License
 
-Copyright (c) 2019-2021 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2022 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

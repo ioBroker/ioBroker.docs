@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: zylei5wGtI1BkOrVUAkm/O7G4yKwgTd+32tp5Z2XmEk=
+hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
 ---
 ![Logo](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -22,8 +22,8 @@ Adapter für Innoxel Master 3 (https://innoxel.ch)
 ![Testen und freigeben](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ## Anforderungen
-- NodeJS >= 12.x
-- ioBroker >= 3.x, mit Admin >= 5.x
+- NodeJS >= 14.x
+- ioBroker >= 4.x, mit Admin >= 5.x
 - Innoxel Master 3 Smart Home-System
 
 ## Installation
@@ -52,7 +52,7 @@ Folgende Module wurden getestet/werden unterstützt:
 - Innoxel-Master 3
 - Schalter 8 G1
 - Motor 4 x 230 VAC G1
-- Dimmen 4 x 600 VA
+- Dimmen Sie 4 x 600 VA
 - Schnupper-RGB
 - Therme
 - Wetterstation P03/3-RS485-CET
@@ -104,6 +104,22 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.1.5 (2022-02-12)
+
+-   (matthsc) don't always terminate adapter on errors while updating identities
+-   (matthsc) improve error messages
+
+### 0.1.4 (2022-01-25)
+
+-   (matthsc) fix double decryption issues with password in adapter admin
+-   (matthsc) change input field types in adapter admin
+
 ### 0.1.3 (2022-01-16)
 
 -   (matthsc) improve error messages

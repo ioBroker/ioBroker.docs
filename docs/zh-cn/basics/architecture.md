@@ -4,15 +4,13 @@ lastChanged: 05.02.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/basics/architecture.md
-hash: 6Rz50x9RpGBE04w3ZBhuaKXtL/FmxELL0OpbQG3ep7s=
+hash: dEOvJg31Pql+9I1bf1Zejb5UinJLiyrxz+LapNGueVk=
 ---
 # 系统构建
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
-
 ＃＃ 建筑学
-ioBroker 是模块化的，即由许多单独的组件组成。每个模块都有一个特定的任务。为了保持概览，ioBroker 因此为其所有模块配备了一个中央协调器。该协调员是在后台工作的`js-controller`。他负责中央数据存储以及所有模块之间的管理和通信。这些模块本身被称为`Adapter`。适配器仅在需要时由用户安装。基于网络的管理界面`admin`本身就是一个适配器。 Admin Adapter或简称“Admin”是ioBroker系统的管理接口。 [Admin](https://www.iobroker.net/#de/documentation/admin/README.md)通常以地址[http://localhost:8081开头](http://localhost:8081) 呼叫。
+ioBroker 是模块化的，即由许多单独的组件组成。每个模块都有一个特定的任务。因此，为了保持概览，ioBroker 为其所有模块配备了一个中央协调器。该协调员是在后台工作的`js-controller`。他负责中央数据存储以及所有模块之间的管理和通信。这些模块本身被称为`Adapter`。适配器仅在需要时由用户安装。基于网络的管理界面`admin`本身就是一个适配器。 Admin Adapter或简称“Admin”是ioBroker系统的管理接口。 [Admin](https://www.iobroker.net/#de/documentation/admin/README.md)通常以地址[http://localhost:8081开头](http://localhost:8081) 呼叫。
 
-使用 Admin 安装新适配器时，适配器文件首先从 Internet 加载并写入服务器硬盘驱动器。如果要启动适配器，首先创建适配器的`Instanz`。每个适配器实例都可以单独配置，并由管理员独立停止和启动。因此，每个实例都在自己的进程中运行，该进程与后台的 ioBroker js-controller 进行通信。
+使用 Admin 安装新适配器时，适配器文件首先从 Internet 加载并写入服务器硬盘驱动器。如果要启动适配器，则首先创建适配器的`Instanz`。每个适配器实例都可以单独配置，并由管理员独立停止和启动。因此，每个实例都在自己的进程中运行，该进程与后台的 ioBroker js-controller 进行通信。
 
 在具有多个 ioBroker 服务器的 `Multihost` 系统中，适配器的实例也可以分布在不同的服务器上。这允许在现场直接连接负载或附加硬件（例如 IO 端口、USB）。
 
@@ -25,10 +23,10 @@ ioBroker 和适配器主要是用 JavaScript 编程语言编写的。运行 Java
 
 与许多开源技术一样，Node.js 正在迅速发展。提高稳定性和安全性甚至添加新功能的小更新会定期出现。
 
-具有 **even** 主要版本号的 Node.js 版本称为 LTS 版本（长期支持），并会维护多年（例如 12.x）。每年都有一个新版本进入 LTS - 2021 年，即 Node.js 16，它于 4 月发布，将从 2021 年 10 月开始成为 LTS 版本。
+具有 **even** 主要版本号的 Node.js 版本被称为 LTS 版本（长期支持），并且会维护多年（例如 12.x）。每年都有一个新版本进入 LTS - 2021 年，即 Node.js 16，它于 4 月发布，将从 2021 年 10 月开始成为 LTS 版本。
 
 同时，早期的 LTS 版本达到了生命的尽头（EOL，End of Life）。 Node.js 10 于 2021 年 4 月获得 EOL 状态，因此将不再收到任何更新，Nodejs 12.x 将在 2022 年 4 月结束其生命周期。所以不会有更多的安全更新！
 
-ioBroker 使用了 JavaScript 开源场景中的许多模块和扩展，在这些场景中，经常发生在不久之后不再支持 EOL 的版本。这在第一步没有实际影响，但在中期会有适配器，后来还有 js-controller，它不再支持 EOL 版本的 Node.js。
+ioBroker 使用 JavaScript 开源场景中的许多模块和扩展，其中经常发生在此后不久不再支持 EOL 的版本。这在第一步没有实际影响，但在中期会有适配器，后来还有 js-controller，它不再支持 EOL 版本的 Node.js。
 
 @@@ 架构层的漂亮图片@@@ @@@ 解释 JS 控制器并过渡到适配器和实例 @@@

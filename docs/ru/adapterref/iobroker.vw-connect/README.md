@@ -3,34 +3,36 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
+hash: KIGSWEenLlnD26sTLydYCkUVnwZBpqA8BdCy8WePGn0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vw-connect.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vw-connect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vw-connect.svg)
 ![Статус зависимости](https://img.shields.io/david/ta2k/iobroker.vw-connect.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ta2k/ioBroker.vw-connect/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
 # IoBroker.vw-connect
 ## Адаптер vw-connect для ioBroker
 Адаптер для VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect и We Connect Go
 
-Обновите свою систему на узле 10.
+Пожалуйста, обновите вашу систему на Node 10.
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
-## Использование
+## Применение
 Используйте состояние под дистанционным управлением для удаленного управления автомобилем.
+Нормальное обновление — это интервал опроса для получения данных от VAG Cloud. Обновление Force предназначено для принудительного обновления для неэлектрических автомобилей. Это число ограничено VAG до тех пор, пока автомобиль снова не включится.
+Данные о поездке доступны только для неэлектрических автомобилей.
 
 ## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
 
 ## Поля статуса Пояснение
-Состояния дверей и окон:
+Состояние дверей и окон:
 
-- открытые: 1
+- открыто: 1
 - заблокировано: 2
 - закрыто: 3
 
@@ -114,6 +116,15 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 ```
 
 ## Changelog
+
+### 0.0.51
+
+- fix audi etron login
+  
+### 0.0.48
+
+- fix login, fix audi update, add limit for wallbox
+  
 
 ### 0.0.43
 

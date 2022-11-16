@@ -26,6 +26,10 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
 
+### 0.0.7
+* (PLCHome) Schalten über remote funktioniert wieder.
+* (PLCHome) Nach dem Schalten über Control kann von der Cloud der vorherige Staus übermittelt werden. Dadurch kann es zu einem Toggeln des Zutands kommen.
+
 ### 0.0.6
 * (PLCHome) Definiertes Setzen von Zuständen
 * (PLCHome) Ändern Fahrenheit Celsius
@@ -41,7 +45,7 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 ## License
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

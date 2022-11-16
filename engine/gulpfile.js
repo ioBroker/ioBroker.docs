@@ -515,7 +515,7 @@ gulp.task('9.build', done => {
                 // restore data folder
                 !fs.existsSync(SRC_DATA_DIR) && fs.mkdirSync(SRC_DATA_DIR, {recursive: true});
                 fs.existsSync(TGT_DATA_DIR) && fs.readdirSync(TGT_DATA_DIR)
-                    .forEach(name => fs.writeFileSync(SRC_DATA_DIR + '/' + name, fs.readFileSync(TGT_DATA_DIR + '/' + name)));
+                    .forEach(name => fs.writeFileSync(`${SRC_DATA_DIR}/${name}`, fs.readFileSync(`${TGT_DATA_DIR}/${name}`)));
 
                 done();
             });
@@ -527,7 +527,7 @@ gulp.task('9.build', done => {
             // restore data folder
             !fs.existsSync(SRC_DATA_DIR) && fs.mkdirSync(SRC_DATA_DIR, {recursive: true});
             fs.existsSync(TGT_DATA_DIR) && fs.readdirSync(TGT_DATA_DIR)
-                .forEach(name => fs.writeFileSync(SRC_DATA_DIR + '/' + name, fs.readFileSync(TGT_DATA_DIR + '/' + name)));
+                .forEach(name => fs.writeFileSync(`${SRC_DATA_DIR}/${name}`, fs.readFileSync(`${TGT_DATA_DIR}/${name}`)));
 
             done();
         });

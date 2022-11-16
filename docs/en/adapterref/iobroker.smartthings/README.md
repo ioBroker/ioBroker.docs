@@ -31,7 +31,9 @@ https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
 
-* 0.0.1 (TA2k) initial release
+* 0.0.4 Reduced cpu load while writing states
+
+* 0.0.3 (TA2k) initial release
 
 ## License
 MIT License

@@ -1,10 +1,19 @@
 ---
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.luftdaten.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.luftdaten?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.luftdaten?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.luftdaten?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.luftdaten?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.luftdaten?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.luftdaten?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.luftdaten?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.luftdaten?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.luftdaten?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.luftdaten?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.luftdaten/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.luftdaten?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.luftdaten.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/luftdaten-stable.svg
 BADGE-Installed: http://iobroker.live/badges/luftdaten-installed.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/klein0r/ioBroker.luftdaten/badge.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.luftdaten.png?downloads=true
 ---
 ![Logo](../../admin/luftdaten.png)
 
@@ -54,7 +63,9 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
 NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Added link to sensor map to instance configuration
+* (klein0r) Updated dependencies
 * (klein0r) Updated depedency for js-controller to 4.0.15
+* (klein0r) Dropped Admin 5 support
 
 ### 2.2.4 (2022-04-14)
 

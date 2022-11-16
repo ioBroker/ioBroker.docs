@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham/README.md
 title: Менеджер по аксессуарам ioBroker Homebridge
-hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
+hash: YWFx1PvhxXq7iwHc0gKP5lLvYFgwg1b+x09oPZ8cidA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
@@ -22,32 +22,54 @@ hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 
 ### Режим по умолчанию (оболочка)
 В режиме по умолчанию адаптер позволяет напрямую использовать подключаемые модули homebridge.
-Вы можете ознакомиться со всеми доступными плагинами на веб-сайте NPM по [поиск по ключевому слову `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
+Вы можете ознакомиться со всеми доступными подключаемыми модулями на веб-сайте NPM по адресу [поиск по ключевому слову `homebridge-plugin`](https://www.npmjs.com/search?q=homebridge-plugin).
 
 Вы просто добавляете список модулей в конфигурацию адаптера и предоставляете конфигурацию в JSON-редакторе (см. описания плагинов).
 После этого все объекты Homebridge также будут созданы в ioBroker, и все объекты, доступные для записи, также можно будет изменить.
 
-** ВАЖНО: этот режим позволяет использовать интеграцию устройств с предоставленными плагинами Homebridge. Не предусмотрен «мост», который может использоваться приложением Home!**
+** ВАЖНО: этот режим позволяет использовать интеграцию устройств с предоставленными плагинами Homebridge. Не предусмотрено никакого «моста», который может использоваться приложением Home!**
 
 Ссылку на успешно опробованные плагины с примерами можно найти здесь: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
 ### Режим локального домашнего моста
-Если вы хотите иметь опубликованный мост, который будет использоваться приложением Home, а также взаимодействовать с ним из ioBroker и получать данные, но у вас еще не установлен homebridge, используйте этот режим.
+Если вы хотите, чтобы опубликованный мост использовался приложением Home, и хотите также взаимодействовать с ним из ioBroker и получать данные, но еще не установили домашний мост, используйте этот режим.
 
-Локальный режим устанавливает текущую совместимую версию homebridge и запускает ее от имени пользователя ioBroker. Вы предоставляете полную конфигурацию домашнего моста, используя ioBroker.
+Локальный режим устанавливает текущую совместимую версию homebridge и запускает ее от имени пользователя ioBroker. Вы предоставляете полную конфигурацию домашнего моста с помощью ioBroker.
 Установка модулей хоумбриджа также осуществляется через ioBroker.
 
 **ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста начиная с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост!**
 
 ### Global-Homebridge-Mode
-Если вы уже используете Homebridge (Apple OpenSource SmartHome) в качестве глобальной установки на хосте, на котором также работает ioBroker, вы можете использовать эту существующую установку Homebridge и запустить эту установку Homebridge как процесс ioBroker. В этом случае сервер Homebridge запускается ioBroker.
+Если вы уже используете Homebridge (Apple OpenSource SmartHome) в качестве глобальной установки на хосте, на котором также работает ioBroker, вы можете использовать эту существующую установку Homebridge и запустить эту установку Homebridge как процесс ioBroker. **В этом случае сервер Homebridge запускается ioBroker.**
+
+**ВАЖНО: Вам необходимо убедиться, что глобальная служба НЕ запущена системой или чем-то подобным. ioBroker сам сделает старт! Ниже приведены рекомендации по настройке.**
+
+**ВАЖНО: Поскольку ioBroker запускает Homebridge, ioBroker также ведет журнал. ВЫ можете установить уровень логирования экземпляра на глупый, чтобы также видеть все журналы Homebridge, иначе они будут отфильтрованы для важных вещей.**
+
 Кроме того, все состояния из Homebridge доступны как состояния в ioBroker и позволяют управлять ими из ioBroker.
 
 Чтобы это работало, вам необходимо указать расположение системной глобальной папки node-modules. Для этого вызовите **npm root -g**. Кроме того, вам необходимо указать путь к каталогу конфигурации homebridge (обычно .homebridge в папке «users»).
 
-**ВАЖНО: ioBroker запускается от имени пользователя «iobroker», а homebridge обычно от имени пользователя root или пользователя homebridge (в зависимости от того, как вы его установили). Вам нужно убедиться, что пользователь ioBroker может получить доступ к папке homebride «persistance», иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!)**
+**ВАЖНО: ioBroker запускается от имени пользователя «iobroker», а homebridge обычно от имени пользователя root или пользователя homebridge (в зависимости от того, как вы его установили). Вы должны убедиться, что пользователь ioBroker может получить доступ к папке homebride «persistance», иначе вы увидите ошибки, что файл не может быть сохранен (что может привести к сбою адаптера!)**
 
 **ВАЖНО: При использовании дочерних мостов (новая функция домашнего моста начиная с версии 1.3.x) адаптер НЕ МОЖЕТ получить доступ к данным, предоставляемым этими дочерними мостами! Доступен только главный мост!**
+
+#### Установить как данные глобального моста
+Благодаря @Anzic23 здесь некоторые подробности о том, как идеально настроить домашний мост для глобального режима:
+
+1. `sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x`
+2. установить hb-service (sudo hb-service install --user homebridge) Этот шаг необходим для создания необходимых файлов и каталогов
+3. удалить hb-service (удалить sudo hb-service)
+4. после установки хоумбриджа
+
+```
+sudo chmod 777 -R /var/lib/homebridge/
+sudo chmod 777 -R /usr/lib/node_modules/homebridge
+```
+
+в iobroker Global Homebridge Путь: /usr/lib/node_modules/homebridge
+
+Путь к глобальному каталогу конфигурации Homebridge: /var/lib/homebridge
 
 ## Следующие плагины были протестированы в режиме по умолчанию
 * homebridge-chamberlain v1.0.1 - плагин для открывания гаражных ворот Чемберлен с MyQ
@@ -55,9 +77,9 @@ hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 * homebridge-dyson-link v2.2.2 — устройства Dyson Link
 * homebridge-edomoticz v2.1.11 - Полноценный современный плагин для Domoticz
 * homebridge-Fibaro-HC2 v2.1.5 - интеграция Fibaro HomeCenter
-* homebridge-homee v0.2.4 - полноценный современный плагин для Homee
+* homebridge-homee v0.2.4 - Полноценный современный плагин для Homee
 * homebridge-ikea-tradfri-gateway v1.0.26 - Tradfri
-* homebridge-noolite v0.0.29 - Noolite через USB модули MTRF-64 или МТРФ-64
+* homebridge-noolite v0.0.29 - Noolite через USB модули MTRF-64 или MTRF-64
 * homebridge-platform-wemo v1.0.1 — плагин Belkin WeMo Platform
 * homebridge-seasons v1.0.1 - Плагин для отображения текущего времени года.
 * homebridge-vera v0.8.2 — VeraLink — приложение для аксессуаров Z-Wave от Vera (Node.js 8.11.3)
@@ -67,12 +89,54 @@ hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 ## СДЕЛАТЬ
 * Тесты
 * Больше документации?!
+* Проверьте и узнайте, будут ли модули ESM работать в каком режиме (я ожидаю, что нет)
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize value determination on accessory initialization
+
+### 5.3.1 (2022-09-28)
+* (bluefox) Updated GUI packages
+
+### 5.3.0 (2022-09-15)
+* (Apollon77) Add option to enable homebridge debug logging
+
+### 5.2.4 (2022-09-15)
+* (Apollon77) Prevent crash when accessing a state which is not controllable anymore
+
+### 5.2.3 (2022-09-14)
+* (Apollon77) Optimize Accessory processing
+
+### 5.2.2 (2022-09-14)
+* (Apollon77) make compatible to more plugins
+
+### 5.2.1 (2022-09-12)
+* (Apollon77) make compatible to more plugins
+
+### 5.1.0 (2022-08-17)
+* IMPORTANT update homebridge and wrapper to 1.5.0 (latest as of today). IMPORTANT: Requires also homebridge 1.5.x installed when using global mode and local mode will update to 1.5.x too! Check your plugins for updates!
+
+### 5.0.2 (2022-07-20)
+* (bluefox) Update tab GUI
+
+### 5.0.1 (2022-06-28)
+* (Apollon77) Make sure values are set after objects were created
+
+### 5.0.0 (2022-06-27)
+* IMPORTANT update homebridge and wrapper to 1.4.1 (latest as of today). IMPORTANT: Requires also homebridge 1.4.x installed when using global mode and local mode will update to 1.4.x too! Check your plugins for updates!
+* (Apollon77) Sync forbidden characters with ioBroker standard - Object IDs might change with this version!
+* (Apollon77) Basically allow to specify http URLS as plugins in the main configuration list (not the tab!)
+* (Apollon77) Also try to register on external accessories like cameras (experimental)
+* (Apollon77) Fix loading issues with the tab
+
+### 4.0.4 (2022-06-07)
+* (bluefox) Corrected configuration in dark theme
+
 ### 4.0.3 (2022-03-20)
 * (bluefox) Update packages
 
@@ -94,7 +158,7 @@ hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
 
 ### 1.1.2 (2019-07-08)
-* (Apollon77) Allow more then 149 accessories in wrapper mode
+* (Apollon77) Allow more than 149 accessories in wrapper mode
 
 ### 1.1.1 (2019-07-05)
 * (Apollon77) Add option to update NPM modules in Admin. Reinstall will happen after saving settings
@@ -132,7 +196,7 @@ hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
 * (Apollon77) Updates for Homebridge-Wrapper
 
 ### 0.2.5 (2018.06.18)
-* (Apollon77) Catch all console logs from Homegridge and make available as debug log
+* (Apollon77) Catch all console logs from Homebridge and make available as debug log
 
 ### 0.2.4 (2018.06.18)
 * (Apollon77) Updates for Homebridge-Wrapper

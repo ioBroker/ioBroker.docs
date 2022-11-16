@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
+hash: JxKfC9EtVVe45kAUeCPy1SvUiRz0jblG8f56m8V7wqM=
 ---
 ![标识](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
@@ -12,39 +12,50 @@ hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
 ![安装数量（最新）](https://iobroker.live/badges/bmw-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/bmw-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
-![新产品管理](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
+![新PM](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
-# IoBroker.bmw
+#ioBroker.bmw
 **测试：** ![测试和发布](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的宝马适配器
+## IoBroker 的 bmw 适配器
 宝马适配器
 
-**Aktueller 状态**
+**阿克图勒状态**
 
-宝马.0.VIN.properties
+bmw.0.VIN.properties
 
 **Remote Befehle sind möglich unter**
 
-宝马.0.VIN.remotev2
+bmw.0.VIN.remotev2
 
 ## Changelog
 
-### 2.4.0
+### 2.5.6
 
--   Add support for MINI and force refresh remote
-  
+- Fix charging message
+### 2.5.5
+
+- Fix login
+
+### 2.5.0
+
+- Fix login
+
+### 2.4.1
+
+- Add support for MINI and force refresh remote
+
 ### 2.3.0
 
--   Disable v1 Endpoints
-  
+- Disable v1 Endpoints
+
 ### 2.1.1
 
--   Upgrade to statusV2 and remoteV2
-  
+- Upgrade to statusV2 and remoteV2
+
 ### 2.0.0
 
--   (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

@@ -1,10 +1,10 @@
 ---
 title: 概述
-lastChanged: 26.03.2019
+lastChanged: 08.11.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/overview.md
-hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
+hash: tqjOnOJE/iuj6qXDPGTuE/vroFa/Dy6viYKYUCvZx+k=
 ---
 # 概览选项卡
 此处显示有关具有自己的 Web 界面和主机的所有适配器的信息。
@@ -13,7 +13,7 @@ hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
 
 如果您点击一个磁贴，您将被定向到相应的网站，其地址位于该磁贴的底部。
 
-最后，系统中的每个主机都有一个磁贴。对于独立安装，这是 **the** ioBroker 服务器，对于多主机安装，这是主服务器和从服务器。
+最后，系统中的每个主机都有一个磁贴。对于独立安装，这是**the** ioBroker 服务器，对于多主机安装，这是主服务器和从服务器。
 
 如果您单击此类磁贴上的信息按钮，则会显示有关相应主机的更多信息：
 

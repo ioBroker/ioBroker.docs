@@ -1,12 +1,13 @@
 ---
 title: визуализация
 lastChanged: 13.09.2018
+template: true
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/viz/README.md
 hash: e/pa1rpO81WAmPBYZ6UTeunOhW6lOv/N4we0bAFmncA=
 ---
-# Вступление
+# Введение
 ?> ***Это заполнитель***.<br><br> Помогите ioBroker и дополните эту статью. Обратите внимание на [Руководство по стилю ioBroker](community/styleguidedoc), чтобы упростить принятие изменений.
 
 @@@ Целью здесь является "высокоуровневое" описание наиболее важных экранов опций визуализации. Возможно картинка для каждого экрана с пояснением важных областей.

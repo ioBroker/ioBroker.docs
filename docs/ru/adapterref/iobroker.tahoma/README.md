@@ -2,89 +2,91 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
-title: ioBroker.tahoma
-hash: 4RvjgcKT8BpJS82hcxtsqN+anPTF/TTwFeBUdNhdkOE=
+title: ioBroker.тахома
+hash: DKzaD/UWzdpNlGpnl+p87uN6Jpzad0uJf91pX+DNIMs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
 ![НПМ](https://nodei.co/npm/iobroker.tahoma.png?downloads=true)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.tahoma.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.tahoma.svg)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Количество установок (последнее)](http://iobroker.live/badges/tahoma-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/tahoma-stable.svg)
-![Уровень языка: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
+![Языковой уровень: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
 
-![Статус выпуска Github](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
+![Статус выпуска на гитхабе](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/tahoma/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tahoma/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 # IoBroker.tahoma
-Адаптер ioBroker для Somfy Tahoma. Этот проект не имеет отношения к Somfy. Изначально на основе скрипта, взятого с https://forum.iobroker.net/post/336001 и разветвленного с https://github.com/StrathCole/ioBroker.tahoma.
+Адаптер ioBroker для Somfy Tahoma. Этот проект не имеет никакого отношения к Somfy. Первоначально на основе сценария, взятого с https://forum.iobroker.net/post/336001 и разветвленного с https://github.com/StrathCole/ioBroker.tahoma.
 
 Адаптер подключается к API конечного пользователя Tahomalink и управляет устройствами, настроенными через Tahoma Box (и, скорее всего, Connexoon).
-Адаптер еще не является полнофункциональным, но он должен поддерживать большинство действий по управлению жалюзи, ставнями и т. Д.
+Адаптер еще не полностью функционален, но он должен поддерживать большинство действий по управлению жалюзи, рольставнями и т. д.
 
-Пожалуйста, также сначала прочтите [Вопросы-Ответы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
+Пожалуйста, также прочитайте [Часто задаваемые вопросы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
 
-## Протестированные в настоящее время устройства
-Как правило, этот адаптер должен поддерживать все устройства, к которым можно получить доступ через __tahomalink.com__, но для разработчика адаптера это сложно гарантировать. В основном потому, что документация по используемому Somfy-API (по крайней мере, публично) не существует, и разработчик может тестировать только устройства Somfy, которые ему принадлежат, или может тестировать при поддержке желающих участников.
+## Текущие протестированные устройства
+Как правило, этот адаптер должен поддерживать все устройства, к которым можно получить доступ через __tahomalink.com__, но разработчику адаптера трудно это гарантировать. Главным образом потому, что документация используемого Somfy-API (по крайней мере, публично) не существует, и разработчик может тестировать только те устройства Somfy, которыми он владеет сам, или может протестировать при поддержке желающих участников.
 
 Следующие устройства Somfy были проверены на совместимость с этим адаптером:
 
-- S&SO RS100 io
-- Oximo io
+- S&SO RS100 ио
+- Оксимо ио
 - Датчик солнца Sunis io
-- Датчик температуры io
-- Датчик дыма io
+- Датчик температуры ио
+- Датчик дыма ио
 - Адаптер Plug io
 
 ## Конфигурация
 Адаптер поддерживает следующие параметры конфигурации.
 
-| Параметр | (По умолчанию) значение | Описание |
+| Параметр | (по умолчанию) значение | Описание |
 | Имя пользователя | _`<your Tahomalink user>`_ | Требуется для аутентификации вашей учетной записи Tahoma. |
 | Пароль | _`<Your Tahomalink password>`_ | Требуется для аутентификации вашей учетной записи Tahoma. |
 | Интервал опроса | `20000` | Время (в миллисекундах), по истечении которого адаптер попытается получить новые данные от Tahomalink. |
-| Попытки входа в систему <sup>1</sup> <sup>2</sup> | `3` | Количество попыток повторного входа в систему после неудачной попытки входа. |
+| PIN-код коробки Tahoma | формат аналогичен `1234-5678-9012` | __ <sup>Только для LocalAPI</sup> __ Уникальный PIN-код вашего ящика Tahoma, предоставленный Somfy. Дополнительная информация о том, как его активировать/использовать [здесь](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode) |
+| Используйте MDNS | `false` | __ <sup>Только для LocalAPI</sup> __ Если установлено значение true, будет пытаться использовать mDNS для разрешения локального имени хоста вашего Tahoma-Box. Может поддерживаться не всеми маршрутизаторами, поэтому по умолчанию он отключен. |
+| Попытки входа <sup>1</sup> <sup>2</sup> | `3` | Количество попыток повторного входа в систему после неудачного входа. |
 | Задержка между попытками входа в систему <sup>1</sup> <sup>2</sup> | `30` | Время (в секундах) ожидания между попытками входа в систему. |
-| Задержка после неудачного входа в систему <sup>1</sup> <sup>2</sup> | `120` | Время (в секундах) ожидания после неудачных попыток входа в систему. |
-| Задержка перед повторной попыткой applyqueue <sup>1</sup> <sup>2</sup> | `1500` | Время (в миллисекундах) ожидания, прежде чем будет сделана вторая попытка отправить изменения из внутренней очереди применения в Tahoma в случае, если они были потеряны. |
-| Задержка перед повторной попыткой применения очереди <sup>1</sup> <sup>2</sup> | `1500` | Время (в миллисекундах) ожидания, прежде чем будет сделана вторая попытка отправить изменения из внутренней очереди применения в Tahoma в случае, если они были потеряны. |
+| Задержка после неудачного входа в систему <sup>1</sup> <sup>2</sup> | `120` | Время ожидания (в секундах) после неудачных попыток входа в систему. |
+| Задержка перед повторной попыткой применения очереди <sup>1</sup> <sup>2</sup> | `1500` | Время ожидания (в миллисекундах) перед второй попыткой отправки изменений из внутренней очереди применения в Tahoma на случай потери. |
+| Задержка перед повторной попыткой применения очереди <sup>1</sup> <sup>2</sup> | `1500` | Время ожидания (в миллисекундах) перед второй попыткой отправки изменений из внутренней очереди применения в Tahoma на случай потери. |
 
 <sup>1</sup> Эти значения конфигурации видны и настраиваются только в Admin 5 (новый графический интерфейс) или более поздней версии.
 
-<sup>2</sup> Все значения связаны с входом в Tahomalink, который с точки зрения разработки в основном является черным ящиком. Если вы установите здесь слишком низкие значения, опыт показал, что есть большая вероятность, что Somfy временно заблокирует вашу учетную запись, поэтому осторожно уменьшайте здесь значения по умолчанию!
+<sup>2</sup> Все значения связаны с входом в Tahomalink, который с точки зрения разработки в основном является черным ящиком. Если вы укажете здесь слишком низкие значения, опыт показывает, что Somfy может временно заблокировать вашу учетную запись, поэтому с осторожностью снижайте здесь значения по умолчанию!
 
 ## Состояния
-### Tahoma.X.location
-Состояние в этом дереве содержит личную информацию пользователя, такую как город, почтовый адрес и долгота / широта.
+### Тахома.X.местоположение
+Состояние в этом дереве содержит личную информацию пользователя, такую как город, почтовый адрес и долготу/широту.
 
-### Tahoma.X.devices. *. deviceURL
+### Tahoma.X.devices.*.deviceURL
 Это состояние содержит URL-адрес устройства, который используется Tahoma для идентификации устройства.
 
-### Tahoma.X.devices. *. команды
+### Tahoma.X.devices.*.commands
 Эти состояния содержат команды кнопок для управления устройствами. Большинство устройств поддерживают такие команды, как `close` и `open`, а также некоторые другие.
-Некоторые команды имеют в конце `:slow`, если они поддерживаются устройством. Их использование включает низкую скорость или так называемый бесшумный режим.
+Некоторые команды имеют в конце `:slow`, если они поддерживаются устройством. Их использование позволяет использовать низкую скорость или так называемый бесшумный режим.
 
-### Tahoma.X.devices. *. состояния
-Эти состояния содержат текущий статус устройств следующим образом. Некоторые состояния имеют в конце `:slow`, если они поддерживаются устройством. Их установка включает низкую скорость или так называемый бесшумный режим.
+### Tahoma.X.devices.*.states
+Эти состояния содержат текущее состояние устройств следующим образом. Некоторые состояния имеют в конце `:slow`, если они поддерживаются устройством. Их установка включает низкую скорость или так называемый бесшумный режим.
 
-| Состояние устройства | Редактируемый | Назначение / Описание |
+| Состояние устройства | Редактируемый | Назначение/Описание |
 |-------------------------------------------------------------|----------|---------------------|
-| _tahoma.X.devices. *. states.core: DeploymentState_ | & # 10003; | Предоставляет информацию и контролирует состояние текущего развертывания. 100 означает полностью развернутый, 0 - развернутый. Не все устройства имеют это значение, у некоторых вместо него есть `ClosureState`. |
-| _tahoma.X.devices. *. states.coreClosureState_ | & # 10003; | Предоставляет информацию и контролирует состояние текущего закрытия. 100 означает полностью закрыто, 0 открыто. Не все устройства имеют это значение, у некоторых вместо него есть `DeploymentState`. |
-| _tahoma.X.devices. *. states.core: TargetClosureState_ | & # 10003; | См. `tahoma.X.devices.*.states.core:ClosureState` |
-| _tahoma.X.devices. *. states.core: TargetClosureState_ | & # 10003; | См. `Tahoma.X.devices. *. States.core: ClosureState` |
-| _tahoma.X.devices. *. states.core: TargetOrientationState_ | & # 10003; | См. `tahoma.X.devices.*.states.core:OrientationState` |
-| _tahoma.X.devices. *. states.core: TargetOrientationState_ | & # 10003; | См. `Tahoma.X.devices. *. States.core: OrientationState` |
-| _tahoma.X.devices. *. states.core: OpenClosedState_ | | Содержит `closed`, если устройство закрыто на 100% или 0% развернуто, и `open` в противном случае. |
-| _tahoma.X.devices. *. states.core: OpenClosedState_ | | Содержит «закрыто», если устройство закрыто на 100% или развернуто на 0%, и «открыто» в противном случае. |
-| _tahoma.X.devices. *. states.core: PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указано здесь, например. г. датчик ветра, блокирующий тент. |
-| _tahoma.X.devices. *. states.core: StatusState_ | | `available`, если устройство в данный момент доступно. |
-| _tahoma.X.devices. *. states.io:PriorityLockLevelState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
-| _tahoma.X.devices. *. states.io:PriorityLockOriginatorState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
-| _tahoma.X.devices. *. states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
-| _tahoma.X.devices. *. states.moving_ | | Указывает, движется ли устройство в данный момент. «0 = остановлено», «1 = вверх / развернуто», «2 = вниз / развернуто», «3 = неизвестное направление» |
+| _tahoma.X.devices.*.states.core:DeploymentState_ | &#10003; | Предоставляет информацию о текущем развертывании и управляет им. 100 означает полностью развернуто, 0 — не развернуто. Не все устройства имеют это значение, вместо него у некоторых есть `ClosureState`. |
+| _tahoma.X.devices.*.states.coreClosureState_ | &#10003; | Предоставляет информацию о текущем закрытии и контролирует его состояние. 100 означает полностью закрытый, 0 открытый. Не все устройства имеют это значение, вместо него у некоторых есть `DeploymentState`. |
+| _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | См. `tahoma.X.devices.*.states.core:ClosureState` |
+| _tahoma.X.devices.*.states.core:TargetClosureState_ | &#10003; | См. `tahoma.X.devices.*.states.core:ClosureState` |
+| _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | См. `tahoma.X.devices.*.states.core:OrientationState` |
+| _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | См. `tahoma.X.devices.*.states.core:OrientationState` |
+| _tahoma.X.devices.*.states.core:OpenClosedState_ | | Содержит `closed`, если устройство закрыто на 100 % или развернуто на 0 %, и `open` в противном случае. |
+| _tahoma.X.devices.*.states.core:OpenClosedState_ | | Содержит «закрыто», если устройство закрыто на 100% или развернуто на 0%, и «открыто» в противном случае. |
+| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указывается здесь, например. грамм. датчик ветра, блокирующий тент. |
+| _tahoma.X.devices.*.states.core:StatusState_ | | `available`, если устройство в данный момент доступно. |
+| _tahoma.X.devices.*.states.io:PriorityLockLevelState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
+| _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
+| _tahoma.X.devices.*.states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
+| _tahoma.X.devices.*.states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = остановлено`, `1 = вверх/отменить развертывание`, `2 = вниз/развернуть`, `3 = неизвестное направление` |
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).
@@ -93,7 +95,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGEL
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2021 Marius Burkard
+Copyright (c) 2020-2022 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

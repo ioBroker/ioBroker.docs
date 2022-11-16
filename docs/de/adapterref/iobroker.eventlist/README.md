@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: IvFXtVQyk2CgD6hfwGEKWEdmDXUNUEIvxGYv3mandUE=
+hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 ---
 ![Logo](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -50,7 +50,7 @@ Die Ereignisliste kann als Vis-Widget angezeigt werden.
 ### PDF-Generierung
 Es besteht die Möglichkeit, ein PDF-Dokument mit allen Veranstaltungen zu generieren.
 
-Dokumenttitel kann aus dem Erstellungsdatum bestehen, wenn Sie das Muster darin platzieren: `Event list on {{YYYY MM DD}}`.
+Der Dokumenttitel kann das Erstellungsdatum enthalten, wenn Sie das Muster darin platzieren: `Event list on {{YYYY MM DD}}`.
 Die genaue Beschreibung des Zeitformats finden Sie hier: https://momentjs.com/docs/#/displaying/format/
 
 Die PDF-Generierung kann durch Schreiben eines `true` in `eventlist.0.triggerPDF` ausgelöst werden.
@@ -80,7 +80,7 @@ sendTo('eventlist.0', 'insert', 'My custom text');
 // or
 setState('eventlist.0.insert', 'My custom text');
 // or
-setState('eventlist.0.insert', {event: 'My custom text %s', val: 5});
+setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
 Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Die ID muss natürlich vorher im `eventlist` freigeschaltet werden.
@@ -129,7 +129,7 @@ In den Ereignistexten und in den Zustandstexten könnten folgende Muster verwend
 - %u - unit (`Zustand geändert zu %s%u` => `Zustand geändert zu 5%`),
 - %n - name (`%n hat den Status zu %s geändert` => `Gerät A hat den Status zu 5 geändert`),
 - %t - time (`Zustand geändert am %t` => `Zustand geändert am Sep Fr, 16:32:00`),
-- %r - relative Zeit (`Zustand geänderter Zustand %r` => `Zustand geänderter Zustand vor 5 Sekunden`),
+- %r - relative Zeit (`Status hat Status %r geändert` => `Status hat Status vor 5 Sekunden geändert`),
 - %d - Dauer (`Zustand war %d im vorherigen Zustand` => `Zustand war 5s lang im vorherigen Zustand`),
 - %g - Wertdifferenz (`Zustand wurde geändert am %g%` => `Zustand wurde geändert am 1%`),
 - %o - Wertdifferenz (`Status hat Wert von %o auf % geändert` => `Status wurde um 1% geändert`)
@@ -147,9 +147,21 @@ Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pd
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.1.1 (2022-10-12)
+* (bluefox) Fixed icons of devices
+* (bluefox) Migrated GUI to `mui5`
+* (bluefox) Allowed the editing of list name
+* (Hirsch-DE) corrected events without unit
+
+### 1.0.1 (2022-06-22)
+* (bluefox) Added preparations for ioBroker cloud
+
+### 1.0.0 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
 * (Apollon77) Add Sentry also for the Node.js part

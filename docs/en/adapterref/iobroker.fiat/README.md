@@ -11,12 +11,24 @@
 
 **Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.fiat/workflows/Test%20and%20Release/badge.svg)
 
-## fiat adapter for ioBroker
+## fiat jeep adapter for ioBroker
 
-fiat adapter
+Adapter für Fiat und Jeep
+
+## Loginablauf:
+Die Fiat oder Jeep App Mail und Passwort eingeben.
+
+## Steuern
+fiat.0.id.remote auf true setzen steuert den jeweiligen Befehl
+
+## Diskussion und Fragen:
+https://forum.iobroker.net/topic/46378/test-adapter-fiat-v0-0-x
 
 ## Changelog
 
+### 0.0.7
+* (TA2k) Added Jeep support
+  
 ### 0.0.3
 * (TA2k) Added precondition
 ### 0.0.2

@@ -2,31 +2,31 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vofo-speedtest/README.md
-title: ioBroker.vofo-speedtest
-hash: 2OWK9bGidtbE4CoRu0md2lqebVJMbzOBGqPSf3kx2Iw=
+title: ioBroker.vofo-Geschwindigkeitstest
+hash: 7TIB/taVtq7D8Ws6DGCOa7cCjYfuEGuTjyDUlX0Bi4k=
 ---
 ![Logo](../../../en/adapterref/iobroker.vofo-speedtest/admin/vofo-speedtest.png)
 
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.vofo-speedtest.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)
 
-# IoBroker.vofo-speedtest
-**Dieser Adapter nutzt den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden.** Weitere Details siehe unten!
+# IoBroker.vofo-Geschwindigkeitstest
+![Testen und freigeben](https://github.com/peterbaumert/iobroker.vofo-speedtest/workflows/Test%20and%20Release/badge.svg)
+
+**Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemas zu melden.** Weitere Details siehe unten!
 
 ## Vofo-speedtest-Adapter für ioBroker
 Speedtest von Vodafone.de
 
 Implementiert dieselbe Technik wie https://speedtest.vodafone.de
 
-## Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
+## Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Haftungsausschluss
 Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vodafone GmbH oder verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder mit ihr verbunden
@@ -36,6 +36,22 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vod
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.13 (2022-06-06)
+* some more "already running" fixes
+
+### 0.0.12 (2022-05-28)
+* rerelease for 0.0.11 because of missing version in io-package.json
+
+### 0.0.11 (2022-05-27)
+* updating dependencies
+* adding some timeouts trying to fix "already running with pid"
+* fix extracting API key from js-code (thanks Zwer2k) [#112][pr112]
+
+### 0.0.10 (2022-01-07)
+* Fix version numbers
+
+### 0.0.9 (2022-01-03)
+* Fix to work with new Vodafone Endpoint
 
 ### 0.0.8 (2021-07-01)
 * Renamed Adapter due to legal reasons
@@ -70,7 +86,7 @@ Vodafone ist eine Marke der Vodafone GmbH. Ich werde in keiner Weise von der Vod
 ## License
 MIT License
 
-Copyright (c) 2021 Peter Baumert <ioBroker.vofo-speedtest@outlook.com>
+Copyright (c) 2020-2022 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -89,3 +105,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+[pr112]: https://github.com/peterbaumert/ioBroker.vofo-speedtest/pull/112

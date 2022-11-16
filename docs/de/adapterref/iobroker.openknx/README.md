@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: TGkZ37UAzp6N7uKaul0Jn8YKSymXW9f+K7/cAkgoz5E=
+hash: mZ7bHg2S3PbO4ltPcbz6xUhmp9adNnCH49Q+aMtArq4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -36,10 +36,6 @@ IP Ihres KNX IP Gateways.
 ### Hafen
 dies ist normalerweise Port 3671 des KNX IP Gateways.
 
-### Phys. KNX-Adresse
-Geben Sie die physikalische Adresse des KNX IP-Gateways im Format 1/1/1 ein.
-Zweistufige Gruppenadressen können bei Bedarf manuell transformiert werden.
-
 ### Lokale IPv4-Netzwerkschnittstelle
 Die Schnittstelle, die mit dem KNX IP Gateway verbunden ist.
 
@@ -47,7 +43,9 @@ Die Schnittstelle, die mit dem KNX IP Gateway verbunden ist.
 Sucht über ein standardisiertes Protokoll alle verfügbaren KNX IP Gateways auf der angegebenen Netzwerkschnittstelle.
 
 ### Frame-Verzögerung [ms]
-Diese Einstellung schützt den KNX-Bus vor einer Datenflut, indem Datenframes auf eine bestimmte Rate begrenzt werden. Nicht gesendete Frames werden in einen Fifo-Puffer gelegt. Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
+Diese Einstellung schützt den KNX-Bus vor Datenflut, indem Datenrahmen auf eine bestimmte Rate begrenzt werden.
+Nicht gesendete Frames werden verzögert, bis die Verzögerungszeit seit dem letzten Senden auf dem Bus abgelaufen ist. Wenn weitere Sendeanforderungen warten, ist die Sendereihenfolge zufällig.
+Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
 
 ### Nur neue Objekte hinzufügen
 Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
@@ -153,7 +151,38 @@ ioBroker-Zustandsrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/ST
 
 Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass dies ein Triggersignal ist. Dies gilt für Szenennummern.
 
-{ "_id": "path.and.name.to.object", //abgeleitet von der KNX-Struktur "type": "state", "common": { //Werte hier können von iobroker interpretiert werden "desc": "Basetype: 1-bit value, Subtype: switch", //informativ, aus dpt "name": "Aussen Melder Licht schalten", //informative Beschreibung aus ets export "read": true, //default set, if false Eingehende Buswerte aktualisieren das Objekt "Rolle" nicht: Zustand, //Standardzustand, abgeleitet von DPT "Typ": "boolean", //Boolean, Zahl, Zeichenfolge, Objekt, abgeleitet von DPT "Einheit": "", //abgeleitet von dpt "write": true //default true, wenn Satzänderung am Objekt knx write auslöst, succ. write setzt dann ack flag auf true }, "native": { //Werte hier können vom openknx-Adapter interpretiert werden "address": "0/1/2", //knx-Gruppenadresse "answer_groupValueResponse": false, //default false, wenn auf true gesetzt, antwortet der Adapter mit dem Wert auf GroupValue_Read "autoread": true, //default true für Nicht-Trigger-Signale, der Adapter sendet beim Start ein GroupValue_read, um seine Zustände zu synchronisieren "bitlength": 1, //Größe der Knx-Daten, abgeleitet von dpt "dpt": "DPT1.001", //DPT "encoding": { //informativ "0": "Off", "1": "On" }, "force_encoding": "", // informativ "signedness": "", //informativ "valuetype": "basic" //composite bedeutet über ein bestimmtes Javascript-Objekt gesetzt }, "from": "system.adap ter.openknx.0", "user": "system.user.admin", "ts": 1638913951639 }
+```json
+{
+    "_id": "path.and.name.to.object",                       // derieved from the KNX structure
+    "type": "state",
+    "common": {                                             // values here can be interpreted by iobroker
+        "desc": "Basetype: 1-bit value, Subtype: switch",   // informative, from dpt
+        "name": "Aussen Melder Licht schalten",             // informative description from ets export
+        "read": true,                                       // default set, if false incoming bus values are not updating the object
+        "role": "state",                                    // default state, derieved from DPT
+        "type": "boolean",                                  // boolean, number, string, object, derieved from dpt
+        "unit": "",                                         // derived from dpt
+        "write": true                                       // default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
+    },
+    "native": {                                             // values here can be interpreted by openknx adapter
+        "address": "0/1/2",                                 // knx group address
+        "answer_groupValueResponse": false,                 // default false, if set to true adapter responds with value on GroupValue_Read
+        "autoread": true,                                   // default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
+        "bitlength": 1,                                     // size ob knx data, derived from dpt
+        "dpt": "DPT1.001",                                  // DPT
+        "encoding": {                                       // informative
+        "0": "Off",
+        "1": "On"
+        },
+        "force_encoding": "",                               // informative
+        "signedness": "",                                   // informative
+        "valuetype": "basic"                                // composite means set via a specific javascript object
+    },
+    "from": "system.adapter.openknx.0",
+    "user": "system.user.admin",
+    "ts": 1638913951639
+}
+```
 
 # Beschreibung der Adapter-Kommunikationsschnittstelle
 Gehandelte DPTs sind: 1-21.232.237.238 Ungehandelte DPTs werden als Rohpuffer geschrieben, die Schnittstelle ist eine sequentielle Folge von Hexadezimalzahlen. Schreiben Sie zum Beispiel „0102feff“, um die Werte 0x01 0x02 0xfe 0xff auf den Bus zu senden.
@@ -162,12 +191,31 @@ Beachten Sie bei Verwendung des Zahlendatentyps, dass Schnittstellenwerte skalie
 ### API-Aufruf
 ioBroker definiert States als Kommunikationsschnittstelle.
 
-setState( @param {string} id des Objekts mit Pfad @param {object|string|number|boolean} Status einfacher Wert oder Objekt mit Attributen.
-{ val: value, ack: true|false, optional, sollte per Konvention falsch sein ts: timestampMS, optional, default - jetzt q: qualityAsNumber, optional, setze es auf den Wert 0x10, um einen Buslesevorgang zu diesem Objekt auszulösen, wenn StateValue gegeben ist ignoriert von: Ursprung, optional, Standard – dieser Adapter c: Kommentar, optional, setzen Sie ihn auf den Wert GroupValue_Read, um einen Bus-Lesevorgang für dieses Objekt auszulösen, gegebener StateValue wird ignoriert. berechneter Wert } @param {boolean} [ack] optional, sollte per Konvention falsch sein @param {object} [options] optional, Benutzerkontext @param {ioBroker.SetStateCallback} [callback] optional, Rückgabefehler und ID
+```javascript
+setState(
+    '',                                             // @param {string}                                id of the object with path
+    {                                               // @param {object|string|number|boolean}          state simple value or object with attribues.
+	val:    value,
+	ack:    true|false,                         // optional, should be false by convention
+	ts:     timestampMS,                        // optional, default - now
+	q:      qualityAsNumber,                    // optional, set it to value 0x10 to trigger a bus read to this object, given StateValue is ignored
+	from:   origin,                             // optional, default - this adapter
+	c:      comment,                            // optional, set it to value GroupValue_Read to trigger a bus read to this object, given StateValue is ignored
+	expire: expireInSeconds                     // optional, default - 0
+	lc:     timestampMS                         // optional, default - calculated value
+    },
+    false,                                          // @param {boolean} [ack]                         optional, should be false by convention
+    {},                                             // @param {object} [options]                      optional, user context
+    (err, id) => {}                                 // @param {ioBroker.SetStateCallback} [callback]  optional, return error and id
+);
+```
 
 Beispiel zum Auslösen eines GroupValue_Read:
 
-setState(myState, {val: false, ack: false, c:'GroupValue_Read'}); setState(myState, {val: false, ack: false, q:0x10});
+```javascript
+setState(myState, {val: false, ack: false, c:'GroupValue_Read'});
+setState(myState, {val: false, ack: false, q:0x10});
+```
 
 GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden Sie stattdessen den qualityAsNumber-Wert 0x10.
 
@@ -179,20 +227,20 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - ||
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - |Datenpunkttyp DPT_SceneControl aus Autoread entfernt|
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
-| DPT-232 | Objekt | {Rot:0..255, Grün:0,255, Blau:0,255} | - ||
+| DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - ||
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen ||
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
 | DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
-| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
+| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte ||
 | DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 ||
 | DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
 | DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
 | DPT-9 | Zahl | | 2-Byte-Gleitkommawert ||
-| DPT-14 | Nummer | | 4-Byte-Gleitkommawert ||
-| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
-| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
+| DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
+| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
+| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
 | DPT-15 | Nummer | | 4 Byte ||
 | DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Nummer | | 1 Byte ||
@@ -265,8 +313,25 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - nur IPv4 unterstützt
 
 ## Changelog
-### 0.1.26 (2022-05-)
-* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset)
+
+### 0.2.9 (2022-11-13)
+* feature: setting autoreadEnabled autoread
+* bugfix: keep correct order of send datagrams in case of burst write
+
+### 0.2.7 (2022-08-26)
+* bugfix: fix issue with writing to dpt 19 object
+
+### 0.2.6 (2022-07-09)
+* bugfix: fix filtering of addresses 1.1.1
+
+### 0.2.5 (2022-06-22)
+* feature: option remove existing KNX objects that are not in import file
+
+### 0.2.4 (2022-05-27)
+* feature: cleanly disconnect on shutdown, upgrade to knx lib 2.5.2
+
+### 0.2.2 (2022-05-26)
+* feature: writing to bus l_data.con creates a ack on the iobroker object if successful (the knx conf flag unset) #133
 * bugfix: remove manual Physical KNX address dialog, use 0.0.0 instead
 * bugfix: remove error log when answering to GroupValueRead: #183
 * bugfix: improve warning logs on intended and unintended disconnects

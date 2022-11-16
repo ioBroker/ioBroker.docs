@@ -1,9 +1,9 @@
 ---
-title:       "Installation"
-lastChanged: "13.09.2018"
+title:       "Docker"
+lastChanged: "28.10.2022"
+template:    true
 ---
 
-# Docker
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>
@@ -13,3 +13,5 @@ lastChanged: "13.09.2018"
 
 @@@ Artikel aus Forum als Basis. Zusätzlich wie bekomme ich Docker auf's NAS
 oder OS und konfiguriere Docker für ioBroker.@@@
+
+Das offizielle ioBroker Docker-Image von buanet ist [hier](https://github.com/buanet/ioBroker.docker) zu finden.

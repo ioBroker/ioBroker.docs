@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daikin/README.md
 title: ioBroker.daikin
-hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
+hash: 15a/Y6Geu6hlOpHJrvLlbLQ3z86g6IL579HYrY6Vpqw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daikin/admin/daikin.jpg)
 
@@ -21,13 +21,18 @@ hash: x7eKzTIKcJi4ifx/hgdPjMcwUekpvvE2NPKeI3Sc6G8=
 
 В соответствии с документами поддержки Daikin следующие устройства должны быть совместимы (как минимум):
 
-Совместимые блоки в сочетании с BRP069A41: FTXG20LV1BW, FTXG20LV1BS, FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS,
+Compatible units in combination with **BRP069A41**: FTXG20LV1BW, FTXG20LV1BS , FTXG25LV1BW, FTXG25LV1BS, FTXG35LV1BW, FTXG35LV1BS, FTXG50LV1BW, FTXG50LV1BS, FTXJ20LV1BW, FTXJ20LV1BS, FTXJ25LV1BW, FTXJ25LV1BS, FTXJ35LV1BW, FTXJ35LV1BS, FTXJ50LV1BW, FTXJ50LV1BS ,
 
-Совместимые блоки в сочетании с BRP069A42: FTXZ25NV1B, FTXZ35NV1B, FTXZ50NV1B, FTXS35K2V1B, FTXS35K3V1B, FTXS42K2V1B, FTXS42K3V1B, FTXS50K2V1B, FTXS50K3V1B, FTXLS25K2V1B, FTXLS35K2V1B, FTXM35K3V1B, FTXM42K3V1B, FTXM50K3V1B,, FTXS60GV1B, FTXS71GV1B, ATXS35K2V1B, ATXS35K3V1B, ATXS50K2V1B, ATXS50K3V1B,, FTX50GV1B , FTX60GV1B, FTX71GV1B,, FVXG25K2V1B, FVXG35K2V1B, FVXG50K2V1B,, FVXS25FV1B, FVXS35FV1B, FVXS50FV1B,, FLXS25BAVMB, FLXS25BVMA, FLXS25BVMB, FLXS35BAVMB, FLXS35BAVMB9, FLXS35BVMA, FLXS35BVMB, FLXS50BAVMB, FLXS50BVMA, FLXS50BVMB, FLXS60BAVMB, FLXS60BVMA, FLXS60BVMB,
+Compatible units in combination with **BRP069A42**: FTXZ25NV1B, FTXZ35NV1B, FTXZ50NV1B, FTXS35K2V1B, FTXS35K3V1B, FTXS42K2V1B, FTXS42K3V1B, FTXS50K2V1B, FTXS50K3V1B, FTXLS25K2V1B, FTXLS35K2V1B,FTXM35K3V1B, FTXM42K3V1B, FTXM50K3V1B, , FTXS60GV1B, FTXS71GV1B, ATXS35K2V1B, ATXS35K3V1B, ATXS50K2V1B, ATXS50K3V1B, , FTX50GV1B, FTX60GV1B, FTX71GV1B, , FVXG25K2V1B, FVXG35K2V1B, FVXG50K2V1B, , FVXS25FV1B, FVXS35FV1B, FVXS50FV1B, , FLXS25BAVMB, FLXS25BVMA, FLXS25BVMB, FLXS35BAVMB, FLXS35BAVMB9, FLXS35BVMA, FLXS35BVMB, FLXS50BAVMB, FLXS50BVMA, FLXS50BVMB, FLXS60BAVMB, FLXS60BVMA, FLXS60BVMB,
 
-Совместимые блоки в сочетании с BRP069A43 (?): CTXS15K2V1B, CTXS15K3V1B, FTXS20K2V1B, FTXS20K3V1B, FTXS25K2V1B, FTXS25K3V1B, CTXS35K2V1B, CTXS35K3V1B, FTXM20K3V1B, FTXM25K3V1B,, ATXS20K2V1B, ATXS20K3V1B, ATXS25K2V1B, ATXS25K3V1B,, FTX20J2V1B, FTX25J2V1B, FTX35J2V1B, FTX20J3V1B, FTX25J3V1B, FTX35J3V1B,, FTXL25J2V1B, FTXL35J2V1B,, FTX20KV1B, FTX25KV1B, FTX35KV1B, FTX20GV1B, FTX25GV1B, FTX35GV1B,, ATX20J2V1B, ATX20J3V1B, ATX25J2V1B, ATX25J3V1B, ATX35J2V1B, ATX35J3V1B, ATX20KV1B, ATX25KV1B, ATX35KV1B,, ATXL25J2V1B, ATXL35J2V1B,
+Compatible units in combination with **BRP069A43 (?)**: CTXS15K2V1B, CTXS15K3V1B, FTXS20K2V1B, FTXS20K3V1B, FTXS25K2V1B, FTXS25K3V1B, CTXS35K2V1B, CTXS35K3V1B, FTXM20K3V1B, FTXM25K3V1B, , ATXS20K2V1B, ATXS20K3V1B, ATXS25K2V1B, ATXS25K3V1B, , FTX20J2V1B, FTX25J2V1B, FTX35J2V1B, FTX20J3V1B, FTX25J3V1B, FTX35J3V1B, , FTXL25J2V1B, FTXL35J2V1B, , FTX20KV1B, FTX25KV1B, FTX35KV1B, FTX20GV1B, FTX25GV1B, FTX35GV1B, , ATX20J2V1B, ATX20J3V1B, ATX25J2V1B, ATX25J3V1B, ATX35J2V1B, ATX35J3V1B, ATX20KV1B, ATX25KV1B, ATX35KV1B, , ATXL25J2V1B, ATXL35J2V1B,
 
-Совместимые блоки в сочетании с BRP069A44 (?): FTX50KV1B, FTX60KV1B
+Совместимые блоки в сочетании с **BRP069A44 (?)**: FTX50KV1B, FTX60KV1B
+
+Примечание. Для устройств с более новым адаптером WLAN, например **BRP069C4x**, который может использоваться только приложением Onecta, используйте адаптер [Daikin-Cloud](https://github.com/Apollon77/ioBroker.daikin-cloud).
+
+## Отказ от ответственности
+**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.** **Daikin является торговой маркой DAIKIN INDUSTRIES, LTD.**
 
 ## Описание параметров
 ### ДайкинИп
@@ -52,8 +57,14 @@ IP контроллера Wi-Fi с устройства
 * ВИД-виджет
 
 ## Changelog
+### 1.4.2 (2022-07-25)
+* (Apollon77) Make sure polling still works after setting special mode states
 
-### __WORK IN PROGRESS__
+### 1.4.1 (2022-06-27)
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 1.4.0 (2022-06-09)
+* (Apollon77) Add Connection identifier for Admin and Device
 * (Apollon77) Optimize unload handling
 
 ### 1.3.3 (2021-06-24)
@@ -120,7 +131,7 @@ IP контроллера Wi-Fi с устройства
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,12 +1,12 @@
 ---
 title: обзор
-lastChanged: 26.03.2019
+lastChanged: 08.11.2022
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/admin/overview.md
-hash: 57tkWtP+p2vy23nOuvzdc8RKNy6mvlsMyXS1SmpIBkY=
+hash: tqjOnOJE/iuj6qXDPGTuE/vroFa/Dy6viYKYUCvZx+k=
 ---
-# Вкладка «Обзор»
+# Обзорная вкладка
 Здесь отображается информация обо всех адаптерах с собственным веб-интерфейсом и о хостах.
 
 ![Вкладка «Обзор»](../../de/admin/media/ADMIN_Uebersicht.png)

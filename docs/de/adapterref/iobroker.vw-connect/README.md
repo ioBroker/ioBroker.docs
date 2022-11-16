@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vw-connect/README.md
 title: ioBroker.vw-connect
-hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
+hash: KIGSWEenLlnD26sTLydYCkUVnwZBpqA8BdCy8WePGn0=
 ---
 ![Logo](../../../en/adapterref/iobroker.vw-connect/admin/vw-connect.png)
 
@@ -14,7 +14,7 @@ hash: 9nuytOPO0ulr/PpLRAj7KpkU7vLFS/1VknuBSEXG/hU=
 ![NPM](https://nodei.co/npm/iobroker.vw-connect.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.vw-connect/master.svg)
 
-#ioBroker.vw-connect
+# IoBroker.vw-connect
 ## Vw-connect-Adapter für ioBroker
 Adapter für VW We Connect, We Connect ID, We Charge, myAudi, Skoda Connect, Seat Connect und We Connect Go
 
@@ -22,7 +22,9 @@ Bitte aktualisieren Sie Ihr System auf Node 10.
 <https://forum.iobroker.net/topic/22867/how-to-node-js-f%C3%BCr-iobroker-richtig-updaten>
 
 ## Verwendungszweck
-Verwenden Sie den Zustand unter Fernbedienung, um Ihr Auto aus der Ferne zu steuern.
+Verwenden Sie den Zustand unter Fernbedienung, um Ihr Auto fernzusteuern.
+Normale Refresh ist das Abfrageintervall zum Empfangen von Daten von der VAG Cloud Force Refresh ist für Nicht-E-Cars um eine Refresh zu erzwingen diese Anzahl wird von VAG begrenzt bis das Auto wieder eingeschaltet wird.
+Fahrtdaten sind nur für Nicht-E-Autos verfügbar.
 
 ## Diskussion und Fragen
 <https://forum.iobroker.net/topic/26438/test-adapter-vw-connect-für-vw-id-audi-seat-skoda>
@@ -30,7 +32,7 @@ Verwenden Sie den Zustand unter Fernbedienung, um Ihr Auto aus der Ferne zu steu
 ## Statusfelder Erklärung
 Tür- und Fensterzustände:
 
-- offen: 1
+- geöffnet: 1
 - gesperrt: 2
 - geschlossen: 3
 
@@ -114,6 +116,15 @@ Tür- und Fensterzustände:
 ```
 
 ## Changelog
+
+### 0.0.51
+
+- fix audi etron login
+  
+### 0.0.48
+
+- fix login, fix audi update, add limit for wallbox
+  
 
 ### 0.0.43
 

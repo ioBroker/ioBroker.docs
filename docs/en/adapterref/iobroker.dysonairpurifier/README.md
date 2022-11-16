@@ -164,6 +164,8 @@ All states report whether there is a failure or not. `True` means a failure, `fa
   * In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
   * In other cases it has been an IP issue. Resetting the DHCP server (router) solved the issue.
 ## Changelog
+### **WORK IN PROGRESS**
+
 ### V2.5.1 (2022-03-23) (Halo of the dark)
 * (grizzelbee) Fix: Improved layout of config page and added tooltips to the checkboxes
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: yYRwHBw/re4fJL3rlt6NL/pTZsB0qmBhqt3dhh31Xh8=
+hash: 1z/q2F7cs7U06ZA3JiDVA9+w+bNU7biWcBvR5T9O86Y=
 ---
 ![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -24,9 +24,9 @@ CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.kostal-p
 如果您验证其他逆变器的功能，我们将不胜感激，请给我留言。
 
 ## 设置
-请注意，您的逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico (BA) 逆变器，必须将其 IP 地址设置到配置中。
+请注意，您的逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico (BA) 逆变器，必须在配置中设置其 IP 地址。
 您还可以编辑实时数据、每日和实时统计数据的更新频率。
-如果需要，也可以设置读出 4 个模拟值的标记。
+如果需要，也可以设置 4 个模拟值的读出标记。
 
 ## 备注
 该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
@@ -35,6 +35,26 @@ CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.kostal-p
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.0.2 (16.10.2022)
+* (HombachC) fixed small sentry reported error
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.1 (11.10.2022)
+* (HombachC) optimized error logging
+* (HombachC) bumped dependencies
+### 2.0.0 (28.08.2022)
+* (HombachC) BREAKING: Dropped support for Node.js 12
+* (HombachC) changed the minimal required js-controller version to 3.2.16
+* (HombachC) added state of inverter as string
+* (HombachC) bumped dependencies
+### 1.5.0 (05.08.2022)
+* (HombachC) added minimum values for poll times to prevent communication errors
+* (HombachC) bumped dependencies
+### 1.4.7 (26.06.2022)
+* (HombachC) bumped dependency because of security vulnerability
+### 1.4.6 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, added tests for node.js 18
+* (HombachC) removed tests for node.js 12 -> it's recommended to switch to node.js 14, adapter still working with node 12
 ### 1.4.5 (03.05.2022)
 * (HombachC) added UI version to sentry feedback and documentation
 ### 1.4.4 (01.05.2022)

@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: cJYAxbH8rsp4s5RpKhtYFPKhcMVO2f1J7ZOCJEjsGmc=
+hash: rF75FeEj3Bi1VVhPAPj1pKQYcElzGEG3Ogc26MwBNuE=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sql-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
+![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
@@ -19,7 +19,7 @@ Dieser Adapter speichert den Zustandsverlauf in der SQL-Datenbank.
 Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite.
 Sie können Port 0 beibehalten, wenn der Standardport gewünscht wird.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 ## Verbindungseinstellungen
@@ -40,7 +40,7 @@ Sie können Port 0 beibehalten, wenn der Standardport gewünscht wird.
 - **Blocktime** - Legt fest, wie lange nach Speicherung des letzten Wertes kein weiterer Wert gespeichert wird. Wenn die angegebene Zeit in Millisekunden abgelaufen ist, wird der nächste Wert protokolliert, der alle anderen Prüfungen erfüllt.
 - **Nur Änderungen aufzeichnen** - Diese Funktion sorgt dafür, dass nur geänderte Werte protokolliert werden, wenn sie andere Prüfungen erfüllen (siehe unten). Gleiche Werte werden nicht protokolliert.
 - **noch die gleichen Werte aufzeichnen (Sekunden)** - Bei "Nur Änderungen aufzeichnen" kann hier ein Zeitintervall in Sekunden eingestellt werden, nach dem auch unveränderte Werte erneut in die DB eingeloggt werden. Die vom Adapter neu geloggten Werte können Sie am Feld "von" erkennen.
-- **Mindestdifferenz zum letzten Wert** - Bei "Nur Änderungen aufzeichnen" können Sie die gewünschte Mindestdifferenz zwischen dem neuen Wert und dem letzten Wert festlegen. Wird diese nicht erreicht, wird der Wert nicht erfasst.
+- **Mindestdifferenz zum letzten Wert** - Bei „Nur Änderungen aufzeichnen“ können Sie die gewünschte Mindestdifferenz zwischen dem neuen Wert und dem letzten Wert festlegen. Wird diese nicht erreicht, wird der Wert nicht erfasst.
 - **Null- oder 0-Werte ignorieren (==0)** - Sie können festlegen, ob 0- oder Null-Werte ignoriert werden sollen.
 - **Werte unter Null ignorieren (<0)** - Sie können festlegen, ob Werte unter Null ignoriert werden sollen.
 - **Diagrammoptimierte Protokollierung übersprungener Werte deaktivieren** - Standardmäßig versucht der Adapter, die Werte für optimierte Diagramme aufzuzeichnen. Dies kann bedeuten, dass zusätzliche Werte (die z. B. nicht alle oben genannten Prüfungen erfüllt haben) automatisch protokolliert werden. Wenn dies nicht erwünscht ist, können Sie diese Funktion deaktivieren.
@@ -283,10 +283,10 @@ Möglichkeiten:
 - **addId** - wenn das Feld *id* in der Antwort enthalten sein soll
 - **limit** - nicht mehr Einträge als limit zurückgeben
 - **round** - Runden Sie das Ergebnis auf die Anzahl der Nachkommastellen
-- **ignoreNull** - wenn Nullwerte enthalten sein sollen (false), durch den letzten Nicht-Nullwert ersetzt (true) oder durch 0 (0) ersetzt werden sollen
+- **ignoreNull** - wenn Nullwerte enthalten sein sollen (false), durch den letzten Nicht-Null-Wert ersetzt (true) oder durch 0 (0) ersetzt werden sollen
 - **removeBorderValues** - Standardmäßig werden zusätzliche Randwerte zurückgegeben, um die Diagrammerstellung zu optimieren. Setzen Sie diese Option auf true, wenn dies nicht erwünscht ist (z. B. für die Verarbeitung von Skriptdaten).
 - **returnNewestEntries** - Die zurückgegebenen Daten werden immer nach Zeitstempel aufsteigend sortiert. Bei Verwendung von Aggregat "none" und zusätzlicher Angabe von "count" oder "limit" bedeutet dies, dass normalerweise die ältesten Einträge zurückgegeben werden (es sei denn, es werden keine Startdaten bereitgestellt). Setzen Sie diese Option auf true, um stattdessen die neuesten Einträge zu erhalten.
-- **aggregiert** - aggregierte Methode:
+- **Aggregate** - Aggregationsmethode (Standard: 'Durchschnitt'):
     - *minmax* - verwendeter spezieller Algorithmus. Teilen Sie den gesamten Zeitbereich in kleine Intervalle und finden Sie für jedes Intervall Max-, Min-, Start- und Endwerte.
     - *max* - Teilt den gesamten Zeitbereich in kleine Intervalle auf und findet für jedes Intervall den Maximalwert und verwendet ihn für dieses Intervall (Nullen werden ignoriert).
     - *min* - Wie max, aber minimaler Wert.
@@ -297,7 +297,7 @@ Möglichkeiten:
     - *quantile* - Berechne n-Quantile (n wird in options.quantile angegeben oder ist standardmäßig 0,5, wenn nicht angegeben).
     - *integral* - Integral berechnen (weitere Parameter siehe unten).
     - *none* - Überhaupt keine Aggregation. Nur Rohwerte im angegebenen Zeitraum.
-- **Perzentil** - (optional) bei Verwendung der Aggregatmethode "Perzentil" definiert das Perzentilniveau (0..100) (Standardwert 50)
+- **Perzentil** - (optional) bei Verwendung der Aggregatmethode "Perzentil" definiert das Perzentilniveau (0..100) (standardmäßig 50)
 - **Quantil** - (optional) bei Verwendung der Aggregatmethode "Quantil" definiert das Quantilniveau (0..1) (Standardwert 0,5)
 - **integralUnit** - (optional) bei Verwendung der Aggregatmethode "integral" definiert die Einheit in Sekunden (standardmäßig 60s). z.B. Um ein Integral in Stunden für Wh oder ähnliches zu erhalten, setzen Sie es auf 3600.
 - **integralInterpolation** - (optional) bei Verwendung der Aggregatmethode "integral" definiert die Interpolationsmethode (standardmäßig "none").
@@ -373,7 +373,9 @@ Beispiel, wenn Ihre Datenbank „iobroker“ heißt:
 Wenn Sie andere Daten in die InfluxDB/SQL schreiben möchten, können Sie die eingebaute Systemfunktion **storeState** verwenden.
 Diese Funktion kann auch verwendet werden, um Daten von anderen History-Adaptern wie History oder SQL zu konvertieren.
 
-Die angegebenen IDs werden nicht gegen die ioBroker-Datenbank geprüft und müssen dort nicht eingerichtet werden, sondern sind nur direkt abrufbar.
+Eine erfolgreiche Antwort bedeutet nicht, dass die Daten wirklich auf die Platte geschrieben werden. Es bedeutet nur, dass sie verarbeitet wurden.
+
+Die angegebenen IDs werden nicht gegen die ioBroker-Datenbank geprüft und müssen dort nicht eingerichtet oder aktiviert werden. Wenn eigene IDs ohne Einstellungen verwendet werden, wird der Parameter "rules" nicht unterstützt und führt zu einem Fehler. Für solche IDs wird die Voreinstellung "Maximale Anzahl gespeicherter Werte im RAM" verwendet.
 
 Die Nachricht kann eines der folgenden drei Formate haben:
 
@@ -408,6 +410,8 @@ sendTo('history.0', 'storeState', [
 ```
 
 Zusätzlich können Sie das Attribut `rules: true` in der Nachricht hinzufügen, um alle Regeln zu aktivieren, wie `counter`, `changesOnly`, `de-bounce` und so weiter.
+
+Im Fehlerfall wird ein Array mit allen einzelnen Fehlermeldungen zurückgegeben und auch ein successCount um zu sehen wie viele Einträge erfolgreich gespeichert wurden.
 
 ## Zustand löschen
 Wenn Sie einen Eintrag aus der Datenbank löschen möchten, können Sie die eingebaute Systemfunktion **löschen** verwenden:
@@ -459,7 +463,7 @@ Seien Sie vorsichtig mit `counters`. Die `counters` in DB werden nicht zurückge
 Der Adapter unterstützt das Aktivieren und Deaktivieren der Verlaufsprotokollierung über JavaScript sowie das Abrufen der Liste der aktivierten Datenpunkte mit ihren Einstellungen.
 
 ### Ermöglichen
-Die Nachricht muss die "ID" des Datenpunkts enthalten. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
+Die Nachricht muss die "ID" des Datenpunkts haben. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -483,7 +487,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### Deaktivieren
-Die Nachricht muss die "ID" des Datenpunkts enthalten.
+Die Nachricht muss die "ID" des Datenpunkts haben.
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -525,6 +529,44 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 2.2.0 (2022-09-19)
+* IMPORTANT: Node.js 14.x is now needed at minimum!
+* (Apollon77) Fix potential crash cases with upcoming js-controller versions
+
+### 2.1.8 (2022-08-13)
+* (riversource/Apollon77) Optimize getHistory query by using "UNION ALL"
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.7 (2022-06-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.6 (2022-06-27)
+* (Apollon77) Allow to remove a configuration value for "round" in config again
+
+### 2.1.5 (2022-06-27)
+* (Apollon77) When no count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
+* (Apollon77) Fix the initialization of types and IDs for some cases.
+
+### 2.1.3 (2022-06-12)
+* (Apollon77) Make sure debug log is active according to the settings
+
+### 2.1.2 (2022-06-08)
+* (Apollon77) Huge performance optimizations for GetHistory calls
+
+### 2.1.1 (2022-05-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.0 (2022-05-27)
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) Fix several places where pooled connections might have not been returned to pool correctly and add logging for it
+* (Apollon77) Work around an issue in used Pooling library that potentially gave out too many connections
+* (Apollon77) Optimize retention check to better spread the first checks over time
+* (Apollon77) Default to not use datapoint buffering as in 1.x when set to 0
+* (Apollon77) Make sure disabling "Log changes only" also really do not log the changes anymore
+* (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
+* (Apollon77) Adjust the fallback logic for type detection to use the type of the state value to log as last fallback
+* (Apollon77) Fix storing booleans on MSSQL
+
 ### 2.0.2 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.

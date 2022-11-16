@@ -7,7 +7,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonnen/README.md
 title: 太阳适配器
-hash: UmB9yA/wFBziJTYmLV0VXLWkRvq2neyvVBpt+mpLb0M=
+hash: nV/K/xmcRvNMxLjK2f3EpoWD1niKoLYUpGrAoKAStgw=
 ---
 ![标识](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
@@ -38,7 +38,7 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
 
 |领域 |说明 |
 |:-------------|:-------------|
-|Auth-Token |此处应输入Auth-Token，可在sonnen web 界面的“软件集成”下找到。如果没有输入auth token，则使用非官方API，可以随时关闭。|
+|Auth-Token |此处应输入Auth-Token，可在sonnen web 界面的“软件集成”下找到。如果不输入auth token，则使用非官方API，可以随时关闭。|
 
 ### 高级设置窗口
 ![高级设置](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "高级设置")
@@ -71,6 +71,9 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
 ＃＃＃ 状态
 注意：旧 API（端口 3480）和旧 API（端口 7979）的状态目前没有或仅部分记录
 
+#### 频道：配置
+使用 API v2，可以在此处查看电池在不同状态下的配置。可写状态可用于更改配置。
+
 ####频道：信息
 * info.connection
 
@@ -94,7 +97,7 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
     |:---:|:---:|
     |字符串|R|
 
-   *只读JSON字符串，带有sonnenBatterie的配置信息。*
+*只有可读的 JSON 字符串，带有 SonnenBatterie 的配置信息。* *仅在 API v1 中，v2 有用于此的通道 `configurations`*
 
 * info.powermeter
 
@@ -184,7 +187,7 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
     |:---:|:---:|
     |编号|R|
 
-   *代表电池当前直流（直流）电压的只读数值。*
+   *只读数值，代表电池当前的直流（直流）电压。*
 
 * status.systemTime
 
@@ -216,7 +219,7 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
     |:---:|:---:|
     |布尔|R|
 
-   *只读布尔值。如果电池当前正在放电，则为 true。*
+   *只读布尔值。如果电池当前正在放电，则为真。*
 
 * status.flowConsumptionGrid
 
@@ -275,6 +278,14 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
 
    *只读布尔值，当sonnenBatterie在线时为真。*
 
+* status.systemStatus
+
+  |数据类型|权限|
+  |:---:|:---:|
+  |字符串|R|
+
+  *指示电池是否连接到电网的只读字符串。*
+
 ####频道：控制
 * control.charge
 
@@ -284,7 +295,7 @@ Sonnen 适配器可以将 SonnenBatterie 集成到 ioBroker 中。
 
    *允许您以瓦特为单位指定电池最大放电量的数值。*
 
-*注意：如果设置了无效值，仍然会被确认。该值的确认（确认）仅表示命令已传输到电池。 *
+*注：如果设置了无效值，仍会被确认。该值的确认（确认）仅表示命令已传输到电池。 *
 
 *设定点的相应值将保持到电池接收到新的充电或放电值。
 如果 VPP 处于活动状态，则请求将被拒绝。*
@@ -303,7 +314,7 @@ setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250
 
    *允许您以瓦特为单位设置电池最大充电量的数值。*
 
-*注意：如果设置了无效值，仍然会被确认。该值的确认（确认）仅表示命令已传输到电池。 *
+*注：如果设置了无效值，仍会被确认。该值的确认（确认）仅表示命令已传输到电池。 *
 
 *设定点的相应值将保持到电池接收到新的充电或放电值。
 如果 VPP 处于活动状态，则请求将被拒绝。*
@@ -315,7 +326,7 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 ```
 
 #### 通道：功率计
-该渠道有两个子渠道，例如`4_1`和`4_2`，其中一个代表消费，另一个代表生产。
+该频道有两个子频道，例如`4_1`和`4_2`，其中一个代表消费，另一个代表生产。
 例如。 `4_1.kwh_imported`代表自安装电池以来的总产量。
 
 两个通道具有相同的状态。所有状态都是只读的，类型为`number`。
@@ -331,6 +342,23 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.13.0 (2022-10-28)
+* (foxriver76) added `latestData` endpoint providing eclipse LED status and time since last full charge
+
+### 1.12.3 (2022-10-27)
+* (foxriver76) readded widget (closes #189)
+
+### 1.12.2 (2022-10-27)
+* (foxriver76) fixed issue with data types of configuration
+
+### 1.12.1 (2022-09-26)
+* (foxriver76) we now use the V2 API for the powermeter endpoint
+* (foxriver76) we have ported the code to TypeScript
+* (foxriver76) added configuration for V2 API, including ability to change it via adapter
+
+### 1.11.0 (2022-06-22)
+* (foxriver76) added `status.systemStatus` to indicate if the battery is connected to the grid (closes #139)
+
 ### 1.10.0 (2022-04-18)
 * (rivengh) added battery discrete io states
 

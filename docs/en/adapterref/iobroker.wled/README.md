@@ -1,15 +1,15 @@
 ![Logo](admin/wled_logo_akemi.png)
 # ioBroker.wled
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.wled.svg)](https://www.npmjs.com/package/iobroker.wled)
+[![NPM version](https://img.shields.io/npm/v/iobroker.wled.svg)](https://www.npmjs.com/package/iobroker.wled)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.wled.svg)](https://www.npmjs.com/package/iobroker.wled)
-![Number of Installations (latest)](http://iobroker.live/badges/wled-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/wled-stable.svg)
+![Number of Installations](https://iobroker.live/badges/wled-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/wled-stable.svg)
 [![Dependency Status](https://img.shields.io/david/DrozmotiX/iobroker.wled.svg)](https://david-dm.org/DrozmotiX/iobroker.wled)
-[![Known Vulnerabilities](https://snyk.io/test/github/DrozmotiX/ioBroker.wled/badge.svg)](https://snyk.io/test/github/DrozmotiX/ioBroker.wled)
 
 [![NPM](https://nodei.co/npm/iobroker.wled.png?downloads=true)](https://nodei.co/npm/iobroker.wled/)
-![Test and Release](https://github.com/DrozmotiX/ioBroker.wled/workflows/Test%20and%20Release/badge.svg)
+
+**Tests:** ![Test and Release](https://github.com/DrozmotiX/iobroker.wled/workflows/Test%20and%20Release/badge.svg)
 
 **This adapter uses the service [Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
@@ -43,11 +43,22 @@ Sentry.io is a service for developers to get an overview about errors from their
 
 When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
 
-# Changelog
+## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.6.7 (2022-06-08) - Bugfix [#400](https://github.com/DrozmotiX/ioBroker.wled/issues/400)
+* (DutchmanNL) Bugfix: Cannot read property 'initialized' of undefined handleStates solved [#400](https://github.com/DrozmotiX/ioBroker.wled/issues/400)
+
+### 0.6.6 (2022-06-08) - Log messages and error reporting improved
+* (DutchmanNL) Log messages and error reporting improved
+* (DutchmanNL) Don't send missing attribute definitions to Sentry
+
+### 0.6.5 (2022-06-04) - Correct indication of connection state
+* (DutchmanNL) Dependency updates
+* (DutchmanNL) Bugfix: Correct indication of connection state #307
+* (DutchmanNL) Improve error messages & sentry reporting
 
 ### 0.6.3 (2021-09-08) - HotFixes
 * (DutchmanNL) Missing dropdown for ID of effects added
@@ -56,25 +67,10 @@ When the adapter crashes or another Code error happens, this error message that 
 ### 0.6.1 (2021-09-08)
 * (DutchmanNL) Missing state definitions WLED FW 0.13.0-b12 added.
 
-### 0.6.0 (2021-08-31) - Support Websocket connections
-* (DutchmanNL) System load reduced
-* (DutchmanNL) All warnings related to JS-Controller 3.x checks solved
-* (DutchmanNL) Ensure legacy support of WLED FW < 0.12 (fallback to http-API instead of websocket)
-* (DutchmanNL) Communication by websocket implemented, this feature allows live data updates (instead of interval polling). Requires WLED firmware >= 12
-
-### 0.5.9 (2021-08-11)
-* (DutchmanNL) added new state attributes reported by Sentry
-* (DutchmanNL) added min & max for brightness value to support iOT adapter
-
-### 0.5.8 (2021-08-11)
-* (DutchmanNL) added new state attributes reported by Sentry
-* (DutchmanNL) Bugfix Live override datapoint created as read-only #252
-* (DutchmanNL) excluded value "PIR" from data write due to current formatting
-
 ## License
 MIT License
 
-Copyright (c) 2020 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2022 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

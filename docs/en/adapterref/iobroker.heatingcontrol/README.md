@@ -228,6 +228,13 @@ heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset
 and
 heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
 
+## extended actuator handling
+
+checks that value was set correctly and ack is set, otherwise retries...
+
+to do
+
+
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
@@ -245,6 +252,22 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.9.3 (2022-10-28)
+* (René) update dependencies
+* (René) see issue #323: add telegram user to select box
+* (René) see issue #325: autodetect for HmIP-WTH-2 changed
+
+### 2.9.2 (2022-08-19)
+* (René) update dependencies
+
+### 2.9.1 (2022-06-10)
+* (René) bug fix timer id's for extended actor handling
+* (René) bug fix exception in SetRoomTemperature 
+
+### 2.9.0 (2022-06-09)
+* (René) see issue #302: adjustable info logging for temperature, aktor and window status change
+* (René) see issue #306: extended handling to set actuator state and thermostat target temperature added
 
 ### 2.8.7 (2022-04-23)
 * (René) see issue #312: bug fix in window is open handling if thermostat reduces temperature
@@ -608,7 +631,7 @@ Attention: some changes in datapoints!!
 
 ## License
 
-Copyright (C) <2019-2022>  <info@rg-engineering.eu>
+Copyright (C) 2019-2022  info@rg-engineering.eu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

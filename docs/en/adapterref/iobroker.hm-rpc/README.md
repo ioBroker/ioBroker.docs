@@ -139,6 +139,10 @@ Here, measured values, control and status data are listed; depending on the func
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.15 (2022-08-25)
+* (foxriver76) Retry once on `(UNREACH)` and `Failure` errors to avoid tmeporary communication issues (closes #467)
+* (foxriver76) we have updated some device icons
+
 ### 1.15.12 (2022-03-19)
 * (foxriver76) we now adjust min/max correct if a `SPECIAL` value falls out of range (closes #459)
 

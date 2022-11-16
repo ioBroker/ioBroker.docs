@@ -87,9 +87,15 @@ After the first start the devices must be scanned. It can be done in the configu
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.1 (2022-10-19)
+* (bluefox) Corrected license check
+
+### 1.1.0 (2022-10-18)
+* (bluefox) Corrected issue with password
+
 ### 1.0.4 (2021-05-21)
 * (bluefox) Ack will be ignored for the display commands
 
@@ -132,6 +138,6 @@ After the first start the devices must be scanned. It can be done in the configu
 ## License
 CC-BY-NC-4.0
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
 
 Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.

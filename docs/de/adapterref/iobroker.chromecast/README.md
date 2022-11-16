@@ -3,19 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chromecast/README.md
 title: ioBroker.chromecast
-hash: pSv3Lla3imfS3AO09CMLFYLbdrz+DRyvp58baq12Ykc=
+hash: 2VWQ2oVz8EqadN/QfR/9L9lCrgNGA13sNdx2nwg1PJA=
 ---
 ![Logo](../../../en/adapterref/iobroker.chromecast/admin/home.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/chromecast-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.chromecast.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.chromecast.svg)
-![Build-Status](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)
 
 # IoBroker.chromecast
+![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
 ## Ein Google Home-Adapter für ioBroker
-Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audio-Google Home-Geräten. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casting zu senden.
+Dieses Plugin ermöglicht die Erkennung von Video- und/oder Audiogeräten von Google Home. Für jedes erkannte Home-Gerät wird ein ioBroker-Gerät erstellt. Dieses Gerät zeigt den Status des Geräts an und ermöglicht es, ihm eine neue URL zum Casting zu senden.
 
 Bauen Sie auf den folgenden Projekten auf:
 
@@ -25,24 +27,19 @@ Bauen Sie auf den folgenden Projekten auf:
 ## Tritt dem Discord-Server bei, um alles über die ioBroker-Integration zu diskutieren!
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsoren](./SPONSORS.md)
-Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende machen (dies ist ein persönlicher Spendenlink für Jey Cee, keine Verbindung zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
 ## Anweisungen
-1. In ioBroker installieren
-   1. Gehen Sie zu Ihrem ioBroker-Adapter-Tab
-   2. Google Home-Adapter auswählen und installieren
-2. Fügen Sie eine Instanz des Google Home-Adapters hinzu
-   * Es sollte nach der Installation automatisch ausgeführt werden
-3. (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
+1. Installieren Sie diesen Adapter in ioBroker
+
+2 (optional) Wenn Sie lokale Dateien streamen möchten, müssen Sie den Adapter konfigurieren
+
    * Sie benötigen eine ioBroker-Webserverinstanz
-4. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten sehen
-5. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zu chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
-6. Die URL sollte auf Ihrem Gerät abgespielt werden
+3. Überprüfen Sie Ihr Protokoll: Sie sollten Protokolle zu den erkannten Geräten sehen
+4. Schreiben Sie eine URL wie [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar .net/ps-dieneue_rock/livestream_hi.mp3) zu chromecast.0.`<Ihr Chromecast-Name>`.player.url2play
+5. Die URL sollte auf Ihrem Gerät abgespielt werden
 
 ## Merkmale
 * Geräte mit Multicast-DNS erkennen
-  * optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
+  * Optional zusätzliche manuell konfigurierte Geräte im Admin-Panel hinzufügen
 * Erstellen Sie ioBroker-Objekte für jedes gefundene Gerät
 * Status-, Player-, Medien- und Metadatenkanäle
 * Steuern Sie das Google Home-Gerät über den Adapter
@@ -68,9 +65,19 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 * mehr testen
 
 ## Changelog
-### 3.0.0 (2021-08-25)
-* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
 
+### 3.0.3 (2022-08-26)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names
+* (Bjoern3003) set album name as song if provided in icy-name
+* (Apollon77/aortmannm) Make compatible with Node.js 16+
+* (Apollon77) Add Sentry for crash reporting
 
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
@@ -222,7 +229,7 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

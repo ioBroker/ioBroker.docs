@@ -1,7 +1,8 @@
 ---
-title:       "Cloud"
+title:       "Visualisierungen"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/cloud/viz.md"
+template:    true
 ---
 
 # Visualisierungen über die Cloud

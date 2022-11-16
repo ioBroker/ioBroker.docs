@@ -82,6 +82,50 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 5.2.11 (2022-11-08)
+* (bluefox) Function `getObjects` was extended by devices, channels and enums
+
+### 5.2.10 (2022-10-10)
+* (bluefox) Corrected the certificate and IP selection
+* (Apollon77) Prepare for future js-controller versions
+
+### 5.2.7 (2022-09-28)
+* (bluefox) Updated GUI packages
+
+### 5.2.6 (2022-08-24)
+* (bluefox) Caught error by subscribe
+
+### 5.2.4 (2022-07-08)
+* (bluefox) Corrected getAdapterInstances method
+
+### 5.2.3 (2022-06-20)
+* (bluefox) Allowed to overload the system language
+
+### 5.2.2 (2022-06-09)
+* (Apollon77) Added Cache headers to all static with configurable cache time (default 60s)
+
+### 5.2.1 (2022-06-09)
+* (bluefox) Do not show requireLog message
+
+### 5.2.0 (2022-05-21)
+* (bluefox) Corrected the load of `iobroker.ws` as integrated socket
+
+### 5.1.2 (2022-05-20)
+* (bluefox) Fixed "Force web-sockets" mode
+
+### 5.1.0 (2022-05-20)
+* (bluefox) Reverted socket.io to V2
+
+### 5.0.3 (2022-05-20)
+* (bluefox) Added error log
+
+### 5.0.1 (2022-05-20)
+* (bluefox) Added compatibility with socket.io@2.x
+* (bluefox) GUI updated to adapter-react-v5
+
+### 5.0.0 (2022-05-19)
+* (bluefox) Socket.io updated to 4.5.1
+
 ### 4.3.0 (2022-04-15)
 * (bluefox) Added support of rest-api
 

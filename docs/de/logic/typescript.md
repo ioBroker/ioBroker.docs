@@ -1,9 +1,8 @@
 ---
-title:       "Logik"
+title:       "TypeScript"
 lastChanged: "13.09.2018"
+template:    true
 ---
-
-# TypeScript
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>

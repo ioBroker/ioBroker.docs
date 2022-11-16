@@ -1,6 +1,7 @@
 ---
 title:       "Installation"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
 # Durchführen von Updates

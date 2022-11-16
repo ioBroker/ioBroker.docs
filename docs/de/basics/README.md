@@ -1,6 +1,6 @@
 ---
 title:       "ioBroker Grundlagen"
-lastChanged: "14.05.2021"
+lastChanged: "23.10.2022"
 ---
 
 
@@ -20,7 +20,7 @@ Daher müssen in einer Installation nur die Adapter installiert werden, die für
 die individuellen Bedürfnisse benötigt werden. Dies spart Speicherplatz und  
 Rechenpower.
 
-Zu jedem Adapter werden so genannte ***Instanzen*** erstellt. Dieses sind die  
+Zu jedem Adapter werden sogenannte ***Instanzen*** erstellt. Dieses sind die  
 "Arbeitsversionen" der Adapter. Je nach Adapter können beliebig viele Instanzen  
 erzeugt werden um verschiedene Subsysteme oder unterschiedliche Aufgabenbereiche  
 voneinander abzugrenzen.
@@ -30,7 +30,7 @@ In diesen Instanzen findet die entsprechende Konfiguration statt.
 ## Architektur
 ### Server
 Eine Besonderheit von ioBroker besteht darin, dass die Aufgaben auch auf mehrere  
-Server verteilt werden **können**.  In so einem Fall spricht man von einem  
+Server verteilt werden **können**. In so einem Fall spricht man von einem  
 ***Multihost-System***. Gründe für die Aufteilung können räumlicher Art oder  
 eine Leistungsverteilung sein.
 
@@ -39,18 +39,18 @@ Ein ioBroker Server kann nahezu auf jeder Hardware installiert werden. Einzige
 Bedingung ist, dass es für das entsprechende Betriebssystem eine aktuelle  
 Version von [nodejs](https://nodejs.org/en/download/) gibt.
 
-!> Stand Februar 2022 wird für ioBroker noch Node.js 14.x empfohlen.
+!> Stand Oktober 2022 wird für ioBroker Node.js 16.x empfohlen.
 
 Für eine größere Installation wird außerdem ein Arbeitsspeicher (RAM) von  
-mindestens 2GB empfohlen. Zum Testen reicht ein Raspberry Pi 2/3 mit 1GB RAM,  
-als Slave für einzelne Adapter in einer Multihost-Umgebung reichen teilweise  
-sogar noch kleinere Kleinrechner.
+mindestens 2 GB besser 4 GB empfohlen. Zum Testen reicht ein Raspberry Pi 2/3 
+mit 1 GB RAM, als Slave für wenige Adapter in einer Multihost-Umgebung 
+reichen sogar noch kleinere Kleinrechner.
 
 ### Software
 ioBroker verwaltet die Daten in einer Datenbank. Dementsprechend ist auch die  
 Struktur der Daten organisiert.
 
-Zu jedem Adapter gibt es einen so genannten Namespace, der sämtliche Daten zu  
+Zu jedem Adapter gibt es einen sogenannten Namespace, der sämtliche Daten zu  
 einer Instanz des Adapters enthält. Dementsprechend lautet der Name des  
 Namespaces z.B.: ***AdapterName.0***
 

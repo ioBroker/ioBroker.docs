@@ -1,6 +1,6 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/mqtt-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.mqtt.svg
+BADGE-Number of Installations: https://iobroker.live/badges/mqtt-stable.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mqtt.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mqtt.svg
 ---
 ![](MQTT)
@@ -804,6 +804,29 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Fix regex on subscribes of server clients to only match wanted states
+* (Apollon77) Prepare for future js-controller versions
+
+### 4.0.7 (2022-06-28)
+* (Apollon77/kleinOr) Remove unneeded dependency
+
+### 4.0.6 (2022-06-19)
+* (bluefox) Corrected sentry issue
+
+### 4.0.4 (2022-05-30)
+* (Apollon77) lower loglevel for log messages about messages with unknown message IDs to info
+
+### 4.0.3 (2022-05-17)
+* (bluefox) Corrected publish states on start by client
+
+### 4.0.2 (2022-05-17)
+* (bluefox) Added possibility to publish own states as client, additionally to `mqtt.x`
+
+### 4.0.1 (2022-05-13)
+* (Apollon77) Fix Number detection for values
+
 ### 4.0.0 (2022-05-12)
 * (bluefox) BREAKING CHANGE: in client mode only "mqtt.X.*" states will be subscribed
 * (bluefox) BREAKING CHANGE: in server mode by empty "publish" setting no states will be subscribed. Early all states were subscribed

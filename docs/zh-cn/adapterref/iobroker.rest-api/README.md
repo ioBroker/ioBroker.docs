@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
+hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -32,6 +32,7 @@ hash: +50yZp/vx0ShiOLZMAqd0toyG5T4ew35wizIEVsBt3E=
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - 将状态读取为 JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - 将状态读取为字符串（唯一值）
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - 使用 GET 写入状态（仅用于与 simple-api 的向后兼容）
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向 javascript.0 发送消息在脚本`scriptName`中
 
 ## 订阅状态或对象更改
 您的应用程序可以通过状态或对象的每次更改来获得通知。
@@ -119,13 +120,13 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `checkFeatureSupported(feature)` - 检查 js-controller 是否支持该功能。
 - `decrypt(encryptedText)` - 使用系统密码解密字符串
 - `encrypt(plainText)` - 使用系统密码加密字符串
-- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。您可以选择定义适配器名称
 - `getAdapters(adapterName)` - 获取“适配器”类型的对象。您可以选择定义适配器名称
 - `updateLicenses(login, password)` - 从 ioBroker.net 门户读取许可证
 - `getCompactInstances()` - 读取带有简短信息的实例列表
 - `getCompactAdapters()` - 使用简短信息读取已安装适配器的列表
 - `getCompactInstalled(host)` - 阅读有关已安装适配器的简短信息
 - `getCompactSystemConfig()` - 读取简短的系统配置
+-`getCompactSystemRepositories()`
 - `getCompactRepository(host)` - 读取简短的存储库
 - `getCompactHosts()` - 获取有关主机的简短信息
 - `addUser(user, pass)` - 添加新用户
@@ -148,12 +149,40 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getUserPermissions()` - 使用用户权限读取对象
 - `getVersion()` - 读取适配器名称和版本
 - `getAdapterName()` - 读取适配器名称（总是 rest-api）
+- `getAdapterInstances(adapterName)` - 获取“实例”类型的对象。您可以选择定义适配器名称
 
-<!-- END --> <!-- 下一个版本的占位符（在行首）：
+<!-- 结束 -->
+
+＃＃ 去做
+- [ ] 实现 GET,PATCH,POST,DELETE 文件操作
+
+<!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.4 (2022-08-31)
+* (bluefox) Check if the port is occupied only on defined interface
+
+### 1.0.2 (2022-07-27)
+* (bluefox) Implemented binary read/write operations
+
+### 1.0.1 (2022-07-27)
+* (bluefox) Increased the max size of body to 100Mb
+
+### 1.0.0 (2022-05-19)
+* (bluefox) Final release
+
+### 0.6.0 (2022-05-18)
+* (bluefox) Added sendTo path
+
+### 0.5.0 (2022-05-17)
+* (bluefox) Some access errors were corrected
+
 ### 0.4.0 (2022-04-26)
 * (bluefox) Added socket commands
 

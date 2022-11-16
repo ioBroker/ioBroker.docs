@@ -1,10 +1,10 @@
 ---
-title: Структура документального фильма
+title: Структура документации
 lastChanged: 10.05.2021
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/intro/README.md
-hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
+hash: 4qnNEeC0RZEuSKq+nskiHOiQSq3TjltlnSv7wyMg9uA=
 ---
 **Эта документация является основным справочником для всех пользователей ioBroker:**
 
@@ -28,7 +28,7 @@ hash: idk0gZfgjRkBsHrpF2r3lK1a0goTdH4DOHijnHKP5zE=
 
 ![боковое меню](../../de/intro/media/Hauptmenu.png)
 
-После щелчка по пункту меню оно автоматически закрывается, освобождая место для содержимого.
+После нажатия на элемент меню оно автоматически закрывается, освобождая место для содержимого.
 
 ---
 

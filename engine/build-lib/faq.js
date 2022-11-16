@@ -8,6 +8,9 @@ const consts = require('./consts');
 const IGNORE = [];
 
 function replaceImages(body, fileFolder, mediaFolder) {
+    const parts = fileFolder.split('/');
+    const lang = parts[parts.length - 3];
+
     // replace all images like "mediaDir/blabla.png" with "LN/adapterref/iobroker.adapterName/mediaDir/blabla.png"
     let images = body.match(/!\[[^\]]*]\([^)]*\)/g);
     if (images) {
@@ -20,11 +23,11 @@ function replaceImages(body, fileFolder, mediaFolder) {
                     if (link[0] === '/') {
                         link = link.substring(1);
                     }
-                    const newFileName = path.basename(fileFolder) + '_' + link.replace(/\\/g, '_').replace(/\//g, '_');
+                    const newFileName = `${path.basename(fileFolder)}_${link.replace(/\\/g, '_').replace(/\//g, '_').replace(/\.\._/g, '')}`;
                     if (fs.existsSync(path.join(fileFolder, link))) {
                         fs.writeFileSync(path.join(mediaFolder, newFileName), fs.readFileSync(path.join(fileFolder, link)));
                     }
-                    body = body.replace(image, `![${alt}](media/${newFileName})`);
+                    body = body.replace(image, `![${alt}](${lang}/faq/media/${newFileName})`);
                 }
             }
         });
@@ -32,7 +35,7 @@ function replaceImages(body, fileFolder, mediaFolder) {
         // remove delete lines from array
         const lines = body.split('\n');
         for (let i = lines.length - 1; i >= 0; i--) {
-            if (lines[i].indexOf('--delete--') !== -1) {
+            if (lines[i].includes('--delete--')) {
                 lines.splice(i, 1);
             }
         }
@@ -51,11 +54,11 @@ function replaceImages(body, fileFolder, mediaFolder) {
                     if (link[0] === '/') {
                         link = link.substring(1);
                     }
-                    const newFileName = path.basename(fileFolder) + '_' + link.replace(/\\/g, '_').replace(/\//g, '_');
+                    const newFileName = `${path.basename(fileFolder)}_${link.replace(/\\/g, '_').replace(/\//g, '_').replace(/\.\._/g, '')}`;
                     if (fs.existsSync(path.join(fileFolder, link))) {
                         fs.writeFileSync(path.join(mediaFolder, newFileName), fs.readFileSync(path.join(fileFolder, link)));
                     }
-                    const newImage = image.replace(link, 'media/' + newFileName);
+                    const newImage = image.replace(link, `${lang}/faq/media/${newFileName}`);
                     body = body.replace(image, newImage);
                 }
             }
@@ -66,14 +69,23 @@ function replaceImages(body, fileFolder, mediaFolder) {
 }
 
 function processFolder(folder, lang) {
-    const files = fs.readdirSync(folder).filter(name => !name.startsWith('_') && name !== 'README.md' && name.endsWith('.md')).sort();
+    const files = fs.readdirSync(folder)
+        .filter(name => !name.startsWith('_') && name !== 'README.md' && name.endsWith('.md'))
+        .sort();
+
     if (!fs.existsSync(path.join(folder, 'README.md'))) {
-        console.warn('Folder ' + folder + ' skipped, because no README.md found');
+        console.warn(`Folder ${folder} skipped, because no README.md found`);
         return;
     }
-    const parts = [fs.readFileSync(path.join(folder, 'README.md')).toString('utf-8')];
+    let parts = [fs.readFileSync(path.join(folder, 'README.md')).toString('utf-8')];
 
     files.forEach(file => parts.push(fs.readFileSync(path.join(folder, file)).toString('utf-8')));
+
+    parts = parts.map((file, i) => {
+        // remove headers
+        const result = utils.extractHeader(file);
+        return `${i ? `<!-- ${path.basename(folder)}/${files[i - 1]} -->\n` : ''}${result.body.trim()}`;
+    });
 
     let text = parts.join('\n\n');
     const media = path.join(consts.FRONT_END_DIR, lang, 'faq', 'media');
@@ -83,7 +95,7 @@ function processFolder(folder, lang) {
     // replace all media files and copy it in one directory
     text = replaceImages(text, folder, media);
 
-    fs.writeFileSync(path.join(consts.FRONT_END_DIR, lang, 'faq', path.basename(folder)) + '.md', text);
+    fs.writeFileSync(`${path.join(consts.FRONT_END_DIR, lang, 'faq', path.basename(folder))}.md`, text);
 }
 
 function processFiles(root, lang) {
@@ -99,7 +111,7 @@ function processFiles(root, lang) {
                 if (IGNORE.indexOf(folderName.replace(root, '')) === -1) {
                     processFolder(folderName, lang);
                 } else {
-                    fs.writeFileSync(path.join(consts.FRONT_END_DIR, lang, 'faq', name) + '.md', fs.readFileSync(folderName));
+                    fs.writeFileSync(`${path.join(consts.FRONT_END_DIR, lang, 'faq', name)}.md`, fs.readFileSync(folderName));
                 }
             }
         });

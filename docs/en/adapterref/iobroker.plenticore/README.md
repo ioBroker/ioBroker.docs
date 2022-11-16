@@ -169,7 +169,32 @@ The forecast values can then be used to set the MinSoC of the battery, enable or
 `plenticore.0.forecast.day1.sun.sunrise` - sunrise time of forecast date  
 `plenticore.0.forecast.day1.sun.sunset` - sunset time of forecast date  
 
+## Smart battery control
+
+The smart battery control from KOSTAL does not use a weather forecast. Therefore, it does not always control ideally to ensure on the one hand that the battery is fully charged and on the other hand to avoind feed-in limitation as much as possible.
+This adapter tries to optimize this. Two strategies are offered for this, which can be selected in the settings of the adapter.
+If the smart battery control from KOSTAL is active, it decides when and how much electricity goes into the grid or into the battery. The adapter can only decide whether the KOSTAL smart control is active, but not how it operates.
+
+### Strategy 1: Double day forecast vs. battery capacity
+
+Brief description: Switch KOSTAL Smart  Management on, if (minimum SoC is reached) AND (remaining power until sunset - remaining consumption - free battery capacity) >= 2 * battery capacity.
+
+### Strategy 2: Remaining forecast vs. consumption and free battery capacity
+
+The KOSTAL Smart  Management is only activated if (according to the prognosis) both of the following conditions are met:
+- There is at least one hour in which the feed limit is exceeded (otherwise you don't need the Smart Management because everything can be fed in to the grid).
+- Presumably more electricity is available than needed during the day for consumption during the day and for charging the battery (otherwise, space in the battery would be free throughout the day even without Smart Management)
+The actual control is a bit more complex as it also prevents the intelligent control from being turned on/off many times.
+
+Details:
+- If all hourly forecast values ​​are lower than "Maximum feed-in", the KOSTAL control is not activated. The maximum feed-in is assumed 15% lower in order to anticipate variations caused by clouds.
+- Between 3 p.m. and sunrise, the setting of the KOSTAL smart control is not changed. The KOSTAL control seems to work better if it is not switched on/off unnecessarily often. During this period, the KOSTAL control has no disadvantage.
+- A hysteresis is used to switch on/off less often. It will turn off when the current SoC is less than the "Minimum SoC to activate battery management" or when the free power is below 0. It will turn on when the current SoC is greater than "Minimum SoC to activate battery management"+1 and the free power is greater than 10% of the battery capacity.
+
 ## Changelog
+
+### 2.2.2
+- Added alternative smart battery strategy (Description see above) [PastCoder]
 
 ### 2.2.1
 - Fixed forecast zickzack [PastCoder]

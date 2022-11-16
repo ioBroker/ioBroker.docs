@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: qus3zoy8Ut/hOmG9CWgeMfn1UC2DB4FTGaMZZJglYaQ=
+hash: n4mQquYZNAJlP+4VNTg2JUCZyy4OEkGk930btchArio=
 ---
 # 核心理念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
 
 对象代表很少变化且较大的数据，例如系统设备、配置和附加文件的元数据。每个对象都必须有一个属性“类型”。有关可用对象类型以及特定类型对象需要哪些强制属性的更多信息，请参见下文。适配器模块为您提供了 setObject、getObject 等函数。
 
-状态代表系统中经常变化的数据，例如 f.e.如果灯是打开或关闭，如果运动检测器检测到一些运动，客厅的温度或遥控器的按钮是否被按下。与对象相反，状态可用于触发动作，状态可创建历史数据。为了处理状态，适配器模块中有几个函数，如 setState、getState 等。
+状态代表系统中经常变化的数据，例如 f.e.如果一盏灯打开或关闭，如果运动检测器检测到一些运动，客厅的温度或遥控器的按钮是否被按下。与对象相反，状态可用于触发动作，状态可创建历史数据。为了处理状态，适配器模块中有几个函数，如 setState、getState 等。
 
 对于每个状态，还必须存在一个具有 `type=state` 的对应对象。
 
@@ -116,7 +116,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 
 <a id="states"></a>
 
-## 状态 `getState` 方法和 `stateChange` 事件提供具有除 `setState` 方法过期之外的所有属性的对象，除了 `val` 之外的所有内容都是可选的，`from` 由自动设置`setState`方法。 `ack`默认为假，`ts`和`lc`按预期设置
+##States `getState` 方法和 `stateChange` 事件提供一个具有所有属性的对象，除了为 `setState` 方法过期之外的所有属性，除了 `val` 是可选的，`from` 由自动设置`setState`方法。 `ack`默认为假，`ts`和`lc`按预期设置
 需要注意的是，数组、对象、混合或文件类型的状态值必须使用`JSON.stringify()`进行序列化。
 
 `getState/stateChange/setState`对象的属性：
@@ -153,7 +153,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
   0x84 - 10000100 - sensor reports error
 ```
 
-每个 *state* 都必须由包含状态元数据的 `state` 类型的对象表示。见下文。
+每个 *state* 都必须由类型为 `state` 的对象表示，该对象包含该状态的元数据。见下文。
 
 ## 对象
 ### 强制属性
@@ -201,8 +201,13 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `common.read` (boolean, 强制) - 如果状态可读则为真
 * `common.write` (boolean, 强制) - 如果状态是可写的，则为真
 * `common.role`（字符串，强制）- 状态角色（在用户界面中用于指示选择哪个小部件，见下文）
-* `common.states`（可选）数字类型属性，带有可能状态的对象`{'value'：'valueName'，'value2'：'valueName2'，0：'OFF'，1：'ON'}`或（由 admin5 支持）一个状态数组，例如 `['Start', 'Flight', 'Land']`
-* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后部分。用于`HM.LEVEL`并且通常具有值`WORKING`
+* `common.states`（可选）- 为数据类型为字符串和数字的状态提供更多关于允许值的上下文：
+  * 对于**没有**提供的数字 common.min/common.max：包含允许的数字值列表及其（显示的）标签作为对象，形式为 `{0: 'OFF', 1: 'ON', '- 1'：'随便'}`。只允许这些值
+ * 对于数字 **ith** 提供 common.min** /或** common.max：允许的数字范围由 min/max 定义，此属性包含“特殊”数字值及其（显示）的列表标签为对象，如“{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255)。只允许指定 min **** max，然后将缺少的限制假定为 +/-Infinity（不包括 +/-Infinity）
+  * 对于字符串，包含允许值的列表及其（显示的）标签作为对象，例如 `{'value': 'valueName', 'value2': 'valueName2'}`。只允许这些值
+  * 对于字符串，包含允许值的列表，如 `['Start', 'Flight', 'Land']` （实际上与 `{'Start': 'Start', 'Flight': '飞行'，'陆地'：'陆地'}`）。只允许这些值
+  * 这些值目前（从 js-controller 4.0 开始）未由 js-controller 检查或验证，仅适用于 UI 和可视化
+* `common.workingID` (string, optional) - 如果这个状态有辅助状态WORKING。这里必须写全名，如果前部分与实际相同，则只写最后一部分。用于`HM.LEVEL`并且通常具有值`WORKING`
 * `common.custom`（可选）- 具有特定适配器的自定义设置的结构。像`{"influxdb.0": {"enabled": true, "alias": "name"}}`。 `enabled` 属性是必需的，如果它不是真的，整个属性将被删除。
 
 ##### 属性`common.history`
@@ -270,7 +275,7 @@ Die Verlaufsfunktion benötigt den Verlaufsadapter oder einen anderen Speicherad
 * `phone` - fritz box, speedport 等等
 
 * `button` - 像墙壁开关或电视遥控器，其中每个按钮的状态如 .play、.stop、.pause
-* `remote` - 具有状态的电视或其他遥控器是带有按下值的字符串，例如“播放”、“停止”、“暂停”
+* `remote` - 电视或其他遥控器的状态是带有按下值的字符串，例如“播放”、“停止”、“暂停”
 
 * `meta` - 关于设备的信息
 * `meta.version` - 设备版本
@@ -490,7 +495,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以像这样使用参数替换：`http://%ip%:%port%`。 IP 将替换为主机 IP。将从 `native.port` 中提取 `port`。
 * `common.adminTab.name` - 管理员标签的名称
 * `common.adminTab.singleton` - [true/false] 如果适配器有管理员的 TAB。将只显示所有实例的一个 TAB。
-* `common.allowInit` - [true/false] 如果设置更改或适配器已启动，则允许在“不在时间表内”调用“已调度”适配器。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
+* `common.allowInit` - [true/false] 如果设置更改或适配器已启动，则允许“不在时间表内”调用“已调度”适配器。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
 * `common.availableModes` - 如果可能有多个模式，则为 `common.mode` 的值
 * `common.blockly` - [true/false] 如果适配器具有用于块的自定义块。 （需要`admin/blockly.js`）
 * `common.connectionType` - 与设备的连接类型：`local/cloud`。参见`common.dataSource`。
@@ -534,9 +539,9 @@ ID：`system.adapter.<adapter.name>`
 * `common.nogit` - 如果为真，则无法直接从 GitHub 安装
 * `common.nondeletable` - [true/false] 此适配器无法删除或更新。它将与控制器一起更新。
 * `common.npmLibs` - 已弃用。使用 package.json `dependencies`。
-* `common.onlyWWW` - [true/false] 对控制器说，适配器只有 html 文件，没有 main.js，就像人力车一样
+* `common.onlyWWW` - [true/false] 告诉控制器，适配器只有 html 文件，没有 main.js，就像人力车一样
 * `common.osDependencies.darwin` - 此适配器所需的 OSX 包数组
-* `common.osDependencies.linux` - debian/centos 软件包的数组，这是此适配器所需的（当然只有带有 apt、apt-get、yum 作为软件包管理器的操作系统）
+* `common.osDependencies.linux` - debian/centos 包的数组，这是该适配器所需的（当然只有带有 apt、apt-get、yum 作为包管理器的操作系统）
 * `common.osDependencies.win32` - 未使用，因为 win32 没有包管理器
 * `common.os` - 支持的操作系统的字符串或数组，例如`["linux", "darwin"]`
 * `common.platform` - **强制**可能的值：Javascript/Node.js，更多即将到来
@@ -546,7 +551,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.restartAdapters` - 包含在安装此适配器后必须重新启动的适配器名称的数组，例如[“可见”]
 * `common.restartSchedule` - CRON 计划重启模式`daemon` 适配器
 * `common.schedule` - 如果适配器在 `schedule` 模式下运行，则 CRON 计划。
-* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
+* `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，将调用路径 `adapter/lib/states.js`，并提供以下参数函数（对象、状态、实例、配置、回调）。该函数必须提供具有类似 `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]} 的值的点数组
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
 * `common.statusStates` - admin 中状态指示的结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 代替 `onlineId`。如果 ID 非常短（其中少于 2 个点），则 ID 将被视为相对于当前对象。
@@ -557,7 +562,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.subscribe` - 变量名，自动订阅
 * `common.supportCustoms` - [true/false] 如果适配器支持每个状态的设置。它必须在管理员中有 custom.html 文件。示例可以在 `ioBroker.history` 中找到
 * `common.supportStopInstance`- [true/false] 如果适配器支持信号 stopInstance（需要**messagebox**）。该信号将在停止之前发送到适配器。 （在 SIGTERM 出现问题时使用）
-* `common.titleLang` - **强制** 在所有支持的语言中，适配器的更长名称，例如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
+* `common.titleLang` - **强制**在所有支持的语言中适配器的更长名称，例如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` - （已弃用）要在管理员中显示的适配器的更长名称
 * `common.type` - 适配器类型。请参阅 [类型](adapterpublish.md)
 * `common.unchanged` - （系统）请不要使用这个标志。这是一个通知系统的标志，该配置对话框必须显示在管理员中。
@@ -568,7 +573,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.webExtendable` - [true/false] 如果此适配器中的 Web 服务器可以使用代理、simple-api 等插件/扩展进行扩展
 * `common.webExtension` - 连接网络扩展的相对文件名。例如。在 `simple-api` `lib/simpleapi.js` 相对于适配器根目录。此外，`native.webInstance` 需要说明此扩展将包含在何处。空意味着，它必须作为自己的 Web 服务运行。 “*”表示每个 Web 服务器都必须包含它。
 * `common.webPreSettings` - webServer 适配器必须包含在 info.js 中的参数列表。 （示例材料）
-* `common.webservers` - 应该从适配器的 www 文件夹提供内容的 Web 服务器实例数组
+* `common.webservers` - 应从适配器的 www 文件夹中提供内容的 Web 服务器实例数组
 * `common.welcomeScreen` - 页面数组，应该显示在“web”index.html 页面上。 `["vis/edit.html", "vis/index.html"]` 或 `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis /img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - 待办事项
 * `common.welcomeScreenPro` - 与 `common.welcomeScreen` 相同，但仅用于从 ioBroker.cloud 访问。
@@ -637,7 +642,7 @@ ID：`system.host.<host>`
 * `common.platform` - （强制）可能的值`Javascript/Node.js`（更多）
 * `common.enabled` - （强制）是否激活脚本
 * `common.source` - （强制）脚本源
-* `common.engine` - (可选) *脚本引擎* 应该运行此脚本的实例 (f.e. 'javascript.0') - 如果自动选择省略的引擎
+* `common.engine` - (可选) *script engine* 应该运行这个脚本的实例 (f.e. 'javascript.0') - 如果省略的引擎被自动选择
 
 ####用户
 * `common.name` - （强制）用户名（区分大小写）

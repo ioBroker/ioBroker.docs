@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cloud/README.md
 title: ioBroker 云适配器
-hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
+hash: 4r/Wxr+2EjpbmN7uLOTJNUVz9ZPeqqpWt+taAd4r5uo=
 ---
 ![标识](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -26,7 +26,7 @@ hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 ![介绍](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ＃＃＃ 实例
-来自云适配器的所有请求都将被路由到某个 WEB 实例。用户必须在此处指定当他登录 https://iobroker.net 站点时将显示给用户的 WEB 实例。
+来自云适配器的所有请求都将被路由到特定的 WEB 实例。用户必须在此处指定当他登录 https://iobroker.net 站点时将显示给用户的 WEB 实例。
 
 ### 允许自签名证书
 如果您使用标准 iobroker.net 云，您可以停用它。此选项仅在使用自己的云时才重要。
@@ -51,7 +51,7 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 
 从版本 2.0.5 开始，您可以使用 GET 请求以 `[GET]https://iobroker.net/service/custom_<NAME>/<user-app-key>/<data>` 的形式将 `\<data\>` 放入 `cloud.0.services.custom_\<NAME\>`。
 
-在这里您可以找到如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
+在这里您可以找到如何将其与[任务者](doc/tasker.md)一起使用的说明。
 
 只有设置了 IFTTT 密钥，才允许使用 IFTTT 服务。
 
@@ -81,13 +81,30 @@ curl --data "myString" https://iobroker.net/service/custom_test/<user-app-key>
 ### **正在进行中** -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 4.3.0 (2022-10-27)
+* (bluefox) Corrected work with lovelace
+
+### 4.2.3 (2022-10-10)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Corrected error with iobroker.pro and delete object
+
+### 4.2.2 (2022-08-24)
+* (bluefox) Corrected error with services list and admin6
+
+### 4.2.1 (2022-07-20)
+* (bluefox) Used new version of socket library.
+
+### 4.2.0 (2022-07-05)
+* (bluefox) Added preparations for Admin 6
+
+### 4.1.2 (2022-06-22)
+* (bluefox) Added preparations for Admin 6
 * (bluefox) Added better error reporting
 * (bluefox) Removed outdated `request` library
 * (bluefox) Used common sockets (could be buggy)
 
 ### 4.1.1 (2022-02-19)
-* Important: Requires js-controller 3.1 at least!
+* Important: Requires `js-controller` 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data
 * (Apollon77) FIx some crash cases reported by Sentry
 * (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-控制器
-hash: 8WklqVfVhAM7m8QqhDDH4r69iv3vLstogp+KmPd9WEY=
+hash: Vlc0ZQuPPhH6TLNS9yoNuH94kirR2y31fb2VPOq2o/o=
 ---
 ![标识](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -39,19 +39,19 @@ hash: 8WklqVfVhAM7m8QqhDDH4r69iv3vLstogp+KmPd9WEY=
 数据点是使用适当的状态创建的，如果可用，还有正确的角色。使用其他通用角色。
 
 ###识别信息
-未与任何控制器配对的设备具有 admin.identify 状态，可以使用“true”触发。在这种情况下，相关设备应该识别自己（例如，灯应该闪烁等，以便可以识别）。此功能仅在设备未与控制器配对时可用。
+未与任何控制器配对的设备具有 `admin.identify` 状态，可以通过 `true` 触发。在这种情况下，相关设备应该识别自己（例如，灯应该闪烁等，以便可以识别）。此功能仅在设备未与控制器配对时可用。
 
 #### 配对信息
 要将设备与此适配器实例配对，您需要提供设备上显示的引脚或标签等。 PIN 是 QR 码旁边的 8 个数字。需要以 123-45-678 格式输入数字（当破折号未打印在标签上或屏幕上显示时也是如此！）
 
 现在需要将 PIN 输入到 admin.pairWithPin 状态 - 很快就会出现管理 UI。
 
-将设备与此实例配对后，无法同时将设备添加到 Apple Home 应用等。
+将设备与此实例配对后，无法同时将设备添加到 Apple Home 应用程序等。
 
 可能存在配对仍然存在问题的情况，因为我只能用很少的设备进行测试，所以请报告问题，我将提供说明以获取所需的调试数据。
 
 #### 取消配对信息
-要取消配对，只需使用“true”触发“admin.unpair”状态，就会执行取消配对过程 - 很快就会出现管理 UI。
+要取消配对，只需使用“true”触发 `admin.unpair` 状态，就会执行取消配对过程 - 很快就会出现管理 UI。
 
 #### IP 设备使用特别注意事项
 IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同一网络中。目前没有真正的解决方法，因为使用的 MDNS 记录包含配对过程的重要信息。
@@ -66,13 +66,15 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 
 由于蓝牙设备的限制，无法获得状态变化的“实时更新”。设备将通过触发立即数据刷新的特殊包报告“重要状态变化”（例如“开启”状态变化）。此外，数据会在定义的数据轮询间隔内刷新。不要将它们设置得太短！
 
-重新启动适配器蓝牙设备后无法直接连接 - 系统需要从设备接收至少一个发现包以获取所需的连接详细信息。这意味着 BLE 设备的可用可能会有点延迟。
+适配器重启后蓝牙设备无法直接连接——系统需要从设备接收至少一个发现包，以获取所需的连接详细信息。这意味着 BLE 设备的可用可能会有点延迟。
 
 ＃＃＃ 故障排除
 #### 已知不兼容设备
 如果您在将设备与此适配器配对时遇到问题，请尝试将其与普通 iOS Apple Home 应用程序配对。如果这不起作用，那么设备有些奇怪，然后这个适配器也无济于事。锅尝试重置，但没有机会。
 
-目前以某些多度门锁为例。它们需要使用 Tado 应用程序进行配对，该应用程序以某种方式将设备注册到 Apple Home，但不是通过官方配对过程。
+目前以 `Tado Door Locks` 为例。它们需要使用 `Tado App` 进行配对，以某种方式将设备注册到 Apple Home，但不是通过官方配对过程。
+
+另外 `Nuki 3 Locks (BLE)` 也无法配对，因为它们使用 Apple 未公开记录的硬件身份验证组件。
 
 #### 开票前需要检查的其他潜在问题
 ##### 用于 BLE 设备
@@ -85,7 +87,7 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 
 ##### 一般建议
 * 设备是否有需要先激活的配对模式？但也要仔细阅读手册，也许配对模式适用于其他一些旧协议或桥接器，但不是 Apple Home。
-* 基本上，如果在尝试配对时弹出“未找到配对设置特征”错误，则设备在当前状态下不支持通过 Homekit 配对。然后适配器cn什么都不做！
+* 基本上，如果在尝试配对时弹出“找不到配对设置特征”错误，则设备在当前状态下不支持通过 Homekit 配对。然后适配器cn什么都不做！
 * 请确保以“XXX-XX-XXX”的形式输入密码和破折号。其他格式应该被库已经通过错误拒绝，但只是为了确保
 
 ## 调试
@@ -96,10 +98,10 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 * 使用 `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs 手动启动适配器
 * 然后做任何产生错误的事情并从 shell 中获取日志并发布问题。
 * 在问题中也发布控制台日志。这将生成协议级别的日志。
-* 另外在管理“对象”选项卡中找到相关对象，然后单击右侧的铅笔并提供对象的 JSON。
+* 此外，在管理“对象”选项卡中找到相关对象，然后单击右侧的铅笔并提供对象的 JSON。
 
 ### 资源和链接
-* 尝试解码 Elgato 特殊状态的资源：https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
+* 尝试解码“Elgato”特殊状态的资源：https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
 
 ＃＃＃ 去做
 * 检查适配器如何与按钮一起工作（它们没有状态，我没有这样的设备。需要支持）
@@ -107,6 +109,25 @@ IP 设备是使用 UDP 包发现的，因此您的主机需要与设备位于同
 *查看提供图像的支持设备（方法在那里，但从未在实际中看到过）
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (bluefox) Updated GUI packages
+
+### 0.5.1 (2022-06-10)
+* (Apollon77) Optimizations for BLE connections
+
+### 0.5.0 (2022-06-08)
+* (Apollon77) Add Connection identifier for Admin object list
+* (Apollon77) Count polling errors and reinitialize device connection when too many errors occur
+* (Apollon77) Optimize adapter startup to prevent double initialization of devices
+
+### 0.4.4 (2022-05-06)
+* (Apollon77) Add Host header to HTTP devices to prevent issues with some devices
+* (Apollon77) Fix several edge case issues
+
 ### 0.4.3 (2022-01-25)
 * (Apollon77) make sure all connections get closed on reconnect
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
+hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -23,14 +23,14 @@ hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 ## Войти
 **ДХЛ:**
 
-* Авторизация в приложении DHL
-* SMS/EMail код erhalten
-* In die Instanzeinstellungen eingeben und speichern
+- Авторизация в приложении DHL
+- SMS/EMail код erhalten
+- In die Instanzeinstellungen eingeben und speichern
 
 **Амазонка:**
 
-* Войти
-* Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
+- Войти
+- Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben.
 
 **DPD, GLS, UPS, 17 пользователей трека:**
 
@@ -40,7 +40,7 @@ hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 
 In den Instanz Einstellung aktivieren und z.B. телеграмма.0 eingeben
 
-## Вис ##
+## Вид
 **Sendungen als Vis Table darstellen**
 
 Дата всех отправок: посылка.0.allProviderJson
@@ -60,9 +60,17 @@ Den Datenpunkt partition.0.dhl.briefe....image ein "String img src" element als 
 
 ## Changelog
 
+### 0.0.19
+
+- Fix GLS Parcel
+
+### 0.0.18
+
+- Fix UPS/GLS Login
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

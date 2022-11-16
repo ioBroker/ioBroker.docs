@@ -3,77 +3,74 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarwetter/README.md
 title: ioBroker.solarwetter
-hash: qUc6gzg0wBE4IZgRqKmyeSbUWQ4qCowDUgGox8K/Otc=
+hash: nJnn/B5IPBfUOftcQmBXS+tWm06nbK79ueA7VZm6fC4=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/solarwetter-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.solarwetter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.solarwetter.svg)
-![Offene Punkte](http://githubbadges.herokuapp.com/Pix---/ioBroker.solarwetter/issues.svg)
 ![NPM](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.solarwetter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.solarwetter?branch=master&svg=true)
 
 # IoBroker.solarwetter
-## Beschreibung / Description
-Dieser Adapter liefert den prognostizierten Solarstrom Tagesertrag für eine bestimmte Region. Die Daten kommen von [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Bei der Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
+##Beschreibung / Description
+:de: Dieser Adapter liefert den prognostizierten Solarstrom-Tagesertrag für eine bestimmte Region. Die Daten kommen von [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
+Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
 
-: de: Dieser Adapter liefert eine Prognose der täglichen Sonnenenergiemenge für eine bestimmte Region vom Lieferanten ([http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com)).
+:de: Dieser Adapter liefert eine Prognose der täglichen Solarstrommenge für eine bestimmte Region vom Anbieter [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
 Übersetzen!!!!
 
 ## Einstellungen / Configuration
-### User / Passwort
-Seit 2017 ist die Authentifizierung beim Anbieter nötig. Dazu muss kostenpflichtig beim Anbieter ein Zugang erstanden werden. Die Login-Daten können jetzt hier im Adapter hinterlegt werden.
+### Benutzer / Passwort
+Seit 2017 ist die Authentifizierung beim Anbieter nötig. Dazu muss kostenpflichtig beim Anbieter ein Zugang erstellt werden. Die Login-Daten können nun hier im Adapter hinterlegt werden.
 
-Seit 2017 berechnet der Anbieter seinen Service. Ein persönliches Login ist auf solar-wetter.com erhältlich. Benutzername und Passwort werden hier gespeichert.
+Seit 2017 ist der Anbieter für seinen Service kostenpflichtig. Ein persönliches Login ist auf solar-wetter.com erhältlich. Benutzername und Passwort werden hier gespeichert.
 
 ### Standort / Location
-Durch die Auswahl des Postleitzahlenbereichs bestimmen Sie die Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
+Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
 
-Wählen Sie Ihre Region aus der Liste der Postleitzahlen.
-Geben Sie die Leistung Ihrer Solaranlage ein, um die Energieabgabe zu berechnen.
+Wählen Sie Ihre Region, indem Sie aus der Liste der Postleitzahlen auswählen.
+Geben Sie die Leistung Ihrer Solaranlage ein, um den Energieertrag zu berechnen.
 
-### Solaranlage / Solaranlage
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Bechnung der vorraussichtlich genauen Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
+### Solaranlage / Solar plant
+Hier kann die Gesamtleistung der eigenen Solaranlage zur Berechnung der vorraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
 
-Geben Sie die Gesamtleistung Ihrer Solaranlage ein, um die tägliche Prognose für die Energieerzeugung zu berechnen (Dezimaltrennzeichen möglich).
+Geben Sie die Gesamtleistung Ihrer Solaranlage ein, um die Tagesprognose für die Energieproduktion zu berechnen (Dezimaltrennzeichen möglich)
 
-### 4-Tage-Prognose / 4-Tage-Prognose
-Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt solarwetter.0.forecast.chart .__ url__).
+### 4-Tages-Prognose / 4-Tages-Prognose
+Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt solarwetter.0.forecast.chart.__url__ ).
 
-Wählen Sie eine Stadt aus, damit der Adapter eine Verknüpfung zu einem 4-Tage-Prognosediagramm erstellt (Datenpunkt solarwetter.0.forecast.chart .__ url__).
+Wählen Sie eine Stadt aus, damit der Adapter einen Link zu einer 4-Tages-Vorhersagekarte erstellt (Datenpunkt solarwetter.0.forecast.chart.__url__ ).
 
 ![Alt-Text](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Screenshot-Einstellungen")
 
-## Aktivierung / Schedule
-Der Adapter startet einmal täglich.
+## Aktivierung / Zeitplan
+Der Adapter startete einmal täglich.
 
 Der Adapter startet einmal täglich.
 
-## Datenpunkte / Datenpunkte
-solarwetter.0.forecast .__ clearSky__ (* value *)
+## Datenpunkte / Datapoints
+solarwetter.0.forecast.__clearSky__ (*Wert*)
 
-solarwetter.0.forecast .__ realSky_min __ (* value *)
+solarwetter.0.forecast.__realSky_min__(*Wert*)
 
-solarwetter.0.forecast .__ realSky_max__ (* value *)
+solarwetter.0.forecast.__realSky_max__ (*Wert*)
 
-solarwetter.0.forecast .__ Datum__ (* Zeichenfolge, kein Zeitstempel *)
+solarwetter.0.forecast.__Datum__ (*String, kein Zeitstempel*)
 
-solarwetter.0.forecast .__ Region__ (* value *)
+solarwetter.0.forecast.__Region__ (*Wert*)
 
-solarwetter.0.forecast.home .__ clearSky__ (* value *)
+solarwetter.0.forecast.home.__clearSky__ (*Wert*)
 
-solarwetter.0.forecast.home .__ realSky_min __ (* value *)
+solarwetter.0.forecast.home.__realSky_min__(*Wert*)
 
-solarwetter.0.forecast.home .__ realSky_max__ (* value *)
+solarwetter.0.forecast.home.__realSky_max__ (*Wert*)
 
-solarwetter.0.forecast.home .__ Leistung__ (* value *)
+solarwetter.0.forecast.home.__Leistung__ (*value*)
 
-solarwetter.0.forecast.chart .__ city__ (* value *)
+solarwetter.0.forecast.chart.__city__ (*Wert*)
 
-solarwetter.0.forecast.chart .__ url__ (* value *)
+solarwetter.0.forecast.chart.__url__ (*Wert*)
 
 ## Machen
 * Übersetzung von Datenpunkten
@@ -120,7 +117,7 @@ solarwetter.0.forecast.chart .__ url__ (* value *)
 
 The MIT License (MIT)
 
-Copyright (c) 2017 pix
+Copyright (c) 2020 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

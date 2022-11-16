@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
+hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -17,7 +17,7 @@ hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
 Dieser Adapter dient NUR zur Kommunikation mit Amazon Alexa, Google Home und Nightscout.
 Es dient nicht dem Fernzugriff auf Ihre ioBroker-Instanz. Verwenden Sie dafür den ioBroker.cloud-Adapter.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 Um den Cloud-Adapter zu verwenden, sollten Sie sich zuerst in der ioBroker-Cloud [https://iobroker.pro](https://iobroker.pro) registrieren.
@@ -52,9 +52,9 @@ Beispiel:
 
 - Angenommen, dass *OFF level* 30% beträgt.
 - Virtuelles Gerät „Licht“ hat zwei physische Geräte: *Schalter* und *Dimmer*.
-- Befehl: „Setze das Licht auf 40 %“. Der Adapter merkt sich diesen Wert für *dimmer*, stellt ihn auf "dimmer" ein und schaltet den *Schalter* ein.
-- Befehl: "Licht ausschalten". Der Adapter stellt den *Dimmer* auf 0% und schaltet den *Schalter* aus.
-- Befehl: "Licht einschalten". *dimmer* => 40%, *schalter* => EIN.
+- Befehl: „Setze das Licht auf 40 %“. Der Adapter merkt sich diesen Wert für *dimmer*, stellt ihn auf "dimmer" ein und schaltet den *Schalter* EIN.
+- Befehl: „Licht ausschalten“. Der Adapter stellt den *Dimmer* auf 0% und schaltet den *Schalter* aus.
+- Befehl: "Licht anmachen". *dimmer* => 40%, *schalter* => EIN.
 - Befehl: „Setze das Licht auf 20 %“. *dimmer* => 20%, *schalter* => AUS. Der Wert für Dimmer wird nicht gespeichert, da er unterhalb von *OFF level* liegt.
 - Befehl: "Licht anmachen". *dimmer* => 40%, *schalter* => EIN.
 
@@ -62,7 +62,7 @@ Beispiel:
 Sie können das Verhalten des EIN-Befehls auswählen, der für den Nummernstatus kommt. Der spezifische Wert kann ausgewählt werden oder es wird der letzte Nicht-Null-Wert verwendet.
 
 ### Antwort schreiben an
-Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID festlegen, wohin dieser Text geschrieben werden soll. Z.B. *sayit.0.tts.text*.
+Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, wohin dieser Text geschrieben werden soll. Z.B. *sayit.0.tts.text*.
 
 ### Farben
 Derzeit unterstützt nur die englische Alexa die Farbsteuerung.
@@ -103,7 +103,7 @@ Folgende Bedingungen müssen erfüllt sein, um den Status in die automatisch gen
 
 Es kann sein, dass der Kanal in den "Funktionen" steht, sich aber nicht ausgibt.
 
-- Der Zustand muss beschreibbar sein: `common.write` = true
+- der Zustand muss beschreibbar sein: `common.write` = true
 - der Zustandsdimmer muss `common.type` als 'number' haben
 - Die Zustandsheizung muss `common.unit` als `°C`, `°F` oder `°K` und `common.type` als `number` haben
 
@@ -117,7 +117,7 @@ Alle Regeln werden ignoriert, wenn der Zustand common.smartName hat. In diesem F
 
 wenn *common.smartName* **false** ist, wird der Status oder die Enumeration nicht in die Listengenerierung eingeschlossen.
 
-Der Konfigurationsdialog ermöglicht das bequeme Entfernen und Hinzufügen der einzelnen Zustände zu virtuellen Gruppen oder als einzelnes Gerät.
+Der Konfigurationsdialog ermöglicht das bequeme Entfernen und Hinzufügen der einzelnen Zustände zu virtuellen Gruppen oder als Einzelgerät.
 ![Aufbau](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
 Wenn die Gruppe nur einen Zustand hat, kann sie umbenannt werden, da hierfür der smartName des Zustands verwendet wird.
@@ -140,7 +140,7 @@ Setzt man `.STATE, .LEVEL`, so werden ".STATE" und ".LEVEL" ersetzt und nicht ".
 [Anweisungen](doc/ifttt.md)
 
 ## Google Home
-Wenn Sie folgende Fehlermeldung im Protokoll sehen: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
+Wenn Sie im Protokoll folgende Fehlermeldung sehen: `[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`.
 Sie müssen also den URL-Key neu generieren:
 
 ![URL-Schlüssel](../../../en/adapterref/iobroker.iot/img/url_key.png)
@@ -155,7 +155,7 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* setzen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
+Wenn Sie in den Einstellungen im Feld "Whitelist für Dienste" den Namen *custom_test* setzen und mit "custom_test" als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
 
 Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
@@ -173,7 +173,7 @@ Sie können auch die GET-Methode verwenden `https://service.iobroker.in/v1/iotSe
 `X` kann in den Einstellungen durch die Option "Text2Befehlsinstanz verwenden" definiert werden.
 
 ## Benutzerdefinierte Fähigkeit
-Die Antworten für benutzerdefinierte Fähigkeiten können auf zwei Arten verarbeitet werden:
+Die Antworten für benutzerdefinierte Skills können auf zwei Arten verarbeitet werden:
 
 - "Text2Befehl".
 - "Javascript".
@@ -193,10 +193,14 @@ Der Adapter stellt die Details in zwei Zuständen mit unterschiedlicher Detailst
 * **smart.lastCommand** enthält den empfangenen Text inklusive einer Info zur Art der Abfrage (Intent). Beispiel: „askDevice Status Rasenmäher“
 * **smart.lastCommandObj*** enthält eine JSON-Zeichenfolge, die in ein Objekt geparst werden kann, das die folgenden Informationen enthält
   * **words** enthält die empfangenen Wörter in einem Array
-  * **Absicht** enthält die Art der Abfrage. Mögliche Werte sind derzeit "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+  * **Absicht** enthält die Art der Abfrage. Mögliche Werte sind derzeit:
+    * v1 Skill: „askDevice“, „controlDevice“, „actionStart“, „actionEnd“, „askWhen“, „askWhere“, „askWho“
+    * v2 Skill: "queryIntent", wenn der gesamte Text erfasst wurde, "controlDevice" für Fallback mit nur teilweisem Text
   * **deviceId** enthält eine DeviceId, die das Gerät identifiziert, an das die Anfrage gesendet wurde, geliefert von Amazon, ist eine leere Zeichenfolge, wenn sie nicht angegeben wird
+  * **deviceRoom** enthält eine zugeordnete Raumkennung, die Sie in der iot-Admin-Benutzeroberfläche für gesammelte Geräte-IDs konfigurieren können
   * **sessionId** enthält eine sessionId der Skill-Session, sollte gleich sein, wenn mehrere Befehle gesprochen wurden, geliefert von Amazon, ist ein leerer String, wenn nicht angegeben
   * **userId** enthält eine Benutzer-ID des Gerätebesitzers (oder später des Benutzers, der mit dem Skill interagiert hat), die von Amazon geliefert wird, ist eine leere Zeichenfolge, wenn sie nicht angegeben wird
+  * **userName** enthält einen zugeordneten Benutzernamen, den Sie in der iot-Admin-Benutzeroberfläche für gesammelte Benutzer-IDs konfigurieren können
 
  Weitere Einzelheiten darüber, wie die Wörter erkannt werden und welche Art von Abfragen der Alexa Custom Skill unterscheidet, finden Sie unter https://forum.iobroker.net/viewtopic.php?f=37&t=17452 .
 
@@ -208,10 +212,11 @@ Wenn der Text ein JSON-Objekt ist, können die folgenden Schlüssel verwendet we
 
 * **responseText** muss den Text enthalten, um an Amazon zurückzusenden
 * **shouldEndSession** ist ein boolescher Wert und steuert, ob die Sitzung geschlossen wird, nachdem die Antwort gesprochen wurde, oder offen bleibt, um eine weitere Spracheingabe zu akzeptieren.
+* **sessionId** muss die sessionId enthalten, für die die Antwort bestimmt ist. Stellen Sie es idealerweise bereit, um gleichzeitige Sitzungen zu ermöglichen. Wenn nicht angegeben, wird die erste Sitzung angenommen, die eine Antwort erwartet.
 
 **Ergebnis über die Nachricht an die iot-Instanz zurücksenden**
 
-Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das die Schlüssel **responseText** und **shouldEndSession** enthalten kann, wie oben beschrieben.
+Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das die Schlüssel **responseText** und **shouldEndSession** und **sessionId** wie oben beschrieben enthalten kann.
 Es erfolgt keine Antwort von der iot-Instanz auf die Nachricht!
 
 **Beispiel für ein Skript, das Texte verwendet**
@@ -233,14 +238,15 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     const request = JSON.parse(obj.state.val);
     const response = {
         'responseText': 'Received phrase is: ' + request.words.join(' ') + '. Bye',
-        'shouldEndSession': true
+        'shouldEndSession': true,
+        'sessionId': request.sessionId
     };
 
     // Return response via state
     setState('iot.0.smart.lastResponse', JSON.stringify(response)); // important, that ack=false (default)
 
     // or alternatively return as message
-    sendTo('iot.0', response);
+    sendTo('iot.0', 'alexaCustomResponse', response);
 });
 ```
 
@@ -273,6 +279,37 @@ Folgende Typen werden unterstützt:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.12.2 (2022-10-01)
+* (Apollon77) Fix crash case
+
+### 1.12.1 (2022-09-27)
+* (bluefox) Corrected error in GUI with empty password
+
+### 1.12.0 (2022-09-27)
+* (Apollon77) Do not control saturation with a percentage request via alexa
+* (bluefox) Migrated GUI to v5
+
+### 1.11.9 (2022-07-22)
+* (Apollon77) Fix temperature controlling for thermostats via alexa
+
+### 1.11.8 (2022-06-24)
+* (Apollon77) Update dependencies to allow better automatic rebuild
+
+### 1.11.7 (2022-06-13)
+* (bluefox) Tried to correct URL key creation for Google home
+
+### 1.11.5 (2022-06-03)
+* (kirovilya) Alisa: update for binary-sensor "motion" and "contact"
+
+### 1.11.4 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.11.3 (2022-03-23)
+* (bluefox) Added the generation of URL key for services
+
+### 1.11.2 (2022-03-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3P)
+
 ### 1.11.1 (2022-03-18)
 * (Apollon77) Optimize logging when many devices are used
 

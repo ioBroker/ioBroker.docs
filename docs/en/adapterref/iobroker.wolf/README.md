@@ -23,6 +23,11 @@ Maximum number of individual modules:
    A residential ventilation unit of the CWL Excellent series can also be evaluated and operated with the ISM8i.
 
 ## Changelog
+### 1.5.0 (2022-05-30)
+* (Apollon77) make sure datapoints are created correctly and resolve name-mixup since 1.2.0 (all states now be names with _t!)
+* (Apollon77) Drop support for Admin <3.0.0
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 1.4.0 (2022-04-26)
 * IMPORTANT: Requires now at least js-controller 2.0
 * (Apollon77) Optimize Configuration UI to prevent people from selecting bind interfaces that do not allow external connections!

@@ -189,11 +189,15 @@ However, access to certain photo albums or folders can easily be implemented in 
 -->
 
 ### __WORK IN PROGRESS__
+* (Scrounger) image location infos added
+* (Scrounger) reading gps data
+* (Scrounger) Exif data fallback method added
 * (Gaudes) Include support for Synology DSM 7
-* (Gaudes) Remove support for Node 10
+* (Gaudes) Remove support for Node 10 and 12 (dependency)
 * (Gaudes) Update to newest Adapter creator for internal dependencies
 * (Gaudes) Include adapter-dev
 * (Gaudes) Include Dependabot updates
+* (Gaudes) Remove su
 
 ### 0.1.4 (2021-04-18)
 * (Gaudes) Configurable order for Filesystem (Git #37)

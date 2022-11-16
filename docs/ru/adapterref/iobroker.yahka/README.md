@@ -3,39 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: DthhW3uXba+vO00KkmIMU8krtcMB8fC6XxcPnUEcIM4=
+hash: yomG4y/Sjkfg98dRYlugZUYP4SrmYntEO3ea8zNuKSs=
 ---
-![логотип](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
+![Логотип](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
 ![Количество установок](http://iobroker.live/badges/yahka-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.yahka.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.yahka.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.yahka.svg)
-![тесты](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
+![Тесты](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
+![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
-# Iobroker.yahka
+#iobroker.yahka
 ## Установка и использование
-Подробнее о том, как установить и настроить этот адаптер, см. [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki)
+Подробнее об установке и настройке этого адаптера см. в [Вики](https://github.com/jensweigele/ioBroker.yahka/wiki)
 
 ## Предпосылки
-Прежде чем вы сможете установить адаптер, вам нужно несколько пакетов (для Linux):
+Прежде чем вы сможете установить адаптер, вам необходимо установить несколько пакетов (для Linux): `sudo apt-get install libavahi-compat-libdnssd-dev`
 
-```sudo apt-get install libavahi-compat-libdnssd-dev```
-
-## Установите последнюю **версию**
-Просто нажмите кнопку «+» за «Homekit yahka adapter» в панели администратора ioBroker на странице «Адаптер»
+## Установите последнюю **выпуск**
+Просто нажмите кнопку «+» рядом с «Адаптер Homekit yahka» в панели администратора ioBroker на странице «Адаптер».
 
 ## Установите последнюю **бета-версию**
-Если вы хотите быть на грани и протестировать последнюю бета-версию, вы можете установить адаптер через URL-адрес github. <br> (Иногда требуется дополнительная загрузка [например, iobroker upload yahka] и перезапуск адаптера) <br>
+Если вы хотите быть в курсе последних событий и протестировать последнюю бета-версию, вы можете установить адаптер через URL-адрес GitHub.
 
-## Восстановления резервной копии
-Внимание: чтобы иметь возможность восстановить ioBroker.yahka в другой системе, в дополнение к обычным `iobroker backup` и `iobroker restore`, папка `yahka.X.hapdata` в `/opt/iobroker/iobroker-data` также должна быть скопирована и, при необходимости восстанавливается. [Wiki] (https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [выпуск](https://github.com/jensweigele/ioBroker.yahka/issues/176)
+(Иногда требуется дополнительная загрузка (например, `iobroker upload yahka`) и перезапуск адаптера)
 
-## Поиск проблемы
+## Резервное восстановление
+Внимание: Чтобы иметь возможность восстановить `ioBroker.yahka` в другой системе, в дополнение к обычным `iobroker backup` и `iobroker restore` также необходимо сделать резервную копию папки `yahka.X.hapdata` в `/opt/iobroker/iobroker-data` и, при необходимости, реставрируется. [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [Выпуск](https://github.com/jensweigele/ioBroker.yahka/issues/176)
+
+## Исправление проблем
 ### Доступны не все новые функции:
-Если не все новые функции доступны после обновления yahka, попробуйте загрузить (например, iobrober yahka upload) и перезапустите адаптер.
+Если после обновления yahka доступны не все новые функции, попробуйте выполнить загрузку (например, `iob upload yahka`) и перезапустите адаптер.
 
-### Пропал демон Avahi (linux)
-Если у вас есть следующая ошибка в журнале: <br>
+### Отсутствует демон Avahi (linux)
+Если у вас есть следующая ошибка в журнале:
 
 ```
 Error:	2016-07-26 18:57:17.989	error	at Error (native)
@@ -47,13 +48,16 @@ uncaught	2016-07-26 18:57:17.985	error	exception: dns service error: unknown
 
 * установить демон avahi:
 
-```sudo apt-get install avahi-daemon -y```
+`sudo apt-get install avahi-daemon -y`
 
 * Редактировать avahi-daemon.conf
 
-```sudo nano avahi-daemon.conf ```<br>
-change the following variables:
-```host-name=\<put in your hostname\>
+`sudo nano avahi-daemon.conf `
+
+изменить следующие переменные:
+
+```
+host-name=\<put in your hostname\>
 domain-name=local
 use-ipv4=yes
 use-ipv6=yes
@@ -61,7 +65,7 @@ enable-dbus=yes
 ```
 
 ### Отсутствует пакет pam-devel (linux)
-Если у вас есть следующая ошибка в журнале: <br>
+Если у вас есть следующая ошибка в журнале:
 
 ```
 ../authenticate_pam.cc:30:31: fatal error: security/pam_appl.h: Datei oder Verzeichnis nicht gefunden
@@ -72,106 +76,157 @@ enable-dbus=yes
 
 * установить демон avahi:
 
-```sudo apt-get install pam-devel -y```
+`sudo apt-get install pam-devel -y`
 
-### Отсутствует Bonjour (окна)
-- Загрузить: `` `https:// www.samuelattard.com / files / bonjourcore2.msi```
-- Выполнить: `` `msiexec / i bonjourcore2.msi / qn```
-- удалить: `` `del bonjourcore2.msi```
-- Загрузить: `` `https:// www.samuelattard.com / files / bonjoursdksetup.exe```
-- Выполнить: `` `bonjoursdksetup.exe / quiet```
-- Удалить: `` `del bonjoursdksetup.exe```
-- Установить: `` `установить BONJOUR_SDK_HOME = C: \ Program Files \ Bonjour SDK```
+### Отсутствует bonjour (windows)
+- Скачать: `https://www.samuelattard.com/files/bonjourcore2.msi`
+- Выполнить: `msiexec/i bonjourcore2.msi/qn`
+- удалить: `del bonjourcore2.msi`
+- Скачать: `https://www.samuelattard.com/files/bonjoursdksetup.exe`
+- Выполнить: `bonjoursdksetup.exe /quiet`
+- Удалить: `del bonjoursdksetup.exe`
+- Установить: `set BONJOUR_SDK_HOME=C:\Program Files\Bonjour SDK`
 
-И после этого установите адаптер yahka.
+И после этого установить адаптер yahka.
 
 ## Несколько слов о HomeKit
-Архитектура HomeKit выглядит следующим образом: <br> Есть **устройства** как логические объекты. Каждое устройство может иметь несколько **сервисов** и каждый сервис имеет несколько **характеристик** <br> В конце признак является конечной точкой, где значения могут быть считаны или записаны. <br> Какие характеристики может иметь сервис, определяется Apple / HomeKit и определяется типом сервиса. Типы услуг также определяются Apple / HomeKit.
+Архитектура HomeKit выглядит следующим образом:<br> Есть **устройства** как логические объекты. Каждое устройство может иметь несколько **служб**, и каждая служба имеет несколько **характеристик**.<br> В конце концов, характеристика — это конечная точка, из которой можно считывать или записывать значения.<br> Какие характеристики может иметь служба, определяются Apple/HomeKit и определяются типом службы. Типы служб также определяются Apple/HomeKit.
 
-Пример: <br> Устройство открывания гаражных ворот - это устройство, которое может иметь две службы: <br>
+Пример:<br> Устройство открывания гаражных ворот — это устройство, которое может выполнять две функции:<br>
 
-1. Гаражные ворота
+1. Устройство открывания гаражных ворот
 2. Свет
 
-Сам сервис открывания гаражных ворот может иметь различные характеристики, такие как: CurrentDoorState, TargetDoorState и многие другие. <br> Также у Световой службы могут быть разные характеристики, такие как: Вкл (и многие другие для изменения цвета и т. Д.)
+Сама служба открывания гаражных ворот может иметь различные характеристики, например: CurrentDoorState, TargetDoorState и многие другие.<br> Кроме того, Light Service может иметь различные характеристики, такие как: On (и многие другие для изменения цвета света и т. д.)
 
 ## Что делает Яхка
-С помощью Yahka можно сопоставить Datapoint ioBroker с характеристикой HomeKit. <br> Поскольку иногда требуется сопоставление (например, значения «State» гаражных ворот различаются в HomeKit и других системах), существует также возможность указать функции для преобразования значений. Это описано ниже. <br> Чтобы избежать слишком большой административной работы, все устройства, которые вы создаете в Yahka, находятся за так называемым «мостом». С этим мостом вам нужно всего лишь соединить мост с вашим устройством iOS, чтобы получить доступ ко всем устройствам. В противном случае вам нужно было бы соединить каждое устройство Yahka с Homekit.
+С помощью Yahka можно сопоставить точку данных ioBroker с характеристикой HomeKit.<br> Поскольку иногда необходимы сопоставления (например, значения «Состояние» гаражных ворот различаются между HomeKit и другими системами), также существует возможность указать Функции для преобразования значений. Это описано ниже.
 
-## Настройте Мост и создайте устройства и сервисы
-Каждое устройство, которое должно быть сопряжено с Homekit, нуждается в «имени пользователя», которое имеет форму mac-адреса. Yahka автоматически генерирует случайное имя пользователя для каждого экземпляра yahka. <br> **Важно: если вы меняете имя пользователя после сопряжения Yahka с HomeKit, вам необходимо перенастроить все устройства в iOS (назначение комнаты, положение и т. Д.). Изменение имени пользователя означает для iOS, что это совершенно новое устройство!** <br> Рядом с именем пользователя необходимо указать PIN-код, который необходимо ввести на устройстве iOS. Все это можно указать, нажав «: yahka.0» в админ-панели Yahka. (Разверните панель справа после нажатия на запись списка). Название моста также можно изменить там.
+Чтобы избежать слишком большой работы по администрированию, все Устройства, которые вы создаете в Yahka, находятся за так называемым «Мостом». С этим мостом вам нужно только соединить мост с вашим устройством iOS, чтобы получить доступ ко всем устройствам. В противном случае вам потребуется выполнить сопряжение каждого устройства Yahka с Homekit.
 
-После настройки моста вы можете добавить нужные вам устройства с помощью кнопки «Добавить устройство» вверху. После того, как устройство добавлено / выбрано, вы можете добавить сервисы на это устройство. <br> Необходимо указать название сервиса и тип сервиса. <br> В зависимости от типа услуги, список доступных изменений характеристик <br>
+## Настройте мост и создайте устройства и службы
+Каждому устройству, которое должно быть сопряжено с Homekit, требуется «имя пользователя», которое имеет форму mac-адреса. Yahka автоматически генерирует случайное имя пользователя для каждого экземпляра yahka.
+
+**Важно: если вы измените имя пользователя после сопряжения Yahka с HomeKit, вам необходимо перенастроить все устройства в iOS (назначение комнаты, положение и т. д.). Изменение имени пользователя означает для iOS, что это совершенно новое устройство!**
+
+Помимо имени пользователя необходимо указать PIN-код, который необходимо ввести на устройстве iOS.
+Все это можно указать, нажав «:yahka.0» в панели администратора Yahka. (Разверните панель справа после нажатия на запись в списке). Там же могло быть изменено и название моста.
+
+После настройки моста вы можете добавить понравившиеся устройства с помощью кнопки «Добавить устройство» вверху.
+После того, как устройство добавлено/выбрано, вы можете добавить службы к этому устройству.
+
+Необходимо указать имя службы и тип службы.
+
+В зависимости от типа услуги меняется список доступных характеристик.
 
 ## Настройка характеристик
-Если вы хотите поддержать признак, вы должны поставить галочку «включено» в левой части признака.
-Для каждой характеристики вы можете указать следующие свойства:
+Если вы хотите поддерживать какую-либо характеристику, вам необходимо установить флажок «включено» в левой части характеристики.
+Для каждой характеристики можно указать следующие свойства:
 
-- InOutFunction: вы можете указать предопределенную функцию, которая отвечает за передачу значений из HomeKit в ioBroker и наоборот
-- InOutParameter: здесь вы можете указать параметры для выбранной функции InOutFunction. Доступные / ожидаемые параметры зависят от выбранной функции. Краткий обзор функций и параметров приведен ниже.
-- ConversionFunction: в дополнение к InOutFunction, вы также можете указать функцию, которая преобразует значение из HomeKit в ioBroker (и наоборот)
-- ConversionParameter: аналогично InOutParameter - доступные / ожидаемые параметры зависят от выбранной функции.
+- InOutFunction: вы можете указать предопределенную функцию, которая отвечает за передачу значений из HomeKit в ioBroker и наоборот.
+- InOutParameter: здесь вы можете указать параметры для выбранной InOutFunction. Доступные/ожидаемые параметры зависят от выбранной функции. Краткий обзор функций и параметров приведен ниже.
+- ConversionFunction: в дополнение к InOutFunction вы также можете указать функцию, которая преобразует значение, поступающее из HomeKit в ioBroker (и наоборот)
+- ConversionParameter: то же, что и InOutParameter - доступные/ожидаемые параметры зависят от выбранной функции.
 
 ## Обзор функций InOut
-| Функция | Ожидаемый параметр | Описание |
+|Функция|Ожидаемый параметр|Описание|
 |---|---|---|
 
-| const | Значение | Функция const всегда передает значение, указанное в «InOutParameter», в функцию преобразования, если HomeKit считывает значение. Если HomeKit хочет записать значение, это действие запрещается
+|const|Value|Константная функция всегда передает значение, указанное в «InOutParameter», в функцию преобразования, если HomeKit считывает значение. Если HomeKit хочет записать значение, это действие будет отклонено.
 
-| ioBroker.State | имя ioBroker datapoint | С помощью этой функции адаптер использует указанный ioBroker datapoint для операций чтения и записи. Все операции выполняются немедленно без буферизации или фильтрации (значения передаются указанным функциям преобразования) |
-| ioBroker.State.Defered | имя точки назначения ioBroker | С помощью этой функции адаптер использует указанный элемент данных ioBroker для операций чтения и записи. Операции записи из HomeKit напрямую передаются в функцию преобразования. Изменения от ioBroker аннулируются в течение 150 мс - это означает, что значение передается в HomeKit, только если в течение 150 мс не произошло никаких других изменений. |
-| ioBroker.State.OnlyACK | имя точки данных ioBroker | С помощью этой функции адаптер использует указанную точку данных ioBroker для операций чтения и записи. Операции записи из HomeKit напрямую передаются в функцию преобразования. Изменения из ioBroker пересылаются в HomeKit только в том случае, если установлен «Acknowledged» -Flag значения. В противном случае последнее подтвержденное значение передается в HomeKit |
-| ioBroker.homematic. <br> WindowCovering.TargetPosition | Идентификатор точки присоединения уровня HomeMatic <br> или <br> String-Array с идентификатором уровня Datapoint и идентификатором рабочего Datapoint | Эта функция специально предназначена для управления покрытием HomeMatic Window. Эта функция защищает передачу значений в HomeKit во время перемещения покрытия окна. Это необходимо, чтобы избежать мерцания ползунка покрытия окна в iOS |
+|ioBroker.State|имя точки данных ioBroker|С помощью этой функции адаптер использует указанную точку данных ioBroker для операций чтения и записи. Все операции выполняются сразу, без буферизации и фильтрации (значения передаются в указанные функции преобразования)|
+|ioBroker.State.Defered|имя точки данных ioBroker|С помощью этой функции адаптер использует указанную точку данных ioBroker для операций чтения и записи. Операции записи из HomeKit напрямую передаются в функцию преобразования. Изменения от ioBroker отклоняются в течение 150 мс — это означает, что значение передается в HomeKit только в том случае, если в течение 150 мс не произошло никаких других изменений. |
+|ioBroker.State.OnlyACK|имя точки данных ioBroker|С помощью этой функции адаптер использует указанную точку данных ioBroker для операций чтения и записи. Операции записи из HomeKit напрямую передаются в функцию преобразования. Изменения от ioBroker пересылаются в HomeKit только в том случае, если для значения установлен флаг «Подтверждено». В противном случае в HomeKit| передается последнее подтвержденное значение. |
+|ioBroker.homematic.<br> WindowCovering.TargetPosition|Идентификатор точки данных уровня HomeMatic<br> или же<br> Строковый массив с идентификатором точки данных уровня и идентификатором рабочей точки данных | Эта функция предназначена специально для управления покрытием окна HomeMatic. Эта функция откладывает передачу значений в HomeKit во время перемещения оконного покрытия. Это необходимо, чтобы избежать мерцания ползунка закрытия окна в iOS |
 
 ## Обзор функций преобразования
-| Функция | Ожидаемый параметр | Описание |
+|Функция|Ожидаемый параметр|Описание|
 |---|---|---|
 
-| passthrough | \ <none \> | Значение из ioBroker передается в HomeKit без преобразования (и наоборот)
+|passthrough|\<none\>|Значение от ioBroker передается в HomeKit без преобразования (и наоборот)
 
-| HomematicDirectionTo <br> HomekitPositionState | \ <none\> | Эта функция отображает перечисление направления покрытия окна Homematic на перечисление PositionState HomeKit (и обратно) |
-| HomematicControlModeTo <br> HomekitHeathingCoolingState | \ <none\> | Эта функция отображает перечисление ControlMode Homematic в перечисление HeathingCoolingState HomeKit (и обратно) |
-| scaleInt <br> scaleFloat | ```{ "homekit.min": <number>, "homekit.max": <number>, "iobroker.min": <number>, "iobroker.max": <number> }``` | Эта функция похожа на «level255», но она более общая. Он преобразует значение ioBroker в диапазоне от «iobroker.min» (0, если опущен) в «iobroker.max» в значение HomeKit со значением в диапазоне от «homekit.min» (0, если опущен) в «homekit.max». (и назад). <br> **Пример:** Если поле параметра: ```{ "homekit.max": 500, "iobroker.max": 250}``` <br> значение ioBroker фактически умножается на 2 перед отправкой его в HomeKit. <br> **Минимальные параметры доступны только в версии 0.8.0 и выше** |
-| обратный | номер | Эта функция используется для «инвертирования» значения из ioBroker. Параметр указывает максимум значения в ioBroker. Формула: ```Parameter - value``` <br> **Пример:** Если поле параметра равно ```100```, значение 100 из ioBroker отправляется как 0 в HomeKit, значение 80 отправляется как 20 в HomeKit и т. Д. |
-| hue | \ <none \> | Эта функция является специализированной версией scaleInt с параметрами ```iobroker.max=65535``` и ```homekit.max=360```. |
-| hue | \ <none \> | Эта функция является специализированной версией scaleInt с параметрами `` `iobroker.max = 65535``` и` `` homekit.max = 360```. |
+|HomematicDirectionTo<br> HomekitPositionState|\<none\> |Эта функция сопоставляет перечисление направления покрытия окна Homematic с перечислением PositionState HomeKit (и обратно)|
+|HomematicControlModeTo<br> HomekitHeathingCoolingState|\<none\> |Эта функция сопоставляет перечисление ControlMode Homematic с перечислением HeathingCoolingState HomeKit (и обратно) |
+|масштабИнт<br> scaleFloat|`{ "homekit.min": <number>, "homekit.max": <number>, "iobroker.min": <number>, "iobroker.max": <number> }`|Эта функция похожа на «level255», но более общая. Он преобразует значение ioBroker с диапазоном от «iobroker.min» (0, если опущено) до «iobroker.max» в значение HomeKit с диапазоном значений от «homekit.min» (0, если опущено) до «homekit.max». (и назад).<br> **Пример:** Если поле параметра: `{ "homekit.max": 500, "iobroker.max": 250}`<br> фактически значение ioBroker умножается на 2 перед отправкой в HomeKit.<br> **Параметры min доступны только в версии 0.8.0 и выше**|
+|inverse|number|Эта функция используется для «инвертирования» значения из ioBroker. В параметре указано максимальное значение в ioBroker. Формула: `Parameter - value`<br> **Пример:** Если поле параметра имеет вид `100`, значение 100 от ioBroker отправляется как 0 в HomeKit, значение 80 отправляется как 20 в HomeKit и т. д. |
+|hue|\<none\>|Эта функция является специализированной версией scaleInt с параметрами `iobroker.max=65535` и `homekit.max=360`.|
+|hue|\<none\>|Эта функция является специализированной версией scaleInt с параметрами `iobroker.max=65535` и `homekit.max=360`.|
 
-## Привод слепой Homematic \ Покрытие окон
-Для интеграции слепых приводов Homematic (например, HM-LC-Bl1PBU-FM) необходимы следующие настройки:
+## Привод для жалюзи Homematic \ Оконное покрытие
+Для интеграции приводов жалюзи Homematic (таких как HM-LC-Bl1PBU-FM) необходимы следующие настройки:
 
 * Добавить услугу на устройство
-* Установите имя службы на какое-то имя, а тип службы на «WindowCovering». Подтип сервиса можно оставить пустым
+* Установите имя службы на какое-либо имя и тип службы на "WindowCovering". Подтип услуги можно оставить пустым
 * Включите и заполните следующие характеристики:
 
-| Имя признака | 1: Функция InOut <br> 2: Функция преобразования | 1: Параметры InOut <br> 2: Параметры преобразования |
+|Имя характеристики|1: Функция InOut<br> 2: Функция преобразования|1: Параметры входа/выхода<br> 2: Параметры преобразования|
 |---|---|---|
-| CurrentPosition | 1: ioBroker.State.OnlyACK <br> 2: прохождение | 1: _ \ <path to homematic object\> _.1.LEVEL <br> 2: \ <empty\> |
-| PositionState | 1: ioBroker.State.OnlyACK <br> 2: HomematicDirectionToHomekitPositionState | 1: _ \ <path to homematic object\> _.1.DIRECTION <br> 2: \ <empty\> |
-| TargetPosition | 1: ioBroker.homematic.WindowCovering.TargetPosition <br> 2: прохождение | 1: _ \ <path to homematic object\> _.1.LEVEL <br> 2: \ <empty\> |
+|Текущая позиция| 1: ioBroker.State.OnlyACK<br> 2: сквозной | 1: _\<path to homematic object\> _.1.УРОВЕНЬ<br> 2: \<empty\> |
+|СостояниеПозиции | 1: ioBroker.State.OnlyACK<br> 2: HomematicDirectionToHomekitPositionState| 1: _\<path to homematic object\> _.1.НАПРАВЛЕНИЕ<br> 2: \<empty\> |
+|целевая позиция | 1: ioBroker.homematic.WindowCovering.TargetPosition<br> 2: сквозной | 1: _\<path to homematic object\> _.1.УРОВЕНЬ<br> 2: \<empty\> |
 
-Значение _ \ <path to homematic object \> _ необходимо заменить фактическим путем к устройству (например, hm-rpc.0.NEQ0012345)
+Значение _\<путь к объекту Homematic\>_ необходимо заменить фактическим путем к устройству (например, hm-rpc.0.NEQ0012345).
 
-Для получения общей информации о маске конфигурации см .: TODO <br> Для получения дополнительной информации о конфигурации, функциях InOut и функциях преобразования см .: [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/Configuration,-InOut-Functions-and-Conversion-Functions)
+Общие сведения о маске конфигурации см. в TODO.<br> Для получения дополнительной информации о конфигурации, функциях входа и выхода и функциях преобразования см.: [Вики](https://github.com/jensweigele/ioBroker.yahka/wiki/Configuration,-InOut-Functions-and-Conversion-Functions)
+
+<!-- Заполнитель для следующей версии (в начале строки):
+
+### **В РАБОТЕ** -->
 
 ## Changelog
+
+### 0.17.0 (2022-10-17)
+  Added AVAHI advertiser as default and updated HomeKit Library to improve performance and stability
+  Update release and test scripts
+
+### 0.14.0 (unreleased)
+  (jw) added support to group devices in Admin Interface<br>
+  (jw) added support to mark services as "primary" and as "hidden"<br>
+  (jw) added ioFunctions "round" and "invert"<br>
+  (jw) updated dependencies<br>
+  (jw) Updated to HAP-NodeJS 0.9.2<br>
+  (jw) Fixed crashes due to changes in used HomeKit Library<br>
+  (nh) improved changelog in readme<br>
+
+### 0.13.1 (2021-01-14)
+  (jw) switched to HAP-NodeJS 0.9.0-beta.113 and added useLegacyAdvertiser option<br>
+  (jw) fixed bug which prevented cameras from deletion and duplication<br>
+
+### 0.13.0 (2021-01-08)
+  (jw) updated dependencies<br>
+  (jw) improved state selector (scrolling and refresh on open)<br>
+
+### 0.12.0 (2020-12-23)
+  (jw) updated dependencies<br>
+  (jw) added support for linking services to support Television Services<br> 
+  (jw) added possibility to publish devices without the bridge (necessary for TV service)<br> 
+  (jw) added support for audio stream in camera<br> 
+  (jw) added support for custom characteristics on the services (e.g. to add Wattage characteristic to plugs)<br> 
+  (jw) added support for additonal services to camera (to enable usage of doorbell service)<br> 
+  (many20) fixed scaleInt conversion - results are now rounded<br> 
+  
+### 0.11.0 (2020-02-19)
+  Intermediate release<br>
+
 ### 0.10.0 (2020-02-19)
   (apollon77) updated dependencies, nodejs 12 support<br>
 
 ### 0.10.0
   (jw) updated dependencies<br>
-  (apollon77) removed support for NodeJS 4 - NodeJS 6 is now the minimum required NodeJS version (merged #109)<br>
+  (apollon77) removed support for NodeJS 4 - NodeJS 6 is now the minimum required NodeJS version (merged #109)<br>  
+  (yaming116) fixed scale conversion to support min values others than 0<br>
 
-### 0.9.2
+### 0.9.2 (2019-03-12)
   (jw) fixed a bug where the adapter didn't start anymore<br>
   (jw) removed the reference to the git repository of the hap community types<br>
 
-### 0.9.1
+### 0.9.1 (2019-01-29)
   (jw) fixed a bug where the adapter crashes if a state does not exist<br>
   (jw) added io functions for HomeMatic dimmers ([#30](https://github.com/jensweigele/ioBroker.yahka/issues/30) and [#75](https://github.com/jensweigele/ioBroker.yahka/issues/75))<br>
   (jw) fixed a bug where adapter didn't start anymore when using the conversion function "inverse" ([#98](https://github.com/jensweigele/ioBroker.yahka/issues/98))
   (jw) updated to latest HAP-NodeJS library to support TV services and characteristics (available since iOS 12.2 beta 1)<br>Note: that's still in development, not all services are working correctly. For more information see:  ([#89](https://github.com/jensweigele/ioBroker.yahka/issues/89))<br>
 
-### 0.9.0
+### 0.9.0 (2019-01-24)
   (jw) added more services and characteristics (from https://github.com/homespun/hap-nodejs-community-types)<br>
   (jw) improved admin interface to support individual editors for IO/Conversion functions<br>
   (jw) added new conversion function "script" which adds the ability to run JavaScript functions as conversion functions<br>
@@ -187,29 +242,29 @@ enable-dbus=yes
   (jw) added support for specifiyng device information via datapoints ([#91](https://github.com/jensweigele/ioBroker.yahka/issues/91))<br>
   (SchumyHao) added Chinese support
   
-### 0.8.2
+### 0.8.2 (2018-12-09)
   (jw) Removed a bug which flooded logging when starting/stopping the adapter which led to excessive memory consumption<br>
 
-### 0.8.1
+### 0.8.1 (2018-12-04)
   (jw) updated dependencies<br>
   (jw) change default name of new instances<br>
   (foxriver76) remove excessive logging<br>
   (mdietz666) scaleInt and scaleFloat now supports min-values (this allows mapping from e.g. -90 to 90 to 0 to 180)<br>
   (arichter83) added "Duplicate Device" functionality<br>
 
-### 0.7.1
+### 0.7.1 (2018-02-14)
   (jw) fixed a bug where state selection with admin 2.0.9 did not work anymore<br>
   (jw) restructured repository to support install via url<br>
 
-### 0.7.0 
+### 0.7.0 (2018-02-01)
   (bluefox) Fixed the ID select dialog in Admin3<br>
   (jw) updated hap-nodejs to support the following new services: Faucet, IrrigationSystem and Valve<br>
   (jw) added ip-package to dependencies to avoid errors on some installations<br>
 
-### 0.6.1 
+### 0.6.1 (2018-01-25)
   (jw) fixed startup crash<br>
 
-### 0.6.0
+### 0.6.0 (2018-01-24)
   (jw) add support for IP-Cameras<br>
   (jw) included iOS 11 device definitions<br>
   (jw) allowed negative temperatures for temperature sensors<br>
@@ -218,30 +273,30 @@ enable-dbus=yes
   (jw) added conversion functions scaleInt, scaleFloat and inverse<br>
   (jw) devices are now sorted by name in the admin panel<br>
 
-### 0.5.5
+### 0.5.5 (2017-05-08)
   (bluefox) allow select ID in configuration dialog<br>
 
-### 0.5.4
+### 0.5.4 (2017-02-08)
   (jw) improve logoutput<br>
   (jw) added HomematicControlModeToHomekitHeathingCoolingState mapping<br>
 
-### 0.5.3
+### 0.5.3 (2017-02-08)
   (jw) internal release<br>
 
-### 0.5.2
+### 0.5.2 (2016-12-23)
   (jw) fixed issues with empty characteristic values<br>
   (jw) fixed issue with empty adapter.systemConfig.system object<br>
 
-### 0.5.1
+### 0.5.1 (2016-10-05)
   (jw) fixed issue with wrongly displayed logo<br>
 
-### 0.5.0
+### 0.5.0 (2016-10-05)
   (jw) initial release<br>
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Jens Weigele (iobroker.yahka@gmail.com)
+Copyright (c) 2016-2022 Jens Weigele (iobroker.yahka@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,38 +3,41 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unifi/README.md
 title: ioBroker.unifi
-hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
+hash: tyFQ5E7Y9sRhtqHpKh4zs/HV5MOYsU5argoNWrFk7HM=
 ---
 ![安装数量](http://iobroker.live/badges/unifi-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.unifi.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.unifi.svg)
-![新产品管理](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
 <img height="100px" src="admin/unifi.png" align="left"><br/>
 
 # IoBroker.unifi
-此 ioBroker 适配器允许对 [UniFi 设备](http://www.ubnt.com/) 进行监控和有限控制，例如使用公共 UniFi 控制器 Web-API 的 UniFi WiFi 接入点。
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.unifi/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/unifi/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
+此 ioBroker 适配器允许对[UniFi 设备](http://www.ubnt.com/) 进行监控和有限控制，例如使用公共 UniFi 控制器 Web-API 的 UniFi WiFi 接入点。
 
 ＃＃ 配置
 ### 最低要求信息
 要启动并运行此适配器，需要以下信息：
 
-* UniFi 控制器的 IP 地址和端口（如果您的控制器在 UbiOS（例如 UDM-Pro）上运行，请将端口留空）
-* 本地用户名和密码（2FA **不支持**）
+* UniFi 控制器的 IP 地址和端口（如果您的控制器在 UniFiOS 上运行（例如 UDM-Pro），请将端口留空）
+* 本地用户名和密码（2FA **不能**支持）
 * 更新间隔
 
-默认情况下，信息每 60 秒更新一次。根据您的 ioBroker 硬件和网络规模（客户端数量、UniFi 设备等），建议保持此间隔并避免进一步减少它。
+默认情况下，信息每 60 秒更新一次。根据您的 ioBroker 硬件和您的网络规模（客户端数量、UniFi 设备等），建议保持此间隔并避免进一步减少它。
 
 ### 过滤对象
 适配器从 UniFi 控制器更新尽可能多的信息，但提供了限制更新信息的可能性。
 
 可以禁用所选信息的更新或过滤该信息的特定对象。
 
-|信息 |可过滤的对象 |
+|资讯 |可过滤的对象 |
 |-------------|-----------------------------------------|
 |客户 |名称、主机名、IP 地址、MAC 地址 |
-|设备 |姓名、IP 地址、MAC 地址 |
-| WiFi |姓名 |
+|设备 |名称、IP 地址、MAC 地址 |
+|无线网络 |姓名 |
 |网络 |姓名 |
 |健康 |子系统 |
 
@@ -43,32 +46,32 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 通过更改 WiFi 的“启用”状态，可以启用/禁用它。几秒钟后，更改将提供给接入点。
 
 ### 凭证创建
-使用 `vouchers.create_vouchers` 按钮可以创建预定义的优惠券。可以配置将创建的凭证数量、凭证的有效期以及设置上传和下载限制。
+使用 `vouchers.create_vouchers` 按钮可以创建预定义的凭证。可以配置将创建的凭证数量、凭证的有效期以及设置上传和下载限制。
 
 ## 缺少数据点
-适配器使用 [节点统一](https://github.com/jens-maus/node-unifi) 连接到您的 UniFi 控制器。为简化起见，并非所有可用数据点都被拉入您的 ioBroker。如果您缺少数据点，请使用以下 URL 检查 API。 （注意：您必须用您的设置替换 IP、PORT 和 SITE）
+适配器使用 [节点统一](https://github.com/jens-maus/node-unifi) 连接到您的 UniFi 控制器。为简化起见，并非所有可用的数据点都被拉入您的 ioBroker。如果您缺少数据点，请使用以下 URL 检查 API。 （注意：您必须用您的设置替换 IP、PORT 和 SITE）
 
-|信息 | API 网址 |
+|资讯 | API 网址 |
 |-------------|---------------------------------------------|
 |网站 | https://IP:PORT/api/self/sites |
 |系统信息 | https://IP:PORT/api/s/SITE/stat/sysinfo |
 |客户 | https://IP:PORT/api/s/SITE/stat/sta |
 |设备 | https://IP:PORT/api/s/SITE/stat/device |
-| WiFi | https://IP:PORT/api/s/SITE/rest/wlanconf |
+|无线网络 | https://IP:PORT/api/s/SITE/rest/wlanconf |
 |网络 | https://IP:PORT/api/s/SITE/rest/networkconf |
 |健康 | https://IP:PORT/api/s/SITE/stat/health |
 |优惠券 | https://IP:PORT/api/s/SITE/stat/voucher |
 |新闻部 | https://IP:PORT/api/s/SITE/stat/dpi |
 |警报 | https://IP:PORT/api/s/SITE/stat/alarm |
 
-### UbiOS/UDM-Pro 端点
-|信息 | API 网址 |
+### UniFiOS (UDM-Pro) 端点
+|资讯 | API 网址 |
 |-------------|------------------------------------------------------|
 |网站 | https://IP/proxy/network/api/self/sites |
 |系统信息 | https://IP/proxy/network/api/s/SITE/stat/sysinfo |
 |客户 | https://IP/proxy/network/api/s/SITE/stat/sta |
 |设备 | https://IP/proxy/network/api/s/SITE/stat/device |
-| WiFi | https://IP/proxy/network/api/s/SITE/rest/wlanconf |
+|无线网络 | https://IP/proxy/network/api/s/SITE/rest/wlanconf |
 |网络 | https://IP/proxy/network/api/s/SITE/rest/networkconf |
 |健康 | https://IP/proxy/network/api/s/SITE/stat/health |
 |优惠券 | https://IP/proxy/network/api/s/SITE/stat/voucher |
@@ -76,12 +79,12 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 |警报 | https://IP/proxy/network/api/s/SITE/stat/alarm |
 
 ＃＃ 已知的问题
-* 客户端离线后，客户端的is_wired 状态不正确。这是 UniFi 控制器的已知问题，与适配器无关。 （参见 https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1）
+* 客户端下线后客户端的is_wired状态不正确。这是 UniFi 控制器的已知问题，与适配器无关。 （见 https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1）
 
 ＃＃ 参考
-此适配器使用以下第三方 nodejs 模块的功能：
+此适配器使用来自以下第三方 nodejs 模块的功能：
 
-* [节点统一](https://github.com/jens-maus/node-unifi)
+* [node-unifi](https://github.com/jens-maus/node-unifi)
 * [json-logic-js](https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
@@ -89,6 +92,27 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.3 (2022-10-08)
+* (jens-maus) Bumped node-unifi to latest 2.2.1 (fixes #613)
+
+### 0.6.2 (2022-10-07)
+* (jens-maus) Bumped node-unifi to latest 2.2.0
+* (maximilian-1) port-overrides structures added
+* (Scrounger) poe power switch added
+* (Scrounger) client reconnect added
+
+### 0.6.1 (2022-06-08)
+* (jens-maus) Bumped node-unifi to latest 2.1.0
+* (jens-maus) updated translations
+
+### 0.6.0 (2022-06-05)
+* IMPORTANT: js-controller 2.0 or higher is required
+* IMPORTANT: If Login do not work please re-enter the password in the instance configuration
+* (Apollon77) Migrate to new version of unifi library
+* (Apollon77) Allow to specify if SSL error should be ignored or not  (Default is to ignore errors as in former versions)
+* (jens-maus) Fixed more device state object definitions to get rid of state warnings.
+* (jens-maus/Apollon77) Updated dependencies, make compatible to newest firmwares
+
 ### 0.5.10 (2021-05-27)
 * (jens-maus) Changed "Update done" output to be output as debug info.
 * (jens-maus) Updated dependencies.
@@ -147,7 +171,7 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 
 ### 0.4.0 (2020-04-16)
 * (bluefox) Refactoring
-  
+
 ### 0.3.1
 * (jens-maus) added support for multi-site environments.
 
@@ -169,8 +193,8 @@ hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2016-2022 Jens Maus &lt;mail@jens-maus.de&gt;
 Copyright (c) 2020 braindead1 &lt;os.braindead1@gmail.com&gt;
-Copyright (c) 2016-2020 Jens Maus &lt;mail@jens-maus.de&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

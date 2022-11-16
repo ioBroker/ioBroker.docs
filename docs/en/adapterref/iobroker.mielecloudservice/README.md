@@ -38,6 +38,42 @@ To install, do the following:
 4. Add your Miele-Devices to the App (if not added automatically)
 6. Fill in the client_secret and client_id received from Miele-developer Team and account-id and password from the App.
 
+## Configuration
+### Basic config
+To get this adapter running you'll need at least:
+* Miele@Home User (from the Smartphone App)
+* Miele@Home Password (from the Smartphone App)
+* Miele Client_id (from https://www.miele.com/developer/)
+* Miele Client_secret (from https://www.miele.com/developer/ )
+
+### Server-Sent Events
+Since V6.2.0 you have the opportunity to chose between 
+* Server-Sent Events      (Server-Sent Events Checkbox is checked - default) 
+* Time based Data-Polling (Server-Sent Events Checkbox is unchecked)
+* Delayed Processing
+
+#### Server-sent events
+Server-Sent Events are a very neat method to get data from the miele servers since the servers will send you data 
+whenever there are changes. No useless polling every xx seconds ignoring whether there were changes or not. Unfortunately
+there are issues using this connection type - it fails pretty often and only restarting the adapter solves this.
+
+#### Time based Data Polling
+To improve stability of the adapter I reintroduced data polling as a config option you may use when SSE fails four you.
+Nevertheless, SSE is the default, and I highly recommend trying and using it since it saves many resources on your and on 
+Mieles side. Beside of that I focus on SSE since Version 5.x.x.
+Time based Data-Polling relies on the two config options:
+* poll interval
+* poll interval unit (seconds/minutes)
+
+#### Delayed Processing
+In case you own some Miele appliances and use them at the same time it may happen that the API gets sending many messages 
+in a short time period. Depending on your ioBroker hardware this may overload your server and result in unresponsive 
+visualization or an unresponsive broker at all. To avoid this, this config option reduces the number of messages being
+processed to one message every xxx milliseconds. 
+Related config options:
+* delayed processing
+* message delay
+
 ## Controlling your devices
 ### Actions
 All currently supported and documented Actions for all devices are implemented (API V1.0.5).
@@ -61,144 +97,61 @@ Please refer to the general Miele API documentation (below) for more information
   * These programs are basically supported since v6.0.0 of the adapter. Except programs that need additional parameters. 
 
 ## Documentation
-Please mainly refer to the main API documentation published by Miele
-* [General Documentation](https://www.miele.com/developer/swagger-ui/index.html)
-* [Preconditions to perform an action on a device](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
-
-There are some data points available in 2 kinds. As a human-readable text and as a number.
-These numeric data fields belonging to a text field have the same name, but a "_raw" appended.
-Those fields which have a general meaning are listed below.
-The fields which aren't listed vary in their meaning from device to device and are not documented by Miele.
-If you need to refer in scripts to these fields, always use the _raw values.
-The text values may change in the future and also depend on the language.
-Here is a list of what these raw values stand for:
-
-### DeviceTypes
-
-| Raw value | State                                            |
-|-----------|--------------------------------------------------|
-| 1         | WASHING MACHINE                                  |
-| 2         | TUMBLE DRYER                                     |
-| 7         | DISHWASHER                                       |
-| 8         | DISHWASHER SEMI-PROF                             |
-| 12        | OVEN                                             |
-| 13        | OVEN MICROWAVE                                   |
-| 14        | HOB HIGHLIGHT                                    |
-| 15        | STEAM OVEN                                       |
-| 16        | MICROWAVE                                        |
-| 17        | COFFEE SYSTEM                                    |
-| 18        | HOOD                                             |
-| 19        | FRIDGE                                           |
-| 20        | FREEZER                                          |
-| 21        | FRIDGE-/FREEZER COMBINATION                      |
-| 23        | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER |
-| 24        | WASHER DRYER                                     |
-| 25        | DISH WARMER                                      |
-| 27        | HOB INDUCTION                                    |
-| 28        | HOB GAS                                          |
-| 31        | STEAM OVEN COMBINATION                           |
-| 32        | WINE CABINET                                     |
-| 33        | WINE CONDITIONING UNIT                           |
-| 34        | WINE STORAGE CONDITIONING UNIT                   |
-| 39        | DOUBLE OVEN                                      |
-| 40        | DOUBLE STEAM OVEN                                |
-| 41        | DOUBLE STEAM OVEN COMBINATION                    |
-| 42        | DOUBLE MICROWAVE                                 |
-| 43        | DOUBLE MICROWAVE OVEN                            |
-| 45        | STEAM OVEN MICROWAVE COMBINATION                 |
-| 48        | VACUUM DRAWER                                    |
-| 67        | DIALOGOVEN                                       |
-| 68        | WINE CABINET FREEZER COMBINATION                 | 
-
-
-### State/Status
-
-| Raw value | State                       |
-|-----------|-----------------------------|
-| 1         | OFF                         |
-| 2         | STAND_BY                    |
-| 3         | PROGRAMMED                  |
-| 4         | PROGRAMMED_WAITING_TO_START |
-| 5         | RUNNING                     |
-| 6         | PAUSE                       |
-| 7         | END_PROGRAMMED              |
-| 8         | FAILURE                     |
-| 9         | PROGRAMME_INTERRUPTED       |
-| 10        | IDLE                        |
-| 11        | RINSE_HOLD                  |
-| 12        | SERVICE                     |
-| 13        | SUPERFREEZING               |
-| 14        | SUPERCOOLING                |
-| 15        | SUPERHEATING                |
-| 144       | DEFAULT                     |
-| 145       | LOCKED                      |
-| 146       | SUPERCOOLING_SUPERFREEZING  |
-| 255       | Device offline              |
-
-### ProgramType/Programmart
-
-| Raw value | State                  |
-|-----------|------------------------|
-| 0         | Normal operation mode  |
-| 1         | Own program            |
-| 2         | Automatic program      |
-| 3         | Cleaning-/Care program |
-
-### dryingStep/Trockenstufe
-
-| Raw value | State             |
-|-----------|-------------------|
-| 0         | Extra dry         |
-| 1         | Normal Plus       |
-| 2         | Normal            |
-| 3         | Slightly Dry      |
-| 4         | Hand iron level 1 |
-| 5         | Hand iron level 2 |
-| 6         | Machine iron      |
-
-### Programmbezeichnung
-
-| Raw value | State                   | available for   |
-|-----------|-------------------------|-----------------|
-|         1 | "Baumwolle" / "Cotton"  | Washing Machine |
-|         3 | "Pflegeleicht"          | Washing Machine |
-|         4 | "Feinwäsche"            | Washing Machine |
-|         8 | "Wolle"                 | Washing Machine |
-|         9 | "Seide"                 | Washing Machine |
-|        21 | "Pumpen/Schleudern"     | Washing Machine |
-|        23 | "Oberhemden"            | Washing Machine |
-|        27 | "Imprägnieren"          | Washing Machine |
-|        29 | "Sportwäsche"           | Washing Machine |
-|        31 | "Automatic plus"        | Washing Machine |
-|        37 | "Outdoor"               | Washing Machine |
-|        48 | "Flusen ausspülen"      | Washer Dryer    |
-|        50 | "Dunkle Wäsche"         | Washer Dryer    |
-|        52 | "Nur Spülen/Stärken"    | Washing Machine |
-|       122 | "Express 20"            | Washer Dryer    |
-|       123 | "Dunkles/Jeans"         | Washing Machine |
-
-### ProgramPhase
-
-| Raw value | State                     | available for               |
-|-----------|---------------------------|-----------------------------|
-| 258       | "Einweichen"              | Washing Machine             | 
-| 260       | "Waschen" / "Washing"     | Washing Machine             |
-| 261       | "Spülen"  / "Rinse"       | Washing Machine             |
-| 265       | "Pumpen"                  | Washing Machine             |
-| 266       | "Schleudern" / "Spinning" | Washing Machine             |
-| 267       | "Knitterschutz" / ""      | Washing Machine             |
-| 268       | "Ende" / "End"            | Washing Machine             |
-| 256       | "Vorbügeln"               | Washing Machine             |
-| 512       | "Ende" / "Finished"       | Tumble dryers               |
-| 514       | "Trocknen" / "Drying"     | Washer Dryer, Tumble dryers |
-| 519       | "Abkühlen" / "Cool down"  | Washer Dryer                |
-| 521       | "Knitterschutz" / ""      | Tumble dryer                |
-| 522       | "Ende" / "Finished"       | Tumble dryer                |
-| 531       | "Komfortkühlen"           | Tumble Dryer                |
-| 532       | "Flusen ausspülen"        | Washer Dryer                |
+If you like to get a deeper understanding or need a raw-value translation please refer to [this documentation.](machine_states.md)
 
 ## Changelog
 ### **WORK IN PROGRESS**
+
+### 6.4.1 (2022-10-12) (Dying for an Angel)
+* (grizzelbee) Chg: Dependencies got Updated
+* (grizzelbee) Chg: Important: Requires at least Node.js 14
+
+### 6.4.0 (2022-09-07) (Dying for an Angel)
+* (grizzelbee) Fix: program names get localized now
+* (grizzelbee) New: moved Admin-UI to jsonConfig
+* (grizzelbee) Chg: BREAKING CHANGE: removed duplicate en-/decryption of passwords due to jsonConfig
+* (grizzelbee) Chg: Moved some documentation from the readme file to machine_states.md
+
+### V6.3.4 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) enabled decryption of passwords again since this issue is a bug in Admin 6.2.0
+
+### V6.3.3 (2022-07-13) (Black Wings)
+* (grizzelbee) Fix: [258](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/258) Improved error handling in case of line outages 
+* (grizzelbee) Fix: [269](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/269) Removed double decryption of passwords
+* (grizzelbee) Chg: Dependencies got updated
+
+### V6.3.2 (2022-06-02) (Black Wings)
+* (grizzelbee) New: Added new config option "delayed processing" to prevent overload on less powerful hardware
+* (grizzelbee) Fix: changed actions info message during polling to log level debug
+* (grizzelbee) Fix: Fixed german translation bug "minutes" -> "protokoll" (thanks to rekorboi)
+
+### V6.3.1 (2022-05-25) (Black Wings)
+* (grizzelbee) Fix: Fixed bad log entry for error delay (delay is logged bad - but is executed okay)
+* (grizzelbee) Chg: Improved connection error handling
+* (grizzelbee) Fix: Fixed Sentry error: [MIELECLOUDSERVICE-3K](https://sentry.io/organizations/grizzelbee/issues/3281137250)
+
+### V6.3.0 (2022-05-23) (Black Wings)
+* (grizzelbee) New: [247](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/247) Added a User-Agent to http-requests to enable Miele to identify requests made by this adapter 
+* (grizzelbee) New: [248](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/248) Added exponential backoff in case of errors
+* (grizzelbee) Fix: [249](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/249) Handling undefined devices properly when executing actions
+* (grizzelbee) Fix: [250](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/250) Fixed light switch action which did not work due to [228](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/228) 
+* (grizzelbee) Fix: [246](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/246) switched http response from warn to debug
+* (grizzelbee) Chg: Some minor log improvements
+  
+### V6.2.2 (2022-05-17) (Black Wings)
+* (grizzelbee) Fix: Starting programs on devices is working now.
+
+### V6.2.1 (2022-05-16) (Black Wings)
+* (grizzelbee) Fix: [242](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/242) VentilationStep needs to be type number but was boolean
+* (grizzelbee) Fix: ACTIONS.programId is invalid: obj.common.type has an invalid value (integer) ...
+
+### V6.2.0 (2022-05-12) (Black Wings)
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Reintroduced data polling as a config option for all who has troubles with Server-Sent Events
+* (grizzelbee) New: Added some additional error handling code when Server Send Events report errors.
+* (grizzelbee) New: [238](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/238) Added reconnect delay in case od an error 
+* (grizzelbee) New: [192](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/192) Improved handling of adapter traffic light in case of an error 
+* (grizzelbee) New: Waiting for code to complete in case of an occurring event 
+* (grizzelbee) Chg: Changed watchdog log entry from info to debug
 
 ### V6.1.5 (2022-05-05) (Black Wings)
 * (grizzelbee) Fix: Changed State-Changed log entry from info to debug 

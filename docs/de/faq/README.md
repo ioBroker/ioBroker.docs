@@ -1,9 +1,7 @@
 # FAQ
-
-
 ## Generelle Fragen
 ### Was ist ioBroker?
-### Auf welcher Hardware läuft ioBroker? Was sind Empfehlungen? (inkl. Platformen, Netzteil, SD-Karten-Qualität ...)
+### Auf welcher Hardware läuft ioBroker? Was sind Empfehlungen? (inklusiv Plattformen, Netzteil, SD-Karten-Qualität ...)
 
 ## Installation
 ### Was brauche ich? Welche nodejs/npm Versionen werden unterstützt? Wie installiere ich die?
@@ -15,11 +13,11 @@
 ### Was ist der js-controller?
 ### Wie installiere ich Adapter?
 ### Was sind Unterschiede von stable und latest Repository? 
-### Wann sollte ich Versionen vom Github direkt installieren?
+### Wann sollte ich Versionen vom GitHub direkt installieren?
 ### Wann sollte ich manuell mit npm was in meinem System tun?
-### Was ist der unterschied zwischen Adapter-Ampel rot/gelb/grün?
+### Was ist der Unterschied zwischen Adapter-Ampel rot/gelb/grün?
 ### Wo finde ich Log-Files?
-### Wie ändere ich Logstufe, inkl Logstufe "Debug"
+### Wie ändere ich Log-Stufe, Log-Stufe "Debug"
 
 ## Mitarbeit
 ### Was ist GitHub und wie lege ich ein Issue an?
@@ -32,9 +30,9 @@
 ### Amazon/Cloud/iot/Alexa2: Wie kann man es denn tun?
 
 ## Erweiterte Benutzung (besserer Name?)
-### Sollte ich ein backup machen? Von was?
+### Sollte ich ein backup machen? Wovon?
 ### Wie installiere ich ein eigenes SSL-Zertifikat?
 ### Was ist Redis? Ab wann lohnt sich das? und was muss ich beachten? Redis Persistieren, Backup
-### Was ist ein Multihast-System? Wie installiere ich ein Multihst-System? Unterschiede Master und Slave?
+### Was ist ein Multihost-System? Wie installiere ich ein Multihost-System? Unterschiede Master und Slave?
 ### Wie zweimal auf Rechner/Docker?
 ### RAM Verbrauch? https://forum.iobroker.net/viewtopic.php?p=226073#p226073

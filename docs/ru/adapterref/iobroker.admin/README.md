@@ -168,23 +168,21 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
-### 5.4.8 (2022-05-09)
-* (bluefox) Corrected some errors in Object Browser
+### 6.2.23 (2022-10-12)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Corrected deletion of objects
 
-### 5.4.7 (2022-05-09)
-* (bluefox) Reload GUI if new admin version detected
+### 6.2.22 (2022-09-14)
+* (bluefox) Corrected admin4 adapter settings
 
-### 5.4.6 (2022-05-09)
-* (bluefox) Corrected readLogs command
-* (bluefox) Corrected file deletion
+### 6.2.21 (2022-09-05)
+* (bluefox) Corrected small JSON config issue
 
-### 5.4.3 (2022-05-06)
-* (bluefox) Used common sockets (could be buggy)
-* (bluefox) Added chips to JSON config
+### 6.2.20 (2022-08-29)
+* (bluefox) Corrected GUI issues
 
-### 5.3.8 (2022-04-14)
-* (Apollon77) Changed the datapoint history list
-* (bluefox) Added support of swagger adapter
+### 6.2.19 (2022-08-27)
+* (bluefox) Corrected some issues
 
 ## License
 The MIT License (MIT)

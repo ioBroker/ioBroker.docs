@@ -44,20 +44,51 @@ with the GARDENA app.
 
 ## Requirements
 
-To use this adapter you need two things:
+To use this adapter you need the following things:
 1. an GARDENA smart system account
 1. an GARDENA application key
+1. an GARDENA application secret
  
-To get both things please go to 
-[https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/). 
+To get those things please go to Husqvarna Developer Portal at 
+[https://developer.husqvarnagroup.cloud/](https://developer.husqvarnagroup.cloud/). 
 
-![getting_application_key](getting_application_key.jpg) 
+Please Sign up or Log in if you already have an account and create a new application to get your *application key* 
+and *application secret*.
 
+Currently the site looks like in the following screenshots.
+	
+---
+	
+![myapplications](img/myapplications.png) 
 
+Press button **NEW APPLICATION**
+	
+---
+	
+![createnewapplication](img/createnewapplication.png) 
+
+Edit form with your own data. Currently the field *Redirect URLs* is not used.  That's why you can currently enter any value.
+Press button **CREATE**
+	
+---
+	
+![mysmartgardenapplication](img/mysmartgardenapplication.png) 
+
+At the next page you get the *application key* and *application secret*. 
+You will need those values for your adapter instance configuration.
+And you have to connect the APIs
+
+  - Authentication API ***and***
+  - GARDENA smart system API.
+
+For this press button **CONNECT NEW API** and select the first API. And repeat for the second API.
+	
+---
+	
 **Note:**
   - If you already have a Husqvarna Automower® Connect or a 
     GARDENA smart system account, you can Sign In with that account and 
-	continue with Step 2, Create application to get the application key.
+	continue with Create application to get the application key and application secret.
 	
 	---
 	
@@ -67,11 +98,11 @@ To get both things please go to
 	
 	---
 	
-  - Make sure that you've connected the application (from Step 2) to the API's
+  - Make sure that you've connected the application to the API's
     - Authentication API ***and***
 	- GARDENA smart system API.
 
-And of course you need a running ioBroker installation and you should own 
+And of course you need a running ioBroker installation (at least using admin5 UI) and you should own 
 at least one working [GARDENA smart device](#supported-devices).
 
   
@@ -99,10 +130,9 @@ at least one working [GARDENA smart device](#supported-devices).
   * [Wishes for data points](#Wishes-for-data-points)
   * [Note](#note)
   * [Changelog](#changelog)
+     * [2.0.0](#200)
      * [1.0.6](#106)
-     * [1.0.5](#105)
-     * [1.0.4](#104)
-     * [previous versions](#103)
+     * [previous versions](#105)
   * [Credits](#credits)
   * [License](#license)  
   
@@ -123,18 +153,36 @@ An description how to install from GitHub is available
 
    **If you change any value of those settings please restart your adapter.**
 
-   3.1 Edit username, password and application key in main instance 
+   3.1 Edit application key and application secret and/or optional username, password in main instance 
    configuration 
 
       | Parameter | Description |
       | - | - |
-      | user name | user name for GARDENA smart system |
-      | password | corresponding password |
-      | API Key |  API Key (application key), e.g. under [Requirements](#requirements) | 
+	  |***mandatory***||
+      | Application key | Application key (API key), e.g. under [Requirements](#requirements) | 
+	  | either *application secret* <br> or *username and password* \*) \*\*)||
+	  |***recommended***||
+      | Application secret \*)| application secret, e.g. under [Requirements](#requirements) - only if *username* and *password* are empty (new in v2.0.0)*|
+	  |***not recommended***||
+      | username \*) \*\*)| username for GARDENA smart system - only if *application secret* is empty|
+      | password \*) \*\*)| corresponding password - only if *username* is specified|
 
-   Please note that password and application key are encoded and stored within 
-   the adapter and become just decoded for authentication with the GARDENA 
-   application host.
+   **NOTES:**	  
+   \*) 
+     - From release v2.0.0 **the preferred login procedure is using *application key* and 
+     *application secret*** as the former login procedure with *username* and *password* isn't supported by 
+     Gardena anymore, but nevertheless it's still working for many users. 
+	 For this reason it is still available here, but in the event of an error, 
+	 there is no longer any support for it. 
+     So it's recommended to use *application key* and *applicaton secret*!
+   
+     - *Application key*, *application secret* and *password* are encrypted and stored within 
+     the adapter and become just decrypted for authentication with the GARDENA application host.
+   
+   \*\*)
+     - parameter is discontinued and may no longer be available in a future version
+	 
+
 
    3.2 Verify default values of miscellaneous settings and switch on/off 
    options in instance configuration. For most users the default values 
@@ -142,22 +190,21 @@ An description how to install from GitHub is available
    
       | Parameter | Description |
       | - | - |
-      | pre-define states | pre-define all states of Gardena API regardless they are currently transmitted; switch on or off; if switched on then all states of the GARDENA smart system API are created regardless if they are currently transmitted by GARDENA service or not; default: off; *(new in v0.4.0)*|
       | forecast | use forecast for charging time and mower remaining time; switch forecast charging and mowing time of mower on/off; default: off; *(new in v0.5.0)*|
       | cycles | number of MOWER history cycles; you can use any number from 3 (minimum), but 10 (default) seems to be a good value; only relevant if the above *'forecast'* is on; *(new in v0.5.0)*|
       | irrigation check| use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
+	  | monitor limit | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|	
     
    3.3 Verify default values of systems settings and switch on/off options in 
    instance configuration. **Most users will not have to change anything on this tab.**
 
       | Parameter | Description |
       | - | - |
-      | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
+      | Loglevel | Loglevel: 0 = no log entries, 1 = some log entries, 2 = some more log entries, 3 = all log entries; default: 0 - no log entries|
       | beautify log | make state ids shorter in log; switch on/off; default: on; *(new in v1.0.5)*|
-	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|	
       | connection retry interval | interval for retry to connect to Gardena Webservice in case of an error (in seconds); default: 300, minimum: 60; *(new in v1.0.3)*|
-      | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
-      | auth factor  | Factor for validity of authentication token; default: 1.001 |
+      | ping interval | Interval for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
+      | auth factor  | Factor for validity of authentication token; default: 0.999 |
       | Auth-URL| Authentication host URL; default: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
       | Base-URL| Webservice Base-URL; default: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
    
@@ -551,16 +598,9 @@ They are used for configuration and for reporting warnings.
   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
   
   You can copy this mower id from the objects tab of ioBroker, 
-  see red arrow in the following pictures.
+  see red arrow in the following picture.
   
-  *with admin v4.x.y:*   
-  
-    ![mower id](mowerid.jpg) 
-  
-  
-  *with admin v5.x.y:* 
-  
-    ![mower id](mowerid_admin5.jpg) 
+    ![mower id](img/mowerid_admin5.jpg) 
 
 * ***warning codes*** 
   | warning code| description| 
@@ -611,6 +651,21 @@ GARDENA or Husqvarna.
 
 
 ## Changelog
+### 2.0.0
+* (jpgorganizer) 2022-Jun-13
+  - support for new login procedure to Gardena webservice: using *Application secret* and *Application key* 
+    instead of *username* and *password*. 
+    [Issue 47](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/47)
+  
+    Procedure with *username* and *password* is still available, as it's still working for some users.
+	
+    **TODO** for all existing users: please re-enter your login data, even if you will still use *username* and *password*!
+  - **support for admin4 UI removed; at least admin5 is needed!**
+  - new configuration page
+  - function and configuration parameter `pre-define states` removed. All Gardena data points get deleted and created again.
+  - documentation has been adjusted
+
+
 ### 1.0.6
 * (jpgorganizer) 2022-May-04
   - some minor changes in documentation, including [Issue 41](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/41)
@@ -788,4 +843,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2764 $ $Date: 2022-05-11 21:07:17 +0200 (Mi, 11 Mai 2022) $ --->
+<!--- SVN: $Rev: 2832 $ $Date: 2022-06-13 14:12:51 +0200 (Mo, 13 Jun 2022) $ --->

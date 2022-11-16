@@ -311,7 +311,44 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.2.0 (2022-11-08)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Function `getObjects`for web was extended by devices, channels and enums
+
+### 6.1.10 (2022-08-24)
+* (bluefox) Caught error by subscribe
+
+### 6.1.8 (2022-07-08)
+* (bluefox) Corrected getAdapterInstances method
+
+### 6.1.7 (2022-06-20)
+* (bluefox) Allowed to overload the system language
+
+### 6.1.6 (2022-06-20)
+* (bluefox) Allowed to run socket.io behind proxy
+
+### 6.1.5 (2022-06-09)
+* (bluefox) Do not show requireLog message
+
+### 6.1.4 (2022-05-27)
+* (Apollon77) Fixed crash cases reported by Sentry
+
+### 6.1.3 (2022-05-20)
+* (bluefox) Corrected "force web-sockets" mode
+
+### 6.1.1 (2022-05-20)
+* (bluefox) Reverted socket.io to V2
+
+### 6.0.2 (2022-05-20)
+* (bluefox) Added compatibility with socket.io@2.x
+
+### 6.0.1 (2022-05-19)
+* (bluefox) Update to socket.io@4.x
+
+### 5.0.2 (2022-05-19)
+* (bluefox) Hide warn messages
+
+### 5.0.1 (2022-05-16)
 * (bluefox) Used common sockets (could be buggy)
 
 ### 4.2.0 (2022-03-27)

@@ -17,7 +17,7 @@ The driver allows you to receive data and manage your Synology NAS server.
 
 ### 2FA Settings
 
-If you use 2FA in DSM6 see instructions [here](docs/en/template.md)
+If you use 2FA in DSM6/7 see instructions [here](docs/en/template.md)
 
 ### Reboot and Shutdown
 The adapter will do this via SSH since v2.1.4, so please set the SSH port in the adapter setttings. You can see it in the Synology settings:
@@ -74,6 +74,29 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 
 
 ## Changelog
+<!--
+## __WORK IN PROGRESS__
+-->
+### 2.1.13 (2022-11-05)
+*(McM1957) Code has been prepared for upcoming js-controller release. Reference to utils.controllerDir has been removed. (#198)
+*(McM1957) Several base modules have been updated.
+
+### 2.1.12 (2022-10-26)
+*(McM1957) Logging of password in clear text has been removed.
+
+### 2.1.11 (2022-10-24)
+*(McM1957) The adapter has been adapted to be compatible with node14.
+
+### 2.1.10 (2022-10-23)
+*(McM1957) Handling of passwords containing special characters (i.e. a dollar sign) has been fixed (#180)
+*(McM1957) Base modules have been updated as suggested by dependabot.
+
+### 2.1.9 (2022-07-01)
+* (Apollon77) Try to prevent account locks when using 2FA on restarts of the NAS
+
+### 2.1.8 (2022-06-12)
+* (Apollon77) slow down reconnects to the DSM
+
 ### 2.1.7 (2022-04-26)
 * (Apollon77) Try to prevent account locks when using 2FA on restarts of the NAS
 

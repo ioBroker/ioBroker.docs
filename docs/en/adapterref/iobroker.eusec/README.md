@@ -159,6 +159,42 @@ Best is to set the adapter to Debug log mode (see [here](https://bropat.github.i
 
 ## Changelog
 
+### 0.9.7 (2022-11-12)
+
+* (bropat) Implemented Homebase Alarm (#271)
+* (bropat) Fixed issue #293
+* (bropat) Updated version of the package eufy-security-client (2.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.3)
+
+### 0.9.6 (2022-11-06)
+
+* (bropat) Fixed issue #292
+* (bropat) Updated version of the package eufy-security-client (2.2.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.2)
+
+### 0.9.5 (2022-11-05)
+
+* (bropat) Added new P2P feature: unlock smart safe products
+* (bropat) Added option to enable/disable "Automatically download picture" (#255)
+* (bropat) Fixed issue #269
+* (bropat) Updated version of the package eufy-security-client (2.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.1)
+
+### 0.9.4 (2022-07-30)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.2)
+
+### 0.9.3 (2022-07-16)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.1)
+
+### 0.9.2 (2022-06-12)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.0)
+
 ### 0.9.1 (2022-05-03)
 
 * (bropat) Updated version of the package eufy-security-client (2.0.1)

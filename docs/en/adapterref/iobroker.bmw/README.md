@@ -20,32 +20,38 @@ Adapter for BMW
 
 bmw.0.VIN.properties
 
-**Remote Befehle sind möglich unter** 
+**Remote Befehle sind möglich unter**
 
 bmw.0.VIN.remotev2
 
-
 ## Changelog
+
+### 2.5.6
+
+- Fix charging message
+### 2.5.5
+
+- Fix login
 
 ### 2.5.0
 
--   Fix login
-  
+- Fix login
+
 ### 2.4.1
 
--   Add support for MINI and force refresh remote
-  
+- Add support for MINI and force refresh remote
+
 ### 2.3.0
 
--   Disable v1 Endpoints
-  
+- Disable v1 Endpoints
+
 ### 2.1.1
 
--   Upgrade to statusV2 and remoteV2
-  
+- Upgrade to statusV2 and remoteV2
+
 ### 2.0.0
 
--   (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

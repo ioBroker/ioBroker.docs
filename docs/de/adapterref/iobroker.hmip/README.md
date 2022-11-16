@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hmip/README.md
 title: ioBroker HomeMatic IP Cloud AccessPoint-Adapter
-hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
+hash: Kralf0GncOLRR7KFU6xsIHqXXzkKbZYW5rKEt+x/BAM=
 ---
 ![Logo](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
@@ -15,6 +15,9 @@ hash: W12C3P3zmD99HhJyZQK++hoW7lL8iojcA2aDwHoYApM=
 ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
+## Haftungsausschluss
+**Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.** **HomeMatic ist eine Marke der ELV Elektronik AG**
 
 ## Beschreibung
 Dieser Adapter ermöglicht die Kommunikation mit einem HomematicIP CloudAccessPoint über die Rest API der Homematic IP Cloud
@@ -35,7 +38,7 @@ Bei nicht funktionierenden HmIP-Geräten erstellen Sie bitte ein Problem mit die
 Schalten Sie die Adapterprotokollierung in ioBroker in den Silly-Modus und fügen Sie den json des Geräts hinzu, der im Problem zum Protokoll gedruckt wird.
 Möglicherweise benötige ich auch einen json einer Zustandsänderung.
 
-Danke
+Vielen Dank
 
 Wenn Sie nach Informationen suchen, ob die Alarmeinstellungen aktiv sind, müssen Sie den aktiven Status der Gruppen INTERN und EXTERN überprüfen, sie repräsentieren in Kombination die drei Alarmzustände. INTERNE und EXTERNE Aktive bedeuten Abwesend, nur EXTERNE Aktive bedeuten nur Perimeter aktiv.
 
@@ -61,6 +64,42 @@ Bitte fügen Sie zusätzlich den „iobroker“-Client zur Liste der Zugangskont
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+### 1.20.0 (2022-09-19)
+* IMPORTANT: Node.js 12.x is now required at minimum
+* Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
+* Add valve position for FLOOR_TERMINAL_BLOCK_MECHANIC_CHANNEL
+* Add several more states for SWITCH_CHANNEL, DIMMER_CHANNEL, WEATHER_SENSOR_CHANNEL, SHUTTER_CHANNEL 
+* Add channel label
+
+### 1.19.2 (2022-09-07)
+* Optimize Reconnect handling
+
+### 1.19.1 (2022-08-21)
+* Fix datatype of selfCalibrationInProgress
+
+### 1.19.0 (2022-08-14)
+* Add several more device settings that can be modified via adapter
+  * accelerationSensorMode
+  * accelerationSensorSensitivity
+  * accelerationSensorTriggerAngle
+  * accelerationSensorEventFilterPeriod
+  * accelerationSensorNeutralPosition
+  * notificationSoundTypeHighToLow
+  * notificationSoundTypeLowToHigh
+  * routerModuleEnabled
+  * minimumFloorHeatingValvePosition
+  * sirenWaterAlarmTrigger
+  * inAppWaterAlarmTrigger
+  * acousticAlarmSignal
+  * acousticAlarmTiming
+  * acousticWaterAlarmTrigger
+  * boostDuration
+* Other fixes and optimizations
+
+### 1.18.0 (2022-06-17)
+* (Apollon77) Added support for PARTICULATE_MATTER_SENSOR_CHANNEL
+* (Apollon77) Correctly ignore some channels without meaningful data
+
 ### 1.17.0 (2022-04-26)
 * (Apollon77) Also reinitialize objects when new groups or clients are detected
 * (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels

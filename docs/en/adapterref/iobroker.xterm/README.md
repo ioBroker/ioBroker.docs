@@ -35,10 +35,17 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.0 (2022-10-08)
+* (Apollon77) Update xterm library
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.0 (2022-08-29)
+* (bluefox) Check only port of the interface and not of all interfaces
+
 ### 0.3.2 (2022-03-29)
 * (Apollon77) Fix crash cases reported by Sentry
 

@@ -16,7 +16,19 @@ Fetches 5 days weather forecast from [https://openweathermap.org/](openweatherma
 
 You need an api key to access the data. The api key you can get for free after registration [here](https://home.openweathermap.org/api_keys).
 
+<!--
+	### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 0.3.3 (2022-10-24)
+* (Bluefox) Updated widget for vis 2.0
+
+### 0.3.0 (2022-07-12)
+* (Bluefox) Added new widget for vis 2.0
+
+### 0.2.5 (2022-06-12)
+* (Apollon77) Make sure all forecast data are processed correctly
+
 ### 0.2.4 (2022-04-19)
 * (Apollon77) Fix crash case when states have invalid metadata
 

@@ -1,11 +1,15 @@
 ![Logo](admin/home.png)
 # ioBroker.chromecast
 
-![Number of Installations](http://iobroker.live/badges/chromecast-installed.svg) ![Number of Installations](http://iobroker.live/badges/chromecast-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.chromecast.svg)](https://www.npmjs.com/package/iobroker.chromecast)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.chromecast.svg)](https://www.npmjs.com/package/iobroker.chromecast)
-[![Build Status](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)](https://travis-ci.org/angelnu/ioBroker.chromecast.svg?branch=master)
+![Number of Installations](http://iobroker.live/badges/chromecast-installed.svg)
+![Number of Installations](http://iobroker.live/badges/chromecast-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.chromecast.svg)](https://www.npmjs.com/package/iobroker.chromecast)
 
-[![NPM](https://nodei.co/npm/iobroker.chromecast.png?downloads=true)](https://nodei.co/npm/iobroker.chromecast/)
+![Test and Release](https://github.com/iobroker-community-adapters/iobroker.chromecast/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/chromecast/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.chromecast.svg)](https://www.npmjs.com/package/iobroker.chromecast)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## A Google Home adapter for ioBroker
 
@@ -19,26 +23,15 @@ Build on top of the following projects:
 
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsors](./SPONSORS.md)
-If you like my work, please feel free to provide a personal donation  
-(this is an personal Donate link for Jey Cee, no relation to the ioBroker Project !)  
-[![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
-
 ## Instructions
-
-1. Install into ioBroker
-   1. Go to your ioBroker Adapters tab
-   2. Select and install Google Home adapter
-2. Add an instance of the Google Home adapter
-   * it should automatically run after it is installed
-3. (optional) If you plan to stream local files you need to configure the adapter
+1. Install this adapter into ioBroker
+2(optional) If you plan to stream local files you need to configure the adapter
    * you need to have an ioBroker web server instance
-4. Check your log: you should see logs about the detected devices
-5. Write an URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
-6. The URL should start playing on your device
+3. Check your log: you should see logs about the detected devices
+4. Write a URL such as [http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3](http://edge.live.mp3.mdn.newmedia.nacamar.net/ps-dieneue_rock/livestream_hi.mp3) to the chromecast.0.`<your chromecast name>`.player.url2play
+5. The URL should start playing on your device
 
 ## Features
-
 * detect devices with multicast-dns
   * optionally add additional manually configured devices in admin pannel
 * create ioBroker objects for each found device
@@ -61,16 +54,24 @@ If you like my work, please feel free to provide a personal donation
 * Play again last played stream: just set _chromecast.0.`<your device>`.status.playing_ to _true_
 
 ## What is missing?
-
 * add state machine to track states: detected ->connected -> player loader -> playing
 * add retries: sometimes the Google Home fails to respond to a request
 * more testing
 
-
 ## Changelog
-### 3.0.0 (2021-08-25)
-* (jey cee) Breaking change: Object IDs are now mac addresses instead names 
+<!--
+    ### **WORK IN PROGRESS**
+-->
+### 3.1.0 (2022-11-12)
+* (bluefox) Refactoring done
+* (bluefox) Removed dependency with nettools
+* (bluefox) Added support of web port other than 8082
 
+### 3.0.3 (2022-08-26)
+* (jey cee) Breaking change: Object IDs are now mac addresses instead names
+* (Bjoern3003) set album name as song if provided in icy-name
+* (Apollon77/aortmannm) Make compatible with Node.js 16+
+* (Apollon77) Add Sentry for crash reporting
 
 ### 2.3.1 (2019-10-23)
 * (angelnu) Tested compact mode works in Linux and Windows
@@ -222,7 +223,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Vegetto <iobroker@angelnu.com>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

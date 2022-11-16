@@ -33,13 +33,17 @@ Search on google (Minimal ADB and Fastboot) for the latest download link.
 Alternatively, you can use *adbLink* 
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Grothesk242) make compatible with Node.js 18+
+
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 soef <soef@gmx.net>
+Copyright (c) 2016-2022 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

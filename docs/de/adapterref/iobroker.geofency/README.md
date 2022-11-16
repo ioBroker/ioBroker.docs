@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.geofency/README.md
 title: ioBroker.geofency
-hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
+hash: KFMlkLFzEOqxifB+qeIRbYsjzdUZkCm5Sy6azU+sU3o=
 ---
 ![Logo](../../../en/adapterref/iobroker.geofency/admin/geofency.png)
 
@@ -12,8 +12,6 @@ hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.geofency.svg)
 
 # IoBroker.geofency
-====================
-
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.geofency/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/geofency/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
@@ -21,11 +19,11 @@ hash: 9q400lKCLOrH3KroQdM2FDGS4Wtgr4+8ckgI1w7tR9o=
 Dieser Adapter kann [geofency](http://www.geofency.com/) Ereignisse empfangen, wenn Sie mit Ihrem Mobilgerät einen definierten Bereich betreten oder verlassen.
 Alle Werte des Geofency-Webhook der Anfrage werden unter dem Namen des Standorts in ioBroker gespeichert.
 
-## Konfiguration auf Mobilgerät:
+## Konfiguration auf Mobilgerät
 * für jeden Standort -> Eigenschaften -> Webhook-Einstellungen:
- * URL für Ein- und Ausstieg: &lt;Ihre ioBroker-Domain&gt;:&lt;konfigurierter Port&gt;/&lt;beliebiger Standortname&gt;
- * Beitragsformat: JSON-kodiert: aktiviert
- * Authentifizierung: Benutzer / Passwort aus der iobroker.geofency-Konfiguration festlegen
+ * URL für Ein- und Ausstieg: `<your ioBroker Domain>:<configured port>/<any locationname>`;
+ * Beitragsformat: „JSON-kodiert“: aktiviert
+ * Authentifizierung: Benutzer / Passwort aus der `iobroker.geofency`-Konfiguration festlegen
 
 ## Im ioBroker Forum (Deutsch)
 http://forum.iobroker.net/viewtopic.php?f=20&t=2076
@@ -34,7 +32,30 @@ http://forum.iobroker.net/viewtopic.php?f=20&t=2076
 Es wird nicht empfohlen, diesen Adapter dem öffentlichen Internet auszusetzen.
 ioBroker sollte eine Art WAF/Proxy/Entry-Server vorangestellt werden. (zB nginx ist schön und einfach zu konfigurieren).
 
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
+
 ## Changelog
+### 1.2.4 (2022-10-08)
+* (Apollon77) Fix atHome states
+* (Apollon77) Catch errors when creating webserver
+
+### 1.2.3 (2022-10-01)
+* (Apollon77) Optimize usage of credentials (requires iOS App 7.5.1+!)
+
+### 1.2.2 (2022-08-29)
+* (bluefox) Corrected handling of SSL certificates
+* (bluefox) Added possibility of binding to specific interface and not only 0.0.0.0
+
+### 1.2.1 (2022-08-16)
+* (bluefox) Corrected error with no credentials
+* (bluefox) Added JSON config and made refactoring
+* (atl285) Corrected handling of SSL certificates
+
+### 1.1.1 (2022-03-18)
+* (Apollon77) Prevent warning logs for newly added states in last release
+
 ### 1.1.0 (2022-03-11)
 * IMPORTANT: Forbidden characters are now replaced by _ in generated State IDs. Because gave an error before should not be breaking 
 * (Apollon77) Add new json state with the json of the last incoming data

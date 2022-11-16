@@ -2,6 +2,7 @@
 title: backend development
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/controller.md
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 hash: MeplEXkUk8K8+LbIrTMncNiSO6l8Dj1+jv0IVkebdrs=

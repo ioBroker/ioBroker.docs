@@ -1,42 +1,47 @@
 ---
-title: visualization
-lastChanged: 11.08.2019
+title: VIS
+lastChanged: 04.11.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/viz/vis.md
-hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
+hash: bHKz1FZTHJ9k0VsfJURfpT2ieu6OgiaSp0zp2Vrwj24=
 ---
-# Visualizations with VIS
-## As a general rule
-@@@ VIS is a powerful application that deserves a detailed guide and tutorials. It is not yet defined in what form and where this manual will be provided.
-@@@
+?> ***This page is currently being revised.***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#konfiguration)
+**Visualizations with VIS**
+
+VIS is the main visualization tool from ioBroker and offers extensive options for visualizing a smart home.
+
 ## Configuration
-A configuration of the adapter is not necessary. There can only be one VIS instance.
+VIS requires the WEB adapter, which is automatically installed when VIS is installed. No further configuration is necessary apart from entering the license, which can be obtained from https://iobroker.net/. This license is free for private use.<br> There can only be one VIS instance.
 
-* * *
+## Service
+After installation, the adapter is called via `<IPdesServers>:8082/vis/index.html` or via the hyperlink in the Instances tab of the admin adapter and the visualization is displayed.
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#bedienung)Operation
-The adapter is called via `<IPdesServers>:8082/vis/index.html` and the visualization is displayed.
+A demo view is automatically created the first time it is called up.
+
 There are several views in a project.
-Several widgets can be placed freely on each view, which are used for display or operation.
-To create and configure a visualization you have to load the **Editor**.
-The editor is called up via `<IPdesServers>:8082/vis/edit.html` or via the hyperlink in the Instances tab of the admin adapter.
-After closing the editor using the close window icon ( (x) at the top right), the last edited view is displayed in the function view.
+Several widgets can be placed freely on each view, which are used for display or operation. The visualization is created and configured using the editor.
+The editor is called up via `<IPdesServers>:8082/vis/edit.html`.
+After closing the editor using the close-window icon ( (x) top right), the last edited view is displayed in the function view.
 This can be called up at any time with `<IPdesServers>:8082/vis/index.html#ViewName` The editor is divided into different areas.
-![overview](../../de/viz/media/vis_ioBroker_vis_Editor_002-300x165.jpg)
+
+![](../../de/viz/media/vis_ioBroker_vis_Editor_002-300x165.jpg)
 
 * * *
 
 ## The tabs in the header area (1)
 ### Views
 If this tab is selected, you can select the view to be edited from the existing ones in the pull-down menu below.
-![iobroker_vis_Editor_Views_Header](../../de/viz/media/iobroker_vis_Editor_Views_Header.jpg) The four icons to the right are self-explanatory and refer to the views.
-After clicking on the workspace, the view in the Properties sidebar changes to the Views tab on the right-hand side and shows the settings for the view.
+![](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg)
+
+The four icons to the right are self-explanatory and refer to the views.
+After clicking on the workspace, the view in the properties sidebar changes to the Views tab on the right-hand side and shows the settings for the view.
 
 ### Widgets
-If the Widgets tab is activated, the underlying toolbar changes. ![iobroker_vis_Editor_Widgets_Header](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg) The tools for editing widgets are displayed.
+If the Widgets tab is activated, the underlying toolbar changes ![](../../de/viz/media/iobroker_vis_Editor_Views_Header.jpg)
+
+The tools for editing widgets are displayed.
 
 #### Pull down menu
 Here you can select a widget for editing, or the selected widget is displayed here.
@@ -45,7 +50,9 @@ Here you can select a widget for editing, or the selected widget is displayed he
 The three icons for delete, copy and info become active when a widget is selected.
 
 #### Align widgets
-![](../../de/viz/media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG) If you select several widgets with the mouse button pressed (or with Ctrl-click), you can then use these icons to align groups (left-aligned, right-aligned, top-aligned, bottom-aligned, centered, vertically aligned in the middle).
+![](../../de/viz/media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG)
+
+If you select several widgets with the mouse button pressed (or with a Ctrl-click), you can then use these icons to align groups (left-aligned, right-aligned, top-aligned, bottom-aligned, centered, vertically aligned in the middle).
 You can also position several widgets with the same distance (horizontally and vertically) and adjust the size of several widgets with the last two icons.
 If you select a widget, the view in the properties sidebar on the right changes to the Widget tab and shows the settings for this widget.
 With the possible multiple selection, you can change the properties of several widgets at the same time via the right sidebar.
@@ -59,21 +66,19 @@ If a widget is activated, you can use this button to export the widget's CSS cod
 
 #### Import widget
 Conversely, you can, for example, import widgets here that are not included in the scope of vis.
-After clicking on a widget, the view in the properties sidebar changes to the Widget tab on the right side and shows the settings for the selected widget.
+After clicking on a widget, the view in the properties sidebar changes to the Widget tab on the right-hand side and shows the settings for the selected widget.
 
 ###Tools
-If the Tools tab is activated, the underlying toolbar changes
+If the Tools tab is activated, the underlying toolbar changes ![](../../de/viz/media/iobroker_vis_Editor_Tools_Header.JPG)
 
 #### Resolution
-Many preset screen resolutions from mobile devices are displayed here, but a "User-defined" item also offers the option of making your own settings.
+Many preset screen resolutions from mobile devices are displayed here, but there is also a "User-defined" item that offers the option of making your own settings.
 If you select something here, a frame is drawn on the workspace that corresponds to the selected screen resolution.
 
 ####Default
-If _default_ is checked, the active [views](http://www.iobroker.net/?page_id=1193&lang=de) will be made the default view and loaded if the VIS view (see [Project](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Projekt)) is loaded with the resolution set above.
-**Example:** The _iPad Portrait_ display is selected and the _Default_ box is checked in the _Start_ view.
-Assuming that a view named _Weather_ in landscape format was loaded from the project on an iPad.
-If the iPad is now rotated to portrait format, the _Start_ view previously set as the standard (_default_) for this resolution (portrait format) is automatically displayed.
-With correspondingly mobile devices, control by movement is possible (e.g. "back to the main menu" or _up_ shows a different view than _across_).
+If _default_ is checked, the active view will be made the default view and loaded if the VIS view is loaded with the resolution set above.
+**Example:** The _iPad Portrait_ display is selected and the _Default_ box is checked in the _Start_ view. Assuming that a view named _Weather_ in landscape format was loaded from the project on an iPad. If the iPad is now rotated to portrait format, the _Start_ view previously set as the standard (_default_) for this resolution (portrait format) is automatically displayed.
+With corresponding mobile devices, control by movement is possible (e.g. "back to the main menu" or _up_ shows a different view than _across_).
 
 #### Grid
 here there are the options _inactive_, _elements_ and _grid_. If you select elements, the widgets snap to an adjacent element when moving with the mouse. With grid you can specify a grid size (in px) in which the widgets then snap.
@@ -120,7 +125,7 @@ Sometimes this doesn't make sense and slows down the system.
 Therefore, views that belong together can be combined in different projects.
 For example, it makes sense to separate according to end devices with different screen resolutions.
 You can create a _Smartphone_ project and create views in it that are optimized for touch operation and vertical alignment.
-By deliberately reducing the number of widgets, the project remains small in terms of data volume and therefore loads quickly when on the go (e.g. via VPN and mobile communications).
+By deliberately reducing the number of widgets, the project remains small in terms of data volume and therefore loads quickly when on the move (e.g. via VPN and mobile communications).
 Another project _Wandtablet_, which is only displayed on the tablet on the wall, does not need to load any views from the _Smartphone _ project.
 The main project _main_ for displaying all data is usually only displayed and edited from the desktop PC.
 Data volume and computing speed usually play no role here.
@@ -137,8 +142,8 @@ With the blue button "Left arrow" you maneuver one hierarchical level higher, by
 A new folder can be created with the "Folder+" icon.
 If you have reached the desired directory, you select a file, you can download it to the computer with the blue arrow, if you click on the green arrow, the "Dropbox" opens.
 ![](../../de/viz/media/iobroker_vis_Editor_Setup_Dateimanager_Dropbox.JPG) Files can be stored here simply by drag & drop and then uploaded to the ioBroker server by clicking on the _**Upload**_ button.
-Alternatively, you can also click anywhere in the area, then a file selection opens.
-The file list empties and if no more files are to be uploaded, you exit the Dropbox via the **_Close_** button.
+Alternatively, you can click anywhere in the area, then a file selection will open.
+The file list empties and if no more files are to be uploaded, exit the Dropbox via the **_Close_** button.
 
 #### Settings... (7)
 ![](../../de/viz/media/iobroker_vis_Editor_Setup_Projekteinstellungen.JPG)
@@ -148,7 +153,7 @@ The file list empties and if no more files are to be uploaded, you exit the Drop
 if the connection between the frontend (tablet) and the server was interrupted for longer than the preset time.
 To prevent this, this time can also be set to _**never**_.
 
-* _**Reconnect Interval:**_ The time in which the frontend should try to
+* _**Reconnect Interval:**_ The time in which the frontend should try
 
 to reach the server.
 
@@ -178,7 +183,9 @@ With this button you can undo the last action(s) step by step.
 ## The widget sidebar (2)
 It is used to select widgets.
 The widgets are displayed as icons and can be dragged and dropped onto the workspace, or positioned at position 0,0 of the workspace using the _Insert_ button.
-![iobroker_vis_Editor_Widgets_sidebar](../../de/viz/media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg) The field below the _Insert_ button is a filter field.
+![](../../de/viz/media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg)
+
+The field below the _Insert_ button is a filter field.
 Here you can enter a term to search the icons for it.
 All icons containing this term are displayed.
 If you delete the last filter (or the \*), you get a pull-down list with the possible search terms.

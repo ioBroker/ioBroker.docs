@@ -1,9 +1,9 @@
 ---
-title:       "Logik"
+title:       "Beispiele"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
-# Beispiele
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>

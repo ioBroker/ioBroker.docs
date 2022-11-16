@@ -1,9 +1,10 @@
 ---
-title:       "Logik"
+title:       "Node-RED"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
-# Node Red
+
 
 ?> ***Dies ist ein Platzhalter***.
    <br><br>

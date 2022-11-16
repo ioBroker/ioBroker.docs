@@ -254,6 +254,13 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### 1.3.14 (2022-09-27)
+* (bluefox) Updated GUI packages
+
+### 1.3.13 (2022-08-02)
+* (bluefox) Added preparations for ioBroker cloud
+* (bluefox) Migrate GUI tu muiV5
+
 ### 1.3.12 (2022-04-03)
 * (jogibear9988) Removed duplicated code
 * (jogibear9988) Implemented S5TIME support (must be tested on real device)
@@ -303,7 +310,7 @@ Important: The user is in charge of connecting the correct data points to the wi
 * (Apollon77) Prevent warnings in js-controller 3.2
 
 ### 1.2.1 (2021-01-25)
-* (Apollon77) fix info.connection state
+* (Apollon77) fix `info.connection` state
 
 ### 1.2.0 (2021-01-25)
 * (Apollon77) Prevent error case (Sentry IOBROKER-S7-4)
@@ -377,7 +384,7 @@ Important: The user is in charge of connecting the correct data points to the wi
 * (bluefox) add translation
 
 ### 0.2.3 (2015.09.24)
-* (bluefox) add suppor of Logo!
+* (bluefox) added support of Logo!
 
 ### 0.2.2 (2015.09.11)
 * (bluefox) add S7time
@@ -413,7 +420,7 @@ Important: The user is in charge of connecting the correct data points to the wi
 ### 0.1.3 (2015.06.04)
 * (bluefox) translate admin
 * (bluefox) remove jshint warnings
-* (bluefox) add info.connected and rename info.connection to info.state
+* (bluefox) add `info.connected` and rename `info.connection` to `info.state`
 
 ### 0.1.2
 * Bugfix startup

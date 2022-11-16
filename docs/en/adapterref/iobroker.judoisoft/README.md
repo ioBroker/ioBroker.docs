@@ -23,6 +23,9 @@ Settings available:
 <b>NodeJs >> 8.x.x </b>
 
 ## Changelog
+### 1.0.15 (2022-05-30) 
+* (arteck) new error handling
+
 ### 1.0.11  (2021-11-07)
 * (arteck) performance corr
 
@@ -42,7 +45,8 @@ Settings available:
 
 ### 1.0.3  (2021-02-06)
 * (arteck) the cloud infos are not available for collection, sry 
-* 
+*
+
 ### 1.0.2  (2021-01-26)
 * (arteck) cloud login added
 

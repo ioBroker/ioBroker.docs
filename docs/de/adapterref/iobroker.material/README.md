@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: N32nXySCbl01mgm0rQzaSUKRK6tVRfpCT6IPqTyQU8s=
+hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 ---
 ![Logo](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -20,12 +20,12 @@ Reaktions- und Material-UI-Schnittstelle.
 ## Installation
 **Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur von npm.
 
-## Verwendung
+## Verwendungszweck
 Es ist sehr wichtig zu wissen, dass der Adapter nur Geräte anzeigt, die zu bestimmten Kategorien hinzugefügt wurden, wie *Räume* oder *Funktion*.
-Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat den Typ und Platz.
+Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ und Ort.
 
 ## Unterstützte Typen
-### Schalten
+### Schalter
 ### Dimmer
 ### Media Player
 ### Lautstärke
@@ -46,13 +46,19 @@ Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat den
 
 ## Credits
 - Verwendete Icons von flaticon
-– Lautstärkeregler von [hier](https://codepen.io/blucube/pen/cudAz) Von [Ed Hicks](https://twitter.com/blucube) – Inspiriert von einem [Dribbling Shot](https:/ /dribbble.com/shots/753124-Volume-Knob) von [Ricardo Salazar](https://twitter.com/rickss)
+- Lautstärkeregler von [hier](https://codepen.io/blucube/pen/cudAz) Von [Ed Hicks](https://twitter.com/blucube) - Inspiriert von einem [Dribbling Shot](https:/ /dribbble.com/shots/753124-Volume-Knob) von [Ricardo Salazar](https://twitter.com/rickss)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 1.2.2 (2022-10-18)
+* (bluefox) migrated to MUIv5
+* (bluefox) corrected error with blinds
+* (bluefox) corrected error with echarts
+* (bluefox) corrected error with background upload
+
 ### 1.1.2 (2021-12-28)
 * (bluefox) Fixed double sending in the switch control
 

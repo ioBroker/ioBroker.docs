@@ -8,7 +8,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.melcloud.svg)](https://www.npmjs.com/package/iobroker.melcloud)
 ![Number of Installations (latest)](http://iobroker.live/badges/melcloud-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/melcloud-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Black-Thunder/iobroker.melcloud.svg)](https://david-dm.org/Black-Thunder/iobroker.melcloud)
 [![Known Vulnerabilities](https://snyk.io/test/github/Black-Thunder/ioBroker.melcloud/badge.svg)](https://snyk.io/test/github/Black-Thunder/ioBroker.melcloud)
 
 [![NPM](https://nodei.co/npm/iobroker.melcloud.png?downloads=true)](https://nodei.co/npm/iobroker.melcloud/)
@@ -30,8 +29,11 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (Black-Thunder) Added support for air to water devices (e.g. heatpumps)
+### 1.2.0 (2022-09-20)
+* (Black-Thunder) Added support for air to water devices (e.g., heat pumps)
+* (Black-Thunder) Added new device-independent channel "reports" fur cumulative reports across all devices (see documentation for new structure)
+* (Black-Thunder) Restructured device-specific channel "reports" and added new sub-channel "lastReportData" (see documentation for new structure)
+* (Black-Thunder) Fix: always trigger on "getPowerConsumptionReport" ignoring the state value
 * (Black-Thunder) Fixed js-controller warnings
 
 ### 1.1.6 (2022-02-06)

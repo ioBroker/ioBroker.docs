@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
+hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
 ---
 # IoBroker.nibeuplink
 
@@ -19,7 +19,7 @@ hash: VoorQpTrmlLGbtmRSTvil1uTJ+KdYkB7d6w66wMQ9AI=
 此 ioBroker 适配器从 Nibe Uplink 接收来自 Nibe 热泵的数据。
 
 ## 使用这个适配器
-1. 你需要一个 Nibe 热泵 - 如果你没有，再见 ;-)
+1. 你需要一个 Nibe 热泵 - 如果你没有，就买一个；-)
 2.您需要一个Nibe Uplink账号：https://www.nibeuplink.com/
 3. 登录后，您有一个此表单中的 URL：https://www.nibeuplink.com/System/XXXXX/Status/Overview
 4. 代替 XXXXX 有一个数字。这是您的系统 ID。我们需要这个 ID。
@@ -52,10 +52,21 @@ https://api.nibeuplink.com/docs/v1/Parameters（设置部分）
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.2.1 (2022-10-03)
+- Fix getting data directory
 
-### 1.1.0 - 2022-02-06:
+### 1.2.0 (2022-10-02)
+- Requires js-controller >= 3.3.22 and admin >= 5.0.0
+- Update some files from up-to-date adapter creator
+- Bump dependencies
 
-- Switch to TypeSctipt
+### 1.1.1 - 2022-04-02
+- Fix write support (does not send zero) #6 #128
+- Bump dependencies
+
+### 1.1.0 - 2022-02-06
+
+- Switch to TypeScript
 - Use axios instead of wreck
 
 ### 1.0.1 - 2021-12-31

@@ -24,6 +24,10 @@ z.B.: <https://www.wemportal.com/Web/UControls...,> 208557
 
 ## Changelog
 
+### 0.0.13
+
+* (ta2k) update dependencies
+
 ### 0.0.9
 
 * (ta2k) fix for Status label

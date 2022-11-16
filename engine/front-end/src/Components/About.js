@@ -1,14 +1,14 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import Image1 from '../assets/464030846.jpg';
 import Image2 from '../assets/493271902.jpg';
 
-import {FaCogs as IconAutomate} from 'react-icons/fa';
-import {FaNodeJs as IconJS} from 'react-icons/fa';
-import {FaLaptopCode as IconPlatforms} from 'react-icons/fa';
-import {FaThumbsUp as IconSocial} from 'react-icons/fa';
+import { FaCogs as IconAutomate } from 'react-icons/fa';
+import { FaNodeJs as IconJS } from 'react-icons/fa';
+import { FaLaptopCode as IconPlatforms } from 'react-icons/fa';
+import { FaThumbsUp as IconSocial } from 'react-icons/fa';
 
 import I18n from '../i18n';
 

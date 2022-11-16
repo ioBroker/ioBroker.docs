@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
+hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
 ---
-![商标](../../../en/adapterref/iobroker.iot/admin/iot.png)
+![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
 ![安装数量](http://iobroker.live/badges/iot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iot.svg)
@@ -26,7 +26,7 @@ hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
 
 ![介绍](../../../en/adapterref/iobroker.iot/img/intro.png)
 
-＃＃＃ 语言
+＃＃＃ 语
 如果您选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，所有已知名称都将被翻译成这种语言。
 出于演示目的，它可以在多种语言之间快速切换。
 
@@ -45,7 +45,7 @@ hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
 有些组由混合设备组成：调光器和开关。允许使用“ON”和“OFF”命令以及百分比来控制它们。
 如果命令是 `Set to 30%` 和 `OFF level is 30%`，那么开关将打开。通过命令“设置为 25%”，所有开关都将关闭。
 
-此外，如果命令为“OFF”，则如果实际值大于或等于“30%”，适配器将记住当前的调光器级别。
+另外，如果命令为“OFF”，那么如果实际值大于或等于“30%”，适配器将记住当前的调光器级别。
 稍后，当新的“ON”命令出现时，适配器会将调光器切换到 100%，而不是切换到内存中的级别。
 
 例子：
@@ -55,14 +55,14 @@ hash: uKjy333mZHUZT2eCVD+nJwBreBwxLQc3uyP6LTlFgiQ=
 - 命令：“将灯光设置为 40%”。适配器将记住 *dimmer* 的这个值，将其设置为“dimmer”，并将 *switch* 打开。
 - 命令：“关灯”。适配器会将 *dimmer* 设置为 0% 并将关闭 *switch*。
 - 命令：“打开灯”。 *调光器* => 40%，*开关* => 开启。
-- 命令：“将灯光设置为 20%”。 *调光器* => 20%，*开关* => 关闭。不会记住调光器的值，因为它低于 *OFF 级别*。
+- 命令：“将灯光设置为 20%”。 *调光器* => 20%，*开关* => 关闭。 dimmer 的值不会被记住，因为它低于 *OFF 级别*。
 - 命令：“打开灯”。 *调光器* => 40%，*开关* => 开启。
 
 ### 开启
 您可以选择 ON 命令的行为将用于数字状态。可以选择特定值或使用最后一个非零值。
 
 ### 写回复
-对于每个命令，都会生成文本响应。您可以在此处定义 Object ID ，该文本必须写入其中。例如。 *sayit.0.tts.text*。
+对于每个命令，都会生成文本响应。您可以在此处定义 Object ID ，此文本必须写入其中。例如。 *sayit.0.tts.text*。
 
 ＃＃＃ 颜色
 刚才只有英文的alexa支持颜色控制。
@@ -98,8 +98,8 @@ Alexa, lock the "lock name"
 
 必须满足以下条件才能获得自动生成的列表中的状态：
 
-- 状态必须在某个“函数”枚举中。
-- 如果不直接包含在“功能”中，则状态必须具有角色（“状态”、“开关”或“电平。*”，例如 level.dimmer）。
+- 状态必须在一些“函数”枚举中。
+- 如果不直接包含在“函数”中，则状态必须具有角色（“状态”、“开关”或“电平。*”，例如 level.dimmer）。
 
 可能是通道在“功能”中，但不声明自己。
 
@@ -111,7 +111,7 @@ Alexa, lock the "lock name"
 
 状态名称将从功能和房间生成。例如。 *客厅*中的所有*灯*将被收集在虚拟设备*客厅灯*中。
 用户无法更改此名称，因为它是自动生成的。
-但是如果枚举名称改变，这个名字也会改变。 （例如功能“灯”更改为“灯”，因此*客厅灯*将更改为*客厅灯*）
+但是如果枚举名称改变，这个名字也会改变。 （例如，函数“light”更改为“lights”，因此*客厅灯*将更改为*客厅灯*）
 
 如果状态有 common.smartName，则所有规则都将被忽略。在这种情况下，将只使用智能名称。
 
@@ -127,7 +127,7 @@ Alexa, lock the "lock name"
 
 ### 替换
 您可以指定可以在设备名称中自动替换的字符串。例如。如果将替换设置为：`.STATE,.LEVEL`，则所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
-如果你设置了`.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
+如果您设置了`.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
 
 ## 助手状态
 - **smart.lastObjectID**：如果只有一个设备由家庭技能（alexa，google home）控制，则将设置此状态。
@@ -151,7 +151,7 @@ Alexa, lock the "lock name"
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-要么
+或者
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
@@ -159,7 +159,7 @@ Alexa, lock the "lock name"
 
 您可以在白名单中写上“*”，所有服务都将被允许。
 
-在这里您可以找到如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
+在这里您可以找到如何将其与[任务者](doc/tasker.md)一起使用的说明。
 
 只有设置了 IFTTT 密钥，才允许使用 IFTTT 服务。
 
@@ -186,32 +186,37 @@ Alexa, lock the "lock name"
 ### `Javascript`
 有可能直接用脚本处理问题。如果没有选择 *text2command* 实例，则默认激活它。
 
-如果定义了`text2command`实例，则该实例必须提供答案，并且来自*script*的答案将被忽略。
+如果定义了`text2command`实例，则该实例必须提供答案，并且来自 *script* 的答案将被忽略。
 
 适配器将提供具有不同详细级别的两种状态的详细信息
 
-* **smart.lastCommand** 包含接收到的文本，包括有关查询类型（意图）的信息。示例：“askDevice Status Rasenmäher”
+* **smart.lastCommand** 包含接收到的文本，包括有关查询类型（意图）的信息。示例：“askDevice 状态 Rasenmäher”
 * **smart.lastCommandObj*** 包含一个 JSON 字符串，可以解析为包含以下信息的对象
   * **words** 包含接收到的单词在一个数组中
-  * **intent** 包含查询的类型。当前可能的值是“askDevice”、“controlDevice”、“actionStart”、“actionEnd”、“askWhen”、“askWhere”、“askWho”
+  * **intent** 包含查询的类型。当前可能的值是：
+    * v1 技能：“askDevice”、“controlDevice”、“actionStart”、“actionEnd”、“askWhen”、“askWhere”、“askWho”
+    * v2 技能：“queryIntent”当完整的所述文本被捕获时，“controlDevice”用于只有部分文本的后备
   * **deviceId** 包含一个 deviceId，标识请求发送到的设备，由亚马逊交付，如果未提供，则为空字符串
+  * **deviceRoom** 包含一个映射的房间标识符，您可以在 iot 管理 UI 中为收集的 deviceIds 配置
   * **sessionId** 包含技能会话的 sessionId，如果说出多个命令，则应相同，由亚马逊交付，如果未提供，则为空字符串
-  * **userId** 包含来自设备所有者（或稍后与技能交互的用户）的用户 ID，由亚马逊提供，如果未提供，则为空字符串
+  * **userId** 包含来自设备所有者（或者稍后可能是与技能交互的用户）的用户 ID，由亚马逊提供，如果未提供，则为空字符串
+  * **userName** 包含一个映射的用户名，您可以在 iot 管理 UI 中为收集的用户 ID 配置
 
- 有关如何检测单词以及 Alexa 自定义技能区分什么类型的查询的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
+ 有关如何检测单词以及 Alexa 自定义技能区分哪种类型的查询的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
 
 **通过 smart.lastResponse 状态返回结果**
 
 响应需要在 200ms 内以“smart.lastResponse”状态发送，可以是简单的文本字符串，也可以是 JSON 对象。
-如果它是一个文本字符串，那么这个文本将作为对技能的响应发送。
+如果它是文本字符串，则此文本将作为对技能的响应发送。
 如果文本是 JSON 对象，则可以使用以下键：
 
 * **responseText** 需要包含返回亚马逊的文本
 * **shouldEndSession** 是一个布尔值，控制会话是在说出响应后关闭还是保持打开状态以接受另一个语音输入。
+* **sessionId** 需要包含响应所针对的 sessionId。理想情况下提供它以允许并发会话。如果未提供预期响应的第一个会话。
 
 **通过消息将结果返回给物联网实例**
 
-iot 实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 **responseText** 和 **shouldEndSession**，如上所述。
+iot 实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 **responseText** 和 **shouldEndSession** 和 **sessionId**，如上所述。
 iot 实例将不会对消息做出响应！
 
 **使用文本的脚本示例**
@@ -233,14 +238,15 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     const request = JSON.parse(obj.state.val);
     const response = {
         'responseText': 'Received phrase is: ' + request.words.join(' ') + '. Bye',
-        'shouldEndSession': true
+        'shouldEndSession': true,
+        'sessionId': request.sessionId
     };
 
     // Return response via state
     setState('iot.0.smart.lastResponse', JSON.stringify(response)); // important, that ack=false (default)
 
     // or alternatively return as message
-    sendTo('iot.0', response);
+    sendTo('iot.0', 'alexaCustomResponse', response);
 });
 ```
 
@@ -261,7 +267,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 支持以下类型：
 
 - `alexa` - 使用 Amazon Alexa 或 Amazon Custom Skill
-- `ghome` - 通过 Google Home 使用 Google Actions
+- `ghome` - 通过 Google Home 与 Google Actions 一起行动
 - `alisa` - 与 Yandex Алиса 合作
 - `ifttt` - 表现得像 IFTTT（实际上不是必需的，但用于测试目的）
 
@@ -273,6 +279,37 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.12.2 (2022-10-01)
+* (Apollon77) Fix crash case
+
+### 1.12.1 (2022-09-27)
+* (bluefox) Corrected error in GUI with empty password
+
+### 1.12.0 (2022-09-27)
+* (Apollon77) Do not control saturation with a percentage request via alexa
+* (bluefox) Migrated GUI to v5
+
+### 1.11.9 (2022-07-22)
+* (Apollon77) Fix temperature controlling for thermostats via alexa
+
+### 1.11.8 (2022-06-24)
+* (Apollon77) Update dependencies to allow better automatic rebuild
+
+### 1.11.7 (2022-06-13)
+* (bluefox) Tried to correct URL key creation for Google home
+
+### 1.11.5 (2022-06-03)
+* (kirovilya) Alisa: update for binary-sensor "motion" and "contact"
+
+### 1.11.4 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.11.3 (2022-03-23)
+* (bluefox) Added the generation of URL key for services
+
+### 1.11.2 (2022-03-20)
+* (Apollon77) Fix crash case reported by Sentry (IOBROKER-IOT-3P)
+
 ### 1.11.1 (2022-03-18)
 * (Apollon77) Optimize logging when many devices are used
 

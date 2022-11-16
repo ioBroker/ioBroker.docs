@@ -425,18 +425,20 @@ Security must be taken from current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20201021.4
+Used version of home-assistant-frontend@20220707.0
 
 ### How to build the new Lovelace version
 First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20201021.4) following files were modified:
+For now (20221027.0) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task
 - `build-scripts/gulp/webpack.js` - Add new gulp task
 - `src/data/lovelace.ts` - add hide toolbar option
 - `src/data/weather.ts` - add support to display weather icon from url.
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and remove weather state & history
+- `src/dialogs/more-info/const.ts` - remove weather state & history
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and tab
+- `src/dialogs/more-info/ha-more-info-history.ts` - remove 'show more' link in history
 - `src/dialogs/more-info/controls/more-info-climate.ts` - print mode name for unsupported modes
 - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/entrypoints/core.ts` - modified authentication process
@@ -447,8 +449,7 @@ For now (20201021.4) following files were modified:
 - `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
 - `.gitignore` - add `.idea` ignore
 - `package.json` - remove husky commit hook
-
-
++
 After that checkout modified version in `./build` folder. Then.
 
 1. go to ./build directory.
@@ -458,7 +459,8 @@ After that checkout modified version in `./build` folder. Then.
 5. `yarn install`
 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
 7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
-8. Start `gulp rename` task.
+8. Run `gulp rename` task multiple times (until no changes happen).
+9. Update Version in Readme and also in server.js VERSION constant.
 
 ## Changelog
 
@@ -466,21 +468,43 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2022-11-03)
+* (Garfonso) do not crash if no history instance selected.
+* (Garfonso) notifications working again.
+* (Garfonso) repaired color temperature handling.
+
+### 3.0.0 (2022-10-28)
+* (agross) added: per instance language support
+* (Garfonso) entity_id for devices with only one non english name should be ok again.
+* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
+* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
+* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
+* (Garfonso) removed: lovelace_reload and window_reload states
+* (Garfonso) removed: name state, not supported by browser_mod anymore
+* (Garfonso) added: Support for toasts with action button (either json or ;-string)
+* (Garfonso) added: activity state will show if user is currently using a certain browser
+* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
+* (Garfonso) crash if notification was malformed json.
+* (Garfonso) some translation stuff
+* (Garfonso) crash case when states were updated before websocket was ready
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) tried to make html requests relative
+
+### 2.2.0 (2022-06-05)
+* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
+* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
+* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
+* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
+* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
+* (Garfonso) added: support auto entities card and subscription.
+* (Garfonso) added: improve support for input_datetime & string states.
+* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+
 ### 2.1.4 (2022-01-09)
 * (Garfonso) Dependency update
 
 ### 2.1.3 (2022-01-07)
 * (Garfonso) Fixed: remove backup of old frontend (sorry)
-
-### 2.1.2 (2022-01-06)
-* (Garfonso) Fixed: Menu was broken in frontend.
-
-### 2.1.1 (2022-01-06)
-* (Garfonso) Fixed: Entity update in some cases.
-
-### 2.1.0 (2022-01-06)
-* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
-* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
 
 ## License
 

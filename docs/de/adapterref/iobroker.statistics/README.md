@@ -1,131 +1,184 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.statistics/README.md
-title: ioBroker.statistics
-hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.statistics?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.statistics?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.statistics?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.statistics?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.statistics?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.statistics?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.statistics?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/iobroker-community-adapters/iobroker.statistics/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.statistics?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.statistics.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/statistics-stable.svg
+BADGE-Installed: http://iobroker.live/badges/statistics-installed.svg
 ---
-![Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
+![Logo](../../admin/statistics.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/statistics-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.statistics.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.statistics.svg)
+# ioBroker.statistics
 
-# IoBroker.statistics
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.statistics/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+Der Adapter speichert für jedes aktive Objekt die Werte temporär in ``statistics.x.temp`` für die fortlaufende Bewertung.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Zu vorgegebenen Zeiten (Tag, Woche, Monat, Quartal, Jahr) erfolgt die Übernahme der temporären Werte in die Struktur ``statistics.x.save``.
 
-## Beschreibung
-Dieser Adapter erleichtert die Konfiguration von Statistiken.
+Für bestimmte Werte sind auch 5min Zwischenwerte ermittelt, wie es z.B. bei den 433MHz Steckdosen von ELV der Fall ist, die einen Verbrauchswert alle 5min übermitteln.
 
-`The adapter only reacts on state changes (state.ack=true), not on commands!`
+## Impulse
 
-wählen Sie aus den folgenden Einstellungen:
+Stellt das binäre Objekt eine Impulsfolge dar, die z.B. aus Zählerimpulsen entsteht, so ist hier das Prinzip dargestellt:
 
-* Impulse oder Ein/Aus-Änderungen zählen (Nur für Binärwerte und positive Flanke)
-* Kosten aus den gezählten Werten berechnen (Nur bei Binärwerten)
-* wie lange war Status true/ON und wie lange false/OFF (Nur für Binärwerte)
-* Delta zwischen protokollierten Analogwerten (Nur für Analogwerte)
-* Tagesmax, min und Durchschnitt (nicht für Delta-Berechnungen)
-* min/max über das Jahr
-* zählt innerhalb von 5 min und täglich max, min und Durchschnitt davon (nicht für Delta-Berechnungen)
-* Summe der gruppierten Werte
+![impulse](img/count.png)
 
-Der Adapter abonniert die konfigurierten Objekte und erstellt eigene Zustände im Statistikbaum.
+Der Adapter zählt die Impulse und es wird mit einer Zählerkonstanten multipliziert.
+So ergibt sich aus den 0/1 Wechseln eine analoge Größe, die auch dann im Adapter sofort weiter benutzt werden kann (z.B. für Summendelta)
+Die sich ergebende Analoggröße ist eine stetig steigende.
 
-Es werden 2 separate Bäume erstellt:
+## Binärzustände
 
-* `statistics.0.save` -> Endwerte des Zeitrahmens
-* `statistics.0.temp` -> temporäre Werte bis zum Moment der Übertragung zu speichern, dann startet Temp wieder
+Stellt das binäre Objekt Schalzustände dar, so kann daraus die Zeit für den Zustand mit logisch 1 und die Zeit mit logisch 0 ermittelt werden.
+Diese Betriebszeitzählung sollte nicht auf Impulse aus Zählern angewendet werden.
 
-Die Struktur des Staates ist: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
+![binary](img/timeCount.png)
 
-Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
+## Analogwerte
 
-## Einstellungen
-* Geben Sie die relevanten Gruppen auf der Instanzkonfigurationsseite an (admin => Instanzen => Statistikkonfiguration)
-* die Konfiguration in den Einstellungen des Staates angeben (admin => Objekte)
+Grundsätzlich wir das Minimum Maximum und der Durchschnitt ermittelt.
+Der Durchschnitt ist der arithmetische Mittelwert.
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Für einen fortlaufenden Verbrauchswert wie er bei der Energiezählung entsteht kann man eine Delta ermitteln um die Verbräuche je Zeiteinheit darzustellen. 
+Dies kann auch auf Verbräuche angewendet werden, die aus Impulszählung entstehen.
 
-### __ARBEITEN IN PROGRESS__ -->
+![impulse](img/sumDelta.png)
+
+## Optionen
+
+| Attribute         | Type    | State-Type |
+|-------------------|---------|------------|
+| enabled           | boolean | -          |
+| count             | boolean | boolean    |
+| fiveMin           | boolean | boolean    |
+| sumCount          | boolean | boolean    |
+| impUnitPerImpulse | number  | boolean    |
+| impUnit           | string  | boolean    |
+| timeCount         | boolean | boolean    |
+| avg               | boolean | number     |
+| minmax            | boolean | number     |
+| sumDelta          | boolean | number     |
+| sumIgnoreMinus    | boolean | number     |
+| groupFactor       | number  | boolean    |
+| logName           | string  | -          |
+| sumGroup          | string  | -          |
+
+```json
+"custom": {
+    "statistics.0": {
+        "enabled": true,
+        "count": false,
+        "fiveMin": false,
+        "sumCount": false,
+        "impUnitPerImpulse": 1,
+        "impUnit": "",
+        "timeCount": false,
+        "avg": true,
+        "minmax": true,
+        "sumDelta": true,
+        "sumIgnoreMinus": true,
+        "groupFactor": 2,
+        "logName": "mynumber",
+        "sumGroup": "energy"
+    }
+}
+```
+
+## sendTo
+
+```javascript
+sendTo('statistics.0', 'enableStatistics', {
+    id: '0_userdata.0.manual'
+}, (data) => {
+    if (data.success) {
+        console.log(`Added statistics`);
+    } else {
+        console.error(data.err);
+    }
+});
+```
+
+```javascript
+sendTo('statistics.0', 'enableStatistics', {
+    id: '0_userdata.0.mynumber',
+    options: {
+        avg: true,
+        minmax: true,
+        sumDelta: true,
+        sumIgnoreMinus: true
+    }
+}, (data) => {
+    if (data.success) {
+        console.log(`Added statistics`);
+    } else {
+        console.error(data.err);
+    }
+});
+```
 
 ## Changelog
-### 1.0.10 (2021-11-14)
-* (Apollon77) prevent some crash cases
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 2.3.0 (2022-11-03)
+NodeJS 14.5.0 is required
 
-### 1.0.9 (2021-07-29)
-* (bluefox) Removed the warnings for js-controller 3.x
+* (klein0r) Added hourly, weekly, monthly, ... averages
+* (klein0r) Added promises to avoid parallel execution of tasks (lead to incorrect calculations)
+* (klein0r) Fixed init values for save/temp
+* (klein0r) Added option to enable statistics for objects via sendTo
+* (klein0r) Allow sum delta to substract values (negative delta)
+* (klein0r) Delete states when option in unchecked
+* (klein0r) Removed dayMin and dayMax from avg (use minmax for that case!)
+* (klein0r) Fix: Calculation of avg when no change of value
 
-### 1.0.6 (2021-05-27)
-* (Apollon77) prepare for js-controller 3.3
-* (Apollon77) make sure all tasks are processed to prevent missing objects
-* (bluefox) added the support of Admin5
+### 2.2.0 (2022-07-07)
+* (klein0r) Added absolute min and max values
 
-### 1.0.4
-* (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries
+### 2.1.1 (2022-06-16)
+* (klein0r) Fixed usage of default values for groups
 
-### 1.0.3 (2021-02-08)
-* (Apollon77) fix from sentry crash reports
+### 2.1.0 (2022-06-16)
+* (klein0r) Added support for translated object names
+* (klein0r) Fixed sum calculation
+* (klein0r) Increased precision to 5 digits
+* (klein0r) Translated all objects
 
-### 1.0.2 (2021-01-06)
-* (foxthefox) try catch around the cronjobs
-
-### 1.0.1 (2020-12-22)
-* (Black-Thunder) Precision in rounding set to 4
-
-### 1.0.0 (2020-05-01)
-* (bluefox) Caught error if structure is invalid
-* (bluefox) Added sentry
-* adapter.getObjectView -> controller > 2.0
-
-### 0.2.3 (2020-01-02)
-* (HIRSCH-DE) bugfix main.js
-* (foxthefox) delete messagehandler
-
-### 0.2.2 (2019-06-29)
-* (foxthefox) adapter logs a warning when invalid values arrive and cancels further processing
-
-### 0.2.1 (2019-06-15)
-* (foxthefox) correction, timecount value was milliseconds instead seconds
-* (foxthefox) other calculations with 2 decimal places after comma
-* (foxthefox) min/max for day/week/month/quarter/year
-* (foxthefox) set of daily min/max starting point from actual value
-* (foxthefox) fixing the PR with dayMin 0 at 00:00
-* (foxthefox) improvement for timecount when receiving status updates and no real status change
-
-### 0.2.0 (2019-01-08)
-* (foxthefox) compact mode
-
-### 0.1.4 (2019-01-07)
-* (foxthefox) license added in io-package.json
-* (foxthefox) ReadMe updated
-* (foxthefox) type = misc-data
-
-### 0.1.3 (2019-01-06)
-* first npm release
-* (foxthefox) german doc added
-* (foxthefox) error corrections
-* (foxthefox) travis testing corrections
-
-### 0.1.2 (2018-09-08)
-* (bluefox) total refactoring
-
-### 0.0.3
-* admin3 implemented
-* complete rewrite to have configuration through the settings of the individual states instead in admin page
-
-### 0.0.2
-* setup running
-
-### 0.0.1
-* initial release
+### 2.0.0 (2022-06-13)
+* (klein0r) Added Admin 5 configuration
+* (klein0r) Updated translations
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2022 foxthefox <foxthefox@wysiwis.net>,
+                        bluefox <dogafox@gmail.com> and
+                        Matthias Kleine <info@haus-automatisierung.com>
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

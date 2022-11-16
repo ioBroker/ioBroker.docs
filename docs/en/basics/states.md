@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/states.md
 title: States and data points
-hash: iNaFi9jvbeu0ho6uqGdece5axWYgny67ZtHqpuXSK9I=
+hash: RO2NtalYof6XLfR3ppLXmbjFUco4lJyQ6eeh7Mkt7YQ=
 ---
 # States and data points
 A **data point** consists of a static object of type "state" and a dynamic state (state).
@@ -37,5 +37,3 @@ Attributes of the static object are id, type = 'state', common, native. The foll
 * `common.states` (optional) attribute with possible states object` {'value': 'valuename', 'value2': 'valuename2', 0: 'OFF', 1: 'ON'} `
 * `common.workingID` (string, optional) - if this state has auxiliary state WORKING. Here the full name must be written or only the last part if the first parts are identical to the real ones. Used for `HM.LEVEL` and usually has the value `WORKING`.
 * `common.custom` (optional) - the structure with custom settings for specific adapters. Like `{"influxdb.0": {"enabled": true, "alias": "name"}}`. The `enabled` attribute is required. If this is not the case, the entire attribute is deleted.
-
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md) so that the changes can be adopted more easily.

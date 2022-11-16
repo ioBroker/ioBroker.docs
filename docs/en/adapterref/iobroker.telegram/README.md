@@ -1,18 +1,15 @@
-![Logo](admin/telegram.png)
-# ioBroker telegram Adapter
+---
+BADGE-Number of Installations: http://iobroker.live/badges/telegram-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
+---
+![Logo](../../admin/telegram.png)
 
-![Number of Installations](http://iobroker.live/badges/telegram-installed.svg)
-![Number of Installations](http://iobroker.live/badges/telegram-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
-
-![Test and Release](https://github.com/iobroker-community-adapters/iobroker.telegram/workflows/Test%20and%20Release/badge.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)](https://www.npmjs.com/package/iobroker.telegram)
-
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+# ioBroker.telegram
 
 ## Configuration
-Ask [@BotFather](https://telegram.me/botfather) to create new bot ```/newbot```.
+
+Ask [@BotFather](https://telegram.me/botfather) to create new bot `/newbot`.
 
 You will be asked to enter name of the bot and then the username.
 After that, you will get the Token.
@@ -33,7 +30,7 @@ User must be authenticated before.
 
 You can specify user in that way too:
 
-```
+```javascript
 sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
     console.log('Sent to ' + res + ' users');
 });
@@ -47,20 +44,20 @@ For example: Recipient: "User1,User4,User5"
 
 You can send message over state too, just set state *"telegram.INSTANCE.communicate.response"* with value *"@userName Test message"* or with a JSON object:
 
-```
+```json
 {
-    text: "Test message"
+    "text": "Test message"
 }
 ```
 
 The JSON syntax also allows the adding options from the [telegram bots API](https://core.telegram.org/bots/api), as well as setting the user or chatId:
 
-```
+```json
 {
-    text: "Test message, but with *bold*",
-    parse_mode: "Markdown",
-    chatId: "1234567890",
-    user: "UserName"
+    "text": "Test message, but with *bold*",
+    "parse_mode": "Markdown",
+    "chatId": "1234567890",
+    "user": "UserName"
 }
 ```
 
@@ -79,7 +76,7 @@ To send a photo, just send a path to file instead of text or URL: `sendTo('teleg
 
 Example how to send a screenshot from web-cam to telegram:
 
-```
+```javascript
 var request = require('request');
 var fs      = require('fs');
 
@@ -123,7 +120,7 @@ In this case the action command will be sent.
 
 The description for telegram API can be found [here](https://core.telegram.org/bots/api) and you can use all options defined in this api, just by including that into send object. E.g.:
 
-```
+```javascript
 sendTo('telegram.0', {
     text:                   '/tmp/snap.jpg',
     caption:                'Snapshot',
@@ -146,7 +143,7 @@ Adapter tries to detect the type of message (photo, video, audio, document, stic
 
 Location will be detected on attribute latitude:
 
-```
+```javascript
 sendTo('telegram.0', {
     latitude:               52.522430,
     longitude:              13.372234,
@@ -159,7 +156,7 @@ You have the possibility to define extra the type of the message in case you wan
 
 Following types are possible: *sticker*, *video*, *document*, *audio*, *photo*.
 
-```
+```javascript
 sendTo('telegram.0', {
     text: fs.readFileSync('/opt/path/picture.png'),
     type: 'photo'
@@ -169,7 +166,7 @@ sendTo('telegram.0', {
 ### Keyboard
 You can show keyboard **ReplyKeyboardMarkup** in the client:
 
-```
+```javascript
 sendTo('telegram.0', {
     text:   'Press button',
     reply_markup: {
@@ -187,7 +184,7 @@ You can read more [here](https://core.telegram.org/bots/api#replykeyboardmarkup)
 
 You can show keyboard **InlineKeyboardMarkup** in the client:
 
-```
+```javascript
 sendTo('telegram', {
     user: user,
     text: 'Click the button',
@@ -207,8 +204,8 @@ You can read more [here](https://core.telegram.org/bots/api#inlinekeyboardmarkup
 ### answerCallbackQuery
 Use this method to send answers to callback queries sent from inline keyboards. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.
 
-```
-if (command ==="1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         answerCallbackQuery: {
@@ -225,7 +222,7 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 You can send to telegram the message and the next answer will be returned in callback. 
 Timeout can be set in configuration and by default is 60 seconds.
 
-```
+```javascript
 sendTo('telegram.0', 'ask', {
     user: user, // optional
     text: 'Are you sure?',
@@ -244,7 +241,9 @@ sendTo('telegram.0', 'ask', {
 ## Chat ID
 From version 0.4.0 you can use chat ID to send messages to chat.
 
-`sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
+```javascript
+sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');
+```
 
 ## Updating messages
 The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action. This is most useful for messages with *inline keyboards* using callback queries, but can also help reduce clutter in conversations with regular chat bots.
@@ -252,8 +251,8 @@ The following methods allow you to change an existing message in the message his
 ### editMessageText
 Use this method to edit text sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text before buttons',
@@ -275,8 +274,8 @@ if (command === "1_2") {
 
 *or new text for last message:*
 
-```
-if (command ==="1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text message',
@@ -296,8 +295,8 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 Use this method to edit caption of the message sent by the bot or via the bot (for inline bots). 
 On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user, // optional
         text: 'New caption',
@@ -317,8 +316,8 @@ You can read more [here](https://github.com/yagop/node-telegram-bot-api/blob/rel
 Use this method to edit picture of the message sent by the bot or via the bot (for inline bots). 
 On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user, // optional
         text: 'picture.jpg',
@@ -339,8 +338,8 @@ You can read more [here](https://core.telegram.org/bots/api#editmessagemedia).
 ### editMessageReplyMarkup
 Use this method to edit only the reply markup of messages sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text before buttons',
@@ -367,8 +366,8 @@ Use this method to delete a message, including service messages, with the follow
 - A message can only be deleted if it was sent less than 48 hours ago.
 Returns *True* on success.
 
-```
-if (command === "delete") {
+```javascript
+if (command === 'delete') {
     sendTo('telegram', {
         user: user,
         deleteMessage: {
@@ -391,7 +390,7 @@ Suppose you are using only JavaScript without *text2command*. You already sent a
  - user is the user registered with you TelegramBot which sent the message
  - command is the command your TelegramBot received
 
-```
+```javascript
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
     var stateval = getState('telegram.0.communicate.request').val;              // save Statevalue received from your Bot
     var user = stateval.substring(1,stateval.indexOf("]"));                 // extract user from the message
@@ -462,13 +461,13 @@ Thanks to [callmebot](https://www.callmebot.com/) api, you can make a call to yo
 
 To do that from javascript adapter just call:
 
-```
+```javascript
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
 or 
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
@@ -479,7 +478,7 @@ sendTo('telegram.0', 'call', {
 
 or 
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     users: ['@Username1', '+49xxxx'] // Array of `users' or telephone numbers.
@@ -488,7 +487,7 @@ sendTo('telegram.0', 'call', {
 
 or 
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     file: 'url of mp3 file that is accessible from internet',
     users: ['@Username1', '@Username2'] // Array of `users' or telephone numbers.
@@ -688,7 +687,8 @@ For simple text messages to all users, just put the text within the payload of t
 send it to the ioBroker state `telegram.INSTANCE.communicate.response`.
 
 If you want to set additional options, fill the payload with a JSON object, such as:
-```
+
+```javascript
 msg.payload = {
     // text is the only mandatory field here
     "text": "*bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*",
@@ -698,284 +698,32 @@ msg.payload = {
     "parse_mode": "MarkdownV2"
 }
 ```
+
 Before sending it to `telegram.INSTANCE.communicate.responseJson you need to stringify the object!`
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
-
-## Changelog
-### 1.12.6 (2022-04-23)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.12.5 (2022-04-19)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.12.4 (2022-04-19)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.12.3 (2022-04-19)
-* (Apollon77) Make sure also not set states can be queried - will return "State not set" in this case!
-
-### 1.12.2 (2022-04-01)
-* (Apollon77) Fix crash cases reported by Sentry
-
-### 1.12.0 (2022-03-21)
-* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
-* (Apollon77) Try to prevent adapter crashes when internet is not available 
-* (Apollon77) Add Sentry for crash reporting
-
-### 1.11.1 (2022-01-27)
-* (bluefox) fixed the receiving files
-
-### 1.11.0 (2022-01-26)
-* (bluefox) Added bruteforce protection
-* (bluefox) Extended blockly with `disable_web_preview` option
-* (bluefox) added `communicate.responseSilent` state to answer silently
-
-### 1.10.1 (2022-01-26)
-* (bluefox) Updated telegram library
-
-### 1.10.0 (2021-07-30)
-* (PeterVoronov) Add botSendRaw state to allow processing of the RAW data send by bot
-* (Apollon77) Add tier for js-controller 3.3
-* (bluefox) Fixed the control of the states
-
-### 1.9.0 (2021-06-26)
-* (bluefox) Added the option to not authenticate the new users
-* (bluefox) Added the option to disable system messages for specific users
-
-### 1.8.3 (2021-06-26)
-* (Nahasapeemapetilon) corrected bug with many simultaneous requests 
-* (bluefox) formatting
-* (bluefox) implemented editMessageMedia and editMessageCaption
-* (bluefox) Encrypt token 
-* (bluefox) Corrected error with password
-* (bluefox) Corrected error with boolean easy controls
-
-### 1.8.2 (2021-05-28)
-* (Diginix) fixed data types
-
-### 1.8.1 (2021-04-20)
-* (bluefox) added the admin5 support
-
-### 1.8.0 (2021-02-22)
-* (Apollon77/Nahasapeemapetilon) catch several API error cases to hopefully get around  adapter crashes on network errors
-* (Nahasapeemapetilon) add support for media groups and multiple image qualities
-
-### 1.7.0 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 1.6.2 (2020-12-27)
-* (fincha) Fixing error with keyboard
-
-### 1.6.1 (2020-12-01)
-* (ChristianB86) Added option to set the amount of repeats for telegram call.
-
-### 1.6.0 (2020-11-09)
-* (MarkRohrbacher) Allow overriding chatId / user when writing JSON objects to telegram.INSTANCE.communicate.response
-* (blazeis) Fix Send message via Response field with Username
-* (Garfonso) fill requestRaw also for callbackQuery
-
-### 1.5.9 (2020-05-04)
-* (Apollon77) potential error fixed when sending messages
-* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
-
-### 1.5.8 (2020-04-30)
-* (Apollon77) errors on webserver initialization are handled properly
-
-### 1.5.6 (2020-04-04)
-* (bluefox) Fixed missing languages for blockly
-* (bluefox) Added description of easy-keyboard
-
-### 1.5.5 (2020-04-04)
-* (alutov) Fixed bug for telegram users with an empty username
-* (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response
-
-### 1.5.4 (2020-03-11)
-* (bluefox) Improvement of `callmebot`
-
-### 1.5.3 (2020-02-23)
-* (foxriver76) removed usage of adapter.objects
-* (Haba) Fix of the response for the "callback_query" event
-
-### 1.5.1 (2020-02-09)
-* (bluefox) Invalid parameters were checked
-
-### 1.5.0 (2020-02-03)
-* (bluefox) Added voice calls
-
-### 1.4.7 (2019-12-27)
-* (Apollon77) Make compatible with js-controller 2.3
-
-### 1.4.6 (2019-12-09)
-* (bluefox) Allowed writeOnly states in telegram
-
-### 1.4.4 (2019-11-27)
-* (bluefox) New sendTo message "ask" was added (see [Question](#question) )
-
-### 1.4.3 (2019-02-21)
-* (BuZZy1337) Bugfix for not yet completely implemented feature
-
-### 1.4.2 (2019-02-18)
-* (BuZZy1337) fix for recipients containing spaces
-* (BuZZy1337) change loglevel of "getMe" info-messages to debug
-* (bluefox) fix scroll in firefox
-
-### 1.4.1 (2019-01-12)
-* (simatec) Support for Compact mode
-
-### 1.4.0 (2019-01-06)
-* (bluefox) Custom settings for states were added
-
-### 1.3.6 (2018-12-01)
-* (Apollon77) fix #78
-
-### 1.3.5 (2018-11-04)
-* (BuZZy1337) Fix a small error caused by previous commit
-
-### 1.3.4 (2018-11-04)
-* (BuZZy1337) Ask if saved users should be wiped when password is changed.
-
-### 1.3.3 (2018-11-03)
-* (BuZZy1337) Show warning if no password is set.
-
-### 1.3.2 (2018-10-28)
-* (BuZZy1337) Just minor cosmetic fixes/changes
-
-### 1.3.1 (2018-10-08)
-* (bluefox) The ability of enable/disable of states controlling was added
-
-### 1.3.0 (2018-09-19)
-* (BuZZy1337) Added possibility to delete authenticated users in the Adapter-Config screen (via Messages tab)
-* (BuZZy1337) fixed a problem "building" the Blockly `sendto` block when no adapter instance exists.
-
-### 1.2.7 (2018-08-29)
-* (BuZZy1337) Added "disable notification" checkbox to blockly block.
-* (BuZZy1337) Added "parse_mode" selector to blockly block.
-
-### 1.2.6 (2018-07-30)
-* (BuZZy1337) Added support for sending Messages to Group-Chats via Blockly.
-
-### 1.2.5 (2018-07-11)
-* (BuZZy1337) Added possibility to specify more than one recipient. (separated by comma)
-
-### 1.2.4 (2018-06-02)
-* (BuZZy1337) remove HTML Tags from Logerror-Messages
-* (Apollon77) fix misleading error when setting a value for a state
-
-### 1.2.3 (2018-04-26)
-* (Osrx) Added Socks5 settings to config dialog on machines running admin 2.
-
-### 1.2.2 (2018-04-25)
-* (kirovilya) Changed library for Proxy Socks5
-
-### 1.2.1 (2018-04-17)
-* (Haba) Added support for Proxy Socks5.
-
-### 1.2.0 (2018-03-21)
-* (AlGu) Possibility to define polling interval in configuration wizard. Default is 300ms.
-
-### 1.1.4 (2018-03-20)
-* (BasGo) Added checks before accessing non-existing options
-
-### 1.1.3 (2018-03-19)
-* (BasGo) Fixed issue preventing adapter to terminate correctly
-* (BasGo) Fixed issue with wrong callback query id
-
-### 1.1.2 (2018-03-16)
-* (BasGo) Reworked configuration and translation
-
-### 1.1.1 (2018-01-26)
-* (Haba) New objects: botSendChatId, botSendMessageId
-
-### 1.1.0 (2018-01-24)
-* (bluefox) Possibility to send photo, video, document, audio as buffer.
-
-### 1.0.11 (2018-01-23)
-* (Haba) Sending an image without intermediate caching
-
-### 1.0.10 (2018-01-18)
-* (Haba) Updating for Admin3
-
-### 1.0.9 (2017-11-27)
-* (kirovilya) Allow the sending of GIF via sendDocument
-
-### 1.0.8 (2017-10-03)
-* (Haba1234) initPolling() this is deprecated. -> startPolling()
-* (Haba1234) Add log polling_error and webhook_error.
-
-### 1.0.7 (2017-09-27)
-* (Haba) New function: deleteMessage. Update version lib node-telegram-bot-api
-
-### 1.0.6 (2017-07-19)
-* (Haba) Fix an incorrect order of writing variables
-
-### 1.0.5 (2017-07-18)
-* (Haba) inline keyboard and new functions: answerCallbackQuery, editMessageText, editMessageReplyMarkup
-
-### 1.0.4 (2017-06-22)
-* (dwm) Fix longitude and latitude
-
-### 1.0.3 (2017-05-24)
-* (bluefox) Fix position message
-
-### 1.0.2 (2017-01-13)
-* (bluefox) show only installed instances in blockly
-
-### 1.0.1 (2016-11-04)
-* (bluefox) Show user name in error message
-
-### 1.0.0 (2016-10-31)
-* (bluefox) server mode with web hooks
-
-### 0.4.4 (2016-10-12)
-* (bluefox) support of blockly
-
-### 0.4.3 (2016-08-28)
-* (bluefox) filter out double messages
-
-### 0.4.2 (2016-08-22)
-* (bluefox) translations
-* (bluefox) configurable restarting/started texts
-
-### 0.4.1 (2016-07-29)
-* (bluefox) response to chatId and not to userId
-* (bluefox) cut messages with @
-* (bluefox) add new states: requestChatId and requestUserId
-
-### 0.4.0 (2016-07-21)
-* (bluefox) allow sending of messages to chats via chat-ID
-* (bluefox) support of video(mp4), audio, document, location, sticker, action
-
-### 0.3.0 (2016-05-31)
-* (bluefox) restart connection every hour
-
-### 0.2.4 (2016-05-08)
-* (bluefox) replace "_" with " " when sending to text2command
-
-### 0.2.3 (2016-05-04)
-* (bluefox) replace "/" with "#" when sending to text2command
-
-### 0.2.2 (2016-04-14)
-* (Jonas) fix unload
-
-### 0.2.1 (2016-04-13)
-* (Jonas) fix configuration and send to more than one user
-
-### 0.2.0 (2016-04-12)
-* (bluefox) add send photo possibility
-
-### 0.1.0 (2016-02-20)
-* (bluefox) fix double responses.
-* (bluefox) inform about new start
-
-### 0.0.2 (2016-02-15)
-* (bluefox) fix error with sendTo
-
-### 0.0.1 (2016-02-13)
-* (bluefox) initial commit
+### 1.15.2 (2022-11-04)
+* (Steff42) Make sure the userid is a string to show warnings in the log
+* (bluefox) Added ukrainian language
+
+### 1.15.0 (2022-09-28)
+* (klein0r) Fixed custom component (username was missing)
+* (klein0r) Translated all objects
+* (bluefox) Updated GUI packages and corrected build process
+
+### 1.14.1 (2022-07-04)
+* (bluefox) Fixed warnings for `botSendChatId`
+
+### 1.14.0 (2022-07-02)
+* (bluefox) Ported config Gui to Admin 6
+
+### 1.13.0 (2022-06-01)
+* (klein0r) Added Admin 5 UI config
+* (bluefox) Added rule block for javascript as plugin
 
 ## License
 

@@ -1,23 +1,34 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-import Paper from '@material-ui/core/Paper';
-import IconButton from '@material-ui/core/IconButton';
-import Table from '@material-ui/core/Table';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import TableCell from '@material-ui/core/TableCell';
-import TableBody from '@material-ui/core/TableBody';
-import ReactEcharts from 'echarts-for-react';
+import Paper from '@mui/material/Paper';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
 
-import {MdFullscreen as IconZoom} from 'react-icons/md';
+import ReactEchartsCore from 'echarts-for-react/lib/core';
+import * as echarts from 'echarts/core';
+import { LineChart } from 'echarts/charts';
+import { SVGRenderer } from 'echarts/renderers';
+import {
+    TooltipComponent,
+    LegendComponent,
+    GridComponent,
+} from 'echarts/components';
+
+import { MdFullscreen as IconZoom } from 'react-icons/md';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
 import PieStats from '../Components/PieStats';
 import Footer from '../Footer';
+
+echarts.use([LineChart, TooltipComponent, LegendComponent, GridComponent, SVGRenderer]);
 
 const styles = theme => ({
     content: theme.content,
@@ -49,7 +60,7 @@ const styles = theme => ({
         fontSize: 24,
         paddingBottom: 10,
         width: '100%',
-        textAlign: 'center'
+        textAlign: 'center',
     },
     paperMap: {
         width: 'calc(100% - 40px)',
@@ -93,14 +104,14 @@ const styles = theme => ({
         width: 'auto',
         maxWidth: 32,
     },
-    tableRow:{
+    tableRow: {
         cursor: 'pointer',
         height: 24,
         '&:hover': {
-            background: '#DDDDDD'
-        }
+            background: '#DDDDDD',
+        },
     },
-    tableCell:{
+    tableCell: {
         padding: '0 5px',
         minWidth: 0,
     },
@@ -122,19 +133,23 @@ class Statistics extends Component {
         this.state = {
             statistics: null,
             date: '',
-            total: 40000,
-            mobile: this.props.mobile || this.props.contentWidth < MAX_MOBILE_WIDTH
+            mobile: this.props.mobile || this.props.contentWidth < MAX_MOBILE_WIDTH,
         };
 
         setTimeout(() => Utils.getStatistics()
             .then(statistics =>
-                this.setState({statistics, date: new Date(statistics.date).toLocaleDateString() + ' ' + new Date(statistics.date).toLocaleTimeString()})), 200);
+                this.setState({
+                    statistics,
+                    date: `${new Date(statistics.date).toLocaleDateString()} ${new Date(statistics.date).toLocaleTimeString()}`,
+                })), 200);
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.state.mobile !== (nextProps.mobile || nextProps.contentWidth < MAX_MOBILE_WIDTH)) {
-            this.setState({mobile: (nextProps.mobile || nextProps.contentWidth < MAX_MOBILE_WIDTH)});
+    static getDerivedStateFromProps(props, state) {
+        if (state.mobile !== (props.mobile || props.contentWidth < MAX_MOBILE_WIDTH)) {
+            return { mobile: (props.mobile || props.contentWidth < MAX_MOBILE_WIDTH) };
         }
+
+        return null;
     }
 
     renderMap() {
@@ -142,10 +157,11 @@ class Statistics extends Component {
             <IconButton
                 className={this.props.classes.iframeButton}
                 title={I18n.t('Open in new window')}
-                onClick={() => Utils.openLink('data/map.html')}>
-                <IconZoom/>
+                onClick={() => Utils.openLink('data/map.html')}
+            >
+                <IconZoom />
             </IconButton>
-            <iframe title="googleMaps" className={this.props.classes.iframe} src={'data/map.html'}/>
+            <iframe title="googleMaps" className={this.props.classes.iframe} src="data/map.html" />
         </Paper>;
     }
 
@@ -156,20 +172,23 @@ class Statistics extends Component {
         const keys = Object.keys(countries);
         keys.forEach(c => sum += countries[c]);
 
-        return <Table key="table" padding="dense" className={this.props.classes.table}>
+        return <Table key="table" padding="none" className={this.props.classes.table}>
             <TableHead>
-                <TableRow>
-                    <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)} align="right">{I18n.t('Country')}</TableCell>
+                <TableRow style={{ background: 'grey', color: 'white' }}>
+                    <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)} align="left">{I18n.t('Country')}</TableCell>
                     <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)} align="left">{I18n.t('Count')}</TableCell>
                     <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)} align="left">%</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {keys.map(c =>
-                    <TableRow className={this.props.classes.tableRow}>
+                {keys.map((c, i) =>
+                    <TableRow key={i} className={this.props.classes.tableRow}>
                         <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnVersion)}>{c}</TableCell>
                         <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnCount)}>{countries[c]}</TableCell>
-                        <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)}>{Math.round((countries[c] / sum) * 10000) / 100}%</TableCell>
+                        <TableCell className={clsx(this.props.classes.tableCell, this.props.classes.tableColumnPercent)}>
+                            {Math.round((countries[c] / sum) * 10000) / 100}
+                            %
+                        </TableCell>
                     </TableRow>)}
             </TableBody>
         </Table>;
@@ -194,7 +213,7 @@ class Statistics extends Component {
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Platforms')}</div>
             <PieStats
                 data={this.state.statistics.platforms}
-                height={'380px'}
+                height="380px"
                 startFromPercent={0}
                 series={I18n.t('Platform')}
             />
@@ -211,7 +230,7 @@ class Statistics extends Component {
             <PieStats
                 data={this.state.statistics.languages}
                 startFromPercent={0}
-                height={'380px'}
+                height="380px"
                 series={I18n.t('Language')}
             />
         </Paper>;
@@ -226,7 +245,7 @@ class Statistics extends Component {
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Node versions')}</div>
             <PieStats
                 data={this.state.statistics.nodes}
-                height={'380px'}
+                height="380px"
                 startFromPercent={0}
                 series={I18n.t('Versions')}
             />
@@ -251,66 +270,69 @@ class Statistics extends Component {
                 name: date,
                 value: [
                     [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'),
-                    counts[date]
-                ]
+                    counts[date],
+                ],
             });
             if (max < counts[date]) {
                 max = counts[date];
             }
         });
+
         const option = {
             tooltip: {
                 trigger: 'axis',
-                formatter: (params) => {
+                formatter: params => {
                     params = params[0];
                     const date = new Date(params.name);
-                    return date.toLocaleDateString() + ': ' + params.value[1];
+                    return `${date.toLocaleDateString()}: ${params.value[1]}`;
                 },
                 axisPointer: {
-                    animation: false
-                }
+                    animation: false,
+                },
             },
             xAxis: {
                 type: 'time',
                 splitLine: {
-                    show: false
+                    show: false,
                 },
-                interval: this.props.mobile ? undefined: 36000000 * 24 * 10,
+                interval: this.props.mobile ? undefined : 36000000 * 24 * 10,
             },
             yAxis: {
                 type: 'value',
                 boundaryGap: [0, '100%'],
-                max: Math.floor(max * 1.1 / 1000) * 1000,
+                max: Math.floor((max * 1.1) / 1000) * 1000,
                 splitLine: {
-                    show: false
+                    show: false,
                 },
                 axisLabel: {
-                    formatter: (v, i) => Math.ceil(v / 1000) + 'k'
-                }
+                    formatter: v => `${Math.ceil(v / 1000)}k`,
+                },
             },
             series: [{
                 name: I18n.t('Month count'),
                 type: 'line',
                 showSymbol: false,
                 hoverAnimation: false,
-                data: data,
-                areaStyle: {}
-            }]
+                data,
+                areaStyle: {},
+            }],
         };
 
         return <Paper key="counters" className={clsx(this.props.classes.paper, this.props.classes.paperCounters, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div
                 title={this.state.date}
-                className={this.props.classes.paperHeader}>
+                className={this.props.classes.paperHeader}
+            >
                 {`${I18n.t('Installations')} ${counts[labels[labels.length - 1]]} - ${labels[labels.length - 1]}`}
             </div>
-            <ReactEcharts
+            <ReactEchartsCore
+                echarts={echarts}
                 option={option}
-                style={{height: '350px'}}
-                notMerge={true}
-                lazyUpdate={true}
- //               opts={{renderer: 'svg'}}
-                theme={"westeros"}
+                notMerge
+                lazyUpdate
+                theme="westeros"
+                style={{ height: '350px' }}
+                opts={{ renderer: 'svg' }}
             />
         </Paper>;
     }
@@ -320,11 +342,11 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="types" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('State DB Types')}</div>
             <PieStats
                 data={this.state.statistics.dbTypeStates}
-                height={'380px'}
+                height="380px"
                 startFromPercent={0}
                 series={I18n.t('State DB Types')}
             />
@@ -336,11 +358,11 @@ class Statistics extends Component {
             return null;
         }
 
-        return <Paper key="plattform" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
+        return <Paper key="dbs" className={clsx(this.props.classes.paper, this.props.classes.paperPlatforms, this.state.mobile ? this.props.classes.paperMobile : '')}>
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Object DB Types')}</div>
             <PieStats
                 data={this.state.statistics.dbTypeObjects}
-                height={'380px'}
+                height="380px"
                 startFromPercent={0}
                 series={I18n.t('Object DB Types')}
             />
@@ -356,7 +378,7 @@ class Statistics extends Component {
             <div className={this.props.classes.paperHeader} title={this.state.date}>{I18n.t('Docker vs Normal')}</div>
             <PieStats
                 data={this.state.statistics.docker}
-                height={'380px'}
+                height="380px"
                 startFromPercent={0}
                 series={I18n.t('Docker vs Normal')}
             />
@@ -375,15 +397,13 @@ class Statistics extends Component {
                 {this.renderDbStatesTypes()}
                 {this.renderDbObjectsTypes()}
                 {this.renderDocker()}
-                <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/>
-            </div>
-
+                <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />
+            </div>,
         ];
     }
 }
 
 Statistics.propTypes = {
-    language: PropTypes.string,
     onNavigate: PropTypes.func,
     theme: PropTypes.string,
     mobile: PropTypes.bool,

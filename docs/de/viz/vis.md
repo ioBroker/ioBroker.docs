@@ -1,37 +1,47 @@
 ---
-title:       "Visualisierung"
-lastChanged: "11.08.2019"
+title:       "VIS"
+lastChanged: "04.11.2022"
 ---
 
-# Visualisierungen mit VIS
+?> ***Diese Seite wird gerade überarbeitet.***.
+   <br><br>
+   Hilf mit bei ioBroker und erweitere diesen Artikel.  
+   Bitte beachte den [ioBroker Style Guide](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md),
+   damit die Änderungen einfacher übernommen werden können.
 
-## Generell
-@@@  
-VIS ist eine mächtige Anwendung, die eine ausführliche Anleitung
-und Tutorials verdient. In welcher Form und an welcher Stelle
-diese Anleitung bereitgestellt wird, ist noch nicht definiert.  
-@@@
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#konfiguration)  
+**Visualisierungen mit VIS**
+
+VIS ist das Hauptvisualisierungstool von ioBroker und bietet
+umfangreiche Möglichkeiten ein Smarthome zu visualisieren.
+ 
 ## Konfiguration
 
-Eine Konfiguration des Adapters ist nicht nötig. Es kann nur eine VIS Instanz geben.
+VIS benötigt den WEB Adapter, dieser wird bei der Installation von VIS
+automatisch mit installiert. Bis auf die Eingabe der Lizenz, die unter 
+https://iobroker.net/ zu beziehen ist, ist keine weitere Konfiguration
+notwendig. Bei privater Nutzung ist diese Lizenz kostenlos.
+<br>
+Es kann nur eine VIS Instanz geben.
 
-* * *
+## Bedienung
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#bedienung)Bedienung
+Nach der Installation wird der Adapter über `<IPdesServers>:8082/vis/index.html` 
+aufgerufen oder über den Hyperlink im Reiter Instanzen des admin-Adapter aufgerufen 
+und damit die Visualisierung angezeigt.
 
-Der Adapter wird über `<IPdesServers>:8082/vis/index.html` aufgerufen und damit die Visualisierung angezeigt. 
+Beim ersten Aufrufen wird eine DemoView automatisch angelegt.
+
 In einem Projekt befinden sich mehrere Ansichten (Views). 
-Auf jeder View sind wieder mehrere Widgets frei platzierbar, die zur Anzeige oder Bedienung dienen. 
-Zur Erstellung und Konfiguration einer Visualisierung muss man den **Editor** laden. 
-Der Editor wird über `<IPdesServers>:8082/vis/edit.html` oder über den Hyperlink im Reiter Instanzen 
-des admin-Adapter aufgerufen. 
+Auf jeder View sind wieder mehrere Widgets frei platzierbar, die zur Anzeige oder 
+Bedienung dienen. Erstellt und konfiguriert wird die Visualisierung über den Editor. 
+Der Editor wird über `<IPdesServers>:8082/vis/edit.html` aufgerufen.
 Nach Schließen des Editors über das Close-Window Icon ( (x) rechts oben) wird die zuletzt bearbeitete View 
 in der Funktionsansicht dargestellt. 
 Dieser kann jederzeit aufgerufen werden mit `<IPdesServers>:8082/vis/index.html#ViewName` 
-Der Editor teilt sich in verschiedene Bereiche auf.  
-![Überblick](media/vis_ioBroker_vis_Editor_002-300x165.jpg)
+Der Editor teilt sich in verschiedene Bereiche auf.
+
+![](media/vis_ioBroker_vis_Editor_002-300x165.jpg)
 
 
 * * *
@@ -42,7 +52,8 @@ Der Editor teilt sich in verschiedene Bereiche auf.
 
 Ist dieser Reiter angewählt, kann man in dem darunterliegenden Pulldown-Menü den zu bearbeitenden View 
 aus den existierenden auswählen.  
-![iobroker_vis_Editor_Views_Header](media/iobroker_vis_Editor_Views_Header.jpg)
+![](media/iobroker_vis_Editor_Widgets_Header.jpg)
+
 Die vier Icons rechts daneben sind selbsterklärend und beziehen sich auf die Views. 
 Nach Anklicken der Arbeitsfläche wechselt die Ansicht in der Eigenschaften-Sidebar auf der rechten Seite 
 auf den Reiter Views und zeigt die Einstellungen für die View.
@@ -50,7 +61,8 @@ auf den Reiter Views und zeigt die Einstellungen für die View.
 ### Widgets
 
 Wird der Reiter Widgets aktiviert ändert sich die darunterliegende Werkzeugleiste 
-![iobroker_vis_Editor_Widgets_Header](media/iobroker_vis_Editor_Widgets_Header.jpg)
+![](media/iobroker_vis_Editor_Views_Header.jpg)
+
 Die Werkzeuge für die Bearbeitung von Widgets werden angezeigt.
 
 #### Pulldownmenü
@@ -61,6 +73,7 @@ Die drei Icons für löschen, kopieren und Info werden aktiv, wenn ein Widget an
 
 #### Widgets ausrichten  
 ![](media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG)
+
 Wenn man mit gedrückter Maustaste mehrere Widgets auswählt (oder mit Ctrl-Klick) 
 kann man anschließend mit Hilfe dieser Icons Gruppen ausrichten 
 (linksbündig, rechtsbündig, oben bündig, unten bündig, zentriert, mittig vertikal ausgerichtet). 
@@ -90,7 +103,7 @@ auf den Reiter Widget und zeigt die Einstellungen für das ausgewählte Widget.
 
 Wird der Reiter Tools aktiviert ändert sich die darunterliegende Werkzeugleiste 
 ![](media/iobroker_vis_Editor_Tools_Header.JPG)
- Die Werkzeuge für die Erleichterung der Bearbeitung von [Views](http://www.iobroker.net/?page_id=1193&lang=de) werden angezeigt
+
 
 #### Auflösung
 
@@ -101,21 +114,22 @@ der der gewählten Bildschirmauflösung entspricht.
 
 #### Default
 
-Wenn _default_ angehakt ist, wird die aktive [View](http://www.iobroker.net/?page_id=1193&lang=de) 
-zur Standardview gemacht und geladen, falls die VIS-Ansicht 
-(siehe [Projekt](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Projekt)) 
-mit der oben eingestellten Auflösung geladen wird. 
-**Beispiel:** Es wird die Anzeige _iPad Portrait_ gewählt und in der View _Start_ 
-das Kästchen _Default_ angehakt. 
-Angenommen, auf einem iPad wurde aus dem Projekt nun eine View mit Namen _Wetter_ im Querformat geladen. 
-Sollte das iPad nun ins Hochformat gedreht werden, wird automatisch die vorher für diese Auflösung (Hochformat) 
-als Standard (_default_) festgelegte View _Start_ angezeigt. 
-So ist bei entsprechend beweglichen Geräten eine Steuerung durch Bewegung möglich 
+Wenn _default_ angehakt ist, wird die aktive View zur Standardview gemacht und 
+geladen, falls die VIS-Ansicht mit der oben eingestellten Auflösung geladen wird. 
+**Beispiel:** 
+Es wird die Anzeige _iPad Portrait_ gewählt und in der View _Start_ das Kästchen 
+_Default_ angehakt. Angenommen, auf einem iPad wurde aus dem Projekt nun eine View 
+mit Namen _Wetter_ im Querformat geladen. Sollte das iPad nun ins Hochformat gedreht 
+werden, wird automatisch die vorher für diese Auflösung (Hochformat) als Standard 
+(_default_) festgelegte View _Start_ angezeigt. 
+So ist bei entsprechend mobilen Geräten eine Steuerung durch Bewegung möglich 
 (zum Beispiel "zurück zum Hauptmenü" oder _hoch_ zeigt eine andere View als _quer_).
 
 #### Gitter
 
-hier gibt es die Möglichkeiten _inaktiv_, _Elemente_ und _Raster_. Wählt man Elemente, rasten die Widgets beim Bewegen mit der Maus an einem benachbarten Element ein. Bei Raster kann man noch ein Rastermaß (in px) angeben, in dem die Widgets dann einrasten.
+hier gibt es die Möglichkeiten _inaktiv_, _Elemente_ und _Raster_. Wählt man Elemente, 
+rasten die Widgets beim Bewegen mit der Maus an einem benachbarten Element ein. Bei 
+Raster kann man noch ein Rastermaß (in px) angeben, in dem die Widgets dann einrasten.
 
 #### Instanz ID
 
@@ -163,7 +177,8 @@ Ein Fenster öffnet sich und fordert die Eingabe eines Projektnamens.
 Nach dem Bestätigen lädt der Editor das neue Projekt unter dieser Adresse: `<IPdesServers>:8082/vis/_projektname_/index.html#ViewName.`   
 Die Dateien des neuen Projektes befinden sich in der ioBroker Installation unter 
 `_ioBroker-Ordner_/iobroker-data/files/vis.0/projektname`.  
-**Tipp**: Einen Projektordner kann man duplizieren und das Duplikat im VIS Editor bearbeiten 
+**Tipp**: 
+Einen Projektordner kann man duplizieren und das Duplikat im VIS Editor bearbeiten 
 `<IPdesServers>:8082/vis/_projektname_duplikat_/index.html`.
 
 
@@ -249,7 +264,8 @@ Mit diesem Button kann man die letzte(n) Aktion(en schrittweise) rückgängig ma
 Sie dient der Auswahl von Widgets. 
 Die Widgets werden als Icons dargestellt und können per drag und drop auf die Arbeitsfläche gezogen, 
 oder mit dem Button _Einfügen_ an Position 0,0 der Arbeitsfläche positioniert werden.  
-![iobroker_vis_Editor_Widgets_sidebar](media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg)  
+![](media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg)
+
 Das Feld unter dem Button _Einfügen_ ist ein Filterfeld. 
 Hier kann man einen Begriff eingeben um die Icons danach zu durchsuchen. 
 Alle Icons, die diesen Begriff enthalten werden angezeigt. 

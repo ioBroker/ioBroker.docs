@@ -1,6 +1,7 @@
 ---
 title:       "System-Integratoren - Link-Box"
 lastChanged: "14.09.2018"
+template:    true
 ---
 
 # Link-Box

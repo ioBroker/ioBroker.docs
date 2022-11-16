@@ -22,10 +22,11 @@ Known working devices:
 1. ELV WS980Wifi
 1. Eurochron EFWS2900  (Listener mode only)
 1. Froggit WH400SE
-1. Froggit DP1500
+1. Froggit DP1500 (Ecowitt protocol only)
 1. Sainlogic WS3500 (Listener mode only)
 1. WH51 Moisture sensor
 1. Ecowitt GW1000
+1. Froggit WH3000SE (Listener mode only)
 
 ## Usage
 
@@ -40,9 +41,12 @@ With latest firmware releases the weather station supports sending data to a cus
 Use the 'WS View'app on your mobile device to configure the weatherstation. Configure the following settings for customized server settings:
 - Server: IP/Hostname of your IOBroker server
 - Path: anything, just remember it for the adapter configuration
+*Note:* on some stations it has been proven success to add a question mark at the end of the path. Some others work without it. Best is to try both.
 - Port: any number between 1024 and 65000 (default is 45000), needs to be unique and free on your IOBroker system
 - Station ID: not used
+*Note:* some station still require any value to be set
 - Station Key: not used
+*Note:* some station still require any value to be set
 - Protocol Type: WeatherUnderground
 - Upload Interval: anyting supported by your weather station
 
@@ -70,6 +74,21 @@ In the instance configuration choose the tab 'Scheduler' and set the following:
 Save.
 
 The schheduler will start and connect to the weather station after the first interval time. You should see message in the log like 'Scheduler pulling for new data'. If you set the log mode to debug you will also see the data strings received.
+
+## Station specific infos
+
+### Froggit DP1500 
+
+It seems this station does not send any data when WeatherUnderground is selected as protocol. It works correctly with Ecowitt.
+
+### Eurochron EFWS290
+
+Station does not answer to scheduler commands, so only listener mode is supported.
+
+### Sainlogic WS3500
+
+Station does not answer to scheduler commands, so only listener mode is supported.
+
 
 ## Changelog
 
@@ -112,7 +131,7 @@ Lisa for her [code to translate wind degrees in a heading](https://www.programmi
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 Fogg <foggch@gmail.com>
+Copyright (c) 2022 Fogg <foggch@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

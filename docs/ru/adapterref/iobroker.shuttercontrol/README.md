@@ -3,46 +3,87 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: zCCXlYpOu1Vjof2/ggnUlkRtioVA0mbKW7AWTypdWxk=
+hash: EJswFd30WDrocO5waZd6RsEVPZwP0gOBl1RP0djABFM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
 ![Количество установок](http://iobroker.live/badges/shuttercontrol-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
-![Трэвис-Си](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/donate-paypal-blue?style=flat)
-![НПМ](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
 
 # IoBroker.shuttercontrol
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-Этот адаптер использует службу Sentry.io, чтобы автоматически сообщать мне как разработчику об исключениях, ошибках кода и новых схемах устройств. Подробнее см. Ниже!
+Этот адаптер использует службу Sentry.io, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода, а также о новых схемах устройств. Подробнее смотрите ниже!
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+**Если вам это нравится, рассмотрите пожертвование:**
 
 [![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
-## Адаптер shuttercontrol для ioBroker
-automatische Rollladensteuerung
+## Адаптер для управления затвором для ioBroker
+автоматический Rollladensteuerung
 
-[Deutsche Beschreibung hier](docs/de/shuttercontrol.md)
+[Deutsche Beschreibung Hier](docs/de/shuttercontrol.md)
 
-автоматическое управление ставнями
+автоматическое управление жалюзи
 
-[Английский Описание здесь](docs/en/shuttercontrol.md)
+[Описание на английском здесь](docs/en/shuttercontrol.md)
 
-### Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io - это сервис, позволяющий разработчикам получать информацию об ошибках в своих приложениях. Именно это и реализовано в данном адаптере.
+### Что такое Sentry.io и что сообщается серверам этой компании?
+Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. И именно это реализовано в данном адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, адрес электронной почты, имя и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
+Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.18 (2022-09-24)
+* (simatec) Bugfixes Button Action
+
+### 1.4.17 (2022-09-24)
+* (simatec) small Bugfixes
+
+### 1.4.16 (2022-09-19)
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+* (simatec) Docu updated
+* (simatec) travis deleted
+* (simatec) update translation
+* (simatec) debug for shutterstate added
+
+### 1.4.14 (2022-06-02)
+* (simatec) delay for Lightsensor added
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.13 (2022-05-24)
+* (FoxRo) Bugfix Alarm handling
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+* (simatec) more debuglog for Trigger
+
+### 1.4.12 (2022-04-11)
+* (FoxRo) Bugfix wrongly open after deactivation of weater alarm
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.11 (2022-02-07)
+* (simatec) fix objects value
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.10 (2022-01-16)
+* (simatec) Bugfix xmas time
+* (simatec) Bugfix Shutter delay
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
 ### 1.4.9 (2021-12-29)
 * (simatec) error handling for trigger added
 * (simatec) Bugfix Trigger delay
@@ -444,7 +485,7 @@ Sentry.io - это сервис, позволяющий разработчика
 ## License
 MIT License
 
-Copyright (c) 2019 - 2021 simatec
+Copyright (c) 2019 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

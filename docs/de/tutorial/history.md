@@ -1,6 +1,7 @@
 ---
 title:       "Tutorial"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
 # Datenhistorisierung
@@ -11,4 +12,4 @@ lastChanged: "13.09.2018"
    Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
    damit die Änderungen einfacher übernommen werden können.
 
-@@@  Am Beispiel History , evtl zus. SQL/InfluxDB erwähnen -->
+@@@  Am Beispiel History, evtl zus. SQL/InfluxDB erwähnen -->

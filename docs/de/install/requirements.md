@@ -4,18 +4,10 @@ lastChanged: "13.09.2018"
 ---
 
 # Systemanforderungen
-
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
-   damit die Änderungen einfacher übernommen werden können.
-
 @@@ Tabelle mit RAM, CPU, OS, Node.js, npm, build-tools, Netzwerk,
 Plattenplatz, SD-Kartengröße @@@
 
-
-### Neuinstallation
+## Neuinstallation
 
 |   | Varianten | Version |
 |---|:---------:|:-------:|
@@ -28,8 +20,7 @@ ioBroker kann auf alle Systeme installiert werden, auf denen Node.js zur
 Verfügung steht.
 
 
-### Bestehende Installationen
-
+## Bestehende Installationen
 |   | Varianten | Version |
 |---|:---------:|:-------:|
 **Laufzeitumgebung** | | 
@@ -43,7 +34,7 @@ Verfügung steht.
 - wetty (wegen pty.js-Abhängigkeit)
 
 
-### Unterstützte Betriebssysteme
+## Unterstützte Betriebssysteme
 |   | Varianten | 
 |---|:---------:|
 &emsp;*Windows* |

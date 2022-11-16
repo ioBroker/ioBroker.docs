@@ -4,24 +4,16 @@ lastChanged: "13.09.2018"
 ---
 
 # Einrichtung und Installation von ioBroker in VirtualBox
-
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
-   damit die Änderungen einfacher übernommen werden können.
-
 @@@ http://www.iobroker.net/docu/?page_id=5358&lang=de @@@
-
 
 Zuerst besorgen wir uns eine aktuelle Stable Version von Debian
 https://www.debian.org/CD/http-ftp/#stable
 
 Etwas weiter unten klicken wir unter CD auf AMD64
 
-Nun laden wir die “debian-8.4.0-amd64-netinst.iso” herunter
-Falls es ein neuere Version geben sollte benutzt diese, zum Downloadzeitpunkt war Debian 8.4.0 Aktuell.
-Ich nutze die Netinst, da die Datei klein ist und die Installation nur kleinigkeiten aus den Netz nachläd.
+Nun laden wir die `debian-8.4.0-amd64-netinst.iso` herunter
+Falls es eine neuere Version geben sollte benutzt diese, zum Downloadzeitpunkt war Debian 8.4.0 Aktuell.
+Ich nutze die `Netinst`, da die Datei klein ist und die Installation nur kleinigkeiten aus den Netz nachlädt.
 
 Danach erzeugen wir eine neue Virtuelle Maschine und geben ihr einen Namen.
 In meinem Beispiel ioBroker_Debian_Jessie_x64

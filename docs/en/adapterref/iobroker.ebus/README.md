@@ -30,7 +30,7 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 22.2
+current supported ebusd-version: 22.3
 
 **Attention** with ebusd - version 22.1 config path has been changed to http://cfg.ebusd.eu/. Make sure you change it in your installation of ebusd.
 details see in [changelog](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -54,6 +54,19 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
    
 ## Changelog
+
+### 3.0.7 (2022-08-20)
+* (René) support ebusd 22.3
+
+### 3.0.6 (2022-08-19)
+* (René) bug fix in tooltip in wizard
+
+### 3.0.4 (2022-08-18)
+* (René) tooltip in wizard added
+* (René) flot and dependencies updated
+* (René) errors from ebusd are shown as warning here in adapter, details schould be checked in logs of ebusd
+* (René) bug fix in widget: if less data available x axes grid point were not shown
+* (René) except null as valid value from ebusd (e.g. to reset CurrentError)
 
 ### 3.0.2 (2022-04-02)
 * (René) message for installation added

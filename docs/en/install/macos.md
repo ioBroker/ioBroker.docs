@@ -1,6 +1,7 @@
 ---
 title: OS X
 lastChanged: 31.07.2019
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/macos.md

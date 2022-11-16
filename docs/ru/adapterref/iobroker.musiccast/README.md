@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.musiccast/README.md
 title: ioBroker.musiccast
-hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
+hash: vEjyWua+e9aFAOjJ9e4iuTp9KHgOlrZXKSMj8aaFqVQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.musiccast/admin/musiccast.png)
 
@@ -16,7 +16,7 @@ hash: 41PVavZQZPOUQv1i4MQXzrwU2Tre40zZbj/mDuJffK4=
 
 адаптер для устройств Yamaha MusicCast, таких как WX-010/030, YSP-1600
 
-## Установка:
+## Монтаж:
 Для установки требуется nodejs v10 как минимум
 
 из нпм
@@ -33,7 +33,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 ## Настройки
 Страница администратора со знаком «+» может использоваться для добавления вручную IP-адреса, идентификатора устройства, типа и имени.
-Нажмите кнопку поиска для открытия. Если у вас несколько устройств, вам придется нажимать кнопку несколько раз, пока не будут обнаружены все устройства. К сожалению, обнаружение возвращает только один объект за раз, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как уже часть таблицы, вам нужно снова нажать кнопку. Иногда помогает сохранить и снова открыть страницу damin.
+Нажмите кнопку поиска для обнаружения. Если у вас несколько устройств, вам придется нажимать кнопку несколько раз, пока все устройства не будут обнаружены. К сожалению, обнаружение возвращает только один объект за раз, и это может быть любое из ваших устройств MusicCast. Если возврат такой же, как уже часть таблицы, вам нужно снова нажать кнопку. Иногда помогает сохранить и снова открыть страницу damin.
 
 В маловероятном случае, когда 2 или более устройств передают один и тот же идентификатор, немного измените один идентификатор. В противном случае адаптер не сможет различить 2 устройства.
 
@@ -55,6 +55,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.act_vol_mode_list|текст|-|фактическая громкость в дБ режимах|
 |{zone}.input|text|x|вводы в зависимости от устройства|
 |{zone}.input_list|текст|-|возможные входы|
+|{zone}.input_text|текст|-|выбранный ввод как текст|
 |{zone}.sound_program|текст|x|установить звуковую программу|
 |{zone}.sound_program_list|текст|-|возможные звуковые программы|
 |{zone}.surr_decoder_type|текст|?|установить тип объемного звучания|
@@ -65,7 +66,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.link_audio_delay_list|текст|-|возможная ссылка настройки задержки звука|
 |{zone}.clearVoice|boolean|x|clear Голосовое управление|
 |{zone}.low|значение|x|уровень эквалайзера низкий|
-|{zone}.mid|value|x|уровень эквалайзера mid|
+|{zone}.mid|значение|x|уровень эквалайзера mid|
 |{zone}.high|value|x|level EQ high|
 |{zone}.subwoofer_volume|значение|x|уровень громкости сабвуфера|
 |{zone}.bass|значение|x|уровень баса|
@@ -74,10 +75,18 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |{zone}.tone_mode|логическое значение|?|режим управления тоном|
 |{zone}.balance|значение|x|уровень баланса|
 |{zone}.direct|boolean|x|установить прямой|
-|{zone}.pure_direct|boolean|x|установить чистый прямой|
-|{zone}.enhancer|boolean|x|усилитель набора|
+|{zone}.pure_direct|логическое значение|x|установить чистое прямое |
+|{zone}.enhancer|логическое значение|x|усилитель набора|
 |{zone}.bass_extension|boolean|x|установить расширение баса|
 |{zone}.sleep|значение|x|таймер сна|
+
+|{zone}.disable_flags|логическое значение|x|установить disable_flags|
+|{zone}.contents_display|логическое значение|x|установить content_display|
+|{zone}.party_enable|логическое значение|x|установить party_enable|
+|{zone}.extra_bass|логическое значение|x|установить extra_bass|
+|{zone}.adaptive_drc|boolean|x|set Adaptive_drc|
+|{zone}.dts_dialogue_control|значение|x|установить dts_dialogue_control|
+|{zone}.adaptive_dsp_level|логическое значение|x|установить адаптивный_dsp_level|
 
 ### Нетусб
 |Объект|Значение|устанавливаемое|Описание|
@@ -106,6 +115,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |netusb.presetrecallnumber|значение|x|вызов # из списка избранного|
 |netusb.usb_devicetype|текст|-|тип подключенного USB-устройства|
 |netusb.attribute|значение|-|которое возможно имеет сервис, подлежащий декодированию|
+|netusb.recallRecentItem|значение|x|которое, возможно, имеет услугу, подлежащую декодированию|
 
 ### Система
 |Объект|Значение|устанавливаемое|Описание|
@@ -128,12 +138,12 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |cd.shuffle|boolean|x|переключить перемешивание|
 |cd.shuffle_stat|текст|-|состояние перемешивания|
 |cd.repeat|boolean|x|переключить повтор|
-|cd.repeat_stat|текст|-|повторить статус|
+|cd.repeat_stat|текст|-|повторный статус|
 |cd.device_stat|текст|-|состояние устройства|
 |cd.playtime|значение|-|текущее время воспроизведения|
 |cd.totaltime|value|-|общее время текущей дорожки|
 |cd.disctime|значение|-|общее время компакт-диска|
-|cd.tracknumber|значение|-|текущий трек в воспроизведении|
+|cd.tracknumber|значение|-|текущая дорожка в воспроизведении|
 |cd.totaltracks|значение|-|всего дорожек CD|
 |cd.artist|текст|-|имя исполнителя|
 |cd.album|текст|-|название альбома|
@@ -151,7 +161,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.am.tuned|логическое значение|-|настроено AM|
 |tuner.fm.preset|номер|x|номер предустановки FM|
 |tuner.fm.freq|число|x|частота FM в кГц|
-|tuner.fm.tuned|boolean|-|настройка FM|
+|tuner.fm.tuned|логическое значение|-|настройка FM|
 |tuner.fm.audio_mode|строка|-|FM моно/стерео|
 |tuner.dab.preset|номер|x|номер пресета DAB|
 |tuner.dab.id|номер|-|ID станции DAB|
@@ -160,7 +170,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.dab.category|строка|-|первичная/вторичная|
 |tuner.dab.audio_mode|string|-|DAB моно/стерео|
 |tuner.dab.bit_rate|число|-|скорость передачи DAB в кбит/с|
-|tuner.dab.quality|число|-|Качество DAB 0-100|
+|tuner.dab.quality|число|-|Качество DAB 0–100|
 |tuner.dab.tune_aid|число|-|сила сигнала DAB 0-100|
 |tuner.dab.off_air|boolean|-|DAB вне эфира|
 |tuner.dab.dab_plus|логическое значение|-|DAB+|
@@ -170,7 +180,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |tuner.dab.dls|строка|-|DAB DLS|
 |tuner.dab.ensemble_label|строка|-|метка ансамбля DAB|
 |tuner.dab.initial_scan_progress|number|-|Прогресс начального сканирования DAB 0–100|
-|tuner.dab.total_station_num|номер|-|тахеометры DAB 0–255|
+|tuner.dab.total_station_num|номер|-|тахеометры DAB 0-255|
 |tuner.rds.program_type|строка|-|тип программы RDS|
 |tuner.rds.program_service|строка|-|служба программы RDS|
 |tuner.rds.radio_text_a|строка|-|текст RDS A|
@@ -193,17 +203,17 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 |clock.{day}.playback_type|string|-|Тип воспроизведения будильника возобновление/предустановка|
 |clock.{day}.resume_input|string|-|Идентификатор ввода возобновления будильника|
 |clock.{day}.preset_type|string|-|Тип предустановки будильника|
-|clock.{day}.preset_num|номер|-|Идентификатор входа предустановки будильника|
+|clock.{day}.preset_num|число|-|Идентификатор входа предустановки будильника|
 |clock.{day}.preset_netusb_input|string|-|Идентификатор входа netusb будильника |
 |clock.{day}.preset_netusb_text|string|-|Текст netusb будильника |
 |clock.{day}.preset_tuner_band|string|-|Диапазон тюнера будильника|
-|clock.{day}.preset_tuner_number|number|-|Частота тюнера будильника или ID станции|
+|clock.{day}.preset_tuner_number|number|-|Частота тюнера будильника или идентификатор станции|
 
 ## Сделать
 * поддержка списков
 * изменение значений взаимодействия на красивое название
 * fastforward/fastrewind для NETUSB/CD
-* блютус
+* Bluetooth
 * уровень диалога
 
 ## 1.0.0 ОСНОВНЫЕ ИЗМЕНЕНИЯ
@@ -242,7 +252,7 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 
 #### 0.1.0
 * компактный режим
-* yamaha-yxc-узлы 0.0.8
+* Ямаха-yxc-узлы 0.0.8
 * обновление виджета
 
 #### 0.0.9
@@ -292,7 +302,32 @@ npm install https://github.com/foxthefox/ioBroker.musiccast/tarball/master --pro
 * доступные команды питания, отключения звука, громкости
 
 ## Changelog
-### 1.0.01
+### 1.0.8
+* error correction add_to_group/remove_from_group
+
+### 1.0.7
+* error correction in link/unlink/distribution
+
+### 1.0.6
+* (scrounger) recallRecentItem added
+
+#### 1.0.5
+* usage of new IOB test library
+
+#### 1.0.4
+* correction for setting the input ("setInput")
+
+#### 1.0.3
+* new datapoint "extra_bass"
+* new datapoint "adaptive_drc"
+* new datapoint "dts_dialogue_control"
+* new datapoint "adaptive_dsp_level"
+* these are only read in, most likely they are commands, but the API is unknown
+
+#### 1.0.2
+* new datapoint "input_text"
+
+#### 1.0.1
 * changed algorithm for developer support
 
 ## License

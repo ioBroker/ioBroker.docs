@@ -57,6 +57,10 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ## Changelog
 
+### 3.1.4 (2022-08-19)
+* (René) update dependencies
+* (dipts) Added missing / corrected inappropriate icons for galeria 1
+
 ### 3.1.3 (2022-05-05)
 * (René) see issue #139: bug fix moon icon
 

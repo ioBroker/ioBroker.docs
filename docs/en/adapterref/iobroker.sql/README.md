@@ -278,7 +278,7 @@ Possible options:
 - **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
 - **removeBorderValues** - By default additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
 - **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit" this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
-- **aggregate** - aggregate method:
+- **aggregate** - aggregate method (Default: 'average'):
     - *minmax* - used special algorithm. Splice the whole time range in small intervals and find for every interval max, min, start and end values.
     - *max* - Splice the whole time range in small intervals and find for every interval max value and use it for this interval (nulls will be ignored).
     - *min* - Same as max, but take minimal value.
@@ -364,7 +364,9 @@ Example if your database is called 'iobroker':
 If you want to write other data into the InfluxDB/SQL you can use the build in system function **storeState**.
 This function can also be used to convert data from other History adapters like History or SQL.
 
-The given IDs are not checked against the ioBroker database and do not need to be set up there, but can only be accessed directly.
+A successful response do not mean that the data are really written out to the disk. It just means that they were processed.
+
+The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
 
 The Message can have one of the following three formats:
 * one ID and one state object
@@ -398,6 +400,8 @@ sendTo('history.0', 'storeState', [
 ```
 
 Additionally, you can add attribute `rules: true` in message to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on.
+
+In case of errors an array with all single error messages is returned and also a successCount to see how many entries were stored successfully.
 
 ## delete state
 If you want to delete entry from the Database you can use the build in system function **delete**:
@@ -516,6 +520,44 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### 2.2.0 (2022-09-19)
+* IMPORTANT: Node.js 14.x is now needed at minimum!
+* (Apollon77) Fix potential crash cases with upcoming js-controller versions
+
+### 2.1.8 (2022-08-13)
+* (riversource/Apollon77) Optimize getHistory query by using "UNION ALL"
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.7 (2022-06-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.6 (2022-06-27)
+* (Apollon77) Allow to remove a configuration value for "round" in config again
+
+### 2.1.5 (2022-06-27)
+* (Apollon77) When no count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
+* (Apollon77) Fix the initialization of types and IDs for some cases.
+
+### 2.1.3 (2022-06-12)
+* (Apollon77) Make sure debug log is active according to the settings
+
+### 2.1.2 (2022-06-08)
+* (Apollon77) Huge performance optimizations for GetHistory calls
+
+### 2.1.1 (2022-05-30)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 2.1.0 (2022-05-27)
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) Fix several places where pooled connections might have not been returned to pool correctly and add logging for it
+* (Apollon77) Work around an issue in used Pooling library that potentially gave out too many connections
+* (Apollon77) Optimize retention check to better spread the first checks over time
+* (Apollon77) Default to not use datapoint buffering as in 1.x when set to 0
+* (Apollon77) Make sure disabling "Log changes only" also really do not log the changes anymore
+* (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
+* (Apollon77) Adjust the fallback logic for type detection to use the type of the state value to log as last fallback
+* (Apollon77) Fix storing booleans on MSSQL
+
 ### 2.0.2 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) Did bigger adjustments to the recording logic and added a lot of new Features. Please refer to Changelog and Forum post for details.

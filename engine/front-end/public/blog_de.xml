@@ -8,7 +8,7 @@
         <item>
             <title><![CDATA[Dev Meeting Februar]]></title>
             <description><![CDATA[
-                <p>Happy TwosDay (22.2.22) liebe Community, auch im vergangenen Monat ist wieder vielbei ioBroker passiert. Nach längerer Entwicklungszeit ist der neue js-controller 4.0 (Releasename "Isabelle") im Beta/Latest Repository verfügbar. Neben einigen Optimierungen und Verbesserungen stand der Haupt-Fokus dieser Version auf Performance-Verbesserungen.\nDarüber hinaus gibt es weitere Neuigkeiten aus dem Developer-Meeting und darüber hinaus, weche wir hier für Euch zusammengefasst haben.</p>
+                <p>Happy TwosDay (22.2.22) liebe Community, auch im vergangenen Monat ist wieder viel bei ioBroker passiert. Nach längerer Entwicklungszeit ist der neue js-controller 4.0 (Release-name "Isabelle") im Beta/Latest Repository verfügbar. Neben einigen Optimierungen und Verbesserungen stand der Haupt-Fokus dieser Version auf Performance-Verbesserungen.\nDarüber hinaus gibt es weitere Neuigkeiten aus dem Developer-Meeting und darüber hinaus, welche wir hier für Euch zusammengefasst haben.</p>
             ]]></description>
             <link>https://www.iobroker.net/#de/blog/2022_02_16</link>
             <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2022_02_16</guid>

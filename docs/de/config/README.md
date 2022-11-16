@@ -2,6 +2,7 @@
 title:       "Einleitung"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/config/README.md"
+template:    true
 ---
 
 # Erweiterte Konfiguration

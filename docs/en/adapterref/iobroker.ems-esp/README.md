@@ -20,13 +20,13 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
 * ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
-* The old ESP8266 gateways with API V2 are supported until this version as well.
+* The old ESP8266 gateways with API V2 are supported with limited functionality as well. But it is strobgly advised to upgrade to ESP32.
 
 The ems-esp adapter can read and write data to both gateways to steer all heating components. 
 It can be used either for the original Bosch-group gateways or the ems-esp or both in parallel.
 
 The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.3.1. 
-Old systems with an ESP 8266 are only supported until this adapter version.
+
 
 ## important settings in EMS-ESP:
 
@@ -124,7 +124,7 @@ There is an option to re-build the state-structure by deleting states on adapter
 
 ## heatdemand control 
 
-V1.9.x beta - Explanation to heat demand calculation and configuration. Available in German language only:
+Explanation to heat demand calculation and configuration. Available in German language only:
 https://github.com/tp1de/ioBroker.ems-esp/wiki
 
 
@@ -134,6 +134,32 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* pepare for enum as v alues and not just index
+* ioBroker and Home Assistant can be used in parallel
+* new parameters for "Room" and "Function" for adapter states
+* adjust roles of generated states
+
+### 1.15.0 (2022-06-06)
+* adjustments for ems-esp RC310 holiday modes
+
+### 1.14.0 (2022-05-18)
+* split parameters for dallas & analog sensors
+* improve warning messages if sensors are missing
+
+### 1.13.0 (2022-05-17)
+* add visibility attributes within ems-esp states
+* error processing dallas / analog sensors of ems-esp
+
+### 1.12.1 (2022-05-16)
+* corrections for heatdemand function
+* enable expert view
+* vis views for syslog analysis in expert views
+
+### 1.12.0 (2022-05-15)
+* add analog sensors for ems-esp gateway, remove ems-esp settings
+
 ### 1.11.2 (2022-04-27)
 * code optimization and error processing for ems-esp gateway
 

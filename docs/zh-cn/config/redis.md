@@ -1,24 +1,24 @@
 ---
+title: ioBroker 的 Redis 数据库
+lastChanged: 27.02.2021
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/redis.md
-title: ioBroker 的 Redis 数据库
-hash: OO6QwcVxnlNy+qafCZFqQ7pZKK33y+Ddy6McX56JFDM=
+hash: iS5fXBj9lEj5zQk1a5bbY7utI+8y43A3Sw9PKYfM8jw=
 ---
-# IoBroker 的 Redis 数据库
 Redis 是一个开源的内存数据库。
 更多信息可以在 https://redis.io/ 找到
 
 Redis 的一大优势：
 
-与内部 ioBroker 数据库相比，Redis 在数据访问速度、文件系统中的 IO 管理和更好地利用 CPU 资源等方面具有优势。
+与内部的ioBroker数据库相比，Redis主要在数据访问速度、文件系统IO管理、CPU资源利用率等方面具有优势。
 js 控制器已卸载。以前缓慢的系统可以再次变得更快。
 但是，有足够的可用 RAM 很重要，因为 Redis 将所有数据保存在 RAM 中。根据具体存储在 Redis 中的内容，RAM 要求的范围从几 MB（例如，如果 Redis 中只有状态）到超过 200 MB（例如，对象和文件也存储在那里）。
 
 ## Redis 常见问题
 1. 我的 ioBroker 是否需要 Redis？
 
-ioBroker 自己的数据库通常足以满足所有标准安装！只有当 js-controller 永久需要 50-70% 或更多的 CPU 并且同时感觉系统卡顿时，处理 Redis 的话题才有意义。
+ioBroker 自己的数据库通常足以满足所有标准安装！只有当 js-controller 永久需要 50-70% 或更多的 CPU 并且同时感觉系统运行缓慢时，处理 Redis 的话题才有意义。
 或者，如果您的目标是高度可用的 ioBroker 系统，则它变得很有必要，但为此还需要做一些其他的事情。
 
 2. 我如何知道我是否在使用 Redis？
@@ -75,12 +75,12 @@ sudo apt-get install redis-server
 您可以查看`sudo systemctl status redis-server`。
 如果重启后它没有自动启动，`sudo systemctl enable redis-server`会有所帮助。
 Redis 默认使用 6379 端口，并且还附带了一个用于访问数据库的命令行工具：`redis-cli`打开一个 shell。
-`info`命令显示了一些关于系统、内存消耗和保存的数据（“keyspace”）的信息，当然这些信息目前仍然是空的。
+`info`命令显示一些关于系统、内存使用和保存的数据（“keyspace”）的信息，当然这些信息目前是空的。
 
 如果您运行单主机系统或在同一主机上运行 ioBroker，那么就是这样。
 
 如果其他主机也应该能够访问这个 Redis 服务器（从属服务器或其他东西），那么这仍然必须被允许。
-为此，必须编辑 /etc/redis/redis.conf 并将 **bind 127.0.0.1** 行更改为 **bind 0.0.0.0** 并在 **protected_mode** 正下方设置为 **no ** 会。
+为此，必须编辑 /etc/redis/redis.conf 并将 **bind 127.0.0.1** 行更改为 **bind 0.0.0.0** 并将 **protected_mode** 设置为 **no**正下方会。
 
 之后，`sudo systemctl restart redis-server`使用更新的配置重新启动服务器。
 
@@ -89,7 +89,7 @@ Redis 默认使用 6379 端口，并且还附带了一个用于访问数据库�
 ## 将 ioBroker 数据库切换到 Redis
 大多数更改和数据查询都发生在 States 数据库中。所有数据更改都到达这里，然后在适配器注册特定数据后分发回给适配器。
 将状态更改为 Redis 具有迄今为止最大和最明显的性能影响。
-如果您只更改状态数据库，则理想情况下，您应该将 Redis 服务器安装在与 ioBroker 主服务器相同的主机上。
+如果您只更改状态数据库，理想情况下，您应该将 Redis 服务器安装在与 ioBroker 主服务器相同的主机上。
 
 然后通过以下方式更改“状态”：
 

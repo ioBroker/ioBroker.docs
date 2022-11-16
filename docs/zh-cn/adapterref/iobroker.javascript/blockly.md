@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.javascript/blockly.md
 title: 内容
-hash: UwFUSLzlL2c770WIlgH3BOOpBbO+a3AWxWRh1txW0Ss=
+hash: JPh8BusnrBEfrvfm/jsIuZUBTwsYeuXjrtqjwyHBm6g=
 ---
 ＃ 内容
 - [描述](#description)
@@ -56,6 +56,8 @@ hash: UwFUSLzlL2c770WIlgH3BOOpBbO+a3AWxWRh1txW0Ss=
         - [清除日程](#clear-schedule)
         - [CRON 对话框](#cron 对话框)
         - [CRON 规则](#cron-rule)
+        - [触发文件更新](#trigger-on-file-update)
+        - [取消文件更新事件](#cancel-event-on-file-update)
     - [超时](#timeouts)
         - [延迟执行](#delayed-execution)
         - [清除延迟执行](#clear-delayed-execution)
@@ -96,7 +98,7 @@ hash: UwFUSLzlL2c770WIlgH3BOOpBbO+a3AWxWRh1txW0Ss=
         - [字符串长度](#length-of-string)
         - [字符串为空](#is-string-empty)
         - [在字符串中查找位置](#find-position-in-string)
-        - [获取特定位置的字符串中的符号](#get-symbol-in-string-on-specific-position)
+        - [在特定位置获取字符串中的符号](#get-symbol-in-string-on-specific-position)
         - [获取子字符串](#get-substring)
         - [转换为大写或小写](#Convert-to-upper-case-or-to-lower-case)
         - [修剪字符串]（#修剪字符串）
@@ -124,7 +126,7 @@ hash: UwFUSLzlL2c770WIlgH3BOOpBbO+a3AWxWRh1txW0Ss=
         - [从具有返回值的块创建函数](#create-function-from-blocks-with-return-value)
         - [函数中的返回值](#return-value-in-function)
         - [创建没有返回值的自定义函数](#create-custom-function-with-no-return-value)
-        - [使用返回值创建自定义函数](#create-custom-function-with-return-value)
+        - [创建带有返回值的自定义函数](#create-custom-function-with-return-value)
         - [调用函数](#call-function)
 
 &nbsp;
@@ -139,7 +141,7 @@ hash: UwFUSLzlL2c770WIlgH3BOOpBbO+a3AWxWRh1txW0Ss=
 
 ![入门 1](../../../de/adapterref/iobroker.javascript/img/getting_started_1_de.png)
 
-这是在数据点更改时切换其他内容的经典示例。
+这是当数据点更改时切换其他内容的经典示例。
 
 当检测到运动或未检测到运动时，此处的灯会打开或关闭。
 
@@ -471,7 +473,7 @@ Beispiel zum importieren:
 </xml>
 ```
 
-与上例相比，下例中“Light”的状态切换了两次（1 秒后和 2 秒后）：![控制状态](../../../de/adapterref/iobroker.javascript/img/system_control_2_en.png)
+与上例相比，下例中“光”的状态切换了两次（1 秒后和 2 秒后）：![控制状态](../../../de/adapterref/iobroker.javascript/img/system_control_2_en.png)
 
 ```xml 
 <xml xmlns="http://www.w3.org/1999/xhtml">
@@ -575,7 +577,7 @@ Beispiel zum importieren:
 
 此块创建全局状态，如果状态尚存在，则该命令将被忽略。您可以在脚本的每次启动时安全地调用此块。
 
-此块创建全局状态，如果它已经存在，则忽略该命令。因此，可以在任何脚本启动时毫无风险地使用此块。
+此块创建全局状态，如果它已经存在，则忽略该命令。因此，可以在每次脚本启动时毫无风险地使用此块。
 
 &nbsp;该模块的典型应用：
 
@@ -639,7 +641,7 @@ Beispiel zum importieren:
 
 &nbsp;
 
-### 对象 ID 的值 ![获取状态值](../../../de/adapterref/iobroker.javascript/img/system_get_value_en.png)
+### 对象 ID 的值![获取状态值](../../../de/adapterref/iobroker.javascript/img/system_get_value_en.png)
 该块用于读取数据点的值。可以读取数据点的以下属性：
 
 - 价值
@@ -700,7 +702,7 @@ Beispiel zum importieren:
 
 通过单击“对象 ID”打开 ID 选择对话框。
 
-&nbsp;该块的典型应用：
+&nbsp;该模块的典型应用：
 
 ![获取对象 ID](../../../de/adapterref/iobroker.javascript/img/system_get_id_sample_en.png)
 
@@ -797,7 +799,7 @@ Beispiel zum importieren:
 为了分析输出，创建了 3 个特殊变量：
 
 - 结果，包含到控制台的常规输出（例如，对于命令“ls /opt”，输出为“iobroker nodejs”）
-- 如果无法执行来自 JavaScript 模块的命令，则会出现错误对象
+- 如果 JavaScript 模块无法执行命令，则错误对象
 -stderr，执行程序的错误输出
 
 此外，如果日志级别未设置为“无”，日志中也会出现相同的输出。
@@ -956,7 +958,7 @@ Beispiel zum importieren:
 
 这只是将内部系统消息 (sendTo) 发送到任何适配器的帮助块。
 
-当然，您可以使用自定义功能块来做任何疯狂的事情，也可以发送消息。
+当然，您可以使用自定义功能块做任何疯狂的事情，也可以发送消息。
 
 您可以为 sendTo 命令定义自己的参数：
 
@@ -1157,7 +1159,7 @@ sendTo("sql.0", "getHistory", {
 - 等于或大于
 - 等于
 - between，检查某天时间之间的时间。
-    - 例如。如果时间必须在 12:00 到 20:00 之间。将检查实际时间是否大于等于 12:00 且小于 20:00。 20:00 将返回 false。
+    - 例如。如果时间必须在 12:00 和 20:00 之间。将检查实际时间是否大于或等于 12:00 且小于 20:00。 20:00 将返回 false。
     - 或者例如在 21:00 到 8:00 之间。在最后一种情况下，将检查时间是否大于或等于 21:00 或小于 8:00。
 
 - 如果时间不在白天的给定时间段内，则不在中间。如果时间小于开始且大于或等于结束。 （如果开始时间大于结束时间，则检查时间是否大于等于结束且小于开始）
@@ -1191,14 +1193,14 @@ sendTo("sql.0", "getHistory", {
 - 分钟 - 返回当前小时的分钟，从 0 到 59，
 - 一天中的分钟数 - 返回从一天开始的分钟数（0 到 24 * 60 - 1），
 - hours - 返回当天从 0 到 23 的小时数，
-- 一个月中的一天 - 从 1 到 31 获取一个月中的一天，
+- 月中的一天 - 从 1 到 31 获取月中的一天，
 - 月份作为数字 - 将月份作为从 1 到 12 的数字，
 - 月份作为文本 - 获取月份作为文本。必须指定语言。
 - 作为短文本的月份 - 以文本形式获取月份：1 月、2 月、3 月、4 月、5 月、6 月、7 月、8 月、9 月、10 月、11 月、12 月。必须指定语言。
 - 短年份 - 从 0 到 99 的年份，例如2016 年的结果将是 16。
 - 全年 - 全年：2016
 - 工作日文本 - 获取星期几作为文本。
-- short week day - 获取星期几作为短文本：Su、Mo、Tu、We、Th、Fr、Sa。
+- short week day - 以短文本形式获取星期几：Su、Mo、Tu、We、Th、Fr、Sa。
 - 星期作为数字 - 星期几作为数字，从 1（星期一）到 7（星期日）。
 - 自定义格式 - 您可以指定自己的 [格式](https://github.com/ioBroker/ioBroker.javascript#formatdate)。
 - 日期对象 - 以从纪元开始（格林威治标准时间 1970.1.1 00:00:00.000Z）开始的毫秒数返回日期和时间。这始终是格林威治标准时间。
@@ -1246,7 +1248,7 @@ sendTo("sql.0", "getHistory", {
 - 黎明：黎明（早晨航海黄昏结束，早晨民间黄昏开始）
 - 最低点：最低点（夜晚最黑暗的时刻，太阳处于最低位置）
 
-返回值的类型为“日期对象”，它只是从 1970.01.01 开始的毫秒数。
+返回值的类型为“Date Object”，即从 1970.01.01 开始的毫秒数。
 
 **注意：** 要使用“astro”功能，必须在 javascript 适配器设置中定义“纬度”和“经度”。
 
@@ -1445,7 +1447,7 @@ sendTo("sql.0", "getHistory", {
 </block>
 ```
 
-否则，如果触发器使用了多个对象 ID，您可以通过 [触发信息](#trigger-info) 访问值和旧值。
+否则，如果触发器使用多个对象 ID，您可以通过 [触发信息](#trigger-info) 访问值和旧值。
 
 &nbsp;
 
@@ -1478,7 +1480,7 @@ sendTo("sql.0", "getHistory", {
 - 值的来源 - 导致更改的实例的名称
 - 是命令还是更新 - 是命令 (ack=false) 还是更新 (ack=true)
 - 最后一次更改状态 - 最后一次更改此值的时间戳
-- 先前值 - 此状态的先前值，在触发器触发之前
+- 先前的值 - 此状态的先前值，在触发器触发之前
 - 前一个时间戳 - 此状态的前一个时间戳，在触发器触发之前
 - 先前质量 - 此状态的先前质量，在触发器触发之前
 - 先前的来源 - 此状态的先前来源，在触发器触发之前
@@ -1540,7 +1542,7 @@ sendTo("sql.0", "getHistory", {
 ＃＃＃ 日程
 ![日程](../../../de/adapterref/iobroker.javascript/img/trigger_schedule_en.png)
 
-这是继[“触发状态变化”](#trigger-on-states-change)之后的第二个自动化主要模块。此块允许定期执行一些操作。
+这是继[“触发状态变化”](#trigger-on-states-change)之后自动化的第二个主要模块。此块允许定期执行一些操作。
 
 调度规则的定义将在非常有据可查的 CRON [格式](https://en.wikipedia.org/wiki/Cron) 中完成。通过扩展，也可以定义秒数。
 如果应该使用秒，它们必须定义为 CRON 规则的第一个参数，并且规则将有 6 个部分。
@@ -1554,13 +1556,13 @@ sendTo("sql.0", "getHistory", {
 - 月规则
 - 和星期几规则。
 
-对于以下格式的每个部分，都允许：
+对于以下格式的每个部分都是允许的：
 
 - \* - 每（秒，分钟，小时，...）触发一次
 - X (e.g. 5) - 仅在这一秒、一分钟、一小时内触发...
 - from-to (e.g. 1-9) - 仅在此间隔内触发
 - \*/X (e.g. \*/5) - 每 X 秒、分钟触发一次...如果 "\*/5" 持续数小时，触发器将在 0、5、10、15 和 20 小时触发。
-- 数字和间隔可以用逗号组合（例如 1,3,4-6）。不要在数字之间留有空格，因为空格是规则部分的分隔符。
+- 数字和间隔可以用逗号组合（例如 1,3,4-6）。不要在数字之间留空格，因为空格是规则部分的分隔符。
 
 \*/10 \* \* \* 6,7 - 周六和周日每 10 分钟触发一次。
 
@@ -1593,7 +1595,7 @@ sendTo("sql.0", "getHistory", {
  * * * * * *  schedule
 ```
 
-但是对于您建立这样的规则有很好的帮助。通过单击规则，将打开 CRON 对话框，您可以通过鼠标指定您的规则。
+但是对您建立这样的规则有很好的帮助。通过单击规则，将打开 CRON 对话框，您可以通过鼠标指定您的规则。
 
 ![日程](../../../de/adapterref/iobroker.javascript/img/trigger_schedule_1_en.png)
 
@@ -1793,9 +1795,51 @@ sendTo("sql.0", "getHistory", {
 
 可以使用此块（如 [CRON 对话框](#cron-dialog)) 仅适用于 [命名计划](#named-schedule) 块。
 
-&nbsp;
+### 文件更新触发
+![文件](../../../de/adapterref/iobroker.javascript/img/trigger_onFile_de.png)
 
-&nbsp;
+您可以订阅文件更新并执行一些操作。例如，这里每次项目更新都会打印出“vis”的内容：
+
+```
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="@-v}))=J7?dr9n$tR,=j">data</variable>
+  </variables>
+  <block type="onFile" id="4`C)*,R0DVN@nRaM@/[N" x="188" y="37">
+    <field name="WITH_FILE">TRUE</field>
+    <value name="OID">
+      <shadow type="field_oid_meta" id="K^Qc~2T8{V+K017=]c^d">
+        <field name="oid">vis.0</field>
+      </shadow>
+    </value>
+    <value name="FILE">
+      <shadow type="text" id="A7UXrl-.!o]Oi9g[eBxr">
+        <field name="TEXT">main/*</field>
+      </shadow>
+    </value>
+    <statement name="STATEMENT">
+      <block type="debug" id="fl3BZ)}mE7qw[`W*ZUx}">
+        <field name="Severity">log</field>
+        <value name="TEXT">
+          <shadow type="text" id="se+gg@!ryr*!AO~Bx3uX">
+            <field name="TEXT">test</field>
+          </shadow>
+          <block type="variables_get" id="E{)LJvx~EH~shD%3!);w">
+            <field name="VAR" id="@-v}))=J7?dr9n$tR,=j">data</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
+```
+
+**重要**：此功能仅适用于 js-controller@4.1.x 或更高版本。
+
+### 取消文件更新事件
+![文件](../../../de/adapterref/iobroker.javascript/img/trigger_offFile_de.png) 使用此块，您可以通过文件更新取消事件。
+
+**重要**：此功能仅适用于 js-controller@4.1.x 或更高版本。
 
 ## 超时
 ### 延迟执行
@@ -2091,11 +2135,11 @@ item = 0;
 ### 获取变量的值
 ![获取变量的值](../../../de/adapterref/iobroker.javascript/img/variables_get_en.png)
 
-此块获取变量的值。您可以创建一个新的或使用现有的。
+该块获取变量的值。您可以创建一个新的或使用现有的。
 
 ![获取变量的值](../../../de/adapterref/iobroker.javascript/img/variables_get_1_en.png)
 
-触发块有一个例外[状态变化触发](#trigger-on-states-change) 和[状态变化触发](#trigger-on-state-change)。
+触发块[状态变化触发](#trigger-on-states-change) 和[状态变化触发](#trigger-on-state-change)有一个例外。
 在这些块内部变量“值”还存在，但无论如何要读取它们的值，您必须将变量重命名为值然后使用它。
 
 ![获取变量的值](../../../de/adapterref/iobroker.javascript/img/variables_get_2_en.png)
@@ -2104,7 +2148,7 @@ item = 0;
 
 &nbsp;
 
-＃＃ 职能
+＃＃ 功能
 ### 从没有返回值的块创建函数
 ### 从具有返回值的块创建函数
 ###函数中的返回值

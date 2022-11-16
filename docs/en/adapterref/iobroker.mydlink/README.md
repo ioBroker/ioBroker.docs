@@ -1,8 +1,8 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.mydlink.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.mydlink.svg
-BADGE-Number of Installations (latest): https://iobroker.live/badges/mydlink-installed.svg
-BADGE-Number of Installations (stable): https://iobroker.live/badges/mydlink-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/mydlink-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/mydlink-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.mydlink.png?downloads=true
 ---
 ![Logo](../../admin/mydlink.png)
@@ -63,10 +63,14 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 <!-- 
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
-	npm install @alcalzone/release-script
 -->
-### **WORK IN PROGRESS**
+### 1.2.1 (2022-09-01)
+* fix release...
+
+### 1.2.0 (2022-08-30)
 * Update translations & dependencies
+* Add support for devices with multiple sockets
+* Allow polling for websocket devices
 
 ### 1.1.12 (2021-07-21)
 * Update translations
@@ -193,7 +197,7 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 ## License
 MIT License
 
-Copyright (c) 2021 Garfonso <garfonso@mobo.info>
+Copyright (c) 2022 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

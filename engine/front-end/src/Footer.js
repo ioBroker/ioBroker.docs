@@ -1,6 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {withStyles} from '@material-ui/core/styles';
+import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@mui/styles';
 
 import I18n from './i18n';
 
@@ -9,7 +9,6 @@ import {FaGithubSquare as IconGithub} from 'react-icons/fa';
 import {FaFacebookSquare as IconFacebook} from 'react-icons/fa';
 import {FaDiscord as IconDiscord} from 'react-icons/fa';
 import Utils from './Utils';
-
 
 const styles = theme => ({
     footer: {
@@ -53,37 +52,42 @@ const styles = theme => ({
 
 class Loader extends React.Component {
     render() {
-        return (<div className={this.props.classes.footer}>
+        return <div className={this.props.classes.footer}>
             <div title="Repository" className={this.props.classes.footerIconDiv}>
-                <IconGithub className={this.props.classes.footerIcon}
-                        onClick={() => Utils.openLink('https://github.com/ioBroker')}
+                <IconGithub
+                    className={this.props.classes.footerIcon}
+                    onClick={() => Utils.openLink('https://github.com/ioBroker')}
                 />
             </div>
             <div title="Community adapters repository" className={this.props.classes.footerIconDiv}>
-                <IconGithub className={this.props.classes.footerIcon}
-                        onClick={() => Utils.openLink('https://github.com/iobroker-community-adapters')}
+                <IconGithub
+                    className={this.props.classes.footerIcon}
+                    onClick={() => Utils.openLink('https://github.com/iobroker-community-adapters')}
                 />
                 <div className={this.props.classes.footerIconText}>Community</div>
             </div>
             <div title="Unofficial Facebook group" className={this.props.classes.footerIconDiv}>
-                <IconFacebook className={this.props.classes.footerIcon}
-                            onClick={() => Utils.openLink('https://www.facebook.com/groups/440499112958264')}
+                <IconFacebook
+                    className={this.props.classes.footerIcon}
+                    onClick={() => Utils.openLink('https://www.facebook.com/groups/440499112958264')}
                 />
             </div>
             <div title="Discord Server" className={this.props.classes.footerIconDiv}>
-                <IconDiscord className={this.props.classes.footerIcon} style={{height:"50px"}}
-                             onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
+                <IconDiscord
+                    className={this.props.classes.footerIcon}
+                    style={{ height: 50 }}
+                    onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
                 />
             </div>
             <br/>
 
             <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'imprint')}>{I18n.t('Imprint')}</div>
-            <div className={this.props.classes.footerLink} style={{cursor: 'inherit'}}> | </div>
+            <div className={this.props.classes.footerLink} style={{ cursor: 'inherit' }}> | </div>
             <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
 
             <p className={this.props.classes.footerCopyright}>Copyright © 2014-2021 by the ioBroker Community and the ioBroker GmbH.</p>
-            <img src={LogoIoBroker} className={this.props.classes.footerLogo} alt="logo"/>
-        </div>);
+            <img src={LogoIoBroker} className={this.props.classes.footerLogo} alt="logo" />
+        </div>;
     }
 }
 

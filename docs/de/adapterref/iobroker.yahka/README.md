@@ -3,39 +3,40 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yahka/README.md
 title: iobroker.yahka
-hash: DthhW3uXba+vO00KkmIMU8krtcMB8fC6XxcPnUEcIM4=
+hash: yomG4y/Sjkfg98dRYlugZUYP4SrmYntEO3ea8zNuKSs=
 ---
 ![Logo](../../../en/adapterref/iobroker.yahka/admin/yahka.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/yahka-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.yahka.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.yahka.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
+![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.yahka.svg?branch=master)
+![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 # Iobroker.yahka
 ## Installation und Verwendung
-Einzelheiten zur Installation und Konfiguration dieses Adapters finden Sie in den [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki)
+Einzelheiten zur Installation und Konfiguration dieses Adapters finden Sie im [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki)
 
 ## Voraussetzungen
-Bevor Sie den Adapter installieren können, müssen Sie einige Pakete (für Linux) ausführen:
+Bevor Sie den Adapter installieren können, müssen Sie einige Pakete (für Linux) installieren: `sudo apt-get install libavahi-compat-libdnssd-dev`
 
-```sudo apt-get install libavahi-compat-libdnssd-dev```
-
-## Installiere die neueste **Version**
-Klicken Sie einfach auf die Schaltfläche "+" hinter "Homekit yahka adapter" im ioBroker Admin Panel auf der Seite "Adapter"
+## Installieren Sie die neueste **Version**
+Klicken Sie einfach auf die Schaltfläche „+“ hinter „Homekit yahka adapter“ im ioBroker Admin Panel auf der Seite „Adapter“.
 
 ## Installiere die neueste **Beta**
-Wenn Sie am Rande sein und die neueste Beta testen möchten, können Sie den Adapter über eine Github-URL installieren. <br> (Manchmal ist ein zusätzlicher Upload [zB iobroker upload yahka] und ein Neustart des Adapters erforderlich) <br>
+Wenn Sie am Rande sein und die neueste Beta testen möchten, können Sie den Adapter über eine GitHub-URL installieren.
+
+(Manchmal ist ein zusätzlicher Upload (z. B. `iobroker upload yahka`) und ein Neustart des Adapters erforderlich)
 
 ## Backup wiederherstellen
-Achtung: Um ioBroker.yahka auf einem anderen System wiederherstellen zu können, muss zusätzlich zu den üblichen `iobroker backup` und `iobroker restore` auch der Ordner `yahka.X.hapdata` unter `/opt/iobroker/iobroker-data` gesichert werden und, falls erforderlich restauriert. [Wiki] (https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [Ausgabe](https://github.com/jensweigele/ioBroker.yahka/issues/176)
+Achtung: Um `ioBroker.yahka` auf einem anderen System wiederherstellen zu können, muss neben den üblichen `iobroker backup` und `iobroker restore` auch der Ordner `yahka.X.hapdata` unter `/opt/iobroker/iobroker-data` gesichert werden und ggf. restauriert. [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/ioBroker.yahka-auf-ein-anderes-System-umziehen) / [Issue](https://github.com/jensweigele/ioBroker.yahka/issues/176)
 
 ## Fehlerbehebung
 ### Nicht alle neuen Funktionen sind verfügbar:
-Wenn nach einem Yahoo-Update nicht alle neuen Funktionen verfügbar sind, versuchen Sie einen Upload (z. B. Iobrober-Yahoo-Upload) und starten Sie den Adapter neu.
+Wenn nach einem Yahka-Update nicht alle neuen Funktionen verfügbar sind, versuchen Sie einen Upload (z. B. `iob upload yahka`) und starten Sie den Adapter neu.
 
 ### Fehlender Avahi-Daemon (Linux)
-Wenn Sie den folgenden Fehler im Protokoll haben: <br>
+Wenn Sie den folgenden Fehler im Protokoll haben:
 
 ```
 Error:	2016-07-26 18:57:17.989	error	at Error (native)
@@ -45,133 +46,187 @@ uncaught	2016-07-26 18:57:17.985	error	exception: dns service error: unknown
 
 Sie müssen einige zusätzliche Schritte ausführen:
 
-* Avahi Daemon installieren:
+* Avahi-Daemon installieren:
 
-```sudo apt-get install avahi-daemon -y```
+`sudo apt-get install avahi-daemon -y`
 
-* Bearbeiten Sie die Datei avahi-daemon.conf
+* Bearbeiten Sie die avahi-daemon.conf
 
-```sudo nano avahi-daemon.conf ```<br>
-change the following variables:
-```host-name=\<put in your hostname\>
+`sudo nano avahi-daemon.conf `
+
+folgende Variablen ändern:
+
+```
+host-name=\<put in your hostname\>
 domain-name=local
 use-ipv4=yes
 use-ipv6=yes
 enable-dbus=yes
 ```
 
-### Fehlendes Pam-Devel-Paket (Linux)
-Wenn Sie den folgenden Fehler im Protokoll haben: <br>
+### Pam-devel-Paket fehlt (Linux)
+Wenn Sie den folgenden Fehler im Protokoll haben:
 
 ```
 ../authenticate_pam.cc:30:31: fatal error: security/pam_appl.h: Datei oder Verzeichnis nicht gefunden
 #include <security/pam_appl.h>
 ```
 
-Sie müssen das pam-devel-Paket installieren:
+Sie müssen das Paket pam-devel installieren:
 
-* Avahi Daemon installieren:
+* Avahi-Daemon installieren:
 
-```sudo apt-get install pam-devel -y```
+`sudo apt-get install pam-devel -y`
 
-### Fehlendes Bonjour (Fenster)
-- Download: `` `https:// www.samuelattard.com / files / bonjourcore2.msi```
-- Ausführen: `` `msiexec / i bonjourcore2.msi / qn```
-- entfernen: `` `del bonjourcore2.msi```
-- Download: `` `https:// www.samuelattard.com / files / bonjoursdksetup.exe```
-- Ausführen: `` `bonjoursdksetup.exe / quiet```
-- Entfernen Sie: `` `del bonjoursdksetup.exe```
-- Set: `` `set BONJOUR_SDK_HOME = C: \ Programme \ Bonjour SDK```
+### Bonjour fehlt (Fenster)
+- Herunterladen: `https://www.samuelattard.com/files/bonjourcore2.msi`
+- Ausführen: `msiexec /i bonjourcore2.msi /qn`
+- entfernen: `del bonjourcore2.msi`
+- Herunterladen: `https://www.samuelattard.com/files/bonjoursdksetup.exe`
+- Ausführen: `bonjoursdksetup.exe /quiet`
+- Entfernen: `del bonjoursdksetup.exe`
+- Set: `set BONJOUR_SDK_HOME=C:\Program Files\Bonjour SDK`
 
-Und danach installieren Sie den Yahoo-Adapter.
+Und danach den Yahka-Adapter installieren.
 
-## Einige Worte zu HomeKit
-Die Architektur von HomeKit ist wie folgt: <br> Es gibt **Geräte** als logische Einheiten. Jedes Gerät kann mehrere **Dienste** haben und jeder Dienst hat mehrere **Eigenschaften** <br> Am Ende ist ein Merkmal ein Endpunkt, an dem Werte gelesen oder beschrieben werden können. <br> Welche Eigenschaften ein Dienst haben könnte, wird von Apple / HomeKit definiert und vom Diensttyp bestimmt. Die Diensttypen werden auch von Apple / HomeKit definiert.
+## Ein paar Worte zu HomeKit
+Die Architektur von HomeKit ist wie folgt:<br> Es gibt **Geräte** als logische Einheiten. Jedes Gerät kann mehrere **Dienste** haben und jeder Dienst hat mehrere **Eigenschaften**.<br> Am Ende ist ein Merkmal ein Endpunkt, von dem Werte gelesen oder geschrieben werden können.<br> Welche Eigenschaften ein Dienst haben kann, wird von Apple/HomeKit definiert und durch den Diensttyp bestimmt. Die Diensttypen werden ebenfalls von Apple/HomeKit definiert.
 
-Beispiel: <br> Ein Garagentoröffner ist ein Gerät, das zwei Dienste haben kann: <br>
+Beispiel:<br> Ein Garagentoröffner ist ein Gerät, das zwei Dienste haben kann:<br>
 
 1. Garagentoröffner
 2. Licht
 
-Der Garagentoröffner-Service selbst kann verschiedene Merkmale aufweisen, wie z. B. CurrentDoorState, TargetDoorState und viele mehr. <br> Auch der Lichtdienst kann verschiedene Eigenschaften haben, wie: Ein (und viele andere zum Ändern der Lichtfarbe usw.)
+Der Garagentoröffner-Dienst selbst kann verschiedene Eigenschaften haben wie: CurrentDoorState, TargetDoorState und viele mehr.<br> Auch der Lichtdienst kann verschiedene Eigenschaften haben, wie: Ein (und viele andere zum Ändern der Lichtfarbe usw.)
 
-## Was Yahka macht
-Mit Yahka ist es möglich, einen ioBroker-Datenpunkt einem HomeKit-Merkmal zuzuordnen. <br> Da manchmal Zuordnungen erforderlich sind (z. B. unterscheiden sich die &quot;Status&quot; -Werte eines Garagentors zwischen HomeKit und anderen Systemen), besteht auch die Möglichkeit, Funktionen zum Konvertieren der Werte anzugeben. Dies wird unten beschrieben. <br> Um zu viel Verwaltungsarbeit zu vermeiden, befinden sich alle Geräte, die Sie in Yahka erstellen, hinter einer sogenannten &quot;Brücke&quot;. Bei dieser Bridge müssen Sie die Bridge nur mit Ihrem iOS-Gerät koppeln, um Zugriff auf alle Geräte zu erhalten. Andernfalls müssten Sie jedes Yahka-Gerät mit Homekit koppeln.
+## Was Yahka tut
+Mit Yahka ist es möglich, einen ioBroker-Datenpunkt auf ein HomeKit-Merkmal abzubilden.<br> Da manchmal Mappings notwendig sind (z. B. die „State“-Werte eines Garagentors unterscheiden sich zwischen HomeKit und anderen Systemen), gibt es auch die Möglichkeit, Funktionen anzugeben, um die Werte umzuwandeln. Dies wird unten beschrieben.
 
-## Richten Sie die Bridge ein und erstellen Sie Geräte und Dienste
-Jedes Gerät, das mit Homekit gekoppelt werden muss, benötigt einen &quot;Benutzernamen&quot; in Form einer Mac-Adresse. Yahka generiert automatisch einen zufälligen Benutzernamen für jede Yahoo-Instanz. <br> **Wichtig: Wenn Sie den Benutzernamen nach dem Koppeln von Yahka mit HomeKit ändern, müssen Sie alle Geräte in iOS neu konfigurieren (Raumzuweisung, Position usw.). Das Ändern des Benutzernamens bedeutet für iOS, dass es sich um ein komplett neues Gerät handelt!** <br> Neben dem Benutzernamen müssen Sie einen PIN-Code angeben, der auf dem iOS-Gerät eingegeben werden muss. Dies alles kann durch Klicken auf &quot;: yahka.0&quot; im Admin-Bereich von Yahka angegeben werden. (Erweitern Sie das Bedienfeld auf der rechten Seite, nachdem Sie auf den Listeneintrag geklickt haben.) Dort könnte auch der Name der Brücke geändert werden.
+Um zu viel Administrationsaufwand zu vermeiden, befinden sich alle Geräte, die Sie in Yahka erstellen, hinter einer sogenannten „Bridge“. Mit dieser Bridge müssen Sie die Bridge nur mit Ihrem iOS-Gerät koppeln, um Zugriff auf alle Geräte zu erhalten. Andernfalls müssten Sie jedes Yahka-Gerät mit Homekit koppeln.
 
-Nach dem Einrichten der Bridge können Sie die gewünschten Geräte mit der Schaltfläche &quot;Gerät hinzufügen&quot; oben hinzufügen. Sobald ein Gerät hinzugefügt / ausgewählt wurde, können Sie diesem Gerät Dienste hinzufügen. <br> Es ist erforderlich, einen Dienstnamen und einen Diensttyp anzugeben. <br> Je nach Servicetyp ändert sich die Liste der verfügbaren Merkmale <br>
+## Bridge einrichten und Geräte und Dienste erstellen
+Jedes Gerät, das mit Homekit gekoppelt werden soll, benötigt einen "Benutzernamen", der die Form einer Mac-Adresse hat. Yahka generiert automatisch einen zufälligen Benutzernamen für jede Yahka-Instanz.
 
-## Eigenschaften einrichten
-Wenn Sie ein Merkmal unterstützen möchten, müssen Sie das Kontrollkästchen "aktiviert" auf der linken Seite des Merkmals aktivieren.
-Für jedes Merkmal können Sie die folgenden Eigenschaften angeben:
+**Wichtig: Wenn Sie den Benutzernamen ändern, nachdem Sie Yahka mit HomeKit gekoppelt haben, müssen Sie alle Geräte in iOS neu konfigurieren (Raumzuweisung, Position usw.). Das Ändern des Benutzernamens auf iOS bedeutet, dass es sich um ein komplett neues Gerät handelt!**
+
+Neben dem Benutzernamen müssen Sie einen PIN-Code angeben, der auf dem iOS-Gerät eingegeben werden muss.
+Dies alles kann durch Klicken auf ":yahka.0" im Admin-Panel von Yahka angegeben werden. (Erweitern Sie das Panel auf der rechten Seite, nachdem Sie auf den Listeneintrag geklickt haben). Dort könnte auch der Name der Brücke geändert werden.
+
+Nachdem Sie die Bridge eingerichtet haben, können Sie die gewünschten Geräte mit der Schaltfläche "Gerät hinzufügen" oben hinzufügen.
+Sobald ein Gerät hinzugefügt/ausgewählt wurde, können Sie diesem Gerät Dienste hinzufügen.
+
+Es ist notwendig, einen Dienstnamen und einen Diensttyp anzugeben.
+
+Je nach Servicetyp ändert sich die Liste der verfügbaren Merkmale.
+
+## Merkmale einrichten
+Wenn Sie ein Merkmal unterstützen möchten, müssen Sie das Kontrollkästchen "Aktiviert" auf der linken Seite des Merkmals aktivieren.
+Für jedes Merkmal könnten Sie die folgenden Eigenschaften angeben:
 
 - InOutFunction: Sie können eine vordefinierte Funktion angeben, die für die Übergabe der Werte von HomeKit an ioBroker und umgekehrt verantwortlich ist
-- InOutParameter: Hier können Sie Parameter für die ausgewählte InOutFunction angeben. Die verfügbaren / erwarteten Parameter hängen von der ausgewählten Funktion ab. Eine kurze Übersicht über die Funktionen und Parameter finden Sie unten.
-- ConversionFunction: Zusätzlich zur InOutFunction können Sie auch eine Funktion angeben, die einen von HomeKit kommenden Wert in ioBroker konvertiert (und umgekehrt).
-- ConversionParameter: Wie InOutParameter - Die verfügbaren / erwarteten Parameter hängen von der ausgewählten Funktion ab.
+- InOutParameter: Hier können Sie Parameter für die ausgewählte InOutFunction angeben. Die verfügbaren/erwarteten Parameter hängen von der ausgewählten Funktion ab. Nachfolgend finden Sie eine kurze Übersicht über die Funktionen und Parameter.
+- ConversionFunction: zusätzlich zur InOutFunction könnte man auch eine Funktion angeben, die einen von HomeKit kommenden Wert in ioBroker umwandelt (und umgekehrt)
+- ConversionParameter: wie InOutParameter - die verfügbaren/erwarteten Parameter hängen von der ausgewählten Funktion ab.
 
 ## Übersicht der InOut-Funktionen
-| Funktion | Erwarteter Parameter | Beschreibung |
+|Funktion|Erwarteter Parameter|Beschreibung|
 |---|---|---|
 
-| const | Wert | Die const-Funktion übergibt immer den in "InOutParameter" angegebenen Wert an die Konvertierungsfunktion, wenn HomeKit den Wert liest. Wenn HomeKit den Wert schreiben möchte, wird diese Aktion abgelehnt
+|const|Value|Die const-Funktion übergibt immer den in „InOutParameter“ angegebenen Wert an die Conversion-Funktion, wenn HomeKit den Wert liest. Wenn HomeKit den Wert schreiben möchte, wird diese Aktion verweigert
 
-| ioBroker.State | Name eines ioBroker-Datenpunkts | Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Alle Operationen werden sofort ohne Pufferung oder Filterung ausgeführt (Werte werden an die angegebenen Konvertierungsfunktionen übergeben) |
-| ioBroker.State.Defered | Name eines ioBroker-Datenpunkts | Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Schreibvorgänge von HomeKit werden direkt an die Konvertierungsfunktion übergeben. Änderungen von ioBroker werden für 150 ms entprellt. Dies bedeutet, dass der Wert nur an HomeKit übertragen wird, wenn innerhalb von 150 ms keine weitere Änderung erfolgt ist |
-| ioBroker.State.OnlyACK | Name eines ioBroker-Datenpunkts | Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Schreibvorgänge von HomeKit werden direkt an die Konvertierungsfunktion übergeben. Änderungen von ioBroker werden nur an HomeKit weitergeleitet, wenn die "Acknowledged" -Flag des Werts gesetzt ist. Andernfalls wird der zuletzt bestätigte Wert an HomeKit | übertragen |
-| ioBroker.homematic. <br> WindowCovering.TargetPosition | ID des HomeMatic Level-Datenpunkts <br> oder <br> String-Array mit der ID des Level-Datenpunkts und der ID des Arbeitsdatenpunkts | Diese Funktion dient insbesondere zur Steuerung der HomeMatic-Fensterabdeckung. Diese Funktion verzögert die Übertragung von Werten an HomeKit, während sich die Fensterabdeckung bewegt. Dies ist erforderlich, um ein Flackern des Schiebereglers für die Fensterabdeckung in iOS | zu vermeiden |
+|ioBroker.State|Name eines ioBroker-Datenpunkts|Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Alle Operationen werden sofort ohne Pufferung oder Filterung ausgeführt (Werte werden an die angegebenen Konvertierungsfunktionen übergeben)|
+|ioBroker.State.Defered|Name eines ioBroker-Datenpunkts|Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Schreiboperationen von HomeKit werden direkt an die Konvertierungsfunktion übergeben. Änderungen von ioBroker werden für 150ms entprellt – was bedeutet, dass der Wert nur an HomeKit übertragen wird, wenn innerhalb von 150ms keine weitere Änderung aufgetreten ist.|
+|ioBroker.State.OnlyACK|Name eines ioBroker-Datenpunkts|Mit dieser Funktion verwendet der Adapter den angegebenen ioBroker-Datenpunkt für Lese- und Schreibvorgänge. Schreiboperationen von HomeKit werden direkt an die Konvertierungsfunktion übergeben. Änderungen von ioBroker werden nur dann an HomeKit weitergeleitet, wenn das „Acknowledged“-Flag des Wertes gesetzt ist. Andernfalls wird der zuletzt bestätigte Wert an HomeKit| übertragen |
+|ioBroker.homematic.<br> WindowCovering.TargetPosition|Id des HomeMatic-Level-Datenpunkts<br> oder<br> String-Array mit der Id des Füllstandsdatenpunkts und der Id des Arbeitsdatenpunkts|Diese Funktion dient speziell zur Steuerung der HomeMatic Fensterverkleidung. Diese Funktion verzögert die Übertragung von Werten an HomeKit, während sich die Fensterbespannung bewegt. Dies ist notwendig, um ein Flackern des Schiebereglers der Fensterabdeckung in iOS| zu vermeiden |
 
 ## Übersicht der Konvertierungsfunktionen
-| Funktion | Erwarteter Parameter | Beschreibung |
+|Funktion|Erwarteter Parameter|Beschreibung|
 |---|---|---|
 
-| Passthrough | \ <none \> | Der Wert von ioBroker wird ohne Konvertierung an HomeKit übergeben (und umgekehrt).
+|passthrough|\<none\>|Der Wert von ioBroker wird ohne Konvertierung an HomeKit weitergegeben (und umgekehrt)
 
-| HomematicDirectionTo <br> HomekitPositionState | \ <none\> | Diese Funktion ordnet die Richtungsaufzählung der homematischen Fensterabdeckung der PositionState-Aufzählung von HomeKit (und zurück) zu |
-| HomematicControlModeTo <br> HomekitHeathingCoolingState | \ <none\> Diese Funktion ordnet die ControlMode-Aufzählung von Homematic der HeathingCoolingState-Aufzählung von HomeKit (und zurück) zu |
-| scaleInt <br> scaleFloat | ```{ "homekit.min": <number>, "homekit.max": <number>, "iobroker.min": <number>, "iobroker.max": <number> }``` | Diese Funktion ähnelt &quot;level255&quot;, ist jedoch allgemeiner. Es transformiert einen ioBroker-Wert mit einem Bereich von &quot;iobroker.min&quot; (0, wenn weggelassen) zu &quot;iobroker.max&quot; in einen HomeKit-Wert mit einem Wertebereich von &quot;homekit.min&quot; (0, wenn weggelassen) zu &quot;homekit.max&quot;. (und zurück). <br> **Beispiel:** Wenn das Parameterfeld lautet: ```{ "homekit.max": 500, "iobroker.max": 250}``` <br> Der Wert von ioBroker wird tatsächlich mit 2 multipliziert, bevor er an HomeKit gesendet wird. <br> **Die min-Parameter sind nur in Version 0.8.0 und höher verfügbar** |
-| inverse | number | Mit dieser Funktion wird ein Wert von ioBroker &quot;invertiert&quot;. Der Parameter gab das Maximum des Wertes in ioBroker an. Die Formel lautet: ```Parameter - value``` <br> **Beispiel:** Wenn das Parameterfeld ```100``` ist, wird der Wert 100 von ioBroker als 0 an HomeKit gesendet, der Wert 80 wird als 20 an HomeKit usw. gesendet  |
-| hue | \ <none \> | Diese Funktion ist eine spezielle Version von scaleInt mit den Parametern ```iobroker.max=65535``` und ```homekit.max=360```. |
-| hue | \ <none \> | Diese Funktion ist eine spezielle Version von scaleInt mit den Parametern `` `iobroker.max = 65535``` und` `` homekit.max = 360```. |
+|HomematicDirectionTo<br> HomekitPositionState|\<none\> |Diese Funktion bildet das Enum Richtung der Homematic-Fensterabdeckung auf das Enum PositionState des HomeKit (und zurück)| ab |
+|HomematicControlModeTo<br> HomekitHeatingCoolingState|\<none\> |Diese Funktion bildet die ControlMode-Enumeration von Homematic auf die HeathingCoolingState-Enumeration von HomeKit ab (und zurück) |
+|scaleInt<br> scaleFloat|`{ "homekit.min": <number>, "homekit.max": <number>, "iobroker.min": <number>, "iobroker.max": <number> }`|Diese Funktion ist ähnlich wie &quot;level255&quot;, aber sie ist allgemeiner. Es wandelt einen ioBroker-Wert mit einem Bereich von „iobroker.min“ (0 falls weggelassen) bis „iobroker.max“ in einen HomeKit-Wert mit einem Wertebereich von „homekit.min“ (0 falls weggelassen) bis „homekit.max“ um. (und zurück).<br> **Beispiel:** Wenn das Parameterfeld ist: `{ "homekit.max": 500, "iobroker.max": 250}`<br> Der Wert von ioBroker wird tatsächlich mit 2 multipliziert, bevor er an HomeKit gesendet wird.<br> **Die min-Parameter sind erst ab Version 0.8.0 verfügbar**|
+|inverse|number|Diese Funktion wird verwendet, um einen Wert von ioBroker zu &quot;invertieren&quot;. Der Parameter gab das Maximum des Werts in ioBroker an. Die Formel lautet: `Parameter - value`<br> **Beispiel:** Wenn das Parameterfeld `100` ist, wird der Wert 100 von ioBroker als 0 an HomeKit gesendet, der Wert 80 als 20 an HomeKit usw.|
+|hue|\<none\>|Diese Funktion ist eine spezialisierte Version von scaleInt mit den Parametern `iobroker.max=65535` und `homekit.max=360`.|
+|hue|\<none\>|Diese Funktion ist eine spezialisierte Version von scaleInt mit den Parametern `iobroker.max=65535` und `homekit.max=360`.|
 
-## Homematischer Blindantrieb \ Fensterabdeckung
-Zur Integration der homematischen Blindaktuatoren (wie HM-LC-Bl1PBU-FM) sind folgende Einstellungen erforderlich:
+## Homematic Jalousieaktor \ Fensterverkleidung
+Um die Homematic Jalousieaktoren (z. B. HM-LC-Bl1PBU-FM) einzubinden, sind folgende Einstellungen notwendig:
 
 * Fügen Sie einem Gerät einen Dienst hinzu
-* Setzen Sie den Dienstnamen auf einen Namen und den Diensttyp auf "WindowCovering". Der Service-Subtyp kann leer bleiben
+* Setzen Sie den Dienstnamen auf einen Namen und den Diensttyp auf "WindowCovering". Der Dienstuntertyp kann leer gelassen werden
 * Aktivieren und füllen Sie die folgenden Merkmale aus:
 
-| Merkmalname | 1: InOut-Funktion <br> 2: Konvertierungsfunktion | 1: InOut-Parameter <br> 2: Konvertierungsparameter |
+|Eigenschaftsname|1: InOut-Funktion<br> 2: Konvertierungsfunktion|1: InOut-Parameter<br> 2: Konvertierungsparameter|
 |---|---|---|
-| Aktuelle Position 1: ioBroker.State.OnlyACK <br> 2: Passthrough | 1: _ \ <path to homematic object\> _.1.LEVEL <br> 2: \ <empty\> |
-| PositionState | 1: ioBroker.State.OnlyACK <br> 2: HomematicDirectionToHomekitPositionState | 1: _ \ <path to homematic object\> _.1 RICHTUNG <br> 2: \ <empty\> |
-| TargetPosition | 1: ioBroker.homematic.WindowCovering.TargetPosition <br> 2: Passthrough | 1: _ \ <path to homematic object\> _.1.LEVEL <br> 2: \ <empty\> |
+|AktuellePosition| 1: ioBroker.State.OnlyACK<br> 2: Durchgang| 1: _\<path to homematic object\> _.1.LEVEL<br> 2: \<empty\> |
+|PositionZustand | 1: ioBroker.State.OnlyACK<br> 2: HomematicDirectionToHomekitPositionState| 1: _\<path to homematic object\> _.1 RICHTUNG<br> 2: \<empty\> |
+|Zielposition | 1: ioBroker.homematic.WindowCovering.TargetPosition<br> 2: Durchgang| 1: _\<path to homematic object\> _.1.LEVEL<br> 2: \<empty\> |
 
-Der Wert _ \ <Pfad zum homematischen Objekt \> _ muss durch den tatsächlichen Pfad zum Gerät ersetzt werden (z. B. hm-rpc.0.NEQ0012345).
+Der Wert _\<Pfad zum Homematic-Objekt\>_ muss durch den tatsächlichen Pfad zum Gerät ersetzt werden (z. B. hm-rpc.0.NEQ0012345)
 
-Allgemeine Informationen zur Konfigurationsmaske finden Sie unter: TODO <br> Weitere Informationen zur Konfiguration, den InOut-Funktionen und den Konvertierungsfunktionen finden Sie unter: [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/Configuration,-InOut-Functions-and-Conversion-Functions)
+Allgemeine Informationen zur Konfigurationsmaske finden Sie unter: TODO<br> Weitere Informationen zur Konfiguration, den InOut-Funktionen und Konvertierungsfunktionen finden Sie unter: [Wiki](https://github.com/jensweigele/ioBroker.yahka/wiki/Configuration,-InOut-Functions-and-Conversion-Functions)
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
 
 ## Changelog
+
+### 0.17.0 (2022-10-17)
+  Added AVAHI advertiser as default and updated HomeKit Library to improve performance and stability
+  Update release and test scripts
+
+### 0.14.0 (unreleased)
+  (jw) added support to group devices in Admin Interface<br>
+  (jw) added support to mark services as "primary" and as "hidden"<br>
+  (jw) added ioFunctions "round" and "invert"<br>
+  (jw) updated dependencies<br>
+  (jw) Updated to HAP-NodeJS 0.9.2<br>
+  (jw) Fixed crashes due to changes in used HomeKit Library<br>
+  (nh) improved changelog in readme<br>
+
+### 0.13.1 (2021-01-14)
+  (jw) switched to HAP-NodeJS 0.9.0-beta.113 and added useLegacyAdvertiser option<br>
+  (jw) fixed bug which prevented cameras from deletion and duplication<br>
+
+### 0.13.0 (2021-01-08)
+  (jw) updated dependencies<br>
+  (jw) improved state selector (scrolling and refresh on open)<br>
+
+### 0.12.0 (2020-12-23)
+  (jw) updated dependencies<br>
+  (jw) added support for linking services to support Television Services<br> 
+  (jw) added possibility to publish devices without the bridge (necessary for TV service)<br> 
+  (jw) added support for audio stream in camera<br> 
+  (jw) added support for custom characteristics on the services (e.g. to add Wattage characteristic to plugs)<br> 
+  (jw) added support for additonal services to camera (to enable usage of doorbell service)<br> 
+  (many20) fixed scaleInt conversion - results are now rounded<br> 
+  
+### 0.11.0 (2020-02-19)
+  Intermediate release<br>
+
 ### 0.10.0 (2020-02-19)
   (apollon77) updated dependencies, nodejs 12 support<br>
 
 ### 0.10.0
   (jw) updated dependencies<br>
-  (apollon77) removed support for NodeJS 4 - NodeJS 6 is now the minimum required NodeJS version (merged #109)<br>
+  (apollon77) removed support for NodeJS 4 - NodeJS 6 is now the minimum required NodeJS version (merged #109)<br>  
+  (yaming116) fixed scale conversion to support min values others than 0<br>
 
-### 0.9.2
+### 0.9.2 (2019-03-12)
   (jw) fixed a bug where the adapter didn't start anymore<br>
   (jw) removed the reference to the git repository of the hap community types<br>
 
-### 0.9.1
+### 0.9.1 (2019-01-29)
   (jw) fixed a bug where the adapter crashes if a state does not exist<br>
   (jw) added io functions for HomeMatic dimmers ([#30](https://github.com/jensweigele/ioBroker.yahka/issues/30) and [#75](https://github.com/jensweigele/ioBroker.yahka/issues/75))<br>
   (jw) fixed a bug where adapter didn't start anymore when using the conversion function "inverse" ([#98](https://github.com/jensweigele/ioBroker.yahka/issues/98))
   (jw) updated to latest HAP-NodeJS library to support TV services and characteristics (available since iOS 12.2 beta 1)<br>Note: that's still in development, not all services are working correctly. For more information see:  ([#89](https://github.com/jensweigele/ioBroker.yahka/issues/89))<br>
 
-### 0.9.0
+### 0.9.0 (2019-01-24)
   (jw) added more services and characteristics (from https://github.com/homespun/hap-nodejs-community-types)<br>
   (jw) improved admin interface to support individual editors for IO/Conversion functions<br>
   (jw) added new conversion function "script" which adds the ability to run JavaScript functions as conversion functions<br>
@@ -187,29 +242,29 @@ Allgemeine Informationen zur Konfigurationsmaske finden Sie unter: TODO <br> Wei
   (jw) added support for specifiyng device information via datapoints ([#91](https://github.com/jensweigele/ioBroker.yahka/issues/91))<br>
   (SchumyHao) added Chinese support
   
-### 0.8.2
+### 0.8.2 (2018-12-09)
   (jw) Removed a bug which flooded logging when starting/stopping the adapter which led to excessive memory consumption<br>
 
-### 0.8.1
+### 0.8.1 (2018-12-04)
   (jw) updated dependencies<br>
   (jw) change default name of new instances<br>
   (foxriver76) remove excessive logging<br>
   (mdietz666) scaleInt and scaleFloat now supports min-values (this allows mapping from e.g. -90 to 90 to 0 to 180)<br>
   (arichter83) added "Duplicate Device" functionality<br>
 
-### 0.7.1
+### 0.7.1 (2018-02-14)
   (jw) fixed a bug where state selection with admin 2.0.9 did not work anymore<br>
   (jw) restructured repository to support install via url<br>
 
-### 0.7.0 
+### 0.7.0 (2018-02-01)
   (bluefox) Fixed the ID select dialog in Admin3<br>
   (jw) updated hap-nodejs to support the following new services: Faucet, IrrigationSystem and Valve<br>
   (jw) added ip-package to dependencies to avoid errors on some installations<br>
 
-### 0.6.1 
+### 0.6.1 (2018-01-25)
   (jw) fixed startup crash<br>
 
-### 0.6.0
+### 0.6.0 (2018-01-24)
   (jw) add support for IP-Cameras<br>
   (jw) included iOS 11 device definitions<br>
   (jw) allowed negative temperatures for temperature sensors<br>
@@ -218,30 +273,30 @@ Allgemeine Informationen zur Konfigurationsmaske finden Sie unter: TODO <br> Wei
   (jw) added conversion functions scaleInt, scaleFloat and inverse<br>
   (jw) devices are now sorted by name in the admin panel<br>
 
-### 0.5.5
+### 0.5.5 (2017-05-08)
   (bluefox) allow select ID in configuration dialog<br>
 
-### 0.5.4
+### 0.5.4 (2017-02-08)
   (jw) improve logoutput<br>
   (jw) added HomematicControlModeToHomekitHeathingCoolingState mapping<br>
 
-### 0.5.3
+### 0.5.3 (2017-02-08)
   (jw) internal release<br>
 
-### 0.5.2
+### 0.5.2 (2016-12-23)
   (jw) fixed issues with empty characteristic values<br>
   (jw) fixed issue with empty adapter.systemConfig.system object<br>
 
-### 0.5.1
+### 0.5.1 (2016-10-05)
   (jw) fixed issue with wrongly displayed logo<br>
 
-### 0.5.0
+### 0.5.0 (2016-10-05)
   (jw) initial release<br>
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Jens Weigele (iobroker.yahka@gmail.com)
+Copyright (c) 2016-2022 Jens Weigele (iobroker.yahka@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

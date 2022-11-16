@@ -1,6 +1,7 @@
 ---
-title:       "Installation"
+title:       "ioBroker"
 lastChanged: "13.09.2018"
+template:    true
 ---
 
 # Updaten des ioBroker js-Controllers

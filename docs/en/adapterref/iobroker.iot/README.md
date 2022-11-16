@@ -185,10 +185,14 @@ The adapter will provide the details in two states with different detail level
 * **smart.lastCommand** contains the received text including an info on type of query (intent). Example: "askDevice Status Rasenmäher"
 * **smart.lastCommandObj*** contains an JSON string that can be parsed to an object containing the following information
   * **words** contains the received words in an array
-  * **intent** contains the type of query. Possible values currently are "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+  * **intent** contains the type of query. Possible values currently are:
+    * v1 Skill: "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+    * v2 Skill: "queryIntent" when full said text was captured, "controlDevice" for fallback with only partial text
   * **deviceId** contains a deviceId identifying the device the request was sent to, delivered by Amazon, will be empty string if not provided
+  * **deviceRoom** contains a mapped room identifier you can configure in iot admin UI for collected deviceIds
   * **sessionId** contains a sessionId of the Skill session, should be the same if multiple commands were spoken, delivered by Amazon, will be empty string if not provided
   * **userId** contains a userId from the device owner (or maybe later the user that was interacting with the skill), delivered by Amazon, will be empty string if not provided
+  * **userName** contains a mapped username you can configure in iot admin UI for collected userIds
 
  More details on how the words are detected and what type of queries the Alexa Custom Skill differentiates please check https://forum.iobroker.net/viewtopic.php?f=37&t=17452 .
 
@@ -199,10 +203,11 @@ If it is a text string then this text will be sent as response to the skill.
 if the text is a JSON object then the following keys can be used:
 * **responseText** needs to contain the text to return to Amazon
 * **shouldEndSession** is a boolean and controls if the session will be closed after the response was spoken or stays open to accept another voice input.
+* **sessionId** needs to contain the sessionId the response is meaned for. Ideally provide it to allow concurrent sessions. If not provided the first session that expects a response is assumed.
 
 **Return result via the message to iot instance**
 
-The iot instance also accepts a message with the name "alexaCustomResponse" containing the key "response" with an object that can contain the keys **responseText** and **shouldEndSession** as described above.
+The iot instance also accepts a message with the name "alexaCustomResponse" containing the key "response" with an object that can contain the keys **responseText** and **shouldEndSession** and **sessionId** as described above.
 There will be no response from the iot instance to the message!
 
 **Example of a script that uses texts**
@@ -222,14 +227,15 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
     const request = JSON.parse(obj.state.val);
     const response = {
         'responseText': 'Received phrase is: ' + request.words.join(' ') + '. Bye',
-        'shouldEndSession': true
+        'shouldEndSession': true,
+        'sessionId': request.sessionId
     };
 
     // Return response via state
     setState('iot.0.smart.lastResponse', JSON.stringify(response)); // important, that ack=false (default)
 
     // or alternatively return as message
-    sendTo('iot.0', response);
+    sendTo('iot.0', 'alexaCustomResponse', response);
 });
 ```
 
@@ -263,6 +269,35 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.12.5 (2022-11-09)
+* (bluefox) Small changes on configuration GUI
+
+### 1.12.4 (2022-11-03)
+* (bluefox) Added ukrainian language
+* (bluefox) Corrected blockly for unknown languages
+
+### 1.12.2 (2022-10-01)
+* (Apollon77) Fix crash case
+
+### 1.12.1 (2022-09-27)
+* (bluefox) Corrected error in GUI with empty password
+
+### 1.12.0 (2022-09-27)
+* (Apollon77) Do not control saturation with a percentage request via alexa
+* (bluefox) Migrated GUI to v5
+
+### 1.11.9 (2022-07-22)
+* (Apollon77) Fix temperature controlling for thermostats via alexa
+
+### 1.11.8 (2022-06-24)
+* (Apollon77) Update dependencies to allow better automatic rebuild
+
+### 1.11.7 (2022-06-13)
+* (bluefox) Tried to correct URL key creation for Google home
+
+### 1.11.5 (2022-06-03)
+* (kirovilya) Alisa: update for binary-sensor "motion" and "contact"
+
 ### 1.11.4 (2022-03-29)
 * (Apollon77) Fix crash cases reported by Sentry
 

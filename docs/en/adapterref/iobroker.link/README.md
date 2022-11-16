@@ -19,7 +19,7 @@ While you can configure a port forwarding on your router and so access your loca
 - no public IP or (dynamic)DNS name required for your local ioBroker installation
 - link-cloud takes care about authentication and authorization
 - link-cloud secures a connection using SSL/TLS
-- link-cloud provides an audit log 
+- link-cloud provides an audit log
 - multiple local ioBroker installations can be accessed through the same UI of the link-cloud server
 - `ioBroker.link` adapter acts as a reverse proxy and allows accessing other server/devices in your local network that support HTTP/TCP/UDP protocols
 - your can grant a temporary or permanent access to your local ioBroker installation to a 3<sup>rd</sup> person, e.g. to troubleshoot device outages, without a need to reveal your password or manage credentials
@@ -102,7 +102,7 @@ This is the domain name of the link-cloud. This setting is preconfigured with ht
 If your ioBroker installation is behind a proxy your can configure the proxy server here. Proxy can be defined here as: *http://proxy:8080* or via **HTTPS_PROXY** environment variable.
 
 ### Poll interval (sec)
-Defines how often your adapter polls the link-cloud for pending connection requests. 
+Defines how often your adapter polls the link-cloud for pending connection requests.
 Recommended setting: 10
 
 ### Allowed users
@@ -156,7 +156,14 @@ _http://192.168.0.178:8000/tmpfs/snap.jpg?usr=admin&pwd=admin_
 
 Instead, provided them when prompted while establishing a connection.
 
+<!--
+	### **WORK IN PROGRESS**
+-->
+
 ## Changelog
+### 0.5.12 (2022-10-27)
+* (bluefox) Added warning if UUID is not unique
+
 ### 0.5.11 (2020-12-09)
 * (bluefox) Fixed the type of `info.connection` state
 
@@ -198,7 +205,7 @@ Instead, provided them when prompted while establishing a connection.
 ## License
 Creative Common Attribution-NonCommercial (CC BY-NC)
 
-Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>, gh-got
+Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>, gh-got
 
 http://creativecommons.org/licenses/by-nc/4.0/
 

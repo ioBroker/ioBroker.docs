@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.simple-api/README.md
 title: Einfache API
-hash: KHMKCkjJMIOmciVHYLuvKvAOvWDn4njxymeiS8gYFQM=
+hash: B7EURS7YZmfmC18HdaJukWQ+PiJU+wjy1ykIjavUi0U=
 ---
 ![Logo](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -28,7 +28,7 @@ Rufen Sie im Browser `http://ipaddress:8087/help` auf, um die Hilfe zur API zu e
   "get": "http://ipaddress:8087/get/stateID/?prettyPrint",
   "getBulk": "http://ipaddress:8087/getBulk/stateID1,stateID2/?prettyPrint",
   "set": "http://ipaddress:8087/set/stateID?value=1&prettyPrint",
-  "toggle": "http://ipaddress:8087/toggle/stateID&prettyPrint",
+  "toggle": "http://ipaddress:8087/toggle/stateID?prettyPrint",
   "setBulk": "http://ipaddress:8087/setBulk?stateID1=0.7&stateID2=0&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&type=adapter&prettyPrint",
@@ -74,7 +74,7 @@ Und ohne `noStringify` Flag wäre das Ergebnis
 
 `"VALUETEXT"`
 
-### Werden
+### Erhalten
 Aufruf z.B.: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Ergebnis:
@@ -184,11 +184,11 @@ Wenn die Option 'Alle Datenpunkte auflisten' aktiviert oder keine Datenquelle an
 Dieser Befehl wird für das Grafana JSON / SimpleJSON Plugin benötigt.
 
 ### Anfrage
-Wenn in der Instanzkonfiguration eine Datenquelle (Historie, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen, ansonsten wird nur der aktuelle Wert ausgelesen.
+Wenn in der Instanzkonfiguration eine Datenquelle (History, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen, ansonsten wird nur der aktuelle Wert ausgelesen.
 Dieser Befehl wird für das Grafana JSON / SimpleJSON Plugin benötigt.
 
 ### Hilfe
-Gibt [diese](#usage) Ausgabe zurück
+Gibt [Dies](#usage) Ausgabe zurück
 
 ## Installieren
 ```node iobroker.js add simple-api```
@@ -218,7 +218,7 @@ Zustandswert als Text lesen. Sie können weitere IDs durch Semikolon getrennt an
   17.52
 ```
 
-### Werden
+### Erhalten
 Zustands- und Objektdaten des Zustands als json lesen. Sie können weitere IDs durch Semikolon getrennt angeben.
 Wenn mehr als eine ID angefordert wird, wird das JSON-Array zurückgegeben.
 
@@ -539,7 +539,7 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
 ```
 
 ### Anfrage
-Wenn eine Datenquelle (History, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen.
+Wenn eine Datenquelle (Historie, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen.
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
 
@@ -614,6 +614,17 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, dann 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.7.2 (2022-10-08)
+* (Apollon77) Prepare for future js-controller versions
+
+### 2.7.1 (2022-08-29)
+* (bluefox) Check if the port is occupied only on defined interface
+* (bluefox) Added JSON config
+
+### 2.7.0 (2022-05-31)
+* (crycode-de) Allow use of ack flag for setBulk post requests
+* (Apollon77) Return ack flag too on getBulk
+
 ### 2.6.5 (2022-04-14)
 * Added support aggregate and count for queries
 
@@ -621,7 +632,7 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, dann 
 * (Apollon77) Optimize performance, especially when using names instead of object ids
 
 ### 2.6.3 (2022-02-19)
-* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Optimize error message for multi-language objects
 * (Apollon77) Do not overwrite state properties by object properties
 
 ### 2.6.2 (2021-11-12)
@@ -718,7 +729,7 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, dann 
 * (bluefox) new web server plugin support
 
 ### 1.3.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.2.0 (2016-08-27)
 * (bluefox) support of letsencrypt certificates

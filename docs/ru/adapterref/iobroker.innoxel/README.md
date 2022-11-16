@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: zylei5wGtI1BkOrVUAkm/O7G4yKwgTd+32tp5Z2XmEk=
+hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -22,11 +22,11 @@ hash: zylei5wGtI1BkOrVUAkm/O7G4yKwgTd+32tp5Z2XmEk=
 ![Тестируйте и выпускайте](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ## Требования
-- NodeJS >= 12.x
-- ioBroker >= 3.x, с администратором >= 5.x
+- NodeJS >= 14.x
+- ioBroker >= 4.x, с администратором >= 5.x
 - Система «Умный дом» Innoxel Master 3
 
-## Установка
+## Монтаж
 Пока адаптер не является частью последнего или стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm или github.
 
 После установки создайте новый экземпляр и настройте параметры:
@@ -39,11 +39,11 @@ hash: zylei5wGtI1BkOrVUAkm/O7G4yKwgTd+32tp5Z2XmEk=
 - Интервалы опроса для разных областей
     - изменения состояния (например, переключатели, диммер)
     - комнатный климат/термостаты
-    -   Погода
+    -   погода
     - сведения об основном устройстве innoxel
 
 ## Поддерживаемые модули и прошивки
-Предрелизная версия этого адаптера работает более 2 лет с прошивкой 1.4.1.0, а затем 1.5.1.0.
+Предрелизная версия этого адаптера работает более 2-х лет с прошивкой 1.4.1.0, а затем 1.5.1.0.
 
 Эта первоначально выпущенная версия была протестирована с прошивкой 1.6.0.0.
 
@@ -77,7 +77,7 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 
 - <code>moduleId</code> - это id/адрес &quot;дегустатора&quot;
 - <code>channelId</code> - это индекс кнопки на &quot;Дегустаторе&quot;
-- <code>callback</code> (необязательно) функция обратного вызова для вызова, когда действие было выполнено
+- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
 
 ### SetDimValue
 Имитация нажатия кнопки на "Дегустаторе".
@@ -96,7 +96,7 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 - <code>channelId</code> - канал диммера на модуле
 - <code>dimValue</code> - значение в процентах для установки (0-100)
 - <code>dimSpeed</code> (опционально) - используемая скорость затемнения (0-15)
-- <code>callback</code> (необязательно) функция обратного вызова для вызова, когда действие было выполнено
+- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
 
 ## Changelog
 
@@ -104,6 +104,22 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2022-09-28)
+
+-   (matthsc) drop support for Node 12 and js-controller 3
+-   (matthsc) implement migrations from create-adapter
+-   (matthsc) dependency updates
+
+### 0.1.5 (2022-02-12)
+
+-   (matthsc) don't always terminate adapter on errors while updating identities
+-   (matthsc) improve error messages
+
+### 0.1.4 (2022-01-25)
+
+-   (matthsc) fix double decryption issues with password in adapter admin
+-   (matthsc) change input field types in adapter admin
+
 ### 0.1.3 (2022-01-16)
 
 -   (matthsc) improve error messages

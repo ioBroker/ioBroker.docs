@@ -1,5 +1,5 @@
 ---
-title:       "Update eines Adapters"
+title:       "Adapter updaten"
 lastChanged: "16.07.2019"
 ---
 

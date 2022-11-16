@@ -1,51 +1,58 @@
 ---
-title: 可视化
-lastChanged: 11.08.2019
+title: 可见光
+lastChanged: 04.11.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/viz/vis.md
-hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
+hash: bHKz1FZTHJ9k0VsfJURfpT2ieu6OgiaSp0zp2Vrwj24=
 ---
-# 使用 VIS 进行可视化
-＃＃ 作为基本规则
-@@@ VIS 是一个强大的应用程序，值得详细的指南和教程。尚未确定本手册将以何种形式以及在何处提供。
-@@@
+?> ***此页面目前正在修改中。***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)，以便更容易地采用更改。
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#konfiguration)
+**使用 VIS 进行可视化**
+
+VIS 是 ioBroker 的主要可视化工具，为智能家居的可视化提供了广泛的选项。
+
 ＃＃ 配置
-不需要配置适配器。只能有一个 VIS 实例。
+VIS需要WEB适配器，安装VIS时会自动安装。除了输入许可证外，无需进一步配置，可从 https://iobroker.net/ 获取。此许可证免费供私人使用。<br>只能有一个 VIS 实例。
 
-* * *
+＃＃ 服务
+安装后，通过 `<IPdesServers>:8082/vis/index.html` 或通过管理适配器的 Instances 选项卡中的超链接调用适配器并显示可视化。
 
-## [](https://github.com/ioBroker/ioBroker/wiki/ioBroker-Adapter-vis#bedienung)操作
-通过`<IPdesServers>:8082/vis/index.html`调用适配器并显示可视化。
+演示视图在第一次调用时会自动创建。
+
 一个项目中有几个视图。
-每个视图上可以自由放置几个widget，用于显示或操作。
-要创建和配置可视化，您必须加载 **Editor**。
-通过 `<IPdesServers>:8082/vis/edit.html` 或通过管理适配器的 Instances 选项卡中的超链接调用编辑器。
+每个视图上可以自由放置几个widget，用于显示或操作。可视化是使用编辑器创建和配置的。
+编辑器通过`<IPdesServers>:8082/vis/edit.html`调用。
 使用关闭窗口图标（右上角的 (x)）关闭编辑器后，最后编辑的视图将显示在功能视图中。
 这可以随时通过`<IPdesServers>:8082/vis/index.html#ViewName`调用。编辑器分为不同的区域。
-![概述](../../de/viz/media/vis_ioBroker_vis_Editor_002-300x165.jpg)
+
+![](../../de/viz/media/vis_ioBroker_vis_Editor_002-300x165.jpg)
 
 * * *
 
 ##页眉区域的选项卡（一）
 ### 观看次数
 如果选择此选项卡，您可以从下面的下拉菜单中的现有视图中选择要编辑的视图。
-![iobroker_vis_Editor_Views_Header](../../de/viz/media/iobroker_vis_Editor_Views_Header.jpg) 右侧的四个图标是不言自明的，指的是视图。
+![](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg)
+
+右侧的四个图标是不言自明的，是指视图。
 单击工作区后，Properties 侧栏中的视图将更改为右侧的 Views 选项卡，并显示视图的设置。
 
 ### 小部件
-如果小部件选项卡被激活，则底层工具栏会发生变化。![iobroker_vis_Editor_Widgets_Header](../../de/viz/media/iobroker_vis_Editor_Widgets_Header.jpg) 显示用于编辑小部件的工具。
+如果小部件选项卡被激活，则底层工具栏会更改![](../../de/viz/media/iobroker_vis_Editor_Views_Header.jpg)
+
+显示用于编辑小部件的工具。
 
 ＃＃＃＃ 下拉菜单
 您可以在此处选择要编辑的小部件，或在此处显示选定的小部件。
 
 #### 图标栏
-选择小部件时，删除、复制和信息的三个图标变为活动状态。
+选择小部件时，删除、复制和信息的三个图标将变为活动状态。
 
 #### 对齐小部件
-![](../../de/viz/media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG) 如果您在按下鼠标按钮（或按住 Ctrl 单击）的情况下选择多个小部件，则可以使用这些图标来对齐组（左对齐、右对齐、上对齐、下对齐、居中，在中间垂直对齐）。
+![](../../de/viz/media/iobroker_vis_Editor_Widgets_Ausrichten_Header.JPG)
+
+如果您在按下鼠标按钮（或按住 Ctrl 单击）的情况下选择多个小部件，则可以使用这些图标来对齐组（左对齐、右对齐、上对齐、下对齐、居中、垂直对齐）中间）。
 您还可以以相同的距离（水平和垂直）定位多个小部件，并使用最后两个图标调整几个小部件的大小。
 如果您选择一个小部件，右侧属性侧栏中的视图将更改为小部件选项卡并显示此小部件的设置。
 通过可能的多项选择，您可以通过右侧边栏同时更改多个小部件的属性。
@@ -59,24 +66,22 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 
 #### 导入小部件
 相反，例如，您可以在此处导入不包含在 vis 范围内的小部件。
-单击小部件后，属性侧栏中的视图将更改为右侧的小部件选项卡并显示所选小部件的设置。
+单击小部件后，属性侧栏中的视图将更改为右侧的小部件选项卡，并显示所选小部件的设置。
 
 ＃＃＃工具
-如果激活了“工具”选项卡，则底层工具栏会更改
+如果激活了“工具”选项卡，则底层工具栏会更改![](../../de/viz/media/iobroker_vis_Editor_Tools_Header.JPG)
 
 ＃＃＃＃ 解析度
-此处显示了来自移动设备的许多预设屏幕分辨率，但“用户定义”项目还提供了进行自己设置的选项。
+此处显示了来自移动设备的许多预设屏幕分辨率，但也有一个“用户定义”项目，可提供您自己设置的选项。
 如果您在此处选择某些内容，则会在与所选屏幕分辨率相对应的工作区上绘制一个框架。
 
 ＃＃＃＃默认
-如果选中_default_，则活动的[意见](http://www.iobroker.net/?page_id=1193&lang=de)将成为默认视图并在 VIS 视图（参见[项目](http://www.iobroker.net/?page_id=188&lang=de&preview_id=188&preview_nonce=d845a20ee2&preview=true#Projekt)）以上面设置的分辨率加载时加载。
-**示例：** _iPad Portrait_ 显示被选中，_Default_ 框在_Start_ 视图中被选中。
-假设从 iPad 上的项目加载了名为 _Weather_ 的横向格式视图。
-如果 iPad 现在旋转为纵向格式，则会自动显示先前设置为此分辨率（纵向格式）的标准 (_default_) 的 _Start_ 视图。
-使用相应的移动设备，可以通过移动进行控制（例如“返回主菜单”或_up_显示与_across_不同的视图）。
+如果 _default_ 被选中，如果 VIS 视图以上面设置的分辨率加载，则活动视图将成为默认视图并加载。
+**示例：** _iPad Portrait_ 显示被选中，_Default_ 框在_Start_ 视图中被选中。假设从 iPad 上的项目加载了名为 _Weather_ 的横向格式视图。如果 iPad 现在旋转为纵向格式，则会自动显示先前设置为此分辨率（纵向格式）的标准 (_default_) 的 _Start_ 视图。
+使用相应的移动设备，可以通过移动进行控制（例如“返回主菜单”或 _up_ 显示与 _across_ 不同的视图）。
 
 ＃＃＃＃ 网格
-这里有 _inactive_、_elements_ 和 _grid_ 选项。如果您选择元素，当您用鼠标移动它们时，小部件会捕捉到相邻的元素。使用网格，您可以指定小部件随后捕捉的网格大小（以 px 为单位）。
+这里有 _inactive_、_elements_ 和 _grid_ 选项。如果您选择元素，小部件会在使用鼠标移动时捕捉到相邻元素。使用网格，您可以指定小部件随后捕捉的网格大小（以 px 为单位）。
 
 #### 实例 ID
 此处显示一个唯一 ID，例如，可以使用 VIS [控制命令](https://github.com/iobroker/ioBroker.vis/blob/master/README.md#control-interface) 的脚本对其进行寻址。
@@ -96,7 +101,7 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 ＃＃＃＃ 主题
 在这里，您可以为编辑器选择配色方案。
 
-＃＃＃＃ 语言
+＃＃＃＃ 语
 可以指定编辑器的操作语言
 
 ####项目
@@ -111,7 +116,7 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 ＃＃＃＃ 新项目...
 可以在这里创建一个新项目。
 将打开一个窗口并提示您输入项目名称。
-确认后，编辑器将新项目加载到这个地址：`<IPdesServers>:8082/vis/_projektname_/index.html#ViewName.`新项目的文件位于`_ioBroker-Ordner_/iobroker-data/files/vis.0/projektname`下的ioBroker安装中。
+确认后，编辑器在此地址加载新项目：`<IPdesServers>:8082/vis/_projektname_/index.html#ViewName.`新项目的文件位于`_ioBroker-Ordner_/iobroker-data/files/vis.0/projektname`下的ioBroker安装中。
 **提示**：您可以复制项目文件夹并在 VIS 编辑器`<IPdesServers>:8082/vis/_projektname_duplikat_/index.html`中编辑副本。
 
 ＃＃＃＃ 应用
@@ -120,7 +125,7 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 因此，属于一起的视图可以组合在不同的项目中。
 例如，根据具有不同屏幕分辨率的终端设备进行区分是有意义的。
 您可以创建一个 _Smartphone_ 项目并在其中创建针对触摸操作和垂直对齐进行了优化的视图。
-通过故意减少小部件的数量，该项目的数据量仍然很小，因此可以在旅途中快速加载（例如通过 VPN 和移动通信）。
+通过故意减少小部件的数量，该项目的数据量仍然很小，因此在移动时（例如通过 VPN 和移动通信）可以快速加载。
 另一个项目_Wandtablet_，它只显示在墙上的平板电脑上，不需要从_Smartphone_项目加载任何视图。
 用于显示所有数据的主项目_main_ 通常只在桌面 PC 上显示和编辑。
 数据量和计算速度通常在这里不起作用。
@@ -135,10 +140,10 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 该行为类似于任何文件管理器。
 使用蓝色按钮“向左箭头”，您可以通过单击文件夹进入更高的层级。
 可以使用“文件夹+”图标创建一个新文件夹。
-如果您已到达所需目录，则选择一个文件，您可以使用蓝色箭头将其下载到计算机，如果单击绿色箭头，“Dropbox”将打开。
+如果您已到达所需的目录，则选择一个文件，您可以使用蓝色箭头将其下载到计算机，如果单击绿色箭头，“Dropbox”将打开。
 ![](../../de/viz/media/iobroker_vis_Editor_Setup_Dateimanager_Dropbox.JPG)文件可以简单地通过拖放存储在这里，然后通过点击_**上传**_按钮上传到ioBroker服务器。
 或者，您可以单击该区域中的任意位置，然后将打开一个文件选择。
-文件列表为空，如果不再上传文件，您可以通过 **_Close_** 按钮退出 Dropbox。
+文件列表为空，如果不再上传文件，请通过 **_Close_** 按钮退出 Dropbox。
 
 #### 设置... (7)
 ![](../../de/viz/media/iobroker_vis_Editor_Setup_Projekteinstellungen.JPG)
@@ -158,7 +163,7 @@ hash: GHMqbbd3x/yXwiPg/uiT8l3+L/uxrKCSdSop/M5zni8=
 
 * _**从 RAM 中删除非活动视图：**_ 释放前端宝贵的工作内存，
 
-通常只有 1GB，尤其是在便宜的平板电脑上，可以从 RAM 中删除长时间不需要的视图。
+通常只有 1GB，尤其是在廉价平板电脑上，可以从 RAM 中删除长时间不需要的视图。
 但是，如果再次加载相应的视图，这将花费更长的时间。
 此选项设置未使用的视图保存在 RAM 中的时间。
 
@@ -178,7 +183,9 @@ _快捷方式_下有关键命令的概述，_关于项目_下有简要信息。
 ## 小部件侧边栏 (2)
 它用于选择小部件。
 小部件显示为图标，可以拖放到工作区，或使用 _Insert_ 按钮定位在工作区的位置 0,0。
-![iobroker_vis_Editor_Widgets_sidebar](../../de/viz/media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg) _Insert_ 按钮下方的字段是过滤字段。
+![](../../de/viz/media/vis_iobroker_vis_Editor_Widgets_sidebar.jpg)
+
+_Insert_ 按钮下方的字段是筛选字段。
 在这里，您可以输入一个术语来搜索它的图标。
 显示包含该术语的所有图标。
 如果您删除最后一个过滤器（或 \*），您将获得一个包含可能搜索词的下拉列表。

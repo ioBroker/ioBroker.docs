@@ -1,12 +1,6 @@
 ---
-title:       "Logik"
+title:       "Blockly"
 lastChanged: "13.09.2018"
 ---
 
-# Blockly
-
-?> ***Dies ist ein Platzhalter***.
-   <br><br>
-   Hilf mit bei ioBroker und erweitere diesen Artikel.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
-   damit die Änderungen einfacher übernommen werden können.
+[Blockly-Doku](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/de/blockly.md)

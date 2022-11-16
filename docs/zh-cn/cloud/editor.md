@@ -1,7 +1,8 @@
 ---
-title: 云
+title: 编辑
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/cloud/editor.md
+template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 hash: zQ1W6HNAPzJwsYYLn7pnVygh4tleH7DRBhfbc1v/Rak=

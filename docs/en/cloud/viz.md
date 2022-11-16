@@ -1,7 +1,8 @@
 ---
-title: cloud
+title: visualizations
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/viz.md
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 hash: F3do6Sn95ns1JzdGXk+XozHZy8DHaHKz26C+Gim0G9M=

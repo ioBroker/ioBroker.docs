@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parcel/README.md
 title: ioBroker.parcel
-hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
+hash: Nm4SayAjwi1Nrr7/Oq+EaX3AhMCqe3GFN8bzvbgp3/E=
 ---
 ![标识](../../../en/adapterref/iobroker.parcel/admin/parcel.png)
 
@@ -23,14 +23,14 @@ hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 ## 登录
 **DHL:**
 
-* DHL 应用程序登录 eingeben
-* 短信/电子邮件代码 erhalten
-* In die Instanzeinstellungen eingeben und speichern
+- DHL 应用程序登录 eingeben
+- 短信/电子邮件代码 erhalten
+- In die Instanzeinstellungen eingeben und speichern
 
 **亚马逊：**
 
-* 登录 eingeben
-* Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben。
+- 登录eingeben
+- Wenn nötig vorab ein OTP token aus der 2FA App vor dem ersten Login eingeben。
 
 **DPD、GLS、UPS、17Track 用户：**
 
@@ -40,7 +40,7 @@ hash: 7cvQOyLX+zcsJH5PADrSXGdkIjUUz0EpuPHPuEHFYD4=
 
 In den Instanz Einstellung aktivieren und z.B.电报.0 eingeben
 
-##可见##
+## 可见
 **Sendungen 饰演 Vis Table darstellen**
 
 Datenpunkte alle Sendungen: parcel.0.allProviderJson
@@ -60,9 +60,17 @@ Den Datenpunkt parcel.0.dhl.briefe....图像 ein "String img src" element als Ob
 
 ## Changelog
 
+### 0.0.19
+
+- Fix GLS Parcel
+
+### 0.0.18
+
+- Fix UPS/GLS Login
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

@@ -47,6 +47,7 @@ The following objects are currently implemented:
 |{zone}.act_vol_mode_list|text|-|actual volume in dB modes|
 |{zone}.input|text|x|inputs depending on device|
 |{zone}.input_list|text|-|possible inputs|
+|{zone}.input_text|text|-|selected input as text|
 |{zone}.sound_program|text|x|set sound program|
 |{zone}.sound_program_list|text|-|possible sound programs|
 |{zone}.surr_decoder_type|text|?|set surround type|
@@ -70,6 +71,14 @@ The following objects are currently implemented:
 |{zone}.enhancer|boolean|x|set enhancer|
 |{zone}.bass_extension|boolean|x|set bass extension|
 |{zone}.sleep|value|x|sleep timer|
+
+|{zone}.disable_flags|boolean|x|set disable_flags|
+|{zone}.contents_display|boolean|x|set contents_display|
+|{zone}.party_enable|boolean|x|set party_enable|
+|{zone}.extra_bass|boolean|x|set extra_bass|
+|{zone}.adaptive_drc|boolean|x|set adaptive_drc|
+|{zone}.dts_dialogue_control|value|x|set dts_dialogue_control|
+|{zone}.adaptive_dsp_level|boolean|x|set adaptive_dsp_level|
 
 ### netusb
 |Object|Value|settable|Description|
@@ -97,7 +106,8 @@ The following objects are currently implemented:
 |netusb.preset_info|json|-|saved presets/favourites|
 |netusb.presetrecallnumber|value|x|recall the # in the favourite list|
 |netusb.usb_devicetype|text|-|type of connected USB device|
-|netusb.attribute|value|-|which possibiolites has the service, to be decoded|
+|netusb.attribute|value|-|which possibilites has the service, to be decoded|
+|netusb.recallRecentItem|value|x|which possibiolites has the service, to be decoded|
 
 ### system
 |Object|Value|settable|Description|
@@ -200,7 +210,32 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
-### 1.0.01
+### 1.0.8
+* error correction add_to_group/remove_from_group
+
+### 1.0.7
+* error correction in link/unlink/distribution
+
+### 1.0.6
+* (scrounger) recallRecentItem added
+
+#### 1.0.5
+* usage of new IOB test library
+
+#### 1.0.4
+* correction for setting the input ("setInput")
+
+#### 1.0.3
+* new datapoint "extra_bass"
+* new datapoint "adaptive_drc"
+* new datapoint "dts_dialogue_control"
+* new datapoint "adaptive_dsp_level"
+* these are only read in, most likely they are commands, but the API is unknown
+
+#### 1.0.2
+* new datapoint "input_text"
+
+#### 1.0.1
 * changed algorithm for developer support 
 
 ## 1.0.0 BREAKING CHANGES

@@ -14,7 +14,7 @@ This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
 
 ## Using this adapter
 
-1. You need a Nibe heat pump - bye one if you don't have ;-)
+1. You need a Nibe heat pump - buy one if you don't have ;-)
 2. You need an account at Nibe Uplink: https://www.nibeuplink.com/
 3. After logging in you have an URL in this form: https://www.nibeuplink.com/System/XXXXX/Status/Overview
 4. Instead of XXXXX there is a number. This is your System ID. We need this ID.
@@ -48,14 +48,21 @@ You can read other values but I think you can't write other values. Other values
 https://github.com/sebilm/ioBroker.nibeuplink/blob/master/nibe-fetcher.js#L41
 
 ## Changelog
+### 1.2.1 (2022-10-03)
+- Fix getting data directory
 
-### 1.1.1 - 2022-04-02:
+### 1.2.0 (2022-10-02)
+- Requires js-controller >= 3.3.22 and admin >= 5.0.0
+- Update some files from up-to-date adapter creator
+- Bump dependencies
+
+### 1.1.1 - 2022-04-02
 - Fix write support (does not send zero) #6 #128
 - Bump dependencies
 
-### 1.1.0 - 2022-02-06:
+### 1.1.0 - 2022-02-06
 
-- Switch to TypeSctipt
+- Switch to TypeScript
 - Use axios instead of wreck
 
 ### 1.0.1 - 2021-12-31

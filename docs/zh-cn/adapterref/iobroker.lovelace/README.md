@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: W0fmYpVw3g+J7EmmUo9mCAdjbGAHGZhMXls7g27bYcQ=
+hash: pGj5S8Xe7mVY7Xlaq+RDr/n57LPM2/bvOeTbyhPmAm8=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -28,7 +28,7 @@ hash: W0fmYpVw3g+J7EmmUo9mCAdjbGAHGZhMXls7g27bYcQ=
 ＃＃＃ 汽车
 在自动模式下，类似的过程将适用于`google home`或`material adapter`。
 
-***只有定义了`function`和`room`类别的物体和频道才会被检测到***
+***只有定义了`function`和`room`类别的对象和频道才会被检测到***
 
 您可以定义友好名称，这将在实体中使用。
 
@@ -77,7 +77,7 @@ createState(
 
 ### 数字输入
 如果选择自定义对话框中的 input_number 实体类型，则可以手动完成此操作。
-这种类型需要`min`和`common`中的`max`值，并且可以添加可选的`step`。
+这种类型需要`min`和`common`中的§§SSSSS_0§§和`max`值，并且可以添加可选的`step`。
 如果要查看向上和向下箭头，应在自定义`mode`中设置为“数字”：
 
 ```
@@ -210,7 +210,7 @@ createState(
 为支持 accuweather 预报而创建的自定义 Lovelace 卡 - https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ＃＃＃ 购物清单
-购物清单以以下形式写入值：
+购物清单以下列形式写入值：
 
 ```
 [
@@ -437,40 +437,43 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用版 home-assistant-frontend@20201021.4
+home-assistant-frontend@20220707.0 使用版
 
 ###如何构建新的Lovelace版本
 首先，实际的 https://github.com/home-assistant/frontend（开发分支）必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git（* **iob*** 分支！）。
 
 ioBroker 的所有更改都标有注释`// IoB`。
-目前 (20201021.4) 以下文件已修改：
+目前 (20221027.0) 以下文件已修改：
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务
 - `build-scripts/gulp/webpack.js` - 添加新的 gulp 任务
 - `src/data/lovelace.ts` - 添加隐藏工具栏选项
 - `src/data/weather.ts` - 添加支持以从 url 显示天气图标。
-- `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮并删除天气状态和历史
+- `src/dialogs/more-info/const.ts` - 删除天气状态和历史
+- `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
+- `src/dialogs/more-info/ha-more-info-history.ts` - 删除历史中的“显示更多”链接
 - `src/dialogs/more-info/controls/more-info-climate.ts` - 打印不支持模式的模式名称
 - `src/dialogs/more-info/controls/more-info-weather.ts` - 添加支持以从 url 显示天气图标。
 - `src/entrypoints/core.ts` - 修改了认证过程
 - `src/layouts/home-assistant-main.ts` - 删除应用侧边栏
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - 添加支持从 url 显示天气图标。
-- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - 添加支持以使用身份验证从 url 显示天气图标。
+- `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - 添加支持以显示来自带有身份验证的 URL 的天气图标。
 - `src/panels/lovelace/hui-root.ts` - 添加通知和语音控制
 - `src/util/documentation-url.ts` - 链接到 iobroker 帮助而不是 homeassistant。
 - `.gitignore` - 添加 `.idea` 忽略
 - `package.json` - 移除 husky 提交钩子
 
-在 `./build` 文件夹中检出修改后的版本。然后。
++ 在 `./build` 文件夹中结帐修改版本之后。然后。
 
 1. 进入 ./build 目录。
 2.`git clone https://github.com/GermanBluefox/home-assistant-polymer.git`是https://github.com/home-assistant/frontend.git的一个fork，不过有些东西被修改了（请参阅前面的文件列表）。
 3. `cd home-assistant-polymer`
 4.`git checkout master`
 5.`纱线安装`
-6. `gulp build-app` 用于发布或`gulp develop-iob` 用于调试版本。要在更改后构建 web，您可以调用 `webpack-dev-app` 以更快地构建，但无论如何在版本准备好使用后，您都需要调用 `build-app`。
+6. `gulp build-app` 用于发布或`gulp develop-iob` 用于调试版本。要在更改后构建 web，您可以调用 `webpack-dev-app` 以加快构建速度，但无论如何在版本准备好使用后，您都需要调用 `build-app`。
 7. 将 `./build/home-assistant-polymer/hass_frontend` 中的所有文件复制到此 repo 中的 `./hass_frontend`
-8. 启动`gulp rename` 任务。
+8. 多次运行 `gulp rename` 任务（直到没有变化发生）。
+9. 更新自述文件和 server.js VERSION 常量中的版本。
 
 ## Changelog
 
@@ -478,6 +481,33 @@ ioBroker 的所有更改都标有注释`// IoB`。
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2022-10-28)
+* (agross) added: per instance language support
+* (Garfonso) entity_id for devices with only one non english name should be ok again.
+* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
+* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
+* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
+* (Garfonso) removed: lovelace_reload and window_reload states
+* (Garfonso) removed: name state, not supported by browser_mod anymore
+* (Garfonso) added: Support for toasts with action button (either json or ;-string)
+* (Garfonso) added: activity state will show if user is currently using a certain browser
+* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
+* (Garfonso) crash if notification was malformed json.
+* (Garfonso) some translation stuff
+* (Garfonso) crash case when states were updated before websocket was ready
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) tried to make html requests relative
+
+### 2.2.0 (2022-06-05)
+* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
+* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
+* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
+* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
+* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
+* (Garfonso) added: support auto entities card and subscription.
+* (Garfonso) added: improve support for input_datetime & string states.
+* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+
 ### 2.1.4 (2022-01-09)
 * (Garfonso) Dependency update
 
@@ -486,13 +516,6 @@ ioBroker 的所有更改都标有注释`// IoB`。
 
 ### 2.1.2 (2022-01-06)
 * (Garfonso) Fixed: Menu was broken in frontend.
-
-### 2.1.1 (2022-01-06)
-* (Garfonso) Fixed: Entity update in some cases.
-
-### 2.1.0 (2022-01-06)
-* (Garfonso) Added: support for new things in frontend (like arm_vacation state, currency, ...).
-* (Garfonso) Change: Updated frontent to 20211229.0 (needs update of browser_mod, card_mod)
 
 ## License
 

@@ -1465,39 +1465,6 @@
     },
     {
         "title": {
-            "en": "Alexa2 versions 3.14.x-3.17.x had errors. Upgrade to 3.17.4+!",
-            "de": "Alexa2 Versionen 3.14.x-3.17.x hatten Fehler. Upgrade auf 3.17.4+!",
-            "ru": "Alexa2 версии 3.14.x-3.17.x имели ошибки. Обновление до 3.17.4+!",
-            "pt": "As versões do Alexa2 3.14.x-3.17.x tiveram erros. Atualize para 3.17.4+!",
-            "nl": "Alexa2 versies 3.14.x-3.17.x had fouten. Upgrade tot 3.17.4+!",
-            "fr": "Alexa2 versions 3.14.x-3.17.x avait des erreurs. Souscrivez à 3.17.4+!",
-            "it": "Alexa2 versioni 3.14.x-3.17.x aveva errori. Aggiornamento a 3.17.4+!",
-            "es": "Las versiones de Alexa2 3.14.x-3.17.x tuvieron errores. Actualizar a 3.17.4+!",
-            "pl": "Wersja 3.14.x-3.17.x miała błędy. Dostęp do 3.17.4+!",
-            "zh-cn": "Alexa2版本3.14.x-3.17.x有错误。 页:1!"
-        },
-        "content": {
-            "en": "Alexa2 versions 3.14.x-3.17.x had errors. The version 3.17.4+ which fixes the issues is available in Beta repository!",
-            "de": "Alexa2 Versionen 3.14.x-3.17.x hatten Fehler. Die Version 3.17.4+, die die Probleme repariert, ist im Beta-Repository verfügbar!",
-            "ru": "Alexa2 версии 3.14.x-3.17.x имели ошибки. Версия 3.17.4+, которая исправляет проблемы доступны в бета-репозитории!",
-            "pt": "As versões do Alexa2 3.14.x-3.17.x tiveram erros. A versão 3.17.4+ que corrige os problemas está disponível no repositório Beta!",
-            "nl": "Alexa2 versies 3.14.x-3.17.x had fouten. De versie 3.17.4+ die de kwesties repareert is beschikbaar in Beta Repository!",
-            "fr": "Alexa2 versions 3.14.x-3.17.x avait des erreurs. La version 3.17.4+ qui corrige les problèmes est disponible dans le dépôt Beta!",
-            "it": "Alexa2 versioni 3.14.x-3.17.x aveva errori. La versione 3.17.4+ che risolve i problemi è disponibile nel repository Beta!",
-            "es": "Las versiones de Alexa2 3.14.x-3.17.x tuvieron errores. La versión 3.17.4+ que fija los problemas está disponible en el repositorio Beta!",
-            "pl": "Wersja 3.14.x-3.17.x miała błędy. Wersja 3.17.4+, która naprawia sprawy jest dostępna w repozytorium Beta!",
-            "zh-cn": "Alexa2版本3.14.x-3.17.x有错误。 版本3.17.4+在贝塔库可查阅。!"
-        },
-        "id": "Alexa314-4errors",
-        "class": "warning",
-        "fa-icon": "exclamation-circle",
-        "created": "2022-07-14T17:11:00.000Z",
-        "conditions": {
-            "alexa2": "between(3.14.0,3.17.3)"
-        }
-    },
-    {
-        "title": {
             "en": "Find-my-IPhone adapter will be discontinued and replaced by Apple-Find-Me!",
             "de": "Find-my-IPhone Adapter wird eingestellt und durch Apple-Find-Me ersetzt!",
             "ru": "Адаптер Find-my-IPhone будет прекращен и заменен Apple-Find-Me!",
@@ -1596,36 +1563,38 @@
         }
     },
     {
-      "title": {
-        "en": "Maintenance work on the Cloud Pro server",
-        "de": "Wartungsarbeiten am Cloud Pro Server",
-        "ru": "Ведение работы на сервере Cloud Pro",
-        "pt": "Trabalho de manutenção no servidor Cloud Pro",
-        "nl": "Onderhoudswerk van de Cloud Pro server",
-        "fr": "Travaux de maintenance sur le serveur Cloud Pro",
-        "it": "Lavori di manutenzione sul server Cloud Pro",
-        "es": "Trabajo de mantenimiento en el servidor Cloud Pro",
-        "pl": "Pracuje nad serwerem Cloud Pro",
-        "zh-cn": "A. 客户福利服务处的维修工作"
-      },
-      "content": {
-        "en": "On 27.09.2022, the Cloud Pro server will be shut down from 21:00, for about 4 hours to perform necessary maintenance. In the course of this, we will update all adapters of the cloud, such as the admin. Interactions with the voice assistant are not affected by the downtime.",
-        "de": "Am 27.09.2022 wird der Cloud Pro Server ab 21:00 Uhr, für etwa 4 Stunden abgeschaltet werden, um nötige Wartungsarbeiten durchführen zu können. Im Zuge dessen werden wir alle Adapter der Cloud, wie z.B. den Admin, aktualisieren. Die Interaktionen mit dem Sprachassistenten sind von der Ausfallzeit nicht betroffen.",
-        "ru": "27.09.2022 сервер Cloud Pro будет отключен с 21:00, примерно на 4 часа для проведения необходимого технического обслуживания. В ходе этого мы обновим все адаптеры облака, например, администратора. На взаимодействие с голосовым помощником простой не повлияет.",
-        "pt": "Em 27.09.2022, o servidor Cloud Pro será desligado a partir das 21:00, durante cerca de 4 horas para efectuar a manutenção necessária. Durante este processo, iremos actualizar todos os adaptadores da nuvem, tais como o administrador. As interacções com o assistente de voz não são afectadas pelo tempo de paragem.",
-        "nl": "Op 27.09.2022 zal de Cloud Pro-server vanaf 21:00 uur voor ongeveer 4 uur worden afgesloten om noodzakelijk onderhoud uit te voeren. Daarbij worden alle adapters van de cloud, zoals de admin, bijgewerkt. Interacties met de spraakassistent worden niet beïnvloed door de downtime.",
-        "fr": "Le 27.09.2022, le serveur Cloud Pro sera arrêté à partir de 21h00, pendant environ 4 heures, pour effectuer la maintenance nécessaire. Au cours de cette opération, nous mettrons à jour tous les adaptateurs du nuage, comme l'administrateur. Les interactions avec l'assistant vocal ne sont pas affectées par le temps d'arrêt.",
-        "it": "Il 27.09.2022, il server di Cloud Pro sarà spento dalle 21:00, per circa 4 ore, per eseguire la manutenzione necessaria. Nel corso di questa operazione, aggiorneremo tutti gli adattatori del cloud, come l'amministratore. Le interazioni con l'assistente vocale non sono interessate dal downtime.",
-        "es": "El 27.09.2022, el servidor de Cloud Pro se apagará a partir de las 21:00, durante unas 4 horas para realizar el mantenimiento necesario. En el transcurso de la misma, actualizaremos todos los adaptadores de la nube, como el administrador. Las interacciones con el asistente de voz no se ven afectadas por el tiempo de inactividad.",
-        "pl": "W dniu 27.09.2022 r. serwer Cloud Pro zostanie wyłączony od godziny 21:00, na około 4 godziny w celu przeprowadzenia niezbędnej konserwacji. W trakcie tego zaktualizujemy wszystkie adaptery chmury, takie jak admin. Interakcje z asystentem głosowym nie są dotknięte przestojem.",
-        "zh-cn": "2022年9月27日，Cloud Pro服务器将从21:00开始关闭，约4小时，以进行必要的维护。在此过程中，我们将更新云的所有适配器，如管理员。与语音助手的互动不会受到停机的影响。"
-      },
-      "id": "cloud-maintenance",
-      "class": "warning",
-      "fa-icon": "exclamation-circle",
-      "created": "2022-09-22T23:00:00.000Z",
-      "conditions": {
-        "cloud": "installed"
-      }
+        "title": {
+            "en": "Please upgrade Alexa2 adapter to 3.19.10+!",
+            "de": "Bitte den Alexa2 Adapter auf 3.19.10+ aktualisieren!",
+            "ru": "Пожалуйста, обновите адаптер Alexa2 до 3.19.10+!",
+            "pt": "Por favor, atualize o adaptador Alexa2 para 3.19.10+!",
+            "nl": "Vergroot Alexa2 adapter naar 3,19,10 +!",
+            "fr": "S'il vous plaît mettre l'adaptateur Alexa2 à 3.19.10+!",
+            "it": "Si prega di aggiornare l'adattatore Alexa2 a 3.19.10+!",
+            "es": "Por favor, actualice el adaptador Alexa2 a 3.19.10+!",
+            "pl": "Aleksa2 zastosował adapter do wersji 3.19.10+!",
+            "uk": "Будь ласка, додайте адаптер Alexa2 до 3.19.10+!",
+            "zh-cn": "请将Alexa2适应者升级为319.10+!"
+        },
+        "content": {
+            "en": "Because of changes by Amazon the version 3.19.9 can produce issues when the adapter get restarted and might not work. Please update to 3.19.10+ as soon as possible. Note: It might still be that Smart-Home devices can not be controlled. A downgrade will NOT fix this!",
+            "de": "Aufgrund von Änderungen durch Amazon kann die Version 3.19.9 Probleme erzeugen, wenn der Adapter neu gestartet wird und möglicherweise nicht funktioniert. Bitte den Adapter so schnell wie möglich auf 3.19.10+ aktualisieren. Anmerkung: Es könnte immer noch sein, dass Smart-Home-Geräte nicht gesteuert werden können. Ein Downgrade wird das nicht beheben!",
+            "ru": "Из-за изменений Amazon версия 3.19.9 может производить проблемы, когда адаптер перезагрузится и не может работать. Пожалуйста, обновите до 3.19.10+ как можно скорее. Примечание: Это может по-прежнему быть, что устройства Smart-Home не могут контролироваться. Спуск НЕ исправить это!",
+            "pt": "Devido às mudanças da Amazon, a versão 3.19.9 pode produzir problemas quando o adaptador fica reiniciado e pode não funcionar. Por favor, atualize para 3.19.10+ o mais rápido possível. Nota: Pode ainda ser que os dispositivos Smart-Home não podem ser controlados. Um downgrade não vai corrigir isso!",
+            "nl": "Door veranderingen door Amazon kan de versie 3.19.9 problemen veroorzaken als de ontvoerder wordt herstart en misschien niet werkt. Vertaling: Note: Het kan nog steeds zijn dat Smart-Home apparaten niet gecontroleerd kunnen worden. Een downgrade lost dit niet op!",
+            "fr": "En raison de changements par Amazon la version 3.19.9 peut produire des problèmes lorsque l'adaptateur se redémarre et peut ne pas fonctionner. S'il vous plaît mettre à jour 3.19.10+ dès que possible. Note: Il pourrait encore être que les appareils Smart-Home ne peuvent pas être contrôlés. Un déclassement ne réparera pas ça !",
+            "it": "A causa delle modifiche da Amazon la versione 3.19.9 può produrre problemi quando l'adattatore viene riavviato e potrebbe non funzionare. Si prega di aggiornare a 3.19.10+ il prima possibile. Nota: Potrebbe ancora essere che i dispositivi Smart-Home non possono essere controllati. Un downgrade NON risolverà questo!",
+            "es": "Debido a los cambios en Amazon la versión 3.19.9 puede producir problemas cuando el adaptador se reinicia y puede que no funcione. Por favor, actualice a 3.19.10+ lo antes posible. Nota: Podría ser que los dispositivos Smart-Home no puedan ser controlados. ¡Un descenso no arreglará esto!",
+            "pl": "Z powodu zmian w wersji Amazona 3,19,9 może produkować problemy, kiedy to adapter zrestartował i nie mógł pracować. Zaktualizowana jest na 3,19,10+. Nota: Możliwe, że urządzenia Smart-Home nie mogą być kontrolowane. W przeciwnym razie NOT ulepsza go!",
+            "uk": "У зв'язку з змінами на Amazon версія 3.19.9 може випускати питання, коли адаптер перезавантажений і може не працювати. Будь ласка, перейдемо до 3.19.10+ якомога швидше. Примітка: Не можна керувати пристроями Smart-Home. Не зафіксувати!",
+            "zh-cn": "由于亚马逊版本的改变,在适应者重新启动时,可能产生问题。 请尽快更新319.10+。 注: 也许仍然无法控制Smart-Home装置。 下一个等级将是一分钟!"
+        },
+        "id": "Alexa3199errors",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-10-27T14:20:00.000Z",
+        "conditions": {
+            "alexa2": "between(3.14.0,3.19.9)"
+        }
     }
 ]

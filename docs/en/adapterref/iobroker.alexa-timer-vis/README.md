@@ -54,6 +54,10 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 
 ## Changelog
+### 0.1.15 (22.09.2022)
+* Include creation time to avoid creating duplicate timers
+### 0.1.14 (17.07.2022)
+* Added debouncing in the adapter configuration
 ### 0.0.13 (06.03.2022)
 * Delete of Timers with the same value, fixed
 ### 0.1.12 (15.02.2022)

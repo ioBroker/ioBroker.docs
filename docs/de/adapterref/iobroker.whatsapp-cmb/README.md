@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
+hash: VayoHyRhoOZpZqXHrVIK93S336vYLW20Or9dvVRkWt8=
 ---
 ![Logo](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
@@ -14,7 +14,7 @@ hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
 # IoBroker.whatsapp-cmb
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.whatsapp-cmb/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/whatsapp-cmb/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Whatsapp-cmb-Adapter für ioBroker
 Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/)-Dienstes können Sie mit diesem Adapter WhatsApp-Nachrichten an sich selbst oder eine andere Nummer senden.
@@ -26,9 +26,9 @@ Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-whatsap
 
 Sie müssen den API-Schlüssel vom Bot abrufen, bevor Sie die API verwenden:
 
-- Fügen Sie die Telefonnummer **+34 644 44 21 48** zu Ihren Telefonkontakten hinzu. (Nennen Sie es, wie Sie möchten.)
+- Fügen Sie die Telefonnummer XXXX (die aktuelle finden Sie auf der CallMeBot-Seite) zu Ihren Telefonkontakten hinzu. (Nennen Sie es, wie Sie möchten.)
 - Senden Sie diese Nachricht „Ich erlaube Callmebot, mir Nachrichten zu senden“ (auf Englisch) an den neu erstellten Kontakt (natürlich mit WhatsApp).
-- Warten Sie, bis Sie die Meldung „API aktiviert für Ihre Telefonnummer“ erhalten. Ihr APIKEY ist 123123` vom Bot. Da sich dies noch im Beta-Test befindet, kann die Aktivierung bis zu 2 Minuten dauern.
+- Warten Sie, bis Sie die Meldung „API für Ihre Telefonnummer aktiviert“ erhalten. Ihr APIKEY ist 123123` vom Bot. Da sich dies noch im Beta-Test befindet, kann die Aktivierung bis zu 2 Minuten dauern.
 - Die WhatsApp-Nachricht des Bots enthält den API-Schlüssel, der zum Senden von Nachrichten über die API erforderlich ist.
 - Sie können jetzt den API KEY in der ioBroker-Konfiguration verwenden.
 
@@ -56,6 +56,9 @@ Wenn Sie Emojis senden möchten, lesen Sie bitte https://www.callmebot.com/uncat
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
+### 0.2.3 (2022-08-29)
+* (Apollon77) Refer to website for current phone number
+
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 

@@ -132,8 +132,7 @@ der Tastenkombination "STRG + F".
     |:---:|:---:|
     |string|R|
 
-    *Enthält den Link zum Coverbild des Titels im Vordergrund in Form eines Strings.
-    Der State ist nur vorhanden sowie funktional wenn die Authentifizierung in den Adaptereinstellungen aktiviert wurde.*
+    *Enthält den Link zum Coverbild des Titels im Vordergrund in Form eines Strings.*
 
 * info.activeTitleType
 
@@ -149,8 +148,23 @@ der Tastenkombination "STRG + F".
     |:---:|:---:|
     |string|R|
 
-    *String Wert, der den Gamertag des aktuell authentifizierten Accounts enthält.
-    Der State ist nur vorhanden sowie funktional wenn die Authentifizierung in den Adaptereinstellungen aktiviert wurde.*
+    *String Wert, der den Gamertag des aktuell authentifizierten Accounts enthält.*
+
+* info.gamerscore
+
+  |Datentyp|Berechtigung|
+  |:---:|:---:|
+  |number|R|
+
+  *Number-Wert, welcher den Gamerscore des aktuell authentifizierten Accounts enthält.*
+
+* info.installedApplications
+
+  |Datentyp|Berechtigung|
+  |:---:|:---:|
+  |string|R|
+
+  *String der eine kommaseparierte Liste mit den aktuell installierten Applikationen enthält. DLCs sind ausgeschlossen.*
 
 * info.authenticated
 
@@ -158,8 +172,7 @@ der Tastenkombination "STRG + F".
     |:---:|:---:|
     |boolean|R|
 
-    *Boolscher Wert, welcher true ist, wenn die Authentifizierung mit Xbox Live erfolgreich war, ansonsten false.
-    Der State ist nur vorhanden sowie funktional wenn die Authentifizierung in den Adaptereinstellungen aktiviert wurde.*
+    *Boolscher Wert, welcher true ist, wenn die Authentifizierung mit Xbox Live erfolgreich war, ansonsten false.*
    
 ### Channel: Settings
 
@@ -172,13 +185,13 @@ der Tastenkombination "STRG + F".
    *Boolscher Wert, mit welchem die Xbox an und ausgeschaltet werden kann. Ebenfalls dient der Wert als Indikator
    ob die Xbox ein- oder ausgeschaltet ist.*
 
-* settings.launchTitle
+* settings.launchTitle/launchStoreTitle
 
     |Datentyp|Berechtigung|
     |:---:|:---:|
     |string|R/W|
 
-   *Durch setzen des String Wertes auf eine hexadezimale Title ID, kann ein Titel auf der Xbox gestartet werden.
+   *Durch Setzen des String Wertes auf eine hexadezimale Title ID, kann ein Titel auf der Xbox gestartet werden.
    Die Title ID eines aktiven Spiels kann durch den info.currentTitles State herausgefunden werden.
    Der State wird bestätigt, sobald er an die Xbox übermittelt wurde, was nicht heißt, dass der Befehl auch ausgeführt wurde.*
 
@@ -186,6 +199,8 @@ der Tastenkombination "STRG + F".
     ```javascript
     setState('settings.launchTitle', '2340236c', false); // Starte Red Dead Redemption 2
     ```
+  
+   *`launchStoreTitle` erlaubt das Setzen von sprechenden Namen*
 
 * settings.inputText
 
@@ -355,11 +370,64 @@ der Tastenkombination "STRG + F".
 
    *View Button für Medieninhalte.*
 
+### Folder: Friends
+Für jeden Freund wird ein Channel angelegt, in diesem befinden sich mehrere nur lesbare States.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.1 (2022-11-02)
+* (foxriver76) we have optimized error logging messages
+
+### 1.0.0 (2022-09-09)
+* (foxriver76) updated dependencies
+* (foxriver76) see previous beta versions
+
+### 1.0.0-beta.10 (2022-08-20)
+* (foxriver76) we now determine correct store locale for germany if system language is "de"
+
+### 1.0.0-beta.9 (2022-08-07)
+* (foxriver76) we fixed `activeTitleName` of applications which have no short title
+
+### 1.0.0-beta.8 (2022-08-03)
+* (foxriver76) removed unused messagebox
+
+### 1.0.0-beta.7 (2022-08-02)
+* (foxriver76) we have revived acknowledgment flag for power on state
+
+### 1.0.0-beta.6 (2022-08-02)
+* (foxriver76) we are now synchronizing friends
+
+### 1.0.0-beta.5 (2022-08-01)
+* (foxriver76) fixed `activeTitleImage` which is now the cover and always an url
+* (foxriver76) optimized `launchStoreTitle` by preventing API calls for DLCs
+* (foxriver76) added gamerscore as state (synched every 10 minutes)
+* (foxriver76) added list of installed applications to a new state
+
+### 1.0.0-beta.4 (2022-07-30)
+* (foxriver76) we have optimized `launchStoreTitle` to check for installed apps first
+* (foxriver76) we have optimized error logging
+
+### 1.0.0-beta.2 (2022-07-30)
+* (foxriver76) added `launchStoreTitle` state to launch apps by their names
+
+### 1.0.0-beta.1 (2022-07-29)
+* (foxriver76) fixed missing state objects
+
+### 1.0.0-beta.0 (2022-07-29)
+* (foxriver76) complete TypeScript rewrite
+* (foxriver76) removed Python dependencies by siwtching to Xbox API written in Node.js
+* (foxriver76) fixed title launch (closes #39)
+* (foxriver76) fixed Xbox Live Auth (closes #63)
+
+### 0.7.10 (2022-05-20)
+* (foxriver76) fixed error with mising admin ui on new installations
+
+### 0.7.9 (2022-05-20)
+* (foxriver76) fixed wrong default value of `media.seek` (closes #113)
+
 ### 0.7.8 (2022-02-20)
 * (foxriver76) we now set `unsafePerm` flag to ensure compatibility with future controller
 * (foxriver76) updated dependencies

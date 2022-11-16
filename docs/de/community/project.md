@@ -2,6 +2,7 @@
 title:       "Entwicklung"
 lastChanged: "14.09.2018"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/community/project.md"
+template:    true
 ---
 
 # Zur Weiterentwicklung von ioBroker beitragen

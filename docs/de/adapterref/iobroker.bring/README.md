@@ -114,8 +114,9 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
     |string|R|
 
    *Read only json/html string formatiert als Liste, bzw. HTML Tabelle.
-   Beinhaltet die Gegenstände die aktuell auf der Einkaufsliste stehen.
-   Die NoHead HTML Tabellen sind ohne HTML Header.*
+   Beinhaltet die Gegenstände, die aktuell auf der Einkaufsliste stehen.
+   Die NoHead HTML Tabellen sind ohne HTML Header. Die Artikel werden durch das
+   Wörterbuch übersetzt, um die Nutzung in Visualisierungen zu ermöglichen.* 
    
 * *list*.recentContent / *list*.recentContentHtml/NoHead
 
@@ -124,28 +125,31 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
     |string|R|
 
     *Read only json/html string formatiert als Liste, bzw. HTML Tabelle.
-   Beinhaltet die Gegenstände die kürzlich auf der Einkaufsliste standen.
-   Die NoHead HTML Tabellen sind ohne HTML Header.*
+   Beinhaltet die Gegenstände, die kürzlich auf der Einkaufsliste standen.
+   Die NoHead HTML Tabellen sind ohne HTML Header. Die Artikel werden durch das
+   Wörterbuch übersetzt, um die Nutzung in Visualisierungen zu ermöglichen.*
    
-* *list*.removeItem
+* *list*.removeItem/Translated
 
     |Datentyp|Berechtigung|                                                                       
     |:---:|:---:|
     |string|R/W|
 
    *Mit diesem State kann ein Gegenstand von der Einkaufsliste entfernt werden. 
-   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.*
+   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.
+   Die Translated States übersetzen den Artikel mittels des Wörterbuches bevor er an die API weitergegeben wird.* 
    
-* *list*.moveToRecentContent
+* *list*.moveToRecentContent/Translated
 
     |Datentyp|Berechtigung|                                                                       
     |:---:|:---:|
     |string|R/W|
 
    *Mit diesem State kann ein Gegenstand zur recentContent Liste bewegt bzw. hinzugefügt werden. 
-   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.*
+   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.
+   Die Translated States übersetzen den Artikel mittels des Wörterbuches bevor er an die API weitergegeben wird.* 
    
-* *list*.saveItem
+* *list*.saveItem/Translated
 
     |Datentyp|Berechtigung|                                                                       
     |:---:|:---:|
@@ -157,7 +161,8 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
    ```Apple, 2.50 $, the green ones```
    
    *Hierbei wird alles nach dem ersten Komma, als Spezifikation gewertet und erscheint in der App unter dem Gegenstand. 
-   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.*
+   Der State wird bestätigt, sobald das Kommando von der Bring! API bestätigt wurde.
+   Die Translated States übersetzen den Artikel mittels des Wörterbuches bevor er an die API weitergegeben wird.* 
     
 * *list*.users / *list*.usersHtml/NoHead
 
@@ -208,6 +213,21 @@ Für jede Einkaufsliste wird ein Channel mit den folgenden Objekten angelegt:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.8.1 (2022-06-01)
+* (foxriver76) implemented a minor fix for acknowledgment of `translated` objects
+
+### 1.8.0 (2022-06-01)
+* (foxriver76) introduced new states for `save/remove/movetoRecentContent` which translates the article before passing it to the API (closes #149)
+
+### 1.7.16 (2022-05-31)
+* (foxriver76) we now ensure that all states which can be used directly are translated (closes #149)
+
+### 1.7.15 (2022-05-26)
+* (foxriver76) widget: fixed `margin-top` calculation of item name
+
+### 1.7.14 (2022-05-22)
+* (foxriver76) log the error message instead of object, if we catch errors in the widget
+
 ### 1.7.13 (2022-02-05)
 * (foxriver76) fixed the onclick handler if someone added just a number
 

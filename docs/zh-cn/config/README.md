@@ -2,6 +2,7 @@
 title: 介绍
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/README.md
+template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 hash: i1f8NycMF9GVg76Wzh8JgGEIe7/ysZNG4TjpEVfMpUQ=

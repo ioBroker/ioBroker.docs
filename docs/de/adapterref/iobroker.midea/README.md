@@ -3,25 +3,25 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.midea/README.md
 title: ioBroker.midea
-hash: bZ4K2sxFwu+0biDzHybU2KAAYQnMicZ9WPD4CzVP9Sg=
+hash: xn3Q0Ied5NuaILh2JB7oapxbwnHnD1vO5/4ULJnOerc=
 ---
 ![Logo](../../../en/adapterref/iobroker.midea/admin/midea.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.midea.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.midea.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/midea-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/midea-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/midea-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.midea.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.midea/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/TA2k/ioBroker.midea/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.midea.png?downloads=true)
 
 # IoBroker.midea
-## Midea Adapter für ioBroker
-Midea Adapter
+## Midea-Adapter für ioBroker, der auch Carrier-Geräte unterstützt
+Midea- und Carrier-Adapter
 
 ## Changelog
 
-### 0.0.4
+### 0.0.6
 
 -   (TA2k) initial release
 

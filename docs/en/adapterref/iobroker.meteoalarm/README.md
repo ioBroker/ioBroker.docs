@@ -11,14 +11,16 @@ meteoalarm Adapter for ioBroker
 ------------------------------------------------------------------------------
 This adapter is pulling weather alarms from https://meteoalarm.org, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
 
-Disclaimer: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org.
+DISCLAIMER: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org. 
+
+The developer can't guarantee that the warnings are handled in time or that there are errors and problems that lead to not handling warnings at all!
 
 ## How to use it
 Choose your country, and afterwards the region you want the warnings for. If you are unsure what your region name is, please go to https://meteoalarm.org and try to find it on the map. 
 
 
 ## Add it to your vis
-The easiest way to add it to your vis is by using the widget basic - string, and there choosing the datapoint htmlToday. This gives you a predesigned HTML widget, which you can adjust in the setup.
+The easiest way to add it to your vis is by using the widget basic - html, and there entering {meteoalarm.0.htmlToday}. This gives you a predesigned HTML widget, which you can adjust in the setup.
 
 ## Alarm Types
 |Alarm Type|Description|                                                                       
@@ -64,6 +66,23 @@ Show in the header of the widget instead of the weekday "today", "tomorrow" or "
 |Orange|The weather is dangerous. Unusual meteorological phenomena have been predicted. Damage and accidents are likely. Be very attentive and careful and keep up to date with the expected meteorological conditions. |
 |Red|The weather is very dangerous. Unusually intense meteorological phenomena were predicted. Extreme damage and accidents, often over large areas, threaten life and property. |
 
+## Notifications
+It is possible to let the adapter send you the notifications by mail, telegram, signal or pushover. 
+
+* Signal
+* Mail
+* Pushover
+* Telegram
+* Synochat
+
+Available Settings:
+* Show Location: If this setting is activated, the location name is added to the notification
+* Warning Level in Words: Add the warning level in words additionally to the warning symbols
+* No details: Don't add the description of the warning to the notification - e.g. for Alexa
+* Send "no warnings": Send a notification if all alarms are ended and there is no warning at the moment
+* Warning Level Symbols: Choose what symbols should be added to the notification
+
+
 ## Supported countries
 * Austria
 * Germany
@@ -106,6 +125,30 @@ If you don't find your country, please create an issue on github, and I will be 
 
 
 ## Changelog
+
+## 2.3.0 (2022-09-15)
+* (jack-blackson) Ability to send alarms to other adapters (Telegramm, eMail, Pushover, Signal,Synochat
+* (jack-blackson) Fix link in alarms folder
+
+## 2.2.1 (2022-07-28)
+* (jack-blackson) Bugfix noOfAlarms and numbering of objects
+
+## 2.2.0 (2022-07-05)
+* (jack-blackson) Added Object JSON that contains all activ errors in JSON format (e.g. for users of iqontrol)
+* (jack-blackson) First step to get rid of duplicate error messages
+
+## 2.1.5 (2022-06-13)
+* (jack-blackson) Fixed Error "Error from InMemDB: Error: Not exists"
+
+## 2.1.4 (2022-05-26)
+* (jack-blackson) Added breadcrumb for Sentry to see what location created an error
+* (jack-blackson) Start tracking in Sentry when XMLs without geocode are sent
+
+## 2.1.3 (2022-05-23)
+* (jack-blackson) Handle Warnings that are sent without a geocode -> Sentry IOBROKER-METEOALARM-3B
+
+## 2.1.2 (2022-05-16)
+* (jack-blackson) Bugfix for change in xml (wrong link for warning was used) -> Sentry IOBROKER-METEOALARM-2Y and IOBROKER-METEOALARM-31
 
 ## 2.1.1 (2022-02-08)
 * (jack-blackson) Updated License Info

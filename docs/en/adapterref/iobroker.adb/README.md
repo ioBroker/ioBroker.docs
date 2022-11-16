@@ -60,6 +60,11 @@ For use adapter need start adb server.
 
 ## Changelog
 
+### 0.0.6
+* (om2804) Add delete and up/down buttons in device list.
+* (om2804) Replace dependency 'adbkit'. Active development has been moved to DeviceFarmer organisation.
+* (om2804) Add wait for device after connection.
+
 ### 0.0.5
 * (om2804) js-controller dependency upgraded to > 2.0.0
 

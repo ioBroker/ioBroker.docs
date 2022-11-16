@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
+hash: 5JwxeHhAXaIpDmkqes8qvbpxd9+IpiVI8CrPE9sGl/E=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -16,7 +16,7 @@ hash: eKEKGJICcSntmAakOxzPXYUeuUom6UCQAVuFcPxxmHE=
 # IoBroker.ebus
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -32,7 +32,7 @@ Es besteht die Möglichkeit, Daten abzufragen, die nicht direkt von ebusd abgefr
 
 Eine weitere Funktion besteht darin, einen beliebigen Befehl an ebusd zu senden und eine Antwort zu erhalten, um z. Skripte.
 
-aktuell unterstützte ebusd-version: 22.2
+aktuell unterstützte ebusd-version: 22.3
 
 **Achtung** mit ebusd - Version 22.1 Konfigurationspfad wurde auf http://cfg.ebusd.eu/ geändert. Stellen Sie sicher, dass Sie es in Ihrer Installation von ebusd ändern.
 Details siehe [Änderungsprotokoll](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -50,16 +50,16 @@ Das Ergebnis ist ebenfalls kommasepariert. Beispiel: 2000, ERR: element not foun
 Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelöscht!
 
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme unter [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+* Bitte erstellen Sie Probleme auf [github](https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## 2.4.3 (2021-10-21)
-* (René) siehe Issue #58: Bugfix for Warn: Ignoring history value 1 (invalid)", wenn keine History-Werte gesetzt sind
+* (René) siehe Issue #58: Bugfix für Warn: Ignoriere History-Wert 1 (ungültig)", wenn keine History-Werte gesetzt sind
 
 ## 2.4.2 (2021-10-19)
 * (René) siehe Ausgabe Nr. 55: Fehlerbehebung
 
 ## 2.4.0 (2021-10-17)
-* (René) überarbeitete Handhabung von gelesenen Datenpunkten und historischen Datenpunkten, Schaltung optional hinzugefügt
+* (René) überarbeitete Behandlung von gelesenen Datenpunkten und historischen Datenpunkten, Schaltung optional hinzugefügt
 * (René)-Befehl kann jetzt mehr als einen Befehl enthalten, nur getrennte Befehle mit ','
 * (René) siehe Issue #55: Warnungen in Debug-Meldungen geändert
 
@@ -70,7 +70,7 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 
 ## 2.2.7 (2021-07-03)
 * (René) Abhängigkeiten aktualisiert
-* (René) siehe Ausgabe Nr. 48: Fehlerbehebung für Protokolle mit falschem Datentyp
+* (René) siehe Issue #48: Bugfix für Logs mit falschem Datentyp
 
 ## 2.2.5 (2021-03-21)
 * (René) Abhängigkeiten aktualisiert
@@ -86,7 +86,7 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) Abhängigkeiten aktualisieren
 
 ## 2.1.1 (2020-06-27)
-* (René) Issue #26: Fehlerbehebung: "cmd not found" ist nur Debug-Meldung statt Fehler
+* (René) Issue #26: Bugfix: "cmd not found" ist nur Debug-Meldung statt Fehler
 
 ## 2.1.0 (2020-06-17)
 * (René) Refactoring: 'async/await' verwendet
@@ -128,7 +128,7 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) Fehlerbehebung: Wenn nichts abzufragen ist, dann Telnet-Verbindung überspringen
 
 ### 0.5.0
-* (René) schreibt Daten über TCP nach ebusd
+* (René) Daten über TCP nach ebusd schreiben
 
 ### 0.4.2
 * (René) Bugfix für Admin V3
@@ -157,6 +157,19 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) Erstveröffentlichung
 
 ## Changelog
+
+### 3.0.7 (2022-08-20)
+* (René) support ebusd 22.3
+
+### 3.0.6 (2022-08-19)
+* (René) bug fix in tooltip in wizard
+
+### 3.0.4 (2022-08-18)
+* (René) tooltip in wizard added
+* (René) flot and dependencies updated
+* (René) errors from ebusd are shown as warning here in adapter, details schould be checked in logs of ebusd
+* (René) bug fix in widget: if less data available x axes grid point were not shown
+* (René) except null as valid value from ebusd (e.g. to reset CurrentError)
 
 ### 3.0.2 (2022-04-02)
 * (René) message for installation added

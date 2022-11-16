@@ -41,6 +41,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
+### 1.3.1
+* login url and ordered car fix
+
 ### 1.0.2
 * (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
 

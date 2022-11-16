@@ -3,79 +3,85 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: wN18juysKPSF8CRtXU2o7IO+98KeQ0F3ee1AtnacO50=
+hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ---
 ![Logo](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/schoolfree-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.schoolfree.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.schoolfree.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/simatec/iobroker.schoolfree.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
-![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.schoolfree/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/simatec/ioBroker.schoolfree?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.schoolfree.png?downloads=true)
+![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
+![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.schoolfree?style=flat)
+![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.schoolfree
 ![Testen und freigeben](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. Weitere Details siehe unten!
+Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemas automatisch an mich als Entwickler zu melden. Näheres siehe unten!
 
 ## Schulfreier Adapter für ioBroker
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
 
 ### Deutsche Beschreibung:
-Schulfrei ist ein Adapter für iobroker Installationen.
-Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte erstellen.
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Besitzssteuerungen ausgewertet und werden werden.
+Schoolfree ist ein Adapter für iobroker Installationen.
+Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben.
+Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
 
-Der aktuelle Bezug von Terminen für die Schulferien gehört über die API von https://www.mehr-schulferien.de
+Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
 
-Aktuell werden die Schulferien und freien Tage für Deutschland geführt.
+Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt.
 
-Folgende Datenpunkte stehen mit Schoolfree für die weitere Behandlung zur Verfügung:
+Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung:
 
-* info.current.end: Datum für das Ende der möglichen Ferien
-* info.current.name: Bezeichnung der politischen Schulferien
-* info.current.start: Startdatum der zukünftigen Ferien
-* info.next.end: Datum für das Ende der regionalen Ferien
-* info.next.name: Bezeichnung der politischen Schulferien
-* info.next.start: Startdatum der regionalen Ferien
-* info.today: Schalter für den aktuellen Status heute (wahr / falsch)
-* info.tomorrow: Schalter für den betreffenden Status morgen (wahr / falsch)
+* info.current.end: Datum für das Ende der aktuellen Ferien
+* info.aktueller.name: Bezeichnung der aktuellen Schulferien
+* info.aktueller.start: Startdatum der aktuellen Ferien
+* info.next.end: Datum für das Ende der nächsten Ferien
+* info.next.name: Bezeichnung der nächsten Schulferien
+* info.nächster.start: Startdatum der nächsten Ferien
+* info.today: Switch für den aktuellen Status heute (true/false)
+* info.tomorrow: Schalter für den aktuellen Status morgen (true/false)
 
 *************************************************************************************************************************************
 
 ### Englische Beschreibung:
 Schoolfree ist ein Adapter für iobroker-Installationen.
-Mit dem Adapter können die Schulferien ausgewertet und auf Datenpunkte übertragen werden.
-Die Datenpunkte können somit für andere Funktionen wie Heizungssteuerungen, Verschluss- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
+Mit dem Adapter können die Schulferien ausgewertet und in Datenpunkte übertragen werden.
+Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rollladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden.
 
 Das aktuelle Abonnement für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
 
-Derzeit werden die Schulferien und freien Tage für Deutschland unterstützt.
+Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt.
 
-Die folgenden Datenpunkte stehen für die weitere Verarbeitung mit Schoolfree zur Verfügung:
+Zur Weiterverarbeitung mit Schoolfree stehen folgende Datenpunkte zur Verfügung:
 
-* info.current.end: Datum für das Ende der aktuellen Feiertage
+* info.current.end: Datum für das Ende der aktuellen Ferien
 * info.current.name: Name der aktuellen Schulferien
-* info.current.start: Startdatum des aktuellen Feiertags
-* info.next.end: Datum für das Ende der nächsten Feiertage
+* info.current.start: Startdatum des aktuellen Urlaubs
+* info.next.end: Datum für das Ende der nächsten Ferien
 * info.next.name: Name der nächsten Schulferien
-* info.next.start: Startdatum des nächsten Feiertags
-* info.today: Wechseln Sie heute zum aktuellen Status (wahr / falsch)
-* info.tomorrow: morgen auf den aktuellen Status umschalten (wahr / falsch)
+* info.next.start: Startdatum des nächsten Urlaubs
+* info.today: Schalter für den aktuellen Stand heute (true/false)
+* info.tomorrow: Schalter für den aktuellen Status morgen (true / false)
 
-### Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
+### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
+<!--### __WORK IN PROGRESS__-->
+### 1.1.0 (2022-11-01)
+(simatec) Dependencies updated
+(simatec) test and release updated
+
+### 1.0.1 (2021-11-18)
+(simatec) Dependencies updated
+(simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -155,7 +161,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2021 simatec
+Copyright (c) 2019 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

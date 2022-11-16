@@ -1,23 +1,18 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/telegram-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
-title: ioBroker 电报适配器
-hash: jWi7uWMh/Jbm7Sb2TWH5+ijaXdhBq3K/rLyGsDaqitw=
+title: ioBroker.telegram
+hash: NZPqr1WUHbmb+9M6BCWh2fBEK95qQj7qfkkF6DmG8Gk=
 ---
-![商标](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
+![标识](../../../en/adapterref/iobroker.telegram/../../admin/telegram.png)
 
-![安装数量](http://iobroker.live/badges/telegram-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.telegram.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.telegram.svg)
-
-# IoBroker 电报适配器
-![测试和发布](https://github.com/iobroker-community-adapters/iobroker.telegram/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
-
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
-
+# IoBroker.telegram
 ＃＃ 配置
-要求[@BotFather](https://telegram.me/botfather)创建新机器人```/newbot```。
+要求[@BotFather](https://telegram.me/botfather)创建新机器人`/newbot`。
 
 您将被要求输入机器人的名称，然后是用户名。
 之后，您将获得令牌。
@@ -26,44 +21,44 @@ hash: jWi7uWMh/Jbm7Sb2TWH5+ijaXdhBq3K/rLyGsDaqitw=
 
 您应该在配置对话框中设置通信密码。在此之后启动适配器。
 
-要开始与您的机器人对话，您需要使用 `/password phrase` 对用户进行身份验证，其中 **`phrase`** 是您配置的密码。因此，在 Telegram 中与您生成的 Bot 打开一个新对话，然后您需要输入密码作为第一个命令。
+要开始与您的机器人对话，您需要使用 `/password phrase` 对用户进行身份验证，其中 **`phrase`** 是您配置的密码。因此，在 Telegram 中与您生成的机器人打开一个新对话，然后您需要输入密码作为第一个命令。
 
 **注意：**您可以使用简写形式`/p phrase`。
 
-要添加漂亮的头像图片，请在 **BotFather** 聊天中输入 `/setuserpic` 并上传他想要的图片（512x512 像素），例如这张[商标](img/logo.png)。
+要添加漂亮的头像图片，请在 **BotFather** 聊天中输入 `/setuserpic` 并上传他想要的图片（512x512 像素），例如这张[标识](img/logo.png)。
 
 您可以通过 messageBox `sendTo('telegram', 'Test message')` 将消息发送给所有经过身份验证的用户，或发送给特定用户`sendTo('telegram', '@userName Test message')`。
 用户必须先经过身份验证。
 
 您也可以通过这种方式指定用户：
 
-```
+```javascript
 sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
     console.log('Sent to ' + res + ' users');
 });
 ```
 
-如果您使用上面的示例，请注意您必须将“用户名”替换为您要向其发送消息的用户的名字或公共电报用户名。 （取决于适配器设置中的“存储用户名不是名字”设置是否启用）如果设置了该选项并且用户没有在他的电报帐户中指定公共用户名，那么适配器将继续使用的名字用户。请记住，如果用户稍后设置公共用户名（在对您的机器人进行身份验证之后），则保存的名字将在下次用户向机器人发送消息时替换为用户名。
+如果您使用上面的示例，请注意您必须将“用户名”替换为您要向其发送消息的用户的名字或公共电报用户名。 （取决于适配器设置中的“存储用户名不是名字”设置是否启用）如果设置了该选项并且用户没有在他的电报帐户中指定公共用户名，那么适配器将继续使用的名字用户。请记住，如果用户稍后设置公共用户名（在对您的机器人进行身份验证之后），则保存的名字将在用户下次向机器人发送消息时替换为用户名。
 
 可以指定多个收件人（只需用逗号分隔用户名）。
 例如：收件人：“User1,User4,User5”
 
-您也可以通过状态发送消息，只需将状态 *"telegram.INSTANCE.communicate.response"* 设置为值 *"@userName Test message"* 或使用 JSON 对象：
+您也可以通过状态发送消息，只需将 state *"telegram.INSTANCE.communicate.response"* 设置为值 *"@userName Test message"* 或使用 JSON 对象：
 
-```
+```json
 {
-    text: "Test message"
+    "text": "Test message"
 }
 ```
 
 JSON 语法还允许从 [电报机器人 API](https://core.telegram.org/bots/api) 添加选项，以及设置用户或聊天 ID：
 
-```
+```json
 {
-    text: "Test message, but with *bold*",
-    parse_mode: "Markdown",
-    chatId: "1234567890",
-    user: "UserName"
+    "text": "Test message, but with *bold*",
+    "parse_mode": "Markdown",
+    "chatId": "1234567890",
+    "user": "UserName"
 }
 ```
 
@@ -82,7 +77,7 @@ iobroker 日志将在日志中显示聊天 ID。
 
 示例如何将屏幕截图从网络摄像头发送到电报：
 
-```
+```javascript
 var request = require('request');
 var fs      = require('fs');
 
@@ -126,7 +121,7 @@ on("someState", function (obj) {
 
 电报 API 的描述可以在 [这里](https://core.telegram.org/bots/api) 中找到，您可以使用此 api 中定义的所有选项，只需将其包含在发送对象中即可。例如。：
 
-```
+```javascript
 sendTo('telegram.0', {
     text:                   '/tmp/snap.jpg',
     caption:                'Snapshot',
@@ -150,7 +145,7 @@ sendTo('telegram.0', {
 
 将在属性纬度上检测位置：
 
-```
+```javascript
 sendTo('telegram.0', {
     latitude:               52.522430,
     longitude:              13.372234,
@@ -163,7 +158,7 @@ sendTo('telegram.0', {
 
 以下类型是可能的：*贴纸*、*视频*、*文档*、*音频*、*照片*。
 
-```
+```javascript
 sendTo('telegram.0', {
     text: fs.readFileSync('/opt/path/picture.png'),
     type: 'photo'
@@ -171,9 +166,9 @@ sendTo('telegram.0', {
 ```
 
 ＃＃＃ 键盘
-您可以在客户端显示键盘**ReplyKeyboardMarkup**：
+您可以在客户端显示键盘 **ReplyKeyboardMarkup**：
 
-```
+```javascript
 sendTo('telegram.0', {
     text:   'Press button',
     reply_markup: {
@@ -191,7 +186,7 @@ sendTo('telegram.0', {
 
 您可以在客户端显示键盘**InlineKeyboardMarkup**：
 
-```
+```javascript
 sendTo('telegram', {
     user: user,
     text: 'Click the button',
@@ -211,8 +206,8 @@ sendTo('telegram', {
 ### AnswerCallbackQuery
 使用此方法发送对从内联键盘发送的回调查询的答案。答案将作为聊天屏幕顶部的通知或警报显示给用户。成功时，返回 *True*。
 
-```
-if (command ==="1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         answerCallbackQuery: {
@@ -225,11 +220,11 @@ if (command ==="1_2") {
 
 您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise)。
 
-＃＃＃ 题
+＃＃＃ 问题
 您可以将消息发送到电报，下一个答案将在回调中返回。
 超时可以在配置中设置，默认为 60 秒。
 
-```
+```javascript
 sendTo('telegram.0', 'ask', {
     user: user, // optional
     text: 'Are you sure?',
@@ -248,7 +243,9 @@ sendTo('telegram.0', 'ask', {
 ## 聊天ID
 从 0.4.0 版开始，您可以使用聊天 ID 向聊天发送消息。
 
-`sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
+```javascript
+sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');
+```
 
 ## 更新消息
 以下方法允许您更改消息历史记录中的现有消息，而不是发送带有操作结果的新消息。这对于使用回调查询的*内联键盘*消息最有用，但也有助于减少与常规聊天机器人对话的混乱。
@@ -256,8 +253,8 @@ sendTo('telegram.0', 'ask', {
 ### 编辑消息文本
 使用此方法编辑机器人或通过机器人发送的文本（对于内联机器人）。成功时，如果机器人发送编辑的消息，则返回编辑的消息，否则返回 *True*。
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text before buttons',
@@ -279,8 +276,8 @@ if (command === "1_2") {
 
 *或最后一条消息的新文本：*
 
-```
-if (command ==="1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text message',
@@ -300,8 +297,8 @@ if (command ==="1_2") {
 使用此方法编辑机器人或通过机器人发送的消息的标题（对于内联机器人）。
 成功时，如果机器人发送编辑的消息，则返回编辑的消息，否则返回 *True*。
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user, // optional
         text: 'New caption',
@@ -321,8 +318,8 @@ if (command === "1_2") {
 使用此方法编辑机器人或通过机器人发送的消息的图片（对于内联机器人）。
 成功时，如果机器人发送编辑的消息，则返回编辑的消息，否则返回 *True*。
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user, // optional
         text: 'picture.jpg',
@@ -343,8 +340,8 @@ if (command === "1_2") {
 ### EditMessageReplyMarkup
 使用此方法仅编辑机器人或通过机器人发送的消息的回复标记（对于内联机器人）。成功时，如果机器人发送编辑的消息，则返回编辑的消息，否则返回 *True*。
 
-```
-if (command === "1_2") {
+```javascript
+if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         text: 'New text before buttons',
@@ -373,8 +370,8 @@ if (command === "1_2") {
 
 成功时返回 *True*。
 
-```
-if (command === "delete") {
+```javascript
+if (command === 'delete') {
     sendTo('telegram', {
         user: user,
         deleteMessage: {
@@ -387,7 +384,7 @@ if (command === "delete") {
 }
 ```
 
-你可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
+您可以阅读更多[这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
 
 ## 对用户回复/消息做出反应
 假设您只使用没有 *text2command* 的 JavaScript。如上所述，您已经使用 *sendTo()* 向您的用户发送了一条消息/问题。用户通过按下按钮或写消息来回复。您可以提取命令并向用户提供反馈、执行命令或在 iobroker 中切换状态。
@@ -396,7 +393,7 @@ if (command === "delete") {
  - 用户是向您注册的 TelegramBot 发送消息的用户
  - command 是您的 TelegramBot 收到的命令
 
-```
+```javascript
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
     var stateval = getState('telegram.0.communicate.request').val;              // save Statevalue received from your Bot
     var user = stateval.substring(1,stateval.indexOf("]"));                 // extract user from the message
@@ -447,7 +444,7 @@ Telegram 只能使用 HTTPS 服务器，但您可以使用 **let's encrypt** 证
 - 公共证书 - 如果 **let's encrypt** 被禁用，则需要。
 - 私钥 - 如果 **let's encrypt** 被禁用，则需要。
 - 链证书（可选）
-- 让我们加密选项 - 设置**让我们加密**证书非常容易。请阅读 [这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)。
+- 让我们加密选项 - 设置**让我们加密**证书非常容易。请阅读 [这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) 了解它。
 
 ## 高级安全性
 可以禁用用户的身份验证。所以没有一个新人可以进行身份验证。
@@ -465,13 +462,13 @@ Telegram 只能使用 HTTPS 服务器，但您可以使用 **let's encrypt** 证
 
 要从 javascript 适配器执行此操作，只需调用：
 
-```
+```javascript
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
-要么
+或者
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     user: '@Username', // optional and the call will be done to the first user in telegram.0.communicate.users.
@@ -480,18 +477,18 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-要么
+或者
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     text: 'Some text',
     users: ['@Username1', '+49xxxx'] // Array of `users' or telephone numbers.
 });
 ```
 
-要么
+或者
 
-```
+```javascript
 sendTo('telegram.0', 'call', {
     file: 'url of mp3 file that is accessible from internet',
     users: ['@Username1', '@Username2'] // Array of `users' or telephone numbers.
@@ -505,7 +502,7 @@ sendTo('telegram.0', 'call', {
 - `ar-XA-Standard-C` - 阿拉伯语（男 2 声）
 - `cs-CZ-Standard-A` - 捷克语（捷克共和国）（女声）
 - `da-DK-Standard-A` - 丹麦语（丹麦）（女声）
-- `nl-NL-Standard-A` - 荷兰语（荷兰）（女性声音 - 如果系统语言为 NL 且未提供语言，则将使用）
+- `nl-NL-Standard-A` - 荷兰语（荷兰）（女声 - 如果系统语言为 NL 且未提供语言，则将使用）
 - `nl-NL-Standard-B` - 荷兰语（荷兰）（男声）
 - `nl-NL-Standard-C` - 荷兰语（荷兰）（男 2 声）
 - `nl-NL-Standard-D` - 荷兰语（荷兰）（女性 2 声）
@@ -529,9 +526,9 @@ sendTo('telegram.0', 'call', {
 - `fi-FI-Standard-A` - 芬兰语（芬兰）（女声）
 - `fr-CA-Standard-A` - 法语（加拿大）（女声）
 - `fr-CA-Standard-B` - 法语（加拿大）（男声）
-- `fr-CA-Standard-C` - 法语（加拿大）（女 2 声）
+- `fr-CA-Standard-C` - 法语（加拿大）（女性 2 声）
 - `fr-CA-Standard-D` - 法语（加拿大）（男 2 声）
-- `fr-FR-Standard-A` - 法语（法国）（女声 - 如果系统语言为 FR 且未提供语言，则将使用）
+- `fr-FR-Standard-A` - 法语（法国）（女性声音 - 如果系统语言为 FR 且未提供语言，将使用）
 - `fr-FR-Standard-B` - 法语（法国）（男声）
 - `fr-FR-Standard-C` - 法语（法国）（女 2 声）
 - `fr-FR-Standard-D` - 法语（法国）（男 2 声）
@@ -545,7 +542,7 @@ sendTo('telegram.0', 'call', {
 - `id-ID-Standard-A` - 印度尼西亚语（印度尼西亚）（女声）
 - `id-ID-Standard-B` - 印度尼西亚语（印度尼西亚）（男声）
 - `id-ID-Standard-C` - 印度尼西亚语（印度尼西亚）（男 2 声）
-- `it-IT-Standard-A` - 意大利语（意大利）（女性声音 - 如果系统语言为 IT 且未提供语言，将使用）
+- `it-IT-Standard-A` - 意大利语（意大利）（女性声音 - 如果系统语言为 IT 且未提供语言，则将使用）
 - `it-IT-Standard-B` - 意大利语（意大利）（女 2 声）
 - `it-IT-Standard-C` - 意大利语（意大利）（男声）
 - `it-IT-Standard-D` - 意大利语（意大利）（男 2 声）
@@ -564,20 +561,20 @@ sendTo('telegram.0', 'call', {
 - `nb-NO-Standard-B` - 挪威语（挪威）（男声）
 - `nb-NO-Standard-C` - 挪威语（挪威）（女 2 声）
 - `nb-NO-Standard-D` - 挪威语（挪威）（男 2 声）
-- `nb-no-Standard-E` - 挪威语（挪威）（女性 3 声）
+- `nb-no-Standard-E` - 挪威语（挪威）（女 3 声）
 - `pl-PL-Standard-A` - 波兰语（波兰）（女性声音 - 如果系统语言为 PL 且未提供语言，将使用）
 - `pl-PL-Standard-B` - 波兰语（波兰）（男声）
 - `pl-PL-Standard-C` - 波兰语（波兰）（男 2 声）
 - `pl-PL-Standard-D` - 波兰语（波兰）（女 2 声）
 - `pl-PL-Standard-E` - 波兰语（波兰）（女性 3 声）
-- `pt-BR-Standard-A` - 葡萄牙语（巴西）（女性声音 - 如果系统语言为 PT 且未提供语言，则将使用）
+- `pt-BR-Standard-A` - 葡萄牙语（巴西）（女声 - 如果系统语言为 PT 且未提供语言，则将使用）
 - `pt-PT-Standard-A` - 葡萄牙语（葡萄牙）（女声）
 - `pt-PT-Standard-B` - 葡萄牙语（葡萄牙）（男声）
 - `pt-PT-Standard-C` - 葡萄牙语（葡萄牙）（男 2 声）
 - `pt-PT-Standard-D` - 葡萄牙语（葡萄牙）（女 2 声）
 - `ru-RU-Standard-A` - 俄语（俄罗斯）（女性声音 - 如果系统语言为 RU 且未提供语言，将使用）
 - `ru-RU-Standard-B` - 俄语（俄罗斯）（男声）
-- `ru-RU-Standard-C` - 俄语（俄罗斯）（女 2 声）
+- `ru-RU-Standard-C` - 俄语（俄罗斯）（女性 2 声）
 - `ru-RU-Standard-D` - 俄语（俄罗斯）（男 2 声）
 - `sk-SK-Standard-A` - 斯洛伐克语（斯洛伐克）（女声）
 - `es-ES-Standard-A` - 西班牙语（西班牙）（女性声音 - 如果系统语言为 ES 且未提供语言，将使用）
@@ -625,12 +622,12 @@ sendTo('telegram.0', 'call', {
 如果激活，ON/OFF 按钮将不会显示，只是一个`Door lamp ?`。
 
 ### 报告更改
-如果设备的状态发生了变化（例如有人物理地打开了灯），新的状态将被传送到电报。
+如果设备的状态发生了变化（例如有人打开了灯），新的状态将被发送到电报。
 例如。 `Door lamp  => switched on`。
 
 ### 按钮排成一行
 一个设备的一行中必须显示多少个按钮。
-由于名称很长，可能最好在一行中只显示 2 个（或什至只有一个）按钮。
+由于名称很长，最好在一行中仅显示 2 个（甚至仅显示一个）按钮。
 
 ![设置](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
@@ -666,7 +663,7 @@ sendTo('telegram.0', 'call', {
 如果电报机器人在私人聊天中收到用户发送给机器人的消息，但在群聊中没有收到用户发送的消息。
 在这种情况下，您必须与 `@botfather` 交谈并禁用隐私模式。
 
-BotFath聊天：
+BotFath 聊天：
 
 ```
 You: /setprivacy
@@ -687,11 +684,11 @@ BotFather: Success! The new status is: DISABLED. /help
 ```
 
 ## 如何通过 node-red 发送消息
-对于发送给所有用户的简单文本消息，只需将文本放入消息的有效负载中并将其发送到 ioBroker 状态`telegram.INSTANCE.communicate.response`。
+对于给所有用户的简单文本消息，只需将文本放入消息的有效负载中，然后将其发送到 ioBroker 状态`telegram.INSTANCE.communicate.response`。
 
 如果要设置其他选项，请使用 JSON 对象填充有效负载，例如：
 
-```
+```javascript
 msg.payload = {
     // text is the only mandatory field here
     "text": "*bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*",
@@ -704,266 +701,33 @@ msg.payload = {
 
 在发送到`telegram.INSTANCE.communicate.responseJson you need to stringify the object!`之前
 
-<!-- 下一个版本的占位符（在行首）：
-
-### __工作进行中__ -->
-
 ## Changelog
-### 1.12.0 (2022-03-21)
-* (Apollon77) Add new JSON states communication.responseJson and communication.responseSilentJson to also accept json structures (stringified!) to send messages
-* (Apollon77) Try to prevent adapter crashes when internet is not available 
-* (Apollon77) Add Sentry for crash reporting
-
-### 1.11.1 (2022-01-27)
-* (bluefox) fixed the receiving files
-
-### 1.11.0 (2022-01-26)
-* (bluefox) Added bruteforce protection
-* (bluefox) Extended blockly with `disable_web_preview` option
-* (bluefox) added `communicate.responseSilent` state to answer silently
-
-### 1.10.1 (2022-01-26)
-* (bluefox) Updated telegram library
-
-### 1.10.0 (2021-07-30)
-* (PeterVoronov) Add botSendRaw state to allow processing of the RAW data send by bot
-* (Apollon77) Add tier for js-controller 3.3
-* (bluefox) Fixed the control of the states
-
-### 1.9.0 (2021-06-26)
-* (bluefox) Added the option to not authenticate the new users
-* (bluefox) Added the option to disable system messages for specific users
-
-### 1.8.3 (2021-06-26)
-* (Nahasapeemapetilon) corrected bug with many simultaneous requests 
-* (bluefox) formatting
-* (bluefox) implemented editMessageMedia and editMessageCaption
-* (bluefox) Encrypt token 
-* (bluefox) Corrected error with password
-* (bluefox) Corrected error with boolean easy controls
-
-### 1.8.2 (2021-05-28)
-* (Diginix) fixed data types
-
-### 1.8.1 (2021-04-20)
-* (bluefox) added the admin5 support
-
-### 1.8.0 (2021-02-22)
-* (Apollon77/Nahasapeemapetilon) catch several API error cases to hopefully get around  adapter crashes on network errors
-* (Nahasapeemapetilon) add support for media groups and multiple image qualities
-
-### 1.7.0 (2021-01-08)
-* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 1.6.2 (2020-12-27)
-* (fincha) Fixing error with keyboard
-
-### 1.6.1 (2020-12-01)
-* (ChristianB86) Added option to set the amount of repeats for telegram call.
-
-### 1.6.0 (2020-11-09)
-* (MarkRohrbacher) Allow overriding chatId / user when writing JSON objects to telegram.INSTANCE.communicate.response
-* (blazeis) Fix Send message via Response field with Username
-* (Garfonso) fill requestRaw also for callbackQuery
-
-### 1.5.9 (2020-05-04)
-* (Apollon77) potential error fixed when sending messages
-* (Apollon77) webserver initialization optimized again to prevent errors with invalid certificates
-
-### 1.5.8 (2020-04-30)
-* (Apollon77) errors on webserver initialization are handled properly
-
-### 1.5.6 (2020-04-04)
-* (bluefox) Fixed missing languages for blockly
-* (bluefox) Added description of easy-keyboard
-
-### 1.5.5 (2020-04-04)
-* (alutov) Fixed bug for telegram users with an empty username
-* (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response
-
-### 1.5.4 (2020-03-11)
-* (bluefox) Improvement of `callmebot`
-
-### 1.5.3 (2020-02-23)
-* (foxriver76) removed usage of adapter.objects
-* (Haba) Fix of the response for the "callback_query" event
-
-### 1.5.1 (2020-02-09)
-* (bluefox) Invalid parameters were checked
-
-### 1.5.0 (2020-02-03)
-* (bluefox) Added voice calls
-
-### 1.4.7 (2019-12-27)
-* (Apollon77) Make compatible with js-controller 2.3
-
-### 1.4.6 (2019-12-09)
-* (bluefox) Allowed writeOnly states in telegram
-
-### 1.4.4 (2019-11-27)
-* (bluefox) New sendTo message "ask" was added (see [Question](#question) )
-
-### 1.4.3 (2019-02-21)
-* (BuZZy1337) Bugfix for not yet completely implemented feature
-
-### 1.4.2 (2019-02-18)
-* (BuZZy1337) fix for recipients containing spaces
-* (BuZZy1337) change loglevel of "getMe" info-messages to debug
-* (bluefox) fix scroll in firefox
-
-### 1.4.1 (2019-01-12)
-* (simatec) Support for Compact mode
-
-### 1.4.0 (2019-01-06)
-* (bluefox) Custom settings for states were added
-
-### 1.3.6 (2018-12-01)
-* (Apollon77) fix #78
-
-### 1.3.5 (2018-11-04)
-* (BuZZy1337) Fix a small error caused by previous commit
-
-### 1.3.4 (2018-11-04)
-* (BuZZy1337) Ask if saved users should be wiped when password is changed.
-
-### 1.3.3 (2018-11-03)
-* (BuZZy1337) Show warning if no password is set.
-
-### 1.3.2 (2018-10-28)
-* (BuZZy1337) Just minor cosmetic fixes/changes
-
-### 1.3.1 (2018-10-08)
-* (bluefox) The ability of enable/disable of states controlling was added
-
-### 1.3.0 (2018-09-19)
-* (BuZZy1337) Added possibility to delete authenticated users in the Adapter-Config screen (via Messages tab)
-* (BuZZy1337) fixed a problem "building" the Blockly `sendto` block when no adapter instance exists.
-
-### 1.2.7 (2018-08-29)
-* (BuZZy1337) Added "disable notification" checkbox to blockly block.
-* (BuZZy1337) Added "parse_mode" selector to blockly block.
-
-### 1.2.6 (2018-07-30)
-* (BuZZy1337) Added support for sending Messages to Group-Chats via Blockly.
-
-### 1.2.5 (2018-07-11)
-* (BuZZy1337) Added possibility to specify more than one recipient. (separated by comma)
-
-### 1.2.4 (2018-06-02)
-* (BuZZy1337) remove HTML Tags from Logerror-Messages
-* (Apollon77) fix misleading error when setting a value for a state
-
-### 1.2.3 (2018-04-26)
-* (Osrx) Added Socks5 settings to config dialog on machines running admin 2.
-
-### 1.2.2 (2018-04-25)
-* (kirovilya) Changed library for Proxy Socks5
-
-### 1.2.1 (2018-04-17)
-* (Haba) Added support for Proxy Socks5.
-
-### 1.2.0 (2018-03-21)
-* (AlGu) Possibility to define polling interval in configuration wizard. Default is 300ms.
-
-### 1.1.4 (2018-03-20)
-* (BasGo) Added checks before accessing non-existing options
-
-### 1.1.3 (2018-03-19)
-* (BasGo) Fixed issue preventing adapter to terminate correctly
-* (BasGo) Fixed issue with wrong callback query id
-
-### 1.1.2 (2018-03-16)
-* (BasGo) Reworked configuration and translation
-
-### 1.1.1 (2018-01-26)
-* (Haba) New objects: botSendChatId, botSendMessageId
-
-### 1.1.0 (2018-01-24)
-* (bluefox) Possibility to send photo, video, document, audio as buffer.
-
-### 1.0.11 (2018-01-23)
-* (Haba) Sending an image without intermediate caching
-
-### 1.0.10 (2018-01-18)
-* (Haba) Updating for Admin3
-
-### 1.0.9 (2017-11-27)
-* (kirovilya) Allow the sending of GIF via sendDocument
-
-### 1.0.8 (2017-10-03)
-* (Haba1234) initPolling() this is deprecated. -> startPolling()
-* (Haba1234) Add log polling_error and webhook_error.
-
-### 1.0.7 (2017-09-27)
-* (Haba) New function: deleteMessage. Update version lib node-telegram-bot-api
-
-### 1.0.6 (2017-07-19)
-* (Haba) Fix an incorrect order of writing variables
-
-### 1.0.5 (2017-07-18)
-* (Haba) inline keyboard and new functions: answerCallbackQuery, editMessageText, editMessageReplyMarkup
-
-### 1.0.4 (2017-06-22)
-* (dwm) Fix longitude and latitude
-
-### 1.0.3 (2017-05-24)
-* (bluefox) Fix position message
-
-### 1.0.2 (2017-01-13)
-* (bluefox) show only installed instances in blockly
-
-### 1.0.1 (2016-11-04)
-* (bluefox) Show user name in error message
-
-### 1.0.0 (2016-10-31)
-* (bluefox) server mode with web hooks
-
-### 0.4.4 (2016-10-12)
-* (bluefox) support of blockly
-
-### 0.4.3 (2016-08-28)
-* (bluefox) filter out double messages
-
-### 0.4.2 (2016-08-22)
-* (bluefox) translations
-* (bluefox) configurable restarting/started texts
-
-### 0.4.1 (2016-07-29)
-* (bluefox) response to chatId and not to userId
-* (bluefox) cut messages with @
-* (bluefox) add new states: requestChatId and requestUserId
-
-### 0.4.0 (2016-07-21)
-* (bluefox) allow sending of messages to chats via chat-ID
-* (bluefox) support of video(mp4), audio, document, location, sticker, action
-
-### 0.3.0 (2016-05-31)
-* (bluefox) restart connection every hour
-
-### 0.2.4 (2016-05-08)
-* (bluefox) replace "_" with " " when sending to text2command
-
-### 0.2.3 (2016-05-04)
-* (bluefox) replace "/" with "#" when sending to text2command
-
-### 0.2.2 (2016-04-14)
-* (Jonas) fix unload
-
-### 0.2.1 (2016-04-13)
-* (Jonas) fix configuration and send to more than one user
-
-### 0.2.0 (2016-04-12)
-* (bluefox) add send photo possibility
-
-### 0.1.0 (2016-02-20)
-* (bluefox) fix double responses.
-* (bluefox) inform about new start
-
-### 0.0.2 (2016-02-15)
-* (bluefox) fix error with sendTo
-
-### 0.0.1 (2016-02-13)
-* (bluefox) initial commit
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
+### __WORK IN PROGRESS__
+* (Steff42) Make sure the userid is a string to revent warnings in the log
+* 
+
+### 1.15.0 (2022-09-28)
+* (klein0r) Fixed custom component (user name was missing)
+* (klein0r) Translated all objects
+* (bluefox) Updated GUI packages and corrected build process
+
+### 1.14.1 (2022-07-04)
+* (bluefox) Fixed warnings for `botSendChatId`
+
+### 1.14.0 (2022-07-02)
+* (bluefox) Ported config Gui to Admin 6
+
+### 1.13.0 (2022-06-01)
+* (klein0r) Added Admin 5 UI config
+* (bluefox) Added rule block for javascript as plugin
+
+### 1.12.6 (2022-04-23)
+* (Apollon77) Fixed crash cases reported by Sentry
 
 ## License
 

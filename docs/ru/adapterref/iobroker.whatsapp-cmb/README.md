@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.whatsapp-cmb/README.md
 title: ioBroker.whatsapp-cmb
-hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
+hash: VayoHyRhoOZpZqXHrVIK93S336vYLW20Or9dvVRkWt8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.whatsapp-cmb/admin/whatsapp-cmb.png)
 
@@ -26,9 +26,9 @@ hash: +4R0b4EKTxlIOP+ASeqLAdhQ4h9URBWifmI6ci2xrow=
 
 Вам необходимо получить ключ API от бота перед использованием API:
 
-- Добавьте номер телефона **+34 644 44 21 48** в свои телефонные контакты. (Назовите его как хотите.)
+- Добавьте номер телефона XXXX (текущий на странице CallMeBot) в свои телефонные контакты. (Назовите его как хотите.)
 - Отправьте это сообщение «Я разрешаю callmebot отправлять мне сообщения» (на английском языке) новому созданному контакту (конечно, используя WhatsApp).
-- Подождите, пока вы не получите сообщение `API активирован для вашего номера телефона. Ваш APIKEY 123123` от бота. Поскольку это все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
+- Подождите, пока не получите сообщение «API активирован для вашего номера телефона». Ваш APIKEY 123123` от бота. Поскольку это все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
 - Сообщение WhatsApp от бота будет содержать ключ API, необходимый для отправки сообщений с использованием API.
 - Теперь вы можете использовать API KEY в конфигурации ioBroker.
 
@@ -56,6 +56,9 @@ sendTo('whatsapp-cmb.0', 'send', {
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 0.2.3 (2022-08-29)
+* (Apollon77) Refer to website for current phone number
+
 ### 0.2.2 (2022-03-27)
 * (Apollon77) Fix message encoding
 

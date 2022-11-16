@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/README.md"},"en/adapterref/iobroker.birthdays/ical.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/ical.md"},"en/adapterref/iobroker.birthdays/carddav.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/carddav.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/README.md"},"en/adapterref/iobroker.birthdays/ical.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/ical.md"},"en/adapterref/iobroker.birthdays/carddav.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/carddav.md"},"en/adapterref/iobroker.birthdays/blockly.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/blockly.md"},"en/adapterref/iobroker.birthdays/javascript.md":{"title":{"en":"ioBroker.birthdays"},"content":"en/adapterref/iobroker.birthdays/javascript.md"}}}
 ---
 ![Logo](../../admin/birthdays.png)
 
@@ -7,7 +7,9 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
 
 ## iCal
 
-You can use an ical url to provide access to your birthday calendar. The adapter will search for all events within that file.
+You can use an ical file (http url or local path to file) to provide access to your birthday calendar. The adapter will search for all events within that file.
+
+_Local files are supported since adapter version 2.0.0_
 
 Your events
 
@@ -15,9 +17,9 @@ Your events
 2. are full day events
 3. have to be "repeated yearly"
 
-It is NOT required to use the ical option. You can also define all birthday dates in the settings. *When you use both options, the information will be merged.*
+It is NOT required to use the iCal option. You can also define other birthday sources in the settings. _When you use multiple options, the information will be merged._
 
-### Example Google Calendar
+### Google Calendar
 
 Go to [Google Calendar](http://calendar.google.com/) and create a new calendar. Add new birthday events to that calendar, which match the required criteria (see above). After that, you have to copy the private calendar url to use this calendar in the adapter.
 
@@ -26,3 +28,11 @@ Go to [Google Calendar](http://calendar.google.com/) and create a new calendar. 
 ![iCal Settings Google](./img/ical-google-settings.png)
 
 ![iCal URL Google](./img/ical-google-url.png)
+
+### Synology Calendar
+
+![iCal New Event Synology](./img/ical-synology-new.png)
+
+![iCal New Event Synology](./img/ical-synology-new-r.png)
+
+![iCal URL Synology](./img/ical-synology-url.png)

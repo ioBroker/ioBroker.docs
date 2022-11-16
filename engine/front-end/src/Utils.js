@@ -1,30 +1,18 @@
-
 let statistics;
 
 class Utils {
     static getStatistics() {
         const d = new Date();
-        statistics = statistics || Utils.fetchLocal(`data/statistics.json?$t=${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`)
-            .then(data => {
-                try {
-                    return JSON.parse(data)
-                } catch (e) {
-                    console.error('Cannot parse statistics');
-                    return {adapters: {}};
-                }
+        const url = `data/statistics.json?t=${d.getFullYear()}_${d.getMonth()}_${d.getDate()}`;
+
+        statistics = statistics || fetch(url)
+            .then(res => res.json())
+            .catch(e => {
+                console.error(`Cannot parse statistics: ${e}`);
+                return { adapters: {} };
             });
 
         return statistics;
-    }
-
-    static fetchLocal(url) {
-        return new Promise((resolve, reject) => {
-            const oReq = new XMLHttpRequest();
-            oReq.onload = function () {resolve(this.responseText);};
-            oReq.open('get', url, true);
-            oReq.addEventListener('error', function (e) {reject(e)}, false);
-            oReq.send();
-        });
     }
 
     static extractHeader(text) {
@@ -38,10 +26,10 @@ class Utils {
                     if (!line.trim()) {
                         return;
                     }
-                    const pos = line.indexOf(':');
-                    if (pos !== -1) {
-                        const attr = line.substring(0, pos).trim();
-                        attrs[attr] = line.substring(pos + 1).trim();
+                    const ppos = line.indexOf(':');
+                    if (ppos !== -1) {
+                        const attr = line.substring(0, ppos).trim();
+                        attrs[attr] = line.substring(ppos + 1).trim();
                         attrs[attr] = attrs[attr].replace(/^['"]|['"]$/g, '');
                         if (attrs[attr] === 'true') {
                             attrs[attr] = true;
@@ -57,7 +45,8 @@ class Utils {
                 text = text.substring(pos + 7);
             }
         }
-        return {header: attrs, body: text};
+
+        return { header: attrs, body: text };
     }
 
     static addHeader(text, header) {
@@ -65,10 +54,10 @@ class Utils {
         if (lines) {
             lines.unshift('---');
             lines.push('---');
-            return lines.join('\n') + '\n' + text;
-        } else {
-            return lines.join('\n');
+            return `${lines.join('\n')}\n${text}`;
         }
+
+        return lines.join('\n');
     }
 
     static removeDocsify(text) {
@@ -80,7 +69,10 @@ class Utils {
     }
 
     static getTitle(text) {
-        let {body, header} = Utils.extractHeader(text);
+        const data = Utils.extractHeader(text);
+        let body = data.body;
+        const header = data.header;
+
         if (!header.title) {
             // remove {docsify-bla}
             body = body.replace(/{[^}]*}/g, '');
@@ -92,9 +84,9 @@ class Utils {
                 }
             }
             return '';
-        } else {
-            return header.title;
         }
+
+        return header.title;
     }
 
     static text2link(text) {
@@ -111,10 +103,10 @@ class Utils {
         if (m) {
             const parts = path.split('/');
             parts.pop();
-            return {link: parts.join('/') + '/' + m[2], name: m[1]};
-        } else {
-            return null;
+            return { link: `${parts.join('/')}/${m[2]}`, name: m[1] };
         }
+
+        return null;
     }
 
     static findTitle(line, level, path) {
@@ -135,21 +127,23 @@ class Utils {
         const link = Utils.text2docLink(name, path);
 
         return {
-            level: level,
+            level,
             title: link ? link.name : name,
             link: link ? link.link : t,
             href: t,
-            external: !!link
+            external: !!link,
         };
     }
 
     static compareStrings(a, b, invert) {
-        if (a === b) return 0;
+        if (a === b) {
+            return 0;
+        }
         if (a > b) {
             return invert ? -1 : 1;
-        } else {
-            return invert ? 1 : -1;
         }
+
+        return invert ? 1 : -1;
     }
 
     static extractLicenseAndChangelog(text, ignoreHeaders) {
@@ -158,7 +152,7 @@ class Utils {
         let changelogA = false;
         const license = [];
         let licenseA = false;
-        let newLines = [];
+        const newLines = [];
         lines.forEach(line => {
             if (line.match(/#+\sChangelog/i)) {
                 !ignoreHeaders && changelog.push('## Changelog');
@@ -190,17 +184,20 @@ class Utils {
         while (license.length && !license[0].trim()) license.shift();
         while (license.length && !license[license.length - 1].trim()) license.pop();
 
-        return {body: newLines.join('\n'), license: license.join('\n'), changelog: changelog.join('\n')};
+        return { body: newLines.join('\n'), license: license.join('\n'), changelog: changelog.join('\n') };
     }
 
     static decorateText(text, header, path) {
         path = path || '';
 
-        let {body, license, changelog} = Utils.extractLicenseAndChangelog(text, true);
+        const data = Utils.extractLicenseAndChangelog(text, true);
+        const body = data.body;
+        const license = data.license;
+        const changeLog = data.changelog;
 
         const lines = body.split('\n');
         const content = {};
-        let current = [null, null, null, null];
+        const current = [null, null, null, null];
 
         const parts = [];
         while (lines.length && !lines[0].trim()) lines.shift();
@@ -221,38 +218,40 @@ class Utils {
             } else
             if (line.trim().startsWith('|')) {
                 if (!parts[last] || parts[last].type !== 'table') {
-                    parts.push({type: 'table', lines: [line]});
+                    parts.push({ type: 'table', lines: [line] });
                 } else {
                     parts[last].lines.push(line);
                 }
             } else
             if (line.match(/^##+ /)) {
-                parts.push({lines: [line], type: 'chapter'});
+                parts.push({ lines: [line], type: 'chapter' });
                 last++;
                 let level = line.split('#').length - 3;
                 const cont = Utils.findTitle(line, level, path);
                 content[cont.href] = cont;
                 current[level] = cont;
                 level++;
-                while(current[level] !== undefined) level = null;
+                while (current[level] !== undefined) {
+                    level = null;
+                }
             } else
             if (line.startsWith('@@@')) {
                 line = line.substring(3).trim();
-                parts.push({lines: [line], type: '@@@'});
+                parts.push({ lines: [line], type: '@@@' });
                 last++;
                 if (line.trim().endsWith('@@@')) {
                     parts[last].lines[0] = line.substring(0, line.length - 3);
                 } else {
-                    while(i + 1 < lines.length && !lines[i + 1].trim().endsWith('@@@')) {
+                    while (i + 1 < lines.length && !lines[i + 1].trim().endsWith('@@@')) {
                         parts[last].lines.push(lines[i + 1].trim());
                         i++;
                     }
                 }
             } else if (line.trim().startsWith('```')) {
-                parts.push({lines: [line], type: 'code'});
+                parts.push({ lines: [line], type: 'code' });
                 last++;
                 if (!line.substring(3).trim().endsWith('```')) {
-                    while(i + 1 < lines.length && !lines[i + 1].trim().endsWith('```')) {
+                    while (i + 1 < lines.length && !lines[i + 1].trim().endsWith('```')) {
                         parts[last].lines.push(lines[i + 1]);
                         i++;
                     }
@@ -260,25 +259,26 @@ class Utils {
                     i++;
                 }
             } else if (line.startsWith('?> ') || line.startsWith('!> ')) {
-                parts.push({lines: [line.substring(3)], type: line.startsWith('?>') ? 'warn' : 'alarm'});
+                parts.push({ lines: [line.substring(3)], type: line.startsWith('?>') ? 'warn' : 'alarm' });
                 last++;
-                while(i + 1 < lines.length && lines[i + 1].trim()) {
+                while (i + 1 < lines.length && lines[i + 1].trim()) {
                     parts[last].lines.push(lines[i + 1]);
                     i++;
                 }
             } else if (line.startsWith('> ')) {
-                parts.push({lines: [line.substring(2)], type: 'notice'});
+                parts.push({ lines: [line.substring(2)], type: 'notice' });
                 last++;
-                while(i + 1 < lines.length && lines[i + 1].trim()) {
+                while (i + 1 < lines.length && lines[i + 1].trim()) {
                     parts[last].lines.push(lines[i + 1]);
                     i++;
                 }
             } else if (line.trim()) {
-                parts.push({lines: [line], type: 'p'});
+                parts.push({ lines: [line], type: 'p' });
                 last++;
-                while(i + 1 < lines.length && //lines[i + 1].trim() &&
-                    //!lines[i + 1].trim().match(/^>\s|^\?>\s|^!>\s|^@@@|^#+|^====|^\|/)) {
-                    !lines[i + 1].trim().match(/^```|^>\s|^\?>\s|^!>\s|^@@@|^#+|^====|^\|/)) {
+                while (i + 1 < lines.length && // lines[i + 1].trim() &&
+                    // !lines[i + 1].trim().match(/^>\s|^\?>\s|^!>\s|^@@@|^#+|^====|^\|/)) {
+                    !lines[i + 1].trim().match(/^```|^>\s|^\?>\s|^!>\s|^@@@|^#+|^====|^\|/)
+                ) {
                     parts[last].lines.push(lines[i + 1].trimRight());
                     i++;
                 }
@@ -289,8 +289,8 @@ class Utils {
             parts,
             content,
             title,
-            changeLog: changelog,
-            license
+            changeLog,
+            license,
         };
     }
 
@@ -325,7 +325,7 @@ class Utils {
     }
 
     static padding(num) {
-        return num > 9 ? num.toString() : '0' + num;
+        return num > 9 ? num.toString() : `0${num}`;
     }
 
     // https://github.com/lukeed/clsx/blob/master/src/index.js
@@ -337,22 +337,24 @@ class Utils {
      * @returns {string}
      */
     static _toVal(mix) {
-        let k, y, str='';
+        let y;
+        let str = '';
 
         if (typeof mix === 'string' || typeof mix === 'number') {
             str += mix;
         } else if (typeof mix === 'object') {
             if (Array.isArray(mix)) {
-                for (k=0; k < mix.length; k++) {
+                for (let k = 0; k < mix.length; k++) {
                     if (mix[k]) {
-                        if ((y = Utils._toVal(mix[k]))) {
+                        y = Utils._toVal(mix[k]);
+                        if (y) {
                             str && (str += ' ');
                             str += y;
                         }
                     }
                 }
             } else {
-                for (k in mix) {
+                for (const k in mix) {
                     if (mix[k]) {
                         str && (str += ' ');
                         str += k;
@@ -371,19 +373,22 @@ class Utils {
      * Convert any object to a string with its values.
      * @returns {string}
      */
-    static clsx () {
+    static clsx(...args) {
         let i = 0;
         let tmp;
         let x;
         let str = '';
-        while (i < arguments.length) {
-            if ((tmp = arguments[i++])) {
-                if ((x = Utils._toVal(tmp))) {
+        while (i < args.length) {
+            tmp = args[i++];
+            if (tmp) {
+                x = Utils._toVal(tmp);
+                if (x) {
                     str && (str += ' ');
-                    str += x
+                    str += x;
                 }
             }
         }
+
         return str;
     }
 }

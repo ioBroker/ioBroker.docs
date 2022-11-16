@@ -3,48 +3,59 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
+hash: JxKfC9EtVVe45kAUeCPy1SvUiRz0jblG8f56m8V7wqM=
 ---
 ![Logo](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/bmw-installed.svg)
+![Anzahl der Installationen (neueste)](https://iobroker.live/badges/bmw-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bmw-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
 ![NPM](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
-#ioBroker.bmw
+# IoBroker.bmw
 **Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
 
-## Bmw-adapter für ioBroker
+## BMW-Adapter für ioBroker
 Adapter für BMW
 
-**Aktueller-Status**
+**Aktueller Status**
 
 bmw.0.VIN.Eigenschaften
 
-**Fernbefehle sind möglich unter**
+**Remote Befehle sind möglich unter**
 
-bmw.0.VIN.remotev2
+bmw.0.FIN.remotev2
 
 ## Changelog
 
-### 2.4.0
+### 2.5.6
 
--   Add support for MINI and force refresh remote
-  
+- Fix charging message
+### 2.5.5
+
+- Fix login
+
+### 2.5.0
+
+- Fix login
+
+### 2.4.1
+
+- Add support for MINI and force refresh remote
+
 ### 2.3.0
 
--   Disable v1 Endpoints
-  
+- Disable v1 Endpoints
+
 ### 2.1.1
 
--   Upgrade to statusV2 and remoteV2
-  
+- Upgrade to statusV2 and remoteV2
+
 ### 2.0.0
 
--   (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

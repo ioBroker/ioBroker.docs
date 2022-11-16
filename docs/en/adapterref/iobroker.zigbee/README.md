@@ -1,44 +1,162 @@
----
-BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
----
-# ioBroker adapter for working with Zigbee-devices
-With the Zigbee-coordinator based on Texas Instruments SoC cc253x (and others), it creates its own zigbee-network, into which zigbee-devices are connected. By work directly with the coordinator, the driver allows you to manage devices without additional gateways / bridge from device manufacturers (Xiaomi / TRADFRI / Hue). About the device Zigbee-network can be read [here (in English)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
+![Logo](admin/zigbee.png)
+# ioBroker.zigbee
+
+![Number of Installations](http://iobroker.live/badges/zigbee-installed.svg)
+![Number of Installations](http://iobroker.live/badges/zigbee-stable.svg)
+[![NPM version](http://img.shields.io/npm/v/iobroker.zigbee.svg)](https://www.npmjs.com/package/iobroker.zigbee)
+
+![Test and Release](https://github.com/ioBroker/iobroker.zigbee/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/zigbee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.zigbee.svg)](https://www.npmjs.com/package/iobroker.zigbee)
+
+## ioBroker adapter for Zigbee devices via TI cc2531/cc2530/cc26x2r/cc2538 and deCONZ ConBee/RaspBee.
+
+With the Zigbee-coordinator based on Texas Instruments SoC, deCONZ ConBee/RaspBee modules, Silicon Labs EZSP v8 or ZIGate USB-TTL it creates its own zigbee-network, into which zigbee-devices are connected. By work directly with the coordinator, the driver allows you to manage devices without additional application / gateways / bridge from device manufacturers (Xiaomi / TRADFRI / Hue / Tuya). About the device Zigbee-network can be read [here (in English)](https://www.zigbee2mqtt.io/information/zigbee_network.html).
 
 ## Hardware
-For work, you need one of the following devices, flashed with a special ZNP firmware: [cc2531, cc2530, cc2530 + RF](https://github.com/Koenkk/zigbee2mqtt/wiki/Supported-sniffer-devices#zigbee-coordinator)
 
-![](img/CC2531.png)
-![](img/sku_429478_2.png)
-![](img/sku_429601_2.png)
-![](img/CC2591.png)
 
-The necessary equipment for the firmware and the device preparation process is described [here (in English)](https://github.com/Koenkk/zigbee2mqtt/wiki/Getting-started) or [here (in Russian)](https://github.com/kirovilya/ioBroker.zigbee/wiki/%D0%9F%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0)
+One coordinator device is required for each zigbee Adapter instance. The device must be flashed with the respective coordinator firmware. A list of supported coordinators, the necessary equipment for the firmware and the device preparation process for different coordinator devices are described [here (in English)](https://www.zigbee2mqtt.io/guide/adapters/) or [here (in Russian)](https://myzigbee.ru/books/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B8/page/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0-cc2531cc2530)
 
-The devices connected to the Zigbee-network inform the coordinator of their status and events (button presses, motion detection, temperature change). This information is reflected in the ioBroker object-states. Some ioBroker states have feedback and send commands to the zigbee-device when the value changes (switching the state of the outlet or lamp, changing the scene or the brightness of the lamp).
+
+### Texas Instruments SoC
+
+Recommended devices are based on either the CC2652 or CC1352 chip. Devices based on cc253x chips are still supported but are no longer recommended.
+Only CC26xx/cc1352/cc2538 Devices support extraction of the NVRam backup which should allow to swap coordinator hardware without having to reconnect all zigbee devices to the network.
+Current firmware files for these devices can be found [on GitHub](https://github.com/Koenkk/Z-Stack-firmware)
+
+<span><img src="https://ae01.alicdn.com/kf/HTB1Httue3vD8KJjSsplq6yIEFXaJ/Wireless-Zigbee-CC2531-Sniffer-Bare-Board-Packet-Protocol-Analyzer-Module-USB-Interface-Dongle-Capture-Packet.jpg_640x640.jpg" width="100"></span>
+<span><img src="http://img.dxcdn.com/productimages/sku_429478_2.jpg" width="100"></span>
+<span><img src="http://img.dxcdn.com/productimages/sku_429601_2.jpg" width="100"></span>
+<span><img src="https://ae01.alicdn.com/kf/HTB1zAA5QVXXXXahapXXq6xXFXXXu/RF-TO-USB-CC2530-CC2591-RF-switch-USB-transparent-serial-data-transmission-equipment.jpg_640x640.jpg" width="100"></span>
+<span><img src="docs/de/img/CC2538_CC2592_PA.PNG" width="100"></span>
+<span><img src="docs/de/img/cc26x2r.PNG" width="100"></span>
+
+
+### Dresden Elektronik SoC
+
+<span><img src="docs/en/img/deconz.png"></span>
+
+recommended:
+- ConBee II
+- RaspBee II
+
+no longer recommended:
+- ConBee I
+- RaspBee
+
+While Conbee/RaspBee Support is no longer considered experimental in the zigbee-herdsman and zigbee-herdsman-converters libraries used by the zigbee Adapter, use of these devices with the adapter may limit functionality. Known issues are:
+- link quality display may be incorrect
+- device map metrics may be incorrect
+- NVRam Backup is not supported.
+
+### Silicon Labs SoC
+
+Support for [Silicon Lab Zigbee](https://www.silabs.com/wireless/zigbee) based adapters is experimental. The initial support for EZSP v8 is still not yet considered stable and the project is in need of more developers volenteering to help with this integration. Please refer to the respective documentation on [this page](https://www.zigbee2mqtt.io/guide/adapters/) and [ongoing development discussion](https://github.com/Koenkk/zigbee-herdsman/issues/319) with regards to the state of Silabs EmberZNet Serial Protocol (EZSP) adapter implementation integration into the zigbee-herdsman and zigbee-herdsman-converters libraries which it depends on.
+
+
+### ZiGate SoC
+
+Support for [ZiGate](https://zigate.fr) based adapters is experimental. The initial support for ZiGate is still not yet considered stable and the project is in need of more developers volenteering to help with this integration. Please refer to the respective documentation on [this page](https://www.zigbee2mqtt.io/guide/adapters/) and [ongoing development discussion](https://github.com/Koenkk/zigbee-herdsman/issues/242) with regards to the state of ZiGate adapter implementation into the zigbee-herdsman and zigbee-herdsman-converters libraries which it depends on.
+
 
 ## Work with adapter
-To start the driver, you must specify the name of the port on which the cc253x device is connected.
+
+![](docs/tutorial/zigbee.png)
+
+To start the driver, you must specify the name of the port on which the Zigbee-module (stick) is connected. Usually this is the port `/dev/ttyACM0` or `/dev/ttyUSB0` for the UART-connection. Or you can find with `ls -l /dev/serial/by-id` the device direct.
+
+open the settings and change port
+![](docs/tutorial/settings.png)
+
+
+For Windows this will be the COM port number.
+
+Starting from version 1.0.0 you can also use *tcp connection* for cases using esp8266 (or other microcontrollers) as serial-bridge. For example `tcp://192.168.1.46:8880`. Read more info here https://www.zigbee2mqtt.io/information/connecting_cc2530#via-an-esp8266
 
 To connect devices, you need to switch the Zigbee-coordinator to pairing mode by pressing the green button. The countdown will begin (60 seconds) until the device connectivity is available.
-To connect Zigbee devices in most cases, just press the pairing button on the device itself. But there are features for some devices. More information about pairing with devices can be found [here (in English)](https://github.com/Koenkk/zigbee2mqtt/wiki/Pairing-devices) or [here (in Russian)](https://github.com/kirovilya/ioBroker.zigbee/wiki#%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0)
+To connect Zigbee devices in most cases, just press the pairing button on the device itself. But there are features for some devices. More information about pairing with devices can be found [here (in English)](https://www.zigbee2mqtt.io/getting_started/pairing_devices.html)
 
 After successful pairing, the device appears in the configuration panel. If the device appears in the configuration panel but has the type "undefined", then this is an unknown device and can not be work with it. If the device is in the list of available devices, but added as "undefined", then try to remove the device and add it again.
 
+The devices connected to the Zigbee-network and inform the coordinator of their status and events (button presses, motion detection, temperature change). This information is reflected in the ioBroker object-states. Some ioBroker states have feedback and send commands to the zigbee-device when the value changes (switching the state of the outlet or lamp, changing the scene or the brightness of the lamp).
+
+### Device Groups
+You may create groups of devices.
+
+![](docs/tutorial/groups-1.png)
+
+It is a Zigbee feature, intended for example to switch bulbs synchronized. Assign groups via device tabs edit button. A group will show as own "device" in Objects.
+
+![](docs/tutorial/groups-2.png)
+
+Note: Not all devices support groups (not supported by end devices like sensors).
+
+
+### Binding
+
+https://www.zigbee2mqtt.io/information/binding
+
+### Developer Tab
+
+This is a tool for advanced users to test currently unsupported devices or enhance this adapters functionality. More instructions can be found on tab.
+![](docs/tutorial/tab-dev-1.png)
+
 ## Additional info
+
 There is a [friendly project](https://github.com/koenkk/zigbee2mqtt) with similar functionality on the same technologies, where you can work with the same devices using the MQTT protocol. Therefore, if any improvements or support for new zigbee-devices occur in the Zigbee2MQTT project, we can transfer and add the same functionality to this adapter. If you notice this, then write the issue - we'll postpone it.
 
 There are knowledge bases that can be useful for working with Zigbee-devices and equipment:
-* in English https://github.com/koenkk/zigbee2mqtt/wiki
-* in Russian https://github.com/kirovilya/ioBroker.zigbee/wiki
+* in English https://www.zigbee2mqtt.io/
+* in Russian https://myzigbee.ru/
+
+## Supported devices
+
+Works with devices from this list https://github.com/ioBroker/ioBroker.zigbee/wiki/Supported-devices
+
+## Donate
+
+You can thank the authors by these links:
+* to Kirov Ilya https://www.paypal.me/goofyk
+* to Arthur Rupp https://paypal.me/ArthurRupp
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+
+    https://github.com/AlCalzone/release-script#usage
+    npm run release minor -- --all 0.9.8 -> 0.10.0
+    npm run release patch -- --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    Placeholder for the next version (at the beginning of the line):
+     ## **WORK IN PROGRESS**
+-->
+
 
 ## Changelog
+### 1.7.6 (2022-07-23)
+* (kirovilya) fix selecting nodes in admin
+* (arteck) ikea fix
+
+### 1.7.5 (2022-06-01)
+* (arteck) error message for undefined devices or icons
+
+### 1.7.4 (2022-05-30) 
+* (arteck) missing icons with multiple description
+
+### 1.7.2 (2022-05-28)
+* (arteck) download missing icons corr
+
+### 1.7.1 (2022-05-28)
+* (arteck) available status in admin is colored
+* (arteck) disable Backups checkbox in settings
+* (arteck) we keep last 10 backup files 
+* (arteck) download missing icons automatically (manual upload needed)
+
 ### 1.6.18 (2022-04-21)
 * (arteck) fix pairing modus
 
 ### 1.6.17 (2022-04)
- rollback 
+ rollback
 
 ### 1.6.16 (2022-02-16)
 * (arteck) admin dep fix
@@ -46,7 +164,6 @@ There are knowledge bases that can be useful for working with Zigbee-devices and
 
 ### 1.6.15 (2022-02-08)
 * (arteck) Battery status % calculation was changed for xiaomi devices
-
 
 ### 1.6.14 (2022-01)
 * (asgothian) OTA limitation
@@ -312,7 +429,7 @@ new Zigbee-herdsman features:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2022 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

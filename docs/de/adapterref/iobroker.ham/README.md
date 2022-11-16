@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham/README.md
 title: ioBroker Homebridge-Zubehörmanager
-hash: KN3LWhHrXcOlTyNyVHB3YLTVcG+EMOBGThWzmj6X/Io=
+hash: YWFx1PvhxXq7iwHc0gKP5lLvYFgwg1b+x09oPZ8cidA=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham/admin/ham.png)
 
@@ -27,7 +27,7 @@ Sie können alle verfügbaren Plugins auf der NPM-Website unter [nach dem Schlü
 Sie fügen einfach die Liste der Module zur Adapterkonfiguration hinzu und stellen die Konfiguration im JSON-Editor bereit (siehe Plugin-Beschreibungen).
 Danach werden alle Homebridge-Objekte auch in ioBroker erstellt und alle beschreibbaren Objekte können ebenfalls geändert werden.
 
-**WICHTIG: Dieser Modus ermöglicht die Verwendung der Geräteintegrationen der bereitgestellten Homebridge-Plugins. Es wird keine „Brücke“ bereitgestellt, die von der Home-App verwendet werden kann!**
+**WICHTIG: Dieser Modus ermöglicht die Nutzung der Geräteintegrationen der bereitgestellten Homebridge-Plugins. Es wird keine „Brücke“ bereitgestellt, die von der Home-App verwendet werden kann!**
 
 Einen Link erfolgreich erprobter Plugins mit Beispielen finden Sie hier: https://forum.iobroker.net/viewtopic.php?f=20&t=15021
 
@@ -40,14 +40,36 @@ Die Installation der Homebridge-Module erfolgt ebenfalls über ioBroker.
 **WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
 
 ### Global-Homebridge-Modus
-Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits als globale Installation auf dem Host verwenden, auf dem auch ioBroker läuft, dann können Sie diese vorhandene Homebridge-Installation verwenden und diese Homebridge-Installation als ioBroker-Prozess starten. In diesem Fall wird der Homebridge-Server von ioBroker gestartet.
-Zusätzlich sind alle Zustände von Homebridge als Zustände in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
+Wenn Sie Homebridge (Apple OpenSource SmartHome) bereits als globale Installation auf dem Host verwenden, auf dem auch ioBroker läuft, dann können Sie diese vorhandene Homebridge-Installation verwenden und diese Homebridge-Installation als ioBroker-Prozess starten. **In diesem Fall wird der Homebridge-Server von ioBroker gestartet.**
 
-Damit dies funktioniert, müssen Sie den Speicherort des globalen Ordners node-modules des Systems angeben. Rufen Sie dazu **npm root -g** auf. Zusätzlich müssen Sie den Pfad des Homebridge-Konfigurationsverzeichnisses angeben (normalerweise .homebridge im Ordner "users").
+**WICHTIG: Sie müssen sicherstellen, dass der globale Dienst NICHT vom System oder dergleichen gestartet wird. ioBroker selbst macht den Anfang! Siehe unten für Best-Practice-Einrichtungsdetails.**
 
-**WICHTIG: ioBroker läuft als Benutzer „iobroker“, aber Homebridge normalerweise als Root- oder Homebridge-Benutzer (je nachdem, wie Sie es installiert haben). Sie müssen sicherstellen, dass der ioBroker-Benutzer auf den Homebride-Ordner „Persistance“ zugreifen kann, da sonst Fehler angezeigt werden, dass die Datei nicht gespeichert werden kann (was den Adapter zum Absturz bringen kann!)**
+**WICHTIG: Da ioBroker die Homebridge startet, wird auch das Logging von ioBroker durchgeführt. Sie können den Loglevel der Instanz auf albern setzen, um auch alle Homebridge-Logs zu sehen, sonst wird nach den wichtigen Sachen gefiltert.**
+
+Außerdem sind alle Zustände von Homebridge als Zustände in ioBroker verfügbar und können von ioBroker aus gesteuert werden.
+
+Damit dies funktioniert, müssen Sie den Speicherort des globalen Knotenmodulordners des Systems angeben. Rufen Sie dazu **npm root -g** auf. Außerdem müssen Sie den Pfad des Homebridge-Konfigurationsverzeichnisses angeben (normalerweise .homebridge im Ordner „users“).
+
+**WICHTIG: ioBroker läuft als Benutzer „iobroker“, aber Homebridge normalerweise als Root- oder Homebridge-Benutzer (je nachdem, wie Sie es installiert haben). Sie müssen sicherstellen, dass der Homebride-Ordner „Persistance“ vom ioBroker-Benutzer aufgerufen werden kann, sonst sehen Sie Fehler, dass die Datei nicht gespeichert werden kann (was den Adapter zum Absturz bringen kann!)**
 
 **WICHTIG: Bei Verwendung von Child-Bridges (neues Homebridge-Feature seit 1.3.x) kann der Adapter NICHT auf die von diesen Child-Bridges bereitgestellten Daten zugreifen! Nur die Hauptbrücke ist zugänglich!**
+
+#### Als Global Bridge-Details installieren
+Dank @Anzic23 hier einige Details, wie man Homebridge ideal für den globalen Modus einrichtet:
+
+1. `sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x`
+2. hb-service installieren (sudo hb-service install --user homebridge) Dieser Schritt ist erforderlich, um die erforderlichen Dateien und Verzeichnisse zu erstellen
+3. hb-service deinstallieren (sudo hb-service deinstallieren)
+4. nach der Installation von Homebridge
+
+```
+sudo chmod 777 -R /var/lib/homebridge/
+sudo chmod 777 -R /usr/lib/node_modules/homebridge
+```
+
+im globalen Homebridge-Pfad von iobroker: /usr/lib/node_modules/homebridge
+
+Pfad des globalen Homebridge-Konfigurationsverzeichnisses: /var/lib/homebridge
 
 ## Folgende Plugins wurden im Standardmodus getestet
 * homebridge-chamberlain v1.0.1 - Plugin für Chamberlain Garagentoröffner mit MyQ
@@ -67,12 +89,54 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Ordners node-m
 ## MACHEN
 * Prüfungen
 * Mehr Dokumentation?!
+* Testen und herausfinden, ob ESM-Module in welchem Modus funktionieren (ich erwarte keinen)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize value determination on accessory initialization
+
+### 5.3.1 (2022-09-28)
+* (bluefox) Updated GUI packages
+
+### 5.3.0 (2022-09-15)
+* (Apollon77) Add option to enable homebridge debug logging
+
+### 5.2.4 (2022-09-15)
+* (Apollon77) Prevent crash when accessing a state which is not controllable anymore
+
+### 5.2.3 (2022-09-14)
+* (Apollon77) Optimize Accessory processing
+
+### 5.2.2 (2022-09-14)
+* (Apollon77) make compatible to more plugins
+
+### 5.2.1 (2022-09-12)
+* (Apollon77) make compatible to more plugins
+
+### 5.1.0 (2022-08-17)
+* IMPORTANT update homebridge and wrapper to 1.5.0 (latest as of today). IMPORTANT: Requires also homebridge 1.5.x installed when using global mode and local mode will update to 1.5.x too! Check your plugins for updates!
+
+### 5.0.2 (2022-07-20)
+* (bluefox) Update tab GUI
+
+### 5.0.1 (2022-06-28)
+* (Apollon77) Make sure values are set after objects were created
+
+### 5.0.0 (2022-06-27)
+* IMPORTANT update homebridge and wrapper to 1.4.1 (latest as of today). IMPORTANT: Requires also homebridge 1.4.x installed when using global mode and local mode will update to 1.4.x too! Check your plugins for updates!
+* (Apollon77) Sync forbidden characters with ioBroker standard - Object IDs might change with this version!
+* (Apollon77) Basically allow to specify http URLS as plugins in the main configuration list (not the tab!)
+* (Apollon77) Also try to register on external accessories like cameras (experimental)
+* (Apollon77) Fix loading issues with the tab
+
+### 4.0.4 (2022-06-07)
+* (bluefox) Corrected configuration in dark theme
+
 ### 4.0.3 (2022-03-20)
 * (bluefox) Update packages
 
@@ -94,7 +158,7 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Ordners node-m
 * (Apollon77) BREAKING: ONLY WORKS WITH HOMEBRIDGE 1.1.x+ AND Node JS >=10.17.0!! Make sure plugins support it AND homebridge is updated to 1.1.x when you use the Global Mode!
 
 ### 1.1.2 (2019-07-08)
-* (Apollon77) Allow more then 149 accessories in wrapper mode
+* (Apollon77) Allow more than 149 accessories in wrapper mode
 
 ### 1.1.1 (2019-07-05)
 * (Apollon77) Add option to update NPM modules in Admin. Reinstall will happen after saving settings
@@ -132,7 +196,7 @@ Damit dies funktioniert, müssen Sie den Speicherort des globalen Ordners node-m
 * (Apollon77) Updates for Homebridge-Wrapper
 
 ### 0.2.5 (2018.06.18)
-* (Apollon77) Catch all console logs from Homegridge and make available as debug log
+* (Apollon77) Catch all console logs from Homebridge and make available as debug log
 
 ### 0.2.4 (2018.06.18)
 * (Apollon77) Updates for Homebridge-Wrapper

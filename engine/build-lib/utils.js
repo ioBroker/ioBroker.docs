@@ -65,7 +65,7 @@ function extractHeader(text) {
         }
     }
 
-    return {header: attrs, body: trim(text, '\n').trimRight()};
+    return { header: attrs, body: trim(text, '\n').trimRight() };
 }
 
 function trim(text, char) {
@@ -82,7 +82,7 @@ function trim(text, char) {
 }
 
 function getTitle(text) {
-    let {body, header} = extractHeader(text);
+    let { body, header } = extractHeader(text);
     if (!header.title) {
         // remove {docsify-bla}
         body = body.replace(/{[^}]*}/g, '');
@@ -104,16 +104,16 @@ function addHeader(text, header) {
     const lines = Object.keys(header).map(attr => `${attr}: ${header[attr]}`);
     lines.unshift('---');
     lines.push('---');
-    return lines.join('\n') + '\n' + text;
+    return `${lines.join('\n')}\n${text}`;
 }
 
 function createDir(dir) {
     try {
         !fs.existsSync(dir) && fs.mkdirSync(dir, {recursive: true});
     } catch (e) {
-        console.error('Try to create a directory: ' + dir);
-        console.error('Try to create a directory: ' + e.toString());
-        console.error('Actual directory: ' + process.cwd());
+        console.error(`Try to create a directory: ${dir}`);
+        console.error(`Try to create a directory: ${e.toString()}`);
+        console.error(`Actual directory: ${process.cwd()}`);
     }
 }
 
@@ -315,7 +315,7 @@ function replaceImages(body, prefix, noBadges) {
         // remove delete lines from array
         const lines = body.split('\n');
         for (let i = lines.length - 1; i >= 0; i--) {
-            if (lines[i].indexOf('--delete--') !== -1) {
+            if (lines[i].includes('--delete--')) {
                 lines.splice(i, 1);
             }
         }

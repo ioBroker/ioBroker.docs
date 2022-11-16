@@ -106,6 +106,9 @@ The alias contains a simple write function.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2022-06-10)
+* (foxriver76) the config is now applied directly from frontend without requiring to save first
+
 ### 0.5.1 (2022-02-26)
 * (foxriver76) changed type in io-package to `utility`
 * (foxriver76) updated deps

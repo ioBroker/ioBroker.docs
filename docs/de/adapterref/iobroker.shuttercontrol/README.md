@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: zCCXlYpOu1Vjof2/ggnUlkRtioVA0mbKW7AWTypdWxk=
+hash: EJswFd30WDrocO5waZd6RsEVPZwP0gOBl1RP0djABFM=
 ---
 ![Logo](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
@@ -14,12 +14,11 @@ hash: zCCXlYpOu1Vjof2/ggnUlkRtioVA0mbKW7AWTypdWxk=
 ![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![Spenden](https://img.shields.io/badge/donate-paypal-blue?style=flat)
-![NPM](https://nodei.co/npm/iobroker.shuttercontrol.png?downloads=true)
 
 # IoBroker.shuttercontrol
 ![Testen und freigeben](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter nutzt den Dienst Sentry.io, um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden. Weitere Details siehe unten!
+Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemas automatisch an mich als Entwickler zu melden. Näheres siehe unten!
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -34,15 +33,57 @@ automatische Steuerung für Rollläden
 
 [Englische Beschreibung hier](docs/en/shuttercontrol.md)
 
-### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler ihrer Anwendungen zu verschaffen. Und genau das ist in diesem Adapter implementiert.
+### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.18 (2022-09-24)
+* (simatec) Bugfixes Button Action
+
+### 1.4.17 (2022-09-24)
+* (simatec) small Bugfixes
+
+### 1.4.16 (2022-09-19)
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+* (simatec) Docu updated
+* (simatec) travis deleted
+* (simatec) update translation
+* (simatec) debug for shutterstate added
+
+### 1.4.14 (2022-06-02)
+* (simatec) delay for Lightsensor added
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.13 (2022-05-24)
+* (FoxRo) Bugfix Alarm handling
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+* (simatec) more debuglog for Trigger
+
+### 1.4.12 (2022-04-11)
+* (FoxRo) Bugfix wrongly open after deactivation of weater alarm
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.11 (2022-02-07)
+* (simatec) fix objects value
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
+### 1.4.10 (2022-01-16)
+* (simatec) Bugfix xmas time
+* (simatec) Bugfix Shutter delay
+* (simatec) Dependencies updated
+* (simatec) Dev-Dependencies updated
+
 ### 1.4.9 (2021-12-29)
 * (simatec) error handling for trigger added
 * (simatec) Bugfix Trigger delay
@@ -444,7 +485,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2021 simatec
+Copyright (c) 2019 - 2022 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

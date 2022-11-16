@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cloud/README.md
 title: ioBroker Cloud-Adapter
-hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
+hash: 4r/Wxr+2EjpbmN7uLOTJNUVz9ZPeqqpWt+taAd4r5uo=
 ---
 ![Logo](../../../en/adapterref/iobroker.cloud/admin/cloud.png)
 
@@ -15,7 +15,7 @@ hash: gwJ7slGLQ/PENN9DEJhVmYVcLNEPZ06YRCrzWb2L5dc=
 # IoBroker-Cloud-Adapter
 Dieser Adapter ermöglicht die Verbindung vom Internet über die ioBroker-Cloud zur lokalen Installation von ioBroker.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 ### APP-SCHLÜSSEL
@@ -26,7 +26,7 @@ Dies ist der Anwendungsschlüssel, den der Benutzer auf der Seite [https://iobro
 ![Einleitung](../../../en/adapterref/iobroker.cloud/img/intro.png)
 
 ### Instanz
-Alle Anfragen vom Cloud-Adapter werden an eine WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben, die dem Benutzer angezeigt wird, wenn er sich auf der Website https://iobroker.net anmeldet.
+Alle Anfragen vom Cloud-Adapter werden an eine bestimmte WEB-Instanz weitergeleitet. Der Benutzer muss hier die WEB-Instanz angeben, die dem Benutzer angezeigt wird, wenn er sich auf der Website https://iobroker.net anmeldet.
 
 ### Selbstsignierte Zertifikate zulassen
 Wenn Sie die Standard-Cloud von iobroker.net verwenden, können Sie diese deaktivieren. Diese Option ist nur wichtig, wenn eine eigene Cloud verwendet wird.
@@ -65,7 +65,7 @@ Sie können `text2command` in die weiße Liste schreiben, Sie können eine POST-
 ### SimpleApi
 Sie können folgende Befehle verwenden (nur Pro):
 
-- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Statuswert zu lesen => `{"val":103.516,"ack":true, "ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
+- `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/get/stateID` - um den Zustandswert zu lesen => `{"val":103.516,"ack":true, "ts":1604132484682,"q":0,"from":"system.adapter.admin.0","lc":1604132469672,"result":"OK"}`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/getPlainValue/stateID` - um den Zustandswert zu lesen => `103.641`
 - `[GET]https://iobroker.pro/service/simpleApi/<user-app-key>/set/stateID?value=1` - um den Statuswert zu setzen => `{"result":"OK"} `
 
@@ -81,13 +81,30 @@ Sie können HTTPS und Authentifizierung auf dieser Webinstanz deaktivieren, aber
 ### **IN ARBEIT** -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 4.3.0 (2022-10-27)
+* (bluefox) Corrected work with lovelace
+
+### 4.2.3 (2022-10-10)
+* (Apollon77) Prepare for future js-controller versions
+* (bluefox) Corrected error with iobroker.pro and delete object
+
+### 4.2.2 (2022-08-24)
+* (bluefox) Corrected error with services list and admin6
+
+### 4.2.1 (2022-07-20)
+* (bluefox) Used new version of socket library.
+
+### 4.2.0 (2022-07-05)
+* (bluefox) Added preparations for Admin 6
+
+### 4.1.2 (2022-06-22)
+* (bluefox) Added preparations for Admin 6
 * (bluefox) Added better error reporting
 * (bluefox) Removed outdated `request` library
 * (bluefox) Used common sockets (could be buggy)
 
 ### 4.1.1 (2022-02-19)
-* Important: Requires js-controller 3.1 at least!
+* Important: Requires `js-controller` 3.1 at least!
 * (Apollon77) Add some checks to prevent issues with missing data
 * (Apollon77) FIx some crash cases reported by Sentry
 * (Apollon77) pass HEAD requests without body (Sentry IOBROKER-CLOUD-14)

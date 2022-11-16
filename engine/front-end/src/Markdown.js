@@ -1,27 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import MarkdownView from 'react-showdown';
 
-import Paper from '@material-ui/core/Paper';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionActions from '@material-ui/core/AccordionActions';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import IconButton from '@material-ui/core/IconButton';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Snackbar from '@material-ui/core/Snackbar';
+import Paper from '@mui/material/Paper';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionActions from '@mui/material/AccordionActions';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import IconButton from '@mui/material/IconButton';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Snackbar from '@mui/material/Snackbar';
 
-import {MdEdit as IconEdit} from 'react-icons/md';
-import {MdClose as IconClose} from 'react-icons/md';
-import {MdMenu as IconMenu} from 'react-icons/md';
-import {MdExpandMore as IconExpandMore} from 'react-icons/md';
-import {FaGithub as IconGithub} from 'react-icons/fa';
+import { MdEdit as IconEdit } from 'react-icons/md';
+import { MdClose as IconClose } from 'react-icons/md';
+import { MdMenu as IconMenu } from 'react-icons/md';
+import { MdExpandMore as IconExpandMore } from 'react-icons/md';
+import { FaGithub as IconGithub } from 'react-icons/fa';
 import IconGlobe from './assets/globe.svg';
 import IconLink from './assets/link.svg';
 
@@ -321,7 +321,7 @@ const styles = theme => ({
         marginBottom: theme.spacing(2),
         marginLeft: theme.spacing(1),
         '&:hover': {
-            backgroundColor: theme.palette.type === 'dark' ? '#333' : '#CCC',
+            backgroundColor: theme.palette.mode === 'dark' ? '#333' : '#CCC',
         }
     },
     changeLogVersion: {

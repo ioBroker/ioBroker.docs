@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: tXwvKkxEiqZiL4wv3zgaF68DL74geX300gEVuLwqQGE=
+hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -16,171 +16,171 @@ hash: tXwvKkxEiqZiL4wv3zgaF68DL74geX300gEVuLwqQGE=
 # IoBroker.HeatingControl
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
 ## Dokumentation
-**Ich suche Unterstützung bei der Erstellung/Aktualisierung der Benutzerdokumentation und der FAQs. Bei Interesse bitte bei mir melden...**
+**Ich suche Unterstützung bei der Erstellung / Aktualisierung der Benutzerdokumentation und der FAQ's. Bei Interesse bitte melden...**
 
 ## Adapter zur Steuerung Ihrer Heizungsanlage.
 Merkmale:
 
-* Steuern Sie die Solltemperaturen aller Thermostate nach Zeitplänen
+* Steuern Sie die Solltemperaturniveaus aller Thermostate nach Zeitplänen
 * Konfigurieren Sie mehrere Heizperioden für jeden Tag und jede Nacht
-* Unterstützt alle Arten von Thermostaten (Voraussetzung: es muss in ioBroker verfügbar sein)
+* Unterstützt alle Arten von Thermostaten (Voraussetzung: muss in ioBroker verfügbar sein)
 * Automatische Erkennung von Homematic-Geräten
 * unterstützt mehrere Profile
 * Besteht keine direkte Verbindung zwischen Thermostat und Stellantrieb, kann der Stellantrieb direkt aus dem Adapter geschaltet werden
-* Aktuell wird der Aktor bei Erreichen der Solltemperatur direkt abgeschaltet. Sobald die Solltemperatur unter der Isttemperatur liegt, wird der Aktor eingeschaltet. (Zu tun: verbesserte Kontrolle implementieren)
-* unbegrenzte Anzahl von Thermostaten, Aktoren und Sensoren pro Raum werden unterstützt
-* Thermostat, Stellantrieb und Sensor werden automatisch pro Raum erkannt. Dazu wird die Funktion (zB "Heizen") verwendet.
-* Räume können innerhalb der Admin-Oberfläche ausgeschlossen werden, wenn ein Raum einen Thermostat enthält, aber nicht gesteuert werden soll
-* Sensor dient zur Reduzierung der Solltemperatur (z. B. bei geöffnetem Fenster); optional mit SensorDelay
-* Schnittstelle zu Feiertags-Adapter oder anderen zur Erkennung von Feiertagen. Feiertag kann ein normaler Tag oder wie ein Sonntag sein. (Admin-Einstellung)
-* manuelle Temperaturübersteuerung für eine bestimmte Zeit
+* Aktuell wird der Aktor direkt bei Erreichen der Solltemperatur abgeschaltet. Sobald die Solltemperatur unter der Isttemperatur liegt, wird der Aktor eingeschaltet. (Zu tun: verbesserte Kontrolle implementieren)
+* Es wird eine unbegrenzte Anzahl von Thermostaten, Aktoren und Sensoren pro Raum unterstützt
+* Thermostat, Aktor und Fühler werden pro Raum automatisch erkannt. Dazu wird die Funktion (z. B. „Heizen“) verwendet.
+* Räume können in der Admin-Oberfläche ausgeschlossen werden, wenn ein Raum einen Thermostat enthält, aber nicht gesteuert werden soll
+* Sensor wird verwendet, um die Zieltemperatur zu reduzieren (z. B. wenn ein Fenster geöffnet ist); optional mit SensorDelay
+* Schnittstelle zum Feiertags-Adapter oder anderen zur Erkennung von Feiertagen. Ein Feiertag kann ein normaler Tag oder wie Sonntage sein. (Admin-Einstellung)
+* manuelle Temperaturüberbrückung für eine bestimmte Zeit
 * vordefinierte Heizperiode
 * Änderungen vom Thermostat übernehmen (optional)
-* Visualisierung von [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Danke schön!
+* Visualisierung von [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Vielen Dank!
 
 [FAQ](doc/FAQ.md)
 
 ## Installation
 ## Einstellungen
 ### Hauptsächlich
-* Funktion = Funktion zur Erkennung von Thermostaten, Aktoren und Sensoren pro Raum. Es ist eine der System-Enums
-* Zeitzone = wird für Cron verwendet, um Cron-Jobs anzupassen
-* Pfad zum Feiertag - Adapter = Wenn Sie den Feiertag-Adapter verwenden möchten, um den heutigen Feiertag automatisch zu erkennen, dann stellen Sie hier den Pfad ein (z. B. feiertage.0)
-* Alle Geräte löschen, wenn der Administrator öffnet = sollte deaktiviert sein. Aktivieren Sie es nur, wenn Sie alle Raum-, Aktor- und Sensoreinstellungen löschen müssen. Beim Öffnen des Adapter-Admin wird eine Gerätesuche durchgeführt
-* verwendeter Sensor = wenn Sie Fenstersensoren haben und die Zieltemperatur bei geöffnetem Fenster senken möchten, aktivieren Sie diese Option
-* Aktoren verwendet = wenn Sie Aktoren direkt vom Adapter ansteuern möchten. Nur für den Fall, dass keine direkte Verbindung zwischen Thermostat und Stellantrieb besteht.
+* Funktion = Funktion, die verwendet werden soll, um Thermostate, Aktoren und Sensoren pro Raum zu erkennen. Es ist eines der System-Enumerationen
+* timezone = wird für Cron verwendet, um Cron-Jobs anzupassen
+* Path to Feiertag - Adapter = Wenn Sie den Feiertag-Adapter verwenden möchten, um automatisch Feiertage für heute zu erkennen, dann stellen Sie hier den Pfad ein (z. B. feiertage.0)
+* Alle Geräte löschen, wenn Admin geöffnet wird = sollte deaktiviert werden. Aktivieren Sie es nur, wenn Sie alle Raum-, Aktor- und Sensoreinstellungen löschen müssen. Beim Öffnen des Adapter-Admin wird eine Gerätesuche durchgeführt
+* Sensor verwendet = Wenn Sie Fenstersensoren haben und die Zieltemperatur bei geöffnetem Fenster verringern möchten, aktivieren Sie diese Option
+* Verwendete Aktoren = wenn Sie Aktoren direkt vom Adapter steuern möchten. Nur für den Fall, dass keine direkte Verbindung zwischen Thermostat und Stellantrieb besteht.
 * Stellantriebe verwenden, wenn keine Heizperiode = nur gültig mit Stellantrieben. Legt fest, wie Aktoren eingestellt werden, wenn keine Heizperiode aktiv ist
-* Stellantriebe verwenden, wenn kein Thermostat vorhanden = nur gültig mit Stellantrieben. Wenn Sie Räume ohne Thermostat aber mit Heizungsaktor haben, können Sie diese dauerhaft ein- oder ausschalten
+* Stellantriebe verwenden, wenn kein Thermostat vorhanden = nur gültig mit Stellantrieben. Wenn Sie Räume ohne Thermostat, aber mit Heizungsaktor haben, können Sie diese dauerhaft ein- oder ausschalten
 
 ### Profil
 * Profiltyp = drei verschiedene Profiltypen (Montag - Sonntag oder Montag - Freitag und Samstag/Sonntag oder jeden Tag) werden unterstützt
-* Anzahl der Profile = Wenn Sie mehr als das Profil benötigen, erhöhen Sie diesen Wert. Sie können dann auswählen, welches Profil verwendet wird.
+* Anzahl der Profile = Wenn Sie mehr benötigen, erhöhen Sie diesen Wert im Profil. Sie können dann auswählen, welches Profil verwendet werden soll.
 * Anzahl der Perioden = Definieren Sie, wie viele Tagesabschnitte mit unterschiedlichen Temperaturen Sie benötigen. Je mehr Sie einstellen, desto mehr Datenpunkte werden erstellt. Verwenden Sie besser einen niedrigen Wert (z. B. 5)
-* "Feiertag wie Sonntag = Wenn Sie Solltemperaturen an Feiertagen wie Sonntag einstellen möchten, aktivieren Sie diese Option. Ansonsten sind die Feiertagseinstellungen die gleichen wie an normalen Tagen
-* Heizperiode = Start- und Enddatum der Heizperiode. Wird verwendet, um "HeizperiodeAktiv" einzustellen
+* "Feiertag wie Sonntag = Wenn Sie Solltemperaturen an Feiertagen wie Sonntag einstellen möchten, aktivieren Sie diese Option. Ansonsten gelten die Feiertagseinstellungen wie an normalen Tagen
+* Heizperiode = Start- und Enddatum der Heizperiode. Wird verwendet, um "HeatingPeriodActive" einzustellen
 
 ### Geräte
 * eine Liste aller Zimmer. Hier können Sie einen Raum deaktivieren.
-* Drücken Sie die Schaltfläche Bearbeiten auf der rechten Seite, um das Einstellungsfenster für Thermostate, Aktoren und Sensoren für diesen Raum zu öffnen
+* Drücken Sie die Bearbeiten-Schaltfläche auf der rechten Seite, um das Einstellungsfenster für Thermostate, Aktoren und Sensoren für diesen Raum zu öffnen
 
 ### Bearbeitungsraum
-* hier können Sie Objekt-IDs für Thermostate, Aktoren und Sensoren überprüfen und einstellen
-* Sie können manuell neue Thermostate, Aktoren oder Sensoren hinzufügen. Drücken Sie einfach die +-Taste. Dann erhalten Sie eine leere Zeile, die aufgefüllt werden muss. Der Edit-Button öffnet eine Liste der verfügbaren Geräte auf dem System
+* Hier können Sie Objekt-IDs für Thermostate, Aktoren und Sensoren überprüfen und festlegen
+* Sie können manuell neue Thermostate, Aktoren oder Sensoren hinzufügen. Drücken Sie einfach die + Taste. Dann erhalten Sie eine leere Zeile, die aufgefüllt werden muss. Der Bearbeiten-Button öffnet eine Liste der verfügbaren Geräte im System
 * Thermostate:
 
 ** Name, Temperaturziel-OID und aktuelle Temperatur-OID sollten eingestellt werden.
 
-* Aktoren
+* Stellantriebe
 
-** Name und OID für Staat sollten eingestellt werden
+** Name und OID für Zustand sollten gesetzt werden
 
 * Sensoren
 
-** Name und OID für den aktuellen Status sollten eingestellt werden
+** Name und OID für aktuellen Zustand sollten gesetzt werden
 
 ## Datenpunkte
 | DP-Name | Beschreibung |
 |---------------------|-----------------------------------------------------------------------------------------------------|
 | HeizperiodeAktiv | wenn aus, werden die Profile nicht verwendet |
-| AktuellesProfil | aktuelles Profil auswählen (1 basiert, bedeutet Profil 1 Datenpunkte unter Heatingcontrol.0.Profiles.0 verwenden) |
+| AktuellesProfil | Aktuelles Profil auswählen (1 basiert, bedeutet Profil 1, Datenpunkte unter Heatingcontrol.0.Profiles.0 verwenden) |
 | LastProgramRun | zeigt das letzte Mal an, wann der Adapter ausgeführt wurde |
 
-### Temperatursenkung / -erhöhung
-| DP-Name | Beschreibung | Zieltemperatur für relative Abnahme | Solltemperatur für absolute Abnahme |
+### Temperatur senken / erhöhen
+| DP-Name | Beschreibung | Zieltemperatur für relative Abnahme | Zieltemperatur für absolute Abnahme |
 |---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| GästeGegenwart | Temperatur erhöhen, weil Gäste es wärmer haben wollen | Erhöhen Sie die aktuelle Profiltemperatur um Profiles.0.room.GuestIncrease | setze das Ziel auf Profiles.0.room.absolute.GuestIncrease |
-| PartyNow | Temperatur senken, weil es heiß wird' | Verringern Sie die aktuelle Profiltemperatur um Profiles.0.room.PartyDecrease | setze das Ziel auf Profiles.0.room.absolute.PartyDecrease |
-| Geschenk | wir sind anwesend, wenn wir nicht anwesend sind, sinkt die Temperatur | Verringern Sie die aktuelle Profiltemperatur um Profiles.0.room.AbsentDecrease | setze das Ziel auf Profiles.0.room.absolute.AbsentDecrease |
-| UrlaubAbwesend | wir sind abwesend, also auch am Wochenende abnehmen | Senken Sie die aktuelle Profiltemperatur um Profiles.0.room.VacationAbsentDecrease | setze das Ziel auf Profiles.0.room.absolute.VacationAbsentDecrease |
-| FireplaceModeActive | Senken Sie die Temperatur, weil Sie einen Kamin benutzen, wird | Verringern Sie die aktuelle Profiltemperatur um Profiles.0.room.FireplaceModeDecrease | setze das Ziel auf Profiles.0.room.absolute.FireplaceModeDecrease |
+| GästeAnwesend | Temperatur erhöhen, weil Gäste es wärmer haben wollen | Erhöhen Sie die aktuelle Profiltemperatur um Profiles.0.room.GuestIncrease | setze das Ziel auf Profiles.0.room.absolute.GuestIncrease |
+| PartyNow | Temperatur senken, weil es heiß wird' | Verringert die aktuelle Profiltemperatur um Profiles.0.room.PartyDecrease | setze das Ziel auf Profiles.0.room.absolute.PartyDecrease |
+| Gegenwart | wir sind anwesend, wenn wir nicht anwesend sind, verringern wir die Temperatur | Aktuelle Profiltemperatur verringern um Profiles.0.room.AbsentDecrease | setze das Ziel auf Profiles.0.room.absolute.AbsentDecrease |
+| UrlaubAbwesend | wir sind abwesend, also auch am wochenende abnehmen | Aktuelle Profiltemperatur um Profiles.0.room.VacationAbsentDecrease | verringern setze das Ziel auf Profiles.0.room.absolute.VacationAbsentDecrease |
+| FireplaceModeActive | Temperatur senken, weil Sie einen Kamin benutzen, wird | aktuelle Profiltemperatur um Profiles.0.room.FireplaceModeDecrease | verringern setze das Ziel auf Profiles.0.room.absolute.FireplaceModeDecrease |
 
 | | automatisch zu einstellbarer Zeit zurückgesetzt
 
-* in beiden Fällen wird nur eine Tieferlegung verwendet (in der vorherigen Version des Adapters konnten mehr als eine Entfettung verwendet werden)
-* im absoluten Entfettungsszenario werden nur Sollwerte ungleich 0°C verwendet. Wenn Sie für einen bestimmten Raum keine Absenkung benötigen, halten Sie die Absenkungswerte bei 0°C
+* In beiden Szenarien wird nur eine Tieferlegung verwendet (in früheren Adapterversionen konnten mehr als ein Entfetter verwendet werden)
+* Im absoluten Entfettungsszenario werden nur Zielwerte ungleich 0°C verwendet. Wenn Sie für einen bestimmten Raum keine Absenkung benötigen, belassen Sie die Absenkungswerte bei 0°C
 
 ### Keine Heizperiode
-es gibt drei möglichkeiten
+Es gibt drei Optionen
 
 * feste Temperatur pro Raum
 
 Wenn diese Option ausgewählt ist, erscheint für jeden Raum ein neuer Datenpunkt im Objektbaum. Hier können Sie eine feste Solltemperatur einstellen, die eingestellt wird, wenn die Heizperiode nicht aktiv ist.
 
-* feste Temperatur für alle Räume
+* Feste Temperatur für alle Räume
 
-Mit dieser Option können Sie für jeden Raum eine Solltemperatur verwenden, wenn die Heizperiode nicht aktiv ist
+Mit dieser Option können Sie für jeden Raum eine Solltemperatur verwenden, wenn keine Heizperiode aktiv ist
 
 * nichts
 
-mit dieser Option wird nichts an den Thermostat gesendet, wenn keine Heizperiode aktiv ist. Solltemperatur bleibt vom letzten Tag, als die Heizperiode noch aktiv war.
-In diesem Fall und wenn Sie Aktoren aus dem Adapter verwenden, haben Sie die Möglichkeit zu definieren, wie die Aktoren eingestellt werden sollen (aus, ein oder so belassen)
+Mit dieser Option wird nichts an den Thermostat gesendet, wenn keine Heizperiode aktiv ist. Zieltemperatur bleibt vom letzten Ziel, als die Heizperiode noch aktiv war.
+In diesem Fall und wenn Sie Aktuatoren aus dem Adapter verwenden, haben Sie die Möglichkeit zu definieren, wie Aktuatoren eingestellt werden sollen (aus, ein oder so lassen wie sie sind).
 
 ## Andere
 * HolidayPresent / PublicHolidyToday
 
-Wenn Sie im Admin "Feriengeschenk wie Sonntag" oder "Feiertag wie Sonntag" aktivieren, wird das Profil für Sonntag verwendet, wenn der Adapter informiert wird, dass heute ein Feiertag ist oder Sie im Urlaub zu Hause sind.
+Wenn Sie im Admin "Feiertagsgeschenk wie Sonntag" oder "Feiertag wie Sonntag" aktivieren, wird das Profil für Sonntag verwendet, wenn dem Adapter mitgeteilt wird, dass heute ein Feiertag ist oder Sie im Urlaub zu Hause sind.
 
 ### Fenster geöffnet
-wenn "Sensoren verwenden" aktiv ist und Sensor(en) für einen Raum konfiguriert ist/sind dann
+wenn "Sensoren verwenden" aktiv ist und Sensor(en) für einen Raum konfiguriert ist/sind
 
-* aktuelle Profiltemperatur bei geöffnetem Fenster (true) durch Profiles.0.room.WindowOpenDecrease verringern, wenn relative Verringerung konfiguriert ist
-* Setzen Sie das Ziel auf Profiles.0.room.absolute.WindowOpenDecrease, wenn das Fenster geöffnet ist (true), wenn die absolute Verringerung konfiguriert ist
+* Verringerung der aktuellen Profiltemperatur bei geöffnetem Fenster (true) um Profiles.0.room.WindowOpenDecrease, wenn relative Verringerung konfiguriert ist
+* setze das Ziel auf Profiles.0.room.absolute.WindowOpenDecrease, wenn das Fenster geöffnet ist (true), wenn die absolute Verringerung konfiguriert ist
 
-optional kann eine Verzögerung verwendet werden. Wenn das Fenster nur für kurze Zeit geöffnet wird, kann die Sensorverzögerung in kürzester Zeit eine Reduzierung und Rückkehr zum Normalzustand vermeiden.
+optional kann eine Verzögerung verwendet werden. Wenn das Fenster nur für kurze Zeit geöffnet wird, kann die Sensorverzögerung in sehr kurzer Zeit reduziert und wieder normalisiert werden.
 
-## Ische Unterstützung
+## Ical-Unterstützung
 Sie können Ihren Kalender oder jeden anderen Datenpunkt verwenden, um Datenpunkte im Adapter zu ändern.
-Konfigurieren Sie einfach Ereignisse von ical oder anderen Datenpunkten im Admin. Unterstützt werden
+Konfigurieren Sie einfach Ereignisse von ical oder anderen Datenpunkten in Admin. Unterstützt werden
 
-| Datenpunkt | Beschreibung |-------------------------------------|---------- -------------------------------------------------- ---------------- |heatcontrol.0.Present | setze es auf true (bei boolean) oder auf eine Zahl höher als limit (bei Zahl) |heatingcontrol.0.HolidayPresent | setzen Sie es auf true, wenn Sie in Ihrem Urlaub zu Hause sind |heatingcontrol.0.UrlaubAbwesend | setzen Sie es auf true, wenn Sie im Urlaub nicht zu Hause sind |heatingcontrol.0.GuestsPresent | setze es auf true (bei booleschen Werten) oder auf eine Zahl höher als limit (bei Zahl) |heatingcontrol.0.PartyNow | setze es auf true (bei booleschen Werten) oder auf eine Zahl höher als limit (bei Zahl)
+| Datenpunkt | Beschreibung |------------------------------------|---------- -------------------------------------------------- ---------------- |heatingcontrol.0.Present | Setzen Sie es auf wahr (im Fall von Boolean) oder auf eine Zahl, die höher ist als limit (im Fall von Zahl) |heatingcontrol.0.HolidayPresent | Setzen Sie es auf wahr, wenn Sie in Ihrem Urlaub zu Hause sind |heatingcontrol.0.VacationAbsent | setze es auf true, wenn du im Urlaub nicht zu Hause bist |heatingcontrol.0.GuestsPresent | setze es auf true (im Fall von Boolean) oder auf eine Zahl höher als limit (im Fall von Number) |heatingcontrol.0.PartyNow | setze es auf true (im Falle von boolean) oder auf eine Zahl höher als limit (im Falle einer Zahl)
 
-Hinweis: Mit Zahlendatenpunkten könnte man zählen, wie viele Personen sich im Haus befinden und dann entscheiden, z.B. Wir haben genug für eine Party...
+Tipp: Mit Zahlendatenpunkten könnten Sie zählen, wie viele Personen im Haus sind, und dann entscheiden, z. Wir haben genug für eine Party...
 
 ## Änderungen vom Thermostat verwenden
-Viele Benutzer fragten nach einer Option, um Änderungen vom Thermostat in den Adapter zu übernehmen. Jetzt sind vier Optionen implementiert:
+Viele Benutzer haben nach einer Option gefragt, um Änderungen vom Thermostat in den Adapter zu übernehmen. Jetzt sind vier Optionen implementiert:
 
-| Option | Beschreibung |--------------------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Überschreibung | Änderungen vom Thermostat werden als Override genommen; Override-Zeit muss vorher in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | . eingestellt werden | wenn Override-Zeit nicht gesetzt ist, wird Override nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für die aktuelle Profilperiode genommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen / Verringerungen werden ignoriert. In jedem Raum befindet sich ein Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
+| Möglichkeit | Beschreibung |---------------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Überschreibung | Änderungen vom Thermostat werden als Übersteuerung genommen; Übersteuerungszeit muss zuvor in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | eingestellt werden | wenn die Override-Zeit nicht gesetzt ist, dann wird Override nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für die aktuelle Profilperiode genommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen / Verringerungen werden ignoriert. In jedem Raum gibt es einen Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
 
-## Override verlängern, wenn die Temperatur geändert wird
-Das Standardverhalten für Override ist, wenn Sie die Temperatur ändern, wird die Override-Zeit nicht geändert. Beispiel: Wenn Sie mit 25 °C für 20 Minuten Override starten und nach 15 Minuten auf 28 °C wechseln, werden 28 °C nur für die letzten 5 Minuten verwendet. Mit dieser Option starten Sie Override jedes Mal neu, wenn Sie die Override-Temperatur ändern.
-Im Beispiel über 28°C würde dann für 20 Minuten verwendet, was zu 15 Minuten 25°C und 20 Minuten 28°C führt
+## Override erweitern, wenn die Temperatur geändert wird
+Das Standardverhalten für Override ist, wenn Sie die Temperatur ändern, wird die Override-Zeit nicht geändert. Wenn Sie z. B. die Übersteuerung für 20 Minuten mit 25 °C starten und nach 15 Minuten auf 28 °C wechseln, werden 28 °C nur für die letzten 5 Minuten verwendet. Mit dieser Option starten Sie den Override neu, wenn Sie die Override-Temperatur ändern.
+Im Beispiel würden dann über 28°C für 20 Minuten verwendet, was zu 15 Minuten 25°C und 20 Minuten 28°C führt
 
-## Override-Modus
-Es gibt zwei einstellbare Modi im Admin für alle Räume.
+## Überschreibungsmodus
+Es gibt zwei Modi, die im Admin für alle Räume einstellbar sind.
 
-* Timergesteuert
+* Zeitgesteuert
 
-Dies ist die bekannte Funktion, die eine Temperatur und eine Dauer verwendet. Die angegebene Temperatur wird für die Dauer verwendet und dann wird das Temperaturziel auf den Wert im Auto-Modus zurückgesetzt
+dies ist die bekannte Funktion, die eine Temperatur und eine Dauer verwendet. Die angegebene Temperatur wird für die Dauer verwendet und dann wird das Temperaturziel auf den Wert im automatischen Modus zurückgesetzt
 
 * bis zum nächsten Profilpunkt
 
-Dies ist eine neue Funktion. Hier können wir einen Temperatur-Override bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, muss aber ungleich Null sein!
+dies ist eine neue Funktion. Hier können wir eine Temperaturüberschreibung bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, darf aber nicht Null sein!
 
-## Thermostatgriffe "Fenster ist offen"
-Einige Thermostate können "Fenster ist geöffnet" selbst handhaben. In diesen Fällen wird eine direkte Verbindung zwischen Fensterfühler und Thermostat konfiguriert und der Thermostat reduziert die Solltemperatur selbstständig beim Öffnen eines Fensters.
-In Kombination mit der Option "Änderungen vom Thermostat verwenden" / "bis zum nächsten Profilpunkt" führt dies zu einem unerwarteten manuellen Zustand. In dieser Situation würde die reduzierte Temperatur bis zum nächsten Profilpunkt verwendet.
-Aber der Adapter kann dieses Verhalten handhaben. Sie müssen die Option "Thermostat behandelt 'Fenster ist geöffnet'" aktivieren und Sie können Fenstersensoren auch im Adapter konfigurieren.
-Beim Öffnen des Fensters wartet der Adapter max. 3 Sekunden für neue Solltemperatur vom Thermostat. Erhält sie in dieser Zeit eine neue Solltemperatur, wird sie als reduzierte absolute Temperatur verwendet. Der Status ist dann "automatisches Fenster öffnen". Sobald das Fenster geschlossen wird, geht der Status zurück auf Auto und der Thermostat stellt die ursprüngliche Solltemperatur zurück **Achtung** verwenden Sie in diesem Fall keine Sensoröffnungsverzögerung. Wenn Sie es verwenden, erscheint das Ereignis Fenster geöffnet, nachdem die Zieltemperatur vom Thermostat empfangen wurde. Dies endet im manuellen Zustand.
+## Thermostat behandelt "Fenster ist offen"
+Einige Thermostate können "Fenster ist offen" selbst verarbeiten. In diesen Fällen wird eine direkte Verbindung zwischen Fenstersensor und Thermostat konfiguriert und der Thermostat reduziert die Solltemperatur automatisch, wenn ein Fenster geöffnet wird.
+In Kombination mit der Option „Änderungen vom Thermostat verwenden“ / „bis zum nächsten Profilpunkt“ führt dies zu einem unerwarteten manuellen Zustand. In dieser Situation würde die reduzierte Temperatur bis zum nächsten Profilpunkt verwendet werden.
+Aber der Adapter kann mit diesem Verhalten umgehen. Sie müssen die Option "Thermostat steuert 'Fenster ist offen'" aktivieren und Sie können Fenstersensoren auch im Adapter konfigurieren.
+Beim Öffnen des Fensters wartet der Adapter max. 3 Sekunden für neue Zieltemperatur vom Thermostat. Wenn er in dieser Zeit eine neue Zieltemperatur erhält, wird diese als reduzierte Absoluttemperatur verwendet. Status ist dann "automatisches Fenster öffnen". Sobald das Fenster geschlossen wird, geht der Status zurück auf Auto und der Thermostat stellt die ursprüngliche Zieltemperatur wieder ein **Achtung** Verwenden Sie in diesem Fall keine Sensor-Öffnungsverzögerung. Wenn Sie es verwenden, erscheint das Fenster-offen-Ereignis, nachdem die Zieltemperatur vom Thermostat empfangen wurde. Dies endet im manuellen Zustand.
 
 ## Zeitraum kopieren und Profil kopieren
-`` Heatingcontrol.0.Profiles.1.CopyProfile Heatingcontrol.0.Profiles.1.Room.CopyProfile ``
+`` heizungssteuerung.0.Profile.1.CopyProfile heizungssteuerung.0.Profiles.1.Room.CopyProfile ``
 
 und
 
-`` Heatingcontrol.0.Profiles.1.Küche.Fr.CopyPeriods ``
+`` Heizungssteuerung.0.Profile.1.Küche.Fr.Zeiträume kopieren ``
 
-CopyProfile kopiert den gesamten Inhalt des Profils, in dem die Schaltfläche gedrückt wird, in das nächste Profil. Im obigen Beispiel befindet sich die Schaltfläche in Profil 1. Die Schaltfläche kopiert alles von Profil 1 nach Profil 2.
+CopyProfile kopiert den gesamten Inhalt des Profils, in dem die Schaltfläche gedrückt wird, in das nächste Profil. Im obigen Beispiel befindet sich die Schaltfläche in Profil 1. Die Schaltfläche kopiert alles von Profil 1 zu Profil 2.
 Wenn Sie nur einen Raum kopieren möchten, verwenden Sie die Schaltfläche in einem bestimmten Raum.
 
-Die CopyPeriods sind pro Tag oder Mo-Fr pro Zimmer verfügbar. Dadurch werden die Perioden in den nächsten Abschnitt kopiert. Im obigen Beispiel kopiert CopyPeriods alle Stunden von Freitag im Küchenraum auf die Stunden am Samstag im Küchenraum.
-So können Sie z.B. im Profil "jeden Tag separat" die Zeiträume von Montag bis Sonntag kopieren ...
+Die CopyPeriods sind pro Tag oder Mo-Fr pro Raum buchbar. Dadurch werden die Perioden in den nächsten Abschnitt kopiert. Im obigen Beispiel kopiert CopyPeriods alle Stunden vom Freitag im Küchenzimmer in die Stunden am Samstag im Küchenzimmer.
+So können Sie z. Kopieren Sie im Profil "jeden Tag separat" die Zeiträume von Montag bis Sonntag ...
 
 ## Wartungsmodus
 machen
@@ -188,30 +188,83 @@ machen
 ## Kaminmodus
 machen
 
-## Aktorhandhabung
+## Handhabung des Aktors
 machen
 
 Umschalten zwischen linear und linear mit Hysterese
 
-beschreiben zwei neue Datenpunkte Heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffset und Heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
+beschreiben zwei neue Datenpunkte heizungsregelung.0.Rooms.TestRaum.Regulator.HysteresisOffOffset und heizungsregelung.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
+
+## Erweiterte Aktuatorhandhabung
+prüft, ob der Wert richtig gesetzt wurde und ack gesetzt ist, andernfalls erneut versuchen ...
+
+machen
 
 ## Probleme und Funktionsanfragen
-* Wenn Sie mit Fehlern konfrontiert sind oder Funktionsanfragen für diesen Adapter haben, erstellen Sie bitte ein Problem im GitHub-Abschnitt des Adapters unter [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ). Jedes Feedback ist willkommen und wird dazu beitragen, diesen Adapter zu verbessern.
+* Wenn Sie mit Fehlern konfrontiert sind oder Funktionsanfragen für diesen Adapter haben, erstellen Sie bitte ein Issue im GitHub-Issue-Bereich des Adapters unter [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ). Jedes Feedback ist willkommen und hilft, diesen Adapter zu verbessern.
 
 ## Bekannte Probleme
 ### Adapter mit Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 – 10fach, 230 V
-Es scheint, dass HmIP-FAL230-C10 in Kombination mit diesem Adapter nicht direkt als Aktor verwendet werden kann. Wenn Sie HmIP-FAL230-C10 zusammen mit Homematic Thermostaten verwenden, sollte es funktionieren.
+Es scheint, dass HmIP-FAL230-C10 in Kombination mit diesem Adapter nicht direkt als Aktor verwendet werden kann. Wenn Sie HmIP-FAL230-C10 zusammen mit Homematic-Thermostaten verwenden, sollte es funktionieren.
 siehe auch [Forum](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
-### Fensteröffnungsfunktion der HM-Thermostate
-HM-Thermostate verfügen in zwei Varianten über eine Fensteröffnungsfunktion. Einerseits als Temperaturabfallerkennung und andererseits in Verbindung mit einem Fensterkontakt.
+### Fenster-offen-Funktion der HM-Thermostate
+HM-Thermostate haben eine Open-Window-Funktion in zwei Varianten. Zum einen als Temperaturabfallerkennung und zum anderen in Verbindung mit einem Fensterkontakt.
 Diese Funktion bewirkt, dass der Adapter beim Öffnen des Fensters in den manuellen Modus wechselt. Idealerweise sollte diese Funktion deaktiviert werden, um die Funktionalität des Adapters nicht zu beeinträchtigen.
-Wenn der Thermostat Informationen vom Fenstersensor verwendet, sollte die Option "Thermostat behandelt Fenster öffnen" aktiviert werden.
+Wenn der Thermostat Informationen vom Fenstersensor verwendet, sollte die Option „Thermostat steuert Fenster offen“ aktiviert werden.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
 
+### 2.9.3 (2022-10-28)
+* (René) update dependencies
+* (René) see issue #323: add telegram user to select box
+* (René) see issue #325: autodetect for HmIP-WTH-2 changed
+
+### 2.9.2 (2022-08-19)
+* (René) update dependencies
+
+### 2.9.1 (2022-06-10)
+* (René) bug fix timer id's for extended actor handling
+* (René) bug fix exception in SetRoomTemperature 
+
+### 2.9.0 (2022-06-09)
+* (René) see issue #302: adjustable info logging for temperature, aktor and window status change
+* (René) see issue #306: extended handling to set actuator state and thermostat target temperature added
+
+### 2.8.7 (2022-04-23)
+* (René) see issue #312: bug fix in window is open handling if thermostat reduces temperature
+
+### 2.8.6 (2022-03-31)
+* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update 
+
+### 2.8.5 (2022-02-12)
+* (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
+* (René) see issue #291: inter thermostat delay added
+* (René) better logging for timediff measurement with external sensors
+* (René) minimum temperature check added in offset calculation
+
+### 2.8.4 (2022-01-29)
+* (René) see issue #289: round offset to 0.5°C instead 0.25°C
+* (René) see issue #292: set actors when room becomes inactive like out of heating period
+* (René) see issue #291: inter actuator delay added
+* (René) new datapoint to show current profile target temperature
+
+### 2.8.3 (2022-01-07)
+* (René) see issue #286: Loading the configuration fixed
+* (René) target temperature rounded to 0.5°C instead 0.25°C to avoid rounding on thermostat itself
+
+### 2.8.2 (2022-01-04)
+* (René) see issue #285: absent and VacationAbsent exchanged to check reduced mode
+* (René) see issue #271: ack flag set only if it's in own namespace, external DP'S acks are not set anymore
+
+### 2.8.1 (2021-12-29)
+* (René) see issue #283: show internal and external temperature sensors in room status
+* (René) see issue #272: extend override only if different temperature was sent
+* (René) see issue #278: reset remaining override time to 0 when override is canceled
+* (René) offset not to be used when room is in reduced mode (e.g. window open)
+* (René) see issue #271: set ack flag for changed DP after 2 seconds, to give a chance to other adpaters to react on un-acked DP's
 
 ### 2.8.0 (2021-12-18)
 * (René) see issue #266: differrent regulators for actor handling added (linear and linear with hysteresis)
@@ -542,7 +595,7 @@ Attention: some changes in datapoints!!
 
 ## License
 
-Copyright (C) <2019-2021>  <info@rg-engineering.eu>
+Copyright (C) 2019-2022  info@rg-engineering.eu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

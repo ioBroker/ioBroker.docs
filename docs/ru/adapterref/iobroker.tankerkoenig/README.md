@@ -2,82 +2,107 @@
 BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg
-BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.tankerkoenig/badge.svg?targetFile=package.json
 BADGE-NPM: https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true
-BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg
-BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
+hash: EVWakFmysLhV8jLpiuNRzO7eNy4Jr6IqSS4XZofd160=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tankerkoenig/../../admin/tankerkoenig.png)
 
+![Количество установок](http://iobroker.live/badges/tankerkoenig-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/Pix---/ioBroker.tankerkoenig/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tankerkoenig?branch=master&svg=true)
 
 # IoBroker.tankerkoenig
+**Тесты:** [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/actions/workflows/test-and-release.yml)
+
 ## Описание
 Этот адаптер возвращает цены на топливо для десяти различных станций через поток JSON веб-службы [tankerkoenig.de](https://creativecommons.tankerkoenig.de/#about). Все данные хранятся в объектах, которые будут использоваться и отображаться в [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis).
-Адаптер использует сайт Prices.php, который уменьшает объем передаваемых данных при обновлении по сравнению с list.php и Detail.php (массовым). Адаптер создает точки данных для станции, которая продает самые дешевые E5, E10 и дизельное топливо.
+Адаптер использует сайт Prices.php, который уменьшает объем передаваемых данных при обновлении по сравнению с list.php и detail.php (bulk). Адаптер создает точки данных для станции, которая продает самые дешевые E5, E10 и дизельное топливо.
 
 ## Конфигурация
 ### API-ключ
 Ключ API можно получить по адресу [веб-сайт Tankerkönig](https://creativecommons.tankerkoenig.de/#about). В это поле необходимо ввести 36-значный код.
 
 ### Станции
-Можно определить до десяти различных станций. Поэтому конкретный идентификатор станции можно получить на tankerkoenig.de. Там тоже 36 цифр. Этот идентификатор должен быть внесен в список. Соответствующее имя является необязательным.
-![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigSettingsScreenshot.jpg "Настройки снимка экрана")
+Можно запросить до 10 заправочных станций. Для этого нужно ввести ID АЗС. Вы можете получить идентификатор каждой заправочной станции на tankerkoenig.de. Он также состоит из 36 цифр.
+Кроме того, вы можете ввести свое имя для станции.
+![альтернативный текст](../img/tankerkoenigSettingsScreenshot1.png "Настройки снимка экрана") ![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/tankerkoenigSettingsScreenshot2.png "Настройки снимка экрана")
 
-### Записать ноль
-В случае отключения эта опция запрещает адаптеру сохранять старые значения. Это помогает создать более гладкую диаграмму истории.
+Это окно используется для добавления новых станций, вы можете прочитать идентификатор стадиона непосредственно на карте ниже и скопировать его в поле выше.
+
+#### Копировать ID станции Есть 2 способа скопировать ID в поле:
+- вы отмечаете идентификатор и копируете его с помощью Ctrl+C или правой кнопкой мыши копируете, а затем вставляете в поле.
+- вы также можете сделать это с помощью кнопки «Копировать», это скопирует все содержимое, и вы можете либо вставить его прямо в поле.
+
+  Или вы нажимаете кнопку `Paste`, после чего в поле будет вставлен только идентификатор.
+
+![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/tankerkoenigStationFinder_copyId.png "Настройки снимка экрана") В параметрах скидки вы можете выбрать один из вариантов скидки ⇨ Евро / Процент и тип топлива, на который распространяется скидка (по умолчанию все выбрано).
+
+![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/tankerkoenigStationFinder.png "Настройки снимка экрана")
+
+### Установите значения на 0 Активируйте эту функцию, если цены должны быть установлены на 0, когда заправочная станция закрыта.\ Если функция отключена, цены будут установлены как недействительные, см. ниже.
+### Неверные цены
+Если заправочная станция не предоставляет цены на E5, E10 или дизельное топливо, т.е. если станция закрыта, цена не изменится, вместо этого качество состояния будет установлено на `Quality code 0x40 => Substitute value from device`, после чего состояние будет отображаться оранжевым цветом.
+
+![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/state_quality.png "Настройки снимка экрана")
 
 ### Свернуть журнал
 Чтобы сократить количество записей в журнале (например, на SD-картах), можно выбрать этот параметр.
 
 ## Активация
-Адаптер работает как демон (не в режиме расписания) и запускается регулярно каждые пять минут. Данные исходного фида обновляются сервером tankerkoenig.de только каждые 4 минуты, поэтому более частый запрос данных не имеет смысла и вызывает лишь лишний трафик данных и затраты ресурсов. В любое время можно установить большие интервалы.
+Адаптер работает как демон (не в режиме расписания) и запускается регулярно каждые пять минут. Данные исходного фида обновляются сервером tankerkoenig.de только каждые 4 минуты, поэтому более частый запрос данных не имеет смысла и вызывает лишь лишний трафик данных и затраты ресурсов. В любой момент можно установить большие интервалы.
 
 ## Точки данных
-Каждая из десяти станций имеет канал для каждого типа топлива (E5, E10 и дизельное топливо), и, кроме того, каждая из них имеет еще четыре точки данных.
+Точки данных создаются динамически, то есть при создании станции для нее создаются точки данных (максимум 10 станций).
+Когда вы удаляете станцию, точки данных, которые больше не нужны, также удаляются.
+![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/tankerkoenigNewDP.png "Настройки снимка экрана") Для разных видов топлива создаются следующие точки данных:
 
-* `feed` (цена с тремя знаками после запятой; введите число)
-* `short` (цена с двумя десятичными знаками; введите строку)
-* `3rd` (третий десятичный знак не может быть записан как верхний индекс в VIS)
-* `combined` (готовая к использованию цена в формате HTML с третьим десятичным знаком в верхнем индексе и информация о том, открыта ли станция ["закрыта"/"не найдена"] для отображения в HTML-виджете VIS)
+* `feed` (цена с тремя знаками после запятой как число)
+* `short` (цена с двумя десятичными знаками (не округленная) в виде строки)
+* `3rd` (третий десятичный знак цены для представления верхнего индекса в VIS)
+* `комбинированный` (готовый HTML-формат с ценой и третьим десятичным знаком верхнего индекса или, при необходимости, статусом открытия ["закрыто"/"не найдено"] для удобного отображения с помощью HTML-виджета VIS)
 
-![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/img/tankerkoenigDP.jpg "Точки данных")
+Кроме того, на соответствующей станции создаются пять точек данных:
 
-Сохранены еще три точки данных
+* `скидка` (скидка в евро / проценты как число)
+* `discounted` (показывает, действует скидка или нет)
+* `статус` (станция открыта?)
+* `name` (название заправки, данное пользователем)
+* `station_id` (идентификатор заправочной станции Tanker King)
 
-* `статус` (секция открыта/закрыта)
-* `name` (имя станции, данное пользователем)
-* `station_id` (идентификатор Tankerkönig этой станции)
-
-Кроме того, сохраняются самые дешевые станции для каждого типа фюзеляжа.
+Дополнительно в каналах определяются самые дешевые заправки из списка
 
 * `самый дешевый.E5`
 * `чепест.Е10`
 * `самый дешевый.дизель`
 
-В этих каналах хранятся станции с самой низкой ценой для каждого типа фул. Если несколько станций предлагают одну и ту же самую низкую цену, станции сортируются в том порядке, в котором они использовались в конфигурации.
+На уровне станции создаются еще пять точек данных:
 
-Создана 181 точка данных.
+* `adapterStatus` (показывает состояние адаптера, возможные значения: `ожидание/автоматический запрос/запрос вручную/тайм-аут запроса 1 мин/состояния записи/ошибка запроса/офлайн`)
+* `json` (данные АЗС в формате JSON)
+* `jsonTable` (таблица json для vis `только данные json без виджета`)
+
+![альтернативный текст](../../../en/adapterref/iobroker.tankerkoenig/../img/jsonTable.png "Настройки снимка экрана")
+
+* `lastUpdate` (время последнего обновления)
+* `обновить` (это кнопка для ручного обновления данных `ПРЕДУПРЕЖДЕНИЕ` после ее запуска один раз невозможно запустить ручное обновление в течение 1 минуты)
+
+В пределах этих каналов создается наиболее выгодная АЗС для названного вида топлива. Если несколько заправок предлагают топливо по одинаковой цене, выводится та станция, которая была введена первой/вверху в настройках.
 
 ## ВИС
 «Объединенные» точки данных можно легко отобразить в этом виджете VIS.
 
-```
+```js
 [{"tpl":"tplHtml","data":{"visibility-cond":"==","visibility-val":1,"refreshInterval":"0","gestures-offsetX":0,"gestures-offsetY":0,"signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"html":"<span style=\"font-size: 80%; padding: 0 20px 0 5px;\">Diesel</span>{tankerkoenig.0.stations.0.diesel.combined}"},"style":{"left":"634px","top":"745px","z-index":"20","width":"228px","height":"36px","background-color":"","color":"rgba(225,225,225,1)","font-size":"30px","text-align":"center","background":"rgba(250,0,0,0.1)"},"widgetSet":"basic"}]
 ```
 
 Значение точки данных `combined` предоставляет класс css. Это классы `station_open`, `station_closed` и `station_notfound`. С помощью определений CSS в редакторе CSS в VIS теперь можно добиться выдающегося дизайна (например, красный цвет шрифта для закрытой станции).
 
-```
+```css
 .station_open {
     color: blue;
 }
@@ -85,6 +110,9 @@ hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
     color: red !important; /* !important kann ggf. weggelassen werden */
 }
 .station_notfound {
+    color: yellow !important; /* !important kann ggf. weggelassen werden */
+}
+.station_no_prices {
     color: yellow !important; /* !important kann ggf. weggelassen werden */
 }
 
@@ -95,15 +123,45 @@ hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 }
 ```
 
-## Компактный режим
-Этот адаптер готов к работе в компактном режиме iobroker.
-
 ## Changelog
+ <!--
+ Release Script: https://github.com/AlCalzone/release-script
+ Placeholder for the next version (at the beginning of the line):
+ ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
+ -->
+### __WORK IN PROGRESS__
+* (xXBJXx) Ukrainian translation added
+* (xXBJXx) add validation function for ID and Name Input fields
+* (xXBJXx) add copy from clipboard function for ID Input field
+
+### 3.0.2 (2022-11-10)
+* (xXBJXx) release new version from Tankerkoenig
+
+### 3.0.1 (2022-07-30)
+* (xXBJXx) added datapoints delete function
+* (xXBJXx) resetValue function removed and state quality implemented. [issue #79](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/79)
+* (xXBJXx) added function => Set values to 0 when the Station is closed.
+* (xXBJXx) updated dependencies
+
+### 3.0.0 (2022-07-02)
+* (xXBJXx) BREAKING Adapter code completely revised
+* (xXBJXx) Adapter completely switched to TypeScript
+* (xXBJXx) BREAKING Adapter configurations page switched to React and redesigned
+  (old config not compatible stations must be recreated)
+* (xXBJXx) add Dependabot auto merge support
+* (xXBJXx) add test and release script 
+* (xXBJXx) Dependency updated
+* (xXBJXx) add feature request: manual update of all stations (one request per minute allowed) [issue #53](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/53) 
+* (xXBJXx) add a new state => adapterStatus (indicates whether the adapter executes an automatic request or a manual request)
+* (xXBJXx) add new cutPrice function [issue #73](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/73)
+* (xXBJXx) add the feature request: Include discount in price (euro and percent) [issue #50](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/50) and adapter code optimized
+* (xXBJXx) add the feature request: JsonTable for the vis [issue #24](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/24)
+
 ### 2.2.0 (2021-11-14)
 * (simatec) Design Fix for Admin Dark/Blue Theme
 
 ### 2.1.1 (2021-06-22)
-* (pix) New adapter category "vehicle" [#67](https://github.com/Pix---/ioBroker.tankerkoenig/issues/67)
+* (pix) New adapter category "vehicle" [#67](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/67)
 * (pix) Testing for Nodejs 16
 
 ### 2.0.12 (2021-05-05)
@@ -215,7 +273,7 @@ hash: prGhaNtsE2EchhnmVj2lhDlALqJtEe8yqbEtmyg/jjU=
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 pix
+Copyright (c) 2016-2022 xXBJXx <issi.dev.iobroker@gmail.com> pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -224,13 +282,13 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

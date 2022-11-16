@@ -39,8 +39,14 @@ If you like my work, please feel free to provide a personal donation
 
 ## Changelog
 
+### 0.2.5 (2022-07-23) - Message library updated
+* (DutchmanNL) Message library updated
+
+### 0.2.4 (2022-07-23) - Installation issues solved
+* (DutchmanNL) Update dependency's & SerialPort compatibility
+
 ### 0.2.3
-* Adapter fully rebuilded
+* Adapter fully rebuild
 
 ### 0.2.2
 * Fix read TCP/IP data (svenp)

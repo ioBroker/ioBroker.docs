@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
+import React, { Component } from 'react';
+import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
 import I18n from '../i18n';
 
-const styles = theme => ({
+const styles = () => ({
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 100px)',
@@ -21,11 +21,11 @@ const styles = theme => ({
     },
     title: {
         fontSize: 32,
-        paddingBottom: 20
+        paddingBottom: 20,
     },
     boxDiv: {
         textAlign: 'center',
-        display: 'inline-box'
+        display: 'inline-box',
     },
     box: {
 
@@ -47,8 +47,8 @@ const styles = theme => ({
         verticalAlign: 'top',
         width: 50,
         borderRadius: 5,
-        overflow: 'hidden'
-    }
+        overflow: 'hidden',
+    },
 });
 
 const IGNORE = ['general', 'visualization-widgets', 'overview', 'visualization', 'date-and-time', 'visualization-icons', 'logic'];
@@ -77,14 +77,14 @@ class Adapters extends Component {
                     if (adapters.pages[type].pages) {
                         Object.keys(pages).forEach(a => {
                             count++;
-                            if (IGNORE.indexOf(type) === -1) {
-                                ads.push({name: a, type, installs: pages[a].installs, icon: this.props.language + '/' + pages[a].icon});
+                            if (IGNORE.includes(type)) {
+                                ads.push({ name: a, type, installs: pages[a].installs, icon: `${this.props.language}/${pages[a].icon}` });
                             }
                         });
                     }
                 });
                 ads.sort((a, b) => b.installs - a.installs);
-                this.setState({adapters: ads, count});
+                this.setState({ adapters: ads, count });
             });
     }
 
@@ -96,12 +96,12 @@ class Adapters extends Component {
         this.words = this.words || {};
         this.words.installed = I18n.t('installed %s times');
 
-        return <div key="adapters" className={this.props.classes.mainDiv + ' '  + (this.props.backClass || '')}>
+        return <div key="adapters" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
             <div className={this.props.classes.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
             <div className={this.props.classes.boxDiv}>
                 <div className={this.props.classes.box}>
                     {this.state.adapters.map((a, i) =>
-                        <div key={a + '_' + i} className={this.props.classes.adapter} title={a.name + ', ' + this.words.installed.replace('%s', a.installs)}>
+                        <div key={`${a}_${i}`} className={this.props.classes.adapter} title={`${a.name}, ${this.words.installed.replace('%s', a.installs)}`}>
                             <img className={this.props.classes.icon} src={a.icon} alt={a.name} onClick={() => this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}/>
                         </div>)}
                 </div>

@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
+hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 ---
+![Стабильная версия](http://iobroker.live/badges/sureflap-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/sureflap-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/sureflap-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Sickboy78/iobroker.sureflap.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
 ![Трэвис-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
@@ -19,15 +18,15 @@ hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 
 # IoBroker.sureflap
 ## Адаптер для умных устройств для домашних животных от Sure Petcare®
-<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p>
+<p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ## Конфигурация
 Добавьте имя пользователя и пароль из своей учетной записи Sure Petcare® на странице конфигурации адаптера.
 
 ## Описание
-Адаптер предоставляет информацию о настройках и состоянии заслонки для домашних животных, кошачьей заслонки или кормушки.
+Адаптер предоставляет информацию о настройках и состоянии заслонки для домашних животных, кошачьей заслонки, кормушки или диспенсера для воды.
 
-Он также показывает местонахождение ваших питомцев и их потребление пищи (с кормушкой).
+Он также показывает местонахождение ваших питомцев и их потребление пищи и воды (с кормушкой и/или дозатором воды).
 
 Это позволяет вам контролировать режим блокировки и комендантский час вашего щитка и устанавливать местоположение ваших питомцев.
 
@@ -38,22 +37,33 @@ hash: GDlWBe+K/gW1jDuXCwhr5IS3zmwm4/5e8M9zQsoxL0U=
 |-------|-------------|----------------|
 | house_name.hub_name.control.led_mode | устанавливает яркость светодиодов хаба | **0** - выкл.<br> **1** - высокий<br> **4** - затемненный |
 | house_name.hub_name.flap_name.control.curfew | включает или отключает настроенный комендантский час<br> (комендантский час необходимо настроить через приложение) | **правда** или **ложь** |
-| house_name.hub_name.flap_name.control.lockmode | устанавливает режим блокировки | **0** - открыто<br> **1** - заблокировать<br> **2** - блокировка<br> **3** - закрыто (блокировка входа и выхода) |
-| домашнее_имя.hub_name.flap_name.assigned_pets.pet_name.control.type | устанавливает тип питомца для назначенного питомца и щитка | **2** - питомец на улице<br> **3** - домашний питомец |
+| house_name.hub_name.flap_name.control.lockmode | устанавливает режим блокировки | **0** - открыто<br> **1** - заблокировать<br> **2** - заблокировать<br> **3** - закрыто (блокировка входа и выхода) |
+| имя_домохозяйства.имя_хаба.имя_флапа.назначенные_питомцы.имя_питомца.управление.тип | устанавливает тип питомца для назначенного питомца и щитка | **2** - питомец на улице<br> **3** - домашний питомец |
 | house_name.hub_name.feeder_name.control.close_delay | задает задержку закрытия крышки кормушки | **0** - быстро<br> **4** - нормальный<br> **20** - медленно |
 | имя_домохозяйства.pets.имя_питомца.внутри | устанавливает, находится ли ваш питомец внутри | **правда** или **ложь** |
 
 ### Структура
 Адаптер создает следующую иерархическую структуру:
 
-адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ управление<br> │ │ │ └ led_mode<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ ├ чаши<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ управление<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ батарея<br> │ │ ├ батарея_процент<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ управление<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ pet_name<br> │ │ └ управление<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ └ еда<br> │ ├ last_time_eaten<br> │ ├ затраченное время<br> │ ├ times_eaten<br> │ └ сухой..мокрый<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ подключение<br> └ последнее_обновление<br>
+адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ └ вода<br> │ │ │ └ вес<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ ├ чаши<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ управление<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ батарея<br> │ │ ├ батарея_процент<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ pet_name<br> │ │ └ управление<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ ├ питание<br> │ │ ├ last_time_eaten<br> │ │ ├ потраченное_время<br> │ │ ├ раз_съедено<br> │ │ └ сухая..мокрая<br> │ │ └ вес<br> │ └ вода<br> │ ├ last_time_drunk<br> │ ├ затраченное время<br> │ ├ раз_пьяный<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ подключение<br> └ последнее_обновление<br>
 
-## Примечания
-SureFlap® и Sure Petcare® являются зарегистрированными товарными знаками [ООО «СюрФлап».](https://www.surepetcare.com/)
+## Заметки
+SureFlap®, Sure Petcare® и Felaqua® являются зарегистрированными товарными знаками [ООО «СюрФлап».](https://www.surepetcare.com/)
 
-Изображение кошачьего щитка, концентратора и приложения для смартфона предоставляется бесплатно от [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
+Изображения устройств SureFlap® предоставляются бесплатно с [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.5 (2022-09-10)
+* (Sickboy78) added display of serial numbers
+
+### 1.1.4 (2022-09-07)
+* (Sickboy78) added Felaqua support
+* (Sickboy78) improved battery and battery percentage indicator (reduced outliers)
+
+### 1.1.3 (2022-03-28)
+* (Sickboy78) code improvements
+* (Sickboy78) improved error handling if no pet has been assigned yet
 
 ### 1.1.2 (2022-03-06)
 * (Sickboy78) improved error and timeout handling

@@ -1,6 +1,6 @@
 ---
-Title: "Begriffserklärungen"
-lastChanged: "02.05.2021"
+title:       "Begriffserklärungen"
+lastChanged: "28.10.2022"
 ---
 
 
@@ -212,7 +212,7 @@ die wichtigsten Begriffe, die im und um den ioBroker auftreten erläutert.
 
 * **Zustand oder State**
 
-	Ein Zustand enthält den aktuellen Wert eines Datenpunktes in ioBroker.  
+    Ein Zustand enthält den aktuellen Wert eines Datenpunktes in ioBroker.  
     Zusätzlich beschreibt er den Zeitstempel, den Zeitpunkt der letzten  
     Änderung und die Bestätigung durch den Sender oder Empfänger.
 

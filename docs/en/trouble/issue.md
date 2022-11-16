@@ -1,6 +1,7 @@
 ---
 title: Report an error
 lastChanged: 14.09.2018
+template: true
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/trouble/issue.md

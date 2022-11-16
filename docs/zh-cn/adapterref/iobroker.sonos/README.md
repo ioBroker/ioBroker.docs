@@ -3,21 +3,22 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: DAEYajTWcSq2Of3dk9x1q6BjQ68r2EBRFNHuapLJUnM=
+hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
 ---
-![商标](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
+![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![安装数量](http://iobroker.live/badges/sonos-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
-![新PM](https://nodei.co/npm/iobroker.sonos.png?downloads=true)
 
 # IoBroker.sonos
+![测试和发布](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 使用 ioBroker 控制和监控 SONOS 设备。
 
 ## 组的处理
 * 处理 SONOS 组的状态：
-   * **`coordinator`**：设置/获取协调器，因此SONOS设备是主设备并协调组。它要求 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线 `_` 而不是点 `.`，因此使用例如 `192_168_0_100` 表示 IP 地址 `192.168.0.100`。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
+   * **`coordinator`**：设置/获取coordinator，即SONOS设备，它是master并协调组。它要求 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线 `_` 而不是点 `.`，因此使用例如 `192_168_0_100` 表示 IP 地址 `192.168.0.100`。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
    * **`group_volume`**：组的音量
    * **`group_muted`**：组的静音状态。
    * **`add_to_group`**：将某个SONOS设备添加到该状态所在的SONOS设备中。使用带下划线的 IP 地址（见上文）。
@@ -50,6 +51,20 @@ hash: DAEYajTWcSq2Of3dk9x1q6BjQ68r2EBRFNHuapLJUnM=
 ### **正在进行中** -->
 
 ## Changelog
+### 2.2.3 (2022-07-04)
+* (Rello) Added track number state
+
+### 2.2.2 (2022-06-12)
+* (Apollon77) Prevent js-controller warnings
+
+### 2.2.1 (2022-06-12)
+* (Apollon77) fix group volume state
+
+### 2.2.0 (2022-06-08)
+* (Apollon77) Remove logic that adjusted the group volume after one member volume was set
+* (Apollon77) Make sure to not set state values for devices that are not configured
+* (Apollon77) Try to catch network errors
+
 ### 2.1.7 (2021-12-20)
 * (bluefox) Corrected error with "SONOS not found"
 

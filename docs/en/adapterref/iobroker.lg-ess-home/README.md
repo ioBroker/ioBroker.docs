@@ -35,6 +35,13 @@ you can use any REST Client to get the password:
 This should give you the password and a status in return.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (Morluktom) Fixed warnings found by adapter checker
+
 ### 0.2.3 (2022-04-05)
 * (Morluktom) Chart widget: Datepicker changed to jquery
 
@@ -87,7 +94,7 @@ This should give you the password and a status in return.
 ## License
 MIT License
 
-Copyright (c) 2020 - 2022 Morluktom <strassertom@gmx.de>
+Copyright (c) 2022 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

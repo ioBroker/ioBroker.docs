@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
+hash: RWItAUWGP3WRa+IVDylpIGWlDLTzDWH7mm4LyyKJ2K8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -21,20 +21,20 @@ hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 ## Функции
 Некоторые примечательные особенности:
 
-* Основные функции очистки (например, автоматическая очистка, выборочная область, пользовательская область и т. д.)
-* и различные другие команды (например, воспроизведение звука, сброс расходных материалов, изменение местоположения и т. д.)
-* Получить основную информацию (например, уровень заряда батареи, журнал очистки, расходные материалы, состояние очистки и зарядки и т. д.)
-* и различная расширенная информация (например, положение зарядки, текущая карта, информация о сети)
+* Основные функции очистки (например, автоматическая очистка, выборочная область, пользовательская область)
+* и различные другие команды (например, воспроизведение звука, сброс расходных материалов, изменение местоположения)
+* Получить основную информацию (например, уровень заряда батареи, журнал очистки, расходные материалы, состояние очистки и зарядки)
+* и различная расширенная информация (например, место зарядки, информация о карте, информация о сети)
 * Получение информации во время процесса очистки (например, текущее положение и текущая площадь пятна)
-* Установите базовые и дополнительные настройки (например, непрерывная очистка, режим «Не беспокоить», TrueDetect 3D, громкость и т. д.)
-* Регулировка мощности вакуума и уровня воды
+* Установите мощность вакуума, уровень воды и другие основные настройки
+* Установите расширенные настройки (например, непрерывная очистка, режим «Не беспокоить», громкость, TrueDetect 3D)
 * Сохраните последнюю использованную пользовательскую область и перезапустите сохраненные области
 * Получить информацию о картах вкл. точечные зоны, виртуальные границы и зоны без швабры
 * Удалять, сохранять и воссоздавать отдельные виртуальные границы, а также полный набор виртуальных границ
 * Информация о дате и времени последнего присутствия для каждой отдельной области пятна
 * Некоторые функции при возвращении на зарядную станцию или при входе/выходе из спотовой зоны
 * Функция загрузки текущего изображения карты
-* Установить имена отдельных областей пятна
+* Установить имена отдельных спотовых зон (в ioBroker)
 
 Обратите внимание: некоторые функции доступны только для некоторых моделей, а некоторые все еще являются экспериментальными.
 
@@ -43,11 +43,18 @@ hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 * Дибот 900/901
 * Дибот ОЗМО 930
 * Дибот ОЗМО 920/950
-* Deebot T8 AIVI (серия T8)
+* Дибот OZMO T8 AIVI
 
 Перечисленные модели - это те, которые я использую сам или которые технически идентичны этим.
 
 ### Эти модели должны работать корректно или хотя бы частично
+Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
+Тем не менее, функциональность может быть частично ограничена.
+
+Я стараюсь достичь широкого диапазона функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
+Претензий к полной функциональности конечно нет.
+
+#### Ecovacs Deebot
 * Дибот Слим 2
 * Серия Deebot N79
 * Дибот М88
@@ -58,21 +65,27 @@ hash: zGQyWlxu2yuyzMud9BLBEfkleWc9C1h3vtEutAf4tNA=
 * Дибот ОЗМО 900/905
 * Дибот ОЗМО тонкий 10/11
 * Дибот ОЗМО Т5
+* Дибот ОЗМО Т10 Плюс
 * Серия Deebot U2
 * Серия Deebot N8
-* Серия Deebot T8
+* Deebot (ОЗМО) серии T8
 * Серия Deebot T9
+* Серия Deebot T10
 * Серия Deebot X1
 
-Перечисленные модели либо уже работают, либо технически аналогичны этим моделям.
-Тем не менее, функциональность может быть частично ограничена.
+#### Yeedi (начиная с версии 1.4.5, все еще экспериментальная)
+* йеди к650
+* йеди 2 гибрид
+* yeedi вакуумный гибрид
+* станция швабры Yeedi
 
-Я стараюсь достичь широкого диапазона функциональности, но решаю это в каждом конкретном случае в зависимости от сложности и различных других критериев.
-Претензий к полной функциональности конечно нет.
+## Монтаж
+### Предпосылки
+Чтобы использовать этот адаптер, у вас уже должен быть установлен [ioBroker](iobroker.net).
 
-## Установка
-Рекомендуется использовать Node.js версии 12.x или 14.x. Минимальная требуемая версия — 12.x.
+Минимальная требуемая версия Node.js — 14.x. Рекомендуется использовать версию 14.x или 16.x.
 
+### Необязательные предпосылки
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
 
 Установка холста необязательна и необязательна для моделей без функции карты, но для полной функциональности установите следующие пакеты.
@@ -87,35 +100,82 @@ sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev l
 Перед выполнением следующей команды может потребоваться перезагрузка.
 
 ```bash
-sudo npm install canvas --unsafe-perm=true
+npm install canvas --unsafe-perm=true
 ```
 
 Инструкции для других систем см. на странице https://www.npmjs.com/package/canvas#compiling.
 
-## Использование
-* Информацию о том, как использовать этот адаптер, можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
+Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+
+## Применение
+Информацию о том, как использовать этот адаптер, можно найти в [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Состояния
-* Информацию о штатах можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (английский) и [здесь](https://github .com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (немецкий)
-
-## ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ
-* Часто задаваемые вопросы можно найти [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+Информацию о состояниях можно найти в [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (английский) и [здесь](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (немецкий)
 
 ## Известные вопросы
 * Генерация изображений карт в настоящее время нестабильна на 32-битных системах.
 * Для некоторых моделей (например, Deebot OZMO 930) рекомендуется
 
-на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, так как есть сообщения о том, что соединение теряется прибл. 24 часа
+на [запланировать перезапуск](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) один раз в день, потому что есть сообщения о том, что соединение теряется прибл. 24 часа
 
 * Функция «край» не работает с Deebot U2 (вместо этого запускается автоматическая очистка)
+* Функции "перемещения" не работают с Deebot OZMO T8 AIVI (а возможно и с некоторыми другими моделями)
 * Некоторые состояния журнала очистки в серии T9 пусты ("last20Logs", "lastCleaningDate" и "lastCleaningMapImageURL").
+* Генерация изображений карты может не работать должным образом с серией Deebot X1.
 
 ## Отказ от ответственности
 Я никоим образом не связан с ECOVACS.
 
 ## Changelog
 
-### 1.4.1 (alpha)
+### 1.4.8 (latest beta)
+* Breaking change: Bumped minimum required version of Node.js to 14.x
+* Bumped ecovacs-deebot.js to 0.9.0-beta.2
+* Bumped several other dependencies
+
+### 1.4.7
+* Bumped ecovacs-deebot.js to 0.8.3-beta.2 (Hotfix XMPP devices)
+
+### 1.4.6
+* Added option for native goToPosition function (e.g. Deebot OZMO T8 AIVI)
+* Some improvements and fixes
+
+### 1.4.5
+* Added states for time and cleaned area since last dustbox removal
+* Added button for manually trigger dustbox removal
+* Removed some options from settings
+* Some other changes to settings
+* Bumped ecovacs-deebot.js to latest beta
+* Initial Support for yeedi login (experimental)
+* and also for a few models (experimental)
+  * yeedi k650
+  * yeedi 2 hybrid
+  * yeedi vac hybrid
+  * yeedi mop station
+
+### 1.4.4 (latest stable)
+* Bumped ecovacs-deebot.js to 0.8.2
+* Bugfix for non 950 type models with mopping system (e.g. OZMO 930)
+* Some minor improvements
+
+### 1.4.3
+* Bumped ecovacs-deebot.js to latest beta
+* Improved last time presence functionality
+* Added state for Clean Preference (e.g. T8/T9 series)
+* Added state for the last 20 errors
+* Added state for cleaning schedule (read-only)
+* Some further improvements and some fixes
+
+### 1.4.2
+* Bumped ecovacs-deebot.js to 0.8.1 (beta)
+* Added states for cleaning cloth reminder and auto-boost suction (e.g. OZMO 920/950, T8/T9 series)
+* Added states for mopping type and scrubbing type (models with OZMO Pro mopping system)
+* Added option to choose between 'pause' and 'stop' for 'PauseBeforeDockingChargingStation...' functionality
+* Some further improvements
+
+### 1.4.1
 * Bumped ecovacs-deebot.js to 0.8.0
 * Improved last time presence functionality
 * Added option to reset the vacuum power (cleanSpeed) to standard on return
@@ -149,132 +209,13 @@ sudo npm install canvas --unsafe-perm=true
 * Fix the cleaning functions for the Deebot 710 series
 
 ### 1.3.0
+* Breaking change: The minimum required version of Node.js is now 12.x
 * Using library version 0.7.0 (beta)
-* The minimum required version of Node.js is now 12.x
 * Some improvements for newer models (e.g. T9 series)
 * Some other improvements and fixes
 
-### 1.2.4
-* Using library version 0.6.8
-* Some optimizations
-* Preparations for changing the minimum required Node.js version to 12.x
-
-### 1.2.3
-* Using library version 0.6.6
-* Lots of code refactoring, optimizations and some fixes
-
-### 1.2.2
-* Added function to load current map image (non 950 type models, e.g. OZMO 930, Deebot 901)
-
-### 1.2.1
-* Some enhancements and fixes
-* (benep) Added state to play sound by id
-
-### 1.2.0
-* Using library version 0.6.1
-* Added functions for deleting, saving and recreating saved virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
-* Added functions for saving and recreating sets of virtual boundaries (950 type models, e.g. OZMO 920/950, T8 series)
-* Added options to control clean speed and water level separately for each spot area
-* Added function to save current spot area values
-* Added function to load current map image (950 type models, e.g. OZMO 920/950, T8 series)
-* Added some cleaning log values and some states for current cleaning stats
-* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
-* Moved some states from "info" channel to sub channels "info.library" and "info.network"
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Some optimisations for js-controller 3.3
-* Improved support for N8 series
-* Initial support for T9 series
-* Some improvements and fixes
-
-### 1.1.1
-* Using library version 0.6.0
-  * Updated login process
-  * Support for Chinese server login
-* Initial support for some models (e.g. N3, N7 and N8 series)
-
-### 1.1.0
-* Stable release
-
-### 1.0.13
-* Using library version 0.5.6
-* Some improvements and fixes
-
-### 1.0.12
-* Using library version 0.5.5
-* Added some more T8 models
-* Several improvements and fixes
-
-### 1.0.11
-* Enabled some features for OZMO 900
-* Several minor improvements
-
-### 1.0.10
-* Using library version 0.5.4
-* Several improvements and fixes
-* Added available spot area boundaries to "map" channel (read only)
-
-### 1.0.9
-* Using library version 0.5.3
-* Added some experimental features (for a few models only)
-* Added option for virtual boundaries and some further improvements to adapter config
-* Some improvements for js-controller 3.2.x
-
-### 1.0.8
-* Using library version 0.5.2
-* Added available virtualBoundaries channel for Deebot 900/901 and Ozmo 930 (read only)
-* Added "volume" and buttons for resetting consumable values for 950 type models (920/950/T8)
-* Improved synchronization of spot area buttons
-* Add option for setting the language for spot area names
-* Added some experimental features (for a few models only)
-* Several enhancements and fixes
-* Bump some dependencies
-
-### 1.0.7
-* Using library version 0.5.1
-* Initial support for Deebot U2 series
-* Improved support for Ozmo T8 models
-* (boriswerner) Fixed cleaning log for 950 type models (920/950/T8)
-* (boriswerner) Added available virtualBoundaries to "map" channel (currently read only)
-* Improved handling of device classes
-* Several enhancements and fixes
-
-### 1.0.6
-* Using library version 0.5.0
-* Fix for running multiple devices
-* Support for additional Ozmo T8 models
-* Add option to synchronize spotArea buttons
-* Set state value for triggered buttons to false
-* Add option to suppress "unknown" value for "map.deebotPositionCurrentSpotAreaID" state
-* Further enhancements and fixes
-
-### 1.0.5
-* Bump library to 0.4.25
-* Initial support for Ozmo T8 and T8+
-* Implement buttons for resetting consumable values (currently Deebot 900/901 and Ozmo 930 only)
-* Several enhancements and fixes
-
-### 1.0.4
-* Bump library to 0.4.21
-* Remove canvas from dependencies
-* Several bugfixes and improvements (especially for N79 series)
-* Possibility to specify the number of reruns for a spot area
-* Spot areas in the "control" channel are now created automatically
-* Remove number of spot areas from adapter settings
-* Some refactoring
-* Bump dependencies
-
-### 1.0.1 - 1.0.3
-* Added support for Ozmo T8 AIVI
-* Compact mode support
-* Added a button to save the last used custom area values
-* Added buttons to rerun saved custom areas
-* Some enhancements and fixes
-
-### 1.0.0
-* Stable release
-
-### 0.0.1 - 0.6.5
-* [Changelog archive](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Changelog-(archive)#059)
+### 0.0.1 - 1.2.4
+* [Changelog archive](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Changelog-(archive))
 
 ## License
 

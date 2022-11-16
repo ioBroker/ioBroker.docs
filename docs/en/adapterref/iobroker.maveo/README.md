@@ -26,7 +26,8 @@ maveo.0.id.remote auf true setzen steuert den jeweiligen Befehl
 https://forum.iobroker.net/topic/48101/test-adapter-maveo-v-0-0-x
 
 ## Changelog
-
+### 0.0.4
+* (TA2k) fix status
 ### 0.0.1
 * (TA2k) initial release
   

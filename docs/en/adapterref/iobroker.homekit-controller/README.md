@@ -12,7 +12,6 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## homekit-controller adapter for ioBroker
-
 This adapter allows you to pair and directly control devices with the "works with HomeKit" Logo that cna be used with Apple Home. The adapter supports IP/WLAN devices and also BLE (Bluetooth LE) devices. The adapter works completely local in your network.
 
 ### The adapter is not ...
@@ -21,7 +20,6 @@ This adapter allows you to pair and directly control devices with the "works wit
 ... supporting Thread "only" based devices. The Homekit Thread specifications are not yet publicly available. From the current knowledge all devices on the market also support BLE or WLAN, so the adapter will simply not use Thread but other ways to communicate.
 
 ### How to use the adapter
-
 The adapter listens for available devices in your network.
 
 There are three "types" of detected devices:
@@ -29,12 +27,12 @@ There are three "types" of detected devices:
 * **Paired with this instance** devices can be fully controlled, will update state values in "real time" using subscriptions (IP devices only) and data polling interval. The device can also be "unpaired" from this instance (see section below).
 * **Paired with someone else** devices are devices that are discovered but already paired with some other controller. These are logged in debug mode but no states are created for them. If you want to use them with ioBroker you first need to unpair them from their current controller (sometimes only possible with a hard reset or such - refer to manual) and after this they should be shown as "unpaired device".
 
-After pairing the supported states are read out from the device and objects and states are created. All known datapoints defined in the HomeKit standard should be named in a human-readable way. If you see UUIDs as names then the device manufacturer added self-defined data. If it is known what they provide this could be added to the adapter (e.g. as the ones added for Elgato devices) to show up as named in next version.
+After pairing the supported states are read out from the device and objects and states are created. All known data points defined in the HomeKit standard should be named in a human-readable way. If you see UUIDs as names then the device manufacturer added self-defined data. If it is known what they provide this could be added to the adapter (e.g. as the ones added for Elgato devices) to show up as named in next version.
 
-The datapoints are created with proper states and, if available, also correct roles. Else generic roles are used.
+The data points are created with proper states and, if available, also correct roles. Else generic roles are used.
 
 ### Identify information
-Devices that are not paired with any controller have an admin.identify state that can be triggered with "true". In this case the relevant device should identify itself (e.g. a lamp should blink or such, so that it can be identified). This function is only available as long as the device is not paired with an controller.
+Devices that are not paired with any controller have an `admin.identify` state that can be triggered with `true`. In this case the relevant device should identify itself (e.g. a lamp should blink or such, so that it can be identified). This function is only available as long as the device is not paired with an controller.
 
 #### Pairing information
 To pair the device with this adapter instance you need to provide the pin which is shown on the device, or a lable or such. The PIN is 8 numbers beside a QR-Code. The numbers need to be entered in the format 123-45-678 (also when the dashes are not printed on the label or shown on screen!)
@@ -46,7 +44,7 @@ After pairing the device to this instance it is NOT possible to also add the dev
 There might be cases that are still problematic for pairing because I was only able to test with a very few devices, so please report issues, and I will support with instructions to get the needed debugging data.
 
 #### Unpairing information
-To unpair just trigger the "admin.unpair" state with "true" and the unpair process will be executed - an Admin UI will follow soon.
+To unpair just trigger the `admin.unpair` state with "true" and the unpair process will be executed - an Admin UI will follow soon.
 
 #### Special notes for use of IP devices
 IP devices are discovered using UDP packages, so your host need to be in the same network as the devices. There is currently no real way around it because the MDNS record used contains important information for the pairing process.
@@ -66,9 +64,11 @@ After a restart of the adapter bluetooth devices can not be connected directly -
 ### Troubleshooting
 
 #### Known incompatible devices
-If you have issues pairing the device with this adapter please try to pair it with the normal iOS Apple Home App. If this do not work then something is weird with the device and then also this adapter can not help. Pot try a reset, but else there is not chance.
+If you have issues pairing the device with this adapter please try to pair it with the normal iOS Apple Home App. If this does not work then something is weird with the device and then also this adapter can not help. Pot try a reset, but else there is not chance.
 
-This is currently that way for some Tado Door Locks as example. They need to be paired using the Tado App which is somehow registering the device into Apple Home, but not via an official pair process.
+This is currently that way for some `Tado Door Locks` as example. They need to be paired using the `Tado App` which is somehow registering the device into Apple Home, but not via an official pair process.
+
+Additional also `Nuki 3 Locks (BLE)` are not possible to pair because they use Hardware Authentication components that are not publicly documented by Apple.
 
 #### Other potential issues to check before opening a ticket
 
@@ -82,7 +82,7 @@ This is currently that way for some Tado Door Locks as example. They need to be 
 
 ##### General advices
 * Does the device have a Pairing Mode or such that needs to be activated first? But also read the manual careful, maybe the Pairing mode is for some other legacy protocol or bridge but not Apple Home.
-* Basically if the error "pair-setup characteristic not found" pops up while trying to pair then the device do not support pairing via Homekit in it's current state. The adapter cn not do anything then!
+* Basically if the error "pair-setup characteristic not found" pops up while trying to pair then the device do not support pairing via Homekit in its current state. The adapter cn not do anything then!
 * Please make sure to enter the PIN mit Dashes in the form "XXX-XX-XXX". Other formats should be declined by the library already by an error, but just to make sure
 
 ## Debugging
@@ -93,10 +93,10 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 * Manually start the adapter using `DEBUG=hap* node /opt/iobroker/node_modules/iobroker.homekit-controller/build/main.js 0 --debug --logs`
 * Then do whatever produces the error and grab the log from the  shell and post with the Issue.
 * post the console log also in the issue. This will generate a log on protocol level.
-* Additionally find the relevant object in Admin "Objects" tab and click the pencil on right and provide the JSON of the object.
+* Additionally, find the relevant object in Admin "Objects" tab and click the pencil on right and provide the JSON of the object.
 
 ### Resources and Links
-* Resource that tries to decode Elgato special states: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
+* Resource that tries to decode `Elgato` special states: https://gist.github.com/simont77/3f4d4330fa55b83f8ca96388d9004e7d
 
 ### TODO
 * check how the adapter works with buttons (they do not have a state, and I do not own such a device. need support for this)
@@ -104,6 +104,21 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 * look into support devices that offer images (method is there but never saw it in action)
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (bluefox) Updated GUI packages
+
+### 0.5.1 (2022-06-10)
+* (Apollon77) Optimizations for BLE connections
+
+### 0.5.0 (2022-06-08)
+* (Apollon77) Add Connection identifier for Admin object list
+* (Apollon77) Count polling errors and reinitialize device connection when too many errors occur
+* (Apollon77) Optimize adapter startup to prevent double initialization of devices
+
 ### 0.4.4 (2022-05-06)
 * (Apollon77) Add Host header to HTTP devices to prevent issues with some devices
 * (Apollon77) Fix several edge case issues

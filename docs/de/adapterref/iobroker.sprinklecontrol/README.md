@@ -2,7 +2,6 @@
 BADGE-Number of Installations: http://iobroker.live/badges/sprinklecontrol-stable.svg
 BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sprinklecontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sprinklecontrol.svg
-BADGE-Dependency Status: https://img.shields.io/david/Dirk-Peter-md/iobroker.sprinklecontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/Dirk-Peter-md/ioBroker.sprinklecontrol/badge.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 ---
@@ -20,23 +19,22 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
 * [3 Konfiguration](#3-konfiguration)
 * [4 Haupteinstellungen - Startseite](#4-haupteinstellungen) 
   * [4.1 Aufbau der Tabelle](#41-aufbau-der-tabelle) 
-  * [4.2 individuelle Konfiguration eines Bewässerungskreises](#42-individuelle-konfiguration-eines-bewsserungskreises) 
+  * [4.2 spezifische Konfiguration des jeweiligen Bewässerungskreises](#42-spezifische-konfiguration-des-jeweiligen-bewsserungskreises)
     * [4.2.1 Haupteinstellungen des Ventils](#421-haupteinstellungen-des-ventils)
-      * [4.2.1.1 Bewässerungseinstellungen](#4211-bewasserungseinstellungen)
-      * [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt)
+      * [4.2.1.1 Bewässerungseinstellungen](#4211-bewsserungseinstellungen)
+      * [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gieen)
         * [Berechnung der Verdunstung](#einschaltpunkt-berechnung)
         * [Bodenfeuchte-Sensor bistabil](#einschaltpunkt-bistabil)
-        * [Bodenfeuchte-Sensor analog](#einschaltpunkt-analog)  
+        * [Bodenfeuchte-Sensor analog](#einschaltpunkt-analog)
         * [Start an festen Wochentagen (ohne Sensoren)](#einschaltpunkt-feste-tage)
     * [4.2.2 Pumpeneinstellungen des Ventils](#422-pumpeneinstellungen-des-ventils) 
 * [5 Pumpen-Einstellungen](#5-pumpen-einstellungen) 
 * [6 Zeit-Einstellungen](#6-zeit-einstellungen) 
 * [7 Zusätzliche-Einstellungen](#7-zustzliche-einstellungen) 
-  * [7.1 Astro-Einstellungen](#71-astro-einstellungen) 
-  * [7.2 Debug-Einstellungen](#72-debug-einstellungen) 
-  * [7.3 Zusätzliche Benachrichtigungseinstellung](#73-zustzliche-benachrichtigungseinstellungen) 
-  * [7.4 Sensoren zur Berechnung der Verdunstung](#74-sensoren-zur-berechnung-der-verdunstung) 
-  * [7.5 Wettervorhersage](#75-wettervorhersage) 
+  * [7.1 Astro-Einstellungen](#71-astro-einstellungen)
+  * [7.2 Zusätzliche Benachrichtigungseinstellung](#72-zustzliche-benachrichtigungseinstellungen) 
+  * [7.3 Sensoren zur Berechnung der Verdunstung](#73-sensoren-zur-berechnung-der-verdunstung) 
+  * [7.4 Wettervorhersage](#74-wettervorhersage) 
 * [8 Benachrichtigungen](#8-benachrichtigungen) 
   * [8.1 Telegram](#81-telegram) 
   * [8.2 Pushover](#82-pushover) 
@@ -48,7 +46,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sprinklecontrol.png?downloads=true
   * [9.3 info](#93-info) 
   * [9.4 sprinkle](#94-sprinkle) 
 * [10 Was ist für die Zukunft geplant](#10-was-ist-fr-die-zukunft-geplant) 
-
 
 ---
 
@@ -155,8 +152,8 @@ Nach Abschluss der ID-Auswahl ist der Adapter bereits betriebsbereit, aber noch 
 ---
 
 
-<a id="42-individuelle-konfiguration-eines-bewsserungskreises"></a>
-## 4.2. individuelle Konfiguration eines Bewässerungskreises
+<a id="42-spezifische-konfiguration-des-jeweiligen-bewsserungskreises"></a>
+## 4.2. spezifische Konfiguration des jeweiligen Bewässerungskreises
 
 Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#421-haupteinstellungen-des-ventils) und [**Pumpeneinstellungen**](#422-pumpeneinstellungen-des-ventils)
 
@@ -171,8 +168,10 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 ---
 
 
-<a id="4211-bewasserungseinstellungen"></a>
+<a id="4211-bewsserungseinstellungen"></a>
 #### 4.2.1.1 Bewässerungseinstellungen
+
+![bew-einstellung.jpg](img/bew-einstellung.jpg)
 
 * **Bewässerungszeit in min** – Einstellung der Zeit zum Bewässern in Minuten
     > **Information** → Unter "Berechnung der Verdunstung“ und "Bodenfeuchte-Sensor analog“ wird die Bewässerungszeit verlängert je weiter der Trigger "niedrigster Prozentsatz der Bodenfeuchte“ unterschritten wurde.
@@ -186,48 +185,95 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 ---
 
 
-<a id="4212-einschaltpunkt"></a>
+<a id="4212-einschaltpunkt-zum-gieen"></a>
 #### 4.2.1.2 Einschaltpunkt zum Gießen
 
+![einschaltpunkt-giessen.jpg](img/einschaltpunkt-giessen.jpg)
+
 * Über **Methode zur Kontrolle der Bodenfeuchtigkeit** werden die verschiedenen Sensoren, zur Steuerung der Bewässerung und deren verhalten, festgelegt.
-    > **Information** → Über [**„Zusätzliche Einstellungen" → „Wettervorhersage"**](#75-wettervorhersage) kann der Startvorgang verschoben werden, wenn es Regen soll. 
+    > **Information** → Über [**„Zusätzliche Einstellungen" → „Wettervorhersage"**](#74-wettervorhersage) kann der Startvorgang verschoben werden, wenn es Regen soll. 
+* zur Verfügung stehende Methoden:
+  * [Berechnung der Verdunstung](#einschaltpunkt-berechnung)
+  * [Bodenfeuchte-Sensor bistabil](#einschaltpunkt-bistabil)
+  * [Bodenfeuchte-Sensor analog](#einschaltpunkt-analog)
+  * [Start an festen Wochentagen (ohne Sensoren)](#einschaltpunkt-feste-tage)
+    * Drei Tage Rhythmus
+    * Jeden zweiten Tag
+    * An festen Wochentagen
 
 ---
+
 
 <a id="einschaltpunkt-berechnung"></a>
-+ **Berechnung der Verdunstung** 
+#### **Berechnung der Verdunstung**
         
-    ![verdunstung.jpg](img/verdunstung.jpg)
-
+  ![Berechnung der Verdunstung](img/ber-verdunstung.jpg)
+  + ***Zusätzliche Bewässerung bei hoher Verdunstung***
+    + **Zusätzliche Bewässerungszeit in min** Diese Zeile wird unter ZEIT EINSTELLUNGEN => Zusätzliche Startzeit aktiviert und ist für Gebiete mit Sandigen Boden gedacht, wo **eine Wassergabe** pro Tag nicht ausreichen würde.
+      > **Tipp** -> maximale Bodenfeuchte nach der Bewässerung in (mm) <= 6; Bodenfeuchte = 100 % nach der Bewässerung = deaktiviert; Einschaltpunkt (Bodenfeuchte) der Bewässerungsventile in % >= 60
+  
+  + ***Einschaltpunkt zum Gießen***
+    + **Methode zur Kontrolle der Bodenfeuchtigkeit** Hier wird die Art der Bewässerung ausgewählt, wie unter [4.2.1.2 Einschaltpunkt zum Gießen](#4212-einschaltpunkt-zum-gieen) beschrieben ist.
     + **Sensor im Gewächshaus** bei true (Auswahl) wird aktuelle Regenmenge und die Regenvorhersage nicht berücksichtigt
     + **Einschaltpunkt (Bodenfeuchte) der Bewässerungsventile in %** – Auslösetrigger: Wenn dieser Wert unterschritten wird, so beginnt zum Startzeitpunkt die Bewässerung.
-    + **Bodenfeuchte = 100 % nach der Bewässerung** – bei Aktivierung, wird die Bodenfeuchte nach der Bewässerung auf 100 % gesetzt. Ansonsten bleibt sie knapp darunter Aufgrund der Verdunstung während der Bewässerung.
+    + **Bodenfeuchte = 100 % nach der Bewässerung** Bei Aktivierung, wird die Bodenfeuchte nach der Bewässerung auf 100 % gesetzt. Dies kann passieren, wenn eine Begrenzung der Bewässerungszeit über die Aktivierung der **maximalen Bewässerungsverlängerung in %** erfolgt.
 
-    ***maximale Bodenfeuchtigkeit***
-
+  + ***maximale Bodenfeuchtigkeit***
     * **maximale Bodenfeuchte nach der Bewässerung in (mm)** – Max. Wassergehalt im Boden nach der Bewässerung.
         > **Tipp** –> Rasengitter: 5; Blumenbeet: 10; Rasenfläche: 14
-    * **maximale Bodenfeuchte nach einem Regen in (mm)** – Max. Wassergehalt im Boden nach einem kräftigen Regen.
-        > **Tipp** –> Rasengitter: 6; Blumenbeet: 15; Rasenfläche: 19
+    * **maximale Bodenfeuchte nach einem Regen in (%)** – Max. Wassergehalt im Boden nach einem kräftigen Regen. Die Prozentzahl bezieht sich auf die max. Bodenfeuchtigkeit nach der Bewässerung 
+        > **Tipp** –> Je größer der Wert ist, um so länger wird nach einem kräftigen Regen nicht bewässert.
+
+  + ***Funktionsweise Berechnung der Verdunstung***
+
+  ![Beispiel einer Calculation](img/calculation.jpg)
+  Die aktuelle Verdunstung wird ständig mit dem eintreffen neuer Wetterdaten von der Bodenfeuchte abgezogen (blaue Linie). Wenn nun zum Einschaltpunkt der Bewässerung die aktuelle Bodenfeuchte (actualSoilMoisture) unter dem Einschaltpunkt (im Diagramm 50%) liegt, so wird das Ventil gestartet.
+  An der blauen Linie kann man auch die Zeitverlängerung gut erkennen. Wenn wir nun davon ausgehen, das die Bodenfeuchte bei 13,6 % lag, so ergibt sich eine Verlängerung der Bewässerung auf 104 min. Wenn wir nun eine so lange Bewässerung nicht wollen, so können wir unter Bewässerungseinstellungen => maximale Bewässerungsverlängerung in % das ganze begrenzen.
+  In unserem Fall auf 100%. Beim Bewässern würden wir also die rote Linie wieder hinauf fahren und mit etwas unter 63,6 % die Bewässerung beenden, da ja während des Bewässerns auch eine Verdunstung stattfindet. Da nach der Bewässerung wir aber wieder mit 100 % Bodenfeuchtigkeit starten sollten, sollte man in diesem Fall **Bodenfeuchte = 100 % nach der Bewässerung** aktivieren.
+  Eine Ausnahme bildet die zusätzliche Bewässerung!
+
+  + ***Zusätzliche Bewässerung bei hoher Verdunstung***
+
+  ![Beispiel einer Zusätzlichen Bewässerung](img/addTime.jpg)
+  Wenn unter [**ZEIT EINSTELLUNGEN => Zusätzliche Startzeit**](#6-zeit-einstellungen) aktiviert wurde, so wird diese Zeile eingeblendet.
+  Desweiteren müssen die ausgewählten Startbedingungen (ETpToday > x mm oder externe Freigabe) unter ZEIT EINSTELLUNGEN => Zusätzliche Startzeit erfüllt sein, damit die zusätzliche Startzeit aktive wird.
+  Sind diese Bedingungen erfüllt, so startet die zusätzliche Bewässerung zur angegebenen Zeit, wenn actualSoilMoisture in unserem Beispiel des oberen Diagramms unter 40 % ist. Hierbei läuft die Bewässerung bis der Einschaltpunkt (60 %) wieder erreicht wurde.
 
 ---
+
 
 <a id="einschaltpunkt-bistabil"></a>
 + **Bodenfeuchte-Sensor bistabil** 
 
     ![bistabil.jpg](img/bistabil.jpg)
 
+    + **Zusätzliche Bewässerungszeit bei hoher Verdunstung**
+      
+      Diese Zeile wird unter ZEIT EINSTELLUNGEN => Zusätzliche Startzeit aktiviert und ist für Gebiete mit Sandigen Boden gedacht, wo **eine Wassergabe** pro Tag nicht ausreichen würde.
+      + Aktivierung einer zusätzlichen Bewässerung unter Objekten:   sprinklecontrol. ... .control.addStartTimeSwitch Dies kann mittels externen Script erfolgen.
+      + **Zusätzliche Bewässerungszeit in min** Zeit der zusätzlichen Bewässerung
+        > Achtung: Wenn diese Zeit zu lang ist, wird dieses Ventil am nächsten Tag nicht starten, da der Boden noch zu feucht ist. (keine Verdunstung in der Nacht)
+
     + **Einschaltpunkt zum Gießen (Bodenfeuchte-Sensor → bistabil true(Bewässerung ein), false(Bewässerung aus))**
 
-    + **Bodenfeuchte-Sensor** Auswahl des Sensors über das PLUS-Zeichen
-    + **Sensor im Gewächshaus** bei true (Auswahl) wird die Regenvorhersage nicht berücksichtigt
+      + **Bodenfeuchte-Sensor** Auswahl des Sensors über das PLUS-Zeichen
+      + **Sensor im Gewächshaus** bei true (Auswahl) wird die Regenvorhersage nicht berücksichtigt
 
 ---
+
 
 <a id="einschaltpunkt-analog"></a>
 + **Bodenfeuchte-Sensor analog**
 
     ![analog.jpg](img/analog.jpg)
+    
+    + **Zusätzliche Bewässerung bei hoher Verdunstung**
+
+      Diese Zeile wird unter ZEIT EINSTELLUNGEN => Zusätzliche Startzeit aktiviert und ist für Gebiete mit Sandigen Boden gedacht, wo **eine Wassergabe** pro Tag nicht ausreichen würde.
+      + Aktivierung einer zusätzlichen Bewässerung unter Objekten:   sprinklecontrol. ... .control.addStartTimeSwitch Dies kann mittels externen Script erfolgen.
+      + **Zusätzliche Bewässerungszeit in min** => Bewässerungszeit der zusätzlichen Bewässerung in Minuten
+      + **Einschaltpunkt (Bodenfeuchte) der zusätzlichen Bewässerungszeit** → Einschaltpunkt der Bewässerung in Prozent des analogen Bodenfeuchtesensors
+      > Achtung: Wenn die Bewässerungszeit zu lang ist, wird dieses Ventil am nächsten Tag nicht starten, da der Boden noch zu feucht ist. (keine Verdunstung in der Nacht)
 
     **Einschaltpunkt zum Gießen (Berechnung der Verdunstung → analog interne Umrechnung in 0 - 100 %)**
     + **Methode zur Kontrolle der Bodenfeuchtigkeit** → Bodenfeuchte-Sensor analog
@@ -247,10 +293,13 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
     ![festeTage.jpg](img/festeTage.jpg)
     **Auswahl der Bewässerungstage in der Woche**
+    + **Sensor im Gewächshaus** → Bei Aktivierung wird durch eine Regenvorhersage die Bewässerung nicht um einen Tag verschoben. 
     + **Drei Tage Rhythmus** → Der 1. Tag der Bewässerung ist der Folgetag, nach dem Speichern der Konfiguration, und dann jeden 3. Tag in Folge.
     + **Jeden zweiten Tag** → Der 1. Tag der Bewässerung ist der Folgetag, nach dem Speichern der Konfiguration, und dann jeden 2. Tag in Folge.
-    + **An festen Tagen starten** → Die Bewässerungstage werden individuell nach Wochentagen bestimmt.
-    > **Info** → Die Bewässerungsdauer wird verlängert siehe [Bewässerungseinstellungen](#4211-bewasserungseinstellungen)
+    + **An festen Wochentagen** → Die Bewässerungstage werden individuell nach Wochentagen bestimmt.
+    > **Info** → Die Bewässerungsdauer wird verlängert siehe [Bewässerungseinstellungen](#4211-bewsserungseinstellungen)
+  > 
+    > **Tipp** → Bei der Auswahl **Drei Tage Rhythmus** und **Jeden zweiten Tag** kann unter Objekte sprinkle.*.postponeByOneDay die Bewässerung um einen Tag weitergeschaltet werden.
     
 ---
 
@@ -276,7 +325,8 @@ Diese Konfigurationsebene besteht aus zwei Reitern: [**Haupteinstellungen**](#42
 
 <a id="5-pumpen-einstellungen"></a>
 # 5. Pumpen-Einstellungen
-Hier werden die Einstellung der Hauptpumpe (Grundwasser), einer zweiten Pumpe (Zisterne) und der Spannungsversorgung der Regelkreise vorgenommen.
+Hier werden die Einstellung der Hauptpumpe (z.B. Grundwasser), einer zweiten Pumpe (Zisterne) und der Spannungsversorgung der Regelkreise vorgenommen.
+>Wenn das Schalten der Steuerspannung bzw. einer Pumpe bei Ihnen nicht vorgesehen ist, so lassen Sie dieses Feld einfach leer!
 
 ![Pumpeneinstellung.jpg](img/Pumpeneinstellung.jpg)
 
@@ -314,7 +364,7 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
 
 ![Zeiteinstellung.jpg](img/Zeiteinstellung.jpg)
 
-## Einstellungen für die Startzeit
+## Startzeit
 * **Beginnen Sie mit einer festen Startzeit** – Bei dieser Auswahl startet die Bewässerung zu einer festgelegten, unter "Startzeit in der Woche" festgelegten Zeit.
     * **Startzeit in der Woche** – Angabe der Startzeit in der Woche.
 * **Startzeit bei Sonnenaufgang** – Wenn sie diese Option auswählen, so startet die Bewässerung bei Sonnenaufgang. Diese Zeit kann aber noch unter Zeitverschiebung variiert werden.
@@ -324,7 +374,19 @@ In diesem Abschnitt wird die Startzeiten von SprinkleControl festgelegt.
 ---
 
 
-## Einstellungen für die Startzeit am Wochenende
+## Zusätzliche Startzeit
+* **Startbedingungen**
+  * **Keine zusätzliche Startzeit** - zusätzlicher Start ist deaktiviert / ausgeschaltet
+  * **Start bei ETpCurrent größer als** - Startfreigabe über interne berechnung der Verdunstung (Sensoren "(z.B. Homematic HmIP-SWO-PL)" zur Berechnung der Verdunstung notwendig)
+    * **Start bei ETpCurrent größer als** - Eingabe der Verdunstung die zur Startzeit von *evaporation.ETpToday* erreicht sein muss.
+  * **Start, mit externem Signal** - Aktivierung einer zusätzlichen Bewässerung unter Objekten:
+    sprinklecontrol. ... .control.addStartTimeSwitch
+  >Tipp: Über *control.addStartTimeSwitch* können sie die Zusätzliche Startzeit über ein kleines Skript nach Ihren Wünschen steuern. z.B. beim überschreiten einer bestimmten Temperatur
+
+---
+
+
+## Wochenendstart
 * **andere Startzeit am Wochenende** – Soll die Bewässerung am Wochenende zu einer anderen Zeit starten (um z. B. den Nachbarn nicht zu verärgern), so kann man es hier aktivieren.
     * **Startzeit am Wochenende** – Startzeit für das Wochenende.
 
@@ -361,17 +423,8 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
 ---
 
 
-<a id="72-debug-einstellungen"></a>
-## 7.2 Debug-Einstellungen
-
-* **debuggen**
-  Durch Aktivierung werden im Log zusätzliche Informationen angezeigt, wodurch Fehler schneller ermittelt werden können.
-
----
-
-
-<a id="73-zustzliche-benachrichtigungseinstellungen"></a>
-## 7.3 Zusätzliche Benachrichtigungseinstellungen
+<a id="72-zustzliche-benachrichtigungseinstellungen"></a>
+## 7.2 Zusätzliche Benachrichtigungseinstellungen
 
 * **Benachrichtigungen aktivieren / deaktivieren**
   Einschalten des Reiters Benachrichtigungen. Hier werden dann die Einstellungen zur Kommunikation vorgenommen.
@@ -379,8 +432,8 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
 ---
 
 
-<a id="74-sensoren-zur-berechnung-der-verdunstung"></a>
-## 7.4. Sensoren zur Berechnung der Verdunstung
+<a id="73-sensoren-zur-berechnung-der-verdunstung"></a>
+## 7.3. Sensoren zur Berechnung der Verdunstung
 > **Achtung** → Das Program ist auf die Sensoren der Homematic HmIP-SWO-PL zur Berechnung der Verdunstung abgestimmt!
 > > **Andere mir bekannte verwendete Wetterstationen** → Eurochron Funk-Wetterstation EFWS 2900 mit Sainlogic Adapter.
 
@@ -388,8 +441,8 @@ In den Extra-Einstellungen werden verschiedene Einstellungen eingegeben, die bei
 
 Über die Sensoren wird die max. mögliche Verdunstung der pot. Evapotranspiration nach Penman ETp berechnet und zur Steuerung der Bewässerungsanlage genutzt.
 Dies geschieht jedes Mal, wenn die Temperatur sich ändert.
-> **Achtung** → Zur Berechnung werden der Verdunstung Werden die Sensoren der Temperatur, der Feuchtigkeit, der Windgeschwindigkeit und der Helligkeit herangezogen. 
-Diese müssen unbedingt für die Steuerung der Bewässerung über die „Berechnung der Verdunstung" verfügbar sein.
+> **Achtung** → Zur Berechnung der Verdunstung werden die Sensoren der Temperatur, der Feuchtigkeit, der Windgeschwindigkeit und der Helligkeit herangezogen. 
+Diese müssen unbedingt für die Steuerung der Bewässerung über die Option „Berechnung der Verdunstung" verfügbar sein.
 
 * **Temperatursensor** – Durch anklicken des (+) Symbols öffnet sich das Select-ID State Fenster. Hier können sie die ID des Luftsensors in °C auswählen.
 * **Feuchtigkeitssensor** – Durch anklicken des (+) Symbols öffnet sich das Select-ID State Fenster. Hier können sie die ID des Feuchtigkeitssensors in % auswählen.
@@ -400,13 +453,22 @@ Diese müssen unbedingt für die Steuerung der Bewässerung über die „Berechn
 ---
 
 
-<a id="75-wettervorhersage"></a>
-## 7.5 Wettervorhersage
+<a id="74-wettervorhersage"></a>
+## 7.4 Wettervorhersage
 
 Beim Aktivieren des Feldes "Wettervorhersage verwenden", erscheint ein Auswahlfeld. In diesem muss die Instanz vom Adapter "Das Wetter" ausgewählt werden.
-Im Adapter "Das Wetter“ muss der "Pfad 2: XML-Datei mit 5-Tage-Wettervorhersage und detaillierten Informationen für alle 3 Stunden" ausgefüllt sein, 
-damit SprinkleControl auf das Objekt **„daswetter.0.NextDaysDetailed.Location_1.Day_1.rain_value"** zugreifen kann. Dieser Wert wird dann bei jedem Start im Automatikmodus zur Entscheidung einer Beregnung verwendet.
-* **Niederschlags-Schwellwert in mm** → Erst wenn dieser Wert von der Regenvorhersage überschritten wird, so wird diese berücksichtigt.
+
+* **Wettervorhersage verwenden**
+* **Wettervorhersage-Dienst** 
+  * **eigener Datenpunkt** → Steuerung mittels externen Signals (Script,Adapter) 
+    * **Regenvorhersage - Pfad** → Über das + Zeichen können sie den Pfad zur Niederschlagsvorhersage eingeben.
+    * **Niederschlags-Schwellwert in mm** → Erst wenn dieser Wert von der Regenvorhersage überschritten wird, so wird dieser beim Start der Bewässerung berücksichtigt.
+  * **daswetter** → zugriff auf den Adapter "daswetter"
+    * **Wählen Sie die Wettervorhersageinstanz aus** → daswetter.0
+    * **Niederschlags-Schwellwert in mm** → Erst wenn dieser Wert von der Regenvorhersage überschritten wird, so wird dieser beim Start der Bewässerung berücksichtigt.
+    >info: Im Adapter "Das Wetter“ muss der "Pfad 2: XML-Datei mit 5-Tage-Wettervorhersage und detaillierten Informationen für alle 3 Stunden" ausgefüllt sein,
+    damit SprinkleControl auf das Objekt **„daswetter.0.NextDaysDetailed.Location_1.Day_1.rain_value"** zugreifen kann. Dieser Wert wird dann bei jedem Start im Automatikmodus zur Entscheidung einer Beregnung verwendet.
+
 
 ---
 
@@ -484,7 +546,7 @@ damit SprinkleControl auf das Objekt **„daswetter.0.NextDaysDetailed.Location_
 * **Benachrichtigungsstil** Umfang des Benachrichtigungstextes
     + kurze Benachrichtigung → nur Startvorgänge
     + Lange Benachrichtigung → umfangreiche Benachrichtigungen
-* **Warten auf den Versand (Sekunden)** warten bis zum Versand
+* **Warten auf den Versand (Sekunden)** → warten bis zum Versand
 * **Benachrichtigung nur bei Fehlern** – noch nicht in Benutzung
 
 ---
@@ -521,6 +583,7 @@ damit SprinkleControl auf das Objekt **„daswetter.0.NextDaysDetailed.Location_
 <a id="91-control"></a>
 ## 9.1 control
 * **Holiday** - Wenn Holiday auf true gesetzt wird, so wird die Bewässerung wie am Wochenende gestartet. Falls die Wochenendeinstellung aktiviert wurde. Die Verbindung mit einem Kalender wäre hier auch möglich.
+* **addStartTimeSwitch** - Wird nur angezeigt, wenn unter Konfiguration, zusätzliche Startzeit, ein start mit externen Signal ausgewählt wurde.
 * **autoOnOff** – Bei Einstellung "off“ ist der Automatikbetrieb der Bewässerungsanlage deaktiviert.
 * **parallelOfMax** – z. B. (3 : 4) Drei Bewässerungskreise sind von vier möglichen aktive. (Dies ist nur eine Anzeige!)
 * **restFlow** – Anzeige der noch möglichen Restfördermenge der Pumpe. (Dies ist nur eine Anzeige!)
@@ -542,8 +605,8 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 ## 9.3 info
 * **cisternState** – Anzeige vom Status der Zisterne und deren Zustände, wenn sie vorhanden ist.
 * **nextAutoStart** – Anzeige des nächsten Starts der Bewässerungsanlage.
-* **rainToday** – aktueller Niederschlag des heutigen Tages
-* **rainTomorrow** – Niederschlagsmenge des morgigen Tages
+* **rainToday** – Aktuelle Vorhersage für den Niederschlag des heutigen Tages, wenn es in der Konfiguration ausgewählt wurde.
+* **rainTomorrow** – Niederschlagsmenge des morgigen Tages laut Vorhersage.
 
 ---
 
@@ -564,8 +627,9 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
     * **Bodenfeuchte-Sensor analog** - Zustand des Sensors true/false
     * **Bodenfeuchte-Sensor bistabil** – aktuelle virtuelle Bodenfeuchte in % (max. 100 % nach der Beregnung, >100 % nach einem kräftigen Regen) (hat mit der tatsächlichen nichts zu tun)
     * **Start an festen Wochentagen (ohne Sensoren)** - Anzeige des nächsten Starttermins z. B. Mon, Thu, Wed  
-* **autoOn** - Automatik ein (Hier könnt ihr die automatische Bewässerung dieses Kreises ausschalten, z. B. bei einer Reparatur, wobei manuelles Bewässern jederzeit möglich ist.)
+  * **autoOn** - Automatik ein (Hier könnt ihr die automatische Bewässerung dieses Kreises ausschalten, z. B. bei einer Reparatur, wobei manuelles Bewässern jederzeit möglich ist.)
   * **countdown** – Restzeit des Beregnungskreises
+  * **postponeByOneDay** - Wird nur angezeigt, wenn Start mit festen Tagen in 2 bzw 3-Tagesintervallen ausgewählt wurde und dient zum weiterschalten der einzelnen Starttage.
   * **runningTime** – Laufzeit des Beregnungskreises
     - wenn hier eine Zahl > 0 eingegeben wird, so startet der Beregnungskreises für die angegebene Zeit in Minuten
     - bei eingabe einer 0 wird die Bewässerung des Beregnungskreises beendet
@@ -586,7 +650,10 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 
 <a id="10-was-ist-fr-die-zukunft-geplant"></a>
 # 10 Was ist für die Zukunft geplant
-+ Das wichtigste haben wir jetzt erst einmal. Mal sehen, was mir noch so einfällt.
++ Async. arbeiten des Adapters
++ Überwachen ob Ventile wirklich geschaltet haben, mit Fehlermeldung über Benachrichtigung
++ Zisterne als Einzelpumpe mit Bewässerungsunterbrechung bei Unterschreitung minimalniveau
++ Ventile nach der Bewässerung x Minuten lang spülen (Bei Zisterne / Grundwasser kombination und eisenhaltigem Wasser)
 + Die Visualisierung, die ich früher noch plante, werde ich nicht weiter verfolgen. 
 
 ---
@@ -601,6 +668,23 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2022-09-06)
+* (Dirk-Peter-md) various bugs fixed
+* (Dirk-Peter-md) Preparing the stable release
+
+### 0.2.12 (2022-07-17)
+* (Dirk-Peter-md) fixDay(twoNd,threeRd) => postpone by one day
+* (Dirk-Peter-md) Bug fixed => autoOn
+* (Dirk-Peter-md) Additional post-watering => in case of high evaporation / switchable externally
+
+### 0.2.11 (2022-05-22)
+* (Dirk-Peter-md) Bug fixed => analog soil moisture sensor with negative characteristic
+* (Dirk-Peter-md) Attention => maximum soil moisture in rain now in %
+
+### 0.2.10 (2022-05-15)
+* (Dirk-Peter-md) manual watering limited to a maximum of 100%
+* (Dirk-Peter-md) Error whatsapp message fixed
+
 ### 0.2.9 (2022-04-10)
 * (Dirk-Peter-md) Bug-Initialisierungsroutine
 
@@ -643,32 +727,17 @@ Ich habe mich zur Berechnung der Verdunstung nach der Formel für die Berechnung
 * (Dirk-Peter-md) Beschreibung in englischer Sprache hinzugefügt
 * (Dirk-Peter-md) bereit für stable
 
-### 0.1.6 (18.05.2021)
-* (Dirk-Peter-md) AutoOn-Schalter pro Bewässerungskreis hinzugefügt
-* (Dirk-Peter-md) weitere Fehler beseitigt (js-Controller)
-* (Dirk-Peter-md) Niederschlagszähler von der Verdunstung gelöst
-
 ### 0.1.5 (05.05.2021)
 * (Dirk-Peter-md) Zurücksetzen der Regenmenge im 24-Stunden-Modus hinzugefügt
 
 ### 0.1.4 (21.04.2021)
 * (Dirk-Peter-md) Fehler bei deaktivierter Wettervorhersage behoben
 
-### 0.1.3 (18.04.2021)
-* (Dirk-Peter-md) Schaltabstand zwischen den Ventilen eingebaut, main.js aufgeteilt
-
 ### 0.1.2 (30.12.2020)
 * (Dirk-Peter-md) Beschreibung von SprinkleControl überarbeitet
 
-### 0.1.1 (08.11.2020)
-* (Dirk-Peter-md) Integration von Nachrichten per Telegramm, E-Mail, Pushover und WhatsApp
-
 ### 0.0.12 (10.10.2020)
 * (Dirk-Peter-md) Bewässerung über eine 2. Pumpe (Zisterne mit Vorrangschaltung) in abhängigkeit vom Füllstand hinzugefügt.
-
-### 0.0.11 (30.08.2020)
-* (Dirk-Peter-md) Bug in der Verarbeitung der Regenvorhersage vom Adapter "Das Wetter"
-* (Dirk-Peter-md) Bug auf Travis CI
 
 
 *************************************************************************************************************************************

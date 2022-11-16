@@ -3,48 +3,59 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bmw/README.md
 title: ioBroker.bmw
-hash: hptX3x8JdKhnV2Dxw6QaMgY0RJ7J9oAOP6Q4DBoqHA4=
+hash: JxKfC9EtVVe45kAUeCPy1SvUiRz0jblG8f56m8V7wqM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bmw/admin/bmw.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.bmw.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.bmw.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bmw.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/bmw-installed.svg)
+![Количество установок (последние)](https://iobroker.live/badges/bmw-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/bmw-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.bmw.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bmw.png?downloads=true)
 
 # IoBroker.bmw
-** Тесты: ** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.bmw/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер bmw для ioBroker
-Адаптер для BMW
+## Bmw адаптер для ioBroker
+Адаптер для БМВ
 
-** Статус Aktueller **
+** Актуальный статус **
 
-bmw.0.VIN.properties
+bmw.0.VIN.Свойства
 
-** Удаленный Befehle sind möglich unter **
+**Remote Befehle sind möglich unter**
 
 bmw.0.VIN.remotev2
 
 ## Changelog
 
-### 2.4.0
+### 2.5.6
 
--   Add support for MINI and force refresh remote
-  
+- Fix charging message
+### 2.5.5
+
+- Fix login
+
+### 2.5.0
+
+- Fix login
+
+### 2.4.1
+
+- Add support for MINI and force refresh remote
+
 ### 2.3.0
 
--   Disable v1 Endpoints
-  
+- Disable v1 Endpoints
+
 ### 2.1.1
 
--   Upgrade to statusV2 and remoteV2
-  
+- Upgrade to statusV2 and remoteV2
+
 ### 2.0.0
 
--   (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

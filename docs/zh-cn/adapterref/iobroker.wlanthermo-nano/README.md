@@ -3,46 +3,61 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wlanthermo-nano/README.md
 title: ioBroker.wlanthermo-nano
-hash: TCdxIYuhBO7sdgAgrQ053kqmZav2Q3PI+b5kJoAlLac=
+hash: jWLdLB/tLzY994bhB0XsoX69BINKX6GfxcsXqGA0BIo=
 ---
 ![标识](../../../en/adapterref/iobroker.wlanthermo-nano/admin/wlanthermo-nano.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.wlanthermo-nano.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.wlanthermo-nano.svg)
+![安装数量](https://iobroker.live/badges/wlanthermo-nano-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/wlanthermo-nano-stable.svg)
 ![依赖状态](https://img.shields.io/david/DrozmotiX/iobroker.wlanthermo-nano.svg)
-![安装数量](http://iobroker.live/badges/wlanthermo-nano-stable.svg)
-![已知漏洞](https://snyk.io/test/github/DrozmotiX/ioBroker.wlanthermo-nano/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/DrozmotiX/ioBroker.wlanthermo-nano/master.svg)
+![新PM](https://nodei.co/npm/iobroker.wlanthermo-nano.png?downloads=true)
 
-＃ioBroker.wlanthermo-nano
-## IoBroker的wlanthermo-nano适配器
-[无线局域网](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano")，您的烧烤运动的数字优势
+# IoBroker.wlanthermo-nano
+**测试：** ![测试和发布](https://github.com/DrozmotiX/iobroker.wlanthermo-nano/workflows/Test%20and%20Release/badge.svg)
+
+## IoBroker 的 wlanthermo-nano 适配器
+[WLANThermo Nano](https://github.com/WLANThermo-nano/WLANThermo_nano_Software/wiki "WLANThermo Nano")，烧烤运动的数字优势
 
 ＃＃ 配置
-可以在管理界面中安装和配置适配器。
-请在实例配置中输入IP地址，用户名和密码。
+适配器可以在管理界面中安装和配置。
+请在实例配置中输入 IP 地址、用户名和密码。
 
 ＃＃ 去做
-* []优化pitmaster设置，使状态只能以相关方式可写，否则为只读
-* []实现自动设备检测
-* []实现设备在线状态
-* [x]允许多个设备
-* []代码清除
+* [ ] 实现自动设备检测
+* [ ] 优化pitmaster设置，使状态在相关模式下只能写，否则只读
 
-##加入Discord服务器，讨论有关ioBroker-WlanThermo集成的所有内容！
+## 加入 Discord 服务器，讨论有关 ioBroker-WlanThermo 集成的一切！
 <a href="https://discord.gg/cNAeGjJ"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ＃＃ 支持我
-如果您喜欢我的作品，请随时提供个人捐款（这是DutchmanNL的个人捐款链接，与ioBroker项目无关！）[![捐赠]（https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png）](http://paypal.me/DutchmanNL)
+如果您喜欢我的工作，请随时提供个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.wled/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Changelog
+### 0.2.1 (2022-06-08) - Initialization error for Nano V1 solved
+* (DutchmanNL) Initialization error for Nano V1 solved
+* (DutchmanNL) Error logging and reporting improved
+
+### 0.2.0 (2022-06-04) - PitMaster Control & ESP32 support
+* (DutchmanNL) Support multiple devices
+* (DutchmanNL) Refactor code to TypeScript
+* (DutchmanNL) Error/debug logging Improved
+* (DutchmanNL) Added data points for features
+* (DutchmanNL) Test & Release workflow updated
+* (DutchmanNL) Added indicator for connection status
+* (DutchmanNL) Reconnecting to offline devices improved
+* (DutchmanNL) Allow alarm to be activated / disabled #6
+* (DutchmanNL) Allow control of pitmaster & system settings
+* (DutchmanNL) Ensure support of all WLANThermo-Nano Devices
+* (DutchmanNL) Implemented dropdown menu for Pitmaster to select available profiles
+* (DutchmanNL) Added data points for PID profiles including capability to change profile settings
 
 ### 0.1.2
 * (DutchmanNL) Support multiple devices
 
 ### 0.1.1
-* (DutchmanNL) Code optimalisation
+* (DutchmanNL) Code optimisation
 * (DutchmanNL) Implement state_attr.js to handle state options outside of source code
 * (DutchmanNL) Optimised state creation in 1 function
 * (DutchmanNL) Small cleanups

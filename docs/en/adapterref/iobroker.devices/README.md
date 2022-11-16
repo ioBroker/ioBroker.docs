@@ -24,10 +24,28 @@ Manage and create devices for using it in other adapters like material, iot,...
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.2 (2022-11-09)
+* (Garfonso) corrected the double states in light devices
+* (Garfonso) added CIE color type as equivalent to `rgbSingle` type
+
+### 1.1.1 (2022-11-03)
+* (bluefox) Corrected delete dialog
+* (bluefox) Added ukrainian translation
+
+### 1.1.0 (2022-09-27)
+* (bluefox) Migrated GUI to v5
+
+### 1.0.12 (2022-06-09)
+* (bluefox) Allowed to work with devices behind reverse proxy
+* (bluefox) Replaced the function icon
+
+### 1.0.11 (2022-06-08)
+* (bluefox) Updated some libraries
+
 ### 1.0.10 (2022-02-13)
 * (bluefox) Corrected edit of folders
 * (bluefox) Updated some libraries

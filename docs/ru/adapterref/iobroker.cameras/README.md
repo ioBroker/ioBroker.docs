@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
 title: ioBroker.камеры
-hash: rkEQc8p9gM+aVqfA3IA620G6qf8s8DUlwClM7/Ip8jw=
+hash: 2uDPwFWgeeStYJD68nZG4CAXgHvqzsEJzpanUWWaKwU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -39,13 +39,16 @@ sendTo('cameras.0', 'image', {
 
 ### URL image Это обычный запрос URL, где все параметры указаны в URL. Нравится `http://mycam/snapshot.jpg`
 ### URL изображения с базовой аутентификацией
-Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете указать учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
+Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете предоставить учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.2.0 (2022-09-27)
+* (bluefox) GUI updated to MUIv5
+
 ### 0.1.8 (2022-02-13)
 * (bluefox) replaced the deprecated package `request` with `axios`
 

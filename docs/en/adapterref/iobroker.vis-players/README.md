@@ -1,63 +1,68 @@
 ![Logo](admin/players.png)
 # ioBroker.vis-players
+
 ![Number of Installations](http://iobroker.live/badges/vis-players-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-players-stable.svg) 
 [![NPM version](https://img.shields.io/npm/v/iobroker.vis-players.svg)](https://www.npmjs.com/package/iobroker.vis-players)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-players.svg)](https://www.npmjs.com/package/iobroker.vis-players)
-[![Travis-CI](http://img.shields.io/travis/instalator/ioBroker.vis-players/master.svg)](https://travis-ci.org/instalator/ioBroker.vis-players)
 
 [![NPM](https://nodei.co/npm/iobroker.vis-players.png?downloads=true)](https://nodei.co/npm/iobroker.vis-players/)
 
 ![winamp](/widgets/players/img/winamp.png)
 ![winamp](/widgets/players/img/sonos.png)
 
-
 Widgets for media players.
- 
-## Changelog
 
-#### 0.1.7
+<!--
+	### **WORK IN PROGRESS**
+-->
+
+## Changelog
+### 0.2.0 (2022-08-19)
+* (bluefox) Updated build process
+
+### 0.1.7
 * (instalator) added test
 
-#### 0.1.6
-* (instalator) fix error
+### 0.1.6
+* (instalator) fixed error
 
-#### 0.1.5
+### 0.1.5
 * (instalator) small fix
 
-#### 0.1.4
-* (instalator) fix seek. fix autoload object in settings
+### 0.1.4
+* (instalator) fixed seek. fixed autoload object in settings
 
-#### 0.1.2
-* (instalator) fix for foobar2000
+### 0.1.2
+* (instalator) fixed for foobar2000
 
-#### 0.1.1
-* (instalator) change oid_pos to oid_track
-* (instalator) change file manager for kodi
+### 0.1.1
+* (instalator) changed oid_pos to oid_track
+* (instalator) changed file manager for kodi
 
-#### 0.1.0
-* (instalator) fix different error
+### 0.1.0
+* (instalator) fixed different error
 * (Bluefox) new widget like Sonos
 
-#### 0.0.20
-* (instalator) fix file manager
+### 0.0.20
+* (instalator) fixed file manager
 
-#### 0.0.12
-* (instalator) added pre file mahager
+### 0.0.12
+* (instalator) added file manager
 * (Bluefox) destroy widgets and binds on change
 
-#### 0.0.11
+### 0.0.11
 * (instalator) added widget winamp playlist
 
-#### 0.0.10
+### 0.0.10
 * (instalator) added widget winamp player
 
-#### 0.0.1
-* (instalator) initial (21.10.2016)
+### 0.0.1
+* (instalator) initial commit (21.10.2016)
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2022 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

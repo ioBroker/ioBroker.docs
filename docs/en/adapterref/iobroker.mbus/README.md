@@ -2,14 +2,13 @@
 # ioBroker.mbus
 ======================
 
-![Number of Installations](http://iobroker.live/badges/mbus-installed.svg) ![Number of Installations](http://iobroker.live/badges/mbus-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.mbus.svg)](https://www.npmjs.com/package/iobroker.mbus)
+![Number of Installations (latest)](https://iobroker.live/badges/mbus-installed.svg)
+![Number of Installations (stable)](https://iobroker.live/badges/mbus-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.mbus.svg)](https://www.npmjs.com/package/iobroker.mbus)
+
+![Test and Release](https://github.com/Apollon77/ioBroker.mbus/workflows/Test%20and%20Release/badge.svg)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/mbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mbus.svg)](https://www.npmjs.com/package/iobroker.mbus)
-[![Code Climate](https://codeclimate.com/github/Apollon77/ioBroker.mbus/badges/gpa.svg)](https://codeclimate.com/github/Apollon77/ioBroker.mbus)
-
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Apollon77/ioBroker.mbus/master.svg)](https://travis-ci.org/Apollon77/ioBroker.mbus)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.mbus?branch=master&svg=true)](https://ci.appveyor.com/project/Apollon77/ioBroker-mbus/)
-
-[![NPM](https://nodei.co/npm/iobroker.mbus.png?downloads=true)](https://nodei.co/npm/iobroker.mbus/)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -41,6 +40,9 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 2.4.0 (2022-06-30)
+* IMPORTANT: Node.js 12.x is now required at least
+* (Apollon77) Several updates and optimizations
 
 ### 2.3.4 (2021-03-07)
 * (Apollon77) Send a reset to the device before reading data
@@ -121,7 +123,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

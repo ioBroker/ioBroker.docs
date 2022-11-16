@@ -2,6 +2,7 @@
 title: 用户管理
 lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/config/userrights.md
+template: true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 hash: tgHBt2pp52g254X9tYTeGUX3Dbq0qFahwLDyJLXCBJM=

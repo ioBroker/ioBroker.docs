@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.xterm/README.md
 title: ioBroker.xterm
-hash: hCuILSwuMbtUJCOktc8XL5+HlsucbR19k2kGfr90IvM=
+hash: Yd+XjBxXX/gFGwzCrttfIJrU0k9so6ikCV9JwSCDE1M=
 ---
 ![Логотип](../../../en/adapterref/iobroker.xterm/admin/xterm.png)
 
@@ -41,13 +41,26 @@ hash: hCuILSwuMbtUJCOktc8XL5+HlsucbR19k2kGfr90IvM=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.1.0 (2022-10-08)
+* (Apollon77) Update xterm library
+* (Apollon77) Prepare for future js-controller versions
+
+### 1.0.0 (2022-08-29)
+* (bluefox) Check only port of the interface and not of all interfaces
+
+### 0.3.2 (2022-03-29)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.3.1 (2022-03-18)
+* (Apollon77) Fix a crash case reported by Sentry
+
 ### 0.3.0 (2022-03-12)
 * (Apollon77) Prevent some warnings in js-controller 3+
 * (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that noone is connected
+* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
 * (Apollon77) Update all dependencies
 * (Apollon77) Add sentry for crash reporting
 

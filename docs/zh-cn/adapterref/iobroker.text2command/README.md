@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: HjxcicBThtHHwhyfzr6p95FmkFztTHJhPTshaNBN52I=
+hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
 ---
-![商标](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
+![标识](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
 ![安装数量](http://iobroker.live/badges/text2command-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.text2command.svg)
@@ -34,14 +34,14 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 可以使用正则表达式，例如：`/^light\son|^lamp\son/`。正则表达式始终不区分大小写。
 
-要使用“按功能打开/关闭”，您应该注意功能。
+要使用“按功能打开/关闭”，您应该关心功能。
 
 关键字的作用如下：
 
 - 关键字按空格分隔
-- 所有关键字必须出现在句子中才能触发规则：例如关键字：`light on` 会在 `switch light on`、`make light on all` 时触发，而不是在 `switch on`、`make light` 时触发。
+- 所有关键字必须出现在句子中才能触发规则：例如关键字：`light on` 将在 `switch light on`、`make light on all` 时触发，并且不会在 `switch on`、`make light` 时触发。
 - 一个关键字可以有多种形式。关键字的变体必须用“/”分隔。例如。关键字：`switch/make/do light on/true` 将触发：`do light true`，`make please light on`。
-- 如果关键字可以在很多情况下出现（名词、gen、宾格、复数，...），它们都必须作为变体列出，例如：`switch light/lights on`。
+- 如果关键字可以在许多情况下出现（名词，gen，宾格，复数，...），它们都必须列为变体，例如：`switch light/lights on`。
 
 以下函数将被解释为
 
@@ -57,7 +57,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 - 角色 - `level.backlight`
 - 角色 - `switch.backlight`
 
-**`enum.functions.blinds/shutter`** (Rollladen | Жалюзи/окна)
+**`enum.functions.blinds/shutter`**（Rollladen | Жалюзи/окна）
 
 - 角色 - `level.blind`
 - 角色 - `switch.blind`
@@ -111,7 +111,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 |屋顶| 高分辨率照片| CLIPARTO屋顶| 高分辨率照片| CLIPARTO达赫斯图尔 | крыша |
 |终端 |终端 |附属设施 |西西 |
 |洗手间|洗手间|瓦施拉姆 | прачечная |
-|热室|暖房|加热室/heizungsraum | 家企业котельная |
+|热室|加热室 |加热室/heizungsraum | 家企业котельная |
 |小屋 |小屋 | schuppen/scheune |话音 |
 |避暑别墅| 高分辨率照片| CLIPARTO避暑别墅| 高分辨率照片| CLIPARTO园艺 |回复 |
 
@@ -139,7 +139,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 答案是可定制的。默认值：`Inside temperature is %s %u` **`%s`** 将被温度替换，四舍五入为整数。 **`%u`** 将被此状态的单位或系统温度单位取代。
 
 ### 按功能开启/关闭
-此命令从枚举中读取信息。它使用 **enum.functions** 来查找设备类型（例如灯光、警报、音乐），并使用 **`enum.rooms`** 来检测房间名称。
+此命令从枚举中读取信息。它使用 **enum.functions** 来查找设备类型（例如灯光、警报、音乐）和 **`enum.rooms`** 来检测房间名称。
 
 德语示例：![枚举](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
@@ -186,7 +186,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 如果命令类似于 `Set light level to 50%`，则在 `hm-rpc.0.light.STATE` 中将写入 50，而答案将是 `Level set to 50%`。
 
-如果命令类似于 `Set light level`，则在 `hm-rpc.0.light.STATE` 中将写入 10，而答案将是 `Level set to 10%`。
+如果命令类似于 `Set light level`，则在 `hm-rpc.0.light.STATE` 中将写入 10，答案将是 `Level set to 10%`。
 
 ### 询问一些事情
 用户必须指定设备的状态 ID，该值将被读取。
@@ -214,7 +214,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 例如。：
 
-- `windows 打开`，确认：`实际 {javascript.0.countOpenedWindows} 个窗口打开`
+- `windows 打开`，确认：`实际 {javascript.0.countOpenedWindows} windows 打开`
 - `温度卧室`，确认：`卧室的实际温度是{t：hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE;轮（1）}度`。在这种情况下，答案将在*卧室的实际温度为 <VALUE>* 和 *<VALUE>* 之间随机分配。
 
 您可以在此处阅读有关绑定的更多信息：（对象绑定）[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
@@ -261,11 +261,17 @@ createState("textProcessor", '', function () {
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Migrated GUI to v5
+
+### 2.2.2 (2022-06-17)
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 2.2.1 (2022-02-21)
-* (bluefox) Checked the existence of sayit instance before output
+* (bluefox) Checked the existence of `sayit` instance before output
 * (bluefox) Added the decimal places settings to temperature  
 * (bluefox) Added the second object ID to user queries
 * (bluefox) Added the option: "No negative answer"

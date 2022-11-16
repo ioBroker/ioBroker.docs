@@ -19,6 +19,9 @@ At least Node 10.X.X is needed and js-controller 3.2.0 or above is required
 	### __WORK IN PROGRESS__
 -->
 
+### 1.3.5 (2022-08-11)
+* (foxriver76) fixed warning if `max_cpu` is not in response
+
 ### 1.3.4 (2021-05-07)
 * (foxriver76) add dataSource and connectionType
 * (foxriver76) add compact mode (closes #12, closes #49)
@@ -89,7 +92,7 @@ __node v10 or above required__
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2018 - 2022 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

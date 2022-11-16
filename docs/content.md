@@ -11,6 +11,7 @@
   * [Alias](basics/alias)
   * [Enums](basics/functions)
   * [Roles](basics/roles)
+  * [Glossary](basics/glossary)
 
 * en:Installation;de:Installation;ru:Установка;zh-cn:安装系统
   * [Introduction](install/README)
@@ -18,15 +19,13 @@
   * [Hardware](install/hardware)
   * en:Virtualization platforms;de:Virtualisierungsplattformen;ru:Платформы виртуализации;zh-cn:虚拟机安装
     * [Proxmox](install/proxmox)
-    * [VirtualBox](install/virtualbox)
     * [Docker](install/docker)
   * en:Manual installation;de:Manuelle Installation;ru:Ручная установка;zh-cn:手动安装
     * [Node.js](install/nodejs)
     * [Linux](install/linux)
     * [Windows](install/windows)
     * [macOS](install/macos)
-  * en:Software update;de:Softwareupdate;ru:Обновление;zh-cn:系统更新
-    * [General](install/update)
+  * [en:Updating;de:Updaten;ru:обновить;zh-cn:更新](install/update.md)
     * [ioBroker](install/updateself)
     * [Adapter](install/updateadapter)
     * [Node.js & npm](install/updatenode)
@@ -39,12 +38,11 @@
   * [Objects](admin/objects)
   * [Enumerations](admin/enums)
   * [Log](admin/log)
-  * [Events](admin/events)
   * [User](admin/users)
   * [Hosts](admin/hosts)
+  * [Files](admin/files)
 
-* en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档
-  * [Introduction](tutorial/README)
+* [en:Tutorials;de:Tutorials;ru:Уроки;zh-cn:教程文档](tutorial/README.md)
   * [First setup](tutorial/setup)
   * [User interface](tutorial/admin)
   * [Manage adapters](tutorial/adapter)
@@ -71,8 +69,7 @@
         * [Rgraph](viz/rgraph)
   * [App](viz/app)
 
-* en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计
-  * [Introduction](logic/README)
+* [en:Logic & Automation;de:Logik & Automatisierung;ru:Автоматизация;zh-cn:自动化设计](logic/README.md)
   * [Blockly](logic/blockly)
   * [JavaScript](logic/javascript)
   * [TypeScript](logic/typescript)
@@ -114,8 +111,7 @@
   * [Installation Fixer](trouble/install_fixer)
 
 * en:FAQ;de:FAQ;ru:ЧаВо;zh-cn:FAQ
-  * [Basics](faq/basic)
-
+  
 * en:Support;de:Unterstützung;ru:Поддержка;zh-cn:加入社区
   * [Introduction](community/README)
   * [Work im team](community/project)

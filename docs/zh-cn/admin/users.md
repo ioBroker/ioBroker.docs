@@ -1,10 +1,10 @@
 ---
 title: 用户
-lastChanged: 27.03.2019
+lastChanged: 09.11.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/admin/users.md
-hash: ey4f85vdepC/GBGqDCxrPXnndV8Z9/EIMRIQcaloBXQ=
+hash: Li7Kk2AK3eAMQe855up3wP5w3oTNxQo4i6DeGGwDmvw=
 ---
 # 用户页面
 可以在此页面上创建用户和组，并可以为组分配权限。
@@ -25,25 +25,17 @@ hash: ey4f85vdepC/GBGqDCxrPXnndV8Z9/EIMRIQcaloBXQ=
 ＃＃＃ 一般的
 基本的东西在这里输入：
 
-**姓**
+**名称** - 组的名称。此名称可以自由选择，但必须是唯一的。
 
-组的指定。此名称可以自由选择，但必须是唯一的。
+**ID** - ID 将自动填写
 
-**ID** ID会自动填写
+**说明** - 可以在此字段中输入对该组职责的说明。
 
-**描述**
+**预览** - 自动显示并包含完整的 ID `system.group.groupname`。
 
-可以在此字段中输入对该组任务的说明。
+可以通过 [+] 按钮添加图标，但也可以将其拖放到窗口上。
 
-**预览**
-
-自动显示并包含完整 ID system.group.groupname。
-
-可以通过 [+] 按钮添加图标，但也可以将其拖放到窗口中。
-
-**颜色**
-
-该组的图块使用此处设置的颜色突出显示。
+**颜色** - 组的图块以此处设置的颜色突出显示。
 
 ＃＃＃ 访问权限
 为组分配权限。为了使用户具有某些权限，必须将他们分配到适当的组。
@@ -57,26 +49,14 @@ hash: ey4f85vdepC/GBGqDCxrPXnndV8Z9/EIMRIQcaloBXQ=
 
 ![创建新用户](../../de/admin/media/ADMIN_Benutzer_newuser.png)
 
-**姓**
+**名称** - 用户的名称。此名称可以自由选择，但必须是唯一的。
 
-用户名。此名称可以自由选择，但必须是唯一的。
+**ID** - ID 将自动填写
 
-**ID**
+**描述** - 可以在此字段中输入用户的描述。
 
-ID 会自动填写
+**预览** - 自动显示并包含完整的 ID system.group.Username。
 
-**描述**
+**密码** - 用户的密码
 
-可以在此字段中输入有关用户的说明。
-
-**预览**
-
-自动显示并包含完整 ID system.group.Username。
-
-**密码**
-
-用户密码
-
-**重复输入密码**
-
-为防止输入错误，必须在此处再次输入密码
+**重复密码** - 为防止输入错误，必须在此处再次输入密码

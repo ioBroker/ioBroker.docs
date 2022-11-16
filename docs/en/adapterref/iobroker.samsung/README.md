@@ -34,7 +34,7 @@ Choose your API:
 #### Installation
 via ioBroker Admin.
 
-Otherweise execute the following command in the iobroker root directory (e.g. in /opt/iobroker)
+Otherwise execute the following command in the ioBroker root directory (e.g. in /opt/iobroker)
 ```
 iobroker install samsung
 ```
@@ -50,6 +50,19 @@ Support for devices since 2016  experimental
 if something does not work, look  in the log.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Only Wake-On-Lan SamsungTVs on adapterstart if no token is configured
+
+### 0.5.11 (2022-06-02)
+* (Apollon77) Optimize checkOnOff logic on adapter start
+
+### 0.5.10 (2022-05-27)
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 0.5.9 (2022-05-27)
+* (Apollon77) fix crash when initializing a SamsungTV (Tizen)
+
 ### 0.5.8 (2022-04-23)
 * (Apollon77) Fix crash cases reported by Sentry
 

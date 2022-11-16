@@ -4,14 +4,12 @@ lastChanged: 13.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/requirements.md
-hash: NnusBp9LIYL0mxqJO8Ohn7FRQ4r50VpSNamCW2xe7lc=
+hash: Opfh6IzsupO+aH9II8ZSGygSZ/9Gh1AWeFjbpBIXsi4=
 ---
 ＃ 系统要求
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
-
 @@@ 包含 RAM、CPU、操作系统、Node.js、npm、构建工具、网络、磁盘空间、SD 卡大小的表 @@@
 
-###重新安装
+##重新安装
 | |变体 |版本 |
 |---|:---------:|:-------:|
 
@@ -19,7 +17,7 @@ hash: NnusBp9LIYL0mxqJO8Ohn7FRQ4r50VpSNamCW2xe7lc=
 
 ioBroker 可以安装在所有可以使用 Node.js 的系统上。
 
-### 现有安装
+## 现有安装
 | |变体 |版本 |
 |---|:---------:|:-------:|
 
@@ -31,7 +29,7 @@ ioBroker 可以安装在所有可以使用 Node.js 的系统上。
 - noolite（由于串口依赖）
 - 潮湿（由于 pty.js 依赖）
 
-### 支持的操作系统
+## 支持的操作系统
 | |变体 |
 |---|:---------:|
 

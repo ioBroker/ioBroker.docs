@@ -23,7 +23,7 @@ Call in browser `http://ipaddress:8087/help` to get the help about API. The resu
   "get": "http://ipaddress:8087/get/stateID/?prettyPrint",
   "getBulk": "http://ipaddress:8087/getBulk/stateID1,stateID2/?prettyPrint",
   "set": "http://ipaddress:8087/set/stateID?value=1&prettyPrint",
-  "toggle": "http://ipaddress:8087/toggle/stateID&prettyPrint",
+  "toggle": "http://ipaddress:8087/toggle/stateID?prettyPrint",
   "setBulk": "http://ipaddress:8087/setBulk?stateID1=0.7&stateID2=0&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&prettyPrint",
   "objects": "http://ipaddress:8087/objects?pattern=system.adapter.admin.0*&type=adapter&prettyPrint",
@@ -588,6 +588,17 @@ If no data source was specified or the noHistory parameter is passed, then only 
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.7.2 (2022-10-08)
+* (Apollon77) Prepare for future js-controller versions
+
+### 2.7.1 (2022-08-29)
+* (bluefox) Check if the port is occupied only on defined interface
+* (bluefox) Added JSON config
+
+### 2.7.0 (2022-05-31)
+* (crycode-de) Allow use of ack flag for setBulk post requests
+* (Apollon77) Return ack flag too on getBulk
+
 ### 2.6.5 (2022-04-14)
 * Added support aggregate and count for queries
 
@@ -595,7 +606,7 @@ If no data source was specified or the noHistory parameter is passed, then only 
 * (Apollon77) Optimize performance, especially when using names instead of object ids
 
 ### 2.6.3 (2022-02-19)
-* (Apollon77) Optimize error message for multilanguage objects
+* (Apollon77) Optimize error message for multi-language objects
 * (Apollon77) Do not overwrite state properties by object properties
 
 ### 2.6.2 (2021-11-12)
@@ -692,7 +703,7 @@ If no data source was specified or the noHistory parameter is passed, then only 
 * (bluefox) new web server plugin support
 
 ### 1.3.0 (2016-08-30)
-* (bluefox) сompatible only with new admin
+* (bluefox) compatible only with new admin
 
 ### 1.2.0 (2016-08-27)
 * (bluefox) support of letsencrypt certificates

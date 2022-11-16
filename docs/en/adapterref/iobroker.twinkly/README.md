@@ -5,14 +5,12 @@
 ![Number of Installations (stable)](http://iobroker.live/badges/twinkly-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.twinkly.svg)](https://www.npmjs.com/package/iobroker.twinkly)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.twinkly.svg)](https://www.npmjs.com/package/iobroker.twinkly)
-[![Dependency Status](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)](https://david-dm.org/patrickbs96/iobroker.twinkly)
+
+[![Test and Release](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3A%22Test+and+Release%22++)
+[![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3ACodeQL)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)](https://ci.appveyor.com/project/patrickbs96/ioBroker-twinkly/)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/patrickbs96/ioBroker.twinkly.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/patrickbs96/ioBroker.twinkly/alerts/)
 [![Known Vulnerabilities](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly)
-
-[![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)](https://nodei.co/npm/iobroker.twinkly/)
-
-**Tests:** Linux/Mac: [![Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)](https://ci.appveyor.com/project/patrickbs96/ioBroker-twinkly/)
-
 
 ## twinkly adapter for ioBroker
 
@@ -22,21 +20,21 @@ Adapter to communicate with the [Twinkly lights](https://www.twinkly.com/).
 
 ## Settings
 The following Settings are available:
-![admin.png](img/admin.png)
+![Admin Settings](img/admin.png)
 
 In the table you can add all the Twinkly lights you want to control. 
 
-| Column       | Description                                                    |
-|--------------|----------------------------------------------------------------|
-| `Enabled`    | Shall this connection be accessed                              |
-| `Name`       | Name of the connection in ioBroker                             |
-| `IP Address` | IP-Address to the Twinkly Lights                               |
-| `State On`   | Which `ledMode` should be activated when state `on` is enabled |
+| Column       | Description                                                                                                     |
+|--------------|-----------------------------------------------------------------------------------------------------------------|
+| `Enabled`    | Shall this connection be accessed                                                                               |
+| `Name`       | Name of the connection in ioBroker                                                                              |
+| `IP Address` | IP-Address to the Twinkly Lights                                                                                |
+| `Mode On`    | Which `ledMode` should be activated when state `on` is enabled.<br/>Color, Effect, Movie, Playlist or last Mode |
 
 The following additionals States are created per device when checked:
 * Device Info
-* Network Status
 * MQTT
+* Network Status
 
 
 The following States are available:
@@ -71,70 +69,102 @@ The following States are available:
 * The maximum length for the movie name is 15 characters
 
 
+## Code Expamples
+
+### Upload Movie
+```
+sendTo('twinkly.0', 'uploadMovie', {
+    connection: 'Fenster',
+    movie: {
+        frames: [
+            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+            ...
+        ],
+        delay: 250
+    }
+});
+```
+
+### Upload Template Movie
+Upload a predefined movie.
+- 0: Twinkle Blue-White
+- 1: Twinkle Christmas-Green-Red
+```
+sendTo('twinkly.0', 'uploadTemplateMovie', {
+    connection: 'Fenster',
+    index: 0,1
+});
+```
+
+<!--
+### Send Realtime Frame
+```
+sendTo('twinkly.0', 'sendrealtimeframe', {
+    connection: 'Fenster',
+    frame: [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
+});
+```
+-->
+
+### Generate Frame in a specific color
+Returns a full frame in one color.
+By sending the colors in the property `colors` you get an array of frames returned.
+```
+sendTo('twinkly.0', 'generateFrame', {
+    connection: 'Fenster',
+    color : '#dd0055' // or {r: 221, g: 0, b: 85}
+}, response => {
+    // [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
+    ...
+});
+
+sendTo('twinkly.0', 'generateFrame', {
+    connection: 'Fenster',
+    colors : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
+}, response => {
+    // [[{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...], ..]
+    ...
+});
+```
+
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* Fixed polling (ledBri, ledSat)
+* Added Connection-Info
 
-### 0.2.11 (2022-01-02)
-* (patrickbs96) Add setting to select which ledMode should be activated
+### 1.0.5 (2022-10-16)
+* Fixed error when changing active movie (#173)
 
-### 0.2.10 (2021-12-31)
-* (patrickbs96) Add setting to enable automatically switching of Mode after State change (color, effect, movie, playlist)
+### 1.0.4 (2022-10-15)
+* Upload Movies
+* Upload Generated Movies
+* --Send Realtime Frame
+* Generate Full Frame in one color (create own frames)
+* Update deprecated states to fw 2.6.6
+* Update twinkly API Issues from Sentry
 
-### 0.2.8 (2021-12-20)
-* (patrickbs96) Rename mode On to movie as it's a better representation
+### 1.0.3 (2022-07-31)
+* Add Online-Status to object-view
+* Ignore `*.uid` values, unknown in which release they are available (IOBROKER-TWINKLY-1Q)
 
-### 0.2.7 (2021-12-19)
-* (patrickbs96) Hex without Hash. Option to not use ping for reachability.
+### 1.0.2 (2022-07-07)
+* Add new values `details.uid` and `details.group.uid` fw >= 2.8.4, fwFamily=G (IOBROKER-TWINKLY-1G, IOBROKER-TWINKLY-1N)
 
-### 0.2.6 (2021-12-09)
-* (patrickbs96) Renamed States with led control. Now starting with "led".
-* (patrickbs96) Add new State `ledLayout`/`ledPlaylist`
+### 1.0.1 (2022-07-05)
+* Remove deprecated values from mode
 
-### 0.2.4 (2021-12-03)
-* (patrickbs96) Handle wrong input so it does not cause exceptions
-* (patrickbs96) Add new State `ledEffect`
+### 1.0.0 (2022-07-03)
+* Change refresh logic after State-Change
+* Added depcrecated logic to remove states when no longer filled with data from api
+* Check new and deprecated values from api response to update state information
 
-### 0.2.2 (2021-11-30)
-* (patrickbs96) Add new State `ledColor`
-
-### 0.2.0 (2021-11-28)
-* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-J, IOBROKER-TWINKLY-K, IOBROKER-TWINKLY-M, IOBROKER-TWINKLY-N, IOBROKER-TWINKLY-P)
-* (patrickbs96) Add Pause-Feature, to work with app. (Twinkly only allows one active connection...)
-* (patrickbs96) Add Feature, activate uploaded Movies (Playlist) 
-
-### 0.1.15 (2021-10-26)
-* (patrickbs96) Add new Value `network.accesspoint.password_changed` from API-Response (Sentry IOBROKER-TWINKLY-A)
-
-### 0.1.14 (2021-10-23)
-* (patrickbs96) Add new Value `network.station.status` from API-Response (Sentry IOBROKER-TWINKLY-A, IOBROKER-TWINKLY-B)
-* (patrickbs96) Add new Value `network.details.product_version` from API-Response (Sentry IOBROKER-TWINKLY-E)
-* (patrickbs96) Add new Value `network.details.rssi` from API-Response (Sentry IOBROKER-TWINKLY-D)
-* (patrickbs96) Add new Value `color` from API-Response (Sentry IOBROKER-TWINKLY-7)
-
-### 0.1.13 (2021-10-13)
-* (patrickbs96) Add new Value `network.station.rssi` from API-Response (Sentry IOBROKER-TWINKLY-8)
-
-### 0.1.12 (2021-09-13)
-* (patrickbs96) Added new Values from Response (Sentry IOBROKER-TWINKLY-7)
-* (patrickbs96) Prevent excessive Sentry Logging 
-
-### 0.1.10 (2021-09-04)
-* (patrickbs96) Update API values to Firmware 2.7.1
-
-### 0.1.8 (2021-02-06)
-* (patrickbs96) Changes from the Review
-
-### 0.1.6
-* (patrickbs96) Update dependencies
-
-### 0.1.5
-* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-
-### 0.1.4
-* (patrickbs96) Temporary removing Reset as API path not exists
-
-### 0.1.1
-* (patrickbs96) Prevent Crash Case at HTTP Error (Sentry IOBROKER-TWINKLY-3)
-
+### 0.3.1 (2022-07-02)
+* Update translations logic i18n
 
 ## License
 MIT License
