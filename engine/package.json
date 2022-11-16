@@ -13,7 +13,7 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^7.0.3",
+    "@google-cloud/translate": "^7.0.4",
     "gulp": "^4.0.2",
     "axios": "^0.27.2"
   },
