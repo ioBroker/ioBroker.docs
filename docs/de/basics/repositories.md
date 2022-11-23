@@ -25,7 +25,7 @@ In den Systemeinstellungen über den Schraubenschlüssel die Basiseinstellungen 
 
 ![](media/Repository_BasicsSettingsDefaultPath.png)
 
-(1) Im Reiter Repositories kann das gewünschte Repository ausgewählt werden indem in der Spalte "Aktiv" die entsprechende Checkbox aktiviert wird.
+(1) Im Reiter Repositories kann das gewünschte Repository ausgewählt werden, indem in der Spalte "Aktiv" die entsprechende Checkbox aktiviert wird.
 
 (2) Über den Button werden die Pfade zu den Standard Repositorys stable und beta wieder auf die Standardpfade zurückgesetzt. Achtung: Diese Button löscht auch die manuell hinzugefügten Repositories
 
