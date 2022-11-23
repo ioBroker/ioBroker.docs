@@ -27,9 +27,9 @@ In den Systemeinstellungen über den Schraubenschlüssel die Basiseinstellungen 
 
 (1) Im Reiter Repositories kann das gewünschte Repository ausgewählt werden indem in der Spalte "Aktiv" die entsprechende Checkbox aktiviert wird.
 
-(2) Über den Button werden die Pfade zu den Standard Repositorys stable und beta wieder auf die Standardpfade zurückgestellt. Achtung: Diese Button löscht auch die manuell hinzugefügten Repositories
+(2) Über den Button werden die Pfade zu den Standard Repositorys stable und beta wieder auf die Standardpfade zurückgesetzt. Achtung: Diese Button löscht auch die manuell hinzugefügten Repositories
 
-(3) In der Spalte "Stable" wird die Checkbox automatisch aktiviert, wenn das Repository als ein "stable" Repository erkannt wurde nachdem es das erste Mal eingelesen wurde
+(3) In der Spalte "Stable" wird die Checkbox automatisch aktiviert, wenn das Repository nach dem ersten einlesen als ein "stable" Repository erkannt wurde
 
 Die Standardpfade der Repositories stable und beta lauten:
 - stable - Link zum Repository http://download.iobroker.net/sources-dist.json
