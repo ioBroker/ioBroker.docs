@@ -53,7 +53,7 @@ Auf diese Weise kann man die neueste Beta-Version installieren, ohne sein Reposi
 
 ![](media/Repository_AdapterInstallNpm.png)
 
-Wichter Hinweis: Installiere einen Adapter aus Github nur dann, wenn du vom Entwickler hierzu explizit aufgefordert wirst (z.B. im Rahmen von Alpha Tests, Bugfixing etc.). Adapterversionen welche direkt von Github installiert werden befinden sich in der Entwicklung und können somit auch zwischenzeitlich nicht funktionsfähig sein.
+Wichtiger Hinweis: Installiere einen Adapter aus Github nur dann, wenn du vom Entwickler hierzu explizit aufgefordert wirst (z.B. im Rahmen von Alpha Tests, Bugfixing etc.). Adapterversionen welche direkt von Github installiert werden befinden sich in der Entwicklung und können somit auch zwischenzeitlich nicht funktionsfähig sein.
 
 
 ## Wie kommt ein Adapter in das Beta oder Stable Repository? 
