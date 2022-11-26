@@ -1596,5 +1596,40 @@
         "conditions": {
             "alexa2": "between(3.14.0,3.19.9)"
         }
+    },
+    {
+        "title": {
+            "en": "Please upgrade euSec adapter to 0.9.8+!",
+            "de": "Bitte den euSec Adapter auf 0.9.8+ aktualisieren!",
+            "ru": "Пожалуйста, обновите адаптер euSec до версии 0.9.8+!",
+            "pt": "Por favor, actualize o adaptador euSec para 0.9.8+!",
+            "nl": "Upgrade euSec adapter naar 0.9.8+!",
+            "fr": "S'il vous plaît mettre l'adaptateur euSec à 0.9.8+!",
+            "it": "Si prega di aggiornare l'adattatore euSec a 0.9.8+!",
+            "es": "Por favor, actualice el adaptador euSec a 0.9.8+.",
+            "pl": "Proszę zaktualizować adapter euSec do wersji 0.9.8+!",
+            "uk": "Будь ласка, оновіть адаптер euSec до версії 0.9.8+!",
+            "zh-cn": "请将euSec适配器升级到0.9.8+!"
+        },
+        "content": {
+            "en": "Eufy has started to intercept the eufy-security-client, therefore it can happen that the adapter is no longer running (status yellow!). As of version 0.9.8, attempts are being made to counteract this.",
+            "de": "Eufy hat begonnen den eufy-security-client abzufangen, daher kann es passieren, dass der Adapter nicht mehr läuft (Status gelb!). Ab Version 0.9.8 wird versucht dem entgegenzuwirken.",
+            "ru": "Eufy начал перехватывать eufy-security-client, поэтому может случиться так, что адаптер больше не работает (статус желтый!). Начиная с версии 0.9.8, предпринимаются попытки противодействия этому.",
+            "pt": "Eufy começou a interceptar o eufy-security-client, portanto pode acontecer que o adaptador já não esteja a funcionar (estado amarelo!). A partir da versão 0.9.8, estão a ser feitas tentativas para contrariar isto.",
+            "nl": "Eufy is begonnen met het onderscheppen van de eufy-security-client, daardoor kan het gebeuren dat de adapter niet meer draait (status geel!). Vanaf versie 0.9.8 wordt geprobeerd dit tegen te gaan.",
+            "fr": "Eufy a commencé à intercepter le client eufy-security-client, il peut donc arriver que l'adaptateur ne fonctionne plus (statut jaune !). A partir de la version 0.9.8, des tentatives sont faites pour contrer ce problème.",
+            "it": "Eufy ha iniziato a intercettare l'eufy-security-client, quindi può accadere che l'adattatore non sia più in esecuzione (stato giallo!). A partire dalla versione 0.9.8, si sta cercando di contrastare questo fenomeno.",
+            "es": "Eufy ha empezado a interceptar el eufy-security-client, por lo que puede ocurrir que el adaptador deje de funcionar (¡estado amarillo!). A partir de la versión 0.9.8 se está intentando contrarrestar esto.",
+            "pl": "Eufy zaczęło przechwytywać eufy-security-client, dlatego może się zdarzyć, że adapter nie jest już uruchomiony (status żółty!). Od wersji 0.9.8 podejmowane są próby przeciwdziałania temu.",
+            "uk": "Eufy почав перехоплювати eufy-security-client, тому може статися так, що адаптер перестане працювати (статус жовтий!). Починаючи з версії 0.9.8, робляться спроби протидіяти цьому.",
+            "zh-cn": "Eufy已经开始拦截eufy-security-client，因此可能会出现适配器不再运行的情况（状态为黄色！）。从0.9.8版本开始，我们正在尝试解决这个问题。"
+        },
+        "id": "euSec-Cloud-Interception",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2022-11-26T15:00:00.000Z",
+        "conditions": {
+            "eusec": "smaller(0.9.8)"
+        }
     }
 ]
