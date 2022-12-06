@@ -130,6 +130,7 @@ Der Inhalt des Datenpunktes `combined` wird mit einer CSS-Klasse übergeben. Die
 * (xXBJXx) Ukrainian translation added
 * (xXBJXx) add validation function for ID and Name Input fields
 * (xXBJXx) add copy from clipboard function for ID Input field
+* (Schmakus) added daily min/max prices to all stations and fuel types
 
 ### 3.0.2 (2022-11-10)
 * (xXBJXx) release new version from Tankerkoenig

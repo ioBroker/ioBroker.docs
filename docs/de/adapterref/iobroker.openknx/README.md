@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: mZ7bHg2S3PbO4ltPcbz6xUhmp9adNnCH49Q+aMtArq4=
+hash: C6eJn0+PbwiMi000rNRd/bbSdo+mv9A5twsG84jgZt0=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.openknx.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.openknx.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.openknx.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/openknx-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/openknx-stable.svg)
@@ -46,6 +46,9 @@ Sucht über ein standardisiertes Protokoll alle verfügbaren KNX IP Gateways auf
 Diese Einstellung schützt den KNX-Bus vor Datenflut, indem Datenrahmen auf eine bestimmte Rate begrenzt werden.
 Nicht gesendete Frames werden verzögert, bis die Verzögerungszeit seit dem letzten Senden auf dem Bus abgelaufen ist. Wenn weitere Sendeanforderungen warten, ist die Sendereihenfolge zufällig.
 Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
+
+### Werte von automatisch gelesenen iob-Objekten beim Start auslesen
+Alle IOB-Objekte, die mit dem Autoread-Flag konfiguriert sind, werden auf dem Bus aufgefordert, mit IOB synchronisiert zu werden.
 
 ### Nur neue Objekte hinzufügen
 Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
@@ -233,18 +236,18 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet ||
 | DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen ||
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte ||
-| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte ||
+| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte ||
 | DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 ||
 | DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen ||
 | DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 ||
-| DPT-9 | Zahl | | 2-Byte-Gleitkommawert ||
+| DPT-9 | Nummer | | 2-Byte-Gleitkommawert ||
 | DPT-14 | Zahl | | 4-Byte-Gleitkommawert ||
-| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen ||
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen ||
+| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen ||
+| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen ||
 | DPT-15 | Nummer | | 4 Byte ||
-| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
+| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt|
 | DPT-20 | Nummer | | 1 Byte ||
-| DPT-238 | Nummer | | 1 Byte ||
+| DPT-238 | Zahl | | 1 Byte ||
 | DPT-10 | Zahl für Datumsobjekt | | - ||
 | DPT-11 | Zahl für Datumsobjekt | | - ||
 | DPT-19 | Zahl für Datumsobjekt | | - ||
@@ -314,9 +317,14 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 
 ## Changelog
 
+### 0.3.0 (2022-11-xx)
+* feature: sync knx library
+* feature: sync with create adapter 0.2.3
+* feature: update to newer versions of lots of dependant packages
+
 ### 0.2.9 (2022-11-13)
 * feature: setting autoreadEnabled autoread
-* bugfix: keep correct order of send datagrams in case of burst write
+* bugfix knx lib: keep correct order of send datagrams in case of burst write
 
 ### 0.2.7 (2022-08-26)
 * bugfix: fix issue with writing to dpt 19 object

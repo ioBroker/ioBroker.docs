@@ -1,7 +1,7 @@
 ![Logo](admin/openknx.png)
 # ioBroker.openknx
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.openknx.svg)](https://www.npmjs.com/package/iobroker.openknx)
+[![NPM version](https://img.shields.io/npm/v/iobroker.openknx.svg)](https://www.npmjs.com/package/iobroker.openknx)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.openknx.svg)](https://www.npmjs.com/package/iobroker.openknx)
 ![Number of Installations](https://iobroker.live/badges/openknx-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/openknx-stable.svg)
@@ -41,6 +41,9 @@ Searches via a standardized protocol all available KNX IP Gateways on the given 
 This settings protects the KNX bus from data flooding by limiting data frames to a certain rate.
 Not sent frames are delay until the delay time since last send on bus is elapsed. If more send requests are waiting, send order is random.
 If you experience disconnects from your KNX IP Gateway  in the log then increase this number.
+
+### readout values of autoread iob objects on startup
+All IOB objects that are configured with the autoread flag are requested on the bus to be synchronized with IOB.
 
 ### Add only new Objects
 If checked, the import will skip overwriting existing communication objects.
@@ -311,9 +314,14 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 
 ## Changelog
 
+### 0.3.0 (2022-11-xx)
+* feature: sync knx library
+* feature: sync with create adapter 0.2.3
+* feature: update to newer versions of lots of dependant packages
+
 ### 0.2.9 (2022-11-13)
 * feature: setting autoreadEnabled autoread
-* bugfix: keep correct order of send datagrams in case of burst write
+* bugfix knx lib: keep correct order of send datagrams in case of burst write
 
 ### 0.2.7 (2022-08-26)
 * bugfix: fix issue with writing to dpt 19 object

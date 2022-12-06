@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: Ewia+qvur97RITkQTmXU/gfhaVZ6TCaKBMr5XZWoOTA=
+hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 ---
 ![Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -30,7 +30,7 @@ Eine Adapterinstanz kann alle Geräte in einem Netzwerk, das UDP-Pakete weiterle
 **Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit betrieben und hat kein geschäftliches Ziel.** **TUYA ist eine Marke von Tuya Global Inc.**
 
 ## Funktionalität: Nur lokale vs. von der Cloud unterstützte Funktionen
-Dieser Adapter kann, wenn gewünscht, größtenteils ohne die Tuya Cloud funktionieren.
+Dieser Adapter kann, wenn gewünscht, größtenteils ohne die Tuya Cloud arbeiten.
 
 Wenn dies gewünscht wird, ist eine einmalige Synchronisierung mit dem Tuya Cloud App Account erforderlich, sobald neue Geräte hinzugefügt werden. Geben Sie dazu die Cloud-Anmeldeinformationen in der Adapterkonfiguration ein und betätigen Sie die Schaltfläche „Einmal synchronisieren“. Es ist nicht erforderlich, die Cloud-Anmeldeinformationen zu speichern!
 
@@ -48,7 +48,8 @@ Mit diesem Feature-Set können Sie zwischen allen verfügbaren Optionen wählen 
 Der "ehemalige" App-Proxy-Sync ist noch in der Adapter Config verfügbar, wird aber nicht mehr empfohlen. Es ist viel einfacher, die neue One Time Cloud Sync durchzuführen.
 
 ### Wenn die UDP-Erkennung nicht funktioniert
-Wenn die Geräte nicht korrekt über ihre UDP-Pakete erkannt werden, können Sie die IP manuell festlegen, indem Sie das Geräteobjekt bearbeiten. siehe https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
+Wenn die Geräte über ihre UDP-Pakete nicht richtig erkannt werden, können Sie die IP manuell einstellen, indem Sie den IP-Status des Geräts auf die richtige IP setzen.
+Die erstere Alternative besteht darin, das Geräteobjekt zu bearbeiten. Siehe https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
 
 ### Hinweis für batteriebetriebene Geräte
 Wie bereits oben erwähnt, werden batteriebetriebene Geräte von diesem Adapter nicht unterstützt, wenn nur lokale Verbindungen verwendet werden! Der Grund ist, dass sie nicht ständig online sind, um Strom zu sparen. Immer wenn sie ein Signal bekommen, gehen sie online, senden das Update an die Tuya-Cloud-Server und gehen wieder offline. Sie senden keine UDP-Pakete aus oder sind lange genug online, damit sich der Adapter mit ihnen verbinden kann.
@@ -97,7 +98,7 @@ Der Status „ir-send“ kann verwendet werden, um einen Base64-codierten IR-Cod
 ### Die IR-Untergeräte
 Die IR-Sub-Geräte haben viele "ir-*"-Zustände, die alle Tasten sind, um den jeweiligen Button/IR-Code auszulösen. Die IR-Zustände sollten mit dem Layout der Schaltflächen in der mobilen App übereinstimmen.
 
-Einige Geräte haben Kombizustände wie „M0_T20_S3“ (gefunden von einer Daikin-Klimaanlage), was Modus 0, Temperatur 20 und (Lüfter-)Geschwindigkeit 3 bedeutet. Tatsächlich müssen Sie die richtige Taste auswählen. Bis jetzt haben wir keinen generischen/automatischen Weg gefunden, um herauszufinden, welcher Button welcher ist.
+Einige Geräte haben Kombizustände wie „M0_T20_S3“ (von einer Daikin-Klimaanlage gefunden), was Modus 0, Temperatur 20 und (Lüfter-)Geschwindigkeit 3 bedeutet. Tatsächlich müssen Sie die richtige Taste auswählen. Bis jetzt haben wir keinen generischen/automatischen Weg gefunden, um herauszufinden, welcher Button welcher ist.
 Die mobile App selbst versucht auch, sich diese Einstellungen zu merken, sobald Sie also etwas mit dem Adapter (oder dem echten IR-Controller des Geräts) auslösen, sind die Informationen der App veraltet.
 
 **Diese Art der Steuerung funktioniert nur, wenn App-Cloud-Anmeldeinformationen eingegeben werden. Die Befehle werden vorerst auch über die Cloud versendet.**
@@ -125,6 +126,11 @@ Wenn es Probleme mit der Synchronisierung der Tuya App Cloud gibt, kann durch de
 Senden Sie das Log mit Bezug auf das generierte GitHub-Issue an iobroker@fischer-ka.de
 
 ## Changelog
+### 3.9.2 (2022-11-16)
+* (Apollon77) Optimize discovery and device connection checks
+* (Apollon77) IPs of unconnected devices can be set via the ip state now
+* (Apollon77) Fix crash cases reported by Sentry
+
 ### 3.9.1 (2022-11-14)
 * (Apollon77) Add support for local control of Tuya protocols 3.2 and 3.4
 * (TA2k/Apollon77) Add basic support for IR devices (Gateway and Sub Devices)

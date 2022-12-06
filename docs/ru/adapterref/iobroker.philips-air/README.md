@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
+hash: 34JzWCjELcBrOYZD2Y0zXskj+9T+idFaG5wtP4ZfA7c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
@@ -21,15 +21,32 @@ hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
 **Проверено только с AC2729**, но должно работать с новым очистителем, который обменивается данными через COAP с шифрованием.
 ![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
-[Ссылка на веб-сайт Philips](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
+[Ссылка на сайт филипса](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
 
 ## Применение
 Требуется только IP-адрес устройства. Найдите его в своем роутере (например, `MiCO`).
-Может случиться так, что у некоторых устройств есть не все переменные, и они останутся незаполненными в дереве объектов.
+Может случиться так, что некоторые устройства имеют не все переменные, и они останутся незаполненными в дереве объектов.
 
 ![Объекты](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
+<!--
+
+### **В РАБОТЕ** -->
+
 ## Changelog
+### 1.0.2 (2022-11-16)
+* (bluefox) Small fixes done
+* (bluefox) Added HTTP communication protocol (untested!)
+* (mdax82) Added `gentle/GT` for AC2939
+
+### 0.1.7 (2022-05-19)
+* (Apollon77) Upgrade coap library
+
+### 0.1.4 (2022-03-23)
+* (Apollon77) Downgrade coap library to restore functionality for some devices
+* (Apollon77) Prevent crash case and make control more flexible
+* (Apollon77) correctly handle `control.function` state
+
 ### 0.1.3 (2022-03-12)
 * (Apollon77) General updates and optimizations
 

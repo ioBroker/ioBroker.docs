@@ -17,6 +17,8 @@ Adapter for FordPass
 
 ## Changelog
 
+### 0.0.14
+* Improvements to prevent blocking from Ford
 ### 0.0.13
 * removed not working detail api
 ### 0.0.12

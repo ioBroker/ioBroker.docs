@@ -21,6 +21,8 @@ Adapter for LG ThinQ
 
 ## Changelog
 
+### 0.1.0
+Added MQTT connection for live status updates
 ### 0.0.3
 * (TA2k) initial release
 

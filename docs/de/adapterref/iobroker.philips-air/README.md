@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
+hash: 34JzWCjELcBrOYZD2Y0zXskj+9T+idFaG5wtP4ZfA7c=
 ---
 ![Logo](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
@@ -14,7 +14,7 @@ hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
 # IoBroker.philips-air
 ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Philips Luftreinigeradapter für ioBroker
 Verbindet Philips Luftreiniger mit ioBroker.
@@ -25,11 +25,28 @@ Verbindet Philips Luftreiniger mit ioBroker.
 
 ## Verwendungszweck
 Nur die IP-Adresse des Geräts ist erforderlich. Finden Sie es in Ihrem Router (z. B. `MiCO`).
-Es kann vorkommen, dass einige Geräte nicht alle Variablen haben und diese im Objektbaum ungefüllt bleiben.
+Es kann vorkommen, dass einige Geräte nicht alle Variablen haben und diese im Objektbaum unbesetzt bleiben.
 
 ![Objekte](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
+<!--
+
+### **IN ARBEIT** -->
+
 ## Changelog
+### 1.0.2 (2022-11-16)
+* (bluefox) Small fixes done
+* (bluefox) Added HTTP communication protocol (untested!)
+* (mdax82) Added `gentle/GT` for AC2939
+
+### 0.1.7 (2022-05-19)
+* (Apollon77) Upgrade coap library
+
+### 0.1.4 (2022-03-23)
+* (Apollon77) Downgrade coap library to restore functionality for some devices
+* (Apollon77) Prevent crash case and make control more flexible
+* (Apollon77) correctly handle `control.function` state
+
 ### 0.1.3 (2022-03-12)
 * (Apollon77) General updates and optimizations
 

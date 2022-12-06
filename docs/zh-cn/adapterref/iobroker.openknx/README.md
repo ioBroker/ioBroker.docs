@@ -3,35 +3,35 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: mZ7bHg2S3PbO4ltPcbz6xUhmp9adNnCH49Q+aMtArq4=
+hash: C6eJn0+PbwiMi000rNRd/bbSdo+mv9A5twsG84jgZt0=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.openknx.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.openknx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openknx.svg)
 ![安装数量](https://iobroker.live/badges/openknx-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/openknx-stable.svg)
-![新PM](https://nodei.co/npm/iobroker.openknx.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.openknx.png?downloads=true)
 
 # IoBroker.openknx
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.openknx/workflows/Test%20and%20Release/badge.svg)
 
 该适配器用作 Iobroker 和您的 KNX IP 网关之间的通信接口。
 适配器允许通过导入 ETS 组地址 xml 导出来自动生成 iobroker 通信对象。
-所有生成的通信对象最初都配置为可读和可写，在适配器重新启动时从 knx 总线获取值。
+所有生成的通信对象最初都配置为可读和可写，在适配器重启时从 knx 总线获取值。
 
 ＃ 安装
-该适配器在最新 / beta 存储库中可用。如果在 ioBroker 系统设置中将其选为标准存储库，则可以在“openknx”下的适配器列表中搜索适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
+该适配器在最新/测试版存储库中可用。如果在 ioBroker 系统设置中将其选择为标准存储库，则可以在“openknx”下的适配器列表中搜索适配器并通过单击 + 符号进行安装。另一种方法是通过 Github 符号以专家模式安装，方法是选择“来自 Github”并搜索 openknx。
 
 # 适配器配置
-![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接管更改。
-启动时，适配器会尝试读取所有带有自动读取标志（默认设置）的 GroupAdress。
-这可能需要一段时间，并且会在您的 KNX 总线上产生更高的负载。这可确保适配器从一开始就使用最新值运行。
-自动读取是在适配器启动或重新启动后与 knx 总线的第一次连接时完成的，而不是在每次 knx 重新连接时完成的。
-适配器安装后，打开适配器配置。填写：
+![设置](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) 按“保存并关闭”或“保存”重新启动适配器并接受更改。
+启动时，适配器会尝试读取所有具有自动读取标志（默认设置）的 GroupAdresses。
+这可能需要一段时间，并且会在您的 KNX 总线上产生更高的负载。这确保了适配器从一开始就以最新的值运行。
+自动读取是在适配器启动或重启后与 knx 总线的第一次连接时完成的，而不是在每次 knx 重新连接时完成。
+安装适配器后，打开适配器配置。填写：
 
-### KNX 网关 IP
-KNX IP 网关的 IP。
+### KNX网关IP
+您的 KNX IP 网关的 IP。
 
 ＃＃＃ 港口
 这通常是 KNX IP 网关的端口 3671。
@@ -40,36 +40,39 @@ KNX IP 网关的 IP。
 连接到 KNX IP 网关的接口。
 
 ＃＃＃ 探测
-通过标准化协议搜索给定网络接口上所有可用的 KNX IP 网关。
+通过标准化协议在给定网络接口上搜索所有可用的 KNX IP 网关。
 
 ### 帧延迟 [毫秒]
-此设置通过将数据帧限制为特定速率来保护 KNX 总线免受数据泛滥。
-未发送的帧会延迟，直到经过总线上最后一次发送后的延迟时间。如果有更多的发送请求在等待，发送顺序是随机的。
+此设置通过将数据帧限制在特定速率来保护 KNX 总线免受数据泛滥。
+未发送的帧会延迟到自上次在总线上发送以来的延迟时间结束。如果有更多发送请求在等待，发送顺序是随机的。
 如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
+
+### 启动时自动读取 iob 对象的读出值
+在总线上请求所有配置有自动读取标志的 IOB 对象与 IOB 同步。
 
 ### 仅添加新对象
 如果选中，导入将跳过覆盖现有通信对象。
 
 ### 从 ETS 导入 XML
-![ETS 出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
+![ETS出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
-1. 在 ETS 中的 Group Addresses 中，选择 export group address 并选择 XML export in latest format version。
+1. 在 ETS 中转到群组地址，选择导出群组地址，然后选择最新格式版本的 XML 导出。
 
 不支持 ETS4 格式，它不包含 DPT 信息。
 
-2. 通过 GA XML-Import 对话框将您的 ETS Export XML 上传到适配器中
-3.文件选择后立即开始导入，完成后给出状态报告。
+2. 通过 GA XML 导入对话框在适配器中上传您的 ETS 导出 XML
+3.导入会在文件选择后立即开始，完成后给出状态报告。
 
 成功导入后，一条消息会显示识别出的对象数量。
-错误对话框将在导入过程中发现问题，并提示如何清理 ets 数据库。
+错误对话框将在导入过程中解决问题，并提示如何清理 ets 数据库。
 可以在日志中找到其他信息。
 
-关于 ETS 配置的提示：如果 GA 和使用此 GA 的通信对象中有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
+ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
-没有 DPT 基本类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
+没有 DPT 基类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本并且 DPT 必须设置为 GA。
 
-### 别名
-KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序（例如某些 VIS 小部件）需要组合状态和驱动对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 id 写入，另一个别名 id 读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
+###别名
+KNX 设备可以具有属于命令 ga 的用于状态反馈的 ga。一些应用程序，如某些 VIS 小部件，需要一个组合的状态和动作对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 ID 来写入和另一个来读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
 在此处查找更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ### 正则表达式
@@ -91,16 +94,16 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 - 在文本编辑器中替换 knx.0。使用 openknx.0。
 - 右侧菜单，选择导入
 - 选择更改的文件
-- 在对话框中选择 Flows (Subflows, Configuration-Nodes only if they are affected) -> new tabs get added
-- 手动删除旧流程
+- 在对话框中选择流程（子流程，配置节点仅当它们受到影响时）->添加新选项卡
+- 手动删除旧流
 
 ## 迁移 VIS
-- 打开可见编辑器
-- 设置 -> Projekt-Export/import -> Exportieren normal
+- 打开可视化编辑器
+- 设置 -> Projekt-Export/import -> Exportieren 正常
 - 在编辑器中打开 Zip 文件和 vis-views.json
 - 搜索替换 knx.0。使用 openknx.0。
-- 将 vis-views.json 和 vis-user.css 压缩到一个 zip 文件中
-- 设置 -> Projekt 导出/导入 -> 导入
+- 在 zip 文件中压缩 vis-views.json 和 vis-user.css
+- 设置 -> Projekt-导出/导入 -> 导入
 - 在拖放区移动 zip 文件
 - 项目名称 = 主要
 - 导入项目
@@ -123,33 +126,33 @@ KNX 设备可以具有属于命令 ga 的状态反馈的 ga。某些应用程序
 
 ## 迁移涌入
 - 使用命令 influx 登录到您的 IOBroker 服务器
-- 使用 iobroker（或您通过命令 show databases 列出的特定数据库）
+- 使用 iobroker（或通过命令显示数据库列出的特定数据库）
 - 列出条目：显示测量值
-- 使用命令复制表：select * into "entry_new" from "entry_old"；
-- 为新对象 entry_new 设置流入启用
+- 使用命令复制表：从“entry_old”中选择 * 进入“entry_new”；
+- 为新对象 entry_new 启用流入
 
 # 如何使用适配器和基本概念
-### ACK 标志
-应用程序永远不会设置 ack 标志，如果数据更新，应用程序会通过 ack 标志从该适配器通知。
-如果另一个 knx 主机写入总线，则 KNX 堆栈在收到组地址时设置相应 ioBroker 对象的 ack 标志。
-由应用程序写入对象触发的 KNX 上发送的帧不会导致立即向该对象发送确认消息。
-如果写入来自此适配器，则在隧道模式下的积极确认时生成 ack 标志。
+### 确认标志
+应用程序永远不会设置 ack 标志，如果数据更新，应用程序将通过 ack 标志从该适配器收到通知。
+如果另一个 knx 主机写入总线，KNX 堆栈会在收到组地址时设置相应 ioBroker 对象的确认标志。
+由应用程序写入对象触发的 KNX 上发送的帧不会导致对该对象的立即确认消息。
+如果写入来自此适配器，则在隧道模式下根据积极确认生成 ack 标志。
 
-### Node Red 复杂数据类型示例
-创建一个连接到 ioBroker out 节点的函数节点，该节点与 DPT2 的 KNX 对象连接。
-msg.payload = {“优先级”：1，“数据”：0}；返回味精；
+### 节点红色复杂数据类型示例
+创建一个连接到 ioBroker out 节点的功能节点，该节点连接到 DPT2 的 KNX 对象。
+msg.payload = {“优先级”：1，“数据”：0};返回消息；
 
 # 日志级别
-启用专家模式以启用不同日志级别之间的切换。默认日志级别是信息。
+启用专家模式以启用在不同日志级别之间切换。默认日志级别是信息。
 ![日志级别](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
-# IOBroker 通信对象描述
+# IOBroker 通信对象说明
 ioBroker 定义对象来保存通信接口设置。
-GA 导入生成遵循 ga 主组/中间组方案的通信对象文件夹结构。每个组地址都是一个对象，具有以下自动生成的数据。
+GA 导入按照 ga main-group/middle-group 方案生成通信对象文件夹结构。每个组地址都是一个包含以下自动生成数据的对象。
 
-ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认具有值“状态”。一些更细化的值是从 DPT 派生的，例如 Date 或 Switch。
+ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认值为“state”。一些更精细的值是从 DPT 派生的，例如 Date 或 Switch。
 
-自动读取设置为假，从 DPT 可以清楚地看出这是一个触发信号。这适用于场景编号。
+当 DPT 清楚地表明这是一个触发信号时，Autoread 设置为 false。这适用于场景编号。
 
 ```json
 {
@@ -184,11 +187,11 @@ ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STAT
 }
 ```
 
-#适配器通信接口说明
-Handeled DPTs 是： 1-21,232,237,238 Unhandeled DPTs 被写为原始缓冲区，接口是十六进制数字的顺序字符串。例如，写入 '0102feff' 以在总线上发送值 0x01 0x02 0xfe 0xff。
-在使用数字数据类型的地方，请注意接口值可以缩放。
+# 适配器通讯接口说明
+Handeled DPTs 是：1-21,232,237,238 Unhandeled DPTs 写成原始缓冲区，接口是十六进制数的连续字符串。例如，写入“0102feff”以在总线上发送值 0x01 0x02 0xfe 0xff。
+在使用数字数据类型的地方请注意，接口值可以缩放。
 
-### API 调用
+### API调用
 ioBroker 将状态定义为通信接口。
 
 ```javascript
@@ -219,89 +222,89 @@ setState(myState, {val: false, ack: false, q:0x10});
 
 GroupValue_Read 注释不适用于 javascript 适配器。请改用 qualityAsNumber 值 0x10。
 
-### 所有 DPT 的描述
-| KNX DPT | javascript 数据类型 |特殊价值 |取值范围 |备注 |
+###所有DPT的描述
+| KNX DPT | javascript 数据类型 |特殊值 |取值范围 |备注 |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |
-| DPT-1 |布尔值 | |假的，真的 ||
+| DPT-1 |布尔 | |假的，真||
 | DPT-2 |对象 | {“优先级”：1 位，“数据”：1 位} | - ||
 | DPT-3 |对象 | {“decr_incr”：1 位，“数据”：2 位} | - ||
-| DPT-18 |对象 | {"save_recall":0,"scenenumber":0} | - |从自动读取中删除数据点类型 DPT_SceneControl|
-| DPT-21 |对象 | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - ||
+| DPT-18 |对象 | {“save_recall”：0，“scenenumber”：0} | - |从自动读取中删除了数据点类型 DPT_SceneControl|
+| DPT-21 |对象 | {“停止服务”：0，“故障”：0，“覆盖”：0，“警报”：0，“警报”：0} | - ||
 | DPT-232 |对象 | {红色：0..255，绿色：0.255，蓝色：0.255} | - ||
-| DPT-237 |对象 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - ||
+| DPT-237 |对象 | {“地址”：0，“地址类型”：0，“readresponse”：0，“lampfailure”：0，“ballastfailure”：0，“convertorerror”：0} | - ||
 | DPT-4 |字符串 | |一个字符作为 8 位字符发送 ||
 | DPT-16 |字符串 | |一个字符作为 16 个字符串发送 ||
-| DPT-5 |号码 | | 8 位无符号值 ||
-| DPT-5.001 |号码 | | 0..100 [%] 缩放为 1 字节 ||
-| DPT-5.003 |号码 | | 0..360 [°] 缩放为 1 字节 ||
-| DPT-6 |号码 | | 8 位有符号 -128..127 ||
-| DPT-7 |号码 | | 16 位无符号值 ||
-| DPT-8 |号码 | | 2 字节有符号值 -32768..32767 ||
-| DPT-9 |号码 | | 2 字节浮点值 ||
-| DPT-14 |号码 | | 4 字节浮点值 ||
-| DPT-12 |号码 | | 4 字节无符号值 ||
-| DPT-13 |号码 | | 4 字节有符号值 ||
-| DPT-15 |号码 | | 4 字节 ||
-| DPT-17 |号码 | | 1 字节 | DPT_SceneNumber 从自动读取中删除|
-| DPT-20 |号码 | | 1 字节 ||
-| DPT-238 |号码 | | 1 字节 ||
+| DPT-5 |编号 | | 8 位无符号值 ||
+| DPT-5.001 |编号 | | 0..100 [%] 缩放为 1 字节 ||
+| DPT-5.003 |编号 | | 0..360 [°] 缩放为 1 字节 ||
+| DPT-6 |编号 | | 8 位有符号 -128..127 ||
+| DPT-7 |编号 | | 16 位无符号值 ||
+| DPT-8 |编号 | | 2 字节有符号值 -32768..32767 ||
+| DPT-9 |编号 | | 2 字节浮点值 ||
+| DPT-14 |编号 | | 4 字节浮点值 ||
+| DPT-12 |编号 | | 4 字节无符号值 ||
+| DPT-13 |编号 | | 4 字节有符号值 ||
+| DPT-15 |编号 | | 4 字节 ||
+| DPT-17 |编号 | | 1 字节 | DPT_SceneNumber 从自动读取中删除|
+| DPT-20 |编号 | | 1 字节 ||
+| DPT-238 |编号 | | 1 字节 ||
 | DPT-10 |日期对象的编号 | | - ||
 | DPT-11 |日期对象的编号 | | - ||
 | DPT-19 |日期对象的编号 | | - ||
-| DPT-26 |字符串 |例如00010203.. | - |数据点类型 DPT_SceneInfo 未由 autread| 读取 |
-| DPT-238 |字符串 |例如00010203.. | - | autread 未读取 DPT_SceneConfig|
+| DPT-26 |字符串 |例如00010203.. | - |数据点类型 DPT_SceneInfo 未被 autread 读取|
+| DPT-238 |字符串 |例如00010203.. | - |自动读取未读取 DPT_SceneConfig|
 |休息 |字符串 |例如00010203.. | - ||
 
-只有时间和日期信息与基于 KNX 时间的数据类型交换，例如DPT-19 具有不受支持的信号质量字段。
+只有时间和日期信息与 KNX 基于时间的数据类型交换，例如DPT-19 具有不受支持的信号质量字段。
 
-对象发送和接收值的类型为 boolean DPT1)、数字（缩放或未缩放）、字符串。
-DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的字符串化对象。
-其他联合 DPT 具有类似的对象符号。
+对象发送和接收值的类型为布尔值 DPT1)、数字（缩放或未缩放）、字符串。
+DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的结构化对象。
+其他联合 DPT 具有类似的对象表示法。
 DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志。
 
-日期和时间 DPT (DPT10, DPT11) 请记住，Javascript 和 KNX 具有非常不同的时间和日期基本类型。
-DPT10 是时间 (hh:mm:ss) 加上“星期几”。此概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为“Mon, Jul 8th 12:34:56”的完全不同的 JS 日期。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
+日期和时间 DPT（DPT10、DPT11） 请记住，Javascript 和 KNX 的时间和日期基本类型非常不同。
+DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置一个常规的 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“7 月 1 日星期一 12:34:56”的完全相同的数据报将在一周后评估为完全不同的 JS 日期“7 月 8 日星期一 12:34:56”。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
-### 组值写入
-通过写入通信对象触发发送。
-当总线上接收到写帧时触发通信对象。
+###组值写入
+发送是通过写入通信对象触发的。
+当在总线上接收到写帧时，通信对象被触发。
 
 ### 组值读取
 可以通过编写带有注释的通信对象来触发发送。
-接收，如果配置会触发实际c.o.的组值响应（限制：此时组值写入）值，见下文。
+接收，如果配置会触发实际c.o.的组值响应（限制：此时写入组值）值，见下文。
 
 ### 组值响应
-如果 answer_groupValueResponse 设置为 true，则适配器将以 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
-这是 KNX 读取标志。只有总线上的一个 KO 或 IOBroker 对象应该设置此标志，理想情况下是最了解状态的那个。
+如果 answer_groupValueResponse 设置为 true，则适配器将使用 GroupValue_Response 回复先前收到的 GroupValue_Read 请求。
+这是 KNX 读取标志。总线上只有一个 KO 或 IOBroker 对象应该设置此标志，最好是最了解状态的那个。
 
 ### 映射到 KNX 标志
 KNX 对象标志定义了它们所代表的对象的总线行为。
 定义了 6 个不同的对象标志。
 
-|旗帜 |国旗 |适配器使用 ||
+|标志 |标志德 |适配器使用 ||
 | ------------------------- | ------------------------ | ------------------------------------------------- | ---------------------------------------------- |
-|C: 通讯标志 | K：通讯标志 |总是设置 ||
-|R：读取标志 | L: Les-Flag |对象 native.answer_groupValueResponse ||
-|T：传输标志 | Ü: Übertragen 标志 |对象 common.write ||
-|W：写标志 | S: Schreiben-Flag |对象 common.read |总线可以修改对象|
-|U：更新标志 | A: Aktualisieren-Flag |对象 common.read |在传入的 GroupValue_Responses 上更新对象 |
-|I：初始化标志 | I: Initialisierungs-Flag |对象 native.autoread | |
+|C: 通信标志 | K: 通讯标志 |总是设置 ||
+|R: 读取标志 | L: 旗帜 |对象 native.answer_groupValueResponse ||
+|T: 发送标志 | Ü: Übertragen-标志 |对象common.write ||
+|W：写入标志| S: Schreiben-旗帜 |对象common.read |总线可以修改对象 |
+|U: 更新标志 | A：Aktualisieren-Flag |对象common.read |在传入的 GroupValue_Responses 上更新对象 |
+|I：初始化标志| I：Initialisierungs-Flag |对象 native.autoread | |
 
 # 监控和错误跟踪
 Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
-它可以帮助开发人员更好地寻找错误并获取现场使用数据。以假名方式跟踪用户的身份。
-数据被发送到托管在德国的 Iobroker Sentry 服务器。如果您已允许 iobroker GmbH 收集诊断数据，则还包括您的匿名安装 ID。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
+它帮助开发人员更好地寻找错误并获取现场使用数据。以假名方式跟踪用户的身份。
+数据被发送到在德国托管的 Iobroker Sentry 服务器。如果您允许 iobroker GmbH 收集诊断数据，那么您的匿名安装 ID 也会包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
 
 ＃ 特征
-* 稳定可靠的knx堆栈
-* 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读写
-* 支持KNX组值读取、组值写入和组值响应
+* 稳定可靠的knx栈
+* 为最重要的 DPT 自动编码/解码 KNX 数据报，为其他 DPT 进行原始读写
+* 支持KNX组值读取和组值写入和组值响应
 * 免费开源
-* 不依赖云服务，无需互联网访问即可运行
-* 开始时自动读取
-* 以 XML 格式快速导入群组地址
+* 不依赖于云服务，无需互联网访问即可运行
+* 启动时自动读取
+* 快速导入 XML 格式的组地址
 * 创建对状态输入做出反应的联合别名对象
 
 # 已知问题
@@ -314,9 +317,14 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 
 ## Changelog
 
+### 0.3.0 (2022-11-xx)
+* feature: sync knx library
+* feature: sync with create adapter 0.2.3
+* feature: update to newer versions of lots of dependant packages
+
 ### 0.2.9 (2022-11-13)
 * feature: setting autoreadEnabled autoread
-* bugfix: keep correct order of send datagrams in case of burst write
+* bugfix knx lib: keep correct order of send datagrams in case of burst write
 
 ### 0.2.7 (2022-08-26)
 * bugfix: fix issue with writing to dpt 19 object

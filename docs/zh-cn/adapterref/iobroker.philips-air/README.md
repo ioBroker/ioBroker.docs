@@ -3,33 +3,50 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.philips-air/README.md
 title: ioBroker.philips-air
-hash: 6a/jPRtdR/DfVuGhoLx+Fo57e3c0pWDg9gcKiVUJKmo=
+hash: 34JzWCjELcBrOYZD2Y0zXskj+9T+idFaG5wtP4ZfA7c=
 ---
-![商标](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
+![标识](../../../en/adapterref/iobroker.philips-air/admin/philips-air.png)
 
 ![安装数量](http://iobroker.live/badges/philips-air-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.philips-air.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.philips-air.svg)
 
 # IoBroker.philips-air
-![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.philips-air/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/philips-air/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-## 用于 ioBroker 的飞利浦空气净化器适配器
-将飞利浦空气净化器与 ioBroker 连接。
-**仅使用 AC2729 测试**，但应与通过 COAP 进行加密通信的新净化器一起使用。
+## 适用于 ioBroker 的飞利浦空气净化器适配器
+将飞利浦空气净化器与 ioBroker 连接起来。
+**仅使用 AC2729 进行测试**，但应该可以与通过 COAP 加密通信的新净化器一起使用。
 ![AC2729](../../../en/adapterref/iobroker.philips-air/img/device.png)
 
 [飞利浦网站链接](https://www.philips.de/c-m-ho/luftreiniger-und-luftbefeuchter/kombi)
 
 ＃＃ 用法
-只需要设备的 IP 地址。在您的路由器中找到它（例如`MiCO`）。
-可能会发生某些设备并非所有变量，并且它们将在对象树中保持未填充状态。
+只需要设备的 IP 地址。在您的路由器中找到它（例如 `MiCO`）。
+可能会发生，某些设备没有所有变量，它们将在对象树中保持未填充状态。
 
 ![对象](../../../en/adapterref/iobroker.philips-air/img/objects.png)
 
+<!--
+
+### **正在进行中** -->
+
 ## Changelog
+### 1.0.2 (2022-11-16)
+* (bluefox) Small fixes done
+* (bluefox) Added HTTP communication protocol (untested!)
+* (mdax82) Added `gentle/GT` for AC2939
+
+### 0.1.7 (2022-05-19)
+* (Apollon77) Upgrade coap library
+
+### 0.1.4 (2022-03-23)
+* (Apollon77) Downgrade coap library to restore functionality for some devices
+* (Apollon77) Prevent crash case and make control more flexible
+* (Apollon77) correctly handle `control.function` state
+
 ### 0.1.3 (2022-03-12)
 * (Apollon77) General updates and optimizations
 
