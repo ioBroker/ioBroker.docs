@@ -18,6 +18,7 @@
     "axios": "^1.2.1"
   },
   "scripts": {
-    "start": "node main"
+    "start": "node main",
+    "build-all": "gulp"
   }
 }

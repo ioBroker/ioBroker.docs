@@ -323,7 +323,10 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 当通过IP或localhost：8081访问ioBroker时，论坛条目将显示没有问题。但是如果你使用像meinhaus.de:8081这样的主机名，你必须在Feednami获得一个免费的API密钥。 要注册，请单击 [此处](https://toolkit.sekando.com/docs/en/setup/hostnames) 并按照说明进行操作。
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.9.22 (2022-11-21)
+* (bluefox) Corrected widget
+
 ### 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
 
@@ -338,10 +341,6 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ### 1.9.18 (2022-02-01)
 * (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
-
-### 1.9.17 (2022-01-26)
-* (simatec) Design fix
-* (simatec) Update dependencies
 
 ## License
 The MIT License (MIT)

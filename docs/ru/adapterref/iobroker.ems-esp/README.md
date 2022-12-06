@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
+hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -24,23 +24,23 @@ hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
 ## Он может взаимодействовать с системой отопления с использованием вызовов Web-API в направлении:
 * км200, км200 грн, км100, км50, HMC300 или IP-внутри (от Bosch Group)
 * Интерфейс ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией dev (см. ниже) и чипом ESP32.
-* Старые шлюзы ESP8266 с API V2 также поддерживаются с ограниченной функциональностью. Но настоятельно рекомендуется перейти на ESP32.
+
+* Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ!!
 
 Адаптер ems-esp может считывать и записывать данные на оба шлюза для управления всеми компонентами системы отопления.
 Его можно использовать либо для исходных шлюзов Bosch-group, либо для ems-esp, либо для обоих параллельно.
 
-Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.3.1.
+Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.4.0.
 
 ## Важные настройки в EMS-ESP:
-* API V2: настройки MQTT должны быть в логическом формате 1/0!
-* API V3: параметры форматирования для логического формата должны быть 1/0, а для номера формата перечисления
+* Параметры форматирования для логического формата должны быть 1/0, а для значения/числа формата Enum.
 * Должен быть включен параметр «Включить команды записи API» в ems-esp.
 * Должна быть установлена авторизация Bypass Access Token для вызовов API или должен быть введен токен.
 
-При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходный вид устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. структура. Тогда все сущности/состояния находятся в одном и том же месте в структуре объекта ioBroker.
+При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходное представление устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. структура. Тогда все сущности/состояния находятся в одном и том же месте в структуре объектов ioBroker.
 
 ## Опрос
-Этот адаптер считывает значения after start из ems-esp и km200 с помощью HTTP-запросов get и может подписываться на изменения состояния и отправлять соответствующие http-команды (post) обратно либо на оборудование ems-esp, либо на шлюз km200.
+Этот адаптер считывает значения after start из ems-esp и km200 с помощью http-запросов get и способен подписываться на изменения состояния и отправлять соответствующие http-команды (post) либо на аппаратное обеспечение ems-esp, либо на шлюз km200.
 
 * Опрос чтения EMS-ESP является параметром (стандартно 60 секунд) и не может быть установлен ниже 15 секунд.
 * Опрос KM200 также является параметром (стандартно 300 секунд), и минимальное значение, которое можно установить, составляет 90 секунд.
@@ -129,12 +129,26 @@ hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.1 (2022-12-04)
+* correct actualweight statistics within heatdemand function
 
-### **WORK IN PROGRESS**
-* pepare for enum as v alues and not just index
-* ioBroker and Home Assistant can be used in parallel
+### 1.17.0 (2022-12-02)
+* add actual weight per thermostat in heatdemand object structure
+* add heatdemand difference values
+
+### 1.16.2 (2022-11-21)
+* adjustments for ems-esp sensors v3.5
+
+### 1.16.1 (2022-11-20)
+* error correction sensors
+
+### 1.16.0 (2022-11-20)
+* ems-esp V2 NOT SUPPORTED ANYMORE !!!!
+* pepare for enum as values and not just index
 * new parameters for "Room" and "Function" for adapter states
-* adjust roles of generated states
+* adjust for latest ems-esp dev version 3.5 
+* units of measument for ems-esp sensors
+* support name changes within ems-esp for sensors
 
 ### 1.15.0 (2022-06-06)
 * adjustments for ems-esp RC310 holiday modes

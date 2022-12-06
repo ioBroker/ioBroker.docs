@@ -42,28 +42,6 @@ More useful information about apcupsd config for Ubuntu you can find on https://
  - Fixed issue: Failed to unload iobroker.apcups with exception "Error: write after end"
 ### 1.0.1 (2022-10-13)
  - Fixed issue: Failed to unload iobroker.apcups with exception "Error: write after end"
-### 1.0.0 (2022-04-26)
- - Fixed sentry issues
-### 0.0.9 (2022-02-21)
- - Changed adapter type
-### 0.0.8 (2022-02-18)
- - Fixed review issues
-### 0.0.7 (2022-02-18)
- - Changed default log level to 'info'
-### 0.0.6 (2022-02-17)
- - Cleanup code.
- - Sentry integration
-### 0.0.5 (2022-02-16)
- - Fixed issues with uncaught exception.
-### 0.0.4 (2022-01-12)
- - Fixed issue with polling interval greater than 15 sec.
-### 0.0.3 (2021-10-18)
- - Fixed parse values bugs.
-### 0.0.2 (2021-09-13)
- - Initial commit. Alpha Version. 
-
-### **WORK IN PROGRESS**
-* (Author) initial release
 
 ## License
 MIT License

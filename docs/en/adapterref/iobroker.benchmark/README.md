@@ -48,11 +48,17 @@ adapter should not try to run these tests on a non-supporting controller
 ### getStates
 Executes `iterations` times `getState`.
 
-### getStateAlias
+### getStatesAlias
 Executes `iterations` times `getState` on an alias.
 
-### getStateAliasRead
+### getStatesAliasRead
 Executes `iterations` times `getState` on an alias. The alias has a simple read function.
+
+### getStatesMulti
+Creates 10,000 states, then executes `iterations` times `getStates` on them.
+
+### getStatesMultiAlias
+Creates 10,000 alias states, then executes `iterations` times `getStates` on them. 
 
 ### idle
 Just waits `iterations` ms.
@@ -82,7 +88,7 @@ Sets `iterations` states via `setState`
 ### setStatesNonStrict
 Sets `iterations` states via `setState`, but `strictObjectChecks` are disabled.
 
-### setStatesParallel
+### setStateParallel
 Adds 30 secondary instances, every instance will set `iterations` states. On system level, the instances are setting these states in parallel, but on instance level, the previous `setState` needs to be finished until the next one is set.
 This test aims to benchmark multicore systems.
 
@@ -106,6 +112,9 @@ The alias contains a simple write function.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2022-11-17)
+* (foxriver76) added `getStatesMulti` and `getStatesMultiAlias`
+
 ### 1.0.0 (2022-06-10)
 * (foxriver76) the config is now applied directly from frontend without requiring to save first
 

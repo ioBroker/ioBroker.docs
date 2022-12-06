@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: zpkz+lNcNi18LWH475BEbPb5domjktFwve96tql1oR8=
+hash: dZiy17GB+GtTHSwKHGrzyBQp5yFFgRZkp5hYOhStnIk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -26,8 +26,22 @@ Aktuell werden folgende Geräte unterstützt:
 * распределительная коробка
 * баня
 * датчик температуры
+* привратник
 
 ## Changelog
+
+<!--
+    Placeholder for the next version:
+    ### **WORK IN PROGRESS**
+-->
+
+### 2.0.0 (2022-09-18)
+
+* (Kai van Nuis) Change to Admin UI 5
+
+### 1.1.0
+
+* Support für gateBox implementiert und eslint umgestellt
 
 ### 0.1.2
 

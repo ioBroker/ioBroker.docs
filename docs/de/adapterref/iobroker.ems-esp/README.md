@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
+hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -24,23 +24,23 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 ## Es kann über Web-API-Aufrufe mit dem Heizsystem verbunden werden:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von Bosch Group)
 * ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit aktueller Dev-Version (siehe unten) und dem ESP32-Chip.
-* Die alten ESP8266-Gateways mit API V2 werden mit eingeschränkter Funktionalität ebenfalls unterstützt. Es wird jedoch dringend empfohlen, auf ESP32 zu aktualisieren.
+
+* Das alte ESP8266 Gateway mit API V2 wird NICHT MEHR UNTERSTÜTZT !!
 
 Der ems-esp Adapter kann Daten zu beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
 Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
 
-Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.3.1 getestet.
+Der Adapter ist für das ems-esp Gateway mit neusten Firmware-Versionen von ESP32 >= v3.4.0 getestet.
 
 ## Wichtige Einstellungen im EMS-ESP:
-* API V2: MQTT-Einstellungen müssen im booleschen Format 1/0 sein!
-* API V3: Formatierungsoptionen für das boolesche Format muss 1/0 und für das Enum-Format Zahl sein
+* Formatierungsoptionen für das boolesche Format müssen 1/0 und für das Enum-Format Wert / Zahl sein.
 * Die Einstellungen zum Aktivieren von API-Schreibbefehlen in ems-esp müssen aktiviert sein
 * Die Autorisierung des Zugriffstokens auf API-Aufrufe umgehen muss festgelegt oder das Token muss eingegeben werden.
 
 Bei Auswahl des Kontrollkästchens wird entweder die km200-ähnliche Gerätestruktur für ems-ESP-Datenfelder verwendet oder die ursprüngliche EMS-ESP-Geräteansicht beibehalten: Boiler, Thermostat, Mischer usw. Bei paralleler Verwendung des km200-Gateways wird empfohlen, die km200-Daten zu verwenden Struktur. Dann befinden sich alle Entitäten / Zustände innerhalb der Objektstruktur von ioBroker an derselben Stelle.
 
 ## Abfrage
-Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Requests und ist in der Lage, Statusänderungen zu abonnieren und die entsprechenden http (post)-Befehle entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
+Dieser Adapter liest nach Startwerten von ems-esp und km200 per HTTP-Get-Requests und ist in der Lage, Zustandsänderungen zu abonnieren und die entsprechenden http (post)-Befehle entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
 
 * EMS-ESP Read Polling ist ein Parameter (Standard 60 Sekunden) und kann nicht unter 15 Sekunden eingestellt werden.
 * KM200 Polling ist ebenfalls ein Parameter (Standard 300 Sekunden) und der minimal einstellbare Wert beträgt 90 Sekunden.
@@ -129,12 +129,26 @@ Erklärung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.1 (2022-12-04)
+* correct actualweight statistics within heatdemand function
 
-### **WORK IN PROGRESS**
-* pepare for enum as v alues and not just index
-* ioBroker and Home Assistant can be used in parallel
+### 1.17.0 (2022-12-02)
+* add actual weight per thermostat in heatdemand object structure
+* add heatdemand difference values
+
+### 1.16.2 (2022-11-21)
+* adjustments for ems-esp sensors v3.5
+
+### 1.16.1 (2022-11-20)
+* error correction sensors
+
+### 1.16.0 (2022-11-20)
+* ems-esp V2 NOT SUPPORTED ANYMORE !!!!
+* pepare for enum as values and not just index
 * new parameters for "Room" and "Function" for adapter states
-* adjust roles of generated states
+* adjust for latest ems-esp dev version 3.5 
+* units of measument for ems-esp sensors
+* support name changes within ems-esp for sensors
 
 ### 1.15.0 (2022-06-06)
 * adjustments for ems-esp RC310 holiday modes

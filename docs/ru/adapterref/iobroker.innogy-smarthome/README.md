@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-Умный Дом
-hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
+hash: 9OoAG/oeIFP0hZPibwrC97CrA/u6rmU6pP+rgLhRyEI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
@@ -13,13 +13,30 @@ hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
 # IoBroker.Innogy-Умный Дом
 Этот адаптер используется для подключения устройств Livisi SmartHome к ioBroker. Вы можете прочитать больше о Livisi [здесь](https://www.livisi.com).
 
-###Требуется узел > 8.x
+### Требуется узел > 8.x
 Обратите внимание: для процесса аутентификации необходимо, чтобы порт 3000 был доступен на хосте. Пожалуйста, убедитесь, что ничто другое не использует его (например, Grafana). Эта версия теперь также поддерживает новую функциональность Livisi Local SmartHome!
 
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
 Поскольку этот проект разрабатывается в свободное время, я активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
 
 ## Changelog
+
+### 0.4.7
+    Changed OAuth local auth
+
+### 0.4.6
+    Added missing states
+
+### 0.4.5
+    Fixed a naming problem with newly created devices
+
+### 0.4.3
+    Added min & max for pointTemperature
+
+### 0.4.2
+    Added debug information for invalid value data
+    Fixed . in device names
+    Fixed crashes caused by invalid point temperatures (< 6 & > 30)
 
 ### 0.4.1
     Fixed cloud auth, if local auth is activated (blank page)
@@ -206,6 +223,24 @@ hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
     Initial commit
 
 ## License
-MIT
+The MIT License (MIT)
 
-Copyright (c) 2020 Patrick Arns iobroker@patrick-arns.de
+Copyright (c) 2020-2022 Patrick Arns iobroker@patrick-arns.de
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

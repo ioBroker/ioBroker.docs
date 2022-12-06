@@ -13,14 +13,27 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroke
 
 [![NPM](https://nodei.co/npm/iobroker.ekey.png?downloads=true)](https://nodei.co/npm/iobroker.ekey/)
 
-This adapter for ioBroker connects to a ekey connector UDP.
+This adapter for ioBroker connects to an ekey connector UDP.
 
-Implemented as described in http://descargas.futurasmus-knxgroup.org/DOC/GB/E-Key/13004/Operating_instructions_ekey_converter_UDP_RS485_ID51.pdf
-or here https://www.ekey.net/assets/media_center/EN/User_Guide_ekey_net_4.3_en_web_ID181.pdf
+Implemented as described in:
+- https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf
+- NET protocol: https://www.ekey.net/wp-content/dokumente/Operating_instructions_ekey_net_4.4_en_web_ID181_3006.pdf (page 189)
 
 ![image](img/ekey.png)
 
+## Serial Port
+Experimental feature to connect to ekey via serial port. This is not tested yet.
+
+You can activate serial port to receive data via USB RS485 or RS 232 converter.
+Actually only finger hash is supported. To help to decode more data from device please open the issue with the data you received.
+
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 1.2.3 (2022-11-22)
+* (bluefox) Added `net` protocol support
+* (bluefox) Added serial port support
 
 ### 1.1.0
 * (bluefox) Added compact mode
@@ -39,7 +52,7 @@ or here https://www.ekey.net/assets/media_center/EN/User_Guide_ekey_net_4.3_en_w
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 ioBroker <dogafox@gmail.com>
+Copyright (c) 2018-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

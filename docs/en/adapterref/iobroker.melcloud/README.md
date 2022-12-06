@@ -29,6 +29,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.2.1 (2022-12-06)
+* (Black-Thunder) added consumption reports for air to water devices
+
 ### 1.2.0 (2022-09-20)
 * (Black-Thunder) Added support for air to water devices (e.g., heat pumps)
 * (Black-Thunder) Added new device-independent channel "reports" fur cumulative reports across all devices (see documentation for new structure)

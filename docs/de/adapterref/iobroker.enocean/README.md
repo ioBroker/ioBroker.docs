@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: QNO0R0DvCAiSzcWKddNvcZ3euDr4iYeTUY5RiEwTInw=
+hash: pDjtxBY57VU5uiGBnAti3VxvyhPP+ozIa+kJqUhGR4I=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -28,20 +28,21 @@ Wenn Ihnen meine Arbeit gefällt, können Sie gerne eine persönliche Spende mac
 ## Kompatible USB-Sticks und -Module
 USB300
 
-DOSMUNG USB-Stick mit SMA-Anschluss - [Besorgen](https://amzn.to/33EapbN)
+DOSMUNG USB-Stick mit SMA-Anschluss
 
 FAM-USB (ESP3-Firmware)
 
 EnOcean Pi-Modul
 
-Eltako FGW14: Sie müssen den ESP2-Modus in der Adapterkonfiguration aktivieren, um den FGW14 verwenden zu können.
-**Wichtige Hinweise**: Dieses Gateway unterstützt nicht alle Funktionen und Geräte dieses Adapters. Bekannte Funktionen, die nicht funktionieren: RSSI, Gateway-Informationen können nicht gelesen werden und nur RS485-Bus-Geräte können ohne FTD14 gesteuert werden (noch nicht getestet). Wenn es keinen technischen Grund gibt, dieses Gateway zu verwenden, wird dringend empfohlen, ein anderes zu verwenden.
+Eltako FGW14: **Wichtige Hinweise**: Dieses Gateway unterstützt nicht alle Features und Geräte dieses Adapters.
+Bekannte Funktionen, die nicht funktionieren: RSSI, Gateway-Informationen können nicht gelesen werden und nur RS485-Bus-Geräte können ohne FTD14 gesteuert werden (noch nicht getestet). Wenn es keinen technischen Grund gibt, dieses Gateway zu verwenden, wird dringend empfohlen, ein anderes zu verwenden.
+Die Busteilnehmer melden sich mit ihrer Busadresse, d. h. sie beginnt mit 00 00 00 01.
 
-ALL SMART EnOcean LAN-Gateway - [KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)
+ALL SMART EnOcean LAN Gateway - ~~[KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
 
-## Steuergeräte
-Im Allgemeinen gibt es ein cmd-Objekt, in dem Sie den Befehl auswählen können, den Sie ausführen möchten. Bevor Sie einen Befehl ausführen können, müssen Sie alle notwendigen Attribute setzen, diese Information finden Sie in der Profildefinition.
+ALL SMART EnOcean Multi-Gateway - [KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
+## Geräte steuern Im Allgemeinen gibt es ein cmd-Objekt, in dem Sie den Befehl auswählen können, den Sie ausführen möchten. Bevor Sie einen Befehl ausführen können, müssen Sie alle notwendigen Attribute setzen, diese Information finden Sie in der Profildefinition.
 Speziell:
 
 * A5-20-xx: Geräte mit diesem Profil akzeptieren Befehle nur innerhalb von 1 Sekunde, nachdem sie eine Nachricht gesendet haben. Sie senden periodisch (10 Minuten?), lesen Sie bitte das Handbuch.
@@ -65,9 +66,11 @@ Jetzt sollten Sie das Gerät steuern können.
 - none: Nur die Objekte löschen
 
 ## Fehlerbehebung
-- Gerät reagiert nicht auf Befehl: Öffnen Sie das Geräteobjekt im Objekt-Reiter, gehen Sie zu Nativ und prüfen Sie, ob mehr als ein EEP registriert ist.
-
-Wenn ja, muss der erste derjenige sein, der das Gerät steuert.
+1. Gerät reagiert nicht auf Befehl:
+   - Der Einlernvorgang war nicht erfolgreich. Je nach Gerät wird ein erfolgreiches Einlernen signalisiert, achten Sie auf dieses Signal. Wenn kein Signal vorhanden ist, versuchen Sie es erneut.
+   - Überprüfen Sie, ob alle Attribute, die sich auf die CMD beziehen, korrekt gesetzt sind.
+   - Wenn der RSSI-Wert höher als -70 dBm ist, könnte das Signal zu schwach sein. Versuchen Sie, das Gerät näher an das Gateway zu stellen.
+   - Ventilantriebe (Thermostate) senden alle x Minuten eine Nachricht. Nach Erhalt der Nachricht akzeptiert das Gerät einen Befehl innerhalb einer Sekunde. Verwenden Sie dazu ein Skript, das den Befehl nach Erhalt der Nachricht sendet. Ein guter Auslöser im Skript ist der RSSI-Wert.
 
 ## Profildefinitionsdatei
 #### Datenstruktur
@@ -81,7 +84,7 @@ Wenn ja, muss der erste derjenige sein, der das Gerät steuert.
 
 ***Datenfeld:*** Informationen, wo sich die Daten im Datenpaket befinden und wie mit dem Wert umgegangen wird. Außerdem gibt es die Objektdefinition für ioBroker.
 
-***datafield -> secondArgument:*** Wird verwendet, um eine sekundäre Information/Wert aus dem Datenpaket zu erhalten. Anwendungsfall: Einheiten können in ihrer Menge variieren, daher sendet das Gerät die Einheit als separate Information.
+***datafield -> secondArgument:*** Wird verwendet, um sekundäre Informationen/Werte aus dem Datenpaket zu erhalten. Anwendungsfall: Einheiten können in ihrer Menge variieren, daher sendet das Gerät die Einheit als separate Information.
 Um die Einheit innerhalb von ioBroker abhängig von den gesendeten Informationen zu ändern, ist es notwendig, diese während der Verarbeitung des Werts zu kennen.
 
 ***Datenfeld -> Bedingung:*** Dies könnte eine Formel sein, um einen Wert umzuwandeln. Dies basiert auf JSON-Logik. Detaillierte Informationen finden Sie unter http://jsonlogic.com/operations.html.
@@ -176,9 +179,25 @@ In Sonderfällen, wie bei Eltako, ist auch ein herstellerspezifischer Teil in de
 ```
 
 ## Zur Entwicklung
-Um die Telegrammbehandlung zu testen, erstellen Sie einen Kanal mit Namensentwicklung und in diesem Kanal ein Objekt mit Namen Telegramm, geben Sie string ein.
+Um das Telegrammhandling zu testen, erstellen Sie einen Kanal mit Namensentwicklung und in diesem Kanal ein Objekt mit Namen Telegramm, geben Sie string ein.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* fix F6-10-00: The close state was not set, the window was always shown as open.
+* fix & rework TF-13-25 Eltako DSZ14 (#87)
+* code cleanup and refactoring
+
+### 0.8.4 (2022-11-17)
+* added Eltako FSSG-230V, TF100A, FM4H
+* added Afriso APR234(-NF)
+* added EASYFIT ETHSx (ETSHA/ETSHU)
+* added Oventrop mote 420
+* added support information tab
+* update TF-01-01 (Eltako FTA55J & TF-TA55J)
+* update Eltako TF-4FT, switch EEP from F6-02-02 to F6-02-03
+* highlight too short ID in add device dialog
+
 ### 0.8.3 (2022-09-28)
 * fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)
 * remove RT from TF-14-04 (Eltako FSB14 and similar)

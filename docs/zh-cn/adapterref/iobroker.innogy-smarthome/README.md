@@ -2,24 +2,41 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.innogy-smarthome/README.md
-title: ioBroker.Innogy-SmartHome
-hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
+title: ioBroker.Innogy-智能家居
+hash: 9OoAG/oeIFP0hZPibwrC97CrA/u6rmU6pP+rgLhRyEI=
 ---
-![商标](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
+![标识](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
 ![安装数量](http://iobroker.live/badges/innogy-smarthome-stable.svg)
 ![建造](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
 
 # IoBroker.Innogy-SmartHome
-此适配器用于将 Livisi SmartHome 设备连接到 ioBroker。您可以阅读有关 Livisi [这里](https://www.livisi.com) 的更多信息。
+此适配器用于将 Livisi SmartHome 设备连接到 ioBroker。您可以阅读有关 Livisi 的更多信息 [这里](https://www.livisi.com)。
 
-###Requires 节点 > 8.x
-请注意：对于身份验证过程，主机需要使用端口 3000。请检查是否没有其他东西在使用它（例如 Grafana）。这个版本现在还支持新的 Livisi Local SmartHome 功能！
+### 需要节点 > 8.x
+请注意：对于身份验证过程，主机需要端口 3000 可用。请检查没有其他东西在使用它（例如 Grafana）这个版本现在也支持新的 Livisi Local SmartHome 功能！
 
 ＃＃ 把招工广告！
-由于这个项目是在我的业余时间开发的，我*正在积极寻求帮助来维护和扩展这个库！如果您愿意提供帮助，请给我留言！
+由于这个项目是在我的业余时间开发的，我正在积极寻求帮助来维护和扩展这个库！如果你愿意帮忙，请给我留言！
 
 ## Changelog
+
+### 0.4.7
+    Changed OAuth local auth
+
+### 0.4.6
+    Added missing states
+
+### 0.4.5
+    Fixed a naming problem with newly created devices
+
+### 0.4.3
+    Added min & max for pointTemperature
+
+### 0.4.2
+    Added debug information for invalid value data
+    Fixed . in device names
+    Fixed crashes caused by invalid point temperatures (< 6 & > 30)
 
 ### 0.4.1
     Fixed cloud auth, if local auth is activated (blank page)
@@ -206,6 +223,24 @@ hash: eM87OnZEGzxQlx5tSF+c+NGPYvqNLO9rvnJDJS1VB+Q=
     Initial commit
 
 ## License
-MIT
+The MIT License (MIT)
 
-Copyright (c) 2020 Patrick Arns iobroker@patrick-arns.de
+Copyright (c) 2020-2022 Patrick Arns iobroker@patrick-arns.de
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

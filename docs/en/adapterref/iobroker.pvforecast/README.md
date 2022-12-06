@@ -69,7 +69,7 @@ If longitude and latitude in the iobroker main settings, the adapter will fill o
 # VIS example
 
 Please install: [Material Design](https://github.com/Scrounger/ioBroker.vis-materialdesign) before you use the example.
-If you want to take the json graph and table you can use this [example](https://github.com/Patrick-Walther/ioBroker.pvforecast/blob/main/docs/example/vis/)
+If you want to take the json graph and table you can use this [example](./vis.md)
 
 ## Changelog
 <!--

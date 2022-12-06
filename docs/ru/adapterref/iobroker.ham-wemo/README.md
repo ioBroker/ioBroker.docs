@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ham-wemo/README.md
-title: Адаптер ioBroker Wemo на базе homebridge-platform-wemo
-hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
+title: Адаптер ioBroker Wemo на основе homebridge-wemo
+hash: S57zzN5/mm2zVflGNqrmV1zTx0+yL2BjGR1JD8o5DUk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
@@ -11,15 +11,15 @@ hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
 ![версия NPM](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
-# Адаптер ioBroker Wemo на базе homebridge-platform-wemo
+# Адаптер ioBroker Wemo на основе homebridge-wemo
 ![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 =================
 
 ## Описание
-Этот адаптер основан на плагине homebridge-platform-wemo.
+Этот адаптер основан на плагине homebridge-wemo.
 
-Подробнее об этом читайте здесь https://www.npmjs.com/package/homebridge-platform-wemo.
+Подробнее об этом читайте здесь https://www.npmjs.com/package/homebridge-wemo
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

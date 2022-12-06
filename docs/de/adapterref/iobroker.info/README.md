@@ -313,7 +313,10 @@ Mit einem Klick auf ![Link](img/link.png), kommt man direkt zum Forum.
 Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder mit localhost:8081 zugreift. Nutz man aber ein Hostnamen wie meinhaus.de:8081, muss man sich eine kostenlose API-Key bei Feednami besorgen. Um sich dort zu registrieren, klicken Sie [hier](https://toolkit.sekando.com/docs/en/setup/hostnames) und folgen den Anweisungen.
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.9.22 (2022-11-21)
+* (bluefox) Corrected widget
+
 ### 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
 
@@ -328,10 +331,6 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 
 ### 1.9.18 (2022-02-01)
 * (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
-
-### 1.9.17 (2022-01-26)
-* (simatec) Design fix
-* (simatec) Update dependencies
 
 ## License
 The MIT License (MIT)

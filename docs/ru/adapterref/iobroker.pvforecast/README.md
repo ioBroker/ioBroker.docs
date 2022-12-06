@@ -19,9 +19,9 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvforecast/README.md
 title: ioBroker.pvforecast — Адаптер для прогнозирования доходности PV
-hash: +9Oev8MUoR8+RnHp1Njh+0DCNqozJcAfitZIMreNKrk=
+hash: kQNDm9uYOhsvTD/sCeFl6v42W8PvzYrkiUJSXzG+738=
 ---
-![логотип](../../../de/adapterref/iobroker.pvforecast/../../admin/pvforecast.png)
+![логотип](../../../de/admin/pvforecast.png)
 
 # IoBroker.pvforecast - Адаптер для прогнозирования доходности PV
 **Если вам нравится адаптер, буду рад пожертвованию:**
@@ -57,7 +57,7 @@ hash: +9Oev8MUoR8+RnHp1Njh+0DCNqozJcAfitZIMreNKrk=
 ## Для системы доступны следующие настройки
 1. Наклон (0°-90°)
 2. Азимут (-180 = север, -90 = восток, 0 = юг, 90 = запад, 180 = север)
-3. Мощность системы (кВтч)
+3. Мощность установки (кВтч)
 4. Название растения
 5. Название легенды диаграммы
 9. Цвет графика
@@ -71,7 +71,7 @@ hash: +9Oev8MUoR8+RnHp1Njh+0DCNqozJcAfitZIMreNKrk=
 
 ## Пример ВИС
 Перед загрузкой примера установите: [дизайн материалов](https://github.com/Scrounger/ioBroker.vis-materialdesign).
-Если вы хотите использовать диаграммы и таблицы Json в ioBroker Vis, вы найдете [пример](https://github.com/Patrick-Walther/ioBroker.pvforecast/blob/main/docs/example/vis/) здесь
+Если вы хотите использовать диаграммы и таблицы Json в ioBroker Vis, вы найдете здесь [пример](./vis.md)
 
 ## Changelog
 <!--

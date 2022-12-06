@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
+hash: Z1jQJJQKSzh2PWYr694ad8InJo4T30GaFy1rmaPIEk4=
 ---
 # IoBroker.dysonAirPurifier
 ![Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -28,14 +28,17 @@ Fan-Icon im Logo erstellt von [Freepik] (https://www.flaticon.com/de/autoren/fre
 * Dyson Pure Cool Link Tower (TP02, Produkttyp 475)
 * Dyson Pure Cool Tower, Modell 2018 (TP04, Produkttyp 438)
 * Dyson Pure Cool Tower Formaldehyd, Modell 2018 (TP07, Produkttyp 438E)
+* Dyson Pure Cool Tower Formaldehyd, Modell 2018 (TP07, Produkttyp 438K)
 * Dyson Pure Cool Link Schreibtisch (DP01, Produkttyp 469)
 * Dyson Pure Cool Desk, Modell 2018 (DP04, Produkttyp 520)
 * Dyson Pure Hot+Cool Link (HP02, Produkttyp 455)
 * Dyson Pure Hot+Cool Link Neu (Produkttyp 455A)
 * Dyson Pure Hot+Cool, Modell 2018 (HP04, Produkttyp 527)
 * Dyson Pure Hot+Cool (HP07, Produkttyp 527E)
+* Dyson Pure Hot+Cool (HP07, Produkttyp 527K)
 * Dyson Pure Humidify+Cool (PH01, Produkttyp 358)
 * Dyson Pure Humidify+Cool (PH03, Produkttyp 358E)
+* Dyson Pure Humidify+Cool Formaldehyde (PH04, Produkttyp 358K)
 
 ## Merkmale
 Verbindet Ihre Dyson Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter mit ioBroker.
@@ -43,10 +46,10 @@ Verbindet Ihre Dyson Ventilatoren, Heizlüfter, Luftreiniger und Luftbefeuchter 
 * Liest Werte von Geräten und Sensoren
 * Kann Geräte steuern, indem es Ihnen die Möglichkeit gibt, einige Werte zu ändern (Hauptleistung, Oszillation, Heizung, Lüftergeschwindigkeit, ...)
 * Liest die Geräteliste von Dyson-Servern
-* Behandelt eine *unbegrenzte* Anzahl von Fans (sicherlich begrenzen die Ressourcen Ihres ioBroker-Hosts die Anzahl).
+* Verarbeitet eine *unbegrenzte* Anzahl von Fans (die Ressourcen Ihres ioBroker-Hosts begrenzen die Anzahl).
 
 ## Wie es funktioniert
-Beim Start wird die Dyson Cloud nach allen bekannten Geräten, die mit Ihrem Konto verbunden sind, und ihren MQTT-Passwörtern abgefragt. Mit dieser Liste in Händen verbindet sich der Adapter lokal mit allen Geräten und interagiert mit ihnen.
+Beim Start wird die Dyson Cloud nach allen bekannten Geräten, die an Ihr Konto gebunden sind, und deren MQTT-Passwörtern abgefragt. Mit dieser Liste in Händen verbindet sich der Adapter lokal mit allen Geräten und interagiert mit ihnen.
 
 * Die Verbindung zur Dyson Cloud wird nur benötigt, um die Liste der an Ihr Konto gebundenen Geräte und deren MQTT-Passwörter abzurufen.
 * Daher werden neue Geräte nur beim Start des Adapters erkannt.
@@ -81,7 +84,7 @@ Der Dyson-Benutzername und das Passwort sind allgemeine Konfigurationsdaten, die
 Im Unterschied dazu wird die IP in das Feld `Hostname` im Gerätebaum auf der Registerkarte `devices` eingetragen.
 
 #### So konfigurieren Sie den Adapter
-> Beim ersten regulären Start dieses Adapters wird die Dyson API für alle Ihre Geräte abgefragt und alle unterstützten Geräte werden im Gerätebaum angelegt – mit ihren von der API bereitgestellten Basisinformationen und einem zusätzlichen Feld `Hostaddress`.
+> Beim ersten regulären Start dieses Adapters wird die Dyson API für alle Ihre Geräte abgefragt und alle unterstützten Geräte werden im Gerätebaum angelegt – mit ihren von der API bereitgestellten Grundinformationen und einem zusätzlichen Feld `Hostaddress`.
 > > Führen Sie den Adapter also bitte einmal aus, und Ihre Dyson-Geräte werden mit ihren Grundeinstellungen im Gerätebaum angelegt.
 > > Stoppen Sie dann den Adapter, geben Sie die IP(s) in das/die Feld(er) `Hostaddress` im Gerätebaum ein und starten Sie den Adapter neu. Danach sollten Ihre Dyson-Geräte im Gerätebaum mit Daten gefüllt sein.
 
@@ -115,7 +118,7 @@ Alle Werte werden gespeichert und weiterhin angezeigt.
 3. Geben Sie Ihre Zugangsdaten zum Adapter ein (falls noch nicht geschehen) und folgen Sie der 2FA-Prozedur bis zum Ende.
 4. Der Adapter sollte starten und grün werden.
 5. Warten Sie eine Weile (bis zu einer Stunde oder vielleicht länger, da Dyson einen Blocker für zu viele Anfragen in einem kurzen Zeitrahmen hat)
-6. Melden Sie sich erneut bei Ihrer Dyson-Smartphone-App an, wenn Sie sie verwenden möchten.
+6. Melden Sie sich wieder bei Ihrer Dyson-Smartphone-App an, wenn Sie sie verwenden möchten.
 
 ## Steuerung Ihrer Geräte
 Dieser Adapter ist derzeit in der Lage, die folgenden Zustände Ihrer Geräte zu steuern:
@@ -137,8 +140,8 @@ Dieser Adapter ist derzeit in der Lage, die folgenden Zustände Ihrer Geräte zu
 * AirQualityTarget , Zielluftqualität für den automatischen Modus.
 * Befeuchtungsmodus, Ein / Aus
 * BefeuchtenAutoModus, Auto / Aus
-* Automatisches Befeuchtungsziel, Automatisches Befeuchtungsziel
-* Befeuchtungsziel, manuelles Befeuchtungsziel
+* Automatisches Befeuchtungsziel , Automatisches Befeuchtungsziel
+* Befeuchtungsziel, Manuelles Befeuchtungsziel
 * TemperatureUnit , Einheit zur Anzeige der Temperaturwerte (Lüfteranzeige).
 * Wasserhärte, weich, mittel, hart
 
@@ -146,7 +149,7 @@ Mögliche Werte für diese Zustände sind, soweit bekannt, weiter unten dokument
 Lüftergeschwindigkeit erlaubt nur Werte von 1 bis 10 und Auto. Wenn Sie Ihre Lüftergeschwindigkeit auf 0 stellen möchten, müssen Sie die Hauptstromversorgung ausschalten.
 Das macht auch die Dyson-App.
 
-### SystemStates-Ordner (seit v2.4.0)
+### SystemStates-Ordner (seit 2.4.0)
 Die Geräte sind in der Lage, Ausfälle zu melden. Diese Funktion wurde in Adapterversion 2.4.0 hinzugefügt.
 Bisher gibt es nur grobe Informationen zu den Ausfällen, und die Datenpunkte variieren von Gerät zu Gerät.
 Wenn Sie bessere Informationen zu einem Fehler haben, zögern Sie nicht, ihn mir zu melden, um den Adapter zu verbessern.
@@ -154,9 +157,10 @@ Alle Zustände melden, ob ein Fehler vorliegt oder nicht. `True` bedeutet einen 
 
 ### Bekannte Probleme
 * Keine automatische IP-Erkennung von Geräten
-* Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden.
-  * In meinem Fall reicht es aus, den Lüfter für ca. 10 Sekunden vom Stromnetz zu trennen, um ihn zurückzusetzen und wieder einzustecken. Versuche es.
-  * In anderen Fällen war es ein IP-Problem. Das Zurücksetzen des DHCP-Servers (Router) löste das Problem.
+* Immer noch viele unbekannte Gerätemeldungen (meistens Fehler und Warnungen)
+* Manchmal verliert der Adapter die MQTT-Verbindung zu einem Lüfter und kann sich nicht wieder verbinden. `Dies ist normalerweise kein Problem des Adapters selbst, sondern ein Problem in Ihrem lokalen Netzwerk!`
+  * In einigen Fällen reicht es aus, den Lüfter für ca. 10 Sekunden vom Stromnetz zu trennen, um ihn zurückzusetzen und wieder einzustecken. Probieren Sie es einfach aus!
+  * In anderen Fällen war es ein IP/DNS-Problem. Das Zurücksetzen des DHCP/DNS-Servers (Router) löste das Problem.
 
 ## Erläuterung der Dyson-API-Daten (Nachrichtennutzlast)
 Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
@@ -164,7 +168,7 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 ### AKTUELLEN ZUSTAND
 | Name | Bedeutung | mögliche Werte | Einheit |
 |--------------|------------------------------------------------------------|----------------------|------|
-| Modusgrund | Der aktuelle Modus wurde von RemoteControl, App, Scheduler | eingestellt PRC, LAPP, LSCH, PUI | |
+| Modusgrund | Der aktuelle Modus wurde von RemoteControl, App, Scheduler | festgelegt PRC, LAPP, LSCH, PUI | |
 | Staatsgrund | | MODUS | |
 | rsi | WLAN-Stärke | -100 - 0 | dBm |
 | Kanal | WLAN-Kanal | 52 | |
@@ -197,13 +201,13 @@ Informationen kopiert und erweitert von <https://github.com/shadowwa/Dyson-MQTT2
 | hflr | Status HEPA-Filter | 0000 - 0100 | Prozent |
 | hflt | HEPA-Filter | GHEP, GCOM | |
 | sltm | Sleeptimer | EIN, AUS || |
-| hmod | Heizungsmodus [EIN/AUS] | WÄRME | |
+| hmod | Heizmodus [EIN/AUS] | WÄRME | |
 | hmax | Solltemperatur für Heizung | 0 .. 5000 | K. |
 | Hume | Befeuchtungsmodus | EIN, AUS, | |
 | hoch | Auto-Modus befeuchten | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
 | summen | Befeuchtungsziel | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
 | cdr | CleanDurationRemaining | Ganzzahl | Minuten |
-| rechteck | AutoHumidificationTarget | Ganzzahl | % |
+| Rechteck | AutoHumidificationTarget | Ganzzahl | % |
 | cltr | TimeRemainingToNextClean | Ganzzahl | Stunden |
 | was | Wasserhärte | SOFT="2025", MEDIUM="1350", HARD="0675" | |
 | wacd | Warncode | KEINE...                                                                                                                                                           | |
@@ -274,11 +278,38 @@ Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und dies
 Dyson, pure cool, pure hot & cool und andere sind Warenzeichen oder eingetragene Warenzeichen von [Dyson Ltd.](https://www.dyson.com) Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
 
 ## Changelog
+### **WORK IN PROGRESS**
 
-### V2.4.1 (2022-03-20) (Echo from the past)
+### 2.5.7 (2022-12-06) (Halo of the dark)
+* (grizzelbee) New: Added support for Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
+* (grizzelbee) Upd: Upgraded axios to 1.2.1
+
+* ### 2.5.6 (2022-11-28) (Halo of the dark)
+* (grizzelbee) Fix: [#213](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/213) Fixed warning due to wrong data type on field FILTER_REPLACEMENT
+
+### 2.5.4 (2022-11-27) (Halo of the dark)
+* (grizzelbee) Upd: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) Downgraded axios to 0.27.2 due to an error in version 1.x returning data as binary instead of string.
+
+### 2.5.3 (2022-11-26) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) better and easier detection of supported devices
+
+### 2.5.2 (2022-11-17) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: Moved log message "requesting new state of device" from info to debug
+* (grizzelbee) New: Added Dyson Pure Hot+Cool Formaldehyde (Type 527K) to device list. 
+* (grizzelbee) New: Added Dyson Pure Cool Tower Formaldehyde (Type 438K) to device list. 
+
+### 2.5.1 (2022-03-23) (Halo of the dark)
+* (grizzelbee) Fix: Improved layout of config page and added tooltips to the checkboxes
+
+### 2.5.0 (2022-03-22) (Halo of the dark)
+* (grizzelbee) New: [#185](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/185) Added config option to disable logging of reconnect events
+
+### 2.4.1 (2022-03-20) (Echo from the past)
 * (grizzelbee) New: Changed SystemState from text to boolean data points
 
-### V2.4.0 (2022-03-17) (Echo from the past)
+### 2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree
 * (grizzelbee) New: Added Device-faults as SystemState to device tree
 * (grizzelbee) New: Added donate button to readme and config page
@@ -286,39 +317,38 @@ Dyson, pure cool, pure hot & cool und andere sind Warenzeichen oder eingetragene
 * (grizzelbee) Upd: reduced amount of debug messages
 * (grizzelbee) Upd: Updated dependencies
 
-
-### V2.3.2 (2022-03-04) (Fairytale of doom)
+### 2.3.2 (2022-03-04) (Fairytale of doom)
 * (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.3.1 (2022-01-14) (Fairytale of doom)
+### 2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies
 * (grizzelbee) Upd: Updated documentation
 
-### V2.3.0 (2021-12-02) (Fairytale of doom)
+### 2.3.0 (2021-12-02) (Fairytale of doom)
 * (grizzelbee) New: Added some GUI elements for air quality in folder icons
 * (grizzelbee) New: Added support for HEPA PTFE filters
 * (grizzelbee) New: Added support for Combined PTFE filters
 * (grizzelbee) Chg: Fanspeed is now a number (not string anymore) to work properly with IoT-Adapter. Please delete this data point and let get recreated. 
 
-### V2.2.0 (2021-11-07) (Welcome to my wasteland)
+### 2.2.0 (2021-11-07) (Welcome to my wasteland)
 * (grizzelbee) New: [#154](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/154) Added support for dyson Humidify+Cool PH03/358E.
 
-### V2.1.4 (2021-10-20) (Running to the edge)
+### 2.1.4 (2021-10-20) (Running to the edge)
 * (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
 
-### V2.1.3 (2021-10-17) (Running to the edge)
+### 2.1.3 (2021-10-17) (Running to the edge)
 * (grizzelbee) Fix: [#148](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/148) Hostaddress is used properly when given.
 * (grizzelbee) Fix: [#149](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/149) OscillationAngle "Breeze" is working now 
 * (grizzelbee) Fix: [#150](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/150) Strange delay and jumping of boolean switches is fixed 
 
-### V2.1.2 (2021-10-07) (Running to the edge)
+### 2.1.2 (2021-10-07) (Running to the edge)
 * (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
 * (grizzelbee) Upd: Code cleanup
 * (grizzelbee) Upd: Removed delay between sending a command and new values getting displayed (max 30 Secs)
 
 
-### V2.1.1 (2021-10-05) (Running to the edge)
+### 2.1.1 (2021-10-05) (Running to the edge)
 * (grizzelbee) New: Added some more data points 
 * (grizzelbee) New: Added switch for temperature unit of the fan display
 * (grizzelbee) New: Improved logging of unknown data points
@@ -327,12 +357,12 @@ Dyson, pure cool, pure hot & cool und andere sind Warenzeichen oder eingetragene
 * (grizzelbee) Fix: added missing dependency plugin-sentry
 * (grizzelbee) Fix: Setting HumidificationTarget now works
 
-### V2.0.1 (2021-10-04) (Lost in forever)
+### 2.0.1 (2021-10-04) (Lost in forever)
 * (grizzelbee) Fix: Turning on HeatingMode should work now
 * (grizzelbee) Fix: Sentry-error [DYSONAIRPURIFIER-7](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.0.0 (2021-09-26) (Lost in forever)
+### 2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points
 * (grizzelbee) Fix: Switching water hardness now really works
 * (grizzelbee) BREAKING CHANGES: Please recreate your object tree and test your scripts!

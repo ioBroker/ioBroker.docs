@@ -315,7 +315,10 @@ $ sudo apt-get install smartmontools
 Записи форума будут отображаться без проблем при доступе к ioBroker через IP или localhost:8081. Но если вы используете имя хоста, такое как meinhaus.de:8081, вы должны получить бесплатный ключ API в Feednami. Чтобы зарегистрироваться, нажмите [здесь](https://toolkit.sekando.com/docs/en/setup/hostnames) и следуйте инструкциям.
 
 ## Changelog
-<!-- ### __WORK IN PROGRESS__ -->
+<!-- ### **WORK IN PROGRESS** -->
+### 1.9.22 (2022-11-21)
+* (bluefox) Corrected widget
+
 ### 1.9.21 (2022-09-19)
 * (simatec) Fix Adapter Title
 
@@ -330,10 +333,6 @@ $ sudo apt-get install smartmontools
 
 ### 1.9.18 (2022-02-01)
 * (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
-
-### 1.9.17 (2022-01-26)
-* (simatec) Design fix
-* (simatec) Update dependencies
 
 ## License
 The MIT License (MIT)

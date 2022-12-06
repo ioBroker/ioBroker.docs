@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
+hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -20,9 +20,9 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 
 Устройства Tuya — это смарт-устройства Wi-Fi ESP8266MOD от Shenzhen Xenon.
 
-Помимо устройств, которые можно использовать с приложением Smart Live, также должно быть возможно использование приложений Jinvoo Smart, Xenon Smart, eFamilyCloud, io.e (Luminea или подобных). Пожалуйста, отпишитесь в случае успеха. <img src="https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **Адаптер работает только с Tuya и совместимыми приложениями, если их версия &lt;3.14 (!!)**
+Помимо устройств, которые можно использовать с приложением Smart Live или приложением Tuya.
 
-Адаптер локально подключается ко всем устройствам, которые «всегда в вайфае». Устройства, которые подключаются к сети только при возникновении события, отправляют свои данные и снова отключаются (в основном **устройства с питанием от батареи**), поддерживаются только при использовании MQTT-соединения Tuya IoT Platform.
+Адаптер локально подключается ко всем устройствам, которые «всегда в вайфае». Устройства, которые подключаются к сети только при возникновении события, отправляют свои данные и снова отключаются (в основном **устройства с питанием от батареи**), поддерживаются только при использовании MQTT-соединения Tuya IoT Platform (см. ниже).
 
 Один экземпляр адаптера может локально обнаруживать и подключаться ко всем устройствам в сети, которая маршрутизирует UDP-пакеты! Для сред Docker требуются дополнительные действия и, возможно, Macvlan или что-то подобное!
 
@@ -83,6 +83,26 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 
 Некоторые образы для некоторых мобильных ОС можно найти в разделе [Прокси-страница](PROXY.md).
 
+## Устройства, которые не передают актуальные данные
+Мы обнаружили некоторые устройства (скорее всего, устройства с состоянием питания/тока), которые могут отображать актуальные значения только тогда, когда к ним подключено мобильное приложение. Когда приложение закрывается, они остаются на старых значениях.
+
+В настоящее время эти устройства в большинстве случаев работают только через «интервал опроса». Они не предоставляют актуальные значения сами по себе. Вы можете попытаться обойти это, используя платформу iot от Tuya и включив опцию MQTT.
+
+Некоторые из этих устройств также не передают актуальные значения при использовании опроса. Если у вас есть такое устройство, возможно, устройство нужно опрашивать по-другому. Это можно настроить вручную. Пожалуйста, сделайте следующее:
+
+* Остановить экземпляр tuya
+* Используйте Admin на вкладке «Объекты» и найдите объект с типом «устройство» затронутого устройства. В этой строке в представлении Admin Objects щелкните значок карандаша.
+* В представлении JSON объекта вы видите «собственный» раздел. Добавьте новый ключ json в этот нативный раздел:
+
+```json
+"native": {
+    "useRefreshToGet": true,
+    ...
+}
+```
+
+* Сохраните объект, перезапустите адаптер и проверьте, обновлены ли значения сейчас.
+
 ## Функции инфракрасного шлюза
 В дереве объектов есть разные типы ИК-устройств
 
@@ -93,7 +113,7 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 
 Состояние «ir-send» может использоваться для отправки на устройство IR-кода в кодировке base64. Это можно использовать для отправки выученного кода из состояния «ir-learn».
 
-**Этот способ управления работает только на «основном ИК-устройстве» и только при локальном подключении (без подключения к облаку) (прямо сейчас).**
+**Этот способ управления работает только на «основном ИК-устройстве».**
 
 ### ИК-подустройства
 ИК-подустройства имеют множество состояний «ir-*», которые являются кнопками для запуска соответствующей кнопки/ИК-кода. Их состояния должны соответствовать расположению кнопок в мобильном приложении.
@@ -101,12 +121,14 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 Некоторые устройства имеют комбинированные состояния, такие как «M0_T20_S3» (найденные кондиционером Daikin), что означает режим 0, температура 20 и скорость (вентилятора) 3. На самом деле вам нужно выбрать правильную кнопку. До сих пор мы не нашли универсального/автоматического способа узнать, какая кнопка какая.
 Само мобильное приложение также пытается запомнить эти настройки, поэтому, как только вы запускаете что-либо с адаптером (или реальным ИК-контроллером устройства), информация из приложения устаревает.
 
-** Этот способ управления работает только при вводе учетных данных облака приложения. На данный момент команды также будут отправляться через облако.**
-
 ## Функции сцен
 Когда учетные данные облака приложения вводятся и сохраняются, адаптер также считывает сцены из приложения и создает их как объекты в адаптере. Сцены можно активировать, установив для состояния сцены значение true.
 
 Затем запуск отправляется в облако.
+
+## Функции групп
+Адаптер также считывает определенные группы и создает в адаптере соответствующие состояния. Значение группы также опрашивается из облака и обновляется в адаптере.
+При управлении группами это также делается через облако, потому что в противном случае статус группы не будет синхронизирован.
 
 ## Кредиты
 Работа адаптера была бы невозможна без отличной работы @codetheweb, @kueblc и @NorthernMan54 (https://github.com/codetheweb/tuyapi) и https://github.com/clach04/python-tuya. , https://github.com/uzlonewolf/tinytuya и многие другие.
@@ -126,6 +148,30 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 Отправьте журнал со ссылкой на созданную проблему GitHub по адресу iobroker@fischer-ka.de.
 
 ## Changelog
+### 3.10.2 (2022-12-05)
+* (Apollon77) Optimize IR - now works locally and via cloud in all cases
+
+### 3.10.1 (2022-12-05)
+* (Apollon77) Make info.ip writable to allow manual setting of IP address
+
+### 3.10.0 (2022-12-05)
+* (Apollon77) Added support for groups
+* (Apollon77) Add support for a second type of IR blaster
+* (Apollon77) Added cloud session refresh while adapter is running
+* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
+* (Apollon77) Base64 encoded raw values are now decoded again when the decoded value is readable ascii
+* (Apollon77) Allow to flag devices manually that need "refresh instead of get" to get current data - use "useRefreshToGet: true" in device object native section
+* (Apollon77) More schema information added/updated
+
+### 3.9.4 (2022-11-19)
+* (Apollon77) More schema information added/updated
+
+### 3.9.3 (2022-11-17)
+* (Apollon77) Optimize Tuya protocol 3.4 discovery
+* (Apollon77) Prevent restart schedules that are too short when cloud is used
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) More schema information added/updated
+
 ### 3.9.2 (2022-11-16)
 * (Apollon77) Optimize discovery and device connection checks
 * (Apollon77) IPs of unconnected devices can be set via the ip state now
@@ -136,7 +182,6 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 * (TA2k/Apollon77) Add basic support for IR devices (Gateway and Sub Devices)
 * (Apollon77) Convert special colour/colour_data values to an additional rgb state
 * (Apollon77) Allow to define that devices do not connect locally (this prevents error logs, and they work via cloud if data are provided)
-* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
 * (Apollon77) Add support for more cloud MQTT notifications
 * (Apollon77) More schema information added/updated
 

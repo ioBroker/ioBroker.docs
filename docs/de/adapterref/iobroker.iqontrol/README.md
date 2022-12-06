@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: bdRYAJjCRojOf3+7mWRhYtdA4FOG9G1qP669r/Haj3o=
+hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -128,6 +128,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Um die Seite ohne Symbolleiste zu laden, können Sie `noToolbar=true` hinzufügen
 * Um die Seite ohne Panel zu laden, können Sie `noPanel=true` hinzufügen
 * Um die Seite ohne Symbolleiste und Panel zu laden, Wischen deaktiviert, kein Lade-Spinner und mit transparentem Ladebildschirm können Sie `isBackgroundView=true` hinzufügen
+* Wenn Ihre iQontrol-Instanz durch eine Passphrase passwortgeschützt ist (siehe Optionen – Passphrase-Schutz), können Sie die Passphrase übermitteln, indem Sie „passphrase=<MyPassphrase>“ hinzufügen.
 
 **Beispiel:**
 
@@ -223,19 +224,19 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetState", stateId: <widgetStateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetStateSubscribed", stateId: <widgetStateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
+* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
 * Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
-* Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
+* Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
-* Dadurch wird der ioBroker-Zustand `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
+* Dadurch wird der ioBroker-Status `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie Sie die Antwortnachrichten erhalten)
+* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `<stateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie Sie die Antwortnachrichten erhalten)
         * `{ Befehl: "getOptions"}`
 * Dies veranlasst iQontrol, die Benutzeroptionen zu senden, die der Benutzer als Objekt konfiguriert hat
         * `{ Befehl: "renderView", Wert: <viewID> }`
@@ -998,7 +999,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ```
 
-</details>
+</Details>
 
 <details><summary>Zeigen Sie ein fortgeschritteneres Beispiel: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1572,7 +1573,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
-| | | tun | 0. 1. ... 5. 6. | X | --- | --- |
+| | | machen | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
 | | | DD | 01 02 ... 30 31 | X | X | X |
 | | | Mach | 1. 2. ... 30. 31. | X | --- (umgewandelt in D) | --- (umgewandelt in D) |
@@ -1683,7 +1684,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
     * 'ok' wenn die Mitte des Pads angeklickt wird,
 * 'links', 'rechts', 'oben' oder 'unten', wenn die Ränder des Pads angeklickt oder das Pad in die entsprechende Richtung gewischt wird bzw
 * 'Zurück', 'Home' oder 'Menü'*, wenn die entsprechenden Schaltflächen angeklickt werden
-* Denken Sie daran: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, oder besser gesagt das Zahnrad-Symbol in der neuen Reaktions-Benutzeroberfläche jedes Datenpunkts) verwenden, um je nach Rückgabewert von einem Datenpunkt zu mehreren Datenpunkten zu verlinken Wert (siehe Abschnitt „Ändern von Datenpunkten“ oben)
+* Denken Sie daran: Sie können die Zielwertliste (erreichbar über das Schraubenschlüssel-Symbol, oder besser gesagt das Zahnrad-Symbol in der neuen Benutzeroberfläche jedes Datenpunkts) verwenden, um abhängig vom zurückgegebenen Datenpunkt von einem Datenpunkt zu mehreren Datenpunkten zu verlinken Wert (siehe Abschnitt „Ändern von Datenpunkten“ oben)
 * **REMOTE_COLOR**: *string* - zeigt farbige Buttons und liefert die entsprechende Farbe ('rot', 'grün', 'gelb' oder 'blau'), wenn eine Farbe angeklickt wird
 * **REMOTE_CHANNELS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
 * **REMOTE_ADDITIONAL_BUTTONS**: *array* - ein Array von Schaltflächen. Der Name des Buttons wird an die entsprechende State-ID gesendet, wenn der Button angeklickt wird
@@ -1744,6 +1745,11 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Added DISCHARGE to Battery.
 * (sbormann) Fixed Favorites not working in map-widget with instance-number.
 * (sbormann) Enhance JSON-Table to work with alexa-shoppinglist-adapter.
+* (sbormann) Added badges to toolbar.
+* (sbormann) Enhanced handling of images in BACKGROUND_HTML.
+* (sbormann) Added option to protect instance by passphrase.
+* (sbormann) Added option to set value of LOCK_OPEN for doors with lock.
+* (sbormann) Linking color to GLOW or BACKGROUND_COLOR now works when using ALTERNATIVE_COLORSPACE.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.

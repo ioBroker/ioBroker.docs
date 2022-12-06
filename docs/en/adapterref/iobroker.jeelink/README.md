@@ -65,6 +65,10 @@ to be done in admin
 
 
 ## Changelog:
+### 1.1.0
+* (foxthefox) usage of newest serialport (9.x -> 10.5)
+* (foxthefox) changes in github workflow
+
 ### 1.0.3
 * (atl285) correction wrong type of baudRate config, causing adapter crash
 

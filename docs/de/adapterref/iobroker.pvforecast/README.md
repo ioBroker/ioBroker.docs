@@ -70,7 +70,7 @@ Falls der Längen und Breitengrad schon im System hinterlegt ist, trägt das Sys
 ## VIS Beispiel
 
 Bevor das Beispiel geladen werden kann, bitte installiert: [Material Design](https://github.com/Scrounger/ioBroker.vis-materialdesign).
-Wenn ihr in der IoBroker Vis die Json Diagramme und Tabellen benutzen möchtet, findet ihr hier ein [Beispiel](https://github.com/Patrick-Walther/ioBroker.pvforecast/blob/main/docs/example/vis/)
+Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, findet ihr hier ein [Beispiel](./vis.md)
 
 ## Changelog
 <!--

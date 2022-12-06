@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
 title: ioBroker.twinkly
-hash: NeaLj4EuJTdrK+PZyNzW0zSgaTV7E5ZftXt0jEvJWCM=
+hash: muvjgdJqz/RLycKgQ8P0DO+c2lrqdMKvsGrhqZ1728g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
@@ -11,8 +11,6 @@ hash: NeaLj4EuJTdrK+PZyNzW0zSgaTV7E5ZftXt0jEvJWCM=
 ![Количество установок (стабильно)](http://iobroker.live/badges/twinkly-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.twinkly.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
-![Всего предупреждений](https://img.shields.io/lgtm/alerts/g/patrickbs96/ioBroker.twinkly.svg?logo=lgtm&logoWidth=18)
 ![Известные уязвимости](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
 
 # IoBroker.twinkly
@@ -29,11 +27,11 @@ hash: NeaLj4EuJTdrK+PZyNzW0zSgaTV7E5ZftXt0jEvJWCM=
 В таблицу вы можете добавить все источники света Twinkly, которыми вы хотите управлять.
 
 | Колонка | Описание |
-|--------------|-----------------------------------------------------------------------------------------------------------------|
+|--------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `Enabled` | Должен ли доступ к этому соединению |
 | `IP Address` | IP-адрес Twinkly Lights |
-| `Mode On` | Какой `ledMode` следует активировать, когда состояние `on` включено.<br/> Цвет, Эффект, Фильм, Список воспроизведения или последний режим |
-| `Режим включен` | Какой `ledMode` должен быть активирован, когда включено состояние `on`.<br/> Цвет, Эффект, Фильм, Список воспроизведения или последний режим |
+| `Mode On` | Какой `ledMode` следует активировать, когда состояние `on` включено.<br/> Цвет, Эффект, Кино, Реактивная музыка, Список воспроизведения или Последний режим |
+| `Режим включен` | Какой `ledMode` должен быть активирован, когда включено состояние `on`.<br/> Цвет, Эффект, Кино, Реактивная музыка, Список воспроизведения или Последний режим |
 
 Следующие дополнительные состояния создаются для каждого устройства при включении флажка:
 
@@ -52,7 +50,7 @@ hash: NeaLj4EuJTdrK+PZyNzW0zSgaTV7E5ZftXt0jEvJWCM=
 | `ledConfig` | :heavy_check_mark: | Конфигурация светодиодов |
 | `ledEffect` | :heavy_check_mark: | Эффекты (`Effect`) |
 | `ledLayout` | :heavy_check_mark: | Расположение светодиодов (отключено для дальнейшего тестирования) |
-| `ledMode` | :heavy_check_mark: | Режим: Фильм, Цвет, Эффект, Список воспроизведения, Выкл., В реальном времени (пока не поддерживается), Демонстрация |
+| `ledMode` | :heavy_check_mark: | Режим: Цвет, Эффект, Кино, Реактивная музыка, Список воспроизведения, Выкл., В реальном времени (пока не поддерживается), Демонстрация |
 | `ledMovie` | :heavy_check_mark: | Активный фильм. Если в список воспроизведения добавлено несколько фильмов, их можно выбрать здесь. (`Movie`) |
 | `ledPlaylist` | :heavy_check_mark: | Активный вход в плейлист, переключение между фильмами. (`Playlist`) |
 | `ledSat` | :heavy_check_mark: | Насыщенность 0-100 (отключить управление с -1) |
@@ -73,15 +71,13 @@ hash: NeaLj4EuJTdrK+PZyNzW0zSgaTV7E5ZftXt0jEvJWCM=
 ### Загрузить фильм
 ```
 sendTo('twinkly.0', 'uploadMovie', {
-    connection: 'Fenster',
-    movie: {
-        frames: [
-            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
-            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
-            ...
-        ],
-        delay: 250
-    }
+    connection : 'Fenster',
+    frames     : [
+        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+        ...
+    ],
+    delay : 250
 });
 ```
 
@@ -93,8 +89,18 @@ sendTo('twinkly.0', 'uploadMovie', {
 
 ```
 sendTo('twinkly.0', 'uploadTemplateMovie', {
-    connection: 'Fenster',
-    index: 0,1
+    connection : 'Fenster',
+    template   : 1
+});
+
+```
+
+### Загрузить фильм с мерцанием
+```
+sendTo('twinkly.0', 'uploadTwinkleMovie', {
+    connection  : 'Fenster',
+    baseColor   : '#00873f', // or {r: 0, g: 135, b: 62}
+    secondColor : '#c30F15'  // or {r: 195, g: 15, b: 22}
 });
 ```
 
@@ -103,8 +109,8 @@ sendTo('twinkly.0', 'uploadTemplateMovie', {
 ### Отправить кадр в реальном времени
 ```
 sendTo('twinkly.0', 'sendrealtimeframe', {
-    connection: 'Fenster',
-    frame: [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
+    connection : 'Fenster',
+    frame      : [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
 });
 ```
 
@@ -116,20 +122,22 @@ sendTo('twinkly.0', 'sendrealtimeframe', {
 
 ```
 sendTo('twinkly.0', 'generateFrame', {
-    connection: 'Fenster',
-    color : '#dd0055' // or {r: 221, g: 0, b: 85}
-}, response => {
+    connection : 'Fenster',
+    color      : '#dd0055' // or {r: 221, g: 0, b: 85}
+});
+response => {
     // [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
     ...
-});
+}
 
 sendTo('twinkly.0', 'generateFrame', {
-    connection: 'Fenster',
-    colors : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
-}, response => {
+    connection : 'Fenster',
+    colors     : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
+});
+response => {
     // [[{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...], ..]
     ...
-});
+}
 ```
 
 ## Changelog
@@ -137,8 +145,25 @@ sendTo('twinkly.0', 'generateFrame', {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.10 (2022-12-05)
+* Add sendTo message `uploadTwinkleMovie` to upload a twinkle movie with own colors
+* Update Release Integration in Github Actions and Sentry
+
+### 1.0.9 (2022-11-27)
+* Now detects if Twinkly is in a group (firmware >= 2.8.3). If so, the group can only be controlled by the master, the states from the slave are read-only.
+
+### 1.0.8 (2022-11-26)
+* Add `musicreactive` Mode
+* Add Ukrainian translation
+* Rework how objects are created, objects are now created after first connect after startup and updated after a firmware update
+
+### 1.0.7 (2022-11-19)
+* Fixed deprecated messages from Sentry with api-validations
+* Automatic switch mode had an error with playlists. Playlist item could never be selected.
+
+### 1.0.6 (2022-11-19)
 * Fixed polling (ledBri, ledSat)
+* Added Connection-Info
 
 ### 1.0.5 (2022-10-16)
 * Fixed error when changing active movie (#173)
@@ -150,24 +175,6 @@ sendTo('twinkly.0', 'generateFrame', {
 * Generate Full Frame in one color (create own frames)
 * Update deprecated states to fw 2.6.6
 * Update twinkly API Issues from Sentry
-
-### 1.0.3 (2022-07-31)
-* Add Online-Status to object-view
-* Ignore `*.uid` values, unknown in which release they are available (IOBROKER-TWINKLY-1Q)
-
-### 1.0.2 (2022-07-07)
-* Add new values `details.uid` and `details.group.uid` fw >= 2.8.4, fwFamily=G (IOBROKER-TWINKLY-1G, IOBROKER-TWINKLY-1N)
-
-### 1.0.1 (2022-07-05)
-* Remove deprecated values from mode
-
-### 1.0.0 (2022-07-03)
-* Change refresh logic after State-Change
-* Added depcrecated logic to remove states when no longer filled with data from api
-* Check new and deprecated values from api response to update state information
-
-### 0.3.1 (2022-07-02)
-* Update translations logic i18n
 
 ## License
 MIT License

@@ -11,6 +11,7 @@
 ## nibeuplink adapter for ioBroker
 
 This ioBroker adapter receives data from a Nibe heat pump from Nibe Uplink.
+This adapter does NOT work with Nibe myUplink! It therefore does NOT work with S-series heat pumps such as Nibe VVM S320.
 
 ## Using this adapter
 

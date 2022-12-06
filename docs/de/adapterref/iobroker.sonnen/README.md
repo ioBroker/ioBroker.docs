@@ -376,6 +376,14 @@ Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `boolean`, die Info
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.14.0 (2022-12-02)
+* (foxriver76) implemented new state `latestData.dcShutdownReason` (closes #213)
+
+### 1.13.1 (2022-11-24)
+* (foxriver76) minor performance optimization
+* (foxriver76) `info.lastSync` and `status.systemTime` are now type number
+* (foxriver76) implemented silent fail on `ios` endpoint to support both API versions
+
 ### 1.13.0 (2022-10-28)
 * (foxriver76) added `latestData` endpoint providing eclipse LED status and time since last full charge
 

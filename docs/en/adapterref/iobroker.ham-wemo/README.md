@@ -1,5 +1,5 @@
 ![Logo](admin/ham-wemo.png)
-# ioBroker Wemo adapter based on homebridge-platform-wemo
+# ioBroker Wemo adapter based on homebridge-wemo
 ![Number of Installations](http://iobroker.live/badges/ham-wemo-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/ham-wemo-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)](https://www.npmjs.com/package/iobroker.ham-wemo)
@@ -11,9 +11,9 @@
 =================
 
 ## Description
-This adapter is based on homebridge-platform-wemo plugin.
+This adapter is based on homebridge-wemo plugin.
 
-Read more about it here https://www.npmjs.com/package/homebridge-platform-wemo
+Read more about it here https://www.npmjs.com/package/homebridge-wemo
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

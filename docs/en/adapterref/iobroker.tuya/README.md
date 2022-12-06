@@ -15,10 +15,9 @@ ioBroker adapter to connect to several small and cheap Wifi devices that care co
 
 Tuya devices are ESP8266MOD WiFi smart devices from Shenzhen Xenon.
 
-Beside devices usable with the Smart Live App the use of the Jinvoo Smart App, Xenon Smart app, eFamilyCloud, io.e (Luminea or such) app should also be possible. Please report back if successfull.
-<img src="https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **The Adapter only works with Tuya and compatible apps as long as their version is <3.14 (!!)**
+Beside devices usable with the Smart Live App or Tuya App.
 
-The adapter locally connects to all devices that are "always in wifi". Devices that only come online when there is an event, send their data and go offline again (mostly **battery powered devices**) are only supported usign the Tuya IoT Platform MQTT connection.
+The adapter locally connects to all devices that are "always in wifi". Devices that only come online when there is an event, send their data and go offline again (mostly **battery powered devices**) are only supported using the Tuya IoT Platform MQTT connection (see below).
 
 One adapter instance can locally discover and connect to all devices in a network that routes UDP packages! For Docker environments this requires additional actions and potentially Macvlan or similar!
 
@@ -81,6 +80,23 @@ The sync is only needed initially or after you added new devices to your App.
 
 Some images for some mobile OS can be found at the [Proxy-Page](PROXY.md).
 
+## Devices that do not deliver up-to-date data
+We discovered some devices - most likely devices with power/current states - that can have the effect that they only show up-to-date values when the mobile app is connected to them. When the app is closed they stay on the old values.
+
+These devices currently only work via "polling interval" in most cases. They do not deliver up-to-date values by themself. You can try to work around that by using the iot platform from Tuya and enable the MQTT option.
+
+Some of these devices also do not deliver up-to-date values when using polling. If you got such a device it could be that the device needs to be polled differently. This can be configured manually.Please do the following:
+* Stop the tuya instance
+* Use Admin on "Objects" tab and find the object with type "device" of the affected device. In this line in Admin Objects view click the pencil icon.
+* In the JSON view of the object you see a "native" section. Add a new json key inside this native section:
+```json
+"native": {
+    "useRefreshToGet": true,
+    ...
+}
+```
+* Save the object and restart the adapter and check if the values are updated now.
+
 ## Infrared Gateway features
 There are different types of IR devices in the object tree
 
@@ -91,7 +107,7 @@ The "ir-learn" state in this device is a Trigger which can be used to learn IR c
 
 The "ir-send" state can be used to send a base64 encoded IR code to the device. This can be used to send the learned code from the "ir-learn" state.
 
-**This way to control only works on the "main IR device" and only when connected locally (no cloud connection) (right now).**
+**This way to control only works on the "main IR device".**
 
 ### The IR Sub Devices
 The IR sub devices have a lot of "ir-*" states wich are all buttons to trigger the respective Button/IR code. The ir states should match the layout of the buttons in the mobile App.
@@ -99,12 +115,14 @@ The IR sub devices have a lot of "ir-*" states wich are all buttons to trigger t
 Some devices have combi-states like "M0_T20_S3" (found by a Daikin Air conditioner) which means Mode 0, Temperature 20 and (Fan)-Speed 3. In fact you need to choose the right button. Until now we did not found a generic/automated way to find out which button is which.
 The mobile App itself also tries to remember these settings, so as soon you trigger anything with the adapter (or the real ir controller of the device) the information from the App is outdated.
 
-**This way to control only works whenapp cloud credentials are entere. The commands will be send also out via cloud for now.**
-
 ## Scenes features
 When the app cloud credentials are entered and stored then the adapter also reads out the scenes from the app and creates them as objects in the adapter. The scenes can be triggered by setting the scene state to true.
 
 The triggering is then send to the cloud.
+
+## Groups features
+The adapter also reads out defined groups and creates corresponding states in the adapter. The group value is also polled from cloud and updated in the adapter.
+When controlling groups this also is done via the cloud because else the group status will run out of sync.
 
 ## Credits
 The work of the adapter would not had been possible without the great work of @codetheweb, @kueblc and @NorthernMan54 (https://github.com/codetheweb/tuyapi) and https://github.com/clach04/python-tuya,https://github.com/uzlonewolf/tinytuya and many more.
@@ -123,6 +141,30 @@ When there are issues with the Tuya App Cloud synchronisation then additional lo
 Send the log with reference to the generated GitHub issue to iobroker@fischer-ka.de
 
 ## Changelog
+### 3.10.2 (2022-12-05)
+* (Apollon77) Optimize IR - now works locally and via cloud in all cases
+
+### 3.10.1 (2022-12-05)
+* (Apollon77) Make info.ip writable to allow manual setting of IP address
+
+### 3.10.0 (2022-12-05)
+* (Apollon77) Added support for groups
+* (Apollon77) Add support for a second type of IR blaster
+* (Apollon77) Added cloud session refresh while adapter is running
+* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
+* (Apollon77) Base64 encoded raw values are now decoded again when the decoded value is readable ascii
+* (Apollon77) Allow to flag devices manually that need "refresh instead of get" to get current data - use "useRefreshToGet: true" in device object native section
+* (Apollon77) More schema information added/updated
+
+### 3.9.4 (2022-11-19)
+* (Apollon77) More schema information added/updated
+
+### 3.9.3 (2022-11-17)
+* (Apollon77) Optimize Tuya protocol 3.4 discovery
+* (Apollon77) Prevent restart schedules that are too short when cloud is used
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) More schema information added/updated
+
 ### 3.9.2 (2022-11-16)
 * (Apollon77) Optimize discovery and device connection checks
 * (Apollon77) IPs of unconnected devices can be set via the ip state now
@@ -133,7 +175,6 @@ Send the log with reference to the generated GitHub issue to iobroker@fischer-ka
 * (TA2k/Apollon77) Add basic support for IR devices (Gateway and Sub Devices)
 * (Apollon77) Convert special colour/colour_data values to an additional rgb state
 * (Apollon77) Allow to define that devices do not connect locally (this prevents error logs, and they work via cloud if data are provided)
-* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
 * (Apollon77) Add support for more cloud MQTT notifications
 * (Apollon77) More schema information added/updated
 

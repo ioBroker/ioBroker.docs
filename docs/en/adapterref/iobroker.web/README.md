@@ -82,6 +82,12 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 5.3.1 (2022-11-27)
+* (bluefox) Added `fileChange` event
+
+### 5.2.12 (2022-11-18)
+* (bluefox) corrected read of binary states
+
 ### 5.2.11 (2022-11-08)
 * (bluefox) Function `getObjects` was extended by devices, channels and enums
 

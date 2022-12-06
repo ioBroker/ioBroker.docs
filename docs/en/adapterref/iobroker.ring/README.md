@@ -119,6 +119,28 @@ It is recommended that you add your own tests into the mix.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.2 (2022-12-02)
+
+* (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname
+
+### 3.2.1 (2022-12-02)
+
+* (theimo1221) Redeploy
+
+### 3.2.0 (2022-12-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) #373 Increase logging and change recording order on Doorbell Event
+
+### 3.1.9 (2022-11-20)
+
+* (theimo1221) #395 Resolve Package-lock.json issues
+
+### 3.1.8 (2022-11-20)
+
+* (theimo1221) Update Packages
+* (theimo1221) Compliance to newest ring api version
+
 ### 3.1.7 (2022-10-28)
 
 * (theimo1221) Update Packages

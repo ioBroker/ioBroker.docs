@@ -25,14 +25,17 @@ Fan-Icon in Logo created by [Freepik](https://www.flaticon.com/de/autoren/freepi
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
 * Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
 * Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438E)
+* Dyson Pure Cool Tower Formaldehyde, 2018 model (TP07, ProductType 438K)
 * Dyson Pure Cool Link Desk (DP01, ProductType 469)
 * Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
 * Dyson Pure Hot+Cool Link (HP02, ProductType 455)
 * Dyson Pure Hot+Cool Link New (ProductType 455A)
 * Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
 * Dyson Pure Hot+Cool (HP07, ProductType 527E)
+* Dyson Pure Hot+Cool (HP07, ProductType 527K)
 * Dyson Pure Humidify+Cool (PH01, ProductType 358)
 * Dyson Pure Humidify+Cool (PH03, ProductType 358E)
+* Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
 
 ## Features
 Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioBroker.
@@ -152,7 +155,7 @@ Possible values for these states are documented below, as far as known.
 Fan speed only allows values from 1 to 10 and Auto. If you like to set your fan speed down to 0 you'll need to power off the main power.
 Which is what the dyson app does also.
 
-### SystemStates folder (since v2.4.0)
+### SystemStates folder (since 2.4.0)
 The devices are capable of reporting failures. This feature has been added in adapter version 2.4.0. 
 For now there are only rough information on the failures, and the data points vary from device to device.
 If you have better information on a failure don't hesitate to report it to me to improve the adapter.
@@ -160,22 +163,44 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 
 ### Known issues
 * No automatic IP detection of devices
-* Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. 
-  * In my case it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Give it a try.
-  * In other cases it has been an IP issue. Resetting the DHCP server (router) solved the issue.
+* Still many unknown device messages (mostly failures and warnings) 
+* Sometimes the adapter loses the MQTT connection to a fan and isn't able to reconnect. `This is usually no issue of the adapter itself, but an issue in your local network!`
+  * In some cases it's sufficient to unplug the fan for approximately 10 seconds to reset it and plug it in again. Just give it a try!
+  * In other cases it has been an IP/DNS issue. Resetting the DHCP/DNS server (router) solved the issue.
+
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### V2.5.1 (2022-03-23) (Halo of the dark)
+### 2.5.7 (2022-12-06) (Halo of the dark)
+* (grizzelbee) New: Added support for Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
+* (grizzelbee) Upd: Upgraded axios to 1.2.1
+
+* ### 2.5.6 (2022-11-28) (Halo of the dark)
+* (grizzelbee) Fix: [#213](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/213) Fixed warning due to wrong data type on field FILTER_REPLACEMENT
+
+### 2.5.4 (2022-11-27) (Halo of the dark)
+* (grizzelbee) Upd: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) Downgraded axios to 0.27.2 due to an error in version 1.x returning data as binary instead of string.
+
+### 2.5.3 (2022-11-26) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) better and easier detection of supported devices
+
+### 2.5.2 (2022-11-17) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: Moved log message "requesting new state of device" from info to debug
+* (grizzelbee) New: Added Dyson Pure Hot+Cool Formaldehyde (Type 527K) to device list. 
+* (grizzelbee) New: Added Dyson Pure Cool Tower Formaldehyde (Type 438K) to device list. 
+
+### 2.5.1 (2022-03-23) (Halo of the dark)
 * (grizzelbee) Fix: Improved layout of config page and added tooltips to the checkboxes
 
-### V2.5.0 (2022-03-22) (Halo of the dark)
+### 2.5.0 (2022-03-22) (Halo of the dark)
 * (grizzelbee) New: [#185](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/185) Added config option to disable logging of reconnect events
 
-### V2.4.1 (2022-03-20) (Echo from the past)
+### 2.4.1 (2022-03-20) (Echo from the past)
 * (grizzelbee) New: Changed SystemState from text to boolean data points
 
-### V2.4.0 (2022-03-17) (Echo from the past)
+### 2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree
 * (grizzelbee) New: Added Device-faults as SystemState to device tree
 * (grizzelbee) New: Added donate button to readme and config page
@@ -183,38 +208,38 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 * (grizzelbee) Upd: reduced amount of debug messages
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.3.2 (2022-03-04) (Fairytale of doom)
+### 2.3.2 (2022-03-04) (Fairytale of doom)
 * (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.3.1 (2022-01-14) (Fairytale of doom)
+### 2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies
 * (grizzelbee) Upd: Updated documentation
 
-### V2.3.0 (2021-12-02) (Fairytale of doom)
+### 2.3.0 (2021-12-02) (Fairytale of doom)
 * (grizzelbee) New: Added some GUI elements for air quality in folder icons
 * (grizzelbee) New: Added support for HEPA PTFE filters
 * (grizzelbee) New: Added support for Combined PTFE filters
 * (grizzelbee) Chg: Fanspeed is now a number (not string anymore) to work properly with IoT-Adapter. Please delete this data point and let get recreated. 
 
-### V2.2.0 (2021-11-07) (Welcome to my wasteland)
+### 2.2.0 (2021-11-07) (Welcome to my wasteland)
 * (grizzelbee) New: [#154](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/154) Added support for dyson Humidify+Cool PH03/358E.
 
-### V2.1.4 (2021-10-20) (Running to the edge)
+### 2.1.4 (2021-10-20) (Running to the edge)
 * (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
 
-### V2.1.3 (2021-10-17) (Running to the edge)
+### 2.1.3 (2021-10-17) (Running to the edge)
 * (grizzelbee) Fix: [#148](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/148) Hostaddress is used properly when given.
 * (grizzelbee) Fix: [#149](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/149) OscillationAngle "Breeze" is working now 
 * (grizzelbee) Fix: [#150](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/150) Strange delay and jumping of boolean switches is fixed 
 
-### V2.1.2 (2021-10-07) (Running to the edge)
+### 2.1.2 (2021-10-07) (Running to the edge)
 * (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
 * (grizzelbee) Upd: Code cleanup
 * (grizzelbee) Upd: Removed delay between sending a command and new values getting displayed (max 30 Secs)
 
 
-### V2.1.1 (2021-10-05) (Running to the edge)
+### 2.1.1 (2021-10-05) (Running to the edge)
 * (grizzelbee) New: Added some more data points 
 * (grizzelbee) New: Added switch for temperature unit of the fan display
 * (grizzelbee) New: Improved logging of unknown data points
@@ -223,12 +248,12 @@ All states report whether there is a failure or not. `True` means a failure, `fa
 * (grizzelbee) Fix: added missing dependency plugin-sentry
 * (grizzelbee) Fix: Setting HumidificationTarget now works
 
-### V2.0.1 (2021-10-04) (Lost in forever)
+### 2.0.1 (2021-10-04) (Lost in forever)
 * (grizzelbee) Fix: Turning on HeatingMode should work now
 * (grizzelbee) Fix: Sentry-error [DYSONAIRPURIFIER-7](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.0.0 (2021-09-26) (Lost in forever)
+### 2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points
 * (grizzelbee) Fix: Switching water hardness now really works
 * (grizzelbee) BREAKING CHANGES: Please recreate your object tree and test your scripts!

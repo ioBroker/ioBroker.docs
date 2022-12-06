@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
+hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -12,90 +12,90 @@ hash: o/1Dj2NIHyIuOXvBiDxXL/3RedFDcGwnQeH1n+H5vhY=
 ![安装数量（最新）](https://iobroker.live/badges/ems-esp-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/ems-esp-stable.svg)
 ![依赖状态](https://img.shields.io/david/tp1de/iobroker.ems-esp.svg)
-![新PM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
 
 # IoBroker.ems-esp
 **测试：** ![测试和发布](https://github.com/tp1de/ioBroker.ems-esp/workflows/Test%20and%20Release/badge.svg)
 
-## Bosch / Buderus 供暖系统，带 km200 / IP-inside 和/或 ems-esp 接口
-该适配器支持使用 EMS 或 EMS+ 总线连接到 Bosch Group 供暖系统的接口。
-（布德鲁斯 / 容克斯 / Netfit 等）。
+## 带有 km200 / IP-inside 和/或 ems-esp 接口的 Bosch / Buderus 加热系统
+该适配器支持使用 EMS 或 EMS+ 总线连接博世集团供暖系统的接口。
+（Buderus / Junkers / Netfit 等）。
 
-## 它可以通过使用 Web-API 调用来连接供暖系统：
+## 它可以通过使用 Web-API 调用来连接加热系统：
 * km200、km200 hrv、km100、km50、HMC300 或 IP-inside（来自博世集团）
-* 具有最新开发版本（见下文）和 ESP32 芯片的 ems-esp 接口（https://github.com/emsesp/EMS-ESP32）。
-* 旧的带有 API V2 的 ESP8266 网关也支持有限的功能。但强烈建议升级到 ESP32。
+* ems-esp 接口 (https://github.com/emsesp/EMS-ESP32) 具有最新的开发版本（见下文）和 ESP32 芯片。
+
+* 不再支持带有 API V2 的旧 ESP8266 网关！！
 
 ems-esp 适配器可以向两个网关读取和写入数据，以控制所有加热组件。
-它可以用于原始的 Bosch-group 网关或 ems-esp 或两者并行使用。
+它可以用于原始的博世集团网关或 ems-esp 或同时用于两者。
 
-该适配器已针对具有最新固件版本 ESP32 >= v3.3.1 的 ems-esp 网关进行测试。
+该适配器已针对 ESP32 >= v3.4.0 最新固件版本的 ems-esp 网关进行测试。
 
 ## EMS-ESP 中的重要设置：
-* API V2：MQTT 设置必须是布尔格式 1/0 ！
-* API V3：布尔格式的格式化选项必须是 1/0 和枚举格式编号
+* 布尔格式的格式选项必须为 1/0，而枚举格式值/数字的格式选项必须为 1/0。
 * 必须启用 ems-esp 中的启用 API 写入命令设置
-* 必须设置 API 调用的绕过访问令牌授权或输入令牌。
+* 必须设置 API 调用的绕过访问令牌授权或必须输入令牌。
 
-选中复选框时，类似 km200 的设备结构用于 ems-esp 数据字段或保留原始 EMS-ESP 设备视图：锅炉、恒温器、混合器等。并行使用 km200 网关时，建议使用 km200 数据结构体。然后所有实体/状态都在 ioBroker 的对象结构中的同一位置。
+选中复选框时，ems-esp 数据字段使用类似 km200 的设备结构或保留原始 EMS-ESP 设备视图：锅炉、恒温器、搅拌器等。并行使用 km200 网关时，建议使用 km200 数据结构体。然后所有实体/状态都在 ioBroker 的对象结构中的相同位置。
 
 ## 轮询
-该适配器通过 http get 请求从 ems-esp 和 km200 读取启动值，并且能够订阅状态更改并将相应的 http（post）命令发送回 ems-esp 硬件或 km200 网关。
+此适配器通过 http get 请求从 ems-esp 和 km200 读取起始值，并能够订阅状态更改并将相应的 http（post）命令发送回 ems-esp 硬件或 km200 网关。
 
-* EMS-ESP 读取轮询是一个参数（标准 60 秒），不能低于 15 秒。
-* KM200轮询也是一个参数（标准300秒），可以设置的最小值是90秒。
+* EMS-ESP 读取轮询是一个参数（标准 60 秒），不能设置低于 15 秒。
+* KM200 轮询也是一个参数（标准 300 秒），可设置的最小值为 90 秒。
 * km200 记录（能耗和温度统计）每小时更新一次
 
-##公里200
-向/来自 km200 网关的 web-api 调用是加密的。对于加密/解密，需要两个密码：
+## 公里200
+向/从 km200 网关的 web-api 调用是加密的。对于加密/解密，需要两个密码：
 
-* 网关标签上的网关密码，格式为：xxxx-xxxx-xxxx-xxxx（区分大小写）
+* 网关标签上的网关密码格式为：xxxx-xxxx-xxxx-xxxx（区分大小写）
 * 使用 Buderus **MyDevice** 应用程序设置的私人密码（请勿使用 myBuderus 或类似应用程序！）
 
 要使用的字段可以通过轮询 km200 结构 (*) 或适配器实例参数中的相应 csv 文件来定义。
 
 对于第一个适配器启动，建议使用“*”来选择所有 km200 数据字段。
-然后适配器在 ../iobroker-data/ems-esp/{instance} 目录中创建一个 km200.csv 文件。
+然后，适配器在 ../iobroker-data/ems-esp/{instance} 目录中创建一个 km200.csv 文件。
 
-该文件可用于适配器实例的下一次启动。
-可以删除不需要的行（字段）以减少要读取的 km200 字段的数量。 （复制并重命名文件）
+该文件可用于下次启动适配器实例。
+可以删除不需要的行（字段）以减少要读取的 km200 字段的数量。 （制作副本并重命名文件）
 
-## Km200 记录（能量和温度统计）
+## Km200记录（能量和温度统计）
 大多数现代供暖系统都有一个 ip-inside 网关并支持能源统计：
 
-*记录功耗和温度统计
-* 对于这些系统以及这些记录数据可用的地方，相应的统计数据会被轮询并存储在状态中。
+* 记录功耗和温度统计
+* 对于这些系统以及此记录数据可用的地方，相应的统计数据将被轮询并存储在状态中。
 
-可用的是每小时、每天和每月的统计数据，并作为数组数据存储在状态中，如果选择了 db-instance 以及填充有 db-entries 的状态。（statenames 以“_”开头）
+可用的是每小时、每天和每月的统计数据，并以数组数据的形式存储在状态中，如果选择了数据库实例，也会在充满数据库条目的状态中存储。（状态名称以“_”开头）
 
-* 必须启用复选框记录并且必须定义数据库实例（mySQL 或 InfluxDB）。 SQL 或 InfluxDB 历史适配器需要安装并激活才能使用此选项。
-* web-api调用读取的原始录音数据存储在statestructure km200下。
-* 要在浮点图或 grafana 中显示的 DB 统计信息仅适用于 mySQL 和 InfluxDB 数据库。
-* 对于 InfluxDB V1，保留策略必须设置为至少 170 周。 （在 iobroker 持续时间 170w 上更改全局保留政策；）
-* 对于 InfluxDB V2，全局保留策略由 influxdb 适配器设置 - 请在 influxdb 适配器内将存储保留时间设置为“不自动删除”！
+* 必须启用复选框记录并且必须定义数据库实例（mySQL 或 InfluxDB）。 SQL 或 InfluxDB History 适配器需要安装并处于活动状态才能使用此选项。
+* web-api调用读取的原始录音数据存储在状态结构km200下。
+* 在 flot graphs 或 grafana 中显示的 DB 统计数据仅适用于 mySQL 和 InfluxDB 数据库。
+* 对于 InfluxDB V1，保留策略必须设置为至少 170 周。 （更改 iobroker 持续时间 170w 的全局保留策略；）
+* 对于 InfluxDB V2，全局保留策略由 influxdb 适配器设置 - 请在 influxdb 适配器中将存储保留时间设置为“不自动删除”！
 
-然后，此适配器创建相应的记录状态，启用 sql 统计信息并使用 sql 命令写入历史数据库条目并更新记录。更新频率是每小时一次。
+该适配器然后创建相应的记录状态，启用 sql 统计信息并使用 sql 命令写入历史数据库条目并更新记录。更新频率为每小时。
 
-重要提示：如果各个州的值显示 NULL() 值，请不要生气。
-在某些情况下，管理对象浏览器中的值未正确显示 - 请使用 FLOT 或 GRAFANA 进行显示！
+重要提示：如果各自的状态值显示 NULL() 值，请不要生气。
+在某些情况下，管理对象浏览器中的值未正确显示 - 请使用 FLOT 或 GRAFANA 来显示！！！
 
-## Km200 录音 - 解释
-一些字段值设置为“可记录”。然后这些字段将具有“记录”。
-根据供暖系统的类型，这些记录存储在 records/... 或 energyMonitoring/...
+## Km200 记录 - 解释
+一些字段值被设置为“可记录”。然后这些字段将具有“记录”。
+根据加热系统的类型，这些记录存储在 recordings/... 或 energyMonitoring/...
 
-对于每分钟记录的状态，km200 网关内会收集一个样本。
+对于每分钟记录的状态，在 km200 网关内收集一个样本。
 每小时值应该有 60 个样本，每天 24*60=1440 个样本，每月 1440 x #days。
-每个时间段都必须通过 3 个 api 调用在适配器内读取：
+必须通过 3 个 API 调用在适配器中读取每个时间段：
 
 * 每小时值：今天、昨天、前天
-* 每日值：实际月份、上个月、月份-2
-* 月值：实际年份、去年、年份-2
+*每日值：实际月份，上个月，月份-2
+* 月值：实际年份、去年、-2年
 
-在 web-api 读取的数据字段中，样本值的总和存储在 y 值中，没有样本在 c 值中。
+在 web-api 读取的数据字段中，样本值的总和存储在 y 值中，没有样本存储在 c 值中。
 （请参阅 km200... 字段中的 json-data 中的原始值。）
 
-由于有时样本会丢失，因此可以对能量值进行插值。插值是可配置的（开/关）。
-几个月（> 12 个月前）可能会丢失一些数据。 （代码中的博世错误？）
+由于有时样本会丢失，因此可以内插能量值。插值是可配置的（开/关）。
+对于某些月份（> 12 个月前），某些数据可能会丢失。 （代码中的博世错误？）
 
 对于实际月份的能源消耗，适配器计算每日值的总和，并使用该总和来获得更准确的数据。
 
@@ -103,38 +103,52 @@ ems-esp 适配器可以向两个网关读取和写入数据，以控制所有加
 可以启用锅炉统计显示：
 
 * ems-esp 和/或 km200 网关读取和状态处理的轮询周期处理时间
-* 每小时 / 24 小时锅炉和 ww 启动次数
-* 锅炉每小时利用率 (0-100%)。
+* 每小时 / 24 小时的锅炉和 ww 启动次数
+* 每小时的锅炉利用率 (0-100%)。
 * 需要一个活动的数据库实例（见上文）来计算统计信息。
 
-##锅炉效率
-如果参数被填充，则可以计算锅炉效率。 （仅限燃气和燃油锅炉）
+## 锅炉效率
+如果填写参数，则可以计算锅炉效率。 （仅限燃气和燃油锅炉）
 
-* 锅炉效率可根据平均锅炉温度计算：（锅炉温度+回水温度）/2。
+* 锅炉效率可以根据平均锅炉温度计算：（锅炉温度+回水温度）/ 2。
 * 当返回温度在 km200/ems-esp 中不可用时，效率计算没有意义 - 请禁用以避免错误
-* 查看您的锅炉的数据表以相应地调整效率表。
-* 在某些加热系统上，此功能会产生错误 - 请关闭！
+* 查看锅炉的数据表以相应地调整效率表。
+* 在某些供暖系统上，此功能会产生错误 - 请关闭！！！
 
 ## 状态结构的变化
-每当新的 EMS-ESP 固件添加新数据字段和/或更改数据字段名称时，它们都会在适配器运行期间进行处理。然而，适配器不会自动删除过时的数据字段。
-可以选择通过在适配器重新启动时删除状态来重新构建状态结构（保留具有历史记录/数据库条目的状态）
+每当新的 EMS-ESP 固件添加新的数据字段和/或更改数据字段名称时，它们都会在适配器运行期间进行处理。尽管如此，适配器不会自动删除过时的数据字段。
+有一个选项可以通过在适配器重新启动时删除状态来重建状态结构（保留具有历史记录/数据库条目的状态）
 
-##热量需求控制
-热量需求计算和配置说明。仅提供德语版本：https://github.com/tp1de/ioBroker.ems-esp/wiki
+## 热需求控制
+热需求计算和配置说明。仅提供德语版本：https://github.com/tp1de/ioBroker.ems-esp/wiki
 
-#iobroker.ems-esp
+# Iobroker.ems-esp
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.1 (2022-12-04)
+* correct actualweight statistics within heatdemand function
 
-### **WORK IN PROGRESS**
-* pepare for enum as v alues and not just index
-* ioBroker and Home Assistant can be used in parallel
+### 1.17.0 (2022-12-02)
+* add actual weight per thermostat in heatdemand object structure
+* add heatdemand difference values
+
+### 1.16.2 (2022-11-21)
+* adjustments for ems-esp sensors v3.5
+
+### 1.16.1 (2022-11-20)
+* error correction sensors
+
+### 1.16.0 (2022-11-20)
+* ems-esp V2 NOT SUPPORTED ANYMORE !!!!
+* pepare for enum as values and not just index
 * new parameters for "Room" and "Function" for adapter states
-* adjust roles of generated states
+* adjust for latest ems-esp dev version 3.5 
+* units of measument for ems-esp sensors
+* support name changes within ems-esp for sensors
 
 ### 1.15.0 (2022-06-06)
 * adjustments for ems-esp RC310 holiday modes

@@ -100,6 +100,9 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
    
 ## Changelog
 
+### 1.8.6 (2022-11-29)
+* (René) see issue #4 : bug fix negative temperatures
+
 ### 1.8.5 (2022-10-01)
 * (René) bug fix wrong date
 

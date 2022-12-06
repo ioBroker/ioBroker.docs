@@ -4,9 +4,9 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: 6O6ZeB7+MDcY+HE2owKfpxe11hP+PJkL6hu94GZbq9g=
+hash: hMoft1ysQhW0Ac/z37JxOmvupWpRqaB7ADkkfeGrqSc=
 ---
-![логотип](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
+![логотип](../../../de/admin/lametric.png)
 
 # IoBroker.lametric
 ## Мои данные (сделай сам) *(требуется адаптер версии >= 1.1.0)*
@@ -14,7 +14,7 @@ hash: 6O6ZeB7+MDcY+HE2owKfpxe11hP+PJkL6hu94GZbq9g=
 
 Для передачи этих данных в *LaMetric Time* можно использовать различные адаптеры:
 
-- Веб-адаптер (рекомендуется) *(требуется версия адаптера > 2.1.0)*
+- Веб-адаптер (рекомендуется) * (требуется версия адаптера >= 2.1.0)*
 - Адаптеры REST API
 - Простые адаптеры API
 
@@ -91,6 +91,6 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 Пример конфигурации некоторых кадров:
 
-![пример конфигурации кадра](../../../de/adapterref/iobroker.lametric/./img/my-data-diy.png)
+![пример конфигурации кадра](../../../de/adapterref/iobroker.lametric/img/my-data-diy.png)
 
-![пример конфига айфона](../../../de/adapterref/iobroker.lametric/./img/my-data-diy-iphone.png)
+![пример конфига айфона](../../../de/adapterref/iobroker.lametric/img/my-data-diy-iphone.png)

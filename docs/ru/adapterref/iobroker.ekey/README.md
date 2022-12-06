@@ -3,28 +3,43 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ekey/README.md
 title: ioBroker.ekey
-hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
+hash: pDp+XCtVymOpb+vidaIK19cT62rgXY/lZSFEEMYiONw=
 ---
-![логотип](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
+![Логотип](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
 
-![Значок Greenkeeper](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
+![Значок Гринкипера](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
 ![Количество установок](http://iobroker.live/badges/ekey-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ekey.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.ekey.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ekey.svg)
 ![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.ekey/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.ekey?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.ekey.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.ekey.png?downloads=true)
 
 # IoBroker.ekey
-[![Статус зависимости] (https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![Изменение климата] (https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
+[![Статус зависимости] (https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![Код климата](https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
 
-Этот адаптер для ioBroker подключается к ekey разъему UDP.
+Этот адаптер для ioBroker подключается к UDP-коннектору ekey.
 
-Реализовано как описано в http://descargas.futurasmus-knxgroup.org/DOC/GB/E-Key/13004/Operating_instructions_ekey_converter_UDP_RS485_ID51.pdf или здесь https://www.ekey.net/assets/media_center/EN/User_Guide_e_net_net .pdf
+Реализовано, как описано в:
 
-![образ](../../../en/adapterref/iobroker.ekey/img/ekey.png)
+- https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf
+- Протокол NET: https://www.ekey.net/wp-content/dokumente/Operating_instructions_ekey_net_4.4_en_web_ID181_3006.pdf (стр. 189)
+
+![изображение](../../../en/adapterref/iobroker.ekey/img/ekey.png)
+
+## Серийный порт
+Экспериментальная функция подключения к ekey через последовательный порт. Это еще не проверено.
+
+Вы можете активировать последовательный порт для получения данных через преобразователь USB RS485 или RS 232.
+На самом деле поддерживается только хеш пальца. Чтобы помочь расшифровать больше данных с устройства, пожалуйста, откройте вопрос с данными, которые вы получили.
 
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 1.2.3 (2022-11-22)
+* (bluefox) Added `net` protocol support
+* (bluefox) Added serial port support
 
 ### 1.1.0
 * (bluefox) Added compact mode
@@ -43,7 +58,7 @@ hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 ioBroker <dogafox@gmail.com>
+Copyright (c) 2018-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

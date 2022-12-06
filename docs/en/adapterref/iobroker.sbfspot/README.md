@@ -51,6 +51,9 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+### 4.1.3 (in progress)
+* (René) dependencies updated
+
 ### 4.1.2 (2022-08-20)
 * (René) bug fix in AddObject 
 

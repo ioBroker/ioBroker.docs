@@ -1,14 +1,16 @@
 ---
-BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
-BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
-BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
 BADGE-GitHub license: https://img.shields.io/github/license/ciddi89/ioBroker.device-watcher
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/ciddi89/ioBroker.device-watcher
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/ciddi89/ioBroker.device-watcher
-BADGE-GitHub commits since tagged version (branch): https://img.shields.io/github/commits-since/ciddi89/ioBroker.device-watcher/v2.0.2
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/ciddi89/ioBroker.device-watcher/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/ciddi89/ioBroker.device-watcher
 BADGE-GitHub issues: https://img.shields.io/github/issues/ciddi89/ioBroker.device-watcher
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
+BADGE-Codacy Badge: https://app.codacy.com/project/badge/Grade/31cdbfba5f8641ff8a1719b6b082c3f7
 ---
 ![Logo](../../admin/device-watcher.png)
 
@@ -26,6 +28,15 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/ciddi89/ioBroker.devic
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 2.0.3 (2022-11-26)
+
+-   fixed issue with localCompare
+-   added tapo
+-   (Scrounger) added fullyBrowser adapter
+-   (Scrounger) added Sure Flap adapter
+-   fixed low bat messages
+
 ### 2.0.2 (2022-11-12)
 
 -   added status to battery list

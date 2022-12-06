@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.benchmark/README.md
-title: ioBroker.benchmark
-hash: LU96JGHKXloPMFqc3GQppX/Dbx2Oh014A6g0xNHAq6A=
+title: ioBroker.Benchmark
+hash: ahz/yZR5iynDlTF3vc+pqkZzrbd4T9kSbBcIlRrGRTk=
 ---
 ![Logo](../../../en/adapterref/iobroker.benchmark/admin/benchmark.png)
 
@@ -13,25 +13,25 @@ hash: LU96JGHKXloPMFqc3GQppX/Dbx2Oh014A6g0xNHAq6A=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/benchmark-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.benchmark.png?downloads=true)
 
-# IoBroker.benchmark
+# IoBroker.Benchmark
 **Tests:** ![Testen und freigeben](https://github.com/foxriver76/ioBroker.benchmark/workflows/Test%20and%20Release/badge.svg)
 
 ## Benchmark-Adapter für ioBroker
 Benchmarken Sie Ihr System.
 
-## Wichtig: Informationen für Nutzer
-Beachten Sie, dass der Adapter in seinem aktuellen Zustand hauptsächlich dazu dient, verschiedene Szenarien zu vergleichen, um Erkenntnisse über Änderungen auf js-Controller-Ebene zu gewinnen.
-Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie auch, dass der Benchmark-Adapter standardmäßig in einem isolierten Modus ausgeführt wird, der alle Adapter deaktiviert und nur den Controller und sich selbst am Leben hält. Außerdem muss der Adapter immer mit der Instanznummer `0` laufen.
+## Wichtig: Information für Benutzer
+Beachten Sie, dass der Zweck des Adapters in seinem aktuellen Zustand hauptsächlich darin besteht, verschiedene Szenarien zu vergleichen, um Einblicke in Änderungen auf js-Controller-Ebene zu erhalten.
+Die Benchmark-Tests können sehr lange dauern und Ihr System stark belasten. Beachten Sie auch, dass der Benchmark-Adapter standardmäßig in einem isolierten Modus ausgeführt wird, der alle Adapter deaktiviert und nur den Controller und sich selbst am Leben erhält. Außerdem muss der Adapter immer mit der Instanznummer `0` betrieben werden.
 
 ## Wie füge ich einen neuen Test hinzu?
 1. Erstellen Sie eine neue TypeScript-Datei in src/lib/activeTests mit einer Klasse, die von TestUtils erbt
-2. Definieren Sie die drei (fünf) Schritte Ihres Tests (die Ausführung wird automatisch gemessen)
+2. Definieren Sie die drei (fünf) Schritte Ihres Tests (Durchführung wird automatisch gemessen)
 3. Optional: Wenn Ihr Test einige Anforderungen hat, z.B. Controller muss `>=3.0.0` sein, bitte übergeben Sie die Anforderungen an
 
-der Elternkonstruktor
+der übergeordnete Konstruktor
 
 4. Fügen Sie Ihren Test zu src/lib/allTests.ts hinzu
-5. Fügen Sie eine Schaltfläche und eine Übersetzung für Ihren Test zu admin/jsonConfig.json hinzu
+5. Fügen Sie admin/jsonConfig.json eine Schaltfläche und eine Übersetzung für Ihren Test hinzu
 
 ### Testanforderungen
 Einige Tests können Anforderungen haben. Wenn das System die Anforderungen nicht erfüllt, wird der Test übersprungen.
@@ -49,39 +49,45 @@ Derzeit werden die folgenden Anforderungen unterstützt:
 
 Adapter sollte nicht versuchen, diese Tests auf einem nicht unterstützenden Controller auszuführen
 
-- `freeMemory` - Definieren Sie den benötigten Speicher des Tests, dies ist nur notwendig, wenn Sie z.B. viele Instanzen hinzufügen
+- `freeMemory` - definieren Sie den benötigten Speicher des Tests, dies ist nur notwendig, wenn Sie z.B. viele Instanzen hinzufügen
 
 ## Testbeschreibung
 ### GetStates
 Führt `iterations` mal `getState` aus.
 
-### GetStateAlias
+### GetStatesAlias
 Führt `iterations` mal `getState` auf einem Alias aus.
 
-### GetStateAliasRead
+### GetStatesAliasRead
 Führt `iterations` mal `getState` auf einem Alias aus. Der Alias hat eine einfache Lesefunktion.
 
+### GetStatesMulti
+Erzeugt 10.000 Zustände und führt dann `iterations` mal `getStates` auf ihnen aus.
+
+### GetStatesMultiAlias
+Erzeugt 10.000 Alias-Zustände und führt dann `iterations` mal `getStates` auf ihnen aus.
+
 ### Leerlauf
-Wartet nur `iterations` ms.
+Wartet einfach `iterations` ms.
 
 ### Mitteilungen
-Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann `iterations` Nachrichten an die sekundäre Instanz.
+Erstellt eine sekundäre Benchmark-Instanz. Die Controller-Instanz sendet dann `iterations`-Nachrichten an die sekundäre Instanz.
 Wenn alle Nachrichten empfangen wurden, ist der Test beendet.
 
-###ObjekteErstellung
-Erstellt `iterations` Objekte über `setObject`.
+### ObjekteErstellung
+Erzeugt `iterations` Objekte über `setObject`.
 
-###ObjekteLöschen
+### ObjekteLöschen
 Löscht `iterations` Objekte über `delObject`.
 
 ### ObjectViewEqual
-Erzeugt 10.000 Objekte, von denen 50 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+Erstellt 10.000 Objekte, von denen 50 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
 
 ### ObjectViewLarge
-Erzeugt 10.000 Objekte, von denen 98% für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+Erstellt 10.000 Objekte, von denen 98 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
 
 ### ObjectViewSmall
-Erzeugt 10.000 Objekte, von denen nur 2 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
+Erstellt 10.000 Objekte, von denen nur 2 % für die Objektansicht relevant sind. Dann führt es `iterations` Objektansichten aus.
 
 ### SetStates
 Setzt `iterations` Zustände über `setState`
@@ -89,23 +95,23 @@ Setzt `iterations` Zustände über `setState`
 ### SetStatesNonStrict
 Setzt `iterations` Zustände über `setState`, aber `strictObjectChecks` sind deaktiviert.
 
-### SetStatesParallel
-Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations`-Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene müssen die vorherigen `setState` beendet werden, bis der nächste gesetzt wird.
-Dieser Test zielt darauf ab, Multicore-Systeme zu vergleichen.
+### SetStateParallel
+Fügt 30 sekundäre Instanzen hinzu, jede Instanz setzt `iterations` Zustände. Auf Systemebene setzen die Instanzen diese Zustände parallel, aber auf Instanzebene muss der vorherige `setState` beendet werden, bis der nächste gesetzt wird.
+Dieser Test zielt darauf ab, Multicore-Systeme zu bewerten.
 
-__Voraussetzungen__: 2 GB freier Speicher
+__Anforderungen__: 2 GB freier Speicher
 
-### StaatenLöschen
-Löscht `iterations` Staaten über `delState`.
+### StaatenLöschung
+Löscht `iterations` Zustände über `delState`.
 
-### StaatenAbonnement
-Die Controller-Instanz abonniert einen bestimmten Namespace. 4 Secondaries setzen jeweils `iterations / 4` Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+### Gibt anAbonnement
+Die Controller-Instanz abonniert einen bestimmten Namespace. 4 Secondaries jeder Satz `iterations / 4` Staaten. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 
-### StatesSubscriptionAlias
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+### Gibt anSubscriptionAlias
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 
-### StaatenAbonnementAliasWrite
-Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Controller alle `iterations` Veröffentlichungen erhalten hat, ist der Test beendet.
+### Gibt anSubscriptionAliasWrite
+Die Controller-Instanz abonniert einen Alias-Namespace. 4 Secondaries setzen jeweils `iterations / 4` Alias-Zustände. Sobald der Verantwortliche alle `iterations`-Veröffentlichungen erhalten hat, ist der Test beendet.
 Der Alias enthält eine einfache Schreibfunktion.
 
 ## Changelog
@@ -113,6 +119,17 @@ Der Alias enthält eine einfache Schreibfunktion.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2022-11-17)
+* (foxriver76) added `getStatesMulti` and `getStatesMultiAlias`
+
+### 1.0.0 (2022-06-10)
+* (foxriver76) the config is now applied directly from frontend without requiring to save first
+
+### 0.5.1 (2022-02-26)
+* (foxriver76) changed type in io-package to `utility`
+* (foxriver76) updated deps
+* (foxriver76) added `dataSource` to io-package
+
 ### 0.5.0 (2022-01-01)
 * (foxriver76) we introduced `TestRequirements` which can define required memory, controller and node version
 

@@ -179,6 +179,13 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * only a few color temperatures are accepted (mapped already be the API to valid ones)
 * only the predefined colors are valid combinations (getcolordefaults)
 
+## Write only on changes to the objects
+This is a new feature to write only the changes to the objects. It reduces the logging and might be useful.
+If it is activated, a different feedback must be present to the actual state. Introducing a hysteresis makes not really practicable:
+- if temperatures have a change, it is a change and the 0.5° step does not need a threshold
+- values which are increasing over time would need an absolut threshold and not in %
+- values scaled to 100 are transmitted in steps of 1, so a threshold of 1% is capturing the same steps
+otherwise it is more complex and individually to be parametrized.
 
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
@@ -188,6 +195,10 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 * blind alert state -> decode bit array
 
 ## Changelog
+### 2.3.0
+* option to set for logging only when a difference to the old value is detected
+* fritzdect-aha-nodejs as dependency
+
 ### 2.2.6
 * new objects for thermostat adaptiveHeatingRunning, adaptiveHeatingActive
 

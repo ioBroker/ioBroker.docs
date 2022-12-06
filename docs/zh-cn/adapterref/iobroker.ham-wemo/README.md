@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ham-wemo/README.md
-title: 基于 homebridge-platform-wemo 的 ioBroker Wemo 适配器
-hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
+title: 基于 homebridge-wemo 的 ioBroker WeMo 适配器
+hash: S57zzN5/mm2zVflGNqrmV1zTx0+yL2BjGR1JD8o5DUk=
 ---
 ![标识](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
@@ -11,15 +11,15 @@ hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
-# 基于 homebridge-platform-wemo 的 ioBroker Wemo 适配器
-![测试和发布](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# 基于 homebridge-wemo 的 ioBroker WeMo 适配器
+![测试和发布](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 =================
 
 ＃＃ 描述
-该适配器基于 homebridge-platform-wemo 插件。
+此适配器基于 homebridge-wemo 插件。
 
-在这里阅读更多关于它的信息 https://www.npmjs.com/package/homebridge-platform-wemo
+在这里阅读更多相关信息 https://www.npmjs.com/package/homebridge-wemo
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

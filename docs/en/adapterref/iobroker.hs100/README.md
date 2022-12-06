@@ -47,13 +47,14 @@ bulb LBxxx
 
 
 ## Changelog
+### 2.1.3 (2022-11-20)
+* (arteck) crash fix
+
 ### 2.1.2 (2022-02-07)
 * (arteck) ledState
-*
 
 ### 2.1.1 (2022-02-07)
 * (arteck) js-controller 4
-*
 
 ### 2.1.0 (2022-02-07)
 * (arteck) js-controller 4

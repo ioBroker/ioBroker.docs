@@ -57,6 +57,9 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ## Changelog
 
+### 3.1.5 (in progress)
+* (René) update dependencies
+
 ### 3.1.4 (2022-08-19)
 * (René) update dependencies
 * (dipts) Added missing / corrected inappropriate icons for galeria 1

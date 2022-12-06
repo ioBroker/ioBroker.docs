@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: VmfYceI3tFL2ZaSlWXVhBiFFSN/IIsAiy6z2xNBwESU=
+hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -39,7 +39,7 @@ Im Erfolgsfall einfach das Fenster schließen und die Adapterkonfiguration neu l
 
 Standardmäßig wird für die Anfragen ein allgemeiner API-Schlüssel verwendet, der das Aktualisierungsintervall auf 10 Minuten begrenzt!
 
-Um das Intervall zu verlängern oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
+Um das Intervall zu erhöhen oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
 Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an und füllen Sie das angeforderte Formular auf https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% aus. 2Fapps%2Ferstelle eine App !
 
 Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
@@ -66,16 +66,19 @@ Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu marki
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte „Objekte“ aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner „Bekannte“ Personen
+Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte "Objekte" aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner "Bekannte" Personen
 
 ### SetHome
 Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ beschrieben auch für „setHome“ vorhanden, um Personen oder ganze Wohnungen als „belegt“ zu setzen.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.1.2 (2022-11-17)
+* (bluefox) Added missing objects for `Welcome` devices
+
 ### 2.1.1 (2022-09-30)
 * (Apollon77) Make sure device types that require custom credentials are not selectable in UI without entering them
 * (Apollon77) Fix a potential crash case

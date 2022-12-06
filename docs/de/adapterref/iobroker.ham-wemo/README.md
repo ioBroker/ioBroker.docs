@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ham-wemo/README.md
-title: ioBroker Wemo-Adapter basierend auf Homebridge-Plattform-Wemo
-hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
+title: ioBroker Wemo-Adapter basierend auf Homebridge-Wemo
+hash: S57zzN5/mm2zVflGNqrmV1zTx0+yL2BjGR1JD8o5DUk=
 ---
 ![Logo](../../../en/adapterref/iobroker.ham-wemo/admin/ham-wemo.png)
 
@@ -11,15 +11,15 @@ hash: q68RoTTz2gDNSqlJqcihIeSUrSgCgZkIYk9D4HeiXdM=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ham-wemo.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.ham-wemo.svg)
 
-# IoBroker Wemo-Adapter basierend auf Homebridge-Plattform-Wemo
+# IoBroker Wemo-Adapter basierend auf Homebridge-Wemo
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.ham-wemo/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ham-wemo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 =================
 
 ## Beschreibung
-Dieser Adapter basiert auf dem Homebridge-Platform-Wemo-Plugin.
+Dieser Adapter basiert auf dem Homebridge-Wemo-Plugin.
 
-Lesen Sie hier mehr darüber https://www.npmjs.com/package/homebridge-platform-wemo
+Lesen Sie hier mehr darüber https://www.npmjs.com/package/homebridge-wemo
 
 ## Changelog
 ### 3.0.2 (2022-09-15)

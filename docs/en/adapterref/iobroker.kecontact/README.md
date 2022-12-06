@@ -65,6 +65,11 @@ To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can 
 * minimum duration of charging session (even if surplus is no longer sufficient, a charging session will last at least this time - suggested 300 sec)
 * time to continue charging session each time surplus is no longer sufficient (to bridge the time on cloudy days)
 
+### 1p/3p charging
+
+If you have an installation contactor to (dis)connect phase 2 and 3 of your charging station and this switch can be triggered by a state then this adapter is able to start charging with one phase and switch to 3 phases charging if your surplus is sufficient for it.
+In this case please enter the state for your installation contactor and whetherit is a NO (normally open) or NC (normally close)
+
 ### power limitation
 
 You can also limit max. power of your wallbox to limit main power. E.g. when running night-storage heaters you might have to respect a maximum power limitation.
@@ -91,6 +96,12 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script
 

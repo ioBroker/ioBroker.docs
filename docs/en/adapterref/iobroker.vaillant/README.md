@@ -13,14 +13,14 @@
 
 ## vaillant adapter for ioBroker
 
-Vaillant multiMatic VR900/VR920 Adapter
+Vaillant multiMatic und myVaillant Adapter
 
 ### Getting started
-In den Instanzoptionen mail und password der multimatic /senso  app eingeben.
+In den Instanzoptionen mail und password der multimatic /senso oder myVaillant app eingeben.
 
 Configuration können geändert werde in dem sie unter dem Unterpunkt configuration angepasst werden. Manche configuration werden erst angewendet wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
 
-## **Beispiel:**
+## **Beispiel Mutlimatic:**
 **Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint
 **Heizung**:
 Erst auf MANUAL
@@ -31,6 +31,16 @@ vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_te
 Und am Ende operation_mode auf TIME_CONTROLLED
 
 Parameter können über den Punkt parameterValue angepasst werden dabei beachten welche Werte im Objekt definition erlaubt sind.
+
+## **Beispiel myVaillant:**
+
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren
+vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen
+vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature
+vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+
+
 
 ## Changelog
 ### 0.0.15

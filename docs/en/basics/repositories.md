@@ -1,10 +1,10 @@
 ---
 title: What is a repository?
-lastChanged: 13.10.2022
+lastChanged: 23.11.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/repositories.md
-hash: yDArL/+U8eSwR8c0eD/00/VFVFgjGapEZFWn/L7np9U=
+hash: oJPZN8wqKxzb10+8ew/iEJYEGY3P8rO/9VK6WmCvORU=
 ---
 A repository is a central repository for software programs.
 
@@ -13,19 +13,23 @@ By default, ioBroker is configured after installation so that the "stable" repos
 
 There are two repositories available in ioBroker:
 
-- **stable**: In this repository, the adapters are available in the version that has already been tested and can therefore be used on a production system
+- **stable**: In this repository, the adapters are available in the version that has already been tested and can therefore be used on a productive system
 - **beta**: The adapter versions are available in this repository, which are currently in the test phase (!) and may still contain several errors. The beta repository used to be called latest, since the purpose of the name was not really clear, it was renamed from latest to beta.
 
 ?> Basically, the stable repository should ***ALWAYS*** be used for a productive installation of ioBroker. The beta repository contains versions that still contain errors and may affect the entire system.
 
 ## Repository selection
-Open the basic settings in the system settings using the open-end wrench:
+Open the basic settings in the system settings via the wrench:
 
 ![](../../de/basics/media/Repository_IconBasicSettings.png)
 
-The desired repository can be selected in the Repositories tab:
-
 ![](../../de/basics/media/Repository_BasicsSettingsDefaultPath.png)
+
+(1) In the Repositories tab, the desired repository can be selected by activating the corresponding checkbox in the "Active" column.
+
+(2) The button resets the paths to the standard repositories stable and beta to the standard paths. Attention: This button also deletes the manually added repositories
+
+(3) The checkbox in the "Stable" column is automatically activated if the repository was recognized as a "stable" repository after the first import
 
 The default paths of the stable and beta repositories are:
 
@@ -48,6 +52,8 @@ Since Admin 5, this is much more convenient WITHOUT having to change the reposit
 This way one can install the latest beta version without having to switch their repository.
 
 ![](../../de/basics/media/Repository_AdapterInstallNpm.png)
+
+Important note: Only install an adapter from Github if you are explicitly asked to do so by the developer (e.g. as part of alpha tests, bug fixing, etc.). Adapter versions that are installed directly from Github are under development and may not be functional in the meantime.
 
 ## How does an adapter get into the beta or stable repository?
 Long before an adapter is ready to be installed in ioBroker via the admin interface, a developer submits a request for inclusion in the repository. When that happens, experienced developers look at the new adapter source code and give the requesting developer feedback on the items that need to be processed before the new adapter can be included in the repository.

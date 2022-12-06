@@ -72,6 +72,10 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `useNative` option to `sendTo` JSON Config component
+* (bluefox) Added `checkLicense` and `uuid` components to JSON Config
+
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Corrected deletion of objects

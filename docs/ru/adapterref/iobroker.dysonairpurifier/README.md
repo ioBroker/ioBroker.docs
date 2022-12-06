@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: ioBroker.dysonAirPurifier
-hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
+hash: Z1jQJJQKSzh2PWYr694ad8InJo4T30GaFy1rmaPIEk4=
 ---
 # IoBroker.dysonAirPurifier
 ![Логотип](admin/dyson_logo.svg)![Логотип](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
@@ -26,24 +26,27 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 
 ### Поддерживаемые устройства
 * Dyson Pure Cool Link Tower (TP02, ProductType 475)
-* Dyson Pure Cool Tower, модель 2018 г. (TP04, ProductType 438)
+* Dyson Pure Cool Tower, модель 2018 г. (TP04, тип продукта 438)
 * Формальдегид Dyson Pure Cool Tower, модель 2018 г. (TP07, тип продукта 438E)
+* Формальдегид Dyson Pure Cool Tower, модель 2018 г. (TP07, ProductType 438K)
 * Dyson Pure Cool Link Desk (DP01, ProductType 469)
 * Dyson Pure Cool Desk, модель 2018 г. (DP04, ProductType 520)
 * Dyson Pure Hot+Cool Link (HP02, ProductType 455)
 * Dyson Pure Hot+Cool Link New (Тип продукта 455A)
 * Dyson Pure Hot+Cool, модель 2018 г. (HP04, тип продукта 527)
 * Dyson Pure Hot+Cool (HP07, тип продукта 527E)
+* Dyson Pure Hot+Cool (HP07, тип продукта 527K)
 * Dyson Pure Humidify+Cool (PH01, тип продукта 358)
 * Dyson Pure Humidify+Cool (PH03, тип продукта 358E)
+* Dyson Pure Humidify + охлаждающий формальдегид (PH04, тип продукта 358K)
 
 ## Функции
 Подключает ваши вентиляторы, тепловентиляторы, очистители и увлажнители воздуха Dyson к ioBroker.
 
 * Считывает значения с устройств и датчиков
-* Может управлять устройствами, давая вам возможность изменять некоторые значения (основная мощность, колебания, нагрев, скорость вентилятора, ...)
+* Может управлять устройствами, давая вам возможность изменять некоторые значения (основная мощность, колебание, нагрев, скорость вентилятора, ...)
 * Читает список устройств с серверов Dyson
-* Обрабатывает *неограниченное* количество поклонников (на самом деле ресурсы вашего хоста ioBroker ограничивают это количество).
+* Обрабатывает *неограниченное* количество фанатов (на самом деле ресурсы вашего хоста ioBroker ограничивают это количество).
 
 ## Как это работает
 При запуске облако Dyson запрашивает все известные устройства, привязанные к вашей учетной записи, и их пароли MQTT. Имея этот список на руках, адаптер локально подключается ко всем устройствам и взаимодействует с ними.
@@ -55,7 +58,7 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 * Вся связь между устройствами и адаптером происходит только локально.
 * Вся информация о подключении в адаптере сбрасывается и создается заново во время перезапуска.
 
-## Установка
+## Монтаж
 ### Предпосылки
 * Для этого адаптера требуется Node.js >= версии 10
 * Требуется как минимум js-Controller 3.0.0
@@ -129,8 +132,8 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 * Угол колебания , Угол колебания
 * ContinuousMonitoring, непрерывный мониторинг датчиков окружающей среды, даже если устройство выключено.
 * MainPower , Основная мощность вентилятора.
-* AutomaticMode , Вентилятор находится в автоматическом режиме.
-* Flowdirection , Направление, куда дует вентилятор. ВКЛ = спереди; OFF=Назад (он же Jet focus)
+* AutomaticMode , Вентилятор работает в автоматическом режиме.
+* Flowdirection , Направление, куда дует вентилятор. ВКЛ=спереди; ВЫКЛ=Назад (он же Jet focus)
 * Jetfocus, Направление куда дует вентилятор. ВКЛ=спереди; ВЫКЛ=Назад (он же Jet focus)
 * Режим обогрева, режим обогрева [ВКЛ/ВЫКЛ]
 * HeatingTargetTemp , Целевая температура для нагрева
@@ -144,7 +147,7 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 
 Насколько известно, возможные значения для этих состояний задокументированы ниже.
 Скорость вентилятора допускает только значения от 1 до 10 и Авто. Если вы хотите установить скорость вращения вентилятора на 0, вам нужно отключить основное питание.
-Что и делает приложение Dyson.
+Это то, что делает приложение Dyson.
 
 ### Папка SystemStates (начиная с версии 2.4.0)
 Устройства способны сообщать о сбоях. Эта функция была добавлена в версии адаптера 2.4.0.
@@ -154,15 +157,16 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 
 ### Известные вопросы
 * Нет автоматического определения IP устройств
-* Иногда адаптер теряет соединение MQTT с вентилятором и не может восстановить соединение.
-  * В моем случае достаточно отключить вентилятор примерно на 10 секунд, чтобы перезагрузить его и снова включить. Попробуйте.
-  * В других случаях это была проблема IP. Сброс DHCP-сервера (маршрутизатора) решил проблему.
+* По-прежнему много сообщений о неизвестных устройствах (в основном об ошибках и предупреждениях)
+* Иногда адаптер теряет соединение MQTT с вентилятором и не может восстановить соединение. «Обычно это не проблема самого адаптера, а проблема в вашей локальной сети!»
+  * В некоторых случаях достаточно отключить вентилятор примерно на 10 секунд, чтобы перезагрузить его и снова включить. Просто попробуйте!
+  * В других случаях это была проблема IP/DNS. Сброс DHCP/DNS-сервера (маршрутизатора) решил проблему.
 
 ## Объяснение данных API Dyson (полезная нагрузка сообщения)
 Информация скопирована и расширена с <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>.
 
 ### ТЕКУЩЕЕ СОСТОЯНИЕ
-| имя | значение | возможные значения | Единица |
+| имя | смысл | возможные значения | Единица |
 |--------------|------------------------------------------------------------|----------------------|------|
 | режим-причина | Текущий режим был установлен с помощью RemoteControl, App, Scheduler | КНР, ЛАПП, ЛЩ, ПУИ | |
 | состояние-причина | | РЕЖИМ | |
@@ -176,7 +180,7 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 |------|-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | эркд | Код последней ошибки | NONE или некоторые шестнадцатеричные значения | |
 | фильм | оставшийся срок службы фильтра | 0000 - 4300 | часы |
-| фмод | режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
+| фмод | Режим | ВЕНТИЛЯТОР, АВТО, ВЫКЛ | |
 | фпвр | Главная мощность | ВКЛ, ВЫКЛ | |
 | фнст | Статус вентилятора | ВКЛ, ВЫКЛ, ВЕНТИЛЯТОР | |
 | фнсп | Скорость вентилятора | 0001 - 0010, АВТО | |
@@ -191,11 +195,11 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 | катар | Цель качества воздуха | 0001=Хорошо, 0002=Нормально, 0003=Плохо, 0004=Очень плохо | |
 | ритм | Непрерывный мониторинг | ВКЛ, ВЫКЛ | |
 | авто | Автоматический режим | ВКЛ, ВЫКЛ | |
-| нмдв | Макс. скорость вращения в ночном режиме? | 0004 | |
-| cflr | Статус Угольный фильтр | 0000 - 0100 | Процент |
+| нмдв | Максимальная скорость вращения вентилятора в ночном режиме? | 0004 | |
+| cflr | Статус Угольный фильтр | 0000 - 0100 | процент |
 | cflt | Угольный фильтр | КАРФ, НЕТ | |
-| hflr | Статус HEPA-фильтр | 0000 - 0100 | Процент |
-| hflt | HEPA-фильтр | ГХЭП, ГКОМ | |
+| hflr | Статус HEPA-фильтр | 0000 - 0100 | процент |
+| hflt | НЕРА-фильтр | ГХЭП, ГКОМ | |
 | слтм | Таймер сна | ВКЛ, ВЫКЛ || |
 | мод | Режим нагревателя [ВКЛ/ВЫКЛ] | ТЕПЛО | |
 | hмакс | Целевая температура для обогрева | 0 .. 5000 | К |
@@ -203,7 +207,7 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 | верхний | Автоматический режим увлажнения | HUMIDIFY_AUTO_MODE_ON, HUMIDIFY_AUTO_MODE_OFF | |
 | мычать | Цель увлажнения | HUMIDIFICATION_MODE_OFF, HUMIDIFICATION_MODE_THIRTY, HUMIDIFICATION_MODE_FORTY, HUMIDIFICATION_MODE_FIFTY, HUMIDIFICATION_MODE_SIXTY, HUMIDIFICATION_MODE_SEVENTY | |
 | cdrr | CleanDurationRemaining | целое число | минуты |
-| прямоугольный | АвтоУвлажнениеЦель | целое число | % |
+| прямой | АвтоУвлажнениеЦель | целое число | % |
 | клтр | время, оставшееся до следующей очистки | целое число | часы |
 | ват | Жесткость воды | МЯГКАЯ = "2025", СРЕДНЯЯ = "1350", ЖЕСТКАЯ = "0675" | |
 | wacd | Код предупреждения | НЕТ... | |
@@ -212,7 +216,7 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 | клкр | Цикл глубокой очистки | CLNO=неактивно, CLAC=Выполняется глубокая очистка, CLCM=Завершено | |
 | хста | Состояние отопления | АКТИВНО/ПРОСТОЕ | |
 | мста | Состояние увлажнения | Активный/холостой ход ВЫКЛ., HUMD | |
-| пста | [HP0x] Неизвестно | INIT, CLNG, INV, OFF | |
+| пста | [HP0x] Неизвестно | ИНИЦИАЦИЯ, CLNG, INV, OFF | |
 | брил | неизвестно | 0002 | УРОВЕНЬ_НИЗКИЙ, УРОВЕНЬ_СРЕДНИЙ, УРОВЕНЬ_ВЫСОКИЙ |
 | фкхп | неизвестно | | |
 | наклон | [HP0x] Неизвестно | строка | |
@@ -235,8 +239,8 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 #### Данные
 | имя | смысл | возможные значения | Единица |
 |------|----------------------------|-----------------|---------|
-| воздействовать | Влажность (%) | 0000 - 0100 | Процент |
-| договор | Пыль | 0000 - 0009 | |
+| воздействовать | Влажность (%) | 0000 - 0100 | процент |
+| пакт | Пыль | 0000 - 0009 | |
 | слтм | Таймер сна | ВЫКЛ... 9999 | Минуты |
 | такт | Температура в Кельвинах | 0000 - 5000 | К |
 | вакуум | летучие органические соединения | 0001 - 0009 | |
@@ -274,11 +278,38 @@ hash: TbkOmVklXgCQ/fsAX5z1oU+XngUtTNQiCwo/aUT/ujk=
 Dyson, pure cool, pure hot & cool и другие являются товарными знаками или зарегистрированными товарными знаками [Дайсон Лтд.](https://www.dyson.com) Все прочие товарные знаки являются собственностью соответствующих владельцев.
 
 ## Changelog
+### **WORK IN PROGRESS**
 
-### V2.4.1 (2022-03-20) (Echo from the past)
+### 2.5.7 (2022-12-06) (Halo of the dark)
+* (grizzelbee) New: Added support for Dyson Pure Humidify+Cool Formaldehyde (PH04, ProductType 358K)
+* (grizzelbee) Upd: Upgraded axios to 1.2.1
+
+* ### 2.5.6 (2022-11-28) (Halo of the dark)
+* (grizzelbee) Fix: [#213](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/213) Fixed warning due to wrong data type on field FILTER_REPLACEMENT
+
+### 2.5.4 (2022-11-27) (Halo of the dark)
+* (grizzelbee) Upd: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) Downgraded axios to 0.27.2 due to an error in version 1.x returning data as binary instead of string.
+
+### 2.5.3 (2022-11-26) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: [#207](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/207) better and easier detection of supported devices
+
+### 2.5.2 (2022-11-17) (Halo of the dark)
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Chg: Moved log message "requesting new state of device" from info to debug
+* (grizzelbee) New: Added Dyson Pure Hot+Cool Formaldehyde (Type 527K) to device list. 
+* (grizzelbee) New: Added Dyson Pure Cool Tower Formaldehyde (Type 438K) to device list. 
+
+### 2.5.1 (2022-03-23) (Halo of the dark)
+* (grizzelbee) Fix: Improved layout of config page and added tooltips to the checkboxes
+
+### 2.5.0 (2022-03-22) (Halo of the dark)
+* (grizzelbee) New: [#185](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/185) Added config option to disable logging of reconnect events
+
+### 2.4.1 (2022-03-20) (Echo from the past)
 * (grizzelbee) New: Changed SystemState from text to boolean data points
 
-### V2.4.0 (2022-03-17) (Echo from the past)
+### 2.4.0 (2022-03-17) (Echo from the past)
 * (grizzelbee) New: Added warning code to device tree
 * (grizzelbee) New: Added Device-faults as SystemState to device tree
 * (grizzelbee) New: Added donate button to readme and config page
@@ -286,39 +317,38 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (grizzelbee) Upd: reduced amount of debug messages
 * (grizzelbee) Upd: Updated dependencies
 
-
-### V2.3.2 (2022-03-04) (Fairytale of doom)
+### 2.3.2 (2022-03-04) (Fairytale of doom)
 * (grizzelbee) Fix: Fixed: Sentry-Error: [DYSONAIRPURIFIER-D](https://sentry.io/organizations/grizzelbee/issues/3021418514)
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.3.1 (2022-01-14) (Fairytale of doom)
+### 2.3.1 (2022-01-14) (Fairytale of doom)
 * (grizzelbee) Upd: Updated dependencies
 * (grizzelbee) Upd: Updated documentation
 
-### V2.3.0 (2021-12-02) (Fairytale of doom)
+### 2.3.0 (2021-12-02) (Fairytale of doom)
 * (grizzelbee) New: Added some GUI elements for air quality in folder icons
 * (grizzelbee) New: Added support for HEPA PTFE filters
 * (grizzelbee) New: Added support for Combined PTFE filters
 * (grizzelbee) Chg: Fanspeed is now a number (not string anymore) to work properly with IoT-Adapter. Please delete this data point and let get recreated. 
 
-### V2.2.0 (2021-11-07) (Welcome to my wasteland)
+### 2.2.0 (2021-11-07) (Welcome to my wasteland)
 * (grizzelbee) New: [#154](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/154) Added support for dyson Humidify+Cool PH03/358E.
 
-### V2.1.4 (2021-10-20) (Running to the edge)
+### 2.1.4 (2021-10-20) (Running to the edge)
 * (grizzelbee) New: [#152](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/152) Added token-indicator to config page in admin to show whether a token has already been received and saved or not.
 
-### V2.1.3 (2021-10-17) (Running to the edge)
+### 2.1.3 (2021-10-17) (Running to the edge)
 * (grizzelbee) Fix: [#148](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/148) Hostaddress is used properly when given.
 * (grizzelbee) Fix: [#149](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/149) OscillationAngle "Breeze" is working now 
 * (grizzelbee) Fix: [#150](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/150) Strange delay and jumping of boolean switches is fixed 
 
-### V2.1.2 (2021-10-07) (Running to the edge)
+### 2.1.2 (2021-10-07) (Running to the edge)
 * (grizzelbee) New: Removed NO2 from general AirQuality to be more compliant to dyson-app
 * (grizzelbee) Upd: Code cleanup
 * (grizzelbee) Upd: Removed delay between sending a command and new values getting displayed (max 30 Secs)
 
 
-### V2.1.1 (2021-10-05) (Running to the edge)
+### 2.1.1 (2021-10-05) (Running to the edge)
 * (grizzelbee) New: Added some more data points 
 * (grizzelbee) New: Added switch for temperature unit of the fan display
 * (grizzelbee) New: Improved logging of unknown data points
@@ -327,12 +357,12 @@ Dyson, pure cool, pure hot & cool и другие являются товарн�
 * (grizzelbee) Fix: added missing dependency plugin-sentry
 * (grizzelbee) Fix: Setting HumidificationTarget now works
 
-### V2.0.1 (2021-10-04) (Lost in forever)
+### 2.0.1 (2021-10-04) (Lost in forever)
 * (grizzelbee) Fix: Turning on HeatingMode should work now
 * (grizzelbee) Fix: Sentry-error [DYSONAIRPURIFIER-7](https://sentry.io/organizations/nocompany-6j/issues/2690134161/?project=5735771) -> Cannot read property '3' of undefined
 * (grizzelbee) Upd: Updated dependencies
 
-### V2.0.0 (2021-09-26) (Lost in forever)
+### 2.0.0 (2021-09-26) (Lost in forever)
 * (grizzelbee) New: Added DeepCleanCycle to known data points
 * (grizzelbee) Fix: Switching water hardness now really works
 * (grizzelbee) BREAKING CHANGES: Please recreate your object tree and test your scripts!

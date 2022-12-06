@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
+hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 ---
 ![标识](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -16,13 +16,13 @@ hash: 0kSUk1AwFLjYiJ5fu21KeFSNHGhhugn9Kn1gFVTLPV4=
 
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-ioBroker adapter 可以连接到几个小而便宜的 Wifi 设备，这些设备关心连接到 Tuya Cloud 并且主要使用 Smartlife App / Alexa-Skill。一旦与相应的手机应用程序同步，适配器就支持读取实时状态更新和控制这些设备。
+ioBroker 适配器连接到几个连接到涂鸦云且主要使用 Smartlife App/Alexa-Skill 的小型廉价 Wifi 设备。一旦与相应的手机应用程序同步，适配器就支持读取实时状态更新和控制这些设备。
 
 涂鸦设备是来自深圳Xenon的ESP8266MOD WiFi智能设备。
 
-除了可与 Smart Live App 一起使用的设备外，还应该可以使用 Jinvoo Smart App、Xenon Smart app、eFamilyCloud、io.e（Luminea 等）应用程序。如果成功请反馈。 <img src="https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **适配器仅适用于 Tuya 和兼容的应用程序，只要它们的版本 &lt;3.14 (!!)**
+除了可以使用智能直播应用程序或涂鸦应用程序的设备。
 
-适配器在本地连接到“始终在 wifi 中”的所有设备。仅在发生事件时才上线、发送数据并再次下线的设备（主要是**电池供电设备**）仅支持使用 Tuya IoT Platform MQTT 连接。
+适配器在本地连接到“始终在 wifi 中”的所有设备。仅在发生事件时才上线、发送数据并再次下线的设备（主要是**电池供电设备**）仅支持使用涂鸦物联网平台 MQTT 连接（见下文）。
 
 一个适配器实例可以在本地发现并连接到路由 UDP 包的网络中的所有设备！对于 Docker 环境，这需要额外的操作，并且可能需要 Macvlan 或类似的操作！
 
@@ -83,6 +83,26 @@ ioBroker adapter 可以连接到几个小而便宜的 Wifi 设备，这些设备
 
 某些移动操作系统的一些图像可以在 [代理页面](PROXY.md) 找到。
 
+## 不提供最新数据的设备
+我们发现一些设备——很可能是具有电源/电流状态的设备——可能会产生这样的效果，即当移动应用程序连接到它们时，它们只会显示最新值。当应用程序关闭时，它们会保留旧值。
+
+在大多数情况下，这些设备目前只能通过“轮询间隔”工作。他们不会自己提供最新的价值。您可以尝试使用 Tuya 的物联网平台并启用 MQTT 选项来解决这个问题。
+
+其中一些设备在使用轮询时也不会提供最新值。如果您有这样的设备，则可能需要对设备进行不同的轮询。这可以手动配置。请执行以下操作：
+
+* 停止涂鸦实例
+* 在“对象”选项卡上使用管理并找到受影响设备的类型为“设备”的对象。在 Admin Objects 视图的这一行中，单击铅笔图标。
+* 在对象的 JSON 视图中，您会看到“本机”部分。在本机部分中添加一个新的 json 键：
+
+```json
+"native": {
+    "useRefreshToGet": true,
+    ...
+}
+```
+
+* 保存对象并重新启动适配器并检查值是否现在已更新。
+
 ## 红外网关功能
 对象树中有不同类型的红外设备
 
@@ -93,7 +113,7 @@ ioBroker adapter 可以连接到几个小而便宜的 Wifi 设备，这些设备
 
 “ir-send”状态可用于将 base64 编码的 IR 代码发送到设备。这可用于从“ir-learn”状态发送学习代码。
 
-**这种控制方式仅适用于“主要红外设备”，并且仅在本地连接（无云连接）（现在）时有效。**
+**这种控制方式仅适用于“主红外设备”。**
 
 ### 红外子设备
 IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码的按钮。 ir 状态应与移动应用程序中按钮的布局相匹配。
@@ -101,12 +121,14 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 某些设备具有组合状态，如“M0_T20_S3”（由 Daikin 空调发现），表示模式 0、温度 20 和（风扇）-速度 3。实际上，您需要选择正确的按钮。直到现在我们还没有找到一种通用/自动的方法来找出哪个按钮是哪个。
 移动应用程序本身也会尝试记住这些设置，因此一旦您使用适配器（或设备的真实红外控制器）触发任何操作，来自应用程序的信息就会过时。
 
-**这种控制方式仅在输入应用程序云凭据时有效。这些命令现在也将通过云发送出去。**
-
 ## 场景功能
 当输入并存储应用程序云凭据时，适配器还会从应用程序中读取场景并将它们创建为适配器中的对象。可以通过将场景状态设置为 true 来触发场景。
 
 然后将触发发送到云端。
+
+## 分组功能
+适配器还读出定义的组并在适配器中创建相应的状态。组值也从云中轮询并在适配器中更新。
+当控制组时，这也是通过云完成的，否则组状态将不同步。
 
 ##学分
 如果没有@codetheweb、@kueblc 和@NorthernMan54 (https://github.com/codetheweb/tuyapi) 和 https://github.com/clach04/python-tuya 的出色工作，适配器的工作是不可能的, https://github.com/uzlonewolf/tinytuya 等等。
@@ -126,6 +148,30 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 将参考生成的 GitHub 问题的日志发送至 iobroker@fischer-ka.de
 
 ## Changelog
+### 3.10.2 (2022-12-05)
+* (Apollon77) Optimize IR - now works locally and via cloud in all cases
+
+### 3.10.1 (2022-12-05)
+* (Apollon77) Make info.ip writable to allow manual setting of IP address
+
+### 3.10.0 (2022-12-05)
+* (Apollon77) Added support for groups
+* (Apollon77) Add support for a second type of IR blaster
+* (Apollon77) Added cloud session refresh while adapter is running
+* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
+* (Apollon77) Base64 encoded raw values are now decoded again when the decoded value is readable ascii
+* (Apollon77) Allow to flag devices manually that need "refresh instead of get" to get current data - use "useRefreshToGet: true" in device object native section
+* (Apollon77) More schema information added/updated
+
+### 3.9.4 (2022-11-19)
+* (Apollon77) More schema information added/updated
+
+### 3.9.3 (2022-11-17)
+* (Apollon77) Optimize Tuya protocol 3.4 discovery
+* (Apollon77) Prevent restart schedules that are too short when cloud is used
+* (Apollon77) Fix crash cases reported by Sentry
+* (Apollon77) More schema information added/updated
+
 ### 3.9.2 (2022-11-16)
 * (Apollon77) Optimize discovery and device connection checks
 * (Apollon77) IPs of unconnected devices can be set via the ip state now
@@ -136,7 +182,6 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 * (TA2k/Apollon77) Add basic support for IR devices (Gateway and Sub Devices)
 * (Apollon77) Convert special colour/colour_data values to an additional rgb state
 * (Apollon77) Allow to define that devices do not connect locally (this prevents error logs, and they work via cloud if data are provided)
-* (Apollon77) Add custom handling for bright_value fields with missing scale factor (10..1000 will be now 1..100);
 * (Apollon77) Add support for more cloud MQTT notifications
 * (Apollon77) More schema information added/updated
 

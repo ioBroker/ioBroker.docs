@@ -168,6 +168,10 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `useNative` option to `sendTo` JSON Config component
+* (bluefox) Added `checkLicense` and `uuid` components to JSON Config
+
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Corrected deletion of objects

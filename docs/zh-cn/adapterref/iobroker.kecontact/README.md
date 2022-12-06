@@ -2,23 +2,23 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
-title: ioBroker.kecontact
-hash: 8fSryNmu9TnYD++wZWeRf06698MYraMlqG0ynWcexyQ=
+title: ioBroker.kecontact 文件
+hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ---
-![商标](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
+![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
 ![安装数量（最新）](https://iobroker.live/badges/kecontact-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/kecontact-stable.svg)
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)
-![新PM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
-# IoBroker.kecontact
+#ioBroker.kecontact
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# 用于 KEBA KeContact P20 或 P30 和 BMW i 墙盒的 ioBroker 适配器
-控制您的充电站并使用自动调节，例如使用其 UDP 协议通过光伏盈余和电池存储为您的车辆充电。
+# 适用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
+控制您的充电站并使用自动调节，例如使用其 UDP 协议通过光伏剩余和电池存储为您的车辆充电。
 
 ＃＃ 安装
 通过 ioBroker Admin 安装此适配器：
@@ -34,171 +34,96 @@ hash: 8fSryNmu9TnYD++wZWeRf06698MYraMlqG0ynWcexyQ=
 这是您的 KEBA KeContact 或 BMW i wallbox 的 IP 地址。
 
 ### 固件检查
-每天一次，适配器将检查 KEBA 网站上是否有更新的固件可用。此信息将作为警告打印到日志中。
+一天一次，适配器将检查 KEBA 网站上是否有更新的固件可用。此信息将被打印以记录为警告。
 
 ### 被动模式
-如果您想自己控制墙盒并且您不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关 PV 自动和功率限制的后续选项都将被忽略。
+如果您想要自己控制您的墙盒并且您不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，将忽略有关 PV 自动装置和功率限制的所有后续选项。
 
 ### 后续墙盒
-如果这是您环境中的后续墙盒，请激活此选项。目前只能主动管理一个wallbox。所有其他（单独的实例）必须选中此选项，因为只有一个实例可以接收广播消息。此墙盒/实例将以被动模式运行。
+如果这是您环境中的后续墙盒，请激活此选项。目前只能主动管理一个wallbox。所有其他（单独的实例）必须选中此选项，因为只有一个实例可以接收广播消息。此 wallbox/实例将以被动模式运行。
 
 ### 加载充电会话
-您可以选中此选项以定期从壁挂式盒下载最新的充电会话 (30)。
-v1.1.1 及以下版本的用户请注意：您必须选中此选项才能继续接收收费会话！
+您可以选中此选项以定期从您的壁装盒下载最新的充电会话 (30)。
+v1.1.1及以下版本的用户注意：您必须选中此选项才能继续接收充电会话！
 
 ＃＃＃ 刷新间隔
 这是以秒为单位的间隔，应该多久查询一次墙盒以获取新的充电值。
 
-默认值为 10 分钟，这是 KeConnect 负载与 ioBroker 中的最新信息之间的良好平衡。
+默认值为 10 分钟，这是 KeConnect 的负载和 ioBroker 中的最新信息之间的良好平衡。
 
-### PV 自动装置
-要根据盈余（例如通过光伏）为您的车辆充电，您还可以定义表示盈余和考虑主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
+### 光伏自动化
+要根据盈余（例如通过光伏）为您的车辆充电，您还可以定义代表盈余和考虑主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
 
-*电池存储当前电量的状态，因此光伏自动装置将额外使用它为您的车辆充电
-* 如果您想使用充电站的 X1 输入来控制是全功率充电还是光伏自动充电，请切换 X1 选项
-* 与默认 6 A 不同的最小安培数（仅适用于例如 Renault Zoe）
-* 可用于开始充电的相关功率值（这意味着即使没有足够的剩余电量也将开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
-* 安培数增量（建议 500 mA）
-* 可临时用于维持充电会话的关注值（这意味着即使不再有足够的剩余电量，充电也会在稍后停止 - 将添加起始关注 - 建议 500 W）
+* 电池存储的当前功率状态，因此光伏自动装置将额外使用它为您的车辆充电
+* 如果您想使用充电站的 X1 输入来控制是满功率充电还是光伏自动充电，请切换 X1 选项
+* 与默认 6 A 不同的最小安培数（仅雷诺 Zoe 等需要）
+* 可用于开始充电的考虑功率值（这意味着即使没有足够的剩余可用也将开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
+* 安培数的增量（建议 500 mA）
+* 可以暂时用于维持充电会话的关注值（这意味着即使不再有足够的剩余，充电也会稍后停止 - 将添加开始关注 - 建议 500 W）
 * 充电会话的最短持续时间（即使剩余不再足够，充电会话将至少持续这次 - 建议 300 秒）
-* 每次剩余电量不足时继续充电的时间（以弥补阴天的时间）
+*每次剩余的时间不再足够时继续充电会话（以弥补阴天的时间）
+
+### 1p/3p充电
+如果您有一个安装接触器来（断开）连接充电站的第 2 相和第 3 相，并且此开关可以由状态触发，则此适配器能够开始单相充电，如果您的剩余足够，则切换到 3 相充电为了它。
+在这种情况下，请输入您安装的接触器的状态，是 NO（常开）还是 NC（常闭）
 
 ### 功率限制
-您还可以限制最大值。墙盒的电源以限制主电源。例如。在运行夜间储存加热器时，您可能必须遵守最大功率限制。
-如果您输入一个值，您的墙盒将不断受到限制，不会超过您的功率限制。
-最多可以指定三种状态的电能表进行限制。将添加所有值以计算电流消耗。
-一个额外的复选框用于指定是否包括墙盒电源（在这种情况下，墙盒电源将从状态值中减去）。
+您还可以限制最大值。限制主电源的墙盒电源。例如。在运行夜间储藏式取暖器时，您可能必须遵守最大功率限制。
+如果您输入一个值，您的 wallbox 将被连续限制以不超过您的功率限制。
+最多可以指定三种状态的电表进行限制。将添加所有值以计算电流消耗。
+一个额外的复选框用于指定是否包括墙盒功率（在这种情况下，将从状态值中减去墙盒功率）。
 
 ### 动态选项
-此外，还有一些状态会在运行中自动影响光伏的行为，例如通过您自己的脚本根据您的需要更新这些值）
+此外，还有一些状态会影响运行中自动光伏的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.0.automatic.photovoltaics - 自动激活光伏（真）或设置为假时以最大功率为车辆充电
-* kecontact.0.automatic.calcPhases - 定义用于充电计算的当前相数。这对于 Keba Deutschland 版本是必需的，可用于所有充电站的初始充电会话
+* kecontact.0.automatic.photovoltaics - 主动光伏自动（真）或设置为假时将以最大功率为车辆充电
+* kecontact.0.automatic.calcPhases - 定义用于充电计算的当前相数。这是 Keba 德国版所必需的，可用于所有充电站的初始充电会话
 * kecontact.0.automatic.addPower - 定义允许为您的车辆充电的瓦数（与选项相同）
-* kecontact.0.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
+* kecontact.0.automatic.pauseWallbox - 只要设置为 true 就会立即停止每个充电会话
 * kecontact.0.automatic.limitCurrent - 将您的充电限制在以 mA 为单位的指定安培数（0 = 无限制）
 
-示例：要以 6A 的恒定安培数为您的车辆充电，而不管剩余电量如何，请将光伏设置为 false 并将 limitCurrent 设置为 6000。
+示例：要以 6A 的恒定安培数为您的车辆充电而不管剩余电流，将 photovoltaics 设置为 false 并将 limitCurrent 设置为 6000。
 
 ＃＃ 合法的
-该项目与 KEBA AG 公司没有直接或间接的关联。
+该项目不直接或间接隶属于 KEBA AG 公司。
 
 KeConnect 是 KEBA AG 的注册商标。
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+
+### 1.5.2 (2022-11-02)
+* (Sneak-L8) fix error in release script
+
+### 1.5.1 (2022-11-02)
+* (Sneak-L8) update release script to v3
+
+### 1.5.0 (2022-11-01)
+* (Sneak-L8) minor fixes from adapter check
+* (Sneak-L8) using Weblate for translations
+* (Sneak-L8) update power and amperage value immediately for better calculation
+* (Sneak-L8) fix description of authreq state
+* (Sneak-L8) handle message at wallbox startup
+* (Sneak-L8) catch error when UDP connection got lost (sentry IOBROKER-KECONTACT-1C)
+* (Sneak-L8) update url and regex to Keba firmware
+
+### 1.4.1 (2022-05-30)
+* (Sneak-L8) separate states for charging and discharging battery storage
+* (Sneak-L8) additional states to (de)authorize or unlock charging station and set date/time
+* (Sneak-L8) fix unsubscribing foreign states (sentry IOBROKER-KECONTACT-10)
+
 ### 1.4.0 (2022-03-31)
 * (Sneak-L8) support for battery storage in photovoltaics automatics
 * (Sneak-L8) add state selector in settings dialog
-
-### 1.3.4 (2022-01-30)
-* (Sneak-L8) fix invalid assignment to message (sentry IOBROKER-KECONTACT-S) 
-* (Sneak-L8) update charging timestamp more often to prevent toogling
-* (Sneak-L8) update more information even in passive mode
-
-### 1.3.3 (2021-12-11)
-* (Sneak-L8) fix error when message to display is empty (sentry IOBROKER-KECONTACT-Q) 
-* (Sneak-L8) new option whether power of wallbox is included in surplus/regard
-
-### 1.3.2 (2021-11-09)
-* (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba 
-
-### 1.3.1 (2021-11-01)
-* (Sneak-L8) fix wrong type of timeQ in charging reports
-
-### 1.3.0 (2021-08-16)
-* (Sneak-L8) new adapter base generated by adapter creator
-* (Sneak-L8) support multiple wallboxes
-
-### 1.2.3 (2021-08-14)
-* (Sneak-L8) fix wrong P20/P30 detection
-
-### 1.2.2 (2021-07-28)
-* (Sneak-L8) new: limit max. charging current dynamically
-* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
-* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
-* (Sneak-L8) optimized power calculation for Deutschland edition
-
-### 1.2.1 (2021-07-20)
-* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
-* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
-
-### 1.2.0 (2021-06-07)
-* (Sneak-L8) support for compact mode
-* (Sneak-L8) using sentry.io to track errors
-* (Sneak-L8) support for KeContact P30 Deutschland edition
-
-### 1.1.3 (2021-04-26)
-* (Sneak-L8) new time option to continue charging session with regard
-* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
-
-### 1.1.2 (2021-04-02)
-* (Sneak-L8) default state of photovoltaics automatic set to true for new users
-* (Sneak-L8) new option to select whether charging sessions list should be downloaded and be saved in states or not, do so only once an hour
-             ATTENTION for users from version v1.1.1 and below: you have to check this option to still receive for charging sessions!
-* (Sneak-L8) firmware version check
-* (Sneak-L8) expanded readme
-
-### 1.1.1 (2021-02-25)
-* (Sneak-L8) internal state update prevented recognition of state change
-
-### 1.1.0 (2021-02-20)
-* (Sneak-L8) intermediate results saved as states values
-* (Sneak-L8) additional power for charging session as state
-
-### 1.0.3 (2021-02-08)
-* (Sneak-L8) new options for minimal amerage (e.g. Renault Zoe) and permanent regard value
-
-### 1.0.2
-* Added readout of last 30 Charging Sessions from Wallbox; Enabled 'setenergy' State to send and set Charging Goal in Wh to Wallbox
-
-### 1.0.1 (2020-08-20)
-* (Sneak-L8) add missing german translation for IP address setting
-
-### 1.0.0 (2020-08-20)
-* (UncleSam) change settings layout to material design, first offical version
-
-### 0.3.2 (2020-08-04)
-* (Sneak-L8) in PV automatics mode wallbox will be disabled as long as no vehicle is plugged
-
-### 0.3.1 (2020-07-23)
-* (Sneak-L8) do not start charging when vehicle is plugged even if current is too low for photovoltaics automation
-
-### 0.3.0 (2020-07-21)
-* (Sneak-L8) regulate wallbox by PV automatics independant from state curr user
-
-### 0.2.6 (2020-07-20)
-* (Sneak-L8) try again to regulate wallbox by currtime instead of curr as suggested
-
-### 0.2.3 (2020-05-24)
-* (Sneak-L8) fix call to display PV automatics after vehicle is plugged, fix object in energy meter states
-
-### 0.2.2 (2020-05-13)
-* (Sneak-L8) display information about photovoltaics automatic also at begin of charging
-* (Sneak-L8) delayed display of photovoltaics automatic when vehicle is plugged (8 sec)
-
-### 0.2.1 (2019-11-14)
-* (Sneak-L8) handle values of undefined in getStates
-* (Sneak-L8) better recognition of max power function
-
-### 0.2.0 (2019-02-05)
-* (Sneak-L8) added automatic regulation by output photovoltaics unit
-* (Sneak-L8) added possibility to limit wallbox to keep total power below a limit
-* (Sneak-L8) added state to display text on wallbox
-
-### 0.1.0 (2019-01-12)
-* (Apollon77) Updated CI testing, update basic files
-
-### 0.0.3 (2017-07-04)
-* (UncleSamSwiss) Improved UDP datagram sending
-* (UncleSamSwiss) Added all known writable states
-
-### 0.0.2 (2017-06-25)
-* (UncleSamSwiss) Improved UDP socket handling (thanks to ehome)
-* (UncleSamSwiss) Added reading all known states
-
-### 0.0.1 (2017-06-11)
-* (UncleSamSwiss) Initial version
 
 ## License
                                  Apache License

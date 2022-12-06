@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
+hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
 ---
 # IoBroker.nibeuplink
 
@@ -17,6 +17,7 @@ hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
 
 ## Nibeuplink-Adapter für ioBroker
 Dieser ioBroker-Adapter empfängt Daten von einer Nibe-Wärmepumpe von Nibe Uplink.
+Dieser Adapter funktioniert NICHT mit Nibe myUplink! Es funktioniert daher NICHT mit Wärmepumpen der S-Serie wie Nibe VVM S320.
 
 ## Mit diesem Adapter
 1. Sie brauchen eine Nibe-Wärmepumpe - kaufen Sie eine, wenn Sie keine haben ;-)

@@ -253,6 +253,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.9.3 (in progress)
+* (René) update dependencies
+* (René) see issue #337: bug fix in calculate profil position 
+
 ### 2.9.3 (2022-10-28)
 * (René) update dependencies
 * (René) see issue #323: add telegram user to select box

@@ -55,6 +55,12 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+### 3.1.0 (in progress)
+* (René) support ebusd 22.4
+* (René) see issue #77: Update data point when read-cmd is used
+* (René) see issue #78: remove CR, LF in answer from ebusd for DP ebus.0.cmdResult
+
+
 ### 3.0.7 (2022-08-20)
 * (René) support ebusd 22.3
 

@@ -50,6 +50,18 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.3-alpha.1 (2022-12-04)
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
+* (HGlab01) Improve logs
+
+### 0.4.2 (2022-11-27)
+* (HGlab01) Downgrade axios to 1.1.3 (#561)
+
+### 0.4.1 (2022-11-24)
+* (HGlab01) Add attribute isBalanceAcEligible
+* (HGlab01) Bump axios from 0.27.2 to 1.2.0
+* (HGlab01) Bump simple-oauth2 from 4.3.0 to 5.0.0
+
 ### 0.4.0 (2022-09-05)
 * (HGlab01) !Breaking change! NodeJS 14.16 or higher required
 * (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
@@ -58,22 +70,6 @@ If you like my work, please feel free to provide a personal donation
 ### 0.3.16 (2022-08-01)
 * (HGlab01) Support light (issue #519)
 * (HGlab01) Add attributes vattenfallBannerDiscountCode, thresholdModeActive, mountingStateWithError, isAirComfortEligible
-
-### 0.3.15 (2022-02-27)
-* (DutchmanNL) move to jsonConfig.json (Admin 5)
-* (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
-* (HGlab01) js-controller 4.0 readiness
-
-### 0.3.14 (2022-01-21)
-* (HGlab01) Improve hotwater handling
-* (HGlab01) Improve AC Control v3 devices 
-* (HGlab01) Support swing ON/OFF for AC v3 devices
-
-### 0.3.13 (2022-01-03)
-* (HGlab01) Optimize internet-check by using isOnline-library
-* (HGlab01) Support Smart AC Control V3+ (issue #403)
-* (HGlab01) Offset temperature rounding to max. 2 digits
 
 ## License
 MIT License

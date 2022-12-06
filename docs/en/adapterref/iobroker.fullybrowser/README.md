@@ -32,6 +32,11 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.1.6 (2022-11-23)
+* (arteck) add name of device to admin
+* (arteck) corr status when login fail
+* (arteck) corr psw typo
+
 ### 2.1.2 (2022-04-05)
 * (arteck) encodeUri in psw
 

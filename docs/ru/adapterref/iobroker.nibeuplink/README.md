@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nibeuplink/README.md
 title: ioBroker.nibeuplink
-hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
+hash: 6kBlzH6zxfy578l1FZq6McfUTKvGCnx0zZu0mOuGsNA=
 ---
 # IoBroker.nibeuplink
 
@@ -17,6 +17,7 @@ hash: Cm+CD6nON0Dng5Rs6/JEG9BTEvGvz2D+1n7P8N7GKvQ=
 
 ## Адаптер nibeuplink для ioBroker
 Этот адаптер ioBroker получает данные от теплового насоса Nibe от Nibe Uplink.
+Этот адаптер НЕ работает с Nibe myUplink! Поэтому он НЕ работает с тепловыми насосами серии S, такими как Nibe VVM S320.
 
 ## Использование этого адаптера
 1. Вам нужен тепловой насос Nibe — купите его, если у вас его нет ;-)

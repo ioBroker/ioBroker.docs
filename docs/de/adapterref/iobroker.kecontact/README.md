@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 8fSryNmu9TnYD++wZWeRf06698MYraMlqG0ynWcexyQ=
+hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -47,24 +47,28 @@ Sie können diese Option aktivieren, um regelmäßig die neuesten Ladesitzungen 
 ACHTUNG für Benutzer ab Version v1.1.1 und niedriger: Sie müssen diese Option aktivieren, um weiterhin Ladesitzungen zu erhalten!
 
 ### Aktualisierungsintervall
-Das ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
+Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
 Der Standardwert beträgt 10 Minuten, was eine gute Balance zwischen der Belastung für KeConnect und aktuellen Informationen in ioBroker darstellt.
 
 ### PV-Automatik
-Um Ihr Fahrzeug entsprechend auf Überschuss zu laden (z. B. durch Photovoltaik), können Sie auch Zustände definieren, die Überschuss und Bezug auf Hauptstrom darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
+Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu laden, können Sie auch Zustände definieren, die Überschuss und Bezug auf Hauptstrom darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
 
 * ein Zustand für die aktuelle Leistung des Batteriespeichers, damit die Photovoltaik-Automatik diese zusätzlich zum Laden Ihres Fahrzeugs verwendet
 * Schalten Sie die X1-Option um, wenn Sie den X1-Eingang von der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder durch Photovoltaik-Automatik geladen werden soll
 * eine andere Mindeststromstärke als die voreingestellten 6 A (wird nur für z. B. Renault Zoe benötigt)
-* ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (das heißt, der Ladevorgang beginnt, auch wenn nicht genügend Überschuss verfügbar ist - empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang)
+* ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (d. h. der Ladevorgang beginnt, auch wenn nicht genügend Überschuss verfügbar ist - empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang)
 * ein Inkrement für die Stromstärke (empfohlen 500 mA)
-* ein Bezugswert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später beendet wird, auch wenn nicht mehr genügend Überschuss verfügbar ist - der Startbezug wird hinzugefügt - vorgeschlagen 500 W)
-* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit - empfohlen 300 Sek.)
+* ein Bezugswert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später stoppt, auch wenn nicht mehr genügend Überschuss verfügbar ist - Startbezug wird hinzugefügt - vorgeschlagen 500 W)
+* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit – empfohlen 300 Sek.)
 * Zeit zur Fortsetzung des Ladevorgangs jedes Mal, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
 
+### 1p/3p Aufladung
+Wenn Sie ein Installationsschütz zum (Trennen) von Phase 2 und 3 Ihrer Ladestation haben und dieser Schalter durch einen Zustand ausgelöst werden kann, dann ist dieser Adapter in der Lage, den Ladevorgang mit einer Phase zu starten und auf 3-Phasen-Ladevorgang umzuschalten, wenn Ihr Überschuss ausreicht dafür.
+Tragen Sie in diesem Fall bitte den Zustand Ihres Installationsschützes ein und ob es sich um einen NO (normally open) oder NC (normally closed) handelt.
+
 ### Leistungsbegrenzung
-Sie können auch max. Leistung Ihrer Wallbox, um die Hauptleistung zu begrenzen. Z.B. Beim Betrieb von Nachtspeicherheizungen ist ggf. eine Leistungsbegrenzung zu beachten.
+Sie können auch max. Leistung Ihrer Wallbox, um die Hauptleistung zu begrenzen. Z.B. Beim Betrieb von Nachtspeicherheizungen müssen Sie ggf. eine maximale Leistungsbegrenzung beachten.
 Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich begrenzt, um Ihr Leistungslimit nicht zu überschreiten.
 Zur Begrenzung können bis zu drei Zustände von Energiezählern vorgegeben werden. Alle Werte werden zur Berechnung des Stromverbrauchs addiert.
 Ein zusätzliches Kontrollkästchen wird verwendet, um anzugeben, ob die Wallbox-Leistung enthalten ist (in diesem Fall wird die Wallbox-Leistung von den Zustandswerten abgezogen).
@@ -73,7 +77,7 @@ Ein zusätzliches Kontrollkästchen wird verwendet, um anzugeben, ob die Wallbox
 Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z. durch ein eigenes Skript, das diese Werte gemäß Ihren Anforderungen aktualisiert)
 
 * kecontact.0.automatic.photovoltaics - Aktiviert automatisch die Photovoltaik (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn es auf false gesetzt ist
-* kecontact.0.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Diese wird für die Keba Deutschland Edition benötigt und kann für die erste Ladesitzung für alle Ladestationen verwendet werden
+* kecontact.0.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dieser wird für die Keba Deutschland Edition benötigt und kann für die Erstladung für alle Ladestationen verwendet werden
 * kecontact.0.automatic.addPower - definiert eine Wattmenge, die zum Aufladen Ihres Fahrzeugs zulässig ist (wie in den Optionen)
 * kecontact.0.automatic.pauseWallbox - stoppt jeden Ladevorgang sofort, solange auf true gesetzt
 * kecontact.0.automatic.limitCurrent - begrenzt Ihren Ladevorgang auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
@@ -87,118 +91,39 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+
+### 1.5.2 (2022-11-02)
+* (Sneak-L8) fix error in release script
+
+### 1.5.1 (2022-11-02)
+* (Sneak-L8) update release script to v3
+
+### 1.5.0 (2022-11-01)
+* (Sneak-L8) minor fixes from adapter check
+* (Sneak-L8) using Weblate for translations
+* (Sneak-L8) update power and amperage value immediately for better calculation
+* (Sneak-L8) fix description of authreq state
+* (Sneak-L8) handle message at wallbox startup
+* (Sneak-L8) catch error when UDP connection got lost (sentry IOBROKER-KECONTACT-1C)
+* (Sneak-L8) update url and regex to Keba firmware
+
+### 1.4.1 (2022-05-30)
+* (Sneak-L8) separate states for charging and discharging battery storage
+* (Sneak-L8) additional states to (de)authorize or unlock charging station and set date/time
+* (Sneak-L8) fix unsubscribing foreign states (sentry IOBROKER-KECONTACT-10)
+
 ### 1.4.0 (2022-03-31)
 * (Sneak-L8) support for battery storage in photovoltaics automatics
 * (Sneak-L8) add state selector in settings dialog
-
-### 1.3.4 (2022-01-30)
-* (Sneak-L8) fix invalid assignment to message (sentry IOBROKER-KECONTACT-S) 
-* (Sneak-L8) update charging timestamp more often to prevent toogling
-* (Sneak-L8) update more information even in passive mode
-
-### 1.3.3 (2021-12-11)
-* (Sneak-L8) fix error when message to display is empty (sentry IOBROKER-KECONTACT-Q) 
-* (Sneak-L8) new option whether power of wallbox is included in surplus/regard
-
-### 1.3.2 (2021-11-09)
-* (Sneak-L8) firmware check for x-series no longer supported due to changes on website of Keba 
-
-### 1.3.1 (2021-11-01)
-* (Sneak-L8) fix wrong type of timeQ in charging reports
-
-### 1.3.0 (2021-08-16)
-* (Sneak-L8) new adapter base generated by adapter creator
-* (Sneak-L8) support multiple wallboxes
-
-### 1.2.3 (2021-08-14)
-* (Sneak-L8) fix wrong P20/P30 detection
-
-### 1.2.2 (2021-07-28)
-* (Sneak-L8) new: limit max. charging current dynamically
-* (Sneak-L8) support BMW charging station (Keba OEM, Sentry IOBROKER-KECONTACT-3)
-* (Sneak-L8) support P20 charging station (Sentry IOBROKER-KECONTACT-B)
-* (Sneak-L8) optimized power calculation for Deutschland edition
-
-### 1.2.1 (2021-07-20)
-* (Sneak-L8) support X1 contact of charging station to switch photovoltaics automatic
-* (Sneak-L8) prevent a crash case (Sentry IOBROKER-KECONTACT-2)
-
-### 1.2.0 (2021-06-07)
-* (Sneak-L8) support for compact mode
-* (Sneak-L8) using sentry.io to track errors
-* (Sneak-L8) support for KeContact P30 Deutschland edition
-
-### 1.1.3 (2021-04-26)
-* (Sneak-L8) new time option to continue charging session with regard
-* (Sneak-L8) optimized calculation of surplus (prevent alternating amperage)
-
-### 1.1.2 (2021-04-02)
-* (Sneak-L8) default state of photovoltaics automatic set to true for new users
-* (Sneak-L8) new option to select whether charging sessions list should be downloaded and be saved in states or not, do so only once an hour
-             ATTENTION for users from version v1.1.1 and below: you have to check this option to still receive for charging sessions!
-* (Sneak-L8) firmware version check
-* (Sneak-L8) expanded readme
-
-### 1.1.1 (2021-02-25)
-* (Sneak-L8) internal state update prevented recognition of state change
-
-### 1.1.0 (2021-02-20)
-* (Sneak-L8) intermediate results saved as states values
-* (Sneak-L8) additional power for charging session as state
-
-### 1.0.3 (2021-02-08)
-* (Sneak-L8) new options for minimal amerage (e.g. Renault Zoe) and permanent regard value
-
-### 1.0.2
-* Added readout of last 30 Charging Sessions from Wallbox; Enabled 'setenergy' State to send and set Charging Goal in Wh to Wallbox
-
-### 1.0.1 (2020-08-20)
-* (Sneak-L8) add missing german translation for IP address setting
-
-### 1.0.0 (2020-08-20)
-* (UncleSam) change settings layout to material design, first offical version
-
-### 0.3.2 (2020-08-04)
-* (Sneak-L8) in PV automatics mode wallbox will be disabled as long as no vehicle is plugged
-
-### 0.3.1 (2020-07-23)
-* (Sneak-L8) do not start charging when vehicle is plugged even if current is too low for photovoltaics automation
-
-### 0.3.0 (2020-07-21)
-* (Sneak-L8) regulate wallbox by PV automatics independant from state curr user
-
-### 0.2.6 (2020-07-20)
-* (Sneak-L8) try again to regulate wallbox by currtime instead of curr as suggested
-
-### 0.2.3 (2020-05-24)
-* (Sneak-L8) fix call to display PV automatics after vehicle is plugged, fix object in energy meter states
-
-### 0.2.2 (2020-05-13)
-* (Sneak-L8) display information about photovoltaics automatic also at begin of charging
-* (Sneak-L8) delayed display of photovoltaics automatic when vehicle is plugged (8 sec)
-
-### 0.2.1 (2019-11-14)
-* (Sneak-L8) handle values of undefined in getStates
-* (Sneak-L8) better recognition of max power function
-
-### 0.2.0 (2019-02-05)
-* (Sneak-L8) added automatic regulation by output photovoltaics unit
-* (Sneak-L8) added possibility to limit wallbox to keep total power below a limit
-* (Sneak-L8) added state to display text on wallbox
-
-### 0.1.0 (2019-01-12)
-* (Apollon77) Updated CI testing, update basic files
-
-### 0.0.3 (2017-07-04)
-* (UncleSamSwiss) Improved UDP datagram sending
-* (UncleSamSwiss) Added all known writable states
-
-### 0.0.2 (2017-06-25)
-* (UncleSamSwiss) Improved UDP socket handling (thanks to ehome)
-* (UncleSamSwiss) Added reading all known states
-
-### 0.0.1 (2017-06-11)
-* (UncleSamSwiss) Initial version
 
 ## License
                                  Apache License

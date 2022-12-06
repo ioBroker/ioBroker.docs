@@ -27,18 +27,20 @@ If you like my work, please feel free to provide a personal donation
 ## Compatible USB Sticks & Modules
 USB300
 
-DOSMUNG USB Stick with SMA port - [Buy](https://amzn.to/33EapbN)
+DOSMUNG USB Stick with SMA port
 
 FAM-USB (ESP3 Firmware)
 
 EnOcean Pi Modul
 
 Eltako FGW14:  
-You have to enable ESP2 mode in the adapter config, to use the FGW14.  
-**Important Notes**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read and only RS485 Bus devices can be controlled without FTD14 (not tested yet).  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
+**Important Notes**: This gateway does not support all features and devices of this adapter.  
+Known features that does not work: RSSI, Gateway information can not be read and only RS485 Bus devices can be controlled without FTD14 (not tested yet).  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
+The bus devices report with their bus address, i.e. it starts with 00 00 00 01.
 
-ALL SMART EnOcean LAN Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)
+ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ No longer available.  
 
+ALL SMART EnOcean Multi-Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
 you can find this information in the profile definition.
@@ -50,7 +52,7 @@ Special:
 ## Teach-in
 - The process is documented with (short) step-by-step instructions in the adapter configuration. There you can Choose
   your device and the instructions will be displayed. Follow them.
-- Devices without possibility to teach-in to an other device (like Eltako Series 12 also known as Opus Green Net): 
+- Devices without possibility to teach-in to another device (like Eltako Series 12 also known as Opus Green Net): 
 They can be controlled with an virtual switch (F6-02-02): Open configuration and click add new device. 
 Now choose X_Virtual as manufacturer and Switch as device, use ID fffffff0. Count up the last sign, 1-9 and a-f, for each new virtual switch.
 Click add device and close configuration. Then start teach-in on your device according to the manual, send command from virtual switch.
@@ -63,15 +65,17 @@ Now you should be able to control the device.
 - none: Just delete the objects
 
 ## Troubleshooting
-- Device does not react to command: Open the device Object in the Object tab, go to native and look if there are more than one EEPs registered. 
-If yes the first one has to be the one that will control the device. 
-
+1. Device does not react to command: 
+   - The teachin process was not successful. Depending on the device, successful teach-in is signalled, pay attention to this signal. If there is no signal, try again.  
+   - Check if all attributes related to the CMD are set correctly. 
+   - If the rssi value is higher than -70 dBm, the signal could be too weak. Try to move the device closer to the gateway. 
+   - Valve actuators (thermostats) are sending a message every x minutes. After receiving the message the device accept a command within a second. To achive this use a script that sends the command after receiving the message. A good trigger in the script is the rssi value.
 
 ## Profile definition file
 
 #### Data structure
 
-***case:*** Could be a single element or an array, that holds a set of datafields. In case of an array the element is bound to an condition.
+***case:*** Could be a single element or an array, that holds a set of datafields. In case of an array the element is bound to a condition.
 
 ***send:*** true means this set of data is a command that will be sent to the device.
 
@@ -79,9 +83,9 @@ If yes the first one has to be the one that will control the device.
 
 ***condition:*** The condition which has to be true that this set of datafields is processesd. In the most cases the condition is a specific value from the data package.
 
-***datafield:*** Information where in the data package the data are and how to handle the value. Also there is the object definiton for ioBroker.
+***datafield:*** Information where in the data package the data are and how to handle the value. Also, there is the object definition for ioBroker.
 
-***datafield -> secondArgument:*** Used to get a secondary infromation/value from the data package. Use case: Units can vary on their amount, so the device sends the unit as a seperate information. 
+***datafield -> secondArgument:*** Used to get a secondary information/value from the data package. Use case: Units can vary on their amount, so the device sends the unit as a separate information. 
 To change the unit inside ioBroker depending on the sent information, it is necessary to know this while processing the value.
 
 ***datafield -> condition:*** This could be a formula to convert a value. This is based on JSON-logic for detailed information
@@ -178,9 +182,25 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 ```
 
 ## For development
-To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
+To test telegram handling create a channel with name development and in this channel an object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* fix F6-10-00: The close state was not set, the window was always shown as open.
+* fix & rework TF-13-25 Eltako DSZ14 (#87)
+* code cleanup and refactoring
+
+### 0.8.4 (2022-11-17)
+* added Eltako FSSG-230V, TF100A, FM4H
+* added Afriso APR234(-NF)
+* added EASYFIT ETHSx (ETSHA/ETSHU)
+* added Oventrop mote 420
+* added support information tab
+* update TF-01-01 (Eltako FTA55J & TF-TA55J)
+* update Eltako TF-4FT, switch EEP from F6-02-02 to F6-02-03
+* highlight too short ID in add device dialog
+
 ### 0.8.3 (2022-09-28)
 * fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)
 * remove RT from TF-14-04 (Eltako FSB14 and similar)

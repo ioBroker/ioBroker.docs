@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ekey/README.md
 title: ioBroker.ekey
-hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
+hash: pDp+XCtVymOpb+vidaIK19cT62rgXY/lZSFEEMYiONw=
 ---
 ![Logo](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
 
@@ -16,15 +16,30 @@ hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
 ![NPM](https://nodei.co/npm/iobroker.ekey.png?downloads=true)
 
 # IoBroker.ekey
-[![Abhängigkeitsstatus] (https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![Code Climate] (https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
+[![Abhängigkeitsstatus](https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![Code Klima](https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
 
-Dieser Adapter für ioBroker stellt eine Verbindung zu einem E-Key-Connector-UDP her.
+Dieser Adapter für ioBroker verbindet sich mit einem ekey Connector UDP.
 
-Implementiert wie in http://descargas.futurasmus-knxgroup.org/DOC/GB/E-Key/13004/Operating_instructions_ekey_converter_UDP_RS485_ID51.pdf beschrieben oder hier https://www.ekey.net/assets/media_center/EN/User_Guide_ekey_net_4.3_en_Guide .pdf
+Implementiert wie beschrieben in:
+
+- https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf
+- NET-Protokoll: https://www.ekey.net/wp-content/dokumente/Betriebsanleitung_ekey_net_4.4_de_web_ID181_3006.pdf (Seite 189)
 
 ![Bild](../../../en/adapterref/iobroker.ekey/img/ekey.png)
 
+## Serielle Schnittstelle
+Experimentelle Funktion zur Verbindung mit ekey über die serielle Schnittstelle. Dies ist noch nicht getestet.
+
+Sie können den seriellen Anschluss aktivieren, um Daten über einen USB RS485- oder RS 232-Konverter zu empfangen.
+Tatsächlich wird nur Finger-Hash unterstützt. Um weitere Daten vom Gerät zu entschlüsseln, öffnen Sie bitte das Problem mit den Daten, die Sie erhalten haben.
+
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 1.2.3 (2022-11-22)
+* (bluefox) Added `net` protocol support
+* (bluefox) Added serial port support
 
 ### 1.1.0
 * (bluefox) Added compact mode
@@ -43,7 +58,7 @@ Implementiert wie in http://descargas.futurasmus-knxgroup.org/DOC/GB/E-Key/13004
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 ioBroker <dogafox@gmail.com>
+Copyright (c) 2018-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

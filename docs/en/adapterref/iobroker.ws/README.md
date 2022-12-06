@@ -313,6 +313,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### 2.3.1 (2022-11-27)
+* (bluefox) Added `fileChange` event
+
 ### 2.2.1 (2022-11-08)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Function `getObjects`for web was extended by devices, channels and enums

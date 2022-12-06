@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: RWItAUWGP3WRa+IVDylpIGWlDLTzDWH7mm4LyyKJ2K8=
+hash: q3tQ8cRl6EiYIFhtgrt/JK7QCeeVq7XDiC3LHRUQl6s=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -39,36 +39,25 @@ Einige bemerkenswerte Merkmale sind:
 Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar und einige sind noch experimentell
 
 ## Modelle
-### Unterstützte Modelle
-* Debot 900/901
-*Deebot OZMO 930
-* Deebot-OZMO 920/950
-*Deebot OZMO T8 AIVI
+### Vollständig unterstützte Modelle
+Die vollständig unterstützten Modelle sind die, die ich selbst besitze:
 
-Bei den aufgeführten Modellen handelt es sich um solche, die ich selbst im Einsatz habe oder die technisch mit diesen identisch sind.
+*Deebot OZMO 920
+* Deebot T8 AIVI
 
-### Diese Modelle sollten richtig oder zumindest teilweise funktionieren
-Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
+### Andere unterstützte Modelle
+Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
+Sie funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
 Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
 
 Ich versuche, eine möglichst breite Funktionalität zu erreichen, entscheide dies aber von Fall zu Fall je nach Komplexität und diversen anderen Kriterien.
 Es besteht natürlich kein Anspruch auf volle Funktionalität.
 
 #### Ecovacs-Deebot
-* Deebot Slim 2
-* Deebot N79-Serie
-*Deebot M88
-* Debbot 500
-* Debot 600/601/605
-* Debot 710/711
-* Deebot-OZMO 610
-* Deebot-OZMO 900/905
-*Deebot OZMO Slim 10/11
-*Deebot OZMO T5
-*Deebot OZMO T10 Plus
-* Deebot U2-Serie
+*Deebot OZMO 950/T5
 * Deebot N8-Serie
-* Deebot (OZMO) T8-Serie
+* Deebot U2-Serie
+* Deebot T8-Serie
 * Deebot T9-Serie
 * Deebot T10-Serie
 * Deebot X1-Serie
@@ -78,6 +67,24 @@ Es besteht natürlich kein Anspruch auf volle Funktionalität.
 * Yeedi 2-Hybrid
 * Yeedi-Vac-Hybrid
 * Yeedi-Wischstation
+
+#### Legacy-Modelle (werden bald eingestellt)
+Diese Modelle verwenden XML für den Datentransport und auch andere Eigenschaften für Befehle und Ereignisse als die aktuellen Modelle.
+Ich benutze auch meinen Slim 2, Deebot 901 und OZMO 930 nicht mehr.
+
+**Der Support für diese Modelle wird daher bald eingestellt**.
+
+* Deebot Slim 2
+* Deebot N79-Serie
+*Deebot M88
+* Debbot 500
+* Debot 600/601/605
+* Debot 710/711
+* Debot 900/901
+* Deebot-OZMO 610
+* Deebot-OZMO 900/905
+*Deebot OZMO 930
+*Deebot OZMO Slim 10/11
 
 ## Installation
 ### Voraussetzungen
@@ -116,14 +123,10 @@ Informationen zu den Bundesländern finden Sie in [hier](https://github.com/mrbu
 
 ## Bekannte Probleme
 * Die Generierung von Kartenbildern ist derzeit auf 32-Bit-Systemen nicht stabil
-* Für einige Modelle (z. B. Deebot OZMO 930) wird es empfohlen
-
-an [Neustart planen](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) einmal täglich, weil es einige Meldungen gibt, dass die Verbindung nach ca. 24 Stunden
-
 * Die "Edge"-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Die "Verschieben"-Funktionen funktionieren nicht mit Deebot OZMO T8 AIVI (und möglicherweise auch mit einigen anderen Modellen)
 * Einige „cleaninglog“-Zustände sind bei der T9-Serie leer („last20Logs“, „lastCleaningDate“ und „lastCleaningMapImageURL“)
-* Die Generierung von Kartenbildern funktioniert möglicherweise nicht richtig mit der Deebot X1-Serie
+* Die Generierung von Kartenbildern funktioniert mit der Deebot X1-Serie nicht richtig
 
 ## Haftungsausschluss
 Ich bin in keiner Weise mit ECOVACS verbunden.

@@ -22,6 +22,7 @@ Aktuell werden folgende Geräte unterstützt:
 * switchbox
 * saunabox
 * tempsensor
+* gatebox
 
 ## Changelog
 

@@ -74,6 +74,10 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `useNative` option to `sendTo` JSON Config component
+* (bluefox) Added `checkLicense` and `uuid` components to JSON Config
+
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Corrected deletion of objects

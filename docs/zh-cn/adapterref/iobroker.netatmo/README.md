@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: VmfYceI3tFL2ZaSlWXVhBiFFSN/IIsAiy6z2xNBwESU=
+hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
 ---
 ![标识](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -12,16 +12,16 @@ hash: VmfYceI3tFL2ZaSlWXVhBiFFSN/IIsAiy6z2xNBwESU=
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
 
 # IoBroker.netatmo
-![测试和发布](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ioBroker 的 Netatmo 适配器
 
-## __2022 年 10 月身份验证更改的重要说明__
-根据 Netatmo 的说法，通过将用户名和密码直接输入适配器来进行身份验证的“旧”方式将在 2022 年 10 月被禁用。
+## __身份验证更改的重要说明 2022 年 10 月__
+根据 Netatmo 的说法，到 2022 年 10 月，将禁用通过将用户名和密码直接输入适配器来进行身份验证的“旧”方法。
 
-2.0 版的适配器解决了这一变化并调整了身份验证。 2022 年 10 月之前的所有升级都应该允许在首次启动时自动无缝升级到 2.0.0 - 否则需要新的身份验证。
+适配器的 2.0 版解决了这一变化并调整了身份验证。 2022 年 10 月之前的所有升级都应允许在第一次启动时自动无缝升级到 2.0.0——否则需要新的身份验证。
 
 ## __v2.0.0 的重要说明！__
 使用适配器的 v 2.0，对象结构将完全改变！我们决定更好地使用唯一 ID 而不是名称，以确保重复或更改名称不会产生问题。
@@ -31,22 +31,22 @@ ioBroker 的 Netatmo 适配器
 
 首先选择您要为其同步数据的所有相关设备类型。当您更改它们时，您需要稍后再次进行身份验证。
 
-如果您想使用专用的客户端 ID/秘密（见下文），您也可以在身份验证之前输入它们。
+如果您想使用专用的客户端 ID/密码（见下文），您也可以在身份验证之前输入它们。
 
-使用“使用 Netatmo 进行身份验证”按钮启动身份验证流程。 Netatmo 登录页面将打开一个新的 Windows/选项卡。登录并确认数据访问后，您将被重定向回您的管理页面。
+使用“使用 Netatmo 进行身份验证”按钮启动身份验证流程。将使用 Netatmo 登录页面打开一个新的 Windows/选项卡。登录并确认数据访问权限后，您将被重定向回管理页面。
 
 如果成功，只需关闭窗口并重新加载适配器配置。如果出现错误，请检查错误消息并重试
 
 默认情况下，通用 API 密钥用于执行将更新间隔限制为 10 分钟的请求！
 
-要增加间隔或从 Welcome & Presence 获取实时更新，您只需在 NetAtmo 应用程序中输入自己的 ID/秘密。
-为此，请转到以下 URL，使用您的 Netatmo 帐户登录并在 https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 上填写请求的表格2Fapps%2Fcreateanapp ！
+要增加间隔时间或从 Welcome & Presence、CO- 和 Smoke-Detectors 获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/密码。
+为此，请转到以下 URL，使用您的 Netatmo 帐户登录并在 https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 上填写请求的表格2Fapps%2F创建一个应用程序！
 
-请确保配置他们尊重 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，所有用户也存在这些限制）
+请确保配置他们遵守 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，这些限制也适用于所有用户）
 
-##发送到支持
-### SetAway
-您还可以使用 sendTo 命令将所有人设置为远离（例如，如果用作警报系统）
+## 支持发送
+### 设置离开
+您还可以使用 sendTo 命令将所有人设置为离开（例如，如果用作警报系统）
 
 ```
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
@@ -66,16 +66,19 @@ sendTo('netatmo.0', "setAway");
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-参数 homeId 是“对象”选项卡中摄像机名称后面列出的字符串（可选，如果安装了多个摄像机），personId 是“已知”人员文件夹中的 id
+参数 homeId 是“对象”选项卡中相机名称后面列出的字符串（可选，如果安装了多个相机），personsId 是“已知”人员文件夹中的 ID
 
 ＃＃＃ 设为首页
-基本上与上述“setAway”描述的功能相同，“setHome”也存在将人员或整个住宅设置为“占用”。
+与上面描述的“setAway”基本相同的功能也存在于“setHome”中，用于将人员或完整的房屋设置为“已占用”。
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 2.1.2 (2022-11-17)
+* (bluefox) Added missing objects for `Welcome` devices
+
 ### 2.1.1 (2022-09-30)
 * (Apollon77) Make sure device types that require custom credentials are not selectable in UI without entering them
 * (Apollon77) Fix a potential crash case

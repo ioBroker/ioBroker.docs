@@ -128,11 +128,27 @@ You can thank the authors by these links:
     npm run release patch -- --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
     Placeholder for the next version (at the beginning of the line):
-     ## **WORK IN PROGRESS**
+    ### **WORK IN PROGRESS**
 -->
 
 
 ## Changelog
+### 1.8.7 (2022-12-01)
+* (arteck) fix exposes
+
+### 1.8.5 (2022-11-30)
+* (arteck) fix for new code
+
+### 1.8.3 (2022-11-30)
+* (arteck) back to old source
+
+### 1.8.1 (2022-11-28)
+* (bluefox) Packages updated
+* (bluefox) Added names of serial ports in configuration dialog
+
+### 1.7.7 (2022-11-24)
+* dep update
+
 ### 1.7.6 (2022-07-23)
 * (kirovilya) fix selecting nodes in admin
 * (arteck) ikea fix

@@ -117,6 +117,11 @@ IoBroker-Zustandsobjekte werden nach erfolgreicher Abfrage des Zielgeräts erste
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.2 (2022-12-03)
+* (mcm1957) missing config data has been added to io-package.json (#15)
+* (mcm1957) timer functions have been replaced with iob adapter versions (#22)
+* (mcm1957) support for sentry has been added (#23)
+
 ### 0.1.1 (2022-09-25)
 * (mcm1957) initial release for testing
 

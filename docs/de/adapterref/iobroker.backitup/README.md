@@ -499,6 +499,21 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.5.9 (2022-12-05)
+* (simatec) dependencies dropbox-v2-api updated
+* (simatec) Fix Zigbee Restore
+* (simatec) Fix Yahka Restore
+* (simatec) Fix Javascript Restore
+* (simatec) Fix Dropbox Error Messages
+
+### 2.5.8 (2022-12-03)
+* (simatec) Fix iobroker Backup
+* (simatec) dependencies updated
+
+### 2.5.7 (2022-11-27)
+* (simatec) Axios 1.1.3 added
+* (bluefox) Added ukrainian language
+
 ### 2.5.6 (2022-11-14)
 * (simatec) Fix Grafana Backup
 * (simatec) Fix Downloadserver

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: k9BpmGloXbMyoDS+FBzvqKGDSzZzftDtDpX1+W57qp4=
+hash: 9aO1Zs6Gb5A6XPN1mvnCrHMTXChgIJKAn8BmtSnKhmw=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -17,17 +17,20 @@ hash: k9BpmGloXbMyoDS+FBzvqKGDSzZzftDtDpX1+W57qp4=
 
 # IoBroker.vaillant
 ## Vaillant-Adapter für ioBroker
-Vaillant multiMatic VR900/VR920 Adapter
+Vaillant multiMatic und myVaillant Adapter
 
 ### Einstieg
-In den Instanzoptionen mail und password der multimatic /senso app eingeben.
+In den Instanzoptionen mail und password der multimatic /senso oder myVaillant app eingeben.
 
 Konfiguration kann geändert werden in dem sie unter dem Unterpunkt Konfiguration angepasst werden. Manche Konfiguration werden erst angewendet, wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
 
-## **Beispiel:**
+## **Beispiel Mutlimatic:**
 **Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Erst auf MANUAL vaillant.0.serialnumber.systemcontrol/tli.zones03.heating.configuration.operation_mode MANUAL Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende operation_mode auf TIME_CONTROLLED
 
-Parameter können über den Punkt parameterValue angepasst werden, dabei beachten, welche Werte im Objektdefinition erlaubt sind.
+Parameter can über den Punkt parameterValue angepasst werden dabei beachten welche Werte im Objekt definition erlaubt sind.
+
+## **Beispiel myVaillant:**
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder zu deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
 
 ## Changelog
 ### 0.0.15

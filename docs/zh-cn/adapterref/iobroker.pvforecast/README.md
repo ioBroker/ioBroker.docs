@@ -18,52 +18,52 @@ chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de"
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pvforecast/README.md
-title: ioBroker.pvforecast - 预测您的 PV 产量的适配器
-hash: +9Oev8MUoR8+RnHp1Njh+0DCNqozJcAfitZIMreNKrk=
+title: ioBroker.pvforecast - 预测您的 PV 收益的适配器
+hash: kQNDm9uYOhsvTD/sCeFl6v42W8PvzYrkiUJSXzG+738=
 ---
-![标识](../../../de/adapterref/iobroker.pvforecast/../../admin/pvforecast.png)
+![标识](../../../de/admin/pvforecast.png)
 
-# IoBroker.pvforecast - 预测 PV 产量的适配器
-**如果您喜欢适配器，我会很高兴捐赠：**
+# IoBroker.pvforecast - 用于预测您的 PV 收益的适配器
+**如果您喜欢适配器，我很乐意捐款：**
 
 [![贝宝](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UYB92ZVNEFNF6&source=url)
 
-此适配器替换 [ioBroker 论坛](https://forum.iobroker.net/topic/26068/forecast-solar-mit-dem-systeminfo-adapter) 中的 JavaScript
+此适配器替换了 [ioBroker论坛](https://forum.iobroker.net/topic/26068/forecast-solar-mit-dem-systeminfo-adapter) 中的 JavaScript
 
 适配器使用以下数据从 https://api.forecast.solar 获取基本数据：
 
 ## 设置
 1. 经度（-180（西）…180（东））
-2.纬度-90（南）…90（北）
+2. 纬度 -90（南）… 90（北）
 3.链接到页面
-4. API 密钥
-5. 图表 Y 轴阶段
-6. 安排数据检索（分钟） - 安排每 x 分钟从服务器检索数据。
+4. API密钥
+5. Y轴阶段图
+6. 安排数据检索（分钟）- 安排每 x 分钟从服务器检索数据。
 
-![pv预测选项](https://user-images.githubusercontent.com/76852173/155196476-8c8210d9-bdb2-456b-a0aa-1dd411efea5e.JPG)
+![预测选项](https://user-images.githubusercontent.com/76852173/155196476-8c8210d9-bdb2-456b-a0aa-1dd411efea5e.JPG)
 
-天气也可以通过 API 密钥获得。
+也可以使用 API 密钥获取天气。
 
 1. datetime - 日期和时间
-2. 天空 - 晴朗天空的 0 和 1 百分比之间的值 [1 = 晴朗天空]。
+2. 天空 - 晴空的百分比值在 0 到 1 之间 [1 = 晴空]。
 3. 温度 [°C]
-4. 状态 - 文本
+4.状态-文本
 5.图标-文字+数字
 6. 风速 - [km/h]
-7. 风向角 - 北 0°[顺时针]。 （如果风速为零，则该值未定义）
+7. 风角 - 北 0°[顺时针方向]。 （如果风速为零，则该值未定义）
 8. 风向 - 简称
-9.更高的时间分辨率
+9. 更高的时间分辨率
 
-##系统可以使用以下设置
+## 以下设置可用于系统
 1.倾斜（0°-90°）
 2. 方位角（-180 = 北，-90 = 东，0 = 南，90 = 西，180 = 北）
-3. 电站功率（kWh）
-4.植物名称
+3.厂电（千瓦时）
+4、植物名称
 5. 图表图例名称
 9.图表颜色
-10. 图表标签颜色
+10.图表标签颜色
 
-![pvforecast 光伏系统](https://user-images.githubusercontent.com/76852173/155196535-6828775a-8234-4a6a-b2a3-03d7fd88c80d.JPG)
+![光伏预测光伏系统](https://user-images.githubusercontent.com/76852173/155196535-6828775a-8234-4a6a-b2a3-03d7fd88c80d.JPG)
 
 所有这些信息都是确保适配器正常工作所必需的。
 
@@ -71,7 +71,7 @@ hash: +9Oev8MUoR8+RnHp1Njh+0DCNqozJcAfitZIMreNKrk=
 
 ## 可视化示例
 在加载示例之前，请安装：[材料设计](https://github.com/Scrounger/ioBroker.vis-materialdesign)。
-如果你想在 ioBroker Vis 中使用 Json 图表和表格，你会在这里找到一个[例子](https://github.com/Patrick-Walther/ioBroker.pvforecast/blob/main/docs/example/vis/)
+如果你想在 ioBroker Vis 中使用 Json 图和表，你会在这里找到一个[例子](./vis.md)
 
 ## Changelog
 <!--

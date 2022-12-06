@@ -3,28 +3,43 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ekey/README.md
 title: ioBroker.ekey
-hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
+hash: pDp+XCtVymOpb+vidaIK19cT62rgXY/lZSFEEMYiONw=
 ---
-![商标](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
+![标识](../../../en/adapterref/iobroker.ekey/admin/ekey.png)
 
-![Greenkeeper徽章](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
+![绿卫徽章](https://badges.greenkeeper.io/ioBroker/ioBroker.ekey.svg)
 ![安装数量](http://iobroker.live/badges/ekey-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.ekey.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.ekey.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ekey.svg)
-![特拉维斯-CI](http://img.shields.io/travis/ioBroker/ioBroker.ekey/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.ekey?branch=master&svg=true)
+![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.ekey/master.svg)
+![应用程序供应商](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.ekey?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.ekey.png?downloads=true)
 
-#ioBroker.ekey
-[![依赖状态]（https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg）](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey)[![代码气候]（https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg）](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
+# IoBroker.ekey
+[![依赖状态](https://gemnasium.com/badges/github.com/ioBroker/ioBroker.ekey.svg)](https://gemnasium.com/github.com/ioBroker/ioBroker.ekey) [![代码气候](https://codeclimate.com/github/ioBroker/ioBroker.ekey/badges/gpa.svg)](https://codeclimate.com/github/ioBroker/ioBroker.ekey)
 
-此ioBroker适配器连接到ekey连接器UDP。
+此 ioBroker 适配器连接到 ekey 连接器 UDP。
 
-按照http://descargas.futurasmus-knxgroup.org/DOC/GB/E-Key/13004/Operating_instructions_ekey_converter_UDP_RS485_ID51.pdf或此处https://www.ekey.net/assets/media_center/EN/User_Guide_ekey_net_4.3_en_web_ID181所述实施.PDF
+按照以下描述实施：
+
+- https://descargas.futurasmus-knxgroup.org/doc/en/ekey/13002/operating_instructions_ekey_converter_udp_rs485_id51.pdf
+- NET 协议：https://www.ekey.net/wp-content/dokumente/Operating_instructions_ekey_net_4.4_en_web_ID181_3006.pdf（第 189 页）
 
 ![图片](../../../en/adapterref/iobroker.ekey/img/ekey.png)
 
+＃＃ 串行端口
+通过串行端口连接到 ekey 的实验功能。这还没有经过测试。
+
+您可以激活串行端口以通过 USB RS485 或 RS 232 转换器接收数据。
+实际上只支持手指散列。为了帮助从设备解码更多数据，请打开您收到的数据的问题。
+
 ## Changelog
+<!--
+	### **WORK IN PROGRESS**
+-->
+### 1.2.3 (2022-11-22)
+* (bluefox) Added `net` protocol support
+* (bluefox) Added serial port support
 
 ### 1.1.0
 * (bluefox) Added compact mode
@@ -43,7 +58,7 @@ hash: 0oVj4G5vwFHyy/pjIOJipmb/158lNn0AhsoSYYaP5RE=
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019 ioBroker <dogafox@gmail.com>
+Copyright (c) 2018-2022 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

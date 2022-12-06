@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: DsREMFfOaw9z0dlnNY49Qlc84whjR++0OdAKQiGehj0=
+hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -102,7 +102,7 @@ Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue "normale Re
 - Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
 
 #### Zweiter Roboter
-Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen erstellt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
+Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen angelegt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
 
 ## Kartenkonfig
 Es gibt zwei Möglichkeiten, die Karte zu erhalten. Die ersten holen sich die Karte aus der Cloud. Daher müssen Sie sich anmelden und den richtigen Roboter aus der Liste auswählen
@@ -200,7 +200,7 @@ Jeder Raum in der aktuellen Karte hat einen Index, der dann von der App dem Raum
 Wenn Sie spontan mehrere Räume reinigen möchten, können Sie dies über multiRoomClean tun, indem Sie die ioBroker-Räume diesem Datenpunkt zuweisen und dann den Button drücken.
 
 #### Timer
-Sobald der Staubsauger die Raumfunktion unterstützt (siehe oben), ist es auch möglich, Timer zu erstellen, die dann die entsprechenden Raumkanäle auslösen oder deren MapIndexes ermitteln.
+Sobald der Staubsauger die Raumfunktion unterstützt (siehe oben), können auch Timer erstellt werden, die dann die entsprechenden Raumkanäle auslösen bzw. deren MapIndexes ermitteln.
 Der Timer könnte direkt über Räume und/oder Raumkanäle getriggert werden.
 Die Timer selbst werden über den Config-Bereich angelegt, werden dann aber zu einem Datenpunkt. Dort kann jeder Timer einmalig aktiviert/deaktiviert oder übersprungen werden. Auch ein Direktstart ist möglich. Der Vorteil der ioBroker-Timer ist, dass sie im VIS angezeigt und verwendet werden können und Sie den Roboter vom Internet trennen können, da die Timer der App von China aus getriggert werden.
 
@@ -324,9 +324,20 @@ Die unterstützten Befehle sind:
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### **IN ARBEIT** -->
+    ### **IN ARBEIT**
+    * ()
+
+-->
+
+### 3.8.8 (2022-11-30)
+* (Dirkhe) Verhalten von pauseResume #623 behoben
+
+### 3.8.7 (2022-11-26)
+* (Dirkhe) Tippfehler aus der Übersetzung für battary_live behoben (basierend auf Viomi-ID) #629
+* (Dirkhe) Absturz behoben, wenn cloud-roomID leer ist #702
+
 ### 3.8.6 (2022-11-12)
-* (deher) Fixtyp für roomMopMode
+* (Dirkhe) Fixtyp für roomMopMode
 
 ### 3.8.5 (2022-11-10)
 * (Dirkhe) parseErrors auf Debug-Level verschieben

@@ -8,8 +8,6 @@
 
 [![Test and Release](https://github.com/patrickbs96/ioBroker.twinkly/workflows/Test%20and%20Release/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3A%22Test+and+Release%22++)
 [![CodeQL](https://github.com/patrickbs96/ioBroker.twinkly/workflows/CodeQL/badge.svg)](https://github.com/patrickbs96/ioBroker.twinkly/actions?query=workflow%3ACodeQL)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)](https://ci.appveyor.com/project/patrickbs96/ioBroker-twinkly/)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/patrickbs96/ioBroker.twinkly.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/patrickbs96/ioBroker.twinkly/alerts/)
 [![Known Vulnerabilities](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly)
 
 ## twinkly adapter for ioBroker
@@ -24,12 +22,12 @@ The following Settings are available:
 
 In the table you can add all the Twinkly lights you want to control. 
 
-| Column       | Description                                                                                                     |
-|--------------|-----------------------------------------------------------------------------------------------------------------|
-| `Enabled`    | Shall this connection be accessed                                                                               |
-| `Name`       | Name of the connection in ioBroker                                                                              |
-| `IP Address` | IP-Address to the Twinkly Lights                                                                                |
-| `Mode On`    | Which `ledMode` should be activated when state `on` is enabled.<br/>Color, Effect, Movie, Playlist or last Mode |
+| Column       | Description                                                                                                                     |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------|
+| `Enabled`    | Shall this connection be accessed                                                                                               |
+| `Name`       | Name of the connection in ioBroker                                                                                              |
+| `IP Address` | IP-Address to the Twinkly Lights                                                                                                |
+| `Mode On`    | Which `ledMode` should be activated when state `on` is enabled.<br/>Color, Effect, Movie, Music Reactive, Playlist or last Mode |
 
 The following additionals States are created per device when checked:
 * Device Info
@@ -49,7 +47,7 @@ The following States are available:
 | `ledConfig`   | :heavy_check_mark: | Configuration of LEDs                                                                                                           |
 | `ledEffect`   | :heavy_check_mark: | Effects (`Effect`)                                                                                                              |
 | `ledLayout`   | :heavy_check_mark: | Layout of LEDs (disabled for further testing)                                                                                   |
-| `ledMode`     | :heavy_check_mark: | Mode: Movie, Color, Effect, Playlist, Off, RealTime (not yet supported), Demo                                                   |
+| `ledMode`     | :heavy_check_mark: | Mode: Color, Effect, Movie, Music Reactive, Playlist, Off, RealTime (not yet supported), Demo                                   |
 | `ledMovie`    | :heavy_check_mark: | Active Movie, If multiple Movies are added in the Playlist feature then they can be selected here. (`Movie`)                    |
 | `ledPlaylist` | :heavy_check_mark: | Active Playlist Entry, Switch between Movies. (`Playlist`)                                                                      |
 | `ledSat`      | :heavy_check_mark: | Saturation 0-100 (deactivate control with -1)                                                                                   |
@@ -74,15 +72,13 @@ The following States are available:
 ### Upload Movie
 ```
 sendTo('twinkly.0', 'uploadMovie', {
-    connection: 'Fenster',
-    movie: {
-        frames: [
-            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
-            [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
-            ...
-        ],
-        delay: 250
-    }
+    connection : 'Fenster',
+    frames     : [
+        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+        [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...],
+        ...
+    ],
+    delay : 250
 });
 ```
 
@@ -92,8 +88,17 @@ Upload a predefined movie.
 - 1: Twinkle Christmas-Green-Red
 ```
 sendTo('twinkly.0', 'uploadTemplateMovie', {
-    connection: 'Fenster',
-    index: 0,1
+    connection : 'Fenster',
+    template   : 1
+});
+
+```
+### Upload Twinkle Movie
+```
+sendTo('twinkly.0', 'uploadTwinkleMovie', {
+    connection  : 'Fenster',
+    baseColor   : '#00873f', // or {r: 0, g: 135, b: 62}
+    secondColor : '#c30F15'  // or {r: 195, g: 15, b: 22}
 });
 ```
 
@@ -101,8 +106,8 @@ sendTo('twinkly.0', 'uploadTemplateMovie', {
 ### Send Realtime Frame
 ```
 sendTo('twinkly.0', 'sendrealtimeframe', {
-    connection: 'Fenster',
-    frame: [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
+    connection : 'Fenster',
+    frame      : [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
 });
 ```
 -->
@@ -112,20 +117,22 @@ Returns a full frame in one color.
 By sending the colors in the property `colors` you get an array of frames returned.
 ```
 sendTo('twinkly.0', 'generateFrame', {
-    connection: 'Fenster',
-    color : '#dd0055' // or {r: 221, g: 0, b: 85}
-}, response => {
+    connection : 'Fenster',
+    color      : '#dd0055' // or {r: 221, g: 0, b: 85}
+});
+response => {
     // [{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...]
     ...
-});
+}
 
 sendTo('twinkly.0', 'generateFrame', {
-    connection: 'Fenster',
-    colors : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
-}, response => {
+    connection : 'Fenster',
+    colors     : ['#dd0055', ...] // or [{r: 221, g: 0, b: 85}, ...]
+});
+response => {
     // [[{"r":221,"g":0,"b":85},{"r":221,"g":0,"b":85}, ...], ..]
     ...
-});
+}
 ```
 
 ## Changelog
@@ -133,7 +140,23 @@ sendTo('twinkly.0', 'generateFrame', {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.0.10 (2022-12-05)
+* Add sendTo message `uploadTwinkleMovie` to upload a twinkle movie with own colors
+* Update Release Integration in Github Actions and Sentry
+
+### 1.0.9 (2022-11-27)
+* Now detects if Twinkly is in a group (firmware >= 2.8.3). If so, the group can only be controlled by the master, the states from the slave are read-only.
+
+### 1.0.8 (2022-11-26)
+* Add `musicreactive` Mode
+* Add Ukrainian translation
+* Rework how objects are created, objects are now created after first connect after startup and updated after a firmware update
+
+### 1.0.7 (2022-11-19)
+* Fixed deprecated messages from Sentry with api-validations
+* Automatic switch mode had an error with playlists. Playlist item could never be selected.
+
+### 1.0.6 (2022-11-19)
 * Fixed polling (ledBri, ledSat)
 * Added Connection-Info
 
@@ -147,24 +170,6 @@ sendTo('twinkly.0', 'generateFrame', {
 * Generate Full Frame in one color (create own frames)
 * Update deprecated states to fw 2.6.6
 * Update twinkly API Issues from Sentry
-
-### 1.0.3 (2022-07-31)
-* Add Online-Status to object-view
-* Ignore `*.uid` values, unknown in which release they are available (IOBROKER-TWINKLY-1Q)
-
-### 1.0.2 (2022-07-07)
-* Add new values `details.uid` and `details.group.uid` fw >= 2.8.4, fwFamily=G (IOBROKER-TWINKLY-1G, IOBROKER-TWINKLY-1N)
-
-### 1.0.1 (2022-07-05)
-* Remove deprecated values from mode
-
-### 1.0.0 (2022-07-03)
-* Change refresh logic after State-Change
-* Added depcrecated logic to remove states when no longer filled with data from api
-* Check new and deprecated values from api response to update state information
-
-### 0.3.1 (2022-07-02)
-* Update translations logic i18n
 
 ## License
 MIT License

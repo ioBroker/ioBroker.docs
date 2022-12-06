@@ -26,7 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.0-alpha.1 (2022-10-11)
+### 0.4.0 (2022-11-19)
 * (Jey-Cee) Updated object definitions: use of roles, multilanguage names
 * (Jey-Cee) Added missing objects for folders
 * (HGlab01) !Breaking change! NodeJS 14.16 or higher required

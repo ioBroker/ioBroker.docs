@@ -20,18 +20,18 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
 * ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
-* The old ESP8266 gateways with API V2 are supported with limited functionality as well. But it is strobgly advised to upgrade to ESP32.
+
+* The old ESP8266 gateways with API V2 is NOT SUPPORTED ANYMORE !!
 
 The ems-esp adapter can read and write data to both gateways to steer all heating components. 
 It can be used either for the original Bosch-group gateways or the ems-esp or both in parallel.
 
-The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.3.1. 
+The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.4.0. 
 
 
 ## important settings in EMS-ESP:
 
-* API V2: MQTT Settings have to be boolean format 1/0 !
-* API V3: Formatting Options for Boolean Format has to be 1/0 and for Enum Format Number 
+* Formatting Options for Boolean Format has to be 1/0 and for Enum Format Value / Number. 
 * The Enable API write commands settings within ems-esp has to be enabled 
 * Bypass Access Token authorization on API calls has to be set or the token has to be entered.
 
@@ -134,12 +134,26 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.17.1 (2022-12-04)
+* correct actualweight statistics within heatdemand function
 
-### **WORK IN PROGRESS**
-* pepare for enum as v alues and not just index
-* ioBroker and Home Assistant can be used in parallel
+### 1.17.0 (2022-12-02)
+* add actual weight per thermostat in heatdemand object structure
+* add heatdemand difference values
+
+### 1.16.2 (2022-11-21)
+* adjustments for ems-esp sensors v3.5
+
+### 1.16.1 (2022-11-20)
+* error correction sensors
+
+### 1.16.0 (2022-11-20)
+* ems-esp V2 NOT SUPPORTED ANYMORE !!!!
+* pepare for enum as values and not just index
 * new parameters for "Room" and "Function" for adapter states
-* adjust roles of generated states
+* adjust for latest ems-esp dev version 3.5 
+* units of measument for ems-esp sensors
+* support name changes within ems-esp for sensors
 
 ### 1.15.0 (2022-06-06)
 * adjustments for ems-esp RC310 holiday modes

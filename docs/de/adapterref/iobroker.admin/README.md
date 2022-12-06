@@ -121,6 +121,10 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `useNative` option to `sendTo` JSON Config component
+* (bluefox) Added `checkLicense` and `uuid` components to JSON Config
+
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Corrected deletion of objects
