@@ -58,6 +58,10 @@ You can use the adapter in CoAP or MQTT mode.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated knowledge base urls
+
 ### 6.2.4 (2022-10-23)
 
 * (klein0r) IP address of CoAP devices is unknown in some cases

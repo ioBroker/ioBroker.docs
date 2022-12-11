@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
+hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -128,6 +128,8 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Um die Seite ohne Symbolleiste zu laden, können Sie `noToolbar=true` hinzufügen
 * Um die Seite ohne Panel zu laden, können Sie `noPanel=true` hinzufügen
 * Um die Seite ohne Symbolleiste und Panel zu laden, Wischen deaktiviert, kein Lade-Spinner und mit transparentem Ladebildschirm können Sie `isBackgroundView=true` hinzufügen
+* Normalerweise verwendet iQontrol die Sprache, die in ioBroker eingestellt ist. Sie können dies überschreiben, indem Sie `language=<xx>` hinzufügen
+* `<xx>` kann `de`, `en`, `es`, `fr`, `it`, `nl`, `pl`, `pt`, `ru` oder `zh-cn` sein
 * Wenn Ihre iQontrol-Instanz durch eine Passphrase passwortgeschützt ist (siehe Optionen – Passphrase-Schutz), können Sie die Passphrase übermitteln, indem Sie „passphrase=<MyPassphrase>“ hinzufügen.
 
 **Beispiel:**
@@ -224,7 +226,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetState", stateId: <widgetStateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetStateSubscribed", stateId: <widgetStateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
+* Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
 * Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
@@ -232,7 +234,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
 * Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
-* Dadurch wird der ioBroker-Status `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
+* Dadurch wird der ioBroker-Zustand `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
@@ -440,7 +442,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ```
 
-</Details>
+</details>
 
 ### Weitere Konfiguration von Widgets
 * Es gibt zusätzliche Meta-Tags, die Sie im Head-Bereich Ihrer Widget-Website verwenden können, um das Verhalten des Widgets zu konfigurieren:
@@ -462,7 +464,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
  * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
 * `type` ist optional und kann `text` (Standard), `number`, `checkbox`, `color`, `select`, `multipleSelect`, `combobox`, `historyInstance`, `datapoint` sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
 * Wenn der Typ „select“, „multipleSelect“ oder „combobox“ ist, müssen Sie die möglichen Optionen angeben, indem Sie „/<selectOptions>“ hinzufügen, wobei „<selectOptions>“ eine Zeichenfolge im Format „<value1>,<“ ist caption1>/<value2>,<caption2>/...` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
-* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Maximal- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
+* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Höchst- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
 * Die Typen `section`, `divider`, `info` und `link` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für `link` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
 * Type `hidden` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String (wie `widget.html?parameter=value&parameter2=value2`) übergeben.
@@ -533,10 +535,10 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `alternativeColorspace` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - nur gültig für Rolle Light:
 * Mögliche Werte: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY "|"HUE_MILIGHT"|"HHSSBB_TUYA"
 * Standard: ""
-* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
+* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
+* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
@@ -558,9 +560,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: "2"
 * `directionUncertainValue` (Wert von DIRECTION für 'uncertain') - nur gültig für Rolle Window:
 * Standard: "3"
-* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Fenster:
+* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Window:
 * Standard: "Lieblingsposition"
-* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Window:
+* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Fenster:
 * Vorgabe: „Stopp“
 * `downCaption` (Beschriftung für DOWN) - nur gültig für Rolle Window:
 * Standard: "Nach unten"
@@ -908,7 +910,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `additionalInfoCaption` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
 
-</Details>
+</details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1318,7 +1320,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
-Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol in der neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
+Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
 
 ![CustomDialog-Aufruf](img/custom_call.png) ![CustomDialog-Beispiel](../../../en/adapterref/iobroker.iqontrol/img/custom_dialog.png)
 
@@ -1368,7 +1370,7 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-State. In den m
 }
 ```
 
-    * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt ändern (Schraubenschlüssel-Symbol, oder besser gesagt Zahnrad-Symbol im neuen React-UI, hinter dem Datenpunkt im Objekt-Tab von iobroker, siehe oben)
+    * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt ändern (Schraubenschlüssel-Symbol, bzw. Zahnrad-Symbol im neuen React-UI, hinter dem Datenpunkt im Objekt-Tab von iobroker, siehe oben)
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
 * wenn type `number` ist und die valueList genau so viele Einträge hat, wie Schritte zwischen Min- und Max des Datenpunktes oder
 * wenn der Typ `boolean` ist, aber die Rolle nicht `switch` ist oder
@@ -1510,7 +1512,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 ###<img src="img/icons/garagedoor_closed.png" width="32"> Garagentor:
 * **STATE**: *boolean* - Anzeige, ob die Tür geöffnet oder geschlossen ist
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'gekippt' anzuzeigen
-  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen.
+  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen
 * **TOGGLE**: *boolean* - zeigt einen 'Toggle'-Button und wird auf true gesetzt, wenn er gedrückt wird
 
 ###<img src="img/icons/door_locked.png" width="32"> Tür mit Schloss:
@@ -1573,7 +1575,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
-| | | machen | 0. 1. ... 5. 6. | X | --- | --- |
+| | | tun | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
 | | | DD | 01 02 ... 30 31 | X | X | X |
 | | | Mach | 1. 2. ... 30. 31. | X | --- (umgewandelt in D) | --- (umgewandelt in D) |
@@ -1652,7 +1654,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 
     ![Glühen](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
-</Details>
+</details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
 * **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
@@ -1750,6 +1752,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Added option to protect instance by passphrase.
 * (sbormann) Added option to set value of LOCK_OPEN for doors with lock.
 * (sbormann) Linking color to GLOW or BACKGROUND_COLOR now works when using ALTERNATIVE_COLORSPACE.
+* (sbormann) Added URL-Parameter &language=xx.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.

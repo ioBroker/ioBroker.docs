@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: fjRq+bQPWv/JY4QBvKwwJ5HxsfN9JE98OjQbXJmZkjQ=
+hash: YRfN249QmwwPaPPmYSCnb8dtObF1Wetr0VRckKmj5hc=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -24,6 +24,7 @@ Dieser Adapter kann verwendet werden, um Informationen von Geräten wie Druckern
 
 ### 2.2.1 (2022-10-18)
 * (McM1957) Fehler in io-package.json behoben.
+* (McM1957) Ukrainische Übersetzungen wurden hinzugefügt.
 
 ### 2.2.0 (2022-10-18)
 * (McM1957) Das Kompatibilitäts-Flag ist jetzt veraltet und wird in zukünftigen Versionen entfernt. Bitte ggf. Config anpassen.
@@ -144,8 +145,8 @@ Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 | OID-Gruppe | Text | Auf der Registerkarte IOD-Gruppen | angegebene OID-Gruppe Eine OID-Gruppe kann mehr als einem Gerät zugeordnet werden | |
 | SNMP-Version | wählen Sie | Zu verwendende SNMP-Version | HINWEIS: SNMPv3 wird noch nicht unterstützt |
 | Community (v1, v2c) oder Auth-ID (v3) | Text | Community für SNMP v1 oder V2c, Autorisierungsgruppe für SNMP v3 | HINWEIS: SNMPv3 wird noch nicht unterstützt |
-| Zeitüberschreitung (Sek.) | Nummer | Verarbeitungszeitüberschreitung in Sekunden | |
-| Wiederholung (Sek.) | Nummer | Wiederholungsintervall in Sekunden | |
+| Zeitüberschreitung (Sek.) | Zahl | Verarbeitungszeitüberschreitung in Sekunden | |
+| Wiederholung (Sek.) | Zahl | Wiederholungsintervall in Sekunden | |
 | Abfrage (Sek.) | Zahl | Abfrageintervall in Sekunden | |
 
 ### __TAB-Autorisierung__
@@ -167,11 +168,11 @@ Die MIT-Lizenz (MIT)
 
 Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
 
-Hiermit wird jeder Person, die eine Kopie dieser Software und der dazugehörigen Dokumentationsdateien (die „Software“) erhält, kostenlos die Erlaubnis erteilt, mit der Software uneingeschränkt zu handeln, einschließlich, aber nicht beschränkt auf die Rechte zur Nutzung, Vervielfältigung, Änderung und Zusammenführung , Kopien der Software zu veröffentlichen, zu verteilen, unterzulizenzieren und/oder zu verkaufen und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen:
+Hiermit wird jeder Person, die eine Kopie dieser Software und der dazugehörigen Dokumentationsdateien (die „Software“) erhält, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich, aber nicht beschränkt auf die Rechte zur Nutzung, Vervielfältigung, Änderung und Zusammenführung , Kopien der Software zu veröffentlichen, zu verteilen, unterzulizenzieren und/oder zu verkaufen und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen:
 
 Der obige Urheberrechtshinweis und dieser Genehmigungshinweis müssen in allen Kopien oder wesentlichen Teilen der Software enthalten sein.
 
-DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR BEREITGESTELLT, OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT, EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND NICHTVERLETZUNG VON RECHTEN DRITTER. DIE AUTOREN ODER URHEBERRECHTSINHABER SIND IN KEINEM FALL HAFTBAR FÜR ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, OB AUS VERTRAG, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN HANDLUNGEN MIT DER SOFTWARE ERGEBEN SOFTWARE.
+DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR UND OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG BEREITGESTELLT, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT, EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND NICHTVERLETZUNG VON RECHTEN DRITTER. DIE AUTOREN ODER URHEBERRECHTSINHABER SIND IN KEINEM FALL HAFTBAR FÜR ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, OB IN EINER VERTRAGSAKTION, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN HANDLUNGEN IN DER SOFTWARE ERGEBEN SOFTWARE.
 
 ## Changelog
 

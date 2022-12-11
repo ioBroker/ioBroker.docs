@@ -29,6 +29,11 @@ BADGE-Codacy Badge: https://app.codacy.com/project/badge/Grade/31cdbfba5f8641ff8
     ### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+
+-   (Scrounger) optionally show adapter name in notification
+-   fixed devices are not reported in case battery is 0% [#86](https://github.com/ciddi89/ioBroker.device-watcher/issues/86)
+
 ### 2.0.3 (2022-11-26)
 
 -   fixed issue with localCompare

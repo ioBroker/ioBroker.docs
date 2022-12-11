@@ -47,6 +47,9 @@ bulb LBxxx
 
 
 ## Changelog
+### 2.1.5 (2022-12-11)
+* (arteck) refactoring
+
 ### 2.1.3 (2022-11-20)
 * (arteck) crash fix
 
@@ -73,7 +76,6 @@ bulb LBxxx
 
 ### 2.0.0 (2020-06-05)
 * (arteck) refactoring
-
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: fjRq+bQPWv/JY4QBvKwwJ5HxsfN9JE98OjQbXJmZkjQ=
+hash: YRfN249QmwwPaPPmYSCnb8dtObF1Wetr0VRckKmj5hc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -24,6 +24,7 @@ hash: fjRq+bQPWv/JY4QBvKwwJ5HxsfN9JE98OjQbXJmZkjQ=
 
 ### 2.2.1 (2022-10-18)
 * (McM1957) Исправлена ошибка в io-package.json.
+* (McM1957) Добавлены украинские переводы.
 
 ### 2.2.0 (2022-10-18)
 * (McM1957) Флаг совместимости устарел и будет удален в будущих выпусках. При необходимости измените конфигурацию.

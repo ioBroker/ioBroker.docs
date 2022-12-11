@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iceroad/README.md
 title: ioBroker.iceroad
-hash: UcX6sfqJaYmGW/SiUNCWCI+y/wwKOvRawvl9VbwsQrw=
+hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
 ---
 ![Logo](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
@@ -23,16 +23,26 @@ Vorhersagefenster von Ihrem Auto
 [Englische Beschreibung hier](docs/en/iceroad.md)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) fixed issue messages wasn't sent
+-   (ciddi89) increased timeout
+
 ### 0.1.1 (2022-10-01)
-* (Apollon77) Make sure adapter stops when he is done
+
+-   (Apollon77) Make sure adapter stops when he is done
 
 ### 0.1.0
-* (Patrick Walther) add locations, add pushover/telegram/mail
+
+-   (Patrick Walther) add locations, add pushover/telegram/mail
 
 ### 0.0.1
-* (Patrick Walther) initial release
+
+-   (Patrick Walther) initial release
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2022 Patrick Walther walther-patrick@gmx.net

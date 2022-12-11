@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: z8ko8/wZBLuqpA4NrhvLfQJ/89LtGyxY9JDC6wI4g4c=
+hash: xZa4B9PNJNdfpTfZvXpQA0jQbZRd899ijkFHZ4W8t6U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
@@ -31,9 +31,9 @@ hash: z8ko8/wZBLuqpA4NrhvLfQJ/89LtGyxY9JDC6wI4g4c=
 
 Вам необходимо получить ключ API от бота перед использованием API:
 
-- Добавьте номер телефона **+34 603 21 25 97** в свои телефонные контакты. (Назовите его как хотите.)
+- Добавьте номер телефона CallMeBot в свои телефонные контакты (назовите его по своему усмотрению). Актуальный номер телефона можно найти здесь: https://www.callmebot.com/blog/free-api-signal-send-messages/
 - Отправьте это сообщение «Я разрешаю callmebot отправлять мне сообщения» (на английском языке) новому созданному контакту (конечно, используя Signal).
-- Подождите, пока вы не получите сообщение `API активирован для вашего номера телефона. Ваш APIKEY 123123` от бота. Поскольку это все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
+- Подождите, пока не получите сообщение «API активирован для вашего номера телефона». Ваш APIKEY 123123` от бота. Поскольку это все еще находится в стадии бета-тестирования, активация может занять до 2 минут.
 - Сигнальное сообщение от бота будет содержать ключ API, необходимый для отправки сообщений с использованием API.
 - Теперь вы можете использовать API KEY в конфигурации ioBroker.
 
@@ -54,11 +54,57 @@ sendTo('signal-cmb.0', 'send', {
 
 ![Блочный](../../../en/adapterref/iobroker.signal-cmb/img/blockly-signal.png)
 
+### Смайлики
+Чтобы отправить смайлики, вы должны добавить в сообщение несколько **'кодов'**. Вы можете найти все доступные коды здесь: https://www.callmebot.com/uncategorized/list-of-urlencoded-unicode-emoticons-emojis/
+
+### Доступные эмодзи
+CallMeBot официально поддерживает следующие эмодзи:
+
+|Код|Эмодзи|
+|%F0%9F%98%80|![ухмыляясь](../../../en/adapterref/iobroker.signal-cmb/img/emojies/01_grinning.png)|
+|%F0%9F%98%83|![ухмыляясь большими глазами](../../../en/adapterref/iobroker.signal-cmb/img/emojies/02_grinning_big_eyes.png)|
+|%F0%9F%98%84|![ухмыляющиеся улыбающиеся глаза](../../../en/adapterref/iobroker.signal-cmb/img/emojies/03_grinning_smiling_eyes.png)|
+|%F0%9F%98%81|![сияющие улыбающиеся глаза](../../../en/adapterref/iobroker.signal-cmb/img/emojies/04_beaming_smiling_eyes.png)|
+|%F0%9F%98%86|![ухмыляющееся брызгающее лицо](../../../en/adapterref/iobroker.signal-cmb/img/emojies/05_grinning_squinting_face.png)|
+|%F0%9F%98%85|![ухмыляясь](../../../en/adapterref/iobroker.signal-cmb/img/emojies/06_grinning_sweat.png)|
+|%F0%9F%A4%A3|![катаюсь по полу от смеха](../../../en/adapterref/iobroker.signal-cmb/img/emojies/07_rolling_on_the_floor_laughing.png)|
+|%F0%9F%A4%A3|![лицо со слезами радости](../../../en/adapterref/iobroker.signal-cmb/img/emojies/08_face_with_tears_of_joy.png)|
+|%F0%9F%98%82|![слегка улыбающееся лицо](../../../en/adapterref/iobroker.signal-cmb/img/emojies/09_slightly_smiling_face.png)|
+|%F0%9F%99%82|![перевернутое лицо](../../../en/adapterref/iobroker.signal-cmb/img/emojies/10_upside_down_face.png)|
+|%F0%9F%98%89|![подмигивающее лицо](../../../en/adapterref/iobroker.signal-cmb/img/emojies/11_winking_face.png)|
+|%F0%9F%98%8A|![улыбающееся лицо с улыбающимися глазами](../../../en/adapterref/iobroker.signal-cmb/img/emojies/12_smiling_face_with_smiling_eyes.png)|
+|%F0%9F%98%87|![улыбающееся лицо с ореолом](../../../en/adapterref/iobroker.signal-cmb/img/emojies/13_smiling_face_with_halo.png)|
+|%F0%9F%98%87|![улыбающееся лицо с нимбом](../../../en/adapterref/iobroker.signal-cmb/img/emojies/13_smiling_face_with_halo.png)|
+
+#### Используйте смайлики
+Чтобы использовать Emojie, вы должны вставить код Emojie в свой текст, который вы хотите отправить.
+
+![Вставить смайлик](../../../en/adapterref/iobroker.signal-cmb/img/add_emojies.png)
+
+Адаптер **signal-cmb** закодирует этот код, и вы увидите в Signal Messenger на своем телефоне Emojie.
+
+![Сигнальный мессенджер Emojie](../../../en/adapterref/iobroker.signal-cmb/img/emojie_signal_mesenger.png)
+
 ## **РАБОТА В ПРОЦЕССЕ**
 * Сделал некоторые изменения
 * Сделал еще несколько изменений
 
 -->
+
+### 0.2.3 (08.12.22)
+* (derAlff) Добавлена поддержка «закодированного перехода на новую строку» в строке.
+* (derAlff) Обновлен README
+
+### 0.2.2 (07.12.22)
+* (derAlff) Изменение версии для NPM
+
+### 0.2.1 (07.12.22)
+* (derAlff) Изменение версии для NPM
+
+### 0.2.0 (07.12.22)
+* (derAlff) Добавлена поддержка эмодзи.
+* (derAlff) Добавлена информация об смайликах в README
+* (derAlff) Номер телефона в README/Configuration заменен ссылкой на актуальный номер телефона на сайте CallMeBot.
 
 ### 0.1.7 (16.02.22)
 * (derAlff) Изменение версии для NPM

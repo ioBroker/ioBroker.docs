@@ -3,14 +3,14 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-mqtt.md
-title: ioBroker.шелли
-hash: XYSVO0sXP4cm5R2Dfw2qQlbw++Ez9E6xry/WwhDuNPc=
+title: ioBroker.shelly
+hash: qxNm4ySumCUo+BXI5OLJubJf3/4YwmXzmm3JLoNQDp4=
 ---
-![логотип](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
+![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.шелли
 ##MQTT
-![iobroker_general_mqtt](../../../de/adapterref/iobroker.shelly/./img/iobroker_general_mqtt.png)
+![iobroker_general_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_general_mqtt.png)
 
 ### Важные инструкции
 - Невозможно подключить адаптер Shelly к существующему брокеру MQTT в вашей сети.
@@ -25,7 +25,7 @@ hash: XYSVO0sXP4cm5R2Dfw2qQlbw++Ez9E6xry/WwhDuNPc=
 3. Откройте вкладку **Настройки MQTT**.
 4. Выберите имя пользователя и безопасный пароль (вы должны хранить эту информацию на всех устройствах Shelly).
 
-![iobroker_mqtt](../../../de/adapterref/iobroker.shelly/./img/iobroker_mqtt.png)
+![iobroker_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_mqtt.png)
 
 Активируйте MQTT на своих устройствах Shelly.
 
@@ -35,7 +35,7 @@ hash: XYSVO0sXP4cm5R2Dfw2qQlbw++Ez9E6xry/WwhDuNPc=
 3. Активируйте MQTT и введите данные пользователя, которые вы только что настроили, и IP-адрес вашей установки ioBroker, а затем настроенный порт (например, ```192.168.1.2:1882```)
 4. Сохраните конфигурацию — Shelly перезапустится автоматически.
 
-![shelly_mqtt gen1](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen1.png)
+![shelly_mqtt gen1](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen1.png)
 
 ### Устройства поколения 2 (Plus и Pro)
 1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
@@ -44,10 +44,12 @@ hash: XYSVO0sXP4cm5R2Dfw2qQlbw++Ez9E6xry/WwhDuNPc=
 4. Сохраните конфигурацию — Shelly перезапустится автоматически.
 
 - **Не изменяйте «идентификатор клиента» в этой конфигурации**
-- **Для устройств 2-го поколения должны быть включены все параметры RPC (см. скриншот)!**
+- **Для устройств 2-го поколения должны быть включены все параметры RPC (см. скриншоты)!**
 - SSL не должен быть активирован
 
-![shelly_mqtt gen2](../../../de/adapterref/iobroker.shelly/./img/shelly_mqtt-gen2.png)
+![shelly_mqtt gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)
+
+![shelly_mqtt gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2-old.png)
 
 ### Качество обслуживания (QoS)
 TODO (см. en)

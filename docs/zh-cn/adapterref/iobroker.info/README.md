@@ -324,6 +324,9 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 1.9.23 (2022-12-06)
+* (bluefox) Packages were updated
+
 ### 1.9.22 (2022-11-21)
 * (bluefox) Corrected widget
 
@@ -338,9 +341,6 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 ### 1.9.19 (2022-03-01)
 * (ldittmar) Fix audio, USB, bluetooth and printer view
 * (ldittmar) Translations fix
-
-### 1.9.18 (2022-02-01)
-* (Apollon77) Fix invalid object definition to prevent errors in js-controller 4
 
 ## License
 The MIT License (MIT)

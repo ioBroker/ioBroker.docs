@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
+hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
 ---
 ![标识](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -11,12 +11,19 @@ hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.netatmo.svg)
 
-# IoBroker.netatmo
+#ioBroker.netatmo
 ![测试和发布](https://github.com/PArns/iobroker.netatmo/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/netatmo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ioBroker 的 Netatmo 适配器
+
+## __实时事件的重要说明（门铃、欢迎、存在、CO2/烟雾警报）__
+要从 Netatmo 接收实时事件，您需要一个具有辅助或远程许可证的物联网/专业云帐户，以及一个连接到该帐户的已安装物联网实例。物联网实例需要具有 v1.14.0 或更高版本。
+
+请在适配器设置中选择物联网实例并重启适配器。
+
+Netatmo 适配器版本 < 3.0 使用 heroku 服务来传递这些 webhook 事件，但 Heroku 已取消此免费服务。因此，自 2022 年 11 月 28 日起，所有低于 3.0 的 Netatmo 版本将不再获得实时事件！因此，我们决定以这种方式使用经过验证且稳定的物联网/Pro-Cloud 服务。
 
 ## __身份验证更改的重要说明 2022 年 10 月__
 根据 Netatmo 的说法，到 2022 年 10 月，将禁用通过将用户名和密码直接输入适配器来进行身份验证的“旧”方法。
@@ -39,7 +46,7 @@ ioBroker 的 Netatmo 适配器
 
 默认情况下，通用 API 密钥用于执行将更新间隔限制为 10 分钟的请求！
 
-要增加间隔时间或从 Welcome & Presence、CO- 和 Smoke-Detectors 获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/密码。
+要增加间隔或从 Welcome & Presence、CO- 和烟雾探测器获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/密码。
 为此，请转到以下 URL，使用您的 Netatmo 帐户登录并在 https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 上填写请求的表格2Fapps%2F创建一个应用程序！
 
 请确保配置他们遵守 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，这些限制也适用于所有用户）
@@ -76,6 +83,10 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### **正在进行中** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices
 

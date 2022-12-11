@@ -93,6 +93,12 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Added more guidance logging when setting services incorrectly
+* (Apollon77) Prevent crashes when attributes contain "." at the end of their names
+* (Apollon77) Added logging for state updates for unknown objects
+
 ### 1.3.0 (2022-07-01)
 * (Apollon77) Further optimize sending data to HASS and allow to set values like numbers as normal states if the service has one attribute and it can be mapped
 

@@ -129,6 +129,10 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Changelog
+### 2.0.5 (2022-12-08)
+* (tugsi) Remove tipps feed because no longer maintained 
+* (Apollon77) General updates
+
 ### 2.0.4 (2021-05-27)
 * (pix, crycode) Code improved (timer)
 
@@ -185,7 +189,6 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ## License
 
 The MIT License (MIT)
-
 Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

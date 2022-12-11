@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol 文件
-hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
+hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -49,7 +49,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 在任何浏览器中运行。
 易于设置，尽管它是完全可定制和响应迅速的。
 
-> **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+> **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 视频教程（德语）：
 [![演示视频](img/play_demo.png "在 Youtube 上打开教程")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
@@ -105,7 +105,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 
 ### 使用自动创建
 * 您会在“视图”选项卡内找到一个“自动创建视图”按钮
-* 如果您维护良好的 ioBroker 枚举，例如 Rooms 或 Functions，您可以使用此功能使用此枚举中列出的设备自动构建视图
+* 如果您维护良好的 ioBroker 枚举，如房间或功能，您可以使用此功能自动构建包含此枚举中列出的设备的视图
 * 请记住，由于 ioBroker-universe 中有大量不同的适配器和设备，自动创建功能无法 100% 正确地维护所有设备。您可能需要手动修改某些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建您自己的可视化效果。
 
 ## URL 参数
@@ -128,6 +128,8 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 * 要加载没有工具栏的页面，您可以添加 `noToolbar=true`
 * 要加载没有面板的页面，您可以添加 `noPanel=true`
 *要加载没有工具栏和面板的页面，禁用滑动，没有加载微调器和透明加载屏幕，您可以添加`isBackgroundView=true`
+* 通常 iQontrol 使用 ioBroker 中设置的语言。您可以通过添加 `language=<xx>` 来覆盖它
+* `<xx>` 可以是 `de`、`en`、`es`、`fr`、`it`、`nl`、`pl`、`pt`、`ru` 或 `zh-cn`
 * 如果您的 iQontrol 实例受密码保护（请参阅选项 - 密码保护），您可以通过添加 `passphrase=<MyPassphrase>' 来提交密码
 
 **例子：**
@@ -138,7 +140,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹 `/userfonts`
 * 在 Options-Tab 中有几个地方可以选择这些字体
-* 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
+* 这取决于你的服务器 MIME 设置，如果字体正确地呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf:`application/x-font-opentype`
 * .ttf: `application/x-font-ttf` 或 `application/x-font-truetype`
@@ -189,7 +191,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
     * `ClickedValue` 和 `ClickedDestinationState`：如果用户点击弹出窗口，来自 `ClickedValue` 的值将被发送到 `iqontrol.x.Popup.POPUP_CLICKED`，如果指定，附加到 `ClickedDestinationState` 中的数据点
         * 如果没有指定值，将使用 `true`
     * `ButtonNames`：在这里你可以指定一个逗号分隔的按钮列表，它将显示在弹出窗口的底部（例如“OK，Abort”）
-        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
+        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，则附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
 * 除了数据点，您还可以使用命令 `COMMAND:renderView` 和 `COMMAND:openDialog` 作为 ButtonDestinationState，以呈现视图或打开对话框
 * ButtonValue 然后指定视图 resp。对话框，需要采用“iqontrol.<instance-number>.Views.<view-name>”格式。 `iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>` 其中 `<device-number>` 从 0 开始（因此视图上的第一个设备是设备编号 0）
 * 如果您只使用一个值（而不是逗号分隔列表），则该值将用于所有按钮
@@ -202,7 +204,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 
 ![弹窗截图](img/popup_screenshot.png)![块状弹出](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
 
-## 小工具
+## 小部件
 * 每个图块都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
 * 在这里您可以定义一个网站链接（通过 BACKGROUND_URL）或放置直接 HTML 代码（通过 BACKGROUND_HTML），这将显示为图块的背景
 * 这使您可以在图块中放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
@@ -224,7 +226,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
         *`{命令：“getWidgetState”，stateId：<widgetStateId>}`
 * 这将导致 iQontrol 发送 ioBroker 状态值`iqontrol.<instance>.Widgets.<widgetStateId>`（见下文如何接收应答消息）
         *`{命令：“getWidgetStateSubscribed”，stateId：<widgetStateId>}`
-* 这将导致 iQontrol 发送 ioBroker 状态的值`iqontrol.<instance>.Widgets.<widgetStateId>` 现在和每次它的值改变时（见下文如何接收应答消息）
+* 这将导致 iQontrol 发送 ioBroker 状态的值 `iqontrol.<instance>.Widgets.<widgetStateId>` 现在和每次它的值改变时（见下文如何接收应答消息）
         * `{ 命令：“setWidgetDeviceState”，stateId：<widgetDeviceState>，值：<value> }`
 * 这会将分配给设备 STATE `<widgetDeviceState>` 的 ioBroker 数据点（例如，分配给 LEVEL 的数据点）设置为值 `<value>`（`<value>` 可以是字符串，数字或布尔值或类似 `{ val: <value>, ack: true|false }` 的对象）
         *`{命令：“getWidgetDeviceState”，stateId：<widgetDeviceState>}`
@@ -246,7 +248,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 * 要接收来自 iQontrol 的消息，您需要使用 javascript 命令 `window.addEventListener("message", receivePostMessage, false); 向“消息”事件注册一个事件监听器
     * 函数 `receivePostMessage` 接收对象 `event`
 * `event.data` 包含来自 iqontrol 的消息，它将是一个对象，例如：
-* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - 这将是 `getState` 命令或 `getStateSubscribed` 命令的答案，并为您提供ioBroker 状态的实际`<value>`-对象`<stateId>`
+* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - 这将是对 `getState` 命令或 `getStateSubscribed` 命令的回答，并为您提供ioBroker 状态的实际`<value>`-对象`<stateId>`
 * `<stateObject>` 本身就是一个对象
 
 			```
@@ -910,7 +912,7 @@ hash: ZRrUR/U+qEUGI+I55B5BV5SEW4wxp33VpIr5Wp+/yjM=
 
 </详情>
 
-<details><summary>显示使用上述设置创建地图的示例小部件网站：（<ins>点击打开</ins>)</summary>
+<details><summary>显示使用上述设置创建地图的示例小部件网站：(<ins>点击打开</ins>)</summary>
 
 * 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
 *添加小部件时会显示说明
@@ -1333,7 +1335,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * 设置水平滑块在增加/减少时采取的步骤
 * 修改数据点类型
 * 修改数据点角色
-* 设置一个 target-value-id，这是一个数据点 id，目标值写入其中（如果实际值和目标值有不同的数据点）
+* 设置目标值 ID，这是一个数据点 ID，目标值写入其中（如果实际值和目标值有不同的数据点）
 * 设置或修改值列表
     * 可选地向值列表添加一个选项以输入自由文本
 * 设置目标值列表：
@@ -1359,7 +1361,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * *number* - 将与其相应的单位一起显示并在对话框中生成一个滑块
 * *string* - 要显示的文本
 * *值列表* - 将显示所选值。如果它没有写保护，它将在对话框中生成一个下拉菜单
-    * 从技术上讲，*value-list* 是具有相应翻译列表的值，在数据点的 `common.custom.iqontrol.<instance>.states`、`native.states` 或 `common.states` 对象中定义:
+    * 从技术上讲，*值列表* 是具有相应翻译列表的值，在数据点的 `common.custom.iqontrol.<instance>.states`、`native.states` 或 `common.states` 对象中定义:
 
 ```
 "native": {
@@ -1396,11 +1398,11 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
     * 可以在选项的“常规”部分中反转行为（使用“连接”而不是“未到达”）
 * **ENLARGE_TILE**：*布尔值* - 当为真时，图块将被设置为放大。您可以通过单击放大/缩小按钮来覆盖它。但每当 ENLARGE_TILE 的状态发生变化时，它都会重新控制 tile 的放大状态。如果`ENLARGE_TILE`的作用是`button`，那么每次状态变化都会触发放大状态
 * **BADGE**：*number* 或 *string* - 如果存在除零/false 以外的值，则左上角的徽章将显示该值
-    * **BADGE_COLOR**：*string* - 代表徽章颜色的任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等） .如果不存在或无效，将使用透明度为 20% 的红色。
+    * **BADGE_COLOR**：*string* - 代表徽章颜色的任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等） .如果不存在或无效，将使用透明度为 20% 的红色。
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**：*string* - 任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等）表示图块覆盖的颜色（取决于图块是活动的还是非活动的）。如果没有给出有效的颜色字符串，则使用标准覆盖颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义覆盖层的透明度，这将影响设置覆盖层颜色的外观。
+* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**：*string* - 任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等）表示图块覆盖的颜色（取决于图块是活动的还是非活动的）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义覆盖层的透明度，这将影响设置覆盖层颜色的外观。
 * 对于灯，您还可以使用选项“将灯的颜色用作 OVERLAY_ACTIVE_COLOR”，该选项可在设备特定选项中找到。
 
     ![叠加颜色](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
@@ -1432,13 +1434,13 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 
 您可以选择定义以下状态：
 
-* 对于彩色 LED（HSB 颜色空间）：
+* 对于彩色 LED（HSB 色彩空间）：
     * **HUE**：*数字* - 0-360° 范围内的光的颜色（色调格式）
     * **饱和度**：*数字* - 光的饱和度（从白色到纯色）
     * **COLOR_BRIGHTNESS**：*number* - 彩色 LED 的亮度（如果您有 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
 * 对于白色 LED：
   ***CT**:* umber* - 光的色温，如果它有两种白色阴影
-  ***WHITE_BRIGHTNESS**:* umber* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
+    * **WHITE_BRIGHTNESS**：*number* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
 *替代色彩空间：
   ***ALTERNATIVE_COLORSPACE_VALUE**：*string* 或* umber*（取决于所选的颜色空间）- 替代颜色空间的值
 
@@ -1514,7 +1516,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **TOGGLE**：*布尔值* - 显示“切换”按钮，如果按下则设置为 true
 
 ###<img src="img/icons/door_locked.png" width="32">带锁门：
-* **状态**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
+* **STATE**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
 * **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁定门，那是打开的）
 * **LOCK_STATE_UNCERTAIN**: *boolean* - 如果为 true，STATE 将以斜体显示，表示锁的确切位置未知
 * **LOCK_OPEN**: *boolean* - 如果设置为 true，门将完全打开
@@ -1530,7 +1532,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **状态**：*布尔值* - 如果为真，传感器将显示为已触发
   *或者，您可以分配一个* alue-list*，以显示其他状态，例如“被篡改”
-  *您还可以分配一个* tring* 来显示任何文本，例如“楼上着火”
+  *您还可以指定一个* tring* 来显示任何文本，例如“楼上着火”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/flood_on.png" width="32">洪水传感器：
@@ -1542,7 +1544,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/alarm_on.png" width="32">警报：
 * **状态**：*布尔值* - 如果为真，传感器将显示为已触发
   *或者，您可以分配一个* alue-list*，以显示其他状态，例如“被篡改”
-  *您还可以指定一个* tring* 来显示任何文本，例如“楼上着火”
+  *您还可以分配一个* tring* 来显示任何文本，例如“楼上着火”
 * **CONTROL_MODE**：*值列表* - 选择操作模式，如“武装”和“撤防”
     * 在设备选项中你可以定义代表撤防的值，所以可以显示代表的图标
 
@@ -1585,7 +1587,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | |年份 |是 | 1970 1971 ... 9999 +10000 +10001 | × | × | × |
 | | | YY| 70 71 ... 29 30 | × | × | × |
 | | |年年年 | 1970 1971 ... 2029 2030 | × | × | × |
-| | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY） | ---（转换为 YYYY） |
+| | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY）| ---（转换为 YYYY）|
 |时间 |上午/下午 |一个 |上午下午 | × | × | × |
 | | |一个 |下午 | × | × | × |
 | |小时 | H | 0 1 ... 22 23 | × | × | × |
@@ -1597,7 +1599,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | |分钟 |米 | 0 1 ... 58 59 | × | × | × |
 | | |毫米 | 00 01 ... 58 59 | × | × | × |
 | |第二 |秒 | 0 1 ... 58 59 | × | × | × |
-| | | SS | 00 01 ... 58 59 | × | × | × |
+| | | SS | 00 01 ... 58 59 | × | X | X |
 | |小数秒 |年代 | 0 1 ... 8 9 | × | --- | --- |
 | | |党卫军 | 00 01 ... 98 99 | × | --- | --- |
 | | | SS | 000 001 ... 998 999 | × | --- | --- |
@@ -1684,7 +1686,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
     * 'ok' 如果垫的中间被点击，
 * 'left', 'right', 'up' or 'down', 如果垫的边缘被点击或垫在相应的方向滑动或
 * 'back', 'home' or 'menu*, 如果相应的按钮被点击
-* 请记住：您可以使用目标值列表（可通过每个数据点的扳手图标访问，或者更确切地说是新反应 ui 中的齿轮图标访问）从一个数据点链接到多个数据点，具体取决于返回的值（参见上面的修改数据点部分）
+* 请记住：您可以使用目标值列表（可通过每个数据点的扳手图标访问，或者更确切地说是新反应 ui 中的齿轮图标）从一个数据点链接到多个数据点，具体取决于返回的值（参见上面的修改数据点部分）
 * **REMOTE_COLOR**：*string* - 显示彩色按钮 a 返回相应的颜色（“红色”、“绿色”、“黄色”或“蓝色”），如果单击颜色
 * **REMOTE_CHANNELS**：*array* - 一组按钮。如果单击按钮，按钮的名称将发送到相应的 state-id
 * **REMOTE_ADDITIONAL_BUTTONS**：*array* - 按钮数组。如果单击按钮，按钮的名称将发送到相应的 state-id
@@ -1750,6 +1752,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * (sbormann) Added option to protect instance by passphrase.
 * (sbormann) Added option to set value of LOCK_OPEN for doors with lock.
 * (sbormann) Linking color to GLOW or BACKGROUND_COLOR now works when using ALTERNATIVE_COLORSPACE.
+* (sbormann) Added URL-Parameter &language=xx.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
+hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -17,6 +17,13 @@ hash: 9dMVRdxIK3OuzTSiFC6FPmWwXXjeofEqDIfjYzKwWng=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 Адаптер Netatmo для ioBroker
+
+## __Важное примечание для событий в реальном времени (дверной звонок, приветствие, присутствие, CO2/дымовая сигнализация)__
+Чтобы получать события в реальном времени от Netatmo, вам нужна учетная запись iot/Pro-Cloud с Assistent- или Remote-лицензией и установленным экземпляром iot, подключенным к этой учетной записи. Инстанс IoT должен иметь версию 1.14.0 или выше.
+
+Выберите экземпляр iot в настройках адаптера и перезапустите адаптер.
+
+Версии адаптера Netatmo < 3.0 использовали службу heroku для передачи этих событий веб-перехватчика, но Heroku умерла от этой бесплатной службы. Таким образом, все версии Netatmo < 3.0 больше не будут получать события в реальном времени с 28.11.2022! По этой причине мы решили использовать проверенные и стабильные сервисы iot/Pro-Cloud.
 
 ## __Важное примечание об изменениях аутентификации, октябрь 2022 г.__
 По данным Netatmo, к октябрю 2022 года «старый» способ аутентификации с использованием имени пользователя и пароля напрямую путем их ввода в адаптер будет отключен.
@@ -76,6 +83,10 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### **В РАБОТЕ** -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices
 

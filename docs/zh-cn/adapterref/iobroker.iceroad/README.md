@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iceroad/README.md
-title: ioBroker.iceroad
-hash: UcX6sfqJaYmGW/SiUNCWCI+y/wwKOvRawvl9VbwsQrw=
+title: ioBroker.冰路
+hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
 ---
 ![标识](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
@@ -11,28 +11,38 @@ hash: UcX6sfqJaYmGW/SiUNCWCI+y/wwKOvRawvl9VbwsQrw=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iceroad.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.iceroad.svg)
 
-# IoBroker.iceroad
+# IoBroker.冰路
 ![测试和发布](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
 
-Bitte die api hier beantragen: https://www.eiswarnung.de/rest-api/
+Bitte die api hier beantragen：https://www.eiswarnung.de/rest-api/
 
-Vorhersage zur vereisten Frontscheibe [德意志银行](docs/de/iceroad.md)
+Vorhersage zur vereisten Frontscheibe [德意志研究报](docs/de/iceroad.md)
 
-预测-您汽车的冰窗
+预测 - 车窗结冰
 
 [英文说明在这里](docs/en/iceroad.md)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) fixed issue messages wasn't sent
+-   (ciddi89) increased timeout
+
 ### 0.1.1 (2022-10-01)
-* (Apollon77) Make sure adapter stops when he is done
+
+-   (Apollon77) Make sure adapter stops when he is done
 
 ### 0.1.0
-* (Patrick Walther) add locations, add pushover/telegram/mail
+
+-   (Patrick Walther) add locations, add pushover/telegram/mail
 
 ### 0.0.1
-* (Patrick Walther) initial release
+
+-   (Patrick Walther) initial release
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2022 Patrick Walther walther-patrick@gmx.net

@@ -1,5 +1,7 @@
 ![Logo](docs/de/img/iceroad.png)
+
 # ioBroker.iceroad
+
 ![Number of Installations](http://iobroker.live/badges/iceroad-installed.svg)
 ![Number of Installations](http://iobroker.live/badges/iceroad-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.iceroad.svg)](https://www.npmjs.com/package/iobroker.iceroad)
@@ -17,16 +19,26 @@ forecast- ice window from your car
 [English Description here](docs/en/iceroad.md)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) fixed issue messages wasn't sent
+-   (ciddi89) increased timeout
+
 ### 0.1.1 (2022-10-01)
-* (Apollon77) Make sure adapter stops when he is done
+
+-   (Apollon77) Make sure adapter stops when he is done
 
 ### 0.1.0
-* (Patrick Walther) add locations, add pushover/telegram/mail
+
+-   (Patrick Walther) add locations, add pushover/telegram/mail
 
 ### 0.0.1
-* (Patrick Walther) initial release
+
+-   (Patrick Walther) initial release
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2022 Patrick Walther walther-patrick@gmx.net

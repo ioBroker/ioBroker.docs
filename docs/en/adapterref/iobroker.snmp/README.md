@@ -22,6 +22,8 @@ This adapter can be used to poll information from devices like printers, network
 -->
 ### 2.2.1 (2022-10-18)
 * (McM1957) Fixed an error within io-package.json.
+* (McM1957) Ukrainian translations have been added.
+
 
 ### 2.2.0 (2022-10-18)
 * (McM1957) The compatibility flag is now deprecated and will be removed in future releases. Please adapt config if required.

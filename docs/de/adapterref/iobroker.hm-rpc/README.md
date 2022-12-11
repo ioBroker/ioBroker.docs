@@ -195,6 +195,10 @@ Auszug:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.16 (2022-12-08)
+* (foxriver76) we have linked images of new devices
+* (foxriver76) we ensure, that the `LEVEL` datapoint of blinds is of role `level.blind` (closes #681)
+
 ### 1.15.15 (2022-08-25)
 * (foxriver76) Retry once on `(UNREACH)` and `Failure` errors to avoid tmeporary communication issues (closes #467)
 * (foxriver76) we have updated some device icons

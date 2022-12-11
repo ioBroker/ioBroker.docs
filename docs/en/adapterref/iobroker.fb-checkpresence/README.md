@@ -213,6 +213,10 @@ Here you will find information about the history of the current day.
     * Did some changes
     * Did some more changes
 -->
+### **WORK IN PROGRESS**
+* (afuerhoff) axios updated
+* (afuerhoff) error handling optimized
+
 ### 1.1.21 (2022-09-05)
 * (afuerhoff) dependencies updated
 

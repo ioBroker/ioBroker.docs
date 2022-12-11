@@ -169,6 +169,7 @@ Example for any image you like:
 ### 0.9.1
 * (rde-master) Bugfix description
 * (rde-master) Bugfix Translation
+* (rde-master) Change to Api v2
 
 
 ### 0.9.0

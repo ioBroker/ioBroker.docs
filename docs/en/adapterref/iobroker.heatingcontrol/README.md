@@ -253,9 +253,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.9.3 (in progress)
+### 2.10.1 (2022-12-10)
 * (René) update dependencies
-* (René) see issue #337: bug fix in calculate profil position 
+* (René) see issue #337: bug fix in calculate profil position
+* (René) see issue #336: translation of notification mesaages
+* (René) see issue #347: bug room status if option "thermostat handles windows open" is enabled and window opened and closed
+* (René) some minor bug fixes
 
 ### 2.9.3 (2022-10-28)
 * (René) update dependencies

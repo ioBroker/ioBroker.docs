@@ -269,6 +269,9 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.13.0 (2022-12-08)
+* (Apollon77) Add support vor Custom Skill v2
+
 ### 1.12.5 (2022-11-09)
 * (bluefox) Small changes on configuration GUI
 

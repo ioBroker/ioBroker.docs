@@ -77,7 +77,10 @@ If you want to take the json graph and table you can use this [example](./vis.md
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (stromdao) Added SolarPredictionAPI  
+* (klein0r) Dropped Admin 5 support
+
+### 2.4.0 (2022-12-09)
+* (stromdao) Added SolarPredictionAPI
 
 ### 2.3.0 (2022-06-26)
 * (klein0r) Add summary values to InfluxDB
@@ -95,9 +98,6 @@ If you want to take the json graph and table you can use this [example](./vis.md
 ### 2.1.5 (2022-06-03)
 * (klein0r) Added installed peak power as state
 * (klein0r) Fixed time shift when using solcast
-
-### 2.1.4 (2022-05-27)
-* (klein0r) Added option for label text size (charting)
 
 ## License
 MIT License

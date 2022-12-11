@@ -121,6 +121,9 @@ Values can have quality codes:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.2 (2022-12-09)
+* (Apollon77) In error cases return error as string
+
 ### 1.3.1 (2022-11-09)
 * (raintonr) added delay option for slow connections
 * (bluefox) added compact mode
