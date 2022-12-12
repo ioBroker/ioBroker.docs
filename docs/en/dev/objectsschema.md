@@ -116,7 +116,7 @@ Or other example `hm-rpc.1.ABC110022.2.VALUE`:
 `getState` method and `stateChange` event delivers an object with all attributes except expire
 for `setState` method everything except `val` is optional, `from` is set automatically by the `setState` method. `ack` defaults to false, `ts` and `lc` are set as expected
 
-It is important to note that the value a state of type array, object, mixed or file must be serialized using `JSON.stringify()`.
+It is important to note that the value a state of type `array`, `object`, `mixed` or `file` must be serialized using `JSON.stringify()`.
 
 Attributes for `getState/stateChange/setState` object:
 
@@ -173,11 +173,11 @@ The tree structure is assembled automatically by names. E.g. ```system.adapter.0
 * `state`    - parent should be of type channel, device, instance or host
 * `channel`  - object to group one or more states. Parent should be device.
 * `device`   - object to group one or more channels or state. Should have no parent except adapter instance namespace.
-* `enum`     - objects holding a array in common.members that points to the states, channels, devices or files. enums can have a parent enum (tree-structure possible)
+* `enum`     - objects holding an array in `common.members` that points to the states, channels, devices or files. enums can have a parent enum (tree-structure possible)
 * `host`     - a host that runs a controller process
 * `adapter`  - the default config of an adapter. presence also indicates that the adapter is successfully installed. (suggestion: should have an attribute holding an array of the hosts where it is installed)
 * `instance` - instance of adapter. Parent has to be of type adapter
-* `meta`     - rarely changing meta information that a adapter or his instances needs
+* `meta`     - rarely changing meta information that an adapter or his instances needs
 * `config`   - configurations
 * `script`   - scripts
 * `user`     - users
@@ -189,36 +189,25 @@ The tree structure is assembled automatically by names. E.g. ```system.adapter.0
 ##### State
 Attributes:
 
-* `common.type`   (optional - (default is mixed==any type) (possible values: number, string, boolean, array, object, mixed, file). As exception the objects with type `meta` could have `common.type=meta.user` or `meta.folder`. It is important to note that array, object, mixed and file must be serialized using `JSON.stringify()`.
+* `common.type`   (optional - (default is `mixed`==any type) (possible values: `array`, `boolean`, `file`, `json`, `mixed`, `multistate`, `number`, `object`, `string`). As exception the objects with type `meta` could have `common.type=meta.user` or `meta.folder`. It is important to note that array, object, mixed and file must be serialized using `JSON.stringify()`.
 * `common.min`    (optional)
 * `common.max`    (optional)
 * `common.step`   (optional) - increase/decrease interval. E.g. 0.5 for thermostat
 * `common.unit`   (optional)
 * `common.def`    (optional - the default value)
-* `common.defAck` (optional - if common.def is set this value is used as ack flag, js-controller 2.0.0+)
+* `common.defAck` (optional - if `common.def` is set this value is used as ack flag, `js-controller` 2.0.0+)
 * `common.desc`   (optional, string or object) - description, object for multilingual description
 * `common.read`   (boolean, mandatory) - true if state is readable
 * `common.write`  (boolean, mandatory) - true if state is writable
 * `common.role`   (string,  mandatory) - role of the state (used in user interfaces to indicate which widget to choose, see below)
-* `common.states` (optional) - provide more context on allowed values for states with datatypes string and number:
+* `common.states` (optional) - provide more context on allowed values for states with data types string and number:
   * for numbers **without** provided common.min/common.max: contains the list of allowed number values and their (displayed) label as object in form `{0: 'OFF', 1: 'ON', '-1': 'whatever'}`. Only these values are allowed
-  * for numbers **with** provided common.min **and/or** common.max: the allowed number range is defined by min/max, this attribute contains a list of "special" number values and their (displayed) label as object like `{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255). It is allowed to only specify min **or** max, the missing limit is then assumed as +/-Infinity (+/-Infinity not included)
+  * for numbers **with** provided `common.min` **and/or** common.max: the allowed number range is defined by min/max, this attribute contains a list of "special" number values and their (displayed) label as object like `{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255). It is allowed to only specify min **or** max, the missing limit is then assumed as +/-Infinity (+/-Infinity not included)
   * for strings contains the list of allowed values and their (displayed) label as object like `{'value': 'valueName', 'value2': 'valueName2'}`. Only these values are allowed
   * for strings contains the list of allowed values as array like `['Start', 'Flight', 'Land']` (which in fact is the same as `{'Start': 'Start', 'Flight': 'Flight', 'Land': 'Land'}`). Only these values are allowed
   * These values are currently (as of js-controller 4.0) not checked or validated by the js-controller and are only there for UIs and Visualizations
 * `common.workingID` (string, optional) - if this state has helper state WORKING. Here must be written the full name or just the last part if the first parts are the same with actual. Used for `HM.LEVEL` and normally has value `WORKING`
 * `common.custom` (optional) - the structure with custom settings for specific adapters. Like `{"influxdb.0": {"enabled": true, "alias": "name"}}`. `enabled` attribute is required and if it is not true, the whole attribute will be deleted.
-
-##### Attribut `common.history`
-Die Verlaufsfunktion benötigt den Verlaufsadapter oder einen anderen Speicheradapter vom Typ Verlauf
-
-fifo length is reduced to min when max is hit. set to null or leave undefined to use defaults
-
-for a list of transports see history adapter README
-
-* `common.history` (optional)
-* `common.history.<HISTORY-INSTANCE>.changesOnly` (optional, boolean, if true only value changes are logged)
-* `common.history.<HISTORY-INSTANCE>.enabled` (boolean)
 
 ##### State `common.role`
 * `common.role` (indicates how this state should be represented in user interfaces)
@@ -227,7 +216,7 @@ for a list of transports see history adapter README
 
 #### Channel
 ##### Channel `common.role` (optional)
-suggestion: the channel-objects common.role should/could imply a set of mandatory and/or optional state-child-objects
+suggestion: the channel-objects `common.role` should/could imply a set of mandatory and/or optional state-child-objects
 
 possible values:
 
