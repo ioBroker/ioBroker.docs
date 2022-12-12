@@ -17,12 +17,10 @@ Adapter haben mehrere Teile, die übersetzt werden müssen:
 
 ## Sprachen
 Alle diese kurzen Zeichenfolgen **müssen** in die folgenden Sprachen übersetzt werden:
-
 - Englisch (en)
-- Deutsch
+- Deutsch (de)
 
 Sie **sollten** auch in die folgenden zusätzlichen Sprachen übersetzt werden:
-
 - Russisch (ru)
 - Portugiesisch (pt)
 - Niederländisch (nl)
@@ -30,6 +28,7 @@ Sie **sollten** auch in die folgenden zusätzlichen Sprachen übersetzt werden:
 - Italienisch (es)
 - Spanisch (es)
 - Polnisch (pl)
+- Ukrainisch (uk)
 - Chinesisch (zh-cn)
 
 ## Automatische Übersetzung

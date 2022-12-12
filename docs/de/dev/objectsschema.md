@@ -23,7 +23,7 @@ Es wird auch nicht empfohlen, `^$()/` zu verwenden.
 
 Die ID hat verschiedene Ebenen. Jede Ebene wird durch einen Punkt getrennt. Beispiel: `system.adapter.admin.0`
 
-- `system` - ist ein Namensraume für Systemobjekte
+- `system` - ist ein Namensraum für Systemobjekte
 - `adapter` - Namensraum für Adapterkonfigurationen
 - `admin` - Adaptername
 - `0` - Adapterinstanz

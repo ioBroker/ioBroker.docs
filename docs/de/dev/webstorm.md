@@ -20,7 +20,7 @@ Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript
 ### Windows
  1. Gehen Sie auf die Webseite von [jetBrains](https://www.jetbrains.com/webstorm/download/#section=windows) und laden Sie WebStorm für Windows herunter
  
- 2. Führen Sie die WebStorm.*.exe aus und folgen Sie dem Installationswizard
+ 2. Führen Sie die `WebStorm.*.exe` aus und folgen Sie dem Installationswizard
 
 ## Installation von Node.js
 ### Linux
@@ -107,7 +107,7 @@ Diese Dokumentation ist wie ein "Kochbuch", aber ohne Erklärungen zu Javascript
 
    ![Neue Konfiguration anlegen](../../de/dev/media/newRunConfig.png)
 
-2.  Füllen Sie die Felder wie folgt aus, beachten Sie aber die systembedingten Underschiede in den Pfaden `Node interpreter` und `Working directory`. In der folgenden Abbildung wird dies an dem Beispiel des ioBroker.beckhoff Adapters mit der die Instanznummer 0 dargestellt. Dies kann auf jeden Adapter übertragen werden. Zu beachten ist, dass im Feld `Application parameters` die richtige Instanz angegeben wird. 
+2.  Füllen Sie die Felder wie folgt aus, beachten Sie aber die systembedingten Unterschiede in den Pfaden `Node interpreter` und `Working directory`. In der folgenden Abbildung wird dies an dem Beispiel des ioBroker.beckhoff Adapters mit der die Instanznummer 0 dargestellt. Dies kann auf jeden Adapter übertragen werden. Zu beachten ist, dass im Feld `Application parameters` die richtige Instanz angegeben wird. 
 
     ![Configuration](../../de/dev/media/Run-Debug Configurations.png)
     

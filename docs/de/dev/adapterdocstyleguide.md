@@ -4,18 +4,18 @@ lastChanged: "06.05.2021"
 editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/adapterdocstyleguide.md"
 ---
 
-# Style Guide für die Erstellung einer Adapterdokumentation
+# Styleguide für die Erstellung einer Adapterdokumentation
 
 
-* Die Dokumentation wird mit Hilfe der Sprache "Markdown" erstellt.
+* Die Dokumentation wird mithilfe der Sprache "Markdown" erstellt.
 * Die Dateiablage für die Adapterdokumentation ist wie folgt geregelt:
   * In jedem Adapter-Projekt gibt es einen Ordner
     `/doc`.
-  * Wenn die Dokumentation in deutsch vorliegt, wird sie im Unterordner
+  * Wenn die Dokumentation in Deutsch vorliegt, wird sie im Unterordner
     `de` gespeichert. Aktuell unterstützte Sprachen und damit Ordnernamen sind:
     `en, de, ru, pt, nl, fr, it, es, pl`.
   * Die eigentliche Adapterdokumentation steht in der Datei `README.md`,
-    die direkt im jeweilgen Sprachenordner liegt.
+    die direkt im jeweiligen Sprachenordner liegt.
   * Medien werden im Unterordner `media` abgelegt, der sich ebenfalls im
     Sprachenordner befindet.
   * Außer README.md werden Datei- und Ordnernamen mit Kleinbuchstaben geschrieben.
@@ -42,7 +42,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
     enthält.
 * Dokumente beginnen immer mit einer Überschrift in der Ebene H1.
 * Links werden nicht inline platziert (z.B. mit `[a link](http://example.com)`),
-  sondern mit Hilfe von inline `[a link][]` und
+  sondern mithilfe von inline `[a link][]` und
   `[a link]: https://a.link/to/know` an das Dokumentenende gestellt.
 * Wenn Gedankenstriche verwendet werden, benutzt man die kurze Schreibweise
   mit dem Minuszeichen und nicht "—" oder `Option+Shift+"-"` in OSX.
@@ -52,17 +52,17 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
   * Die Einbindung der Medien in den Text erfolgt für allgemeine Dateien
     mittels `[Medienbegriff](media/{dateiname})` und für Bilder mittels
     `![Medienbegriff](media/{dateiname})`.
-  * Abbildungen weden vorzugsweise im Format SVG abgelegt. Wenn SVG
+  * Abbildungen werden vorzugsweise im Format SVG abgelegt. Wenn SVG
     nicht möglich ist, dann als PNG-Datei. Bitte ein Auge auf die
     Dateigröße haben.
   * Kurze Videos können als GIF-Datei eingebettet werden.
-  * Unter jedem Bild ist in kursiv eine kure Beschreibug des Inhalts
+  * Unter jedem Bild ist in kursiv eine kurze Beschreibung des Inhalts
     anzugeben.
-* Für Quelltextabschnitte gilt folgendes:
+* Für Quelltextabschnitte gilt Folgendes:
   * Je nach Quellcodesprache ist ein entsprechendes Markup zu wählen. Zum
     Beispiel `\`\`\``  für JavaScript.
   * Ein Quelltext kann, muss aber nicht vollständig sein. Quelltextblöcke
-    stellen Beispiele zur Verdeutlichung des jeweis gerade beschriebenen
+    stellen Beispiele zur Verdeutlichung des jewels gerade beschriebenen
     Standpunkts dar. Es müssen also keine vollständig lauffähigen Programme
     geliefert werden. Wenn dennoch ein vollständig lauffähiges Programm
     bereitgestellt werden soll, erfolgt das als Mediendatei im Ordner

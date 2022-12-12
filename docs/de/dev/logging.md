@@ -6,7 +6,15 @@ title: kein Titel
 hash: FAhDtnxOJ7Fyo4YK2D/r3ZcDQdByr87vZusjjQx1iH0=
 ---
 ## Protokolltransporter
-Wenn Sie bestimmte oder alle Protokolle von ioBroker-Adaptern abonnieren möchten, können Sie **logTransporter** verwenden. Zur Aktivierung in Ihrem Adapter fügen Sie `"logTransporter": true` zur gemeinsamen Struktur Ihres `io-package.json` hinzu.<br><br> In Ihrem Adaptercode (wie in der `main.js`-Datei) müssen Sie dann zur Aktivierung `requireLog(true)` aufrufen. Sobald requireLog() auf true gesetzt ist, können Sie `on('log', callback)` verwenden, um alle neuen Protokolle zu abonnieren, die von Adaptern hereinkommen. Die Callback-Funktion gibt alle Protokolle mit folgendem Objekt zurück (Beispiel):
+Wenn Sie bestimmte oder alle Protokolle von ioBroker-Adaptern abonnieren möchten, können Sie **logTransporter** verwenden.
+Zur Aktivierung in Ihrem Adapter fügen Sie `"logTransporter": true` zur gemeinsamen Struktur Ihres `io-package.json` hinzu.
+
+
+
+
+In Ihrem Adaptercode (wie in der `main.js`-Datei) müssen Sie dann zur Aktivierung `requireLog(true)` aufrufen.
+Sobald requireLog() auf true gesetzt ist, können Sie `on('log', callback)` verwenden, um alle neuen Protokolle zu abonnieren, die von Adaptern hereinkommen.
+Die Callback-Funktion gibt alle Protokolle mit folgendem Objekt zurück (Beispiel):
 
 ```
 {from:'testlog.0', message: 'testlog.0 (12504) adapter disabled', severity: 'error', ts:1585413238439}

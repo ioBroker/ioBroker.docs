@@ -17,7 +17,7 @@ If the adapter runs stably on a specific version number, you are welcome to tran
 ## Requirements for the Latest Repository
 0. Use [https://adapter-check.iobroker.in/](https://adapter-check.iobroker.in/) to test adapter repo.
 
-1. The adapter's Github repository should have a capital B in ioBroker, while in the package.json it must be lowercase because ``npm`` doesn't allow uppercase letters.
+1. The adapter's GitHub repository should have a capital B in ioBroker, while in the package.json it must be lowercase because ``npm`` doesn't allow uppercase letters.
 
 2. The title in the io-package.json should not contain the word ``ioBroker`` nor the word ``Adapter``.
 

@@ -25,11 +25,7 @@ Project content:
 - Open in the browser `http://localhost:5000`
 
 ## TODO
-- Download
-- sitemap
-- About
-- FAQ
-- Translator
+- [ ] Do not translate development documentation. By some flag or path
 
 ## How to create the documentation
 See [how to participate](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md)

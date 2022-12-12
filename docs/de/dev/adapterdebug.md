@@ -44,19 +44,19 @@ Wenn iobroker läuft nicht auf dem gleichen Rechner wie chrome, dann lautet der 
 node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 ```
 
-der parameter `--inspect-brk` sorgt im vergleich zu oben,
+der parameter `--inspect-brk` sorgt im Vergleich zu oben,
 
 das gleich zum start des debuggers auf der ersten Zeile deines Adapters ein breakpoint gesetzt wird.
 
-Wer nicht immer den link zum start des debugs einzeln kopieren will, kann auch im chrome die folgende Seite aufrufen:
+Wer nicht immer den Link zum start des debugs einzeln kopieren will, kann auch im chrome die folgende Seite aufrufen:
 
 ```
 chrome://inspect
 ```
 
-dann einmalig über configure die IP Adresse und Port eures **ioBroker-Rechners** genau wie beim inspect befehl eingeben.
+dann einmalig über configure die IP-Adresse und Port eures **ioBroker-Rechners** genau wie beim inspect befehl eingeben.
 
-Dort wird dann die debug session nach start des befehls angezeigt und kann mit einem klick gestartet werden.
+Dort wird dann die debug session nach start des befehls angezeigt und kann mit einem Klick gestartet werden.
 
 Die chrome debug möglichkeiten sind fantastisch.
 Man hat alle Möglichkeiten, die man auch aus dem **Web-Debugging** kennt: Breakpoints, auch mit Bedingungen, watch, call stack, scope inspection, Konsole-Ausgabe, usw.
@@ -102,7 +102,7 @@ Die Konfiguration in der Datei `.vscode/launch.js` sollte so aussehen:
 Nachdem als der Adapter gestoppt ist (`iobroker stop ADAPTER_NAME`), kann man den Adapter im VS Code starten:
 ![VS Code](media/adapterdebug10.png) 
 
-Nachdem als man `Launch Program` auswählt und `Play` Knopf klickt, wird Der Adapter gestartet und man kann lokal debuggen.
+Nachdem als man `Launch Program` auswählt und `Play` Knopf klickt, wird der Adapter gestartet und man kann lokal debuggen.
 
 ### Remote Debugging
 Dafür sollte man den Adapter auf dem ioBroker server speziell starten.

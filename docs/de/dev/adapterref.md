@@ -20,7 +20,7 @@ Objekte beschreiben zusätzlich:
 * Konfiguration der Hosts
 * Beschreibung der Adapter
 * Konfiguration von Adapterinstanzen
-* Inhalt der Konfigurations-HTML-Dateien
+* Inhalt der Configurations-HTML-Dateien
 * Inhalt von WEB-Dateien
 * Aufzählungen
 * Benutzer
@@ -28,7 +28,7 @@ Objekte beschreiben zusätzlich:
 
 Objekte und die aktuellen Zustände können im Admin-Adapter auf der Registerkarte "Objekte" untersucht werden.
 
-Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." von einander getrennt. Es gibt Systemobjekte (ID beginnt mit _ oder "system.") und Adapterobjekte (ID beginnt mit adaptername.instanznummer).
+Die ID des Objekts besteht aus verschiedenen Teilen. Jeder Teil wird durch "." voneinander getrennt. Es gibt Systemobjekte (ID beginnt mit _ oder "system.") und Adapterobjekte (ID beginnt mit adaptername.instanznummer).
 
 ?> Hinweis: Hier in der Beschreibung steht **Adaptername** für den Namen des Adapters, den ein Entwickler erstellen möchte.
 
@@ -141,8 +141,8 @@ Wenn für die aktuelle Sprache kein Eintrag vorhanden ist, wird die Beschreibung
 * `platform`: Notwendig. Aktuell wird nur `Javascript/Node.js` unterstützt.
 * `mode`: Notwendig. Der Modus, in dem der Adapter gestartet wird.
 * `enabled`: optional. Bei true wird die Instanz nach dem Hinzufügen aktiviert.
-* `license`: Lizenzname unter dem der Adapter lizenziert ist;
-* `loglevel`: anfängliche Protokollstufe, die nach der Erstellung der Instanz festgelegt wird. Kann "Debug", "Info", "Warnung" oder "Fehler" sein
+* `license`: Lizenzname, unter dem der Adapter lizenziert ist;
+* `loglevel`: anfängliche Protokollstufe, die nach der Erstellung der Instanz festgelegt wird. Kann `silly`, `debug`, `info`, `warn` oder `error` sein
 * `readme`: Link zur Readme-Seite im Internet. Wird vom Admin-Adapter verwendet, um den Link anzuzeigen, wenn "?" Schaltfläche geklickt.
 * `icon`: Symbolname (nicht der Pfad) des Adaptersymbols. Dieses Symbol muss sich im Administratorverzeichnis des Adapters befinden.
 * `extIcon`: Symbolpfad im Internet, um das Symbol für den Adapter anzuzeigen, wenn der Adapter noch nicht installiert ist.
@@ -159,7 +159,7 @@ Wenn für die aktuelle Sprache kein Eintrag vorhanden ist, wird die Beschreibung
 Z.B. `http://%ip%:%port%` werden als "http://192.168.0.1:8080" angezeigt, wobei "192.168.0.1" die IP-Adresse des "web" -Adapters und 8080 der Wert von `system.adapter.adapterName.X => native.port` ist.
 
 ### Objektfelder
-Objekte - statische Objekte für alle Instanzen des Adapters (xxx.object). Durch die Installation des Adapters (nicht die Instanzerstellung) können einige vordefinierte Objekte (normalerweise, die etwas beschreiben) automatisch erstellt werden. Diese Objekte dürfen nicht von einer bestimmten Instanz abhängen und gelten für alle Instanzen dieses Adapters. Zum Beispiel hat der hm-rpc-Adapter die Strukturbeschreibung aller HomeMatic-Geräte.
+Objekte - statische Objekte für alle Instanzen des Adapters (xxx.object). Durch die Installation des Adapters (nicht die Instanz-Erstellung) können einige vordefinierte Objekte (normalerweise, die etwas beschreiben) automatisch erstellt werden. Diese Objekte dürfen nicht von einer bestimmten Instanz abhängen und gelten für alle Instanzen dieses Adapters. Zum Beispiel hat der hm-rpc-Adapter die Strukturbeschreibung aller HomeMatic-Geräte.
 
 Zusätzlich können die neuen Ansichten definiert werden. In SQL heißen sie "gespeicherte Prozedur" und in couchDB - Ansichten.
 
@@ -287,10 +287,10 @@ Kurzstruktur von `package.json`:
 }
 ```
 
-!> Alle Felder sind Pflichtfelder. `devDependencies` sollten sich ebenfalls im Inneren befinden, um die Grunzaufgaben zu ermöglichen.
+!> Alle Felder sind Pflichtfelder. `devDependencies` sollten sich ebenfalls im Inneren befinden, um die Grundaufgaben zu ermöglichen.
 
 ### Bereitstellen
-Es wird empfohlen, den Code auf Github zu haben. Nachdem der Code stabil ist und der Adapter installiert werden kann, kann der Adapter für andere Benutzer freigegeben werden indem die Benutzer gebeten werden den Adapter wie folgt zu installieren:
+Es wird empfohlen, den Code auf Github zu haben. Nachdem der Code stabil ist und der Adapter installiert werden kann, kann der Adapter für andere Benutzer freigegeben werden, indem die Benutzer gebeten werden den Adapter wie folgt zu installieren:
 
 ```
 npm install https://github.com/yourName/iobroker.adapterName/tarball/master/
@@ -305,7 +305,7 @@ Das Veröffentlichen erfolgt mit folgendem Befehl:
 npm publish
 ```
 
-Dies ist im Adapterverzeichnis auf zu rufen. Sicher stellen, dass alle anderen Dateien außer den erforderlichen gelöscht wurden (z. B. `.idea`), oder der Datei `.gitignore` hinzufügen.
+Dies ist im Adapterverzeichnis aufzurufen. Sicher stellen, dass alle anderen Dateien außer den erforderlichen gelöscht wurden (z. B. `.idea`), oder der Datei `.gitignore` hinzufügen.
 
 Natürlich muss zuerst ein Konto auf npm erstellt werden.
 
@@ -320,7 +320,7 @@ Wenn ein Widget oder einen Adapter mit einem Widget erstellt werden soll, sind d
 
 ### Struktur von main.js
 ```
-var utils = require(__dirname + '/lib/utils'); // Get common adapter utils - mandatory
+var utils = require('./lib/utils'); // Get common adapter utils - mandatory
 ```
 
 Diese Zeile lädt das Modul `lib/utils.js`. Allen Adapterfunktionen ist es gemeinsam, die Wurzel von `iobroker.js-controller` zu finden.

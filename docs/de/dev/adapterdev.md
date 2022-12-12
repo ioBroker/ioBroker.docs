@@ -26,7 +26,7 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
 
 ### Tools
 
-[Adapter Creator (Web-Formular)](https://adapter-creator.iobroker.in/): Damit kann schnell ein Adapter-Template über eine Webformular erstellt werden.
+[Adapter Creator (Web-Formular)](https://adapter-creator.iobroker.in/): Damit kann schnell ein Adapter-Template über ein Web-Formular erstellt werden.
 
 [Adapter Creator (Kommandozeile)](https://forum.iobroker.net/topic/17200/aufruf-iobroker-adapter-creator-testen): Damit kann schnell ein Adapter-Template über die Kommandozeile erstellt werden.
 

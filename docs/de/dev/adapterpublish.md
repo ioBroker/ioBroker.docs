@@ -5,23 +5,23 @@ editLink:    "https://github.com/ioBroker/ioBroker.docs/edit/master/docs/dev/ada
 ---
 
 # Veröffentlichen eines Adapters
-Bevor über das veröffentlichen eines Adapters nachgedacht wird, sollte dieser im [Forum Test Thread](https://forum.iobroker.net/category/91/tester) zum testen angeboten werden. 
+Bevor über das Veröffentlichen eines Adapters nachgedacht wird, sollte dieser im [Forum Test Thread](https://forum.iobroker.net/category/91/tester) zum Testen angeboten werden. 
 Sollten die Tests erfolgreich verlaufen und der Adapter stabil laufen, sollte dieser vorerst in das Latest-Repository aufgenommen werden.
 
-Sollte dar Adapter auf einer bestimmten Versionsnummer stabil laufen, darf dieser gerne in das Stable Repository überführt werden. Hierzu ist die Eigeneinschätzung des Entwicklers im Zusammenspiel mit den Nutzerrückmeldungen gefragt.
+Sollte der Adapter auf einer bestimmten Versionsnummer stabil laufen, darf dieser gerne in das Stable Repository überführt werden. Hierzu ist die Eigeneinschätzung des Entwicklers im Zusammenspiel mit den Nutzerrückmeldungen gefragt.
 
 ***Weitere aktuelle Anforderungen finden Sie hier:*** https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md
 
 ## Anforderungen für das Latest Repository
 0. Benutze [https://adapter-check.iobroker.in/](https://adapter-check.iobroker.in/) um Adapter-Repo zu testen.
 
-1. Das Github Repository des Adapters sollte ein großes B in ioBroker haben, während es in der package.json klein geschrieben sein muss, da ``npm`` keine Großbuchstaben zulässt.
+1. Das GitHub Repository des Adapters sollte ein großes B in ioBroker haben, während es in der package.json kleingeschrieben sein muss, da ``npm`` keine Großbuchstaben zulässt.
 
 2. Der Titel in der io-package.json sollte nicht das Wort ``ioBroker`` und nicht das Wort ``Adapter`` enthalten.
 
 3. Das ``title`` Attribut in der io-package.json (common) ist der Kurzname des Adapters auf Englisch. Während ``titleLang`` die Übersetzungen des ``title`` Attributes enthalten. (die Erweiterung Lang steht für languages)
 
-4. Der Adapter sollte eine Anleitung in Form einer README.md Datei enthalten. Diese sollte mindestens in der englsichen Sprache verfügbar sein. Ergänzend sind andere Sprachen willkommen. Als Anregung kann dieses [Beispiel](https://github.com/foxriver76/ioBroker.denon) dienen.
+4. Der Adapter sollte eine Anleitung in Form einer README.md Datei enthalten. Diese sollte mindestens in der englischen Sprache verfügbar sein. Ergänzend sind andere Sprachen willkommen. Als Anregung kann dieses [Beispiel](https://github.com/foxriver76/ioBroker.denon) dienen.
 
 5. Der Adapter benötigt eine Lizenz. Sowohl in der io-package.json als auch eine separate [Datei](https://github.com/foxriver76/ioBroker.denon/blob/master/LICENSE) im Github Repository.
 
@@ -44,12 +44,12 @@ Sollte dar Adapter auf einer bestimmten Versionsnummer stabil laufen, darf diese
 Das Nutzen der Rolle `state` sollte vermieden werden.
 
 10. Der Adapter sollte sowohl das im Template vorgegebene Testing nutzen. Hierzu kann das Github Konto mit Appveyor (Windows Tests) sowie Travis CI (Linux und Mac OS Tests) verknüpft und das entsprechende Repository für das Testing angemeldet werden.
-Diese beiden Continious Integration Tools, haben sich für das ioBroker Projekt als geeignet erwiesen und sind für öffentliche Github Repositories kostenfrei.
+Diese beiden Continuous Integration Tools, haben sich für das ioBroker Projekt als geeignet erwiesen und sind für öffentliche Github Repositories kostenfrei.
 
 Gerne kann der Testumfang durch den Entwickler erweitert werden.
 
 11. In der io-package.json muss mindestens eine Angabe unter common für das Attribut `authors` gemacht werden. 
-Ebenfalls muss das Attribute `author` in der package.json ausgefüllt sein. 
+Ebenfalls muss das Attribut `author` in der package.json ausgefüllt sein. 
 Optional können auch für npm mehrere Autoren hinterlegt werden, indem in der package.json das Attribut `contributors` genutzt wird.
 
 12. Der Adapter muss als npm Package verfügbar sein. Mehr Informationen können [hier](https://github.com/ioBroker/ioBroker.repositories#how-to-publish-on-npm) gefunden werden.
@@ -61,8 +61,8 @@ Nähere Informationen können [hier](https://github.com/ioBroker/ioBroker.reposi
 1. Der Adapter wurde erfolgreich in das Latest Repository aufgenommen
 2. Es gibt einen [Forum Test Thread](https://forum.iobroker.net/viewforum.php?f=36) für den Adapter, in welchem bereits Nutzerfeedback gegeben wurde.
 3. Eine Discovery Funktion sollte implementiert werden. Hierbei handelt es sich um eine Funktion im [Discovery Adapter](https://github.com/ioBroker/ioBroker.discovery),
-   um automatisch zu erkennen ob der Nutzer eine Instanz des Adapters gebrauchen kann. 
-   Hierzu ist ein Pull Request auf dem  Repository des [Discovery Adapters](https://github.com/ioBroker/ioBroker.discovery) zu stellen.
+   um automatisch zu erkennen, ob der Nutzer eine Instanz des Adapters gebrauchen kann. 
+   Hierzu ist ein Pull Request auf dem Repository des [Discovery Adapters](https://github.com/ioBroker/ioBroker.discovery) zu stellen.
 
 ## Hinzufügen des Adapters zum offiziellen Repository
 1. Das [offizielle Github Repository](https://github.com/ioBroker/ioBroker.repositories) sollte aufgesucht werden und ein Pull Request mit folgendem Inhalt, je nach  Repository, gestellt werden.
@@ -74,8 +74,8 @@ Nähere Informationen können [hier](https://github.com/ioBroker/ioBroker.reposi
 4. Der Adapter sollte in der io-package.json ein Listenattribut `docs` festlegen, unter der Angabe wo eine Anleitung in der jeweiligen Sprache zu finden ist. 
    Als Key wird die Sprache angegeben und als Value der Pfad zur Markdown Datei.
    Eine englische Anleitung ist Pflicht (im Notfall kann auf die Standard README verwiesen werden). Ebenfalls ist eine deutsche 
-   Anleitung wünschenswert, da ein Großteil der Nutzer deutsch spricht, jedoch ist dies optional. 
-   Eine ausführliche Anleitung, kann dem Entwickler viel Zeit im Forum ersparen. 
+   Anleitung wünschenswert, da ein Großteil der Nutzer Deutsch spricht, jedoch ist dies optional. 
+   Eine ausführliche Anleitung kann dem Entwickler viel Zeit im Forum ersparen. 
    Ein Beispiel kann [hier](https://github.com/foxriver76/ioBroker.denon/blob/master/docs/de/README.md) gefunden werden.
 
    Beispiel:
@@ -139,7 +139,7 @@ Die Versionsnummern sollten entsprechend folgender Liste erhöht werden:
 - **major**: Große Änderungen, durch die, die Abwärtskompatibilität zu alten Version nicht mehr gegeben ist
 
 Ebenfalls sollte in der io-package.json das `news` Attribut gepflegt werden. 
-Dies ermöglicht es Nutzern jede aufgelistete Version (unter der Voraussetzung, dass diese auf npm veröfefntlicht wurde) über die Admin-Oberfläche zu installieren.
+Dies ermöglicht es Nutzern jede aufgelistete Version (unter der Voraussetzung, dass diese auf npm veröffentlicht wurde) über die Admin-Oberfläche zu installieren.
 Hierbei sollte die Versionsnummer sowie die Änderungen hinterlegt werden. 
 Die Änderungen können für jede unterstütze Sprache dokumentiert werden, wobei diese mindestens auf Englisch angegeben sein sollten.
 

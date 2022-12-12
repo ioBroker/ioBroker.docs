@@ -13,7 +13,7 @@ Der Adaptername in den Beispielen lautet **iobroker.template-master-mhe**.
 ## Template
 ioBroker Template Adapter: [https://github.com/ioBroker/ioBroker.template](https://github.com/ioBroker/ioBroker.template)
 
-## gestestet in folgender Umgebung
+## getestet in folgender Umgebung
 - ioBroker, lokal installiert
 - ioBroker.js-controller: 1.0.0
 - node.js: v6.10.2
@@ -57,7 +57,7 @@ ioBroker Template Adapter: [https://github.com/ioBroker/ioBroker.template](https
 grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Michael Herwig"
 ```
 
-- Adaptername, Author und Email-Adresse wird über grunt an den notwendigen Stellen im Code geändert
+- Adaptername, Author und E-Mail-Adresse wird über grunt an den notwendigen Stellen im Code geändert
 
 ### 4. Adapter-Ordner in VSCode laden
 
@@ -89,7 +89,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 - in der ioBroker Admin GUI auf Update klicken
 
 
-### 9. Adapter rausgesucht und Instanz hinzugefügt
+### 9. Adapter herausgesucht und Instanz hinzugefügt
 
 - in der ioBroker Admin GUI auf das Plus beim Adapter drücken
 ![SCREENSHOT: Instanz des eigenen Adapters](media/Instanz-installieren.png)
@@ -110,7 +110,7 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 
 ### 1.) VSCode launch.json anpassen
 
-EInmalig für alle Adapter muss die Einstellungen
+Einmalig für alle Adapter muss die Einstellungen
 
 - **SHIFT+STRG+P**: und dann folgendes eingeben: >debug launch.json
 - oder über die Editor GUI: auf den Käfer und dann oben auf das Zahnrad
@@ -210,7 +210,7 @@ PS C:\ioBroker>
 ### todo
 
 - VSCode mit Github nutzen
-- Beispiel an einem eigenem Adapter
+- Beispiel an einem eigenen Adapter
 - klären: Debug nur mit node.js > 6.x oder ist 4.x auch möglich?
 
 

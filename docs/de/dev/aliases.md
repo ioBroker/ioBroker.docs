@@ -9,7 +9,7 @@ Alias (Pseudonym) ist ein virtueller Datenpunkt, der mit einem realen Datenpunkt
 verknüpft ist.
 
 ## Anwendungsfälle
-Irgendwann können reale Geräte einen defekt haben und müssen ausgetauscht werden.
+Irgendwann können reale Geräte einen Defekt haben und müssen ausgetauscht werden.
 Beim Tausch wird aber auch die Adresse dieses Geräts geändert z.B. von 
 `hm-rpc.0.ABC123` in `hm-rpc.0.QJU978`.
 
@@ -18,12 +18,12 @@ verwendet wurde, müsste der Benutzer nun alle diese Stellen finden und dort
 ersetzen.
 
 Die Alias Funktion ermöglicht es nun dem Benutzer, einen Alias für den Datenpunkt
-eines physisches Gerätes zuzuweisen und diesen Alias in allen Stellen vie vis,
+eines physischen Gerätes zuzuweisen und diesen Alias in allen Stellen vie vis,
 javascript usw. zu verwenden. Beim Geräte Tausch muss dann nur die ID im Alias 
 geändert werden.
 
 Ein weiterer Anwendungsfall für diese Funktion ist die Unterstützung von Geräten 
-in speziellen intelligenten Adaptern wie iot oder material. Mit Hilfe von Aliasen 
+in speziellen intelligenten Adaptern wie iot oder material. Mithilfe von Aliasen 
 kann die erforderliche Statusstruktur erstellt werden, die Werte werden jedoch 
 von physischen Geräten gelesen.
 
@@ -36,8 +36,8 @@ Objekteigenschaften (wie common, native) werden selbst aus dem Alias-Datenpunkt
 gelesen.
 
 Tatsächlich spiegelt ein `alias`-Objekt den Wert des Zielobjekts.
-Falls zulässig, können beide Werte geändert werden und werden vom ioBroker-
-Kernsystem automatisch synchronisiert. Beide Zustände können auch zum Abonnieren 
+Falls zulässig, können beide Werte geändert werden und werden vom
+ioBroker-Kernsystem automatisch synchronisiert. Beide Zustände können auch zum Abonnieren 
 von Skripten verwendet werden und sollten sich genau gleich verhalten.
 
 Hier ist ein Beispiel für ein solches Objekt:
@@ -71,7 +71,7 @@ Z.B. Wenn der Alias `min=0,max=100` und das Ziel `min=0,max=255` hat, wird beim
 Lesen der Wert 10 aus dem Zielstatus in 3,9215686274509802 konvertiert und der 
 im Alias geschriebene Wert 10 wird nach 25,5 konvertiert.
 
-Die Typen werden ebenfalls automatisch konvertiert: Von string zu number, von 
+Die Typen werden ebenfalls automatisch konvertiert: von `string` zu `number`, von 
 number zu boolean und so weiter. Dies hängt von den Alias- und Zieltypen ab.
 
 Zusätzlich können Schreib- und Lesefunktionen in `common.alias` definiert werden:
