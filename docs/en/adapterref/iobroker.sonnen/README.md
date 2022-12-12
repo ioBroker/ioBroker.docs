@@ -326,6 +326,12 @@ The channel consists of read-only states of type `boolean`, providing informatio
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (foxriver76) full port to v2 API (Software Version >= 1.8.7)
+* (foxriver76) brings back `ios` and `inverter` endpoints
+* (foxriver76) configuration request is now handled by a single call instead of one for each attribute
+
 ### 1.14.0 (2022-12-02)
 * (foxriver76) implemented new state `latestData.dcShutdownReason` (closes #213)
 

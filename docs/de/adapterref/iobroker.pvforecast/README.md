@@ -79,6 +79,7 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 -->
 ### **WORK IN PROGRESS**
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 2.4.0 (2022-12-09)
 * (stromdao) Added SolarPredictionAPI

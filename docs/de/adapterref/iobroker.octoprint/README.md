@@ -76,6 +76,7 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
 Tested with OctoPrint 1.8.6
 
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 4.0.1 (2022-10-14)
 

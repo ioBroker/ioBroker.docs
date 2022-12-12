@@ -47,6 +47,9 @@ bulb LBxxx
 
 
 ## Changelog
+### 2.1.6 (2022-12-11)
+* (arteck) refactoring
+
 ### 2.1.5 (2022-12-11)
 * (arteck) refactoring
 

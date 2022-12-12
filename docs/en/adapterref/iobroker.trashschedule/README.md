@@ -55,6 +55,7 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 ### **WORK IN PROGRESS**
 
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 2.0.3 (2022-06-02)
 

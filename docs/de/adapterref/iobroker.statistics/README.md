@@ -129,6 +129,9 @@ sendTo('statistics.0', 'enableStatistics', {
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (klein0r) Added Ukrainian language
+
 ### 2.3.0 (2022-11-03)
 NodeJS 14.5.0 is required
 

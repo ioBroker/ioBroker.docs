@@ -78,6 +78,7 @@ If you want to take the json graph and table you can use this [example](./vis.md
 -->
 ### **WORK IN PROGRESS**
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 2.4.0 (2022-12-09)
 * (stromdao) Added SolarPredictionAPI

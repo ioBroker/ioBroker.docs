@@ -58,6 +58,7 @@ NodeJS >= 14.5 is required
 
 * (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 4.0.0 (2022-05-29)
 

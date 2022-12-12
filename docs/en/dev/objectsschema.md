@@ -485,16 +485,16 @@ ID: `system.adapter.<adapter.name>`
 * `common.allowInit`          - [true/false] allow for "scheduled" adapter to be called "not in the time schedule", if settings changed or adapter started. Or allow scheduled adapter start once after configuration changed and then by schedule.
 * `common.availableModes`     - values for `common.mode` if more than one mode is possible
 * `common.blockly`            - [true/false] if adapter has custom blocks for blockly. (`admin/blockly.js` required)
-* `common.connectionType`     - Connection type with the device: `local/cloud`. See `common.dataSource` too.
 * `common.compact`            - says to controller that this adapter can be started in the same process if desired
 * `common.config.height`      - default height for configuration dialog (deprecated - valid only for admin2)
 * `common.config.minHeight`   - minimal height for configuration dialog (deprecated - valid only for admin2)
 * `common.config.minWidth`    - minimal width for configuration dialog (deprecated - valid only for admin2)
 * `common.config.width`       - default width for configuration dialog (deprecated - valid only for admin2)
+* `common.connectionType`     - Connection type with the device: `local/cloud`. See `common.dataSource` too.
 * `common.dataFolder`         - folder relative to iobroker-data where the adapter stores the data. This folder will be backed up and restored automatically. You can use variable `%INSTANCE%` in it.
 * `common.dataSource`         - How the data will be received from device: `poll/push/assumption`. It is important together with `connectionType`.
-* `common.disableDataReporting` - Do not report errors via the `sentry` for this instance
 * `common.dependencies`       - Array like `[{"js-controller": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on the same host.
+* `common.disableDataReporting` - Do not report errors via the `sentry` for this instance
 * `common.docs`               - The structure like `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md"]}` that describes the documentation if not in `README.md`
 * `common.enabled`            - **mandatory** [true/false] value should be false so new instances are disabled by default
 * `common.engineTypes`        - deprecated. Use engine in package.json
@@ -504,15 +504,15 @@ ID: `system.adapter.<adapter.name>`
 * `common.getHistory`         - [true/false] if adapter supports getHistory message
 * `common.globalDependencies` - Array like `[{"admin": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on one of the hosts.
 * `common.icon`               - name of the local icon (should be located in subdirectory "admin")
-* `common.installedVersion`   - Do not use it, will be set internally only
 * `common.ignoreVersion`      - Do not show the update icon for this adapter for this specific version
+* `common.installedVersion`   - Do not use it, will be set internally only
 * `common.jsonConfig`         - This adapter supports admin5 and provides admin/jsonConfig.json with description of configuration dialog layout
 * `common.jsonCustom`         - This adapter supports admin5 and provides admin/jsonCustom.json with description of custom settings layout
 * `common.keywords`           - Similar to keywords in package.json, but can be defined in many languages. Just an array.
-* `common.localLinks`         - link to the web service of this adapter. E.g. to http://localhost:5984/_utils for the futon from admin
 * `common.localLink`          - deprecated. Use `common.localLinks`.
-* `common.loglevel`           - debug, info, warn or error
+* `common.localLinks`         - link to the web service of this adapter. E.g. to http://localhost:5984/_utils for the futon from admin
 * `common.logTransporter`     - if this adapter receives logs from other hosts and adapters (e.g. to store them somewhere)
+* `common.loglevel`           - debug, info, warn or error
 * `common.main`               - **Deprecated** Use main in package.json.
 * `common.materializeTab`     - if adapter supports > admin3 for the tab (materialize style)
 * `common.materialize`        - if adapter supports > admin3 (materialize style)
@@ -532,8 +532,8 @@ ID: `system.adapter.<adapter.name>`
 * `common.osDependencies.win32` - not used, because win32 has no package manager
 * `common.os`                 - string or array of the supported operation systems, e.g. `["linux", "darwin"]`
 * `common.platform`           - **mandatory** possible values: Javascript/Node.js, more coming
-* `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
 * `common.preserveSettings`   - string (or array) with names of attributes in common of instance, which will not be deleted. E.g. "history", so by `setState("system.adapter.mqtt.0", {..})` the field `common.history` will not be deleted even if new object does not have this field. To delete the attribute it must be explicitly done with `common: {history: null}`.
+* `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
 * `common.readme`             - URL of the ReadMe file
 * `common.restartAdapters`    - array with names of adapter that must be restarted after this adapter is installed, e.g. ["vis"]
 * `common.restartSchedule`    - CRON schedule to restart mode `daemon` adapters
@@ -561,9 +561,9 @@ ID: `system.adapter.<adapter.name>`
 * `common.webExtension`       - relative filename to connect the web extension. E.g. in `simple-api` `lib/simpleapi.js` relative to the adapter root directory. Additionally, `native.webInstance` is required to say where this extension will be included. Empty means, it must run as own web service. "*" means every web server must include it.
 * `common.webPreSettings`     - list of parameters that must be included into info.js by webServer adapter. (Example material)
 * `common.webservers`         - array of web server's instances that should serve content from the adapter`s www folder
-* `common.welcomeScreen`      - array of pages, that should be shown on the "web" index.html page. `["vis/edit.html", "vis/index.html"]` or `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - todo
 * `common.welcomeScreenPro`   - Same as `common.welcomeScreen` but used only by access from ioBroker.cloud.
+* `common.welcomeScreen`      - array of pages, that should be shown on the "web" index.html page. `["vis/edit.html", "vis/index.html"]` or `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.wwwDontUpload`      - Do not upload into the database the www directory. Used only for the admin. You can just name you directory something else and OK.
 * `protectedNative`    - array of config attributes which will only be accessible by the own adapter, e.g. `["password"]`
 * `encryptedNative`    - array of config attributes which will be automatically encrypted when stored via Admin configuration page and automatically decrypted at adapter runtime, e.g. `["password", "token"]`

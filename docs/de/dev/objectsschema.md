@@ -29,7 +29,6 @@ Die ID hat verschiedene Ebenen. Jede Ebene wird durch einen Punkt getrennt. Beis
 - `0` - Adapterinstanz
 
 Oder ein anderes Beispiel `hm-rpc.1.ABC110022.2.VALUE`:
-
 - `hm-rpc` - ist der Name des Adapters
 - `1` - Adapterinstanz
 - `ABC110022` - Geräteadresse
@@ -119,8 +118,7 @@ Oder ein anderes Beispiel `hm-rpc.1.ABC110022.2.VALUE`:
 Die Methode `getState` und das Ereignis `stateChange` liefern ein Objekt mit allen Attributen außer expire
 für die `setState` Methode ist alles außer `val` optional, `from` wird automatisch durch die `setState` Methode eingestellt. `ack` ist standardmäßig false, `ts` und `lc` werden wie erwartet gesetzt
 
-It is important to note that the value a state of type array, object, mixed or file must be serialized using `JSON.stringify()`.
-
+Es ist wichtig zu beachten, dass der Wert ein Zustand vom Typ „array“, „object“, „mixed“ oder file mit „JSON.stringify()“ serialisiert werden muss.
 Attribute für das Objekt `getState/stateChange/setState`:
 
 * `val` - der tatsächliche Wert - kann ein beliebiger Typ sein, der JSON-" codierbar "ist.
@@ -192,7 +190,7 @@ Die Baumstruktur wird automatisch nach Namen zusammengestellt. Z.B. ```system.ad
 ##### Datenpunkt
 Attribute:
 
-* `common.type` (optional - (Standard ist gemischt == beliebiger Typ) (mögliche Werte: Zahl, Zeichenfolge, Boolescher Wert, Array, Objekt, gemischt, Datei). Ausnahmsweise können Objekte mit dem Typ` meta` `common haben .type = meta.user` oder `meta.folder`
+* `common.type` (optional - (Standard ist gemischt == beliebiger Typ) (mögliche Werte: `array`, `boolean`, `file`, `json`, `mixed`, `multistate`, `number`, `object`, `string`). Ausnahmsweise können Objekte mit dem Typ` meta` `common haben .type = meta.user` oder `meta.folder`
 * `common.min` (optional, number)
 * `common.max` (optional, number)
 * `common.step` (optional, number) - Intervall erhöhen / verringern. Z.B. 0,5 für Thermostat
@@ -204,19 +202,13 @@ Attribute:
 * `common.write` (bool, obligatorisch) - true, wenn der Datenpunkt beschreibbar ist
 * `common.role` (Zeichenfolge, obligatorisch) - Rolle des Datenpunktes (wird in Benutzeroberflächen verwendet, um anzugeben, welches Widget ausgewählt werden soll, siehe unten)
 * `common.states` (optional) Attribut mit Objekt möglicher Zustände` {'Wert': 'Wertname', 'Wert2': 'Wertname2', 0: 'AUS', 1: 'EIN'} `
+  * für Zahlen **ohne** bereitgestellt common.min/common.max: enthält die Liste der erlaubten Zahlenwerte und deren (angezeigte) Bezeichnung als Objekt in der Form `{0: 'OFF', 1: 'ON', '- 1': 'was auch immer'}`. Nur diese Werte sind erlaubt
+  * für Zahlen **mit** bereitgestelltem `common.min` **und/oder** common.max: der zulässige Zahlenbereich wird durch min/max definiert, dieses Attribut enthält eine Liste von "speziellen" Zahlenwerten und deren ( angezeigt) Label als Objekt wie `{0: 'OFF', 254: 'ON', 255: 'BLINK'}` (min=0, max=255). Es darf nur min **oder** max angegeben werden, die fehlende Grenze wird dann als +/-Infinity angenommen (+/-Infinity nicht eingeschlossen)
+  * für Strings enthält die Liste der erlaubten Werte und ihre (angezeigte) Beschriftung als Objekt wie `{'value': 'valueName', 'value2': 'valueName2'}`. Nur diese Werte sind erlaubt
+  * für Strings enthält die Liste der erlaubten Werte als Array wie `['Start', 'Flight', 'Land']` (was eigentlich dasselbe ist wie `{'Start': 'Start', 'Flight': ' Flug', 'Land': 'Land'}`). Nur diese Werte sind erlaubt
+  * Diese Werte werden derzeit (ab js-controller 4.0) nicht vom js-controller geprüft oder validiert und sind nur für UIs und Visualisierungen da
 * `common.workingID` (Zeichenfolge, optional) - wenn dieser Status den Hilfsstatus WORKING hat. Hier muss der vollständige Name oder nur der letzte Teil geschrieben werden, wenn die ersten Teile mit den tatsächlichen identisch sind. Wird für `HM.LEVEL` verwendet und hat normalerweise den Wert `WORKING`.
 * `common.custom` (optional) - die Struktur mit benutzerdefinierten Einstellungen für bestimmte Adapter. Wie `{"influxdb.0": {"enabled": true, "alias": "name"}}`. Das Attribut `enabled` ist erforderlich. Wenn dies nicht der Fall ist, wird das gesamte Attribut gelöscht.
-
-##### Attribut `common.history`
-Die Verlaufsfunktion benötigt den Verlaufsadapter oder einen anderen Speicheradapter vom Typ Verlauf
-
-Die FIFO-Länge wird auf min reduziert, wenn max getroffen wird. auf null setzen oder undefiniert lassen, um die Standardeinstellungen zu verwenden
-
-Eine Liste der Transporte finden Sie im Verlaufsadapter README
-
-* `common.history` (optional)
-* `common.history. <HISTORY-INSTANCE> .changesOnly` (optional, boolesch, wenn true, werden nur Wertänderungen protokolliert)
-* `common.history. <HISTORY-INSTANCE> .enabled` (boolean)
 
 ##### Attribut `common.role`
 * `common.role` (gibt an, wie dieser Status in Benutzeroberflächen dargestellt werden soll)
@@ -489,16 +481,16 @@ id `system.adapter.<adapter.name>`
 * `common.allowInit` - [true/false] ermöglicht den Aufruf des" geplanten "Adapters" nicht im Zeitplan ", wenn die Einstellungen geändert oder der Adapter gestartet wurde. Oder erlauben Sie den geplanten Adapterstart einmal nach Änderung der Konfiguration und dann nach Zeitplan.
 * `common.availableModes` - Werte für `common.mode`, wenn mehr als ein Modus möglich ist
 * `common.blockly` - [true/false], wenn der Adapter benutzerdefinierte Blöcke für blockly hat. (`admin/blockly.js` erforderlich)
-* `common.connectionType` - Verbindungstyp mit Gerät:`local/cloud`. Siehe auch "common.dataSource".
 * `common.compact` - sagt dem Controller, dass dieser Adapter auf Wunsch im selben Prozess gestartet werden kann
 * `common.config.height` - Standardhöhe für den Konfigurationsdialog (veraltet - nur für admin2 gültig)
 * `common.config.minHeight` - minimale Höhe für den Konfigurationsdialog (veraltet - nur gültig für admin2)
 * `common.config.minWidth` - minimale Breite für den Konfigurationsdialog (veraltet - nur gültig für admin2)
 * `common.config.width` - Standardbreite für den Konfigurationsdialog (veraltet - nur gültig für admin2)
+* `common.connectionType` - Verbindungstyp mit Gerät:`local/cloud`. Siehe auch "common.dataSource".
 * `common.dataFolder` - Ordner relativ zu iobroker-Daten, in dem der Adapter die Daten speichert. Dieser Ordner wird automatisch gesichert und wiederhergestellt. Sie können die Variable '%INSTANCE%' verwenden.
 * `common.dataSource` - Wie die Daten vom Gerät empfangen werden:` poll / push / Annahme`. Es ist wichtig zusammen mit `connectionType`.
-* `common.disableDataReporting` - Do not report errors via the `sentry` for this instance
 * `common.dependencies` - Array wie` [{"js-controller": "> = 2.0.0"}] `, das beschreibt, welche ioBroker-Module für diesen Adapter erforderlich sind.
+* `common.disableDataReporting` - Do not report errors via the `sentry` for this instance
 * `common.docs` - Die Struktur wie` {"en": "docs / de / README.md", "de": ["docs / de / README.md", "docs / de / README1.md" ]} `, das die Dokumentation beschreibt, wenn nicht in README.md
 * `common.enabled` - **obligatorisch** Der Wert [true/false] sollte false sein, damit neue Instanzen standardmäßig deaktiviert werden
 * `common.engineTypes` - veraltet. Verwenden Sie die Engine in package.json
@@ -508,15 +500,15 @@ id `system.adapter.<adapter.name>`
 * `common.getHistory` - [true/false], wenn der Adapter die getHistory-Nachricht unterstützt
 * `common.globalDependencies` - Array like `[{"admin": ">=2.0.0"}]` that describes which ioBroker modules are required for this adapter on one of the hosts.
 * `common.icon` - Name des lokalen Symbols (sollte sich im Unterverzeichnis" admin "befinden)
-* `common.installedVersion` - **obligatorische** installierte Version
 * `common.ignoreVersion`      - Do not show the update icon for this adapter for this specific version
+* `common.installedVersion` - **obligatorische** installierte Version
 * `common.jsonConfig`         - This adapter supports admin5 and provides admin/jsonConfig.json with description of configuration dialog layout
 * `common.jsonCustom`         - This adapter supports admin5 and provides admin/jsonCustom.json with description of custom settings layout
 * `common.keywords` - Ähnlich wie Schlüsselwörter in package.json, kann jedoch in vielen Sprachen definiert werden. Nur ein Array.
-* `common.localLinks` - Link zum Webdienst dieses Adapters. Zum Beispiel zu http:// localhost: 5984 / _utils für Futon von admin
 * `common.localLink` - veraltet. Verwenden Sie "common.localLinks".
-* `common.logLevel` - debug, info, warn oder error
+* `common.localLinks` - Link zum Webdienst dieses Adapters. Zum Beispiel zu http:// localhost: 5984 / _utils für Futon von admin
 * `common.logTransporter` - wenn dieser Adapter Protokolle von anderen Hosts und Adaptern empfängt (z. B. um sie irgendwo zu speichern)
+* `common.loglevel` - debug, info, warn oder error
 * `common.main` - Startdatei des Adapters. Gleich wie in package.json.
 * `common.materializeTab` - wenn der Adapter> admin3 für tab unterstützt (materialize style)
 * `common.materialize` - wenn der Adapter> admin3 unterstützt (materialize style)
@@ -536,8 +528,8 @@ id `system.adapter.<adapter.name>`
 * `common.osDependencies.win32` - wird nicht verwendet, da win32 keinen Paketmanager hat
 * `common.os` - Zeichenfolge oder Array unterstützter Betriebssysteme, z. B. `["linux", "darwin"]`
 * `common.platform` - **obligatorisch** mögliche Werte: Javascript / Node.js, weitere folgen
-* `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
 * `common.preserveSettings` - Zeichenfolge (oder Array) mit Namen von Attributen, die gemeinsam gelöscht werden und nicht gelöscht werden. Z.B. "history", also wird mit setState ('system.adapter.mqtt.0 ", {..}) das Feld common.history nicht gelöscht, auch wenn das neue Objekt dieses Feld nicht hat. Um das Attribut zu löschen, muss es explizit sein erledigt mit `common: {history: null}`.
+* `common.pugins.sentry`      - structure with the configuration data for the `sentry` plugin
 * `common.readme` - veraltet. Verwenden Sie "docs".
 * `common.restartAdapters` - Array mit den Namen des Adapters, der nach der Installation dieses Adapters neu gestartet werden muss, z. ["vis"]
 * `common.restartSchedule`    - CRON schedule to restart mode `daemon` adapters
@@ -545,8 +537,10 @@ id `system.adapter.<adapter.name>`
 * `common.serviceStates` - [true/false oder path], wenn der Adapter zusätzliche Zustände liefern kann. Wenn ja, wird der Pfad `adapter/lib/states.js` aufgerufen und gibt folgende Parameterfunktion (Objekte, Zustände, Instanz, Konfiguration, Rückruf). Die Funktion muss das Array von Punkten mit Werten wie `function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - Der Adapter kann nur einmal auf einem Host installiert werden
 * `common.singleton` - Adapter kann nur einmal im gesamten System installiert werden
+* `common.statusStates` - Struktur für die Statusanzeige im Admin in der Form `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}`. Statt `onlineId` könnte auch die `offlineId` verwendet werden. Wenn die ID sehr kurz ist (weniger als 2 Punkte darin), wird die ID als relativ zum aktuellen Objekt behandelt.
 * `common.stopBeforeUpdate` - [true/false], wenn der Adapter vor dem Update gestoppt werden muss
 * `common.stopTimeout` - Zeitüberschreitung in ms, um zu warten, bis der Adapter heruntergefahren ist. Standard 500ms.
+* `common.stoppedWhenWebExtension` - Wenn die Instanz den Modus "Daemon" hat, aber als Weberweiterung ausgeführt wird (`native.webInstance !== ''`), startet der Controller diese Instanz nicht, wenn "common.stoppedWhenWebExtension" wahr ist.
 * `common.subscribable` - Variablen dieses Adapters müssen mit sendTo abonniert werden, um Updates zu ermöglichen
 * `common.subscribe` - Name der Variablen, die automatisch abonniert wird
 * `common.supportCustoms` - [true/false], wenn der Adapter Einstellungen für jeden Status unterstützt. Die Datei custom.html muss sich in admin befinden. Ein Beispiel finden Sie in ioBroker.history
@@ -563,18 +557,18 @@ id `system.adapter.<adapter.name>`
 * `common.webExtension` - relativer Dateiname zum Verbinden der Web-Erweiterung. Z.B. in `simple-api` `lib/simpleapi.js` relativ zum Adapter-Stammverzeichnis. Zusätzlich muss `native.webInstance` angeben, wo diese Erweiterung enthalten sein wird. Leer bedeutet, dass es als eigener Webdienst ausgeführt werden muss. "*" bedeutet, dass jeder Webserver es enthalten muss.
 * `common.webPreSettings` - Liste der Parameter, die vom webServer-Adapter in info.js aufgenommen werden müssen. (Beispielmaterial)
 * `common.webservers` - Array von Webserverinstanzen, die Inhalte aus dem www-Ordner des Adapters bereitstellen sollen
-* `common.welcomeScreen` - Array von den Seiten, die auf der Seite "web" index.html angezeigt werden sollen. `["vis/edit.html", "vis/index.html"]` oder `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - todo
 * `common.welcomeScreenPro` - Wie` common.welcomeScreen`, jedoch nur für den Zugriff von ioBroker.cloud verwendet.
+* `common.welcomeScreen` - Array von den Seiten, die auf der Seite "web" index.html angezeigt werden sollen. `["vis/edit.html", "vis/index.html"]` oder `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis/img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.wwwDontUpload` - Laden Sie das Verzeichnis www nicht in die DB hoch. Wird nur für Administratoren verwendet. Sie können Ihrem Verzeichnis einfach einen anderen Namen geben und OK.
 * `protectedNative` - Array von Konfigurationsattributen, auf die nur der eigene Adapter zugreifen kann, z. `[" Passwort "]`
 * `encryptedNative` - Array von Konfigurationsattributen, die automatisch verschlüsselt werden, wenn sie über die Admin-Konfigurationsseite gespeichert und zur Laufzeit des Adapters automatisch entschlüsselt werden, z. `[" Passwort "," Token "]`
 * `native` - vordefinierte Attribute, auf die in index_m.html und zur Laufzeit über` adapter.config. <attribute> `zugegriffen werden kann, z. `{"port": 1234, "password": "secret"}`
 
 #### Conditional messages
-If you want that by update from some specific version to new specific version the message must be shown, you can define `common.messages`.
+Wenn Sie möchten, dass beim Update von einer bestimmten Version auf eine neue bestimmte Version die Nachricht angezeigt wird, können Sie `common.messages` definieren.
 
-Example:
+Beispiel:
 ```
 "messages": {
     "condition": {

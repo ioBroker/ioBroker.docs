@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: rPSqnNM3m5uwBSJrk2WL56yYfLJq+MTgr07FhF649mY=
+hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
 ---
 ![Logo](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
@@ -32,7 +32,7 @@ Auf Himbeere könnte es hilfreich sein, Folgendes zu verwenden:
 
  da das Serialport-Paket auf einem nicht unterstützten Arm-HW erstellt werden muss
 
-### Die aktuelle Entwicklungsversion von github (wenn sie getestet wird, funktioniert sie möglicherweise nicht!)
+### Die aktuelle Entwicklungsversion von github (funktioniert möglicherweise nicht, wenn sie getestet wird!)
 ```javascript
 npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
 ```
@@ -53,7 +53,7 @@ im Adminbereich zu erledigen
 * Definition des USB-Anschlusses
 * Einstellen der Baudrate
 - Definieren Sie die Sensoradresse, die auf Sendung empfangen wird
-- eindeutige Sensoradresse im Adapter definieren (LaCrosse ändert die On Air Adresse nach Batteriewechsel, also Log beachten und Sensoradresse nach Batteriewechsel anpassen)
+- eindeutige Sensoradresse im Adapter definieren (LaCrosse ändert die On Air Adresse nach Batteriewechsel, also Debug Log beachten und Sensoradresse nach Batteriewechsel anpassen)
 - Definieren Sie den Sensortyp (siehe Beispiele unten)
 - den Raum definieren
 
@@ -78,9 +78,28 @@ im Adminbereich zu erledigen
 * HMS100TF Temperatur unter 0°C und Batterie schwach zu implementieren
 
 ## Changelog
+### 1.1.1
+* (foxthefox) state change as log.debug, not as log.info
+* (foxthefox) some more info at adapter startup
+* (foxthefox) moved sp.write and deleted separate function
+
+### 1.1.0
+* (foxthefox) usage of newest serialport (9.x -> 10.5)
+* (foxthefox) changes in github workflow
+
+### 1.0.3
+* (atl285) correction wrong type of baudRate config, causing adapter crash
+
+### 1.0.2
+* (foxthefox) upper range temperature 50->70
+
+### 1.0.1
+* (foxthefox) round -> this round
+* (foxthefox) baudrate settings in admin as number
+
 ### 1.0.0
 * (foxthefox) refactoring, use of classbased style,
-* github actions instead of travis
+* (foxthefox) github actions instead of travis
 
 ### 0.1.4
 * (o0shojo0o) nodejsV14 compatibility

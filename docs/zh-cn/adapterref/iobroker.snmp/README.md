@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: YRfN249QmwwPaPPmYSCnb8dtObF1Wetr0VRckKmj5hc=
+hash: g1gEAw0kqixBhq8MHnSVS3lYrDCuiQt08lDc427+hKM=
 ---
 ![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -21,6 +21,14 @@ hash: YRfN249QmwwPaPPmYSCnb8dtObF1Wetr0VRckKmj5hc=
 
 ＃＃ __工作正在进行中__
 -->
+
+＃＃＃ __工作正在进行中__
+* (McM1957) 添加对状态使用本机数据类型的支持 (#143)。
+* (McM1957) 添加了支持以将二进制 oid 数据存储为 json (#188)。
+* (McM1957) 写入模式的错误设置已得到修复 (#191)
+* (McM1957) 德国文档中的表格已修复 (#192)。
+* (McM1957) 使用保留名称“在线”命名 oid 已被阻止 (#203)。
+* (McM1957) 已经实施了一些与代码质量相关的更改（#201、#190）
 
 ### 2.2.1 (2022-10-18)
 * (McM1957) 修复了 io-package.json 中的一个错误。

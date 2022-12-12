@@ -121,9 +121,10 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.3.0 (2022-12-12)
 * (bluefox) Added `useNative` option to `sendTo` JSON Config component
 * (bluefox) Added `checkLicense` and `uuid` components to JSON Config
+* (bluefox) Corrected the news handler
 
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
@@ -137,9 +138,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 6.2.20 (2022-08-29)
 * (bluefox) Corrected GUI issues
-
-### 6.2.19 (2022-08-27)
-* (bluefox) Corrected some issues
 
 ## License
 The MIT License (MIT)

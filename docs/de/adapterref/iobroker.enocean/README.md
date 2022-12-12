@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: pDjtxBY57VU5uiGBnAti3VxvyhPP+ozIa+kJqUhGR4I=
+hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -32,7 +32,7 @@ DOSMUNG USB-Stick mit SMA-Anschluss
 
 FAM-USB (ESP3-Firmware)
 
-EnOcean Pi-Modul
+EnOcean Pi Modul **Wichtiger Hinweis:** Auf Pi3 & Pi4 muss das Onboard Bluetooth Modul deaktiviert werden, sonst funktioniert das EnOcean Modul nicht!
 
 Eltako FGW14: **Wichtige Hinweise**: Dieses Gateway unterstützt nicht alle Features und Geräte dieses Adapters.
 Bekannte Funktionen, die nicht funktionieren: RSSI, Gateway-Informationen können nicht gelesen werden und nur RS485-Bus-Geräte können ohne FTD14 gesteuert werden (noch nicht getestet). Wenn es keinen technischen Grund gibt, dieses Gateway zu verwenden, wird dringend empfohlen, ein anderes zu verwenden.

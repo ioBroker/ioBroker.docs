@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: rPSqnNM3m5uwBSJrk2WL56yYfLJq+MTgr07FhF649mY=
+hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
@@ -18,7 +18,7 @@ hash: rPSqnNM3m5uwBSJrk2WL56yYfLJq+MTgr07FhF649mY=
 Jeelink можно использовать с предварительно загруженным программным обеспечением (rfmdemo) для считывания показаний датчиков openenergy (emon).
 Для использования датчиков LaCrosse необходимо заменить прошивку (см. форум iobroker).
 
-## Установка:
+## Монтаж:
 ### Выпущенная версия
 ```javascript
 npm install iobroker.jeelink
@@ -37,7 +37,7 @@ npm install iobroker.jeelink
 npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
 ```
 
-или
+или же
 
 ```javascript
 npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
@@ -53,7 +53,7 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 * определение порта USB
 * установка скорости передачи данных
 - определить адрес датчика, который принимается в эфире
-- определить уникальный адрес датчика в адаптере (LaCrosse меняет адрес в эфире после замены батареи, поэтому следите за журналом и корректируйте адрес датчика после замены батареи)
+- определить уникальный адрес датчика в адаптере (LaCrosse меняет адрес в эфире после замены батареи, поэтому следите за журналом отладки и корректируйте адрес датчика после замены батареи)
 - определить тип датчика (см. примеры ниже)
 - определить комнату
 
@@ -63,7 +63,7 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 |emonTH|emonTH|ОК 19 ...|датчик с сайта openenergy.org|
 |emonWater|emonWater|OK 21 ... |датчик с RFM12B для учета воды|
 |LaCrosseDTH |TX|OK 9 ... |датчики LaCrosse, technoline|
-|LaCrosseDTT |TX|OK 9 ... |датчики от LaCrosse, technoline double temp|
+|LaCrosseDTT |TX|OK 9 ... |датчики LaCrosse, technoline double temp|
 |HMS100TF |TXH29DTH-IT|H00 ... |датчики technoline|
 |LaCrosseBMP180||OK WS ... |сенсорный мод, суперджи|
 |LaCrosseWS|WS1080,TX22,WS1600|OK WS ... |Метеостанция|
@@ -78,9 +78,28 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 * HMS100TF Температура ниже 0°C и низкий заряд батареи должны быть реализованы
 
 ## Changelog
+### 1.1.1
+* (foxthefox) state change as log.debug, not as log.info
+* (foxthefox) some more info at adapter startup
+* (foxthefox) moved sp.write and deleted separate function
+
+### 1.1.0
+* (foxthefox) usage of newest serialport (9.x -> 10.5)
+* (foxthefox) changes in github workflow
+
+### 1.0.3
+* (atl285) correction wrong type of baudRate config, causing adapter crash
+
+### 1.0.2
+* (foxthefox) upper range temperature 50->70
+
+### 1.0.1
+* (foxthefox) round -> this round
+* (foxthefox) baudrate settings in admin as number
+
 ### 1.0.0
 * (foxthefox) refactoring, use of classbased style,
-* github actions instead of travis
+* (foxthefox) github actions instead of travis
 
 ### 0.1.4
 * (o0shojo0o) nodejsV14 compatibility

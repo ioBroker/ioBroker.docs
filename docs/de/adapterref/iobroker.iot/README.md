@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
+hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -155,7 +155,7 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld "Whitelist für Dienste" den Namen *custom_test* setzen und mit "custom_test" als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
+Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* setzen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
 
 Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
@@ -165,8 +165,20 @@ Der IFTTT-Dienst ist nur erlaubt, wenn der IFTTT-Schlüssel gesetzt ist.
 
 Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`. Diese müssen ohne das Präfix `custom_` verwendet werden.
 
+Sie können auch per Nachricht die gültige URL für den Dienst anfordern:
+
+```
+sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
+  console.log(JSON.stringify(result)));
+  // Output: {"result":
+  //  {"url": "https://service.iobroker.in/v1/iotService?key=xxx&user=uuu&service=custom_myService",
+  //   "stateID":"iot.0.services.myService",
+  //   "warning":"Service name is not in white list"
+  //  }}
+```
+
 ### `text2command`
-Sie können "text2command" in die weiße Liste schreiben, Sie können eine POST-Anforderung an `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` senden, um Daten in die Variable *text2command.X.text* zu schreiben.
+Sie können `text2command` in die weiße Liste schreiben, Sie können eine POST-Anforderung an `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` senden, um Daten in die Variable *text2command.X.text* zu schreiben.
 
 Sie können auch die GET-Methode verwenden `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -184,7 +196,7 @@ wenn im Konfigurationsdialog die Instanz `text2command` definiert ist, so wird d
 `text2command` muss konfiguriert werden, dass die erwartete Phrase geparst und die Antwort zurückgegeben wird.
 
 ### `Javascript`
-Es besteht die Möglichkeit, die Frage direkt per Skript zu bearbeiten. Es ist standardmäßig aktiviert, wenn keine *text2command*-Instanz ausgewählt ist.
+Es besteht die Möglichkeit, die Frage direkt per Skript zu bearbeiten. Sie ist standardmäßig aktiviert, wenn keine `text2command`-Instanz ausgewählt ist.
 
 Wenn eine `text2command`-Instanz definiert ist, muss diese Instanz die Antwort liefern und die Antwort von *script* wird ignoriert.
 
@@ -279,6 +291,19 @@ Folgende Typen werden unterstützt:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added netatmo support
+
+### 1.13.0 (2022-12-08)
+* (Apollon77) Added support vor Custom Skill v2
+
+### 1.12.5 (2022-11-09)
+* (bluefox) Small changes on configuration GUI
+
+### 1.12.4 (2022-11-03)
+* (bluefox) Added ukrainian language
+* (bluefox) Corrected blockly for unknown languages
+
 ### 1.12.2 (2022-10-01)
 * (Apollon77) Fix crash case
 

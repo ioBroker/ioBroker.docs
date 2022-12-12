@@ -20,10 +20,18 @@ This adapter can be used to poll information from devices like printers, network
 <!--
 ## __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (McM1957) Add support for using native datatypes for states (#143).
+* (McM1957) Support has been added to store binary oid data as json (#188).
+* (McM1957) Incorrect setting of write mode has been fixed (#191)
+* (McM1957) Tables within german documentation have been fixed (#192).
+* (McM1957) Naming an oid with the reserved name 'online' has been blocked (#203).
+* (McM1957) Some changes related to code quality have been implemnted (#201, #190)
+
 ### 2.2.1 (2022-10-18)
 * (McM1957) Fixed an error within io-package.json.
 * (McM1957) Ukrainian translations have been added.
-
 
 ### 2.2.0 (2022-10-18)
 * (McM1957) The compatibility flag is now deprecated and will be removed in future releases. Please adapt config if required.

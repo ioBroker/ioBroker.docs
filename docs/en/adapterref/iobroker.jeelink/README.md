@@ -39,8 +39,8 @@ to be done in admin
 * deinition of the USB port
 * setting the baudrate
 - define sensor address which is received on air
-- define unique sensors address within adapter (LaCrosse changes the on air address after battery change, so observe the log and adjust the sensor address after battery change)
-- define the type of sensor (see belows examples)
+- define unique sensors address within adapter (LaCrosse changes the on air address after battery change, so observe the debug log and adjust the sensor address after battery change)
+- define the type of sensor (see below examples)
 - define the room
 
 ## Sensors
@@ -65,6 +65,11 @@ to be done in admin
 
 
 ## Changelog:
+### 1.1.1
+* (foxthefox) state change as log.debug, not as log.info
+* (foxthefox) some more info at adapter startup
+* (foxthefox) moved sp.write and deleted separate function
+
 ### 1.1.0
 * (foxthefox) usage of newest serialport (9.x -> 10.5)
 * (foxthefox) changes in github workflow

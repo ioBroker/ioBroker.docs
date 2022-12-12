@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
+hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 ---
 ![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -12,65 +12,65 @@ hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
 ![下载](https://img.shields.io/npm/dm/iobroker.iot.svg)
 
 # IoBroker 物联网适配器
-![测试和发布](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 此适配器仅用于与 Amazon Alexa、Google Home 和 Nightscout 通信。
 它不适用于远程访问您的 ioBroker 实例。为此使用 ioBroker.cloud 适配器。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 设置
-要使用云适配器，您应该首先在 ioBroker 云上注册[https://iobroker.pro](https://iobroker.pro)。
+要使用云适配器，您应该首先在 ioBroker 云上注册 [https://iobroker.pro](https://iobroker.pro)。
 
-[参考 google API 类型设置](https://developers.google.com/actions/smarthome/guides/)
+[参考谷歌API类型设置](https://developers.google.com/actions/smarthome/guides/)
 
 ![介绍](../../../en/adapterref/iobroker.iot/img/intro.png)
 
 ＃＃＃ 语
-如果您选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，所有已知名称都将被翻译成这种语言。
+如果您选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，所有已知名称都将被翻译成该语言。
 出于演示目的，它可以在多种语言之间快速切换。
 
 ### 首先将函数放在名称中
 更改自生成名称中功能和角色的顺序：
 
 - 如果为假：“房间功能”，例如“客厅调光器”
-- 如果为真：“功能室”，例如《调光客厅》
+- 如果为真：“功能室”，例如“调光客厅”
 
-### 将单词与
-您可以定义将放置在功能和房间之间的词。例如。 “in”和“Dimmer living room”将是“Dimmer in living room”。
+### 连接单词
+您可以定义将放置在功能和房间之间的词。例如。 “in”和“Dimmer living room”将变为“Dimmer in living room”。
 
-但不建议这样做，因为识别引擎必须多分析一个词，这会导致误解。
+但不建议这样做，因为识别引擎要多分析一个词，容易造成误解。
 
 ### 开关的关闭级别
 有些组由混合设备组成：调光器和开关。允许使用“ON”和“OFF”命令以及百分比来控制它们。
 如果命令是 `Set to 30%` 和 `OFF level is 30%`，那么开关将打开。通过命令“设置为 25%”，所有开关都将关闭。
 
-另外，如果命令为“OFF”，那么如果实际值大于或等于“30%”，适配器将记住当前的调光器级别。
-稍后，当新的“ON”命令出现时，适配器会将调光器切换到 100%，而不是切换到内存中的级别。
+此外，如果命令为“OFF”，则如果实际值大于或等于“30%”，适配器将记住当前的调光器级别。
+稍后当新的“ON”命令出现时，适配器将把调光器切换到内存中的级别而不是 100%。
 
 例子：
 
 - 假设 *OFF 级别* 为 30%。
-- 虚拟设备“Light”有两个物理设备：*switch* 和 *dimmer*。
-- 命令：“将灯光设置为 40%”。适配器将记住 *dimmer* 的这个值，将其设置为“dimmer”，并将 *switch* 打开。
-- 命令：“关灯”。适配器会将 *dimmer* 设置为 0% 并将关闭 *switch*。
-- 命令：“打开灯”。 *调光器* => 40%，*开关* => 开启。
-- 命令：“将灯光设置为 20%”。 *调光器* => 20%，*开关* => 关闭。 dimmer 的值不会被记住，因为它低于 *OFF 级别*。
-- 命令：“打开灯”。 *调光器* => 40%，*开关* => 开启。
+- 虚拟设备“Light”有两个物理设备：*switch* 和*dimmer*。
+- 命令：“将光线设置为 40%”。适配器会记住 *dimmer* 的这个值，将其设置为“dimmer”并打开 *switch*。
+- 命令：“关灯”。适配器会将 *dimmer* 设置为 0% 并关闭 *switch*。
+- 命令：“开灯”。 *调光器* => 40%，*开关* => 开。
+- 命令：“将光线设置为 20%”。 *调光器* => 20%，*开关* => 关闭。调光器的值将不会被记住，因为它低于 *OFF 级别*。
+- 命令：“开灯”。 *调光器* => 40%，*开关* => 开。
 
 ### 开启
 您可以选择 ON 命令的行为将用于数字状态。可以选择特定值或使用最后一个非零值。
 
-### 写回复
-对于每个命令，都会生成文本响应。您可以在此处定义 Object ID ，此文本必须写入其中。例如。 *sayit.0.tts.text*。
+### 写响应
+对于每个命令，都会生成文本响应。您可以在此处定义对象 ID，此文本必须写入其中。例如。 *sayit.0.tts.text*。
 
 ＃＃＃ 颜色
-刚才只有英文的alexa支持颜色控制。
-通道必须具有以下角色的 4 个状态：
+目前只有英文alexa支持颜色控制。
+通道必须有 4 个状态，具有以下角色：
 
 - level.color.saturation（检测通道所需），
 - level.color.hue,
-- level.dimmer,
+- level.dimmer，
 - 开关（可选）
 
 ```
@@ -81,7 +81,7 @@ Alexa, change the kitchen to the color chocolate
 ```
 
 ＃＃＃ 锁
-为了有可能锁定锁，状态必须具有角色“switch.lock”并具有“native.LOCK_VALUE”来确定锁定状态。如果您需要一个单独的值来控制锁，您可以使用“native.CONTROL VALUE”。
+要有锁定锁的可能性，状态必须具有角色“switch.lock”并具有“native.LOCK_VALUE”来确定锁状态。如果您需要一个单独的值来控制锁，您可以使用“native.CONTROL VALUE”。
 
 ```
 Alexa, is "lock name" locked/unlocked
@@ -93,15 +93,15 @@ Alexa, lock the "lock name"
 
 有两个重要的枚举：房间和功能。
 
-房间是这样的：客厅，浴室，卧室。
-功能有：光、盲、加热。
+房间有：客厅、浴室、卧室。
+功能如：照明、百叶窗、加热。
 
-必须满足以下条件才能获得自动生成的列表中的状态：
+必须满足以下条件才能获取自动生成列表中的状态：
 
 - 状态必须在一些“函数”枚举中。
-- 如果不直接包含在“函数”中，则状态必须具有角色（“状态”、“开关”或“电平。*”，例如 level.dimmer）。
+- 如果状态没有直接包含在“功能”中，则状态必须具有角色（“state”、“switch”或“level.*”，例如 level.dimmer）。
 
-可能是通道在“功能”中，但不声明自己。
+可能是通道在“功能”中，但声明本身不是。
 
 - 状态必须是可写的：`common.write` = true
 - 状态调光器必须将“common.type”作为“数字”
@@ -109,45 +109,45 @@ Alexa, lock the "lock name"
 
 如果状态仅在“功能”中而不在任何“房间”中，则将使用状态名称。
 
-状态名称将从功能和房间生成。例如。 *客厅*中的所有*灯*将被收集在虚拟设备*客厅灯*中。
+状态名称将从功能和房间生成。例如。 *客厅*中的所有*灯*都将收集在虚拟设备*客厅灯*中。
 用户无法更改此名称，因为它是自动生成的。
-但是如果枚举名称改变，这个名字也会改变。 （例如，函数“light”更改为“lights”，因此*客厅灯*将更改为*客厅灯*）
+但是如果枚举名称改变了，这个名字也会改变。 （例如，功能“light”更改为“lights”，因此 *living room light* 将更改为 *living room lights*）
 
-如果状态有 common.smartName，则所有规则都将被忽略。在这种情况下，将只使用智能名称。
+如果状态具有 common.smartName，则将忽略所有规则。在这种情况下，将只使用智能名称。
 
-如果 *common.smartName* 为 **false**，则状态或枚举将不包含在列表生成中。
+如果 *common.smartName* 为 **false**，状态或枚举将不会包含在列表生成中。
 
-配置对话框可让您轻松删除单个状态并将其添加到虚拟组或作为单个设备。
+配置对话框让用户轻松地删除和添加单个状态到虚拟组或作为单个设备。
 ![配置](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-如果组只有一个状态，则可以重命名，为此将使用该状态的 smartName。
-如果组有多个状态，则必须通过枚举名称重命名组。
+如果该组只有一个状态，则可以重命名，为此将使用状态的 smartName。
+如果该组有多个状态，则必须通过枚举名称重命名该组。
 
 要创建自己的组，用户可以安装“场景”适配器或在 Javascript 适配器中创建“脚本”。
 
 ### 替换
-您可以指定可以在设备名称中自动替换的字符串。例如。如果将替换设置为：`.STATE,.LEVEL`，则所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
-如果您设置了`.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
+您可以指定可以在设备名称中自动替换的字符串。例如。如果您将替换设置为：`.STATE,.LEVEL`，那么所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
+如果您设置了 `.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
 
-## 助手状态
-- **smart.lastObjectID**：如果只有一个设备由家庭技能（alexa，google home）控制，则将设置此状态。
-- **smart.lastFunction**：执行最后一个命令的函数名称（如果存在）。
-- **smart.lastRoom**：执行最后一个命令的房间名称（如果存在）。
-- **smart.lastCommand**：最后执行的命令。命令可以是：true(ON)、false(OFF)、number(%)、-X(x 处减少)、+X(x 处增加)
-- **smart.lastResponse**：对命令的文本响应。它可以发送到一些 text2speech (sayit) 引擎。
+## 辅助状态
+- **smart.lastObjectID**：如果只有一个设备由 home skill（alexa、google home）控制，则会设置此状态。
+- **smart.lastFunction**：执行最后一条命令的函数名称（如果存在）。
+- **smart.lastRoom**：执行最后一条命令的房间名称（如果存在）。
+- **smart.lastCommand**：最后执行的命令。命令可以是：true(ON), false(OFF), number(%), -X(decrease at x), +X(increase at X)
+- **smart.lastResponse**：命令的文本响应。它可以发送到某些 text2speech (sayit) 引擎。
 
 ## IFTTT
 [指示](doc/ifttt.md)
 
 ## 谷歌主页
 如果您在日志中看到以下错误消息：`[GHOME] Invalid URL Pro key. Status auto-update is disabled you can set states but receive states only manually`。
-因此，您必须重新生成 URL-Key：
+所以你必须重新生成 URL-Key：
 
 ![网址键](../../../en/adapterref/iobroker.iot/img/url_key.png)
 
 ＃＃ 服务
-有可能向云适配器发送消息。
-如果您将 `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und 调用为有效负载。
+可以将消息发送到云适配器。
+如果您调用 `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` 和值作为有效负载。
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
@@ -155,69 +155,81 @@ Alexa, lock the "lock name"
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-如果您在设置中将“服务白名单”字段设置为名称 *custom_test*，并使用“custom_test”作为服务名称进行调用，则状态 **cloud.0.services.custom_test** 将设置为 *myString *。
+如果您在设置字段“服务白名单”中设置名称 *custom_test*，并使用“custom_test”作为服务名称调用，状态 **cloud.0.services.custom_test** 将设置为 *myString *。
 
-您可以在白名单中写上“*”，所有服务都将被允许。
+您可以在白名单中写“*”，所有服务都将被允许。
 
-在这里您可以找到如何将其与[任务者](doc/tasker.md)一起使用的说明。
+在这里您可以找到如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
 
-只有设置了 IFTTT 密钥，才允许使用 IFTTT 服务。
+仅当设置了 IFTTT 密钥时才允许 IFTTT 服务。
 
 保留名称为 `ifttt`、`text2command`、`simpleApi`、`swagger`。这些必须在没有 `custom_` 前缀的情况下使用。
 
+您也可以通过消息询问服务的有效 URL：
+
+```
+sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
+  console.log(JSON.stringify(result)));
+  // Output: {"result":
+  //  {"url": "https://service.iobroker.in/v1/iotService?key=xxx&user=uuu&service=custom_myService",
+  //   "stateID":"iot.0.services.myService",
+  //   "warning":"Service name is not in white list"
+  //  }}
+```
+
 ### `text2command`
-您可以在白名单中写入“text2command”，您可以向`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`发送 POST 请求以将数据写入 *text2command.X.text* 变量。
+您可以在白名单中写入 `text2command`，您可以向 `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` 发送 POST 请求以将数据写入 *text2command.X.text* 变量。
 
-你也可以使用 GET 方法`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
+你也可以使用 GET 方法 `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
-`X`可以通过“使用 text2command 实例”选项在设置中定义。
+`X` 可以通过“使用 text2command 实例”选项在设置中定义。
 
-##自定义技能
+## 自定义技能
 自定义技能的答案可以通过两种方式处理：
 
-- `text2command`
-- `javascript`
+-`text2command`
+-`javascript`
 
 ### `text2command`
-如果在配置对话框中定义了`text2command`实例，那么问题将被发送到实例。
+如果在配置对话框中定义了 `text2command` 实例，那么问题将被发送到实例。
 
-`text2command`必须配置为解析预期的短语并返回答案。
+`text2command` 必须配置预期的短语将被解析并返回答案。
 
 ### `Javascript`
-有可能直接用脚本处理问题。如果没有选择 *text2command* 实例，则默认激活它。
+有可能直接用脚本处理问题。如果未选择任何 `text2command` 实例，则默认情况下会激活它。
 
-如果定义了`text2command`实例，则该实例必须提供答案，并且来自 *script* 的答案将被忽略。
+如果定义了 `text2command` 实例，则此实例必须提供答案，而来自 *script* 的答案将被忽略。
 
-适配器将提供具有不同详细级别的两种状态的详细信息
+适配器将提供两种具有不同详细级别的状态的详细信息
 
-* **smart.lastCommand** 包含接收到的文本，包括有关查询类型（意图）的信息。示例：“askDevice 状态 Rasenmäher”
-* **smart.lastCommandObj*** 包含一个 JSON 字符串，可以解析为包含以下信息的对象
-  * **words** 包含接收到的单词在一个数组中
+* **smart.lastCommand** 包含收到的文本，包括有关查询类型（意图）的信息。示例：“askDevice Status Rasenmäher”
+* **smart.lastCommandObj*** 包含一个JSON字符串，可以解析为包含以下信息的对象
+  * **words** 包含数组中接收到的单词
   * **intent** 包含查询的类型。当前可能的值是：
     * v1 技能：“askDevice”、“controlDevice”、“actionStart”、“actionEnd”、“askWhen”、“askWhere”、“askWho”
-    * v2 技能：“queryIntent”当完整的所述文本被捕获时，“controlDevice”用于只有部分文本的后备
-  * **deviceId** 包含一个 deviceId，标识请求发送到的设备，由亚马逊交付，如果未提供，则为空字符串
-  * **deviceRoom** 包含一个映射的房间标识符，您可以在 iot 管理 UI 中为收集的 deviceIds 配置
-  * **sessionId** 包含技能会话的 sessionId，如果说出多个命令，则应相同，由亚马逊交付，如果未提供，则为空字符串
-  * **userId** 包含来自设备所有者（或者稍后可能是与技能交互的用户）的用户 ID，由亚马逊提供，如果未提供，则为空字符串
-  * **userName** 包含一个映射的用户名，您可以在 iot 管理 UI 中为收集的用户 ID 配置
+    * v2 技能：“queryIntent”，当完整的所述文本被捕获时，“controlDevice”用于仅部分文本的回退
+  * **deviceId** 包含一个 deviceId 标识请求发送到的设备，由亚马逊交付，如果未提供则为空字符串
+  * **deviceRoom** 包含一个映射的房间标识符，您可以在物联网管理 UI 中为收集的 deviceIds 配置
+  * **sessionId** 包含 Skill 会话的 sessionId，如果说出多个命令，则应该相同，由 Amazon 提供，如果不提供，将为空字符串
+  * **userId** 包含来自设备所有者（或稍后与技能交互的用户）的 userId，由亚马逊提供，如果未提供则为空字符串
+  * **userName** 包含一个映射的用户名，您可以在物联网管理 UI 中为收集的 userIds 配置
 
- 有关如何检测单词以及 Alexa 自定义技能区分哪种类型的查询的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
+ 有关如何检测单词以及 Alexa 自定义技能区分哪些查询类型的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
 
 **通过 smart.lastResponse 状态返回结果**
 
-响应需要在 200ms 内以“smart.lastResponse”状态发送，可以是简单的文本字符串，也可以是 JSON 对象。
+响应需要在“smart.lastResponse”状态下在 200 毫秒内发送，可以是简单的文本字符串或 JSON 对象。
 如果它是文本字符串，则此文本将作为对技能的响应发送。
 如果文本是 JSON 对象，则可以使用以下键：
 
 * **responseText** 需要包含返回亚马逊的文本
-* **shouldEndSession** 是一个布尔值，控制会话是在说出响应后关闭还是保持打开状态以接受另一个语音输入。
-* **sessionId** 需要包含响应所针对的 sessionId。理想情况下提供它以允许并发会话。如果未提供预期响应的第一个会话。
+* **shouldEndSession** 是一个布尔值，它控制会话是在说出响应后关闭还是保持打开状态以接受另一个语音输入。
+* **sessionId** 需要包含响应所针对的 sessionId。理想情况下提供它以允许并发会话。如果未提供，则假定为第一个需要响应的会话。
 
-**通过消息将结果返回给物联网实例**
+**通过消息返回结果给物联网实例**
 
-iot 实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 **responseText** 和 **shouldEndSession** 和 **sessionId**，如上所述。
-iot 实例将不会对消息做出响应！
+物联网实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 **responseText** 和 **shouldEndSession** 以及 **sessionId** ，如上所述。
+物联网实例不会对消息做出任何响应！
 
 **使用文本的脚本示例**
 
@@ -251,9 +263,9 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 ```
 
 ###私有云
-如果您使用私人技能/动作/навык 与`Alexa/Google Home/Алиса` 进行通信，那么您就有可能使用 IoT 实例来处理来自它的请求。
+如果您使用私人技能/动作/навык 与 `Alexa/Google Home/Алиса` 通信，那么您就有可能使用 IoT 实例来处理来自它的请求。
 
-例如。对于`yandex alice`：
+例如。对于 `yandex alice`：
 
 ```
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
@@ -267,11 +279,11 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 支持以下类型：
 
 - `alexa` - 使用 Amazon Alexa 或 Amazon Custom Skill
-- `ghome` - 通过 Google Home 与 Google Actions 一起行动
+- `ghome` - 通过 Google Home 使用 Google Actions
 - `alisa` - 与 Yandex Алиса 合作
 - `ifttt` - 表现得像 IFTTT（实际上不是必需的，但用于测试目的）
 
-## Yandex Алиса
+## Yandex 主页
 [指示](doc/alisa.md)
 
 <!-- 下一个版本的占位符（在行首）：
@@ -279,6 +291,19 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added netatmo support
+
+### 1.13.0 (2022-12-08)
+* (Apollon77) Added support vor Custom Skill v2
+
+### 1.12.5 (2022-11-09)
+* (bluefox) Small changes on configuration GUI
+
+### 1.12.4 (2022-11-03)
+* (bluefox) Added ukrainian language
+* (bluefox) Corrected blockly for unknown languages
+
 ### 1.12.2 (2022-10-01)
 * (Apollon77) Fix crash case
 

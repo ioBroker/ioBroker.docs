@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: pDjtxBY57VU5uiGBnAti3VxvyhPP+ozIa+kJqUhGR4I=
+hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
 ---
 ![标识](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -32,7 +32,7 @@ USB300
 
 FAM-USB（ESP3 固件）
 
-EnOcean Pi模块
+EnOcean Pi 模块 **重要提示：**在 Pi3 和 Pi4 上，您必须禁用板载蓝牙模块，否则 EnOcean 模块将无法工作！
 
 Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能和设备。
 不工作的已知功能：RSSI，无法读取网关信息，并且在没有 FTD14 的情况下只能控制 RS485 总线设备（尚未测试）。如果没有使用此网关的技术原因，强烈建议使用其他网关。

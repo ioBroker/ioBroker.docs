@@ -32,6 +32,7 @@ DOSMUNG USB Stick with SMA port
 FAM-USB (ESP3 Firmware)
 
 EnOcean Pi Modul
+**Important Note:** On Pi3 & Pi4 you have to disable the onboard Bluetooth module, otherwise the EnOcean module will not work!
 
 Eltako FGW14:  
 **Important Notes**: This gateway does not support all features and devices of this adapter.  

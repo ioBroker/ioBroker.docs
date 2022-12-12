@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: ndUzsWUt52XKWs88JISRea2rEUe2nxFbF6PMyRPcMVE=
+hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -165,8 +165,20 @@ Alexa, lock the "lock name"
 
 Зарезервированные имена: `ifttt`, `text2command`, `simpleApi`, `swagger`. Они должны использоваться без префикса `custom_`.
 
+Вы также можете запросить в сообщении действительный URL-адрес для службы:
+
+```
+sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result =>
+  console.log(JSON.stringify(result)));
+  // Output: {"result":
+  //  {"url": "https://service.iobroker.in/v1/iotService?key=xxx&user=uuu&service=custom_myService",
+  //   "stateID":"iot.0.services.myService",
+  //   "warning":"Service name is not in white list"
+  //  }}
+```
+
 ### `text2command`
-Вы можете написать «text2command» в белый список, вы можете отправить запрос POST на `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` для записи данных в переменную *text2command.X.text*.
+Вы можете записать `text2command` в белый список, вы можете отправить запрос POST в `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` для записи данных в переменную *text2command.X.text*.
 
 Вы также можете использовать метод GET `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
@@ -184,7 +196,7 @@ Alexa, lock the "lock name"
 `text2command` необходимо настроить таким образом, чтобы ожидаемая фраза анализировалась и возвращался ответ.
 
 ### `Javascript`
-Есть возможность обработать вопрос напрямую скриптом. Он активируется по умолчанию, если экземпляр *text2command* не выбран.
+Есть возможность обработать вопрос напрямую скриптом. Он активируется по умолчанию, если экземпляр `text2command` не выбран.
 
 Если определен экземпляр `text2command`, этот экземпляр должен предоставить ответ, а ответ от *script* будет проигнорирован.
 
@@ -192,7 +204,7 @@ Alexa, lock the "lock name"
 
 * **smart.lastCommand** содержит полученный текст, включая информацию о типе запроса (намерении). Пример: «спросить статус устройства Rasenmäher»
 * **smart.lastCommandObj*** содержит строку JSON, которая может быть преобразована в объект, содержащий следующую информацию
-  * **words** содержит полученные слова в массиве
+  * **words** содержат полученные слова в массиве
   * **намерение** содержит тип запроса. Возможные значения в настоящее время:
     * Навык v1: "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
     * Навык v2: "queryIntent", когда был захвачен весь указанный текст, "controlDevice" для отката с частичным текстом
@@ -279,6 +291,19 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added netatmo support
+
+### 1.13.0 (2022-12-08)
+* (Apollon77) Added support vor Custom Skill v2
+
+### 1.12.5 (2022-11-09)
+* (bluefox) Small changes on configuration GUI
+
+### 1.12.4 (2022-11-03)
+* (bluefox) Added ukrainian language
+* (bluefox) Corrected blockly for unknown languages
+
 ### 1.12.2 (2022-10-01)
 * (Apollon77) Fix crash case
 

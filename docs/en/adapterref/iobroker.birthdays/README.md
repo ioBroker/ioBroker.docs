@@ -36,6 +36,7 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
 ### **WORK IN PROGRESS**
 
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 2.1.0 (2022-05-31)
 
