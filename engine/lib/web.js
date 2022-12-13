@@ -83,13 +83,14 @@ function init() {
     // redirect install scripts
     app.app.get('/fix.sh', (req, res) => res.redirect(301, 'https://iobroker.net/fix.sh'));
     app.app.get('/install.sh', (req, res) => res.redirect(301, 'https://iobroker.net/install.sh'));
+    app.app.get('/diag.sh', (req, res) => res.redirect(301, 'https://iobroker.net/diag.sh'));
 
     app.app.post('/', bruteforce.prevent, (req, res) => {
         if (!req.query.file) {
             return res.status(501).json({error: 'no file name found'})
         }
         if (req.query.secret !== config.secret) {
-            console.error('invalid secret ' + req.query.secret);
+            console.error(`invalid secret ${req.query.secret}`);
             return res.status(401).json({error: 'invalid secret'})
         }
         req.brute.reset(() => {
@@ -97,7 +98,7 @@ function init() {
                 fs.mkdirSync(path.join(config.public, 'data'));
             }
 
-            console.log('upload ' + path.join(config.public, 'data', req.query.file.replace(/[^.\w]/g, '_')));
+            console.log(`upload ${path.join(config.public, 'data', req.query.file.replace(/[^.\w]/g, '_'))}`);
             if (req.body.html) {
                 fs.writeFileSync(path.join(config.public, 'data', req.query.file.replace(/[^.\w]/g, '_')), req.body.html);
             } else {
@@ -146,11 +147,11 @@ function onError(error) {
     // handle specific listen errors with friendly messages
     switch (error.code) {
         case 'EACCES':
-            logger.error(bind + ' requires elevated privileges');
+            logger.error(`${bind} requires elevated privileges`);
             process.exit(1);
             break;
         case 'EADDRINUSE':
-            logger.error(bind + ' is already in use');
+            logger.error(`${bind} is already in use`);
             process.exit(1);
             break;
         default:
@@ -162,10 +163,10 @@ function onError(error) {
 function onListening() {
     const addr = app.server.address();
     const bind = (typeof addr === 'string')
-        ? 'pipe ' + addr
-        : 'port ' + addr.port;
+        ? `pipe ${addr}`
+        : `port ${addr.port}`;
 
-    logger.log('WEB Side started on ' + bind);
+    logger.log(`WEB Side started on ${bind}`);
 }
 
 // Normalize a port into a number, string, or false.
