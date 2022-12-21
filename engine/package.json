@@ -15,7 +15,7 @@
   "devDependencies": {
     "@google-cloud/translate": "^7.0.4",
     "gulp": "^4.0.2",
-    "axios": "^1.2.1"
+    "axios": "^0.27.2"
   },
   "scripts": {
     "start": "node main",
