@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
+hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -19,11 +19,11 @@ hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
 Netatmo-Adapter für ioBroker
 
 ## __Wichtiger Hinweis für Echtzeit-Ereignisse (Türklingel, Begrüßung, Anwesenheit, CO2/Rauch-Alarm)__
-Um Echtzeit-Events von Netatmo zu erhalten, benötigen Sie einen iot/Pro-Cloud-Account mit einer Assistent- oder Remote-Lizenz und eine installierte iot-Instanz, die mit diesem Account verbunden ist. Die iot-Instanz muss v1.14.0 oder höher haben.
+Um Echtzeit-Events von Netatmo zu empfangen, benötigen Sie einen iot/Pro-Cloud-Account mit einer Assistent- oder Remote-Lizenz und eine installierte iot-Instanz, die mit diesem Account verbunden ist. Die iot-Instanz muss v1.14.0 oder höher haben.
 
 Bitte wählen Sie die iot-Instanz in den Adaptereinstellungen aus und starten Sie den Adapter neu.
 
-Netatmo-Adapterversionen < 3.0 verwendeten einen Heroku-Dienst, um diese Webhook-Ereignisse weiterzuleiten, aber Heroku hat diesen kostenlosen Dienst eingestellt. Alle Netatmo-Versionen < 3.0 erhalten also ab dem 28.11.2022 keine Echtzeit-Events mehr! Aus diesem Grund haben wir uns für diesen Weg entschieden, erprobte und stabile iot/Pro-Cloud-Dienste zu nutzen.
+Netatmo-Adapterversionen < 3.0 verwendeten einen Heroku-Dienst, um diese Webhook-Ereignisse weiterzuleiten, aber Heroku hat diesen kostenlosen Dienst eingestellt. Alle Netatmo-Versionen < 3.0 erhalten also seit dem 28.11.2022 keine Echtzeit-Events mehr! Aus diesem Grund haben wir uns für diesen Weg entschieden, erprobte und stabile iot/Pro-Cloud-Dienste zu nutzen.
 
 ## __Wichtiger Hinweis für Änderungen bei der Authentifizierung im Oktober 2022__
 Laut Netatmo wird die „alte“ Möglichkeit, sich mit Benutzername und Passwort direkt durch Eingabe in den Adapter zu authentifizieren, bis Oktober 2022 deaktiviert.
@@ -46,7 +46,7 @@ Im Erfolgsfall einfach das Fenster schließen und die Adapterkonfiguration neu l
 
 Standardmäßig wird für die Anfragen ein allgemeiner API-Schlüssel verwendet, der das Aktualisierungsintervall auf 10 Minuten begrenzt!
 
-Um das Intervall zu erhöhen oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
+Um das Intervall zu verlängern oder Live-Updates von Welcome & Presence, CO- und Rauchmeldern zu erhalten, müssen Sie nur eine eigene ID/ein Geheimnis aus Ihrer NetAtmo-App eingeben.
 Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an und füllen Sie das angeforderte Formular auf https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% aus. 2Fapps%2Ferstelle eine App !
 
 Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
@@ -83,9 +83,8 @@ Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ besch
 ### **IN ARBEIT** -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+### 3.0.0 (2022-12-14)
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices

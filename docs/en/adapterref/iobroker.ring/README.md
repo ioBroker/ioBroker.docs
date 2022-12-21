@@ -119,6 +119,15 @@ It is recommended that you add your own tests into the mix.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.2.4 (2022-12-15)
+
+* (theimo1221) #385 Fix for Unlock Request on intercoms
+
+### 3.2.3 (2022-12-15)
+
+* (theimo1221) Update Packages
+* (theimo1221) #385 Experimental Ring Intercom support
+
 ### 3.2.2 (2022-12-02)
 
 * (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname

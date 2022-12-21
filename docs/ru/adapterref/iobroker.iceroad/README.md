@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iceroad/README.md
 title: ioBroker.iceroad
-hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
+hash: DHw0ka5EoWfm4hKpvT/ss9VOXTntUkfawwU2WRtI9W8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
@@ -14,20 +14,40 @@ hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
 # IoBroker.iceroad
 ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
 
-Bitte die api hier beantragen: https://www.eiswarnung.de/rest-api/
+## Документация
+Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/ </br>
 
-Vorhersage zur vereisten Frontscheibe [Deutsche Beschreibung Hier](docs/de/iceroad.md)
+Прогноз обледенения лобового стекла</br> Пожалуйста, запросите API здесь: https://www.eiswarnung.de/rest-api/ </br> </br> 🇩🇪 [Документация](docs/de/iceroad.md)</br> 🇬🇧 §§ LLLLL_1§§</br>
 
-прогноз-ледяное окно от вашего автомобиля
+## Обсуждение и вопросы
+[Форум ioBroker](https://forum.iobroker.net/topic/50041/test-adapter-ice-road)</br>
 
-[Описание на английском здесь](docs/en/iceroad.md)
+## Адаптер Ice-Road для ioBroker
+Это адаптер расписания, который опрашивает текущую ледовую ситуацию через https://eiswarnung.de, например. каждый час.
+Основываясь на данных о климате и погоде для вашего местоположения, они накануне вечером рассчитывают, ожидаются ли ледяные окна в вашем районе на следующее утро. Оптимальное время запроса — за 8-10 часов. Если вы хотите выйти из дома в 8 утра, лучше всего использовать прогноз с 22 до 24 часов накануне вечером.</br> </br> Если на адаптере отображается статус «Лед» или «Возможно гололед», это можно получить уведомление. В настоящее время существует несколько встроенных сервисов уведомлений (Telegram, Pushover, WhatsApp, Email, Jarvis, Lovelace, SynoChat). Если статус изменится на «Нет льда», вы также получите уведомление. Кроме того, возможно напоминание, когда статус «Лед» и «Возможно лед» находится в ожидании более X часов. (Может быть установлено в конфигурации). В противном случае для дальнейшей обработки доступны различные точки данных.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.1 (2022-12-18)
+
+-   (ciddi89) changed order in table of longitude and latitude
+
+### 1.1.0 (2022-12-18)
+
+-   (ciddi89) added handling for wrong location data (comma to fullstop)
+-   (ciddi89) added functionality for reminder notification
+-   (ciddi89) updated readme
+
+### 1.0.0 (2022-12-17)
 
 -   (ciddi89) fixed issue messages wasn't sent
 -   (ciddi89) increased timeout
+-   (ciddi89) BREAKING CHANGE -> rebuild adapter complete. Please save your data and delete the instance before update
+-   (ciddi89) drop support for admin 5
 
 ### 0.1.1 (2022-10-01)
 

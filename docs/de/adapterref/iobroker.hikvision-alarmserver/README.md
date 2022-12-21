@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-alarmserver
-hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
+hash: /rQaZG7GcWAIu+IeCnDRfqXasuQH6kTBFQNjRmsseds=
 ---
 ![Logo](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -20,7 +20,14 @@ hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
 ## Hikvision Alarm Server-Adapter für ioBroker
 Ein Adapter zum Empfangen von Alarmen/Ereignissen, die von Hikvision-Kameras gesendet werden.
 
-Getestet mit einfachen und intelligenten Ereignissen auf Hikvision DS-2CD2143G2-I. Erfolgs-/Fehler-/Fehlerberichte sind willkommen.
+Getestet mit Hikvision-Modellen:
+
+- DS-2CD2043G2-I
+- DS-2CD2143G2-I
+- DS-2DE2A404IW-DE3
+- DS-2DE3A404IW-DE/W
+
+Erfolgs-/Fehler-/Fehlerberichte sind willkommen, wenn Sie ein Modell haben, das nicht in dieser Liste enthalten ist.
 
 ## Verwendung
 Die Adapterinstanz erstellt einen booleschen Zustand für jede gemeldete Kombination aus Kamera/Ereignistyp. Kameras werden anhand der MAC-Adresse identifiziert (begrenzt durch die von der Kamera bereitgestellten Informationen).
@@ -42,8 +49,20 @@ Stellen Sie sicher, dass die Verknüpfung in den Ereignissen, die Sie ioBroker m
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 0.0.6 (2022-12-13)
+-   (Robin Rainton) Handle multipart message payload ([#5](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/5)).
+-   (Robin Rainton) Handle payloads without XML declaration ([#7](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/7).)
+
+### 0.0.5 (2022-12-10)
+-   (Robin Rainton) Drop colons from device IDs.
+
 ### 0.0.2
-* (Robin Rainton) initial release.
+-   (Robin Rainton) initial release.
 
 ## License
 MIT License

@@ -71,7 +71,7 @@ Bitte nutzt den Datenpunkt `system.adapter.octoprint.0.alive` um die Instanz zu 
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2022-12-14)
 
 Tested with OctoPrint 1.8.6
 
@@ -102,14 +102,6 @@ Tested with OctoPrint 1.8.0
 
 * (klein0r) Get thumbnail url of current file and copy value to printjob (requires plugin Slicer Thumbnails)
 * (klein0r) Updated log messages
-
-### 3.2.0 (2022-03-07)
-
-Tested with OctoPrint 1.7.3
-
-* (klein0r) Added print times as readable states (seconds to string)
-* (klein0r) Added formatted date when print job will finish
-* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
 
 ## License
 

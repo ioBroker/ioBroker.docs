@@ -4,9 +4,9 @@ lastChanged: 14.09.2018
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdoctemplate.md
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
-hash: S62aqyeF/7VQpWq4NzquyWKDXOOwfj0o/ISm+YD2BSE=
+hash: G1Dw09iG483BXujNGhY87hCuh9W3To0stxzuBDoOtas=
 ---
-# 创建适配器文档的模板
+# 用于创建适配器文档的模板
 ```
 ---
 title:       "{Seitentitel}"
@@ -20,7 +20,7 @@ Dieses Template ist bei weitem noch nicht final!
 Beispielimplementierung ist der [harmony-Adapter](adapterref/docs/iobroker.harmony/de/README).
 
 # <img src="media/{Adaptericon}" width=150 hight=150/>&emsp;{Adaptername}-Adapter
-In diesem Abschnitt wird eine endanwenderfreundliche Zusammenfassung des
+In diesem Abschnitt wird eine endanwender-freundliche Zusammenfassung des
 Anwendungszwecks des Adapters gegeben. Diese Zusammenfassung soll kurz
  gehalten sein (maximal 1-3 kleine Absätze). Sie soll gerade so viele
  Informationen enthalten, dass das Interesse des Anwenders geweckt wird
@@ -58,7 +58,7 @@ im Abschnitt "Überblick".
 > Achtung! Die folgende Tabelle dient nur als Beispiel. Sie wird vom
   Dokumentengenerator dynamisch erzeugt und an dieser Stelle eingefügt.
   Je nach den ausgewählten Feldern sind die Datenquellen z.B. `frontmatter`,
-  `io-package.json` und `package.json` des jeweilgen Adapters.
+  `io-package.json` und `package.json` des jeweiligen Adapters.
 
 |                         |                              |
 |-------------------------|:----------------------------:|
@@ -106,7 +106,7 @@ die manuelle Installation von Software vor der eigentlichen Adapterinstallation
 oder die Freischaltung von Ports auf dem Server sein.
 
 > Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert.
-  Die ausführliche Anleitung für die dazu notwendigen Installatonschritte ist
+  Die ausführliche Anleitung für die dazu notwendigen Installationsschritte ist
   **hier** beschrieben.
 
 <a name="konfiguration"/>
@@ -194,8 +194,8 @@ Objekt                    | Zugriff | Bescheibung
 
 Mit der Tabelle wird versucht, den Objektbaum vereinfacht darzustellen
 und dem Anwender die Bedeutung und Anwendung der einzelnen Objekte zu
-veranschaulichen. Sie stellt die Referenzdokumentaion für den Anwender für
-z.B. den Zugriffe mit JavaScript auf die Objekthierarchie dar.
+veranschaulichen. Sie stellt die Referenzdokumentation für den Anwender für
+z.B. die Zugriffe mit JavaScript auf die Objekthierarchie dar.
 
 ### {Weitere tiefergehende Erläuterungen zu Objektgruppierungen}
 Hier könne Ausschnitte des Objektbaums hervorgehoben und besonders betrachtet
@@ -227,11 +227,6 @@ an. Dabei bedeuten die Werte
 - 1 = startend
 - 2 = aktiv
 
-
-
-
-
-
 ## Deinstallation
 sollte die Instanz wieder entfernt werden sollen wird diese über das zugeordnete Mülleimer-Icon
 in der Rubrik Instanzen entfernt
@@ -251,20 +246,14 @@ Bei dieser Deinstallation werden alle zu der Instanz gehörenden Objekte vollst�
 Sollten die Installationsdateien vollständig von dem Host gelöscht werden, muss dies über das Mülleimer-Icon
 in der Kachel des AdapterName-Adapters in der Rubrik Adapter geschehen.
 
-
-
-
-
 ## Beispiele/Demo
 Lorem ipsum
-
 
 ## Besonderheiten
 Backup
 Multihost
 History
 Performance
-
 
 ## Bekannte Probleme
 
@@ -276,8 +265,6 @@ Performance
 
 * weiß der Teufel
   Lösung:
-
-
 
 ## Einbinden der States
 
@@ -292,7 +279,6 @@ Lorem ipsum
 
 ### History
 Lorem ipsum
-
 
 ## Links
 Irgendwo kommen auch noch Links zu GitHub (Entwicklerbereich?) und

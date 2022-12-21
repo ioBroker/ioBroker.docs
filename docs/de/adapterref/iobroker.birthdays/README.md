@@ -33,7 +33,7 @@ chapters: {"pages":{"de/adapterref/iobroker.birthdays/README.md":{"title":{"de":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.0 (2022-12-12)
 
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
@@ -59,10 +59,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Dropped "node-ical" dependency and parse events directly
 * (klein0r) Stop scheduled adapter instance in any case and report errors
-
-### 1.1.3 (2022-02-27)
-
-* (klein0r) Stop adapter when everything was processed (with timeout)
 
 ## License
 

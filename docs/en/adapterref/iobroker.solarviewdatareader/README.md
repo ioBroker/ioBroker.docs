@@ -64,6 +64,9 @@ TKK= Temperature inverter
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.7 (2022-12-21)
+* (afuerhoff) dependencies updated
+
 ### 1.0.6 (2022-07-04)
 * (afuerhoff) dependencies updated
 * (afuerhoff) Interval settings changed from minutes to seconds
@@ -79,10 +82,6 @@ TKK= Temperature inverter
 * (afuerhoff) issue #20 fixed
 
 ### 1.0.3 (2021-12-08)
-* (afuerhoff) dependencies updated
-
-### 1.0.2 (2021-05-07)
-* (afuerhoff) node.js 14 and 16 compatibilty
 * (afuerhoff) dependencies updated
 
 ## License

@@ -4,7 +4,7 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdebug.md
-hash: 6ugd3tmHvVfHwmgCllFGwfGlQbxMG7m6jcLBb2/WsOI=
+hash: Cz67x0YZ6eFTiBBw1qO/E8odJ7LNuUYZPNlxe9Xq/Lc=
 ---
 # Debug adapters
 ## Debug adapters with Chrome
@@ -48,7 +48,7 @@ node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 
 the parameter `--inspect-brk` provides, compared to above,
 
-that a breakpoint is set on the first line of your adapter right at the start of the debugger.
+that a breakpoint is set on the first line of your adapter when the debugger starts.
 
 If you don't always want to copy the link to start the debug individually, you can also call up the following page in chrome:
 
@@ -102,15 +102,15 @@ The configuration in the `.vscode/launch.js` file should look like this:
 ### Local debugging
 After the adapter is stopped (`iobroker stop ADAPTER_NAME`), you can start the adapter in VS Code: ![VS code](../../de/dev/media/adapterdebug10.png)
 
-After selecting `Launch Program` and clicking `Play` button, the adapter will start and you can debug locally.
+After selecting `Launch Program` and clicking `Play` button, the adapter is started and you can debug locally.
 
 ### Remote debugging
 For this you should start the adapter on the ioBroker server specifically.
 
 ```
-cd /opt/iobroker
-iobroker stop ADAPTERNAME
-node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
+d /opt/iobroker
+obroker stop ADAPTERNAME
+ode --inspect-brk=0.0.0.0:9229 node_modules/iobroker.ADAPTERNAME/main.js --debug
 ```
 
 Afterwards one can connect `VS Code` to process (`attach`).

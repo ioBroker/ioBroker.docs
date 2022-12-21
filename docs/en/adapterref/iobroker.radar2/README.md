@@ -2,10 +2,12 @@
 
 ![Logo](admin/radar2.png)
 
+![Number of Installations](http://iobroker.live/badges/radar2-installed.svg)
+![Number of Installations](http://iobroker.live/badges/radar2-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.radar2.svg)](https://www.npmjs.com/package/iobroker.radar2)
-[![Installed](http://iobroker.live/badges/radar2-installed.svg)](http://iobroker.live/badges/radar2-installed.svg)
+
+![Test and Release](https://github.com/frankjoke/iobroker.radar2/workflows/Test%20and%20Release/badge.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.radar2.svg)](https://www.npmjs.com/package/iobroker.radar2)
-[![Travis-CI](http://img.shields.io/travis/frankjoke/ioBroker.radar2/master.svg)](https://travis-ci.org/frankjoke/ioBroker.radar2)
 
 [Deutsche Anleitung translated by google](https://translate.google.com/translate?sl=en&tl=de&u=https%3A%2F%2Fgithub.com%2Ffrankjoke%2FioBroker.radar2%2Fblob%2Fmaster%2FREADME.md)
 
@@ -132,9 +134,12 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* Update noble
+
 ### V2.0.1
 
-* Removed node-blöuetooth because package is not updated to run on recent nodejs versions
+* Removed node-bluetooth because package is not updated to run on recent nodejs versions
 * Updated noble to more recent version
 * Completely rewritten logic for pinging BT with l2ping, or hcitool lescan
 * Updated scan methot to reduce process load and also increase hit rate
@@ -176,7 +181,7 @@ Also new is that intervals for HP-Printer, ECB-, UWZ- and normal scans can be de
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019, frankjoke <frankjoke@hotmail.com>
+Copyright (c) 2018-2022, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

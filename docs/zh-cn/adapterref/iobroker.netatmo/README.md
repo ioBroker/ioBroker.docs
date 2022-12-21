@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
+hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
 ---
-![标识](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
+![商标](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
 ![安装数量](http://iobroker.live/badges/netatmo-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.netatmo.svg)
@@ -46,7 +46,7 @@ Netatmo 适配器版本 < 3.0 使用 heroku 服务来传递这些 webhook 事件
 
 默认情况下，通用 API 密钥用于执行将更新间隔限制为 10 分钟的请求！
 
-要增加间隔或从 Welcome & Presence、CO- 和烟雾探测器获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/密码。
+要增加间隔时间或从 Welcome & Presence、CO- 和 Smoke-Detectors 获取实时更新，您只需从 NetAtmo 应用程序输入自己的 ID/密码。
 为此，请转到以下 URL，使用您的 Netatmo 帐户登录并在 https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 上填写请求的表格2Fapps%2F创建一个应用程序！
 
 请确保配置他们遵守 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，这些限制也适用于所有用户）
@@ -59,7 +59,7 @@ Netatmo 适配器版本 < 3.0 使用 heroku 服务来传递这些 webhook 事件
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
 ```
 
-或者
+要么
 
 ```
 sendTo('netatmo.0', "setAway");
@@ -83,9 +83,8 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### **正在进行中** -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+### 3.0.0 (2022-12-14)
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices

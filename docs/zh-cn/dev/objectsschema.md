@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
-title: 核心理念
-hash: VhWVqtQlnIQYoR8/3eFoL6tf0zLKMIaPK2dxen00LIU=
+title: 核心概念
+hash: q3sMaAw21qxzYixb/rekirT6ZAoLfk3dEQT+K4IJbIY=
 ---
 # 核心概念
 ioBroker 中有两种根本不同的数据类型。所谓的 **states**(`states`) 和 **objects**。
@@ -45,7 +45,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `system.group.` - 组
 * `system.adapter.<adapter-name>` - 适配器的默认配置
 * `<adapter-name>.` - 特定适配器的对象。
-* `<adapter-name>.meta.` - 此适配器的所有实例使用的公共元数据
+* `<adapter-name>.meta.` - 此适配器的所有实例使用的通用元数据
 * `<adapter-name>.<instance-number>.` - 适配器实例命名空间
 * `enum.` - 枚举
 * `history.` - 历史数据
@@ -487,16 +487,16 @@ ID
 * `common.allowInit` - [true/false] 如果设置更改或适配器启动，则允许“计划的”适配器“不在时间表中”被调用。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
 * `common.availableModes` - `common.mode` 的值（如果可以使用多种模式）
 * `common.blockly` - [true/false] 如果适配器有 blockly 的自定义块。 （需要 `admin/blockly.js`）
-* `common.connectionType` - 与设备的连接类型：`local/cloud`。也请参阅 `common.dataSource`。
 * `common.compact` - 告诉控制器如果需要，这个适配器可以在同一个进程中启动
 * `common.config.height` - 配置对话框的默认高度（已弃用 - 仅对 admin2 有效）
 * `common.config.minHeight` - 配置对话框的最小高度（已弃用 - 仅对 admin2 有效）
 * `common.config.minWidth` - 配置对话框的最小宽度（已弃用 - 仅对 admin2 有效）
 * `common.config.width` - 配置对话框的默认宽度（已弃用 - 仅对 admin2 有效）
+* `common.connectionType` - 与设备的连接类型：`local/cloud`。也请参阅 `common.dataSource`。
 * `common.dataFolder` - 与适配器存储数据的 iobroker-data 相关的文件夹。该文件夹将自动备份和恢复。您可以在其中使用变量 %INSTANCE% 。
 * `common.dataSource` - 如何从设备接收数据：`poll/push/assumption`。它与 `connectionType` 一起很重要。
-* `common.disableDataReporting` - 不要通过这个实例的 `sentry` 报告错误
 * `common.dependencies` - 类似于 `[{"js-controller": ">=2.0.0"}]` 的数组，描述同一主机上的此适配器需要哪些 ioBroker 模块。
+* `common.disableDataReporting` - 不要通过这个实例的 `sentry` 报告错误
 * `common.docs` - 类似`{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md" ]}` 描述文档（如果不在 `README.md` 中）
 * `common.enabled` - **强制** [true/false] 值应为 false，以便默认禁用新实例
 * `common.engineTypes` - 已弃用。在 package.json 中使用引擎
@@ -506,15 +506,15 @@ ID
 * `common.getHistory` - [true/false] 如果适配器支持 getHistory 消息
 * `common.globalDependencies` - 类似于 `[{"admin": ">=2.0.0"}]` 的数组，描述其中一台主机上的此适配器需要哪些 ioBroker 模块。
 * `common.icon` - 本地图标的名称（应位于子目录“admin”中）
-* `common.installedVersion` - 不要使用它，只会在内部设置
 * `common.ignoreVersion` - 不显示此特定版本适配器的更新图标
+* `common.installedVersion` - 不要使用它，只会在内部设置
 * `common.jsonConfig` - 此适配器支持 admin5 并提供 admin/jsonConfig.json 以及配置对话框布局的描述
 * `common.jsonCustom` - 此适配器支持 admin5 并提供 admin/jsonCustom.json 以及自定义设置布局的描述
 * `common.keywords` - 类似于 package.json 中的关键字，但可以用多种语言定义。只是一个数组。
-* `common.localLinks` - 链接到这个适配器的网络服务。例如。从 admin 到 http://localhost:5984/_utils 获取蒲团
 * `common.localLink` - 已弃用。使用 `common.localLinks`。
-* `common.loglevel` - 调试、信息、警告或错误
+* `common.localLinks` - 链接到这个适配器的网络服务。例如。从 admin 到 http://localhost:5984/_utils 获取蒲团
 * `common.logTransporter` - 如果此适配器从其他主机和适配器接收日志（例如将它们存储在某处）
+* `common.loglevel` - 调试、信息、警告或错误
 * `common.main` - **已弃用** 在 package.json 中使用 main。
 * `common.materializeTab` - 如果适配器支持 > admin3 选项卡（物化样式）
 * `common.materialize` - 如果适配器支持> admin3 (materialize style)
@@ -534,8 +534,8 @@ ID
 * `common.osDependencies.win32` - 未使用，因为 win32 没有包管理器
 * `common.os` - 支持的操作系统的字符串或数组，例如`["linux", "darwin"]`
 * `common.platform` - **强制** 可能的值：Javascript/Node.js，还有更多
-* `common.pugins.sentry` - 包含 `sentry` 插件配置数据的结构
 * `common.preserveSettings` - 具有实例共有属性名称的字符串（或数组），不会被删除。例如。 “history”，所以通过 `setState("system.adapter.mqtt.0", {..})` 字段 `common.history` 不会被删除，即使新对象没有这个字段。要删除该属性，必须使用 `common: {history: null}` 显式完成。
+* `common.pugins.sentry` - 包含 `sentry` 插件配置数据的结构
 * `common.readme` - 自述文件的 URL
 * `common.restartAdapters` - 包含在此适配器安装后必须重新启动的适配器名称的数组，例如[“可见”]
 * `common.restartSchedule` - CRON 计划重启模式 `daemon` 适配器
@@ -543,7 +543,7 @@ ID
 * `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，路径 `adapter/lib/states.js` 将被调用，并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递点数组，其值类似于`function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
-* `common.statusStates` - admin 中的状态指示结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
+* `common.statusStates` - admin 中的状态指示结构，格式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
 * `common.stopTimeout` - 以毫秒为单位的超时等待，直到适配器关闭。默认 500 毫秒。
 * `common.stoppedWhenWebExtension` - 如果实例具有模式 `daemon` 但它作为 Web 扩展运行（`native.webInstance !== ''`），如果 `common.stoppedWhenWebExtension` 为真，控制器将不会启动该实例。
@@ -551,7 +551,7 @@ ID
 * `common.subscribe` - 自动订阅的变量名
 * `common.supportCustoms` - [true/false] 如果适配器支持每个州的设置。它必须在管理员中有 custom.html 文件。示例可以在 `ioBroker.history` 中找到
 * `common.supportStopInstance`- [true/false] 如果适配器支持信号 stopInstance（需要**消息框**）。该信号将在停止之前发送到适配器。 （在 SIGTERM 出现问题时使用）
-* `common.titleLang` - **强制** 适配器在所有支持的语言中的较长名称，例如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
+* `common.titleLang` - **强制** 适配器在所有支持的语言中的较长名称，如 `{en: 'Adapter', de: 'adapter', ru: 'Драйвер'}`
 * `common.title` -（已弃用）在管理中显示的适配器的较长名称
 * `common.type` - 适配器类型。请参阅 [类型](adapterpublish.md)
 * `common.unchanged` -（系统）请不要使用这个标志。这是一个通知系统的标志，该配置对话框必须显示在管理员中。
@@ -563,9 +563,9 @@ ID
 * `common.webExtension` - 连接网络扩展的相对文件名。例如。在相对于适配器根目录的 `simple-api` `lib/simpleapi.js` 中。此外，`native.webInstance` 需要说明此扩展将包含在何处。空意味着，它必须作为自己的网络服务运行。 “*”表示每个网络服务器都必须包含它。
 * `common.webPreSettings` - webServer 适配器必须包含到 info.js 中的参数列表。 （示例材料）
 * `common.webservers` - 应该提供来自适配器的 www 文件夹的内容的网络服务器实例数组
-* `common.welcomeScreen` - 页面数组，应显示在“web”index.html 页面上。 `["vis/edit.html", "vis/index.html"]` 或 `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis /img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.welcomeScreen.order` - 待办事项
 * `common.welcomeScreenPro` - 与 `common.welcomeScreen` 相同，但仅供来自 ioBroker.cloud 的访问使用。
+* `common.welcomeScreen` - 页面数组，应显示在“web”index.html 页面上。 `["vis/edit.html", "vis/index.html"]` 或 `[{"link": "vis/edit.html", "name": "Vis editor", "img": "vis /img/edit.png", "color": "blue"}, "vis/index.html"]`
 * `common.wwwDontUpload` - 不要将 www 目录上传到数据库中。仅供管理员使用。您可以将目录命名为其他名称，然后确定。
 * `protectedNative` - 只能由自己的适配器访问的配置属性数组，例如`[“密码”]`
 * `encryptedNative` - 配置属性数组，当通过管理配置页面存储时将自动加密并在适配器运行时自动解密，例如`[“密码”，“令牌”]`

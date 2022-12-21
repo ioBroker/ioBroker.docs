@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: 4M+4DmYgC0LkmJuO3Ww9VyzlR5ejQiG4vt43fl4hsVU=
+hash: Ac4RcFrkpoyzU6LCqkumAkmr+ocpdLi4PMJZVZs7n/A=
 ---
 ![Logo](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
@@ -23,9 +23,12 @@ Mit diesem Adapter können Heizungsanlagen verwaltet werden. Sie können zwische
 ## Aufbau
 Um den Adapter zu verwenden, müssen Sie Räume zu Räumen hinzufügen und die Sensoren und Motoren zu den Räumen hinzufügen.
 Außerdem müssen die Funktionen Temperatur, Feuchtigkeit und Motor den richtigen Zuständen hinzugefügt werden. Die Enums werden nach dem ersten Start des Adapters erstellt. Wenn Sie keinen Feuchtigkeitssensor haben, können Sie ihn leer lassen.
+![Konfigurationsbeispiel](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
 
 ### Haupteinstellungen
 *Heizmodus:* Sie können zwischen Kühlen und Heizen wählen.
+
+*Temperaturen beim Adapterstart auf Standard zurücksetzen:* Wenn diese Einstellung aktiv ist, werden alle Temperaturzustände mit Standardtemperatur und ZielUntil überschrieben. Bei der nächsten Temperaturprüfung werden die Temperaturen also auf die konfigurierten Temperaturen eingestellt, die in Perioden eingestellt sind.
 
 *Kühlung stoppen, wenn die Luftfeuchtigkeit höher ist als:* Wenn die Luftfeuchtigkeit erreicht ist, wird die Kühlung gestoppt. Es funktioniert nur, wenn Sie den Feuchtigkeitssensor der Funktion und dem Raum hinzugefügt haben.
 
@@ -50,11 +53,21 @@ Das Hauptbild erstellt von Freepick (https://www.flaticon.com/de/kostenloses-ico
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.5.2 (2022-10-05)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.7 (2022-12-16)
+* (jbeenenga) fix date format
 
-### 1.5.1 (2022-09-25)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.5 (2022-12-16)
+* (jbeenenga) add possibility to reset temperatures on adapter start
+
+### 1.6.4 (2022-12-16)
+* (jbeenenga) add more debug outputs
+* (jbeenenga) fixed incorrect period to room mapping
+
+### 1.6.3 (2022-12-15)
+* (jbeenenga) removed unnecessary debug output
+
+### 1.6.2 (2022-12-15)
+* (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
 * (jbeenenga) add possibility to overwrite temperature temporarily

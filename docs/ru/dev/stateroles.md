@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
 title: Государственные роли
-hash: 4jbcW8dY+dDiOe2A5zLV+rMxdAIsBTp8bGSKQbUXsRQ=
+hash: Xd+8R45RLsrsVZAAbaCz6dAFMGTYwumHFlBKQYgdo2U=
 ---
 # Государственные роли
 Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
@@ -94,6 +94,7 @@ hash: 4jbcW8dY+dDiOe2A5zLV+rMxdAIsBTp8bGSKQbUXsRQ=
 * `value.gps.radius` - радиус текущего измерения GPS
 * `value.power` - фактическая мощность (единица измерения = Вт или кВт)
 * `value.power.consumption` - потребление энергии (единица измерения=Втч или кВтч)
+* `value.power.production` - производство энергии (единица измерения = Втч или КВтч)
 * `value.power.reactive` - реактивная мощность (единица измерения = ВАр)
 * `value.direction` - (common.type=число ~~или строка~~, указывает вверх/вниз, влево/вправо, 4-позиционные переключатели, направление ветра, ... )
 * `value.curtain` - фактическое положение шторы

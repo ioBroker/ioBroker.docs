@@ -1,8 +1,8 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.nsclient.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.nsclient.svg
-BADGE-Number of Installations: https://iobroker.live/badges/nsclient-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/nsclient-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/nsclient-installed.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.nsclient.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.nsclient.png?downloads=true
 ---
 ![Logo](img/nsclient.png)

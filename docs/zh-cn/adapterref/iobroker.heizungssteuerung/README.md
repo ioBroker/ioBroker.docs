@@ -3,58 +3,71 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: 4M+4DmYgC0LkmJuO3Ww9VyzlR5ejQiG4vt43fl4hsVU=
+hash: Ac4RcFrkpoyzU6LCqkumAkmr+ocpdLi4PMJZVZs7n/A=
 ---
-![标识](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
+![商标](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.heizungssteuerung.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.heizungssteuerung.svg)
 ![安装数量](https://iobroker.live/badges/heizungssteuerung-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/heizungssteuerung-stable.svg)
 ![依赖状态](https://img.shields.io/david/jbeenenga/iobroker.heizungssteuerung.svg)
-![新PM](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.heizungssteuerung.png?downloads=true)
 
 # IoBroker.heizungssteuerung
 **测试：** ![测试和发布](https://github.com/jbeenenga/ioBroker.heizungssteuerung/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 Heizungssteuerung 适配器
-该适配器可用于管理加热系统。您可以在制冷和制热模式之间进行选择，并为一个房间激活升压或暂停。此外，您可以覆盖一个房间的目标温度。
+该适配器可用于管理加热系统。您可以在冷却和加热模式之间进行选择，并为一个房间激活增强或暂停。此外，您可以覆盖一个房间的目标温度。
 
 ＃＃ 配置
 要使用适配器，您必须将房间添加到房间枚举并将传感器和引擎添加到房间。
-此外，您必须将温度、湿度和引擎功能添加到正确的状态。枚举将在适配器第一次启动后创建。如果您没有湿度传感器，您可以将其留空。
+此外，您必须将功能温度、湿度和引擎添加到正确的状态。枚举将在适配器首次启动后创建。如果您没有湿度传感器，您可以将其留空。
+![配置示例](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
 
 ### 主要设置
-*加热模式：*您可以在冷却和加热之间选择。
+*加热模式：*您可以选择冷却和加热。
 
-*如果湿度高于：* 如果达到湿度，则停止冷却。仅当您将湿度传感器添加到功能和房间时，它才有效。
+*在适配器启动时将温度重置为默认值：* 如果此设置处于活动状态，所有温度状态将被默认温度和 targetUntil 覆盖。因此，下一次温度检查会将温度设置为按周期设置的配置温度。
 
-*以秒为单位更新间隔：* 定义适配器检查温度并设置引擎的频率
+*如果湿度高于以下值，则停止冷却：* 如果达到湿度，将停止冷却。它只有在您将湿度传感器添加到功能和房间时才有效。
 
-*默认温度：*如果房间没有匹配的时间段，则定义要设置的温度
+*更新间隔（以秒为单位）：* 定义适配器检查温度并设置引擎的频率
 
-*直到暂停的时间将以分钟为单位：* 定义直到暂停状态将被重置为非活动的时间（以分钟为单位）
+*默认温度：* 定义房间没有时间匹配时要设置的温度
 
-*直到加速结束的时间（以分钟为单位）：* 定义直到加速状态将被重置为非活动的时间（以分钟为单位）
+*Time until pause will be ended in minutes:* 定义直到暂停状态将被重置为非活动状态的时间（以分钟为单位）
 
-*在开始或停止加热之前与目标温度的差异：* 定义在适配器开始或停止加热之前与目标温度的差异。例如，如果 20° 是目标温度，则此设置为 0.5，如果温度低于 19.5°，则发动机停止加热，如果温度高于 20.5°，则停止加热。
+* Time until boost will be ended in minutes:* 定义 time until boost state will be reset to inactive in minutes
+
+*与目标温度的差异，直到开始或停止加热：* 定义与目标温度的差异，直到适配器开始或停止加热。例如，如果目标温度为 20°，则此设置为 0.5，如果温度低于 19.5°，发动机将关闭加热，如果温度高于 20.5°，将停止加热。
 
 ### 期间
-您可以为每个房间和时间定义时段。此外，您可以定义此时间段应用于冷却还是加热。如果加热模式与主要设置上的设置模式不匹配，则该周期将被忽略。
+您可以为每个房间和时间定义时段。此外，您还可以定义这段时间是用于制冷还是供暖。如果加热模式与主设置上的设置模式不匹配，则该周期将被忽略。
 
 ＃＃ 图片
-Freepick 创建的主图 (https://www.flaticon.com/de/kostenloses-icon/heizung_1295221)
+Freepick 创建的主图（https://www.flaticon.com/de/kostenloses-icon/heizung_1295221）
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.5.2 (2022-10-05)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.7 (2022-12-16)
+* (jbeenenga) fix date format
 
-### 1.5.1 (2022-09-25)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.5 (2022-12-16)
+* (jbeenenga) add possibility to reset temperatures on adapter start
+
+### 1.6.4 (2022-12-16)
+* (jbeenenga) add more debug outputs
+* (jbeenenga) fixed incorrect period to room mapping
+
+### 1.6.3 (2022-12-15)
+* (jbeenenga) removed unnecessary debug output
+
+### 1.6.2 (2022-12-15)
+* (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
 * (jbeenenga) add possibility to overwrite temperature temporarily

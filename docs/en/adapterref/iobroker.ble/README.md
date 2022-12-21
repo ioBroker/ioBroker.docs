@@ -41,6 +41,9 @@ If you have any device transmitting specially encoded information via advertisem
 	Placeholder for next release:
 	### __WORK IN PROGRESS__
 -->
+### 0.13.1 (2022-12-19)
+* Updated the `noble` dependency. This should fix the automatic rebuild after Node.js upgrades.
+
 ### 0.13.0 (2022-04-27)
 * The option to allow recording new devices is now available in the config dialog. When the adapter starts, it will be disabled, and when enabled, it will be automatically disabled after 5 minutes (#730, #729)
 * Fix: RSSI will now be updated, even if it was unchanged (#493)

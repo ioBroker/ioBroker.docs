@@ -9,21 +9,50 @@
 ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iceroad.svg)](https://www.npmjs.com/package/iobroker.iceroad)
 
-Bitte die api hier beantragen: https://www.eiswarnung.de/rest-api/
+## Documentation
 
-Vorhersage zur vereisten Frontscheibe
-[Deutsche Beschreibung hier](docs/de/iceroad.md)
+Vorhersage zur vereisten Frontscheibe</br>
+Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/ </br>
 
-forecast- ice window from your car
+Iced windshield forecast</br>
+Please request the API here: https://www.eiswarnung.de/rest-api/ </br>
+</br>
+🇩🇪 [Dokumentation](docs/de/iceroad.md)</br>
+🇬🇧 [Documentation](docs/en/iceroad.md)</br>
 
-[English Description here](docs/en/iceroad.md)
+## Discussion and Questions
+
+[ioBroker Forum](https://forum.iobroker.net/topic/50041/test-adapter-ice-road)</br>
+
+## Ice-Road adapter for ioBroker
+
+This is a shedule adapter that polls the current ice situation via https://eiswarnung.de e.g. every hour.
+Based on climate and weather data for your location, they calculate the night before whether icy windows are expected in your area the next morning. The optimal time for the query is 8-10 hours in advance. If you want to leave the house at 8am, it is best to use a forecast from 10-24pm the night before.</br>
+</br>
+If the adapter displays the status "Ice" or "Maybe ice", it is possible to be notified. Currently, there are several built-in notification services (Telegram, Pushover, WhatsApp, Email, Jarvis, Lovelace, SynoChat). If the status is changed to "No ice", you also get a notification. In addition, it is possible to be reminded when the status "Ice" and "Maybe ice" is pending for more than X hours. (Can be set in the configuration). Otherwise, various data points are available for further processing.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.1 (2022-12-18)
+
+-   (ciddi89) changed order in table of longitude and latitude
+
+### 1.1.0 (2022-12-18)
+
+-   (ciddi89) added handling for wrong location data (comma to fullstop)
+-   (ciddi89) added functionality for reminder notification
+-   (ciddi89) updated readme
+
+### 1.0.0 (2022-12-17)
 
 -   (ciddi89) fixed issue messages wasn't sent
 -   (ciddi89) increased timeout
+-   (ciddi89) BREAKING CHANGE -> rebuild adapter complete. Please save your data and delete the instance before update
+-   (ciddi89) drop support for admin 5
 
 ### 0.1.1 (2022-10-01)
 

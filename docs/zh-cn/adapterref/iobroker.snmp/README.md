@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: g1gEAw0kqixBhq8MHnSVS3lYrDCuiQt08lDc427+hKM=
+hash: i8OfdmNKPXpxuu3YtpvwN8rjo9aAM2ExXyFgqKx6ugE=
 ---
-![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
+![商标](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![安装数量](http://iobroker.live/badges/snmp-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
@@ -22,13 +22,13 @@ hash: g1gEAw0kqixBhq8MHnSVS3lYrDCuiQt08lDc427+hKM=
 ＃＃ __工作正在进行中__
 -->
 
-＃＃＃ __工作正在进行中__
-* (McM1957) 添加对状态使用本机数据类型的支持 (#143)。
-* (McM1957) 添加了支持以将二进制 oid 数据存储为 json (#188)。
-* (McM1957) 写入模式的错误设置已得到修复 (#191)
-* (McM1957) 德国文档中的表格已修复 (#192)。
-* (McM1957) 使用保留名称“在线”命名 oid 已被阻止 (#203)。
-* (McM1957) 已经实施了一些与代码质量相关的更改（#201、#190）
+### 2.3.0 (2022-12-13)
+* (McM1957) 添加对状态使用本机数据类型的支持。 (#143)
+* (McM1957) 添加了将二进制 oid 数据存储为 json 的支持。 (#188)
+* (McM1957) 写入模式的错误设置已得到修复。 (#191)
+* (McM1957) 德语文档中的表格已得到修复。 (#192)
+* (McM1957) 使用保留名称“在线”命名 oid 已被阻止。 (#203)
+* (McM1957) 已实施一些与代码质量相关的更改。 （#201，#190）
 
 ### 2.2.1 (2022-10-18)
 * (McM1957) 修复了 io-package.json 中的一个错误。
@@ -98,7 +98,7 @@ hash: g1gEAw0kqixBhq8MHnSVS3lYrDCuiQt08lDc427+hKM=
 安装将尝试转换旧配置 - 但不能保证在所有情况下都能成功。
 
 * (McM1957) 代码的许多部分已被重写
-* (McM1957) 适配器现在使用 admin5 界面
+* (McM1957) 适配器现在使用 admin5 接口
 * (McM1957) 现在可以为每个设备设置不同的定时器值 (#105)
 * (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
 * (McM1957) 现在可以命名设备的状态对象。旧行为可作为选项使用。

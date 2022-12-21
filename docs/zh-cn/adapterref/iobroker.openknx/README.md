@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: DJ6gGASJ5D7Ryhm2MN6ybdyryiJ0zIaaVnwj/R39PUk=
+hash: LiWKNHwQuSqdjTawyLUhBBswujhsPECVLcLbh9fVjvc=
 ---
-![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
+![商标](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.openknx.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.openknx.svg)
@@ -42,7 +42,7 @@ hash: DJ6gGASJ5D7Ryhm2MN6ybdyryiJ0zIaaVnwj/R39PUk=
 ＃＃＃ 探测
 通过标准化协议在给定网络接口上搜索所有可用的 KNX IP 网关。
 
-### 帧延迟 [毫秒]
+### 两帧之间的最小发送延迟 [ms]
 此设置通过将数据帧限制在特定速率来保护 KNX 总线免受数据泛滥。
 未发送的帧会延迟到自上次在总线上发送以来的延迟时间结束。如果有更多发送请求在等待，发送顺序是随机的。
 如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
@@ -70,6 +70,16 @@ hash: DJ6gGASJ5D7Ryhm2MN6ybdyryiJ0zIaaVnwj/R39PUk=
 ETS 配置提示：如果 GA 和使用此 GA 的通信对象有不同的 DPT 子类型，则 ETS 似乎使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 没有 DPT 基类型的 GA 无法使用此适配器导入。 ETS4 项目必须转换为 ETS5 或更高版本并且 DPT 必须设置为 GA。
+
+### 群组地址样式
+该样式仅定义组地址在 ETS 用户界面中的外观。可以使用以下样式：
+
+    演示文稿名称示例
+
+1 3 级主/中/子组 1/3/5 2 2 级主组/子组 1/25 3 自由级子组 300
+
+适配器支持项目导入 xml 文件中的所有 3 种样式配置。为了存储在 IOB 对象中，格式总是转换为 3 级形式。
+请注意组合的 ga 和组名称对于 IOB 对象树必须是唯一的。例如，具有两个同名中间组的 ETS 配置将导致联合层次结构元素，并且其中具有两个同名气体将导致错误。
 
 ###别名
 KNX 设备可以具有属于命令 ga 的用于状态反馈的 ga。一些应用程序，如某些 VIS 小部件，需要一个组合的状态和动作对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 ID 来写入和另一个来读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
@@ -125,10 +135,13 @@ KNX 设备可以具有属于命令 ga 的用于状态反馈的 ga。一些应用
 - 选择导入（覆盖）
 
 ## 迁移涌入
-- 使用命令 influx 登录到您的 IOBroker 服务器
+- 通过 SSH 登录到您的 IOBroker 并运行命令 influx
 - 使用 iobroker（或通过命令显示数据库列出的特定数据库）
 - 列出条目：显示测量值
 - 使用命令复制表：从“entry_old”中选择 \* 到“entry_new”；
+
+    其中 entry_new 指向旧适配器对象路径和 entry_new openknx 适配器实例
+
 - 为新对象 entry_new 启用流入
 
 # 如何使用适配器和基本概念
@@ -176,7 +189,7 @@ ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STAT
         "bitlength": 1, // size ob knx data, derived from dpt
         "dpt": "DPT1.001", // DPT
         "encoding": {
-            // informative
+            // values of the interface if it is an enum DPT type
             "0": "Off",
             "1": "On"
         },
@@ -228,10 +241,11 @@ GroupValue_Read 注释不适用于 javascript 适配器。请改用 qualityAsNum
 ###所有DPT的描述
 | KNX DPT | javascript 数据类型 |特殊值 |取值范围 |备注 |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| DPT-1 |布尔 | |假的，真的 | |
+| DPT-1 |枚举 | |假的，真的 | |
 | DPT-2 |对象 | {“优先级”：1 位，“数据”：1 位} | - | |
 | DPT-3 |对象 | {“decr_incr”：1 位，“数据”：2 位} | - | |
 | DPT-18 |对象 | {“save_recall”：0，“scenenumber”：0} | - |数据点类型 DPT_SceneControl 从自动读取中移除 |
+| | | | | save_recall: 0 = 调用场景，1 = 保存场景 |
 | DPT-21 |对象 | {“停止服务”：0，“故障”：0，“覆盖”：0，“警报”：0，“警报”：0} | - | |
 | DPT-232 |对象 | {红色：0..255，绿色：0.255，蓝色：0.255} | - | |
 | DPT-237 |对象 | {“地址”：0，“地址类型”：0，“readresponse”：0，“lampfailure”：0，“ballastfailure”：0，“convertorerror”：0} | - | |
@@ -290,7 +304,7 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 | -------------------------- | ------------------------ | --------------------------------------- | ---------------------------------------------- |
 | C: 通信标志 | K: 通讯标志 |总是设置 | |
 | R：读取标志 | L: 旗帜 |对象 native.answer_groupValueResponse | |
-| T：发送标志 | Ü: Übertragen-标志 |对象common.write | |
+| T：发送标志 | Ü: Übertragen-标志 |对象 common.write | |
 | W：写标志 | S: Schreiben-旗帜 |对象common.read |总线可以修改对象 |
 | U：更新标志 | A：Aktualisieren-Flag |对象common.read |在传入的 GroupValue_Responses 上更新对象 |
 | I：初始化标志 | I：Initialisierungs-Flag |对象 native.autoread | |
@@ -301,7 +315,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 数据被发送到在德国托管的 Iobroker Sentry 服务器。如果您允许 iobroker GmbH 收集诊断数据，那么您的匿名安装 ID 也会包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
 
 ＃ 特征
-- 稳定可靠的knx栈
+- 稳定可靠的knx堆栈
 - 为最重要的 DPT 自动编码/解码 KNX 数据报，为其他 DPT 进行原始读写
 - 支持KNX组值读取和组值写入和组值响应
 - 免费开源
@@ -309,6 +323,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 开始时自动读取
 - 快速导入 XML 格式的组地址
 - 创建对状态输入做出反应的联合别名对象
+- 支持所有可能的组地址样式的项目
 
 # 已知问题
 -   没有任何
@@ -326,10 +341,24 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.4.5 (2022-12-19)
 
-### **WORK IN PROGRESS**
+-   bugfix in knx lib: make dpt2 not an enum datatype
 
--   cleanup, remve admin tab
+### 0.4.2 (2022-12-18)
+
+-   bugfix: swap value for dpt 1 for enums
+
+### 0.4.1 (2022-12-17)
+
+-   bugfix: fix statup issue
+-   feature: add support for more datatypes
+
+### 0.4.0 (2022-12-15)
+
+-   feature: support for Free and Two Level Group Address Style in addition to the existing Three Level support #320
+-   feature: map knx datapoint type enconding to object common.states #313
+-   debug message for send queue size
 
 ### 0.3.2 (2022-11-20)
 

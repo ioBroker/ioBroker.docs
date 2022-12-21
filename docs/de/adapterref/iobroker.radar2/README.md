@@ -2,66 +2,67 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.radar2/README.md
-title: Radar2-Netzwerk und reibungslose Verfügbarkeit
-hash: Wtiw7LQt90a3utV1rt6j6hK2c7/Ns8UtkF5MOs/0iJo=
+title: Radar2-Netzwerk und Bluetooth-Verfügbarkeit
+hash: I/CU1jFnLVGPsOX8mf0av1Al4HHlfgN7c3vUjZpR9Ro=
 ---
-# Radar2-Netzwerk und reibungslose Verfügbarkeit
+# Radar2-Netzwerk und Bluetooth-Verfügbarkeit
 ![Logo](../../../en/adapterref/iobroker.radar2/admin/radar2.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/radar2-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.radar2.svg)
-![Eingerichtet](http://iobroker.live/badges/radar2-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.radar2.svg)
-![Travis-CI](http://img.shields.io/travis/frankjoke/ioBroker.radar2/master.svg)
 
-[Deutsche Anleitung übersetzt von Google](https://translate.google.com/translate?sl=en&tl=de&u=https%3A%2F%2Fgithub.com%2Ffrankjoke%2FioBroker.radar2%2Fblob%2Fmaster%2FREADME.md)
+![Testen und freigeben](https://github.com/frankjoke/iobroker.radar2/workflows/Test%20and%20Release/badge.svg)
+
+[Deutsche Anleitung übersetzt von google](https://translate.google.com/translate?sl=en&tl=de&u=https%3A%2F%2Fgithub.com%2Ffrankjoke%2FioBroker.radar2%2Fblob%2Fmaster%2FREADME.md)
 
 [Русские инструкции переведены с гуглом](https://translate.google.com/translate?sl=en&tl=ru&u=https%3A%2F%2Fgithub.com%2Ffrankjoke%2FioBroker.radar2%2Fblob%2Fmaster%2FREADME.md)
 
-## IoBroker radar2 Sichtbarkeitstests für Netzwerk- und Bluetooth-Geräte, HP Drucker, UWZ-Warnungs- und EZB-Währungen
-Dieser Adapter versucht, die im Netzwerk oder über Bluetooth angegebenen Geräte zu finden. Es zeigt auch die aktuelle externe IP des Netzwerks an, kann den Tintenstatus von HP Druckern lesen und auch Wetterwarnungen von UWZ für mehrere europäische Länder. Es kann auch die täglichen Wechselkurse der EZB ablesen.
+## IoBroker radar2 Sichtbarkeitstests für Netzwerk- und Bluetooth-Geräte, HP-Drucker, UWZ-Warnungen und EZB-Währungen
+Dieser Adapter versucht, die im Netzwerk oder über Bluetooth angegebenen Geräte zu finden. Es zeigt auch die aktuelle externe IP des Netzwerks an, kann den Tintenstatus von HP-Druckern auslesen und auch Wetterwarnungen von UWZ für mehrere europäische Länder. Es kann auch die täglichen Wechselkurse der EZB lesen.
 
 Es funktioniert durch:
 
-* Verwenden von Arp-Scan und Ping, um Geräte im Netzwerk mit IPv4 und IPv6 zu suchen!
-* Abhören von DHCP-Nachrichten, die neue Geräte ankündigen, die in das Netzwerk kommen.
-* Es funktioniert auf mehreren Schnittstellen, was bedeutet, dass Ihr System Wlan und LAN in verschiedenen Netzwerken hat und beide LANs sehen kann.
+* Mit arp-scan und ping nach Geräten im Netzwerk mit IPv4 und IPv6 suchen!
+* Abhören von DHCP-Nachrichten, die neue Geräte ankündigen, die ins Netzwerk kommen.
+* Es funktioniert auf mehreren Schnittstellen, was bedeutet, dass wenn Ihr System Wlan und LAN in verschiedenen Netzwerken hat, es beide LANs sehen kann.
 * Normales Bluetooth und Bluetooth LE werden unterstützt
-* HP-Druckertintenstatus
-* Wechselkurs der Europäischen Zentralbank für Euero
-* UWZ-Wetterwarnungen für den Bereich, auf den ioBroker eingestellt ist
-* Verwendet Arp-Scan und Ping im Netzwerk als nur expernal-Programme, alles andere ist intern für nodejs.
-* Der Adapter funktioniert auch ohne Root-Rechte, aber vor der Installation sind einige Konfigurationsaktionen erforderlich
+* Tintenstatus des HP-Druckers
+* Währungsumtausch der Europäischen Zentralbank für Euero
+* UWZ-Wetterwarnungen für das Gebiet, auf das ioBroker eingestellt ist
+* Verwendet arp-scan und ping im Netzwerk nur als externe Programme, alles andere ist intern in nodejs.
+* Der Adapter funktioniert auch ohne Root-Rechte, aber vor der Installation sind einige Konfigurationsschritte erforderlich
 * Jedes Element kann jetzt mit einer individuellen Zeit konfiguriert werden, bevor es verschwindet, oder es kann auch deaktiviert werden.
 
-Wenn Sie am Ende eines Namens einen `-` einfügen, wird das Gerät nicht im _notHere oder _isHere gezählt.
+Wenn Sie am Ende eines Namens ein `-` setzen, wird das Gerät nicht in _notHere oder _isHere gezählt.
 
-Wenn die IP-Adresse mit 'http' beginnt, interpretiert radar2 sie als URL / Webadresse und versucht, eine Seite vom Server zu lesen. Dies kann verwendet werden, um die Verfügbarkeit von Webservern zu testen (wie zum Beispiel http://iobroker.net) ). Im Falle von https kann es vorkommen, dass der Server nicht erreichbar ist, wenn er keine aktualisierten Sicherheitsschlüssel hat!
+Wenn die IP-Adresse mit „http“ beginnt, interpretiert Radar2 sie als URL/Webadresse und versucht, eine Seite vom Server zu lesen, dies kann verwendet werden, um die Verfügbarkeit von Webservern zu testen (wie zum Beispiel http://iobroker.net ). Bei https kann es passieren, dass der Server nicht erreichbar ist, wenn er nicht über aktualisierte Sicherheitsschlüssel verfügt!
 
-Um UWZ verwenden zu können, muss Ihr Standort in ioBroker.Admin konfiguriert sein! Wenn der Wert von max messages> 0 ist, wird jede Warnung in einem separaten Status geschrieben, andernfalls werden sie kombiniert.
-Sie können auch festlegen, ob Sie einen langen Warnungstext verwenden möchten, aber alle Informationen sind auch in kurzer Form verfügbar.
+Um UWZ nutzen zu können, müssen Sie Ihren Standort in ioBroker.Admin konfigurieren! Wenn der Wert von max messages >0 ist, wird jede Warnung in einen separaten Zustand geschrieben, ansonsten werden sie kombiniert.
+Sie können auch festlegen, ob Sie einen langen Warntext verwenden möchten, aber alle Informationen sind auch in einem kurzen verfügbar.
 
-Währungen der Europäischen Zentralbank sind hier zu sehen: `https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml`
+Währungen der Europäischen Zentralbank können hier eingesehen werden: `https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml`
 
 ### Bluetooth-Nutzung
-Es gibt zwei verschiedene Arten von BT-Geräten: BT-LE (V 4.x +) und normales BT (V <= 3.x). Der Adapter verfügt über zwei verschiedene Scanfunktionen für jeden der verschiedenen Gerätetypen.
+Es gibt zwei verschiedene Typen von BT-Geräten: BT-LE (V 4.x+) und normales BT (V<=3.x). Der Adapter verfügt über zwei unterschiedliche Scan-Funktionen für jeden der unterschiedlichen Gerätetypen.
 
-1) für BT-LE: Noble (Nodejs-Modil) und 'hcitool lescan'-Befehl 2) für normalen BT: BT-Scan (Nodejs-Modul) und' l2ping'-Befehl
+1) für BT-LE: Noble (Nodejs-Modul) und 'hcitool lescan'-Befehl 2) für normales BT: BT-Scan (Nodejs-Modul) und 'l2ping'-Befehl
 
 Jedes BT-Gerät kann nur eine der beiden Methoden gleichzeitig verwenden.
 
-Noble und BT Scan sind Module, die bei der Adapterinstallation mit npm kompiliert werden und unter Linux und den meisten Windows-Setups funktionieren sollten.
+Noble und BT Scan sind Module, die bei der Adapterinstallation mit npm kompiliert werden und die unter Linux und auch den meisten Windows-Setups funktionieren sollten.
 Hcitool und l2ping werden mit den Bluetooth-Tools im Setup-Skript installiert und sind nur für Linux verfügbar.
 
-In der Adapter-Konfiguration sollten BT-LE-Macs mit einem '!' vor der Mac-Adresse, um das Scannen mit normalen BT-Scans wie l2ping zu vermeiden.
-Normalerweise ist Noble etwas besser als Geräte zur Identifizierung von hcitool lescan, generiert jedoch auch mehr Fehler und wird möglicherweise nicht auf allen Systemen installiert.
-Ebenso ist l2ping besser, normale BT-Geräte zu finden, ist jedoch auf anderen Plattformen als Linux nicht verfügbar.
+In der Adapter-Config sollte BT-LE macs mit einem '!' vor der MAC-Adresse, um zu vermeiden, dass sie mit normalen BT-Scans wie l2ping gescannt werden.
+Normalerweise ist Noble etwas besser als hcitool lescan, um Geräte zu identifizieren, aber es erzeugt auch mehr Fehler und wird möglicherweise nicht auf allen Systemen installiert.
+Ebenso findet l2ping normale BT-Geräte besser, ist aber auf anderen Plattformen als Linux nicht verfügbar.
 Daher können Sie die Verwendung in der Adapterkonfiguration separat konfigurieren.
 
-Wenn Sie mehrere BT-Geräte verwenden, können Sie die Gerätenummer in der Konfiguration angeben. Die Standardeinstellung ist '-1', wobei die erste verfügbare verwendet wird. Eine Liste aller verfügbaren Geräte kann unter Linux mit `lescan dev` eingesehen werden.
-In demselben Adapter können Sie nur ein Gerät verwenden. Wenn Sie mehrere Geräte scannen möchten, müssen Sie verschiedene Adapter oder Instanzen verwenden.
+Wenn Sie mehrere BT-Geräte verwenden, können Sie die Gerätenummer in der Konfiguration angeben, der Standardwert ist „-1“, der die erste verfügbare verwendet. Eine Liste aller verfügbaren Geräte kann unter Linux mit `lescan dev` eingesehen werden.
+In demselben Adapter können Sie nur ein Gerät verwenden, wenn Sie mehrere Geräte scannen möchten, müssen Sie verschiedene Adapter oder Instanzen verwenden.
 
 ## Installation
-Bevor Sie den Adapter in ioBroker installieren, müssen Sie unter Linux `arp-scan` und `libcap2-bin` sowie einige Treiber installieren, die Sie durch Ausführen der folgenden Befehle ausführen können.
+Bevor Sie den Adapter in ioBroker installieren, müssen Sie unter Linux `arp-scan` und `libcap2-bin` und einige Treiber installieren, was Sie tun können, indem Sie die folgenden Befehle ausführen.
 Auf Debian (Raspi-Stretch, Ubuntu, ...) sieht es so aus:
 
 ```
@@ -79,60 +80,63 @@ sudo setcap cap_net_admin,cap_net_raw,cap_net_bind_service=+eip $(eval readlink 
 sudo setcap cap_net_admin,cap_net_raw,cap_net_bind_service=+eip $(eval readlink -f `which l2ping`)
 ```
 
-Wenn in der ersten Zeile alles außer `readlink` oder `hcitools` nicht gefunden werden kann, fehlt höchstwahrscheinlich ein Pfad. Versuchen Sie, den Pfad mit `sudo find / -name readlink` zu suchen (in meinem Fall war es `/usr/bin`) ), die nicht in $ PATH enthalten war! Bearbeiten Sie dann `.bashrc` und fügen Sie eine Zeile mit `export PATH=$PATH:/usr/bin` hinzu!
+Wenn die erste Zeile alles außer `readlink` oder `hcitools` installiert, fehlt höchstwahrscheinlich ein Pfad, versuchen Sie mit `sudo find / -name readlink` nach dem Pfad zu suchen (in meinem Fall war es `/usr/bin` ), die nicht in $PATH enthalten war! Bearbeiten Sie dann `.bashrc` und fügen Sie eine Zeile mit `export PATH=$PATH:/usr/bin` hinzu!
 
-Wenn Sie den Knoten oder einige Systemtools aktualisieren, sollte das oben Gesagte erneut ausgeführt werden!
+Wenn Sie den Knoten oder einige Systemtools aktualisieren, sollte das obige erneut ausgeführt werden!
 
-Unter Windows (und möglicherweise unter OSX) gibt es keinen Arp-Scan, was bedeutet, dass nur Ping verwendet wird, aber keine IP-Mac-Adressen gescannt werden können!
+Unter Windows (und vielleicht OSX) gibt es keinen ARP-Scan, was bedeutet, dass nur Ping verwendet wird, aber keine IP-Mac-Adressen gescannt werden können!
 
-Unter Osx funktioniert auch Bluetooth möglicherweise überhaupt nicht!
+Unter Osx funktioniert möglicherweise auch Bluetooth überhaupt nicht!
 
-Nach der Konfiguration des Installations-Setup-Adapters können Sie die Demo-Werbebuchungen entfernen.
+Nach der Installation und Setup-Adapterkonfiguration können Sie die Demo-Werbebuchungen entfernen.
 
-### Spezielle Informationen für Arp-Scan:
-Es ist eine Standardbefehlszeile `-lgq --retry=5 --timeout=400` definiert, die auf allen IPv4-Schnittstellen alle 254 Adressen scannt, wenn sie nicht innerhalb von 400 ms antwortet und 5 Mal wiederholt wird! Wenn Sie nur die spezifische Schnittstelle scannen müssen, können Sie beispielsweise ` --interface=br0` hinzufügen, aber normalerweise werden Bridge-Schnittstellen jetzt zu Recht verwendet, aber in Docker-Umgebungen ist dies möglicherweise nicht erforderlich. Die Wiederholung = 5 kann für auf 6 oder 7 geändert werden bessere Erkennung, über 7 fand ich keine Verbesserung! Das gleiche gilt für das Timeout, über 500 konnte ich keine Verbesserung feststellen.
+### Spezielle Informationen für arp-scan:
+Es ist eine Standard-Befehlszeile `-lgq --retry=5 --timeout=400` definiert, die auf allen IPv4-Schnittstellen alle 254 Adressen scannen würde, wenn sie nicht innerhalb von 400 ms antwortet, würde sie es 5 Mal wiederholen! Wenn Sie nur die spezifische Schnittstelle scannen müssen, können Sie zum Beispiel ` --interface=br0` hinzufügen, aber normalerweise werden Bridge-Schnittstellen jetzt zu Recht verwendet, aber in Docker-Umgebungen ist dies möglicherweise immer noch erforderlich. Die Wiederholung = 5 kann in 6 oder 7 für geändert werden Bessere Erkennung, über 7 habe ich keine Verbesserung festgestellt! Das gleiche ist mit dem Timeout, über 500 konnte ich keine Verbesserung feststellen.
 
-### Tipp für diejenigen, die von Radar zu Radar2-Adapter oder von Maschine zu Maschine wechseln
-* Wenn Sie Radaradapter verschieben, können Sie ganz einfach die gesamte Geräteliste oder Einstellungen von kopieren
+### Tipp für Umsteiger von Radar auf Radar2-Adapter oder von Maschine zu Maschine
+* Wenn Sie Radaradapter verschieben, können Sie ganz einfach die gesamte Geräteliste oder Einstellungen kopieren
 * - Gehen Sie im Admin zu Objekten und aktivieren Sie den Expertenmodus
-* - Suchen Sie nach einem Objektbaum mit dem Namen "system.adapter.radar.0" (wobei "0" die Instanz ist, wenn Sie mehrere Instanzen hatten, wählen Sie die richtige aus).
-* - Ganz rechts in dieser Zeile befindet sich ein Buttom mit einem Bleistift. Klicken Sie darauf
-* - Im Fenster erhalten Sie die Option NATIVE
-* - Sie sollten dann die Konfigurationsfelder sehen, den Inhalt des Felds 'Geräte' auswählen und in die Zwischenablage kopieren
-* - Machen Sie dasselbe auf dem Zielcomputer, indem Sie "system.adapter.radar2.0" in "Admin / Objekte" auswählen und gehen Sie hier auch zu "NATIVE".
-* - Löschen Sie den Text im Feld "Geräte" und fügen Sie den alten Text aus der Zwischenablage ein
+* - Suchen Sie nach einem Objektbaum namens "system.adapter.radar.0" (wobei "0" die Instanz ist, wenn Sie mehrere Instanzen hatten, wählen Sie die richtige aus)
+* - Ganz rechts in dieser Zeile ist ein Knopf mit einem Bleistift, klicken Sie darauf
+* - In dem Fenster, das Sie erhalten, wählen Sie NATIVE
+* - Sie sollten dann die Konfigurationsfelder sehen, wählen Sie den Inhalt des Felds "Geräte" aus und kopieren Sie ihn in die Zwischenablage
+* - Machen Sie dasselbe auf dem Zielcomputer, indem Sie "system.adapter.radar2.0" in Admin/objects auswählen und auch hier zu NATIVE gehen.
+* - Löschen Sie den Text im Feld "Geräte" und fügen Sie ihn in die alten aus der Zwischenablage ein
 * - Speichern Sie die Änderungen
 
-Diese Methode zum Verschieben von Einstellungen funktioniert auch zwischen Systemen, funktioniert jedoch möglicherweise nicht, wenn ein anderer Adapter eine andere Struktur aufweist. Die Geräteliste ist für Radar und Radar2 gleich. Der einzige Unterschied besteht darin, dass in Radar2 mehrere IP-Adressen / Einträge durch ',' getrennt sein können.
+Diese Methode zum Verschieben von Einstellungen funktioniert auch zwischen Systemen, funktioniert jedoch möglicherweise nicht, wenn andere Adapter eine andere Struktur haben. Die Geräteliste ist für Radar und Radar2 gleich, der einzige Unterschied besteht darin, dass Sie in Radar2 mehrere IP-Adressen/Einträge haben können, die durch „,“ getrennt sind.
 
-## Wichtig / Wichtig
-* Adapter benötigt Knoten> = v10.1! und npm> = 6,4
-* Der Adapter ist möglicherweise nicht für die Verwendung von Bluetooth und Arp-Scan unter OSX verfügbar, sondern nur für Ping oder IP, die keine IP-Mac-Adressen erkennen können!
-* Adapter kann Probleme mit Bluetooth auch unter Windows haben, auch Arp-Scan ist nicht unter Windows verfügbar, verwendet nur Ping dann, die IP-Mac-Adressen nicht erkennen können!.
+##Wichtig/Wichtig
+* Adapter benötigt Knoten >= v10.1! und npm >=6,4
+* Adapter ist möglicherweise nicht verfügbar, um Bluetooth und Arp-Scan unter OSX zu verwenden, nur ping ror ip, das keine IP-Mac-Adressen erkennen kann!
+* Adapter kann auch unter Windows Probleme mit Bluetooth haben, außerdem ist ARP-Scan unter Windows nicht verfügbar, verwendet dann nur Ping, das keine IP-Mac-Adressen erkennen kann!.
 
-## Unterschiede zum Radaradapter
-Radar2 setzt Geräte, die sofort sichtbar werden, wenn sie sichtbar werden, auf neue IPs, noch bevor der Scan erneut beginnt.
-Radar2 verwendet NodeJS-Bibliotheken, um Bluetooth-Geräte zu finden, kann jedoch jetzt auch im Benutzerbereich von iobroker ausgeführt werden und muss keinen Root-Zugriff erhalten (siehe unten stehende Installationsanforderungen).
-Sie können mehr als eine IP-Adresse (jetzt IPv4 UND IPv6) oder Hostadresse (keine URLs) in derselben Zeile konfigurieren, sodass Sie auf mehrere Arten an Geräte pingen können.
-`arp-scan` wird verwendet, um nach Mac-Adressen zu suchen. Es wird auf allen Netzwerkschnittstellen mit externem IPv4 ausgeführt (sofern in der Befehlszeile nicht anders angegeben), sodass Geräte, die auf Mac-Adressen in IPv6 basieren, nicht erkannt werden erkennt jetzt Geräte in drahtlosen und festen Netzwerken gleichzeitig!
+## Unterschiede zum Radar-Adapter
+Radar2 stellt Geräte, die sofort gesehen werden, wenn sie sichtbar werden, für neue IPs ein, noch bevor der Scan erneut beginnt.
+Radar2 verwendet nodejs-Bibliotheken, um Bluetooth-Geräte zu finden, aber es kann jetzt auch im Benutzerbereich von iobroker ausgeführt werden und benötigt keinen Root-Zugriff (siehe unten Installationsanforderungen).
+Sie können mehr als eine IP-Adresse (jetzt IPv4 UND IPv6) oder Hostadresse (keine URLs) in derselben Zeile konfigurieren, wodurch Sie Geräte auf mehreren Wegen anpingen können.
+`arp-scan` wird verwendet, um nach Mac-Adressen zu suchen, es wird (wenn nicht anders in seiner Befehlszeile angegeben) auf allen Netzwerkschnittstellen ausgeführt, die externes IPv4 haben, also wird es keine Geräte erkennen, die auf Mac-Adressen auf IPv6 basieren, aber es erkennt jetzt Geräte in drahtlosen und festen Netzwerken gleichzeitig!
 
-Die Verfügbarkeit von Geräten wird unterschiedlich gehandhabt. Jedes Gerät erhält einen `_lasthere`-Status, der bei jeder Anzeige mit dem aktuellen Datum und der aktuellen Uhrzeit aktualisiert wird. Am Ende jedes Scans überprüft der Adapter alle letzten Einträge, wenn sie älter als die aktuelle Zeit sind - die konfigurierten Abwesenheitsminuten. Devecies, die noch nie hier waren, haben auch keinen `_lasthere`-Status!
+Die Verfügbarkeit von Geräten wird unterschiedlich gehandhabt. Jedes Gerät erhält einen `_lasthere` Status, der mit dem aktuellen Datum und der Uhrzeit aktualisiert wird, wann immer es gesehen wird. Am Ende jedes Scans überprüft der Adapter alle letzten Einträge, ob sie älter sind als die aktuelle Zeit - die konfigurierten Abwesenheitsminuten. Geräte die noch nie hier waren haben auch keinen `_lasthere` Zustand!
 
-Web-URLs können jetzt https-Server besser verwalten.
-Die Auflösung des Mac-Adressanbieters erfolgt jetzt intern und nicht mehr über das Internet. Nur beim Start des Adapters wird die Datei lib / vendor.json geladen. Wenn diese Datei älter als 31 Tage ist, wird eine neue Version aus dem Internet heruntergeladen - NUR beim Start des Adapters!
+Web-URLs können jetzt besser von https-Servern verwaltet werden.
+Die Auflösung des Mac-Adressenanbieters erfolgt jetzt intern und nicht über das Internet. Nur beim Adapterstart wird die Datei lib/vendor.json geladen, wenn diese Datei älter als 31 Tage wird, wird eine neue Version aus dem Web heruntergeladen - NUR beim Adapterstart!
 
-Der Bluetooth-Teil wurde so aktualisiert, dass Sie das zu verwendende Bluetooth-Gerät definieren können (0,1, ... Standard: -1 = zuerst). Auf diese Weise können Sie mehrere BT-Sticks verwenden, um mehrere Adapter wie BLE und Radar2 auf demselben Gerät auszuführen (auf Bluetooth LE-Treiber für ein Gerät können nicht mehrere Programme gleichzeitig zugreifen).
+Der Bluetooth-Teil wurde so aktualisiert, dass Sie das zu verwendende Bluetooth-Gerät definieren können (0,1, ... Standard: -1=erstes). Auf diese Weise können Sie mehrere BT-Sticks verwenden, um mehrere Adapter wie BLE und Radar2 auf demselben Gerät auszuführen (Bluetooth LE-Treiber für ein Gerät können nicht gleichzeitig von mehreren Programmen aufgerufen werden).
 
-Wenn IP-Adressen oder Bluetooth-Geräte gefunden werden, die Sie nicht in Ihrer Geräteliste angegeben haben, werden sie in unbekannten IP- und BT-Listen angezeigt und für jedes Gerät wird ein Status generiert. Auf diese Weise können Sie Personen identifizieren, die sich in Ihrem Netzwerk anmelden, oder ned Geräte, die integriert werden können.
-Wenn Sie nicht möchten, dass sie als unbekannt aufgeführt werden, fügen Sie sie in die entsprechenden bekannten IP / BT-Listen in der Adapterkonfiguration ein.
+Wenn IP-Adressen oder Bluetooth-Geräte gefunden werden, die Sie nicht in Ihrer Geräteliste angegeben haben, werden sie in unbekannten IP- und BT-Listen angezeigt und für jede von ihnen wird ein Status generiert. Auf diese Weise können Sie Personen identifizieren, die sich in Ihr Netzwerk einloggen, oder Geräte, die integriert werden können.
+Wenn Sie nicht möchten, dass sie als unbekannt aufgelistet werden, fügen Sie sie in die entsprechenden bekannten IP/BT-Listen in der Adapterkonfiguration ein.
 
-Neu ist auch, dass Intervalle für HP-Drucker-, EZB-, UWZ- und normale Scans separat definiert werden können.
+Neu ist auch, dass Intervalle für HP-Drucker, ECB-, UWZ- und Normalscans separat definiert werden können.
 
 ## Changelog
 
+### __WORK IN PROGRESS__
+* Update noble
+
 ### V2.0.1
 
-* Removed node-blöuetooth because package is not updated to run on recent nodejs versions
+* Removed node-bluetooth because package is not updated to run on recent nodejs versions
 * Updated noble to more recent version
 * Completely rewritten logic for pinging BT with l2ping, or hcitool lescan
 * Updated scan methot to reduce process load and also increase hit rate
@@ -174,7 +178,7 @@ Neu ist auch, dass Intervalle für HP-Drucker-, EZB-, UWZ- und normale Scans sep
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2019, frankjoke <frankjoke@hotmail.com>
+Copyright (c) 2018-2022, frankjoke <frankjoke@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

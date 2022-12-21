@@ -92,6 +92,7 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `value.gps.radius` - Radius der aktuellen GPS-Messung
 * `value.power` - tatsächliche Leistung (Einheit=W oder KW)
 * `value.power.consumption` - Energieverbrauch (Einheit=Wh oder KWh)
+* `value.power.production` - Energieproduktion (Einheit=Wh oder KWh)
 * `value.power.reactive` - Blindleistung (Einheit=VAr)
 * `value.direction` - (common.type=number ~~oder string~~, zeigt oben/unten, links/rechts, 4-Wege-Schalter, Windrichtung, ... an)
 * `value.curtain` - aktuelle Position des Vorhangs

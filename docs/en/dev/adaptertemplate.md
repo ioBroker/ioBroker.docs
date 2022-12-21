@@ -4,19 +4,19 @@ lastChanged: 28.03.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adaptertemplate.md
-hash: f0O7rqRIjJx1FnzTvoNhJgAcMbdb3rMHqQ68thpJkYc=
+hash: xzd/DuEFbIRDv3q83mSRm1MBSnR2B9hGncDL64QkzIo=
 ---
 # Adapter documentation template
 ```
 ![logo](../../de/dev/admin/adapter-logo.png)
 # Dokumenttitel
-Es darf nur eine Zeile in **ganzem Doukument** sein, die nur mit ein # Symbol anfängt!
+Es darf nur eine Zeile in **ganzem Dokument** sein, die nur mit ein # Symbol anfängt!
 
 Nicht globale Pfade bei Bildern dürfen nicht mit "/" anfangen. Also das `![logo](../../de/dev/admin/adapter-logo.png)` ist falsch.
 
 Die Texte, die in \`not translated\` oder \`\`\`text\`\`\` stehen, werden nicht übersetzt. Deswegen bitte für Texte das nicht benutzen.
 
-Das ist Vorlage für ein README.md die nur in english beschribeben ist. Die Vorlage für mehrsprachige Dokumentation beinhaltet Lizenz und Changelog nicht. Die werden immer aus haupt README.md hinzugefügt.
+Das ist Vorlage für ein README.md die nur in english beschrieben ist. Die Vorlage für mehrsprachige Dokumentation beinhaltet Lizenz und Changelog nicht. Die werden immer aus haupt README.md hinzugefügt.
 
 ## Adapterbeschreibung
 Wofür ist dieser Adapter und was kann man damit machen.

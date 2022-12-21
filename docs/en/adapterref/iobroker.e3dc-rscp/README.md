@@ -95,7 +95,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>Request tag table</td>
-    <td>Assign single request tags to S/M/L polling intervals. <br>Note that there is no 1:1 mapping between states in the object tree and items in the polling intervals list. Reasons are various: sometimes the response is empty (often true for EMS_REQ_STORED_ERRORS), then no state will appear in the object tree. Sometimes we choose one common name for "getter" and "setter" (e.g. EMS_USER_CHARGE_LIMIT response is written to EMS_MAX_CHARGE_POWER state). Also, the E3/DC's response may contain more than one tag (e.g. a BAT_REQ_INFO request will deliver BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT and more).</td>
+    <td>Assign single request tags to S/M/L/N polling intervals. N stands for "never".<br>Note that there is no 1:1 mapping between states in the object tree and items in the polling intervals list. Reasons are various: sometimes the response is empty (often true for EMS_REQ_STORED_ERRORS), then no state will appear in the object tree. Sometimes we choose one common name for "getter" and "setter" (e.g. EMS_USER_CHARGE_LIMIT response is written to EMS_MAX_CHARGE_POWER state). Also, the E3/DC's response may contain more than one tag (e.g. a BAT_REQ_INFO request will deliver BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT and more).</td>
   </tr>
 </table>
 <a name="toc"></a>
@@ -340,6 +340,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.0.9 (under development)
+(helper0815)
+* Added value "N" for polling intervals, meaning "never" - [Issue #126](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/126)
+
+(git-kick)
+* Vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
+* Vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
 ### 1.0.8
 (git-kick)
 * No updates for e3dc-rscp.0.EP.PARAM_0.* - [Issue #117](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/117)

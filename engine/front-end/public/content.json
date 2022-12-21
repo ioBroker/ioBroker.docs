@@ -608,7 +608,7 @@
             "en": "Introduction",
             "de": "Eigener Adapter",
             "ru": "Собственный адаптер",
-            "zh-cn": "自有适配器"
+            "zh-cn": "自带适配器"
           },
           "content": "dev/adapterdev.md"
         },
@@ -633,7 +633,7 @@
               "title": {
                 "en": "VS Code",
                 "de": "VS Code",
-                "ru": "Код VS",
+                "ru": "Код ВС",
                 "zh-cn": "VS code"
               },
               "content": "dev/vscode.md"
@@ -654,7 +654,7 @@
             "en": "Object schema",
             "de": "Kernkonzept",
             "ru": "Основная концепция",
-            "zh-cn": "核心理念"
+            "zh-cn": "核心概念"
           },
           "content": "dev/objectsschema.md"
         },

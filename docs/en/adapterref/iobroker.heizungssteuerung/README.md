@@ -18,9 +18,12 @@ This adapter can be used to manage heating systems. You can choose between cooli
 ## Configuration
 To use the adapter you have to add rooms to rooms enum and add the sensors and engines to the rooms. 
 Furthermore you have to add the functions temperature, humidity and engine to the correct states. The enums will be created after the first start of the Adapter. If you have no humidity sensor you can leave it empty.
+![Configuration exampe](img/configExample.png)
 
 ### Main Settings
 *heating mode:* you can choose beween cooling and heating.
+
+*Reset temperatures to default on adapter starts:* if this setting is active, all temperature states will be overwritten with default temperature and targetUntil. So the next temperature check will set the temperatures to the configured temperatures setted in periods.
 
 *Stop cooling if humidity is higher than:*  If humudity is reached, cooling will be stopped. It only works, if you have add the humidity sensor to the Function and the Room.
 
@@ -43,11 +46,21 @@ You can define periods for every room and time. Forthermore you can define wheth
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.5.2 (2022-10-05)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.7 (2022-12-16)
+* (jbeenenga) fix date format
 
-### 1.5.1 (2022-09-25)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.5 (2022-12-16)
+* (jbeenenga) add possibility to reset temperatures on adapter start
+
+### 1.6.4 (2022-12-16)
+* (jbeenenga) add more debug outputs
+* (jbeenenga) fixed incorrect period to room mapping
+
+### 1.6.3 (2022-12-15)
+* (jbeenenga) removed unnecessary debug output
+
+### 1.6.2 (2022-12-15)
+* (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
 * (jbeenenga) add possibility to overwrite temperature temporarily

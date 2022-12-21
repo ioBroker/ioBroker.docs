@@ -168,7 +168,13 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
-### 6.3.0 (2022-12-12)
+### 6.3.4 (2022-12-18)
+* (bluefox) Corrected crashes in object browser
+
+### 6.3.3 (2022-12-14)
+* (bluefox) Corrected icons in object browser
+
+### 6.3.2 (2022-12-12)
 * (bluefox) Added `useNative` option to `sendTo` JSON Config component
 * (bluefox) Added `checkLicense` and `uuid` components to JSON Config
 * (bluefox) Corrected the news handler
@@ -179,12 +185,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 6.2.22 (2022-09-14)
 * (bluefox) Corrected admin4 adapter settings
-
-### 6.2.21 (2022-09-05)
-* (bluefox) Corrected small JSON config issue
-
-### 6.2.20 (2022-08-29)
-* (bluefox) Corrected GUI issues
 
 ## License
 The MIT License (MIT)

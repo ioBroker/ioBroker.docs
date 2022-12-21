@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iceroad/README.md
 title: ioBroker.iceroad
-hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
+hash: DHw0ka5EoWfm4hKpvT/ss9VOXTntUkfawwU2WRtI9W8=
 ---
 ![Logo](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
@@ -14,20 +14,40 @@ hash: 3+HVm32idi6/esX1jQbkAA5rZCwpjBMJt0e49hghq/U=
 # IoBroker.iceroad
 ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
 
-Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/
+## Dokumentation
+Voraussichtlich zur vereisten Frontscheibe</br> Bitte die API hier beantragen: https://www.eiswarnung.de/rest-api/ </br>
 
-Voraussage zur vereisten Frontscheibe [Deutsche Beschreibung hier](docs/de/iceroad.md)
+Windschutzscheibenvorhersage</br> Bitte API hier anfordern: https://www.eiswarnung.de/rest-api/ </br> </br> 🇩🇪 [Dokumentation](docs/de/iceroad.md)</br> 🇬🇧 §§ LLLLL_1§§</br>
 
-Vorhersagefenster von Ihrem Auto
+## Diskussion und Fragen
+[ioBroker-Forum](https://forum.iobroker.net/topic/50041/test-adapter-ice-road)</br>
 
-[Englische Beschreibung hier](docs/en/iceroad.md)
+## Ice-Road-Adapter für ioBroker
+Hierbei handelt es sich um einen Fahrplanadapter, der über https://eiswarnung.de die aktuelle Eissituation z.B. jede Stunde.
+Anhand von Klima- und Wetterdaten für Ihren Standort berechnen sie am Vorabend, ob am nächsten Morgen in Ihrer Nähe vereiste Fenster zu erwarten sind. Der optimale Zeitpunkt für die Abfrage ist 8-10 Stunden im Voraus. Wenn Sie um 8 Uhr das Haus verlassen möchten, verwenden Sie am besten eine Vorhersage von 22-24 Uhr am Vorabend Benachrichtigung möglich. Derzeit gibt es mehrere integrierte Benachrichtigungsdienste (Telegram, Pushover, WhatsApp, E-Mail, Jarvis, Lovelace, SynoChat). Wenn der Status auf „Kein Eis“ geändert wird, erhalten Sie ebenfalls eine Benachrichtigung. Außerdem ist es möglich, sich erinnern zu lassen, wenn der Status „Eis“ und „Vielleicht Eis“ länger als X Stunden ansteht. (Kann in der Konfiguration eingestellt werden). Ansonsten stehen diverse Datenpunkte zur Weiterverarbeitung zur Verfügung.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.1 (2022-12-18)
+
+-   (ciddi89) changed order in table of longitude and latitude
+
+### 1.1.0 (2022-12-18)
+
+-   (ciddi89) added handling for wrong location data (comma to fullstop)
+-   (ciddi89) added functionality for reminder notification
+-   (ciddi89) updated readme
+
+### 1.0.0 (2022-12-17)
 
 -   (ciddi89) fixed issue messages wasn't sent
 -   (ciddi89) increased timeout
+-   (ciddi89) BREAKING CHANGE -> rebuild adapter complete. Please save your data and delete the instance before update
+-   (ciddi89) drop support for admin 5
 
 ### 0.1.1 (2022-10-01)
 

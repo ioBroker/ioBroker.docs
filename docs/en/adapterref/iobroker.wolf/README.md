@@ -24,6 +24,7 @@ Maximum number of individual modules:
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Apollon77) Add DPT10 Encoding (TimeofDay) - but ignores weekday!
 * (Apollon77) Adjust some temperature states to allow to go negative
 * (Apollon77) Add additional polling of all values to ensure that all values are updated
 * (Apollon77) Fix configuration issue with Mixing modules

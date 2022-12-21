@@ -56,6 +56,7 @@ to be done in admin
 |EC3000|EC3000|OK 22 ... |Energy Meter|
 |EMT7110|EMT7110|OK EMT7110 ... |Energy Meter|
 |level|level|OK LS ... |level sensor|
+|DavisVantage|Davis Vantage|OK VALUE DAVIS ... |Weather Station|
 
 ## TODO:
 * other sensor types
@@ -65,6 +66,12 @@ to be done in admin
 
 
 ## Changelog:
+### 1.2.1
+* (foxthefox) corrections for Davis Vantage
+
+### 1.2.0
+* (foxthefox) new device Davis Vantage
+
 ### 1.1.1
 * (foxthefox) state change as log.debug, not as log.info
 * (foxthefox) some more info at adapter startup

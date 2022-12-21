@@ -378,6 +378,9 @@ Für jeden Freund wird ein Channel angelegt, in diesem befinden sich mehrere nur
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.0.2 (2022-12-14)
+* (foxriver76) we have ensured, that instance object is existing again
+
 ### 1.0.1 (2022-11-02)
 * (foxriver76) we have optimized error logging messages
 

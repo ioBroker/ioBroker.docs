@@ -90,6 +90,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.gps.radius`      - radius of current gps measurement
 * `value.power`           - actual power (unit=W or KW)
 * `value.power.consumption` - energy consumption (unit=Wh or KWh)
+* `value.power.production` - energy production (unit=Wh or KWh)
 * `value.power.reactive`  - reactive power (unit=VAr)
 * `value.direction`       - (common.type=number ~~or string~~, indicates up/down, left/right, 4-way switches, wind-direction, ... )
 * `value.curtain`         - actual position of curtain

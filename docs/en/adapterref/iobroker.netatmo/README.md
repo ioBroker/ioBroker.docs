@@ -18,7 +18,7 @@ To receive realtime events from Netatmo you need an iot/Pro-Cloud Account with a
 
 Please select the iot Instance in the adapter settings and restart the adapter.
 
-Netatmo adapter versions < 3.0 used an heroku service to pass these webhook events through, but Heroku has deceased this free service. So all Netatmo versions < 3.0 will not get realtime events anymore sonce 28.11.2022! Because of this we decided for this way to use proofed and stable iot/Pro-Cloud services.
+Netatmo adapter versions < 3.0 used an heroku service to pass these webhook events through, but Heroku has deceased this free service. So all Netatmo versions < 3.0 will not get realtime events anymore since 28.11.2022! Because of this we decided for this way to use proofed and stable iot/Pro-Cloud services.
 
 ## __Important Note for Authentication changes October 2022__
 According to Netatmo the "old" way to authenticate with username and password directly by entering them into the adapter will be disabled by October 2022.
@@ -76,9 +76,8 @@ Basically the same functionality as described for "setAway" above also is existi
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+### 3.0.0 (2022-12-14)
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices

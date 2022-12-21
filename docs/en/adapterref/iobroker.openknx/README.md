@@ -44,7 +44,7 @@ The interface that is connected to the KNX IP gateway.
 
 Searches via a standardized protocol all available KNX IP Gateways on the given network interface.
 
-### Frame delay [ms]
+### Minimum send delay between two frames [ms]
 
 This settings protects the KNX bus from data flooding by limiting data frames to a certain rate.
 Not sent frames are delay until the delay time since last send on bus is elapsed. If more send requests are waiting, send order is random.
@@ -74,6 +74,19 @@ Hint on ETS configuration:
 If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number.
 In this case manually ensure that all elements are using the same desired datatype.  
 A GA without DPT basetype cannot be imported with this adapter. ETS4 projects must be converted into ETS5 or later and the DPT must be set to the GA.
+
+### Group Address Style
+
+The style only defines the appearance of the Group Address in the ETS user interface. The following styles are available:
+
+    Presentation Style	Name	                Example
+
+1 3-Level Main/Middle/Subgroup 1/3/5
+2 2-Level Main Group/Subgroup 1/25
+3 Free-Level Subgroup 300
+
+The adapter supports all 3 style configurations in the project import xml file. For storing in the IOB object, the format is always converted into the 3-level form.
+Please note that the combined ga and group name must be unique for the IOB object tree. Having for example an ETS configuration with two middle groups of the same name will result in a joint hierarchy element and having two identically named gas in there will result into an error.
 
 ### Alias
 
@@ -140,10 +153,11 @@ The whole name including path is used to check for similarity.
 
 ## migrate Influx
 
--   login to your IOBroker server with command influx
+-   login via SSH to your IOBroker and run command influx
 -   use iobroker (or your specific database listed via command show databases)
 -   list entries with: show measurements
 -   copy tables with command: select \* into "entry_new" from "entry_old";
+    where entry_new points to the old adapter object path and entry_new the openknx adapter instance
 -   set influx enabled for new object entry_new
 
 # howto use the adapter & basic concept
@@ -197,7 +211,7 @@ Autoread is set to false where it is clear from the DPT that this is a trigger s
         "bitlength": 1, // size ob knx data, derived from dpt
         "dpt": "DPT1.001", // DPT
         "encoding": {
-            // informative
+            // values of the interface if it is an enum DPT type
             "0": "Off",
             "1": "On"
         },
@@ -253,10 +267,11 @@ GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumbe
 
 | KNX DPT   | javascript datatype    | special values                                                                                       | value range                               | remark                                                |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| DPT-1     | boolean                |                                                                                                      | false, true                               |                                                       |
+| DPT-1     | number enum            |                                                                                                      | false, true                               |                                                       |
 | DPT-2     | object                 | {"priority":1 bit,"data":1 bit}                                                                      | -                                         |                                                       |
 | DPT-3     | object                 | {"decr_incr":1 bit,"data":2 bit}                                                                     | -                                         |                                                       |
 | DPT-18    | object                 | {"save_recall":0,"scenenumber":0}                                                                    | -                                         | Datapoint Type DPT_SceneControl removed from autoread |
+|           |                        |                                                                                                      |                                           | save_recall: 0 = recall scene, 1 = save scene         |
 | DPT-21    | object                 | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0}                               | -                                         |                                                       |
 | DPT-232   | object                 | {red:0..255, green:0.255, blue:0.255}                                                                | -                                         |                                                       |
 | DPT-237   | object                 | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | -                                         |                                                       |
@@ -342,6 +357,7 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 -   Autoread on start
 -   fast import of group addresses in XML format
 -   create joint alias objects that react on status inputs
+-   supports project of all possible group address styles
 
 # Known Problems
 
@@ -361,10 +377,24 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.4.5 (2022-12-19)
 
-### **WORK IN PROGRESS**
+-   bugfix in knx lib: make dpt2 not an enum datatype
 
--   cleanup, remve admin tab
+### 0.4.2 (2022-12-18)
+
+-   bugfix: swap value for dpt 1 for enums
+
+### 0.4.1 (2022-12-17)
+
+-   bugfix: fix statup issue
+-   feature: add support for more datatypes
+
+### 0.4.0 (2022-12-15)
+
+-   feature: support for Free and Two Level Group Address Style in addition to the existing Three Level support #320
+-   feature: map knx datapoint type enconding to object common.states #313
+-   debug message for send queue size
 
 ### 0.3.2 (2022-11-20)
 

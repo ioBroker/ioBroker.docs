@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
+hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
 ---
-![标识](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
+![商标](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
 ![安装数量](http://iobroker.live/badges/jeelink-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.jeelink.svg)
@@ -37,7 +37,7 @@ npm install iobroker.jeelink
 npm install https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
 ```
 
-或者
+要么
 
 ```javascript
 npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/master --production
@@ -70,6 +70,7 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 |EC3000|EC3000|OK 22 ... |能量计|
 |EMT7110|EMT7110|OK EMT7110 ... |能量计|
 |水平|水平|OK LS ... |水平传感器|
+|DavisVantage|Davis Vantage|OK VALUE DAVIS ... |气象站|
 
 ＃＃ 去做：
 * 其他传感器类型
@@ -78,6 +79,12 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 * HMS100TF 温度低于 0°C 且电池电量不足将实施
 
 ## Changelog
+### 1.2.1
+* (foxthefox) corrections for Davis Vantage
+
+### 1.2.0
+* (foxthefox) new device Davis Vantage
+
 ### 1.1.1
 * (foxthefox) state change as log.debug, not as log.info
 * (foxthefox) some more info at adapter startup

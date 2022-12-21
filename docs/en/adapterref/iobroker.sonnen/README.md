@@ -321,16 +321,41 @@ The channel consists of read-only states of type `number`, providing information
 ### Channel: ios
 The channel consists of read-only states of type `boolean`, providing information about the discrete IO states of your battery.
 
+### Channel: configurations
+The channel allows reading and writing configuration values of the battery.
+
+### Channel: battery
+The channel provides battery specific information like the number of cycle count.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.6 (2022-12-18)
+* (foxriver76) added two GPIOs for CHP status
 
-### __WORK IN PROGRESS__
+### 1.15.5 (2022-12-17)
+* (foxriver76) added state list for `configurations.SH_HeaterOperatingMode'`
+* (foxriver76) marked some datapoints as read-only and fixed state types
+
+### 1.15.4 (2022-12-16)
+* (foxriver76) fixed crash if v2 configurations endpoint is not available (closes #228)
+
+### 1.15.3 (2022-12-14)
+* (foxriver76) internal optimizations (Axios port)
+
+### 1.15.2 (2022-12-14)
+* (foxriver76) internal optimization (ES6 class)
+
+### 1.15.1 (2022-12-13)
+* (foxriver76) added `battery.cyclecount` state (closes #194)
+
+### 1.15.0 (2022-12-13)
 * (foxriver76) full port to v2 API (Software Version >= 1.8.7)
 * (foxriver76) brings back `ios` and `inverter` endpoints
 * (foxriver76) configuration request is now handled by a single call instead of one for each attribute
+* (foxriver76) we fixed a lot of state roles
 
 ### 1.14.0 (2022-12-02)
 * (foxriver76) implemented new state `latestData.dcShutdownReason` (closes #213)

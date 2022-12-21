@@ -26,6 +26,9 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) Improve error log if coordinates are not set
+
 ### 0.4.0 (2022-11-19)
 * (Jey-Cee) Updated object definitions: use of roles, multilanguage names
 * (Jey-Cee) Added missing objects for folders

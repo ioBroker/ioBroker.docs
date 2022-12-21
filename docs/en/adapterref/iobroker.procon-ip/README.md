@@ -100,6 +100,9 @@ Useful links for the approach will be
 
 ## Changelog
 
+### Release v1.2.2
+Dependency updates.
+
 ### Release v1.2.1
 Bugfix release:
 * Fix connection problem (see [related issue](https://github.com/ylabonte/ioBroker.procon-ip/issues/29))

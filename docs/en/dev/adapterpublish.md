@@ -4,13 +4,13 @@ lastChanged: 21.01.2020
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterpublish.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: I0FIhrW7GjK+oU9/a+Snt1/LZjxE7xtbGDLoF8Lr2VE=
+hash: YpNSzRL3HYx2hWdzZmSbfQwlt4jfy74+sB2elXA8sTU=
 ---
 # Publish an adapter
 Before you think about publishing an adapter, it should be offered for testing in [Forum testing thread](https://forum.iobroker.net/category/91/tester).
 If the tests are successful and the adapter runs stably, it should be included in the latest repository for the time being.
 
-If the adapter runs stably on a specific version number, you are welcome to transfer it to the stable repository. This requires the developer's own assessment in conjunction with user feedback.
+If the adapter runs stable on a specific version number, you are welcome to transfer it to the stable repository. This requires the developer's own assessment in conjunction with user feedback.
 
 ***See other current requirements here:*** https://github.com/ioBroker/ioBroker.repositories/blob/master/README.md
 
@@ -19,7 +19,7 @@ If the adapter runs stably on a specific version number, you are welcome to tran
 
 1. The adapter's GitHub repository should have a capital B in ioBroker, while in the package.json it must be lowercase because ``npm`` doesn't allow uppercase letters.
 
-2. The title in the io-package.json should not contain the word ``ioBroker`` nor the word ``Adapter``.
+2. The title in the io-package.json should not contain the word ``ioBroker`` or the word ``Adapter``.
 
 3. The ``title`` attribute in the io-package.json (common) is the short name of the adapter in English. While ``titleLang`` contain the translations of the ``title`` attribute. (the Lang extension stands for languages)
 
@@ -37,7 +37,7 @@ If the adapter runs stably on a specific version number, you are welcome to tran
 }
 ```
 
-6. The `www` directory and the `widget` directory should be deleted if they are not used.
+6. The `www` directory and the `widget` directory should be deleted if not used.
 
 7. In the io-package.json a `type` attribute should be created under common. For this purpose, the best matching category should be specified from this [list](#adapter categories).
 
@@ -147,7 +147,7 @@ The version numbers should be incremented according to the following list:
 - **major**: Major changes, which mean that backwards compatibility with the old version is no longer given
 
 The `news` attribute should also be maintained in the io-package.json.
-This allows users to install any version listed (assuming it was released to npm) from the admin interface.
+This allows users to install any version listed (assuming it has been published to npm) from the admin interface.
 The version number and the changes should be stored here.
 The changes can be documented for each supported language, whereby these should be specified at least in English.
 
@@ -198,7 +198,7 @@ Example:
 - `lighting` - lighting
 - `logic` - rules, scripts, parsers, etc.
 - `messaging` - adapter for sending and receiving messages e.g. E.g. via e-mail, telegram, ...
-- `misc-data` - export and import of data, currency converter etc.
+- `misc-data` - export and import of data, currency converter, etc.
 - `multimedia` - TV, AVR, boxes, voice assistants, etc.
 - `network` - ping, network discovery, UPnP, ...
 - `protocols` - communication protocols, e.g. B.MQTT

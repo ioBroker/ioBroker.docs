@@ -15,7 +15,14 @@
 
 An adapter to receive alarms/events sent from Hikvision cameras.
 
-Tested with basic & smart events on Hikvision DS-2CD2143G2-I. Success/failure/bug reports welcome.
+Tested with Hikvision models:
+
+- DS-2CD2043G2-I
+- DS-2CD2143G2-I
+- DS-2DE2A404IW-DE3
+- DS-2DE3A404IW-DE/W
+
+Success/failure/bug reports welcomed if you have a model not in this list.
 
 ## Usage
 
@@ -45,6 +52,10 @@ Make sure to linkage in the events you would like to report to ioBroker includes
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### 0.0.6 (2022-12-13)
+-   (Robin Rainton) Handle multipart message payload ([#5](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/5)).
+-   (Robin Rainton) Handle payloads without XML declaration ([#7](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/7).)
 
 ### 0.0.5 (2022-12-10)
 -   (Robin Rainton) Drop colons from device IDs.

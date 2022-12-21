@@ -41,6 +41,9 @@ https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
+### 1.3.2
+* Create history elements by index not by date
+  
 ### 1.3.1
 * login url and ordered car fix
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: DJ6gGASJ5D7Ryhm2MN6ybdyryiJ0zIaaVnwj/R39PUk=
+hash: LiWKNHwQuSqdjTawyLUhBBswujhsPECVLcLbh9fVjvc=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -42,7 +42,7 @@ Die Schnittstelle, die mit dem KNX IP Gateway verbunden ist.
 ### Erkennen
 Sucht über ein standardisiertes Protokoll alle verfügbaren KNX IP Gateways auf der angegebenen Netzwerkschnittstelle.
 
-### Frame-Verzögerung [ms]
+### Minimale Sendeverzögerung zwischen zwei Frames [ms]
 Diese Einstellung schützt den KNX-Bus vor Datenflut, indem Datenrahmen auf eine bestimmte Rate begrenzt werden.
 Nicht gesendete Frames werden verzögert, bis die Verzögerungszeit seit dem letzten Senden auf dem Bus abgelaufen ist. Wenn weitere Sendeanforderungen warten, ist die Sendereihenfolge zufällig.
 Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
@@ -70,6 +70,16 @@ Weitere Informationen finden Sie im Protokoll.
 Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden.
 Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünschten Datentyp verwenden.
 Ein GA ohne DPT-Basistyp kann mit diesem Adapter nicht importiert werden. ETS4-Projekte müssen in ETS5 oder höher konvertiert werden und der DPT muss auf GA eingestellt werden.
+
+### Gruppenadressstil
+Der Stil definiert nur das Aussehen der Gruppenadresse in der ETS-Benutzeroberfläche. Folgende Stile sind verfügbar:
+
+    Beispiel für den Namen eines Präsentationsstils
+
+1 3-stufige Haupt-/Mittel-/Untergruppe 1/3/5 2 2-stufige Hauptgruppe/Untergruppe 1/25 3 freie Untergruppe 300
+
+Der Adapter unterstützt alle 3 Stilkonfigurationen in der Projektimport-XML-Datei. Zur Speicherung im IOB-Objekt wird das Format immer in die 3-Level-Form konvertiert.
+Bitte beachten Sie, dass der kombinierte Ga- und Gruppenname für den IOB-Objektbaum eindeutig sein muss. Beispielsweise führt eine ETS-Konfiguration mit zwei gleichnamigen Mittelgruppen zu einem gemeinsamen Hierarchieelement und zwei gleichnamige Gase darin zu einem Fehler.
 
 ### Alias
 KNX-Geräte können Ga's für Zustandsrückmeldungen haben, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese Status in einem Alias kombinieren, indem Sie eine separate Alias-ID zum Schreiben und eine andere zum Lesen verwenden. Das Menü hilft, ein passendes Paar gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
@@ -125,10 +135,13 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - Wählen Sie Importieren (Überschreiben)
 
 ## Zustrom migrieren
-- Melden Sie sich mit dem Befehl Influx bei Ihrem IOBroker-Server an
+- Melden Sie sich über SSH bei Ihrem IOBroker an und führen Sie den Befehl influx aus
 - Verwenden Sie iobroker (oder Ihre spezifische Datenbank, die über den Befehl show databases aufgelistet wird)
 - Einträge auflisten mit: Messungen anzeigen
 - Tabellen kopieren mit Befehl: select \* in "entry_new" from "entry_old";
+
+    Dabei zeigt entry_new auf den alten Adapterobjektpfad und entry_new auf die openknx-Adapterinstanz
+
 - Zufluss für neues Objekt entry_new aktivieren
 
 # Verwendung des Adapters & Grundkonzept
@@ -176,7 +189,7 @@ Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass di
         "bitlength": 1, // size ob knx data, derived from dpt
         "dpt": "DPT1.001", // DPT
         "encoding": {
-            // informative
+            // values of the interface if it is an enum DPT type
             "0": "Off",
             "1": "On"
         },
@@ -228,28 +241,29 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 ### Beschreibung aller DPTs
 | KNX-DPT | Javascript-Datentyp | besondere Werte | Wertebereich | Bemerkung |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| DPT-1 | boolesch | | falsch, wahr | |
+| DPT-1 | Zahl Aufzählung | | falsch, wahr | |
 | DPT-2 | Objekt | {"Priorität": 1 Bit, "Daten": 1 Bit} | - | |
 | DPT-3 | Objekt | {"decr_incr":1 Bit,"data":2 Bit} | - | |
 | DPT-18 | Objekt | {"save_recall":0,"scenenumber":0} | - | Datenpunkttyp DPT_SceneControl aus Autoread entfernt |
+| | | | | save_recall: 0 = Szene abrufen, 1 = Szene speichern |
 | DPT-21 | Objekt | {"outofservice":0,"fault":0,"overridden":0,"inalarm":0,"alarmunack":0} | - | |
 | DPT-232 | Objekt | {rot:0..255, grün:0,255, blau:0,255} | - | |
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen | |
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet | |
-| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen | |
+| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
-| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
-| DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 | |
-| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
-| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
-| DPT-9 | Zahl | | 2-Byte-Gleitkommawert | |
-| DPT-14 | Nummer | | 4-Byte-Gleitkommawert | |
-| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
-| DPT-15 | Nummer | | 4 Byte | |
-| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
-| DPT-20 | Zahl | | 1 Byte | |
+| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte | |
+| DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 | |
+| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
+| DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
+| DPT-14 | Zahl | | 4-Byte-Gleitkommawert | |
+| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen | |
+| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen | |
+| DPT-15 | Zahl | | 4 Byte | |
+| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
+| DPT-20 | Nummer | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
 | DPT-10 | Zahl für Datumsobjekt | | - | |
 | DPT-11 | Zahl für Datumsobjekt | | - | |
@@ -309,6 +323,7 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - Autoread beim Start
 - schneller Import von Gruppenadressen im XML-Format
 - Erstellen gemeinsamer Alias-Objekte, die auf Statuseingaben reagieren
+- unterstützt das Projekt aller möglichen Gruppenadressstile
 
 # Bekannte Probleme
 -   keiner
@@ -326,10 +341,24 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.4.5 (2022-12-19)
 
-### **WORK IN PROGRESS**
+-   bugfix in knx lib: make dpt2 not an enum datatype
 
--   cleanup, remve admin tab
+### 0.4.2 (2022-12-18)
+
+-   bugfix: swap value for dpt 1 for enums
+
+### 0.4.1 (2022-12-17)
+
+-   bugfix: fix statup issue
+-   feature: add support for more datatypes
+
+### 0.4.0 (2022-12-15)
+
+-   feature: support for Free and Two Level Group Address Style in addition to the existing Three Level support #320
+-   feature: map knx datapoint type enconding to object common.states #313
+-   debug message for send queue size
 
 ### 0.3.2 (2022-11-20)
 

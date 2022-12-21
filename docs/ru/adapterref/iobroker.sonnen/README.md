@@ -7,7 +7,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonnen/README.md
 title: солнечный адаптер
-hash: nV/K/xmcRvNMxLjK2f3EpoWD1niKoLYUpGrAoKAStgw=
+hash: zO5PfveY4rgOh9p7uA4OErQqhY9ZV/Y/TACMQFocdFw=
 ---
 ![логотип](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
@@ -25,12 +25,12 @@ hash: nV/K/xmcRvNMxLjK2f3EpoWD1niKoLYUpGrAoKAStgw=
 ## Требования перед установкой
 Обязательным условием для эксплуатации sonnenBatterie с ioBroker является успешная установка аккумулятора электриком. Аккумулятор также должен находиться в той же сети, что и ioBroker.
 
-### Монтаж
+### Установка
 Экземпляр адаптера устанавливается из административного интерфейса ioBroker. Подробные инструкции по необходимым шагам установки можно найти здесь (TODO:ССЫЛКА).<br/><br/> После завершения установки экземпляра адаптера автоматически открывается окно конфигурации.
 
 ## Конфигурация
 ### Главное окно настроек
-![Основные параметры](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "Основные параметры")
+![Основные настройки](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "Основные настройки")
 
 | поле | Описание |
 |:-------------|:-------------|
@@ -55,7 +55,7 @@ hash: nV/K/xmcRvNMxLjK2f3EpoWD1niKoLYUpGrAoKAStgw=
 Затем это приводит к перезапуску адаптера.
 
 ## Экземпляров
-Установка адаптера создала активный экземпляр адаптера sonnen в разделе `Objekte`.<br/><br/> ![пример](../../../de/adapterref/iobroker.sonnen/media/instance.png "пример") <span style="color:grey">*Первый случай*</span>
+Установка адаптера создала активный экземпляр адаптера sonnen в разделе `Objekte`.<br/><br/> ![пример](../../../de/adapterref/iobroker.sonnen/media/instance.png "пример") <span style="color:grey">*Первый экземпляр*</span>
 
 На сервере ioBroker можно создать несколько экземпляров адаптера Sonnen. И наоборот, sonnenBatterie также может работать с несколькими серверами ioBroker. Если несколько устройств должны управляться сервером ioBroker, для каждой батареи необходимо создать один экземпляр.<br/><br/> Активирован ли адаптер или подключен ли он к аккумулятору, отображается цветом поля состояния экземпляра. Если указатель мыши указывает на символ, отображается дополнительная подробная информация.
 
@@ -300,7 +300,7 @@ hash: nV/K/xmcRvNMxLjK2f3EpoWD1niKoLYUpGrAoKAStgw=
 *Соответствующее значение уставки сохраняется до тех пор, пока батарея не получит новое значение заряда или разряда.
 Если VPP активен, запрос будет отклонен.*
 
-   *Пример:*
+   *Примеры:*
 
 ```javascript
 setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250 Watt geladen
@@ -337,11 +337,50 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 ### Канал: ios
 Канал состоит из защищенных от записи состояний типа `boolean`, которые предоставляют информацию о состоянии дискретного ввода-вывода sonnenBatterie.
 
+### Канал: конфигурации
+Канал позволяет читать, а также записывать значения конфигурации солнечной батареи.
+
+### Канал: батарея
+Канал предоставляет данные о батарее, такие как количество циклов зарядки.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.6 (2022-12-18)
+* (foxriver76) added two GPIOs for CHP status
+
+### 1.15.5 (2022-12-17)
+* (foxriver76) added state list for `configurations.SH_HeaterOperatingMode'`
+* (foxriver76) marked some datapoints as read-only and fixed state types
+
+### 1.15.4 (2022-12-16)
+* (foxriver76) fixed crash if v2 configurations endpoint is not available (closes #228)
+
+### 1.15.3 (2022-12-14)
+* (foxriver76) internal optimizations (Axios port)
+
+### 1.15.2 (2022-12-14)
+* (foxriver76) internal optimization (ES6 class)
+
+### 1.15.1 (2022-12-13)
+* (foxriver76) added `battery.cyclecount` state (closes #194)
+
+### 1.15.0 (2022-12-13)
+* (foxriver76) full port to v2 API (Software Version >= 1.8.7)
+* (foxriver76) brings back `ios` and `inverter` endpoints
+* (foxriver76) configuration request is now handled by a single call instead of one for each attribute
+* (foxriver76) we fixed a lot of state roles
+
+### 1.14.0 (2022-12-02)
+* (foxriver76) implemented new state `latestData.dcShutdownReason` (closes #213)
+
+### 1.13.1 (2022-11-24)
+* (foxriver76) minor performance optimization
+* (foxriver76) `info.lastSync` and `status.systemTime` are now type number
+* (foxriver76) implemented silent fail on `ios` endpoint to support both API versions
+
 ### 1.13.0 (2022-10-28)
 * (foxriver76) added `latestData` endpoint providing eclipse LED status and time since last full charge
 

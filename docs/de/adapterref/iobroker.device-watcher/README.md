@@ -10,7 +10,6 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
-BADGE-Codacy Badge: https://app.codacy.com/project/badge/Grade/31cdbfba5f8641ff8a1719b6b082c3f7
 ---
 ![Logo](../../admin/device-watcher.png)
 
@@ -31,10 +30,20 @@ BADGE-Codacy Badge: https://app.codacy.com/project/badge/Grade/31cdbfba5f8641ff8
 
 ### **WORK IN PROGRESS**
 
+-   (Scrounger) Yamaha MusicCast adapter added
+-   (ciddi89) send update message on state change
+-   (Scrounger) datapoints and scheduled notification for updateable devices added
+
+### 2.1.0 (2022-12-19)
+
 -   (Scrounger) optionally show adapter name in notification
--   fixed devices are not reported in case battery is 0% [#86](https://github.com/ciddi89/ioBroker.device-watcher/issues/86)
--   added SynoChat [#85](https://github.com/ciddi89/ioBroker.device-watcher/issues/85)
--   added MQTT NukiHub, MQTT-Clien Zigbee2MQTT ([#82](https://github.com/ciddi89/ioBroker.device-watcher/issues/82))
+-   (ciddi89) optionally receive a message when an update for an device is available [#87](https://github.com/ciddi89/ioBroker.device-watcher/issues/87)
+-   (Scrounger) update message for shelly adapter added
+-   (Scrounger) Yamaha MusicCast adapter added
+-   (ciddi89) update message for unifi devices added
+-   (ciddi89) fixed devices are not reported in case battery is 0% [#86](https://github.com/ciddi89/ioBroker.device-watcher/issues/86)
+-   (ciddi89) SynoChat added [#85](https://github.com/ciddi89/ioBroker.device-watcher/issues/85)
+-   (ciddi89) MQTT NukiHub, MQTT-Clien Zigbee2MQTT added ([#82](https://github.com/ciddi89/ioBroker.device-watcher/issues/82))
 
 ### 2.0.3 (2022-11-26)
 

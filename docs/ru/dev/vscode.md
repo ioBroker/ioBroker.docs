@@ -2,109 +2,109 @@
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/vscode.md
-title: Код VS
-hash: TXXU7i+WiRe1zmhlQuotwhVoN2pG5nBo/BtK1Ue6Jto=
+title: код ВС
+hash: CF3wPmoGgir8Sqqe/2ykw0Gba1HvJ8IlX7FALx60sIQ=
 ---
-# VS код
-Разработка адаптера ioBroker с использованием кода Microsoft Visual Studio (VSCode) на основе адаптера ioBroker.template
+# Код ВС
+Разработка адаптера ioBroker с помощью Microsoft Visual Studio Code (VSCode) на основе адаптера ioBroker.template
 
 !> Исправления, дополнения и изменения приветствуются!
 
-Документальный фильм создан без какого-либо опыта с VSCode в сочетании с node.js / ioBroker. Если процедура нуждается в улучшении, я благодарен за любую подсказку.
+Документация создана без опыта работы с VSCode в связи с node.js/ioBroker. Если процедура нуждается в улучшении, я был бы признателен за любую подсказку.
 
-Камни преткновения: если кто-то остался «застрявшим» и нуждается в более подробной информации, пожалуйста, откройте вопрос, чтобы документальный фильм можно было дополнять и уточнять.
+Камни преткновения: Если кто-то "застрял" и нуждается в более подробной информации, пожалуйста, откройте вопрос, чтобы документацию можно было дополнить и уточнить.
 
-Имя адаптера в примерах: **iobroker.template-master-mhe**
+Имя адаптера в примерах — **iobroker.template-master-mhe**.
 
 ## Шаблон
-Шаблонный адаптер ioBroker: [https://github.com/ioBroker/ioBroker.template](https://github.com/ioBroker/ioBroker.template)
+Адаптер шаблона ioBroker: [https://github.com/ioBroker/ioBroker.template](https://github.com/ioBroker/ioBroker.template)
 
 ## Проверено в следующей среде
-- ioBroker, установленный локально
-- ioBroker.js-controller: 1.0.0
-- node.js: v6.10.2
+- ioBroker, установлен локально
+- Контроллер ioBroker.js: 1.0.0
+- узел.js: v6.10.2
 - нпм: 3.10.10
-- Windows 10 Prof.
+- Виндовс 10 проф.
 - VSCode 1.12.1
 
-## Сопутствующая информация о разработке адаптера в целом и с VSCode
-- [Форум ioBroker: адаптер отладки с VSCode] (http://forum.iobroker.net/viewtopic.php?f=20&t=4564&p=61310&hilit=visual+studio+code#p44156)
-- [Шаблон адаптера ioBroker на Github] (https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-- Общая информация о разработке адаптеров на немецком языке: [ioBroker AdapterDev User Meeting 2017.pdf] [http://forum.iobroker.net/download/file.php?id=11259] от [Apollon77] (http://forum.iobroker. сеть / memberlist.php? режим = вид профиля & и = 378).
-- [Документация по разработке адаптера ioBroker] (https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation)
-- [Начало работы с разработкой адаптера на примере среды разработки Webstrom] (https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment)
+## Сопроводительная информация для разработки адаптера в целом и с VSCode
+- [Форум ioBroker: Отладка адаптеров с помощью VSCode](http://forum.iobroker.net/viewtopic.php?f=20&t=4564&p=61310&hilit=visual+studio+code#p44156)
+- [Шаблон адаптера ioBroker на Github](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
+- Общая информация о разработке адаптера на немецком языке: [ioBroker AdapterDev Usertreffen 2017.pdf](http://forum.iobroker.net/download/file.php?id=11259) из [Apollon77](http://forum.iobroker .net/memberlist.php?mode=viewprofile&u=378).
+- [Документация по разработке адаптеров ioBroker] (https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation)
+- [Первые шаги разработки адаптера на примере Webstrom IDE](https://github.com/ioBroker/ioBroker/wiki/Installation,-setup-and-first-steps-with-an-ioBroker-Development-Environment )
 
 ## Общая процедура - использование шаблона для адаптера
 ### 1. Скачать шаблон
-- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate]](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-    - там пункт 1.) запустить, например: распаковать шаблон в папку и сохранить
+- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
+    - выполнить пункт 1.) там, например: распаковать и сохранить шаблон в папку
 
-### 2. Запустите "npm install" в папке
-- устанавливает необходимый модуль npm в копию шаблона
-- Папка node-modules вновь создается в папке с шаблонами
-- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate]](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-    - там пункт 2.) беги
+### 2. Запустите «npm install» в папке
+- устанавливает необходимые модули npm в копию шаблона
+- Папка node-modules создается в папке шаблона
+- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
+    - выполнить пункт 2.) там
 
-### 3. grunt execute // изменяет настройки в шаблоне в существующем проекте
-- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate]](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
-    - там пункт 3.) беги
-- установить grunt глобально, если он еще не существует
-- выполнить в терминале:
+### 3. выполненный grunt // меняет настройки в шаблоне в существующем проекте
+- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
+    - выполнить пункт 3.) там
+- Установите grunt глобально, если он еще не установлен
+- запустить в терминале:
 
 ```
 grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Michael Herwig"
 ```
 
-- Имя адаптера, имя автора и адрес электронной почты будут изменены через grunt в необходимых местах в коде
+- Имя адаптера, автор и адрес электронной почты изменены через grunt в нужных местах кода
 
-### 4. Загрузить папку адаптера в VSCode
-- Настройте имя папки. Вот в примере ioBroker.template-master в iobroker.template-master-mhe
-- VSCode: открыть файл / папку // или **CTRL + K, CTRL + O**
+### 4. Загрузите папку адаптера в VSCode
+- Настроить имя папки. Вот на примере ioBroker.template-master в iobroker.template-master-mhe
+- VSCode: открыть файл/папку // или **CTRL+K, CTRL+O**
 
-### 5. В VSCode скорректирована версия шаблона (от 0.5.0 до 0.0.2)
-- изменено с 0.5.0 до 0.0.2 в io-package.json // используется ioBroker
-- изменено с 0.5.0 до 0.0.2 в package.json // используется npm
+### 5. Скорректирована версия шаблона в VSCode (с 0.5.0 на 0.0.2)
+- изменен в io-package.json с 0.5.0 на 0.0.2 // используется ioBroker
+- изменен в package.json с 0.5.0 на 0.0.2 // используется npm
 
-### 6. скопировал в ioBroker и адаптировал путь / имя
-- **Путь:** ... / iobroker / node_modules
+### 6. скопировано в ioBroker и скорректировано путь/имя
+- **Путь:** .../iobroker/node_modules
 - **Имя:** ioBroker.template-master-mhe
-- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate]](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
+- [https://github.com/ioBroker/ioBroker.template#iobrokertemplate](https://github.com/ioBroker/ioBroker.template#iobrokertemplate)
 - там пункт 5.)
 
 ### 7. Закрыть папку в VSCode
-- VSCode: закрытие файла / папки // или **CTRL + K F**
+- VSCode: закрыть файл/папку // или **CTRL+K F**
 
-### 8. ioBroker / Admin -> Обновить
-- Нажмите «Обновить» в графическом интерфейсе администратора ioBroker.
+### 8. ioBroker/Admin -> обновить
+- нажмите «Обновить» в графическом интерфейсе администратора ioBroker.
 
-### 9. Адаптер выбрал и добавил экземпляр
-- Нажмите в ioBroker Admin GUI на плюс на адаптере
+### 9. Выбрал адаптер и добавил экземпляр
+- в графическом интерфейсе администратора ioBroker нажмите плюс на адаптере
 
-![СКРИНШОТ: экземпляр вашего собственного адаптера](../../de/dev/media/Instanz-installieren.png)
+![СКРИНШОТ: экземпляр собственного адаптера](../../de/dev/media/Instanz-installieren.png)
 
 - Экземпляр адаптера установлен и отображается
 
-![СКРИНШОТ: экземпляр вашего собственного адаптера](../../de/dev/media/Adapterinstanz.png)
+![СКРИНШОТ: экземпляр собственного адаптера](../../de/dev/media/Adapterinstanz.png)
 
-- прекратить отладку установленного адаптера
+- Остановить установленный адаптер для отладки
 
-### 10. Откройте установленную папку ioBroker в VSCode
-- VSCode: открыть файл / папку // или **CTRL + K, CTRL + O**
-- **.. / node_modules / iobroker.template-master-mhe** select
-- Здесь вы можете теперь разработать и отладить адаптер
+### 10. Откройте папку с установленным ioBroker в VSCode
+- VSCode: открыть файл/папку // или **CTRL+K, CTRL+O**
+- Выберите **../node_modules/iobroker.template-master-mhe**
+- адаптер теперь можно разрабатывать и отлаживать здесь
 
 ---
 
-## Debug
-### 1.) VSCode launch.json настроить
-Один раз для всех адаптеров, настройки
+## Отладка
+### 1.) Адаптировать VSCode launch.json
+Уникальными для всех адаптеров должны быть настройки
 
-- **SHIFT + CTRL + P** и затем введите:> debug launch.json
-- или через графический редактор: на жуке, а затем на верхней части шестерни
+- **SHIFT+CTRL+P**: и затем введите: >debug launch.json
+- или через графический интерфейс редактора: на жуке, а затем на шестеренке вверху
 
-![СКРИНШОТ: Конфигурация VSCode файла launch.json](../../de/dev/media/VSCode_launch.json.png)
+![СКРИНШОТ: Конфигурация VSCode для launch.json](../../de/dev/media/VSCode_launch.json.png)
 
-Параметры launch.json для отладки адаптеров ioBroker:
+Настройки launch.json для отладки адаптеров ioBroker:
 
 ```javascript
 {
@@ -130,29 +130,29 @@ grunt rename --name=template-master-mhe --email=iobroker@digheim.de --author="Mi
 }
 ```
 
-- **Удаленная отладка** на удаленном ioBroker также возможна. IP-адрес должен быть отрегулирован с 127.0.0.1.
+- Также возможна **удаленная отладка** на удаленном ioBroker. Затем IP-адрес должен быть изменен с 127.0.0.1.
 
 ### 2.) Откройте терминал и запустите отладчик
-- **CTRL + ö** // открывает встроенный терминал (комбинация клавиш зависит от операционной системы и версии VSCode)
+- **CTRL+ö** // открывает встроенный терминал (комбинация клавиш зависит от операционной системы и версии VSCode)
 
-- Остановить вновь установленный адаптер в терминале
+- остановить только что установленный адаптер в терминале
 
-cd / opt / iobroker остановка iobroker template-master-mhe
+cd /opt/iobroker iobroker остановить шаблон-мастер-mhe
 
-- запустить отладчик в терминале (поскольку сначала необходимо установить удаленную отладку в терминале через SSH):
+- Запустите отладчик в терминале (для удаленной отладки в терминале предварительно должно быть установлено соединение по SSH):
 
-        узел --debug - brk узел_модули / iobroker.template - мастер - mhe / main.js --force - логи
+        node --debug-brk node_modules/iobroker.template-master-mhe/main.js --force --logs
 
-  Где **iobroker.template-master-mhe** - это имя адаптера.
+    Где **iobroker.template-master-mhe** — имя адаптера.
 
-Дисплей во встроенном терминале (Примечание: можно использовать и внешнюю терминальную программу):
+Отображение во встроенном терминале (примечание: также можно использовать внешнюю терминальную программу):
 
 ``` cmd
 PS C:\ioBroker> node --debug-brk node_modules/iobroker.template-master-mhe/main.js --force --logs
 Debugger listening on [::]:5858
 ```
 
-![SCREENSHOT: запуск отладчика VSCode](../../de/dev/media/VSCode_Debugger_starten.png)
+![СКРИНШОТ: Запустите отладчик VSCode](../../de/dev/media/VSCode_Debugger_starten.png)
 
 Вывод в терминал после запуска отладчика:
 
@@ -169,7 +169,7 @@ check user admin pw ioboker: true
 stateChange template-master-mhe.0.testVariable {"val":null,"ack":true,"ts":1494753367809,"q":0,"from":"system.adapter.template-master-mhe.0","lc":1494753367809}
 ```
 
-- отменить с помощью **CTRL + C** в терминале
+- Отменить с помощью **CTRL+C** в терминале
 
 Вывод в терминал после остановки отладчика:
 
@@ -180,43 +180,43 @@ cleaned everything up...
 PS C:\ioBroker>
 ```
 
-- Перейти к отладке в VSCode и в разделе «Отладка» выбрать «Добавить к процессу» и запустить
-- Вывод осуществляется на вкладке «Терминал» встроенного терминала.
-- отменить с помощью CTRL + C в терминале
+- Перейдите в раздел «Отладка» в VSCode и выберите «Присоединить к процессу» в разделе «Отладка» и запустите
+- вывод осуществляется во вкладке Терминал встроенного терминала
+- Отмена с помощью CTRL+C в терминале
 
 ---
 
-## Опыт
-- Иконка адаптера шаблона была адаптирована (переименована) к Grunt, но не отображается в ioBroker / Admin
-- правильный значок будет отображаться после публикации адаптера
+## Впечатления
+- Иконка адаптера шаблона адаптирована (переименована) для Grunt, но не отображается в ioBroker/Admin
+- правильная иконка будет отображаться только после публикации адаптера
 
 ---
 
-### Todo
+### Делать
 - Используйте VSCode с Github
-- Пример на отдельном адаптере
-- уточнить: отладка только с node.js> 6.x или 4.x также возможна?
+- Пример собственного адаптера
+- уточнить: отладка только с node.js > 6.x или возможна и 4.x?
 
 ---
 
-### Документация в сети
+### Документация онлайн
 #### В код Visual Studio
-- [Основы VSCode] (https://www.microsoft.com/technet/know-how/visual-studio-code-01-the-basics.aspx)
+- [Статья об основах VSCode] (https://www.microsoft.com/germany/techwiese/know-how/visual-studio-code-01-die-Basics.aspx)
 
-#### To node.js
-#### Git & Github
-- [Git Book - Git Free Basic Guide] (https://git-scm.com/book/en/v1)
-- [Git for Windwos - Страница загрузки] (https://git-scm.com/download/win)
+#### В node.js
+#### На Git и Github
+- [Git Book — бесплатная базовая книга по Git] (https://git-scm.com/book/de/v1)
+- [Git для Windwos - страница загрузки](https://git-scm.com/download/win)
 
 ---
 
-## Общие советы и хитрости
+## Общие советы и рекомендации
 ### SSH с Windows
-- [Git for Windwos - Страница загрузки] (https://git-scm.com/download/win) устанавливает bash, с помощью которого вы можете использовать ssh с помощью openSSH.
+- [Git for Windwos - Downloadseite](https://git-scm.com/download/win) устанавливает bash, с которым также можно использовать ssh с помощью openSSH.
 
 ---
 
-## Разное
+## Разнообразный
 - мои настройки в settings.json для VSCode:
 
 ```

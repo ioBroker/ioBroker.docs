@@ -4,10 +4,10 @@ lastChanged: 05.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterdev.md
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
-hash: e1TaPNwpTMGhevncakNlsuhbHXly+RdsYpEFuoolpas=
+hash: R2odBG9nZ5xpmHaxcp4rCRDeG2avZyzvVWozlHLbphw=
 ---
 # Разработайте свой собственный адаптер
-?> **Документация ioBroker в настоящее время расширяется** и еще не завершена.<br> Поэтому здесь перечислены полезные ссылки в дополнение к темам по разработке адаптеров, которые были доступны здесь до сих пор.<br><br> *Помощь с ioBroker и расширение статей.* *Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы упростить принятие изменений.*
+?> **Документация ioBroker в настоящее время расширяется** и еще не завершена.<br> По этой причине здесь перечислены полезные ссылки в дополнение к темам по разработке адаптеров, которые были доступны здесь до сих пор.<br><br> *Помощь с ioBroker и расширение статей.* *Обратите внимание на [Руководство по стилю ioBroker](https://www.iobroker.net/#de/documentation/community/styleguidedoc.md), чтобы упростить принятие изменений.*
 
 ## Полезные ссылки
 ### Документация

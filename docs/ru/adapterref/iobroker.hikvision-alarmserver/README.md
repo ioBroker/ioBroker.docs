@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-тревожный сервер
-hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
+hash: /rQaZG7GcWAIu+IeCnDRfqXasuQH6kTBFQNjRmsseds=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -20,9 +20,16 @@ hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
 ## Адаптер Hikvision Alarm Server для ioBroker
 Адаптер для приема сигналов тревоги/событий, отправленных с камер Hikvision.
 
-Протестировано с базовыми и интеллектуальными событиями на Hikvision DS-2CD2143G2-I. Сообщения об успехах/неудачах/ошибках приветствуются.
+Протестировано с моделями Hikvision:
 
-## Использование
+- ДС-2CD2043G2-I
+- ДС-2CD2143G2-I
+- ДС-2DE2A404IW-DE3
+- DS-2DE3A404IW-DE/W
+
+Сообщения об успехах/неудачах/ошибках приветствуются, если у вас есть модель, которой нет в этом списке.
+
+## Применение
 Экземпляр адаптера создает логическое состояние для каждой сообщаемой комбинации типа камеры/события. Камеры идентифицируются по MAC-адресу (ограничено информацией, предоставляемой камерой).
 
 Похоже, что камеры повторяют события каждую секунду, когда эти события все еще действительны, но не отправляется сообщение для их очистки. По этой причине адаптер автоматически удаляет события, о которых не сообщалось повторно более 5 секунд.
@@ -34,7 +41,7 @@ hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
 ### На камеру
 Посетите страницу конфигурации вашей камеры (камер) и определите параметры IP/хоста и порта ioBroker:
 
-![Параметры сервера тревог](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/alarm-server-options.png)
+![Опции сервера тревог](../../../en/adapterref/iobroker.hikvision-alarmserver/docs/images/alarm-server-options.png)
 
 Убедитесь, что привязка событий, о которых вы хотите сообщить в ioBroker, включает «Уведомить центр наблюдения». Например:
 
@@ -42,8 +49,20 @@ hash: AY7QhbmgeBfqcBWFAuLw+g/FAJ6YmDXQcdhlF9dTeHE=
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### 0.0.6 (2022-12-13)
+-   (Robin Rainton) Handle multipart message payload ([#5](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/5)).
+-   (Robin Rainton) Handle payloads without XML declaration ([#7](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/7).)
+
+### 0.0.5 (2022-12-10)
+-   (Robin Rainton) Drop colons from device IDs.
+
 ### 0.0.2
-* (Robin Rainton) initial release.
+-   (Robin Rainton) initial release.
 
 ## License
 MIT License

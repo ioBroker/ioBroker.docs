@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heizungssteuerung/README.md
 title: ioBroker.heizungssteuerung
-hash: 4M+4DmYgC0LkmJuO3Ww9VyzlR5ejQiG4vt43fl4hsVU=
+hash: Ac4RcFrkpoyzU6LCqkumAkmr+ocpdLi4PMJZVZs7n/A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heizungssteuerung/admin/heizungssteuerung.png)
 
@@ -23,9 +23,12 @@ hash: 4M+4DmYgC0LkmJuO3Ww9VyzlR5ejQiG4vt43fl4hsVU=
 ## Конфигурация
 Чтобы использовать адаптер, вы должны добавить комнаты в перечисление комнат и добавить датчики и двигатели в комнаты.
 Кроме того, вы должны добавить функции температуры, влажности и двигателя в правильные состояния. Перечисления будут созданы после первого запуска адаптера. Если у вас нет датчика влажности, вы можете оставить его пустым.
+![Пример конфигурации](../../../en/adapterref/iobroker.heizungssteuerung/img/configExample.png)
 
-### Основные параметры
+### Основные настройки
 *режим обогрева:* вы можете выбрать между охлаждением и обогревом.
+
+* Сброс температуры по умолчанию при запуске адаптера: * если этот параметр активен, все температурные состояния будут перезаписаны температурой по умолчанию и targetUntil. Таким образом, следующая проверка температуры установит температуры в соответствии с настроенными температурами, установленными в периодах.
 
 * Остановите охлаждение, если влажность выше: * Если влажность достигнута, охлаждение будет остановлено. Это работает только в том случае, если вы добавили датчик влажности в функцию и комнату.
 
@@ -50,11 +53,21 @@ hash: 4M+4DmYgC0LkmJuO3Ww9VyzlR5ejQiG4vt43fl4hsVU=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.5.2 (2022-10-05)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.7 (2022-12-16)
+* (jbeenenga) fix date format
 
-### 1.5.1 (2022-09-25)
-* (jbeenenga) fix for overwrite temperature
+### 1.6.5 (2022-12-16)
+* (jbeenenga) add possibility to reset temperatures on adapter start
+
+### 1.6.4 (2022-12-16)
+* (jbeenenga) add more debug outputs
+* (jbeenenga) fixed incorrect period to room mapping
+
+### 1.6.3 (2022-12-15)
+* (jbeenenga) removed unnecessary debug output
+
+### 1.6.2 (2022-12-15)
+* (jbeenenga) fix for temperature calculation
 
 ### 1.5.0 (2022-09-25)
 * (jbeenenga) add possibility to overwrite temperature temporarily

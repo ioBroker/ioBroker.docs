@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
+hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
 ---
 ![Logo](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
@@ -70,6 +70,7 @@ im Adminbereich zu erledigen
 |EC3000|EC3000|OK 22 ... |Energiezähler|
 |EMT7110|EMT7110|OK EMT7110 ... |Energiezähler|
 |Niveau|Niveau|OK LS ... |Niveausensor|
+|DavisVantage|Davis Vantage|OK WERT DAVIS ... |Wetterstation|
 
 ## MACHEN:
 * andere Sensortypen
@@ -78,6 +79,12 @@ im Adminbereich zu erledigen
 * HMS100TF Temperatur unter 0°C und Batterie schwach zu implementieren
 
 ## Changelog
+### 1.2.1
+* (foxthefox) corrections for Davis Vantage
+
+### 1.2.0
+* (foxthefox) new device Davis Vantage
+
 ### 1.1.1
 * (foxthefox) state change as log.debug, not as log.info
 * (foxthefox) some more info at adapter startup

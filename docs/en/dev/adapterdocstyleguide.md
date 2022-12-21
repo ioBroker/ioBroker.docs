@@ -4,10 +4,10 @@ lastChanged: 06.05.2021
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdocstyleguide.md
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
-hash: amdkGGbA28UH+A3DZkX3kwJ7W9Z1znae5k5zXk7cVMU=
+hash: KNaN4V9UbZzyglcLi3e59mWopbv6OYPmg0lWHg4svgU=
 ---
 # Style guide for creating an adapter documentation
-* The documentation is created using the "Markdown" language.
+* Documentation is created using the Markdown language.
 * The file storage for the adapter documentation is regulated as follows:
   * There is a folder in each adapter project
 
@@ -67,9 +67,9 @@ The characters `a-z`, `0-9`, the underscore `_` and the decimal point `.` are pe
 * Documents always begin with a heading at level H1.
 * Links are not placed inline (e.g. with `[a link](http://example.com)`),
 
-but placed at the end of the document with the help of inline `[a link][]` and `[a link]: https://a.link/to/know`.
+but placed at the end of the document using inline `[a link][]` and `[a link]: https://a.link/to/know`.
 
-* When dashes are used, the shorthand notation is used
+* When dashes are used, the short notation is used
 
   with the minus sign and not "—" or `Option+Shift+"-"` in OSX.
 
@@ -82,23 +82,23 @@ but placed at the end of the document with the help of inline `[a link][]` and `
 
 using `§§LLLLL_0§§` and for images using `![media term](../../de/dev/media/{dateiname})`.
 
-  * Images are preferably saved in SVG format. If SVG
+  * Images are preferably stored in SVG format. If SVG
 
 is not possible, then as a PNG file. Please keep an eye on the file size.
 
   * Short videos can be embedded as a GIF file.
-  * Below each picture is a short description of the content in italics
+  * Below each image is a brief description of the content in italics
 
     to specify.
 
 * The following applies to source code sections:
-  * Depending on the source code language, an appropriate markup must be selected. To the
+  * Depending on the source code language, an appropriate markup must be selected. For the
 
     Example `\`\`\`` for JavaScript.
 
   * A source text can, but does not have to be complete. code blocks
 
-provide examples to clarify the point of view just described. It is therefore not necessary to supply fully executable programs. However, if a fully executable program is to be made available, this is done as a media file in the `media/{code_beispieldatei}` folder with a corresponding link in the documentation.
+represent examples to clarify the point of view just described by jewels. It is therefore not necessary to supply fully executable programs. However, if a fully executable program is to be made available, this is done as a media file in the `media/{code_beispieldatei}` folder with a corresponding link in the documentation.
 
 * If underscores, inverted commas, asterisks or backslashes are used
 

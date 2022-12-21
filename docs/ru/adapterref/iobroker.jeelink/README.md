@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jeelink/README.md
 title: ioBroker.jeelink
-hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
+hash: b4G41zaqVIxZxuG/kePTos+2oSEKN60Tfxc7ktLC4Zc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jeelink/admin/jeelab_logo.png)
 
@@ -18,7 +18,7 @@ hash: S0rYUzSuqvt6uABktluH12kwexiTTVgBAOpcn9Rli8g=
 Jeelink можно использовать с предварительно загруженным программным обеспечением (rfmdemo) для считывания показаний датчиков openenergy (emon).
 Для использования датчиков LaCrosse необходимо заменить прошивку (см. форум iobroker).
 
-## Монтаж:
+## Установка:
 ### Выпущенная версия
 ```javascript
 npm install iobroker.jeelink
@@ -70,14 +70,21 @@ npm install --unsafe-perm https://github.com/foxthefox/ioBroker.jeelink/tarball/
 |EC3000|EC3000|OK 22 ... |Счетчик энергии|
 |EMT7110|EMT7110|OK EMT7110 ... |Счетчик энергии|
 |уровень|уровень|ОК LS ... |датчик уровня|
+|DavisVantage|Davis Vantage|ОК ЗНАЧЕНИЕ ДЭВИС ... |Метеостанция|
 
-## СДЕЛАТЬ:
+## ДЕЛАТЬ:
 * другие типы датчиков
 * поместите код датчика в отдельный файл
 * добавление нового датчика в конфигурацию, после чего он отображается на странице администрирования/конфигурации
 * HMS100TF Температура ниже 0°C и низкий заряд батареи должны быть реализованы
 
 ## Changelog
+### 1.2.1
+* (foxthefox) corrections for Davis Vantage
+
+### 1.2.0
+* (foxthefox) new device Davis Vantage
+
 ### 1.1.1
 * (foxthefox) state change as log.debug, not as log.info
 * (foxthefox) some more info at adapter startup

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
+hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
 ---
 ![Логотип](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -26,7 +26,7 @@ hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
 Версии адаптера Netatmo < 3.0 использовали службу heroku для передачи этих событий веб-перехватчика, но Heroku умерла от этой бесплатной службы. Таким образом, все версии Netatmo < 3.0 больше не будут получать события в реальном времени с 28.11.2022! По этой причине мы решили использовать проверенные и стабильные сервисы iot/Pro-Cloud.
 
 ## __Важное примечание об изменениях аутентификации, октябрь 2022 г.__
-По данным Netatmo, к октябрю 2022 года «старый» способ аутентификации с использованием имени пользователя и пароля напрямую путем их ввода в адаптер будет отключен.
+Согласно Netatmo, к октябрю 2022 года «старый» способ аутентификации с использованием имени пользователя и пароля напрямую путем их ввода в адаптер будет отключен.
 
 Версия 2.0 адаптера устраняет это изменение и корректирует аутентификацию. Все обновления до октября 2022 года должны обеспечивать плавное обновление до версии 2.0.0 при первом запуске автоматически — в противном случае потребуется новая аутентификация.
 
@@ -49,7 +49,7 @@ hash: S12ly2XMG/VSvrTjWwpbCtCc7zOll7xKf3fnuotBFjE=
 Чтобы увеличить интервал или получать оперативные обновления от приветствия и присутствия, детекторов CO и дыма, вам нужно всего лишь ввести собственный идентификатор / секрет из вашего приложения NetAtmo.
 Для этого перейдите по следующему URL-адресу, войдите в свою учетную запись Netatmo и заполните запрашиваемую форму на https://auth.netatmo.com/access/login?next_url=https%3A%2F%2Fdev.netatmo.com% 2Fapps%2Fcreateanapp !
 
-Пожалуйста, убедитесь, что вы настроили свои лимиты так, чтобы они соответствовали https://dev.netatmo.com/guideline#rate-limits (и имейте в виду, что эти лимиты также существуют для ВСЕХ ПОЛЬЗОВАТЕЛЕЙ, если вы не используете собственный идентификатор/секрет)
+Убедитесь, что вы настроили свои лимиты так, чтобы они соответствовали https://dev.netatmo.com/guideline#rate-limits (и имейте в виду, что эти лимиты также существуют для ВСЕХ ПОЛЬЗОВАТЕЛЕЙ, если вы не используете собственный идентификатор/секрет)
 
 ## Отправить в поддержку
 ### Отложить
@@ -83,9 +83,8 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### **В РАБОТЕ** -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
-* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0)
+### 3.0.0 (2022-12-14)
+* (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
 ### 2.1.2 (2022-11-17)
 * (bluefox) Added missing objects for `Welcome` devices
