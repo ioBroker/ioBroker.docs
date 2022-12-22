@@ -478,7 +478,10 @@ id `system.adapter.<adapter.name>`
 * `common.adminTab.link` - Link für iframe in der TAB. Sie können die Parameter wie folgt ersetzen: `http://%ip%:%port%`. IP wird durch Host-IP ersetzt. `port` wird aus `native.port` extrahiert.
 * `common.adminTab.name` - Name der TAB in admin
 * `common.adminTab.singleton` - [true/false], wenn der Adapter TAB für admin hat. Es wird nur eine TAB für alle Instanzen angezeigt.
-* `common.allowInit` - [true/false] ermöglicht den Aufruf des" geplanten "Adapters" nicht im Zeitplan ", wenn die Einstellungen geändert oder der Adapter gestartet wurde. Oder erlauben Sie den geplanten Adapterstart einmal nach Änderung der Konfiguration und dann nach Zeitplan.
+* `common.adminUI.config`     - [none/json/materialize/html] Art der Konfigurations-UI. Wenn nicht definiert, wird der Adapter als HTML angezeigt. (`jsonConfig.json` oder `jsonConfig.json5` von `json`, `index_m.html` von `materialize`, `index.html` von `html` werden im Ordner `admin` erwartet)
+* `common.adminUI.custom`     - [none/json] Art der Benutzeroberfläche für die benutzerdefinierte Konfiguration. Wenn nicht definiert, wird keine benutzerdefinierte Benutzeroberfläche angezeigt. Es ist nur möglich, `jsonCustom.json` oder `jsonCustom.json5` im Ordner `admin` zu verwenden.
+* `common.adminUI.tab`        - [none/html] Art der TAB-Benutzeroberfläche. `tab.html` oder `tab_m.html` werden im Ordner `admin` erweitert, wenn sie auf `html` definiert sind.
+* `common.allowInit` - [true/false] ermöglicht den Aufruf des geplanten "Adapters" nicht im Zeitplan, wenn die Einstellungen geändert oder der Adapter gestartet wurde. Oder erlauben Sie den geplanten Adapterstart einmal nach Änderung der Konfiguration und dann nach Zeitplan.
 * `common.availableModes` - Werte für `common.mode`, wenn mehr als ein Modus möglich ist
 * `common.blockly` - [true/false], wenn der Adapter benutzerdefinierte Blöcke für blockly hat. (`admin/blockly.js` erforderlich)
 * `common.compact` - sagt dem Controller, dass dieser Adapter auf Wunsch im selben Prozess gestartet werden kann
@@ -551,6 +554,7 @@ id `system.adapter.<adapter.name>`
 * `common.unchanged` - (System) Bitte verwenden Sie dieses Flag nicht. Es ist ein Flag, um das System darüber zu informieren, dass der Konfigurationsdialog in admin angezeigt werden muss.
 * `common.unsafePerm` - [true/false], wenn das Paket mit dem Parameter `npm --unsafe-perm` installiert werden muss
 * `common.version` - **obligatorische** verfügbare Version
+* `common.visWidgets` - Beschreibt `vis2-react-Widgets`. Z.B. `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
 * `common.wakeup` - Der Adapter wird gestartet, wenn ein Wert in` system.adapter.NAME.x.wakeup` geschrieben wird. Normalerweise sollte der Adapter nach der Verarbeitung des Ereignisses anhalten.
 * `common.webByVersion` - Version als Präfix im Webadapter anzeigen (normalerweise - IP: Port / Material, WebByVersion - IP: Port / 1.2.3 / Material)
 * `common.webExtendable` - [true/false], wenn der Webserver in diesem Adapter mit Plugins / Erweiterungen wie Proxy, Simple-API erweitert werden kann

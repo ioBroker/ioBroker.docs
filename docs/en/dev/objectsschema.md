@@ -482,6 +482,9 @@ ID: `system.adapter.<adapter.name>`
 * `common.adminTab.link`      - link for iframe in the TAB. You can use parameters replacement like this: `http://%ip%:%port%`. IP will be replaced with host IP. A `port` will be extracted from `native.port`.
 * `common.adminTab.name`      - name of TAB in admin
 * `common.adminTab.singleton` - [true/false] if adapter has a TAB for the admin. Only one TAB for all instances will be shown.
+* `common.adminUI.config`     - [none/json/materialize/html] type of configuration UI. If not defined, the adapter will be shown as html. (`jsonConfig.json` or `jsonConfig.json5` by `json`, `index_m.html` by `materialize`, `index.html` by `html` are expected in `admin` folder)
+* `common.adminUI.custom`     - [none/json] type of custom configuration UI. If not defined, no custom UI will be shown. It is only possible to use `jsonCustom.json` or `jsonCustom.json5` in `admin` folder.
+* `common.adminUI.tab`        - [none/html] type of TAB UI. `tab.html` or `tab_m.html` are extended in folder `admin` if defined to `html`.
 * `common.allowInit`          - [true/false] allow for "scheduled" adapter to be called "not in the time schedule", if settings changed or adapter started. Or allow scheduled adapter start once after configuration changed and then by schedule.
 * `common.availableModes`     - values for `common.mode` if more than one mode is possible
 * `common.blockly`            - [true/false] if adapter has custom blocks for blockly. (`admin/blockly.js` required)
@@ -555,6 +558,7 @@ ID: `system.adapter.<adapter.name>`
 * `common.unchanged`          - (system) please do not use this flag. It is a flag to inform the system, that configuration dialog must be shown in the admin.
 * `common.unsafePerm`         - [true/false] if the package must be installed with `npm --unsafe-perm` parameter
 * `common.version`            - **mandatory** available version
+* `common.visWidgets`         - Describes `vis2 react widgets`. Like `{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName"]} }`
 * `common.wakeup`             - Adapter will be started if some value is written into `system.adapter.NAME.x.wakeup`. Normally the adapter should stop after processing of event.
 * `common.webByVersion`       - show version as prefix in web adapter (usually - ip:port/material, webByVersion - ip:port/1.2.3/material)
 * `common.webExtendable`      - [true/false] if web server in this adapter can be extended with plugin/extensions like proxy, simple-api
