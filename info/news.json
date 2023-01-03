@@ -1636,5 +1636,40 @@
         "fa-icon": "usb",
         "created": "2022-12-09T11:00:00.000Z",
         "date-end": "2023-01-08T23:00:00.000Z"
+    },
+    {
+        "title": {
+            "en": "Livisi/Innogy Cloud will be disabled in Q1/2023!",
+            "de": "Livisi/Innogy Cloud wird im Q1/2023 deaktiviert!",
+            "ru": "Ливиси/Инногия Облако будет отключено в Q1/2023!",
+            "pt": "Livisi/Innogy A nuvem será desativada no Q1/2023!",
+            "nl": "Livisi/Innnogy Cloud wordt gehandicapt in Q1/2023!",
+            "fr": "Livisi/Innogy Le Cloud sera désactivé au Q1/2023 !",
+            "it": "Livisi/Innogy Cloud sarà disabilitato in Q1/2023!",
+            "es": "Livisi/Innogy Cloud estará deshabilitado en Q1/2023!",
+            "pl": "Livisi/Innogy Obłokość zostanie zdegradowana w Q1/2023!",
+            "uk": "Лівісі/Інноги Хмара буде відключена в Q1/2023!",
+            "zh-cn": "Livisi/Innogy Cloud将在Q1/2023!"
+        },
+        "content": {
+            "en": "As announced by Livisi their Cloud functions will be disabled early 2023. We have updated the Innogy-Smarthome/Livisi adapter to better integrate with the local connection for both SHC generations. Please upgrade the adapter and use the local connection instead of the Cloud. Important information: The new adapter version changes the object structure and the local password needs to be entered again, if you already use a local configuration! Please refer to the adapter readme for more details!",
+            "de": "Wie von Livisi angekündigt, werden die Cloud-Funktionen Anfang 2023 deaktiviert. Wir haben den Innogy-Smarthome/Livisi Adapter aktualisiert, um die lokale Verbindung für beide SHC-Generationen zu verbessern. Bitte den Adapter aktualisieren und die lokale Verbindung anstelle der Cloud verwenden! Wichtige Informationen: Die neue Adapterversion ändert die Objektstruktur und das lokale Passwort muss erneut eingegeben werden, wenn bereits eine lokale Konfiguration verwendet wird! Weitere Details sind in der Adapter Readme auf GitHub zu finden!",
+            "ru": "Как объявлено Livisi их функции Cloud будут отключены в начале 2023 года. Мы обновили адаптер Innogy-Smarthome/Livisi для лучшей интеграции с местным соединением как для поколений SHC. Пожалуйста, обновите адаптер и используйте локальное соединение вместо облака. Важная информация: Новая версия адаптера меняет структуру объекта и местный пароль должен быть введен снова, если вы уже используете локальную конфигурацию! Пожалуйста, обратитесь к читателю адаптера для более подробной информации!",
+            "pt": "Conforme anunciado por Livisi suas funções Cloud serão desativadas no início de 2023. Nós atualizamos o adaptador Innogy-Smarthome/Livisi para melhor integrar com a conexão local para ambas as gerações SHC. Por favor, atualize o adaptador e use a conexão local em vez da nuvem. InformaÃ§Ã£o Importante: A nova versão do adaptador muda a estrutura do objeto e a senha local precisa ser inserida novamente, se você já usar uma configuração local! Por favor, consulte o readme do adaptador para mais detalhes!",
+            "nl": "Zoals aangekondigd door Livisi worden hun Cloud-functies gehandhaafd begin 2023. We hebben de Innogy-Smarthome/Livisi-adapter geüpload om beter te integreren met de lokale connectie voor beide SHC generaties. Verhoog de adapter en gebruik de lokale verbinding in plaats van de Cloud. Belangrijke informatie: De nieuwe adapterversie verandert de objectstructuur en het lokale wachtwoord moet weer ingevoerd worden, als je al een lokale configuratie gebruikt. Verwijs naar de adapter voor meer details!",
+            "fr": "Comme annoncé par Livisi leurs fonctions Cloud seront désactivées début 2023. Nous avons mis à jour l'adaptateur Innogy-Smarthome/Livisi pour mieux s'intégrer à la connexion locale pour les deux générations SHC. Veuillez mettre à niveau l'adaptateur et utiliser la connexion locale au lieu du Cloud. Renseignements importants: La nouvelle version d'adaptateur modifie la structure de l'objet et le mot de passe local doit être entré à nouveau, si vous utilisez déjà une configuration locale! Veuillez vous référer à l'adaptateur readme pour plus de détails!",
+            "it": "Come annunciato da Livisi le loro funzioni Cloud saranno disabilitate all'inizio del 2023. Abbiamo aggiornato l'adattatore Innogy-Smarthome/Livisi per integrarsi meglio con la connessione locale per entrambe le generazioni SHC. Si prega di aggiornare l'adattatore e utilizzare la connessione locale al posto del Cloud. Informazioni importanti: La nuova versione adattatore cambia la struttura dell'oggetto e la password locale deve essere nuovamente inserita, se si utilizza già una configurazione locale! Si prega di fare riferimento alla scheda per maggiori dettagli!",
+            "es": "Como anunció Livisi sus funciones de Cloud serán deshabilitadas a principios de 2023. Hemos actualizado el adaptador Innogy-Smarthome/Livisi para integrarse mejor con la conexión local para ambas generaciones. Por favor, actualice el adaptador y utilice la conexión local en lugar de la nube. Información importante: La nueva versión del adaptador cambia la estructura del objeto y la contraseña local necesita ser ingresada de nuevo, si ya utiliza una configuración local! Por favor consulte el adaptador readme para más detalles!",
+            "pl": "Jak zapowiedziano Livisi, funkcje Cloud będą zdegradowane na początku 2023 roku. Posiadamy aktualizację adaptatora Innogy-Smarthome/Livisi w celu lepszego integracji z lokalnymi powiązaniami SHC. Wykorzystywanie adaptatora i używanie lokalnego połączenia zamiast chmur. Important information: Nowa wersja adapterowa zmienia strukturę obiektu, a lokalny hasło musi być ponownie wprowadzone, jeśli będziesz już używać lokalnej konfiguracji. Odwołuje się do czytelnika do bardziej szczegółowych szczegółów!",
+            "uk": "Оголошено Livisi свої Cloud функції будуть відключені на початку 2023 року. Ми оновили адаптер Innogy-Smarthome/Livisi для кращого інтегрування з локальним підключенням для обох поколінь SHC. Будь ласка, додайте адаптер і використовуйте локальне підключення замість Cloud. Важлива інформація: Нова версія адаптера змінює структуру об'єкта і локальний пароль потрібно вводити знову, якщо ви вже використовуєте локальну конфігурацію! Будь ласка, зв'яжіться з нами для отримання додаткової інформації!",
+            "zh-cn": "正如Livisi宣布的,其Cloud职能将是2023年初残疾人。 我们更新了诺普托-萨马尔特梅/拉维斯适应者,以更好地融入当地的女同性恋者。 请升级适应者并利用当地联系,而不是Cloud。 重要信息: 如果你已经使用地方组合! 请将读者读者读者的读者改为更详细!"
+        },
+        "id": "innogy-cloud-info2023",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2023-01-03T09:00:00.000Z",
+        "conditions": {
+            "innogy-smarthome": "smaller(1.2.1)"
+        }
     }
 ]
