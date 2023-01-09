@@ -13,9 +13,9 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^7.0.4",
+    "@google-cloud/translate": "^7.0.5",
     "gulp": "^4.0.2",
-    "axios": "^0.27.2"
+    "axios": "^1.2.2"
   },
   "scripts": {
     "start": "node main",
