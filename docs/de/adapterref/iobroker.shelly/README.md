@@ -20,6 +20,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/README.md)
+
 ## Inhaltsverzeichnis
 
 - [MQTT Protokoll](protocol-mqtt.md)
@@ -33,7 +35,7 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 1. nodejs 14.5 (oder neuer)
 2. js-controller 3.3.22 (oder neuer)
-4. Admin Adapter 5.1.25 (oder neuer)
+4. Admin Adapter 6.0.0 (oder neuer)
 
 ## Geräte-Generationen
 
@@ -50,6 +52,8 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren.
 - CoAP ist ausschließlich mit Generation 1 Geräten kompatibel!
 - **Falls Gen2-Geräte integriert werden sollen, muss MQTT konfiguriert werden!**
 
+Fragen? Schaue zuerst in die [FAQ](faq.md)!
+
 ![iobroker_general](./img/iobroker_general.png)
 
 ## Changelog
@@ -58,8 +62,17 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.3.1 (2023-01-02)
 
+* (klein0r) Updated MQTT topic prefix handling
+* (klein0r) Added temperature for generation 2 devices in cover mode
+* (klein0r) Added boost start/stop for Shelly TRV
+* (klein0r) Added external power for Shelly H&T
+
+### 6.3.0 (2022-12-22)
+
+* (klein0r) Added more TRV features
+* (jlegen) Improved Shelly TRV integration
 * (klein0r) Updated knowledge base urls
 * (klein0r) Added Ukrainian language
 
@@ -77,30 +90,11 @@ Der Adapter kann über CoAP oder MQTT mit den Geräten kommunizieren.
 
 * (klein0r) Fixed state updates for CoAP integration
 
-### 6.2.1 (2022-10-11)
-* (klein0r) Warn user if a device is not protected via restricted login
-* (klein0r) Added duration for generation 2 devices in cover mode
-* (klein0r) Added temperature data of Shelly Motion 2
-* (klein0r) Added knowledge base urls for all devices
-
-### 6.2.0 (2022-09-15)
-* (klein0r) Added Shelly Motion 2
-* (klein0r) Added Shelly Plus H&T
-* (klein0r) Added Shelly Pro 3
-* (klein0r) Fixed channel name and long push duration handling for Shelly i3
-* (klein0r) Fixed (automatic) firmware update process for generation 2 devices
-* (klein0r) Get correct IP address in Docker environment
-* (klein0r) Added temperature offset configuration for Shelly UNI
-* (klein0r) Updated online indicator handling
-* (klein0r) Fixed temperature of Shelly Door / Window 2
-* (klein0r) Added icons for some states
-* (klein0r) Translated (some) object names
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2023 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

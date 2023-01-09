@@ -19,6 +19,9 @@ Connection with Selve actuators, sensors and senders through USB-Gateway
 This project is not affiliated with Selve. It is a personal project.
 
 ## Changelog
+### 0.6.3 (2023-01-08)
+* Update dependencies
+
 ### 0.6.2 (2022-01-22)
 * Fix critical error for sensors and senders
 

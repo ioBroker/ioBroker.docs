@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心概念
-hash: q3sMaAw21qxzYixb/rekirT6ZAoLfk3dEQT+K4IJbIY=
+hash: 6bOFwLcKBMyTMm62sOIDQCrjkKrrNjI6LGXKF8sprYY=
 ---
 # 核心概念
 ioBroker 中有两种根本不同的数据类型。所谓的 **states**(`states`) 和 **objects**。
@@ -14,7 +14,7 @@ ioBroker 中有两种根本不同的数据类型。所谓的 **states**(`states`
 
 对于每个状态，还必须存在一个带有 `type=state` 的对应对象。
 
-以下章节描述了数据库模式。
+以下章节描述了数据库架构。
 
 ## ID
 ID 是一个最大长度为 240 字节的字符串，具有层次结构，层次以点分隔。
@@ -45,7 +45,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `system.group.` - 组
 * `system.adapter.<adapter-name>` - 适配器的默认配置
 * `<adapter-name>.` - 特定适配器的对象。
-* `<adapter-name>.meta.` - 此适配器的所有实例使用的通用元数据
+* `<adapter-name>.meta.` - 此适配器的所有实例使用的公共元数据
 * `<adapter-name>.<instance-number>.` - 适配器实例命名空间
 * `enum.` - 枚举
 * `history.` - 历史数据
@@ -484,6 +484,9 @@ ID
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以像这样使用参数替换：`http://%ip%:%port%`。 IP 将替换为主机 IP。将从 `native.port` 中提取一个 `port`。
 * `common.adminTab.name` - 管理中 TAB 的名称
 * `common.adminTab.singleton` - [true/false] 如果适配器有管理员的 TAB。将只显示所有实例的一个选项卡。
+* `common.adminUI.config` - [none/json/materialize/html] 类型的配置 UI。如果未定义，适配器将显示为 html。 （`json` 的`jsonConfig.json` 或`jsonConfig.json5`，`materialize` 的`index_m.html`，`html` 的`index.html` 应该在`admin` 文件夹中）
+* `common.adminUI.custom` - [none/json] 类型的自定义配置 UI。如果未定义，则不会显示自定义 UI。只能在 admin 文件夹中使用 jsonCustom.json 或 jsonCustom.json5。
+* `common.adminUI.tab` - [none/html] 类型的 TAB UI。 `tab.html` 或 `tab_m.html` 如果定义为 `html`，则在文件夹 `admin` 中扩展。
 * `common.allowInit` - [true/false] 如果设置更改或适配器启动，则允许“计划的”适配器“不在时间表中”被调用。或者允许计划的适配器在配置更改后启动一次，然后按计划启动。
 * `common.availableModes` - `common.mode` 的值（如果可以使用多种模式）
 * `common.blockly` - [true/false] 如果适配器有 blockly 的自定义块。 （需要 `admin/blockly.js`）
@@ -543,7 +546,7 @@ ID
 * `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，路径 `adapter/lib/states.js` 将被调用，并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递点数组，其值类似于`function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
-* `common.statusStates` - admin 中的状态指示结构，格式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
+* `common.statusStates` - admin 中的状态指示结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
 * `common.stopTimeout` - 以毫秒为单位的超时等待，直到适配器关闭。默认 500 毫秒。
 * `common.stoppedWhenWebExtension` - 如果实例具有模式 `daemon` 但它作为 Web 扩展运行（`native.webInstance !== ''`），如果 `common.stoppedWhenWebExtension` 为真，控制器将不会启动该实例。
@@ -557,6 +560,7 @@ ID
 * `common.unchanged` -（系统）请不要使用这个标志。这是一个通知系统的标志，该配置对话框必须显示在管理员中。
 * `common.unsafePerm` - [true/false] 如果必须使用 `npm --unsafe-perm` 参数安装包
 * `common.version` - **强制**可用版本
+* `common.visWidgets` - 描述 `vis2 react widgets`。比如`{"i18n": "component", "vis2NAMEWidgets": { "name": "vis2NAMEWidgets", "url": "vis-2-widgets-NAME/customWidgets.js", "components": [ "NAMEwidgetName" ]} }`
 * `common.wakeup` - 如果将某些值写入 `system.adapter.NAME.x.wakeup`，适配器将启动。通常适配器应该在事件处理后停止。
 * `common.webByVersion` - 在网络适配器中将版本显示为前缀（通常 - ip:port/material，webByVersion - ip:port/1.2.3/material）
 * `common.webExtendable` - [true/false] 如果此适配器中的 Web 服务器可以使用代理、simple-api 等插件/扩展进行扩展

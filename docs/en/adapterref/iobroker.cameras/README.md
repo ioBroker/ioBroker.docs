@@ -37,12 +37,25 @@ This is normal URL request, where all parameters are in URL. Like `http://mycam/
 ### URL image with basic authentication
 This is URL request for image, where all parameters are in URL, but you can provide the credentials for basic authentication. Like `http://mycam/snapshot.jpg`  
 
+### FFmpeg
+If you want to access snapshots on RTSP cameras, you can use ffmpeg. You need to install ffmpeg on your system:
+- Windows has precompiled ffmpeg and there is no need to download anything. (Windows version is taken from here: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z) 
+- Linux: `sudo apt-get install ffmpeg -y`
+
+Here is an example how to add Reolink E1:
+
+![rtsp](img/rtsp.png)
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.0.2 (2023-01-07)
+* (bluefox) added RTSP camera
+* (bluefox) added cache of snapshots
+
 ### 0.2.0 (2022-09-27)
 * (bluefox) GUI updated to MUIv5
 
@@ -70,7 +83,7 @@ This is URL request for image, where all parameters are in URL, but you can prov
 ## License
 MIT License
 
-Copyright (c) 2020-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

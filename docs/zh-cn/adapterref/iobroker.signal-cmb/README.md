@@ -3,22 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: xZa4B9PNJNdfpTfZvXpQA0jQbZRd899ijkFHZ4W8t6U=
+hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
 ---
-![标识](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
+![商标](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.signal-cmb.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.signal-cmb.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/iobroker.signal-cmb.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.signal-cmb/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.signal-cmb.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.signal-cmb/master.svg)
 
 # IoBroker.signal-cmb
--->
-
--->
-
 **测试**：[![测试和发布](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml)
 
 ## IoBroker 的 signal-cmb 适配器
@@ -32,7 +25,10 @@ hash: xZa4B9PNJNdfpTfZvXpQA0jQbZRd899ijkFHZ4W8t6U=
 在使用 API 之前，您需要从机器人获取 API 密钥：
 
 - 将 CallMeBot 的电话号码添加到您的电话联系人中（随意命名）。您可以在这里找到实际的电话号码：https://www.callmebot.com/blog/free-api-signal-send-messages/
-- 将此消息“我允许 callmebot 向我发送消息”（英文）发送到创建的新联系人（当然使用 Signal）。
+- 将此消息“我允许 callmebot 向我发送消息”（英文）发送到创建的新联系人（当然使用 Signal）。<br>
+
+如果您在“测试链接”中收到 GUID，则可以使用此 GUID 而不是适配器中的电话号码。您也可以发送<br>消息 `I allow callmebot to send me messages` 再次。通常您现在应该在链接中看到您的电话号码，您可以在适配器中使用您的电话号码。
+
 - 等到您收到消息“已为您的电话号码激活 API”。您的 APIKEY 是来自机器人的 123123`。由于这仍处于 Beta 测试阶段，激活最多可能需要 2 分钟。
 - 来自机器人的 Signal 消息将包含使用 API 发送消息所需的 API 密钥。
 - 您现在可以在 ioBroker 配置中使用 API KEY。
@@ -91,6 +87,11 @@ CallMeBot 官方支持以下表情：
 
 -->
 
+### 0.3.1 (28.12.22)
+* (derAlff) 更新“package.json”以使用最小版本的 NodeJS
+* (derAlff) 更新说明以在“index_m.html”中配置 CallMeBot
+* (derAlff) 在 README 中使用 GUID 问题更新了配置文本
+
 ### 0.2.3 (08.12.22)
 * (derAlff) 添加了对字符串中“编码换行符”的支持
 * (derAlff) 更新自述文件
@@ -99,7 +100,7 @@ CallMeBot 官方支持以下表情：
 * (derAlff) NPM 的版本更改
 
 ### 0.2.1 (07.12.22)
-* (derAlff) NPM 的版本变更
+* (derAlff) NPM 的版本更改
 
 ### 0.2.0 (07.12.22)
 * (derAlff) 添加了对 Emojies 的支持
@@ -107,7 +108,7 @@ CallMeBot 官方支持以下表情：
 * (derAlff) 用 CallMeBot 网站上实际电话号码的链接替换了 README/Configuration 中的电话号码
 
 ### 0.1.7 (16.02.22)
-* (derAlff) NPM 的版本更改
+* (derAlff) NPM 的版本变更
 
 ### 0.1.6 (2022-01-22)
 * (derAlff) 在 npm 上发布

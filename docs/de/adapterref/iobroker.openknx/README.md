@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: LiWKNHwQuSqdjTawyLUhBBswujhsPECVLcLbh9fVjvc=
+hash: DNNDDhMP5QbzAfDVSD0DJAIwkSPdI7Uvf8/JxkTEMsA=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -47,11 +47,17 @@ Diese Einstellung schützt den KNX-Bus vor Datenflut, indem Datenrahmen auf eine
 Nicht gesendete Frames werden verzögert, bis die Verzögerungszeit seit dem letzten Senden auf dem Bus abgelaufen ist. Wenn weitere Sendeanforderungen warten, ist die Sendereihenfolge zufällig.
 Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen, erhöhen Sie diese Zahl.
 
+### Verwenden Sie common.type boolean für 1-Bit-Enumeration anstelle einer Zahl
+Verwenden Sie im IOB-Objekt common.type boolean für 1-Bit-Enum anstelle von Zahl.
+
 ### Werte von automatisch gelesenen iob-Objekten beim Start auslesen
 Alle IOB-Objekte, die mit dem Autoread-Flag konfiguriert sind, werden auf dem Bus aufgefordert, mit IOB synchronisiert zu werden.
 
-### Nur neue Objekte hinzufügen
+### Nur GAs importieren, die nicht in IOB-Objekten vorhanden sind
 Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
+
+### Vorhandene IOB-Objekte entfernen, die nicht in der Importdatei enthalten sind
+Um den Objektbaum zu bereinigen
 
 ### XML aus ETS importieren
 ![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
@@ -145,11 +151,14 @@ Der vollständige Name einschließlich Pfad wird verwendet, um auf Ähnlichkeit 
 - Zufluss für neues Objekt entry_new aktivieren
 
 # Verwendung des Adapters & Grundkonzept
-### ACK-Flags
-Anwendungen dürfen niemals ack-Flags setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
+### ACK-Flags mit Tunneling-Verbindungen
+Anwendungen dürfen das ack-Flag nicht setzen, die Anwendung wird von diesem Adapter durch das ack-Flag benachrichtigt, wenn Daten aktualisiert werden.
 KNX Stack setzt das ack-Flag des entsprechenden ioBroker-Objekts beim Empfang einer Gruppenadresse, wenn ein anderer KNX-Host auf den Bus schreibt.
-Gesendete Frames auf KNX, die durch das Schreiben einer Anwendung auf ein Objekt ausgelöst werden, führen nicht zu einer sofortigen Bestätigungsnachricht an dieses Objekt.
-Wenn der Schreibvorgang von diesem Adapter kommt, wird das ack-Flag bei positiver Bestätigung im Tunnelmodus generiert.
+
+| GA ist | verbunden mit einem Gerät mit einem R-Flag | verbunden mit Geräten ohne R-Flag | nicht verbunden |
+| ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
+| Anwendungsprobleme GroupValue_Write | ack | ack | keine Bestätigung |
+| Anwendungsprobleme GroupValue_Read | ack | keine Bestätigung | keine Bestätigung |
 
 ### Beispiel für den komplexen Datentyp Node Red
 Erstellen Sie einen Funktionsknoten, der eine Verbindung zu einem ioBroker-Ausgangsknoten herstellt, der eine Verbindung zu einem KNX-Objekt von DPT2 herstellt.
@@ -251,18 +260,18 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen | |
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet | |
-| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
-| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
-| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte | |
+| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen | |
+| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte | |
+| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
 | DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 | |
-| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
 | DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
-| DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
+| DPT-9 | Zahl | | 2-Byte-Gleitkommawert | |
 | DPT-14 | Zahl | | 4-Byte-Gleitkommawert | |
-| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen | |
-| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen | |
+| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
+| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
 | DPT-15 | Zahl | | 4 Byte | |
-| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
+| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
 | DPT-20 | Nummer | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
 | DPT-10 | Zahl für Datumsobjekt | | - | |
@@ -325,13 +334,15 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 - Erstellen gemeinsamer Alias-Objekte, die auf Statuseingaben reagieren
 - unterstützt das Projekt aller möglichen Gruppenadressstile
 
-# Bekannte Probleme
--   keiner
-
 # Einschränkungen
 - ETS 4-Exportdateiformat wird nicht unterstützt
 - KNX Secure wird nicht unterstützt
 - nur IPv4 unterstützt
+
+# FAQ
+- Autoread-Trigger-Aktoren auf dem Bus, um zu reagieren
+
+    Überprüfen Sie in der ETS, ob für Gruppenobjekte bestimmter Geräte, die mit dem verdächtigen GA verbunden sind, das R/L-Flag konfiguriert ist. Dies sollte nicht der Fall sein, wenn das Gerät ein Verbraucher des Signals ist. Wenn das Signal einen Ereignischarakter hat, würde ein groupValueRead dieses Ereignis auslösen. Konfiguration in ETS ändern oder Autoread für dieses Objekt deaktivieren.
 
 ## Changelog
 
@@ -341,6 +352,16 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.5.2 (2023-01-02)
+
+-bugfix: correct falsly generated "confirmation false received" notifications on high sending load
+
+### 0.5.0 (2022-12-30)
+
+-   feature: use common.type boolean for 1 bit enum instead of number
+    import enum with one bit as common.type mixed and not strict as number
+-   handling of iob ack improved for tunneling connections, see description
+
 ### 0.4.5 (2022-12-19)
 
 -   bugfix in knx lib: make dpt2 not an enum datatype
@@ -555,7 +576,7 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 
 ## License
 
-Copyright 2022 contributors to the ioBroker.openknx project
+Copyright 2023 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

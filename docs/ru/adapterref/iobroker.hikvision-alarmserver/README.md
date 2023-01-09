@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hikvision-alarmserver/README.md
 title: ioBroker.hikvision-тревожный сервер
-hash: /rQaZG7GcWAIu+IeCnDRfqXasuQH6kTBFQNjRmsseds=
+hash: eyPVBWE4iO2SXGJQ9Dl1A6LlCjztLMeXh+qcxj8X2Z0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hikvision-alarmserver/admin/hikvision-alarmserver.png)
 
@@ -15,7 +15,7 @@ hash: /rQaZG7GcWAIu+IeCnDRfqXasuQH6kTBFQNjRmsseds=
 ![НПМ](https://nodei.co/npm/iobroker.hikvision-alarmserver.png?downloads=true)
 
 # IoBroker.hikvision-alarmserver
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/raintonr/ioBroker.hikvision-alarmserver/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Hikvision Alarm Server для ioBroker
 Адаптер для приема сигналов тревоги/событий, отправленных с камер Hikvision.
@@ -53,10 +53,13 @@ hash: /rQaZG7GcWAIu+IeCnDRfqXasuQH6kTBFQNjRmsseds=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.0.7 (2022-12-29)
+-   (Robin Rainton) Add bind address option ([#9](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/9)).
+-   (Robin Rainton) Try to derive device names from net-tools. Optionally use channelName from devices ([#10](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/10)).
 
 ### 0.0.6 (2022-12-13)
--   (Robin Rainton) Handle multipart message payload ([#5](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/5)).
--   (Robin Rainton) Handle payloads without XML declaration ([#7](https://github.com/raintonr/ioBroker.hikvision-alarmserver/issues/7).)
+-   (Robin Rainton) Handle multipart message payload ([#5](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/5)).
+-   (Robin Rainton) Handle payloads without XML declaration ([#7](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/7).)
 
 ### 0.0.5 (2022-12-10)
 -   (Robin Rainton) Drop colons from device IDs.

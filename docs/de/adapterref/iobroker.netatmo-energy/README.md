@@ -24,7 +24,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 ## Voraussetzungen & Konfiguration
 Netatmo Energy Hardware (Thermostat, Ventile)
 Konto bei Netatmo Cloud
-- Der Adapter arbeitet mit admin => 3 und nodejs >= 12
+- Der Adapter arbeitet mit admin => 3 und nodejs >= 14
 - Erstelle dein eigenes Konto https://auth.netatmo.com/de-de/access/signup
 - Login in die API durchführen https://dev.netatmo.com/apidocumentation/energy
 - Erzeuge deine eigene APP durch Anklicken deines Kontos (oben / links), und drücke den Knopf "Create"
@@ -34,7 +34,12 @@ Konto bei Netatmo Cloud
   - Wählen sie "GET homesdata" - "Try it out" - "EXECUTE / HOMESDATA"
     - du wirst ein response erhalten in der du deine home-ID findest
     - Übernimm sie in die Adapter Konfiguration
-  - gib deinen User und Passwort der Netatmo Cloud in die Adapter Konfiguration
+    - Starte den Netatmo-Energy Adapter und authentifiziere dich bei Netatmo API
+      - Selektieren sie die neue Authentifizierungsmethode (OAuth2)
+      - Bestätigen sie den Knopf "Authentifizieren Sie sich bei Netatmo"
+      - Loggen sie sich in ihr Konto ein, sofern es notwendig ist
+      - Bestätigen sie die Berechtigung für Drittanbieter für ihre Netatmo-APP
+      - Schließen sie das Browserfenster
   - Wähle die gewünschten Optionen in den "API-Einstellungen" und speichern sie die Adapterkonfiguration
     - Temperaturänderungen sofort übertragen ... sofortiges übertragen der Temperaturänderungen in State "SetTemp" an die API
     - API Zustände nach Änderung sofort lesen ... API Daten mittels homestatus sofort nach Aktualisierung der API abholen
@@ -54,16 +59,16 @@ Der Adapter erzeugt ein eigenes Device "energyAPP" welches die "APIRequests" und
 
 ### API Requests
 * homesdata             ... holt die gesamte Struktur der Netatmo Energy Installation (dabei wird der Parameter NAPlug verwendet). Sie können alle weiteren Parameter für manuelle Requests selbst auswählen.
-* homestatus            ... ermittelt und überträgt den Status und die technischen Informationen ihrer zugeordneten Ventile. Wenn sie Informationen zu einem spezifischen Geräteart möchten können sie diese selbst auswählen.
+* homestatus            ... ermittelt und überträgt den Status und die technischen Informationen ihrer zugeordneten Ventile. Wenn sie Informationen zu einem spezifischen Geräteart möchten, können sie diese selbst auswählen.
 * getroommeasure        ... Hiermit erhalten sie historische Daten ihrer Räume. Das Ergebnis wird in das "response" Feld eingetragen.
 * getmeasure            ... Hiermit erhalten sie die historischen Daten ihres Boilers. Das Ergebnis wird in das "response" Feld eingetragen.
 * setthermmode_schedule ... Setzt den Betriebsmodus der Netatmo Energy Installation auf "Schedule" (Standard)
 * setthermmode_hq       ... Setzt den Betriebsmodus der Netatmo Energy Installation auf "hq" (Frostwächter)
 * setthermmode_away     ... Setzt den Betriebsmodus der Netatmo Energy Installation auf "away" (nicht zu Hause)
 * switchhomeschedule    ... Setzt den "schedule mode" der Netatmo Energy API. Alle möglichen Modi sind im Channel "switchhomeschedule" aufgelistet.
-* synchomeschedule      ... Setzt die Heizpläne deiner Netatmo Energy APP. Um einen spezifischen Heizplan zu ändern geben sie eine an. Andernfalls wird der aktuell eingestellte abgeändert. Bitte tragen sie die notwendigen Parameter ein und lösen sie den synchomeschedule Request aus.
+* synchomeschedule      ... Setzt die Heizpläne deiner Netatmo Energy APP. Um einen spezifischen Heizplan zu ändern, geben sie eine an. Andernfalls wird der aktuell eingestellte abgeändert. Bitte tragen sie die notwendigen Parameter ein und lösen sie den synchomeschedule Request aus.
 
-Wenn ein API Request Parameter benötigt können sie diese im korrespondierenden Request Channel im Channel "parameters" finden.
+Wenn ein API Request Parameter benötigt, können sie diese im korrespondierenden Request Channel im Channel "parameters" finden.
 
 ### Trigger
 * applychanges          ... übermittelt alle noch offenen manuellen Änderungen deiner Ventile an die Netatmo Energy APP
@@ -71,7 +76,7 @@ Wenn ein API Request Parameter benötigt können sie diese im korrespondierenden
 
 ### Änderungs-Requests
 * setroomthermpoint     ... abhängig von den manuellen Änderungen im Channel "setting" werden die Änderungen an die Netatmo Energy APP übertragen. (entweder sofort oder selbst getriggert - "Temperaturänderungen sofort übertragen"). 
-* set_mode_to_home      ... Der Button "set_mode_to_home" im channel "setting" setzt den Ventil-mode "set_mode_to_home" auf "home". Außerdem wird der API Request sofort ausgelöst um die Änderung zu übertragen.
+* set_mode_to_home      ... Der Button "set_mode_to_home" im channel "setting" setzt den Ventil-mode "set_mode_to_home" auf "home". Außerdem wird der API Request sofort ausgelöst, um die Änderung zu übertragen.
 
 ### Status
 * running               ... hier kann man erkenne ob derzeit ein API Request läuft
@@ -99,14 +104,14 @@ Hier können sie bestimmte Nachrichten bei bestimmten Statusänderungen auslöse
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="settingsAPI" width="70%"/>
 
 ## Admin-Tab
-Auf der Admin-Tab können sie alle Thermostate, Bridges und Ventile ihrer netatmo energy instance anzeigen lassen. Dort ist ea auch möglich diese Ansicht zu aktualisieren bzw. eine vollständige API Aktualisierung zu starten. Zusätzlich hat man die Möglichkeit die Änderungen in die Cloud zu übertragen und von einem eventuellen manuellen Modus wieder auf den Standardmodus umzuschalten.
+Auf der Admin-Tab können sie alle Thermostate, Bridges und Ventile ihrer netatmo energy instance anzeigen lassen. Dort ist es auch möglich diese Ansicht zu aktualisieren bzw. eine vollständige API Aktualisierung zu starten. Zusätzlich hat man die Möglichkeit die Änderungen in die Cloud zu übertragen und von einem eventuellen manuellen Modus wieder auf den Standardmodus umzuschalten.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/admintab_de.png" alt="admintab" width="70%"/>
 
-Auf jeder Karte werden Statussysmbole angezeigt, welche den aktuellen Zustand des Thermostats, der Ventile und des Steckers darstellt. Auf der zweiten Seite des Thermostats finden sie diverse API Requests um den Thermostat-Mode bzw. den Heizplan einzustellen.
+Auf jeder Karte werden Statussymbole angezeigt, welche den aktuellen Zustand des Thermostats, der Ventile und des Steckers darstellt. Auf der zweiten Seite des Thermostats finden sie diverse API Requests, um den Thermostat-Mode bzw. den Heizplan einzustellen.
 
 ## Widget
-Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "SetTemp" - Datenpunkt eintragen. Alle anderen Informationen werden dynamisch aus der "rooms"-Struktur ermittelt.
+Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "SetTemp" - Datenpunkt eintragen. Alle anderen Informationen werden dynamisch aus der "rooms"-Struktur ermittelt.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="settingsAPI" width="250px"/>
 
@@ -116,8 +121,17 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-01-07)
+* (ioKlausi) Revision of the documentation
+
+### 2.0.1 (2023-01-06)
+* (ioKlausi) Corrections for OAuth2
+
+### 2.0.0 (2023-01-06)
+* (ioKlausi) New authentication method established
+
 ### 1.3.1 (2022-04-18)
-* (ioKlausi) Additional informations added to admin tab cards
+* (ioKlausi) Additional information added to admin tab cards
 
 ### 1.3.0 (2022-04-17)
 * (ioKlausi) Change thermostat mode functionality added to thermostat card
@@ -179,7 +193,7 @@ Widget für VIS um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "Se
 ## License
 MIT License
 
-Copyright (c) 2022 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2023 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

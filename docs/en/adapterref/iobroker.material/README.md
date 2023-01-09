@@ -30,7 +30,6 @@ Better if every device belongs to both categories. Because every device has the 
 * Cams (over extra Adapter)
 * events (over extra Adapter)
 * Main screen
-* Charts
 * Narrow menu
 * vacuum cleaner
 * show bar for sliders to indicate position
@@ -50,6 +49,9 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.3.0 (2022-12-27)
+* (bluefox) Corrected URL widget
+
 ### 1.2.6 (2022-12-07)
 * (bluefox) Corrected color of blinds in light mode
 

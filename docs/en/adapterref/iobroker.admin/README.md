@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.3.5 (2022-12-22)
+* (bluefox) Corrected reading of node.js version
+
 ### 6.3.4 (2022-12-18)
 * (bluefox) Corrected crashes in object browser
 
@@ -88,9 +91,6 @@ lettering of the log appears in red.
 ### 6.2.23 (2022-10-12)
 * (Apollon77) Prepare for future js-controller versions
 * (bluefox) Corrected deletion of objects
-
-### 6.2.22 (2022-09-14)
-* (bluefox) Corrected admin4 adapter settings
 
 ## License
 The MIT License (MIT)

@@ -3,54 +3,126 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
+hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 ---
-![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
+![商标](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![安装数量](http://iobroker.live/badges/sonos-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
-# IoBroker.sonos
-![测试和发布](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+#ioBroker.sonos
+![测试和发布](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 使用 ioBroker 控制和监控 SONOS 设备。
 
 ## 组的处理
 * 处理 SONOS 组的状态：
-   * **`coordinator`**：设置/获取coordinator，即SONOS设备，它是master并协调组。它要求 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线 `_` 而不是点 `.`，因此使用例如 `192_168_0_100` 表示 IP 地址 `192.168.0.100`。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
-   * **`group_volume`**：组的音量
-   * **`group_muted`**：组的静音状态。
-   * **`add_to_group`**：将某个SONOS设备添加到该状态所在的SONOS设备中。使用带下划线的 IP 地址（见上文）。
-   * **`remove_from_group`**：从该状态所在的SONOS设备中移除某个SONOS设备。使用带下划线的 IP 地址（见上文）。
+   * **`coordinator`**：设置/获取协调器，即主控和协调组的 SONOS 设备。它需要 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线“_”而不是点“.”，因此使用例如“192_168_0_100”来表示 IP 地址“192.168.0.100”。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
+   * **`group_volume`**: 组的音量
+   * **`group_muted`**: 组的静音状态。
+   * **`add_to_group`**：将某个SONOS设备添加到该状态下的SONOS设备。使用带下划线的 IP 地址（见上文）。
+   * **`remove_from_group`**：从该状态下的SONOS设备中移除某个SONOS设备。使用带下划线的 IP 地址（见上文）。
 
-*) 如果在 SONOS 应用程序中进行更改，这些状态将会更新。
+*) 如果在 SONOS 应用程序中进行更改，这些状态将更新。
 
 ## 与 sayIt 适配器一起使用
-要使用 [sayit 适配器](https://github.com/ioBroker/ioBroker.sayit) 与此 SONOS 适配器，确保 [Web 适配器](https://github.com/ioBroker/ioBroker.web) 也已实例化并运行。 Web 适配器需要允许 SONOS 适配器从 sayit 适配器读取生成的 MP3 文件。
+要使用 [sayit 适配器](https://github.com/ioBroker/ioBroker.sayit) 与此 SONOS 适配器，确保 [web 适配器](https://github.com/ioBroker/ioBroker.web) 也会实例化并运行。 Web 适配器需要允许 SONOS 适配器从 sayit 适配器读取生成的 MP3 文件。
 
-### 警告：与 sayIt 适配器结合的稳定性问题
-请注意：如果将“文本到语音”与 sayIt 适配器一起使用，此 SONOS 适配器会出现稳定性问题。观察到的症状：
+### 警告：结合 sayIt 适配器的稳定性问题
+请注意：如果将“文本转语音”与 sayIt 适配器一起使用，则此 SONOS 适配器会出现稳定性问题。观察到的症状：
 
-1. 将音量任意更改为 0 或 100 %。
-2. 随机数文本转语音序列后无响应
+1. 任意将音量更改为 0 或 100 %。
+2.随机数个文本转语音序列后无响应
 
-文本到语音的解决方法是使用 [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api)。
+文本转语音的解决方法是使用 [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api)。
+
+## VIS 中的收藏夹和队列
+使用状态 `favorites_list_html` 和 `queue_html` 在 VIS 中使用基本的 html 小部件显示播放列表和当前队列。通过单击一行，播放列表或曲目将立即播放。
+使用以下 css 类格式化表格：
+
+###收藏夹
+* `sonosFavoriteTable`: 最喜欢的表
+* `sonosFavoriteRow`: 包含收藏信息的行
+* `sonosFavoriteNumber`: 收藏数量
+* `sonosFavoriteCover`：最喜欢的专辑封面（使用 `.sonosFavoriteCover img` 抓取图像）
+* `sonosFavoriteTitle`: 最喜欢的名字
+
+＃＃＃ 队列
+*`.sonosQueueTable`：孔表
+* `.sonosQueueRow`：包含轨道信息的行
+* `.currentTrack`: 添加到包含当前播放曲目的行
+* `.sonosQueueTrackNumber`: 编号或轨道
+* `.sonosQueueTrackCover`：曲目的专辑封面（使用 `.sonosQueueTrackCover img` 抓取图像）
+* `.sonosQueueTrackArtist`: 艺术家姓名
+* `.sonosQueueTrackAlbum`：专辑名称（如果不需要，请使用 `display:none`）
+* `.sonosQueueTrackTitle`: 标题名称
+
+对于长列表，将 `overflow:auto;` 或 `overflow-y:auto;` 添加到基本 html 小部件。
+请注意：不支持突出显示当前播放的最爱。
+
+### 示例 CSS
+```
+.sonosFavoriteTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosFavoriteRow {
+    cursor: pointer;
+}
+.sonosFavoriteNumber {}
+.sonosFavoriteCover img {
+    width: 30px;
+    height: 30px;
+}
+.sonosFavoriteTitle {}
+
+.sonosQueueTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosQueueRow {
+    display: table-row;
+    cursor: pointer;
+}
+.sonosQueueRow.currentTrack {
+    color: #fff;
+    font-weight: bold;
+}
+.sonosQueueTrackNumber {}
+.sonosQueueTrackCover img {
+    width: 30px;
+    height: 30px;
+    display: table-column;
+}
+.sonosQueueTrackArtist {
+    display: table-row;
+}
+.sonosQueueTrackAlbum {
+    display: none;
+}
+.sonosQueueTrackTitle {
+    display: table-row;
+}
+```
 
 ＃＃ 去做
-* 显示带封面的队列
-* 用 https://github.com/svrooij/node-sonos-ts 重写
+* 使用 https://github.com/svrooij/node-sonos-ts 重写
 
 ＃＃ 配置
-- Web 服务器 - [可选] 是否启用了 Web 服务器
-- 端口 - 如果启用了 Webserver，则使用此端口。默认 8083
-- 经过时间的更新（毫秒） - 以毫秒为单位的间隔，在标题播放时更新经过的计时器的频率。 （默认 2000）
+- Web 服务器 - [可选] 是否启用 Web 服务器
+- 端口 - 如果启用了 Web 服务器，则为该端口。默认 8083
+- 更新经过时间（毫秒） - 以毫秒为单位的间隔，在播放标题时更新经过的计时器的频率。 （默认 2000）
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### WORK IN PROGRESS
+* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+* (Standarduser) Changed default album art if no cover was found
+
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
 

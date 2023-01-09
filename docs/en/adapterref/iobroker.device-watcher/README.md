@@ -20,6 +20,7 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 -   [How to show JSON lists in Grafana with InfluxQL](grafana.md)
 -   [How to show JSON lists in Grafana with Flux](grafana_flux.md)
 -   [Lovelace-UI show HTML table](lovelace.md)
+-   [Adapterlist - What is exactly supported](listSupportAdapter.md)
 
 ## Changelog
 
@@ -30,9 +31,46 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 ### **WORK IN PROGRESS**
 
+-   (ciddi89) make onStateChanges only, when device adapter is alive
+-   (ciddi89) Homeconnect ans Smartgarden Adapter added
+
+### 2.3.1 (2023-01-05)
+
+-   (ciddi89) changed HMRPC lowbat to lowbat_alarm
+-   (ciddi89) changed HMRPC unreach to unreach_alarm
+-   (ciddi89) fixed nuki mqtt selector
+-   (ciddi89) added shelly charge datapoint to identify battery devices better
+-   (ciddi89) fixed lowbat issues
+-   (ciddi89) added lowbat support for HMRPC: HM-CC-RT-DN
+-   (ciddi89) added additionally timeSelector for each adapter for better support
+
+### 2.3.0 (2023-01-03)
+
+-   (ciddi89) sorting for device selection in the blacklist added
+-   (ciddi89) Devices can now also be blacklisted in adapter own list
+-   (ciddi89) booleans for lowbat, offline and upgradable added ([#105](https://github.com/ciddi89/ioBroker.device-watcher/issues/105))
+-   (ciddi89) euSec adapter added ([#73](https://github.com/ciddi89/ioBroker.device-watcher/issues/73))
+
+### 2.2.2 (2022-12-29)
+
+-   (ciddi89) some translation added
+-   (ciddi89) datapoints will be written in intervall
+-   (ciddi89) improvements of lists
+-   (ciddi89) some other small improvements
+
+### 2.2.1 (2022-12-28)
+
+-   (ciddi89) Innogy Smarthome added
+-   (ciddi89) Lists for each adapter are working again
+
+### 2.2.0 (2022-12-27)
+
 -   (Scrounger) Yamaha MusicCast adapter added
 -   (ciddi89) send update message on state change
 -   (Scrounger) datapoints and scheduled notification for updateable devices added
+-   (ciddi89) reaction for state changes of battery datapoints added
+-   (ciddi89) send message and write lists directly if one device has low battery
+-   (ciddi89) send message and write lists directly if on device is going online or offline
 
 ### 2.1.0 (2022-12-19)
 
@@ -175,7 +213,7 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
 
 MIT License
 
-Copyright (c) 2022 Christian Behrends <mail@christian-behrends.de>
+Copyright (c) 2023 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

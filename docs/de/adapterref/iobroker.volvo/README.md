@@ -3,27 +3,66 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.volvo/README.md
 title: ioBroker.volvo
-hash: QNd0Odlbe4peGu5uzG+lxf5q0zvXydVjPZD8HQ6/Zlo=
+hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ---
 ![Logo](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.volvo.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.volvo.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/volvo-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/volvo-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/volvo-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.volvo.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.volvo/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/TA2k/ioBroker.volvo/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.volvo.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.volvo/master.svg)
 
 # IoBroker.volvo
-## Volvo Adapter für ioBroker
-Volvo Bereitschaftsadapter
+**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.volvo/workflows/Test%20and%20Release/badge.svg)
 
-### Fertig machen
+## Volvo-Adapter für ioBroker
+Volvo On Call und neue Electric API für Android Automotive Cars Adapter
+
+## Anmeldung
+Nicht-Elektroautos können sich über Benutzername und Passwort anmelden.
+
+### Elektrische Android-Automobile benötigen einen VCC-API-Schlüssel
+Registrieren/Anmelden bei <https://developer.volvocars.com/account/>
+
+Sie benötigen ein Google- oder Github-Konto, das nichts mit Ihren APP-Anmeldeinformationen zu tun hat
+
+Erstellen Sie eine Anwendung
+
+Kopieren Sie den primären VCC-API-Schlüssel
+
+![VCC-ApiKey](../../../en/adapterref/iobroker.volvo/vccapikey.png)
+
+Fügen Sie den API-Schlüssel in die Instanzeinstellungen ein
+
+Geben Sie den Benutzernamen und das Passwort der Volvoe-App ein.
+
+Fernbedienungen funktionieren nicht mit der neuen API. Die Anfragen werden angenommen, aber nicht an das Auto weitergeleitet.
+
+## Einstieg
 Verwenden Sie Objekte unter der Fernbedienung, um das Fahrzeug zu steuern
 
 ## Changelog
+
+### 0.1.0
+
+* (TA2k) add new api for electric cars
+### 0.0.6
+
+* (TA2k) fix trip object naming
+  
+### 0.0.5
+
+* (TA2k) fix receiving data
+
+### 0.0.4
+
+* (TA2k) fix jscontroller
+  
+### 0.0.3
+
+* (TA2k) fix preclimate
 
 ### 0.0.2
 

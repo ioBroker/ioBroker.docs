@@ -111,6 +111,10 @@ display the current data (if the timeline is set to the current time).
 ![](img/flot_Flot_en_pic9.png)
 
 ## Changelog
+### 1.12.0 (2022-12-27)
+* (HSE83) Corrected connection to web instance
+* (bluefox) Added ukrainian translation
+
 ### 1.11.0 (2022-05-26)
 * (Apollon77) Trust GetHistory results to contain ms resolution timestamps
 

@@ -254,6 +254,10 @@ Drag& drop a switch widget on your view, connect it to the Object ID of a switch
 Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### 1.3.15 (2022-12-23)
+* (bluefox) Updated GUI packages
+* (bluefox) Added ukrainian translation
+
 ### 1.3.14 (2022-09-27)
 * (bluefox) Updated GUI packages
 

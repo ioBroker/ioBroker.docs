@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact 文件
-hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
+hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
 ---
-![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
+![商标](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
@@ -15,6 +15,8 @@ hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 #ioBroker.kecontact
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # 适用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
@@ -100,6 +102,7 @@ KeConnect 是 KEBA AG 的注册商标。
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

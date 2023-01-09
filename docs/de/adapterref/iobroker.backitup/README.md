@@ -499,6 +499,12 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.5.10 (2023-01-03)
+* (simatec) Fix Docker Restore
+* (simatec) Fix Link Design
+* (simatec) dependencies updated
+* (Grothesk242) Fix CIFS Mount
+
 ### 2.5.9 (2022-12-05)
 * (simatec) dependencies dropbox-v2-api updated
 * (simatec) Fix Zigbee Restore
@@ -1236,7 +1242,7 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2022 simatec
+Copyright (c) 2018 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -80,6 +80,9 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.5 (2022-12-31)
+* (bluefox) Refactoring and packages update done
+
 ### 1.1.3 (2022-12-01)
 * (bluefox) Make all buttons smaller
 

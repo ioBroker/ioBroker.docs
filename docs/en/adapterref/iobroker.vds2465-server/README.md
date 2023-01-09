@@ -44,6 +44,14 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 ## Changelog
 
+### 0.1.3
+* (Hirsch-DE) Fix RC-Counter
+### 0.1.2
+* (Hirsch-DE) Fix TC-Counter
+* (Hirsch-DE) Fix RC-Counter
+* (Hirsch-DE) diverse kleine Anpassungen
+### 0.1.1
+* (Hirsch-DE) Fix TC-Counter
 ### 0.1.0
 * (Hirsch-DE) Fix VdSServiceRequest
 * (Hirsch-DE) Zaehler Service Request festgelegt

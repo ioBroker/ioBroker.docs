@@ -1,4 +1,6 @@
-![Logo](admin/iwg-vpn.png)
+![Logo](admin/iwg-vpn-sm.png)
+
+
 # ioBroker.iwg-vpn
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)](https://www.npmjs.com/package/iobroker.iwg-vpn)
@@ -22,6 +24,13 @@ link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn
 
 
 ## Changelog
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
+
 
 ### v0.11.4
 * icons in settings fixed

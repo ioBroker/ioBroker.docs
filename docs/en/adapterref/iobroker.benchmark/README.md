@@ -112,6 +112,15 @@ The alias contains a simple write function.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2022-12-30)
+* (foxriver76) fixed cleanup after `getStatesMulti`
+
+### 1.1.3 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` did not remove alias objects
+
+### 1.1.1 (2022-12-30)
+* (foxriver76) fixed a bug, where `getStatesMultiAlias` created wrong amount of objects
+
 ### 1.1.0 (2022-11-17)
 * (foxriver76) added `getStatesMulti` and `getStatesMultiAlias`
 

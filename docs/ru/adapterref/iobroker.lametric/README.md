@@ -19,9 +19,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: KEh1EvtbVuJsfA1NqJwhMzp7Bx1DKueVm857Fj7VgXU=
+hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
 ---
-![Логотип](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
+![Логотип](../../../en/admin/lametric.png)
 
 # IoBroker.lametric
 ## Оглавление
@@ -34,14 +34,14 @@ hash: KEh1EvtbVuJsfA1NqJwhMzp7Bx1DKueVm857Fj7VgXU=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.0_ (или новее)
+- _LaMetric Time_ с прошивкой _2.3.3_ (или новее)
 
 [Журнал изменений прошивки](https://firmware.lametric.com)
 
 ## Конфигурация
 Вы можете получить ключ API своего устройства [здесь](https://developer.lametric.com/user/devices).
 
-![API-ключ](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
+![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ## Функции
 - Установить яркость дисплея (в процентах, автоматический режим/ручной режим)
@@ -61,6 +61,12 @@ hash: KEh1EvtbVuJsfA1NqJwhMzp7Bx1DKueVm857Fj7VgXU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2023-01-05)
+
+* (klein0r) Added custom sound feature (mp3 via url)
+* (klein0r) Added visible state of widgets
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.3
+
 ### 2.1.0 (2022-11-01)
 
 NodeJS 14.5 is required
@@ -94,16 +100,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Updated log messages and error handling
 * (klein0r) Updated dependencies
 
-### 1.5.2 (2021-12-23)
-
-* (klein0r) Updated dependencies
-* (klein0r) Updated documentation
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -31,7 +31,6 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 * When the adapter is started, 4 folders are created with all of the states.
 * Additional folders will be created as soon as a 5th and more timers are created via Alexa's voice input.
 * It works with German input
-* configured for German voice input, English (experimental) 
 
 ### Timer add ( Examples )
 

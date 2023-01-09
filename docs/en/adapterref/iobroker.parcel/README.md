@@ -63,6 +63,9 @@ Den Datenpunkt parcel.0.dhl.briefe....image ein "String img src" element als Obj
 
 ## Changelog
 
+### 0.0.25
+
+- Fix amazon UI parsing
 ### 0.0.19
 
 - Fix GLS Parcel

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-вис
-hash: qK2vCk0Xr00VkH9SH6WvNfXP/NlYo+M7fIyb48aYTXY=
+hash: AlAILR3HvRW3UqUws4L9pAYEDXsJAqqFJP/8fBBF1uI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -27,12 +27,11 @@ hash: qK2vCk0Xr00VkH9SH6WvNfXP/NlYo+M7fIyb48aYTXY=
 
 * ---- Требуется адаптер Alexa2 ----
 * Виджет Vis еще не интегрирован
-* У каждого таймера есть кнопка для его остановки. Останавливает таймер в Alexa и в адаптере
+* Каждый таймер имеет кнопку, чтобы остановить его. Останавливает таймер в Alexa и в адаптере
 * С Alexa можно создавать неограниченное количество таймеров с помощью голосовой команды.
 * При запуске адаптера создаются 4 папки со всеми состояниями.
 * Дополнительные папки будут созданы, как только будет создан 5-й и более таймеров с помощью голосового ввода Alexa.
 * Он работает с немецким вводом
-* настроен для немецкого голосового ввода, английский (экспериментальный)
 
 ### Добавление таймера ( Примеры )
 * Alexa, Таймер 5 минут
@@ -50,6 +49,12 @@ hash: qK2vCk0Xr00VkH9SH6WvNfXP/NlYo+M7fIyb48aYTXY=
 ### Если у вас есть какие-либо предложения по улучшению или добавлению других функций, не стесняйтесь обращаться к нам
 
 ## Changelog
+### 0.1.15 (22.09.2022)
+* Include creation time to avoid creating duplicate timers
+### 0.1.14 (17.07.2022)
+* Added debouncing in the adapter configuration
+### 0.0.13 (06.03.2022)
+* Delete of Timers with the same value, fixed
 ### 0.1.12 (15.02.2022)
 * Delete of Timer fixed
 ### 0.1.11 (12.02.2022)

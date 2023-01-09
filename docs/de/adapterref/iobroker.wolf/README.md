@@ -24,7 +24,7 @@ Der Adapter kann über das ISM8i maximal 4  von den nachfolgenden Heizgeräten a
   Ein Wohnraumlüftungsgerät der Baureihe CWL Excellent kann mit dem ISM8i ebenfalls ausgewertet und bedient werden.
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.6.0 (2022-12-30)
 * (Apollon77) Add DPT10 Encoding (TimeofDay) - but ignores weekday!
 * (Apollon77) Adjust some temperature states to allow to go negative
 * (Apollon77) Add additional polling of all values to ensure that all values are updated

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
+hash: 8HReow5iLosPiWpHlvtVELR3muKwJBg4i470Pj8oH7U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -17,8 +17,6 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 Адаптер ioBroker для подключения к нескольким небольшим и дешевым устройствам Wi-Fi, которые должны быть подключены к облаку Tuya и в основном используют приложение Smartlife/Alexa-Skill. Адаптер поддерживает чтение обновлений состояния в реальном времени и управление этими устройствами после синхронизации с соответствующим приложением для мобильного телефона.
-
-Устройства Tuya — это смарт-устройства Wi-Fi ESP8266MOD от Shenzhen Xenon.
 
 Помимо устройств, которые можно использовать с приложением Smart Live или приложением Tuya.
 
@@ -42,6 +40,9 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 
 Для поддержки обновлений в реальном времени устройств, которые не подключены локально, а также, например. устройства на батарейках, вы можете дополнительно зарегистрировать свою учетную запись на платформе Tuya IoT, связать свою учетную запись приложения и использовать соединение Cloud-MQTT. Чтобы зарегистрировать учетную запись на платформе Tuya IoT, следуйте инструкциям в [Платформа Интернета вещей Туя](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
 **Примечание. Учетная запись платформы IoT активна только в течение некоторого времени, после чего ее необходимо продлевать ежемесячно!**
+
+Если вы используете платформу Tuya IoT и получаете в журнале сообщение типа «Используйте облачный опрос приложений, поскольку последнее обновление MQTT было 29 часов назад. Пожалуйста, проверьте статус Tuya IoT Cloud, срок действия которого истек». то это означает, что в последнее время не было сообщений MQTT и поэтому, скорее всего, срок действия iot Core Service истек. Войдите на платформу Tuya IoT и проверьте статус основной службы IoT. Если срок его действия истек, продлите его (можно ежемесячно напрямую или до 6 месяцев с ручной проверкой персоналом Tuya).
+Прямая ссылка: https://eu.iot.tuya.com/cloud/products?productType=all
 
 С этим набором функций вы можете выбирать между всеми доступными вариантами и работать с системами Tuya Cloud или (кроме однократной синхронизации) без них. Вам решать.
 
@@ -77,7 +78,7 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 
 Конфигурация администратора покажет сообщение об успешном завершении, если соответствующий пакет данных был получен, а затем выключит прокси-сервер через 10 секунд. Теперь вы можете удалить прокси-сервер со своего телефона, а также не доверять сертификату.
 
-Непосредственно после этого объекты должны быть обновлены с более значимыми именами и с этого момента автоматически получать оперативные обновления и должны иметь возможность общаться.
+Непосредственно после этого объекты должны быть обновлены с более осмысленными именами и с этого момента автоматически получать оперативные обновления и должны иметь возможность общаться.
 
 Синхронизация необходима только изначально или после того, как вы добавили новые устройства в свое приложение.
 
@@ -130,6 +131,39 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 Адаптер также считывает определенные группы и создает в адаптере соответствующие состояния. Значение группы также опрашивается из облака и обновляется в адаптере.
 При управлении группами это также делается через облако, потому что в противном случае статус группы не будет синхронизирован.
 
+## Преобразованные/улучшенные точки данных
+Данные из некоторых точек данных закодированы, поэтому их необходимо расшифровать и повторно зашифровать, если разрешено их изменение.
+
+### Растровые поля
+Некоторые поля содержат растровые изображения, что означает, что они являются числом, и каждый бит в этом числе представляет состояние. Адаптер преобразует эти поля в подсостояния, такие как X-0 (для бита 0), X-1 (для бита 1) и так далее. Метка бита добавляется к имени состояния.
+В настоящее время битовые поля недоступны для записи.
+
+### Цветовые состояния RGB (идентификаторы 24/5/color/color_data)
+Точки данных RGB Color декодируются в объект 5-rgb/24-rgb как значение RGB в форме «#rrggbb». Текущий цвет декодируется в это состояние, и его также можно установить, установив это состояние.
+Убедитесь, что используется правильный режим лампы (белый/цветной), поскольку цвет имеет значение только при активном цветовом режиме.
+
+### Состояния измерения мощности (идентификаторы 5/6/7/фаза_a/фаза_b/фаза_c)
+Состояния измерения мощности декодируются в объект X-current, X-power и X-voltage. X-power имеет значение только для некоторых устройств.
+Эти состояния недоступны для записи.
+
+### Состояние тревоги устройства (ID 17/alarm_set_2)
+Состояния тревоги декодируются в 17-декодированный объект с json в качестве значения. JSON содержит массив со списком определенных типов тревог и их порогов.
+Вы можете изменить и установить этот JSON для изменения настроек будильника. Известны следующие типы сигналов тревоги (но, возможно, не все они поддерживаются всеми устройствами):
+
+* перегрузка по току
+* three_phase_current_imbalance
+* амперметр_перенапряжение
+* пониженное_напряжение
+* three_phase_current_loss
+* power_failure
+* магнитный
+* недостаточный баланс
+* задолженность
+* батарея_перенапряжение
+* крышка_открыть
+* метр_cover_open
+* вина
+
 ## Кредиты
 Работа адаптера была бы невозможна без отличной работы @codetheweb, @kueblc и @NorthernMan54 (https://github.com/codetheweb/tuyapi) и https://github.com/clach04/python-tuya. , https://github.com/uzlonewolf/tinytuya и многие другие.
 
@@ -148,6 +182,40 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 Отправьте журнал со ссылкой на созданную проблему GitHub по адресу iobroker@fischer-ka.de.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add generic support for gateways (and so also WLAN Gateways)
+* (Apollon77) More schema information added/updated
+
+### 3.12.1 (2023-01-03)
+* (Apollon77) More schema information added/updated
+
+### 3.12.0 (2022-12-29)
+* (Apollon77) Added decoding of phase_a/b/c and alarm_set_2
+* (Apollon77) Added fallback for cloud polling when no values were updated using MQTT connection
+* (Apollon77) Added decoding of bitmaps (read only for now)
+
+### 3.11.4 (2022-12-28)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.3 (2022-12-22)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.2 (2022-12-20)
+* (Apollon77) More schema information added/updated
+* (Apollon77) A crash case reported by Sentry is prevented
+
+### 3.11.1 (2022-12-15)
+* (Apollon77) More schema information added/updated
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 3.11.0 (2022-12-14)
+* (Apollon77) Added support to control Zigbee Devices via Hubs locally
+* (Apollon77) Prevent crash case when new unencrypted device is discovered
+* (Apollon77) More schema information added/updated
+
 ### 3.10.2 (2022-12-05)
 * (Apollon77) Optimize IR - now works locally and via cloud in all cases
 
@@ -447,7 +515,7 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

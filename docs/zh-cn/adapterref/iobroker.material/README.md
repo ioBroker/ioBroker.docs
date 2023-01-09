@@ -2,23 +2,23 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.material/README.md
-title: ioBroker.material
-hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
+title: ioBroker.材料
+hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
 ---
-![标识](../../../en/adapterref/iobroker.material/admin/material.png)
+![商标](../../../en/adapterref/iobroker.material/admin/material.png)
 
 ![安装数量](http://iobroker.live/badges/material-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.material.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.material.svg)
-![新PM](https://nodei.co/npm/iobroker.material.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.material.png?downloads=true)
 
-# IoBroker.material
+# IoBroker.材料
 React 和 Material UI 界面。
 
 ![截图](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
 ＃＃ 安装
-**重要！** 此适配器无法直接从 GitHub 安装。仅来自 npm。
+**重要！** 此适配器不能直接从 GitHub 安装。仅来自 npm。
 
 ＃＃ 用法
 知道这一点非常重要，该适配器仅显示添加到某些类别的设备，例如 *rooms* 或 *function*。
@@ -26,33 +26,41 @@ React 和 Material UI 界面。
 
 ## 支持的类型
 ＃＃＃ 转变
-### 调光器
+###调光器
 ＃＃＃ 媒体播放器
 ＃＃＃ 体积
-### 群组音量
+### 组音量
 ＃＃ 去做
-* 凸轮（通过额外的适配器）
+* 摄像头（通过额外的适配器）
 * 事件（通过额外的适配器）
 * 主屏幕
-* 图表
 * 窄菜单
 * 吸尘器
-* 显示滑块以指示位置
+* 滑块显示栏以指示位置
 * 支持质量代码
-* 地图（OpensStreetMap）
-* X 秒后切换到默认屏幕
-* 信息中的订单状态
-* 在天气中使用图标而不是文字
+*地图（OpensStreetMap）
+* X秒后切换到默认屏幕
+*信息中的订单状态
+* 在天气中使用图标而不是文本
 
-## 学分
-- 使用来自 flaticon 的图标
-- 来自 [这里](https://codepen.io/blucube/pen/cudAz) 的音量旋钮，作者 [Ed Hicks](https://twitter.com/blucube) - 灵感来自 [运球射击](https:// /dribbble.com/shots/753124-Volume-Knob）作者 [Ricardo Salazar]（https://twitter.com/rickss）
+##学分
+- 使用 flaticon 的图标
+- [此处](https://codepen.io/blucube/pen/cudAz) 的音量旋钮，作者：[Ed Hicks](https://twitter.com/blucube) - 灵感来自 [dribbble shot](https:/ /dribbble.com/shots/753124-Volume-Knob）作者：[Ricardo Salazar](https://twitter.com/rickss)
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.3.0 (2022-12-27)
+* (bluefox) Corrected URL widget
+
+### 1.2.6 (2022-12-07)
+* (bluefox) Corrected color of blinds in light mode
+
+### 1.2.5 (2022-11-02)
+* (bluefox) Corrected error with charts
+
 ### 1.2.2 (2022-10-18)
 * (bluefox) migrated to MUIv5
 * (bluefox) corrected error with blinds

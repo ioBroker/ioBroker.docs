@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
+hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
 ---
 ![Logo](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -20,7 +20,7 @@ Reaktions- und Material-UI-Schnittstelle.
 ## Installation
 **Wichtig!** Dieser Adapter kann nicht direkt von GitHub installiert werden. Nur von npm.
 
-## Verwendungszweck
+## Verwendung
 Es ist sehr wichtig zu wissen, dass der Adapter nur Geräte anzeigt, die zu bestimmten Kategorien hinzugefügt wurden, wie *Räume* oder *Funktion*.
 Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ und Ort.
 
@@ -34,7 +34,6 @@ Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ
 * Cams (über extra Adapter)
 * Events (über extra Adapter)
 * Hauptbildschirm
-* Diagramme
 * Schmales Menü
 * Staubsauger
 * Balken für Schieberegler anzeigen, um die Position anzuzeigen
@@ -53,6 +52,15 @@ Besser, wenn jedes Gerät beiden Kategorien angehört. Denn jedes Gerät hat Typ
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.3.0 (2022-12-27)
+* (bluefox) Corrected URL widget
+
+### 1.2.6 (2022-12-07)
+* (bluefox) Corrected color of blinds in light mode
+
+### 1.2.5 (2022-11-02)
+* (bluefox) Corrected error with charts
+
 ### 1.2.2 (2022-10-18)
 * (bluefox) migrated to MUIv5
 * (bluefox) corrected error with blinds

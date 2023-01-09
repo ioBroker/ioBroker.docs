@@ -1,11 +1,11 @@
 ![Logo](admin/alexa-shoppinglist.png)
+
 # ioBroker.alexa-shoppinglist
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.alexa-shoppinglist.svg)](https://www.npmjs.com/package/iobroker.alexa-shoppinglist)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.alexa-shoppinglist.svg)](https://www.npmjs.com/package/iobroker.alexa-shoppinglist)
 ![Number of Installations](https://iobroker.live/badges/alexa-shoppinglist-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
-
 
 [![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)](https://nodei.co/npm/iobroker.alexa-shoppinglist/)
 
@@ -15,7 +15,7 @@
 
 Generates the Shoppinglist from Alexa
 
-You can also use other Lists from Alexa. Configure it in Admin. 
+You can also use other Lists from Alexa. Configure it in Admin.
 When you use the new Admin UI, it will be much easier for you.
 
 There is a State to insert new Items. Just write the Text and Enter.
@@ -26,70 +26,77 @@ I hope you enjoy
 
 ## Datapoints
 
-| DP Name                   | Type          | Description                       
-|---------------------------|---------------|-----------------------------------
-| add_position              | String        | Type Text to insert in the list                    
-| delete_activ_list         | Button        | Clears the active list and moves it to the inactive list
-| delete_inactiv_list       | Button        | Clears the inactive list
-| position_to_shift         | Number        | You can insert the position number of the item move, than button to_active_list or to_inactive list   
-| list_active               | JSON          | The activ list as JSON
-| list_active_sort          | Switch        | You can sort the active list by name or by insert time
-| list_inactive             | JSON          | The inactive list as JSON
-| list_inactive_sort        | Switch        | You can sort the inactive list by name or by insert time
-| to_activ_list             | Button        | First insert position_to_shift and than press the button to move to activ_list
-| to_inactive_list          | Button        | First insert position_to_shift and than press the button to move to inactiv_list
+| DP Name             | Type   | Description                                                                                         |
+| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
+| add_position        | String | Type Text to insert in the list                                                                     |
+| delete_activ_list   | Button | Clears the active list and moves it to the inactive list                                            |
+| delete_inactiv_list | Button | Clears the inactive list                                                                            |
+| position_to_shift   | Number | You can insert the position number of the item move, than button to_active_list or to_inactive list |
+| list_active         | JSON   | The activ list as JSON                                                                              |
+| list_active_sort    | Switch | You can sort the active list by name or by insert time                                              |
+| list_inactive       | JSON   | The inactive list as JSON                                                                           |
+| list_inactive_sort  | Switch | You can sort the inactive list by name or by insert time                                            |
+| to_activ_list       | Button | First insert position_to_shift and than press the button to move to activ_list                      |
+| to_inactive_list    | Button | First insert position_to_shift and than press the button to move to inactiv_list                    |
 
-| Attribute in JSON | Descripton 
-|-------------------|-----------
-| name              | Name of the Item  
-| time              | Timestamp of insert
-| id                | id in the Alexa2 Adapter
-| pos               | Position in the list
-| buttonmove        | Button to move to active or inactive list
-| buttondelete      | Button to completly delete the item
-
+| Attribute in JSON | Descripton                                |
+| ----------------- | ----------------------------------------- |
+| name              | Name of the Item                          |
+| time              | Timestamp of insert                       |
+| id                | id in the Alexa2 Adapter                  |
+| pos               | Position in the list                      |
+| buttonmove        | Button to move to active or inactive list |
+| buttondelete      | Button to completly delete the item       |
 
 The JSON contains now 2 Buttons to move Items or to delete.
 For this you have to insert Code in the VIS Editor under Skript, put this in:
+
 ```
  /* Alexa Einkaufsliste JSON */
 
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    let val1;
-    if (val =="true"){
-        val1 = true;
-    }else if (val =="false"){
-        val1 = false;
+    if (val){
+      vis.setValue(id,val);
     }
-    vis.setValue(id,val1);
   }
-  ```
-  ![](admin/Skript.png)
+```
+
+![](admin/Skript.png)
 
 ## Changelog
 
+### 0.1.5 (09.01.2023)
+
+- Error when deleting via the JSON list fixed
+
 ### 0.1.4 (25.09.2022)
-* Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-* You only have to check the Checkbox 
+
+- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
+- You only have to check the Checkbox
 
 ### 0.1.2 ( 09.04.2022)
-* Add Buttons in JSON String
+
+- Add Buttons in JSON String
 
 ### 0.1.1 ( 20.02.2022)
-* Error fixed in jsonConfig
+
+- Error fixed in jsonConfig
 
 ### 0.1.0 ( 20.02.2022)
-* First complete working Release
 
-### 0.0.1 
-* (MiRo1310) initial release
+- First complete working Release
+
+### 0.0.1
+
+- (MiRo1310) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

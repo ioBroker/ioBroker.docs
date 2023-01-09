@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pj链接
-hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
+hash: Ips4mgJB0NT9pMUuDV+m6sho+Yi1Jrg0GDJV2/S8HBU=
 ---
-![标识](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
+![商标](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.pjlink.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.pjlink.svg)
@@ -14,7 +14,7 @@ hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
 ![NPM](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)
 
 # IoBroker.pj链接
-**测试：** ![测试和发布](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 pjlink 适配器
 PJLink 投影仪控制器
@@ -38,8 +38,6 @@ PJLink 是一种新标准，旨在使不同投影仪制造商之间的通信接�
 
 ＃＃ 去做
 * 支持node-pjlink项目实现class 2
-* INST 查询仅作为可用输入返回更多信息。附加信息由 node-pjlink 模块添加。现在它作为字符串化对象被带到数据库中。可以更改为包含所有输入及其名称等的“文件夹”。
-* 将 2 类包含到此 iobroker 适配器
 
 ## 适配器如何工作
 目前仅支持 1 类。这意味着适配器只能轮询状态。
@@ -56,16 +54,18 @@ PJLink 是一种新标准，旨在使不同投影仪制造商之间的通信接�
 |储存 | 4 | 1 - 9 |
 |网络 | 5 | 1 - 9 |
 
-在 >pjlink.\<instance\>.deviceInfo.availableInputs 下启动适配器后，可以在数据库中找到可能的输入
+在 > pjlink.\<instance\>.deviceInfo.availableInputs 下启动适配器后，可以在数据库中找到可能的输入
 
-＃＃＃ 电源开关
+您可以在实例配置中编辑输入对象。您可以在那里编辑输入的名称并让数据库对象验证您的输入。
+
+＃＃＃ 开关;电源开关
 与状态（设置为**true**）
 
->pjlink.\<实例\>.power
+> pjlink.\<实例\>.power
 
 投影机可以根据当前电源状态打开**和**。
 
->pjlink.\<实例\>.powerStatus
+> pjlink.\<实例\>.powerStatus
 
 电源开关会自动回到**false**。
 
@@ -77,6 +77,10 @@ PJLink 是一种新标准，旨在使不同投影仪制造商之间的通信接�
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
+* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
 

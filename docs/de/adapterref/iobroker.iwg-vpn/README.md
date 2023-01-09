@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iwg-vpn/README.md
 title: ioBroker.iwg-vpn
-hash: VXYj6ivvl9Q6NnrUTnADlnhHcc0ucpoJMprAx8I5dNI=
+hash: i6vSK/HmGFbQgNeBSkKeERf+Vs/B8unO9hjK+QuqoFw=
 ---
-![Logo](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn.png)
+![Logo](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.iwg-vpn.svg)
@@ -17,7 +17,7 @@ WireGuard ist eine eingetragene Marke von Jason A. Donenfeld. (https://www.wireg
 ## Iwg-vpn-Adapter für ioBroker
 DER Adapter zum Aufbau einer sicheren Verbindung von Remote-Geräten zum ioBroker und lokalen Netzwerk unter Nutzung des [WireGuard](https://www.wireguard.com) VPN und Steuerung lokaler Geräte über Alexa.
 
-Eine detaillierte Beschreibung finden Sie im Bildschirm zur Adapterkonfiguration oder folgen Sie dem Link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/ read-me.html.
+Eine detaillierte Beschreibung finden Sie im Adapterkonfigurationsbildschirm oder folgen Sie dem Link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/ read-me.html.
 
 ## Voraussetzungen
 * Knoten: >= 14.17.x
@@ -25,6 +25,18 @@ Eine detaillierte Beschreibung finden Sie im Bildschirm zur Adapterkonfiguration
 * Administrator: >=5.1.0
 
 ## Changelog
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
+
+
+### v0.11.4
+* icons in settings fixed
+* dependencies updated
+* orphan keys clean up added
 
 ### v0.11.3
 * a way to allow write operations on whitelisted variables added

@@ -6,23 +6,52 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.volvo.svg)](https://www.npmjs.com/package/iobroker.volvo)
 ![Number of Installations (latest)](http://iobroker.live/badges/volvo-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/volvo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.volvo.svg)](https://david-dm.org/TA2k/iobroker.volvo)
+
 [![Known Vulnerabilities](https://snyk.io/test/github/TA2k/ioBroker.volvo/badge.svg)](https://snyk.io/test/github/TA2k/ioBroker.volvo)
 
 [![NPM](https://nodei.co/npm/iobroker.volvo.png?downloads=true)](https://nodei.co/npm/iobroker.volvo/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.volvo/master.svg)](https://travis-ci.org/TA2k/ioBroker.volvo)
-
+**Tests:** ![Test and Release](https://github.com/TA2k/ioBroker.volvo/workflows/Test%20and%20Release/badge.svg)
 ## volvo adapter for ioBroker
 
-Volvo On Call Adapter
+Volvo On Call and new Electric API for Android Automotive Cars Adapter
 
-### Getting started
+## Login 
+
+Non Eletric car can login via username and password.
+
+
+### Eletric Android Automotive Cars need a VCC API Key
+
+Register/Login into 
+<https://developer.volvocars.com/account/>
+
+You need a Google or Github Account this is not related to you APP Credentials
+
+Create an Application
+
+Copy VCC API Key Primary
+
+![VCC ApiKey](./vccapikey.png)
+
+Paste the API Key in the Instance settings
+
+Enter Volvoe App Username and password.
+
+Remote controls are not working with the new API. The requests are accepted but not forwarded to the car.
+
+
+## Getting started
 
 Use objects under remote to control the vehicle
 
+
+
 ## Changelog
 
+### 0.1.0
+
+* (TA2k) add new api for electric cars
 ### 0.0.6
 
 * (TA2k) fix trip object naming

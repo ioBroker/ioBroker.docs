@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
+hash: b47wxf4E6k71cczTjfUXIpKk8YkPyHnnQgYFVIT9+1M=
 ---
 ![Logo](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -19,7 +19,7 @@ hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
 Netatmo-Adapter für ioBroker
 
 ## __Wichtiger Hinweis für Echtzeit-Ereignisse (Türklingel, Begrüßung, Anwesenheit, CO2/Rauch-Alarm)__
-Um Echtzeit-Events von Netatmo zu empfangen, benötigen Sie einen iot/Pro-Cloud-Account mit einer Assistent- oder Remote-Lizenz und eine installierte iot-Instanz, die mit diesem Account verbunden ist. Die iot-Instanz muss v1.14.0 oder höher haben.
+Um Echtzeit-Events von Netatmo zu erhalten, benötigen Sie einen iot/Pro-Cloud-Account mit einer Assistent- oder Remote-Lizenz und eine installierte iot-Instanz, die mit diesem Account verbunden ist. Die iot-Instanz muss v1.14.0 oder höher haben.
 
 Bitte wählen Sie die iot-Instanz in den Adaptereinstellungen aus und starten Sie den Adapter neu.
 
@@ -51,6 +51,21 @@ Rufen Sie dazu die folgende URL auf, melden Sie sich mit Ihrem Netatmo-Konto an 
 
 Bitte stellen Sie sicher, dass Sie Ihre Limits so konfigurieren, dass sie https://dev.netatmo.com/guideline#rate-limits einhalten (und denken Sie daran, dass diese Limits auch für ALLE BENUTZER gelten, wenn Sie keine eigene ID/Secret verwenden)
 
+## Verwendung
+Der Adapter sollte alle Gerätetypen abfragen, die Sie in der Konfiguration aktiviert haben. Wenn Sie dies ändern, müssen Sie die "Authenticate with Netatmo" erneut durchführen.
+
+Der Adapter erstellt dann Zustände mit Daten der Geräte und zusätzliche "Ereignis"-Zustände für die Geräte, die dies unterstützen. Um diese Ereignisse zu erhalten, müssen Sie die iot-Instanz auswählen und ein Pro-Cloud-Konto hinzufügen (siehe oben).
+
+Einige Geräte werden mit dem neuesten Ereignis pro Typ initialisiert (falls es in der letzten Zeit aufgetreten ist), z. die Kameras. Bei anderen Gerätetypen (z. B. Rauch-/Co2-Sensoren) werden die Ereignisse nicht aus der Vergangenheit vorbelegt und diese Zustände werden gefüllt, sobald das nächste Ereignis empfangen wird.
+
+### Besonderer Hinweis für iDiamant/Bubendorff Rollläden
+Die Netatmo API liefert keine Echtzeitdaten für Änderungen an den Rollladengeräten. Das bedeutet, dass die Daten im Polling-Intervall definiert abgefragt werden.
+Dies bedeutet im Grunde, dass die Daten nicht in Echtzeit korrekt sind, wenn die Rollläden direkt oder über die Netatmo-App gesteuert werden.
+
+Wenn die Geräte über den Adapter gesteuert werden, aktualisiert er die Werte 2s und 17s nach der Steuerung, damit die Daten aktueller sind.
+
+Je nach Gerät Die Zielposition kann auf eine beliebige Zahl zwischen 0 % und 100 % ODER nur auf 0 % oder 100 % (und -1 für Stopp) eingestellt werden. Für diese Aktionen können aber auch die praktischen Tasten Öffnen, Schließen und Stoppen verwendet werden.
+
 ## SendTo support
 ### Entfernt angesiedelt
 Sie können auch den Befehl sendTo verwenden, um alle Personen als abwesend zu setzen (z. B. bei Verwendung als Alarmsystem).
@@ -73,7 +88,7 @@ Es ist auch möglich, eine oder mehrere bestimmte Personen als abwesend zu marki
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123123123123']});
 ```
 
-Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte "Objekte" aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner "Bekannte" Personen
+Der Parameter homeId ist die Zeichenfolge, die hinter dem Namen Ihrer Kamera auf der Registerkarte „Objekte“ aufgeführt ist (optional, wenn mehrere Kameras installiert sind), die personsId ist die ID im Ordner „Bekannte“ Personen
 
 ### SetHome
 Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ beschrieben auch für „setHome“ vorhanden, um Personen oder ganze Wohnungen als „belegt“ zu setzen.
@@ -83,6 +98,12 @@ Grundsätzlich ist die gleiche Funktionalität wie oben für „setAway“ besch
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.1.0 (2023-01-06)
+* (Apollon77) Add support for Bubendorff roller shutters
+* (Apollon77) Fix Monitoring State for Welcomes
+* (Apollon77) Allow to just use CO2/Smoke sensors
+* (Apollon77) Optimize Shutdown procedure
+
 ### 3.0.0 (2022-12-14)
 * (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
@@ -266,4 +287,4 @@ IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
 ## License
 MIT
 
-Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <iobroker@patrick-arns.de>

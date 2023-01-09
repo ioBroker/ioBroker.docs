@@ -136,7 +136,7 @@ You can thank the authors by these links:
 ### 1.8.10 (2022-12-12)
 * (asgothian) fix group access
 * (asgothian) add option for pairing code:
-   A new icon allows to open the networ after first entering a pairing code
+   A new icon allows to open the network after first entering a pairing code
    listed on the device
 * (asgothian) easier use of external converters
    - external converters can now be placed in the zigbee adapter data folder
@@ -463,7 +463,7 @@ new Zigbee-herdsman features:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2023 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

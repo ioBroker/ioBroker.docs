@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
 title: ioBroker.камеры
-hash: 2uDPwFWgeeStYJD68nZG4CAXgHvqzsEJzpanUWWaKwU=
+hash: 7dDTSTOHUkH6f4vfxV/NGQJ6JmTNR4/PpJeOlVSdk5k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -41,11 +41,25 @@ sendTo('cameras.0', 'image', {
 ### URL изображения с базовой аутентификацией
 Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете предоставить учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
 
+### FFmpeg
+Если вы хотите получить доступ к снимкам на камерах RTSP, вы можете использовать ffmpeg. Вам необходимо установить ffmpeg в вашей системе:
+
+- В Windows есть предварительно скомпилированный ffmpeg и ничего скачивать не нужно. (Версия для Windows взята отсюда: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
+- Linux: `sudo apt-get install ffmpeg -y`
+
+Вот пример, как добавить Reolink E1:
+
+![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.0.2 (2023-01-07)
+* (bluefox) added RTSP camera
+* (bluefox) added cache of snapshots
+
 ### 0.2.0 (2022-09-27)
 * (bluefox) GUI updated to MUIv5
 
@@ -73,7 +87,7 @@ sendTo('cameras.0', 'image', {
 ## License
 MIT License
 
-Copyright (c) 2020-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

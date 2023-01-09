@@ -47,6 +47,21 @@ To do so, go to the following URL, login with your Netatmo account and fill out 
 
 Please make sure to configure your limits that they respect https://dev.netatmo.com/guideline#rate-limits (and have in mind that these limits also exist for ALL USERS if you do not use an own ID/Secret)
 
+## Usage
+The adapter should query all device types that you enabled in the configuration. If you change this you need to Re-Do the "Authenticate with Netatmo".
+
+The adapter then creates states with data of the devices and extra "event" states for the devices that support this. To receive these events you need to choose the iot Instance and add a pro Cloud Account (see above).
+
+Some devices are initialized with the latest event per type (if it happened in the last time), e.g. the cameras. For other device types (e.g. smoke/co2 sensors) the events are not pre-filled from the past and these states will be filled as soon as the next event is received.
+
+### Special note for iDiamant/Bubendorff Roller shutters
+The Netatmo API do not provide real time data for changes to the roller shutter devices. This means that the data are polled defined in the polling interval.
+This basically means that the data will not be accurate in real time when the rollershutter are controller directly or via the Netatmo App.
+
+When the devices are controlled via the adapter, it will update the values 2s and 17s after the controlling so that the data could be more up-to-date.
+
+Depending on the device The target position can be set to any number between 0% and 100% OR only to 0% or 100% (and -1 for stop). But for these actions also the convenient buttons open, close and stop can be used.
+
 ## sendTo support
 
 ### setAway
@@ -76,6 +91,12 @@ Basically the same functionality as described for "setAway" above also is existi
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.1.0 (2023-01-06)
+* (Apollon77) Add support for Bubendorff roller shutters
+* (Apollon77) Fix Monitoring State for Welcomes
+* (Apollon77) Allow to just use CO2/Smoke sensors
+* (Apollon77) Optimize Shutdown procedure
+
 ### 3.0.0 (2022-12-14)
 * (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
@@ -259,4 +280,4 @@ IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
 ## License
 MIT
 
-Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <iobroker@patrick-arns.de>

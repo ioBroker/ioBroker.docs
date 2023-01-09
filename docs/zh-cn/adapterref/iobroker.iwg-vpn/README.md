@@ -2,29 +2,41 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iwg-vpn/README.md
-title: ioBroker.iwg-vpn
-hash: VXYj6ivvl9Q6NnrUTnADlnhHcc0ucpoJMprAx8I5dNI=
+title: ioBroker.iwg-VPN
+hash: i6vSK/HmGFbQgNeBSkKeERf+Vs/B8unO9hjK+QuqoFw=
 ---
-![标识](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn.png)
+![商标](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.iwg-vpn.svg)
-![新PM](https://nodei.co/npm/iobroker.iwg-vpn.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.iwg-vpn.png?downloads=true)
 
-#ioBroker.iwg-vpn
+# IoBroker.iwg-vpn
 WireGuard 是 Jason A. Donenfeld 的注册商标。 (https://www.wireguard.com)
 
 ## IoBroker 的 iwg-vpn 适配器
-用于设置从远程设备到 ioBroker 和本地网络的安全连接的适配器，利用 [线卫](https://www.wireguard.com) VPN 并通过 Alexa 控制本地设备。
+该适配器用于建立从远程设备到 ioBroker 和本地网络的安全连接，利用 [线卫士](https://www.wireguard.com) VPN 并通过 Alexa 控制本地设备。
 
-详细说明请参考适配器配置界面或点击链接：https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/自述文件.html。
+有关详细说明，请参阅适配器配置屏幕或点击链接：https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/自述文件.html。
 
-## 先决条件
-* 节点：>= 14.17.x
-* js 控制器：>=2.0.0
-* 管理员：>=5.1.0
+##先决条件
+*节点：> = 14.17.x
+* js控制器：>=2.0.0
+*管理员：> = 5.1.0
 
 ## Changelog
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
+
+
+### v0.11.4
+* icons in settings fixed
+* dependencies updated
+* orphan keys clean up added
 
 ### v0.11.3
 * a way to allow write operations on whitelisted variables added

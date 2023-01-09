@@ -1,28 +1,12 @@
 ---
-BADGE-NPM version: https://img.shields.io/npm/v/iobroker.pvforecast?style=flat-square
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pvforecast?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.pvforecast?label=npm%20vulnerabilities&style=flat-square
-BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.pvforecast?style=flat-square
-BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.pvforecast?label=npm%20dependencies&style=flat-square
-BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.pvforecast?style=flat-square
-BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
-BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
-BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
-BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/iobroker-community-adapters/iobroker.pvforecast/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.pvforecast?label=repo%20vulnerabilities&logo=github&style=flat-square
-BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
-BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
-BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
+BADGE-Number of Installations: http://iobroker.live/badges/pvforecast-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pvforecast.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pvforecast.svg
 chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast - Adapter zu vorhersage eurer PV Erträge"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
 ---
 ![Logo](../../admin/pvforecast.png)
 
 # ioBroker.pvforecast - Adapter zu vorhersage eurer PV Erträge
-
-**Wenn Dir der Adapter gefällt, freue ich mich über eine Spende:**
-
-[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UYB92ZVNEFNF6&source=url)
 
 Dieser Adapter ersetzt das JavaScript aus dem [ioBroker forum](https://forum.iobroker.net/topic/26068/forecast-solar-mit-dem-systeminfo-adapter)
 
@@ -78,6 +62,7 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Apollon77) Added Sentry for crash reporting
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
 
@@ -104,7 +89,7 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 ## License
 MIT License
 
-Copyright (c) 2022 Patrick-Walther
+Copyright (c) 2021-2023 Patrick-Walther
                    Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

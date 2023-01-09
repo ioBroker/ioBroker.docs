@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
+hash: L3lGLxMbvBMFpeKWfMgRb+GESzdBEZOEqY0C9PT5zJY=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -23,12 +23,12 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
 # IoBroker.netatmo-energy
 ![тестирование и выпуск](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках программного кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
 
 ## Требования и конфигурация
 Учетная запись оборудования Netatmo Energy (термостат, клапаны) в облаке Netatmo
 
-- Адаптер работает с admin => 3 и nodejs >= 12
+- Адаптер работает с admin => 3 и nodejs >= 14
 - Создайте свою учетную запись https://auth.netatmo.com/de-de/access/signup
 - Вход в API https://dev.netatmo.com/apidocumentation/energy
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
@@ -38,7 +38,12 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
-  - введите имя пользователя и пароль Netatmo Cloud в конфигурации адаптера
+    - Запустите адаптер Netatmo-Energy и авторизуйтесь с помощью Netatmo API.
+      - Выберите новый метод аутентификации (OAuth2)
+      - Подтвердите кнопку «Аутентифицировать себя с помощью Netatmo»
+      - Войдите в свою учетную запись, если это необходимо
+      - Подтвердите стороннее разрешение для вашего приложения Netatmo.
+      - Закройте окно браузера
   - Выберите нужные параметры в "Настройках API" и сохраните конфигурацию адаптера
     - Немедленная передача изменений температуры... немедленная передача изменений температуры в состоянии "SetTemp" в API
     - Чтение состояний API сразу после изменений... получение данных API с помощью homestatus сразу после обновления API
@@ -54,18 +59,18 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
 ## Адаптер netatmo-energy для ioBroker
 Текущие настройки извлекаются или изменяются с помощью API Netatmo-Energy. Адаптер использует запрос на выборку для передачи данных в Netatmo Energy API. Официальная документация API: https://dev.netatmo.com/apidocumentation/energy.
 
-Адаптер создает свое собственное устройство «energyAPP», которое содержит «APIRequests» и «trigger».
+Адаптер создает собственное устройство «energyAPP», которое содержит «APIRequests» и «trigger».
 
 ### API-запросы
 * homedata ... извлекает всю структуру установки Netatmo Energy (используя параметр NAPlug). Все остальные параметры для ручных запросов вы можете выбрать самостоятельно.
-* homestatus ... определяет и передает состояние и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
+* homestatus ... определяет и передает статус и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
 * getroommeasure ... При этом вы получаете исторические данные о ваших комнатах. Результат вводится в поле «Ответ».
 * getmeasure ... Это даст вам исторические данные вашего котла. Результат вводится в поле «Ответ».
 * setthermmode_schedule ... Устанавливает рабочий режим установки Netatmo Energy на «Расписание» (по умолчанию)
 * setthermmode_hq ... устанавливает режим работы установки Netatmo Energy на "hq" (защита от замерзания)
 * setthermmode_away … Устанавливает режим работы установки Netatmo Energy на «в гостях» (не дома)
 * switchhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
-* synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график отопления, введите его. В противном случае текущий установленный будет изменен. Пожалуйста, введите необходимые параметры и инициируйте запрос расписания синхронизации.
+* synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график нагрева, введите его. В противном случае текущий установленный будет изменен. Пожалуйста, введите необходимые параметры и инициируйте запрос расписания синхронизации.
 
 Если для запроса API требуются параметры, их можно найти в соответствующем канале запроса в канале «параметры».
 
@@ -75,7 +80,7 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
 
 ### Запросы на изменение
 * setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
-* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для передачи изменения.
+* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для распространения изменения.
 
 ### Состояние
 * работает ... здесь вы можете увидеть, выполняется ли в данный момент запрос API
@@ -120,8 +125,17 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-01-07)
+* (ioKlausi) Revision of the documentation
+
+### 2.0.1 (2023-01-06)
+* (ioKlausi) Corrections for OAuth2
+
+### 2.0.0 (2023-01-06)
+* (ioKlausi) New authentication method established
+
 ### 1.3.1 (2022-04-18)
-* (ioKlausi) Additional informations added to admin tab cards
+* (ioKlausi) Additional information added to admin tab cards
 
 ### 1.3.0 (2022-04-17)
 * (ioKlausi) Change thermostat mode functionality added to thermostat card
@@ -183,7 +197,7 @@ hash: lgnrs7TqXeqhnFDLgs8Cw4ugPuiXijbP5m+zUNk8EAE=
 ## License
 MIT License
 
-Copyright (c) 2022 ioKlausi <nii@gmx.at>
+Copyright (c) 2021-2023 ioKlausi <nii@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

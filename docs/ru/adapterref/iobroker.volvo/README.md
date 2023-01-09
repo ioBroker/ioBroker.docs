@@ -3,27 +3,66 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.volvo/README.md
 title: ioBroker.volvo
-hash: QNd0Odlbe4peGu5uzG+lxf5q0zvXydVjPZD8HQ6/Zlo=
+hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ---
-![логотип](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
+![Логотип](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.volvo.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.volvo.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.volvo.svg)
-![Количество установок (последняя)](http://iobroker.live/badges/volvo-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/volvo-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/volvo-stable.svg)
-![Состояние зависимости](https://img.shields.io/david/TA2k/iobroker.volvo.svg)
 ![Известные уязвимости](https://snyk.io/test/github/TA2k/ioBroker.volvo/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.volvo.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/TA2k/ioBroker.volvo/master.svg)
+![НПМ](https://nodei.co/npm/iobroker.volvo.png?downloads=true)
 
 # IoBroker.volvo
-## Volvo адаптер для ioBroker
-Volvo On Call Адаптер
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.volvo/workflows/Test%20and%20Release/badge.svg)
 
-### Начиная
-Используйте объекты под пультом для управления транспортным средством
+## Адаптер volvo для ioBroker
+Volvo On Call и новый адаптер Electric API для Android Automotive Cars Adapter
+
+## Авторизоваться
+Автомобиль Non Eletric может войти в систему с помощью имени пользователя и пароля.
+
+### Eletric Android Automotive Cars требуется ключ VCC API
+Зарегистрируйтесь/Войдите в <https://developer.volvocars.com/account/>
+
+Вам нужна учетная запись Google или Github, это не связано с вашими учетными данными приложения.
+
+Создать приложение
+
+Скопировать первичный ключ VCC API
+
+![VCC APIKey](../../../en/adapterref/iobroker.volvo/vccapikey.png)
+
+Вставьте ключ API в настройки экземпляра.
+
+Введите имя пользователя и пароль приложения Volvoe.
+
+Пульты дистанционного управления не работают с новым API. Запросы принимаются, но не направляются в машину.
+
+## Начиная
+Используйте объекты под пультом дистанционного управления для управления транспортным средством
 
 ## Changelog
+
+### 0.1.0
+
+* (TA2k) add new api for electric cars
+### 0.0.6
+
+* (TA2k) fix trip object naming
+  
+### 0.0.5
+
+* (TA2k) fix receiving data
+
+### 0.0.4
+
+* (TA2k) fix jscontroller
+  
+### 0.0.3
+
+* (TA2k) fix preclimate
 
 ### 0.0.2
 

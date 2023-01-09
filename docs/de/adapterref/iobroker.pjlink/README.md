@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
+hash: Ips4mgJB0NT9pMUuDV+m6sho+Yi1Jrg0GDJV2/S8HBU=
 ---
 ![Logo](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -14,7 +14,7 @@ hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
 ![NPM](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)
 
 # IoBroker.pjlink
-**Tests:** ![Testen und freigeben](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
 
 ## Pjlink-Adapter für ioBroker
 PJLink-Projektorsteuerung
@@ -38,8 +38,6 @@ Diese Arbeit basiert auf dem nodejs-Modul mit pjlink-Implementierung von **sy1va
 
 ## Machen
 * Unterstützung des node-pjlink-Projekts zur Implementierung von Klasse 2
-* Die INST-Abfrage gibt mehr Informationen als nur die verfügbaren Eingaben zurück. Zusätzliche Informationen werden vom Modul node-pjlink hinzugefügt. Vorerst wird es als stringifiziertes Objekt in die Datenbank gebracht. Kann in einen "Ordner" mit allen Eingängen mit ihren Namen usw. geändert werden.
-* Fügen Sie Klasse 2 zu diesem iobroker-Adapter hinzu
 
 ## Funktionsweise des Adapters
 Derzeit wird nur Klasse 1 unterstützt. Das heißt, der Adapter kann nur den Status abfragen.
@@ -56,16 +54,18 @@ Das aktive Senden von Statusinformationen vom Gerät zum Adapter kann hinzugefü
 | LAGERUNG | 4 | 1 - 9 |
 | NETZWERK | 5 | 1 - 9 |
 
-Die möglichen Eingänge sind nach dem Start des Adapters in der Datenbank unter >pjlink.\<instance\>.deviceInfo.availableInputs zu finden
+Die möglichen Eingänge sind nach dem Start des Adapters in der Datenbank unter > pjlink.\<instance\>.deviceInfo.availableInputs zu finden
+
+Sie können das Eingangsobjekt in der Instanzkonfiguration bearbeiten. Dort können Sie die Namen der Eingaben bearbeiten und das Datenbankobjekt Ihre Eingaben validieren lassen.
 
 ### Stromschalter
 Mit dem Status (auf **true** gesetzt)
 
->pjlink.\<Instanz\>.power
+> pjlink.\<Instanz\>.power
 
 Der Projektor kann je nach aktuellem Energiezustand ein- und ausgeschaltet werden.
 
->pjlink.\<Instanz\>.powerStatus
+> pjlink.\<Instanz\>.powerStatus
 
 Der Netzschalter wird automatisch auf **false** zurückgesetzt.
 
@@ -77,6 +77,10 @@ In der Datenbank ist nur eine Lampe vordefiniert. Wenn die Lampenabfrage mehr al
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
+* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
 

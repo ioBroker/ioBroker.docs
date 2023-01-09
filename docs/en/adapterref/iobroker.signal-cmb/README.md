@@ -3,15 +3,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.signal-cmb.svg)](https://www.npmjs.com/package/iobroker.signal-cmb)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.signal-cmb.svg)](https://www.npmjs.com/package/iobroker.signal-cmb)
-
-<!--[![Dependency Status](https://img.shields.io/david/ioBroker/iobroker.signal-cmb.svg)](https://david-dm.org/ioBroker/iobroker.signal-cmb)
-[![Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.signal-cmb/badge.svg)](https://snyk.io/test/github/ioBroker/ioBroker.signal-cmb)
--->
 [![NPM](https://nodei.co/npm/iobroker.signal-cmb.png?downloads=true)](https://nodei.co/npm/iobroker.signal-cmb/)
-
-
-<!--<**Tests:**: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.signal-cmb/master.svg)](https://travis-ci.org/ioBroker/ioBroker.signal-cmb)
--->
 
 **Tests**: [![Test and Release](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml)
 
@@ -26,7 +18,9 @@ Big thanks to free [CallMeBot](https://www.callmebot.com/blog/free-api-signal-se
 You need to get the API key form the bot before using the API:
 
 - Add the phone number of the CallMeBot into your Phone Contacts (Name it it as you wish). You can find the actual phone number here: https://www.callmebot.com/blog/free-api-signal-send-messages/ 
-- Send this message `I allow callmebot to send me messages` (in english) to the new contact created (using Signal of course).
+- Send this message `I allow callmebot to send me messages` (in english) to the new contact created (using Signal of course).<br>
+If you receive an GUID inside the "test-link", you can use this GUID instead of your phonenumber inside the adapter. You can also send <br>
+the message `I allow callmebot to send me messages` aigain. Normally you should see your phonenumber inside the link now and you can use your phonenumber inside the adapter.
 - Wait until you receive the message `API Activated for your phone number. Your APIKEY is 123123` from the bot. As this is still in beta testing, the activation can take up to 2 minutes.
 - The Signal message from the bot will contain the API key needed to send messages using the API.
 - You can now use the API KEY in the ioBroker configuration.
@@ -84,6 +78,11 @@ Placeholder for the next version (at the beginning of the line):
 * Did some changes
 * Did some more changes
 -->
+### 0.3.1 (28.12.22)
+* (derAlff) Updated 'package.json' to use a minimal version of NodeJS
+* (derAlff) Updated description to configure CallMeBot in  'index_m.html'
+* (derAlff) Updated configuration text with the GUID problem in README
+
 ### 0.2.3 (08.12.22)
 * (derAlff) Added support for 'encoded newline' in string
 * (derAlff) Updated README

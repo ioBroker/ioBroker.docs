@@ -1,15 +1,15 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.tankerkoenig.png?downloads=true
+BADGE-Number of Installations: http://iobroker.live/badges/tankerkoenig-installed.svg
+BADGE-ioBroker stable release: http://iobroker.live/badges/tankerkoenig-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.tankerkoenig.svg?logo=npm
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.tankerkoenig.svg?logo=npm
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: 9aeEIokXbdHZ0PK5kwL7/DXckDM9lFRJEFhSrXd4mUE=
+hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
 ---
-![标识](../../../en/admin/tankerkoenig.png)
+![商标](../../../en/admin/tankerkoenig.png)
 
 ![安装数量](http://iobroker.live/badges/tankerkoenig-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
@@ -46,7 +46,7 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
 
 ![替代文字](../../../en/adapterref/img/tankerkoenigStationFinder.png "截图设置")
 
-### Set values to 0 如果在加油站关闭时将价格设置为 0，则激活此功能。\ 如果关闭此功能，价格将设置为无效，见下文。
+### Set values to 0 如果在加油站关闭时将价格设置为 0，则激活此功能。\ 如果关闭此功能，价格将被设置为无效，见下文。
 ### 无效价格
 如果加油站不提供 E5、E10 或柴油的价格，例如如果车站关闭，价格不会改变，而是状态质量将设置为 `Quality code 0x40 => Substitute value from device`，然后该状态将显示为橙色。
 
@@ -82,7 +82,7 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
 
 在站级创建了另外五个数据点：
 
-* `adapterStatus`（显示适配器的状态可能值：`空闲/自动请求/手动请求/请求超时1分钟/写入状态/请求错误/离线`）
+* `adapterStatus`（显示适配器的状态可能值：`空闲/自动请求/手动请求/详细请求/请求超时1分钟/写入状态/请求错误/离线`）
 * `json`（加油站的JSON数据）
 * `jsonTable` (json table for the vis `only the json data no widget`)
 
@@ -129,35 +129,35 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
  Placeholder for the next version (at the beginning of the line):
  ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
  -->
-### 3.1.0 (2022-11-27)
-* (xXBJXx) removed noLog option because the adapter log output was strongly optimized
-* (xXBJXx) Optimized sorting of the cheapest gas station [issue #96](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/96)
-* (xXBJXx) add new state `cheapest_stations` for the cheapest gas station [issue #93](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/93)
+### 3.3.5 (2023-01-04)
+* (xXBJXx) fixed copy/paste bug in the UI
 
-### 3.0.6 (2022-11-23)
-* (xXBJXx) Added new option to adjust the text in the combined data point [issue #95](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/95)
+### 3.3.4 (2023-01-03)
+* (xXBJXx) Fixed an issue where a postal code starting with 0 was not displayed correctly [Issue #113](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/113)
 
-### 3.0.5 (2022-11-20)
-* (xXBJXx) fixed sort bug for cheapest station
+### 3.3.3 (2023-01-02)
+* (xXBJXx) fixed => adapter does not fetch data after a `requestData error` e.g. internet termination.
+* (xXBJXx) add adapter migration Guide from 3.1.x to 3.3.x or 3.2.x to 3.3.x [Migration guide](docs/guide/migration_3.3.x.md)
+* (xXBJXx) fixed Issue [Issue #111](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/111)
 
-### 3.0.4 (2022-11-19)
-* (xXBJXx) moved misc-data type to vehicle type
-* (xXBJXx) fixed messages rules and added new messages for Adapter Update
-* (xXBJXx) update dependencies
-* (xXBJXx) added lastUpdate_min / lastUpdate_max DP [issue #91](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/91)
+### 3.3.2 (2023-01-02)
+* (xXBJXx) fixed TypeError: Cannot read property 'length' of undefined in addDiscount when the value is `boolean / undefined`
+* (xXBJXx) fixed Error: DB closed when the adapter is stopped
+* (xXBJXx) object creation optimized
+* (xXBJXx) request interval default value changed to 10 minutes and minimum value to 10 minutes
+* (xXBJXx) added a check for the Station ID is already configured (in edit mode)
+* (xXBJXx) added price difference to the last price
+* (xXBJXx) added a feature request cheapest station [Issue #109](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/109)
 
-### 3.0.3 (2022-11-18)
-* (xXBJXx) Ukrainian translation added
-* (xXBJXx) add validation function for ID and Name Input fields
-* (xXBJXx) add copy from clipboard function for ID Input field
-* (Schmakus) added daily min/max prices to all stations and fuel types
-* (xXBJXx) update documentation because of new min/max datapoints
+### 3.3.1 (2022-12-30)
+* (xXBJXx) fixed TypeError: Cannot read properties of undefined [Issue #104](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/104)
+* (xXBJXx) added full street state for each station
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 xXBJXx <issi.dev.iobroker@gmail.com> pix
+Copyright (c) 2016-2023 xXBJXx <issi.dev.iobroker@gmail.com> pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

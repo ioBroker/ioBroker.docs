@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-список покупок
-hash: 3qVz/CY8chOWX33amPwj2k0DFmNLonFwaG2gwDGDIwY=
+hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -29,9 +29,27 @@ hash: 3qVz/CY8chOWX33amPwj2k0DFmNLonFwaG2gwDGDIwY=
 надеюсь вам нравится
 
 ## Точки данных
-| Имя DP | Тип | Описание |--------------|--------------------- ------------------------------- | add_position | Строка | Введите текст для вставки в список | удалить_актив_список | Кнопка | Очищает активный список и перемещает его в неактивный список | удалить_inactiv_list | Кнопка | Очищает неактивный список | position_to_shift | Номер | Вы можете вставить номер позиции перемещения элемента, чем кнопка to_active_list или to_inactive list | список_активный | JSON | Активный список в формате JSON | list_active_sort | Переключатель | Вы можете отсортировать активный список по имени или по времени вставки | список_неактивный | JSON | Неактивный список в формате JSON | list_inactive_sort | Переключатель | Вы можете отсортировать неактивный список по имени или по времени вставки | to_activ_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к activ_list | to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list.
+| Имя DP | Тип | Описание |
+| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
+| add_position | Строка | Введите текст для вставки в список |
+| удалить_актив_список | Кнопка | Очищает активный список и перемещает его в неактивный список |
+| удалить_inactiv_list | Кнопка | Очищает неактивный список |
+| position_to_shift | Номер | Вы можете вставить номер позиции перемещения элемента, чем кнопка to_active_list или to_inactive list |
+| список_активный | JSON | Активный список в формате JSON |
+| list_active_sort | Переключатель | Вы можете отсортировать активный список по имени или по времени вставки |
+| список_неактивный | JSON | Неактивный список в формате JSON |
+| list_inactive_sort | Переключатель | Вы можете отсортировать неактивный список по имени или по времени вставки |
+| to_activ_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к activ_list |
+| to_inactive_list | Кнопка | Сначала вставьте position_to_shift, а затем нажмите кнопку, чтобы перейти к inactiv_list |
 
-| Атрибут в формате JSON | Описание |-------------------|----------- | имя | Название товара | время | Отметка времени вставки | идентификатор | id в адаптере Alexa2 | поз | Позиция в списке | кнопка двигаться | Кнопка для перехода к активному или неактивному списку | кнопкаудалить | Кнопка для полного удаления элемента
+| Атрибут в формате JSON | Описание |
+| ----------------- | ----------------------------------------- |
+| имя | Название товара |
+| время | Отметка времени вставки |
+| идентификатор | id в адаптере Alexa2 |
+| поз | Позиция в списке |
+| кнопка двигаться | Кнопка для перехода к активному или неактивному списку |
+| кнопкаудалить | Кнопка для полного удаления элемента |
 
 JSON теперь содержит 2 кнопки для перемещения или удаления элементов.
 Для этого вам нужно вставить код в VIS Editor под Skript, вставьте это:
@@ -42,40 +60,46 @@ JSON теперь содержит 2 кнопки для перемещения 
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    let val1;
-    if (val =="true"){
-        val1 = true;
-    }else if (val =="false"){
-        val1 = false;
+    if (val){
+      vis.setValue(id,val);
     }
-    vis.setValue(id,val1);
   }
-  ```
+```
 
-  ![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
+![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
 
 ## Changelog
 
+### 0.1.5 (09.01.2023)
+
+- Error when deleting via the JSON list fixed
+
 ### 0.1.4 (25.09.2022)
-* Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-* You only have to check the Checkbox 
+
+- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
+- You only have to check the Checkbox
 
 ### 0.1.2 ( 09.04.2022)
-* Add Buttons in JSON String
+
+- Add Buttons in JSON String
 
 ### 0.1.1 ( 20.02.2022)
-* Error fixed in jsonConfig
+
+- Error fixed in jsonConfig
 
 ### 0.1.0 ( 20.02.2022)
-* First complete working Release
 
-### 0.0.1 
-* (MiRo1310) initial release
+- First complete working Release
+
+### 0.0.1
+
+- (MiRo1310) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -28,6 +28,10 @@ It can happen, that some devices have not all variables, and they will stay unfi
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.3 (2022-12-23)
+* (Apollon77) Finalized and optimized HTTP communication protocol
+* (Apollon77) Fixed type issues with device.error
+
 ### 1.0.2 (2022-11-16)
 * (bluefox) Small fixes done
 * (bluefox) Added HTTP communication protocol (untested!)

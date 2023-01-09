@@ -3,53 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: qK2vCk0Xr00VkH9SH6WvNfXP/NlYo+M7fIyb48aYTXY=
+hash: AlAILR3HvRW3UqUws4L9pAYEDXsJAqqFJP/8fBBF1uI=
 ---
-![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
+![商标](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.alexa-timer-vis.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.alexa-timer-vis.svg)
 ![安装数量](https://iobroker.live/badges/alexa-timer-vis-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/alexa-timer-vis-stable.svg)
-![新PM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
 **测试：** ![测试和发布](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 alexa-timer-vis 适配器
-输出 Alexa 计时器以显示在 vis 中
+输出Alexa定时器显示在vis中
 
-### 这是我的 vis 的一个例子
+### 这是我vis的一个例子
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
 
 ## 功能
-通过 Alexa 创建一个或多个通过语音输入的计时器，由适配器评估并写入状态，以使它们在 Vis 中可见。因此，如果您同时有多个计时器处于活动状态，您将获得更好的概览。
+通过 Alexa 创建一个或多个语音输入计时器，适配器对其进行评估并写入状态，以便使它们在 Vis 中可见。因此，如果同时激活多个计时器，您将获得更好的概览。
 
 * ---- 需要 Alexa2 适配器 ----
 * Vis Widget 尚未集成
-* 每个定时器都有一个按钮，用来停止它。停止 Alexa 和适配器中的计时器
+* 每个计时器都有一个按钮，可以停止它。停止 Alexa 和适配器中的计时器
 * 可以通过语音命令使用 Alexa 创建无限计时器。
-* 启动适配器时，将创建 4 个文件夹，其中包含所有状态。
-* 通过 Alexa 的语音输入创建第 5 个或更多计时器后，将立即创建其他文件夹。
+* 启动适配器时，会创建 4 个包含所有状态的文件夹。
+* 一旦通过 Alexa 的语音输入创建了第 5 个和更多计时器，就会创建其他文件夹。
 * 它适用于德语输入
-* 配置为德语语音输入，英语（实验性）
 
 ### 定时器添加（示例）
 * Alexa，定时器 5 分钟
-* Alexa，薯条定时器 9 分钟
-* Alexa，设置一个 1 小时 30 分钟的计时器
-* Alexa，设置一个 2 小时的计时器
+* Alexa, fries 定时器 9 分钟
+* Alexa，设置定时器 1 小时 30 分钟
+* Alexa，设置一个定时器 2 小时
 * Alexa，定时器 120 分钟
 * Alexa，定时器 9 分钟意大利面
 
 ### 定时器删除（示例）
-* Alexa，删除所有计时器
+* Alexa，删除所有定时器
 * Alexa，删除薯条定时器
-* Alexa，删除 5 分钟计时器
+* Alexa, 删除 5 分钟定时器
 
-###如果您有任何改进或添加其他功能的建议，请随时与我们联系
+### 如果您有任何改进或添加其他功能的建议，请随时与我们联系
 
 ## Changelog
+### 0.1.15 (22.09.2022)
+* Include creation time to avoid creating duplicate timers
+### 0.1.14 (17.07.2022)
+* Added debouncing in the adapter configuration
+### 0.0.13 (06.03.2022)
+* Delete of Timers with the same value, fixed
 ### 0.1.12 (15.02.2022)
 * Delete of Timer fixed
 ### 0.1.11 (12.02.2022)

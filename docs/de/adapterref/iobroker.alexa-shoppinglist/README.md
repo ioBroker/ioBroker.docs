@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-einkaufsliste
-hash: 3qVz/CY8chOWX33amPwj2k0DFmNLonFwaG2gwDGDIwY=
+hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -29,9 +29,27 @@ Sie können auch nur einen Artikel in beide Richtungen verschieben.
 Ich hoffe es gefällt dir
 
 ## Datenpunkte
-| DP-Name | Geben Sie | ein Beschreibung |---------------------|---------------|---- ------------------------------- | add_position | Zeichenfolge | Geben Sie Text ein, der in die Liste eingefügt werden soll | delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste | delete_inactiv_list | Schaltfläche | Löscht die inaktive Liste | position_to_shift | Nummer | Sie können die Positionsnummer des Artikels verschieben einfügen, als Schaltfläche to_active_list oder to_inactive list | list_active | JSON | Die aktive Liste als JSON | list_active_sort | Schalter | Sie können die aktive Liste nach Namen oder nach Einfügezeit | sortieren list_inactive | JSON | Die inaktive Liste als JSON | list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder nach Einfügezeit | sortieren to_activ_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu activ_list | zu wechseln to_inactive_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu inactiv_list zu wechseln
+| DP-Name | Geben Sie | ein Beschreibung |
+| ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
+| add_position | Zeichenfolge | Geben Sie Text ein, der in die Liste eingefügt werden soll |
+| delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
+| delete_inactiv_list | Schaltfläche | Löscht die inaktive Liste |
+| position_to_shift | Nummer | Sie können die Positionsnummer des Artikels verschieben einfügen, als Schaltfläche to_active_list oder to_inactive list |
+| list_active | JSON | Die aktive Liste als JSON |
+| list_active_sort | Schalter | Sie können die aktive Liste nach Namen oder nach Einfügezeit | sortieren |
+| list_inactive | JSON | Die inaktive Liste als JSON |
+| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder nach Einfügezeit | sortieren |
+| to_activ_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu activ_list | zu wechseln |
+| to_inactive_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Schaltfläche, um zu inactiv_list | zu wechseln |
 
-| Attribut in JSON | Beschreibung |-------------------|----------- | Name | Name des Artikels | Zeit | Zeitstempel der Einfügung | ID | id im Alexa2 Adapter | Pos. | Position in der Liste | Schaltfläche bewegen | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste | SchaltflächeLöschen | Schaltfläche zum vollständigen Löschen des Elements
+| Attribut in JSON | Beschreibung |
+| ----------------- | ----------------------------------------- |
+| Name | Name des Artikels |
+| Zeit | Zeitstempel der Einfügung |
+| ID | id im Alexa2 Adapter |
+| Pos. | Position in der Liste |
+| Schaltfläche bewegen | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
+| SchaltflächeLöschen | Schaltfläche zum vollständigen Löschen des Elements |
 
 Der JSON enthält nun 2 Buttons um Items zu verschieben oder zu löschen.
 Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen einfügen:
@@ -42,40 +60,46 @@ Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen einfügen:
 function setOnDblClickCustomShop( myvalue) {
     let id = myvalue.slice(0,myvalue.indexOf(","));
     let val = myvalue.slice(myvalue.indexOf(",")+1, myvalue.length);
-    let val1;
-    if (val =="true"){
-        val1 = true;
-    }else if (val =="false"){
-        val1 = false;
+    if (val){
+      vis.setValue(id,val);
     }
-    vis.setValue(id,val1);
   }
-  ```
+```
 
-  ![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
+![](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/Skript.png)
 
 ## Changelog
 
+### 0.1.5 (09.01.2023)
+
+- Error when deleting via the JSON list fixed
+
 ### 0.1.4 (25.09.2022)
-* Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
-* You only have to check the Checkbox 
+
+- Its now possible to delete always the Inactiv list, when you delete an Articel from the Activ list
+- You only have to check the Checkbox
 
 ### 0.1.2 ( 09.04.2022)
-* Add Buttons in JSON String
+
+- Add Buttons in JSON String
 
 ### 0.1.1 ( 20.02.2022)
-* Error fixed in jsonConfig
+
+- Error fixed in jsonConfig
 
 ### 0.1.0 ( 20.02.2022)
-* First complete working Release
 
-### 0.0.1 
-* (MiRo1310) initial release
+- First complete working Release
+
+### 0.0.1
+
+- (MiRo1310) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

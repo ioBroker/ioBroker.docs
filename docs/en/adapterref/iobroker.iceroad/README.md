@@ -3,7 +3,7 @@
 # ioBroker.iceroad
 
 ![Number of Installations](http://iobroker.live/badges/iceroad-installed.svg)
-![Number of Installations](http://iobroker.live/badges/iceroad-stable.svg)
+![Current version in stable repository](http://iobroker.live/badges/iceroad-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.iceroad.svg)](https://www.npmjs.com/package/iobroker.iceroad)
 
 ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
@@ -37,6 +37,11 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 1.1.2 (2022-12-23)
+
+-   (ciddi89) handling if no data was received added
+
 ### 1.1.1 (2022-12-18)
 
 -   (ciddi89) changed order in table of longitude and latitude

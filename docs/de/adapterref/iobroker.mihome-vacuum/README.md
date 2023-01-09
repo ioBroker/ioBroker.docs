@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
+hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -99,10 +99,10 @@ Es wird automatisch ein intelligentes Gerät im Cloud-Adapter erstellt mit dem N
 Wenn diese Option aktiviert ist, setzt der Staubsauger die Zonenreinigung fort, wenn der Status „Start“ auf „true“ gesetzt wird, wenn er während einer laufenden Zonenreinigung angehalten wurde.
 Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue "normale Reinigung", wenn Sie den Startbefehl senden, auch wenn er während einer laufenden Zonenreinigung angehalten wurde.
 
-- Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
+- Experimentell: Mit der Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
 
 #### Zweiter Roboter
-Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen angelegt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
+Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen erstellt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
 
 ## Kartenkonfig
 Es gibt zwei Möglichkeiten, die Karte zu erhalten. Die ersten holen sich die Karte aus der Cloud. Daher müssen Sie sich anmelden und den richtigen Roboter aus der Liste auswählen
@@ -227,8 +227,8 @@ Die folgenden Methoden und Parameter werden unterstützt:
 | set_dnd_timer | `[22,0,8,0]` | |
 |                 |                                                                     |                                                                                          |
 | app_rc_start | | Starten Sie die Fernsteuerung |
-| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
-| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Bewegen. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Umzug. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
+| app_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Umzug. Die Sequenznummer muss fortlaufend sein, WERT1 (Geschwindigkeit) = -0,3-0,3, WERT2 (Rotation) = -3,1-3,1, WERT3 (Dauer)|
 | app_segment_clean | `[12,15]` | Reinraum mit Index 12 und 15 |
 | app_segment_clean | `[12,15]` | Reinraum mit Index 12 und 15 |
 
@@ -310,10 +310,12 @@ Die unterstützten Befehle sind:
 | Beenden Sie die Fernbedienungsfunktion | `stopRemoteControl` | - Keine - | |
 | Reinraum/Reinräume | `cleanRooms` | `rooms` | `rooms` ist ein kommaseparierter String mit enum.rooms.XXX |
 | sauberes Segment | `cleanSegments` | `rooms` \| {Räume:`rooms`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `rooms` ist eine Zahl oder ein Array mit mapIndex oder ein kommaseparierter String mit mapIndex |
-| saubere Zone | `cleanZone` | `coordinates` \| {Koordinaten:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,Lüftergeschwindigkeit:`fanSpeed`} | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
+| saubere Zone | `cleanZone` | `coordinates` \| {Koordinaten:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,Lüftergeschwindigkeit:`fanSpeed`,Wiederholung:`iterations`} | `coordinates` ist ein String mit Koordinaten und Anzahl, siehe [zoneClean](#zonecleaning) |
 | start Entstaubung | `startDustCollect` | - Keine - | |
 | stop Staubansammlung | `stopDustCollect` | - Keine - | |
-| stop Staubansammlung | `stopDustCollect` | - Keine - | |
+| Wischwäsche starten | `startWashMop` | - Keine - | |
+| Mop-Waschen stoppen | `stopWashMop` | - Keine - | |
+| Mop-Waschen stoppen | `stopWashMop` | - Keine - | |
 
 ##-Widget
 ![Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
@@ -322,252 +324,266 @@ Die unterstützten Befehle sind:
 - Gelegentliche Verbindungsabbrüche liegen aber nicht am Adapter sondern meist an den eigenen Netzen
 - Widget zur Zeit ohne Funktion
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-    ### **IN ARBEIT**
-    * ()
-
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+    * () 
 -->
+### 3.9.2 (2023-01-06)
+* (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
+* (dirkhe) fix bug from 3.9.1 for supported repeat devices
+
+### 3.9.1 (2023-01-06)
+* (Dirkhe) add step property to repeat DP
+* (Dirkhe) add Queue Fallback mode for repeat
+* (Dirkhe) remove wrong clearQueue button
+
+### 3.9.0 (2023-01-04)
+* (Dirkhe) add Mop washing #679
+* (Dirkhe) trigger pauseResume only, if correct state is given #623
+* (Dirkhe) add multiple clean iterations (repeat) #690
+* (Dirkhe) housekeeping
 
 ### 3.8.8 (2022-11-30)
-* (Dirkhe) Verhalten von pauseResume #623 behoben
+* (Dirkhe) fix behaviour of pauseResume #623
 
 ### 3.8.7 (2022-11-26)
-* (Dirkhe) Tippfehler aus der Übersetzung für battary_live behoben (basierend auf Viomi-ID) #629
-* (Dirkhe) Absturz behoben, wenn cloud-roomID leer ist #702
+* (Dirkhe) fix typo from translation for battary_live (based on viomi id) #629
+* (Dirkhe) fix crash, if cloud-roomID is empty #702
 
 ### 3.8.6 (2022-11-12)
-* (Dirkhe) Fixtyp für roomMopMode
+* (Dirkhe) Fix type for roomMopMode
 
 ### 3.8.5 (2022-11-10)
-* (Dirkhe) parseErrors auf Debug-Level verschieben
-* (Dirkhe) Neuinstanziierung bei Reconnect vermeiden
+* (Dirkhe) move parseErrors to debug level
+* (Dirkhe) avoid new instanziierung on reconnect
 
 ### 3.8.4 (2022-11-07)
-* (Dirkhe) Logging für sendMessage auf debug ändern
+* (Dirkhe) change logging for sendMessage to debug
 
 ### 3.8.3 (2022-11-01)
-* (Dirkhe) Logging von Timeouts ändern
-* (Dirkhe) Teile des Tokens im Log verstecken
+* (Dirkhe) change logging from timeouts
+* (Dirkhe) hide parts of token in log
 
 ### 3.8.2 (2022-10-31)
-* (Dirkhe) Bump Canvas auf 2.10.2
-* (Dirkhe) Karte deaktivieren, wenn CANVAS nicht installiert ist #681
+* (Dirkhe) Bump canvas to 2.10.2
+* (Dirkhe) disable map, if CANVAS not installed #681
 
 ### 3.8.1 (2022-10-30)
-* (Dirkhe) entfernt die veraltete Node 12.x-Version für den Workflow
+* (Dirkhe) remove deprecated node 12.x Version for workflow
 
 ### 3.8.0 (2022-10-30)
-* (Dirkhe) fehlenden Bestandsbefehl für mop_mode behoben
-* (Dirkhe) Mop-Modus auch für cleanSegments und cleanZone hinzugefügt
-* (Dirkhe) Wischmodus auch für Räume hinzufügen
-* (MeisterTR) Karte zoomen und Teppich anzeigen
+* (Dirkhe) fix missing stock command for mop_mode
+* (Dirkhe) add mop mode also for cleanSegments and cleanZone
+* (Dirkhe) add mop mode also for rooms
+* (MeisterTR) map zooming amd show carpet
 
 ### 3.7.0 (2022-10-28)
-* (Dirkhe) Akzeptiere benutzerdefinierte Befehle mit einem einzigen Parameter
-* (Dirkhe) optionale Parameter waterboxMode und fanSpeed für cleanSegments und cleanZone
-* (Dirkhe) Absturz beim Senden einer Nachricht behoben (#652)
-* (Dirkhe) Wischmodus hinzufügen (#670)
-* (Dirkhe) fan_power für S7 Ultra anpassen (#677)
+* (Dirkhe) accept custom commands with single paramter
+* (Dirkhe) optional parameter waterboxMode and fanSpeed for cleanSegments and cleanZone 
+* (Dirkhe) fix crash on message send (#652)
+* (Dirkhe) add mop mode (#670)
+* (Dirkhe) adapt fan_power for S7 Ultra(#677)
 
 ### 3.6.0 (2022-07-07)
-* (Dirkhe) Staubsammeln hinzufügen
+* (Dirkhe) add dust collecting
 
 ### 3.5.0 (2022-06-29)
-* (Dirkhe) Roborock S6 Pure-Modell hinzugefügt
-* (Dirkhe) einige Hinweise in Readme hinzugefügt/erweitert
-* (Dirkhe) zusätzliche Protokollinformationen für cleanRooms hinzugefügt
-* (Dirkhe) Fehler bei falschem Map-DP behoben
+* (Dirkhe) add Roborock S6 Pure model
+* (Dirkhe) add/extend some Hints in readme
+* (Dirkhe) add additional log info for cleanRooms
+* (Dirkhe) fix error for wrong map-dp
 
 ### 3.4.2 (2022-06-24)
-* (Apollon77) Abhängigkeiten aktualisieren, um einen besseren automatischen Neuaufbau zu ermöglichen
+* (Apollon77) Update dependencies to allow better automatic rebuild
 
 ### 3.4.1 (2022-05-31)
-* (Dirkhe) fehlende Vakuumzustände hinzugefügt
-* (Dirkhe) hinzufügen Hafenzustand Abwassertank voll
+* (Dirkhe) add missed Vacuum states
+* (Dirkhe) add dock state Waste water tank full
 
 ### 3.4.0 (2022-05-28)
-* (Apollon77) Mehrere potenzielle Absturzfälle behoben, die von Sentry gemeldet wurden
+* (Apollon77) Fix several potential crash cases reported by Sentry
 
 ### 3.3.6 (2022-05-03)
-* (Dirkhe) Fleckreinigung behoben
+* (Dirkhe) fix spotcleaning
 
 ### 3.3.5 (2022-02-07)
-* (Dirkhe) hat einige Fehler behoben
-* (lasthead0) kyrillisches Problem behoben RC4 lib#
+* (Dirkhe) fixed some errors
+* (lasthead0) fix cyrillic issue RC4 lib#
 
 ### 3.3.3 (2022-01-20)
-* (Dirkhe) hat einige Fehler behoben
-* (Dirkhe) füge RC4 hinzu
+* (Dirkhe) fixed some errors
+* (Dirkhe) add RC4
 
 ### 3.3.1 (2021-10-02)
-* (MeisterTR) IOBROKER-MIHOME-VACUUM-Z behoben
-* (MeisterTR) behebt einige Fehler
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-Z
+* (MeisterTR) fix some errors
 
 ### 3.3.0 (2021-10-01)
-* (MeisterTR) fix keine Räume für S5
-* (MeisterTR) Fix IOBROKER-MIHOME-VACUUM-4 DB geschlossen
-* (MeisterTR) Verbindungsfehler behoben
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+* (MeisterTR) fix connection error
 
 ### 3.2.2 (2021-07-16)
-* (Bluefox) Die Kommunikation ist korrigiert
-* (Blaufuchs) Rollen hinzugefügt, die vom Typ-Detektor erkannt werden sollen
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
-* (Apollon77) Mehrere Absturzfälle anpassen (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER -MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
 ### 3.2.0 (02.06.2021)
-* (MeisterTR) Veröffentlichungskandidat
-* (MeisterTR) Verbrauchsmaterial nach Reset erhalten
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
 
 ### 3.1.10 (23.05.2021)
-* Fehler behoben
-* Wachposten hinzufügen
+* error fixed
+* add sentry
 
 ### 3.1.6 (05.05.2021)
-* Festplattenschreiben minimieren
-* minimierte Nachrichten
-* Warnmeldungen zum Debuggen geändert
-* Debuglog erweitern, um Fehler für e2-Vakuum zu finden
-* getStates hinzugefügt, wenn die Karte geändert wird
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
 
 ### 3.1.5 (03.05.2021)
-* Versuchen Sie, den Kartenfehler zu beheben
-* Map64 geändert. jetzt ohne img-tags
-* Multimap-Unterstützung hinzufügen (Räume und Karte erhalten, wenn die Karte geändert wird)
-* Wählen Sie Multimaps
-* Fehler mit Zonenkoordinaten behoben
-* WLAN hinzufügen
-* Verbindungsprobleme beheben
-* Korrigieren Sie die Valetudo-Karte
-* Mop-Zustand hinzufügen
-* Repariere einige Objekte
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
+* select Multimaps
+* fix error with zone coordinates
+* add WiFi
+* fix connection Problems
+* fix Valetudo map
+* add Mop state
+* fix some objects
 
 ### 3.1.1 (18.4.2021)
- * Vollständig neu schreiben
- * Kartenfehler mit mehreren Staubsaugern behoben
- * Leistungsprobleme beheben
- * bessere Verbindung zum Vakuum
- * Fehler im ReloadMap-Button behoben
- * Show Goto und Zone States, um Orte zu finden
- * und viele mehr...
+ * Full rewrite
+ * Fix map bug with multiple vacuums
+ * fix performance Problems
+ * better connection to vacuum
+ * fix bug in ReloadMap button
+ * Show Goto and Zone States ti find places
+ * and many more...
 
 ### 2.2.5 (2021-04-02)
-* S7-Unterstützung hinzugefügt
-* Fehlerbehebungen für S5 Max und andere
+* added S7 Support
+* bugfixes for S5 Max and others
 
 ### 2.2.4 (2020-09-15)
-* (dirche) füge eine Konfiguration für send Pause Before Home hinzu
+* (dirkhe) add config for send Pause Before Home
 
 ### 2.2.3 (2020-08-20)
-* (dirkhe) Raum DP werden nicht gelöscht, bei Kartenwechsel
+* (dirkhe) room DP are not deleted, on map change
 
 ### 2.2.0 (2020-08-13)
-* (MeisterTR) Test für Viomi und Dreame Api hinzugefügt
+* (MeisterTR) add test for Viomi and Dreame Api
 
 ### 2.1.1 (2020-07-10)
-* (Bluefox) Refactoring
-* (Bluefox) Unterstützung des Kompaktmodus hinzugefügt
+* (bluefox) Refactoring
+* (bluefox) Support of compact mode added
 
 ### 2.0.10 (2020-07-05)
-* Versuchen Sie dreimal, die Reinigung zu starten, wenn der Roboter nicht antwortet, und einige Korrekturen
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
-* (dirche) füge Statusinformationen für Raumkanäle hinzu und ändere Warteschlangeninformationen von Nummer zu JSON
+* (dirkhe) add state info for room channels and change queue info from number to JSON
 
 ### 2.0.8 (2020-02-26)
-* (dirche) verringerte Kommunikation mit dem Roboter
+* (dirkhe) decreased communication with robot
 
 ### 2.0.7 (2020-02-25)
-* (dirkhe) add Wiederaufnahme nach Pause für Räume
+* (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) Räume für s50 mit Karte hinzufügen (Cloud oder Valetudo benötigt)
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
 ### 2.0.4 (2020-02-13)
-* (MeisterTR) Cloud-Login hinzufügen, um Token zu erhalten
-* (MeisterTR) Cloud Map hinzufügen
-* (MeisterTR) neues und altes Kartenformat hinzugefügt
-* (MeisterTR) Konfigurationsseite neu erstellen
+* (MeisterTR) add cloud login to get token
+* (MeisterTR) add cloud Map
+* (MeisterTR) add new and old Map format
+* (MeisterTR) rebuild config page
 
 ### 1.10.5 (2020-02-11)
-* Ping nur senden wenn nicht verbunden, sonst get_status
-* Schaltflächenstatus auf wahr setzen, wenn sie angeklickt werden
-* Timer-Manager und Room-Manager in eigene Bibliotheken verschieben
+* send Ping only if not connected, otherwise get_status
+* set button states to true, if clicked
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
-* (MeiserTR) Valetudo-Kartenunterstützung für gen3 und gen2 2XXX hinzugefügt
+* (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
 
 ### 1.10.1 (2020-01-20)
-* (dirkhe) Zone als Roomhandling hinzugefügt
-* (dirkhe) Timer könnte Zimmerkanäle direkt
+* (dirkhe) added zone as room handling
+* (dirkhe) timer could room channels directly
 
 ### 1.10.0 (2020-01-17)
-* (dirkhe) Raumhandhabung hinzugefügt
-* (dirche) Timer hinzugefügt
-* (dirkhe) Feature-Handling geändert
+* (dirkhe) added room handling
+* (dirkhe) added Timer 
+* (dirkhe) changed feature handling
 
 ### 1.1.6 (2018-12-06)
-* (JoJ123) Lüftergeschwindigkeit für MOP (S50+) hinzugefügt.
+* (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Beschreibung für Status 16 und 17 hinzugefügt (goTo und Zonenreinigung).
-* (BuZZy1337) Einstellung für die automatische Wiederaufnahme der pausierten Zonenreinigung hinzugefügt.
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Möglichkeit hinzugefügt, eine angehaltene Zonenreinigung fortzusetzen (Zustand: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
-* (BuZZy1337) Behoben, dass der zoneCleanup-Status nicht funktioniert (Vakuum verließ nur das Dock, sagte "Finished ZoneCleanup" und kehrte sofort zum Dock zurück)
+* (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
 
 ### 1.1.2 (2018-07-05)
-* (BuZZy1337) Erkennung neuer Firmware / Vakuum der zweiten Generation behoben
+* (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) Fehler abgefangen, Status für neue FW hinzugefügt
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
-* (mswiege) Das Widget ist fertig
+* (mswiege) Finished the widget
 
 ### 1.0.1 (2018-01-26)
-* (MeisterTR) bereit für admin3
-* (MeisterTR) unterstützt SpotClean und Sprachpegel (v1)
-* (MeisterTR) unterstützt zweite Generation (S50)
-* (MeisterTR) Datenanfragen beschleunigen
+* (MeisterTR) ready for admin3
+* (MeisterTR) support SpotClean and voice level (v1)
+* (MeisterTR) support second generation (S50)
+* (MeisterTR) Speed up data requests
 
 ### 0.6.0 (2017-11-17)
-* (MeisterTR) verwendet 96-Zeichen-Token von Ios Backup
-* (MeisterTR) schnellere Verbindung bei der ersten Nutzung
+* (MeisterTR) use 96 char token from Ios Backup
+* (MeisterTR) faster connection on first use
 
 ### 0.5.9 (2017-11-03)
-* (MeisterTR) Kommunikationsfehler ohne i-net behoben
-* (AlCalzone) Auswahl vordefinierter Leistungsstufen hinzufügen
+* (MeisterTR) fix communication error without i-net
+* (AlCalzone) add selection of predefined power levels
 
 ### 0.5.7 (2017-08-17)
-* (MeisterTR) Systemzeit und Roboterzeit vergleichen (keine Verbindung beheben, wenn Systemzeit unterschiedlich)
-* (MeisterTR) Werte aktualisieren, wenn Roboter per Cloud starten
+* (MeisterTR) compare system time and Robot time (fix no connection if system time is different)
+* (MeisterTR) update values if robot start by cloud
 
 ### 0.5.6 (2017-07-23)
-* (MeisterTR) Option für Kistenschalter für Alexa-Steuerung hinzufügen
+* (MeisterTR) add option for crate switch for Alexa control
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) Zustände, Funktionen hinzufügen, Kommunikationsfehler beheben
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
-* (MeisterTR) keine Kommunikation nach Softwareupdate behoben (Vers. 3.3.9)
+* (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)
 
 ### 0.3.1 (2017-04-10)
-* (MeisterTR) Einstellung der Lüfterleistung korrigiert
-* (Bluefox) Fehler abfangen, wenn Port belegt ist
+* (MeisterTR) fix setting the fan power
+* (bluefox) catch error if port is occupied
 
 ### 0.3.0 (2017-04-08)
-* (MeisterTR) füge weitere Staaten hinzu
+* (MeisterTR) add more states
 
 ### 0.0.2 (2017-04-02)
-* (steinwedel) Implementierung einer besseren Decodierung von Paketen
+* (steinwedel) implement better decoding of packets
 
 ### 0.0.1 (2017-01-16)
-* (Bluefox) anfängliches Commit
+* (bluefox) initial commit
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo/README.md
 title: ioBroker.netatmo
-hash: vCCw2pW8BzQaS7e0BhDYBpI0hbkzCsxbhSYIgxyHL88=
+hash: b47wxf4E6k71cczTjfUXIpKk8YkPyHnnQgYFVIT9+1M=
 ---
 ![商标](../../../en/adapterref/iobroker.netatmo/admin/netatmo.png)
 
@@ -51,6 +51,21 @@ Netatmo 适配器版本 < 3.0 使用 heroku 服务来传递这些 webhook 事件
 
 请确保配置他们遵守 https://dev.netatmo.com/guideline#rate-limits 的限制（请记住，如果您不使用自己的 ID/秘密，这些限制也适用于所有用户）
 
+＃＃ 用法
+适配器应查询您在配置中启用的所有设备类型。如果您更改此项，您需要重新执行“使用 Netatmo 进行身份验证”。
+
+然后，适配器使用设备数据和支持此功能的设备的额外“事件”状态创建状态。要接收这些事件，您需要选择物联网实例并添加专业云帐户（见上文）。
+
+某些设备使用每种类型的最新事件进行初始化（如果它发生在上次），例如相机。对于其他设备类型（例如烟雾/二氧化碳传感器），事件不是从过去预先填充的，这些状态将在收到下一个事件后立即填充。
+
+### IDiamant/Bubendorff 卷帘的特别说明
+Netatmo API 不提供卷帘设备更改的实时数据。这意味着数据是在轮询间隔中定义的轮询。
+这基本上意味着当卷帘直接或通过 Netatmo 应用程序进行控制时，数据将不会实时准确。
+
+当通过适配器控制设备时，它会在控制后更新 2s 和 17s 的值，以便数据更新。
+
+取决于设备 目标位置可以设置为 0% 和 100% 之间的任何数字，或者只能设置为 0% 或 100%（-1 表示停止）。但对于这些操作，也可以使用方便的按钮打开、关闭和停止。
+
 ## 支持发送
 ### 设置离开
 您还可以使用 sendTo 命令将所有人设置为离开（例如，如果用作警报系统）
@@ -59,7 +74,7 @@ Netatmo 适配器版本 < 3.0 使用 heroku 服务来传递这些 webhook 事件
 sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg'});
 ```
 
-要么
+或者
 
 ```
 sendTo('netatmo.0', "setAway");
@@ -83,6 +98,12 @@ sendTo('netatmo.0', "setAway", {homeId: '1234567890abcdefg', personsId: ['123123
 ### **正在进行中** -->
 
 ## Changelog
+### 3.1.0 (2023-01-06)
+* (Apollon77) Add support for Bubendorff roller shutters
+* (Apollon77) Fix Monitoring State for Welcomes
+* (Apollon77) Allow to just use CO2/Smoke sensors
+* (Apollon77) Optimize Shutdown procedure
+
 ### 3.0.0 (2022-12-14)
 * (Apollon77/bluefox) BREAKING CHANGE: Restructure Realtime events to be received via iot instance (iot >= 1.14.0 required)
 
@@ -266,4 +287,4 @@ IMPORTANT: This Adapter requires Admin 6.2.14+ to be configured!
 ## License
 MIT
 
-Copyright (c) 2016-2022 Patrick Arns <iobroker@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <iobroker@patrick-arns.de>

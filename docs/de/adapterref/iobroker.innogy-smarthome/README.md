@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innogy-smarthome/README.md
 title: ioBroker.Innogy-SmartHome
-hash: 9OoAG/oeIFP0hZPibwrC97CrA/u6rmU6pP+rgLhRyEI=
+hash: 9H2ODtBBFta3Ws1pxPfBz8XS7c63PcXND8+J5UyFLJQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
@@ -11,221 +11,264 @@ hash: 9OoAG/oeIFP0hZPibwrC97CrA/u6rmU6pP+rgLhRyEI=
 ![Bauen](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
 
 # IoBroker.Innogy-SmartHome
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+
 Dieser Adapter wird verwendet, um die Livisi SmartHome-Geräte mit ioBroker zu verbinden. Lesen Sie mehr über Livisi [hier](https://www.livisi.com).
 
 ### Node > 8.x erforderlich
-Bitte beachten Sie: Für den Authentifizierungsprozess muss Port 3000 auf dem Host verfügbar sein. Bitte überprüfen Sie, dass es nicht von anderen verwendet wird (z. B. Grafana). Diese Version unterstützt jetzt auch die neue Livisi Local SmartHome-Funktionalität!
+Bitte beachten Sie: Für den Authentifizierungsprozess muss Port 3000 (standardmäßig, kann in der Konfiguration geändert werden) auf dem Host verfügbar sein. Bitte überprüfen Sie, dass es nicht von anderen verwendet wird (z. B. Grafana). Diese Version unterstützt jetzt auch die neue Livisi Local SmartHome-Funktionalität! Bitte wechseln Sie zur lokalen Version, da die Livisi Cloud in Q1/2023 deaktiviert wird!
 
 ## STELLENANGEBOTE!
 Da dieses Projekt in meiner Freizeit entwickelt wird, suche ich aktiv nach Hilfe, um diese Bibliothek zu pflegen und zu erweitern! Wenn Sie bereit sind zu helfen, schreiben Sie mir!
 
 ## Changelog
+### 1.2.5 (2023-01-07)
+* (Apollon77) Added more states
+
+### 1.2.4 (2023-01-05)
+* (Apollon77) Added shockDetected states
+* (Apollon77) Handled room enums better for an empty room
+
+### 1.2.3 (2023-01-04)
+* (Apollon77) Made activeChannel states writable to trigger Alarm
+* (Apollon77) Fixed unit for chargingCurrent
+
+### 1.2.2 (2023-01-03)
+* (Apollon77) Added missing state definitions (motionDetected, operatingTimeCurrentWeek, operatingTimeLastWeek)
+* (Apollon77) Prevented crash cases reported by Sentry
+
+### 1.2.1 (2022-12-31)
+* (Apollon77) Optimize Authentication server handling
+
+### 1.2.0 (2022-12-30)
+* (Apollon77) Changed storage of authentication tokens to allow multiple instances on one host (for instance 0)
+
+### 1.1.2 (2022-12-29)
+* (Apollon77) Added more missing states for several devices
+
+### 1.1.1 (2022-12-28)
+* (Apollon77) Prevented crash cases reported by Sentry
+* (Apollon77) Added missing ISS2 states
+
+### 1.1.0 (2022-12-28)
+* (Apollon77) Prevented crash cases when setting values is not successful
+* (Apollon77) Added more missing states
+* (Apollon77) Added Sentry for Crash reporting and missing state reporting
+
+### 1.0.0 (2022-12-24)
+* IMPORTANT: This updates introduces a new object ID level as Channel, so all Object-IDs will change!
+* IMPORTANT: The local SHC Password needs to be re-entered in Admin!
+* (Apollon77) Added support for local connections to SHC Classic/Generation 1
+* (Apollon77) Added lowBattery and isReachable states and Message support to update them
+* (Apollon77) Added option to configure the port for the redirect back server for OAuth with cloud connection (default 3000)
+* (Apollon77) Add more missing states
+* (Apollon77) General updates and optimizations
 
 ### 0.4.7
-    Changed OAuth local auth
+* Changed OAuth local auth
 
 ### 0.4.6
-    Added missing states
+* Added missing states
 
 ### 0.4.5
-    Fixed a naming problem with newly created devices
+* Fixed a naming problem with newly created devices
 
 ### 0.4.3
-    Added min & max for pointTemperature
+* Added min & max for pointTemperature
 
 ### 0.4.2
-    Added debug information for invalid value data
-    Fixed . in device names
-    Fixed crashes caused by invalid point temperatures (< 6 & > 30)
+* Added debug information for invalid value data
+* Fixed . in device names
+* Fixed crashes caused by invalid point temperatures (< 6 & > 30)
 
 ### 0.4.1
-    Fixed cloud auth, if local auth is activated (blank page)
-    Changed Admin design to be compatible with black & white style
-    Added missing states
+* Fixed cloud auth, if local auth is activated (blank page)
+* Changed Admin design to be compatible with black & white style
+* Added missing states
 
 ### 0.4.0
-    Added support for new Local SmartHome (currently in Beta, requires SHC 2 & Firmware >= 8.17 - you can find more info [here](https://community.livisi.de/lsh-en/))
+* Added support for new Local SmartHome (currently in Beta, requires SHC 2 & Firmware >= 8.17 - you can find more info [here](https://community.livisi.de/lsh-en/))
 
 ### 0.3.7
-   Prevent js-controller 3.3 warnings
+* Prevent js-controller 3.3 warnings
 
 ### 0.3.6
-    Fixed authorization issues
+* Fixed authorization issues
 
 ### 0.3.5
-    Updated authorization endpoint
-    Added shutter
+* Updated authorization endpoint
+* Added shutter
 
 ### 0.3.4
-    Make Hue bulbs writeable (brightness)
-    
+* Make Hue bulbs writeable (brightness)
+
 ### 0.3.3
-    Fixed non switchable variables for new installations (missing native ID)
+* Fixed non switchable variables for new installations (missing native ID)
 
 ### 0.3.2
-    Added more Hue properties
+* Added more Hue properties
 
 ### 0.3.1
-    Added PowerControl
-    Added SHC 2.0 quota states
+* Added PowerControl
+* Added SHC 2.0 quota states
 
 ### 0.3.0
-    Added support for SHC 2.0 (and API 1.1)
+* Added support for SHC 2.0 (and API 1.1)
 
 ### 0.2.11
-    Reverted changes from yesterday, as RW states are not correctly maintained by innogy
+* Reverted changes from yesterday, as RW states are not correctly maintained by innogy
 
 ### 0.2.10
-    Respecting RW state of Capabilities. Please don't try to write to read only states!
+* Respecting RW state of Capabilities. Please don't try to write to read only states!
 
 ### 0.2.9
-    Fixed a problem with timer updates updating device states too often. Please update ASAP
+* Fixed a problem with timer updates updating device states too often. Please update ASAP
 
 ### 0.2.8
-    Fixed a config parsing crash
-    Added a lot of new device descriptors to speed up inital boot
-    Increased request limit from 2 to 6 req/sec
+* Fixed a config parsing crash
+* Added a lot of new device descriptors to speed up inital boot
+* Increased request limit from 2 to 6 req/sec
 
 ### 0.2.7 
-    Added handler for non local SHC access and 403 responses (outdated mobile access scenarios)
-    Added handler for broken push connection
-    
+* Added handler for non local SHC access and 403 responses (outdated mobile access scenarios)
+* Added handler for broken push connection
+
 ### 0.2.6
-    Fixed an exception once the Innogy API closes the status socket connection
+* Fixed an exception once the Innogy API closes the status socket connection
 
 ### 0.2.5
-    Implemented throttling changes required by the Innogy API
+* Implemented throttling changes required by the Innogy API
 
 ### 0.2.4
-    Fixed Travis CI build errors
+* Fixed Travis CI build errors
 
 ### 0.2.3
-    Updated underlying libs
-    Changed update timer from 5 mins to 30 mins + 0-30 mins
+* Updated underlying libs
+* Changed update timer from 5 mins to 30 mins + 0-30 mins
 
 ### 0.2.2
-    Fixed reauth problems
-    Fixed initial auth problems
-    Optimized API errors
-    Optimized caching of descriptor files
+* Fixed reauth problems
+* Fixed initial auth problems
+* Optimized API errors
+* Optimized caching of descriptor files
 
 ### 0.2.1
-    Fixed reauth problems
+* Fixed reauth problems
 
 ### 0.2.0
-    Removed external OAuth2 lib
-    Authorization optimization
+* Removed external OAuth2 lib
+* Authorization optimization
 
 ### 0.1.22
-    Fixed initial reauth problem V3
+* Fixed initial reauth problem V3
 
 ### 0.1.21
-    Fixed initial reauth problem next try
-    Added Netatmo Wind Sensor
+* Fixed initial reauth problem next try
+* Added Netatmo Wind Sensor
 
 ### 0.1.20
-    Fixed initial reauth problem
+* Fixed initial reauth problem
 
 ### 0.1.19
-    Fixed an underlying auth problem
+* Fixed an underlying auth problem
 
 ### 0.1.18
-    Updated innogy lib
-    Updated adapter category
-    Updated adapter tests
+* Updated innogy lib
+* Updated adapter category
+* Updated adapter tests
 
 ### 0.1.17
-    Updated innogy lib
+* Updated innogy lib
 
 ### 0.1.16
-    Fixed a lot of stuff
+* Fixed a lot of stuff
 
 ### 0.1.11
-    Added Dimmer
+* Added Dimmer
 
 ### 0.1.9
-    Added a better reconnect handling for internal websocket connection to the API
-    Better error handling
+* Added a better reconnect handling for internal websocket connection to the API
+* Better error handling
 
 ### 0.1.8
-    Added a workaround for corrupted API function which causes a problem during reconnection phase
+* Added a workaround for corrupted API function which causes a problem during reconnection phase
 
 ### 0.1.7
-    Added the ability to detect connection problems with auto reconnect
-    Better error handling
+* Added the ability to detect connection problems with auto reconnect
+* Better error handling
 
 ### 0.1.6
-    More Innogy API error handling with general reconnect on API error
-    Added connected state (yellow state)
+* More Innogy API error handling with general reconnect on API error
+* Added connected state (yellow state)
 
 ### 0.1.5
-    Added new device discovery
-    Added auto connect retry for "remote access not allowed"
-    Fixed exception if device was not found
-    Fixed setState for RST OperationMode
+* Added new device discovery
+* Added auto connect retry for "remote access not allowed"
+* Fixed exception if device was not found
+* Fixed setState for RST OperationMode
 
 ### 0.1.4
-    Fixed Shutter in underlying lib
-    Fixed WebSocket reconnect error in underlying lib
+* Fixed Shutter in underlying lib
+* Fixed WebSocket reconnect error in underlying lib
 
 ### 0.1.3
-    Added Shutter
+* Added Shutter
 
 ### 0.1.2
-    Optimized reconnect handling
+* Optimized reconnect handling
 
 ### 0.1.1
-    Fixed storing of wrong auth data & handling of wrong auth data
+* Fixed storing of wrong auth data & handling of wrong auth data
 
 ### 0.1.0
-    Associate rooms with correct values
-    Update underlying lib to handle offline crashes for Innogy API
+* Associate rooms with correct values
+* Update underlying lib to handle offline crashes for Innogy API
 
 ### 0.0.11
-    Corrected roles for a lot of devices
+* Corrected roles for a lot of devices
 
 ### 0.0.10
-    Corrected roles for a lot of devices
-    Corrected rw states for a lot of devices
+* Corrected roles for a lot of devices
+* Corrected rw states for a lot of devices
 
 ### 0.0.9
-    Fixed initialization sequence in underlying lib
-    Fixed bootstrap sequence in underlying lib
-    Fixed token refresh in underlying lib
-    Removed unneeded error messages
+* Fixed initialization sequence in underlying lib
+* Fixed bootstrap sequence in underlying lib
+* Fixed token refresh in underlying lib
+* Removed unneeded error messages
 
 ### 0.0.8
-    Improved error output once again
+* Improved error output once again
 
 ### 0.0.7
-    Improved error output
+* Improved error output
 
 ### 0.0.6
-    Removed no longer needed log errors
-    Added unload method
-    Optimized session refreshing
+* Removed no longer needed log errors
+* Added unload method
+* Optimized session refreshing
 
 ### 0.0.5
-    Fixed parsing errors
+* Fixed parsing errors
 
 ### 0.0.4
-    Added Netatmo Weatherstation
+* Added Netatmo Weatherstation
 
 ### 0.0.3
-    Added a lot of devices
-    Updated lib to reestablish Websocket connection
-    Added debug event if Websocket connection is lost
+* Added a lot of devices
+* Updated lib to reestablish Websocket connection
+* Added debug event if Websocket connection is lost
 
 ### 0.0.2
-    Added "Virtual" as default location for devices which doesn't have a location
+* Added "Virtual" as default location for devices which doesn't have a location
 
 ### 0.0.1
-    Initial commit
+* Initial commit
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020-2022 Patrick Arns iobroker@patrick-arns.de
+Copyright (c) 2020-2023 Patrick Arns iobroker@patrick-arns.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

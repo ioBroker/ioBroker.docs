@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.material/README.md
 title: ioBroker.material
-hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
+hash: ytR9sa7Pl14zF2yPap5R1x9Gqjs/HYShaPvqZwEkX8A=
 ---
 ![Логотип](../../../en/adapterref/iobroker.material/admin/material.png)
 
@@ -17,7 +17,7 @@ hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 
 ![Скриншоты](../../../en/adapterref/iobroker.material/img/screenshot1.png)
 
-## Монтаж
+## Установка
 **Важно!** Этот адаптер нельзя установить напрямую с GitHub. Только из нпм.
 
 ## Применение
@@ -30,11 +30,10 @@ hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 ### Медиа плеер
 ### Объем
 ### Громкость группы
-## Сделать
+## Делать
 * Кулачки (через дополнительный адаптер)
 * события (через дополнительный адаптер)
 * Главный экран
-* Графики
 * Узкое меню
 * пылесос
 * показать полосу для ползунков, чтобы указать положение
@@ -53,6 +52,15 @@ hash: 4aOq1XwhyPwkrDMmUVJHwEcEmKLTGMvTC5heIh4QlSc=
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.3.0 (2022-12-27)
+* (bluefox) Corrected URL widget
+
+### 1.2.6 (2022-12-07)
+* (bluefox) Corrected color of blinds in light mode
+
+### 1.2.5 (2022-11-02)
+* (bluefox) Corrected error with charts
+
 ### 1.2.2 (2022-10-18)
 * (bluefox) migrated to MUIv5
 * (bluefox) corrected error with blinds

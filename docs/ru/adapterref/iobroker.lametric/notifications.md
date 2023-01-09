@@ -4,9 +4,9 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/notifications.md
 title: ioBroker.lametric
-hash: l/Rc8pIK/jgL6o3pp9SEiRWsNxp2TapqbOTuo4try1M=
+hash: aNJ8HrBOWxtu8Qq3HfnLnEtZsdgGnKJDFWuw375fDwI=
 ---
-![логотип](../../../de/adapterref/iobroker.lametric/../../admin/lametric.png)
+![логотип](../../../de/admin/lametric.png)
 
 # IoBroker.lametric
 ## Уведомления
@@ -14,71 +14,68 @@ hash: l/Rc8pIK/jgL6o3pp9SEiRWsNxp2TapqbOTuo4try1M=
 
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "[info|warning|critical]",
-        iconType: "[none|info|alert]",
-        sound: "<string from sound list>",
+        priority: '[info|warning|critical]',
+        iconType: '[none|info|alert]',
+        sound: '<string from sound list>',
         lifeTime: <milliseconds>,
-        icon: "<icon>",
-        text: "<string|array>",
+        icon: '<icon>',
+        text: '<string|array>',
         cycles: <integer>
     }
 );
 ```
 
-Пример одиночного кадра:
-
+### Пример одного кадра
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
+        priority: 'info',
+        iconType: 'none',
+        sound: 'cat',
         lifeTime: 5000,
-        icon: "i31820",
-        text: "test",
+        icon: 'i31820',
+        text: 'test',
         cycles: 1
     }
 );
 ```
 
-Пример нескольких кадров:
-
+### Пример нескольких кадров
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
+        priority: 'info',
+        iconType: 'none',
+        sound: 'cat',
         lifeTime: 5000,
-        icon: "i31820",
-        text: ["frame 1", "frame 2", "frame 3"],
+        icon: 'i31820',
+        text: ['frame 1', 'frame 2', 'frame 3'],
         cycles: 1
     }
 );
 ```
 
-Пример циклической информации:
-
+### Пример циклической информации
 ```JavaScript
 let i = 0;
 function show() {
     console.log('Show ' + i);
     sendTo(
-        "lametric.0",
-        "notification",
+        'lametric.0',
+        'notification',
         {
-            priority: "info",
-            iconType: "info",
+            priority: 'info',
+            iconType: 'info',
             lifeTime: 5000,
-            icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==",
-            text: "Hi " + i,
+            icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==',
+            text: 'Hi ' + i,
             cycles: 1
         }
     );
@@ -86,4 +83,27 @@ function show() {
 }
 setInterval(show, 10000);
 show();
+```
+
+### Образец пользовательского звука
+Требуется mp3 в следующем формате:
+
+- Частота дискретизации: 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000
+- Каналы: моно или стерео
+- Размер выборки: 16 бит
+
+```JavaScript
+sendTo(
+    'lametric.0',
+    'notification',
+    {
+        priority: 'info',
+        iconType: 'none',
+        soundUrl: 'http://172.16.0.126:8082/state/sayit.0.tts.mp3',
+        lifeTime: 5000,
+        icon: 'i31820',
+        text: 'test',
+        cycles: 1
+    }
+);
 ```

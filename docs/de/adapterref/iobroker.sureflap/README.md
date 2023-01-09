@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
+hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -23,6 +23,8 @@ hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 ## Aufbau
 Fügen Sie den Benutzernamen und das Passwort Ihres Sure Petcare®-Kontos auf der Adapterkonfigurationsseite hinzu.
 
+Auch Batterie-Voll- und -Leer-Schwellenwerte können hier bei Verwendung von Akkus angepasst werden. Dies wirkt sich auf die Prozentwerte der Batterie aus.
+
 ## Beschreibung
 Der Adapter gibt Auskunft über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe, Futterautomat oder Wasserspender.
 
@@ -33,7 +35,7 @@ Damit können Sie den Sperrmodus und die Ausgangssperre Ihrer Klappe steuern und
 ### Veränderbare Werte
 Die folgenden Status können geändert werden und werden auf Ihrem Gerät wirksam bzw. in Ihrer Sure Petcare®-App wiedergegeben.
 
-| Zustand | Beschreibung | zulässige Werte |
+| Staat | Beschreibung | zulässige Werte |
 |-------|-------------|----------------|
 | haushaltsname.hub_name.control.led_mode | stellt die Helligkeit der Hub-LEDs ein | **0** - aus<br> **1** - hoch<br> **4** - gedimmt |
 | Haushaltsname.Hub_Name.Klappenname.Kontrolle.Ausgangssperre | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
@@ -53,6 +55,11 @@ SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Warenzeichen von [Sur
 Die Bilder der SureFlap®-Geräte werden ab [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
 
 ## Changelog
+
+### 1.1.6 (2023-01-07)
+* (Sickboy78) added battery voltage configuration
+* (Sickboy78) added translation for adapter settings
+* (Sickboy78) security updates
 
 ### 1.1.5 (2022-09-10)
 * (Sickboy78) added display of serial numbers

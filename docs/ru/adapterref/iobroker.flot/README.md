@@ -112,6 +112,10 @@ History with InfluxDB). Он может быть использован как 
 ![](img/Flot-use1.jpg)
 
 ## Changelog
+### 1.12.0 (2022-12-27)
+* (HSE83) Corrected connection to web instance
+* (bluefox) Added ukrainian translation
+
 ### 1.11.0 (2022-05-26)
 * (Apollon77) Trust GetHistory results to contain ms resolution timestamps
 

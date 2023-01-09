@@ -50,13 +50,21 @@ This settings protects the KNX bus from data flooding by limiting data frames to
 Not sent frames are delay until the delay time since last send on bus is elapsed. If more send requests are waiting, send order is random.
 If you experience disconnects from your KNX IP Gateway in the log then increase this number.
 
+### use common.type boolean for 1 bit enum instead of number
+
+Use in IOB Object common.type boolean for 1 bit enum instead of number.
+
 ### readout values of autoread iob objects on startup
 
 All IOB objects that are configured with the autoread flag are requested on the bus to be synchronized with IOB.
 
-### Add only new Objects
+### import only GAs that do not exist in IOB objects
 
 If checked, the import will skip overwriting existing communication objects.
+
+### remove existing IOB objects thtat are not in import file
+
+To clean up object tree
 
 ### Import XML from ETS
 
@@ -162,12 +170,15 @@ The whole name including path is used to check for similarity.
 
 # howto use the adapter & basic concept
 
-### ACK flags
+### ACK flags with tunneling connections
 
-Applications shall never set ack flags, application is notified from this adapter by the ack flag if data is updated.
+Applications shall not set the ack flag, application is notified from this adapter by the ack flag if data is updated.
 KNX Stack sets the ack flag of the corresponding IoBroker object on receiption of a group address if another knx host writes to the bus.
-Sent frames on KNX triggered by application writing to a object does not result into an immediate acknowledgement message to that object.
-If the write is coming from this adapter, the the ack flag is generated on postivive confirmance in tunneling mode.
+
+| GA is                               | connected to device with a R flag | connected to devices with no R flag | unconnected |
+| ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
+| Application issues GroupValue_Write | ack                               | ack                                 | no ack      |
+| Application issues GroupValue_Read  | ack                               | no ack                              | no ack      |
 
 ### Node Red complex datatype example
 
@@ -359,15 +370,16 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 -   create joint alias objects that react on status inputs
 -   supports project of all possible group address styles
 
-# Known Problems
-
--   none
-
 # Limitations
 
 -   ETS 4 export file format is not supported
 -   KNX secure is not supported
 -   only IPv4 supported
+
+# FAQ
+
+-   Autoread trigger actors on the bus to react
+    Check in ETS if group objects of certain devices that are connected to the suspicious GA have the R/L flag configured. This should not be the case if te device is a consumer of the signal. If the signal has an event character, a groupValueRead would trigger that event. Change configuration in ETS or disable autoread for this object.
 
 ## Changelog
 
@@ -377,6 +389,16 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.5.2 (2023-01-02)
+
+-bugfix: correct falsly generated "confirmation false received" notifications on high sending load
+
+### 0.5.0 (2022-12-30)
+
+-   feature: use common.type boolean for 1 bit enum instead of number
+    import enum with one bit as common.type mixed and not strict as number
+-   handling of iob ack improved for tunneling connections, see description
+
 ### 0.4.5 (2022-12-19)
 
 -   bugfix in knx lib: make dpt2 not an enum datatype
@@ -591,7 +613,7 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 
 ## License
 
-Copyright 2022 contributors to the ioBroker.openknx project
+Copyright 2023 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

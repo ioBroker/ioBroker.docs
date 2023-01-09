@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.keконтакт
-hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
+hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -15,6 +15,8 @@ hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ![НПМ](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.keконтакт
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # Адаптер ioBroker для KEBA KeContact P20 или P30 и BMW i wallbox
@@ -70,7 +72,7 @@ hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ### Ограничение мощности
 Вы также можете ограничить макс. мощность вашего настенного блока для ограничения основного питания. Например. при работе с ночными накопительными нагревателями вам, возможно, придется соблюдать ограничение максимальной мощности.
 Если вы введете значение, ваш настенный ящик будет постоянно ограничен, чтобы не превысить лимит мощности.
-Для ограничения можно указать до трех состояний счетчиков электроэнергии. Все значения будут добавлены для расчета текущего потребления.
+Для ограничения можно указать до трех состояний счетчиков энергии. Все значения будут добавлены для расчета текущего потребления.
 Дополнительный флажок используется для указания того, включено ли питание настенного ящика (в этом случае мощность настенного ящика будет вычтена из значений состояния).
 
 ### Динамические параметры
@@ -100,6 +102,7 @@ KeConnect является зарегистрированной торговой
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

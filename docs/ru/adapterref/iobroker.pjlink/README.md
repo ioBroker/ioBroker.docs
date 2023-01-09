@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
+hash: Ips4mgJB0NT9pMUuDV+m6sho+Yi1Jrg0GDJV2/S8HBU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -14,7 +14,7 @@ hash: TsZjfOSchW6qOZEFUBjL32Lsk8Bcio5TviwZM0/V064=
 ![НПМ](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)
 
 # IoBroker.pjlink
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер pjlink для ioBroker
 Управление проектором PJLink
@@ -36,10 +36,8 @@ PJLink — это новый стандарт, разработанный для
 
 Эта работа основана на модуле nodejs с реализацией pjlink от **sy1vain**: [https://github.com/sy1vain/node-pjlink](https://github.com/sy1vain/node-pjlink)
 
-## Сделать
+## Делать
 * поддержка проекта node-pjlink для реализации класса 2
-* запрос INST возвращает больше информации, поскольку вводятся только доступные входные данные. Дополнительная информация добавляется модулем node-pjlink. На данный момент он заносится в базу данных как строковый объект. Можно изменить на «папку» со всеми входами с их именами и т. д.
-* включите класс 2 в этот адаптер iobroker
 
 ## Как работает адаптер
 На данный момент поддерживается только класс 1. Это означает, что адаптер может только опрашивать статус.
@@ -56,16 +54,18 @@ PJLink — это новый стандарт, разработанный для
 | ХРАНЕНИЕ | 4 | 1 - 9 |
 | СЕТЬ | 5 | 1 - 9 |
 
-Возможные входные данные можно найти в базе данных после запуска адаптера в разделе >pjlink.\<экземпляр\>.deviceInfo.availableInputs
+Возможные входные данные можно найти в базе данных после запуска адаптера в разделе > pjlink.\<экземпляр\>.deviceInfo.availableInputs
+
+Вы можете редактировать входной объект в конфигурации экземпляра. Там вы можете отредактировать имена входных данных и позволить объекту базы данных проверить ваши входные данные.
 
 ### Выключатель
 С состоянием (установленным на **true**)
 
->pjlink.\<экземпляр\>.power
+> pjlink.\<экземпляр\>.power
 
 проектор можно включать **и** выключать в зависимости от текущего состояния питания.
 
->pjlink.\<экземпляр\>.powerStatus
+> pjlink.\<экземпляр\>.powerStatus
 
 Переключатель питания автоматически вернется в положение **false**.
 
@@ -77,6 +77,10 @@ PJLink — это новый стандарт, разработанный для
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
+* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
 

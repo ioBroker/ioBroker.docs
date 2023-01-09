@@ -27,6 +27,8 @@
 
 Add username and password from your Sure Petcare® account on the adapter configuration page.
 
+Also battery full and empty thresholds can be adapted here when using accus. This affects the battery percentage values.
+
 ## Description
 
 The adapter provides information about the settings and status of your pet flap, cat flap, feeder or water dispenser.
@@ -136,6 +138,11 @@ SureFlap®, Sure Petcare® and Felaqua® are registered trademarks of [SureFlap 
 The pictures of the SureFlap® devices are provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.6 (2023-01-07)
+* (Sickboy78) added battery voltage configuration
+* (Sickboy78) added translation for adapter settings
+* (Sickboy78) security updates
 
 ### 1.1.5 (2022-09-10)
 * (Sickboy78) added display of serial numbers

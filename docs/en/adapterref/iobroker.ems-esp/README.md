@@ -134,6 +134,19 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.21.0 (2023-01-02)
+* am200 from ems-esp adjustments to changed structure
+
+### 1.20.0 (2022-12-29)
+* am200 from ems-esp - redefine to heatSources/hsa for km200 structure mode
+
+### 1.19.0 (2022-12-29)
+* am200 - alternative heatsource adjustments
+
+### 1.18.0 (2022-12-24)
+* Statistics
+* alternative heat souces (am200)
+
 ### 1.17.1 (2022-12-04)
 * correct actualweight statistics within heatdemand function
 
@@ -312,7 +325,7 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 ## License
 MIT License
 
-Copyright (c) 2022 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2023 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

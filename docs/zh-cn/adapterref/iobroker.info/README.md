@@ -324,6 +324,9 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 1.9.24 (2022-12-22)
+* (Apollon77) downgrade axios package
+
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
 
@@ -337,10 +340,6 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 * (simatec) Design Fix
 * (simatec) Fix Adapter Title
 * (simatec) Update dependencies
-
-### 1.9.19 (2022-03-01)
-* (ldittmar) Fix audio, USB, bluetooth and printer view
-* (ldittmar) Translations fix
 
 ## License
 The MIT License (MIT)

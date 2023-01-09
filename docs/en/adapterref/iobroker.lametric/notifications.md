@@ -11,71 +11,71 @@ To show messages/notifications on your *LaMetric Time*, send a message to the sp
 
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "[info|warning|critical]",
-        iconType: "[none|info|alert]",
-        sound: "<string from sound list>",
+        priority: '[info|warning|critical]',
+        iconType: '[none|info|alert]',
+        sound: '<string from sound list>',
         lifeTime: <milliseconds>,
-        icon: "<icon>",
-        text: "<string|array>",
+        icon: '<icon>',
+        text: '<string|array>',
         cycles: <integer>
     }
 );
 ```
 
-Example single frame:
+### Example single frame
 
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
+        priority: 'info',
+        iconType: 'none',
+        sound: 'cat',
         lifeTime: 5000,
-        icon: "i31820",
-        text: "test",
+        icon: 'i31820',
+        text: 'test',
         cycles: 1
     }
 );
 ```
 
-Example multiple frames:
+### Example multiple frames
 
 ```JavaScript
 sendTo(
-    "lametric.0",
-    "notification",
+    'lametric.0',
+    'notification',
     {
-        priority: "info",
-        iconType: "none",
-        sound: "cat",
+        priority: 'info',
+        iconType: 'none',
+        sound: 'cat',
         lifeTime: 5000,
-        icon: "i31820",
-        text: ["frame 1", "frame 2", "frame 3"],
+        icon: 'i31820',
+        text: ['frame 1', 'frame 2', 'frame 3'],
         cycles: 1
     }
 );
 ```
 
-Example to show some information cyclic:
+### Example to show some information cyclic
 
 ```JavaScript
 let i = 0;
 function show() {
     console.log('Show ' + i);
     sendTo(
-        "lametric.0",
-        "notification",
+        'lametric.0',
+        'notification',
         {
-            priority: "info",
-            iconType: "info",
+            priority: 'info',
+            iconType: 'info',
             lifeTime: 5000,
-            icon: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==",
-            text: "Hi " + i,
+            icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNWRHWFIAAAAySURBVBhXY4AAYdcKk1lngCSUDwHIfAQbzgLqgDCgIqRLwFkQCYQoBAD5EATl4wQMDADhuxQzaDgX0gAAAABJRU5ErkJggg==',
+            text: 'Hi ' + i,
             cycles: 1
         }
     );
@@ -83,4 +83,28 @@ function show() {
 }
 setInterval(show, 10000);
 show();
+```
+
+### Example custom sound
+
+Requires mp3 file with the following format:
+
+- Sample Rate: 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000
+- Channels: mono or stereo
+- Sample Size: 16bit
+
+```JavaScript
+sendTo(
+    'lametric.0',
+    'notification',
+    {
+        priority: 'info',
+        iconType: 'none',
+        soundUrl: 'http://172.16.0.126:8082/state/sayit.0.tts.mp3',
+        lifeTime: 5000,
+        icon: 'i31820',
+        text: 'test',
+        cycles: 1
+    }
+);
 ```

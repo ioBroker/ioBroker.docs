@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.Kameras
-hash: 2uDPwFWgeeStYJD68nZG4CAXgHvqzsEJzpanUWWaKwU=
+hash: 7dDTSTOHUkH6f4vfxV/NGQJ6JmTNR4/PpJeOlVSdk5k=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -41,11 +41,25 @@ Unterstützte Kameras:
 ### URL-Bild mit Basisauthentifizierung
 Dies ist eine URL-Anforderung für ein Bild, bei der sich alle Parameter in der URL befinden, aber Sie können die Anmeldeinformationen für die grundlegende Authentifizierung angeben. Wie `http://mycam/snapshot.jpg`
 
+### FFmpeg
+Wenn Sie auf Schnappschüsse auf RTSP-Kameras zugreifen möchten, können Sie ffmpeg verwenden. Sie müssen ffmpeg auf Ihrem System installieren:
+
+- Windows hat ffmpeg vorkompiliert und es muss nichts heruntergeladen werden. (Die Windows-Version stammt von hier: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
+- Linux: `sudo apt-get install ffmpeg -y`
+
+Hier ist ein Beispiel, wie man Reolink E1 hinzufügt:
+
+![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
+
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.0.2 (2023-01-07)
+* (bluefox) added RTSP camera
+* (bluefox) added cache of snapshots
+
 ### 0.2.0 (2022-09-27)
 * (bluefox) GUI updated to MUIv5
 
@@ -73,7 +87,7 @@ Dies ist eine URL-Anforderung für ein Bild, bei der sich alle Parameter in der 
 ## License
 MIT License
 
-Copyright (c) 2020-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

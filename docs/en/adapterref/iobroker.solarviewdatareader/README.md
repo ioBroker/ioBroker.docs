@@ -64,6 +64,8 @@ TKK= Temperature inverter
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### **WORK IN PROGRESS**
+
 ### 1.0.7 (2022-12-21)
 * (afuerhoff) dependencies updated
 

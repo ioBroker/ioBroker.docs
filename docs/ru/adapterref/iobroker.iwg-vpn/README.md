@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iwg-vpn/README.md
 title: ioBroker.iwg-vpn
-hash: VXYj6ivvl9Q6NnrUTnADlnhHcc0ucpoJMprAx8I5dNI=
+hash: i6vSK/HmGFbQgNeBSkKeERf+Vs/B8unO9hjK+QuqoFw=
 ---
-![Логотип](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn.png)
+![Логотип](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
 ![версия NPM](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iwg-vpn.svg)
@@ -25,6 +25,18 @@ WireGuard является зарегистрированным товарным
 * администратор: >=5.1.0
 
 ## Changelog
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
+
+
+### v0.11.4
+* icons in settings fixed
+* dependencies updated
+* orphan keys clean up added
 
 ### v0.11.3
 * a way to allow write operations on whitelisted variables added

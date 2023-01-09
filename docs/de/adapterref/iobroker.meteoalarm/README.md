@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: /vORLnUCUd3thgw0OfhRyfqUqpIgDnAPpJ/JAKnxP2M=
+hash: qZsUdgSA1n9hKFanlSNmETnt5p466TIomOYyLipZQts=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -44,7 +44,7 @@ Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - html 
 |12|Hochwasser|
 |13|Regenflut|
 
-## Konfiguration
+## Aufstellen
 "Keine Hintergrundfarbe im HTML-Widget": Möglichkeit, das HTML-Widget ohne Hintergrundfarbe zu verwenden (z. B. wenn Sie das Farbobjekt verwenden möchten, um Ihr gesamtes Widget zu füllen, nicht nur das HTML-Widget)
 
 "Warnfarben definieren": Möglichkeit, die Farben für die verschiedenen Alarmstufen im HEX-Code zu definieren. Wird für das HTML-Widget und auch für das Farbobjekt verwendet, um es manuell einem anderen Widget zuzuweisen
@@ -57,13 +57,48 @@ Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - html 
 
 „Heute statt Wochentag“ Zeigt in der Kopfzeile des Widgets statt des Wochentags „heute“, „morgen“ oder „gestern“ an.
 
-## Alarmstufen
-|Alarmstufe|Beschreibung|
+## Objekte
+Allgemeine Objekte:
+
+|Objektname|Beschreibung|
 |:---:|:---:|
-|Grün|Im Moment ist keine Warnung verfügbar.|
-|Gelb|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, jedoch sollte Aktivitäten, die meteorologischen Risiken ausgesetzt sind, erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
-|Rot|Das Wetter ist sehr gefährlich. Ungewöhnlich intensive meteorologische Phänomene wurden vorhergesagt. Extreme Schäden und Unfälle, oft über große Flächen, bedrohen Leben und Sachwerte. |
+|JSON|JSON, das alle Alarme enthält. Struktur: Ereignis, Beschreibung, Stufe, Startdatum, Symbol, Alarmtyp|
+|color|Farbcode der höchsten verfügbaren Alarmstufe|
+|htmlToday|HTML-Widget-Code (einstellbar im Setup)|
+|lastUpdate|Letztes Update von Meteoalarm|
+|level|Maximallevel verfügbarer Alarme|
+|link|Feed-Link|
+|Standort|Standortname|
+|noOfAlarms|Anzahl verfügbarer Alarme|
+|Benachrichtigung|Objekt, das sich ändert, wenn ein neuer Alarm hinzugefügt wird. Kann für Benachrichtigungen verwendet werden.|
+
+Objekte für jeden Alarm:
+
+|Objektname|Beschreibung|
+|:---:|:---:|
+|Farbe|Hex-Code für Alarm - kann im Setup für die verschiedenen Ebenen angepasst werden|
+|Beschreibung|Lange Beschreibung des Alarms|
+|wirksam|Startdatum/-zeit des Alarmereignisses|
+|Ereignis|Ereignistyp|
+|läuft ab|Enddatum/Uhrzeit des Alarmereignisses|
+|Überschrift|Kurze Beschreibung des Alarms|
+|Symbol|Link zum Symbol|
+|Stufe|Stufennummer (siehe Alarmstufen unten)|
+|levelText|Level in Worten|
+|link|Link zu xml|
+|Absender|Wer hat den Alarm gesendet (z.B. Deutscher Wetterdienst")|
+|gesendet|Datum/Uhrzeit, wann der Alarm gesendet wurde|
+|type|Typ des Alarms als Zahl (siehe Alarmtypen oben|
+|typeText|Art des Alarms in Worten (siehe Alarmtypen oben|
+|updateIdentifier|Nicht relevant|
+
+## Alarmstufen
+|Alarmstufe|Nummer|Beschreibung|
+|:---:|:---:|:---:|
+|Grün|1|Im Moment ist keine Warnung verfügbar.|
+|Yellow|2|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, jedoch sollte Aktivitäten, die meteorologischen Risiken ausgesetzt sind, erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
+|Orange|3|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
+|Red|4|Das Wetter ist sehr gefährlich. Ungewöhnlich intensive meteorologische Phänomene wurden vorhergesagt. Extreme Schäden und Unfälle, oft über große Flächen, bedrohen Leben und Sachwerte. |
 
 ## Benachrichtigungen
 Es ist möglich, dass der Adapter Ihnen die Benachrichtigungen per Mail, Telegramm, Signal oder Pushover sendet.
@@ -120,6 +155,10 @@ Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf Github, und 
 ## Nicht mögliche Länder
 * Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
 * Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+
+## 2.3.2 (2023-01-07)
+* (jack-blackson) Bugfix um Warnungen korrekt zu bereinigen
+* (jack-blackson) Bugfix für Pushover, wenn mehrere Instanzen verwendet werden
 
 ## 2.3.0 (2022-09-15)
 * (jack-blackson) Fähigkeit, Alarme an andere Adapter zu senden (Telegramm, eMail, Pushover, Signal, Synochat
@@ -294,7 +333,7 @@ Glocke im Symbol, entworfen von Freepik von www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2022 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2023 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

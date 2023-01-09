@@ -94,6 +94,8 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+#### 0.10.0 Added new sensors for Lightning, Piezo elements, DP250 and minor fixes
+
 #### 0.8.2 Updated UVRaw to maxvalue 4000
 
 #### 0.8.1 Bugfix for timestamp and listener

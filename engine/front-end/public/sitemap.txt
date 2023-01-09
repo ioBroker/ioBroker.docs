@@ -822,7 +822,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hekr/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.heytech/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hid-community/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.history/README.md
@@ -1395,7 +1395,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hekr/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.heytech/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hid-community/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.history/README.md
@@ -1968,7 +1968,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hekr/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.heytech/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hid-community/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.history/README.md
@@ -2541,7 +2541,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hekr/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.helios/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heos/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.heytech/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hid/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hid-community/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hikvision-alarmserver/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.hilink/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.history/README.md

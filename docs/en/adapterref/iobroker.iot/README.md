@@ -280,6 +280,12 @@ Following types are supported:
 -->
 
 ## Changelog
+### 1.14.2 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.14.1 (2022-12-22)
+* (bluefox) Downgraded axios version to 0.27.2
+
 ### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
 

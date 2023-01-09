@@ -13,8 +13,6 @@
 
 ioBroker adapter to connect to several small and cheap Wifi devices that care connected to the Tuya Cloud and mostly use the Smartlife App/Alexa-Skill. The adapter supports reading real time status updates and controlling of those devices once synced with the respective mobile phone app.
 
-Tuya devices are ESP8266MOD WiFi smart devices from Shenzhen Xenon.
-
 Beside devices usable with the Smart Live App or Tuya App.
 
 The adapter locally connects to all devices that are "always in wifi". Devices that only come online when there is an event, send their data and go offline again (mostly **battery powered devices**) are only supported using the Tuya IoT Platform MQTT connection (see below).
@@ -39,6 +37,9 @@ If you decide to store your Tuya App Login Credentials (Smart Life App or Tuya S
 
 To support real time updates of devices that are not connected locally, and also e.g. battery based devices, you can additionally register yourself an Account on the Tuya IoT Platform and Link your App Account and use a Cloud-MQTT connection. To register yourself an Account on the Tuya IoT Platform please follow the instructions on [Tuya IoT Platform](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
 **Note: The IoT Platform Account is only active for some time and needs to be extended monthly afterwards!**
+
+If you use the Tuya IoT Platform and get the message in log like "Use app cloud polling because last MQTT update was 29 hours ago. Please check your Tuya IoT Cloud status that no service is expired." then this means that there were no MQTT messages in the last time and so most likely the iot Core Service has expired. Login to the Tuya IoT Platform and check the status of the iot Core Service. If it is expired then renew it (possible monthly directly or up to 6 months with a manual review process by Tuya staff.
+Direct Link: https://eu.iot.tuya.com/cloud/products?productType=all
 
 With this featureset you can choose between all available options and work with or (beside the one time syncs) without the Tuya Cloud systems. You decide.
 
@@ -124,6 +125,39 @@ The triggering is then send to the cloud.
 The adapter also reads out defined groups and creates corresponding states in the adapter. The group value is also polled from cloud and updated in the adapter.
 When controlling groups this also is done via the cloud because else the group status will run out of sync.
 
+## Converted/Enhanced Datapoints
+
+The data from some datapoints are encoded and so needs to be decrypted and re-encrypted if allowed to change.
+
+### Bitmap Fields
+Some fields contain bitmaps, which means that they are a number and each bit in this number represents a state. The adapter converts these fields into substates like X-0 (for bit 0), X-1 (for bit 1) and so on. The label of the bit is set added to the name of the state.
+Currently, bitfields are not writable.
+
+### RGB Color states (IDs 24/5/colour/colour_data)
+RGB Color datapoints are decoded into an object 5-rgb/24-rgb as RGB value in form "#rrggbb". The current color is decoded into that state and  can also be set by setting that state.
+Make sure to use the correct mode of the lamp (white/color) because color is only relevant when the color mode is active.
+
+### Power measurement states (IDs 5/6/7/phase_a/phase_b/phase_c)
+The power measurement states are decoded into an object X-current, X-power and X-voltage. X-power is only having a value for some devices.
+These states are not writable.
+
+### Device Alarm states(IDs 17/alarm_set_2)
+The alarm states are decoded into a 17-decoded object with a json as value. The JSON contains an array with the list of defined alarm types and their thresholds.
+You can modify and set that JSON to change the alarm settings. The following alarm types are known (but maybe not all are supported by all devices):
+* overcurrent
+* three_phase_current_imbalance
+* ammeter_overvoltage
+* under_voltage
+* three_phase_current_loss
+* power_failure
+* magnetic
+* insufficient_balance
+* arrears
+* battery_overvoltage
+* cover_open
+* meter_cover_open
+* fault
+
 ## Credits
 The work of the adapter would not had been possible without the great work of @codetheweb, @kueblc and @NorthernMan54 (https://github.com/codetheweb/tuyapi) and https://github.com/clach04/python-tuya,https://github.com/uzlonewolf/tinytuya and many more.
 
@@ -141,6 +175,27 @@ When there are issues with the Tuya App Cloud synchronisation then additional lo
 Send the log with reference to the generated GitHub issue to iobroker@fischer-ka.de
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add generic support for gateways (and so also WLAN Gateways)
+* (Apollon77) More schema information added/updated
+
+### 3.12.1 (2023-01-03)
+* (Apollon77) More schema information added/updated
+
+### 3.12.0 (2022-12-29)
+* (Apollon77) Added decoding of phase_a/b/c and alarm_set_2
+* (Apollon77) Added fallback for cloud polling when no values were updated using MQTT connection
+* (Apollon77) Added decoding of bitmaps (read only for now)
+
+### 3.11.4 (2022-12-28)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.3 (2022-12-22)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
 ### 3.11.2 (2022-12-20)
 * (Apollon77) More schema information added/updated
 * (Apollon77) A crash case reported by Sentry is prevented
@@ -453,7 +508,7 @@ Send the log with reference to the generated GitHub issue to iobroker@fischer-ka
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

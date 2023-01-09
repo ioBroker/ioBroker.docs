@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: qK2vCk0Xr00VkH9SH6WvNfXP/NlYo+M7fIyb48aYTXY=
+hash: AlAILR3HvRW3UqUws4L9pAYEDXsJAqqFJP/8fBBF1uI=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -29,10 +29,9 @@ Ein Timer oder mehrere per Spracheingabe, wird über Alexa erstellt, dieser wird
 * Das Vis Widget ist noch nicht integriert
 * Jeder Timer hat eine Taste, um ihn zu stoppen. Stoppt den Timer in Alexa und im Adapter
 * Unbegrenzte Timer können mit Alexa per Sprachbefehl erstellt werden.
-* Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
+* Beim Start des Adapters werden 4 Ordner mit allen Zuständen angelegt.
 * Zusätzliche Ordner werden erstellt, sobald ein 5. und mehr Timer über die Spracheingabe von Alexa erstellt werden.
 * Es funktioniert mit deutscher Eingabe
-* konfiguriert für deutsche Spracheingabe, Englisch (experimentell)
 
 ### Timer hinzufügen ( Beispiele )
 * Alexa, Timer 5 Minuten
@@ -50,6 +49,12 @@ Ein Timer oder mehrere per Spracheingabe, wird über Alexa erstellt, dieser wird
 ### Wenn Sie Vorschläge haben, etwas zu verbessern oder weitere Funktionen hinzuzufügen, können Sie sich gerne an uns wenden
 
 ## Changelog
+### 0.1.15 (22.09.2022)
+* Include creation time to avoid creating duplicate timers
+### 0.1.14 (17.07.2022)
+* Added debouncing in the adapter configuration
+### 0.0.13 (06.03.2022)
+* Delete of Timers with the same value, fixed
 ### 0.1.12 (15.02.2022)
 * Delete of Timer fixed
 ### 0.1.11 (12.02.2022)

@@ -13,42 +13,55 @@ This adapter allows to connect FHEM to ioBroker.
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-To enable the connection the telnet must be enabled in FHEM. To enable it (enabled by default) check following settings in fhen.cfg:
+To enable the connection the telnet must be enabled in FHEM. To enable it (enabled by default) check following settings in `fhem.cfg`:
 
-```define telnetPort telnet 7072 global```
+`define telnetPort telnet 7072 global`
 
 Exactly same port and the IP address of FHEM host (or localhost if FHEM and ioBroker run on same PC) should be used for settings of adapter.
 
-ioBroker sends at the start "jsonlist2" command to get all "Readings" from the list.
+ioBroker sends at the start `jsonlist2` command to get all `Readings` from the list.
 
 ## Supported devices
 Normally all devices are supported. But some of them are better integrated.
 
-The problems appears especially by controlling of the states.
-Because there is no clear attributes structure ioBroker tries to guess which "PossibleSets" fields can be used.
+The problems appear especially by controlling of the states.
+Because there is no clear attributes structure ioBroker tries to guess which `PossibleSets` fields can be used.
 Actually only following attributes are supported:
-- RGB: If RGB exists in *PossibleSets* and in *Readings* it will be combined into one state that can be read and written. Values like ```#234567``` will be automatically converted to ```234567```.
-- on off state: If **on** and **off** exist in *PossibleSets* and **state** in *Readings*, it will be combined into on state under name **state**. It can be controlled with true and false and commands will be changed to ```set DEVICE on``` and ```set DEVICE off```.
+- RGB: If RGB exists in `PossibleSets` and in `Readings` it will be combined into one state that can be read and written. Values like `#234567` will be automatically converted to `234567`.
+- on off state: If `on` and `off` exist in `PossibleSets` and `state` in `Readings`, it will be combined into on state under name `state`. It can be controlled with true and false and commands will be changed to `set DEVICE on` and `set DEVICE off`.
 
 ## Features and Usage
 
 * If room "ioBroker" exist in FHEM, only this objects will be synchronized
 * After synchronization FHEM unused Objects will be automatically deleted.
-* Internals like TYPE, NAME, PORT, manufacturername, modelid, swversion will be synchronized (role=value.xxx)
-* Attributes like room, alias, disable, comment will be synchronized and it is possible to edit Attributes in ioBroker. (role=state.xxx)
+* Internals like `TYPE`, `NAME`, `PORT`, `manufacturername`, `modelid`, `swversion` will be synchronized (`role=value.xxx`)
+* Attributes like `room`, `alias`, `disable`, `comment` will be synchronized, and it is possible to edit Attributes in ioBroker. (`role=state.xxx`)
 * Set role and other during synchronization
-  * Readings xxx with any PossibleSets will be set role=state.xxx
-  * Readings xxx without PossibleSets will be set role=value.xxx
-  * Readings xxx with PossibleSets "noArg" will be set role=button.xxx
-  * Readings xxx with PossibleSets "slider" will be set role=level.xxx, min=slider(min), max=slider(max)
-  * Readings "desired-temp" will be set role=level.temperature, min=5, max=35, unit=°C .
-  * Readings "pct, brightness,dim" will be set role=level.dimmer, min=0, max=100, unit=%
-  * Readings "Volume, volume, GroupVolume" will be set role=level.volume, min=0, max=100, unit=%
-  * Readings "GroupVolume" will be set role=level.volume.group, min=0, max=100, unit=%
-* SmartName for Cloud Adapter will be set automatically with alias or name (only fhem.0 and objects with role = level.temperature, level.dim, level.volume)
+  * `Readings xxx` with any `PossibleSets` will be set `role=state.xxx`
+  * `Readings xxx` without PossibleSets will be set `role=value.xxx`
+  * `Readings xxx` with PossibleSets "noArg" will be set `role=button.xxx`
+  * `Readings xxx` with PossibleSets "slider" will be set `role=level.xxx, min=slider(min), max=slider(max)`
+  * `Readings "desired-temp"` will be set `role=level.temperature, min=5, max=35, unit=°C`.
+  * `Readings "pct, brightness,dim"` will be set `role=level.dimmer, min=0, max=100, unit=%`
+  * `Readings "Volume, volume, GroupVolume"` will be set `role=level.volume, min=0, max=100, unit=%`
+  * `Readings "GroupVolume"` will be set `role=level.volume.group`, `min=0`, `max=100`, `unit=%`
+* `SmartName` for Cloud Adapter will be set automatically with alias or name (only `fhem.0` and objects with `role = level.temperature, level.dim, level.volume`)
 
-
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 2.0.3 (2023-01-03)
+* (Apollon77/LausiD) Made sure that all objects are initialized correctly
+
+### 2.0.2 (2022-12-23)
+* (bluefox) Corrected error with `members`
+
+### 2.0.0 (2022-12-22)
+* (bluefox) Refactoring
+* (bluefox) Corrected some GitHub issues
+* (bluefox) Added JSON config
 
 ### 1.6.3 (2021-07-26)
 * (Apollon77) fix crash case
@@ -147,7 +160,7 @@ Actually only following attributes are supported:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -166,4 +179,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-

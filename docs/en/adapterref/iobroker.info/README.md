@@ -314,6 +314,9 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 1.9.24 (2022-12-22)
+* (Apollon77) downgrade axios package
+
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
 
@@ -327,10 +330,6 @@ Forum entries will be displayed without problems when accessing ioBroker via IP 
 * (simatec) Design Fix
 * (simatec) Fix Adapter Title
 * (simatec) Update dependencies
-
-### 1.9.19 (2022-03-01)
-* (ldittmar) Fix audio, USB, bluetooth and printer view
-* (ldittmar) Translations fix
 
 ## License
 The MIT License (MIT)

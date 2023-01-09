@@ -3,21 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gruenbeck/README.md
 title: 无题
-hash: ot6iKdWRZK7uVdTIc/7ZNwXp2Y/oyRsx3J6NSKSU7wk=
+hash: SFVjKG60apTZ7PTfLBbWqt2dAGwB9nGlegHdstKDUBA=
 ---
-![NPM版本](http://img.shields.io/npm/v/iobroker.gruenbeck.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.gruenbeck.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.gruenbeck.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.gruenbeck.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.gruenbeck.svg)
 ![已知漏洞](https://snyk.io/test/github/TA2k/ioBroker.gruenbeck/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.gruenbeck.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/TA2k/ioBroker.gruenbeck/master.svg)
+![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.gruenbeck/master.svg)
 
-<h1><img src="admin/gruenbeck.png" width="64"/> ioBroker.gruenbeck </h1>
+<h1><img src="admin/gruenbeck.png" width="64"/>ioBroker.gruenbeck</h1>
 
-## IoBroker的gruenbeck适配器
-用于GrünbeckWasseraufbereitung SC18，SC23，SD18，SD21，SD23设备的ioBroker适配器。
+## IoBroker 的 gruenbeck 适配器
+用于 Grünbeck Wasseraufbereitung SC18、SC23、SD18、SD21、SD23 设备的 ioBroker 适配器。
+
+SD Daten findet man unter Stream
 
 ## Changelog
+
+### 0.0.42
+
+- Fix für SC Anlagen mit akuteller Node Version
+### 0.0.29
+
+- Fix login
+- 
+### 0.0.28
+
+- Fix reconnect for SD
+
+### 0.0.27
+
+- Add salt history, water history and parameters for SD devices
+
+### 0.0.25
+
+- Add description for SD states (Delete device under objects to get datapoints with descriptions)
+
+### 0.0.24
+
+- Fix for multiple devices
+
+### 0.0.22
+
+- Add additional SD Data
+
+### 0.0.21
+
+- Fix SD Refresh when App is open
+
+### 0.0.20
+
+- Fix SD Refresh
 
 ### 0.0.17 (2020-01-24)
 
@@ -94,7 +131,7 @@ hash: ot6iKdWRZK7uVdTIc/7ZNwXp2Y/oyRsx3J6NSKSU7wk=
 
 MIT License
 
-Copyright (c) 2019 tombox
+Copyright (c) 2021 tombox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

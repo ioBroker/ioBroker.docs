@@ -3,77 +3,79 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: 8Z+4WWulLeq6uAcMvcnPFD0L5xt/tLWcX8ufWvvOXk0=
+hash: tridX01kDnAnV9k/t6trvSQuEjopO3QGQYe9MP+WB34=
 ---
 ![Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.swiss-weather-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 # IoBroker.swiss-weather-api
-**Aktualisierungsverfahren Version 1.0.1 auf 1.0.x**
+**Update-Prozedur Version 1.0.1 auf 1.0.x**
 
-- Einfach in ioBroker aktualisieren. Keine besonderen zusätzlichen Schritte notwendig
+- Aktualisieren Sie einfach in ioBroker. Keine besonderen zusätzlichen Schritte erforderlich
 
-**Aktualisierungsverfahren Version 1.0.0 auf 1.0.1**
+**Update-Prozedur Version 1.0.0 auf 1.0.1**
 
 - Mit Version 1.0.1 behebe ich das Problem https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
 - Basierend auf [dieser](https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) Diskussion sind Doppelpunkte in IDs nicht erlaubt. Ich habe daher die Doppelpunkte, die für die Stunden verwendet wurden, ersatzlos entfernt und auch die Sekunden weggelassen. z.B. alt 01:00:00 => neu 0100)
 
-Diese Änderung macht es erforderlich, IDs neu zu generieren. Um Version 1.0.1 zu installieren, muss die derzeit laufende Adapterinstanz vollständig entfernt und durch eine neue Instanz ersetzt werden.
+Diese Änderung macht es erforderlich, IDs neu zu generieren. Um also Version 1.0.1 zu installieren, muss die derzeit laufende Adapterinstanz vollständig entfernt und durch eine neue Instanz ersetzt werden.
 
-- Da sich mit Version 1.0.1 die IDs geändert haben, mussten auch die Visu-Views angepasst werden. Sie können die aktualisierten Ansichten [hier](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) abrufen und in ioBroker-Visu importieren.
+- Da sich mit Version 1.0.1 die IDs geändert haben, mussten auch die Visu-Ansichten angepasst werden. Sie können die aktualisierten Ansichten [hier](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) abrufen und in die ioBroker-Visu importieren.
 
-**Update-Prozedur Version 0.3.2 auf 0.9.x** Die SRG hat ihre API komplett neu aufgebaut. Die alte API (<= Adapterversion 0.3.2) wird NICHT mehr unterstützt. Ab Adapterversion 0.9.x wird die neue API der SRG verwendet. Deshalb muss eine neue SRG APP (zB Produkt "Freemium") erstellt werden (https://developer.srgssr.ch/apis/srf-weather). Siehe auch Readme, Kapitel "Erste Schritte" (unten). Bitte beachten Sie auch, dass durch die neue API auch komplett neue Objekte erstellt werden.
-Die gute Nachricht ist, dass die neue API auch mehr Daten bereitstellt. ;)**
-
-Meine Empfehlung für das Update von 0.3.2 auf 0.9.x lautet daher:
-
-- Entfernen Sie den alten Adapter, bevor Sie Version 0.9.x installieren.
-   - Bitte beachten Sie, dass auch die Datenobjekte entsprechend entfernt werden.
-- eine neue Freemium-App auf dem srg-Entwicklerportal erstellen (https://developer.srgssr.ch/apis/srf-weather)
-- neue Version 0.9.x installieren und Konfiguration mit neuem Consumerkey und Consumersecret einstellen
-  - Beim Start erstellt der neue Adapter neue, andere Datenobjekte.
-
-## Swiss-Weather-Api-Adapter für ioBroker
+## Schweizer-Wetter-API-Adapter für ioBroker
 Verbindet sich mit der großartigen SRF-Wetter-API (https://developer.srgssr.ch/apis/srf-weather).
-Mit der SRF Weather REST API können Sie Wettervorhersagen und -berichte von mehr als 25.000 Orten in der ganzen Schweiz abrufen. Ein "Freemium"-Abonnement ermöglicht es Ihnen, 50 Anfragen/Tag zu erhalten.
+Die SRF Weather REST API ermöglicht es Ihnen, Wettervorhersagen und -berichte von mehr als 25.000 Standorten in der ganzen Schweiz zu erhalten. Mit einem "Freemium"-Abonnement erhalten Sie 50 Anfragen/Tag.
 
-#****Symbole**
-Seit Version 0.1.8 bietet SRG-SSR eigene Icons. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wetterlage (Farb-, Dunkel- und Lichtsymbole).
+##**Symbole**
+Seit Version 0.1.8 stellt SRG-SSR eigene Icons zur Verfügung. Jeder Datenpunkt liefert also eine URL zur entsprechenden Wettersituation (Farb-, Dunkel- und Hell-Icons).
 
-#***Bitte beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt.**
+##**Bitte beachten Sie, dass dieser Adapter nur Standorte innerhalb der Schweiz unterstützt.**
 ### Einstieg
-1. Holen Sie sich einen kostenlosen Account auf https://developer.srgssr.ch/
-1. Gehen Sie zu „Meine Apps“ und erstellen Sie eine neue App. Hier können Sie ein Produkt auswählen. "Freemium" ist ihr kostenloses Produkt. Wenn Sie nur eine Vorhersage für einen Standort wünschen und nur 50 Anfragen pro Tag (alle 30 Minuten) erhalten oder/und nicht für mehr Anfragen pro Tag bezahlen möchten, ist "Freemium" die richtige Wahl. Dadurch wird nun ein spezifischer ConsumerKey und ConsumerSecret erstellt
-1. Ermitteln Sie den Längengrad / Breitengrad (Dezimalgrad) des ausgewählten Standorts, für den eine Vorhersage benötigt wird. Diese Angaben sind optional, wenn Sie Ihren Standort in den ioBroker-Einstellungen (Haupteinstellungen) (über die Karte) festgelegt haben. In diesem Fall können Sie die Felder Breiten- und Längengrad leer lassen. Der Adapter übernimmt dann die Einstellungen des ioBrokers. Breiten- und Längengrad, die in der Adapterkonfiguration eingegeben wurden, überschreiben die ioBroker-Einstellungen.
-1. Installieren Sie diesen Adapter auf ioBroker => Dies kann einige Minuten dauern (~7 Minuten auf einem Raspberry Pi 3)
-1. Füllen Sie in der Adapterkonfiguration
+1. Holen Sie sich ein kostenloses Konto auf https://developer.srgssr.ch/
+1. Gehen Sie zu „Meine Apps“ und erstellen Sie eine neue App. Hier können Sie ein Produkt auswählen. "Freemium" ist ihr kostenloses Produkt. Wenn Sie nur eine Vorhersage für einen Standort wünschen und nur 50 Anfragen pro Tag (alle 30 Minuten) erhalten oder/und nicht für mehr Anfragen pro Tag bezahlen möchten, ist „Freemium“ genau das Richtige für Sie. Dadurch werden nun ein bestimmter ConsumerKey und ein ConsumerSecret erstellt
+1. Ermitteln Sie den Längengrad/Breitengrad (Dezimalgrad) des ausgewählten Standorts, für den eine Vorhersage erforderlich ist. Diese Angabe ist optional, wenn Sie Ihren Standort in den ioBroker-Einstellungen (Haupteinstellungen) (über die Karte) festgelegt haben. In diesem Fall können Sie die Breiten- und Längenfelder leer lassen. Der Adapter übernimmt dann die Einstellungen des ioBrokers. In der Adapterkonfiguration eingegebene Breiten- und Längengrade überschreiben die ioBroker-Einstellungen.
+1. Installieren Sie diesen Adapter auf ioBroker => Dies kann einige Minuten dauern (~7min auf einem Raspberry Pi 3)
+1. Füllen Sie die Adapterkonfiguration aus
    1. Name der App
    1. ConsumerKey der App
    1. Verbrauchergeheimnis der App
-   1. Längengrad / Breitengrad des ausgewählten Schweizer Standorts, für den eine Vorhersage benötigt wird. => Bitte Dezimalgrad verwenden (zum Beispiel Zürich: 47.36667 / 8.5)
-   1. Abfrageintervall in Minuten (Standardmäßig 30 Minuten - 50 Anfragen/Tag)
+   1. Längengrad / Breitengrad des ausgewählten Schweizer Standorts, für den eine Vorhersage benötigt wird. => Bitte Dezimalgrad verwenden (z.B. Zürich: 47.36667 / 8.5)
+   1. Abfrageintervall in Minuten (standardmäßig 30 Minuten – 50 Anfragen/Tag)
 
-Die erste Abfrage erfolgt 10s nach dem Start des Adapters. Nach dem ersten Start wird die Abfrage regelmäßig entsprechend dem Konifugationsparameter (Poll-Intervall in Minuten) ausgeführt.
-Die Objekte in Forecast.current_hour werden 30s nach dem ersten Start erstellt und stündlich aktualisiert, indem die entsprechenden Werte aus Forecast.60minutes kopiert werden.
+Die erste Abfrage erfolgt 10s nachdem der Adapter gestartet wurde. Nach dem ersten Start wird die Abfrage entsprechend dem Konfigurationsparameter (Poll Interval in Minutes) regelmäßig ausgeführt.
+Die Objekte in „forecast.current_hour“ werden 30 Sekunden nach dem ersten Start erstellt und stündlich aktualisiert, indem die entsprechenden Werte aus „forecast.60minutes“ kopiert werden.
 
 ### Visualisierungsbeispiel
 ###### Voraussetzung:
-* Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
+* Adapter [Materialdesign-Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
 * Adapter [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
-* [Ansichten nach Vis importieren](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [Ansichten in Vis importieren](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
 
 ###### Beispiel
 ![Tablette](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.5
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/81
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/76 
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/75
+
+### 1.0.4
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/85
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/82
+
+### 1.0.3
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/67
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/66
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/52
 
 ### 1.0.2
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51

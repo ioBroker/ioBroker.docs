@@ -3,21 +3,58 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gruenbeck/README.md
 title: kein Titel
-hash: ot6iKdWRZK7uVdTIc/7ZNwXp2Y/oyRsx3J6NSKSU7wk=
+hash: SFVjKG60apTZ7PTfLBbWqt2dAGwB9nGlegHdstKDUBA=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.gruenbeck.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.gruenbeck.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.gruenbeck.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.gruenbeck/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/TA2k/ioBroker.gruenbeck/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.gruenbeck.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.gruenbeck/master.svg)
 
-<h1><img src="admin/gruenbeck.png" width="64"/> ioBroker.gruenbeck </h1>
+<h1><img src="admin/gruenbeck.png" width="64"/>ioBroker.gruenbeck</h1>
 
-## Gruenbeck Adapter für ioBroker
+## Grünbeck-Adapter für ioBroker
 Ein ioBroker Adapter für Grünbeck Wasseraufbereitung SC18, SC23, SD18, SD21, SD23 Geräte.
 
+SD Daten findet man unter Stream
+
 ## Changelog
+
+### 0.0.42
+
+- Fix für SC Anlagen mit akuteller Node Version
+### 0.0.29
+
+- Fix login
+- 
+### 0.0.28
+
+- Fix reconnect for SD
+
+### 0.0.27
+
+- Add salt history, water history and parameters for SD devices
+
+### 0.0.25
+
+- Add description for SD states (Delete device under objects to get datapoints with descriptions)
+
+### 0.0.24
+
+- Fix for multiple devices
+
+### 0.0.22
+
+- Add additional SD Data
+
+### 0.0.21
+
+- Fix SD Refresh when App is open
+
+### 0.0.20
+
+- Fix SD Refresh
 
 ### 0.0.17 (2020-01-24)
 
@@ -94,7 +131,7 @@ Ein ioBroker Adapter für Grünbeck Wasseraufbereitung SC18, SC23, SD18, SD21, S
 
 MIT License
 
-Copyright (c) 2019 tombox
+Copyright (c) 2021 tombox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

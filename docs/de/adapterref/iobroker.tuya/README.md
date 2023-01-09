@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
+hash: 8HReow5iLosPiWpHlvtVELR3muKwJBg4i470Pj8oH7U=
 ---
 ![Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -18,8 +18,6 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 
 ioBroker-Adapter zur Verbindung mit mehreren kleinen und günstigen WLAN-Geräten, die mit der Tuya-Cloud verbunden sind und meistens die Smartlife-App/Alexa-Skill verwenden. Der Adapter unterstützt das Lesen von Statusaktualisierungen in Echtzeit und die Steuerung dieser Geräte, sobald sie mit der jeweiligen Mobiltelefon-App synchronisiert wurden.
 
-Tuya-Geräte sind ESP8266MOD WiFi-Smart-Geräte von Shenzhen Xenon.
-
 Neben Geräten, die mit der Smart Live App oder der Tuya App verwendet werden können.
 
 Der Adapter verbindet sich lokal mit allen Geräten, die "immer im WLAN" sind. Geräte, die erst bei einem Ereignis online gehen, ihre Daten senden und wieder offline gehen (meistens **batteriebetriebene Geräte**), werden nur über die MQTT-Verbindung der Tuya IoT-Plattform unterstützt (siehe unten).
@@ -30,7 +28,7 @@ Eine Adapterinstanz kann alle Geräte in einem Netzwerk, das UDP-Pakete weiterle
 **Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit betrieben und hat kein geschäftliches Ziel.** **TUYA ist eine Marke von Tuya Global Inc.**
 
 ## Funktionalität: Nur lokale vs. von der Cloud unterstützte Funktionen
-Dieser Adapter kann, wenn gewünscht, größtenteils ohne die Tuya Cloud funktionieren.
+Dieser Adapter kann, wenn gewünscht, größtenteils ohne die Tuya Cloud arbeiten.
 
 Wenn dies gewünscht wird, ist eine einmalige Synchronisierung mit dem Tuya Cloud App Account erforderlich, sobald neue Geräte hinzugefügt werden. Geben Sie dazu die Cloud-Anmeldeinformationen in der Adapterkonfiguration ein und betätigen Sie die Schaltfläche „Einmal synchronisieren“. Es ist nicht erforderlich, die Cloud-Anmeldeinformationen zu speichern!
 
@@ -43,12 +41,15 @@ Wenn Sie sich entscheiden, Ihre Tuya-App-Anmeldeinformationen (Smart Life-App od
 Um Echtzeit-Updates von Geräten zu unterstützen, die nicht lokal verbunden sind, und auch z. batteriebasierte Geräte können Sie sich zusätzlich ein Konto auf der Tuya IoT-Plattform registrieren und Ihr App-Konto verknüpfen und eine Cloud-MQTT-Verbindung verwenden. Um ein Konto auf der Tuya IoT-Plattform zu registrieren, befolgen Sie bitte die Anweisungen unter [Tuya IoT-Plattform](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx).
 **Hinweis: Der IoT Platform Account ist nur für einige Zeit aktiv und muss danach monatlich verlängert werden!**
 
+Wenn Sie die Tuya IoT-Plattform verwenden und im Protokoll die Meldung „Verwenden Sie die App-Cloud-Abfrage, da das letzte MQTT-Update vor 29 Stunden stattfand. Bitte überprüfen Sie Ihren Tuya IoT Cloud-Status, dass kein Dienst abgelaufen ist.“ dann bedeutet dies, dass es in der letzten Zeit keine MQTT-Nachrichten gab und daher höchstwahrscheinlich der iot Core Service abgelaufen ist. Melden Sie sich bei der Tuya IoT-Plattform an und überprüfen Sie den Status des iot Core Service. Wenn es abgelaufen ist, erneuern Sie es (monatlich direkt oder bis zu 6 Monate mit einem manuellen Überprüfungsprozess durch Tuya-Mitarbeiter).
+Direkter Link: https://eu.iot.tuya.com/cloud/products?productType=all
+
 Mit diesem Feature-Set können Sie zwischen allen verfügbaren Optionen wählen und mit oder (neben den einmaligen Synchronisierungen) ohne die Tuya Cloud-Systeme arbeiten. Du entscheidest.
 
 Der "ehemalige" App-Proxy-Sync ist noch in der Adapter Config verfügbar, wird aber nicht mehr empfohlen. Es ist viel einfacher, die neue One Time Cloud Sync durchzuführen.
 
 ### Wenn die UDP-Erkennung nicht funktioniert
-Wenn die Geräte über ihre UDP-Pakete nicht korrekt erkannt werden, können Sie die IP manuell einstellen, indem Sie den IP-Status des Geräts auf die richtige IP setzen.
+Wenn die Geräte über ihre UDP-Pakete nicht richtig erkannt werden, können Sie die IP manuell einstellen, indem Sie den IP-Status des Geräts auf die richtige IP setzen.
 Die erstere Alternative besteht darin, das Geräteobjekt zu bearbeiten. Siehe https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
 
 ### Hinweis für batteriebetriebene Geräte
@@ -67,7 +68,7 @@ Die aktuellen Versionen des Tuya Smart und auch der Smartlife App sind **nicht m
 **Wichtiger Hinweis für iOS-Benutzer:** Der hier beschriebene Proxy-Ansatz funktioniert nicht mehr. Sobald Sie die Smart Life App Version 3.10 oder höher haben, ist die Kommunikation von der App für den Proxy nicht mehr sichtbar. Aber es funktioniert immer noch mit allen Android-App-Versionen, daher ist der beste Ansatz ein Androis-Emulator, wie grob beschrieben unter https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte- ger%C3%A4te/19
 
 Dazu müssen Sie zunächst ein benutzerdefiniertes Root-Zertifikat auf Ihrem Mobilgerät hinzufügen.
-Wenn Sie in der Konfiguration der Adapterinstanz auf "Proxy starten" klicken, wird das Zertifikat für Ihr System erstellt und zeigt einen QR-Code zum Download-Speicherort. Scannen Sie idealerweise den QR-Code mit Ihrem mobilen Gerät und folgen Sie dem Prozess, um dieses Root-Zertifikat hinzuzufügen und ihm zu vertrauen.
+Wenn Sie in der Konfiguration der Adapterinstanz auf „Proxy starten“ klicken, wird das Zertifikat für Ihr System erstellt und zeigt einen QR-Code zum Download-Speicherort. Scannen Sie idealerweise den QR-Code mit Ihrem mobilen Gerät und folgen Sie dem Prozess, um dieses Root-Zertifikat hinzuzufügen und ihm zu vertrauen.
 Wenn der Ort des QR-Codes nicht erreichbar ist (kann passieren, wenn Sie Docker oder ähnliches verwenden), öffnen Sie den „Proxy Web Info Port“ in Ihrem Browser und klicken Sie in der Navigation auf „Root-CA“ und Sie können auch die CA-Datei herunterladen.
 
 Stellen Sie nun sicher, dass Sie die jeweilige Tuya Smart App schließen / beenden.
@@ -130,6 +131,39 @@ Die Auslösung wird dann an die Cloud gesendet.
 Der Adapter liest auch definierte Gruppen aus und erzeugt entsprechende Zustände im Adapter. Der Gruppenwert wird auch von der Cloud abgefragt und im Adapter aktualisiert.
 Bei der Steuerung von Gruppen erfolgt dies ebenfalls über die Cloud, da sonst der Gruppenstatus asynchron läuft.
 
+## Konvertierte/Erweiterte Datenpunkte
+Die Daten einiger Datenpunkte sind verschlüsselt und müssen daher entschlüsselt und erneut verschlüsselt werden, wenn sie sich ändern dürfen.
+
+### Bitmap-Felder
+Einige Felder enthalten Bitmaps, was bedeutet, dass es sich um eine Zahl handelt und jedes Bit in dieser Zahl einen Zustand darstellt. Der Adapter konvertiert diese Felder in Unterzustände wie X-0 (für Bit 0), X-1 (für Bit 1) und so weiter. Die Bezeichnung des Bits wird dem Namen des Zustands hinzugefügt.
+Derzeit sind Bitfelder nicht beschreibbar.
+
+### RGB-Farbzustände (IDs 24/5/colour/colour_data)
+RGB-Farbdatenpunkte werden in ein Objekt 5-rgb/24-rgb als RGB-Wert in der Form „#rrggbb“ dekodiert. Die aktuelle Farbe wird in diesen Zustand decodiert und kann auch durch Setzen dieses Zustands eingestellt werden.
+Achten Sie darauf, den richtigen Modus der Lampe (Weiß/Farbe) zu verwenden, da Farbe nur relevant ist, wenn der Farbmodus aktiv ist.
+
+### Leistungsmesszustände (IDs 5/6/7/phase_a/phase_b/phase_c)
+Die Leistungsmesszustände werden in ein Objekt X-Strom, X-Leistung und X-Spannung dekodiert. X-Power hat nur für einige Geräte einen Wert.
+Diese Zustände sind nicht beschreibbar.
+
+### Gerätealarmzustände (IDs 17/alarm_set_2)
+Die Alarmzustände werden in ein 17-dekodiertes Objekt mit einem json als Wert dekodiert. Der JSON enthält ein Array mit der Liste der definierten Alarmtypen und ihren Schwellenwerten.
+Sie können diesen JSON ändern und festlegen, um die Alarmeinstellungen zu ändern. Die folgenden Alarmtypen sind bekannt (werden aber möglicherweise nicht von allen Geräten unterstützt):
+
+* Überstrom
+* three_phase_current_imbalance
+* Amperemeter_Überspannung
+* Unterspannung
+* dreiphasiger_Stromverlust
+* Stromausfall
+* magnetisch
+* mangelhaftes Gleichgewicht
+* Zahlungsrückstände
+* Batterie_Überspannung
+* cover_open
+* meter_cover_open
+* Fehler
+
 ## Credits
 Die Arbeit des Adapters wäre ohne die großartige Arbeit von @codetheweb, @kueblc und @NorthernMan54 (https://github.com/codetheweb/tuyapi) und https://github.com/clach04/python-tuya nicht möglich gewesen , https://github.com/uzlonewolf/tinytuya und viele mehr.
 
@@ -148,6 +182,40 @@ Wenn es Probleme mit der Synchronisierung der Tuya App Cloud gibt, kann durch de
 Senden Sie das Log mit Bezug auf das generierte GitHub-Issue an iobroker@fischer-ka.de
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add generic support for gateways (and so also WLAN Gateways)
+* (Apollon77) More schema information added/updated
+
+### 3.12.1 (2023-01-03)
+* (Apollon77) More schema information added/updated
+
+### 3.12.0 (2022-12-29)
+* (Apollon77) Added decoding of phase_a/b/c and alarm_set_2
+* (Apollon77) Added fallback for cloud polling when no values were updated using MQTT connection
+* (Apollon77) Added decoding of bitmaps (read only for now)
+
+### 3.11.4 (2022-12-28)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.3 (2022-12-22)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.2 (2022-12-20)
+* (Apollon77) More schema information added/updated
+* (Apollon77) A crash case reported by Sentry is prevented
+
+### 3.11.1 (2022-12-15)
+* (Apollon77) More schema information added/updated
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 3.11.0 (2022-12-14)
+* (Apollon77) Added support to control Zigbee Devices via Hubs locally
+* (Apollon77) Prevent crash case when new unencrypted device is discovered
+* (Apollon77) More schema information added/updated
+
 ### 3.10.2 (2022-12-05)
 * (Apollon77) Optimize IR - now works locally and via cloud in all cases
 
@@ -447,7 +515,7 @@ Senden Sie das Log mit Bezug auf das generierte GitHub-Issue an iobroker@fischer
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

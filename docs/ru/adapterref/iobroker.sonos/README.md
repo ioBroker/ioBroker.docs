@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
+hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -37,8 +37,76 @@ hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
 
 Обходной путь для преобразования текста в речь — использовать [SONOS HTTP-API](https://github.com/jishi/node-sonos-http-api).
 
-## Сделать
-* Показать очередь с обложками
+## Избранное и очередь в VIS
+Используйте состояния `favorites_list_html` и `queue_html`, чтобы отобразить плейлисты и текущую очередь с помощью базового HTML-виджета в VIS. При нажатии на строку плейлист или трек будут воспроизведены немедленно.
+Отформатируйте таблицу с помощью следующих классов css:
+
+### Избранное
+* `sonosFavoriteTable`: выделить любимую таблицу
+* `sonosFavoriteRow`: строки с избранной информацией
+* `sonosFavoriteNumber`: Номер избранного
+* `sonosFavoriteCover`: обложка альбома избранного (захватите изображение с `.sonosFavoriteCover img`)
+* `sonosFavoriteTitle`: Имя избранного
+
+### Очередь
+* `.sonosQueueTable`: таблица отверстий
+* `.sonosQueueRow`: строки, содержащие информацию о дорожке
+* `.currentTrack`: добавляется в строку, содержащую текущую воспроизводимую дорожку
+* `.sonosQueueTrackNumber`: номер или дорожка
+* `.sonosQueueTrackCover`: обложка альбома трека (захватите изображение с `.sonosQueueTrackCover img`)
+* `.sonosQueueTrackArtist`: Имя исполнителя
+* `.sonosQueueTrackAlbum`: название альбома (используйте `display:none`, если не требуется)
+* `.sonosQueueTrackTitle`: Название заголовка
+
+Для длинных списков добавьте `overflow:auto;` или `overflow-y:auto;` к базовому HTML-виджету.
+Обратите внимание: выделение текущего избранного не поддерживается.
+
+### Пример CSS
+```
+.sonosFavoriteTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosFavoriteRow {
+    cursor: pointer;
+}
+.sonosFavoriteNumber {}
+.sonosFavoriteCover img {
+    width: 30px;
+    height: 30px;
+}
+.sonosFavoriteTitle {}
+
+.sonosQueueTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosQueueRow {
+    display: table-row;
+    cursor: pointer;
+}
+.sonosQueueRow.currentTrack {
+    color: #fff;
+    font-weight: bold;
+}
+.sonosQueueTrackNumber {}
+.sonosQueueTrackCover img {
+    width: 30px;
+    height: 30px;
+    display: table-column;
+}
+.sonosQueueTrackArtist {
+    display: table-row;
+}
+.sonosQueueTrackAlbum {
+    display: none;
+}
+.sonosQueueTrackTitle {
+    display: table-row;
+}
+```
+
+## Делать
 * Перепишите с помощью https://github.com/svrooij/node-sonos-ts
 
 ## Конфигурация
@@ -51,6 +119,10 @@ hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### WORK IN PROGRESS
+* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+* (Standarduser) Changed default album art if no cover was found
+
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
 

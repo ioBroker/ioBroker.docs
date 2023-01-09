@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: 80aNZuvM8ZYn+aaS3UfbuMpFQg1PgdlGr1n5a2UjqPk=
+hash: q/gMW6l23X/eui0d7159a+Xlme9VX5Ma+RjiSz2zzMA=
 ---
 ![Logo](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -24,15 +24,23 @@ Der Standardzeitplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
-## Wichtige Änderungen in 0.3.0
-* Erfordert NodeJS 14.16 oder höher
-* Erfordert ioBroker-Host (js-Controller) 4.0 oder höher
+## Erfordert
+* NodeJS 14.16 oder höher
+* ioBroker-Host (js-Controller) 4.0 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.3 (2022-12-22)
+* (HGlab01) Cheapest station now per fuel type (#445)
+
+### 0.3.2 (2022-12-16)
+* (HGlab01) Add feature to find cheapest stations over all locations (#365)
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
+* (HGlab01) Bump axios to 1.2.1
+
 ### 0.3.1 (2022-10-25)
 * (HGlab01) Add option to exclude closed gas stations (#407)
 
@@ -44,14 +52,6 @@ Der Standardzeitplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „
 ### 0.2.10 (2022-02-24)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
 * (HGlab01) js-controller 4.0 readiness
-
-### 0.2.9 (2021-11-29)
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.8
-* (HGlab01) Replace ping-based internet-check with isOnline library
-
-### 0.2.8 (2021-11-16)
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.7
-* (HGlab01) Improve error handling
 
 ## License
 MIT License

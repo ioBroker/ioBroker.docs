@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tuya/README.md
 title: ioBroker.tuya
-hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
+hash: 8HReow5iLosPiWpHlvtVELR3muKwJBg4i470Pj8oH7U=
 ---
-![标识](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
+![商标](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
 ![安装数量](http://iobroker.live/badges/tuya-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tuya.svg)
@@ -17,8 +17,6 @@ hash: dyiNK9AVp62nMMJsfcoffa31tFuUYZBB4doaN9vSptI=
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ioBroker 适配器连接到几个连接到涂鸦云且主要使用 Smartlife App/Alexa-Skill 的小型廉价 Wifi 设备。一旦与相应的手机应用程序同步，适配器就支持读取实时状态更新和控制这些设备。
-
-涂鸦设备是来自深圳Xenon的ESP8266MOD WiFi智能设备。
 
 除了可以使用智能直播应用程序或涂鸦应用程序的设备。
 
@@ -42,6 +40,9 @@ ioBroker 适配器连接到几个连接到涂鸦云且主要使用 Smartlife App
 
 支持本地未连接的设备的实时更新，例如电池类设备，您可以另外在涂鸦物联网平台注册一个账号，绑定您的应用账号，使用云-MQTT连接。要在 Tuya IoT 平台上注册自己的帐户，请按照 [涂鸦物联网平台](https://developer.tuya.com/en/docs/iot/Platform_Configuration_smarthome?id=Kamcgamwoevrx) 中的说明进行操作。
 **注意：物联网平台账号只有一段时间有效，之后需要按月续费！**
+
+如果您使用涂鸦物联网平台，日志中出现类似“使用应用云轮询，因为最后一次 MQTT 更新是在 29 小时前。请检查您的涂鸦物联网云状态，没有服务过期。”那么这意味着上次没有 MQTT 消息，因此 iot 核心服务很可能已经过期。登录涂鸦物联网平台，查看物联网核心服务状态。如果已过期，则续订（可以每月直接续订，也可以通过涂鸦工作人员的人工审核流程最多续订 6 个月。
+直接链接：https://eu.iot.tuya.com/cloud/products?productType=all
 
 使用此功能集，您可以在所有可用选项之间进行选择，并使用或（除了一次性同步之外）不使用 Tuya Cloud 系统。你决定。
 
@@ -84,7 +85,7 @@ ioBroker 适配器连接到几个连接到涂鸦云且主要使用 Smartlife App
 某些移动操作系统的一些图像可以在 [代理页面](PROXY.md) 找到。
 
 ## 不提供最新数据的设备
-我们发现一些设备——很可能是具有电源/电流状态的设备——可能会产生这样的效果，即当移动应用程序连接到它们时，它们只会显示最新值。当应用程序关闭时，它们会保留旧值。
+我们发现一些设备——很可能是具有电源/当前状态的设备——可能会产生这样的效果，即当移动应用程序连接到它们时，它们只会显示最新值。当应用程序关闭时，它们会保留旧值。
 
 在大多数情况下，这些设备目前只能通过“轮询间隔”工作。他们不会自己提供最新的价值。您可以尝试使用 Tuya 的物联网平台并启用 MQTT 选项来解决这个问题。
 
@@ -130,6 +131,39 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 适配器还读出定义的组并在适配器中创建相应的状态。组值也从云中轮询并在适配器中更新。
 当控制组时，这也是通过云完成的，否则组状态将不同步。
 
+## 转换/增强的数据点
+来自某些数据点的数据经过编码，因此如果允许更改则需要解密和重新加密。
+
+### 位图字段
+有些字段包含位图，这意味着它们是一个数字，这个数字中的每一位代表一个状态。适配器将这些字段转换为子状态，如 X-0（对于位 0）、X-1（对于位 1）等。位的标签被设置添加到状态的名称中。
+目前，位域是不可写的。
+
+### RGB 颜色状态（IDs 24/5/colour/colour_data）
+RGB 颜色数据点被解码为对象 5-rgb/24-rgb 作为 RGB 值，格式为“#rrggbb”。当前颜色被解码为该状态，也可以通过设置该状态来设置。
+确保使用正确的灯模式（白色/彩色），因为只有当颜色模式处于活动状态时，颜色才相关。
+
+### 功率测量状态（IDs 5/6/7/phase_a/phase_b/phase_c）
+功率测量状态被解码为对象 X-电流、X-功率和 X-电压。 X-power 仅对某些设备有价值。
+这些状态不可写。
+
+### 设备报警状态（IDs 17/alarm_set_2）
+警报状态被解码为一个 17 解码对象，以 json 作为值。 JSON 包含一个数组，其中包含定义的警报类型及其阈值的列表。
+您可以修改和设置该 JSON 以更改警报设置。以下警报类型是已知的（但可能并非所有设备都支持所有类型）：
+
+*过流
+* three_phase_current_imbalance
+* ammeter_overvoltage
+*欠电压
+* three_phase_current_loss
+* 电源（检测）失败
+* 磁的
+* 余额不足
+*欠款
+* battery_overvoltage
+* 封面打开
+* meter_cover_open
+* 过错
+
 ##学分
 如果没有@codetheweb、@kueblc 和@NorthernMan54 (https://github.com/codetheweb/tuyapi) 和 https://github.com/clach04/python-tuya 的出色工作，适配器的工作是不可能的, https://github.com/uzlonewolf/tinytuya 等等。
 
@@ -148,6 +182,40 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 将参考生成的 GitHub 问题的日志发送至 iobroker@fischer-ka.de
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add generic support for gateways (and so also WLAN Gateways)
+* (Apollon77) More schema information added/updated
+
+### 3.12.1 (2023-01-03)
+* (Apollon77) More schema information added/updated
+
+### 3.12.0 (2022-12-29)
+* (Apollon77) Added decoding of phase_a/b/c and alarm_set_2
+* (Apollon77) Added fallback for cloud polling when no values were updated using MQTT connection
+* (Apollon77) Added decoding of bitmaps (read only for now)
+
+### 3.11.4 (2022-12-28)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.3 (2022-12-22)
+* (Apollon77) A crash case reported by Sentry is prevented
+* (Apollon77) More schema information added/updated
+
+### 3.11.2 (2022-12-20)
+* (Apollon77) More schema information added/updated
+* (Apollon77) A crash case reported by Sentry is prevented
+
+### 3.11.1 (2022-12-15)
+* (Apollon77) More schema information added/updated
+* (Apollon77) Prevent crash case reported by Sentry
+
+### 3.11.0 (2022-12-14)
+* (Apollon77) Added support to control Zigbee Devices via Hubs locally
+* (Apollon77) Prevent crash case when new unencrypted device is discovered
+* (Apollon77) More schema information added/updated
+
 ### 3.10.2 (2022-12-05)
 * (Apollon77) Optimize IR - now works locally and via cloud in all cases
 
@@ -447,7 +515,7 @@ IR 子设备有很多“ir-*”状态，它们都是触发相应按钮/IR 代码
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

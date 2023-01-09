@@ -2,28 +2,67 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.volvo/README.md
-title: ioBroker.volvo
-hash: QNd0Odlbe4peGu5uzG+lxf5q0zvXydVjPZD8HQ6/Zlo=
+title: ioBroker.沃尔沃
+hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ---
 ![商标](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.volvo.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.volvo.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.volvo.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.volvo.svg)
 ![安装数量（最新）](http://iobroker.live/badges/volvo-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/volvo-stable.svg)
-![依赖状态](https://img.shields.io/david/TA2k/iobroker.volvo.svg)
 ![已知漏洞](https://snyk.io/test/github/TA2k/ioBroker.volvo/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.volvo.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/TA2k/ioBroker.volvo/master.svg)
 
-＃ioBroker.volvo
-##沃尔沃ioBroker适配器
-沃尔沃随车转接器
+# IoBroker.沃尔沃
+**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.volvo/workflows/Test%20and%20Release/badge.svg)
 
-＃＃＃ 入门
-使用遥控器下的物体控制车辆
+## 用于 ioBroker 的沃尔沃适配器
+Volvo On Call（随车管家）和新的 Electric API for Android Automotive Cars Adapter
+
+＃＃ 登录
+非电动汽车可以通过用户名和密码登录。
+
+### 电动 Android 汽车需要一个 VCC API 密钥
+注册/登录 <https://developer.volvocars.com/account/>
+
+您需要一个 Google 或 Github 帐户，这与您的 APP 凭据无关
+
+创建应用程序
+
+复制 VCC API 主要密钥
+
+![VCC API密钥](../../../en/adapterref/iobroker.volvo/vccapikey.png)
+
+将 API 密钥粘贴到实例设置中
+
+输入 Volvoe App 用户名和密码。
+
+远程控制不适用于新的 API。请求被接受但没有转发给汽车。
+
+＃＃ 入门
+使用遥控器下的物体来控制车辆
 
 ## Changelog
+
+### 0.1.0
+
+* (TA2k) add new api for electric cars
+### 0.0.6
+
+* (TA2k) fix trip object naming
+  
+### 0.0.5
+
+* (TA2k) fix receiving data
+
+### 0.0.4
+
+* (TA2k) fix jscontroller
+  
+### 0.0.3
+
+* (TA2k) fix preclimate
 
 ### 0.0.2
 

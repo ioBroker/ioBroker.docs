@@ -3,8 +3,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-mqtt.md
-title: ioBroker.shelly
-hash: qxNm4ySumCUo+BXI5OLJubJf3/4YwmXzmm3JLoNQDp4=
+title: ioBroker.шелли
+hash: 0R/UM2gHoeBplpurHl6uX6DT4bt5wnPJfQbHF9bBmqI=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -25,17 +25,11 @@ hash: qxNm4ySumCUo+BXI5OLJubJf3/4YwmXzmm3JLoNQDp4=
 3. Откройте вкладку **Настройки MQTT**.
 4. Выберите имя пользователя и безопасный пароль (вы должны хранить эту информацию на всех устройствах Shelly).
 
+> Адаптер Shelly запускает собственный брокер MQTT (внутренний). Настроенные имя пользователя и пароль должны храниться на всех устройствах Shelly, которые должны подключаться к этому посреднику.
+
 ![iobroker_mqtt](../../../de/adapterref/iobroker.shelly/img/iobroker_mqtt.png)
 
 Активируйте MQTT на своих устройствах Shelly.
-
-### Устройства первого поколения
-1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
-2. Перейдите в «Настройки Интернета и безопасности» -> «Дополнительно» — «Настройки разработчика».
-3. Активируйте MQTT и введите данные пользователя, которые вы только что настроили, и IP-адрес вашей установки ioBroker, а затем настроенный порт (например, ```192.168.1.2:1882```)
-4. Сохраните конфигурацию — Shelly перезапустится автоматически.
-
-![shelly_mqtt gen1](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen1.png)
 
 ### Устройства поколения 2 (Plus и Pro)
 1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
@@ -47,9 +41,17 @@ hash: qxNm4ySumCUo+BXI5OLJubJf3/4YwmXzmm3JLoNQDp4=
 - **Для устройств 2-го поколения должны быть включены все параметры RPC (см. скриншоты)!**
 - SSL не должен быть активирован
 
-![shelly_mqtt gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)
+![Шелли Gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2.png)
 
-![shelly_mqtt gen2](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2-old.png)
+![Шелли gen2 старый](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen2-old.png)
+
+### Устройства первого поколения
+1. Откройте веб-конфигурацию Shelly в браузере (не в приложении Shelly!)
+2. Перейдите в «Настройки Интернета и безопасности» -> «Дополнительно» — «Настройки разработчика».
+3. Активируйте MQTT и введите данные пользователя, которые вы только что настроили, и IP-адрес вашей установки ioBroker, а затем настроенный порт (например, ```192.168.1.2:1882```)
+4. Сохраните конфигурацию — Shelly перезапустится автоматически.
+
+![Шелли gen1](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen1.png)
 
 ### Качество обслуживания (QoS)
 TODO (см. en)

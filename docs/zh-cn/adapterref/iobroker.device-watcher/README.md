@@ -1,27 +1,29 @@
 ---
-BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
-BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
-BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
 BADGE-GitHub license: https://img.shields.io/github/license/ciddi89/ioBroker.device-watcher
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.device-watcher.svg
 BADGE-GitHub repo size: https://img.shields.io/github/repo-size/ciddi89/ioBroker.device-watcher
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/ciddi89/ioBroker.device-watcher
-BADGE-GitHub commits since tagged version (branch): https://img.shields.io/github/commits-since/ciddi89/ioBroker.device-watcher/v2.0.2
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/ciddi89/ioBroker.device-watcher/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/ciddi89/ioBroker.device-watcher
 BADGE-GitHub issues: https://img.shields.io/github/issues/ciddi89/ioBroker.device-watcher
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.device-watcher/README.md
 title: ioBroker.device-watcher
-hash: ESBlO49JGjQIHizOYsh+nuL72F5atHeoRnpBAFGVXRc=
+hash: BiX3QU/IP/67sV1esx0No3bPB7Cctkqzm52H4smZPmE=
 ---
-![标识](../../../de/adapterref/iobroker.device-watcher/../../admin/device-watcher.png)
+![商标](../../../de/admin/device-watcher.png)
 
 # IoBroker.device-watcher
 ＃＃ 目录
 - [如何使用 InfluxQL 在 Grafana 中显示 JSON 表](grafana.md)
-- [如何使用 Flux 在 Grafana 中显示 JSON 表](grafana_flux.md)
+- [如何使用Flux在Grafana中显示JSON表](grafana_flux.md)
 - [Lovelace-UI 显示 HTML 表格](lovelace.md)
+- [适配器列表 - 究竟支持什么](listSupportAdapter.md)
 
 ## Changelog
 
@@ -29,6 +31,69 @@ hash: ESBlO49JGjQIHizOYsh+nuL72F5atHeoRnpBAFGVXRc=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) make onStateChanges only, when device adapter is alive
+-   (ciddi89) Homeconnect ans Smartgarden Adapter added
+
+### 2.3.1 (2023-01-05)
+
+-   (ciddi89) changed HMRPC lowbat to lowbat_alarm
+-   (ciddi89) changed HMRPC unreach to unreach_alarm
+-   (ciddi89) fixed nuki mqtt selector
+-   (ciddi89) added shelly charge datapoint to identify battery devices better
+-   (ciddi89) fixed lowbat issues
+-   (ciddi89) added lowbat support for HMRPC: HM-CC-RT-DN
+-   (ciddi89) added additionally timeSelector for each adapter for better support
+
+### 2.3.0 (2023-01-03)
+
+-   (ciddi89) sorting for device selection in the blacklist added
+-   (ciddi89) Devices can now also be blacklisted in adapter own list
+-   (ciddi89) booleans for lowbat, offline and upgradable added ([#105](https://github.com/ciddi89/ioBroker.device-watcher/issues/105))
+-   (ciddi89) euSec adapter added ([#73](https://github.com/ciddi89/ioBroker.device-watcher/issues/73))
+
+### 2.2.2 (2022-12-29)
+
+-   (ciddi89) some translation added
+-   (ciddi89) datapoints will be written in intervall
+-   (ciddi89) improvements of lists
+-   (ciddi89) some other small improvements
+
+### 2.2.1 (2022-12-28)
+
+-   (ciddi89) Innogy Smarthome added
+-   (ciddi89) Lists for each adapter are working again
+
+### 2.2.0 (2022-12-27)
+
+-   (Scrounger) Yamaha MusicCast adapter added
+-   (ciddi89) send update message on state change
+-   (Scrounger) datapoints and scheduled notification for updateable devices added
+-   (ciddi89) reaction for state changes of battery datapoints added
+-   (ciddi89) send message and write lists directly if one device has low battery
+-   (ciddi89) send message and write lists directly if on device is going online or offline
+
+### 2.1.0 (2022-12-19)
+
+-   (Scrounger) optionally show adapter name in notification
+-   (ciddi89) optionally receive a message when an update for an device is available [#87](https://github.com/ciddi89/ioBroker.device-watcher/issues/87)
+-   (Scrounger) update message for shelly adapter added
+-   (Scrounger) Yamaha MusicCast adapter added
+-   (ciddi89) update message for unifi devices added
+-   (ciddi89) fixed devices are not reported in case battery is 0% [#86](https://github.com/ciddi89/ioBroker.device-watcher/issues/86)
+-   (ciddi89) SynoChat added [#85](https://github.com/ciddi89/ioBroker.device-watcher/issues/85)
+-   (ciddi89) MQTT NukiHub, MQTT-Clien Zigbee2MQTT added ([#82](https://github.com/ciddi89/ioBroker.device-watcher/issues/82))
+
+### 2.0.3 (2022-11-26)
+
+-   fixed issue with localCompare
+-   added tapo
+-   (Scrounger) added fullyBrowser adapter
+-   (Scrounger) added Sure Flap adapter
+-   fixed low bat messages
+
 ### 2.0.2 (2022-11-12)
 
 -   added status to battery list
@@ -151,7 +216,7 @@ hash: ESBlO49JGjQIHizOYsh+nuL72F5atHeoRnpBAFGVXRc=
 
 MIT License
 
-Copyright (c) 2022 Christian Behrends <mail@christian-behrends.de>
+Copyright (c) 2023 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

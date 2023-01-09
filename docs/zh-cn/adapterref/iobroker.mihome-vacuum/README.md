@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-真空适配器
-hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
+hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 ---
-![标识](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
+![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![安装数量](http://iobroker.live/badges/mihome-vacuum-stable.svg)
@@ -152,7 +152,7 @@ hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
 
 使用base64-map速度更快，会实时显示附近机器人的位置。
 
-＃＃ 功能
+＃＃ 职能
 ### S50（二代）指令
 卡片尺寸始终为 52000mm x 52000mm，因此可以使用 0 到 51999mm 之间的值。
 不幸的是，卡的位置和位置无法查询，这可以从吸到吸。用作基础的始终是最后一张吸卡，以及在应用程序中。
@@ -310,264 +310,280 @@ sendTo("mihome-vacuum.0",
 |结束远程控制功能 | `stopRemoteControl` | - 无 - | |
 |洁净室/间| `cleanRooms` | `rooms` | `rooms` 是一个逗号分隔的字符串，带有 enum.rooms.XXX |
 |清洁段 | `cleanSegments` | `rooms` \| {房间：`rooms`，waterBoxMode：`waterBoxMode`，mopMode：`mopMode`，fanSpeed：`fanSpeed`} | `rooms` 是一个数字或一个带有 mapIndex 的数组或带有 mapIndex 的逗号分隔字符串 |
-|洁净区 | `cleanZone` | `coordinates` \| {坐标：`coordinates`，waterBoxMode：`waterBoxMode`，mopMode：`mopMode`，fanSpeed：`fanSpeed`} | `coordinates` 是一个带有坐标和计数的字符串，参见 [区域清洁](#zonecleaning) |
+|洁净区 | `cleanZone` | `coordinates` \| {坐标：`coordinates`，waterBoxMode：`waterBoxMode`，mopMode：`mopMode`，fanSpeed：`fanSpeed`，重复：`iterations`} | `coordinates` 是一个带有坐标和计数的字符串，参见 [区域清洁](#zonecleaning) |
 |开始除尘 | `startDustCollect` | - 无 - | |
 |停止除尘 | `stopDustCollect` | - 无 - | |
-|停止除尘 | `stopDustCollect` | - 无 - | |
+|开始拖把清洗 | `startWashMop` | - 无 - | |
+|停止拖把清洗 | `stopWashMop` | - 无 - | |
+|停止拖把清洗 | `stopWashMop` | - 无 - | |
 
-## 小工具
+## 小部件
 ![微件](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
 
 ## 漏洞
 - 偶尔会断开连接，但这不是适配器造成的，而主要是在其自身的网络上
 - 当时没有功能的小部件
 
-<!-- 下一个版本的占位符（在行首）：
-
-    ＃＃＃ **工作正在进行中**
-    * ()
-
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+    * () 
 -->
+### 3.9.2 (2023-01-06)
+* (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
+* (dirkhe) fix bug from 3.9.1 for supported repeat devices
+
+### 3.9.1 (2023-01-06)
+* (Dirkhe) add step property to repeat DP
+* (Dirkhe) add Queue Fallback mode for repeat
+* (Dirkhe) remove wrong clearQueue button
+
+### 3.9.0 (2023-01-04)
+* (Dirkhe) add Mop washing #679
+* (Dirkhe) trigger pauseResume only, if correct state is given #623
+* (Dirkhe) add multiple clean iterations (repeat) #690
+* (Dirkhe) housekeeping
 
 ### 3.8.8 (2022-11-30)
-* (Dirkhe) 修复 pauseResume #623 的行为
+* (Dirkhe) fix behaviour of pauseResume #623
 
 ### 3.8.7 (2022-11-26)
-* (Dirkhe) 修复了 battary_live 翻译中的拼写错误（基于 viomi id）#629
-* (Dirkhe) 修复崩溃，如果 cloud-roomID 为空 #702
+* (Dirkhe) fix typo from translation for battary_live (based on viomi id) #629
+* (Dirkhe) fix crash, if cloud-roomID is empty #702
 
 ### 3.8.6 (2022-11-12)
-* (Dirkhe) roomMopMode 的固定类型
+* (Dirkhe) Fix type for roomMopMode
 
 ### 3.8.5 (2022-11-10)
-* (Dirkhe) 将 parseErrors 移动到调试级别
-* (Dirkhe) 避免在重新连接时出现新的 instanziierung
+* (Dirkhe) move parseErrors to debug level
+* (Dirkhe) avoid new instanziierung on reconnect
 
 ### 3.8.4 (2022-11-07)
-* (Dirkhe) 更改 sendMessage 的日志记录以进行调试
+* (Dirkhe) change logging for sendMessage to debug
 
 ### 3.8.3 (2022-11-01)
-* (Dirkhe) 从超时更改日志记录
-* (Dirkhe) 在日志中隐藏部分令牌
+* (Dirkhe) change logging from timeouts
+* (Dirkhe) hide parts of token in log
 
 ### 3.8.2 (2022-10-31)
-* (Dirkhe) 将画布提升到 2.10.2
-* (Dirkhe) 如果未安装 CANVAS，则禁用地图 #681
+* (Dirkhe) Bump canvas to 2.10.2
+* (Dirkhe) disable map, if CANVAS not installed #681
 
 ### 3.8.1 (2022-10-30)
-* (Dirkhe) 删除工作流的弃用节点 12.x 版本
+* (Dirkhe) remove deprecated node 12.x Version for workflow
 
 ### 3.8.0 (2022-10-30)
-* (Dirkhe) 修复 mop_mode 缺少的库存命令
-* (Dirkhe) 也为 cleanSegments 和 cleanZone 添加拖把模式
-* (Dirkhe) 也为房间添加拖把模式
-* (MeisterTR) 地图缩放和显示地毯
+* (Dirkhe) fix missing stock command for mop_mode
+* (Dirkhe) add mop mode also for cleanSegments and cleanZone
+* (Dirkhe) add mop mode also for rooms
+* (MeisterTR) map zooming amd show carpet
 
 ### 3.7.0 (2022-10-28)
-* (Dirkhe) 接受带有单个参数的自定义命令
-* (Dirkhe) cleanSegments 和 cleanZone 的可选参数 waterboxMode 和 fanSpeed
-* (Dirkhe) 修复消息发送崩溃 (#652)
-* (Dirkhe) 添加拖把模式 (#670)
-* (Dirkhe) 为 S7 Ultra 调整风扇功率(#677)
+* (Dirkhe) accept custom commands with single paramter
+* (Dirkhe) optional parameter waterboxMode and fanSpeed for cleanSegments and cleanZone 
+* (Dirkhe) fix crash on message send (#652)
+* (Dirkhe) add mop mode (#670)
+* (Dirkhe) adapt fan_power for S7 Ultra(#677)
 
 ### 3.6.0 (2022-07-07)
-* (Dirkhe) 添加集尘功能
+* (Dirkhe) add dust collecting
 
 ### 3.5.0 (2022-06-29)
-* (Dirkhe) 添加 Roborock S6 Pure 型号
-* (Dirkhe) 在自述文件中添加/扩展一些提示
-* (Dirkhe) 为 cleanRooms 添加额外的日志信息
-* (Dirkhe) 修复错误的 map-dp 错误
+* (Dirkhe) add Roborock S6 Pure model
+* (Dirkhe) add/extend some Hints in readme
+* (Dirkhe) add additional log info for cleanRooms
+* (Dirkhe) fix error for wrong map-dp
 
 ### 3.4.2 (2022-06-24)
-* (Apollon77) 更新依赖以允许更好的自动重建
+* (Apollon77) Update dependencies to allow better automatic rebuild
 
 ### 3.4.1 (2022-05-31)
-* (Dirkhe) 添加错过的真空状态
-* (Dirkhe) 添加码头状态 废水箱已满
+* (Dirkhe) add missed Vacuum states
+* (Dirkhe) add dock state Waste water tank full
 
 ### 3.4.0 (2022-05-28)
-* (Apollon77) 修复 Sentry 报告的几个潜在的崩溃案例
+* (Apollon77) Fix several potential crash cases reported by Sentry
 
 ### 3.3.6 (2022-05-03)
-* (Dirkhe) 修复污点清理
+* (Dirkhe) fix spotcleaning
 
 ### 3.3.5 (2022-02-07)
-* (Dirkhe) 修复了一些错误
-* (lasthead0) 修复西里尔问题 RC4 lib#
+* (Dirkhe) fixed some errors
+* (lasthead0) fix cyrillic issue RC4 lib#
 
 ### 3.3.3 (2022-01-20)
-* (Dirkhe) 修复了一些错误
-* (Dirkhe) 添加 RC4
+* (Dirkhe) fixed some errors
+* (Dirkhe) add RC4
 
 ### 3.3.1 (2021-10-02)
-* (MeisterTR) 修复 IOBROKER-MIHOME-VACUUM-Z
-* (MeisterTR) 修复一些错误
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-Z
+* (MeisterTR) fix some errors
 
 ### 3.3.0 (2021-10-01)
-* (MeisterTR) 修复了 S5 没有房间的问题
-* (MeisterTR) 修复 IOBROKER-MIHOME-VACUUM-4 数据库关闭
-* (MeisterTR) 修复连接错误
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+* (MeisterTR) fix connection error
 
 ### 3.2.2 (2021-07-16)
-* (bluefox) 通信已更正
-*（bluefox）添加了类型检测器要检测的角色
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
-* (Apollon77) 调整了几个崩溃案例 (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER -MIHOME-VACUUM-4、IOBROKER-MIHOME-VACUUM-G、IOBROKER-MIHOME-VACUUM-C、IOBROKER-MIHOME-VACUUM-B、IOBROKER-MIHOME-VACUUM-Q、IOBROKER-MIHOME-VACUUM-M）
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
 ### 3.2.0 (02.06.2021)
-* (MeisterTR) 候选版本
-* (MeisterTR) 重置后获得消耗品
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
 
 ### 3.1.10 (23.05.2021)
-* 错误修正
-* 添加哨兵
+* error fixed
+* add sentry
 
-### 3.1.6（2021 年 5 月 5 日）
-* 最小化磁盘写入
-* 最小化消息
-* 将警告消息更改为调试
-* 扩展 Debuglog 以查找 e2 vacuum 的错误
-* 在地图改变时添加 getStates
+### 3.1.6 (05.05.2021)
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
 
 ### 3.1.5 (03.05.2021)
-* 尝试修复地图错误
-* Map64 改变了。现在没有 img 标签
-* 添加多地图支持（地图改变时获取房间和地图）
-* 选择多图
-* 修复区域坐标错误
-* 添加无线网络
-* 修复连接问题
-*修复Valetudo地图
-* 添加拖把状态
-* 修复一些对象
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
+* select Multimaps
+* fix error with zone coordinates
+* add WiFi
+* fix connection Problems
+* fix Valetudo map
+* add Mop state
+* fix some objects
 
-### 3.1.1（18.4.2021）
- * 完全重写
- * 修复多个吸尘器的地图错误
- * 修复性能问题
- * 更好地连接到真空
- * 修复 ReloadMap 按钮中的错误
- * 显示 Goto 和 Zone States ti find places
- * 还有很多...
+### 3.1.1 (18.4.2021)
+ * Full rewrite
+ * Fix map bug with multiple vacuums
+ * fix performance Problems
+ * better connection to vacuum
+ * fix bug in ReloadMap button
+ * Show Goto and Zone States ti find places
+ * and many more...
 
 ### 2.2.5 (2021-04-02)
-* 添加了 S7 支持
-* S5 Max 和其他错误修复
+* added S7 Support
+* bugfixes for S5 Max and others
 
 ### 2.2.4 (2020-09-15)
-* (dirkhe) 添加发送暂停前的配置
+* (dirkhe) add config for send Pause Before Home
 
 ### 2.2.3 (2020-08-20)
-* (dirkhe) 房间 DP 未删除，在地图更改时
+* (dirkhe) room DP are not deleted, on map change
 
 ### 2.2.0 (2020-08-13)
-* (MeisterTR) 添加对 Viomi 和 Dreame Api 的测试
+* (MeisterTR) add test for Viomi and Dreame Api
 
 ### 2.1.1 (2020-07-10)
-* (bluefox) 重构
-* (bluefox) 添加了对紧凑模式的支持
+* (bluefox) Refactoring
+* (bluefox) Support of compact mode added
 
 ### 2.0.10 (2020-07-05)
-* 尝试开始清洁 3 次，如果机器人没有回答和一些修复
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
-* (dirkhe) 为房间通道添加状态信息并将队列信息从数字更改为 JSON
+* (dirkhe) add state info for room channels and change queue info from number to JSON
 
 ### 2.0.8 (2020-02-26)
-* (dirkhe) 减少与机器人的交流
+* (dirkhe) decreased communication with robot
 
 ### 2.0.7 (2020-02-25)
-* (dirkhe) 为房间添加暂停后恢复
+* (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) 为带有地图的 s50 添加房间（需要云或 Valetudo）
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
 ### 2.0.4 (2020-02-13)
-* (MeisterTR) 添加云登录获取token
-* (MeisterTR) 添加云图
-* (MeisterTR) 添加新旧地图格式
-* (MeisterTR) 重建配置页面
+* (MeisterTR) add cloud login to get token
+* (MeisterTR) add cloud Map
+* (MeisterTR) add new and old Map format
+* (MeisterTR) rebuild config page
 
 ### 1.10.5 (2020-02-11)
-* 仅在未连接时发送 Ping，否则 get_status
-* 设置按钮状态为真，如果点击
-* 将定时器管理器和房间管理器移动到自己的库中
+* send Ping only if not connected, otherwise get_status
+* set button states to true, if clicked
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
-* (MeiserTR) 添加对 gen3 和 gen2 2XXX 的 valetudo 地图支持
+* (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
 
 ### 1.10.1 (2020-01-20)
-* (dirkhe) 添加区域作为房间处理
-* (dirkhe) 计时器可以直接房间频道
+* (dirkhe) added zone as room handling
+* (dirkhe) timer could room channels directly
 
 ### 1.10.0 (2020-01-17)
-* (dirkhe) 添加了房间处理
-* (dirkhe) 添加了计时器
-* (dirkhe) 更改了功能处理
+* (dirkhe) added room handling
+* (dirkhe) added Timer 
+* (dirkhe) changed feature handling
 
 ### 1.1.6 (2018-12-06)
-* (JoJ123) 添加了 MOP (S50+) 的风扇速度。
+* (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) 添加了状态 16 和 17（转到和区域清洁）的说明。
-* (BuZZy1337) 添加了自动恢复暂停区域清洁的设置。
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) 添加了恢复暂停区域清洁的可能性（状态：mihome-vacuum.X.control.resumeZoneClean）
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
-* (BuZZy1337) 修复了 zoneCleanup 状态不工作（真空只是离开码头，说“Finished ZoneCleanup”，并立即返回码头）
+* (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
 
 ### 1.1.2 (2018-07-05)
-* (BuZZy1337) 修复了新固件/第二代 Vacuum 的检测
+* (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) 发现错误，为新固件添加状态
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
-* (mswiege) 完成小部件
+* (mswiege) Finished the widget
 
 ### 1.0.1 (2018-01-26)
-* (MeisterTR) 为 admin3 做好准备
-* (MeisterTR) 支持 SpotClean 和语音级别 (v1)
-* (MeisterTR) 支持第二代 (S50)
-* (MeisterTR) 加速数据请求
+* (MeisterTR) ready for admin3
+* (MeisterTR) support SpotClean and voice level (v1)
+* (MeisterTR) support second generation (S50)
+* (MeisterTR) Speed up data requests
 
 ### 0.6.0 (2017-11-17)
-* (MeisterTR) 使用来自 Ios Backup 的 96 字符令牌
-* (MeisterTR) 首次使用时连接速度更快
+* (MeisterTR) use 96 char token from Ios Backup
+* (MeisterTR) faster connection on first use
 
 ### 0.5.9 (2017-11-03)
-* (MeisterTR) 修复没有 i-net 的通信错误
-* (AlCalzone) 添加预定义功率级别的选择
+* (MeisterTR) fix communication error without i-net
+* (AlCalzone) add selection of predefined power levels
 
 ### 0.5.7 (2017-08-17)
-* (MeisterTR) 比较系统时间和机器人时间（如果系统时间不同则无法连接）
-* (MeisterTR) 如果机器人通过云启动则更新值
+* (MeisterTR) compare system time and Robot time (fix no connection if system time is different)
+* (MeisterTR) update values if robot start by cloud
 
 ### 0.5.6 (2017-07-23)
-* (MeisterTR) 为 Alexa 控制添加板条箱开关选项
+* (MeisterTR) add option for crate switch for Alexa control
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) 添加状态、功能、修复通信错误
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
-* (MeisterTR) 修复软件更新后无法通信的问题(Vers. 3.3.9)
+* (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)
 
 ### 0.3.1 (2017-04-10)
-* (MeisterTR) 修复设置风扇功率
-* (bluefox) 如果端口被占用则捕获错误
+* (MeisterTR) fix setting the fan power
+* (bluefox) catch error if port is occupied
 
 ### 0.3.0 (2017-04-08)
-* (MeisterTR) 添加更多状态
+* (MeisterTR) add more states
 
 ### 0.0.2 (2017-04-02)
-* (steinwedel) 实现更好的数据包解码
+* (steinwedel) implement better decoding of packets
 
 ### 0.0.1 (2017-01-16)
-* (bluefox) 初始提交
+* (bluefox) initial commit
 
 ## License
 The MIT License (MIT)

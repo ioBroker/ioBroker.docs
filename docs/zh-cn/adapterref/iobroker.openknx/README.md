@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: LiWKNHwQuSqdjTawyLUhBBswujhsPECVLcLbh9fVjvc=
+hash: DNNDDhMP5QbzAfDVSD0DJAIwkSPdI7Uvf8/JxkTEMsA=
 ---
 ![商标](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -47,11 +47,17 @@ hash: LiWKNHwQuSqdjTawyLUhBBswujhsPECVLcLbh9fVjvc=
 未发送的帧会延迟到自上次在总线上发送以来的延迟时间结束。如果有更多发送请求在等待，发送顺序是随机的。
 如果您在日志中遇到与 KNX IP 网关断开连接的情况，请增加此数字。
 
+### 对 1 位枚举使用 common.type 布尔值而不是数字
+在 IOB 对象中使用 common.type 布尔值作为 1 位枚举而不是数字。
+
 ### 启动时自动读取 iob 对象的读出值
 在总线上请求所有配置有自动读取标志的 IOB 对象与 IOB 同步。
 
-### 仅添加新对象
+### 仅导入 IOB 对象中不存在的 GA
 如果选中，导入将跳过覆盖现有通信对象。
+
+### 删除不在导入文件中的现有 IOB 对象
+清理对象树
 
 ### 从 ETS 导入 XML
 ![ETS出口](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
@@ -145,11 +151,14 @@ KNX 设备可以具有属于命令 ga 的用于状态反馈的 ga。一些应用
 - 为新对象 entry_new 启用流入
 
 # 如何使用适配器和基本概念
-### 确认标志
-应用程序永远不会设置 ack 标志，如果数据更新，应用程序将通过 ack 标志从该适配器收到通知。
+### 带有隧道连接的 ACK 标志
+应用程序不应设置 ack 标志，如果数据更新，应用程序将通过 ack 标志从该适配器收到通知。
 如果另一个 knx 主机写入总线，KNX 堆栈会在收到组地址时设置相应 ioBroker 对象的确认标志。
-由应用程序写入对象触发的 KNX 上发送的帧不会导致对该对象的立即确认消息。
-如果写入来自此适配器，则在隧道模式下根据积极确认生成 ack 标志。
+
+| GA 是 |连接到带有 R 标志的设备 |连接到没有 R 标志的设备 |未连接 |
+| ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
+|应用问题 GroupValue_Write |确认 |确认 |没有确认 |
+|应用问题GroupValue_Read |确认 |没有确认 |没有确认 |
 
 ### 节点红色复杂数据类型示例
 创建一个连接到 ioBroker out 节点的功能节点，该节点连接到 DPT2 的 KNX 对象。
@@ -304,7 +313,7 @@ KNX 对象标志定义了它们所代表的对象的总线行为。
 | -------------------------- | ------------------------ | --------------------------------------- | ---------------------------------------------- |
 | C: 通信标志 | K: 通讯标志 |总是设置 | |
 | R：读取标志 | L: 旗帜 |对象 native.answer_groupValueResponse | |
-| T：发送标志 | Ü: Übertragen-标志 |对象 common.write | |
+| T：发送标志 | Ü: Übertragen-标志 |对象common.write | |
 | W：写标志 | S: Schreiben-旗帜 |对象common.read |总线可以修改对象 |
 | U：更新标志 | A：Aktualisieren-Flag |对象common.read |在传入的 GroupValue_Responses 上更新对象 |
 | I：初始化标志 | I：Initialisierungs-Flag |对象 native.autoread | |
@@ -315,7 +324,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 数据被发送到在德国托管的 Iobroker Sentry 服务器。如果您允许 iobroker GmbH 收集诊断数据，那么您的匿名安装 ID 也会包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
 
 ＃ 特征
-- 稳定可靠的knx堆栈
+- 稳定可靠的knx栈
 - 为最重要的 DPT 自动编码/解码 KNX 数据报，为其他 DPT 进行原始读写
 - 支持KNX组值读取和组值写入和组值响应
 - 免费开源
@@ -325,13 +334,15 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 - 创建对状态输入做出反应的联合别名对象
 - 支持所有可能的组地址样式的项目
 
-# 已知问题
--   没有任何
-
 # 限制
 - 不支持 ETS 4 导出文件格式
 - 不支持 KNX 安全
 - 仅支持 IPv4
+
+＃ 常问问题
+- 总线上的自动读取触发器演员做出反应
+
+    如果连接到可疑 GA 的某些设备的组对象配置了 R/L 标志，请检查 ETS。如果设备是信号的消费者，则情况不应如此。如果信号具有事件字符，则 groupValueRead 将触发该事件。更改 ETS 中的配置或禁用此对象的自动读取。
 
 ## Changelog
 
@@ -341,6 +352,16 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.5.2 (2023-01-02)
+
+-bugfix: correct falsly generated "confirmation false received" notifications on high sending load
+
+### 0.5.0 (2022-12-30)
+
+-   feature: use common.type boolean for 1 bit enum instead of number
+    import enum with one bit as common.type mixed and not strict as number
+-   handling of iob ack improved for tunneling connections, see description
+
 ### 0.4.5 (2022-12-19)
 
 -   bugfix in knx lib: make dpt2 not an enum datatype
@@ -555,7 +576,7 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 
 ## License
 
-Copyright 2022 contributors to the ioBroker.openknx project
+Copyright 2023 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

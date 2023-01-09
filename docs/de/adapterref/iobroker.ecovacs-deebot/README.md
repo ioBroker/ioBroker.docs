@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: q3tQ8cRl6EiYIFhtgrt/JK7QCeeVq7XDiC3LHRUQl6s=
+hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -62,7 +62,7 @@ Es besteht natürlich kein Anspruch auf volle Funktionalität.
 * Deebot T10-Serie
 * Deebot X1-Serie
 
-#### Yeedi (seit Version 1.4.5, noch experimentell)
+#### Yeedi (seit Version 1.4.5)
 * yeedi k650
 * Yeedi 2-Hybrid
 * Yeedi-Vac-Hybrid
@@ -115,7 +115,7 @@ Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/c
 ## FAQ
 Häufig gestellte Fragen finden Sie unter [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Verwendungszweck
+## Verwendung
 Informationen zur Verwendung dieses Adapters finden Sie in [hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
 ### Zustände
@@ -125,7 +125,6 @@ Informationen zu den Bundesländern finden Sie in [hier](https://github.com/mrbu
 * Die Generierung von Kartenbildern ist derzeit auf 32-Bit-Systemen nicht stabil
 * Die "Edge"-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
 * Die "Verschieben"-Funktionen funktionieren nicht mit Deebot OZMO T8 AIVI (und möglicherweise auch mit einigen anderen Modellen)
-* Einige „cleaninglog“-Zustände sind bei der T9-Serie leer („last20Logs“, „lastCleaningDate“ und „lastCleaningMapImageURL“)
 * Die Generierung von Kartenbildern funktioniert mit der Deebot X1-Serie nicht richtig
 
 ## Haftungsausschluss
@@ -133,7 +132,25 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 
 ## Changelog
 
-### 1.4.8 (latest beta)
+### 1.4.11 (alpha)
+* Bumped ecovacs-deebot.js to 0.9.2 (alpha)
+* Added channel for the auto empty station (incl. dust bag full)
+* Set last time dustbox removed when the dust bag has been emptied by the auto empty station
+* Some further improvements and some fixes
+
+### 1.4.10 (latest beta)
+* Bumped ecovacs-deebot.js to 0.9.1
+* Added channel with information about the last cleaned spot area
+* Implemented "mark for next spot area cleaning" function
+
+### 1.4.9
+* Bumped ecovacs-deebot.js to 0.9.1-beta.3
+* Several improvements for T9 based models (e.g. N8/T9/T10/X1)
+* Implemented option for automatic download of the last cleaning image
+* The generated base64 map image will also be stored to the filesystem now
+* Some further improvements and some fixes
+
+### 1.4.8 (latest stable)
 * Breaking change: Bumped minimum required version of Node.js to 14.x
 * Bumped ecovacs-deebot.js to 0.9.0-beta.2
 * Bumped several other dependencies
@@ -150,7 +167,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Added button for manually trigger dustbox removal
 * Removed some options from settings
 * Some other changes to settings
-* Bumped ecovacs-deebot.js to latest beta
+* Bumped ecovacs-deebot.js to the latest beta version
 * Initial Support for yeedi login (experimental)
 * and also for a few models (experimental)
   * yeedi k650
@@ -158,13 +175,13 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
   * yeedi vac hybrid
   * yeedi mop station
 
-### 1.4.4 (latest stable)
+### 1.4.4
 * Bumped ecovacs-deebot.js to 0.8.2
 * Bugfix for non 950 type models with mopping system (e.g. OZMO 930)
 * Some minor improvements
 
 ### 1.4.3
-* Bumped ecovacs-deebot.js to latest beta
+* Bumped ecovacs-deebot.js to the latest beta version
 * Improved last time presence functionality
 * Added state for Clean Preference (e.g. T8/T9 series)
 * Added state for the last 20 errors
@@ -196,28 +213,7 @@ Ich bin in keiner Weise mit ECOVACS verbunden.
 * Added Deebot X1 series
 * Some improvements and fixes
 
-### 1.3.4
-* Bumped ecovacs-deebot.js to 0.7.2 (beta)
-* Implemented some experimental functions for auto empty stations
-* Some refactoring
-
-### 1.3.3
-* Bumped ecovacs-deebot.js to 0.7.1 (incl. fix for CVE-2022-0155)
-
-### 1.3.2
-* Bumped follow-redirects to 1.14.7 (fix for CVE-2022-0155) and some other dependencies
-* Added N8 PRO+
-
-### 1.3.1
-* Fix the cleaning functions for the Deebot 710 series
-
-### 1.3.0
-* Breaking change: The minimum required version of Node.js is now 12.x
-* Using library version 0.7.0 (beta)
-* Some improvements for newer models (e.g. T9 series)
-* Some other improvements and fixes
-
-### 0.0.1 - 1.2.4
+### 0.0.1 - 1.3.4
 * [Changelog archive](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Changelog-(archive))
 
 ## License

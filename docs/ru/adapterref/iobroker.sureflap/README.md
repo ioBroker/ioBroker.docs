@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
+hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
 ---
 ![Стабильная версия](http://iobroker.live/badges/sureflap-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -22,6 +22,8 @@ hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 
 ## Конфигурация
 Добавьте имя пользователя и пароль из своей учетной записи Sure Petcare® на странице конфигурации адаптера.
+
+Кроме того, здесь можно настроить пороги полного и разряженного аккумулятора при использовании accus. Это влияет на процентное значение заряда батареи.
 
 ## Описание
 Адаптер предоставляет информацию о настройках и состоянии заслонки для домашних животных, кошачьей заслонки, кормушки или диспенсера для воды.
@@ -42,17 +44,22 @@ hash: mo50M2E8f1LBFve0C7fjovARd806JzMb+HiTOr3svOE=
 | house_name.hub_name.feeder_name.control.close_delay | задает задержку закрытия крышки кормушки | **0** - быстро<br> **4** - нормальный<br> **20** - медленно |
 | имя_домохозяйства.pets.имя_питомца.внутри | устанавливает, находится ли ваш питомец внутри | **правда** или **ложь** |
 
-### Структура
+### Состав
 Адаптер создает следующую иерархическую структуру:
 
 адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ └ вода<br> │ │ │ └ вес<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ ├ чаши<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ управление<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ батарея<br> │ │ ├ батарея_процент<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ pet_name<br> │ │ └ управление<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ ├ питание<br> │ │ ├ last_time_eaten<br> │ │ ├ потраченное_время<br> │ │ ├ раз_съедено<br> │ │ └ сухая..мокрая<br> │ │ └ вес<br> │ └ вода<br> │ ├ last_time_drunk<br> │ ├ затраченное время<br> │ ├ раз_пьяный<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ подключение<br> └ последнее_обновление<br>
 
-## Заметки
+## Ноты
 SureFlap®, Sure Petcare® и Felaqua® являются зарегистрированными товарными знаками [ООО «СюрФлап».](https://www.surepetcare.com/)
 
 Изображения устройств SureFlap® предоставляются бесплатно с [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.6 (2023-01-07)
+* (Sickboy78) added battery voltage configuration
+* (Sickboy78) added translation for adapter settings
+* (Sickboy78) security updates
 
 ### 1.1.5 (2022-09-10)
 * (Sickboy78) added display of serial numbers

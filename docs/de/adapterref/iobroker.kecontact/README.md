@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
+hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -15,6 +15,8 @@ hash: CbuttiYsWIS88RaqoZkNnM2HCHnPzupPALeN0YUQS1I=
 ![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.kecontact
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 **Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
@@ -100,6 +102,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

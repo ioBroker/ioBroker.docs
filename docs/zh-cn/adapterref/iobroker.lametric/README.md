@@ -18,42 +18,42 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
-title: ioBroker.lametric
-hash: KEh1EvtbVuJsfA1NqJwhMzp7Bx1DKueVm857Fj7VgXU=
+title: ioBroker.lametric 文件
+hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
 ---
-![标识](../../../en/adapterref/iobroker.lametric/../../admin/lametric.png)
+![商标](../../../en/admin/lametric.png)
 
-# IoBroker.lametric
+#ioBroker.lametric
 ＃＃ 目录
 - [应用程序](apps.md)
-- [Blockly](blockly.md)
+- [块状](blockly.md)
 - [我的数据DIY](my-data-diy.md)
 - [通知](notifications.md)
 
 ＃＃ 要求
-- nodejs 14.5（或更高版本）
+-nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 与固件 _2.3.0_（或更高版本）
+- _LaMetric Time_ 固件 _2.3.3_（或更高版本）
 
 [固件更新日志](https://firmware.lametric.com)
 
 ＃＃ 配置
-您可以获得您的设备 API 密钥[这里](https://developer.lametric.com/user/devices)。
+您可以获得您的设备 API 密钥 [这里](https://developer.lametric.com/user/devices)。
 
-![api-key](../../../en/adapterref/iobroker.lametric/./img/api-key.png)
+![api密钥](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ＃＃ 特征
-- 设置显示亮度（百分比，自动模式/手动模式）
+- 设置显示亮度（百分比、自动模式/手动模式）
 - 设置音量（百分比）
 - 配置屏幕保护程序（启用/禁用，基于时间，黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
-- 在应用程序之间切换（下一个、上一个、转到特定应用程序）
-- 以块状发送通知（具有可配置的优先级、声音、图标、文本......）
-- 控制“时钟”、“收音机”、“秒表”或“天气”等特殊应用
+- 在应用程序之间切换（下一个，上一个，转到特定应用程序）
+- 块发送通知（具有可配置的优先级，声音，图标，文本，......）
+- 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
 - 使用_My Data (DIY)_ LaMetric App 显示持久信息
 
-功能受 [官方 API 功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
+功能受 [官方API功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
 
 ## Changelog
 
@@ -61,6 +61,12 @@ hash: KEh1EvtbVuJsfA1NqJwhMzp7Bx1DKueVm857Fj7VgXU=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2023-01-05)
+
+* (klein0r) Added custom sound feature (mp3 via url)
+* (klein0r) Added visible state of widgets
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.3
+
 ### 2.1.0 (2022-11-01)
 
 NodeJS 14.5 is required
@@ -94,16 +100,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Updated log messages and error handling
 * (klein0r) Updated dependencies
 
-### 1.5.2 (2021-12-23)
-
-* (klein0r) Updated dependencies
-* (klein0r) Updated documentation
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

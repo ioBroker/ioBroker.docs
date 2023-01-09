@@ -3,22 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: xZa4B9PNJNdfpTfZvXpQA0jQbZRd899ijkFHZ4W8t6U=
+hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
 ---
 ![Logo](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.signal-cmb.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.signal-cmb.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.signal-cmb.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/ioBroker/ioBroker.signal-cmb/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.signal-cmb.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.signal-cmb/master.svg)
 
 # IoBroker.signal-cmb
--->
-
--->
-
 **Tests**: [![Test und Freigabe](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/necotec/ioBroker.signal-cmb/actions/workflows/test-and-release.yml)
 
 ## Signal-cmb-Adapter für ioBroker
@@ -32,14 +25,17 @@ Dank des kostenlosen [CallMeBot](https://www.callmebot.com/blog/free-api-signal-
 Sie müssen den API-Schlüssel vom Bot abrufen, bevor Sie die API verwenden:
 
 - Fügen Sie die Telefonnummer des CallMeBot zu Ihren Telefonkontakten hinzu (benennen Sie sie nach Belieben). Die aktuelle Telefonnummer finden Sie hier: https://www.callmebot.com/blog/free-api-signal-send-messages/
-- Senden Sie diese Nachricht "Ich erlaube Callmebot, mir Nachrichten zu senden" (auf Englisch) an den neu erstellten Kontakt (natürlich mit Signal).
+- Senden Sie diese Nachricht &quot;Ich erlaube Callmebot, mir Nachrichten zu senden&quot; (auf Englisch) an den neu erstellten Kontakt (natürlich mit Signal).<br>
+
+Wenn Sie eine GUID im &quot;Test-Link&quot; erhalten, können Sie diese GUID anstelle Ihrer Telefonnummer im Adapter verwenden. Sie können auch senden<br> erneut die Meldung `I allow callmebot to send me messages`. Normalerweise sollten Sie jetzt Ihre Telefonnummer im Link sehen und Sie können Ihre Telefonnummer im Adapter verwenden.
+
 - Warten Sie, bis Sie die Meldung „API für Ihre Telefonnummer aktiviert“ erhalten. Ihr APIKEY ist 123123` vom Bot. Da sich dies noch im Beta-Test befindet, kann die Aktivierung bis zu 2 Minuten dauern.
 - Die Signalnachricht vom Bot enthält den API-Schlüssel, der zum Senden von Nachrichten über die API erforderlich ist.
 - Sie können jetzt den API KEY in der ioBroker-Konfiguration verwenden.
 
 Beispiel: ![Beispiel](../../../en/adapterref/iobroker.signal-cmb/img/signal.jpg)
 
-### Verwendungszweck
+### Verwendung
 Es gibt zwei Möglichkeiten, eine Nachricht zu senden:
 
 - über `signal-cmb.0.sendMessage`. Schreiben Sie einfach einen Text in diesen Zustand und die Nachricht wird an die Standardnummer gesendet, die im Einstellungsdialog konfiguriert wurde.
@@ -90,6 +86,11 @@ Der **signal-cmb** Adapter URLencode diesen Code und Sie sehen in Ihrem Signal M
 * Habe noch ein paar Änderungen vorgenommen
 
 -->
+
+### 0.3.1 (28.12.22)
+* (derAlff) 'package.json' aktualisiert, um eine minimale Version von NodeJS zu verwenden
+* (derAlff) Beschreibung zur Konfiguration von CallMeBot in 'index_m.html' aktualisiert
+* (derAlff) Aktualisierter Konfigurationstext mit dem GUID-Problem in README
 
 ### 0.2.3 (08.12.22)
 * (derAlff) Unterstützung für 'encoded newline' in Strings hinzugefügt

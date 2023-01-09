@@ -66,6 +66,9 @@ to be done in admin
 
 
 ## Changelog:
+### 1.2.2
+* (foxthefox) more datapoints for Davis Vantage
+
 ### 1.2.1
 * (foxthefox) corrections for Davis Vantage
 

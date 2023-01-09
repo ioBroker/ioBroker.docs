@@ -8,6 +8,7 @@
 [![Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)](https://david-dm.org/iobroker-community-adapters/iobroker.kecontact)
 
 [![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)](https://nodei.co/npm/iobroker.kecontact/)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
@@ -101,6 +102,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
+* (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

@@ -70,6 +70,8 @@ This is currently that way for some `Tado Door Locks` as example. They need to b
 
 Additional also `Nuki 3 Locks (BLE)` are not possible to pair because they use Hardware Authentication components that are not publicly documented by Apple.
 
+For Netatmo a user found out how pairing could be possible when it had issue. See https://github.com/Apollon77/ioBroker.homekit-controller/issues/233#issuecomment-1311983379
+
 #### Other potential issues to check before opening a ticket
 
 ##### for BLE devices
@@ -108,8 +110,18 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.6 (2023-01-05)
+* (Apollon77) Upgrade noble library
+
+### 0.5.5 (2022-12-31)
+* (Apollon77) Downgrade noble library again
+
+### 0.5.3 (2022-12-22)
+* (bluefox) Corrected active TAB Background
+
+### 0.5.2 (2022-12-22)
 * (bluefox) Updated GUI packages
+* (Apollon77) Upgraded noble BLE library
 
 ### 0.5.1 (2022-06-10)
 * (Apollon77) Optimizations for BLE connections
@@ -168,7 +180,7 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2023 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

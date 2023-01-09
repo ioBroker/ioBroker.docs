@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: eyCHH3KFyCA1FVIxXbV0PUrpkUFCDDIDLPWj26Qp51w=
+hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -18,7 +18,7 @@ Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 
 ## Umgang mit Gruppen
 * Zustände für den Umgang mit SONOS-Gruppen:
-   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, aber mit Unterstrich `_` anstelle des Punktes `.`, verwenden Sie also zum Beispiel `192_168_0_100` für die IP-Adresse `192.168.0.100`. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
+   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, jedoch mit Unterstrich „_“ anstelle des Punkts „.““, verwenden Sie also beispielsweise „192_168_0_100“ für die IP-Adresse „192.168.0.100“. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
    * **`group_volume`**: die Lautstärke der Gruppe
    * **`group_muted`**: Mute-Status der Gruppe.
    * **`add_to_group`**: Fügen Sie ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, unter dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
@@ -37,8 +37,76 @@ Bitte beachten: Dieser SONOS-Adapter hat Stabilitätsprobleme, wenn „Text to S
 
 Problemumgehung für Text-to-Speech ist die Verwendung von [SONOS-HTTP-API](https://github.com/jishi/node-sonos-http-api).
 
+## Favoriten & Warteschlange in VIS
+Verwenden Sie die Zustände `favorites_list_html` und `queue_html`, um Wiedergabelisten und die aktuelle Warteschlange mit einem einfachen HTML-Widget in VIS anzuzeigen. Durch Klick auf eine Zeile wird die Playlist oder der Track sofort abgespielt.
+Formatieren Sie die Tabelle mit den folgenden CSS-Klassen:
+
+### Favoriten
+* `sonosFavoriteTable`: gesamter Lieblingstisch
+* „sonosFavoriteRow“: Zeilen mit Favoriteninformationen
+* „sonosFavoriteNumber“: Nummer des Favoriten
+* `sonosFavoriteCover`: Albumcover des Favoriten (Bild mit `.sonosFavoriteCover img` aufnehmen)
+* „sonosFavoriteTitle“: Name des Favoriten
+
+### Warteschlange
+* „.sonosQueueTable“: Lochtabelle
+* „.sonosQueueRow“: Zeilen mit Titelinformationen
+* `.currentTrack`: hinzugefügt zu der Zeile, die den aktuell spielenden Track enthält
+* „.sonosQueueTrackNumber“: Nummer oder Titel
+* `.sonosQueueTrackCover`: Albumcover des Titels (Grab-Bild mit `.sonosQueueTrackCover img`)
+* „.sonosQueueTrackArtist“: Name des Künstlers
+* „.sonosQueueTrackAlbum“: Name des Albums (verwenden Sie „display:none“, wenn nicht erforderlich)
+* „.sonosQueueTrackTitle“: Name des Titels
+
+Fügen Sie für lange Listen `overflow:auto;` oder `overflow-y:auto;` zum Basis-HTML-Widget hinzu.
+Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird nicht unterstützt.
+
+### Beispiel-CSS
+```
+.sonosFavoriteTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosFavoriteRow {
+    cursor: pointer;
+}
+.sonosFavoriteNumber {}
+.sonosFavoriteCover img {
+    width: 30px;
+    height: 30px;
+}
+.sonosFavoriteTitle {}
+
+.sonosQueueTable {
+    color: #bbb;
+    font-size: 12px;
+}
+.sonosQueueRow {
+    display: table-row;
+    cursor: pointer;
+}
+.sonosQueueRow.currentTrack {
+    color: #fff;
+    font-weight: bold;
+}
+.sonosQueueTrackNumber {}
+.sonosQueueTrackCover img {
+    width: 30px;
+    height: 30px;
+    display: table-column;
+}
+.sonosQueueTrackArtist {
+    display: table-row;
+}
+.sonosQueueTrackAlbum {
+    display: none;
+}
+.sonosQueueTrackTitle {
+    display: table-row;
+}
+```
+
 ## Machen
-* Warteschlange mit Abdeckungen anzeigen
 * Umschreiben mit https://github.com/svrooij/node-sonos-ts
 
 ## Aufbau
@@ -51,6 +119,10 @@ Problemumgehung für Text-to-Speech ist die Verwendung von [SONOS-HTTP-API](http
 ### **IN ARBEIT** -->
 
 ## Changelog
+### WORK IN PROGRESS
+* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+* (Standarduser) Changed default album art if no cover was found
+
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
 

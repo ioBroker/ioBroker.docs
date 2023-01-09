@@ -27,6 +27,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
+### 0.6.3 (29.12.2022)
+* (HombachC) bumped dependencies and year 2023 changes
 ### 0.6.2 (11.09.2022)
 * (HombachC) fixed error in calc with active charge current
 ### 0.6.1 (08.09.2022)
@@ -82,7 +84,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Christian Hombach
+Copyright (c) 2021-2023 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -18,10 +18,19 @@ This adapter allows the connecting of Home Assistant to ioBroker.
 Create a long term token in HASS and use it as PW (copy it also in the repeat field).
 
 Then it should read out all attributes for all devices. Services might be controllable (e.g. "turn_on"). To control services you have two options:
-* Set the state with an ack=false value which is not a string (e.g. Boolean true) then it will be triggered also in HASS without additional service data
-* Set the state with an ack=false String value which is a stringified JSON object to call the service and use the JSON object as service data
 
-For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"short"}` these two service data details are sent with the call to HASS. The available fields with their data definition can be seen in the JSON definition of the ioBroker object in the native.fields section and would look like the following in the above example:
+### Set a direct value
+Set the state with an ack=false value which is not a string (e.g. Boolean true) then it will be triggered also in HASS without additional service data. This will only work if the service has one field to be sent - then the value is sent as this field! If the service has more than one field you will find a warning in the log that provides more details about the fields taht are possible to be sent, e.g.
+
+```
+Please make sure to provide a stringified JSON as value to set relevant fields! Please refer to the Readme for details!
+Allowed field keys are: temperature, target_temp_high, target_temp_low, hvac_mode
+```
+
+### Set a stringified JSON to provide one or multiple fields
+Set the state with an ack=false String value which is a stringified JSON object to call the service and use the JSON object as service data
+
+For the last option on a light.turn_off with e.g. `{"transition":10,"flash":"short"}` these two service data details are sent with the call to HASS. The available fields with their exact data definition can be seen in the JSON definition of the ioBroker object in the native.fields section and would look like the following in the above example:
 
 `
 ...
@@ -93,8 +102,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.4.0 (2023-01-03)
 * (Apollon77) Added more guidance logging when setting services incorrectly
 * (Apollon77) Prevent crashes when attributes contain "." at the end of their names
 * (Apollon77) Added logging for state updates for unknown objects
@@ -132,7 +140,7 @@ Please check it https://www.smarthomejetzt.de/mit-iobroker-auf-eine-home-assista
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

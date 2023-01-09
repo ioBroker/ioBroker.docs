@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homekit-controller/README.md
 title: ioBroker.homekit-controller
-hash: Vlc0ZQuPPhH6TLNS9yoNuH94kirR2y31fb2VPOq2o/o=
+hash: +2YzgHirnHHWaBtRjfXGg0pLsndjbJJuAgYkUoisYvA=
 ---
 ![Logo](../../../en/adapterref/iobroker.homekit-controller/admin/homekit-controller.png)
 
@@ -48,7 +48,7 @@ Im Moment muss die PIN in den Zustand admin.pairWithPin eingetragen werden - ein
 
 Nach dem Koppeln des Geräts mit dieser Instanz ist es NICHT möglich, das Gerät parallel auch zur Apple Home App oder dergleichen hinzuzufügen.
 
-Es kann Fälle geben, die immer noch problematisch für die Kopplung sind, da ich nur mit sehr wenigen Geräten testen konnte. Melden Sie daher bitte Probleme, und ich werde Sie mit Anweisungen unterstützen, um die erforderlichen Debugging-Daten zu erhalten.
+Es kann Fälle geben, die immer noch problematisch für die Kopplung sind, da ich nur mit sehr wenigen Geräten testen konnte, also melden Sie bitte Probleme, und ich werde Sie mit Anweisungen unterstützen, um die erforderlichen Debugging-Daten zu erhalten.
 
 #### Informationen zum Entkoppeln
 Zum Entkoppeln löst man einfach den `admin.unpair` Zustand mit "true" aus und der Unpair-Prozess wird ausgeführt - ein Admin UI folgt in Kürze.
@@ -75,6 +75,8 @@ Wenn Sie Probleme haben, das Gerät mit diesem Adapter zu koppeln, versuchen Sie
 Dies ist z.Zt. bei einigen `Tado Door Locks` so. Sie müssen mit `Tado App` gekoppelt werden, wodurch das Gerät irgendwie in Apple Home registriert wird, jedoch nicht über einen offiziellen Kopplungsprozess.
 
 Außerdem können `Nuki 3 Locks (BLE)` nicht gekoppelt werden, da sie Hardware-Authentifizierungskomponenten verwenden, die von Apple nicht öffentlich dokumentiert sind.
+
+Für Netatmo hat ein Benutzer herausgefunden, wie eine Kopplung möglich sein könnte, wenn es Probleme gab. Siehe https://github.com/Apollon77/ioBroker.homekit-controller/issues/233#issuecomment-1311983379
 
 #### Andere potenzielle Probleme, die Sie vor dem Öffnen eines Tickets überprüfen sollten
 ##### Für BLE-Geräte
@@ -113,8 +115,18 @@ Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.5.6 (2023-01-05)
+* (Apollon77) Upgrade noble library
+
+### 0.5.5 (2022-12-31)
+* (Apollon77) Downgrade noble library again
+
+### 0.5.3 (2022-12-22)
+* (bluefox) Corrected active TAB Background
+
+### 0.5.2 (2022-12-22)
 * (bluefox) Updated GUI packages
+* (Apollon77) Upgraded noble BLE library
 
 ### 0.5.1 (2022-06-10)
 * (Apollon77) Optimizations for BLE connections
@@ -173,7 +185,7 @@ Wenn Sie Probleme haben und ein Problem melden möchten (siehe unten), ist das e
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Ingo Fischer <github@fischer-ka.de>
+Copyright (c) 2021-2023 Ingo Fischer <github@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

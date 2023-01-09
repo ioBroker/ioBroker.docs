@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-погода-api
-hash: 8Z+4WWulLeq6uAcMvcnPFD0L5xt/tLWcX8ufWvvOXk0=
+hash: tridX01kDnAnV9k/t6trvSQuEjopO3QGQYe9MP+WB34=
 ---
 ![Логотип](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -11,7 +11,6 @@ hash: 8Z+4WWulLeq6uAcMvcnPFD0L5xt/tLWcX8ufWvvOXk0=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
-![Статус зависимости](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
 ![Известные уязвимости](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
@@ -26,23 +25,12 @@ hash: 8Z+4WWulLeq6uAcMvcnPFD0L5xt/tLWcX8ufWvvOXk0=
 - В версии 1.0.1 я исправляю проблему https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57.
 - На основании [этого] (https://forum.iobroker.net/topic/46975/vis-widgethintergrund-farbe-durch-objektdatenpunkt-steuern) обсуждения двоеточие не допускается в идентификаторах. Поэтому я удалил двоеточия, которые использовались для обозначения часов, без замены, а также опустил секунды. например старый 01:00:00 => новый 0100)
 
-Это изменение делает необходимым повторное создание идентификаторов. Таким образом, для установки версии 1.0.1 текущий запущенный экземпляр адаптера необходимо полностью удалить и заменить новым экземпляром.
+Это изменение делает необходимым повторное создание идентификаторов. Таким образом, для установки версии 1.0.1 текущий запущенный экземпляр адаптера должен быть полностью удален и заменен новым экземпляром.
 
 - Поскольку идентификаторы изменились с версией 1.0.1, визуальные представления также должны были быть адаптированы. Вы можете получить обновленные представления [здесь] (https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views) и импортировать их в ioBroker-Visu.
 
-**Процедура обновления версии 0.3.2 до 0.9.x** SRG полностью перестроила свой API. Старый API (<= версия адаптера 0.3.2) больше НЕ поддерживается. Начиная с версии адаптера 0.9.x используется новый API SRG. Вот почему необходимо создать новое приложение SRG (например, продукт «Freemium») (https://developer.srgssr.ch/apis/srf-weather). См. также файл Readme, глава «Начало работы» (ниже). Также обратите внимание, что новый API также будет создавать совершенно новые объекты.
-Хорошая новость заключается в том, что новый API также предоставляет больше данных. ;)**
-
-Итак, моя рекомендация для обновления с 0.3.2 до 0.9.x:
-
-- удалите старый адаптер перед установкой версии 0.9.x.
-   - обратите внимание, что объекты данных также будут удалены соответственно.
-- создайте новое бесплатное приложение на портале разработчиков srg (https://developer.srgssr.ch/apis/srf-weather)
-- установить новую версию 0.9.x и установить конфигурацию с новыми ConsumerKey и ConsumerSecret
-  - при запуске новый адаптер будет создавать новые, разные объекты данных.
-
 ## Адаптер swiss-weather-api для ioBroker
-Подключается к отличному API погоды SRF (https://developer.srgssr.ch/apis/srf-weather).
+Подключается к великолепному API погоды SRF (https://developer.srgssr.ch/apis/srf-weather).
 SRF Weather REST API позволяет получать прогнозы погоды и отчеты из более чем 25 000 мест по всей Швейцарии. Подписка «Freemium» позволяет получать 50 запросов в день.
 
 ##**Значки**
@@ -50,9 +38,9 @@ SRF Weather REST API позволяет получать прогнозы пог
 
 ##**Обратите внимание, что этот адаптер поддерживает только местоположения в Швейцарии.**
 ### Начиная
-1. Получите бесплатную учетную запись на https://developer.srgssr.ch/
-1. Перейдите в «Мои приложения» и создайте новое приложение. Здесь вы можете выбрать продукт. «Freemium» — их бесплатный продукт. Если вам нужен прогноз только для одного местоположения и вы получаете только 50 запросов в день (каждые 30 минут) и/или не хотите платить за дополнительные запросы в день, вам следует выбрать Freemium. Теперь это создаст определенные ConsumerKey и ConsumerSecret.
-1. Узнайте долготу/широту (десятичные градусы) выбранного места, для которого нужен прогноз. Эта информация необязательна, если вы указали свое местоположение в настройках ioBroker (основные настройки) (через карту). В этом случае вы можете оставить поля широты и долготы пустыми. Затем адаптер принимает настройки ioBroker. Широта и долгота, введенные в конфигурации адаптера, переопределяют настройки ioBroker.
+1. Получите бесплатный аккаунт на https://developer.srgssr.ch/
+1. Перейдите в «Мои приложения» и создайте новое приложение. Здесь вы можете выбрать Продукт. «Freemium» — их бесплатный продукт. Если вам нужен прогноз только для одного местоположения и вы получаете только 50 запросов в день (каждые 30 минут) и/или не хотите платить за дополнительные запросы в день, вам следует выбрать Freemium. Теперь это создаст определенные ConsumerKey и ConsumerSecret.
+1. Узнайте долготу/широту (десятичные градусы) выбранного места, для которого нужен прогноз. Эта информация не является обязательной, если вы указали свое местоположение в настройках ioBroker (основные настройки) (через карту). В этом случае вы можете оставить поля широты и долготы пустыми. Затем адаптер принимает настройки ioBroker. Широта и долгота, введенные в конфигурации адаптера, переопределяют настройки ioBroker.
 1. Установите этот адаптер на ioBroker => Это может занять несколько минут (~ 7 минут на Raspberry Pi 3)
 1. В разделе «Конфигурация адаптера» заполните
    1. Название приложения
@@ -62,7 +50,7 @@ SRF Weather REST API позволяет получать прогнозы пог
    1. Интервал опроса в минутах (по умолчанию 30 минут - 50 запросов/день)
 
 Первый запрос делается через 10 секунд после запуска адаптера. После первого запуска запрос будет регулярно выполняться в соответствии с параметром конфигурации (интервал опроса в минутах).
-Объекты в прогнозе.current_hour будут созданы через 30 секунд после первого запуска и будут обновляться каждый час путем копирования соответствующих значений из прогноза.60минут.
+Объекты в прогнозе.current_hour будут созданы через 30 секунд после первого запуска и будут обновляться каждый час путем копирования соответствующих значений из прогноза.60минут.
 
 ### Пример визуализации
 ###### Условие:
@@ -74,6 +62,20 @@ SRF Weather REST API позволяет получать прогнозы пог
 ![планшет](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 ## Changelog
+
+### 1.0.5
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/81
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/76 
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/75
+
+### 1.0.4
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/85
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/82
+
+### 1.0.3
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/67
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/66
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/52
 
 ### 1.0.2
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51

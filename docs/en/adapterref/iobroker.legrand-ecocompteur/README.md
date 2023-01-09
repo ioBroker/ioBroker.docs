@@ -5,9 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.legrand-ecocompteur.svg)](https://www.npmjs.com/package/iobroker.legrand-ecocompteur)
 ![Number of Installations (latest)](http://iobroker.live/badges/legrand-ecocompteur-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/legrand-ecocompteur-stable.svg)
-[![Dependency Status](https://img.shields.io/david/raintonr/iobroker.legrand-ecocompteur.svg)](https://david-dm.org/raintonr/iobroker.legrand-ecocompteur)
-[![Known Vulnerabilities](https://snyk.io/test/github/raintonr/ioBroker.legrand-ecocompteur/badge.svg)](https://snyk.io/test/github/raintonr/ioBroker.legrand-ecocompteur)
-[![Tests](https://travis-ci.org/raintonr/ioBroker.legrand-ecocompteur.svg?branch=master)](https://travis-ci.org/raintonr/ioBroker.legrand-ecocompteur)
 
 [![NPM](https://nodei.co/npm/iobroker.legrand-ecocompteur.png?downloads=true)](https://nodei.co/npm/iobroker.legrand-ecocompteur/)
 

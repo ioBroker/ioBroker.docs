@@ -5,9 +5,10 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pjlink.svg)](https://www.npmjs.com/package/iobroker.pjlink)
 ![Number of Installations](https://iobroker.live/badges/pjlink-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/pjlink-stable.svg)
-[![NPM](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)](https://nodei.co/npm/iobroker.pjlink/)
 
-**Tests:** ![Test and Release](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/Bannsaenger/ioBroker.pjlink/workflows/Test%20and%20Release/badge.svg)
+
+[![NPM](https://nodei.co/npm/iobroker.pjlink.png?downloads=true)](https://nodei.co/npm/iobroker.pjlink/)
 
 ## pjlink adapter for ioBroker
 
@@ -37,8 +38,6 @@ This work is based on the nodejs module with pjlink implementation from **sy1vai
 
 ## ToDo
 * support the node-pjlink project to implement class 2
-* the INST query returns more information as only the availabel inputs. Additional information is added by the node-pjlink module. For now it is brought as stringified object to the database. May be changed to a "folder" with all inputs with their names etc.
-* include class 2 to this iobroker adapter
 
 ## How the adapter works
 For now only class 1 is supported. This means the adapter can only poll the status.
@@ -58,16 +57,19 @@ added as soon as class 2 is supported.
 | NETWORK | 5      | 1 - 9 |
 
 The possible inputs can be found in the database after the adapter has been started under
->pjlink.\<instance\>.deviceInfo.availableInputs
+> pjlink.\<instance\>.deviceInfo.availableInputs
+
+You can edit the input object in the instance configuration. There you can edit the names of the inputs and
+let the database object validate your inputs.
 
 ### Power Switch
 With the state (set to **true**)
 
->pjlink.\<instance\>.power
+> pjlink.\<instance\>.power
 
 the projector can be switched on **and** off depending on the current power state.
 
->pjlink.\<instance\>.powerStatus
+> pjlink.\<instance\>.powerStatus
 
 The power switch will automatically return to **false**.
 
@@ -80,6 +82,10 @@ the other lamps will be added dynamically.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
+* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: Адаптер ioBroker mihome-vacuum
-hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
+hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -36,7 +36,7 @@ hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
 - [Очистка зоны](#zoneclean)
     - [комнаты](#комнаты)
     - [таймер](#таймер)
-    - [Собственные команды](#отправить-свои-собственные-команды)
+    - [Собственные команды](#отправить-ваши-собственные-команды)
     - [sendTo hook](#send-custom-commands-with-sendto)
 - [виджет](#виджет)
 - [ошибки](#ошибки)
@@ -99,7 +99,7 @@ hash: WG37LTG3Sf+tcHfEY3Olh4Nk9gSODCWfqvHcBPIKxeo=
 Если этот параметр включен, пылесос возобновит очистку зоны при установке состояния «старт» в значение «истина», если он был приостановлен во время выполнения очистки зоны.
 Если этот параметр отключен, пылесос начнет новую «нормальную уборку» при отправке команды запуска, даже если он был приостановлен во время выполнения очистки зоны.
 
-- Экспериментальный: С помощью флажка «Отправлять собственные команды» создаются объекты, с помощью которых вы можете отправлять и получать собственные команды роботу.
+- Экспериментальный: С помощью флажка «Отправить собственные команды» создаются объекты, с помощью которых вы можете отправлять и получать собственные команды роботу.
 
 #### Второй робот
 Если два робота должны управляться через ioBroker, необходимо создать два экземпляра. Для второго робота необходимо изменить собственный порт (по умолчанию: 53421) для ioBroker, чтобы оба робота могли архивировать ioBroker через разные порты.
@@ -200,7 +200,7 @@ xVal, yval
 Если вы хотите спонтанно очистить несколько комнат, вы можете сделать это с помощью multiRoomClean, назначив комнаты ioBroker этой точке данных, а затем нажав кнопку.
 
 #### Таймер
-Поскольку пылесос поддерживает функцию комнаты (см. выше), также можно создавать таймеры, которые затем запускают соответствующие каналы комнаты или определяют их mapIndex.
+Поскольку пылесос поддерживает функцию комнаты (см. выше), также можно создавать таймеры, которые затем запускают соответствующие комнатные каналы или определяют их mapIndex.
 Таймер может запускаться через комнаты и/или каналы комнаты напрямую.
 Сами таймеры создаются через область конфигурации, но затем становятся точкой данных. Там каждый таймер можно активировать/деактивировать или пропустить один раз. Также возможен прямой пуск. Преимущество таймеров ioBroker в том, что их можно отображать и использовать в ВИС, а также можно отключить робота от интернета, потому что таймеры приложения запускаются из Китая.
 
@@ -232,7 +232,7 @@ xVal, yval
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 
-больше методов и параметров вы можете найти здесь ([Ссылка на сайт](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
+больше методов и параметров вы можете найти здесь ([Связь](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
 ### Отправка пользовательских команд с помощью sendTo
 Вы также можете отправлять эти пользовательские команды с других адаптеров с помощью `sendTo`. Использование с `method_id` и `params`, как определено выше:
@@ -310,10 +310,12 @@ sendTo("mihome-vacuum.0",
 | Завершить функцию дистанционного управления | `stopRemoteControl` | - нет - | |
 | чистая комната/комнаты | `cleanRooms` | `rooms` | `rooms` — это строка, разделенная запятыми, с перечислением enum.rooms.XXX |
 | чистый сегмент | `cleanSegments` | `rooms` \| {комнаты:`rooms`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `rooms` — это число или массив с индексом карты или разделенная запятой строка с индексом карты |
-| чистая зона | `cleanZone` | `coordinates` \| {координаты:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`} | `coordinates` — это строка с координатами и количеством, см. [зонаЧистота](#zonecleaning) |
+| чистая зона | `cleanZone` | `coordinates` \| {координаты:`coordinates`,waterBoxMode:`waterBoxMode`,mopMode:`mopMode`,fanSpeed:`fanSpeed`,повтор:`iterations`} | `coordinates` — это строка с координатами и количеством, см. [зонаЧистота](#zonecleaning) |
 | начать сбор пыли | `startDustCollect` | - нет - | |
 | остановить сбор пыли | `stopDustCollect` | - нет - | |
-| остановить сбор пыли | `остановить сбор пыли` | - нет - | |
+| начать мытье шваброй | `startWashMop` | - нет - | |
+| остановить мытье шваброй | `stopWashMop` | - нет - | |
+| остановить мытье шваброй | `стопWashMop` | - нет - | |
 
 ## Виджет
 ![Виджет](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
@@ -322,252 +324,266 @@ sendTo("mihome-vacuum.0",
 - Периодические отключения, однако это не из-за адаптера, а в основном из-за собственных сетей
 - Виджет на время без функции
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-    ### **РАБОТА В ПРОЦЕССЕ**
-    * ()
-
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+    * () 
 -->
+### 3.9.2 (2023-01-06)
+* (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
+* (dirkhe) fix bug from 3.9.1 for supported repeat devices
+
+### 3.9.1 (2023-01-06)
+* (Dirkhe) add step property to repeat DP
+* (Dirkhe) add Queue Fallback mode for repeat
+* (Dirkhe) remove wrong clearQueue button
+
+### 3.9.0 (2023-01-04)
+* (Dirkhe) add Mop washing #679
+* (Dirkhe) trigger pauseResume only, if correct state is given #623
+* (Dirkhe) add multiple clean iterations (repeat) #690
+* (Dirkhe) housekeeping
 
 ### 3.8.8 (2022-11-30)
-* (Дирхе) исправлено поведение pauseResume #623
+* (Dirkhe) fix behaviour of pauseResume #623
 
 ### 3.8.7 (2022-11-26)
-* (Dirkhe) исправить опечатку в переводе для battary_live (на основе viomi id) #629
-* (Дирхе) исправлен вылет, если cloud-roomID пуст #702
+* (Dirkhe) fix typo from translation for battary_live (based on viomi id) #629
+* (Dirkhe) fix crash, if cloud-roomID is empty #702
 
 ### 3.8.6 (2022-11-12)
-* (Дирхе) Тип фикса для roomMopMode
+* (Dirkhe) Fix type for roomMopMode
 
-### 3.8.5 (10.11.2022)
-* (Дирхе) перевести parseErrors на уровень отладки
-* (Dirkhe) избегайте новых моментов при повторном подключении
+### 3.8.5 (2022-11-10)
+* (Dirkhe) move parseErrors to debug level
+* (Dirkhe) avoid new instanziierung on reconnect
 
 ### 3.8.4 (2022-11-07)
-* (Дирхе) журнал изменений для sendMessage для отладки
+* (Dirkhe) change logging for sendMessage to debug
 
 ### 3.8.3 (2022-11-01)
-* (Дирхе) логирование изменений по таймаутам
-* (Дирхе) скрыть части токена в логе
+* (Dirkhe) change logging from timeouts
+* (Dirkhe) hide parts of token in log
 
 ### 3.8.2 (2022-10-31)
-* (Дирхе) Поднять холст до 2.10.2
-* (Дирхе) отключить карту, если не установлен CANVAS #681
+* (Dirkhe) Bump canvas to 2.10.2
+* (Dirkhe) disable map, if CANVAS not installed #681
 
 ### 3.8.1 (2022-10-30)
-* (Дирхе) удалить устаревшую версию node 12.x для рабочего процесса
+* (Dirkhe) remove deprecated node 12.x Version for workflow
 
-### 3.8.0 (30.10.2022)
-* (Dirkhe) исправлена отсутствующая стандартная команда для mop_mode
-* (Дирхе) добавить режим швабры также для cleanSegments и cleanZone
-* (Дирхе) добавить режим швабры также для комнат
-* (MeisterTR) масштабирование карты и показ ковра
+### 3.8.0 (2022-10-30)
+* (Dirkhe) fix missing stock command for mop_mode
+* (Dirkhe) add mop mode also for cleanSegments and cleanZone
+* (Dirkhe) add mop mode also for rooms
+* (MeisterTR) map zooming amd show carpet
 
-### 3.7.0 (28.10.2022)
-* (Dirkhe) принимать пользовательские команды с одним параметром
-* (Дирхе) необязательный параметр waterboxMode и fanSpeed для cleanSegments и cleanZone
-* (Дирхе) исправлен сбой при отправке сообщения (#652)
-* (Дирхе) добавить режим швабры (#670)
-* (Дирхе) адаптировал fan_power для S7 Ultra(#677)
+### 3.7.0 (2022-10-28)
+* (Dirkhe) accept custom commands with single paramter
+* (Dirkhe) optional parameter waterboxMode and fanSpeed for cleanSegments and cleanZone 
+* (Dirkhe) fix crash on message send (#652)
+* (Dirkhe) add mop mode (#670)
+* (Dirkhe) adapt fan_power for S7 Ultra(#677)
 
-### 3.6.0 (07.07.2022)
-* (Дирхе) добавить сбор пыли
+### 3.6.0 (2022-07-07)
+* (Dirkhe) add dust collecting
 
-### 3.5.0 (29 июня 2022 г.)
-* (Дирхе) добавить модель Roborock S6 Pure
-* (Дирхе) добавить/расширить некоторые подсказки в файле readme
-* (Dirkhe) добавить дополнительную информацию в журнал для cleanRooms
-* (Дирхе) исправлена ошибка для неправильного map-dp
+### 3.5.0 (2022-06-29)
+* (Dirkhe) add Roborock S6 Pure model
+* (Dirkhe) add/extend some Hints in readme
+* (Dirkhe) add additional log info for cleanRooms
+* (Dirkhe) fix error for wrong map-dp
 
 ### 3.4.2 (2022-06-24)
-* (Apollon77) Обновлены зависимости для лучшей автоматической пересборки.
+* (Apollon77) Update dependencies to allow better automatic rebuild
 
-### 3.4.1 (31 мая 2022 г.)
-* (Дирхе) добавлены пропущенные состояния вакуума
-* (Дирхе) добавить состояние дока Бак для сточных вод полный
+### 3.4.1 (2022-05-31)
+* (Dirkhe) add missed Vacuum states
+* (Dirkhe) add dock state Waste water tank full
 
-### 3.4.0 (28 мая 2022 г.)
-* (Apollon77) Исправлено несколько потенциальных случаев сбоя, о которых сообщил Sentry.
+### 3.4.0 (2022-05-28)
+* (Apollon77) Fix several potential crash cases reported by Sentry
 
 ### 3.3.6 (2022-05-03)
-* (Дирхе) фикс точечной очистки
+* (Dirkhe) fix spotcleaning
 
 ### 3.3.5 (2022-02-07)
-* (Дирхе) исправлены некоторые ошибки
-* (lasthead0) исправить проблему с кириллицей RC4 lib#
+* (Dirkhe) fixed some errors
+* (lasthead0) fix cyrillic issue RC4 lib#
 
-### 3.3.3 (20 января 2022 г.)
-* (Дирхе) исправлены некоторые ошибки
-* (Дирхе) добавить RC4
+### 3.3.3 (2022-01-20)
+* (Dirkhe) fixed some errors
+* (Dirkhe) add RC4
 
 ### 3.3.1 (2021-10-02)
-* (MeisterTR) фикс IOBROKER-MIHOME-VACUUM-Z
-* (MeisterTR) исправить некоторые ошибки
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-Z
+* (MeisterTR) fix some errors
 
 ### 3.3.0 (2021-10-01)
-* (MeisterTR) исправлено отсутствие комнат для S5
-* (MeisterTR) исправлено закрытие БД IOBROKER-MIHOME-VACUUM-4
-* (MeisterTR) исправить ошибку подключения
+* (MeisterTR) fix no rooms for S5
+* (MeisterTR) fix IOBROKER-MIHOME-VACUUM-4 DB closed
+* (MeisterTR) fix connection error
 
 ### 3.2.2 (2021-07-16)
-* (bluefox) связь исправлена
-* (bluefox) Добавлены роли, определяемые детектором типов
+* (bluefox) the communication is corrected
+* (bluefox) Added roles to be detected by type-detector
 
 ### 3.2.1 (2021-07-02)
-* (Apollon77) Скорректировано несколько аварийных случаев (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER -MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B, IOBROKER-MIHOME-VACUUM-Q, IOBROKER-MIHOME-VACUUM-M)
 
-### 3.2.0 (06.02.2021)
-* (MeisterTR) релиз-кандидат
-* (MeisterTR) получить расходник после сброса
+### 3.2.0 (02.06.2021)
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
 
 ### 3.1.10 (23.05.2021)
-* ошибка исправлена
-* добавить часового
+* error fixed
+* add sentry
 
 ### 3.1.6 (05.05.2021)
-* минимизировать запись на диск
-* свернутые сообщения
-* изменены предупреждающие сообщения на отладочные
-* расширить Debuglog, чтобы найти ошибку для вакуума e2
-* добавлены getStates при смене карты
+* minimize Disk write
+* minimized Messages 
+* changed warn Messages to debug
+* extend Debuglog to find error for e2 vacuum
+* added getStates when map is changed
 
 ### 3.1.5 (03.05.2021)
-* попробуйте исправить ошибку карты
-* Map64 изменен. теперь без тегов img
-* добавлена поддержка Multimap (получение номеров и карты при смене карты)
-* выберите Мультикарты
-* исправлена ошибка с координатами зоны
-* добавить Wi-Fi
-* исправить проблемы с подключением
-* исправить карту Валетудо
-* добавить состояние швабры
-* исправить некоторые объекты
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
+* select Multimaps
+* fix error with zone coordinates
+* add WiFi
+* fix connection Problems
+* fix Valetudo map
+* add Mop state
+* fix some objects
 
 ### 3.1.1 (18.4.2021)
- * Полный рерайт
- * Исправлена ошибка карты с несколькими пылесосами
- * исправить проблемы с производительностью
- * лучшее подключение к вакууму
- * исправлена ошибка в кнопке ReloadMap
- * Показать состояния Goto и Zone, чтобы найти места
- * и многое другое...
+ * Full rewrite
+ * Fix map bug with multiple vacuums
+ * fix performance Problems
+ * better connection to vacuum
+ * fix bug in ReloadMap button
+ * Show Goto and Zone States ti find places
+ * and many more...
 
 ### 2.2.5 (2021-04-02)
-* добавлена поддержка S7
-* исправления для S5 Max и других
+* added S7 Support
+* bugfixes for S5 Max and others
 
 ### 2.2.4 (2020-09-15)
-* (дирхе) добавить конфиг для отправки Pause Before Home
+* (dirkhe) add config for send Pause Before Home
 
-### 2.2.3 (20.08.2020)
-* (дирхе) ДП комнаты не удаляются, при смене карты
+### 2.2.3 (2020-08-20)
+* (dirkhe) room DP are not deleted, on map change
 
 ### 2.2.0 (2020-08-13)
-* (MeisterTR) добавить тест для Viomi и Dreame Api
+* (MeisterTR) add test for Viomi and Dreame Api
 
 ### 2.1.1 (2020-07-10)
-* (синий лис) Рефакторинг
-* (bluefox) Добавлена поддержка компактного режима
+* (bluefox) Refactoring
+* (bluefox) Support of compact mode added
 
-### 2.0.10 (05.07.2020)
-* попробуйте запустить очистку 3 раза, если робот не отвечает и некоторые исправления
+### 2.0.10 (2020-07-05)
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
-* (dirkhe) добавить информацию о состоянии для каналов комнаты и изменить информацию об очереди с номера на JSON
+* (dirkhe) add state info for room channels and change queue info from number to JSON
 
-### 2.0.8 (26 февраля 2020 г.)
-* (дирхе) уменьшено общение с роботом
+### 2.0.8 (2020-02-26)
+* (dirkhe) decreased communication with robot
 
 ### 2.0.7 (2020-02-25)
-* (дирхе) добавить Возобновление после паузы для комнат
+* (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) добавить комнаты за s50 с картой (необходимо облако или Valetudo)
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
-### 2.0.4 (13 февраля 2020 г.)
-* (MeisterTR) добавить облачный логин для получения токена
-* (MeisterTR) добавить облачную карту
-* (MeisterTR) добавить новый и старый формат карты
-* (MeisterTR) перестроить страницу конфигурации
+### 2.0.4 (2020-02-13)
+* (MeisterTR) add cloud login to get token
+* (MeisterTR) add cloud Map
+* (MeisterTR) add new and old Map format
+* (MeisterTR) rebuild config page
 
-### 1.10.5 (11 февраля 2020 г.)
-* отправлять Ping только если нет подключения, иначе get_status
-* установить состояния кнопок в true, если они нажаты
-* переместить менеджера таймера и менеджера комнаты в собственные библиотеки
+### 1.10.5 (2020-02-11)
+* send Ping only if not connected, otherwise get_status
+* set button states to true, if clicked
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
-* (MeiserTR) добавлена поддержка карт valetudo для gen3 и gen2 2XXX.
+* (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
 
-### 1.10.1 (20.01.2020)
-* (дирхе) добавлена зона для обработки помещения
-* (дирхе) таймер может напрямую переключаться между каналами
+### 1.10.1 (2020-01-20)
+* (dirkhe) added zone as room handling
+* (dirkhe) timer could room channels directly
 
 ### 1.10.0 (2020-01-17)
-* (дирхе) добавлена обработка комнаты
-* (дирхе) добавлен Таймер
-* (дирхе) изменена обработка функций
+* (dirkhe) added room handling
+* (dirkhe) added Timer 
+* (dirkhe) changed feature handling
 
 ### 1.1.6 (2018-12-06)
-* (JoJ123) Добавлена скорость вентилятора для MOP (S50+).
+* (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Добавлено описание для Статусов 16 и 17 (переход и очистка зоны).
-* (BuZZy1337) Добавлена настройка автоматического возобновления очистки приостановленной зоны.
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Добавлена возможность возобновить очистку приостановленной зоны (состояние: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
-* (BuZZy1337) исправлено состояние ZoneCleanup, которое не работало (пылесос только выходил из док-станции, говоря «Готово ZoneCleanup», и немедленно возвращался обратно в док)
+* (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
 
 ### 1.1.2 (2018-07-05)
-* (BuZZy1337) исправлено обнаружение новых прошивок/пылесоса второго поколения
+* (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) обнаружена ошибка, добавлены состояния для новых прошивок
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
-* (mswiege) Закончил виджет
+* (mswiege) Finished the widget
 
 ### 1.0.1 (2018-01-26)
-* (MeisterTR) готов для admin3
-* (MeisterTR) поддержка SpotClean и уровня голоса (v1)
-* (MeisterTR) поддержка второго поколения (S50)
-* (MeisterTR) Ускорение запросов данных
+* (MeisterTR) ready for admin3
+* (MeisterTR) support SpotClean and voice level (v1)
+* (MeisterTR) support second generation (S50)
+* (MeisterTR) Speed up data requests
 
-### 0.6.0 (17.11.2017)
-* (MeisterTR) использовать 96-символьный токен из Ios Backup
-* (MeisterTR) более быстрое соединение при первом использовании
+### 0.6.0 (2017-11-17)
+* (MeisterTR) use 96 char token from Ios Backup
+* (MeisterTR) faster connection on first use
 
-### 0.5.9 (03.11.2017)
-* (MeisterTR) исправить ошибку связи без i-net
-* (AlCalzone) добавить выбор предопределенных уровней мощности
+### 0.5.9 (2017-11-03)
+* (MeisterTR) fix communication error without i-net
+* (AlCalzone) add selection of predefined power levels
 
-### 0.5.7 (17 августа 2017 г.)
-* (MeisterTR) сравнить системное время и время робота (исправить отсутствие связи, если системное время отличается)
-* (MeisterTR) обновить значения, если робот запускается из облака
+### 0.5.7 (2017-08-17)
+* (MeisterTR) compare system time and Robot time (fix no connection if system time is different)
+* (MeisterTR) update values if robot start by cloud
 
-### 0.5.6 (23 июля 2017 г.)
-* (MeisterTR) добавить опцию для переключателя ящиков для управления Alexa
+### 0.5.6 (2017-07-23)
+* (MeisterTR) add option for crate switch for Alexa control
 
-### 0.5.5 (30.06.2017)
-* (MeisterTR) добавить состояния, функции, исправить ошибки связи
+### 0.5.5 (2017-06-30)
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
-* (MeisterTR) исправлено отсутствие связи после обновления программного обеспечения (версия 3.3.9)
+* (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)
 
-### 0.3.1 (10 апреля 2017 г.)
-* (MeisterTR) фикс установки мощности вентилятора
-* (bluefox) ошибка перехвата, если порт занят
+### 0.3.1 (2017-04-10)
+* (MeisterTR) fix setting the fan power
+* (bluefox) catch error if port is occupied
 
 ### 0.3.0 (2017-04-08)
-* (MeisterTR) добавить больше состояний
+* (MeisterTR) add more states
 
 ### 0.0.2 (2017-04-02)
-* (steinwedel) реализовать лучшее декодирование пакетов
+* (steinwedel) implement better decoding of packets
 
-### 0.0.1 (16 января 2017 г.)
-* (bluefox) начальная фиксация
+### 0.0.1 (2017-01-16)
+* (bluefox) initial commit
 
 ## License
 The MIT License (MIT)

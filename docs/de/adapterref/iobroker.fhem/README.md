@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fhem/README.md
 title: ioBroker.fhem
-hash: bffB6fPUVd7gXMnqL4+H/0xbklbZRyDpdCutMtV09j0=
+hash: FHDWKGHESdm9lAi0W8esYxcqxpLqFllQPX+6m/3Kbrk=
 ---
 ![Logo](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
 
@@ -11,48 +11,68 @@ hash: bffB6fPUVd7gXMnqL4+H/0xbklbZRyDpdCutMtV09j0=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.fhem.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.fhem.svg)
 
-#ioBroker.fhem
+# IoBroker.fhem
 ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dieser Adapter ermöglicht die Verbindung von FHEM mit ioBroker.
+Dieser Adapter ermöglicht es, FHEM mit ioBroker zu verbinden.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
-Um die Verbindung zu aktivieren, muss das Telnet in FHEM aktiviert sein. Um es zu aktivieren (standardmäßig aktiviert), überprüfen Sie die folgenden Einstellungen in der fhen.cfg:
+Um die Verbindung zu ermöglichen, muss Telnet in FHEM aktiviert sein. Um es zu aktivieren (standardmäßig aktiviert), überprüfen Sie die folgenden Einstellungen in `fhem.cfg`:
 
-```define telnetPort telnet 7072 global```
+`define telnetPort telnet 7072 global`
 
-Genau der gleiche Port und die IP-Adresse des FHEM-Hosts (oder localhost, wenn FHEM und ioBroker auf demselben PC laufen) sollten für die Einstellungen des Adapters verwendet werden.
+Für die Einstellungen des Adapters sollten genau derselbe Port und die IP-Adresse des FHEM-Hosts (oder localhost, wenn FHEM und ioBroker auf demselben PC laufen) verwendet werden.
 
-ioBroker sendet beim Start den Befehl "jsonlist2", um alle "Readings" aus der Liste zu erhalten.
+ioBroker sendet beim Start den `jsonlist2` Befehl, um alle `Readings` aus der Liste zu holen.
 
 ## Unterstützte Geräte
 Normalerweise werden alle Geräte unterstützt. Aber einige von ihnen sind besser integriert.
 
-Die Probleme treten vor allem bei der Kontrolle der Staaten auf.
-Da es keine klare Attributstruktur gibt, versucht ioBroker zu erraten, welche "PossibleSets"-Felder verwendet werden können.
+Die Probleme treten vor allem bei der Steuerung der Zustände auf.
+Da es keine klare Attributstruktur gibt, versucht ioBroker zu erraten, welche `PossibleSets`-Felder verwendet werden können.
 Aktuell werden nur folgende Attribute unterstützt:
 
-- RGB: Wenn RGB in *PossibleSets* und in *Readings* existiert, wird es zu einem les- und schreibbaren Zustand zusammengefasst. Werte wie ```#234567``` werden automatisch in ```234567``` umgewandelt.
-- on off state: Wenn **on** und **off** in *PossibleSets* und **state** in *Readings* existieren, wird es unter dem Namen **state** zu einem on-Zustand zusammengefasst. Es kann mit true und false gesteuert werden und die Befehle werden geändert in ```set DEVICE on``` und ```set DEVICE off```.
+- RGB: Wenn RGB in „PossibleSets“ und in „Readings“ vorhanden ist, wird es zu einem Zustand kombiniert, der gelesen und geschrieben werden kann. Werte wie „#234567“ werden automatisch in „234567“ konvertiert.
+- on off state: Wenn `on` und `off` in `PossibleSets` und `state` in `Readings` vorhanden sind, wird es unter dem Namen `state` zum on-Zustand zusammengefasst. Es kann mit wahr und falsch gesteuert werden und die Befehle werden auf `set DEVICE on` und `set DEVICE off` geändert.
 
 ## Funktionen und Verwendung
-* Falls der Raum "ioBroker" in FHEM existiert, werden nur diese Objekte synchronisiert
-* Nach der Synchronisierung werden nicht verwendete FHEM-Objekte automatisch gelöscht.
-* Interna wie TYPE, NAME, PORT, Herstellername, modelid, swversion werden synchronisiert (role=value.xxx)
-* Attribute wie Raum, Alias, Deaktivierung, Kommentar werden synchronisiert und es ist möglich, Attribute in ioBroker zu bearbeiten. (Rolle=Zustand.xxx)
-* Rollen und andere während der Synchronisierung festlegen
-  * Messwerte xxx mit allen PossibleSets werden gesetzt role=state.xxx
-  * Messwerte xxx ohne PossibleSets werden gesetzt role=value.xxx
-  * Messwerte xxx mit PossibleSets "noArg" werden gesetzt role=button.xxx
-  * Messwerte xxx mit PossibleSets "slider" werden gesetzt role=level.xxx, min=slider(min), max=slider(max)
-  * Messwerte "Soll-Temp" werden gesetzt role=level.temperature, min=5, max=35, unit=°C .
-  * Messwerte "pct, bright,dim" werden gesetzt role=level.dimmer, min=0, max=100, unit=%
-  * Messwerte "Volume, volume, GroupVolume" werden gesetzt role=level.volume, min=0, max=100, unit=%
-  * Messwerte "GroupVolume" werden gesetzt role=level.volume.group, min=0, max=100, unit=%
-* SmartName für Cloud Adapter wird automatisch mit Alias oder Name gesetzt (nur fhem.0 und Objekte mit role = level.temperature, level.dim, level.volume)
+* Wenn der Raum "ioBroker" in FHEM existiert, werden nur diese Objekte synchronisiert
+* Nach der Synchronisierung werden ungenutzte FHEM-Objekte automatisch gelöscht.
+* Interna wie `TYPE`, `NAME`, `PORT`, `manufacturername`, `modelid`, `swversion` werden synchronisiert (`role=value.xxx`)
+* Attribute wie „room“, „alias“, „disable“, „comment“ werden synchronisiert und es ist möglich, Attribute in ioBroker zu bearbeiten. (`Rolle=Zustand.xxx`)
+* Legen Sie Rolle und andere während der Synchronisierung fest
+  * `Readings xxx` mit allen `PossibleSets` wird auf `role=state.xxx` gesetzt
+  * `Readings xxx` ohne PossibleSets wird auf `role=value.xxx` gesetzt
+  * `Readings xxx` mit PossibleSets "noArg" wird auf `role=button.xxx` gesetzt
+  * `Readings xxx` mit PossibleSets "slider" wird auf `role=level.xxx, min=slider(min), max=slider(max)` gesetzt
+  * `Messwerte "Soll-Temperatur"` werden auf `Rolle=Stufe.Temperatur, Min=5, Max=35, Einheit=°C` gesetzt.
+  * `Messwerte "pct, bright,dim"` werden auf `role=level.dimmer, min=0, max=100, unit=%` gesetzt
+  * `Messwerte "Volume, volume, GroupVolume"` werden auf `role=level.volume, min=0, max=100, unit=%` gesetzt
+  * `Readings "GroupVolume"` wird auf `role=level.volume.group`, `min=0`, `max=100`, `unit=%` gesetzt
+* `SmartName` für Cloud Adapter wird automatisch mit Alias oder Name gesetzt (nur `fhem.0` und Objekte mit `role = level.temperature, level.dim, level.volume`)
+
+<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.0.3 (2023-01-03)
+* (Apollon77/LausiD) Made sure that all objects are initialized correctly
+
+### 2.0.2 (2022-12-23)
+* (bluefox) Corrected error with `members`
+
+### 2.0.0 (2022-12-22)
+* (bluefox) Refactoring
+* (bluefox) Corrected some GitHub issues
+* (bluefox) Added JSON config
+
+### 1.6.3 (2021-07-26)
+* (Apollon77) fix crash case
+
+### 1.6.2 (2021-07-16)
+* (LausiD) fix crash case
 
 ### 1.6.1 (2021-06-30)
 * (LausiD) fix use Controller 3.3.x
@@ -145,7 +165,7 @@ Aktuell werden nur folgende Attribute unterstützt:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
