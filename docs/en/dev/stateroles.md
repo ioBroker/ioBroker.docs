@@ -72,6 +72,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.window`      (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) It is important to have (`CLOSED/TILTED/OPEN`). Values can differ.
 * `value.temperature` (`common.unit='°C' or '°F' or 'K'`)
 * `value.humidity`
+* `value.co2`             - CO2 (unit: ppm)
 * `value.brightness`      - luminance level (unit: lux, )
 * `value.min`
 * `value.max`
@@ -137,7 +138,6 @@ With **levels** you can control or set some number value.
 `common.type=number, common.write=true`
 
 * `level`
-* `level.co2`             - 0-100% ait quality
 * `level.dimmer`          - brightness is dimmer too
 * `level.blind`           - set blind position (max = fully open, min = fully closed)
 * `level.temperature`     - set desired temperature
