@@ -11,8 +11,8 @@ import Utils from '../Utils';
 import Router from '../Router';
 import MarkdownView from 'react-showdown';
 
-import {MdEdit as IconEdit} from 'react-icons/md';
-import {MdRssFeed as IconRss} from 'react-icons/md';
+import { MdEdit as IconEdit } from 'react-icons/md';
+import { MdRssFeed as IconRss } from 'react-icons/md';
 
 const styles = theme => ({
     root: {
@@ -23,7 +23,7 @@ const styles = theme => ({
         background: '#123456',
         paddingTop: 10,
         paddingBottom: 30,
-        paddingLeft: '10%'
+        paddingLeft: '10%',
     },
     rssIcon: {
         fontSize: 22,
@@ -56,7 +56,7 @@ const styles = theme => ({
         textAlign: 'center',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
     },
     pageLogo: {
         height: '100%',
@@ -77,10 +77,10 @@ const styles = theme => ({
         marginTop: 50,
     },
     pageTitleNextButton: {
-        float: 'left'
+        float: 'left',
     },
     pageTitlePrevButton: {
-        float: 'right'
+        float: 'right',
     },
     pageTitleTranslated: {
         borderColor: '#009c4f',
@@ -93,8 +93,8 @@ const styles = theme => ({
         '&:before': {
             content: '"🛈"',
             marginRight: 10,
-            color: '#000000'
-        }
+            color: '#000000',
+        },
     },
     info: {
         paddingTop: 10,
@@ -103,7 +103,7 @@ const styles = theme => ({
     infoEdit: {
         float: 'right',
         textDecoration: 'none',
-        color: 'gray'
+        color: 'gray',
     },
 });
 
@@ -113,7 +113,7 @@ const CONVERTER_OPTIONS = {
     strikethrough: true,
     simplifiedAutoLink: true,
     parseImgDimensions: true,
-    splitAdjacentBlockquotes: true
+    splitAdjacentBlockquotes: true,
 };
 
 let blogPromise;
@@ -124,7 +124,7 @@ class Blog extends Router {
         this.state = {
             content: null,
             loadTimeout: false,
-            text: ''
+            text: '',
         };
 
         this.load();
@@ -149,7 +149,7 @@ class Blog extends Router {
             if (location.page) {
                 this.loadBlog(location.page);
             } else {
-                this.setState({text: ''});
+                this.setState({ text: '' });
             }
         }
     }
@@ -169,7 +169,7 @@ class Blog extends Router {
     load() {
         Blog.fetchData()
             .then(content =>
-                this.setState({content}, () => {
+                this.setState({ content }, () => {
                     let location = Router.getLocation();
                     this.page = location.page;
                     if (location.page) {
@@ -184,18 +184,16 @@ class Blog extends Router {
 
         fetch(`${language}/blog/${page}.md`)
             .then(res => res.text())
-            .then(text => {
-                this.setState({text, loadTimeout: false});
-            });
+            .then(text => this.setState({ text, loadTimeout: false }));
     }
 
     renderHeader() {
-        return (<div key={"header"}  style={this.page ? {cursor: 'pointer'} : {}} onClick={() => this.onNavigate(null, null, '')} className={this.props.classes.header}>
+        return <div key={"header"}  style={this.page ? {cursor: 'pointer'} : {}} onClick={() => this.onNavigate(null, null, '')} className={this.props.classes.header}>
             <h1 key="title" className={this.props.classes.headerTitle}>{I18n.t('ioBroker Blog')}
-                <a href={'./blog_' + this.props.language + '.xml'} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}><IconRss className={this.props.classes.rssIcon}/></a>
+                <a href={`./blog_${this.props.language}.xml`} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}><IconRss className={this.props.classes.rssIcon}/></a>
             </h1>
             <div key="notice"  className={this.props.classes.headerNotice}>{I18n.t('News, announcements and ideas about ioBroker')}</div>
-        </div>);
+        </div>;
     }
 
     replaceHref(reactObj, prefix) {
@@ -209,7 +207,7 @@ class Blog extends Router {
                         }
 
                         reactObj.props.children[i] = <div
-                            className={this.props.classes.mdLink + ' md-link'}
+                            className={`${this.props.classes.mdLink} md-link`}
                             title={link}
                             onClick={() => this.onNavigate(null, link)}>
                             {item.props.children[0]}
@@ -229,7 +227,7 @@ class Blog extends Router {
         let date = page.substring(0, 10).replace(/_/g, '.');
         let d = new Date(date);
         if (isNaN(d.getTime())) {
-            date = page.substring(0, 10).replace(/_/g, '-').replace(/\./g, '-') + 'T00:00:00';
+            date = `${page.substring(0, 10).replace(/_/g, '-').replace(/\./g, '-')}T00:00:00`;
             d = new Date(date);
         }
         return d.toLocaleDateString();
@@ -239,7 +237,7 @@ class Blog extends Router {
         const data = this.state.content.pages[page];
 
         return <Paper key={page} className={this.props.classes.pagePage}>
-            {data.logo ? (<div className={this.props.classes.pageLogoDiv} style={{backgroundImage: 'url(' + data.logo + ')'}}/>) : null}
+            {data.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${data.logo})` }}/> : null}
             <h2 className={this.props.classes.pageTitle}  style={{cursor: 'pointer'}} onClick={() => this.props.onNavigate(null, null, page)}>{data.title[this.props.language] || data.title.en}</h2>
             <div className={this.props.classes.pagePosted}><strong>{data.author || data.Author}</strong> {I18n.t('posted on %s', Blog.page2Date(page))}</div>
             <p className={this.props.classes.pageDesc}>{data.desc && (data.desc[this.props.language] || data.desc.en || '').replace(/\\n/g, '\n')}</p>
@@ -307,7 +305,7 @@ class Blog extends Router {
                 {this.renderHeader()}
                 {this.state.text ? this.renderPage() : this.renderEntries()}
             </div>,
-            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/>
+            <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
         ];
     }
 }
@@ -316,7 +314,7 @@ Blog.propTypes = {
     language: PropTypes.string,
     onNavigate: PropTypes.func,
     theme: PropTypes.string,
-    mobile: PropTypes.bool
+    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(Blog);

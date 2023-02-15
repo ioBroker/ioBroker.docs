@@ -16,7 +16,9 @@ const loadDynamicScript = (url, name, callback) => {
             callback && callback();
     }
 
-    if (existingScript && callback) callback();
+    if (existingScript && callback) {
+        callback();
+    }
 };
 
 class ScriptEditor extends React.Component {
@@ -90,12 +92,10 @@ class ScriptEditor extends React.Component {
             this.editor = this.monaco.editor.create(this.monacoDiv, {
                 lineNumbers: 'on',
                 scrollBeyondLastLine: false,
-                automaticLayout: true
+                automaticLayout: true,
             });
 
-            this.editor.onDidChangeModelContent(e => {
-                this.onChange(this.editor.getValue());
-            });
+            this.editor.onDidChangeModelContent(() => this.onChange(this.editor.getValue()));
 
             this.state.searchText && setTimeout(() => this.highlightText(this.state.searchText));
         }
@@ -103,7 +103,7 @@ class ScriptEditor extends React.Component {
             selectOnLineNumbers: true,
             scrollBeyondLastLine: false,
             automaticLayout: true,
-            language: 'markdown'
+            language: 'markdown',
         };
         this.setEditorOptions(options);
         this.editor.focus();
@@ -148,7 +148,6 @@ class ScriptEditor extends React.Component {
 
     /**
      * Sets the language of the code editor
-     * @param {monaco.editor.IStandaloneCodeEditor} editorInstance The editor instance to change the options for
      * @param {EditorLanguage} language
      */
     setEditorLanguage(language) {
@@ -188,7 +187,7 @@ class ScriptEditor extends React.Component {
     setTypeCheck(enabled) {
         const options = {
             noSemanticValidation: !this.state.alive || !enabled, // toggle the type checking
-            noSyntaxValidation: !this.state.alive // always check the syntax
+            noSyntaxValidation: !this.state.alive, // always check the syntax
         };
         this.monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions(options);
     }
@@ -201,9 +200,9 @@ class ScriptEditor extends React.Component {
         const selection = this.editor.getSelection();
         const range = new this.monaco.Range(
             selection.startLineNumber, selection.startColumn,
-            selection.endLineNumber, selection.endColumn
+            selection.endLineNumber, selection.endColumn,
         );
-        this.editor.executeEdits('', [{range: range, text: text, forceMoveMarkers: true}]);
+        this.editor.executeEdits('', [{ range: range, text: text, forceMoveMarkers: true }]);
         this.editor.focus();
     }
 
@@ -237,13 +236,13 @@ class ScriptEditor extends React.Component {
         }
 
         if (this.state.language !== (nextProps.language || 'markdown')) {
-            this.setState({language: nextProps.language || 'markdown'});
+            this.setState({ language: nextProps.language || 'markdown' });
             options.language = nextProps.language || 'markdown';
         } else if (this.state.readOnly !== (nextProps.readOnly || false)) {
-            this.setState({readOnly: nextProps.readOnly || false});
+            this.setState({ readOnly: nextProps.readOnly || false });
             options.readOnly = nextProps.readOnly;
         } else if (this.state.isDark !== (nextProps.isDark || false)) {
-            this.setState({isDark: nextProps.isDark || false});
+            this.setState({ isDark: nextProps.isDark || false });
             options.isDark = nextProps.isDark;
         }
 
@@ -258,7 +257,7 @@ class ScriptEditor extends React.Component {
         }
     }
 
-    onChange(newValue, e) {
+    onChange(/* newValue, e */) {
         if (!this.props.readOnly) {
             this.props.onChange && this.props.onChange(this.editor.getValue());
         }
@@ -273,9 +272,10 @@ class ScriptEditor extends React.Component {
             return null;
         }
 
-        return (
-            <div ref={el => this.monacoDiv = el} style={{width: '100%', height: '100%', overflow: 'hidden', position: 'relative'}}/>
-        );
+        return <div
+            ref={el => this.monacoDiv = el}
+            style={{ width: '100%', height: '100%', overflow: 'hidden', position: 'relative' }}
+        />;
     }
 }
 
@@ -288,7 +288,7 @@ ScriptEditor.propTypes = {
     readOnly: PropTypes.bool,
     code: PropTypes.string,
     onRegisterSelect: PropTypes.func,
-    searchText: PropTypes.string
+    searchText: PropTypes.string,
 };
 
 export default ScriptEditor;

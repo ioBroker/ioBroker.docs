@@ -91,7 +91,7 @@ class PieStats2 extends Component {
                 value: series[i],
                 name: n,
                 className: this.colors[i] || undefined,
-                meta: 'Meta One'
+                meta: 'Meta One',
             };
         });
 
@@ -114,7 +114,7 @@ class PieStats2 extends Component {
                         labelInterpolationFnc: (value, index) => {
                             console.log(value);
                             return labels[index];
-                        }
+                        },
                     }
                 ]
             ]}

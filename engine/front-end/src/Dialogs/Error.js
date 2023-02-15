@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@mui/styles';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -9,9 +8,6 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import I18n from '../i18n';
-
-const styles = theme => ({
-});
 
 class DialogError extends React.Component {
     handleOk = () => {
@@ -29,7 +25,7 @@ class DialogError extends React.Component {
         >
             <DialogTitle
                 className={this.props.classes.titleBackground}
-                classes={{root: this.props.classes.titleColor}}
+                classes={{ root: this.props.classes.titleColor }}
                 id="alert-dialog-title"
             >
                 {this.props.title || I18n.t('Error')}
@@ -50,7 +46,8 @@ DialogError.propTypes = {
     onClose: PropTypes.func,
     title: PropTypes.string,
     text: PropTypes.string,
-    icon: PropTypes.object
+    icon: PropTypes.object,
 };
 
-export default withStyles(styles)(DialogError);
+export default DialogError;
+

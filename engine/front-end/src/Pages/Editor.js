@@ -13,9 +13,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import CircularProgress from '@mui/material/CircularProgress';
 
-import {MdClose as IconClose} from 'react-icons/md';
-import {FaGithub as IconGithub} from 'react-icons/fa';
-import {MdContentCopy as IconCopy} from 'react-icons/md';
+import { MdClose as IconClose } from 'react-icons/md';
+import { FaGithub as IconGithub } from 'react-icons/fa';
+import { MdContentCopy as IconCopy } from 'react-icons/md';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
@@ -26,18 +26,18 @@ import SplitterLayout from 'react-splitter-layout';
 const styles = theme => ({
     root: {
         width: '100%',
-        height: '100%'
+        height: '100%',
     },
     copyButton: {
         marginLeft: 30,
-        display: 'inline-block'
+        display: 'inline-block',
     },
     copyButtonChanged: {
         background: '#ff8177',
     },
     githubButton: {
         marginLeft: 30,
-        display: 'inline-block'
+        display: 'inline-block',
     },
     closeButton: {
         float: 'right',
@@ -54,7 +54,7 @@ const styles = theme => ({
     buttonTab: {
         display: 'block',
         borderBottom: '1px solid #DDDDDD',
-    }
+    },
 });
 
 class Editor extends Component {
@@ -93,12 +93,12 @@ class Editor extends Component {
             fetch(path)
                 .then(res => res.text())
                 .then(text => {
-                    const {header, body} = Utils.extractHeader(text || '');
+                    const { header, body } = Utils.extractHeader(text || '');
                     const d = new Date();
                     if (header.editLink && header.editLink.indexOf('iobroker.docs') !== -1) {
                         header.lastChanged = `${d.getFullYear()}.${Utils.padding(d.getMonth() + 1)}.${Utils.padding(d.getDate())}`;
                     }
-                    this.setState({code: Utils.addHeader(body, header)});
+                    this.setState({ code: Utils.addHeader(body, header) });
                 });
         }
     }
@@ -108,7 +108,7 @@ class Editor extends Component {
         // https://raw.githubusercontent.com/ioBroker/ioBroker.docs/engine/docs/de/README.md
         Utils.onCopy(e, this.state.text);
         window.open(this.props.path, 'github');
-        this.setState({tooltip: I18n.t('Copied')});
+        this.setState({ tooltip: I18n.t('Copied') });
     }
 
     renderInstructions() {
@@ -119,7 +119,7 @@ class Editor extends Component {
         return <Dialog
             key="instructions"
             open={true}
-            onClose={() => this.setState({showInstructions: false})}
+            onClose={() => this.setState({ showInstructions: false })}
         >
             <DialogTitle id="alert-dialog-title">{I18n.t('How to use it...')}</DialogTitle>
             <DialogContent>
@@ -131,12 +131,12 @@ class Editor extends Component {
                 <FormControlLabel
                     control={<Checkbox checked={this.state.noInstructions} onChange={() => {
                         window.localStorage && window.localStorage.setItem('Docs.noInstructions', 'true');
-                        this.setState({noInstructions: true});
+                        this.setState({ noInstructions: true });
                     }}/>}
-                    label={I18n.t("Don't show anymore")}
+                    label={I18n.t('Don\'t show anymore')}
                 />
                 <Button onClick={() => {
-                    this.setState({showInstructions: false});
+                    this.setState({ showInstructions: false });
                     this.openGithub();
                 }} color="primary" autoFocus>{I18n.t('Ok')}</Button>
             </DialogActions>
@@ -151,7 +151,7 @@ class Editor extends Component {
                     className={`${this.props.classes.copyButton} ${this.state.changed ? this.props.classes.copyButtonChanged : ''}`}
                     onClick={e => {
                         Utils.onCopy(e, this.state.text);
-                        this.setState({tooltip: I18n.t('Copied')})
+                        this.setState({ tooltip: I18n.t('Copied') })
                     }}
                 >
                     <IconCopy/>{I18n.t('Copy to clipboard')}
@@ -179,17 +179,17 @@ class Editor extends Component {
             /> : <CircularProgress className={this.props.classes.progress} />}
 
             <Snackbar
-                anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 open={!!this.state.tooltip}
                 autoHideDuration={6000}
-                onClose={() => this.setState({tooltip: ''})}
+                onClose={() => this.setState({ tooltip: '' })}
                 message={<span id="message-id">{this.state.tooltip}</span>}
                 action={[
                     <IconButton
                         key="close"
                         color="inherit"
                         className={this.props.classes.close}
-                        onClick={() => this.setState({tooltip: ''})}
+                        onClick={() => this.setState({ tooltip: '' })}
                     >
                         <IconClose />
                     </IconButton>,
@@ -220,20 +220,20 @@ class Editor extends Component {
                 vertical={false}
                 primaryMinSize={10}
                 primaryIndex={1}
-                percentage={true}
+                percentage
                 secondaryInitialSize={this.state.menuSize}
-                onDragStart={() => this.setState({resizing: true})}
+                onDragStart={() => this.setState({ resizing: true })}
                 onSecondaryPaneSizeChange={size => this.menuSize = parseFloat(size)}
                 customClassName={this.props.classes.splitterDivs}
                 onDragEnd={() => {
                     window.localStorage && window.localStorage.setItem('Docs.editorSize', this.menuSize.toString());
-                    this.setState({resizing: false, menuSize: this.menuSize});
+                    this.setState({ resizing: false, menuSize: this.menuSize });
                 }}
             >
                 {this.renderEditor()}
                 {this.renderDoc()}
             </SplitterLayout>,
-            this.renderInstructions()
+            this.renderInstructions(),
         ];
     }
 }

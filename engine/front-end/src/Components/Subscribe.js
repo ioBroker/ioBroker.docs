@@ -11,11 +11,11 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-import {FaMailBulk as IconEmail} from 'react-icons/fa';
-import {FaEnvelopeOpen as IconSubscribe} from 'react-icons/fa';
+import { FaMailBulk as IconEmail } from 'react-icons/fa';
+import { FaEnvelopeOpen as IconSubscribe } from 'react-icons/fa';
 
 import I18n from '../i18n';
-import {MdClose as IconClose} from 'react-icons/md';
+import { MdClose as IconClose } from 'react-icons/md';
 
 const styles = theme => ({
     mainDiv: {
@@ -37,7 +37,7 @@ const styles = theme => ({
         textAlign: 'center'
     },
     inputRootNotEmpty: {
-        textAlign: 'left'
+        textAlign: 'left',
     },
     button: {
         display: 'inline-block',
@@ -59,13 +59,13 @@ const styles = theme => ({
         opacity: 1,
     },
     tooltipError: {
-        color: '#881d0d !important'
+        color: '#881d0d !important',
     },
     promise: {
         fontWeight: 'bold',
         color: '#737373',
         transition: 'opacity 1s',
-        transitionTimingFunction: 'ease-in'
+        transitionTimingFunction: 'ease-in',
     },
     promiseHide: {
         opacity: 0,
@@ -94,7 +94,7 @@ class Subscribe extends Component {
             open={!0}
             fullWidth
             maxWidth="lg"
-            onClose={() => this.setState({showUnsubscribe: ''})}
+            onClose={() => this.setState({ showUnsubscribe: '' })}
         >
             <DialogTitle id="alert-dialog-slide-title">{I18n.t('Unsubscribe?')}</DialogTitle>
             <DialogContent>
@@ -120,15 +120,15 @@ class Subscribe extends Component {
                 .then(data => data.json())
                 .then(data => {
                     if (data.result === 'email sent') {
-                        this.setState({tooltip: I18n.t('Email with instructions sent')});
+                        this.setState({ tooltip: I18n.t('Email with instructions sent') });
                     } else {
-                        this.setState({tooltip: I18n.t('Cannot unsubscribe:') + ' ' + I18n.t(data.result), errorTooltip: true});
+                        this.setState({ tooltip: `${I18n.t('Cannot unsubscribe:')} ${I18n.t(data.result)}`, errorTooltip: true });
                     }
                 })
                 .catch(e => {
-                    this.setState({tooltip: I18n.t('Cannot unsubscribe:') + ' ' + e.toString(), errorTooltip: true});
+                    this.setState({ tooltip: `${I18n.t('Cannot unsubscribe:')} ${e.toString()}`, errorTooltip: true });
                 })
-                .then(() => this.setState({showUnsubscribe: ''}));
+                .then(() => this.setState({ showUnsubscribe: '' }));
         }
     }
 
@@ -140,28 +140,28 @@ class Subscribe extends Component {
                     .then(data => data.json())
                     .then(data => {
                         if (data.result === 'added') {
-                            this.setState({tooltip: I18n.t('Subscribed!')});
+                            this.setState({ tooltip: I18n.t('Subscribed!')});
                         } else if (data.result === 'yet exists') {
-                            this.setState({showUnsubscribe: this.state.email});
+                            this.setState({ showUnsubscribe: this.state.email});
                         } else {
-                            this.setState({tooltip: I18n.t('Cannot subscribe:') + ' ' + I18n.t(data.result), errorTooltip: true});
+                            this.setState({ tooltip: `${I18n.t('Cannot subscribe:')} ${I18n.t(data.result)}`, errorTooltip: true });
                         }
                     })
                     .catch(e => {
-                        this.setState({tooltip: I18n.t('Cannot subscribe:') + ' '  + e.toString(), errorTooltip: true});
+                        this.setState({ tooltip: `${I18n.t('Cannot subscribe:')} ${e.toString()}`, errorTooltip: true });
                     });
             } else {
-                this.setState({tooltip: I18n.t('invalid email'), errorTooltip: true});
+                this.setState({ tooltip: I18n.t('invalid email'), errorTooltip: true });
             }
         }
     }
 
     renderSnackbar() {
-        return (<Snackbar
-            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        return <Snackbar
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={!!this.state.tooltip}
             autoHideDuration={6000}
-            onClose={() => this.setState({tooltip: '', errorTooltip: false})}
+            onClose={() => this.setState({ tooltip: '', errorTooltip: false })}
             message={<span id="message-id">{this.state.tooltip}</span>}
             classes={{root: this.state.errorTooltip ? this.props.classes.tooltipError: undefined}}
             action={[
@@ -169,22 +169,22 @@ class Subscribe extends Component {
                     key="close"
                     color="inherit"
                     className={this.props.classes.close}
-                    onClick={() => this.setState({tooltip: '', errorTooltip: false})}
+                    onClick={() => this.setState({ tooltip: '', errorTooltip: false })}
                 >
                     <IconClose />
                 </IconButton>,
             ]}
-        />);
+        />;
     }
 
     render() {
         const error = this.state.email && !regEmail.test(this.state.email.toLowerCase());
-        return (<div key="subscribe" className={this.props.classes.mainDiv + ' '  + (this.props.backClass || '')}>
+        return <div key="subscribe" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
             <IconSubscribe className={this.props.classes.inputIcon}/>
             <Input
                 error={!!error}
                 placeholder={this.state.inputFocused ? I18n.t('Your e-mail address') : I18n.t('Newsletter subscribe')}
-                classes={{input: this.state.inputFocused || this.state.email ? this.props.classes.inputRootNotEmpty : this.props.classes.inputRoot }}
+                classes={{ input: this.state.inputFocused || this.state.email ? this.props.classes.inputRootNotEmpty : this.props.classes.inputRoot }}
                 className={this.props.classes.input}
                 onKeyUp={e => e.keyCode === 13 && this.onSubscribe()}
                 onFocus={() => this.setState({inputFocused: true})}
@@ -196,13 +196,13 @@ class Subscribe extends Component {
                 className={`${this.props.classes.button} ${this.state.inputFocused || this.state.email ? this.props.classes.buttonFull : ''}`}
                 disabled={error || !this.state.email}
                 onClick={() => this.onSubscribe()}>
-                <IconEmail fontSize="small" style={{marginRight: 5}}/>
+                <IconEmail fontSize="small" style={{ marginRight: 5 }}/>
                 {this.state.inputFocused ? I18n.t('Subscribe') : ''}
             </Button>
             <div className={`${this.props.classes.promise} ${this.state.inputFocused || this.state.email ? this.props.classes.promiseHide : ''}`}>{I18n.t('We will not spam you. Promise!')}</div>
             {this.renderSnackbar()}
             {this.renderUnsubscribeDialog()}
-        </div>);
+        </div>;
     }
 }
 

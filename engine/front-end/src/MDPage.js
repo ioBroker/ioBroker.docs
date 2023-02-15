@@ -30,13 +30,13 @@ const styles = theme => ({
         color: theme.palette.primary.main,
         paddingLeft: 1,
         '&:hover': {
-            color: 'white'
-        }
+            color: 'white',
+        },
     },
     menuOpenCloseButtonMobile: {
         width: 22,
-        paddingLeft: 4
-    }
+        paddingLeft: 4,
+    },
 });
 
 class MDPage extends Component {
@@ -71,14 +71,19 @@ class MDPage extends Component {
         if (this.props.mobile) {
             return <div
                 key="closeMenu"
-                className={this.props.classes.menuOpenCloseButton + ' ' + this.props.classes.menuOpenCloseButtonMobile}
+                className={`${this.props.classes.menuOpenCloseButton} ${this.props.classes.menuOpenCloseButtonMobile}`}
                 style={{left: 0}}
                 onClick={() => this.props.onMenuOpenClose()}
             >
                 <IconMenuClosed />
             </div>;
         } else {
-            return <div key="closeMenu" className={this.props.classes.menuOpenCloseButton + ' ' + (this.props.mobile ? this.props.classes.menuOpenCloseButtonMobile : '')} style={{left: this.props.menuOpened ? this.props.menuWidth + 3 : 0}} onClick={() => this.props.onMenuOpenClose()}>
+            return <div
+                key="closeMenu"
+                className={`${this.props.classes.menuOpenCloseButton} ${this.props.mobile ? this.props.classes.menuOpenCloseButtonMobile : ''}`}
+                style={{left: this.props.menuOpened ? this.props.menuWidth + 3 : 0}}
+                onClick={() => this.props.onMenuOpenClose()}
+            >
                 {this.props.menuOpened ? <IconMenuOpened /> : <IconMenuClosed />}
             </div>;
         }
@@ -124,11 +129,11 @@ class MDPage extends Component {
                          mobile={this.props.mobile}
                          editMode={this.props.editMode}
                          onEditMode={this.onEditMode.bind(this)}
-                         editEnabled={true}
+                         editEnabled
                          onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
                     />}
             </div>,
-            !this.props.editMode ? <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate}/> : null
+            !this.props.editMode ? <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} /> : null
         ];
     }
 }

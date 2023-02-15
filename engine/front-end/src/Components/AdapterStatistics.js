@@ -95,7 +95,7 @@ class AdapterStatistics extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (this.state.mobile !== (nextProps.mobile || nextProps.width < MAX_MOBILE_WIDTH)) {
-            this.setState({mobile: (nextProps.mobile || nextProps.width < MAX_MOBILE_WIDTH)});
+            this.setState({ mobile: (nextProps.mobile || nextProps.width < MAX_MOBILE_WIDTH) });
         }
     }
 
@@ -108,7 +108,7 @@ class AdapterStatistics extends Component {
             const order = 'desc';
             window.localStorage && window.localStorage.setItem('Docs.asOrder', order);
             window.localStorage && window.localStorage.setItem('Docs.asOrderBy', col);
-            this.setState({order, orderBy: col});
+            this.setState({ order, orderBy: col });
         }
     }
 
@@ -153,7 +153,7 @@ class AdapterStatistics extends Component {
         let sum = 0;
         versions.forEach(v => sum += stats[v]);
 
-        return (<Table key="table" padding="dense" className={this.props.classes.table}>
+        return <Table key="table" padding="dense" className={this.props.classes.table}>
             <TableHead>
                 <TableRow>
                     {this.renderHeaderCell(this.props.classes.tableColumnVersion, 'Version', 'right')}
@@ -162,21 +162,20 @@ class AdapterStatistics extends Component {
                 </TableRow>
             </TableHead>
             <TableBody>
-                {versions.map(v => (
-                    <TableRow className={this.props.classes.tableRow}>
-                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnVersion}`}>{v}</TableCell>
-                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnCount}`}>{stats[v]}</TableCell>
-                        <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>{Math.round((stats[v] / sum) * 10000) / 100}%</TableCell>
-                    </TableRow>))}
+                {versions.map(v => <TableRow className={this.props.classes.tableRow}>
+                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnVersion}`}>{v}</TableCell>
+                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnCount}`}>{stats[v]}</TableCell>
+                    <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnPercent}`}>{Math.round((stats[v] / sum) * 10000) / 100}%</TableCell>
+                </TableRow>)}
             </TableBody>
-        </Table>);
+        </Table>;
     }
 
     renderContent() {
         const { classes } = this.props;
         return [
-            (<h2>{I18n.t('Total count: ')} {this.props.statistics.adapters[this.props.adapter]}</h2>),
-            (<Paper className={`${classes.paper} ${classes.paperPie} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>
+            <h2>{I18n.t('Total count: ')} {this.props.statistics.adapters[this.props.adapter]}</h2>,
+            <Paper className={`${classes.paper} ${classes.paperPie} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>
                 <PieStats
                     data={this.props.statistics.versions[this.props.adapter]}
                     size={'45%'}
@@ -185,9 +184,9 @@ class AdapterStatistics extends Component {
                     startFromPercent={3}
                     series={I18n.t('Count')}
                 />
-            </Paper>),
-            (<Paper className={`${classes.paper} ${classes.paperTable} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>{this.renderTable()}</Paper>)
-        ]
+            </Paper>,
+            <Paper className={`${classes.paper} ${classes.paperTable} ${this.state.mobile ? this.props.classes.paperMobile : ''}`}>{this.renderTable()}</Paper>,
+        ];
     }
 
     render() {
@@ -195,7 +194,7 @@ class AdapterStatistics extends Component {
             className={this.props.classes.dialog}
             fullWidth={this.state.mobile}
             maxWidth="xl"
-            open={true}
+            open={!0}
             onClose={() => this.props.onClose()}
             aria-labelledby="max-width-dialog-title"
         >

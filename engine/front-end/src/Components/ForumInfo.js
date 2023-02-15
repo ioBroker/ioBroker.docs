@@ -102,7 +102,7 @@ class ForumInfo extends Component {
     }
 
     render() {
-        return (<div key="forum" className={`${this.props.classes.forumDiv} ${this.props.backClass || ''}`}>
+        return <div key="forum" className={`${this.props.classes.forumDiv} ${this.props.backClass || ''}`}>
             <IconForum className={this.props.classes.forumIconMain} />
             <br />
             <span className={this.props.classes.forumTitle}>{I18n.t('forum-text')}</span>
@@ -136,7 +136,7 @@ class ForumInfo extends Component {
             <Button variant="contained" color="secondary" className={this.props.classes.forumButton} onClick={() => this.onGoToForum()}>
                 {I18n.t('Join now')}
             </Button>
-        </div>);
+        </div>;
     }
 }
 

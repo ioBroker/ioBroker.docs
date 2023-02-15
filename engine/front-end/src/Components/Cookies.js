@@ -23,7 +23,7 @@ const styles = theme => ({
         fontSize: 14,
         minHeight: 48,
         padding: 0,
-        zIndex: 2
+        zIndex: 2,
     },
     mainDivMobile: {
         width: 'calc(100% - 32px)'
@@ -57,33 +57,33 @@ const styles = theme => ({
     },
     buttonOkDesktop: {
         marginRight: 18,
-    }
-
+    },
 });
 
 class Cookies extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            confirmed: window.localStorage ? window.localStorage.getItem('Docs.cookies') === 'true' : false
+            confirmed: window.localStorage ? window.localStorage.getItem('Docs.cookies') === 'true' : false,
         };
     }
 
     onConfirm() {
         window.localStorage && window.localStorage.setItem('Docs.cookies', 'true');
-        this.setState({confirmed: true});
+        this.setState({ confirmed: true });
     }
 
     render() {
-        if (this.state.confirmed) return null;
+        if (this.state.confirmed) {
+            return null;
+        }
 
         const classes = this.props.classes;
-        return (
-            <div className={classes.mainDiv + ' ' + (this.props.mobile ? classes.mainDivMobile : '')}>
-                <div className={classes.text}>{I18n.t('cookies_text')}</div>
-                <div className={classes.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
-                <Button variant="contained" className={`${classes.buttonOk} ${this.props.mobile ? '' : classes.buttonOkDesktop}`} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
-            </div>);
+        return <div className={`${classes.mainDiv} ${this.props.mobile ? classes.mainDivMobile : ''}`}>
+            <div className={classes.text}>{I18n.t('cookies_text')}</div>
+            <div className={classes.buttonMore} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
+            <Button variant="contained" className={`${classes.buttonOk} ${this.props.mobile ? '' : classes.buttonOkDesktop}`} onClick={() => this.onConfirm()}>{I18n.t('Got it!')}</Button>
+        </div>;
     }
 }
 
@@ -92,7 +92,7 @@ Cookies.propTypes = {
     theme: PropTypes.string,
     mobile: PropTypes.bool,
     onNavigate: PropTypes.func,
-    contentWidth: PropTypes.number
+    contentWidth: PropTypes.number,
 };
 
 export default withStyles(styles)(Cookies);

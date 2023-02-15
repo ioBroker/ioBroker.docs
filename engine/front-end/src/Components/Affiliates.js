@@ -12,7 +12,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionActions from '@mui/material/AccordionActions';
 
-import {MdExpandMore as IconExpandMore, MdHelpOutline as IconQuestion} from 'react-icons/md';
+import { MdExpandMore as IconExpandMore, MdHelpOutline as IconQuestion } from 'react-icons/md';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
@@ -35,7 +35,7 @@ const styles = theme => ({
     title: {
         color: theme.palette.primary.light,
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     imgDiv: {
 
@@ -49,14 +49,14 @@ const styles = theme => ({
         padding: 10,
     },
     buttonDiv: {
-        textAlign: 'center'
+        textAlign: 'center',
     },
     button: {
         width: 150,
-        background: '#d8dedc'
+        background: '#d8dedc',
     },
     partnerLink: {
-        fontSize: 10
+        fontSize: 10,
     },
     question: {
         position: 'absolute',
@@ -72,8 +72,8 @@ const styles = theme => ({
         fontSize: 10,
     },
     moreDetails: {
-        display: 'block'
-    }
+        display: 'block',
+    },
 });
 
 class Affiliates extends Component {
@@ -81,7 +81,7 @@ class Affiliates extends Component {
         super(props);
         this.state = {
             explanation: false,
-            expanded: (window.localStorage && window.localStorage.getItem('Docs.affExpanded') === 'true') || false,
+            expanded: window.localStorage?.getItem('Docs.affExpanded') === 'true' || false,
         };
     }
 
@@ -92,7 +92,7 @@ class Affiliates extends Component {
 
         return <Dialog
             open={true}
-            onClose={() => this.setState({explanation: false})}
+            onClose={() => this.setState({ explanation: false })}
         >
             <DialogTitle id="alert-dialog-title">{I18n.t('Why this link is here?')}</DialogTitle>
             <DialogContent>
@@ -137,7 +137,7 @@ class Affiliates extends Component {
     render() {
         return [
             this.renderOne(this.props.data[0]),
-            this.renderExpands()
+            this.renderExpands(),
         ];
     }
 }
@@ -146,7 +146,7 @@ Affiliates.propTypes = {
     language: PropTypes.string,
     data: PropTypes.array,
     theme: PropTypes.string,
-    mobile: PropTypes.bool
+    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(Affiliates);

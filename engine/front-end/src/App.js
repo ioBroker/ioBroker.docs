@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@mui/styles';
-import clsx from 'clsx';
 import ReactGA from 'react-ga';
 
 import Tabs from '@mui/material/Tabs';
@@ -21,6 +20,8 @@ import Paper from '@mui/material/Paper';
 import { MdLanguage as IconLanguage } from 'react-icons/md';
 import { MdMenu as IconMenu } from 'react-icons/md';
 import { MdSearch as IconSearch } from 'react-icons/md';
+
+import { Utils as ARUtils } from '@iobroker/adapter-react-v5';
 
 import DialogError from './Dialogs/Error';
 import MDPage from './MDPage';
@@ -372,7 +373,7 @@ class App extends Router {
     renderSearch() {
         return <div className={this.props.classes.searchDiv}>
             <Input
-                className={clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
+                className={ARUtils.clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
                 //value={this.state.search}
                 placeholder={I18n.t('Search...')}
                 classes={{ input: this.props.classes.searchInput }}
@@ -405,7 +406,7 @@ class App extends Router {
         const type = result.id.split('/').shift();
         const tab = type === '...' ? type : (type === 'adapterref' ? 'adapters' : 'documentation');
         return <div
-            className={clsx(this.props.classes.sRdiv, !last && this.props.classes.sRdivNotLast)}
+            className={ARUtils.clsx(this.props.classes.sRdiv, !last && this.props.classes.sRdivNotLast)}
              onClick={e => {
                  e.preventDefault();
                  e.stopPropagation();
@@ -549,7 +550,7 @@ class App extends Router {
                     }
                     return <Tab
                         key={tab}
-                        classes={{ root: clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
+                        classes={{ root: ARUtils.clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
                         fullWidth={false}
                         label={PAGES[tab].icon ? [(<span>{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
                     />;

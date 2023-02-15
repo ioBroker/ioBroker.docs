@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import {Carousel} from 'react-responsive-carousel';
+import { Carousel } from 'react-responsive-carousel';
 
 import Screen1 from '../assets/screens/screen1.jpg';
 import Screen2 from '../assets/screens/screen2.jpg';
@@ -22,9 +22,9 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import I18n from '../i18n';
 
-const Images = [Screen1, Screen2, Screen3, Screen4, Screen5, Screen6, Screen7, Screen8, Screen9, Screen10, Screen11, Screen12, Screen13, Screen14]
+const Images = [Screen1, Screen2, Screen3, Screen4, Screen5, Screen6, Screen7, Screen8, Screen9, Screen10, Screen11, Screen12, Screen13, Screen14];
 
-const styles = theme => ({
+const styles = () => ({
     mainDiv: {
         background: '#FFFFFF',
         width: 'calc(100% - 40px)',
@@ -44,28 +44,29 @@ const styles = theme => ({
     title: {
         fontSize: 32,
         padding: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
 });
 
 class Screenshots extends Component {
     render() {
         // https://reactjsexample.com/lightweight-and-fully-customizable-carousel-component-for-react/
-        return (<div key="screenshots" className={this.props.classes.mainDiv + ' ' + (this.props.backClass || '')}>
+        return <div key="screenshots" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
             <div className={this.props.classes.title}>{I18n.t('Screenshots')}</div>
             <Carousel
                 className={this.props.classes.carousel}
                 autoPlay
-                showArrows={true}
-                infiniteLoop={true}
-                useKeyboardArrows={true}
-                dynamicHeight={true}
+                showArrows
+                infiniteLoop
+                useKeyboardArrows
+                dynamicHeight
                 interval={10000}
                 centerMode={false}
-                emulateTouch={true}>
-                {Images.map((img, i) => (<div key={'img' + i}><img src={img} alt="Screenshot"/></div>))}
+                emulateTouch
+            >
+                {Images.map((img, i) => <div key={'img' + i}><img src={img} alt="Screenshot"/></div>)}
             </Carousel>
-        </div>);
+        </div>;
     }
 }
 

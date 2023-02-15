@@ -41,7 +41,7 @@ const styles = () => ({
         '&:hover': {
             opacity: 1,
             transform: 'scale(1.2)',
-        }
+        },
     },
     icon: {
         verticalAlign: 'top',

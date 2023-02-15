@@ -4,7 +4,7 @@ import { withStyles } from '@mui/styles';
 import Typed from 'react-typed';
 import IconButton from '@mui/material/IconButton';
 
-import {MdContentCopy as IconCopy} from 'react-icons/md';
+import { MdContentCopy as IconCopy } from 'react-icons/md';
 import Utils from '../Utils';
 
 const styles = theme => ({
@@ -19,7 +19,7 @@ const styles = theme => ({
         left: 20,
         background: '#000000D0',
         color: '#FFFFFF',
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     linuxShellHeader: {
         fontSize: 16,
@@ -28,12 +28,12 @@ const styles = theme => ({
         background: '#959595',
         fontWeight: 'bold',
         padding: '2px 5px 2px 10px',
-        color: '#000000'
+        color: '#000000',
     },
     linuxShellHeaderTitle: {
         marginLeft: 10,
         lineHeight: '20px',
-        verticalAlign: 'top'
+        verticalAlign: 'top',
     },
     linuxShellHeaderButton: {
         borderRadius: 50,
@@ -67,7 +67,7 @@ const styles = theme => ({
     },
     linuxShellHeaderWindowCopyDone:{
         opacity: 1,
-        transition: 'opacity 1s'
+        transition: 'opacity 1s',
     },
     linuxShellWindow: {
         fontSize: 14,
@@ -82,8 +82,8 @@ const styles = theme => ({
             left: 0,
             bottom: 0,
             right: 0,
-            backgroundImage: 'repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px)'
-        }
+            backgroundImage: 'repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px)',
+        },
     },
 });
 
@@ -94,13 +94,13 @@ class LinusShell extends React.Component {
         this.state = {
             animationDone: false,
             linuxSize: window.localStorage ? window.localStorage.getItem('Docs.linuxSize') || 'normal' : 'normal',
-            text: [this.props.typedText]
+            text: [this.props.typedText],
         };
     }
 
     onLinuxSize(newState) {
         window.localStorage && window.localStorage.setItem('Docs.linuxSize', newState);
-        this.setState({linuxSize: newState});
+        this.setState({ linuxSize: newState });
     }
 
     render() {
@@ -113,30 +113,29 @@ class LinusShell extends React.Component {
 
         if (this.state.linuxSize === 'full') {
             styles = {
-                linuxShell: {width: 'calc(100% - 60px)', height: 'calc(100% - 40px)'},
+                linuxShell: { width: 'calc(100% - 60px)', height: 'calc(100% - 40px)' },
                 linuxShellHeader: {},
                 linuxShellHeaderTitle: {},
                 linuxShellWindow: {},
             };
         } else if (this.state.linuxSize === 'small') {
             styles = {
-                linuxShell: {width: 68, height: 24},
+                linuxShell: { width: 68, height: 24 },
                 linuxShellHeader: {},
-                linuxShellHeaderTitle: {display: 'none'},
-                linuxShellWindow: {display: 'none'},
+                linuxShellHeaderTitle: { display: 'none' },
+                linuxShellWindow: { display: 'none' },
             };
         }
 
-
-        return (<div className={this.props.classes.linuxShell} style={styles.linuxShell}>
+        return <div className={this.props.classes.linuxShell} style={styles.linuxShell}>
             <div className={this.props.classes.linuxShellHeader} style={styles.linuxShellHeader}>
-                <div className={this.props.classes.linuxShellHeaderButton + ' ' + this.props.classes.linuxShellHeaderButtonClose}
+                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonClose}`}
                      onClick={() => this.onLinuxSize('small')}
                 />
-                <div className={this.props.classes.linuxShellHeaderButton + ' ' + this.props.classes.linuxShellHeaderButtonHide}
+                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonHide}`}
                      onClick={() => this.onLinuxSize('normal')}
                 />
-                <div className={this.props.classes.linuxShellHeaderButton + ' ' + this.props.classes.linuxShellHeaderButtonFull}
+                <div className={`${this.props.classes.linuxShellHeaderButton} ${this.props.classes.linuxShellHeaderButtonFull}`}
                      onClick={() => this.onLinuxSize('full')}
                 />
                 <span className={this.props.classes.linuxShellHeaderTitle} style={styles.linuxShellHeaderTitle}>{this.props.header || 'shell'}</span>
@@ -149,14 +148,14 @@ class LinusShell extends React.Component {
                     onComplete={() => setTimeout(() => this.setState({animationDone: true, text: [this.props.typedText]}), 500)}
                 />
                 <IconButton
-                    className={this.props.classes.linuxShellWindowCopy + ' ' + (this.state.animationDone ? this.props.classes.linuxShellHeaderWindowCopyDone : '')}
+                    className={`${this.props.classes.linuxShellWindowCopy} ${this.state.animationDone ? this.props.classes.linuxShellHeaderWindowCopyDone : ''}`}
                     title={this.props.copyTitle || 'copy to clipboard'}
                     onClick={e => {
                         Utils.onCopy(e, this.props.typedText);
                         this.setState({text: ['', this.props.copiedText || 'copied to clipboard']});
                     }}><IconCopy/></IconButton>
             </div>
-        </div>);
+        </div>;
     }
 }
 

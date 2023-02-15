@@ -22,7 +22,7 @@ const styles = theme => ({
         color: 'rgba(128, 175, 255, 0.8)',
         textShadow:
             `0 0 1ex rgba(51, 70, 255, 1),
-        0 0 2px rgba(255, 255, 255, 0.8)`
+        0 0 2px rgba(255, 255, 255, 0.8)`,
     },
     overlay: {
         pointerEvents: 'none',
@@ -56,7 +56,7 @@ const styles = theme => ({
                 transparent 100%)`,
             backgroundRepeat: 'no-repeat',
             animation: 'scan 7.5s linear 0s infinite',
-        }
+        },
     },
 
     terminal: {
@@ -74,12 +74,12 @@ const styles = theme => ({
         0 0 1px rgba(51, 70, 255, 0.4),
             0 0 2px rgba(255, 255, 255, 0.8)`,
         '&::before': {
-            content: '"> "'
-        }
+            content: '"> "',
+        },
     },
     errorCode: {
-        color: 'white'
-    }
+        color: 'white',
+    },
 });
 
 class Page404 extends Component {

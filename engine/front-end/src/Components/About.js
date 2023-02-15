@@ -21,24 +21,24 @@ const styles = theme => ({
         paddingBottom: 5,
         paddingLeft: 20,
         paddingRight: 20,
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     title: {
         fontSize: 32,
         padding: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     preBox: {
         display: 'inline-block',
         maxWidth: 1100,
-        width: '100%'
+        width: '100%',
     },
     box: {
         display: 'inline-block',
         width: '100%',
     },
     image: {
-        display: 'inline-block'
+        display: 'inline-block',
     },
     imageMobile: {
         width: '100%',
@@ -54,7 +54,7 @@ const styles = theme => ({
         fontSize: 20,
         display: 'inline-block',
         verticalAlign: 'top',
-        padding: '10px 20px'
+        padding: '10px 20px',
     },
     textMobile: {
         width: '100%',
@@ -73,7 +73,7 @@ const styles = theme => ({
             content: '"•"',
             paddingRight: 5,
             fontSize: 24,
-        }
+        },
     },
     icon: {
         fontSize: 48,
@@ -98,28 +98,28 @@ const styles = theme => ({
         display: 'inline-block',
         verticalAlign: 'top',
         marginLeft: 80,
-    }
+    },
 });
 
 class About extends Component {
     render() {
-        return (<div key="about" className={this.props.classes.mainDiv + ' '  + (this.props.backClass || '')}>
+        return (<div key="about" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''}`}>
             <div className={this.props.classes.title}>{I18n.t('About ioBroker')}</div>
             <div className={this.props.classes.preBox}>
                 <div className={this.props.classes.box}>
-                    <div className={this.props.classes.image + ' ' + (this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop)}>
+                    <div className={`${this.props.classes.image} ${this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop}`}>
                         <img className={this.props.classes.img} src={Image1} alt="Image1"/>
                     </div>
-                    <div className={this.props.classes.text + ' ' + (this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop)}>
-                        <span className={this.props.classes.textLine + ' ' + this.props.classes.point}>{I18n.t('ioBroker is an IoT platform (Fog computing).')}</span>
-                        <span className={this.props.classes.textLine + ' ' + this.props.classes.point}>{I18n.t('The ability to manage your IoT system as one intelligent, robust project.')}</span>
-                        <span className={this.props.classes.textLine + ' ' + this.props.classes.point}>{I18n.t('Unique graphics and beautiful interfaces for you.')}</span>
-                        <span className={this.props.classes.textLine + ' ' + this.props.classes.point}>{I18n.t('Use one of the best open source products for managing your automation system on premise.')}</span>
-                        <span className={this.props.classes.textLine + ' ' + this.props.classes.point}>{I18n.t('Comprehensive smart home support')}</span>
+                    <div className={`${this.props.classes.text} ${this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop}`}>
+                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('ioBroker is an IoT platform (Fog computing).')}</span>
+                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('The ability to manage your IoT system as one intelligent, robust project.')}</span>
+                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Unique graphics and beautiful interfaces for you.')}</span>
+                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Use one of the best open source products for managing your automation system on premise.')}</span>
+                        <span className={`${this.props.classes.textLine} ${this.props.classes.point}`}>{I18n.t('Comprehensive smart home support')}</span>
                     </div>
                 </div>
                 <div className={this.props.classes.box}>
-                    <div className={this.props.classes.text + ' ' + (this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop)}>
+                    <div className={`${this.props.classes.text} ${this.props.mobile ? this.props.classes.textMobile : this.props.classes.textDesktop}`}>
                         <div className={this.props.classes.textLine}>
                             <IconAutomate className={this.props.classes.icon}/>
                             <div className={this.props.classes.lineTitle}>{I18n.t('Automate everything')}</div>
@@ -141,7 +141,7 @@ class About extends Component {
                             <div className={this.props.classes.lineComment}>{I18n.t('Dynamically growing community.')}</div>
                         </div>
                     </div>
-                    <div className={this.props.classes.image + ' ' + (this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop)}>
+                    <div className={`${this.props.classes.image} ${this.props.mobile ? this.props.classes.imageMobile : this.props.classes.imageDesktop}`}>
                         <img className={this.props.classes.img} src={Image2} alt="Image2"/>
                     </div>
                 </div>

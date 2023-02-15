@@ -106,7 +106,7 @@ const styles = theme => ({
         paddingBottom: 3,
     },
     description: {
-        fontStyle: 'italic'
+        fontStyle: 'italic',
     },
     contentDiv: {
         position: 'fixed',
@@ -126,7 +126,7 @@ const styles = theme => ({
         right: 20,
         width: 25,
         height: 25,
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     contentClose: {
         position: 'fixed',
@@ -135,14 +135,14 @@ const styles = theme => ({
         cursor: 'pointer',
 
         '&:hover': {
-            color: '#111111'
+            color: '#111111',
         }
     },
     contentLinks: {
         cursor: 'pointer',
         '&:hover': {
-            color: '#111111'
-        }
+            color: '#111111',
+        },
     },
     headerTranslated: {
         borderColor: '#009c4f',
@@ -154,7 +154,7 @@ const styles = theme => ({
         background: '#bdded5',
         cursor: 'pointer',
         '&:before': {
-            content: 'url(' + IconGlobe + ')',
+            content: `url(${IconGlobe})`,
             marginRight: 10,
             color: '#000000',
             height: 20,
@@ -171,14 +171,14 @@ const styles = theme => ({
         cursor: 'pointer',
         textDecoration: 'underline',
         '&:after': {
-            //content: '"🔗"',
-            content: 'url(' + IconLink + ')',
+            // content: '"🔗"',
+            content: `url(${IconLink})`,
             width: 16,
             height: 16,
             opacity: 0.7,
             fontSize: 14,
-            //marginLeft: 5
-        }
+            // marginLeft: 5
+        },
     },
     mdHeaderLink: {
         textDecoration: 'none',
@@ -188,11 +188,11 @@ const styles = theme => ({
             height: 16,
             opacity: 0,
             fontSize: 14,
-            //marginLeft: 5
+            // marginLeft: 5
         },
         '&:hover:after': {
             opacity: 0.7,
-        }
+        },
     },
     info: {
         paddingTop: 10,
@@ -201,10 +201,10 @@ const styles = theme => ({
     email: {
         fontStyle: 'italic',
         cursor: 'pointer',
-        textDecoration: 'underline'
+        textDecoration: 'underline',
     },
     name: {
-        fontStyle: 'italic'
+        fontStyle: 'italic',
     },
 
     table: {
@@ -223,7 +223,7 @@ const styles = theme => ({
         margin: 0,
         '&>p': {
             margin: 0,
-        }
+        },
     },
     tableBody: {
 
@@ -237,7 +237,7 @@ const styles = theme => ({
         border: '1px solid rgba(224, 224, 224, 1)',
         '&>p': {
             margin: 0,
-        }
+        },
     },
 
     summary: {
@@ -246,9 +246,8 @@ const styles = theme => ({
     summaryExpanded: {
         fontWeight: 'bold',
         //color: '#FFFFFF',
-        background: '#DDDDDD'
+        background: '#DDDDDD',
     },
-
 
     warn: {
         borderColor: '#0b87da',
@@ -260,9 +259,9 @@ const styles = theme => ({
         background: '#eff6fb',
         '&:before': {
             content: '"⚠"',
-            //borderRadius: '50%',
-            //background: '#008aff',
-        }
+            // borderRadius: '50%',
+            // background: '#008aff',
+        },
     },
     alarm: {
         borderColor: '#da0b50',
@@ -274,9 +273,9 @@ const styles = theme => ({
         background: '#fbeff3',
         '&:before': {
             content: '"⚠"',
-            //borderRadius: '50%',
-            //background: '#008aff',
-        }
+            // borderRadius: '50%',
+            // background: '#008aff',
+        },
     },
     notice: {
         borderColor: '#9c989b',
@@ -288,9 +287,9 @@ const styles = theme => ({
         background: '#dedede',
         '&:before': {
             content: '"✋"',
-            //borderRadius: '50%',
-            //background: '#dedede',
-        }
+            // borderRadius: '50%',
+            // background: '#dedede',
+        },
     },
     todo: {
         borderColor: '#00769c',
@@ -305,8 +304,8 @@ const styles = theme => ({
         background: '#c4d2de',
         /*&:before': {
             content: '"✋"',
-            //borderRadius: '50%',
-            //background: '#dedede',
+            // borderRadius: '50%',
+            // background: '#dedede',
         }*/
     },
     paragraph: {
@@ -314,7 +313,7 @@ const styles = theme => ({
     },
 
     changeLog: {
-        display: 'block'
+        display: 'block',
     },
     changeLogDiv: {
         display: 'block',
@@ -332,7 +331,7 @@ const styles = theme => ({
         fontSize: 14,
         fontStyle: 'italic',
         marginLeft: theme.spacing(1),
-        opacity: 0.7
+        opacity: 0.7,
     },
     changeLogLine: {
         display: 'block',
@@ -340,7 +339,7 @@ const styles = theme => ({
         marginLeft: theme.spacing(1),
         '&:before': {
             content: '"- "',
-        }
+        },
     },
     changeLogAuthor: {
         fontStyle: 'italic',
@@ -350,10 +349,9 @@ const styles = theme => ({
     changeLogLineText: {
 
     },
-
     changeLogAccordion: {
         justifyContent: 'flex-start',
-    }
+    },
 });
 
 const CONVERTER_OPTIONS = {
@@ -362,7 +360,7 @@ const CONVERTER_OPTIONS = {
     strikethrough: true,
     simplifiedAutoLink: true,
     parseImgDimensions: true,
-    splitAdjacentBlockquotes: true
+    splitAdjacentBlockquotes: true,
 };
 
 let title;
@@ -373,7 +371,7 @@ const EXPAND_LANGUAGE = {
     en: 'english',
     de: 'german',
     ru: 'russian',
-    'zh-cn': 'chinese (simplified)'
+    'zh-cn': 'chinese (simplified)',
 };
 
 class Markdown extends Router {
@@ -405,7 +403,7 @@ class Markdown extends Router {
             this.load();
 
             // Give 300ms to load the page. After that show the loading indicator.
-            setTimeout(() => !this.state.parts.length && this.setState({loadTimeout: true}), 300);
+            setTimeout(() => !this.state.parts.length && this.setState({ loadTimeout: true }), 300);
         } else {
             this.parseText();
         }
@@ -413,7 +411,7 @@ class Markdown extends Router {
         this.contentRef = React.createRef();
 
         this.customLink = ({ text, link }) =>
-            <a className={this.props.classes.mdLink + ' md-link'} onClick={() => {
+            <a className={`${this.props.classes.mdLink} md-link`} onClick={() => {
                 if (link) {
                     if (link.startsWith('#')) {
                         this.onNavigate(Utils.text2link(link.substring(1)))
@@ -422,7 +420,7 @@ class Markdown extends Router {
                         if (!href.match(/^https?:\/\//)) {
                             const parts = (this.props.path || '').split('/');
                             // const fileName = parts.pop();
-                            const prefix = parts.join('/') + '/';
+                            const prefix = `${parts.join('/')}/`;
 
                             href = prefix + link;
                         }
@@ -444,17 +442,17 @@ class Markdown extends Router {
             const _level = parseInt(level, 10);
 
             if (_level === 1) {
-                return <h1 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h1>;
+                return <h1 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h1>;
             } else if (_level === 2) {
-                return <h2 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h2>;
+                return <h2 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h2>;
             } else if (_level === 3) {
-                return <h3 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h3>;
+                return <h3 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h3>;
             } else if (_level === 4) {
-                return <h4 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h4>;
+                return <h4 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h4>;
             } else if (_level === 5) {
-                return <h5 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h5>;
+                return <h5 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h5>;
             } else  {
-                return <h6 id={id}><span>{text}</span><a href={prefix + '?' + id} className={this.props.classes.mdHeaderLink + ' md-h-link'}/></h6>;
+                return <h6 id={id}><span>{text}</span><a href={`${prefix}?${id}`} className={`${this.props.classes.mdHeaderLink} md-h-link`}/></h6>;
             }
         };
     }
@@ -465,22 +463,22 @@ class Markdown extends Router {
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (this.props.path !== nextProps.path) {
-            this.mounted && this.setState({notFound: false, parts :[]});
+            this.mounted && this.setState({ notFound: false, parts: [] });
             this.load(nextProps.path);
         } else if (this.props.text !== nextProps.text) {
             this.setState({text: nextProps.text});
             if (!nextProps.text) {
                 if (this.props.path !== nextProps.path) {
-                    this.mounted && this.setState({notFound: false, parts :[]});
+                    this.mounted && this.setState({ notFound: false, parts: [] });
                     this.load(nextProps.path);
                 }
             } else {
-                this.mounted && this.setState({text: nextProps.text}, () =>
+                this.mounted && this.setState({ text: nextProps.text }, () =>
                     this.parseText());
             }
         } else
         if (this.props.language !== nextProps.language) {
-            this.mounted && this.setState({notFound: false, parts :[]});
+            this.mounted && this.setState({ notFound: false, parts: [] });
             this.load(null, nextProps.language);
         }
     }
@@ -505,7 +503,7 @@ class Markdown extends Router {
             // if relative path
             if (!link.startsWith('#')) {
                 // ../../download
-                const ppp = link.replace(this.props.path + '/', '').split('#');
+                const ppp = link.replace(`${this.props.path}/`, '').split('#');
                 let _link = ppp[1];
                 let _path = ppp[0].replace(/\.MD$/, '.md');
                 if (!_path.endsWith('.md')) {
@@ -518,14 +516,16 @@ class Markdown extends Router {
                     const locParts = location.page.split('/');
                     locParts.pop();
                     parts.forEach(part => {
-                        if (part === '.') return;
+                        if (part === '.') {
+                            return;
+                        }
                         if (part === '..') {
                             locParts.pop();
                             return;
                         }
                         locParts.push(part);
                     });
-                    _path = locParts.join('/')
+                    _path = locParts.join('/');
                 }
 
                 this.props.onNavigate(null, this.props.rootPath || location.tab, _path, _link);
@@ -542,10 +542,10 @@ class Markdown extends Router {
         }
         if (!text || text.startsWith('<!DOCTYPE html>')) {
             // page not found
-            return this.setState({notFound: true});
+            return this.setState({ notFound: true });
         }
 
-        const {header, parts, content, license, changeLog, title} = this.format(text);
+        const { header, parts, content, license, changeLog, title } = this.format(text);
         let _title = header.title || title || Utils.getTitle(text);
         if (_title) {
             window.document.title = _title;
@@ -558,7 +558,7 @@ class Markdown extends Router {
             try {
                 affiliate = JSON.parse(header.affiliate);
             } catch (e) {
-                console.error('Cannot parse affiliate: ' + header.affiliate);
+                console.error(`Cannot parse affiliate: ${header.affiliate}`);
             }
         }
 
@@ -571,7 +571,7 @@ class Markdown extends Router {
             content,
             license,
             changeLog,
-            title: _title
+            title: _title,
         });
 
         this.onHashChange && setTimeout(() => this.onHashChange(), 200);
@@ -581,7 +581,7 @@ class Markdown extends Router {
         path = path || this.props.path;
         language = language || this.props.language;
         if (path && language) {
-            fetch(`${language}${path[0] === '/' ? path : '/' + path}`)
+            fetch(`${language}${path[0] === '/' ? path : `/${path}`}`)
                 .then(res => res.text())
                 .then(text => this.parseText(text));
         }
@@ -589,7 +589,7 @@ class Markdown extends Router {
 
     format(text) {
         text = (text || '').trim();
-        let {header, body} = Utils.extractHeader(text);
+        let { header, body } = Utils.extractHeader(text);
 
         // remove comments like <!-- -->
         body = body.replace(/\r\n|\n/g, '§$§$');
@@ -600,9 +600,9 @@ class Markdown extends Router {
         body = body.replace(/\[\*\s(.+)\s\*]/g, '[*$1*]');
 
         body = Utils.removeDocsify(body);
-        let {parts, content, license, changeLog, title} = Utils.decorateText(body, header, `${this.props.path && (this.props.path[0] === '/' ? this.props.path : '/' + this.props.path)}`);
+        let {parts, content, license, changeLog, title} = Utils.decorateText(body, header, `${this.props.path && (this.props.path[0] === '/' ? this.props.path : `/${this.props.path}`)}`);
 
-        return {header, parts, content, license, changeLog, title};
+        return { header, parts, content, license, changeLog, title };
     }
 
     formatAuthors(text) {
@@ -653,7 +653,7 @@ class Markdown extends Router {
             data.push(<span key="description" className={this.props.classes.description}>{this.state.header.description}</span>);
         }
 
-        if (Object.keys(this.state.header).find(attr => ADAPTER_CARD.indexOf(attr) !== -1)) {
+        if (Object.keys(this.state.header).find(attr => ADAPTER_CARD.includes(attr))) {
             data.push(<Accordion key="header" className={this.props.classes.adapterCard}>
                 <AccordionSummary className={this.props.classes.summary} classes={{expanded: this.props.classes.summaryExpanded}} expandIcon={<IconExpandMore />}>{I18n.t('Information')}</AccordionSummary>
                 <AccordionActions><List>{
@@ -674,8 +674,8 @@ class Markdown extends Router {
                 <AccordionActions classes={{root: this.props.classes.badgesDetails}}>{
                     Object.keys(this.state.header).filter(attr => attr.startsWith('BADGE-'))
                         .map((attr, i) => [
-                            this.state.header[attr].indexOf('nodei.co') !== -1 ? (<br key={'br' + i}/>) : null,
-                            <img key={'img' + i} src={this.state.header[attr]} alt={attr.substring(6)}/>
+                            this.state.header[attr].includes('nodei.co') ? <br key={'br' + i} /> : null,
+                            <img key={`img${i}`} src={this.state.header[attr]} alt={attr.substring(6)} />
                         ])}
                 </AccordionActions>
             </Accordion>);
@@ -700,7 +700,6 @@ class Markdown extends Router {
                 <div className={this.props.classes.infoEditLocal} onClick={() => {
                     this.props.onEditMode && this.props.onEditMode(true);
                 }}><IconEdit />{I18n.t('Edit local')}</div> : null}
-
         </div>;
     }
 
@@ -733,7 +732,7 @@ class Markdown extends Router {
     }
 
     onToggleContentButton() {
-        this.setState({hideContent: !this.state.hideContent});
+        this.setState({ hideContent: !this.state.hideContent });
         window.localStorage && window.localStorage.setItem('Docs.hideContent', this.state.hideContent ? 'false' : 'true');
     }
 
@@ -741,7 +740,7 @@ class Markdown extends Router {
         if (this.state.hideContent) {
             return <IconMenu className={this.props.classes.contentClose}/>;
         } else {
-            return <IconClose className={this.props.classes.contentClose} onClick={() => this.onToggleContentButton()}/>;
+            return <IconClose className={this.props.classes.contentClose} onClick={() => this.onToggleContentButton()} />;
         }
     }
 
@@ -787,7 +786,7 @@ class Markdown extends Router {
                     classes={{expanded: this.props.classes.summaryExpanded}}
                     expandIcon={<IconExpandMore />}>{I18n.t('License')} <span className={this.props.classes.license}> {this.state.header.license}</span></AccordionSummary>
                 <AccordionActions>
-                    <MarkdownView markdown={this.state.license} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>
+                    <MarkdownView markdown={this.state.license} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }}/>
                 </AccordionActions>
             </Accordion>;
         }
@@ -800,32 +799,32 @@ class Markdown extends Router {
             const CustomLink = this.customLink;
             const CustomH = this.customH;
             return <Accordion>
-                <AccordionSummary className={this.props.classes.summary} classes={{expanded: this.props.classes.summaryExpanded}} expandIcon={<IconExpandMore />}>{I18n.t('Changelog')}</AccordionSummary>
+                <AccordionSummary className={this.props.classes.summary} classes={{ expanded: this.props.classes.summaryExpanded }} expandIcon={<IconExpandMore />}>{I18n.t('Changelog')}</AccordionSummary>
                 <AccordionActions classes={{root: this.props.classes.changeLogAccordion}}>
-                    <MarkdownView markdown={this.state.changeLog} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>
+                    <MarkdownView markdown={this.state.changeLog} options={CONVERTER_OPTIONS} components={{ CustomLink, CustomH }}/>
                 </AccordionActions>
             </Accordion>;
         }
     }
 
     renderSnackbar() {
-        return (<Snackbar
-            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+        return <Snackbar
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={!!this.state.tooltip}
             autoHideDuration={6000}
-            onClose={() => this.setState({tooltip: ''})}
+            onClose={() => this.setState({ tooltip: '' })}
             message={<span id="message-id">{this.state.tooltip}</span>}
             action={[
                 <IconButton
                     key="close"
                     color="inherit"
                     className={this.props.classes.close}
-                    onClick={() => this.setState({tooltip: ''})}
+                    onClick={() => this.setState({ tooltip: '' })}
                 >
                     <IconClose/>
                 </IconButton>,
             ]}
-        />)
+        />;
     }
 
     replaceHref(line) {
@@ -919,17 +918,17 @@ class Markdown extends Router {
             for (let j = 0; j < header.length; j++) {
                 parts[j] = this.replaceHref(parts[j]);
                 const crt = <MarkdownView markdown={parts[j] || ''}  options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>;
-                cells.push(<TableCell className={this.props.classes.tableCell} key={'cell' + i + '_' + j}>{crt}</TableCell>);
+                cells.push(<TableCell className={this.props.classes.tableCell} key={`cell${i}_${j}`}>{crt}</TableCell>);
             }
 
-            rows.push(<TableRow className={this.props.classes.tableRow} key={'row' + i}>{cells}</TableRow>);
+            rows.push(<TableRow className={this.props.classes.tableRow} key={`row${i}`}>{cells}</TableRow>);
         }
         return <Table key={'table_' + key} size="small" className={this.props.classes.table}>
             <TableHead className={this.props.classes.tableHead}>
                 <TableRow className={this.props.classes.tableRowHead}>
                     {
                         header.map((h, i) =>
-                            <TableCell className={this.props.classes.tableCellHead} key={'header' + i}>
+                            <TableCell className={this.props.classes.tableCellHead} key={`header${i}`}>
                                 <MarkdownView markdown={h} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>
                             </TableCell>)
                     }
@@ -941,7 +940,7 @@ class Markdown extends Router {
 
     render() {
         if (this.state.notFound) {
-            return <Page404 className={this.props.classes.root} language={this.props.language}/>;
+            return <Page404 className={this.props.classes.root} language={this.props.language} />;
         }
         if (this.props.editMode && this.props.editor) {
             const Editor = this.props.editor;
@@ -970,7 +969,7 @@ class Markdown extends Router {
                 if (part.type === 'code') {
                     line = line.trim().replace(/^```javascript/, '```');
                 }
-                if (line.indexOf('*Number value') !== -1) {
+                if (line.includes('*Number value')) {
                     console.log('AAA');
                 }
                 const trimmed = line.trim();
@@ -987,18 +986,18 @@ class Markdown extends Router {
                 // replace <- with &lt;
                 line = line.replace(/<-/g, '&lt;-');
 
-                const rct = <MarkdownView markdown={line} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}}/>;
+                const rct = <MarkdownView markdown={line} options={CONVERTER_OPTIONS} components={{CustomLink, CustomH}} />;
 
                 if (part.type === 'warn') {
-                    return <div key={'parts' + i} className={this.props.classes.warn}>{rct}</div>;
+                    return <div key={`parts${i}`} className={this.props.classes.warn}>{rct}</div>;
                 } else if (part.type === 'alarm') {
-                    return <div key={'parts' + i} className={this.props.classes.alarm}>{rct}</div>;
+                    return <div key={`parts${i}`} className={this.props.classes.alarm}>{rct}</div>;
                 } else if (part.type === 'notice') {
-                    return <div key={'parts' + i} className={this.props.classes.notice}>{rct}</div>;
+                    return <div key={`parts${i}`} className={this.props.classes.notice}>{rct}</div>;
                 }  else if (part.type === '@@@') {
-                    return <div key={'parts' + i} className={this.props.classes.todo}>{rct}</div>;
+                    return <div key={`parts${i}`} className={this.props.classes.todo}>{rct}</div>;
                 } else {
-                    return <div key={'parts' + i} className={this.props.classes.paragraph}>{rct}</div>;
+                    return <div key={`parts${i}`} className={this.props.classes.paragraph}>{rct}</div>;
                 }
             }
         });

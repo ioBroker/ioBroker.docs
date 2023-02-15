@@ -139,7 +139,7 @@ class Downloads extends Router {
             loadTimeout: false,
             filter: 'all',
             tooltip: '',
-            info: location.chapter || ''
+            info: location.chapter || '',
         };
         this.load();
         // Give 300ms to load the page. After that show the loading indicator.
@@ -187,7 +187,7 @@ class Downloads extends Router {
                 .replace(/^ioBroker/, '')
         );
 
-        return <div>{lines.map(line => [line, (<br key="br"/>)])}</div>;
+        return <div>{lines.map(line => [line, <br key="br" />])}</div>;
     }
 
     closeDialog() {
@@ -249,7 +249,7 @@ class Downloads extends Router {
         return <Card key={image.file} className={this.props.classes.card} style={{width: this.cardWidth}}>
             <CardActionArea>
                 <div className={this.props.classes.cardMedia}
-                     style={{backgroundImage: `url(img/${image.picture})`}}
+                     style={{ backgroundImage: `url(img/${image.picture})` }}
                 />
                 <div  className={this.props.classes.cardTitle}>
                     <h2>{image.device}</h2>
@@ -306,10 +306,10 @@ class Downloads extends Router {
 
     renderInfoAboutInstall() {
         return <Paper key="instruction" className={this.props.classes.instructionDiv}>
-            {I18n.t('instruction1')}<br/><br/>
-            {I18n.t('instruction2')}<br/><br/>
+            {I18n.t('instruction1')}<br /><br />
+            {I18n.t('instruction2')}<br /><br />
             <pre className={this.props.classes.instructionCode}>
-                curl -sLf https://iobroker.net/install.sh | bash -<br/>
+                curl -sLf https://iobroker.net/install.sh | bash -<br />
                 <IconButton
                     className={this.props.classes.instructionCopy}
                     title={I18n.t( 'copy to clipboard')}
@@ -318,7 +318,7 @@ class Downloads extends Router {
                         this.setState({ tooltip: I18n.t('Copied') });
                     }}
                 >
-                    <IconCopy fontSize="small"/>
+                    <IconCopy fontSize="small" />
                 </IconButton>
             </pre>
             {I18n.t('instruction3')}
@@ -370,7 +370,7 @@ Downloads.propTypes = {
     language: PropTypes.string,
     onNavigate: PropTypes.func,
     theme: PropTypes.string,
-    mobile: PropTypes.bool
+    mobile: PropTypes.bool,
 };
 
 export default withStyles(styles)(Downloads);

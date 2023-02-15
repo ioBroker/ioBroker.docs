@@ -42,7 +42,7 @@ DialogMessage.propTypes = {
     onClose: PropTypes.func,
     title: PropTypes.string,
     text: PropTypes.string,
-    icon: PropTypes.object
+    icon: PropTypes.object,
 };
 
 export default DialogMessage;

@@ -57,7 +57,7 @@ const styles = theme => ({
         top: 5,
         right: 5,
         zIndex: 0,
-        borderRadius: 3
+        borderRadius: 3,
     },
     cardTitle: {
         maxWidth: 'calc(100% - 16px)',
@@ -75,11 +75,11 @@ const styles = theme => ({
         background: '#FFFFFF80',
     },
     cardContent: {
-        zIndex: 1
+        zIndex: 1,
     },
     titleExpanded: {
         fontWeight: 'bold',
-        borderBottom: '1px solid #DDD'
+        borderBottom: '1px solid #DDD',
     },
     details: {
         display: 'inline-block',
@@ -131,13 +131,13 @@ const styles = theme => ({
         background: 'gray',
         borderRadius: '3px 0 0 3px',
         padding: '1px 3px 1px 3px',
-        color: 'white'
+        color: 'white',
     },
     cardVersionValue: {
         background: 'green',
         borderRadius: '0 3px 3px 0',
         padding: '1px 3px 1px 3px',
-        color: 'white'
+        color: 'white',
     },
 
 
@@ -174,8 +174,8 @@ const styles = theme => ({
     tableRow:{
         cursor: 'pointer',
         '&:hover': {
-            background: '#DDDDDD'
-        }
+            background: '#DDDDDD',
+        },
     },
     tableCell:{
         padding: '0 5px',
@@ -235,7 +235,7 @@ const styles = theme => ({
     },
     buttonGap: {
         flex: 2,
-        display: 'inline-block'
+        display: 'inline-block',
     },
 });
 
@@ -277,7 +277,7 @@ class Adapters extends Component {
         this.load();
 
         // Give 300ms to load the page. After that show the loading indicator.
-        setTimeout(() => !this.state.content && this.setState({loadTimeout: true}), 300);
+        setTimeout(() => !this.state.content && this.setState({ loadTimeout: true }), 300);
 
         this.contentRef = React.createRef();
     }
@@ -318,9 +318,9 @@ class Adapters extends Component {
                         obj.authors = (obj.authors || '').split(',').map(item => {
                             const m = item.match(/([^<]*)<([^>]+)>/);
                             if (m) {
-                                return {name: m[1].trim(), email: (m[2] || '').trim()};
+                                return { name: m[1].trim(), email: (m[2] || '').trim() };
                             } else {
-                                return {name: item.trim(), email: ''};
+                                return { name: item.trim(), email: '' };
                             }
                         });
                     }
@@ -373,7 +373,7 @@ class Adapters extends Component {
     renderAdapterStatistics() {
             return this.state.stats ? <AdapterStatistics
                 key="statistics"
-                onClose={() => this.setState({stats: ''})}
+                onClose={() => this.setState({ stats: '' })}
                 mobile={this.props.mobile}
                 theme={this.props.theme}
                 width={this.props.contentWidth}
@@ -388,7 +388,7 @@ class Adapters extends Component {
             <CardActionArea key="main" onClick={() => this.onNavigate(obj.content)}>
                 <div
                     className={this.props.classes.cardMedia}
-                    style={{backgroundImage: 'url(' + this.props.language + '/' + obj.icon + ')'}}
+                    style={{ backgroundImage: `url(${this.props.language}/${obj.icon})` }}
                 />
                 <div className={this.props.classes.cardTitle}>{adapter}</div>
                 <CardContent className={this.props.classes.cardContent}>
@@ -409,8 +409,9 @@ class Adapters extends Component {
             <CardActions key="actions">
                 <Button size="small" color="primary" onClick={() => this.onNavigate(obj.content)}>{this.words.read}</Button>
                 <Button size="small" color="primary" onClick={() => Utils.openLink(obj.github)}>{this.words.github}</Button>
-                <Button size="small" color="primary" onClick={() => this.setState({stats: adapter})}>{this.words.stats}</Button>
-            </CardActions>];
+                <Button size="small" color="primary" onClick={() => this.setState({ stats: adapter })}>{this.words.stats}</Button>
+            </CardActions>,
+        ];
     }
 
     renderAdapterCard(type, adapter, obj) {
@@ -424,7 +425,7 @@ class Adapters extends Component {
         this.words.close = this.words.close || I18n.t('Close');
         this.words.githubStars = this.words.githubStars || I18n.t('Github stars:');
         this.words.githubScore = this.words.githubScore || I18n.t('Github score:');
-        this.words.weekDownloads = this.words.weekDownloads || I18n.t('Week downloads') + ':';
+        this.words.weekDownloads = this.words.weekDownloads || `${I18n.t('Week downloads')}:`;
 
         return <Card key={adapter} className={this.props.classes.card} style={{ width: this.cardWidth }}>
             {this.renderAdapterMain(adapter, obj)}
@@ -457,7 +458,7 @@ class Adapters extends Component {
     }
 
     onCollapseAll() {
-        this.setState({expanded: []});
+        this.setState({ expanded: [] });
         this.saveExpanded([]);
     }
 
@@ -621,7 +622,7 @@ class Adapters extends Component {
                 obj.version,
                 <br key="br"/>,
                 <div key="latest" className={this.props.classes.versionTitle}>latest</div>,
-                obj.latestVersion
+                obj.latestVersion,
             ];
         } else {
             return [<div key="version" className={this.props.classes.versionTitle}>&nbsp;</div>, obj.version];
@@ -629,9 +630,11 @@ class Adapters extends Component {
     }
 
     renderTableLine(name, obj, width) {
-        return <TableRow className={this.props.classes.tableRow} key={name} onClick={() => {
-            this.onNavigate(`adapterref/iobroker.${name}/README.md`);
-        }}>
+        return <TableRow
+            className={this.props.classes.tableRow}
+            key={name}
+            onClick={() => this.onNavigate(`adapterref/iobroker.${name}/README.md`)}
+        >
             <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnIcon}`} align="left" padding="none">{(<img className={this.props.classes.tableLogo} alt="logo" src={this.props.language + '/' + obj.icon}/>)}</TableCell>
             <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnTitle}`} align="left" padding="none">{name}</TableCell>
             <TableCell className={`${this.props.classes.tableCell} ${this.props.classes.tableColumnDesc}`} padding="none">{typeof obj.description === 'object' ? obj.description[this.props.language] || obj.description.en : obj.description || ''}</TableCell>
@@ -683,12 +686,12 @@ class Adapters extends Component {
     renderSnackbar() {
         return <Snackbar
             key="snackbar"
-            anchorOrigin={{vertical: 'top', horizontal: 'right'}}
+            anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
             open={!!this.state.tooltip}
             autoHideDuration={6000}
             onClose={() => this.setState({ tooltip: '', errorTooltip: false })}
             message={<span id="message-id">{this.state.tooltip}</span>}
-            classes={{root: this.state.errorTooltip ? this.props.classes.tooltipError: undefined}}
+            classes={{ root: this.state.errorTooltip ? this.props.classes.tooltipError: undefined }}
             action={[
                 <IconButton
                     key="close"
@@ -708,7 +711,7 @@ class Adapters extends Component {
         if (this.state.filter) {
             const filter = this.state.filter.toLowerCase();
             names = names.filter(adapter =>
-                this.state.adapters[adapter].keywords.indexOf(filter) !== -1 || adapter.indexOf(filter) !== -1);
+                this.state.adapters[adapter].keywords.includes(filter) || adapter.includes(filter));
         }
         if (this.state.orderBy === 'Title') {
             if (this.state.order === 'asc') {

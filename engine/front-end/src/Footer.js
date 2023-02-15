@@ -5,23 +5,23 @@ import { withStyles } from '@mui/styles';
 import I18n from './i18n';
 
 import LogoIoBroker from './assets/iobroker-logo-small.png';
-import {FaGithubSquare as IconGithub} from 'react-icons/fa';
-import {FaFacebookSquare as IconFacebook} from 'react-icons/fa';
-import {FaDiscord as IconDiscord} from 'react-icons/fa';
+import { FaGithubSquare as IconGithub } from 'react-icons/fa';
+import { FaFacebookSquare as IconFacebook } from 'react-icons/fa';
+import { FaDiscord as IconDiscord } from 'react-icons/fa';
 import Utils from './Utils';
 
 const styles = theme => ({
     footer: {
         background: theme.palette.primary.light,
         textAlign: 'center',
-        padding: 20
+        padding: 20,
     },
     footerIconDiv: {
         width: 54,
         height: 54,
         cursor: 'pointer',
         display: 'inline-block',
-        position: 'relative'
+        position: 'relative',
     },
     footerIcon: {
         width: 54,
@@ -40,14 +40,14 @@ const styles = theme => ({
         bottom: 3,
         width: '100%',
         textAlign: 'center',
-        fontSize: 8
+        fontSize: 8,
     },
     footerLink: {
         display: 'inline-block',
         cursor: 'pointer',
         color: '#b1b1b1',
-        paddingRight: 10
-    }
+        paddingRight: 10,
+    },
 });
 
 class Loader extends React.Component {
@@ -85,7 +85,7 @@ class Loader extends React.Component {
             <div className={this.props.classes.footerLink} style={{ cursor: 'inherit' }}> | </div>
             <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'privacy')}>{I18n.t('Privacy policy')}</div>
 
-            <p className={this.props.classes.footerCopyright}>Copyright © 2014-2021 by the ioBroker Community and the ioBroker GmbH.</p>
+            <p className={this.props.classes.footerCopyright}>Copyright © 2014-2023 by the ioBroker Community and the ioBroker GmbH.</p>
             <img src={LogoIoBroker} className={this.props.classes.footerLogo} alt="logo" />
         </div>;
     }
@@ -95,7 +95,7 @@ Loader.propTypes = {
     onNavigate: PropTypes.func,
     language: PropTypes.string,
     mobile: PropTypes.bool,
-    theme: PropTypes.string
+    theme: PropTypes.string,
 };
 
 export default withStyles(styles)(Loader);

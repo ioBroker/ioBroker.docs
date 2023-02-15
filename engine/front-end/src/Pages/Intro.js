@@ -302,7 +302,7 @@ class Intro extends Component {
         if (I18n.getLanguage() !== 'de') {
             link = 0;
         }
-        let middleButton = null;
+        let middleButton;
         if (this.action) {
             middleButton = this.renderAction();
         } else {

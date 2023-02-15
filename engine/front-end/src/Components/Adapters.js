@@ -21,11 +21,11 @@ const styles = () => ({
     },
     title: {
         fontSize: 32,
-        paddingBottom: 20
+        paddingBottom: 20,
     },
     boxDiv: {
         textAlign: 'center',
-        display: 'inline-box'
+        display: 'inline-box',
     },
     box: {
 
@@ -41,14 +41,14 @@ const styles = () => ({
         '&:hover': {
             opacity: 1,
             transform: 'scale(1.2)',
-        }
+        },
     },
     icon: {
         verticalAlign: 'top',
         width: 50,
         borderRadius: 5,
-        overflow: 'hidden'
-    }
+        overflow: 'hidden',
+    },
 });
 
 const IGNORE = ['general', 'visualization-widgets', 'overview', 'visualization', 'date-and-time', 'visualization-icons', 'logic'];
