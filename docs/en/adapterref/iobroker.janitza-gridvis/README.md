@@ -32,6 +32,18 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.29 (2023-02-15)
+* (BenAhrdt) deficeinfo in case of values is NaN added
+
+### 2.1.28 (2023-02-15)
+* (BenAhrdt) devicetype added to info-folder for every device
+
+### 2.1.27 (2023-02-14)
+* (BenAhrdt) Bugfix info-folder will not deleted at startup, if there is no connection
+
+### 2.1.26 (2023-02-14)
+* (BenAhrdt) adding info folder for every device
+
 ### 2.1.25 (2022-10-21) - Bugfix errorcheck
 * (BenAhrdt) before checking error for status, the error will be check for exist
 
@@ -191,7 +203,7 @@ Implemented are the following times:
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

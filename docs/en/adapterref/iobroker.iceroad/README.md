@@ -7,6 +7,7 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.iceroad.svg)](https://www.npmjs.com/package/iobroker.iceroad)
 
 ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.iceroad.svg)](https://www.npmjs.com/package/iobroker.iceroad)
 
 ## Documentation
@@ -37,6 +38,11 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2023-01-20)
+
+-   (ciddi89) Bugfix: reminder doesn't work correctly
+-   (ciddi89) Added: name and type for channel folders
+-   (ciddi89) Other: Small code improvements
 
 ### 1.1.2 (2022-12-23)
 
@@ -75,7 +81,7 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Patrick Walther walther-patrick@gmx.net
+Copyright (c) 2023 Patrick Walther walther-patrick@gmx.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

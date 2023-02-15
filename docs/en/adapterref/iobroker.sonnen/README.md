@@ -332,6 +332,9 @@ The channel provides battery specific information like the number of cycle count
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.16.0 (2023-02-02)
+* (foxriver76) added state `battery.balanceChargeRequest` (closes #258)
+
 ### 1.15.6 (2022-12-18)
 * (foxriver76) added two GPIOs for CHP status
 

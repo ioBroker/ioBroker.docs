@@ -1,5 +1,5 @@
 # Privacy policy
-ioBroker.net websites (collectively “ioBroker.net” in this document) refer to sites hosted on the ioBroker.net, ioBroker.com, ioBroker.org, ioBroker.info, ioBroker.eu, and other related domains and subdomains thereof.
+ioBroker.net websites (collectively “ioBroker.net” in this document) refer to sites hosted on the ioBroker.net, ioBroker.com, ioBroker.org, ioBroker.info, ioBroker.in, and other related domains and subdomains thereof.
 
 ## Website Visitors
 Like most website operators, ioBroker.net collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, referring site, and the date and time of each visitor request. ioBroker.net’s purpose in collecting non-personally identifying information is to better understand how ioBroker.net’s visitors use its website. From time to time, ioBroker.net may release non-personally-identifying information in the aggregate, e.g., by publishing a report on trends in the usage of its website.
@@ -21,4 +21,7 @@ A cookie is a string of information that a website stores on a visitor’s compu
 Although most changes are likely to be minor, ioBroker.net may change its Privacy Policy from time to time, and in ioBroker.net’s sole discretion. ioBroker.net encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.
 
 ## Analytics function
-We use Google Analytics and Facebook Pixel.
+We use [Google Analytics](https://policies.google.com/terms) and [Facebook Pixel](https://www.facebook.com/business/m/privacy-and-data).
+The [PayPal](https://www.paypal.com/webapps/mpp/ua/privacy-full) service is used for payment.
+
+Please refer to the respective websites for the privacy policy.

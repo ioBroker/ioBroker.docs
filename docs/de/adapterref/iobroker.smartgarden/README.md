@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartgarden/README.md
 title: ioBroker.smartgarden
-hash: zkZXcslBa/4upJZAxaBfbeYY8UUByjrbYb3XjQmjSUg=
+hash: qrgJEiDMDViW5Z6lGxPIN0nq47USKW2owEXtVvTlcxA=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
@@ -128,7 +128,7 @@ Adapter ist vorhanden
 - bei npm: Installieren Sie mit `npm install iobroker.smartgarden`
 - bei GitHub unter https://github.com/jpgorganizer/ioBroker.smartgarden.
 
-Eine Beschreibung zur Installation von GitHub ist in [hier](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) verfügbar.
+Eine Beschreibung zur Installation von GitHub ist in [Hier](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) verfügbar.
 
 ## Setup-Adapter
 1. Installieren Sie den Adapter
@@ -154,7 +154,7 @@ Eine Beschreibung zur Installation von GitHub ist in [hier](https://www.iobroker
 
      - Ab Release v2.0.0 **bevorzugtes Login-Verfahren mit *Anwendungsschlüssel* und
 
-*Anwendungsgeheimnis*** als früheres Login-Verfahren mit *Benutzername* und *Passwort* wird von Gardena nicht mehr unterstützt, funktioniert aber dennoch für viele Benutzer.
+*Anwendungsgeheimnis*** als ehemaliges Login-Verfahren mit *Benutzername* und *Passwort* wird von Gardena nicht mehr unterstützt, funktioniert aber dennoch für viele Benutzer.
 Aus diesem Grund ist es hier noch verfügbar, aber im Fehlerfall gibt es dafür keinen Support mehr.
 Es wird daher empfohlen, *Anwendungsschlüssel* und *Anwendungsgeheimnis* zu verwenden!
 
@@ -228,7 +228,7 @@ Das einzige, was getan wird (ab Version 1.0.0), ist die Überprüfung der Art vo
 | Zahlen | wenn eine Zahl keine gültige Zahl ist, wird stattdessen "-1" verwendet. Wenn Sie also diese Nummer sehen, melden Sie sich bitte. |
 
 Anfragen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Smart Gateway akzeptiert wurde. Eine erfolgreiche Ausführung des Befehls auf dem Gerät selbst kann durch einen entsprechenden Zustandswechsel beobachtet werden.
-*Beispiel:* Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der Datenpunkt `activity_value` des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
+*Beispiel:* Das Senden eines Befehls zum Starten des VALVE-Dienstes einer intelligenten Wassersteuerung führt dazu, dass der `activity_value`-Datenpunkt des Dienstes geändert wird, nachdem das Gerät den Befehl verarbeitet hat.
 
 **Anmerkungen:**
 
@@ -242,7 +242,7 @@ Anfragen zur Steuerung eines Geräts sind erfolgreich, sobald der Befehl vom Sma
 #### Kontrolle
 Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
-- `activity_control_i`
+- `activity_control_i`: Geben Sie `string` ein
 
   *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
@@ -250,7 +250,7 @@ Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf die geplante Dauer in
 
-  Sekunden (bitte Vielfache von 60 verwenden)
+  Sekunden (bitte Vielfache von 60 verwenden; Minimum ist 60); Betrachten Sie den Datentyp `string`
 
   - Für den automatischen Betrieb setze den String `START_DONT_OVERRIDE`
   - um den aktuellen Vorgang abzubrechen und zur Nutzung der Ladestation zurückzukehren
@@ -343,7 +343,7 @@ Eine Beschreibung möglicher Werte finden Sie unter https://developer.husqvarnag
 #### Kontrolle
 Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
-- `stop_all_valves_i`
+- `stop_all_valves_i`: Geben Sie `string` ein
 
   *Dieser Datenpunkt wird vom Adapter generiert und wird aufgrund der GARDENA smart system API nicht benötigt.*
 
@@ -360,13 +360,13 @@ Alle anderen Datenpunkte dienen nur der Überwachung und Information.
 #### Kontrolle
 Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
-- `duration_value`
+- „duration_value“: Geben Sie „string“ ein
 
   Ändern Sie diesen Datenpunkt, um das Ventil zu starten.
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf den Wert in Sekunden
 
-  (bitte Vielfache von 60 verwenden).
+  (bitte Vielfache von 60 verwenden; Minimum ist 60); Betrachten Sie den Datentyp `string`.
 
 **Hinweis:** Es gibt einige Einschränkungen für die zulässigen Werte.
 Bitte melden Sie, wenn Sie andere Einschränkungen sehen.
@@ -383,7 +383,7 @@ Bitte melden Sie, wenn Sie andere Einschränkungen sehen.
 
   - Zum Überspringen des automatischen Betriebs bis zur angegebenen Zeit, die derzeit aktiv ist
 
-Vorgang kann abgebrochen werden oder nicht (abhängig vom Gerätemodell) Zeichenfolge `PAUSE_<number_of_seconds>` verwenden, z. `PAUSE_86400` für 24 Stunden pausieren (bitte Vielfache von 60 verwenden)
+Vorgang kann abgebrochen werden oder nicht (abhängig vom Gerätemodell) Zeichenfolge `PAUSE_<number_of_seconds>` verwenden, z. `PAUSE_86400` um 24 Stunden zu pausieren (bitte Vielfache von 60 verwenden; Minimum ist 60)
 
   - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge „UNPAUSE“.
 
@@ -413,19 +413,19 @@ Der Wert beschreibt die Anzahl der Minuten, bis das Ventil geschlossen wird und 
 #### Kontrolle
 Um das Gerät zu steuern, verwenden Sie den Datenpunkt
 
-- `duration_value`
+- „duration_value“: Geben Sie „string“ ein
 
   Ändern Sie diesen Datenpunkt, um die Steckdose zu starten.
 
   - Um für eine definierte Zeit zu starten, setzen Sie den Wert auf den Wert in Sekunden
 
-  (bitte Vielfache von 60 verwenden)
+  (bitte Vielfache von 60 verwenden; Minimum ist 60); Betrachten Sie den Datentyp `string`
 
   - Um das Gerät dauerhaft einzuschalten, verwenden Sie bitte den String `START_OVERRIDE`.
   - Um das Gerät zu stoppen, verwenden Sie `STOP_UNTIL_NEXT_TASK`.
   - Zum Überspringen des automatischen Betriebs bis zur angegebenen Zeit. Die derzeit aktive Operation
 
-wird NICHT storniert. Verwenden Sie die Zeichenfolge `PAUSE_<number_of_seconds>`, z. `PAUSE_86400` für 24 Stunden pausieren (bitte Vielfache von 60 verwenden)
+wird NICHT storniert. Verwenden Sie die Zeichenfolge `PAUSE_<number_of_seconds>`, z. `PAUSE_86400` um 24 Stunden zu pausieren (bitte Vielfache von 60 verwenden; Minimum ist 60)
 
   - Um den automatischen Betrieb wiederherzustellen, wenn er angehalten wurde, verwenden Sie die Zeichenfolge „UNPAUSE“.
 
@@ -510,7 +510,7 @@ Adapter. Also bitte ab und zu manuell löschen oder die Überwachung ausschalten
 
 ## Bewässerung während des Mähens nicht erlaubt
 ### Was ist das Problem?
-Wenn Sie sowohl einen Mäher als auch eine Beregnungsanlage mit Versenkregnern haben, besteht die Gefahr, dass Ihr Mäher bei laufender Beregnung auf einen Versenkregner stößt und diesen beschädigt oder selbst Schaden anrichtet.
+Wenn Sie sowohl einen Mäher als auch eine Beregnungsanlage mit Versenkregnern haben, besteht die Gefahr, dass Ihr Mäher bei laufender Beregnung auf einen Versenkregner stößt und ihn beschädigt oder selbst Schaden anrichtet.
 
 Um dies zu verhindern, sollten während des Mähens die Beregnungsanlage oder besser einzelne Ventile abgeschaltet werden.
 
@@ -753,7 +753,7 @@ and new limit for SERVICE_VALVE (just smart Irrigation Control)
 
 ## License
 
-Copyright (c) 2020 - 2022 jpgorganizer, https://github.com/jpgorganizer 
+Copyright (c) 2020 - 2023 jpgorganizer, https://github.com/jpgorganizer 
 
 smartgarden by jpgorganizer is licensed under a 
 Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License 
@@ -761,4 +761,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2832 $ $Date: 2022-06-13 14:12:51 +0200 (Mo, 13 Jun 2022) $ --->
+<!--- SVN: $Rev: 2871 $ $Date: 2022-12-24 15:01:59 +0100 (Sa, 24 Dez 2022) $ --->

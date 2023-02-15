@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: dZiy17GB+GtTHSwKHGrzyBQp5yFFgRZkp5hYOhStnIk=
+hash: U09jFIxFk2+Zf83CeeFdYDAsCDTFvNSssh/WcvZciOk=
 ---
 ![Logo](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -27,6 +27,7 @@ Aktuell werden folgende Geräte unterstützt:
 * Saunabox
 * Temperatursensor
 * Torkasten
+* Fernsehlift
 
 ## Changelog
 

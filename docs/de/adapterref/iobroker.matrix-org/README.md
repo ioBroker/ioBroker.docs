@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: nI7mS+jbHP27IDaScCTotxOLKdL174Vq1Ni66R70SfM=
+hash: VMiIjOfbLptdI65a7gk+b2UlcZiAgkrCsv0M3PMya04=
 ---
 ![Logo](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -24,7 +24,7 @@ Am besten: Betreiben Sie Ihren eigenen Client auf Ihrem Server!
 
 Erstellen Sie einen eigenen Benutzer als Ihren BOT mit Passwort. Erstellen Sie einen Raum für alle Mitglieder, die Bot-Nachrichten erhalten möchten. Fügen Sie diesem Raum Ihren BOT hinzu. Alle Mitglieder zu diesem Raum hinzufügen. Trage alle Daten in die Config ein. (BOT-Name, Passwort, Raumname)
 
-### Verwendungszweck
+### Verwendung
 Fügen Sie so viele Instanzen hinzu, wie Sie benötigen. Fügen Sie matrix-org.0.sendMessage einen Wert hinzu, wie Sie möchten, mit js Wenn Sie "image" auf matrix.0.sendMessage setzen, wird das Matrix-Logo an Ihren Kanal gesendet.
 Oder in js verwenden:
 
@@ -33,13 +33,20 @@ sendTo("matrix-org.0", "Hello World!");
 ```
 
 Oder verwenden Sie das Blockly-Symbol in Sendto.
+
 Für Bilder vom lokalen Dateisystem (Linux):
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
 
-Für Bilder aus dem lokalen Dateisystem (Windows): sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"}); Für Bilder als Referenz:
+Für Bilder vom lokalen Dateisystem (Windows):
+
+``` 
+sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
+```
+
+Für Bilder als Referenz:
 
 ```
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
@@ -81,7 +88,11 @@ Manchmal ist der Port 443, wenn Sie ein öffentliches System wie matrix.org habe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.4 (2023-02-04)
+* update of dependencies
+* small readme improvement
+
+### 0.1.3 (2022-11-03)
 * updates of dependencies
 
 ### 0.1.2 (2022-08-12)
@@ -140,7 +151,7 @@ Manchmal ist der Port 443, wenn Sie ein öffentliches System wie matrix.org habe
 ## License
 MIT License
 
-Copyright (c) 2022 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

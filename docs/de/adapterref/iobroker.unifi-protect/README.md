@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.unifi-protect/README.md
 title: ioBroker.unifi-protect
-hash: w7zo2bNe6JcYU812u6HwTJcS0GsV17BV7u9LbcNJcNs=
+hash: QANKqdkfOjhoVCrxVCEXj04jEbvXlS9y2vBQjNABsrA=
 ---
 ![Logo](../../../en/adapterref/iobroker.unifi-protect/admin/unifi-protect.png)
 
@@ -68,64 +68,9 @@ Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler 
 
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
-## **IN ARBEIT**
-* Aktualisierungen der Abhängigkeiten
-* Erste Implementierung von Echtzeit-Updates api
-* lastMotion, lastRing, lcdMessage und smartDetectZone in realTimeEvents
-* (Scrounger) Schaltfläche zum Erstellen eines manuellen Schnappschusses hinzugefügt
-* (Scrounger) Datenpunkte für Echtzeitereignisse für jede Kamera hinzugefügt
-* (Scrounger) Schnappschuss und Vorschaubild für Echtzeitereignisse hinzugefügt (base64-Bilder)
-* (Scrounger) Miniaturbild für Liste der Bewegungsereignisse hinzugefügt (Base64-Bilder)
-* (Scrounger) kleines Vorschaubild für Liste von Bewegungsereignissen und Echtzeitereignissen hinzugefügt (Base64-Bilder)
-* (Scrounger) Kameraname für Liste von Bewegungsereignissen hinzugefügt
-
-### 0.0.12 (2021-03-14)
-* Intelligente Erkennungen hinzugefügt
-* Einige LastMotion-Sachen behoben
-* UnifiOs-Unterstützung für CloudKey hinzugefügt
-
-### 0.0.11 (2020-02-27)
-* Die Admin-Oberfläche wurde ein wenig geändert
-* Beschreibung für Hafen hinzugefügt
-* UDM Pro beschreibbare Status behoben
-
-### 0.0.10 (2020-02-26)
-* travis ci für Integrationstests behoben
-* Verwenden Sie tatsächlich die letzte x-Bewegungseinstellung
-
-### 0.0.9 (2020-02-21)
-* lastMotion der Kamera wird nur bei Bedarf aktualisiert
-* erste UDM-Integrationen, das Ändern von Einstellungen funktioniert noch nicht
-
-### 0.0.8 (2020-02-17)
-* Bewegungsereignisse optional gemacht (Letzte Bewegung wird immer gespeichert)
-* Intervall und "letzte x Sekunden der Bewegungen" einstellbar gemacht
-* Alte Bewegungen richtig löschen
-
-### 0.0.7 (2020-02-09)
-* Bewegungsereignisse kontinuierlich aktualisieren
-* geänderte Datenstruktur
-* lastMotion Datapoint zu jeder Kamera hinzugefügt
-
-### 0.0.6 (2020-02-08)
-* Einige Einstellungen änderbar machen (Name, osdSettings.*, recordingSettings.mode, ledSettings.isEnabled)
-
-### 0.0.5 (2020-02-07)
-* neues Logo
-* Datenpunkte für Bewegungsereignisse hinzugefügt
-
-### 0.0.4 (2020-02-05)
-* Release-Script-Test und einige Readme-Änderungen
-
-### 0.0.3 (03.02.2020)
-* (Peter Baumert) erster Arbeits-RLS auf npm
-
-### 0.0.1
-* (Peter Baumert) Erstveröffentlichung
-
 ## Code-Nutzung
 Der Code in [protect_api](./protect_api) wird meistens von [hjdhjds homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect).
-Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie in [hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
+Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie in [Hier](https://github.com/hjdhjd/homebridge-unifi-protect/blob/master/LICENSE.md).
 
 ## Changelog
 
@@ -133,6 +78,60 @@ Vielen Dank für die Bereitstellung dieses Codes. Seine Codes-Lizenz finden Sie 
     Placeholder for the next version (at the beginning of the line):
     ## **WORK IN PROGRESS**
 -->
+### 0.0.13 (2023-01-23)
+* dependencies updates
+* first implementation of realtime updates api
+* lastMotion, lastRing, lcdMessage and smartDetectZone in realTimeEvents
+* (Scrounger) Button to take manual snapshot added
+* (Scrounger) real time events datapoints for every cam added
+* (Scrounger) take snapshot and thumbnail for real time events added (base64 images)
+* (Scrounger) thumbnail image for list of motion events added (base64 images)
+* (Scrounger) small thumbnail image for list of motion events and real time events added (base64 images)
+* (Scrounger) camera name for list of motion events added
+
+### 0.0.12 (2021-03-14)
+* added smart detections
+* fixed some lastMotion stuff
+* added UnifiOs Support for CloudKey
+
+### 0.0.11 (2020-02-27)
+* changed Admin interface a little
+* added description for port
+* fixed UDM Pro writeable states
+
+### 0.0.10 (2020-02-26)
+* travis ci for integration tests fixed
+* actually use last x motion setting
+
+### 0.0.9 (2020-02-21)
+* lastMotion of camera only updating if neccessary
+* first UDM integrations, changing settings NOT working yet
+
+### 0.0.8 (2020-02-17)
+* made motion Events optional (Last Motion is always stored)
+* made interval and "last x seconds of motions" adjustable
+* properly delete old motions
+
+### 0.0.7 (2020-02-09)
+* continuosly refresh motion events
+* changed data structur
+* added lastMotion Datapoint to each camera
+
+### 0.0.6 (2020-02-08)
+* make some settings changeable (name, osdSettings.*, recordingSettings.mode, ledSettings.isEnabled)
+
+### 0.0.5 (2020-02-07)
+* new logo
+* added motion event data points
+
+### 0.0.4 (2020-02-05)
+* release-script test and some Readme changes
+
+### 0.0.3 (03.02.2020)
+* (Peter Baumert) first working rls on npm
+
+### 0.0.1
+* (Peter Baumert) initial release
 
 ## License
 MIT License

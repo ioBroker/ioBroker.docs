@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
+hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
 ---
 ![标识](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
 ![安装数量](http://iobroker.live/badges/fullcalendar-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.fullcalendar.svg)
-![新产品管理](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
 
 # IoBroker.fullcalendar
-带有 [全日历](https://fullcalendar.io) 的时间表。
+附有 [全日历](https://fullcalendar.io) 的时间表。
 
-您不得使用任何外部资源，调度仅在 ioBroker 中处理，不会与“谷歌日历”或“iTunes”等任何外部服务结合。
+您不得使用任何外部资源，日程安排仅在 ioBroker 中处理，不会与“谷歌日历”或“iTunes”等任何外部服务结合使用。
 
 ![例子](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
 您可以使用日历控制您的事件，并可以计划定期控制它们。
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行首）：
 
-### __工作正在进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
 ### 1.2.0 (2021-12-14)
@@ -57,4 +57,4 @@ hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
 ## License
 CC BY-NC 4.0
 
-Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
+hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 ---
-![商标](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
+![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![安装数量](http://iobroker.live/badges/sonos-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
@@ -111,7 +111,6 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 
 ＃＃ 配置
 - Web 服务器 - [可选] 是否启用 Web 服务器
-- 端口 - 如果启用了 Web 服务器，则为该端口。默认 8083
 - 更新经过时间（毫秒） - 以毫秒为单位的间隔，在播放标题时更新经过的计时器的频率。 （默认 2000）
 
 <!-- 下一个版本的占位符（在行首）：
@@ -119,9 +118,10 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 ### **正在进行中** -->
 
 ## Changelog
-### WORK IN PROGRESS
-* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+### 2.3.0 (2023-01-11)
+* (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found
+* (bluefox) Configuration migrated to JSON-Config
 
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
@@ -280,7 +280,7 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

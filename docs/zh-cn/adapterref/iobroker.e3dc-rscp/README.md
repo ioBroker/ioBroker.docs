@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: wiuioM9fkFBfP66Y2qQSmf1+zy0ibD4iSBtsgQAku18=
+hash: syhrIXO+/bBtLT+liQzmOgBgfgnIuzN94CvByqewblU=
 ---
-![商标](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
+![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.e3dc-rscp.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.e3dc-rscp.svg)
@@ -25,7 +25,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
-1. [接口消息的覆盖率](#cov)
+1.【接口消息的覆盖】(#cov)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -39,10 +39,10 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 
 ## 接口消息的覆盖
 ### 支持的 RSCP 命名空间
-RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分地</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分地</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>完全的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>完全的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>不支持（还）</td></tr><tr><td> EP</td><td>应急电源</td><td>完全的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>实验性的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>实验性的</td></tr></table>
+RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>支持的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>不支持（还）</td></tr><tr><td> EP</td><td>应急电源</td><td>完全的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>支持的</td></tr></table>
 
 ### 可写 RSCP 标签
-<table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>特快专递</td><td>MAX_CHARGE_POWER</td><td>数字</td><td>[W] 中的充电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>MAX_DISCHARGE_POWER</td><td>数字</td><td>[W] 中的放电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则会产生影响</td></tr><tr><td>特快专递</td><td>DISCHARGE_START_POWER</td><td>数字</td><td>以 [W] 为单位的最小电池放电功率 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>POWERSAVE_ENABLED</td><td>布尔值</td><td>省电模式已启用</td></tr><tr><td>特快专递</td><td>POWERLIMITS_USED</td><td>布尔值</td><td>使用功率限制</td></tr><tr><td>特快专递</td><td>WEATHER_REGULATED_CHARGE_ENABLED</td><td>布尔值</td><td>启用天气调节充电</td></tr><tr><td>特快专递</td><td>SET_POWER_MODE</td><td>状态</td><td>充电方式；通常传播到 MODE</td></tr><tr><td>特快专递</td><td>SET_POWER_VALUE</td><td>数字</td><td>充电功率[W]；通常传播到 SET_POWER</td></tr><tr><td>特快专递 (1)</td><td> IDLE_PERIOD_ACTIVE</td><td>布尔值</td><td>（去）激活空闲时间（2）</td></tr><tr><td>特快专递 (1)</td><td>开始_HOUR</td><td>数字</td><td>闲置期开始时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> START_MINUTE</td><td>数字</td><td>空闲期开始分钟 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_HOUR</td><td>数字</td><td>闲置期结束时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_MINUTE</td><td>数字</td><td>空闲期结束分钟 (2)</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔</td></tr><tr><td>系统</td><td>SYSTEM_REBOOT</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重新启动_APPLICATION</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr></table>
+<table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>特快专递</td><td>MAX_CHARGE_POWER</td><td>数字</td><td>[W] 中的充电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>MAX_DISCHARGE_POWER</td><td>数字</td><td>[W] 中的放电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则会产生影响</td></tr><tr><td>特快专递</td><td>DISCHARGE_START_POWER</td><td>数字</td><td>以 [W] 为单位的最小电池放电功率 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>POWERSAVE_ENABLED</td><td>布尔值</td><td>省电模式已启用</td></tr><tr><td>特快专递</td><td>POWERLIMITS_USED</td><td>布尔值</td><td>使用功率限制</td></tr><tr><td>特快专递</td><td>WEATHER_REGULATED_CHARGE_ENABLED</td><td>布尔值</td><td>启用天气调节充电</td></tr><tr><td>特快专递</td><td>SET_POWER_MODE</td><td>状态</td><td>充电方式；通常传播到 MODE</td></tr><tr><td>特快专递</td><td>SET_POWER_VALUE</td><td>数字</td><td>充电功率[W]；通常传播到 SET_POWER</td></tr><tr><td>特快专递 (1)</td><td> IDLE_PERIOD_ACTIVE</td><td>布尔值</td><td>（去）激活空闲时间（2）</td></tr><tr><td>特快专递 (1)</td><td>开始_HOUR</td><td>数字</td><td>闲置期开始时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> START_MINUTE</td><td>数字</td><td>空闲期开始分钟 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_HOUR</td><td>数字</td><td>闲置期结束时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_MINUTE</td><td>数字</td><td>空闲期结束分钟 (2)</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔</td></tr><tr><td>系统</td><td>SYSTEM_REBOOT</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重新启动_APPLICATION</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_SUN</td><td>布尔值</td><td>设置太阳模式或混合模式。</td></tr><tr><td>世界银行</td><td>外部数据网</td><td>数字</td><td>设置墙盒电网功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALL</td><td>数字</td><td>设置墙盒总功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALG</td><td>字节数组</td><td>设置 wallbox 模式，取消充电，2 型插头锁定，功率限制。</td></tr></table>
 
 注 (1)：完整路径为 EMS.IDLE_PERIODS_(DIS)CHARGE。<day-of-week> - 例如“EMS.IDLE_PERIODS_CHARGE.00-星期一”。更改仅在最后一次更改后发送“tuple sendig delay”。
 
@@ -69,7 +69,10 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 // 触发器：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网电源位于降低阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
-### 1.0.9 (under development)
+### 1.1.0
+(ka-vaNu)
+* Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
+
 (helper0815)
 * Added value "N" for polling intervals, meaning "never" - [Issue #126](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/126)
 

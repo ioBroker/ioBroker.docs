@@ -253,7 +253,13 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.10.5 (in progress)
+### 2.10.6 (2023-01-31)
+* (René) see issue #355: reset override is now also with Button ResetManual possible
+
+### 2.10.5 (2023-01-21)
+* (René) see issue #356: create list if room list is empty
+* (René) see issue #357: remove change event when loading telegram data
+* (René) handling of exceptions reported by sentry in notification modul
 
 ### 2.10.4 (2022-12-21)
 * (René) UTF8 conversion for some files

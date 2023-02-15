@@ -3,16 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-комфорт-облако
-hash: TBC2yjCN/owyHD3oAF9rZbTuicNaAtlIJUKvURJ/ISU=
+hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
 ---
-![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
-
 ![версия NPM](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
 ![Статус зависимости](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/marc2016/ioBroker.panasonic-comfort-cloud/master.svg)
+
+| :предупреждение: ВНИМАНИЕ |
+|:---------------------------|
+| Новая версия приложения в настройках адаптера — 1.17.0 |
+
+![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
 # IoBroker.panasonic-comfort-cloud
 ## Адаптер panasonic-comfort-cloud для ioBroker
@@ -23,6 +27,27 @@ hash: TBC2yjCN/owyHD3oAF9rZbTuicNaAtlIJUKvURJ/ISU=
 Рекомендуется использовать вторую учетную запись, для которой используются общие устройства.
 
 ## Changelog
+
+### 2.1.0
+* Added app version to settings.
+
+### 2.0.6
+* panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
+
+### 2.0.5
+* Translation for news added.
+
+### 2.0.4
+* New version of dependencies installed.
+
+### 2.0.3
+* panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
+
+### 2.0.2
+* panasonic-comfort-cloud-client updated to new version.
+
+### 2.0.1
+* Changed the type of some states from string to number.
 
 ### 2.0.0
 * Added js-controller 3 dependency.
@@ -64,7 +89,7 @@ hash: TBC2yjCN/owyHD3oAF9rZbTuicNaAtlIJUKvURJ/ISU=
 ## License
 MIT License
 
-Copyright (c) 2021 marc <marc@lammers.dev>
+Copyright (c) 2022 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vds2465-server/README.md
 title: ioBroker.vds2465-服务器
-hash: Zxq/QGZttqQJD3uwSPiK8e3xNBSsSujuBG33TwIhn7U=
+hash: LUZhRwCLm3NWCE1ngMffnzLjy97AcLesExZCwC/LfoM=
 ---
 ![标识](../../../en/adapterref/iobroker.vds2465-server/admin/vds2465-server.png)
 
@@ -12,7 +12,7 @@ hash: Zxq/QGZttqQJD3uwSPiK8e3xNBSsSujuBG33TwIhn7U=
 ![安装数量](https://iobroker.live/badges/vds2465-server-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/vds2465-server-stable.svg)
 ![依赖状态](https://img.shields.io/david/Hirsch-DE/iobroker.vds2465-server.svg)
-![新PM](https://nodei.co/npm/iobroker.vds2465-server.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.vds2465-server.png?downloads=true)
 
 # IoBroker.vds2465-服务器
 **测试：** ![测试和发布](https://github.com/Hirsch-DE/ioBroker.vds2465-server/workflows/Test%20and%20Release/badge.svg)
@@ -20,36 +20,49 @@ hash: Zxq/QGZttqQJD3uwSPiK8e3xNBSsSujuBG33TwIhn7U=
 ## IoBroker 的 vds2465-server 适配器
 Empfänger von VdS2465-Meldungen
 
-Der Adapter empfängt Meldungen von Wählgeräten mit dem VdS2465-2 Protokoll。
+Der Adapter empfängt Meldungen von Wählgeräten mit dem VdS2465-S2 Protokoll。
 Dabei sind folgende Varianten möglich
 
-1. bedarfsgesteuert unverschlüsselt
+1. bedarfsgesteuert unverschlüselt
 1. stehend unverschlüsselt
-1.bedarfsgesteuert verschlüsselt (AES-128-Bit)
-1. stehend verschlüsselt (AES-128-Bit)
+1. bedarfsgesteuert verschlüselt (AES-128-Bit)
+1. stehend verschlüselt (AES-128-Bit)
 
-Bei stehenden Verbindungen kann vom Adapter aus der Status von Eingängen und Ausgängen abgefragt, sowie bei Ausgängen der Zusstand umgeschaltet werden。
+Bei stehenden Verbindungen kann vom Adapter aus der Status von Eingängen und Ausgängen abgefragt，sowie bei Ausgängen der Zustand umgeschaltet werden。
 
-Die Relais werden über die Adapter-Konfiguration als Objekt angelegt。
+Die Relais werden über die Adapter-Konfiguration as Objekt angelegt。
 
 Es werden zusätzliche Inhalte wie
 
 - 优先级
-- 费勒梅尔登根
--Testmeldung
-- 基准与时间
+- Fehlermeldungen
+- 测试
+- 基准和时间
 - Zeichenfolge
-- Hersteller 鉴定
+- Herstelleridentification
 - Gerätemerkmale
-- Transportdienstkennung
+- 运输部门
 - Telegrammzähler
 
-奥斯特。
+ausgewertet。
 
-Von diesem Adapter wird auch das "Service Request" unterstützt, welches in einigen Wählgeräten auch beim alten VdS2465-Protokoll aktiviert werden kann。
+von diesem Adapter wired auch das "Service Request" unterstützt, welches in einigen Wählgeräten auch beim alten VdS2465-Protokoll aktiviert werden kann。
 
 ## Changelog
 
+### 0.1.5
+* (Hirsch-DE) Fix Check doppelte Verbindungen
+### 0.1.4
+* (Hirsch-DE) TC-Counter bei IK7 geprüft
+* (Hirsch-DE) Encoding bei Text auf ISO 8859-1 geändert
+### 0.1.3
+* (Hirsch-DE) Fix RC-Counter
+### 0.1.2
+* (Hirsch-DE) Fix TC-Counter
+* (Hirsch-DE) Fix RC-Counter
+* (Hirsch-DE) diverse kleine Anpassungen
+### 0.1.1
+* (Hirsch-DE) Fix TC-Counter
 ### 0.1.0
 * (Hirsch-DE) Fix VdSServiceRequest
 * (Hirsch-DE) Zaehler Service Request festgelegt

@@ -38,6 +38,7 @@ This work is based on the nodejs module with pjlink implementation from **sy1vai
 
 ## ToDo
 * support the node-pjlink project to implement class 2
+* go back to the pjlink library on github. For now the library is held localy because of an error in the test script
 
 ## How the adapter works
 For now only class 1 is supported. This means the adapter can only poll the status.
@@ -82,9 +83,15 @@ the other lamps will be added dynamically.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.1 (2023-01-24)
+* (Bannsaenger) temporarily fix the test script error with local libraries
+
+### 0.1.0 (2023-01-23)
 * (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
-* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add non-guaranteed time after power ON (number of skipped short cycles after power ON event)
+* (Bannsaenger) moved all status queries to one timer due to authentification issues when queries are executed at the same time
+* (Bannsaenger) treat error "unavailabe time" only as warning and log it only once
 
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
@@ -99,7 +106,7 @@ the other lamps will be added dynamically.
 ## License
 MIT License
 
-Copyright (c) 2022 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2023 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

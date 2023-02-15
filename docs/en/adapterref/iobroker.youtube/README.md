@@ -52,6 +52,12 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.2.0 (2023-02-03)
+
+* (klein0r) Allow alias or custom url in configuration
+* (klein0r) Added request success indicators
+* (klein0r) Added Ukrainian language
+
 ### 4.1.0 (2022-11-10)
 
 NodeJS >= 14.5 is required
@@ -77,16 +83,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Updated state roles
 * (klein0r) Added hint for Admin 4 configuration
 
-### 2.0.4 (2021-12-23)
-
-* (klein0r) Translated all objects
-* (klein0r) Updated dependencies
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

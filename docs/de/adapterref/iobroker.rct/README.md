@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: 5zS18euTcTWgxurLHr8gj7RbqPnHqk68qY3n67jVDCk=
+hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 ---
 ![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -16,6 +16,10 @@ hash: 5zS18euTcTWgxurLHr8gj7RbqPnHqk68qY3n67jVDCk=
 
 # IoBroker.rct
 **Tests:** ![Testen und freigeben](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
+
+## Projekt NICHT MEHR GEPFLEGT
+Nachdem ich zu Home Assistant gewechselt bin, warte ich diesen Adapter nicht mehr.
+Wenn Sie Interesse haben, es zu übernehmen, lassen Sie es mich bitte wissen.
 
 ## RCT-Adapter für ioBroker
 Bitte beachten Sie, dass dies ein privates Projekt ist und dass ich (Markus Lauff) in keiner Weise mit RCT verwandt bin.

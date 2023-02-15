@@ -5,12 +5,12 @@
 ![Number of Installations](https://iobroker.live/badges/huum-sauna-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.huum-sauna)](https://www.npmjs.com/package/iobroker.huum-sauna)
 [![Number of Installations (latest)](https://iobroker.live/badges/huum-sauna-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)](https://app.snyk.io/org/chris-1965/iobroker.huum-sauna)
+[![Known Vulnerabilities](https://snyk.io/test/github/Chris-656/ioBroker.huum-sauna/badge.svg)](https://app.snyk.io/org/Chris-656/iobroker.huum-sauna)
 
 [![NPM](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)](https://nodei.co/npm/iobroker.huum-sauna/)
 
 This adapter integrates the HUUM sauna control device into iobroker.
-The specification of HUUM Devive for the sauna control can be found [here](https://huum.de/)
+The specification of HUUM Devive for the sauna control can be found [here](https://huum.de/). The API description you can find ([github.com/horemansp/HUUM](https://github.com/horemansp/HUUM))
 
 ## Parameters
 - 1 + 2 User Credentials for HUUM Webpage "https://api.huum.eu/action/home/"

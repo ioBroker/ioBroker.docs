@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
+hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -111,7 +111,6 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 
 ## Конфигурация
 - Веб-сервер - [опционально] Если веб-сервер включен или нет
-- Порт - если веб-сервер включен, то порт для этого. По умолчанию 8083
 - Обновление прошедшего времени (мс) - Интервал в мс, как часто обновлять истекший таймер при воспроизведении заголовка. (по умолчанию 2000)
 
 <!-- Заполнитель для следующей версии (в начале строки):
@@ -119,9 +118,10 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### WORK IN PROGRESS
-* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+### 2.3.0 (2023-01-11)
+* (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found
+* (bluefox) Configuration migrated to JSON-Config
 
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
@@ -280,7 +280,7 @@ hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

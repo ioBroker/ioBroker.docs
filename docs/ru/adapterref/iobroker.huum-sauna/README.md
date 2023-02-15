@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.huum-sauna/README.md
 title: ioBroker.huum-сауна
-hash: ZtfvKGj2AxLNomQzQSstTax5oxI7QRdMv6XxaRy7S7Q=
+hash: puJj6123AWj9KkfZr/cbQG10+YT6dx1+XnXTtslLAUU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.huum-sauna/admin/huum-sauna.png)
 
@@ -11,12 +11,12 @@ hash: ZtfvKGj2AxLNomQzQSstTax5oxI7QRdMv6XxaRy7S7Q=
 ![Количество установок](https://iobroker.live/badges/huum-sauna-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.huum-sauna)
 ![Количество установок (последние)](https://iobroker.live/badges/huum-sauna-installed.svg)
-![Известные уязвимости](https://snyk.io/test/github/chris-1965/ioBroker.huum-sauna/badge.svg)
+![Известные уязвимости](https://snyk.io/test/github/Chris-656/ioBroker.huum-sauna/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.huum-sauna.png?downloads=true)
 
 # IoBroker.huum-сауна
 Этот адаптер интегрирует устройство управления сауной HUUM в iobroker.
-Спецификацию HUUM Devive для управления сауной можно найти [здесь](https://huum.de/)
+Спецификацию HUUM Devive для управления сауной можно найти [здесь] (https://huum.de/). Описание API вы можете найти ([github.com/horemansp/HUUM](https://github.com/horemansp/HUUM))
 
 ## Параметры
 - 1 + 2 учетных данных пользователя для веб-страницы HUUM «https://api.huum.eu/action/home/»

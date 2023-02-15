@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-MBUS
-hash: 8M9Mw77yq6xSvufvjRv6WSKDvk5tKHxsc/6NqtM9eKs=
+hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -15,7 +15,7 @@ hash: 8M9Mw77yq6xSvufvjRv6WSKDvk5tKHxsc/6NqtM9eKs=
 * ИМСТ iM871A
 * КУЛ
 
-Стек WMBUS был «перенесен» из проекта FHEM и был тщательно исправлен и реорганизован. Тестирование проводилось с необработанными данными, полученными из Интернета, образцами данных OMS и некоторыми тестовыми данными из библиотеки jmbus. Некоторые крайние случаи еще не проверены.
+Стек WMBUS был «перенесен» из проекта FHEM и был в значительной степени исправлен и реорганизован. Тестирование проводилось с необработанными данными, полученными из Интернета, образцами данных OMS и некоторыми тестовыми данными из библиотеки jmbus. Некоторые крайние случаи еще не проверены.
 
 Создание устройства, обновление и т. д. в основном основано на адаптере M-Bus компании Apollon77 (см. ниже).
 
@@ -23,7 +23,7 @@ hash: 8M9Mw77yq6xSvufvjRv6WSKDvk5tKHxsc/6NqtM9eKs=
 
 Если синтаксический анализатор дает сбой, необработанные данные телеграммы будут сохранены в состоянии info.rawdata.
 
-*Внимание:* Приемник Amber зависает через некоторое время (или количество полученных сообщений) в режиме C? Аппаратный недостаток?
+*Внимание:* Кажется, что приемник Amber зависает через некоторое время (или количество полученных сообщений) в режиме C? Аппаратный недостаток?
 
 ## Ссылки:
 * [Модуль стека WMBus] (https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
@@ -52,101 +52,118 @@ hash: 8M9Mw77yq6xSvufvjRv6WSKDvk5tKHxsc/6NqtM9eKs=
 ## Делать
 * отправка телеграмм для приемников S-режима?
 
-## Changelog
+## 0.8.8
+* (ChL) Добавлена обработка типа datetime I
+
+### 0.8.7
+* (ChL) Немного улучшена обработка значений LVAR DIF.
+
+### 0.8.3 / 0.8.4 / 0.8.5 / 0.8.6
+* (ChL) Обновите зависимости разработчиков — тест Внимание CI больше не будет поддерживать <= NodeJS 12
+* (ChL) Незначительные изменения логирования
+
+### 0.8.2
+* (ChL) Поддержка C-режима для CUL
+
+### 0.8.1
+* (ChL) Исправлено состояние соединения
+* (ChL) Повторно добавить последовательное ведение журнала
 
 ### 0.8.0
-* (ChL) Complete rewrite of serial communication - now includes unit tested device classes
-* (ChL) Upgrade to SerialPort 10.x and dependency clean up
-* (ChL) Improve PRIOS decoder
+* (ChL) Полная переработка последовательной связи — теперь включает тестируемые классы устройств.
+* (ChL) Обновление до SerialPort 10.x и очистка зависимостей
+* (ChL) Улучшить декодер PRIOS
 
 ### 0.7.9
-* (ChL) Add debug logging to all serial devices
+* (ChL) Добавлен журнал отладки для всех последовательных устройств.
 
 ### 0.7.8
-* (ChL) Improve logging from receiver modules
-* (ChL) fix rawdata state
+* (ChL) Улучшено логирование с приемных модулей
+* (ChL) исправить состояние исходных данных
 
 ### 0.7.7
-* (ChL) Add support for Diehl PRIOS encoded telegrams (ported from wmbusmeters)
+* (ChL) Добавлена поддержка закодированных телеграмм Diehl PRIOS (перенесено с wmbusmeters)
 
 ### 0.7.5 / 0.7.6
-* (ChL) Fix timeout handling - if no problems occur this will be republished as 1.0.0
+* (ChL) Исправлена обработка тайм-аута - если проблем не возникнет, это будет переиздано как 1.0.0.
 
 ### 0.7.3 / 0.7.4
-* (ChL) Try to improve CUL support
+* (ChL) Попробуйте улучшить поддержку CUL
 
 ### 0.7.1 / 0.7.2
-* (ChL) Rename to ioBroker.wireless-mbus to be able to publish to npm
-* (ChL) Fix block list, admin page logo and repo url in package.json
+* (ChL) Переименуйте в ioBroker.wireless-mbus, чтобы иметь возможность публиковать в npm
+* (ChL) Исправлен черный список, логотип страницы администратора и URL репозитория в package.json.
 
 ### 0.7.0
-* (ChL) Change main adapter code to class
-* (ChL) Include actual (machine) translations besides English and German
-* (ChL) Upgrade denpendencies
-* (ChL) Add test for wmbus decoder
-* (ChL) Add integration tests
-* (ChL) Add github workflow
+* (ChL) Изменить основной код адаптера на класс
+* (ChL) Включите фактические (машинные) переводы, помимо английского и немецкого.
+* (ChL) Обновление зависимостей
+* (ChL) Добавлен тест для декодера wmbus
+* (ChL) Добавить интеграционные тесты
+* (ChL) Добавлен рабочий процесс github
 
 ### 0.6.2
-* (ChL) Improve admin page to handle custom serialport path
-* (ChL) Add option to turn automatic blocking of devices off
-* (ChL) Add "Simple Hexstring" receiver for testing purposes
-* (ChL) Internal refactoring
+* (ChL) Улучшена страница администратора для обработки пользовательского пути к последовательному порту.
+* (ChL) Добавлена возможность отключить автоматическую блокировку устройств
+* (ChL) Добавлен приемник "Simple Hexstring" для целей тестирования.
+* (ChL) Внутренний рефакторинг
 
 ### 0.6.0 / 0.6.1
-* (ChL) Upgrade of serialport library to 9.2.0
-* (ChL) experimental CUL support
+* (ChL) Обновление библиотеки последовательного порта до 9.2.0
+* (ChL) экспериментальная поддержка CUL
 
 ### 0.5.2
-* (ChL) fix for connection indicator with js-controller 2.x
+* (ChL) фикс индикатора соединения с js-контроллером 2.x
 
 ### 0.5.1
-* (ChL) Small fixes
-* (ChL) Internal telegram parser now supports wired M-Bus frames (not used - for testing / developing purpose)
-* (D Glaser) Added timestamp of last update to device info
-* (D Glaser/ChL) Added some setup documentation to README
+* (ЧЛ) Мелкие исправления
+* (ChL) Внутренний анализатор телеграмм теперь поддерживает проводные кадры M-Bus (не используется - для целей тестирования / разработки)
+* (D Glaser) Добавлена метка времени последнего обновления информации об устройстве.
+* (D Glaser/ChL) В README добавлена документация по настройке.
 
 ### 0.5.0
-* (ChL) Basic support for Techem devices
-* (ChL) Option to force energy units (Wh and J) to kWh - BEWARE this is not really backwards compatible. Old states will keep their "old" unit, but display the adjusted value!
+* (ChL) Базовая поддержка устройств Techem
+* (ChL) Возможность принудительно преобразовать единицы энергии (Вт-ч и Дж) в кВт-ч — ВНИМАНИЕ, это не обратно совместимо. Старые состояния сохранят свои «старые» единицы измерения, но отобразят скорректированное значение!
 
 ### 0.4.7
-* (ChL) Block devices after 10 consecutive failed parse attempts until adapter restart
-* (ChL) Assign roles derived from units (as does the mbus adapter)
+* (ChL) Блокировать устройства после 10 последовательных неудачных попыток синтаксического анализа до перезапуска адаптера
+* (ChL) Назначить роли, производные от единиц (как делает адаптер mbus)
 
 ### 0.4.6
-* (ChL) Support for (Kamstrup?) compact frames through data record cache (pre-defined frames have been removed!)
+* (ChL) Поддержка (Kamstrup?) компактных фреймов через кеш записи данных (предустановленные фреймы были удалены!)
 
 ### 0.4.5
-* (ChL) Append device ids with key "UNKNOWN" at startup to needskey
+* (ChL) Добавлять идентификаторы устройств с ключом «НЕИЗВЕСТНО» при запуске к needkey.
 
 ### 0.4.2 / 0.4.3 / 0.4.4
-* (ChL) Small fixes
+* (ЧЛ) Мелкие исправления
 
 ### 0.4.1
-* (ChL) basic IMST iM871A support
+* (ChL) базовая поддержка IMST iM871A
 
 ### 0.4.0
-* (ChL) better Amber Stick support
-* (ChL) Compact mode?
-* (ChL) Nicer state names
-* (ChL) wMBus mode partially selectable
+* (ChL) улучшена поддержка Amber Stick
+* (ЧЛ) Компактный режим?
+* (ChL) Более красивые названия штатов
+* (ChL) режим wMBus частично выбирается
 
 ### 0.3.0
-* (ChL) Implemented all VIF types from MBus doc
-* (ChL) VIF extensions are handled better (again)
-* (ChL) reorganised VIF info
-* (ChL) reorganised receiver handling
-* (ChL) blocking of devices possible
+* (ChL) Реализованы все типы VIF из MBus doc
+* (ChL) Расширения VIF обрабатываются лучше (снова)
+* (ChL) реорганизована информация о VIF
+* (ChL) реорганизована обработка приемника
+* (ChL) возможна блокировка устройств
 
-### 0.2.0 (not tagged)
-* (ChL) Dramatically improved parser: support for security mode 7, frame type B, many small fixes
-* (ChL) VIF extensions are handled better, but correct handling is still not fully clear
-* (ChL) CRCs are checked and removed if still present
-* (ChL) raw data is saved if parser fails
+### 0.2.0 (без тегов)
+* (ChL) Значительно улучшен парсер: поддержка режима безопасности 7, тип фрейма B, множество мелких исправлений
+* (ChL) Расширения VIF обрабатываются лучше, но правильная обработка все еще не до конца ясна
+* (ChL) CRC проверяются и удаляются, если они все еще присутствуют
+* (ChL) необработанные данные сохраняются в случае сбоя парсера
 
 ### 0.1.0
-* (ChL) initial release
+* (ЧЛ) начальный выпуск
+
+## Changelog
 
 ## License
 

@@ -15,7 +15,7 @@
 
 Empfänger von VdS2465-Meldungen
 
-Der Adapter empfängt Meldungen von Wählgeräten mit dem VdS2465-2 Protokoll.
+Der Adapter empfängt Meldungen von Wählgeräten mit dem VdS2465-S2 Protokoll.
 Dabei sind folgende Varianten möglich
 1. bedarfsgesteuert unverschlüsselt
 1. stehend unverschlüsselt
@@ -44,6 +44,11 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 ## Changelog
 
+### 0.1.5
+* (Hirsch-DE) Fix Check doppelte Verbindungen
+### 0.1.4
+* (Hirsch-DE) TC-Counter bei IK7 geprüft
+* (Hirsch-DE) Encoding bei Text auf ISO 8859-1 geändert
 ### 0.1.3
 * (Hirsch-DE) Fix RC-Counter
 ### 0.1.2

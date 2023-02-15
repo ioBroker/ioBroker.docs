@@ -16,6 +16,8 @@ Build useful charts in ioBroker:
 
 ![Screenshot](img/screenshot1.png)
 
+![Bars](img/bars.png)
+
 ## Usage
 Add after the restart the tab in the admin:
 ![Admin](img/admin.png)
@@ -28,6 +30,20 @@ For vis there is a special widget with easy selection of presets.
 Lower case `i` indicates that the value was interpolated from the 2 neighbour values, and it does not exist at this time stamp.
 
 ![Tooltip](img/tooltip.png) 
+
+### Data from JSON
+You can define the data source from JSON. In this case you can create some custom state of type `json` and store the value like this:
+```
+[
+  {"ts": 1675887847000, "val": 45},
+  {"ts": 1675887848000, "val": 77},
+  {"ts": 1675887849000, "val": 180}
+]
+```
+
+You cannot define start and start in echarts settings. The start and end will be calculated automatically from the data.
+Aggregation is not possible too. All manipulations must be done by writing of the JSON data.
+The chart will be automatically updated every time the value changes.
 
 ### Server side rendering
 You can render the presets on the server and get it as base64 URL or save it on disk on in ioBroker DB:
@@ -80,6 +96,27 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.2 (2023-02-15)
+* (bluefox) Implemented charts preview
+
+### 1.4.1 (2023-02-14)
+* (bluefox) Corrected some issues from GitHub
+* (bluefox) Implemented negative offset of X-Axis
+* (bluefox) Show device names for charts
+
+### 1.4.0 (2023-02-13)
+* (bluefox) Added possibility to load the history data from JSON state.
+
+### 1.3.4 (2023-02-08)
+* (bluefox) added a formula for the values conversion
+
+### 1.3.3 (2023-02-08)
+* (bluefox) Implemented bar chart
+
+### 1.2.1 (2023-01-31)
+* (bluefox) Changed german translation
+* (bluefox) Added new positions for markings: inside, top, bottom
+
 ### 1.1.5 (2022-12-31)
 * (bluefox) Refactoring and packages update done
 
@@ -208,10 +245,10 @@ You can debug view charts locally with:
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2022 The Apache Software Foundation
+Copyright (c) 2017-2023 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

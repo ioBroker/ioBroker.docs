@@ -320,6 +320,18 @@ The supported commands are:
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 3.9.5 (2023-01-13)
+* (Dirkhe) change type of unsupported features
+* (Dirkhe) fix button/command loadRooms
+
+### 3.9.4 (2023-01-11)
+* (Dirkhe) cleanmap.mapURL typo fixed
+
+### 3.9.3 (2023-01-11)
+* (Dirkhe) fix loosing passwort in config
+* (Dirkhe) move map Url to userspace instead of admin space #735
+* (Dirkhe) change mapUrl to /mihome-vacuum.0.userfiles/actualMap.png
+
 ### 3.9.2 (2023-01-06)
 * (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
 * (dirkhe) fix bug from 3.9.1 for supported repeat devices

@@ -313,6 +313,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### 2.3.5 (2023-01-29)
+* (bluefox) added `publishFileAll` method (for future use)
+
 ### 2.3.4 (2022-12-27)
 * (bluefox) corrected connection string
 
@@ -378,4 +381,4 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>

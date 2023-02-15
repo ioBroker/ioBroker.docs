@@ -316,6 +316,12 @@ $ sudo apt-get install smartmontools
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 1.9.26 (2023-02-03)
+* (bluefox) Corrected widget
+
+### 1.9.25 (2023-01-10)
+* (Apollon77) Updated dependencies
+
 ### 1.9.24 (2022-12-22)
 * (Apollon77) downgrade axios package
 
@@ -325,18 +331,10 @@ $ sudo apt-get install smartmontools
 ### 1.9.22 (2022-11-21)
 * (bluefox) Corrected widget
 
-### 1.9.21 (2022-09-19)
-* (simatec) Fix Adapter Title
-
-### 1.9.20 (2022-09-17)
-* (simatec) Design Fix
-* (simatec) Fix Adapter Title
-* (simatec) Update dependencies
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2022 ldittmar <iobroker@lmdsoft.de>
+Copyright (c) 2017-2023 ldittmar <iobroker@lmdsoft.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

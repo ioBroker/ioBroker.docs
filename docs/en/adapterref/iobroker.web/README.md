@@ -82,6 +82,12 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 5.5.0 (2023-02-15)
+* (bluefox) Added special end-points for app authentication
+
+### 5.4.3 (2023-01-29)
+* (bluefox) Corrected error with `publishFileAll` (for future use)
+
 ### 5.4.1 (2022-12-23)
 * (bluefox) Corrected GUI error
 
@@ -574,7 +580,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

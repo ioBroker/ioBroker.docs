@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iceroad/README.md
 title: ioBroker.冰路
-hash: DHw0ka5EoWfm4hKpvT/ss9VOXTntUkfawwU2WRtI9W8=
+hash: GT3Yk8VYljDheJHLZ3CbH/9itm9a7YYSffuTbSfGcCs=
 ---
-![商标](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
+![标识](../../../en/adapterref/iobroker.iceroad/docs/de/img/iceroad.png)
 
-![安装数量](http://iobroker.live/badges/iceroad-stable.svg)
+![安装数量](http://iobroker.live/badges/iceroad-installed.svg)
+![稳定存储库中的当前版本](http://iobroker.live/badges/iceroad-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.iceroad.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.iceroad.svg)
 
 # IoBroker.冰路
-![测试和发布](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/iobroker-community-adapters/iobroker.iceroad/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.iceroad/actions/workflows/codeql.yml)
 
 ## 文档
 Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen：https://www.eiswarnung.de/rest-api/ </br>
@@ -32,6 +33,16 @@ Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen：https
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2023-01-20)
+
+-   (ciddi89) Bugfix: reminder doesn't work correctly
+-   (ciddi89) Added: name and type for channel folders
+-   (ciddi89) Other: Small code improvements
+
+### 1.1.2 (2022-12-23)
+
+-   (ciddi89) handling if no data was received added
+
 ### 1.1.1 (2022-12-18)
 
 -   (ciddi89) changed order in table of longitude and latitude
@@ -65,7 +76,7 @@ Vorhersage zur vereisten Frontscheibe</br> Bitte die API hier beantragen：https
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Patrick Walther walther-patrick@gmx.net
+Copyright (c) 2023 Patrick Walther walther-patrick@gmx.net
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

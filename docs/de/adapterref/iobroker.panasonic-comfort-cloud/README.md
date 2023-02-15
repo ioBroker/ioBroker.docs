@@ -3,16 +3,20 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: TBC2yjCN/owyHD3oAF9rZbTuicNaAtlIJUKvURJ/ISU=
+hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
 ---
-![Logo](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
-
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.panasonic-comfort-cloud.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/marc2016/ioBroker.panasonic-comfort-cloud/master.svg)
+
+| :Warnung: WARNUNG |
+|:---------------------------|
+| Neue App-Version in den Adaptereinstellungen ist 1.17.0 |
+
+![Logo](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
 # IoBroker.panasonic-comfort-cloud
 ## Panasonic-Comfort-Cloud-Adapter für ioBroker
@@ -23,6 +27,27 @@ Bei der verwendeten Methode kann immer nur ein Client mit dem Konto angemeldet s
 Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte freigegeben wurden.
 
 ## Changelog
+
+### 2.1.0
+* Added app version to settings.
+
+### 2.0.6
+* panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
+
+### 2.0.5
+* Translation for news added.
+
+### 2.0.4
+* New version of dependencies installed.
+
+### 2.0.3
+* panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
+
+### 2.0.2
+* panasonic-comfort-cloud-client updated to new version.
+
+### 2.0.1
+* Changed the type of some states from string to number.
 
 ### 2.0.0
 * Added js-controller 3 dependency.
@@ -64,7 +89,7 @@ Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte freigege
 ## License
 MIT License
 
-Copyright (c) 2021 marc <marc@lammers.dev>
+Copyright (c) 2022 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

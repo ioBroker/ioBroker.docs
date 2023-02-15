@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: pGj5S8Xe7mVY7Xlaq+RDr/n57LPM2/bvOeTbyhPmAm8=
+hash: O5E6Z8YTdApdFUlwwbZJwZ/f9ao+LkM5uBNwB3g6Qa8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -20,7 +20,7 @@ hash: pGj5S8Xe7mVY7Xlaq+RDr/n57LPM2/bvOeTbyhPmAm8=
 [Немецкая документация](docs/de/README.md)
 
 ## Конфигурация
-Есть два способа настройки объектов:
+Существует два способа настройки объектов:
 
 - авто
 - руководство
@@ -311,7 +311,7 @@ createState('location.latitude', 39.5681295, false, {
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
-или же
+или
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
@@ -402,7 +402,7 @@ sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full
 sendTo('lovelace.0', 'send', 'Message text'); // short version
 ```
 
-или же
+или
 
 ```
 setState('lovelace.0.notifications.add', '{"message": "Message text", "title": "Title"}'); // full version
@@ -424,7 +424,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 });
 ```
 
-## Исправление проблем
+## Поиск неисправностей
 Если вы перепутали код YAML и видите пустую страницу, но все еще имеете верхнее меню, вы можете включить режим редактирования (если он еще не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидеть полный код YAML и почистить его.
 Если это не поможет, можно открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
@@ -432,7 +432,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ## Исходники ловеласа
 Использованные исходники здесь https://github.com/GermanBluefox/home-assistant-polymer.
 
-## Сделать
+## Делать
 Безопасность должна быть взята с текущего пользователя, а не с default_user
 
 ## Разработка
@@ -481,6 +481,11 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2022-11-03)
+* (Garfonso) do not crash if no history instance selected.
+* (Garfonso) notifications working again.
+* (Garfonso) repaired color temperature handling.
+
 ### 3.0.0 (2022-10-28)
 * (agross) added: per instance language support
 * (Garfonso) entity_id for devices with only one non english name should be ok again.
@@ -513,9 +518,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ### 2.1.3 (2022-01-07)
 * (Garfonso) Fixed: remove backup of old frontend (sorry)
-
-### 2.1.2 (2022-01-06)
-* (Garfonso) Fixed: Menu was broken in frontend.
 
 ## License
 

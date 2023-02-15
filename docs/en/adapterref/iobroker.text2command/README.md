@@ -254,6 +254,7 @@ If activated so by every command (no matter if the request came via state or sen
 
 # ToDo
 - in Russian male and female answers.
+- Migrate ReactDnD from 14 to 16
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -261,7 +262,7 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 
 ### 2.2.2 (2022-06-17)
@@ -414,7 +415,7 @@ If activated so by every command (no matter if the request came via state or sen
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

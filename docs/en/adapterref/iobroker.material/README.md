@@ -49,6 +49,9 @@ Better if every device belongs to both categories. Because every device has the 
 -->
 
 ## Changelog
+### 1.3.1 (2023-02-10)
+* (bluefox) Corrected the error with socket.io connection
+
 ### 1.3.0 (2022-12-27)
 * (bluefox) Corrected URL widget
 
@@ -167,6 +170,6 @@ Better if every device belongs to both categories. Because every device has the 
 ## License
 CC-BY-NC
 
-Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Commercial use is not allowed without permission.

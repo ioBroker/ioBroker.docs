@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: qZsUdgSA1n9hKFanlSNmETnt5p466TIomOYyLipZQts=
+hash: Q5rYpOseXSs2OUWslVExTZNtHmdufWgvCeCr8KqNDAc=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -24,137 +24,13 @@ Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig behandelt 
 ## Wie man es benutzt
 Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
-## Fügen Sie es Ihrem Vis hinzu
-Am einfachsten fügen Sie es Ihrem Vis hinzu, indem Sie das Widget basic - html verwenden und dort {meteoalarm.0.htmlToday} eingeben. Dadurch erhalten Sie ein vorgefertigtes HTML-Widget, das Sie im Setup anpassen können.
+[Englische Beschreibung](docs/en/meteoalarm.md)
 
-## Alarmtypen
-|Alarmtyp|Beschreibung|
-|:---:|:---:|
-|1|Wind|
-|2|Schnee/Eis|
-|3|Donner & Blitz|
-|4|Nebel|
-|5|Hohe Temperatur|
-|6|Niedertemperatur|
-|7|Küstenereignis|
-|8|Waldbrand|
-|9|Lawine|
-|10|Regen|
-|11|Unbekannt|
-|12|Hochwasser|
-|13|Regenflut|
+[Deutsche Anleitung](docs/de/meteoalarm.md)
 
-## Aufstellen
-"Keine Hintergrundfarbe im HTML-Widget": Möglichkeit, das HTML-Widget ohne Hintergrundfarbe zu verwenden (z. B. wenn Sie das Farbobjekt verwenden möchten, um Ihr gesamtes Widget zu füllen, nicht nur das HTML-Widget)
-
-"Warnfarben definieren": Möglichkeit, die Farben für die verschiedenen Alarmstufen im HEX-Code zu definieren. Wird für das HTML-Widget und auch für das Farbobjekt verwendet, um es manuell einem anderen Widget zuzuweisen
-
-„Weiße Symbole verwenden“: Verwenden Sie weiße Symbole anstelle von schwarzen
-
-„Icons“: Legen Sie die Größe des Icons im HTML-Widget fest
-
-"Keine Symbole im Widget": Verwenden Sie das Symbol nicht im HTML-Widget. Sie können weiterhin in den Objekten darauf zugreifen. Dies ist nützlich, wenn Sie das Symbol getrennt vom Widget anzeigen möchten - z. in einer größeren Größe.
-
-„Heute statt Wochentag“ Zeigt in der Kopfzeile des Widgets statt des Wochentags „heute“, „morgen“ oder „gestern“ an.
-
-## Objekte
-Allgemeine Objekte:
-
-|Objektname|Beschreibung|
-|:---:|:---:|
-|JSON|JSON, das alle Alarme enthält. Struktur: Ereignis, Beschreibung, Stufe, Startdatum, Symbol, Alarmtyp|
-|color|Farbcode der höchsten verfügbaren Alarmstufe|
-|htmlToday|HTML-Widget-Code (einstellbar im Setup)|
-|lastUpdate|Letztes Update von Meteoalarm|
-|level|Maximallevel verfügbarer Alarme|
-|link|Feed-Link|
-|Standort|Standortname|
-|noOfAlarms|Anzahl verfügbarer Alarme|
-|Benachrichtigung|Objekt, das sich ändert, wenn ein neuer Alarm hinzugefügt wird. Kann für Benachrichtigungen verwendet werden.|
-
-Objekte für jeden Alarm:
-
-|Objektname|Beschreibung|
-|:---:|:---:|
-|Farbe|Hex-Code für Alarm - kann im Setup für die verschiedenen Ebenen angepasst werden|
-|Beschreibung|Lange Beschreibung des Alarms|
-|wirksam|Startdatum/-zeit des Alarmereignisses|
-|Ereignis|Ereignistyp|
-|läuft ab|Enddatum/Uhrzeit des Alarmereignisses|
-|Überschrift|Kurze Beschreibung des Alarms|
-|Symbol|Link zum Symbol|
-|Stufe|Stufennummer (siehe Alarmstufen unten)|
-|levelText|Level in Worten|
-|link|Link zu xml|
-|Absender|Wer hat den Alarm gesendet (z.B. Deutscher Wetterdienst")|
-|gesendet|Datum/Uhrzeit, wann der Alarm gesendet wurde|
-|type|Typ des Alarms als Zahl (siehe Alarmtypen oben|
-|typeText|Art des Alarms in Worten (siehe Alarmtypen oben|
-|updateIdentifier|Nicht relevant|
-
-## Alarmstufen
-|Alarmstufe|Nummer|Beschreibung|
-|:---:|:---:|:---:|
-|Grün|1|Im Moment ist keine Warnung verfügbar.|
-|Yellow|2|Das Wetter ist potenziell gefährlich. Die vorhergesagten Wetterphänomene sind nicht ungewöhnlich, jedoch sollte Aktivitäten, die meteorologischen Risiken ausgesetzt sind, erhöhte Aufmerksamkeit geschenkt werden. Informieren Sie sich über die zu erwartenden meteorologischen Bedingungen und gehen Sie keine vermeidbaren Risiken ein.|
-|Orange|3|Das Wetter ist gefährlich. Ungewöhnliche meteorologische Phänomene wurden vorhergesagt. Schäden und Unfälle sind wahrscheinlich. Seien Sie sehr aufmerksam und vorsichtig und halten Sie sich über die erwarteten meteorologischen Bedingungen auf dem Laufenden. |
-|Red|4|Das Wetter ist sehr gefährlich. Ungewöhnlich intensive meteorologische Phänomene wurden vorhergesagt. Extreme Schäden und Unfälle, oft über große Flächen, bedrohen Leben und Sachwerte. |
-
-## Benachrichtigungen
-Es ist möglich, dass der Adapter Ihnen die Benachrichtigungen per Mail, Telegramm, Signal oder Pushover sendet.
-
-*Signal
-* Post
-* Schwächling
-* Telegramm
-* Synochat
-
-Verfügbare Einstellungen:
-
-* Standort anzeigen: Wenn diese Einstellung aktiviert ist, wird der Standortname der Benachrichtigung hinzugefügt
-* Warnstufe in Worten: Fügen Sie zusätzlich zu den Warnsymbolen die Warnstufe in Worten hinzu
-* Keine Details: Fügen Sie der Benachrichtigung keine Beschreibung der Warnung hinzu - z. für Alexa
-* "Keine Warnungen senden": Senden Sie eine Benachrichtigung, wenn alle Alarme beendet sind und im Moment keine Warnung vorliegt
-* Warnstufensymbole: Wählen Sie aus, welche Symbole der Benachrichtigung hinzugefügt werden sollen
-
-## Unterstützte Länder
-* Österreich
-* Deutschland
-* Belgien
-* BosnienHerzegowina
-* Kroatien
-* Zypern
-* Tschechische Republik
-* Dänemark
-* Estland
-* Finnland
-* Frankreich
-* Griechenland
-* Ungarn
-* Island
-*Israel
-* Italien
-* Lettland
-* Litauen
-* Luxemburg
-*Malta
-* Niederlande
-* Norwegen
-* Polen
-* Rumänien
-* Serbien
-* Slowakei
-* Slowenien
-* Spanien
-* Schweden
-* Schweiz
-* Großbritannien
-
-Wenn Sie Ihr Land nicht finden, erstellen Sie bitte ein Problem auf Github, und ich werde es gerne hinzufügen
-
-## Nicht mögliche Länder
-* Portugal (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
-* Bulgarien (Geocode-Datei von meteoalarm.org ist wahrscheinlich falsch)
+## 2.3.3 (2023-02-09)
+* (jack-blackson) Möglichkeit hinzugefügt, die Alarmstufen für das Widget, JSON und die Benachrichtigung zu definieren
+* (jack-blackson) Ukrainische Sprache hinzugefügt
 
 ## 2.3.2 (2023-01-07)
 * (jack-blackson) Bugfix um Warnungen korrekt zu bereinigen

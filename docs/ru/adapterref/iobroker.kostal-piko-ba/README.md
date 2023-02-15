@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: 1z/q2F7cs7U06ZA3JiDVA9+w+bNU7biWcBvR5T9O86Y=
+hash: cmVxVpq3UMsRhfTVdYicobqMo+jdDShWAGi3WSwRSes=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
 Адаптер для чтения данных Kostal Piko & Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15, 17 и 20.
+Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17 и 20.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
@@ -28,13 +28,31 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
 При необходимости также установите метку для считывания 4 аналоговых значений.
 
-## Заметки
+## Примечания
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.2.2 (14.02.2023)
+* (HombachC) fixed error with missing grid limitation response; bumped dependencies
+### 2.2.1 (07.02.2023)
+* (HombachC) fixing error with missing grid limitation response
+### 2.2.0 (03.02.2023)
+* (HombachC) added support for phase 1-3 of homeconsumption power
+* (HombachC) enhanced sentry support
+### 2.1.3 (03.02.2023)
+* (HombachC) optimized debug data
+### 2.1.2 (29.01.2023)
+* (HombachC) fixed errors with single phase inverters (Piko 3)
+* (HombachC) bumped dependencies
+### 2.1.1 (29.12.2022)
+* (HombachC) year 2023 changes
+* (HombachC) bumped dependencies
+### 2.1.0 (04.11.2022)
+* (HombachC) added ukrainian translations
+* (HombachC) bumped dependencies
 ### 2.0.2 (16.10.2022)
 * (HombachC) fixed small sentry reported error
 * (HombachC) optimized error logging
@@ -107,7 +125,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 ## License
 MIT License
 
-Copyright (c) 2020 - 2022 HombachC
+Copyright (c) 2020 - 2023 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

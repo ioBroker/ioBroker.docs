@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
+hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -208,7 +208,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Jede Kachel hat eine Background_URL und einen Background_HTML-Datenpunkt
 * Hier können Sie einen Link (perHINTERGRUND_URL) zu einer Website definieren oder direkten HTML-Code (perHINTERGRUND_HTML) platzieren, der als Hintergrund der Kachel angezeigt wird
 * Dies gibt Ihnen die Möglichkeit, (interaktive) Inhalte innerhalb einer Kachel zu platzieren (wie Uhren, FLOT-Charts, Tabellen, Wettervorhersagen usw.)
-* Standardmäßig werden Mausereignisse auf diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von "HINTERGRUND_ANSICHT/URL/HTML" deaktivieren "
+* Standardmäßig werden Mausereignisse an diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML "
 * iQontrol bietet eine Geräterolle "Widget" mit einigen vordefinierten Optionen, die meistens verwendet werden, wenn eine Website als Widget angezeigt wird. Aber Sie können das gleiche Ergebnis mit jeder anderen Rolle erzielen, indem Sie die Geräteoptionen richtig ändern.
 
 ![Popup-Screenshot](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
@@ -226,11 +226,11 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetState", stateId: <widgetStateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetStateSubscribed", stateId: <widgetStateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Status `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
+* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
 * Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
+* Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
 * Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
@@ -238,7 +238,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `<stateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie Sie die Antwortnachrichten erhalten)
+* Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie Sie die Antwortnachrichten erhalten)
         * `{ Befehl: "getOptions"}`
 * Dies veranlasst iQontrol, die Benutzeroptionen zu senden, die der Benutzer als Objekt konfiguriert hat
         * `{ Befehl: "renderView", Wert: <viewID> }`
@@ -464,7 +464,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
  * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
 * `type` ist optional und kann `text` (Standard), `number`, `checkbox`, `color`, `select`, `multipleSelect`, `combobox`, `historyInstance`, `datapoint` sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
 * Wenn der Typ „select“, „multipleSelect“ oder „combobox“ ist, müssen Sie die möglichen Optionen angeben, indem Sie „/<selectOptions>“ hinzufügen, wobei „<selectOptions>“ eine Zeichenfolge im Format „<value1>,<“ ist caption1>/<value2>,<caption2>/...` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
-* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Höchst- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
+* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Maximal- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
 * Die Typen `section`, `divider`, `info` und `link` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für `link` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
 * Type `hidden` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String (wie `widget.html?parameter=value&parameter2=value2`) übergeben.
@@ -535,10 +535,10 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `alternativeColorspace` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - nur gültig für Rolle Light:
 * Mögliche Werte: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY "|"HUE_MILIGHT"|"HHSSBB_TUYA"
 * Standard: ""
-* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
+* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
+* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
@@ -910,7 +910,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `additionalInfoCaption` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
 
-</details>
+</Details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1260,7 +1260,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Typ: Wählen Sie aus, was zur Liste hinzugefügt oder daraus entfernt werden soll. Typ könnte sein:
 * **Alle** - selbsterklärend
 * **Aufzählung** - Filtern nach Aufzählung. Sie können Aufzählungen wie „Räume“, „Funktionen“ oder „Fenster im Obergeschoss“ im ioBroker-Admin-Adapter definieren
-* **Aufzählung mit Kindern** - Aufzählungen enthalten oft nur das Gerät ohne seinen Datenpunkt. Daher werden Sie meistens die Aufzählung mit untergeordneten Elementen verwenden, die automatisch auch die Datenpunkte enthält
+* **Aufzählung mit Kindern** - Aufzählungen enthalten oft nur das Gerät ohne seine Datenpunkte. Daher werden Sie meistens die Aufzählung mit untergeordneten Elementen verwenden, die automatisch auch die Datenpunkte enthält
 * **ID** - Filtern Sie nach der ID von Datenpunkten, entfernen Sie beispielsweise IDs, die nicht mit „.color“ oder „.saturation“ enden.
 * **Objekttyp** - Filtern nach Objekttyp, der Gerät, Kanal, Zustand oder Aufzählung sein kann
 * **Typ** - Filtern nach dem `common.type` des Datenpunkts, zum Beispiel String, Zahl, Boolean
@@ -1313,14 +1313,14 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 	![Liste Bearbeiten Nicht erreichbar](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
 
 * Und schließlich werden alle Datenpunkte mit dem Wert „wahr“ gezählt, die diesen Zustand für mindestens 15 Sekunden haben
-* Es gibt einige eingebaute Standardlisten, die Sie hinzufügen können, zum Beispiel komplexe Service-Meldungen und einen Adapter-Monitor. Klicken Sie einfach auf die Schaltfläche „Standardlisten hinzufügen“ und wählen Sie aus, was Sie hinzufügen möchten. Fühlen Sie sich frei, die Listen zu untersuchen, um ein besseres Verständnis dafür zu bekommen, wie die Arbeit funktioniert.
+* Es gibt einige eingebaute Standardlisten, die Sie hinzufügen können, zum Beispiel komplexe Service-Meldungen und einen Adapter-Monitor. Klicken Sie einfach auf die Schaltfläche „Standardlisten hinzufügen“ und wählen Sie aus, was Sie hinzufügen möchten. Fühlen Sie sich frei, die Listen zu untersuchen, um besser zu verstehen, wie sie funktionieren.
 
 ###Wiki
 * Es gibt eine sehr gute Erklärung mit einigen guten Erweiterungen von `dslraser` im Wiki: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
 * Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
-Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
+Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol in der neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
 
 ![CustomDialog-Aufruf](img/custom_call.png) ![CustomDialog-Beispiel](../../../en/adapterref/iobroker.iqontrol/img/custom_dialog.png)
 
@@ -1417,7 +1417,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * Hat keine weiteren Zustände
 * Die **linked-view-property** wird direkt geöffnet
 
-###<img src="img/icons/switch_on.png" width="32"> Schalter:
+###<img src="img/icons/switch_on.png" width="32"> Schalten:
 * **STATE**: *boolean* - Anzeigen und Setzen des Ein/Aus-Zustands
 * **LEISTUNG**: *Zahl* - Stromverbrauch, der klein in der oberen rechten Ecke angezeigt wird
 
@@ -1458,7 +1458,7 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ```
 
-        * **HHSSBB für Tuya**: 12-stellige Hex-Zeichenfolge, die Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
+        * **HHSSBB für Tuya**: 12-stelliger Hex-String, der Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
 
 Beachte: Die Konvertierung in den alternativen Farbraum erfolgt über das Frontend, ist also nur aktiv, wenn iQontrol irgendwo geöffnet ist. Daher können Sie es nicht als Konverter für Farbräume verwenden. Um Konversationsschleifen zu vermeiden, wird empfohlen, entweder die ursprünglichen Farbraum-Datenpunkte (HUE, SATURATION, COLOR_BRIGHTNESS, CT, WHITE_BRIGHTNESS) *oder* den alternativen Farbraum-Datenpunkt zu verwenden, um diese Datenpunkte zu *ersetzen*.
 
@@ -1512,7 +1512,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 ###<img src="img/icons/garagedoor_closed.png" width="32"> Garagentor:
 * **STATE**: *boolean* - Anzeige, ob die Tür geöffnet oder geschlossen ist
   *Alternativ können Sie eine* erteliste* zuweisen, um zusätzliche Zustände wie 'gekippt' anzuzeigen
-  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen
+  *Sie können auch eine* eichenfolge* zuweisen, um einen beliebigen Text wie "3 Türen offen" oder "alle geschlossen" anzuzeigen.
 * **TOGGLE**: *boolean* - zeigt einen 'Toggle'-Button und wird auf true gesetzt, wenn er gedrückt wird
 
 ###<img src="img/icons/door_locked.png" width="32"> Tür mit Schloss:
@@ -1575,7 +1575,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
 | | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
-| | | tun | 0. 1. ... 5. 6. | X | --- | --- |
+| | | machen | 0. 1. ... 5. 6. | X | --- | --- |
 | | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
 | | | DD | 01 02 ... 30 31 | X | X | X |
 | | | Mach | 1. 2. ... 30. 31. | X | --- (umgewandelt in D) | --- (umgewandelt in D) |
@@ -1739,6 +1739,10 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (sbormann) You can now chose destination when copying devices.
+* (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
+
+### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.
 * (sbormann) Subheading with no visible tiles beneath are now hided.
 * (sbormann) Added option to hide STATE and LEVEL in dialog.
@@ -1746,13 +1750,22 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 * (sbormann) Fixed size of custom toolbar icons.
 * (sbormann) Added DISCHARGE to Battery.
 * (sbormann) Fixed Favorites not working in map-widget with instance-number.
-* (sbormann) Enhance JSON-Table to work with alexa-shoppinglist-adapter.
+* (sbormann) Enhanced JSON-Table to work with alexa-shoppinglist-adapter.
 * (sbormann) Added badges to toolbar.
 * (sbormann) Enhanced handling of images in BACKGROUND_HTML.
 * (sbormann) Added option to protect instance by passphrase.
 * (sbormann) Added option to set value of LOCK_OPEN for doors with lock.
 * (sbormann) Linking color to GLOW or BACKGROUND_COLOR now works when using ALTERNATIVE_COLORSPACE.
 * (sbormann) Added URL-Parameter &language=xx.
+* (sbormann) Added option to center headers and subheaders. 
+* (sbormann) Enhanced FLOT-Chart-Widget to display more Datapoints.
+* (sbormann) Fixed timestamp in JSON-Table-Widget.
+* (dirkhe) Fixed and enhanced step attribute.
+* (sbormann) Moved options caption for STATE and caption for LEVEL into section STATE, LEVEL and TIMESTAMP.
+* (sbormann) Added option to set favorite values for LEVEL.
+* (sbormann) You can now click on linked devices.
+* (sbormann) Prevented back-swiping for safari.
+* (sbormann) Updated some dependencies.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.
@@ -2788,7 +2801,7 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ## License
 MIT License
 
-Copyright (c) 2019-2022 Sebastian Bormann
+Copyright (c) 2019-2023 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

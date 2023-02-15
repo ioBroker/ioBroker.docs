@@ -206,6 +206,12 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (klein0r) Use color picker in adapter settings
+* (klein0r) Dropped Admin 4 UI
+* (klein0r) Added Ukranian language
+
 ### 1.13.2 (2022-08-29)
 * (Apollon77) fix strange log messages by downgrading RRule again
 

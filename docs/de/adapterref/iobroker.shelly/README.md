@@ -62,6 +62,13 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.4.0 (2023-02-09)
+
+* (klein0r) Added Shelly Plus Plug S
+* (klein0r) Added Shelly Pro 3 EM
+* (klein0r) Reduced checks for firmware updates
+* (klein0r) Shelly TV profile is now changeable
+
 ### 6.3.1 (2023-01-02)
 
 * (klein0r) Updated MQTT topic prefix handling
@@ -85,10 +92,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 
 * (klein0r) Use unique ID for each command - generation 2 devices
 * (klein0r) Fix: Ack state if value is unchanged
-
-### 6.2.2 (2022-10-13)
-
-* (klein0r) Fixed state updates for CoAP integration
 
 ## License
 

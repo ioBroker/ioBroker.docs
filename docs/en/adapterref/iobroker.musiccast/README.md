@@ -210,13 +210,16 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
-#### 1.1.1
-* (scrounger) added datapoint isOnline, used by ioBroker.device-watcher
+### 1.1.2
+* new version yamahe-yxc library
 
-#### 1.1.0
+### 1.1.1
+*  (scrounger) added datapoint isOnline, used by ioBroker.device-watcher
+
+### 1.1.0 (npm)
 * improved testing
 
-#### 1.0.8
+### 1.0.8
 * error correction add_to_group/remove_from_group
 
 #### 1.0.7

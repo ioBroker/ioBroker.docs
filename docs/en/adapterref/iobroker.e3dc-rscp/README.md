@@ -112,22 +112,22 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>RSCP</td>
     <td>Remote-Storage-Control-Protocol (i.e. protocol level tags)</td>
-    <td>partially</td>
+    <td>partially supported</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>Energy Management System</td>
-    <td>partially</td>
+    <td>partially supported</td>
   </tr>
   <tr>
     <td>PVI</td>
     <td>Photovoltaic Inverter</td>
-    <td>complete</td>
+    <td>supported</td>
   </tr>
   <tr>
     <td>BAT</td>
     <td>Battery</td>
-    <td>complete</td>
+    <td>supported</td>
   </tr>
   <tr>
     <td>DCDC</td>
@@ -172,7 +172,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>SYS</td>
     <td>System reboot/start</td>
-    <td>experimental</td>
+    <td>supported</td>
   </tr>
   <tr>
     <td>UM</td>
@@ -182,7 +182,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>WB</td>
     <td>Wallbox</td>
-    <td>experimental</td>
+    <td>supported</td>
   </tr>
 </table> 
 
@@ -302,6 +302,30 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>boolean</td>
     <td>Change value to true will restart E3/DC application.</td>
   </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_SUN</td>
+    <td>boolean</td>
+    <td>Set Sun mode or Mixed mode.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_NET</td>
+    <td>number</td>
+    <td>Set wallbox grid power.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_ALL</td>
+    <td>number</td>
+    <td>Set wallbox total power.</td>
+  </tr>
+  <tr>
+    <td>WB</td>
+    <td>EXTERN_DATA_ALG</td>
+    <td>byte array</td>
+    <td>Set wallbox mode, cancel charging, type 2 plug locking, power limit.</td>
+  </tr>
 </table> 
 
 Note (1): Full path is EMS.IDLE_PERIODS_(DIS)CHARGE.&lt;day-of-week&gt; - e.g. "EMS.IDLE_PERIODS_CHARGE.00-Monday". Changes are only sent "tuple sendig delay" after the last change. 
@@ -340,7 +364,10 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-### 1.0.9 (under development)
+### 1.1.0
+(ka-vaNu)
+* Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
+
 (helper0815)
 * Added value "N" for polling intervals, meaning "never" - [Issue #126](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/126)
 

@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
+hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
 ![Количество установок](http://iobroker.live/badges/fullcalendar-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.fullcalendar.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fullcalendar.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
 
 # IoBroker.fullcalendar
-Расписания с [fullcalendar](https://fullcalendar.io).
+Расписания с [полный календарь](https://fullcalendar.io).
 
-Вы не должны использовать какие-либо внешние ресурсы, планирование обрабатывается только в ioBroker и не будет объединено с какими-либо внешними службами, такими как «календарь Google» или «iTunes».
+Вы не должны использовать какие-либо внешние ресурсы, планирование обрабатывается только в ioBroker и не будет сочетаться с какими-либо внешними службами, такими как «календарь Google» или «iTunes».
 
 ![Пример](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
-Вы можете контролировать свои события с помощью календаря и можете планировать их периодически.
+Вы можете управлять своими событиями с помощью календаря и планировать их периодическое управление.
 
-<! - Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+### **В РАБОТЕ** -->
 
 ## Changelog
 ### 1.2.0 (2021-12-14)
@@ -57,4 +57,4 @@ hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
 ## License
 CC BY-NC 4.0
 
-Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

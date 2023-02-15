@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
+hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
 ---
 ![标识](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -25,7 +25,7 @@ hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
 ## [赞助商](./SPONSORS.md)
 如果您喜欢我的作品，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
-## 兼容的 U 盘和模块
+## 兼容的 USB 记忆棒和模块
 USB300
 
 带 SMA 端口的 DOSMUNG USB 记忆棒
@@ -40,9 +40,12 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 
 全智能 EnOcean LAN 网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ 不再可用。
 
-全智能 EnOcean 多网关 - [买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
+全智能 EnOcean 多网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ 不再可用。
 
-## 控制设备 通常有一个 cmd 对象，您可以在其中选择要执行的命令。在执行命令之前，您必须设置所有必要的属性，您可以在配置文件定义中找到此信息。
+### [支持的设备](./docs/devices.md)
+## 控制设备
+通常有一个 cmd 对象，您可以在其中选择要执行的命令。在执行命令之前，您必须设置所有必要的属性，您可以在配置文件定义中找到此信息。
+
 特别的：
 
 * A5-20-xx：具有此配置文件的设备在发送消息后仅在 1 秒内接受命令。他们定期发送（10 分钟？），请阅读手册。
@@ -183,9 +186,23 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.5 (2023-02-11)
+* rework TF-13-25, fixes Eltako DSZ14
+* rework TF-13-14, SP uses now temperature range 0-40°C
+* remove useless object ASC from A5-20-01
+* added Afriso FT & FTF
+* added R-Tronic RT B (A5-10-06 + RPS)
+* added new teachin telegram for FUD61NPN-230V
 * fix F6-10-00: The close state was not set, the window was always shown as open.
 * fix & rework TF-13-25 Eltako DSZ14 (#87)
+* fix multiple conditions in eep's
+* fix Eltako FGW14-USB does not receive status updates
+* fix lastID is null when using Eltako FGW14-USB
+* fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set
+* fix I1-01-01 invalid telegram send by on and off
+* fix device definition Oventrop mote 420
+* fix missing zeros in front of sender IDs while using FGW14
+* fix incomplete data while receiving type 10 messages
 * code cleanup and refactoring
 
 ### 0.8.4 (2022-11-17)

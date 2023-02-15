@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-элементы
-hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
+hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -26,12 +26,12 @@ hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
 - Система Gigaset Elements
 
 ## Монтаж
-Пока адаптер не является частью последнего или стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm или github.
+Пока адаптер не является частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm. Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера ("не удается найти стартовый файл").
 
 После установки создайте новый экземпляр и настройте параметры:
 
 - Настройки подключения для доступа к облаку Gigaset Elements
-    -   Эл. адрес
+    -   электронная почта
     -   пароль
     - интервал аутентификации, должен быть 6 (часов)
 - Интервалы опроса для разных областей
@@ -57,13 +57,14 @@ hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
 | ----------- | ------------- | ----------- |
 | gp02 | Телефон | gp.call |
 
+### Предоставьте тестовые данные для неподдерживаемых элементов
 Если у вас есть другие элементы или вы сталкиваетесь с типами событий, которые еще не обрабатываются адаптером, вы можете включить экспертный режим в ioBroker, перейти на вкладку _Отладка_ в настройках адаптера (видима только в экспертном режиме) и использовать «Отладка — Подготовка». тестовые данные», чтобы сгенерировать тестовые данные, которые можно отправить как часть проблемы github для этого адаптера, чтобы включить дополнительные элементы/типы событий. Персональные данные, такие как имена и идентификаторы базовых станций или элементов, удаляются из сгенерированных данных, насколько это возможно.
 
 ## Сообщения
 Пока адаптер поддерживает только сообщения, используемые для тестирования/отладки.
 
 ### Тестирование
-Ответы обратного вызова: <code>{ response: &quot;&lt;message&gt;&quot; }</code> , если действие было выполнено успешно, или <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , если что-то пошло не так.
+Ответы обратного вызова <code>{ response: &quot;&lt;message&gt;&quot; }</code> если действие было выполнено успешно, или <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , если что-то пошло не так.
 
 #### Пинг
 Отправьте ping адаптеру и получите <code>{ response: &quot;pong&quot; }</code> .
@@ -80,7 +81,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 ```
 
 ### Отладка
-Ответами обратного вызова являются либо <code>{ response: object }</code> , если действие было выполнено успешно, либо <code>{ error: &quot;&lt;error message&gt;&quot; }</code> в случае, если что-то пошло не так.
+Ответами обратного вызова являются либо <code>{ response: object }</code> если действие было выполнено успешно, либо <code>{ error: &quot;&lt;error message&gt;&quot; }</code> в случае, если что-то пошло не так.
 
 #### Подготовка тестовых данных
 Загрузите текущие данные из Gigaset Elements API и подготовьте их для интеграции в качестве тестовых данных в [Gigaset-элементы-API](https://github.com/matthsc/gigaset-elements-api), т. е. для новых событий или элементов, для которых еще нет тестовых данных.
@@ -115,38 +116,43 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (matthsc/dependabot) dependency updates
+
 ### 0.3.0 (2022-09-28)
 
 -   (matthsc) drop support for Node 12 and js-controller 3
 -   (matthsc) implement migrations from create-adapter
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.2 (2022-09-17)
 
 -   (matthsc) fix probably_open state
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.1 (2022-07-02)
 
 -   (matthsc) add initial support for smoke detectors
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones
 -   (matthsc) add Node 18 to test matrix
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.3 (2022-03-22)
 
 -   (matthsc) fix "unknown" element position state
 -   (matthsc) add more tests
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.2 (2022-02-28)
 
 -   (matthsc) fix test data generation
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.1 (2022-02-12)
 
@@ -160,7 +166,7 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
 
 MIT License
 
-Copyright (c) 2022 matthsc <matthsc@gmx.net>
+Copyright (c) 2023 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

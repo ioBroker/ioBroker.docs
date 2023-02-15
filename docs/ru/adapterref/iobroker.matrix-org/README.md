@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: nI7mS+jbHP27IDaScCTotxOLKdL174Vq1Ni66R70SfM=
+hash: VMiIjOfbLptdI65a7gk+b2UlcZiAgkrCsv0M3PMya04=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -24,7 +24,7 @@ hash: nI7mS+jbHP27IDaScCTotxOLKdL174Vq1Ni66R70SfM=
 
 Создайте собственного пользователя в качестве BOT с паролем. Создайте комнату для всех участников, которым нужны сообщения бота. Добавьте своего бота в эту комнату. Добавить всех участников в эту комнату. Внесите все данные в конфиг. (имя бота, пароль, имя комнаты)
 
-### Применение
+### Использование
 Добавьте столько экземпляров, сколько вам нужно. Добавьте значение в matrix-org.0.sendMessage так, как вам нравится, с помощью js. Если вы установите «image» в matrix.0.sendMessage, он отправит логотип матрицы на ваш канал.
 Или в js используйте:
 
@@ -33,13 +33,20 @@ sendTo("matrix-org.0", "Hello World!");
 ```
 
 Или используйте блочный символ в Sendto.
+
 Для образов из локальной файловой системы (Linux):
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
 
-Для изображений из локальной файловой системы (Windows): sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"}); Для изображений в качестве справки:
+Для изображений из локальной файловой системы (Windows):
+
+``` 
+sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
+```
+
+Для изображений в качестве справки:
 
 ```
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
@@ -51,7 +58,7 @@ sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
 sendTo("matrix-org.0",{file:{type:"image/png",base64:"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"}});
 ```
 
-Или же
+Или
 
 ```
 sendTo("matrix-org.0",{file:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"});
@@ -63,7 +70,7 @@ sendTo("matrix-org.0",{file:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAA
 sendTo("matrix-org.0",{html: "<h1>Hello World!</h1>", text: "Hello World!"});
 ```
 
-или же
+или
 
 ```
 sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td><td>b</td></tr><table>", text: "Your client can not show html!"});
@@ -81,7 +88,11 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.4 (2023-02-04)
+* update of dependencies
+* small readme improvement
+
+### 0.1.3 (2022-11-03)
 * updates of dependencies
 
 ### 0.1.2 (2022-08-12)
@@ -140,7 +151,7 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 ## License
 MIT License
 
-Copyright (c) 2022 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

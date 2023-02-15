@@ -73,6 +73,9 @@ Gerät, die er braucht.
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* add reboot button for SOAP devices (seems they tend to die now the servers are gone) 
+
 ### 1.2.1 (2022-09-01)
 * fix release...
 

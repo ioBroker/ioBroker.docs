@@ -3,35 +3,56 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.amazon-dash/README.md
 title: ioBroker.amazon-dash (только для Linux!)
-hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
+hash: sGzxItEtI3Jqdb9z3uu0NdbFH9wL1sCN4sBS+ACF/2c=
 ---
-![логотип](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
+![Логотип](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
+![Количество установок](http://iobroker.live/badges/amazon-dash-stable.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.amazon-dash.svg)
-![NPM](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)
 
-# IoBroker.amazon-dash (только для Linux!) =================
-Адаптер для добавления кнопок Amazon Dash в ioBroker
+# IoBroker.amazon-dash (только для Linux!)
+Адаптер для обнаружения нажатий на кнопки Amazon Dash в ioBroker.
+
+Этот адаптер не работает под Windows!
 
 ## Шаги
-1. Установите libpcap-dev
+1. Установите `libpcap-dev`:
 
-```apt-get install libpcap-dev```
+`sudo apt-get install libpcap-dev`
 
-2. Соедините ваш Dash-адаптер с приложением Amazon, но не выбирайте продукт!
+2. Соедините свой Dash-адаптер в приложении Amazon, но не выбирайте продукт!
 
 Просто выйдите из процедуры установки на вкладке выбора продукта.
-В противном случае вы будете каждый раз заказывать товар;) [Немецкие инструкции](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
+Иначе будете каждый раз заказывать товар ;) [Немецкие инструкции](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
 
-3. Нажмите кнопку с приборной панелью (сначала должен быть белым, а затем мигать красным)
+3. Нажмите кнопку тире (сначала она должна быть белой, а затем мигать красной)
 
-4. В объектах адаптера должна появиться новая кнопка, которую вы можете использовать для запуска сцен или в адаптере JS
+4. В объектах адаптера должна появиться новая кнопка, которую вы можете использовать для запуска сцен или в адаптере JS.
+
+5. Иногда требуется дать права доступа к сети узлу:
+
+`sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which node))`
 
 ## ТРЕБУЕТСЯ ПОМОЩЬ!
-Поскольку этот проект разрабатывается в свободное время, я * активно ищу помощь в поддержке и расширении этой библиотеки! Если вы готовы помочь, напишите мне!
+Так как этот проект разрабатывается в свободное время.
+Я активно ищу помощь в обслуживании и расширении этого адаптера! Если вы готовы помочь, напишите мне!
+
+<!--
+
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.2.0 (2023-02-10)
+* (bluefox) added option to execute `setcap` rights by every start
+
+### 1.1.0 (2020-02-25)
++ (foxriver76) support of compact mode
++ (foxriver76) usage of adapter-core and eslint
+
+### 1.0.1
++ (Apollon77) BREAKING: Upgrade pcap library supports nodejs 10+ and also supports nodejs 12
 
 ### 0.3.1
 + (PArns) Added new Amazon MAC family
@@ -52,7 +73,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 
 ### 0.2.6
 + (arteck) edit admin
-+ (arteck) add manual MAC Adresses 
++ (arteck) add manual MAC Addresses 
 + (PArns) Added new Amazon MAC family
 
 ### 0.2.5
@@ -78,7 +99,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 + (PArns) Added new Amazon MAC family
 
 ### 0.1.1
-+ (GermanBluefox) Try to install libpcap-dev automatically
++ (GermanBluefox) Try to install `libpcap-dev` automatically
 
 ### 0.1.0
 + (Niksac) Added the ability to select an interface
@@ -103,7 +124,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Patrick Arns <npm@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <npm@patrick-arns.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

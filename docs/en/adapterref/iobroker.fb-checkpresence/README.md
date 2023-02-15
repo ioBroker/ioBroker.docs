@@ -207,7 +207,8 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.1.25 (2023-01-21)
+* (afuerhoff) Warning message empty hostname optimized. Issue [#180](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/180)
 
 ### 1.1.24 (2022-12-22)
 * (afuerhoff) axios updated
@@ -223,16 +224,10 @@ Here you will find information about the history of the current day.
 ### 1.1.21 (2022-09-05)
 * (afuerhoff) dependencies updated
 
-### 1.1.20 (2022-09-05)
-* (afuerhoff) issue [#136](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/136) force update on demand
-* (afuerhoff) issue [#139](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/139) Add family members fixed
-* (afuerhoff) issue [#140](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/140) Add family members dialogbox fixed
-* (afuerhoff) issue [#129](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/129) Dateformat library changed
-
 ## License
 MIT License
 
-Copyright (c) 2019-2022 Achim Fürhoff <achim.fuerhoff@outlook.de>
+Copyright (c) 2019-2023 Achim Fürhoff <achim.fuerhoff@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

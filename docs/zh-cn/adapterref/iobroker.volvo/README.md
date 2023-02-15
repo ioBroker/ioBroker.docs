@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.volvo/README.md
 title: ioBroker.沃尔沃
-hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
+hash: KQNQQ/Rzgeeh5MCvgqbVVuW6Sf/ZXmF8cDEFXZYqaJc=
 ---
-![商标](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
+![标识](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.volvo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.volvo.svg)
@@ -20,10 +20,10 @@ hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ## 用于 ioBroker 的沃尔沃适配器
 Volvo On Call（随车管家）和新的 Electric API for Android Automotive Cars Adapter
 
-＃＃ 登录
+## 非电动汽车登录
 非电动汽车可以通过用户名和密码登录。
 
-### 电动 Android 汽车需要一个 VCC API 密钥
+## Eletric Android 汽车需要一个 VCC API 密钥
 注册/登录 <https://developer.volvocars.com/account/>
 
 您需要一个 Google 或 Github 帐户，这与您的 APP 凭据无关
@@ -38,7 +38,8 @@ Volvo On Call（随车管家）和新的 Electric API for Android Automotive Car
 
 输入 Volvoe App 用户名和密码。
 
-远程控制不适用于新的 API。请求被接受但没有转发给汽车。
+## 控制 Eletric Android
+目前无法使用 volvo.0.id.remote 控制 Eletric Android。命令已成功发送到 API 并被接受，但看起来 API 尚未完成以控制汽车。
 
 ＃＃ 入门
 使用遥控器下的物体来控制车辆

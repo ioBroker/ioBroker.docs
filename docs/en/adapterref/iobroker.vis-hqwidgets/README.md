@@ -18,8 +18,11 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 -->
 
 ## Changelog
+### 1.3.1 (2023-01-11)
+* (bluefox) Added new parameter for dimmer
+
 ### 1.3.0 (2022-08-15)
-* (bluefox) Made it compatible with ioBroker.vis v2
+* (bluefox) Made it compatible with `ioBroker.vis` v2
 
 ### 1.2.0 (2022-04-05)
 * (bluefox) Removed deprecated method `load`
@@ -128,7 +131,7 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 
 ### 0.1.4 (2015-09-24)
 * (bluefox) add outdoor temperature widget
-* (bluefox) auto fill of OIDs
+* (bluefox) automatic fill of OIDs
 * (bluefox) add colors for texts
 * (bluefox) add door widget
 
@@ -144,5 +147,5 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2022 bluefox <dogafox@gmail.com>
+ Copyright (c) 2013-2023 bluefox <dogafox@gmail.com>
  MIT

@@ -100,7 +100,8 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
    
 ## Changelog
 
-### 1.8.7 (in progress)
+### 1.8.7 (2023-01-31)
+* (René) dependencies updates
 
 ### 1.8.6 (2022-11-29)
 * (René) see issue #4 : bug fix negative temperatures

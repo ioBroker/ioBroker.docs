@@ -24,6 +24,9 @@ z.B.: <https://www.wemportal.com/Web/UControls...,> 208557
 
 ## Changelog
 
+### 0.0.14
+
+* (ta2k) fix command sends
 ### 0.0.13
 
 * (ta2k) update dependencies

@@ -23,6 +23,7 @@ Aktuell werden folgende Geräte unterstützt:
 * saunabox
 * tempsensor
 * gatebox
+* tvlift
 
 ## Changelog
 

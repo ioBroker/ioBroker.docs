@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
+hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
@@ -13,17 +13,17 @@ hash: saYl22VeLBacuAPbYj1YOhl911BtTZbi9ESjbwpNpRc=
 ![NPM](https://nodei.co/npm/iobroker.fullcalendar.png?downloads=true)
 
 # IoBroker.fullcalendar
-Zeitpläne mit [Vollkalender](https://fullcalendar.io).
+Fahrpläne mit [voller Kalender](https://fullcalendar.io).
 
-Sie dürfen keine externen Ressourcen verwenden, die Terminplanung erfolgt nur in ioBroker und wird nicht mit externen Diensten wie "Google Kalender" oder "iTunes" kombiniert.
+Sie müssen keine externen Ressourcen verwenden, die Terminplanung wird nur in ioBroker verarbeitet und wird nicht mit externen Diensten wie "Google Kalender" oder "iTunes" kombiniert.
 
 ![Beispiel](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
-Sie können Ihre Ereignisse mit dem Kalender steuern und planen, sie regelmäßig zu kontrollieren.
+Sie können Ihre Ereignisse mit dem Kalender steuern und planen, sie regelmäßig zu steuern.
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
 ### 1.2.0 (2021-12-14)
@@ -57,4 +57,4 @@ Sie können Ihre Ereignisse mit dem Kalender steuern und planen, sie regelmäßi
 ## License
 CC BY-NC 4.0
 
-Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

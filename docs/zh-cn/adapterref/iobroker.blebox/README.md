@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: dZiy17GB+GtTHSwKHGrzyBQp5yFFgRZkp5hYOhStnIk=
+hash: U09jFIxFk2+Zf83CeeFdYDAsCDTFvNSssh/WcvZciOk=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -27,6 +27,7 @@ Eine unvollständige und veraltete API-Simulation kann [更高的](https://githu
 * 桑拿箱
 * 温度传感器
 * 门禁箱
+* 电梯
 
 ## Changelog
 

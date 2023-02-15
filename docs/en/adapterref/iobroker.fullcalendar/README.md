@@ -16,7 +16,7 @@ You can control your events with calendar and can plan to control them periodica
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
 ### 1.2.0 (2021-12-14)
@@ -50,4 +50,4 @@ You can control your events with calendar and can plan to control them periodica
 ## License
 CC BY-NC 4.0
 
-Copyright (c) 2017-2021 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: EJswFd30WDrocO5waZd6RsEVPZwP0gOBl1RP0djABFM=
+hash: A6FY31pfkBeJ3dtAPOoKfuvLqc0tCJzAbqlfnkscr3Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
@@ -14,6 +14,7 @@ hash: EJswFd30WDrocO5waZd6RsEVPZwP0gOBl1RP0djABFM=
 ![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![Spenden](https://img.shields.io/badge/donate-paypal-blue?style=flat)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shuttercontrol
 ![Testen und freigeben](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
@@ -22,7 +23,7 @@ Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ## Shuttercontrol-Adapter für ioBroker
 automatische Rollladensteuerung
@@ -42,6 +43,18 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.4.21 (2023-02-02)
+* (simatec) fix Brightness Settings
+* (simatec) Dependencies updated
+
+### 1.4.20 (2023-01-30)
+* (simatec) Bugfix Brightness-Sensor
+
+### 1.4.19 (2023-01-22)
+* (simatec) Time config for Brightness-Sensor added
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+
 ### 1.4.18 (2022-09-24)
 * (simatec) Bugfixes Button Action
 
@@ -485,7 +498,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2022 simatec
+Copyright (c) 2019 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

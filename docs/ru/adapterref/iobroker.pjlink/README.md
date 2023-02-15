@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: Ips4mgJB0NT9pMUuDV+m6sho+Yi1Jrg0GDJV2/S8HBU=
+hash: fRFyqywoqjqqH5xW0ND8o/PnzeQLT9fhEDVWAGrmvi8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -27,7 +27,7 @@ PJLink обеспечивает централизованное управле�
 Оборудованием, совместимым с PJLink, можно управлять и управлять им в любое время и в любом месте, независимо от производителя.
 PJLink — это новый стандарт, разработанный для того, чтобы сделать коммуникационные интерфейсы и коммуникационные протоколы, отличающиеся от одного производителя проектора к другому, едиными и общими.
 
-> Оборудование, совместимое с PJLink, отличается высокой степенью взаимосвязи между моделями и производителями, что позволяет легко создавать среды, смешанные с различными моделями и системами, и легко заменять уже установленные системы.
+> Оборудование, совместимое с PJLink, отличается высокой степенью взаимосвязи между различными моделями и производителями, что позволяет легко создавать среды, смешанные с различными моделями и системами, и легко заменять уже установленные системы.
 
 * [Взято с домашней страницы PJLink] (https://pjlink.jbmia.or.jp/english/)
 
@@ -38,6 +38,7 @@ PJLink — это новый стандарт, разработанный для
 
 ## Делать
 * поддержка проекта node-pjlink для реализации класса 2
+* вернуться к библиотеке pjlink на github. На данный момент библиотека хранится локально из-за ошибки в тестовом скрипте.
 
 ## Как работает адаптер
 На данный момент поддерживается только класс 1. Это означает, что адаптер может только опрашивать статус.
@@ -77,9 +78,15 @@ PJLink — это новый стандарт, разработанный для
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.1 (2023-01-24)
+* (Bannsaenger) temporarily fix the test script error with local libraries
+
+### 0.1.0 (2023-01-23)
 * (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
-* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add non-guaranteed time after power ON (number of skipped short cycles after power ON event)
+* (Bannsaenger) moved all status queries to one timer due to authentification issues when queries are executed at the same time
+* (Bannsaenger) treat error "unavailabe time" only as warning and log it only once
 
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
@@ -94,7 +101,7 @@ PJLink — это новый стандарт, разработанный для
 ## License
 MIT License
 
-Copyright (c) 2022 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2023 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

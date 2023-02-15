@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: GqarTd6mZqO+F4LGvyTVCeXqABdZOoolGAbSnauy5o8=
+hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -26,7 +26,7 @@ Adapter für Gigaset Elements (https://gigaset.com/smart-home)
 - Gigaset Elements-System
 
 ## Installation
-Bis der Adapter Teil des neuesten oder stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm oder github installieren.
+Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm installieren. Installieren Sie es nicht direkt von Github, dies führt zu einem Fehler beim Start des Adapters ("cannot find start file").
 
 Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die Einstellungen:
 
@@ -57,6 +57,7 @@ Der Adapter unterstützt auch die folgenden anderen Geräte:
 | ----------- | ------------- | ----------- |
 | gp02 | Telefon | gp.call |
 
+### Geben Sie Testdaten für nicht unterstützte Elemente an
 Wenn Sie andere Elemente haben oder auf Ereignistypen stoßen, die noch nicht vom Adapter verarbeitet werden, können Sie den Expertenmodus in ioBroker aktivieren, in den Adaptereinstellungen auf die Registerkarte _Debug_ gehen (nur im Expertenmodus sichtbar) und „Debug – Prepare test data", um Testdaten zu generieren, die als Teil eines Github-Problems für diesen Adapter eingereicht werden können, um die zusätzlichen Elemente/Ereignistypen enthalten zu bekommen. Personenbezogene Daten wie Basisstations- oder Elementnamen und -IDs werden so weit wie möglich aus den generierten Daten entfernt.
 
 ## Mitteilungen
@@ -80,7 +81,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 ```
 
 ### Debugging
-Callback-Antworten sind entweder <code>{ response: object }</code> , wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
+Callback-Antworten sind entweder <code>{ response: object }</code> wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
 
 #### Testdaten vorbereiten
 Laden Sie aktuelle Daten aus der Gigaset Elements API und bereiten Sie diese für die Integration als Testdaten in [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) vor, z. B. für neue Ereignisse oder Elemente, die noch keine Testdaten haben.
@@ -115,38 +116,43 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (matthsc/dependabot) dependency updates
+
 ### 0.3.0 (2022-09-28)
 
 -   (matthsc) drop support for Node 12 and js-controller 3
 -   (matthsc) implement migrations from create-adapter
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.2 (2022-09-17)
 
 -   (matthsc) fix probably_open state
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.1 (2022-07-02)
 
 -   (matthsc) add initial support for smoke detectors
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.2.0 (2022-04-30)
 
 -   (matthsc) add support for phones
 -   (matthsc) add Node 18 to test matrix
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.3 (2022-03-22)
 
 -   (matthsc) fix "unknown" element position state
 -   (matthsc) add more tests
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.2 (2022-02-28)
 
 -   (matthsc) fix test data generation
--   (matthsc) dependency updates
+-   (matthsc/dependabot) dependency updates
 
 ### 0.1.1 (2022-02-12)
 
@@ -160,7 +166,7 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
 
 MIT License
 
-Copyright (c) 2022 matthsc <matthsc@gmx.net>
+Copyright (c) 2023 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -121,6 +121,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 6.3.6 (2023-01-29)
+* (bluefox) Allowed the edit of log level in the configuration tab
+
 ### 6.3.5 (2022-12-22)
 * (bluefox) Corrected reading of node.js version
 
@@ -135,11 +138,7 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 * (bluefox) Added `checkLicense` and `uuid` components to JSON Config
 * (bluefox) Corrected the news handler
 
-### 6.2.23 (2022-10-12)
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) Corrected deletion of objects
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>

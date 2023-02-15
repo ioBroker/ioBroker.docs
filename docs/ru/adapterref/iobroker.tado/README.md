@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: nrMyL/9foi7/L0LIs3PVRgaOmMS3aEEcBPu8ekFqpow=
+hash: KXxKax0NFNwCyfYeQhzwzMl39r3rJCPv2LdKDjNUqqs=
 ---
 # IoBroker.tado
 
@@ -20,13 +20,6 @@ hash: nrMyL/9foi7/L0LIs3PVRgaOmMS3aEEcBPu8ekFqpow=
 
 ## Адаптер tado для ioBroker
 tado° обеспечивает комфортный и здоровый климат, экономя при этом до 31% на счетах за отопление.
-
-## Критические изменения в 0.4.0
-* Требуется NodeJS 14.16 или выше
-* Требуется хост ioBroker (js-контроллер) 4.0 или выше
-
-## Поддержите меня
-Если вам нравится моя работа, не стесняйтесь сделать личное пожертвование (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker! [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
 
 ## Вещи, которыми вы можете управлять
 | состояние | Описание |
@@ -50,35 +43,37 @@ tado° обеспечивает комфортный и здоровый кли�
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Вертикальное качание (только устройства переменного тока с версией V3+) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Горизонтальное качание (только устройства переменного тока версии V3 и старше) |
 
+## Требует
+* NodeJS 14.16 или выше
+* Хост ioBroker (js-контроллер) 4.0 или выше
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.4 (2023-02-03)
+* (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
+* (HGlab01) Bump axios to 1.3.1
+* (HGlab01) Fix 'Invalid value TADO_MODE' (#585)
+
+### 0.4.3 (2022-12-06)
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10 (#551)
+* (HGlab01) Bump axios to 1.2.1 (final fix for #561)
+* (HGlab01) Improve logs
+
+### 0.4.2 (2022-11-27)
+* (HGlab01) Downgrade axios to 1.1.3 (#561)
+
+### 0.4.1 (2022-11-24)
+* (HGlab01) Add attribute isBalanceAcEligible
+* (HGlab01) Bump axios from 0.27.2 to 1.2.0
+* (HGlab01) Bump simple-oauth2 from 4.3.0 to 5.0.0
+
 ### 0.4.0 (2022-09-05)
 * (HGlab01) !Breaking change! NodeJS 14.16 or higher required
 * (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
 * (HGlab01) Bump is-online from 9.0.1 to 10.0.0
-
-### 0.3.16 (2022-08-01)
-* (HGlab01) Support light (issue #519)
-* (HGlab01) Add attributes vattenfallBannerDiscountCode, thresholdModeActive, mountingStateWithError, isAirComfortEligible
-
-### 0.3.15 (2022-02-27)
-* (DutchmanNL) move to jsonConfig.json (Admin 5)
-* (ilueckel) Support steering of ActivateOpenWindow, OpenWindowDetection, childLockEnabled 
-* (HGlab01) Bump iobroker-jsonexplorer to v0.1.9
-* (HGlab01) js-controller 4.0 readiness
-
-### 0.3.14 (2022-01-21)
-* (HGlab01) Improve hotwater handling
-* (HGlab01) Improve AC Control v3 devices 
-* (HGlab01) Support swing ON/OFF for AC v3 devices
-
-### 0.3.13 (2022-01-03)
-* (HGlab01) Optimize internet-check by using isOnline-library
-* (HGlab01) Support Smart AC Control V3+ (issue #403)
-* (HGlab01) Offset temperature rounding to max. 2 digits
 
 ## License
 MIT License

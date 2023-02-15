@@ -35,6 +35,9 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.2.2
+* (holomekc) Support for rooms. Configuration to ignore server certificates. Allow ttesting controller 2 and can prevent issues in case certificates expire. Less secure though.
+
 ### 0.2.1
 * (holomekc) Support for additional services
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: 8M9Mw77yq6xSvufvjRv6WSKDvk5tKHxsc/6NqtM9eKs=
+hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -15,7 +15,7 @@ Dieser Adapter ermöglicht den Empfang von drahtlosen M-Bus-Daten von unterstüt
 * IMST iM871A
 * CUL
 
-Der WMBUS-Stack wurde aus dem FHEM-Projekt "gemeldet" und umfassend repariert und umgestaltet. Die Tests wurden mit Rohdaten aus dem Internet, OMS-Beispieldaten und einigen Testdaten aus der jmbus-Bibliothek durchgeführt. Einige Grenzfälle sind noch ungetestet.
+Der WMBUS-Stack wurde vom FHEM-Projekt "gemeldet" und wurde umfassend repariert und umgestaltet. Die Tests wurden mit Rohdaten aus dem Internet, OMS-Beispieldaten und einigen Testdaten aus der jmbus-Bibliothek durchgeführt. Einige Grenzfälle sind noch ungetestet.
 
 Die Geräteerstellung, -aktualisierung usw. basiert hauptsächlich auf dem M-Bus-Adapter von Apollon77 (siehe unten).
 
@@ -52,101 +52,118 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 ## Machen
 * Senden von Telegrammen für S-Mode-Empfänger?
 
-## Changelog
+## 0.8.8
+* (ChL) Datetime Type I Handling hinzugefügt
+
+### 0.8.7
+* (ChL) Leicht verbesserte Handhabung von LVAR DIF-Werten
+
+### 0.8.3 / 0.8.4 / 0.8.5 / 0.8.6
+* (ChL) Entwicklerabhängigkeiten aktualisieren - Achtung CI-Test wird <= NodeJS 12 nicht mehr unterstützen
+* (ChL) Geringfügige Protokollierungsänderungen
+
+### 0.8.2
+* (ChL) C-Modus-Unterstützung für CUL
+
+### 0.8.1
+* (ChL) Verbindungsstatus korrigieren
+* (ChL) Serielle Protokollierung wieder hinzugefügt
 
 ### 0.8.0
-* (ChL) Complete rewrite of serial communication - now includes unit tested device classes
-* (ChL) Upgrade to SerialPort 10.x and dependency clean up
-* (ChL) Improve PRIOS decoder
+* (ChL) Vollständige Überarbeitung der seriellen Kommunikation - enthält jetzt einheitengetestete Geräteklassen
+* (ChL) Upgrade auf SerialPort 10.x und Bereinigung von Abhängigkeiten
+* (ChL) PRIOS-Decoder verbessern
 
 ### 0.7.9
-* (ChL) Add debug logging to all serial devices
+* (ChL) Debug-Protokollierung für alle seriellen Geräte hinzugefügt
 
 ### 0.7.8
-* (ChL) Improve logging from receiver modules
-* (ChL) fix rawdata state
+* (ChL) Logging von Empfängermodulen verbessern
+* (ChL) Rohdatenstatus korrigieren
 
 ### 0.7.7
-* (ChL) Add support for Diehl PRIOS encoded telegrams (ported from wmbusmeters)
+* (ChL) Unterstützung für Diehl PRIOS-codierte Telegramme hinzugefügt (portiert von wmbusmeters)
 
 ### 0.7.5 / 0.7.6
-* (ChL) Fix timeout handling - if no problems occur this will be republished as 1.0.0
+* (ChL) Timeout-Behandlung behoben - wenn keine Probleme auftreten, wird dies als 1.0.0 neu veröffentlicht
 
 ### 0.7.3 / 0.7.4
-* (ChL) Try to improve CUL support
+* (ChL) Versuchen Sie, die CUL-Unterstützung zu verbessern
 
 ### 0.7.1 / 0.7.2
-* (ChL) Rename to ioBroker.wireless-mbus to be able to publish to npm
-* (ChL) Fix block list, admin page logo and repo url in package.json
+* (ChL) Umbenennung in ioBroker.wireless-mbus, um in npm veröffentlichen zu können
+* (ChL) Sperrliste, Logo der Admin-Seite und Repo-URL in package.json korrigiert
 
 ### 0.7.0
-* (ChL) Change main adapter code to class
-* (ChL) Include actual (machine) translations besides English and German
-* (ChL) Upgrade denpendencies
-* (ChL) Add test for wmbus decoder
-* (ChL) Add integration tests
-* (ChL) Add github workflow
+* (ChL) Ändern Sie den Hauptadaptercode in Klasse
+* (ChL) Enthält neben Englisch und Deutsch auch aktuelle (Maschinen-)Übersetzungen
+* (ChL) Upgrade-Abhängigkeiten
+* (ChL) Test für wmbus-Decoder hinzugefügt
+* (ChL) Integrationstests hinzufügen
+* (ChL) Github-Workflow hinzugefügt
 
 ### 0.6.2
-* (ChL) Improve admin page to handle custom serialport path
-* (ChL) Add option to turn automatic blocking of devices off
-* (ChL) Add "Simple Hexstring" receiver for testing purposes
-* (ChL) Internal refactoring
+* (ChL) Verbessern Sie die Admin-Seite, um den benutzerdefinierten Serialport-Pfad zu handhaben
+* (ChL) Option hinzugefügt, um das automatische Blockieren von Geräten auszuschalten
+* (ChL) "Simple Hexstring"-Empfänger zu Testzwecken hinzugefügt
+* (ChL) Internes Refactoring
 
 ### 0.6.0 / 0.6.1
-* (ChL) Upgrade of serialport library to 9.2.0
-* (ChL) experimental CUL support
+* (ChL) Upgrade der Serialport-Bibliothek auf 9.2.0
+* (ChL) experimentelle CUL-Unterstützung
 
 ### 0.5.2
-* (ChL) fix for connection indicator with js-controller 2.x
+* (ChL) Fix für Verbindungsanzeige mit js-controller 2.x
 
 ### 0.5.1
-* (ChL) Small fixes
-* (ChL) Internal telegram parser now supports wired M-Bus frames (not used - for testing / developing purpose)
-* (D Glaser) Added timestamp of last update to device info
-* (D Glaser/ChL) Added some setup documentation to README
+* (ChL) Kleine Korrekturen
+* (ChL) Interner Telegrammparser unterstützt jetzt kabelgebundene M-Bus-Frames (nicht verwendet - für Test-/Entwicklungszwecke)
+* (D Glaser) Zeitstempel der letzten Aktualisierung zur Geräteinfo hinzugefügt
+* (D Glaser/ChL) Setup-Dokumentation zu README hinzugefügt
 
 ### 0.5.0
-* (ChL) Basic support for Techem devices
-* (ChL) Option to force energy units (Wh and J) to kWh - BEWARE this is not really backwards compatible. Old states will keep their "old" unit, but display the adjusted value!
+* (ChL) Basisunterstützung für Techem-Geräte
+* (ChL) Option Energieeinheiten (Wh und J) auf kWh zu zwingen - ACHTUNG dies ist nicht wirklich abwärtskompatibel. Alte Zustände behalten ihre "alte" Einheit, zeigen aber den angepassten Wert an!
 
 ### 0.4.7
-* (ChL) Block devices after 10 consecutive failed parse attempts until adapter restart
-* (ChL) Assign roles derived from units (as does the mbus adapter)
+* (ChL) Blockiert Geräte nach 10 aufeinanderfolgenden fehlgeschlagenen Parsing-Versuchen bis zum Neustart des Adapters
+* (ChL) Von Einheiten abgeleitete Rollen zuweisen (wie beim mbus-Adapter)
 
 ### 0.4.6
-* (ChL) Support for (Kamstrup?) compact frames through data record cache (pre-defined frames have been removed!)
+* (ChL) Unterstützung für (Kamstrup?) Kompaktframes durch Datensatz-Cache (vordefinierte Frames wurden entfernt!)
 
 ### 0.4.5
-* (ChL) Append device ids with key "UNKNOWN" at startup to needskey
+* (ChL) Geräte-IDs mit dem Schlüssel "UNKNOWN" beim Start an den Needskey anhängen
 
 ### 0.4.2 / 0.4.3 / 0.4.4
-* (ChL) Small fixes
+* (ChL) Kleine Korrekturen
 
 ### 0.4.1
-* (ChL) basic IMST iM871A support
+* (ChL) grundlegende IMST iM871A-Unterstützung
 
 ### 0.4.0
-* (ChL) better Amber Stick support
-* (ChL) Compact mode?
-* (ChL) Nicer state names
-* (ChL) wMBus mode partially selectable
+* (ChL) bessere Amber-Stick-Unterstützung
+* (ChL) Kompaktmodus?
+* (ChL) Schönere Staatsnamen
+* (ChL) wMBus-Modus teilweise wählbar
 
 ### 0.3.0
-* (ChL) Implemented all VIF types from MBus doc
-* (ChL) VIF extensions are handled better (again)
-* (ChL) reorganised VIF info
-* (ChL) reorganised receiver handling
-* (ChL) blocking of devices possible
+* (ChL) Alle VIF-Typen aus MBus-Dokument implementiert
+* (ChL) VIF-Erweiterungen werden (wieder) besser gehandhabt
+* (ChL) VIF-Info neu organisiert
+* (ChL) Reorganisation der Empfängerhandhabung
+* (ChL) Blockierung von Geräten möglich
 
-### 0.2.0 (not tagged)
-* (ChL) Dramatically improved parser: support for security mode 7, frame type B, many small fixes
-* (ChL) VIF extensions are handled better, but correct handling is still not fully clear
-* (ChL) CRCs are checked and removed if still present
-* (ChL) raw data is saved if parser fails
+### 0.2.0 (nicht markiert)
+* (ChL) Drastisch verbesserter Parser: Unterstützung für Sicherheitsmodus 7, Rahmentyp B, viele kleine Korrekturen
+* (ChL) VIF-Erweiterungen werden besser gehandhabt, aber die korrekte Handhabung ist noch nicht ganz klar
+* (ChL) CRCs werden geprüft und entfernt, falls noch vorhanden
+* (ChL) Rohdaten werden gespeichert, wenn der Parser fehlschlägt
 
 ### 0.1.0
-* (ChL) initial release
+* (ChL) Erstveröffentlichung
+
+## Changelog
 
 ## License
 

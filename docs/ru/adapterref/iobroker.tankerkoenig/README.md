@@ -7,7 +7,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
+hash: pAi/iq8uvvin8+lOYL3p2mtIFMCrKTsmwyRmCSpJqqY=
 ---
 ![Логотип](../../../en/admin/tankerkoenig.png)
 
@@ -40,7 +40,7 @@ hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
 
   Или вы нажимаете кнопку `Paste`, после чего в поле будет вставлен только идентификатор.
 
-**Но для этого вы должны разрешить браузеру доступ к буферу обмена.**
+** Но для этого вы должны разрешить браузеру доступ к буферу обмена. ** (это работает, только если ваш администратор работает с https, а вы заходите на страницу с https)
 
 ![альтернативный текст](../../../en/adapterref/img/tankerkoenigStationFinder_copyId.png "Настройки снимка экрана") В параметрах скидки вы можете выбрать один из вариантов скидки ⇨ Евро / Процент и тип топлива, на который распространяется скидка (по умолчанию все выбрано).
 
@@ -129,6 +129,17 @@ hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
  Placeholder for the next version (at the beginning of the line):
  ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
  -->
+### 3.3.7 (2023-02-06)
+* (xXBJXx) added difference to jsonTable [issue #116](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/116)
+* (xXBJXx) added a log message for the error `parameter error`
+* (xXBJXx) set the name length to 34 characters
+* (xXBJXx) Added verification if the api key is encrypted
+* (xXBJXx) updated the Dependencies
+
+### 3.3.6 (2023-01-22)
+* (xXBJXx) fixed position of the warning message in the UI
+* (xXBJXx) updated the documentation and migration guides for stable version 3.3.6
+
 ### 3.3.5 (2023-01-04)
 * (xXBJXx) fixed copy/paste bug in the UI
 
@@ -139,19 +150,6 @@ hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
 * (xXBJXx) fixed => adapter does not fetch data after a `requestData error` e.g. internet termination.
 * (xXBJXx) add adapter migration Guide from 3.1.x to 3.3.x or 3.2.x to 3.3.x [Migration guide](docs/guide/migration_3.3.x.md)
 * (xXBJXx) fixed Issue [Issue #111](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/111)
-
-### 3.3.2 (2023-01-02)
-* (xXBJXx) fixed TypeError: Cannot read property 'length' of undefined in addDiscount when the value is `boolean / undefined`
-* (xXBJXx) fixed Error: DB closed when the adapter is stopped
-* (xXBJXx) object creation optimized
-* (xXBJXx) request interval default value changed to 10 minutes and minimum value to 10 minutes
-* (xXBJXx) added a check for the Station ID is already configured (in edit mode)
-* (xXBJXx) added price difference to the last price
-* (xXBJXx) added a feature request cheapest station [Issue #109](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/109)
-
-### 3.3.1 (2022-12-30)
-* (xXBJXx) fixed TypeError: Cannot read properties of undefined [Issue #104](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/104)
-* (xXBJXx) added full street state for each station
 
 ## License
 

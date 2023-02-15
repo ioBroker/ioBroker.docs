@@ -62,6 +62,10 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.3.1
+* new function gettriggerlist in admin
+* corrected xml2json-light (included drirectly in repo until PR#8 is merged in repo), caused problems with templates in newer FB-firmware
+
 ### 2.3.0
 * option to set for logging only when a difference to the old value is detected
 * fritzdect-aha-nodejs as dependency

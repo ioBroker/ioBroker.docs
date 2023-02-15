@@ -5,6 +5,7 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.backitup.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.backitup/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.backitup?style=flat
 BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
+BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
 ![Logo](img/backitup.png)
 # ioBroker.backitup
@@ -18,11 +19,12 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 
 [![License](https://img.shields.io/github/license/simatec/ioBroker.backitup?style=flat)](https://github.com/simatec/ioBroker.backitup/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
 
 **Wenn Ihnen ioBroker.backitup gefällt, denken Sie bitte über eine Spende nach:**
   
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -102,6 +104,9 @@ ioBroker.backitup hat nach dem Start des iobrokers keinerlei Einfluss auf die Wi
 * Für die Verwendung des MySql-Backups von MariaDB Systemen muss mysqldump auf dem System installiert sein
     - `sudo apt install mariadb-client`
 
+* Für die Verwendung des Sqlite3-Backups muss sqlite3 auf dem System installiert sein
+    - `sudo apt install sqlite3`
+
 * Für die verwendung des PostgreSQL-Backups muss mysqldump auf dem System installiert sein
     - [Installationsanleitung PostgreSQL](https://www.postgresql.org/download/linux/debian/)
 
@@ -142,6 +147,10 @@ Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backu
 Wichig hierbei ist, dass auch wenn der Mysql-Server auf einem entferten System läuft, die mysqldump auf dem ioBroker System laufen muss.<br>Für Linuxsysteme wäre der Installationsbefehl wie folgt: `sudo apt install mysql-client` oder unter Debian `sudo apt install default-mysql-client` bzw. für MariaDB Systeme `sudo apt install mariadb-client`.<br><br>
 Wer nicht nur eine Datenbank sichern will, kann die Option "Sicherung mehrerer Systeme" aktivieren und im Anschluss seine Datenbanken in der Tabelle definieren.
 
+## Sqlite3-Backup
+Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
+Auf dem Host-System muss Sqlite3 (`sudo apt install msqlite3`) installiert sein. 
+
 ## Redis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br>
 Zur Verwendung von Redis mit ioBroker.backitup sollten die Rechte für den iobroker-User angepasst werden:<br>
@@ -149,8 +158,6 @@ Zur Verwendung von Redis mit ioBroker.backitup sollten die Rechte für den iobro
 sudo usermod -a -G redis iobroker
 sudo reboot
 ```
-
-Ab ioBroker.backitup Version 2.3.x ist es möglich ein Remote Backup für Redis zu erstellen.
 
 Für ein Remote-Backup wird auf dem loaklen iobroker System redis-cli benötigt.
 
@@ -226,9 +233,14 @@ ioBroker.backitup kann dann im Konfiguartionsmenü die Einstellungen übernehmen
 
 ## Jarvis-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.<br><br>
-***Ein Backup der Jarvis-Konfiguration ist ab eine Jarvis-Version 2.2.0-beta.7 möglich.***
 
 ## Zigbee-Backup
+Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
+
+## Zigbee2MQTT-Backup
+Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
+
+## Node-Red-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
 
 ## Grafana-Backup
@@ -294,6 +306,11 @@ Um die Sicherung in der Google Drive zu nutzen, muss man sich Access einen Token
 ioBroker greift nur auf die definierten Bereiche. Den Code für oAuth kann man [hier](https://github.com/simatec/ioBroker.backitup/blob/master/docs/oAuthService.js) ansehen.<br><br>
 Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
 
+## Onedrive
+Um die Sicherung in der Onedrive zu nutzen, muss man einen Access Token holen. Das kann man auf der Konfigurationsseite von ioBroker.backitup machen.<br>
+ioBroker greift nur auf die definierte Bereiche.<br><br>
+Keine Tokens oder Anwenderdaten werden in der Cloud gespeichert.
+
 ## WebDAV
 Mit WebDAV bietet ioBroker.backitup die Möglichkeit mehrere Cloudsysteme anzusprechen.<br>Die bekannteste ist hier NextCloud.
 Um eine WebDAV-Verbindung herzustellen, weren der Username und das Passwort des Cloud Accounts benötigt.<br>
@@ -306,7 +323,7 @@ Eine Verbindung mit lokaler IP-Adresse ist nur möglich, wenn die Option "Nur si
 ---
 
 # Multihost Unterstützung
-Ab ioBroker.backitup Version 2.2.0 wird Multihost für die Sicherung entfernter Systeme (z.B. Zigbee oder entfernte Datenbanken) unterstützt. Multihost für ioBroker.backitup kann mit mehreren Instanzen von ioBroker.backitup auf verschiedenen Hosts arbeiten.<br>
+Multihost für ioBroker.backitup kann mit mehreren Instanzen von ioBroker.backitup auf verschiedenen Hosts arbeiten.<br>
 Ein Instanz von ioBroker.backitup muss zur Unterstützung als Master konfiguriert. Alle weiteren Instanzen, die sich auf entfernten Hosts befinden, werden als Slave konfiguriert.<br><br>
 Das Management der automatischen Backups übernimmt der Master. Alle Slave Instanzen können im Master über das Menü ausgewählt werden.<br>
 Für die Slave Instanzen können folgende Backup-Optionen aktiviert werden:<br>
@@ -316,9 +333,12 @@ Für die Slave Instanzen können folgende Backup-Optionen aktiviert werden:<br>
 * History
 * InfluxDB
 * MySql
+* Sqlite3
 * PostgreSql
 * Grafana
 * Yahka
+* Node-Red
+* Zigbee2MQTT
 
 Da in einer Slave Instanz die automatischen Backups durch den Master geregelt werden, sind iobroker-Backups, Javascript-Backups und CCU-Backups nicht auswählbar.<br><br>
 Die Speicherorte für die einzelnen Backups können auf jedem Slave frei konfiguriert werden. So kann jeder sein Dateiablagesystem unabhängig vom Master gestallten.<br><br>
@@ -403,6 +423,7 @@ Syntax: {wert: <BackitupInstanz>.oneClick.<Auslösetrigger>; wert === "true" || 
    * E-Mail 
    * Whatsapp
    * Signal
+   * Matrix
 
 ### [zurück](#Inhalt)
 ---
@@ -499,6 +520,34 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (simatec) Onedrive-Api for Backups added
+* (simatec) Onedrive-Api for Restore added
+* (simatec) Matrix Messenger added
+* (simatec) TLS for FTP added
+* (simatec) Tab Extra-Settings added
+* (simatec) Node-Red Backup added
+* (simatec) Node-Red Restore added
+* (simatec) SQLLite Backup added
+* (simatec) SQLLite Restore added
+* (simatec) Zigbee2MQTT Backup added
+* (simatec) Zigbee2MQTT Restore added
+* (simatec) Local-Storage check added
+* (simatec) System-Message added
+* (simatec) Jarvis Backup updated
+* (simatec) Jarvis Restore updated
+* (simatec) Docu updated
+* (simatec) Wiki updated
+* (simatec) many small Fixes
+* (simatec) dependencies updated
+* (simatec) Translation added
+
+### 2.5.12 (2023-01-19)
+* (simatec) Fix Windows ioBroker-Restore
+
+### 2.5.11 (2023-01-18)
+* (simatec) Fix Windows ioBroker-Restore
+
 ### 2.5.10 (2023-01-03)
 * (simatec) Fix Docker Restore
 * (simatec) Fix Link Design

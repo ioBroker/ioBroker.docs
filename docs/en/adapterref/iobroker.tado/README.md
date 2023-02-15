@@ -13,15 +13,6 @@
 ## tado adapter for ioBroker
 tado° ensures a comfortable and healthy climate while saving up to 31% on your heating bill.
 
-## Breaking changes in 0.4.0
-* Requires NodeJS 14.16 or higher
-* Requires ioBroker host (js-controller) 4.0 or higher
-
-## Support me
-If you like my work, please feel free to provide a personal donation  
-(this is an personal Donate link for DutchmanNL, no relation to the ioBroker Project !  
-[![Donate](https://raw.githubusercontent.com/DrozmotiX/ioBroker.tado/main/admin/button.png)](http://paypal.me/DutchmanNL)
-
 ## Things you can steer
 | State | Description |
 | ----- | ----------- |
@@ -44,12 +35,20 @@ If you like my work, please feel free to provide a personal donation
 | tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertical swing (only AC devices with V3+ version) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
 
+## Requires
+* NodeJS 14.16 or higher
+* ioBroker host (js-controller) 4.0 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.4 (2023-02-03)
+* (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
+* (HGlab01) Bump axios to 1.3.1
+* (HGlab01) Fix 'Invalid value TADO_MODE' (#585)
+
 ### 0.4.3 (2022-12-06)
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10 (#551)
 * (HGlab01) Bump axios to 1.2.1 (final fix for #561)
@@ -67,10 +66,6 @@ If you like my work, please feel free to provide a personal donation
 * (HGlab01) !Breaking change! NodeJS 14.16 or higher required
 * (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
 * (HGlab01) Bump is-online from 9.0.1 to 10.0.0
-
-### 0.3.16 (2022-08-01)
-* (HGlab01) Support light (issue #519)
-* (HGlab01) Add attributes vattenfallBannerDiscountCode, thresholdModeActive, mountingStateWithError, isAirComfortEligible
 
 ## License
 MIT License

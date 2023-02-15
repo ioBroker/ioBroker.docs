@@ -15,7 +15,7 @@ CI-Tests:
 
 ## Adapter for reading Kostal Piko & Piko BA data for iOBroker
 Adapter for reading Kostal Piko & Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter working with Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15, 17 & 20 inverters. 
+Adapter working with Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17 & 20 inverters. 
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
@@ -31,6 +31,18 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.2.2 (14.02.2023)
+* (HombachC) fixed error with missing grid limitation response; bumped dependencies
+### 2.2.1 (07.02.2023)
+* (HombachC) fixing error with missing grid limitation response
+### 2.2.0 (03.02.2023)
+* (HombachC) added support for phase 1-3 of homeconsumption power
+* (HombachC) enhanced sentry support
+### 2.1.3 (03.02.2023)
+* (HombachC) optimized debug data
+### 2.1.2 (29.01.2023)
+* (HombachC) fixed errors with single phase inverters (Piko 3)
+* (HombachC) bumped dependencies
 ### 2.1.1 (29.12.2022)
 * (HombachC) year 2023 changes
 * (HombachC) bumped dependencies

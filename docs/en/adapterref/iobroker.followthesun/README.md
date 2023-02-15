@@ -26,7 +26,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.4.1 (2023-02-05)
 * (HGlab01) Improve error log if coordinates are not set
 
 ### 0.4.0 (2022-11-19)
@@ -47,9 +47,6 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 ### 0.3.7 (2021-11-29)
 * (HGlab01) Bump @alcalzone/release-script to 3.4.0
 * (HGlab01) Improve error handling
-
-### 0.3.5 (2021-07-27)
-* (HGlab01) Improve state and sentry handling by bump iobroker-jsonexplorer to v0.1.1
 
 ## License
 MIT License

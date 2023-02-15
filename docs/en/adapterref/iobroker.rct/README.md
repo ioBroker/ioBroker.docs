@@ -11,6 +11,11 @@
 
 **Tests:** ![Test and Release](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
+## Project NO LONGER MAINTAINED
+
+After I switched to Home Assistant, I do no longer maintain this adapter.
+If you are interested to take it over, please let me know.
+
 ## RCT adapter for ioBroker
 
 Please note that this is a private project and that I (Markus Lauff) am not related to RCT in any way.

@@ -28,11 +28,32 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-02-06)
 
-### **WORK IN PROGRESS**
+-   (ciddi89) Fixed: Instance error list and count was not reset
+-   (ciddi89) Fixed: Made working notification for adapter update
+-   (ciddi89) Added: Delete objects automatically if it is not selected in settings.
+-   (ciddi89) Enhancement: Check if general device connected state is true for more then few seconds to prevent multiple device status messages
+-   (ciddi89) Added: Proxmox Adapter ([#123](https://github.com/ciddi89/ioBroker.device-watcher/issues/123))
+-   (ciddi89) Fixed: Delete/Add data of new or deleted instance without restart ([#125](https://github.com/ciddi89/ioBroker.device-watcher/issues/125))
+-   (ciddi89) Fixed: Delete/Add data of new or deleted devices without restart ([#125](https://github.com/ciddi89/ioBroker.device-watcher/issues/125))
+-   (ciddi89) Enhancement: Schedule and State notifications
+-   (ciddi89) Enhancement: Some code improvements
 
--   (ciddi89) make onStateChanges only, when device adapter is alive
--   (ciddi89) Homeconnect ans Smartgarden Adapter added
+### 2.5.0 (2023-01-27)
+
+-   (ciddi89) Add Feature: Possibility to watch instances
+-   (ciddi89) Change: Folder strukur. Instances and devices have got their own folders because of the overview. Please delete the instance folder and restart the instance.
+
+### 2.4.1 (2023-01-14)
+
+-   (ciddi89) send online and offline notifications only, if the connection to device (zigbee stick etc.) is longer then few seconds. Should prevent multiple messages at a stroke
+-   (ciddi89) fixed issue that all devices was listed even though only batterie devices was selected
+
+### 2.4.0 (2023-01-10)
+
+-   (ciddi89) make onStateChanges only, when device instance is alive
+-   (ciddi89) Homeconnect and Smartgarden Adapter added
 
 ### 2.3.1 (2023-01-05)
 

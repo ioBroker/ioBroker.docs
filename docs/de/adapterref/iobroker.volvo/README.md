@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.volvo/README.md
 title: ioBroker.volvo
-hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
+hash: KQNQQ/Rzgeeh5MCvgqbVVuW6Sf/ZXmF8cDEFXZYqaJc=
 ---
 ![Logo](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
@@ -20,10 +20,10 @@ hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ## Volvo-Adapter für ioBroker
 Volvo On Call und neue Electric API für Android Automotive Cars Adapter
 
-## Anmeldung
+## Login für Nicht-Elektroautos
 Nicht-Elektroautos können sich über Benutzername und Passwort anmelden.
 
-### Elektrische Android-Automobile benötigen einen VCC-API-Schlüssel
+## Elektrische Android-Automobile benötigen einen VCC-API-Schlüssel
 Registrieren/Anmelden bei <https://developer.volvocars.com/account/>
 
 Sie benötigen ein Google- oder Github-Konto, das nichts mit Ihren APP-Anmeldeinformationen zu tun hat
@@ -38,7 +38,8 @@ Fügen Sie den API-Schlüssel in die Instanzeinstellungen ein
 
 Geben Sie den Benutzernamen und das Passwort der Volvoe-App ein.
 
-Fernbedienungen funktionieren nicht mit der neuen API. Die Anfragen werden angenommen, aber nicht an das Auto weitergeleitet.
+## Elektrisches Android steuern
+Die Steuerung von Eletric Android mit der volvo.0.id.remote ist derzeit nicht möglich. Die Befehle werden erfolgreich an die API gesendet und akzeptiert, aber es sieht so aus, als ob die API nicht vollständig ist, um das Auto zu steuern.
 
 ## Einstieg
 Verwenden Sie Objekte unter der Fernbedienung, um das Fahrzeug zu steuern

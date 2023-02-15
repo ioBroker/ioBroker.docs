@@ -30,11 +30,15 @@ Or in js use:
 sendTo("matrix-org.0", "Hello World!");
 ```
 Or use the blockly symbol in Sendto.
+
 For images from local file system (Linux): 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
-For images from local file system (Windows): sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
+For images from local file system (Windows):
+``` 
+sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
+```
 For images as reference: 
 ```
 sendTo("matrix-org.0",{file: "https://www.abcd/images/test.png"});
@@ -74,6 +78,10 @@ Join this room and try it out with your own credentials
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.4 (2023-02-04)
+* update of dependencies
+* small readme improvement
+
 ### 0.1.3 (2022-11-03)
 * updates of dependencies
 
@@ -133,7 +141,7 @@ Join this room and try it out with your own credentials
 ## License
 MIT License
 
-Copyright (c) 2022 Christian Oelschlegel <iobrokermatrix@sciphy.de>
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

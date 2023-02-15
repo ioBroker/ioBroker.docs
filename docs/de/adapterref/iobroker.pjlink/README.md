@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pjlink/README.md
 title: ioBroker.pjlink
-hash: Ips4mgJB0NT9pMUuDV+m6sho+Yi1Jrg0GDJV2/S8HBU=
+hash: fRFyqywoqjqqH5xW0ND8o/PnzeQLT9fhEDVWAGrmvi8=
 ---
 ![Logo](../../../en/adapterref/iobroker.pjlink/admin/pjlink.png)
 
@@ -38,6 +38,7 @@ Diese Arbeit basiert auf dem nodejs-Modul mit pjlink-Implementierung von **sy1va
 
 ## Machen
 * Unterstützung des node-pjlink-Projekts zur Implementierung von Klasse 2
+* Gehen Sie zurück zur pjlink-Bibliothek auf github. Aufgrund eines Fehlers im Testskript wird die Bibliothek vorerst lokal gehalten
 
 ## Funktionsweise des Adapters
 Derzeit wird nur Klasse 1 unterstützt. Das heißt, der Adapter kann nur den Status abfragen.
@@ -77,9 +78,15 @@ In der Datenbank ist nur eine Lampe vordefiniert. Wenn die Lampenabfrage mehr al
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.1.1 (2023-01-24)
+* (Bannsaenger) temporarily fix the test script error with local libraries
+
+### 0.1.0 (2023-01-23)
 * (Bannsaenger) extended configuration to let you choose the frequency and time for information retrieval
-* (Bannsaenger) added possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add possibility to customize media.input by the **INST** query and edit the names in instance config
+* (Bannsaenger) add non-guaranteed time after power ON (number of skipped short cycles after power ON event)
+* (Bannsaenger) moved all status queries to one timer due to authentification issues when queries are executed at the same time
+* (Bannsaenger) treat error "unavailabe time" only as warning and log it only once
 
 ### 0.0.3 (2022-10-19)
 * (Bannsaenger) updated react dependency
@@ -94,7 +101,7 @@ In der Datenbank ist nur eine Lampe vordefiniert. Wenn die Lampenabfrage mehr al
 ## License
 MIT License
 
-Copyright (c) 2022 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2023 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

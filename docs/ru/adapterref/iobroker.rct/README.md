@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: 5zS18euTcTWgxurLHr8gj7RbqPnHqk68qY3n67jVDCk=
+hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -17,6 +17,10 @@ hash: 5zS18euTcTWgxurLHr8gj7RbqPnHqk68qY3n67jVDCk=
 # IoBroker.rct
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
+## Проект БОЛЬШЕ НЕ ПОДДЕРЖИВАЕТСЯ
+После того, как я перешел на Home Assistant, я больше не обслуживаю этот адаптер.
+Если вы заинтересованы в том, чтобы взять его на себя, пожалуйста, дайте мне знать.
+
 ## Адаптер RCT для ioBroker
 Обратите внимание, что это частный проект и что я (Маркус Лауфф) никак не связан с RCT.
 
@@ -26,7 +30,7 @@ hash: 5zS18euTcTWgxurLHr8gj7RbqPnHqk68qY3n67jVDCk=
 ### Первоначальный продуктивный релиз
 Это первоначальный продуктивный выпуск после того, как предыдущая версия доказала свою стабильность и соответствует минимально возможному объему.
 
-Конфигурация по-прежнему ограничена и довольно техническая. С помощью "RCT ELemente" можно выбрать, какие данные будут считываться с силового преобразователя. По умолчанию это «battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].enabled,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].enabled, dc_conv.dc_conv_struct[1].p_dc_lp,ошибка[0].flt,ошибка[1].flt,ошибка[2].flt,ошибка[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm,ism.ism.is .государство". Остальные элементы можно найти в коде (файл "rct/rc_core.js"). Но это совсем не описательно (даже не проверено).
+Конфигурация по-прежнему ограничена и довольно техническая. С помощью "RCT ELemente" можно выбрать, какие данные будут считываться с силового преобразователя. По умолчанию это «battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].enabled,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].enabled, dc_conv.dc_conv_struct[1].p_dc_lp,ошибка[0].flt,ошибка[1].flt,ошибка[2].flt,ошибка[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm,ism.ism.is .состояние". Остальные элементы можно найти в коде (файл "rct/rc_core.js"). Но это совсем не описательно (даже не проверено).
 
 ## Известные вопросы
 ### Неверные каналы/состояния

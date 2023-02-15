@@ -23,6 +23,15 @@ Maximum number of individual modules:
    A residential ventilation unit of the CWL Excellent series can also be evaluated and operated with the ISM8i.
 
 ## Changelog
+### 1.7.0 (2023-01-26)
+* (fred0815) added missing ISM8i states
+* (fred0815) optimized channel object naming
+* (fred0815) fixed configuration of polling interval
+* (Apollon77) Adjust some temperature states to allow to go negative
+
+### 1.6.1 (2023-01-16)
+* (Apollon77) Fixed some crash cases with unknown datapoints
+
 ### 1.6.0 (2022-12-30)
 * (Apollon77) Add DPT10 Encoding (TimeofDay) - but ignores weekday!
 * (Apollon77) Adjust some temperature states to allow to go negative
@@ -120,7 +129,7 @@ Maximum number of individual modules:
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 smiling_Jack
+Copyright (c) 2015-2023 smiling_Jack, ioBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

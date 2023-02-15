@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: pGj5S8Xe7mVY7Xlaq+RDr/n57LPM2/bvOeTbyhPmAm8=
+hash: O5E6Z8YTdApdFUlwwbZJwZ/f9ao+LkM5uBNwB3g6Qa8=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -20,7 +20,7 @@ Mit diesem Adapter können Sie eine Visualisierung für ioBroker mit Home Assist
 [Deutsche Dokumentation](docs/de/README.md)
 
 ## Aufbau
-Es gibt zwei Arten, wie die Entitäten konfiguriert werden könnten:
+Es gibt zwei Möglichkeiten, wie die Entitäten konfiguriert werden können:
 
 - automatisch
 - Handbuch
@@ -315,7 +315,7 @@ oder
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in Lovelace [hier](https://www.home-assistant.io/lovelace/views/#background).
+in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in Lovelace [Hier](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Themen
 Die Themen können im Konfigurationsdialog von ioBroker definiert werden.
@@ -389,7 +389,7 @@ midnight:
   google-green-500: '#39E949'
 ```
 
-übernommen aus [hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
+übernommen aus [Hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ##-Symbole
 Verwenden Sie Symbole in der Form `mdi:NAME`, wie 'mdi:play-network'. Namen können hier entnommen werden: https://materialdesignicons.com/
@@ -481,6 +481,11 @@ Vorerst (20221027.0) wurden folgende Dateien geändert:
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2022-11-03)
+* (Garfonso) do not crash if no history instance selected.
+* (Garfonso) notifications working again.
+* (Garfonso) repaired color temperature handling.
+
 ### 3.0.0 (2022-10-28)
 * (agross) added: per instance language support
 * (Garfonso) entity_id for devices with only one non english name should be ok again.
@@ -513,9 +518,6 @@ Vorerst (20221027.0) wurden folgende Dateien geändert:
 
 ### 2.1.3 (2022-01-07)
 * (Garfonso) Fixed: remove backup of old frontend (sorry)
-
-### 2.1.2 (2022-01-06)
-* (Garfonso) Fixed: Menu was broken in frontend.
 
 ## License
 

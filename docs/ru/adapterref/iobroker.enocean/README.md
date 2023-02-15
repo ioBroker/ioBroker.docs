@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
+hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -40,10 +40,13 @@ Eltako FGW14: **Важные примечания**: Этот шлюз не по
 
 Шлюз ALL SMART EnOcean LAN — ~~[КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Больше не доступен.
 
-ALL SMART EnOcean Multi-Gateway — [КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
+ALL SMART EnOcean Multi-Gateway — ~~[КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ Больше не доступно.
 
-## Устройства управления Обычно существует объект cmd, где вы можете выбрать команду, которую хотите выполнить. Прежде чем вы сможете выполнить команду, вы должны установить все необходимые атрибуты, вы можете найти эту информацию в определении профиля.
-Специальный:
+### [Поддерживаемые устройства](./docs/devices.md)
+## Устройства управления
+В общем, есть объект cmd, где вы можете выбрать команду, которую хотите выполнить. Прежде чем вы сможете выполнить команду, вы должны установить все необходимые атрибуты, вы можете найти эту информацию в определении профиля.
+
+Особенный:
 
 * A5-20-xx: Устройства с этим профилем принимают команды только в течение 1 секунды после отправки сообщения. Присылают периодически (минут 10?), читайте инструкцию.
 
@@ -65,7 +68,7 @@ ALL SMART EnOcean Multi-Gateway — [КУПИТЬ](https://www.all-smart.net/pro
 - RPS: Просто удалите объекты
 - нет: просто удалить объекты
 
-## Исправление проблем
+## Поиск неисправностей
 1. Устройство не реагирует на команду:
    - Учебный процесс не был успешным. В зависимости от устройства сигнализируется успешное обучение, обратите внимание на этот сигнал. Если сигнала нет, попробуйте еще раз.
    - Проверьте правильность установки всех атрибутов, связанных с CMD.
@@ -178,14 +181,28 @@ ALL SMART EnOcean Multi-Gateway — [КУПИТЬ](https://www.all-smart.net/pro
     }
 ```
 
-## Для разработки
+## Для развития
 Для проверки обработки телеграмм создайте канал с именем development и в этом канале объект с именем telegram, введите строку.
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.5 (2023-02-11)
+* rework TF-13-25, fixes Eltako DSZ14
+* rework TF-13-14, SP uses now temperature range 0-40°C
+* remove useless object ASC from A5-20-01
+* added Afriso FT & FTF
+* added R-Tronic RT B (A5-10-06 + RPS)
+* added new teachin telegram for FUD61NPN-230V
 * fix F6-10-00: The close state was not set, the window was always shown as open.
 * fix & rework TF-13-25 Eltako DSZ14 (#87)
+* fix multiple conditions in eep's
+* fix Eltako FGW14-USB does not receive status updates
+* fix lastID is null when using Eltako FGW14-USB
+* fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set
+* fix I1-01-01 invalid telegram send by on and off
+* fix device definition Oventrop mote 420
+* fix missing zeros in front of sender IDs while using FGW14
+* fix incomplete data while receiving type 10 messages
 * code cleanup and refactoring
 
 ### 0.8.4 (2022-11-17)

@@ -5,7 +5,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hikvision-alarmserver.svg)](https://www.npmjs.com/package/iobroker.hikvision-alarmserver)
 ![Number of Installations](https://iobroker.live/badges/hikvision-alarmserver-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/hikvision-alarmserver-stable.svg)
-[![Dependency Status](https://img.shields.io/david/raintonr/iobroker.hikvision-alarmserver.svg)](https://david-dm.org/raintonr/iobroker.hikvision-alarmserver)
 
 [![NPM](https://nodei.co/npm/iobroker.hikvision-alarmserver.png?downloads=true)](https://nodei.co/npm/iobroker.hikvision-alarmserver/)
 
@@ -34,7 +33,90 @@ It appears that cameras repeatedly issue events every second when those events a
 
 ### ioBroker
 
+#### Network
+
 In the adapter configuration, select a free port for the adapter to listen on (8089 by default).
+
+#### Alarm timeout
+
+Most devices signal an alarm is *active* by constantly sending alert messages. These devices never send an *inactive* message. Therefore the adapter assumes an alarm is cleared when no message is received after a given period of time. Specify that period here (default 5000ms).
+
+#### Channel tree
+
+Some cameras (eg. with multiple sensors) report on multiple channels (not to be confused with ioBroker channels). In order to differentiate events between each of the camera's channels check the appropriate option.
+
+For specific event types (eg. field detection, line crossing, etc), some cameras are able to identify motion detection targets (eg. human, vehicle, etc). To create a state for each of these targets under each applicable event type, check the appropriate option.
+
+#### sendTo
+
+Some event types received have a simple boolean on/off (duration, VMD, etc). For these simple events, setting the appropriate state in ioBroker's object tree is sufficient.
+
+However, some events received include binary data such as images which would be impractical to constantly store in the ioBroker object tree. A more graceful mechanism to handle such events it to use ioBroker's inbuilt messaging system which allows message objects to be communicated between adapters.
+
+While this function is designed mainly for images, sending triggered by simple XML parts is also supported.
+
+The exact message sent is configurable in the `Send to message...` fields. These fields are evaluated with the JavaScript `Function` object and have two variables available: `ctx` (the event context object - see below) and in the case of image parts the raw buffer is available in `imageBuffer`.
+
+##### Example 1: Send textual alert on every event received via Telegram
+
+If the Telegram adapter has been implemented, one could set the following parameters in the `XML event parts` section:
+
+* Send to instance for XML: `telegram.0`
+* Send to command for XML: Leave blank
+* Send to message for XML: Note backticks are part of configured value - `` `Received ${ctx.eventType} from ${ctx.deviceName}` ``
+
+##### Example 2: Send images via Telegram
+
+If the Telegram adapter has been implemented, one could set the following parameters in the `Image event parts` section:
+
+* Send to instance for images: `telegram.0`
+* Send to command for images: Leave blank
+* Send to message for images: `{ text: imageBuffer, type: 'photo' }`
+
+##### Example 3: Send images to custom Javascript
+
+A more complex example is to send each image buffer received to a custom script running inside a Javascript adapter:
+
+* Send to instance name: `javascript.0`
+* Send to command: `toScript` (this is not an example - the literal string is required).
+* Send to message: `{ script: 'script.js.myImageHandler', message: 'myImageReceiver', data: { device: ctx.device, image: imageBuffer } }`
+
+Inside the Javascript adapter (instance zero) create a script named `myImageHandler` and add this code:
+
+```javascript
+onMessage('myImageReceiver', (data, cb) => {
+  // data.device holds mac address of device (colons stripped).
+  // data.image holds raw image buffer.
+  ...
+  cb();
+});
+```
+
+##### Event context object
+
+The `ctx` event context has the following properties:
+
+- `macAddress`
+- `eventType`
+- `detectionTarget`
+- `channelName`
+- `device` - MAC address with quotes stripped (for consistency with net-tools).
+- `deviceName` - Hostname derived from net-tools or copy of `device` if not found.
+- `stateId` - State ID this event triggers.
+- `eventLogged` - Boolean indicating a state was properly triggered. Should always be true.
+- `xml` - Parsed XML data.
+- `ts` - JavaScript `Date` object created from `dateTime` in event message (or time event was receive if not available).
+- `periodPath` - Filesystem folder where event parts are currently being saved (changes each day).
+- `fileBase` - Prefix for all saved parts from the current message.
+- `files` - Array holding filenames (including full path) of all files dumped as part of processing of the current message.
+
+
+#### Saving event data
+
+If checked event XML and/or image data is store on the local filesystem under `iobroker-data/hikvision-alarmserver.<instance>`.
+
+*Warning!* these files are not currently purged or archived so use with caution or implement an external strategy for this.
+
 
 ### On Camera
 
@@ -52,6 +134,13 @@ Make sure to linkage in the events you would like to report to ioBroker includes
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2023-01-24)
+-   (Robin Rainton) Added configuration for alarm timeout ([#16](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/16)).
+-   (Robin Rainton) Fixed multipart message handling for line crossing/field detection, etc ([#18](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/18)).
+-   (Robin Rainton) Optionally save XML/images & send events using `sendTo` to other adapters ([#20](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/20) & [#26](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/26)).
+-   (Robin Rainton) Added info.connection state ([#22](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/22)).
+-   (Robin Rainton) Handle cases where `TargetRect` is specified in decimals between zero & one ([#24](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/24)).
+
 ### 0.0.7 (2022-12-29)
 -   (Robin Rainton) Add bind address option ([#9](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/9)).
 -   (Robin Rainton) Try to derive device names from net-tools. Optionally use channelName from devices ([#10](https://github.com/iobroker-community-adapters/ioBroker.hikvision-alarmserver/issues/10)).
@@ -69,7 +158,7 @@ Make sure to linkage in the events you would like to report to ioBroker includes
 ## License
 MIT License
 
-Copyright (c) 2022 Robin Rainton <robin@rainton.com>
+Copyright (c) 2022-2023 Robin Rainton <robin@rainton.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

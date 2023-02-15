@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vds2465-server/README.md
 title: ioBroker.vds2465-сервер
-hash: Zxq/QGZttqQJD3uwSPiK8e3xNBSsSujuBG33TwIhn7U=
+hash: LUZhRwCLm3NWCE1ngMffnzLjy97AcLesExZCwC/LfoM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vds2465-server/admin/vds2465-server.png)
 
@@ -20,7 +20,7 @@ hash: Zxq/QGZttqQJD3uwSPiK8e3xNBSsSujuBG33TwIhn7U=
 ## Адаптер vds2465-server для ioBroker
 Empfänger von VdS2465-Meldungen
 
-Der Adapter empfängt Meldungen Meldungen von Wählgeräten mit dem VdS2465-2 Protokoll.
+Der Adapter empfängt Meldungen Meldungen von Wählgeräten mit dem VdS2465-S2 Protokoll.
 Dabei sind folgende Varianten möglich
 
 1. bedarfsgesteuert unverschlüsselt
@@ -50,6 +50,19 @@ ausgewertet.
 
 ## Changelog
 
+### 0.1.5
+* (Hirsch-DE) Fix Check doppelte Verbindungen
+### 0.1.4
+* (Hirsch-DE) TC-Counter bei IK7 geprüft
+* (Hirsch-DE) Encoding bei Text auf ISO 8859-1 geändert
+### 0.1.3
+* (Hirsch-DE) Fix RC-Counter
+### 0.1.2
+* (Hirsch-DE) Fix TC-Counter
+* (Hirsch-DE) Fix RC-Counter
+* (Hirsch-DE) diverse kleine Anpassungen
+### 0.1.1
+* (Hirsch-DE) Fix TC-Counter
 ### 0.1.0
 * (Hirsch-DE) Fix VdSServiceRequest
 * (Hirsch-DE) Zaehler Service Request festgelegt

@@ -41,7 +41,10 @@ The bus devices report with their bus address, i.e. it starts with 00 00 00 01.
 
 ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ No longer available.  
 
-ALL SMART EnOcean Multi-Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
+ALL SMART EnOcean Multi-Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ No longer available.
+
+### [Supported devices](./docs/devices.md)
+
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
 you can find this information in the profile definition.
@@ -187,9 +190,23 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.5 (2023-02-11)
+* rework TF-13-25, fixes Eltako DSZ14
+* rework TF-13-14, SP uses now temperature range 0-40°C
+* remove useless object ASC from A5-20-01
+* added Afriso FT & FTF
+* added R-Tronic RT B (A5-10-06 + RPS)
+* added new teachin telegram for FUD61NPN-230V
 * fix F6-10-00: The close state was not set, the window was always shown as open.
 * fix & rework TF-13-25 Eltako DSZ14 (#87)
+* fix multiple conditions in eep's
+* fix Eltako FGW14-USB does not receive status updates
+* fix lastID is null when using Eltako FGW14-USB
+* fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set
+* fix I1-01-01 invalid telegram send by on and off
+* fix device definition Oventrop mote 420
+* fix missing zeros in front of sender IDs while using FGW14
+* fix incomplete data while receiving type 10 messages
 * code cleanup and refactoring
 
 ### 0.8.4 (2022-11-17)

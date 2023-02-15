@@ -4,25 +4,25 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.birthdays/javascript.md
 title: ioBroker.Geburtstage
-hash: +XrvphC5uZhQ3UYjVX1Kjaf+4a8NwNr7uhPakRnTUlk=
+hash: RIwb5Sf7GsGAIGq9+rhvFhbU2gtWyhVPzmxFfpd0a/Q=
 ---
-![Logo](../../../en/adapterref/iobroker.birthdays/../../admin/birthdays.png)
+![Logo](../../../en/admin/birthdays.png)
 
 # IoBroker.geburtstage
 Gemeinsame Funktion zum Senden von Nachrichten / Benachrichtigungen
 
 ```javascript
 function sendText(text) {
-    // Eigene Logik (pushover, telegram, ...)
+    // Own logic (pushover, telegram, ...)
     sendTo('pushover', 'send', {
         message: text,
         sound: '',
-        title: 'Geburtstags-Kalender'
+        title: 'Birthday calendar'
     });
 }
 ```
 
-## Denken Sie daran, 1 Tag vor dem Geburtstag
+## 1 Tag vor dem Geburtstag benachrichtigen
 ```javascript
 schedule('0 7 * * *', async () => {
     const nextDaysLeft = getState('birthdays.0.next.daysLeft').val;
@@ -33,14 +33,14 @@ schedule('0 7 * * *', async () => {
 
     // Birthday today
     if (nextDaysLeft == 0) {
-        sendText(`Geburtstage heute: ${nextText}`);
+        sendText(`Birthdays today: ${nextText}`);
 
         // If tomorrow is also a birthday
         if (nextAfterDaysLeft == 1) {
-            sendText(`Geburtstage morgen: ${nextAfterText}`);
+            sendText(`Birthdays tomorrow: ${nextAfterText}`);
         }
     } else if (nextDaysLeft == 1) {
-        sendText(`Geburtstage morgen: ${nextText}`);
+        sendText(`Birthdays tomorrow: ${nextText}`);
     }
 });
 ```

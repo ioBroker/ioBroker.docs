@@ -16,7 +16,7 @@ With this adapter you can build visualization for ioBroker with Home Assistant L
 [Deutsche Dokumentation](docs/de/README.md)
 
 ## Configuration
-There are two arts how the entities could be configured:
+There are two ways how the entities could be configured:
 - auto
 - manual
 

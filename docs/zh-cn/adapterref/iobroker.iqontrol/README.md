@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol 文件
-hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
+hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -140,7 +140,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹 `/userfonts`
 * 在 Options-Tab 中有几个地方可以选择这些字体
-* 这取决于你的服务器 MIME 设置，如果字体正确地呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
+* 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf:`application/x-font-opentype`
 * .ttf: `application/x-font-ttf` 或 `application/x-font-truetype`
@@ -204,7 +204,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 
 ![弹窗截图](img/popup_screenshot.png)![块状弹出](../../../en/adapterref/iobroker.iqontrol/img/popup_blockly.png)
 
-## 小部件
+## 小工具
 * 每个图块都有一个 BACKGROUND_URL 和一个 BACKGROUND_HTML 数据点
 * 在这里您可以定义一个网站链接（通过 BACKGROUND_URL）或放置直接 HTML 代码（通过 BACKGROUND_HTML），这将显示为图块的背景
 * 这使您可以在图块中放置（交互式）内容（如时钟、FLOT 图表、表格、天气预报等）
@@ -297,7 +297,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
         * 如果没有设置变量`instance`，那么`|`之前的部分将作为`wigdetState`-Name
     * 只有当小部件网站作为 URL 或 BACKGROUND_URL 添加到设备时，才会创建相应的数据点
 * 相同的概念可用于 URL/HTML-State，用于在设备的对话框中显示网站
-* 要为您的小部件创建一个图标，请将一个与小部件同名的 .png 文件放入 widgets 目录
+* 要为您的小部件创建图标，请将与小部件具有相同文件名的 .png 文件放入 widgets 目录
 * 请参阅下面的示例小部件网站：
 
 <details><summary>显示示例小部件网站，以使用 postMessage 通信显示为小部件：（<ins>点击打开</ins>)</summary>
@@ -657,7 +657,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 * *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：`true`|`false`
 * 默认值：`false`
-* `clickOnTileOpensDialog`（点击图块打开对话框）：
+* `clickOnTileOpensDialog`（点击磁贴打开对话框）：
 * *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：`true`|`false`
 * 默认值：`true`（对于大多数设备）
@@ -682,7 +682,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 * `sizeInactive`（图块的大小，如果设备处于非活动状态）：
 * 可能的值：“”|“narrowIfInactive shortIfInactive”|“narrowIfInactive”|“narrowIfInactive highIfInactive”|“narrowIfInactive xhighIfInactive”|“shortIfInactive”|“shortIfInactive wideIfInactive”|“shortIfInactive xwideIfInactive”|“wideIfInactive”|“xwideIfInactive”|“highIfInactive” "|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive aspect-3- 2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
 * 默认值：“xwideIfInactive highIfInactive”
-* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这将覆盖图块大小）：
+* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这会覆盖图块大小）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * `stateFillsDeviceInactive`（如果设备处于非活动状态，STATE 的大小会填满整个设备（这可能会干扰其他内容）：
@@ -881,7 +881,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * 网址/HTML：
-* `popupWidth`（URL/HTML-Box 的宽度 [px]）：
+* `popupWidth`（URL/HTML 框的宽度 [px]）：
 * 默认： ””
 * `popupHeight`（URL/HTML 框的高度 [px]）：
 * 默认： ””
@@ -912,7 +912,7 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 
 </详情>
 
-<details><summary>显示使用上述设置创建地图的示例小部件网站：(<ins>点击打开</ins>)</summary>
+<details><summary>显示使用上述设置创建地图的示例小部件网站：（<ins>点击打开</ins>)</summary>
 
 * 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
 *添加小部件时会显示说明
@@ -1005,11 +1005,11 @@ hash: 6QQQ5p6sLnsX0DMsWq6pgtv6QqXfG66KFLR4iwTEbiM=
 
 <details><summary>显示一个更高级的示例：(<ins>点击打开</ins>)</summary>
 
-* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“常量”）
+* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
 *添加小部件时会显示说明
 * 要求您的标题和实例的 URL 参数
 * 然后系统会询问您是否要应用包含的选项
-*创建了一堆数据点来控制地图的位置并设置最喜欢的位置
+*创建了一堆数据点来控制地图的位置和设置最喜欢的位置
 
 ```html
 <!doctype html>
@@ -1313,7 +1313,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 	![列表编辑未达到](../../../en/adapterref/iobroker.iqontrol/img/list_edit_unreach_counter.png)
 
 * 最后，它计算所有值为“true”的数据点，这些数据点具有至少 15 秒的状态
-* 您可以添加一些内置的默认列表，例如复杂的服务消息和适配器监视器。只需点击“添加默认列表”按钮并选择要添加的内容。随意检查列表，以更好地了解其工作原理。
+* 您可以添加一些内置的默认列表，例如复杂的服务消息和适配器监视器。只需点击“添加默认列表”按钮并选择要添加的内容。随意检查列表，以更好地理解它们的工作原理。
 
 ###维基
 * wiki 中的 `dslraser` 有一个很好的解释和一些很好的增强功能：[wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/Listen-Z%C3%A4hler)
@@ -1335,7 +1335,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * 设置水平滑块在增加/减少时采取的步骤
 * 修改数据点类型
 * 修改数据点角色
-* 设置目标值 ID，这是一个数据点 ID，目标值写入其中（如果实际值和目标值有不同的数据点）
+* 设置一个 target-value-id，这是一个数据点 id，目标值写入其中（如果实际值和目标值有不同的数据点）
 * 设置或修改值列表
     * 可选地向值列表添加一个选项以输入自由文本
 * 设置目标值列表：
@@ -1370,7 +1370,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 }
 ```
 
-    * 您可以通过修改数据点（扳手图标，或者更确切地说是新的 react-ui 中的齿轮图标，在 iobroker 的对象选项卡中的数据点后面，见上文）来创建自己的值列表
+    * 您可以通过修改数据点来创建您自己的值列表（扳手图标，或者更确切地说是新 react-ui 中的齿轮图标，在 iobroker 的对象选项卡中的数据点后面，见上文）
 * iQontrol在以下情况下会在对话框中显示一个定义好的valueList作为下拉框：
 * 如果类型是“number”并且 valueList 具有与数据点的最小值和最大值之间的步长一样多的条目或
 * 如果类型是 `boolean`，但角色不是 `switch` 或
@@ -1402,7 +1402,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**：*string* - 任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等）表示图块覆盖的颜色（取决于图块是活动的还是非活动的）。如果没有给出有效的颜色字符串，则使用标准叠加颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义覆盖层的透明度，这将影响设置覆盖层颜色的外观。
+* **OVERLAY_INACTIVE_COLOR** 和 **OVERLAY_ACTIVE_COLOR**：*string* - 任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等）表示图块覆盖的颜色（取决于图块是活动的还是非活动的）。如果没有给出有效的颜色字符串，则使用标准覆盖颜色（可以在 iQontrol-Options 中配置）。请记住，在 iQontrol 选项中有一个选项可以定义覆盖层的透明度，这将影响设置覆盖层颜色的外观。
 * 对于灯，您还可以使用选项“将灯的颜色用作 OVERLAY_ACTIVE_COLOR”，该选项可在设备特定选项中找到。
 
     ![叠加颜色](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
@@ -1437,10 +1437,10 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * 对于彩色 LED（HSB 色彩空间）：
     * **HUE**：*数字* - 0-360° 范围内的光的颜色（色调格式）
     * **饱和度**：*数字* - 光的饱和度（从白色到纯色）
-    * **COLOR_BRIGHTNESS**：*number* - 彩色 LED 的亮度（如果您有 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
+  ***COLOR_BRIGHTNESS**:* umber* - 彩色 LED 的亮度（如果你有一个 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
 * 对于白色 LED：
   ***CT**:* umber* - 光的色温，如果它有两种白色阴影
-    * **WHITE_BRIGHTNESS**：*number* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
+  ***WHITE_BRIGHTNESS**:* umber* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
 *替代色彩空间：
   ***ALTERNATIVE_COLORSPACE_VALUE**：*string* 或* umber*（取决于所选的颜色空间）- 替代颜色空间的值
 
@@ -1458,7 +1458,7 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ```
 
-        * **HHSSBB for Tuya**：12位长十六进制字符串，代表色调（HH = 0000-016d [0-365]），饱和度（SS = 0000-03e8 [0-1000]）和颜色亮度（BB = 0000-03e8 [0-1000])
+        * **HHSSBB for Tuya**：12位长十六进制字符串，代表色相（HH = 0000-016d [0-365]），饱和度（SS = 0000-03e8 [0-1000]）和颜色亮度（BB = 0000-03e8 [0-1000])
 
 请记住：转换为替代色彩空间是由前端完成的，因此它仅在某处打开 iQontrol 时才处于活动状态。因此，您不能将它用作颜色空间的转换器。为避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
@@ -1516,7 +1516,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * **TOGGLE**：*布尔值* - 显示“切换”按钮，如果按下则设置为 true
 
 ###<img src="img/icons/door_locked.png" width="32">带锁门：
-* **STATE**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
+* **状态**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
 * **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁定门，那是打开的）
 * **LOCK_STATE_UNCERTAIN**: *boolean* - 如果为 true，STATE 将以斜体显示，表示锁的确切位置未知
 * **LOCK_OPEN**: *boolean* - 如果设置为 true，门将完全打开
@@ -1577,29 +1577,29 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |滴滴滴 |周日 周一 ... 周五 周六 | × | X（翻译） | --- |
 | | |做 |第 0 1 ... 5 6 | × | --- | --- |
 | |月中日 | D | 1 2 ... 30 31 | × | × | × |
-| | | DD | 01 02 ... 30 31 | × | × | × |
-| | |做 |第 1 2 ... 30 31 | × | ---（转换为 D） | ---（转换为 D） |
+| | | DD | 01 02 ... 30 31 | × | X | X |
+| | |做 |第 1 2 ... 30 31 | × | ---（转换为 D） | ---（转换为 D）|
 | |月份 |男| 1 2 ... 11 12 | × | × | × |
-| | | MM | 01 02 ... 11 12 | × | × | × |
+| | | MM | 01 02 ... 11 12 | × | X | X |
 | | |嗯 | 1 月 2 月 ... 11 月 12 月 | × | × | × |
 | | |嗯嗯 |一月 二月 ... 十一月 十二月 | × | × | × |
 | | |莫 | 1 号 2 号 ... 11 号 12 号 | × | ---（转换为 M） | ---（转换为 M） |
 | |年份 |是 | 1970 1971 ... 9999 +10000 +10001 | × | × | × |
 | | | YY| 70 71 ... 29 30 | × | × | × |
-| | |年年年 | 1970 1971 ... 2029 2030 | × | × | × |
+| | |年年年 | 1970 1971 ... 2029 2030 | × | X | X |
 | | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY）| ---（转换为 YYYY）|
-|时间 |上午/下午 |一个 |上午下午 | × | × | × |
+|时间 |上午/下午 |一个|上午下午 | × | × | × |
 | | |一个 |下午 | × | × | × |
 | |小时 | H | 0 1 ... 22 23 | × | × | × |
 | | |嗯 | 00 01 ... 22 23 | × | × | × |
-| | |小时 | 1 2 ... 11 12 | × | × | × |
+| | |小时 | 1 2 ... 11 12 | × | X | X |
 | | |嗯 | 01 02 ... 11 12 | × | × | × |
 | | | k | 1 2 ... 23 24 | × | ---（转换为H）| ---（转换为H）|
 | | | kk | 01 02 ... 23 24 | × | ---（转换为 HH）| ---（转换为 HH）|
 | |分钟 |米 | 0 1 ... 58 59 | × | × | × |
 | | |毫米 | 00 01 ... 58 59 | × | × | × |
 | |第二 |秒 | 0 1 ... 58 59 | × | × | × |
-| | | SS | 00 01 ... 58 59 | × | X | X |
+| | | SS | 00 01 ... 58 59 | × | × | × |
 | |小数秒 |年代 | 0 1 ... 8 9 | × | --- | --- |
 | | |党卫军 | 00 01 ... 98 99 | × | --- | --- |
 | | | SS | 000 001 ... 998 999 | × | --- | --- |
@@ -1612,7 +1612,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | DD做 |第 1 2 ... 364 365 | × | --- | --- |
 |其他 |星期几（语言环境） |电子 | 0 1 ... 5 6 | × | --- | --- |
 | |星期几 (ISO) |乙 | 1 2 ... 6 7 | × | --- | --- |
-| |季度 |问 | 1 2 3 4 | × | --- | --- |
+| |季度 |问 | 1 2 3 4 | X | --- | --- |
 | | |问 | 1 2 3 4 | × | --- | --- |
 | |一年中的一周 |瓦 | 1 2 ... 52 53 | × | --- | --- |
 | | |窝 |第 1 2 ... 52 53 | × | --- | --- |
@@ -1622,16 +1622,16 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |全球| 01 02 ... 52 53 | × | --- | --- |
 | |纪元年 |是 | 1 2 ... 2020 ... | × | --- | --- |
 | | |哟 |第 1 2 … 2020 … | × | --- | --- |
-| |时代 | N、NN、NNN |公元前广告 | × | --- | --- |
+| |时代 | N、NN、NNN |公元前广告 | X | --- | --- |
 | | | NNNN|在基督之前，Anno Domini | × | --- | --- |
 | | | NNNNN |公元前广告 | × | --- | --- |
 | |周年 |格 | 70 71 ... 29 30 | × | --- | --- |
 | | |格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
 | |周年 (ISO) |格格 | 70 71 ... 29 30 | × | --- | --- |
 | | |格格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
-|时期 |时期 |磷 |标记一个时期而不是特定时间。可以是以下格式之一： | × | --- (转换为 D [天], h:m:s) | ---（转换为 D，h:m:s） |
+|时期 |时期 |磷 |标记一个时期而不是特定时间。可以是以下格式之一： | × | --- (转换为 D [天], h:m:s) | ---（转换为 D，h:m:s）|
 | | | |毫秒（例如 279344） | | | |
-| | | |小时:分钟（例如 46:33） | | | |
+| | | |小时:分钟（例如 46:33）| | | |
 | | | |小时:分钟:秒（例如 46:33:44 或 28:33:44.5）| | | |
 | | | | days hours:minutes.seconds (e.g. 1 22:33:44 or 1 22:33:44.5) | | | |
 | | | | days.hours:minutes.seconds（例如 1.22:33:44 或 1.22:33:44.5）| | | |
@@ -1644,7 +1644,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |下午 |分钟 | × | --- | --- |
 | | |附言 |秒周期 | × | --- | --- |
 | | |私信 |毫秒周期 | × | --- | --- |
-|标志 |将缺失的部分设置为开头 |结核病 |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
+|标志 |将缺失的部分设置为开始 |结核病 |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
 | |将缺失的部分补到现在 |吨 |例如。将日期设置为现在，如果只给出一个时间 | × | --- | --- |
 | |保留旧的遗失零件 |到 |例如。像以前一样留下日期，如果只给出时间 | × | --- | --- |
 |免费文本 |在括号中标记自由文本 | [] | [这是一个例子，所有标记都被忽略] | × | × | --- |
@@ -1686,13 +1686,13 @@ on modulo(n, m){ return ((n % m) + m) %m; }
     * 'ok' 如果垫的中间被点击，
 * 'left', 'right', 'up' or 'down', 如果垫的边缘被点击或垫在相应的方向滑动或
 * 'back', 'home' or 'menu*, 如果相应的按钮被点击
-* 请记住：您可以使用目标值列表（可通过每个数据点的扳手图标访问，或者更确切地说是新反应 ui 中的齿轮图标）从一个数据点链接到多个数据点，具体取决于返回的值（参见上面的修改数据点部分）
+* 请记住：您可以使用目标值列表（可通过每个数据点的扳手图标访问，或者更确切地说是新反应 ui 中的齿轮图标访问）从一个数据点链接到多个数据点，具体取决于返回的值（参见上面的修改数据点部分）
 * **REMOTE_COLOR**：*string* - 显示彩色按钮 a 返回相应的颜色（“红色”、“绿色”、“黄色”或“蓝色”），如果单击颜色
 * **REMOTE_CHANNELS**：*array* - 一组按钮。如果单击按钮，按钮的名称将发送到相应的 state-id
 * **REMOTE_ADDITIONAL_BUTTONS**：*array* - 按钮数组。如果单击按钮，按钮的名称将发送到相应的 state-id
 * **REMOTE_HIDE_REMOTE**：*布尔值* - 如果为真，则将隐藏完整的远程控制部分（例如，如果选择了有效源，则仅显示它）
 
-###<img src="img/icons/popup.png" width="32">弹出：
+###<img src="img/icons/popup.png" width="32">弹出窗口：
 * **STATE**: *any* - 可用于显示更多信息
 
 ###<img src="img/icons/link.png" width="32">外部链接：
@@ -1739,6 +1739,10 @@ on modulo(n, m){ return ((n % m) + m) %m; }
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (sbormann) You can now chose destination when copying devices.
+* (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
+
+### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.
 * (sbormann) Subheading with no visible tiles beneath are now hided.
 * (sbormann) Added option to hide STATE and LEVEL in dialog.
@@ -1746,13 +1750,22 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * (sbormann) Fixed size of custom toolbar icons.
 * (sbormann) Added DISCHARGE to Battery.
 * (sbormann) Fixed Favorites not working in map-widget with instance-number.
-* (sbormann) Enhance JSON-Table to work with alexa-shoppinglist-adapter.
+* (sbormann) Enhanced JSON-Table to work with alexa-shoppinglist-adapter.
 * (sbormann) Added badges to toolbar.
 * (sbormann) Enhanced handling of images in BACKGROUND_HTML.
 * (sbormann) Added option to protect instance by passphrase.
 * (sbormann) Added option to set value of LOCK_OPEN for doors with lock.
 * (sbormann) Linking color to GLOW or BACKGROUND_COLOR now works when using ALTERNATIVE_COLORSPACE.
 * (sbormann) Added URL-Parameter &language=xx.
+* (sbormann) Added option to center headers and subheaders. 
+* (sbormann) Enhanced FLOT-Chart-Widget to display more Datapoints.
+* (sbormann) Fixed timestamp in JSON-Table-Widget.
+* (dirkhe) Fixed and enhanced step attribute.
+* (sbormann) Moved options caption for STATE and caption for LEVEL into section STATE, LEVEL and TIMESTAMP.
+* (sbormann) Added option to set favorite values for LEVEL.
+* (sbormann) You can now click on linked devices.
+* (sbormann) Prevented back-swiping for safari.
+* (sbormann) Updated some dependencies.
 
 ### 2.0.1 (2022-03-09)
 * (sbormann) Fixed json-table sorting order.
@@ -2788,7 +2801,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ## License
 MIT License
 
-Copyright (c) 2019-2022 Sebastian Bormann
+Copyright (c) 2019-2023 Sebastian Bormann
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

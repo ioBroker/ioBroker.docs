@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.text2command/README.md
-title: ioBroker.text2command
-hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
+title: ioBroker.text2命令
+hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
 ---
 ![标识](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -11,18 +11,18 @@ hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.text2command.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.text2command.svg)
 ![测试](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
-![新PM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
-# IoBroker.text2command
+# IoBroker.text2命令
 ＃＃ 描述
-此适配器可以将普通句子（如 `Switch light in kitchen on`）转换为特定命令，并将状态 `adapter.0.device.kitchenLight` 设置为 `true`。
+此适配器可以将正常句子（如 `Switch light in kitchen on`）转换为特定命令，并将状态 `adapter.0.device.kitchenLight` 设置为 `true`。
 
-独立激活此适配器毫无意义。它应该与电报或 Android 应用程序等其他适配器一起使用**`iobroker.vis`**。
+单独激活此适配器毫无意义。它应该与其他适配器一起使用，如电报或 Android 应用程序 **`iobroker.vis`**。
 
 ＃＃ 用法
-要执行命令，请用句子写状态 **`text2command.<INSTANCE>.text`**。你总会在`text2command.<INSTANCE>.response`中得到答案。
+要执行命令，请写状态 **`text2command.<INSTANCE>.text`** 和句子。您将始终在 `text2command.<INSTANCE>.response` 中得到答案。
 
-如果你定义了**Answer to ID**，答案也会写在这个ID中。这需要例如实现语音确认。
+如果你定义了**Answer to ID**，答案也会写在这个ID中。这需要例如实现语音识别。
 
 您可以通过 `sendTo` 从 javascript 发送消息。答案将在回复的消息中出现：
 
@@ -34,40 +34,40 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 可以使用正则表达式，例如：`/^light\son|^lamp\son/`。正则表达式始终不区分大小写。
 
-要使用“按功能打开/关闭”，您应该关心功能。
+要使用“按功能打开/关闭”，您应该注意功能。
 
 关键字的作用如下：
 
-- 关键字按空格分隔
-- 所有关键字必须出现在句子中才能触发规则：例如关键字：`light on` 将在 `switch light on`、`make light on all` 时触发，并且不会在 `switch on`、`make light` 时触发。
+- 关键字以空格分隔
+- 所有关键字都必须出现在句子中才能触发规则：例如关键字：`light on` 将触发 `switch light on`、`make light on everywhere` 并且不会触发 `switch on`、`make light`。
 - 一个关键字可以有多种形式。关键字的变体必须用“/”分隔。例如。关键字：`switch/make/do light on/true` 将触发：`do light true`，`make please light on`。
-- 如果关键字可以在许多情况下出现（名词，gen，宾格，复数，...），它们都必须列为变体，例如：`switch light/lights on`。
+- 如果关键字可以出现在许多情况下（名词、原形、宾格、复数……），它们都必须列为变体，例如：`switch light/lights on`。
 
-以下函数将被解释为
+以下功能将被解释为
 
 `enum.functions`：
 
-**`enum.functions.light`**（Licht | Свет）：
+**`enum.functions.light`** (Licht | Свет):
 
 - 角色 - `level.dimmer`
 - 角色 - `switch.light`
 
-**`enum.functions.backlight`**（Beleuchtung | Подсветка）：
+**`enum.functions.backlight`** (Beleuchtung | Подсветка):
 
 - 角色 - `level.backlight`
 - 角色 - `switch.backlight`
 
-**`enum.functions.blinds/shutter`**（Rollladen | Жалюзи/окна）
+**`enum.functions.blinds/shutter`** (Rollladen | Жалюзи/окна)
 
 - 角色 - `level.blind`
 - 角色 - `switch.blind`
 
-**`enum.functions.curtain`** (Vorhänge | Шторы)
+**`enum.functions.curtain`**（Vorhänge | Шторы）
 
 - 角色 - `level.curtain`
 - 角色 - `switch.curtain`
 
-**`enum.functions.heating`**（黑宗 | Отопление/Подогрев）
+**`enum.functions.heating`**（Heizung | Отопление/Подогрев）
 
 - 角色 - `level.temperature`
 - 角色 - `switch.temperature`
@@ -77,7 +77,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 - 角色 - `button.play`
 - 角色 - `button.stop` / `button.pause`
 
-**`enum.functions.alarm/security`**（警报/警报|Охрана）
+**`enum.functions.alarm/security`**（警报/警报 | Охрана）
 
 - 角色 - `switch.security`
 
@@ -88,142 +88,142 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 支持以下房间：
 
-|短语中的关键词|可能的 enum.rooms 英文 |用德语| 高分辨率照片| CLIPARTO俄语| 高分辨率照片| CLIPARTO |
+|短语中的关键词 |可能的 enum.rooms 英文 |用德语 |用俄语 |
 |-----------------------|---------------------------------|--------------------------|------------------|
-|无处不在|无处不在| - | - |
-|生活 |客厅|沃齐默|标题 |
-|卧室 |卧室/卧室 |施拉夫齐默| спальня |
-|浴| 高分辨率照片| CLIPARTO浴室/浴缸 | badezimmer/坏 | ♀️ |
-|工作/办公室 |办公室 | arbeitszimmer | кабинет |
-|儿童/儿童/托儿所|托儿所|幼儿园 | детская |
-|客房卫生间/客人壁橱| 高分辨率照片| CLIPARTO来宾wc |餐厅 | гостевой туалет |
-|厕所/壁橱 |厕所 |厕所 |回复 |
-|地板/进入 |地板 | diele/gang/flur | коридор/прихожая |
-|厨房| 高分辨率照片| CLIPARTO厨房| 高分辨率照片| CLIPARTO库切/库切 | кухня |
-|阳台/露台/天井|露台| 高分辨率照片| CLIPARTO巴尔孔/露台| 高分辨率照片| CLIPARTO терраса/балкон |
-|餐饮 |餐厅|埃斯齐默|摄影 |
-|车库|车库|车库|游戏 |
-|楼梯 |楼梯| 高分辨率照片| CLIPARTO特雷普/特雷彭豪斯 | лестница |
-|花园| 高分辨率照片| CLIPARTO花园| 高分辨率照片| CLIPARTO花园 |追问 |
-|庭院/庭院|法庭 |霍夫 | двор |
-|客房|客房|加斯特兹默| гостевая |
-|阁楼|阁楼|讲话 | кладовка |
-|屋顶| 高分辨率照片| CLIPARTO屋顶| 高分辨率照片| CLIPARTO达赫斯图尔 | крыша |
-|终端 |终端 |附属设施 |西西 |
-|洗手间|洗手间|瓦施拉姆 | прачечная |
-|热室|加热室 |加热室/heizungsraum | 家企业котельная |
-|小屋 |小屋 | schuppen/scheune |话音 |
-|避暑别墅| 高分辨率照片| CLIPARTO避暑别墅| 高分辨率照片| CLIPARTO园艺 |回复 |
+|无处不在 |无处不在 | - | - |
+|生活 |客厅 |伍齐默 | зал |
+|卧室 |卧室/卧室 |施拉夫齐默 | спальня |
+|沐浴|浴室/浴缸 | badezimmer/坏 | ванная |
+|工作/办公室 |办公室 |工人 | кабинет |
+|儿童/儿童/托儿所 |苗圃 |儿童齐默 | детская |
+| guets wc/客人壁橱|来宾wc |餐厅 | гостевой туалет |
+|卫生间/壁橱 |卫生间 |卫生间 | туалет|
+|楼层/进入 |地板 | diele/帮派/flur | коридор/прихожая |
+|厨房 |厨房 |库切/库切 | кухня |
+|阳台/露台/天井|露台 |阳台/露台 | терраса/балкон |
+|餐饮 |餐厅 |埃齐默 | столовая |
+|车库 |车库 |车库 |格鲁拉泽 |
+|楼梯 |楼梯 | trepe/treppenhaus | лестница |
+|花园 |花园 |花园 | сад|
+|庭院/庭院 |法庭 |霍夫 | двор |
+|客房 |客房|加斯特齐默尔| гостевая |
+|阁楼 |阁楼 |演讲者 | кладовка |
+|屋顶 |屋顶 |达克斯图尔 | крыша |
+|终端 |终端 |德意志帝国 |故事 |
+|洗手间 |洗手间 |厕所 | прачечная |
+|加热室 |加热室 |加热室/heizungsraum | котельная |
+|小屋 |小屋 | schuppen/scheune |沙鲁 |
+|避暑别墅 |凉亭 |花园屋 | теплица |
 
 您可以在确认中使用模式：
 
 - `%s`: 值
 - `%u`: 单位
 - `%n`: 名称（计划中！）
-- `{objectId}`：这个objectID的状态会放在这里
+- `{objectId}`: 这个objectID的状态将被放在这里
 
 支持以下命令：
 
 ＃＃＃ 现在是几奌？
-答案：14:56（当前时间）
+答：14:56（当前时间）
 
 ＃＃＃ 你叫什么名字？
 答案是可定制的。默认值：`My name is Alpha`
 
-###室外温度是多少？
-用户必须指定状态 ID，读取外部温度的位置。
-答案是可定制的。默认值：`Outside temperature is %s %u` **`%s`** 将被温度替换，四舍五入为整数。 **`%u`** 将被此状态的单位或系统温度单位取代。
+### 室外温度是多少？
+用户必须指定州 ID，从哪里读取室外温度。
+答案是可定制的。默认值：`Outside temperature is %s %u` **`%s`** 将替换为温度，四舍五入为整数。 **`%u`** 将被该状态的单位或系统温度单位取代。
 
-### 内部温度是多少？
+### 室内温度是多少？
 用户必须指定状态 ID，读取内部温度的位置。
-答案是可定制的。默认值：`Inside temperature is %s %u` **`%s`** 将被温度替换，四舍五入为整数。 **`%u`** 将被此状态的单位或系统温度单位取代。
+答案是可定制的。默认值：`Inside temperature is %s %u` **`%s`** 将替换为温度，四舍五入为整数。 **`%u`** 将被该状态的单位或系统温度单位取代。
 
 ### 按功能开启/关闭
-此命令从枚举中读取信息。它使用 **enum.functions** 来查找设备类型（例如灯光、警报、音乐）和 **`enum.rooms`** 来检测房间名称。
+此命令从枚举中读取信息。它使用 **enum.functions** 查找设备类型（例如灯光、警报、音乐）和 **`enum.rooms`** 检测房间名称。
 
 德语示例：![枚举](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
-要打开的关键字是：*打开*，例如`switch rear light in bath on`
+开启的关键字是：*开启*，例如`switch rear light in bath on`
 
-要关闭的关键字是：*关闭*，例如`switch light in living room off`
+关闭的关键字是：*关闭*，例如`switch light in living room off`
 
 如果需要，将自动生成答案：`Switch off %function% in %room%`，其中 `%function%` 和 `%room%` 将替换为找到的设备类型和位置。
 
-命令也接受数值。它具有优先级，例如在命令`switch light off in living room on 15%`中，灯光将设置为 15%，而不是处于 *off* 状态。
+命令也接受数值。它具有优先权，例如在命令 `switch light off in living room on 15%` 中，灯将设置为 15%，而不是处于*关闭*状态。
 
-您可以在 [] 中定义默认房间。例如。 `switch the light on[sleepingroom]`
+您可以在[]中定义默认房间。例如。 `switch the light on[sleepingroom]`
 
 ### 打开/关闭百叶窗
-此命令从枚举中读取信息。它使用 **`enum.functions.blind`** 来查找类型百叶窗或百叶窗，并使用 **`enum.rooms`** 来检测房间名称。
+此命令从枚举中读取信息。它使用 **`enum.functions.blind`** 查找类型百叶窗或百叶窗，并使用 **`enum.rooms`** 检测房间名称。
 
-上移百叶窗的关键字是：*blinds up*，例如`set blinds up in sleeping room`
+向上移动百叶窗的关键字是：*blinds up*，例如`set blinds up in sleeping room`
 
-下移百叶窗的关键字是：*blinds down*，例如`move blinds down in office`
+向下移动百叶窗的关键字是：*blinds down*，例如`move blinds down in office`
 
-您可以指定百分数的确切位置，例如`move blinds to 40 percent in office`
+您可以以百分比指定百叶窗的确切位置，例如`move blinds to 40 percent in office`
 
 如果需要，将自动生成答案：` in %room%`，其中 %room% 将替换为找到的设备类型和位置。
 
 ### 打开/关闭某些东西
 用户必须指定必须控制的设备状态ID和必须写入的值。
 
-您应该为每个位置创建规则（例如，为 `on` 和 `off`）。
+您应该为每个位置创建规则（例如，对于 `on` 和 `off`）。
 
 答案是可定制的。默认值：`Switched on`
 
 例如。：
 
-- `停用警报`，对象 ID：`hm-rpc.0.alarm`，值：`false`，答案：`警报已停用/停用`。在这种情况下，答案将在 *Alarm is deactivated* 和 *Deactivated* 之间随机分配。
-- `激活警报`，对象 ID：`hm-rpc.0.alarm`，值：`true`，答案：`警报已激活/已激活/已完成`。在这种情况下，答案将在 *Alarm isactivated*、*Activated* 和 *Done* 之间随机分配。
+- `Deactivate alarm`，对象 ID：`hm-rpc.0.alarm`，值：`false`，答案：`Alarm is deactivated/Deactivated`。在这种情况下，答案将在 *Alarm is deactivated* 和 *Deactivated* 之间随机分配。
+- `Activate alarm`，对象 ID：`hm-rpc.0.alarm`，值：`true`，答案：`Alarm is activated/Activated/Done`。在这种情况下，答案将在*警报已激活*、*已激活*和*完成*之间随机分配。
 
-*Deactivate* 必须在列表的第一位，因为它更长。
+*Deactivate* 必须位于列表的第一位，因为它更长。
 
-您可以在控制命令中使用浮点值。如果文本中有一些数值，它将被用作控制值，并且预定义的值将被忽略。
+您可以在控制命令中使用浮点值。如果某些数值将出现在文本中，它将被用作控制值，而预定义的值将被忽略。
 
 例如。对于规则：
 
-- `设置光照级别`，对象 ID：`hm-rpc.0.light.STATE`，值：`10`，答案：`级别设置为 %s%`。
+- `Set light level`，对象 ID：`hm-rpc.0.light.STATE`，值：`10`，答案：`Level set to %s%`。
 
-如果命令类似于 `Set light level to 50%`，则在 `hm-rpc.0.light.STATE` 中将写入 50，而答案将是 `Level set to 50%`。
+如果命令类似于 `Set light level to 50%`，那么在 `hm-rpc.0.light.STATE` 中将写入 50，答案将是 `Level set to 50%`。
 
-如果命令类似于 `Set light level`，则在 `hm-rpc.0.light.STATE` 中将写入 10，答案将是 `Level set to 10%`。
+如果命令类似于 `Set light level`，那么在 `hm-rpc.0.light.STATE` 中将写入 10，而答案将是 `Level set to 10%`。
 
-### 询问一些事情
-用户必须指定设备的状态 ID，该值将被读取。
-该模板将回答来自某个州的信息。
+### 问一些事情
+用户必须指定设备的状态 ID，将读取哪个值。
+该模板将使用来自某个州的信息进行回答。
 
 例如。：
 
-- `打开的窗口`，对象 ID：`javascript.0.countOpenedWindows`，确认：`实际打开的 %s 个窗口`
-- `温度卧室`，对象 ID：`hm-rpc.0.sleepingRoomSensor.TEMPERATURE`，确认：`卧室的实际温度是 %s %u/%s %u`。在这种情况下，答案将在*卧室的实际温度为 %s %u* 和 *%s %u* 之间随机分配。
+-“打开的窗口”，对象 ID：“javascript.0.countOpenedWindows”，确认：“实际打开了 %s 个窗口”
+- `卧室温度`，对象 ID：`hm-rpc.0.sleepingRoomSensor.TEMPERATURE`，确认：`卧室的实际温度为 %s %u/%s %u`。在这种情况下，答案将在 *Actual temperature in sleeping room is %s %u* 和 *%s %u* 之间随机分配。
 
 ### 发送文本到状态
 您可以将一些文本写入状态。用户必须指定状态 ID 才能将文本写入其中。
 
-例如。规则：`email [to] wife`，对象 ID：`javascript.0.emailToWife`，确认：`Email sent`文本：`Send email to my wife: I will be late`。适配器从关键字中查找最后一个单词（在本例中为 `wife`），从下一个单词中提取文本（在本例中为 `I will be late`）并将该文本写入 `javascript.0.emailToWife`。
-`to` 不需要触发规则，但会从文本中删除。
+例如。规则：`email [to] wife`，对象 ID：`javascript.0.emailToWife`，确认：`Email sent` 文本：`Send email to my wife: I will be late`。适配器从关键字中查找最后一个词（在本例中为 `wife`），从下一个词中提取文本（在本例中为 `I will be late`）并将此文本写入 `javascript.0.emailToWife`。
+Word `to` 不需要触发规则，但将从文本中删除。
 
-###你很好（只是为了好玩）
-答案是可定制的。默认值：`Thank you`或`You are welcome`
+### 你很好（只是为了好玩）
+答案是可定制的。默认值：`Thank you` 或 `You are welcome`
 
-###谢谢（只是为了好玩）
-答案是可定制的。默认值：`No problem`或`You are welcome`
+### 谢谢（纯属娱乐）
+答案是可定制的。默认值：`No problem` 或 `You are welcome`
 
 ### 创建答案
-您可以在确认中使用绑定 {objectId} 生成答案。用于alexa。
+您可以使用绑定 {objectId} 生成答案以确认。用于 alexa。
 
 例如。：
 
-- `windows 打开`，确认：`实际 {javascript.0.countOpenedWindows} windows 打开`
-- `温度卧室`，确认：`卧室的实际温度是{t：hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE;轮（1）}度`。在这种情况下，答案将在*卧室的实际温度为 <VALUE>* 和 *<VALUE>* 之间随机分配。
+- `windows opened`, Acknowledge: `Actual {javascript.0.countOpenedWindows} windows opened`
+-`卧室温度`，确认：`卧室的实际温度为{t：hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE;圆（1）}度`。在这种情况下，答案将在 *Actual temperature in sleeping room is <VALUE>* 和 *<VALUE>* 之间随机分配。
 
-您可以在此处阅读有关绑定的更多信息：（对象绑定）[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
+您可以在此处阅读有关绑定的更多信息：（对象的绑定）[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-另外，您可以通过 `{hm-rpc.0.light.STATE.lc;dateinterval}`（2 分 12 秒）或 `{hm-rpc.0.light.STATE.lc;dateinterval(true)}`（2 分 12 秒**前**）获得到现在为止的时间
+另外，您可以在 `{hm-rpc.0.light.STATE.lc;dateinterval}`（2 分 12 秒）或 `{hm-rpc.0.light.STATE.lc;dateinterval(true)}`（2 分 12 秒 **前**）之前获得时间
 
 ## 使用 javascript 的外部规则
-可以使用 javascript 引擎来处理 text2command 中的命令。
-为此，您必须在“处理器状态 ID”（高级设置）中指定某些状态，并在某些 JS 或 Blockly 脚本中监听此状态。
+有可能使用 javascript 引擎来处理 text2command 中的命令。
+为此，您必须在“处理器状态 ID”（高级设置）中指定一些状态，并在某些 JS 或 Blockly 脚本中侦听此状态。
 您可以在管理员或脚本中手动创建一些状态。处理脚本可能如下所示：
 
 ```
@@ -249,22 +249,23 @@ createState("textProcessor", '', function () {
 });
 ```
 
-在 text2command **Processor state ID** 的设置中设置为 *`javascript.0.textProcessor`* 以让此示例正常工作。
+在 text2command 的设置中设置 **Processor state ID** 为 *`javascript.0.textProcessor`* 让这个例子工作。
 
-首先，该命令将使用您的 javascript 进行处理，如果 javascript 将使用 '' 回答或在预定义的时间（默认为 1 秒）内不回答，则该命令将按规则处理。
+首先，该命令将使用您的 javascript 进行处理，如果 javascript 将回答 '' 或在预定义的时间内（默认为 1 秒）不回答，该命令将按规则进行处理。
 
 ### 选项：通过每个命令写入响应
-如果被每个命令激活（无论请求是通过 state 还是 sendTo 来的），`text2command.X.response` 将被写入答案。
+如果被每个命令激活（无论请求是通过状态还是发送到），`text2command.X.response` 将写入答案。
 
 ＃ 去做
-- 在俄罗斯男性和女性的答案。
+- 俄语男性和女性答案。
+- 将 ReactDnD 从 14 迁移到 16
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 
 ### 2.2.2 (2022-06-17)
@@ -417,7 +418,7 @@ createState("textProcessor", '', function () {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

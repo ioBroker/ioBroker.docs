@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: dZiy17GB+GtTHSwKHGrzyBQp5yFFgRZkp5hYOhStnIk=
+hash: U09jFIxFk2+Zf83CeeFdYDAsCDTFvNSssh/WcvZciOk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -27,6 +27,7 @@ Aktuell werden folgende Geräte unterstützt:
 * баня
 * датчик температуры
 * привратник
+* твлифт
 
 ## Changelog
 

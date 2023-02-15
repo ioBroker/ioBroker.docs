@@ -61,6 +61,16 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.0 (2023-02-13)
+
+* (klein0r) Fixed message responses
+* (klein0r) Added icon button to instance configuration
+* (klein0r) Added preview for web url in instance configuration
+
+### 2.2.1 (2023-01-19)
+
+* (klein0r) Format number values for My Data DIY
+
 ### 2.2.0 (2023-01-05)
 
 * (klein0r) Added custom sound feature (mp3 via url)
@@ -87,18 +97,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Updated LaMetric firmware version recommendation to 2.2.3
 * (klein0r) Updated dependencies
 * (klein0r) Updated depedency for js-controller to 4.0.15
-
-### 1.6.0 (2022-02-27)
-
-* (klein0r) Allow german umlauts in My Data DIY objects
-* (klein0r) Updated documentation
-* (klein0r) Updated state roles
-* (klein0r) Added hint for Admin 4 configuration
-
-### 1.5.3 (2022-02-08)
-
-* (klein0r) Updated log messages and error handling
-* (klein0r) Updated dependencies
 
 ## License
 

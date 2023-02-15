@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
+hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
 ---
 ![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/text2command-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.text2command.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
-![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
+![Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
 # IoBroker.text2command
@@ -19,7 +19,7 @@ Dieser Adapter kann normale Sätze, wie `Switch light in kitchen on`, in bestimm
 
 Dieser Adapter macht keinen Sinn, um eigenständig aktiviert zu werden. Es sollte mit anderen Adaptern wie Telegram oder Android App **`iobroker.vis`** verwendet werden.
 
-## Verwendungszweck
+## Verwendung
 Um den Befehl auszuführen, schreiben Sie den Zustand **`text2command.<INSTANCE>.text`** mit dem Satz. Die Antwort erhalten Sie immer in `text2command.<INSTANCE>.response`.
 
 Wenn Sie **Antwort auf ID** definieren, wird die Antwort auch in diese ID geschrieben. Dies wird z.B. um zu erkennen, dass die Stimme bestätigt.
@@ -127,7 +127,7 @@ Folgende Befehle werden unterstützt:
 ### Wie spät ist es?
 Antwort: 14:56 (aktuelle Zeit)
 
-### Wie heißen Sie?
+### Wie heissen Sie?
 Die Antwort ist anpassbar. Standard: `My name is Alpha`
 
 ### Wie ist die Außentemperatur?
@@ -258,13 +258,14 @@ Bei Aktivierung durch jeden Befehl (egal ob die Anfrage über state oder sendTo 
 
 # Machen
 - auf Russisch männliche und weibliche Antworten.
+- ReactDnD von 14 auf 16 migrieren
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 
 ### 2.2.2 (2022-06-17)
@@ -417,7 +418,7 @@ Bei Aktivierung durch jeden Befehl (egal ob die Anfrage über state oder sendTo 
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

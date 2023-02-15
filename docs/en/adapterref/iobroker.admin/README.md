@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.3.6 (2023-01-29)
+* (bluefox) Allowed the edit of log level in the configuration tab
+
 ### 6.3.5 (2022-12-22)
 * (bluefox) Corrected reading of node.js version
 
@@ -88,11 +91,7 @@ lettering of the log appears in red.
 * (bluefox) Added `checkLicense` and `uuid` components to JSON Config
 * (bluefox) Corrected the news handler
 
-### 6.2.23 (2022-10-12)
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) Corrected deletion of objects
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>

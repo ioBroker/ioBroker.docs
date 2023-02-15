@@ -1,41 +1,51 @@
 ![Logo](admin/amazon-dash.png)
 # ioBroker.amazon-dash (Linux only!)
-=================
 
 ![Number of Installations](http://iobroker.live/badges/amazon-dash-installed.svg) ![Number of Installations](http://iobroker.live/badges/amazon-dash-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)](https://www.npmjs.com/package/iobroker.amazon-dash)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.amazon-dash.svg)](https://www.npmjs.com/package/iobroker.amazon-dash)
 
 [![NPM](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)](https://nodei.co/npm/iobroker.amazon-dash/)
 
+Adapter to detect the presses on Amazon Dash Buttons in ioBroker.
 
-Adapter to add Amazon Dash Buttons to ioBroker
+This adapter does not work under Windows!
 
 ## Steps 
-1. Install libpcap-dev
+1. Install `libpcap-dev`:
 
-    ```apt-get install libpcap-dev```
+`sudo apt-get install libpcap-dev`
 
 2. Pair your Dash-Adapter within the Amazon App but don't select a product! 
     Just quit the installation procedure at the product selection tab.
-    Otherwise you'll order every time a product ;) [German instructions](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
+    Otherwise, you'll order every time a product ;) [German instructions](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340).
   
 3. Hit the dash button (should be white first, then flashing red)
 
 4. Within the adapter objects, a new dash button should appear which you can use to start scenes or within the JS adapter
 
+5. Sometimes it is required to give the network access rights to node:
+
+`sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which node))`
 
 ## HELP WANTED!
+As this project is developed during my spare time.
+I`m actively looking for help to maintain and extend this adapter!
+If you're willing to help, drop me a line!
 
-As this project is developed during my spare time, I*m actively looking for help to maintain and extend this lib! If you're willing to help, drop me a line!
 
+<!--
+	### **WORK IN PROGRESS**
+-->
 ## Changelog
+### 1.2.0 (2023-02-10)
+* (bluefox) added option to execute `setcap` rights by every start
 
 ### 1.1.0 (2020-02-25)
 + (foxriver76) support of compact mode
 + (foxriver76) usage of adapter-core and eslint
 
 ### 1.0.1
-+ (Apollon77) BREAKING: Ugrade pcap library supports nodejs 10+ and also supports nodejs 12
++ (Apollon77) BREAKING: Upgrade pcap library supports nodejs 10+ and also supports nodejs 12
 
 ### 0.3.1
 + (PArns) Added new Amazon MAC family
@@ -56,7 +66,7 @@ As this project is developed during my spare time, I*m actively looking for help
 
 ### 0.2.6
 + (arteck) edit admin
-+ (arteck) add manual MAC Adresses 
++ (arteck) add manual MAC Addresses 
 + (PArns) Added new Amazon MAC family
 
 ### 0.2.5
@@ -82,7 +92,7 @@ As this project is developed during my spare time, I*m actively looking for help
 + (PArns) Added new Amazon MAC family
 
 ### 0.1.1
-+ (GermanBluefox) Try to install libpcap-dev automatically
++ (GermanBluefox) Try to install `libpcap-dev` automatically
 
 ### 0.1.0
 + (Niksac) Added the ability to select an interface
@@ -107,7 +117,7 @@ As this project is developed during my spare time, I*m actively looking for help
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Patrick Arns <npm@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <npm@patrick-arns.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

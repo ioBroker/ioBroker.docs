@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
+hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
 ---
-![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
 ![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
 ![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
@@ -22,7 +22,7 @@ hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
 一些值得注意的特点是：
 
 * 基本清洁功能（例如自动清洁、定点区域、自定义区域）
-* 和各种其他命令（例如播放声音、重置消耗品、重新定位）
+* 和其他各种基本功能（例如播放声音、重置消耗品、重新定位）
 * 检索基本信息（例如电池电量、清洁日志、耗材、清洁和充电状态）
 * 以及各种扩展信息（如充电位置、地图相关信息、网络信息）
 * 在清洁过程中检索信息（例如当前位置和当前点区域）
@@ -35,6 +35,7 @@ hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
 *返回充电站或进入/离开现场区域时的一些功能
 * 加载当前地图图片的函数
 * 设置单独的现货区域名称（在 ioBroker 中）
+* 当前型号的静音接近功能
 
 请注意：有些功能仅适用于部分型号，有些仍处于试验阶段
 
@@ -54,7 +55,7 @@ hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
 当然没有要求完整的功能。
 
 #### 科沃斯地宝
-* 地宝 OZMO 950/T5
+* 地宝 OZMO 950
 * 地宝N8系列
 * 地宝U2系列
 * 地宝T8系列
@@ -66,6 +67,8 @@ hash: va/8I/j7C+EdnOvtlsgqQKMINqMKfcbmJRwo1W80uwE=
 * 亿迪k650
 * yeedi 2 混合动力车
 * yeedi vac 混合动力车
+* yeedi vac max
+* yeedi vac 2 专业版
 * yeedi拖把站
 
 #### 遗留模型（即将停产）
@@ -128,20 +131,33 @@ npm install canvas --unsafe-perm=true
 * 地宝X1系列无法正常生成地图图片
 
 ##免责声明
-我绝不隶属于 ECOVACS。
+我与 Ecovacs Robotics Co., Ltd. 或 yeedi Technology Limited 没有任何关联。
 
 ## Changelog
 
-### 1.4.11 (alpha)
+### 1.4.13 (alpha)
+* Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
+
+### 1.4.12 (latest beta)
+* Bumped ecovacs-deebot.js to 0.9.2 (beta)
+* Spot area related functions for models with native "goToPosition" function (from the Video Manager):
+  * Implemented "goToCalculatedCenterPosition" function
+  * Implemented "silentApproach" cleaning
+* Some further improvements and optimizations
+
+### 1.4.11 (latest stable)
 * Bumped ecovacs-deebot.js to 0.9.2 (alpha)
 * Added channel for the auto empty station (incl. dust bag full)
-* Set last time dustbox removed when the dust bag has been emptied by the auto empty station
+* Added state for changing the scrubbing pattern (OZMO Pro)
+* Added option to save the used go to position values
+* Added function to also save the current deebot position as a "goToPosition"
+* Automatically set the last time dustbox removed when the dust bag has been emptied by the auto empty station
 * Some further improvements and some fixes
 
-### 1.4.10 (latest beta)
+### 1.4.10
 * Bumped ecovacs-deebot.js to 0.9.1
 * Added channel with information about the last cleaned spot area
-* Implemented "mark for next spot area cleaning" function
+* Implemented "markForNextSpotAreaCleaning" function
 
 ### 1.4.9
 * Bumped ecovacs-deebot.js to 0.9.1-beta.3
@@ -150,7 +166,7 @@ npm install canvas --unsafe-perm=true
 * The generated base64 map image will also be stored to the filesystem now
 * Some further improvements and some fixes
 
-### 1.4.8 (latest stable)
+### 1.4.8
 * Breaking change: Bumped minimum required version of Node.js to 14.x
 * Bumped ecovacs-deebot.js to 0.9.0-beta.2
 * Bumped several other dependencies
@@ -159,7 +175,7 @@ npm install canvas --unsafe-perm=true
 * Bumped ecovacs-deebot.js to 0.8.3-beta.2 (Hotfix XMPP devices)
 
 ### 1.4.6
-* Added option for native goToPosition function (e.g. Deebot OZMO T8 AIVI)
+* Added option for native "goToPosition" function (e.g. Deebot OZMO T8 AIVI)
 * Some improvements and fixes
 
 ### 1.4.5
@@ -168,8 +184,8 @@ npm install canvas --unsafe-perm=true
 * Removed some options from settings
 * Some other changes to settings
 * Bumped ecovacs-deebot.js to the latest beta version
-* Initial Support for yeedi login (experimental)
-* and also for a few models (experimental)
+* Initial Support for yeedi accounts
+* and also for a few models
   * yeedi k650
   * yeedi 2 hybrid
   * yeedi vac hybrid
@@ -192,12 +208,12 @@ npm install canvas --unsafe-perm=true
 * Bumped ecovacs-deebot.js to 0.8.1 (beta)
 * Added states for cleaning cloth reminder and auto-boost suction (e.g. OZMO 920/950, T8/T9 series)
 * Added states for mopping type and scrubbing type (models with OZMO Pro mopping system)
-* Added option to choose between 'pause' and 'stop' for 'PauseBeforeDockingChargingStation...' functionality
+* Added option to choose between "pause" and "stop" for "PauseBeforeDockingChargingStation..." functionality
 * Some further improvements
 
 ### 1.4.1
 * Bumped ecovacs-deebot.js to 0.8.0
-* Improved last time presence functionality
+* Improved "lastTimePresence" functionality
 * Added option to reset the vacuum power (cleanSpeed) to standard on return
 * Added option to keep modified spot area names (pre-selection on non 950 type models)
 * Added states for current used custom and spot areas (currentUsedSpotAreas and customUsedCustomAreaValues)
@@ -207,9 +223,9 @@ npm install canvas --unsafe-perm=true
 ### 1.4.0
 * Bumped ecovacs-deebot.js to 0.8.0 (beta)
 * Implemented last time presence function (still experimental)
-* Implemented cleanCount (permanent clean count) function (T8/T9/X1 series)
-* Implemented trueDetect (enable/disable) function (T8/T9/X1 series)
-* Added unit care to consumables (T8/T9/X1 series)
+* Implemented "cleanCount" (permanent clean count) function (T8/T9/X1 series)
+* Implemented "trueDetect" (enable/disable) function (T8/T9/X1 series)
+* Added "unitCare" to consumables (T8/T9/X1 series)
 * Added Deebot X1 series
 * Some improvements and fixes
 
@@ -220,7 +236,7 @@ npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2022 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

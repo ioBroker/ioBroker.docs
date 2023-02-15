@@ -105,7 +105,6 @@ Please note: highlighting current playing favorite is not supported.
 
 ## Configuration
 - Web server - [optional] If web server enabled or not
-- Port       - If Webserver is enabled, so the port for this. Default 8083
 - Update of elapsed time(ms) - Interval in ms how often to update elapsed timer when the title is playing. (Default 2000)
 
 <!--
@@ -113,9 +112,10 @@ Please note: highlighting current playing favorite is not supported.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### WORK IN PROGRESS
-* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+### 2.3.0 (2023-01-11)
+* (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found
+* (bluefox) Configuration migrated to JSON-Config
 
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
@@ -274,7 +274,7 @@ Please note: highlighting current playing favorite is not supported.
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

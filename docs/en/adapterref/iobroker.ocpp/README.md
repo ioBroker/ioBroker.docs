@@ -23,6 +23,48 @@ Adapter to connect an OCPP 1.6 supported wallbox
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.12.5 (2023-02-09)
+* (foxriver76) revert changes of 0.12.4
+
+### 0.12.3 (2023-02-07)
+* (foxriver76) allow deactivating `numberPhases` by setting `null
+
+### 0.12.2 (2023-01-19)
+* (foxriver76) ensure main connector is always created even if no status received there
+
+### 0.12.1 (2023-01-19)
+* (foxriver76) we now also detect feature profiles if clients add unallowed whitespaces
+
+### 0.12.0 (2023-01-18)
+* (foxriver76) the `idTag` for remote transactions is now `ioBroker` persistent over all transactions
+* (foxriver76) implemented the management of authentication list
+* (foxriver76) only create states if supported by profile (closes #22)
+* (foxriver76) increased stability on first connection
+
+### 0.11.1 (2023-01-17)
+* (foxriver76) we now correctly detect data type and role of configuration attributes
+
+### 0.11.0 (2023-01-17)
+* (foxriver76) `idTag` is now read correctly from `startTransaction` message (closes #21)
+* (foxriver76) implemented possibility to trigger `hard` and `soft` reset
+
+### 0.10.0 (2023-01-16)
+* (foxriver76) implemented state to control number of phases used for charging
+
+### 0.9.1 (2023-01-13)
+* (foxriver76) we now avoid not implemented logging if `chargeLimit` is set to null (deactivated)
+
+### 0.9.0 (2023-01-13)
+* (foxriver76) we removed states from main connector which are not allowed there
+* (foxriver76) we now synchronize configuration into adapter
+* (foxriver76) we added ack flag to `availability` state
+* (foxriver76) we added ack flag for `charge limit` states
+* (foxriver76) we optimized error logging
+* (foxriver76) we now allow changing charger configuration via adapter
+* (foxriver76) we improved reconnect handling
+
+__Please delete all states of connector 0 once__
+
 ### 0.8.2 (2022-12-13)
 * (foxriver76) only log the `errorCode` if it is different from `NoError`
 

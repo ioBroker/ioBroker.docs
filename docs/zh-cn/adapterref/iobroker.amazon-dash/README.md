@@ -2,36 +2,57 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.amazon-dash/README.md
-title: ioBroker.amazon-dash（仅限Linux！）
-hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
+title: ioBroker.amazon-dash（仅限 Linux！）
+hash: sGzxItEtI3Jqdb9z3uu0NdbFH9wL1sCN4sBS+ACF/2c=
 ---
-![商标](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
+![标识](../../../en/adapterref/iobroker.amazon-dash/admin/amazon-dash.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
+![安装数量](http://iobroker.live/badges/amazon-dash-stable.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.amazon-dash.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.amazon-dash.svg)
 ![NPM](https://nodei.co/npm/iobroker.amazon-dash.png?downloads=true)
 
-#ioBroker.amazon-dash（仅限Linux！）=================
-适用于向ioBroker添加Amazon Dash按钮的适配器
+# IoBroker.amazon-dash（仅限 Linux！）
+用于检测 ioBroker 中 Amazon Dash 按钮按下情况的适配器。
+
+此适配器在 Windows 下不工作！
 
 ＃＃ 脚步
-1.安装libpcap-dev
+1. 安装 `libpcap-dev`：
 
-```apt-get install libpcap-dev```
+`sudo apt-get install libpcap-dev`
 
-2.将您的Dash-Adapter配对在Amazon App中，但不要选择产品！
+2. 在 Amazon App 中配对您的 Dash-Adapter 但不要选择产品！
 
-只需退出产品选择选项卡上的安装过程。
-否则，您每次订购产品时都会订购;）[德语说明](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340)。
+只需在产品选择选项卡中退出安装过程即可。
+否则，您每次都会订购产品；）[德文说明](https://www.amazon.de/gp/help/customer/display.html?nodeId=201746340)。
 
-3.点击破折号按钮（首先应为白色，然后闪烁红色）
+3.点击破折号按钮（应该先是白色，然后闪烁红色）
 
-4.在适配器对象中，应出现一个新的破折号按钮，可用于启动场景或JS适配器
+4. 在适配器对象中，应该会出现一个新的破折号按钮，您可以使用它来启动场景或在 JS 适配器中
+
+5、有时需要给节点网络访问权限：
+
+`sudo setcap 'cap_net_raw,cap_net_admin+eip' $(readlink -f $(which node))`
 
 ＃＃ 把招工广告！
-由于这个项目是在我的业余时间开发的，我积极寻求帮助来维护和扩展这个lib！如果你愿意帮忙，请给我留言！
+由于这个项目是我业余时间开发的。
+我正在积极寻求帮助来维护和扩展此适配器！如果你愿意帮忙，请给我留言！
+
+<!--
+
+### **正在进行中** -->
 
 ## Changelog
+### 1.2.0 (2023-02-10)
+* (bluefox) added option to execute `setcap` rights by every start
+
+### 1.1.0 (2020-02-25)
++ (foxriver76) support of compact mode
++ (foxriver76) usage of adapter-core and eslint
+
+### 1.0.1
++ (Apollon77) BREAKING: Upgrade pcap library supports nodejs 10+ and also supports nodejs 12
 
 ### 0.3.1
 + (PArns) Added new Amazon MAC family
@@ -52,7 +73,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 
 ### 0.2.6
 + (arteck) edit admin
-+ (arteck) add manual MAC Adresses 
++ (arteck) add manual MAC Addresses 
 + (PArns) Added new Amazon MAC family
 
 ### 0.2.5
@@ -78,7 +99,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 + (PArns) Added new Amazon MAC family
 
 ### 0.1.1
-+ (GermanBluefox) Try to install libpcap-dev automatically
++ (GermanBluefox) Try to install `libpcap-dev` automatically
 
 ### 0.1.0
 + (Niksac) Added the ability to select an interface
@@ -103,7 +124,7 @@ hash: hWxDnluOOhyr4iw6DK5Iw5DtyogXIWBqdS1Cfi5xUdk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2017 Patrick Arns <npm@patrick-arns.de>
+Copyright (c) 2016-2023 Patrick Arns <npm@patrick-arns.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

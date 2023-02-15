@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: OydPxDhsoZzUB2HSvX5SMY6HIfGNYkUrbYr07NfKRGc=
+hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -38,11 +38,14 @@ Eltako FGW14: **Wichtige Hinweise**: Dieses Gateway unterstützt nicht alle Feat
 Bekannte Funktionen, die nicht funktionieren: RSSI, Gateway-Informationen können nicht gelesen werden und nur RS485-Bus-Geräte können ohne FTD14 gesteuert werden (noch nicht getestet). Wenn es keinen technischen Grund gibt, dieses Gateway zu verwenden, wird dringend empfohlen, ein anderes zu verwenden.
 Die Busteilnehmer melden sich mit ihrer Busadresse, d. h. sie beginnt mit 00 00 00 01.
 
-ALL SMART EnOcean LAN Gateway - ~~[KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
+ALL SMART EnOcean LAN Gateway - ~~[BESORGEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
 
-ALL SMART EnOcean Multi-Gateway - [KAUFEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
+ALL SMART EnOcean Multi-Gateway - ~~[BESORGEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ Nicht mehr verfügbar.
 
-## Geräte steuern Im Allgemeinen gibt es ein cmd-Objekt, in dem Sie den Befehl auswählen können, den Sie ausführen möchten. Bevor Sie einen Befehl ausführen können, müssen Sie alle notwendigen Attribute setzen, diese Information finden Sie in der Profildefinition.
+### [Unterstützte Geräte](./docs/devices.md)
+## Steuergeräte
+Im Allgemeinen gibt es ein cmd-Objekt, in dem Sie den Befehl auswählen können, den Sie ausführen möchten. Bevor Sie einen Befehl ausführen können, müssen Sie alle notwendigen Attribute setzen, diese Information finden Sie in der Profildefinition.
+
 Speziell:
 
 * A5-20-xx: Geräte mit diesem Profil akzeptieren Befehle nur innerhalb von 1 Sekunde, nachdem sie eine Nachricht gesendet haben. Sie senden periodisch (10 Minuten?), lesen Sie bitte das Handbuch.
@@ -183,9 +186,23 @@ Um das Telegrammhandling zu testen, erstellen Sie einen Kanal mit Namensentwickl
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.5 (2023-02-11)
+* rework TF-13-25, fixes Eltako DSZ14
+* rework TF-13-14, SP uses now temperature range 0-40°C
+* remove useless object ASC from A5-20-01
+* added Afriso FT & FTF
+* added R-Tronic RT B (A5-10-06 + RPS)
+* added new teachin telegram for FUD61NPN-230V
 * fix F6-10-00: The close state was not set, the window was always shown as open.
 * fix & rework TF-13-25 Eltako DSZ14 (#87)
+* fix multiple conditions in eep's
+* fix Eltako FGW14-USB does not receive status updates
+* fix lastID is null when using Eltako FGW14-USB
+* fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set
+* fix I1-01-01 invalid telegram send by on and off
+* fix device definition Oventrop mote 420
+* fix missing zeros in front of sender IDs while using FGW14
+* fix incomplete data while receiving type 10 messages
 * code cleanup and refactoring
 
 ### 0.8.4 (2022-11-17)

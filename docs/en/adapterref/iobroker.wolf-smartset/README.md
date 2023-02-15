@@ -1,6 +1,5 @@
 ![Logo](admin/wolf-smartset.png)
 # ioBroker.wolf-smartset
-[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://www.paypal.com/paypalme/MeisterTR)
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.wolf-smartset.svg)](https://www.npmjs.com/package/iobroker.wolf-smartset)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.wolf-smartset.svg)](https://www.npmjs.com/package/iobroker.wolf-smartset)
@@ -21,8 +20,11 @@ You need a ISM7I Module or others which are compatible with the wolf-smartset ap
 To login you only need your username and password from your smartset-app. After you click on "get devices" you can select your heating. Thats it.
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.1.1 (2023-01-26)
+* (Apollon77) Adjusted to new Login procedure
+* (Apollon77) Tokens are now stored and tried to be refreshed automatically
+* (Apollon77) Errors in session updates will try to create new session or authenticate anew
+* (Apollon77) Generates folder and channel structures for created states
 * (Apollon77) Fix some more crash cases
 * (Apollon77) make sure adapter is stopped correctly in all cases
 
@@ -30,10 +32,13 @@ To login you only need your username and password from your smartset-app. After 
 * (MeisterTR) fix Sentry: IOBROKER-WOLF-SMARTSET-6,IOBROKER-WOLF-SMARTSET-5, IOBROKER-WOLF-SMARTSET-7,IOBROKER-WOLF-SMARTSET-8,IOBROKER-WOLF-SMARTSET-1,IOBROKER-WOLF-SMARTSET-3,IOBROKER-WOLF-SMARTSET-4
 * (MeisterTR) Change api from app data to Web PEASE DELETE ADAPTER AND REINSTALL OR DELETE ALL OBJECTS
 * (MEISTERTR) added "FACHMANN" states
+
 ### 0.2.2 (26.03.2021)
 * (MeisterTR) fix timeouts, fix conection
+
 ### 0.2.1
 * (MeisterTR) Rebuild api and objects, breaking change
+
 ### 0.1.2
 * (MeisterTR) Poll and set Values
 * (MeisterTR) Fix error at start
@@ -44,7 +49,7 @@ To login you only need your username and password from your smartset-app. After 
 ## License
 MIT License
 
-Copyright (c) 2021-2022 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2021-2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

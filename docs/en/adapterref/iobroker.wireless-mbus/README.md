@@ -53,6 +53,12 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
+## 0.8.8
+* (ChL) Add datetime type I handling
+
+### 0.8.7
+* (ChL) Slightly improve handling of LVAR DIF values
+
 ### 0.8.3 / 0.8.4 / 0.8.5 / 0.8.6
 * (ChL) Update dev dependencies - Attention CI test will no longer support <= NodeJS 12
 * (ChL) Minor logging changes

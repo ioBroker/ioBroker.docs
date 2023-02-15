@@ -7,9 +7,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tankerkoenig/README.md
 title: ioBroker.tankerkoenig
-hash: KQq5q9iLQiMFflfm/z86059nssgH7XpkI1XZCtXzCT0=
+hash: pAi/iq8uvvin8+lOYL3p2mtIFMCrKTsmwyRmCSpJqqY=
 ---
-![商标](../../../en/admin/tankerkoenig.png)
+![标识](../../../en/admin/tankerkoenig.png)
 
 ![安装数量](http://iobroker.live/badges/tankerkoenig-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tankerkoenig.svg)
@@ -40,7 +40,7 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
 
   或者你点击按钮 `Paste` 然后只有 ID 将被粘贴到字段中。
 
-**但是为此你必须允许浏览器访问剪贴板。**
+**但是为此你必须允许浏览器访问剪贴板。**（这仅在你的管理员使用 https 运行并且你使用 https 访问页面时有效）
 
 ![替代文字](../../../en/adapterref/img/tankerkoenigStationFinder_copyId.png "截图设置") 在折扣选项下，您可以选择折扣变体 ⇨ 欧元/百分比以及折扣适用的燃料类型（默认均已选中）。
 
@@ -129,6 +129,17 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
  Placeholder for the next version (at the beginning of the line):
  ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
  -->
+### 3.3.7 (2023-02-06)
+* (xXBJXx) added difference to jsonTable [issue #116](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/116)
+* (xXBJXx) added a log message for the error `parameter error`
+* (xXBJXx) set the name length to 34 characters
+* (xXBJXx) Added verification if the api key is encrypted
+* (xXBJXx) updated the Dependencies
+
+### 3.3.6 (2023-01-22)
+* (xXBJXx) fixed position of the warning message in the UI
+* (xXBJXx) updated the documentation and migration guides for stable version 3.3.6
+
 ### 3.3.5 (2023-01-04)
 * (xXBJXx) fixed copy/paste bug in the UI
 
@@ -139,19 +150,6 @@ API 密钥可以在 [网站 Tankerkönig](https://creativecommons.tankerkoenig.d
 * (xXBJXx) fixed => adapter does not fetch data after a `requestData error` e.g. internet termination.
 * (xXBJXx) add adapter migration Guide from 3.1.x to 3.3.x or 3.2.x to 3.3.x [Migration guide](docs/guide/migration_3.3.x.md)
 * (xXBJXx) fixed Issue [Issue #111](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/111)
-
-### 3.3.2 (2023-01-02)
-* (xXBJXx) fixed TypeError: Cannot read property 'length' of undefined in addDiscount when the value is `boolean / undefined`
-* (xXBJXx) fixed Error: DB closed when the adapter is stopped
-* (xXBJXx) object creation optimized
-* (xXBJXx) request interval default value changed to 10 minutes and minimum value to 10 minutes
-* (xXBJXx) added a check for the Station ID is already configured (in edit mode)
-* (xXBJXx) added price difference to the last price
-* (xXBJXx) added a feature request cheapest station [Issue #109](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/109)
-
-### 3.3.1 (2022-12-30)
-* (xXBJXx) fixed TypeError: Cannot read properties of undefined [Issue #104](https://github.com/iobroker-community-adapters/ioBroker.tankerkoenig/issues/104)
-* (xXBJXx) added full street state for each station
 
 ## License
 

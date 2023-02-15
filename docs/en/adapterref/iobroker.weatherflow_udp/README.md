@@ -58,6 +58,9 @@ Further, the adapter provides a selection of useful minimum and maximum values o
 The protocol sends a lightning distance of 0 when no lightning was detected. Values of 0 are modified to 999 to avoid the impression that lightning strikes are directly overhead.
 
 ## Changelog
+
+### 0.1.3 
+(Scrounger) calculation of absolute humidity added
 ### 0.1.2
 (womi) Update js-controller >3.0.0; checked compatibility with js-controller 4.0 
 ### 0.1.1

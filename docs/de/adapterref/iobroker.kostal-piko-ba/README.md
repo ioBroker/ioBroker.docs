@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: 1z/q2F7cs7U06ZA3JiDVA9+w+bNU7biWcBvR5T9O86Y=
+hash: cmVxVpq3UMsRhfTVdYicobqMo+jdDShWAGi3WSwRSes=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -20,7 +20,7 @@ CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workf
 
 ## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
 Adapter zum Auslesen von Kostal Piko & Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 5.5, 7.0, 10, 12, 15, 17 & 20 Wechselrichtern.
+Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17 & 20 Wechselrichtern.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
@@ -35,6 +35,24 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ! Note that missing version entries are typically dependency updates for security.
 
+### 2.2.2 (14.02.2023)
+* (HombachC) fixed error with missing grid limitation response; bumped dependencies
+### 2.2.1 (07.02.2023)
+* (HombachC) fixing error with missing grid limitation response
+### 2.2.0 (03.02.2023)
+* (HombachC) added support for phase 1-3 of homeconsumption power
+* (HombachC) enhanced sentry support
+### 2.1.3 (03.02.2023)
+* (HombachC) optimized debug data
+### 2.1.2 (29.01.2023)
+* (HombachC) fixed errors with single phase inverters (Piko 3)
+* (HombachC) bumped dependencies
+### 2.1.1 (29.12.2022)
+* (HombachC) year 2023 changes
+* (HombachC) bumped dependencies
+### 2.1.0 (04.11.2022)
+* (HombachC) added ukrainian translations
+* (HombachC) bumped dependencies
 ### 2.0.2 (16.10.2022)
 * (HombachC) fixed small sentry reported error
 * (HombachC) optimized error logging
@@ -107,7 +125,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 ## License
 MIT License
 
-Copyright (c) 2020 - 2022 HombachC
+Copyright (c) 2020 - 2023 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
+hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -19,7 +19,7 @@ hash: KVkzs9AquZ50cibsh9Huw/rye4P5R1b0hIt3hpMAYQY=
 
 Этот адаптер нет смысла активировать отдельно. Его следует использовать с другими адаптерами, такими как Telegram или Android-приложение **`iobroker.vis`**.
 
-## Применение
+## Использование
 Чтобы выполнить команду, напишите состояние **`text2command.<INSTANCE>.text`** с предложением. Вы всегда получите ответ в `text2command.<INSTANCE>.response`.
 
 Если вы определите **Ответ на ID**, ответ также будет записан в этом ID. Это требуется, например, для чтобы понять, что голос подтверждает.
@@ -127,7 +127,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 ### Который сейчас час?
 Ответ: 14:56 (текущее время)
 
-### Как тебя зовут?
+### Как вас зовут?
 Ответ настраивается. По умолчанию: `My name is Alpha`
 
 ### Какая наружная температура?
@@ -256,15 +256,16 @@ createState("textProcessor", '', function () {
 ### Опция: Записывать в ответ каждой командой
 Если это активировано каждой командой (независимо от того, пришел ли запрос через состояние или через sendTo), `text2command.X.response` будет записан с ответом.
 
-# Сделать
+# Делать
 - по-русски мужские и женские ответы.
+- Перенести ReactDnD с 14 на 16
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 
 ### 2.2.2 (2022-06-17)
@@ -417,7 +418,7 @@ createState("textProcessor", '', function () {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

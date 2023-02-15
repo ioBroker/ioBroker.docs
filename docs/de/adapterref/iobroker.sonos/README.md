@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: 8ki7pVY1vipOx7uD6wir5Vt5QLb7JfSXgEcoFRN4qUs=
+hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -18,7 +18,7 @@ Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 
 ## Umgang mit Gruppen
 * Zustände für den Umgang mit SONOS-Gruppen:
-   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, jedoch mit Unterstrich „_“ anstelle des Punkts „.““, verwenden Sie also beispielsweise „192_168_0_100“ für die IP-Adresse „192.168.0.100“. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
+   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, aber mit Unterstrich `_` anstelle des Punktes `.`, verwenden Sie also zum Beispiel `192_168_0_100` für die IP-Adresse `192.168.0.100`. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
    * **`group_volume`**: die Lautstärke der Gruppe
    * **`group_muted`**: Mute-Status der Gruppe.
    * **`add_to_group`**: Fügen Sie ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, unter dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
@@ -111,7 +111,6 @@ Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird n
 
 ## Aufbau
 - Webserver - [optional] Wenn der Webserver aktiviert ist oder nicht
-- Port - Wenn Webserver aktiviert ist, also der Port dafür. Standard 8083
 - Aktualisierung der verstrichenen Zeit (ms) - Intervall in ms, wie oft der verstrichene Timer aktualisiert werden soll, wenn der Titel abgespielt wird. (Standard 2000)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
@@ -119,9 +118,10 @@ Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird n
 ### **IN ARBEIT** -->
 
 ## Changelog
-### WORK IN PROGRESS
-* (Standarduser & Cee-Jey) Added new states `favorites_list_html` and `queue_html with covers`
+### 2.3.0 (2023-01-11)
+* (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found
+* (bluefox) Configuration migrated to JSON-Config
 
 ### 2.2.3 (2022-07-04)
 * (Rello) Added track number state
@@ -280,7 +280,7 @@ Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird n
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

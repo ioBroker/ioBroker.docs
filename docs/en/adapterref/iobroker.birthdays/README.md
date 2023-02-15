@@ -33,6 +33,13 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2023-02-13)
+
+NodeJS 14.5 is required
+
+* (klein0r) Allow spaces in text separator
+* (klein0r) Added Ukrainian language
+
 ### 2.2.0 (2022-12-12)
 
 * (klein0r) Dropped Admin 5 support
@@ -55,16 +62,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Removed tsdav
 * (klein0r) Allow carddav url without valid certificate (configurable)
 
-### 1.2.0 (2022-03-04)
-
-* (klein0r) Dropped "node-ical" dependency and parse events directly
-* (klein0r) Stop scheduled adapter instance in any case and report errors
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

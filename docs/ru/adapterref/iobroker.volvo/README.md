@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.volvo/README.md
 title: ioBroker.volvo
-hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
+hash: KQNQQ/Rzgeeh5MCvgqbVVuW6Sf/ZXmF8cDEFXZYqaJc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.volvo/admin/volvo.png)
 
@@ -20,10 +20,10 @@ hash: Q1a9Kk2F0TckdIwzTGPM1xX+4Ws9SSf57m6KLc0/CRg=
 ## Адаптер volvo для ioBroker
 Volvo On Call и новый адаптер Electric API для Android Automotive Cars Adapter
 
-## Авторизоваться
+## Вход для неэлектрических автомобилей
 Автомобиль Non Eletric может войти в систему с помощью имени пользователя и пароля.
 
-### Eletric Android Automotive Cars требуется ключ VCC API
+## Eletric Android Automotive Cars требуется ключ API VCC
 Зарегистрируйтесь/Войдите в <https://developer.volvocars.com/account/>
 
 Вам нужна учетная запись Google или Github, это не связано с вашими учетными данными приложения.
@@ -38,7 +38,8 @@ Volvo On Call и новый адаптер Electric API для Android Automotiv
 
 Введите имя пользователя и пароль приложения Volvoe.
 
-Пульты дистанционного управления не работают с новым API. Запросы принимаются, но не направляются в машину.
+## Управление Eletric Android
+В настоящее время управление Eletric Android с помощью пульта volvo.0.id.remote невозможно. Команды успешно отправляются в API и принимаются, но похоже, что API не готов для управления автомобилем.
 
 ## Начиная
 Используйте объекты под пультом дистанционного управления для управления транспортным средством

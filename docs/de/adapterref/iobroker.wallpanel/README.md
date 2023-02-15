@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wallpanel/README.md
 title: ioBroker.wallpanel
-hash: 8IZ7RZ71Bv/GJK63UmHbo/Z6E+HDKyBuHNYmO+/1duM=
+hash: 18e3WSSDTtMe3rpocCDe+eu15UCJCzhXxBsZN6PT/y0=
 ---
 ![Logo](../../../en/adapterref/iobroker.wallpanel/admin/wallpanel.png)
 
@@ -12,14 +12,16 @@ hash: 8IZ7RZ71Bv/GJK63UmHbo/Z6E+HDKyBuHNYmO+/1duM=
 ![NPM-Downloads](https://img.shields.io/npm/dm/iobroker.wallpanel.svg?logo=npm)
 ![Eingerichtet](https://iobroker.live/badges/wallpanel-installed.svg)
 ![Anzahl der Installationen (stabil)](http://iobroker.live/badges/wallpanel-stable.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/xXBJXx/ioBroker.wallpanel/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.wallpanel.png?downloads=true)
 
 # IoBroker.wallpanel
 ![Testen und freigeben](https://github.com/xXBJXx/ioBroker.wallpanel/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemas automatisch an mich als Entwickler zu melden.
-Näheres siehe unten! [Posten](#sentry)**
+### HAFTUNGSAUSSCHLUSS
+Alle Produkt- und Firmennamen oder Logos sind Warenzeichen™ oder eingetragene® Warenzeichen ihrer jeweiligen Eigentümer. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Unternehmen! Dieses persönliche Projekt wird auf Freizeitbasis verfolgt und hat keine geschäftlichen Ziele. **[Wandplatte](https://github.com/TheTimeWalker/wallpanel-android)**.
+
+### Wache
+**Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden.**\ Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter.
+[Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Der Adapter erfordert eine Node.js-Version >= 16.x
 ## **Eine ausführliche Beschreibung finden Sie in [Adapterdokumentation](https://xxbjxx.github.io/wallpanel/)**
@@ -30,25 +32,20 @@ Mit dem Adapter kann man ein paar Werte wie Helligkeit und über MQTT dann noch 
 
 In den Adapter können gleichzeitig mehrere Tablets gesetzt werden, die dann nacheinander abgefragt und natürlich auch angesteuert werden können.
 
-Die App ist nicht mehr im Play Store verfügbar, kann aber weiterhin von GitHub über eine APK + Original (Play Store Version) installiert werden ⇨ [alte Version](https://github.com/thecowan/wallpanel-android/releases) wird nicht weiterentwickelt + neue Version derzeit nur auf GitHub ⇨ § §LLLLL_1§§ befindet sich in der Weiterentwicklung.
-
 ### **Achtung, wenn Sie eine App von GitHub installieren, dann installieren Sie diese „von unbekannter Quelle“ dies kann unter Umständen gefährlich sein, da die App von keiner offiziellen Quelle auf Malware geprüft wurde.**
-Hier noch der Forenthread zu diesem Adapter: [Forumsbeitrag](https://forum.iobroker.net/topic/36438/test-adapter-wallpanel)
-
-##Wache
-### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID ohne zusätzliche Informationen über Sie, E-Mail-Name oder dergleichen) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
-All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
-
-Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in den [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)<br> Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Changelog
  <!--
  Placeholder for the next version (at the beginning of the line):
  ### __WORK IN PROGRESS__ (- falls nicht benötigt löschen sonst klammern entfernen und nach dem - dein text schreiben)
  -->
+### 0.3.11 (2023-02-06)
+* (xXBJXx) Dependencies updated
+
+### 0.3.10 (2022-12-23)
+* (xXBJXx) update dependencies
+* (xXBJXx) update to new React library for UI
+
 ### 0.3.9 (2022-10-02)
 * (xXBJXx) dependencies updated 
 * (xXBJXx) Moved global variable to constructor
@@ -63,16 +60,10 @@ Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung f
 * (xXBJXx) Node version support set to >= v16.x because of new features of Node.js that are needed.
 * (xXBJXx) fixed mqtt topic Display Direction
 
-### 0.3.6 (2022-05-30)
-* (xXBJXx) preparation for release in ioBroker Repo. Adapter-Check issues processed
-
-### 0.3.5 (2022-05-30)
-* (xXBJXx) update Changelog and fixed type issues
-
 ## License
 MIT License
 
-Copyright (c) 2020-2022 xXBJXx <issi.dev.iobroker@gmail.com>
+Copyright (c) 2020-2023 xXBJXx <issi.dev.iobroker@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

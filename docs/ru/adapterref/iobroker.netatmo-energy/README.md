@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: L3lGLxMbvBMFpeKWfMgRb+GESzdBEZOEqY0C9PT5zJY=
+hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -29,12 +29,12 @@ hash: L3lGLxMbvBMFpeKWfMgRb+GESzdBEZOEqY0C9PT5zJY=
 Учетная запись оборудования Netatmo Energy (термостат, клапаны) в облаке Netatmo
 
 - Адаптер работает с admin => 3 и nodejs >= 14
-- Создайте свою учетную запись https://auth.netatmo.com/de-de/access/signup
-- Вход в API https://dev.netatmo.com/apidocumentation/energy
+- Создайте свою учетную запись <https://auth.netatmo.com/de-de/access/signup>
+- Выполните вход в API <https://dev.netatmo.com/apidocumentation/energy>.
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
   - Заполните форму и сохраните ее
   - Применить полученный client-ID и client-secret-ID к конфигурации адаптера
-  - Перейти к документации по API https://dev.netatmo.com/apidocumentation/energy
+  - Перейдите к документации по API <https://dev.netatmo.com/apidocumentation/energy>.
   - Выберите "ПОЛУЧИТЬ домашние данные" - "Попробовать" - "ВЫПОЛНИТЬ / HOMESDATA"
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
@@ -50,40 +50,44 @@ hash: L3lGLxMbvBMFpeKWfMgRb+GESzdBEZOEqY0C9PT5zJY=
     - Обновление состояний API через x секунд... Постоянное обновление данных API. (0 = нет обновления)
   - При желании также можно настроить службу уведомлений для получения определенных изменений статуса. Можно получать информационные сообщения, предупреждения или сообщения об ошибках. Для этого необходимо активировать опцию «Активировать/деактивировать уведомления» в «Информации для входа», а затем настроить параметры в меню «Уведомления».
 
-Подробное описание доступно в виде вики (https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki).
+Подробное описание доступно в виде вики (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_login_de.png" alt="настройкиВход" width="70%"/>
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_api_de.png" alt="настройкиAPI" width="70%"/>
 
 ## Адаптер netatmo-energy для ioBroker
-Текущие настройки извлекаются или изменяются с помощью API Netatmo-Energy. Адаптер использует запрос на выборку для передачи данных в Netatmo Energy API. Официальная документация API: https://dev.netatmo.com/apidocumentation/energy.
+Текущие настройки извлекаются или изменяются с помощью API Netatmo-Energy. Адаптер использует запрос на выборку для передачи данных в Netatmo Energy API. Официальная документация API: <https://dev.netatmo.com/apidocumentation/energy>.
 
 Адаптер создает собственное устройство «energyAPP», которое содержит «APIRequests» и «trigger».
 
 ### API-запросы
-* homedata ... извлекает всю структуру установки Netatmo Energy (используя параметр NAPlug). Все остальные параметры для ручных запросов вы можете выбрать самостоятельно.
-* homestatus ... определяет и передает статус и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
-* getroommeasure ... При этом вы получаете исторические данные о ваших комнатах. Результат вводится в поле «Ответ».
-* getmeasure ... Это даст вам исторические данные вашего котла. Результат вводится в поле «Ответ».
-* setthermmode_schedule ... Устанавливает рабочий режим установки Netatmo Energy на «Расписание» (по умолчанию)
-* setthermmode_hq ... устанавливает режим работы установки Netatmo Energy на "hq" (защита от замерзания)
-* setthermmode_away … Устанавливает режим работы установки Netatmo Energy на «в гостях» (не дома)
-* switchhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
-* synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график нагрева, введите его. В противном случае текущий установленный будет изменен. Пожалуйста, введите необходимые параметры и инициируйте запрос расписания синхронизации.
+-homesdata... извлекает всю структуру установки Netatmo Energy (используя параметр NAPlug). Все остальные параметры для ручных запросов вы можете выбрать самостоятельно.
+- homestatus ... определяет и передает состояние и техническую информацию назначенных вам клапанов. Если вам нужна информация о конкретном типе устройства, вы можете выбрать его самостоятельно.
+- getroommeasure ... При этом вы получаете исторические данные о ваших комнатах. Результат вводится в поле «Ответ».
+- getmeasure... Это даст вам исторические данные вашего котла. Результат вводится в поле «Ответ».
+- setthermmode_schedule... Устанавливает режим работы установки Netatmo Energy на «Расписание» (по умолчанию)
+- setthermmode_hq... устанавливает режим работы установки Netatmo Energy на "hq" (монитор мороза)
+-setthermmode_away... Устанавливает режим работы установки Netatmo Energy на "в гостях" (не дома)
+- switchhomeschedule ... Устанавливает «режим расписания» Netatmo Energy API. Все возможные режимы перечислены в канале "switchhomeschedule".
+
+- createnewhomeschedule ... Устанавливает «режим расписания» API Netatmo Energy. Все возможные режимы перечислены в канале "switchhomeschedule".
+
+- synchomeschedule ... Устанавливает графики нагрева вашего приложения Netatmo Energy. Чтобы изменить конкретный график нагрева, введите его. В противном случае текущий установленный будет изменен. Пожалуйста, введите необходимые параметры и инициируйте запрос расписания синхронизации.
+- createnewhomeschedule ... Создает новый график отопления для вашего приложения Netatmo Energy. Пожалуйста, введите необходимые параметры и инициируйте запрос createnewhomeschedule.
 
 Если для запроса API требуются параметры, их можно найти в соответствующем канале запроса в канале «параметры».
 
 ### Триггеры
-* applychanges ... передает все ожидающие ручные изменения ваших клапанов в приложение Netatmo Energy
-* refresh_structure ... генерировать запросы homedata и homestatus один за другим
+- applychanges ... передает все ожидающие ручные изменения ваших клапанов в приложение Netatmo Energy
+- refresh_structure... генерировать запросы homedata и homestatus один за другим
 
 ### Запросы на изменение
-* setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
-* set_mode_to_home ... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для распространения изменения.
+- setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
+- set_mode_to_home... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для распространения изменения.
 
 ### Состояние
-* работает ... здесь вы можете увидеть, выполняется ли в данный момент запрос API
+- работает... здесь вы можете увидеть, выполняется ли в данный момент запрос API
 
 ### Структура запроса
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
@@ -120,81 +124,58 @@ hash: L3lGLxMbvBMFpeKWfMgRb+GESzdBEZOEqY0C9PT5zJY=
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
 
 ## Changelog
+
 [Older changes](CHANGELOG_OLD.md)
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.3.1 (2023-02-12)
+
+* (ioKlausi) Redesign coding
+
+### 2.3.0 (2023-02-12)
+
+* (ioKlausi) Rework of signal notifications
+
+### 2.2.2 (2023-02-12)
+
+* (ioKlausi) Send No-Token-Error as a notification
+
+### 2.2.1 (2023-02-12)
+
+* (ioKlausi) Timer established for token refresh
+
+### 2.1.0 (2023-02-05)
+
+* (ioKlausi) Added new API request 'createnewhomeschedule'
+
+### 2.0.3 (2023-02-04)
+
+* (ioKlausi) Added Signal as a new message type
+
 ### 2.0.2 (2023-01-07)
+
 * (ioKlausi) Revision of the documentation
 
 ### 2.0.1 (2023-01-06)
+
 * (ioKlausi) Corrections for OAuth2
 
 ### 2.0.0 (2023-01-06)
+
 * (ioKlausi) New authentication method established
 
 ### 1.3.1 (2022-04-18)
+
 * (ioKlausi) Additional information added to admin tab cards
 
 ### 1.3.0 (2022-04-17)
+
 * (ioKlausi) Change thermostat mode functionality added to thermostat card
 
-### 1.2.5 (2022-04-16)
-* (ioKlausi) Dropdown menu to change heating plan added to the thermostat card in the admin page
-
-### 1.2.4 (2022-04-09)
-* (ioKlausi) i18n files for npm added
-
-### 1.2.3 (2022-04-08)
-* (ioKlausi) Added status icons to plug
-
-### 1.2.2 (2022-04-03)
-* (ioKlausi) Added a slider to each valve to change the temperature and added some API requests to admin tab to transfer changes to the cloud 
-
-### 1.2.1 (2022-04-01)
-* (ioKlausi) Messages for specific events created
-
-### 1.2.0 (2022-03-31)
-* (ioKlausi) Close message functionality added on admin tab
-
-### 1.1.7 (2022-03-24)
-* (ioKlausi) Bridge information added to each card
-
-### 1.1.6 (2022-03-24)
-* (ioKlausi) Rework README.md & WIKI
-
-### 1.1.5 (2022-03-23)
-* (ioKlausi) Refresh functionality added to admin tab
-
-### 1.1.4 (2022-03-20)
-* (ioKlausi) Plug added to admin tab 
-
-### 1.1.3 (2022-03-19)
-* (ioKlausi) Admin tab for valves added 
-
-### 1.1.2 (2022-03-06)
-* (ioKlausi) Bugfix Easy Admin 
-
-### 1.1.1 (2022-03-06)
-* (ioKlausi) Bugfix setroomthermpoint 
-
-### 1.1.0 (2022-03-06)
-* (ioKlausi) setroomthermpoint - Trigger for valve-mode implemented
-
-### 1.0.4 (2022-03-05)
-* (ioKlausi) Bugfix - send message
-
-### 1.0.3 (2022-03-05)
-* (ioKlausi) Transfered Customizing-UI to json
-
-### 1.0.2 (2022-02-27)
-* (ioKlausi) Redesign coding
-
-### 1.0.0 (2022-02-25)
-* (ioKlausi) Create major version
-
 ## License
+
 MIT License
 
 Copyright (c) 2021-2023 ioKlausi <nii@gmx.at>

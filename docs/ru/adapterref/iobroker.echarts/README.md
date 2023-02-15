@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
+hash: 8eTIHm7W11gwgWyisMhmiBpdFTy3UpDW2m1oZ4Ra1LY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -19,7 +19,9 @@ hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
 ## Адаптер echarts для ioBroker
 Создавайте полезные графики в ioBroker:
 
-![Снимок экрана](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
+![Скриншот](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
+
+![Бары](../../../en/adapterref/iobroker.echarts/img/bars.png)
 
 ## Использование
 Добавить после перезагрузки вкладку в админке: ![Администратор](../../../en/adapterref/iobroker.echarts/img/admin.png)
@@ -32,6 +34,21 @@ hash: k+wb/Y8bMxvy/eqo6X/6kaLqYCBO1FxqP3qh5TipVCk=
 Нижний регистр `i` указывает, что значение было интерполировано из двух соседних значений и не существует в данный момент времени.
 
 ![Подсказка](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
+
+### Данные из JSON
+Вы можете определить источник данных из JSON. В этом случае вы можете создать некоторое пользовательское состояние типа `json` и сохранить значение следующим образом:
+
+```
+[
+  {"ts": 1675887847000, "val": 45},
+  {"ts": 1675887848000, "val": 77},
+  {"ts": 1675887849000, "val": 180}
+]
+```
+
+Вы не можете определить начало и начало в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
+Агрегация тоже невозможна. Все манипуляции должны производиться путем записи данных в формате JSON.
+Диаграмма будет автоматически обновляться каждый раз при изменении значения.
 
 ### Рендеринг на стороне сервера
 Вы можете отрендерить пресеты на сервере и получить их как URL-адрес base64 или сохранить их на диске в БД ioBroker:
@@ -84,8 +101,52 @@ sendTo('echarts.0', {
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.2 (2023-02-15)
+* (bluefox) Implemented charts preview
+
+### 1.4.1 (2023-02-14)
+* (bluefox) Corrected some issues from GitHub
+* (bluefox) Implemented negative offset of X-Axis
+* (bluefox) Show device names for charts
+
+### 1.4.0 (2023-02-13)
+* (bluefox) Added possibility to load the history data from JSON state.
+
+### 1.3.4 (2023-02-08)
+* (bluefox) added a formula for the values conversion
+
+### 1.3.3 (2023-02-08)
+* (bluefox) Implemented bar chart
+
+### 1.2.1 (2023-01-31)
+* (bluefox) Changed german translation
+* (bluefox) Added new positions for markings: inside, top, bottom
+
+### 1.1.5 (2022-12-31)
+* (bluefox) Refactoring and packages update done
+
+### 1.1.3 (2022-12-01)
+* (bluefox) Make all buttons smaller
+
+### 1.1.1 (2022-08-23)
+* (bluefox) Added preparations for vis2.0
+
+### 1.1.0 (2022-07-05)
+* (bluefox) Made it work with ioBroker cloud
+* (bluefox) GUI migrated to mui5
+
+### 1.0.10 (2022-06-20)
+* (bluefox) Corrected the problem with `socket.io`
+
+### 1.0.9 (2022-06-17)
+* (bluefox) Added 2 weeks as relative period
+
+### 1.0.8 (2022-06-01)
+* (bluefox) Added option `shift+mouse move` to scale Y axis
+
+### 1.0.7 (2022-05-13)
 * (bluefox) Added background to export image
+* (bluefox) Added integral and percentile aggregate methods
 
 ### 1.0.5 (2022-02-16)
 * (bluefox) Added "i" in tooltips by interpolated values
@@ -189,10 +250,10 @@ sendTo('echarts.0', {
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2022 The Apache Software Foundation
+Copyright (c) 2017-2023 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).
