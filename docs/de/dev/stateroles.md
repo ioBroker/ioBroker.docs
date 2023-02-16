@@ -74,6 +74,7 @@ Verschiedene Gerätevorlagen, die für die Erkennung mit den erforderlichen und 
 * `value.window` (`common.states={"0": "CLOSED", "1": "TILTED", "2": "OPEN"}`) Es ist wichtig, (`CLOSED/TILTED/ GEÖFFNET"). Werte können abweichen.
 * `value.temperature` (`common.unit='°C' oder '°F' oder 'K'')
 * `value.humidity`
+* `value.co2`        - CO2 (unit: ppm)
 * `value.brightness` - Leuchtdichte (Einheit: Lux, )
 * `value.min`
 * `value.max`
@@ -139,7 +140,6 @@ Mit **Stufen** können Sie einen Zahlenwert steuern oder einstellen.
 `common.type=number, common.write=true`
 
 * `level`
-* `level.co2` - 0-100% Luftqualität
 * `level.dimmer` - Helligkeit ist auch dunkler
 * `level.blind` - Jalousieposition einstellen (max = vollständig geöffnet, min = vollständig geschlossen)
 * `level.temperature` - gewünschte Temperatur einstellen
