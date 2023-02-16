@@ -20,6 +20,12 @@ e.g. you can filter power values to cut power peeks.
 	### **WORK IN PROGRESS**
 -->
 
+### 2.0.8 (2023-02-16)
+* (BenAhrdt) limit of decimal places reduced to 8
+
+### 2.0.7 (2023-02-16)
+* (BenAhrdt) limit of decimal places implemented
+
 ### 2.0.6 (2023-01-20)
 * (BenAhrdt) inplement the unit of the filtered falue
 

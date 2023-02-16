@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
+hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
 ---
 ![Логотип](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -139,7 +139,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 Ответ настраивается. По умолчанию: `Inside temperature is %s %u` **`%s`** будет заменено температурой, округленной до целого числа. **`%u`** будут заменены единицами этого состояния или единицами измерения температуры системы.
 
 ### Включение/выключение по функции
-Эта команда считывает информацию из перечислений. Он использует **enum.functions** для поиска типа устройства (например, свет, будильник, музыка) и **`enum.rooms`** для определения названия комнаты.
+Эта команда считывает информацию из перечислений. Он использует `enum.functions` для определения типа устройства (например, свет, будильник, музыка) и `enum.rooms` для определения названия комнаты.
 
 Пример на немецком языке: ![перечисления](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
@@ -219,10 +219,10 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 
 Подробнее о привязках можно прочитать здесь: (Привязки объектов)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Дополнительно вы можете получить время до настоящего момента на `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 минуты и 12 секунд) или `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 минуты и 12 секунд **назад**)
+Кроме того, вы можете получить время до настоящего момента на `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 минуты и 12 секунд) или `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 минуты и 12 секунд **назад**)
 
 ## Внешние правила с javascript
-Есть возможность использовать движок javascript для обработки команд в text2command.
+Существует возможность использовать движок javascript для обработки команд в `text2command`.
 Для этого вы должны указать какое-то состояние в «Идентификаторе состояния процессора» (Дополнительные настройки) и прослушать это состояние в каком-нибудь скрипте JS или Blockly.
 Вы можете создать некоторое состояние вручную в админке или в скрипте. Скрипт обработки может выглядеть так:
 
@@ -249,7 +249,7 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Установите в настройках text2command **Идентификатор состояния процессора** как *`javascript.0.textProcessor`*, чтобы этот пример работал.
+Установите в настройках `text2command` **Идентификатор состояния процессора** как *`javascript.0.textProcessor`*, чтобы этот пример работал.
 
 Сначала команда будет обработана вашим javascript, и если javascript ответит '' или не ответит в заранее определенное время (по умолчанию 1 секунда), команда будет обработана по правилам.
 

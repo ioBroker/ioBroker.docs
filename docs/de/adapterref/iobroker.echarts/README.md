@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: 8eTIHm7W11gwgWyisMhmiBpdFTy3UpDW2m1oZ4Ra1LY=
+hash: B476cIdVDoK0YlAGRAvXtLrntbliGf2uqhZoJ+WHEjY=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -71,6 +71,8 @@ sendTo('echarts.0', {
 
     fileOnDisk: '',                 // Path on disk to save the file.
     fileName: '',                   // Path in ioBroker DB to save the files on 'echarts.0'. E.g. if your set "chart.svg", so you can access your picture via http(s)://ip:8082/echarts.0/chart.png
+
+    cache:    600,                  // Cache time for this preset in seconds, default: 0 - no cache
 }, result => {
     if (result.error) {
         console.error(result.error);
@@ -101,7 +103,11 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ### **IN ARBEIT** -->
 
 ## Changelog
-### 1.4.2 (2023-02-15)
+### 1.4.5 (2023-02-16)
+* (bluefox) Allowed to copy only the web URLs in the preview
+* (bluefox) Corrected boolean charts
+
+### 1.4.3 (2023-02-15)
 * (bluefox) Implemented charts preview
 
 ### 1.4.1 (2023-02-14)

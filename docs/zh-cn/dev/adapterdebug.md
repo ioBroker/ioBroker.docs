@@ -4,13 +4,13 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterdebug.md
-hash: Cz67x0YZ6eFTiBBw1qO/E8odJ7LNuUYZPNlxe9Xq/Lc=
+hash: IPSFpfv8zfu2KhGaRA83bHcfSob2Nn2knD7iwyPmncY=
 ---
 # 调试适配器
 ## 使用 Chrome 调试适配器
 Node.JS 支持使用 Chrome 进行调试。
 
-如果您在 ioBroker 中停止适配器，然后像这样从控制台启动它：
+如果您在 ioBroker 中停止适配器，然后像这样从控制台 (CLI) 启动它：
 
 ```
 cd /opt/iobroker
@@ -40,15 +40,15 @@ Debugger attached.
 *已测试：Windows、Chrome 55、node.js 6.9.2*
 
 ### 使用 Chrome 进行远程调试
-如果 iobroker 未在与 chrome 相同的机器上运行，则该命令基于上面的示例：
+如果 iobroker 未在与 Chrome 浏览器相同的机器上运行，则命令基于上面的示例：
 
 ```
 node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 ```
 
-与上面相比，参数 `--inspect-brk` 提供，
+与上面相比，参数 `--inspect-brk` 确保，
 
-当调试器启动时，在适配器的第一行设置断点。
+在调试器开始时在适配器的第一行设置断点。
 
 如果你不总是想单独复制链接启动调试，也可以在chrome中调出如下页面：
 
@@ -56,20 +56,22 @@ node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 chrome://inspect
 ```
 
-然后输入您的 **oBroker 计算机** 的 IP 地址和端口，通过与 inspect 命令完全相同的配置进行一次。
+然后通过配置输入您的 **ioBroker 计算机** 的 IP 地址和端口，与检查命令完全一样。
 
 调试会话会在命令启动后显示在那里，并且可以一键启动。
 
-chrome 调试选项很棒。
-您拥有从 **web 调试** 中了解到的所有选项：断点、条件、监视、调用堆栈、范围检查、控制台输出等。
+Chrome 的调试功能非常棒。
+您拥有从 **web 调试** 中了解到的所有选项：断点，还有条件、`watch`、`call stack`、`scope inspection`、控制台输出等。
 
-图片和英文说明在[这里](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application)
+图片和英文说明见[这里](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application)。
 
-如果尚未安装，iobroker 计算机上需要节点检查器：
+如果尚未安装，ioBroker 计算机上需要节点检查器：
 
 ```
 npm install -g node-inspector
 ```
+
+通常，node-inspector 会自动与 ioBroker 一起安装。
 
 ## 使用 WebStorm 调试
 ## 使用 §§SSSSS_0 进行调试§§

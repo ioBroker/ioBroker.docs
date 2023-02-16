@@ -134,7 +134,7 @@ Answer is customizable. Default: `Inside temperature is %s %u`
 **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
 ### Switch on/off by function
-This command reads information from enums. It uses **enum.functions** to find type of device (e.g. light, alarm, music) and **`enum.rooms`** to detect room name.
+This command reads information from enums. It uses `enum.functions` to find type of device (e.g. light, alarm, music) and `enum.rooms` to detect room name.
 
 Example in german:
 ![Enums](img/enums.png)
@@ -215,10 +215,10 @@ E.g.:
 
 You can read more about bindings here: (Bindings of objects)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Additional you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**) 
+Additionally, you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**) 
 
 ## External rules with javascript
-There is a possibility to use javascript engine to process commands in text2command.
+There is a possibility to use javascript engine to process commands in `text2command`.
 To do that you must specify some state in "Processor state ID" (Advanced settings) and to listen on this state in some JS or Blockly script.
 You can create some state manually in admin or in script. Processing script can look like this one:
 
@@ -245,7 +245,7 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Set in settings of text2command **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
+Set in settings of `text2command` **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
 
 First the command will be processed with your javascript and if javascript will answer with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
 

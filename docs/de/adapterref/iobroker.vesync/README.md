@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: 6usTx0pDpPFmGjMCY+moC5ETd+hQe0RIxm+ZA8PHX4E=
+hash: U7nb021ZVEe7qtDs0Zz+TpOj7SPP8vGYoHwTqfQCxCg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
@@ -24,6 +24,35 @@ Die App Mail und Passwort eingeben.
 
 #Steuerung
 Geräte can via vesync.0.id.remote gesteuert werden
+
+startCook Beispiele Fritten:
+
+```
+{
+            "accountId": "8604151",
+            "cookTempDECP": 0,
+            "hasPreheat": 1,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "Fries",
+            "readyStart": true,
+            "recipeId": 18,
+            "recipeName": "Fritten",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 240,
+                "cookTemp": 75,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 75,
+                "shakeTime": 120,
+                "targetTemp": 0
+            },
+            "tempUnit": "c"
+        }
+```
 
 ##Diskussion und Fragen
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>

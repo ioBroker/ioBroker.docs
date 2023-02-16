@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
+hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 ---
 ![标识](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -32,19 +32,8 @@ hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
   您将看到一个页面，其中包含有关您的 Wi-Fi 连接的更多信息。记下IP地址。
 
 ### **iobroker.fronuis-wattpilot 适配器**
-- 选项 1：直接在 ioBroker 中通过专家菜单安装：
-  - 转到适配器页面并激活“专家模式”
-  - 单击 GitHub 图标并选择“自定义”选项卡
-  - 插入 URL https://github.com/tim2zg/ioBroker.fronius-wattpilot
-  - 安装
-
-- 选项 2：通过 NPM 安装：
-  - cd 进入您的 ioBroker 目录（例如 /opt/iobroker）
-  - 使用命令安装：npm i iobroker.fronius-wattpilot
-
-  现在您可以通过“适配器”页面定期安装 iobroker.fronius-wattpilot 实例。
-
-创建实例后，系统会提示您输入 WattPilot 的 IP 地址和密码。填写您之前注意到的值并保存配置。如果您已正确完成所有操作，适配器将在一段时间后变为绿色，您可以在对象选项卡中看到传入的数据。
+- 现在您可以通过“适配器”页面定期安装 iobroker.fronius-wattpilot 实例。
+- 创建实例后，系统会提示您输入 WattPilot 的 IP 地址和密码。填写您之前注意到的值并保存配置。如果您已正确完成所有操作，适配器将在一段时间后变为绿色，您可以在对象选项卡中看到传入的数据。
 
 **强烈建议为您的 WattPilot 分配一个静态 IP。**
 
@@ -53,7 +42,7 @@ hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
 要获得一些想法，请参阅“示例”。
 
 [块示例](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) 如何测量您的太阳能电网输出并自动将 Pilot 调整到正确的电流值 (Amp) 以改善您的内部能源消耗。
-您可以简单地通过复制示例的内容来导入它，然后通过 Blockly 脚本右上角的“导入块”图标插入它。
+您可以通过复制示例的内容来简单地导入它，然后通过 Blockly 脚本右上角的“导入块”图标插入它。
 
 ## 适配器是什么？
 该适配器连接到 WattPilots WebSocket 并将传入数据分离到您可以非常舒适地使用的 ioBroker-datapoints 中。
@@ -83,6 +72,9 @@ hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.4.0 (2023-02-16)
+- known states will now be updated even if the dynamic parser is enabled
+
 ### 4.3.0 (2023-01-14)
 - dependency updates
 - state updates

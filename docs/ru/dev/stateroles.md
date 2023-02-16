@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/stateroles.md
-title: Роли объектов
-hash: Xd+8R45RLsrsVZAAbaCz6dAFMGTYwumHFlBKQYgdo2U=
+title: Государственные роли
+hash: tewCB2v5TLnrBwQgVMgJP1kHAMig1DDXqU7bWJZ85TA=
 ---
-# Роли объектов
+# Государственные роли
 Для объектов типа `state` необходимо, чтобы их свойство `common.role` было установлено на одну из ролей, определенных в списке ниже.
 Информация о роли является очень важной информацией и позволяет адаптерам визуализации и Smart-Assistant определять функцию объекта, а также то, как/относятся ли они к другим объектам в том же канале, устройстве или папке.
 
@@ -76,6 +76,7 @@ hash: Xd+8R45RLsrsVZAAbaCz6dAFMGTYwumHFlBKQYgdo2U=
 * `value.window` (`common.states={"0": "ЗАКРЫТО", "1": "НАКЛОН", "2": "ОТКРЫТО"}`) Важно иметь (`ЗАКРЫТО/НАКЛОНЕНО/ ОТКРЫТЬ`). Значения могут отличаться.
 * `value.temperature` (`common.unit='°C' или '°F' или 'K'`)
 * `значение.влажность`
+* `value.co2` - CO2 (единица измерения: ppm)
 * `value.brightness` - уровень яркости (единица измерения: люкс, )
 * `значение.мин`
 * `value.max`
@@ -141,7 +142,6 @@ hash: Xd+8R45RLsrsVZAAbaCz6dAFMGTYwumHFlBKQYgdo2U=
 `common.type=number, common.write=true`
 
 * `уровень`
-* `level.co2` - качество 0-100%
 * `level.dimmer` - яркость тоже уменьшается
 * `level.blind` - установить положение жалюзи (max = полностью открыто, min = полностью закрыто)
 * `level.temperature` - установить желаемую температуру
@@ -267,7 +267,7 @@ TODO: Подумайте об ионизации и осцилляции.
 * `media.input` - номер или строка входа (AUX, AV, TV, SAT, ...)
 * `level.bass` - Уровень баса
 * `level.treble` - Уровень высоких частот
-* `switch.power.zone` - зона мощности
+* `switch.power.zone` - зона питания
 
 ```
 [

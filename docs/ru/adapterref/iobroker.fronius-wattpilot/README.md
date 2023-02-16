@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
+hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -32,19 +32,8 @@ hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
   Вы увидите страницу с дополнительной информацией о вашем Wi-Fi-соединении. Запишите IP-адрес вниз.
 
 ### **Адаптер iobroker.fronuis-wattpilot**
-- Вариант 1: Установить через экспертное меню прямо в ioBroker:
-  - Перейдите на страницу адаптеров и активируйте «Экспертный режим».
-  - Нажмите на значок GitHub и выберите вкладку «Пользовательский».
-  - Вставьте URL-адрес https://github.com/tim2zg/ioBroker.fronius-wattpilot.
-  - Установить
-
-- Вариант 2: Установить через NPM:
-  - перейдите в каталог вашего ioBroker (например, /opt/iobroker)
-  - установить командой: npm i iobroker.fronius-wattpilot
-
-  Теперь вы можете регулярно устанавливать экземпляр iobroker.fronius-wattpilot через страницу «Адаптеры».
-
-После создания экземпляра вам будет предложено ввести IP-адрес и пароль вашего WattPilot. Заполните значения, которые вы заметили ранее, и сохраните конфигурацию. Если вы все сделали правильно, через некоторое время адаптер станет зеленым, и вы сможете увидеть входящие данные во вкладке объектов.
+- Теперь вы можете регулярно устанавливать экземпляр iobroker.fronius-wattpilot через страницу «Адаптеры».
+- После создания экземпляра вам будет предложено ввести IP-адрес и пароль вашего WattPilot. Заполните значения, которые вы заметили ранее, и сохраните конфигурацию. Если вы все сделали правильно, через некоторое время адаптер станет зеленым, и вы сможете увидеть входящие данные во вкладке объектов.
 
 **Настоятельно рекомендуется назначить статический IP-адрес вашему WattPilot.**
 
@@ -83,6 +72,9 @@ hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.4.0 (2023-02-16)
+- known states will now be updated even if the dynamic parser is enabled
+
 ### 4.3.0 (2023-01-14)
 - dependency updates
 - state updates

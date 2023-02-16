@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/privacy.md
 title: 数据保护
-hash: TsOEwRJ8C6xV0s7FuEyGbJnLYfAMMksSAx6OBBoHM9c=
+hash: Ugo9/1PS1XtHaYaBxjtaWSqNjb8aJ0RyNHi6Jh2cAxY=
 ---
 ＃ 数据保护
 ＃＃ 数据保护
@@ -24,7 +24,7 @@ hash: TsOEwRJ8C6xV0s7FuEyGbJnLYfAMMksSAx6OBBoHM9c=
 您可以设置您的浏览器，以便了解 cookie 的设置，仅在个别情况下允许 cookie，在某些情况下或一般情况下拒绝接受 cookie，并在浏览器关闭时激活自动删除 cookie。如果禁用 cookie，本网站的功能可能会受到限制。
 
 ## 服务器日志文件
-页面提供商自动收集信息并将其存储在所谓的服务器日志文件中，您的浏览器会自动将其传输给我们。这些都是：
+页面提供商自动收集信息并将其存储在所谓的服务器日志文件中，您的浏览器会自动将这些信息传输给我们。这些都是：
 
 - 浏览器类型/浏览器版本
 - 使用的操作系统
@@ -34,10 +34,10 @@ hash: TsOEwRJ8C6xV0s7FuEyGbJnLYfAMMksSAx6OBBoHM9c=
 - 此数据不能分配给特定的人。此数据未与其他数据源合并。如果我们发现非法使用的具体迹象，我们保留随后检查此数据的权利。
 
 ＃＃ 联系表
-如果您通过联系表向我们发送查询，我们将存储您在查询表中的详细信息，包括您在此处提供的联系方式，以便处理查询和后续问题。未经您的同意，我们不会传递这些数据。
+如果您通过联系表向我们发送查询，您在查询表中的详细信息，包括您在此处提供的联系方式，将由我们存储，用于处理查询和后续问题。未经您的同意，我们不会传递这些数据。
 
 ## 分析函数
-我们使用 [谷歌分析](https://policies.google.com/terms) 和 [Facebook Pixel](https://www.facebook.com/business/m/privacy-and-data)。
-使用[PayPal](https://www.paypal.com/webapps/mpp/ua/privacy-full)服务进行支付。
+我们使用 [Google Analytics](https://policies.google.com/terms) 和 [Facebook Pixel](https://www.facebook.com/business/m/privacy-and-data)。
+[贝宝](https://www.paypal.com/webapps/mpp/ua/privacy-full) 服务用于支付。
 
-请参阅各自网站的隐私政策。
+有关数据保护声明，请参阅相应网站。

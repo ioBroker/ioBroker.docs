@@ -24,20 +24,8 @@ Barebones implementation of the unofficial Fronius Watt pilot (https://www.froni
   You will see a page with more information about your Wi-Fi connection. Note the IP address down.
   
 ### **iobroker.fronuis-wattpilot Adapter**
-- Option 1: Install via expert menu directly in ioBroker:
-  - Go to Adapters-page and activate "Expert-Mode"
-  - Click on GitHub-Icon and choose the "Custom"-tab
-  - Insert URL https://github.com/tim2zg/ioBroker.fronius-wattpilot 
-  - Install
-
-- Option 2: Install via  NPM:
-  - cd into your ioBroker-directory (e.g /opt/iobroker)
-  - install with command: npm i iobroker.fronius-wattpilot
-  
-  Now you can regularly install an instance of iobroker.fronius-wattpilot via the "Adapters"-page.
-
-After you created the instance, you will be prompted to insert IP-Address and password of your WattPilot. Fill in the values you noticed before and save the config. If you have done everything correctly the adapter will turn green after a while and you can see the incoming data in the objects tab.
-
+- Now you can regularly install an instance of iobroker.fronius-wattpilot via the "Adapters"-page.
+- After you created the instance, you will be prompted to insert IP-Address and password of your WattPilot. Fill in the values you noticed before and save the config. If you have done everything correctly the adapter will turn green after a while and you can see the incoming data in the objects tab.
 
 **It is highly recommended to assign a static-IP to your WattPilot.**
 ## How can I use the adapter...
@@ -77,6 +65,9 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.4.0 (2023-02-16)
+- known states will now be updated even if the dynamic parser is enabled
+
 ### 4.3.0 (2023-01-14)
 - dependency updates
 - state updates

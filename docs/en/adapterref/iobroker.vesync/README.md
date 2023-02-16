@@ -23,6 +23,35 @@ Die App Mail und Passwort eingeben.
 
 Geräte können via vesync.0.id.remote gesteuert werden
 
+startCook Beispieles Fritten:
+
+```
+{
+            "accountId": "8604151",
+            "cookTempDECP": 0,
+            "hasPreheat": 1,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "Fries",
+            "readyStart": true,
+            "recipeId": 18,
+            "recipeName": "Fritten",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 240,
+                "cookTemp": 75,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 75,
+                "shakeTime": 120,
+                "targetTemp": 0
+            },
+            "tempUnit": "c"
+        }
+```
+
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>

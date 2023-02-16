@@ -524,27 +524,18 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
-* (simatec) Onedrive-Api for Backups added
-* (simatec) Onedrive-Api for Restore added
+### 2.6.0 (2023-02-16)
+* (simatec) Onedrive-Api added
 * (simatec) Matrix Messenger added
 * (simatec) TLS for FTP added
 * (simatec) Tab Extra-Settings added
 * (simatec) Node-Red Backup added
-* (simatec) Node-Red Restore added
 * (simatec) SQLLite Backup added
-* (simatec) SQLLite Restore added
 * (simatec) Zigbee2MQTT Backup added
-* (simatec) Zigbee2MQTT Restore added
 * (simatec) Local-Storage check added
 * (simatec) System-Message added
 * (simatec) Jarvis Backup updated
-* (simatec) Jarvis Restore updated
-* (simatec) Docu updated
-* (simatec) Wiki updated
 * (simatec) many small Fixes
-* (simatec) dependencies updated
-* (simatec) Translation added
 
 ### 2.5.12 (2023-01-19)
 * (simatec) Fix Windows ioBroker-Restore

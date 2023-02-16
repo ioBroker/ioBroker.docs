@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2命令
-hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
+hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
 ---
 ![标识](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -97,7 +97,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 |工作/办公室 |办公室 |工人 | кабинет |
 |儿童/儿童/托儿所 |苗圃 |儿童齐默 | детская |
 | guets wc/客人壁橱|来宾wc |餐厅 | гостевой туалет |
-|卫生间/壁橱 |卫生间 |卫生间 | туалет|
+|卫生间/壁橱 |厕所 |厕所 | туалет|
 |楼层/进入 |地板 | diele/帮派/flur | коридор/прихожая |
 |厨房 |厨房 |库切/库切 | кухня |
 |阳台/露台/天井|露台 |阳台/露台 | терраса/балкон |
@@ -139,7 +139,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 答案是可定制的。默认值：`Inside temperature is %s %u` **`%s`** 将替换为温度，四舍五入为整数。 **`%u`** 将被该状态的单位或系统温度单位取代。
 
 ### 按功能开启/关闭
-此命令从枚举中读取信息。它使用 **enum.functions** 查找设备类型（例如灯光、警报、音乐）和 **`enum.rooms`** 检测房间名称。
+此命令从枚举中读取信息。它使用 `enum.functions` 查找设备类型（例如灯光、闹钟、音乐），并使用 `enum.rooms` 检测房间名称。
 
 德语示例：![枚举](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
@@ -200,7 +200,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 ### 发送文本到状态
 您可以将一些文本写入状态。用户必须指定状态 ID 才能将文本写入其中。
 
-例如。规则：`email [to] wife`，对象 ID：`javascript.0.emailToWife`，确认：`Email sent` 文本：`Send email to my wife: I will be late`。适配器从关键字中查找最后一个词（在本例中为 `wife`），从下一个词中提取文本（在本例中为 `I will be late`）并将此文本写入 `javascript.0.emailToWife`。
+例如。规则：`email [to] wife`，对象 ID：`javascript.0.emailToWife`，确认：`Email sent` 文本：`Send email to my wife: I will be late`。适配器从关键字中查找最后一个词（在本例中为 `wife`），从下一个词中提取文本（在本例中为 `I will be late`）并将该文本写入 `javascript.0.emailToWife`。
 Word `to` 不需要触发规则，但将从文本中删除。
 
 ### 你很好（只是为了好玩）
@@ -219,10 +219,10 @@ Word `to` 不需要触发规则，但将从文本中删除。
 
 您可以在此处阅读有关绑定的更多信息：（对象的绑定）[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-另外，您可以在 `{hm-rpc.0.light.STATE.lc;dateinterval}`（2 分 12 秒）或 `{hm-rpc.0.light.STATE.lc;dateinterval(true)}`（2 分 12 秒 **前**）之前获得时间
+此外，您可以在 `{hm-rpc.0.light.STATE.lc;dateinterval}`（2 分 12 秒）或 `{hm-rpc.0.light.STATE.lc;dateinterval(true)}`（2 分 12 秒**前**）之前获得时间
 
 ## 使用 javascript 的外部规则
-有可能使用 javascript 引擎来处理 text2command 中的命令。
+有可能使用 javascript 引擎来处理 `text2command` 中的命令。
 为此，您必须在“处理器状态 ID”（高级设置）中指定一些状态，并在某些 JS 或 Blockly 脚本中侦听此状态。
 您可以在管理员或脚本中手动创建一些状态。处理脚本可能如下所示：
 
@@ -249,7 +249,7 @@ createState("textProcessor", '', function () {
 });
 ```
 
-在 text2command 的设置中设置 **Processor state ID** 为 *`javascript.0.textProcessor`* 让这个例子工作。
+在 `text2command` **处理器状态 ID** 的设置中设置为 *`javascript.0.textProcessor`* 让这个例子工作。
 
 首先，该命令将使用您的 javascript 进行处理，如果 javascript 将回答 '' 或在预定义的时间内（默认为 1 秒）不回答，该命令将按规则进行处理。
 

@@ -50,6 +50,6 @@ Sie können auch damit helfen, wenn Sie die Fragen auf dem ioBroker Forum beantw
 Es kommen jeden Tag die neuen Anwender und die haben Fragen, weil die Dokumentation nicht ausreichend ist oder nicht verständlich ist.
 
 ## Ideen einbringen
-Wenn Sie eine Idee haben, wie ioBroker verbessert werden kann, dann können Sie diese auf dem ioBroker Forum diskutieren oder [hier](https://github.com/ioBroker/AdapterRequests/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AReleased) eine Wünsch platzieren.
+Wenn Sie eine Idee haben, wie ioBroker verbessert werden kann, dann können Sie diese auf dem ioBroker Forum diskutieren oder [hier](https://github.com/ioBroker/AdapterRequests/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+is%3Aopen) eine Wünsch platzieren.
 Falls Ihre Idee genügend Unterstützung bekommt, dann wird sie in die Roadmap aufgenommen.
  

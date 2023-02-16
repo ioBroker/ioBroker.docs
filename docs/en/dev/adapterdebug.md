@@ -4,13 +4,13 @@ lastChanged: 14.09.2018
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/dev/adapterdebug.md
-hash: Cz67x0YZ6eFTiBBw1qO/E8odJ7LNuUYZPNlxe9Xq/Lc=
+hash: IPSFpfv8zfu2KhGaRA83bHcfSob2Nn2knD7iwyPmncY=
 ---
 # Debug adapters
 ## Debug adapters with Chrome
 Node.JS supports debugging with Chrome.
 
-If you stop an adapter in ioBroker and then start it from the console like this:
+If you stop an adapter in ioBroker and then start it from the console (CLI) like this:
 
 ```
 cd /opt/iobroker
@@ -40,15 +40,15 @@ After that you can debug with Chrome by typing the link in Chrome:
 *Tested: Windows, Chrome 55, node.js 6.9.2*
 
 ### Remote debugging with Chrome
-If iobroker is not running on the same machine as chrome, then the command is based on the example above:
+If iobroker is not running on the same machine as the Chrome browser, then the command is based on the example above:
 
 ```
 node --inspect-brk=0.0.0.0:9229 node_modules/iobroker.sayit/main.js --debug
 ```
 
-the parameter `--inspect-brk` provides, compared to above,
+the parameter `--inspect-brk` ensures, compared to above,
 
-that a breakpoint is set on the first line of your adapter when the debugger starts.
+that a breakpoint is set on the first line of your adapter right at the start of the debugger.
 
 If you don't always want to copy the link to start the debug individually, you can also call up the following page in chrome:
 
@@ -56,20 +56,22 @@ If you don't always want to copy the link to start the debug individually, you c
 chrome://inspect
 ```
 
-then enter the IP address and port of your **ioBroker computer** once via configure exactly as with the inspect command.
+then enter the IP address and port of your **ioBroker computer** once via Configuration exactly as with the Inspect command.
 
-The debug session is then displayed there after the command has been started and can be started with one click.
+The debug session is then displayed there after the start of the command and can be started with one click.
 
-The chrome debug options are fantastic.
-You have all the options that you know from **web debugging**: breakpoints, also with conditions, watch, call stack, scope inspection, console output, etc.
+The Chrome debugging capabilities are fantastic.
+You have all the options that you know from **web debugging**: breakpoints, also with conditions, `watch`, `call stack`, `scope inspection`, console output, etc.
 
-Pictures and English description is in [here](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application)
+Pictures and English description can be found in [here](https://software.intel.com/en-us/xdk/articles/using-chrome-devtools-to-debug-your-remote-iot-nodejs-application).
 
-If it is not yet installed, the node-inspector is required on the iobroker computer:
+If it is not yet installed, the node-inspector is required on the ioBroker computer:
 
 ```
 npm install -g node-inspector
 ```
+
+Normally the node-inspector is automatically installed with the ioBroker.
 
 ## Debugging with WebStorm
 ## Debug with `Visual Studio Code`

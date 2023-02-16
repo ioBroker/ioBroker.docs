@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: yqQ0AOtPS+wiD30d0Fo6SFoJ3eJSrF1BMSX6ZwOT8VI=
+hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -32,19 +32,8 @@ Barebones-Implementierung der inoffiziellen Fronius Watt Pilot (https://www.fron
   Sie sehen eine Seite mit weiteren Informationen zu Ihrer WLAN-Verbindung. Notieren Sie sich die IP-Adresse.
 
 ### **iobroker.fronuis-wattpilot Adapter**
-- Möglichkeit 1: Per Expertenmenü direkt in ioBroker installieren:
-  - Gehen Sie zur Adapter-Seite und aktivieren Sie den "Experten-Modus"
-  - Klicken Sie auf das GitHub-Icon und wählen Sie den "Custom"-Tab
-  - URL https://github.com/tim2zg/ioBroker.fronius-wattpilot einfügen
-  - Installieren
-
-- Option 2: Installation über NPM:
-  - cd in Ihr ioBroker-Verzeichnis (z.B. /opt/iobroker)
-  - Installieren mit Befehl: npm i iobroker.fronius-wattpilot
-
-  Nun können Sie über die „Adapter“-Seite regelmäßig eine Instanz von iobroker.fronius-wattpilot installieren.
-
-Nachdem Sie die Instanz erstellt haben, werden Sie aufgefordert, die IP-Adresse und das Passwort Ihres WattPilot einzugeben. Füllen Sie die Werte aus, die Ihnen zuvor aufgefallen sind, und speichern Sie die Konfiguration. Wenn Sie alles richtig gemacht haben, wird der Adapter nach einer Weile grün und Sie können die eingehenden Daten im Reiter Objekte sehen.
+- Über die „Adapter“-Seite können Sie nun regelmäßig eine Instanz des iobroker.fronius-wattpilot installieren.
+- Nachdem Sie die Instanz erstellt haben, werden Sie aufgefordert, die IP-Adresse und das Passwort Ihres WattPilot einzugeben. Füllen Sie die Werte aus, die Ihnen zuvor aufgefallen sind, und speichern Sie die Konfiguration. Wenn Sie alles richtig gemacht haben, wird der Adapter nach einer Weile grün und Sie können die eingehenden Daten im Reiter Objekte sehen.
 
 **Es wird dringend empfohlen, deinem WattPilot eine statische IP zuzuweisen.**
 
@@ -83,6 +72,9 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.4.0 (2023-02-16)
+- known states will now be updated even if the dynamic parser is enabled
+
 ### 4.3.0 (2023-01-14)
 - dependency updates
 - state updates

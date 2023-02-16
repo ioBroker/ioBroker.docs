@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: b3qgbucLW+wsKByyuyyfEpHBHYZESLeMgmhF9G5VACw=
+hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
 ---
 ![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -139,7 +139,7 @@ Der Benutzer muss die Status-ID angeben, wo die Innentemperatur abzulesen ist.
 Die Antwort ist anpassbar. Default: `Inside temperature is %s %u` **`%s`** wird durch Temperatur ersetzt, auf Ganzzahl gerundet. **`%u`** wird durch Einheiten dieses Zustands oder durch Systemtemperatureinheiten ersetzt.
 
 ### Ein-/Ausschalten nach Funktion
-Dieser Befehl liest Informationen aus Aufzählungen. Es verwendet **enum.functions**, um den Gerätetyp zu finden (z. B. Licht, Alarm, Musik) und **`enum.rooms`**, um den Raumnamen zu erkennen.
+Dieser Befehl liest Informationen aus Aufzählungen. Es verwendet `enum.functions`, um den Gerätetyp zu finden (z. B. Licht, Wecker, Musik) und `enum.rooms`, um den Raumnamen zu erkennen.
 
 Beispiel auf Deutsch: ![Aufzählungen](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
@@ -219,10 +219,10 @@ Z.B.:
 
 Hier können Sie mehr über Bindungen lesen: (Bindungen von Objekten)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Zusätzlich können Sie die bisherige Zeit durch `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 Minuten und 12 Sekunden **vor**) abrufen.
+Zusätzlich können Sie die bisherige Zeit durch `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 Minuten und 12 Sekunden) oder `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 Minuten und 12 Sekunden vor **) abrufen.
 
 ## Externe Regeln mit Javascript
-Es besteht die Möglichkeit, die Javascript-Engine zu verwenden, um Befehle in text2command zu verarbeiten.
+Es besteht die Möglichkeit, die Javascript-Engine zu verwenden, um Befehle in `text2command` zu verarbeiten.
 Dazu müssen Sie einen Status in "Prozessorstatus-ID" (Erweiterte Einstellungen) angeben und diesen Status in einem JS- oder Blockly-Skript überwachen.
 Sie können einige Zustände manuell im Administrator oder im Skript erstellen. Das Verarbeitungsskript kann wie folgt aussehen:
 
@@ -249,7 +249,7 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Legen Sie in den Einstellungen von text2command **Prozessorstatus-ID** als *`javascript.0.textProcessor`* fest, damit dieses Beispiel funktioniert.
+Setzen Sie in den Einstellungen von `text2command` **Prozessorstatus-ID** als *`javascript.0.textProcessor`*, damit dieses Beispiel funktioniert.
 
 Zuerst wird der Befehl mit Ihrem Javascript verarbeitet und wenn Javascript mit '' antwortet oder nicht in der vordefinierten Zeit (standardmäßig 1 Sekunde) antwortet, wird der Befehl nach Regeln verarbeitet.
 

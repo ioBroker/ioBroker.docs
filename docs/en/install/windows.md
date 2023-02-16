@@ -4,17 +4,17 @@ lastChanged: 18.07.2019
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: px8Pj5WdRIRET04sAvbr8e4683UA6b4G1aExlrwjJgs=
+hash: 69niA2RvwVAdu1dGhvw/9To2FnAkAKCC+n05IJR1SH0=
 ---
 # Install ioBroker on Windows
-?> ***This article is currently being expanded***.<br><br> Help out at ioBroker. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+?> ***This article is currently being expanded***.<br><br> Help out at ioBroker. Please note the [ioBroker Style Guide](../community/styleguidedoc.md) so that the changes can be adopted more easily.
 
 The following instructions guide you through the installation step by step. Please do not skip any steps as some commands build on each other.
 
 ## Check prerequisites
-!> First check whether the system fulfills all the necessary [Installation Requirements](install/requirements).
+!> First check whether the system fulfills all the necessary [Installation Requirements](requirements.md).
 
-Node.js is required to run ioBroker. The following assumes that neither Node.js nor ioBroker is installed on the PC. If ioBroker is already installed, please proceed to the [Update]() section.
+Node.js is required to run ioBroker. In the following it is assumed that neither Node.js nor ioBroker is installed on the PC. If ioBroker is already installed, please continue with section [updates](windows.md#update).
 
 To see whether Node.js is installed, the `Ausführen` dialog is opened with the key combination <kbd>⊞ Windows</kbd> + <kbd>r</kbd> and then the command there
 
@@ -28,7 +28,7 @@ entered. After confirming the command, a window will appear.
 
 Either an error message or the installed Node.js version is displayed.
 
-If a Node.js version number is output, first check whether it still corresponds to the [installation requirements]().
+If a Node.js version number is issued, it must first be checked whether this still corresponds to [Installation Requirements](requirements.md).
 
 If the error message is `Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`, then node.js is not installed and the installation is [can start right away](#nodeinst).
 
@@ -37,10 +37,10 @@ If the error message is `Der Befehl "node" ist entweder falsch geschrieben oder 
 
 Beginners should follow [detailed instructions](#nodeinst).
 
-* Node.js 8.x LTS version [download and install](install/nodejs).
+* Node.js 8.x LTS version [download and install](nodejs.md).
 * Open command line `cmd.exe` as administrator and run the following commands in order
 
-  To run:
+  carry out:
 
 ```
 npm install --global windows-build-tools
@@ -54,7 +54,7 @@ iobroker status
 <div id="nodeinst"></div>
 
 ## Installing Node.js and npm
-Node.js is installed according to [this guide](install/nodejs).
+Node.js is installed according to [this guide](nodejs.md).
 
 ## Installation of ioBroker
 ?> ioBroker can be installed in a freely selectable folder on the local hard drive. If the installation path contains spaces, the full path specification must be enclosed in quotation marks for all commands.
@@ -86,7 +86,7 @@ npm install --global windows-build-tools
 
 1. Then in the command line window the command to create the installation folder
 
-   To run:
+   carry out:
 
 ```
 md C:\iobroker
