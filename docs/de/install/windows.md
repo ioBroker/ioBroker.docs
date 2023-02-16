@@ -8,7 +8,7 @@ lastChanged: "18.07.2019"
 ?> ***Dieser Artikel wird gerade erweitert***.
    <br><br>
    Hilf mit bei ioBroker.  
-   Bitte beachte den [ioBroker Style Guide](community/styleguidedoc), 
+   Bitte beachte den [ioBroker Style Guide](../community/styleguidedoc.md), 
    damit die Änderungen einfacher übernommen werden können.
 
 
@@ -17,12 +17,12 @@ Die folgende Anleitung führt schrittweise durch die Installation. Bitte keine S
 
 ## Voraussetzungen prüfen
 
-!> Zuerst prüfen, ob das System alle notwendigen [Installationsvoraussetzungen](install/requirements)
+!> Zuerst prüfen, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md)
 erfüllt.
 
 Für die Ausführung von ioBroker wird Node.js benötigt. Im Folgenden wird davon ausgegangen,
 dass auf dem PC weder Node.js noch ioBroker installiert ist. Ist ioBroker bereits installiert,
-bitte mit dem Abschnitt [Update]() fortfahren.
+bitte mit dem Abschnitt [Update](windows.md#update) fortfahren.
 
 Um zu erkennen, ob Node.js installiert ist, wird mit der Tastenkombination
 <kbd>&#x229e; Windows</kbd> + <kbd>r</kbd> der `Ausführen`-Dialog geöffnet und
@@ -38,7 +38,7 @@ eingegeben. Nach dem Bestätigen des Befehls erscheint ein Fenster.
 Es wird entweder eine Fehlermeldung oder die installierte Node.js-Version angezeigt.
 
 Wenn eine Node.js-Versionsnummer ausgegeben wird, ist zuerst zu prüfen, ob diese noch den
-[Installationsvoraussetzungen]() entspricht.
+[Installationsvoraussetzungen](requirements.md) entspricht.
 
 Lautet die Fehlermeldung
 `Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`,
@@ -53,7 +53,7 @@ gedacht, die ioBroker schon mehrmals installiert haben.
 
 Einsteiger sollten der [detaillierten Anleitung](#nodeinst) folgen.
 
-* Node.js 8.x LTS-Version [herunterladen und installieren](install/nodejs).
+* Node.js 8.x LTS-Version [herunterladen und installieren](nodejs.md).
 * Kommandozeile `cmd.exe` als Administrator öffnen und die folgenden Kommandos der Reihe nach
   ausführen:
   ```
@@ -70,7 +70,7 @@ Einsteiger sollten der [detaillierten Anleitung](#nodeinst) folgen.
 
 ## Installation von Node.js und npm
 
-Die Installation von Node.js erfolgt entspechend [dieser Anleitung](install/nodejs).
+Die Installation von Node.js erfolgt entspechend [dieser Anleitung](nodejs.md).
 
 
 ## Installation von ioBroker
