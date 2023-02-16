@@ -32,7 +32,7 @@ Es hilft sehr, wenn Error logs auch mit angehängt werden. Auch Screenshots sind
 
 Bitte vergessen Sie nicht die Versionsnummer des Adapters und die Version von `ioBroker.js-controller` zu erwähnen.
 
-Wie man die grafische Fehler (die im Browser vorkommen) melden sollte, finden Sie [hier](./010_how_to_debug_gui.md).
+Wie man die grafische Fehler (die im Browser vorkommen) melden sollte, finden Sie [hier](#fehlerindergrafischeoberflchemelden).
 
 Bitte nicht vergessen, dass man ioBroker-Protokolle auch im CLI anschauen kann:
 - `iob logs` um die letzten 100 Zeilen der Protokolle anzuzeigen,

@@ -39,7 +39,7 @@ It helps a lot if error logs are also attached. Screenshots are also very helpfu
 
 Please don't forget to mention the version number of the adapter and the version of `ioBroker.js-controller`.
 
-How to report graphical errors (occurring in the browser) see [here](./010_how_to_debug_gui.md).
+How to report graphical errors (occurring in the browser) see [here](#reporterrorsinthegraphicaluserinterface).
 
 Please don't forget that you can also view ioBroker logs in the CLI:
 
@@ -51,12 +51,12 @@ It may happen that you want to develop an adapter yourself or even want to work 
 
 Both are possible. :)
 
-To develop an adapter, there is a [Instructions](../dev/adapterdev.md).
+To develop an adapter, there is an [Instructions](../dev/adapterdev.md).
 
 ## Answer questions on ioBroker Forum
 You can also help with this by answering the questions on the ioBroker forum.
-New users come every day and they have questions because the documentation is not sufficient or not understandable.
+New users come every day, and they have questions because the documentation is not sufficient or not understandable.
 
 ## Contribute ideas
-If you have an idea how ioBroker can be improved, then you can discuss it on the ioBroker forum or make a [here](https://github.com/ioBroker/AdapterRequests/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AReleased) wish.
+If you have an idea how ioBroker can be improved, then you can discuss it on the ioBroker forum or make [here](https://github.com/ioBroker/AdapterRequests/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AReleased) a wish.
 If your idea gets enough support, it will be included in the roadmap.

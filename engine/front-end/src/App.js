@@ -216,7 +216,7 @@ class App extends Router {
         super(props);
 
         let hash = Router.getLocation();
-        let language = hash.language || Router.detectLanguage();
+        let language = hash.language || window.localStorage.getItem('iobroker.net.language') || Router.detectLanguage();
         if (!LANGUAGES[language]) {
             language = 'de';
         }
@@ -245,11 +245,11 @@ class App extends Router {
 
         // init Google Analytics
         ReactGA.initialize('UA-86900958-1', {
-            debug: window.location.hostname === 'localhost'
+            debug: window.location.hostname === 'localhost',
         });
 
         const d = new Date();
-        const action = (d.getMonth() === 11 && d.getDate() >= 8) ||  (d.getMonth() === 0 && d.getDate() <= 10);
+        const action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 10);
 
         this.logo = action ? LogoBigNY : LogoBig;
         this.logoSmall = action ? LogoSmallNY : LogoSmall;
@@ -258,7 +258,7 @@ class App extends Router {
         this.updateWindowDimensionsBound = this.updateWindowDimensions.bind(this);
         Blog.fetchData()
             .then(json => {
-               let data = Object.keys(json.pages).sort().pop().split('_');
+               const data = Object.keys(json.pages).sort().pop().split('_');
                this.setState({ latestBlog: new Date(parseInt(data[0], 10), parseInt(data[1], 10) - 1, parseInt(data[2], 10)).getTime() });
             });
     }
@@ -276,13 +276,12 @@ class App extends Router {
     }
 
     updateWindowDimensions() {
-        if (this.resizeTimer) {
-            clearTimeout(this.resizeTimer);
-        }
+        this.resizeTimer && clearTimeout(this.resizeTimer);
+
         this.resizeTimer = setTimeout(() => {
             this.resizeTimer = null;
             const width = window.innerWidth;
-            this.setState({width, height: window.innerHeight, mobile: width < MOBILE_WIDTH});
+            this.setState({ width, height: window.innerHeight, mobile: width < MOBILE_WIDTH });
         }, 200);
     }
 
@@ -327,7 +326,7 @@ class App extends Router {
 
     renderLanguage() {
         return [
-            <div key="langButton" style={{display: 'inherit'}} onClick={e => this.setState({languageMenu: true, anchorMenu: e.target})}
+            <div key="langButton" style={{ display: 'inherit' }} onClick={e => this.setState({ languageMenu: true, anchorMenu: e.target })}
             >
                 <IconLanguage className={this.props.classes.languageButton} />
                 <span className={this.props.classes.languageText}>{LANGUAGES[this.state.language].short}</span>
@@ -346,7 +345,8 @@ class App extends Router {
                             key={lang}
                             selected={this.state.language === lang}
                             onClick={() =>
-                                this.setState({languageMenu: false, anchorMenu: null}, () => {
+                                this.setState({ languageMenu: false, anchorMenu: null }, () => {
+                                    window.localStorage.setItem('iobroker.net.language', lang);
                                     const location = Router.getLocation();
                                     this.onNavigate(lang, location.tab || 'intro', location.page, location.chapter);
                                 }
@@ -374,7 +374,7 @@ class App extends Router {
         return <div className={this.props.classes.searchDiv}>
             <Input
                 className={ARUtils.clsx(this.props.classes.search, this.state.searchFocus && this.props.classes.searchFocus)}
-                //value={this.state.search}
+                // value={this.state.search}
                 placeholder={I18n.t('Search...')}
                 classes={{ input: this.props.classes.searchInput }}
                 onFocus={() => this.setState({ searchFocus: true })}
@@ -398,7 +398,7 @@ class App extends Router {
                     }
                 }}
             />
-            <IconSearch className={this.props.classes.searchButton}/>
+            <IconSearch className={this.props.classes.searchButton} />
         </div>;
     }
 
@@ -481,7 +481,7 @@ class App extends Router {
                             const pos = menuOpened.indexOf(name);
                             if (pos !== -1) {
                                 menuOpened.splice(pos, 1);
-                                this.setState({menuOpened, anchorMenu: null});
+                                this.setState({ menuOpened, anchorMenu: null });
                             }
                         }}
                     >
@@ -520,7 +520,7 @@ class App extends Router {
                       if (menuOpened.indexOf(selectedPage) === -1) {
                           menuOpened.push(selectedPage);
                       }
-                      this.setState({menuOpened, anchorMenu: e.target})
+                      this.setState({ menuOpened, anchorMenu: e.target })
                   } else {
                       this.onNavigate(this.state.language, selectedPage);
                   }
@@ -537,7 +537,7 @@ class App extends Router {
                             classes={{root: this.props.classes.tab}}
                             key={tab}
                             fullWidth={false}
-                            label={PAGES[tab].icon ? [<span>{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
+                            label={PAGES[tab].icon ? [<span key="text">{I18n.t(PAGES[tab].name)}</span>, PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
                         />,
                         this.renderMenu(tab)
                     ];
@@ -552,7 +552,7 @@ class App extends Router {
                         key={tab}
                         classes={{ root: ARUtils.clsx(this.props.classes.tab, star && this.props.classes.tabAction) }}
                         fullWidth={false}
-                        label={PAGES[tab].icon ? [(<span>{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
+                        label={PAGES[tab].icon ? [(<span key="text">{I18n.t(PAGES[tab].name)}</span>), PAGES[tab].icon] : I18n.t(PAGES[tab].name)}
                     />;
                 }
             })}
