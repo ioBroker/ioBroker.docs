@@ -34,6 +34,14 @@ function init() {
         };
     }
 
+    app.app.disable('x-powered-by');
+
+    // do not allow to use this service from other domains or iframes
+    app.app.use((req, res, next) => {
+        res.set('X-Frame-Options', 'SAMEORIGIN');
+        next();
+    });
+
     if (config.sites) {
         config.sites.forEach(site => {
             console.log(`Install path ${site.route} => ${site.path}`);
