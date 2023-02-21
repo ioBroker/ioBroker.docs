@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: bRItCNbofa25MfaA9pBBL9XzNJj3BMY3g013zNFi12A=
+hash: 7hTeqs7cFSPhIFgo6aIioWPKCwa7Wkbv7FuSaXezEks=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -21,7 +21,7 @@ hash: bRItCNbofa25MfaA9pBBL9XzNJj3BMY3g013zNFi12A=
 Auslesen von Daten aus dem Balkonkraftwerk
 
 ### Einstieg
-Dieser Adapter dient dazu, Daten eines Balkonkraftwerks anzuzeigen, die von einem Wechselrichter „Bosswerk MI600“ in ioBroker bereitgestellt werden.
+Dieser Adapter dient dazu, Daten eines Balkonkraftwerks anzuzeigen, die von einem Wechselrichter „Bosswerk MI600“ in ioBroker bereitgestellt werden. Dieser Wechselrichter ist mit anderen in der Deye-Familie kompatibel.
 
 Ich gehe davon aus, dass die Anlage bisher von der App „Solarman“ überwacht wird.
 Dieser Adapter bezieht die Daten aus dieser Cloud.
@@ -33,11 +33,28 @@ Auf der Admin-Seite müssen die 4 Felder der Beschreibung entsprechen.
 Dieser Adapter wird als "geplanter" Adapter erstellt.
 Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, macht es keinen Sinn, den Adapter häufiger zu starten.
 
+Seit Version 0.3.0 wird im Gegensatz zu den Vorgängerversionen eine Blacklist ermöglicht. Das bedeutet, dass „alle“ von der Api gelieferten Werte eingelesen werden und der Nutzer die nicht benötigten Werte über die Blacklist herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, was die Anzahl der Objekte übersichtlicher macht.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2023-02-19)
+* (raschy) Inverter-Filter deactivated
+
+### 0.3.0 (2023-02-17)
+* (raschy) Blacklist added
+
+### 0.2.2 (2023-02-08)
+* (raschy) Release for github/npm
+
+### 0.2.1 (2023-02-08)
+* (raschy) Timeout extended, type error fixed during setup, some data added from BMS
+
+### 0.2.0 (2022-11-07)
+* (raschy) Adding the battery data from hybrid inverters
+
 ### 0.1.5 (2022-10-17)
 * (raschy) Added support for hybrid inverters and 4 MPPTs
 
@@ -108,7 +125,7 @@ Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, macht es 
 ## License
 MIT License
 
-Copyright (c) 2022 raschy <raschy@gmx.de>
+Copyright (c) 2023 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
+hash: 0U7kip83scFuIFUxJdQa2gohAxnhOi5Pq3sFi7PGwB4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -120,7 +120,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 - `%s`: значение
 - `%u`: единица
 - `%n`: имя (запланировано!)
-- `{objectId}`: здесь будет размещено состояние этого идентификатора объекта.
+- `{objectId}`: здесь будет размещено состояние этого идентификатора объекта. На самом деле это будут те же привязки, которые поддерживает [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects), за исключением специальных привязок.
 
 Поддерживаются следующие команды:
 
@@ -258,13 +258,15 @@ createState("textProcessor", '', function () {
 
 # Делать
 - по-русски мужские и женские ответы.
-- Перенести ReactDnD с 14 на 16
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 3.0.0 (2023-02-16)
+* (bluefox) Corrected many GUI errors
+
 ### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 

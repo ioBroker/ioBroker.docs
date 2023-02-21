@@ -50,17 +50,17 @@ HEOS CLI specification: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecifica
 
 Note: Multiple commands are possible, if they are separated with the pipe e.g. set_volume&level=20|play_preset&preset=1
 
-* "set_volume&level=0|1|..|100": Set the player volume 
-* "set_play_state&state=play|pause|stop": Set the player state
-* "set_play_mode&repeat=on_all|on_one|off&shuffle=on|off": Set Repeat and Shuffle mode
-* "set_mute&state=on|off": Mute player
-* "volume_down&step=1..10": Lower volume
-* "volume_up&step=1..10": Raise volume
+* "set_volume?level=0|1|..|100": Set the player volume 
+* "set_play_state?state=play|pause|stop": Set the player state
+* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": Set Repeat and Shuffle mode
+* "set_mute?state=on|off": Mute player
+* "volume_down?step=1..10": Lower volume
+* "volume_up?step=1..10": Raise volume
 * "play_next": Play next
 * "play_previous": Play previous
-* "play_preset&preset=1|2|..|n": Play preset n
-* "play_stream&url=url_path": Play URL-Stream
-* "add_to_queue&sid=1025&aid=4&cid=[CID]": Play playlist with [CID] on player (aid: 1 – play now; 2 – play next; 3 – add to end; 4 – replace and play)
+* "play_preset?preset=1|2|..|n": Play preset n
+* "play_stream?url=url_path": Play URL-Stream
+* "add_to_queue?sid=1025&aid=4&cid=[CID]": Play playlist with [CID] on player (aid: 1 – play now; 2 – play next; 3 – add to end; 4 – replace and play)
 
 ## Image color extraction
 With version 1.7.6 the prominent colors of the song cover are extracted and saved to three new player states:
@@ -134,6 +134,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 
 ### **WORK IN PROGRESS**
 * (withstu) optimize scope handling
+* (withstu) switch to HEOS default cmd delimiter ?
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature

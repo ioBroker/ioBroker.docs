@@ -113,7 +113,7 @@ You can use patterns in acknowledges:
 - `%s`: value
 - `%u`: unit
 - `%n`: name (planned!)
-- `{objectId}`: the state of this objectID will be placed here
+- `{objectId}`: the state of this objectID will be placed here. Actually it will be same bindings supported as by [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects), except special bindings.
 
 Following commands are supported:
 
@@ -254,7 +254,6 @@ If activated so by every command (no matter if the request came via state or sen
 
 # ToDo
 - in Russian male and female answers.
-- Migrate ReactDnD from 14 to 16
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -262,6 +261,9 @@ If activated so by every command (no matter if the request came via state or sen
 -->
 
 ## Changelog
+### 3.0.0 (2023-02-16)
+* (bluefox) Corrected many GUI errors
+
 ### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 

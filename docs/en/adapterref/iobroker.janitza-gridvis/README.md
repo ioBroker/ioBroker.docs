@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.30 (2023-02-17)
+* (BenAhrdt) Bugfix: devicestates will created only once at startup (not more times at startup)
+
 ### 2.1.29 (2023-02-15)
 * (BenAhrdt) deficeinfo in case of values is NaN added
 

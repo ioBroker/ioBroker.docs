@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
+hash: qeCjXxqWFOGuUi9Hlji7HNeH38ExVwVaqb2iv9FbPcw=
 ---
 ![Logo](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
@@ -53,17 +53,17 @@ HEOS CLI-Spezifikation: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecifica
 ### Player-Befehlsstatus (heos.0.players.123456789.command)
 Hinweis: Mehrere Befehle sind möglich, wenn sie mit dem senkrechten Strich getrennt werden, z. set_volume&level=20|play_preset&preset=1
 
-* "set_volume&level=0|1|..|100": Stellen Sie die Player-Lautstärke ein
-* "set_play_state&state=play|pause|stop": Legt den Spielerstatus fest
-* "set_play_mode&repeat=on_all|on_one|off&shuffle=on|off": Stellen Sie den Repeat- und Shuffle-Modus ein
-* "set_mute&state=on|off": Spieler stumm schalten
-* "volume_down&step=1..10": Lautstärke verringern
-* "volume_up&step=1..10": Lautstärke erhöhen
+* "set_volume?level=0|1|..|100": Stellen Sie die Player-Lautstärke ein
+* "set_play_state?state=play|pause|stop": Legt den Spielerstatus fest
+* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": Stellen Sie den Wiederholungs- und Shuffle-Modus ein
+* "set_mute?state=on|off": Spieler stumm schalten
+* "volume_down?step=1..10": Lautstärke verringern
+* "volume_up?step=1..10": Lautstärke erhöhen
 * "play_next": Als nächstes spielen
 * "play_ previous": Vorheriges abspielen
-* "play_preset&preset=1|2|..|n": Preset n wiedergeben
-* "play_stream&url=url_path": URL-Stream abspielen
-* "add_to_queue&sid=1025&aid=4&cid=[CID]": Wiedergabeliste mit [CID] auf Player abspielen (Hilfe: 1 – jetzt spielen; 2 – als nächstes spielen; 3 – zum Ende hinzufügen; 4 – ersetzen und abspielen)
+* "play_preset?preset=1|2|..|n": Preset n wiedergeben
+* "play_stream?url=url_path": URL-Stream abspielen
+* "add_to_queue?sid=1025&aid=4&cid=[CID]": Wiedergabeliste mit [CID] auf Player abspielen (Hilfe: 1 – jetzt spielen; 2 – als nächstes spielen; 3 – zum Ende hinzufügen; 4 – ersetzen und abspielen)
 
 ## Bildfarbextraktion
 Mit Version 1.7.6 werden die markanten Farben des Songcovers extrahiert und in drei neue Player-Zustände gespeichert:
@@ -133,6 +133,7 @@ Alternativ können Sie das Skript von Uhula verwenden: https://forum.iobroker.ne
 
 ### **WORK IN PROGRESS**
 * (withstu) optimize scope handling
+* (withstu) switch to HEOS default cmd delimiter ?
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature

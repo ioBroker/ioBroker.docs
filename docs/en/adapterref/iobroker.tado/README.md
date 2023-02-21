@@ -44,6 +44,9 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) Add attribute 'sensorType' (#604)
+
 ### 0.4.4 (2023-02-03)
 * (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
 * (HGlab01) Bump axios to 1.3.1

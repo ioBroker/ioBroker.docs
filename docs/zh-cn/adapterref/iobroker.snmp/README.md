@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: i8OfdmNKPXpxuu3YtpvwN8rjo9aAM2ExXyFgqKx6ugE=
+hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ---
-![商标](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
+![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
 ![安装数量](http://iobroker.live/badges/snmp-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
@@ -21,6 +21,12 @@ hash: i8OfdmNKPXpxuu3YtpvwN8rjo9aAM2ExXyFgqKx6ugE=
 
 ＃＃ __工作正在进行中__
 -->
+
+＃＃＃ __工作正在进行中__
+* (McM1957) 支持写入 oids 已经实现。 (#150)
+* (McM1957) 代码的主要部分已被重写以支持 iod 编写。
+* (McM1957) 现在可以禁用包含类型信息的状态。 (#218)
+* (McM1957) 添加了指示设备在线和错误状态的状态。
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) 添加对状态使用本机数据类型的支持。 (#143)
@@ -98,7 +104,7 @@ hash: i8OfdmNKPXpxuu3YtpvwN8rjo9aAM2ExXyFgqKx6ugE=
 安装将尝试转换旧配置 - 但不能保证在所有情况下都能成功。
 
 * (McM1957) 代码的许多部分已被重写
-* (McM1957) 适配器现在使用 admin5 接口
+* (McM1957) 适配器现在使用 admin5 界面
 * (McM1957) 现在可以为每个设备设置不同的定时器值 (#105)
 * (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
 * (McM1957) 现在可以命名设备的状态对象。旧行为可作为选项使用。

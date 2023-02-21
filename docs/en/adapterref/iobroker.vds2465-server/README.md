@@ -44,6 +44,8 @@ Von diesem Adapter wird auch das "Service Request" unterstützt, welches in eini
 
 ## Changelog
 
+### 0.1.9
+* (Hirsch-DE) Fix für sehr schnelle Verbindungsaufbau und Verbindungsabbruch Nachrichten
 ### 0.1.5
 * (Hirsch-DE) Fix Check doppelte Verbindungen
 ### 0.1.4

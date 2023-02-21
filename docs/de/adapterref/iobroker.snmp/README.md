@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: i8OfdmNKPXpxuu3YtpvwN8rjo9aAM2ExXyFgqKx6ugE=
+hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -21,6 +21,12 @@ Dieser Adapter kann verwendet werden, um Informationen von Geräten wie Druckern
 
 ## __IN ARBEIT__
 -->
+
+### __IN ARBEIT__
+* (McM1957) Unterstützung zum Schreiben in OIDs wurde implementiert. (#150)
+* (McM1957) Große Teile des Codes wurden neu geschrieben, um Iod-Schreiben zu unterstützen.
+* (McM1957) Zustände, die Typinformationen enthalten, können jetzt deaktiviert werden. (#218)
+* (McM1957) Zustände, die den Online- und Fehlerstatus von Geräten anzeigen, wurden hinzugefügt.
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) Unterstützung für die Verwendung nativer Datentypen für Zustände hinzugefügt. (#143)
@@ -155,7 +161,7 @@ Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 | Community (v1, v2c) oder Auth-ID (v3) | Text | Community für SNMP v1 oder V2c, Autorisierungsgruppe für SNMP v3 | HINWEIS: SNMPv3 wird noch nicht unterstützt |
 | Zeitüberschreitung (Sek.) | Zahl | Verarbeitungszeitüberschreitung in Sekunden | |
 | Wiederholung (Sek.) | Nummer | Wiederholungsintervall in Sekunden | |
-| Abfrage (Sek.) | Nummer | Abfrageintervall in Sekunden | |
+| Abfrage (Sek.) | Zahl | Abfrageintervall in Sekunden | |
 
 ### __TAB-Autorisierung__
 Diese Registerkarte enthält SNMP V3-Autorisierungsinformationen. Bitte beachten Sie, dass SNMP V3 noch nicht implementiert ist.

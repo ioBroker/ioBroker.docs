@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: bRItCNbofa25MfaA9pBBL9XzNJj3BMY3g013zNFi12A=
+hash: 7hTeqs7cFSPhIFgo6aIioWPKCwa7Wkbv7FuSaXezEks=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -21,23 +21,40 @@ hash: bRItCNbofa25MfaA9pBBL9XzNJj3BMY3g013zNFi12A=
 Чтение данных с балконной электростанции
 
 ### Начиная
-Этот адаптер используется для отображения данных балконной электростанции, которую обеспечивает инвертор «Bosswerk MI600» в ioBroker.
+Этот адаптер используется для отображения данных балконной электростанции, которую обеспечивает инвертор «Bosswerk MI600» в ioBroker. Этот инвертор совместим с другими инверторами семейства Deye.
 
 Я предполагаю, что до сих пор завод контролируется приложением «Solarman».
 Этот адаптер получает данные из этого облака.
 
 Сначала вам нужно обратиться в службу поддержки Solarman <service@solarmanpv.com> для получения необходимых учетных данных (app_id и app_secret).
-По-прежнему может быть запрос типа: «Мне нужно спросить, какую платформу вы используете? Какова ваша роль? ". В моем случае потом пришел еще один запрос: «Почему вы подаете заявку на API?». Я вежливо ответил и на этот вопрос, и на следующий день мне прислали необходимые данные.
+По-прежнему может быть запрос типа: «Мне нужно спросить, какую платформу вы используете? Какова ваша роль? Вы физическое лицо, поставщик O&M, производитель или дистрибьютор? Можете ли вы дать мне свой адрес электронной почты для API? ". В моем случае потом пришел еще один запрос: «Почему вы подаете заявку на API?». Я вежливо ответил и на этот вопрос, и на следующий день мне прислали необходимые данные.
 
 На странице администратора 4 поля должны соответствовать описанию.
 Этот адаптер создается как "запланированный" адаптер.
 Так как данные в облаке обновляются примерно каждые 6 минут, это не заставляет чаще запускать адаптер.
+
+Начиная с версии 0.3.0, в отличие от предыдущих версий, возможен черный список. Это означает, что «все» значения, предоставляемые API, считываются, и пользователь может отфильтровать ненужные значения через черный список. Соответствующие точки данных можно удалить, что делает количество объектов более четким.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2023-02-19)
+* (raschy) Inverter-Filter deactivated
+
+### 0.3.0 (2023-02-17)
+* (raschy) Blacklist added
+
+### 0.2.2 (2023-02-08)
+* (raschy) Release for github/npm
+
+### 0.2.1 (2023-02-08)
+* (raschy) Timeout extended, type error fixed during setup, some data added from BMS
+
+### 0.2.0 (2022-11-07)
+* (raschy) Adding the battery data from hybrid inverters
+
 ### 0.1.5 (2022-10-17)
 * (raschy) Added support for hybrid inverters and 4 MPPTs
 
@@ -108,7 +125,7 @@ hash: bRItCNbofa25MfaA9pBBL9XzNJj3BMY3g013zNFi12A=
 ## License
 MIT License
 
-Copyright (c) 2022 raschy <raschy@gmx.de>
+Copyright (c) 2023 raschy <raschy@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

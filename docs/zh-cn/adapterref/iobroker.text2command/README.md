@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2命令
-hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
+hash: 0U7kip83scFuIFUxJdQa2gohAxnhOi5Pq3sFi7PGwB4=
 ---
 ![标识](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -98,7 +98,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 |儿童/儿童/托儿所 |苗圃 |儿童齐默 | детская |
 | guets wc/客人壁橱|来宾wc |餐厅 | гостевой туалет |
 |卫生间/壁橱 |厕所 |厕所 | туалет|
-|楼层/进入 |地板 | diele/帮派/flur | коридор/прихожая |
+|地板/进入 |地板 | diele/帮派/flur | коридор/прихожая |
 |厨房 |厨房 |库切/库切 | кухня |
 |阳台/露台/天井|露台 |阳台/露台 | терраса/балкон |
 |餐饮 |餐厅 |埃齐默 | столовая |
@@ -120,7 +120,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 - `%s`: 值
 - `%u`: 单位
 - `%n`: 名称（计划中！）
-- `{objectId}`: 这个objectID的状态将被放在这里
+- `{objectId}`：这个 objectID 的状态将被放置在这里。实际上，它将与 [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) 支持的绑定相同，但特殊绑定除外。
 
 支持以下命令：
 
@@ -167,7 +167,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 ### 打开/关闭某些东西
 用户必须指定必须控制的设备状态ID和必须写入的值。
 
-您应该为每个位置创建规则（例如，对于 `on` 和 `off`）。
+您应该为每个位置创建规则（例如 `on` 和 `off`）。
 
 答案是可定制的。默认值：`Switched on`
 
@@ -195,7 +195,7 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 例如。：
 
 -“打开的窗口”，对象 ID：“javascript.0.countOpenedWindows”，确认：“实际打开了 %s 个窗口”
-- `卧室温度`，对象 ID：`hm-rpc.0.sleepingRoomSensor.TEMPERATURE`，确认：`卧室的实际温度为 %s %u/%s %u`。在这种情况下，答案将在 *Actual temperature in sleeping room is %s %u* 和 *%s %u* 之间随机分配。
+- `卧室温度`，对象 ID：`hm-rpc.0.sleepingRoomSensor.TEMPERATURE`，确认：`卧室实际温度为 %s %u/%s %u`。在这种情况下，答案将在 *Actual temperature in sleeping room is %s %u* 和 *%s %u* 之间随机分配。
 
 ### 发送文本到状态
 您可以将一些文本写入状态。用户必须指定状态 ID 才能将文本写入其中。
@@ -258,13 +258,15 @@ createState("textProcessor", '', function () {
 
 ＃ 去做
 - 俄语男性和女性答案。
-- 将 ReactDnD 从 14 迁移到 16
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.0 (2023-02-16)
+* (bluefox) Corrected many GUI errors
+
 ### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 

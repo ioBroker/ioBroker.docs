@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/faq/_040_contibution/README.md
 title: вклад
-hash: B+xY42m31y1RW45SPTaSuNKZTq+l++EXSVaUgJPKI+g=
+hash: 2pSmVkERlrbg8Y+TRcR4dUYXKdphseoH004Ye3r0EZg=
 ---
 # Вклад
 Есть разные способы внести свой вклад в развитие ioBroker.
@@ -12,7 +12,7 @@ hash: B+xY42m31y1RW45SPTaSuNKZTq+l++EXSVaUgJPKI+g=
 ## Документация
 Документация является важной частью ioBroker. Она является первым портом захода для новых пользователей, которые хотят участвовать в ioBroker.
 
-Документацию можно найти в этом репозитории GitHub, и, например, этот текст необходимо отредактировать здесь: [docs/ru/faq_040_contribution/README.md](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/de/faq/_040_contibution/README.md).
+Документацию можно найти в этом репозитории GitHub, и, например, этот текст необходимо отредактировать здесь: [docs/en/faq_040_contribution/README.md](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/de/faq/_040_contibution/README.md).
 
 Документация может быть написана на одном из 3-х языков: английском (предпочтительно), немецком и русском.
 
@@ -39,7 +39,7 @@ hash: B+xY42m31y1RW45SPTaSuNKZTq+l++EXSVaUgJPKI+g=
 
 Не забудьте указать номер версии адаптера и версию `ioBroker.js-controller`.
 
-Как сообщать о графических ошибках (происходящих в браузере) см. [здесь](#%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B0%D1%82%D1%8C%D0%BE%D0%B1%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B0%D1%85%D0%B2%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%BC%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81%D0%B5%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F).
+Как сообщать о графических ошибках (происходящих в браузере) см. [здесь](#fehlerindergrafischeoberflchemelden).
 
 Не забывайте, что вы также можете просматривать журналы ioBroker в CLI:
 
@@ -58,5 +58,5 @@ hash: B+xY42m31y1RW45SPTaSuNKZTq+l++EXSVaUgJPKI+g=
 Новые пользователи приходят каждый день и у них возникают вопросы, потому что документации недостаточно или она не понятна.
 
 ## Предлагайте идеи
-Если у вас есть идея, как можно улучшить ioBroker, вы можете обсудить ее на форуме ioBroker или загадать желание [здесь](https://github.com/ioBroker/AdapterRequests/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AReleased).
+Если у вас есть идея, как можно улучшить ioBroker, вы можете обсудить ее на форуме ioBroker или загадать желание [здесь](https://github.com/ioBroker/AdapterRequests/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+is%3Aopen).
 Если ваша идея получит достаточную поддержку, она будет включена в дорожную карту.

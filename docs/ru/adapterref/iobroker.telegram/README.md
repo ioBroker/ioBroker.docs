@@ -6,9 +6,9 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: NZPqr1WUHbmb+9M6BCWh2fBEK95qQj7qfkkF6DmG8Gk=
+hash: HdJZPY7CZavnYmHZ+XHUZ6D5EDouGngb+/w7ik+4Igg=
 ---
-![Логотип](../../../en/adapterref/iobroker.telegram/../../admin/telegram.png)
+![Логотип](../../../en/admin/telegram.png)
 
 # IoBroker.telegram
 ## Конфигурация
@@ -62,6 +62,20 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 }
 ```
 
+Вы также можете установить `parse_mode` в тексте:
+
+```
+sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with *bold*</MarkdownV2>'}, function (res) {
+   console.log('Sent to ' + res + ' users');
+});
+```
+
+или
+
+```
+setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with *bold*</MarkdownV2>');
+```
+
 Чтобы отправлять сообщения в группы, вы должны пригласить бота в группу, в которой вы хотите, чтобы бот публиковал сообщения.
 Предоставляя `chat_id` полезной нагрузке сообщения JSON, вы фактически можете отправлять сообщения этим группам.
 
@@ -70,8 +84,8 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 Убедитесь, что вы поставили `/` перед сообщением, чтобы бот увидел сообщение ([если конфиденциальность бота включена](#How-to-receive-messages-in-group-chats-using-telegram-adapter)).
 Затем журнал iobroker покажет вам идентификатор чата в журналах.
 
-## Применение
-Вы можете использовать телеграмму с адаптером [text2command](https://github.com/ioBroker/ioBroker.text2command). Есть предопределенная схема связи, и вы можете отправить команду домой в текстовой форме.
+## Использование
+Вы можете использовать телеграмму с адаптером [text2command](https://github.com/ioBroker/ioBroker.text2command). Есть предопределенная схема связи, и вы можете отправить команду домой в текстовом виде.
 
 Чтобы отправить фото, просто отправьте путь к файлу вместо текста или URL: `sendTo('telegram', 'absolute/path/file.png')` или `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
@@ -83,7 +97,7 @@ var fs      = require('fs');
 
 function sendImage() {
     request.get({url: 'http://login:pass@ipaddress/web/tmpfs/snap.jpg', encoding: 'binary'}, function (err, response, body) {
-        fs.writeFile("/tmp/snap.jpg", body, 'binary', function(err) {
+        fs.writeFile('/tmp/snap.jpg', body, 'binary', function (err) {
 
         if (err) {
             console.error(err);
@@ -95,7 +109,7 @@ function sendImage() {
       });
     });
 }
-on("someState", function (obj) {
+on('someState', function (obj) {
     if (obj.state.val) {
         // send 4 images: immediately, in 5, 15 and 30 seconds
         sendImage();
@@ -211,7 +225,7 @@ if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         answerCallbackQuery: {
-            text: "Pressed!",
+            text: 'Pressed!',
             showAlert: false // Optional parameter
         }
    });
@@ -260,8 +274,8 @@ if (command === '1_2') {
         text: 'New text before buttons',
         editMessageText: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val,
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val,
                 reply_markup: {
                     inline_keyboard: [
                         [{ text: 'Button 1', callback_data: '2_1' }],
@@ -283,8 +297,8 @@ if (command === '1_2') {
         text: 'New text message',
         editMessageText: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val,
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val,
             }
         }
     });
@@ -304,8 +318,8 @@ if (command === '1_2') {
         text: 'New caption',
         editMessageCaption: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val
             }
         }
     });
@@ -347,8 +361,8 @@ if (command === '1_2') {
         text: 'New text before buttons',
         editMessageReplyMarkup: {
             options: {
-                chat_id: getState("telegram.0.communicate.botSendChatId").val,
-                message_id: getState("telegram.0.communicate.botSendMessageId").val,
+                chat_id: (await getStateAsync('telegram.0.communicate.botSendChatId')).val,
+                message_id: (await getStateAsync('telegram.0.communicate.botSendMessageId')).val,
                 reply_markup: {
                     inline_keyboard: [
                         [{ text: 'Button 1', callback_data: '2_1' }],
@@ -376,8 +390,8 @@ if (command === 'delete') {
         user: user,
         deleteMessage: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val
             }
         }
     });
@@ -396,14 +410,14 @@ if (command === 'delete') {
 ```javascript
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
     var stateval = getState('telegram.0.communicate.request').val;              // save Statevalue received from your Bot
-    var user = stateval.substring(1,stateval.indexOf("]"));                 // extract user from the message
-    var command = stateval.substring(stateval.indexOf("]")+1,stateval.length);   // extract command/text from the message
+    var user = stateval.substring(1,stateval.indexOf(']'));                 // extract user from the message
+    var command = stateval.substring(stateval.indexOf(']') + 1,stateval.length);   // extract command/text from the message
 
     switch (command) {
-        case "1_2":
+        case '1_2':
             //... see example above ...
             break;
-        case "delete":
+        case 'delete':
             //... see example above
             break;
         //.... and so on ...
@@ -466,7 +480,7 @@ Telegram может работать только с серверами HTTPS, �
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
-или же
+или
 
 ```javascript
 sendTo('telegram.0', 'call', {
@@ -477,7 +491,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-или же
+или
 
 ```javascript
 sendTo('telegram.0', 'call', {
@@ -486,7 +500,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-или же
+или
 
 ```javascript
 sendTo('telegram.0', 'call', {
@@ -590,7 +604,7 @@ sendTo('telegram.0', 'call', {
 - `vi-VN-Standard-C` - вьетнамский (Вьетнам) (женский 2 голос)
 - `vi-VN-Standard-D` - вьетнамский (Вьетнам) (мужской 2 голос)
 
-СДЕЛАТЬ:
+ДЕЛАТЬ:
 
 - место проведения
 
@@ -706,34 +720,31 @@ msg.payload = {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.15.6 (2023-02-17)
+* (bluefox) Implemented the optional escaping of characters in blockly
+* (bluefox) Added the possibility to send updates of states only by changes
+* (bluefox) Added option to select the quality of stored images
 
-### __WORK IN PROGRESS__
-* (Steff42) Make sure the userid is a string to revent warnings in the log
-* 
+### 1.15.5 (2023-02-16)
+* (bluefox) Added possibility to set `parse_mode` in the text message
+
+### 1.15.2 (2022-11-04)
+* (Steff42) Make sure the userid is a string to show warnings in the log
+* (bluefox) Added ukrainian language
 
 ### 1.15.0 (2022-09-28)
-* (klein0r) Fixed custom component (user name was missing)
+* (klein0r) Fixed custom component (username was missing)
 * (klein0r) Translated all objects
 * (bluefox) Updated GUI packages and corrected build process
 
 ### 1.14.1 (2022-07-04)
 * (bluefox) Fixed warnings for `botSendChatId`
 
-### 1.14.0 (2022-07-02)
-* (bluefox) Ported config Gui to Admin 6
-
-### 1.13.0 (2022-06-01)
-* (klein0r) Added Admin 5 UI config
-* (bluefox) Added rule block for javascript as plugin
-
-### 1.12.6 (2022-04-23)
-* (Apollon77) Fixed crash cases reported by Sentry
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

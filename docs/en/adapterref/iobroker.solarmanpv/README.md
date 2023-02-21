@@ -19,7 +19,8 @@ Reading data from balcony power plant
 ### Getting started
 
 This adapter is used to display data of a balcony power plant, which 
-is provided by a inverter "Bosswerk MI600" in ioBroker.
+is provided by a inverter "Bosswerk MI600" in ioBroker. This inverter 
+is compatible with others in the Deye family.
 
 I assume that the plant is monitored by the app "Solarman" so far. 
 This adapter gets the data from this cloud.
@@ -38,14 +39,26 @@ This adapter is created as a "scheduled" adapter.
 Since the data in the cloud is updated only about every 6 minutes, 
 it does not make to start the adapter more frequently.
 
+Since version 0.3.0, in contrast to the previous versions, a blacklist 
+is made possible. This means that "all" values supplied by the Api are 
+read in and the user can filter out the values that are not needed via 
+the blacklist. The corresponding data points can be deleted, which 
+makes the number of objects clearer.
+
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2023-02-19)
+* (raschy) Inverter-Filter deactivated
+
+### 0.3.0 (2023-02-17)
+* (raschy) Blacklist added
+
 ### 0.2.2 (2023-02-08)
--->	(raschy) Release for github/npm
+* (raschy) Release for github/npm
 
 ### 0.2.1 (2023-02-08)
 * (raschy) Timeout extended, type error fixed during setup, some data added from BMS

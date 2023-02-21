@@ -520,6 +520,9 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-02-20)
+* (simatec) igonore temp-files for redis added
+
 ### 2.6.0 (2023-02-16)
 * (simatec) Onedrive-Api added
 * (simatec) Matrix Messenger added

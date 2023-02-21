@@ -1,9 +1,27 @@
 {
   "pages": {
+    "2023_02_15": {
+      "date": "2023.02.15",
+      "title": {
+        "de": "Dev Meeting Februar 2023",
+        "en": "February 2023 dev meeting",
+        "ru": "Встреча разработчиков в феврале 2023 г.",
+        "zh-cn": "2023 年 2 月开发会议"
+      },
+      "logo": "de/blog/images/2023_02_15.jpg",
+      "type": "news",
+      "originalName": "2023_02_15.md",
+      "desc": {
+        "de": "## JS-Controller 4.0.24 und NodeJS 18: Ein Update lohnt sich\\nDie neueste Version des JS-Controllers, Version 4.0.24, bringt einige Änderungen mit sich.\\nVor allem wird IPv4 jetzt zuerst bevorzugt.\\nDarüber hinaus wird NodeJS 18 zur empfohlenen Version, da NodeJS 14 und 16 End of Life erreicht haben.\\nDies ist ein wichtiger Schritt, um die Stabilität und Sicherheit Ihres Systems sicherzustellen.",
+        "en": "## JS controller 4.0.24 and NodeJS 18: An update is worthwhile",
+        "ru": "## JS-контроллер 4.0.24 и NodeJS 18: стоит обновить",
+        "zh-cn": "## JS 控制器 4.0.24 和 NodeJS 18：值得更新"
+      }
+    },
     "2022_02_16": {
       "date": "2022.02.16",
       "title": {
-        "de": "Dev Meeting Februar",
+        "de": "Dev Meeting Februar 2022",
         "en": "Dev Meeting February",
         "ru": "Февральская встреча разработчиков",
         "zh-cn": "二月开发会议"

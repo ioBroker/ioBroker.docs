@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
+hash: qeCjXxqWFOGuUi9Hlji7HNeH38ExVwVaqb2iv9FbPcw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
@@ -28,7 +28,7 @@ hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
 
 * **ignore_broadcast_cmd**: Это состояние игрока настраивает, должен ли игрок игнорировать команды для всех игроков, например. player/set_mute&state=on или нажатие кнопки воспроизведения для пресетов/списков воспроизведения
 
-## Стремиться
+## Искать
 Функция поиска работает не на всех источниках. Spotify и Amazon Music поддерживают поиск.
 
 ## Состояние команды
@@ -53,17 +53,17 @@ hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
 ### Состояние команды игрока (heos.0.players.123456789.command)
 Примечание. Возможны несколько команд, если они разделены вертикальной чертой, например. set_volume&level=20|play_preset&preset=1
 
-* "set_volume&level=0|1|..|100": установить громкость плеера
-* "set_play_state&state=play|pause|stop": Установить состояние игрока
-* "set_play_mode&repeat=on_all|on_one|off&shuffle=on|off": Установить режим повтора и случайного воспроизведения
-* "set_mute&state=on|off": Отключить звук игрока
-* "volume_down&step=1..10": Уменьшить громкость
-* "volume_up&step=1..10": Увеличить громкость
+* "set_volume?level=0|1|..|100": Установить громкость плеера
+* "set_play_state?state=play|pause|stop": Установить состояние игрока
+* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": Установить режим повтора и случайного воспроизведения.
+* "set_mute?state=on|off": Отключить звук игрока
+* "volume_down?step=1..10": Уменьшить громкость
+* "volume_up?step=1..10": Увеличить громкость
 * "play_next": Воспроизвести дальше
 * "play_previous": Воспроизвести предыдущий
-* "play_preset&preset=1|2|..|n": Воспроизвести пресет n
-* "play_stream&url=url_path": Воспроизведение URL-потока
-* "add_to_queue&sid=1025&aid=4&cid=[CID]": Воспроизвести плейлист с [CID] на плеере (помощь: 1 - воспроизвести сейчас; 2 - воспроизвести дальше; 3 - добавить в конец; 4 - заменить и воспроизвести)
+* "play_preset?preset=1|2|..|n": Воспроизвести пресет n
+* "play_stream?url=url_path": Воспроизведение URL-потока
+* "add_to_queue?sid=1025&aid=4&cid=[CID]": Воспроизвести плейлист с [CID] на плеере (помощь: 1 - воспроизвести сейчас; 2 - воспроизвести дальше; 3 - добавить в конец; 4 - заменить и воспроизвести)
 
 ## Извлечение цвета изображения
 В версии 1.7.6 основные цвета обложки песни извлекаются и сохраняются в трех новых состояниях игрока:
@@ -133,6 +133,7 @@ hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
 
 ### **WORK IN PROGRESS**
 * (withstu) optimize scope handling
+* (withstu) switch to HEOS default cmd delimiter ?
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature

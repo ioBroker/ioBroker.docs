@@ -28,6 +28,11 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) Added: Signal adapter for notifications
+
 ### 2.6.0 (2023-02-06)
 
 -   (ciddi89) Fixed: Instance error list and count was not reset

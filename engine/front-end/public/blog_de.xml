@@ -3,10 +3,20 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[Neuigkeiten, Ankündigungen und Ideen zu ioBroker]]></description>
         <link>https://www.iobroker.net/#de/blog</link>
-        <lastBuildDate>Wed, 16 Feb 2022 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Feb 2023 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
         <item>
-            <title><![CDATA[Dev Meeting Februar]]></title>
+            <title><![CDATA[Dev Meeting Februar 2023]]></title>
+            <description><![CDATA[
+                <p>## JS-Controller 4.0.24 und NodeJS 18: Ein Update lohnt sich\nDie neueste Version des JS-Controllers, Version 4.0.24, bringt einige Änderungen mit sich.\nVor allem wird IPv4 jetzt zuerst bevorzugt.\nDarüber hinaus wird NodeJS 18 zur empfohlenen Version, da NodeJS 14 und 16 End of Life erreicht haben.\nDies ist ein wichtiger Schritt, um die Stabilität und Sicherheit Ihres Systems sicherzustellen.</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#de/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#de/blog/2023_02_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Dev Meeting Februar 2022]]></title>
             <description><![CDATA[
                 <p>Happy TwosDay (22.2.22) liebe Community, auch im vergangenen Monat ist wieder viel bei ioBroker passiert. Nach längerer Entwicklungszeit ist der neue js-controller 4.0 (Release-name "Isabelle") im Beta/Latest Repository verfügbar. Neben einigen Optimierungen und Verbesserungen stand der Haupt-Fokus dieser Version auf Performance-Verbesserungen.\nDarüber hinaus gibt es weitere Neuigkeiten aus dem Developer-Meeting und darüber hinaus, welche wir hier für Euch zusammengefasst haben.</p>
             ]]></description>

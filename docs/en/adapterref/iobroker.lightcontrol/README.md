@@ -4,45 +4,66 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
-![Number of Installations](https://iobroker.live/badges/lightcontrol-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/lightcontrol-stable.svg)
+![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lightcontrol?label=npm%20vulnerabilities&style=flat-square)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.lightcontrol?label=npm%20dependencies&style=flat-square)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
+
+![Test and Release](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.lightcontrol.png?downloads=true)](https://nodei.co/npm/iobroker.lightcontrol/)
 
-**Tests:** ![Test and Release](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.lightcontrol.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/lightcontrol-stable.svg)
+![Installed](http://iobroker.live/badges/lightcontrol-installed.svg)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-**Falls euch meine Arbeit gefällt:** [![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PK89K4V2RBU78&source=url)
+## If you like my work:
 
-## LightControl adapter for ioBroker
+[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PK89K4V2RBU78&source=url)
 
-Light control of lamps from various manufacturers
+## Installation
 
-[Deutsche Beschreibung hier](docs/de/lightcontrol.md)
+Please use the "adapter list" & Beta Repository in ioBroker to install a beta version of this adapter. You can also use the CLI to install this adapter:
 
-[English Description here](docs/en/lightcontrol.md)
+```
+iobroker add lightcontrol
+```
+
+## Documentation
+
+[🇺🇸 Documentation](./en/lightcontrol.md)
+
+[🇩🇪 Dokumentation](./docs/de/lightcontrol.md)
 
 ## ToDo
 
 -   Select more than one LightGroup for one Object-ID (Bug with jsonCustom Select multible)
 -   Availability for notice with lower brighness and defined seconds before AutoOff
--   Set Ct, Sat and Color directly to the lamp, also if it's switched off.
--   Availability to switch on/off lights only with level/brightness state and without switch state
 
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
-
-	-   (Schmakus) Add: Set Ct, Sat and Color directly to the lamp, also if it's switched off.
 -->
+### 0.2.0 (2023-02-20)
 
-### **WORK IN PROGRESS**
-
+-   (Schmakus) Availability to switch on/off lights only with level/brightness state and without switch state
+-   (Schmakus) Availability to set Ct, Sat and Color directly to the lamp, also if it's switched off.
+-   (Schmakus) Added new Modus for AdaptiveCt: StartYourDay interplated. It's a sinus half curve from morning time to sunset.
 -   (Schmakus) Update adaptername translations in io-package.json
+-   (Schmakus) Some little bugfixes and corrections for logging
+-   (Schmakus) Fix AdaptiveCt, because there was a problem with date object.
 
 ### 0.1.3 (2023-01-17)
 
@@ -56,6 +77,7 @@ Light control of lamps from various manufacturers
 
 ### 0.1.1 (2023-01-04)
 
+-   (Schmakus) Availability to switch on/off lights only with level/brightness state and without switch state
 -   (Schmakus) Add Sentry Plugin
 -   (Schmakus) Fix issue [#80](https://github.com/Schmakus/ioBroker.lightcontrol/issues/80)
 -   (Schmakus) general translation updates and translation of states

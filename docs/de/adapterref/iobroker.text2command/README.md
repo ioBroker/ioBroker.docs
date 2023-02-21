@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
 title: ioBroker.text2command
-hash: S8z6ZoAOaruYDHcPdDxEX/9CDMFykqeqYFuPVEOeyok=
+hash: 0U7kip83scFuIFUxJdQa2gohAxnhOi5Pq3sFi7PGwB4=
 ---
 ![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
@@ -120,7 +120,7 @@ Sie können Muster in Bestätigungen verwenden:
 - `%s`: Wert
 - `%u`: Einheit
 - `%n`: Name (geplant!)
-- `{objectId}`: Der Status dieser Objekt-ID wird hier abgelegt
+- `{objectId}`: Der Status dieser Objekt-ID wird hier abgelegt. Tatsächlich werden dieselben Bindungen unterstützt wie von [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects), außer speziellen Bindungen.
 
 Folgende Befehle werden unterstützt:
 
@@ -258,13 +258,15 @@ Bei Aktivierung durch jeden Befehl (egal ob die Anfrage über state oder sendTo 
 
 # Machen
 - auf Russisch männliche und weibliche Antworten.
-- ReactDnD von 14 auf 16 migrieren
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.0.0 (2023-02-16)
+* (bluefox) Corrected many GUI errors
+
 ### 2.3.1 (2023-02-03)
 * (bluefox) Migrated GUI to v5
 

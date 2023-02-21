@@ -6,9 +6,9 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
 title: ioBroker.telegram
-hash: NZPqr1WUHbmb+9M6BCWh2fBEK95qQj7qfkkF6DmG8Gk=
+hash: HdJZPY7CZavnYmHZ+XHUZ6D5EDouGngb+/w7ik+4Igg=
 ---
-![Logo](../../../en/adapterref/iobroker.telegram/../../admin/telegram.png)
+![Logo](../../../en/admin/telegram.png)
 
 # IoBroker.telegram
 ## Aufbau
@@ -38,7 +38,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 });
 ```
 
-Wenn Sie das obige Beispiel verwenden, beachten Sie, dass Sie 'UserName' entweder durch den Vornamen oder den Public-Telegram-Benutzernamen des Benutzers ersetzen müssen, an den Sie die Nachricht senden möchten. (Hängt davon ab, ob die Einstellung „Benutzername nicht Vorname speichern“ in den Adaptereinstellungen aktiviert ist oder nicht) Wenn die Option aktiviert ist und der Benutzer keinen öffentlichen Benutzernamen in seinem Telegrammkonto angegeben hat, verwendet der Adapter weiterhin den Vornamen von der Nutzer. Denken Sie daran, dass, wenn der Benutzer später (nach der Authentifizierung bei Ihrem Bot) einen öffentlichen Benutzernamen festlegt, der gespeicherte Vorname durch den Benutzernamen ersetzt wird, wenn der Benutzer das nächste Mal eine Nachricht an den Bot sendet.
+Wenn Sie das obige Beispiel verwenden, beachten Sie, dass Sie 'UserName' entweder durch den Vornamen oder den Public-Telegram-Benutzernamen des Benutzers ersetzen müssen, an den Sie die Nachricht senden möchten. (Hängt davon ab, ob die Einstellung „Benutzername nicht Vorname speichern“ in den Adaptereinstellungen aktiviert ist oder nicht) Wenn die Option aktiviert ist und der Benutzer keinen öffentlichen Benutzernamen in seinem Telegrammkonto angegeben hat, verwendet der Adapter weiterhin den Vornamen von der Benutzer. Denken Sie daran, dass, wenn der Benutzer später (nach der Authentifizierung bei Ihrem Bot) einen öffentlichen Benutzernamen festlegt, der gespeicherte Vorname durch den Benutzernamen ersetzt wird, wenn der Benutzer das nächste Mal eine Nachricht an den Bot sendet.
 
 Es ist möglich, mehr als einen Empfänger anzugeben (trennen Sie einfach die Benutzernamen durch Kommas).
 Beispiel: Empfänger: "Benutzer1,Benutzer4,Benutzer5"
@@ -62,6 +62,20 @@ Die JSON-Syntax erlaubt auch das Hinzufügen von Optionen aus [Telegramm-Bots-AP
 }
 ```
 
+Sie können die `parse_mode` auch im Text setzen:
+
+```
+sendTo('telegram', {user: 'UserName', text: '<MarkdownV2>Test message, but with *bold*</MarkdownV2>'}, function (res) {
+   console.log('Sent to ' + res + ' users');
+});
+```
+
+oder
+
+```
+setState('telegram.0.communicate.response', '<MarkdownV2>Test message, but with *bold*</MarkdownV2>');
+```
+
 Um Nachrichten an die Gruppen zu senden, müssen Sie den Bot in die Gruppe einladen, in der der Bot posten soll.
 Durch Bereitstellen von `chat_id` für die JSON-Nachrichtennutzlast können Sie tatsächlich Nachrichten an diese Gruppen senden.
 
@@ -70,12 +84,12 @@ Sie können Ihren Bot dann einfach in den Gruppen anpingen, an die der Bot Nachr
 Stellen Sie sicher, dass Sie der Nachricht ein `/` voranstellen, damit der Bot die Nachricht sehen kann ([wenn die Privatsphäre des Bots eingeschaltet ist](#How-to-receive-messages-in-group-chats-using-telegram-adapter)).
 Das iobroker-Protokoll zeigt Ihnen dann die Chat-ID in den Protokollen.
 
-## Verwendungszweck
-Sie können das Telegramm mit dem [Text2Befehl](https://github.com/ioBroker/ioBroker.text2command)-Adapter verwenden. Es gibt vordefinierte Kommunikationsschemata und Sie können sie in Textform nach Hause befehlen.
+## Verwendung
+Sie können das Telegramm mit dem [Text2Befehl](https://github.com/ioBroker/ioBroker.text2command)-Adapter verwenden. Es gibt vordefinierte Kommunikationsschemata, und Sie können sie in Textform nach Hause befehlen.
 
 Um ein Foto zu senden, senden Sie einfach einen Pfad zur Datei anstelle von Text oder URL: `sendTo('telegram', 'absolute/path/file.png')` oder `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
-Beispiel, wie man einen Screenshot von einer Webcam an ein Telegramm sendet:
+Beispiel, wie man einen Screenshot von der Webcam an ein Telegramm sendet:
 
 ```javascript
 var request = require('request');
@@ -83,7 +97,7 @@ var fs      = require('fs');
 
 function sendImage() {
     request.get({url: 'http://login:pass@ipaddress/web/tmpfs/snap.jpg', encoding: 'binary'}, function (err, response, body) {
-        fs.writeFile("/tmp/snap.jpg", body, 'binary', function(err) {
+        fs.writeFile('/tmp/snap.jpg', body, 'binary', function (err) {
 
         if (err) {
             console.error(err);
@@ -95,7 +109,7 @@ function sendImage() {
       });
     });
 }
-on("someState", function (obj) {
+on('someState', function (obj) {
     if (obj.state.val) {
         // send 4 images: immediately, in 5, 15 and 30 seconds
         sendImage();
@@ -119,7 +133,7 @@ Folgende Meldungen sind für Aktionen reserviert:
 
 In diesem Fall wird der Aktionsbefehl gesendet.
 
-Die Beschreibung für die Telegramm-API finden Sie in [hier](https://core.telegram.org/bots/api) und Sie können alle in dieser API definierten Optionen verwenden, indem Sie diese einfach in das Sendeobjekt aufnehmen. Z.B.:
+Die Beschreibung für die Telegramm-API finden Sie in [Hier](https://core.telegram.org/bots/api), und Sie können alle in dieser API definierten Optionen verwenden, indem Sie diese einfach in das Sendeobjekt aufnehmen. Z.B.:
 
 ```javascript
 sendTo('telegram.0', {
@@ -211,14 +225,14 @@ if (command === '1_2') {
     sendTo('telegram', {
         user: user,
         answerCallbackQuery: {
-            text: "Pressed!",
+            text: 'Pressed!',
             showAlert: false // Optional parameter
         }
    });
 }
 ```
 
-Sie können mehr lesen [hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
+Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
 
 ### Frage
 Sie können die Nachricht per Telegramm senden und die nächste Antwort wird im Rückruf zurückgegeben.
@@ -260,8 +274,8 @@ if (command === '1_2') {
         text: 'New text before buttons',
         editMessageText: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val,
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val,
                 reply_markup: {
                     inline_keyboard: [
                         [{ text: 'Button 1', callback_data: '2_1' }],
@@ -283,15 +297,15 @@ if (command === '1_2') {
         text: 'New text message',
         editMessageText: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val,
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val,
             }
         }
     });
 }
 ```
 
-Sie können mehr lesen [hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
+Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
 
 ### EditMessageCaption
 Verwenden Sie diese Methode, um die Beschriftung der vom Bot oder über den Bot (für Inline-Bots) gesendeten Nachricht zu bearbeiten.
@@ -304,15 +318,15 @@ if (command === '1_2') {
         text: 'New caption',
         editMessageCaption: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val
             }
         }
     });
 }
 ```
 
-Sie können mehr lesen [hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
+Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
 
 ### EditMessageMedia
 Verwenden Sie diese Methode, um das Bild der vom Bot oder über den Bot (für Inline-Bots) gesendeten Nachricht zu bearbeiten.
@@ -335,7 +349,7 @@ if (command === '1_2') {
 
 Unterstützt werden folgende Medientypen: `photo`, `animation`, `audio`, `document`, `video`.
 
-Sie können mehr lesen [hier](https://core.telegram.org/bots/api#editmessagemedia).
+Sie können mehr lesen [Hier](https://core.telegram.org/bots/api#editmessagemedia).
 
 ### EditMessageReplyMarkup
 Verwenden Sie diese Methode, um nur das Antwort-Markup von Nachrichten zu bearbeiten, die vom Bot oder über den Bot (für Inline-Bots) gesendet wurden. Bei Erfolg, wenn eine bearbeitete Nachricht vom Bot gesendet wird, wird die bearbeitete Nachricht zurückgegeben, andernfalls wird *True* zurückgegeben.
@@ -347,8 +361,8 @@ if (command === '1_2') {
         text: 'New text before buttons',
         editMessageReplyMarkup: {
             options: {
-                chat_id: getState("telegram.0.communicate.botSendChatId").val,
-                message_id: getState("telegram.0.communicate.botSendMessageId").val,
+                chat_id: (await getStateAsync('telegram.0.communicate.botSendChatId')).val,
+                message_id: (await getStateAsync('telegram.0.communicate.botSendMessageId')).val,
                 reply_markup: {
                     inline_keyboard: [
                         [{ text: 'Button 1', callback_data: '2_1' }],
@@ -361,7 +375,7 @@ if (command === '1_2') {
 }
 ```
 
-Sie können mehr lesen [hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
+Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
 
 ### Nachricht löschen
 Verwenden Sie diese Methode zum Löschen einer Nachricht, einschließlich Servicenachrichten, mit den folgenden Einschränkungen:
@@ -376,15 +390,15 @@ if (command === 'delete') {
         user: user,
         deleteMessage: {
             options: {
-                chat_id: getState("telegram.0.communicate.requestChatId").val,
-                message_id: getState("telegram.0.communicate.requestMessageId").val
+                chat_id: getState('telegram.0.communicate.requestChatId').val,
+                message_id: getState('telegram.0.communicate.requestMessageId').val
             }
         }
     });
 }
 ```
 
-Sie können mehr lesen [hier](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
+Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
 
 ## Auf Benutzerantworten/Nachrichten reagieren
 Angenommen, Sie verwenden nur JavaScript ohne *text2command*. Sie haben bereits eine Nachricht/Frage an Ihren Benutzer gesendet, indem Sie *sendTo()* wie oben beschrieben verwendet haben. Der Benutzer antwortet darauf, indem er einen Knopf drückt oder eine Nachricht schreibt. Sie können den Befehl extrahieren und Ihrem Benutzer Feedback geben, Befehle ausführen oder den Status in iobroker ändern.
@@ -396,14 +410,14 @@ Angenommen, Sie verwenden nur JavaScript ohne *text2command*. Sie haben bereits 
 ```javascript
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
     var stateval = getState('telegram.0.communicate.request').val;              // save Statevalue received from your Bot
-    var user = stateval.substring(1,stateval.indexOf("]"));                 // extract user from the message
-    var command = stateval.substring(stateval.indexOf("]")+1,stateval.length);   // extract command/text from the message
+    var user = stateval.substring(1,stateval.indexOf(']'));                 // extract user from the message
+    var command = stateval.substring(stateval.indexOf(']') + 1,stateval.length);   // extract command/text from the message
 
     switch (command) {
-        case "1_2":
+        case '1_2':
             //... see example above ...
             break;
-        case "delete":
+        case 'delete':
             //... see example above
             break;
         //.... and so on ...
@@ -458,7 +472,7 @@ Danach könnte die Option „Neue Benutzer nicht authentifizieren“ aktiviert w
 Um diese Option nutzen zu können, muss die Option „Authentifizierte Benutzer speichern“ aktiviert sein.
 
 ## Anrufe per Telegramm
-Dank [callmebot](https://www.callmebot.com/) api können Sie einen Anruf zu Ihrem Telegrammkonto tätigen und einige Texte werden über die TTS-Engine gelesen.
+Dank der [callmebot](https://www.callmebot.com/)-API können Sie Ihr Telegrammkonto anrufen und einige Texte werden über die TTS-Engine gelesen.
 
 Rufen Sie dazu einfach vom Javascript-Adapter aus auf:
 
@@ -597,11 +611,11 @@ MACHEN:
 ## Auto-Inline-Tastatur basierend auf Einstellungen im Admin (Easy-Keyboard)
 Für jeden Zustand können die zusätzlichen Einstellungen aktiviert werden:
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
 Durch Eingabe von `/cmds` wird folgende Tastatur im Telegramm angezeigt:
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
 
 `/cmds` kann im Konfigurationsdialog des Telegrammadapters durch einen beliebigen Text (z.B. "?") ersetzt werden.
 
@@ -613,7 +627,7 @@ Zuerst muss die Konfiguration aktiviert werden.
 #### Alias
 Name des Geräts. Wenn der Name leer ist, wird der Name vom Objekt übernommen.
 Durch Eingabe von „Türlampe“ wird das folgende Menü für den booleschen Zustand angezeigt.
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
 
 Sie können das Gerät einschalten, das Gerät ausschalten oder den Zustand abfragen.
 Wenn Sie auf `Door lamp ?` klicken, erhalten Sie `Door lamp  => switched off`.
@@ -629,17 +643,17 @@ Z.B. `Door lamp  => switched on`.
 Wie viele Schaltflächen müssen in der Zeile für ein Gerät angezeigt werden.
 Wegen des langen Namens ist es vielleicht besser, nur 2 (oder sogar nur einen) Button in der Zeile anzuzeigen.
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
 ### Nur schreiben
 Wenn aktiviert, wird die Schaltfläche Statusabfrage (`Door lamp ?`) nicht angezeigt.
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
 ### Auf Befehl
 Welcher Text wird auf der Schaltfläche `ON` angezeigt.
-Wie hier: ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
+Wie hier: ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
-Erzeugt folgende Tastatur: ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
+Erzeugt folgende Tastatur: ![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
 ### EIN Text
 Der Text, der im Zustandsbericht angezeigt wird.
@@ -657,7 +671,7 @@ Z.B. `Door lamp => deactivated` wenn sich der Status des Geräts auf „false“
 ### Nur wahr
 Z.B. bei Tasten haben sie keinen AUS-Zustand. In diesem Fall wird die Schaltfläche AUS nicht angezeigt.
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
+![Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
 
 ## So empfangen Sie Nachrichten in Gruppenchats mit dem Telegrammadapter
 Wenn der Telegramm-Bot Nachrichten empfängt, die vom Benutzer an den Bot in privaten Chats gesendet wurden, aber keine Nachrichten empfängt, die von Benutzern in Gruppenchats gesendet wurden.
@@ -706,34 +720,31 @@ Vor dem Senden an `telegram.INSTANCE.communicate.responseJson you need to string
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.15.6 (2023-02-17)
+* (bluefox) Implemented the optional escaping of characters in blockly
+* (bluefox) Added the possibility to send updates of states only by changes
+* (bluefox) Added option to select the quality of stored images
 
-### __WORK IN PROGRESS__
-* (Steff42) Make sure the userid is a string to revent warnings in the log
-* 
+### 1.15.5 (2023-02-16)
+* (bluefox) Added possibility to set `parse_mode` in the text message
+
+### 1.15.2 (2022-11-04)
+* (Steff42) Make sure the userid is a string to show warnings in the log
+* (bluefox) Added ukrainian language
 
 ### 1.15.0 (2022-09-28)
-* (klein0r) Fixed custom component (user name was missing)
+* (klein0r) Fixed custom component (username was missing)
 * (klein0r) Translated all objects
 * (bluefox) Updated GUI packages and corrected build process
 
 ### 1.14.1 (2022-07-04)
 * (bluefox) Fixed warnings for `botSendChatId`
 
-### 1.14.0 (2022-07-02)
-* (bluefox) Ported config Gui to Admin 6
-
-### 1.13.0 (2022-06-01)
-* (klein0r) Added Admin 5 UI config
-* (bluefox) Added rule block for javascript as plugin
-
-### 1.12.6 (2022-04-23)
-* (Apollon77) Fixed crash cases reported by Sentry
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

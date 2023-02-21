@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[News, announcements and ideas about ioBroker]]></description>
         <link>https://www.iobroker.net/#en/blog</link>
-        <lastBuildDate>Wed, 16 Feb 2022 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Feb 2023 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[February 2023 dev meeting]]></title>
+            <description><![CDATA[
+                <p>## JS controller 4.0.24 and NodeJS 18: An update is worthwhile</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#en/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2023_02_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[Dev Meeting February]]></title>
             <description><![CDATA[

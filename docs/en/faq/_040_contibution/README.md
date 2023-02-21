@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/faq/_040_contibution/README.md
 title: contribution
-hash: B+xY42m31y1RW45SPTaSuNKZTq+l++EXSVaUgJPKI+g=
+hash: 2pSmVkERlrbg8Y+TRcR4dUYXKdphseoH004Ye3r0EZg=
 ---
 # Contribution
 There are different ways you can contribute to the development of ioBroker.
@@ -39,7 +39,7 @@ It helps a lot if error logs are also attached. Screenshots are also very helpfu
 
 Please don't forget to mention the version number of the adapter and the version of `ioBroker.js-controller`.
 
-How to report graphical errors (occurring in the browser) see [here](#reporterrorsinthegraphicaluserinterface).
+How to report graphical errors (occurring in the browser) see [here](#fehlerindergrafischeoberflchemelden).
 
 Please don't forget that you can also view ioBroker logs in the CLI:
 
@@ -51,12 +51,12 @@ It may happen that you want to develop an adapter yourself or even want to work 
 
 Both are possible. :)
 
-To develop an adapter, there is an [Instructions](../dev/adapterdev.md).
+To develop an adapter, there is a [Instructions](../dev/adapterdev.md).
 
 ## Answer questions on ioBroker Forum
 You can also help with this by answering the questions on the ioBroker forum.
-New users come every day, and they have questions because the documentation is not sufficient or not understandable.
+New users come every day and they have questions because the documentation is not sufficient or not understandable.
 
 ## Contribute ideas
-If you have an idea how ioBroker can be improved, then you can discuss it on the ioBroker forum or make [here](https://github.com/ioBroker/AdapterRequests/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3AReleased) a wish.
+If you have an idea how ioBroker can be improved, then you can discuss it on the ioBroker forum or make a [here](https://github.com/ioBroker/AdapterRequests/issues?q=is%3Aissue+sort%3Areactions-%2B1-desc+is%3Aopen) wish.
 If your idea gets enough support, it will be included in the roadmap.

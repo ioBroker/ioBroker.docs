@@ -112,6 +112,10 @@ Finally, the variables created in the CCU are listed
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.44 (2023-02-20)
+* (foxriver76) compatibility of RSSI_DEVICE and RSSI_PEER for CCU update (closes #352)
+* (foxriver76) also sync enums for maintenance channel of rfd devices (closes #320)
+
 ### 3.0.43 (2022-07-28)
 * (foxriver76) if LGW is not reachable we now set duty cycle to `null` instead of `-1` in all cases (closes #298)
 
@@ -554,7 +558,7 @@ or non existent if no rpc instance existed
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

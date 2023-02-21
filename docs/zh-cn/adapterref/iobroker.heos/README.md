@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
+hash: qeCjXxqWFOGuUi9Hlji7HNeH38ExVwVaqb2iv9FbPcw=
 ---
 ![标识](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
@@ -13,117 +13,117 @@ hash: 8GG56U7Kr90ARv9XyLvx2epphAyQXbusXwpuEqMEfso=
 ![安装数量（稳定）](http://iobroker.live/badges/heos-stable.svg)
 ![依赖状态](https://img.shields.io/david/withstu/iobroker.heos.svg)
 ![已知漏洞](https://snyk.io/test/github/withstu/ioBroker.heos/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.heos.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.heos.png?downloads=true)
 
-# IoBroker.heos
+#ioBroker.heos
 ## IoBroker 的 heos 适配器
-适配器允许从 ioBroker 控制 HEOS
+该适配器允许从 ioBroker 控制 HEOS
 
 ＃＃ 配置
-* **AutoPlay**：连接播放器或取消静音后自动播放音乐。可以在配置中全局配置。如果它是全局启用的，你可以为一个状态为 ```auto_play``` 的特定玩家禁用它。
-* **命令范围**：定义 ```scope/[cmd]``` 的命令发送给哪些玩家。它可以发送给所有玩家，所有领先玩家或逗号分隔状态的所有PID：```heos.0.command_scope_pid```
+* **自动播放**：连接播放器或取消静音后自动播放音乐。可以在configuration中全局配置。如果全局启用它，您可以为状态为“auto_play”的特定玩家禁用它。
+* **命令范围**：定义将```范围/[cmd]```的命令发送到哪些玩家。它可以以逗号分隔状态发送给所有玩家、所有领先玩家或所有 PID：```heos.0.command_scope_pid```
 * **静音正则表达式**：
 
-在配置中，您可以根据歌曲信息的正则表达式匹配激活一项功能以使播放器静音。这可用于自动静音广告。例如，对于 Spotify，您可以使用以下正则表达式：```spotify:ad:|Advertisement```。
+在配置中，您可以激活一项功能，根据歌曲信息的正则表达式匹配使播放器静音。这可用于自动静音广告。例如，对于 Spotify，您可以使用以下正则表达式：```spotify:ad:|Advertisement```。
 
-* **ignore_broadcast_cmd**：此播放器状态配置，如果播放器应忽略对所有播放器的命令，例如player/set_mute&state=on 或按下预设/播放列表的播放按钮
+* **ignore_broadcast_cmd**：这个玩家状态配置，如果玩家应该忽略所有玩家的命令，例如player/set_mute&state=on 或按下预设/播放列表的播放按钮
 
 ＃＃ 寻找
-搜索功能不适用于所有来源。 Spotify 和亚马逊音乐正在支持搜索。
+搜索功能不适用于所有来源。 Spotify 和亚马逊音乐支持搜索。
 
 ## 命令状态
 HEOS CLI 规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
 
-### HEOS 命令状态 (heos.0.command)
-* "system/connect": 尝试连接到 HEOS
-* "system/disconnect": 与 HEOS 断开连接
-*“系统/重新连接”：断开并连接
-* "system/load_sources": 重新加载源
+### HEOS 命令状态（heos.0.command）
+*“系统/连接”：尝试连接到HEOS
+* "system/disconnect": 断开与HEOS的连接
+*“系统/重新连接”：断开连接和连接
+* "system/load_sources": 重新加载资源
 * "system/reboot": 重启连接的播放器
 * "system/reboot_all": 重启所有玩家
-* "group/set_group?pid=<pid1>,<pid2>,...": 使用玩家 ID 列表设置组，例如“组/set_group?pid=12345678,12345679”。
-* "group/set_group?pid=<pid1>" ：删除现有组，例如“组/set_group?pid=12345678”
+* "group/set_group?pid=<pid1>,<pid2>,...": 使用玩家 ID 列表设置组，例如“组/组组？pid=12345678,12345679”。
+* "group/set_group?pid=<pid1>" : 删除现有组，例如“组/组组？pid=12345678”
 * "group/ungroup_all" : 删除所有组
 * "group/group_all" : 将所有玩家归为一组
-* "player/[cmd]"：向所有玩家发送命令。例如播放器/set_mute&state=on
-* "leader/[cmd]"：向所有领先玩家发送命令。例如领导者/set_mute&state=on
-* "scope/[cmd]": 将命令发送到scope_pids中配置的所有玩家、领先玩家或逗号分隔的玩家pids
-* “...”：所有其他命令都尝试发送到 HEOS
+* "player/[cmd]": 向所有玩家发送命令。例如播放器/set_mute&state=on
+* "leader/[cmd]": 向所有领先玩家发送命令。例如领导者/set_mute&state=on
+* "scope/[cmd]": 将命令发送到配置范围内的所有玩家、领先玩家或以逗号分隔的玩家 pids in scope_pids
+* “...”：尝试将所有其他命令发送到 HEOS
 
 ### 玩家命令状态 (heos.0.players.123456789.command)
-注意：多个命令是可能的，如果它们用管道分隔，例如set_volume&level=20|play_preset&preset=1
+注意：多个命令是可能的，如果它们用管道分开，例如set_volume&level=20|play_preset&preset=1
 
-* "set_volume&level=0|1|..|100": 设置播放器音量
-* "set_play_state&state=play|pause|stop": 设置播放器状态
-* "set_play_mode&repeat=on_all|on_one|off&shuffle=on|off": 设置重复和随机播放模式
-* "set_mute&state=on|off": 静音播放器
-* "volume_down&step=1..10": 降低音量
-* "volume_up&step=1..10": 提高音量
-* "play_next": 下一个播放
-*“play_previous”：播放上一个
-* "play_preset&preset=1|2|..|n": 播放预设 n
-* "play_stream&url=url_path": 播放 URL-Stream
-* "add_to_queue&sid=1025&aid=4&cid=[CID]"：播放器上带有 [CID] 的播放列表（aid：1 – 现在播放；2 – 下一个播放；3 – 添加到结尾；4 – 替换并播放）
+* "set_volume?level=0|1|..|100": 设置播放器音量
+* "set_play_state?state=play|pause|stop": 设置播放器状态
+* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": 设置重复和随机播放模式
+* "set_mute?state=on|off": 静音播放器
+*“volume_down?step=1..10”：降低音量
+* "volume_up?step=1..10": 提高音量
+* "play_next": 播放下一个
+* "play_previous": 播放上一个
+* "play_preset?preset=1|2|..|n": 播放预设n
+* "play_stream?url=url_path": 播放 URL 流
+* "add_to_queue?sid=1025&aid=4&cid=[CID]": 在播放器上使用 [CID] 播放播放列表 (aid: 1 – 立即播放；2 – 播放下一首；3 – 添加到结尾；4 – 替换并播放)
 
-##图像颜色提取
-在 1.7.6 版本中，歌曲封面的突出颜色被提取并保存到三个新的播放器状态：
+## 图像颜色提取
+在 1.7.6 版本中，歌曲封面的突出颜色被提取并保存为三种新的播放器状态：
 
-* **current_image_color_palette**：node-vibrant 选择的突出颜色。
-* **current_image_color_background**：图像中人口最多的颜色。可用作 VIS 中播放器控件的背景颜色。
-* **current_image_color_foreground**：图像中人口第二多的颜色，与背景颜色形成良好的对比。可用作 VIS 中播放器控件的文本颜色。
+* **current_image_color_palette**：由 node-vibrant 选择的突出颜色。
+* **current_image_color_background**：图像中人口最多的颜色。可用作 VIS 中播放器控件的背景色。
+* **current_image_color_foreground**：图像中人口第二多的颜色，与背景颜色形成良好的阅读对比。可用作 VIS 中播放器控件的文本颜色。
 
-## 说出来
-支持[SayIt 适配器](https://github.com/ioBroker/ioBroker.sayit)。
+## 说吧
+[SayIt 适配器](https://github.com/ioBroker/ioBroker.sayit) 受支持。
 
-![赛伊特](docs/media/sayit.png)![赛义特配置](../../../en/adapterref/iobroker.heos/docs/media/sayit-config.png)
+![赛义特](docs/media/sayit.png)![说配置](../../../en/adapterref/iobroker.heos/docs/media/sayit-config.png)
 
 ## 材质界面
-支持[材质 UI 适配器](https://github.com/ioBroker/ioBroker.material)。
+[材质 UI 适配器](https://github.com/ioBroker/ioBroker.material) 受支持。
 
 ![材料](../../../en/adapterref/iobroker.heos/docs/media/material-ui.png)
 
 ## 预设和播放列表
-适配器不会自动请求当前播放列表和预设。要更新/请求数据并创建播放状态，您必须首先浏览源：
+适配器不会自动请求当前播放列表和预设。要更新/请求数据并创建播放状态，您必须先浏览源：
 
 - 预设/收藏夹：```heos.0.sources.1028.browse```
 - 播放列表：```heos.0.sources.1025.browse```
 
-##可见
+## 可视化
 ＃＃＃ 安装
 * 创建以下字符串状态：
     * 0_userdata.0.heos.queue_pid
     * 0_userdata.0.heos.queue_html
     * 0_userdata.0.heos.browse_result_html
 
-### 播放器视图
+### 玩家视角
 * 打开文件：[player_view.json](docs/vis/views/player_view.json)
-* 将 123456789 替换为播放器 pid
+* 将 123456789 替换为玩家 pid
 * 将视图导入 VIS
 
 ![播放器视图](../../../en/adapterref/iobroker.heos/docs/media/player-view.png)
 
 ### 预设
-* 点击按钮```heos.0.sources.1028.browse```加载预设
+*点击按钮```heos.0.sources.1028.browse```加载预设
 * 打开文件：[presets_view.json](docs/vis/views/presets_view.json)
 * 将视图导入 VIS
 
 ![预设配置](docs/media/presets-config.png)![预设](../../../en/adapterref/iobroker.heos/docs/media/presets.png)
 
 ＃＃＃ 队列
-* 队列小部件：[queue_player_widget.json](docs/vis/views/queue_player_widget.json)
+*队列小部件：[queue_player_widget.json](docs/vis/views/queue_player_widget.json)
 * 队列视图：[queue_view.json](docs/vis/views/queue_view.json)
 * 队列 HTML 生成脚本：[queue.js](docs/vis/scripts/queue.js)
 
 ![队列小部件](../../../en/adapterref/iobroker.heos/docs/media/queue-widget.png)
 
-### 浏览来源
+### 浏览资源
 * 浏览小部件：[browse_player_widget.json](docs/vis/views/browse_player_widget.json)
 * 浏览视图：[browse_view.json](docs/vis/views/browse_view.json)
 * 浏览 HTML 生成脚本：[browse.js](docs/vis/scripts/browse.js)
 
-![浏览小部件](docs/media/browse-widget.png)![浏览来源](docs/media/browse-sources.png)![浏览调音](../../../en/adapterref/iobroker.heos/docs/media/browse-tunein.png)
+![浏览小部件](docs/media/browse-widget.png)![浏览资源](docs/media/browse-sources.png)![浏览 tunein](../../../en/adapterref/iobroker.heos/docs/media/browse-tunein.png)
 
-或者，您可以使用 Uhula 中的脚本：https://forum.iobroker.net/post/498779
+或者，您可以使用 Uhula 的脚本：https://forum.iobroker.net/post/498779
 
 ## Changelog
 <!--
@@ -133,6 +133,7 @@ HEOS CLI 规范：http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.p
 
 ### **WORK IN PROGRESS**
 * (withstu) optimize scope handling
+* (withstu) switch to HEOS default cmd delimiter ?
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature

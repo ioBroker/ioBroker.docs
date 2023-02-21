@@ -3,8 +3,18 @@
         <title><![CDATA[ ioBroker Blog ]]></title>
         <description><![CDATA[有关ioBroker的新闻，公告和想法]]></description>
         <link>https://www.iobroker.net/#zh-cn/blog</link>
-        <lastBuildDate>Wed, 16 Feb 2022 06:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 15 Feb 2023 06:00:00 GMT</lastBuildDate>
         <ttl>1440</ttl>
+        <item>
+            <title><![CDATA[2023 年 2 月开发会议]]></title>
+            <description><![CDATA[
+                <p>## JS 控制器 4.0.24 和 NodeJS 18：值得更新</p>
+            ]]></description>
+            <link>https://www.iobroker.net/#zh-cn/blog/2023_02_15</link>
+            <guid isPermaLink="true">https://www.iobroker.net/#zh-cn/blog/2023_02_15</guid>
+            <dc:creator><![CDATA[ ioBroker ]]></dc:creator>
+            <pubDate>Wed, 15 Feb 2023 06:00:00 GMT</pubDate>
+        </item>
         <item>
             <title><![CDATA[二月开发会议]]></title>
             <description><![CDATA[

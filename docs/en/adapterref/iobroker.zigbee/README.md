@@ -133,6 +133,12 @@ You can thank the authors by these links:
 
 
 ## Changelog
+
+
+### 1.8.11 (2022-12-10)
+* (arteck) fix compsite exposes with list
+
+
 ### 1.8.10 (2022-12-12)
 * (asgothian) fix group access
 * (asgothian) add option for pairing code:
