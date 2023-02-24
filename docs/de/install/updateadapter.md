@@ -1,9 +1,8 @@
 ---
 title:       "Adapter updaten"
-lastChanged: "16.07.2019"
+lastChanged: "24.02.2023"
 ---
 
-# Updaten von Adaptern
-Das Vorgehen beim Upgrade eines Adapters ist im Tutorial zur Adapterverwaltung [beschrieben](../tutorial/adapter.md?upgradeeinesadapters).
-
-Das Downgrade auf eine bestimmte Version eines Adapters [ebenfalls](../tutorial/adapter.md?downgradeeinesadapters).
+# Upgrade/Downgrade von Adaptern
+Das Vorgehen beim Up/Downgrade eines Adapters ist im Tutorial zur Adapterverwaltung [beschrieben](https://www.iobroker.net/#de/documentation/tutorial/adapter.md
+).
