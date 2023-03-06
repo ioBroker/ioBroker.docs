@@ -61,6 +61,14 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.3.2 (2023-02-21)
+
+* (klein0r) Optimized setState logic
+
+### 2.3.1 (2023-02-21)
+
+* (klein0r) Update My Data DIY when object changes data type
+
 ### 2.3.0 (2023-02-13)
 
 * (klein0r) Fixed message responses
@@ -76,27 +84,6 @@ Features are limited by the [official API features](https://lametric-documentati
 * (klein0r) Added custom sound feature (mp3 via url)
 * (klein0r) Added visible state of widgets
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.3
-
-### 2.1.0 (2022-11-01)
-
-NodeJS 14.5 is required
-
-* (klein0r) Added web extension to get My Data DIY object
-* (klein0r) Allow colon in My Data DIY object ID
-* (klein0r) Fixed duration of My Data DIY frames (milliseconds)
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.0
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Minor optimizations
-
-### 2.0.0 (2022-05-17)
-
-NodeJS 14.x is required (NodeJS 12.x is EOL)
-
-* (klein0r) Added states for clock alarm widget configuration
-* (klein0r) Added duration for My Data DIY frame configuration
-* (klein0r) Updated LaMetric firmware version recommendation to 2.2.3
-* (klein0r) Updated dependencies
-* (klein0r) Updated depedency for js-controller to 4.0.15
 
 ## License
 

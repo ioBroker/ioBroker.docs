@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.winsipbrowser/README.md
 title: ioBroker.winsipbrowser
-hash: JhCF2oBEXZ6EkgZLT8QpMSgHqKfgWIvb8v1C2fjyMhc=
+hash: QKBfzBPiOIiYlwY5H3qpOxfIPpzFbmHggZzX09/UFTc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.winsipbrowser/admin/winsipbrowser.png)
 
@@ -22,13 +22,19 @@ hash: JhCF2oBEXZ6EkgZLT8QpMSgHqKfgWIvb8v1C2fjyMhc=
 
 winsipbrowser — это полноэкранный браузер Windows с sipclient, которым можно управлять через ioBroker, он отображает отдельные веб-сайты или слайд-шоу веб-сайтов, которые можно настроить в адаптере. На адаптер также передается информация: + загрузка процессора + свободная память + текущий разряд батареи на планшете или ноутбуке + имя хоста + IP
 
-Он также может управлять: + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения + воспроизведение аудиофайлов
+Он также может управлять: + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения + воспроизведение аудиофайлов + включение/выключение полноэкранного режима
 
 ## Связь
 * [Тема адаптера форума ioBroker] (https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
 * [Тема программы форума ioBroker] (https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.6
+* (bettman66) add fullscreenobject
+
+### 0.1.5
+* (bettman66) change Server2Client
+
 ### 0.1.4
 * (bettman66) change objects
 

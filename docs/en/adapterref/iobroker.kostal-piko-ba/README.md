@@ -15,7 +15,7 @@ CI-Tests:
 
 ## Adapter for reading Kostal Piko & Piko BA data for iOBroker
 Adapter for reading Kostal Piko & Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter working with Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17 & 20 inverters. 
+Adapter working with Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17, 20 & 36 inverters. 
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
@@ -31,12 +31,16 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
-### 2.3.0 (20.02.2023)
-* (HombachC) replaced got partially by axios; bumped dependencies
+### 2.4.0 (05.03.2023)
+* (HombachC) added support of DC-values for Piko MP inverters
+### 2.3.1 (05.03.2023)
+* (HombachC) fix error with zero values in DC & AC
+### 2.3.0 (26.02.2023)
+* (HombachC) replaced got by axios
+* (HombachC) added warning for not supported Piko MP inverters
+* (HombachC) removed travis
 ### 2.2.2 (14.02.2023)
-* (HombachC) fixed error with missing grid limitation response; bumped dependencies
-### 2.2.1 (07.02.2023)
-* (HombachC) fixing error with missing grid limitation response
+* (HombachC) fixed error with missing grid limitation response
 ### 2.2.0 (03.02.2023)
 * (HombachC) added support for phase 1-3 of homeconsumption power
 * (HombachC) enhanced sentry support
@@ -44,28 +48,21 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 * (HombachC) optimized debug data
 ### 2.1.2 (29.01.2023)
 * (HombachC) fixed errors with single phase inverters (Piko 3)
-* (HombachC) bumped dependencies
 ### 2.1.1 (29.12.2022)
 * (HombachC) year 2023 changes
-* (HombachC) bumped dependencies
 ### 2.1.0 (04.11.2022)
 * (HombachC) added ukrainian translations
-* (HombachC) bumped dependencies
 ### 2.0.2 (16.10.2022)
 * (HombachC) fixed small sentry reported error
 * (HombachC) optimized error logging
-* (HombachC) bumped dependencies
 ### 2.0.1 (11.10.2022)
 * (HombachC) optimized error logging
-* (HombachC) bumped dependencies
 ### 2.0.0 (28.08.2022)
 * (HombachC) BREAKING: Dropped support for Node.js 12
 * (HombachC) changed the minimal required js-controller version to 3.2.16
 * (HombachC) added state of inverter as string
-* (HombachC) bumped dependencies
 ### 1.5.0 (05.08.2022)
 * (HombachC) added minimum values for poll times to prevent communication errors
-* (HombachC) bumped dependencies
 ### 1.4.7 (26.06.2022)
 * (HombachC) bumped dependency because of security vulnerability
 ### 1.4.6 (06.06.2022)
@@ -76,39 +73,37 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 1.4.4 (01.05.2022)
 * (HombachC) optimized sentry feedback and documentation
 ### 1.4.3 (24.04.2022)
-* (HombachC) normalizing of analog values added, bumped dependencies
+* (HombachC) normalizing of analog values added
 ### 1.4.2 (01.02.2022)
 * (HombachC) added support for inverter type, version and name
 * (HombachC) fixed timing error
 ### 1.4.1 (31.01.2022)
-* (HombachC) optimized logging; bumped dependencies
+* (HombachC) optimized logging
 ### 1.4.0 (30.01.2022)
 * (HombachC) added support for grid 1-3 current, voltage and power
-* (HombachC) bumped dependencies
 ### 1.3.1 (23.01.2022)
-* (HombachC) correct rounding of analog values; bumped dependencies
+* (HombachC) correct rounding of analog values
 * (HombachC) added validation of configured IPv4 address
 ### 1.3.0 (01.01.2022)
 * (HombachC) added optional support for analog inputs
 ### 1.2.1 (24.12.2021)
 * (HombachC) introduced rounding of battery temp
 ### 1.2.0 (16.12.2021)
-* (HombachC) dropped node.js 10 support; bumped dependencies; fixed vulnerability
+* (HombachC) dropped node.js 10 support; fixed vulnerability
 ### 1.1.13 (16.10.2021)
-* (HombachC) bumped dependencies; fixed vulnerability
+* (HombachC) fixed vulnerability
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
-* (HombachC) bumped dependencies
 ### 1.1.7 (09.05.2021)
 * (HombachC) added tests for node.js 16; fixed vulnerability
 ### 1.1.3 (23.11.2020)
-* (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
+* (HombachC) added battery.Voltage; added additional error handler
 ### 1.1.1 (09.10.2020) stable
 * (HombachC) minor documentation tweaks; DC current accuracy changed to mA
 ### 1.1.0 (09.10.2020)
 * (tobstare) added DC1-3 current, voltage and power
 * (HombachC) added battery.ChargeCycles
-* (HombachC) bumped dependencies; added battery.temperature
+* (HombachC) added battery.temperature
 ### 1.0.2 (23.09.2020)
 * (HombachC) public release for stable repo
 ### 0.8.0 (18.08.2020)

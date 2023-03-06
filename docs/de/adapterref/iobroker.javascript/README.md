@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.javascript.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.javascript.svg
 chapters: {"pages":{"de/adapterref/iobroker.javascript/README.md":{"title":{"de":"no title"},"content":"de/adapterref/iobroker.javascript/README.md"},"de/adapterref/iobroker.javascript/blockly.md":{"title":{"de":"Inhalt"},"content":"de/adapterref/iobroker.javascript/blockly.md"}}}
 ---
-**Hinweis: Momentan beinhaltet die Englishe Version viel mehr Information und wir empfehlen die zu lesen**
+**Hinweis: Momentan beinhaltet die englische Version viel mehr Information und wir empfehlen die zu lesen**
 
 Der javascript-Adapter dient dazu komfortabel Skripte zu erstellen, editieren und zu verwalten.
 
@@ -57,6 +57,16 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bluefox) Breaking change: all usages of `jsonata` must be rewritten to use promises.
+* (bluefox) Breaking change: all blockly scripts with `jsonata` blocks must de changed (just move some blocks) and saved anew.
+* (bluefox) Extended `createState` command with possibility to create aliases. 
+* (bluefox) Corrected CRON card in rules 
+* (bluefox) Added additional options to show the attributes of object in blockly
+* (bluefox) Corrected `existsStateAsync` function
+* (bluefox) Added `isDaylightSaving` state to indicate day saving time
+* (AlCalzone) Pinned `@types/node` to v14
+
 ### 6.2.0 (2023-02-17)
 * (Apollon77) Prevented duplicate schedule triggering with inaccurate RTC clocks
 * (Apollon77) Fixed sendToAsync and sendToHostAsync
@@ -74,14 +84,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 
 ### 6.1.2 (2022-11-03)
 * (bluefox) Added ukrainian translation
-
-### 6.1.0 (2022-11-03)
-* (Apollon77) Add a configurable check for number of setStates per Minute to prevent scripts from taking down ioBroker. Default are 1000 setState per minute. Only stops if the number is reached 2 minutes in a row!
-* (Apollon77) Add createAlias method to create aliases for states
-* (Apollon77) Add setStateDelayed to selector
-* (Apollon77) Add options to exec command
-* (Apollon77) Fix issues with cancelling schedules when stopping scripts
-* (bluefox) Corrected debug mode
 
 ## License
 The MIT License (MIT)

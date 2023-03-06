@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
+hash: iVlWUUC4LgSLJ45K2qKDmTYfVZohJnXitCzR7fgVmNo=
 ---
 ![Logo](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -14,6 +14,7 @@ hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.solax
 ![Testen und freigeben](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
@@ -22,7 +23,7 @@ hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -58,7 +59,7 @@ Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse 
 
 <span><img src="docs/en/img/webif.png"></span>
 
-Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, kannst du ihr im selben Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
+Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, könnt ihr im selben Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
 
 Die Version 2.033.20 könnt ihr euch unter folgendem Link herunterladen:
 
@@ -129,6 +130,11 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.6.0 (2023-03-04)
+* (simatec) Dependencies updated
+* (simatec) Fix URL
+* (simatec) small Bugfix
+
 ### 0.5.7 (2022-11-01)
 * (simatec) Dependencies updated
 
@@ -235,7 +241,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2021 - 2022 simatec
+Copyright (c) 2021 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

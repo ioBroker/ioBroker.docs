@@ -47,31 +47,34 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
   * Update interval: Time between the update of the measured values (default 30s)
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.2.4 (2023-03-01)
+
+* (pdbjjens) Fix password check
+
+### 0.2.3 (2023-02-27) - 2023 maintenance release
+
+* (pdbjjens) Updated dependencies
+* (pdbjjens) New: Use adapter-dev instead of gulp translate
+* (pdbjjens) Fix: error handling for serial connections
+
 ### 0.2.2 (2022-02-11)
+
 * Updated dependencies
 * Compatibility check for js-controller 4.0
 * Support for js-controller 1.x dropped
 
 ### 0.2.1 (2021-08-18)
+
 * Update dependencies
 * Changed allowed range of temperature values to include the error values for short circuit and open circuit
 
 ### 0.2.0 (2021-06-25)
+
 * Dropped node.js 10 support, added node.js 14 and 16 support
-
-### 0.1.1 (2021-05-18)
-* Fixes for supporting js-controller >=3.2.x
-
-### 0.1.0
-* (grizzelbee) Fix: config page shows current settings now (not default anymore)
-* (grizzelbee) Fix: "Connected" state is updated correctly now if connection is disrupted.
-* (grizzelbee) New: Added Badge for latest(npm) version to readme
-* (grizzelbee) Fix: removed default password from config to ensure it's encrypted on first config
-* (grizzelbee) Fix: removed Force-ReInit
-* (grizzelbee) Fix: sensor maintenance indicators are booleans now
-* (grizzelbee) New: added activity indicator states for relays
-* (pdbjjens) Fix: Prevent warnings regarding non-existent objects upon adapter instance creation and start-up with js-controller 3.2.x
-* (pdbjjens) Fix: updated dependencies and vulnerabilities
 
 ## Legal Notices
 
@@ -85,7 +88,7 @@ The authors are in no way endorsed by or affiliated with RESOL GmbH, or any asso
 
 MIT License
 
-Copyright (c) 2022 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2023 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

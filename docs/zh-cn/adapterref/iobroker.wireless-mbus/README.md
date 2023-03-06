@@ -3,9 +3,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
+hash: 9o4axAC16Kpye31rAnAtrOIgzq9tMBNRg4WzSQ3AcI8=
 ---
 ![标识](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
+
+![安装数量](https://iobroker.live/badges/wireless-mbus-installed.svg)
+![稳定版](https://iobroker.live/badges/wireless-mbus-stable.svg)
 
 # IoBroker.wireless-mbus
 该适配器允许从支持的接收器接收无线 M-Bus 数据。设备实现的范围各不相同，但可以为所有列出的设备配置 wMBus 模式。
@@ -51,6 +54,9 @@ WMBUS 堆栈已从 FHEM 项目“重新移植”，并进行了广泛的修复�
 
 ＃＃ 去做
 * 为 S 模式接收器发送电报？
+
+## 0.8.9
+*（ChL）修复管理页面中非默认设置的显示
 
 ## 0.8.8
 * (ChL) 添加日期时间类型 I 处理

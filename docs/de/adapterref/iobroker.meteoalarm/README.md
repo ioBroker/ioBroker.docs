@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Q5rYpOseXSs2OUWslVExTZNtHmdufWgvCeCr8KqNDAc=
+hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -36,7 +36,7 @@ Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen er
 * (jack-blackson) Bugfix um Warnungen korrekt zu bereinigen
 * (jack-blackson) Bugfix für Pushover, wenn mehrere Instanzen verwendet werden
 
-## 2.3.0 (2022-09-15)
+## 2.3.1 (2022-09-15)
 * (jack-blackson) Fähigkeit, Alarme an andere Adapter zu senden (Telegramm, eMail, Pushover, Signal, Synochat
 * (jack-blackson) Link im Alarmordner reparieren
 

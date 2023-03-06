@@ -98,6 +98,18 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.12 (2023-02-26)
+* (bluefox) Corrected some issues from GitHub
+
+### 1.4.11 (2023-02-25)
+* (bluefox) Booleans were improved
+
+### 1.4.9 (2023-02-22)
+* (bluefox) Allowed the disabling of texts for enums and the adding/deletion of own text values
+
+### 1.4.7 (2023-02-22)
+* (bluefox) Implemented custom texts for enums
+
 ### 1.4.6 (2023-02-16)
 * (bluefox) Implemented custom texts for true and false values
 

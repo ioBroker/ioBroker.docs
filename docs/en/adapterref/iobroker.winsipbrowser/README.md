@@ -31,12 +31,19 @@ He can also control:
 + text messages
 + speak messages
 + play audiofiles
++ fullscreen on/off
 
 ## Link
 * [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
 * [ioBroker Forum Programm Thread](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.6
+* (bettman66) add fullscreenobject
+
+### 0.1.5
+* (bettman66) change Server2Client
+
 ### 0.1.4
 * (bettman66) change objects
 

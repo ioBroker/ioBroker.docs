@@ -22,6 +22,9 @@ or any associated subsidiaries, logos or trademarks.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.3 (2023-02-27)
+* (foxriver76) update lib
+
 ### 0.5.2 (2022-10-26)
 * (foxriver76) we renamed `customAmbilightCommand` to `currentAmbilightConfiguration` and update the state on polling (closes #431)
 Please delete `customAmbilightCommand` manually

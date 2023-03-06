@@ -3,9 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
+hash: 9o4axAC16Kpye31rAnAtrOIgzq9tMBNRg4WzSQ3AcI8=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
+
+![Installierte Anzahl](https://iobroker.live/badges/wireless-mbus-installed.svg)
+![stabile Version](https://iobroker.live/badges/wireless-mbus-stable.svg)
 
 # IoBroker.wireless-mbus
 Dieser Adapter ermöglicht den Empfang von drahtlosen M-Bus-Daten von unterstützten Empfängern. Der Umfang der Geräteimplementierung variiert, aber wMBus-Modi können für alle aufgelisteten Geräte konfiguriert werden.
@@ -51,6 +54,9 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 
 ## Machen
 * Senden von Telegrammen für S-Mode-Empfänger?
+
+## 0.8.9
+* (ChL) Anzeige von Nicht-Standardeinstellungen auf der Admin-Seite korrigiert
 
 ## 0.8.8
 * (ChL) Datetime Type I Handling hinzugefügt

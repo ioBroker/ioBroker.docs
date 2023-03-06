@@ -37,8 +37,9 @@ The password is stored encrypted and must therefore be entered manually: demo
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.0 (2023-03-05)
 * (Gaspode) Remove no more supported states at startup automatically
+* (Gaspode) Prepared data migration for future versions
 
 ### 0.4.0 (2023-02-16)
 * (Gaspode) Optimized deletion of group states

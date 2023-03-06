@@ -1,226 +1,241 @@
-![Logo](admin/onvif_logo.png)
+![Logo](admin/onvif.png)
+
 # ioBroker.onvif
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.onvif.svg)](https://www.npmjs.com/package/iobroker.onvif)
+[![NPM version](https://img.shields.io/npm/v/iobroker.onvif.svg)](https://www.npmjs.com/package/iobroker.onvif)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.onvif.svg)](https://www.npmjs.com/package/iobroker.onvif)
-![Number of Installations (latest)](http://iobroker.live/badges/onvif-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/onvif-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Haba1234/iobroker.onvif.svg)](https://david-dm.org/Haba1234/iobroker.onvif)
-[![Known Vulnerabilities](https://snyk.io/test/github/Haba1234/ioBroker.onvif/badge.svg)](https://snyk.io/test/github/Haba1234/ioBroker.onvif)
+![Number of Installations](https://iobroker.live/badges/onvif-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/onvif-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.onvif.png?downloads=true)](https://nodei.co/npm/iobroker.onvif/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/Haba1234/ioBroker.onvif/master.svg)](https://travis-ci.org/Haba1234/ioBroker.onvif)
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
 
-## RU
+## ONVIF adapter for ioBroker
 
-### Настройка
-1. Открыть Настройки драйвера
-2. Нажать кнопку сканирования (сверху справа)
-3. Ввести необходимые настройки или оставить по умолчанию: startRange - начальный ip адрес диапазона сканирования, 
-End Range - конечный ip адрес диапазона сканирования, 
-Port list - через запятую порты сервиса onvif (по умолчанию: 80, 7575, 8000, 8080, 8081), 
-User name - по умолчанию admin, 
-Password - по умолчанию admin
-4. Нажать START SCAN
+**Adapter for ONVIF cameras**
 
-Если все сделано правильно, в основном окне настроек появятся найденые камеры и через несколько секунд должны будут подтянуться снапшоты
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-### События
-Драйвер автоматически подписывается на события к настроенным камерам.
-События, которые генерирует камера, появятся в объектах вида:
+## Kameras hinzufügen
 
-```
-onvif.0.122_116_220_230_2033.message.ruleengine.cellmotiondetector.motion.IsMotion
-onvif.0.122_116_220_230_2033.message.ruleengine.tamperdetector.tamper.IsTamper
-```
+### Discovery:
 
-### Запрос снапшота
-Для этого используется команда:
-`sendTo('onvif.0', command, message, callback);`
+Bei jedem Adapterstart wird mit dem in der Einstellungen eingetragen Benutzername und Passwort eine Discovery durchgeführt und versuch sich in die Kamera einzuloggen. Falls die Kamera noch nicht unter Objekte hinzugefügt wurde.
 
-Пример скрипта для запроса снапшота и отправка в телеграм:
+In den Einstellungen kann man die Discovery manuell ausführen. Falls die Kameras unterschiedliche Zugangsdaten haben müssen die jeweils eingegeben werden und eine discovery durchgeführt werden. Im Log sieht man Details zu dem Prozess.
 
-```
-const fs = require('fs');
+Damit eine Kamera neu erkannt wird muss sie einfach unter Objekte gelöscht werden.
 
-function getSnapshot(caption){
-    sendTo('onvif.0', 'saveFileSnapshot', {"id":"192_168_1_4_80", "file":"/opt/cameras/snapshot.jpg"}, (data) => {
-        console.log('image принят: ' + data);
-        if (data === "OK")
-            sendTo('telegram.0', {text: '/opt/cameras/snapshot.jpg', caption: caption});
+### Manuelle Suche
+
+Es können Kameras manuell gesucht werden, falls Discovery nicht funktioniert. Dazu muss eine IP Range und Ports eingegeben und manuell ausgeführt werden. Im Log sieht man Details zu dem Prozess.
+
+## Datenpunkte
+
+onvif.0.IP_PORT.events Events der Kamera wie z.b. Bewegungserkennung. Manchmal muss ein Event ausgelöst werden damit er angezeigt wird.
+
+onvif.0.IP_PORT.general Generelle Information über die Kameras
+
+onvif.0.IP_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.refresh
+
+Video und Snapshot URL:
+
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+
+onvif.0.IP_PORT.remote Steuerung der Kamera
+
+onvif.0.IP_PORT.remote.refresh Aktualisierung der Infodaten
+
+onvif.0.IP_PORT.remote.gotoHomePosition PTZ Kamera in die HomePosition setzen
+
+onvif.0.IP_PORT.remote.gotoPreset PTZ Kamera Preset Nummer auswählen
+
+onvif.0.IP_PORT.remote.snapshot Speichert ein snapshot unter onvif.0.IP_PORT.snapshot
+
+## Message
+
+Adapter nimmt Message "snapshot" entgegen und gibt ein Bild zurück
+
+```javascript
+sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+  if (result) {
+    sendTo("telegram.0", {
+      text: result,
+      type: "photo",
+      caption: "Kamera 2",
     });
-}
+  }
+});
 ```
-*caption* - заголовок для картинки в телеграме.
-Вызывать можно как по событию, так и по кнопке/рассписанию.
 
-Вариант загрузки в промежуточный Buffer в место файла:
-```
-function getSnapshot(){
-    sendTo('onvif.0', 'getSnapshot', {"id":"192_168_1_4_80"}, (result) => {
-        if (result.err) log(result);
-        if (result.img){
-			log('image принят: ' + typeof result.img);
-            sendTo('telegram.0', {
-                user: 'user', 
-                text: result.img.rawImage,
-                type: 'photo',
-                caption: 'Camera 1'
-			});
-		}
+## Bewegungsmeldung zu Telegram
+
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+      if (result) {
+        sendTo("telegram.0", {
+          text: result,
+          type: "photo",
+          caption: "Camera 2",
+        });
+      }
     });
-}
+  }
+});
 ```
 
-### События Камеры
-Чтобы отключить подписку на события от камеры, необходимо выставить состояние `subscribeEvents = false` и перезапустить адаптер.
-При изменении в панели администратора, перезугрузка адаптера выполняется автоматически.
+## Snapshot in vis einbinden
 
-События имеют тип "Объект", например:
-```
-{
-	'Value': false,
-	'UtcTime': '2020-04-26T17:35:34.000Z'
-}
-```
-`Value` - значение/состояние,
-`UtcTime` - время изменения значения/состояния
+Wenn möglich die snapshotUri verwenden z.B.
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-Т.к. адаптер работает по подписке на события, то время состояния `state.ts` может не совпадать с реальным временем события в камере.
+### _Den Datenpunkt nicht als Stream verwenden, da sonst die Festplatte zu hohe Last hat._
 
-## ENG
+#### Den Datenpunkt aktualisieren via onvif.0.IP_PORT.remote.snapshot
 
-### Customization
-1. Open Driver Settings
-2. Press the scan button (top right)
-3. Enter the necessary settings or leave the default: 
-startRange - the starting ip address of the scanning range, 
-End Range - the ending ip address of the scanning range, 
-Port list - comma-separated ports of the onvif service (default: 80, 7575, 8000, 8080, 8081), 
-User name - default admin, 
-Password - default admin
-4. Press START SCAN
+Den Datenpunkt onvif.0.IP_PORT.snapshot ein `String img src` element zuordnen
 
-If everything is made correctly, then the found cameras will appear in a primary window of settings and in several seconds snapshots will have to be tightened.
+Oder als Alternative falls `String img src` nicht funktioniert
 
-### Events
-The driver automatically subscribes to events for the configured cameras.
-The events generated by the camera will be displayed in the following objects:
+Den Datenpunkt onvif.0.IP_PORT.snapshot als `HTML` element in die vis einfügen mit folgendem Inhalt
 
-```
-onvif.0.122_116_220_230_2033.message.ruleengine.cellmotiondetector.motion.IsMotion
-onvif.0.122_116_220_230_2033.message.ruleengine.tamperdetector.tamper.IsTamper
+```javascript
+<img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
 
-### Snapshot request
-To do this, use the command:
-`sendTo('onvif.0', command, message, callback);`
+# English
 
-Example of a script for request of the snapshot and sending to Telegram:
+## Add cameras
 
-```
-const fs = require('fs');
+### Discovery:
 
-function getSnapshot(caption){
-    sendTo('onvif.0', 'saveFileSnapshot', {"id":"192_168_1_4_80", "file":"/opt/cameras/snapshot.jpg"}, (data) => {
-        console.log('image received: ' + data);
-        if (data === "OK")
-            sendTo('telegram.0', {text: '/opt/cameras/snapshot.jpg', caption: caption});
+Each time the adapter is started, a discovery is performed with the user name and password entered in the settings and an attempt is made to log in to the camera. If the camera has not yet been added under Objects.
+
+You can perform the discovery manually in the settings. If the cameras have different credentials, you have to enter them and perform a discovery. In the log you can see the details of the process.
+
+In order for a camera to be detected again, it must simply be deleted under Objects.
+
+### Manual search
+
+Cameras can be searched for manually if Discovery does not work. To do this, an IP range and ports must be entered and executed manually. In the log you can see details about the process.
+
+## Data points
+
+onvif.0.IP_PORT.events Events of the camera like e.g. motion detection. Sometimes you have to trigger the event to see it.
+
+onvif.0.IP_PORT.general General information about the cameras
+
+onvif.0.IP_PORT.infos Information about the camera is only updated at adapter start or at remote.refresh
+
+Video and Snapshot URL:
+
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+
+onvif.0.IP_PORT.remote Control of the camera
+
+onvif.0.IP_PORT.remote.refresh Updating the info data
+
+onvif.0.IP_PORT.remote.gotoHomePosition Set PTZ camera to home position
+
+onvif.0.IP_PORT.remote.gotoPreset Select PTZ camera preset number
+
+onvif.0.IP_PORT.remote.snapshot Save snapshot to onvif.0.IP_PORT.snapshot
+
+## Message
+
+Adapter receives message "snapshot" and returns image
+
+```javascript
+sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+  if (result) {
+    sendTo("telegram.0", {
+      text: result,
+
+      type: "photo",
+
+      caption: "camera2",
     });
-}
+  }
+});
 ```
 
-*caption* - is heading for the picture in Telegram
-It is possible to cause both on an event, and according to the button/schedule.
+## Motion message to Telegram
 
-The option of loading into an intermediate Buffer in the file location:
-```
-function getSnapshot(){
-    sendTo('onvif.0', 'getSnapshot', {"id":"192_168_1_4_80"}, (result) => {
-        if (result.err) log(result);
-        if (result.img){
-			log('image received: ' + typeof result.img);
-            sendTo('telegram.0', {
-                user: 'user', 
-                text: result.img.rawImage,
-                type: 'photo',
-                caption: 'Camera 1'
-			});
-		}
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+      if (result) {
+        sendTo("telegram.0", {
+          text: result,
+
+          type: "photo",
+
+          caption: "Camera 2",
+        });
+      }
     });
-}
+  }
+});
 ```
 
-### Camera Events
-To disconnect the subscription to events from the camera, you need to set the status `subscribeEvents = false` and restart the adapter.
-When changing in the admin panel, the adapter is restarted automatically.
+## Include snapshot in vis
 
-Events are of type "Object", for example:
+Use snapshot url when possible
+
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+
+Do not use this datapoint as a stream because the load on the HDD is too high.
+
+Assign a `String img src` element to the datapoint onvif.0.IP_PORT.snapshot
+
+Add the datapoint onvif.0.IP_PORT.snapshot as `HTML` element to vis with the following content
+
+```javascript
+<img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
-{
-	'Value': false,
-	'UtcTime': '2020-04-26T17:35:34.000Z'
-}
-```
-`Value` - value/state,
-`UtcTime` - state change time
 
-because the adapter works by subscribing to events, the state time of `state.ts` may not coincide with the real time of the event in the camera.
+## Discussions / Diskussion und Fragen
 
+<https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
 
-### 0.4.4 (2020-05-12)
-* (haba1234) Added new state
+### 1.0.2
 
-### 0.4.3 (2020-05-08)
-* (haba1234) Snapshot preview is squeezed
-* (haba1234) Preview is buffered and not requested again
-* (haba1234) After a minute, re-subscribe to camera events after 4 errors
-* (haba1234) Support digest authentification
-* (haba1234) node >= 10
+- (TA2k) Fixed a reonnect and empty event bug
 
-### 0.4.2 (2020-05-03)
-* (haba1234) Updated admin panel
+### 1.0.1
 
-### 0.4.1 (2020-04-27)
-* (haba1234) States as an Object
-* (haba1234) Error control 'pullMessages'. Disconnect if there are more than three errors
-* (haba1234) Encryption disabled. Compatibility issues
-
-### 0.3.0 (2020-04-24)
-* (haba1234) Added support for the Discovery adapter
-* (haba1234) Added password encryption
-
-### 0.2.0 (2020-04-21)
-* (haba1234) Added camera settings
-* (haba1234) Changes in the structure of objects (ATTENTION! After updating, delete cameras and add again)
-* (haba1234) Fixed issue [#9](https://github.com/Haba1234/ioBroker.onvif/issues/9)
-
-### 0.1.2 (2020-04-19)
-* (haba1234) Fixed uncaught exception: The \"chunk\" argument must be one of type string or Buffer
-* (haba1234) Add state 'subscribeEvents'
-
-### 0.1.1 (2020-04-18)
-* (haba1234) Port polling bug fixed
-
-### 0.1.0 (2020-04-15)
-* (haba1234) bag fix and different little things
-* (haba1234) compact mode
-* (haba1234) deprecated 'request' is replaced by class 'http'
-* (haba1234) 'onvif-snapshot' is replaced by class 'http'
-* (haba1234) Added translate
-* (haba1234) Refactoring code
-
-### 0.0.2 (2018-11-20)
-* (haba1234) add events and snapshot
-
-### 0.0.1 (2018-02-20)
-* (Kirov Ilya) intial commit
+- (TA2k) initial new release
 
 ## License
 
-The MIT License (MIT)
+MIT License
 
-Copyright (c) 2018-2020 Haba1234 <b_roman@inbox.ru>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+```

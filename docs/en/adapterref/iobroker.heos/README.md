@@ -10,63 +10,81 @@
 
 [![NPM](https://nodei.co/npm/iobroker.heos.png?downloads=true)](https://nodei.co/npm/iobroker.heos/)
 
-## heos adapter for ioBroker
+The adapter lets control HEOS from ioBroker.
 
-The adapter lets control HEOS from ioBroker
+## Disclaimer
+HEOS, DENON and Marantz are trademarks of D&M Holdings Inc.
+The developers of this module are in no way endorsed by or affiliated with D&M Holdings Inc.,
+or any associated subsidiaries, logos or trademarks.
+
+## Reference
+The used HEOS API is documented here: https://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification_2021.pdf
+
+## Network Requirements
+The protocol SSDP is used for finding the players. UPnP requires multicast access to the 239.255.255.250:1900 along with the appropriate IGMP messages. The source port for receiving SSDP Messages can be configured in the adapter settings (Default setting is ```0``` means the port is automatically choosen). Further Details: https://support.denon.com/app/answers/detail/a_id/4717/~/network-requirements-for-heos
+For the API access to the HEOS Players the adapter uses the port ```1255```.
 
 ## Configuration
 
 * **AutoPlay**: Automatically plays music after the player is connected or on unmute. Can be configured globally in configuration. If it is enabled globally you can disable it for one specific player with the state ```auto_play```.
-* **Command scope**: Defines to which players the command of ```scope/[cmd]``` is send to. It can be send to all players, all leading players or to all PIDs in the comma separated state: ```heos.0.command_scope_pid```
+* **Command scope**: Defines to which players the command ```scope/[cmd]``` of the command state is send to. It can be send to all players, all leading players or to all PIDs in the comma separated state: ```heos.0.command_scope_pid```
 * **Mute Regex**:
 In the configuration you can activate a function to mute the player based on a regex match on the song information. That can be used to mute ads automatically. For example for Spotify you can use the following regex: ```spotify:ad:|Advertisement```.
 * **ignore_broadcast_cmd**: This player state configures, if the player should ignore commands to all players e.g. player/set_mute&state=on or pressing the play button for presets/playlists
 
-## Seek
-The seek functionality is not working on all sources. Spotify and Amazon Music are supporting seeking.
+## States and their meanings
 
-## Command State
+### Command State
 
-HEOS CLI specification: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
+The HEOS player can be controlled by the different player states. To control the players in a more advanced way you can use the command state. On the one hand there is one global command state (heos.0.command) to control the whole adapter or multiple players with one command. On the other hand there is a command state per player.
 
-### HEOS Command State (heos.0.command)
+#### HEOS Command State (heos.0.command)
 
-* "system/connect": Try to Connect to HEOS
-* "system/disconnect": Disconnect from HEOS
-* "system/reconnect": Disconnect and Connect
-* "system/load_sources": Reload sources
-* "system/reboot": Reboot connected player
-* "system/reboot_all": Reboot all players
-* "group/set_group?pid=<pid1>,<pid2>,...": Set group with the list of player ids e.g. "group/set_group?pid=12345678,12345679".
-* "group/set_group?pid=<pid1>" : Delete existing group e.g. "group/set_group?pid=12345678"
-* "group/ungroup_all" : Delete all groups
-* "group/group_all" : Group all player in one group
-* "player/[cmd]": Send the command to all players. e.g. player/set_mute&state=on 
-* "leader/[cmd]": Send the command to all leading players. e.g. leader/set_mute&state=on
-* "scope/[cmd]": Send the command to the configured scope all players, leading players or comma separated player pids in scope_pids
-* "...": All other commands are tried to send to HEOS
+* ```system/connect```: Try to Connect to HEOS
+* ```system/disconnect```: Disconnect from HEOS
+* ```system/reconnect```: Disconnect and Connect
+* ```system/load_sources```: Reload sources
+* ```system/reboot```: Reboot connected player
+* ```system/reboot_all```: Reboot all players
+* ```group/set_group?pid=<pid1>,<pid2>,...```: Set group with the list of player ids e.g. ```group/set_group?pid=12345678,12345679```.
+* ```group/set_group?pid=<pid1>```: Delete existing group e.g. "group/set_group?pid=12345678"
+* ```group/ungroup_all```: Delete all groups
+* ```group/group_all```: Group all player in one group
+* ```player/[cmd]```: Send the command to all players. e.g. player/set_mute&state=on 
+* ```leader/[cmd]```: Send the command to all leading players. e.g. leader/set_mute&state=on
+* ```scope/[cmd]```: Send the command to the configured scope all players, leading players or comma separated player pids in scope_pids
+* ```...```: All other commands are tried to send to HEOS (Look in the HEOS API PDF for details)
 
-### Player Command State (heos.0.players.123456789.command)
+#### Player Command State (heos.0.players.123456789.command)
 
 Note: Multiple commands are possible, if they are separated with the pipe e.g. set_volume&level=20|play_preset&preset=1
 
-* "set_volume?level=0|1|..|100": Set the player volume 
-* "set_play_state?state=play|pause|stop": Set the player state
-* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": Set Repeat and Shuffle mode
-* "set_mute?state=on|off": Mute player
-* "volume_down?step=1..10": Lower volume
-* "volume_up?step=1..10": Raise volume
-* "play_next": Play next
-* "play_previous": Play previous
-* "play_preset?preset=1|2|..|n": Play preset n
-* "play_stream?url=url_path": Play URL-Stream
-* "add_to_queue?sid=1025&aid=4&cid=[CID]": Play playlist with [CID] on player (aid: 1 – play now; 2 – play next; 3 – add to end; 4 – replace and play)
+* ```set_volume?level=0|1|..|100```: Set the player volume 
+* ```set_play_state?state=play|pause|stop```: Set the player state
+* ```set_play_mode?repeat=on_all|on_one|off&shuffle=on|off```: Set Repeat and Shuffle mode
+* ```set_mute?state=on|off```: Mute player
+* ```volume_down?step=1..10```: Lower volume
+* ```volume_up?step=1..10```: Raise volume
+* ```play_next```: Play next
+* ```play_previous```: Play previous
+* ```play_preset?preset=1|2|..|n```: Play preset n
+* ```play_stream?url=url_path```: Play URL-Stream
+* ```add_to_queue?sid=1025&aid=4&cid=[CID]```: Play playlist with [CID] on player (aid: 1 – play now; 2 – play next; 3 – add to end; 4 – replace and play)
 
-## Image color extraction
+### Presets & Playlists
+Each source e.g. preset/favorite or playlists are located in the sources state folder (```heos.0.sources```). You can find your presets/favorites in the subfolder with the ID 1028 and the playlists in the subfolder with the ID 1025. Initially the adapter don't create your individual presets and playlists, because you have to trigger an update by setting the following states to true:
+- Presets/Favorites: ```heos.0.sources.1028.browse```
+- Playlists: ```heos.0.sources.1025.browse```
+After that the adapter creates the states for the presets or playlists so that you easily can play the preset on all players.
+
+### Image color extraction
 With version 1.7.6 the prominent colors of the song cover are extracted and saved to three new player states:
 * **current_image_color_palette**: Prominent colors selected by node-vibrant.
 * **current_image_color_background**: Color with the biggest population in the image. Can be used as background color for player controls in VIS.
 * **current_image_color_foreground**: Color with the second biggest population in the image and a good read contrast to the background color. Can be used as text color for player controls in VIS.
+
+## Seek
+The seek functionality is not working on all sources. Spotify and Amazon Music are supporting seeking.
 
 ## SayIt
 [SayIt Adapter](https://github.com/ioBroker/ioBroker.sayit) is supported.
@@ -78,11 +96,6 @@ With version 1.7.6 the prominent colors of the song cover are extracted and save
 [Material UI Adapter](https://github.com/ioBroker/ioBroker.material) is supported.
 
 ![Material](docs/media/material-ui.png)
-
-## Presets & Playlists
-The adapter does not automatically requests the current playlists and presets. To update/request the data and create the play states you have to browse the sources first:
-- Presets/Favorites: ```heos.0.sources.1028.browse```
-- Playlists: ```heos.0.sources.1025.browse```
 
 ## VIS
 
@@ -131,10 +144,17 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (withstu) optimize error handling
+
+### 1.12.1 (2023-02-26)
+* (withstu) optimize leader election
+
+### 1.12.0 (2023-02-25)
 * (withstu) optimize scope handling
-* (withstu) switch to HEOS default cmd delimiter ?
+* (withstu) switch to HEOS default cmd delimiter
+* (withstu) add configuration to prefer list of IPs for adapter connection
+* (withstu) optimize error handling
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature
@@ -302,7 +322,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ## License
 MIT License
 
-Copyright (c) 2022 withstu <withstu@gmx.de>
+Copyright (c) 2023 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

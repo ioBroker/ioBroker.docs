@@ -3,9 +3,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-MBUS
-hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
+hash: 9o4axAC16Kpye31rAnAtrOIgzq9tMBNRg4WzSQ3AcI8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
+
+![количество установленных](https://iobroker.live/badges/wireless-mbus-installed.svg)
+![стабильная версия](https://iobroker.live/badges/wireless-mbus-stable.svg)
 
 # IoBroker.wireless-mbus
 Этот адаптер позволяет получать беспроводные данные M-Bus от поддерживаемых приемников. Степень реализации устройства различается, но режимы wMBus можно настроить для всех перечисленных устройств.
@@ -52,6 +55,9 @@ hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
 ## Делать
 * отправка телеграмм для приемников S-режима?
 
+## 0.8.9
+* (ChL) Исправлено отображение нестандартных настроек на странице администратора
+
 ## 0.8.8
 * (ChL) Добавлена обработка типа datetime I
 
@@ -79,7 +85,7 @@ hash: 4A46uVyXQmWHdFfZWJxRf52XKiXl+qfYLFPkWoNBzcA=
 
 ### 0.7.8
 * (ChL) Улучшено логирование с приемных модулей
-* (ChL) исправить состояние исходных данных
+* (ChL) исправить состояние сырых данных
 
 ### 0.7.7
 * (ChL) Добавлена поддержка закодированных телеграмм Diehl PRIOS (перенесено с wmbusmeters)

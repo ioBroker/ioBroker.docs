@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
+hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
 ---
 ![标识](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
@@ -21,11 +21,20 @@ hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
 
 您可以使用日历控制您的事件，并可以计划定期控制它们。
 
+＃＃ 去做
+- 周和日必须滚动到当前时间
+- 天文事件
+
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.0.2 (2023-03-03)
+* (bluefox) New material design
+* (bluefox) License changed to MIT
+* (bluefox) Allowed deletion of events
+
 ### 1.2.0 (2021-12-14)
 * (bluefox) Updated to use with js-controller 3.3 and admin 5
 
@@ -55,6 +64,24 @@ hash: e7+s+GK24U+/I5kZab1On/YWuYgbVV9kavCm+ouQk+w=
 * (bluefox) initial commit
 
 ## License
-CC BY-NC 4.0
+The MIT License (MIT)
 
-Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

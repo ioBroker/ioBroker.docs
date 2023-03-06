@@ -2,45 +2,53 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.corrently/README.md
-title: без названия
-hash: vLf/DFEb+l/Lw5hXqMQ2J8upM/DHdFPC/PMWc8WeFPg=
+title: без заголовка
+hash: /DW2QcECua6bcoPQg0f17in1PhDYhgEE7+Zj5dl7hSY=
 ---
-![Версия NPM](http://img.shields.io/npm/v/iobroker.corrently.svg)
+![Количество установок](http://iobroker.live/badges/corrently-installed.svg)
+![Стабильная версия](http://iobroker.live/badges/corrently-stable.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.corrently.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.corrently.svg)
 ![Статус зависимости](https://img.shields.io/david/GermanBluefox/iobroker.corrently.svg)
 ![Известные уязвимости](https://snyk.io/test/github/GermanBluefox/ioBroker.corrently/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.corrently.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.corrently.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/GermanBluefox/ioBroker.corrently/master.svg)
 
-<h1><img src="admin/corrently.png" width="64"/> ioBroker.corrently </h1>
+<h1><img src="admin/corrently.png" width="64"/>ioBroker.правильно</h1>
 
-## Соответственно адаптер для ioBroker
-Прочитайте индекс зеленой энергии из [https://www.corrently.de/gsi/PLZ](https://www.corrently.de/gsi/80999).
+## Правильный адаптер для ioBroker
+Прочитайте индекс зеленой энергии из [https://www.corrently.de/gsi/PLZ](https://www.corrently.de/gsi/80999) .
 Будут предоставлены следующие данные:
 
- - *data.json* - таблица JSON на следующие 36 часов с зеленым индексом
- - *data.start* - метка времени начала следующего или текущего периода с зеленой энергией 0 - 24
- - *data.duration* - продолжительность следующего или текущего периода с зеленой энергией 0 - 24
- - *data.green* - теперь зеленая энергия или нет
- - *data.price* - зеленая цена на текущий момент
+ - `data.json` - таблица JSON на следующие 36 часов с зеленым индексом
+ - `data.start` - метка времени начала следующего или текущего периода с зеленой энергией 0 - 24
+ - `data.duration` - продолжительность следующего или текущего периода с зеленой энергией 0 - 24
+ - `data.green` - теперь зеленая энергия или нет
+ - `data.price` - зеленая цена на текущий момент
 
 ## Конфигурация
-Адаптер будет выполняться каждый час (например, может быть установлен как расписание), и пользователь должен ввести почтовый индекс в конфигурации.
+Адаптер будет выполняться каждый час (например, может быть установлен как расписание), и пользователь должен ввести индекс сообщения в конфигурации.
 
-## Corrently Адаптер для ioBroker
-Lesen Sie Den Index der grünen Energie von [https://www.corrently.de/gsi/PLZ] (https://www.corrently.de/gsi/80999).
+## Правильно Адаптер для ioBroker
+Lesen Sie den Index der grünen Energie von [https://www.corrently.de/gsi/PLZ] (https://www.corrently.de/gsi/80999).
 Folgende Daten werden zur Verfügung gestellt:
 
-- *data.json* - JSON-Tabelle für die nächsten 36 Stunden mit grünem Index
-- *data.start* - Startzeitstempel der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
-- *data.duration* - Dauer der nächsten oder aktuellen Periode mit grüner Energie 0 - 24
-- *data.green* - ist jetzt grüne Energie oder nicht
-- *data.price* - Момент Прейс Ден Актюленлен Момент
+- `data.json` - JSON-таблица для индекса 36 Stunden mit grünem
+- `data.start` - Startzeitstempel der nächsten oder aktuellen Periode mit grüner Energie 0–24
+- `data.duration` - Dauer der nächsten oder aktuellen Periode mit grüner Energie 0–24
+- `data.green` - ist jetzt grüne Energie oder nicht
+- `data.price` - grüner Preis für den aktuellen Moment
 
 ## Einstellungen
-Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festgelegt werden), und der Benutzer muss den Post-Index in Konfiguration eingeben.
+Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festgelegt werden), und der Benutzer muss den Post-Index in der Konfiguration eingeben.
+
+<!--
+
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.0.4 (2023-02-27)
+* (Maverick78de) URL was corrected
 
 ### 0.0.2
 * (bluefox) CRON schedule was changed to "1 * * * *"
@@ -51,7 +59,7 @@ Der Adapter wird stündlich ausgeführt (kann beispielsweise als Zeitplan festge
 ## License
 MIT License
 
-Copyright (c) 2019 bluefox
+Copyright (c) 2019-2023 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

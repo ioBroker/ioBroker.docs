@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heos/README.md
 title: ioBroker.heos
-hash: qeCjXxqWFOGuUi9Hlji7HNeH38ExVwVaqb2iv9FbPcw=
+hash: +hjK3Ue0UTEq7DAn+u3QyfM/S4vt79Vc1I3osWbejIc=
 ---
 ![Logo](../../../en/adapterref/iobroker.heos/admin/heos.png)
 
@@ -16,61 +16,79 @@ hash: qeCjXxqWFOGuUi9Hlji7HNeH38ExVwVaqb2iv9FbPcw=
 ![NPM](https://nodei.co/npm/iobroker.heos.png?downloads=true)
 
 # IoBroker.heos
-## Heos-Adapter für ioBroker
-Der Adapter ermöglicht die Steuerung von HEOS über ioBroker
+Der Adapter ermöglicht die Steuerung von HEOS über ioBroker.
+
+## Haftungsausschluss
+HEOS, DENON und Marantz sind Warenzeichen von D&M Holdings Inc.
+Die Entwickler dieses Moduls werden in keiner Weise von D&M Holdings Inc. oder verbundenen Tochtergesellschaften, Logos oder Warenzeichen unterstützt oder sind mit ihnen verbunden.
+
+## Referenz
+Die verwendete HEOS API ist hier dokumentiert: https://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification_2021.pdf
+
+## Netzwerkanforderungen
+Das Protokoll SSDP wird zum Auffinden der Spieler verwendet. UPnP erfordert Multicast-Zugriff auf 239.255.255.250:1900 zusammen mit den entsprechenden IGMP-Nachrichten. Der Quellport für den Empfang von SSDP-Nachrichten kann in den Adaptereinstellungen konfiguriert werden (Standardeinstellung ist ```0``` bedeutet, dass der Port automatisch ausgewählt wird). Weitere Details: https://support.denon.com/app/answers/detail/a_id/4717/~/network-requirements-for-heos Für den API-Zugriff auf die HEOS Player verwendet der Adapter den Port ```1255``` .
 
 ## Aufbau
 * **AutoPlay**: Spielt automatisch Musik ab, nachdem der Player angeschlossen oder die Stummschaltung aufgehoben wurde. Kann global in der Konfiguration konfiguriert werden. Wenn es global aktiviert ist, können Sie es für einen bestimmten Spieler mit dem Status ```auto_play``` deaktivieren.
-* **Command scope**: Legt fest, an welche Spieler der Befehl von ```scope/[cmd]``` gesendet wird. Es kann an alle Spieler, alle führenden Spieler oder an alle PIDs im kommagetrennten Zustand gesendet werden: ```heos.0.command_scope_pid```
+* **Command scope**: Legt fest, an welche Spieler der Befehl ```scope/[cmd]``` des Command State gesendet wird. Es kann an alle Spieler, alle führenden Spieler oder an alle PIDs im kommagetrennten Zustand gesendet werden: ```heos.0.command_scope_pid```
 * **Regex stummschalten**:
 
 In der Konfiguration können Sie eine Funktion aktivieren, um den Player basierend auf einem Regex-Match auf die Songinformationen stummzuschalten. Dies kann verwendet werden, um Anzeigen automatisch stummzuschalten. Für Spotify können Sie beispielsweise die folgende Regex verwenden: ```spotify:ad:|Advertisement```.
 
 * **ignore_broadcast_cmd**: Dieser Player State konfiguriert, ob der Player Befehle an alle Player ignorieren soll, z.B. player/set_mute&state=on oder Drücken der Play-Taste für Presets/Playlists
 
-## Suchen
-Die Suchfunktion funktioniert nicht bei allen Quellen. Spotify und Amazon Music unterstützen die Suche.
+## Zustände und ihre Bedeutung
+### Befehlsstatus
+Der HEOS-Player kann durch die verschiedenen Player-Zustände gesteuert werden. Um die Spieler auf fortgeschrittenere Weise zu steuern, können Sie den Befehlsstatus verwenden. Einerseits gibt es einen globalen Befehlsstatus (heos.0.command), um den gesamten Adapter oder mehrere Player mit einem Befehl zu steuern. Andererseits gibt es einen Befehlsstand pro Spieler.
 
-## Befehlsstatus
-HEOS CLI-Spezifikation: http://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification.pdf
+#### HEOS-Befehlsstatus (heos.0.command)
+* ```system/connect```: Versuchen Sie, sich mit HEOS zu verbinden
+* ```system/disconnect```: Verbindung zu HEOS trennen
+* ```system/reconnect```: Trennen und Verbinden
+* ```system/load_sources```: Quellen neu laden
+* ```system/reboot```: Angeschlossenen Player neu starten
+* ```system/reboot_all```: Startet alle Spieler neu
+* ```group/set_group?pid=<pid1>,<pid2>,...```: Set-Gruppe mit der Liste der Spieler-IDs, z.B. ```group/set_group?pid=12345678,12345679```.
+* ```group/set_group?pid=<pid1>```: Vorhandene Gruppe löschen z.B. "group/set_group?pid=12345678"
+* ```group/ungroup_all```: Alle Gruppen löschen
+* ```group/group_all```: Gruppiere alle Spieler in einer Gruppe
+* ```player/[cmd]```: Sende den Befehl an alle Spieler. z.B. player/set_mute&state=on
+* ```leader/[cmd]```: Sende den Befehl an alle führenden Spieler. z.B. Leader/set_mute&state=on
+* ```scope/[cmd]```: Sende den Befehl an den konfigurierten Scope alle Spieler, führende Spieler oder kommagetrennte Spieler-PIDs in scope_pids
+* ```...```: Alle anderen Befehle werden versucht, an HEOS zu senden (siehe HEOS API PDF für Details)
 
-### HEOS-Befehlsstatus (heos.0.command)
-* „system/connect“: Versuchen Sie, sich mit HEOS zu verbinden
-* „system/disconnect“: Verbindung zu HEOS trennen
-* „system/reconnect“: Trennen und Verbinden
-* "system/load_sources": Quellen neu laden
-* "system/reboot": Angeschlossenen Player neu starten
-* "system/reboot_all": Alle Spieler neu starten
-* "group/set_group?pid=<pid1>,<pid2>,...": Setze Gruppe mit der Liste der Spieler-IDs, z.B. "group/set_group?pid=12345678,12345679".
-* "group/set_group?pid=<pid1>" : Bestehende Gruppe löschen z.B. "group/set_group?pid=12345678"
-* "group/ungroup_all" : Alle Gruppen löschen
-* "group/group_all" : Gruppiere alle Spieler in einer Gruppe
-* "player/[cmd]": Sende den Befehl an alle Spieler. z.B. player/set_mute&state=on
-* "leader/[cmd]": Sende den Befehl an alle führenden Spieler. z.B. Leader/set_mute&state=on
-* "scope/[cmd]": Sende den Befehl an den konfigurierten Bereich alle Spieler, führende Spieler oder kommagetrennte Spieler-PIDs in scope_pids
-* "...": Alle anderen Befehle werden versucht an HEOS zu senden
-
-### Player-Befehlsstatus (heos.0.players.123456789.command)
+#### Player-Befehlsstatus (heos.0.players.123456789.command)
 Hinweis: Mehrere Befehle sind möglich, wenn sie mit dem senkrechten Strich getrennt werden, z. set_volume&level=20|play_preset&preset=1
 
-* "set_volume?level=0|1|..|100": Stellen Sie die Player-Lautstärke ein
-* "set_play_state?state=play|pause|stop": Legt den Spielerstatus fest
-* "set_play_mode?repeat=on_all|on_one|off&shuffle=on|off": Stellen Sie den Wiederholungs- und Shuffle-Modus ein
-* "set_mute?state=on|off": Spieler stumm schalten
-* "volume_down?step=1..10": Lautstärke verringern
-* "volume_up?step=1..10": Lautstärke erhöhen
-* "play_next": Als nächstes spielen
-* "play_ previous": Vorheriges abspielen
-* "play_preset?preset=1|2|..|n": Preset n wiedergeben
-* "play_stream?url=url_path": URL-Stream abspielen
-* "add_to_queue?sid=1025&aid=4&cid=[CID]": Wiedergabeliste mit [CID] auf Player abspielen (Hilfe: 1 – jetzt spielen; 2 – als nächstes spielen; 3 – zum Ende hinzufügen; 4 – ersetzen und abspielen)
+* ```set_volume?level=0|1|..|100```: Stellt die Player-Lautstärke ein
+* ```set_play_state?state=play|pause|stop```: Legt den Spielerstatus fest
+* ```set_play_mode?repeat=on_all|on_one|off&shuffle=on|off```: Legt den Repeat- und Shuffle-Modus fest
+* ```set_mute?state=on|off```: Spieler stumm schalten
+* ```volume_down?step=1..10```: Lautstärke verringern
+* ```volume_up?step=1..10```: Lautstärke erhöhen
+* ```play_next```: Als nächstes spielen
+* ```play_ previous```: Vorheriges abspielen
+* ```play_preset?preset=1|2|..|n```: Play Preset n
+* ```play_stream?url=url_path```: URL-Stream abspielen
+* ```add_to_queue?sid=1025&aid=4&cid=[CID]```: Wiedergabeliste mit [CID] auf dem Player abspielen (Hilfe: 1 – jetzt spielen; 2 – als nächstes spielen; 3 – zum Ende hinzufügen; 4 – ersetzen und spielen)
 
-## Bildfarbextraktion
+### Voreinstellungen und Wiedergabelisten
+Jede Quelle z.B. Voreinstellungen/Favoriten oder Wiedergabelisten befinden sich im Quellenstatusordner (```heos.0.sources```). Ihre Presets/Favoriten finden Sie im Unterordner mit der ID 1028 und die Playlists im Unterordner mit der ID 1025. Initial erstellt der Adapter Ihre individuellen Presets und Playlists nicht, da Sie durch Setzen der folgenden Zustände ein Update auslösen müssen zu wahr:
+
+- Voreinstellungen/Favoriten: ```heos.0.sources.1028.browse```
+- Wiedergabelisten: ```heos.0.sources.1025.browse```
+
+Danach erstellt der Adapter die Zustände für die Presets oder Playlists, sodass Sie das Preset problemlos auf allen Playern abspielen können.
+
+### Bildfarbextraktion
 Mit Version 1.7.6 werden die markanten Farben des Songcovers extrahiert und in drei neue Player-Zustände gespeichert:
 
 * **current_image_color_palette**: Auffällige Farben, ausgewählt von node-vibrant.
 * **current_image_color_background**: Farbe mit der größten Population im Bild. Kann als Hintergrundfarbe für Player-Steuerelemente in VIS verwendet werden.
 * **current_image_color_foreground**: Farbe mit der zweitgrößten Population im Bild und einem guten Lesekontrast zur Hintergrundfarbe. Kann als Textfarbe für Player-Steuerelemente in VIS verwendet werden.
+
+## Suchen
+Die Suchfunktion funktioniert nicht bei allen Quellen. Spotify und Amazon Music unterstützen die Suche.
 
 ## Sag es
 [SayIt-Adapter](https://github.com/ioBroker/ioBroker.sayit) wird unterstützt.
@@ -81,12 +99,6 @@ Mit Version 1.7.6 werden die markanten Farben des Songcovers extrahiert und in d
 [Material-UI-Adapter](https://github.com/ioBroker/ioBroker.material) wird unterstützt.
 
 ![Material](../../../en/adapterref/iobroker.heos/docs/media/material-ui.png)
-
-## Voreinstellungen und Wiedergabelisten
-Der Adapter fordert nicht automatisch die aktuellen Wiedergabelisten und Voreinstellungen an. Um die Daten zu aktualisieren/anzufordern und die Spielstände zu erstellen, müssen Sie zuerst die Quellen durchsuchen:
-
-- Voreinstellungen/Favoriten: ```heos.0.sources.1028.browse```
-- Wiedergabelisten: ```heos.0.sources.1025.browse```
 
 ## VIS
 ### Installation
@@ -130,10 +142,17 @@ Alternativ können Sie das Skript von Uhula verwenden: https://forum.iobroker.ne
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (withstu) optimize error handling
+
+### 1.12.1 (2023-02-26)
+* (withstu) optimize leader election
+
+### 1.12.0 (2023-02-25)
 * (withstu) optimize scope handling
-* (withstu) switch to HEOS default cmd delimiter ?
+* (withstu) switch to HEOS default cmd delimiter
+* (withstu) add configuration to prefer list of IPs for adapter connection
+* (withstu) optimize error handling
 
 ### 1.11.4 (2022-11-04)
 * (withstu) improve play all button in browse feature
@@ -301,7 +320,7 @@ Alternativ können Sie das Skript von Uhula verwenden: https://forum.iobroker.ne
 ## License
 MIT License
 
-Copyright (c) 2022 withstu <withstu@gmx.de>
+Copyright (c) 2023 withstu <withstu@gmx.de>
 
 derived from https://forum.iobroker.net/topic/10420/vorlage-denon-heos-script by Uwe Uhula
 TTS derived from https://github.com/ioBroker/ioBroker.sonos

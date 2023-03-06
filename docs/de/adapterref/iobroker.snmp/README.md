@@ -3,18 +3,26 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
+hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/snmp-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.snmp.svg)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
+![GitHub-Commits seit letztem Release (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/snmp-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/snmp-installed.svg)
 
 # IoBroker.snmp
-![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+##Wache
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Die Info
 Dieser Adapter kann verwendet werden, um Informationen von Geräten wie Druckern, Netzwerkgeräten usw. über das SNMP-Protokoll abzurufen.
@@ -22,11 +30,25 @@ Dieser Adapter kann verwendet werden, um Informationen von Geräten wie Druckern
 ## __IN ARBEIT__
 -->
 
-### __IN ARBEIT__
-* (McM1957) Unterstützung zum Schreiben in OIDs wurde implementiert. (#150)
-* (McM1957) Große Teile des Codes wurden neu geschrieben, um Iod-Schreiben zu unterstützen.
+### 2.4.3 (2023-03-01)
+* (McM1957) Übersetzungen und Abhängigkeiten wurden aktualisiert.
+
+### 2.4.2 (2023-02-25)
+* (McM1957) Ein von Sentry gemeldetes Problem wurde behoben. (#230)
+
+### 2.4.1 (2023-02-22)
+* (McM1957) Ein Fehler bei Konfigurationsseiten wurde behoben. (#228)
+
+### 2.4.0 (2023-02-21)
+* (McM1957) Unterstützung zum Schreiben von Daten in OIDs wurde implementiert. (#150)
+* (McM1957) Große Teile des Codes wurden neu geschrieben, um OID-Schreiben zu unterstützen.
 * (McM1957) Zustände, die Typinformationen enthalten, können jetzt deaktiviert werden. (#218)
-* (McM1957) Zustände, die den Online- und Fehlerstatus von Geräten anzeigen, wurden hinzugefügt.
+* (McM1957) Zustände, die den Online- und Fehlerstatus von Geräten anzeigen, wurden hinzugefügt. Der Status „online“ wurde in den Ordner info verschoben.
+* (McM1957) Der Gerätestatus wird jetzt in der Objektansicht mit Farbe und Symbolen angezeigt.
+* (McM1957) Der Datentyp „automatisch“ wurde zum Datentyp-Selektor für oid-Zustände hinzugefügt.
+* (McM1957) Ein von Sentry gemeldetes Problem wurde behoben. (#224)
+* (McM1957) Ein fehlerhaftes Setzen von ack-Flags wurde korrigiert. (#225)
+* (McM1957) Unterstützung für sha224-, sha256-, sha384- und sha512-Nachrichtenauthentifizierung wurde hinzugefügt (#210)
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) Unterstützung für die Verwendung nativer Datentypen für Zustände hinzugefügt. (#143)
@@ -159,9 +181,9 @@ Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 | OID-Gruppe | Text | Auf der Registerkarte IOD-Gruppen | angegebene OID-Gruppe Eine OID-Gruppe kann mehr als einem Gerät zugeordnet werden | |
 | SNMP-Version | wählen Sie | Zu verwendende SNMP-Version | HINWEIS: SNMPv3 wird noch nicht unterstützt |
 | Community (v1, v2c) oder Auth-ID (v3) | Text | Community für SNMP v1 oder V2c, Autorisierungsgruppe für SNMP v3 | HINWEIS: SNMPv3 wird noch nicht unterstützt |
-| Zeitüberschreitung (Sek.) | Zahl | Verarbeitungszeitüberschreitung in Sekunden | |
+| Zeitüberschreitung (Sek.) | Nummer | Verarbeitungszeitüberschreitung in Sekunden | |
 | Wiederholung (Sek.) | Nummer | Wiederholungsintervall in Sekunden | |
-| Abfrage (Sek.) | Zahl | Abfrageintervall in Sekunden | |
+| Abfrage (Sek.) | Nummer | Abfrageintervall in Sekunden | |
 
 ### __TAB-Autorisierung__
 Diese Registerkarte enthält SNMP V3-Autorisierungsinformationen. Bitte beachten Sie, dass SNMP V3 noch nicht implementiert ist.
@@ -180,7 +202,7 @@ Hier legen Sie einige allgemeine Optionen fest
 ## __Lizenz__
 Die MIT-Lizenz (MIT)
 
-Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
+Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
 
 Hiermit wird jeder Person, die eine Kopie dieser Software und der dazugehörigen Dokumentationsdateien (die „Software“) erhält, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich, aber nicht beschränkt auf die Rechte zur Nutzung, Vervielfältigung, Änderung und Zusammenführung , Kopien der Software zu veröffentlichen, zu verteilen, unterzulizenzieren und/oder zu verkaufen und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen:
 

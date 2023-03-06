@@ -33,6 +33,10 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Code optimization
+
 ### 2.2.1 (2023-02-13)
 
 NodeJS 14.5 is required

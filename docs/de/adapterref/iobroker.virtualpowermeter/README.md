@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.virtualpowermeter/README.md
 title: kein Titel
-hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
+hash: 4ktAMNVHWM/2JTIgq9IjSPEo+diFnUkzy1Po+M2YftA=
 ---
 ![Knoten](https://img.shields.io/node/v/iobroker.virtualpowermeter.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/virtualpowermeter-stable.svg)
@@ -12,19 +12,19 @@ hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
 ![Abhängigkeitsstatus](https://img.shields.io/david/Omega236/iobroker.virtualpowermeter.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Omega236/ioBroker.virtualpowermeter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.virtualpowermeter.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/Omega236/ioBroker.virtualpowermeter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Omega236/ioBroker.virtualpowermeter?branch=master&svg=true)
 ![Lizenz](https://img.shields.io/npm/l/iobroker.virtualpowermeter.svg)
 
 <h1><img src="admin/virtualpowermeter.png" width="64"/>ioBroker.virtualpowermeter</h1>
 
+**Tests:** ![Testen und freigeben](https://github.com/Omega236/ioBroker.testtheportal/workflows/Test%20and%20Release/badge.svg)
+
 ## Virtualpowermeter-Adapter für ioBroker
 Erzeugt Virtuelle Strommesser
 
-Im Smarthome hat man viele Geräte sterben man zwar schalten kann, diese aber keinen integrierten Powermeter haben (meist Lichter).
+Im Smarthome hat man viele Geräte sterben man zwar schalten kann, this aber keinen integrierten Powermeter haben (meist Lichter).
 
 Mit diesem Adapter ist das Ziel zu jedem eingestelltem Datenpunkt (über Custom -> MaxWatt (z.B. 60W)) zwei zusätzliche Datenpunkte zu befüllen -> Energy_Power (z.B. 60 W) und Energy_Total (z.B. 2501,23 Wh).
-Zusätzlich Werden Gruppen gebildet (diese Werden unter virtualpowermeter.0.xxx abgelegt) sterben sterben summe der einzelnen Datenpunkte darstellt
+Zusätzlich Werden Gruppen gebildet (diese Werden unter virtualpowermeter.0.xxx abgelegt) sterben die Summe der einzelnen Datenpunkte darstellen
 
 Mit diesen neuen Datenpunkten kann dann eine einfache Visualisierung durchgeführt werden.
 
@@ -43,7 +43,7 @@ Die Einstellung default setting: Datapoint Destination bestimmt die default Eins
 Wichtig: If Destination "in Group" bzw. wenn mehere DP im gleichen Verzeichnis "in current state tree" braucht jeder Datenpunkt seinen eindeutigen Namen. wenn default-Destination "in Group" wird der Datenpunktname automatisch mit der ID des States ergänzt (. durch _ ersetzt). Hier kann aber Auch z.B. Wohnzimmer_Licht.Power und Wohnzimmer_Licht.Energy angegeben werden.
 
 ## Custom Settings für Geräte die nur Power Angabe (Watt) und man die Wh umfassen will
-Es gibt Geräte, die nur eine Wattausgabe haben und man aber weiß, wieviel Strom verbraucht wurde. Dazu kann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert vom Datenpunkt und der Max-Power vom VirtualPowermeter gleich sein. Beispiel:<img src="BeispielPowerToEnergy.png">
+Es gibt Geräte, die nur eine Wattausgabe haben und man aber weiß, wie viel Strom verbraucht wurde. Hierfür kann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert vom Datenpunkt und der Max-Power vom VirtualPowermeter gleich sein. Beispiel:<img src="BeispielPowerToEnergy.png">
 
 Beispiel mit valuetrackerovertime: ![Beispiel](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
 
@@ -52,7 +52,17 @@ Beispiel mit valuetrackerovertime: ![Beispiel](../../../en/adapterref/iobroker.v
 ### __LAUFENDE ARBEIT__ -->
 
 ## Changelog
-### 1.4.3 (2021-05-27)
+
+### 1.4.6 (2022-02-14)
+* (Omega236) Update Dependencies
+
+### 1.4.5 (2022-01-30)
+* (Omega236) add minimum/standby power usage
+
+### 1.4.4 (2022-01-30)
+* (Omega236) bugfix wrong datapoint name
+
+### 1.4.3 (2022-01-16)
 * (bluefox) added support for admin5
 
 ### 1.4.1 (2021-02-13)
@@ -126,7 +136,7 @@ Beispiel mit valuetrackerovertime: ![Beispiel](../../../en/adapterref/iobroker.v
 ## License
 MIT License
 
-Copyright (c) 2021 Omega236 general.of.omega@googlemail.com
+Copyright (c) 2022 Omega236 general.of.omega@googlemail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

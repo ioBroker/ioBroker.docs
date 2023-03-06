@@ -53,6 +53,10 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
+### 0.3.1 (2023-02-26)
+* (René) issue #27: wallbox fast charging added
+* (René) wallbox: some bug fixes
+
 ### 0.2.1 (2023-02-17)
 * (René) wallboxes: bug fix MinEnergy set to 0
 

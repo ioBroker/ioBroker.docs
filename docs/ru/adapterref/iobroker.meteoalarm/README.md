@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Q5rYpOseXSs2OUWslVExTZNtHmdufWgvCeCr8KqNDAc=
+hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -36,7 +36,7 @@ hash: Q5rYpOseXSs2OUWslVExTZNtHmdufWgvCeCr8KqNDAc=
 * (jack-blackson) Исправление для правильной очистки предупреждений
 * (jack-blackson) Исправлена ошибка для pushover при использовании нескольких экземпляров.
 
-## 2.3.0 (15.09.2022)
+## 2.3.1 (2022-09-15)
 * (jack-blackson) Возможность отправки сигналов тревоги на другие адаптеры (Telegramm, eMail, Pushover, Signal, Synochat)
 * (jack-blackson) Фикс ссылки в папке будильников
 

@@ -168,7 +168,7 @@
               "title": {
                 "en": "Adapter",
                 "de": "Adapter updaten",
-                "ru": "Обновите адаптер",
+                "ru": "Обновление адаптеров",
                 "zh-cn": "更新适配器"
               },
               "content": "install/updateadapter.md"

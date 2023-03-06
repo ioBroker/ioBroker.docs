@@ -26,17 +26,14 @@ Choose your country, and afterwards the region you want the warnings for. If you
 ## Changelog
 
 ## 2.3.3 (2023-02-09)
-* (jack-blackson) Added possibility to define the alarm levels for the widget, JSON and notificatio
+* (jack-blackson) Added possibility to define the alarm levels for the widget, JSON and notification
 * (jack-blackson) Added ukrainian language 
-
-
 
 ## 2.3.2 (2023-01-07)
 * (jack-blackson) Bugfix to clean up alerts correctly
 * (jack-blackson) Bugfix for pushover if multiple instances are used
 
-
-## 2.3.0 (2022-09-15)
+## 2.3.1 (2022-09-15)
 * (jack-blackson) Ability to send alarms to other adapters (Telegramm, eMail, Pushover, Signal,Synochat
 * (jack-blackson) Fix link in alarms folder
 

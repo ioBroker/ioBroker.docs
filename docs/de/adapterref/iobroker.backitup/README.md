@@ -520,6 +520,24 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.6 (2023-03-05)
+* (simatec) Dropbox file upload up to 350 GB added
+
+### 2.6.5 (2023-03-03)
+* (simatec) Fix cifs Password
+* (simatec) Fix InfluxDB-Backup
+
+### 2.6.4 (2023-02-26)
+* (simatec) Design optimized
+* (simatec) Onedrive Upload Session added
+
+### 2.6.3 (2023-02-24)
+* (simatec) Fix SQLite3 Backup
+* (simatec) Fix Matrix Message
+
+### 2.6.2 (2023-02-23)
+* (simatec) Fix SQLite3 Backup
+
 ### 2.6.1 (2023-02-20)
 * (simatec) igonore temp-files for redis added
 

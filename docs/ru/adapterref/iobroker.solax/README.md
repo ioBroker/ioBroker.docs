@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
+hash: iVlWUUC4LgSLJ45K2qKDmTYfVZohJnXitCzR7fgVmNo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solax/admin/solax.png)
 
@@ -14,6 +14,7 @@ hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.solax
 ![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
@@ -22,7 +23,7 @@ hash: TJz6Eg9ASAEKMqcy7sECEZ6Y6LLvczt+E/KJYG+40Fw=
 
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -129,6 +130,11 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.6.0 (2023-03-04)
+* (simatec) Dependencies updated
+* (simatec) Fix URL
+* (simatec) small Bugfix
+
 ### 0.5.7 (2022-11-01)
 * (simatec) Dependencies updated
 
@@ -235,7 +241,7 @@ Sentry.io — это сервис для разработчиков, позво�
 ## License
 MIT License
 
-Copyright (c) 2021 - 2022 simatec
+Copyright (c) 2021 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,17 +3,25 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
+hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 ---
 ![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
-![安装数量](http://iobroker.live/badges/snmp-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![下载](https://img.shields.io/npm/dm/iobroker.snmp.svg)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
+![GitHub 自最新版本以来提交（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/snmp-stable.svg)
+![安装数量](https://iobroker.live/badges/snmp-installed.svg)
 
 #ioBroker.snmp
-![测试和发布](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
 
+##哨兵
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 信息
@@ -22,11 +30,25 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ＃＃ __工作正在进行中__
 -->
 
-＃＃＃ __工作正在进行中__
-* (McM1957) 支持写入 oids 已经实现。 (#150)
-* (McM1957) 代码的主要部分已被重写以支持 iod 编写。
+### 2.4.3 (2023-03-01)
+* (McM1957) 翻译和依赖项已更新。
+
+### 2.4.2 (2023-02-25)
+* (McM1957) 哨兵报告的问题已得到修复。 (#230)
+
+### 2.4.1 (2023-02-22)
+* (McM1957) 配置页面上的错误已得到纠正。 (#228)
+
+### 2.4.0 (2023-02-21)
+* (McM1957) 支持将数据写入 oids 已经实现。 (#150)
+* (McM1957) 代码的主要部分已被重写，因此支持 oid 编写。
 * (McM1957) 现在可以禁用包含类型信息的状态。 (#218)
-* (McM1957) 添加了指示设备在线和错误状态的状态。
+* (McM1957) 添加了指示设备在线和错误状态的状态。状态“在线”已移至文件夹信息。
+* (McM1957) 设备状态现在使用颜色和图标显示在对象视图中。
+* (McM1957) 数据类型“自动”已添加到 oid 状态数据类型选择器。
+* (McM1957) 哨兵报告的问题已得到修复。 (#224)
+* (McM1957) ack 标志的错误设置已得到纠正。 (#225)
+* (McM1957) 添加了对 sha224、sha256、sha384 和 sha512 消息身份验证的支持 (#210)
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) 添加对状态使用本机数据类型的支持。 (#143)
@@ -104,7 +126,7 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 安装将尝试转换旧配置 - 但不能保证在所有情况下都能成功。
 
 * (McM1957) 代码的许多部分已被重写
-* (McM1957) 适配器现在使用 admin5 界面
+* (McM1957) 适配器现在使用 admin5 接口
 * (McM1957) 现在可以为每个设备设置不同的定时器值 (#105)
 * (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
 * (McM1957) 现在可以命名设备的状态对象。旧行为可作为选项使用。
@@ -180,7 +202,7 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ＃＃ __执照__
 麻省理工学院执照 (MIT)
 
-版权所有 (c) 2017-2022 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
+版权所有 (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
 
 特此免费授予获得本软件和相关文档文件（“软件”）副本的任何人不受限制地处理本软件的权限，包括但不限于使用、复制、修改、合并的权利、发布、分发、再许可和/或出售软件的副本，并允许获得软件的人这样做，但须满足以下条件：
 

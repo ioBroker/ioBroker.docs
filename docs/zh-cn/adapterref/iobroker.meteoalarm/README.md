@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: Q5rYpOseXSs2OUWslVExTZNtHmdufWgvCeCr8KqNDAc=
+hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -36,7 +36,7 @@ ioBroker 的 meteoalarm 适配器-------------------------------------------- --
 * (jack-blackson) 错误修复以正确清理警报
 * (jack-blackson) 如果使用多个实例，则用于 pushover 的错误修复
 
-## 2.3.0 (2022-09-15)
+## 2.3.1 (2022-09-15)
 * (jack-blackson) 能够向其他适配器发送警报（Telegramm、eMail、Pushover、Signal、Synochat
 * (jack-blackson) 修复警报文件夹中的链接
 

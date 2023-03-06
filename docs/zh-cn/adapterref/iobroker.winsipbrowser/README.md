@@ -2,15 +2,15 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.winsipbrowser/README.md
-title: ioBroker.winsipbrowser
-hash: JhCF2oBEXZ6EkgZLT8QpMSgHqKfgWIvb8v1C2fjyMhc=
+title: ioBroker.winsip浏览器
+hash: QKBfzBPiOIiYlwY5H3qpOxfIPpzFbmHggZzX09/UFTc=
 ---
-![商标](../../../en/adapterref/iobroker.winsipbrowser/admin/winsipbrowser.png)
+![标识](../../../en/adapterref/iobroker.winsipbrowser/admin/winsipbrowser.png)
 
 ![安装数量](http://iobroker.live/badges/winsipbrowser-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.winsipbrowser.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.winsipbrowser.svg)
-![新PM](https://nodei.co/npm/iobroker.winsipbrowser.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.winsipbrowser.png?downloads=true)
 
 # IoBroker.winsipbrowser
 ## 信息
@@ -18,17 +18,23 @@ hash: JhCF2oBEXZ6EkgZLT8QpMSgHqKfgWIvb8v1C2fjyMhc=
 
 ioBroker 适配器
 
-这个适配器通过 tcp.socket 连接到 winsipbrowser 来控制它。
+此适配器通过 tcp.socket 连接到 winsipbrowser 以控制它。
 
-winsipbrowser 是一个带有 sipclient 的 Windows 全屏浏览器，可以通过 ioBroker 进行控制，它可以显示单个网站或可以在适配器中设置的网站幻灯片。信息也会传输到适配器：+ CPU 负载 + 可用内存 + 平板电脑或笔记本电脑上的当前电池放电 + 主机名 + IP
+winsipbrowser 是一个带有 sipclient 的 Windows 全屏浏览器，可以通过 ioBroker 控制，它显示单个网站或可以在适配器中设置的网站幻灯片。信息也被传输到适配器：+ CPU 负载 + 可用内存 + 平板电脑或笔记本电脑上的当前电池放电 + 主机名 + IP
 
-他还可以控制： + 屏幕开/关 + 退出应用程序 + 音量 +/- + 静音开/关 + 亮度 +/- + 使用开关运行程序，例如C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + 文本消息 + 语音消息 + 播放音频文件
+他还可以控制： + 屏幕开/关 + 退出应用程序 + 音量 +/- + 静音开/关 + 亮度 +/- + 使用开关运行程序，例如C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + 短信 + 朗读消息 + 播放音频文件 + 全屏开/关
 
 ＃＃ 关联
 * [ioBroker 论坛适配器线程](https://forum.iobroker.net/topic/53162/neuer-adapter-winsipbrowser-f%C3%BCr-windows)
-* [ioBroker 论坛程序主题](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
+* [ioBroker 论坛程序线程](https://forum.iobroker.net/topic/53032/sprechanlagen-innenstation-browser-mit-sip-client?_=1646732403727)
 
 ## Changelog
+### 0.1.6
+* (bettman66) add fullscreenobject
+
+### 0.1.5
+* (bettman66) change Server2Client
+
 ### 0.1.4
 * (bettman66) change objects
 

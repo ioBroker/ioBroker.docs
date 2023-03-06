@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol 文件
-hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
+hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -66,7 +66,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 ＃＃ 你需要...
 * Node.js 10 或更高版本
 * Web 适配器，其中一个实例运行与管理适配器相同的协议（http 或 https），socket.IO 设置为“集成”并禁用“强制 Web 套接字”
-    * 如果这与其他适配器有冲突，只需添加具有上述设置的另一个实例 - iQontrol 将搜索最适合的网络适配器实例并将其用于通信
+    * 如果这与其他适配器有冲突，只需添加另一个具有上述设置的实例 - iQontrol 将搜索最合适的网络适配器实例并将其用于通信
 * 要通过 *iobroker.pro-Cloud* 连接，admin- 和 web-adapter 应设置为 http（而非 https）
 
 * 如果您遇到任何问题，请查看本自述文件末尾的 [故障排除](#troubleshooting) 部分
@@ -140,7 +140,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 ## 字体
 * 您可以将自己的字体文件上传到 Images/Widgets-Tab 文件夹 `/userfonts`
 * 在 Options-Tab 中有几个地方可以选择这些字体
-* 这取决于您的服务器 MIME 设置，如果字体正确呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
+* 这取决于你的服务器 MIME 设置，如果字体正确地呈现给浏览器 - 对我来说最好的 .ttf 和 .woff（在 raspi 4b 上测试）
     * 这些 mime 设置应该有效：
 * .otf:`application/x-font-opentype`
 * .ttf: `application/x-font-ttf` 或 `application/x-font-truetype`
@@ -191,7 +191,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
     * `ClickedValue` 和 `ClickedDestinationState`：如果用户点击弹出窗口，来自 `ClickedValue` 的值将被发送到 `iqontrol.x.Popup.POPUP_CLICKED`，如果指定，附加到 `ClickedDestinationState` 中的数据点
         * 如果没有指定值，将使用 `true`
     * `ButtonNames`：在这里你可以指定一个逗号分隔的按钮列表，它将显示在弹出窗口的底部（例如“OK，Abort”）
-        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，则附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
+        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
 * 除了数据点，您还可以使用命令 `COMMAND:renderView` 和 `COMMAND:openDialog` 作为 ButtonDestinationState，以呈现视图或打开对话框
 * ButtonValue 然后指定视图 resp。对话框，需要采用“iqontrol.<instance-number>.Views.<view-name>”格式。 `iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>` 其中 `<device-number>` 从 0 开始（因此视图上的第一个设备是设备编号 0）
 * 如果您只使用一个值（而不是逗号分隔列表），则该值将用于所有按钮
@@ -226,7 +226,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
         *`{命令：“getWidgetState”，stateId：<widgetStateId>}`
 * 这将导致 iQontrol 发送 ioBroker 状态值`iqontrol.<instance>.Widgets.<widgetStateId>`（见下文如何接收应答消息）
         *`{命令：“getWidgetStateSubscribed”，stateId：<widgetStateId>}`
-* 这将导致 iQontrol 发送 ioBroker 状态的值 `iqontrol.<instance>.Widgets.<widgetStateId>` 现在和每次它的值改变时（见下文如何接收应答消息）
+* 这将导致 iQontrol 发送 ioBroker 状态的值`iqontrol.<instance>.Widgets.<widgetStateId>` 现在和每次它的值改变时（见下文如何接收应答消息）
         * `{ 命令：“setWidgetDeviceState”，stateId：<widgetDeviceState>，值：<value> }`
 * 这会将分配给设备 STATE `<widgetDeviceState>` 的 ioBroker 数据点（例如，分配给 LEVEL 的数据点）设置为值 `<value>`（`<value>` 可以是字符串，数字或布尔值或类似 `{ val: <value>, ack: true|false }` 的对象）
         *`{命令：“getWidgetDeviceState”，stateId：<widgetDeviceState>}`
@@ -297,7 +297,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
         * 如果没有设置变量`instance`，那么`|`之前的部分将作为`wigdetState`-Name
     * 只有当小部件网站作为 URL 或 BACKGROUND_URL 添加到设备时，才会创建相应的数据点
 * 相同的概念可用于 URL/HTML-State，用于在设备的对话框中显示网站
-* 要为您的小部件创建图标，请将与小部件具有相同文件名的 .png 文件放入 widgets 目录
+* 要为您的小部件创建一个图标，请将一个与小部件同名的 .png 文件放入 widgets 目录
 * 请参阅下面的示例小部件网站：
 
 <details><summary>显示示例小部件网站，以使用 postMessage 通信显示为小部件：（<ins>点击打开</ins>)</summary>
@@ -453,7 +453,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
           <meta name="widget-description" content="Please see www.mywebsite.com for further informations. (C) by me"/>
           ```
 
-*在选择窗口小部件为URL或Background_url或自动创建小部件时，将显示内容
+*在选择窗口小部件为URL或background_url或自动创建小部件时，将显示内容
 *`widget-urlparameters`
 * 句法：
 
@@ -657,7 +657,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 * *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：`true`|`false`
 * 默认值：`false`
-* `clickOnTileOpensDialog`（点击磁贴打开对话框）：
+* `clickOnTileOpensDialog`（点击图块打开对话框）：
 * *已弃用* 因为此选项现在包含在 clickOnTileAction 中
 * 可能的值：`true`|`false`
 * 默认值：`true`（对于大多数设备）
@@ -671,7 +671,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 * 可能的值：`true`|`false`
 * 默认值：`true`
 * 活动磁贴的条件：
-* `tileActiveStateId`（状态 ID（将使用空 = STATE/LEVEL））：
+* `tileActiveStateId`（状态 ID（空 = 将使用 STATE/LEVEL））：
 * 默认： ””
 *`tileActiveCondition`（条件）：
 * 可能的值：""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
@@ -682,7 +682,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 * `sizeInactive`（图块的大小，如果设备处于非活动状态）：
 * 可能的值：“”|“narrowIfInactive shortIfInactive”|“narrowIfInactive”|“narrowIfInactive highIfInactive”|“narrowIfInactive xhighIfInactive”|“shortIfInactive”|“shortIfInactive wideIfInactive”|“shortIfInactive xwideIfInactive”|“wideIfInactive”|“xwideIfInactive”|“highIfInactive” "|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive aspect-3- 2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
 * 默认值：“xwideIfInactive highIfInactive”
-* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这会覆盖图块大小）：
+* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这将覆盖图块大小）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * `stateFillsDeviceInactive`（如果设备处于非活动状态，STATE 的大小会填满整个设备（这可能会干扰其他内容）：
@@ -876,6 +876,9 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 * `badgeWithoutUnit`（显示没有单位的徽章值）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
+* `showBadgeIfZero`（即使值为零也显示徽章）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
 * 发光：
 * `invertGlowHide`（反转 GLOW_HIDE）：
 * 可能的值：`true`|`false`
@@ -912,7 +915,7 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 
 </详情>
 
-<details><summary>显示使用上述设置创建地图的示例小部件网站：（<ins>点击打开</ins>)</summary>
+<details><summary>显示使用上述设置创建地图的示例小部件网站：(<ins>点击打开</ins>)</summary>
 
 * 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
 *添加小部件时会显示说明
@@ -1005,11 +1008,11 @@ hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
 
 <details><summary>显示一个更高级的示例：(<ins>点击打开</ins>)</summary>
 
-* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
+* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“常量”）
 *添加小部件时会显示说明
 * 要求您的标题和实例的 URL 参数
 * 然后系统会询问您是否要应用包含的选项
-*创建了一堆数据点来控制地图的位置和设置最喜欢的位置
+*创建了一堆数据点来控制地图的位置并设置最喜欢的位置
 
 ```html
 <!doctype html>
@@ -1264,7 +1267,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * **ID** - 按数据点的 ID 过滤，例如删除不以“.color”或“.saturation”结尾的 ID
 * **Object-Type** - 按 Object-Type 过滤，可以是设备、通道、状态或枚举
 * **Type** - 按数据点的 `common.type` 过滤，例如字符串、数字、布尔值
-* **角色** - 按数据点的 `common.role` 过滤。这是最重要的过滤器之一，因为每个数据点都应该有一个“common.role”来描述它代表什么，例如开关、“indicator.unreach”或 level.color.rgb。 ioBroker 中有很多常见的角色，只要看看你的数据点，admin-adapter 提供了一个包含所有角色的列表
+* **角色** - 按数据点的“common.role”过滤。这是最重要的过滤器之一，因为每个数据点都应该有一个“common.role”来描述它代表什么，例如开关、“indicator.unreach”或 level.color.rgb。 ioBroker 中有很多常见的角色，只要看看你的数据点，admin-adapter 提供了一个包含所有角色的列表
 * 比较运算符：某些类型可以与一个值进行比较。运算符代表完成的比较，例如“大于”、“小于”，或者对于字符串，“开始于”或“包含”：
 * 它们不区分大小写（因此“文本”与“文本”相同）
 * 如果您提供以逗号分隔的参数列表，您也可以一次与多个值进行比较
@@ -1335,7 +1338,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * 设置水平滑块在增加/减少时采取的步骤
 * 修改数据点类型
 * 修改数据点角色
-* 设置一个 target-value-id，这是一个数据点 id，目标值写入其中（如果实际值和目标值有不同的数据点）
+* 设置目标值 ID，这是一个数据点 ID，目标值写入其中（如果实际值和目标值有不同的数据点）
 * 设置或修改值列表
     * 可选地向值列表添加一个选项以输入自由文本
 * 设置目标值列表：
@@ -1397,7 +1400,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * **UNREACH**：*布尔值* - 当为真时，将显示一个小无线图标
     * 可以在选项的“常规”部分中反转行为（使用“连接”而不是“未到达”）
 * **ENLARGE_TILE**：*布尔值* - 当为真时，图块将被设置为放大。您可以通过单击放大/缩小按钮来覆盖它。但每当 ENLARGE_TILE 的状态发生变化时，它都会重新控制 tile 的放大状态。如果`ENLARGE_TILE`的作用是`button`，那么每次状态变化都会触发放大状态
-* **BADGE**：*number* 或 *string* - 如果存在除零/false 以外的值，则左上角的徽章将显示该值
+* **BADGE**：*number* 或 *string* - 如果存在除零/false 以外的值，则左上角的徽章将显示该值。可以配置为即使值为零也显示或忽略单位
     * **BADGE_COLOR**：*string* - 代表徽章颜色的任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等） .如果不存在或无效，将使用透明度为 20% 的红色。
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
@@ -1434,7 +1437,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 
 您可以选择定义以下状态：
 
-* 对于彩色 LED（HSB 色彩空间）：
+* 对于彩色 LED（HSB 颜色空间）：
     * **HUE**：*数字* - 0-360° 范围内的光的颜色（色调格式）
     * **饱和度**：*数字* - 光的饱和度（从白色到纯色）
   ***COLOR_BRIGHTNESS**:* umber* - 彩色 LED 的亮度（如果你有一个 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
@@ -1447,10 +1450,10 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
     如果您的设备不支持使用 HUE、SATURATION 和 COLOR_BRIGHTNESS（HSB/HSV 色彩空间），您可以使用多种替代色彩空间。在设备选项中，您可以选择以下颜色空间之一：
 
         * **RGB** / **#RGB**：您可以使用 RGB 格式（十六进制）而不是使用 HUE、SATURATION 和 COLOR_BRIGHTNESS，可选前导“#”
-        * **RGBW** / **#RGBW**：除了使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS 之外，您还可以使用 RGBW 格式（十六进制），可选前导“#”
+        * **RGBW** / **#RGBW**：除了使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，您还可以使用 RGBW 格式（十六进制），可选前导“#”
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**：您可以使用 RGBWWCW 或 RGBCWWW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS、CT 和 WHITE_BRIGHTNESS , WW = 暖白, CW = 冷白), 可选带前导 '#'
         * **RGB（仅色相）** / **#RGB（仅色相）**：您可以使用 RGB（仅色相）格式（十六进制）代替使用色相，可选前导“#”。在这种特殊情况下，RGB 格式将只接受色调色环的纯饱和色。不允许混白
-        * **Milight 的色调**：这是 Milight 设备 (v5) 的色调值，在色调色环中使用另一个起点：
+        * **Milight 的色调**：这是 Milight 设备 (v5) 的色调值，使用色调色环中的另一个起点：
 
 ```
 tHue = modulo(66 - (hue / 3.60), 100) * 2.55;
@@ -1458,9 +1461,9 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ```
 
-        * **HHSSBB for Tuya**：12位长十六进制字符串，代表色相（HH = 0000-016d [0-365]），饱和度（SS = 0000-03e8 [0-1000]）和颜色亮度（BB = 0000-03e8 [0-1000])
+        * **HHSSBB for Tuya**：12位长十六进制字符串，代表色调（HH = 0000-016d [0-365]），饱和度（SS = 0000-03e8 [0-1000]）和颜色亮度（BB = 0000-03e8 [0-1000])
 
-请记住：转换为替代色彩空间是由前端完成的，因此它仅在某处打开 iQontrol 时才处于活动状态。因此，您不能将它用作颜色空间的转换器。为避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
+请记住：转换为替代色彩空间是由前端完成的，因此只有在某处打开 iQontrol 时它才处于活动状态。因此，您不能将它用作颜色空间的转换器。为避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
 * 效果模式：
   ***EFFECT**:* alue-list* - 要播放的效果
@@ -1472,7 +1475,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/fan_on.png" width="32">扇子：
 * **STATE**: *boolean* - 显示和设置开/关状态
 * **LEVEL**：*number* 或 *value-list* - 风扇速度
-* **POWER**: *number* - 右上角小号显示的电量
+* **POWER**: *number* - 将在右上角以小号显示的功耗
 
 ###<img src="img/icons/radiator.png" width="32">温控器：
 * **SET_TEMPERATURE**：*number* - 目标温度
@@ -1517,7 +1520,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ###<img src="img/icons/door_locked.png" width="32">带锁门：
 * **状态**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
-* **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁定门，那是打开的）
+* **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁门，那是打开的）
 * **LOCK_STATE_UNCERTAIN**: *boolean* - 如果为 true，STATE 将以斜体显示，表示锁的确切位置未知
 * **LOCK_OPEN**: *boolean* - 如果设置为 true，门将完全打开
 
@@ -1532,7 +1535,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **状态**：*布尔值* - 如果为真，传感器将显示为已触发
   *或者，您可以分配一个* alue-list*，以显示其他状态，例如“被篡改”
-  *您还可以指定一个* tring* 来显示任何文本，例如“楼上着火”
+  *您还可以分配一个* tring* 来显示任何文本，例如“楼上着火”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/flood_on.png" width="32">洪水传感器：
@@ -1569,7 +1572,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 | | |代币 |范例 |数据点 |显示 |选择器 |
 |----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
-|时间戳 | Unix 的时间戳 | × | 1410715640.579 | × | --- | --- |
+|时间戳 | Unix 的时间戳 | × | 1410715640.579 | X | --- | --- |
 | | Unix 毫秒时间戳 | × | 1410715640579 | × | --- | --- |
 |日期 |星期几 | d | 0 1 ... 5 6 | × | --- | --- |
 | | |日 |苏沫……萨神父| × | X（翻译） | --- |
@@ -1577,25 +1580,25 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |滴滴滴 |周日 周一 ... 周五 周六 | × | X（翻译） | --- |
 | | |做 |第 0 1 ... 5 6 | × | --- | --- |
 | |月中日 | D | 1 2 ... 30 31 | × | × | × |
-| | | DD | 01 02 ... 30 31 | × | X | X |
-| | |做 |第 1 2 ... 30 31 | × | ---（转换为 D） | ---（转换为 D）|
-| |月份 |男| 1 2 ... 11 12 | × | × | × |
-| | | MM | 01 02 ... 11 12 | × | X | X |
+| | | DD | 01 02 ... 30 31 | × | × | × |
+| | |做 |第 1 2 ... 30 31 | × | ---（转换为 D） | ---（转换为 D） |
+| |月份 |男| 1 2 ... 11 12 | X | × | × |
+| | | MM | 01 02 ... 11 12 | X | X | X |
 | | |嗯 | 1 月 2 月 ... 11 月 12 月 | × | × | × |
 | | |嗯嗯 |一月 二月 ... 十一月 十二月 | × | × | × |
 | | |莫 | 1 号 2 号 ... 11 号 12 号 | × | ---（转换为 M） | ---（转换为 M） |
 | |年份 |是 | 1970 1971 ... 9999 +10000 +10001 | × | × | × |
 | | | YY| 70 71 ... 29 30 | × | × | × |
-| | |年年年 | 1970 1971 ... 2029 2030 | × | X | X |
-| | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY）| ---（转换为 YYYY）|
-|时间 |上午/下午 |一个|上午下午 | × | × | × |
-| | |一个 |下午 | × | × | × |
+| | |年年年 | 1970 1971 ... 2029 2030 | × | × | × |
+| | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY） | ---（转换为 YYYY） |
+|时间 |上午/下午 |一个 |上午下午 | × | × | × |
+| | |一个 |下午 | × | X | X |
 | |小时 | H | 0 1 ... 22 23 | × | × | × |
-| | |嗯 | 00 01 ... 22 23 | × | × | × |
-| | |小时 | 1 2 ... 11 12 | × | X | X |
+| | |嗯 | 00 01 ... 22 23 | X | × | × |
+| | |小时 | 1 2 ... 11 12 | X | X | X |
 | | |嗯 | 01 02 ... 11 12 | × | × | × |
-| | | k | 1 2 ... 23 24 | × | ---（转换为H）| ---（转换为H）|
-| | | kk | 01 02 ... 23 24 | × | ---（转换为 HH）| ---（转换为 HH）|
+| | | k | 1 2 ... 23 24 | × | ---（转换为H） | ---（转换为H） |
+| | | kk | 01 02 ... 23 24 | × | ---（转换为 HH） | ---（转换为 HH） |
 | |分钟 |米 | 0 1 ... 58 59 | × | × | × |
 | | |毫米 | 00 01 ... 58 59 | × | × | × |
 | |第二 |秒 | 0 1 ... 58 59 | × | × | × |
@@ -1612,7 +1615,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | | DD做 |第 1 2 ... 364 365 | × | --- | --- |
 |其他 |星期几（语言环境） |电子 | 0 1 ... 5 6 | × | --- | --- |
 | |星期几 (ISO) |乙 | 1 2 ... 6 7 | × | --- | --- |
-| |季度 |问 | 1 2 3 4 | X | --- | --- |
+| |季度 |问 | 1 2 3 4 | × | --- | --- |
 | | |问 | 1 2 3 4 | × | --- | --- |
 | |一年中的一周 |瓦 | 1 2 ... 52 53 | × | --- | --- |
 | | |窝 |第 1 2 ... 52 53 | × | --- | --- |
@@ -1622,14 +1625,14 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |全球| 01 02 ... 52 53 | × | --- | --- |
 | |纪元年 |是 | 1 2 ... 2020 ... | × | --- | --- |
 | | |哟 |第 1 2 … 2020 … | × | --- | --- |
-| |时代 | N、NN、NNN |公元前广告 | X | --- | --- |
+| |时代 | N、NN、NNN |公元前广告 | × | --- | --- |
 | | | NNNN|在基督之前，Anno Domini | × | --- | --- |
 | | | NNNNN |公元前广告 | × | --- | --- |
 | |周年 |格 | 70 71 ... 29 30 | × | --- | --- |
 | | |格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
 | |周年 (ISO) |格格 | 70 71 ... 29 30 | × | --- | --- |
 | | |格格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
-|时期 |时期 |磷 |标记一个时期而不是特定时间。可以是以下格式之一： | × | --- (转换为 D [天], h:m:s) | ---（转换为 D，h:m:s）|
+|时期 |时期 |磷 |标记一个时期而不是特定时间。可以是以下格式之一： | × | --- (转换为 D [天], h:m:s) | ---（转换为 D，h:m:s） |
 | | | |毫秒（例如 279344） | | | |
 | | | |小时:分钟（例如 46:33）| | | |
 | | | |小时:分钟:秒（例如 46:33:44 或 28:33:44.5）| | | |
@@ -1639,12 +1642,12 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 | | |派 |年期 | × | --- | --- |
 | | |下午 |月期间 | × | --- | --- |
 | | |密码 |周期间 | × | --- | --- |
-| | |钯 |天数 | × | --- | --- |
+| | |钯|天数 | × | --- | --- |
 | | |博士 |小时数 | × | --- | --- |
 | | |下午 |分钟 | × | --- | --- |
 | | |附言 |秒周期 | × | --- | --- |
 | | |私信 |毫秒周期 | × | --- | --- |
-|标志 |将缺失的部分设置为开始 |结核病 |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
+|标志 |将缺失的部分设置为开头 |结核病 |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
 | |将缺失的部分补到现在 |吨 |例如。将日期设置为现在，如果只给出一个时间 | × | --- | --- |
 | |保留旧的遗失零件 |到 |例如。像以前一样留下日期，如果只给出时间 | × | --- | --- |
 |免费文本 |在括号中标记自由文本 | [] | [这是一个例子，所有标记都被忽略] | × | × | --- |
@@ -1741,6 +1744,8 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ### **WORK IN PROGRESS**
 * (sbormann) You can now chose destination when copying devices.
 * (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
+* (sbormann) Added option to hide slider for LEVEL, if favorites are set.
+* (sbormann) Added option to show BADGE, even if value is zero.
 
 ### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.

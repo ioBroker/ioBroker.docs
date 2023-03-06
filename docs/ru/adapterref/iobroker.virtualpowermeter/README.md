@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.virtualpowermeter/README.md
-title: без названия
-hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
+title: без заголовка
+hash: 4ktAMNVHWM/2JTIgq9IjSPEo+diFnUkzy1Po+M2YftA=
 ---
 ![узел](https://img.shields.io/node/v/iobroker.virtualpowermeter.svg)
 ![Количество установок](http://iobroker.live/badges/virtualpowermeter-stable.svg)
@@ -12,11 +12,11 @@ hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
 ![Статус зависимости](https://img.shields.io/david/Omega236/iobroker.virtualpowermeter.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Omega236/ioBroker.virtualpowermeter/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.virtualpowermeter.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/Omega236/ioBroker.virtualpowermeter/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Omega236/ioBroker.virtualpowermeter?branch=master&svg=true)
 ![Лицензия](https://img.shields.io/npm/l/iobroker.virtualpowermeter.svg)
 
 <h1><img src="admin/virtualpowermeter.png" width="64"/>ioBroker.virtualpowermeter</h1>
+
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/Omega236/ioBroker.testtheportal/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер virtualpowermeter для ioBroker
 Эрцегт Виртуэль Строммессер
@@ -24,7 +24,7 @@ hash: KH0Fcr8Pz61VALzsni5tsQM/Es0+rXk1Ztr0VKSQiQ4=
 Im Smarthome шапка человек прожил Geräte умереть человек zwar schalten kann, Diese aber keinen integrierten Powermeter haben (meist Lichter).
 
 Mit diesem Adapter ist das Ziel zu jedem eingestelltem Datenpunkt (über Custom -> MaxWatt (z.B. 60W)) zwei zusätzliche Datenpunkte zu befüllen -> Energy_Power (z.B. 60 W) и Energy_Total (z.B. 2501,23 Wh).
-Zusätzlich werden Gruppen gebildet (отображаемые в VirtualPowermeter.0.xxx abgelegt) die die die summe der einzelnen Datenpunkte darstellt
+Zusätzlich werden Gruppen gebildet (день, когда виртуальный powermeter.0.xxx abgelegt) die die die summe der einzelnen Datenpunkte darstellt
 
 Mit diesen neuen Datenpunkten kann dann eine Einfache Visualiserung durchgeführt werden.
 
@@ -35,14 +35,14 @@ Die neuen Datenpunkte (besonders die Gruppen) könnten super mit valuetrackerove
 
 hier kan der Default-Name für das Power und Energy_Total Definiert werden.
 
-Настройка по умолчанию для настройки: Datapoint Destination bestimmt die default Einstellung beim erstellen eines neuen Custom-Settings. Bei "в папке состояния" wird bei neuen Custom-Settings die Standardnamen for Power und Energie genutz. Bei "in group" wird als Standardname die ObjectID Custom-DP (. durch _ ersetzt) als Unterverzeichnis + der Standardname für Power und Energie genutz. "в любом другом месте" nutzt ebenfalls den Standardname für Power und Engery muss aber für jeden Custom-DP manuell angepasst werden.
+Настройка по умолчанию для настройки: Datapoint Destination bestimmt die default Einstellung beim erstellen eines neuen Custom-Settings. В «папке состояния» появляются новые пользовательские настройки. Bei "in group" wird als Standardname die ObjectID Custom-DP (. durch _ ersetzt) als Unterverzeichnis + der Standardname für Power und Energie genutz. "в любом другом месте" nutzt ebenfalls den Standardname für Power und Engery muss aber für jeden Custom-DP manuell angepasst werden.
 
 ## Пользовательские настройки
 ![Пример](../../../en/adapterref/iobroker.virtualpowermeter/admin/DatapointSample.PNG) Активация пользовательских настроек 2 Datenpunkte. Power -> Watt, Energy(_Total) -> Wh Der Speicherort setzt sich aus dem Datapoint Destination + Datapointname zusammen.
 
 Wichtig: Wenn Destination "in Group" bzw wenn mehere DP im gleichen Verzeichnis "in current state tree" braucht jeder Datenpunkt seinen eindeutigen Namen. wenn default-Destination "in Group" wird der Datenpunktname Automaticisch mit der ID des States ergänzt (. durch _ ersetzt). Hier kann aber Auch z.B. Wohnzimmer_Licht.Power и Wohnzimmer_Licht.Energy angegeben werden.
 
-## Пользовательские настройки для определения мощности Angabe (Watt) и человека, потребляющего Wh.
+## Пользовательские настройки для определения мощности Angabe (Ватт) и количества ватт-часов.
 Es gibt Geräte die nur eine Watt ausgabe haben und man aber wissen will wieiel Strom verbraucht wurde. Hierfür kann auch der VirtualPowermeter verwendet werden. Dafür muss nur der Max-Wert vom Datenpunkt und der Max-Power vom VirtualPowermeter gleich sein. Бейшпиль:<img src="BeispielPowerToEnergy.png">
 
 Отслеживание стоимости с течением времени: ![Пример](../../../en/adapterref/iobroker.virtualpowermeter/MeinBeispiel2.jpg)
@@ -52,7 +52,17 @@ Es gibt Geräte die nur eine Watt ausgabe haben und man aber wissen will wieiel 
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
-### 1.4.3 (2021-05-27)
+
+### 1.4.6 (2022-02-14)
+* (Omega236) Update Dependencies
+
+### 1.4.5 (2022-01-30)
+* (Omega236) add minimum/standby power usage
+
+### 1.4.4 (2022-01-30)
+* (Omega236) bugfix wrong datapoint name
+
+### 1.4.3 (2022-01-16)
 * (bluefox) added support for admin5
 
 ### 1.4.1 (2021-02-13)
@@ -126,7 +136,7 @@ Es gibt Geräte die nur eine Watt ausgabe haben und man aber wissen will wieiel 
 ## License
 MIT License
 
-Copyright (c) 2021 Omega236 general.of.omega@googlemail.com
+Copyright (c) 2022 Omega236 general.of.omega@googlemail.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

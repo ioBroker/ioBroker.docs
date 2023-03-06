@@ -3,17 +3,25 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
+hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
-![Количество установок](http://iobroker.live/badges/snmp-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.snmp.svg)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+![Активность фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
+![Коммиты GitHub с момента последней версии (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
+![версия NPM](http://img.shields.io/npm/v/iobroker.snmp.svg)
+![Текущая версия в стабильном репозитории](https://iobroker.live/badges/snmp-stable.svg)
+![Количество установок](https://iobroker.live/badges/snmp-installed.svg)
 
 # IoBroker.snmp
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml) [![CodeQL] (https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
 
+## Часовой
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Информация
@@ -22,11 +30,25 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ## __РАБОТА В ПРОЦЕССЕ__
 -->
 
-### __РАБОТА В ПРОЦЕССЕ__
-* (McM1957) Реализована поддержка записи в oids. (#150)
-* (McM1957) Основные части кода были переписаны, чтобы поддерживать запись iod.
+### 2.4.3 (2023-03-01)
+* (McM1957) Обновлены переводы и зависимости.
+
+### 2.4.2 (25 февраля 2023 г.)
+* (McM1957) Исправлена ошибка, о которой сообщал часовой. (# 230)
+
+### 2.4.1 (22 февраля 2023 г.)
+* (McM1957) Исправлена ошибка на страницах конфигурации. (# 228)
+
+### 2.4.0 (21 февраля 2023 г.)
+* (McM1957) Реализована поддержка записи данных в oids. (#150)
+* (McM1957) Основные части кода были переписаны для поддержки написания oid.
 * (McM1957) Состояния, содержащие информацию о типе, теперь можно отключить. (# 218)
-* (McM1957) Добавлены состояния, указывающие на онлайн и статус ошибки устройств.
+* (McM1957) Добавлены состояния, указывающие на онлайн и статус ошибки устройств. Состояние «в сети» перемещено в информацию о папке.
+* (McM1957) Состояние устройства теперь отображается при просмотре объекта с помощью цвета и значков.
+* (McM1957) Тип данных «автоматический» был добавлен в селектор типа данных состояний oid.
+* (McM1957) Исправлена ошибка, о которой сообщал часовой. (# 224)
+* (McM1957) Исправлена неправильная установка флагов подтверждения. (# 225)
+* (McM1957) Добавлена поддержка аутентификации сообщений sha224, sha256, sha384 и sha512 (#210)
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) Добавлена поддержка использования собственных типов данных для состояний. (#143)
@@ -94,7 +116,7 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 * (McM1957) Известное ограничение: атрибут OID с возможностью записи еще не реализован.
 
 ### 2.0.1 (22 июля 2022 г.)
-* (McM1957) Исправлена неправильная обработка флага режима совместимости (#135).
+* (McM1957) Исправлена неправильная обработка флага режима совместимости (#135)
 * (McM1957) Исправлено журналирование ошибок для недопустимых OID (#134)
 
 ### 2.0.0 (21 июля 2022 г.)
@@ -180,7 +202,7 @@ hash: q+3uc+ExlLl8yCR/8jX36Z9d+Vt3TJikn1PjhZjRkn8=
 ## __Лицензия__
 Лицензия Массачусетского технологического института (MIT)
 
-Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, разработчики сообщества ioBroker
+Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, разработчики сообщества ioBroker
 
 Настоящим предоставляется бесплатное разрешение любому лицу, получившему копию этого программного обеспечения и связанных с ним файлов документации («Программное обеспечение»), работать с Программным обеспечением без ограничений, включая, помимо прочего, права на использование, копирование, изменение, слияние. публиковать, распространять, сублицензировать и/или продавать копии Программного обеспечения, а также разрешать лицам, которым предоставляется Программное обеспечение, делать это при соблюдении следующих условий:
 

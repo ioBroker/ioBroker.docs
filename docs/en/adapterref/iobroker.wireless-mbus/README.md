@@ -1,6 +1,8 @@
 ![Logo](admin/wireless-mbus.png)
 # ioBroker.wireless-mbus
 
+![installed-count](https://iobroker.live/badges/wireless-mbus-installed.svg) ![stable-version](https://iobroker.live/badges/wireless-mbus-stable.svg)
+
 This adapter allows to receive wireless M-Bus data from supported receivers. The extent of device implementation varies, but wMBus modes can be configured for all listed devices.
 
 * Embit WMB modules
@@ -52,6 +54,9 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 * sending telegrams for S mode receivers?
 
 ## Changelog
+
+## 0.8.9
+* (ChL) Fix display of non-default settings in admin page
 
 ## 0.8.8
 * (ChL) Add datetime type I handling

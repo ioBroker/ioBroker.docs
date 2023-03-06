@@ -110,6 +110,9 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.8 (2023-02-27)
+* (Apollon77) Update Noble to address CPU/RAM issues
+
 ### 0.5.7 (2023-01-27)
 * (Apollon77) Added support for Ikea Dirigera Hubs and other devices with very log Accessory IDs
 * (Apollon77) Optimize handling of configuration changes

@@ -1170,6 +1170,10 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.viessmann/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.viessmannapi/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.virtualpowermeter/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-bars/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.vis-canvas-gauges/README.md
@@ -1765,6 +1769,10 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.viessmann/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.viessmannapi/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.virtualpowermeter/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-bars/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.vis-canvas-gauges/README.md
@@ -2360,6 +2368,10 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.viessmann/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.viessmannapi/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.virtualpowermeter/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-bars/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.vis-canvas-gauges/README.md
@@ -2955,6 +2967,10 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.viessmann/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.viessmannapi/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.virtualpowermeter/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-energy/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-bars/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-canvas-gauges/README.md

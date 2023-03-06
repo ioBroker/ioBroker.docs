@@ -3,222 +3,225 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: PjF2jptQFzLAzlK4b4PHvZ93TS8NMOg+4cYhuz9a16A=
+hash: lNKe1hc/MAwdDYoaBwZP03WgECjTw4IOZ1O5qv7OzIg=
 ---
-![商标](../../../en/adapterref/iobroker.onvif/admin/onvif_logo.png)
+![标识](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.onvif.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.onvif.svg)
-![安装数量（最新）](http://iobroker.live/badges/onvif-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/onvif-stable.svg)
-![依赖状态](https://img.shields.io/david/Haba1234/iobroker.onvif.svg)
-![已知漏洞](https://snyk.io/test/github/Haba1234/ioBroker.onvif/badge.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.onvif.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.onvif.svg)
+![安装数量](https://iobroker.live/badges/onvif-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/onvif-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.onvif.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Haba1234/ioBroker.onvif/master.svg)
 
-＃ioBroker.onvif
-## RU
-### Настройка
-1.ОткрытьНастройкидрайвера
-2.Нажатькнопкусканирования（сверхусправа）
-3.Ввестинеобходимыенастройкиилиоставитьпоумолчанию：
+#ioBroker.onvif
+**测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.onvif/workflows/Test%20and%20Release/badge.svg)
 
-终端范围-конечныйipадресдиапазонасканирования，端口列表-череззапятуюпортысервисаonvif（密码ооочонии）：80，80，575，-
+## IoBroker 的 ONVIF 适配器
+**ONVIF 相机适配器**
 
-4.Нажать开始扫描
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-Если все сделано правильно, в основном окне настроек появятся найденые камеры и через несколько секунд должны будут подтянуться снапшоты
+## 相机 hinzufügen
+### 发现：
+Bei jedem Adapterstart wild mit dem in der Einstellungen eingetragen Benutzername und Passwort eine Discovery durchgeführt und versuch sich in die Kamera einzuloggen。 Falls die Kamera noch nicht unter Objekte hinzugefügt wurde。
 
-### События
-Драйвер автоматически подписывается на события к настроенным камерам.
-События, которые генерирует камера, появятся в объектах вида:
+在 den Einstellungen kann man die Discovery manuell ausführen。 Falls die Kameras unterschiedliche Zugangsdaten haben müssen die jeweils einggeben werden und eine discovery durchgeführt werden。 Im Log sieht man Details zu dem Prozess。
 
-```
-onvif.0.122_116_220_230_2033.message.ruleengine.cellmotiondetector.motion.IsMotion
-onvif.0.122_116_220_230_2033.message.ruleengine.tamperdetector.tamper.IsTamper
-```
+Damit eine Kamera neu erkannt wild muss sie einfach unter Objekte gelöscht werden。
 
-### Запрос снапшота
-Дляэтогоиспользуетсякоманда：`sendTo('onvif.0', command, message, callback);`
+### 曼努埃尔苏切
+Es können Kameras manuell gesucht werden, falls Discovery nicht funktioniert。 Dazu muss eine IP Range und Ports eingegeben 和 manuell ausgeführt werden。 Im Log sieht man Details zu dem Prozess。
 
-Пример скрипта для запроса снапшота и отправка в телеграм:
+## 数据朋克
+onvif.0.IP_PORT.events 相机事件 wie z.b. Bewegungserkennung。 Manchmal muss ein Event ausgelöst werden damit er angezeigt wired。
 
-```
-const fs = require('fs');
+onvif.0.IP_PORT.general 一般信息在相机上
 
-function getSnapshot(caption){
-    sendTo('onvif.0', 'saveFileSnapshot', {"id":"192_168_1_4_80", "file":"/opt/cameras/snapshot.jpg"}, (data) => {
-        console.log('image принят: ' + data);
-        if (data === "OK")
-            sendTo('telegram.0', {text: '/opt/cameras/snapshot.jpg', caption: caption});
+onvif.0.IP_PORT.infos Informationen über die Kamera werden nur bei Adapterstart aktualisiert oder bei remote.refresh
+
+视频和快照网址：
+
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+
+onvif.0.IP_PORT.remote 相机控制
+
+onvif.0.IP_PORT.remote.refresh 信息更新
+
+onvif.0.IP_PORT.remote.gotoHomePosition PTZ Kamera in die HomePosition setzen
+
+onvif.0.IP_PORT.remote.gotoPreset PTZ 摄像机预设编号 auswählen
+
+onvif.0.IP_PORT.remote.snapshot 声明在 onvif.0.IP_PORT.snapshot 下的快照
+
+＃＃ 信息
+适配器 nimmt 消息“快照”entgegen und gibt ein Bild zurück
+
+```javascript
+sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+  if (result) {
+    sendTo("telegram.0", {
+      text: result,
+      type: "photo",
+      caption: "Kamera 2",
     });
-}
+  }
+});
 ```
 
-*说明*-заголовокдлякартинкивтелеграме。
-Вызыватьможнокакпособытию，такипокнопке/рассписанию。
-
-缓冲区或缓冲区：
-
-```
-function getSnapshot(){
-    sendTo('onvif.0', 'getSnapshot', {"id":"192_168_1_4_80"}, (result) => {
-        if (result.err) log(result);
-        if (result.img){
-			log('image принят: ' + typeof result.img);
-            sendTo('telegram.0', {
-                user: 'user',
-                text: result.img.rawImage,
-                type: 'photo',
-                caption: 'Camera 1'
-			});
-		}
+## Bewegungsmeldung 电报
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+      if (result) {
+        sendTo("telegram.0", {
+          text: result,
+          type: "photo",
+          caption: "Camera 2",
+        });
+      }
     });
-}
+  }
+});
 ```
 
-### События Камеры
-натобыотключитьподпискунасобытияоткамеры，необходимовыставитьсостояние`subscribeEvents = false`иперезапуста。
-Приизменениивпанелиадминистратора，перезугрузкаадаптеравыполняетсяавтоматически。
+## Vis einbinden 中的快照
+Wenn möglich die snapshotUri verwenden z.B.
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-События имеют тип "Объект", например:
+### _Den Datenpunkt nicht als Stream verwenden，da sonst die Festplatte zu hohe Last hat._
+#### Den Datenpunkt aktualisieren 通过 onvif.0.IP_PORT.remote.snapshot
+Den Datenpunkt onvif.0.IP_PORT.snapshot ein `String img src` element zuordnen
 
-```
-{
-	'Value': false,
-	'UtcTime': '2020-04-26T17:35:34.000Z'
-}
-```
+Oder als Alternative falls `String img src` nicht funktioniert
 
-`Value`-значение/состояние，`UtcTime`-времяизменениязначения/состояния
+Den Datenpunkt onvif.0.IP_PORT.snapshot als `HTML` 元素在 die vis einfügen mit folgendem Inhalt 中
 
-Т.к. адаптерработаетпоподпискенасобытия，товремясостояния`state.ts`можетнесовпадатьсеельным
-
-## ENG
-###定制
-1.打开驱动程序设置
-2.按下扫描按钮（右上方）
-3.输入必要的设置或保留默认值：
-
-startRange-扫描范围的起始ip地址，End Range-扫描范围的终止ip地址，Port list-onvif服务的逗号分隔端口（默认值：80、7575、8000、8080、8081），用户名-默认管理员，密码-默认管理员
-
-4.按开始扫描
-
-如果一切操作正确，则找到的摄像机将出现在设置的主窗口中，并在几秒钟之内必须收紧快照。
-
-###活动
-驱动程序自动订阅已配置摄像机的事件。
-摄像机生成的事件将显示在以下对象中：
-
-```
-onvif.0.122_116_220_230_2033.message.ruleengine.cellmotiondetector.motion.IsMotion
-onvif.0.122_116_220_230_2033.message.ruleengine.tamperdetector.tamper.IsTamper
+```javascript
+<img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
 
-###快照请求
-为此，请使用以下命令：`sendTo('onvif.0', command, message, callback);`
+＃ 英语
+## 添加摄像头
+### 发现：
+每次启动适配器时，都会使用在设置中输入的用户名和密码执行发现，并尝试登录摄像机。如果相机尚未添加到对象下。
 
-请求快照并发送到Telegram的脚本示例：
+您可以在设置中手动执行发现。如果摄像机有不同的凭据，您必须输入它们并执行发现。在日志中，您可以看到该过程的详细信息。
 
-```
-const fs = require('fs');
+为了再次检测到摄像机，只需在对象下将其删除即可。
 
-function getSnapshot(caption){
-    sendTo('onvif.0', 'saveFileSnapshot', {"id":"192_168_1_4_80", "file":"/opt/cameras/snapshot.jpg"}, (data) => {
-        console.log('image received: ' + data);
-        if (data === "OK")
-            sendTo('telegram.0', {text: '/opt/cameras/snapshot.jpg', caption: caption});
+### 手动搜索
+如果 Discovery 不起作用，可以手动搜索摄像机。为此，必须手动输入和执行 IP 范围和端口。在日志中，您可以看到有关该过程的详细信息。
+
+＃＃ 数据点
+onvif.0.IP_PORT.events 相机事件，例如运动检测。有时您必须触发事件才能看到它。
+
+onvif.0.IP_PORT.general 有关相机的一般信息
+
+onvif.0.IP_PORT.infos 有关相机的信息仅在适配器启动或 remote.refresh 时更新
+
+视频和快照网址：
+
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
+
+onvif.0.IP_PORT.remote 摄像头控制
+
+onvif.0.IP_PORT.remote.refresh 更新信息数据
+
+onvif.0.IP_PORT.remote.gotoHomePosition 将 PTZ 摄像机设置为起始位置
+
+onvif.0.IP_PORT.remote.gotoPreset 选择云台摄像机预置位号
+
+onvif.0.IP_PORT.remote.snapshot 保存快照到onvif.0.IP_PORT.snapshot
+
+＃＃ 信息
+适配器接收消息“快照”并返回图像
+
+```javascript
+sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+  if (result) {
+    sendTo("telegram.0", {
+      text: result,
+
+      type: "photo",
+
+      caption: "camera2",
     });
-}
+  }
+});
 ```
 
-*标题*-前往电报中的图像可能在事件中以及根据按钮/时间表导致事件。
+## 到 Telegram 的运动消息
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    sendTo("onvif.0", "snapshot", "192_168_178_100_80", (result) => {
+      if (result) {
+        sendTo("telegram.0", {
+          text: result,
 
-加载到文件位置的中间Buffer中的选项：
+          type: "photo",
 
-```
-function getSnapshot(){
-    sendTo('onvif.0', 'getSnapshot', {"id":"192_168_1_4_80"}, (result) => {
-        if (result.err) log(result);
-        if (result.img){
-			log('image received: ' + typeof result.img);
-            sendTo('telegram.0', {
-                user: 'user',
-                text: result.img.rawImage,
-                type: 'photo',
-                caption: 'Camera 1'
-			});
-		}
+          caption: "Camera 2",
+        });
+      }
     });
-}
+  }
+});
 ```
 
-###相机事件
-要从摄像机断开对事件的订阅，您需要设置状态`subscribeEvents = false`并重新启动适配器。
-在管理面板中更改时，适配器会自动重新启动。
+## 在 vis 中包含快照
+尽可能使用快照 url
 
-事件的类型为“对象”，例如：
+onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
+不要将此数据点用作流，因为 HDD 上的负载太高。
+
+将 `String img src` 元素分配给数据点 onvif.0.IP_PORT.snapshot
+
+将数据点 onvif.0.IP_PORT.snapshot 作为 `HTML` 元素添加到 vis 中，内容如下
+
+```javascript
+<img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
 ```
-{
-	'Value': false,
-	'UtcTime': '2020-04-26T17:35:34.000Z'
-}
-```
 
-`Value`-值/状态，`UtcTime`-状态更改时间
-
-因为适配器通过订阅事件来工作，所以`state.ts`的状态时间可能与摄像机中事件的实时时间不一致。
+## 讨论/讨论和讨论
+<https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
 
-### 0.4.3 (2020-05-08)
-* (haba1234) Snapshot preview is squeezed
-* (haba1234) Preview is buffered and not requested again
-* (haba1234) After a minute, re-subscribe to camera events after 4 errors
-* (haba1234) Support digest authentification
-* (haba1234) node >= 10
+### 1.0.2
 
-### 0.4.2 (2020-05-03)
-* (haba1234) Updated admin panel
+- (TA2k) Fixed a reonnect and empty event bug
 
-### 0.4.1 (2020-04-27)
-* (haba1234) States as an Object
-* (haba1234) Error control 'pullMessages'. Disconnect if there are more than three errors
-* (haba1234) Encryption disabled. Compatibility issues
+### 1.0.1
 
-### 0.3.0 (2020-04-24)
-* (haba1234) Added support for the Discovery adapter
-* (haba1234) Added password encryption
-
-### 0.2.0 (2020-04-21)
-* (haba1234) Added camera settings
-* (haba1234) Changes in the structure of objects (ATTENTION! After updating, delete cameras and add again)
-* (haba1234) Fixed issue [#9](https://github.com/Haba1234/ioBroker.onvif/issues/9)
-
-### 0.1.2 (2020-04-19)
-* (haba1234) Fixed uncaught exception: The \"chunk\" argument must be one of type string or Buffer
-* (haba1234) Add state 'subscribeEvents'
-
-### 0.1.1 (2020-04-18)
-* (haba1234) Port polling bug fixed
-
-### 0.1.0 (2020-04-15)
-* (haba1234) bag fix and different little things
-* (haba1234) compact mode
-* (haba1234) deprecated 'request' is replaced by class 'http'
-* (haba1234) 'onvif-snapshot' is replaced by class 'http'
-* (haba1234) Added translate
-* (haba1234) Refactoring code
-
-### 0.0.2 (2018-11-20)
-* (haba1234) add events and snapshot
-
-### 0.0.1 (2018-02-20)
-* (Kirov Ilya) intial commit
+- (TA2k) initial new release
 
 ## License
 
-The MIT License (MIT)
+MIT License
 
-Copyright (c) 2018-2020 Haba1234 <b_roman@inbox.ru>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+```
+
+```

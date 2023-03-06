@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scheduler/README.md
 title: Адаптер планировщика ioBroker
-hash: 8EINMhe99lMcUx8egAyQ+uN/Bo6A475OmLl3QZrBSvo=
+hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -22,13 +22,30 @@ hash: 8EINMhe99lMcUx8egAyQ+uN/Bo6A475OmLl3QZrBSvo=
 
 Пользователь должен добавить устройства в профиль, и все устройства в профиле будут иметь одинаковое значение.
 
-![Снимок экрана](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
+Этот адаптер имеет виджет vis2.
+
+![Скриншот](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### **ВЫПОЛНЯЕТСЯ** -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.1.2 (2023-03-02)
+* (bluefox) Added widget for vis-2
+
+### 1.0.4 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.0.3 (2022-06-22)
+* (bluefox) Made it work with ioBroker cloud
+
+### 1.0.2 (2022-06-20)
+* (bluefox) Corrected the problem with `socket.io`
+
+### 1.0.1 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
 
@@ -47,7 +64,7 @@ hash: 8EINMhe99lMcUx8egAyQ+uN/Bo6A475OmLl3QZrBSvo=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

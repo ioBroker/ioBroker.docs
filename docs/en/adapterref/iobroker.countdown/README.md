@@ -80,6 +80,9 @@ Parameters here are:
 
 ## Changelog
 
+## 1.3.0 (2023-02-22) 
+* (jack-blackson) Updates for dependencies
+
 ## 1.2.5 (2021-06-16) 
 * (jack-blackson) Bugfix to delete countdown with sendto
 
@@ -162,7 +165,7 @@ Parameters here are:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2023 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

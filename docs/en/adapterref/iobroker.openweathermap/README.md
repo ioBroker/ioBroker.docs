@@ -20,6 +20,12 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.6 (2023-02-27)
+* (Bluefox) Installation from GitHub does not possible anymore
+
+### 0.3.4 (2023-02-22)
+* (Bluefox) Updated packages
+
 ### 0.3.3 (2022-10-24)
 * (Bluefox) Updated widget for vis 2.0
 
@@ -50,7 +56,7 @@ You need an api key to access the data. The api key you can get for free after r
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

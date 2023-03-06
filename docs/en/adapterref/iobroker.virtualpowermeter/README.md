@@ -11,8 +11,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.virtualpowermeter.png?downloads=true)](https://nodei.co/npm/iobroker.virtualpowermeter/)
 
-**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Omega236/ioBroker.virtualpowermeter/master.svg)](https://travis-ci.org/Omega236/ioBroker.virtualpowermeter)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Omega236/ioBroker.virtualpowermeter?branch=master&svg=true)](https://ci.appveyor.com/project/Omega236/ioBroker-virtualpowermeter/)
+**Tests:** ![Test and Release](https://github.com/Omega236/ioBroker.testtheportal/workflows/Test%20and%20Release/badge.svg)
 ![License](https://img.shields.io/npm/l/iobroker.virtualpowermeter.svg)
 ## virtualpowermeter adapter for ioBroker
 

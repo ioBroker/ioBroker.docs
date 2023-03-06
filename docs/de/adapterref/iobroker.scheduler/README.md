@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scheduler/README.md
 title: ioBroker Scheduler-Adapter
-hash: 8EINMhe99lMcUx8egAyQ+uN/Bo6A475OmLl3QZrBSvo=
+hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 ---
 ![Logo](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -22,6 +22,8 @@ Für jedes Profil wird die aktive Variable erstellt. Der Benutzer kann jedoch ei
 
 Der Benutzer sollte Geräte zum Profil hinzufügen und alle Geräte im Profil werden auf denselben Wert gesetzt.
 
+Dieser Adapter hat ein vis2-Widget.
+
 ![Bildschirmfoto](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
@@ -29,6 +31,21 @@ Der Benutzer sollte Geräte zum Profil hinzufügen und alle Geräte im Profil we
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.1.2 (2023-03-02)
+* (bluefox) Added widget for vis-2
+
+### 1.0.4 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.0.3 (2022-06-22)
+* (bluefox) Made it work with ioBroker cloud
+
+### 1.0.2 (2022-06-20)
+* (bluefox) Corrected the problem with `socket.io`
+
+### 1.0.1 (2022-06-20)
+* (bluefox) Allowed to work behind reverse proxy
+
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
 
@@ -47,7 +64,7 @@ Der Benutzer sollte Geräte zum Profil hinzufügen und alle Geräte im Profil we
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

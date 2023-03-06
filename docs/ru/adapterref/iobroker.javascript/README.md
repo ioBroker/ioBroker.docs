@@ -2685,6 +2685,16 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bluefox) Breaking change: all usages of `jsonata` must be rewritten to use promises.
+* (bluefox) Breaking change: all blockly scripts with `jsonata` blocks must de changed (just move some blocks) and saved anew.
+* (bluefox) Extended `createState` command with possibility to create aliases. 
+* (bluefox) Corrected CRON card in rules 
+* (bluefox) Added additional options to show the attributes of object in blockly
+* (bluefox) Corrected `existsStateAsync` function
+* (bluefox) Added `isDaylightSaving` state to indicate day saving time
+* (AlCalzone) Pinned `@types/node` to v14
+
 ### 6.2.0 (2023-02-17)
 * (Apollon77) Prevented duplicate schedule triggering with inaccurate RTC clocks
 * (Apollon77) Fixed sendToAsync and sendToHostAsync
@@ -2702,14 +2712,6 @@ return 'your result';
 
 ### 6.1.2 (2022-11-03)
 * (bluefox) Added ukrainian translation
-
-### 6.1.0 (2022-11-03)
-* (Apollon77) Add a configurable check for number of setStates per Minute to prevent scripts from taking down ioBroker. Default are 1000 setState per minute. Only stops if the number is reached 2 minutes in a row!
-* (Apollon77) Add createAlias method to create aliases for states
-* (Apollon77) Add setStateDelayed to selector
-* (Apollon77) Add options to exec command
-* (Apollon77) Fix issues with cancelling schedules when stopping scripts
-* (bluefox) Corrected debug mode
 
 ## License
 The MIT License (MIT)

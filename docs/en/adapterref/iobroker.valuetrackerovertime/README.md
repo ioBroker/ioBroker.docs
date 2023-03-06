@@ -30,6 +30,7 @@ In the secion "Detailed History", the datapoints to be created will be selected.
 * month
 * quarter (of a year)
 * Year
+* Infinite (never reset)
 
 #### Current / previous data
 In the section "Current / previous data" you are able to select how long you want to keep the collected data for every ValueTrackerOverTime-datapoint which is generated for each timeframe.
@@ -55,6 +56,14 @@ In the picture there are three examples given. Since the screenshot was taken on
 * The energy consumtion however will show you that the current day for the computer is set to 0.351kWh, the week is set to 1.909 kWh and the year is set to 1.393 kWh (which is because today is Sunday and the week is already 7 days old, but it is also the 3rd of January which makes the year only three days old).
 
 ## Changelog
+### 1.0.1 (02.03.2023)
+* (Omega236) add work setting
+* (Omega236) remove Pre Admin 5 support
+* (Omega236) add Translation
+* (Omega236) update dependencies
+* (Omega236) Git Actions instead of travis
+### 1.0.0 (26.02.2023)
+* (Omega236) Final version 1.0.0 with Infinite Counter
 ### 0.6.2 (30.01.2022)
 * (Omega236) counterResetDetection was missing in customjson
 ### 0.6.1 (16.01.2022)
@@ -89,7 +98,7 @@ In the picture there are three examples given. Since the screenshot was taken on
 ## License
 MIT License
 
-Copyright (c) 2021 Omega236 <general.of.omega@googlemail.com>
+Copyright (c) 2023 Omega236 <general.of.omega@googlemail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

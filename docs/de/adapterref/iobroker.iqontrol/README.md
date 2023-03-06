@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: z44BBRt/tSGEcK1Ken2m48acHbbaDT5BA/0JbI76vss=
+hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -208,7 +208,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Jede Kachel hat eine Background_URL und einen Background_HTML-Datenpunkt
 * Hier können Sie einen Link (perHINTERGRUND_URL) zu einer Website definieren oder direkten HTML-Code (perHINTERGRUND_HTML) platzieren, der als Hintergrund der Kachel angezeigt wird
 * Dies gibt Ihnen die Möglichkeit, (interaktive) Inhalte innerhalb einer Kachel zu platzieren (wie Uhren, FLOT-Charts, Tabellen, Wettervorhersagen usw.)
-* Standardmäßig werden Mausereignisse an diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML "
+* Standardmäßig werden Mausereignisse auf diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von "HINTERGRUND_ANSICHT/URL/HTML" deaktivieren "
 * iQontrol bietet eine Geräterolle "Widget" mit einigen vordefinierten Optionen, die meistens verwendet werden, wenn eine Website als Widget angezeigt wird. Aber Sie können das gleiche Ergebnis mit jeder anderen Rolle erzielen, indem Sie die Geräteoptionen richtig ändern.
 
 ![Popup-Screenshot](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
@@ -230,11 +230,11 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
 * Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
-* Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
+* Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
 * Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
-* Dadurch wird der ioBroker-Zustand `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
+* Dadurch wird der ioBroker-Status `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
@@ -462,9 +462,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
           ```
 
  * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* `type` ist optional und kann `text` (Standard), `number`, `checkbox`, `color`, `select`, `multipleSelect`, `combobox`, `historyInstance`, `datapoint` sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
+* „type“ ist optional und kann „text“ (standardmäßig), „number“, „checkbox“, „color“, „select“, „multipleSelect“, „combobox“, „historyInstance“, „datapoint“ sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
 * Wenn der Typ „select“, „multipleSelect“ oder „combobox“ ist, müssen Sie die möglichen Optionen angeben, indem Sie „/<selectOptions>“ hinzufügen, wobei „<selectOptions>“ eine Zeichenfolge im Format „<value1>,<“ ist caption1>/<value2>,<caption2>/...` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
-* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Maximal- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
+* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Höchst- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
 * Die Typen `section`, `divider`, `info` und `link` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für `link` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
 * Type `hidden` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String (wie `widget.html?parameter=value&parameter2=value2`) übergeben.
@@ -535,10 +535,10 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `alternativeColorspace` (Colorspace for ALTERNATIVE_COLORSPACE_VALUE") - nur gültig für Rolle Light:
 * Mögliche Werte: ""|"RGB"|"#RGB"|"RGBW"|"#RGBW"|"RGBWWCW"|"#RGBWWCW"|"RGBCWWW"|"#RGBCWWW"|"RGB_HUEONLY"|"#RGB_HUEONLY "|"HUE_MILIGHT"|"HHSSBB_TUYA"
 * Standard: ""
-* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
+* `linkOverlayActiveColorToHue` (Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Light:
+* `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
@@ -874,6 +874,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: „falsch“.
 * ABZEICHEN:
 * `badgeWithoutUnit` (Badge-Wert ohne Einheit anzeigen):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
+* `showBadgeIfZero` (Abzeichen anzeigen, auch wenn der Wert Null ist):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * GLÜHEN:
@@ -1397,7 +1400,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 * **UNREACH**: *boolean* - wenn wahr, wird ein kleines Wireless-Icon angezeigt
     * Das Verhalten kann im Abschnitt „Allgemein“ der Optionen umgekehrt werden (verwenden Sie „verbunden“ anstelle von „nicht erreichbar“)
 * **ENLARGE_TILE**: *boolean* - wenn wahr, wird die Kachel vergrößert. Sie können dies überschreiben, indem Sie auf die Schaltfläche „Vergrößern/Verkleinern“ klicken. Aber jedes Mal, wenn sich der Zustand von ENLARGE_TILE ändert, übernimmt es wieder die Kontrolle über den Vergrößerungszustand der Kacheln. Wenn die Rolle von `ENLARGE_TILE` `button` ist, wird jede Zustandsänderung den Vergrößerungszustand umschalten
-* **BADGE**: *number* or *string* - wenn ein anderer Wert als null/false vorhanden ist, dann wird ein Badge in der oberen linken Ecke mit diesem Wert angezeigt
+* **BADGE**: *number* or *string* - wenn ein anderer Wert als null/false vorhanden ist, dann wird ein Badge in der oberen linken Ecke mit diesem Wert angezeigt. Kann so konfiguriert werden, dass es auch angezeigt wird, wenn der Wert Null ist, oder dass die Einheit ignoriert wird
   ***BADGE_COLOR**:* tring* – jede gültige HTML-Farbzeichenfolge (wie „green“, „#00FF00“, „rgba(0,255,0,0.5)“ usw.), die die Farbe des Abzeichens darstellt . Wenn nicht vorhanden oder ungültig, wird Rot mit 20 % Transparenz verwendet.
 
     ![Abzeichen](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
@@ -1458,7 +1461,7 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ```
 
-        * **HHSSBB für Tuya**: 12-stelliger Hex-String, der Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
+        * **HHSSBB für Tuya**: 12-stellige Hex-Zeichenfolge, die Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
 
 Beachte: Die Konvertierung in den alternativen Farbraum erfolgt über das Frontend, ist also nur aktiv, wenn iQontrol irgendwo geöffnet ist. Daher können Sie es nicht als Konverter für Farbräume verwenden. Um Konversationsschleifen zu vermeiden, wird empfohlen, entweder die ursprünglichen Farbraum-Datenpunkte (HUE, SATURATION, COLOR_BRIGHTNESS, CT, WHITE_BRIGHTNESS) *oder* den alternativen Farbraum-Datenpunkt zu verwenden, um diese Datenpunkte zu *ersetzen*.
 
@@ -1581,7 +1584,7 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 | | | Mach | 1. 2. ... 30. 31. | X | --- (umgewandelt in D) | --- (umgewandelt in D) |
 | | Monat | M | 1 2 ... 11 12 | X | X | X |
 | | | MM | 01 02 ... 11 12 | X | X | X |
-| | | MMM | Jan Feb ... Nov Dez | X | X | X |
+| | | MM | Jan Feb ... Nov Dez | X | X | X |
 | | | MMMM | Januar Februar ... November Dezember | X | X | X |
 | | | Mo | 1. 2. ... 11. 12. | X | --- (umgewandelt in M) | --- (umgewandelt in M) |
 | | Jahr | Y | 1970 1971 ... 9999 +10000 +10001 | X | X | X |
@@ -1741,6 +1744,8 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
 ### **WORK IN PROGRESS**
 * (sbormann) You can now chose destination when copying devices.
 * (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
+* (sbormann) Added option to hide slider for LEVEL, if favorites are set.
+* (sbormann) Added option to show BADGE, even if value is zero.
 
 ### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.

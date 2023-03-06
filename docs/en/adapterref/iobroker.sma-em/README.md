@@ -65,6 +65,11 @@ In addition to the states in non-extended mode, the following values are availab
 -->
 
 ## Changelog
+### 0.6.6 (2023-02-28)  2023 maintenance release
+
+- (pdbjjens) Updated dependencies
+- (pdbjjens) New: Use adapter-dev instead of gulp translate
+
 ### 0.6.5 (2022-02-19)
 
 - Updated dependencies
@@ -90,19 +95,6 @@ In addition to the states in non-extended mode, the following values are availab
 - (TGuybrush) Top level hierarchy object description indicates if the device is a SMA Energy Meter or a SMA Home Manager 2.
 - (DutchmanNL) Released to the latest repo, fixed some typo's + news and translations
 
-### 0.6.0
-
-- (TGuybrush) Fixed wrong status information
-  - Complete adapter core rewritten to extract the status values by their OBIS value instead of the absolute position in the received UDP message according to the SMA documentation.
-  - Improved compatibility to future new OBIS values
-- (TGuybrush) Add additional status information
-  - Power grid frequency
-  - Time tick counter
-  - SMA SUSy ID
-  - Software Version
-
-- Add a timestamp for each received status information
-
 ## Legal Notices
 
 SMA and Sunny Home Manager are registered trademarks of SMA Solar Technology AG <https://www.sma.de/en.html>
@@ -115,7 +107,7 @@ The authors are in no way endorsed by or affiliated with SMA Solar Technology AG
 
 The MIT License (MIT)
 
-Copyright (c) 2022 IoBroker-Community
+Copyright (c) 2023 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

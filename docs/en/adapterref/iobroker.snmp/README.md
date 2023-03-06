@@ -1,14 +1,25 @@
 ![Logo](admin/snmp.png)
 # ioBroker.snmp
 
-![Number of Installations](http://iobroker.live/badges/snmp-installed.svg)
-![Number of Installations](http://iobroker.live/badges/snmp-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.snmp.svg)](https://www.npmjs.com/package/iobroker.snmp)
-
-![Test and Release](https://github.com/iobroker-community-adapters/iobroker.snmp/workflows/Test%20and%20Release/badge.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.snmp)](https://github.com/iobroker-community-adapters/ioBroker.snmp/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.snmp.svg)](https://www.npmjs.com/package/iobroker.snmp)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.snmp)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/snmp/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.snmp)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.snmp/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.snmp)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.snmp)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.snmp.svg)](https://www.npmjs.com/package/iobroker.snmp)
+![Current version in stable repository](https://iobroker.live/badges/snmp-stable.svg)
+![Number of Installations](https://iobroker.live/badges/snmp-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.snmp/actions/workflows/codeql.yml)
 
+## Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -20,11 +31,25 @@ This adapter can be used to poll information from devices like printers, network
 <!--
 ## __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (McM1957) Support to write to oids has been implemented. (#150)
-* (McM1957) Major parts of code have been rewritten so support iod writing.
+### 2.4.3 (2023-03-01)
+* (McM1957) Translations and dependencies have been updated.
+
+### 2.4.2 (2023-02-25)
+* (McM1957) A problem reported by sentry has been fixed. (#230)
+
+### 2.4.1 (2023-02-22)
+* (McM1957) An error at configuration pages has been corrected. (#228)
+
+### 2.4.0 (2023-02-21)
+* (McM1957) Support to write data to oids has been implemented. (#150)
+* (McM1957) Major parts of code have been rewritten so support oid writing.
 * (McM1957) States containing type information can be disabled now. (#218)
-* (McM1957) States indicatin g online and error status of devices have been added.
+* (McM1957) States indicating online and error status of devices have been added. State 'online' has been moved to folder info.
+* (McM1957) Devicestatus is now displayed at object view using colour and icons.
+* (McM1957) Data type 'automatic' has been added to oid states datatype selector.
+* (McM1957) A problem reported by sentry has been fixed. (#224)
+* (McM1957) An incorrect setting of ack flags has been corrected. (#225)
+* (McM1957) Support for sha224, sha256, sha384 and sha512 message authentication has been added (#210)
 
 ### 2.3.0 (2022-12-13)
 * (McM1957) Add support for using native datatypes for states. (#143)
@@ -180,7 +205,7 @@ Here you specify some general options
 ## __License__
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
+Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -14,6 +14,8 @@ For every profile the active variable will be created. But the user can select o
 
 The user should add devices to profile and all devices in profile will be set to the same value.
 
+This adapter has vis2 widget.
+
 ![Screenshot](img/scheduler.png)
 
 <!--
@@ -22,6 +24,9 @@ The user should add devices to profile and all devices in profile will be set to
 -->
 
 ## Changelog
+### 1.1.2 (2023-03-02)
+* (bluefox) Added widget for vis-2
+
 ### 1.0.4 (2022-12-23)
 * (bluefox) Updated GUI packages
 
@@ -52,7 +57,7 @@ The user should add devices to profile and all devices in profile will be set to
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
