@@ -146,5 +146,6 @@
   "RSS Feed": "RSS-Feed",
   "Docker vs Normal": "Docker vs. normal",
   "Object DB Types": "Objekt-DB-Typen",
-  "State DB Types": "Zustands-DB-Typen"
+  "State DB Types": "Zustands-DB-Typen",
+  "platform": "Plattform"
 }

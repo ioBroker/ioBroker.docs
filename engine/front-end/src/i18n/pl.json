@@ -146,5 +146,6 @@
   "RSS Feed": "Kanał RSS",
   "Docker vs Normal": "Docker a normalny",
   "Object DB Types": "Typy obiektów baz danych",
-  "State DB Types": "Typy stanowych baz danych"
+  "State DB Types": "Typy stanowych baz danych",
+  "platform": "Platforma"
 }

@@ -146,5 +146,6 @@
   "RSS Feed": "RSS Feed",
   "Docker vs Normal": "Ventana acoplable frente a Normal",
   "Object DB Types": "Tipos de bases de datos de objetos",
-  "State DB Types": "Tipos de bases de datos estatales"
+  "State DB Types": "Tipos de bases de datos estatales",
+  "platform": "Plataforma"
 }

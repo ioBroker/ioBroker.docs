@@ -1,5 +1,14 @@
 [
-    {
+  {
+    "file": "win/iobroker-installer-2.0.0.exe",
+    "platform": "Windows 32/64Bit",
+    "date": "20230306",
+    "device": "Windows",
+    "details": "Small Windows Installer",
+    "picture": "windows.png",
+    "info1": "https://forum.iobroker.net/post/446928"
+  },
+  {
     "file": "win/iobroker-latest-windows-installer.exe",
     "platform": "Windows 32/64Bit",
     "date": "20191123",

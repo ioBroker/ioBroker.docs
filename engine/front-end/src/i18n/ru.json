@@ -146,5 +146,6 @@
   "RSS Feed": "Новостная лента",
   "Docker vs Normal": "Докер vs Normal",
   "Object DB Types": "Типы БД объектов",
-  "State DB Types": "Типы БД состояний"
+  "State DB Types": "Типы БД состояний",
+  "platform": "Система"
 }
