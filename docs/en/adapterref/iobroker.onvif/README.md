@@ -87,6 +87,12 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
+## Snapshot Server in vis einbinden
+
+Der Adapter bietet ein Snapshot Server ohne Passwort an. Dazu Server aktivieren in den Instanzeinstellungen und dann kann der aktuelle Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 abgerufen werden.
+
+In der Vis ein Image Widget einfügen und die Url als Quelle angeben und eine Updatezeit auswählen
+
 ## Snapshot in vis einbinden
 
 Wenn möglich die snapshotUri verwenden z.B.
@@ -203,6 +209,10 @@ Add the datapoint onvif.0.IP_PORT.snapshot as `HTML` element to vis with the fol
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+
+### 1.0.3
+
+- (TA2k) Minor bugfixes
 
 ### 1.0.2
 

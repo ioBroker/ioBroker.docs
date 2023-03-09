@@ -14,13 +14,15 @@ CI-Tests:
 [![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)](https://nodei.co/npm/iobroker.kostal-piko-ba/)
 
 ## Adapter for reading Kostal Piko & Piko BA data for iOBroker
-Adapter for reading Kostal Piko & Piko BA data. Adapter creates some states and updates them sequentially.
-Adapter working with Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17, 20 & 36 inverters. 
+Adapter for reading Kostal Piko, Piko BA and PIKO MP plus data. Adapter creates some states and updates them sequentially.
+Adapter designed for Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA inverters.
+Adapter also working with Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 inverters. 
+NEW! Adapter now working with MP plus inverters - first tested: Kostal PIKO 3.0-1 MP plus.
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
-Be aware that your inverter has to be updated to Kostal UI >= 6.11!
-To connect to the Kostal Pico (BA) inverter, setting its IP-address in the config is mandatory.
+Be aware that your Piko or Piko BA inverter has to be updated to Kostal UI >= 6.11!
+To connect to the Kostal Pico (BA / MP plus) inverter, setting its IP-address in the config is mandatory.
 You could also edit the update frequencies of live data, daily and livetime statistics.
 If needed, set the mark for read-out of the 4 analog values, too.
 
@@ -31,8 +33,13 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for security.
 
-### 2.4.0 (05.03.2023)
-* (HombachC) added support of DC-values for Piko MP inverters
+### 2.4.2 (07.03.2023)
+* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) added Piko MP Plus total yield
+### 2.4.1 (06.03.2023)
+* (HombachC) fixed Piko MP Plus support for two channel hardware
+### 2.4.0 (06.03.2023)
+* (HombachC) added support of AC and DC power values for Piko MP inverters
 ### 2.3.1 (05.03.2023)
 * (HombachC) fix error with zero values in DC & AC
 ### 2.3.0 (26.02.2023)

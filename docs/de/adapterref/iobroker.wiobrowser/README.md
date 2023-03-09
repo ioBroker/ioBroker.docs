@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
+hash: L+GWT3kskhrkMYunsdCKJiLoBaHt1OAfuQs2cphxCng=
 ---
 ![Logo](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
@@ -14,19 +14,22 @@ hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
 
 # IoBroker.wiobrowser
 ## Die Info
-Steuerung eines Windows-Vollbildbrowser-Adapters für ioBroker
+Steuerung eines Windows-Vollbildbrowsers mit SIP-Client-Adapter für ioBroker
 
-Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu steuern. Es gibt 3 verschiedene wioBrowser Apps: + wioBrowser WebView2 Framework + wio Browser Chromium Framework + wioNoweb (gleiche Funktionen ohne Web)
+Dieser Adapter verbindet sich über tcp.socket mit dem wioBrowser, um ihn zu steuern. Es gibt 2 verschiedene wioBrowser-Apps: + wio Browser Chromium Framework + wioNoweb (gleiche Funktionen ohne Web und SIP)
 
 wioBrowser ist ein über ioBroker steuerbarer Windows-Vollbildbrowser, der einzelne Webseiten oder eine im Adapter einstellbare Webseiten-Slideshow anzeigt. Außerdem werden Informationen an den Adapter übermittelt: + CPU-Auslastung + freier Speicher + aktuelle Akkuentladung auf Tablet oder Notebook + Hostname + IP
 
-Er kann auch steuern: + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Nachrichten sprechen + Audiodateien abspielen
+Er kann auch steuern: + SIP-Client + Bildschirm ein/aus + App beenden + Lautstärke +/- + Stumm ein/aus + Helligkeit +/- + Programme mit Schaltern ausführen, z. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + Textnachrichten + Nachrichten sprechen + Audiodateien abspielen
 
 ## Verknüpfung
 * [Adapter-Thread im ioBroker-Forum](https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
 * [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) von Benutzer hydrotec
 
 ## Changelog
+### 2.0.0
+* (bettman66) add sip
+
 ### 1.1.4
 * (bettman66) play audiofile
 

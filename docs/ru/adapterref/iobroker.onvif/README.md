@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: lNKe1hc/MAwdDYoaBwZP03WgECjTw4IOZ1O5qv7OzIg=
+hash: F2tuDV4GbZhUASUcdgAfL+tR0mD3CzRd1Q4dFl1UGcY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -84,6 +84,11 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
   }
 });
 ```
+
+## Сервер моментальных снимков в сети
+Адаптер установлен на сервере моментальных снимков без пароля. Dazu Server aktivieren in den Instanzeinstellungen und dann kann der aktuelle Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 абгеруфен верден.
+
+In der Vis ein Image Widget einfügen und die Url als Quelle angeben und eine Updatezeit auswählen
 
 ## Снимок в vis einbinden
 Wenn möglich die snapshotUri verwenden z.B.
@@ -189,6 +194,10 @@ onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.ur
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+
+### 1.0.3
+
+- (TA2k) Minor bugfixes
 
 ### 1.0.2
 

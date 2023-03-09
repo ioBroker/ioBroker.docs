@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: 9o4axAC16Kpye31rAnAtrOIgzq9tMBNRg4WzSQ3AcI8=
+hash: pVmHXIrFw/pfk7p7SHdAgL1Wjq4QZsO9qIKgBGk65/w=
 ---
 ![标识](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -54,6 +54,9 @@ WMBUS 堆栈已从 FHEM 项目“重新移植”，并进行了广泛的修复�
 
 ＃＃ 去做
 * 为 S 模式接收器发送电报？
+
+## 0.8.10
+*（ChL）独立于制造商代码使用紧凑型帧缓存
 
 ## 0.8.9
 *（ChL）修复管理页面中非默认设置的显示

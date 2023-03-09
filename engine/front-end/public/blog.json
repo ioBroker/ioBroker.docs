@@ -12,7 +12,7 @@
       "type": "news",
       "originalName": "2023_02_15.md",
       "desc": {
-        "de": "## JS-Controller 4.0.24 und Node.js 18: Ein Update lohnt sich\\nDie neueste Version des JS-Controllers, Version 4.0.24, verbessert die Kompatibilität mit Node.js 18. Sie bevorzugt weiterhin IPv4-Adressen, was in Node.js 18 geändert wurde. Darüber hinaus wird Node.js 18 zur empfohlenen Version, da Node.js 14 und 16 im Laufe dieses Jahres ihr End of Life erreichen werden. Dies ist ein wichtiger Schritt, um die Stabilität und Sicherheit Ihres Systems sicherzustellen.",
+        "de": "## JS-Controller 4.0.24 und Node.js 18: Ein Update lohnt sich",
         "en": "## JS controller 4.0.24 and Node.js 18: An update is worthwhile",
         "ru": "## JS-контроллер 4.0.24 и Node.js 18: стоит обновить",
         "zh-cn": "## JS 控制器 4.0.24 和 Node.js 18：值得更新"

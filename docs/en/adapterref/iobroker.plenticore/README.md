@@ -74,7 +74,9 @@ This channel contains information about the AC side of the inverter. Most import
 `plenticore.X.devices.local.battery.Charge_P` - the current battery charging power (0 if discharging)  
 `plenticore.X.devices.local.battery.Discharge_P` - the current battery discharging power (0 if charging)  
 `[**] plenticore.X.devices.local.battery.SmartBatteryControl` - true if the smart battery management is enabled. Regarding the official manual this shall only be enabled if there is no further AC source like a second inverter involved  
-`[**] plenticore.X.devices.local.battery.ExternControl` - 0 to enable internal control, 1 for external digital I/O, 2 for external Modbus TCP
+`[**] plenticore.X.devices.local.battery.ExternControl` - Can only be set from web interface as installateur. For control via ioBroker use the states ExternControl_DcPowerAbs and ExternControl_MaxChargePowerAbs while ExternControl is set to 2 (Modbus TCP).
+`[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - DANGER:Use this only if you know what you do, wrong usage can damage your battery! IMPORTANT: The value has to be Updated every 3 minutes, otherwise the plenticore switches to internal control unless it receives a new value. This state is only available if ExternControl is set to 2 (Modbus TCP). The value is in Watt and can be set from -10000 to 10000. A negative value means that the battery is discharging, a positive value means that the battery is charging.
+`[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - DANGER: Use this only if you know what you are doing, wrong use can damage your battery! IMPORTANT: The value has to be Updated every 3 minutes, otherwise the plenticore switches to internal control unless it receives a new value. This state is only available if ExternControl is set to 2 (Modbus TCP).
 `plenticore.X.devices.local.battery.SoC` - the current state of charge of the battery  
 
 #### plenticore.X.devices.local.inverter
@@ -192,6 +194,9 @@ Details:
 - A hysteresis is used to switch on/off less often. It will turn off when the current SoC is less than the "Minimum SoC to activate battery management" or when the free power is below 0. It will turn on when the current SoC is greater than "Minimum SoC to activate battery management"+1 and the free power is greater than 10% of the battery capacity.
 
 ## Changelog
+
+### 2.3.0
+- (Jey Cee) Added possibility to control battery charging
 
 ### 2.2.2
 - Added alternative smart battery strategy (Description see above) [PastCoder]

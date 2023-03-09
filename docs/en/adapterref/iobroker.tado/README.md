@@ -44,8 +44,9 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.4.5 (2023-03-08)
 * (HGlab01) Add attribute 'sensorType' (#604)
+* (HGlab01) Bump axios to 1.3.4
 
 ### 0.4.4 (2023-02-03)
 * (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
@@ -64,11 +65,6 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 * (HGlab01) Add attribute isBalanceAcEligible
 * (HGlab01) Bump axios from 0.27.2 to 1.2.0
 * (HGlab01) Bump simple-oauth2 from 4.3.0 to 5.0.0
-
-### 0.4.0 (2022-09-05)
-* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
-* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
-* (HGlab01) Bump is-online from 9.0.1 to 10.0.0
 
 ## License
 MIT License

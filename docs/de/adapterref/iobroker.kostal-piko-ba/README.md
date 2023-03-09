@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
+hash: tF2guQDG2a5jHeYCZ77whm6EAMeeAimrWAz4vL3Ov+w=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -19,12 +19,14 @@ hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
 CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
 ## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
-Adapter zum Auslesen von Kostal Piko & Piko BA Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
-Adapter funktioniert mit Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17, 20 & 36 Wechselrichtern.
+Adapter zum Auslesen von Kostal Piko, Piko BA und PIKO MP plus Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
+Adapter für Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA Wechselrichter.
+Adapter funktioniert auch mit Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 Wechselrichtern.
+NEU! Adapter funktioniert jetzt mit MP plus Wechselrichtern - zuerst getestet: Kostal PIKO 3.0-1 MP plus.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Beachten Sie, dass Ihr Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
+Beachten Sie, dass Ihr Piko oder Piko BA Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA / MP plus) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
 Sie können auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livezeit-Statistiken bearbeiten.
 Setzen Sie bei Bedarf auch die Markierung zum Auslesen der 4 Analogwerte.
 
@@ -35,8 +37,13 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ! Note that missing version entries are typically dependency updates for security.
 
-### 2.4.0 (05.03.2023)
-* (HombachC) added support of DC-values for Piko MP inverters
+### 2.4.2 (07.03.2023)
+* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) added Piko MP Plus total yield
+### 2.4.1 (06.03.2023)
+* (HombachC) fixed Piko MP Plus support for two channel hardware
+### 2.4.0 (06.03.2023)
+* (HombachC) added support of AC and DC power values for Piko MP inverters
 ### 2.3.1 (05.03.2023)
 * (HombachC) fix error with zero values in DC & AC
 ### 2.3.0 (26.02.2023)

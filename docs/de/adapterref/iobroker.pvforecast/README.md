@@ -61,6 +61,16 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-03-09)
+
+* (arteck) chart summary for more strings
+* (klein0r) Fixed charting summary
+* (klein0r) Rounded values in JSON summary
+
+### 2.5.2 (2023-03-08)
+
+* (klein0r) Fixed error when weather data could not be fetched
+
 ### 2.5.1 (2023-01-13)
 * (klein0r) Fixed JSON table when using solcast
 
@@ -72,14 +82,6 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 
 ### 2.4.0 (2022-12-09)
 * (stromdao) Added SolarPredictionAPI
-
-### 2.3.0 (2022-06-26)
-* (klein0r) Add summary values to InfluxDB
-* (klein0r) Use cron to ensure update on day change
-* (klein0r) Removed visibility from weather data (doesn't exist in response)
-
-### 2.2.1 (2022-06-23)
-* (klein0r) Fixed tilt validation - allow zero tilt (0)
 
 ## License
 

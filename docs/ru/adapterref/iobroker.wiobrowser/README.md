@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wiobrowser/README.md
 title: ioBroker.wiobrowser
-hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
+hash: L+GWT3kskhrkMYunsdCKJiLoBaHt1OAfuQs2cphxCng=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wiobrowser/admin/wiobrowser.png)
 
@@ -14,19 +14,22 @@ hash: 5BBNpQZAOvaQtUekK3nVYC2tjKvRgetZM93ySNFaOMY=
 
 # IoBroker.wiobrowser
 ## Информация
-управление полноэкранным браузером Windows Адаптер для ioBroker
+управление полноэкранным браузером Windows с помощью sip-клиента Адаптер для ioBroker
 
-Этот адаптер подключается к wioBrowser через tcp.socket для управления им. Существует 3 разных приложения wioBrowser: + wioBrowser WebView2 Framework + wio Browser Chromium Framework + wioNoweb (те же функции без Интернета)
+Этот адаптер подключается к wioBrowser через tcp.socket для управления им. Существует 2 разных приложения wioBrowser: + wio Browser Chromium Framework + wioNoweb (те же функции без веба и sip)
 
 wioBrowser — это полноэкранный браузер Windows, которым можно управлять через ioBroker, он отображает отдельные веб-сайты или слайд-шоу веб-сайтов, которые можно настроить в адаптере. На адаптер также передается информация: + загрузка процессора + свободная память + текущий разряд батареи на планшете или ноутбуке + имя хоста + IP
 
-Он также может управлять: + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения + воспроизведение аудиофайлов
+Он также может управлять: + sip-клиентом + включение/выключение экрана + выход из приложения + громкость +/- + включение/выключение звука + яркость +/- + запуск программ с помощью переключателей, например. C:\ClickMonitorDDC\ClickMonitorDDC_7_2.exe b 100 + текстовые сообщения + голосовые сообщения + воспроизведение аудиофайлов
 
 ## Связь
 * [Тема адаптера форума ioBroker] (https://forum.iobroker.net/topic/50982/neuer-adapter-wiobrowser-f%C3%BCr-windows)
 * [Учебное пособие по сообщениям](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) пользователем hydrotec
 
 ## Changelog
+### 2.0.0
+* (bettman66) add sip
+
 ### 1.1.4
 * (bettman66) play audiofile
 

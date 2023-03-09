@@ -23,6 +23,15 @@ Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.2.8 (2023-03-09)
+* (arteck) force update
+
+### 2.2.7 (2023-03-07)
+* (arteck) fix / clima control
+* (arteck) force update add to admin
+* (devdev24) Fixed error causing dead on-board batteries
+* (arteck) door status is correct
+
 ### 2.2.6 (2022-11-04)
 * (arteck) fix / extend clima & errorcounter
 

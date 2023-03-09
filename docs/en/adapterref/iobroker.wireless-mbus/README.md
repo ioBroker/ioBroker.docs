@@ -55,6 +55,9 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
+## 0.8.10
+* (ChL) Use compact frame cache independently from manufacturer code
+
 ## 0.8.9
 * (ChL) Fix display of non-default settings in admin page
 

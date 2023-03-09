@@ -8,13 +8,12 @@
 [![NPM](https://nodei.co/npm/iobroker.wiobrowser.png?downloads=true)](https://nodei.co/npm/iobroker.wiobrowser/)
 
 ## Info
-control of a Windows full-screen browser
+control of a Windows full-screen browser with sip client
 Adapter for ioBroker
 
-This adapter connects to wioBrowser via tcp.socket to control it. There are 3 different wioBrowser apps:
-+ wioBrowser WebView2 Framework
+This adapter connects to wioBrowser via tcp.socket to control it. There are 2 different wioBrowser apps:
 + wio Browser Chromium Framework
-+ wioNoweb (same functions without the web)
++ wioNoweb (same functions without the web and sip)
 
 wioBrowser is a Windows fullscreen browser that can be controlled via ioBroker, it displays individual websites or a website slideshow that can be set in the adapter. Information is also transmitted to the adapter:
 + CPU load
@@ -24,6 +23,7 @@ wioBrowser is a Windows fullscreen browser that can be controlled via ioBroker, 
 + IP
 
 He can also control:
++ sip client
 + screen on/off
 + exit app
 + volume +/-
@@ -39,6 +39,9 @@ He can also control:
 * [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) by user hydrotec
 
 ## Changelog
+### 2.0.0
+* (bettman66) add sip
+
 ### 1.1.4
 * (bettman66) play audiofile
 

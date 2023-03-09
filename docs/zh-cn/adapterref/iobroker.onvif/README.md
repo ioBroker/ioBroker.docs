@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: lNKe1hc/MAwdDYoaBwZP03WgECjTw4IOZ1O5qv7OzIg=
+hash: F2tuDV4GbZhUASUcdgAfL+tR0mD3CzRd1Q4dFl1UGcY=
 ---
 ![标识](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -84,6 +84,11 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
   }
 });
 ```
+
+## 快照服务器在 vis einbinden 中
+Der Adapter bietet ein Snapshot Server ohne Passwort 和。 Dazu Server 在 den Instanzeinstellungen 和 dann kann der aktuelle Snapshot 中激活 http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 网址。
+
+In der Vis ein Image Widget einfügen 和 die Url als Quelle angeben und eine Updatezeit auswählen
 
 ## Vis einbinden 中的快照
 Wenn möglich die snapshotUri verwenden z.B.
@@ -189,6 +194,10 @@ onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.ur
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+
+### 1.0.3
+
+- (TA2k) Minor bugfixes
 
 ### 1.0.2
 

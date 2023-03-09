@@ -520,6 +520,21 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (simatec) Design Fix
+* (simatec) node 14 set as minimum requirement
+* (simatec) cleaning status log added
+
+### 2.6.9 (2023-03-08)
+* (simatec) Dropbox session upload optimized
+* (simatec) Error handling optimized
+
+### 2.6.8 (2023-03-07)
+* (simatec) Fix Dropbox session upload
+
+### 2.6.7 (2023-03-06)
+* (simatec) Dropbox session upload optimized
+
 ### 2.6.6 (2023-03-05)
 * (simatec) Dropbox file upload up to 350 GB added
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
+hash: tF2guQDG2a5jHeYCZ77whm6EAMeeAimrWAz4vL3Ov+w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -19,12 +19,14 @@ hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
 CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
 ## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
-Адаптер для чтения данных Kostal Piko & Piko BA. Адаптер создает несколько состояний и последовательно их обновляет.
-Адаптер для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, 3.0, 5.5, 7.0, 10, 12, 15, 17, 20 и 36.
+Адаптер для чтения данных Kostal Piko, Piko BA и PIKO MP plus. Адаптер создает несколько состояний и последовательно их обновляет.
+Адаптер предназначен для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA.
+Адаптер также работает с инверторами Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 и 36.
+НОВЫЙ! Адаптер теперь работает с инверторами MP plus - первое тестирование: Kostal PIKO 3.0-1 MP plus.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Имейте в виду, что ваш инвертор должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA) установка его IP-адреса в конфиге обязательна.
+Имейте в виду, что ваш инвертор Piko или Piko BA должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA/MP plus) установка его IP-адреса в конфиге обязательна.
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
 При необходимости также установите метку для считывания 4 аналоговых значений.
 
@@ -35,8 +37,13 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ! Note that missing version entries are typically dependency updates for security.
 
-### 2.4.0 (05.03.2023)
-* (HombachC) added support of DC-values for Piko MP inverters
+### 2.4.2 (07.03.2023)
+* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) added Piko MP Plus total yield
+### 2.4.1 (06.03.2023)
+* (HombachC) fixed Piko MP Plus support for two channel hardware
+### 2.4.0 (06.03.2023)
+* (HombachC) added support of AC and DC power values for Piko MP inverters
 ### 2.3.1 (05.03.2023)
 * (HombachC) fix error with zero values in DC & AC
 ### 2.3.0 (26.02.2023)

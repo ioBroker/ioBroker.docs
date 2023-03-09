@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
+hash: tF2guQDG2a5jHeYCZ77whm6EAMeeAimrWAz4vL3Ov+w=
 ---
 ![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -19,24 +19,31 @@ hash: GT/bbnTUGtR5Pjag4wW+XS7GBBjsFAOASo0vK9NerNQ=
 CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
 ## 用于读取 iOBroker 的 Kostal Piko 和 Piko BA 数据的适配器
-用于读取 Kostal Piko & Piko BA 数据的适配器。适配器创建一些状态并按顺序更新它们。
-适用于 Kostal Piko 6.0BA、8.0BA、10.0BA、3.0、5.5、7.0、10、12、15、17、20 和 36 逆变器的适配器。
+用于读取 Kostal Piko、Piko BA 和 PIKO MP plus 数据的适配器。适配器创建一些状态并按顺序更新它们。
+专为 Kostal Piko 6.0BA、8.0BA、10.0BA、BA 逆变器设计的适配器。
+适配器还适用于 Kostal Piko 3.0、4.2、4.6、5.5、7.0、8.5、10、12、15、17、20 和 36 逆变器。
+新的！适配器现在可与 MP plus 逆变器配合使用 - 首次测试：Kostal PIKO 3.0-1 MP plus。
 如果您验证其他逆变器的功能，我们将不胜感激，请给我留言。
 
 ## 设置
-请注意，您的逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico (BA) 逆变器，必须在配置中设置其 IP 地址。
+请注意，您的 Piko 或 Piko BA 逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico（BA / MP plus）逆变器，必须在配置中设置其 IP 地址。
 您还可以编辑实时数据、每日和实时统计的更新频率。
 如果需要，也可以设置 4 个模拟值的读出标记。
 
-## 笔记
+## 注释
 此适配器使用哨兵库自动向开发人员报告异常和代码错误。有关更多详细信息和有关如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for security.
 
-### 2.4.0 (05.03.2023)
-* (HombachC) added support of DC-values for Piko MP inverters
+### 2.4.2 (07.03.2023)
+* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) added Piko MP Plus total yield
+### 2.4.1 (06.03.2023)
+* (HombachC) fixed Piko MP Plus support for two channel hardware
+### 2.4.0 (06.03.2023)
+* (HombachC) added support of AC and DC power values for Piko MP inverters
 ### 2.3.1 (05.03.2023)
 * (HombachC) fix error with zero values in DC & AC
 ### 2.3.0 (26.02.2023)

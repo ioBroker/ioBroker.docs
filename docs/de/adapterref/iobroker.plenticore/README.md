@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plenticore/README.md
 title: ioBroker.plenticore
-hash: MYjfwSdN3P5i/uZkVuIQGEgFVoIL99N3czASpakjnlU=
+hash: uArP6UMVgzTXm8IFmUFIA9RvTSRbxw8eeM0r7Y/lhpk=
 ---
 ![Logo](../../../en/adapterref/iobroker.plenticore/admin/plenticore.png)
 
@@ -31,10 +31,10 @@ Stellen Sie die IP-Adresse Ihres Wechselrichters (z. B. 192.168.0.23) und Ihr Pa
 Der Adapter verwendet kein Screenscraping. Es verwendet dieselbe REST-API wie die Webschnittstelle. Möglicherweise gibt es (viele) Funktionen, die vom Adapter (noch) nicht verwendet werden.
 
 ### Warum nicht (einfach) Modbus verwenden?
-Der Wechselrichter hat Modbus TCP aktiviert, sodass Sie den Modbus-Adapter verwenden können, um Werte abzufragen. KOSTAL hat jedoch keine Modbus-Adressen schreiben lassen. Sie können also nicht e einstellen. g. Akku-Mindest-SoC mit ioBroker.
+Der Wechselrichter hat Modbus TCP aktiviert, sodass Sie den Modbus-Adapter verwenden können, um Werte abzufragen. KOSTAL hat jedoch keine Modbus-Adressen schreiben lassen. Sie können also nicht e einstellen. G. Akku-Mindest-SoC mit ioBroker.
 
 ### Verwenden des Adapters
-Der Adapter sollte einige Objekte unter dem plenticore.X-Objektbaum füllen. Einige davon sind schreibgeschützt, z. g. die aktuelle PV-Leistung oder den Hausstromverbrauch. Andere sind veränderbar, z. g. der minimale SoC des Akkus oder die Akkuverwaltungsmodi. Ich habe den Adapter am Plenticore Plus 10 getestet.
+Der Adapter sollte einige Objekte unter dem plenticore.X-Objektbaum füllen. Einige davon sind schreibgeschützt, z. G. die aktuelle PV-Leistung oder den Hausstromverbrauch. Andere sind veränderbar, z. G. der minimale SoC des Akkus oder die Akkuverwaltungsmodi. Ich habe den Adapter am Plenticore Plus 10 getestet.
 
 ## Objekte
 Nachfolgend ein Auszug der wichtigsten Objekte, die von diesem Adapter verwendet und gefüllt werden. Alle mit `[**]` markierten Einstellungen sollten editierbar sein, aber nicht alle wurden getestet und es könnten Fehler vorhanden sein.
@@ -48,12 +48,15 @@ Der Devices.local-Baum enthält Informationen über den Wechselrichter und den m
 `plenticore.X.devices.local.StateKey0` - wenn wahr, wurde das Batteriemanagement des Wechselrichters entsperrt
 
 #### Plenticore.X.devices.local.ac
-Dieser Kanal enthält Informationen über die AC-Seite des Wechselrichters. Die wichtigsten sind: `plenticore.X.devices.local.ac.Frequency` - die Netzfrequenz `plenticore.X.devices.local.ac.L1_P` - die aktuelle Leistung Phase 1 in W `plenticore.X.devices.local.ac.L2_P` - die aktuelle Leistung Phase 2 in W `plenticore.X.devices.local.ac.L3_P` - die aktuelle Leistung der Phase 3 in W `plenticore.X.devices.local.ac.P` - die aktuelle vom Wechselrichter abgegebene Gesamtleistung inklusive Batterieentladung
+Dieser Kanal enthält Informationen über die AC-Seite des Wechselrichters. Die wichtigsten sind: `plenticore.X.devices.local.ac.Frequency` - die Netzfrequenz `plenticore.X.devices.local.ac.L1_P` - die aktuelle Leistung der Phase 1 in W `plenticore.X.devices.local.ac.L2_P` - die aktuelle Leistung der Phase 2 in W `plenticore.X.devices.local.ac.L3_P` - die aktuelle Leistung der Phase 3 in W `plenticore.X.devices.local.ac.P` - die aktuelle vom Wechselrichter abgegebene Gesamtleistung inklusive Batterieentladung
 
 #### Plenticore.X.Geräte.lokaler.Akku
 `plenticore.X.devices.local.battery.Cycles` - die bisherige Lebensdauer der Batteriezyklen `[**] plenticore.X.devices.local.battery.DynamicSoc` - wahr, wenn dynamisches SoC aktiviert ist (nur wenn `SmartBatteryControl` ebenfalls wahr ist) `[**] plenticore.X.devices.local.battery.MinHomeConsumption` - der minimale Heimstromverbrauch, der wird für den zu verwendenden Akku benötigt `[**] plenticore.X.devices.local.battery.MinSoc` - der gewünschte minimale SoC (State of Charge) des Akkus. Bei fehlender Sonnenenergie könnte der tatsächliche SoC darunter liegen.
 `plenticore.X.devices.local.battery.MinSocDummy` - Dieser Wert wird vom Adapter gesetzt, wenn das MinSoC-Management in der Config deaktiviert ist. Es soll zeigen, auf welchen Wert der MinSoC gesetzt würde.
-`plenticore.X.devices.local.battery.P` - die aktuelle Akkuleistung (negativ beim Laden, positiv beim Entladen) `plenticore.X.devices.local.battery.Charge_P` - die aktuelle Akkuladeleistung (0 beim Entladen) `plenticore.X.devices.local.battery.Discharge_P` - die aktuelle Akkuentladeleistung (0 beim Laden ) `[**] plenticore.X.devices.local.battery.SmartBatteryControl` - wahr, wenn das intelligente Batteriemanagement aktiviert ist. Gemäß dem offiziellen Handbuch darf dies nur aktiviert werden, wenn keine weitere AC-Quelle wie ein zweiter Wechselrichter beteiligt ist `[**] plenticore.X.devices.local.battery.ExternControl` - 0 zum Aktivieren der internen Steuerung, 1 für externe digitale E/A, 2 für externes Modbus TCP §§SSSSS_11§ § - der aktuelle Ladezustand der Batterie
+`plenticore.X.devices.local.battery.P` - die aktuelle Akkuleistung (negativ beim Laden, positiv beim Entladen) `plenticore.X.devices.local.battery.Charge_P` - die aktuelle Akkuladeleistung (0 beim Entladen) `plenticore.X.devices.local.battery.Discharge_P` - die aktuelle Akkuentladeleistung (0 beim Laden ) `[**] plenticore.X.devices.local.battery.SmartBatteryControl` - wahr, wenn das intelligente Batteriemanagement aktiviert ist. Gemäß dem offiziellen Handbuch darf dies nur aktiviert werden, wenn keine weitere AC-Quelle wie ein zweiter Wechselrichter beteiligt ist. `[**] plenticore.X.devices.local.battery.ExternControl` - Kann nur über die Webschnittstelle als Installateur eingestellt werden. Verwenden Sie für die Steuerung über ioBroker die Zustände ExternControl_DcPowerAbs und ExternControl_MaxChargePowerAbs, während ExternControl auf 2 (Modbus TCP) gesetzt ist.
+`[**] plenticore.X.devices.local.battery.ExternControl_DcPowerAbs` - GEFAHR: Verwenden Sie dies nur, wenn Sie wissen, was Sie tun, eine falsche Verwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden, ansonsten schaltet der Plenticore auf interne Steuerung um, es sei denn, er erhält einen neuen Wert. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) gesetzt ist. Der Wert ist in Watt angegeben und kann von -10000 bis 10000 eingestellt werden. Ein negativer Wert bedeutet, dass der Akku entladen wird, ein positiver Wert bedeutet, dass der Akku geladen wird.
+`[**] plenticore.X.devices.local.battery.ExternControl_MaxChargePowerAbs` - GEFAHR: Verwenden Sie dies nur, wenn Sie wissen, was Sie tun, eine falsche Verwendung kann Ihren Akku beschädigen! WICHTIG: Der Wert muss alle 3 Minuten aktualisiert werden, ansonsten schaltet der Plenticore auf interne Steuerung um, es sei denn, er erhält einen neuen Wert. Dieser Zustand ist nur verfügbar, wenn ExternControl auf 2 (Modbus TCP) gesetzt ist.
+`plenticore.X.devices.local.battery.SoC` - der aktuelle Ladezustand der Batterie
 
 #### Plenticore.X.Geräte.lokaler.Wechselrichter
 `plenticore.X.devices.local.inverter.MaxApparentPower` - die maximale Leistung, die der Wechselrichter liefern kann
@@ -85,7 +88,7 @@ Die Leistungsvorhersagefunktion verwendet verschiedene Wetterdatenquellen. Es fu
 ### Wie funktioniert die Prognose
 Die Prognosefunktion berechnet anhand der bereitgestellten Daten Ihres Kraftwerks und Ihrer Batterie die maximal mögliche Stromerzeugung zu jeder Tageszeit. Dazu wird der Standort des Systems verwendet, um die Höhe und den Azimut der Sonne abzurufen und die Werte der Sonnenstrahlung zu berechnen. Diese Werte werden mit Wettervorhersagedaten aus verschiedenen Quellen kombiniert, um die Vorhersage für Bewölkung, Nebel und Regen für jede Stunde des Tages zu erhalten. Anhand dieser Daten errechnet der Adapter eine mögliche Leistung, die die Pflanze pro Stunde Sonnenlicht erzeugen könnte.
 
-Die Prognosewerte können dann verwendet werden, um den MinSoC der Batterie einzustellen, das dynamische "intelligente Batteriemanagement" des Wandlers zu aktivieren oder zu deaktivieren (beides erfolgt intern durch den Adapter) oder andere Geräte im Haushalt zu steuern, z. g. Heizung, Waschmaschine, Trockner, Geschirrspüler etc. (erfolgt durch externes JavaScript/Blockly des Benutzers).
+Die Prognosewerte können dann verwendet werden, um den MinSoC der Batterie einzustellen, das dynamische "intelligente Batteriemanagement" des Wandlers zu aktivieren oder zu deaktivieren (beides erfolgt intern durch den Adapter) oder andere Geräte im Haushalt zu steuern, z. G. Heizung, Waschmaschine, Trockner, Geschirrspüler etc. (erfolgt durch externes JavaScript/Blockly des Benutzers).
 
 ### Plenticore.0.Verbrauchsprognose
 `plenticore.0.forecast.consumption.day` - aktueller durchschnittlicher Stromverbrauch tagsüber während der letzten 3 Tage `plenticore.0.forecast.consumption.night` - aktueller durchschnittlicher Stromverbrauch während der Nacht während der letzten 3 Tage `plenticore.0.forecast.consumption.remaining` - geschätzter verbleibender Stromverbrauch für den aktuellen prognostizierten Tag bis zum Sonnenuntergang
@@ -94,7 +97,7 @@ Die Prognosewerte können dann verwendet werden, um den MinSoC der Batterie einz
 `plenticore.0.forecast.current.power.generated` - erzeugte Anlagenleistung am aktuellen Tag bis zur aktuellen Uhrzeit `plenticore.0.forecast.current.power.max` - berechnete maximale Anlagenleistung bei klarem Himmel (0% Bewölkung) `plenticore.0.forecast.current.power.sky` - berechnete Anlagenleistung unter Berücksichtigung aktueller Bewölkung ab Wetteradapter `plenticore.0.forecast.current.power.skyvis` - Berechnete Anlagenleistung unter Berücksichtigung der aktuellen Bewölkung und Sicht von Wetteradaptern `plenticore.0.forecast.current.power.skyvisrain` - Berechnete Anlagenleistung unter Berücksichtigung der aktuellen Bewölkung, Sicht und Regenvorhersage von Wetteradaptern `plenticore.0.forecast.current.visibility.*` - aktuelle Sichtweitenvorhersage des entsprechenden Wetteradapters `plenticore.0.forecast.current.rain.*` - aktuelle Regenvorhersage des entsprechenden Wetteradapters `plenticore.0.forecast.current.rainChance.*` - aktuelle Regenwahrscheinlichkeitsvorhersage des entsprechenden Wetteradapters `plenticore.0.forecast.current.sky.*` - aktuelle Wolkenvorhersage bereitgestellt durch den entsprechenden Wetteradapter `plenticore.0.forecast.current.sky_high.*` - aktuelle Wolkenvorhersage (obere Luftschichten) bereitgestellt durch den entsprechenden Wetteradapter `plenticore.0.forecast.current.sky_medium.*` - aktuelle Wolkenvorhersage (mittlere Luftla Jahre) vom jeweiligen Wetteradapter bereitgestellt `plenticore.0.forecast.current.sky_low.*` - aktuelle Wolkenvorhersage (untere Luftschichten) vom jeweiligen Wetteradapter bereitgestellt `plenticore.0.forecast.current.sun.azimuth` - aktueller Sonnenstand (Azimut) `plenticore.0.forecast.current.sun.elevation` - aktueller Sonnenstand ( Höhe)
 
 ### Plenticore.0.forecast.day1 – Gleiches gilt für Tag2
-`plenticore.0.forecast.day1.power.date` - Datum der aktuellen Leistungsprognose für `plenticore.0.forecast.day1.power.day` - Gesamtleistungsprognose für den Tag `plenticore.0.forecast.day1.power.day_adjusted` - Gesamtleistungsprognose für den Tag unter Berücksichtigung der bisher erzeugten Leistung und unter Verwendung von Prognosedaten nur für verbleibende Sonnenstunden `plenticore.0.forecast.day1.power.day_high` - Gesamtleistungsvorhersage für den Tag ohne Berücksichtigung der Sichtdaten des Wetteradapters `plenticore.0.forecast.day1.power.remaining` - verbleibende Leistung der Vorhersagegesamtleistung für den Tag, basierend auf der Vorhersage für verbleibende Sonnenstunden `plenticore.0.forecast.day1.power.Xh.power` - geschätzte Gesamtleistung der Anlage zur Sonnenstunde X des prognostizierten Tages, wobei 1h die Stunde des Sonnenaufgangs ist `plenticore.0.forecast.day1.power.Xh.power_high` - geschätzte Gesamtleistung der Anlage zur Sonnenstunde X des prognostizierten Tages, jedoch ohne Berücksichtigung der Sicht oder Regendaten `plenticore.0.forecast.day1.power.Xh.time` - Beginn der Sonnenstunde für `plenticore.0.forecast.power.Xh.power` `plenticore.0.forecast.day1.sun.sunrise` - Sonnenaufgangszeit des Vorhersagedatums `plenticore.0.forecast.day1.sun.sunset` - Sonnenuntergangszeit des Vorhersagedatums
+`plenticore.0.forecast.day1.power.date` - Datum der aktuellen Leistungsprognose für `plenticore.0.forecast.day1.power.day` - Gesamtleistungsprognose für den Tag `plenticore.0.forecast.day1.power.day_adjusted` - Gesamtleistungsprognose für den Tag unter Berücksichtigung der bisher erzeugten Leistung und unter Verwendung von Prognosedaten nur für verbleibende Sonnenstunden `plenticore.0.forecast.day1.power.day_high` - Gesamtleistungsvorhersage für den Tag unter Berücksichtigung der Sichtdaten des Wetteradapters `plenticore.0.forecast.day1.power.remaining` - verbleibende Leistung der Vorhersagegesamt für den Tag, basierend auf der Vorhersage für verbleibende Sonnenstunden `plenticore.0.forecast.day1.power.Xh.power` - geschätzte Gesamtleistung der Anlage zur Sonnenstunde X des prognostizierten Tages, wobei 1h die Stunde des Sonnenaufgangs ist `plenticore.0.forecast.day1.power.Xh.power_high` - geschätzte Gesamtleistung der Anlage zur Sonnenstunde X des prognostizierten Tages, jedoch ohne Berücksichtigung der Sicht oder Regendaten `plenticore.0.forecast.day1.power.Xh.time` - Beginn der Sonnenstunde für `plenticore.0.forecast.power.Xh.power` `plenticore.0.forecast.day1.sun.sunrise` - Sonnenaufgangszeit des Vorhersagedatums `plenticore.0.forecast.day1.sun.sunset` - Sonnenuntergangszeit des Vorhersagedatums
 
 ## Intelligente Batteriesteuerung
 Die smarte Batteriesteuerung von KOSTAL nutzt keine Wettervorhersage. Daher regelt es nicht immer optimal, um einerseits dafür zu sorgen, dass die Batterie voll geladen ist und andererseits eine Einspeisebegrenzung möglichst zu vermeiden.
@@ -102,7 +105,7 @@ Dieser Adapter versucht dies zu optimieren. Dafür werden zwei Strategien angebo
 Ist die intelligente Batteriesteuerung von KOSTAL aktiv, entscheidet sie, wann und wie viel Strom ins Netz oder in die Batterie fließt. Der Adapter kann nur entscheiden, ob die KOSTAL smart control aktiv ist, nicht aber wie sie funktioniert.
 
 ### Strategie 1: Doppelte Tagesprognose vs. Batteriekapazität
-Kurzbeschreibung: KOSTAL Smart Management einschalten, wenn (Mindest-SoC erreicht) UND (Restleistung bis Sonnenuntergang – Restverbrauch – freie Batteriekapazität) >= 2 * Batteriekapazität.
+Kurzbeschreibung: KOSTAL Smart Management einschalten, wenn (Mindest-SoC erreicht) UND (Restleistung bis Sonnenuntergang - Restverbrauch - freie Batteriekapazität) >= 2 * Batteriekapazität.
 
 ### Strategie 2: Restprognose vs. Verbrauch und freie Batteriekapazität
 Das KOSTAL Smart Management wird nur aktiviert, wenn (laut Prognose) die beiden folgenden Bedingungen erfüllt sind:
@@ -116,12 +119,15 @@ Einzelheiten:
 
 - Sind alle stündlichen Prognosewerte kleiner als „Maximale Einspeisung“, wird die KOSTAL-Regelung nicht aktiviert. Die maximale Einspeisung wird um 15 % niedriger angenommen, um Schwankungen durch Wolken vorzubeugen.
 - Zwischen 15 Uhr und Sonnenaufgang wird die Einstellung der KOSTAL smart control nicht verändert. Die KOSTAL-Steuerung scheint besser zu funktionieren, wenn sie nicht unnötig oft ein-/ausgeschaltet wird. In dieser Zeit hat die KOSTAL-Regelung keinen Nachteil.
-- Eine Hysterese wird verwendet, um seltener ein-/auszuschalten. Es schaltet sich aus, wenn der aktuelle SoC unter dem „Mindest-SoC zur Aktivierung des Batteriemanagements“ liegt oder wenn die freie Leistung unter 0 liegt. Es wird eingeschaltet, wenn der aktuelle SoC größer als „Mindest-SoC zur Aktivierung des Batteriemanagements“ +1 ist und die freie Energie ist größer als 10 % der Batteriekapazität.
+- Eine Hysterese wird verwendet, um seltener ein-/auszuschalten. Es wird ausgeschaltet, wenn der aktuelle SoC unter dem „Mindest-SoC zur Aktivierung des Batteriemanagements“ liegt oder wenn die freie Leistung unter 0 liegt. Es wird eingeschaltet, wenn der aktuelle SoC größer als „Mindest-SoC zur Aktivierung des Batteriemanagements“ +1 ist und die freie Energie ist größer als 10 % der Batteriekapazität.
 
 ## Spenden
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SFLJ8HCW9T698&source=url)
 
 ## Changelog
+
+### 2.3.0
+- (Jey Cee) Added possibility to control battery charging
 
 ### 2.2.2
 - Added alternative smart battery strategy (Description see above) [PastCoder]

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: 9o4axAC16Kpye31rAnAtrOIgzq9tMBNRg4WzSQ3AcI8=
+hash: pVmHXIrFw/pfk7p7SHdAgL1Wjq4QZsO9qIKgBGk65/w=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -54,6 +54,9 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 
 ## Machen
 * Senden von Telegrammen für S-Mode-Empfänger?
+
+## 0.8.10
+* (ChL) Kompakten Frame-Cache unabhängig vom Herstellercode verwenden
 
 ## 0.8.9
 * (ChL) Anzeige von Nicht-Standardeinstellungen auf der Admin-Seite korrigiert
@@ -158,7 +161,7 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 * (ChL) VIF-Erweiterungen werden (wieder) besser gehandhabt
 * (ChL) VIF-Info neu organisiert
 * (ChL) Reorganisation der Empfängerhandhabung
-* (ChL) Blockierung von Geräten möglich
+* (ChL) Sperrung von Geräten möglich
 
 ### 0.2.0 (nicht markiert)
 * (ChL) Drastisch verbesserter Parser: Unterstützung für Sicherheitsmodus 7, Rahmentyp B, viele kleine Korrekturen
