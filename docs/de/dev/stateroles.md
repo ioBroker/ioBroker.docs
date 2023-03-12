@@ -415,6 +415,7 @@ Sonderrollen für Mediaplayer
 * `url.same` - URL in diesem Fenster öffnen
 * `url.audio` - URL für Audiodatei
 * `text.phone` - Telefonnummer
+* `chart` - JSON-Array mit Diagrammdaten, wie `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
 * `adapter.messagebox` (`common.type=object, common.write=true`) zum Senden von Nachrichten an E-Mail, Pushover und andere Adapter
 * `adapter.wakeup` (`common.type=boolean, common.write=true`) weckt den Adapter aus dem Suspend-Modus

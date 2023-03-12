@@ -133,7 +133,7 @@ So the indicator may not be alone in the channel. It must be some other main sta
 * `indicator.alarm.health` - health problem
 
 ## Levels (numbers, read-write)
-With **levels** you can control or set some number value.
+With **levels**, you can control or set some number value.
 
 `common.type=number, common.write=true`
 
@@ -228,7 +228,7 @@ Special roles for media players
 * `media.seek`            - (`common.type=number`) %
 * `media.mode.shuffle`    - (`common.type=number`) 0 - none, 1 - all, 2 - one
 * `media.mode.repeat`     - (`common.type=boolean`)
-* `media.state`           - ['play','stop','pause'] or [0 - pause, 1 - play, 2 - stop] or [true - playing/false - pause]
+* `media.state`           - `['play','stop','pause']` or `[0 - pause, 1 - play, 2 - stop]` or `[true - playing/false - pause]`
 * `media.artist`
 * `media.album`
 * `media.title`
@@ -249,7 +249,7 @@ Special roles for media players
 * `media.bitrate`         - kbps
 * `media.genre`           - genre song
 * `media.date`            - year song
-* `media.track`           - (`common.type=string`) current play track id [0 - ~] (important the type is really `string` to be able to indicate absence of track with "")
+* `media.track`           - (`common.type=string`) current play track id `[0 - ~]` (important the type is really `string` to be able to indicate absence of track with "")
 * `media.playid`          - media player track id
 * `media.add`             - add current playlist
 * `media.clear`           - clear current playlist (write-only)
@@ -413,6 +413,7 @@ Special roles for media players
 * `url.same`               - open URL in this window
 * `url.audio`              - URL for audio file
 * `text.phone`             - phone number
+* `chart`                  - JSON array with chart data, like `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
 * `adapter.messagebox`     (`common.type=object, common.write=true`) used to send messages to email, pushover and other adapters
 * `adapter.wakeup`         (`common.type=boolean, common.write=true`) wake up adapter from suspended mode
