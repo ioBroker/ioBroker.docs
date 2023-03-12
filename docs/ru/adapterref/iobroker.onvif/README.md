@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: F2tuDV4GbZhUASUcdgAfL+tR0mD3CzRd1Q4dFl1UGcY=
+hash: ZqYkjttTzRkDmvJjtr0RrKuH/KNMcuL8xEDhsTAy7+c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -84,6 +84,9 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
   }
 });
 ```
+
+## FFMpeg Unterstützung
+Wenn die Kamera keine Snapshot Unterstützng hat wird mit ffmpeg ein snapshot aus dem rtsp stream erzeugt.
 
 ## Сервер моментальных снимков в сети
 Адаптер установлен на сервере моментальных снимков без пароля. Dazu Server aktivieren in den Instanzeinstellungen und dann kann der aktuelle Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 абгеруфен верден.
@@ -180,7 +183,7 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-Не используйте эту точку данных в качестве потока, поскольку нагрузка на жесткий диск слишком высока.
+Не используйте эту точку данных в качестве потока, поскольку нагрузка на жесткий диск слишком велика.
 
 Назначьте элемент `String img src` точке данных onvif.0.IP_PORT.snapshot
 

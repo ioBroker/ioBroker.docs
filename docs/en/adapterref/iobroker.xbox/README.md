@@ -42,9 +42,10 @@ You can install the adapter via Admin interface or on your terminal.
 ![Add Adapter](/docs/en/img/plusAddAdapter.png)
 
 ## Setup
-1. Fill in the Live ID of your Xbox in the settings of the adapter. You can find the Live ID in the settings of your console.
+1. Fill in the Live ID of your Xbox in the settings of the adapter instance. You can find the Live ID in the settings of your console: System > Console info > *"Xbox Live device ID"* or *"Xbox network device ID"* (depending on which Xbox model and firmware is used)
 2. Fill in the ip address of your Xbox.
-3. Use the Link from the log to start login procedure, then paste the API key which can be found after `code=` in the url.
+3. Save the settings and open the ioBroker log.
+4. To start the login procedure, open the Link from the log (*Xbox login url available at: \<link\>*) in a webbrowser. Then copy the API key, which can be found after `code=` in the url of the browser's address bar, into the "API Token" field of the adapter instance settings.
 
 ## States
 In this section you can find a description of every state of the adapter.

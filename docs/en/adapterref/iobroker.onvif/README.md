@@ -87,6 +87,10 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
+## FFMpeg Unterstützung
+
+Wenn die Kamera keine Snapshot Unterstützng hat wird mit ffmpeg ein snapshot aus dem rtsp stream erzeugt.
+
 ## Snapshot Server in vis einbinden
 
 Der Adapter bietet ein Snapshot Server ohne Passwort an. Dazu Server aktivieren in den Instanzeinstellungen und dann kann der aktuelle Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 abgerufen werden.

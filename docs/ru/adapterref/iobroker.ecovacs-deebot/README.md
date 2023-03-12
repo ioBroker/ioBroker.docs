@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
+hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -45,6 +45,7 @@ hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
 
 * Дибот ОЗМО 920
 * Дибот T8 AIVI
+* Дибот Х1 Турбо
 
 ### Другие поддерживаемые модели
 Эти модели должны работать корректно или хотя бы частично.
@@ -135,10 +136,12 @@ npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.4.13 (alpha)
+### 1.4.13 (latest beta)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
+* Added Air Freshener life span component
+* Some further improvements and optimizations
 
-### 1.4.12 (latest beta)
+### 1.4.12
 * Bumped ecovacs-deebot.js to 0.9.2 (beta)
 * Spot area related functions for models with native "goToPosition" function (from the Video Manager):
   * Implemented "goToCalculatedCenterPosition" function

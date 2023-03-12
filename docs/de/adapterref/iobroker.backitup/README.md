@@ -520,10 +520,14 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 2.6.11 (2023-03-11)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+
+### 2.6.10 (2023-03-10)
 * (simatec) Design Fix
 * (simatec) node 14 set as minimum requirement
 * (simatec) cleaning status log added
+* (simatec) Fix Node-Red Backup & Restore
 
 ### 2.6.9 (2023-03-08)
 * (simatec) Dropbox session upload optimized

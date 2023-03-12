@@ -1222,7 +1222,6 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wiegand-tcpip/README.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.windows-control/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wiobrowser/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.wireless-mbus/README.md
@@ -1821,7 +1820,6 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wiegand-tcpip/README.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.windows-control/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wiobrowser/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.wireless-mbus/README.md
@@ -2420,7 +2418,6 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wiegand-tcpip/README.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.windows-control/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wiobrowser/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.wireless-mbus/README.md
@@ -3019,7 +3016,6 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiegand-tcpip/READM
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiffi-wz/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wifilight/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.windows-control/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.winsipbrowser/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiobrowser/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireguard/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wireless-mbus/README.md

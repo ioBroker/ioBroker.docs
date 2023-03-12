@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: F2tuDV4GbZhUASUcdgAfL+tR0mD3CzRd1Q4dFl1UGcY=
+hash: ZqYkjttTzRkDmvJjtr0RrKuH/KNMcuL8xEDhsTAy7+c=
 ---
 ![Logo](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -84,6 +84,9 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
   }
 });
 ```
+
+## FFMpeg-Unterstützung
+Wenn die Kamera keine Snapshot-Unterstützung hat, wird mit ffmpeg ein Snapshot aus dem rtsp-Stream erzeugt.
 
 ##Snapshot-Server in vis einbinden
 Der Adapter bietet einen Snapshot Server ohne Passwort an. Dazu Server aktivieren in den Instanzeinstellungen und dann kann der aktuelle Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80 abgerufen werden.

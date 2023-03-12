@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
+hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -45,9 +45,10 @@ hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
 
 * 地宝 OZMO 920
 * 地宝T8 AIVI
+* 地宝 X1 Turbo
 
 ### 其他支持的模型
-这些模型应该可以正常或至少部分正常工作。
+这些模型应该可以正常工作或至少可以部分工作。
 它们要么已知可以工作，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
@@ -63,7 +64,7 @@ hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
 * 地宝T10系列
 * 地宝X1系列
 
-#### Yeedi（自1.4.5版本开始）
+#### Yeedi（从1.4.5版本开始）
 * 亿迪k650
 * yeedi 2 混合动力车
 * yeedi vac 混合动力车
@@ -135,10 +136,12 @@ npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.4.13 (alpha)
+### 1.4.13 (latest beta)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
+* Added Air Freshener life span component
+* Some further improvements and optimizations
 
-### 1.4.12 (latest beta)
+### 1.4.12
 * Bumped ecovacs-deebot.js to 0.9.2 (beta)
 * Spot area related functions for models with native "goToPosition" function (from the Video Manager):
   * Implemented "goToCalculatedCenterPosition" function

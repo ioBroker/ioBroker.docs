@@ -15,6 +15,10 @@ This adapter serves as communication interface between Iobroker and your KNX IP 
 The adapter allows to generate the iobroker communication objects automatically by importing an ETS group address xml export.  
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
 
+**If you like it, please consider a donation:**
+  
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
+
 # Installation
 
 The adapter is available in the latest / beta repository. If this is selected in the ioBroker system settings as standard repository, the adapter can be searched in the adapter list under "openknx" and installed by clicking the + Symbol. An alternative is to install in expert mode via the Github symbol by selecting "from Github" and searching for openknx.
@@ -66,7 +70,7 @@ If checked, the import will skip overwriting existing communication objects.
 
 To clean up object tree
 
-### Import XML from ETS
+### import ETS xml and save
 
 ![ETS export](docs/pictures/exportGA.png)
 
@@ -74,9 +78,10 @@ To clean up object tree
    ETS4 Format is not supported, it does not contain DPT information.
 2. upload your ETS Export XML in the adapter via the GA XML-Import dialog
 3. Import will immediatelly start after file selection and give a status report after completion.  
-   After the successful import a message shows how much objects where recognized.
+   After the successful import a message shows how much objects have been recognized.
    An error dialog will shop problems during import and gives hints how to clean up the ets database.
    Additional information could be found in the log.
+   Data will be stored and the adapter is reset.
 
 Hint on ETS configuration:  
 If you have different DPT Subtypes for the GA and in the communication objets that use this GA, then the ETS seems to use the DPT Type with the lowest number.
@@ -389,6 +394,13 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+### **WORK IN PROGRESS**
+
+-   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
+- todo verbindungsabbrueche analysizeren
+- todo create confirmation
+
 ### 0.5.2 (2023-01-02)
 
 -bugfix: correct falsly generated "confirmation false received" notifications on high sending load

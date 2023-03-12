@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: exeYPtF7DKxXrgZ40n/oNPMPX7lyA7Ndscy7KkM5Fnw=
+hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -45,6 +45,7 @@ Die vollständig unterstützten Modelle sind die, die ich selbst besitze:
 
 *Deebot OZMO 920
 * Deebot T8 AIVI
+*Deebot X1 Turbo
 
 ### Andere unterstützte Modelle
 Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
@@ -135,10 +136,12 @@ Ich bin in keiner Weise mit Ecovacs Robotics Co., Ltd. oder yeedi Technology Lim
 
 ## Changelog
 
-### 1.4.13 (alpha)
+### 1.4.13 (latest beta)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
+* Added Air Freshener life span component
+* Some further improvements and optimizations
 
-### 1.4.12 (latest beta)
+### 1.4.12
 * Bumped ecovacs-deebot.js to 0.9.2 (beta)
 * Spot area related functions for models with native "goToPosition" function (from the Video Manager):
   * Implemented "goToCalculatedCenterPosition" function

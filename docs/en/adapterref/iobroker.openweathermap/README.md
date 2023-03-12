@@ -20,6 +20,9 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.8 (2023-03-09)
+* (bluefox) update packages
+
 ### 0.3.6 (2023-02-27)
 * (Bluefox) Installation from GitHub does not possible anymore
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: DNNDDhMP5QbzAfDVSD0DJAIwkSPdI7Uvf8/JxkTEMsA=
+hash: pqgZNT9s66H7Tb/lglLsi8oAaVgpvUw6XH5gsM6Fxk4=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -20,11 +20,15 @@ Dieser Adapter dient als Kommunikationsschnittstelle zwischen Iobroker und Ihrem
 Der Adapter ermöglicht die automatische Generierung der iobroker-Kommunikationsobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports.
 Alle generierten Kommunikationsobjekte sind initial lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom KNX-Bus geholt.
 
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
+
 # Installation
 Der Adapter ist im neuesten / Beta-Repository verfügbar. Ist dieser in den ioBroker Systemeinstellungen als Standard-Repository ausgewählt, kann der Adapter in der Adapterliste unter „openknx“ gesucht und durch Klick auf das + Symbol installiert werden. Eine Alternative ist die Installation im Expertenmodus über das Github-Symbol, indem Sie „from Github“ auswählen und nach openknx suchen.
 
 # Adapterkonfiguration
-![die Einstellungen](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) Drücken Sie "Speichern & Schließen" oder "Speichern", um den Adapter neu zu starten und die Änderungen zu übernehmen.
+![Einstellungen](../../../en/adapterref/iobroker.openknx/docs/pictures/setting.png) Drücken Sie "Speichern & Schließen" oder "Speichern", um den Adapter neu zu starten und die Änderungen zu übernehmen.
 Beim Start versucht der Adapter alle GroupAdressen zu lesen, die das Autoread-Flag haben (Standardeinstellung).
 Dies kann eine Weile dauern und Ihren KNX-Bus stärker belasten. Dadurch wird sichergestellt, dass der Adapter von Anfang an mit aktuellen Werten arbeitet.
 Autoread wird bei der ersten Verbindung mit dem KNX-Bus nach einem Adapterstart oder -neustart durchgeführt, nicht bei jeder erneuten Verbindung mit dem KNX.
@@ -59,7 +63,7 @@ Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorh
 ### Vorhandene IOB-Objekte entfernen, die nicht in der Importdatei enthalten sind
 Um den Objektbaum zu bereinigen
 
-### XML aus ETS importieren
+### ETS xml importieren und speichern
 ![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/exportGA.png)
 
 1. Gehen Sie in ETS zu Gruppenadressen, wählen Sie Gruppenadresse exportieren und wählen Sie XML-Export in der neuesten Formatversion.
@@ -72,6 +76,7 @@ Um den Objektbaum zu bereinigen
 Nach dem erfolgreichen Import zeigt eine Meldung an, wie viele Objekte erkannt wurden.
 Ein Fehlerdialog weist auf Probleme beim Import hin und gibt Hinweise zur Bereinigung der ETS-Datenbank.
 Weitere Informationen finden Sie im Protokoll.
+Die Daten werden gespeichert und der Adapter wird zurückgesetzt.
 
 Hinweis zur ETS-Konfiguration: Wenn Sie unterschiedliche DPT-Subtypen für den GA und in den Kommunikationsobjekten haben, die diesen GA verwenden, dann scheint die ETS den DPT-Typ mit der niedrigsten Nummer zu verwenden.
 Stellen Sie in diesem Fall manuell sicher, dass alle Elemente denselben gewünschten Datentyp verwenden.
@@ -260,17 +265,17 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
 | DPT-4 | Zeichenfolge | | ein als 8-Bit-Zeichen gesendetes Zeichen | |
 | DPT-16 | Zeichenfolge | | ein Zeichen als 16-Zeichen-String gesendet | |
-| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen | |
-| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte | |
+| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
+| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
 | DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
-| DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 | |
-| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
-| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
-| DPT-9 | Zahl | | 2-Byte-Gleitkommawert | |
-| DPT-14 | Zahl | | 4-Byte-Gleitkommawert | |
+| DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 | |
+| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
+| DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
+| DPT-14 | Nummer | | 4-Byte-Gleitkommawert | |
 | DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
-| DPT-15 | Zahl | | 4 Byte | |
+| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen | |
+| DPT-15 | Nummer | | 4 Byte | |
 | DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
 | DPT-20 | Nummer | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
@@ -352,6 +357,13 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+### **WORK IN PROGRESS**
+
+-   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
+- todo verbindungsabbrueche analysizeren
+- todo create confirmation
+
 ### 0.5.2 (2023-01-02)
 
 -bugfix: correct falsly generated "confirmation false received" notifications on high sending load
