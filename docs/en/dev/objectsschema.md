@@ -185,6 +185,7 @@ The tree structure is assembled automatically by names. E.g. ```system.adapter.0
 * `chart`    - charts
 * `folder`   - a bunch of devices or may be other things.
 * `schedule` - a schedule,e.g. calendar event
+* `design`   - a design object used for `getObjectView`
 
 #### Attributes for specific object types
 ##### State
