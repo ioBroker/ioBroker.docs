@@ -29,6 +29,15 @@ In the adapter/instance configuration you can adjust the maximum RAM/Heap for th
 -->
 
 ## Changelog
+### 4.0.3 (2023-03-24)
+* (Apollon77) Optimized path handling
+
+### 4.0.2 (2023-03-24)
+* (Apollon77) Fix broken data directory when using multiple instances
+
+### 4.0.1 (2023-03-22)
+* (Apollon77) Prepare for js-controller 5.0
+
 ### 4.0.0 (2022-08-14)
 * IMPORTANT: Node.js 14.x now needed at least
 * (Apollon77) Upgrade to node-red 3.0.2, enable runtime-state features and switch editor to monaco-editor
@@ -331,7 +340,7 @@ In the adapter/instance configuration you can adjust the maximum RAM/Heap for th
 
 ## License
 
-Copyright 2014-2022 bluefox <dogafox@gmail.com>.
+Copyright 2014-2023 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

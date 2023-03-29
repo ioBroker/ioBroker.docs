@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
+hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -65,13 +65,13 @@ hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 Для каждой команды будет сгенерирован текстовый ответ. Вы можете определить здесь идентификатор объекта, куда должен быть записан этот текст. Например. *говорит.0.tts.текст*.
 
 ### Цвета
-Сейчас только английская Alexa поддерживает управление цветом.
-Канал должен иметь 4 состояния со следующими ролями:
+Для канала необходимо 3-5 состояний со следующими ролями:
 
 - level.color.saturation (необходим для обнаружения канала),
 - уровень.цвет.оттенок,
 - уровень.диммер,
 - переключатель (опционально)
+- уровень.цвет.температура (опционально)
 
 ```
 Alexa, set the "device name" to "color"
@@ -151,7 +151,7 @@ Alexa, lock the "lock name"
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-или же
+или
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
@@ -210,7 +210,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
     * Навык v2: "queryIntent", когда был захвачен весь указанный текст, "controlDevice" для отката с частичным текстом
   * **deviceId** содержит идентификатор устройства, идентифицирующий устройство, на которое был отправлен запрос, доставленный Amazon, будет пустой строкой, если не указан
   * **deviceRoom** содержит сопоставленный идентификатор комнаты, который можно настроить в пользовательском интерфейсе администратора IoT для собранных идентификаторов устройств.
-  * **sessionId** содержит идентификатор сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
+  * **sessionId** содержит sessionId сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
   * **userId** содержит идентификатор пользователя от владельца устройства (или, возможно, позже пользователя, который взаимодействовал с навыком), предоставленный Amazon, будет пустой строкой, если не указан
   * **userName** содержит сопоставленное имя пользователя, которое можно настроить в пользовательском интерфейсе администратора iot для собранных идентификаторов пользователей.
 
@@ -291,7 +291,19 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.14.5 (2023-03-01)
+* (bluefox) Corrected names of enums in GUI
+
+### 1.14.3 (2023-01-10)
+* (kirovilya) Fixed processing for lights with CT and RGB in Alisa
+
+### 1.14.2 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.14.1 (2022-12-22)
+* (bluefox) Downgraded axios version to 0.27.2
+
+### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
 
 ### 1.13.0 (2022-12-08)
@@ -412,28 +424,28 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Updated configuration GUI to the latest state
 
 ### 1.8.8 (2020-12-14)
-* (bluefox) Corrected the "google home" error
+* (bluefox) Corrected the "Google home" error
 
 ### 1.8.6 (2020-12-13)
 * (bluefox) Try to fix google home error
 
 ### 1.8.5 (2020-11-23)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.4 (2020-11-18)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.3 (2020-11-16)
-* (bluefox) Trying to fix the set to false at start for google home
+* (bluefox) Trying to fix the set to false at start for Google home
 
 ### 1.8.2 (2020-11-15)
-* (bluefox) Added the debug outputs for google home
+* (bluefox) Added the debug outputs for Google home
 
 ### 1.8.1 (2020-11-13)
 * (bluefox) The deletion of google home devices was corrected
 
 ### 1.8.0 (2020-11-12)
-* (bluefox) The google home table was rewritten
+* (bluefox) The Google home table was rewritten
 
 ### 1.7.15 (2020-11-05)
 * (Morluktom) Corrected the request for temperature
@@ -617,7 +629,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

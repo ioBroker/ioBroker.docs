@@ -3,16 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: U09jFIxFk2+Zf83CeeFdYDAsCDTFvNSssh/WcvZciOk=
+hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.blebox.svg)
-![依赖状态](https://img.shields.io/david/ka-vaNu/iobroker.blebox.svg)
 ![已知漏洞](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ka-vaNu/ioBroker.blebox/master.svg)
 
 #ioBroker.blebox
 ## IoBroker 的 blebox 适配器
@@ -36,6 +34,10 @@ Eine unvollständige und veraltete API-Simulation kann [更高的](https://githu
     ### **WORK IN PROGRESS**
 -->
 
+### 2.0.1 (2023-03-12)
+
+* (Kai van Nuis) Update dependecies
+
 ### 2.0.0 (2022-09-18)
 
 * (Kai van Nuis) Change to Admin UI 5
@@ -55,7 +57,7 @@ Eine unvollständige und veraltete API-Simulation kann [更高的](https://githu
 ## License
 MIT License
 
-Copyright (c) 2022 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

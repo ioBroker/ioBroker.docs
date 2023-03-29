@@ -22,7 +22,19 @@ Für die URL einfach die Option im WEM Portal mit Chrome aufrufen und dann recht
 Für den Werte nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
 z.B.: <https://www.wemportal.com/Web/UControls...,> 208557
 
+## App Support
+Der Adapter liest auch die Daten aus der App aus.
+
+**weishaupt-wem.0.20999** "Name via App"
+
+**weishaupt-wem.0.20999.1-3.parameters** Hier findest du den aktuellen Status und kann via **NumericValue** oder **StringValue** geändert werden. Du findest dort auch die Min Max Werte und unter **EnumValues** findet man die Beschreibung für NumericValue
+
+
 ## Changelog
+
+### 0.0.15
+
+* (ta2k) add app support
 
 ### 0.0.14
 

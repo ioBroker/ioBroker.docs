@@ -3,12 +3,9 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.blebox.svg)](https://www.npmjs.com/package/iobroker.blebox)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.blebox.svg)](https://www.npmjs.com/package/iobroker.blebox)
-[![Dependency Status](https://img.shields.io/david/ka-vaNu/iobroker.blebox.svg)](https://david-dm.org/ka-vaNu/iobroker.blebox)
 [![Known Vulnerabilities](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox)
 
 [![NPM](https://nodei.co/npm/iobroker.blebox.png?downloads=true)](https://nodei.co/npm/iobroker.blebox/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/ka-vaNu/ioBroker.blebox/master.svg)](https://travis-ci.org/ka-vaNu/ioBroker.blebox)
 
 ## blebox adapter for ioBroker
 
@@ -32,6 +29,10 @@ Aktuell werden folgende Geräte unterstützt:
     ### **WORK IN PROGRESS**
 -->
 
+### 2.0.1 (2023-03-12)
+
+* (Kai van Nuis) Update dependecies
+
 ### 2.0.0 (2022-09-18)
 
 * (Kai van Nuis) Change to Admin UI 5
@@ -51,7 +52,7 @@ Aktuell werden folgende Geräte unterstützt:
 ## License
 MIT License
 
-Copyright (c) 2022 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

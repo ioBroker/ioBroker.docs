@@ -746,8 +746,7 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 4.1.1 (2023-03-22)
 * (Apollon77) Fix regex on subscribes of server clients to only match wanted states
 * (Apollon77) Prepare for future js-controller versions
 
@@ -1080,7 +1079,7 @@ void loop() {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

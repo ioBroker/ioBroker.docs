@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
+hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -65,13 +65,13 @@ Sie können das Verhalten des EIN-Befehls auswählen, der für den Nummernstatus
 Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, wohin dieser Text geschrieben werden soll. Z.B. *sayit.0.tts.text*.
 
 ### Farben
-Derzeit unterstützt nur die englische Alexa die Farbsteuerung.
-Der Kanal muss 4 Zustände mit folgenden Rollen haben:
+Der Kanal benötigt 3-5 Zustände mit folgenden Rollen:
 
 - level.color.saturation (erforderlich für die Erkennung des Kanals),
 - level.color.hue,
 - level.dimmer,
 - Schalter (optional)
+- level.color.temperatur (optional)
 
 ```
 Alexa, set the "device name" to "color"
@@ -155,7 +155,7 @@ oder
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld „Whitelist für Dienste“ den Namen *custom_test* setzen und mit „custom_test“ als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
+Wenn Sie in den Einstellungen im Feld "Whitelist für Dienste" den Namen *custom_test* setzen und mit "custom_test" als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt *.
 
 Sie können "*" in die Whitelist schreiben und alle Dienste werden zugelassen.
 
@@ -291,7 +291,19 @@ Folgende Typen werden unterstützt:
 ### **IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.14.5 (2023-03-01)
+* (bluefox) Corrected names of enums in GUI
+
+### 1.14.3 (2023-01-10)
+* (kirovilya) Fixed processing for lights with CT and RGB in Alisa
+
+### 1.14.2 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.14.1 (2022-12-22)
+* (bluefox) Downgraded axios version to 0.27.2
+
+### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
 
 ### 1.13.0 (2022-12-08)
@@ -412,28 +424,28 @@ Folgende Typen werden unterstützt:
 * (bluefox) Updated configuration GUI to the latest state
 
 ### 1.8.8 (2020-12-14)
-* (bluefox) Corrected the "google home" error
+* (bluefox) Corrected the "Google home" error
 
 ### 1.8.6 (2020-12-13)
 * (bluefox) Try to fix google home error
 
 ### 1.8.5 (2020-11-23)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.4 (2020-11-18)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.3 (2020-11-16)
-* (bluefox) Trying to fix the set to false at start for google home
+* (bluefox) Trying to fix the set to false at start for Google home
 
 ### 1.8.2 (2020-11-15)
-* (bluefox) Added the debug outputs for google home
+* (bluefox) Added the debug outputs for Google home
 
 ### 1.8.1 (2020-11-13)
 * (bluefox) The deletion of google home devices was corrected
 
 ### 1.8.0 (2020-11-12)
-* (bluefox) The google home table was rewritten
+* (bluefox) The Google home table was rewritten
 
 ### 1.7.15 (2020-11-05)
 * (Morluktom) Corrected the request for temperature
@@ -617,7 +629,7 @@ Folgende Typen werden unterstützt:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

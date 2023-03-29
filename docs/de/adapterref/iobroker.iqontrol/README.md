@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol
-hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
+hash: WAiHBMR8aSSpwQeQyL1Klz373AjsS4c45m317lcJd48=
 ---
 ![Logo](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -106,7 +106,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 ### Automatisch erstellen verwenden
 * Innerhalb des `Views`-Tabs finden Sie einen `Views automatisch erstellen`-Button
 * Wenn Sie über gut gepflegte ioBroker-Aufzählungen wie Räume oder Funktionen verfügen, können Sie diese Funktion verwenden, um automatisch Ansichten mit den in diesen Aufzählungen aufgeführten Geräten zu erstellen
-* Beachten Sie, dass aufgrund der großen Anzahl verschiedener Adapter und Geräte im ioBroker-Universum die automatische Erstellungsfunktion nicht alle Geräte zu 100 % korrekt verwalten kann. Möglicherweise müssen Sie einige Einstellungen von Hand nacharbeiten, um die besten Ergebnisse zu erzielen. Die automatische Erstellung bietet Ihnen jedoch einen guten Ausgangspunkt, um in Sekundenschnelle Ihre eigene Visualisierung zu erstellen.
+* Beachten Sie, dass die automatische Erstellungsfunktion aufgrund der großen Anzahl verschiedener Adapter und Geräte im ioBroker-Universum nicht alle Geräte zu 100 % korrekt verwalten kann. Möglicherweise müssen Sie einige Einstellungen von Hand nacharbeiten, um die besten Ergebnisse zu erzielen. Die automatische Erstellung bietet Ihnen jedoch einen guten Ausgangspunkt, um in Sekundenschnelle Ihre eigene Visualisierung zu erstellen.
 
 ## URL-Parameter
 * Das Frontend wird über `http[s]://<url oder ip von iobroker>:<port of web adapter>/iqontrol/index.html` aufgerufen
@@ -184,12 +184,22 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 
 ## Popup-Meldungen
 * Jede Instanz erzeugt den Zustand `iqontrol.x.Popup.Message`
-* Beim Übergeben von Werten an diesen Status wird eine Popup-Nachricht (oder Toast) angezeigt
+* Beim Übergeben von Werten an diesen Status wird eine Popup-Meldung (oder Toast) auf allen **derzeit** geöffneten iQontrol-Frontends angezeigt
+* Zusätzlich erzeugt jede Instanz den Zustand `iqontrol.x.Popup.PersistentMessage`
+* Beim Übergeben von Werten in diesem Zustand wird die Popup-Nachricht im PERSISTENT_MESSAGES_PENDING-Array gespeichert.
+* Persistente Nachrichten werden nicht nur auf allen derzeit geöffneten iQontrol-Frontends angezeigt, sondern auch auf allen **in Zukunft** geöffneten Instanzen, bis sie bestätigt werden (durch Klicken oder Dauer) oder sie ablaufen.
+* `PersistentExpires` definiert, wann die persistente Nachricht als UNIX-Zeitstempel abläuft (Sekunden vom 01.01.1970 00:00:00). Werte unter 31536000 werden als Dauer in Sekunden ab jetzt interpretiert (31536000 Sekunden = 1 Jahr).
+* `PersistentUndismissible` *boolean* - Wenn dies auf true gesetzt ist, wird die persistente Nachricht auch nach dem Schließen beibehalten. Wenn Sie eine neue iQontrol-Instanz öffnen, wird diese erneut angezeigt. Andernfalls werden persistente Nachrichten nach dem Schließen des Popups gelöscht (auch per Klick oder nach Ablauf der Dauer).
+* „PersistentId“ ist ein optionaler beliebiger Ausdruck, der verwendet werden kann, um die Nachricht zu identifizieren.
+* Die ID kann verwendet werden, um entsprechende Popup-Nachrichten zu löschen, indem die ID an `PERSISTENT_MESSAGES_DELETE_ID` gesendet wird. Das Senden von "null" an diesen Datenpunkt entfernt alle anstehenden Nachrichten.
+* Die ID kann auch verwendet werden, um entsprechende Popup-Meldungen auf allen aktuell geöffneten iQontrol-Instanzen erneut anzuzeigen, indem die ID an `PERSISTENT_MESSAGES_SHOW_ID` gesendet wird. Das Senden von „null“ an diesen Datenpunkt zeigt alle anstehenden Nachrichten.
+* **Hinweis**: Sie können eine Nachricht nur an einen der beiden Datenpunkte „Message“ oder „PersistentMessage“ senden, nicht an beide.
 * Sie können HTML-Tags verwenden, um den Nachrichtentext zu formatieren
 * Es gibt einige zusätzliche Zustände zur weiteren Anpassung des angezeigten Popups (diese müssen gesetzt werden, bevor der Nachrichtendatenpunkt gesetzt wird):
     * `Duration`: Dies ist die Zeit in ms, in der die Nachricht angezeigt wird; bei 0 muss die Meldung bestätigt werden
     * `ClickedValue` und `ClickedDestinationState`: Wenn das Popup vom Benutzer angeklickt wird, wird der Wert von `ClickedValue` an `iqontrol.x.Popup.POPUP_CLICKED` gesendet und, falls angegeben, zusätzlich zum Datenpunkt in `ClickedDestinationState`
         * Wenn kein Wert angegeben ist, wird "true" verwendet
+* `ClickKeepsOpen` *boolean* - wenn wahr, kann das Popup nur durch Klicken auf eine Schaltfläche geschlossen werden, durch Klicken auf das Popup selbst wird es nicht geschlossen. Stellen Sie also sicher, dass Sie Ihrer Popup-Nachricht Schaltflächen hinzufügen, wie unten beschrieben.
     * `ButtonNames`: Hier können Sie eine kommaseparierte Liste von Buttons angeben, die unten im Popup angezeigt werden (zB "OK,Abbruch")
         * `ButtonValues` und `ButtonDestinationStates`: Dies sind kommagetrennte Listen von Werten, die an `iqontrol.x.Popup.BUTTON_CLICKED` gesendet werden und, falls angegeben, zusätzlich zum Datenpunkt in `ButtonDestinationStates`, wenn der Benutzer auf das entsprechende klickt Taste
 * Anstelle eines Datenpunkts können Sie die Befehle `COMMAND:renderView` und `COMMAND:openDialog` als ButtonDestinationState verwenden, um eine Ansicht zu rendern oder einen Dialog zu öffnen
@@ -198,6 +208,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Wenn Sie `ButtonValues` leer lassen, wird der Name des Buttons verwendet
 * Wenn Sie nur einen Zielstatus verwenden (anstelle einer kommagetrennten Liste), wird dieser Status für alle Schaltflächen verwendet
         * `ButtonCloses`: Dies ist eine kommaseparierte Liste von booleschen Werten (`true`/`false`), die angeben, ob das Popup geschlossen werden soll, wenn der entsprechende Button gedrückt wird
+        * `ButtonClears`: Dies ist eine kommagetrennte Liste von booleschen Werten (`true`/`false`), die angeben, ob die Popup-Einstellungen gelöscht werden sollen (= alle Popup-Zustände auf leer setzen), wenn der entsprechende Button gedrückt wird
 * Alternativ können Sie diese Werte auch per sendTo-Befehl mit den Parametern `PopupMessage`, `PopupDuration`, `PopupClickedValue` usw. setzen
     * Beispiel: `sendTo("iqontrol", "send", {PopupMessage: 'Das ist meine Nachricht', PopupDuration: 2500, PopupClickedValue: 'messageConfirmed'});`
 * Sie können auch blockly verwenden, um Nachrichten an iQontrol zu senden
@@ -208,16 +219,46 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Jede Kachel hat eine Background_URL und einen Background_HTML-Datenpunkt
 * Hier können Sie einen Link (perHINTERGRUND_URL) zu einer Website definieren oder direkten HTML-Code (perHINTERGRUND_HTML) platzieren, der als Hintergrund der Kachel angezeigt wird
 * Dies gibt Ihnen die Möglichkeit, (interaktive) Inhalte innerhalb einer Kachel zu platzieren (wie Uhren, FLOT-Charts, Tabellen, Wettervorhersagen usw.)
-* Standardmäßig werden Mausereignisse auf diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von "HINTERGRUND_ANSICHT/URL/HTML" deaktivieren "
+* Standardmäßig werden Mausereignisse an diesen Inhalt geleitet (daher können Sie nicht mehr auf die Kachel selbst klicken), aber Sie können dies mit der Option "Mausereignisse auf die Kachel leiten statt auf den Inhalt von DESCRIPTION_VIEW/URL/HTML "
 * iQontrol bietet eine Geräterolle "Widget" mit einigen vordefinierten Optionen, die meistens verwendet werden, wenn eine Website als Widget angezeigt wird. Aber Sie können das gleiche Ergebnis mit jeder anderen Rolle erzielen, indem Sie die Geräteoptionen richtig ändern.
 
 ![Popup-Screenshot](../../../en/adapterref/iobroker.iqontrol/img/widget_screenshot.png)
 
 <details><summary>Widget-Entwicklung (nur für Experten): (<ins> zum Öffnen anklicken</ins> )</summary>
 
-### PostMessage-Kommunikation
+### JQuery
 * Technisch gesehen wird der Inhalt vonROUND_VIEW/URL/HTML in ein HTML-Element namens iframe platziert, das eine Website innerhalb einer Website ist
-* Durch Aktivieren der Option "PostMessage-Kommunikation für Background_VIEW/URL/HTML zulassen" können Sie die PostMessage-Kommunikation zwischen der Website in diesem iFrame und iQontrol selbst aktivieren
+* Um jQuery zu verwenden, können Sie es mit folgendem Code von iQontrol auf den iFrame übertragen:
+
+    ``window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);``
+
+* Beispiel:
+
+	```html
+	<!doctype html>
+	<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="widget-description" content="This is a demo widget-preset. It has no useful funcion. (C) by Sebastian Bormann"/>
+		<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true', 'sizeInactive': 'xwideIfInactive highIfInactive', 'iconNoPointerEventsInactive': 'true', 'hideDeviceNameIfInactive': 'true', 'hideStateIfInactive': 'true', 'sizeActive': 'fullWidthIfActive fullHeightIfActive', 'bigIconActive': 'true', 'iconNoPointerEventsActive': 'true', 'hideDeviceNameIfActive': 'true', 'hideStateIfActive': 'true', 'sizeEnlarged': 'fullWidthIfEnlarged fullHeightIfEnlarged', 'bigIconEnlarged': 'true', 'iconNoPointerEventsEnlarged': 'false', 'noOverlayEnlarged': 'true', 'hideDeviceNameIfEnlarged': 'true', 'hideStateIfEnlarged': 'true', 'popupAllowPostMessage': 'true', 'backgroundURLAllowPostMessage': 'true', 'backgroundURLNoPointerEvents': 'false'}"/>
+		<title>iQontrol Widget Test</title>
+	</head>
+	<body>
+		<div id="testDiv">Loading...</div>
+		<script type="text/javascript">
+			console.log("JQUERY-TEST");
+			window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);
+			$(document).ready(function(){
+				$('#testDiv').html("<h1>Hello World</h1)");
+				console.log("jQuery works!!");
+			});
+		</script>
+	</body>
+	</html>
+	```
+
+### PostMessage-Kommunikation
+* Durch Aktivieren der Option "PostMessage-Kommunikation für Background_VIEW/URL/HTML zulassen" können Sie die PostMessage-Kommunikation zwischen dem Widget in seinem iFrame und iQontrol selbst aktivieren
 * Um Befehle an iQontrol zu senden, können Sie den folgenden Javascript-Befehl verwenden: `window.parent.postMessage(message, "*");`
     * „Nachricht“ ist ein Javascript-Objekt im Format „{ Befehl: Befehl, Status-ID: Status-ID, Wert: Wert }“.
     * Die folgenden Nachrichtenbefehle werden unterstützt:
@@ -228,13 +269,13 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
         * `{ Befehl: "getWidgetStateSubscribed", stateId: <widgetStateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Zustands `iqontrol.<instance>.Widgets.<widgetStateId>` jetzt und jedes Mal zu senden, wenn sich sein Wert ändert (siehe unten, wie man die Antwortnachrichten erhält).
         * `{ Befehl: "setWidgetDeviceState", stateId: <widgetDeviceState>, Wert: <value> }`
-* Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<Wert>` gesetzt (`<Wert>` kann eine Zeichenfolge sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
+* Dadurch wird der ioBroker-Datenpunkt, der dem Geräte-STATUS `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist), auf den Wert `<value>` gesetzt (`<value>` kann ein String sein, Zahl oder Boolean oder ein Objekt wie `{ val: <value>, ack: true|false }`)
         * `{ Befehl: "getWidgetDeviceState", stateId: <widgetDeviceState> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Datenpunkts zu senden, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (z. B. der Datenpunkt, der LEVEL zugewiesen ist; siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getWidgetDeviceStateSubscribed", stateId: <widgetDeviceState> }`
 * Dies bewirkt, dass iQontrol den Wert des ioBroker-Datenpunkts sendet, der dem Gerät STATE `<widgetDeviceState>` zugewiesen ist (zum Beispiel der Datenpunkt, der LEVEL zugewiesen ist) jetzt und jedes Mal, wenn sich sein Wert ändert (siehe unten, wie man Antwortnachricht erhalten)
         * `{ Befehl: "setState", stateId: <stateId>, Wert: <value> }`
-* Dadurch wird der ioBroker-Status `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
+* Dadurch wird der ioBroker-Zustand `<stateId>` auf den Wert `<value>` gesetzt (`<value>` kann ein String, eine Zahl oder ein boolescher Wert oder ein Objekt wie `{ val: <value>, ack: true| sein falsch }`)
         * `{ Befehl: "getState", stateId: <stateId> }`
 * Dies veranlasst iQontrol, den Wert des ioBroker-Status `<stateId>` zu senden (siehe unten, wie man die Antwortnachricht erhält)
         * `{ Befehl: "getStateSubscribed", stateId: <stateId> }`
@@ -462,9 +503,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
           ```
 
  * Der Benutzer wird nach diesen Parametern gefragt, wenn er das Widget als URL oder Background_URL auswählt oder automatisch ein Widget erstellt
-* „type“ ist optional und kann „text“ (standardmäßig), „number“, „checkbox“, „color“, „select“, „multipleSelect“, „combobox“, „historyInstance“, „datapoint“ sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
+* `type` ist optional und kann `text` (Standard), `number`, `checkbox`, `color`, `select`, `multipleSelect`, `combobox`, `historyInstance`, `datapoint` sein, `listJsonDatapoint`, `icon`, `fontFamily`, `fontSize`, `fontStyle`, `fontWeight`, `language`, `section`, `divider`, `info`, `link` oder `hidden`
 * Wenn der Typ „select“, „multipleSelect“ oder „combobox“ ist, müssen Sie die möglichen Optionen angeben, indem Sie „/<selectOptions>“ hinzufügen, wobei „<selectOptions>“ eine Zeichenfolge im Format „<value1>,<“ ist caption1>/<value2>,<caption2>/...` (Combobox ist eine Auswahlbox mit der Möglichkeit zur Eingabe von freiem Text)
-* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Höchst- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
+* Wenn der Typ `number` ist, kann durch Hinzufügen von `/<numberOptions>` die Mindest-, Maximal- und Schrittweite angegeben werden, wobei `<numberOptions>` eine Zeichenfolge im Format `<min>,<max>,<step> ist `
 * Die Typen `section`, `divider`, `info` und `link` haben keine weitere Funktion, sie dienen lediglich dazu, dem Benutzer Informationen anzuzeigen. Für `link` sollte der Wert eine URL sein, aber alle Slashes müssen durch Backslashes ersetzt werden.
 * Type `hidden` wird an das Widget übergeben, aber es wird kein Konfigurationsdialog angezeigt
 * Alle diese Parameter werden der Widget-Website über einen URL-Parameter-String (wie `widget.html?parameter=value&parameter2=value2`) übergeben.
@@ -541,8 +582,11 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `linkGlowActiveColorToHue` (Farbe der Lampe als GLOW_ACTIVE_COLOR verwenden) - nur gültig für Rolle Licht:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat:
+* `controlModeDisabledValue` (Wert von CONTROL_MODE für 'disabled') - nur gültig für Rolle Thermostat, Homematic-Thermostat und Homematic IP-Thermostat:
 * Standard: ""
+* `valveStatesSectionType` (Aussehen von VALVE_STATES) - nur gültig für Rolle Thermostat, Homematic-Thermostat und Homematic IP-Thermostat:
+* Mögliche Werte: `true`|`false` `none`|`none noCaption`|`collapsible`|`collapsible open`
+* Standard: "zusammenklappbar"
 * `stateClosedValue` (Wert von STATE für 'closed') - nur gültig für Rolle Window und Door with Lock:
 * Standard: ""
 * `stateOpenedValue` (Wert von STATE für 'opened') - nur gültig für Rolle Window:
@@ -551,21 +595,28 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: ""
 * `lockStateLockedValue` (Wert von LOCK_STATE für 'locked') - nur gültig für Rolle Door with Lock:
 * Standard: ""
+* `lockOpenValue` (Wert von LOCK_OPEN für 'offene Tür') - nur gültig für Rolle Door with Lock:
+* Standard: ""
 * `invertActuatorLevel` (Invert LEVEL (0 = open)) - nur gültig für Rolle Blind:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `directionOpeningValue` (Wert von DIRECTION für 'opening') - nur gültig für Rolle Window:
 * Standard: "1"
-* `directionOpeningValue` (Wert von DIRECTION für 'opening') - nur gültig für Rolle Window:
+* `directionClosingValue` (Wert von DIRECTION für 'closing') - nur gültig für Rolle Window:
 * Standard: "2"
 * `directionUncertainValue` (Wert von DIRECTION für 'uncertain') - nur gültig für Rolle Window:
 * Standard: "3"
-* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Window:
+* `favoritePositionCaption` (Beschriftung für FAVORITE_POSITION) - nur gültig für Rolle Fenster:
 * Standard: "Lieblingsposition"
-* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Fenster:
+* `stopCaption` (Beschriftung für STOP) - nur gültig für Rolle Window:
 * Vorgabe: „Stopp“
+* `upCaption` (Beschriftung für UP) - nur gültig für Rolle Window:
+* Standard: "Nach unten"
 * `downCaption` (Beschriftung für DOWN) - nur gültig für Rolle Window:
 * Standard: "Nach unten"
+* `noConfirmationForTogglingViaIcon` (Keine Bestätigung beim Umschalten per Icon abfragen) - nur gültig für Rolle Garage Door:
+* Standard: "false"
+* Mögliche Werte: `true`|`false`
 * `controlModeDisarmedValue` (Wert von CONTROL_MODE für 'disarmed') - nur gültig für Rolle Alarm:
 * Standard: "0"
 * `showStateAndLevelSeparatelyInTile` (Zeige STATE und LEVEL separat in Kachel) - nur gültig für Rollenwert:
@@ -600,6 +651,9 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: "Pause"
 * `stateStopValue` (Wert von STATE für 'stop') - nur gültig für Rolle Media:
 * Vorgabe: „stopp“
+* `useStateValuesForPlayPauseStop` (Sende diese Werte (statt true) beim Klick auf PLAY, PAUSE und STOP) - nur gültig für Rolle Media:
+* Mögliche Werte: `true`|`false`
+* Standard: "false"
 * `hidePlayOverlay` (Hide Play Icon) - nur gültig für Rolle Media:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
@@ -625,14 +679,13 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Standard: ""
 * `remoteAdditionalButtonsCaption` (Beschriftung für Abschnitt 'Zusätzliche Schaltflächen') - nur gültig für Rolle Medien:
 * Standard: ""
+* `togglePowerSwitch` (Toggle POWER_SWITCH statt STATE (zB beim Klick auf Icon)) - nur gültig für Rolle Media:
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
 * `noVirtualState` (keinen virtuellen Datenpunkt für STATE verwenden (Schalter ausblenden, wenn STATE leer ist)) - nur gültig für Rolle Widget:
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * Allgemein:
-* `stateCaption` (Beschriftung von STATE):
-* Standard: ""
-* `levelCaption` (Beschriftung von LEVEL):
-* Standard: ""
 * `readonly` (Nur lesen):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
@@ -830,12 +883,37 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * Zeitstempel:
+* `stateCaption` (Beschriftung von STATE):
+* Standard: ""
+* `levelCaption` (Beschriftung von LEVEL):
+* Standard: ""
+* `levelFavorites` (Favoritenwerte für LEVEL (semikolonseparierte Zahlenliste)):
+* Standard: ""
+* `levelFavoritesHideSlider` (Schieberegler für LEVEL ausblenden, wenn Favoritenwerte gesetzt sind):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
+* `hideStateAndLevelInDialog` (ZUSTAND und LEVEL im Dialog ausblenden):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
 * `addTimestampToState` (Zeitstempel zum Zustand hinzufügen):
 * Mögliche Werte: ""|"SA"|"ST"|"STA"|"SE"|"SEA"|"SE."|"SE.A"|"Se"|"SeA"|"STE"| "STEA"|"STE."|"STE.A"|"STe"|"STeA"|"T"|"TA"|"TE"|"TEA"|"TE."|"TE.A"| "Te"|"TeA"|"E"|"EA"|"E."|"E.A"|"e"|"eA"|"N"
 * Standard: "N"
 * `showTimestamp` (Zeitstempel im Dialog anzeigen):
 * Mögliche Werte: ""|"ja"|"nein"|"immer"|"nie"
 * Standard: ""
+* INFO A/B:
+* `infoARoundDigits` (Info_A auf diese Stellenzahl runden):
+* Mögliche Werte: 0-10
+* Standard: "1"
+* `infoBRoundDigits` (Info_B auf diese Anzahl an Ziffern runden):
+* Mögliche Werte: 0-10
+* Standard: "1"
+* `infoAShowName` (Name von INFO_A anzeigen):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
+* `infoBShowName` (Name von INFO_B anzeigen):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
 * BATTERIE-Leer-Symbol:
 * `batteryActiveCondition` (Zustand):
 * Mögliche Werte: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
@@ -846,7 +924,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `invertUnreach` (UNREACH umkehren (connected statt unreach verwenden)):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
-* `invertUnreach` (Verstecke (bzw. ignoriere) UNREACH, wenn das Gerät inaktiv ist):
+* `hideUnreachIfInactive` (Verstecke (bzw. ignoriere) UNREACH, wenn das Gerät inaktiv ist):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * FEHLER-Symbol:
@@ -854,7 +932,13 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 *HINTERGRUND_ANSICHT/URL/HTML:
-* `adjustHeightToBackgroundView: ` (Höhe der Gerätekachel an die Größe von DESCRIPTION_VIEW anpassen):
+* `adjustHeightToBackgroundView` (Höhe der Gerätekachel an die Größe vonbackground_VIEW anpassen):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
+* „backgroundURLAllowAdjustHeight“ (Widget in der URL „HINTERGRUND_URL“ erlauben, die Höhe der Gerätekachel anzupassen):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
+* `backgroundLimitAdjustHeightToScreen` (Höhenanpassung auf Bildschirmgröße beschränken):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
 * `backgroundURLDynamicIframeZoom` (Dynamischer Zoom für Background_VIEW/URL/HTML (dies ist die Zoomstufe in %, die benötigt würde, damit der Inhalt in eine einzelne 1x1-Kachel passt)):
@@ -894,6 +978,8 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `openURLExternal` (URL in neuem Fenster öffnen (statt als Box im Dialog anzuzeigen)):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
+* `openURLExternalCaption` (Beschriftung für Schaltfläche zum Öffnen der URL in neuem Fenster):
+* Standard: ""
 * `popupAllowPostMessage` (postMessage-Kommunikation für URL/HTML zulassen):
 * Mögliche Werte: `true`|`false`
 * Standard: „falsch“.
@@ -906,14 +992,26 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 * `additionalControlsHeadingType` (Aussehen von ADDITIONAL_CONTROLS-Überschriften):
 * Mögliche Werte: "none"|"collapsible"|"collapsible open"
 * Standard: "zusammenklappbar"
+* `additionalControlsHideNameForButtons` (Name (mit Symbol) für Schaltflächen ausblenden (nur Beschriftung verwenden)):
+* Mögliche Werte: `true`|`false`
+* Standard: „falsch“.
 * ZUSÄTZLICHE INFORMATION:
 * `additionalInfoSectionType` (Aussehen von ADDITIONAL_INFO):
 * Mögliche Werte: "none"|"collapsible"|"collapsible open"
 * Standard: "zusammenklappbar"
 * `additionalInfoCaption` (Beschriftung für ADDITIONAL_INFO):
 * Voreinstellung: "Zusätzliche Infos"
+* `additionalInfoListType` (Listentyp von ADDITIONAL_INFO):
+* Mögliche Werte: ""|`plain`
+* Standard: ""
+* `additionalInfoListColumnCount` (Aufteilen der Liste in diese Anzahl von Spalten):
+* Mögliche Werte: `auto`|`1`|`2`|`3`|`4`|`5`|`6`
+* Standard: „automatisch“.
+* `additionalInfoListColumnWidth` (Spaltenbreite nicht unterschreiten [px]):
+* Mögliche Werte: 0-1200
+* Standard: ""
 
-</Details>
+</details>
 
 <details><summary>Beispiel-Widget-Website anzeigen, die eine Karte mit den obigen Einstellungen erstellt: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1004,7 +1102,7 @@ Die kostenlosen integrierten Demo-Hintergrundbilder stammen von www.pexels.com.
 </html>
 ```
 
-</Details>
+</details>
 
 <details><summary>Zeigen Sie ein fortgeschritteneres Beispiel: (<ins> zum Öffnen anklicken</ins> )</summary>
 
@@ -1323,7 +1421,7 @@ Um die gezählten Geräte zu visualisieren, können Sie das Device-Counter-Widge
 * Hier finden Sie einige Tipps zur Konfiguration der Icon-Ersetzungen im Device-Counter-Widget: [wiki](https://github.com/sbormann/ioBroker.iqontrol/wiki/JSON-Table-and-Device-Counter- Widget---Icon-Ersetzungen)
 
 ## Ändern der Datenpunktkonfiguration
-Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol in der neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
+Sie können die Konfiguration von Datenpunkten über das Schraubenschlüssel-Symbol (oder eher das Zahnrad-Symbol im neuen React-UI) hinter einem Datenpunkt im Gerätekonfigurationsdialog oder im Objekt-Tab von iobroker ändern.
 
 ![CustomDialog-Aufruf](img/custom_call.png) ![CustomDialog-Beispiel](../../../en/adapterref/iobroker.iqontrol/img/custom_dialog.png)
 
@@ -1373,7 +1471,7 @@ Fast alle Rollen haben einen **STATE**- und/oder einen **LEVEL**-State. In den m
 }
 ```
 
-    * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt ändern (Schraubenschlüssel-Symbol, bzw. Zahnrad-Symbol im neuen React-UI, hinter dem Datenpunkt im Objekt-Tab von iobroker, siehe oben)
+    * Sie können Ihre eigene Werteliste erstellen, indem Sie den Datenpunkt ändern (Schraubenschlüssel-Symbol, oder besser gesagt Zahnrad-Symbol im neuen React-UI, hinter dem Datenpunkt im Objekt-Tab von iobroker, siehe oben)
 * iQontrol zeigt unter folgenden Umständen eine definierte Werteliste als Dropdown-Feld im Dialog an:
 * wenn type `number` ist und die valueList genau so viele Einträge hat, wie Schritte zwischen Min- und Max des Datenpunktes oder
 * wenn der Typ `boolean` ist, aber die Rolle nicht `switch` ist oder
@@ -1405,7 +1503,7 @@ Allerdings ist nicht jeder Typ für jede Rolle sinnvoll. So ist beispielsweise d
 
     ![Abzeichen](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
-* **OVERLAY_INACTIVE_COLOR** und **OVERLAY_ACTIVE_COLOR**: *string* - jeder gültige HTML-Farbstring (wie 'green', '#00FF00', 'rgba(0,255,0,0.5)' und so weiter), der stellt die Farbe der Überlagerung der Kachel dar (abhängig davon, ob die Kachel aktiv oder inaktiv ist). Wenn kein gültiger Farbstring angegeben wird, wird die Standard-Overlay-Farbe (die in den iQontrol-Optionen konfiguriert werden kann) verwendet. Beachten Sie, dass es eine Option zum Definieren der Transparenz des Overlays in den iQontrol-Optionen gibt, die sich auf das Erscheinungsbild der eingestellten Overlay-Farbe auswirkt.
+* **OVERLAY_INACTIVE_COLOR** und **OVERLAY_ACTIVE_COLOR**: *string* - ein beliebiger gültiger HTML-Farbstring (wie 'green', '#00FF00', 'rgba(0,255,0,0.5)' und so weiter), der stellt die Farbe der Überlagerung der Kachel dar (abhängig davon, ob die Kachel aktiv oder inaktiv ist). Wenn kein gültiger Farbstring angegeben wird, wird die Standard-Overlay-Farbe (die in den iQontrol-Optionen konfiguriert werden kann) verwendet. Denken Sie daran, dass es eine Option gibt, um die Transparenz des Overlays in den iQontrol-Optionen zu definieren, was sich auf das Erscheinungsbild der eingestellten Overlay-Farbe auswirkt.
 * Für Lichter können Sie auch die Option "Farbe der Lampe als OVERLAY_ACTIVE_COLOR verwenden" verwenden, die in den gerätespezifischen Optionen zu finden ist.
 
     ![Überlagerungsfarbe](../../../en/adapterref/iobroker.iqontrol/img/overlay_color.png)
@@ -1461,7 +1559,7 @@ modulo(-3.60 * (MilightHue/2.55 - 66), 360);
 on modulo(n, m){ return ((n % m) + m) %m; }
 ```
 
-        * **HHSSBB für Tuya**: 12-stellige Hex-Zeichenfolge, die Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
+        * **HHSSBB für Tuya**: 12-stelliger Hex-String, der Farbton (HH = 0000-016d [0-365]), Sättigung (SS = 0000-03e8 [0-1000]) und Farbhelligkeit (BB = 0000-03e8 [0-1000])
 
 Beachte: Die Konvertierung in den alternativen Farbraum erfolgt über das Frontend, ist also nur aktiv, wenn iQontrol irgendwo geöffnet ist. Daher können Sie es nicht als Konverter für Farbräume verwenden. Um Konversationsschleifen zu vermeiden, wird empfohlen, entweder die ursprünglichen Farbraum-Datenpunkte (HUE, SATURATION, COLOR_BRIGHTNESS, CT, WHITE_BRIGHTNESS) *oder* den alternativen Farbraum-Datenpunkt zu verwenden, um diese Datenpunkte zu *ersetzen*.
 
@@ -1570,94 +1668,94 @@ Zusätzlich zum normalen Thermostat können Sie Folgendes definieren:
 * Für das 'Datum und Uhrzeit'-Gerät können diese beiden Einstellungen auch in den Geräteoptionen im gerätespezifischen Bereich vorgenommen werden. Diese überschreiben die im Custom-Bereich des Datenpunkts vorgenommenen Einstellungen.
 * Sie können die folgenden Token verwenden:
 
-| | | Token | Beispiel | Datenpunkt | Anzeige | Pflücker |
-|----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
-| Zeitstempel | Unix-Zeitstempel | X | 1410715640.579 | X | --- | --- |
-| | Unix ms Zeitstempel | x | 1410715640579 | X | --- | --- |
-| Datum | Wochentag | d | 0 1 ... 5 6 | X | --- | --- |
-| | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
-| | | dd | So Mo ... Fr Sa | X | X (übersetzt) | --- |
-| | | dddd | Sonntag Montag ... Freitag Samstag | X | X (übersetzt) | --- |
-| | | machen | 0. 1. ... 5. 6. | X | --- | --- |
-| | Tag des Monats | D | 1 2 ... 30 31 | X | X | X |
-| | | DD | 01 02 ... 30 31 | X | X | X |
-| | | Mach | 1. 2. ... 30. 31. | X | --- (umgewandelt in D) | --- (umgewandelt in D) |
-| | Monat | M | 1 2 ... 11 12 | X | X | X |
-| | | MM | 01 02 ... 11 12 | X | X | X |
-| | | MM | Jan Feb ... Nov Dez | X | X | X |
-| | | MMMM | Januar Februar ... November Dezember | X | X | X |
-| | | Mo | 1. 2. ... 11. 12. | X | --- (umgewandelt in M) | --- (umgewandelt in M) |
-| | Jahr | Y | 1970 1971 ... 9999 +10000 +10001 | X | X | X |
-| | | JJ | 70 71 ... 29 30 | X | X | X |
-| | | JJJJ | 1970 1971 ... 2029 2030 | X | X | X |
-| | | JJJJJJ | -001970 -001971 ... +001907 +001971 | X | --- (umgewandelt in JJJJ) | --- (umgewandelt in JJJJ) |
-| Zeit | AM/PM | Ein | AM PM | X | X | X |
-| | | ein | Uhr Uhr | X | X | X |
-| | Stunde | H | 0 1 ... 22 23 | X | X | X |
-| | | HH | 00 01 ... 22 23 | X | X | X |
-| | | h | 1 2 ... 11 12 | X | X | X |
-| | | hh | 01 02 ... 11 12 | X | X | X |
-| | | k | 1 2 ... 23 24 | X | --- (umgewandelt in H) | --- (umgewandelt in H) |
-| | | kk | 01 02 ... 23 24 | X | --- (umgewandelt in HH) | --- (umgewandelt in HH) |
-| | Minute | m | 0 1 ... 58 59 | X | X | X |
-| | | Millimeter | 00 01 ... 58 59 | X | X | X |
-| | Zweite | s | 0 1 ... 58 59 | X | X | X |
-| | | ss | 00 01 ... 58 59 | X | X | X |
-| | Sekundenbruchteile | S | 0 1 ... 8 9 | X | --- | --- |
-| | | SS | 00 01 ... 98 99 | X | --- | --- |
-| | | SSS | 000 001 ... 998 999 | X | --- | --- |
-| | | SSSS ... SSSSSSSS | 000[0..] 001[0..] ... 998[0..] 999[0..] | X | --- | --- |
-| | Zeitzone | z oder zz | EST CST ... MST PST | X | --- | --- |
-| | | Z | -07:00 -06:00 ... +06:00 +07:00 | X | --- | --- |
-| | | ZZ | -0700 -0600 ... +0600 +0700 | X | --- | --- |
-| Perioden | Tag des Jahres | DDD | 1 2 ... 364 365 | X | --- | --- |
-| | | DDDD | 001 002 ... 364 365 | X | --- | --- |
-| | | DDDo | 1. 2. ... 364. 365. | X | --- | --- |
-| Andere | Wochentag (Gebietsschema) | e | 0 1 ... 5 6 | X | --- | --- |
-| | Wochentag (ISO) | E | 1 2 ... 6 7 | X | --- | --- |
-| | Quartal | Q | 1 2 3 4 | X | --- | --- |
-| | | Qo | 1. 2. 3. 4. | X | --- | --- |
-| | Woche des Jahres | w | 1 2 ... 52 53 | X | --- | --- |
-| | | wo | 1. 2. ... 52. 53. | X | --- | --- |
-| | | ww | 01 02 ... 52 53 | X | --- | --- |
-| | Woche des Jahres (ISO) | W | 1 2 ... 52 53 | X | --- | --- |
-| | | Wo | 1. 2. ... 52. 53. | X | --- | --- |
-| | | WW | 01 02 ... 52 53 | X | --- | --- |
-| | Epoche Jahr | y | 1 2 ... 2020 ... | X | --- | --- |
-| | | du | 1. 2. … 2020. … | X | --- | --- |
-| | Ära | N, NN, NNN | v. Chr. n. Chr. | X | --- | --- |
-| | | NNNN | Vor Christus, Anno Domini | X | --- | --- |
-| | | NNNNN | v. Chr. n. Chr. | X | --- | --- |
-| | Woche Jahr | gg | 70 71 ... 29 30 | X | --- | --- |
-| | | ggg | 1970 1971 ... 2029 2030 | X | --- | --- |
-| | Woche Jahr (ISO) | GG | 70 71 ... 29 30 | X | --- | --- |
-| | | GGGG | 1970 1971 ... 2029 2030 | X | --- | --- |
-| Perioden | Zeitraum | P | Markiert einen Zeitraum und keine bestimmte Zeit. Kann eines der folgenden Formate haben: | X | --- (umgewandelt in D [Tag(e)], h:m:s) | --- (umgewandelt in D, h:m:s) |
-| | | | Millisekunden (zB 279344) | | | |
-| | | | Stunden:Minuten (zB 46:33) | | | |
-| | | | Stunden:Minuten:Sekunden (z. B. 46:33:44 oder 28:33:44,5) | | | |
-| | | | Tage Stunden:Minuten.Sekunden (z. B. 1 22:33:44 oder 1 22:33:44,5) | | | |
-| | | | Tage.Stunden:Minuten.Sekunden (z. B. 1.22:33:44 oder 1.22:33:44,5) | | | |
-| | | | ISO 8601 (z. B. P0Y0M1DT22H33M44S oder P1DT22H33M44S) | | | |
-| | | Pi | Zeitraum von Jahren | X | --- | --- |
-| | | PN | Zeitraum von Monaten | X | --- | --- |
-| | | PW | Zeitraum von Wochen | X | --- | --- |
-| | | Pd | Zeitraum von Tagen | X | --- | --- |
-| | | Ph. | Zeitraum von Stunden | X | --- | --- |
-| | | Uhr | Zeitraum von Minuten | X | --- | --- |
-| | | PS | Zeitraum von Sekunden | X | --- | --- |
-| | | Pms | Zeitraum von Millisekunden | X | --- | --- |
-| Flaggen | Fehlende Teile auf Anfang | setzen tb | Z.B. Datum auf 1970-01-01 setzen, wenn nur eine Zeit angegeben ist | X | --- | --- |
-| | Fehlende Teile jetzt auf | setzen tn | Z.B. Datum auf jetzt setzen, wenn nur eine Zeit angegeben ist | X | --- | --- |
-| | Alte fehlende Teile aufbewahren | zu | Z.B. Datum wie bisher belassen, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
-| Freitext | Freitext in Klammern markieren | [] | [Dies ist ein Beispiel, alle Token werden ignoriert] | X | X | --- |
+| | | Token | Beschreibung/Beispiel | Datenpunkt | Anzeige | Pflücker |
+|----------:|-------------------------------:|----------------------|------------------------------------------------------------------------------------|-----------|----------------------------------------|-------------------------------|
+| Zeitstempel | Unix-Zeitstempel | `X` | `1410715640.579` | X | --- | --- |
+| Datum | Wochentag | `d` | `0` `1`...`5` `6` | X | --- | --- |
+| | | `dd` | `Su` `Mo`...`Fr` `Sa` | X | X (übersetzt) | --- |
+| | | `ddd` | `Sun` `Mon`...`Fri` `Sat` | X | X (übersetzt) | --- |
+| | | `dddd` | `Sunday` `Monday`...`Friday` `Saturday` | X | X (übersetzt) | --- |
+| | | `do` | `0th` `1st`...`5th` `6th` | X | --- | --- |
+| | Tag des Monats | `D` | `1` `2`...`30` `31` | X | X | X |
+| | | `DD` | `01` `02`...`30` `31` | X | X | X |
+| | | `Do` | `1st` `2nd`...`30th` `31st` | X | --- (umgewandelt in `D`) | --- (umgewandelt in `D`) |
+| | Monat | `M` | `1` `2`...`11` `12` | X | X | X |
+| | | `MM` | `01` `02`...`11` `12` | X | X | X |
+| | | `MMM` | `Jan` `Feb`...`Nov` `Dec` | X | X | X |
+| | | `MMMM` | `January` `February`...`November` `December` | X | X | X |
+| | | `Mo` | `1st` `2nd`...`11th` `12th` | X | --- (umgewandelt in `M`) | --- (umgewandelt in `M`) |
+| | Jahr | `Y` | `1970` `1971`...`9999` `+10000` `+10001` | X | X | X |
+| | | `YY` | `70` `71`...`29` `30` | X | X | X |
+| | | `YYYY` | `1970` `1971`...`2029` `2030` | X | X | X |
+| | | `YYYYYY` | `-001970` `-001971`...`+001907` `+001971` | X | --- (umgewandelt in `YYYY`) | --- (umgewandelt in `YYYY`) |
+| Zeit | AM/PM | `A` | `AM` `PM` | X | X | X |
+| | | `a` | `am` `pm` | X | X | X |
+| | Stunde | `H` | `0` `1`...`22` `23` | X | X | X |
+| | | `HH` | `00` `01`...`22` `23` | X | X | X |
+| | | `h` | `1` `2`...`11` `12` | X | X | X |
+| | | `hh` | `01` `02`...`11` `12` | X | X | X |
+| | | `k` | `1` `2`...`23` `24` | X | --- (umgewandelt in `H`) | --- (umgewandelt in `H`) |
+| | | `kk` | `01` `02`...`23` `24` | X | --- (umgewandelt in `HH`) | --- (umgewandelt in `HH`) |
+| | Minute | `m` | `0` `1`...`58` `59` | X | X | X |
+| | | `mm` | `00` `01`...`58` `59` | X | X | X |
+| | Zweite | `s` | `0` `1`...`58` `59` | X | X | X |
+| | | `ss` | `00` `01`...`58` `59` | X | X | X |
+| | Sekundenbruchteile | `S` | `0` `1`...`8` `9` | X | --- | --- |
+| | | `SS` | `00` `01`...`98` `99` | X | --- | --- |
+| | | `SSS` | `000` `001`...`998` `999` | X | --- | --- |
+| | | `SSSS`...`SSSSSSSSS` | `000[0..]` `001[0..]`...`998[0..]` `999[0..]` | X | --- | --- |
+| | Zeitzone | `z` oder `zz` | `EST` `CST`...`MST` `PST` | X | --- | --- |
+| | | `Z` | `-07:00` `-06:00`...`+06:00` `+07:00` | X | --- | --- |
+| | | `ZZ` | `-0700` `-0600`...`+0600` `+0700` | X | --- | --- |
+| Perioden | Tag des Jahres | `DDD` | `1` `2`...`364` `365` | X | --- | --- |
+| | | `DDDD` | `001` `002`...`364` `365` | X | --- | --- |
+| | | `DDDo` | `1st` `2nd`...`364th` `365th` | X | --- | --- |
+| Andere | Wochentag (Gebietsschema) | `e` | `0` `1`...`5` `6` | X | --- | --- |
+| | Wochentag (ISO) | `E` | `1` `2`...`6` `7` | X | --- | --- |
+| | Quartal | `Q` | `1` `2` `3` `4` | X | --- | --- |
+| | | `Qo` | `1st` `2nd` `3rd` `4th` | X | --- | --- |
+| | Woche des Jahres | `w` | `1` `2`...`52` `53` | X | --- | --- |
+| | | `wo` | `1st` `2nd`...`52nd` `53rd` | X | --- | --- |
+| | | `ww` | `01` `02`...`52` `53` | X | --- | --- |
+| | Woche des Jahres (ISO) | `W` | `1` `2`...`52` `53` | X | --- | --- |
+| | | `Wo` | `1st` `2nd`...`52nd` `53rd` | X | --- | --- |
+| | | `WW` | `01` `02`...`52` `53` | X | --- | --- |
+| | Epoche Jahr | `y` | `1` `2`...`2020`... | X | --- | --- |
+| | | `yo` | `1st` `2nd`...`2020th`... | X | --- | --- |
+| | Ära | `N`, `NN`, `NNN` | `BC` `AD` | X | --- | --- |
+| | | `NNNN` | `Before Christ`, `Anno Domini` | X | --- | --- |
+| | | `NNNNN` | `BC` `AD` | X | --- | --- |
+| | Woche Jahr | `gg` | `70` `71`...`29` `30` | X | --- | --- |
+| | | `gggg` | `1970` `1971`...`2029` `2030` | X | --- | --- |
+| | Woche Jahr (ISO) | `GG` | `70` `71`...`29` `30` | X | --- | --- |
+| | | `GGGG` | `1970` `1971`...`2029` `2030` | X | --- | --- |
+| Perioden | Zeitraum | `P` | Markiert einen Zeitraum und keine bestimmte Zeit. Kann eines der folgenden Formate haben: | X | --- (umgewandelt in `D [Day(s)], h:m:s`) | --- (umgewandelt in `D, h:m:s`) |
+| | | | Millisekunden (z. B. `279344`) | | | |
+| | | | Stunden:Minuten (zB `46:33`) | | | |
+| | | | Stunden:Minuten:Sekunden (z.B. `46:33:44` oder `28:33:44.5`) | | | |
+| | | | Tage Stunden:Minuten.Sekunden (z.B. `1 22:33:44` oder `1 22:33:44.5`) | | | |
+| | | | Tage.Stunden:Minuten.Sekunden (z. B. `1.22:33:44` oder `1.22:33:44.5`) | | | |
+| | | | ISO 8601 (z. B. `P0Y0M1DT22H33M44S` oder `P1DT22H33M44S`) | | | |
+| | | `Py` | Zeitraum von Jahren | X | --- | --- |
+| | | `PM` | Zeitraum von Monaten | X | --- | --- |
+| | | `Pw` | Zeitraum von Wochen | X | --- | --- |
+| | | `Pd` | Zeitraum von Tagen | X | --- | --- |
+| | | `Ph` | Zeitraum von Stunden | X | --- | --- |
+| | | `Pm` | Zeitraum von Minuten | X | --- | --- |
+| | | `Ps` | Zeitraum von Sekunden | X | --- | --- |
+| | | `Pms` | Zeitraum von Millisekunden | X | --- | --- |
+| Flaggen | Fehlende Teile auf Anfang | setzen `tb` | Z.B. Datum auf 1970-01-01 setzen, wenn nur eine Zeit angegeben ist | X | --- | --- |
+| | Fehlende Teile jetzt auf | setzen `tn` | Z.B. Datum auf jetzt setzen, wenn nur eine Zeit angegeben ist | X | --- | --- |
+| | Alte fehlende Teile aufbewahren | `to` | Z.B. Datum wie bisher belassen, wenn nur eine Uhrzeit angegeben ist | X | --- | --- |
+| Freitext | Freitext in Klammern markieren | `[]` | `[this is an example, all tokens are ignored]` | X | X | --- |
+| Freitext | Freitext in Klammern markieren | `[]` | `[dies ist ein Beispiel, alle Token werden ignoriert]` | X | X | --- |
 
 * Wenn Sie unterschiedliche Konfigurationen für Datenpunkt-Zeitformat und Anzeige-Zeitformat verwenden, werden die folgenden Konvertierungsregeln verwendet.
 * Sie können die Flags `tb`, `tn` und `to` innerhalb des Datenpunkt-Zeitformats verwenden, um das Verhalten zu beeinflussen.
 
-    ![Glühen](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
+    ![Konvertierungsregeln](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
-</details>
+</Details>
 
 ###<img src="img/icons/value_on.png" width="32"> Wert:
 * **STATE**: *any* - jeder gültige Status, der angezeigt werden soll (siehe allgemeine Status-Sektion)
@@ -1742,10 +1840,21 @@ Dieses Gerät verfügt über einige spezielle vordefinierte Größen- und Anzeig
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+
+### 2.2.0 (2023-03-23)
 * (sbormann) You can now chose destination when copying devices.
 * (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
 * (sbormann) Added option to hide slider for LEVEL, if favorites are set.
 * (sbormann) Added option to show BADGE, even if value is zero.
+* (sbormann) Added option to set DURATION and ELAPSED in milliseconds respective percentage for media.
+* (sbormann) Added ability to set links to other views with anchor to sub-headings.
+* (sbormann) Corrected some fonts.
+* (sbormann/Wal) Enabled right-click for wioBrowser.
+* (sbormann) Added some new options for popup-messages and introduced persistent popups.
+* (sbormann) Uploading of userfiles via ZIP-File is now possible.
+* (sbormann/hetti72) Fixed CONTROL_MODE of HP-IP-Thermostat (hopefully finally...)
+* (sbormann) Removed hidden links to other views from toolbar context-menu
 
 ### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.

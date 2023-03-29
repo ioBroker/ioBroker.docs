@@ -186,12 +186,22 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 
 ## Popup-Messages
 * Every instance creates the state `iqontrol.x.Popup.Message`
-* When passing values to this state, a popup-message (or toast) will be displayed
+	* When passing values to this state, a popup-message (or toast) will be displayed on all **currently** opened iQontrol frontends
+* Additionally every instance creates the state `iqontrol.x.Popup.PersistentMessage`
+	* When passing values this state, the popup-message will be saved into the PERSISTENT_MESSAGES_PENDING-Array. 
+	* Persistent messages will not be only displayed on all currently opened iQontrol frontends, but also on all **in future** opened instances until they are confimed (by click or duration) or they expire.
+	* `PersistentExpires` defines, when the persistent message expires as a UNIX-Timestamp (seconds from 1970-01-01 00:00:00). Values lower than 31536000 are interpreted as a duration in seconds from now (31536000 seconds = 1 year).
+	* `PersistentUndismissible` *boolean* - If this is set to true, the persistent message will be kept even after it is closed. If you open a new iQontrol instance, it will be displayed again. Otherwise persistent messages are deleted after the popup closes (even by click or when the duration has elapsed).
+	* `PersistentId` is an optional arbitrary expression that can be used to identify the message.
+		* The id can be used to delete corresponding popup messages by sending the id to `PERSISTENT_MESSAGES_DELETE_ID`. Sending `null` to this datapoint removes all pending messages.
+		* The id can also be used to display corresponding popup messages on all currently opened iQontrol-Instances again by sending the id to `PERSISTENT_MESSAGES_SHOW_ID`. Sending `null` to this datapoint shows all pending messages.
+	* **Note**: You can send a message to only one of the two data points "Message" or "PersistentMessage", not to both.
 * You can use html-tags to format the message text
 * There are some additional states for further customization of the displayed popup (these must be set, before the message datapoint is set):
     * `Duration`: This is the time in ms the message is displayed; if set to 0 the message has to be confirmed
     * `ClickedValue` and `ClickedDestinationState`: If the popup is clicked by user, the value from `ClickedValue` will be sent to `iqontrol.x.Popup.POPUP_CLICKED` and, if specified, additional to the datapoint in `ClickedDestinationState` 
         * If no value is specified, `true` will be used
+	* `ClickKeepsOpen` *boolean* - if true, the popup can only be closed by clicking on a button, klicking the popup itself will not close it. So make shure you add buttons to your popup-message, as described beneath.
     * `ButtonNames`: Here you can specify a comma separated list of buttons, that will be displayed at the bottom of the popup (for example "OK,Abort")
         * `ButtonValues` and `ButtonDestinationStates`: These are comma separated lists of values that will be sent to `iqontrol.x.Popup.BUTTON_CLICKED` and, if specified, additional to the datapoint in `ButtonDestinationStates`, if the user clickes the corresponding button
 		    * Instead of a datapoint you can use the commands `COMMAND:renderView` and `COMMAND:openDialog` as a ButtonDestinationState, to render a view or open a dialog
@@ -200,6 +210,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* If you leave `ButtonValues` empty, the name of the button will be used
 		* If you only use one destination state (instead of a comma separated list), this state will be used for all buttons
         * `ButtonCloses`: This is a comma separated list of booleans (`true`/`false`) that specify, if the popup should be closed, when the corresponding button is pressed
+        * `ButtonClears`: This is a comma separated list of booleans (`true`/`false`) that specify, if the popup settings should be cleared (= set all popup-states to empty), when the corresponding button is pressed
 * Alternatively you can set these values via sendTo-command with the parameters `PopupMessage`, `PopupDuration`, `PopupClickedValue` and so on
     * Example: `sendTo("iqontrol", "send", {PopupMessage: 'This is my message', PopupDuration: 2500, PopupClickedValue: 'messageConfirmed'});`
 * You can also use blockly to send messages to iQontrol
@@ -220,9 +231,36 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 <details>
 <summary>Widget development (for experts only): (<ins>klick to open</ins>)</summary>
 
-### postMessage-Communication
+### jQuery
 * Technically the content of BACKGROUND_VIEW/URL/HTML is placed inside a HTML-Element called iframe, which is a website inside a website
-* By enabling the option "Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML" you can enable postMessage-Communication between the website inside this iframe and iQontrol itself
+* In order to use jQuery, you can transfer it from iQontrol to the iFrame with the following code: 
+    ``window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);``
+* Example:
+	```html
+	<!doctype html>
+	<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="widget-description" content="This is a demo widget-preset. It has no useful funcion. (C) by Sebastian Bormann"/> 
+		<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true', 'sizeInactive': 'xwideIfInactive highIfInactive', 'iconNoPointerEventsInactive': 'true', 'hideDeviceNameIfInactive': 'true', 'hideStateIfInactive': 'true', 'sizeActive': 'fullWidthIfActive fullHeightIfActive', 'bigIconActive': 'true', 'iconNoPointerEventsActive': 'true', 'hideDeviceNameIfActive': 'true', 'hideStateIfActive': 'true', 'sizeEnlarged': 'fullWidthIfEnlarged fullHeightIfEnlarged', 'bigIconEnlarged': 'true', 'iconNoPointerEventsEnlarged': 'false', 'noOverlayEnlarged': 'true', 'hideDeviceNameIfEnlarged': 'true', 'hideStateIfEnlarged': 'true', 'popupAllowPostMessage': 'true', 'backgroundURLAllowPostMessage': 'true', 'backgroundURLNoPointerEvents': 'false'}"/>
+		<title>iQontrol Widget Test</title>
+	</head>
+	<body>
+		<div id="testDiv">Loading...</div>
+		<script type="text/javascript">
+			console.log("JQUERY-TEST");
+			window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);
+			$(document).ready(function(){
+				$('#testDiv').html("<h1>Hello World</h1)");
+				console.log("jQuery works!!");
+			});
+		</script>	
+	</body>
+	</html>
+	```
+
+### postMessage-Communication
+* By enabling the option "Allow postMessage-Communication for BACKGROUND_VIEW/URL/HTML" you can enable postMessage-Communication between the widget in its iframe and iQontrol itself
 * To send commands to iQontrol you can use the following javascript-command: `window.parent.postMessage(message, "*");` 
     * `message` is a javascript object of the format `{ command: command, stateId: stateId, value: value }`
     * The following message-commands are supported:
@@ -531,8 +569,11 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* `linkGlowActiveColorToHue` (Use color of lamp as GLOW_ACTIVE_COLOR) - only valid for role Light:
 		* Possible values: `true`|`false`
 		* Default: `false` 
-	* `controlModeDisabledValue` (Value of CONTROL_MODE for 'disabled') - only valid for role Thermostat:
+	* `controlModeDisabledValue` (Value of CONTROL_MODE for 'disabled') - only valid for role Thermostat, Homematic-Thermostat and Homematic IP-Thermostat:
 		* Default: "" 
+	* `valveStatesSectionType` (Appereance of VALVE_STATES) - only valid for role Thermostat, Homematic-Thermostat and Homematic IP-Thermostat:
+		* Possible values: `true`|`false` `none`|`none noCaption`|`collapsible`|`collapsible open`
+		* Default: "collapsible" 
 	* `stateClosedValue` (Value of STATE for 'closed') - only valid for role Window and Door with Lock:
 		* Default: "" 
 	* `stateOpenedValue` (Value of STATE for 'opened') - only valid for role Window:
@@ -541,12 +582,14 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "" 
 	* `lockStateLockedValue` (Value of LOCK_STATE for 'locked') - only valid for role Door with Lock:
 		* Default: "" 
+	* `lockOpenValue` (Value of LOCK_OPEN for 'open door') - only valid for role Door with Lock:
+		* Default: "" 
 	* `invertActuatorLevel` (Invert LEVEL (0 = open)) - only valid for role Blind:
 		* Possible values: `true`|`false`
 		* Default: `false` 
 	* `directionOpeningValue` (Value of DIRECTION for 'opening') - only valid for role Window:
 		* Default: "1" 
-	* `directionOpeningValue` (Value of DIRECTION for 'opening') - only valid for role Window:
+	* `directionClosingValue` (Value of DIRECTION for 'closing') - only valid for role Window:
 		* Default: "2" 
 	* `directionUncertainValue` (Value of DIRECTION for 'uncertain') - only valid for role Window:
 		* Default: "3" 
@@ -554,8 +597,13 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "Favorite Position" 
 	* `stopCaption` (Caption for STOP) - only valid for role Window:
 		* Default: "Stop" 
+	* `upCaption` (Caption for UP) - only valid for role Window:
+		* Default: "Down" 
 	* `downCaption` (Caption for DOWN) - only valid for role Window:
 		* Default: "Down" 
+	* `noConfirmationForTogglingViaIcon` (Don't ask for confirmation when toggling via icon) - only valid for role Garage Door:
+		* Default: "false" 
+		* Possible values: `true`|`false`
 	* `controlModeDisarmedValue` (Value of CONTROL_MODE for 'disarmed') - only valid for role Alarm:
 		* Default: "0" 
 	* `showStateAndLevelSeparatelyInTile` (Show STATE and LEVEL separately in tile) - only valid for role Value:
@@ -590,6 +638,9 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "pause" 
 	* `stateStopValue` (Value of STATE for 'stop') - only valid for role Media:
 		* Default: "stop" 
+	* `useStateValuesForPlayPauseStop` (Send these values (instead of true) when clicking on PLAY, PAUSE and STOP) - only valid for role Media:
+		* Possible values: `true`|`false`
+		* Default: "false" 
 	* `hidePlayOverlay` (Hide play icon) - only valid for role Media:
 		* Possible values: `true`|`false`
 		* Default: `false` 
@@ -615,14 +666,13 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Default: "" 
 	* `remoteAdditionalButtonsCaption` (Caption for section 'Additional Buttons') - only valid for role Media:
 		* Default: "" 
+	* `togglePowerSwitch` (Toggle POWER_SWITCH instead of STATE (for example when clicking on icon)) - only valid for role Media:
+		* Possible values: `true`|`false`
+		* Default: `false` 
 	* `noVirtualState` (Do not use a virtual datapoint for STATE (hide switch, if STATE is empty)) - only valid for role Widget:
 		* Possible values: `true`|`false`
 		* Default: `false` 
 * General:
-	* `stateCaption` (Caption of STATE):
-		* Default: "" 
-	* `levelCaption` (Caption of LEVEL):
-		* Default: "" 
 	* `readonly` (Readonly):
 		* Possible values: `true`|`false`
 		* Default: `false` 
@@ -820,12 +870,37 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: `true`|`false`
 		* Default: `false`
 * Timestamp:
+	* `stateCaption` (Caption of STATE):
+		* Default: "" 
+	* `levelCaption` (Caption of LEVEL):
+		* Default: "" 
+	* `levelFavorites` (Favorite values for LEVEL (semicolon separated list of numbers)):
+		* Default: "" 
+	* `levelFavoritesHideSlider` (Hide slider for LEVEL, if Favorite values are set):
+		* Possible values: `true`|`false`
+		* Default: `false`
+	* `hideStateAndLevelInDialog` (Hide STATE and LEVEL in dialog):
+		* Possible values: `true`|`false`
+		* Default: `false`
 	* `addTimestampToState` (Add timestamp to state):
 		* Possible values: ""|"SA"|"ST"|"STA"|"SE"|"SEA"|"SE."|"SE.A"|"Se"|"SeA"|"STE"|"STEA"|"STE."|"STE.A"|"STe"|"STeA"|"T"|"TA"|"TE"|"TEA"|"TE."|"TE.A"|"Te"|"TeA"|"E"|"EA"|"E."|"E.A"|"e"|"eA"|"N"
 		* Default: "N"
 	* `showTimestamp` (Show Timestamp in dialog):
 		* Possible values: ""|"yes"|"no"|"always"|"never"
 		* Default: ""
+* INFO A/B:
+	* `infoARoundDigits` (Round INFO_A to this number of digits):
+		* Possible values: 0-10
+		* Default: "1"
+	* `infoBRoundDigits` (Round INFO_B to this number of digits):
+		* Possible values: 0-10
+		* Default: "1"
+	* `infoAShowName` (Show Name of INFO_A):
+		* Possible values: `true`|`false`
+		* Default: `false` 
+	* `infoBShowName` (Show Name of INFO_B):
+		* Possible values: `true`|`false`
+		* Default: `false` 
 * BATTERY Empty Icon:
 	* `batteryActiveCondition` (Condition):
 		* Possible values: ""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
@@ -836,7 +911,7 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* `invertUnreach` (Invert UNREACH (use connected instead of unreach)):
 		* Possible values: `true`|`false`
 		* Default: `false` 
-	* `invertUnreach` (Hide (resp. ignore) UNREACH, if the device is inactive):
+	* `hideUnreachIfInactive` (Hide (resp. ignore) UNREACH, if the device is inactive):
 		* Possible values: `true`|`false`
 		* Default: `false` 
 * ERROR Icon:
@@ -844,7 +919,13 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 		* Possible values: `true`|`false`
 		* Default: `false` 
 * BACKGROUND_VIEW/URL/HTML:
-	* `adjustHeightToBackgroundView: ` (Adjust height of device tile to the size of BACKGROUND_VIEW):
+	* `adjustHeightToBackgroundView` (Adjust height of device tile to the size of BACKGROUND_VIEW):
+		* Possible values: `true`|`false`
+		* Default: `false`
+	* `backgroundURLAllowAdjustHeight` (Allow widget in BACKGROUND_URL to adjust height of device tile):
+		* Possible values: `true`|`false`
+		* Default: `false`
+	* `backgroundLimitAdjustHeightToScreen` (Limit adjustment of height to screen size):
 		* Possible values: `true`|`false`
 		* Default: `false`
 	* `backgroundURLDynamicIframeZoom` (Dynamic zoom for BACKGROUND_VIEW/URL/HTML (this is the zoom-level in % that would be needed, to let the content fit into a single 1x1 tile)):
@@ -884,6 +965,8 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* `openURLExternal` (Open URL in new window (instead of showing as box in dialog)):
 		* Possible values: `true`|`false`
 		* Default: `false`
+	* `openURLExternalCaption` (Caption for Button to open URL in new window):
+		* Default: ""
 	* `popupAllowPostMessage` (Allow postMessage-Communication for URL/HTML):
 		* Possible values: `true`|`false`
 		* Default: `false`
@@ -896,12 +979,24 @@ Most things work right out of the box. You *can*, but you don't have to use all 
 	* `additionalControlsHeadingType` (Appearance of ADDITIONAL_CONTROLS Headings):
 		* Possible values: "none"|"collapsible"|"collapsible open"
 		* Default: "collapsible"
+	* `additionalControlsHideNameForButtons` (Hide Name (with Icon) for Buttons (use caption only)):
+		* Possible values: `true`|`false`
+		* Default: `false`
 * ADDITIONAL_INFO:
 	* `additionalInfoSectionType` (Appearance of ADDITIONAL_INFO):
 		* Possible values: "none"|"collapsible"|"collapsible open"
 		* Default: "collapsible"
 	* `additionalInfoCaption` (Caption for ADDITIONAL_INFO):
 		* Default: "Additional Infos"
+	* `additionalInfoListType` (List type of ADDITIONAL_INFO):
+		* Possible values: ""|`plain`
+		* Default: ""
+	* `additionalInfoListColumnCount` (Split the list into this number of columns):
+		* Possible values: `auto`|`1`|`2`|`3`|`4`|`5`|`6`
+		* Default: `auto`
+	* `additionalInfoListColumnWidth` (Do not go below this column width [px]):
+		* Possible values: 0-1200
+		* Default: ""
 </details>
 
 <details>
@@ -1542,91 +1637,91 @@ In addition to normal thermostat you can define:
 * For the 'Date and Time'-Device these two settings can also be made in the device options inside the device-specific section. These will overwrite the settings made in the custom-section of the datapoint.
 * You can use the following tokens:
 
-|           |                                | Token              | Example                                                                      | Datapoint | Display                              | Picker                      |
-|----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
-| Timestamp | Unix s Timestamp               | X                  | 1410715640.579                                                               | X         | ---                                  | ---                         |
-|           | Unix ms Timestamp              | x                  | 1410715640579                                                                | X         | ---                                  | ---                         |
-| Date      | Day of Week                    | d                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
-|           |                                | dd                 | Su Mo ... Fr Sa                                                              | X         | X (translated)                       | ---                         |
-|           |                                | ddd                | Sun Mon ... Fri Sat                                                          | X         | X (translated)                       | ---                         |
-|           |                                | dddd               | Sunday Monday ... Friday Saturday                                            | X         | X (translated)                       | ---                         |
-|           |                                | do                 | 0th 1st ... 5th 6th                                                          | X         | ---                                  | ---                         |
-|           | Day of Month                   | D                  | 1 2 ... 30 31                                                                | X         | X                                    | X                           |
-|           |                                | DD                 | 01 02 ... 30 31                                                              | X         | X                                    | X                           |
-|           |                                | Do                 | 1st 2nd ... 30th 31st                                                        | X         | --- (converted to D)                 | --- (converted to D)        |
-|           | Month                          | M                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
-|           |                                | MM                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
-|           |                                | MMM                | Jan Feb ... Nov Dec                                                          | X         | X                                    | X                           |
-|           |                                | MMMM               | January February ... November December                                       | X         | X                                    | X                           |
-|           |                                | Mo                 | 1st 2nd ... 11th 12th                                                        | X         | --- (converted to M)                 | --- (converted to M)        |
-|           | Year                           | Y                  | 1970 1971 ... 9999 +10000 +10001                                             | X         | X                                    | X                           |
-|           |                                | YY                 | 70 71 ... 29 30                                                              | X         | X                                    | X                           |
-|           |                                | YYYY               | 1970 1971 ... 2029 2030                                                      | X         | X                                    | X                           |
-|           |                                | YYYYYY             | -001970 -001971 ... +001907 +001971                                          | X         | --- (converted to YYYY)              | --- (converted to YYYY)     |
-| Time      | AM/PM                          | A                  | AM PM                                                                        | X         | X                                    | X                           |
-|           |                                | a                  | am pm                                                                        | X         | X                                    | X                           |
-|           | Hour                           | H                  | 0 1 ... 22 23                                                                | X         | X                                    | X                           |
-|           |                                | HH                 | 00 01 ... 22 23                                                              | X         | X                                    | X                           |
-|           |                                | h                  | 1 2 ... 11 12                                                                | X         | X                                    | X                           |
-|           |                                | hh                 | 01 02 ... 11 12                                                              | X         | X                                    | X                           |
-|           |                                | k                  | 1 2 ... 23 24                                                                | X         | --- (converted to H)                 | --- (converted to H)        |
-|           |                                | kk                 | 01 02 ... 23 24                                                              | X         | --- (converted to HH)                | --- (converted to HH)       |
-|           | Minute                         | m                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
-|           |                                | mm                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
-|           | Second                         | s                  | 0 1 ... 58 59                                                                | X         | X                                    | X                           |
-|           |                                | ss                 | 00 01 ... 58 59                                                              | X         | X                                    | X                           |
-|           | Fractional Second              | S                  | 0 1 ... 8 9                                                                  | X         | ---                                  | ---                         |
-|           |                                | SS                 | 00 01 ... 98 99                                                              | X         | ---                                  | ---                         |
-|           |                                | SSS                | 000 001 ... 998 999                                                          | X         | ---                                  | ---                         |
-|           |                                | SSSS ... SSSSSSSSS | 000[0..] 001[0..] ... 998[0..] 999[0..]                                      | X         | ---                                  | ---                         |
-|           | Time Zone                      | z or zz            | EST CST ... MST PST                                                          | X         | ---                                  | ---                         |
-|           |                                | Z                  | -07:00 -06:00 ... +06:00 +07:00                                              | X         | ---                                  | ---                         |
-|           |                                | ZZ                 | -0700 -0600 ... +0600 +0700                                                  | X         | ---                                  | ---                         |
-| Periods   | Day of Year                    | DDD                | 1 2 ... 364 365                                                              | X         | ---                                  | ---                         |
-|           |                                | DDDD               | 001 002 ... 364 365                                                          | X         | ---                                  | ---                         |
-|           |                                | DDDo               | 1st 2nd ... 364th 365th                                                      | X         | ---                                  | ---                         |
-| Other     | Day of Week (Locale)           | e                  | 0 1 ... 5 6                                                                  | X         | ---                                  | ---                         |
-|           | Day of Week (ISO)              | E                  | 1 2 ... 6 7                                                                  | X         | ---                                  | ---                         |
-|           | Quarter                        | Q                  | 1 2 3 4                                                                      | X         | ---                                  | ---                         |
-|           |                                | Qo                 | 1st 2nd 3rd 4th                                                              | X         | ---                                  | ---                         |
-|           | Week of Year                   | w                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
-|           |                                | wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
-|           |                                | ww                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
-|           | Week of Year (ISO)             | W                  | 1 2 ... 52 53                                                                | X         | ---                                  | ---                         |
-|           |                                | Wo                 | 1st 2nd ... 52nd 53rd                                                        | X         | ---                                  | ---                         |
-|           |                                | WW                 | 01 02 ... 52 53                                                              | X         | ---                                  | ---                         |
-|           | Era Year                       | y                  | 1 2 ... 2020 ...                                                             | X         | ---                                  | ---                         |
-|           |                                | yo                 | 1st 2nd … 2020th …                                                           | X         | ---                                  | ---                         |
-|           | Era                            | N, NN, NNN         | BC AD                                                                        | X         | ---                                  | ---                         |
-|           |                                | NNNN               | Before Christ, Anno Domini                                                   | X         | ---                                  | ---                         |
-|           |                                | NNNNN              | BC AD                                                                        | X         | ---                                  | ---                         |
-|           | Week Year                      | gg                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
-|           |                                | gggg               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
-|           | Week Year (ISO)                | GG                 | 70 71 ... 29 30                                                              | X         | ---                                  | ---                         |
-|           |                                | GGGG               | 1970 1971 ... 2029 2030                                                      | X         | ---                                  | ---                         |
-| Periods   | Period                         | P                  | Marks a period and not a specific time. Can be one of the following formats: | X         | --- (converted to D [Day(s)], h:m:s) | --- (converted to D, h:m:s) |
-|           |                                |                    | milliseconds (e.g. 279344)                                                   |           |                                      |                             |
-|           |                                |                    | hours:minutes (e.g. 46:33)                                                   |           |                                      |                             |
-|           |                                |                    | hours:minutes:seconds (e.g. 46:33:44 or 28:33:44.5)                          |           |                                      |                             |
-|           |                                |                    | days hours:minutes.seconds (e.g. 1 22:33:44 or 1 22:33:44.5)                 |           |                                      |                             |
-|           |                                |                    | days.hours:minutes.seconds (e.g. 1.22:33:44 or 1.22:33:44.5)                 |           |                                      |                             |
-|           |                                |                    | ISO 8601 (e.g. P0Y0M1DT22H33M44S or P1DT22H33M44S)                           |           |                                      |                             |
-|           |                                | Py                 | Period of years                                                              | X         | ---                                  | ---                         |
-|           |                                | PM                 | Period of months                                                             | X         | ---                                  | ---                         |
-|           |                                | Pw                 | Period of weeks                                                              | X         | ---                                  | ---                         |
-|           |                                | Pd                 | Period of days                                                               | X         | ---                                  | ---                         |
-|           |                                | Ph                 | Period of hours                                                              | X         | ---                                  | ---                         |
-|           |                                | Pm                 | Period of minutes                                                            | X         | ---                                  | ---                         |
-|           |                                | Ps                 | Period of seconds                                                            | X         | ---                                  | ---                         |
-|           |                                | Pms                | Period of milliseconds                                                       | X         | ---                                  | ---                         |
-| Flags     | Set missing parts to beginning | tb                 | E.g. set date to 1970-01-01, if only a time is given                         | X         | ---                                  | ---                         |
-|           | Set missing parts to now       | tn                 | E.g. set date to now, if only a time is given                                | X         | ---                                  | ---                         |
-|           | Keep old missing parts         | to                 | E.g. leave date as before, if only a time is given                           | X         | ---                                  | ---                         |
-| Free text | Mark free text in brackets     | []                 | [this is an example, all tokens are ignored]                                 | X         | X                                    | ---                         |
+|           |                                | Token                | Description/Example                                                                | Datapoint | Display                                | Picker                        |
+|----------:|-------------------------------:|----------------------|------------------------------------------------------------------------------------|-----------|----------------------------------------|-------------------------------|
+| Timestamp | Unix s Timestamp               | `X`                  | `1410715640.579`                                                                   | X         | ---                                    | ---                           |
+|           | Unix ms Timestamp              | `x`                  | `1410715640579`                                                                    | X         | ---                                    | ---                           |
+| Date      | Day of Week                    | `d`                  | `0` `1`...`5` `6`                                                                  | X         | ---                                    | ---                           |
+|           |                                | `dd`                 | `Su` `Mo`...`Fr` `Sa`                                                              | X         | X (translated)                         | ---                           |
+|           |                                | `ddd`                | `Sun` `Mon`...`Fri` `Sat`                                                          | X         | X (translated)                         | ---                           |
+|           |                                | `dddd`               | `Sunday` `Monday`...`Friday` `Saturday`                                            | X         | X (translated)                         | ---                           |
+|           |                                | `do`                 | `0th` `1st`...`5th` `6th`                                                          | X         | ---                                    | ---                           |
+|           | Day of Month                   | `D`                  | `1` `2`...`30` `31`                                                                | X         | X                                      | X                             |
+|           |                                | `DD`                 | `01` `02`...`30` `31`                                                              | X         | X                                      | X                             |
+|           |                                | `Do`                 | `1st` `2nd`...`30th` `31st`                                                        | X         | --- (converted to `D`)                 | --- (converted to `D`)        |
+|           | Month                          | `M`                  | `1` `2`...`11` `12`                                                                | X         | X                                      | X                             |
+|           |                                | `MM`                 | `01` `02`...`11` `12`                                                              | X         | X                                      | X                             |
+|           |                                | `MMM`                | `Jan` `Feb`...`Nov` `Dec`                                                          | X         | X                                      | X                             |
+|           |                                | `MMMM`               | `January` `February`...`November` `December`                                       | X         | X                                      | X                             |
+|           |                                | `Mo`                 | `1st` `2nd`...`11th` `12th`                                                        | X         | --- (converted to `M`)                 | --- (converted to `M`)        |
+|           | Year                           | `Y`                  | `1970` `1971`...`9999` `+10000` `+10001`                                           | X         | X                                      | X                             |
+|           |                                | `YY`                 | `70` `71`...`29` `30`                                                              | X         | X                                      | X                             |
+|           |                                | `YYYY`               | `1970` `1971`...`2029` `2030`                                                      | X         | X                                      | X                             |
+|           |                                | `YYYYYY`             | `-001970` `-001971`...`+001907` `+001971`                                          | X         | --- (converted to `YYYY`)              | --- (converted to `YYYY`)     |
+| Time      | AM/PM                          | `A`                  | `AM` `PM`                                                                          | X         | X                                      | X                             |
+|           |                                | `a`                  | `am` `pm`                                                                          | X         | X                                      | X                             |
+|           | Hour                           | `H`                  | `0` `1`...`22` `23`                                                                | X         | X                                      | X                             |
+|           |                                | `HH`                 | `00` `01`...`22` `23`                                                              | X         | X                                      | X                             |
+|           |                                | `h`                  | `1` `2`...`11` `12`                                                                | X         | X                                      | X                             |
+|           |                                | `hh`                 | `01` `02`...`11` `12`                                                              | X         | X                                      | X                             |
+|           |                                | `k`                  | `1` `2`...`23` `24`                                                                | X         | --- (converted to `H`)                 | --- (converted to `H`)        |
+|           |                                | `kk`                 | `01` `02`...`23` `24`                                                              | X         | --- (converted to `HH`)                | --- (converted to `HH`)       |
+|           | Minute                         | `m`                  | `0` `1`...`58` `59`                                                                | X         | X                                      | X                             |
+|           |                                | `mm`                 | `00` `01`...`58` `59`                                                              | X         | X                                      | X                             |
+|           | Second                         | `s`                  | `0` `1`...`58` `59`                                                                | X         | X                                      | X                             |
+|           |                                | `ss`                 | `00` `01`...`58` `59`                                                              | X         | X                                      | X                             |
+|           | Fractional Second              | `S`                  | `0` `1`...`8` `9`                                                                  | X         | ---                                    | ---                           |
+|           |                                | `SS`                 | `00` `01`...`98` `99`                                                              | X         | ---                                    | ---                           |
+|           |                                | `SSS`                | `000` `001`...`998` `999`                                                          | X         | ---                                    | ---                           |
+|           |                                | `SSSS`...`SSSSSSSSS` | `000[0..]` `001[0..]`...`998[0..]` `999[0..]`                                      | X         | ---                                    | ---                           |
+|           | Time Zone                      | `z` or `zz`          | `EST` `CST`...`MST` `PST`                                                          | X         | ---                                    | ---                           |
+|           |                                | `Z`                  | `-07:00` `-06:00`...`+06:00` `+07:00`                                              | X         | ---                                    | ---                           |
+|           |                                | `ZZ`                 | `-0700` `-0600`...`+0600` `+0700`                                                  | X         | ---                                    | ---                           |
+| Periods   | Day of Year                    | `DDD`                | `1` `2`...`364` `365`                                                              | X         | ---                                    | ---                           |
+|           |                                | `DDDD`               | `001` `002`...`364` `365`                                                          | X         | ---                                    | ---                           |
+|           |                                | `DDDo`               | `1st` `2nd`...`364th` `365th`                                                      | X         | ---                                    | ---                           |
+| Other     | Day of Week (Locale)           | `e`                  | `0` `1`...`5` `6`                                                                  | X         | ---                                    | ---                           |
+|           | Day of Week (ISO)              | `E`                  | `1` `2`...`6` `7`                                                                  | X         | ---                                    | ---                           |
+|           | Quarter                        | `Q`                  | `1` `2` `3` `4`                                                                    | X         | ---                                    | ---                           |
+|           |                                | `Qo`                 | `1st` `2nd` `3rd` `4th`                                                            | X         | ---                                    | ---                           |
+|           | Week of Year                   | `w`                  | `1` `2`...`52` `53`                                                                | X         | ---                                    | ---                           |
+|           |                                | `wo`                 | `1st` `2nd`...`52nd` `53rd`                                                        | X         | ---                                    | ---                           |
+|           |                                | `ww`                 | `01` `02`...`52` `53`                                                              | X         | ---                                    | ---                           |
+|           | Week of Year (ISO)             | `W`                  | `1` `2`...`52` `53`                                                                | X         | ---                                    | ---                           |
+|           |                                | `Wo`                 | `1st` `2nd`...`52nd` `53rd`                                                        | X         | ---                                    | ---                           |
+|           |                                | `WW`                 | `01` `02`...`52` `53`                                                              | X         | ---                                    | ---                           |
+|           | Era Year                       | `y`                  | `1` `2`...`2020`...                                                                | X         | ---                                    | ---                           |
+|           |                                | `yo`                 | `1st` `2nd`...`2020th`...                                                          | X         | ---                                    | ---                           |
+|           | Era                            | `N`, `NN`, `NNN`     | `BC` `AD`                                                                          | X         | ---                                    | ---                           |
+|           |                                | `NNNN`               | `Before Christ`, `Anno Domini`                                                     | X         | ---                                    | ---                           |
+|           |                                | `NNNNN`              | `BC` `AD`                                                                          | X         | ---                                    | ---                           |
+|           | Week Year                      | `gg`                 | `70` `71`...`29` `30`                                                              | X         | ---                                    | ---                           |
+|           |                                | `gggg`               | `1970` `1971`...`2029` `2030`                                                      | X         | ---                                    | ---                           |
+|           | Week Year (ISO)                | `GG`                 | `70` `71`...`29` `30`                                                              | X         | ---                                    | ---                           |
+|           |                                | `GGGG`               | `1970` `1971`...`2029` `2030`                                                      | X         | ---                                    | ---                           |
+| Periods   | Period                         | `P`                  | Marks a period and not a specific time. Can be one of the following formats:       | X         | --- (converted to `D [Day(s)], h:m:s`) | --- (converted to `D, h:m:s`) |
+|           |                                |                      | milliseconds (e.g. `279344`)                                                       |           |                                        |                               |
+|           |                                |                      | hours:minutes (e.g. `46:33`)                                                       |           |                                        |                               |
+|           |                                |                      | hours:minutes:seconds (e.g. `46:33:44` or `28:33:44.5`)                            |           |                                        |                               |
+|           |                                |                      | days hours:minutes.seconds (e.g. `1 22:33:44` or `1 22:33:44.5`)                   |           |                                        |                               |
+|           |                                |                      | days.hours:minutes.seconds (e.g. `1.22:33:44` or `1.22:33:44.5`)                   |           |                                        |                               |
+|           |                                |                      | ISO 8601 (e.g. `P0Y0M1DT22H33M44S` or `P1DT22H33M44S`)                             |           |                                        |                               |
+|           |                                | `Py`                 | Period of years                                                                    | X         | ---                                    | ---                           |
+|           |                                | `PM`                 | Period of months                                                                   | X         | ---                                    | ---                           |
+|           |                                | `Pw`                 | Period of weeks                                                                    | X         | ---                                    | ---                           |
+|           |                                | `Pd`                 | Period of days                                                                     | X         | ---                                    | ---                           |
+|           |                                | `Ph`                 | Period of hours                                                                    | X         | ---                                    | ---                           |
+|           |                                | `Pm`                 | Period of minutes                                                                  | X         | ---                                    | ---                           |
+|           |                                | `Ps`                 | Period of seconds                                                                  | X         | ---                                    | ---                           |
+|           |                                | `Pms`                | Period of milliseconds                                                             | X         | ---                                    | ---                           |
+| Flags     | Set missing parts to beginning | `tb`                 | E.g. set date to 1970-01-01, if only a time is given                               | X         | ---                                    | ---                           |
+|           | Set missing parts to now       | `tn`                 | E.g. set date to now, if only a time is given                                      | X         | ---                                    | ---                           |
+|           | Keep old missing parts         | `to`                 | E.g. leave date as before, if only a time is given                                 | X         | ---                                    | ---                           |
+| Free text | Mark free text in brackets     | `[]`                 | `[this is an example, all tokens are ignored]`                                     | X         | X                                      | ---                           |
 * If you use different configurations for datapoint-timeformat and display-timeformat, the following conversion-rules are used.
 * You can use the flags `tb`, `tn` and `to` inside the datapoint-timeformat to influence the behavior.
 
-    ![Glow](img/dateandtime_conversionrules.png)
+    ![ConversionRules](img/dateandtime_conversionrules.png)
 
 </details>
 
@@ -1712,6 +1807,9 @@ This device has some special predefined size- and display-settings to show a tex
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+
+### 2.2.0 (2023-03-23)
 * (sbormann) You can now chose destination when copying devices.
 * (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
 * (sbormann) Added option to hide slider for LEVEL, if favorites are set.
@@ -1720,6 +1818,10 @@ This device has some special predefined size- and display-settings to show a tex
 * (sbormann) Added ability to set links to other views with anchor to sub-headings.
 * (sbormann) Corrected some fonts.
 * (sbormann/Wal) Enabled right-click for wioBrowser.
+* (sbormann) Added some new options for popup-messages and introduced persistent popups.
+* (sbormann) Uploading of userfiles via ZIP-File is now possible.
+* (sbormann/hetti72) Fixed CONTROL_MODE of HP-IP-Thermostat (hopefully finally...)
+* (sbormann) Removed hidden links to other views from toolbar context-menu
 
 ### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.

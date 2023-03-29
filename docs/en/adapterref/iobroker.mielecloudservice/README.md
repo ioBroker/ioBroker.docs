@@ -38,6 +38,21 @@ To install, do the following:
 4. Add your Miele-Devices to the App (if not added automatically)
 6. Fill in the client_secret and client_id received from Miele-developer Team and account-id and password from the App.
 
+## Features
+This adapter currently implements nearly all features of the Miele API V1.0.5 and some parts of API V1.0.6.
+The capabilities of the API may (and do so currently) vary from the capabilities of the iOS and Android apps.
+E.g. there are no information available on the TwinDos - even the apps have them.
+This includes:
+* All known and documented appliance types are supported (API V1.0.6).
+* Basic information for all appliance types.
+* Extended information for all appliance types.
+* EcoFeedback (water and/or power consumption) for appliances reporting this.
+  `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+* Supported actions you can execute on this device - capabilities of the device are mostly reported by the API itself.
+
+## Known Issues
+* The programs are basically supported since v6.0.0 of the adapter. Except programs that need additional parameters like for ovens.
+
 ## Configuration
 ### Basic config
 To get this adapter running you'll need at least:
@@ -46,13 +61,13 @@ To get this adapter running you'll need at least:
 * Miele Client_id (from https://www.miele.com/developer/)
 * Miele Client_secret (from https://www.miele.com/developer/ )
 
-### Server-Sent Events
+### Requesting data from Miele servers
 Since V6.2.0 you have the opportunity to chose between 
-* Server-Sent Events      (Server-Sent Events Checkbox is checked - default) 
+* Server-Sent Events      (Server-Sent Events Checkbox is checked - default and *highly recommended*) 
 * Time based Data-Polling (Server-Sent Events Checkbox is unchecked)
 * Delayed Processing
 
-#### Server-sent events
+#### Server-sent events (highly recommended)
 Server-Sent Events are a very neat method to get data from the miele servers since the servers will send you data 
 whenever there are changes. No useless polling every xx seconds ignoring whether there were changes or not. Unfortunately
 there are issues using this connection type - it fails pretty often and only restarting the adapter solves this.
@@ -91,10 +106,6 @@ a subset of these really work. For my coffee system, washing machine and tumble 
 But Miele is working on it and extends the support on a regular basis.
 Please refer to the general Miele API documentation (below) for more information.
 
-## Known Issues
-* There is a new endpoint inside the Miele API since V1.05 of the API (/programs).
-  * It`s currently unknown how to use them since the API documentation is ... improvable.
-  * These programs are basically supported since v6.0.0 of the adapter. Except programs that need additional parameters. 
 
 ## Documentation
 If you like to get a deeper understanding or need a raw-value translation please refer to [this documentation.](machine_states.md)
@@ -102,9 +113,12 @@ If you like to get a deeper understanding or need a raw-value translation please
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.4.1 (2022-10-12) (Dying for an Angel)
+### 6.5.0 (2023-04-xx) (Dying for an Angel)
+* (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
+* (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
+hash: Ft42eUkODbXzui6lWz8gv5B+qZ4u1CNzC9GfXTBVTaw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -37,10 +37,10 @@ hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 * Должен быть включен параметр «Включить команды записи API» в ems-esp.
 * Должна быть установлена авторизация Bypass Access Token для вызовов API или должен быть введен токен.
 
-При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходное представление устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. структура. Тогда все сущности/состояния находятся в одном и том же месте в структуре объектов ioBroker.
+При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходное представление устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. состав. Тогда все сущности/состояния находятся в одном и том же месте в структуре объекта ioBroker.
 
 ## Опрос
-Этот адаптер считывает значения after start из ems-esp и km200 с помощью http-запросов get и способен подписываться на изменения состояния и отправлять соответствующие http-команды (post) либо на аппаратное обеспечение ems-esp, либо на шлюз km200.
+Этот адаптер считывает значения after start из ems-esp и km200 с помощью HTTP-запросов get и может подписываться на изменения состояния и отправлять соответствующие http-команды (post) обратно либо на оборудование ems-esp, либо на шлюз km200.
 
 * Опрос чтения EMS-ESP является параметром (стандартно 60 секунд) и не может быть установлен ниже 15 секунд.
 * Опрос KM200 также является параметром (стандартно 300 секунд), и минимальное значение, которое можно установить, составляет 90 секунд.
@@ -114,6 +114,7 @@ hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 * Когда температура возврата недоступна в km200/ems-esp, расчет эффективности не имеет смысла - пожалуйста, отключите, чтобы избежать ошибок
 * Посмотрите техническое описание вашего котла, чтобы соответствующим образом скорректировать таблицу КПД.
 * В некоторых системах отопления эта функция выдает ошибки - выключите !!!
+* изменена логика с выпуском >= v1.30.0
 
 ## Изменения в структуре состояний
 Всякий раз, когда новая прошивка EMS-ESP добавляет новые поля данных и/или изменяет имена полей данных, они обрабатываются во время работы адаптера. Тем не менее устаревшие поля данных не удаляются адаптером автоматически.
@@ -129,6 +130,48 @@ hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* update efficience calculation to support external sensor for return temperature
+* when 3 state fields are empty then standard fields are used.
+* when state field(s) are filled, than this state(s) are used - e.g. own sensor for return temp
+
+### 1.29.0 (2023-03-08)
+* update dependencies
+
+### 1.28.0 (2023-03-08)
+* update dependencies
+
+### 1.27.0 (2023-03-08)
+* update dependencies
+
+### 1.26.0 (2023-02-27)
+* error corrections due to changes since v1.21
+
+### 1.25.0 (2023-02-26)
+* set acknowledge to true when re-reading changed values from ems-esp
+
+### 1.24.0 (2023-02-26)
+* error corrections for version 1.22 and 1.23
+
+### 1.23.0 (2023-02-26)
+* correct ww states from v1.22
+
+### 1.22.0 (2023-02-17)
+* support multiple mixer devices
+
+### 1.21.0 (2023-01-02)
+* am200 from ems-esp adjustments to changed structure
+
+### 1.20.0 (2022-12-29)
+* am200 from ems-esp - redefine to heatSources/hsa for km200 structure mode
+
+### 1.19.0 (2022-12-29)
+* am200 - alternative heatsource adjustments
+
+### 1.18.0 (2022-12-24)
+* Statistics
+* alternative heat souces (am200)
+
 ### 1.17.1 (2022-12-04)
 * correct actualweight statistics within heatdemand function
 
@@ -225,89 +268,10 @@ hash: Ga2HPOxFFn6nUiUHWmrg8xo7ipaoBTS5tQ29PeLP1Vk=
 * corrections for km200 recordings and statistics module
 * prepare for ems-esp firmware 3.4
 
-### 1.0.14 (2022-02-07)
-* adjust paths in io-package.json
-
-### 1.0.13 (2022-02-07)
-* last tested version for old ems-esp ESP8266 with API V2.
-* No support for future adapter versions anymore - please upgrade to ESP32.
-* support for KM200 HRV (ventilation)
-* corrections for km200 recordings and statistics module
-* prepare for ems-esp firmware 3.4
-
-### 1.0.12 (2022-02-06)
-* update statistics states
-
-### 1.0.11 (2022-02-01)
-* support for KM200 HRV (ventilation)
-* corrections on recordings for 1st day of month
-
-### 1.0.10 (2022-01-28)
-* Further adjustments for ems firmware 3.4 and error corrections 1.0.9
-
-### 1.0.9 (2022-01-27)
-* New code to avoid mysql duplicate key errors
-* Further adjustments for ems firmware 3.4
-
-### 1.0.8 (2022-01-24)
-* Adjustments for ems-esp firmware 3.4 part 2
-
-### 1.0.7 (2022-01-24)
-* Adjustments for ems-esp firmware 3.4
-
-### 1.0.6 (2022-01-21) 
-* Adjustments for non-UTF-8 json data from ems-esp
-* Recalculate km200 recordings based on actual no of samples vs. theroretical max. samples
-
-### 1.0.5
-* first stable version for ioBroker repository
-
-### 1.0.4
-* Prepare for ioBroker repository
-
-### 1.0.3
-* Corrections within statistics module
-
-### 1.0.2
-* Corrections on km200 energy consumptions
-
-### 1.0.1 
-* prepare for compact-mode, re-write code
-
-### 0.9.8 and 0.9.9
-* Supporting Dallas Sensors on ems-esp gateway
-
-### 0.9.7
-* Fixes for IP-adresses
-
-### 0.9.6
-* Corrections for writing switchpoints and array-data back to km200
-
-### 0.9.5
-* Corrections for different enum-formats in API V3 (text and numbers)
-
-### 0.9.4
-* Support for old ESP8266 EMS-ESP gateways and API V2 and new ESP32 with API V3
-
-### 0.9.3
-* Polling time for EMS-ESP and KM200 is now a parameter
-
-### 0.9.2
-* Adjust for enum formats
-
-### 0.9.1
-* Adjust for different boolean formats
-
-### 0.9.0
-* Rework Adapter for some statistics and prepare for heating control (under development)
-
-### 0.8.0
-* REST API V3 and js-controller v3.3.x and support of influxdb for recordings
-
 ## License
 MIT License
 
-Copyright (c) 2022 Thomas Petrick <tp1degit@gmail.com>
+Copyright (c) 2023 Thomas Petrick <tp1degit@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

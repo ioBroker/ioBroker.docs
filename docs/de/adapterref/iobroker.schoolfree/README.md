@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
+hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
 ---
 ![Logo](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -13,6 +13,7 @@ hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.schoolfree?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.schoolfree
 ![Testen und freigeben](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
@@ -22,7 +23,7 @@ Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie
 ## Schulfreier Adapter für ioBroker
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### Deutsche Beschreibung:
 Schoolfree ist ein Adapter für iobroker Installationen.
@@ -75,13 +76,17 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.1.1 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
 ### 1.1.0 (2022-11-01)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.1 (2021-11-18)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -161,7 +166,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2019 - 2022 simatec
+Copyright (c) 2019 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

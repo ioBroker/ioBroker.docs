@@ -28,15 +28,23 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.7.1 (2023-03-26)
 
-### **WORK IN PROGRESS**
+-   (ciddi89) Added: Support for Ecovacs-Deebot
+-   (ciddi89) Updated: Dependencies
+-   (ciddi89) Improvements: Small fixes
+
+### 2.7.0 (2023-03-13)
 
 -   (ciddi89) Added: Fully-MQTT
--   (ciddi89) Added: Notification Service Matrix [#144](https://github.com/ciddi89/ioBroker.device-watcher/issues/144)
+-   (ciddi89) Added: Notification Service Matrix
 -   (ciddi89) Added: List and number of active instances
--   (ciddi89) Added: HTML lists for instances/adapters [#143](https://github.com/ciddi89/ioBroker.device-watcher/issues/143)
--   (ciddi89) Fixed: Send notification about adapter updates only if there are new ones [#146](https://github.com/ciddi89/ioBroker.device-watcher/issues/146)
+-   (ciddi89) Added: HTML lists for instances/adapters
+-   (ciddi89) Added: HM-RPC device update pending datapoint
+-   (ciddi89) Added: User can define reporting time for error instances
+-   (ciddi89) Fixed: Send notification about adapter updates only if there are new ones
 -   (ciddi89) Improvements: Hide notification services only if no instance is choosen
+-   (ciddi89) Improvements: Some small code changes to avoid error messages
 
 ### 2.6.1 (2023-02-26)
 

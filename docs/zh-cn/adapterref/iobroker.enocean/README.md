@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
+hash: tOJBzvSrwuyYVzh2993/1JSLZo9/zJPK1W6digF8lGs=
 ---
 ![标识](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -40,7 +40,7 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 
 全智能 EnOcean LAN 网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ 不再可用。
 
-全智能 EnOcean 多网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ 不再可用。
+全智能 EnOcean 多网关 - [买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
 ### [支持的设备](./docs/devices.md)
 ## 控制设备

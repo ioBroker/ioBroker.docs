@@ -16,7 +16,7 @@ The adapter allows to generate the iobroker communication objects automatically 
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
 
 **If you like it, please consider a donation:**
-  
+
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
 
 # Installation
@@ -397,9 +397,11 @@ Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed io
 
 ### **WORK IN PROGRESS**
 
+### 0.5.3 (2023-03-17)
+
 -   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
-- todo verbindungsabbrueche analysizeren
-- todo create confirmation
+-   bugfix: admin menu scroll small screen #339
+-   feature: add dpt 9.009
 
 ### 0.5.2 (2023-01-02)
 

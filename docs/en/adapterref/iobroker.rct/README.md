@@ -11,14 +11,14 @@
 
 **Tests:** ![Test and Release](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Project NO LONGER MAINTAINED
+## Owner Change
 
-After I switched to Home Assistant, I do no longer maintain this adapter.
-If you are interested to take it over, please let me know.
+After lauff switched to Home Assistant - project will continued by aruttkamp
+
 
 ## RCT adapter for ioBroker
 
-Please note that this is a private project and that I (Markus Lauff) am not related to RCT in any way.
+Please note that this is a private project and that I (Andreas Ruttkamp) am not related to RCT in any way.
 
 Show values of a RCT Power photovolatics power converter
 
@@ -39,7 +39,8 @@ A new version might not be able to create the right ioBroker channels / states. 
 If this happens, stop the adapter and manually delete the node "rct.0".
 
 ## Changelog
-
+### 1.0.2
+* (Andreas Ruttkamp) 
 ### 1.0.1
 * (Markus Lauff) fixing review comments - thanks to Apollon77
 ### 1.0.0
@@ -72,4 +73,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 Markus Lauff <ioBroker.rct@markus.lauff.com>
+Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

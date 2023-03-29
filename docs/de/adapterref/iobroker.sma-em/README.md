@@ -1,79 +1,69 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sma-em/README.md
-title: ioBroker.sma-em
-hash: f39C/BfrdNVNPF82YqYwoAD1loe0RFmFZOXHKgRakA0=
+BADGE-Number of Installations: http://iobroker.live/badges/sma-em-installed.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sma-em.svg
+BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
 ---
-# IoBroker.sma-em
-![Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
+# SMA Energy Meter Adapter Dokumentation
 
-![Anzahl der Installationen](http://iobroker.live/badges/sma-em-installed.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.sma-em.svg)
-![stabile Version](http://iobroker.live/badges/sma-em-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sma-em.svg)
-![NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
+## Allgemeine Informationen
 
-## IoBroker Adapter für SMA Energy Meter
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.sma-em/workflows/Test%20and%20Release/badge.svg)
+Der SMA Energy Meter Adapter empfängt die Multicast Datagramme des Energy-Meters bzw. des Sunny Home Managers. Diese senden jede Sekunde oder öfter Datenpakete mit ihren Messwerten ins Netzwerk. Das Sendeintervall von 200ms, 600ms oder 1000ms ist einstellbar im Sunny Portal.
 
-### Die Info
-Dieser Adapter liest Informationen von SMA Energy Meter (EMETER-20) und Sunny Home Manager 2 (HM-20).
-Es unterstützt das SMA-EMETER-Protokoll-2. Damit funktionieren auch kompatible Energiezähler anderer Hersteller.
+## Administration / Admin-Seite
 
-SMA Energy Meter und Sunny Home Manager 2 senden sekündlich Datagramme mit ihren Energiemessdaten per Multicast ins Netz.
-Der SMA Energy Meter Adapter empfängt diese Multicast-Nachrichten und speichert sie als iobroker-Zustände.
-Eine einzelne Instanz des SMA Energy Meter Adapters erkennt alle SMA Energy Meter und Sunny Home Manager in allen angeschlossenen Netzwerken.
+![adapter_admin_konfiguration](img/adminpage1-de.png)
+![adapter_admin_konfiguration2](img/adminpage2-de.png)
 
-![Zustände](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
+- Reiter Multicast-Einstellungen
+  - Multicast IP: Standardmäßig eingestellt und von SMA vorgegeben ist die IP-Adresse 239.12.255.254.
+  - Multicast Port: Standardmäßig eingestellt und von SMA vorgegeben ist der UDP Port: 9522.
 
-### Zustände im nicht erweiterten Modus
-- Momentanwerte von Gesamtwirkleistungsaufnahme (pregard) und Wirkleistungseinspeisung (püberschuss)
-- Energiezählerwerte Gesamtwirkleistungsbezug (pregardcounter) und Wirkleistungseinspeisung (psurpluscounter)
-- SMA Time Tick Zähler, Zeitstempel der letzten empfangenen Nachricht,
-- Seriennummer, SUSyID, Softwareversion von SMA Energy Meter und Sunny Home Manager
-- Detaillierte Werte für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte von Wirkleistungsaufnahme (pregard) und Wirkleistungseinspeisung (püberschuss) pro Phase
-  - Energiezählerwerte von Wirkleistungsbezug (pregardcounter) und Wirkleistungseinspeisung (psurpluscounter) pro Phase
+- Reiter Optionen
+  - Details L1 - L3: Über diese Auswahlpunkte können Details zu jeder einzelnen Phase angezeigt werden.
+  - Erweiterter Modus: Bietet detailiertere Information wie Blindleistung, Scheinleistung, cosphi, Spannungen, Stromstärke usw. Diese Einstellung ist standardmäßig deaktiviert.
+  - Echtzeit-Aktualisierungsintervall: Hier wird das Update-Intervall für Echzeitdaten wie z.B Momentanleistung oder Netzfrequenz eingestellt. Dies dient der Verminderung der Systemlast. Beispiel: Bei einer Datenpaktrate von 5/s (200ms Sendeintervall) werden während eines Echtzeit-Aktualisierungsintervalls von einer Sekunde alle Werte aufsummiert und erst am Ende des Intervalls der Mittelwert bzw. bei Frequenz und Phase der Median im entsprechenden ioBroker Datenpunkt aktualisiert.
+  - Nicht-Echtzeit-Aktualisierungsintervall: Hier wird das Update-Intervall für Nicht-Echzeitdaten wie z.B Zählerstände eingestellt. Hier wird erst am Ende des Intervalls der letzte empfangene Wert im entsprechenden ioBroker Datenpunkt aktualisiert.
 
-### Zustände im erweiterten Modus
-Zusätzlich zu den Zuständen im nicht erweiterten Modus stehen im erweiterten Modus die folgenden Werte zur Verfügung
+## Ordnerstruktur / Objekte
 
-- Momentanwerte der gesamten Blindleistungsaufnahme (qregard) und der Blindleistungseinspeisung (qüberschuss)
-- Energiezählerwerte Gesamtblindleistungsbezug (qregardcounter) und Blindleistungseinspeisung (qsurpluscounter)
-- Momentanwerte von Gesamtscheinleistungsaufnahme (sregard) und Scheinleistungseinspeisung (ssurplus)
-- Energiezählerwerte der gesamten Scheinleistungsaufnahme (sregardcounter) und Scheinleistungseinspeisung (ssurpluscounter)
-- cosphi (Leistungsfaktor)
-- Netzfrequenz (nur mit Sunny Home Manager 2 verfügbar, SMA Energy Meter liefert derzeit keine Netzfrequenzwerte)
-- Detailliert für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte der Blind- und Scheinleistungsaufnahme/Einspeisung je Phase
-  - Energiezählerwerte der Blind- und Scheinleistungsaufnahme/Einspeisung pro Phase
-  - Spannung und Stromstärke pro Phase
+![adapter_uebersicht](img/overview-de.png)
 
-### Einstellmöglichkeiten
-![Einstellungen](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
+Nach Installation und Start des Adapters wird die auf dem Bild gezeigte Ordnerstruktur angelegt. Im Stammverzeichnis befinden sich die Gesamtdaten des Energy Meters. Sofern sie konfiguriert wurden, befinden sich in den Unterordnern L1-L3 jeweils die Werte der einzelnen Phasen.
+Wenn sich mehrere Energy Meter oder Sunny Home Manager im Netzwerk befinden, werden die Objektordner für jedes Gerät in derselben sma-em Instanz angelegt.
 
-- Multicast-IP: Die Standardeinstellung ist 239.12.255.254.
-- Multicast-Port: Die Standardeinstellung für den UDP-Port ist 9522.
+## Erklärung der Objekt-IDs
 
-  (Beide sollten nicht geändert werden, da SMA Geräte immer diese IP-Adresse und diesen Port verwenden)
+Die Buchstaben p, q und s und stehen für folgende Begriffe aus der Elektrotechnik:
 
-- Details L1 - L3: Über diese Auswahlmöglichkeiten können Details zu jeder Phase angezeigt werden.
-- Erweiterter Modus: Liefert detailliertere Informationen wie Blindleistung, Scheinleistung, cosphi, Netzfrequenz, Spannung, Stromstärke
+- P - Wirkleistung
+- Q - Blindleistung
+- S - Scheinleistung
 
-  (Konfigurieren Sie die Details L1-L3 und den erweiterten Modus nicht gleichzeitig, da dies das ioBroker-System stark belastet.)
+- Das Wort "regard" bedeutet hier soviel wie Netzbezug. (Strom, der vom Netz bezogen wird)
+- Das Wort "surplus" bedeutet Überschuss und hier soviel wie Netzeinspeisung. (Strom, der ins Netz eingespeist wird)
+- Das Wort "counter" bedeutet Zähler.
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+Daraus setzen sich die Objektnamen zusammen z.B.
 
-### __LAUFENDE ARBEIT__ -->
-## Rechtliche Hinweise
-SMA und Sunny Home Manager sind eingetragene Warenzeichen der SMA Solar Technology AG <https://www.sma.de/de.html>
-
-Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
-
-Die Autoren werden in keiner Weise von SMA Solar Technology AG oder verbundenen Tochterunternehmen, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
+- pregard - Wirkleistung Netzbezug
+- psurplus - Wirkleistung Einspeisung
+- pregardcounter - Zähler der Wirkleistung Netzbezug
+- qregard - Blindleistung Netzbezug
+- ...
 
 ## Changelog
+### 0.7.0 (2023-03-14)
+
+- (pdbjjens) New: Configurable data point update intervals to reduce system load
+- (pdbjjens) New: Use JSON config
+
+### 0.6.6 (2023-02-28)  2023 maintenance release
+
+- (pdbjjens) Updated dependencies
+- (pdbjjens) New: Use adapter-dev instead of gulp translate
+
 ### 0.6.5 (2022-02-19)
 
 - Updated dependencies
@@ -90,33 +80,11 @@ Die Autoren werden in keiner Weise von SMA Solar Technology AG oder verbundenen 
 
 - (TGuybrush) The adapter binds now to all external IPv4 addresses.
 
-### 0.6.1-beta.0 (2021-01-18)
-
-- (TGuybrush) Bug fixes
-  - Software Version string, last part is the revision as character (e.g. R = release)
-  - Potential Warning during the first start
-  - Revised units to follow the SI standardization (DIN 1301)
-- (TGuybrush) Top level hierarchy object description indicates if the device is a SMA Energy Meter or a SMA Home Manager 2.
-- (DutchmanNL) Released to the latest repo, fixed some typo's + news and translations
-
-### 0.6.0
-
-- (TGuybrush) Fixed wrong status information
-  - Complete adapter core rewritten to extract the status values by their OBIS value instead of the absolute position in the received UDP message according to the SMA documentation.
-  - Improved compatibility to future new OBIS values
-- (TGuybrush) Add additional status information
-  - Power grid frequency
-  - Time tick counter
-  - SMA SUSy ID
-  - Software Version
-
-- Add a timestamp for each received status information
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 IoBroker-Community
+Copyright (c) 2023 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

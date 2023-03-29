@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rest-api/README.md
 title: REST-API-Adapter
-hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
+hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 ---
 ![Logo](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -24,7 +24,7 @@ Es hat eine sehr nützliche Webschnittstelle, um mit den Anfragen zu spielen:
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
-## Verwendungszweck
+## Verwendung
 Rufen Sie den Browser ```http://ipaddress:8093/``` auf und verwenden Sie die Swagger-Benutzeroberfläche, um die Zustände und Objekte anzufordern und zu ändern.
 
 Einige Anfragebeispiele:
@@ -84,6 +84,7 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 
 ### Zustände
 - `getStates(pattern)` - Ruft die Liste der Zustände für das Muster ab (z. B. für system.adapter.admin.0.*). GUI kann Probleme bei der Visualisierung der Antwort haben.
+- `getForeignStates(pattern)` - dasselbe wie getStates
 - `getState(id)` - Statuswert nach ID abrufen
 - `setState(id, state)` - Statuswert mit JSON-Objekt setzen (z. B. `{"val": 1, "ack": true}`)
 - `getBinaryState(id)` - Binärstatus nach ID abrufen
@@ -137,7 +138,6 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 - `getAllObjects()` - liest alle Objekte als Liste. GUI kann Probleme bei der Visualisierung der Antwort haben.
 - `extendObject(id, obj)` - Objekt nach ID mit JSON ändern. (z. B. `{"common":{"enabled": true}}`)
 - `getForeignObjects(pattern, type)` - dasselbe wie getObjects
-- `getForeignStates(pattern)` - dasselbe wie getStates
 - `delObjects(id, options)` - Objekte nach Muster löschen
 
 ### Andere
@@ -161,8 +161,7 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 ### **IN ARBEIT** -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 
 ### 1.0.4 (2022-08-31)
@@ -204,4 +203,4 @@ Sie können keine POST-Anfrage an Befehle über die GUI senden.
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

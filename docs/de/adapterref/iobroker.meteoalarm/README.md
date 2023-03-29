@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
+hash: shouD1ahIo8Rcv3515jbk16VSS/LkGHhEkdquGEaU0E=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -27,6 +27,12 @@ Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen er
 [Englische Beschreibung](docs/en/meteoalarm.md)
 
 [Deutsche Anleitung](docs/de/meteoalarm.md)
+
+## 2.3.5 (2023-03-27)
+* (Jack-Blackson) IOBROKER-METEOALARM-47 & IOBROKER-METEOALARM-48
+
+## 2.3.4 (2023-03-26)
+* (Jack-Blackson) IOBROKER-METEOALARM-4A
 
 ## 2.3.3 (2023-02-09)
 * (jack-blackson) Möglichkeit hinzugefügt, die Alarmstufen für das Widget, JSON und die Benachrichtigung zu definieren

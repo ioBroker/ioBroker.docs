@@ -10,7 +10,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.backitup/README.md
 title: ioBroker.backitup
-hash: 94ngdXiIiv6t0ufFtIxnbPsFH8RW2l3Hd4OAo1/XLkQ=
+hash: owlzw6lAn5O4TOI+JQv8UVYMMLzGcQSFfZeKLQ1aQfs=
 ---
 ![логотип](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
@@ -226,10 +226,22 @@ bind-address = "0.0.0.0:8088"
 ## Резервная копия Zigbee2MQTT
 Если он активирован, эта отдельно настраиваемая резервная копия создается при каждом резервном копировании ioBroker, а также удаляется по истечении указанного срока хранения. FTP или CIFS также допустимы для этой резервной копии, если они установлены для других типов резервных копий ioBroker.
 
+Путь в адаптере ioBroker.backitup всегда должен создаваться непосредственно на пути «данных» zigbee2mqtt.
+Пример: `/opt/zigbee2mqtt/data` или непосредственно в том с установкой zigbee2mqtt в Docker.
+
+Здесь также важно, чтобы пользователь «iobroker» имел права на папку с данными, чтобы иметь возможность читать и записывать файлы.
+
+Групповые права можно настроить следующим образом:
+
+```
+sudo usermod -a -G <zigbe2mqtt User> iobroker
+sudo reboot
+```
+
 ## Красная резервная копия узла
 Если он активирован, эта отдельно настраиваемая резервная копия создается при каждом резервном копировании ioBroker, а также удаляется по истечении указанного срока хранения. FTP или CIFS также допустимы для этой резервной копии, если они установлены для других типов резервных копий ioBroker.
 
-## Резервное копирование Графана
+## Резервное копирование Графаны
 Если он активирован, эта отдельно настраиваемая резервная копия создается при каждом резервном копировании ioBroker, а также удаляется по истечении указанного срока хранения. FTP или CIFS также допустимы для этой резервной копии, если они установлены для других типов резервных копий ioBroker.<br><br> **Для создания резервной копии Grafana требуются имя пользователя и пароль Grafana.**<br><br> **Кроме того, для доступа к информационным панелям необходимо сгенерировать ключ API в веб-интерфейсе Grafana.**<br> Ключ API можно создать в разделе ***&quot;Конфигурация → Ключи API&quot;***.
 
 ## Резервная копия Яхки
@@ -459,7 +471,7 @@ iobroker fix
 sudo reboot
 ```
 
-7. Если при создании базы данных Redis вы получаете сообщение об ошибке, проверьте, есть ли у вашего пользователя iobroker права и входит ли он в группу пользователей Redis.
+7. Если вы получаете сообщение об ошибке при создании базы данных Redis, пожалуйста, проверьте, есть ли у вашего пользователя iobroker права и входит ли он в группу пользователей Redis.
 
     Если это не так, вы можете исправить это с помощью следующей команды в консоли.
 
@@ -477,27 +489,82 @@ sudo reboot
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
-* (simatec) Onedrive-Api for Backups added
-* (simatec) Onedrive-Api for Restore added
+### 2.6.15 (2023-03-27)
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) Zigbee2mqtt Backup optimized
+* (simatec) skip-verify for influxdb 2.x
+
+### 2.6.14 (2023-03-22)
+* (simatec) Bug Fix History JSON
+
+### 2.6.13 (2023-03-22)
+* (simatec) Fix Zigbee2mqtt Restore
+* (simatec) Fix Grafana Backup
+* (simatec) Backup notifications optimized
+* (simatec) Error notifications optimized
+* (simatec) history data optimized
+* (simatec) small bug fixes
+
+### 2.6.12 (2023-03-16)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) InfluxDB Backup optimized
+* (simatec) Docu & Wiki updated
+
+### 2.6.11 (2023-03-11)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+
+### 2.6.10 (2023-03-10)
+* (simatec) Design Fix
+* (simatec) node 14 set as minimum requirement
+* (simatec) cleaning status log added
+* (simatec) Fix Node-Red Backup & Restore
+
+### 2.6.9 (2023-03-08)
+* (simatec) Dropbox session upload optimized
+* (simatec) Error handling optimized
+
+### 2.6.8 (2023-03-07)
+* (simatec) Fix Dropbox session upload
+
+### 2.6.7 (2023-03-06)
+* (simatec) Dropbox session upload optimized
+
+### 2.6.6 (2023-03-05)
+* (simatec) Dropbox file upload up to 350 GB added
+
+### 2.6.5 (2023-03-03)
+* (simatec) Fix cifs Password
+* (simatec) Fix InfluxDB-Backup
+
+### 2.6.4 (2023-02-26)
+* (simatec) Design optimized
+* (simatec) Onedrive Upload Session added
+
+### 2.6.3 (2023-02-24)
+* (simatec) Fix SQLite3 Backup
+* (simatec) Fix Matrix Message
+
+### 2.6.2 (2023-02-23)
+* (simatec) Fix SQLite3 Backup
+
+### 2.6.1 (2023-02-20)
+* (simatec) igonore temp-files for redis added
+
+### 2.6.0 (2023-02-16)
+* (simatec) Onedrive-Api added
 * (simatec) Matrix Messenger added
 * (simatec) TLS for FTP added
 * (simatec) Tab Extra-Settings added
 * (simatec) Node-Red Backup added
-* (simatec) Node-Red Restore added
 * (simatec) SQLLite Backup added
-* (simatec) SQLLite Restore added
 * (simatec) Zigbee2MQTT Backup added
-* (simatec) Zigbee2MQTT Restore added
 * (simatec) Local-Storage check added
 * (simatec) System-Message added
 * (simatec) Jarvis Backup updated
-* (simatec) Jarvis Restore updated
-* (simatec) Docu updated
-* (simatec) Wiki updated
 * (simatec) many small Fixes
-* (simatec) dependencies updated
-* (simatec) Translation added
 
 ### 2.5.12 (2023-01-19)
 * (simatec) Fix Windows ioBroker-Restore

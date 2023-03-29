@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: REST-API-адаптер
-hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
+hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -24,7 +24,7 @@ hash: iFcdIy0shtDTztkJu5r7Hg2LmQwhLmlc4CKBVNCHu8c=
 
 ![Скриншот](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
-## Применение
+## Использование
 Вызовите в браузере ```http://ipaddress:8093/``` и используйте пользовательский интерфейс Swagger для запроса и изменения состояний и объектов.
 
 Некоторые примеры запросов:
@@ -84,6 +84,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 ### Состояния
 - `getStates(pattern)` - получить список состояний для паттерна (например, для system.adapter.admin.0.*). GUI может иметь проблемы с визуализацией ответа.
+- `getForeignStates(шаблон)` - то же, что и getStates
 - `getState(id)` - получить значение состояния по ID
 - `setState(id, state)` - установить значение состояния с помощью объекта JSON (например, `{"val": 1, "ack": true}`)
 - `getBinaryState(id)` - получить бинарное состояние по ID
@@ -137,7 +138,6 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `getAllObjects()` - прочитать все объекты в виде списка. GUI может иметь проблемы с визуализацией ответа.
 - `extendObject(id, obj)` - модифицировать объект по ID с помощью JSON. (например, `{"common":{"enabled": true}}`)
 - `getForeignObjects(шаблон, тип)` - то же, что и getObjects
-- `getForeignStates(шаблон)` - то же, что и getStates
 - `delObjects(id, options)` - удалять объекты по шаблону
 
 ### Другие
@@ -153,7 +153,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 <!-- КОНЕЦ -->
 
-## Сделать
+## Делать
 - [] Реализовать файловые операции GET,PATCH,POST,DELETE.
 
 <!-- Заполнитель для следующей версии (в начале строки):
@@ -161,8 +161,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ### **В РАБОТЕ** -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 
 ### 1.0.4 (2022-08-31)
@@ -204,4 +203,4 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

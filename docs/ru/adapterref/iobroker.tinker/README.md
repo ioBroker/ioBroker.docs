@@ -3,39 +3,42 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
+hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
-![Количество установок](http://iobroker.live/badges/tinker-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.tinker.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinker.svg)
+![Количество установок (последние)](http://iobroker.live/badges/tinker-installed.svg)
+![Количество установок (стабильно)](http://iobroker.live/badges/tinker-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
+![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)
+![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.tinker
 ===================
 
-![Тестирование и выпуск](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 
-Адаптер Tinker Board Monitor - это модифицированная версия адаптера Raspberry PI Monitor и адаптера OrangePi Monitor для ioBroker
+Адаптер Tinker Board Monitor — это модифицированная версия адаптера Raspberry PI Monitor и адаптера OrangePi Monitor для ioBroker.
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+**Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### Важная информация
 протестированное оборудование: Asus Tinker Board
 
-### После выбора доступны следующие объекты:
+### Следующие объекты доступны после выбора:
 ## *ПРОЦЕССОР*
-- cpu_frequency
-- load1
-- load5
-- load15
+- частота_процессора
+- загрузка1
+- груз5
+- нагрузка15
 
 ## *Объем памяти*
-- memory_available
+- память_доступна
 - memory_free
 - memory_total
 
@@ -47,17 +50,17 @@ hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
 - sdcard_root_total
 - sdcard_root_used
 
-## *Поменять местами*
+## *Менять*
 - swap_total
 - swap_used
 
 ## *Температура*
-- soc_temp
+- соц_темп
 
 ## *Время работы*
 - время безотказной работы
 
-## *WLAN*
+## *Беспроводная сеть*
 - wifi_received
 - wifi_send
 
@@ -68,13 +71,18 @@ hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
 - Объем памяти
 - Сеть
 - SD Card
-- Поменять местами
-- температура
+- Менять
+- Температура
 - Время безотказной работы
-- WLAN
+- беспроводная сеть
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.2.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Repo updated
+
 ### 1.1.1 (2021-11-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -103,7 +111,7 @@ hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 simatec
+Copyright (c) 2018 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

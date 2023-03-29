@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
+hash: tOJBzvSrwuyYVzh2993/1JSLZo9/zJPK1W6digF8lGs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -40,7 +40,7 @@ Eltako FGW14: **Важные примечания**: Этот шлюз не по
 
 Шлюз ALL SMART EnOcean LAN — ~~[КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Больше не доступен.
 
-ALL SMART EnOcean Multi-Gateway — ~~[КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ Больше не доступно.
+ALL SMART EnOcean Multi-Gateway — [КУПИТЬ](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
 ### [Поддерживаемые устройства](./docs/devices.md)
 ## Устройства управления
@@ -154,7 +154,7 @@ ALL SMART EnOcean Multi-Gateway — ~~[КУПИТЬ](https://www.all-smart.net/p
 ```
 
 ## Определение устройства
-Полная реализация устройства состоит как минимум из двух частей: записи в 'lib/definitions/devices.json' и файла EEP, который определяет объекты и способ обработки телеграммы данных.
+Полная реализация устройства состоит как минимум из двух частей: записи в «lib/definitions/devices.json» и файла EEP, который определяет объекты и то, как обрабатывать телеграмму данных.
 Существуют устройства, которые используют более одного типа телеграмм данных для связи, это означает, что они имеют больше файлов EEP.
 В особых случаях, таких как Eltako, в файле «packet_handler.js» определена часть, специфичная для производителя.
 

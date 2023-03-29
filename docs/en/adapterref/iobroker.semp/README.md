@@ -53,8 +53,15 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
-### 0.4.0 (in progress)
+### 0.4.1 (2023-03-21)
+* (René) bug fix: avoid exception when no switch is defined for wallbox
+* (René) limit to switch between 1phase and 3phase charging of wallbox is adjustable now
+* (René) allow one minute disconnected before state change. Sometimes when wallbox switches from 1phase to 3phase it sends "disconnected", but cable is still connected
+
+### 0.4.0 (2023-03-15)
 * (René) redesign wallbox feature
+* (René) add status ExcessEnergy in timeframes to show when excess energy is used
+* (René) bug fix for "cannot read data undefined" when new device was created
 
 ### 0.3.1 (2023-02-26)
 * (René) issue #27: wallbox fast charging added

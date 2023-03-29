@@ -51,6 +51,11 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.5 (2023-03-14)
+
+* (pdbjjens) Updated dependencies
+* (pdbjjens) Fix: reconnect handling for serial connections
+
 ### 0.2.4 (2023-03-01)
 
 * (pdbjjens) Fix password check
@@ -71,10 +76,6 @@ This adapter connects ioBroker to various VBus-based devices using resol-vbus, a
 
 * Update dependencies
 * Changed allowed range of temperature values to include the error values for short circuit and open circuit
-
-### 0.2.0 (2021-06-25)
-
-* Dropped node.js 10 support, added node.js 14 and 16 support
 
 ## Legal Notices
 

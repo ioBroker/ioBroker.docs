@@ -141,6 +141,10 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 1.2.3 (2023-03-16)
+* (bluefox) Corrected the edit of the event sources
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
 ### 1.2.2 (2022-12-27)
 * (bluefox) Corrected web page loading in web adapter
 
@@ -221,7 +225,7 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 ## License
 MIT License
 
-Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2023 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

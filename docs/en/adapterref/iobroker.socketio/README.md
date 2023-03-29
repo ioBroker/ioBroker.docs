@@ -311,6 +311,9 @@ You can set option *Force Web-Sockets* to force using only web-sockets transport
 -->
 
 ## Changelog
+### 6.3.5 (2023-03-17)
+* (bluefox) Increased the max size of the message to 200MB
+
 ### 6.3.4 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects
 

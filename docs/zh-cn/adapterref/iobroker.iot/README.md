@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
+hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 ---
 ![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -26,7 +26,7 @@ hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 
 ![介绍](../../../en/adapterref/iobroker.iot/img/intro.png)
 
-＃＃＃ 语
+＃＃＃ 语言
 如果您选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，所有已知名称都将被翻译成该语言。
 出于演示目的，它可以在多种语言之间快速切换。
 
@@ -50,7 +50,7 @@ hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 
 例子：
 
-- 假设 *OFF 级别* 为 30%。
+- 假设*OFF 级别* 为 30%。
 - 虚拟设备“Light”有两个物理设备：*switch* 和*dimmer*。
 - 命令：“将光线设置为 40%”。适配器会记住 *dimmer* 的这个值，将其设置为“dimmer”并打开 *switch*。
 - 命令：“关灯”。适配器会将 *dimmer* 设置为 0% 并关闭 *switch*。
@@ -65,13 +65,13 @@ hash: nnJf/wvSIBaR7SJAb8J/xaIc/Pbm9dzOxViuFArBD1A=
 对于每个命令，都会生成文本响应。您可以在此处定义对象 ID，此文本必须写入其中。例如。 *sayit.0.tts.text*。
 
 ＃＃＃ 颜色
-目前只有英文alexa支持颜色控制。
-通道必须有 4 个状态，具有以下角色：
+通道需要 3-5 个具有以下角色的状态：
 
 - level.color.saturation（检测通道所需），
 - level.color.hue,
 - level.dimmer，
 - 开关（可选）
+- level.color.temperature（可选）
 
 ```
 Alexa, set the "device name" to "color"
@@ -291,7 +291,19 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.14.5 (2023-03-01)
+* (bluefox) Corrected names of enums in GUI
+
+### 1.14.3 (2023-01-10)
+* (kirovilya) Fixed processing for lights with CT and RGB in Alisa
+
+### 1.14.2 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.14.1 (2022-12-22)
+* (bluefox) Downgraded axios version to 0.27.2
+
+### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
 
 ### 1.13.0 (2022-12-08)
@@ -412,28 +424,28 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Updated configuration GUI to the latest state
 
 ### 1.8.8 (2020-12-14)
-* (bluefox) Corrected the "google home" error
+* (bluefox) Corrected the "Google home" error
 
 ### 1.8.6 (2020-12-13)
 * (bluefox) Try to fix google home error
 
 ### 1.8.5 (2020-11-23)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.4 (2020-11-18)
-* (bluefox) Corrected the configuration table for google home
+* (bluefox) Corrected the configuration table for Google home
 
 ### 1.8.3 (2020-11-16)
-* (bluefox) Trying to fix the set to false at start for google home
+* (bluefox) Trying to fix the set to false at start for Google home
 
 ### 1.8.2 (2020-11-15)
-* (bluefox) Added the debug outputs for google home
+* (bluefox) Added the debug outputs for Google home
 
 ### 1.8.1 (2020-11-13)
 * (bluefox) The deletion of google home devices was corrected
 
 ### 1.8.0 (2020-11-12)
-* (bluefox) The google home table was rewritten
+* (bluefox) The Google home table was rewritten
 
 ### 1.7.15 (2020-11-05)
 * (Morluktom) Corrected the request for temperature
@@ -617,7 +629,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

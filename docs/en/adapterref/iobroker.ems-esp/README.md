@@ -116,6 +116,7 @@ Boiler efficiency can be calculated if parameters are filled. (Gas- and Oilboile
 * When return temp is not available in km200/ems-esp the efficiency caclulation does not make sense - please disable to avoid errors 
 * Look at the datasheet of your boiler to adjust the efficiency table accordingly. 
 * On some heating systems this function produces errors - please switch off !!!
+* changed logic with release >= v1.30.0
 
 ## changes in state-structure
 
@@ -134,6 +135,11 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* update efficience calculation to support external sensor for return temperature
+* when 3 state fields are empty then standard fields are used.
+* when state field(s) are filled, than this state(s) are used - e.g. own sensor for return temp
+
 ### 1.29.0 (2023-03-08)
 * update dependencies
 

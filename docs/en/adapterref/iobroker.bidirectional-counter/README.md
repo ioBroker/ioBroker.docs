@@ -30,6 +30,9 @@ The counter state will increase up from its saved value, when the shelly energy 
 	### **WORK IN PROGRESS**
 -->
 
+### **WORK IN PROGRESS**
+* (BenAhrdt) Testings updated
+
 ### 2.0.8 (2022-06-17) - Readme updated
 * (BenAhrdt) readme updated with paypal link
 

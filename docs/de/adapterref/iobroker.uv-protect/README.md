@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-protect
-hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
+hash: +G2ZFhEpZGS4FRBYIYdgYEkZOmLEO/0gifXc8vqfzx8=
 ---
 ![Logo](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
@@ -14,6 +14,7 @@ hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)
 ![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.uv-protect
 ![Testen und freigeben](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
@@ -25,7 +26,7 @@ UV-Protect von openUV-API
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -38,6 +39,19 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.4.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) Repo updated
+
+### 0.3.7 (2022-11-01)
+* (simatec) Fix Axios Request
+* (simatec) Dependencies updated
+
+### 0.3.6 (2022-07-11)
+* (simatec) Fix Request
+* (simatec) timeout added
+* (simatec) Dependencies updated
+
 ### 0.3.5 (2022-02-08)
 * (simatec) Fix value types
 * (simatec) Fix Axios Request
@@ -86,7 +100,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2021 - 2022 simatec
+Copyright (c) 2021 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

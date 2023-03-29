@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
+hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -42,6 +42,24 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 4. Добавьте свои устройства Miele в приложение (если они не добавляются автоматически).
 6. Введите client_secret и client_id, полученные от команды разработчиков Miele, а также идентификатор учетной записи и пароль из приложения.
 
+## Функции
+Этот адаптер в настоящее время реализует почти все функции Miele API V1.0.5 и некоторые части API V1.0.6.
+Возможности API могут (и в настоящее время) отличаться от возможностей приложений для iOS и Android.
+Например. информации о TwinDos нет — она есть даже в приложениях.
+Это включает в себя:
+
+* Поддерживаются все известные и задокументированные типы устройств (API V1.0.6).
+* Основная информация для всех типов приборов.
+* Расширенная информация для всех типов устройств.
+* EcoFeedback (потребление воды и/или электроэнергии) для приборов, сообщающих об этом.
+
+  `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+
+* Поддерживаемые действия, которые вы можете выполнять на этом устройстве — о возможностях устройства в основном сообщает сам API.
+
+## Известные вопросы
+* Программы в основном поддерживаются начиная с v6.0.0 адаптера. Кроме программ, которым нужны дополнительные параметры, например, для духовок.
+
 ## Конфигурация
 ### Базовая конфигурация
 Чтобы запустить этот адаптер, вам потребуется как минимум:
@@ -51,14 +69,14 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 * Miele Client_id (с https://www.miele.com/developer/)
 * Miele Client_secret (с https://www.miele.com/developer/)
 
-### События, отправленные сервером
+### Запрос данных с серверов Miele
 Начиная с версии 6.2.0 у вас есть возможность выбирать между
 
-* Server-Sent Events (флажок Server-Sent Events отмечен флажком — по умолчанию)
+* Server-Sent Events (флажок Server-Sent Events отмечен флажком — по умолчанию и *настоятельно рекомендуется*)
 * Опрос данных на основе времени (флажок Server-Sent Events снят)
 * Отложенная обработка
 
-#### События, отправленные сервером
+#### События, отправленные сервером (настоятельно рекомендуется)
 События, отправленные сервером, — это очень удобный способ получения данных с серверов Miele, поскольку серверы будут отправлять вам данные всякий раз, когда происходят изменения. Никаких бесполезных опросов каждые xx секунд, игнорирующих, были ли изменения или нет. К сожалению, при использовании этого типа подключения возникают проблемы - довольно часто происходит сбой, и это решается только перезапуском адаптера.
 
 #### Опрос данных на основе времени
@@ -91,11 +109,6 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 Но Miele работает над этим и регулярно расширяет поддержку.
 Дополнительную информацию см. в общей документации Miele API (ниже).
 
-## Известные вопросы
-* В Miele API появилась новая конечная точка начиная с версии 1.05 API (/programs).
-  * В настоящее время неизвестно, как их использовать, так как документация по API... неулучшаема.
-  * Эти программы в основном поддерживаются начиная с v6.0.0 адаптера. Кроме программ, которым нужны дополнительные параметры.
-
 ## Документация
 Если вы хотите получить более глубокое понимание или нуждаетесь в переводе необработанных значений, обратитесь к [эта документация.](machine_states.md)
 
@@ -108,9 +121,12 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.4.1 (2022-10-12) (Dying for an Angel)
+### 6.5.0 (2023-04-xx) (Dying for an Angel)
+* (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
+* (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

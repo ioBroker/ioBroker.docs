@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
 title: ioBroker.тахома
-hash: DKzaD/UWzdpNlGpnl+p87uN6Jpzad0uJf91pX+DNIMs=
+hash: /u36vdt/QGfAt0NT2GYFz89qeEwptfVxxitwHElxe+I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -81,12 +81,11 @@ hash: DKzaD/UWzdpNlGpnl+p87uN6Jpzad0uJf91pX+DNIMs=
 | _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | См. `tahoma.X.devices.*.states.core:OrientationState` |
 | _tahoma.X.devices.*.states.core:OpenClosedState_ | | Содержит `closed`, если устройство закрыто на 100 % или развернуто на 0 %, и `open` в противном случае. |
 | _tahoma.X.devices.*.states.core:OpenClosedState_ | | Содержит «закрыто», если устройство закрыто на 100% или развернуто на 0%, и «открыто» в противном случае. |
-| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указывается здесь, например. грамм. датчик ветра, блокирующий тент. |
+| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Если датчик заблокировал устройство, это указывается здесь, например. г. датчик ветра, блокирующий тент. |
 | _tahoma.X.devices.*.states.core:StatusState_ | | `available`, если устройство в данный момент доступно. |
 | _tahoma.X.devices.*.states.io:PriorityLockLevelState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
 | _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
-| _tahoma.X.devices.*.states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
-| _tahoma.X.devices.*.states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = остановлено`, `1 = вверх/отменить развертывание`, `2 = вниз/развернуть`, `3 = неизвестное направление` |
+| _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | См. `tahoma.X.devices.*.states.core:PriorityLockTimerState` | | _tahoma.X.devices.*.states.moving_ | | Указывает, движется ли устройство в данный момент. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction`<br/> **Примечание:**<br/> Это надежно работает только при подключении к Tahoma (не локальному) API, поскольку локальный API не предоставляет достаточно обновлений действий и событий для правильного вычисления этого состояния. Однако `core:MovingState` должен работать в обоих случаях. |
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).

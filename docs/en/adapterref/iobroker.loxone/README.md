@@ -732,6 +732,8 @@ Native value from ioBroker &gt; Objects
 
 -   (raintonr) Added info statistics (#364)
 -   (raintonr) Added basic functionality for Remote (Media Controller)
+-   (raintonr) Fixed ack overwrites of fast changing states (#399) and general ack improvements
+-   (raintonr) Fix crash when state changes occur during Miniserver reboot or otherwise unavailable (#298)
 
 ### 3.0.0 (2021-12-29)
 

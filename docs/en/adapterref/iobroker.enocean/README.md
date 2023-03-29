@@ -41,7 +41,7 @@ The bus devices report with their bus address, i.e. it starts with 00 00 00 01.
 
 ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ No longer available.  
 
-ALL SMART EnOcean Multi-Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ No longer available.
+ALL SMART EnOcean Multi-Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
 ### [Supported devices](./docs/devices.md)
 

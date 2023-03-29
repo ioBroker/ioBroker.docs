@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sayit/README.md
 title: ioBroker Sayit-Adapter
-hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
+hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
 ---
 ![Logo](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -14,14 +14,14 @@ hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
 # IoBroker Sayit-Adapter
 ![Testen und freigeben](https://github.com/ioBroker/iobroker.sayit/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sayit/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 SayIt Adapter kann Text in Sprache umwandeln und auf einem Gerät wiedergeben.
 
 ## Aufbau
 Aktuell werden folgende Ausgänge unterstützt:
 
-- *Browser* - Der Text wird vom Browser mit geöffneter `iobroker.vis`-Seite abgespielt. Es wird von fast jedem Desktop-Browser und von wenigen mobilen Browsern unterstützt.
+- *Browser* - der Text wird vom Browser mit geöffneter `iobroker.vis`-Seite abgespielt. Es wird von fast jedem Desktop-Browser und von wenigen mobilen Browsern unterstützt.
 
 - *[Home24- MediaPlayer](http://www.home-24.net/index.php?app=media)* - Der Text wird gesendet und auf dem Android-Gerät mit installiertem Home24 - MediaPlayer abgespielt. Dafür wird die in Android eingebaute Text-to-Speech-Engine verwendet. Der Port kann nicht geändert und auf 50000 gesetzt werden.
 
@@ -31,7 +31,7 @@ Aktuell werden folgende Ausgänge unterstützt:
 
 - *System* - Der Text wird vom Betriebssystem abgespielt, auf dem der ioBroker-Adapter läuft. Folgende Betriebssysteme werden unterstützt: Windows, Linux, Mac OSx.
 
-- *Windows-Engine* - der Text wird von Windows abgespielt, wo der sayIt-Adapter läuft. Dafür wird die Text-to-Speech-Engine von Windows verwendet, die vom Benutzer vorkonfiguriert werden sollte. Sie können [hier](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) überprüfen, wie Sie es einrichten.
+- *Windows-Engine* - Der Text wird von Windows abgespielt, wo der sayIt-Adapter läuft. Dafür wird die Text-to-Speech-Engine von Windows verwendet, die vom Benutzer vorkonfiguriert werden sollte. Sie können [hier](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7) überprüfen, wie Sie es einrichten.
 
 - *Sonos* - Text auf dem Sonos-Gerät abspielen. Stellen Sie sicher, dass der Web Adaptor aktiviert ist. Es ist erforderlich, damit SONOS die generierten MP3-Dateien lesen kann.
 
@@ -50,29 +50,29 @@ Die Datei muss zuerst geladen werden.
 ### TTS-Engines
 online:
 
-- Google: Englisch, Deutsch, Russisch, Italienisch, Spanisch, Französisch
+- Google: Englisch, Deutsch, Russisch, Italienisch, Spanisch, Französisch;
 - Yandex: Russisch
 
 Um Yandex-Stimmen zu verwenden, müssen Sie den API-Schlüssel hier anfordern: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Dieser Dienst wird am 1. Januar 2019 deaktiviert und durch Yandex.cloud ersetzt] Um Yandex.cloud zu verwenden, sollten Sie sich hier registrieren: [https://cloud.yandex.ru/], SpeechKIT API in der Cloud installieren und Auth Token erhalten und Ordner-ID, wie in den API-Anweisungen beschrieben.
 
-- Ivona: Englisch, Deutsch, Russisch, Italienisch, Spanisch, Französisch, Dänisch, Walisisch, Isländisch, Niederländisch, Polnisch, Portugiesisch, Rumänisch, Schwedisch, Türkisch
-
-        Um Amazon(Ivona)-Stimmen verwenden zu können, benötigen Sie den Zugangsschlüssel und den geheimen Schlüssel [Hier](http://www.ivona.com/us/for-business/speech-cloud/).
-
 - Wolke:
 
-        Um Cloud-Stimmen verwenden zu können, benötigen Sie einen konfigurierten Cloud-Adapter. (Es kann deaktiviert werden, muss aber konfiguriert werden). Dieser Dienst verwendet AWS Polly und kann direkt verwendet werden.
+  Um Cloud-Stimmen verwenden zu können, benötigen Sie einen konfigurierten Cloud-Adapter. (Es kann deaktiviert werden, muss aber konfiguriert werden). Dieser Dienst verwendet AWS Polly und kann direkt verwendet werden.
 
 - Amazon Web Services Polly:
 
-        Um AWS Polly-Stimmen verwenden zu können, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier] (https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
+  Um AWS Polly-Stimmen verwenden zu können, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier] (https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
 
 offline:
 
-- PicoTTS (nur Linux): Englisch, Deutsch, Italienisch, Spanisch, Französisch
+- PicoTTS (nur Linux): Englisch, Deutsch, Italienisch, Spanisch, Französisch;
 
 Für PicoTTS müssen folgende Pakete installiert werden: `libttspico-utils` und lame.
 Installationsbefehl: `sudo apt-get install libttspico-utils lame`
+
+- Coqui TTS: Englisch, Deutsch, Spanisch, Französisch, Niederländisch, Japanisch, Chinesisch;
+
+  Anweisungen zur Verwendung finden Sie unter [amtliche Dokumentation](https://tts.readthedocs.io/en/latest/index.html)
 
 ### Cloud und Amazon Web Services Polly-Textformatierung
 Mit [Sprachsynthese-Auszeichnungssprache](http://docs.aws.amazon.com/polly/latest/dg/ssml.html) können Sie Ihren Text formatieren.
@@ -95,7 +95,7 @@ Wenn die Ausgabe **System** ausgewählt ist, führt der `sayit`-Adapter den folg
 
 ```myCustomPlayer --option /opt/iobroker/node_modules/iobroker.sayit/say.mp3```
 
-Wenn der Dateiname irgendwo in der Mitte bleiben muss, können Sie mit *%s* angeben, wo der Dateiname platziert werden muss:
+Wenn der Dateiname irgendwo in der Mitte bleiben muss, können Sie *%s* verwenden, um anzugeben, wo der Dateiname platziert werden muss:
 
 ```myCustomPlayer --option "%s" > /dev/null```
 
@@ -113,7 +113,7 @@ Nach der Erstellung der Adapterinstanz finden Sie folgende Objekte:
    Z.B. Sie können hier manuell "Kein Internet" eingeben und wenn der Ping an google.com negativ ist, schreiben Sie "Kein Internet" in "tts.text" und es wird ausgesprochen. Cache muss natürlich aktiviert sein.
 
 State **tts.text** unterstützt erweiterte Syntax, sodass Sprache/Engine und Lautstärke zusammen mit Text definiert werden können. Es wird verwendet, um mehrsprachige Text2Speech-Engines zu aktivieren.
-Z.B. Wenn der Adapter über die Engine "Google-English" verfügt, ist es mit der Phrase ```de:Sag es``` möglich, die Verwendung der Google-Deutsch-Sprach-Engine zu erzwingen.
+Z.B. Wenn der Adapter über die Engine "Google-English" verfügt, ist es mit der Phrase ```de:Sag es``` möglich, die Verwendung der Sprachengine Google-Deutsch zu erzwingen.
 
 Mit ```ru;75;Погода хорошая``` können wir die Verwendung der russischen Sprache und Lautstärke zu 75 % erzwingen.
 
@@ -136,7 +136,7 @@ Folgende Werte für Motoren sind möglich:
 
 #### Google
 - **en** - Englisch
-- **de** - Deutsch
+-**de**-Deutsch
 - **pl** - Polski
 - **ru** - Russisch
 - **uk** - український
@@ -149,7 +149,7 @@ Folgende Werte für Motoren sind möglich:
 
 #### Yandex
 - **ru_YA:Yandex** - Русский
-- **ru_YA_CLOUD:Yandex Cloud** - Русский [Yandex.Cloud API generiert Dateien im OGG-Format. Um ogg-Dateien unter Linux abzuspielen, muss mplayer installiert und als Systemplayer ausgewählt sein]
+- **ru_YA_CLOUD:Yandex Cloud** - Русский [Yandex.Cloud API generiert Dateien im OGG-Format. Um ogg-Dateien unter Linux abzuspielen, sollte mplayer installiert und als Systemplayer ausgewählt sein]
 
 #### Amazon-Umfrage über die Cloud
 - **ru-RU_CLOUD_Female** - Русский - Татьяна
@@ -215,6 +215,14 @@ Folgende Werte für Motoren sind möglich:
 - **es-ES** - Spanisch
 - **fr-FR** - Französisch
 
+#### Coqui TTS
+- Englisch
+- Deutsch
+- Spanisch
+- Franz
+- Niederlande
+- 日本
+
 #### Amazon Umfrage direkt
 - **ru-RU_AP_Female** - Русский - Татьяна
 - **ru-RU_AP_Male** - Русский - Максим
@@ -261,7 +269,7 @@ Folgende Werte für Motoren sind möglich:
 - **pl-PL_AP_Female_Ewa** - pl-PL - Weiblich - Ewa
 - **pl-PL_AP_Male_Jan** - pl-PL - Männlich - Jan
 - **pl-PL_AP_Female** - pl-PL - Weiblich - Maja
-- **pt-BR_AP_Female** - pt-BR - weiblich - Vitoria
+- **pt-BR_AP_Female** - pt-BR - Weiblich - Vitoria
 - **pt-BR_AP_Male** - pt-BR - Männlich - Ricardo
 - **pt-PT_AP_Male** - pt-PT - Männlich - Cristiano
 - **pt-PT_AP_Female** - pt-PT - weiblich - Ines
@@ -272,9 +280,23 @@ Folgende Werte für Motoren sind möglich:
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.1.2 (2023-03-27)
+* (bluefox) Corrected engines with web-link
+
+### 2.1.1 (2023-03-24)
+* (Jey-Cee) Added support for Coqui TTS
+* (bluefox) Renamed all configuration attributes
+
+### 2.0.0 (2023-03-23)
+* (bluefox) Adapter was completely rewritten with async/await
+* (bluefox) Could be buggy
+
+### 1.13.0 (2023-03-22)
+* (bluefox) Made compatible with future js-controller
+
 ### 1.12.6 (2022-02-09)
 * (bluefox) used setForeignBinaryState if possible
 
@@ -504,7 +526,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

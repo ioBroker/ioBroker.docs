@@ -139,6 +139,9 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.1.7 (2023-03-13)
+* (Sickboy78) fixed false login error in case pet had no photo
+
 ### 1.1.6 (2023-01-07)
 * (Sickboy78) added battery voltage configuration
 * (Sickboy78) added translation for adapter settings

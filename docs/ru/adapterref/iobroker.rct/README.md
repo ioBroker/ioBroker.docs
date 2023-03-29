@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
+hash: k9hP2CX8WzRlBmnA+uAz1Ll2DUkb994uTPQxjZA4YUg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -17,12 +17,11 @@ hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 # IoBroker.rct
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Проект БОЛЬШЕ НЕ ПОДДЕРЖИВАЕТСЯ
-После того, как я перешел на Home Assistant, я больше не обслуживаю этот адаптер.
-Если вы заинтересованы в том, чтобы взять его на себя, пожалуйста, дайте мне знать.
+## Смена владельца
+После того, как Лафф перешел на Home Assistant - проект продолжит aruttkamp
 
 ## Адаптер RCT для ioBroker
-Обратите внимание, что это частный проект и что я (Маркус Лауфф) никак не связан с RCT.
+Обратите внимание, что это частный проект и что я (Андреас Рутткамп) никак не связан с RCT.
 
 Показать значения фотоэлектрического преобразователя мощности RCT Power
 
@@ -39,7 +38,8 @@ hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 В этом случае остановите адаптер и вручную удалите узел «rct.0».
 
 ## Changelog
-
+### 1.0.2
+* (Andreas Ruttkamp) 
 ### 1.0.1
 * (Markus Lauff) fixing review comments - thanks to Apollon77
 ### 1.0.0
@@ -72,4 +72,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 Markus Lauff <ioBroker.rct@markus.lauff.com>
+Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

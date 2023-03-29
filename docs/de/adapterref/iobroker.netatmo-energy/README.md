@@ -107,17 +107,23 @@ Beim Starten des Adapters wird die Initialisierung durchgeführt.
 Wenn sie in der Adapterkonfiguration einen Benachrichtigungsdienst aktiviert haben werden diverse Meldungen an sie versandt.
 Folgende Dienste sind verfügbar.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="settingsAPI" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="notifications" width="30%"/>
 
 Bitte geben sie für den von ihnen gewählten Benachrichtigungsdienst die notwendigen Verbindungsdaten an.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="settingsAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="notifications" width="70%"/>
+
+## Sensorik
+
+In der Tabelle können Sie auf das "window_open" attribut pro Raum reagieren. Der Status der jeweiligen Fnstersensoren kann beim Ändern eine Aktion auslösen, welche hier einzutragen ist. Entweder kann eine dezidierte Temparatur eingestellt werden oder es kann wieder aufe den Home Mode geschaltet werden. Somit kann beim Öffnen oder beim Schließen eines Fensters die Temparatur eines Ventils eingestellt werden.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="sensors" width="70%"/>
 
 ## Nachrichten
 
 Hier können sie bestimmte Nachrichten bei bestimmten Statusänderungen auslösen. Die gewünschte Nachricht können sie hinterlegen.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="settingsAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="messages" width="70%"/>
 
 ## Admin-Tab
 
@@ -131,7 +137,7 @@ Auf jeder Karte werden Statussymbole angezeigt, welche den aktuellen Zustand des
 
 Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "SetTemp" - Datenpunkt eintragen. Alle anderen Informationen werden dynamisch aus der "rooms"-Struktur ermittelt.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="settingsAPI" width="250px"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="widget" width="250px"/>
 
 ## Changelog
 
@@ -140,6 +146,10 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2023-03-19)
+
+* (ioKlausi) Implement actions for window sensors
+
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding

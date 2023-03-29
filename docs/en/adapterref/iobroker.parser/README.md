@@ -46,9 +46,9 @@ If you enter the same URL or filename more than once into different table rows, 
 
 **Table fields:**
 
-- ***Name*** - name of state that is being created under `parser.<instance number>`. Spaces are not allowed. You can use dots "." as separator to create sub folders. Example: `Shares.Microsoft.Current` will result in `parser.<instance number>.Shares.Micosoft.Current`.
+- ***Name*** - name of state that is being created under `parser.<instance number>`. Spaces are not allowed. You can use dots `.` as separator to create sub folders. Example: `Shares.Microsoft.Current` will result in `parser.<instance number>.Shares.Microsoft.Current`.
 - ***URL or file name*** - either a URL of a website or the path to a file of which we want to retrieve information. Examples `https://darksky.net/forecast/48.1371,11.5754/si24/de` (weather information Munich), or `/opt/iobroker/test/testdata.txt` (file from within ioBroker).
-- ***RegEx*** - regular expression, how to extract data from link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. *temp swip">(-?\d+)˚<* for the line above.
+- ***RegEx*** - regular expression, how to extract data from link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. `temp swip">(-?\d+)˚<` for the line above.
 - ***Item*** (German: "Num") - a regex can find (match) multiple entries. With this option you can define which match to be chosen. 0 = first match, 1 = second match, 2 = third match, etc. Default is 0 (first match).
 - ***Role*** - one of the roles:
     - custom - user defines itself via *admin* the role
@@ -67,45 +67,56 @@ If you enter the same URL or filename more than once into different table rows, 
 - ***Interval*** - poll interval in ms (milliseconds). If blank or 0, the default poll interval will be used. Please see further information above.
 
 ## Sample settings
-| Name              |      URL or file name                                |      RegEx            | Role         | Type    | Unit | Interval |
-|-------------------|:-----------------------------------------------------|:----------------------|--------------|---------|------|----------|
-| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`  | temperature  | number  |  °C  | 180000   |
-| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                 | indicator    | boolean |      | 60000    |
-| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`        | indicator    | boolean |      | 60000    |
-| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                  | temperature  | number  |  °C  | 30000    |
-| stockPrice.Visa    | `https://www.finanzen.net/aktien/visa-aktie`      | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value  | number  |  €  | 86400000    |
+| Name               | URL or file name                                             | RegEx                                | Role        | Type    | Unit | Interval |
+|--------------------|:-------------------------------------------------------------|:-------------------------------------|-------------|---------|------|----------|
+| temperatureMunich  | `https://darksky.net/forecast/48.1371,11.5754/si24/de`       | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000   |
+| forumRunning       | `http://forum.iobroker.net/`                                 | `Forum`                              | indicator   | boolean |      | 60000    |
+| cloudRunning       | `https://iobroker.net/`                                      | `Privacy Notice`                     | indicator   | boolean |      | 60000    |
+| cpuTemperature     | `/sys/devices/virtual/thermal/thermal_zone0/temp`            | `(.*)`                               | temperature | number  | °C   | 30000    |
+| stockPrice.Visa    | `https://www.finanzen.net/aktien/visa-aktie`                 | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000 |
+| kleinanzeigen      | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`            | `data-href="(.*?).">`                | default     | string  |      | 600000   |
 
 *Note:* While applying regex to the retrieved URL/file data, all line breaks will be replaced with spaces to allow multi-line search.
 
 ## About Regular expressions (RegExp)
 Regular expressions are a powerful tool to parse and extract certain data from strings, and even more important: it allows to extract certain values/text from a given string (like from the HTML of a webpage, or text from a file) by applying rules.
 
-For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - "()". E.g. to extract the number from *The temperature is 5°C* you should use " (\d+)" expression.
+For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g. to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
 
 Further information on RegExp:
   * [MDN/Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
   * [regex101: online tool to create and test regular expressions](https://regex101.com/)
 
 ### Examples
-- *.at* matches any three-character string ending with "at", including "hat", "cat", and "bat".
-- *[hc]at* matches "hat" and "cat".
-- *[^b]at* matches all strings matched by .at except "bat".
-- *[^hc]at* matches all strings matched by .at other than "hat" and "cat".
-- *^[hc]at* matches "hat" and "cat", but only at the beginning of the string or line.
-- *[hc]at$* matches "hat" and "cat", but only at the end of the string or line.
-- *\[.\]* matches any single character surrounded by "[" and "]" since the brackets are escaped, for example: "[a]" and "[b]".
-- *s.\** matches s followed by zero or more characters, for example: "s" and "saw" and "seed".
-- *[hc]+at* matches "hat", "cat", "hhat", "chat", "hcat", "cchchat", and so on, but not "at".
-- *[hc]?at* matches "hat", "cat", and "at".
-- *[hc]\*at* matches "hat", "cat", "hhat", "chat", "hcat", "cchchat", "at", and so on.
-- *cat|dog* matches "cat" or "dog".
-- *(\d+)* - get the number from string
-- *now (\w+)* later - get the word between "now" and "later"
+- `.at` matches any three-character string ending with `at`, including `hat`, `cat`, and `bat`.
+- `[hc]at` matches `hat` and `cat`.
+- `[^b]at` matches all strings matched by .at except `bat`.
+- `[^hc]at` matches all strings matched by .at other than `hat` and `cat`.
+- `^[hc]at` matches `hat` and `cat`, but only at the beginning of the string or line.
+- `[hc]at$` matches `hat` and `cat`, but only at the end of the string or line.
+- `\[.\]` matches any single character surrounded by `[` and `]` since the brackets are escaped, for example: `[a]` and `[b]`.
+- `s.\*` matches s followed by zero or more characters, for example: `s` and `saw` and `seed`.
+- `[hc]+at` matches `hat`, `cat`, `hhat`, `chat`, `hcat`, `cchchat`, and so on, but not `at`.
+- `[hc]?at` matches `hat`, `cat`, and `at`.
+- `[hc]\*at` matches `hat`, `cat`, `hhat`, `chat`, `hcat`, `cchchat`, `at`, and so on.
+- `cat|dog` matches `cat` or `dog`.
+- `(\d+)` - get the number from string
+- `now (\w+)` later - get the word between `now` and `later`
 
 ### Other useful expressions
-- (-?\d+) get number (both negative and positive numbers)
-- [+-]?([0-9]+.?[0-9]|.[0-9]+) get a number with decimal places (and . as decimal separator)
-- [+-]?([0-9]+,?[0-9]|,[0-9]+) get a number with decimal places (and , as decimal separator)
+- `(-?\d+)` get number (both negative and positive numbers)
+- `[+-]?([0-9]+.?[0-9]|.[0-9]+)` get a number with decimal places (and `.` as decimal separator)
+- `[+-]?([0-9]+,?[0-9]|,[0-9]+)` get a number with decimal places (and `,` as decimal separator)
+
+## Notification Example
+### Telegram
+```Javascript
+on("parser.0.kleinanzeigen", (obj) => {
+    sendTo("telegram.0", {
+        text: "https://www.ebay-kleinanzeigen.de" + obj.state.val,
+    });
+});
+```
 
 ## Quality codes
 Values can have quality codes:
@@ -121,6 +132,10 @@ Values can have quality codes:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.0 (2023-03-29)
+* (TA2k) added translations
+* (bluefox) Migrated GUI to admin v6
+
 ### 1.3.2 (2022-12-09)
 * (Apollon77) In error cases return error as string
 
@@ -199,7 +214,7 @@ Values can have quality codes:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

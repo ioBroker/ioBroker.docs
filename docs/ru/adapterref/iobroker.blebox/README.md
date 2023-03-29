@@ -3,16 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: U09jFIxFk2+Zf83CeeFdYDAsCDTFvNSssh/WcvZciOk=
+hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
 ![версия NPM](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.blebox.svg)
-![Статус зависимости](https://img.shields.io/david/ka-vaNu/iobroker.blebox.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/ka-vaNu/ioBroker.blebox/master.svg)
 
 # IoBroker.blebox
 ## Адаптер blebox для ioBroker
@@ -36,6 +34,10 @@ Aktuell werden folgende Geräte unterstützt:
     ### **WORK IN PROGRESS**
 -->
 
+### 2.0.1 (2023-03-12)
+
+* (Kai van Nuis) Update dependecies
+
 ### 2.0.0 (2022-09-18)
 
 * (Kai van Nuis) Change to Admin UI 5
@@ -55,7 +57,7 @@ Aktuell werden folgende Geräte unterstützt:
 ## License
 MIT License
 
-Copyright (c) 2022 Kai van Nuis <kai@vannuis.de>
+Copyright (c) 2023 Kai van Nuis <kai@vannuis.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

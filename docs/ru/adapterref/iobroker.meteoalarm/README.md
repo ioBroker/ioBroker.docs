@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
+hash: shouD1ahIo8Rcv3515jbk16VSS/LkGHhEkdquGEaU0E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -27,6 +27,12 @@ hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
 [английское описание](docs/en/meteoalarm.md)
 
 [Deutsche Anleitung](docs/de/meteoalarm.md)
+
+## 2.3.5 (27 марта 2023 г.)
+* (джек-блэксон) IOBROKER-METEOALARM-47 и IOBROKER-METEOALARM-48
+
+## 2.3.4 (2023-03-26)
+* (джек-блэксон) IOBROKER-METEOALARM-4A
 
 ## 2.3.3 (09.02.2023)
 * (jack-blackson) Добавлена возможность определять уровни тревоги для виджета, JSON и уведомлений

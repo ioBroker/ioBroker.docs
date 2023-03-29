@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
+hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
 ---
 ![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -42,6 +42,24 @@ Gehen Sie zur Installation wie folgt vor:
 4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
 6. Geben Sie das client_secret und die client_id ein, die Sie vom Miele-Entwicklerteam erhalten haben, sowie die Konto-ID und das Passwort von der App.
 
+## Merkmale
+Dieser Adapter implementiert derzeit fast alle Funktionen der Miele API V1.0.5 und einige Teile der API V1.0.6.
+Die Funktionen der API können (und tun dies derzeit) von den Funktionen der iOS- und Android-Apps abweichen.
+Z.B. Es sind keine Informationen zu TwinDos verfügbar - selbst die Apps haben sie.
+Das beinhaltet:
+
+* Alle bekannten und dokumentierten Appliance-Typen werden unterstützt (API V1.0.6).
+* Grundlegende Informationen für alle Gerätetypen.
+* Erweiterte Informationen für alle Gerätetypen.
+* EcoFeedback (Wasser- und/oder Stromverbrauch) für Geräte, die dies melden.
+
+  `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+
+* Unterstützte Aktionen, die Sie auf diesem Gerät ausführen können – Fähigkeiten des Geräts werden meistens von der API selbst gemeldet.
+
+## Bekannte Probleme
+* Die Programme werden grundsätzlich seit v6.0.0 des Adapters unterstützt. Außer Programme, die zusätzliche Parameter benötigen, wie z. B. für Öfen.
+
 ## Aufbau
 ### Grundkonfig
 Um diesen Adapter zum Laufen zu bringen, benötigen Sie mindestens:
@@ -51,14 +69,14 @@ Um diesen Adapter zum Laufen zu bringen, benötigen Sie mindestens:
 * Miele Client_id (von https://www.miele.com/developer/)
 * Miele Client_secret (von https://www.miele.com/developer/ )
 
-### Vom Server gesendete Ereignisse
+### Daten von Miele Servern anfordern
 Seit V6.2.0 haben Sie die Möglichkeit zwischen zu wählen
 
-* Server-Sent Events (Server-Sent Events Checkbox ist aktiviert - Standard)
+* Server-Sent Events (Server-Sent Events Checkbox ist aktiviert - Standard und *dringend empfohlen*)
 * Zeitbasiertes Daten-Polling (Server-Sent Events Checkbox ist deaktiviert)
 * Verzögerte Verarbeitung
 
-#### Vom Server gesendete Ereignisse
+#### Vom Server gesendete Ereignisse (dringend empfohlen)
 Vom Server gesendete Ereignisse sind eine sehr praktische Methode, um Daten von den Miele-Servern zu erhalten, da die Server Ihnen bei jeder Änderung Daten senden. Kein nutzloses Abfragen alle xx Sekunden, das ignoriert, ob es Änderungen gab oder nicht. Leider gibt es Probleme mit diesem Verbindungstyp - er schlägt ziemlich oft fehl und nur ein Neustart des Adapters löst das Problem.
 
 #### Zeitbasierte Datenabfrage
@@ -91,11 +109,6 @@ Bei der Veröffentlichung des Adapters hat Miele einige Gerätekategorien dokume
 Doch Miele arbeitet daran und verlängert den Support regelmäßig.
 Weitere Informationen finden Sie in der allgemeinen Miele API-Dokumentation (unten).
 
-## Bekannte Probleme
-* Seit V1.05 der API (/programs) gibt es einen neuen Endpunkt innerhalb der Miele API.
-  * Es ist derzeit nicht bekannt, wie man sie verwendet, da die API-Dokumentation ... verbesserungswürdig ist.
-  * Diese Programme werden grundsätzlich seit v6.0.0 des Adapters unterstützt. Außer Programme, die zusätzliche Parameter benötigen.
-
 ## Dokumentation
 Wenn Sie ein tieferes Verständnis erlangen möchten oder eine Rohwertübersetzung benötigen, lesen Sie bitte [diese Dokumentation.](machine_states.md)
 
@@ -108,9 +121,12 @@ Copyright (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.4.1 (2022-10-12) (Dying for an Angel)
+### 6.5.0 (2023-04-xx) (Dying for an Angel)
+* (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
+* (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

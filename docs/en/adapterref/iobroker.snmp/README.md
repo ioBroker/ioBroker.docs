@@ -31,6 +31,12 @@ This adapter can be used to poll information from devices like printers, network
 <!--
 ## __WORK IN PROGRESS__
 -->
+### 2.4.5 (2023-03-20)
+* (McM1957) Fixed: SNMPv3 crash when using SHA authentication (#236)
+
+### 2.4.4 (2023-03-03)
+* (McM1957) Fixed: crash reported by sentry (#235)
+
 ### 2.4.3 (2023-03-01)
 * (McM1957) Translations and dependencies have been updated.
 

@@ -71,6 +71,10 @@ Die *.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am St
 3. Bei "Synchronisierung" bzw. "Einlesen" ist nicht der Werteaustausch der Variablen gemeint sondern die Synchronisierung der Variablen selbst und das anlegen bzw. löschen derselben im ioBroker
 
 ## Changelog
+### 1.5.2 (2023-03-21)
+
+-   (dkleber89) Fix Adapter Checker Issues
+
 ### 1.5.1 (2022-03-19)
 
 -   (PLCHome) Add TIME, TIME_OF_DAY, TOD, DATE, DATE_AND_TIME and DT support
@@ -119,15 +123,11 @@ Die *.tpy Datei aus dem SPS Projekt muss hochgeladen werden. -> Immer wenn am St
 
 -   (dkleber89) Eslint, Prettier with Airbnb Codestyle, CI adopted, little random changes in Project Structure
 
-### 1.0.4 (2019-08-01)
-
--   (dkleber89) Increase depth of LOG details, Update dependency versions
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 dkleber89 <dkleber89@gmail.com>
+Copyright (c) 2018-2023 dkleber89 <dkleber89@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

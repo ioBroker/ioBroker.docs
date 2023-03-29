@@ -2,19 +2,20 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-bars/README.md
-title: без названия
-hash: tCc8H4MgySjlVDED19Jar3BkZ3Lpq/KlxqsgiOzhBo4=
+title: ioBroker.vis-бары
+hash: ww39lhJr7bdFrYzKSHrRk8DAynmkdFcfDzzFT7+8wC0=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-bars/admin/bars.png) ioBroker.vis-bars ============
+![Логотип](../../../en/adapterref/iobroker.vis-bars/admin/bars.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-bars-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-bars.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vis-bars.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-bars.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-bars.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vis-bars.png?downloads=true)
 
+# IoBroker.vis-бары
 наборы виджетов баров для ioBroker.vis
 
-![пример](../../../en/adapterref/iobroker.vis-bars/img/widgets.png)
+![Пример](../../../en/adapterref/iobroker.vis-bars/img/widgets.png)
 
 ## Changelog
 ### 0.1.4 (2017-03-18)

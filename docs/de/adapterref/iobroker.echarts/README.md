@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: B476cIdVDoK0YlAGRAvXtLrntbliGf2uqhZoJ+WHEjY=
+hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -12,7 +12,7 @@ hash: B476cIdVDoK0YlAGRAvXtLrntbliGf2uqhZoJ+WHEjY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Testen und freigeben](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
@@ -103,6 +103,21 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.4.13 (2023-03-14)
+* (bluefox) Corrected some issues from GitHub
+
+### 1.4.11 (2023-02-25)
+* (bluefox) Booleans were improved
+
+### 1.4.9 (2023-02-22)
+* (bluefox) Allowed the disabling of texts for enums and the adding/deletion of own text values
+
+### 1.4.7 (2023-02-22)
+* (bluefox) Implemented custom texts for enums
+
+### 1.4.6 (2023-02-16)
+* (bluefox) Implemented custom texts for true and false values
+
 ### 1.4.5 (2023-02-16)
 * (bluefox) Allowed to copy only the web URLs in the preview
 * (bluefox) Corrected boolean charts

@@ -2,17 +2,18 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-bars/README.md
-title: kein Titel
-hash: tCc8H4MgySjlVDED19Jar3BkZ3Lpq/KlxqsgiOzhBo4=
+title: ioBroker.vis-bars
+hash: ww39lhJr7bdFrYzKSHrRk8DAynmkdFcfDzzFT7+8wC0=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-bars/admin/bars.png) ioBroker.vis-bars =============
+![Logo](../../../en/adapterref/iobroker.vis-bars/admin/bars.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-bars-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-bars.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-bars.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-bars.png?downloads=true)
 
-Bars Widget-Sets für ioBroker.vis
+# IoBroker.vis-bars
+Bars-Widget-Sets für ioBroker.vis
 
 ![Beispiel](../../../en/adapterref/iobroker.vis-bars/img/widgets.png)
 

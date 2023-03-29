@@ -2,29 +2,47 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weishaupt-wem/README.md
-title: ioBroker.weishaupt-ОРЭ
-hash: sykXgAjoKQjyRTzx0fq16BxLCU0tq36dN1W8krdMqSU=
+title: ioBroker.weishaupt-wem
+hash: ATGAU8nFMXrrTeMrhr8gtanC/XhO5h+L4OnWCDODo7E=
 ---
-![логотип](../../../en/adapterref/iobroker.weishaupt-wem/admin/weishaupt-wem.png)
+![Логотип](../../../en/adapterref/iobroker.weishaupt-wem/admin/weishaupt-wem.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.weishaupt-wem.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.weishaupt-wem.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.weishaupt-wem.svg)
 ![Статус зависимости](https://img.shields.io/david/ta2k/iobroker.weishaupt-wem.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ta2k/ioBroker.weishaupt-wem/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.weishaupt-wem.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.weishaupt-wem.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/ta2k/ioBroker.weishaupt-wem/master.svg)
 
 # IoBroker.weishaupt-wem
-## Weishaupt-wem адаптер для ioBroker
-Адаптер для Weishaupt WEM Portal
+## Адаптер weishaupt-wem для ioBroker
+Адаптер для портала Weishaupt WEM
 
-## Custom Befehl
-Für ein Custom Befehl benötigst du die URL and den gewünschten Wert. Полный URL-адрес einfach die Option im WEM Portal с Chrome aufrufen und dann rechte Maustate Untersuchen dann unter Elements / Elemente mit STRG + Fach iframe suchen mit dem name = &quot;RDWWriteParameter&quot; URL URL nach src mit rechts Klick Link kopieren raus k. Für den Werte nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
-z.B.: <https://www.wemportal.com/Web/UControls...,> 208557
+## Пользовательский бефель
+Für ein Custom Befehl befehl befehl du die URL und den gewünschten Wert. Для того, чтобы указать URL-адрес параметра портала WEM с Chrome, а также с его помощью, вы можете не использовать элементы/элементы с STRG+F, используя iframe с таким именем = &quot;RDWWriteParameter&quot; с URL-адресом, который указан в источнике с правами доступа. Für den Werte nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
+z.B.: <https://www.wemportal.com/Web/UControls...,>208557
+
+## Тех. поддержка
+Der Adapter лежит в основе Daten Aus der App Aus.
+
+**weishaupt-wem.0.20999** "Имя через приложение"
+
+**weishaupt-wem.0.20999.1-3.parameters** Здесь можно найти текущее состояние и канал с помощью **NumericValue** или **StringValue**. Du findest dort auch die Min Max Werte und unter **EnumValues** findet man die Beschreibung for NumericValue
 
 ## Changelog
 
-### 0.0.7
+### 0.0.15
+
+* (ta2k) add app support
+
+### 0.0.14
+
+* (ta2k) fix command sends
+### 0.0.13
+
+* (ta2k) update dependencies
+
+### 0.0.9
 
 * (ta2k) fix for Status label
 

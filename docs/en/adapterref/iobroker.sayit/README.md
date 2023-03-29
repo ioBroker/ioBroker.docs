@@ -43,21 +43,22 @@ The file must be first loaded.
 
 ### TTS engines
 online:
-- Google: English, German, Russian, Italian, Spanish, French
+- Google: English, German, Russian, Italian, Spanish, French;
 - Yandex: Russian
   To use Yandex voices you must request the API key here: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/).  [This service will be disabled 1st of Jan 2019 and replaced by Yandex.cloud]
   To use Yandex.cloud you should register here: [https://cloud.yandex.ru/], install SpeechKIT API in the Cloud and get Auth Token and Folder ID as described in API instructions.
-- Ivona: English, German, Russian, Italian, Spanish, French, Dansk, Welsh, Icelandic, Dutch, Polish, Portuguese, Romanian, Swedish, Turkish
-        To use Amazon(Ivona) voices you need to get access key and secret key [here](http://www.ivona.com/us/for-business/speech-cloud/).
-- Cloud:
-        To use Cloud voices you need configured cloud adapter. (It can be disabled, but must be configured). This service use AWS Polly and it can be used directly.
+- Cloud: 
+  To use Cloud voices you need configured cloud adapter. (It can be disabled, but must be configured). This service use AWS Polly and it can be used directly.
 - Amazon Web Services Polly:
-        To use AWS Polly voices you need to create access key and secret key [here](https://console.aws.amazon.com/iam/home). The Amazon documentation can you find [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
+  To use AWS Polly voices you need to create access key and secret key [here](https://console.aws.amazon.com/iam/home). The Amazon documentation can you find [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
 offline:
-- PicoTTS (linux only): English, German, Italian, Spanish, French
-        For PicoTTS it is necessary to install the following packages: `libttspico-utils` and lame.
-        Installation command: `sudo apt-get install libttspico-utils lame`
+- PicoTTS (linux only): English, German, Italian, Spanish, French;
+  For PicoTTS it is necessary to install the following packages: `libttspico-utils` and lame.
+  Installation command: `sudo apt-get install libttspico-utils lame`
+
+- Coqui TTS:  English, German, Spanish, French, Dutch, Japanese, Chinese;
+  For instructions how to use go to the [official documentation](https://tts.readthedocs.io/en/latest/index.html)
 
 ### Cloud and Amazon Web Services Polly text formatting
 You can format your text with [Speech Synthesis Markup Language](http://docs.aws.amazon.com/polly/latest/dg/ssml.html).
@@ -196,6 +197,14 @@ Following values for engines are possible:
 - **es-ES** - Espaniol
 - **fr-FR** - Français
 
+#### Coqui TTS
+- English
+- Deutsch
+- Espanol
+- Francais
+- Nederlands
+- 日本
+
 #### Amazon polly direct
 - **ru-RU_AP_Female** -           Русский - Татьяна
 - **ru-RU_AP_Male** -             Русский - Максим
@@ -253,9 +262,23 @@ Following values for engines are possible:
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.1.2 (2023-03-27)
+* (bluefox) Corrected engines with web-link
+
+### 2.1.1 (2023-03-24)
+* (Jey-Cee) Added support for Coqui TTS
+* (bluefox) Renamed all configuration attributes
+
+### 2.0.0 (2023-03-23)
+* (bluefox) Adapter was completely rewritten with async/await
+* (bluefox) Could be buggy
+
+### 1.13.0 (2023-03-22)
+* (bluefox) Made compatible with future js-controller
+
 ### 1.12.6 (2022-02-09)
 * (bluefox) used setForeignBinaryState if possible
 
@@ -485,7 +508,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

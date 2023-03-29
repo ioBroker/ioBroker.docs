@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sayit/README.md
 title: адаптер ioBroker
-hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
+hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -23,7 +23,7 @@ hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
 
 - *Браузер* - текст будет воспроизводиться браузером с открытой страницей iobroker.vis. Он поддерживается почти всеми настольными браузерами и несколькими мобильными браузерами.
 
-- *[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)* - текст будет отправлен и воспроизведен на устройстве Android с установленным Home24 - MediaPlayer. Для этого будет использоваться встроенный в Android движок преобразования текста в речь. Порт нельзя изменить и установить на 50000.
+- *[Home24-MediaPlayer](http://www.home-24.net/index.php?app=media)* - текст будет отправлен и воспроизведен на Android-устройстве с установленным Home24 - MediaPlayer. Для этого будет использоваться встроенный в Android движок преобразования текста в речь. Порт нельзя изменить и установить на 50000.
 
 - *Home24 - MediaPlayer и [FTP-сервер](https://play.google.com/store/apps/details?id=lutey.FTPServer)* - текст будет отправлен и воспроизведен на устройстве Android с Home24 - MediaPlayer установлен. Для этого будет использоваться движок преобразования текста в речь Google. Сгенерированный файл mp3 будет скопирован через FTP на устройство Android и воспроизведен с помощью Home24 - MediaPlayer.
 
@@ -31,48 +31,48 @@ hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
 
 - *Система* - текст будет воспроизводиться ОС, на которой работает адаптер ioBroker. Поддерживаются следующие ОС: Windows, Linux, Mac OSx.
 
-- *Windows engine* - текст будет воспроизводиться окнами, на которых работает адаптер sayIt. Для этого будет использоваться движок преобразования текста в речь Windows, который должен быть предварительно настроен пользователем. Вы можете проверить [здесь](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7), как его настроить.
+- *Windows engine* - текст будет воспроизводиться окнами, в которых работает адаптер sayIt. Для этого будет использоваться движок преобразования текста в речь Windows, который должен быть предварительно настроен пользователем. Вы можете проверить [здесь](http://windows.microsoft.com/en-us/windows/setting-speech-options#1TC=windows-7), как его настроить.
 
-- *Sonos* - воспроизведение текста на устройстве Sonos. Убедитесь, что веб-адаптер включен. Требуется разрешить SONOS читать сгенерированные файлы mp3.
+- *Sonos* - воспроизведение текста на устройстве Sonos. Убедитесь, что веб-адаптер включен. Требуется, чтобы SONOS мог читать сгенерированные файлы mp3.
 
 - *Heos* - воспроизводить текст на устройстве HEOS. Убедитесь, что веб-адаптер включен. Необходимо, чтобы HEOS мог читать сгенерированные файлы mp3.
 
 - *Chromecast* - воспроизведение текста на устройстве Chromecast.
 
-- *MPD* - проигрывать текст в Music Player Daemon. Используйте только **http** для веб-адаптера, не используйте https.
+- *MPD* - проигрывать текст на Music Player Daemon. Используйте только **http** для веб-адаптера, не используйте https.
 
-Чтобы включить преобразование текста в речь в системе RaspberryPI или Linux, вызовите один раз после команды `sudo apt-get -y install mpg321`, чтобы установить mpg321.
+Чтобы включить преобразование текста в речь в системе RaspberryPI или Linux, вызовите один раз следующую команду `sudo apt-get -y install mpg321`, чтобы установить mpg321.
 
 Файлы mp3/wav можно воспроизводить, записав их имя в объект. (например, `/vis.0/main/img/door-bell.mp3`)
 
 Файл должен быть предварительно загружен.
 
 ### Двигатели ТТС
-онлайн:
+В сети:
 
-- Google: английский, немецкий, русский, итальянский, испанский, французский
+- Google: английский, немецкий, русский, итальянский, испанский, французский;
 - Яндекс: русский
 
-Для использования голосов Яндекса вы должны запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.Облаком] Для использования Яндекс.Облака вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в Облаке и получить Auth Token и идентификатор папки, как описано в инструкциях API.
-
-- Ivona: английский, немецкий, русский, итальянский, испанский, французский, датский, валлийский, исландский, голландский, польский, португальский, румынский, шведский, турецкий
-
-        Чтобы использовать голоса Amazon(Ivona), вам необходимо получить ключ доступа и секретный ключ [здесь](http://www.ivona.com/us/for-business/speech-cloud/).
+Чтобы использовать голоса Яндекса, вы должны запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.Облаком] Для использования Яндекс.Облака вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в Облаке и получить Auth Token и идентификатор папки, как описано в инструкциях API.
 
 - Облако:
 
-        Чтобы использовать облачные голоса, вам нужен настроенный облачный адаптер. (Его можно отключить, но необходимо настроить). Этот сервис использует AWS Polly, и его можно использовать напрямую.
+  Чтобы использовать облачные голоса, вам нужен настроенный облачный адаптер. (Его можно отключить, но необходимо настроить). Этот сервис использует AWS Polly, и его можно использовать напрямую.
 
 - Полли Amazon Web Services:
 
-        Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon вы можете найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
+  Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon вы можете найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
 не в сети:
 
-- PicoTTS (только для Linux): английский, немецкий, итальянский, испанский, французский
+- PicoTTS (только для Linux): английский, немецкий, итальянский, испанский, французский;
 
 Для PicoTTS необходимо установить следующие пакеты: `libttspico-utils` и lame.
 Команда установки: `sudo apt-get install libttspico-utils lame`
+
+- Coqui TTS: английский, немецкий, испанский, французский, голландский, японский, китайский;
+
+  Инструкции по использованию см. в [официальная документация](https://tts.readthedocs.io/en/latest/index.html)
 
 ### Облако и Amazon Web Services Форматирование текста Polly
 Вы можете отформатировать текст с помощью [Язык разметки синтеза речи](http://docs.aws.amazon.com/polly/latest/dg/ssml.html).
@@ -82,7 +82,7 @@ hash: 7B0yLKRAk8e8+YiRSNjunOnT6kEc4kjMxRqi78RmAxQ=
 - `<break time="3s"/>`- сделать паузу на x секунд (максимум 10 секунд).
 - `<emphasis>большой</emphasis>` - сделать ударение на каком-то слове.
 - `<prosody volume="+6dB" rate="90%">Я говорю это</prosody>` - управлять параметрами скорости и громкости.
-- `<say-asterpret-as="digits">12345</say-as>` - произносить каждую цифру отдельно.
+- `<say-asterpret-as="digits">12345</say-as>` — произносить каждую цифру отдельно.
 
 Еще [Информация](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/speech-synthesis-markup-language-ssml-reference).
 
@@ -107,19 +107,19 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 
 - `sayit.N.tts.text`: Произносимая фраза.
 - `sayit.N.tts.volume`: громкость, которая будет использоваться при воспроизведении фразы.
-- `sayit.N.tts.playing`: true, если текст воспроизводится, и false, если нет. Поддерживается только для режимов воспроизведения "windows" и "system".
-- `sayit.N.tts.cachetext`: Фраза для кэширования, после чего ее можно будет использовать без интернета.
+- `sayit.N.tts.playing`: true, если текст воспроизводится, и false, если нет. Поддерживается только для режимов воспроизведения «Windows» и «System».
+- `sayit.N.tts.cachetext`: фраза для кэширования, после чего ее можно будет использовать без интернета.
 
-   Например. вы можете ввести здесь вручную «Нет интернета», и если пинг до google.com отрицательный, напишите «Нет интернета» в «tts.text», и это будет произнесено. Кэш конечно должен быть включен.
+   Например. вы можете ввести здесь вручную «Нет интернета», и если пинг до google.com отрицательный, напишите «Нет интернета» в «tts.text», и он будет произнесен. Кэш конечно должен быть включен.
 
-Состояние **tts.text** поддерживает расширенный синтаксис, поэтому язык/движок и громкость можно определить вместе с текстом. Он используется для включения многоязычных движков text2speech.
+Состояние **tts.text** поддерживает расширенный синтаксис, поэтому язык/механизм и громкость можно определить вместе с текстом. Он используется для включения многоязычных движков text2speech.
 Например. если адаптер имеет движок "Google-english", можно с помощью фразы ```de:Sag es``` принудительно использовать речевой движок Google-Deutsch.
 
 С помощью ```ru;75;Погода хорошая``` мы можем принудительно использовать русский язык и громкость 75%.
 
 Вы можете указать громкость объявления в процентах от текущей или заданной громкости (не от максимальной). Например. если команда ```de;75;Gutes Wetter``` и "громкость объявления" равна 50%, то объявление будет воспроизводиться с громкостью 38% из возможных 100%.
 
-Также можно указать системную команду для воспроизведения mp3-файла. Если вы оставите это поле пустым, будут использоваться настройки по умолчанию: Windows — `cmdmp3.exe`, OSX — `/usr/bin/afplay`, linux — `mpg321` или `omxplayer` (рекомендуется).
+Также можно указать системную команду для воспроизведения mp3-файла. Если оставить это поле пустым, будут использоваться настройки по умолчанию: Windows — `cmdmp3.exe`, OSX — `/usr/bin/afplay`, linux — `mpg321` или `omxplayer` (рекомендуется).
 
 Чтобы установить omxplayer, напишите ```sudo apt-get install omxplayer``` или напишите ```sudo apt-get install mpg321```, чтобы установить mpg321.
 
@@ -129,7 +129,7 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 Чтобы немедленно произнести текст, несмотря на тексты в очереди, у вас есть 2 возможности:
 
 - место "!" как первый символ в тексте, поэтому этот текст будет произноситься сразу после текущего.
-- написать true в состояние "tts.clearQueue" и очередь будет очищена. После этого вы можете записать новый текст в "tts.text", но все тексты в очереди будут удалены.
+- пропишите true в состояние "tts.clearQueue" и очередь будет очищена. После этого вы можете записать новый текст в "tts.text", но все тексты в очереди будут удалены.
 
 ### Двигатели
 Возможны следующие значения для двигателей:
@@ -187,7 +187,7 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 - **fr-FR_CLOUD_Male** - fr-FR - мужской - Матье
 - **is-IS_CLOUD_Female** - is-IS - Женский - Дора
 - **is-IS_CLOUD_Male** - is-IS - Мужчина - Карл
-- **it-IT_CLOUD_Female** - it-IT - Женский - Карла
+- **it-IT_CLOUD_Female** - it-IT - Женщина - Карла
 - **it-IT_CLOUD_Male** - it-IT - Мужской - Джорджио
 - **nb-NO_CLOUD_Female** - nb-NO - Женский - Лив
 - **nl-NL_CLOUD_Female** - nl-NL - Женский - Lotte
@@ -215,6 +215,14 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 - **es-ES** - Эспаньол
 - **fr-FR** - французский
 
+#### Коки ТТС
+- Английский
+- немецкий
+- Эспаньол
+- Французский
+- Нидерланды
+- 日本
+
 #### Амазонка Полли Директ
 - **ru-RU_AP_Female** - Русский - Татьяна
 - **ru-RU_AP_Male** - Русский - Максим
@@ -229,7 +237,7 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 - **en-AU_AP_Male** - en-AU - Мужской - Рассел
 - **en-GB_AP_Female_Amy** - en-GB - Женский - Эми
 - **en-GB_AP_Male** - en-GB - Мужской - Брайан
-- **en-GB_AP_Female_Emma** - en-GB - Женщина - Эмма
+- **en-GB_AP_Female_Emma** - en-GB - Женский - Эмма
 - **en-GB-WLS_AP_Female** - en-GB-WLS - Женщина - Гвинет
 - **en-GB-WLS_AP_Male** - en-GB-WLS - Мужской - Герайнт
 - **cy-GB_AP_Female** - cy-GB - Женщина - Гвинет
@@ -272,9 +280,23 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.1.2 (2023-03-27)
+* (bluefox) Corrected engines with web-link
+
+### 2.1.1 (2023-03-24)
+* (Jey-Cee) Added support for Coqui TTS
+* (bluefox) Renamed all configuration attributes
+
+### 2.0.0 (2023-03-23)
+* (bluefox) Adapter was completely rewritten with async/await
+* (bluefox) Could be buggy
+
+### 1.13.0 (2023-03-22)
+* (bluefox) Made compatible with future js-controller
+
 ### 1.12.6 (2022-02-09)
 * (bluefox) used setForeignBinaryState if possible
 
@@ -504,7 +526,7 @@ Changed type of top-level object to "meta" in order to comply with js-controller
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

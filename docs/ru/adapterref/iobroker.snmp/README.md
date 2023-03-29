@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
+hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -29,6 +29,12 @@ hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 
 ## __РАБОТА В ПРОЦЕССЕ__
 -->
+
+### 2.4.5 (20 марта 2023 г.)
+* (McM1957) Исправлено: сбой SNMPv3 при использовании аутентификации SHA (#236).
+
+### 2.4.4 (03.03.2023)
+* (McM1957) Исправлено: сбой, о котором сообщал часовой (#235)
 
 ### 2.4.3 (2023-03-01)
 * (McM1957) Обновлены переводы и зависимости.
@@ -63,7 +69,7 @@ hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 * (McM1957) Добавлены украинские переводы.
 
 ### 2.2.0 (2022-10-18)
-* (McM1957) Флаг совместимости устарел и будет удален в будущих выпусках. При необходимости измените конфигурацию.
+* (McM1957) Флаг совместимости устарел и будет удален в будущих версиях. При необходимости измените конфигурацию.
 * (McM1957) Добавлена поддержка SNMP V3 (#71)
 * (McM1957) Добавлена поддержка IPv6 (#138)
 * (McM1957) Код был очищен в соответствии с предложением eslint.

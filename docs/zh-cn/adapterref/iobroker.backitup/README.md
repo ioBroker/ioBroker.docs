@@ -10,7 +10,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: ioBroker.backitup 文件
-hash: 94ngdXiIiv6t0ufFtIxnbPsFH8RW2l3Hd4OAo1/XLkQ=
+hash: owlzw6lAn5O4TOI+JQv8UVYMMLzGcQSFfZeKLQ1aQfs=
 ---
 ![标识](../../../de/adapterref/iobroker.backitup/img/backitup.png)
 
@@ -121,7 +121,7 @@ ioBroker.backitup 对 iobroker 启动后的恢复没有任何影响。这一切�
 ---
 
 # 使用与操作
-ioBroker.backitup 可以在适配器实例中配置。此处提供以下所有设置选项。<br><br>管理选项卡中有一个选项卡用于 ioBroker.backitup 的日常工作和操作。<br>如果该选项卡在管理界面的选项卡菜单中处于活动状态，则可以直接通过iobroker左侧选项卡栏中的选项卡操作ioBroker.backitup。<br><br>有关创建的备份的信息在那里可用，可以创建备份并且可以恢复备份。
+ioBroker.backitup 可以在适配器实例中配置。此处提供以下所有设置选项。<br><br>管理选项卡中有一个选项卡用于 ioBroker.backitup 的日常工作和操作。<br>如果该选项卡在管理界面的选项卡菜单中处于活动状态，则可以直接通过iobroker左侧选项卡栏中的选项卡操作ioBroker.backitup。<br><br>有关已创建备份的信息在那里可用，可以创建备份并且可以选择恢复备份。
 
 ![管理标签](img/adminTab.png)![adminTabRestore](img/adminTabRestore.png)![adminTabInfo](../../../de/adapterref/iobroker.backitup/img/adminTabInfo.png)
 
@@ -135,7 +135,7 @@ ioBroker.backitup 提供了许多选项来循环或按一下按钮执行不同�
 此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动它。只有在这里，它是通过适配器配置或 OneClick 备份小部件中的指定设置完成的，而无需使用控制台。
 
 ## CCU 备份（家庭版）
-此备份提供了备份 Homematic 安装的 3 个不同版本（CCU-Original / pivCCU / Raspberrymatic）的可能性。也可以使用适配器配置或 OneClick 备份小部件中指定的设置来执行此备份。<br><br>如果您不只是想备份一个 CCU，您可以激活“多个系统的备份”选项，然后在表中定义您的 Homematic 中心。
+此备份提供了备份 Homematic 安装的 3 个不同版本（CCU-Original / pivCCU / Raspberrymatic）的可能性。也可以使用适配器配置或 OneClick 备份小部件中指定的设置来执行此备份。<br><br>如果您不想只备份一个 CCU，您可以激活“多个系统的备份”选项，然后在表中定义您的 Homematic 中心。
 
 ## Mysql 备份
 如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>这里很重要，即使 mysql 服务器在远程系统上运行，mysqldump 也必须在 ioBroker 系统上运行。<br>对于 Linux 系统，安装命令如下：`sudo apt install mysql-client` 或在 Debian 下为 `sudo apt install default-mysql-client` 或对于 MariaDB 系统为 `sudo apt install mariadb-client`。<br><br>如果您不想只备份一个数据库，您可以激活“备份多个系统”选项，然后在表中定义您的数据库。
@@ -174,7 +174,7 @@ redis-cli shutdown nosave
 ```
 
 ## 历史数据备份
-如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，FTP 或 CIFS 也对此备份有效。
 
 ## InfluxDB 备份
 如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br> **使用 InfluxDB v1.x 进行远程备份的要求：**
@@ -225,6 +225,18 @@ bind-address = "0.0.0.0:8088"
 
 ## Zigbee2MQTT 备份
 如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+
+ioBroker.backitup 适配器中的路径应始终直接在 zigbee2mqtt 的“数据”路径上创建。
+示例：`/opt/zigbee2mqtt/data` 或直接进入带有 zigbee2mqtt 的 Docker 安装的卷
+
+同样重要的是，用户“iobroker”拥有数据文件夹的权限，以便能够读取和写入文件。
+
+组权限可以设置如下：
+
+```
+sudo usermod -a -G <zigbe2mqtt User> iobroker
+sudo reboot
+```
 
 ## 节点红色备份
 如果它被激活，这个可单独调整的备份将与每个备份 ioBroker 一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
@@ -324,7 +336,7 @@ ioBroker.backitup 的多主机可以与不同主机上的多个 ioBroker.backitu
     * history.ccuSuccess -> 如果备份成功则显示状态“true”
     * history.minimalSuccess -> 如果备份成功则显示状态“true”
     * history.iobrokerLastTime -> 显示最后的 ioBroker 备份
-    * history.ccuLastTime -> 显示最后一次 CCU 备份
+    * history.ccuLastTime -> 显示最后的 CCU 备份
     * info.ccuNextTime -> 显示CCU备份的下一次执行时间
     * info.iobrokerNextTime -> 显示ioBroker备份的下一次执行时间
     * info.latestBackup -> 以 json 形式显示启动时确定的最后一个备份
@@ -361,7 +373,7 @@ ioBroker.backitup 的多主机可以与不同主机上的多个 ioBroker.backitu
    ```
 
 4. 带有状态文本的 OneClick 按钮
-   - 如果 OneClick 数据点设置为 true，则相应的备份开始，并且在预定义的时间后该数据点再次设置为 false。可以创建一个带有状态的按钮，修改以下行并将其输入 Vis as button文本：
+   - 如果 OneClick 数据点设置为 true，则相应的备份开始，并且在预定义的时间后该数据点再次设置为 false，因此可以创建一个带状态的按钮，修改以下行并将其输入 Vis as按钮文字：
 
 ```
 {wert: backitup.0.oneClick.iobroker; wert === "true" || wert === true ? "Minimal Backup </br> wird erstellt" : "Minimal Backup </br> starten"}
@@ -459,7 +471,7 @@ iobroker fix
 sudo reboot
 ```
 
-7. 如果在创建Redis 数据库时出现错误信息，请检查您的用户iobroker 是否有权限，是否在Redis 用户组中。
+7、如果创建Redis数据库报错，请检查您的用户iobroker是否有权限，是否在Redis用户组中。
 
     如果不是这种情况，您可以在控制台中使用以下命令修复它。
 
@@ -477,27 +489,82 @@ sudo reboot
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
-* (simatec) Onedrive-Api for Backups added
-* (simatec) Onedrive-Api for Restore added
+### 2.6.15 (2023-03-27)
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) Zigbee2mqtt Backup optimized
+* (simatec) skip-verify for influxdb 2.x
+
+### 2.6.14 (2023-03-22)
+* (simatec) Bug Fix History JSON
+
+### 2.6.13 (2023-03-22)
+* (simatec) Fix Zigbee2mqtt Restore
+* (simatec) Fix Grafana Backup
+* (simatec) Backup notifications optimized
+* (simatec) Error notifications optimized
+* (simatec) history data optimized
+* (simatec) small bug fixes
+
+### 2.6.12 (2023-03-16)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) InfluxDB Backup optimized
+* (simatec) Docu & Wiki updated
+
+### 2.6.11 (2023-03-11)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+
+### 2.6.10 (2023-03-10)
+* (simatec) Design Fix
+* (simatec) node 14 set as minimum requirement
+* (simatec) cleaning status log added
+* (simatec) Fix Node-Red Backup & Restore
+
+### 2.6.9 (2023-03-08)
+* (simatec) Dropbox session upload optimized
+* (simatec) Error handling optimized
+
+### 2.6.8 (2023-03-07)
+* (simatec) Fix Dropbox session upload
+
+### 2.6.7 (2023-03-06)
+* (simatec) Dropbox session upload optimized
+
+### 2.6.6 (2023-03-05)
+* (simatec) Dropbox file upload up to 350 GB added
+
+### 2.6.5 (2023-03-03)
+* (simatec) Fix cifs Password
+* (simatec) Fix InfluxDB-Backup
+
+### 2.6.4 (2023-02-26)
+* (simatec) Design optimized
+* (simatec) Onedrive Upload Session added
+
+### 2.6.3 (2023-02-24)
+* (simatec) Fix SQLite3 Backup
+* (simatec) Fix Matrix Message
+
+### 2.6.2 (2023-02-23)
+* (simatec) Fix SQLite3 Backup
+
+### 2.6.1 (2023-02-20)
+* (simatec) igonore temp-files for redis added
+
+### 2.6.0 (2023-02-16)
+* (simatec) Onedrive-Api added
 * (simatec) Matrix Messenger added
 * (simatec) TLS for FTP added
 * (simatec) Tab Extra-Settings added
 * (simatec) Node-Red Backup added
-* (simatec) Node-Red Restore added
 * (simatec) SQLLite Backup added
-* (simatec) SQLLite Restore added
 * (simatec) Zigbee2MQTT Backup added
-* (simatec) Zigbee2MQTT Restore added
 * (simatec) Local-Storage check added
 * (simatec) System-Message added
 * (simatec) Jarvis Backup updated
-* (simatec) Jarvis Restore updated
-* (simatec) Docu updated
-* (simatec) Wiki updated
 * (simatec) many small Fixes
-* (simatec) dependencies updated
-* (simatec) Translation added
 
 ### 2.5.12 (2023-01-19)
 * (simatec) Fix Windows ioBroker-Restore

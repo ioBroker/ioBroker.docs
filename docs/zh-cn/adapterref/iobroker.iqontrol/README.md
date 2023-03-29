@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iqontrol/README.md
 title: ioBroker.iqontrol 文件
-hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
+hash: WAiHBMR8aSSpwQeQyL1Klz373AjsS4c45m317lcJd48=
 ---
 ![标识](../../../en/adapterref/iobroker.iqontrol/admin/iqontrol.png)
 
@@ -49,7 +49,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 在任何浏览器中运行。
 易于设置，尽管它是完全可定制和响应迅速的。
 
-> **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+> **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 视频教程（德语）：
 [![演示视频](img/play_demo.png "在 Youtube 上打开教程")](https://youtube.com/playlist?list=PL8epyNz8pGEv6-R8dnfXm-m5aBlZFKOBG)
@@ -88,7 +88,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 然后在这些视图上创建设备。
 
 设备有一个角色，它决定了设备的功能，使用了哪些图标等等。
-根据该角色，您可以将多个状态链接到设备。这些将为设备提供其功能。
+根据该角色，您可以将多个状态链接到设备。这些将为设备提供功能。
 如果您选择“链接到其他视图”作为角色，您可以创建到其他视图的链接。我建议换肤链接到具有相同背景的其他视图，链接视图有。
 您还可以尝试使用 Auto-create-Function 从 iobroker-object-tree 中选择现有设备。自动创建会尝试找出角色并匹配尽可能多的状态。
 
@@ -105,7 +105,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 
 ### 使用自动创建
 * 您会在“视图”选项卡内找到一个“自动创建视图”按钮
-* 如果您维护良好的 ioBroker 枚举，如房间或功能，您可以使用此功能自动构建包含此枚举中列出的设备的视图
+* 如果您维护良好的 ioBroker 枚举，例如 Rooms 或 Functions，您可以使用此功能使用此枚举中列出的设备自动构建视图
 * 请记住，由于 ioBroker-universe 中有大量不同的适配器和设备，自动创建功能无法 100% 正确地维护所有设备。您可能需要手动修改某些设置以获得最佳结果。但是自动创建为您提供了一个很好的起点，可以在几秒钟内构建您自己的可视化效果。
 
 ## URL 参数
@@ -184,20 +184,31 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 
 ## 弹出消息
 * 每个实例都会创建状态 `iqontrol.x.Popup.Message`
-* 将值传递给此状态时，将显示弹出消息（或吐司）
+* 将值传递给此状态时，弹出消息（或吐司）将显示在所有**当前**打开的 iQontrol 前端
+* 此外，每个实例都会创建状态 `iqontrol.x.Popup.PersistentMessage`
+* 在此状态下传递值时，弹出消息将保存到 PERSISTENT_MESSAGES_PENDING 数组中。
+* 永久消息不仅会显示在所有当前打开的 iQontrol 前端上，还会显示在所有**将来**打开的实例上，直到它们被确认（通过点击或持续时间）或过期。
+* `PersistentExpires` 定义持久消息何时作为 UNIX 时间戳（从 1970-01-01 00:00:00 开始的秒数）过期。低于 31536000 的值被解释为从现在开始的持续时间（以秒为单位）（31536000 秒 = 1 年）。
+* `PersistentUndismissible` *boolean* - 如果将其设置为 true，持久消息即使在关闭后也会保留。如果您打开一个新的 iQontrol 实例，它将再次显示。否则持久消息将在弹出窗口关闭后被删除（即使通过单击或持续时间已过）。
+* `PersistentId` 是可选的任意表达式，可用于标识消息。
+* 通过将 id 发送到 `PERSISTENT_MESSAGES_DELETE_ID`，可以使用该 id 删除相应的弹出消息。向此数据点发送“null”会删除所有待处理的消息。
+* 通过将 id 发送到 `PERSISTENT_MESSAGES_SHOW_ID`，该 id 还可以用于在所有当前打开的 iQontrol-Instances 上再次显示相应的弹出消息。向此数据点发送“null”会显示所有未决消息。
+* **注意**：您只能将消息发送到两个数据点“Message”或“PersistentMessage”之一，而不是两者。
 * 您可以使用 html 标签来格式化消息文本
 * 有一些额外的状态可以进一步自定义显示的弹出窗口（必须在设置消息数据点之前设置这些状态）：
     * `Duration`：这是消息显示的时间，以毫秒为单位；如果设置为 0，则必须确认消息
     * `ClickedValue` 和 `ClickedDestinationState`：如果用户点击弹出窗口，来自 `ClickedValue` 的值将被发送到 `iqontrol.x.Popup.POPUP_CLICKED`，如果指定，附加到 `ClickedDestinationState` 中的数据点
         * 如果没有指定值，将使用 `true`
+* `ClickKeepsOpen` *boolean* - 如果为真，弹出窗口只能通过点击按钮关闭，点击弹出窗口本身不会关闭它。因此，请确保将按钮添加到弹出消息中，如下所述。
     * `ButtonNames`：在这里你可以指定一个逗号分隔的按钮列表，它将显示在弹出窗口的底部（例如“OK，Abort”）
-        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
+        * `ButtonValues` 和 `ButtonDestinationStates`：这些是以逗号分隔的值列表，将被发送到 `iqontrol.x.Popup.BUTTON_CLICKED`，如果指定，则附加到 `ButtonDestinationStates` 中的数据点，如果用户单击相应的按钮
 * 除了数据点，您还可以使用命令 `COMMAND:renderView` 和 `COMMAND:openDialog` 作为 ButtonDestinationState，以呈现视图或打开对话框
 * ButtonValue 然后指定视图 resp。对话框，需要采用“iqontrol.<instance-number>.Views.<view-name>”格式。 `iqontrol.<instance-number>.Views.<view-name>.devices.<device-number>` 其中 `<device-number>` 从 0 开始（因此视图上的第一个设备是设备编号 0）
 * 如果您只使用一个值（而不是逗号分隔列表），则该值将用于所有按钮
 * 如果将 `ButtonValues` 留空，将使用按钮的名称
 * 如果您只使用一个目标状态（而不是逗号分隔列表），则该状态将用于所有按钮
         * `ButtonCloses`：这是一个逗号分隔的布尔值列表（`true`/`false`），用于指定在按下相应按钮时是否应关闭弹出窗口
+        * `ButtonClears`：这是一个逗号分隔的布尔值列表（`true`/`false`），用于指定在按下相应按钮时是否应清除弹出设置（= 将所有弹出状态设置为空）
 * 或者，您可以通过带有参数 `PopupMessage`、`PopupDuration`、`PopupClickedValue` 等的 sendTo-command 设置这些值
     * 示例：`sendTo("iqontrol", "send", {PopupMessage: 'This is my message', PopupDuration: 2500, PopupClickedValue: 'messageConfirmed'});`
 * 您也可以使用 blockly 向 iQontrol 发送消息
@@ -215,9 +226,39 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 
 <details><summary>小部件开发（仅限专家）：（<ins>点击打开</ins>)</summary>
 
-### PostMessage-通讯
+### JQuery
 * 从技术上讲，BACKGROUND_VIEW/URL/HTML 的内容被放置在一个名为 iframe 的 HTML 元素中，它是网站中的网站
-* 通过启用“允许 BACKGROUND_VIEW/URL/HTML 的 postMessage-Communication”选项，您可以在此 iframe 内的网站和 iQontrol 本身之间启用 postMessage-Communication
+* 为了使用 jQuery，您可以使用以下代码将其从 iQontrol 传输到 iFrame：
+
+    ``window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);``
+
+* 例子：
+
+	```html
+	<!doctype html>
+	<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="widget-description" content="This is a demo widget-preset. It has no useful funcion. (C) by Sebastian Bormann"/>
+		<meta name="widget-options" content="{'noZoomOnHover': 'true', 'hideDeviceName': 'true', 'sizeInactive': 'xwideIfInactive highIfInactive', 'iconNoPointerEventsInactive': 'true', 'hideDeviceNameIfInactive': 'true', 'hideStateIfInactive': 'true', 'sizeActive': 'fullWidthIfActive fullHeightIfActive', 'bigIconActive': 'true', 'iconNoPointerEventsActive': 'true', 'hideDeviceNameIfActive': 'true', 'hideStateIfActive': 'true', 'sizeEnlarged': 'fullWidthIfEnlarged fullHeightIfEnlarged', 'bigIconEnlarged': 'true', 'iconNoPointerEventsEnlarged': 'false', 'noOverlayEnlarged': 'true', 'hideDeviceNameIfEnlarged': 'true', 'hideStateIfEnlarged': 'true', 'popupAllowPostMessage': 'true', 'backgroundURLAllowPostMessage': 'true', 'backgroundURLNoPointerEvents': 'false'}"/>
+		<title>iQontrol Widget Test</title>
+	</head>
+	<body>
+		<div id="testDiv">Loading...</div>
+		<script type="text/javascript">
+			console.log("JQUERY-TEST");
+			window.$=window.jQuery=parent.jQuery.extend(function(s){return parent.jQuery(s,document)},parent.jQuery);
+			$(document).ready(function(){
+				$('#testDiv').html("<h1>Hello World</h1)");
+				console.log("jQuery works!!");
+			});
+		</script>
+	</body>
+	</html>
+	```
+
+### PostMessage-通讯
+* 通过启用选项“允许 BACKGROUND_VIEW/URL/HTML 的 postMessage-Communication”，您可以在其 iframe 中的小部件和 iQontrol 本身之间启用 postMessage-Communication
 * 要向 iQontrol 发送命令，您可以使用以下 javascript 命令：`window.parent.postMessage(message, "*");`
     * `message` 是格式为 `{ command: command, stateId: stateId, value: value }` 的 javascript 对象
     * 支持以下消息命令：
@@ -248,7 +289,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 要接收来自 iQontrol 的消息，您需要使用 javascript 命令 `window.addEventListener("message", receivePostMessage, false); 向“消息”事件注册一个事件监听器
     * 函数 `receivePostMessage` 接收对象 `event`
 * `event.data` 包含来自 iqontrol 的消息，它将是一个对象，例如：
-* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - 这将是对 `getState` 命令或 `getStateSubscribed` 命令的回答，并为您提供ioBroker 状态的实际`<value>`-对象`<stateId>`
+* event.data = `{ command: "getState", stateId: <stateId>, value: <stateObject> }` - 这将是 `getState` 命令或 `getStateSubscribed` 命令的答案，并为您提供ioBroker 状态的实际`<value>`-对象`<stateId>`
 * `<stateObject>` 本身就是一个对象
 
 			```
@@ -541,8 +582,11 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * `linkGlowActiveColorToHue`（使用灯的颜色作为 GLOW_ACTIVE_COLOR）- 仅对角色 Light 有效：
 * 可能的值：`true`|`false`
 * 默认值：`false`
-* `controlModeDisabledValue`（“禁用”的 CONTROL_MODE 值）- 仅对恒温器角色有效：
+* `controlModeDisabledValue`（“禁用”的 CONTROL_MODE 值）- 仅对角色 Thermostat、Homematic-Thermostat 和 Homematic IP-Thermostat 有效：
 * 默认： ””
+* `valveStatesSectionType`（VALVE_STATES 的外观）- 仅对角色 Thermostat、Homematic-Thermostat 和 Homematic IP-Thermostat 有效：
+* 可能的值：`true`|`false` `none`|`none noCaption`|`collapsible`|`collapsible open`
+* 默认值：“可折叠”
 * `stateClosedValue`（'closed' 的 STATE 值）- 仅对带锁的角色 Window 和 Door 有效：
 * 默认： ””
 * `stateOpenedValue`（'opened' 的 STATE 值）- 仅对角色窗口有效：
@@ -551,12 +595,14 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 默认： ””
 * `lockStateLockedValue`（“锁定”的 LOCK_STATE 值）- 仅对带锁的角色门有效：
 * 默认： ””
+* `lockOpenValue`（“开门”的 LOCK_OPEN 值）- 仅对带锁的角色门有效：
+* 默认： ””
 * `invertActuatorLevel` (Invert LEVEL (0 = open)) - 仅对角色 Blind 有效：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * `directionOpeningValue`（'opening' 的 DIRECTION 值）- 仅对角色 Window 有效：
 * 默认值：“1”
-* `directionOpeningValue`（'opening' 的 DIRECTION 值）- 仅对角色 Window 有效：
+* `directionClosingValue`（'closing' 的 DIRECTION 值）- 仅对角色 Window 有效：
 * 默认值：“2”
 * `directionUncertainValue`（“不确定”的 DIRECTION 值）- 仅对角色 Window 有效：
 * 默认值：“3”
@@ -564,8 +610,13 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 默认值：“最喜欢的位置”
 * `stopCaption`（STOP 的标题）- 仅对角色 Window 有效：
 * 默认值：“停止”
+* `upCaption`（UP 的标题）- 仅对角色窗口有效：
+* 默认值：“向下”
 * `downCaption`（DOWN 的标题）- 仅对角色 Window 有效：
 * 默认值：“向下”
+* `noConfirmationForTogglingViaIcon`（通过图标切换时不要求确认）- 仅对角色车库门有效：
+* 默认值：“假”
+* 可能的值：`true`|`false`
 * `controlModeDisarmedValue`（'disarmed' 的 CONTROL_MODE 值）- 仅对角色 Alarm 有效：
 * 默认值：“0”
 * `showStateAndLevelSeparatelyInTile`（在图块中分别显示 STATE 和 LEVEL）- 仅对角色值有效：
@@ -600,6 +651,9 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 *默认值：“暂停”
 * `stateStopValue`（'stop' 的 STATE 值）- 仅对角色媒体有效：
 * 默认值：“停止”
+* `useStateValuesForPlayPauseStop`（单击播放、暂停和停止时发送这些值（而不是 true）- 仅对角色媒体有效：
+* 可能的值：`true`|`false`
+* 默认值：“假”
 * `hidePlayOverlay`（隐藏播放图标）- 仅对角色媒体有效：
 * 可能的值：`true`|`false`
 * 默认值：`false`
@@ -625,14 +679,13 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 默认： ””
 * `remoteAdditionalButtonsCaption`（“附加按钮”部分的标题）- 仅对角色媒体有效：
 * 默认： ””
+* `togglePowerSwitch`（切换 POWER_SWITCH 而不是 STATE（例如单击图标时））- 仅对角色媒体有效：
+* 可能的值：`true`|`false`
+* 默认值：`false`
 * `noVirtualState`（不要为 STATE 使用虚拟数据点（隐藏开关，如果 STATE 为空））- 仅对角色 Widget 有效：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * 一般的：
-* `stateCaption`（状态标题）：
-* 默认： ””
-* `levelCaption`（级别标题）：
-* 默认： ””
 * `只读`（只读）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
@@ -671,7 +724,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 可能的值：`true`|`false`
 * 默认值：`true`
 * 活动磁贴的条件：
-* `tileActiveStateId`（状态 ID（空 = 将使用 STATE/LEVEL））：
+* `tileActiveStateId`（状态 ID（将使用空 = STATE/LEVEL））：
 * 默认： ””
 *`tileActiveCondition`（条件）：
 * 可能的值：""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
@@ -682,7 +735,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * `sizeInactive`（图块的大小，如果设备处于非活动状态）：
 * 可能的值：“”|“narrowIfInactive shortIfInactive”|“narrowIfInactive”|“narrowIfInactive highIfInactive”|“narrowIfInactive xhighIfInactive”|“shortIfInactive”|“shortIfInactive wideIfInactive”|“shortIfInactive xwideIfInactive”|“wideIfInactive”|“xwideIfInactive”|“highIfInactive” "|"xhighIfInactive"|"wideIfInactive highIfInactive"|"xwideIfInactive highIfInactive"|"wideIfInactive xhighIfInactive"|"xwideIfInactive xhighIfInactive"|"fullWidthIfInactive aspect-1-1IfInactive"|"fullWidthIfInactive aspect-4-3IfInactive"|"fullWidthIfInactive aspect-3- 2IfInactive"|"fullWidthIfInactive aspect-16-9IfInactive"|"fullWidthIfInactive aspect-21-9IfInactive"|"fullWidthIfInactive fullHeightIfInactive"|"
 * 默认值：“xwideIfInactive highIfInactive”
-* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这将覆盖图块大小）：
+* `stateHeightAdaptsContentInactive`（如果设备处于非活动状态，则根据其内容调整 STATE 的高度（如果需要，这会覆盖图块大小）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * `stateFillsDeviceInactive`（如果设备处于非活动状态，STATE 的大小会填满整个设备（这可能会干扰其他内容）：
@@ -830,12 +883,37 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * 时间戳：
+* `stateCaption`（状态标题）：
+* 默认： ””
+* `levelCaption`（级别标题）：
+* 默认： ””
+* `levelFavorites`（LEVEL 的收藏夹值（分号分隔的数字列表））：
+* 默认： ””
+* `levelFavoritesHideSlider`（如果设置了 Favorite 值，则隐藏 LEVEL 滑块）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
+* `hideStateAndLevelInDialog`（在对话框中隐藏 STATE 和 LEVEL）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
 * `addTimestampToState`（将时间戳添加到状态）：
 * 可能的值：“”|“SA”|“ST”|“STA”|“SE”|“SEA”|“SE”。|“SE.A”|“Se”|“SeA”|“STE”| "STEA"|"STE."|"STE.A"|"STe"|"STeA"|"T"|"TA"|"TE"|"TEA"|"TE."|"TE.A"| “Te”|“TeA”|“E”|“EA”|“E”。|“E.A”|“e”|“eA”|“N”
 * 默认值：“N”
 * `showTimestamp`（在对话框中显示时间戳）：
 * 可能的值：“”|“是”|“否”|“总是”|“从不”
 * 默认： ””
+* 信息 A/B：
+* `infoARoundDigits`（将 INFO_A 舍入到这个位数）：
+* 可能的值：0-10
+* 默认值：“1”
+* `infoBRoundDigits`（将 INFO_B 舍入到这个位数）：
+* 可能的值：0-10
+* 默认值：“1”
+* `infoAShowName`（INFO_A 的显示名称）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
+* `infoBShowName`（INFO_B 的显示名称）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
 * 电池没电图标：
 * `batteryActiveCondition`（条件）：
 * 可能的值：""|"at"|"af"|"eqt"|"eqf"|"eq"|"ne"|"gt"|"ge"|"lt"|"le"
@@ -846,7 +924,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * `invertUnreach`（反转 UNREACH（使用连接而不是 unreach））：
 * 可能的值：`true`|`false`
 * 默认值：`false`
-* `invertUnreach`（隐藏（分别忽略）UNREACH，如果设备处于非活动状态）：
+* `hideUnreachIfInactive`（隐藏（分别忽略）UNREACH，如果设备处于非活动状态）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * 错误图标：
@@ -854,7 +932,13 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * BACKGROUND_VIEW/URL/HTML:
-* `adjustHeightToBackgroundView: `（将设备图块的高度调整为 BACKGROUND_VIEW 的大小）：
+* `adjustHeightToBackgroundView`（将设备图块的高度调整为 BACKGROUND_VIEW 的大小）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
+* `backgroundURLAllowAdjustHeight`（允许 BACKGROUND_URL 中的小部件调整设备图块的高度）：
+* 可能的值：`true`|`false`
+* 默认值：`false`
+* `backgroundLimitAdjustHeightToScreen`（将高度调整限制为屏幕尺寸）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * `backgroundURLDynamicIframeZoom`（BACKGROUND_VIEW/URL/HTML 的动态缩放（这是需要的以 % 为单位的缩放级别，让内容适合单个 1x1 的图块））：
@@ -884,7 +968,7 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * 可能的值：`true`|`false`
 * 默认值：`false`
 * 网址/HTML：
-* `popupWidth`（URL/HTML 框的宽度 [px]）：
+* `popupWidth`（URL/HTML-Box 的宽度 [px]）：
 * 默认： ””
 * `popupHeight`（URL/HTML 框的高度 [px]）：
 * 默认： ””
@@ -894,6 +978,8 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * `openURLExternal`（在新窗口中打开 URL（而不是在对话框中显示为框））：
 * 可能的值：`true`|`false`
 * 默认值：`false`
+* `openURLExternalCaption`（用于在新窗口中打开 URL 的按钮的标题）：
+* 默认： ””
 * `popupAllowPostMessage`（允许 URL/HTML 的 postMessage 通信）：
 * 可能的值：`true`|`false`
 * 默认值：`false`
@@ -906,18 +992,30 @@ hash: Yp3GwSwDcVapQZdEurj/+fk7q+3OCrfVd9pKtlG1cgs=
 * `additionalControlsHeadingType`（ADDITIONAL_CONTROLS 标题的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
+* `additionalControlsHideNameForButtons`（隐藏按钮的名称（带图标）（仅使用标题））：
+* 可能的值：`true`|`false`
+* 默认值：`false`
 * 附加信息：
 * `additionalInfoSectionType`（ADDITIONAL_INFO 的外观）：
 * 可能的值：“无”|“可折叠”|“可折叠打开”
 * 默认值：“可折叠”
 * `additionalInfoCaption`（ADDITIONAL_INFO 的标题）：
 * 默认值：“附加信息”
+* `additionalInfoListType`（ADDITIONAL_INFO 的列表类型）：
+* 可能的值：""|`plain`
+* 默认： ””
+* `additionalInfoListColumnCount`（将列表拆分为此数量的列）：
+* 可能的值：`auto`|`1`|`2`|`3`|`4`|`5`|`6`
+* 默认值：`自动`
+* `additionalInfoListColumnWidth`（不要低于此列宽 [px]）：
+* 可能的值：0-1200
+* 默认： ””
 
 </详情>
 
-<details><summary>显示使用上述设置创建地图的示例小部件网站：(<ins>点击打开</ins>)</summary>
+<details><summary>显示使用上述设置创建地图的示例小部件网站：（<ins>点击打开</ins>)</summary>
 
-* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“Constant”）
+* 您可以将以下 HTML 代码作为 html 文件上传到 `/userwidgets` 子目录中，并将其引用到 BACKGROUND_URL-State（然后需要将其配置为“常量”）
 *添加小部件时会显示说明
 * 然后系统会询问您是否要应用包含的选项
 * 创建三个数据点来控制地图的位置：`iqontrol.x.Widgets.Map.Posision.latitude`、`.altitude` 和 `.zoom`
@@ -1267,7 +1365,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * **ID** - 按数据点的 ID 过滤，例如删除不以“.color”或“.saturation”结尾的 ID
 * **Object-Type** - 按 Object-Type 过滤，可以是设备、通道、状态或枚举
 * **Type** - 按数据点的 `common.type` 过滤，例如字符串、数字、布尔值
-* **角色** - 按数据点的“common.role”过滤。这是最重要的过滤器之一，因为每个数据点都应该有一个“common.role”来描述它代表什么，例如开关、“indicator.unreach”或 level.color.rgb。 ioBroker 中有很多常见的角色，只要看看你的数据点，admin-adapter 提供了一个包含所有角色的列表
+* **角色** - 按数据点的 `common.role` 过滤。这是最重要的过滤器之一，因为每个数据点都应该有一个“common.role”来描述它代表什么，例如开关、“indicator.unreach”或 level.color.rgb。 ioBroker 中有很多常见的角色，只要看看你的数据点，admin-adapter 提供了一个包含所有角色的列表
 * 比较运算符：某些类型可以与一个值进行比较。运算符代表完成的比较，例如“大于”、“小于”，或者对于字符串，“开始于”或“包含”：
 * 它们不区分大小写（因此“文本”与“文本”相同）
 * 如果您提供以逗号分隔的参数列表，您也可以一次与多个值进行比较
@@ -1364,7 +1462,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 * *number* - 将与其相应的单位一起显示并在对话框中生成一个滑块
 * *string* - 要显示的文本
 * *值列表* - 将显示所选值。如果它没有写保护，它将在对话框中生成一个下拉菜单
-    * 从技术上讲，*值列表* 是具有相应翻译列表的值，在数据点的 `common.custom.iqontrol.<instance>.states`、`native.states` 或 `common.states` 对象中定义:
+    * 从技术上讲，*value-list* 是具有相应翻译列表的值，在数据点的 `common.custom.iqontrol.<instance>.states`、`native.states` 或 `common.states` 对象中定义:
 
 ```
 "native": {
@@ -1373,13 +1471,13 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 }
 ```
 
-    * 您可以通过修改数据点来创建您自己的值列表（扳手图标，或者更确切地说是新 react-ui 中的齿轮图标，在 iobroker 的对象选项卡中的数据点后面，见上文）
+    * 您可以通过修改数据点（扳手图标，或者更确切地说是新的 react-ui 中的齿轮图标，在 iobroker 的对象选项卡中的数据点后面，见上文）来创建自己的值列表
 * iQontrol在以下情况下会在对话框中显示一个定义好的valueList作为下拉框：
 * 如果类型是“number”并且 valueList 具有与数据点的最小值和最大值之间的步长一样多的条目或
 * 如果类型是 `boolean`，但角色不是 `switch` 或
 * 如果类型是 `string` 或
 * 如果“添加选项以输入自由文本”被激活
-* 设备块是否显示为活动或非活动也由 STATE 或 LEVEL-Datapoint 确定。此外，您可以在选项部分“活动磁贴的条件”中自由自定义行为。您甚至可以设置另一个确定图块状态的外部数据点
+* 设备块是否显示为活动或非活动也由 STATE 或 LEVEL-Datapoint 确定。此外，您可以在选项部分“活动磁贴的条件”中自由自定义行为。您甚至可以设置另一个确定磁贴状态的外部数据点
 
 但是，并非每种类型都对每个角色都有意义。因此，例如，开关的状态在大多数情况下将是布尔值，以便能够在打开和关闭之间切换。可能会显示一个字符串，但开关将不起作用。
 
@@ -1401,7 +1499,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
     * 可以在选项的“常规”部分中反转行为（使用“连接”而不是“未到达”）
 * **ENLARGE_TILE**：*布尔值* - 当为真时，图块将被设置为放大。您可以通过单击放大/缩小按钮来覆盖它。但每当 ENLARGE_TILE 的状态发生变化时，它都会重新控制 tile 的放大状态。如果`ENLARGE_TILE`的作用是`button`，那么每次状态变化都会触发放大状态
 * **BADGE**：*number* 或 *string* - 如果存在除零/false 以外的值，则左上角的徽章将显示该值。可以配置为即使值为零也显示或忽略单位
-    * **BADGE_COLOR**：*string* - 代表徽章颜色的任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等） .如果不存在或无效，将使用透明度为 20% 的红色。
+    * **BADGE_COLOR**：*string* - 代表徽章颜色的任何有效的 html 颜色字符串（如“green”、“#00FF00”、“rgba(0,255,0,0.5)”等等） .如果不存在或无效，将使用透明度为 20% 的红色。
 
     ![徽章](../../../en/adapterref/iobroker.iqontrol/img/badge.png)
 
@@ -1437,10 +1535,10 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
 
 您可以选择定义以下状态：
 
-* 对于彩色 LED（HSB 颜色空间）：
+* 对于彩色 LED（HSB 色彩空间）：
     * **HUE**：*数字* - 0-360° 范围内的光的颜色（色调格式）
     * **饱和度**：*数字* - 光的饱和度（从白色到纯色）
-  ***COLOR_BRIGHTNESS**:* umber* - 彩色 LED 的亮度（如果你有一个 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
+    * **COLOR_BRIGHTNESS**：*number* - 彩色 LED 的亮度（如果您有 LEVEL-State 而没有白色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
 * 对于白色 LED：
   ***CT**:* umber* - 光的色温，如果它有两种白色阴影
   ***WHITE_BRIGHTNESS**:* umber* - 白色 LED 的亮度（如果您有 LEVEL-State 而没有彩色 LED，则忽略它，因为亮度完全由 LEVEL 控制）
@@ -1453,7 +1551,7 @@ iQontrol 提供了一个强大的工具来创建设备和状态的动态列表�
         * **RGBW** / **#RGBW**：除了使用 HUE、SATURATION、COLOR_BRIGHTNESS 和 WHITE_BRIGHTNESS，您还可以使用 RGBW 格式（十六进制），可选前导“#”
         * **RGBWWCW** / **#RGBWWCW** / **RGBCWWW** / **#RGBCWWW**：您可以使用 RGBWWCW 或 RGBCWWW 格式（十六进制）代替 HUE、SATURATION、COLOR_BRIGHTNESS、CT 和 WHITE_BRIGHTNESS , WW = 暖白, CW = 冷白), 可选带前导 '#'
         * **RGB（仅色相）** / **#RGB（仅色相）**：您可以使用 RGB（仅色相）格式（十六进制）代替使用色相，可选前导“#”。在这种特殊情况下，RGB 格式将只接受色调色环的纯饱和色。不允许混白
-        * **Milight 的色调**：这是 Milight 设备 (v5) 的色调值，使用色调色环中的另一个起点：
+        * **Milight 的色调**：这是 Milight 设备 (v5) 的色调值，在色调色环中使用另一个起点：
 
 ```
 tHue = modulo(66 - (hue / 3.60), 100) * 2.55;
@@ -1463,7 +1561,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
         * **HHSSBB for Tuya**：12位长十六进制字符串，代表色调（HH = 0000-016d [0-365]），饱和度（SS = 0000-03e8 [0-1000]）和颜色亮度（BB = 0000-03e8 [0-1000])
 
-请记住：转换为替代色彩空间是由前端完成的，因此只有在某处打开 iQontrol 时它才处于活动状态。因此，您不能将它用作颜色空间的转换器。为避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
+请记住：转换为替代色彩空间是由前端完成的，因此它仅在某处打开 iQontrol 时才处于活动状态。因此，您不能将它用作颜色空间的转换器。为避免对话循环，建议使用原始色彩空间数据点（HUE、SATURATION、COLOR_BRIGHTNESS、CT、WHITE_BRIGHTNESS）*或*替代色彩空间数据点来*替换*这些数据点。
 
 * 效果模式：
   ***EFFECT**:* alue-list* - 要播放的效果
@@ -1475,7 +1573,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/fan_on.png" width="32">扇子：
 * **STATE**: *boolean* - 显示和设置开/关状态
 * **LEVEL**：*number* 或 *value-list* - 风扇速度
-* **POWER**: *number* - 将在右上角以小号显示的功耗
+* **POWER**: *number* - 右上角小号显示的电量
 
 ###<img src="img/icons/radiator.png" width="32">温控器：
 * **SET_TEMPERATURE**：*number* - 目标温度
@@ -1520,7 +1618,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 
 ###<img src="img/icons/door_locked.png" width="32">带锁门：
 * **状态**：*布尔值* - 显示门是打开还是关闭（门/窗接触）
-* **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁门，那是打开的）
+* **LOCK_STATE**：*布尔值* - 显示和控制门是否锁定或解锁（控制被禁用，如果 STATE 为真 - 因为你不能锁定门，那是打开的）
 * **LOCK_STATE_UNCERTAIN**: *boolean* - 如果为 true，STATE 将以斜体显示，表示锁的确切位置未知
 * **LOCK_OPEN**: *boolean* - 如果设置为 true，门将完全打开
 
@@ -1535,7 +1633,7 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 ###<img src="img/icons/fire_on.png" width="32">火灾传感器：
 * **状态**：*布尔值* - 如果为真，传感器将显示为已触发
   *或者，您可以分配一个* alue-list*，以显示其他状态，例如“被篡改”
-  *您还可以分配一个* tring* 来显示任何文本，例如“楼上着火”
+  *您还可以指定一个* tring* 来显示任何文本，例如“楼上着火”
 * **linked-view-property** 直接打开
 
 ###<img src="img/icons/flood_on.png" width="32">洪水传感器：
@@ -1570,92 +1668,92 @@ on modulo(n, m){ return ((n % m) + m) %m; }
 * 对于“日期和时间”-设备，这两个设置也可以在设备特定部分的设备选项中进行。这些将覆盖在数据点的自定义部分中所做的设置。
 * 您可以使用以下令牌：
 
-| | |代币 |范例 |数据点 |显示 |选择器 |
-|----------:|-------------------------------:|--------------------|------------------------------------------------------------------------------|-----------|--------------------------------------|-----------------------------|
-|时间戳 | Unix 的时间戳 | × | 1410715640.579 | X | --- | --- |
-| | Unix 毫秒时间戳 | × | 1410715640579 | × | --- | --- |
-|日期 |星期几 | d | 0 1 ... 5 6 | × | --- | --- |
-| | |日 |苏沫……萨神父| × | X（翻译） | --- |
-| | |滴滴答 |周日周一 ... 周五周六 | × | X（翻译） | --- |
-| | |滴滴滴 |周日 周一 ... 周五 周六 | × | X（翻译） | --- |
-| | |做 |第 0 1 ... 5 6 | × | --- | --- |
-| |月中日 | D | 1 2 ... 30 31 | × | × | × |
-| | | DD | 01 02 ... 30 31 | × | × | × |
-| | |做 |第 1 2 ... 30 31 | × | ---（转换为 D） | ---（转换为 D） |
-| |月份 |男| 1 2 ... 11 12 | X | × | × |
-| | | MM | 01 02 ... 11 12 | X | X | X |
-| | |嗯 | 1 月 2 月 ... 11 月 12 月 | × | × | × |
-| | |嗯嗯 |一月 二月 ... 十一月 十二月 | × | × | × |
-| | |莫 | 1 号 2 号 ... 11 号 12 号 | × | ---（转换为 M） | ---（转换为 M） |
-| |年份 |是 | 1970 1971 ... 9999 +10000 +10001 | × | × | × |
-| | | YY| 70 71 ... 29 30 | × | × | × |
-| | |年年年 | 1970 1971 ... 2029 2030 | × | × | × |
-| | |年年年年 | -001970 -001971 ... +001907 +001971 | × | ---（转换为 YYYY） | ---（转换为 YYYY） |
-|时间 |上午/下午 |一个 |上午下午 | × | × | × |
-| | |一个 |下午 | × | X | X |
-| |小时 | H | 0 1 ... 22 23 | × | × | × |
-| | |嗯 | 00 01 ... 22 23 | X | × | × |
-| | |小时 | 1 2 ... 11 12 | X | X | X |
-| | |嗯 | 01 02 ... 11 12 | × | × | × |
-| | | k | 1 2 ... 23 24 | × | ---（转换为H） | ---（转换为H） |
-| | | kk | 01 02 ... 23 24 | × | ---（转换为 HH） | ---（转换为 HH） |
-| |分钟 |米 | 0 1 ... 58 59 | × | × | × |
-| | |毫米 | 00 01 ... 58 59 | × | × | × |
-| |第二 |秒 | 0 1 ... 58 59 | × | × | × |
-| | | SS | 00 01 ... 58 59 | × | × | × |
-| |小数秒 |年代 | 0 1 ... 8 9 | × | --- | --- |
-| | |党卫军 | 00 01 ... 98 99 | × | --- | --- |
-| | | SS | 000 001 ... 998 999 | × | --- | --- |
-| | | SSSS ... SSSSSSSSS | 000[0..] 001[0..] ... 998[0..] 999[0..] | × | --- | --- |
-| |时区 | z 或 zz | EST CST ... MST 太平洋标准时间 | × | --- | --- |
-| | | Z | -07:00 -06:00 ... +06:00 +07:00 | × | --- | --- |
-| | |郑州 | -0700 -0600 ... +0600 +0700 | × | --- | --- |
-|时期 |年中的日子 | DDD | 1 2 ... 364 365 | × | --- | --- |
-| | |滴滴滴 | 001 002 ... 364 365 | × | --- | --- |
-| | | DD做 |第 1 2 ... 364 365 | × | --- | --- |
-|其他 |星期几（语言环境） |电子 | 0 1 ... 5 6 | × | --- | --- |
-| |星期几 (ISO) |乙 | 1 2 ... 6 7 | × | --- | --- |
-| |季度 |问 | 1 2 3 4 | × | --- | --- |
-| | |问 | 1 2 3 4 | × | --- | --- |
-| |一年中的一周 |瓦 | 1 2 ... 52 53 | × | --- | --- |
-| | |窝 |第 1 2 ... 52 53 | × | --- | --- |
-| | | www | 01 02 ... 52 53 | × | --- | --- |
-| |一年中的一周 (ISO) |瓦 | 1 2 ... 52 53 | × | --- | --- |
-| | |禾|第 1 2 ... 52 53 | × | --- | --- |
-| | |全球| 01 02 ... 52 53 | × | --- | --- |
-| |纪元年 |是 | 1 2 ... 2020 ... | × | --- | --- |
-| | |哟 |第 1 2 … 2020 … | × | --- | --- |
-| |时代 | N、NN、NNN |公元前广告 | × | --- | --- |
-| | | NNNN|在基督之前，Anno Domini | × | --- | --- |
-| | | NNNNN |公元前广告 | × | --- | --- |
-| |周年 |格 | 70 71 ... 29 30 | × | --- | --- |
-| | |格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
-| |周年 (ISO) |格格 | 70 71 ... 29 30 | × | --- | --- |
-| | |格格格 | 1970 1971 ... 2029 2030 | × | --- | --- |
-|时期 |时期 |磷 |标记一个时期而不是特定时间。可以是以下格式之一： | × | --- (转换为 D [天], h:m:s) | ---（转换为 D，h:m:s） |
-| | | |毫秒（例如 279344） | | | |
-| | | |小时:分钟（例如 46:33）| | | |
-| | | |小时:分钟:秒（例如 46:33:44 或 28:33:44.5）| | | |
-| | | | days hours:minutes.seconds (e.g. 1 22:33:44 or 1 22:33:44.5) | | | |
-| | | | days.hours:minutes.seconds（例如 1.22:33:44 或 1.22:33:44.5）| | | |
-| | | | ISO 8601（例如 P0Y0M1DT22H33M44S 或 P1DT22H33M44S）| | | |
-| | |派 |年期 | × | --- | --- |
-| | |下午 |月期间 | × | --- | --- |
-| | |密码 |周期间 | × | --- | --- |
-| | |钯|天数 | × | --- | --- |
-| | |博士 |小时数 | × | --- | --- |
-| | |下午 |分钟 | × | --- | --- |
-| | |附言 |秒周期 | × | --- | --- |
-| | |私信 |毫秒周期 | × | --- | --- |
-|标志 |将缺失的部分设置为开头 |结核病 |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
-| |将缺失的部分补到现在 |吨 |例如。将日期设置为现在，如果只给出一个时间 | × | --- | --- |
-| |保留旧的遗失零件 |到 |例如。像以前一样留下日期，如果只给出时间 | × | --- | --- |
-|免费文本 |在括号中标记自由文本 | [] | [这是一个例子，所有标记都被忽略] | × | × | --- |
+| | |代币 |说明/示例 |数据点 |显示 |选择器 |
+|----------:|-------------------------------:|----------------------|------------------------------------------------------------------------------------|-----------|----------------------------------------|-------------------------------|
+|时间戳 | Unix 的时间戳 | `X` | `1410715640.579` | × | --- | --- |
+|日期 |星期几 | `d` | `0` `1`...`5` `6` | × | --- | --- |
+| | | `dd` | `Su` `Mo`...`Fr` `Sa` | × | X（翻译） | --- |
+| | | `ddd` | `Sun` `Mon`...`Fri` `Sat` | × | X（翻译） | --- |
+| | | `dddd` | `Sunday` `Monday`...`Friday` `Saturday` | × | X（翻译） | --- |
+| | | `do` | `0th` `1st`...`5th` `6th` | × | --- | --- |
+| |月中日 | `D` | `1` `2`...`30` `31` | × | × | × |
+| | | `DD` | `01` `02`...`30` `31` | × | × | × |
+| | | `Do` | `1st` `2nd`...`30th` `31st` | × | ---（转换为`D`）| ---（转换为`D`）|
+| |月份 | `M` | `1` `2`...`11` `12` | × | × | × |
+| | | `MM` | `01` `02`...`11` `12` | × | × | × |
+| | | `MMM` | `Jan` `Feb`...`Nov` `Dec` | × | X | × |
+| | | `MMMM` | `January` `February`...`November` `December` | × | × | × |
+| | | `Mo` | `1st` `2nd`...`11th` `12th` | × | ---（转换为`M`）| ---（转换为`M`）|
+| |年份 | `Y` | `1970` `1971`...`9999` `+10000` `+10001` | × | × | × |
+| | | `YY` | `70` `71`...`29` `30` | × | × | × |
+| | | `YYYY` | `1970` `1971`...`2029` `2030` | × | × | × |
+| | | `YYYYYY` | `-001970` `-001971`...`+001907` `+001971` | × | ---（转换为`YYYY`）| ---（转换为`YYYY`）|
+|时间 |上午/下午 | `A` | `AM` `PM` | × | × | × |
+| | | `a` | `am` `pm` | × | × | × |
+| |小时 | `H` | `0` `1`...`22` `23` | × | × | × |
+| | | `HH` | `00` `01`...`22` `23` | × | × | × |
+| | | `h` | `1` `2`...`11` `12` | × | × | × |
+| | | `hh` | `01` `02`...`11` `12` | × | × | × |
+| | | `k` | `1` `2`...`23` `24` | X | ---（转换为`H`）| ---（转换为`H`）|
+| | | `kk` | `01` `02`...`23` `24` | × | ---（转换为`HH`）| ---（转换为`HH`）|
+| |分钟 | `m` | `0` `1`...`58` `59` | X | × | × |
+| | | `mm` | `00` `01`...`58` `59` | × | × | × |
+| |第二 | `s` | `0` `1`...`58` `59` | × | × | × |
+| | | `ss` | `00` `01`...`58` `59` | × | × | × |
+| |小数秒 | `S` | `0` `1`...`8` `9` | × | --- | --- |
+| | | `SS` | `00` `01`...`98` `99` | × | --- | --- |
+| | | `SSS` | `000` `001`...`998` `999` | × | --- | --- |
+| | | `SSSS`...`SSSSSSSSS` | `000[0..]` `001[0..]`...`998[0..]` `999[0..]` | × | --- | --- |
+| |时区 | `z` 或 `zz` | `EST` `CST`...`MST` `PST` | × | --- | --- |
+| | | `Z` | `-07:00` `-06:00`...`+06:00` `+07:00` | × | --- | --- |
+| | | `ZZ` | `-0700` `-0600`...`+0600` `+0700` | × | --- | --- |
+|时期 |年中的日子 | `DDD` | `1` `2`...`364` `365` | × | --- | --- |
+| | | `DDDD` | `001` `002`...`364` `365` | × | --- | --- |
+| | | `DDDo` | `1st` `2nd`...`364th` `365th` | × | --- | --- |
+|其他 |星期几（语言环境） | `e` | `0` `1`...`5` `6` | × | --- | --- |
+| |星期几 (ISO) | `E` | `1` `2`...`6` `7` | × | --- | --- |
+| |季度 | `Q` | `1` `2` `3` `4` | × | --- | --- |
+| | | `Qo` | `1st` `2nd` `3rd` `4th` | × | --- | --- |
+| |一年中的一周 | `w` | `1` `2`...`52` `53` | × | --- | --- |
+| | | `wo` | `1st` `2nd`...`52nd` `53rd` | × | --- | --- |
+| | | `ww` | `01` `02`...`52` `53` | × | --- | --- |
+| |一年中的一周 (ISO) | `W` | `1` `2`...`52` `53` | × | --- | --- |
+| | | `Wo` | `1st` `2nd`...`52nd` `53rd` | × | --- | --- |
+| | | `WW` | `01` `02`...`52` `53` | × | --- | --- |
+| |纪元年 | `y` | `1` `2`...`2020`... | × | --- | --- |
+| | | `yo` | `1st` `2nd`...`2020th`... | × | --- | --- |
+| |时代 | `N`, `NN`, `NNN` | `BC` `AD` | × | --- | --- |
+| | | `NNNN` | `Before Christ`, `Anno Domini` | × | --- | --- |
+| | | `NNNNN` | `BC` `AD` | × | --- | --- |
+| |周年 | `gg` | `70` `71`...`29` `30` | × | --- | --- |
+| | | `gggg` | `1970` `1971`...`2029` `2030` | × | --- | --- |
+| |周年 (ISO) | `GG` | `70` `71`...`29` `30` | × | --- | --- |
+| | | `GGGG` | `1970` `1971`...`2029` `2030` | × | --- | --- |
+|时期 |时期 | `P` |标记一个时期而不是特定时间。可以是以下格式之一： | × | ---（转换为`D [Day(s)], h:m:s`）| ---（转换为`D, h:m:s`）|
+| | | |毫秒（例如 `279344`）| | | |
+| | | |小时：分钟（例如 `46:33`）| | | |
+| | | |小时：分钟：秒（例如 `46:33:44` 或 `28:33:44.5`）| | | |
+| | | | days hours:minutes.seconds（例如 `1 22:33:44` 或 `1 22:33:44.5`）| | | |
+| | | | days.hours:minutes.seconds（例如 `1.22:33:44` 或 `1.22:33:44.5`）| | | |
+| | | | ISO 8601（例如 `P0Y0M1DT22H33M44S` 或 `P1DT22H33M44S`）| | | |
+| | | `Py` |年期 | × | --- | --- |
+| | | `PM` |月期间 | × | --- | --- |
+| | | `Pw` |周期间 | X | --- | --- |
+| | | `Pd` |天数 | × | --- | --- |
+| | | `Ph` |小时数 | × | --- | --- |
+| | | `Pm` |分钟 | × | --- | --- |
+| | | `Ps` |秒周期 | × | --- | --- |
+| | | `Pms` |毫秒周期 | × | --- | --- |
+|标志 |将缺失的部分设置为开始 | `tb` |例如。将日期设置为 1970-01-01，如果只给出时间 | × | --- | --- |
+| |将缺失的部分补到现在 | `tn` |例如。将日期设置为现在，如果只给出一个时间 | × | --- | --- |
+| |保留旧的遗失零件 | `to` |例如。像以前一样留下日期，如果只给出时间 | × | --- | --- |
+|免费文本 |在括号中标记自由文本 | `[]` | `[this is an example, all tokens are ignored]` | × | × | --- |
+|免费文本 |在括号中标记自由文本 | `[]` | `[这是一个例子，所有标记都被忽略]` | X | × | --- |
 
 * 如果您对数据点时间格式和显示时间格式使用不同的配置，则使用以下转换规则。
 * 您可以在数据点时间格式中使用标志 `tb`、`tn` 和 `to` 来影响行为。
 
-    ![辉光](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
+    ![转换规则](../../../en/adapterref/iobroker.iqontrol/img/dateandtime_conversionrules.png)
 
 </详情>
 
@@ -1742,10 +1840,21 @@ on modulo(n, m){ return ((n % m) + m) %m; }
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+
+### 2.2.0 (2023-03-23)
 * (sbormann) You can now chose destination when copying devices.
 * (sbormann) Added option Toggle POWER_SWITCH instead of STATE (for example when clicking on icon) for media.
 * (sbormann) Added option to hide slider for LEVEL, if favorites are set.
 * (sbormann) Added option to show BADGE, even if value is zero.
+* (sbormann) Added option to set DURATION and ELAPSED in milliseconds respective percentage for media.
+* (sbormann) Added ability to set links to other views with anchor to sub-headings.
+* (sbormann) Corrected some fonts.
+* (sbormann/Wal) Enabled right-click for wioBrowser.
+* (sbormann) Added some new options for popup-messages and introduced persistent popups.
+* (sbormann) Uploading of userfiles via ZIP-File is now possible.
+* (sbormann/hetti72) Fixed CONTROL_MODE of HP-IP-Thermostat (hopefully finally...)
+* (sbormann) Removed hidden links to other views from toolbar context-menu
 
 ### 2.1.0 (2023-01-24)
 * (sbormann) Fixed marquee for INFO_A/B after resizing tile.

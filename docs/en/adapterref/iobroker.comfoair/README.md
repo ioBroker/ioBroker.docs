@@ -59,6 +59,10 @@ Tested on comfoair CA350.
 
 ## Changelog
 
+### 1.1.7
+
+-   dependencies updated, serialport 10.x - update
+
 ### 1.1.6
 
 -   boostmode enhanced, dependencies updated
@@ -159,7 +163,7 @@ Tested on comfoair CA350.
 
 The MIT License (MIT)
 
-Copyright (c) 2022 forelleblau marceladam@gmx.ch
+Copyright (c) 2023 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

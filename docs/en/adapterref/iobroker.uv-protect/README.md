@@ -10,6 +10,7 @@
 
 [![License](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)](https://github.com/simatec/ioBroker.uv-protect/blob/master/LICENSE)
 [![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
 
 ## uv-protect adapter for ioBroker
@@ -20,7 +21,7 @@ UV-Protect from openUV-API
 
 **If you like it, please consider a donation:**
   
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -33,6 +34,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.4.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) Repo updated
+
 ### 0.3.7 (2022-11-01)
 * (simatec) Fix Axios Request
 * (simatec) Dependencies updated
@@ -90,7 +95,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ## License
 MIT License
 
-Copyright (c) 2021 - 2022 simatec
+Copyright (c) 2021 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

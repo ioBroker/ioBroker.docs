@@ -2,41 +2,44 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinker/README.md
-title: ioBroker.tinker
-hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
+title: ioBroker.basteln
+hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/tinker-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tinker.svg)
+![Anzahl der Installationen (neueste)](http://iobroker.live/badges/tinker-installed.svg)
+![Anzahl der Installationen (stabil)](http://iobroker.live/badges/tinker-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
+![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)
+![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
-#ioBroker.tinker
+# IoBroker.basteln
 ===================
 
-![Testen und freigeben](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 
-Tinker Board Monitor Adapter ist eine modifizierte Version des Raspberry PI Monitor Adapters und des OrangePi Monitor Adapters für ioBroker
+Der Tinker Board Monitor-Adapter ist eine modifizierte Version des Raspberry PI Monitor-Adapters und des OrangePi Monitor-Adapters für ioBroker
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### Wichtige Informationen
 getestete Hardware: Asus Tinker Board
 
-### Folgende Objekte stehen nach Auswahl zur Verfügung:
+### Folgende Objekte sind nach Auswahl verfügbar:
 ## *ZENTRALPROZESSOR*
-- CPU_Frequenz
-- laden1
+- CPU-Frequenz
+- Laden1
 - laden5
-- Last15
+- laden15
 
 ## *Speicher*
 - Speicher_verfügbar
-- memory_free
+- Speicher_frei
 - memory_total
 
 ## *Netzwerk (eth0)*
@@ -47,7 +50,7 @@ getestete Hardware: Asus Tinker Board
 - sdcard_root_total
 - sdcard_root_used
 
-## *Wechsel*
+## *Tausch*
 - swap_total
 - swap_used
 
@@ -59,7 +62,7 @@ getestete Hardware: Asus Tinker Board
 
 ## *WLAN*
 - wifi_received
-- wifi_send
+- wifi_senden
 
 ## Aufbau
 Auf der Konfigurationsseite können Sie folgende Module auswählen:
@@ -68,13 +71,18 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 - Speicher
 - Netzwerk
 - SD-Karte
-- Wechsel
+- Tausch
 - Temperatur
 - Betriebszeit
 - WLAN
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.2.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Repo updated
+
 ### 1.1.1 (2021-11-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -103,7 +111,7 @@ Auf der Konfigurationsseite können Sie folgende Module auswählen:
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 simatec
+Copyright (c) 2018 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -27,6 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) Spread API calls
+
 ### 0.3.4 (2023-02-05)
 * (HGlab01) Cheapest station from experimental to stable
 * (HGlab01) Bump axios to 1.3.2

@@ -2,20 +2,23 @@
 # ioBroker.tinker
 ===================
 
-![Number of Installations](http://iobroker.live/badges/tinker-installed.svg)
-![Number of Installations](http://iobroker.live/badges/tinker-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.tinker.svg)](https://www.npmjs.com/package/iobroker.tinker)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tinker.svg)](https://www.npmjs.com/package/iobroker.tinker)
+![Number of Installations (latest)](http://iobroker.live/badges/tinker-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/tinker-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.tinker)
-![Test and Release](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+![Test and Release](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 
-[![NPM](https://nodei.co/npm/iobroker.tinker.png?downloads=true)](https://nodei.co/npm/iobroker.tinker/)
+[![License](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)](https://github.com/simatec/ioBroker.tinker/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
+
 
 Tinker Board Monitor adapter is Modified Version of Raspberry PI Monitor adapter and OrangePi Monitor adapter for ioBroker
 
 **If you like it, please consider a donation:**
   
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### Important Information
 
@@ -71,6 +74,11 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.2.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Repo updated
+
 ### 1.1.1 (2021-11-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -99,7 +107,7 @@ On configuration page you can select following modules:
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 simatec
+Copyright (c) 2018 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

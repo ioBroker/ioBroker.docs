@@ -240,6 +240,18 @@ Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backu
 ## Zigbee2MQTT-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
 
+Der Pfad im ioBroker.backitup Adapter sollte immer direkt auf den "data" Pfad von zigbee2mqtt angelegt werden.
+Beispiel: `/opt/zigbee2mqtt/data` oder direkt in das Volume bei einer Docker Installation von zigbee2mqtt
+
+Wichtig ist hier auch, dass der User "iobroker" Rechte für den data-Ordner bekommt, um die Dateien lesen und schreiben zu können.
+
+Gruppenrechte können wie folgt gesetzt werden:
+
+```
+sudo usermod -a -G <zigbe2mqtt User> iobroker
+sudo reboot
+```
+
 ## Node-Red-Backup
 Dieses separat einstellbare Backup wird sofern es aktiviert ist, bei jedem Backup ioBroker erstellt und nach Ablauf der angegebenen Vorhaltezeit auch gelöscht. FTP oder CIFS sind für dieses Backup ebenfalls gültig sofern bei den anderen IoBroker-Backup-Typen eingestellt.
 
@@ -520,6 +532,30 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.15 (2023-03-27)
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) Zigbee2mqtt Backup optimized
+* (simatec) skip-verify for influxdb 2.x
+
+### 2.6.14 (2023-03-22)
+* (simatec) Bug Fix History JSON
+
+### 2.6.13 (2023-03-22)
+* (simatec) Fix Zigbee2mqtt Restore
+* (simatec) Fix Grafana Backup
+* (simatec) Backup notifications optimized
+* (simatec) Error notifications optimized
+* (simatec) history data optimized
+* (simatec) small bug fixes
+
+### 2.6.12 (2023-03-16)
+* (simatec) Fix Zigbee2mqtt Backup & Restore
+* (simatec) Node-Red Backup optimized
+* (simatec) Grafana Backup optimized
+* (simatec) InfluxDB Backup optimized
+* (simatec) Docu & Wiki updated
+
 ### 2.6.11 (2023-03-11)
 * (simatec) Fix Zigbee2mqtt Backup & Restore
 

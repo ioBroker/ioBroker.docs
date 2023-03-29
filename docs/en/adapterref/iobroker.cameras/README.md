@@ -52,6 +52,9 @@ Here is an example how to add Reolink E1:
 -->
 
 ## Changelog
+### 1.1.1 (2023-03-15)
+* (bluefox) Added Reolink E1 camera
+
 ### 1.0.3 (2023-01-11)
 * (bluefox) Corrected GUI config error
 

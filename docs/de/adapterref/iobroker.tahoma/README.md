@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tahoma/README.md
 title: ioBroker.tahoma
-hash: DKzaD/UWzdpNlGpnl+p87uN6Jpzad0uJf91pX+DNIMs=
+hash: /u36vdt/QGfAt0NT2GYFz89qeEwptfVxxitwHElxe+I=
 ---
 ![Logo](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -45,7 +45,7 @@ Die folgenden Konfigurationsparameter werden vom Adapter unterstützt.
 | Benutzername | _`<your Tahomalink user>`_ | Erforderlich, um Ihr Tahoma-Konto zu authentifizieren. |
 | Passwort | _`<Your Tahomalink password>`_ | Erforderlich, um Ihr Tahoma-Konto zu authentifizieren. |
 | Abfrageintervall | `20000` | Zeit (in Millisekunden), nach der der Adapter versucht, neue Daten von Tahomalink zu erhalten. |
-| PIN der Tahoma-Box | Format ähnlich `1234-5678-9012` | __ <sup>Nur für LocalAPI</sup> __ Eindeutige PIN Ihrer Tahoma-Box, die von Somfy bereitgestellt wird. Mehr Infos zur Aktivierung/Verwendung [hier](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode) |
+| PIN der Tahoma-Box | Format ähnlich `1234-5678-9012` | __ <sup>Nur für LocalAPI</sup> __ Eindeutige PIN Ihrer Tahoma-Box, die von Somfy bereitgestellt wird. Mehr Infos zur Aktivierung/Verwendung [Hier](https://github.com/Somfy-Developer/Somfy-TaHoma-Developer-Mode) |
 | Verwenden Sie MDNS | `false` | __ <sup>Nur für LocalAPI</sup> __ Wenn auf true gesetzt, wird versucht, mDNS zu verwenden, um den lokalen Hostnamen Ihrer Tahoma-Box aufzulösen. Wird möglicherweise nicht von allen Routern unterstützt, daher ist es standardmäßig deaktiviert. |
 | Anmeldeversuche <sup>1</sup> <sup>2</sup> | `3` | Anzahl der Versuche, sich nach einem Anmeldefehler erneut anzumelden. |
 | Verzögerung zwischen Anmeldeversuchen <sup>1</sup> <sup>2</sup> | `30` | Wartezeit (in Sekunden) zwischen Anmeldeversuchen. |
@@ -81,12 +81,11 @@ Diese Zustände enthalten den aktuellen Status der Geräte wie folgt. Einige der
 | _tahoma.X.devices.*.states.core:TargetOrientationState_ | &#10003; | Siehe `tahoma.X.devices.*.states.core:OrientationState` |
 | _tahoma.X.devices.*.states.core:OpenClosedState_ | | Enthält `closed`, wenn das Gerät zu 100 % geschlossen oder zu 0 % bereitgestellt ist, und ansonsten `open`. |
 | _tahoma.X.devices.*.states.core:OpenClosedState_ | | Enthält „geschlossen“, wenn das Gerät zu 100 % geschlossen oder zu 0 % bereitgestellt ist, andernfalls „offen“. |
-| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Hat ein Sensor das Gerät gesperrt, wird dies hier angegeben, z. g. ein Windsensor blockiert eine Markise. |
+| _tahoma.X.devices.*.states.core:PriorityLockTimerState_ | | Hat ein Sensor das Gerät gesperrt, wird dies hier angegeben, z. G. ein Windsensor blockiert eine Markise. |
 | _tahoma.X.devices.*.states.core:StatusState_ | | `available` wenn das Gerät aktuell verfügbar ist. |
 | _tahoma.X.devices.*.states.io:PriorityLockLevelState_ | | Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
 | _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
-| _tahoma.X.devices.*.states.moving_ | | Gibt an, ob sich das Gerät gerade bewegt. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
-| _tahoma.X.devices.*.states.moving_ | | Gibt an, ob sich das Gerät gerade bewegt. `0 = angehalten`, `1 = hoch/bereitstellen`, `2 = herunterfahren/bereitstellen`, `3 = unbekannte Richtung` |
+| _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_ | | Siehe `tahoma.X.devices.*.states.core:PriorityLockTimerState` | | _tahoma.X.devices.*.states.moving_ | | Gibt an, ob sich das Gerät gerade bewegt. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction`<br/> **Anmerkung:**<br/> Dies funktioniert nur zuverlässig, wenn es mit der Tahoma (nicht Local) API verbunden ist, da die Local API nicht genügend Action-Event-Updates bereitstellt, um diesen Status korrekt zu berechnen. `core:MovingState` sollte aber in beiden Fällen funktionieren. |
 
 ## Changelog
 See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGELOG.md).

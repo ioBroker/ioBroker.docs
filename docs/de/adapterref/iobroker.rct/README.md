@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
+hash: k9hP2CX8WzRlBmnA+uAz1Ll2DUkb994uTPQxjZA4YUg=
 ---
 ![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -17,12 +17,11 @@ hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 # IoBroker.rct
 **Tests:** ![Testen und freigeben](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Projekt NICHT MEHR GEPFLEGT
-Nachdem ich zu Home Assistant gewechselt bin, warte ich diesen Adapter nicht mehr.
-Wenn Sie Interesse haben, es zu übernehmen, lassen Sie es mich bitte wissen.
+## Eigentümerwechsel
+Nach Umstellung von lauff auf Home Assistant - Projekt wird von aruttkamp fortgeführt
 
 ## RCT-Adapter für ioBroker
-Bitte beachten Sie, dass dies ein privates Projekt ist und dass ich (Markus Lauff) in keiner Weise mit RCT verwandt bin.
+Bitte beachten Sie, dass dies ein privates Projekt ist und dass ich (Andreas Ruttkamp) in keiner Weise mit RCT verwandt bin.
 
 Werte eines Photovoltaik-Stromrichters von RCT Power anzeigen
 
@@ -39,7 +38,8 @@ Eine neue Version kann möglicherweise nicht die richtigen ioBroker-Kanäle / -Z
 Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ manuell.
 
 ## Changelog
-
+### 1.0.2
+* (Andreas Ruttkamp) 
 ### 1.0.1
 * (Markus Lauff) fixing review comments - thanks to Apollon77
 ### 1.0.0
@@ -72,4 +72,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 Markus Lauff <ioBroker.rct@markus.lauff.com>
+Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

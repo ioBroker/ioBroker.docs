@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.uv-protect/README.md
 title: ioBroker.uv-защита
-hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
+hash: +G2ZFhEpZGS4FRBYIYdgYEkZOmLEO/0gifXc8vqfzx8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.uv-protect/admin/uv-protect.png)
 
@@ -14,6 +14,7 @@ hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.uv-protect/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.uv-protect?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.uv-защита
 ![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
@@ -25,7 +26,7 @@ hash: SIxeKRjYKbMmCUk8cjZHcIMhd9ErlfpX71Kgy/vLO/M=
 
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
@@ -38,6 +39,19 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.4.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) Repo updated
+
+### 0.3.7 (2022-11-01)
+* (simatec) Fix Axios Request
+* (simatec) Dependencies updated
+
+### 0.3.6 (2022-07-11)
+* (simatec) Fix Request
+* (simatec) timeout added
+* (simatec) Dependencies updated
+
 ### 0.3.5 (2022-02-08)
 * (simatec) Fix value types
 * (simatec) Fix Axios Request
@@ -86,7 +100,7 @@ Sentry.io — это сервис для разработчиков, позво�
 ## License
 MIT License
 
-Copyright (c) 2021 - 2022 simatec
+Copyright (c) 2021 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

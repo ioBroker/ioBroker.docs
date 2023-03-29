@@ -111,6 +111,11 @@ Please insert the necessary information's to connect to the service you choose.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_en.png" alt="settingsAPI" width="70%"/>
 
+## Sensor actions
+
+In the table you can react to the "window_open" attribute per room. The status of the respective window sensors can trigger an action when changing, which is to be entered here. Either a dedicated temperature can be set or you can switch back to home mode. The temperature of a valve can thus be set when a window is opened or closed.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_en.png" alt="sensors" width="70%"/>
 ## Messages
 
 You can send messages depending on status changes of specific states. The messages can be defined by yourself.
@@ -138,6 +143,10 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2023-03-19)
+
+* (ioKlausi) Implement actions for window sensors
+
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding

@@ -73,6 +73,7 @@ You cannot send POST request to commands via GUI.
 <!-- START -->
 ### States
 - `getStates(pattern)` - get the list of states for pattern (e.g. for system.adapter.admin.0.*). GUI can have problems by visualization of answer.
+- `getForeignStates(pattern)` - same as getStates
 - `getState(id)` - get state value by ID
 - `setState(id, state)` - set state value with JSON object (e.g. `{"val": 1, "ack": true}`)
 - `getBinaryState(id)` - get binary state by ID
@@ -126,7 +127,6 @@ You cannot send POST request to commands via GUI.
 - `getAllObjects()` - read all objects as list. GUI can have problems by visualization of answer.
 - `extendObject(id, obj)` - modify object by ID with JSON. (.e.g. `{"common":{"enabled": true}}`) 
 - `getForeignObjects(pattern, type)` - same as getObjects
-- `getForeignStates(pattern)` - same as getStates
 - `delObjects(id, options)` - delete objects by pattern
 
 ### Others
@@ -151,8 +151,7 @@ You cannot send POST request to commands via GUI.
 -->
 
 ## Changelog
-
-### __WORK IN PROGRESS__
+### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 
 ### 1.0.4 (2022-08-31)
@@ -194,4 +193,4 @@ You cannot send POST request to commands via GUI.
 ## License
 Apache 2.0
 
-Copyright (c) 2017-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>

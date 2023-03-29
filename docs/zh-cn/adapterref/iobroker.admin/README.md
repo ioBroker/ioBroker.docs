@@ -72,22 +72,24 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### 6.4.2 (2023-03-27)
+* (bluefox) Better check of the certificates
+
+### 6.4.1 (2023-03-24)
+* (bluefox) Fallback on normal https webserver in case of not let's encrypt certificates
+* (bluefox) Show readme from GitHub
+
+### 6.4.0 (2023-03-22)
+* (bluefox) Breaking change: Configuration of Let's encrypt certificates moved to `iobroker.acme` adapter
+* (bluefox) Added port controller to JSON config
+* (bluefox) Added `certificates` to JSON config
+
+### 6.3.7 (2023-03-12)
+* (bluefox) Better tooltips in object browser 
+* Added again possibility to hide/show of columns in object browser
+
 ### 6.3.6 (2023-01-29)
 * (bluefox) Allowed the edit of log level in the configuration tab
-
-### 6.3.5 (2022-12-22)
-* (bluefox) Corrected reading of node.js version
-
-### 6.3.4 (2022-12-18)
-* (bluefox) Corrected crashes in object browser
-
-### 6.3.3 (2022-12-14)
-* (bluefox) Corrected icons in object browser
-
-### 6.3.2 (2022-12-12)
-* (bluefox) Added `useNative` option to `sendTo` JSON Config component
-* (bluefox) Added `checkLicense` and `uuid` components to JSON Config
-* (bluefox) Corrected the news handler
 
 ## License
 The MIT License (MIT)

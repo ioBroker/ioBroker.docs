@@ -1,70 +1,64 @@
-# ioBroker.sma-em
+---
+BADGE-Number of Installations: http://iobroker.live/badges/sma-em-installed.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.sma-em.svg
+BADGE-Stable version: http://iobroker.live/badges/sma-em-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.sma-em.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
+---
+# SMA Energy Meter Adapter documentation
 
-![Logo](admin/sma-em.png)
+## General information
 
-## ioBroker Adapter for SMA Energy Meter
+The SMA Energy Meter Adapter receives multicast datagrams from the Energy Meter or the Sunny Home Manager. These send data packets with their measurement data into the network every second or more often. The transmission interval of 200ms, 600ms or 1000ms can be set in Sunny Portal.
 
-![Number of Installations](http://iobroker.live/badges/sma-em-installed.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.sma-em.svg)](https://www.npmjs.com/package/iobroker.sma-em)
-![Stable version](http://iobroker.live/badges/sma-em-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.sma-em.svg)](https://www.npmjs.com/package/iobroker.sma-em)
-**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/iobroker.sma-em/workflows/Test%20and%20Release/badge.svg)  
+## Administration / Admin page
 
-[![NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)](https://nodei.co/npm/iobroker.sma-em/)
+![Adapter_admin_config](img/adminpage1-en.png)
+![Adapter_admin_config2](img/adminpage2-en.png)
 
-### Info
+- Tab Multicast Settings
+  - Multicast IP: The default setting and predefined by SMA is the IP address 239.12.255.254.
+  - Multicast Port: The default setting and predefined by SMA is the UDP port 9522.
 
-This adapter reads information from SMA Energy Meter (EMETER-20) and Sunny Home Manager 2 (HM-20).
-It supports the SMA-EMETER-protocol-2. Thus also compatible energy meters from other manufacturers will work.
+- Tab Options
+  - Extended Mode: Provides more detailed information such as reactive power, apparent power, cosphi, voltages, amperage etc. This setting is disabled by default.
+  - Details L1 - L3: These selection points can be used to display details of each phase.
+  - Real-time update interval: The update interval for real-time data such as instantaneous power or grid frequency is set here. This serves to reduce the system load. Example: With a data packet rate of 5/s (200ms transmission interval), all values are summed up during a real-time update interval of one second and only at the end of the interval is the mean value or the median for frequency and phase updated in the corresponding ioBroker data point.
+  - Non-real-time update interval: The update interval for non-real-time data such as meter readings is set here. Here the last received value is updated in the corresponding ioBroker data point only at the end of the interval.
 
-SMA Energy Meter and Sunny Home Manager 2 multicast datagrams with their energy measurement data to the network every second.
-The SMA Energy Meter Adapter receives these multicast messages and stores them as iobroker states.
-A single instance of the SMA Energy Meter Adapter detects all SMA Energy Meters and Sunny Home Managers in all connected networks.
+## Folder structure / objects
 
-![States](docs/en/img/overview.png)
+![Adapter_overview](img/overview-en.png)
 
-### States in non-extended mode
+After installing and starting the adapter, the folder structure shown in the picture is created. The entire data of the Energy Meter is located in the root folder. If they have been configured, the values of the individual phases are located in the subfolders L1-L3.
+If there are several Energy Meters or Sunny Home Managers in the network, the object folders for each device are created in the same sma-em instance.
 
-- Instantaneous values of total active power consumption (pregard) and active power feed-in (psurplus)
-- Energy meter values of total active power consumption (pregardcounter) and active power feed-in (psurpluscounter)
-- SMA Time Tick counter, Timestamp of last Message received,
-- Serial Number, SUSyID, Software Version of SMA Energy Meter and Sunny Home Manager
-- Detailed values for each of the individual phases L1 / L2 / L3 (optional):
-  - Instantaneous values of active power consumption (pregard) and active power feed-in (psurplus) per phase
-  - Energy meter values of active power consumption (pregardcounter) and active power feed-in (psurpluscounter) per phase
-  
-### States in extended mode
+## Explanation of object IDs
 
-In addition to the states in non-extended mode, the following values are available in extended mode
+The letters p, q and s are derived from electrical engineering and represent:
 
-- Instantaneous values of total reactive power consumption (qregard) and reactive power feed-in (qsurplus)
-- Energy meter values of total reactive power consumption (qregardcounter) and reactive power feed-in (qsurpluscounter)
-- Instantaneous values of total apparent power consumption (sregard) and apparent power feed-in (ssurplus)
-- Energy meter values of total apparent power consumption (sregardcounter) and apparent power feed-in (ssurpluscounter)
-- cosphi (power factor)
-- grid frequency (only available with Sunny Home Manager 2, SMA Energy Meter currently does not provide any grid frequency values)
-- Detailed for each of the individual phases L1 / L2 / L3 (optional):
-  - Instantaneous values of reactive and apparent power consumption/feed-in per phase
-  - Energy meter values of reactive and apparent power consumption/feed-in per phase
-  - Voltage and Amperage per phase
+- P - Active power
+- Q - Reactive power
+- S - Apparent power
 
-### Configuration Options
+- The word "regard" here means "consumption". (power received from the grid)
+- The word "surplus" here means "feed-in". (power fed into the grid)
+- The word "counter" here means "energy meter".
 
-![Settings](docs/en/img/adminpage.png)
+From this, the object names are put together, e.g.
 
-- Multicast IP: The default setting is 239.12.255.254.
-- Multicast Port: The default setting for the UDP port is 9522.
-  (Both should not be changed, as SMA devices always use this IP address and port)
-- Details L1 - L3: These selection options can be used to display details of each phase.
-- Extended Mode: Provides more detailed information such as reactive power, apparent power, cosphi, grid frequency, voltage, amperage
-  (Do not configure Details L1-L3 and Extended Mode simultaneously since this puts a high load on the ioBroker system)
-
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### __WORK IN PROGRESS__
--->
+- pregard - active power received from the grid
+- psurplus - active power fed into the grid
+- pregardcounter - energy meter for the active power received from the grid
+- qregard - reactive power received from the grid
+- ...
 
 ## Changelog
+### 0.7.0 (2023-03-14)
+
+- (pdbjjens) New: Configurable data point update intervals to reduce system load
+- (pdbjjens) New: Use JSON config
+
 ### 0.6.6 (2023-02-28)  2023 maintenance release
 
 - (pdbjjens) Updated dependencies
@@ -85,23 +79,6 @@ In addition to the states in non-extended mode, the following values are availab
 ### 0.6.3 (2021-03-04)
 
 - (TGuybrush) The adapter binds now to all external IPv4 addresses.
-
-### 0.6.1-beta.0 (2021-01-18)
-
-- (TGuybrush) Bug fixes
-  - Software Version string, last part is the revision as character (e.g. R = release)
-  - Potential Warning during the first start
-  - Revised units to follow the SI standardization (DIN 1301)
-- (TGuybrush) Top level hierarchy object description indicates if the device is a SMA Energy Meter or a SMA Home Manager 2.
-- (DutchmanNL) Released to the latest repo, fixed some typo's + news and translations
-
-## Legal Notices
-
-SMA and Sunny Home Manager are registered trademarks of SMA Solar Technology AG <https://www.sma.de/en.html>
-
-All other trademarks are the property of their respective owners.
-
-The authors are in no way endorsed by or affiliated with SMA Solar Technology AG, or any associated subsidiaries, logos or trademarks.
 
 ## License
 

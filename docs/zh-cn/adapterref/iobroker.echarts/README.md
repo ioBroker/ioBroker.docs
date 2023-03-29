@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: B476cIdVDoK0YlAGRAvXtLrntbliGf2uqhZoJ+WHEjY=
+hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
 ---
 ![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -12,7 +12,7 @@ hash: B476cIdVDoK0YlAGRAvXtLrntbliGf2uqhZoJ+WHEjY=
 ![下载](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![测试和发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/echarts/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试和发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
 
@@ -103,6 +103,21 @@ sendTo('echarts.0', {
 ### **正在进行中** -->
 
 ## Changelog
+### 1.4.13 (2023-03-14)
+* (bluefox) Corrected some issues from GitHub
+
+### 1.4.11 (2023-02-25)
+* (bluefox) Booleans were improved
+
+### 1.4.9 (2023-02-22)
+* (bluefox) Allowed the disabling of texts for enums and the adding/deletion of own text values
+
+### 1.4.7 (2023-02-22)
+* (bluefox) Implemented custom texts for enums
+
+### 1.4.6 (2023-02-16)
+* (bluefox) Implemented custom texts for true and false values
+
 ### 1.4.5 (2023-02-16)
 * (bluefox) Allowed to copy only the web URLs in the preview
 * (bluefox) Corrected boolean charts

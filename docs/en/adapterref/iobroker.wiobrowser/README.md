@@ -39,6 +39,9 @@ He can also control:
 * [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) by user hydrotec
 
 ## Changelog
+### 2.0.1
+* (bettman66) add more objects
+
 ### 2.0.0
 * (bettman66) add sip
 
@@ -60,7 +63,7 @@ He can also control:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022 Walter Zengel <w.zengel@gmx.de>
+Copyright (c) 2023 Walter Zengel <w.zengel@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

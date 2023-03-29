@@ -89,7 +89,7 @@ These states contain current status of the devices as follows. Some of the state
 | _tahoma.X.devices.*.states.core:StatusState_                |          | `available` if the device is currently available. |
 | _tahoma.X.devices.*.states.io:PriorityLockLevelState_       |          | See `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
 | _tahoma.X.devices.*.states.io:PriorityLockOriginatorState_  |          | See `tahoma.X.devices.*.states.core:PriorityLockTimerState` |
-| _tahoma.X.devices.*.states.moving_                          |          | States if the device is currently moving. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` |
+| _tahoma.X.devices.*.states.moving_                          |          | States if the device is currently moving. `0 = stopped`, `1 = up/undeploy`, `2 = down/deploy`, `3 = unknown direction` <br/> **Remark:** <br/>This only works reliable if connected to the Tahoma (not Local) API, since the Local API does not provide enough action-event updates to compute this state correctly. `core:MovingState` should work in both cases though.
 
 
 ## Changelog

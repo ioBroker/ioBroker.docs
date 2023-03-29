@@ -32,6 +32,15 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2023-03-29)
+* (BenAhrdt) Testings 12.x removed & Testings 18.x implemented
+
+### 2.1.32 (2023-03-29)
+* (BenAhrdt) do some code improvments
+
+### 2.1.31 (2023-03-29)
+* (BenAhrdt) internal rename of variables
+
 ### 2.1.30 (2023-02-17)
 * (BenAhrdt) Bugfix: devicestates will created only once at startup (not more times at startup)
 

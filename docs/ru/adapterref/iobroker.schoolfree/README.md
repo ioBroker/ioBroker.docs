@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolбесплатно
-hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
+hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -13,6 +13,7 @@ hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.schoolfree?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.schoolfree
 ![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
@@ -22,7 +23,7 @@ hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ##schoolfree адаптер для ioBroker
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### Deutsche Beschreibung:
 Schoolfree является адаптером для установки iobroker.
@@ -75,13 +76,17 @@ Sentry.io — это сервис для разработчиков, позво�
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.1.1 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
 ### 1.1.0 (2022-11-01)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.1 (2021-11-18)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -161,7 +166,7 @@ Sentry.io — это сервис для разработчиков, позво�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2022 simatec
+Copyright (c) 2019 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: 3UeNZYMsFWUfTGu1m9Syk4A2ms0XttfQrMIlip5hIEQ=
+hash: tOJBzvSrwuyYVzh2993/1JSLZo9/zJPK1W6digF8lGs=
 ---
 ![Logo](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
@@ -40,7 +40,7 @@ Die Busteilnehmer melden sich mit ihrer Busadresse, d. h. sie beginnt mit 00 00 
 
 ALL SMART EnOcean LAN Gateway - ~~[BESORGEN](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ Nicht mehr verfügbar.
 
-ALL SMART EnOcean Multi-Gateway - ~~[BESORGEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ Nicht mehr verfügbar.
+ALL SMART EnOcean Multi-Gateway - [BESORGEN](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
 ### [Unterstützte Geräte](./docs/devices.md)
 ## Steuergeräte

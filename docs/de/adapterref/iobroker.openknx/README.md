@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: pqgZNT9s66H7Tb/lglLsi8oAaVgpvUw6XH5gsM6Fxk4=
+hash: fgn2XddwM2QsfoOHGlS+paeCD3D/hNmnnUcCTYjkG60=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -268,16 +268,16 @@ GroupValue_Read-Kommentar funktioniert nicht für Javascript-Adapter. Verwenden 
 | DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
 | DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
-| DPT-6 | Zahl | | 8-Bit vorzeichenbehaftet -128..127 | |
-| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
-| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
-| DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
+| DPT-6 | Nummer | | 8-Bit vorzeichenbehaftet -128..127 | |
+| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
+| DPT-9 | Zahl | | 2-Byte-Gleitkommawert | |
 | DPT-14 | Nummer | | 4-Byte-Gleitkommawert | |
 | DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
 | DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen | |
 | DPT-15 | Nummer | | 4 Byte | |
 | DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
-| DPT-20 | Nummer | | 1 Byte | |
+| DPT-20 | Zahl | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
 | DPT-10 | Zahl für Datumsobjekt | | - | |
 | DPT-11 | Zahl für Datumsobjekt | | - | |
@@ -360,9 +360,11 @@ Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesende
 
 ### **WORK IN PROGRESS**
 
+### 0.5.3 (2023-03-17)
+
 -   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
-- todo verbindungsabbrueche analysizeren
-- todo create confirmation
+-   bugfix: admin menu scroll small screen #339
+-   feature: add dpt 9.009
 
 ### 0.5.2 (2023-01-02)
 

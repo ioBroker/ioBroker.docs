@@ -1726,7 +1726,11 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.0.3 (2023-03-16)
+* (bluefox) made the editor visible in full height
+* (paul53) small fixes on blockly and translations are made
+
+### 7.0.2 (2023-03-13)
 * (bluefox) Breaking change: all usages of `jsonata` must be rewritten to use promises.
 * (bluefox) Breaking change: all blockly scripts with `jsonata` blocks must de changed (just move some blocks) and saved anew.
 * (bluefox) Extended `createState` command with possibility to create aliases. 
@@ -1735,6 +1739,7 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 * (bluefox) Corrected `existsStateAsync` function
 * (bluefox) Added `isDaylightSaving` state to indicate day saving time
 * (AlCalzone) Pinned `@types/node` to v14
+* (bluefox) Added list of astrological events in GUI
 
 ### 6.2.0 (2023-02-17)
 * (Apollon77) Prevented duplicate schedule triggering with inaccurate RTC clocks
@@ -1750,9 +1755,6 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 
 ### 6.1.3 (2022-11-03)
 * (Apollon77) Prevent adapter crash when script could not be compiled
-
-### 6.1.2 (2022-11-03)
-* (bluefox) Added ukrainian translation
 
 ## License
 The MIT License (MIT)

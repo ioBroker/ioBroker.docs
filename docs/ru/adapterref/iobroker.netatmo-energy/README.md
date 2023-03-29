@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
+hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -93,23 +93,28 @@ hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
 
 ## Создание структур
-При запуске адаптера текущее состояние всего приложения Netatmo Energy обновляется и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
+При запуске адаптера обновляется текущее состояние всего приложения Netatmo Energy и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
 Инициализация выполняется при запуске адаптера.
 
 ## Уведомления
 Если вы активировали службу уведомлений в конфигурации адаптера, вам будут приходить различные сообщения.
 Доступны следующие услуги.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="настройкиAPI" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="уведомления" width="30%"/>
 
 Пожалуйста, введите необходимые данные для подключения к выбранной вами службе уведомлений.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="настройкиAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="уведомления" width="70%"/>
+
+## Датчики
+В таблице вы можете реагировать на атрибут "window_open" для каждой комнаты. Состояние соответствующих оконных датчиков может инициировать действие при изменении, которое необходимо ввести здесь. Можно установить специальную температуру или вернуться в домашний режим. Таким образом, можно установить температуру клапана, когда окно открыто или закрыто.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="датчики" width="70%"/>
 
 ## Новости
 Здесь вы можете активировать определенные сообщения для определенных изменений статуса. Вы можете оставить сообщение, которое вы хотите.
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="настройкиAPI" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="Сообщения" width="70%"/>
 
 ## Вкладка администратора
 На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API. Кроме того, у вас есть возможность перенести изменения в облако и переключиться обратно в стандартный режим из возможного ручного режима.
@@ -121,7 +126,7 @@ hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
 ## Виджет
 Виджет для VIS для отображения полного термостата. Вам нужно только ввести точку данных "SetTemp". Вся остальная информация определяется динамически из структуры «rooms».
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="настройкиAPI" width="250px"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="виджет" width="250px"/>
 
 ## Changelog
 
@@ -130,6 +135,10 @@ hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2023-03-19)
+
+* (ioKlausi) Implement actions for window sensors
+
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding

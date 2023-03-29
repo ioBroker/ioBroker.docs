@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: SZVgPYUr0QgSEgakzSv8yeRYMWhIXiCUxmFUzjuR39U=
+hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 ---
 ![标识](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -42,7 +42,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
       - 选择新的身份验证方法 (OAuth2)
       - 确认按钮“使用 Netatmo 验证自己”
       - 如有必要，请登录您的帐户
-      - 确认您的 Netatmo APP 的第 3 方许可
+      - 确认您的 Netatmo APP 的第三方许可
       - 关闭浏览器窗口
   - 在“API 设置”中选择所需的选项并保存适配器配置
     - 立即传输温度变化...立即将状态“SetTemp”中的温度变化传输到 API
@@ -62,7 +62,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 适配器创建自己的设备“energyAPP”，其中包含“APIRequests”和“触发器”。
 
 ### API请求
-- homesdata ... 检索 Netatmo Energy 安装的整个结构（使用 NAPlug 参数）。您可以自己为手动请求选择所有其他参数。
+- homesdata ... 检索 Netatmo Energy 安装的整个结构（使用 NAPlug 参数）。您可以自己选择手动请求的所有其他参数。
 - homestatus ...确定并传输您分配的阀门的状态和技术信息。如果您需要有关特定设备类型的信息，您可以自己选择。
 - getroommeasure ... 有了这个你就可以得到你房间的历史数据。结果输入到“响应”字段中。
 - getmeasure ... 这将为您提供锅炉的历史数据。结果输入到“响应”字段中。
@@ -100,16 +100,21 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 如果您在适配器配置中激活了通知服务，则会向您发送各种消息。
 提供以下服务。
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="设置API" width="30%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_types_de.png" alt="通知" width="30%"/>
 
 请为您选择的通知服务输入必要的连接数据。
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="设置API" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="通知" width="70%"/>
+
+## 传感器
+在表格中，您可以对每个房间的“window_open”属性做出反应。各个窗口传感器的状态发生变化时可以触发一个动作，在此输入。可以设置专用温度，也可以切换回家庭模式。因此，可以在打开或关闭窗户时设置阀门的温度。
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="传感器" width="70%"/>
 
 ＃＃ 消息
 您可以在此处触发特定状态更改的特定消息。你可以留下你想要的信息。
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="设置API" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="消息" width="70%"/>
 
 ## 管理选项卡
 在管理选项卡上，您可以显示 netatmo 能源实例的所有恒温器、电桥和阀门。也可以更新此视图或启动完整的 API 更新。此外，您还可以选择将更改传输到云端并从可能的手动模式切换回标准模式。
@@ -118,10 +123,10 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
 状态图标显示在每张卡上，显示恒温器、阀门和连接器的当前状态。在恒温器的第二页上，您会找到各种 API 请求来设置恒温器模式或供暖计划。
 
-## 小部件
+## 小工具
 VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”数据点。所有其他信息都是根据“房间”结构动态确定的。
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="设置API" width="250px"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="小部件" width="250px"/>
 
 ## Changelog
 
@@ -130,6 +135,10 @@ VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2023-03-19)
+
+* (ioKlausi) Implement actions for window sensors
+
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding

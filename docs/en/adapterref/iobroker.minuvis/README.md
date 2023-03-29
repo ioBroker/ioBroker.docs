@@ -66,6 +66,12 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 
 
 ## Changelog
+### 2.3.2 (2023-03-18)
+* remove bug in io-package.json file
+
+### 2.3.1 (2023-03-17)
+* updated app to V2.3.1
+
 ### 2.3.0 (2022-01-30)
 * updated app and builder to V2.3.0
 
@@ -137,7 +143,7 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 ## License
 MIT License
 
-Copyright (c) 2021 svallant <svallant@gmx.eu>
+Copyright (c) 2023 svallant <svallant@gmx.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

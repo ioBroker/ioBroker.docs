@@ -10,6 +10,9 @@ It exports devices and groups from pimatic and then monitors updates of variable
 
 ## Changelog
 
+### 0.3.1 (2023.03.22)
+* (Apollon77) Prepare for future js-controller versions
+
 ### 0.3.0 (2020.04.12)
 * (Apollon77) make auto decrypt compatble with js-controller 3.0
 * (Apollon77) Remove Admin 2 support
@@ -34,7 +37,7 @@ It exports devices and groups from pimatic and then monitors updates of variable
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

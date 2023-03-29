@@ -43,6 +43,8 @@ vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode O
 
 
 ## Changelog
+### 0.1.2
+- fix refresh token
 ### 0.1.1
 - add myvaillant support and stats
   

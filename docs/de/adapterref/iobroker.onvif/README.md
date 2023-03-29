@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.onvif/README.md
 title: ioBroker.onvif
-hash: ZqYkjttTzRkDmvJjtr0RrKuH/KNMcuL8xEDhsTAy7+c=
+hash: V9UpEozWodsw93FDw5msQDnX6MKPUdm5xP4jIMbUMuM=
 ---
 ![Logo](../../../en/adapterref/iobroker.onvif/admin/onvif.png)
 
@@ -85,6 +85,112 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
+# Stream in vis einbinden
+Wenn Stream in Apple Homekit angezeigt wird, soll dann bitte direkt in yahka eine Kamera erzeugen. Wenn das nicht funktioniert oder hksv benötigt WIRD, dann scrypted in einem Docker installieren und die Kamera mit onvif und homekit plugin hinzufügen
+
+## Rtsp2Web-Docker
+Ein Stream wird normalerweise per rtsp-Stream bereitgestellt. Eine Umwandlung via Bewegungsauge ist sehr aufwändig und hat ein Verzögerng. Eine Umwandlung in webrtc ist schneller und ressourcenschonender. Meine Empfehlung ist ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb). Dazu muss ein Docker von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
+
+```
+docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
+```
+
+Es muss ein Volume für den Pfad /config und das Netzwerk als Host eingestellt werden.
+
+Dann ist rtsptoweb erreichbar über
+
+```
+http://IP:8083
+```
+
+Dann kann man einen Stream hinzufügen. Die Stream-URL findet man z.B. unter `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+
+<img src="addstream.png" height="600">
+
+### Danach benötigen wir die Stream-ID. Dafür Stream Edit und in der URL die Id rauskopieren
+`http://192.168.178.2:8083/pages/stream/edit/ddbdb583-9f80-4b61-bafa-613aa7a5daa5`
+
+## Einzelnen Stream in der Vis einfügen
+Dann in der vis ein HTML-Objekt auswählen. Dann im Widget unter HTML den rtsp2web server mit stream id eintragen:
+
+<img src="html.png" height="150">
+
+## **Wenn mehrere Streams hinzugefügt werden, müssen `webrtc-url` und `webrtc-video` in html und skript mit einer neuen id ersetzt werden z.B. `webrtc-url2` und `webrtc-video2`**
+```html
+<input
+  type="hidden"
+  name="webrtc-url"
+  id="webrtc-url"
+  value="http://192.168.0.2:8083/stream/ddbdb583-9f80-4b61-bafa-613aa7a5daa5/channel/0/webrtc"
+/>
+
+<video id="webrtc-video" autoplay muted playsinline controls style="max-width: 100%; max-height: 100%;"></video>
+```
+
+In dem Widget unter Skripte dieses Skript hinzufügen:
+
+```javascript
+setTimeout(function () {
+  function startPlay(videoEl, url) {
+    const webrtc = new RTCPeerConnection({
+      iceServers: [
+        {
+          urls: ["stun:stun.l.google.com:19302"],
+        },
+      ],
+      sdpSemantics: "unified-plan",
+    });
+    webrtc.ontrack = function (event) {
+      console.log(event.streams.length + " track is delivered");
+      videoEl.srcObject = event.streams[0];
+      videoEl.play();
+    };
+    webrtc.addTransceiver("video", { direction: "sendrecv" });
+    webrtc.onnegotiationneeded = async function handleNegotiationNeeded() {
+      const offer = await webrtc.createOffer();
+
+      await webrtc.setLocalDescription(offer);
+
+      fetch(url, {
+        method: "POST",
+        body: new URLSearchParams({ data: btoa(webrtc.localDescription.sdp) }),
+      })
+        .then((response) => response.text())
+        .then((data) => {
+          try {
+            webrtc.setRemoteDescription(new RTCSessionDescription({ type: "answer", sdp: atob(data) }));
+          } catch (e) {
+            console.warn(e);
+          }
+        });
+    };
+
+    const webrtcSendChannel = webrtc.createDataChannel("rtsptowebSendChannel");
+    webrtcSendChannel.onopen = (event) => {
+      console.log(`${webrtcSendChannel.label} has opened`);
+      webrtcSendChannel.send("ping");
+    };
+    webrtcSendChannel.onclose = (_event) => {
+      console.log(`${webrtcSendChannel.label} has closed`);
+      startPlay(videoEl, url);
+    };
+    webrtcSendChannel.onmessage = (event) => console.log(event.data);
+  }
+
+  const videoEl = document.querySelector("#webrtc-video");
+  const webrtcUrl = document.querySelector("#webrtc-url").value;
+
+  startPlay(videoEl, webrtcUrl);
+}, 1000);
+```
+
+<img src="widgetskript.png" height="200">
+
+## Alle Streams als iFrame
+Alternativ könnte man auch den Kamera Overview als Iframe einfügen: Das Widget `iFrame` hinzufügen und als Quelle den rtsp2web Server eintragen:
+
+`http://192.168.0.2:8083/pages/multiview/full?controls`
+
 ## FFMpeg-Unterstützung
 Wenn die Kamera keine Snapshot-Unterstützung hat, wird mit ffmpeg ein Snapshot aus dem rtsp-Stream erzeugt.
 
@@ -107,6 +213,16 @@ Den Datenpunkt onvif.0.IP_PORT.snapshot als `HTML` Element in die vis einfügen 
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
+```
+
+Neuen Snapshot erzeugen bei Event:
+
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    setState("onvif.0.192_168_178_100_80.remote.snapshot", true, false);
+  }
+});
 ```
 
 # Englisch
@@ -178,25 +294,214 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 });
 ```
 
+# Stream in Vis einbeziehen
+Wenn der Stream in Apple Homekit angezeigt werden soll, erstellen Sie bitte eine Kamera direkt in yahka. Wenn das nicht funktioniert oder hksv benötigt wird, installieren Sie scrypted in einem Docker und fügen Sie die Kamera mit onvif und dem Homekit-Plugin hinzu
+
+## Rtsp2Web-Docker
+Ein Stream wird normalerweise über rtsp stream bereitgestellt. Dies muss für vis konvertiert werden. Meine Empfehlung ist ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb). Dazu muss ein Docker von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
+
+```
+
+docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
+
+```
+
+Sie müssen ein Volume für den Pfad /config und das Netzwerk als Host festlegen.
+
+Dann ist rtsptoweb über erreichbar
+
+```
+
+http://IP:8083
+
+```
+
+Dann können Sie einen Stream hinzufügen. Die Stream-URL finden Sie z. unter
+
+`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+
+<img src="addstream.png" height="600">
+
+### Danach brauchen wir die Stream-ID. Dazu brauchen wir Stream Edit und in der URL kopieren wir die Id raus
+`http://192.168.178.2:8083/pages/stream/edit/ddbdb583-9f80-4b61-bafa-613aa7a5daa5`
+
+## Fügen Sie den einzelnen Stream in das Vis ein
+Wählen Sie dann ein HTML-Objekt im Vis aus. Geben Sie dann im Widget unter HTML den rtsp2web-Server mit Stream-ID ein:
+
+<img src="html.png" height="150">
+
+## **Wenn mehr als ein Stream hinzugefügt werden soll, müssen `webrtc-url` und `webrtc-video` in HTML und Skript durch eine neue ID ersetzt werden, z. `webrtc-url2` und `webrtc-video2`.**
+```html
+<input type="hidden name="webrtc-url" id="webrtc-url"
+value="http://192.168.0.2:8083/stream/ddbdb583-9f80-4b61-bafa-613aa7a5daa5/channel/0/webrtc" />
+
+<video id="webrtc-video" autoplay muted playsinline controls style="max-width: 100%; max-height: 100%;"></video>
+```
+
+Fügen Sie im Widget unter Skripte dieses Skript hinzu:
+
+```javascript
+setTimeout(function () {
+
+  function startPlay(videoEl, url) {
+
+    const webrtc = new RTCPeerConnection({
+
+      iceServers: [
+
+        {
+
+          urls: ["stun:stun.l.google.com:19302"]
+
+        },
+
+      ],
+
+      { "sdpSemantics": [ "unified-plan" ], [ "unified-plan"], [ "unified-plan"],
+
+    });
+
+    webrtc.ontrack = function (event) {
+
+      console.log(event.streams.length + " track is delivered");
+
+      videoEl.srcObject = event.streams[0];
+
+      videoEl.play();
+
+    };
+
+    webrtc.addTransceiver("video", { direction: "sendrecv" });
+
+    webrtc.onnegotiationneeded = async function handleNegotiationNeeded() {
+
+      const offer = await webrtc.createOffer();
+
+
+
+      await webrtc.setLocalDescription(offer);
+
+
+
+      fetch(url, {
+
+        method: "POST",
+
+        body: new URLSearchParams({ data: btoa(webrtc.localDescription.sdp) }),
+
+      })
+
+        .then((response) => response.text())
+
+        .then((data) => {
+
+          try {
+
+            webrtc.setRemoteDescription(new RTCSessionDescription({ type: "answer", sdp: atob(data) }));
+
+          } catch (e) {
+
+            console.warn(e);
+
+          }
+
+        });
+
+    };
+
+
+
+    const webrtcSendChannel = webrtc.createDataChannel("rtsptowebSendChannel");
+
+    webrtcSendChannel.onopen = (event) => {
+
+      console.log(`${webrtcSendChannel.label} has opened`);
+
+      webrtcSendChannel.send("ping");
+
+    };
+
+    webrtcSendChannel.onclose = (_event) => {
+
+      console.log(`${webrtcSendChannel.label} has closed`);
+
+      startPlay(videoEl, url);
+
+    };
+
+    webrtcSendChannel.onmessage = (event) => console.log(event.data);
+
+  }
+
+
+
+  const videoEl = document.querySelector("#webrtc-video");
+
+  const webrtcUrl = document.querySelector("#webrtc-url").value;
+
+
+
+  startPlay(videoEl, webrtcUrl);
+
+}, 1000);
+```
+
+<img src="widgetskript.png" height="200">
+
+## Alle Streams als iFrame
+Alternativ können Sie die Kameraübersicht auch als iFrame hinzufügen:
+
+Fügen Sie das Widget `iFrame` hinzu und tragen Sie als Quelle den rtsp2web-Server ein:
+
+`http://192.168.0.2:8083/pages/multiview/full?controls`
+
+## FFMpeg-Unterstützung
+Wenn die Kamera keine Snapshot-Unterstützung hat, erstellt ffmpeg einen Snapshot aus dem rtsp-Stream.
+
+## Snapshot-Server in vis aufnehmen
+Der Adapter bietet einen Snapshot-Server ohne Passwort. Aktivieren Sie den Server in den Instanzeinstellungen und Sie erhalten dann den aktuellen Snapshot http://iobrokerIp:8095/CAMERAIP_PORT z.B. http://192.168.0.1:8095/192_168_0_1_80.
+
+Fügen Sie ein Bild-Widget in das Vis ein und geben Sie die URL als Quelle an und wählen Sie eine Aktualisierungszeit aus
+
 ## Schnappschuss in vis einfügen
-Verwenden Sie nach Möglichkeit eine Snapshot-URL
+Verwenden Sie nach Möglichkeit den snapshotUri, z.
 
 onvif.0.IP_PORT.infos.streamUris.MediaProfile_Channel1_MainStream.snapshotUrl.uri
 
-Verwenden Sie diesen Datenpunkt nicht als Stream, da die Last auf der Festplatte zu hoch ist.
+### _Datenpunkt nicht als Stream verwenden, sonst wird die Plattenlast zu hoch._
+#### Aktualisieren Sie den Datenpunkt über onvif.0.IP_PORT.remote.snapshot
+Weisen Sie dem Datenpunkt onvif.0.IP_PORT.snapshot ein Element `String img src` zu.
 
-Weisen Sie dem Datenpunkt onvif.0.IP_PORT.snapshot ein Element `String img src` zu
+Oder alternativ, wenn `String img src` nicht funktioniert
 
-Fügen Sie den Datenpunkt onvif.0.IP_PORT.snapshot als `HTML`-Element zu vis mit folgendem Inhalt hinzu
+Fügen Sie den Datenpunkt onvif.0.IP_PORT.snapshot als `HTML`-Element in das Vis mit folgendem Inhalt ein
 
 ```javascript
 <img src="{onvif.0.IP_PORT.snapshot}" width="500px" />
+```
+
+Neuen Schnappschuss bei Ereignis erstellen:
+
+```javascript
+on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (obj) => {
+  if (obj.state.val === true) {
+    setState("onvif.0.192_168_178_100_80.remote.snapshot", true, false);
+  }
+});
 ```
 
 ## Discussions / Diskussion und Fragen
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+
+### 1.0.5
+
+- Improve event handling
+
+### 1.0.4
+
+- (TA2k) Minor bugfixes and readme update for livestream in vis
 
 ### 1.0.3
 

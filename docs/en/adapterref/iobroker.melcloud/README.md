@@ -29,6 +29,26 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (Black-Thunder) Handling of error data from cloud was improved
+* (Black-Thunder) Admin UI has been updated
+* (Black-Thunder) ATW devices: New state "heatPumpFrequency" added
+* (Black-Thunder) ATW devices: New state "operationState" added
+* (Black-Thunder) ATW devices: Commands "operationModeZone1" and "operationModeZone2" fixed
+
+### 1.3.1 (2023-03-24)
+* (Black-Thunder) fixed "undefined is not a valid state value" log messages
+* (Black-Thunder) fixed crash after connection is lost (e.g. due to missing internet connection)
+* (Black-Thunder) updated admin UI and translations
+* (Black-Thunder) fixed a lot of adapter checker issues and warnings
+
+### 1.3.0 (2023-03-17)
+* (Black-Thunder) added online status to each device (visible in admin object tree)
+* (Black-Thunder) added error status to each device (visible in admin object tree)
+* (Black-Thunder) added error code and messages to device info
+* (Black-Thunder) added new command "timerToggle" to enable/disable device timers
+
 ### 1.2.1 (2022-12-06)
 * (Black-Thunder) added consumption reports for air to water devices
 
@@ -174,7 +194,7 @@ Documentation:
 ## License
 MIT License
 
-Copyright (c) 2022 Black-Thunder <glwars@aol.de>
+Copyright (c) 2023 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
