@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schoolfree/README.md
 title: ioBroker.schoolfree
-hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
+hash: BsSCPgTXnrYtW2QvtzPh2J6HOYP11s13WGmANTpaqbk=
 ---
 ![标识](../../../en/adapterref/iobroker.schoolfree/admin/schoolfree.png)
 
@@ -13,33 +13,34 @@ hash: EDRalLyqtcqnMYBrpn9kGAWs7VLjq92b1NumytrTEAI=
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.schoolfree/badge.svg)
 ![执照](https://img.shields.io/github/license/simatec/ioBroker.schoolfree?style=flat)
 ![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.schoolfree
 ![测试和发布](https://github.com/simatec/ioBroker.schoolfree/workflows/Test%20and%20Release/badge.svg)
 
-此适配器使用服务 Sentry.io 自动向作为开发人员的我报告异常和代码错误以及新设备模式。更多详情见下文！
+此适配器使用服务 Sentry.io 自动向我作为开发人员报告异常和代码错误以及新的设备模式。更多详情见下文！
 
-## IoBroker 的免费学校适配器
-**如果你喜欢它，请考虑捐赠：**
+## IoBroker 的 schoolfree 适配器
+**如果喜欢，请考虑捐款：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-### 德意志银行：
-Schoolfree ist ein Adapter für iobroker Installationen。
+### 德意志研究报告：
+Schoolfree 是用于安装 iobroker 的适配器。
 Mit dem Adapter lassen sich die Schulferien auswerten und in Datenpunkte übergeben。
-Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen, Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden。
+Die Datenpunkte können somit für weitere Funktionen wie Heizungssteuerungen、Rolladen- und Anwesenheitssteuerungen ausgewertet und verarbeitet werden。
 
 Der aktuelle Bezug von Terminen für die Schulferien erfolgt über die API von https://www.mehr-schulferien.de
 
 Aktuell werden die Schulferien und freien Tage für Deutschland unterstützt。
 
-Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung:
+Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Verfügung：
 
 * info.current.end: Datum für das Ende der aktuellen Ferien
 * info.current.name: Bezeichnung der aktuellen Schulferien
 * info.current.start: Startdatum der aktuellen Ferien
 * info.next.end: Datum für das Ende der nächsten Ferien
-* info.next.name: Bezeichnung der nächsten Schulferien
+* info.next.name：Bezeichnung der nächsten Schulferien
 * info.next.start: Startdatum der nächsten Ferien
 * info.today: Switch für den aktuellen Status heute (true/false)
 * info.tomorrow: Switch für den aktuellen Status morgen (true/false)
@@ -49,39 +50,43 @@ Folgende Datenpunkte stehen mit Schoolfree für die weitere Verarbeitung zur Ver
 ###英文说明：
 Schoolfree 是 iobroker 安装的适配器。
 使用适配器，可以评估学校假期并将其传输到数据点。
-因此，可以针对其他功能（例如加热控制、快门和存在控制）评估和处理数据点。
+因此，可以评估和处理数据点以用于其他功能，例如加热控制、快门和存在控制。
 
-当前的学校假期订阅是通过 https://www.mehr-schulferien.de 的 API
+当前学校假期的订阅是通过 https://www.mehr-schulferien.de 的 API
 
 目前，支持德国的学校假期和休息日。
 
 以下数据点可用于 Schoolfree 的进一步处理：
 
-* info.current.end：当前假期结束的日期
-* info.current.name：当前学校假期的名称
-* info.current.start：当前假期的开始日期
-* info.next.end：下一个假期结束的日期
+* info.current.end: 当前假期结束日期
+* info.current.name: 当前学校假期名称
+* info.current.start: 当前假期的开始日期
+* info.next.end: 下一个假期结束的日期
 * info.next.name：下一个学校假期的名称
-* info.next.start：下一个假期的开始日期
-* info.today：切换到今天的当前状态（真/假）
-* info.tomorrow：明天切换当前状态（真/假）
+* info.next.start: 下一个假期的开始日期
+* info.today: 切换为今天的当前状态(true/false)
+* info.tomorrow: 明天切换当前状态 (true / false)
 
-### Sentry.io 是什么以及向该公司的服务器报告什么？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概述。而这正是在这个适配器中实现的。
+### 什么是 Sentry.io 以及向该公司服务器报告的内容？
+Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
 
-当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息将提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，还包括您的安装 ID（这只是一个唯一 ID **没有**关于您的任何其他信息、电子邮件、姓名等）。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
+### 1.1.1 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+
 ### 1.1.0 (2022-11-01)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.1 (2021-11-18)
-(simatec) Dependencies updated
-(simatec) test and release updated
+* (simatec) Dependencies updated
+* (simatec) test and release updated
 
 ### 1.0.0 (06.05.2021)
 * (simatec) GUI revised
@@ -161,7 +166,7 @@ Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有�
 ## License
 MIT License
 
-Copyright (c) 2019 - 2022 simatec
+Copyright (c) 2019 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

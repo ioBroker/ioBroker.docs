@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
-title: 核心概念
-hash: 6bOFwLcKBMyTMm62sOIDQCrjkKrrNjI6LGXKF8sprYY=
+title: 核心理念
+hash: vEtqMEH8AUty2RYmhq8AyMS0URpWv+8xbJkZa7iHynE=
 ---
 # 核心概念
 ioBroker 中有两种根本不同的数据类型。所谓的 **states**(`states`) 和 **objects**。
@@ -185,6 +185,8 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 * `group` - 组
 *`图表`-图表
 * `folder` - 一堆设备或者可能是其他东西。
+* `schedule` - 一个时间表，例如日历事件
+* `design` - 用于 `getObjectView` 的设计对象
 
 #### 特定对象类型的属性
 ＃＃＃＃＃ 状态
@@ -546,7 +548,7 @@ ID
 * `common.serviceStates` - [true/false or path] 如果适配器可以提供额外的状态。如果是，路径 `adapter/lib/states.js` 将被调用，并给出以下参数函数（对象、状态、实例、配置、回调）。该函数必须传递点数组，其值类似于`function (err, result) { result = [{id: 'id1', val: 1}, {id: 'id2', val: 2}]}`
 * `common.singletonHost` - 适配器只能在一台主机上安装一次
 * `common.singleton` - 适配器在整个系统中只能安装一次
-* `common.statusStates` - admin 中的状态指示结构，形式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
+* `common.statusStates` - admin 中的状态指示结构，格式为 `"statusStates": {"onlineId": "0.connected", "errorId": "hm-rpc.0.AB203424.0.error"}` .可以使用 `offlineId` 而不是 `onlineId`。如果 ID 很短（少于 2 个点），那么 ID 将被视为相对于当前对象。
 * `common.stopBeforeUpdate` - [true/false] 如果适配器必须在更新前停止
 * `common.stopTimeout` - 以毫秒为单位的超时等待，直到适配器关闭。默认 500 毫秒。
 * `common.stoppedWhenWebExtension` - 如果实例具有模式 `daemon` 但它作为 Web 扩展运行（`native.webInstance !== ''`），如果 `common.stoppedWhenWebExtension` 为真，控制器将不会启动该实例。

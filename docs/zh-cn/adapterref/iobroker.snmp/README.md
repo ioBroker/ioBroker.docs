@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
+hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 ---
 ![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -29,6 +29,12 @@ hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 
 ＃＃ __工作正在进行中__
 -->
+
+### 2.4.5 (2023-03-20)
+* (McM1957) 修正：使用 SHA 身份验证时 SNMPv3 崩溃 (#236)
+
+### 2.4.4 (2023-03-03)
+* (McM1957) 修正：哨兵报告的崩溃 (#235)
 
 ### 2.4.3 (2023-03-01)
 * (McM1957) 翻译和依赖项已更新。
@@ -126,7 +132,7 @@ hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 安装将尝试转换旧配置 - 但不能保证在所有情况下都能成功。
 
 * (McM1957) 代码的许多部分已被重写
-* (McM1957) 适配器现在使用 admin5 接口
+* (McM1957) 适配器现在使用 admin5 界面
 * (McM1957) 现在可以为每个设备设置不同的定时器值 (#105)
 * (McM1957) 更改配置条目的顺序不再破坏数据 (#15)
 * (McM1957) 现在可以命名设备的状态对象。旧行为可作为选项使用。
@@ -168,7 +174,7 @@ hash: 8mwbhrvuVmytWIAPN5T+kkSEqlx4n82637hr2IEP6AI=
 | OID-名称 |文字 |分配给 OID 的名称 |将用于命名数据点 |
 |标识符 |文字 | oid 字符串 (1.2.3.4.) |设备供应商指定的 oid 字符串 |
 |可写 |布尔 |如果 OID 是可写的，应该设置为 true |留作将来使用 |
-|可选 |布尔 |如果 OID 是可选的，则应设置为 true |如果设置为 true，如果 oid 未知，则不会引发错误 |
+|可选 |布尔 |如果 OID 是可选的，应该设置为 true |如果设置为 true，如果 oid 未知，则不会引发错误 |
 
 ### __TAB 设备__
 您可以在此处指定应查询哪些设备。

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
+hash: k9hP2CX8WzRlBmnA+uAz1Ll2DUkb994uTPQxjZA4YUg=
 ---
 ![标识](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -17,12 +17,11 @@ hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 #ioBroker.rct
 **测试：** ![测试和发布](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## 项目不再维护
-切换到 Home Assistant 后，我不再维护这个适配器。
-如果您有兴趣接管它，请告诉我。
+## 所有者变更
+在 lauff 切换到 Home Assistant 后 - 项目将由 aruttkamp 继续
 
 ## IoBroker 的 RCT 适配器
-请注意，这是一个私人项目，我（Markus Lauff）与 RCT 没有任何关系。
+请注意，这是一个私人项目，我（Andreas Ruttkamp）与 RCT 没有任何关系。
 
 显示 RCT Power 光伏电源转换器的值
 
@@ -39,7 +38,8 @@ hash: xIw/AFvCB/bHIJe2yR/HqTgPGVybngkeG6EmijovYps=
 如果发生这种情况，请停止适配器并手动删除节点“rct.0”。
 
 ## Changelog
-
+### 1.0.2
+* (Andreas Ruttkamp) 
 ### 1.0.1
 * (Markus Lauff) fixing review comments - thanks to Apollon77
 ### 1.0.0
@@ -72,4 +72,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2022 Markus Lauff <ioBroker.rct@markus.lauff.com>
+Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

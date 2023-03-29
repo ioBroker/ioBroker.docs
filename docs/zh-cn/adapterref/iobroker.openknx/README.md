@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: pqgZNT9s66H7Tb/lglLsi8oAaVgpvUw6XH5gsM6Fxk4=
+hash: fgn2XddwM2QsfoOHGlS+paeCD3D/hNmnnUcCTYjkG60=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -58,7 +58,7 @@ hash: pqgZNT9s66H7Tb/lglLsi8oAaVgpvUw6XH5gsM6Fxk4=
 在总线上请求所有配置有自动读取标志的 IOB 对象与 IOB 同步。
 
 ### 仅导入 IOB 对象中不存在的 GA
-如果选中，导入将跳过覆盖现有的通信对象。
+如果选中，导入将跳过覆盖现有通信对象。
 
 ### 删除不在导入文件中的现有 IOB 对象
 清理对象树
@@ -94,7 +94,7 @@ hash: pqgZNT9s66H7Tb/lglLsi8oAaVgpvUw6XH5gsM6Fxk4=
 
 ###别名
 KNX 设备可以具有属于命令 ga 的用于状态反馈的 ga。一些应用程序，如某些 VIS 小部件，需要一个组合的状态和动作对象。您可以将这些状态组合成一个别名，方法是使用一个单独的别名 ID 来写入和另一个来读取。该菜单有助于根据命名约定和给定的过滤规则创建匹配对。
-在这里找到更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
+在此处查找更多信息 https://www.iobroker.net/#en/documentation/dev/aliases.md
 
 ### 正则表达式
 过滤规则。
@@ -179,7 +179,7 @@ GA 导入按照 ga main-group/middle-group 方案生成通信对象文件夹结�
 
 ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) 默认值为“state”。一些更精细的值是从 DPT 派生的，例如 Date 或 Switch。
 
-当 DPT 清楚地表明这是触发信号时，Autoread 设置为 false。这适用于场景编号。
+当 DPT 清楚地表明这是一个触发信号时，Autoread 设置为 false。这适用于场景编号。
 
 ```json
 {
@@ -294,7 +294,7 @@ DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的结构�
 DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳派生的 KNX ko 字段未实现，例如。质量标志。
 
 日期和时间 DPT（DPT10、DPT11） 请记住，Javascript 和 KNX 的时间和日期基本类型非常不同。
-DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置一个常规的 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“7 月 1 日星期一 12:34:56”的完全相同的数据报将在一周后评估为一个截然不同的 JS 日期“7 月 8 日星期一 12:34:56”。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
+DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置一个常规的 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“7 月 1 日星期一 12:34:56”的完全相同的数据报将在一周后评估为完全不同的 JS 日期“7 月 8 日星期一 12:34:56”。被警告！ DPT11 是日期 (dd/mm/yyyy)：同样适用于 DPT11，您需要忽略时间部分。
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
@@ -360,9 +360,11 @@ Openknx 使用 sentry.io 进行应用程序监控和错误跟踪。
 
 ### **WORK IN PROGRESS**
 
+### 0.5.3 (2023-03-17)
+
 -   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
-- todo verbindungsabbrueche analysizeren
-- todo create confirmation
+-   bugfix: admin menu scroll small screen #339
+-   feature: add dpt 9.009
 
 ### 0.5.2 (2023-01-02)
 

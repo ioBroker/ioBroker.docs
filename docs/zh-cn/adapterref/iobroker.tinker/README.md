@@ -3,36 +3,39 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: keeAn15kWOL11iVfAuzbRm8qeiPupoUlwH36ne0B0oQ=
+hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
 ---
 ![标识](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
-![安装数量](http://iobroker.live/badges/tinker-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tinker.svg)
+![安装数量（最新）](http://iobroker.live/badges/tinker-installed.svg)
+![安装数量（稳定）](http://iobroker.live/badges/tinker-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.tinker.png?downloads=true)
+![执照](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)
+![捐](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.tinker
 ===================
 
-![测试和发布](https://github.com/simatec/ioBroker.uv-protect/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 
-Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和 OrangePi Monitor 适配器的修改版
+Tinker Board Monitor adapter 是 Raspberry PI Monitor adapter 和 OrangePi Monitor adapter for ioBroker 的修改版本
 
-**如果您喜欢，请考虑捐赠：**
+**如果喜欢，请考虑捐款：**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Q4EEXQ6U96ZTQ&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ### 重要信息
 测试硬件：Asus Tinker Board
 
-###以下对象在选择后可用：
+### 以下对象在选择后可用：
 ＃＃ *中央处理器*
-- cpu_频率
+- cpu_frequency
 - 加载 1
-- 负载5
-- 负载15
+- 加载5
+- 加载 15
 
 ＃＃ *记忆*
 - 内存可用
@@ -41,7 +44,7 @@ Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和
 
 ## *网络（eth0）*
 - net_received
-- 网络发送
+- net_send
 
 ＃＃ *SD卡*
 - sdcard_root_total
@@ -49,10 +52,10 @@ Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和
 
 ＃＃ *交换*
 - swap_total
-- 交换使用
+- swap_used
 
 ＃＃ *温度*
-- soc_temp
+- 社会温度
 
 ## *正常运行时间*
 - 正常运行时间
@@ -62,7 +65,7 @@ Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和
 - wifi_send
 
 ＃＃ 配置
-在配置页面，您可以选择以下模块：
+在配置页面上，您可以选择以下模块：
 
 - 中央处理器
 - 记忆
@@ -75,6 +78,11 @@ Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.2.0 (2023-03-18)
+* (simatec) Dependencies updated
+* (simatec) test and release updated
+* (simatec) Repo updated
+
 ### 1.1.1 (2021-11-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -103,7 +111,7 @@ Tinker Board Monitor 适配器是 ioBroker 的 Raspberry PI Monitor 适配器和
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 simatec
+Copyright (c) 2018 - 2023 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

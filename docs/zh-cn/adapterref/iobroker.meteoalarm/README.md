@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
+hash: shouD1ahIo8Rcv3515jbk16VSS/LkGHhEkdquGEaU0E=
 ---
 ![标识](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -17,9 +17,9 @@ hash: 7xEbq/dyKmo40+xa6zqeS1JsKI1pscmmUptRfdGTdZc=
 
 ioBroker 的 meteoalarm 适配器-------------------------------------------- ------------------------------ 该适配器从 https://meteoalarm.org 提取天气警报，其中包括风、雪、雨、高低温等。此信息以当地语言和详细区域提供。
 
-免责声明：本网站和 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务发布的警报级别的最新信息，请使用 https://www.meteoalarm.org。
+免责声明：本网站和 www.meteoalarm.org 网站之间可能存在时间延迟，有关参与国家气象服务发布的有关警报级别的最新信息，请使用 https://www.meteoalarm.org。
 
-开发者不能保证警告被及时处理或出现错误和问题导致根本不处理警告！
+开发者不能保证警告被及时处理或者出现错误和问题导致根本不处理警告！
 
 ＃＃ 如何使用它
 选择您所在的国家/地区，然后选择您想要警告的地区。如果您不确定您的区域名称是什么，请访问 https://meteoalarm.org 并尝试在地图上找到它。
@@ -27,6 +27,12 @@ ioBroker 的 meteoalarm 适配器-------------------------------------------- --
 [英文说明](docs/en/meteoalarm.md)
 
 [德国新闻报](docs/de/meteoalarm.md)
+
+## 2.3.5 (2023-03-27)
+* (jack-blackson) IOBROKER-METEOALARM-47 & IOBROKER-METEOALARM-48
+
+## 2.3.4 (2023-03-26)
+* (jack-blackson) IOBROKER-METEOALARM-4A
 
 ## 2.3.3 (2023-02-09)
 * (jack-blackson) 添加了为小部件、JSON 和通知定义警报级别的可能性

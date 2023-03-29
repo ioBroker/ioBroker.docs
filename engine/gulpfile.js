@@ -81,26 +81,26 @@ function writeWordJs(data, src) {
     text += 'systemDictionary = {\n';
     for (const word in data) {
         if (data.hasOwnProperty(word)) {
-            text += '    ' + padRight('"' + word.replace(/"/g, '\\"') + '": {', 50);
+            text += `    ${padRight('"' + word.replace(/"/g, '\\"') + '": {', 50)}`;
             let line = '';
             for (const lang in data[word]) {
                 if (data[word].hasOwnProperty(lang)) {
-                    line += '"' + lang + '": "' + padRight(data[word][lang].replace(/"/g, '\\"') + '",', 50) + ' ';
+                    line += `"${lang}": "${padRight(data[word][lang].replace(/"/g, '\\"') + '",', 50)} `;
                 }
             }
             if (line) {
                 line = line.trim();
                 line = line.substring(0, line.length - 1);
             }
-            text += line + '},\n';
+            text += `${line}},\n`;
         }
     }
     text += '};';
-    fs.writeFileSync(src + '/i18n/' + fileName, text);
+    fs.writeFileSync(`${src}/i18n/${fileName}`, text);
 }
 
 function languagesFlat2words(src) {
-    const dirs = fs.readdirSync(src + 'i18n/flat/');
+    const dirs = fs.readdirSync(`${src}i18n/flat/`);
     const langs = {};
     const bigOne = {};
     const order = Object.keys(languages);
@@ -125,14 +125,14 @@ function languagesFlat2words(src) {
             return 0;
         }
     });
-    const keys = fs.readFileSync(src + 'i18n/flat/index.txt').toString().split('\n');
+    const keys = fs.readFileSync(`${src}i18n/flat/index.txt`).toString().split('\n');
 
     for (let l = 0; l < dirs.length; l++) {
         if (dirs[l] === 'index.txt') {
             continue;
         }
         let lang = dirs[l];
-        const values = fs.readFileSync(src + 'i18n/flat/' + lang).toString().split('\n');
+        const values = fs.readFileSync(`${src}i18n/flat/${lang}`).toString().split('\n');
         lang = lang.replace('.txt', '');
         langs[lang] = {};
         keys.forEach((word, i) => langs[lang][word] = values[i]);
@@ -156,14 +156,14 @@ function languagesFlat2words(src) {
         for (const w in aWords) {
             if (aWords.hasOwnProperty(w)) {
                 if (!bigOne[w]) {
-                    console.warn('Take from actual words.js: ' + w);
+                    console.warn(`Take from actual words.js: ${w}`);
                     bigOne[w] = aWords[w];
                 }
                 dirs.forEach(lang => {
                     if (temporaryIgnore.indexOf(lang) !== -1) {
                         return;
                     }
-                    !bigOne[w][lang] && console.warn('Missing "' + lang + '": ' + w);
+                    !bigOne[w][lang] && console.warn(`Missing "${lang}": ${w}`);
                 });
             }
         }
@@ -205,20 +205,20 @@ function words2languagesFlat(src) {
             }
             langs[l] = obj;
         }
-        if (!fs.existsSync(src + 'i18n/')) {
-            fs.mkdirSync(src + 'i18n/');
+        if (!fs.existsSync(`${src}i18n/`)) {
+            fs.mkdirSync(`${src}i18n/`);
         }
-        if (!fs.existsSync(src + 'i18n/flat')) {
-            fs.mkdirSync(src + 'i18n/flat');
+        if (!fs.existsSync(`${src}i18n/flat`)) {
+            fs.mkdirSync(`${src}i18n/flat`);
         }
         for (const ll in langs) {
             if (!langs.hasOwnProperty(ll))
                 continue;
-            fs.writeFileSync(src + 'i18n/flat/' + ll + '.txt', lang2data(langs[ll], langs.en));
+            fs.writeFileSync(`${src}i18n/flat/${ll}.txt`, lang2data(langs[ll], langs.en));
         }
-        fs.writeFileSync(src + 'i18n/flat/index.txt', keys.join('\n'));
+        fs.writeFileSync(`${src}i18n/flat/index.txt`, keys.join('\n'));
     } else {
-        console.error('Cannot read or parse ' + fileName);
+        console.error(`Cannot read or parse ${fileName}`);
     }
 }
 
@@ -242,8 +242,8 @@ gulp.task('i18n=>flat', done => {
     const keys = Object.keys(index);
     keys.sort();
 
-    if (!fs.existsSync(dir + '/flat/')) {
-        fs.mkdirSync(dir + '/flat/');
+    if (!fs.existsSync(`${dir}/flat/`)) {
+        fs.mkdirSync(`${dir}/flat/`);
     }
 
     langs.forEach(lang => {
@@ -251,21 +251,21 @@ gulp.task('i18n=>flat', done => {
         keys.forEach(key => {
             words.push(index[key][lang]);
         });
-        fs.writeFileSync(dir + '/flat/' + lang + '.txt', words.join('\n'));
+        fs.writeFileSync(`${dir}/flat/${lang}.txt`, words.join('\n'));
     });
-    fs.writeFileSync(dir + '/flat/index.txt', keys.join('\n'));
+    fs.writeFileSync(`${dir}/flat/index.txt`, keys.join('\n'));
     done();
 });
 
 gulp.task('flat=>i18n', done => {
-    if (!fs.existsSync(dir + '/flat/')) {
-        console.error(dir + '/flat/ directory not found');
+    if (!fs.existsSync(`${dir}/flat/`)) {
+        console.error(`${dir}/flat/ directory not found`);
         return done();
     }
-    const keys = fs.readFileSync(dir + '/flat/index.txt').toString().split(/[\r\n]/);
+    const keys = fs.readFileSync(`${dir}/flat/index.txt`).toString().split(/[\r\n]/);
     while (!keys[keys.length - 1]) keys.splice(keys.length - 1, 1);
 
-    const files = fs.readdirSync(dir + '/flat/').filter(name => name.match(/\.txt$/) && name !== 'index.txt');
+    const files = fs.readdirSync(`${dir}/flat/`).filter(name => name.match(/\.txt$/) && name !== 'index.txt');
     const index = {};
     const langs = [];
     files.forEach(file => {
@@ -291,12 +291,12 @@ gulp.task('flat=>i18n', done => {
 });
 
 gulp.task('flat=>words.js', done => {
-    languagesFlat2words(__dirname + '/front-end/src/');
+    languagesFlat2words(`${__dirname}/front-end/src/`);
     done();
 });
 
 gulp.task('words.js=>flat', done => {
-    words2languagesFlat(__dirname + '/front-end/src/');
+    words2languagesFlat(`${__dirname}/front-end/src/`);
     done();
 });
 
@@ -340,7 +340,7 @@ gulp.task('downloadAndSyncOne', done => {
 
     return adapters.buildAdapterContent(ADAPTER_NAME)
         .then(content => {
-            documentation.syncDocs('iobroker.' + ADAPTER_NAME, () => {
+            documentation.syncDocs(`iobroker.${ADAPTER_NAME}`, () => {
                 Promise.all(consts.LANGUAGES.map(lang => adapters.copyAdapterToFrontEnd(lang, ADAPTER_NAME)))
                     .then(() => {
                         done();
@@ -369,12 +369,12 @@ gulp.task('remove', done => {
 
         adapter = 'iobroker.' + adapter;
         consts.LANGUAGES.forEach(lang => {
-            const dir = consts.SRC_DOC_DIR + lang + '/adapterref/' + adapter;
+            const dir = `${consts.SRC_DOC_DIR + lang}/adapterref/${adapter}`;
             if (fs.existsSync(dir)) {
                 try {
                     utils.delDir(dir);
                 } catch (e) {
-                    console.error('Cannot delete ' + path.normalize(dir));
+                    console.error(`Cannot delete ${path.normalize(dir)}`);
                 }
             }
         });
@@ -495,21 +495,21 @@ gulp.task('8.createSitemap', done => {
 
 gulp.task('9.build', done => {
     const { exec } = require('child_process');
-    const SRC_DATA_DIR = __dirname + '/front-end/build/data';
-    const TGT_DATA_DIR = __dirname + '/front-end/data';
+    const SRC_DATA_DIR = `${__dirname}/front-end/build/data`;
+    const TGT_DATA_DIR = `${__dirname}/front-end/data`;
 
     // save data folder
     if (fs.existsSync(SRC_DATA_DIR)) {
         !fs.existsSync(TGT_DATA_DIR) && fs.mkdirSync(TGT_DATA_DIR);
 
         fs.readdirSync(SRC_DATA_DIR)
-            .forEach(name => fs.writeFileSync(TGT_DATA_DIR + '/' + name, fs.readFileSync(SRC_DATA_DIR + '/' + name)));
+            .forEach(name => fs.writeFileSync(`${TGT_DATA_DIR}/${name}`, fs.readFileSync(SRC_DATA_DIR + '/' + name)));
     }
 
-    if (!fs.existsSync(__dirname + '/front-end/node_modules')) {
-        const child = exec('npm install', {stdio: [process.stdin, process.stdout, process.stderr], cwd: __dirname + '/front-end'});
+    if (!fs.existsSync(`${__dirname}/front-end/node_modules`)) {
+        const child = exec('npm install -f', {stdio: [process.stdin, process.stdout, process.stderr], cwd: `${__dirname}/front-end`});
         child.on('exit', (code, signal) => {
-            const child_ = exec('npm run build', {stdio: [process.stdin, process.stdout, process.stderr], cwd: __dirname + '/front-end'});
+            const child_ = exec('npm run build', {stdio: [process.stdin, process.stdout, process.stderr], cwd: `${__dirname}/front-end`});
             child_.on('exit', (code, signal) => {
 
                 // restore data folder
@@ -521,7 +521,7 @@ gulp.task('9.build', done => {
             });
         });
     } else {
-        const child = exec('npm run build', {stdio: [process.stdin, process.stdout, process.stderr], cwd: __dirname + '/front-end'});
+        const child = exec('npm run build', {stdio: [process.stdin, process.stdout, process.stderr], cwd: `${__dirname}/front-end`});
         child.on('exit', (code, signal) => {
 
             // restore data folder

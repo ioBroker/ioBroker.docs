@@ -654,6 +654,7 @@ https://doc.iobroker.net/#zh-cn/documentation/viz/timeandweather.md
 https://doc.iobroker.net/#zh-cn/documentation/viz/vis.md
 https://doc.iobroker.net/#zh-cn/documentation/viz/widgets.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.accuweather/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.acme/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.adb/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.adguard/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.admin/admin/tab-adapters.md
@@ -1252,6 +1253,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.zoneminder/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.zont/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.zwave2/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.accuweather/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.acme/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.adb/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.adguard/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.admin/admin/tab-adapters.md
@@ -1850,6 +1852,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.zoneminder/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.zont/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.zwave2/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.accuweather/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.acme/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.adb/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.adguard/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.admin/admin/tab-adapters.md
@@ -2448,6 +2451,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.zoneminder/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.zont/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.zwave2/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.accuweather/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.acme/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.adb/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.adguard/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/admin/tab-adapters.md

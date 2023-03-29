@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
+hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -12,19 +12,19 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
-![新PM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
 
 # IoBroker.mielecloudservice [![测试和发布](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.mielecloudservice/actions/workflows/test-and-release.yml)
 ## IoBroker 的 mielecloudservice 适配器
 连接您的 Miele 电器（XGW3000 和 WiFiConn@ct）
 
-&gt;如果你喜欢这个适配器并考虑支持我：<br/> &gt;[![使用 PayPal 捐款](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
+&gt;如果你喜欢这个适配器并考虑支持我：<br/> &gt;[![使用 PayPal 捐赠](admin/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=SPUDTXGNG2MYG)
 
 ＃＃ 描述
-此适配器用于从官方 Miele 3rd-party API 检索有关您所有 Miele@Home 设备的信息。
+此适配器用于从官方 Miele 第 3 方 API 检索有关所有 Miele@Home 设备的信息。
 无论它们是通过 Wi-Fi 还是 XGW3000 网关直接连接。它实现了 **Miele 3rd Party API V1.0.5**
 
-## 先决条件
+##先决条件
 * Miele@Home 用户（智能手机应用程序）
 * Miele@Home 密码（智能手机应用程序）
 * Miele Client_id（来自 https://www.miele.com/developer/）
@@ -33,14 +33,32 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 ＃＃ 安装
 要安装，请执行以下操作：
 
-1.通过管理员安装使用
+1.使用管理员通过安装
 * stable Repo - 获取当前的稳定版本
 * latest Repo - 获取最新的测试版本（可能不稳定）
 * 通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - 获取最新的开发版本
-2. 在 Miele 智能手机 App 中为 Miele@Home 创建 App-Account
-3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者账户
+2. 在 Miele 智能手机应用程序中为 Miele@Home 创建一个应用程序帐户
+3. 在 https://www.miele.com/f/com/en/register_api.aspx 创建一个开发者帐户
 4. 将您的 Miele 设备添加到应用程序（如果未自动添加）
-6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及来自 App 的 account-id 和密码。
+6. 填写从 Miele-developer Team 收到的 client_secret 和 client_id 以及从 App 收到的 account-id 和 password。
+
+＃＃ 特征
+该适配器目前几乎实现了 Miele API V1.0.5 的所有功能和 API V1.0.6 的部分功能。
+API 的功能可能（目前如此）与 iOS 和 Android 应用程序的功能不同。
+例如。 TwinDos 上没有可用信息 - 即使应用程序也有。
+这包括：
+
+* 支持所有已知和记录的设备类型 (API V1.0.6)。
+* 所有设备类型的基本信息。
+* 所有设备类型的扩展信息。
+* 报告此情况的设备的 EcoFeedback（水和/或电力消耗）。
+
+  `Note: Not all devices report this information - event not if they do so in the iOS or Android apps. Search for the ecoFeedback folder in the device tree.`
+
+* 您可以在此设备上执行的支持操作 - 设备的功能主要由 API 本身报告。
+
+＃＃ 已知的问题
+* 从适配器v6.0.0开始基本支持程序。需要额外参数的程序除外，例如烤箱。
 
 ＃＃ 配置
 ### 基本配置
@@ -51,66 +69,64 @@ hash: lIgruIw07hM1WUJaiFLdYokK7+so8UCE+IjwAu08JIw=
 * Miele Client_id（来自 https://www.miele.com/developer/）
 * Miele Client_secret（来自 https://www.miele.com/developer/ ）
 
-### 服务器发送的事件
-从 V6.2.0 开始，您有机会在
+### 从 Miele 服务器请求数据
+从 V6.2.0 开始，您有机会选择
 
-* 服务器发送事件（服务器发送事件复选框被选中 - 默认）
-* 基于时间的数据轮询（服务器发送事件复选框未选中）
-* 延迟处理
+* 服务器发送的事件（服务器发送的事件复选框被选中 - 默认和*强烈推荐*）
+* 基于时间的数据轮询（服务器发送的事件复选框未选中）
+*延迟处理
 
-#### 服务器发送的事件
-服务器发送事件是从 miele 服务器获取数据的一种非常简洁的方法，因为服务器会在发生更改时向您发送数据。没有无用的轮询每 xx 秒忽略是否有变化。不幸的是，使用这种连接类型存在问题——它经常失败，只有重新启动适配器才能解决这个问题。
+#### 服务器发送的事件（强烈推荐）
+服务器发送事件是从 Miele 服务器获取数据的一种非常巧妙的方法，因为只要有更改，服务器就会向您发送数据。没有每 xx 秒无用的轮询而忽略是否有更改。不幸的是，使用这种连接类型存在问题——它经常失败，只有重新启动适配器才能解决这个问题。
 
 #### 基于时间的数据轮询
-为了提高适配器的稳定性，我重新引入了数据轮询作为配置选项，您可以在 SSE 失败四次时使用。
-尽管如此，SSE 是默认设置，我强烈建议您尝试使用它，因为它可以节省您和 Mieles 方面的许多资源。除此之外，我从版本 5.x.x 开始关注 SSE。
+为了提高适配器的稳定性，我重新引入了数据轮询作为一个配置选项，当 SSE 失败时，您可以使用它。
+尽管如此，SSE 是默认设置，我强烈建议您尝试使用它，因为它可以为您和 Mieles 节省大量资源。除此之外，我从 5.x.x 版开始关注 SSE。
 基于时间的数据轮询依赖于两个配置选项：
 
-* 轮询间隔
+*轮询间隔
 * 轮询间隔单位（秒/分钟）
 
 #### 延迟处理
-如果您拥有一些 Miele 设备并同时使用它们，则 API 可能会在短时间内发送许多消息。根据您的 ioBroker 硬件，这可能会使您的服务器过载并导致无响应的可视化或完全无响应的代理。为避免这种情况，此配置选项将处理的消息数量减少为每 xxx 毫秒处理一条消息。
+如果您拥有一些 Miele 电器并同时使用它们，API 可能会在短时间内发送许多消息。根据您的 ioBroker 硬件，这可能会使您的服务器过载并导致无响应的可视化或无响应的代理。为避免这种情况，此配置选项将每 xxx 毫秒正在处理的消息数量减少为一条消息。
 相关配置选项：
 
 * 延迟处理
 * 消息延迟
 
 ## 控制你的设备
-### 行动
-实现了所有设备的所有当前支持和记录的操作 (API V1.0.5)。
-> 请记住，只有将设备置于适当的状态（例如 Mobile Control、powerOn、...）时，Actions 才会起作用。
-有关操作的更多信息，请参阅[Miele-文档](#documentation)。
+### 动作
+所有设备当前支持和记录的所有操作均已实施 (API V1.0.5)。
+> 请记住，只有当您将设备置于适当的状态（例如移动控制、开机等）时，操作才会起作用。
+有关操作的更多信息，请参阅 [Miele 文档](#documentation)。
 
 ### 程序（在 API V1.0.5 中引入）
-在 API V1.0.5 中，德国美诺 Miele 引入了一个名为“/programs”的新端点。
-对该端点的支持从适配器版本 4.5.0 开始。将创建一个新数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
-**选择其中一个值将立即执行程序！** 目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
+在 API V1.0.5 中，Miele 引入了一个名为“/programs”的新端点。
+对该端点的支持从适配器版本 4.5.0 开始。将创建一个新的数据点 [device.Actions.Program]，列出 Miele 返回的所有支持的程序。
+**选择其中一个值将立即执行程序！**目前仅支持简单程序。例如。烤箱需要一些额外的信息——这将在未来的版本中实现。
 
-在发布适配器时，德国美诺 Miele 记录了一些设备类别来支持此端点，并且只有（至少对我而言）其中的一部分真正起作用。对于我的咖啡系统、洗衣机和滚筒式烘干机，它只适用于咖啡系统。
-但德国美诺 Miele 正在努力并定期提供支持。
-有关更多信息，请参阅通用 Miele API 文档（如下）。
-
-＃＃ 已知的问题
-* 自 API V1.05 (/programs) 以来，Miele API 内有一个新端点。
-  * 目前尚不清楚如何使用它们，因为 API 文档是......可改进的。
-  * 从适配器 v6.0.0 开始基本支持这些程序。需要附加参数的程序除外。
+在发布适配器时，Miele 记录了一些设备类别以支持此端点，并且只有（至少对我而言）其中的一个子集真正起作用。对于我的咖啡系统、洗衣机和烘干机，它仅适用于咖啡系统。
+但 Miele 正在努力解决这个问题并定期扩展支持。
+有关详细信息，请参阅通用 Miele API 文档（如下）。
 
 ## 文档
 如果您想更深入地了解或需要原始值翻译，请参阅[本文档。](machine_states.md)
 
-##哨兵.io
-该适配器使用 sentry.io 收集有关崩溃的详细信息并将其自动报告给作者。 [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry)插件用于它。请参阅[插件主页](https://github.com/ioBroker/plugin-sentry)以获取有关插件功能、收集哪些信息以及如何禁用它的详细信息，如果您不喜欢用您的崩溃信息来支持作者。
+## Sentry.io
+此适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.哨兵](https://github.com/ioBroker/plugin-sentry) 插件用于它。如果您不想用有关崩溃的信息来支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件功能、收集哪些信息以及如何禁用它的详细信息。
 
-##版权
+## 版权所有
 版权所有 (c) 2019-2022 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.4.1 (2022-10-12) (Dying for an Angel)
+### 6.5.0 (2023-04-xx) (Dying for an Angel)
+* (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
+* (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

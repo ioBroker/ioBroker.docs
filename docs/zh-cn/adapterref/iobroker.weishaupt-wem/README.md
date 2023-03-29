@@ -3,28 +3,46 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weishaupt-wem/README.md
 title: ioBroker.weishaupt-wem
-hash: sykXgAjoKQjyRTzx0fq16BxLCU0tq36dN1W8krdMqSU=
+hash: ATGAU8nFMXrrTeMrhr8gtanC/XhO5h+L4OnWCDODo7E=
 ---
-![商标](../../../en/adapterref/iobroker.weishaupt-wem/admin/weishaupt-wem.png)
+![标识](../../../en/adapterref/iobroker.weishaupt-wem/admin/weishaupt-wem.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.weishaupt-wem.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.weishaupt-wem.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.weishaupt-wem.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.weishaupt-wem.svg)
 ![依赖状态](https://img.shields.io/david/ta2k/iobroker.weishaupt-wem.svg)
 ![已知漏洞](https://snyk.io/test/github/ta2k/ioBroker.weishaupt-wem/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.weishaupt-wem.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/ta2k/ioBroker.weishaupt-wem/master.svg)
+![Travis-CI](http://img.shields.io/travis/ta2k/ioBroker.weishaupt-wem/master.svg)
 
-＃ioBroker.weishaupt-wem
-## Weishaupt-wem ioBroker适配器
-weishaupt WEM门户适配器
+# IoBroker.weishaupt-wem
+## IoBroker 的 weishaupt-wem 适配器
+威索 WEM 门户适配器
 
-##自定义Befehl
-请自定义URL和eww的自定义Befehlbenötigst。在WEM门户网站中添加URL选项，然后在Chrome浏览器中添加元素，然后在STRG + F服务器中添加元素名称=“ RDWWriteParameter”，并在URL中添加URL。 Fürden Werte nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
-z.B.: <https://www.wemportal.com/Web/UControls...,> 208557
+## 自定义 Befehl
+Für ein Custom Befehl benötigst du die URL 和 den gewünschten Wert。 Für die URL einfach die Option im WEM Portal mit Chrome aufrufen und dann rechte Maustate Untersuchen dann under Elements/Elemente mit STRG+F nach iframe suchen mit dem name=&quot;RDWWriteParameter&quot; die URL nach src mit rechts Klick Link kopieren raus kopieren。 Für den Werte nach <option suchen und den gewünschten Wert unter value kopieren und als state Wert eintragen.
+z.B.: <https://www.wemportal.com/Web/UControls...,>208557
+
+＃＃ 应用程序支持
+Der Adapter 位于应用程序 aus 的 Daten 中。
+
+**weishaupt-wem.0.20999** “通过 App 命名”
+
+**weishaupt-wem.0.20999.1-3.parameters** 通过**NumericValue** 或 **StringValue** geändert werden 可以找到当前状态和 kann。 Du findest dort auch die Min Max Werte und unter **EnumValues** findet man die Beschreibung für NumericValue
 
 ## Changelog
 
-### 0.0.7
+### 0.0.15
+
+* (ta2k) add app support
+
+### 0.0.14
+
+* (ta2k) fix command sends
+### 0.0.13
+
+* (ta2k) update dependencies
+
+### 0.0.9
 
 * (ta2k) fix for Status label
 
