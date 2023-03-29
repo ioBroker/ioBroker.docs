@@ -5,9 +5,9 @@ cp /opt/configBackup.json /opt/doc-auto/engine/config.json
 cp engine/update.sh ../updateSite.sh
 chmod 744 ../updateSite.sh
 cd engine/
-/usr/bin/npm i
+/usr/bin/npm i -f
 cd front-end
-/usr/bin/npm i
+/usr/bin/npm i -f
 cd ..
 /usr/bin/node node_modules/gulp/bin/gulp.js buildOnly
 /usr/bin/pm2 restart doc
