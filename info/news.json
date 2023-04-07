@@ -1671,7 +1671,7 @@
         "conditions": {
             "innogy-smarthome": "smaller(1.2.1)"
         }
-    }
+    },
     {
         "title": {
             "en": "Fahrplan requires update",
