@@ -1671,5 +1671,40 @@
         "conditions": {
             "innogy-smarthome": "smaller(1.2.1)"
         }
+    },
+    {
+        "title": {
+            "en": "Fahrplan requires update",
+            "de": "Fahrplan erfordert Update",
+            "ru": "Fahrplan требует обновления",
+            "pt": "Fahrplan requer atualização",
+            "nl": "Fahrplan vereist update",
+            "fr": "Fahrplan nécessite une mise à jour",
+            "it": "Fahrplan richiede l'aggiornamento",
+            "es": "Fahrplan requiere actualización",
+            "pl": "Fahrplan wymaga aktualizacji",
+            "uk": "Фарплан вимагає оновлення",
+            "zh-cn": "Fhr计划需要更新"
+        },
+        "content": {
+            "en": "Deutsche Bahn has made a breaking change to HAFAS. Fahrplan requires an update to version 1.2.3 to work again.",
+            "de": "Deutsche Bahn hat eine Veränderung an HAFAS vorgenommen. Fahrplan erfordert zwingend ein Update auf Version 1.2.3.",
+            "ru": "Deutsche Bahn сделал разбивку изменения в HAFAS. Fahrplan требует обновления до версии 1.2.3 для работы снова.",
+            "pt": "Deutsche Bahn fez uma mudança de ruptura para HAFAS. Fahrplan requer uma atualização para a versão 1.2.3 para trabalhar novamente.",
+            "nl": "Deutsche Bahn heeft een breaking change gemaakt naar HAFAS. Fahrplan heeft een update nodig voor versie 1.2.3 om weer te werken.",
+            "fr": "Deutsche Bahn a fait un changement de rupture à HAFAS. Fahrplan nécessite une mise à jour de la version 1.2.3 pour travailler à nouveau.",
+            "it": "Deutsche Bahn ha fatto un cambiamento di rottura con HAFAS. Fahrplan richiede un aggiornamento alla versione 1.2.3 per lavorare di nuovo.",
+            "es": "Deutsche Bahn ha hecho un cambio de ruptura con HAFAS. Fahrplan requiere una actualización a la versión 1.2.3 para trabajar de nuevo.",
+            "pl": "Deutsche Bahn zmieniło nazwę na HAFAS. Fahrplan wymaga aktualizacji wersji 1.2.3.",
+            "uk": "Deutsche Bahn зробив зміни до HAFAS. Фарплан вимагає оновлення версії 1.2.3 для роботи знову.",
+            "zh-cn": "Deutsche Bahn已对HAFAS作出突然改变。 Fahr计划要求更新第1.2.3页,以再次开展工作。."
+        },
+        "id": "fahrplan-fixhafas",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2023-04-07T09:22:00.000Z",
+        "conditions": {
+            "fahrplan": "smaller(1.2.3)"
+        }
     }
 ]
