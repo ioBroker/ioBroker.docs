@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daikin-cloud/README.md
 title: ioBroker.daikin-cloud
-hash: oPC+1dN42Zn+sTz+k/q6Hbe4ylEhR9pHJuuK4MjJ+1M=
+hash: +kV8LTrPXAR0CekzsC6vm/FTs5gQp256z/f2UT5NCZE=
 ---
 ![Logo](../../../en/adapterref/iobroker.daikin-cloud/admin/daikin-cloud.jpg)
 
@@ -40,7 +40,7 @@ Die seit 2020 verkauften neueren Daikin-Geräte enthalten einen neueren WLAN-Ada
 Dieser Adapter ermöglicht es, zunächst (hoffentlich einmal) Token abzurufen, indem ein Proxy verwendet wird, um sich bei der Daikin Cloud anzumelden. Danach können diese Token verwendet und aktualisiert werden, um mit den Geräten zu interagieren.
 
 Nach dem Verbinden mit dem Daikin Cloud-Konto erstellt der Adapter automatisch ein neues Gerät für jedes Gerät, das mit der Daikin Cloud verbunden ist. Alle verfügbaren Daten werden angezeigt und mehrere Zustände ermöglichen die Steuerung des Geräts.
-**Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin-Cloud nicht mega schnell ist, was bedeutet, dass es bis zu 3 Minuten dauern kann, bis der Befehl wirklich ausgeführt oder Zustände aktualisiert werden!**
+**Bitte beachten Sie, dass die Befehlsgeschwindigkeit der Daikin-Cloud nicht mega schnell ist, was bedeutet, dass es bis zu 3 Minuten dauern kann, bis der Befehl wirklich ausgeführt wird oder Zustände aktualisiert werden!**
 
 ### Anmeldung per E-Mail/Passwort
 Wenn Sie die Daikin Cloud-Anmeldeinformationen bereitstellen möchten, kann der Adapter versuchen, sich automatisch bei der Cloud anzumelden. Die E-Mail und das Passwort werden verschlüsselt in der Konfiguration gespeichert.

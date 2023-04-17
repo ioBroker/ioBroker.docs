@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
+hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -57,12 +57,13 @@ Der Standardwert beträgt 10 Minuten, was eine gute Balance zwischen der Belastu
 Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu laden, können Sie auch Zustände definieren, die Überschuss und Bezug auf Hauptstrom darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
 
 * ein Zustand für die aktuelle Leistung des Batteriespeichers, damit die Photovoltaik-Automatik diese zusätzlich zum Laden Ihres Fahrzeugs verwendet
+* eine Option, um die Leistung des Batteriespeichers zu begrenzen, um den Ladevorgang nur mit minimaler Leistung aufrechtzuerhalten
 * Schalten Sie die X1-Option um, wenn Sie den X1-Eingang von der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder durch Photovoltaik-Automatik geladen werden soll
 * eine andere Mindeststromstärke als die voreingestellten 6 A (wird nur für z. B. Renault Zoe benötigt)
 * ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (d. h. der Ladevorgang beginnt, auch wenn nicht genügend Überschuss verfügbar ist - empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang)
 * ein Inkrement für die Stromstärke (empfohlen 500 mA)
-* ein Bezugswert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später stoppt, auch wenn nicht mehr genügend Überschuss verfügbar ist - Startbezug wird hinzugefügt - vorgeschlagen 500 W)
-* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit – empfohlen 300 Sek.)
+* ein Bezugswert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später beendet wird, auch wenn nicht mehr genügend Überschuss verfügbar ist - der Startbezug wird hinzugefügt - vorgeschlagen 500 W)
+* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit - empfohlen 300 Sek.)
 * Zeit zur Fortsetzung des Ladevorgangs jedes Mal, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
 
 ### 1p/3p Aufladung
@@ -101,6 +102,7 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 ### **WORK IN PROGRESS**
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 

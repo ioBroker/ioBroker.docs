@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: 7hTeqs7cFSPhIFgo6aIioWPKCwa7Wkbv7FuSaXezEks=
+hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -35,11 +35,19 @@ Da die Daten in der Cloud nur etwa alle 6 Minuten aktualisiert werden, macht es 
 
 Seit Version 0.3.0 wird im Gegensatz zu den Vorgängerversionen eine Blacklist ermöglicht. Das bedeutet, dass „alle“ von der Api gelieferten Werte eingelesen werden und der Nutzer die nicht benötigten Werte über die Blacklist herausfiltern kann. Die entsprechenden Datenpunkte können gelöscht werden, was die Anzahl der Objekte übersichtlicher macht.
 
+Seit dem 16.04.2023 ist Solarman auf eine neue Plattform umgestiegen. Weitere Anpassungen der API, soweit vorhanden, wurden nicht vorgenommen.
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-04-16)
+* (raschy) Solarman has switched to a new platform
+
+### 0.3.2 (2023-03-28)
+* (raschy) Error 'DB-closed' fixed
+
 ### 0.3.1 (2023-02-19)
 * (raschy) Inverter-Filter deactivated
 

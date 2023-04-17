@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daikin-cloud/README.md
 title: ioBroker.daikin-cloud
-hash: oPC+1dN42Zn+sTz+k/q6Hbe4ylEhR9pHJuuK4MjJ+1M=
+hash: +kV8LTrPXAR0CekzsC6vm/FTs5gQp256z/f2UT5NCZE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daikin-cloud/admin/daikin-cloud.jpg)
 

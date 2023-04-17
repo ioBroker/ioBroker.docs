@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
+hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -23,12 +23,12 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 # IoBroker.netatmo-energy
 ![тестирование и выпуск](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках программного кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
 
 ## Требования и конфигурация
 Учетная запись оборудования Netatmo Energy (термостат, клапаны) в облаке Netatmo
 
-- Адаптер работает с admin => 3 и nodejs >= 14
+- Адаптер работает с admin >= 3 и nodejs >= 14
 - Создайте свою учетную запись <https://auth.netatmo.com/de-de/access/signup>
 - Выполните вход в API <https://dev.netatmo.com/apidocumentation/energy>.
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
@@ -39,7 +39,6 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
     - вы получите ответ, в котором найдете свой домашний ID
     - Применить их к конфигурации адаптера
     - Запустите адаптер Netatmo-Energy и авторизуйтесь с помощью Netatmo API.
-      - Выберите новый метод аутентификации (OAuth2)
       - Подтвердите кнопку «Аутентифицировать себя с помощью Netatmo»
       - Войдите в свою учетную запись, если это необходимо
       - Подтвердите стороннее разрешение для вашего приложения Netatmo.
@@ -48,7 +47,11 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
     - Немедленная передача изменений температуры... немедленная передача изменений температуры в состоянии "SetTemp" в API
     - Чтение состояний API сразу после изменений... получение данных API с помощью homestatus сразу после обновления API
     - Обновление состояний API через x секунд... Постоянное обновление данных API. (0 = нет обновления)
-  - При желании также можно настроить службу уведомлений для получения определенных изменений статуса. Можно получать информационные сообщения, предупреждения или сообщения об ошибках. Для этого необходимо активировать опцию «Активировать/деактивировать уведомления» в «Информации для входа», а затем настроить параметры в меню «Уведомления».
+  - При желании также можно настроить службу уведомлений для получения определенных изменений статуса. Возможно
+
+  Получать информационные сообщения, предупреждения или сообщения об ошибках. Для этого необходимо активировать опцию «Активировать/деактивировать уведомления» в «Информации для входа», а затем настроить параметры в меню «Уведомления».
+
+  - Кроме того, можно ввести датчики двери/окна в систему датчиков и сохранить желаемое действие
 
 Подробное описание доступно в виде вики (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
@@ -86,6 +89,9 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 - setroomthermpoint ... в зависимости от ручных изменений в канале «настройка», изменения передаются в приложение Netatmo Energy. (либо мгновенно, либо автоматически - "немедленная передача изменений температуры").
 - set_mode_to_home... Кнопка "set_mode_to_home" в канале "setting" устанавливает режим клапана "set_mode_to_home" на "home". Кроме того, запрос API инициируется немедленно для распространения изменения.
 
+### Новости
+- message_text ... все сообщения передаются в этой точке данных
+
 ### Состояние
 - работает... здесь вы можете увидеть, выполняется ли в данный момент запрос API
 
@@ -93,7 +99,7 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP_measure.png" alt="настройкиВход" width="80%"/><img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/EnergyAPP.png" alt="настройкиВход" width="80%"/>
 
 ## Создание структур
-При запуске адаптера обновляется текущее состояние всего приложения Netatmo Energy и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
+При запуске адаптера текущее состояние всего приложения Netatmo Energy обновляется и передается состояние всех клапанов и термостатов. В зависимости от общих настроек (чтение состояний API сразу после изменения) состояние клапанов и термостатов снова загружается сразу после изменения API (немедленно отправляется запрос исходного состояния).
 Инициализация выполняется при запуске адаптера.
 
 ## Уведомления
@@ -106,15 +112,30 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="уведомления" width="70%"/>
 
-## Датчики
-В таблице вы можете реагировать на атрибут "window_open" для каждой комнаты. Состояние соответствующих оконных датчиков может инициировать действие при изменении, которое необходимо ввести здесь. Можно установить специальную температуру или вернуться в домашний режим. Таким образом, можно установить температуру клапана, когда окно открыто или закрыто.
-
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="датчики" width="70%"/>
-
 ## Новости
-Здесь вы можете активировать определенные сообщения для определенных изменений статуса. Вы можете оставить сообщение, которое вы хотите.
+Здесь вы можете активировать определенные сообщения для определенных изменений статуса. Вы можете оставить сообщение, которое вы хотите. Они всегда передаются в точку данных "message_text".
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="Сообщения" width="70%"/>
+
+Нажав кнопку «ОТПРАВИТЬ ПРОБНОЕ СООБЩЕНИЕ», можно протестировать службу сообщений. Перед тестом необходимо сохранить все настройки службы сообщений.
+
+## Датчики
+В таблице вы можете реагировать на атрибут «датчик окна/двери» для каждой комнаты. Состояние соответствующих оконных датчиков может инициировать действие при изменении, которое необходимо ввести здесь. Здесь можно выбрать все датчики типа bool. Это означает, что внешние датчики также могут быть интегрированы.
+
+Могут быть инициированы следующие действия:
+
+- Установленная температура
+- Установить домашний режим
+- Установить режим нагрева
+  - Ледяной страж
+  - Не дома
+  - Нормальная операция
+- Активировать план отопления
+  - предлагаются все существующие планы отопления приложения Netatmo-Energy
+
+Таким образом, температуру клапана можно установить при открытии или закрытии окна/двери. При вводе времени задержки (в секундах) сохраненное действие выполняется с задержкой. Если датчик срабатывания снова меняется в течение времени задержки, отложенные действия не выполняются.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="датчики" width="70%"/>
 
 ## Вкладка администратора
 На вкладке администратора вы можете отобразить все термостаты, мосты и клапаны вашего экземпляра netatmo energy. Там же можно обновить это представление или запустить полное обновление API. Кроме того, у вас есть возможность перенести изменения в облако и переключиться обратно в стандартный режим из возможного ручного режима.
@@ -135,53 +156,72 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.4.0 (2023-03-19)
+### 2.5.8 (2023-04-16)
+
+* (ioKlausi) Bug fix of translations
+
+### 2.5.7 (2023-04-16)
+
+* (ioKlausi) Bug fix of sensor actions
+
+### 2.5.6 (2023-04-15)
+
+* (ioKlausi) Bug fix of Sentry errors
+* (ioKlausi) Home mode for individual rooms in admin tab established
+* (ioKlausi) Bug fix of translations
+
+### 2.5.5 (2023-04-11)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.4 (2023-04-10)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.3 (2023-04-10)
+
+* (ioKlausi) Added data point for messages
+
+### 2.5.2 (2023-04-09)
+
+* (ioKlausi) Made some adjustments in the admin config
+
+### 2.5.1 (2023-04-09)
+
+* (ioKlausi) Test message in config added
+* (ioKlausi) Revise ioBroker Netatmo-Energy APP
+
+### 2.5.0 (2023-04-07)
+
+* (ioKlausi) Sensor changed to object ID type boolean
+
+### 2.4.5 (2023-04-06)
+
+* (ioKlausi) Implementation of sensor abort functionality
+
+### 2.4.4 (2023-04-03)
+
+* (ioKlausi) Add delay time, to perform action
+
+### 2.4.3 (2023-04-02)
+
+* (ioKlausi) Default entries for sensor table
+
+### 2.4.2 (2023-04-02)
+
+* (ioKlausi) Bug fix for Sentry errors
+
+### 2.4.1 (2023-04-02)
+
+* (ioKlausi) Revice coding
+
+### 2.4.0 (2023-04-01)
 
 * (ioKlausi) Implement actions for window sensors
 
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding
-
-### 2.3.0 (2023-02-12)
-
-* (ioKlausi) Rework of signal notifications
-
-### 2.2.2 (2023-02-12)
-
-* (ioKlausi) Send No-Token-Error as a notification
-
-### 2.2.1 (2023-02-12)
-
-* (ioKlausi) Timer established for token refresh
-
-### 2.1.0 (2023-02-05)
-
-* (ioKlausi) Added new API request 'createnewhomeschedule'
-
-### 2.0.3 (2023-02-04)
-
-* (ioKlausi) Added Signal as a new message type
-
-### 2.0.2 (2023-01-07)
-
-* (ioKlausi) Revision of the documentation
-
-### 2.0.1 (2023-01-06)
-
-* (ioKlausi) Corrections for OAuth2
-
-### 2.0.0 (2023-01-06)
-
-* (ioKlausi) New authentication method established
-
-### 1.3.1 (2022-04-18)
-
-* (ioKlausi) Additional information added to admin tab cards
-
-### 1.3.0 (2022-04-17)
-
-* (ioKlausi) Change thermostat mode functionality added to thermostat card
 
 ## License
 

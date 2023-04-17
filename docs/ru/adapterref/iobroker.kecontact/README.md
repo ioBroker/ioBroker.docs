@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.keконтакт
-hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
+hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -57,6 +57,7 @@ hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
 Чтобы зарядить свой автомобиль в соответствии с избытком (например, с помощью фотогальваники), вы также можете определить состояния, которые представляют избыток и отношение к основной мощности. Эти значения используются для расчета силы тока, которую можно использовать для зарядки. По дополнительным значениям можно определить
 
 * состояние текущей мощности аккумуляторной батареи, чтобы фотоэлектрическая автоматика использовала ее дополнительно для зарядки вашего автомобиля
+* возможность ограничить мощность аккумуляторной батареи, чтобы просто держать зарядку с минимальной мощностью
 * Переключите опцию X1, если вы хотите использовать вход X1 от зарядной станции, чтобы контролировать, заряжать ли полной мощностью или фотогальваническим автоматическим способом.
 * Минимальная сила тока отличается от стандартной 6 А (требуется только, например, для Renault Zoe)
 * значение относительной мощности, которое может быть использовано для начала зарядки (это означает, что зарядка начнется, даже если не будет достаточного излишка - рекомендуется 0 Вт для 1-фазной зарядки, от 500 Вт до 2000 Вт для 3-фазной зарядки)
@@ -101,6 +102,7 @@ KeConnect является зарегистрированной торговой
 ### **WORK IN PROGRESS**
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 

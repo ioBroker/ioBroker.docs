@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: syhrIXO+/bBtLT+liQzmOgBgfgnIuzN94CvByqewblU=
+hash: xTZa399oH2tQzlvqCu9atIRhydHBOywHLcKlCLSI0oI=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -21,11 +21,11 @@ hash: syhrIXO+/bBtLT+liQzmOgBgfgnIuzN94CvByqewblU=
 ## IoBroker 的 e3dc-rscp 适配器
 使用专有的 RSCP 协议控制您的 E3/DC 电站，该协议允许读取状态值并设置控制参数，例如充电功率限制。这是 RSCP 与标准 Modbus 相比的优势，后者仅用于读取值。如果您不需要写入值，请查看（更简单的）[Modbus适配器](https://github.com/ioBroker/ioBroker.modbus)。
 
-e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a>设备开发的。人们可能会假设其他 E3/DC 设备提供类似的接口，但我无法验证这一点。
+e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a>设备开发的。人们可能会假设其他 E3/DC 设备提供等效的 RSCP 接口，但我们已经看到了例外情况。例如，一些电池模型显然没有被 E3/DC 完全集成，因此不会通过 RSCP 传播所有值。在这种情况下，适配器只传递通过 RSCP 传入的内容，有时是零值，有时是错误代码。
 
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
-1.【接口消息的覆盖】(#cov)
+1. [接口消息的覆盖率](#cov)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -54,7 +54,7 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 
 * 特定数据保留
 * 具体数据分辨率
-* 具体数据聚合
+* 具体数据汇总
 
 需要进一步调查。
 
@@ -69,6 +69,20 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 // 触发器：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网电源位于降低阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+### 1.1.2
+(ka-vaNu)
+* WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)
+
+(git-kick)
+* Avoid cleartext password in silly log.
+
+## Changelog
+### 1.1.1
+(ka-vaNu)
+* Fixed typo which prevented creation of wallbox object - [Issue #139](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/139)
+
+(git-kick)
+* Fixed vulnerable dependency: glob-parent < 5.1.2 - [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2022-28469)
 ### 1.1.0
 (ka-vaNu)
 * Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
@@ -77,8 +91,8 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 * Added value "N" for polling intervals, meaning "never" - [Issue #126](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/126)
 
 (git-kick)
-* Vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
-* Vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
+* Fixed vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
+* Fixed vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
 ### 1.0.8
 (git-kick)
 * No updates for e3dc-rscp.0.EP.PARAM_0.* - [Issue #117](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/117)
@@ -92,7 +106,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 ### 1.0.6
 (git-kick)
 * Boolean switches (e.g. EMS.WEATHER_REGULATED_CHARGE_ENABLED) did not work properly - [Issue #109](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
-* Vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
+* Fixed vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
 ### 1.0.5
 (git-kick)
 * SET_POWER not effective due to delayed transmission - [Issue #103](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)

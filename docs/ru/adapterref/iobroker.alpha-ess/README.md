@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: +vNc4HxdWT6Q/JEMl3VqnqIDDbQytpvcCpJiumZ5+RI=
+hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -24,66 +24,122 @@ hash: +vNc4HxdWT6Q/JEMl3VqnqIDDbQytpvcCpJiumZ5+RI=
 По сути, можно изменить выбранные параметры конфигурации с помощью веб-API Alpha ESS. Это еще не реализовано.
 
 ## Настройки:
-**Имя пользователя:** Имя пользователя вашей учетной записи Alpha ESS\ **Пароль:** Пароль вашей учетной записи Alpha ESS\ **Идентификатор системы Alpha ESS:** Системный идентификатор вашего оборудования Alpha ESS\ **Интервал до чтение данных в реальном времени:** Единица: секунды.\ **Интервал для чтения данных об энергии:** Единица: минуты.\ **Интервал для чтения данных настроек:** Единица: минуты.\ **Интервал для чтения статистических данных для текущий день:** Единица: минуты.\ **Интервал чтения сводных данных:** Единица: минуты.
+**Используемый API:** Выберите между неофициальным «Закрытым» API и официальным «Открытым» API (в разработке). В зависимости от выбранного API доступны различные настройки.
+
+**Настройки закрытого API:**
+
+- **Имя пользователя:** имя пользователя вашей учетной записи Alpha ESS.
+- **Пароль:** пароль вашей учетной записи Alpha ESS.
+- **Идентификатор системы Alpha ESS:** Идентификатор системы вашего оборудования Alpha ESS.
+- **Интервал для чтения данных в реальном времени:** Единица измерения: секунды.
+- **Интервал для чтения данных об энергии:** Единица измерения: минуты.
+- **Интервал чтения данных настроек:** Единица измерения: минуты.
+- **Интервал чтения статистических данных за текущий день:** Единица измерения: минуты.
+- **Интервал для чтения сводных данных:** Единица измерения: минуты.
 
 Можно использовать демо-счет, предоставленный Alpha ESS. Учетные данные (имя пользователя, идентификатор системы) устанавливаются в качестве значений по умолчанию в адаптере.
 Пароль хранится в зашифрованном виде, поэтому его необходимо вводить вручную: demo
+
+**Открыть настройки API:**
+
+Чтобы иметь возможность использовать новый Open API, вам необходимо зарегистрировать свое устройство Alpha-ESS по адресу https://open.alphaess.com. После регистрации вы получаете идентификатор разработчика и ключ разработчика (называемый «Секрет»). Они понадобятся вам для доступа к Open API. В настоящее время у меня нет информации, будет ли это изменено в будущем.
+
+- **Идентификатор личного приложения:** Идентификатор приложения (см. выше)
+- **Секрет личного приложения:** Секрет приложения (см. выше)
+- **Идентификатор системы Alpha ESS:** Идентификатор системы вашего оборудования Alpha ESS.
+- **Интервал для чтения данных в реальном времени:** Единица измерения: секунды.
+- **Интервал для чтения данных об энергии:** Единица измерения: минуты.
+- **Интервал чтения настроек зарядки:** Единица измерения: минуты.
+- **Интервал чтения настроек разрядки:** Единица измерения: минуты.
+- **Интервал для чтения сводных данных:** Единица измерения: минуты.
 
 ## Отказ от ответственности
 **Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.**
 
 ## Changelog
+### 1.0.0-alpha.1 (2023-04-16)
+
+-   (Gaspode) Writing charging and discharging settings implemented (OpenAPI only)
+
+### 1.0.0-alpha.0 (2023-04-11)
+
+-   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS
+
+### 0.5.0 (2023-03-05)
+
+-   (Gaspode) Remove no more supported states at startup automatically
+-   (Gaspode) Prepared data migration for future versions
+
+### 0.4.0 (2023-02-16)
+
+-   (Gaspode) Optimized deletion of group states
+-   (Gaspode) Added new Realtime state for pmeter_dc
+
 ### 0.3.0 (2023-02-11)
-* (Gaspode) Rearranged statistical data and added more values. Many thanks to [Thorsten](https://github.com/ThorstenBoettler) for his valuable contribution in testing the early alpha versions of this release and providing informative suggestions and recommendations for new data points.
-* (Gaspode) Added Summary data 
-* (Gaspode) Refactored complete implementation
-* (Gaspode) Changed the unit of settings for all intervals, except of realtime data, to minutes (Caution: settings are reset to defaults)
-* (Gaspode) Remove disabled states at adapter startup
-* (Gaspode) Removed no more supported value 'createtime' (state ID Realtime.Last_update). 
-* (Gaspode) Optimized rounding for selected values
+
+-   (Gaspode) Rearranged statistical data and added more values. Many thanks to [Thorsten](https://github.com/ThorstenBoettler) for his valuable contribution in testing the early alpha versions of this release and providing informative suggestions and recommendations for new data points.
+-   (Gaspode) Added Summary data
+-   (Gaspode) Refactored complete implementation
+-   (Gaspode) Changed the unit of settings for all intervals, except of realtime data, to minutes (Caution: settings are reset to defaults)
+-   (Gaspode) Remove disabled states at adapter startup
+-   (Gaspode) Removed no more supported value 'createtime' (state ID Realtime.Last_update).
+-   (Gaspode) Optimized rounding for selected values
 
 ### 0.2.1-beta.0 (2023-01-31)
-* (Gaspode) Read selected statistical data
+
+-   (Gaspode) Read selected statistical data
 
 ### 0.2.0 (2023-01-19)
-* (Gaspode) Added states EV1_power, EV2_power, EV3_power and EV4_power to Realtime folder
+
+-   (Gaspode) Added states EV1_power, EV2_power, EV3_power and EV4_power to Realtime folder
 
 ### 0.1.0 (2023-01-15)
-* (Gaspode) First release for Latest repository
-* (Gaspode) Corrected typo in state ID Battery_SOC
-* (Gaspode) Implemented improvements as suggested in code review
+
+-   (Gaspode) First release for Latest repository
+-   (Gaspode) Corrected typo in state ID Battery_SOC
+-   (Gaspode) Implemented improvements as suggested in code review
 
 ### 0.0.6-beta.5 (2023-01-07)
-* (Gaspode) Slow down requests in case of permanent errors
+
+-   (Gaspode) Slow down requests in case of permanent errors
 
 ### 0.0.6-beta.4 (2023-01-03)
-* (Gaspode) Changed adapter type from metering to energy
+
+-   (Gaspode) Changed adapter type from metering to energy
 
 ### 0.0.6-beta.3 (2023-01-02)
-* (Gaspode) Correction for NPM
+
+-   (Gaspode) Correction for NPM
 
 ### 0.0.6-beta.2 (2023-01-02)
-* (Gaspode) Enable NPM
+
+-   (Gaspode) Enable NPM
 
 ### 0.0.5
-* (Gaspode) Use meaningful state names
-* (Gaspode) Use suitable state roles
-* (Gaspode) Added new state for Alpha ESS settings parameter 'upsReserve'
+
+-   (Gaspode) Use meaningful state names
+-   (Gaspode) Use suitable state roles
+-   (Gaspode) Added new state for Alpha ESS settings parameter 'upsReserve'
 
 ### 0.0.4
-* (Gaspode) use axios to perform Alpha ESS API calls instead of deprecated request
-* (Gaspode) New option "Update unchanged states" added
+
+-   (Gaspode) use axios to perform Alpha ESS API calls instead of deprecated request
+-   (Gaspode) New option "Update unchanged states" added
 
 ### 0.0.3
-* (Gaspode) refactored API calls, added daily energy values
+
+-   (Gaspode) refactored API calls, added daily energy values
 
 ### 0.0.2
-* (Gaspode) corrected api call for realtime data
+
+-   (Gaspode) corrected api call for realtime data
 
 ### 0.0.1
-* (Gaspode) initial release
+
+-   (Gaspode) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2023 Gaspode <gaspode69@online.de>

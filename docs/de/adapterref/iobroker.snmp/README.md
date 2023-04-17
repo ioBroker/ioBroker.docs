@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp
-hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
+hash: 1yP7vs9Mt7Gbp38LPAz5h80gqOA17FztE1p7MD0niAQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -29,6 +29,12 @@ Dieser Adapter kann verwendet werden, um Informationen von Geräten wie Druckern
 
 ## __IN ARBEIT__
 -->
+
+### 2.4.7 (2023-04-12)
+* (McM1957) geändert: Mehrere externe Module einschließlich net-snmp wurden aktualisiert
+
+### 2.4.6 (2023-03-26)
+* (McM1957) Behoben: SNMP-Set funktionierte nicht für Zahlenwert 0 (#240)
 
 ### 2.4.5 (2023-03-20)
 * (McM1957) Behoben: SNMPv3-Absturz bei Verwendung der SHA-Authentifizierung (#236)
@@ -161,10 +167,10 @@ Die Installation wird versuchen, die alte Konfiguration zu konvertieren - aber e
 * (Bluefox) Refactoring
 * (Marcolotti) Erstveröffentlichung
 
-## __Adapter-Konfiguration__
+## Adapter-Konfiguration
 Der Adapter fragt bestimmte OIDs ab, die in OID-Gruppen gruppiert sind, die wiederum Geräten zugewiesen sind. Die Konfigurationsdaten werden auf mehreren Registerkarten eingegeben:
 
-### __TAB OID-Gruppen__
+### TAB OID-Gruppen
 Hier geben Sie alle OIDs an, die vom Adapter abgefragt werden sollen, ein OID pro Zeile.
 
 | Parameter | Geben Sie | ein Beschreibung | Kommentar |
@@ -176,7 +182,7 @@ Hier geben Sie alle OIDs an, die vom Adapter abgefragt werden sollen, ein OID pr
 | beschreibbar | boolesch | sollte auf true gesetzt werden, wenn OID beschreibbar ist | reserviert für zukünftige Verwendung |
 | optional | boolesch | sollte auf true gesetzt werden, wenn OID optional ist | wenn auf true gesetzt, wird kein Fehler ausgelöst, wenn oid unbekannt ist |
 
-### __TAB-Gerät__
+### TAB-Gerät
 Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 
 | Parameter | Geben Sie | ein Beschreibung | Kommentar |
@@ -189,15 +195,15 @@ Hier legen Sie fest, welche Geräte abgefragt werden sollen.
 | Community (v1, v2c) oder Auth-ID (v3) | Text | Community für SNMP v1 oder V2c, Autorisierungsgruppe für SNMP v3 | HINWEIS: SNMPv3 wird noch nicht unterstützt |
 | Zeitüberschreitung (Sek.) | Nummer | Verarbeitungszeitüberschreitung in Sekunden | |
 | Wiederholung (Sek.) | Zahl | Wiederholungsintervall in Sekunden | |
-| Abfrage (Sek.) | Nummer | Abfrageintervall in Sekunden | |
+| Abfrage (Sek.) | Zahl | Abfrageintervall in Sekunden | |
 
-### __TAB-Autorisierung__
+### TAB-Autorisierung
 Diese Registerkarte enthält SNMP V3-Autorisierungsinformationen. Bitte beachten Sie, dass SNMP V3 noch nicht implementiert ist.
 
 | Parameter | Geben Sie | ein Beschreibung | Kommentar |
 |---------------|-------------|-----------------------------------|-------------------------------------|
 
-### __TAB-Optionen__
+### TAB-Optionen
 Hier legen Sie einige allgemeine Optionen fest
 
 | Parameter | Geben Sie | ein Beschreibung | Kommentar |
@@ -205,17 +211,29 @@ Hier legen Sie einige allgemeine Optionen fest
 | Paketgröße | Ganzzahl | maximale Anzahl von OIDs, die innerhalb einer einzigen Anfrage gesendet werden | reduzieren Sie diesen Wert bei TOOBIG-Fehlern |
 | Kompatibilitätsmodus | boolesch | wenn diese Option aktiviert ist, basieren die Datenpunktnamen auf der IP-Adresse | HINWEIS: veraltet - nicht mehr verwenden. Dieses Flag funktioniert nicht mit IPv6-Adressen. Kann in zukünftigen Versionen entfernt werden. |
 
-## __Lizenz__
-Die MIT-Lizenz (MIT)
-
-Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
-
-Hiermit wird jeder Person, die eine Kopie dieser Software und der dazugehörigen Dokumentationsdateien (die „Software“) erhält, kostenlos die Erlaubnis erteilt, uneingeschränkt mit der Software zu handeln, einschließlich, aber nicht beschränkt auf die Rechte zur Nutzung, Vervielfältigung, Änderung und Zusammenführung , Kopien der Software zu veröffentlichen, zu verteilen, unterzulizenzieren und/oder zu verkaufen und Personen, denen die Software zur Verfügung gestellt wird, dies zu gestatten, vorbehaltlich der folgenden Bedingungen:
-
-Der obige Urheberrechtshinweis und dieser Genehmigungshinweis müssen in allen Kopien oder wesentlichen Teilen der Software enthalten sein.
-
-DIE SOFTWARE WIRD OHNE MÄNGELGEWÄHR BEREITGESTELLT, OHNE AUSDRÜCKLICHE ODER STILLSCHWEIGENDE GEWÄHRLEISTUNG, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT, EIGNUNG FÜR EINEN BESTIMMTEN ZWECK UND NICHTVERLETZUNG VON RECHTEN DRITTER. DIE AUTOREN ODER URHEBERRECHTSINHABER SIND IN KEINEM FALL HAFTBAR FÜR ANSPRÜCHE, SCHÄDEN ODER SONSTIGE HAFTUNG, OB AUS VERTRAG, UNERLAUBTER HANDLUNG ODER ANDERWEITIG, DIE SICH AUS, AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER NUTZUNG ODER ANDEREN HANDLUNGEN MIT DER SOFTWARE ERGEBEN SOFTWARE.
-
 ## Changelog
 
 <!--
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sayit/README.md
 title: ioBroker sayit 适配器
-hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
+hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
 ---
 ![标识](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,10 +55,7 @@ SayIt Adapter 可以将文本转换为语音并在某些设备上播放。
 
 要使用 Yandex 语音，您必须在此处请求 API 密钥：[https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/)。 [此服务将于 2019 年 1 月 1 日停用并由 Yandex.cloud 取代]要使用 Yandex.cloud，您应该在此处注册：[https://cloud.yandex.ru/]，在云中安装 SpeechKIT API 并获取 Auth Token和文件夹 ID，如 API 说明中所述。
 
-- 云：
-
-  要使用云语音，您需要配置云适配器。 （可以禁用，但必须配置）。该服务使用AWS Polly，可以直接使用。
-
+- 云：要使用云语音，您需要配置并运行“云”适配器。
 - 亚马逊网络服务波莉：
 
   要使用 AWS Polly 语音，您需要创建访问密钥和秘密密钥 [此处](https://console.aws.amazon.com/iam/home)。您可以在 [此处找到亚马逊文档](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)。
@@ -283,6 +280,10 @@ State **tts.text** 支持扩展语法，因此语言/引擎和音量可以与文
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.0 (2023-04-03)
+* (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
+* (bluefox) Breaking changes: Minimal node.js version is 14
+
 ### 2.1.2 (2023-03-27)
 * (bluefox) Corrected engines with web-link
 

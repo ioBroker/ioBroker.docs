@@ -55,6 +55,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+### 3.2.1 (2023-04-07)
+* (René) dependencies updated
+
 ### 3.2.0 (2023-02-11)
 * (René) **Attention** polled variables must be set as active in admin now
 * (René) search available variables per circuit added in admin

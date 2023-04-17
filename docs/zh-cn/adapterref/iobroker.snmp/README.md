@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.snmp/README.md
 title: ioBroker.snmp文件
-hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
+hash: 1yP7vs9Mt7Gbp38LPAz5h80gqOA17FztE1p7MD0niAQ=
 ---
 ![标识](../../../en/adapterref/iobroker.snmp/admin/snmp.png)
 
@@ -29,6 +29,12 @@ hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 
 ＃＃ __工作正在进行中__
 -->
+
+### 2.4.7 (2023-04-12)
+* (McM1957) 更改：包括 net-snmp 在内的几个外部模块已更新
+
+### 2.4.6 (2023-03-26)
+* (McM1957) 修正：SNMP 设置对数值 0 不起作用 (#240)
 
 ### 2.4.5 (2023-03-20)
 * (McM1957) 修正：使用 SHA 身份验证时 SNMPv3 崩溃 (#236)
@@ -161,10 +167,10 @@ hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 * (Bluefox) 重构
 * (Marcolotti) 初始版本
 
-## __适配器配置__
+## 适配器配置
 适配器查询指定的 oid，这些 oid 被分组在 oid 组中，而 oid 组又被分配给设备。配置数据在几个选项卡中输入：
 
-### __TAB OID-Groups__
+### TAB OID 组
 此处指定适配器要查询的所有 oid，每行一个 oid。
 
 |参数 |类型 |说明 |评论 |
@@ -174,9 +180,9 @@ hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 | OID-名称 |文字 |分配给 OID 的名称 |将用于命名数据点 |
 |标识符 |文字 | oid 字符串 (1.2.3.4.) |设备供应商指定的 oid 字符串 |
 |可写 |布尔 |如果 OID 是可写的，应该设置为 true |留作将来使用 |
-|可选 |布尔 |如果 OID 是可选的，应该设置为 true |如果设置为 true，如果 oid 未知，则不会引发错误 |
+|可选 |布尔 |如果 OID 是可选的，则应设置为 true |如果设置为 true，如果 oid 未知，则不会引发错误 |
 
-### __TAB 设备__
+### TAB设备
 您可以在此处指定应查询哪些设备。
 
 |参数 |类型 |说明 |评论 |
@@ -191,13 +197,13 @@ hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 |重试（秒） |编号 |以秒为单位的重试间隔 | |
 |轮询（秒） |编号 |以秒为单位的轮询间隔 | |
 
-### __TAB授权__
+### TAB授权
 此选项卡包含 SNMP V3 授权信息。请注意，SNMP V3 尚未实施。
 
 |参数 |类型 |说明 |评论 |
 |---------------|-------------|-----------------------------------|-------------------------------------|
 
-### __TAB 选项__
+### 选项卡选项
 在这里指定一些通用选项
 
 |参数 |类型 |说明 |评论 |
@@ -205,17 +211,29 @@ hash: QiDDo/M5g9l5qDRSWzZa2YldnKChW9GNGvR2wew9xnY=
 |数据包大小 |整数 |单个请求中发送的最大 OID 数 |在出现 TOOBIG 错误时减少此值 |
 |兼容模式 |布尔 |如果激活此选项，数据点名称基于 ip 地址 |注意：已过时 - 不要再使用。此标志不适用于 IPv6 地址。可能会在未来的版本中删除。 |
 
-＃＃ __执照__
-麻省理工学院执照 (MIT)
-
-版权所有 (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers
-
-特此免费授予获得本软件和相关文档文件（“软件”）副本的任何人不受限制地处理本软件的权限，包括但不限于使用、复制、修改、合并的权利、发布、分发、再许可和/或出售软件的副本，并允许获得软件的人这样做，但须满足以下条件：
-
-上述版权声明和本许可声明应包含在本软件的所有副本或重要部分中。
-
-本软件“按原样”提供，不提供任何明示或暗示的保证，包括但不限于对适销性、特定用途的适用性和非侵权的保证。在任何情况下，作者或版权持有人均不对任何索赔、损害或其他责任负责，无论是在合同诉讼、侵权行为还是其他方面，由软件或软件的使用或其他交易引起、由软件引起或与之相关软件。
-
 ## Changelog
 
 <!--
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

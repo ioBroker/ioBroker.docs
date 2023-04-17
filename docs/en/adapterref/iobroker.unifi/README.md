@@ -81,10 +81,9 @@ The adapter uses [node-unifi](https://github.com/jens-maus/node-unifi) to connec
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.6.4 (2023-03-31)
+* (jens-maus) Bumped node-unifi to latest 2.4.0
 * (wuliwux) fixed issue in setWlanStatus not working (#665, #601)
-* (jens-maus) Bumped node-unifi to latest 2.3.0
 * (pafade89) New feature for whitelisting client objects (#651)
 * (Scrounger) client block / unblock added
 * (Scrounger) restart device added
@@ -198,7 +197,7 @@ This adapter uses functionality from the following third-party nodejs modules:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 Jens Maus &lt;mail@jens-maus.de&gt;
+Copyright (c) 2016-2023 Jens Maus &lt;mail@jens-maus.de&gt;
 Copyright (c) 2020 braindead1 &lt;os.braindead1@gmail.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

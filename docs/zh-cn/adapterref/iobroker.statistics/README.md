@@ -18,38 +18,38 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.statistics/README.md
 title: ioBroker.statistics
-hash: dRX6j7tnL0ULrEC1p1dlQsZVItFmIIQWZSZDsmxbGoU=
+hash: V92dfCJJef+vDHFwjWqxZbwltEJlUayZvL+0vSXTzSw=
 ---
-![标识](../../../en/adapterref/iobroker.statistics/../../admin/statistics.png)
+![标识](../../../en/admin/statistics.png)
 
-# IoBroker.statistics
-此适配器将使统计信息的配置更容易。
+# IoBroker.统计数据
+该适配器将使统计信息的配置更加容易。
 
-**适配器仅对状态变化做出反应（state.ack = true），而不是对命令做出反应！**
+**适配器只对状态变化做出反应（state.ack = true），而不是命令！**
 
-从以下设置中选择：
+从以下设置中进行选择：
 
-*计数脉冲或开/关变化（仅适用于二进制值和上升沿）
+* 计数脉冲或开/关变化（仅适用于二进制值和上升沿）
 * 根据计数值计算成本（仅适用于二进制值）
-* 状态为真/开多长时间，假/关多长时间（仅适用于二进制值）
-* 记录的模拟值之间的增量（仅用于模拟值）
+* 状态 true/ON 多长时间和 false/OFF 多长时间（仅适用于二进制值）
+* 记录的模拟值之间的增量（仅适用于模拟值）
 * 每日最大值、最小值和平均值（不适用于增量计算）
-* 全年最小/最大
-* 计数在 5 分钟内和每日最大值、最小值和平均值（不适用于增量计算）
+* 全年最小值/最大值
+* 计算 5 分钟内的每日最大值、最小值和平均值（不适用于增量计算）
 * 分组值的总和
 
 适配器订阅配置的对象并在统计树中创建自己的状态。
 
-创建了 2 棵单独的树：
+创建了 2 个独立的树：
 
 * `statistics.0.save` -> 时间范围的最终值
-* `statistics.0.temp` -> 临时值直到传输保存，然后 temp 再次开始
+* `statistics.0.temp` -> 传输保存时的临时值，然后再次启动 temp
 
 国家的结构是：`statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
 ## 设置
 * 在实例配置页面指定相关组（admin => instances => statistics config）
-* 在状态的设置中指定配置（admin => objects）
+* 在状态设置中指定配置（admin => objects）
 
 ## Changelog
 <!--
@@ -57,6 +57,13 @@ hash: dRX6j7tnL0ULrEC1p1dlQsZVItFmIIQWZSZDsmxbGoU=
 	### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+
+* (klein0r) Show error if groups are not configured correctly
+
+### 2.3.1 (2023-01-11)
+* (klein0r) Added Ukrainian language
+
+### 2.3.0 (2022-11-03)
 NodeJS 14.5.0 is required
 
 * (klein0r) Added hourly, weekly, monthly, ... averages
@@ -80,18 +87,11 @@ NodeJS 14.5.0 is required
 * (klein0r) Increased precision to 5 digits
 * (klein0r) Translated all objects
 
-### 2.0.0 (2022-06-13)
-* (klein0r) Added Admin 5 configuration
-* (klein0r) Updated translations
-
-### 1.1.1 (2022-04-17)
-* Prevent warn logs when using non-number states as statistic source
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2023 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

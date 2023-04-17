@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: VMiIjOfbLptdI65a7gk+b2UlcZiAgkrCsv0M3PMya04=
+hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -80,14 +80,26 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 Если ваш клиент не поддерживает таблицу, он либо показывает текст, либо просто 12ab.
 
 ### Для проверки вашей конфигурации используйте sendMessage
-просто откройте объекты и измените строку одного экземпляра matrix-org. Порт в основном 8448, если у вас есть собственная система без прокси.
-Иногда используется порт 443, если у вас общедоступная система, такая как matrix.org. Если вы хотите ее протестировать: Сервер: matrix.org Порт: 443, комната: #test-ioBroker-adapter:matrix.org Присоединяйтесь к этой комнате и попробуйте. с вашими собственными полномочиями
+просто откройте объекты и измените строку одного экземпляра matrix-org В основном порт 443, если у вас общедоступная система, такая как matrix.org Порт иногда 8448, когда у вас есть собственная система без прокси, но тогда вы знаете это.
+
+Если хотите протестировать: Сервер: matrix.org Порт: 443, комната: #test-ioBroker-adapter:matrix.org Присоединяйтесь к этой комнате и попробуйте, используя свои учетные данные.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-04-01)
+* upgrade matrix-js-sdk (node 18 needed)
+
+### 0.1.6 (2023-04-01)
+* last version for node 16
+* updated libs according dependabot accept matrix-js-sdk
+
+### 0.1.5 (2023-03-02)
+* downgrade for node 16
+* translation for configuration
+
 ### 0.1.4 (2023-02-04)
 * update of dependencies
 * small readme improvement

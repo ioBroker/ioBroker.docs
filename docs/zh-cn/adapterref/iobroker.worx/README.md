@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: XxMgz1rj1sX4mtmLSVb0xSDXazYQM7Jp4v9V1CMi0+8=
+hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
 ---
 ![标识](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -11,35 +11,45 @@ hash: XxMgz1rj1sX4mtmLSVb0xSDXazYQM7Jp4v9V1CMi0+8=
 ![下载](https://img.shields.io/npm/dm/iobroker.worx.svg)
 ![安装数量](https://iobroker.live/badges/worx-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/worx-stable.svg)
-![新PM](https://nodei.co/npm/iobroker.worx.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.worx.png?downloads=true)
 
-# IoBroker.worx
+#ioBroker.worx
 **测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.worx/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 Worx（Kress、Landxcape 和 Ferrex）适配器
-通过云和mqtt控制
+通过云和 mqtt 进行控制
 
-此适配器通过 Cloud 将 ioBroker 与您的 Landroid Kress Landxcape 或 Ferrex 割草机连接起来。
+此适配器通过云将 ioBroker 与您的 Landroid Kress Landxcape 或 Ferrex 割草机连接起来。
 从割草机中读取温度、割草时间、电池电量和各种其他数据。
 适配器可以控制割草机，您可以更改割草时间等配置参数。
 
 最低节点版本 14.18
 
-activityLog das Aktivitätenprotokoll aus der App area Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produktinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen worx.0.xx.mower .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower welche Features, Board und Accessories er hat。
-Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
+activityLog das Aktivitätenprotokoll aus der App areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produktinformationen zum Mäher rawMqtt dieRohaten 通过 MQTT vom Mäher kommen worx.0.xx.mower .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> letzten Firmware worx.0.xx.mower.firmware_available_all 的数据更新 -> Firmware 的历史记录 als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower welche Features, Board und Accessories 呃帽子。
+更新 der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 ## 设置
-- 连接到割草机，在配置中从您的 worx 帐户输入电子邮件和密码。
-- 切边延迟：如果切边从曲线或弯道开始，割草机可能会因故障而丢失电线并停止，或者刀片可能无法旋转。为此，可以设置叶片开始旋转的起点。
+- 从配置中的 worx 帐户连接到割草机，输入电子邮件和密码。
+- 切边延迟：如果切边从曲线或弯道开始，割草机可能会丢失电线并因故障而停止，或者刀片可能不会旋转。为此，可以设置叶片开始旋转的起点。
+- Mäher ab eine Zone oder Meterzahl starten lassen：
 
-- Mäher ab eine Zone oder Meterzahl starten lassen: Setze area.area_0 auf die Meterzahl des gewünschten Startpunktes Setze area.area_1, area.area_2 und area.area_3 jeweils auf 0 Setze area.startSequence auf [0,0,0,0,0 ,0,0,0,0,0]
+设置 areas.area_0 auf die Meterzahl des gewünschten Startpunktes Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0 Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
 
-## 讨论和问题
+## 讨论与提问
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
+
+### 2.1.1
+
+Change reconnection times
+
+### 2.1.0
+
+Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
+Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
 
 ### 2.0.3
 

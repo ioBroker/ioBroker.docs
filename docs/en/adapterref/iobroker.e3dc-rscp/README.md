@@ -16,7 +16,7 @@
 
 Control your E3/DC power station using the proprietary RSCP protocol which allows for reading state values and also setting control parameters, e.g. the charge power limit. This is the advantage of RSCP compared to the standard Modbus, which is only for reading values. If you have no need to write values, have a look at the (simpler) [Modbus adapter](https://github.com/ioBroker/ioBroker.modbus).
 
-The e3dc-rscp adapter was developed for the <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> device. One may assume other E3/DC devices provide a similar interface, but I cannot verify this.
+The e3dc-rscp adapter was developed for the <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> device. One may assume other E3/DC devices provide an equivalent RSCP interface, but we already saw exceptions. E.g., some battery models obviously are not fully integrated by E3/DC and therefore do not propagate all values through RSCP. In such cases, the adapter just passes what comes in via RSCP, sometimes a zero value, sometimes an error code. 
 
 ## Table of Content
 1. [ Adapter configuration ](#toc)

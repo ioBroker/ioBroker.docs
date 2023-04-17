@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sayit/README.md
 title: адаптер ioBroker
-hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
+hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,10 +55,7 @@ hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
 
 Чтобы использовать голоса Яндекса, вы должны запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.Облаком] Для использования Яндекс.Облака вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в Облаке и получить Auth Token и идентификатор папки, как описано в инструкциях API.
 
-- Облако:
-
-  Чтобы использовать облачные голоса, вам нужен настроенный облачный адаптер. (Его можно отключить, но необходимо настроить). Этот сервис использует AWS Polly, и его можно использовать напрямую.
-
+- Облако: для использования облачных голосов вам необходимо настроить и запустить облачный адаптер.
 - Полли Amazon Web Services:
 
   Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon вы можете найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
@@ -119,7 +116,7 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 
 Вы можете указать громкость объявления в процентах от текущей или заданной громкости (не от максимальной). Например. если команда ```de;75;Gutes Wetter``` и "громкость объявления" равна 50%, то объявление будет воспроизводиться с громкостью 38% из возможных 100%.
 
-Также можно указать системную команду для воспроизведения mp3-файла. Если оставить это поле пустым, будут использоваться настройки по умолчанию: Windows — `cmdmp3.exe`, OSX — `/usr/bin/afplay`, linux — `mpg321` или `omxplayer` (рекомендуется).
+Также можно указать системную команду для воспроизведения mp3-файла. Если вы оставите это поле пустым, будут использоваться настройки по умолчанию: Windows — `cmdmp3.exe`, OSX — `/usr/bin/afplay`, linux — `mpg321` или `omxplayer` (рекомендуется).
 
 Чтобы установить omxplayer, напишите ```sudo apt-get install omxplayer``` или напишите ```sudo apt-get install mpg321```, чтобы установить mpg321.
 
@@ -283,6 +280,10 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 3.0.0 (2023-04-03)
+* (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
+* (bluefox) Breaking changes: Minimal node.js version is 14
+
 ### 2.1.2 (2023-03-27)
 * (bluefox) Corrected engines with web-link
 

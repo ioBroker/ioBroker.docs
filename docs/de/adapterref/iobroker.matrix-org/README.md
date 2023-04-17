@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: VMiIjOfbLptdI65a7gk+b2UlcZiAgkrCsv0M3PMya04=
+hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ---
 ![Logo](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -80,14 +80,26 @@ Wenn Ihr Client HTML nicht entschlüsseln kann, erhalten Sie den Text.
 Wenn Ihr Client keine Tabelle unterstützt, zeigt er entweder den Text oder einfach 12ab.
 
 ### Um Ihre Konfiguration zu testen, verwenden Sie sendMessage
-Öffnen Sie einfach die Objekte und ändern Sie den String einer Matrix-Org-Instanz. Der Port ist meistens 8448, wenn Sie ein selbst gehostetes System ohne Proxy haben.
-Manchmal ist der Port 443, wenn Sie ein öffentliches System wie matrix.org haben. Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-adapter:matrix.org Treten Sie diesem Raum bei und probieren Sie es aus mit eigenen Anmeldedaten
+Öffnen Sie einfach die Objekte und ändern Sie den String einer Matrix-Org-Instanz. Meistens ist der Port 443, wenn Sie ein öffentliches System wie matrix.org haben. Der Port ist manchmal 8448, wenn Sie ein selbst gehostetes System ohne Proxy haben, aber dann wissen Sie es Es.
+
+Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-adapter:matrix.org Treten Sie diesem Raum bei und probieren Sie es mit Ihren eigenen Zugangsdaten aus
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-04-01)
+* upgrade matrix-js-sdk (node 18 needed)
+
+### 0.1.6 (2023-04-01)
+* last version for node 16
+* updated libs according dependabot accept matrix-js-sdk
+
+### 0.1.5 (2023-03-02)
+* downgrade for node 16
+* translation for configuration
+
 ### 0.1.4 (2023-02-04)
 * update of dependencies
 * small readme improvement

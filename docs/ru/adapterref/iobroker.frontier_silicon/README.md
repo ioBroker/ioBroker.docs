@@ -3,149 +3,149 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frontier_silicon/README.md
 title: ioBroker.frontier_silicon
-hash: YH5cKUNTTU8K0wtF+CA6cM8T+v+DJa8Rhu+Xc6Pid3o=
+hash: NcLY7C7E+81OQd7XM6P1bLyzXy9bA0pAuWeNFAogifY=
 ---
-![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.svg)
-
-![Версия NPM](http://img.shields.io/npm/v/iobroker.frontier_silicon.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/frontier_silicon-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/frontier_silicon-stable.svg)
-![Статус зависимости](https://img.shields.io/david/halloamt/iobroker.frontier_silicon.svg)
-![Известные уязвимости](https://snyk.io/test/github/halloamt/ioBroker.frontier_silicon/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true)
-![Статус сборки](https://travis-ci.org/halloamt/ioBroker.frontier_silicon.svg?branch=master)
-
 # IoBroker.frontier_silicon
-## Переходник frontier_silicon для ioBroker
-Обеспечивает поддержку медиаплееров, оснащенных набором микросхем Frontier Silicon, с использованием FSAPI.
+![Логотип](../../../en/adapterref/iobroker.frontier_silicon/admin/radio.png)
 
-## Характеристики
-Всегда приветствуются пиары и конструктивная критика.
+![версия NPM](http://img.shields.io/npm/v/iobroker.frontier_silicon.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.frontier_silicon.svg)
+![Количество установок (последние)](http://iobroker.live/badges/frontier_silicon-installed.svg)
+![Количество установок (стабильно)](http://iobroker.live/badges/frontier_silicon-stable.svg)
+![НПМ](https://nodei.co/npm/iobroker.frontier_silicon.png?downloads=true)
 
+## Адаптер ioBroker для Frontier SmartRadio
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.frontier_silicon/workflows/Test%20and%20Release/badge.svg)
+
+## Информация
+Обеспечивает поддержку медиаплееров, интернет-радио и SmartRadio, оснащенных набором микросхем Frontier Silicon с использованием FSAPI.
+
+ПРИМЕЧАНИЕ. Этот адаптер был передан iobroker-community-adapters для обслуживания. Таким образом, запланированные функции (см. ниже) реализованы не будут. В будущем будут выпущены только важные исправления ошибок и обновления зависимостей. Однако всегда приветствуются PR с исправлениями ошибок или улучшениями функций.
+
+## Функции
 ### Реализованные функции
 - Контроль мощности
 - Выбор режима
-- Выбор предустановок
+- Выбор предустановки
 - Уведомления для нескольких состояний
 - Контроль громкости
 - Уведомления
 
-### Планируемые функции
+### Запланированные функции
 - Автоматическое обнаружение
-- Больше состояний
+- Больше штатов
 - Переводы
 - Больше обработки исключений
-- Код очистки
-- Особенности нескольких комнат
+- Более чистый код
+- Многокомнатные функции
 
-### Незапланированные функции
+### Не запланированные функции
 - Изменение системной информации
 
 ### Известные ошибки
-- Медиа-плеер должен быть включен для предустановленного обнаружения
+- Медиаплеер должен быть включен для предустановленного обнаружения
 - Нет уведомлений через некоторое время
 
 ## Документация
-Этот адаптер позволяет управлять интернет-радио и медиаплеерами на базе чипсетов Frontier Silicon. Многие устройства, которыми можно управлять с помощью [Undok] (https://www.frontiersmart.com/undok) должен работать. Протестированные устройства поступают от [Revo] (https://revo.co.uk/de/products/), [Sangean] (https://www.sangean.eu/products/all_product.asp) и [SilverCrest](https://www.silvercrest-multiroom.de/produkte/produktuebersicht/), должны работать и другие.
+Этот адаптер позволяет управлять интернет-радио и медиаплеерами на базе чипсетов Frontier Silicon. Многие устройства, которыми можно управлять через [Undok](https://www.frontiersmart.com/undok) должен работать. Протестированные устройства получены от [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp) и [SilverCrest](https://www.silvercrest-multiroom.de/produkte/produktuebersicht/), другие тоже должны работать.
 
-После установки IP-адрес и PIN-код устройства необходимо ввести в диалоговом окне конфигурации. Если радио не воспроизводит DAB после включения через Undok или этот адаптер, попробуйте включить «DAB запускается без звука».
+После установки IP-адрес и PIN-код устройства необходимо ввести в диалоговом окне конфигурации. Если магнитола не воспроизводит DAB после включения через Undok или этот адаптер, попробуйте включить "DAB запускается без звука".
 
-Когда адаптер запускается в первый раз, он собирает информацию об устройстве. Для этого нужно переключить все режимы. Во время проверки настроек устройство будет отключено на несколько секунд, чтобы избежать мешающих звуков.
+При первом запуске адаптер собирает информацию об устройстве. Для этого ему нужно переключить все режимы. Во время проверки настроек устройство будет отключено на несколько секунд, чтобы не мешать звукам.
 
-Пока адаптер читает настройки устройства, создаются объекты и состояния. Состояния могут быть доступны только для чтения (`ro`) или для чтения-записи (`rw`) *хорошо, возможна только запись для кнопок*
+Пока адаптер считывает объекты настройки устройства и создаются состояния. Состояния могут быть только для чтения (`ro`) или для чтения-записи (`rw`) *хорошо, только для записи для кнопок также возможно*.
 
 - аудио
 
   Основные настройки звука. Элементы управления эквалайзером еще не реализованы.
 
-  - maxVolume (`число, ro`)
+  - maxVolume(`число, ро`)
 
-    Максимальный выбор громкости
+    Максимальный выбираемый объем
 
-  - mute (`логическое, rw`)
+  - mute (`boolean, rw`)
 
-    `true`, если на устройстве отключен звук, `false` в противном случае
+    `true`, если звук на устройстве отключен, `false`в противном случае
 
-  - объем (`number, rw`)
+  - объем (`число, rw`)
   - контроль
-    - volumeDown и volumeUp
+    - громкость вниз и громкость вверх
 
-В- / или уменьшает громкость на 1
+    In-/ или уменьшает громкость на 1
 
 - устройство
 
-  - friendlyName (`текст, rw`)
+  - friendlyName(`текст, rw`)
   - мощность (`boolean, rw`)
-  - radioId (`test, ro`)
+  - radioId(`test, ro`)
 
     Я предполагаю, что это MAC устройства
 
-  - версия (`text, ro`)
+  - версия (`текст, ро`)
 
     Версия ПО
 
-  - webfsapi (`текст, ro`)
+  - webfsapi(`текст,ро`)
 
     Адрес API
 
 - Информация
 
-  - соединение (`boolean, ro`)
+  - связь (`boolean, ro`)
 
-    Индикатор подключения адаптера
+    Индикатор подключения к адаптеру
 
-- средства массовой информации
+- СМИ
 
   - состояние (`число, rw`)
 
-    допустимые значения:
+    действительные значения:
 
-    - 0: пауза
+    - 0: Пауза
     - 1: Играть
 
   - контроль
 
     - следующий
-    - плаза
+    - аплодисменты
     - играть
     - предыдущий
 
-  Не относитесь к следующим именам слишком серьезно. Радио по-разному использует их в разных режимах.
+  Не относитесь к следующим именам слишком серьезно. Радио использует их по-разному в разных режимах.
 
-  - альбом (`text, ro`)
-  - исполнитель (`text, ro`)
-  - графика (`text, ro`)
+  - альбом (`текст,ро`)
+  - художник (`текст, ро`)
+  - графический (`текст, ро`)
 
-    Используйте этот URL, чтобы получить обложку альбома или логотип станции.
+    Используйте этот URL, чтобы получить обложку альбома или логотип радиостанции.
 
   - имя (`текст, ро`)
-  - текст (`text, ro`)
-  - заголовок (`text, ro`)
+  - текст (`текст,ро`)
+  - заголовок (`текст, ро`)
 
 - режимы
 
-  - прочитатьПресеты
+  - читать пресеты
 
     Перечитывает все пресеты
 
-  - selectPreset (`число, rw`)
+  - selectPreset(`число,rw`)
 
-    Используется для получения или выбора предустановки. Имейте в виду, что адаптер предполагает, что это значение не может быть прочитано из API.
+    Используется для получения или выбора пресета. Имейте в виду, что адаптер угадывает, поскольку это значение не может быть прочитано из API.
 
-  - выбрано (`number, rw`)
+  - выбрано (`число, rw`)
 
-    Указывает или выбирает выбранный режим. Также можно выбрать с помощью `modes.{number}.switchTo`.
+    Указывает или выбирает выбранный режим. Также можно выбрать через `modes.{number}.switchTo`
 
-  - `{number}`
+  - `{номер}`
 
-    - id (`текст, ro`)
+    - id(`текст,ро`)
 
       Название этого режима
 
-    - клавиша (`number, ro`)
+    - ключ (`число, ро`)
 
-      Индекс этого режима. Равно `mode.{number}` из дерева объектов и может быть записан в `modes.selected`.
+      Индекс этого режима. Равен `mode.{number}` из дерева объектов и может быть записан в `modes.selected`.
 
     - выбираемый (`boolean, ro`)
 
@@ -153,7 +153,7 @@ hash: YH5cKUNTTU8K0wtF+CA6cM8T+v+DJa8Rhu+Xc6Pid3o=
 
     - потоковый (`boolean, ro`)
 
-      Присутствует только на устройствах с несколькими комнатами. `true`, если этот режим может использоваться в качестве источника для нескольких многокомнатных устройств.
+      Присутствует только на устройствах с поддержкой нескольких комнат. `true`, если этот режим можно использовать в качестве источника для нескольких многокомнатных устройств.
 
     - переключить на
 
@@ -161,21 +161,21 @@ hash: YH5cKUNTTU8K0wtF+CA6cM8T+v+DJa8Rhu+Xc6Pid3o=
 
     - пресеты
 
-      - available (`логическое, ro`)
+      - доступный (`boolean, ro`)
 
-        Указывает, доступны ли предустановки для этого режима
+        Указывает, доступны ли пресеты для этого режима.
 
-      - `{number}`
+      - `{номер}`
 
-        Индекс этой предустановки. Равно `mode.*.presets.{number}.key`.
+        Индекс этого пресета. Равно `mode.*.presets.{number}.key`.
 
         - ключ
 
-          Индекс этой предустановки. Равно `mode.*.presets.{number}` из дерева объектов и может быть записан в `modes.selectPreset`.
+          Индекс этого пресета. Равен `mode.*.presets.{number}` из дерева объектов и может быть записан в `modes.selectPreset`.
 
         - имя (`текст, ро`)
 
-          Название этой предустановки
+          Имя этого пресета
 
         - переключить на
 
@@ -183,114 +183,80 @@ hash: YH5cKUNTTU8K0wtF+CA6cM8T+v+DJa8Rhu+Xc6Pid3o=
 
 Имейте в виду, что иногда вы можете выбирать между «нажатием кнопки» или «установкой значения». Используйте то, что вам удобнее.
 
-## Руководство разработчика
-Этот раздел предназначен для разработчика. Его можно будет удалить позже
+## Официальные уведомления
+Frontier, Frontier Silicon, SmartRadio и соответствующие логотипы являются товарными знаками или зарегистрированными товарными знаками Frontier Smart Technologies Limited [https://www.frontiersmart.com](https://www.frontiersmart.com)
 
-### Начиная
-Вы почти закончили, осталось всего несколько шагов:
+Все остальные товарные знаки являются собственностью их соответствующих владельцев.
 
-1. Создайте новый репозиторий на GitHub с именем `ioBroker.frontier_silicon`
-
-1. Отправьте все файлы в репозиторий GitHub. Создатель уже настроил для вас локальный репозиторий:
-
-	```bash
-	git push origin master
-	```
-
-1. Добавьте новый секрет в https://github.com/halloamt/ioBroker.frontier_silicon/settings/secrets. Он должен называться AUTO_MERGE_TOKEN и содержать токен персонального доступа с принудительным доступом к репозиторию, например твой. Вы можете создать новый токен по адресу https://github.com/settings/tokens.
-
-1. Перейдите на [main.js] (main.js) и начните программировать!
-
-### Лучшие практики
-Мы собрали несколько [лучшие практики](https://github.com/ioBroker/ioBroker.repositories#development-and-coding-best-practices) относительно разработки и программирования ioBroker в целом. Если вы новичок в ioBroker или Node.js, вам стоит их проверить. Если у вас уже есть опыт, вам также стоит взглянуть на них - вы можете узнать что-то новое :)
-
-### Скрипты в `package.json`
-Для вашего удобства предопределено несколько сценариев npm. Вы можете запустить их с помощью `npm run <scriptname>`.
-
-| Имя скрипта | Описание |
-| `test:js` | Выполняет тесты, определенные вами в файлах `*.test.js`. |
-| `test:package` | Убедитесь, что ваши `package.json` и `io-package.json` действительны. |
-| `test` | Выполняет минимальный тестовый запуск для файлов пакетов и ваших тестов. |
-| `lint` | Запускает `ESLint` для проверки кода на наличие ошибок форматирования и потенциальных ошибок. |
-| `lint` | Запускает `ESLint`, чтобы проверить ваш код на наличие ошибок форматирования и потенциальных ошибок. |
-
-### Написание тестов
-Когда все сделано правильно, тестирование кода бесценно, потому что оно дает вам уверенность в том, что вы можете изменить свой код, точно зная, когда и когда что-то сломается. Хорошее прочтение по теме разработки через тестирование: https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92.
-Хотя написание тестов до кода поначалу может показаться странным, но у него есть очень явные плюсы.
-
-Шаблон предоставляет вам базовые тесты для файлов запуска адаптера и пакетов.
-Рекомендуется добавлять в микс свои собственные тесты.
-
-### Публикация адаптера
-Поскольку вы выбрали GitHub Actions в качестве службы CI, вы можете включить автоматические выпуски в npm всякий раз, когда вы нажимаете новый тег git, соответствующий форме `v<major>.<minor>.<patch>`. Необходимые шаги описаны в `.github/workflows/test-and-release.yml`.
-
-Чтобы выпустить адаптер в ioBroker, обратитесь к документации [ioBroker.repositories](https://github.com/ioBroker/ioBroker.repositories#requirements-for-adapter-to-get-added-to-the-latest-repository).
-
-### Протестируйте адаптер вручную при локальной установке ioBroker
-Чтобы установить адаптер локально без публикации, рекомендуется выполнить следующие действия:
-
-1. Создайте архив из вашего каталога разработчика:
-
-	```bash
-	npm pack
-	```
-
-1. Загрузите полученный файл на свой хост ioBroker.
-1. Установите его локально (в Windows пути разные):
-
-	```bash
-	cd /opt/iobroker
-	npm i /path/to/tarball.tgz
-	```
-
-Для более поздних обновлений описанная выше процедура не требуется. Просто сделайте следующее:
-
-1. Замените измененные файлы в каталоге адаптера (`/ opt / iobroker / node_modules / iobroker.frontier_silicon`)
-1. Выполните `iobroker upload frontier_silicon` на хосте ioBroker.
-
-</details>
+Авторы никоим образом не поддерживаются и не связаны с Frontier Smart Technologies Limited или какими-либо связанными дочерними компаниями, логотипами или товарными знаками.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
+- (pdbjjens) New: json config UI
+
+### 0.0.11 (2023-03-30) 2023 maintenance release
+
+- (pdbjjens) New: Transfer of adapter to community
+- (pdbjjens) New: Updated dependencies
+- (pdbjjens) New: Use adapter-dev instead of gulp translate
+- (pdbjjens) Fix: Prevent js-controller >=3.2.x warnings regarding non-existent objects and typeErrors
+
 ### 0.0.10 (2020-11-29)
-* Übersetzungen
+
+- Translations
 
 ### 0.0.9
-* (halloamt) Selected preset can be read now. The adapter guesses a little but this seems to work.
-* (halloamt) Nicer readme
-* (halloamt) (Hopefully) more robust session handling.
-* (halloamt) Long polling should work more reliably
-* (halloamt) Sleep timers are cleared on `onUnload`
+
+- (halloamt) Selected preset can be read now. The adapter guesses a little but this seems to work.
+
+- (halloamt) Nicer readme
+- (halloamt) (Hopefully) more robust session handling.
+- (halloamt) Long polling should work more reliably
+- (halloamt) Sleep timers are cleared on `onUnload`
 
 ### 0.0.7 und 0.0.8
-* (halloamt) Formal but neccessary stuff for ioBroker
+
+- (halloamt) Formal but neccessary stuff for ioBroker
 
 ### 0.0.6
-* (halloamt) Nothing really, small stuff for npm
+
+- (halloamt) Nothing really, small stuff for npm
 
 ### 0.0.5
-* (halloamt) Media state controls
-* (halloamt) Bugfixes
+
+- (halloamt) Media state controls
+
+- (halloamt) Bugfixes
 
 ### 0.0.4
-* (halloamt) Media and volume control buttons
-* (halloamt) Bugfixes
+
+- (halloamt) Media and volume control buttons
+
+- (halloamt) Bugfixes
 
 ### 0.0.3
-* (halloamt) Get notifications from the radio
-* (halloamt) Change volume / mute
+
+- (halloamt) Get notifications from the radio
+
+- (halloamt) Change volume / mute
 
 ### 0.0.1
-* (halloamt) initial release
-* (halloamt) Change mode
-* (halloamt) Select Preset
 
-<details>
-<summary>Developer Manual</summary>
+- (halloamt) initial release
+- (halloamt) Change mode
+- (halloamt) Select Preset
 
 ## License
+
 MIT License
 
-Copyright (c) 2020 halloamt <iobroker@halloserv.de>
+Copyright (c) 2023 halloamt <iobroker@halloserv.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

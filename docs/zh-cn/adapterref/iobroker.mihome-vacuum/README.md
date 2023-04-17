@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker mihome-真空适配器
-hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
+hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
 ---
-![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
+![标识](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![安装数量](http://iobroker.live/badges/mihome-vacuum-stable.svg)
@@ -43,7 +43,7 @@ hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 - [更新日志](#changelog)
 
 ## 支持的设备和功能
-|设备 |基本控制 |历史 |房间|地图 |
+|设备 |基本控制 |历史 |房间 |地图 |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
 | viomi.vacuum.v6 | :heavy_check_mark: | ：x：|：x：| ：×：|
 | viomi.vacuum.v7 | :heavy_check_mark: | ：x：|：x：| ：×：|
@@ -99,7 +99,7 @@ hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 启用此选项后，如果 Vacuum 在运行区域清洁期间暂停，则在将“开始”状态设置为 true 时，Vacuum 将恢复区域清洁。
 如果禁用此选项，即使在运行区域清洁期间暂停，吸尘器也会在您发送启动命令时开始新的“正常清洁”。
 
-- 实验性：使用“发送您自己的命令”复选框创建对象，您可以通过它向机器人发送和接收您自己的命令。
+- 实验性：使用复选框“发送您自己的命令”创建对象，通过它您可以向机器人发送和接收您自己的命令。
 
 #### 第二个机器人
 如果要通过 ioBroker 控制两个机器人，则必须创建两个实例。对于第二个机器人，ioBroker 自己的端口（默认值：53421）必须更改，以便两个机器人都可以通过不同的端口归档 ioBroker。
@@ -152,7 +152,7 @@ hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 
 使用base64-map速度更快，会实时显示附近机器人的位置。
 
-＃＃ 职能
+＃＃ 功能
 ### S50（二代）指令
 卡片尺寸始终为 52000mm x 52000mm，因此可以使用 0 到 51999mm 之间的值。
 不幸的是，卡的位置和位置无法查询，这可以从吸到吸。用作基础的始终是最后一张吸卡，以及在应用程序中。
@@ -200,7 +200,7 @@ xVal, yval
 如果您想自发地清洁多个房间，您可以通过 multiRoomClean 将 ioBroker 房间分配给该数据点，然后按下按钮来完成此操作。
 
 #### 计时器
-一旦真空吸尘器支持房间功能（见上文），也可以创建计时器，然后触发相应的房间通道或确定它们的 mapIndexes。
+一旦真空吸尘器支持房间功能（见上文），也可以创建定时器，然后触发相应的房间通道或确定它们的 mapIndexes。
 计时器可以直接通过房间和/或房间频道触发。
 计时器本身是通过配置区域创建的，但随后成为数据点。在那里，每个计时器都可以被激活/停用或跳过一次。直接启动也是可能的。 ioBroker 定时器的优点是可以在 VIS 中显示和使用，您可以断开机器人与互联网的连接，因为应用程序的定时器是从中国触发的。
 
@@ -304,7 +304,7 @@ sendTo("mihome-vacuum.0",
 |检索当前水箱模式 | `getWaterBoxMode` | - 无 - | |
 |设置拖地模式 | `setMopMode` | `mopMode` | `mopMode` 是 300 到 303 之间的数字 |
 |检索当前的拖地模式 | `getMopMode` | - 无 - | |
-|设置水箱模式 | `setWaterBoxMode` | `waterBoxMode` | `waterBoxMode` 是 200 到 204 之间的数字 |
+|设置水箱模式 | `setWaterBoxMode` | `waterBoxMode`\| {waterBoxMode:`waterBoxMode`,waterBoxLevel:`waterBoxLevel`} | `waterBoxMode` 是 200 到 204 或 207 之间的数字 -> 那么你还必须证明 `waterBoxLevel` 是 1 - 30 之间的数字 |
 |启动远程控制功能 | `startRemoteControl` | - 无 - | |
 |发出远程控制的移动命令 | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` |序号必须顺序，Duration以ms为单位 |
 |结束远程控制功能 | `stopRemoteControl` | - 无 - | |
@@ -330,6 +330,26 @@ sendTo("mihome-vacuum.0",
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 3.10.1 (2023-04-10)
+* (Dirkhe) fix waterBoxLevel 
+* (Dirkhe) fix overwriting of roomStates from global
+
+### 3.10.0 (2023-04-07)
+* (Dirkhe) check also stockcommands in onMessage 
+* (Dirkhe) add feature waterbox level #755
+
+### 3.9.5 (2023-01-13)
+* (Dirkhe) change type of unsupported features
+* (Dirkhe) fix button/command loadRooms
+
+### 3.9.4 (2023-01-11)
+* (Dirkhe) cleanmap.mapURL typo fixed
+
+### 3.9.3 (2023-01-11)
+* (Dirkhe) fix loosing passwort in config
+* (Dirkhe) move map Url to userspace instead of admin space #735
+* (Dirkhe) change mapUrl to /mihome-vacuum.0.userfiles/actualMap.png
+
 ### 3.9.2 (2023-01-06)
 * (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
 * (dirkhe) fix bug from 3.9.1 for supported repeat devices

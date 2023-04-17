@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sayit/README.md
 title: ioBroker Sayit-Adapter
-hash: IdtEIlh2NF6e5p51SNYE75diunVTHlvEBg3Ut6APqPo=
+hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
 ---
 ![Logo](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,10 +55,7 @@ online:
 
 Um Yandex-Stimmen zu verwenden, müssen Sie den API-Schlüssel hier anfordern: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Dieser Dienst wird am 1. Januar 2019 deaktiviert und durch Yandex.cloud ersetzt] Um Yandex.cloud zu verwenden, sollten Sie sich hier registrieren: [https://cloud.yandex.ru/], SpeechKIT API in der Cloud installieren und Auth Token erhalten und Ordner-ID, wie in den API-Anweisungen beschrieben.
 
-- Wolke:
-
-  Um Cloud-Stimmen verwenden zu können, benötigen Sie einen konfigurierten Cloud-Adapter. (Es kann deaktiviert werden, muss aber konfiguriert werden). Dieser Dienst verwendet AWS Polly und kann direkt verwendet werden.
-
+- Cloud: Um Cloud-Stimmen verwenden zu können, müssen Sie den „Cloud“-Adapter konfigurieren und ausführen.
 - Amazon Web Services Polly:
 
   Um AWS Polly-Stimmen verwenden zu können, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier] (https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
@@ -283,6 +280,10 @@ Folgende Werte für Motoren sind möglich:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.0.0 (2023-04-03)
+* (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
+* (bluefox) Breaking changes: Minimal node.js version is 14
+
 ### 2.1.2 (2023-03-27)
 * (bluefox) Corrected engines with web-link
 

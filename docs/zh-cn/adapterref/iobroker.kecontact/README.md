@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact 文件
-hash: Ji1Mip+NQ5S+4Fx9eR8lyUwIKoSBLqSOCu/IZTMptgQ=
+hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 ---
-![商标](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
+![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM 版本](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
@@ -57,6 +57,7 @@ v1.1.1及以下版本的用户注意：您必须选中此选项才能继续接�
 要根据盈余（例如通过光伏）为您的车辆充电，您还可以定义代表盈余和考虑主电源的状态。这些值用于计算可用于充电的安培数。通过附加值，您可以定义
 
 * 电池存储的当前功率状态，因此光伏自动装置将额外使用它为您的车辆充电
+* 一个选项来限制电池存储的功率以保持最小功率充电
 * 如果您想使用充电站的 X1 输入来控制是满功率充电还是光伏自动充电，请切换 X1 选项
 * 与默认 6 A 不同的最小安培数（仅雷诺 Zoe 等需要）
 * 可用于开始充电的考虑功率值（这意味着即使没有足够的剩余可用也将开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
@@ -101,6 +102,7 @@ KeConnect 是 KEBA AG 的注册商标。
 ### **WORK IN PROGRESS**
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 

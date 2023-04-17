@@ -27,7 +27,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 Netatmo Energy Hardware (Thermostat, Ventile)
 Konto bei Netatmo Cloud
 
-- Der Adapter arbeitet mit admin => 3 und nodejs >= 14
+- Der Adapter arbeitet mit admin >= 3 und nodejs >= 14
 - Erstelle dein eigenes Konto <https://auth.netatmo.com/de-de/access/signup>
 - Login in die API durchführen <https://dev.netatmo.com/apidocumentation/energy>
 - Erzeuge deine eigene APP durch Anklicken deines Kontos (oben / links), und drücke den Knopf "Create"
@@ -38,7 +38,6 @@ Konto bei Netatmo Cloud
     - du wirst ein response erhalten in der du deine home-ID findest
     - Übernimm sie in die Adapter Konfiguration
     - Starte den Netatmo-Energy Adapter und authentifiziere dich bei Netatmo API
-      - Selektieren sie die neue Authentifizierungsmethode (OAuth2)
       - Bestätigen sie den Knopf "Authentifizieren Sie sich bei Netatmo"
       - Loggen sie sich in ihr Konto ein, sofern es notwendig ist
       - Bestätigen sie die Berechtigung für Drittanbieter für ihre Netatmo-APP
@@ -47,8 +46,10 @@ Konto bei Netatmo Cloud
     - Temperaturänderungen sofort übertragen ... sofortiges übertragen der Temperaturänderungen in State "SetTemp" an die API
     - API Zustände nach Änderung sofort lesen ... API Daten mittels homestatus sofort nach Aktualisierung der API abholen
     - Aktualisierung der API-states nach x Sekunden ... Permanentes Aktualisieren der API Daten. (0 = Keine Aktualisierung)  
-  - Wenn gewünscht kann auch Benachrichtigungsdienst eingerichtet werden um bestimmte Statusänderungen zugesandt zu bekommen. Dabei ist es möglich sich Informationsmeldungen, Warnungen bzw. Fehlermeldungen zu erhalten. Hierfür ist es notwendig die Option "Benachrichtigungen aktivieren/deaktivieren" in den "Anmeldeinformationen" zu aktivieren und danach die Einstellungen im Menü "Benachrichtigungen" einzurichten.
-
+  - Wenn gewünscht kann auch Benachrichtigungsdienst eingerichtet werden um bestimmte Statusänderungen zugesandt zu bekommen. Dabei ist es möglich sich 
+  Informationsmeldungen, Warnungen bzw. Fehlermeldungen zu erhalten. Hierfür ist es notwendig die Option "Benachrichtigungen aktivieren/deaktivieren" in den "Anmeldeinformationen" zu aktivieren und danach die Einstellungen im Menü "Benachrichtigungen" einzurichten.
+  - Zusätzlich ist es möglich die Tür-/Fenstersensoren in der Sensorik einzutragen und die gewünschte Aktion zu hinterlegen
+  
 Eine detaillierte Beschreibung ist als wiki verfügbar (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/settings_login_de.png" alt="settingsLogin" width="70%"/>
@@ -89,6 +90,10 @@ Wenn ein API Request Parameter benötigt, können sie diese im korrespondierende
 - setroomthermpoint     ... abhängig von den manuellen Änderungen im Channel "setting" werden die Änderungen an die Netatmo Energy APP übertragen. (entweder sofort oder selbst getriggert - "Temperaturänderungen sofort übertragen").
 - set_mode_to_home      ... Der Button "set_mode_to_home" im channel "setting" setzt den Ventil-mode "set_mode_to_home" auf "home". Außerdem wird der API Request sofort ausgelöst, um die Änderung zu übertragen.
 
+### Nachrichten
+
+- message_text          ... alle Nachrichten werden in diesem Datenpunkt übertragen
+
 ### Status
 
 - running               ... hier kann man erkenne ob derzeit ein API Request läuft
@@ -113,17 +118,32 @@ Bitte geben sie für den von ihnen gewählten Benachrichtigungsdienst die notwen
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="notifications" width="70%"/>
 
-## Sensorik
-
-In der Tabelle können Sie auf das "window_open" attribut pro Raum reagieren. Der Status der jeweiligen Fnstersensoren kann beim Ändern eine Aktion auslösen, welche hier einzutragen ist. Entweder kann eine dezidierte Temparatur eingestellt werden oder es kann wieder aufe den Home Mode geschaltet werden. Somit kann beim Öffnen oder beim Schließen eines Fensters die Temparatur eines Ventils eingestellt werden.
-
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="sensors" width="70%"/>
-
 ## Nachrichten
 
-Hier können sie bestimmte Nachrichten bei bestimmten Statusänderungen auslösen. Die gewünschte Nachricht können sie hinterlegen.
+Hier können sie bestimmte Nachrichten bei bestimmten Statusänderungen auslösen. Die gewünschte Nachricht können sie hinterlegen. Diese werden immer in den Datenpunkt "message_text" übertragen.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="messages" width="70%"/>
+
+Durch Drücken des Knopfes " TESTMITTEILUNG SENDEN" ist es möglich das Nachrichtenservice zu testen. Vor dem Test ist es notwendig alle Einstellungen für das Nachrichten Service zu speichern.
+
+## Sensorik
+
+In der Tabelle können Sie auf das "Fenster-/Türsensor" Attribut pro Raum reagieren. Der Status der jeweiligen Fenstersensoren kann beim Ändern eine Aktion auslösen, welche hier einzutragen ist. Es ist möglich hier alle Sensoren auszuwählen, welche vom Typ bool sind. Somit können auch externe Sensoren eingebunden werden.
+
+Folgende Aktionen können ausgelöst werden:
+
+- Temperatur eingestellen
+- Home Mode setzen
+- Heizmodus einstellen
+  - Frostwächter
+  - Nicht zu Hause
+  - Normalbetrieb
+- Heizplan aktivieren
+  - alle existierenden Heizpläne der Netatmo-Energy App werden angeboten
+
+Somit kann beim Öffnen oder beim Schließen eines Fensters / Tür die Temperatur eines Ventils eingestellt werden. Durch eingeben einer Verzögerungszeit (in Sekunden) wird die hinterlegte Aktion verzögert ausgeführt. Wird innerhalb der Verzögerungszeit der auslösende Sensor wieder geändert, werden die noch austehenden Aktionen nicht durchgeführt.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="sensors" width="70%"/>
 
 ## Admin-Tab
 
@@ -146,53 +166,72 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.4.0 (2023-03-19)
+### 2.5.8 (2023-04-16)
+
+* (ioKlausi) Bug fix of translations
+
+### 2.5.7 (2023-04-16)
+
+* (ioKlausi) Bug fix of sensor actions
+
+### 2.5.6 (2023-04-15)
+
+* (ioKlausi) Bug fix of Sentry errors
+* (ioKlausi) Home mode for individual rooms in admin tab established
+* (ioKlausi) Bug fix of translations
+
+### 2.5.5 (2023-04-11)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.4 (2023-04-10)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.3 (2023-04-10)
+
+* (ioKlausi) Added data point for messages
+
+### 2.5.2 (2023-04-09)
+
+* (ioKlausi) Made some adjustments in the admin config
+
+### 2.5.1 (2023-04-09)
+
+* (ioKlausi) Test message in config added
+* (ioKlausi) Revise ioBroker Netatmo-Energy APP
+
+### 2.5.0 (2023-04-07)
+
+* (ioKlausi) Sensor changed to object ID type boolean
+
+### 2.4.5 (2023-04-06)
+
+* (ioKlausi) Implementation of sensor abort functionality
+
+### 2.4.4 (2023-04-03)
+
+* (ioKlausi) Add delay time, to perform action
+
+### 2.4.3 (2023-04-02)
+
+* (ioKlausi) Default entries for sensor table
+
+### 2.4.2 (2023-04-02)
+
+* (ioKlausi) Bug fix for Sentry errors
+
+### 2.4.1 (2023-04-02)
+
+* (ioKlausi) Revice coding
+
+### 2.4.0 (2023-04-01)
 
 * (ioKlausi) Implement actions for window sensors
 
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding
-
-### 2.3.0 (2023-02-12)
-
-* (ioKlausi) Rework of signal notifications
-
-### 2.2.2 (2023-02-12)
-
-* (ioKlausi) Send No-Token-Error as a notification
-
-### 2.2.1 (2023-02-12)
-
-* (ioKlausi) Timer established for token refresh
-
-### 2.1.0 (2023-02-05)
-
-* (ioKlausi) Added new API request 'createnewhomeschedule'
-
-### 2.0.3 (2023-02-04)
-
-* (ioKlausi) Added Signal as a new message type
-
-### 2.0.2 (2023-01-07)
-
-* (ioKlausi) Revision of the documentation
-
-### 2.0.1 (2023-01-06)
-
-* (ioKlausi) Corrections for OAuth2
-
-### 2.0.0 (2023-01-06)
-
-* (ioKlausi) New authentication method established
-
-### 1.3.1 (2022-04-18)
-
-* (ioKlausi) Additional information added to admin tab cards
-
-### 1.3.0 (2022-04-17)
-
-* (ioKlausi) Change thermostat mode functionality added to thermostat card
 
 ## License
 

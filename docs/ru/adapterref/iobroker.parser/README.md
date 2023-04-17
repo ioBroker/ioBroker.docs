@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.parser/README.md
 title: Адаптер парсера ioBroker
-hash: NBDh0n/64Sx8hlo1HvkOMQ/HrkOSPsuqjlEfgHdbdzk=
+hash: moWgwHAhu98ZcFDHtFv7vESNc9QuaiAg9guc3+1Zh4g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -81,7 +81,7 @@ hash: NBDh0n/64Sx8hlo1HvkOMQ/HrkOSPsuqjlEfgHdbdzk=
 *Примечание.* При применении регулярного выражения к извлеченным данным URL/файла все разрывы строк будут заменены пробелами, чтобы обеспечить многострочный поиск.
 
 ## О регулярных выражениях (RegExp)
-Регулярные выражения — это мощный инструмент для анализа и извлечения определенных данных из строк, и, что более важно, они позволяют извлекать определенные значения/текст из заданной строки (например, из HTML веб-страницы или текста из файла), применяя правила. .
+Регулярные выражения — это мощный инструмент для анализа и извлечения определенных данных из строк, и что еще более важно: они позволяют извлекать определенные значения/текст из заданной строки (например, из HTML веб-страницы или текста из файла), применяя правила. .
 
 Для логических типов регулярное выражение довольно простое. Для числовых типов следует пометить число скобками — `()`. Например. чтобы извлечь число из *Температура 5°C*, вы должны использовать выражение ` (\d+)`.
 
@@ -128,6 +128,18 @@ on("parser.0.kleinanzeigen", (obj) => {
 - 0x82 - URL-адрес или файл не могут быть прочитаны.
 - 0x44 - Число или строковое значение не найдено в тексте
 
+## Запуск
+Дополнительно, к интервалу опроса, парсинг определенных правил может быть инициирован записью пустого значения (`false`, `0`, '' - зависит от типа состояния) в состояние с §§SSSSS_2 §§ флаг подтверждения.
+В этом случае значение будет считано из URL/файла и немедленно проанализировано.
+
+Вы также можете отправить сообщение адаптеру с помощью команды `sendTo`:
+
+```Javascript
+sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
+    console.log(JSON.stringify(result)); // {"value": 10, "error": null}
+});
+```
+
 ## Поддерживать
 1. Общее: [Форум ioBroker](https://forum.iobroker.net/). Немецкоязычные пользователи: см. [тему форума ioBroker Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
 2. В случае возникновения каких-либо проблем, пожалуйста, проверьте [адаптер ioBroker Parser: проблемы GitHub] (https://github.com/ioBroker/ioBroker.parser/issues).
@@ -137,6 +149,18 @@ on("parser.0.kleinanzeigen", (obj) => {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.0.4 (2023-04-03)
+* (bluefox) The result could be an array of values
+
+### 2.0.3 (2023-04-02)
+* (bluefox) Corrected subscription on too many objects
+
+### 2.0.2 (2023-04-01)
+* (bluefox) Added possibility to trigger the parsing by writing of empty value to the state
+
+### 2.0.1 (2023-03-31)
+* (bluefox) Updated timestamp of non changed values
+
 ### 2.0.0 (2023-03-29)
 * (TA2k) added translations
 * (bluefox) Migrated GUI to admin v6

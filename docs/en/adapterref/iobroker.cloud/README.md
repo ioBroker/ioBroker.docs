@@ -75,8 +75,9 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 4.4.0 (2023-04-03)
 * (bluefox) Corrected error with `name` command
+* (bluefox) Corrected `text2speech` functionality
 
 ### 4.3.1 (2022-12-22)
 * (bluefox) Downgrade of axios package to 0.27.2
@@ -327,7 +328,7 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

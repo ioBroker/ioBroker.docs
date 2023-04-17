@@ -66,8 +66,9 @@ If your client do not support table it either show the text or simply 12ab.
 ### to test your configuration use sendMessage
 
 simply open the objects and change the string of one matrix-org instance
-The port is mostly 8448, when you have a self hosted system without proxy.
-Sometimes the port is 443, if you have a public system like matrix.org
+Mostly the port is 443, if you have a public system like matrix.org
+The port is sometimes 8448, when you have a self hosted system without proxy, but then you know it.
+
 If you like to test it:
 Server: matrix.org Port: 443
 room: #test-ioBroker-adapter:matrix.org
@@ -78,6 +79,13 @@ Join this room and try it out with your own credentials
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-04-01)
+* upgrade matrix-js-sdk (node 18 needed)
+
+### 0.1.6 (2023-04-01)
+* last version for node 16
+* updated libs according dependabot accept matrix-js-sdk
+
 ### 0.1.5 (2023-03-02)
 * downgrade for node 16
 * translation for configuration

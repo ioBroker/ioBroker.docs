@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonoff/README.md
-title: ioBroker Sonoff
-hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
+title: ioBroker索诺夫
+hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ---
 ![标识](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
@@ -11,121 +11,131 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
-# IoBroker Sonoff
-![测试和发布](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker 索诺夫
+![测试和发布](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 使用 MQTT 协议的 ioBroker 适配器比较
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (在代理模式)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (在客户端模式)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
+如果您只有 Tasmotas 说 MQTT 协议，请选择 `ioBroker.sonoff`。对于其他情况，请考虑不同的选项：
 
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（在代理模式下）|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker .mqtt/) (在客户端模式下)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
-|---|---|---|---|---|
-|有内置 MQTT 代理|是|是|否|否|
-|将消息中继到其他 MQTT 订阅者|否!!!|是|不适用|不适用|
-|外部 MQTT 代理|不支持|不支持|需要|需要|
-|Tasmota MQTT消息到ioBroker Objects|智能处理|1:1处理所有消息|1:1处理订阅消息|1:1处理订阅消息|
-|非 Tasmota MQTT 消息到 ioBroker 对象|不处理|1:1 处理所有消息|1:1 处理订阅消息|1:1 处理订阅消息|
-|将 ioBroker 值发布为 MQTT 消息|无|配置的子树|配置的子树|单独配置的值|
+|专题 | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（代理模式）| [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（客户端模式）| [ioBroker.mqtt-客户端](https://github.com/Pmant/ioBroker.mqtt-client/) |
+|-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
+|有一个内置的 MQTT 代理 |是 |是 |没有 |没有 |
+|将消息中继到其他 MQTT 订阅者 |不！！！ |是 |不适用 |不适用 |
+|外部 MQTT 经纪人 |不支持 |不支持 |需要 |需要 |
+| Tasmota MQTT 消息到 ioBroker 对象 |智能加工 | 1:1 处理所有消息 | 1:1处理订阅消息 | 1:1处理订阅消息 |
+|到 ioBroker 对象的非 Tasmota MQTT 消息 |没有处理 | 1:1 处理所有消息 | 1:1处理订阅消息 | 1:1处理订阅消息 |
+|将 ioBroker 值发布为 MQTT 消息 |无 |配置的子树 |配置的子树 |单独配置的值 |
 
 ＃＃ 用法
-此适配器通过 MQTT 与具有 Tasmota 固件或 ESP 设备的 Sonoff 设备进行通信。
+此适配器通过 MQTT 与带有 Tasmota 固件或 ESP 设备的 Sonoff 设备通信。
 
-预计以下主题：
+预计将有以下主题：
 
-- `电话/设备名称/状态`
+- `tele/DeviceNAME/STATE`
 - `tele/DeviceNAME/SENSOR`
-- `电话/设备名称/INFOx`
-- `电话/设备名称/能源`
-- `cmd/设备名称/POWERx`
+- `tele/DeviceNAME/INFOx`
+- `tele/DeviceNAME/ENERGY`
+-`cmnd/设备名称/POWERx`
 - `stat/DeviceNAME/POWERx`
--`/设备名称/BM280/温度`
--`/设备名称/BM280/湿度`
--`/设备名称/BM280/温度`
--`/设备名称/BM280/Feuchtigkeit`
--`/设备名称/BM280/Vcc`
--`/设备名称/BM280/VCC`
--`/设备名称/BM280/Laufzeit`
--`/设备名称/BM280/RSSI`
--`/设备名称/BM280/POWER`
--`/设备名称/BM280/POWER1`
--`/设备名称/BM280/POWER2`
--`/设备名称/BM280/POWER3`
--`/设备名称/BM280/POWER4`
--`/设备名称/BM280/Switch1`
--`/设备名称/BM280/Switch2`
+-`/DeviceNAME/BM280/Temperature`
+-`/DeviceNAME/BM280/湿度`
+-`/DeviceNAME/BM280/Temperatur`
+-`/DeviceNAME/BM280/Feuchtigkeit`
+-`/DeviceNAME/BM280/Vcc`
+-`/DeviceNAME/BM280/VCC`
+-`/DeviceNAME/BM280/Laufzeit`
+-`/DeviceNAME/BM280/RSSI`
+-`/DeviceNAME/BM280/POWER`
+-`/DeviceNAME/BM280/POWER1`
+-`/DeviceNAME/BM280/POWER2`
+-`/DeviceNAME/BM280/POWER3`
+-`/DeviceNAME/BM280/POWER4`
+-`/DeviceNAME/BM280/Switch1`
+-`/DeviceNAME/BM280/Switch2`
 -`/DeviceNAME/BM280/Total`
--`/设备名称/BM280/今天`
--`/设备名称/BM280/heute`
--`/设备名称/BM280/昨天`
--`/设备名称/BM280/gestern`
--`/设备名称/BM280/Faktor`
+-`/DeviceNAME/BM280/今天`
+-`/DeviceNAME/BM280/heute`
+-`/DeviceNAME/BM280/昨天`
+-`/DeviceNAME/BM280/gestern`
+-`/DeviceNAME/BM280/Faktor`
 -`/DeviceNAME/BM280/Factor`
--`/设备名称/BM280/电源`
--`/设备名称/BM280/Leistung`
--`/设备名称/BM280/电压`
--`/设备名称/BM280/Spannung`
--`/设备名称/BM280/当前`
--`/设备名称/BM280/Strom`
--`/设备名称/BM280/Punkt`
+-`/DeviceNAME/BM280/Power`
+-`/DeviceNAME/BM280/Leistung`
+-`/DeviceNAME/BM280/Voltage`
+-`/DeviceNAME/BM280/Spannung`
+-`/DeviceNAME/BM280/Current`
+-`/DeviceNAME/BM280/Strom`
+-`/DeviceNAME/BM280/Punkt`
 -`/DeviceNAME/BM280/Counter1`
 -`/DeviceNAME/BM280/Counter2`
 -`/DeviceNAME/BM280/Counter3`
 -`/DeviceNAME/BM280/Counter4`
--`/设备名称/BM280/压力`
--`/设备名称/BM280/SeaPressure`
--`/设备名称/BM280/Druck`
--`/设备名称/BM280/大约。海拔`
--`/设备名称/BM280/模块`
--`/设备名称/BM280/版本`
--`/设备名称/BM280/主机名`
--`/设备名称/BM280/IPAddress`
--`/设备名称/BM280/IP地址`
+-`/DeviceNAME/BM280/Pressure`
+-`/DeviceNAME/BM280/SeaPressure`
+-`/DeviceNAME/BM280/Druck`
+-`/DeviceNAME/BM280/Approx。海拔`
+-`/DeviceNAME/BM280/Module`
+-`/DeviceNAME/BM280/Version`
+-`/DeviceNAME/BM280/主机名`
+-`/DeviceNAME/BM280/IPAddress`
+- `/DeviceNAME/BM280/IPaddress`
 -`/DeviceNAME/BM280/RestartReason`
 -`/DeviceNAME/BM280/CarbonDioxide`
 -`/设备名称/DHT11/照度`
--`/设备名称/SonoffSC/Light`
+- `/DeviceNAME/SonoffSC/Light`
 -`/DeviceNAME/SonoffSC/Noise`
 -`/DeviceNAME/SonoffSC/AirQuality`
 -`/设备名称/SDS0X1/PM2.5`
 -`/设备名称/SDS0X1/PM10`
--`/设备名称/SDS0X1/UvLevel`
--`/设备名称/SDS0X1/纬度`
--`/设备名称/SDS0X1/经度`
--`/设备名称/SR04/距离`
+-`/DeviceNAME/SDS0X1/UvLevel`
+-`/DeviceNAME/SDS0X1/Latitude`
+-`/DeviceNAME/SDS0X1/Longitude`
+-`/DeviceNAME/SR04/Distance`
 
-**注意**：该列表可以轻松扩展。请将未知状态的`Pull Requests` 或 *调试数据* 发送给开发人员（通过问题）。
+**注意**：该列表可以轻松扩展。请将未知状态的 `Pull Requests` 或 *调试数据* 发送给开发人员（通过问题）。
 
 ## 自动创建对象
-在 Web 配置中，您可以确定哪些 MQTT 电报创建了不在默认数据点中的新对象：
+在 Web 配置中，您可以确定哪些 MQTT 电报创建不在默认数据点中的新对象：
 
 * `TELE_SENSOR` - 从 `tele/xxx/SENSOR` 电报创建对象
 * `TELE_STATE` - 从 `tele/xxx/STATE` 电报创建对象
 * `STAT_RESULT` - 从 `stat/xxx/RESULT` 电报创建对象
 
-通常 TELE_SENSOR 对于大多数用户来说应该足够了。
+通常 TELE_SENSOR 对大多数用户来说应该足够了。
 
-* `Create object tree` 将对象创建为树形结构
+* `Create object tree` 将对象创建为树结构
 
-**警告！**这个选项会弄乱你的sonoff对象树！您必须重做所有存储设置...
+**警告！** 这个选项会弄乱你的 sonoff 对象树！您必须重做所有存储设置...
 将对象结构存储为 JSON 文件，以便您可以重新创建旧结构。
-最好是停止适配器，删除sonoff下的所有对象，然后重新启动适配器。
+最好是停止适配器，删除 sonoff 下的所有对象，然后重新启动适配器。
 
 ## LED 控制器的标志
 仅当设备具有以下状态之一时才会创建模式状态：
 
-- `Red`、`Green`、`Blue`、`WW`、`CW`、`Color`、`RGB_POWER`、`WW_POWER`、`CW_POWER`、`Hue`、`Saturation`
+- `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
 
 状态：
 
-* `modeLedExor` - 白色 LED 和彩色 LED 的 exor => 如果白色 LED 打开，彩色 LED 关闭，反之亦然（默认为 true）
+* `modeLedExor` - 白色 LED 和彩色 LED 的异或 => 如果白色 LED 打开，彩色 LED 关闭，反之亦然（默认为真）
 * `modeReadColors` - 允许从 MQTT 读取颜色（默认为 false）
 
 <!-- 下一个版本的占位符（在行首）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 2.5.3 (2023-03-30)
+* (GreatSUN) Implemented potential `.STATE.POWER` update
+
+### 2.5.1 (2022-04-23)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 2.5.0 (2022-03-21)
+* (GreatSUN) Implement writing of NSPanel Widget changes
+* (Apollon77) Fix crash case reported by Sentry
+
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
 
@@ -243,7 +253,7 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

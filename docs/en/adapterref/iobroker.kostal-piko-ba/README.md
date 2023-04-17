@@ -24,17 +24,27 @@ It's greatly appreciated if you verify functionality with other inverters and pl
 Be aware that your Piko or Piko BA inverter has to be updated to Kostal UI >= 6.11!
 To connect to the Kostal Pico (BA / MP plus) inverter, setting its IP-address in the config is mandatory.
 You could also edit the update frequencies of live data, daily and livetime statistics.
-If needed, set the mark for read-out of the 4 analog values, too.
+If needed and supoported by your hardware, set the mark for read-out of the 4 analog values, too.
 
 ## Notes
 This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for security.
+! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.4.7 (13.04.2023)
+* (HombachC) improved error handling
+### 2.4.6 (09.04.2023)
+* (HombachC) fixed vulnerability in xml2js
+### 2.4.5 (07.04.2023)
+* (HombachC) improved error handling
+### 2.4.4 (04.04.2023)
+* (HombachC) improved error handling
+### 2.4.3 (03.04.2023)
+* (HombachC) improved error handling
 ### 2.4.2 (07.03.2023)
-* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) fixed error in Piko MP Plus AC current
 * (HombachC) added Piko MP Plus total yield
 ### 2.4.1 (06.03.2023)
 * (HombachC) fixed Piko MP Plus support for two channel hardware

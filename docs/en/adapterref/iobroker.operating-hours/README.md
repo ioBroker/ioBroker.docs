@@ -19,6 +19,9 @@ To reset the counted operating hours just write one numeric state to 0.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-04-05)
+* (BenAhrdt) dependencies updated for version 1.0.0
+
 ### 0.0.19 (2022-10-18) adding average on time
 * (BenAhrdt) average on time indicates a string this formular: operatingHour/activationCounter
 
@@ -78,7 +81,7 @@ To reset the counted operating hours just write one numeric state to 0.
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

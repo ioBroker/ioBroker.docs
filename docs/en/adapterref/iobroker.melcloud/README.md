@@ -29,8 +29,7 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
+### 1.3.3 (2023-04-14)
 * (Black-Thunder) Handling of error data from cloud was improved
 * (Black-Thunder) Admin UI has been updated
 * (Black-Thunder) ATW devices: New state "heatPumpFrequency" added

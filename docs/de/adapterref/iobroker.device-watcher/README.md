@@ -28,6 +28,33 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.8.4 (2023-04-16)
+
+-   (ciddi89) Fixed: Functions for instance status completely renewed ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
+-   (ciddi89) Added: Popup message when the instance is not running and the user tries to select a device/instance in the settings tables ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
+
+### 2.8.3 (2023-04-13)
+
+-   (ciddi89) Fixed: Multiple push messages when restarting an instance ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))
+
+### 2.8.2 (2023-04-13)
+
+-   (ciddi89) Fixed: Don't handle id's which ends with fullstop
+-   (ciddi89) Added: Possibility for the user to select the global deactivation time for instances
+
+### 2.8.1 (2023-04-09)
+
+-   (ciddi89) Added: Possibility for the user to select the global error time for instances
+
+### 2.8.0 (2023-04-04)
+
+-   (ciddi89) Added: Support for LOQED Smart Lock
+-   (ciddi89) Added: Option to add user/group api key for Pushover
+-   (ciddi89) Added: Option to send notification if an instance was stopped
+-   (ciddi89) Added: Option to send shedule notifications with overview of stopped instances
+-   (ciddi89) Fixed: Issue if notifications was send of stopped instance but the option wasn't choosen
+-   (ciddi89) Fixed: Ignore battery values 0% if they were not smaller than 5% before
+
 ### 2.7.1 (2023-03-26)
 
 -   (ciddi89) Added: Support for Ecovacs-Deebot

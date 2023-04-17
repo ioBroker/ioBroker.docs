@@ -45,12 +45,17 @@ read in and the user can filter out the values that are not needed via
 the blacklist. The corresponding data points can be deleted, which 
 makes the number of objects clearer.
 
+Since 16.04.2023 Solarman has switched to a new platform. Further 
+adaptations of the api, as far as they exist, have not been made.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-04-16)
+* (raschy) Solarman has switched to a new platform
+
 ### 0.3.2 (2023-03-28)
 * (raschy) Error 'DB-closed' fixed
 

@@ -66,6 +66,9 @@ For more information visit https://minukodu.de/en or watch at youtube https://yo
 
 
 ## Changelog
+### 2.3.3 (2023-04-04)
+* updated app and builder to V2.3.3
+
 ### 2.3.2 (2023-03-18)
 * remove bug in io-package.json file
 

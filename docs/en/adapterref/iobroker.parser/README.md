@@ -14,7 +14,6 @@
 This adapter parses data received via URL or from a file, by using regular expressions. For each rule being configured in the settings of this adapter, a state will be created under `parser.<instance number>` and filled and updated with the parsed information.
 
 ## Settings
-
 ### 1. Default poll interval
 This default poll interval value will be used, if no individual poll interval value is specified for an entry in the configuration table (column: "Interval"). The interval is in milliseconds and defines how often the link or file is being read and the states are being updated.
 
@@ -124,6 +123,17 @@ Values can have quality codes:
 - 0x82 - The URL or file cannot be read.
 - 0x44 - Number or string value not found in the text
 
+## Triggering
+Additionally, to the polling interval, the parsing of specific rules can be triggered by writing of empty value (`false`, `0`, '' - depends on the type of state) to the state with `false` acknowledge flag.
+In this case the value will be read from the URL/file and parsed immediately.
+
+You can also send a message to adapter with `sendTo` command:
+```Javascript
+sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
+    console.log(JSON.stringify(result)); // {"value": 10, "error": null}
+});   
+```
+
 ## Support
 1. General: [ioBroker Forum](https://forum.iobroker.net/). German-speaking users: see [ioBroker forum thread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
 2. In case of any issues, please check out [ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues).
@@ -132,6 +142,18 @@ Values can have quality codes:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.4 (2023-04-03)
+* (bluefox) The result could be an array of values
+
+### 2.0.3 (2023-04-02)
+* (bluefox) Corrected subscription on too many objects
+
+### 2.0.2 (2023-04-01)
+* (bluefox) Added possibility to trigger the parsing by writing of empty value to the state
+
+### 2.0.1 (2023-03-31)
+* (bluefox) Updated timestamp of non changed values
+
 ### 2.0.0 (2023-03-29)
 * (TA2k) added translations
 * (bluefox) Migrated GUI to admin v6

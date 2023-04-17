@@ -54,46 +54,46 @@ const styles = theme => ({
     tabContent: {
         height: `calc(100% - ${theme.tabs.height}px)`,
         overflow: 'auto',
-        position: 'relative'
+        position: 'relative',
     },
     logoBig: {
         width: 135,
         height: theme.tabs.height,
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     logoSmall: {
         width: theme.tabs.height - 10,
         height: theme.tabs.height - 10,
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     tabs: Object.assign({ display: 'flex' }, theme.tabs),
     tabsNoTabs: {
         paddingLeft: 0,
     },
     tab:  {
-        minWidth: 'inherit'
+        minWidth: 'inherit',
     },
     tabAction: {
         backgroundColor: theme.palette.secondary.main,
-        color: 'white'
+        color: 'white',
     },
 
     languageButton: {
         width: 32,
         height: 32,
         cursor: 'pointer',
-        marginLeft: 15
+        marginLeft: 15,
     },
     languageText: {
         paddingTop: 3,
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     subMenu: {
         marginLeft: 30,
         padding: 0,
     },
     subMenuItem: {
-        padding: '3px 0 3px 10px'
+        padding: '3px 0 3px 10px',
     },
     subMenuItemText: {
         fontSize: 14,
@@ -104,7 +104,7 @@ const styles = theme => ({
         background: '#CCCCCC',
         borderRadius: 3,
         height: 36,
-        whiteSpace: 'nowrap'
+        whiteSpace: 'nowrap',
     },
     search: {
         width: 120,
@@ -117,11 +117,11 @@ const styles = theme => ({
         marginLeft: 10,
         borderRadius: 3,
         '&:after' : {
-            border: 0
+            border: 0,
         },
         '&:before' : {
-            border: 0
-        }
+            border: 0,
+        },
     },
     searchInput: {
         display: 'inline-block',
@@ -145,8 +145,8 @@ const styles = theme => ({
     sRdiv: {
         cursor: 'pointer',
         '&:hover': {
-            background: '#EEEEEE'
-        }
+            background: '#EEEEEE',
+        },
     },
     sRdivNotLast: {
         borderBottom: '1px solid #CCCCCC',
@@ -197,8 +197,8 @@ const PAGES = {
         tabIndex: 7,
         name: 'Cloud',
         menu: [
-            { link: 'https://iobroker.net', name: 'Free', target: 'this' },
-            { link: 'https://iobroker.pro', name: 'Pro', target: 'this' },
+            { link: 'https://iobroker.net', name: 'Free (.net)', target: 'this' },
+            { link: 'https://iobroker.pro', name: 'Pro (.pro)', target: 'this' },
             { link: 'https://iobroker.link', name: 'VPN', target: 'this' },
         ],
     },
@@ -249,7 +249,7 @@ class App extends Router {
         });
 
         const d = new Date();
-        const action = (d.getMonth() === 11 && d.getDate() >= 8) || (d.getMonth() === 0 && d.getDate() <= 10);
+        const action = (d.getMonth() === 11 && d.getDate() >= 9) || (d.getMonth() === 0 && d.getDate() <= 7);
 
         this.logo = action ? LogoBigNY : LogoBig;
         this.logoSmall = action ? LogoSmallNY : LogoSmall;

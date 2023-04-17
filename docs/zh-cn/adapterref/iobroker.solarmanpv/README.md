@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solarmanpv/README.md
 title: ioBroker.solarmanpv
-hash: 7hTeqs7cFSPhIFgo6aIioWPKCwa7Wkbv7FuSaXezEks=
+hash: xGaWyT+LnzOIpkTZva4OhcexR20xwo43b95y0yh++QY=
 ---
 ![标识](../../../en/adapterref/iobroker.solarmanpv/admin/solarmanpv.png)
 
@@ -35,11 +35,19 @@ hash: 7hTeqs7cFSPhIFgo6aIioWPKCwa7Wkbv7FuSaXezEks=
 
 从 0.3.0 版本开始，与之前的版本相比，黑名单成为可能。这意味着读入 Api 提供的“所有”值，用户可以通过黑名单过滤掉不需要的值。可以删除相应的数据点，使物体的数量更加清晰。
 
+自 16.04.2023 以来，Solarman 已切换到新平台。 api 的进一步改编，就其存在而言，尚未进行。
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-04-16)
+* (raschy) Solarman has switched to a new platform
+
+### 0.3.2 (2023-03-28)
+* (raschy) Error 'DB-closed' fixed
+
 ### 0.3.1 (2023-02-19)
 * (raschy) Inverter-Filter deactivated
 

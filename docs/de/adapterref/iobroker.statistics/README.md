@@ -23,24 +23,45 @@ Der Adapter speichert für jedes aktive Objekt die Werte temporär in ``statisti
 
 Zu vorgegebenen Zeiten (Tag, Woche, Monat, Quartal, Jahr) erfolgt die Übernahme der temporären Werte in die Struktur ``statistics.x.save``.
 
-Für bestimmte Werte sind auch 5min Zwischenwerte ermittelt, wie es z.B. bei den 433MHz Steckdosen von ELV der Fall ist, die einen Verbrauchswert alle 5min übermitteln.
+Je nach Datentyp des Datenpunktes (``boolean`` oder ``number``) werden unterschiedliche Optionen angeboten.
 
-## Impulse
+Für bestimmte Werte werden auch 5min Zwischenwerte ermittelt, wie es z.B. bei den 433MHz Steckdosen von ELV der Fall ist, die einen Verbrauchswert alle 5min übermitteln.
+
+**Der Adapter reagiert nur auf bestätigte Werte (state.ack = true), nicht auf Befehle (steuere)!**
+
+## Boolean Zustände
+
+![options boolean](./img/optionsBoolean.png)
+
+### Zählen
+
+Speichert Werte in ``statistics.x.temp.count.*`` bzw. ``statistics.x.save.count.*``.
 
 Stellt das binäre Objekt eine Impulsfolge dar, die z.B. aus Zählerimpulsen entsteht, so ist hier das Prinzip dargestellt:
 
-![impulse](img/count.png)
-
 Der Adapter zählt die Impulse und es wird mit einer Zählerkonstanten multipliziert.
-So ergibt sich aus den 0/1 Wechseln eine analoge Größe, die auch dann im Adapter sofort weiter benutzt werden kann (z.B. für Summendelta)
+
+So ergibt sich aus den 0/1-Wechseln eine analoge Größe, die auch dann im Adapter sofort weiter benutzt werden kann (z.B. für Summendelta).
+
 Die sich ergebende Analoggröße ist eine stetig steigende.
 
-## Binärzustände
+![count](./img/exampleCount.png)
 
-Stellt das binäre Objekt Schalzustände dar, so kann daraus die Zeit für den Zustand mit logisch 1 und die Zeit mit logisch 0 ermittelt werden.
-Diese Betriebszeitzählung sollte nicht auf Impulse aus Zählern angewendet werden.
+### Zählen -> Verbrauch
 
-![binary](img/timeCount.png)
+Speichert Werte in ``statistics.x.temp.sumCount.*`` bzw. ``statistics.x.save.sumCount.*``.
+
+![sumCount](./img/exampleSumCount.png)
+
+### Betriebszeit
+
+Speichert Werte in ``statistics.x.temp.timeCount.*`` bzw. ``statistics.0.save.timeCount.*``.
+
+![timeCount](./img/exampleTimeCount.png)
+
+## Number Zustände
+
+![options number](./img/optionsNumber.png)
 
 ## Analogwerte
 
@@ -129,6 +150,10 @@ sendTo('statistics.0', 'enableStatistics', {
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+
+* (klein0r) Show error if groups are not configured correctly
+
 ### 2.3.1 (2023-01-11)
 * (klein0r) Added Ukrainian language
 

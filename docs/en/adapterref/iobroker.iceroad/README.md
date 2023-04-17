@@ -38,6 +38,12 @@ If the adapter displays the status "Ice" or "Maybe ice", it is possible to be no
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) Updated dependecies
+-   (ciddi89) increased timeout for axios to ten seconds
+
 ### 1.2.0 (2023-02-22)
 
 -   (ciddi89) Updated dependencies

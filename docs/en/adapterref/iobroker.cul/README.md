@@ -39,6 +39,10 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 -->
 
 ## Changelog
+### 2.1.0 (2023-04-06)
+* (jpk) Select port by ID instead of name as option
+* (bluefox) Updated GUI for admin 6
+
 ### 2.0.2 (2022-05-11)
 * IMPORTANT: Nodejs 12.x is now needed at least!
 * (Apollon77/achimmm) Add support for devices with address 0
@@ -107,4 +111,4 @@ Javascript/Node.js based `Busware CUL USB / culfw` adapter
 
 ## License
 
-[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2022 hobbyquaker
+[Licensed under GPLv2](LICENSE) Copyright (c) 2014-2023 hobbyquaker

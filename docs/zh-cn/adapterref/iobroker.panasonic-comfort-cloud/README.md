@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
+hash: YSD9gQMLaMSiZsj070atapa6ZZi+VqTSk9zSREedzRc=
 ---
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
@@ -14,7 +14,7 @@ hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
 
 | ：警告：警告|
 |:---------------------------|
-|适配器设置中的新应用程序版本为 1.17.0 |
+|适配器设置中的新应用程序版本为 1.18.0 |
 
 ![标识](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 

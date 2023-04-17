@@ -188,6 +188,12 @@ Therefore, the description has also been removed.
 
 ## Changelog
 
+### 2.1.0 (14.04.2023)
+
+- (PLCHome) Status data now also from TLX/TLXH
+- (PLCHome) TLX Hybrid is now working
+- (PLCHome) If there are different inverters, these are now shown
+
 ### 2.0.0 (06.10.2022)
 
 - (PLCHome) Data logger settings can be called up and changed.

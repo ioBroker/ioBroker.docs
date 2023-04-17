@@ -32,6 +32,15 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2023-04-05)
+* (BenAhrdt) Timbases from past implemented (to compare)
+
+### 2.2.2 (2023-03-30)
+* (BenAhrdt) node-schedule updated
+
+### 2.2.1 (2023-03-30)
+* (BenAhrdt) get projects and get devices improved
+
 ### 2.2.0 (2023-03-29)
 * (BenAhrdt) Testings 12.x removed & Testings 18.x implemented
 

@@ -58,6 +58,7 @@ The default value is 10 minutes which is a good balance between the load for the
 
 To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
 * a state for current power of battery storage, so the photovoltaics automatics will use it additionally for charging your vehicle
+* an option to limit power of battery storage to just hold charging with minimum power
 * toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
 * a different mimimum amperage than the default 6 A (only needed for e.g. Renault Zoe)
 * a value of regard power that may be used to start charging (that means charging will start even if not enough surplus is available - suggested 0 W for 1 phases charging, 500 W to 2000 W for 3 phases charging)
@@ -101,6 +102,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 ### **WORK IN PROGRESS**
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
+* (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 

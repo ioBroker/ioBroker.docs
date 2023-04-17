@@ -19,6 +19,11 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2023-04-13)
+* (BenAhrdt) added some filtertimes (1s-9s)
+
+### 2.1.0 (2023-04-06)
+* (BenAhrdt) updated to actual dependencies
 
 ### 2.0.8 (2023-02-16)
 * (BenAhrdt) limit of decimal places reduced to 8
@@ -56,7 +61,7 @@ e.g. you can filter power values to cut power peeks.
 ## License
 MIT License
 
-Copyright (c) 2022 BenAhrdt <bsahrdt@gmail.com>
+Copyright (c) 2023 BenAhrdt <bsahrdt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

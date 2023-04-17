@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
+hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
@@ -17,19 +17,19 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Сравнение адаптеров ioBroker, использующих протокол MQTT
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме брокера)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в клиенте режим)|[ioBroker.mqtt-клиент](https://github.com/Pmant/ioBroker.mqtt-client/)|
+Если у вас есть только протокол MQTT, говорящий на Tasmotas, выберите `ioBroker.sonoff`. Для других сценариев рассмотрите другие варианты:
 
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме брокера)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker .mqtt/) (в режиме клиента)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
-|---|---|---|---|---|
-|Имеет встроенный брокер MQTT|да|да|нет|нет|
-|Ретранслирует сообщения другим подписчикам MQTT|НЕТ!!!|да|не применимо|не применимо|
-|Внешний брокер MQTT|не поддерживается|не поддерживается|требуется|требуется|
-|Сообщения Tasmota MQTT для ioBroker Objects|умная обработка|1:1 обработка всех сообщений|1:1 обработка подписанных сообщений|1:1 обработка подписанных сообщений|
-|сообщения MQTT, не относящиеся к Tasmota, к объектам ioBroker|без обработки|1:1 обработка всех сообщений|1:1 обработка подписанных сообщений|1:1 обработка подписанных сообщений|
-|опубликовать значения ioBroker в виде сообщений MQTT|нет|настроенные поддеревья|настроенные поддеревья|индивидуально настроенные значения|
+| Особенность | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме брокера) | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме клиента) | [ioBroker.mqtt-клиент](https://github.com/Pmant/ioBroker.mqtt-client/) |
+|-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Имеет встроенный брокер MQTT | да | да | нет | нет |
+| Ретранслирует сообщения другим подписчикам MQTT | НЕТ!!! | да | не применимо | не применимо |
+| Внешний брокер MQTT | не поддерживается | не поддерживается | требуется | требуется |
+| Сообщения Tasmota MQTT для объектов ioBroker | умная обработка | 1:1 обработка всех сообщений | 1:1 обработка подписанных сообщений | 1:1 обработка подписанных сообщений |
+| MQTT-сообщения, отличные от Tasmota, для объектов ioBroker | без обработки | 1:1 обработка всех сообщений | 1:1 обработка подписанных сообщений | 1:1 обработка подписанных сообщений |
+| публиковать значения ioBroker в виде сообщений MQTT | нет | настроенные поддеревья | настроенные поддеревья | индивидуально настроенные значения |
 
 ## Использование
-Этот адаптер взаимодействует с устройствами Sonoff с прошивкой Tasmota или устройствами ESP через MQTT.
+Этот адаптер связывается с устройствами Sonoff с прошивкой Tasmota или устройствами ESP через MQTT.
 
 Ожидаются следующие темы:
 
@@ -123,9 +123,19 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.5.3 (2023-03-30)
+* (GreatSUN) Implemented potential `.STATE.POWER` update
+
+### 2.5.1 (2022-04-23)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 2.5.0 (2022-03-21)
+* (GreatSUN) Implement writing of NSPanel Widget changes
+* (Apollon77) Fix crash case reported by Sentry
+
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
 
@@ -243,7 +253,7 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

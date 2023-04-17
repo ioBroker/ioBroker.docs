@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parser/README.md
 title: ioBroker 解析器适配器
-hash: NBDh0n/64Sx8hlo1HvkOMQ/HrkOSPsuqjlEfgHdbdzk=
+hash: moWgwHAhu98ZcFDHtFv7vESNc9QuaiAg9guc3+1Zh4g=
 ---
 ![标识](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -62,7 +62,7 @@ hash: NBDh0n/64Sx8hlo1HvkOMQ/HrkOSPsuqjlEfgHdbdzk=
     - 指标 - 布尔指标
 - ***Type*** - 每个下拉菜单的变量类型。
 - ***Unit*** - 可选：添加到状态条目的值的单位。例如。 `°C`、`€`、`GB` 等。
-- ***旧*** - 如果激活，如果无法在提供的日期（URL 或文件）中读取或找到该值，则状态将*不会*更新，因此在这种情况下它将保留以前的值。
+- ***旧*** - 如果激活，如果无法在提供的日期（URL 或文件）中读取或找到值，则状态将 *不* 更新，因此在这种情况下它将保留以前的值。
 - ***Subs*** - 可选：替换 URL 或文件名。如果第一列的 URL/文件名不可用，将使用此替代 URL/文件名。
 - ***Factor/Offset***（仅适用于“类型”数字）- 允许在设置为状态之前修改检索到的数据：
   - *计算值* = *提取值* * factor + offset , 立即修改值
@@ -128,6 +128,18 @@ on("parser.0.kleinanzeigen", (obj) => {
 - 0x82 - 无法读取 URL 或文件。
 - 0x44 - 在文本中找不到数字或字符串值
 
+## 触发
+此外，对于轮询间隔，可以通过将空值（`false`、`0`、'' - 取决于状态类型）写入具有 §§SSSSS_2 的状态来触发特定规则的解析§§ 确认标志。
+在这种情况下，值将从 URL/文件中读取并立即解析。
+
+您还可以使用 `sendTo` 命令向适配器发送消息：
+
+```Javascript
+sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
+    console.log(JSON.stringify(result)); // {"value": 10, "error": null}
+});
+```
+
 ＃＃ 支持
 1. 一般：[ioBroker论坛](https://forum.iobroker.net/)。德语用户：请参阅 [ioBroker 论坛线程 Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex)。
 2. 如有任何问题，请查看[ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues)。
@@ -137,6 +149,18 @@ on("parser.0.kleinanzeigen", (obj) => {
 ### **正在进行中** -->
 
 ## Changelog
+### 2.0.4 (2023-04-03)
+* (bluefox) The result could be an array of values
+
+### 2.0.3 (2023-04-02)
+* (bluefox) Corrected subscription on too many objects
+
+### 2.0.2 (2023-04-01)
+* (bluefox) Added possibility to trigger the parsing by writing of empty value to the state
+
+### 2.0.1 (2023-03-31)
+* (bluefox) Updated timestamp of non changed values
+
 ### 2.0.0 (2023-03-29)
 * (TA2k) added translations
 * (bluefox) Migrated GUI to admin v6

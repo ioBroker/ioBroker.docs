@@ -1,143 +1,175 @@
-![Logo](admin/logparser.png)
-# ioBroker.logparser
+---
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.logparser
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.logparser.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.logparser
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.logparser
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.logparser/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.logparser
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.logparser
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.logparser.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/logparser-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/logparser-installed.svg
+---
+## Log parser adapter for parsing (filtering) of ioBroker logs
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.logparser.svg)](https://www.npmjs.com/package/iobroker.logparser)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.logparser.svg)](https://www.npmjs.com/package/iobroker.logparser)
-![Number of Installations (latest)](http://iobroker.live/badges/logparser-installed.svg)
-![Number of Installations (stable)](http://iobroker.live/badges/logparser-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Mic-M/iobroker.logparser.svg)](https://david-dm.org/Mic-M/iobroker.logparser)
-[![Known Vulnerabilities](https://snyk.io/test/github/Mic-M/ioBroker.logparser/badge.svg)](https://snyk.io/test/github/Mic-M/ioBroker.logparser)
+With this adapter the ioBroker logs of all adapters can be parsed, i.e. filtered, accordingly.
 
-[![NPM](https://nodei.co/npm/iobroker.logparser.png?downloads=true)](https://nodei.co/npm/iobroker.logparser/)
+# Configuration
 
-**Tests:** [![Travis-CI](http://img.shields.io/travis/Mic-M/ioBroker.logparser/master.svg)](https://travis-ci.org/Mic-M/ioBroker.logparser)
+## Tab "Parser Rules (Filter)"
 
-## Log Parser for all ioBroker adapters
+For each set filter (rule), states are created under `logparser.[instance].filters`.
 
-This adapter parses (filters) all logs of ioBroker adapters and provides the results as JSON in states for each filter as configured in the settings.
-Resulting JSON can then be used in VIS for visualization. States for emptying (clearing) old logs are provided as well (like `logparser.0.filters.Homematic.emptyJson` or `logparser.0.emptyAllJson` to empty all.)
+| **Column**            | **Description**                                                                                                                                                                                                                                                                                                                           |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Active                | Activate/deactivate filters                                                                                                                                                                                                                                                                                                               |
+| Name                  | Any name (spaces and special characters are automatically removed), used as state under 'filters'                                                                                                                                                                                                                                         |
+| Whitelist: AND        | All these expressions must be present. If you enter wildcard `*`, or leave it empty, this rule is being skipped.                                                                                                                                                                                                                          |
+| Whitelist: OR         | At least one of these expressions must occur. If you enter wildcard `*`, or leave it empty, this rule is being skipped.                                                                                                                                                                                                                   |
+| Blacklist             | As soon as one of these expressions is present, the log is not taken over, no matter what other filters are defined.                                                                                                                                                                                                                      |
+| Debug/Info/Warn/Error | Which log levels should be considered?                                                                                                                                                                                                                                                                                                    |
+| Clean                 | Remove unwanted strings from log line.                                                                                                                                                                                                                                                                                                    |
+| Max                   | Maximum number of characters of the log line, everything longer than this will be truncated. Leave empty if not used.                                                                                                                                                                                                                     |
+| Merge                 | This merges log entries with the same content and precedes them with a counter.<br>Without Merge:<br>`2019-08-17 20:00:00 - Retrieve weather data.`<br>`2019-08-17 20:15:00 - Retrieve weather data.`<br>`2019-08-17 20:30:00 - Retrieve weather data.`<br>Merge activated:<br>`2019-08-17 20:30:00 - [3 Entries] Retrieve weather data.` |
+| Date format           | `YYYY` = year 4-digit, `YY` = year 2-digit, `MM` = month, `DD` = day, `hh` = hour, `mm` = minute, `ss` = second. Parts within `#` characters are replaced by "Today" or "Yesterday".                                                                                                                                                      |
 
-![States](docs/en/img/states.png)
+#### String / Regex
 
+In the columns _Whitelist AND_, _Whitelist OR_, _Blacklist_, and _Clean_, both normal text (string) and regex are allowed. Separate multiple expressions with commas. Please place regex between `/` and `/`, so that the adapter recognizes if it is a regexp. If String: it is always checked for partial matches. To ignore/disable: leave empty.
 
-## Installation
+## Tab "Further Settings"
 
-Just install the adapter regularly through the ioBroker admin interface. The adapter is both in the latest and stable repository.
+-   **Remove PID**: JS controller version 2.0 or greater adds the PID in brackets to the front of logs, e.g. `(12234) Terminated: Without reason`. If activated, the PIDs including brackets, like (1234), are removed from the log lines.
 
-## Instructions
+-   **Replace date with "today" / "yesterday"**: In the filters, you can replace today's or yesterday's date with 'Today' or 'Yesterday' in the date format column by using hash characters (#). In these fields, other terms instead of "Today"/"Yesterday" can be defined.
 
-I have included all instructions right in the admin settings of this adapter.
+-   **Text for "Merge"** This text is placed in front of each log line if Merge is activated. The # character is then replaced by the number of logs with the same content. Special characters like `[](){}/\` etc. are allowed. Examples (without quotation marks): "`[# entries] `", "`(#) `", "`# entries: `"
 
-Also, you can read most of these instructions here as well:
-* [**Basic Adapter Instructions**](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/start_en.md) - for German [click here (Deutsch)](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/start_de.md)
-* [**Parser Rules (Filters)**](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/table-parser-rules_en.md) - for German [click here (Deutsch)](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/table-parser-rules_de.md)
-* [**Global Blacklist**](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/table-global-blacklist_en.md) - for German [click here (Deutsch)](https://github.com/Mic-M/ioBroker.logparser/blob/master/admin/doc-md/table-global-blacklist_de.md)
+## Tab "Visualization"
 
+-   **Number of JSON tables used in VIS**:
+    This option adds additional states for better Visualization in VIS. You will then be able to select certain filters, which are then shown accordingly in the JSON table (e.g. 'Homematic', 'Warnings', 'Errors' etc.).<br>Specify the number of different JSON tables you need. The states of these are being created under 'visualization.table0', 'visualization.table1', etc. Enter 0 to deactivate.
 
-## Visualization Example (animated gif)
+-   **Column order for JSON table**: Here you can change the order of the columns. As additional column ts (timestamp) is always added. In VIS etc. simply hide it if necessary.<br>If you need less than 4 columns: Simply select one entry of the first columns you need and then hide the rest with the VIS JSON table widget (or similar).
 
-![Vis](docs/de/img/visintro.gif)
+-   **Sorting**: If activated: sorts the log entries in descending order, newest at the top. If deactivated: Sorts the log entries in ascending order, i.e. oldest on top. Sorting in descending order is recommended, so activate this option.
 
-## Screenshots of adapter options
+## Tab "Global Blacklist"
 
-Please note that these screenshots are a snapshot and do not reflect the latest adapter options.
-This is just to provide you an overview of the adapter options. 
+If one of these phrases/terms is contained in a log line, then the log entry is ignored by this adapter, regardless of what is set in the parser rules (filter). Both string and regex are allowed. If string: it is checked for partial match, i.e. if you enter e.g. "echo", then every log line containing "echo" will be filtered out, also e.g. "Command sent to echo in kitchen".
+Please place regex between `/` and `/`, so that the adapter recognizes if it is a regexp.
 
-![Log Parser Options](admin/img/option-screenshots/tab-start.png)
+In the column "Comment" you can comment/explain the respective entry as you like, for example so that you can later understand why you have set this blacklist entry.
 
-![Log Parser Options](admin/img/option-screenshots/tab-parser-rules.png)
+## Tab "Expert Settings"
 
-![Log Parser Options](admin/img/option-screenshots/tab-further-settings.png)
+-   **Interval for updating states**: New incoming log entries are collected and regularly written to the data points. Hereby the interval can be defined. Note: The states are only updated if there has been a change. However, from a performance point of view, it does not make sense to set an interval that is too short here. Less than 2 seconds is not allowed.
 
-![Log Parser Options](admin/img/option-screenshots/tab-vis.png)
+-   **Maximum number of log entries**: The maximum number of log entries that are retained in the states (older entries are removed). Please do not set a too large number, the larger the number, the more load for the adapter and thus your ioBroker server. A number of 100 has proven to be good.
 
-![Log Parser Options](admin/img/option-screenshots/tab-global-blacklist.png)
+# Visualization (Showing logs in VIS)
 
-![Log Parser Options](admin/img/option-screenshots/tab-expert-settings.png)
+This is an example of a VIS project, which you can import in VIS: [vis-project-ex_logparser-adapter.zip](https://github.com/iobroker-community-adapters/ioBroker.logparser/raw/master/accessories/vis/vis-project-ex_logparser-adapter.zip).
+Just download this zip file. Then, in VIS, navigate to menu `Setup > Projekt-Export/Import > Import` and select this zip file accordingly.
+Please note that you will also need the [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) to use this project.
 
+![main.jpg](img/visintro.gif)
 
-## Links and resources
-* [**Log Parser ioBroker Forum Link (Splash Page)**](https://forum.iobroker.net/topic/37793/log-parser-adapter-splash-page)
+# Further functions
 
+## Manipulation of the JSON column contents by log
 
-## Notes
-* This adapter uses Sentry libraries to automatically report exceptions and code errors anonymously to the adapter developer(s). For further details and information on how to disable this error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Sentry reporting is used starting with js-controller 3.0.
+This adapter provides the possibility to use JavaScript, Blockly, etc. and influence which content is placed in the log columns 'date', 'severity', 'from', 'message' of the JSON tables.
 
+**Example:**
+The following command is executed in a JavaScript:
+`log('[Alexa-Log-Script] ##{"message":"' + 'Command [Turn on music].' + '", "from":"' + 'Alexa Kitchen' + '"}##');`
 
+The part `##{"message":"' + 'Command [Turn on music].' + '", "from":"' + 'Alexa Kitchen' + '"}##` will be extracted, and log message will become 'Command [Turn on music].', and source will be 'Alexa Kitchen' (instead of javascript.0).
+
+**Syntax:**
+Add the following to the log line: `##{"date":"", "severity":"", "from":"", "message":""}##`
+Individual parameters can be removed, e.g. just to change the log text (message), take `##{"message": "text comes here."}##`
 
 ## Changelog
 
-### 1.1.0
-* (Mic-M) Fixed issue [#15](https://github.com/Mic-M/ioBroker.logparser/issues/15) regarding regex for tab "Parser Rules", column "Blacklist"
-* (Mic-M) Enhancement [#16](https://github.com/Mic-M/ioBroker.logparser/issues/16) - add specific CSS classes to any element of the JSON log per adapter option.
-* (Mic-M) Major improvement: Implemented entire documentation into adapter itself to significantly improve usability.
-* (Mic-M) A few improvements under the hood.
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.1.2 (2023-04-07)
 
+-   (ciddi89) Fixed: Visualization tables was not working correctly
+-   (ciddi89) Fixed: Issue if no dateformat was selected correctly
+
+### 2.1.1 (2023-04-05)
+
+-   (ciddi89) Fixed: [#25](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/25) Missing CSS class in date if it's older than today
+-   (ciddi89) Changed: Moved Dateformat option from table to other settings
+-   (ciddi89) Updated: Dependencies
+
+### 2.1.0 (2023-03-05)
+
+-   (ciddi89) Added: [#24](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/24) Option to remove 'COMPACT' in log entries
+-   (ciddi89) Added: [#21](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/21) Option to remove only 'script.js' in log entries
+-   (ciddi89) Fixed: [#46](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/46) Midnight function to change today/yesterday
+-   (ciddi89) Fixed: [#23](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/23) When nothing selected in blacklist, adapter didn't work anymore
+-   (ciddi89) Other: Small code and translation improvements
+
+### 2.0.0 (2023-03-02)
+
+-   (ciddi89) Dropped: Admin 5 support
+-   (ciddi89) Changed: Admin html to jsonConfig [#36](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/36)
+-   (ciddi89) Fixed: Issue with Midnight function
+-   (ciddi89) Added: Translations of admin ui [#28](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/28)
+-   (ciddi89) Updated: Readme
+
+### 1.2.3 (2023-02-25)
+
+-   (ciddi89) Fixed: Alexa-History script
+-   (ciddi89) Fixed: adjusted links in admin/docs to new repo
+-   (ciddi89) Rebuilded main.js
+
+### 1.2.2 (2023-02-23)
+
+-   (McM1957) sentry integration has been fixed
+
+### 1.2.1 (2023-02-23)
+
+-   (McM1957) Adapter has been moved to iobroker-community-adapters
+
+### 1.1.0
+
+-   (Mic-M) Fixed issue [#15](https://github.com/Mic-M/ioBroker.logparser/issues/15) regarding regex for tab "Parser Rules", column "Blacklist"
+-   (Mic-M) Enhancement [#16](https://github.com/Mic-M/ioBroker.logparser/issues/16) - add specific CSS classes to any element of the JSON log per adapter option.
+-   (Mic-M) Major improvement: Implemented entire documentation into adapter itself to significantly improve usability.
+-   (Mic-M) A few improvements under the hood.
 
 ### 1.0.4
-* (Mic-M) Fixed 'Today/Yesterday' updating issue - https://forum.iobroker.net/post/469757. Thanks to (Kuddel) for reporting and (Glasfaser) for further debugging.
+
+-   (Mic-M) Fixed 'Today/Yesterday' updating issue - https://forum.iobroker.net/post/469757. Thanks to (Kuddel) for reporting and (Glasfaser) for further debugging.
 
 ### 1.0.3
-* (Mic-M) Added [Sentry](https://github.com/ioBroker/plugin-sentry)
+
+-   (Mic-M) Added [Sentry](https://github.com/ioBroker/plugin-sentry)
 
 ### 1.0.2
-* (Mic-M) Added debug logging for callAtMidnight() and updateTodayYesterday()
+
+-   (Mic-M) Added debug logging for callAtMidnight() and updateTodayYesterday()
 
 ### 1.0.1
-* (Mic-M) Updated lodash dependency from 4.17.15 to 4.17.19
+
+-   (Mic-M) Updated lodash dependency from 4.17.15 to 4.17.19
 
 ### 1.0.0
-* (Mic-M) No changes - just prepare versioning to add adapter to stable repository per [Adapter dev docu](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning)
 
-### 0.4.11
-* (Mic-M) Adapter is now in latest repository.
-* (Mic-M) Removed unused adapter features 'extra tab' and 'custom state options'
-* (Mic-M) Removed unused subscription to object changes
-
-### 0.4.10
-* (Mic-M) Fixed reference to 'visualization.table' for adapter instances other than instance 0.
-* (Mic-M) Cleanup code.
-
-### 0.4.9
-* (Mic-M) Add option to remove script.js.Script_Name, update documentation
-
-### 0.4.8
-* (Mic-M) Fixed npm issue
-
-### 0.4.7
-* (Mic-M) Fixed translations, disabled 'supportCustoms', improved admin settings
-
-### 0.4.6
-* (Mic-M) Added error handling for invalid regex provided by user
-* (Mic-M) A few other fixes/improvements under the hood
-
-### 0.4.5
-* (Mic-M) Fixed issue with merge option and other filter settings by now cloning input logObject prior to handling
-* (Mic-M) Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all
-
-### 0.4.4
-* (Mic-M) Translations added, adapter instructions added, optimized admin interface
-
-### 0.4.3
-* (Mic-M) Fix multiple regex/string config values separated by comma
-
-### 0.4.2
-* (Mic-M) Fix issue #12 ('state is missing the required property val')
-* (Mic-M) Fix issue with visualization.tableX.json and .selection. See https://forum.iobroker.net/post/408513
-
-### 0.4.1
-* (Mic-M) Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page
-
-### 0.4.0
-* (Mic-M) Add new option "maxLength" to limit the length of each log message
-
-### 0.3.0
-* (Mic-M) initial public release
+-   (Mic-M) No changes - just prepare versioning to add adapter to stable repository per [Adapter dev docu](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#versioning)
 
 ## License
+
 MIT License
 
-Copyright (c) 2020 Mic-M
+Copyright (c) 2020 - 2023 Mic-M, McM1957 <mcm57@gmx.at>, ciddi89 <mail@christian-behrends.de>, ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

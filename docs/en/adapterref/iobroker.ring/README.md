@@ -119,7 +119,13 @@ It is recommended that you add your own tests into the mix.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.3.0 (2023-04-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) Device with Type stickup_cam_longfin not yet supported #483
+
 ### 3.2.7 (2023-03-22)
+
 * (foxriver76) prepare js-controller v5
 
 ### 3.2.6 (2023-02-18)

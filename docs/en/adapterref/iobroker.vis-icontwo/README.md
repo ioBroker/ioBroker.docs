@@ -60,6 +60,22 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.94.0
+
+• Neue Icons hinzugefügt (Brands)
+
+### 0.93.0
+
+• Neue Icons hinzugefügt (Devices/Cooling/)
+
+### 0.92.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.91.0
+
+• Neue Icons hinzugefügt (Alarm)
+
 ### 0.90.0
 
 • Neue Icons hinzugefügt (Devices/Network/hmip)

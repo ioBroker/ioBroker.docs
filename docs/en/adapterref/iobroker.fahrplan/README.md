@@ -223,6 +223,10 @@ With +-Button new entries can be added to the table.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.2.3 (2023-04-07)
+* (Gaudes) Upgrade hafas-client (fix for error)
+* (Gaudes) Upgrade dependency
+
 ### 1.2.2 (2022-08-04)
 * (Gaudes) Upgrade dependency
 
@@ -243,15 +247,10 @@ With +-Button new entries can be added to the table.
 * (Gaudes) Advanced error reporting for HAFAS errors
 * (Gaudes) Include Dependabot updates
 
-### 1.1.0 (2021-06-04)
-* (Gaudes) Time offset for routes and departure tables (Git #88)
-* (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
-* (Gaudes) Include Dependabot updates
-
 ## License
 MIT License
 
-Copyright (c) 2022 Ralf Gaudes <ralf@gaudes.net>
+Copyright (c) 2023 Ralf Gaudes <ralf@gaudes.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

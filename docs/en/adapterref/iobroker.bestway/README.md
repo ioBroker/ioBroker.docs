@@ -26,6 +26,8 @@ https://forum.iobroker.net/topic/48023/test-adapter-bestway-v0-0-x
 
 ## Changelog
 
+### 0.0.4
+Support for v2 pump version
 ### 0.0.1
 * (TA2k) initial release
 

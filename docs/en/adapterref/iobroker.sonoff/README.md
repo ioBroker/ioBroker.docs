@@ -12,15 +12,16 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Comparison of ioBroker adapters using MQTT protocol
-If you only have Tasmotas speaking MQTT protocol go for ioBroker.sonoff. For other scenarios consider the different options:
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in broker mode)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in client mode)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
-|---|---|---|---|---|
-|Has a built-in MQTT broker|yes|yes|no|no|
-|Relays messages to other MQTT subscribers|NO!!!|yes|not aplicable|not aplicable|
-|External MQTT broker|unsupported|unsupported|required|required|
-|Tasmota MQTT messages to ioBroker Objects|smart processing|1:1 processing of all messages|1:1 processing of subscribed messages|1:1 processing of subscribed messages|
-|non-Tasmota MQTT messages to ioBroker Objects|no processing|1:1 processing of all messages|1:1 processing of subscribed messages|1:1 processing of subscribed messages|
-|publish ioBroker values as MQTT messages|none|configured subtrees|configured subtrees|individually configured values|
+If you only have Tasmotas speaking MQTT protocol go for `ioBroker.sonoff`. For other scenarios consider the different options:
+
+| Feature                                       | ioBroker.sonoff  | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in broker mode)  | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in client mode) | [ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/) |
+|-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Has a built-in MQTT broker                    | yes              | yes                                                                           | no                                                                           | no                                                                     |
+| Relays messages to other MQTT subscribers     | NO!!!            | yes                                                                           | not aplicable                                                                | not aplicable                                                          |
+| External MQTT broker                          | unsupported      | unsupported                                                                   | required                                                                     | required                                                               |
+| Tasmota MQTT messages to ioBroker Objects     | smart processing | 1:1 processing of all messages                                                | 1:1 processing of subscribed messages                                        | 1:1 processing of subscribed messages                                  |
+| non-Tasmota MQTT messages to ioBroker Objects | no processing    | 1:1 processing of all messages                                                | 1:1 processing of subscribed messages                                        | 1:1 processing of subscribed messages                                  |
+| publish ioBroker values as MQTT messages      | none             | configured subtrees                                                           | configured subtrees                                                          | individually configured values                                         |
 
 ## Usage
 
@@ -117,9 +118,12 @@ States:
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.5.3 (2023-03-30)
+* (GreatSUN) Implemented potential `.STATE.POWER` update
+
 ### 2.5.1 (2022-04-23)
 * (Apollon77) Fix crash case reported by Sentry
 
@@ -244,7 +248,7 @@ States:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

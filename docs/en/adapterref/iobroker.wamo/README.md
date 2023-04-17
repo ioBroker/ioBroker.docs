@@ -11,14 +11,34 @@
 
 **Tests:** ![Test and Release](https://github.com/smarthausleben/ioBroker.wamo/workflows/Test%20and%20Release/badge.svg)
 
-## wamo adapter for ioBroker
+# WAMO adapter for ioBroker
 
 This adapter adds "wamo" leakage protection monitoring to your ioBroker installation.
 
 The adapter connects to your **SYR SafeTech Connect 2422** or **POLYGONVATRO** leakage protection device in order to read data from the device and create some statistic data like water consumption history.
 
-SYR SaveTech Connect 2422: https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect
-The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but without pressure-, temperature- and conductivity sensor. The POLYGONVATRO unit is currently not available.  
+Details about the SYR SaveTech Connect 2422 can be found [here.](https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect)
+
+The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but without pressure-, temperature- and conductivity sensor. The POLYGONVATRO unit is currently not available. 
+
+## IMPORTENT
+Since the **_Jam Protection release_** a scheduled move of the main valve was added and can be activated and scheduled in the adapter settings area (Tab: Tasks)
+
+Be verry careful with this functionality because it will **_close_** and **_open_** the main valve in order to prevent it to get stuck in open position and therefore will not close in case of an leakage.
+
+The **_Jam Protection_** can be planed using a CRON schedule which will also be configured in the adapter settings **_Tasks_** tab.
+Be verry careful there as well, because if you schedule a jam protection for example every 1 Minute you are having big trouble because your main valve will close and open every minute!
+
+During the **_Jam Protection_** activity, no regular states (Valve, Alarms etc.) will be updated in order to prevent false trigger you may have set on of those states.
+
+If the main valve is already in **_closed_** position, the **_Jam Protection_** activity will not be performed in order to prevent opening the main valve.
+If there is water consumption at start of **_Jam Protection_** the action will be delayed for 1 minute. After 10 faild attempts (water still flowing)  **_Jam Protection_** will be aborted.
+
+### Disclaimer / Warning
+If during the **_Jam Protection_** activity communication to the device gets lost or the WAMO adapter or ioBroker itself crashes or will be stopped, the main valve will stay in the last commanded position! This means if something gets wrong, the valve could be closed and needs to be opened by yourself using the related app or the button on the device itself.
+
+## Support this project
+If you find this adapter useful and you want to support this project, your kindness will be highly appreciated. You can easily support me [here.](https://www.paypal.com/paypalme/smarthausleben) Thanks 😊   
 
 ## Changelog
 <!--
@@ -26,12 +46,20 @@ The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but w
     ### **WORK IN PROGRESS**
 -->
 
-**WORK IN PROGRESS**
-* (smarthausleben) FIX: [interfaceBusy] flag was not reset after AXIOS interface handler error
-* (smarthausleben) ADD: 'WatchDog' function for interfaceBusy flag. Flag will be reset after defined amount of requests
+### **WORK IN PROGRESS**
+* (smarthausleben) ADD: [SafeFloor Device] New **SafeFloor Units** Tab in adapter settings to manage up to 4 **_SafeFloor Connect_** devices
+* (smarthausleben) ADD: New option **_"Enable executing test loop"_** in Tab **_"Advanced Options"_** to enable/disable cron based executed [Test Loop]
+
+### 0.3.0 (2023-04-04) - ***Jam Protection*** release
+* (smarthausleben) ADD: [Main valve jam protection] New State JPR for Jam protection running 
+* (smarthausleben) ADD: [Main valve jam protection] New State JPA for Jam protection aktivated
+* (smarthausleben) ADD: [Main valve jam protection] New State JPT for Jam protection timing (CRON)
+* (smarthausleben) ADD: [Main valve jam protection] New **Task Tab** in adapter settings to manage a scheduled regular movement of the main valve in order to prevent a stuck valve
+* (smarthausleben) FIX: [interfaceBusy] flag was not reset after AXIOS interface handler error **_(Issue #21)_**
+* (smarthausleben) ADD: [WatchDog] function for interfaceBusy flag. Flag will be reset after defined amount of requests **_(Issue #21)_**
 
 ### 0.2.13 (2022-10-12)
-* (smarthausleben) add: new property "createoOnStartup" in DeviceParameter
+* (smarthausleben) add: new property "createOnStartup" in DeviceParameter
 * (smarthausleben) add: new property "saveRawData" in DeviceParameter
 * (smarthausleben) change: creating all state objects during startup to avoid calling "setObjectNotExistsAsync" later on
 * (smarthausleben) add: Profile parameter raw states
@@ -52,35 +80,7 @@ The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but w
 * (smarthausleben) added unit for GHARDNESS (°dH)
 * (smarthausleben) new state GHARDFACTOR (calculation factor German water hardnes)
 
-### 0.2.9 (2022-08-12)
-* (smarthausleben) states changable ATP, BTB, BSA, BUZ, DMA, DRP, IDS, LNG, LWT
-* (smarthausleben) state types changed ATP, BSA, BUZ, DMA, DRP, DWL, IDS, LNG, LWT
-* (smarthausleben) added states TMZ, TN, 71, ALD, CLP, BPB
-* (smarthausleben) added channel and states for self learning: SLP, SLO, SOF, SMF, SLE, SLV, SLT, SLF
-* (smarthausleben) change splitted options into two tabs 
-* (smarthausleben) added options to define timeout for axios request 
-* (smarthausleben) added options for delay time between reconection try to device if connection got lost
-* (smarthausleben) change - exported Parameter declarations and parameter collections for timer into a seperate file 'lib/device-parameters.js'
-
 ## License
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2022 smarthausleben <info@smarthausleben.de>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2022-2023 smarthausleben <info@smarthausleben.de>

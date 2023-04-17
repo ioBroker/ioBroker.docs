@@ -53,7 +53,14 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
-### 0.4.1 (2023-03-21)
+### 1.0.0 (2023-04-07)
+* (René) dependencies updated
+
+### 0.4.2 (2023-04-02)
+* (René) fast charge is now a boolean and can be enabled/disabled
+* (René) wallbox charge time can be defined as 12h, 24h, endles or userdefined
+
+### 0.4.1 (2023-03-24)
 * (René) bug fix: avoid exception when no switch is defined for wallbox
 * (René) limit to switch between 1phase and 3phase charging of wallbox is adjustable now
 * (René) allow one minute disconnected before state change. Sometimes when wallbox switches from 1phase to 3phase it sends "disconnected", but cable is still connected

@@ -47,8 +47,7 @@ online:
 - Yandex: Russian
   To use Yandex voices you must request the API key here: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/).  [This service will be disabled 1st of Jan 2019 and replaced by Yandex.cloud]
   To use Yandex.cloud you should register here: [https://cloud.yandex.ru/], install SpeechKIT API in the Cloud and get Auth Token and Folder ID as described in API instructions.
-- Cloud: 
-  To use Cloud voices you need configured cloud adapter. (It can be disabled, but must be configured). This service use AWS Polly and it can be used directly.
+- Cloud: To use Cloud voices you need configured and running `cloud` adapter.
 - Amazon Web Services Polly:
   To use AWS Polly voices you need to create access key and secret key [here](https://console.aws.amazon.com/iam/home). The Amazon documentation can you find [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
@@ -265,6 +264,10 @@ Following values for engines are possible:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.0 (2023-04-03)
+* (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
+* (bluefox) Breaking changes: Minimal node.js version is 14
+
 ### 2.1.2 (2023-03-27)
 * (bluefox) Corrected engines with web-link
 

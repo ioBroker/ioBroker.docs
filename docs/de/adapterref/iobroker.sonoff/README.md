@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
+hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
@@ -14,19 +14,19 @@ hash: BuWs6Xf4dythFIb3T4+TK/e4TloQ+Q1DftYMt4kY/t8=
 # IoBroker Sonoff
 ![Testen und freigeben](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Vergleich von ioBroker-Adaptern mit MQTT-Protokoll
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Client Modus)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
+Wenn Sie nur Tasmotas sprechendes MQTT-Protokoll haben, gehen Sie zu `ioBroker.sonoff`. Berücksichtigen Sie für andere Szenarien die verschiedenen Optionen:
 
-||ioBroker.sonoff|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus)|[ioBroker.mqtt](https://github.com/ioBroker/ioBroker .mqtt/) (im Client-Modus)|[ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/)|
-|---|---|---|---|---|
-|Hat einen integrierten MQTT-Broker|ja|ja|nein|nein|
-|leitet Nachrichten an andere MQTT-Abonnenten weiter|NEIN!!!|ja|nicht zutreffend|nicht zutreffend|
-|Externer MQTT-Broker|nicht unterstützt|nicht unterstützt|erforderlich|erforderlich|
-|Tasmota-MQTT-Nachrichten an ioBroker-Objekte|intelligente Verarbeitung|1:1-Verarbeitung aller Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|
-|Nicht-Tasmota-MQTT-Nachrichten an ioBroker-Objekte|keine Verarbeitung|1:1-Verarbeitung aller Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|1:1-Verarbeitung abonnierter Nachrichten|
-|ioBroker-Werte als MQTT-Nachrichten veröffentlichen|keine|konfigurierte Teilbäume|konfigurierte Teilbäume|individuell konfigurierte Werte|
+| Merkmal | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Broker-Modus) | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (im Client-Modus) | [ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/) |
+|-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
+| Verfügt über einen integrierten MQTT-Broker | ja | ja | nein | nein |
+| Leitet Nachrichten an andere MQTT-Teilnehmer weiter | NEIN!!! | ja | nicht zutreffend | nicht zutreffend |
+| Externer MQTT-Broker | nicht unterstützt | nicht unterstützt | erforderlich | erforderlich |
+| Tasmota-MQTT-Nachrichten an ioBroker-Objekte | intelligente Verarbeitung | 1:1 Verarbeitung aller Nachrichten | 1:1 Verarbeitung abonnierter Nachrichten | 1:1 Verarbeitung abonnierter Nachrichten |
+| Nicht-Tasmota-MQTT-Nachrichten an ioBroker-Objekte | keine Verarbeitung | 1:1 Verarbeitung aller Nachrichten | 1:1 Verarbeitung abonnierter Nachrichten | 1:1 Verarbeitung abonnierter Nachrichten |
+| ioBroker-Werte als MQTT-Nachrichten veröffentlichen | Keine             | konfigurierte Teilbäume | konfigurierte Teilbäume | individuell konfigurierte Werte |
 
 ## Verwendung
 Dieser Adapter kommuniziert mit Sonoff-Geräten mit Tasmota-Firmware oder ESP-Geräten über MQTT.
@@ -107,7 +107,7 @@ Normalerweise sollte TELE_SENSOR für die meisten Benutzer ausreichen.
 
 * `Create object tree` erstellt Objekte als Baumstruktur
 
-**Warnung!** Diese Option bringt Ihren Sonoff-Objektbaum durcheinander! Sie müssen alle Einstellungen für die Speicherung wiederholen ...
+**Warnung!** Diese Option wird Ihren Sonoff-Objektbaum durcheinander bringen! Sie müssen alle Einstellungen für die Speicherung wiederholen ...
 Speichern Sie die Objektstruktur als JSON-Datei, damit Sie Ihre alte Struktur wiederherstellen können.
 Am besten stoppen Sie den Adapter, löschen alle Objekte unter sonoff und starten den Adapter erneut.
 
@@ -123,9 +123,19 @@ Zustände:
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
-### __LAUFENDE ARBEIT__ -->
+### **IN ARBEIT** -->
 
 ## Changelog
+### 2.5.3 (2023-03-30)
+* (GreatSUN) Implemented potential `.STATE.POWER` update
+
+### 2.5.1 (2022-04-23)
+* (Apollon77) Fix crash case reported by Sentry
+
+### 2.5.0 (2022-03-21)
+* (GreatSUN) Implement writing of NSPanel Widget changes
+* (Apollon77) Fix crash case reported by Sentry
+
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
 
@@ -243,7 +253,7 @@ Zustände:
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

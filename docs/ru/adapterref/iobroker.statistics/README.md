@@ -18,16 +18,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.statistics/README.md
 title: ioBroker.статистика
-hash: dRX6j7tnL0ULrEC1p1dlQsZVItFmIIQWZSZDsmxbGoU=
+hash: V92dfCJJef+vDHFwjWqxZbwltEJlUayZvL+0vSXTzSw=
 ---
-![Логотип](../../../en/adapterref/iobroker.statistics/../../admin/statistics.png)
+![Логотип](../../../en/admin/statistics.png)
 
 # IoBroker.статистика
 Этот адаптер упростит настройку статистики.
 
 **Адаптер реагирует только на изменение состояния (state.ack = true), а не на команды!**
 
-выбрать из следующих настроек:
+Выберите один из следующих параметров:
 
 * подсчитывать импульсы или изменения включения/выключения (только для двоичных значений и положительного фронта)
 * рассчитать затраты из подсчитанных значений (только для двоичных значений)
@@ -57,6 +57,13 @@ hash: dRX6j7tnL0ULrEC1p1dlQsZVItFmIIQWZSZDsmxbGoU=
 	### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
+
+* (klein0r) Show error if groups are not configured correctly
+
+### 2.3.1 (2023-01-11)
+* (klein0r) Added Ukrainian language
+
+### 2.3.0 (2022-11-03)
 NodeJS 14.5.0 is required
 
 * (klein0r) Added hourly, weekly, monthly, ... averages
@@ -80,18 +87,11 @@ NodeJS 14.5.0 is required
 * (klein0r) Increased precision to 5 digits
 * (klein0r) Translated all objects
 
-### 2.0.0 (2022-06-13)
-* (klein0r) Added Admin 5 configuration
-* (klein0r) Updated translations
-
-### 1.1.1 (2022-04-17)
-* Prevent warn logs when using non-number states as statistic source
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2023 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

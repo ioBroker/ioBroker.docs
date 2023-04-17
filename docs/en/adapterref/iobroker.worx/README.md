@@ -41,11 +41,10 @@ worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 -   to connect to the mower type in email and password from your worx account in the Config.
 -   Delay for Edgecut : If the edgecut starts in a curve or bend, the lawnmower may lose the wire and stop with a fault, or the blades may not rotate. For this purpose, the starting point at which the blades start to rotate can be set.
--   
-Mäher ab eine Zone oder Meterzahl starten lassen:
-Setze areas.area_0 auf die Meterzahl des gewünschten Startpunktes
-Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0
-Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0]
+-   Mäher ab eine Zone oder Meterzahl starten lassen:
+    Setze areas.area_0 auf die Meterzahl des gewünschten Startpunktes
+    Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0
+    Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0]
 
 ## Disscussion und Questions
 
@@ -54,6 +53,15 @@ Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0]
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 2.1.1
+
+Change reconnection times
+
+### 2.1.0
+
+Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
+Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
 
 ### 2.0.3
 

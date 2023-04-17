@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: syhrIXO+/bBtLT+liQzmOgBgfgnIuzN94CvByqewblU=
+hash: xTZa399oH2tQzlvqCu9atIRhydHBOywHLcKlCLSI0oI=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -21,7 +21,7 @@ hash: syhrIXO+/bBtLT+liQzmOgBgfgnIuzN94CvByqewblU=
 ## E3dc-rscp-Adapter für ioBroker
 Steuern Sie Ihr E3/DC-Kraftwerk mit dem proprietären RSCP-Protokoll, das das Auslesen von Zustandswerten und das Einstellen von Steuerparametern, z. die Ladeleistungsgrenze. Das ist der Vorteil von RSCP gegenüber dem Standard-Modbus, der nur zum Lesen von Werten dient. Wenn Sie keine Werte schreiben müssen, schauen Sie sich die (einfacheren) [Modbus-Adapter](https://github.com/ioBroker/ioBroker.modbus) an.
 
-Der e3dc-rscp Adapter wurde für das <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> Gerät entwickelt. Man kann davon ausgehen, dass andere E3/DC-Geräte eine ähnliche Schnittstelle bieten, aber ich kann dies nicht überprüfen.
+Der e3dc-rscp Adapter wurde für das <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> Gerät entwickelt. Man kann davon ausgehen, dass andere E3/DC-Geräte eine gleichwertige RSCP-Schnittstelle bieten, aber wir haben bereits Ausnahmen gesehen. Beispielsweise sind einige Batteriemodelle offensichtlich nicht vollständig von E3/DC integriert und geben daher nicht alle Werte durch RSCP weiter. In solchen Fällen gibt der Adapter nur das weiter, was über RSCP ankommt, manchmal einen Nullwert, manchmal einen Fehlercode.
 
 ## Inhaltsverzeichnis
 1. [ Adapterkonfiguration ](#toc)
@@ -33,7 +33,7 @@ Der e3dc-rscp Adapter wurde für das <a href="https://www.e3dc.com/produkte/s10/
 <a name="toc"></a>
 
 ## Adapterkonfiguration Folgendes muss konfiguriert werden, wenn eine neue Instanz des Adapters erstellt wird. Die Einstellungen sind in Registerkarten organisiert.
-### Reiter &quot;Optionen&quot;<table><tr><th> Eingabefeld</th><th> Bedeutung</th></tr><tr><td> E3/DC-Portal-Benutzername</td><td> Ihr Benutzername im <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> . E3/DC überprüft dort Ihre Anmeldeinformationen, bevor es RSCP-Zugriff gewährt.</td></tr><tr><td> E3/DC-Portal-Passwort</td><td> Ihr Benutzername im <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> .</td></tr><tr><td> E3/DC-IP-Adresse</td><td> Adresse in Ihrem lokalen Netzwerk, z. B. 192.168.178.107<br> <code>ioBroker.discovery</code> (ab 2.8.0) kann E3/DC-Geräte mit uPnP erkennen.<br> Sie können die IP auch auf Ihrem E3/DC-Bildschirm überprüfen, sie heißt &quot;System-IP&quot;:<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC-Anschluss</td><td> RSCP-Port Ihres E3/DC, normalerweise 5033<br> HINWEIS: Dies unterscheidet sich vom Modbus-Port.</td></tr><tr><td> RSCP-Passwort</td><td> RSCP-Passwort, wie es lokal an Ihrer E3/DC-Station eingegeben wird:<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER Wiederholungsintervall [s]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC anfordert. Experimente haben gezeigt, dass SET_POWER oszillieren kann, wenn dieses Intervall länger als 10 Sekunden ist, trotz eines Kommentars in der offiziellen E3/DC-Tag-Liste, der besagt, dass das Einstellen alle 30 Sekunden ausreicht. Bei Einstellung auf 0 (Null) findet kein Re-Send statt, dh Sie müssen den Re-Send von außen auslösen, sonst fällt das E3/DC nach ca. 10 Sekunden.</td></tr><tr><td> Sendeverzögerung des Tupels [s]</td><td> Definieren Sie, wie lange ioBroker warten soll, bevor Leerlaufzeiten oder Änderungen des Datenverlaufs in E3/DC geschrieben werden. Zweck ist es, mehrere aufeinanderfolgende Änderungen zu einem einzigen Aufruf zusammenzuführen. Bei jeder Änderung der Werte innerhalb einer Leerlaufzeit bzw. einer Datenhistorienskala wird ein dedizierter Timeout gesetzt/zurückgesetzt; Änderungen werden erst nach Ablauf des Timeouts übertragen. Dies gilt für EMS.IDLE_PERIODS_* und DB.HISTORY_DATA_*</td></tr><tr><td> Kontrollkästchen für jeden E3/DC-Namespace</td><td> Daten werden nur für geprüfte Namespaces angefordert.</td></tr></table>
+### Reiter &quot;Optionen&quot;<table><tr><th> Eingabefeld</th><th> Bedeutung</th></tr><tr><td> E3/DC-Portal-Benutzername</td><td> Ihr Benutzername im <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> . E3/DC überprüft dort Ihre Anmeldeinformationen, bevor es RSCP-Zugriff gewährt.</td></tr><tr><td> E3/DC-Portal-Passwort</td><td> Ihr Benutzername im <a href="https://s10.e3dc.com/s10/">E3/DC-Portal</a> .</td></tr><tr><td> E3/DC-IP-Adresse</td><td> Adresse in Ihrem lokalen Netzwerk, z. B. 192.168.178.107<br> <code>ioBroker.discovery</code> (ab 2.8.0) kann E3/DC-Geräte mit uPnP erkennen.<br> Sie können die IP auch auf Ihrem E3/DC-Bildschirm überprüfen, sie heißt &quot;System-IP&quot;:<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/DC-Anschluss</td><td> RSCP-Port Ihres E3/DC, normalerweise 5033<br> HINWEIS: Dies unterscheidet sich vom Modbus-Port.</td></tr><tr><td> RSCP-Passwort</td><td> RSCP-Passwort, wie es lokal an Ihrer E3/DC-Station eingegeben wird:<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER Wiederholungsintervall [s]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC anfordert. Experimente haben gezeigt, dass SET_POWER oszillieren kann, wenn dieses Intervall länger als 10 Sekunden ist, trotz eines Kommentars in der offiziellen E3/DC-Tag-Liste, der besagt, dass das Einstellen alle 30 Sekunden ausreicht. Bei Einstellung auf 0 (Null) findet kein Re-Send statt, dh Sie müssen den Re-Send von außen auslösen, sonst fällt der E3/DC nach ca. 10 Sekunden.</td></tr><tr><td> Sendeverzögerung des Tupels [s]</td><td> Definieren Sie, wie lange ioBroker warten soll, bevor Leerlaufzeiten oder Änderungen des Datenverlaufs in E3/DC geschrieben werden. Zweck ist es, mehrere aufeinanderfolgende Änderungen zu einem einzigen Aufruf zusammenzuführen. Bei jeder Änderung der Werte innerhalb einer Leerlaufzeit bzw. einer Datenhistorienskala wird ein dedizierter Timeout gesetzt/zurückgesetzt; Änderungen werden erst nach Ablauf des Timeouts übertragen. Dies gilt für EMS.IDLE_PERIODS_* und DB.HISTORY_DATA_*</td></tr><tr><td> Kontrollkästchen für jeden E3/DC-Namespace</td><td> Daten werden nur für geprüfte Namespaces angefordert.</td></tr></table>
 ### Reiter „Polling-Intervalle“
 <table><tr><th>Eingabefeld</th><th> Bedeutung</th></tr><tr><td> Abfrageintervall kurz [s]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC für die meisten dynamischen Variablen anfordert.</td></tr><tr><td> Abfrageintervall mittel [m]</td><td> Definieren Sie, wie oft ioBroker im Normalfall Zustandsaktualisierungen von E3/DC anfordert.</td></tr><tr><td> Abfrageintervall lang [h]</td><td> Definieren Sie, wie oft ioBroker Statusaktualisierungen von E3/DC für selten oder nie geänderte Variablen anfordert.</td></tr><tr><td> Variablentabelle anfordern</td><td> Weisen Sie S/M/L/N-Polling-Intervallen einzelne Request-Tags zu. N steht für „nie“.<br> Beachten Sie, dass es keine 1:1-Zuordnung zwischen Zuständen in der Objektstruktur und Elementen in der Abfrageintervallliste gibt. Die Gründe sind vielfältig: Manchmal ist die Antwort leer (häufig zutreffend für EMS_REQ_STORED_ERRORS), dann erscheint kein Status im Objektbaum. Manchmal wählen wir einen gemeinsamen Namen für „Getter“ und „Setter“ (z. B. wird die Antwort EMS_USER_CHARGE_LIMIT in den Zustand EMS_MAX_CHARGE_POWER geschrieben). Außerdem kann die Antwort des E3/DC mehr als ein Tag enthalten (z. B. liefert eine BAT_REQ_INFO-Anforderung BAT_RSOC, BAT_MODULE_VOLTAGE, BAT_CURRENT und mehr).</td></tr></table><a name="toc"></a>
 
@@ -69,6 +69,20 @@ Daher werden wir dem Adapter bei kommenden Anwendungsfällen Tags hinzufügen.
 // Trigger: Leistungsreduzierung ist erreicht, d. h. Strom zum Netz wird begrenzt // Aktion: Batterieladeleistungslimit auf Maximum zurücksetzen, wie unter SYS_SPECS angegeben on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;Trigger: power to grid is at Herabsetzungsschwelle - Ladeleistungslimit zurücksetzen&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+### 1.1.2
+(ka-vaNu)
+* WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)
+
+(git-kick)
+* Avoid cleartext password in silly log.
+
+## Changelog
+### 1.1.1
+(ka-vaNu)
+* Fixed typo which prevented creation of wallbox object - [Issue #139](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/139)
+
+(git-kick)
+* Fixed vulnerable dependency: glob-parent < 5.1.2 - [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2022-28469)
 ### 1.1.0
 (ka-vaNu)
 * Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
@@ -77,8 +91,8 @@ Daher werden wir dem Adapter bei kommenden Anwendungsfällen Tags hinzufügen.
 * Added value "N" for polling intervals, meaning "never" - [Issue #126](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/126)
 
 (git-kick)
-* Vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
-* Vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
+* Fixed vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
+* Fixed vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
 ### 1.0.8
 (git-kick)
 * No updates for e3dc-rscp.0.EP.PARAM_0.* - [Issue #117](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/117)
@@ -92,7 +106,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 ### 1.0.6
 (git-kick)
 * Boolean switches (e.g. EMS.WEATHER_REGULATED_CHARGE_ENABLED) did not work properly - [Issue #109](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
-* Vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
+* Fixed vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
 ### 1.0.5
 (git-kick)
 * SET_POWER not effective due to delayed transmission - [Issue #103](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)

@@ -532,6 +532,13 @@ Hier eine Liste der bisher aufgetretenen Probleme und deren Lösungen sofern vor
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.17 (2023-04-13)
+* (simatec) Fix delete InfluxDB tmp dir
+* (simatec) small Sentry fixes
+
+### 2.6.16 (2023-03-30)
+* (simatec) small fix for js-controller 5
+
 ### 2.6.15 (2023-03-27)
 * (simatec) Node-Red Backup optimized
 * (simatec) Grafana Backup optimized

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: XxMgz1rj1sX4mtmLSVb0xSDXazYQM7Jp4v9V1CMi0+8=
+hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
 ---
 ![Logo](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -25,14 +25,15 @@ Der Adapter kann den Mäher steuern und Sie können Konfigurationsparameter wie 
 
 Minimale Knotenversion 14.18
 
-activityLog das AKTIVITÄTENProtokoll aus der App-Bereiche Die Areas des Mähers-Kalenders Der Mähkalender des Mähers-Module Die verbauten Module des Mähers-Mähers Aufbereite Informationen des Mähers sowie Steuerung des Mähers-Produkts Produktinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen worx.0.xx.mower .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mäher welche Features, Board und Zubehör er hat.
+activityLog das AKTIVITÄTENProtokoll aus der App areas Die Areas des Mähers-Kalenders Der Mähkalender des Mähers-Module Die verbauten Module des Mähers-Mähers Aufbereite Informationen des Mähers sowie Steuerung des Mähers-Produkts Produktinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen worx.0.xx.mower .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mäher welche Features, Board und Zubehör er hat.
 Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 ## Einstellungen
 - Um sich mit dem Mäher zu verbinden, geben Sie E-Mail und Passwort von Ihrem Worx-Konto in der Config ein.
-- Verzögerung für Kantenschnitt: Wenn der Kantenschnitt in einer Kurve oder Biegung beginnt, kann der Rasenmäher das Kabel verlieren und mit einem Fehler stoppen, oder die Messer drehen sich möglicherweise nicht. Dazu kann der Startpunkt eingestellt werden, an dem sich die Messer zu drehen beginnen.
+- Verzögerung für Kantenschnitt: Wenn der Kantenschnitt in einer Kurve oder Biegung beginnt, kann der Rasenmäher das Kabel verlieren und mit einem Fehler anhalten, oder die Messer drehen sich möglicherweise nicht. Dazu kann der Startpunkt eingestellt werden, an dem sich die Messer zu drehen beginnen.
+- Mäher ab eine Zone oder Meterzahl starten lassen:
 
-- Mäher ab eine Zone oder Meterzahl starten lassen: Setze area.area_0 auf die Meterzahl des gewünschten Startpunktes Setze area.area_1, area.area_2 und area.area_3 jeweils auf 0 Setze area.startSequence auf [0,0,0,0,0 ,0,0,0,0,0]
+Setze area.area_0 auf die Meterzahl des gewünschten Startpunktes Setze area.area_1, area.area_2 und area.area_3 jeweils auf 0 Setze area.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
 
 ## Diskussion und Fragen
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
@@ -40,6 +41,15 @@ Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Changelog
+
+### 2.1.1
+
+Change reconnection times
+
+### 2.1.0
+
+Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
+Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
 
 ### 2.0.3
 

@@ -23,7 +23,7 @@ This adapter will make the configuration of statistics easier.
 
 **The adapter only reacts on state changes (state.ack = true), not on commands!**
 
-choose from the following settings:
+Choose from the following settings:
 
 * count impulses or on/off changes (Only for binary values and positive edge)
 * calculate costs from the counted values (Only for binary values)
@@ -52,6 +52,10 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+
+* (klein0r) Show error if groups are not configured correctly
+
 ### 2.3.1 (2023-01-11)
 * (klein0r) Added Ukrainian language
 

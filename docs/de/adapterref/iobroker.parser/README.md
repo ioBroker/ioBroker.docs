@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
 title: ioBroker-Parser-Adapter
-hash: NBDh0n/64Sx8hlo1HvkOMQ/HrkOSPsuqjlEfgHdbdzk=
+hash: moWgwHAhu98ZcFDHtFv7vESNc9QuaiAg9guc3+1Zh4g=
 ---
 ![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -32,7 +32,7 @@ Geben Sie an, wie lange der Adapter beim Ausführen von Remoteabfragen zwischen 
 
 Diese Verzögerung gilt pro Host. Wenn Remote-Abfragen so konfiguriert sind, dass sie von mehreren Remote-Hosts abrufen, wird jeder Host parallel abgefragt.
 
-Die Verzögerung ist ein Mindestwert zwischen dem Initiieren jeder Anforderung. D.h. Wenn das Lesen einer Abfrage länger dauert als dieser Verzögerungsparameter, wird die nächste gestartet, sobald der Lesevorgang abgeschlossen ist.
+Die Verzögerung ist ein Mindestwert zwischen dem Initiieren jeder Anfrage. D.h. Wenn das Lesen einer Abfrage länger dauert als dieser Verzögerungsparameter, wird die nächste gestartet, sobald der Lesevorgang abgeschlossen ist.
 
 ### 4. Akzeptieren Sie ungültige Zertifikate
 Geben Sie an, ob selbstsignierte/ungültige SSL/TLS-Zertifikate bei HTTPS-Anforderungen akzeptiert oder abgelehnt werden
@@ -44,7 +44,7 @@ Die Verwendung des unsicheren Parsers sollte vermieden werden.
 ### 6. Tabelle
 Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag hinzuzufügen.
 
-**Leistungshinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehrmals in verschiedene Tabellenzeilen eingeben und die Werte der Spalte "Intervall" gleich sind, wird nur der Inhalt der URL oder des Dateinamens abgerufen ** einmal** und zwischengespeichert, um mehrere Tabellenzeilen zu verarbeiten, die mit URL/Dateiname und Intervall übereinstimmen. Auf diese Weise können Sie mehrere Regex (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen Dateinamen anwenden, ohne die Daten mehrmals von der Quelle abrufen zu müssen.
+**Performance-Hinweis:** Wenn Sie dieselbe URL oder denselben Dateinamen mehrmals in verschiedene Tabellenzeilen eingeben und die Werte der Spalte "Intervall" gleich sind, wird nur der Inhalt der URL oder des Dateinamens abgerufen ** einmal** und zwischengespeichert, um mehrere Tabellenzeilen zu verarbeiten, die mit URL/Dateiname und Intervall übereinstimmen. Auf diese Weise können Sie mehrere Regex (also mehrere Tabellenzeilen) auf eine einzelne URL oder einen Dateinamen anwenden, ohne die Daten mehrmals von der Quelle abrufen zu müssen.
 
 **Tabellenfelder:**
 
@@ -71,7 +71,7 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 ## Beispieleinstellungen
 | Name | URL oder Dateiname | RegEx | Rolle | Geben Sie | ein Einheit | Intervall |
 |--------------------|:-------------------------------------------------------------|:-------------------------------------|-------------|---------|------|----------|
-| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Zahl | °C | 180000 |
+| TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Nummer | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | boolesch | | 60000 |
 | CPUTemperatur | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Nummer | °C | 30000 |
 | stockPreis.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | Wert | Zahl | € | 86400000 |
@@ -81,7 +81,7 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 *Hinweis:* Beim Anwenden von Regex auf die abgerufenen URL-/Dateidaten werden alle Zeilenumbrüche durch Leerzeichen ersetzt, um eine mehrzeilige Suche zu ermöglichen.
 
 ## Über reguläre Ausdrücke (RegExp)
-Reguläre Ausdrücke sind ein leistungsstarkes Werkzeug zum Analysieren und Extrahieren bestimmter Daten aus Zeichenfolgen, und noch wichtiger: Sie ermöglichen das Extrahieren bestimmter Werte/Texte aus einer bestimmten Zeichenfolge (z. B. aus dem HTML einer Webseite oder Text aus einer Datei), indem Regeln angewendet werden .
+Reguläre Ausdrücke sind ein leistungsfähiges Werkzeug zum Analysieren und Extrahieren bestimmter Daten aus Zeichenfolgen, und noch wichtiger: Sie ermöglichen das Extrahieren bestimmter Werte/Texte aus einer bestimmten Zeichenfolge (z. B. aus dem HTML einer Webseite oder Text aus einer Datei), indem Regeln angewendet werden .
 
 Für boolesche Typen ist die Regex ziemlich einfach. Bei numerischen Typen sollten Sie die Nummer mit Klammern markieren - `()`. Z.B. Um die Zahl aus *Die Temperatur beträgt 5°C* zu extrahieren, sollten Sie den Ausdruck ` (\d+)` verwenden.
 
@@ -128,6 +128,18 @@ Werte können Quality Codes haben:
 - 0x82 - Die URL oder Datei kann nicht gelesen werden.
 - 0x44 - Zahl oder Stringwert nicht im Text gefunden
 
+## Auslösen
+Zusätzlich zum Abfrageintervall kann das Parsen bestimmter Regeln ausgelöst werden, indem ein leerer Wert (`false`, `0`, '' - abhängig von der Art des Status) in den Status mit §§SSSSS_2 geschrieben wird §§ Bestätigungsflag.
+In diesem Fall wird der Wert aus der URL/Datei gelesen und sofort geparst.
+
+Sie können auch mit dem Befehl `sendTo` eine Nachricht an den Adapter senden:
+
+```Javascript
+sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
+    console.log(JSON.stringify(result)); // {"value": 10, "error": null}
+});
+```
+
 ## Unterstützung
 1. Allgemein: [ioBroker-Forum](https://forum.iobroker.net/). Deutschsprachige Nutzer: siehe [ioBroker Forum Thread Parser-Adapter](https://forum.iobroker.net/topic/4494/adapter-parser-regex).
 2. Bei Problemen lesen Sie bitte [ioBroker Parser Adapter: GitHub Issues](https://github.com/ioBroker/ioBroker.parser/issues).
@@ -137,6 +149,18 @@ Werte können Quality Codes haben:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 2.0.4 (2023-04-03)
+* (bluefox) The result could be an array of values
+
+### 2.0.3 (2023-04-02)
+* (bluefox) Corrected subscription on too many objects
+
+### 2.0.2 (2023-04-01)
+* (bluefox) Added possibility to trigger the parsing by writing of empty value to the state
+
+### 2.0.1 (2023-03-31)
+* (bluefox) Updated timestamp of non changed values
+
 ### 2.0.0 (2023-03-29)
 * (TA2k) added translations
 * (bluefox) Migrated GUI to admin v6

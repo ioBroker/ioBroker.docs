@@ -31,6 +31,12 @@ This adapter can be used to poll information from devices like printers, network
 <!--
 ## __WORK IN PROGRESS__
 -->
+### 2.4.7 (2023-04-12)
+* (McM1957) changed: several externalmodules including net-snmp have been updated
+
+### 2.4.6 (2023-03-26)
+* (McM1957) Fixed: SNMP set did not work for numeric value 0 (#240)
+
 ### 2.4.5 (2023-03-20)
 * (McM1957) Fixed: SNMPv3 crash when using SHA authentication (#236)
 
@@ -160,10 +166,10 @@ This adapter can be used to poll information from devices like printers, network
 * (Bluefox)    refactoring
 * (Marcolotti) initial release
 
-## __Adapter-Configuration__
+## Adapter-Configuration
 The adapter queries specified oids which are grouped within oid groups which in turn are assigned to devices. The configuration data is entered at several tabs:
 
-### __TAB OID-Groups__
+### TAB OID-Groups
 Here you specify all oids to be queried by the adapter, one oid per line.
 
 | Parameter     | Type        | Description                       | Comment                             |
@@ -175,7 +181,7 @@ Here you specify all oids to be queried by the adapter, one oid per line.
 | writeable     | boolean     | should be set to true if OID is writeable | reserved for future use     |
 | optional      | boolean     | should be set to true if OID is optional  | if set to true, no error will be raised if oid is unknown |
 
-### __TAB Device__
+### TAB Device
 Here you specify which devices should be queried.
 
 | Parameter     | Type        | Description                       | Comment                             |
@@ -191,14 +197,14 @@ Here you specify which devices should be queried.
 | polling (sec) | number      | poll intervall in seconds         |                                     |
 
 
-### __TAB Authorization__
+### TAB Authorization
 This tab contains SNMP V3 authorization information. Please note that SNMP V3 is not yet implemented.
 
 | Parameter     | Type        | Description                       | Comment                             |
 |---------------|-------------|-----------------------------------|-------------------------------------|
 
 
-### __TAB Options__
+### TAB Options
 Here you specify some general options
 
 | Parameter     | Type        | Description                       | Comment                             |
@@ -208,7 +214,7 @@ Here you specify some general options
 
 
 
-## __License__
+## License
 The MIT License (MIT)
 
 Copyright (c) 2017-2023 Marcolotti <info@ct-j.de>, McM1957 <mcm57@gmx.at>, ioBroker Community Developers 

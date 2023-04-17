@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.knx/README.md
 title: ioBroker.knx
-hash: vIYKCEqfuPNPZOwhsgjBjdzWgqv+Hh2LBEDyPT/8ams=
+hash: VSB8r4x8eNQs/mNUHr3bfNEfbBG6wh6ID2/aE1DlHOs=
 ---
 ![Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
@@ -41,7 +41,7 @@ Es verbindet sich mit Standard-KNX/LAN-Gateways.
 
 **Sie sollten auch iobroker js-controller UND admin auf die neueste Version aktualisieren.**
 
-Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt eingestellt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
+Bevor Sie beginnen: Jeder DPT von com.Objects sollte in Ihrem ETS-Projekt gesetzt sein. Jedes Gerät sollte in Ihre Anlagenstruktur einsortiert werden.
 
 ## Anforderungen
 * Knotenversion >= 14.15.4
@@ -117,11 +117,11 @@ Das Hochladen einer passwortgeschützten Datei ist noch nicht verfügbar.
 ### Objekte
 Hier befindet sich unter knx.0 der Gruppenadressbaum wie in Ihrem ETS-Projekt. Verwenden Sie zum Ändern der Eigenschaften das GA-Tool.
 
-### Verwendungszweck
+### Verwendung
 Wenn der Adapter erfolgreich startet, stehen Ihnen Ihre Datenpunkte für alles zur Verfügung, was Sie gerne tun.
 
 ### Datenpunkttypen (DPT)
-Alle DPTs gemäß „System Specifications, Interworking, Datapointtypes“ der KNX Association sind verfügbar. Das heißt, es gibt 2 Arten von Informationen, die Sie erhalten können: 1) ein Wert oder ein String 2) kommaseparierte Werte oder ein Array von Werten (im Moment weiß ich nicht, was der bessere Weg ist)
+Alle DPTs gemäß "System Specifications, Interworking, Datapointtypes" der KNX Association sind verfügbar. Das heißt, es gibt 2 Arten von Informationen, die Sie erhalten können: 1) ein Wert oder eine Zeichenfolge 2) kommagetrennte Werte oder ein Array von Werten (im Moment weiß ich nicht, was der bessere Weg ist)
 
 Beispielsweise wird ein DPT5.001 als unsigned Integer mit 8-Bit kodiert. Dies ergibt einen einzigen Wert. Der DPT3.007 (Control Dimming) ist als 1Bit(Boolean)+3Bit(unsigned Int) kodiert.
 Dies ergibt z.B. in einem Wert wie "0,5", wobei "0" "Verringern" und "5" die Anzahl der Intervalle bedeutet.
@@ -145,31 +145,31 @@ in ets-exports sind keine informationen über state und act-adressen enthalten. 
 
     | KNX | | | iobroker | | |
     |-------|-----------|------------|----------|----------|-------------------------------------------------|
-    | Lesen | Schreiben Sie | Übertragen | Lesen | Schreiben Sie | Erklärung |
+    | Lesen Sie | Schreiben Sie | Übertragen | Lesen Sie | Schreiben Sie | Erklärung |
     | - | - | - | - | - | der Wert wird durch GroupValueRead| aktualisiert |
     | x | - | - | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
-    | - | x | - | - | x | mit GroupValueWrite| den Wert nach KNX schreiben |
+    | - | x | - | - | x | mit GroupValueWrite| den Wert auf KNX schreiben |
     | - | - | x | x | - | der Zustandswert wird durch GroupValueResponse | aktualisiert |
     | x | - | x | x | x | Das Senden eines beliebigen Werts in diesem Zustand löst ein GroupValueRead| aus |
 
 6. Erstellung von Datenpunkt-Peers (DPP):
 
 Ein DPP wird erstellt, wenn GA, GAR und DPT gültig sind. Dies sind die DPP, mit denen der Adapter arbeitet.
-Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP nicht erstellt. Das geht mit GA-Tool.
+Wenn DPT in einem GA fehlt, weil es nicht gefunden werden konnte, wird das DPP nicht erstellt. Dies kann mit GA-Tool durchgeführt werden.
 
 7. beim Adapterstart:
 
 Alle mit "Read" Flag markierten GAs werden beim Start geprüft. Dies kann sich auf einen höheren Busverkehr auswirken. Am Ende sind alle Zustände aktuell.
 
 ###Vermeidung von Problemen
-* saubere ETS-Programmierung und noch wichtiger saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
+* saubere ETS-Programmierung und vor allem saubere ETS-Programmierung und vor allem saubere ETS-Programmierung
 * Weisen Sie die DPTs zu!!
 * einheitliche Kennzeichnung der GA-Bezeichnungen (z. B. „EG Wohnen Decke Licht schalten“ und „EG Wohnen Decke Licht schalten Status“ )
 * Vermeidung von Sonderzeichen ",./;&%$§[]" (kann Probleme bei der Gaserzeugung verursachen)
 * Überprüfen Sie, ob das KNX/LAN GW erreichbar ist. Ist dies nicht der Fall, versucht der Adapter ständig, eine Verbindung herzustellen.
 * Physikalische Adresse richtig wählen ( wichtig bei Verwendung von Linienkopplern ). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
 * Der Port der LAN-Schnittstelle ist normalerweise 3671
-* Aufgrund der Möglichkeit der Statusabfrage ist eines zu beachten: Es muss darauf geachtet werden, dass nicht mehr als 40 Anfragen pro Sekunde durch den ioBroker generiert werden, da diese dann physikalisch generiert werden können
+* Aufgrund der Möglichkeit der Statusabfrage ist eines zu beachten: Es muss sichergestellt werden, dass nicht mehr als 40 Anfragen pro Sekunde durch den ioBroker generiert werden, da diese dann physikalisch generiert werden können
 
   kann vom Adapter nicht mehr an das Gateway weitergegeben werden.
 
@@ -187,7 +187,7 @@ Das GA-Tool macht es einfach, Eigenschaften von GA's zu ändern.
 
 ![knxV2-3-2-GATools-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-2-GATools-mod.jpg)
 
-1. Zeigen Sie die Beziehung zwischen Staat und Tat auf
+1. Zeigen Sie die Beziehung zwischen Staat und Handlung
 2. Wenn eine Beziehung besteht, kann sie entfernt werden
 
 Wenn noch keine Relation existiert, kann durch Klicken auf (2) für den ausgewählten GA (1) eine neue erstellt werden.
@@ -204,7 +204,7 @@ Wenn es mehr GAs zum Ändern von Eigenschaften gibt, verwenden Sie die Mehrfacha
 3. Es ist keine Änderung möglich
 
 ### Direct Link Nicht-KNX-Zustand zu KNX umgekehrt
-Seit Adapter Version 2.0.6 ist es möglich, einen Nicht-KNX ioBroker Zustand direkt mit einem GA zu verknüpfen. Damit können Uhrzeit, Datum, beliebige Zustände oder Infos auf KNX übernommen werden. (ein kleiner Tipp: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA verknüpfen oder einen KNX-Tastensensor mit Ihrem Sonosplayer verknüpfen)). Die Zustände können mit einem GroupValueRead gelesen werden und wenn sich die Zustände ändern, werden sie automatisch auf KNX aktualisiert. Auch wenn Sie auf KNX wechseln, wird das verknüpfte Nicht-KNX-IOT-Gerät aktualisiert.
+Seit Adapter Version 2.0.6 ist es möglich, einen Nicht-KNX ioBroker Zustand direkt mit einem GA zu verknüpfen. Damit können Uhrzeit, Datum, beliebige Zustände oder Infos auf KNX übernommen werden. (ein kleiner Tipp: Sie können jede Ihrer IOT-Komponenten direkt mit einem GA in KNX verknüpfen (z. B. einen Homematic-Taster mit einem KNX-GA verknüpfen oder einen KNX-Tastensensor mit Ihrem Sonosplayer verknüpfen)). Die Zustände können mit einem GroupValueRead ausgelesen werden und wenn sich die Zustände ändern, werden sie automatisch auf KNX aktualisiert. Auch wenn Sie auf KNX wechseln, wird das verknüpfte Nicht-KNX-IOT-Gerät aktualisiert.
 
 ![knxV2-3-7-GATools-Directlink-mod](../../../en/adapterref/iobroker.knx/docs/pictures/knxV2-3-7-GATools-DirectLink-mod.jpg)
 
@@ -232,11 +232,40 @@ Jetzt ist KNX-GA **(1)** direkt mit Nicht-KNX-iobroker **(2)** verknüpft. Mit *
 
 ### __LAUFENDE ARBEIT__ -->
 ## Ausnahmen und Fehler
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 Der Entwickler kann keine weiteren speziellen Informationen über das System/config/user/enviroment erhalten. Falls keine Lizenz gefunden wird, werden auch die Adapterversion und die Host-ID gemeldet.
 
+## Vielen Dank für die Unterstützung und Hilfe
+* blauer Fuchs
+* Foxriver76
+
 ## Changelog
+### 2.0.18 (08.04.2023)
+* fixed send-delay
+* small changes
+
+### 2.0.17 (14.10.2022)
+* added ETSv6.0.6 import
+* major changes in Adapter Config UI
+* fixed change of port settings for LAN-GW
+
+### 2.0.16 (04.09.2022)
+* added ETSv6.0.5 import
+
+### 2.0.15 (02.06.2022)
+* fixed import error with extrem large KNX catalogue files
+* fixed unrecognized connection breaks
+
+### 2.0.14 (08.04.2022)
+* added ETSv6.0.4 (override 6.0.3)
+* small bugfixes
+
+### 2.0.13 (12.03.2022)
+* added ETSv5.7.7 import
+* fixed "unknown value" bug
+* some other small fixes
+
 ### 2.0.12 (25.02.2022)
 * fixed handling of undefined DP
 * updated datapointtypes
@@ -555,7 +584,7 @@ Additionally you need a license to use the adapter. The license editions are ava
 ## License
 The CC-NC-BY License (CC-NC-BY)
 
-Copyright (c) 2016-2021 K.Ringmann <info@punktnetzwerk.net>
+Copyright (c) 2016-2023 K.Ringmann <info@punktnetzwerk.net>
 
 THE WORK IS PROVIDED UNDER THE TERMS OF THIS CREATIVE
 COMMONS PUBLIC LICENSE ("CCPL" OR "LICENSE"). THE WORK IS PROTECTED BY

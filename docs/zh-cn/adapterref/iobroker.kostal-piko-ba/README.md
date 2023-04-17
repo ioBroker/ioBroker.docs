@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: tF2guQDG2a5jHeYCZ77whm6EAMeeAimrWAz4vL3Ov+w=
+hash: A7tFCf5bR7dPx8nF+Ii+hjqwVwKSbcr/8WiYrVuss+w=
 ---
 ![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -28,17 +28,27 @@ CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/wor
 ## 设置
 请注意，您的 Piko 或 Piko BA 逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico（BA / MP plus）逆变器，必须在配置中设置其 IP 地址。
 您还可以编辑实时数据、每日和实时统计的更新频率。
-如果需要，也可以设置 4 个模拟值的读出标记。
+如果您的硬件需要并支持，也可以设置用于读取 4 个模拟值的标记。
 
 ## 注释
 此适配器使用哨兵库自动向开发人员报告异常和代码错误。有关更多详细信息和有关如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for security.
+! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.4.7 (13.04.2023)
+* (HombachC) improved error handling
+### 2.4.6 (09.04.2023)
+* (HombachC) fixed vulnerability in xml2js
+### 2.4.5 (07.04.2023)
+* (HombachC) improved error handling
+### 2.4.4 (04.04.2023)
+* (HombachC) improved error handling
+### 2.4.3 (03.04.2023)
+* (HombachC) improved error handling
 ### 2.4.2 (07.03.2023)
-* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) fixed error in Piko MP Plus AC current
 * (HombachC) added Piko MP Plus total yield
 ### 2.4.1 (06.03.2023)
 * (HombachC) fixed Piko MP Plus support for two channel hardware

@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
+hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
 ---
 ![标识](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -23,12 +23,12 @@ hash: 8mT7M6MKlw3+hekfF3Mlag1pYE41zAPgcKDl70Tpxlg=
 # IoBroker.netatmo-energy
 ![测试和发布](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用哨兵库向开发人员发送崩溃和代码错误的自动报告。**有关如何禁用此功能的更多详细信息和信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始可以使用哨兵报告。
+**此适配器使用哨兵库向开发人员发送崩溃和程序代码错误的自动报告。**有关如何禁用此功能的更多详细信息和信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始可以使用哨兵报告。
 
 ## 要求和配置
 Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
-- 适配器适用于 admin => 3 和 nodejs >= 14
+- 适配器适用于 admin >= 3 和 nodejs >= 14
 - 创建您自己的帐户 <https://auth.netatmo.com/de-de/access/signup>
 - 执行 API 登录 <https://dev.netatmo.com/apidocumentation/energy>
 - 通过单击您的帐户（顶部/左侧）创建您自己的应用程序，然后按“创建”按钮
@@ -39,7 +39,6 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
     - 您将收到一封回复，其中可以找到您的家庭 ID
     - 将它们应用于适配器配置
     - 启动 Netatmo-Energy Adapter 并使用 Netatmo API 验证自己
-      - 选择新的身份验证方法 (OAuth2)
       - 确认按钮“使用 Netatmo 验证自己”
       - 如有必要，请登录您的帐户
       - 确认您的 Netatmo APP 的第三方许可
@@ -48,7 +47,11 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
     - 立即传输温度变化...立即将状态“SetTemp”中的温度变化传输到 API
     - 更改后立即读取 API 状态...更新 API 后立即使用 homestatus 获取 API 数据
     - 在 x 秒后更新 API 状态 ... API 数据的永久更新。 （0 = 无更新）
-  - 如果需要，还可以设置通知服务以接收某些状态更改。可以接收信息消息、警告或错误消息。为此，有必要在“登录信息”中激活选项“激活/停用通知”，然后在“通知”菜单中进行设置。
+  - 如果需要，还可以设置通知服务以接收某些状态更改。有可能的
+
+  接收信息消息、警告或错误消息。为此，有必要在“登录信息”中激活选项“激活/停用通知”，然后在“通知”菜单中进行设置。
+
+  - 此外，可以在传感器系统中输入门/窗传感器并存储所需的动作
 
 详细说明可作为 wiki (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>)。
 
@@ -86,6 +89,9 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 - setroomthermpoint ... 根据“设置”通道中的手动更改，更改将传输到 Netatmo Energy APP。 （瞬时或自触发 - “立即传输温度变化”）。
 - set_mode_to_home ...“设置”通道中的“set_mode_to_home”按钮将阀门模式“set_mode_to_home”设置为“home”。此外，会立即触发 API 请求以传播更改。
 
+＃＃＃ 消息
+- message_text ...所有消息都在这个数据点传输
+
 ＃＃＃ 状态
 - running ... 在这里您可以查看 API 请求当前是否正在运行
 
@@ -106,15 +112,30 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_de.png" alt="通知" width="70%"/>
 
-## 传感器
-在表格中，您可以对每个房间的“window_open”属性做出反应。各个窗口传感器的状态发生变化时可以触发一个动作，在此输入。可以设置专用温度，也可以切换回家庭模式。因此，可以在打开或关闭窗户时设置阀门的温度。
-
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="传感器" width="70%"/>
-
 ＃＃ 消息
-您可以在此处触发特定状态更改的特定消息。你可以留下你想要的信息。
+您可以在此处触发特定状态更改的特定消息。你可以留下你想要的信息。这些总是传送到“message_text”数据点。
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="消息" width="70%"/>
+
+通过按下“发送测试消息”按钮，可以测试消息服务。在测试之前，有必要保存消息服务的所有设置。
+
+## 传感器
+在表格中，您可以对每个房间的“窗户/门传感器”属性做出反应。各个窗口传感器的状态发生变化时可以触发一个动作，在此输入。可以在此处选择布尔类型的所有传感器。这意味着也可以集成外部传感器。
+
+可以触发以下操作：
+
+- 温度设定
+- 设置家庭模式
+- 设置加热模式
+  - 冰霜守望者
+  - 不在家
+  - 普通手术
+- 启动供暖计划
+  - 提供 Netatmo-Energy 应用程序的所有现有加热计划
+
+因此，可以在打开或关闭窗/门时设置阀门的温度。通过输入延迟时间（以秒为单位），将延迟执行存储的操作。如果触发传感器在延迟时间内再次发生变化，则不会执行待处理的操作。
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_de.png" alt="传感器" width="70%"/>
 
 ## 管理选项卡
 在管理选项卡上，您可以显示 netatmo 能源实例的所有恒温器、电桥和阀门。也可以更新此视图或启动完整的 API 更新。此外，您还可以选择将更改传输到云端并从可能的手动模式切换回标准模式。
@@ -135,53 +156,72 @@ VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.4.0 (2023-03-19)
+### 2.5.8 (2023-04-16)
+
+* (ioKlausi) Bug fix of translations
+
+### 2.5.7 (2023-04-16)
+
+* (ioKlausi) Bug fix of sensor actions
+
+### 2.5.6 (2023-04-15)
+
+* (ioKlausi) Bug fix of Sentry errors
+* (ioKlausi) Home mode for individual rooms in admin tab established
+* (ioKlausi) Bug fix of translations
+
+### 2.5.5 (2023-04-11)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.4 (2023-04-10)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.3 (2023-04-10)
+
+* (ioKlausi) Added data point for messages
+
+### 2.5.2 (2023-04-09)
+
+* (ioKlausi) Made some adjustments in the admin config
+
+### 2.5.1 (2023-04-09)
+
+* (ioKlausi) Test message in config added
+* (ioKlausi) Revise ioBroker Netatmo-Energy APP
+
+### 2.5.0 (2023-04-07)
+
+* (ioKlausi) Sensor changed to object ID type boolean
+
+### 2.4.5 (2023-04-06)
+
+* (ioKlausi) Implementation of sensor abort functionality
+
+### 2.4.4 (2023-04-03)
+
+* (ioKlausi) Add delay time, to perform action
+
+### 2.4.3 (2023-04-02)
+
+* (ioKlausi) Default entries for sensor table
+
+### 2.4.2 (2023-04-02)
+
+* (ioKlausi) Bug fix for Sentry errors
+
+### 2.4.1 (2023-04-02)
+
+* (ioKlausi) Revice coding
+
+### 2.4.0 (2023-04-01)
 
 * (ioKlausi) Implement actions for window sensors
 
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding
-
-### 2.3.0 (2023-02-12)
-
-* (ioKlausi) Rework of signal notifications
-
-### 2.2.2 (2023-02-12)
-
-* (ioKlausi) Send No-Token-Error as a notification
-
-### 2.2.1 (2023-02-12)
-
-* (ioKlausi) Timer established for token refresh
-
-### 2.1.0 (2023-02-05)
-
-* (ioKlausi) Added new API request 'createnewhomeschedule'
-
-### 2.0.3 (2023-02-04)
-
-* (ioKlausi) Added Signal as a new message type
-
-### 2.0.2 (2023-01-07)
-
-* (ioKlausi) Revision of the documentation
-
-### 2.0.1 (2023-01-06)
-
-* (ioKlausi) Corrections for OAuth2
-
-### 2.0.0 (2023-01-06)
-
-* (ioKlausi) New authentication method established
-
-### 1.3.1 (2022-04-18)
-
-* (ioKlausi) Additional information added to admin tab cards
-
-### 1.3.0 (2022-04-17)
-
-* (ioKlausi) Change thermostat mode functionality added to thermostat card
 
 ## License
 

@@ -15,6 +15,8 @@
 
 Controll evcc over rest api
 
+Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):

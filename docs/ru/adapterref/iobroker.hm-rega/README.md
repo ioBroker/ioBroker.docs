@@ -112,6 +112,9 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.0.46 (2023-03-30)
+* (foxriver76) fix for controller v5 (closes #368)
+
 ### 3.0.44 (2023-02-20)
 * (foxriver76) compatibility of RSSI_DEVICE and RSSI_PEER for CCU update (closes #352)
 * (foxriver76) also sync enums for maintenance channel of rfd devices (closes #320)

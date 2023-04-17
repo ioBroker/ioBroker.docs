@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: tF2guQDG2a5jHeYCZ77whm6EAMeeAimrWAz4vL3Ov+w=
+hash: A7tFCf5bR7dPx8nF+Ii+hjqwVwKSbcr/8WiYrVuss+w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -28,17 +28,27 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 ## Настройки
 Имейте в виду, что ваш инвертор Piko или Piko BA должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA/MP plus) установка его IP-адреса в конфиге обязательна.
 Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
-При необходимости также установите метку для считывания 4 аналоговых значений.
+Если это необходимо и поддерживается вашим оборудованием, установите также отметку для считывания 4 аналоговых значений.
 
 ## Примечания
 Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
 
-! Note that missing version entries are typically dependency updates for security.
+! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.4.7 (13.04.2023)
+* (HombachC) improved error handling
+### 2.4.6 (09.04.2023)
+* (HombachC) fixed vulnerability in xml2js
+### 2.4.5 (07.04.2023)
+* (HombachC) improved error handling
+### 2.4.4 (04.04.2023)
+* (HombachC) improved error handling
+### 2.4.3 (03.04.2023)
+* (HombachC) improved error handling
 ### 2.4.2 (07.03.2023)
-* (HombachC) fixxed error in Piko MP Plus AC current
+* (HombachC) fixed error in Piko MP Plus AC current
 * (HombachC) added Piko MP Plus total yield
 ### 2.4.1 (06.03.2023)
 * (HombachC) fixed Piko MP Plus support for two channel hardware

@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.4.3 (2023-03-31)
+* (bluefox) Corrected the folder rights edit dialog
+
 ### 6.4.2 (2023-03-27)
 * (bluefox) Better check of the certificates
 
@@ -89,9 +92,6 @@ lettering of the log appears in red.
 ### 6.3.7 (2023-03-12)
 * (bluefox) Better tooltips in object browser 
 * Added again possibility to hide/show of columns in object browser
-
-### 6.3.6 (2023-01-29)
-* (bluefox) Allowed the edit of log level in the configuration tab
 
 ## License
 The MIT License (MIT)

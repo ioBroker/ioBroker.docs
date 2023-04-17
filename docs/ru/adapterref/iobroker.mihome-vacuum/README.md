@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: Адаптер ioBroker mihome-vacuum
-hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
+hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -36,7 +36,7 @@ hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 - [Очистка зоны](#zoneclean)
     - [комнаты](#комнаты)
     - [таймер](#таймер)
-    - [Собственные команды](#отправить-ваши-собственные-команды)
+    - [Собственные команды](#отправить-свои-собственные-команды)
     - [sendTo hook](#send-custom-commands-with-sendto)
 - [виджет](#виджет)
 - [ошибки](#ошибки)
@@ -158,7 +158,7 @@ hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
 К сожалению, положение и расположение карты не может быть запрошено, это может меняться от всасывания к всасыванию. За основу всегда берется последняя всасывающая карта, так же как и в приложении.
 Если робот захватывает только одну область и всегда строит карту одинаково, вы можете надежно отправить его в нужное место или очистить область.
 
-#### Перейти к
+#### Идти к
 Для того, чтобы довести пылесос до точки, объект «goTo» должен быть заполнен следующим образом:
 
 ```
@@ -227,8 +227,8 @@ xVal, yval
 | set_dnd_timer | `[22,0,8,0]` | |
 |                 |                                                                     |                                                                                          |
 | приложение_rc_start | | Запустить удаленное управление |
-| приложение_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Шаг. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
-| приложение_rc_move | `[{"seqnum":'0-1000',"скорость":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Шаг. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
+| приложение_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
+| приложение_rc_move | `[{"seqnum":'0-1000',"скорость":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 
@@ -289,7 +289,7 @@ sendTo("mihome-vacuum.0",
 | Вернуться на базу | `charge` | - нет - | |
 | Скажите "Привет, я здесь!" | `findMe` | - нет - | |
 | Проверить состояние расходных материалов (щетки и т. д.) | `getConsumableStatus` | - нет - | |
-| Сброс состояния расходных материалов (щетки и т.п.) | `resetConsumables` | `consumable` | Строка: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
+| Сброс состояния расходных материалов (щетки и т.д.) | `resetConsumables` | `consumable` | Строка: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
 | Получите сводку всех предыдущих процессов очистки | `getCleaningSummary` | - нет - | |
 | Получите подробный отчет о предыдущем процессе очистки | `getCleaningRecord` | `recordId` | |
 | Получить карту | `getMap` | - нет - | Неизвестно, что делать с результатом |
@@ -304,7 +304,7 @@ sendTo("mihome-vacuum.0",
 | Получить текущий режим водяной камеры | `getWaterBoxMode` | - нет - | |
 | Установите режим швабры | `setMopMode` | `mopMode` | `mopMode` — число от 300 до 303 |
 | Получить текущий режим швабры | `getMopMode` | - нет - | |
-| Установить режим водяной камеры | `setWaterBoxMode` | `waterBoxMode` | `waterBoxMode` — число от 200 до 204 |
+| Установить режим водяной камеры | `setWaterBoxMode` | `waterBoxMode`\| {waterBoxMode:`waterBoxMode`,waterBoxLevel:`waterBoxLevel`} | `waterBoxMode` — это число от 200 до 204 или 207 -> тогда вы также должны указать `waterBoxLevel` как число от 1 до 30 |
 | Запустите функцию дистанционного управления | `startRemoteControl` | - нет - | |
 | Выдать команду перемещения для удаленного управления | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Порядковый номер должен быть последовательным, продолжительность указана в мс |
 | Завершить функцию дистанционного управления | `stopRemoteControl` | - нет - | |
@@ -330,6 +330,26 @@ sendTo("mihome-vacuum.0",
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 3.10.1 (2023-04-10)
+* (Dirkhe) fix waterBoxLevel 
+* (Dirkhe) fix overwriting of roomStates from global
+
+### 3.10.0 (2023-04-07)
+* (Dirkhe) check also stockcommands in onMessage 
+* (Dirkhe) add feature waterbox level #755
+
+### 3.9.5 (2023-01-13)
+* (Dirkhe) change type of unsupported features
+* (Dirkhe) fix button/command loadRooms
+
+### 3.9.4 (2023-01-11)
+* (Dirkhe) cleanmap.mapURL typo fixed
+
+### 3.9.3 (2023-01-11)
+* (Dirkhe) fix loosing passwort in config
+* (Dirkhe) move map Url to userspace instead of admin space #735
+* (Dirkhe) change mapUrl to /mihome-vacuum.0.userfiles/actualMap.png
+
 ### 3.9.2 (2023-01-06)
 * (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
 * (dirkhe) fix bug from 3.9.1 for supported repeat devices

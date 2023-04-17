@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: XxMgz1rj1sX4mtmLSVb0xSDXazYQM7Jp4v9V1CMi0+8=
+hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -31,8 +31,9 @@ Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last
 ## Настройки
 - для подключения к газонокосилке введите адрес электронной почты и пароль от своего рабочего аккаунта в Config.
 - Задержка для обрезки кромок: если обрезка кромок начинается на повороте или изгибе, газонокосилка может потерять провод и остановиться с ошибкой, или лезвия могут не вращаться. Для этого можно задать начальную точку, в которой лопасти начинают вращаться.
+- Mäher ab eine Zone oder Meterzahl starten lassen:
 
-- Mäher ab eine Zone oder Meterzahl starten lassen: Setze Areas.area_0 auf die Meterzahl des gewünschten Startpunktes Setze Areas.area_1, Areas.area_2 и Areas.area_3 Jeweils auf 0 Setze Areas.startSequence auf [0,0,0,0,0 ,0,0,0,0,0]
+Setze Areas.area_0 auf die Meterzahl des Gewünschten Startpunktes Setze Areas.area_1, Areas.area_2 und Areas.area_3 Jeweils auf 0 Setze Areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
 
 ## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
@@ -40,6 +41,15 @@ Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
+
+### 2.1.1
+
+Change reconnection times
+
+### 2.1.0
+
+Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
+Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
 
 ### 2.0.3
 

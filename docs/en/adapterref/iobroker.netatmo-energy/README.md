@@ -27,7 +27,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 Netatmo Energy hardware (thermostat, valves)
 Account at Netatmo Cloud
 
-- Adapter is working with admin => 3 and nodejs >= 14
+- Adapter is working with admin >= 3 and nodejs >= 14
 - Create your own account at <https://auth.netatmo.com/de-de/access/signup>
 - Login in site <https://dev.netatmo.com/apidocumentation/energy>
 - Create your own APP by clicking your account (top left), and press button "Create"
@@ -38,7 +38,6 @@ Account at Netatmo Cloud
       - you will get a response including your home id
       - copy it to your adapter config
     - Start the Netatmo Energy Adapter and authenticate yourself to the Netatmo API
-      - Select the new authentication method (OAuth2)
       - Press the button "Authenticate with Netatmo"
       - Log into your account if necessary
       - Confirm 3rd party permissions for your Netatmo APP
@@ -48,6 +47,7 @@ Account at Netatmo Cloud
       - read API states immediately ... send API homestatus request after changing fields in API
       - Refresh states every x seconds ... permanent refresh of the API data. (0 = no permanent refresh)
   - As an option you can activate the notification assistant. Therefore, you must activate the option "Enable / disable notifications" in the "Logon information" menu and do the setup for the notification service in the menu "notifications". You can get information's, warnings and errors.
+  - It is also possible to config the sensors for Doors/Windows in the Sensorik tab. Please also maintain the action, you want to trigger.
 
 A detailed description is available on adapter wiki (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
@@ -86,6 +86,10 @@ If an API request needs parameters, you can find these in the channel "parameter
 - setroomthermpoint     ... depending on the "setting" channel it sets the temperature of each room (immediately or by using the trigger "applychanges").
 - set_mode_to_home      ... In the channel "setting" you can use the button "set_mode_to_home" to set "home"-Mode for the valve. The API request to transfer the changes will start immediately.
 
+### Messages
+
+- message_text          ... all messages are transferred to this datapoint
+
 ### Status
 
 - running               ... here you can see if API Requests are running right now
@@ -111,16 +115,32 @@ Please insert the necessary information's to connect to the service you choose.
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/notification_en.png" alt="settingsAPI" width="70%"/>
 
-## Sensor actions
+It is possible to test the connection to the notification service by pressing the button "SEND TEST NOTIFICATION". You have to save all notification configurations before you can use this function.
 
-In the table you can react to the "window_open" attribute per room. The status of the respective window sensors can trigger an action when changing, which is to be entered here. Either a dedicated temperature can be set or you can switch back to home mode. The temperature of a valve can thus be set when a window is opened or closed.
-
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_en.png" alt="sensors" width="70%"/>
 ## Messages
 
-You can send messages depending on status changes of specific states. The messages can be defined by yourself.
+You can send messages depending on status changes of specific states. The messages can be defined by yourself. These messages always transferred to datapoint "message_text".
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_en.png" alt="settingsAPI" width="70%"/>## Admin-Tab
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_en.png" alt="settingsAPI" width="70%"/>
+
+## Sensor actions
+
+In the table, you can react to the "window_open" attribute per room. The status of the respective window sensors can trigger an action when changing, which is to be entered here. It is possible to select all sensors, which are boolean. This means that external sensors can also be integrated.
+
+The following actions can be triggered:
+
+- Set temperature
+- Set Home-Mode
+- Set heating mode
+  - Frost guardian
+  - Away from home
+  - Normal
+- Activate heating plan
+  - you can take each existing heating plan from your Netatmo-Energy App
+
+The temperature of a valve can thus be set when opening or closing a window/door. By entering a delay time (in seconds), the stored action is executed with a delay. If the triggering sensor is changed again within the delay time, the pending actions are not carried out.
+
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/sensors_en.png" alt="sensors" width="70%"/>
 
 ## Admin-Tab
 
@@ -143,53 +163,72 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.4.0 (2023-03-19)
+### 2.5.8 (2023-04-16)
+
+* (ioKlausi) Bug fix of translations
+
+### 2.5.7 (2023-04-16)
+
+* (ioKlausi) Bug fix of sensor actions
+
+### 2.5.6 (2023-04-15)
+
+* (ioKlausi) Bug fix of Sentry errors
+* (ioKlausi) Home mode for individual rooms in admin tab established
+* (ioKlausi) Bug fix of translations
+
+### 2.5.5 (2023-04-11)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.4 (2023-04-10)
+
+* (ioKlausi) Bug fix of Sentry errors
+
+### 2.5.3 (2023-04-10)
+
+* (ioKlausi) Added data point for messages
+
+### 2.5.2 (2023-04-09)
+
+* (ioKlausi) Made some adjustments in the admin config
+
+### 2.5.1 (2023-04-09)
+
+* (ioKlausi) Test message in config added
+* (ioKlausi) Revise ioBroker Netatmo-Energy APP
+
+### 2.5.0 (2023-04-07)
+
+* (ioKlausi) Sensor changed to object ID type boolean
+
+### 2.4.5 (2023-04-06)
+
+* (ioKlausi) Implementation of sensor abort functionality
+
+### 2.4.4 (2023-04-03)
+
+* (ioKlausi) Add delay time, to perform action
+
+### 2.4.3 (2023-04-02)
+
+* (ioKlausi) Default entries for sensor table
+
+### 2.4.2 (2023-04-02)
+
+* (ioKlausi) Bug fix for Sentry errors
+
+### 2.4.1 (2023-04-02)
+
+* (ioKlausi) Revice coding
+
+### 2.4.0 (2023-04-01)
 
 * (ioKlausi) Implement actions for window sensors
 
 ### 2.3.1 (2023-02-12)
 
 * (ioKlausi) Redesign coding
-
-### 2.3.0 (2023-02-12)
-
-* (ioKlausi) Rework of signal notifications
-
-### 2.2.2 (2023-02-12)
-
-* (ioKlausi) Send No-Token-Error as a notification
-
-### 2.2.1 (2023-02-12)
-
-* (ioKlausi) Timer established for token refresh
-
-### 2.1.0 (2023-02-05)
-
-* (ioKlausi) Added new API request 'createnewhomeschedule'
-
-### 2.0.3 (2023-02-04)
-
-* (ioKlausi) Added Signal as a new message type
-
-### 2.0.2 (2023-01-07)
-
-* (ioKlausi) Revision of the documentation
-
-### 2.0.1 (2023-01-06)
-
-* (ioKlausi) Corrections for OAuth2
-
-### 2.0.0 (2023-01-06)
-
-* (ioKlausi) New authentication method established
-
-### 1.3.1 (2022-04-18)
-
-* (ioKlausi) Additional information added to admin tab cards
-
-### 1.3.0 (2022-04-17)
-
-* (ioKlausi) Change thermostat mode functionality added to thermostat card
 
 ## License
 

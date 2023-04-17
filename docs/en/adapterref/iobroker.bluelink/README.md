@@ -17,14 +17,28 @@ Adapter to control Hyundai or Kia vehicle
 
 Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
+Login Infos : https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.2.8 (2023-03-09)
+### 2.3.2 (2023-04-12)
+* (arteck) force update only selected vin
+* (arteck) add buttons for force_refresh_from_server and force_refresh_from_car
+
+### 2.3.1 (2023-04-10)
+* (arteck) io-package update
+
+### 2.3.0 (2023-04-10)
 * (arteck) force update
+* (stefan.cloer) force_update corr, lastInfoUpdate corr, typo corr
+* (arteck) add batteryControlState12V init is 60
+* (arteck) max requests set to 400
+* (arteck) vin id for force_refresh 
+* (arteck) positionURL
 
 ### 2.2.7 (2023-03-07)
 * (arteck) fix / clima control

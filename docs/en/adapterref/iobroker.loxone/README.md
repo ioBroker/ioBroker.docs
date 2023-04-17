@@ -727,13 +727,14 @@ Native value from ioBroker &gt; Objects
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.0.1 (2023-03-30)
 
 -   (raintonr) Added info statistics (#364)
+-   (raintonr) Added missing states from IRCv2 (#365)
 -   (raintonr) Added basic functionality for Remote (Media Controller)
 -   (raintonr) Fixed ack overwrites of fast changing states (#399) and general ack improvements
 -   (raintonr) Fix crash when state changes occur during Miniserver reboot or otherwise unavailable (#298)
+-   (raintonr) Release script and other dependency updates
 
 ### 3.0.0 (2021-12-29)
 
@@ -855,7 +856,7 @@ Native value from ioBroker &gt; Objects
 
 ## License
 
-Copyright 2022 UncleSamSwiss
+Copyright 2023 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

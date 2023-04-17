@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-комфорт-облако
-hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
+hash: YSD9gQMLaMSiZsj070atapa6ZZi+VqTSk9zSREedzRc=
 ---
 ![версия NPM](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
@@ -14,7 +14,7 @@ hash: sqfABqA6wA52wyawmJ7WzSskxwfKPBinc1h0pkkzClE=
 
 | :предупреждение: ВНИМАНИЕ |
 |:---------------------------|
-| Новая версия приложения в настройках адаптера — 1.17.0 |
+| Новая версия приложения в настройках адаптера — 1.18.0 |
 
 ![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 

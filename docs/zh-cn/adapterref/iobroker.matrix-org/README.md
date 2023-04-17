@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: VMiIjOfbLptdI65a7gk+b2UlcZiAgkrCsv0M3PMya04=
+hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ---
 ![标识](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -80,14 +80,26 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
 如果您的客户端不支持表格，它要么显示文本，要么只显示 12ab。
 
 ### 测试你的配置使用 sendMessage
-只需打开对象并更改一个 matrix-org 实例的字符串端口主要是 8448，当你有一个没有代理的自托管系统时。
-有时端口是 443，如果你有像 matrix.org 这样的公共系统 如果你想测试它： 服务器：matrix.org 端口：443 房间：#test-ioBroker-adapter:matrix.org 加入这个房间并尝试一下用你自己的凭据
+只需打开对象并更改一个 matrix-org 实例的字符串 大多数端口是 443，如果你有一个像 matrix.org 这样的公共系统 端口有时是 8448，当你有一个没有代理的自托管系统时，但是你知道它。
+
+如果您想测试它： 服务器：matrix.org 端口：443 房间：#test-ioBroker-adapter:matrix.org 加入这个房间并使用您自己的凭据进行尝试
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-04-01)
+* upgrade matrix-js-sdk (node 18 needed)
+
+### 0.1.6 (2023-04-01)
+* last version for node 16
+* updated libs according dependabot accept matrix-js-sdk
+
+### 0.1.5 (2023-03-02)
+* downgrade for node 16
+* translation for configuration
+
 ### 0.1.4 (2023-02-04)
 * update of dependencies
 * small readme improvement

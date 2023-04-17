@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mihome-vacuum/README.md
 title: ioBroker Mihome-Vakuumadapter
-hash: NNY7/VUn/xJOuc8TzHGLLvdspYnX9Tcmd3U/toNkmBI=
+hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
 ---
 ![Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -99,7 +99,7 @@ Es wird automatisch ein intelligentes Gerät im Cloud-Adapter erstellt mit dem N
 Wenn diese Option aktiviert ist, setzt der Staubsauger die Zonenreinigung fort, wenn der Status „Start“ auf „true“ gesetzt wird, wenn er während einer laufenden Zonenreinigung angehalten wurde.
 Wenn diese Option deaktiviert ist, startet der Staubsauger eine neue "normale Reinigung", wenn Sie den Startbefehl senden, auch wenn er während einer laufenden Zonenreinigung angehalten wurde.
 
-- Experimentell: Mit der Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
+- Experimentell: Über die Checkbox „Eigene Befehle senden“ werden Objekte erstellt, über die man eigene Befehle an den Roboter senden und empfangen kann.
 
 #### Zweiter Roboter
 Sollen zwei Roboter über ioBroker gesteuert werden, müssen zwei Instanzen erstellt werden. Beim zweiten Robot muss der eigene Port (Default: 53421) für ioBroker geändert werden, damit beide Robots ioBroker über unterschiedliche Ports erreichen können.
@@ -304,7 +304,7 @@ Die unterstützten Befehle sind:
 | Abrufen des aktuellen Waterbox-Modus | `getWaterBoxMode` | - Keine - | |
 | Legen Sie einen Mop-Modus fest | `setMopMode` | `mopMode` | `mopMode` ist eine Zahl zwischen 300 und 303 |
 | Rufen Sie den aktuellen Mop-Modus ab | `getMopMode` | - Keine - | |
-| Stellen Sie einen Waterbox-Modus ein | `setWaterBoxMode` | `waterBoxMode` | `waterBoxMode` ist eine Zahl zwischen 200 und 204 |
+| Stellen Sie einen Waterbox-Modus ein | `setWaterBoxMode` | `waterBoxMode`\| {waterBoxMode:`waterBoxMode`,waterBoxLevel:`waterBoxLevel`} | `waterBoxMode` ist eine Zahl zwischen 200 und 204 oder 207 -> dann muss auch `waterBoxLevel` als Zahl zwischen 1 - 30 nachgewiesen werden |
 | Starten Sie die Fernbedienungsfunktion | `startRemoteControl` | - Keine - | |
 | Geben Sie einen Bewegungsbefehl für die Fernsteuerung aus | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Die Sequenznummer muss fortlaufend sein, die Dauer ist in ms |
 | Beenden Sie die Fernbedienungsfunktion | `stopRemoteControl` | - Keine - | |
@@ -330,6 +330,26 @@ Die unterstützten Befehle sind:
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 3.10.1 (2023-04-10)
+* (Dirkhe) fix waterBoxLevel 
+* (Dirkhe) fix overwriting of roomStates from global
+
+### 3.10.0 (2023-04-07)
+* (Dirkhe) check also stockcommands in onMessage 
+* (Dirkhe) add feature waterbox level #755
+
+### 3.9.5 (2023-01-13)
+* (Dirkhe) change type of unsupported features
+* (Dirkhe) fix button/command loadRooms
+
+### 3.9.4 (2023-01-11)
+* (Dirkhe) cleanmap.mapURL typo fixed
+
+### 3.9.3 (2023-01-11)
+* (Dirkhe) fix loosing passwort in config
+* (Dirkhe) move map Url to userspace instead of admin space #735
+* (Dirkhe) change mapUrl to /mihome-vacuum.0.userfiles/actualMap.png
+
 ### 3.9.2 (2023-01-06)
 * (Dirkhe) add function setUnsupportedFeature; if token changed, all stored unsupported Features will be cleared
 * (dirkhe) fix bug from 3.9.1 for supported repeat devices
