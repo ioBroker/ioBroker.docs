@@ -152,7 +152,8 @@ With **levels**, you can control or set some number value.
 * `level.current`         - target current for i.e. loading battery devices
 * `level.current.min`     - minimum current for i.e. loading battery devices
 * `level.current.max`     - maximum current for i.e. loading battery devices
-* `level.fill -> level.fill - setpoint for any container fill level states* `level.dimmer`          - brightness is dimmer too
+* `level.fill`            - setpoint for any container fill level states 
+* `level.dimmer`          - brightness is dimmer too
 * `level.blind`           - set blind position (max = fully open, min = fully closed)
 * `level.temperature`     - set desired temperature
 * `level.valve`           - set point for valve position
