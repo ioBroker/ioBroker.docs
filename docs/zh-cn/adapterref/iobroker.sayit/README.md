@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sayit/README.md
 title: ioBroker sayit 适配器
-hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
+hash: UtxJK9SWiiTAudGa5qCcvN0hj3RCkt5J/ob2hLAlTQ8=
 ---
 ![标识](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,7 +55,7 @@ SayIt Adapter 可以将文本转换为语音并在某些设备上播放。
 
 要使用 Yandex 语音，您必须在此处请求 API 密钥：[https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/)。 [此服务将于 2019 年 1 月 1 日停用并由 Yandex.cloud 取代]要使用 Yandex.cloud，您应该在此处注册：[https://cloud.yandex.ru/]，在云中安装 SpeechKIT API 并获取 Auth Token和文件夹 ID，如 API 说明中所述。
 
-- 云：要使用云语音，您需要配置并运行“云”适配器。
+- 云：要使用云语音，您需要配置并运行“云”适配器或直接在设置中输入应用密钥
 - 亚马逊网络服务波莉：
 
   要使用 AWS Polly 语音，您需要创建访问密钥和秘密密钥 [此处](https://console.aws.amazon.com/iam/home)。您可以在 [此处找到亚马逊文档](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)。
@@ -154,6 +154,8 @@ State **tts.text** 支持扩展语法，因此语言/引擎和音量可以与文
 - **de-DE_CLOUD_Female** - Deutsch - Marlene
 - **de-DE_CLOUD_Male** - 德语 - 汉斯
 - **de-DE_CLOUD_Female_Vicki** - Deutsch - Vicki
+- **de-DE_CLOUD_Male_Daniel** - 德语 - 丹尼尔
+- **de-AT_CLOUD_Female_Hannah** - Österreich - 汉娜
 - **en-US_CLOUD_Female** - en-US - 女性 - Salli
 - **en-US_CLOUD_Male** - en-US - 男性 - Joey
 - **da-DK_CLOUD_Female** - da-DK - 女性 - Naja
@@ -186,7 +188,8 @@ State **tts.text** 支持扩展语法，因此语言/引擎和音量可以与文
 - **is-IS_CLOUD_Male** - is-IS - 男性 - 卡尔
 - **it-IT_CLOUD_Female** - it-IT - 女性 - Carla
 - **it-IT_CLOUD_Male** - it-IT - 男性 - 乔治
-- **nb-NO_CLOUD_Female** - nb-NO - 女 - Liv
+- **nb-NO_CLOUD_Female** - no-NO - 女 - Liv
+- **no-NO_CLOUD_Female** - no-NO - 女性 - Ida
 - **nl-NL_CLOUD_Female** - nl-NL - 女 - 乐天
 - **nl-NL_CLOUD_Male** - nl-NL - 男 - 鲁本
 - **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - 女性 - Agnieszka
@@ -280,6 +283,14 @@ State **tts.text** 支持扩展语法，因此语言/引擎和音量可以与文
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.5 (2023-04-17)
+* (bluefox) Corrected error with System player
+* (bluefox) Do not allow for chromecast to cache files.
+* (bluefox) Allowed to add cloud App-Key without running cloud adapter
+* (bluefox) Added austrian language
+* (bluefox) Added norwegian language
+* (klein0r) Used sendTo instead of setState in blockly
+
 ### 3.0.0 (2023-04-03)
 * (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
 * (bluefox) Breaking changes: Minimal node.js version is 14

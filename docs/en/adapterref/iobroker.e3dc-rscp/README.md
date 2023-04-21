@@ -21,6 +21,7 @@ The e3dc-rscp adapter was developed for the <a href="https://www.e3dc.com/produk
 ## Table of Content
 1. [ Adapter configuration ](#toc)
 1. [ Coverage of interface messages ](#cov)
+1. [ Issues and feature requests ](#iss)
 1. [ Sample script ](#sam)
 1. [ Changelog ](#log)
 1. [ License](#lic)
@@ -100,6 +101,15 @@ Here is what to configure when creating a new instance of the adapter. Settings 
 </table>
 <a name="toc"></a>
 
+### Reuse of adapter configuration
+You can use the built-in "save"/"load"-Buttons in the Instance Settings to save your adapter settings in a json-file and load it from there, e.g. after you did a completely new ioBroker installation.
+
+But: in some situations the reuse of adapter configuration will lead to unexpected behavior. In cases where a new adapter version introduces new parameters like new lines in the Polling Interval list, reloading settings from an older json file will delete those new parameters. **This is why it's generally recommended to start with blank settings and re-enter them at least for every new minor version Y (x.Y.z):** 
+1. Delete e3dc-rscp instance
+2. Create a new e3dc-rscp instance
+3. Enter settings manually (do *not* load settings from a json file)
+
+
 ## Coverage of interface messages
 ### Supported RSCP namespaces
 The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. groups of tags). 
@@ -142,7 +152,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>DB</td>
     <td>Database</td>
-    <td>experimental</td>
+    <td>experimental (see README-dev.md)</td>
   </tr>
   <tr>
     <td>FMS</td>
@@ -162,12 +172,12 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>INFO</td>
     <td>Information</td>
-    <td>not supported (yet)</td>
+    <td>partially supported (REQ tags ok, SET tags not implemented yet)</td>
   </tr>
   <tr>
     <td>EP</td>
     <td>Emergency Power</td>
-    <td>complete</td>
+    <td>supported</td>
   </tr>
   <tr>
     <td>SYS</td>
@@ -341,10 +351,31 @@ For DB, it is not clear what makes the difference between the scales (DAY/WEEK/M
 
 Further investigation is necessary.
 
-For the currently unspupported RSCP namespaces and tags, please refer to the official E3/DC tag list provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip).
-
 Note that RSCP knows more than 600 tags (representing ca. 300 parameters), so we think it does not make sense to read all of them.
 Therefore, we will add tags to the adapter upon upcoming use-cases.
+
+<a name="iss"></a>
+## Issues and feature requests
+
+For issues and feature requests, you can write in English or German.
+
+### Bug reports
+Open the [bug report form](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=&labels=&template=bug_report.md&title=), and enter comprehensive information.
+Most times a log-file will be neccessary for debugging, so please provide a debug-log:
+
+1. stop instance
+2. delete log
+3. set instance to log mode "debug" (or even "silly", depending on type of issue)
+4. start instance an let it run for ca. 1 minute (or longer, if you know the bug takes more time to show up)
+5. store log in a file
+6. attach logfile to the issue (no inline log please; it's too long)
+
+### Feature requests and general issues
+Open a [blank issue](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new), and describe what you would like the adapter to do, and why.
+Please keep in mind:
+* The adapter is meant to trigger RSCP and provide the results in ioBroker's object tree, nothing more. Further processing or storage are left to other code.
+* **To search for currently unspupported RSCP namespaces and tags, please refer to the official E3/DC tag list** provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip). 
+* Everything not listed in the RSCP tag list or otherwise shown to be delivered is regarded "out of scope".
 
 <a name="sam"></a>
 ## Sample script
@@ -364,6 +395,14 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.2.0
+
+__MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
+
+(git-kick)
+* Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
 ### 1.1.2
 (ka-vaNu)
 * WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)

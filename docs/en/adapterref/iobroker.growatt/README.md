@@ -188,6 +188,11 @@ Therefore, the description has also been removed.
 
 ## Changelog
 
+### 2.1.1 (17.04.2023)
+
+- (PLCHome) Calendar structure was not always changed to timestamp
+- (PLCHome) Improvement in the internal handling of objects without considering their case.
+
 ### 2.1.0 (14.04.2023)
 
 - (PLCHome) Status data now also from TLX/TLXH

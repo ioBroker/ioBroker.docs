@@ -55,6 +55,9 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
+## WIP
+* (ChL/kubax) Experimental! Enable serial over raw TCP socket for all devices - use `tcp://host:port` as custom serial port
+
 ## 0.8.10
 * (ChL) Use compact frame cache independently from manufacturer code
 

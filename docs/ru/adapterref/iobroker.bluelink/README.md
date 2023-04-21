@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
+hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -11,11 +11,10 @@ hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![Количество установок (последние)](https://iobroker.live/badges/bluelink-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/bluelink-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Newan/iobroker.bluelink.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/Newan/ioBroker.bluelink/workflows/Test%20and%20Release/badge.svg)
+![Тестируйте и выпускайте](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Bluelink адаптер для ioBroker
 Адаптер для управления автомобилем Hyundai или Kia

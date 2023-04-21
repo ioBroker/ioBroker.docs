@@ -28,6 +28,11 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.8.5 (2023-04-20)
+
+-   (ciddi89) Fixed: Error that instances can not be added to the blacklist because of the popup message [#172](https://github.com/ciddi89/ioBroker.device-watcher/issues/172)
+-   (ciddi89) Fixed: That messages have been sent when the instance has briefly jumped from Enabled to Disabled and back to Enabled [#173](https://github.com/ciddi89/ioBroker.device-watcher/issues/173)
+
 ### 2.8.4 (2023-04-16)
 
 -   (ciddi89) Fixed: Functions for instance status completely renewed ([#170](https://github.com/ciddi89/ioBroker.device-watcher/issues/170))

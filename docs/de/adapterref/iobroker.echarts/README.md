@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
+hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -45,6 +45,9 @@ Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie eine
   {"ts": 1675887849000, "val": 180}
 ]
 ```
+
+Alternative folgende Attributnamen werden für `val` unterstützt: `value`, `v`, `data`, `y`.
+Und folgende für `ts`: `time`, `t`, `date`.
 
 Sie können Start und Start nicht in den Echolot-Einstellungen definieren. Beginn und Ende werden automatisch aus den Daten berechnet.
 Eine Aggregation ist ebenfalls nicht möglich. Alle Manipulationen müssen durch Schreiben der JSON-Daten erfolgen.
@@ -103,6 +106,9 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 1.4.14 (2023-04-20)
+* (bluefox) Added support of alternative names for JSON sources
+
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
 

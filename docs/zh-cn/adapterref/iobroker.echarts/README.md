@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
+hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 ---
 ![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -45,6 +45,9 @@ hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
   {"ts": 1675887849000, "val": 180}
 ]
 ```
+
+`val` 支持以下替代属性名称：`value`、`v`、`data`、`y`。
+并遵循 `ts`：`time`、`t`、`date`。
 
 您不能在 echarts 设置中定义 start 和 start。开始和结束将根据数据自动计算。
 聚合也是不可能的。所有操作都必须通过写入 JSON 数据来完成。
@@ -103,6 +106,9 @@ sendTo('echarts.0', {
 ### **正在进行中** -->
 
 ## Changelog
+### 1.4.14 (2023-04-20)
+* (bluefox) Added support of alternative names for JSON sources
+
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
+hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -45,6 +45,9 @@ hash: TepqHojvQIqJ1Wto8GIVBf9g3Kc8p1NwkWR/1JFPLHg=
   {"ts": 1675887849000, "val": 180}
 ]
 ```
+
+Для `val` поддерживаются следующие альтернативные имена атрибутов: `value`, `v`, `data`, `y`.
+И далее для `ts`: `time`, `t`, `date`.
 
 Вы не можете определить начало и начало в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
 Агрегация тоже невозможна. Все манипуляции должны производиться путем записи данных в формате JSON.
@@ -103,6 +106,9 @@ sendTo('echarts.0', {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.4.14 (2023-04-20)
+* (bluefox) Added support of alternative names for JSON sources
+
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: U7nb021ZVEe7qtDs0Zz+TpOj7SPP8vGYoHwTqfQCxCg=
+hash: itncUpTg0tCsqWXPL7C9iiIo4a6xpm1Tf5Itz9fh8mY=
 ---
 ![标识](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
@@ -29,7 +29,7 @@ startCook Beispieles Fritten：
 
 ```
 {
-            "accountId": "8604151",
+            "accountId": "8604100",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -51,6 +51,32 @@ startCook Beispieles Fritten：
                 "targetTemp": 0
             },
             "tempUnit": "c"
+        }
+```
+
+烹饪模式：
+
+```
+{
+            "accountId": "8604100",
+            "appointmentTs": 0,
+            "cookSetTemp": 175,
+            "cookSetTime": 15,
+            "cookStatus": "cooking",
+            "customRecipe": "Manuell",
+            "mode": "custom",
+            "readyStart": true,
+            "recipeId": 1,
+            "recipeType": 3,
+            "tempUnit": "celsius"
+        }
+```
+
+停止：
+
+```
+{
+            "cookStatus": "end"
         }
 ```
 
@@ -86,3 +112,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+```
+
+```

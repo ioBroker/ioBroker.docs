@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sayit/README.md
 title: адаптер ioBroker
-hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
+hash: UtxJK9SWiiTAudGa5qCcvN0hj3RCkt5J/ob2hLAlTQ8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,7 +55,7 @@ hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
 
 Чтобы использовать голоса Яндекса, вы должны запросить ключ API здесь: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Этот сервис будет отключен 1 января 2019 года и заменен Яндекс.Облаком] Для использования Яндекс.Облака вам необходимо зарегистрироваться здесь: [https://cloud.yandex.ru/], установить SpeechKIT API в Облаке и получить Auth Token и идентификатор папки, как описано в инструкциях API.
 
-- Облако: для использования облачных голосов вам необходимо настроить и запустить облачный адаптер.
+- Облако: для использования облачных голосов вам необходимо настроить и запустить облачный адаптер или ввести ключ приложения непосредственно в настройках.
 - Полли Amazon Web Services:
 
   Чтобы использовать голоса AWS Polly, необходимо создать ключ доступа и секретный ключ [здесь] (https://console.aws.amazon.com/iam/home). Документацию Amazon вы можете найти [здесь](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
@@ -154,6 +154,8 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 - **de-DE_CLOUD_Female** - Дойч - Марлен
 - **de-DE_CLOUD_Male** - Немецкий - Ганс
 - **de-DE_CLOUD_Female_Vicki** - Deutsch - Вики
+- **de-DE_CLOUD_Male_Daniel** - Дойч - Дэниел
+- **de-AT_CLOUD_Female_Hannah** - Австрия - Ханна
 - **en-US_CLOUD_Female** - en-US - Женский - Салли
 - **en-US_CLOUD_Male** - en-US - Мужской - Джоуи
 - **da-DK_CLOUD_Female** - da-DK - Женский - Naja
@@ -186,7 +188,8 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 - **is-IS_CLOUD_Male** - is-IS - Мужчина - Карл
 - **it-IT_CLOUD_Female** - it-IT - Женщина - Карла
 - **it-IT_CLOUD_Male** - it-IT - Мужской - Джорджио
-- **nb-NO_CLOUD_Female** - nb-NO - Женский - Лив
+- **nb-NO_CLOUD_Female** - no-NO - Женский - Лив
+- **no-NO_CLOUD_Female** - no-NO - Женский - Ида
 - **nl-NL_CLOUD_Female** - nl-NL - Женский - Lotte
 - **nl-NL_CLOUD_Male** - nl-NL - Мужской - Рубен
 - **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - Женский - Агнешка
@@ -280,6 +283,14 @@ sayIt сделает из него ```myCustomPlayer --option "/opt/iobroker/nod
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 3.0.5 (2023-04-17)
+* (bluefox) Corrected error with System player
+* (bluefox) Do not allow for chromecast to cache files.
+* (bluefox) Allowed to add cloud App-Key without running cloud adapter
+* (bluefox) Added austrian language
+* (bluefox) Added norwegian language
+* (klein0r) Used sendTo instead of setState in blockly
+
 ### 3.0.0 (2023-04-03)
 * (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
 * (bluefox) Breaking changes: Minimal node.js version is 14

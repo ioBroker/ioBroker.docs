@@ -40,6 +40,21 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+Updated `zwave-js` to `10.15.0`. This includes the following changes:
+* Added support for `Security S2` multicast
+* Added support for parsing additional information from `Notification CC Reports`. Note that this may change the values reported for Door/Window sensors! If you rely on the old behavior, use the new `Door state (simple)` value instead.
+* On devices where legacy alarm values are mapped, the resulting `Notification` values are now created during the interview.
+* Fixed an issue where communication with a node included with `Security S2` was not always using encryption.
+* All commands contained in a `Multi Command CC` are now properly handled
+* Failures while assigning routes to nodes no longer mark the node as dead (unless they actually are)
+* Values for unsupported `Door Lock CC` features are no longer created
+* Several reliability/correctness improvements for device interviews
+* Auto-assign routes between nodes after creating a new association
+* Values for `Battery`, `Meter`, `Multilevel Switch` and (in some cases) `Notification CC` are now queried periodically or on device wakeup
+* Notification variables (like Lock jammed) are now updated when another received report indicates a change, even if the device did not update the notification variable itself.
+* Lots of new and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
+
 ### 3.0.5 (2023-01-28)
 Updated `zwave-js` to `10.5.4`. This includes the following changes:
 * Fixed a memory leak caused by a dependency

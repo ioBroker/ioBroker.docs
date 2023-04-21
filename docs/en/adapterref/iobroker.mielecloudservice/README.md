@@ -113,14 +113,19 @@ If you like to get a deeper understanding or need a raw-value translation please
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.5.0 (2023-04-xx) (Dying for an Angel)
+### 6.5.1 (2023-04-21) (Dying for an Angel)
+* (grizzelbee) Fix: Some minor fixes for ioBroker adapter checker
+
+### 6.5.0 (2023-04-18) (Dying for an Angel)
 * (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
 * (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
-* (grizzelbee) Chg: Changed PlateStep-xxx from number to string (related to issue [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359))
-* (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359))
-* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
+* (grizzelbee) Chg: Changed SpinningSpeed from number to string 
+* (grizzelbee) New: Added RAW-Value to SpinningSpeed 
+* (grizzelbee) Chg: Changed PlateStep-xxx from number to string (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERROR occurred when switching ventilationStep
 * (grizzelbee) Fix: [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356) In some cases the value 0 (zero) is ignored (e.g. at PlateStep)
 * (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup with downgrade of axios-oauth-client to v1.5.0
 
@@ -552,4 +557,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 ## Copyright
-Copyright (c) 2019-2022 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2023 grizzelbee <open.source@hingsen.de>

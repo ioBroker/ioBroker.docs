@@ -34,6 +34,21 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.2 (2023-04-05)
+* (bluefox) Corrected license problem
+
+### 0.3.1 (2023-03-22)
+* (bluefox) Corrected build process
+
+### 0.3.0 (2023-03-21)
+* (bluefox) Implemented dark mode
+
+### 0.2.3 (2023-03-09)
+* (bluefox) update packages
+
+### 0.2.2 (2023-03-06)
+* (bluefox) Updated thermostat widget
+
 ### 0.2.1 (2023-02-03)
 * (bluefox) Mobile views tuned
 

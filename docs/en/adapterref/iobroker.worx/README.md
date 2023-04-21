@@ -54,6 +54,14 @@ worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 ## Changelog
 
+### 2.1.3
+
+Add ping option in the instance settings",
+
+### 2.1.2
+
+Improve reconnection for multiple mower
+
 ### 2.1.1
 
 Change reconnection times

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: xTZa399oH2tQzlvqCu9atIRhydHBOywHLcKlCLSI0oI=
+hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -26,6 +26,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
 1. [接口消息的覆盖率](#cov)
+1. [问题和功能请求](#iss)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -37,9 +38,18 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 ### 选项卡“轮询间隔”
 <table><tr><th>输入栏</th><th>意义</th></tr><tr><td>轮询间隔短 [s]</td><td>定义 ioBroker 从 E3/DC 请求大多数动态变量的状态更新的频率。</td></tr><tr><td>轮询间隔中 [m]</td><td>定义 ioBroker 在常规情况下向 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔长 [h]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率，以获取很少或从未修改过的变量。</td></tr><tr><td>请求标签表</td><td>将单个请求标签分配给 S/M/L/N 轮询间隔。 N代表“从不”。<br>请注意，对象树中的状态与轮询间隔列表中的项目之间没有 1:1 的映射。原因多种多样：有时响应为空（对于 EMS_REQ_STORED_ERRORS 通常为真），那么对象树中不会出现任何状态。有时我们为“getter”和“setter”选择一个通用名称（例如，EMS_USER_CHARGE_LIMIT 响应被写入 EMS_MAX_CHARGE_POWER 状态）。此外，E3/DC 的响应可能包含多个标签（例如，BAT_REQ_INFO 请求将传送 BAT_RSOC、BAT_MODULE_VOLTAGE、BAT_CURRENT 等）。</td></tr></table><a name="toc"></a>
 
+### 适配器配置重用
+您可以使用实例设置中内置的“保存”/“加载”按钮将适配器设置保存在 json 文件中并从那里加载它，例如在您完成全新的 ioBroker 安装之后。
+
+但是：在某些情况下，重用适配器配置会导致意外行为。在新适配器版本引入新参数（例如轮询间隔列表中的新行）的情况下，从旧 json 文件重新加载设置将删除这些新参数。 **这就是为什么通常建议从空白设置开始并至少为每个新的次要版本 Y (x.Y.z) 重新输入它们的原因：**
+
+1.删除e3dc-rscp实例
+2.新建一个e3dc-rscp实例
+3. 手动输入设置（不要*不*从 json 文件加载设置）
+
 ## 接口消息的覆盖
 ### 支持的 RSCP 命名空间
-RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>支持的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>不支持（还）</td></tr><tr><td> EP</td><td>应急电源</td><td>完全的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>支持的</td></tr></table>
+RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>支持的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的（见 README-dev.md）</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>部分支持（REQ 标签可以，SET 标签尚未实现）</td></tr><tr><td> EP</td><td>应急电源</td><td>支持的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>支持的</td></tr></table>
 
 ### 可写 RSCP 标签
 <table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>特快专递</td><td>MAX_CHARGE_POWER</td><td>数字</td><td>[W] 中的充电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>MAX_DISCHARGE_POWER</td><td>数字</td><td>[W] 中的放电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则会产生影响</td></tr><tr><td>特快专递</td><td>DISCHARGE_START_POWER</td><td>数字</td><td>以 [W] 为单位的最小电池放电功率 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>POWERSAVE_ENABLED</td><td>布尔值</td><td>省电模式已启用</td></tr><tr><td>特快专递</td><td>POWERLIMITS_USED</td><td>布尔值</td><td>使用功率限制</td></tr><tr><td>特快专递</td><td>WEATHER_REGULATED_CHARGE_ENABLED</td><td>布尔值</td><td>启用天气调节充电</td></tr><tr><td>特快专递</td><td>SET_POWER_MODE</td><td>状态</td><td>充电方式；通常传播到 MODE</td></tr><tr><td>特快专递</td><td>SET_POWER_VALUE</td><td>数字</td><td>充电功率[W]；通常传播到 SET_POWER</td></tr><tr><td>特快专递 (1)</td><td> IDLE_PERIOD_ACTIVE</td><td>布尔值</td><td>（去）激活空闲时间（2）</td></tr><tr><td>特快专递 (1)</td><td>开始_HOUR</td><td>数字</td><td>闲置期开始时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> START_MINUTE</td><td>数字</td><td>空闲期开始分钟 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_HOUR</td><td>数字</td><td>闲置期结束时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_MINUTE</td><td>数字</td><td>空闲期结束分钟 (2)</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔</td></tr><tr><td>系统</td><td>SYSTEM_REBOOT</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重新启动_APPLICATION</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_SUN</td><td>布尔值</td><td>设置太阳模式或混合模式。</td></tr><tr><td>世界银行</td><td>外部数据网</td><td>数字</td><td>设置墙盒电网功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALL</td><td>数字</td><td>设置墙盒总功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALG</td><td>字节数组</td><td>设置 wallbox 模式，取消充电，2 型插头锁定，功率限制。</td></tr></table>
@@ -58,10 +68,32 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 
 需要进一步调查。
 
-对于当前不受支持的 RSCP 命名空间和标签，请参阅随 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表。
-
 请注意，RSCP 知道 600 多个标签（代表大约 300 个参数），因此我们认为读取所有标签没有意义。
 因此，我们将根据即将到来的用例向适配器添加标签。
+
+<a name="iss"></a>
+
+## 问题和功能请求
+对于问题和功能请求，您可以用英语或德语写信。
+
+### 错误报告
+打开[错误报告表](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=&labels=&template=bug_report.md&title=)，输入综合信息。
+大多数情况下调试需要日志文件，因此请提供调试日志：
+
+1.停止实例
+2.删除日志
+3. 将实例设置为日志模式“调试”（或者甚至是“愚蠢”，取决于问题的类型）
+4. 启动实例并让它为 ca 运行。 1 分钟（或更长，如果你知道错误需要更多时间才能出现）
+5.将日志存储在文件中
+6. 将日志文件附加到问题（请不要使用内联日志；它太长了）
+
+### 功能请求和一般问题
+打开 [空白问题](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new)，并描述您希望适配器做什么以及为什么。
+请记住：
+
+* 适配器用于触发 RSCP 并在 ioBroker 的对象树中提供结果，仅此而已。进一步的处理或存储留给其他代码。
+* **要搜索当前不受支持的 RSCP 命名空间和标签，请参考 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表**。
+* 未在 RSCP 标签列表中列出或以其他方式显示已交付的所有物品均被视为“超出范围”。
 
 <a name="sam"></a>
 
@@ -69,6 +101,14 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 // 触发器：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网电源位于降低阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+### 1.2.0
+
+__MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
+
+(git-kick)
+* Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
 ### 1.1.2
 (ka-vaNu)
 * WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)

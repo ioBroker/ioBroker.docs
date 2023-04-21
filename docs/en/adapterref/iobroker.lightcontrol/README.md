@@ -56,6 +56,31 @@ iobroker add lightcontrol
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.7 (2023-04-20)
+
+-   (Schmakus) Fix switching on/off
+
+### 0.2.6 (2023-04-19)
+
+-   (Schmakus) Creating LightGroups is only possible if the group name does not contain any special characters other than \_ and -.
+
+### 0.2.5 (2023-04-19)
+
+-   (Schmakus) Fix: set brightness although no brightness state is available (blink)
+
+### 0.2.4 (2023-04-17)
+
+-   (Schmakus) renew release. no changes. please use this release.
+
+### 0.2.3 (2023-04-17)
+
+-   (Schmakus) No special characters allowed in group names except dashes and underlines => Please change your group names if needed!!!
+
+### 0.2.2 (2023-04-17)
+
+-   (Schmakus) Fix: Create Groups without any global lux-sensor or individial lux-sensor
+-   (Schmakus) Update dependencies
+-   (Schmakus) Enhancements for better debugging
 
 ### 0.2.1 (2023-03-21)
 

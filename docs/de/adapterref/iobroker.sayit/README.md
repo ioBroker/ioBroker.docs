@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sayit/README.md
 title: ioBroker Sayit-Adapter
-hash: svcuBbXbXcVqfQFMIhFTugClyxe3otZ6kM/tvlhIBOI=
+hash: UtxJK9SWiiTAudGa5qCcvN0hj3RCkt5J/ob2hLAlTQ8=
 ---
 ![Logo](../../../en/adapterref/iobroker.sayit/admin/sayit.png)
 
@@ -55,7 +55,7 @@ online:
 
 Um Yandex-Stimmen zu verwenden, müssen Sie den API-Schlüssel hier anfordern: [https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/](https://tech.yandex.ru/speechkit/cloud/doc/dg/concepts/About-docpage/). [Dieser Dienst wird am 1. Januar 2019 deaktiviert und durch Yandex.cloud ersetzt] Um Yandex.cloud zu verwenden, sollten Sie sich hier registrieren: [https://cloud.yandex.ru/], SpeechKIT API in der Cloud installieren und Auth Token erhalten und Ordner-ID, wie in den API-Anweisungen beschrieben.
 
-- Cloud: Um Cloud-Stimmen verwenden zu können, müssen Sie den „Cloud“-Adapter konfigurieren und ausführen.
+- Cloud: Um Cloud-Stimmen zu verwenden, müssen Sie den „Cloud“-Adapter konfigurieren und ausführen oder den App-Schlüssel direkt in den Einstellungen eingeben
 - Amazon Web Services Polly:
 
   Um AWS Polly-Stimmen verwenden zu können, müssen Sie einen Zugriffsschlüssel und einen geheimen Schlüssel [hier] (https://console.aws.amazon.com/iam/home). Die Amazon-Dokumentation finden Sie [hier](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html) erstellen.
@@ -154,6 +154,8 @@ Folgende Werte für Motoren sind möglich:
 - **de-DE_CLOUD_Female** - Deutsch - Marlene
 - **de-DE_CLOUD_Male** - Deutsch - Hans
 - **de-DE_CLOUD_Female_Vicki** - Deutsch - Vicki
+- **de-DE_CLOUD_Male_Daniel** - Deutsch - Daniel
+- **de-AT_CLOUD_Female_Hannah** - Österreich - Hannah
 - **en-US_CLOUD_Female** - en-US - Weiblich - Salli
 - **en-US_CLOUD_Male** - en-US - Männlich - Joey
 - **da-DK_CLOUD_Female** - da-DK - Weiblich - Naja
@@ -186,7 +188,8 @@ Folgende Werte für Motoren sind möglich:
 - **ist-IS_CLOUD_Male** - ist-IST - Männlich - Karl
 - **it-IT_CLOUD_Female** - it-IT - Weiblich - Carla
 - **it-IT_CLOUD_Male** - it-IT - Männlich - Giorgio
-- **nb-NO_CLOUD_Female** - nb-NO - weiblich - Liv
+- **nb-NO_CLOUD_Female** - nein-NO - Weiblich - Liv
+- **no-NO_CLOUD_Female** - no-NO - Weiblich - Ida
 - **nl-NL_CLOUD_Female** - nl-NL - Weiblich - Lotte
 - **nl-NL_CLOUD_Male** - nl-NL - Männlich - Ruben
 - **pl-PL_CLOUD_Female_Agnieszka** - pl-PL - Weiblich - Agnieszka
@@ -280,6 +283,14 @@ Folgende Werte für Motoren sind möglich:
 ### **IN ARBEIT** -->
 
 ## Changelog
+### 3.0.5 (2023-04-17)
+* (bluefox) Corrected error with System player
+* (bluefox) Do not allow for chromecast to cache files.
+* (bluefox) Allowed to add cloud App-Key without running cloud adapter
+* (bluefox) Added austrian language
+* (bluefox) Added norwegian language
+* (klein0r) Used sendTo instead of setState in blockly
+
 ### 3.0.0 (2023-04-03)
 * (bluefox) Restored cloud engines. Warning: update cloud adapter to at least 4.4.0
 * (bluefox) Breaking changes: Minimal node.js version is 14

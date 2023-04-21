@@ -39,6 +39,9 @@ You can define the data source from JSON. In this case you can create some custo
   {"ts": 1675887849000, "val": 180}
 ]
 ```
+Alternative following attribute names are supported for `val`: `value`, `v`, `data`, `y`. 
+And following for `ts`: `time`, `t`, `date`.
+
 
 You cannot define start and start in echarts settings. The start and end will be calculated automatically from the data.
 Aggregation is not possible too. All manipulations must be done by writing of the JSON data.
@@ -97,6 +100,9 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.14 (2023-04-20)
+* (bluefox) Added support of alternative names for JSON sources
+
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
 

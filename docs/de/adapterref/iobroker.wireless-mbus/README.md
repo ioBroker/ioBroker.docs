@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: pVmHXIrFw/pfk7p7SHdAgL1Wjq4QZsO9qIKgBGk65/w=
+hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -54,6 +54,9 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 
 ## Machen
 * Senden von Telegrammen für S-Mode-Empfänger?
+
+##WIP
+* (ChL/kubax) Experimentell! Seriell über Raw-TCP-Socket für alle Geräte aktivieren - verwenden Sie "tcp://host:port" als benutzerdefinierten seriellen Port
 
 ## 0.8.10
 * (ChL) Kompakten Frame-Cache unabhängig vom Herstellercode verwenden

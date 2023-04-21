@@ -44,6 +44,10 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.7-alpha.0 (2023-04-18)
+* (HGlab01) Add attribute 'generation'
+* (HGlab01) improve axios error handling
+
 ### 0.4.6 (2023-04-12)
 * (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
 * (HGlab01) improve ETIMEDOUT issue
@@ -63,9 +67,6 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10 (#551)
 * (HGlab01) Bump axios to 1.2.1 (final fix for #561)
 * (HGlab01) Improve logs
-
-### 0.4.2 (2022-11-27)
-* (HGlab01) Downgrade axios to 1.1.3 (#561)
 
 ## License
 MIT License
