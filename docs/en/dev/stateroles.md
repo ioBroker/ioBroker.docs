@@ -90,7 +90,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.gps.accuracy`    - accuracy of current gps measurement
 * `value.gps.radius`      - radius of current gps measurement
 * ~~`value.power.consumption` - energy consumption (unit=Wh or KWh)~~
-* ~~`value.power.production` - energy production (unit=Wh or KWh)
+* ~~`value.power.production` - energy production (unit=Wh or KWh)~~
 * `value.energy`          - energy (unit=Wh, kWh or m3 for gasoline) 
 * `value.energy.active`   - active energy (unit=Ws, Wh, kWh)
 * `value.energy.reactive` - reactive energy (unit=vars, kVarh)
