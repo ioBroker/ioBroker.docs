@@ -89,10 +89,18 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.gps`             - longitude and latitude together like '5.56;43.45'
 * `value.gps.accuracy`    - accuracy of current gps measurement
 * `value.gps.radius`      - radius of current gps measurement
-* `value.power`           - actual power (unit=W or KW)
-* `value.power.consumption` - energy consumption (unit=Wh or KWh)
-* `value.power.production` - energy production (unit=Wh or KWh)
-* `value.power.reactive`  - reactive power (unit=VAr)
+* ~~`value.power.consumption` - energy consumption (unit=Wh or KWh)~~
+* ~~`value.power.production` - energy production (unit=Wh or KWh)
+* `value.energy`          - energy (unit=Wh, kWh or m3 for gasoline) 
+* `value.energy.active`   - active energy (unit=Ws, Wh, kWh)
+* `value.energy.reactive` - reactive energy (unit=vars, kVarh)
+* `value.energy.consumed` - energy consumed (unit=Ws, Wh, kWWh)
+* `value.energy.produced` - power produced (unit=Ws, Wh or KWh)
+* `value.power`           - energy power (unit=W or KW)
+* `value.power.active`    - active power (unit=W, kW)
+* `value.power.reactive`  - reactive power (unit=var, kVar)
+* `value.power.consumed`  - power consumed (unit=W or KW)
+* `value.power.produced`  - power produced (unit=W or KW)
 * `value.direction`       - (common.type=number ~~or string~~, indicates up/down, left/right, 4-way switches, wind-direction, ... )
 * `value.curtain`         - actual position of curtain
 * `value.blind`           - actual position of blind (`max = fully open, min = fully closed`)
