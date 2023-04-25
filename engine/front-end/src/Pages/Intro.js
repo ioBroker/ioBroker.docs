@@ -286,7 +286,7 @@ class Intro extends Component {
     //   Install adapters on different computers and connect it in one system.
     //
     // - Very robust architecture
-    //   Every adapter runs in own process and do not disturb each others.
+    //   Every adapter runs in the own process and does not disturb each other.
 
     // Configure all only with your web browser
 
