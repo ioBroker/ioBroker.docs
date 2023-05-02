@@ -58,6 +58,14 @@ To be able to use the new Open API you have to register your Alpha-ESS device un
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
+### 1.0.0-alpha.4 (2023-05-02)
+
+-   (Gaspode) Writing settings implemented for 'Closed API'
+
+### 1.0.0-alpha.3 (2023-04-30)
+
+-   (Gaspode) Slow down requests in case of permanent errors for OpenAPI
+
 ### 1.0.0-alpha.2 (2023-04-18)
 
 -   (Gaspode) Fixed state verification for time values (OpenAPI only)

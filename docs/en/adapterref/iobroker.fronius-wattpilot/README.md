@@ -181,19 +181,19 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 - Did some changes
 - Did some more changes
 
-### v0.0.5 (2020-01-01)
+### 0.0.5 (2020-01-01)
 - Better Code
 
-### v0.0.4 (2020-01-01)
+### 0.0.4 (2020-01-01)
 - Parser option added
 
-### v0.0.3 (2020-01-01)
+### 0.0.3 (2020-01-01)
 - Parser added
 
-### v0.0.2 (2020-01-01)
+### 0.0.2 (2020-01-01)
 - Bug fixed
 
-### v0.0.1 (2020-01-01)
+### 0.0.1 (2020-01-01)
 - Initial release
 
 ## License

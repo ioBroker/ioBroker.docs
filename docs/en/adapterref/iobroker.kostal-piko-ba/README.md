@@ -17,13 +17,13 @@ CI-Tests:
 Adapter for reading Kostal Piko, Piko BA and PIKO MP plus data. Adapter creates some states and updates them sequentially.
 Adapter designed for Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA inverters.
 Adapter also working with Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 inverters. 
-NEW! Adapter now working with MP plus inverters - first tested: Kostal PIKO 3.0-1 MP plus.
+NEW! Adapter now also working with MP plus inverters - tested with Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
 It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
 ## Settings
 Be aware that your Piko or Piko BA inverter has to be updated to Kostal UI >= 6.11!
-To connect to the Kostal Pico (BA / MP plus) inverter, setting its IP-address in the config is mandatory.
-You could also edit the update frequencies of live data, daily and livetime statistics.
+To connect to the Kostal Piko (BA / MP plus) inverter, setting its IP-address in the config is mandatory.
+Optionally you could also edit the update frequencies of live data, daily and livetime statistics.
 If needed and supoported by your hardware, set the mark for read-out of the 4 analog values, too.
 
 ## Notes
@@ -33,6 +33,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.1 (25.04.2023)
+* (HombachC) fixed a sentry reported error
+### 2.5.0 (22.04.2023)
+* (HombachC) implemented battery power calculation
 ### 2.4.7 (13.04.2023)
 * (HombachC) improved error handling
 ### 2.4.6 (09.04.2023)

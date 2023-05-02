@@ -3,9 +3,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
+hash: PZVkglcc7BEgZVqVzLkmFoR8CwxHW8xJR5P+i6DkWfY=
 ---
-![商标](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
+![标识](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.signal-cmb.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.signal-cmb.svg)
@@ -36,7 +36,7 @@ hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
 示例：![例子](../../../en/adapterref/iobroker.signal-cmb/img/signal.jpg)
 
 ＃＃＃ 用法
-发送消息有两种可能性：
+发送消息有两种可能性：注意！注意到在一秒钟内发送多条消息时，CallMeBot 会将用户锁定 15 分钟。因此，应该保证每秒只发送一条消息。
 
 - 通过“signal-cmb.0.sendMessage”。只需将一些文本写入此状态，消息就会发送到在设置对话框中配置的默认号码。
 - 通过来自 javascript 适配器的消息：

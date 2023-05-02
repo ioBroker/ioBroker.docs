@@ -51,13 +51,17 @@ This adapter uses the [public API](https://github.com/apption-labs/meater-cloud-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2023-04-30)
+
+-   (Standarduser) improved: cleaned-up logging of errors (merged notifications, server response is now of type debug)
+
 ### 0.2.2 (2023-02-20)
 
--   (Standarduser): improved: error handling if websever sent no response
+-   (Standarduser) improved: error handling if websever sent no response
 
 ### 0.2.1 (2023-01-14)
 
--   (Standarduser): improved: error handling if websever sent no response
+-   (Standarduser) improved: error handling if websever sent no response
 
 ### 0.2.0 (2022-12-15)
 

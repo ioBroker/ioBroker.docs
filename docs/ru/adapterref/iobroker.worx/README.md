@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
+hash: Ol2vkPFqs9qkriLlPG0oWXLVC/aQEMmYbyvPCkshdVc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -25,7 +25,7 @@ hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
 
 Минимальная версия узла 14.18
 
-ActivityLog das Aktivitätenprotokoll aus der App Areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produkinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen.xxmo.0 .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der Letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower Welche Features, Board und Accessories er hat.
+ActivityLog das Aktivitätenprotokoll aus der App Areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produkinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen workx.0.xx.косилка .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der Letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower Welche Features, Board und Accessories er hat.
 Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 ## Настройки
@@ -35,12 +35,30 @@ Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last
 
 Setze Areas.area_0 auf die Meterzahl des Gewünschten Startpunktes Setze Areas.area_1, Areas.area_2 und Areas.area_3 Jeweils auf 0 Setze Areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
 
+## Расписание setzen:
+wochentagname/borderCut wochentagname/startTime wochentagname/workTime
+
+Danach ein Timeout 1,1 Sek. и worx.0.xxxxxxxxxxx.calendar.calJson_tosend на истинную установку.
+In dieser Zeit darf natürlich nicht autotisch ein Update kommen, da die geänderten Zeiten wieder glöscht werden. Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT oder den 10 Minuten Refresh unterbindet.
+
+Естественная позолота для печати: mower.oneTimeWithBorder mower.oneTimeWorkTime
+
+Und dann nach 1,1 Sek. worx.0.xxx.mower.oneTimeStart setzen
+
 ## Обсуждение и вопросы
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Changelog
+
+### 2.1.3
+
+Add ping option in the instance settings",
+
+### 2.1.2
+
+Improve reconnection for multiple mower
 
 ### 2.1.1
 

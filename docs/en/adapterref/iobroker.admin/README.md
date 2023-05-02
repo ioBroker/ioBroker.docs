@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `imageSendTo` Control to JSONConfig
+
 ### 6.4.3 (2023-03-31)
 * (bluefox) Corrected the folder rights edit dialog
 

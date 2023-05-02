@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
+hash: vNe2oQwLJNq1xES7Qu7jgL2/Vl9PvpaF+NpDK5kAb9o=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -20,7 +20,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## Dokumentation
 **Ich suche Unterstützung bei der Erstellung / Aktualisierung der Benutzerdokumentation und der FAQ's. Bei Interesse bitte melden...**
@@ -43,7 +43,7 @@ Merkmale:
 * manuelle Temperaturüberbrückung für eine bestimmte Zeit
 * vordefinierte Heizperiode
 * Änderungen vom Thermostat übernehmen (optional)
-* Visualisierung von [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Vielen Dank!
+* Visualisierung von [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) wird unterstützt. Danke schön!
 
 [FAQ](doc/FAQ.md)
 
@@ -63,7 +63,7 @@ Merkmale:
 * Profiltyp = drei verschiedene Profiltypen (Montag - Sonntag oder Montag - Freitag und Samstag/Sonntag oder jeden Tag) werden unterstützt
 * Anzahl der Profile = Wenn Sie mehr benötigen, erhöhen Sie diesen Wert im Profil. Sie können dann auswählen, welches Profil verwendet werden soll.
 * Anzahl der Perioden = Definieren Sie, wie viele Tagesabschnitte mit unterschiedlichen Temperaturen Sie benötigen. Je mehr Sie einstellen, desto mehr Datenpunkte werden erstellt. Verwenden Sie besser einen niedrigen Wert (z. B. 5)
-* "Feiertag wie Sonntag = Wenn Sie Solltemperaturen an Feiertagen wie Sonntag einstellen möchten, aktivieren Sie diese Option. Ansonsten gelten die Feiertagseinstellungen wie an normalen Tagen
+* "Feiertag wie Sonntag = Wenn Sie Solltemperaturen an Feiertagen wie Sonntag einstellen möchten, aktivieren Sie diese Option. Ansonsten sind die Feiertagseinstellungen die gleichen wie an normalen Tagen
 * Heizperiode = Start- und Enddatum der Heizperiode. Wird verwendet, um "HeatingPeriodActive" einzustellen
 
 ### Geräte
@@ -107,7 +107,7 @@ Merkmale:
 * Im absoluten Entfettungsszenario werden nur Zielwerte ungleich 0°C verwendet. Wenn Sie für einen bestimmten Raum keine Absenkung benötigen, belassen Sie die Absenkungswerte bei 0°C
 
 ### Keine Heizperiode
-Es gibt drei Optionen
+Es gibt drei Möglichkeiten
 
 * feste Temperatur pro Raum
 
@@ -117,7 +117,7 @@ Wenn diese Option ausgewählt ist, erscheint für jeden Raum ein neuer Datenpunk
 
 Mit dieser Option können Sie für jeden Raum eine Solltemperatur verwenden, wenn keine Heizperiode aktiv ist
 
-* nichts
+* Nichts
 
 Mit dieser Option wird nichts an den Thermostat gesendet, wenn keine Heizperiode aktiv ist. Zieltemperatur bleibt vom letzten Ziel, als die Heizperiode noch aktiv war.
 In diesem Fall und wenn Sie Aktuatoren aus dem Adapter verwenden, haben Sie die Möglichkeit zu definieren, wie Aktuatoren eingestellt werden sollen (aus, ein oder so lassen wie sie sind).
@@ -172,7 +172,7 @@ Beim Öffnen des Fensters wartet der Adapter max. 3 Sekunden für neue Zieltempe
 ## Zeitraum kopieren und Profil kopieren
 `` heizungssteuerung.0.Profile.1.CopyProfile heizungssteuerung.0.Profiles.1.Room.CopyProfile ``
 
-und
+Und
 
 `` Heizungssteuerung.0.Profile.1.Küche.Fr.Zeiträume kopieren ``
 
@@ -216,6 +216,29 @@ Wenn der Thermostat Informationen vom Fenstersensor verwendet, sollte die Option
 Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
 
 ## Changelog
+
+### 2.10.6 (2023-01-31)
+* (René) see issue #355: reset override is now also with Button ResetManual possible
+
+### 2.10.5 (2023-01-21)
+* (René) see issue #356: create list if room list is empty
+* (René) see issue #357: remove change event when loading telegram data
+* (René) handling of exceptions reported by sentry in notification modul
+
+### 2.10.4 (2022-12-21)
+* (René) UTF8 conversion for some files
+* (René) more space for same values in admin
+
+### 2.10.3 (2022-12-19)
+* (René) see issue #347: waiting time for target temperature update from thermostat adjustable per room
+* (René) see issue #348: bug fix to avoid unnecessary error message
+
+### 2.10.1 (2022-12-10)
+* (René) update dependencies
+* (René) see issue #337: bug fix in calculate profil position
+* (René) see issue #336: translation of notification mesaages
+* (René) see issue #347: bug room status if option "thermostat handles windows open" is enabled and window opened and closed
+* (René) some minor bug fixes
 
 ### 2.9.3 (2022-10-28)
 * (René) update dependencies
@@ -594,11 +617,24 @@ Attention: some changes in datapoints!!
 * (René) initial release
 
 ## License
+MIT License
 
-Copyright (C) 2019-2022  info@rg-engineering.eu
+Copyright (c) 2019-2023 rg-engineering info@rg-engineering.eu
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

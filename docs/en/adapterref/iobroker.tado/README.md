@@ -44,9 +44,10 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.7-alpha.0 (2023-04-18)
+### 0.4.7 (2023-04-26)
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
+* (HGlab01) Bump axios to 1.3.6
 
 ### 0.4.6 (2023-04-12)
 * (HGlab01) Add attribute 'isEnergyIqEligible' (#613)

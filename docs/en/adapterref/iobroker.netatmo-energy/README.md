@@ -47,7 +47,7 @@ Account at Netatmo Cloud
       - read API states immediately ... send API homestatus request after changing fields in API
       - Refresh states every x seconds ... permanent refresh of the API data. (0 = no permanent refresh)
   - As an option you can activate the notification assistant. Therefore, you must activate the option "Enable / disable notifications" in the "Logon information" menu and do the setup for the notification service in the menu "notifications". You can get information's, warnings and errors.
-  - It is also possible to config the sensors for Doors/Windows in the Sensorik tab. Please also maintain the action, you want to trigger.
+  - It is also possible to config the sensors for Doors/Windows in the Sensorik tab. Please also maintain the action, you want to trigger. These functions can generally be activated or deactivated on the login page.
 
 A detailed description is available on adapter wiki (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
@@ -163,6 +163,10 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-05-01)
+
+* (ioKlausi) Enable / Disable sensor actions
+
 ### 2.5.8 (2023-04-16)
 
 * (ioKlausi) Bug fix of translations

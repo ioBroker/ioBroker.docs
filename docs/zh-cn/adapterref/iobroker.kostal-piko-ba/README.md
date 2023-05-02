@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: A7tFCf5bR7dPx8nF+Ii+hjqwVwKSbcr/8WiYrVuss+w=
+hash: z2vTSHYACAYAKPB30EQQz5xNuEkkLXoI6VGlOaQSraA=
 ---
 ![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -22,12 +22,12 @@ CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/wor
 用于读取 Kostal Piko、Piko BA 和 PIKO MP plus 数据的适配器。适配器创建一些状态并按顺序更新它们。
 专为 Kostal Piko 6.0BA、8.0BA、10.0BA、BA 逆变器设计的适配器。
 适配器还适用于 Kostal Piko 3.0、4.2、4.6、5.5、7.0、8.5、10、12、15、17、20 和 36 逆变器。
-新的！适配器现在可与 MP plus 逆变器配合使用 - 首次测试：Kostal PIKO 3.0-1 MP plus。
+新的！适配器现在也可与 MP plus 逆变器配合使用 - 已使用 Kostal PIKO 1.5-1、2.0-1、3.0-1 MP plus 进行测试。
 如果您验证其他逆变器的功能，我们将不胜感激，请给我留言。
 
 ## 设置
-请注意，您的 Piko 或 Piko BA 逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Pico（BA / MP plus）逆变器，必须在配置中设置其 IP 地址。
-您还可以编辑实时数据、每日和实时统计的更新频率。
+请注意，您的 Piko 或 Piko BA 逆变器必须更新到 Kostal UI >= 6.11！要连接到 Kostal Piko (BA / MP plus) 逆变器，必须在配置中设置其 IP 地址。
+您还可以选择编辑实时数据、每日和实时统计数据的更新频率。
 如果您的硬件需要并支持，也可以设置用于读取 4 个模拟值的标记。
 
 ## 注释
@@ -37,6 +37,10 @@ CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/wor
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.1 (25.04.2023)
+* (HombachC) fixed a sentry reported error
+### 2.5.0 (22.04.2023)
+* (HombachC) implemented battery power calculation
 ### 2.4.7 (13.04.2023)
 * (HombachC) improved error handling
 ### 2.4.6 (09.04.2023)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
+hash: PZVkglcc7BEgZVqVzLkmFoR8CwxHW8xJR5P+i6DkWfY=
 ---
 ![Logo](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
@@ -36,7 +36,7 @@ Wenn Sie eine GUID im &quot;Test-Link&quot; erhalten, können Sie diese GUID ans
 Beispiel: ![Beispiel](../../../en/adapterref/iobroker.signal-cmb/img/signal.jpg)
 
 ### Verwendung
-Es gibt zwei Möglichkeiten, eine Nachricht zu senden:
+Es gibt zwei Möglichkeiten, eine Nachricht zu senden: ACHTUNG! Es wurde festgestellt, dass CallMeBot beim Senden mehrerer Nachrichten innerhalb einer Sekunde einen Benutzer für 15 Minuten sperrt. Daher sollte darauf geachtet werden, dass nur eine Nachricht pro Sekunde gesendet wird.
 
 - über `signal-cmb.0.sendMessage`. Schreiben Sie einfach einen Text in diesen Zustand und die Nachricht wird an die Standardnummer gesendet, die im Einstellungsdialog konfiguriert wurde.
 - per Nachricht vom Javascript-Adapter:

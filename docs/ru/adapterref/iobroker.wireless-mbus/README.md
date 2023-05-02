@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-MBUS
-hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
+hash: WaDrfxroKLGkvsTM/KcLrPAAFsIwdGoGppnAF4C/Wzw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -27,6 +27,12 @@ hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
 Если синтаксический анализатор дает сбой, необработанные данные телеграммы будут сохранены в состоянии info.rawdata.
 
 *Внимание:* Кажется, что приемник Amber зависает через некоторое время (или количество полученных сообщений) в режиме C? Аппаратный недостаток?
+
+* Вариант IMST iM871A: * Существует USB-приемник «RWE Smart Home», который в принципе является IMST iM871A, но ядро не будет автоматически загружать соответствующий драйвер. Это однострочник для создания правила udev, чтобы исправить это:
+
+```shell
+sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
+```
 
 ## Ссылки:
 * [Модуль стека WMBus] (https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
@@ -55,8 +61,9 @@ hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
 ## Делать
 * отправка телеграмм для приемников S-режима?
 
-## НЗП
+## 0.9.0
 * (ЧЛ/кубакс) Экспериментально! Включите последовательный порт через сырой TCP-сокет для всех устройств — используйте `tcp://host:port` в качестве пользовательского последовательного порта.
+* Serialport обновлен до версии v11 - это окончательно ломает поддержку Node v12!
 
 ## 0.8.10
 * (ChL) Используйте компактный кэш кадров независимо от кода производителя
@@ -91,7 +98,7 @@ hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
 
 ### 0.7.8
 * (ChL) Улучшено логирование с приемных модулей
-* (ChL) исправить состояние сырых данных
+* (ChL) исправить состояние исходных данных
 
 ### 0.7.7
 * (ChL) Добавлена поддержка закодированных телеграмм Diehl PRIOS (перенесено с wmbusmeters)

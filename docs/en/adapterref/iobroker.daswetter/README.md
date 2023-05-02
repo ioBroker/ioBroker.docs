@@ -17,7 +17,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 **If you like it, please consider a donation:**
                                                                           
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 
 This adapter reads weather forecast data from DasWetter.com.

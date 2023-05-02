@@ -19,6 +19,14 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 # ioBroker.gira-iot
 
+## Kompatible Geräte
+
+- Gira X1
+- Gira Homeserver
+- Gira One Server
+
+## Erste Schritte
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -26,6 +34,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added missing channel type for remote access
 * (klein0r) Url preview in instance configuration
 
 ### 0.2.1 (2023-01-11)

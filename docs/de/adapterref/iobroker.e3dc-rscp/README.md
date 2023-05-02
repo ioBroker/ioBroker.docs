@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
+hash: ocVtS7dEWuePymh8vavUv1i27b1pL+NS9aMBWtdbCjQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -41,7 +41,7 @@ Der e3dc-rscp Adapter wurde für das <a href="https://www.e3dc.com/produkte/s10/
 ### Wiederverwendung der Adapterkonfiguration
 Sie können die eingebauten "Speichern"/"Laden"-Buttons in den Instanzeinstellungen verwenden, um Ihre Adaptereinstellungen in einer JSON-Datei zu speichern und von dort zu laden, z. nachdem Sie eine komplett neue ioBroker-Installation durchgeführt haben.
 
-Aber: In einigen Situationen führt die Wiederverwendung der Adapterkonfiguration zu unerwartetem Verhalten. In Fällen, in denen eine neue Adapterversion neue Parameter wie neue Zeilen in der Abfrageintervallliste einführt, werden diese neuen Parameter durch das erneute Laden von Einstellungen aus einer älteren JSON-Datei gelöscht. **Deshalb wird generell empfohlen, mit leeren Einstellungen zu beginnen und diese mindestens für jede neue Minor-Version Y (x.Y.z) neu einzugeben:**
+Aber: In einigen Situationen führt die Wiederverwendung der Adapterkonfiguration zu unerwartetem Verhalten. In Fällen, in denen eine neue Adapterversion neue Parameter einführt, z. neue Zeilen in der Polling-Intervall-Liste, werden diese neuen Parameter durch das erneute Laden von Einstellungen aus einer älteren JSON-Datei gelöscht. **Deshalb wird generell empfohlen, mit leeren Einstellungen zu beginnen und diese zumindest für jede neue Haupt- (X) oder Nebenversion (Y) (X.Y.z) neu einzugeben:**
 
 1. Löschen Sie die e3dc-rscp-Instanz
 2. Erstellen Sie eine neue e3dc-rscp-Instanz
@@ -66,7 +66,7 @@ Für DB ist nicht klar, was den Unterschied zwischen den Skalen (TAG/WOCHE/MONAT
 * Spezifische Datenauflösung
 * spezifische Datenaggregation
 
-Weitere Untersuchungen sind erforderlich.
+Weitere Untersuchungen sind notwendig.
 
 Beachten Sie, dass RSCP mehr als 600 Tags kennt (die ca. 300 Parameter darstellen), daher halten wir es für nicht sinnvoll, sie alle zu lesen.
 Daher werden wir dem Adapter bei kommenden Anwendungsfällen Tags hinzufügen.
@@ -101,13 +101,17 @@ Bitte bedenke:
 // Trigger: Leistungsreduzierung ist erreicht, d. h. Strom zum Netz wird begrenzt // Aktion: Batterieladeleistungslimit auf Maximum zurücksetzen, wie unter SYS_SPECS angegeben on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;Trigger: power to grid is at Herabsetzungsschwelle - Ladeleistungslimit zurücksetzen&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
-### 1.2.0
+### 1.2.1
 
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 
 (git-kick)
 * Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
 * Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - DEPRECATED - DO NOT INSTALL -
 
 ### 1.1.2
 (ka-vaNu)
@@ -937,4 +941,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

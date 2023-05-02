@@ -58,7 +58,7 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-05-01)
 
 NodeJS 14.x is required (NodeJS 12.x is EOL)
 
@@ -85,19 +85,11 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Do not delete sensors on http problems
 
-### 2.2.0 (2022-03-14)
-
-* (klein0r) Added documentation
-* (klein0r) Added hint for Admin 4 configuration
-* (klein0r) Updated state roles
-* (klein0r) Updated debug messages to provide more information
-* (klein0r) Updated dependencies
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

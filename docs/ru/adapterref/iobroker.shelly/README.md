@@ -18,8 +18,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
-title: ioBroker.шелли
-hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
+title: ioBroker.shelly
+hash: 6DeFhODSFQhBB5F19bQwsaOHElp4Za6kGRd6n+JC39E=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -40,19 +40,19 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
 4. Адаптер администратора 6.0.0 (или новее)
 
 ## Поколения устройств
-Дополнительные сведения см. в разделе *поддерживаемые устройства*.
+Дополнительные сведения см. в разделе *Поддерживаемые устройства*.
 
 - **Gen1**: устройства ESP8266, [CoAP](protocol-coap.md) или [MQTT](protocol-mqtt.md)
 - **Gen2**: устройства ESP32, [MQTT](протокол-mqtt.md)
 
-## Общий
-Адаптер может взаимодействовать с устройствами через CoAP или MQTT.
+## В целом
+Адаптер может взаимодействовать с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
 
-- Режим по умолчанию - MQTT (см. [Документацию](protocol-mqtt.md) для получения дополнительной информации)
-- CoAP совместим только с устройствами первого поколения!
+- Режим адаптера по умолчанию — MQTT (дополнительную информацию см. в [Документации](protocol-mqtt.md)).
+- CoAP совместим только с устройствами Gen1!
 - **Если необходимо интегрировать устройства Gen2, необходимо настроить MQTT!**
 
-Вопросов? Сначала взгляните на [часто задаваемые вопросы](faq.md)!
+Вопросы? Сначала взгляните на [Часто задаваемые вопросы](faq.md)!
 
 ![iobroker_general](../../../de/adapterref/iobroker.shelly/img/iobroker_general.png)
 
@@ -62,6 +62,18 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.4.1 (2023-04-23)
+
+* (viper4gh) Added Shelly Pro 3 EM energy data
+* (klein0r) Fixed IP handling in Docker containers
+
+### 6.4.0 (2023-02-09)
+
+* (klein0r) Added Shelly Plus Plug S
+* (klein0r) Added Shelly Pro 3 EM
+* (klein0r) Reduced checks for firmware updates
+* (klein0r) Shelly TV profile is now changeable
+
 ### 6.3.1 (2023-01-02)
 
 * (klein0r) Updated MQTT topic prefix handling
@@ -80,15 +92,6 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
 
 * (klein0r) IP address of CoAP devices is unknown in some cases
 * (klein0r) Optimized destroy process
-
-### 6.2.3 (2022-10-20)
-
-* (klein0r) Use unique ID for each command - generation 2 devices
-* (klein0r) Fix: Ack state if value is unchanged
-
-### 6.2.2 (2022-10-13)
-
-* (klein0r) Fixed state updates for CoAP integration
 
 ## License
 

@@ -3,40 +3,54 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-Wetter
-hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
+hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/vis-weather-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
 # IoBroker.vis-Wetter
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground an. Sie müssen auch DasWetter-Adpater oder weatherunderground-Adapter ausführen ...
+Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground Sie müssen auch den DasWetter-Adpater oder den weatherunderground-Adapter laufen lassen...
 
-Bei Wetteruntergründen muss die Vorhersage der nächsten 36 Stunden aktiviert sein.
-In DasWetter.com muss eine von vier Prognosedatenstrukturen aktiviert sein. Sie können diejenige auswählen, die Sie anzeigen möchten.
+In WeatherUnderground muss die Vorhersage der nächsten 36 Stunden aktiviert sein.
+In DasWetter.com muss eine von vier Prognosedatenstrukturen aktiviert sein. Sie können die anzuzeigende auswählen.
 
 ## Notizen / Wiki
 ### Prognosestunden definieren
-Standardmäßig zeigt das Prognosediagramm 40 Stunden (DasWetter) oder 36 Stunden (Wunderground). Wenn Sie es vorziehen, nur z. 10 Stunden Prognose, löschen Sie einfach die unnötigen OIDs unter oid_groups in vis-edit.
+Standardmäßig zeigt das Vorhersagediagramm 40 Stunden (DasWetter) oder 36 Stunden (wunderground). Wenn Sie es vorziehen, nur z.B. 10 Stunden Vorhersage, lösche einfach die unnötigen OIDs unter oid_groups in vis-edit.
 
-### OIDs werden bei Verwendung von DasWetter nicht automatisch erstellt
-Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "keine OIDs verfügbar" erhalten, überprüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
+### OID's werden bei der Nutzung von DasWetter nicht automatisch erstellt
+Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "keine OID's verfügbar" erhalten, prüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
 Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
 
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme unter [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+* Bitte erstellen Sie Probleme auf [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
+
+### 2.5.7 (in progress)
+
+### 2.5.6 (2022-08-18)
+* (René) tooltip with value added as an option
+* (René) flot update
+* (René) dependencies update
+
+### 2.5.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.5.4 (2021-10-30)
+* (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
 ### 2.5.3 (2021-03-21)
 * (René) dependencies updated
@@ -131,10 +145,24 @@ Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

@@ -20,6 +20,12 @@ If the parser fails the raw telegram data will be saved to the info.rawdata stat
 
 *Attention:* The Amber receiver seems to crash after some time (or amount of received messages) in C mode? Hardware flaw?
 
+*IMST iM871A variant:* There exists a "RWE Smart Home" USB receiver which is in principle a IMST iM871A, but the kernel will not automatically load the corresponding driver. This is a one-liner to create a udev rule to fix that:
+
+```shell
+sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
+```
+
 ## Links:
 * [WMBus Stack module](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
 * [ioBroker.mbus](https://github.com/Apollon77/ioBroker.mbus)
@@ -55,8 +61,9 @@ The easiest way to setup the keys is to start the adapter without any key setup 
 
 ## Changelog
 
-## WIP
+## 0.9.0
 * (ChL/kubax) Experimental! Enable serial over raw TCP socket for all devices - use `tcp://host:port` as custom serial port
+* serialport is upgraded to v11 - this finally breaks node v12 support!
 
 ## 0.8.10
 * (ChL) Use compact frame cache independently from manufacturer code

@@ -37,13 +37,7 @@ Für bestimmte Werte werden auch 5min Zwischenwerte ermittelt, wie es z.B. bei d
 
 Speichert Werte in ``statistics.x.temp.count.*`` bzw. ``statistics.x.save.count.*``.
 
-Stellt das binäre Objekt eine Impulsfolge dar, die z.B. aus Zählerimpulsen entsteht, so ist hier das Prinzip dargestellt:
-
-Der Adapter zählt die Impulse und es wird mit einer Zählerkonstanten multipliziert.
-
-So ergibt sich aus den 0/1-Wechseln eine analoge Größe, die auch dann im Adapter sofort weiter benutzt werden kann (z.B. für Summendelta).
-
-Die sich ergebende Analoggröße ist eine stetig steigende.
+Bei einer steigenden Flanke wird der Zählerwert um 1 erhöht. Es muss ein Flankenwechesel von 0 zu 1 vorliegen, damit gezählt wird:
 
 ![count](./img/exampleCount.png)
 
@@ -51,11 +45,15 @@ Die sich ergebende Analoggröße ist eine stetig steigende.
 
 Speichert Werte in ``statistics.x.temp.sumCount.*`` bzw. ``statistics.x.save.sumCount.*``.
 
+Bei einer steigenden Flanke wird der Zählerwert um x erhöht. Die Wertigkeit kann frei definiert werden (beispielsweise 3):
+
 ![sumCount](./img/exampleSumCount.png)
 
 ### Betriebszeit
 
 Speichert Werte in ``statistics.x.temp.timeCount.*`` bzw. ``statistics.0.save.timeCount.*``.
+
+Zählt die Zeit zwischen den Flankenwechseln. Es werden jeweils Werte für an und aus getrennt gezählt. So kann beispielsweise ermittelt werden, wie lange ein Fenster pro Tag, Woche, Monat, Jahr geöffnet war oder wie lange eine schaltbare Steckdose eingeschaltet war.
 
 ![timeCount](./img/exampleTimeCount.png)
 
@@ -63,15 +61,25 @@ Speichert Werte in ``statistics.x.temp.timeCount.*`` bzw. ``statistics.0.save.ti
 
 ![options number](./img/optionsNumber.png)
 
-## Analogwerte
+### Durchschnitt
 
-Grundsätzlich wir das Minimum Maximum und der Durchschnitt ermittelt.
-Der Durchschnitt ist der arithmetische Mittelwert.
+Speichert Werte in ``statistics.x.temp.avg.*`` bzw. ``statistics.x.save.avg.*``.
 
-Für einen fortlaufenden Verbrauchswert wie er bei der Energiezählung entsteht kann man eine Delta ermitteln um die Verbräuche je Zeiteinheit darzustellen. 
-Dies kann auch auf Verbräuche angewendet werden, die aus Impulszählung entstehen.
+Ermittelt den Durchschnitt aller Werte im jeweiligen Zeitraum.
 
-![impulse](img/sumDelta.png)
+### Min/Max-Werte
+
+Speichert Werte in ``statistics.x.temp.minmax.*`` bzw. ``statistics.x.save.minmax.*``.
+
+Ermittelt den Minimal- und Maximalwert im jeweiligen Zeitraum.
+
+### Delta-Verbrauch
+
+Speichert Werte in ``statistics.x.temp.sumDelta.*`` bzw. ``statistics.x.save.sumDelta.*``.
+
+## Gruppen
+
+![options groups](./img/optionsGroups.png)
 
 ## Optionen
 

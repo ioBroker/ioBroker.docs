@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
+hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
 ---
 ![Logo](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -27,7 +27,7 @@ Adapter für Innoxel Master 3 (https://innoxel.ch)
 - Innoxel Master 3 Smart Home-System
 
 ## Installation
-Bis der Adapter Teil des neuesten oder stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm oder github installieren.
+Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm installieren. Installieren Sie es nicht direkt von Github, dies führt zu einem Fehler beim Start des Adapters ("cannot find start file").
 
 Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die Einstellungen:
 
@@ -98,17 +98,40 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 - <code>dimSpeed</code> (optional) ist die zu verwendende Dimmgeschwindigkeit (0-15)
 - <code>callback</code> (optional) Rückruffunktion, die aufgerufen wird, wenn eine Aktion ausgeführt wurde
 
+### Temperatur einstellen
+Heiz- oder Kühltemperatur einstellen.
+
+```ts
+sendTo("innoxel.0", "setTemperature", "<moduleId>:<temperatureType>:<temperature>", callback);
+
+// i.e. to set setTemperatureHeating to 20° on room climate module 0
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
+    // do something after the button press has been executed
+});
+```
+
+- <code>moduleId</code> ist die ID/Adresse des Raumklimamoduls
+- <code>temperatureType</code> ist der einzustellende Temperaturtyp (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- <code>temperature</code> einzustellende Temperatur in 0,5°-Schritten. Je nach Typ gibt es auch einen Min/Max-Wert
+- <code>callback</code> (optional) Rückruffunktion, die aufgerufen wird, wenn eine Aktion ausgeführt wurde
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2023-04-22)
+
+-   (matthsc) allow to set heating/cooling temperatures
+-   (matthsc & dependabot) dependency updates
+
 ### 0.2.0 (2022-09-28)
 
 -   (matthsc) drop support for Node 12 and js-controller 3
 -   (matthsc) implement migrations from create-adapter
--   (matthsc) dependency updates
+-   (matthsc & dependabot) dependency updates
 
 ### 0.1.5 (2022-02-12)
 
@@ -142,7 +165,7 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 
 MIT License
 
-Copyright (c) 2022 matthsc <matthsc@gmx.net>
+Copyright (c) 2023 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

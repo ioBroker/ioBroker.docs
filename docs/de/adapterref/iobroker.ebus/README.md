@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: 5JwxeHhAXaIpDmkqes8qvbpxd9+IpiVI8CrPE9sGl/E=
+hash: N1+qoBcOZs3GExmvBcD7gWvW+xHqKRQGHFQBqqxk9hU=
 ---
 ![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -20,7 +20,7 @@ hash: 5JwxeHhAXaIpDmkqes8qvbpxd9+IpiVI8CrPE9sGl/E=
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Dieser Adapter liest
 
@@ -158,6 +158,24 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 
 ## Changelog
 
+### 3.2.1 (2023-04-07)
+* (René) dependencies updated
+
+### 3.2.0 (2023-02-11)
+* (René) **Attention** polled variables must be set as active in admin now
+* (René) search available variables per circuit added in admin
+* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree 
+
+### 3.1.1 (2023-01-31)
+* (René) support ebusd 23.1
+* (René) see issue #77: make sure that only one data request is running at the same time
+
+### 3.1.0 (2022-12-01)
+* (René) support ebusd 22.4
+* (René) see issue #77: Update data point when read-cmd is used
+* (René) see issue #78: remove CR, LF in answer from ebusd for DP ebus.0.cmdResult
+
+
 ### 3.0.7 (2022-08-20)
 * (René) support ebusd 22.3
 
@@ -196,10 +214,24 @@ Achtung: Befehl im Datenpunkt ebus.0.cmd wird nach Ausführung des Befehls gelö
 * (René) bug fix missing space in command when using circuit name
 
 ## License
-Copyright (C) <2017 - 2022>  <info@rg-engineering.eu>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

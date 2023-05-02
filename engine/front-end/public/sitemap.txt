@@ -738,6 +738,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cloud/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.cloudflare/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.comfoair/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.consumption/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.contact/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.contactid/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.coronavirus-statistics/README.md
@@ -1337,6 +1338,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cloud/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.cloudflare/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.comfoair/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.consumption/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.contact/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.contactid/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.coronavirus-statistics/README.md
@@ -1936,6 +1938,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cloud/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.cloudflare/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.comfoair/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.consumption/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.contact/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.contactid/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.coronavirus-statistics/README.md
@@ -2535,6 +2538,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cleveron/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloud/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cloudflare/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.comfoair/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.consumption/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contact/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.contactid/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.coronavirus-statistics/README.md

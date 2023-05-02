@@ -147,6 +147,17 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.7.2 (2023-04-27)
+* (simatec) small Bugfix
+
+### 0.7.1 (2023-04-27)
+* (simatec) small Bugfix
+
+### 0.7.0 (2023-04-26)
+* (simatec) Dependencies updated
+* (simatec) Config for Firmware Version added
+* (simatec) small Bugfix
+
 ### 0.6.0 (2023-03-04)
 * (simatec) Dependencies updated
 * (simatec) Fix URL

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
+hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
@@ -15,22 +15,44 @@ hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
 # IoBroker.fullcalendar
 Расписания с [полный календарь](https://fullcalendar.io).
 
+## Планируйте события (управляйте своими устройствами)
 Вы не должны использовать какие-либо внешние ресурсы, планирование обрабатывается только в ioBroker и не будет сочетаться с какими-либо внешними службами, такими как «календарь Google» или «iTunes».
 
 ![Пример](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
 Вы можете управлять своими событиями с помощью календаря и планировать их периодическое управление.
 
+## Моделирование событий
+Вы можете записать свое поведение и воспроизвести его позже.
+Например, вы можете создать две записи для рабочего дня и для выходных и воспроизвести их в соответствующие дни.
+
+Или вы можете записать всю неделю и воспроизвести ее в следующие недели, когда вас нет дома.
+
+Как использовать:
+
+- Перейти на вкладку моделирования
+- Создайте новую симуляцию, нажав кнопку «+», и выберите тип симуляции: день или неделя.
+- Нажмите кнопку записи и подождите 24 часа или 7 дней, пока симуляция не прекратится для записи событий.
+- Теперь вы можете воспроизвести симуляцию, нажав на кнопку воспроизведения. Кроме того, вы можете определить время начала моделирования.
+
 ## Делать
 - Неделя и день должны прокручиваться до текущего времени
-- Астро события
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### 2.0.2 (2023-03-03)
+### 2.2.1 (2023-04-25)
+* (bluefox) Corrected stop of the recording
+
+### 2.2.0 (2023-04-24)
+* (bluefox) Added simulation of events
+
+### 2.0.8 (2023-03-24)
+* (bluefox) Corrected vis-2 widgets
+
+### 2.0.5 (2023-03-07)
 * (bluefox) New material design
 * (bluefox) License changed to MIT
 * (bluefox) Allowed deletion of events

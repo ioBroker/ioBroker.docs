@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
+hash: WaDrfxroKLGkvsTM/KcLrPAAFsIwdGoGppnAF4C/Wzw=
 ---
 ![Logo](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -27,6 +27,12 @@ Wenn der Adapter verschlüsselte Telegramme empfängt, sollte die Registerkarte 
 Wenn der Parser fehlschlägt, werden die Rohdaten des Telegramms im Zustand info.rawdata gespeichert.
 
 *Achtung:* Der Amber-Empfänger scheint nach einiger Zeit (oder Anzahl empfangener Nachrichten) im C-Modus abzustürzen? Hardwarefehler?
+
+*Variante IMST iM871A:* Es gibt einen "RWE Smart Home" USB-Receiver, der im Prinzip ein IMST iM871A ist, aber der Kernel lädt nicht automatisch den entsprechenden Treiber. Dies ist ein Einzeiler, um eine udev-Regel zu erstellen, um das zu beheben:
+
+```shell
+sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
+```
 
 ##Links:
 * [WMBus Stack-Modul](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
@@ -55,8 +61,9 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 ## Machen
 * Senden von Telegrammen für S-Mode-Empfänger?
 
-##WIP
+## 0.9.0
 * (ChL/kubax) Experimentell! Seriell über Raw-TCP-Socket für alle Geräte aktivieren - verwenden Sie "tcp://host:port" als benutzerdefinierten seriellen Port
+* Der serielle Port wird auf v11 aktualisiert - dies unterbricht endgültig die Node v12-Unterstützung!
 
 ## 0.8.10
 * (ChL) Kompakten Frame-Cache unabhängig vom Herstellercode verwenden
@@ -164,7 +171,7 @@ Der einfachste Weg, die Schlüssel einzurichten, besteht darin, den Adapter ohne
 * (ChL) VIF-Erweiterungen werden (wieder) besser gehandhabt
 * (ChL) VIF-Info neu organisiert
 * (ChL) Reorganisation der Empfängerhandhabung
-* (ChL) Sperrung von Geräten möglich
+* (ChL) Blockierung von Geräten möglich
 
 ### 0.2.0 (nicht markiert)
 * (ChL) Drastisch verbesserter Parser: Unterstützung für Sicherheitsmodus 7, Rahmentyp B, viele kleine Korrekturen

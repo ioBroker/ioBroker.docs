@@ -46,10 +46,10 @@ Check the list of *supported devices* for more details.
 
 ## General
 
-You can use the adapter in CoAP or MQTT mode.
+The adapter can be used in MQTT (recommended) or CoAP/CoIoT mode.
 
-- The default mode is MQTT (see [documentation](protocol-mqtt.md) for details)
-- CoAP is just compatible with devices of generation 1
+- The default mode of the adapter is MQTT (see [documentation](protocol-mqtt.md) for details)
+- CoAP/CoIoT is just compatible with Gen1 devices!
 - **If you want to use Gen2 devices, you must use MQTT!**
 
 Questions? Check the [FAQ](faq.md) section first!
@@ -62,7 +62,7 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.4.1 (2023-04-23)
 
 * (viper4gh) Added Shelly Pro 3 EM energy data
 * (klein0r) Fixed IP handling in Docker containers
@@ -92,11 +92,6 @@ Questions? Check the [FAQ](faq.md) section first!
 
 * (klein0r) IP address of CoAP devices is unknown in some cases
 * (klein0r) Optimized destroy process
-
-### 6.2.3 (2022-10-20)
-
-* (klein0r) Use unique ID for each command - generation 2 devices
-* (klein0r) Fix: Ack state if value is unchanged
 
 ## License
 

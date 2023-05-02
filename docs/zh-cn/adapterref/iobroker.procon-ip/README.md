@@ -3,21 +3,21 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: aKdT4iGgBwCGFFq2YnIilaECYMo/57RrfFFGWfGiDjY=
+hash: QkhH6qFpl+fwsn0v+WwUtamC4pIlVNf10o9cSpzX+cU=
 ---
-![商标](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
+![标识](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![安装](http://iobroker.live/badges/procon-ip-installed.svg)
 ![已知漏洞](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
 
 # IoBroker.procon-ip
 [![测试和发布](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 
-## ProCon.IP 池控制适配器，用于 ioBroker
-ioBroker 适配器，用于基本支持 ProCon.IP 游泳池控制单元。它旨在与您的 ioBroker 家庭自动化集成，例如。
+## IoBroker 的 ProCon.IP 池控制适配器
+ioBroker 适配器为 ProCon.IP 游泳池控制单元提供基本支持。它旨在与您的 ioBroker 家庭自动化集成，例如。
 构建涉及其他设备的逻辑或仅与您最喜欢的语音助手配对：
 
 * 您可以使用 [_cloud_](https://github.com/ioBroker/ioBroker.cloud) 或
@@ -26,53 +26,58 @@ ioBroker 适配器，用于基本支持 ProCon.IP 游泳池控制单元。它旨
 
 * [_yahka_](https://github.com/jensweigele/ioBroker.yahka) 作为通往
 
-  可通过 Siri 访问 Apple HomeKit 或
+  Apple HomeKit 可通过 Siri 或
 
 * 使用 [_javascript_](https://github.com/ioBroker/ioBroker.javascript) 来
 
   构建您自己的自定义逻辑。
 
-有关更多信息，请参阅[维基](https://github.com/ylabonte/ioBroker.procon-ip/wiki)。
+有关详细信息，请参阅 [维基](https://github.com/ylabonte/ioBroker.procon-ip/wiki)。
 
-### ProCon.IP 池控制是什么？
-![图片来自 pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
+### 什么是 ProCon.IP 池控制？
+![图片来自pooldigital.de](https://www.pooldigital.de/shop/media/image/66/47/a5/ProConIP1_720x600.png)
 
-ProCon.IP 泳池控制器是用于家庭游泳池的低预算网络连接控制单元。凭借其软件开关继电器，它可以控制多个泵（用于池过滤器和不同剂量方面），或者根据时间表简单地计划，或者根据其多个输入通道之一的读数/值进行测量（例如 i/o 流量传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还有按需切换这些继电器的选项，这使得它们也适用于开/关灯（或您想要的任何其他东西）。
-并非所有功能都可以通过 API 访问。事实上，有一个记录在案的 API 用于以 CSV 格式读取（轮询）值（`/GetState.csv`）。在我的记忆中，还有另一个用定时器来打开/关闭和打开继电器。但我再也找不到第二个了。所以甚至不漂亮，但功能强大：ProCon.IP 有两个本地 Web 界面，可以对其进行分析，以对给定的功能进行某种逆向工程（如切换继电器）。
+ProCon.IP 泳池控制器是一款用于家庭泳池的低预算网络连接控制单元。凭借其软件开关继电器，它可以控制多个泵（用于池过滤器和不同的剂量方面），或者根据时间表简单地计划，或者根据来自其多个输入通道之一的读数/值进行测量（例如，输入/输出流量）传感器、Dallas 1-Wire 温度计、氧化还原和 pH 电极）。至少还有按需切换这些继电器的选项，这使得它们也适用于开关灯（或任何你想要的东西）开/关。
+并非其所有功能都可以通过 API 访问。事实上，有一个记录的 API 用于将值读取（轮询）为 CSV (`/GetState.csv`)。在我的记忆中，还有另一个用于通过定时器打开/关闭和打开继电器。但是我再也找不到第二个了。所以甚至不漂亮，但功能：ProCon.IP 有两个本地 Web 界面，可以对其进行分析，以对给定功能（如切换继电器）进行某种逆向工程。
 
-有关更多信息，请参阅以下链接（对不起，它只有德语；到目前为止还没有找到英文文档/信息）：
+有关更多信息，请参阅以下链接（抱歉，它只有德语；到目前为止还没有找到英文文档/信息）：
 
 * [pooldigital.de 网上商店](https://www.pooldigital.de/shop/poolsteuerungen/procon.ip/35/procon.ip-webbasierte-poolsteuerung-/-dosieranlage)
 * [pooldigital.de 论坛](http://forum.pooldigital.de/)
 
-**明确一点：我与泳池控制单元的开发、销售、营销或支持无关。我刚刚开发了一个解决方案，将其与 ioBroker 集成，让我父母的家更智能。**
+**需要说明的是：我与泳池控制单元的开发、销售、营销或支持无关。我刚刚开发了一个解决方案，将其与 ioBroker 集成，让我父母的家变得更智能。**
 
 ### 适配器的详细信息
-适配器使用 ProCon.IP 的`/GetState.csv` API 来轮询其值和另一个 - 未记录的 - API，它使用按位命令操作以切换继电器。 ProCon.IP 的原始 Web 界面也使用第二个。因此，未来可能会有固件升级，制动与此适配器的兼容性，或者至少它具有切换继电器的功能。
+该适配器使用 ProCon.IP 的 `/GetState.csv` API 来轮询其值和另一个（未记录）API，该 API 使用按位命令操作以切换继电器。第二个也被 ProCon.IP 的原始 Web 界面使用。因此，未来可能会有固件升级，这会破坏与该适配器的兼容性，或者至少它具有切换继电器的功能。
 
-#### 兼容性
-目前，适配器已结合 ProCon.IP 固件**修订版 1.7.0.c** 进行了测试和开发。
+####兼容性
+目前，该适配器已结合 ProCon.IP 固件**修订版 1.7.0.c** 进行了测试和开发。
 
 ## 路线图
-### 发布 v1.x.x
-计划没有什么特别之处。您可以创建一个问题来建议新特性/功能...
-
-**路线图上的点发生了什么，但在 1.0.0 版本中没有实现？** 嗯，文档已经改进了。
-选项卡视图对我来说似乎很有趣。如果您喜欢这样的功能，请告诉我...
-缺少关于控制器功能的自动化测试非常令人不快，但现在的重点显然是变得稳定，为所有现有代码编写好的和有用的测试将花费大量时间（关于使用该软件项目的复杂性和目标群体）并可能以进一步重构而告终。所以这将是未来的东西，但与 1.0.0 版本不再相关。
+计划没有什么特别的。您可以创建一个问题来建议新特性/功能......
 
 ## 发展与参与
-如果您希望参与此适配器的开发或文档，请随时与我联系。
+如果您想参与此适配器的开发或文档编制，请随时与我联系。
 
-该方法的有用链接将是
+该方法的有用链接是
 
 * [TypeScript 适配器模板](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
 
-  我从和
+  我从和开始
 
-* [适配器开发者指南](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md)。
+* [适配器开发人员指南](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md)。
 
 ## Changelog
+
+### Release v1.2.3
+Dependency updates.
+
+### Release v1.2.2
+Dependency updates.
+
+### Release v1.2.1
+Bugfix release:
+* Fix connection problem (see [related issue](https://github.com/ylabonte/ioBroker.procon-ip/issues/29))
 
 ### Release v1.2.0
 Minor release:

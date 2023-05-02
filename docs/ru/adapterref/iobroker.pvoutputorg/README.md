@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pvoutputorg/README.md
 title: ioBroker.pvoutputorg
-hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
+hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pvoutputorg/admin/pvoutputorg.png)
 
@@ -20,7 +20,7 @@ hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
 
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Адаптер подключается к [PvOutput.org](https://pvoutput.org). System-ID и API-ключ используются для установления соединения. Оба должны быть настроены на странице администратора.
 Система, состояние и статистические данные для всех настроенных систем в настоящее время считываются и отображаются в точках данных.
@@ -100,6 +100,15 @@ hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
 
 ## Changelog
 
+### 1.8.8 (2023-04-07)
+* (René) dependencies updates
+
+### 1.8.7 (2023-01-31)
+* (René) dependencies updates
+
+### 1.8.6 (2022-11-29)
+* (René) see issue #4 : bug fix negative temperatures
+
 ### 1.8.5 (2022-10-01)
 * (René) bug fix wrong date
 
@@ -149,7 +158,7 @@ hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
 ## License
 MIT License
 
-Copyright (c) 2022 rg-engineering <info@rg-engineering.eu>
+Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

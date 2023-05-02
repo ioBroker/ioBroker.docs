@@ -32,6 +32,10 @@ Der Adapter liest auch die Daten aus der App aus.
 
 ## Changelog
 
+### 0.0.16
+
+* (ta2k) Improve error and login handling
+  
 ### 0.0.15
 
 * (ta2k) add app support

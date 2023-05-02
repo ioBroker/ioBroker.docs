@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
+hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -23,7 +23,7 @@ hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
 # IoBroker.netatmo-energy
 ![тестирование и выпуск](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках программного кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для отправки автоматических отчетов о сбоях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить эту функцию, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry доступны, начиная с js-controller 3.0.
 
 ## Требования и конфигурация
 Учетная запись оборудования Netatmo Energy (термостат, клапаны) в облаке Netatmo
@@ -51,7 +51,7 @@ hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
 
   Получать информационные сообщения, предупреждения или сообщения об ошибках. Для этого необходимо активировать опцию «Активировать/деактивировать уведомления» в «Информации для входа», а затем настроить параметры в меню «Уведомления».
 
-  - Кроме того, можно ввести датчики двери/окна в систему датчиков и сохранить желаемое действие
+  - Кроме того, можно ввести датчики двери/окна в систему датчиков и сохранить желаемое действие. Обычно эти функции можно активировать или деактивировать на странице входа.
 
 Подробное описание доступно в виде вики (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
@@ -156,6 +156,10 @@ hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-05-01)
+
+* (ioKlausi) Enable / Disable sensor actions
+
 ### 2.5.8 (2023-04-16)
 
 * (ioKlausi) Bug fix of translations

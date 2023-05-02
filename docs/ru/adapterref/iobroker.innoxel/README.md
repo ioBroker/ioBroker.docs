@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
+hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -27,7 +27,7 @@ hash: 1+eJrTgPDLxQDQMa5WJz6MIQjK7qowkRSQ9hfpGvqPw=
 - Система «Умный дом» Innoxel Master 3
 
 ## Монтаж
-Пока адаптер не является частью последнего или стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm или github.
+Пока адаптер не является частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker, и установить адаптер из npm. Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера ("не удается найти стартовый файл").
 
 После установки создайте новый экземпляр и настройте параметры:
 
@@ -98,17 +98,40 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 - <code>dimSpeed</code> (опционально) - используемая скорость затемнения (0-15)
 - функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
 
+### УстановитьТемпература
+Установите температуру нагрева или охлаждения.
+
+```ts
+sendTo("innoxel.0", "setTemperature", "<moduleId>:<temperatureType>:<temperature>", callback);
+
+// i.e. to set setTemperatureHeating to 20° on room climate module 0
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
+    // do something after the button press has been executed
+});
+```
+
+- <code>moduleId</code> - идентификатор/адрес модуля климат-контроля помещения.
+- <code>temperatureType</code> — устанавливаемый тип температуры (absenceSetbackTemperatureCooling, AbsenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- заданная <code>temperature</code> с шагом 0,5°. Также есть минимальное/максимальное значение в зависимости от типа
+- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2023-04-22)
+
+-   (matthsc) allow to set heating/cooling temperatures
+-   (matthsc & dependabot) dependency updates
+
 ### 0.2.0 (2022-09-28)
 
 -   (matthsc) drop support for Node 12 and js-controller 3
 -   (matthsc) implement migrations from create-adapter
--   (matthsc) dependency updates
+-   (matthsc & dependabot) dependency updates
 
 ### 0.1.5 (2022-02-12)
 
@@ -142,7 +165,7 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 
 MIT License
 
-Copyright (c) 2022 matthsc <matthsc@gmx.net>
+Copyright (c) 2023 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

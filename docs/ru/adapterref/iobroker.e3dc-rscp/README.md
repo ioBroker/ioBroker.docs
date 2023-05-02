@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
+hash: ocVtS7dEWuePymh8vavUv1i27b1pL+NS9aMBWtdbCjQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -19,7 +19,7 @@ hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
 **Тесты:** ![Тестируйте и выпускайте](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер e3dc-rscp для ioBroker
-Управляйте своей электростанцией E3/DC, используя собственный протокол RSCP, который позволяет считывать значения состояния, а также устанавливать параметры управления, например. предел мощности заряда. В этом преимущество RSCP по сравнению со стандартным Modbus, который предназначен только для считывания значений. Если вам не нужно записывать значения, взгляните на (более простой) [Адаптер Modbus](https://github.com/ioBroker/ioBroker.modbus).
+Управляйте своей электростанцией E3/DC, используя проприетарный протокол RSCP, который позволяет считывать значения состояния, а также устанавливать параметры управления, например. предел мощности заряда. В этом преимущество RSCP по сравнению со стандартным Modbus, который предназначен только для считывания значений. Если вам не нужно записывать значения, взгляните на (более простой) [Адаптер Modbus](https://github.com/ioBroker/ioBroker.modbus).
 
 Адаптер e3dc-rscp был разработан для устройства <a href="https://www.e3dc.com/produkte/s10/">E3/DC S10</a> . Можно предположить, что другие устройства E3/DC предоставляют эквивалентный интерфейс RSCP, но мы уже видели исключения. Например, некоторые модели аккумуляторов явно не полностью интегрированы с E3/DC и, следовательно, не передают все значения через RSCP. В таких случаях адаптер просто передает то, что приходит по RSCP, иногда нулевое значение, иногда код ошибки.
 
@@ -41,7 +41,7 @@ hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
 ### Повторное использование конфигурации адаптера
 Вы можете использовать встроенные кнопки «сохранить»/«загрузить» в настройках экземпляра, чтобы сохранить настройки адаптера в json-файле и загрузить его оттуда, например. после того, как вы сделали совершенно новую установку ioBroker.
 
-Но: в некоторых ситуациях повторное использование конфигурации адаптера приведет к неожиданному поведению. В тех случаях, когда новая версия адаптера вводит новые параметры, такие как новые строки в списке интервалов опроса, повторная загрузка настроек из старого файла json приведет к удалению этих новых параметров. **Вот почему обычно рекомендуется начинать с пустых настроек и повторно вводить их по крайней мере для каждой новой дополнительной версии Y (x.Y.z):**
+Но: в некоторых ситуациях повторное использование конфигурации адаптера приведет к неожиданному поведению. В случаях, когда новая версия адаптера вводит новые параметры, например. новые строки в списке Интервал опроса, перезагрузка настроек из старого файла json приведет к удалению этих новых параметров. **Вот почему обычно рекомендуется начинать с пустых настроек и вводить их повторно, по крайней мере, для каждой новой основной (X) или дополнительной (Y) версии (X.Y.z):**
 
 1. Удалить экземпляр e3dc-rscp
 2. Создайте новый экземпляр e3dc-rscp.
@@ -92,22 +92,26 @@ hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
 Пожалуйста помни:
 
 * Адаптер предназначен для запуска RSCP и предоставления результатов в дереве объектов ioBroker, не более того. Дальнейшая обработка или хранение оставлены другому коду.
-* **Для поиска неподдерживаемых в настоящее время пространств имен и тегов RSCP обратитесь к официальному списку тегов E3/DC**, предоставленному с [примером приложения](http://s10.e3dc.com/dokumentation/RscpExample.zip).
+* **Для поиска неподдерживаемых в настоящее время пространств имен и тегов RSCP обратитесь к официальному списку тегов E3/DC**, предоставленному с [примером приложения] (http://s10.e3dc.com/dokumentation/RscpExample.zip).
 * Все, что не указано в списке тегов RSCP или иным образом не показано как доставленное, считается «выходящим за рамки».
 
 <a name="sam"></a>
 
 ## Пример скрипта Вот пример скрипта для управления лимитом заряда - он не предназначен для использования "как есть", а только для демонстрации того, как можно использовать значения E3/DC.
-// Триггер: достигнуто снижение мощности, т. е. мощность в сети будет ограничена // Действие: сбросить предел мощности заряда батареи до максимума, как указано в SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, изменение: &#39;lt&#39;, логика: &#39;и&#39; }, (obj) =&gt; { console.log(&#39;Триггер: питание в сети на порог снижения - сбросить лимит мощности заряда&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
+// Триггер: достигнуто снижение мощности, т. е. мощность в сети будет ограничена // Действие: сброс предела мощности заряда батареи до максимума, как указано в SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, изменение: &#39;lt&#39;, логика: &#39;и&#39; }, (obj) =&gt; { console.log(&#39;Триггер: питание в сети на порог снижения - сбросить лимит мощности заряда&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
-### 1.2.0
+### 1.2.1
 
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 
 (git-kick)
 * Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
 * Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - DEPRECATED - DO NOT INSTALL -
 
 ### 1.1.2
 (ka-vaNu)
@@ -937,4 +941,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

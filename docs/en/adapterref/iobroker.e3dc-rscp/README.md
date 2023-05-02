@@ -104,7 +104,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
 ### Reuse of adapter configuration
 You can use the built-in "save"/"load"-Buttons in the Instance Settings to save your adapter settings in a json-file and load it from there, e.g. after you did a completely new ioBroker installation.
 
-But: in some situations the reuse of adapter configuration will lead to unexpected behavior. In cases where a new adapter version introduces new parameters like new lines in the Polling Interval list, reloading settings from an older json file will delete those new parameters. **This is why it's generally recommended to start with blank settings and re-enter them at least for every new minor version Y (x.Y.z):** 
+But: in some situations the reuse of adapter configuration will lead to unexpected behavior. In cases where a new adapter version introduces new parameters, e.g. new lines in the Polling Interval list, reloading settings from an older json file will delete those new parameters. **This is why it's generally recommended to start with blank settings and re-enter them at least for every new major (X) or minor (Y) version (X.Y.z):** 
 1. Delete e3dc-rscp instance
 2. Create a new e3dc-rscp instance
 3. Enter settings manually (do *not* load settings from a json file)
@@ -395,13 +395,17 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
-### 1.2.0
+### 1.2.1
 
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 
 (git-kick)
 * Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
 * Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - DEPRECATED - DO NOT INSTALL -
 
 ### 1.1.2
 (ka-vaNu)
@@ -1230,4 +1234,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

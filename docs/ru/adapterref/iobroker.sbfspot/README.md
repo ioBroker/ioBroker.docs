@@ -3,110 +3,110 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
+hash: Nu1nQOSXWDiKNtL/Z0rrhwfFTJzjxTb5rRgmBUpy9xk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
 ![Количество установок](http://iobroker.live/badges/sbfspot-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 
 # IoBroker.sbfspot
-![Действия GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
+![Действия на GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+**Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Этот адаптер считывает данные с инверторов питания SMA с помощью sbfspot.
+Этот адаптер считывает данные с инверторов мощности SMA с помощью sbfspot.
 Теперь поддерживаются оба типа баз данных (mySQL и sqlite).
-Начиная с версии 0.2.3 существует собственный виджет vis, основанный на flot, доступный для отображения исторических данных.
+Начиная с версии 0.2.3 доступен собственный виджет vis на основе флота для отображения исторических данных.
 
 ## Монтаж
-следуйте инструкциям по установке sbfspot на странице https://github.com/SBFspot/SBFspot/wiki
+следуйте инструкциям по установке sbfspot по адресу https://github.com/SBFspot/SBFspot/wiki.
 
-[детальная установка на системы на базе кронштейна](docs/en/install_arm.md)
+[детальная установка на системы на базе манипулятора](docs/en/install_arm.md)
 
 ## Подсказки
-* используйте последнюю версию от sbfspot с https://github.com/SBFspot/SBFspot
-* адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать в одной системе, например. Raspberry Pi
-* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. PHP / продукт / программное обеспечение / плагин-fuer-iobroker-sbfspot
-* для Raspberry Pi существует полуавтоматический инструмент настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config
+* используйте последнюю версию sbfspot с https://github.com/SBFspot/SBFspot
+* адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать в одной системе, т.е. Raspberry Pi
+* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. php/product/software/plugin-fuer-iobroker-sbfspot
+* для Raspberry Pi есть инструмент полуавтоматической настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config.
 
-## Известные проблемы
-* иногда не удается установить пакет npm sqlite3.
+## Известные вопросы
+* иногда установка пакета npm sqlite3 завершается сбоем.
 
 в этом случае переустановите все пакеты npm
 
-> cd /opt/iobroker/node_modules/iobroker.sbfspot> sudo npm install
+> cd /opt/iobroker/node_modules/iobroker.sbfspot > установка sudo npm
 
-иногда npm intall необходимо вызывать более одного раза, чтобы успешно установить все необходимые пакеты
+иногда npm intall необходимо вызывать более одного раза, чтобы успешно установить все необходимые пакеты.
 
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.sbfspot/issues), если вы обнаружите ошибки или захотите новые функции
+* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues), если вы обнаружите ошибки или хотите добавить новые функции
 
-## 4.0.4 (14.02.2021)
-* (René) зависимости обновлены
+## 4.0.4 (2021-02-14)
+* (Рене) обновлены зависимости
 
 ## 4.0.3 (15.01.2021)
-* (René) исправление ошибки на основе тестов CI
+* (Рене) исправление ошибки на основе тестов CI
 
-## 4.0.2 (2020-10-09)
-* (René) исправление ошибки на основе тестов CI
+## 4.0.2 (09.10.2020)
+* (Рене) исправление ошибки на основе тестов CI
 
 ## 4.0.0 (2020-07-28)
-* (Рене) переработка для использования async / await
-* (Рене) используйте mysql2
+* (Рене) доработка для использования async/await
+* (Рене) использовать mysql2
 
-## 3.0.0 (25.04.2020)
-* (René) пакет sqlite3 заменен на better-sqlite3
+## 3.0.0 (2020-04-25)
+* (Рене) пакет sqlite3 заменен на пакет better-sqlite3
 * (Рене) роли DP перегружены
-* (Рене) см. Проблему №19: получать данные только при добавлении дневного света в качестве опции
-* (Рене) см. Проблему # 29: изменен цвет по умолчанию для метки оси виджета.
-* (Рене) виджет: добавлен журнал, если виджет слишком мал
+* (Рене) см. проблему № 19: получать данные только при добавлении дневного света в качестве опции
+* (Рене) см. проблему № 29: изменен цвет по умолчанию для метки оси виджета
+* Виджет (René): журнал, если добавлен слишком маленький виджет
 
 ## 2.4.3 (2020-04-02)
-* (René) исправление ошибки в DB_CalcHistory_Today, используемой для виджета
+* (Рене) исправление в DB_CalcHistory_Today, используемом для виджета
 
-## 2.4.2 (01.02.2020)
-* (René) виджет исправления ошибок
+## 2.4.2 (2020-02-01)
+* (Рене) виджет исправления ошибок
 
-## 2.4.0 (28 декабря 2019 г.)
-* (Рене) обновление до моего собственного флота 3.0
+## 2.4.0 (2019-12-28)
+* (Рене) обновление моего собственного флота 3.0
 
-## 2.3.4 (31.10.2019)
-* (René) обновление флота до версии 3.0
+## 2.3.4 (2019-10-31)
+* (Рене) обновить флот до версии 3.0
 
-### 2.3.3 (03.02.2019)
-* (Рене) из-за проблем с установкой понизил версию пакета sqlite3
+### 2.3.3 (2019-02-03)
+* (Рене) из-за проблем с установкой понижение версии пакета sqlite3
 
-### 2.3.1 (02.02.2019)
-* (René) исправление ошибки: в sqlite "сегодня" данные не отображались
+### 2.3.1 (2019-02-02)
+* (Рене) исправление ошибки: с помощью sqlite данные «сегодня» не отображались
 
-### 2.3.0 (20.01.2019)
-* (René) поддержка компактного режима
+### 2.3.0 (20 января 2019 г.)
+* (Rene) поддержка компактного режима
 * (Рене) добавить дополнительную информацию об ошибке в журнал
 
-### 2.2.5 (26.11.2018)
+### 2.2.5 (2018-11-26)
 * (Рене) пакеты обновлений
 
-### 2.2.5 (04.11.2018)
-* (Рене) сбрасывает доход, если с сегодняшнего дня нет нового значения
+### 2.2.5 (2018-11-04)
+* (Рене) сбросить доходность, если нет нового значения с сегодняшнего дня
 
-### 2.2.4 (19.08.2018)
-* (René) исправление тиков на X
+### 2.2.4 (2018-08-19)
+* (René) исправление для тиков на X
 
 ### 2.2.3
 * (Рене) то же, что и 2.2.2
 
 ### 2.2.2
-* (Рене) добавить отметку времени последнего обновления
+* (Рене) добавить метку времени последнего обновления
 
 ### 2.2.1
-* (Рене) закрытие соединения с базой данных после получения последнего результата запроса (например, для поддержки более одного инвертора)
+* (René) закрытие соединения с базой данных после получения результата последнего запроса (например, для поддержки более одного инвертора)
 
 ### 2.2.0
 * (Nis) цвет фона и границы
@@ -119,62 +119,99 @@ hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
 * (Рене) Поддержка admin3
 
 ### 2.0.0
-* (Рене), поскольку мы всегда используем один график для каждого виджета, сейчас поддерживается только один
+* (Рене) поскольку мы всегда используем один график для каждого виджета, теперь поддерживается только один
 
-Внимание: виджет несовместим с версией 1.x.x; просто проверьте настройки в виджете после установки!
+Внимание: виджет не совместим с версией 1.x.x; просто проверьте настройки в виджете после установки!
 
 ### 1.1.0
-* (René) автомасштабирование оси y
-* (René) цвет для оси y
-* (René) регулируемый формат даты
+* (René) автомасштаб оси Y
+* (Рене) цвет для оси Y
+* (Рене) настраиваемый формат даты
 
 ### 1.0.1
-* (René) исправление ошибки для sqlite
+* (Рене) исправление ошибки для sqlite
 
 ### 1.0.0
-* (Рене) первая стабильная версия
+* (Рене) первый стабильный релиз
 
 ### 0.2.6
-* (René) исправление ошибки в приложении для Android> 1.0.6
+* (Рене) исправление ошибки для приложения Android> 1.0.6
 
 ### 0.2.5
-* (Рене) используйте дату установки для расчета исторических значений
+* (Рене) использовать дату установки для расчета исторических значений
 
 ### 0.2.4
-* (René) логотип изменен
+* Логотип (Рене) изменен
 
 ### 0.2.3
 * (Рене) добавление исторических данных в виде точки данных (JSON)
-* (René) новый виджет vis для отображения исторических данных
+* (Рене) новый виджет vis для отображения исторических данных
 
 ### 0.2.2
 * (Рене) переименован в sbfspot
 
 ### 0.2.1
-* (René) index.html обновлен
+* (Рене) index.html обновлен
 
 ### 0.2.0
-* (René) поддержка sqlite и лицензии изменена на MIT
+* (Рене) поддержка sqlite и лицензия изменены на MIT
 
 ### 0.1.1
 * (Рене) Кодировка UTF8
 
 ### 0.1.0
-* (Рене) первый выпуск
+* (Рене) первый релиз
 
 ### 0.0.1
 * (Рене) первоначальный выпуск
 
 ## Changelog
 
+### 4.1.4 (2023-04-07)
+* (René) dependencies updated
+
+### 4.1.3 (2023-01-31)
+* (René) dependencies updated
+
+### 4.1.2 (2022-08-20)
+* (René) bug fix in AddObject 
+
+### 4.1.1 (2022-08-18)
+* (René) tooltip in wizard added
+* (René) flot and dependencies updated
+
+### 4.0.8 (2021-07-11)
+* (René) bug fix color of labels in widget
+
+### 4.0.7 (2021-10-30)
+* (René) see issue #62: avoid endless loop
+* (René) update flot to 4.2.2
+
+### 4.0.6 (2021-07-09)
+* (René) bug fix data types
+
 ### 4.0.5 (2021-03-21)
 * (René) dependencies updated
 
 ## License
-Copyright (C) <2017-2021>  <info@rg-engineering.eu>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

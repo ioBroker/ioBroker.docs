@@ -86,7 +86,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.0 ( 20.02.2022)
 
-- First complete working Release
+- First complete working Releases
 
 ### 0.0.1
 

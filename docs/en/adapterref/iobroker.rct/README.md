@@ -44,8 +44,9 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.4 (2023-04-24)
+* (Andreas Ruttkamp) Release Script added and update dev-components
+* (Andreas Ruttkamp) Vorbereitung neues Backend
 
 ### 1.0.3 (2023-03-30)
 * (Andreas Ruttkamp) Release Script added and update dev-components

@@ -536,6 +536,10 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.20 (2023-05-02)
+* (simatec) FTP self signed Certificates added
+* (simatec) dependencies updated
+
 ### 2.6.19 (2023-04-20)
 * (simatec) small fix for js-controller 5
 

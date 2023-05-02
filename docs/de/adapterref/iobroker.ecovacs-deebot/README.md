@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
+hash: COLurwRj6WJlVjKYGfOrVZLpkwhLfYHFrZOIRdwuSI0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -44,7 +44,7 @@ Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar un
 Die vollständig unterstützten Modelle sind die, die ich selbst besitze:
 
 *Deebot OZMO 920
-* Deebot T8 AIVI
+*Deebot OZMO T8 AIVI
 *Deebot X1 Turbo
 
 ### Andere unterstützte Modelle
@@ -94,7 +94,7 @@ Ich benutze auch meinen Slim 2, Deebot 901 und OZMO 930 nicht mehr.
 ### Voraussetzungen
 Um diesen Adapter verwenden zu können, müssen Sie bereits [ioBroker](iobroker.net) installiert haben.
 
-Die erforderliche Mindestversion von Node.js ist 14.x. Es wird empfohlen, Version 14.x oder 16.x zu verwenden
+Die erforderliche Mindestversion von Node.js ist 14.x. Es wird empfohlen, Version 16.x oder 18.x zu verwenden
 
 ### Optionale Voraussetzungen
 Dieser Adapter verwendet die Bibliothek [Knotenleinwand](https://www.npmjs.com/package/canvas) für einige kartenbezogene Funktionen, die möglicherweise die Installation einiger zusätzlicher Pakete erfordern.
@@ -128,7 +128,7 @@ Informationen zu den Bundesländern finden Sie in [Hier](https://github.com/mrbu
 ## Bekannte Probleme
 * Die Generierung von Kartenbildern ist derzeit auf 32-Bit-Systemen nicht stabil
 * Die "Edge"-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
-* Die "Verschieben"-Funktionen funktionieren nicht mit Deebot OZMO T8 AIVI (und möglicherweise auch mit einigen anderen Modellen)
+* Die "Verschieben"-Funktionen funktionieren bei einigen Modellen nicht richtig
 * Die Generierung von Kartenbildern funktioniert mit der Deebot X1-Serie nicht richtig
 
 ## Haftungsausschluss
@@ -136,7 +136,10 @@ Ich bin in keiner Weise mit Ecovacs Robotics Co., Ltd. oder yeedi Technology Lim
 
 ## Changelog
 
-### 1.4.13 (latest beta)
+### 1.4.14 (alpha)
+* Bumped ecovacs-deebot.js to 0.9.6 (alpha)
+
+### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations

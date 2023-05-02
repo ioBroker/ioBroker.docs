@@ -3,40 +3,54 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-weather/README.md
 title: ioBroker.vis-погода
-hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
+hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-weather-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
-# IoBroker.vis-weather
-![Действия GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.vis-погода
+![Действия на GitHub](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+**Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Этот виджет показывает прогноз погоды с сайта DasWetter.com или с сайта weatherunderground. Вам также потребуется запустить DasWetter-Adpater или weatherunderground-Adapter ...
+Этот визуальный виджет показывает данные прогноза погоды с DasWetter.com или WeatherUnderground. Вам также необходимо запустить DasWetter-Adpater или WeatherUnderground-Adapter...
 
-В погодных условиях вам нужен прогноз на следующие 36 часов.
+В WeatherUnderground вам нужно включить прогноз на следующие 36 часов.
 В DasWetter.com вам необходимо включить одну из четырех структур данных прогноза. Вы можете выбрать тот, который хотите отобразить.
 
-## Примечания / вики
-### Определить часы прогноза
-По умолчанию диаграмма прогноза показывает 40 часов (DasWetter) или 36 часов (wunderground). Если вы предпочитаете показывать только, например, Прогноз на 10 часов, просто удалите ненужные OID в oid_groups в vis-edit.
+## Заметки/вики
+### Определение часов прогноза
+По умолчанию диаграмма прогноза показывает 40 часов (DasWetter) или 36 часов (wunderground). Если вы предпочитаете показывать только, например. Прогноз на 10 часов, просто удалите ненужные OID в oid_groups в vis-edit.
 
 ### OID не создаются автоматически при использовании DasWetter
-Обычно OID создаются автоматически при выборе экземпляра или структуры данных. Когда вы получите сообщение «Нет доступных OID», проверьте, используете ли вы «NextDaysDetailed» в DasWetter.
+Обычно OID создаются автоматически при выборе экземпляра или структуры данных. Когда вы получите «нет доступных OID», проверьте, используете ли вы «NextDaysDetailed» в DasWetter.
 Возможно, вам потребуется включить «NextDaysDetailed».
 
-## Известные проблемы
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы обнаружите ошибки или захотите новые функции
+## Известные вопросы
+* пожалуйста, создайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), если вы найдете ошибки или хотите новые функции
 
 ## Changelog
+
+### 2.5.7 (in progress)
+
+### 2.5.6 (2022-08-18)
+* (René) tooltip with value added as an option
+* (René) flot update
+* (René) dependencies update
+
+### 2.5.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.5.4 (2021-10-30)
+* (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
 ### 2.5.3 (2021-03-21)
 * (René) dependencies updated
@@ -131,10 +145,24 @@ hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

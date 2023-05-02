@@ -2,41 +2,55 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-weather/README.md
-title: ioBroker.vis天气
-hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
+title: ioBroker.vis-天气
+hash: 93y19zShXWW/DOBIjXJMTkIjyB6aFID5Tdvm/2jRMSg=
 ---
-![商标](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
+![标识](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
 ![安装数量](http://iobroker.live/badges/vis-weather-stable.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
-＃ioBroker.vis-天气
-![GitHub动作](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.vis-天气
+![GitHub 操作](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-**如果您愿意，请考虑捐赠：**
+**如果喜欢，请考虑捐款：**
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-该可视组件显示来自DasWetter.com或weatherunderground的天气预报数据。您还需要运行DasWetter-Adpater或weatherunderground-Adapter ...
+这个 vis-widget 显示来自 DasWetter.com 或 weatherunderground 的天气预报数据 你还需要 DasWetter-Adpater 或 weatherunderground-Adapter 运行......
 
-在地下天气中，您需要预测接下来的36小时启用。
-在DasWetter.com中，您需要启用四个预测数据结构之一。您可以选择要显示的那个。
+在 weatherunderground 中，您需要启用未来 36 小时的预报。
+在 DasWetter.com 中，您需要启用四种预测数据结构之一。您可以选择要显示的那个。
 
-##注释/ Wiki
-###定义预报时间
-默认情况下，预测图显示40小时（DaSWetter）或36小时（地下）。如果您只想显示例如预测10小时，只需在vis-edit中删除oid_groups下不必要的OID。
+## 笔记/wiki
+### 定义预测时间
+默认情况下，预测图显示 40 小时 (DasWetter) 或 36 小时 (wunderground)。如果您更喜欢只显示例如10小时预报，只需在vis-edit中删除oid_groups下不需要的OID即可。
 
-使用DasWetter时不会自动创建### OID
-通常，当您选择实例或数据结构时，会自动创建OID。当您收到“没有可用的OID”时，请检查是否在DasWetter中使用“ NextDaysDetailed”。
-您可能需要启用“ NextDaysDetailed”。
+### 使用 DasWetter 时不会自动创建 OID
+当您选择实例或数据结构时，通常会自动创建 OID。当您收到“没有可用的 OID”时，请检查您是否在 DasWetter 中使用了“NextDaysDetailed”。
+您可能需要启用“NextDaysDetailed”。
 
 ＃＃ 已知的问题
-*如果发现错误或希望获得新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
+* 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) 创建问题
 
 ## Changelog
+
+### 2.5.7 (in progress)
+
+### 2.5.6 (2022-08-18)
+* (René) tooltip with value added as an option
+* (René) flot update
+* (René) dependencies update
+
+### 2.5.5 (2021-11-07)
+* (René) bug fix color of labels in widget
+
+### 2.5.4 (2021-10-30)
+* (René) see issue #37: avoid endless loop
+* (René) update flot to 4.2.2
 
 ### 2.5.3 (2021-03-21)
 * (René) dependencies updated
@@ -131,10 +145,24 @@ hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 * (René) initial release
 
 ## License
-Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
+MIT License
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

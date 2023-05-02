@@ -72,6 +72,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `imageSendTo` Control to JSONConfig
+
 ### 6.4.3 (2023-03-31)
 * (bluefox) Corrected the folder rights edit dialog
 

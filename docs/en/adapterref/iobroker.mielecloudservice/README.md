@@ -113,6 +113,12 @@ If you like to get a deeper understanding or need a raw-value translation please
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 6.5.3 (2023-04-26) (Dying for an Angel)
+* (grizzelbee) Fix: two minor bug fixes 
+
+### 6.5.2 (2023-04-21) (Dying for an Angel)
+* (grizzelbee) Fix: [367](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/367) Fixed "oauth is not a function" error during startup by downgrading axios-oauth-client to v1.5.0
+
 ### 6.5.1 (2023-04-21) (Dying for an Angel)
 * (grizzelbee) Fix: Some minor fixes for ioBroker adapter checker
 
@@ -127,7 +133,7 @@ If you like to get a deeper understanding or need a raw-value translation please
 * (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
 * (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERROR occurred when switching ventilationStep
 * (grizzelbee) Fix: [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356) In some cases the value 0 (zero) is ignored (e.g. at PlateStep)
-* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup with downgrade of axios-oauth-client to v1.5.0
+* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup by downgrading axios-oauth-client to v1.5.0
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的 Ecovacs Deebot 适配器
-hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
+hash: COLurwRj6WJlVjKYGfOrVZLpkwhLfYHFrZOIRdwuSI0=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -44,11 +44,11 @@ hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 完全支持的模型是我自己拥有的模型：
 
 * 地宝 OZMO 920
-* 地宝T8 AIVI
+* 地宝 OZMO T8 AIVI
 * 地宝 X1 Turbo
 
 ### 其他支持的模型
-这些模型应该可以正常工作或至少可以部分工作。
+这些模型应该可以正常或至少部分正常工作。
 它们要么已知可以工作，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
@@ -64,7 +64,7 @@ hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 * 地宝T10系列
 * 地宝X1系列
 
-#### Yeedi（从1.4.5版本开始）
+#### Yeedi（自1.4.5版本开始）
 * 亿迪k650
 * yeedi 2 混合动力车
 * yeedi vac 混合动力车
@@ -94,7 +94,7 @@ hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 ###先决条件
 要使用此适配器，您需要已经安装了 [io经纪人](iobroker.net)。
 
-Node.js 的最低要求版本是 14.x。建议使用 14.x 或 16.x 版本
+Node.js 的最低要求版本是 14.x。建议使用 16.x 或 18.x 版本
 
 ### 可选先决条件
 此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现一些与地图相关的功能，这些功能可能需要安装一些额外的包。
@@ -128,7 +128,7 @@ npm install canvas --unsafe-perm=true
 ＃＃ 已知的问题
 * 地图图片的生成目前在32位系统上不稳定
 *“边缘”功能不适用于 Deebot U2（改为启动自动清洁）
-* “移动”功能不适用于 Deebot OZMO T8 AIVI（可能也适用于某些其他型号）
+* “移动”功能在某些型号上无法正常使用
 * 地宝X1系列无法正常生成地图图片
 
 ##免责声明
@@ -136,7 +136,10 @@ npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.4.13 (latest beta)
+### 1.4.14 (alpha)
+* Bumped ecovacs-deebot.js to 0.9.6 (alpha)
+
+### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations

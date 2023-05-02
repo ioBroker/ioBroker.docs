@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
+hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 ---
 ![标识](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
@@ -15,22 +15,44 @@ hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
 # IoBroker.fullcalendar
 附有 [全日历](https://fullcalendar.io) 的时间表。
 
+## 计划事件（控制您的设备）
 您不得使用任何外部资源，日程安排仅在 ioBroker 中处理，不会与“谷歌日历”或“iTunes”等任何外部服务结合使用。
 
 ![例子](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
 您可以使用日历控制您的事件，并可以计划定期控制它们。
 
+## 事件模拟
+您可以记录您的行为并可以稍后回放。
+例如，您可以为工作日和周末创建两个录音，并在相应的日期回放。
+
+或者，您可以录制整个星期，并可以在接下来的几周外出时回放。
+
+如何使用：
+
+- 转到模拟选项卡
+- 通过单击“+”按钮并选择模拟类型来创建新模拟：天或周
+- 单击记录按钮并等待 24 小时或 7 天，直到模拟停止以记录事件
+- 现在您可以通过单击播放按钮来重播模拟。此外，您可以定义模拟开始的时间。
+
 ＃＃ 去做
 - 周和日必须滚动到当前时间
-- 天文事件
 
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### 2.0.2 (2023-03-03)
+### 2.2.1 (2023-04-25)
+* (bluefox) Corrected stop of the recording
+
+### 2.2.0 (2023-04-24)
+* (bluefox) Added simulation of events
+
+### 2.0.8 (2023-03-24)
+* (bluefox) Corrected vis-2 widgets
+
+### 2.0.5 (2023-03-07)
 * (bluefox) New material design
 * (bluefox) License changed to MIT
 * (bluefox) Allowed deletion of events

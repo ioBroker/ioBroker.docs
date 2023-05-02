@@ -19,11 +19,17 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 # ioBroker.gira-iot
 
+## Compatible devices
+
+- Gira X1
+- Gira Homeserver
+- Gira One Server
+
 ## Getting started
 
-- Install the iobroker.web adapter and create a new instance
+- Install the [iobroker.web](https://github.com/ioBroker/ioBroker.web) adapter and create a new instance
 - Configure HTTPS (secure) on that instance and choose the IP address which should be used for external connections
-- Choose this web instance in the configuration of the gira-iot instance
+- Choose this web instance in the configuration of the `gira-iot` instance
 - Configure IP, user name and password of your Gira X1 (or Home Server) in the instance
 - Start the instance
 
@@ -34,6 +40,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added missing channel type for remote access
 * (klein0r) Url preview in instance configuration
 
 ### 0.2.1 (2023-01-11)

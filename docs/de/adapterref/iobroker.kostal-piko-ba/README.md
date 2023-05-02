@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: A7tFCf5bR7dPx8nF+Ii+hjqwVwKSbcr/8WiYrVuss+w=
+hash: z2vTSHYACAYAKPB30EQQz5xNuEkkLXoI6VGlOaQSraA=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
@@ -22,12 +22,12 @@ CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workf
 Adapter zum Auslesen von Kostal Piko, Piko BA und PIKO MP plus Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
 Adapter für Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA Wechselrichter.
 Adapter funktioniert auch mit Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 Wechselrichtern.
-NEU! Adapter funktioniert jetzt mit MP plus Wechselrichtern - zuerst getestet: Kostal PIKO 3.0-1 MP plus.
+NEU! Adapter funktioniert jetzt auch mit MP plus Wechselrichtern - getestet mit Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
 Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Beachten Sie, dass Ihr Piko oder Piko BA Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Pico (BA / MP plus) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
-Sie können auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livezeit-Statistiken bearbeiten.
+Beachten Sie, dass Ihr Piko oder Piko BA Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Piko (BA / MP plus) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
+Optional können Sie auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livetime-Statistiken bearbeiten.
 Falls erforderlich und von Ihrer Hardware unterstützt, setzen Sie auch die Markierung zum Auslesen der 4 Analogwerte.
 
 ## Anmerkungen
@@ -37,6 +37,10 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.1 (25.04.2023)
+* (HombachC) fixed a sentry reported error
+### 2.5.0 (22.04.2023)
+* (HombachC) implemented battery power calculation
 ### 2.4.7 (13.04.2023)
 * (HombachC) improved error handling
 ### 2.4.6 (09.04.2023)

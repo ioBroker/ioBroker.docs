@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wireless-mbus/README.md
 title: ioBroker.wireless-mbus
-hash: wy27De1OJrS3cu5mCi9Q6JYv4VVWnaIpNpmMzo3gAZU=
+hash: WaDrfxroKLGkvsTM/KcLrPAAFsIwdGoGppnAF4C/Wzw=
 ---
 ![标识](../../../en/adapterref/iobroker.wireless-mbus/admin/wireless-mbus.png)
 
@@ -27,6 +27,12 @@ WMBUS 堆栈已从 FHEM 项目“重新移植”，并进行了广泛的修复�
 如果解析器失败，原始电报数据将保存到 info.rawdata 状态。
 
 *注意：* 在 C 模式下，Amber 接收器似乎会在一段时间（或接收到的消息数量）后崩溃？硬件缺陷？
+
+*IMST iM871A 变体：* 存在一个“RWE Smart Home”USB 接收器，原则上是 IMST iM871A，但内核不会自动加载相应的驱动程序。这是创建一个 udev 规则来解决这个问题的单行代码：
+
+```shell
+sudo bash -c "echo \$'ACTION==\"add\", ATTRS{idVendor}==\"10c4\", ATTRS{idProduct}==\"87ed\", RUN+=\"/sbin/modprobe cp210x\" RUN+=\"/bin/sh -c \\'echo 10c4 87ed > /sys/bus/usb-serial/drivers/cp210x/new_id\\'\"' > /etc/udev/rules.d/99-imst.rules"
+```
 
 ## 链接：
 * [WMBus 堆栈模块](https://github.com/mhop/fhem-mirror/blob/master/fhem/FHEM/WMBus.pm)
@@ -55,8 +61,9 @@ WMBUS 堆栈已从 FHEM 项目“重新移植”，并进行了广泛的修复�
 ＃＃ 去做
 * 为 S 模式接收器发送电报？
 
-## 在制品
+## 0.9.0
 * (ChL/kubax) 实验性的！为所有设备启用 serial over raw TCP socket - 使用 `tcp://host:port` 作为自定义串口
+* serialport 升级到 v11 - 这最终打破了节点 v12 支持！
 
 ## 0.8.10
 *（ChL）独立于制造商代码使用紧凑型帧缓存

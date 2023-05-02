@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-вис
-hash: AlAILR3HvRW3UqUws4L9pAYEDXsJAqqFJP/8fBBF1uI=
+hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -25,80 +25,119 @@ hash: AlAILR3HvRW3UqUws4L9pAYEDXsJAqqFJP/8fBBF1uI=
 ## Функциональность
 Таймер или несколько с помощью голосового ввода создается через Alexa, это оценивается адаптером и записывается в состояния, чтобы сделать их видимыми в Vis. Таким образом, у вас будет лучший обзор, если у вас одновременно активны несколько таймеров.
 
-* ---- Требуется адаптер Alexa2 ----
-* Виджет Vis еще не интегрирован
-* Каждый таймер имеет кнопку, чтобы остановить его. Останавливает таймер в Alexa и в адаптере
-* С Alexa можно создавать неограниченное количество таймеров с помощью голосовой команды.
-* При запуске адаптера создаются 4 папки со всеми состояниями.
-* Дополнительные папки будут созданы, как только будет создан 5-й и более таймеров с помощью голосового ввода Alexa.
-* Он работает с немецким вводом
+- ---- Требуется адаптер Alexa2 ----
+- Виджет Vis еще не интегрирован
+- У каждого таймера есть кнопка, чтобы остановить его. Останавливает таймер в Alexa и в адаптере
+- С Alexa можно создавать неограниченное количество таймеров с помощью голосовой команды.
+- При запуске адаптера создаются 4 папки со всеми состояниями.
+- Дополнительные папки будут созданы, как только будет создан 5-й и более таймеров с помощью голосового ввода Alexa.
+- Он работает с немецким вводом
 
 ### Добавление таймера ( Примеры )
-* Alexa, Таймер 5 минут
-* Алекса, жарит Таймер 9 минут
-* Alexa, поставь таймер на 1 час 30 минут
-* Alexa, поставь таймер на 2 часа
-* Alexa, Таймер на 120 минут
-* Alexa, Таймер 9 минут Спагетти
+- Алекса, Таймер 5 минут
+- Алекса, картофель фри Таймер 9 минут
+- Алекса, поставь таймер на 1 час 30 минут.
+- Алекса, поставь таймер на 2 часа
+- Алекса, Таймер на 120 минут
+- Алекса, Таймер 9 минут Спагетти
 
 ### Удаление таймера ( Примеры )
-* Алекса, удали все таймеры
-* Алекса, удалить фри Таймер
-* Alexa, удалить Таймер 5 минут
+- Алекса, удали все таймеры
+- Alexa, удалить картофель фри Таймер
+- Alexa, удалить 5 минут Таймер
 
 ### Если у вас есть какие-либо предложения по улучшению или добавлению других функций, не стесняйтесь обращаться к нам
 
 ## Changelog
+
 ### 0.1.15 (22.09.2022)
-* Include creation time to avoid creating duplicate timers
+
+- Include creation time to avoid creating duplicate timers
+
 ### 0.1.14 (17.07.2022)
-* Added debouncing in the adapter configuration
+
+- Added debouncing in the adapter configuration
+
 ### 0.0.13 (06.03.2022)
-* Delete of Timers with the same value, fixed
+
+- Delete of Timers with the same value, fixed
+
 ### 0.1.12 (15.02.2022)
-* Delete of Timer fixed
+
+- Delete of Timer fixed
+
 ### 0.1.11 (12.02.2022)
-* Delete of Timer with same Inputvalue, fixed
-* User can set the Intervall in admin
+
+- Delete of Timer with same Inputvalue, fixed
+- User can set the Intervall in admin
+
 ### 0.1.9 (30.1.2022)
-* Bugfix
+
+- Bugfix
+
 ### 0.1.8 (28.01.2022)
-* Bugfix
-* Button added to stop the Timer
+
+- Bugfix
+- Button added to stop the Timer
+
 ### 0.1.7 (22.06.2022)
-* New State, "Input Device"
+
+- New State, "Input Device"
+
 ### 0.1.6 (17.01.2022)
-* numbers from 1-9 are always displayed as two digits, 1 => 01
-* When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise errors will occur
+
+- numbers from 1-9 are always displayed as two digits, 1 => 01
+- When you update to this or a newer Version, please delete the timer folders or delete the whole adapter, otherwise errors will occur
+
 ### 0.1.5 (08.01.2022)
-* New keywords added
+
+- New keywords added
+
 ### 0.1.4 (05.01.2022)
-* States will be reset on adapter unload
-* Bugfix
+
+- States will be reset on adapter unload
+- Bugfix
+
 ### 0.1.3 (02.01.2022)
-* Start and EndTime added
+
+- Start and EndTime added
+
 ### 0.1.2 (31.12.2021)
-* Bugfix (A double created Intervall, fixed)
+
+- Bugfix (A double created Intervall, fixed)
+
 ### 0.1.1 (29.12.2021)
-* Adaptation to the English language (experimental)
-* Anpassung an die Englische Sprache (experimentell)
+
+- Adaptation to the English language (experimental)
+- Anpassung an die Englische Sprache (experimentell)
+
 ### 0.1.0 (28.12.021)
-* Fixed bug when deleting intervals and timeouts after shutdown
-* Fehler beim Löschen von Intervallen und Timeouts nach dem Shutdown, behoben
+
+- Fixed bug when deleting intervals and timeouts after shutdown
+- Fehler beim Löschen von Intervallen und Timeouts nach dem Shutdown, behoben
+
 ### 0.0.4 (27.12.2021)
-* Adaptation to various options for entering a timer
-* Anpassung an verschiedener Möglichkeiten der Eingabe eines Timers
+
+- Adaptation to various options for entering a timer
+- Anpassung an verschiedener Möglichkeiten der Eingabe eines Timers
+
 ### 0.0.3 (26.12.2021)
-* (Michael Roling) Bugfix
+
+- (Michael Roling) Bugfix
+
 ### 0.0.2 (26.12.2021)
-* (Michael Roling) Bugfix
+
+- (Michael Roling) Bugfix
+
 ### 0.0.1 (25.12.2021)
-* (Michael Roling) initial release
+
+- (Michael Roling) initial release
 
 ## License
-MIT License
 
-Copyright (c) 2021-2022 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2023 Michael Roling <michael.roling@gmx.de>
+
+MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -30,10 +30,12 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
 
 ## Changelog
 <!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 * (klein0r) Dependencies updated
 
 ### 1.1.1 (2022-02-01)

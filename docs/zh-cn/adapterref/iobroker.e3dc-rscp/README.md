@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: IPDuB8ieQ31a03EFmwQT3/2jDaxry3DPm0UCFG1J4cY=
+hash: ocVtS7dEWuePymh8vavUv1i27b1pL+NS9aMBWtdbCjQ=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -41,7 +41,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 ### 适配器配置重用
 您可以使用实例设置中内置的“保存”/“加载”按钮将适配器设置保存在 json 文件中并从那里加载它，例如在您完成全新的 ioBroker 安装之后。
 
-但是：在某些情况下，重用适配器配置会导致意外行为。在新适配器版本引入新参数（例如轮询间隔列表中的新行）的情况下，从旧 json 文件重新加载设置将删除这些新参数。 **这就是为什么通常建议从空白设置开始并至少为每个新的次要版本 Y (x.Y.z) 重新输入它们的原因：**
+但是：在某些情况下，重用适配器配置会导致意外行为。在新适配器版本引入新参数的情况下，例如轮询间隔列表中的新行，从旧的 json 文件重新加载设置将删除这些新参数。 **这就是为什么通常建议从空白设置开始并至少为每个新的主要 (X) 或次要 (Y) 版本 (X.Y.z) 重新输入它们的原因：**
 
 1.删除e3dc-rscp实例
 2.新建一个e3dc-rscp实例
@@ -64,7 +64,7 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 
 * 特定数据保留
 * 具体数据分辨率
-* 具体数据汇总
+* 具体数据聚合
 
 需要进一步调查。
 
@@ -92,7 +92,7 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 请记住：
 
 * 适配器用于触发 RSCP 并在 ioBroker 的对象树中提供结果，仅此而已。进一步的处理或存储留给其他代码。
-* **要搜索当前不受支持的 RSCP 命名空间和标签，请参考 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表**。
+* **要搜索当前不支持的 RSCP 命名空间和标签，请参考 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表**。
 * 未在 RSCP 标签列表中列出或以其他方式显示已交付的所有物品均被视为“超出范围”。
 
 <a name="sam"></a>
@@ -101,13 +101,17 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 // 触发器：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网电源位于降低阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
-### 1.2.0
+### 1.2.1
 
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 
 (git-kick)
 * Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
 * Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - DEPRECATED - DO NOT INSTALL -
 
 ### 1.1.2
 (ka-vaNu)
@@ -937,4 +941,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

@@ -121,6 +121,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added `imageSendTo` Control to JSONConfig
+
 ### 6.4.3 (2023-03-31)
 * (bluefox) Corrected the folder rights edit dialog
 
