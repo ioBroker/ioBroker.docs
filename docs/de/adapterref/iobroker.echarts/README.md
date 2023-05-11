@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
+hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -12,11 +12,11 @@ hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
-## ECharts-Adapter für ioBroker
+## Echarts-Adapter für ioBroker
 Erstellen Sie nützliche Diagramme in ioBroker:
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
@@ -28,15 +28,15 @@ Nach dem Neustart den Tab im Admin hinzufügen: ![Administrator](../../../en/ada
 
 Auf die erstellte Voreinstellung kann auch im Webadapter zugegriffen werden. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
-Für vis gibt es ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
+Für `vis` gibt es ein spezielles Widget mit einfacher Auswahl von Voreinstellungen.
 
-### Kurzinfo
-Der Kleinbuchstabe `i` gibt an, dass der Wert aus den 2 Nachbarwerten interpoliert wurde und zu diesem Zeitstempel nicht existiert.
+### Tooltip
+Der Kleinbuchstabe `i` gibt an, dass der Wert aus den 2-Nachbarwerten interpoliert wurde und zu diesem Zeitstempel nicht existiert.
 
-![Kurzinfo](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
+![Tooltip](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
-### Daten von JSON
-Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Zustand vom Typ `json` erstellen und den Wert wie folgt speichern:
+### Daten aus JSON
+Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie einen benutzerdefinierten Status vom Typ `json` erstellen und den Wert wie folgt speichern:
 
 ```
 [
@@ -47,14 +47,14 @@ Sie können die Datenquelle aus JSON definieren. In diesem Fall können Sie eine
 ```
 
 Alternative folgende Attributnamen werden für `val` unterstützt: `value`, `v`, `data`, `y`.
-Und folgende für `ts`: `time`, `t`, `date`.
+Und Folgendes für `ts`: `time`, `t`, `date`.
 
-Sie können Start und Start nicht in den Echolot-Einstellungen definieren. Beginn und Ende werden automatisch aus den Daten berechnet.
-Eine Aggregation ist ebenfalls nicht möglich. Alle Manipulationen müssen durch Schreiben der JSON-Daten erfolgen.
+Sie können Start und Start nicht in den Echarts-Einstellungen definieren. Start und Ende werden automatisch aus den Daten berechnet.
+Auch eine Aggregation ist nicht möglich. Alle Manipulationen müssen durch Schreiben der JSON-Daten erfolgen.
 Das Diagramm wird jedes Mal automatisch aktualisiert, wenn sich der Wert ändert.
 
-### Serverseitiges Rendern
-Sie können die Voreinstellungen auf dem Server rendern und als base64-URL abrufen oder auf der Festplatte in der ioBroker-DB speichern:
+### Serverseitiges Rendering
+Sie können die Voreinstellungen auf dem Server rendern und als Base64-URL abrufen oder auf der Festplatte in der ioBroker-Datenbank speichern:
 
 ```
 sendTo('echarts.0', {
@@ -85,29 +85,32 @@ sendTo('echarts.0', {
 });
 ```
 
-**Achtung: Auf Touch-Geräten mit aktiviertem Zoom können Sie die Linien in der Legende nicht aktivieren/deaktivieren**
+**Achtung: Sie können Linien in der Legende auf Touch-Geräten mit aktiviertem Zoom nicht aktivieren/deaktivieren**
 
 ## Entwicklerhandbuch
 **Für Nicht-Entwickler funktioniert dieser Link nicht!**
 
 Sie können Ansichtsdiagramme lokal debuggen mit:
 
-- cd iobroker.echarts/src-chart
-- npm-Lauf starten
+- CD iobroker.echarts/src-chart
+- NPM-Laufstart
 - Browser: http://localhost:8081/adapter/echarts/tab.html?dev=true
 
 ## Machen
-- Widget für vis (Schaltfläche)
+- Widget für Vis (Button)
 - Widget für Material
-- Aufzählungssymbole in Ordnern oder in der Nähe anzeigen
+- Enum-Symbole in Ordnern oder in deren Nähe anzeigen
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.4.15 (2023-05-10)
+* (bluefox) Allowed using the timestamp in seconds in JSON sources
+
 ### 1.4.14 (2023-04-20)
-* (bluefox) Added support of alternative names for JSON sources
+* (bluefox) Added support for the alternative names for JSON sources
 
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
@@ -125,7 +128,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Implemented custom texts for true and false values
 
 ### 1.4.5 (2023-02-16)
-* (bluefox) Allowed to copy only the web URLs in the preview
+* (bluefox) Allowed copying only the web URLs in the preview
 * (bluefox) Corrected boolean charts
 
 ### 1.4.3 (2023-02-15)
@@ -140,7 +143,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Added possibility to load the history data from JSON state.
 
 ### 1.3.4 (2023-02-08)
-* (bluefox) added a formula for the values conversion
+* (bluefox) Added a formula for the value conversion
 
 ### 1.3.3 (2023-02-08)
 * (bluefox) Implemented bar chart
@@ -166,7 +169,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.9 (2022-06-17)
-* (bluefox) Added 2 weeks as relative period
+* (bluefox) Added 2 weeks as a relative period
 
 ### 1.0.8 (2022-06-01)
 * (bluefox) Added option `shift+mouse move` to scale Y axis
@@ -269,7 +272,7 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 * (bluefox) Implemented the grouping by the category.
 
 ### 0.1.2 (2020-10-21)
-* (bluefox) Added support of multiple charts
+* (bluefox) Added support for multiple charts
 
 ### 0.1.1 (2020-10-21)
 * (bluefox) initial release

@@ -60,30 +60,25 @@ If you want to take the json graph and table you can use this [example](./vis.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 2.6.0 (2023-03-09)
+### 2.7.1 (2023-05-10)
+* (klein0r) Summary channel should not be deleted
 
+### 2.7.0 (2023-05-09)
+* (klein0r) Request forecast data in correct timezone
+* (bluefox) Type of the `summary` object was changed to `device`
+
+### 2.6.0 (2023-03-09)
 * (arteck) chart summary for more strings
 * (klein0r) Fixed charting summary
 * (klein0r) Rounded values in JSON summary
 
 ### 2.5.2 (2023-03-08)
-
 * (klein0r) Fixed error when weather data could not be fetched
 
 ### 2.5.1 (2023-01-13)
 * (klein0r) Fixed JSON table when using solcast
 
-### 2.5.0 (2023-01-11)
-* (klein0r) Added hourly values for energy
-* (Apollon77) Added Sentry for crash reporting
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
-### 2.4.0 (2022-12-09)
-* (stromdao) Added SolarPredictionAPI
-
 ## License
-
 MIT License
 
 Copyright (c) 2021-2023 Patrick-Walther

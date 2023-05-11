@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
+hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -14,36 +14,40 @@ hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
 ![NPM](https://nodei.co/npm/iobroker.alexa-timer-vis.png?downloads=true)
 
 # IoBroker.alexa-timer-vis
-**Tests:** ![Testen und freigeben](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-timer-vis/workflows/Test%20and%20Release/badge.svg)
 
 ## Alexa-timer-vis-Adapter für ioBroker
-Geben Sie den Alexa-Timer zur Anzeige im Vis aus
+Ausgabe des Alexa-Timers zur Anzeige im Vis
 
-### Dies ist ein Beispiel für mein vis
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+
+### Dies ist ein Beispiel meines Vis
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)
 
 ## Funktionalität
-Ein Timer oder mehrere per Spracheingabe, wird über Alexa erstellt, dieser wird vom Adapter ausgewertet und in Zustände geschrieben um diese im Vis sichtbar zu machen. So haben Sie eine bessere Übersicht, wenn Sie mehrere Timer gleichzeitig aktiv haben.
+Über Alexa wird ein oder mehrere Timer per Spracheingabe erstellt, diese werden vom Adapter ausgewertet und in Zustände geschrieben, um diese im Vis sichtbar zu machen. So haben Sie einen besseren Überblick, wenn Sie mehrere Timer gleichzeitig aktiv haben.
 
-- ---- Alexa2 Adapter wird benötigt ----
+- ---- Alexa2-Adapter wird benötigt ----
 - Das Vis Widget ist noch nicht integriert
 - Jeder Timer hat eine Taste, um ihn zu stoppen. Stoppt den Timer in Alexa und im Adapter
 - Unbegrenzte Timer können mit Alexa per Sprachbefehl erstellt werden.
-- Beim Start des Adapters werden 4 Ordner mit allen Zuständen angelegt.
-- Zusätzliche Ordner werden erstellt, sobald ein 5. und mehr Timer über die Spracheingabe von Alexa erstellt werden.
+- Beim Start des Adapters werden 4 Ordner mit allen Zuständen erstellt.
+- Zusätzliche Ordner werden erstellt, sobald ein 5. und weitere Timer über die Spracheingabe von Alexa erstellt werden.
 - Es funktioniert mit deutscher Eingabe
 
-### Timer hinzufügen ( Beispiele )
+### Timer hinzufügen (Beispiele)
 - Alexa, Timer 5 Minuten
-- Alexa, Pommes Timer 9 Minuten
+- Alexa, Pommes-Timer 9 Minuten
 - Alexa, stelle einen Timer auf 1 Stunde und 30 Minuten
 - Alexa, stelle einen Timer auf 2 Stunden
 - Alexa, Timer für 120 Minuten
 - Alexa, Timer 9 Minuten Spaghetti
 
-### Timer löschen ( Beispiele )
+### Timer löschen (Beispiele)
 - Alexa, lösche alle Timer
-- Alexa, Pommes-Timer löschen
+- Alexa, lösche den Pommes-Timer
 - Alexa, lösche den 5-Minuten-Timer
 
 ### Wenn Sie Vorschläge haben, etwas zu verbessern oder weitere Funktionen hinzuzufügen, können Sie sich gerne an uns wenden

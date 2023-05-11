@@ -3,14 +3,15 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: QkhH6qFpl+fwsn0v+WwUtamC4pIlVNf10o9cSpzX+cU=
+hash: s9j/diXoENNlkXNzKhLMccdP5Lo/FFRHRQ35GraehFM=
 ---
 ![标识](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
 
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![安装](http://iobroker.live/badges/procon-ip-installed.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
 ![已知漏洞](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
+![给我买杯咖啡](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat)
 ![NPM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
 
 # IoBroker.procon-ip

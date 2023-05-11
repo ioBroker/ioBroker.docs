@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mikrotik/README.md
 title: 无题
-hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
+hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
 ---
 ![标识](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker MikroTik 路由器适配器
 
 ![安装数量](http://iobroker.live/badges/mikrotik-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.mikrotik.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.mikrotik.svg)
-![新PM](https://nodei.co/npm/iobroker.mikrotik.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.mikrotik.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
 
 =================
@@ -18,20 +18,24 @@ hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
 [![测试](https://github.com/instalator/iobroker.mikrotik/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.mikrotik/actions/)
 
 ＃＃ 使用
-### Add_firewall
+### 添加防火墙
 将地址添加到防火墙列表并启用。
 例如`name,127.0.0.1,comment`。
 
-### Raw 向 mikrotik 发送 api 命令，执行结果将在 `mikrotik.0.commands.response` 对象中接收，例如：`/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`。或`ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org``ip/kid-control/print``ip/kid-control/pause .id=*1``ip/kid-control/resume .id=*1`
-### Reboot, shutdown 重启/关闭 mikrotik
-### Usb_reset 在 mikrotik 中重置电源 USB
+### Raw 向 mikrotik 发送 api 命令，执行结果将在 `mikrotik.0.commands.response` 对象中接收，例如：`/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`。或者 `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org` `ip/kid-control/print` `ip/kid-control/pause .id=*1` `ip/kid-control/resume .id=*1`
+### 重新启动，关闭重新启动/关闭 mikrotik
+### Usb_reset 在 mikrotik 中重置 USB 电源
 *创建的对象在路由器中删除时不会自动删除。*
 
-<!-- 下一个版本的占位符（在行首）：
-
-### **正在进行中** -->
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
 

@@ -113,8 +113,11 @@ If you like to get a deeper understanding or need a raw-value translation please
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 6.5.4 (2023-05-03) (Dying for an Angel)
+* (grizzelbee) New: Added file `.ncurc.json` to prevent axios-oauth-client from being automatically updated by `npx npm-check-updates` 
+
 ### 6.5.3 (2023-04-26) (Dying for an Angel)
-* (grizzelbee) Fix: two minor bug fixes 
+* (grizzelbee) Fix: two minor bug fixes - including a fix that prevents objects from being updated constantly.
 
 ### 6.5.2 (2023-04-21) (Dying for an Angel)
 * (grizzelbee) Fix: [367](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/367) Fixed "oauth is not a function" error during startup by downgrading axios-oauth-client to v1.5.0

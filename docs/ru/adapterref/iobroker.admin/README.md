@@ -168,8 +168,9 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.4.4 (2023-05-10)
 * (bluefox) Added `imageSendTo` Control to JSONConfig
+* (bluefox) Added possibility to filter objects in selectID JSON component
 
 ### 6.4.3 (2023-03-31)
 * (bluefox) Corrected the folder rights edit dialog
@@ -185,10 +186,6 @@ IP-адрес с которого доступен драйвер (поддер�
 * (bluefox) Breaking change: Configuration of Let's encrypt certificates moved to `iobroker.acme` adapter
 * (bluefox) Added port controller to JSON config
 * (bluefox) Added `certificates` to JSON config
-
-### 6.3.7 (2023-03-12)
-* (bluefox) Better tooltips in object browser 
-* Added again possibility to hide/show of columns in object browser
 
 ## License
 The MIT License (MIT)

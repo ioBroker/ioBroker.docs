@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homepilot/README.md
 title: ioBroker.homepilot
-hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
+hash: Qr538CSIqS4MSNYizNQlWNosoc7hZnbsf0aYbEnxf2g=
 ---
 ![Logo](../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -13,11 +13,12 @@ hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
 ![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
 
 # IoBroker.homepilot
-Für den Adapter muss die Firmware der Homepilot-Basisstation niedriger als v5.0 sein (vor September 2019). Neuere oder aktualisierte Stationen können mit [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20) NodeJS 10 oder höher benötigt werden
+## _Für den Adapter muss die Firmware der Homepilot-Basisstation niedriger als Version 5.0 sein (vor September 2019)._<br> _Neuere oder aktualisierte Sender können mit [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_ verwaltet werden
+NodeJS 10 oder höher erforderlich
 
 :de: [Dokumentation](/docs/de/doc_homepilot_de.md)
 
-:de: [Dokumentation](/docs/en/doc_homepilot_en.md)
+:uk: [Dokumentation](/docs/en/doc_homepilot_en.md)
 
 :ru: [Документация](/docs/en/doc_homepilot_en.md)
 
@@ -33,14 +34,22 @@ Für den Adapter muss die Firmware der Homepilot-Basisstation niedriger als v5.0
 
 :polen: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
-## Fahrplan
-* 1.4.0 erhalten Sie eine Liste aller installierten duofern-Produkte in Ihrem Netzwerk innerhalb des Einstellungsfensters
-* 1.5.0 Neuanordnung des Objektbaums in "homepilot.0.device.channel.state"
-* 2.0.0 erhält Live-Daten von der Homepilot-Station (zwave)
+## Roadmap
+* 1.4.0 Erhalten Sie im Einstellungsfenster eine Liste aller in Ihrem Netzwerk installierten duofern-Produkte
+* 1.5.0 Objektbaum neu anordnen zu „homepilot.0.device.channel.state“
+* 2.0.0 Live-Daten von der Homepilot-Station (zwave) abrufen
 
 Beiträge sind willkommen!
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 

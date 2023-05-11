@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: vNe2oQwLJNq1xES7Qu7jgL2/Vl9PvpaF+NpDK5kAb9o=
+hash: Bd/CkPFXjOCc+reNALfXyYMiwneHDVSjKuII/6c5/zA=
 ---
 ![标识](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -111,7 +111,7 @@ hash: vNe2oQwLJNq1xES7Qu7jgL2/Vl9PvpaF+NpDK5kAb9o=
 
 * 固定每个房间的温度
 
-如果选择此选项，则每个房间的对象树中都会出现一个新数据点。您可以在此处设置一个固定目标温度，该温度在供暖期未激活时设置。
+如果选择此选项，则每个房间的对象树中都会出现一个新数据点。您可以在此处设置一个固定的目标温度，该温度是在加热周期未激活时设置的。
 
 * 修复所有房间的温度
 
@@ -120,7 +120,7 @@ hash: vNe2oQwLJNq1xES7Qu7jgL2/Vl9PvpaF+NpDK5kAb9o=
 * 没有什么
 
 使用此选项，如果没有加热期处于活动状态，则不会向恒温器发送任何内容。当加热期仍处于活动状态时，目标温度与上次目标保持一致。
-在这种情况下，如果您使用适配器中的执行器，那么您可以定义执行器的设置方式（关闭、打开或保持原样）
+在这种情况下，如果您使用适配器中的执行器，则可以定义执行器的设置方式（关闭、打开或保持原样）
 
 ＃＃ 其他的
 * HolidayPresent / PublicHolidyToday
@@ -200,8 +200,14 @@ CopyPeriods 每天或周一至周五每间客房提供。这会将句点复制�
 
 去做
 
+## EVU 演讲时间
+翻译为 wenn EVU Sperrzeit erreicht，werden alle Aktoren ausgeschaltet，und am ende der Sperrzeit wieder eingeschaltet。
+Status auf "EVU Sperrzeit" Ziel: elektrische Heizungen ausschalten und gezielt wieder einschalten, um Belastung der Schütze zu zu minimieren und Einschlatstromstöße zu minimieren 配置： Start / Ende Zeit der EVU Sperrzeit, mehrere Perioden konfigurierbar
+
+-> Alternativ: Temperatur absenken, damit solten die Aktoren indirekt abschalten
+
 ## 问题和功能请求
-* 如果您遇到任何错误或对此适配器有功能请求，请在 [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues) 的适配器的 GitHub 问题部分创建问题).感谢任何反馈，这将有助于改进此适配器。
+* 如果您遇到任何错误或对此适配器有功能请求，请在适配器的 GitHub 问题部分中创建问题 [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ).感谢任何反馈，这将有助于改进此适配器。
 
 ＃＃ 已知的问题
 ### 带 Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 的适配器 – 10fach，230 V
@@ -216,6 +222,12 @@ HM 恒温器有两种型号的开窗功能。一方面作为温度下降检测�
 当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
 
 ## Changelog
+
+### 2.11.0 (in progress)
+* (René) see issue #368: units added in datapoints
+* (René) see issue #361: EVU Sperrzeit to do, siehe auch oben (not yet finished)
+* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #367: wait for set target temperature before checking actor changes
 
 ### 2.10.6 (2023-01-31)
 * (René) see issue #355: reset override is now also with Button ResetManual possible

@@ -194,7 +194,15 @@ Auszug:
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
-->
+-->
+### 1.15.18 (2023-05-08)
+* (foxriver76) no longer support EOL versions, please upgrade to node 16
+
+### 1.15.17 (2023-05-07)
+* (foxriver76) added new images (closes #778, closes #873, closes #882)
+* (foxriver76) fix wrong paramsets (closes #617, closes #584, closes #539, closes #764, closes #460, closes #748, closes #756)
+* (foxriver76) fix wrong events (closes #872)
+
 ### 1.15.16 (2022-12-08)
 * (foxriver76) we have linked images of new devices
 * (foxriver76) we ensure, that the `LEVEL` datapoint of blinds is of role `level.blind` (closes #681)
@@ -431,7 +439,7 @@ of this approach (more requests to CCU on first setup)
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

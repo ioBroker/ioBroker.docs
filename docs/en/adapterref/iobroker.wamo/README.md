@@ -49,25 +49,35 @@ If you find this adapter useful and you want to support this project, your kindn
 ### **WORK IN PROGRESS**
 * (smarthausleben) ADD: [SafeFloor Device] New **SafeFloor Units** Tab in adapter settings to manage up to 4 **_SafeFloor Connect_** devices
 * (smarthausleben) ADD: New option **_"Enable executing test loop"_** in Tab **_"Advanced Options"_** to enable/disable cron based executed [Test Loop]
-* (smarthausleben) ADD: State **_BFT_** - Button filter threshold
-* (smarthausleben) ADD: State **_BPT_** - Button proximity threshold
-* (smarthausleben) ADD: State **_CNF_** - Conductivity factor
-* (smarthausleben) ADD: State **_CNL_** - Conductivity limit
-* (smarthausleben) ADD: State **_DBD_** - MLT pressure drop
-* (smarthausleben) ADD: State **_DBT_** - MLT pressure drop time
-* (smarthausleben) ADD: State **_DCM_** - MLT test time close
-* (smarthausleben) ADD: State **_DOM_** - MLT test time open
-* (smarthausleben) ADD: State **_DPL_** - MLT pulses
-* (smarthausleben) ADD: State **_DST_** - MLT test time NOPULS
-* (smarthausleben) ADD: State **_DTC_** - MLT verification cycles
-* (smarthausleben) ADD: State **_DTT_** - Micro-Leakage-Test start time
-* (smarthausleben) ADD: State **_TTM_** - Turbine no pulse max. time
-* (smarthausleben) ADD: State **_TYP_** - Safe-Tec type
-* (smarthausleben) ADD: State **_WNS_** - WiFi AP disabled
-* (smarthausleben) ADD: State **_HWV_** - Hardware version
-* (smarthausleben) ADD: State **_DKI_** - Safe-Tec device kind ID
-* (smarthausleben) CHG: State **_ALD_** - Alarm duration (signaling time) can now be changed by user
-* (smarthausleben) CHG: State **_CLP_** - Cluster Profile can now be changed by user
+* (smarthausleben) ADD: New option **_"Allow SERVICE and FACTORY state changes"_** in Tab **_"Advanced Options"_** to enable/disable changes of objects protected by the manufacturer 
+* (smarthausleben) ADD: State `BFT` - Button filter threshold
+* (smarthausleben) ADD: State `BPT` - Button proximity threshold
+* (smarthausleben) ADD: State `CNF` - Conductivity factor
+* (smarthausleben) ADD: State `CNL` - Conductivity limit
+* (smarthausleben) ADD: State `DBD` - MLT pressure drop
+* (smarthausleben) ADD: State `DBT` - MLT pressure drop time
+* (smarthausleben) ADD: State `DCM` - MLT test time close
+* (smarthausleben) ADD: State `DOM` - MLT test time open
+* (smarthausleben) ADD: State `DPL` - MLT pulses
+* (smarthausleben) ADD: State `DST` - MLT test time NOPULS
+* (smarthausleben) ADD: State `DTC` - MLT verification cycles
+* (smarthausleben) ADD: State `DTT` - Micro-Leakage-Test start time
+* (smarthausleben) ADD: State `HTD` - Disable HTTPS connection (only MQTT)
+* (smarthausleben) ADD: State `MQT` - MQTT connection type
+* (smarthausleben) ADD: State `MRT` - Maintenance (Husty) server connection
+* (smarthausleben) ADD: State `MSC` - MQTT reconnect time
+* (smarthausleben) ADD: State `DSV` - Micro-Leakage-Test state
+* (smarthausleben) ADD: State `ALH` - Alarm history file
+* (smarthausleben) ADD: State `FSL` - Paired Floorsensors list
+* (smarthausleben) ADD: State `STH` - Statistics history file
+* (smarthausleben) ADD: State `WFL` - WiFi scan
+* (smarthausleben) ADD: State `TTM` - Turbine no pulse max. time
+* (smarthausleben) ADD: State `TYP` - Safe-Tec type
+* (smarthausleben) ADD: State `WNS` - WiFi AP disabled
+* (smarthausleben) ADD: State `HWV` - Hardware version
+* (smarthausleben) ADD: State `DKI` - Safe-Tec device kind ID
+* (smarthausleben) CHG: State `ALD` - Alarm duration (signaling time) can now be changed by user
+* (smarthausleben) CHG: State `CLP` - Cluster Profile can now be changed by user
 
 ### 0.3.0 (2023-04-04) - ***Jam Protection*** release
 * (smarthausleben) ADD: [Main valve jam protection] New State JPR for Jam protection running 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-timer-vis
-hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
+hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 ---
 ![标识](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -18,6 +18,10 @@ hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
 
 ## IoBroker 的 alexa-timer-vis 适配器
 输出Alexa定时器显示在vis中
+
+**如果喜欢，请考虑捐款：**
+
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### 这是我vis的一个例子
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)

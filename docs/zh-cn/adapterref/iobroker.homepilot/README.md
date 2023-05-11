@@ -3,44 +3,53 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homepilot/README.md
 title: ioBroker.homepilot
-hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
+hash: Qr538CSIqS4MSNYizNQlWNosoc7hZnbsf0aYbEnxf2g=
 ---
 ![标识](../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
 ![安装数量](http://iobroker.live/badges/homepilot-stable.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.homepilot.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.homepilot.svg)
-![新PM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
 
 # IoBroker.homepilot
-Adapter 需要 Homepilot 基站的固件低于 v5.0（早于 2019 年 9 月）。可以使用[ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20) NodeJS 10 或更高版本管理更新或更新的电台
+## _Adapter 需要 Homepilot Base Station 的固件低于 v5.0（早于 2019 年 9 月）。_<br> _较新或更新的电台可以使用 [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_ 进行管理
+需要 NodeJS 10 或更高版本
 
-:de: [文档](/docs/de/doc_homepilot_de.md)
+:de: [文档化](/docs/de/doc_homepilot_de.md)
 
-:uk: [文档](/docs/en/doc_homepilot_en.md)
+：英国：[文档](/docs/en/doc_homepilot_en.md)
 
 :ru: [Документация](/docs/en/doc_homepilot_en.md)
 
-：葡萄牙：[文献展](/docs/en/doc_homepilot_en.md)
+:葡萄牙: [文献展](/docs/en/doc_homepilot_en.md)
 
 ：荷兰：[文献资料](/docs/en/doc_homepilot_en.md)
 
 :fr: [文档](/docs/en/doc_homepilot_en.md)
 
-:it: [文献杂志](/docs/en/doc_homepilot_en.md)
+：它：[档案馆](/docs/en/doc_homepilot_en.md)
 
-:es: [文献](/docs/en/doc_homepilot_en.md)
+:es: [文献资料](/docs/en/doc_homepilot_en.md)
 
-:波兰: [多库门塔查](/docs/en/doc_homepilot_en.md)
+：波兰：[文献资料](/docs/en/doc_homepilot_en.md)
 
 ## 路线图
-* 1.4.0 在设置窗口中获取网络中所有已安装 duofern 产品的列表
+* 1.4.0 在设置窗口中获取网络中所有已安装的 duofern 产品的列表
 * 1.5.0 将对象树重新排列为“homepilot.0.device.channel.state”
 * 2.0.0 从 Homepilot 站 (zwave) 获取实时数据
 
 欢迎投稿！
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 

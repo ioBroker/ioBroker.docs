@@ -57,6 +57,14 @@ VIS Widget Beispiel
 ```
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 0.2.1 (2018-08-08)
 * (pix) 0.2.1 Typo fixed
 

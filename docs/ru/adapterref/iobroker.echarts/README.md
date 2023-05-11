@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
+hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -28,7 +28,7 @@ hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 
 Доступ к созданному пресету можно получить и в веб-адаптере. URL-адрес: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
-Для вис есть специальный виджет с удобным выбором пресетов.
+Для `vis` есть специальный виджет с удобным выбором пресетов.
 
 ### Подсказка
 Нижний регистр `i` указывает, что значение было интерполировано из двух соседних значений и не существует в данный момент времени.
@@ -50,7 +50,7 @@ hash: ZVEvCS+j4zVmU1Ke4B4JVF/QCMLdFRNAJseE5fn8HfI=
 И далее для `ts`: `time`, `t`, `date`.
 
 Вы не можете определить начало и начало в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
-Агрегация тоже невозможна. Все манипуляции должны производиться путем записи данных в формате JSON.
+Объединение также невозможно. Все манипуляции должны производиться путем записи данных в формате JSON.
 Диаграмма будет автоматически обновляться каждый раз при изменении значения.
 
 ### Рендеринг на стороне сервера
@@ -106,8 +106,11 @@ sendTo('echarts.0', {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.4.15 (2023-05-10)
+* (bluefox) Allowed using the timestamp in seconds in JSON sources
+
 ### 1.4.14 (2023-04-20)
-* (bluefox) Added support of alternative names for JSON sources
+* (bluefox) Added support for the alternative names for JSON sources
 
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
@@ -125,7 +128,7 @@ sendTo('echarts.0', {
 * (bluefox) Implemented custom texts for true and false values
 
 ### 1.4.5 (2023-02-16)
-* (bluefox) Allowed to copy only the web URLs in the preview
+* (bluefox) Allowed copying only the web URLs in the preview
 * (bluefox) Corrected boolean charts
 
 ### 1.4.3 (2023-02-15)
@@ -140,7 +143,7 @@ sendTo('echarts.0', {
 * (bluefox) Added possibility to load the history data from JSON state.
 
 ### 1.3.4 (2023-02-08)
-* (bluefox) added a formula for the values conversion
+* (bluefox) Added a formula for the value conversion
 
 ### 1.3.3 (2023-02-08)
 * (bluefox) Implemented bar chart
@@ -166,7 +169,7 @@ sendTo('echarts.0', {
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.9 (2022-06-17)
-* (bluefox) Added 2 weeks as relative period
+* (bluefox) Added 2 weeks as a relative period
 
 ### 1.0.8 (2022-06-01)
 * (bluefox) Added option `shift+mouse move` to scale Y axis
@@ -269,7 +272,7 @@ sendTo('echarts.0', {
 * (bluefox) Implemented the grouping by the category.
 
 ### 0.1.2 (2020-10-21)
-* (bluefox) Added support of multiple charts
+* (bluefox) Added support for multiple charts
 
 ### 0.1.1 (2020-10-21)
 * (bluefox) initial release

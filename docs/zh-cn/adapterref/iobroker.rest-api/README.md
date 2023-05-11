@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rest-api/README.md
 title: REST-API 适配器
-hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
+hash: 47/zBapa3b3KU/a954z053ZqAlREJhhi4oO31yBhVMk=
 ---
 ![标识](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -16,11 +16,11 @@ hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 # REST-API 适配器
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-这是 RESTFul 接口，用于从 ioBroker 读取对象和状态，并通过 HTTP Get/Post 请求写入/控制状态。
+这是一个 RESTFul 接口，用于从 ioBroker 读取对象和状态，并通过 HTTP Get/Post 请求写入/控制状态。
 
 这个适配器的用途类似于 simple-api。但是这个适配器支持订阅的长轮询和 URL 钩子。
 
-它有非常有用的网络界面来处理请求：
+它有一个非常有用的网络界面来处理请求：
 
 ![截屏](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
@@ -32,7 +32,7 @@ hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - 将状态读取为 JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - 将状态读取为字符串（仅值）
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - 使用 GET 写入状态（仅用于向后兼容 simple-api）
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 发送消息到 javascript.0在脚本 `scriptName` 中
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - 向 javascript 发送消息。脚本 `scriptName` 中的 0
 
 ## 订阅状态或对象的变化
 您的应用程序可以通过状态或对象的每次更改获得通知。
@@ -47,7 +47,7 @@ node.js 中的示例请参见此处 [demoNodeClient.js](examples/demoNodeClient.
 可以在此处找到浏览器示例：[demoNodeClient.js](examples/demoBrowserClient.html)
 
 ## 网络扩展
-此适配器可以作为网络扩展运行。在这种情况下，路径在 http://iipaddress:8082/rest 下可用
+此适配器可以作为 Web 扩展运行。在这种情况下，路径在 http://iipaddress:8082/rest 下可用
 
 ＃＃ 注意
 - `POST` 始终用于创建资源（如果重复则无关紧要）
@@ -117,7 +117,7 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 - `readLogs(host)` - 读取日志文件的文件名和大小。您可以使用 http://ipaddress:8093/<fileName> 阅读它们
 - `delState(id)` - 删除状态和对象。与 delObject 相同
 - `getRatings(update)` - 读取适配器评级（如在管理员中）
-- `getCurrentInstance()` - 读取适配器命名空间（始终是 rest-api.0）
+- `getCurrentInstance()` - 读取适配器命名空间（始终为 rest-api.0）
 - `checkFeatureSupported(feature)` - 检查 js-controller 是否支持功能。
 - `decrypt(encryptedText)` - 使用系统密码解密字符串
 - `encrypt(plainText)` - 使用系统密码加密字符串
@@ -153,14 +153,15 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 <!-- 结束 -->
 
-＃＃ 去做
-- [] 实现 GET、PATCH、POST、DELETE 文件操作
-
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.1.0 (2023-05-03)
+* (bluefox) Converting of the setState values to the according type
+* (bluefox) Implemented file operations
+
 ### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 

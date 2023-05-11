@@ -79,6 +79,9 @@ Join this room and try it out with your own credentials
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk
+
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
 

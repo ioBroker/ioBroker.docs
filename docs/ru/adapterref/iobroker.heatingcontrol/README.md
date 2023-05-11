@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: vNe2oQwLJNq1xES7Qu7jgL2/Vl9PvpaF+NpDK5kAb9o=
+hash: Bd/CkPFXjOCc+reNALfXyYMiwneHDVSjKuII/6c5/zA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -200,6 +200,12 @@ CopyPeriods доступны в день или с понедельника по
 
 делать
 
+## EVU Sperrzeit
+перевод делать wenn EVU Sperrzeit erreicht, werden alle Aktoren ausgeschaltet, und am ende der Sperrzeit wieder eingeschaltet.
+Status geht auf "EVU Sperrzeit" Ziel: elektrische Heizungen ausschalten und gezielt wieder einschalten, um Belastung der Schütze zu minimieren und Einschlatstromstöße zu minimieren Конфигурация: Start / Ende Zeit der EVU Sperrzeit, mehrere Perioden configurierbar
+
+-> Альтернатива: Temperatur absenken, damit sollten die Aktoren indirekt abschalten
+
 ## Проблемы и пожелания
 * Если вы столкнулись с какими-либо ошибками или у вас есть пожелания для этого адаптера, создайте проблему в разделе проблемы GitHub адаптера по адресу [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). ). Любые отзывы приветствуются и помогут улучшить этот адаптер.
 
@@ -209,13 +215,19 @@ CopyPeriods доступны в день или с понедельника по
 см. также [Форум](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
 ### Функция открытия окна термостатов HM
-Термостаты HM имеют функцию открытого окна в двух вариантах. С одной стороны, в качестве обнаружения перепада температуры, а с другой стороны, в связи с оконным контактом.
+Термостаты HM имеют функцию открытого окна в двух вариантах. С одной стороны, как датчик падения температуры, а с другой стороны, в связи с оконным контактом.
 Эта функция заставляет адаптер переключаться в ручной режим при открытии окна. В идеале эту функцию следует отключить, чтобы не мешать работе адаптера.
 Если термостат использует информацию от оконного датчика, то должна быть включена опция «термостат управляет открытием окна».
 
 Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 ## Changelog
+
+### 2.11.0 (in progress)
+* (René) see issue #368: units added in datapoints
+* (René) see issue #361: EVU Sperrzeit to do, siehe auch oben (not yet finished)
+* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #367: wait for set target temperature before checking actor changes
 
 ### 2.10.6 (2023-01-31)
 * (René) see issue #355: reset override is now also with Button ResetManual possible

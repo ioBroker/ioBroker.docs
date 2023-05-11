@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-список покупок
-hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
+hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -26,7 +26,11 @@ hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
 Вы можете удалить активные и неактивные списки.
 Вы также можете перемещать только один элемент в обоих направлениях.
 
-надеюсь вам нравится
+Я надеюсь, вам понравится
+
+**Если вам это нравится, рассмотрите пожертвование:**
+
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Точки данных
 | Имя DP | Тип | Описание |
@@ -89,7 +93,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.0 ( 20.02.2022)
 
-- First complete working Release
+- First complete working Releases
 
 ### 0.0.1
 

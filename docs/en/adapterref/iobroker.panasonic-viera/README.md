@@ -11,9 +11,13 @@ This is an ioBroker adapter for your Panasonic Viera Smart-TV.
 
 ## Changelog
 <!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 2.0.0 (2021-05-09)
 * (jens-maus) added support to set Application and Encryption Key in adapter admin
 * (jens-maus) changed adapter to use node-panasonic-viera to support modern TV models

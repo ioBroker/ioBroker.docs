@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alexa-timer-vis/README.md
 title: ioBroker.alexa-таймер-вис
-hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
+hash: GjBb1bcIYSraH79B262OXDrT4ai8JSWjNqr8uICCI3k=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alexa-timer-vis/admin/alexa-timer-vis.png)
 
@@ -18,6 +18,10 @@ hash: yuSOZ0c3Ge1stNW48+m+Gg8IIBw9EFAaKbfs/2X+P00=
 
 ## Адаптер alexa-timer-vis для ioBroker
 Вывод таймера Alexa для отображения в окне
+
+**Если вам это нравится, рассмотрите пожертвование:**
+
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ### Это пример моего виза
 ![](../../../en/adapterref/iobroker.alexa-timer-vis/admin/timer.png)

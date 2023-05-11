@@ -22,6 +22,9 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2023-05-09)
+* fix for minSoc & targetSoc
+
 ### 0.0.7 (2023-01-15)
 * Update for evcc 1.11.x
 * Bugfix #4, change SoC names
@@ -41,7 +44,7 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2023 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and asSociated documentation files (the "Software"), to deal

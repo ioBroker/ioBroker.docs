@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rest-api/README.md
 title: REST-API-адаптер
-hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
+hash: 47/zBapa3b3KU/a954z053ZqAlREJhhi4oO31yBhVMk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.rest-api/admin/rest-api.png)
 
@@ -20,7 +20,7 @@ hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 
 Назначение этого адаптера аналогично simple-api. Но этот адаптер поддерживает длительный опрос и перехват URL-адресов для подписки.
 
-Он имеет очень полезный веб-интерфейс для игры с запросами:
+Он имеет очень полезный веб-интерфейс для работы с запросами:
 
 ![Скриншот](../../../en/adapterref/iobroker.rest-api/img/screen.png)
 
@@ -32,9 +32,9 @@ hash: MuAe9zV/tno/70JhUmaXdIDSIYyEN+FgP2l2uFKG+T4=
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - читать состояние как JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - чтение состояния в виде строки (только значение)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - записать состояние с помощью GET (только для обратной совместимости с simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение на javascript.0 в скрипте `scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - отправить сообщение на javascript. 0 в скрипте `scriptName`
 
-## Подписка на изменения состояния или объекта
+## Подписаться на изменения состояния или объекта
 Ваше приложение может получать уведомления при каждом изменении состояния или объекта.
 
 Для этого ваше приложение должно предоставить конечную точку HTTP(S) для принятия обновлений.
@@ -153,14 +153,15 @@ curl --location --request POST 'http://ipaddress:8093/v1/command/sendTo' \
 
 <!-- КОНЕЦ -->
 
-## Делать
-- [] Реализовать файловые операции GET,PATCH,POST,DELETE.
-
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.1.0 (2023-05-03)
+* (bluefox) Converting of the setState values to the according type
+* (bluefox) Implemented file operations
+
 ### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 

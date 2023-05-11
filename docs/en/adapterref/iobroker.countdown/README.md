@@ -22,7 +22,9 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 
 
 ## Displaying countdowns
-The adapter prowides you automatically a json table. You just need to use it with the json table widged. Please tick "No Header" there. It is possible to either display the short text or the long text.
+The adapter provides you automatically a json table and as a HTML table. For the json, please choose the widget "basic-table". For the html, choose the "basic - string (unescaped)" one. 
+
+It is possible to either display the short text or the long text.
 ![Logo](admin/countdown_json.png)
 
 ## How to create countdowns
@@ -79,6 +81,13 @@ Parameters here are:
 * Possibility to use plus and minus in addminutes and the other add functions
 
 ## Changelog
+
+## 2.0.0 (2023-05-07) 
+* (jack-blackson) Reworked adapter due to wrong process layout
+* (jack-blackson) Added headers for HTML and JSON
+
+## 1.3.1 (2023-05-01) 
+* (jack-blackson) Bugfix date calculation (thanks to Lueghi for the hint)
 
 ## 1.3.0 (2023-02-22) 
 * (jack-blackson) Updates for dependencies

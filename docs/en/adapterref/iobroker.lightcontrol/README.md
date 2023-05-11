@@ -56,28 +56,27 @@ iobroker add lightcontrol
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.11 (2023-05-02)
+### 0.2.16 (2023-05-10)
 
--   (Schmakus) Fix error in switching on/off
--   (Schmakus) Ready for a stable release
--   (Schmakus) update dependencies
+-   (Schmakus) Fix AdaptiveCt - StartYoureDay Interpolated
+-   (Schmakus) Update docs
 
-### 0.2.10 (2023-04-29)
+### 0.2.15 (2023-05-08)
 
--   (Schmakus) Fix lux sensor handling
+-   (Schmakus) Allow smaller and larger Kelvin values in the settings
 
-### 0.2.9 (2023-04-29)
+### 0.2.14 (2023-05-07)
 
--   (Schmakus) Important Update! Dev-mode was activated in v0.2.8
+-   (Schmakus) Hotfix Create States [#124]
 
-### 0.2.8 (2023-04-28)
+### 0.2.13 (2023-05-06)
 
--   (Schmakus) Fix switch on/off
--   (Schmakus) Some code improvements
+-   (Schmakus) Fix missing native part in states
 
-### 0.2.7 (2023-04-20)
+### 0.2.12 (2023-05-03)
 
--   (Schmakus) Fix switching on/off
+-   (Schmakus) Fix [#101] PowerCleaningLight
+-   (Schmakus) Code improvements
 
 ## License
 

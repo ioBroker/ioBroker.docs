@@ -62,6 +62,10 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) 
+
 ### 6.4.1 (2023-04-23)
 
 * (viper4gh) Added Shelly Pro 3 EM energy data

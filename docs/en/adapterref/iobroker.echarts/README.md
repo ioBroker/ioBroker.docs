@@ -23,10 +23,10 @@ Add after the restart the tab in the admin:
 
 The created preset can be accessed in web adapter too. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
-For vis there is a special widget with easy selection of presets.  
+For `vis` there is a special widget with easy selection of presets.  
 
 ### Tooltip
-Lower case `i` indicates that the value was interpolated from the 2 neighbour values, and it does not exist at this time stamp.
+Lower case `i` indicates that the value was interpolated from the 2-neighbour values, and it does not exist at this time stamp.
 
 ![Tooltip](img/tooltip.png) 
 
@@ -42,9 +42,8 @@ You can define the data source from JSON. In this case you can create some custo
 Alternative following attribute names are supported for `val`: `value`, `v`, `data`, `y`. 
 And following for `ts`: `time`, `t`, `date`.
 
-
 You cannot define start and start in echarts settings. The start and end will be calculated automatically from the data.
-Aggregation is not possible too. All manipulations must be done by writing of the JSON data.
+Aggregation is not possible either. All manipulations must be done by writing of the JSON data.
 The chart will be automatically updated every time the value changes.
 
 ### Server side rendering
@@ -83,7 +82,7 @@ sendTo('echarts.0', {
 
 
 ## Developer manual
-**For non-developer this link does not work!**
+**For non-developers, this link does not work!**
 
 You can debug view charts locally with: 
 - cd iobroker.echarts/src-chart
@@ -100,8 +99,11 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.4.15 (2023-05-10)
+* (bluefox) Allowed using the timestamp in seconds in JSON sources
+
 ### 1.4.14 (2023-04-20)
-* (bluefox) Added support of alternative names for JSON sources
+* (bluefox) Added support for the alternative names for JSON sources
 
 ### 1.4.13 (2023-03-14)
 * (bluefox) Corrected some issues from GitHub
@@ -119,7 +121,7 @@ You can debug view charts locally with:
 * (bluefox) Implemented custom texts for true and false values
 
 ### 1.4.5 (2023-02-16)
-* (bluefox) Allowed to copy only the web URLs in the preview
+* (bluefox) Allowed copying only the web URLs in the preview
 * (bluefox) Corrected boolean charts
 
 ### 1.4.3 (2023-02-15)
@@ -134,7 +136,7 @@ You can debug view charts locally with:
 * (bluefox) Added possibility to load the history data from JSON state.
 
 ### 1.3.4 (2023-02-08)
-* (bluefox) added a formula for the values conversion
+* (bluefox) Added a formula for the value conversion
 
 ### 1.3.3 (2023-02-08)
 * (bluefox) Implemented bar chart
@@ -160,7 +162,7 @@ You can debug view charts locally with:
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.9 (2022-06-17)
-* (bluefox) Added 2 weeks as relative period
+* (bluefox) Added 2 weeks as a relative period
 
 ### 1.0.8 (2022-06-01)
 * (bluefox) Added option `shift+mouse move` to scale Y axis
@@ -263,7 +265,7 @@ You can debug view charts locally with:
 * (bluefox) Implemented the grouping by the category.
 
 ### 0.1.2 (2020-10-21)
-* (bluefox) Added support of multiple charts
+* (bluefox) Added support for multiple charts
 
 ### 0.1.1 (2020-10-21)
 * (bluefox) initial release

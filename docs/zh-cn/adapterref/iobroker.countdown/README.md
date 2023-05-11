@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.倒计时
-hash: r6I1FG7xQx245iTOHvnerFWAKe63AsJ5gONZzELKjik=
+hash: isG4bGoigMjO7pvxpUNODcktDC6agixV57pjeXbgDAw=
 ---
 ![标识](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -23,7 +23,9 @@ ioBroker 的倒计时适配器-------------------------------------------- -----
 该适配器的目标是为您提供对未来事件进行倒计时的可能性，包括年、月、日、小时和分钟。它将分别为您提供这些值中的每一个，以及两个带有日期的短版本和长版本的字符串。
 
 ## 显示倒计时
-适配器会自动为您提供一个 json 表。您只需要将它与 json 表一起使用即可。请在此处勾选“无标题”。可以显示短文本或长文本。
+适配器会自动为您提供一个 json 表和一个 HTML 表。对于 json，请选择小部件“basic-table”。对于 html，选择“基本 - 字符串（未转义）”之一。
+
+可以显示短文本或长文本。
 ![标识](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
 ## 如何创建倒计时
@@ -75,7 +77,14 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 
 ## 要添加的功能
 * 可以添加脚本作为参数并在倒计时结束时启动它
-* 在 addminutes 和其他添加函数中使用加号和减号的可能性
+* 可以在 addminutes 和其他添加函数中使用加号和减号
+
+## 2.0.0 (2023-05-07)
+* (jack-blackson) 由于错误的流程布局而返工的适配器
+* (jack-blackson) 添加了 HTML 和 JSON 的标头
+
+## 1.3.1 (2023-05-01)
+* (jack-blackson) 错误修复日期计算（感谢 Lueghi 的提示）
 
 ## 1.3.0 (2023-02-22)
 * (jack-blackson) 依赖更新

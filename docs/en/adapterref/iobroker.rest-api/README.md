@@ -9,11 +9,11 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-This is RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
+This is a RESTFul interface to read the objects and states from ioBroker and to write/control the states over HTTP Get/Post requests.
 
 The purpose of this adapter is similar to simple-api. But this adapter supports long-polling and URL hooks for subscribes.
 
-It has very useful web interface to play with the requests:
+It has a very useful web interface to play with the requests:
 
 ![Screenshot](img/screen.png)
 
@@ -24,22 +24,22 @@ Some request examples:
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal` - read state as JSON
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal/plain` - read state as string (only value)
 - `http://ipaddress:8093/v1/state/system.adapter.rest-api.0.memHeapTotal?value=5` - write state with GET (only for back compatibility with simple-api)
-- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - send message to javascript.0 in script `scriptName`
+- `http://ipaddress:8093/v1/sendto/javascript.0?message=toScript&data={"message":"MESSAGE","data":"FROM REST-API"}` - send a message to javascript.0 in script `scriptName`
 
-## Subscribe on state or object changes
+## Subscribe to the state's or object's changes
 Your application could get notifications by every change of the state or object.
 
-For that your application must provide an HTTP(S) end-point to accept the updates.
+For that, your application must provide an HTTP(S) end-point to accept the updates.
 
 Example in node.js see here [demoNodeClient.js](examples/demoNodeClient.js)
 
 ## Long polling
-This adapter supports subscribe on data changes via long polling. 
+This adapter supports a subscribing on data changes via long polling. 
 
 Example for browser could be found here: [demoNodeClient.js](examples/demoBrowserClient.html)  
 
 ## Web extension
-This adapter can run as web-extension. In this case the path is available under http://iipaddress:8082/rest
+This adapter can run as a web extension. In this case, the path is available under http://iipaddress:8082/rest
 
 ## Notice
 - `POST` is always for creating a resource (does not matter if it was duplicated)
@@ -142,15 +142,16 @@ You cannot send POST request to commands via GUI.
 
 <!-- END -->
 
-## Todo
-- [ ] Implement GET,PATCH,POST,DELETE file operations
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 1.1.0 (2023-05-03)
+* (bluefox) Converting of the setState values to the according type
+* (bluefox) Implemented file operations
+
 ### 1.0.5 (2023-03-27)
 * (Apollon77) Prepare for future js-controller versions
 
