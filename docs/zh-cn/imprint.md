@@ -10,7 +10,7 @@ hash: GVpR5nngVkDziZ1XysMWlhmtVBpuYsyBE35ozCIqtS0=
 ## 根据§ 5 TMG：
 **公司：** ioBroker GmbH
 
-**地址：** Lorenzstr. 16, 76135 卡尔斯鲁厄, 德国
+**地址：** Talstr. 27, 67317 Altleiningen, 德国
 
 **HR 号码：** HRB 743629 曼海姆地方法院
 
