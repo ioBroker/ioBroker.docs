@@ -2,37 +2,48 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hue-extended/README.md
-title: ioBroker.hue扩展
-hash: sBrCWO4MEpdKluxvRIDbaHch4XEonRKGqBodYFjMWZ8=
+title: 此适配器已弃用，不会进一步开发
+hash: w7NTK7ablM+TXniTYb20aFEQoCwZkD5MCZwy6mQaW0g=
 ---
-![商标](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+# 此适配器已弃用，不会进一步开发
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![安装数量](http://iobroker.live/badges/hue-extended-installed.svg)
 ![稳定版](http://iobroker.live/badges/hue-extended-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.hue-extended.svg)
-![自上次发行以来提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.hue-extended/latest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.hue-extended.svg)
+![NPM 版本](http://img.shields.io/npm/v/iobroker.hue-extended.svg)
+![自上次发布以来提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.hue-extended/latest.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.hue-extended.svg)
 ![NPM](https://nodei.co/npm/iobroker.hue-extended.png?downloads=true)
 
-＃ioBroker.hue-extended将您的Philips Hue和/或deCONZ设备与ioBroker连接
-[![Travis CI]（https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master）](https://travis-ci.com/Zefau/ioBroker.hue-extended)
+-----
+
+目前没有计划对该适配器进行进一步开发。 __请迁移到已维护的 ioBroker.hue 适配器__。
+如果您错过了 ioBroker.hue 中的任何功能，请在该存储库 (https://github.com/iobroker-community-adapters/ioBroker.hue) 中提出问题。
+
+ioBroker.hue-extended 将在一段时间内保持可用，但请记住，它不会使用节点 20 或即将推出的 js-controller v5 进行测试。
+
+-----
+
+![标识](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+
+# IoBroker.hue-extended 使用 ioBroker 连接您的 Philips Hue 和/或 deCONZ 设备
+[![Travis CI](https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.hue-extended)
 
 ＃＃ 特征
--支持Philips Hue和deCONZ设备
--同步灯
--同步群组
--同步场景（包括GroupScenes，LightScenes和[HueLabs]（https://labs.meethue.com/）中的场景）
--同步传感器
--同步时间表
--同步配置
--同步资源
--同步规则
--触发状态“开/关”，“亮度”（“水平”），“色相”，“饱和度”，“ xy”，“ colorTemperature”，“ alert”，“ effect”和“ transitiontime”的更改
--基于颜色空间的其他触发器，分别用于rgb，hsv和hex
--使用`_commands`触发器应用自己的命令组合
--使用“ 0-all”组一次控制所有组的灯光
--运行场景或对灯光或组应用“ _scene”
+- 支持 Philips Hue 和 deCONZ 设备
+- 同步灯光
+- 同步组
+- 同步场景（包括 GroupScenes、LightScenes 和来自 [HueLabs](https://labs.meethue.com/) 的场景）
+- 同步传感器
+- 同步时间表
+- 同步配置
+- 同步资源
+- 同步规则
+- 触发状态“on/off”、“brightness”（“level”）、“hue”、“saturation”、“xy”、“colorTemperature”、“alert”、“effect”和“transitiontime”的变化
+- 基于 `rgb`、`hsv` 和 `hex` 颜色空间的附加触发器
+- 使用 _commands 触发器应用自己的命令组合
+- 使用“0-all”组一次控制所有组的灯
+- 运行场景或在灯光或组上应用“_scene”
 
 ## Changelog
 

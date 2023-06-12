@@ -12,7 +12,7 @@
 ### Actual news
 ![Actual news ](img/news.png)
 
-To use this widget you need to create a small script in Javascript adapter:
+To use this widget, you need to create a small script in Javascript adapter:
 ```
 const axios = require('axios');
 
@@ -34,6 +34,13 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.4.3 (2023-06-07)
+* (bluefox) Corrected visualization of view
+
+### 0.4.0 (2023-05-31)
+* (bluefox) Added exclusions
+* (bluefox) Added possibility to show information on the very top of layout
+
 ### 0.3.2 (2023-04-05)
 * (bluefox) Corrected license problem
 

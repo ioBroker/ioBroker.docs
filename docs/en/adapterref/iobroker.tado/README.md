@@ -44,6 +44,10 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.4.8 (2023-05-12)
+* (HGlab01) Add attribute 'isHeatSourceInstalled'
+* (HGlab01) Bump axios to 1.4.0
+
 ### 0.4.7 (2023-04-26)
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
@@ -63,11 +67,6 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 * (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
 * (HGlab01) Bump axios to 1.3.1
 * (HGlab01) Fix 'Invalid value TADO_MODE' (#585)
-
-### 0.4.3 (2022-12-06)
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10 (#551)
-* (HGlab01) Bump axios to 1.2.1 (final fix for #561)
-* (HGlab01) Improve logs
 
 ## License
 MIT License

@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
+hash: qKgIcf4QnPlWNCJkFatU2nf5JMeKfH2BnXl7kVzZzOw=
 ---
 ![标识](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -23,12 +23,12 @@ hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
 # IoBroker.netatmo-energy
 ![测试和发布](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/admin/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用哨兵库向开发人员发送崩溃和代码错误的自动报告。**有关如何禁用此功能的更多详细信息和信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始可以使用哨兵报告。
+**此适配器使用哨兵库向开发人员发送崩溃和程序代码错误的自动报告。**有关如何禁用此功能的更多详细信息和信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始可以使用哨兵报告。
 
 ## 要求和配置
 Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
-- 适配器适用于 admin >= 3 和 nodejs >= 14
+- 适配器适用于 admin >= 3 和 nodejs >= 16
 - 创建您自己的帐户 <https://auth.netatmo.com/de-de/access/signup>
 - 执行 API 登录 <https://dev.netatmo.com/apidocumentation/energy>
 - 通过单击您的帐户（顶部/左侧）创建您自己的应用程序，然后按“创建”按钮
@@ -115,7 +115,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 ＃＃ 消息
 您可以在此处触发特定状态更改的特定消息。你可以留下你想要的信息。这些总是传送到“message_text”数据点。
 
-<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="讯息" width="70%"/>
+<img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/messages_de.png" alt="消息" width="70%"/>
 
 通过按下“发送测试消息”按钮，可以测试消息服务。在测试之前，有必要保存消息服务的所有设置。
 
@@ -144,7 +144,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
 状态图标显示在每张卡上，显示恒温器、阀门和连接器的当前状态。在恒温器的第二页上，您会找到各种 API 请求来设置恒温器模式或供暖计划。
 
-## 小部件
+## 小工具
 VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”数据点。所有其他信息都是根据“房间”结构动态确定的。
 
 <img src="https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/docs/img/valve_widget_de.png" alt="小部件" width="250px"/>
@@ -152,10 +152,11 @@ VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
 ### 2.6.0 (2023-05-01)
 
 * (ioKlausi) Enable / Disable sensor actions

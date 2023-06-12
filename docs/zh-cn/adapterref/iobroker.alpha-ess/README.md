@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
+hash: V4ISnss7tsahkwLRKntb/ZHb75ptTvTUQp4w13zChfY=
 ---
 ![标识](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -17,11 +17,19 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 ## IoBroker 的 alpha-ess 适配器
 此适配器登录到 [阿尔法ESS](https://www.alphaess.com/) 的 Web API 并检索您的 Alpha ESS 设备的信息。\根据您的 Alpha ESS 产品，可以获得设备的实时数据和配置数据。 API 返回哪些数据点取决于您的 Alpha ESS 设备。
 
-此适配器基于 [查尔斯·吉兰德斯](https://github.com/CharlesGillanders/alphaess) 的出色工作，他对 Alpha ESS Web API 进行了逆向工程。这是一个内部 API，Alpha ESS 可能随时对其进行更改。
+此适配器支持两个 API，内部的 Alpha ESS Web API（Alpha ESS 可以随时更改）和 Alpha ESS Open API（功能较少，但在 Alpha ESS 设备的官方文档 API 上）。
 
-目前，此适配器为我能够识别的每个数据点创建了一个状态，该状态希望具有自我解释的名称。\所有其他数据点都将被忽略。在适配器启动期间，这些数据点被记录为信息消息。
+目前，此适配器为每个受支持的数据点创建一个状态，该状态希望具有自我解释的名称。\所有其他数据点都将被忽略。在适配器启动期间，这些数据点被记录为调试消息。
 
-基本上，可以使用 Alpha ESS Web API 更改选定的配置设置。这还没有实现。
+从 1.0.0-alpha.5 版本开始，每个状态的质量属性根据其状态进行设置：
+
+|质量 |意思 |
+|:--------|:--------------------------------------------------|
+|0x00 |好的并且是最新的|
+|0x01 |由于未知原因，值未更新，请参阅日志 |
+|0x02 |此数据点的在线连接有问题|
+|0x12 |适配器断开连接或停止|
+|0x44 |API 返回错误或内部错误，见日志 |
 
 ## 设置：
 **使用的 API：** 在非官方“封闭”API 和官方“开放”API（开发中）之间进行选择 根据所选的 API，有不同的可用设置。
@@ -57,18 +65,13 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 **所有产品和公司名称或徽标均为其各自所有者的商标™ 或注册® 商标。使用它们并不意味着与它们或任何相关子公司有任何从属关系或认可！这个个人项目是在业余时间维护的，没有业务目标。**
 
 ## Changelog
-### 1.0.0-alpha.1 (2023-04-16)
 
--   (Gaspode) Writing charging and discharging settings implemented (OpenAPI only)
-
-### 1.0.0-alpha.0 (2023-04-11)
+### **WORK IN PROGRESS**
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS
-
-### 0.5.0 (2023-03-05)
-
+-   (Gaspode) Set state quality accordingly to status of data
+-   (Gaspode) Writing charging and discharging settings implemented for 'Closed API' and OpenAPI
 -   (Gaspode) Remove no more supported states at startup automatically
--   (Gaspode) Prepared data migration for future versions
 
 ### 0.4.0 (2023-02-16)
 
@@ -77,20 +80,13 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 
 ### 0.3.0 (2023-02-11)
 
--   (Gaspode) Rearranged statistical data and added more values. Many thanks to [Thorsten](https://github.com/ThorstenBoettler) for his valuable contribution in testing the early alpha versions of this release and providing informative suggestions and recommendations for new data points.
+-   (Gaspode) Read selected statistical data
 -   (Gaspode) Added Summary data
 -   (Gaspode) Refactored complete implementation
 -   (Gaspode) Changed the unit of settings for all intervals, except of realtime data, to minutes (Caution: settings are reset to defaults)
 -   (Gaspode) Remove disabled states at adapter startup
 -   (Gaspode) Removed no more supported value 'createtime' (state ID Realtime.Last_update).
 -   (Gaspode) Optimized rounding for selected values
-
-### 0.2.1-beta.0 (2023-01-31)
-
--   (Gaspode) Read selected statistical data
-
-### 0.2.0 (2023-01-19)
-
 -   (Gaspode) Added states EV1_power, EV2_power, EV3_power and EV4_power to Realtime folder
 
 ### 0.1.0 (2023-01-15)
@@ -98,21 +94,9 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 -   (Gaspode) First release for Latest repository
 -   (Gaspode) Corrected typo in state ID Battery_SOC
 -   (Gaspode) Implemented improvements as suggested in code review
-
-### 0.0.6-beta.5 (2023-01-07)
-
 -   (Gaspode) Slow down requests in case of permanent errors
-
-### 0.0.6-beta.4 (2023-01-03)
-
 -   (Gaspode) Changed adapter type from metering to energy
-
-### 0.0.6-beta.3 (2023-01-02)
-
 -   (Gaspode) Correction for NPM
-
-### 0.0.6-beta.2 (2023-01-02)
-
 -   (Gaspode) Enable NPM
 
 ### 0.0.5

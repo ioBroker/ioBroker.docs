@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: Bd/CkPFXjOCc+reNALfXyYMiwneHDVSjKuII/6c5/zA=
+hash: RFeBysZWTP8BR32lWsOhYe0RCp9j/1cB/dBhCaLN83w=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -36,7 +36,7 @@ Merkmale:
 * Wenn keine direkte Verbindung zwischen Thermostat und Stellantrieb besteht, kann der Stellantrieb direkt aus dem Adapter heraus geschaltet werden
 * Derzeit wird der Aktor direkt bei Erreichen der Solltemperatur abgeschaltet. Sobald die Solltemperatur unter der Isttemperatur liegt, wird der Aktor eingeschaltet. (Zu tun: verbesserte Kontrolle implementieren)
 * Es wird eine unbegrenzte Anzahl von Thermostaten, Aktoren und Sensoren pro Raum unterstützt
-* Thermostat, Aktor und Sensor werden pro Raum automatisch erkannt. Hierzu dient die Funktion (z. B. „Heizen“).
+* Thermostat, Aktor und Sensor werden pro Raum automatisch erkannt. Hierzu dient die Funktion (z. B. „Heizung“).
 * Räume können innerhalb der Admin-Oberfläche ausgeschlossen werden, wenn ein Raum einen Thermostat enthält, aber nicht gesteuert werden soll
 * Der Sensor dient zur Reduzierung der Zieltemperatur (z. B. wenn ein Fenster geöffnet ist); optional mit SensorDelay
 * Schnittstelle zum Feiertags-Adapter oder anderen zur Erkennung von Feiertagen. Ein gesetzlicher Feiertag kann ein normaler Tag oder ein Sonntag sein. (Administratoreinstellung)
@@ -146,7 +146,7 @@ Hinweis: Mit Zahlendatenpunkten könnten Sie zählen, wie viele Personen sich im
 ## Änderungen vom Thermostat verwenden
 Viele Benutzer fragten nach einer Option, Änderungen vom Thermostat in den Adapter zu übernehmen. Nun sind vier Optionen implementiert:
 
-| Option | Beschreibung |------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Override | Änderungen vom Thermostat werden als Vorrang genommen; Die Override-Zeit muss im Voraus in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | festgelegt werden | Wenn die Override-Zeit nicht festgelegt ist, wird die Override-Zeit nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für den aktuellen Profilzeitraum übernommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen/Verringerungen werden ignoriert. In jedem Raum gibt es einen Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
+| Option | Beschreibung |------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Override | Änderungen vom Thermostat werden als Vorrang genommen; Die Override-Zeit muss im Voraus in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | eingestellt werden | Wenn die Override-Zeit nicht festgelegt ist, wird die Override-Zeit nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für den aktuellen Profilzeitraum übernommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen/Verringerungen werden ignoriert. In jedem Raum gibt es einen Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
 
 ## Override erweitern, wenn die Temperatur geändert wird
 Das Standardverhalten für Override ist, dass sich die Override-Zeit nicht ändert, wenn Sie die Temperatur ändern. Wenn Sie beispielsweise 20 Minuten lang mit 25 °C übersteuern und nach 15 Minuten auf 28 °C wechseln, wird 28 °C nur für die letzten 5 Minuten verwendet. Mit dieser Option starten Sie den Override neu, wenn Sie die Override-Temperatur ändern.
@@ -200,11 +200,9 @@ Beschreiben Sie zwei neue Datenpunkte: Heatingcontrol.0.Rooms.TestRaum.Regulator
 
 machen
 
-## EVU Sperrzeit
-Übersetzung: Wenn die EVU-Sperrzeit erreicht ist, werden alle Aktoren ausgeschaltet und am Ende der Sperrzeit wieder eingeschaltet.
-Status geht auf „EVU Sperrzeit“ Ziel: elektrische Heizungen ausschalten und gezielt wieder einschalten, um Belastung der Schütze zu minimieren und Einschlatstromstöße zu minimieren zu Konfiguration: Start / Ende Zeit der EVU Sperrzeit, mehrere Perioden konfigurierbar
-
--> Alternativ: Temperatur absenken, damit die Aktoren indirekt abschalten sollten
+## EVU Sperrzeit / PowerInterruption
+Bei Erreichen der EVU-Sperrzeit werden alle Aktoren ausgeschaltet und nach Ablauf der Sperrzeit wieder eingeschaltet.
+Status geht auf „EVU Sperrzeit“ / „PowerInterruption“ Ziel: Elektrische Heizungen gezielt abschalten und wieder einschalten, um die Belastung der Schütze zu minimieren und Einschaltströme zu minimieren. Konfiguration: Start-/Endzeitpunkt der EVU-Sperrung Zeit können mehrere Zeiträume konfiguriert werden
 
 ## Probleme und Funktionswünsche
 * Wenn Sie auf Fehler stoßen oder Funktionswünsche für diesen Adapter haben, erstellen Sie bitte ein Problem im GitHub-Problemabschnitt des Adapters unter [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ). Wir freuen uns über jedes Feedback und helfen, diesen Adapter zu verbessern.
@@ -225,7 +223,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 ### 2.11.0 (in progress)
 * (René) see issue #368: units added in datapoints
-* (René) see issue #361: EVU Sperrzeit to do, siehe auch oben (not yet finished)
+* (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
 * (René) see issue #359: support of discord added to notifications (not yet finished)
 * (René) see issue #367: wait for set target temperature before checking actor changes
 

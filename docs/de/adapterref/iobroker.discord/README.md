@@ -20,51 +20,52 @@ und Nachrichten sowie Dateien zu versenden.
 Zusätzlich kann der Adapter Discord Slash-Befehle registrieren.
 Über diese ist es dann möglich, ioBroker-Zustände abzufragen oder festzulegen.
 
-* [Funktionen](#funktionen)
-* [Erstellen eines Discord Bots](#erstellen-eines-discord-bots)
-* [Den Bot einem Server hinzufügen](#den-bot-einem-server-hinzufügen)
-  * [Den Bot von einem Server entfernen](#den-bot-von-einem-server-entfernen)
-* [Zustände (States)](#zustände-states)
-  * [discord.0.bot.*](#discord0bot)
-  * [discord.0.servers.\<server-id\>.*](#discord0serversserver-id)
-  * [discord.0.servers.\<server-id\>.channels.\<channel-id\>.*](#discord0serversserver-idchannelschannel-id)
-  * [discord.0.servers.\<server-id\>.members.\<user-id\>.*](#discord0serversserver-idmembersuser-id)
-  * [discord.0.users.\<user-id\>.*](#discord0usersuser-id)
-  * [discord.0.slashCommands.\<command-name\>.*](#discord0slashcommandscommand-name)
-  * [discord.0.raw.*](#discord0raw)
-* [Autorisierung](#autorisierung)
-* [Nachrichten](#nachrichten)
-  * [Nachrichten empfangen](#nachrichten-empfangen)
-    * [Verwendung von text2command](#verwendung-von-text2command)
-  * [Nachrichten senden](#nachrichten-senden)
-    * [Senden einfacher Texte](#senden-einfacher-texte)
-    * [Senden von Dateien](#senden-von-dateien)
-    * [Senden von Reaktionen](#senden-von-reaktionen)
-    * [Senden von Antworten](#senden-von-antworten)
-    * [Senden von speziellen benutzerdefinierten Nachrichten](#senden-von-speziellen-benutzerdefinierten-nachrichten)
-* [Slash-Befehle](#slash-befehle)
-  * [Zustände für Slash-Befehle konfigurieren](#zustände-für-slash-befehle-konfigurieren)
-  * [Zustände abfragen](#zustände-abfragen)
-  * [Zustände festlegen](#zustände-festlegen)
-  * [Einen Überblick über Zustände mit Konfigurationen für Slash-Befehle erhalten](#einen-überblick-über-zustände-mit-konfigurationen-für-slash-befehle-erhalten)
-  * [Benutzerdefinierte Slash-Befehle](#benutzerdefinierte-slash-befehle)
-    * [Struktur eines json-Zustands von benutzerdefinierten Slash-Befehlen](#struktur-eines-json-zustands-von-benutzerdefinierten-slash-befehlen)
-* [Blocky](#blocky)
-  * [Blockly Beispiel: Senden einer Nachricht an einen Benutzer und diese nach drei Sekunden bearbeiten](#blockly-beispiel-senden-einer-nachricht-an-einen-benutzer-und-diese-nach-drei-sekunden-bearbeiten)
-  * [Blockly Beispiel: Senden einer zusammengesetzten Nachricht mit einer Einbettung und zwei Dateianhängen](#blockly-beispiel-senden-einer-zusammengesetzten-nachricht-mit-einer-einbettung-und-zwei-dateianhängen)
-  * [Blockly Beispiel: Auf benutzerdefinierten Slash-Befehl reagieren und Bild der angefragten IP-Cam senden](#blockly-beispiel-auf-benutzerdefinierten-slash-befehl-reagieren-und-bild-der-angefragten-ip-cam-senden)
-* [Verwendung in Skripten](#verwendung-in-skripten)
-  * [Senden einer Nachricht in einem Skript](#senden-einer-nachricht-in-einem-skript)
-  * [Bearbeiten einer Nachricht in einem Skript](#bearbeiten-einer-nachricht-in-einem-skript)
-  * [Löschen einer Nachricht in einem Skript](#löschen-einer-nachricht-in-einem-skript)
-  * [Reaktions-Emoji zu einer Nachricht hinzufügen in einem Skript](#reaktions-emoji-zu-einer-nachricht-hinzufügen-in-einem-skript)
-  * [Auf Reaktionen auf eine Nachricht warten in einem Skript](#auf-reaktionen-auf-eine-nachricht-warten-in-einem-skript)
-  * [Auf benutzerdefinierte Slash-Befehle antworten in einem Skript](#auf-benutzerdefinierte-slash-befehle-antworten-in-einem-skript)
-  * [Informationen zu einem Server in einem Script abfragen](#informationen-zu-einem-server-in-einem-script-abfragen)
-  * [Informationen zu einem Serverkanal in einem Script abfragen](#informationen-zu-einem-serverkanal-in-einem-script-abfragen)
-  * [Informationen zu einem Benutzer in einem Script abfragen](#informationen-zu-einem-benutzer-in-einem-script-abfragen)
-  * [Informationen zu einem Servermitglied in einem Script abfragen](#informationen-zu-einem-servermitglied-in-einem-script-abfragen)
-  * [Informationen zu einer vorherigen Nachricht in einem Script abfragen](#informationen-zu-einer-vorherigen-nachricht-in-einem-script-abfragen)
+- [ioBroker.discord](#iobrokerdiscord)
+  - [Funktionen](#funktionen)
+  - [Erstellen eines Discord Bots](#erstellen-eines-discord-bots)
+  - [Den Bot einem Server hinzufügen](#den-bot-einem-server-hinzufügen)
+    - [Den Bot von einem Server entfernen](#den-bot-von-einem-server-entfernen)
+  - [Zustände (States)](#zustände-states)
+    - [discord.0.bot.\*](#discord0bot)
+    - [discord.0.servers.\<server-id\>.\*](#discord0serversserver-id)
+    - [discord.0.servers.\<server-id\>.channels.\<channel-id\>.\*](#discord0serversserver-idchannelschannel-id)
+    - [discord.0.servers.\<server-id\>.members.\<user-id\>.\*](#discord0serversserver-idmembersuser-id)
+    - [discord.0.users.\<user-id\>.\*](#discord0usersuser-id)
+    - [discord.0.slashCommands.\<command-name\>.\*](#discord0slashcommandscommand-name)
+    - [discord.0.raw.\*](#discord0raw)
+  - [Autorisierung](#autorisierung)
+  - [Nachrichten](#nachrichten)
+    - [Nachrichten empfangen](#nachrichten-empfangen)
+      - [Verwendung von text2command](#verwendung-von-text2command)
+    - [Nachrichten senden](#nachrichten-senden)
+      - [Senden einfacher Texte](#senden-einfacher-texte)
+      - [Senden von Dateien](#senden-von-dateien)
+      - [Senden von Reaktionen](#senden-von-reaktionen)
+      - [Senden von Antworten](#senden-von-antworten)
+      - [Senden von speziellen benutzerdefinierten Nachrichten](#senden-von-speziellen-benutzerdefinierten-nachrichten)
+  - [Slash-Befehle](#slash-befehle)
+    - [Zustände für Slash-Befehle konfigurieren](#zustände-für-slash-befehle-konfigurieren)
+    - [Zustände abfragen](#zustände-abfragen)
+    - [Zustände festlegen](#zustände-festlegen)
+    - [Einen Überblick über Zustände mit Konfigurationen für Slash-Befehle erhalten](#einen-überblick-über-zustände-mit-konfigurationen-für-slash-befehle-erhalten)
+    - [Benutzerdefinierte Slash-Befehle](#benutzerdefinierte-slash-befehle)
+      - [Struktur eines json-Zustands von benutzerdefinierten Slash-Befehlen](#struktur-eines-json-zustands-von-benutzerdefinierten-slash-befehlen)
+  - [Blockly](#blockly)
+    - [Blockly Beispiel: Senden einer Nachricht an einen Benutzer und diese nach drei Sekunden bearbeiten](#blockly-beispiel-senden-einer-nachricht-an-einen-benutzer-und-diese-nach-drei-sekunden-bearbeiten)
+    - [Blockly Beispiel: Senden einer zusammengesetzten Nachricht mit einer Einbettung und zwei Dateianhängen](#blockly-beispiel-senden-einer-zusammengesetzten-nachricht-mit-einer-einbettung-und-zwei-dateianhängen)
+    - [Blockly Beispiel: Auf benutzerdefinierten Slash-Befehl reagieren und Bild der angefragten IP-Cam senden](#blockly-beispiel-auf-benutzerdefinierten-slash-befehl-reagieren-und-bild-der-angefragten-ip-cam-senden)
+  - [Verwendung in Skripten](#verwendung-in-skripten)
+    - [Senden einer Nachricht in einem Skript](#senden-einer-nachricht-in-einem-skript)
+    - [Bearbeiten einer Nachricht in einem Skript](#bearbeiten-einer-nachricht-in-einem-skript)
+    - [Löschen einer Nachricht in einem Skript](#löschen-einer-nachricht-in-einem-skript)
+    - [Reaktions-Emoji zu einer Nachricht hinzufügen in einem Skript](#reaktions-emoji-zu-einer-nachricht-hinzufügen-in-einem-skript)
+    - [Auf Reaktionen auf eine Nachricht warten in einem Skript](#auf-reaktionen-auf-eine-nachricht-warten-in-einem-skript)
+    - [Auf benutzerdefinierte Slash-Befehle antworten in einem Skript](#auf-benutzerdefinierte-slash-befehle-antworten-in-einem-skript)
+    - [Informationen zu einem Server in einem Script abfragen](#informationen-zu-einem-server-in-einem-script-abfragen)
+    - [Informationen zu einem Serverkanal in einem Script abfragen](#informationen-zu-einem-serverkanal-in-einem-script-abfragen)
+    - [Informationen zu einem Benutzer in einem Script abfragen](#informationen-zu-einem-benutzer-in-einem-script-abfragen)
+    - [Informationen zu einem Servermitglied in einem Script abfragen](#informationen-zu-einem-servermitglied-in-einem-script-abfragen)
+    - [Informationen zu einer vorherigen Nachricht in einem Script abfragen](#informationen-zu-einer-vorherigen-nachricht-in-einem-script-abfragen)
 
 ## Funktionen
 
@@ -171,7 +172,7 @@ als angezeigt werden.
 
 | Name | Beschreibung |
 |---|---|
-| `activityType` | Die Art der Bot-Aktivität. Mögliche Werte sind `PLAYING`, `STREAMING`, `LISTENING`, `WATCHING`, `COMPETING` oder ein leerer String. |
+| `activityType` | Die Art der Bot-Aktivität. Mögliche Werte sind `Playing`, `Streaming`, `Listening`, `Watching`, `Competing` oder ein leerer String. |
 | `activityName` | Der Name der Bot-Aktivität. Wird nur verwendet, wenn eine Art gesetzt ist. |
 | `status` | Der Anwesenheitsstatus des Bots. Mögliche Werte sind `online`, `idle`, `dnd` und `invisible`. |
 
@@ -230,8 +231,8 @@ Für die Verwendung der Aktionen `voiceDisconnect`, `voiceServerDeaf` und `voice
 |---|---|
 | `tag` | Der eindeutige Tag des Benutzers in Discord. |
 | `status` | Der Anwesenheitsstatus des Benutzers. Eins von `online`, `offline`, `idle`, `dnd` |
-| `activityType` | Die Art der momentanen Aktivität des Benutzers. Eins von `PLAYING`, `STREAMING`, `LISTENING`, `WATCHING`, `COMPETING`, `CUSTOM` oder ein leerer String. |
-| `activityName` | Der Name der momentanen Aktivität des Benutzers. Z.B. der Name eines Spiels während `PLAYING`. |
+| `activityType` | Die Art der momentanen Aktivität des Benutzers. Eins von `Playing`, `Streaming`, `Listening`, `Watching`, `Competing`, `Custom` oder ein leerer String. |
+| `activityName` | Der Name der momentanen Aktivität des Benutzers. Z.B. der Name eines Spiels während `Playing`. |
 | `avatarUrl` | URL zum Avatar des Benutzers. |
 | `bot` | Indikator, ob der Benutzer ein Bot ist. |
 | `message` | Letzte empfangene Direktnachricht des Benutzers. |
@@ -267,7 +268,6 @@ aktualisiert.
 | `serverId` | ID des Servers, in dem der Befehl aufgerufen wurde, oder `null` wenn der Befehl in einer Direktnachricht aufgerufen wurde. |
 | `timestamp` | Zeitstempel der letzten Nutzung des Befehls. |
 | `option-*` | Optionen die für den Befehl angegeben wurden. Für jede konfigurierte Option wird ein eigener Zustand erstellt. Wenn eine Option beim Aufruf des Befehls nicht angegeben wird, dann wird der zugehörige Zustand auf `null` gesetzt. |
-| `option-*` | Optionen die für den Befehl konfiguriert wurden. |
 | `option-*.value` | Der letzte Wert, der für die Option bei dem Befehlsaufruf angegeben wurde. Wenn eine Option nicht angegeben wird, dann wird der zugehörige Zustand auf `null` gesetzt. |
 | `option-*.choices` | JSON-Array mit vordefinierten Auswahlmöglichkeiten für diese Option. Nur vorhanden bei Optionen vom Typ Text. Beispiel: `["Wert 1", "Wert 2", { "name": "Wert 3", "value": "w3" }]` |
 | `sendReply` | Eine Antwort auf dem aufgerufenen Befehl senden. Wie bei den `.send`-Zuständen von Kanälen oder Benutzern, kann dies ein String oder ein JSON-Objekt sein. Siehe den Abschnitt _Nachrichten_ weiter unten. |
@@ -657,7 +657,7 @@ Dabei wird die Antwort editiert und mit dem neuen Inhalt überschrieben.
   options: {
     [string]: {
       value: string | number | boolean | null,
-      type: 'STRING' | 'NUMBER' | 'BOOLEAN' | 'USER' | 'ROLE' | 'CHANNEL' | 'MENTIONABLE' | null,
+      type: 'String' | 'Number' | 'Boolean' | 'User' | 'Role' | 'Channel' | 'Mentionable' | null,
       user?: { // wenn type USER oder MENIONABLE ist
         id: string,
         tag: string,
@@ -675,7 +675,7 @@ Dabei wird die Antwort editiert und mit dem neuen Inhalt überschrieben.
       channel?: { // wenn type CHANNEL ist
         id: string,
         name: string,
-        type: 'GUILD_CATEGORY' | 'GUILD_NEWS' | 'GUILD_STAGE_VOICE' | 'GUILD_STORE' | 'GUILD_TEXT' | 'GUILD_VOICE',
+        type: 'GuildCategory' | 'GuildNews' | 'GuildStageVoice' | 'GuildStore' | 'GuildText' | 'GuildVoice',
         lastMessageId: string | null,
       },
     },
@@ -684,7 +684,7 @@ Dabei wird die Antwort editiert und mit dem neuen Inhalt überschrieben.
 }
 ```
 
-## Blocky
+## Blockly
 
 Der Adapter bringt eigene Blockly-Blöcke mit, zum ...
 
@@ -1244,7 +1244,7 @@ Der `content` kann ein einfacher String oder ein [MessageOptions]-Objekt sein
 ```js
 on({ id: 'discord.0.slashCommands.iob-test.json', change: 'any', ack: true }, (obj) => {
   log(`Benutzerdefinierter Slash-Befehl ${obj.state.val}`);
-  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728","tag":"cryCode#9911","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"STRING"}}}
+  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728","tag":"cryCode#9911","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"String"}}}
 
   const data = JSON.parse(obj.state.val);
 
@@ -1376,6 +1376,16 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2023-06-11)
+
+* (crycode-de) Updated discord.js to v14
+* (crycode-de) 💥 **Breaking:** Activity types and channel types are now in title case. Example: `PLAYING` is now `Playing`, `GUILD_TEXT` is now `GuildText`.
+* (crycode-de) 💥 **Breaking:** In raw states all `type` field values are now numbers representing the internal enum values of the types.
+* (crycode-de) Add support for messages from the notification-manager adapter
+* (crycode-de) Updated dependencies
+* (crycode-de) Added Ukrainian translations
+* Updated translations
+
 ### 1.1.6 (2022-07-28)
 
 * (crycode-de) Fixed voice channel member count/list
@@ -1427,7 +1437,7 @@ sendTo('discord.0', 'getMessageInfo', {
 
 MIT License
 
-Copyright (c) 2022 Peter Müller <peter@crycode.de>
+Copyright (c) 2022-2023 Peter Müller <peter@crycode.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

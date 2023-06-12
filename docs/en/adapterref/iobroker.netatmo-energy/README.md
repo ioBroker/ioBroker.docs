@@ -27,7 +27,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 Netatmo Energy hardware (thermostat, valves)
 Account at Netatmo Cloud
 
-- Adapter is working with admin >= 3 and nodejs >= 14
+- Adapter is working with admin >= 3 and nodejs >= 16
 - Create your own account at <https://auth.netatmo.com/de-de/access/signup>
 - Login in site <https://dev.netatmo.com/apidocumentation/energy>
 - Create your own APP by clicking your account (top left), and press button "Create"
@@ -159,10 +159,11 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
 ### 2.6.0 (2023-05-01)
 
 * (ioKlausi) Enable / Disable sensor actions

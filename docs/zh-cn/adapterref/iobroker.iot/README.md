@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
+hash: 9RSaCbzgta8J3fyIuFi/fHg3lNowghfK57iTacPMcio=
 ---
 ![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -20,7 +20,7 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## 设置
-要使用云适配器，您应该首先在 ioBroker 云上注册 [https://iobroker.pro](https://iobroker.pro)。
+要使用物联网适配器，您应该首先在 ioBroker 云上注册 [https://iobroker.pro](https://iobroker.pro)。
 
 [参考谷歌API类型设置](https://developers.google.com/actions/smarthome/guides/)
 
@@ -46,11 +46,11 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 如果命令是 `Set to 30%` 和 `OFF level is 30%`，那么开关将打开。通过命令“设置为 25%”，所有开关都将关闭。
 
 此外，如果命令为“OFF”，则如果实际值大于或等于“30%”，适配器将记住当前的调光器级别。
-稍后当新的“ON”命令出现时，适配器将把调光器切换到内存中的级别而不是 100%。
+稍后当新的“ON”命令到来时，适配器将调光器切换到内存中的级别而不是 100%。
 
 例子：
 
-- 假设*OFF 级别* 为 30%。
+- 假设 *OFF 级别* 为 30%。
 - 虚拟设备“Light”有两个物理设备：*switch* 和*dimmer*。
 - 命令：“将光线设置为 40%”。适配器会记住 *dimmer* 的这个值，将其设置为“dimmer”并打开 *switch*。
 - 命令：“关灯”。适配器会将 *dimmer* 设置为 0% 并关闭 *switch*。
@@ -59,7 +59,7 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 - 命令：“开灯”。 *调光器* => 40%，*开关* => 开。
 
 ### 开启
-您可以选择 ON 命令的行为将用于数字状态。可以选择特定值或使用最后一个非零值。
+您可以选择 ON 命令的行为将用于数字状态。可以选择特定值，或者将使用最后一个非零值。
 
 ### 写响应
 对于每个命令，都会生成文本响应。您可以在此处定义对象 ID，此文本必须写入其中。例如。 *sayit.0.tts.text*。
@@ -67,11 +67,11 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 ＃＃＃ 颜色
 通道需要 3-5 个具有以下角色的状态：
 
-- level.color.saturation（检测通道所需），
-- level.color.hue,
-- level.dimmer，
-- 开关（可选）
-- level.color.temperature（可选）
+- `level.color.saturation` - 检测通道所必需的，
+- `level.color.hue`，
+- `level.dimmer`，
+- `switch` - 可选，
+- `level.color.temperature`（可选）
 
 ```
 Alexa, set the "device name" to "color"
@@ -81,7 +81,8 @@ Alexa, change the kitchen to the color chocolate
 ```
 
 ＃＃＃ 锁
-要有锁定锁的可能性，状态必须具有角色“switch.lock”并具有“native.LOCK_VALUE”来确定锁状态。如果您需要一个单独的值来控制锁，您可以使用“native.CONTROL VALUE”。
+要有锁定锁的可能性，状态必须具有角色“switch.lock”并具有“native.LOCK_VALUE”来确定锁状态。
+如果你需要一个单独的Value来控制Lock，你可以使用“native.CONTROL VALUE”。
 
 ```
 Alexa, is "lock name" locked/unlocked
@@ -89,7 +90,7 @@ Alexa, lock the "lock name"
 ```
 
 ## 名称将如何生成
-适配器尝试生成用于智能家居控制的虚拟设备（例如 Amazon Alexa 或 Google Home）。
+适配器尝试生成用于智能家居控制的虚拟设备（例如，Amazon Alexa 或 Google Home）。
 
 有两个重要的枚举：房间和功能。
 
@@ -99,7 +100,7 @@ Alexa, lock the "lock name"
 必须满足以下条件才能获取自动生成列表中的状态：
 
 - 状态必须在一些“函数”枚举中。
-- 如果状态没有直接包含在“功能”中，则状态必须具有角色（“state”、“switch”或“level.*”，例如 level.dimmer）。
+- 如果状态没有直接包含在“功能”中，则状态必须具有角色（“状态”、“开关”或“级别。*”，例如 level.dimmer）。
 
 可能是通道在“功能”中，但声明本身不是。
 
@@ -115,26 +116,26 @@ Alexa, lock the "lock name"
 
 如果状态具有 common.smartName，则将忽略所有规则。在这种情况下，将只使用智能名称。
 
-如果 *common.smartName* 为 **false**，状态或枚举将不会包含在列表生成中。
+如果 `common.smartName` 是 `false`，则状态或枚举将不包含在列表生成中。
 
 配置对话框让用户轻松地删除和添加单个状态到虚拟组或作为单个设备。
 ![配置](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-如果该组只有一个状态，则可以重命名，为此将使用状态的 smartName。
+如果组只有一个状态，可以重命名，此时会使用状态的smartName。
 如果该组有多个状态，则必须通过枚举名称重命名该组。
 
 要创建自己的组，用户可以安装“场景”适配器或在 Javascript 适配器中创建“脚本”。
 
 ### 替换
-您可以指定可以在设备名称中自动替换的字符串。例如。如果您将替换设置为：`.STATE,.LEVEL`，那么所有“.STATE”和“.LEVEL”都将从名称中删除。小心空格。
-如果您设置了 `.STATE, .LEVEL`，那么“.STATE”和“.LEVEL”将被替换，而不是“.LEVEL”。
+您可以指定可以在设备名称中自动替换的字符串。例如，如果您将替换设置为：`.STATE,.LEVEL`，那么所有 `.STATE` 和 `.LEVEL` 将从名称中删除。小心空格。
+如果您设置了 `.STATE, .LEVEL`，那么 `.STATE` 和 `.LEVEL` 将被替换，而不是 `.LEVEL`。
 
 ## 辅助状态
-- **smart.lastObjectID**：如果只有一个设备由 home skill（alexa、google home）控制，则会设置此状态。
-- **smart.lastFunction**：执行最后一条命令的函数名称（如果存在）。
-- **smart.lastRoom**：执行最后一条命令的房间名称（如果存在）。
-- **smart.lastCommand**：最后执行的命令。命令可以是：true(ON), false(OFF), number(%), -X(decrease at x), +X(increase at X)
-- **smart.lastResponse**：命令的文本响应。它可以发送到某些 text2speech (sayit) 引擎。
+- `smart.lastObjectID`：如果只有一个设备由 home skill（alexa、google home）控制，则会设置此状态。
+- `smart.lastFunction`：执行最后一条命令的函数名称（如果存在）。
+- `smart.lastRoom`：执行最后一条命令的房间名称（如果存在）。
+- `smart.lastCommand`：最后执行的命令。命令可以是：`true(ON)`、`false(OFF)`、`number(%)`、`-X（在 x 处减少）、`+X（在 X 处增加）`
+- `smart.lastResponse`：命令的文本响应。它可以被发送到一些 `text2speech` (`sayit`) 引擎。
 
 ## IFTTT
 [指示](doc/ifttt.md)
@@ -147,7 +148,7 @@ Alexa, lock the "lock name"
 
 ＃＃ 服务
 可以将消息发送到云适配器。
-如果您调用 `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` 和值作为有效负载。
+如果您调用 `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` 和值作为有效载荷。
 
 `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
@@ -155,11 +156,11 @@ Alexa, lock the "lock name"
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-如果您在设置字段“服务白名单”中设置名称 *custom_test*，并使用“custom_test”作为服务名称调用，状态 **cloud.0.services.custom_test** 将设置为 *myString *。
+如果您在设置中将“服务白名单”字段设置为名称 `custom_test`，并使用“custom_test”作为服务名称进行调用，则状态 **cloud.0.services.custom_test** 将被设置到 *myString*。
 
-您可以在白名单中写“*”，所有服务都将被允许。
+您可以在白名单中写上“*”，所有服务都将被允许。
 
-在这里您可以找到如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
+您可以在此处找到有关如何将其与 [任务者](doc/tasker.md) 一起使用的说明。
 
 仅当设置了 IFTTT 密钥时才允许 IFTTT 服务。
 
@@ -185,7 +186,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 `X` 可以通过“使用 text2command 实例”选项在设置中定义。
 
 ## 自定义技能
-自定义技能的答案可以通过两种方式处理：
+可以通过两种方式处理自定义技能的答案：
 
 -`text2command`
 -`javascript`
@@ -202,33 +203,33 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 
 适配器将提供两种具有不同详细级别的状态的详细信息
 
-* **smart.lastCommand** 包含收到的文本，包括有关查询类型（意图）的信息。示例：“askDevice Status Rasenmäher”
-* **smart.lastCommandObj*** 包含一个JSON字符串，可以解析为包含以下信息的对象
-  * **words** 包含数组中接收到的单词
-  * **intent** 包含查询的类型。当前可能的值是：
-    * v1 技能：“askDevice”、“controlDevice”、“actionStart”、“actionEnd”、“askWhen”、“askWhere”、“askWho”
-    * v2 技能：“queryIntent”，当完整的所述文本被捕获时，“controlDevice”用于仅部分文本的回退
-  * **deviceId** 包含一个 deviceId 标识请求发送到的设备，由亚马逊交付，如果未提供则为空字符串
-  * **deviceRoom** 包含一个映射的房间标识符，您可以在物联网管理 UI 中为收集的 deviceIds 配置
-  * **sessionId** 包含 Skill 会话的 sessionId，如果说出多个命令，则应该相同，由 Amazon 提供，如果不提供，将为空字符串
-  * **userId** 包含来自设备所有者（或稍后与技能交互的用户）的 userId，由亚马逊提供，如果未提供则为空字符串
-  * **userName** 包含一个映射的用户名，您可以在物联网管理 UI 中为收集的 userIds 配置
+* `smart.lastCommand` 包含接收到的文本，包括有关查询类型（意图）的信息。示例：`askDevice Status Rasenmäher`
+* `smart.lastCommandObj` 包含一个 JSON 字符串，可以解析为包含以下信息的对象
+  * `words` 包含数组中接收到的单词
+  * `intent` 包含查询的类型。当前可能的值是：
+    * v1 技能：`askDevice`、`controlDevice`、`actionStart`、`actionEnd`、`askWhen`、`askWhere`、`askWho`
+    * v2 技能：`queryIntent` 当完整的所述文本被捕获时，`controlDevice` 用于只有部分文本的回退
+  * `deviceId` 包含一个 deviceId 标识请求发送到的设备，由亚马逊交付，如果未提供则为空字符串
+  * `deviceRoom` 包含一个映射的房间标识符，您可以在物联网管理 UI 中为收集的 deviceIds 配置
+  * `sessionId` 包含 Skill session 的 sessionId，如果说了多个命令，应该是相同的，由 Amazon 提供，如果不提供则为空字符串
+  * `userId` 包含来自设备所有者（或稍后与技能交互的用户）的 userId，由亚马逊提供，如果未提供则为空字符串
+  * `userName` 包含一个映射的用户名，您可以在物联网管理 UI 中为收集的 userIds 配置
 
- 有关如何检测单词以及 Alexa 自定义技能区分哪些查询类型的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
+ 有关如何检测单词以及 Alexa Custom Skill 区分哪些查询类型的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
 
 **通过 smart.lastResponse 状态返回结果**
 
-响应需要在“smart.lastResponse”状态下在 200 毫秒内发送，可以是简单的文本字符串或 JSON 对象。
+响应需要在 200ms 内以 `smart.lastResponse` 状态发送，可以是简单的文本字符串或 JSON 对象。
 如果它是文本字符串，则此文本将作为对技能的响应发送。
 如果文本是 JSON 对象，则可以使用以下键：
 
-* **responseText** 需要包含返回亚马逊的文本
-* **shouldEndSession** 是一个布尔值，它控制会话是在说出响应后关闭还是保持打开状态以接受另一个语音输入。
-* **sessionId** 需要包含响应所针对的 sessionId。理想情况下提供它以允许并发会话。如果未提供，则假定为第一个需要响应的会话。
+* `responseText` 需要包含返回亚马逊的文本
+* `shouldEndSession` 是一个布尔值，它控制会话是在说出响应后关闭还是保持打开状态以接受另一个语音输入。
+* `sessionId` 需要包含响应所针对的 sessionId。理想情况下，提供它以允许并发会话。如果未提供，则假定为第一个需要响应的会话。
 
 **通过消息返回结果给物联网实例**
 
-物联网实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 **responseText** 和 **shouldEndSession** 以及 **sessionId** ，如上所述。
+iot 实例还接受名称为“alexaCustomResponse”的消息，其中包含键“response”，对象可以包含键 `responseText` 和 `shouldEndSession` 以及 `sessionId`，如上所述。
 物联网实例不会对消息做出任何响应！
 
 **使用文本的脚本示例**
@@ -286,11 +287,41 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ## Yandex 主页
 [指示](doc/alisa.md)
 
+## 向应用发送消息
+从版本 1.15.x 开始，您可以将消息发送到 `ioBroker.visu` 应用程序（Android 和 iOS）。
+为此，您需要编写以下状态：
+
+```
+setState('iot.0.app.expire', 60); // optional. Time in seconds
+setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'normal'
+setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
+setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
+
+// or just one state
+// only is message is mandatory. All other are optional
+setState('iot.0.app.message', JSON.stringify({
+  message: 'Message text',
+  title: 'ioBroker',
+  expire: 60,
+  priority: 'normal'
+})); // important, that ack=false (default)
+```
+
 <!-- 下一个版本的占位符（在行首）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.0.3 (2023-06-06)
+* (bluefox) Working on support for amazon alexa v3
+
+### 2.0.2 (2023-06-05)
+* (bluefox) Added support for amazon alexa v3
+* (bluefox) Removed support for sugar blood indication
+
+### 1.14.6 (2023-05-12)
+* (bluefox) Corrected translations
+
 ### 1.14.5 (2023-03-01)
 * (bluefox) Corrected names of enums in GUI
 
@@ -301,7 +332,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Updated GUI packages
 
 ### 1.14.1 (2022-12-22)
-* (bluefox) Downgraded axios version to 0.27.2
+* (bluefox) Downgraded the axios version to 0.27.2
 
 ### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
@@ -317,7 +348,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Corrected blockly for unknown languages
 
 ### 1.12.2 (2022-10-01)
-* (Apollon77) Fix crash case
+* (Apollon77) Fixed crash case
 
 ### 1.12.1 (2022-09-27)
 * (bluefox) Corrected error in GUI with empty password
@@ -352,8 +383,8 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.11.0 (2022-03-17)
 * (Apollon77) Also support "stored" when a rgb state is turned on/off
-* (Apollon77) Fix control percent value to respect min/max correctly
-* (bluefox) Support of response messages longer than 128k (zip)
+* (Apollon77) Fixed control percent value to respect min/max correctly
+* (bluefox) Support for response messages longer than 128k (zip)
 
 ### 1.10.0 (2022-03-09)
 * (Apollon77) Respect min/max when calculating the value for byOn with % values
@@ -394,7 +425,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
 
 ### 1.8.20 (2021-05-16)
-* (foxriver76) we now write data received from custom services with acknowledge flag
+* (foxriver76) we now write data received from custom services with the acknowledge flag
 
 ### 1.8.19 (2021-05-14)
 * (bluefox) Only added one debug output
@@ -489,7 +520,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.5.2 (2020-05-21)
 * (bluefox) Changed requirements for password
-* (bluefox) Do not try load the "sharp" if blood sugar not enabled
+* (bluefox) Do not try to load the "sharp" if the blood sugar not enabled
 
 ### 1.4.18 (2020-05-11)
 * (Apollon77) Make sure that invalid configured states or values without a timestamp do not crash adapter (Sentry IOBROKER-IOT-8)
@@ -511,8 +542,8 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Fixed crashes reported by sentry
 
 ### 1.4.7 (2020-04-23)
-* fix iot crash when timeouts in communications to Google happens (Sentry IOBROKER-IOT-2)
-* fix iot crash when google answers without customData (Sentry IOBROKER-IOT-1)
+* fixed iot crash when timeouts in communications to Google happens (Sentry IOBROKER-IOT-2)
+* fixed iot crash when google answers without customData (Sentry IOBROKER-IOT-1)
 
 ### 1.4.6 (2020-04-18)
 * (Apollon77) Add the Sentry error reporting to `React Frontend`

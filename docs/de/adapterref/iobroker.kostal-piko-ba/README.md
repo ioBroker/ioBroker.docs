@@ -3,40 +3,44 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: z2vTSHYACAYAKPB30EQQz5xNuEkkLXoI6VGlOaQSraA=
+hash: o8WKJRbH1NvZZ7/KkuUQq2W7tvgOz+JJsSAZP7Leakc=
 ---
 ![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
 # IoBroker.kostal-piko-ba
-![NPM-Version (stabil)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Anzahl der Installationen (neueste)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+![NPM-Version (stabil)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Anzahl der Installationen (aktuell)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 
-CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+**CI-Tests:** ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg) [![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 
 ## Adapter zum Auslesen von Kostal Piko & Piko BA Daten für iOBroker
 Adapter zum Auslesen von Kostal Piko, Piko BA und PIKO MP plus Daten. Der Adapter erstellt einige Zustände und aktualisiert sie nacheinander.
 Adapter für Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA Wechselrichter.
-Adapter funktioniert auch mit Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 & 36 Wechselrichtern.
-NEU! Adapter funktioniert jetzt auch mit MP plus Wechselrichtern - getestet mit Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
-Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
+Adapter funktioniert auch mit den Wechselrichtern Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 und 36.
+NEU! Adapter funktioniert jetzt auch mit MP plus Wechselrichtern – getestet mit Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
+Wir freuen uns sehr, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
 
 ## Einstellungen
-Beachten Sie, dass Ihr Piko oder Piko BA Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um sich mit dem Wechselrichter Kostal Piko (BA / MP plus) zu verbinden, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
-Optional können Sie auch die Aktualisierungsfrequenzen von Live-Daten, Tages- und Livetime-Statistiken bearbeiten.
-Falls erforderlich und von Ihrer Hardware unterstützt, setzen Sie auch die Markierung zum Auslesen der 4 Analogwerte.
+Beachten Sie, dass Ihr Piko- oder Piko BA-Wechselrichter auf Kostal UI >= 6.11 aktualisiert werden muss! Um eine Verbindung zum Kostal Piko (BA / MP plus) Wechselrichter herzustellen, ist die Einstellung seiner IP-Adresse in der Konfiguration zwingend erforderlich.
+Optional können Sie auch die Aktualisierungshäufigkeit von Live-Daten sowie Tages- und Livetime-Statistiken bearbeiten.
+Wenn nötig und von Ihrer Hardware unterstützt, setzen Sie auch die Markierung für das Auslesen der 4 Analogwerte.
 
 ## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.2 (02.06.2023)
+* (HombachC) fixed a wording error
+* (HombachC) bumped dependencies, added tests for node.js 20
+* (HombachC) it's recommended to switch to minimum node.js 16, adapter still working with node 14
 ### 2.5.1 (25.04.2023)
 * (HombachC) fixed a sentry reported error
 ### 2.5.0 (22.04.2023)

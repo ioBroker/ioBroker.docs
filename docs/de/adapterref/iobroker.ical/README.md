@@ -210,7 +210,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 ### **WORK IN PROGRESS**
 * (klein0r) Use color picker in adapter settings
 * (klein0r) Dropped Admin 4 UI
-* (klein0r) Added Ukranian language
+* (klein0r) Added Ukrainian language
 
 ### 1.13.2 (2022-08-29)
 * (Apollon77) fix strange log messages by downgrading RRule again
@@ -226,7 +226,7 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 * (Apollon77) Fix displaying rest-time of event in one case
 
 ### 1.12.1 (2022-03-22)
-* (Apollon77) Adjust colorize of dates to also show dates started in the past with todays color
+* (Apollon77) Adjust colorize of dates to also show dates started in the past with today's color
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
+hash: +WYlO771RZHfMZcPbi7B6ca9nsdaJq3P3c3zZiCLU5s=
 ---
 ![Logo](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -11,59 +11,59 @@ hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.eventlist.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.eventlist.svg)
 
-# IoBroker.eventliste
-![Testen und freigeben](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.eventlist
+![Test und Freigabe](https://github.com/ioBroker/iobroker.eventlist/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/eventlist/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Event-List-Adapter für ioBroker
-Ermöglicht die Definition der Zustände, die in der Ereignisliste angemeldet werden müssen.
+Ermöglicht die Definition der Zustände, die in der Ereignisliste protokolliert werden müssen.
 
-Die Liste kann in admin, web, vis angezeigt werden, als PDF gespeichert werden, Material (noch nicht implementiert).
+Die Liste kann in Admin, Web, Vis angezeigt, als PDF gespeichert, Material (noch nicht implementiert) werden.
 
-Zusätzlich können Sie Events per Telegram oder WhatsApp versenden.
+Darüber hinaus können Sie Veranstaltungen per Telegram oder WhatsApp versenden.
 
 ![Aufführen](../../../en/adapterref/iobroker.eventlist/img/list.png)
 
-![Pdf](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
+![PDF](../../../en/adapterref/iobroker.eventlist/img/pdf.png)
 
 ## Alarmmodus
 Die Ereignisse konnten nur im Alarmmodus generiert werden.
-Der Alarmmodus könnte durch die Variable `eventlist.X.alarm` gesteuert werden.
+Der Alarmmodus kann über die Variable `eventlist.X.alarm` gesteuert werden.
 
-Außerdem könnten die Nachrichten an Messenger nur gesendet werden, wenn der Alarmmodus eingeschaltet ist.
+Darüber hinaus können Nachrichten an Messenger nur gesendet werden, wenn der Alarmmodus aktiviert ist.
 
 Anwendungsfall:
 
-- Z.B. Der Türsensor kann die Nachrichten nur senden, wenn niemand zu Hause ist. Andernfalls werden die Ereignisse zum Thema Türöffnung nur in der Ereignisliste gesammelt.
+- Beispielsweise kann der Türsensor die Nachrichten nur senden, wenn niemand zu Hause ist. Ansonsten werden die Ereignisse rund um die Türöffnung nur in der Ereignisliste erfasst.
 
 ## Mögliche Präsentationen
-### In Admin als Registerkarte
+### Im Admin als Tab
 Sie können die Ereignisliste als Registerkarte im Admin aktivieren.
 
 ### Netz
-Ereignisliste könnte unter `http://<IP>:8082/eventlist/index.html` angezeigt werden. (für Instanzen > 0: `http://<IP>:8082/eventlist/index.html?X`, wobei X die Instanznummer ist)
+Die Ereignisliste kann unter `http://<IP>:8082/eventlist/index.html` angezeigt werden. (für Instanzen > 0: `http://<IP>:8082/eventlist/index.html?X`, wobei X die Instanznummer ist)
 
 ### Vis-Widget
 Die Ereignisliste kann als Vis-Widget angezeigt werden.
 
 ### PDF-Generierung
-Es besteht die Möglichkeit, ein PDF-Dokument mit allen Veranstaltungen zu generieren.
+Es besteht die Möglichkeit, ein PDF-Dokument mit allen Ereignissen zu generieren.
 
-Der Dokumenttitel kann das Erstellungsdatum enthalten, wenn Sie das Muster darin platzieren: `Event list on {{YYYY MM DD}}`.
+Der Dokumenttitel kann aus dem Erstellungsdatum bestehen, wenn Sie das Muster darin einfügen: `Event list on {{YYYY MM DD}}`.
 Die genaue Beschreibung des Zeitformats finden Sie hier: https://momentjs.com/docs/#/displaying/format/
 
-Die PDF-Generierung kann durch Schreiben eines `true` in `eventlist.0.triggerPDF` ausgelöst werden.
+Die Generierung von PDF kann durch das Schreiben eines `true` in `eventlist.0.triggerPDF` ausgelöst werden.
 
 Auf die PDF-Datei kann zugegriffen werden über:
 
 - web: `http://<IP>:8082/eventlist/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
 - admin: `http://<IP>:8081/files/eventlist/report.pdf` (für Instanzen > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, wobei X die Instanznummer ist)
 
-**Die Symbole konnten im PDF nicht angezeigt werden.**
+**Die Symbole konnten nicht im PDF angezeigt werden.**
 
 ## Nachrichtenbox
-Der Benutzer kann der Liste benutzerdefinierte Ereignisse über Javascript hinzufügen:
+Benutzer können der Liste über Javascript benutzerdefinierte Ereignisse hinzufügen:
 
 ```
 // add custom event to event list
@@ -83,7 +83,7 @@ setState('eventlist.0.insert', 'My custom text');
 setState('eventlist.0.insert', JSON.stringify({event: 'My custom text %s', val: 5}));
 ```
 
-Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Die ID muss natürlich vorher im `eventlist` freigeschaltet werden.
+Der Benutzer kann eine formatierte JSON-Liste für eine bestimmte ID anfordern. Natürlich muss die ID vorher in den `eventlist` aktiviert werden.
 
 ```
 // add custom event to event list
@@ -103,7 +103,7 @@ sendTo('eventlist.0', 'list', 'my.0.state.id1', result => {
 });
 ```
 
-Der Benutzer kann einige oder alle Ereignisse aus der Ereignisliste löschen.
+Benutzer können einige oder alle Ereignisse aus der Ereignisliste löschen.
 
 ```
 // delete all events
@@ -123,33 +123,50 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ```
 
 ## Muster
-In den Ereignistexten und in den Zustandstexten könnten folgende Muster verwendet werden:
+In den Veranstaltungstexten und in den Zustandstexten könnten folgende Muster verwendet werden:
 
-- %s - value (`Zustand geändert zu %s` => `Zustand geändert zu 5`),
-- %u - unit (`Zustand geändert zu %s%u` => `Zustand geändert zu 5%`),
-- %n - name (`%n hat den Status zu %s geändert` => `Gerät A hat den Status zu 5 geändert`),
-- %t - time (`Zustand geändert am %t` => `Zustand geändert am Sep Fr, 16:32:00`),
-- %r - relative Zeit (`Status hat Status %r geändert` => `Status hat Status vor 5 Sekunden geändert`),
-- %d - Dauer (`Zustand war %d im vorherigen Zustand` => `Zustand war 5s lang im vorherigen Zustand`),
-- %g - Wertdifferenz (`Zustand wurde geändert am %g%` => `Zustand wurde geändert am 1%`),
-- %o - Wertdifferenz (`Status hat Wert von %o auf % geändert` => `Status wurde um 1% geändert`)
+- %s - Wert (`Status geändert in %s` => `Status geändert in 5`),
+- %u - Einheit (`Status geändert zu %s%u` => `Status geändert zu 5%`),
+- %n - Name (`%n hat den Status in %s geändert` => `Gerät A hat den Status in 5 geändert`),
+- %t - time (`Status geänderter Status am %t` => `Status geänderter Status am Sep Fr, 16:32:00`),
+- %r – relative Zeit („Status geänderter Status %r“ => „Status geänderter Status vor 5 Sekunden“),
+- %d – Dauer („Zustand war %d lang im vorherigen Zustand“ => „Zustand war 5 Sekunden lang im vorherigen Zustand“),
+- %g – Wertdifferenz („Status wurde am %g% geändert“ => „Status wurde am 1 % geändert“),
+- %o - Wertdifferenz („Status hat Wert von %o zu % geändert“ => „Status wurde um 1 % geändert“)
 
-## Verwendung mehrerer Instanzen im Web
-Z.B. Sie können eine bestimmte Liste für Instanz 2 anzeigen, wie `http://IP:8082/eventlist/index.htmlindex.html?2`.
+## Nutzung mehrerer Instanzen im Web
+Sie können beispielsweise die spezifische Liste für Instanz 2 anzeigen, z. B. `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
-Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pdf` gespeichert, aber als Instanz 1 in `eventlist/report-1.pdf`.
+Der generierte Bericht wird als Instanz 0 in `eventlist/report.pdf` gespeichert, jedoch als Instanz 1 in `eventlist/report-1.pdf`.
 
 ## Machen
-- Anfangstexte im PDF in entsprechender Sprache ändern
+- Ändern Sie Ausgangstexte im PDF in die entsprechende Sprache
 - Viele vordefinierte Symbole (mindestens 100)
 - Material-Widget
-- Senden Sie Nachrichten an Syslog (möglicherweise Splunk) https://www.npmjs.com/package/splunk-logging
+- Senden Sie Nachrichten an Syslog (vielleicht Splunk) https://www.npmjs.com/package/splunk-logging
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.2.4 (2023-05-17)
+* (bluefox) Just the packages were updated
+
+### 1.2.3 (2023-03-16)
+* (bluefox) Corrected the edit of the event sources
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
+### 1.2.2 (2022-12-27)
+* (bluefox) Corrected web page loading in web adapter
+
+### 1.2.1 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.2.0 (2022-11-12)
+* (bluefox) Fixed error with edit of the state settings
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
 ### 1.1.1 (2022-10-12)
 * (bluefox) Fixed icons of devices
 * (bluefox) Migrated GUI to `mui5`
@@ -160,7 +177,7 @@ Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pd
 * (bluefox) Added preparations for ioBroker cloud
 
 ### 1.0.0 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
@@ -177,12 +194,12 @@ Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pd
 * (bluefox) Corrected the warning for js-controller 3.x
 
 ### 0.4.3 (2021-04-19)
-* (bluefox) Added the support of Admin5
+* (bluefox) Added the support for Admin5
 
 ### 0.4.2 (2020-12-05)
 * (bluefox) Added possibility to add multiple states
 * (bluefox) Moved the duration to previous state
-* (bluefox) Support of multiple instances
+* (bluefox) Support for multiple instances
 
 ### 0.4.0 (2020-11-10)
 * (bluefox) Added setting of even/odd background for widget
@@ -220,7 +237,7 @@ Der generierte Bericht wird beispielsweise als Instanz 0 in `eventlist/report.pd
 ## License
 MIT License
 
-Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2023 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

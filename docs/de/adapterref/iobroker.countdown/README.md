@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: isG4bGoigMjO7pvxpUNODcktDC6agixV57pjeXbgDAw=
+hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -69,9 +69,12 @@ Parameter sind hier:
 |endDate|Enddatum des Countdowns – formatiert wie im Setup definiert|
 |inWordsShort|Kombinierter Wert aus Minuten, Stunden,... – z.B. 1J 5M 4T|
 |inWordsLong|Kombinierter Wert aus Minuten, Stunden,... – z.B. 1 Jahr 5 Monate 4 Tage|
-|totalHours|Gesamtzahl der Stunden bis zum Enddatum|
-|totalDays|Gesamtzahl der Tage bis zum Enddatum|
-|totalWeeks|Gesamtzahl der Wochen bis zum Enddatum|
+|totalHours|Gesamtzahl. Stunden bis zum Enddatum|
+|totalDays|Gesamtzahl. Anzahl Tage bis zum Enddatum|
+|totalWeeks|Gesamtanzahl Anzahl Wochen bis zum Enddatum|
+|totalMonths|Gesamtanzahl Monate bis zum Enddatum|
+|totalYears|Gesamtanzahl Anzahl Jahre bis zum Enddatum|
+
 |reached|Boolesches Feld, das definiert, ob das Enddatum erreicht wurde oder nicht|
 |repeatEvery|Countdown wird nach Erreichen des Enddatums um diesen Zeitraum wiederholt|
 
@@ -79,95 +82,99 @@ Parameter sind hier:
 * Möglichkeit, ein Skript als Parameter hinzuzufügen und es zu starten, wenn der Countdown endet
 * Möglichkeit, Plus und Minus in Addminuten und den anderen Additionsfunktionen zu verwenden
 
-## 2.0.0 (07.05.2023)
-* (jack-blackson) Überarbeiteter Adapter aufgrund eines falschen Prozesslayouts
-* (jack-blackson) Header für HTML und JSON hinzugefügt
-
-## 1.3.1 (01.05.2023)
-* (jack-blackson) Bugfix-Datumsberechnung (Danke an Lueghi für den Hinweis)
-
-## 1.3.0 (22.02.2023)
-* (jack-blackson) Updates für Abhängigkeiten
-
-## 1.2.5 (16.06.2021)
-* (jack-blackson) Bugfix zum Löschen des Countdowns mit sendto
-
-## 1.2.4 (09.06.2021)
-* (jack-blackson) Kleine Bugfixes, Übersetzungen
-
-## 1.2.3 (27.05.2021)
-* (jack-blackson) Kleine Bugfixes, Übersetzungen
-
-## 1.2.2 (25.05.2021)
-* (jack-blackson) Kleine Bugfixes, Weblate für Übersetzungen hinzugefügt
-
-## 1.2.1 (09.05.2021)
-* (jack-blackson) Kleine Fehlerbehebungen
-
-## 1.2.0 (09.05.2021)
-* (jack-blackson) Aktualisierte Pakete, Sentry hinzugefügt
-* (jack-blackson) Korrekturen für JS-Controller 3.3
-* (jack-blackson) Korrektur, dass Countdowns sofort erstellt werden
-
-## 1.1.0 (02.04.2020)
-* (jack-blackson) Bugfix Read-Me-Link
-* (Jack-Blackson) Bugfix RepeatCycle
-
-## 1.0.9 (31.03.2020)
-* (jack-blackson) Bugfix-Protokollmeldungen
-
-## 1.0.8 (31.03.2020)
-* (jack-blackson) Countdown im definierten Zeitraum wiederholen (z. B. jedes Jahr)
-
-## 1.0.7 (30.03.2020)
-* (jack-blackson) Neuer Datumstyp für Einstellungen hinzugefügt: JJJJ-MM-TT
-* (jack-blackson) Countdown direkt in den Adaptereinstellungen hinzufügen
-
-## 1.0.6 (20.03.2020)
-* (DutchmanNL) Fester Adaptertyp
-
-## 1.0.5 (05.02.2020)
-* (jack-blackson) Bugfix für Alarm um Mitternacht -> Danke an @Lueghi
-
-## 1.0.4 (25.08.2019)
-* (Jack-Blackson) Veröffentlichungsinformationen neu geordnet
-
-## 1.0.3 (10.08.2019)
-* (jack-blackson) Änderungen für den Kompaktmodus
-* (jack-blackson) Verschiedene Bugfixes
-* (jack-blackson) Es ist jetzt möglich, mehrere Instanzen des Adapters zu haben
-
-## 1.0.2 (22.07.2019)
-* (jack-blackson) Release-Version
-
-## 0.7.0 (07.07.2019)
-* (jack-blackson) Fehlerbehebungen
-* (jack-blackson) addminutes und addhours sind jetzt auch möglich
-* (jack-blackson) Datenpunkt im Setup kann jetzt bearbeitet werden
-* (Jack-Blackson) Gesamtzahl hinzugefügt. von Wochen
-
-## 0.6.0 (06.07.2019)
-* (Jack-Blackson) einstellbares Datumsformat für Ein- und Ausgabe
-* (jack-blackson) Countdowns mit sendto löschen
-* (Jack-Blackson) Möglichkeit, Countdowns nach „Tagen/Monaten/Wochen ab jetzt“ hinzuzufügen)
-
-## 0.5.0 (04.07.2019)
-* (Jack-Blackson) Passen Sie die Daten in der Tabelle an
-* (Jack-Blackson) Bugfix-Datumsimport
-
-### 0.4.0 (04.06.2019)
-* (jack-blackson) Umstrukturierung – Erstellung von Alarmen mit sendto oder manuell mit datapoint ist jetzt möglich
-
-### 0.3.0 (24.05.2019)
-* (Jack-Blackson) Gesamtzahl der Tage und Stunden hinzugefügt
-
-### 0.2.0 (21.05.2019)
-* (Jack-Blackson) angepasste Pakete
-
-### 0.1.0 (29.04.2019)
-* (Jack-Blackson) Erstversion
-
 ## Changelog
+
+### 2.0.1 (2023-05-24) 
+* (jack-blackson) Added objects for total number of months and years
+
+### 2.0.0 (2023-05-07) 
+* (jack-blackson) Reworked adapter due to wrong process layout
+* (jack-blackson) Added headers for HTML and JSON
+
+### 1.3.1 (2023-05-01) 
+* (jack-blackson) Bugfix date calculation (thanks to Lueghi for the hint)
+
+### 1.3.0 (2023-02-22) 
+* (jack-blackson) Updates for dependencies
+
+### 1.2.5 (2021-06-16) 
+* (jack-blackson) Bugfix to delete countdown with sendto
+
+### 1.2.4 (2021-06-09) 
+* (jack-blackson) Small bugfixes, translations
+
+### 1.2.3 (2021-05-27) 
+* (jack-blackson) Small bugfixes, translations
+
+### 1.2.2 (2021-05-25) 
+* (jack-blackson) Small bugfixes, added weblate for translations
+
+### 1.2.1 (2021-05-09) 
+* (jack-blackson) Small Bugfixes
+
+### 1.2.0 (2021-05-09) 
+* (jack-blackson) Updated packages, added Sentry
+* (jack-blackson) Fixes for JS-controller 3.3
+* (jack-blackson) Fix that countdowns are created immediatly
+
+
+### 1.1.0 (2020-04-02) 
+* (jack-blackson) bugfix Read-Me link
+* (jack-blackson) bugfix repeatCycle
+
+### 1.0.9 (2020-03-31)
+* (jack-blackson) Bugfix log messages
+
+### 1.0.8 (2020-03-31)
+* (jack-blackson) Repeat countdown in defined period (e.g. every year)
+
+### 1.0.7 (2020-03-30)
+* (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+* (jack-blackson) Add countdown directly in adapter settings
+
+### 1.0.6 (2020-03-20)
+* (DutchmanNL) Fixed adapter type
+
+### 1.0.5 (2020-02-05)
+* (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
+
+### 1.0.4 (2019-08-25)
+* (jack-blackson) Reordered release infos
+
+### 1.0.3 (2019-08-10)
+* (jack-blackson) Changes for Compact Mode
+* (jack-blackson) Various bugfixes
+* (jack-blackson) Having multiple instances of the adapater are now possible
+
+### 1.0.2 (2019-07-22)
+* (jack-blackson) Release version
+
+### 0.7.0 (2019-07-07)
+* (jack-blackson) Bugfixes
+* (jack-blackson) addminutes and addhours are now also possible
+* (jack-blackson) datapoint in setup is now editable
+* (jack-blackson) added total no. of weeks
+
+### 0.6.0 (2019-07-06)
+* (jack-blackson) adjustable date format for input and output
+* (jack-blackson) delete countdowns with sendto
+* (jack-blackson) ability to add countdowns by "days/months/weeks from now)
+
+### 0.5.0 (2019-07-04)
+* (jack-blackson) adjust the data in the table
+* (jack-blackson) bugfix date import 
+
+### 0.4.0 (2019-06-04)
+* (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
+
+### 0.3.0 (2019-05-24)
+* (jack-blackson) added total No. of days and hours
+
+### 0.2.0 (2019-05-21)
+* (jack-blackson) adjusted packages
+
+### 0.1.0 (2019-04-29)
+* (jack-blackson) initial version
 
 ## License
 The MIT License (MIT)

@@ -104,6 +104,9 @@ and after the delay is over the defined ID will be set to 0 and alarm ID be set 
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Improved buttons widget
+
 ### 0.2.13 (2023-03-22)
 * (bluefox) BREAKING CHANGE: The names of widgets must be entered anew 
 * (bluefox) update packages

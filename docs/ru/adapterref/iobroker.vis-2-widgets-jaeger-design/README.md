@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: tVGv+9zUgAVG739WJpAvkSTHy2J+xcFdzQqdNogjTsc=
+hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -41,6 +41,28 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.4.3 (2023-06-07)
+* (bluefox) Corrected visualization of view
+
+### 0.4.0 (2023-05-31)
+* (bluefox) Added exclusions
+* (bluefox) Added possibility to show information on the very top of layout
+
+### 0.3.2 (2023-04-05)
+* (bluefox) Corrected license problem
+
+### 0.3.1 (2023-03-22)
+* (bluefox) Corrected build process
+
+### 0.3.0 (2023-03-21)
+* (bluefox) Implemented dark mode
+
+### 0.2.3 (2023-03-09)
+* (bluefox) update packages
+
+### 0.2.2 (2023-03-06)
+* (bluefox) Updated thermostat widget
+
 ### 0.2.1 (2023-02-03)
 * (bluefox) Mobile views tuned
 

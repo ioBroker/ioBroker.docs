@@ -536,6 +536,21 @@ Here is a list of the problems that have occurred so far and their solutions, if
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.6.23 (2023-05-25)
+* (simatec) Fix Influx Restore for MultiDB
+* (simatec) Token renew for Onedrive added
+* (simatec) Fix PSQL Restore
+
+### 2.6.22 (2023-05-24)
+* (simatec) Fix Influx Restore for MultiDB
+* (simatec) Default Ports for InfluxDB added
+
+### 2.6.21 (2023-05-19)
+* (simatec) small Sentry fixes
+* (simatec) Fix Influx Restore
+* (simatec) Fix Onedrive Download
+* (simatec) dependencies updated
+
 ### 2.6.20 (2023-05-02)
 * (simatec) FTP self signed Certificates added
 * (simatec) dependencies updated

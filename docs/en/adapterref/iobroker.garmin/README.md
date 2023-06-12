@@ -25,6 +25,10 @@ Die garmin connect Mail und Passwort eingeben.
 
 ## Changelog
 
+### 0.0.4
+
+- (TA2k) fix installation problems
+
 ### 0.0.3
 
 - (TA2k) initial release

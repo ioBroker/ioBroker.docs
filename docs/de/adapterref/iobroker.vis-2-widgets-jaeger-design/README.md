@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: tVGv+9zUgAVG739WJpAvkSTHy2J+xcFdzQqdNogjTsc=
+hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -13,7 +13,7 @@ hash: tVGv+9zUgAVG739WJpAvkSTHy2J+xcFdzQqdNogjTsc=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # Material-Widgets für ioBroker.vis 2.0
-##Widgets
+## Widgets
 ### Knöpfe und Schalter
 ### Aktuelle Nachrichten
 ![Aktuelle Nachrichten](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/news.png)
@@ -34,13 +34,35 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 });
 ```
 
-Und dann verwenden Sie das Objekt `javascript.0.rss` in diesem Widget.
+Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 0.4.3 (2023-06-07)
+* (bluefox) Corrected visualization of view
+
+### 0.4.0 (2023-05-31)
+* (bluefox) Added exclusions
+* (bluefox) Added possibility to show information on the very top of layout
+
+### 0.3.2 (2023-04-05)
+* (bluefox) Corrected license problem
+
+### 0.3.1 (2023-03-22)
+* (bluefox) Corrected build process
+
+### 0.3.0 (2023-03-21)
+* (bluefox) Implemented dark mode
+
+### 0.2.3 (2023-03-09)
+* (bluefox) update packages
+
+### 0.2.2 (2023-03-06)
+* (bluefox) Updated thermostat widget
+
 ### 0.2.1 (2023-02-03)
 * (bluefox) Mobile views tuned
 

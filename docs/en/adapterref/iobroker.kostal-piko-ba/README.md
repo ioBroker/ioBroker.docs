@@ -1,17 +1,19 @@
 ![Logo](admin/picoba.png)
 # ioBroker.kostal-piko-ba
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
-![NPM version (stable)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg)
+[![NPM version](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
+![NPM version (stable)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)](https://www.npmjs.com/package/iobroker.kostal-piko-ba)
-![Number of Installations (latest)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+![Number of Installations (latest)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba)
 
-CI-Tests:
+**CI-Tests:**
 ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+[![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-kostal-piko-ba)
 
 [![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)](https://nodei.co/npm/iobroker.kostal-piko-ba/)
+
 
 ## Adapter for reading Kostal Piko & Piko BA data for iOBroker
 Adapter for reading Kostal Piko, Piko BA and PIKO MP plus data. Adapter creates some states and updates them sequentially.
@@ -33,6 +35,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.2 (02.06.2023)
+* (HombachC) fixed a wording error
+* (HombachC) bumped dependencies, added tests for node.js 20
+* (HombachC) it's recommended to switch to minimum node.js 16, adapter still working with node 14
 ### 2.5.1 (25.04.2023)
 * (HombachC) fixed a sentry reported error
 ### 2.5.0 (22.04.2023)

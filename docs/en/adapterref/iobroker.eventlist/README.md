@@ -12,7 +12,7 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Event-List adapter for ioBroker
-Allows to define the states that must be logged in event list.
+Allows defining the states that must be logged in the event list.
 
 The list can be shown in admin, web, vis, saved as PDF, material (not yet implemented).
 
@@ -29,7 +29,7 @@ The alarm mode could be controlled by variable `eventlist.X.alarm`.
 Additionally, the messages to messengers could be sent only if alarm mode is ON.
 
 Use case:
-- E.g. door sensor can send the messages only if nobody is home. Else the events about door opening will be only collected in the event list.  
+- E.g., door sensor can send the messages only if nobody is home. Else the events about door opening will be only collected in the event list.  
 
 ## Possible presentations
 
@@ -50,14 +50,14 @@ The exact description of time format could be found here: https://momentjs.com/d
 
 The generation of PDF can be triggered by writing a `true` into `eventlist.0.triggerPDF`. 
 
-The PDF file could be accesses via:
+The PDF file could be accessed via:
 - web: `http://<IP>:8082/eventlist/eventlist/report.pdf` (for instances > 0: `http://<IP>:8082/eventlist/eventlist/report-X.pdf`, where X is the instance number)
 - admin: `http://<IP>:8081/files/eventlist/report.pdf` (for instances > 0: `http://<IP>:8081/files/eventlist/report-X.pdf`, where X is the instance number)
 
 **The icons could not be shown in PDF.**
 
 ## Message box
-User can add custom events to the list via javascript:
+Users can add custom events to the list via javascript:
 ```
 // add custom event to event list
 sendTo('eventlist.0', 'insert', {
@@ -95,7 +95,7 @@ sendTo('eventlist.0', 'list', 'my.0.state.id1', result => {
 });
 ```
 
-User can delete some or all events from the event list.
+Users can delete some or all events from the event list.
 ```
 // delete all events
 sendTo('eventlist.0', 'delete', '*', result => {
@@ -114,7 +114,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ```
 
 ## Patterns
-In the event texts and in the state texts the following patterns could be used:
+In the event texts and in the state texts, the following patterns could be used:
 - %s - value (`State changed to %s` => `State changed to 5`), 
 - %u - unit (`State changed to %s%u` => `State changed to 5%`), 
 - %n - name (`%n changed state to %s` => `Device A changed state to 5`), 
@@ -125,7 +125,7 @@ In the event texts and in the state texts the following patterns could be used:
 - %o - value difference (`State changed value from %o to %` => `State was changed on 1%`)
 
 ## Usage of multiple instances in web
-E.g. you can show specific list for instance 2, like `http://IP:8082/eventlist/index.htmlindex.html?2`.
+E.g., you can show the specific list for instance 2, like `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
 The generated report will be stored for instance 0 in `eventlist/report.pdf`, but for instance 1 in `eventlist/report-1.pdf`.
 
@@ -141,6 +141,9 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 -->
 
 ## Changelog
+### 1.2.4 (2023-05-17)
+* (bluefox) Just the packages were updated
+
 ### 1.2.3 (2023-03-16)
 * (bluefox) Corrected the edit of the event sources
 * (bluefox) Added possibility to use default texts for strings values like for booleans
@@ -165,7 +168,7 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 * (bluefox) Added preparations for ioBroker cloud
 
 ### 1.0.0 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
@@ -182,12 +185,12 @@ The generated report will be stored for instance 0 in `eventlist/report.pdf`, bu
 * (bluefox) Corrected the warning for js-controller 3.x
 
 ### 0.4.3 (2021-04-19)
-* (bluefox) Added the support of Admin5
+* (bluefox) Added the support for Admin5
 
 ### 0.4.2 (2020-12-05)
 * (bluefox) Added possibility to add multiple states
 * (bluefox) Moved the duration to previous state
-* (bluefox) Support of multiple instances
+* (bluefox) Support for multiple instances
 
 ### 0.4.0 (2020-11-10)
 * (bluefox) Added setting of even/odd background for widget

@@ -64,8 +64,16 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* add reboot button for SOAP devices (seems they tend to die now the servers are gone) 
+### 1.3.1 (2023-06-12)
+* fix minor errors
+* improved siren supprt.
+
+### 1.3.0 (2023-05-15)
+* reworked code to type-script (please report errors / things that work worse than before)
+* added: reboot button for SOAP devices (seems they tend to die now the servers are gone)
+* added: support for siren devices
+* added: device connection status displayed in admin.
+* removed: info.connection state.
 
 ### 1.2.1 (2022-09-01)
 * fix release...
@@ -200,7 +208,7 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 ## License
 MIT License
 
-Copyright (c) 2022 Garfonso <garfonso@mobo.info>
+Copyright (c) 2023 Garfonso <garfonso@mobo.info>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

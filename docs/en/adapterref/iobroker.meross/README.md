@@ -43,6 +43,9 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.15.1 (2023-05-15)
+* (Apollon77) Fix an issue when committing devices delayed
+
 ### 1.15.0 (2023-01-03)
 * (Apollon77) Add support for MAP100 air purifier
 * (Apollon77) Add Energy Consumption states

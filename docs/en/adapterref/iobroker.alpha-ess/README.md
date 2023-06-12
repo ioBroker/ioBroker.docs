@@ -14,12 +14,19 @@
 This adapter logs into the web API of [Alpha ESS](https://www.alphaess.com/) and retrieves information for your Alpha ESS equipment.\
 Depending on your Alpha ESS product, it is possible to get realtime data and configuration data for your equipment. Which data points are returned by the API depends on your Alpha ESS equipment.
 
-This adapter is based on the great work of [Charles Gillanders](https://github.com/CharlesGillanders/alphaess), who reverse engineered the Alpha ESS Web API. This is an internal API which may be changed at any time by Alpha ESS.
+This adapter supports two APIs, the internal Alpha ESS Web API, which may be changed at any time by Alpha ESS, and the Alpha ESS Open API, which provides less functionality but is on official and documented API to Alpha ESS devices.
 
-Currently this adapter creates a state with a hopefully self explaining name for each data point, which I was able to identify.\
-All other data points are ignored. During adapter start these data points are logged as info message.
+Currently this adapter creates a state with a hopefully self explaining name for each suppoerted data point.\
+All other data points are ignored. During adapter start these data points are logged as debug message.
 
-Basically, it is possible to change selected configuration settings using the Alpha ESS Web API. This is not implemented yet.
+Staring with version 1.0.0-alpha.5, the quality attribute of each state is set accordingly to its status:
+| Quality | meaning |
+|:--------|:--------------------------------------------------|
+|0x00 |OK and up to date |
+|0x01 |value not updated due to unknown reason, see log |
+|0x02 |problem with online connection for this data point |
+|0x12 |adapter disconnected or stopped |
+|0x44 |API returned error or internal error, see log |
 
 ## Settings:
 
@@ -58,30 +65,13 @@ To be able to use the new Open API you have to register your Alpha-ESS device un
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
-### 1.0.0-alpha.4 (2023-05-02)
 
--   (Gaspode) Writing settings implemented for 'Closed API'
-
-### 1.0.0-alpha.3 (2023-04-30)
-
--   (Gaspode) Slow down requests in case of permanent errors for OpenAPI
-
-### 1.0.0-alpha.2 (2023-04-18)
-
--   (Gaspode) Fixed state verification for time values (OpenAPI only)
-
-### 1.0.0-alpha.1 (2023-04-16)
-
--   (Gaspode) Writing charging and discharging settings implemented (OpenAPI only)
-
-### 1.0.0-alpha.0 (2023-04-11)
+### **WORK IN PROGRESS**
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS
-
-### 0.5.0 (2023-03-05)
-
+-   (Gaspode) Set state quality accordingly to status of data
+-   (Gaspode) Writing charging and discharging settings implemented for 'Closed API' and OpenAPI
 -   (Gaspode) Remove no more supported states at startup automatically
--   (Gaspode) Prepared data migration for future versions
 
 ### 0.4.0 (2023-02-16)
 
@@ -90,20 +80,13 @@ To be able to use the new Open API you have to register your Alpha-ESS device un
 
 ### 0.3.0 (2023-02-11)
 
--   (Gaspode) Rearranged statistical data and added more values. Many thanks to [Thorsten](https://github.com/ThorstenBoettler) for his valuable contribution in testing the early alpha versions of this release and providing informative suggestions and recommendations for new data points.
+-   (Gaspode) Read selected statistical data
 -   (Gaspode) Added Summary data
 -   (Gaspode) Refactored complete implementation
 -   (Gaspode) Changed the unit of settings for all intervals, except of realtime data, to minutes (Caution: settings are reset to defaults)
 -   (Gaspode) Remove disabled states at adapter startup
 -   (Gaspode) Removed no more supported value 'createtime' (state ID Realtime.Last_update).
 -   (Gaspode) Optimized rounding for selected values
-
-### 0.2.1-beta.0 (2023-01-31)
-
--   (Gaspode) Read selected statistical data
-
-### 0.2.0 (2023-01-19)
-
 -   (Gaspode) Added states EV1_power, EV2_power, EV3_power and EV4_power to Realtime folder
 
 ### 0.1.0 (2023-01-15)
@@ -111,21 +94,9 @@ To be able to use the new Open API you have to register your Alpha-ESS device un
 -   (Gaspode) First release for Latest repository
 -   (Gaspode) Corrected typo in state ID Battery_SOC
 -   (Gaspode) Implemented improvements as suggested in code review
-
-### 0.0.6-beta.5 (2023-01-07)
-
 -   (Gaspode) Slow down requests in case of permanent errors
-
-### 0.0.6-beta.4 (2023-01-03)
-
 -   (Gaspode) Changed adapter type from metering to energy
-
-### 0.0.6-beta.3 (2023-01-02)
-
 -   (Gaspode) Correction for NPM
-
-### 0.0.6-beta.2 (2023-01-02)
-
 -   (Gaspode) Enable NPM
 
 ### 0.0.5

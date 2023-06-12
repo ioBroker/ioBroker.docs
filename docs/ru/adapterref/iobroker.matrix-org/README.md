@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
+hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -22,7 +22,7 @@ hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ### Конфигурация
 Лучше всего: Запустите свой собственный клиент на своем сервере!
 
-Создайте собственного пользователя в качестве BOT с паролем. Создайте комнату для всех участников, которым нужны сообщения бота. Добавьте своего бота в эту комнату. Добавить всех участников в эту комнату. Внесите все данные в конфиг. (имя бота, пароль, имя комнаты)
+Создайте собственного пользователя в качестве BOT с паролем. Создайте комнату для всех участников, которым нужны сообщения бота. Добавьте своего бота в эту комнату (не требуется, если автоприсоединение активно). Добавить всех участников в эту комнату. Внесите все данные в конфиг. (имя бота, пароль, имя комнаты)
 
 ### Использование
 Добавьте столько экземпляров, сколько вам нужно. Добавьте значение в matrix-org.0.sendMessage так, как вам нравится, с помощью js. Если вы установите «image» в matrix.0.sendMessage, он отправит логотип матрицы на ваш канал.
@@ -89,6 +89,10 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk
+* auto join added (default false)
+
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
 

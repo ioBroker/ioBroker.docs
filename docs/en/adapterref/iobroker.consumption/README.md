@@ -101,6 +101,10 @@ Select:
 -->
 
 ## Changelog
+### 0.8.0 (2023-05-12)
+* (bluefox) Do not take the price of sensor if it is empty or 0
+* (bluefox) Refactoring (async/await)
+
 ### 0.7.0 (2023-02-08)
 * (bluefox) Added offset and factor to sensors
 

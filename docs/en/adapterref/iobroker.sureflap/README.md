@@ -9,8 +9,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)](https://www.npmjs.com/package/iobroker.sureflap)
 ![Number of Installations (latest)](http://iobroker.live/badges/sureflap-installed.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap)
-
-![Test and Release](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg) Linux/Mac/Windows: [![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)](https://travis-ci.com/Sickboy78/ioBroker.sureflap) Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)](https://ci.appveyor.com/project/Sickboy78/ioBroker.sureflap/)
+![Test and Release](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)](https://nodei.co/npm/iobroker.sureflap/)
 
@@ -139,6 +138,9 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.1.8 (2023-06-01)
+* (Sickboy78) adjustments for Surepet API changes
+
 ### 1.1.7 (2023-03-13)
 * (Sickboy78) fixed false login error in case pet had no photo
 
@@ -212,7 +214,7 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 MIT License
 
-Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

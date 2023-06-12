@@ -27,7 +27,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 Netatmo Energy Hardware (Thermostat, Ventile)
 Konto bei Netatmo Cloud
 
-- Der Adapter arbeitet mit admin >= 3 und nodejs >= 14
+- Der Adapter arbeitet mit admin >= 3 und nodejs >= 16
 - Erstelle dein eigenes Konto <https://auth.netatmo.com/de-de/access/signup>
 - Login in die API durchführen <https://dev.netatmo.com/apidocumentation/energy>
 - Erzeuge deine eigene APP durch Anklicken deines Kontos (oben / links), und drücke den Knopf "Create"
@@ -162,10 +162,11 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
 ### 2.6.0 (2023-05-01)
 
 * (ioKlausi) Enable / Disable sensor actions

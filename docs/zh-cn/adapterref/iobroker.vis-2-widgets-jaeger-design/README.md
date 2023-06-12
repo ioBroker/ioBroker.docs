@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 title: ioBroker.vis 2.0 的材料小部件
-hash: tVGv+9zUgAVG739WJpAvkSTHy2J+xcFdzQqdNogjTsc=
+hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -13,7 +13,7 @@ hash: tVGv+9zUgAVG739WJpAvkSTHy2J+xcFdzQqdNogjTsc=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
 # IoBroker.vis 2.0 的材料小部件
-## 小部件
+## 小工具
 ### 按钮和开关
 ### 真实消息
 ![实际新闻](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/img/news.png)
@@ -41,6 +41,28 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 ### **正在进行中** -->
 
 ## Changelog
+### 0.4.3 (2023-06-07)
+* (bluefox) Corrected visualization of view
+
+### 0.4.0 (2023-05-31)
+* (bluefox) Added exclusions
+* (bluefox) Added possibility to show information on the very top of layout
+
+### 0.3.2 (2023-04-05)
+* (bluefox) Corrected license problem
+
+### 0.3.1 (2023-03-22)
+* (bluefox) Corrected build process
+
+### 0.3.0 (2023-03-21)
+* (bluefox) Implemented dark mode
+
+### 0.2.3 (2023-03-09)
+* (bluefox) update packages
+
+### 0.2.2 (2023-03-06)
+* (bluefox) Updated thermostat widget
+
 ### 0.2.1 (2023-02-03)
 * (bluefox) Mobile views tuned
 

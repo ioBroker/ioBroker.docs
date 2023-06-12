@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.octoprint?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.octoprint?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.octoprint?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.octoprint/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.octoprint/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.octoprint?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
@@ -19,7 +19,7 @@ BADGE-Installed: http://iobroker.live/badges/octoprint-installed.svg
 
 # ioBroker.octoprint
 
-**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.8.6**
+**Tested with [OctoPrint](https://github.com/OctoPrint/OctoPrint/releases) 1.9.0**
 
 ## Features
 
@@ -71,9 +71,16 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.1 (2023-05-30)
+
+* (klein0r) Allow self-signed certificates
+
+### 5.0.0 (2023-05-24)
+
+Tested with OctoPrint 1.9.0
 
 * (klein0r) Removed binary states (deprecated)
+* (klein0r) Allow self-signed certificates
 * (klein0r) Added Ukrainian language
 
 ### 4.1.0 (2022-12-14)
@@ -98,15 +105,6 @@ Tested with OctoPrint 1.8.0
 * (klein0r) Added last and average layer duration (requires plugin Display Layer Progress)
 * (klein0r) Moved thumbnail information of files to new structure **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 * (klein0r) Improved handling of thumbnails and states for plugins
-
-### 3.2.2 (2022-04-29)
-
-* (klein0r) Updated depedency for js-controller to 4.0.15
-
-### 3.2.1 (2022-04-28)
-
-* (klein0r) Get thumbnail url of current file and copy value to printjob (requires plugin Slicer Thumbnails)
-* (klein0r) Updated log messages
 
 ## License
 

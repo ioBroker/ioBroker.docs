@@ -74,24 +74,21 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.5.8 (2023-06-12)
+* (foxriver76) The log size will be parsed correctly for controller v5
+
+### 6.5.7 (2023-06-06)
+* (bluefox) ZIP archives will be saved in files and not in states
+
+### 6.5.6 (2023-06-01)
+* (bluefox) Sentry packages were updated
+
+### 6.5.3 (2023-05-24)
+* (bluefox) Added support for the js-controller update
+
 ### 6.4.4 (2023-05-10)
 * (bluefox) Added `imageSendTo` Control to JSONConfig
 * (bluefox) Added possibility to filter objects in selectID JSON component
-
-### 6.4.3 (2023-03-31)
-* (bluefox) Corrected the folder rights edit dialog
-
-### 6.4.2 (2023-03-27)
-* (bluefox) Better check of the certificates
-
-### 6.4.1 (2023-03-24)
-* (bluefox) Fallback on normal https webserver in case of not let's encrypt certificates
-* (bluefox) Show readme from GitHub
-
-### 6.4.0 (2023-03-22)
-* (bluefox) Breaking change: Configuration of Let's encrypt certificates moved to `iobroker.acme` adapter
-* (bluefox) Added port controller to JSON config
-* (bluefox) Added `certificates` to JSON config
 
 ## License
 The MIT License (MIT)

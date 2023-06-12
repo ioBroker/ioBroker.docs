@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-энергия
-hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
+hash: qKgIcf4QnPlWNCJkFatU2nf5JMeKfH2BnXl7kVzZzOw=
 ---
 ![логотип](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -28,7 +28,7 @@ hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
 ## Требования и конфигурация
 Учетная запись оборудования Netatmo Energy (термостат, клапаны) в облаке Netatmo
 
-- Адаптер работает с admin >= 3 и nodejs >= 14
+- Адаптер работает с admin >= 3 и nodejs >= 16
 - Создайте свою учетную запись <https://auth.netatmo.com/de-de/access/signup>
 - Выполните вход в API <https://dev.netatmo.com/apidocumentation/energy>.
 - Создайте собственное приложение, щелкнув свою учетную запись (вверху/слева) и нажав кнопку «Создать».
@@ -152,10 +152,11 @@ hash: dlfqheL8HY2M16WWQ6sACwtKtKyZ6i0GXh8YT17JyW4=
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
 ### 2.6.0 (2023-05-01)
 
 * (ioKlausi) Enable / Disable sensor actions

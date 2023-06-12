@@ -111,7 +111,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) Fix crash cases reported by Sentry
 
 ### 3.1.7 (2022-06-27)
-* (Apollon77) Allow to remove a configuration value for "round" in config again
+* (Apollon77) Allows removing a configuration value for "round" in config again
 
 ### 3.1.6 (2022-06-27)
 * (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
@@ -121,7 +121,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 3.1.4 (2022-06-08)
 * (Apollon77) Performance optimizations for GetHistory calls, especially for "minmax" aggregate method
-* (Apollon77) Prevent crash case reported by Sentry
+* (Apollon77) Prevent the crash case reported by Sentry
 
 ### 3.1.3 (2022-06-01)
 * (Apollon77) Corrected issue when testing connection to InfluxDBv1 with weird passwords
@@ -130,7 +130,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) Workaround an admin issue when testing connection to InfluxDB
 
 ### 3.1.0 (2022-05-27)
-* (Apollon77) Data are not converted to number if they are other data types on getHistory to respect the saved data formats as defined in the datapoint settings for storage.
+* (Apollon77) Data are not converted to number if they are other data types on `getHistory` to respect the saved data formats as defined in the datapoint settings for storage.
 * (Apollon77) Fix retention change to lower checkbox in UI
 * (Apollon77) Allow storeState again to write to InfluxDB for "unknown state ids" - "rules" usage is not supported in for this and storeState would be silently discarded in this case!
 * (Apollon77) Fix several crash cases reported by Sentry
@@ -138,7 +138,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
 
 ### 3.0.2 (2022-05-12)
-* (Apollon77) handle an empty Path for InfluxDB 2.0 correctly in all cases
+* (Apollon77) handles an empty Path for InfluxDB 2.0 correctly in all cases
 
 ### 3.0.1 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
@@ -349,7 +349,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox, apollon77
+Copyright (c) 2015-2023 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

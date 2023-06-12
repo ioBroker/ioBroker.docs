@@ -1,7 +1,19 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/pvforecast-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pvforecast.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pvforecast.svg
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.pvforecast?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pvforecast?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.pvforecast?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.pvforecast?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.pvforecast?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.pvforecast?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.pvforecast/test-and-release.yml?branch=main&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.pvforecast?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
+BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
 chapters: {"pages":{"en/adapterref/iobroker.pvforecast/README.md":{"title":{"en":"ioBroker.pvforecast - Adapter for the forecast of PV incomes"},"content":"en/adapterref/iobroker.pvforecast/README.md"},"en/adapterref/iobroker.pvforecast/vis.md":{"title":{"en":"ioBroker.pvforecast - VIS"},"content":"en/adapterref/iobroker.pvforecast/vis.md"}}}
 ---
 ![Logo](../../admin/pvforecast.png)

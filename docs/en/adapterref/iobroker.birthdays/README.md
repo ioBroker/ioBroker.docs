@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.birthdays?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.birthdays/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.birthdays/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.birthdays?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.birthdays.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg

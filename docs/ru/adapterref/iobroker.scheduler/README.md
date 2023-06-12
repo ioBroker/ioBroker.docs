@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scheduler/README.md
 title: Адаптер планировщика ioBroker
-hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
+hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -18,7 +18,8 @@ hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 Вы можете создавать профили с разным приоритетом: нормальный (например, рабочие дни), высокий (например, выходные) и самый высокий (например, праздничные дни).
 Профиль с более высоким приоритетом перегружает другие профили.
 
-Для каждого профиля будет создана активная переменная. Но пользователь может выбрать собственную переменную активации, например. контролировать праздники.
+Для каждого профиля будет создана активная переменная.
+Но пользователь может выбрать собственную переменную активации, например, для управления праздниками.
 
 Пользователь должен добавить устройства в профиль, и все устройства в профиле будут иметь одинаковое значение.
 
@@ -31,7 +32,19 @@ hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### 1.1.2 (2023-03-02)
+### **WORK IN PROGRESS**
+* (bluefox) Packages updated
+
+### 1.1.7 (2023-03-24)
+* (bluefox) Worked on the build process
+
+### 1.1.6 (2023-03-14)
+* (bluefox) update packages
+
+### 1.1.4 (2023-03-06)
+* (bluefox) Tried to fix vis-2 widget
+
+### 1.1.3 (2023-03-06)
 * (bluefox) Added widget for vis-2
 
 ### 1.0.4 (2022-12-23)

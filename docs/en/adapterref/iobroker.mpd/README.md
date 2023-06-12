@@ -22,6 +22,10 @@ See also the [MPD Protocol Documentation](http://www.musicpd.org/doc/protocol/).
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (raintonr) Fix play button (start from last position in queue/track, not beginning)
+
 ### 1.1.1 (2023-04-02)
 * (bluefox) Just small refactoring
 

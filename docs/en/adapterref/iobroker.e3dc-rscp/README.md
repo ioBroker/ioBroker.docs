@@ -12,6 +12,8 @@
 
 **Tests:** ![Test and Release](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## e3dc-rscp adapter for ioBroker
 
 Control your E3/DC power station using the proprietary RSCP protocol which allows for reading state values and also setting control parameters, e.g. the charge power limit. This is the advantage of RSCP compared to the standard Modbus, which is only for reading values. If you have no need to write values, have a look at the (simpler) [Modbus adapter](https://github.com/ioBroker/ioBroker.modbus).
@@ -396,10 +398,19 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 
 ## Changelog
 
+### 1.2.3 - UNDER CONSTRUCTION - 
+(git-kick)
+* Added testing with Node 18 and Node 20 - [Issue #165](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/165)
+* Upgraded to new translations, adding "uk" language - [Issue #166](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/166)
+* Stop polling "unavailable" tags - [Issue #169](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/169)
+* Adapter uses Sentry now.
+
 ### 1.2.2
 (git-kick)
 * Fixed TAG_PVI_REQ_FREQUENCY_UNDER_OVER warning with polling interval 'N' - [Issue #157](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/157)
 * Log "warn - received message with invalid ..." reclassified to 'debug' - [Issue #159](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/159)
+* Revised BAT and PVI probing; now resilient with lost responses - [Issue #160](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/160)
+* Integrated Sentry plugin for crash reporting - see [documentation](https://github.com/ioBroker/plugin-sentry)
 
 ### 1.2.1
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
@@ -410,7 +421,7 @@ __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 * Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
 * Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
 
-### 1.2.0 - DEPRECATED - DO NOT INSTALL -
+### 1.2.0 - Deprecated - Do not install -
 
 ### 1.1.2
 (ka-vaNu)

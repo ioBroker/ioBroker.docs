@@ -714,10 +714,8 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/javascript.m
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.blebox/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.blink4home/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bmw/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bosesoundtouch/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.botslab360/README.md
@@ -958,6 +956,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.miio/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.mikrotik/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.milight/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.milight-smart-light/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.minuaru/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.minuvis/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.mobile/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.modbus/README.md
@@ -1050,6 +1049,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rct/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.residents/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rest-api/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.rflink/README.md
@@ -1314,10 +1314,8 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/javascript.m
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.blebox/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.blink4home/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bmw/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bosesoundtouch/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.botslab360/README.md
@@ -1558,6 +1556,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.miio/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.mikrotik/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.milight/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.milight-smart-light/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.minuaru/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.minuvis/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.mobile/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.modbus/README.md
@@ -1650,6 +1649,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rct/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.residents/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rest-api/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.rflink/README.md
@@ -1914,10 +1914,8 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/javascript.m
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.blebox/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.blink4home/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bmw/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bosesoundtouch/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.botslab360/README.md
@@ -2158,6 +2156,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.miio/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.mikrotik/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.milight/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.milight-smart-light/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.minuaru/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.minuvis/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.mobile/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.modbus/README.md
@@ -2250,6 +2249,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rct/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.residents/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rest-api/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.rflink/README.md
@@ -2514,10 +2514,8 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/javascrip
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ble/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blebox/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.blink4home/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bluelink/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bmw/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.boblight/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bosch-ebike/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bosesoundtouch/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.botslab360/README.md
@@ -2758,6 +2756,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.miio/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mikrotik/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.milight/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.milight-smart-light/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.minuaru/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.minuvis/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.mobile/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.modbus/README.md
@@ -2850,6 +2849,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rct/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renault/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.residents/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.resol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rest-api/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rflink/README.md

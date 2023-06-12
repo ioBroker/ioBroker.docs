@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scheduler/README.md
 title: ioBroker 调度程序适配器
-hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
+hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ---
 ![标识](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -18,7 +18,8 @@ hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 您可以创建具有不同优先级的配置文件：正常（例如工作日）、高（例如周末）和最高（例如假期）。
 具有更高优先级的配置文件会使其他配置文件过载。
 
-对于每个配置文件，将创建活动变量。但是用户可以选择自己的激活变量，例如控制节假日。
+对于每个配置文件，将创建活动变量。
+但是用户可以选择自己的激活变量，例如，控制假期。
 
 用户应将设备添加到配置文件，配置文件中的所有设备都将设置为相同的值。
 
@@ -31,7 +32,19 @@ hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 ### **正在进行中** -->
 
 ## Changelog
-### 1.1.2 (2023-03-02)
+### **WORK IN PROGRESS**
+* (bluefox) Packages updated
+
+### 1.1.7 (2023-03-24)
+* (bluefox) Worked on the build process
+
+### 1.1.6 (2023-03-14)
+* (bluefox) update packages
+
+### 1.1.4 (2023-03-06)
+* (bluefox) Tried to fix vis-2 widget
+
+### 1.1.3 (2023-03-06)
 * (bluefox) Added widget for vis-2
 
 ### 1.0.4 (2022-12-23)

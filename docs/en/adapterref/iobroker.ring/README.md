@@ -119,6 +119,14 @@ It is recommended that you add your own tests into the mix.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2023-06-09)
+
+* (theimo1221) Update Packages (which allows node 20 now)
+
+### 3.3.1 (2023-05-18)
+
+* (theimo1221) Update Packages
+
 ### 3.3.0 (2023-04-02)
 
 * (theimo1221) Update Packages

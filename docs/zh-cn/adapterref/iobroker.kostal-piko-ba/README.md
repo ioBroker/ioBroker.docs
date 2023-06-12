@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: z2vTSHYACAYAKPB30EQQz5xNuEkkLXoI6VGlOaQSraA=
+hash: o8WKJRbH1NvZZ7/KkuUQq2W7tvgOz+JJsSAZP7Leakc=
 ---
 ![标识](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
+![NPM 版本](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
 ![已知漏洞](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
 # IoBroker.kostal-piko-ba
-![NPM 版本（稳定）](http://ioBroker.live/badges/kostal-piko-ba-stable.svg)![安装数量（最新）](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+![NPM 版本（稳定）](https://ioBroker.live/badges/kostal-piko-ba-stable.svg)![安装数量（最新）](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 
-CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+**CI 测试：** ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg) [![CodeQL](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 
 ## 用于读取 iOBroker 的 Kostal Piko 和 Piko BA 数据的适配器
 用于读取 Kostal Piko、Piko BA 和 PIKO MP plus 数据的适配器。适配器创建一些状态并按顺序更新它们。
@@ -30,13 +30,17 @@ CI 测试：![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/wor
 您还可以选择编辑实时数据、每日和实时统计数据的更新频率。
 如果您的硬件需要并支持，也可以设置用于读取 4 个模拟值的标记。
 
-## 注释
+## 笔记
 此适配器使用哨兵库自动向开发人员报告异常和代码错误。有关更多详细信息和有关如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.2 (02.06.2023)
+* (HombachC) fixed a wording error
+* (HombachC) bumped dependencies, added tests for node.js 20
+* (HombachC) it's recommended to switch to minimum node.js 16, adapter still working with node 14
 ### 2.5.1 (25.04.2023)
 * (HombachC) fixed a sentry reported error
 ### 2.5.0 (22.04.2023)

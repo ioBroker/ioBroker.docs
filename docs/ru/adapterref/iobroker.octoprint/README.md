@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.octoprint?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.octoprint?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.octoprint?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.octoprint/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.octoprint/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.octoprint?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.octoprint.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/octoprint-stable.svg
@@ -18,12 +18,12 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.octoprint/README.md
 title: ioBroker.octoprint
-hash: OI5uBS9Qmu79/syGAjVHZyQect9T5Nm8oG5INh1nd6U=
+hash: tYYCO+GmPMlasV2q2VC/77HRu5mmyVdNw97St4V4mw0=
 ---
-![Логотип](../../../en/adapterref/iobroker.octoprint/../../admin/octoprint.png)
+![Логотип](../../../en/admin/octoprint.png)
 
 # IoBroker.octoprint
-**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.8.6**
+**Протестировано с [Октопринт](https://github.com/OctoPrint/OctoPrint/releases) 1.9.0**
 
 ## Функции
 ### Информация
@@ -69,11 +69,24 @@ setObject('system.adapter.octoprint.0', obj);
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 5.0.1 (2023-05-30)
+
+* (klein0r) Allow self-signed certificates
+
+### 5.0.0 (2023-05-24)
+
+Tested with OctoPrint 1.9.0
+
+* (klein0r) Removed binary states (deprecated)
+* (klein0r) Allow self-signed certificates
+* (klein0r) Added Ukrainian language
+
+### 4.1.0 (2022-12-14)
 
 Tested with OctoPrint 1.8.6
 
 * (klein0r) Dropped Admin 5 support
+* (klein0r) Added Ukrainian language
 
 ### 4.0.1 (2022-10-14)
 
@@ -91,28 +104,11 @@ Tested with OctoPrint 1.8.0
 * (klein0r) Moved thumbnail information of files to new structure **(BREAKING CHANGE - CHECK YOUR SCRIPTS AND VIS)**
 * (klein0r) Improved handling of thumbnails and states for plugins
 
-### 3.2.2 (2022-04-29)
-
-* (klein0r) Updated depedency for js-controller to 4.0.15
-
-### 3.2.1 (2022-04-28)
-
-* (klein0r) Get thumbnail url of current file and copy value to printjob (requires plugin Slicer Thumbnails)
-* (klein0r) Updated log messages
-
-### 3.2.0 (2022-03-07)
-
-Tested with OctoPrint 1.7.3
-
-* (klein0r) Added print times as readable states (seconds to string)
-* (klein0r) Added formatted date when print job will finish
-* (klein0r) Added fan speed and feedrate from plugin Display Layer Progress
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2022 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

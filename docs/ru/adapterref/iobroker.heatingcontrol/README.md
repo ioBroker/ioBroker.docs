@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: Bd/CkPFXjOCc+reNALfXyYMiwneHDVSjKuII/6c5/zA=
+hash: RFeBysZWTP8BR32lWsOhYe0RCp9j/1cB/dBhCaLN83w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -200,14 +200,12 @@ CopyPeriods доступны в день или с понедельника по
 
 делать
 
-## EVU Sperrzeit
-перевод делать wenn EVU Sperrzeit erreicht, werden alle Aktoren ausgeschaltet, und am ende der Sperrzeit wieder eingeschaltet.
-Status geht auf "EVU Sperrzeit" Ziel: elektrische Heizungen ausschalten und gezielt wieder einschalten, um Belastung der Schütze zu minimieren und Einschlatstromstöße zu minimieren Конфигурация: Start / Ende Zeit der EVU Sperrzeit, mehrere Perioden configurierbar
-
--> Альтернатива: Temperatur absenken, damit sollten die Aktoren indirekt abschalten
+## EVU Sperrzeit / PowerInterruption
+когда наступает время блокировки энергоснабжающей организации, все приводы выключаются и снова включаются по истечении времени блокировки.
+Статус переходит в "EVU Sperrzeit" / "PowerInterruption" Цель: выключение и повторное включение электронагревателей целенаправленным образом для минимизации нагрузки на контакторы и минимизации пусковых токов Конфигурация: Время начала/окончания блокировки EVU время, можно настроить несколько периодов
 
 ## Проблемы и пожелания
-* Если вы столкнулись с какими-либо ошибками или у вас есть пожелания для этого адаптера, создайте проблему в разделе проблемы GitHub адаптера по адресу [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). ). Любые отзывы приветствуются и помогут улучшить этот адаптер.
+* Если вы столкнулись с какими-либо ошибками или у вас есть пожелания для этого адаптера, создайте проблему в разделе проблем GitHub адаптера по адресу [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). ). Любые отзывы приветствуются и помогут улучшить этот адаптер.
 
 ## Известные вопросы
 ### Адаптер с Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 – 10fach, 230 В
@@ -225,7 +223,7 @@ Status geht auf "EVU Sperrzeit" Ziel: elektrische Heizungen ausschalten und gezi
 
 ### 2.11.0 (in progress)
 * (René) see issue #368: units added in datapoints
-* (René) see issue #361: EVU Sperrzeit to do, siehe auch oben (not yet finished)
+* (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
 * (René) see issue #359: support of discord added to notifications (not yet finished)
 * (René) see issue #367: wait for set target temperature before checking actor changes
 

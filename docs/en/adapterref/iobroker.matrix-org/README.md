@@ -19,7 +19,7 @@ Big thanks for creating matrix (https://matrix.org/) for creating a full free co
 
 Best: Run your own client on your server!
 
-Create an own user as your BOT with password. Create a room for all members who want the bot messages. Add your BOT to this room. Add all members to this room. Put all the data into the config. (BOT name, password, room name)
+Create an own user as your BOT with password. Create a room for all members who want the bot messages. Add your BOT to this room (not needed if autojoin is active). Add all members to this room. Put all the data into the config. (BOT name, password, room name)
 
 ### Usage
 
@@ -81,6 +81,7 @@ Join this room and try it out with your own credentials
 -->
 ### **WORK IN PROGRESS**
 * upgrade matrix-js-sdk
+* auto join added (default false)
 
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
