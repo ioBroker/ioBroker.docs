@@ -416,6 +416,9 @@ Special roles for media players
 * `url.same`               - open URL in this window
 * `url.audio`              - URL for audio file
 * `text.phone`             - phone number
+* `time.span`              - time difference in ms (common.type=number), i.e. time since last update, duration of operation, time until next try, ...
+* `time.interval`          - intervall value in ms (common.type=number), i.e. some polling interval
+* `time.timeout`           - timeout value in ms (common.type=number), i.e. timeouts for communication requests
 * `chart`                  - JSON array with chart data, like `[{ts: 1678575600000, val: 1}, {ts: 1678579200000, val: 2}]`
 
 * `adapter.messagebox`     (`common.type=object, common.write=true`) used to send messages to email, pushover and other adapters
