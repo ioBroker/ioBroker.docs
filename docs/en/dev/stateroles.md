@@ -138,6 +138,21 @@ With **levels**, you can control or set some number value.
 `common.type=number, common.write=true`
 
 * `level`
+* `level.humidity`        - humidity as a setpoint, i.e. for humifiers / climatecontrols
+* `level.battery`         - battery target voltage / capacity i.e.for loading
+* `level.battery.min`     - battery minimum voltage / capacity
+* `level.battery.max`     - battery maximum voltage / capacity
+* `level.valve`           - opening value for valves
+* `level.pressure`        -
+* `level.pressure.min`    - minimum air or oil pressure value allowed
+* `level.pressure.max`    - maximum air or oil pressure value allowed
+* `level.voltage`         - target voltage for generators
+* `level.voltage.min`     - minimum voltage for generators
+* `level.voltage.max`     - maximum voltage for generators
+* `level.current`         - target current for i.e. loading battery devices
+* `level.current.min`     - minimum current for i.e. loading battery devices
+* `level.current.max`     - maximum current for i.e. loading battery devices
+* `level.fill`            - setpoint for any container fill level states 
 * `level.min`             - minimum level allowed  
 * `level.max`             - maximum level allowed
 * `level.default`         - default level
