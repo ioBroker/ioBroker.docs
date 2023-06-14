@@ -138,6 +138,9 @@ With **levels**, you can control or set some number value.
 `common.type=number, common.write=true`
 
 * `level`
+* `level.min`             - minimum level allowed  
+* `level.max`             - maximum level allowed
+* `level.default`         - default level
 * `level.dimmer`          - brightness is dimmer too
 * `level.blind`           - set blind position (max = fully open, min = fully closed)
 * `level.temperature`     - set desired temperature
