@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-hqwidgets.png?downloads=true)](https://nodei.co/npm/iobroker.vis-hqwidgets/)
 
-hqWidgets - High quality widgets for [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
+`hqWidgets` - High quality widgets for [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
 ![Example](img/widgets.png)
 
 For one widget the `jQuery.knob` plugin (MIT) from Anthony Terrien is used.
@@ -18,6 +18,9 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 -->
 
 ## Changelog
+### 1.4.0 (2023-05-03)
+* (bluefox) Behavior of the dimmer was changed. If the current value is over 5% and the user clicks on dimmer, the dimmer will be set to 0%. If the current value is less than 5%, the dimmer will be set to 100%.
+
 ### 1.3.1 (2023-01-11)
 * (bluefox) Added new parameter for dimmer
 
@@ -25,7 +28,7 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 * (bluefox) Made it compatible with `ioBroker.vis` v2
 
 ### 1.2.0 (2022-04-05)
-* (bluefox) Removed deprecated method `load`
+* (bluefox) Removed the deprecated method `load`
 
 ### 1.1.9 (2021-10-20)
 * (bluefox) Added the valve values from 0 to 1
@@ -34,7 +37,7 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 * (bluefox) Corrected the after comma digits for the valve
 
 ### 1.1.5 (2020-08-08)
-* (mk176) Resolved the button even if mouse is moved out
+* (mk176) Resolved the button even if the mouse is moved out
 
 ### 1.1.4 (2020-03-28)
 * (bluefox) Fixed blinds widget
@@ -62,7 +65,7 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 * (bluefox) Reduce render interval
 
 ### 1.0.7 (2016-11-11)
-* (bluefox) Allow set of padding for description
+* (bluefox) Allow setting of padding for description
 
 ### 1.0.6 (2016-10-11)
 * (bluefox) Fix circle Knob if negative limits
@@ -85,7 +88,7 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 * (bluefox) add odometer widget
 
 ### 1.0.0 (2016-04-12)
-* (bluefox) fix blinds - control z-index of widgets if popup window opened
+* (bluefox) fix blinds - control z-index of widgets if a popup window opened
 * (bluefox) add colorOn for checkbox
 
 ### 0.2.5 (2015-12-19)
@@ -106,8 +109,8 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 (bluefox) enable description for door and shutter
 
 ### 0.2.0 (2015-10-14)
-(bluefox) fix problem with temperature if it was as string
-(bluefox) make popup window (shutter) with most z-index when showing them
+(bluefox) fix the problem with temperature if it was as string
+(bluefox) make a popup window (shutter) with most z-index when showing them
 
 ### 0.1.10 (2015-10-12)
 * (bluefox) fix door widget
@@ -139,9 +142,9 @@ http://anthonyterrien.com/knob/ or https://github.com/aterrien/jQuery-Knob
 * (bluefox) try to fix feedback in hqWidgets/Dimmer
 
 ### 0.1.2 (2015-09-13)
-* (bluefox) add step to dimmer and temperature
+* (bluefox) add the step for dimmer and temperature
 * (bluefox) add "is comma" and "digits after comma" to circle
-* (bluefox) show waves when ack=true, even if widget itself set the value.
+* (bluefox) show waves when ack=true, even if the widget itself sets the value.
 
 ### 0.1.0 (2015-07-09)
 - (bluefox) initial checkin

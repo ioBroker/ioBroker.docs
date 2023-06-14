@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
+hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -11,11 +11,10 @@ hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
 ![下载](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![安装数量（最新）](https://iobroker.live/badges/bluelink-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/bluelink-stable.svg)
-![依赖状态](https://img.shields.io/david/Newan/iobroker.bluelink.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-**测试：** ![测试和发布](https://github.com/Newan/ioBroker.bluelink/workflows/Test%20and%20Release/badge.svg)
+![测试和发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 bluelink 适配器
 控制现代或起亚汽车的适配器

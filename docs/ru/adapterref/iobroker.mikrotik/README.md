@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mikrotik/README.md
 title: без заголовка
-hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
+hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) Адаптер маршрутизатора ioBroker MikroTik
 
@@ -27,11 +27,15 @@ hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
 ###usb_reset Сброс питания USB в микротике
 *Созданные объекты не удаляются автоматически при удалении в роутере.*
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **В РАБОТЕ** -->
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
 

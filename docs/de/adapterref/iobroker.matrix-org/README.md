@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
+hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
 ---
 ![Logo](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -14,19 +14,19 @@ hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ![NPM](https://nodei.co/npm/iobroker.matrix-org.png?downloads=true)
 
 # IoBroker.matrix-org
-**Tests:** ![Testen und freigeben](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/oelison/ioBroker.matrix-org/workflows/Test%20and%20Release/badge.svg)
 
 ## Matrix-org-Adapter für ioBroker
-Adapter für Matrix-Push-Nachrichten Vielen Dank für die Erstellung von Matrix (https://matrix.org/) für die Schaffung einer vollständig kostenlosen Kommunikationsbasis
+Adapter für Matrix-Push-Nachrichten. Vielen Dank für die Erstellung von Matrix (https://matrix.org/) für die Erstellung einer vollständigen kostenlosen Kommunikationsbasis
 
 ### Aufbau
-Am besten: Betreiben Sie Ihren eigenen Client auf Ihrem Server!
+Am besten: Führen Sie Ihren eigenen Client auf Ihrem Server aus!
 
-Erstellen Sie einen eigenen Benutzer als Ihren BOT mit Passwort. Erstellen Sie einen Raum für alle Mitglieder, die Bot-Nachrichten erhalten möchten. Fügen Sie diesem Raum Ihren BOT hinzu. Alle Mitglieder zu diesem Raum hinzufügen. Trage alle Daten in die Config ein. (BOT-Name, Passwort, Raumname)
+Erstellen Sie einen eigenen Benutzer als Ihren BOT mit Passwort. Erstellen Sie einen Raum für alle Mitglieder, die die Bot-Nachrichten wünschen. Fügen Sie Ihren BOT zu diesem Raum hinzu (nicht erforderlich, wenn die automatische Verbindung aktiviert ist). Fügen Sie alle Mitglieder zu diesem Raum hinzu. Fügen Sie alle Daten in die Konfiguration ein. (BOT-Name, Passwort, Raumname)
 
 ### Verwendung
-Fügen Sie so viele Instanzen hinzu, wie Sie benötigen. Fügen Sie matrix-org.0.sendMessage einen Wert hinzu, wie Sie möchten, mit js Wenn Sie "image" auf matrix.0.sendMessage setzen, wird das Matrix-Logo an Ihren Kanal gesendet.
-Oder in js verwenden:
+Fügen Sie so viele Instanzen hinzu, wie Sie benötigen. Fügen Sie mit js einen Wert zu „matrix-org.0.sendMessage“ hinzu, wie Sie möchten. Wenn Sie „image“ auf „matrix.0.sendMessage“ setzen, wird das Matrix-Logo an Ihren Kanal gesendet.
+Oder verwenden Sie in js:
 
 ```
 sendTo("matrix-org.0", "Hello World!");
@@ -34,13 +34,13 @@ sendTo("matrix-org.0", "Hello World!");
 
 Oder verwenden Sie das Blockly-Symbol in Sendto.
 
-Für Bilder vom lokalen Dateisystem (Linux):
+Für Bilder aus dem lokalen Dateisystem (Linux):
 
 ```
 sendTo("matrix-org.0",{file: "file:///tmp/images/test.png"});
 ```
 
-Für Bilder vom lokalen Dateisystem (Windows):
+Für Bilder aus dem lokalen Dateisystem (Windows):
 
 ``` 
 sendTo("matrix-org.0",{file: "file:///C:/tmp/images/test.png"});
@@ -64,7 +64,7 @@ Oder
 sendTo("matrix-org.0",{file:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACmSURBVFhH7ZdhCoAgDEZnd9D737T8xJkNNY1Ef+yB2LTcC1qWOT20kCBgjIkh0WwfmeuIxyGYnRzIPElgFSqgAvsKOOdCzeZ1y7EcZzDG16HvwtckihLdA4xxk3HeGGttc17Cc+lN6Ds/dlO6w6/ItQHn7H4GcDK3Em/zNboE5KKjcQstQxVQARVYLlDdC2YzvBfMQgVUYB8BlMWfn2E1ZJ7Fv+dEF0UZoNhXp9NnAAAAAElFTkSuQmCC"});
 ```
 
-Für HTML folgen Sie bitte dieser Spezifikation: https://spec.matrix.org/v1.3/client-server-api/#mroommessage-msgtypes Beispiel:
+Für HTML befolgen Sie bitte diese Spezifikation: https://spec.matrix.org/v1.3/client-server-api/#mroommessage-msgtypes Z. B.:
 
 ```
 sendTo("matrix-org.0",{html: "<h1>Hello World!</h1>", text: "Hello World!"});
@@ -76,19 +76,23 @@ oder
 sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td><td>b</td></tr><table>", text: "Your client can not show html!"});
 ```
 
-Wenn Ihr Client HTML nicht entschlüsseln kann, erhalten Sie den Text.
-Wenn Ihr Client keine Tabelle unterstützt, zeigt er entweder den Text oder einfach 12ab.
+Wenn Ihr Client HTML nicht dekodieren kann, erhalten Sie den Text.
+Wenn Ihr Client keine Tabelle unterstützt, zeigt er entweder den Text oder einfach 12ab an.
 
 ### Um Ihre Konfiguration zu testen, verwenden Sie sendMessage
-Öffnen Sie einfach die Objekte und ändern Sie den String einer Matrix-Org-Instanz. Meistens ist der Port 443, wenn Sie ein öffentliches System wie matrix.org haben. Der Port ist manchmal 8448, wenn Sie ein selbst gehostetes System ohne Proxy haben, aber dann wissen Sie es Es.
+Öffnen Sie einfach die Objekte und ändern Sie die Zeichenfolge einer Matrix-org-Instanz. Meistens ist der Port 443, wenn Sie ein öffentliches System wie Matrix.org haben. Der Port ist manchmal 8448, wenn Sie ein selbstgehostetes System ohne Proxy haben, aber dann wissen Sie es Es.
 
-Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-adapter:matrix.org Treten Sie diesem Raum bei und probieren Sie es mit Ihren eigenen Zugangsdaten aus
+Wenn Sie es testen möchten: Server: matrix.org Port: 443 Raum: #test-ioBroker-adapter:matrix.org Treten Sie diesem Raum bei und probieren Sie es mit Ihren eigenen Anmeldeinformationen aus
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk
+* auto join added (default false)
+
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
 

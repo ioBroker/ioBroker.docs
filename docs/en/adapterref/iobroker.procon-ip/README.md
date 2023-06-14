@@ -2,10 +2,12 @@
 # ioBroker.procon-ip
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.procon-ip.svg)](https://www.npmjs.com/package/iobroker.procon-ip)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)](https://www.npmjs.com/package/iobroker.procon-ip)
-[![Installations](http://iobroker.live/badges/procon-ip-installed.svg)](http://iobroker.live/badges/procon-ip-installed.svg)  
+[![Installations](http://iobroker.live/badges/procon-ip-installed.svg)](http://iobroker.live/badges/procon-ip-installed.svg)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)](https://www.npmjs.com/package/iobroker.procon-ip)  
 [![Known Vulnerabilities](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip)
+[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat)](https://www.buymeacoffee.com/ylabonte)  
 [![Test and Release](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
+
 
 [![NPM](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)](https://nodei.co/npm/iobroker.procon-ip/)
 
@@ -35,7 +37,7 @@ home swimming pools. With its software switched relays, it can control
 multiple pumps (for the pool filter and different dosage aspects) either
 simply planned per time schedule or depending on a reading/value from one of
 its many input channels for measurements (eg. i/o flow sensors, Dallas 1-Wire
-termometers, redox and pH electrodes). At least there is also the option to
+thermometers, redox and pH electrodes). At least there is also the option to
 switch these relays on demand, which makes them also applicable for switching
 lights (or anything else you want) on/off.
 Not all of its functionality is reachable via API. In fact there is one
@@ -61,31 +63,17 @@ The adapter uses the `/GetState.csv` API of the ProCon.IP to poll its values
 and another - not documented - API, that operates with bitwise commands to
 switch the relays. The second one is also used by the original web interfaces
 of the ProCon.IP. So there might be future firmware upgrades, that brake
-compatibilty with this adapter or at least it functionality of switching the
+compatibility with this adapter or at least it functionality of switching the
 relays. 
 
-#### Compatiblity
+#### Compatibility
 For now the adapter has been tested and developed in combination with the
 ProCon.IP firmware **revision 1.7.0.c**.
 
 
 ## Roadmap
-
-### Release v1.x.x
 There is nothing special on the plan. You can create an issue to suggest new
 features/functionality...
-
-**What happened to the points that were on the roadmap, but were not
-implemented with the 1.0.0 release?**  
-Well, the documentation was already improved.   
-The tab view thing seems rather interesting to me. If you would appreciate
-such a feature, just let me know...  
-The absence of automated tests regarding the functionality of the controller
-is quite unpleasant, but the focus is now clearly on becoming stable and
-writing good and useful tests for all of the existing code will cost a lot
-of time (in relation to the use regarding the complexity and target group of
-this software project) and might end in further refactoring. So it will be
-something for the future, but not anymore relevant for the 1.0.0 release.
 
 
 ## Development and participation
@@ -99,6 +87,25 @@ Useful links for the approach will be
 
 
 ## Changelog
+
+### Release v1.3.1
+* Really enable manual dosage control:
+  * re-add read-only restrictions on `onOff` states of dosage control relays.
+  * Add writable numeric `dosage` states to trigger timer-based manual dosage.
+
+### Release v1.3.0
+* Remove restrictions on dosage control relays: enable manual switching.
+* Add additional boolean states for dosage control information (formerly 
+  only available as combined bit-state/integer value
+  `info.system.dosageControl` as delivered by the GetState.csv):
+  * `info.system.chlorineDosageEnabled`
+  * `info.system.phPlusDosageEnabled`
+  * `info.system.phMinusDosageEnabled`
+  * `info.system.electrolysis`
+* Dependency updates.
+
+### Release v1.2.3
+Dependency updates.
 
 ### Release v1.2.2
 Dependency updates.

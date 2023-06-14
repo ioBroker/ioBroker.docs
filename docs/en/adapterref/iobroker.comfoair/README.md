@@ -59,6 +59,10 @@ Tested on comfoair CA350.
 
 ## Changelog
 
+### 1.1.8
+
+-   boost-error fixed (sentry)
+
 ### 1.1.7
 
 -   dependencies updated, serialport 10.x - update

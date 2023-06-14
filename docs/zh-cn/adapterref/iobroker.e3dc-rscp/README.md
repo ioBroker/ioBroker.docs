@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3dc-rscp/README.md
 title: ioBroker.e3dc-rscp
-hash: xTZa399oH2tQzlvqCu9atIRhydHBOywHLcKlCLSI0oI=
+hash: PW6aJqsTmsO0SvATidMc8h/uJgCyhoq7Zw1nWf1g72U=
 ---
 ![标识](../../../en/adapterref/iobroker.e3dc-rscp/admin/e3dc-rscp.png)
 
@@ -18,6 +18,8 @@ hash: xTZa399oH2tQzlvqCu9atIRhydHBOywHLcKlCLSI0oI=
 # IoBroker.e3dc-rscp
 **测试：** ![测试和发布](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+
 ## IoBroker 的 e3dc-rscp 适配器
 使用专有的 RSCP 协议控制您的 E3/DC 电站，该协议允许读取状态值并设置控制参数，例如充电功率限制。这是 RSCP 与标准 Modbus 相比的优势，后者仅用于读取值。如果您不需要写入值，请查看（更简单的）[Modbus适配器](https://github.com/ioBroker/ioBroker.modbus)。
 
@@ -26,6 +28,7 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 ＃＃ 表中的内容
 1. [适配器配置](#toc)
 1. [接口消息的覆盖率](#cov)
+1. [问题和功能请求](#iss)
 1. [示例脚本](#sam)
 1. [更新日志](#log)
 1. [许可证](#lic)
@@ -33,13 +36,22 @@ e3dc-rscp 适配器是为<a href="https://www.e3dc.com/produkte/s10/">E3/DC S10<
 <a name="toc"></a>
 
 ## 适配器配置 以下是创建适配器的新实例时要配置的内容。设置在选项卡中进行组织。
-### 选项卡“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。在授予 RSCP 访问权限之前，E3/DC 会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。</td></tr><tr><td> E3/直流IP地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （自 2.8.0 起）能够使用 uPnP 检测 E3/DC 设备。<br>您还可以在 E3/DC 屏幕上查看 IP，它被称为“System-IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/直流端口</td><td>E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td>密码</td><td>RSCP 密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重发间隔[s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。实验表明，当这个间隔超过 10 秒时，SET_POWER 可能会振荡，尽管 E3/DC 官方标签列表中的评论说每 30 秒设置一次就足够了。如果设置为 0（零），则不会发生重新发送，即您必须从外部触发重新发送，否则 E3/DC 将在 ca 后恢复正常。 10 秒。</td></tr><tr><td>元组发送延迟[s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将多个后续更改合并到一个调用中。在一个空闲周期或一个数据历史范围内的值的每次更改时分别设置/重置专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
+### 选项卡“选项”<table><tr><th>输入栏</th><th>意义</th></tr><tr><td>E3/DC 门户用户名</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。在授予 RSCP 访问权限之前，E3/DC 会在那里检查您的凭据。</td></tr><tr><td> E3/DC 门户密码</td><td>您在<a href="https://s10.e3dc.com/s10/">E3/DC 门户网站</a>上的用户名。</td></tr><tr><td> E3/直流IP地址</td><td>本地网络中的地址，例如 192.168.178.107<br> <code>ioBroker.discovery</code> （自 2.8.0 起）能够使用 uPnP 检测 E3/DC 设备。<br>您还可以在 E3/DC 屏幕上查看 IP，它称为“System-IP”：<br><img src="admin/e3dc-system-ip.png" width="600"></td></tr><tr><td> E3/直流端口</td><td>E3/DC 的 RSCP 端口，通常为 5033<br>注意：这与 Modbus 端口不同。</td></tr><tr><td>密码</td><td>RSCP 密码，在您的 E3/DC 站本地输入：<br><img src="admin/e3dc-rscp-password.png" width="600"></td></tr><td> SET_POWER 重发间隔[s]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率。实验表明，当这个间隔超过 10 秒时，SET_POWER 可能会振荡，尽管 E3/DC 官方标签列表中的评论说每 30 秒设置一次就足够了。如果设置为 0（零），则不会发生重新发送，即您必须从外部触发重新发送，否则 E3/DC 将在 ca 后恢复正常。 10 秒。</td></tr><tr><td>元组发送延迟[s]</td><td>定义 ioBroker 在将空闲期或数据历史更改写入 E3/DC 之前将等待多长时间。目的是将多个后续更改合并到一个调用中。在一个空闲周期或一个数据历史范围内的值每次发生变化时，都会分别设置/重置专用超时；更改仅在超时结束后传输。这适用于 EMS.IDLE_PERIODS_* 和 DB.HISTORY_DATA_*</td></tr><tr><td>每个 E3/DC 命名空间的复选框</td><td>只会为选中的命名空间请求数据。</td></tr></table>
 ### 选项卡“轮询间隔”
 <table><tr><th>输入栏</th><th>意义</th></tr><tr><td>轮询间隔短 [s]</td><td>定义 ioBroker 从 E3/DC 请求大多数动态变量的状态更新的频率。</td></tr><tr><td>轮询间隔中 [m]</td><td>定义 ioBroker 在常规情况下向 E3/DC 请求状态更新的频率。</td></tr><tr><td>轮询间隔长 [h]</td><td>定义 ioBroker 从 E3/DC 请求状态更新的频率，以获取很少或从未修改过的变量。</td></tr><tr><td>请求标签表</td><td>将单个请求标签分配给 S/M/L/N 轮询间隔。 N代表“从不”。<br>请注意，对象树中的状态与轮询间隔列表中的项目之间没有 1:1 的映射。原因多种多样：有时响应为空（对于 EMS_REQ_STORED_ERRORS 通常为真），那么对象树中不会出现任何状态。有时我们为“getter”和“setter”选择一个通用名称（例如，EMS_USER_CHARGE_LIMIT 响应被写入 EMS_MAX_CHARGE_POWER 状态）。此外，E3/DC 的响应可能包含多个标签（例如，BAT_REQ_INFO 请求将传送 BAT_RSOC、BAT_MODULE_VOLTAGE、BAT_CURRENT 等）。</td></tr></table><a name="toc"></a>
 
+### 适配器配置重用
+您可以使用实例设置中内置的“保存”/“加载”按钮将适配器设置保存在 json 文件中并从那里加载它，例如在您完成全新的 ioBroker 安装之后。
+
+但是：在某些情况下，重用适配器配置会导致意外行为。在新适配器版本引入新参数的情况下，例如轮询间隔列表中的新行，从旧的 json 文件重新加载设置将删除这些新参数。 **这就是为什么通常建议从空白设置开始并至少为每个新的主要 (X) 或次要 (Y) 版本 (X.Y.z) 重新输入它们的原因：**
+
+1.删除e3dc-rscp实例
+2.新建一个e3dc-rscp实例
+3. 手动输入设置（不要*不*从 json 文件加载设置）
+
 ## 接口消息的覆盖
 ### 支持的 RSCP 命名空间
-RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>支持的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>不支持（还）</td></tr><tr><td> EP</td><td>应急电源</td><td>完全的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>支持的</td></tr></table>
+RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）。<table><tr><th>命名空间</th><th>代表</th><th>适配器支持</th></tr><tr><td>RSCP</td><td> Remote-Storage-Control-Protocol（即协议级标签）</td><td>部分支持</td></tr><tr><td>特快专递</td><td>能源管理系统</td><td>部分支持</td></tr><tr><td>元伟</td><td>光伏逆变器</td><td>支持的</td></tr><tr><td>蝙蝠</td><td>电池</td><td>支持的</td></tr><tr><td>数据中心</td><td>电池DCDC</td><td>不支持（还）</td></tr><tr><td>下午</td><td>功率计</td><td>不支持（还）</td></tr><tr><td> D B</td><td>数据库</td><td>实验性的（见 README-dev.md）</td></tr><tr><td>飞行管理系统</td><td>（车队管理系统？）</td><td>没有定义标签</td></tr><tr><td>SRV</td><td>服务器在线/用户管理</td><td>不支持（还）</td></tr><tr><td>哈</td><td>家庭自动化</td><td>不支持（还）</td></tr><tr><td>信息</td><td>信息</td><td>部分支持（REQ 标签可以，SET 标签尚未实现）</td></tr><tr><td> EP</td><td>应急电源</td><td>支持的</td></tr><tr><td>系统</td><td>系统重启/启动</td><td>支持的</td></tr><tr><td>嗯</td><td>更新管理</td><td>不支持（还）</td></tr><tr><td>世界银行</td><td>壁箱</td><td>支持的</td></tr></table>
 
 ### 可写 RSCP 标签
 <table><tr><th>命名空间</th><th>标签</th><th>类型</th><th>内容</th></tr><tr><td>特快专递</td><td>MAX_CHARGE_POWER</td><td>数字</td><td>[W] 中的充电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>MAX_DISCHARGE_POWER</td><td>数字</td><td>[W] 中的放电限制 - 注意：除非 POWER_LIMITS_USED 为“true”，否则会产生影响</td></tr><tr><td>特快专递</td><td>DISCHARGE_START_POWER</td><td>数字</td><td>以 [W] 为单位的最小电池放电功率 - 注意：除非 POWER_LIMITS_USED 为“true”，否则无效</td></tr><tr><td>特快专递</td><td>POWERSAVE_ENABLED</td><td>布尔值</td><td>省电模式已启用</td></tr><tr><td>特快专递</td><td>POWERLIMITS_USED</td><td>布尔值</td><td>使用功率限制</td></tr><tr><td>特快专递</td><td>WEATHER_REGULATED_CHARGE_ENABLED</td><td>布尔值</td><td>启用天气调节充电</td></tr><tr><td>特快专递</td><td>SET_POWER_MODE</td><td>状态</td><td>充电方式；通常传播到 MODE</td></tr><tr><td>特快专递</td><td>SET_POWER_VALUE</td><td>数字</td><td>充电功率[W]；通常传播到 SET_POWER</td></tr><tr><td>特快专递 (1)</td><td> IDLE_PERIOD_ACTIVE</td><td>布尔值</td><td>（去）激活空闲时间（2）</td></tr><tr><td>特快专递 (1)</td><td>开始_HOUR</td><td>数字</td><td>闲置期开始时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> START_MINUTE</td><td>数字</td><td>空闲期开始分钟 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_HOUR</td><td>数字</td><td>闲置期结束时间 (2)</td></tr><tr><td>特快专递 (1)</td><td> END_MINUTE</td><td>数字</td><td>空闲期结束分钟 (2)</td></tr><tr><td>数据库 (3)</td><td> TIME_START</td><td>细绳</td><td>请求数据的时间范围的开始</td></tr><tr><td>数据库 (3)</td><td>时间跨度</td><td>细绳</td><td>请求数据的时间范围长度（秒）</td></tr><tr><td>数据库 (3)</td><td>时间间隔</td><td>细绳</td><td>数据点之间的间隔</td></tr><tr><td>系统</td><td>SYSTEM_REBOOT</td><td>数字</td><td>将值更改为 1 将重新启动 E3/DC 系统。</td></tr><tr><td>系统</td><td>重新启动_APPLICATION</td><td>布尔值</td><td>将值更改为 true 将重新启动 E3/DC 应用程序。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_SUN</td><td>布尔值</td><td>设置太阳模式或混合模式。</td></tr><tr><td>世界银行</td><td>外部数据网</td><td>数字</td><td>设置墙盒电网功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALL</td><td>数字</td><td>设置墙盒总功率。</td></tr><tr><td>世界银行</td><td>EXTERN_DATA_ALG</td><td>字节数组</td><td>设置 wallbox 模式，取消充电，2 型插头锁定，功率限制。</td></tr></table>
@@ -58,10 +70,32 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 
 需要进一步调查。
 
-对于当前不受支持的 RSCP 命名空间和标签，请参阅随 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表。
-
 请注意，RSCP 知道 600 多个标签（代表大约 300 个参数），因此我们认为读取所有标签没有意义。
 因此，我们将根据即将到来的用例向适配器添加标签。
+
+<a name="iss"></a>
+
+## 问题和功能请求
+对于问题和功能请求，您可以用英语或德语写信。
+
+### 错误报告
+打开[错误报告表](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=&labels=&template=bug_report.md&title=)，输入综合信息。
+大多数情况下调试需要日志文件，因此请提供调试日志：
+
+1.停止实例
+2.删除日志
+3. 将实例设置为日志模式“调试”（或者甚至是“愚蠢”，取决于问题的类型）
+4. 启动实例并让它为 ca 运行。 1 分钟（或更长，如果你知道错误需要更多时间才能出现）
+5.将日志存储在文件中
+6. 将日志文件附加到问题（请不要使用内联日志；它太长了）
+
+### 功能请求和一般问题
+打开 [空白问题](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new)，并描述您希望适配器做什么以及为什么。
+请记住：
+
+* 适配器用于触发 RSCP 并在 ioBroker 的对象树中提供结果，仅此而已。进一步的处理或存储留给其他代码。
+* **要搜索当前不支持的 RSCP 命名空间和标签，请参考 [示例应用程序](http://s10.e3dc.com/dokumentation/RscpExample.zip) 提供的官方 E3/DC 标签列表**。
+* 未在 RSCP 标签列表中列出或以其他方式显示已交付的所有物品都被视为“超出范围”。
 
 <a name="sam"></a>
 
@@ -69,6 +103,32 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 // 触发器：达到降额功率，即电网功率将被限制 // 操作：将电池充电功率限制重置为最大值，如 SYS_SPECS on( { id: &#39;e3dc-rscp.0.EMS.POWER_GRID&#39;, valLe : -getState(&#39;e3dc-rscp.0.EMS.DERATE_AT_POWER_VALUE&#39;).val, change: &#39;lt&#39;, logic: &#39;and&#39; }, (obj) =&gt; { console.log(&#39;触发器：电网电源位于降低阈值 - 重置充电功率限制&#39;); setState(&#39;e3dc-rscp.0.EMS.MAX_CHARGE_POWER&#39;, getState(&#39;e3dc-rscp.0.EMS.SYS_SPECS.maxBatChargePower&#39;).val ); });<a name="log"></a>
 
 ## Changelog
+
+### 1.2.3 - UNDER CONSTRUCTION - 
+(git-kick)
+* Added testing with Node 18 and Node 20 - [Issue #165](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/165)
+* Upgraded to new translations, adding "uk" language - [Issue #166](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/166)
+* Stop polling "unavailable" tags - [Issue #169](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/169)
+* Adapter uses Sentry now.
+
+### 1.2.2
+(git-kick)
+* Fixed TAG_PVI_REQ_FREQUENCY_UNDER_OVER warning with polling interval 'N' - [Issue #157](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/157)
+* Log "warn - received message with invalid ..." reclassified to 'debug' - [Issue #159](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/159)
+* Revised BAT and PVI probing; now resilient with lost responses - [Issue #160](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/160)
+* Integrated Sentry plugin for crash reporting - see [documentation](https://github.com/ioBroker/plugin-sentry)
+
+### 1.2.1
+__MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
+
+(git-kick)
+* Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
+* Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - Deprecated - Do not install -
+
 ### 1.1.2
 (ka-vaNu)
 * WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)
@@ -76,13 +136,13 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 (git-kick)
 * Avoid cleartext password in silly log.
 
-## Changelog
 ### 1.1.1
 (ka-vaNu)
 * Fixed typo which prevented creation of wallbox object - [Issue #139](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/139)
 
 (git-kick)
 * Fixed vulnerable dependency: glob-parent < 5.1.2 - [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2022-28469)
+
 ### 1.1.0
 (ka-vaNu)
 * Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
@@ -93,6 +153,7 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 (git-kick)
 * Fixed vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
 * Fixed vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
+
 ### 1.0.8
 (git-kick)
 * No updates for e3dc-rscp.0.EP.PARAM_0.* - [Issue #117](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/117)
@@ -100,20 +161,25 @@ RSCP 协议将*Tags*（即状态或值）分组为*Namespaces*（即标签组）
 * Define info.connection and RSCP.AUTHENTICATION synchronously (to avoid warning in adapter log)
 
 __Note__: DO NOT import adapter settings from a json-file created with an older version of e3dc-rscp. Instead, create a new adapter configuration from the scratch and then store it to a json-file. Reason is that importing an older json-file will delete polling interval list entries which have been added with v1.0.8 and this will invalidate the bugfix!
+
 ### 1.0.7
 (git-kick)
 * High CPU load on js-controller after triggering historical data - [Issue #114](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/114)
+
 ### 1.0.6
 (git-kick)
 * Boolean switches (e.g. EMS.WEATHER_REGULATED_CHARGE_ENABLED) did not work properly - [Issue #109](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
 * Fixed vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
+
 ### 1.0.5
 (git-kick)
 * SET_POWER not effective due to delayed transmission - [Issue #103](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
+
 ### 1.0.4
 (git-kick)
 * BAT_1 not visible after update to v1.0.3 - [Issue #96](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/96)
 * Save button inactive after loading adapter configuration - [Issue #95](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/95)
+
 ### 1.0.3
 (git-kick)
 * Reconnect does not work after RESTART_APPLICATION - [Issue #74](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/74)
@@ -121,6 +187,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 * DCB_CELL_TEMPERATURE = 0 obviously means there is no value, so display "(null)" instead of "0 °C"
 * Uncaught out-of-range exception when entering invalid data - [Issue #88](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/88)
 * Emergency Power Level - [Issue #89](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/89)
+
 ### 1.0.2
 (git-kick)
 * SYS namespace, experimental support - [Issue #60](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/60)
@@ -129,11 +196,13 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 * WB.PM_ACTIVE_PHASES decode values - [Issue #76](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/76)
 * WB.MODE decode value 8 - [Issue #77](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/77)
 * Dependabot: follow-redirects 1.14.8
+
 ### 1.0.1
 (git-kick)
 * [CVE-2021-23566](https://nvd.nist.gov/vuln/detail/CVE-2021-23566): require nanoid >=3.1.31 - [Issue #61](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/61)
 * [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2020-28469): require glob-parent >=5.1.2
 * [Sentry Event](https://sentry.io/organizations/ulrich-kick/issues/2812710513/events/0c4653a38cd24b6a8732a10d07370e06/): Type Error in sendNextFrame(), handling case this == null
+
 ### 1.0.0
 (git-kick)
 * Prerequisites for ioBroker repo in README.md, io-package.json, github
@@ -897,4 +966,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.signal-cmb/README.md
 title: ioBroker.signal-cmb
-hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
+hash: PZVkglcc7BEgZVqVzLkmFoR8CwxHW8xJR5P+i6DkWfY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.signal-cmb/admin/signal-cmb.png)
 
@@ -35,8 +35,8 @@ hash: UECVDOhGUl6K3P1f1A4xv6kZT2viEvQBJO3d9DUVRrA=
 
 Пример: ![Пример](../../../en/adapterref/iobroker.signal-cmb/img/signal.jpg)
 
-### Применение
-Есть две возможности отправить сообщение:
+### Использование
+Есть две возможности отправить сообщение: ВНИМАНИЕ! Замечено, что при отправке нескольких сообщений в течение одной секунды CallMeBot блокирует пользователя на 15 минут. Следовательно, следует обеспечить отправку только одного сообщения в секунду.
 
 - через `signal-cmb.0.sendMessage`. Просто напишите текст в этом состоянии, и сообщение будет отправлено на номер по умолчанию, который был настроен в диалоге настроек.
 - через сообщение от javascript-адаптера:

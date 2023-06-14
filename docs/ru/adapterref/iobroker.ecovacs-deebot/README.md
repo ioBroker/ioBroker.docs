@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
+hash: COLurwRj6WJlVjKYGfOrVZLpkwhLfYHFrZOIRdwuSI0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -44,7 +44,7 @@ hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 Полностью поддерживаемые модели — это те, которые принадлежат мне самому:
 
 * Дибот ОЗМО 920
-* Дибот T8 AIVI
+* Дибот OZMO T8 AIVI
 * Дибот Х1 Турбо
 
 ### Другие поддерживаемые модели
@@ -94,7 +94,7 @@ hash: TEORmYtDToCw+4es7D5SrlZwRPz1ljQyzXNbA4xyia0=
 ### Предпосылки
 Чтобы использовать этот адаптер, у вас уже должен быть установлен [ioBroker](iobroker.net).
 
-Минимальная требуемая версия Node.js — 14.x. Рекомендуется использовать версию 14.x или 16.x.
+Минимальная требуемая версия Node.js — 14.x. Рекомендуется использовать версию 16.x или 18.x.
 
 ### Необязательные предпосылки
 Этот адаптер использует библиотеку [узел-холст](https://www.npmjs.com/package/canvas) для некоторых функций, связанных с картой, которые могут потребовать установки некоторых дополнительных пакетов.
@@ -128,7 +128,7 @@ npm install canvas --unsafe-perm=true
 ## Известные вопросы
 * Генерация изображений карт в настоящее время нестабильна на 32-битных системах.
 * Функция «край» не работает с Deebot U2 (вместо этого запускается автоматическая очистка)
-* Функции "перемещения" не работают с Deebot OZMO T8 AIVI (а возможно и с некоторыми другими моделями)
+* Функции «перемещения» не работают должным образом на некоторых моделях.
 * Генерация изображений карты не работает должным образом с серией Deebot X1.
 
 ## Отказ от ответственности
@@ -136,7 +136,10 @@ npm install canvas --unsafe-perm=true
 
 ## Changelog
 
-### 1.4.13 (latest beta)
+### 1.4.14 (alpha)
+* Bumped ecovacs-deebot.js to 0.9.6 (alpha)
+
+### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations

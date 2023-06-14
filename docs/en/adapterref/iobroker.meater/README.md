@@ -51,32 +51,9 @@ This adapter uses the [public API](https://github.com/apption-labs/meater-cloud-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.2 (2023-02-20)
+### 1.0.0 (2023-05-12)
 
--   (Standarduser): improved: error handling if websever sent no response
-
-### 0.2.1 (2023-01-14)
-
--   (Standarduser): improved: error handling if websever sent no response
-
-### 0.2.0 (2022-12-15)
-
--   (Standarduser) added: State for manually trigger an update
--   (Standarduser) improved: description of errors
--   (Standarduser) fixed: Adapter stopped working if got an error from MEATER Cloud server (not API)
-
-### 0.1.2 (2022-12-05)
-
--   (Standarduser) Improved error handling for fetch
-
-### 0.1.0 (2022-12-04)
-
--   (Standarduser) Save password encrypted => please reenter password in adapter config
--   (Standarduser) Some minor improvements
-
-### 0.1.0-alpha.0 (2022-11-21)
-
--   (Standarduser) First test release
+-   (Standarduser) First stable release
 
 ## License
 

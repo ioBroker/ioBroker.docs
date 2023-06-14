@@ -35,6 +35,15 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## Changelog
 
+### 0.2.4
+* (holomekc) Update the adapter to the latest requirements
+
+### 0.2.3
+* (holomekc) Update to api version 3.2
+* (holomekc) Add support for climate schedules with two options to activate them
+* (holomekc) Update intrusion detection so that more information is shown
+* (holomekc) Update intrusion detection and climate schedule switches stay active now
+
 ### 0.2.2
 * (holomekc) Support for rooms. Configuration to ignore server certificates. Allow ttesting controller 2 and can prevent issues in case certificates expire. Less secure though.
 
@@ -182,24 +191,6 @@ If you want to support the work I would appreciate a small donation. This is 100
 
 ## License
 
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2022 Christopher Holomek <holomekc.github@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2023 Christopher Holomek <holomekc.github@gmail.com>

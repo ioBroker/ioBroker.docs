@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pvoutputorg/README.md
 title: ioBroker.pvoutputorg
-hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
+hash: 66MavZix6CUQFsgttei7j+7Q1VSbPeAtv8peCOfA0xc=
 ---
 ![Logo](../../../en/adapterref/iobroker.pvoutputorg/admin/pvoutputorg.png)
 
@@ -20,7 +20,7 @@ hash: UNpMZ4dxO4O2ed9w5D8Dt+lCV+KvCWrvcLEo2dqbtiY=
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Der Adapter verbindet sich mit [PvOutput.org](https://pvoutput.org). System-ID und API-Schlüssel werden verwendet, um die Verbindung herzustellen. Beide müssen auf der Admin-Seite konfiguriert werden.
 Aktuell werden die System-, Status- und Statistikdaten aller konfigurierten Systeme ausgelesen und in Datenpunkten angezeigt.
@@ -30,7 +30,7 @@ Detaillierte Informationen finden Sie unter [pvoutput.org-Hilfe](https://pvoutpu
 
 Wenn Sie pvoutput.org mit einer Spende unterstützen, werden Ihnen zusätzliche Funktionen zur Verfügung gestellt. Momentan werden diese hier im Adapter noch nicht unterstützt.
 
-# Download
+# Herunterladen
 Der Adapter lädt drei Arten von Daten herunter
 
 * Systemdaten
@@ -100,6 +100,15 @@ mehr zu [API-Dokumentation](https://pvoutput.org/help/api_specification.html#add
 
 ## Changelog
 
+### 1.8.8 (2023-04-07)
+* (René) dependencies updates
+
+### 1.8.7 (2023-01-31)
+* (René) dependencies updates
+
+### 1.8.6 (2022-11-29)
+* (René) see issue #4 : bug fix negative temperatures
+
 ### 1.8.5 (2022-10-01)
 * (René) bug fix wrong date
 
@@ -149,7 +158,7 @@ mehr zu [API-Dokumentation](https://pvoutput.org/help/api_specification.html#add
 ## License
 MIT License
 
-Copyright (c) 2022 rg-engineering <info@rg-engineering.eu>
+Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

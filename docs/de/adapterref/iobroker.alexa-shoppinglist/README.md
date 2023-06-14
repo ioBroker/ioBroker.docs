@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa-shoppinglist/README.md
 title: ioBroker.alexa-einkaufsliste
-hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
+hash: HSFwRXQrrs4eNztQ9DaQN8lE/YF/bl79FvsVUjpidLs=
 ---
 ![Logo](../../../en/adapterref/iobroker.alexa-shoppinglist/admin/alexa-shoppinglist.png)
 
@@ -13,46 +13,50 @@ hash: r5nDQXWStgnd8CQzQtUDbON4qebgQ6aQ6/Nol4aY2Yk=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/alexa-shoppinglist-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.alexa-shoppinglist.png?downloads=true)
 
-# IoBroker.alexa-Einkaufsliste
-**Tests:** ![Testen und freigeben](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.alexa-shoppinglist
+**Tests:** ![Test und Freigabe](https://github.com/MiRo1310/ioBroker.alexa-shoppinglist/workflows/Test%20and%20Release/badge.svg)
 
-## Alexa-Einkaufslisten-Adapter für ioBroker
+## Alexa-Shoppinglist-Adapter für ioBroker
 Erzeugt die Einkaufsliste von Alexa
 
 Sie können auch andere Listen von Alexa verwenden. Konfigurieren Sie es im Admin.
 Wenn Sie die neue Admin-Benutzeroberfläche verwenden, wird es für Sie viel einfacher.
 
-Es gibt einen Status zum Einfügen neuer Artikel. Schreiben Sie einfach den Text und geben Sie ihn ein.
+Es gibt einen Status zum Einfügen neuer Elemente. Schreiben Sie einfach den Text und geben Sie ein.
 Sie können aktive und inaktive Listen löschen.
-Sie können auch nur einen Artikel in beide Richtungen verschieben.
+Sie können auch nur einen Gegenstand in beide Richtungen bewegen.
 
 Ich hoffe es gefällt dir
+
+**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
 
 ## Datenpunkte
 | DP-Name | Geben Sie | ein Beschreibung |
 | ------------------- | ------ | --------------------------------------------------------------------------------------------------- |
 | add_position | Zeichenfolge | Geben Sie Text ein, der in die Liste eingefügt werden soll |
-| delete_activ_list | Schaltfläche | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
-| delete_inactiv_list | Schaltfläche | Löscht die inaktive Liste |
-| position_to_shift | Nummer | Sie können die Positionsnummer des Artikels verschieben einfügen, als Schaltfläche to_active_list oder to_inactive list |
-| list_active | JSON | Die aktive Liste als JSON |
-| list_active_sort | Schalter | Sie können die aktive Liste nach Namen oder nach Einfügezeit | sortieren |
+| delete_activ_list | Knopf | Löscht die aktive Liste und verschiebt sie in die inaktive Liste |
+| delete_inactiv_list | Knopf | Löscht die inaktive Liste |
+| position_to_shift | Nummer | Sie können die Positionsnummer der Elementverschiebung über die Schaltfläche to_active_list oder to_inactive list | eingeben |
+| list_active | JSON | Die Aktivliste als JSON |
+| list_active_sort | Schalter | Sie können die aktive Liste nach Name oder nach Einfügezeit | sortieren |
 | list_inactive | JSON | Die inaktive Liste als JSON |
-| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Namen oder nach Einfügezeit | sortieren |
-| to_activ_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu activ_list | zu wechseln |
-| to_inactive_list | Schaltfläche | Fügen Sie zuerst position_to_shift ein und drücken Sie dann die Schaltfläche, um zu inactiv_list | zu wechseln |
+| list_inactive_sort | Schalter | Sie können die inaktive Liste nach Name oder nach Einfügezeit | sortieren |
+| to_activ_list | Knopf | Geben Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu activ_list | zu wechseln |
+| to_inactive_list | Knopf | Geben Sie zuerst position_to_shift ein und drücken Sie dann die Taste, um zu inactiv_list | zu wechseln |
 
 | Attribut in JSON | Beschreibung |
 | ----------------- | ----------------------------------------- |
 | Name | Name des Artikels |
 | Zeit | Zeitstempel der Einfügung |
-| ID | id im Alexa2 Adapter |
-| Pos. | Position in der Liste |
-| Schaltfläche bewegen | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
-| SchaltflächeLöschen | Schaltfläche zum vollständigen Löschen des Elements |
+| id | id im Alexa2-Adapter |
+| pos | Position in der Liste |
+| buttonmove | Schaltfläche zum Wechseln zur aktiven oder inaktiven Liste |
+| buttondelete | Schaltfläche zum vollständigen Löschen des Elements |
 
-Der JSON enthält nun 2 Buttons um Items zu verschieben oder zu löschen.
-Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen einfügen:
+Das JSON enthält nun 2 Buttons zum Verschieben oder Löschen von Elementen.
+Dazu müssen Sie im VIS-Editor unter Skript Code einfügen, diesen eingeben:
 
 ```
  /* Alexa Einkaufsliste JSON */
@@ -89,7 +93,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.0 ( 20.02.2022)
 
-- First complete working Release
+- First complete working Releases
 
 ### 0.0.1
 

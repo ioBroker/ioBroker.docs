@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.birthdays?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.birthdays/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.birthdays/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.birthdays?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.birthdays.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
@@ -33,8 +33,9 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.2.2 (2023-05-01)
 
+* (klein0r) Warn if a birthday with the same name has already been added
 * (klein0r) Code optimization
 
 ### 2.2.1 (2023-02-13)
@@ -60,11 +61,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 * (klein0r) Added next significant birthdays
 * (klein0r) Allow to use local ical files by path
 * (klein0r) Updated depedency for js-controller to 4.0.15
-
-### 1.2.1 (2022-04-08)
-
-* (klein0r) Removed tsdav
-* (klein0r) Allow carddav url without valid certificate (configurable)
 
 ## License
 

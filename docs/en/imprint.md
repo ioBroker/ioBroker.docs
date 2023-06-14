@@ -6,7 +6,7 @@ lastChanged: 14.09.2018
 ## According to § 5 TMG:
 **Firma:** ioBroker GmbH
 
-**Address:** Lorenzstr. 16 76135 Karlsruhe,
+**Address:** Talstr. 27, 67317 Altleiningen,
 
 **Germany HR number:** HRB 743629 District Court Mannheim
 

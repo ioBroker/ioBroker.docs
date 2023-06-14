@@ -3,41 +3,72 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lg-ess-home/README.md
 title: ioBroker.lg-ess-home
-hash: 2eL0UVFcmdRSjNgOgVhDCAy9KFCsDkov29qCT4hXbg0=
+hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
 ---
 ![Logo](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lg-ess-home.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/lg-ess-home-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/lg-ess-home-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Morluktom/iobroker.lg-ess-home.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/lg-ess-home-stable.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
 
 # IoBroker.lg-ess-home
-** Tests: ** ![Testen und freigeben](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
 
-## LG ESS Home Adapter für ioBroker
-Ein iobroker Adapter für einen LG ESS Hybrid Wechselrichter. Mit diesem Adapter kann der Status des Wechselrichters abgelesen werden. Es ist auch möglich, den Wechselrichter zu betreiben.
+## LG ESS Home-Adapter für ioBroker
+Ein iobroker-Adapter für einen LG ESS Hybrid-Wechselrichter. Mit diesem Adapter kann der Status des Wechselrichters ausgelesen werden. Es ist auch möglich, den Wechselrichter zu betreiben.
 
 ## Aufbau
-### Passwort erhalten
+### Das Passwort erhalten
 1. Laden Sie die Datei [LG_Ess_Password.exe] herunter (https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools).
-1. Schließen Sie den Computer an das WLAN des LG_ESS-Systems an. (WLAN-Passwort steht auf dem Typenschild)
+1. Verbinden Sie den Computer mit dem WLAN des LG_ESS-Systems. (WLAN-Passwort steht auf dem Typenschild)
 1. Starten Sie LG_Ess_Password.exe (mindestens .Net Framework 4.5 erforderlich)
 1. Notieren Sie sich Ihr Passwort
 
-Für diejenigen, die exe nicht mögen: (Danke grex1975) \ Sie können jeden REST-Client verwenden, um das Passwort zu erhalten:
+Für diejenigen, die exe nicht mögen: (Danke grex1975)\ Sie können jeden REST-Client verwenden, um das Passwort zu erhalten:
 
-1. Stellen Sie eine Verbindung zum WLAN des LG_ESS her
-1. Führen Sie eine GET-Anforderung aus
+1. Verbinden Sie sich mit dem WLAN des LG_ESS
+1. Führen Sie eine POST-Anfrage aus\
 
-URL: https://192.168.23.1/v1/user/setting/read/password \ Header: "Zeichensatz": "UTF-8", "Inhaltstyp": "application / json" \ Body: "key": "lgepmsuser! @ #"
+URL: https://192.168.23.1/v1/user/setting/read/password \ Header: „Charset“: „UTF-8“, „Content-Type“: „application/json“\ {Body: „key“ : "lgepmsuser!@#"}
 
-Dies sollte Ihnen das Passwort und einen Status als Gegenleistung geben.
+Dadurch erhalten Sie im Gegenzug das Passwort und einen Status.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (Morluktom) Fixed warnings found by adapter checker
+* (Morluktom) Added Admin 5 configuration
+* (Morluktom) Added Ukrainan language
+
+### 0.2.3 (2022-04-05)
+* (Morluktom) Chart widget: Datepicker changed to jquery
+
+### 0.2.2 (2022-04-04)
+* (Morluktom) Chart widget updated
+
+### 0.2.1 (2022-04-04)
+* (Morluktom) Chart widget updated
+
+### 0.2.0 (2022-03-14)
+* (Morluktom) Chart widget added
+
+### 0.1.1 (2022-01-07)
+* (Morluktom) replaced deprecated library and login as installer only when needed
+
+### 0.1.0 (2021-11-27)
+* (Morluktom) Read chart data and data from the installer settings
+
+### 0.0.10 (2021-05-04)
+* (Morluktom) Bugfix boolean value
+
+### 0.0.9 (2021-05-04)
+* (Morluktom) Bugfix boolean value
 
 ### 0.0.8 (2021-02-06)
 * (Morluktom) Code cleanup
@@ -67,7 +98,7 @@ Dies sollte Ihnen das Passwort und einen Status als Gegenleistung geben.
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 Morluktom <strassertom@gmx.de>
+Copyright (c) 2023 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

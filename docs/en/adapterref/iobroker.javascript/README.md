@@ -1726,13 +1726,28 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.0.8 (2023-06-12)
+* (klein0r) Corrected trigger block
+* (klein0r) Corrected typescript V5
+* (bluefox) coffescript was degraded to the previous version
+* (bluefox) tried to correct vscode font
+* (bluefox) reverted blockly to the previous version
+
+### 7.0.5 (2023-06-06)
+* (klein0r) reset timeouts in blockly
+* (klein0r) added additional blockly blocks
+
+### 7.0.4 (2023-06-06)
+* (bluefox) packages updated
+* (bluefox) Files are used for export of scripts
+
 ### 7.0.3 (2023-03-16)
 * (bluefox) made the editor visible in full height
 * (paul53) small fixes on blockly and translations are made
 
 ### 7.0.2 (2023-03-13)
 * (bluefox) Breaking change: all usages of `jsonata` must be rewritten to use promises.
-* (bluefox) Breaking change: all blockly scripts with `jsonata` blocks must de changed (just move some blocks) and saved anew.
+* (bluefox) Breaking change: all blockly scripts with `jsonata` blocks must be changed (just move some blocks) and saved anew.
 * (bluefox) Extended `createState` command with possibility to create aliases. 
 * (bluefox) Corrected CRON card in rules 
 * (bluefox) Added additional options to show the attributes of object in blockly
@@ -1740,21 +1755,6 @@ Scripts can be activated and deactivated by controlling of this state with ack=f
 * (bluefox) Added `isDaylightSaving` state to indicate day saving time
 * (AlCalzone) Pinned `@types/node` to v14
 * (bluefox) Added list of astrological events in GUI
-
-### 6.2.0 (2023-02-17)
-* (Apollon77) Prevented duplicate schedule triggering with inaccurate RTC clocks
-* (Apollon77) Fixed sendToAsync and sendToHostAsync
-* (Apollon77) Added rename/renameFile(Async) methods
-* (Apollon77) Deprecated get/setBinaryState(Async) methods and log a message on usage. Use Files instead!
-* (Apollon77) Deprecated usage of own states in javascript.X.scriptEnabled/Problem and log a message on usage. Use own states in 0_userdata.0 instead!
-* (bluefox) added axios to pre-installed modules. `request` will be removed in the future
-
-### 6.1.4 (2022-11-14)
-* (bluefox) Corrected small error in rules
-* (bluefox) Tried to fix debug mode
-
-### 6.1.3 (2022-11-03)
-* (Apollon77) Prevent adapter crash when script could not be compiled
 
 ## License
 The MIT License (MIT)

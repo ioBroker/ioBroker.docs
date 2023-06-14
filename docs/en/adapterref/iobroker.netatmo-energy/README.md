@@ -27,7 +27,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.netatmo-energy.png?downloads=true
 Netatmo Energy hardware (thermostat, valves)
 Account at Netatmo Cloud
 
-- Adapter is working with admin >= 3 and nodejs >= 14
+- Adapter is working with admin >= 3 and nodejs >= 16
 - Create your own account at <https://auth.netatmo.com/de-de/access/signup>
 - Login in site <https://dev.netatmo.com/apidocumentation/energy>
 - Create your own APP by clicking your account (top left), and press button "Create"
@@ -47,7 +47,7 @@ Account at Netatmo Cloud
       - read API states immediately ... send API homestatus request after changing fields in API
       - Refresh states every x seconds ... permanent refresh of the API data. (0 = no permanent refresh)
   - As an option you can activate the notification assistant. Therefore, you must activate the option "Enable / disable notifications" in the "Logon information" menu and do the setup for the notification service in the menu "notifications". You can get information's, warnings and errors.
-  - It is also possible to config the sensors for Doors/Windows in the Sensorik tab. Please also maintain the action, you want to trigger.
+  - It is also possible to config the sensors for Doors/Windows in the Sensorik tab. Please also maintain the action, you want to trigger. These functions can generally be activated or deactivated on the login page.
 
 A detailed description is available on adapter wiki (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>).
 
@@ -159,10 +159,15 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
+### 2.6.0 (2023-05-01)
+
+* (ioKlausi) Enable / Disable sensor actions
+
 ### 2.5.8 (2023-04-16)
 
 * (ioKlausi) Bug fix of translations

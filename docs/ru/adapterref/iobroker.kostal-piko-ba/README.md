@@ -3,31 +3,31 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kostal-piko-ba/README.md
 title: ioBroker.kostal-piko-ba
-hash: A7tFCf5bR7dPx8nF+Ii+hjqwVwKSbcr/8WiYrVuss+w=
+hash: o8WKJRbH1NvZZ7/KkuUQq2W7tvgOz+JJsSAZP7Leakc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
+![версия NPM](https://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
 ![Известные уязвимости](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
 # IoBroker.kostal-piko-ba
-![Версия NPM (стабильная)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Количество установок (последние)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+![Версия NPM (стабильная)](https://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Количество установок (последние)](https://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 
-CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+**CI-тесты:** ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg) [![CodeQL] (https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.kostal-piko-ba/actions/workflows/codeql-analysis.yml)
 
 ## Адаптер для чтения данных Kostal Piko & Piko BA для iOBroker
 Адаптер для чтения данных Kostal Piko, Piko BA и PIKO MP plus. Адаптер создает несколько состояний и последовательно их обновляет.
 Адаптер предназначен для инверторов Kostal Piko 6.0BA, 8.0BA, 10.0BA, BA.
 Адаптер также работает с инверторами Kostal Piko 3.0, 4.2, 4.6, 5.5, 7.0, 8.5, 10, 12, 15, 17, 20 и 36.
-НОВЫЙ! Адаптер теперь работает с инверторами MP plus - первое тестирование: Kostal PIKO 3.0-1 MP plus.
+НОВЫЙ! Адаптер теперь также работает с инверторами MP plus - проверено с Kostal PIKO 1.5-1, 2.0-1, 3.0-1 MP plus.
 Буду очень признателен, если вы проверите работоспособность других инверторов и отправьте мне сообщение.
 
 ## Настройки
-Имейте в виду, что ваш инвертор Piko или Piko BA должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Pico (BA/MP plus) установка его IP-адреса в конфиге обязательна.
-Вы также можете изменить частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
+Имейте в виду, что ваш инвертор Piko или Piko BA должен быть обновлен до версии Kostal UI >= 6.11! Для подключения к инвертору Kostal Piko (BA/MP plus) установка его IP-адреса в конфиге обязательна.
+При желании вы также можете отредактировать частоту обновления данных в реальном времени, ежедневную статистику и статистику в реальном времени.
 Если это необходимо и поддерживается вашим оборудованием, установите также отметку для считывания 4 аналоговых значений.
 
 ## Примечания
@@ -37,6 +37,14 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.5.2 (02.06.2023)
+* (HombachC) fixed a wording error
+* (HombachC) bumped dependencies, added tests for node.js 20
+* (HombachC) it's recommended to switch to minimum node.js 16, adapter still working with node 14
+### 2.5.1 (25.04.2023)
+* (HombachC) fixed a sentry reported error
+### 2.5.0 (22.04.2023)
+* (HombachC) implemented battery power calculation
 ### 2.4.7 (13.04.2023)
 * (HombachC) improved error handling
 ### 2.4.6 (09.04.2023)

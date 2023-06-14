@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: og+ZEsvwoq2JAsLHQe6y4FAdKoJw+cO7ITxLhtSi/VI=
+hash: I2Oh/vLz4Xwex8EVaxD1Vtc8hLFRcWS67WPe/8QxK2o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -20,7 +20,7 @@ hash: og+ZEsvwoq2JAsLHQe6y4FAdKoJw+cO7ITxLhtSi/VI=
 
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## Адаптер SMA SEMP для ioBroker
 Интерфейс к SMA SunnyPortal через SunnyHomeManager и SEMP
@@ -48,6 +48,39 @@ hash: og+ZEsvwoq2JAsLHQe6y4FAdKoJw+cO7ITxLhtSi/VI=
 * пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.semp/issues), если вы обнаружите ошибки или хотите добавить новые функции
 
 ## Changelog
+
+### 1.1.0 (in progress)
+* (René) issue #30: URL as another option for configuring the wallboy interface
+
+### 1.0.0 (2023-04-07)
+* (René) dependencies updated
+
+### 0.4.2 (2023-04-02)
+* (René) fast charge is now a boolean and can be enabled/disabled
+* (René) wallbox charge time can be defined as 12h, 24h, endles or userdefined
+
+### 0.4.1 (2023-03-24)
+* (René) bug fix: avoid exception when no switch is defined for wallbox
+* (René) limit to switch between 1phase and 3phase charging of wallbox is adjustable now
+* (René) allow one minute disconnected before state change. Sometimes when wallbox switches from 1phase to 3phase it sends "disconnected", but cable is still connected
+
+### 0.4.0 (2023-03-15)
+* (René) redesign wallbox feature
+* (René) add status ExcessEnergy in timeframes to show when excess energy is used
+* (René) bug fix for "cannot read data undefined" when new device was created
+
+### 0.3.1 (2023-02-26)
+* (René) issue #27: wallbox fast charging added
+* (René) wallbox: some bug fixes
+
+### 0.2.1 (2023-02-17)
+* (René) wallboxes: bug fix MinEnergy set to 0
+
+### 0.2.0 (2023-02-16)
+* (René) wallboxes: add switch to enable 3phase charge
+
+### 0.1.1 ()
+* (René) wallboxes: some bug fixes
 
 ### 0.1.0 (2023-01-20)
 * (René) wallboxes: see issue #23: wallbox OID can be configured (DP type and set or check value)

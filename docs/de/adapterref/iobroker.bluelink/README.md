@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
+hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -11,11 +11,10 @@ hash: OWn0yqU1Hdb0wc//9ANKgmftUF2PNqhZmjTeJ84v7TA=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![Anzahl der Installationen (neueste)](https://iobroker.live/badges/bluelink-installed.svg)
 ![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Newan/iobroker.bluelink.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-**Tests:** ![Testen und freigeben](https://github.com/Newan/ioBroker.bluelink/workflows/Test%20and%20Release/badge.svg)
+![Testen und freigeben](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Bluelink-Adapter für ioBroker
 Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen

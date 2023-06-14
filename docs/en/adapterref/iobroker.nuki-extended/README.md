@@ -503,7 +503,14 @@ on({id: 'nuki-extended.0.openers.opener.state.ringStateUpdate', change: "any", a
 
 Please see [release page](https://github.com/Zefau/ioBroker.nuki-extended/releases) for changelog and detailed information.
 
-<!-- ### __WORK IN PROGRESS__ -->
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 2.6.5 (2022-06-17)
 * (Apollon77) Fix some crash cases reported by Sentry
 

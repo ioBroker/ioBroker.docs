@@ -32,11 +32,15 @@ Reset power USB in mikrotik
 
 *The created objects are not deleted automatically when deleted in the router.*
 
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
 

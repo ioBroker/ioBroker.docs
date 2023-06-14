@@ -19,6 +19,14 @@ This is an ioBroker adapter for your Worx Landroid mowing machine. It have been 
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.0.3
 * (ldittmar) compact mode compatibility added
 * (ldittmar) add chinese support

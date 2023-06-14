@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
+hash: Ol2vkPFqs9qkriLlPG0oWXLVC/aQEMmYbyvPCkshdVc=
 ---
 ![标识](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -25,7 +25,7 @@ hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
 
 最低节点版本 14.18
 
-activityLog das Aktivitätenprotokoll aus der App areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produktinformationen zum Mäher rawMqtt dieRohaten 通过 MQTT vom Mäher kommen worx.0.xx.mower .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> letzten Firmware worx.0.xx.mower.firmware_available_all 的数据更新 -> Firmware 的历史记录 als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower welche Features, Board und Accessories 呃帽子。
+activityLog das Aktivitätenprotokoll aus der App areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produktinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen worx.0。 xx.割草机.firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> letzten Firmware worx.0.xx.mower.firmware_available_all 的数据更新 -> Firmware 历史 als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower welche Features, Board und Accessories 呃帽子。
 更新 der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 
 ## 设置
@@ -35,12 +35,30 @@ activityLog das Aktivitätenprotokoll aus der App areas Die Areas des Mähers ca
 
 设置 areas.area_0 auf die Meterzahl des gewünschten Startpunktes Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0 Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
 
+## 安排 setzen：
+wochentagname/borderCut wochentagname/startTime wochentagname/workTime
+
+Danach ein Timeout von 1,1 Sek。 und worx.0.xxxxxxxxxxx.calendar.calJson_tosend auf true setzen。
+在 dieser Zeit darf natürlich nicht automatisch ein Update kommen 中，da die geänderten Zeiten wieder glöscht werden。 Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT 或 10 分钟刷新未绑定。
+
+Das gleich gilt natürlich auch für diese: mower.oneTimeWithBorder mower.oneTimeWorkTime
+
+Und dann nach 1,1 Sek。 worx.0.xxx.mower.oneTimeStart setzen
+
 ## 讨论与提问
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
 
 **此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
 ## Changelog
+
+### 2.1.3
+
+Add ping option in the instance settings",
+
+### 2.1.2
+
+Improve reconnection for multiple mower
 
 ### 2.1.1
 

@@ -19,9 +19,9 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
+hash: 6DeFhODSFQhBB5F19bQwsaOHElp4Za6kGRd6n+JC39E=
 ---
-![商标](../../../de/admin/shelly.png)
+![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
 这是德语文档 - [🇺🇸德文版](../en/README.md)
@@ -45,11 +45,11 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
 - **Gen1**：ESP8266 设备，[CoAP](protocol-coap.md) 或 [MQTT](protocol-mqtt.md)
 - **Gen2**：ESP32 设备，[MQTT](protocol-mqtt.md)
 
-＃＃ 一般的
-适配器可以通过 CoAP 或 MQTT 与设备通信。
+＃＃ 一般来说
+适配器可以通过 MQTT（推荐）或 CoAP/CoIoT 与设备通信。
 
-- 默认模式为 MQTT（请参阅 [文档](protocol-mqtt.md) 了解更多信息）
-- CoAP 仅与第一代设备兼容！
+- 适配器的默认模式是 MQTT（有关更多信息，请参阅 [文档](protocol-mqtt.md)）
+- CoAP 仅与 Gen1 设备兼容！
 - **如果要集成Gen2设备，必须配置MQTT！**
 
 问题？先看[常问问题](faq.md)！
@@ -62,6 +62,18 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.4.1 (2023-04-23)
+
+* (viper4gh) Added Shelly Pro 3 EM energy data
+* (klein0r) Fixed IP handling in Docker containers
+
+### 6.4.0 (2023-02-09)
+
+* (klein0r) Added Shelly Plus Plug S
+* (klein0r) Added Shelly Pro 3 EM
+* (klein0r) Reduced checks for firmware updates
+* (klein0r) Shelly TV profile is now changeable
+
 ### 6.3.1 (2023-01-02)
 
 * (klein0r) Updated MQTT topic prefix handling
@@ -80,15 +92,6 @@ hash: Iwa5+l+GwmBWVyl3ynhqpkVVK5VdE7bz/5Qu6fQRnK4=
 
 * (klein0r) IP address of CoAP devices is unknown in some cases
 * (klein0r) Optimized destroy process
-
-### 6.2.3 (2022-10-20)
-
-* (klein0r) Use unique ID for each command - generation 2 devices
-* (klein0r) Fix: Ack state if value is unchanged
-
-### 6.2.2 (2022-10-13)
-
-* (klein0r) Fixed state updates for CoAP integration
 
 ## License
 

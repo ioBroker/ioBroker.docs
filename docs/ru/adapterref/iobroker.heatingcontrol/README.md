@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
+hash: RFeBysZWTP8BR32lWsOhYe0RCp9j/1cB/dBhCaLN83w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -20,7 +20,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 
 **Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## Документация
 ** Мне нужна поддержка в создании/обновлении пользовательской документации и часто задаваемых вопросов. Если кто-то заинтересован, пожалуйста, свяжитесь со мной...**
@@ -43,13 +43,13 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 * ручное отключение температуры на определенное время
 * предопределенный период нагрева
 * принимать изменения от термостата (опционально)
-* поддерживается визуализация от [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis). Благодарю вас!
+* поддерживается визуализация от [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis). Спасибо!
 
 [Часто задаваемые вопросы](doc/FAQ.md)
 
 ## Монтаж
 ## Настройки
-### Главный
+### Основной
 * Функция = функция, используемая для обнаружения термостатов, приводов и датчиков в помещении. Это одно из системных перечислений
 * часовой пояс = будет использоваться для cron для настройки заданий cron
 * Путь к Feiertag - Adapter = если вы хотите использовать Feiertag-Adapter для автоматического определения праздничных дней на сегодня, укажите путь здесь (например, feiertage.0)
@@ -66,7 +66,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 * «Праздничные дни, такие как воскресенье = если вы хотите установить целевую температуру в праздничные дни, такие как воскресенье, включите эту опцию. В противном случае настройки праздничных дней такие же, как и в обычные дни.
 * HeatingPeriod = дата начала и окончания отопительного периода. Используется для установки "HeatingPeriodActive"
 
-### Устройств
+### Устройства
 * список всех комнат. Вы можете отключить комнату здесь.
 * нажмите кнопку редактирования справа, чтобы открыть окно настроек термостатов, приводов и датчиков для этой комнаты
 
@@ -117,7 +117,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 
 с этой опцией вы можете использовать одну целевую температуру для каждой комнаты, когда отопительный период не активен
 
-* ничего такого
+* ничего
 
 с этой опцией ничего не будет отправлено на термостат, если период нагрева не активен. Заданная температура остается от последнего задания, когда период нагрева был активен.
 В этом случае и если вы используете приводы из адаптера, у вас есть возможность определить, как должны быть установлены приводы (выключено, включено или оставить как есть).
@@ -125,7 +125,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 ## Другие
 * HolidayPresent / PublicHolidyToday
 
-Если вы включите «Праздничный подарок, например, воскресенье» или «Праздничный день, например, воскресенье» в админке, профиль для воскресенья будет использоваться, когда адаптер будет проинформирован о том, что сегодня государственный праздник или вы находитесь дома в отпуске.
+Если вы включите «Праздничный подарок, например, воскресенье» или «Праздничный день, например, воскресенье» в админке, профиль для воскресенья будет использоваться, когда адаптер будет проинформирован о том, что сегодня праздничный день или вы находитесь дома в праздничный день.
 
 ### Окно открыто
 если "использовать датчики" активно и датчик(и) для комнаты настроен/настроен, то
@@ -172,7 +172,7 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 ## Копировать период и копировать профиль
 ``heatingcontrol.0.Profiles.1.CopyProfileheatingcontrol.0.Profiles.1.Room.CopyProfile``
 
-а также
+и
 
 ``heatingcontrol.0.Profiles.1.Küche.Fri.CopyPeriods`
 
@@ -182,14 +182,14 @@ CopyProfile копирует все содержимое профиля, в ко
 CopyPeriods доступны в день или с понедельника по пятницу на номер. Это копирует периоды в следующий раздел. В приведенном выше примере CopyPeriods копирует все периоды с пятницы на кухне в периоды субботы на кухне.
 Так что вы можете, например. в профиле "каждый день отдельно" скопируйте периоды с понедельника по воскресенье...
 
-## Режим технического обслуживания
-сделать
+## Режим обслуживания
+делать
 
 ## Режим камина
-сделать
+делать
 
 ## Управление приводом
-сделать
+делать
 
 переключение между линейным и линейным с гистерезисом
 
@@ -198,7 +198,11 @@ CopyPeriods доступны в день или с понедельника по
 ## Расширенное управление приводом
 проверяет правильность установки значения и установлен ли ack, в противном случае повторяет попытку...
 
-сделать
+делать
+
+## EVU Sperrzeit / PowerInterruption
+когда наступает время блокировки энергоснабжающей организации, все приводы выключаются и снова включаются по истечении времени блокировки.
+Статус переходит в "EVU Sperrzeit" / "PowerInterruption" Цель: выключение и повторное включение электронагревателей целенаправленным образом для минимизации нагрузки на контакторы и минимизации пусковых токов Конфигурация: Время начала/окончания блокировки EVU время, можно настроить несколько периодов
 
 ## Проблемы и пожелания
 * Если вы столкнулись с какими-либо ошибками или у вас есть пожелания для этого адаптера, создайте проблему в разделе проблем GitHub адаптера по адресу [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). ). Любые отзывы приветствуются и помогут улучшить этот адаптер.
@@ -209,13 +213,42 @@ CopyPeriods доступны в день или с понедельника по
 см. также [Форум](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
 ### Функция открытия окна термостатов HM
-Термостаты HM имеют функцию открытого окна в двух вариантах. С одной стороны, в качестве обнаружения перепада температуры, а с другой стороны, в связи с оконным контактом.
+Термостаты HM имеют функцию открытого окна в двух вариантах. С одной стороны, как датчик падения температуры, а с другой стороны, в связи с оконным контактом.
 Эта функция заставляет адаптер переключаться в ручной режим при открытии окна. В идеале эту функцию следует отключить, чтобы не мешать работе адаптера.
 Если термостат использует информацию от оконного датчика, то должна быть включена опция «термостат управляет открытием окна».
 
 Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
 
 ## Changelog
+
+### 2.11.0 (in progress)
+* (René) see issue #368: units added in datapoints
+* (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
+* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #367: wait for set target temperature before checking actor changes
+
+### 2.10.6 (2023-01-31)
+* (René) see issue #355: reset override is now also with Button ResetManual possible
+
+### 2.10.5 (2023-01-21)
+* (René) see issue #356: create list if room list is empty
+* (René) see issue #357: remove change event when loading telegram data
+* (René) handling of exceptions reported by sentry in notification modul
+
+### 2.10.4 (2022-12-21)
+* (René) UTF8 conversion for some files
+* (René) more space for same values in admin
+
+### 2.10.3 (2022-12-19)
+* (René) see issue #347: waiting time for target temperature update from thermostat adjustable per room
+* (René) see issue #348: bug fix to avoid unnecessary error message
+
+### 2.10.1 (2022-12-10)
+* (René) update dependencies
+* (René) see issue #337: bug fix in calculate profil position
+* (René) see issue #336: translation of notification mesaages
+* (René) see issue #347: bug room status if option "thermostat handles windows open" is enabled and window opened and closed
+* (René) some minor bug fixes
 
 ### 2.9.3 (2022-10-28)
 * (René) update dependencies
@@ -594,11 +627,24 @@ Attention: some changes in datapoints!!
 * (René) initial release
 
 ## License
+MIT License
 
-Copyright (C) 2019-2022  info@rg-engineering.eu
+Copyright (c) 2019-2023 rg-engineering info@rg-engineering.eu
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

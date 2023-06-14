@@ -27,7 +27,7 @@ startCook Beispieles Fritten:
 
 ```
 {
-            "accountId": "8604151",
+            "accountId": "8604100",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -49,6 +49,32 @@ startCook Beispieles Fritten:
                 "targetTemp": 0
             },
             "tempUnit": "c"
+        }
+```
+
+cookMode:
+
+```
+{
+            "accountId": "8604100",
+            "appointmentTs": 0,
+            "cookSetTemp": 175,
+            "cookSetTime": 15,
+            "cookStatus": "cooking",
+            "customRecipe": "Manuell",
+            "mode": "custom",
+            "readyStart": true,
+            "recipeId": 1,
+            "recipeType": 3,
+            "tempUnit": "celsius"
+        }
+```
+
+Stop:
+
+```
+{
+            "cookStatus": "end"
         }
 ```
 
@@ -85,3 +111,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+```
+
+```

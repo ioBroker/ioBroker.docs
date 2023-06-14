@@ -16,7 +16,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 **If you like it, please consider a donation:**
                                                                           
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url) 
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
 
 
 ## SMA SEMP adapter for ioBroker
@@ -52,6 +52,21 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
 
 ## Changelog
+
+### 1.3.0 (2023-06-11)
+* (René) bug fix: exception in wallbox interface fixed
+
+### 1.3.0 (2023-06-10)
+* (René) see #17: additional checks for BaseID
+* (René) check BaseId of every DeviceId when adapter starts
+* (René) bug fix csv-logging: create file if not exist and complete filename is provided, was working with path name only before
+* (René) additional debug: show last timeframe sent to SHM as datapoint for every timeframe 
+
+### 1.2.0 (2023-05-29)
+* (René) device off at end of maximum running time and latest end overworked; option "Switch Off At End Of Timer" removed
+
+### 1.1.0 (never released)
+* (René) issue #30: URL as another option for configuring the wallboy interface
 
 ### 1.0.0 (2023-04-07)
 * (René) dependencies updated

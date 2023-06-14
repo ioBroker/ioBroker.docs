@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hue-extended/README.md
-title: ioBroker.hue-erweitert
-hash: sBrCWO4MEpdKluxvRIDbaHch4XEonRKGqBodYFjMWZ8=
+title: Dieser Adapter ist veraltet und wird nicht weiterentwickelt
+hash: w7NTK7ablM+TXniTYb20aFEQoCwZkD5MCZwy6mQaW0g=
 ---
-![Logo](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+# Dieser Adapter ist veraltet und wird nicht weiterentwickelt
 
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![Anzahl der Installationen](http://iobroker.live/badges/hue-extended-installed.svg)
@@ -15,24 +15,35 @@ hash: sBrCWO4MEpdKluxvRIDbaHch4XEonRKGqBodYFjMWZ8=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hue-extended.svg)
 ![NPM](https://nodei.co/npm/iobroker.hue-extended.png?downloads=true)
 
-# IoBroker.hue-erweitert Verbinden Sie Ihre Philips Hue- und / oder deCONZ-Geräte mit ioBroker
-[![Travis CI] (https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.hue-extended)
+-----
 
-## Eigenschaften
+Derzeit ist keine Weiterentwicklung dieses Adapters geplant. __Bitte migrieren Sie zum ioBroker.hue-Adapter__, der beibehalten wird.
+Wenn Sie Funktionen bei ioBroker.hue vermissen, öffnen Sie ein Problem in diesem Repository (https://github.com/iobroker-community-adapters/ioBroker.hue).
+
+ioBroker.hue-extended bleibt noch einige Zeit verfügbar. Beachten Sie jedoch, dass es nicht mit Node 20 oder dem kommenden js-controller v5 getestet wird.
+
+-----
+
+![Logo](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+
+# IoBroker.hue-extended Verbinden Sie Ihre Philips Hue- und/oder deCONZ-Geräte mit ioBroker
+[![Travis CI](https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.hue-extended)
+
+## Merkmale
 - Unterstützt sowohl Philips Hue- als auch deCONZ-Geräte
 - Lichter synchronisieren
 - Gruppen synchronisieren
-- Synchronisieren Sie Szenen (einschließlich GroupScenes, LightScenes und Szenen aus [HueLabs] (https://labs.meethue.com/)).
+- Szenen synchronisieren (einschließlich GroupScenes, LightScenes und Szenen aus [HueLabs](https://labs.meethue.com/))
 - Sensoren synchronisieren
 - Zeitpläne synchronisieren
-- Synchronize Config
+- Konfiguration synchronisieren
 - Ressourcen synchronisieren
 - Regeln synchronisieren
-- Triggeränderungen bei den Zuständen "Ein / Aus", "Helligkeit" ("Pegel"), "Farbton", "Sättigung", "XY", "Farbtemperatur", "Alarm", "Effekt" und "Übergangszeit"
-- Zusätzliche Trigger basierend auf Farbräumen für `rgb`,` hsv` und` hex`
-- Wenden Sie eine eigene Befehlskombination mit dem Trigger "_commands" an
-- Kontrollieren Sie die Lichter aller Gruppen gleichzeitig mit der Gruppe "0-all"
-- Führen Sie eine Szene aus oder wenden Sie "_scene" auf Licht oder Gruppe an
+- Lösen Sie Änderungen der Zustände „Ein/Aus“, „Helligkeit“ („Stufe“), „Farbton“, „Sättigung“, „xy“, „Farbtemperatur“, „Alarm“, „Effekt“ und „Übergangszeit“ aus
+- Zusätzliche Trigger basierend auf Farbräumen für „rgb“, „hsv“ und „hex“.
+- Wenden Sie eine eigene Befehlskombination mit dem Auslöser „_commands“ an
+- Steuern Sie die Lichter aller Gruppen gleichzeitig mit der Gruppe „0-alle“.
+- Führen Sie eine Szene aus oder wenden Sie „_scene“ auf Licht oder Gruppe an
 
 ## Changelog
 

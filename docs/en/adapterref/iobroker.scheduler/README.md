@@ -10,9 +10,10 @@ This adapter is designed to control devices on a schedule. For example, heating 
 You can create the profiles with different priority: normal (e.g. workdays), high (e.g. weekends) and highest (e.g. for holidays).
 The profile with higher priority overloads other profiles.
 
-For every profile the active variable will be created. But the user can select own activation variable e.g. to control holidays. 
+For every profile, the active variable will be created.
+But the user can select own activation variable, e.g., to control holidays. 
 
-The user should add devices to profile and all devices in profile will be set to the same value.
+The user should add devices to profile, and all devices in profile will be set to the same value.
 
 This adapter has vis2 widget.
 
@@ -24,8 +25,11 @@ This adapter has vis2 widget.
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Packages updated
+
 ### 1.1.7 (2023-03-24)
-* (bluefox) Worked on build process
+* (bluefox) Worked on the build process
 
 ### 1.1.6 (2023-03-14)
 * (bluefox) update packages

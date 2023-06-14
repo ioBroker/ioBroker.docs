@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
+hash: 9RSaCbzgta8J3fyIuFi/fHg3lNowghfK57iTacPMcio=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -20,7 +20,7 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройки
-Чтобы использовать облачный адаптер, вы должны сначала зарегистрироваться в облаке ioBroker [https://iobroker.pro](https://iobroker.pro).
+Чтобы использовать IoT-адаптер, сначала необходимо зарегистрироваться в облаке ioBroker [https://iobroker.pro](https://iobroker.pro).
 
 [Ссылка на настройки типа API Google](https://developers.google.com/actions/smarthome/guides/)
 
@@ -46,7 +46,7 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 Если команда `Set to 30%` и `OFF level is 30%`, переключатели будут включены. По команде «Установить на 25%» все выключатели будут выключены.
 
 Кроме того, если команда «ВЫКЛ», адаптер запомнит текущий уровень диммера, если фактическое значение больше или равно «30%».
-Позже, когда поступит новая команда «ВКЛ», адаптер переключит диммер не на 100%, а на уровень в памяти.
+Позже, когда придет новая команда «ВКЛ», адаптер переключит диммер не на 100%, а на уровень в памяти.
 
 Пример:
 
@@ -62,16 +62,16 @@ hash: Z06nEkCa+16sx6Jfu/Y134WwjUzG43Lku6MHOxGq+Yw=
 Вы можете выбрать поведение команды ON для состояния номера. Можно выбрать конкретное значение или будет использоваться последнее ненулевое значение.
 
 ### Написать ответ на
-Для каждой команды будет сгенерирован текстовый ответ. Вы можете определить здесь идентификатор объекта, куда должен быть записан этот текст. Например. *говорит.0.tts.текст*.
+Для каждой команды будет сгенерирован текстовый ответ. Здесь вы можете определить идентификатор объекта, куда должен быть записан этот текст. Например. *говорит.0.tts.текст*.
 
 ### Цвета
-Для канала необходимо 3-5 состояний со следующими ролями:
+Каналу необходимо 3-5 состояний со следующими ролями:
 
-- level.color.saturation (необходим для обнаружения канала),
-- уровень.цвет.оттенок,
-- уровень.диммер,
-- переключатель (опционально)
-- уровень.цвет.температура (опционально)
+- `level.color.saturation` - требуется для обнаружения канала,
+- `уровень.цвет.оттенок`,
+- `уровень.диммер`,
+- `переключатель` - необязательно,
+- `уровень.цвет.температура` (необязательно)
 
 ```
 Alexa, set the "device name" to "color"
@@ -81,7 +81,8 @@ Alexa, change the kitchen to the color chocolate
 ```
 
 ### Замок
-Чтобы иметь возможность блокировать блокировки, состояние должно иметь роль «switch.lock» и иметь «native.LOCK_VALUE» для определения состояния блокировки. Если вам нужно отдельное значение для управления блокировкой, вы можете использовать «native.CONTROL VALUE».
+Чтобы иметь возможность блокировать блокировки, состояние должно иметь роль «switch.lock» и иметь «native.LOCK_VALUE» для определения состояния блокировки.
+Если вам нужно отдельное значение для управления блокировкой, вы можете использовать "native.CONTROL VALUE".
 
 ```
 Alexa, is "lock name" locked/unlocked
@@ -99,13 +100,13 @@ Alexa, lock the "lock name"
 Для получения состояния в автоматически сгенерированном списке должны быть выполнены следующие условия:
 
 - состояние должно быть в каком-то перечислении "функций".
-- состояние должно иметь роль ("состояние", "переключатель" или "уровень.*", например level.dimmer), если оно не входит напрямую в "функции".
+- состояние должно иметь роль ("состояние", "переключатель" или "уровень.*", например, level.dimmer), если оно не включено напрямую в "функции".
 
 Может быть канал есть в "функциях", а самого состояния нет.
 
 - состояние должно быть доступно для записи: `common.write` = true
 - диммер состояния должен иметь `common.type` в качестве 'number'
-- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K' и `common.type` как `число`
+- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K', а `common.type` как `число`
 
 Если состояние находится только в «функциях», а не в какой-либо «комнате», будет использоваться имя состояния.
 
@@ -113,28 +114,28 @@ Alexa, lock the "lock name"
 Пользователь не может изменить это имя, так как оно генерируется автоматически.
 Но если имя перечисления изменится, это имя тоже изменится. (например, функция «свет» изменена на «свет», поэтому *освещение в гостиной* будет изменено на *освещение в гостиной*)
 
-Все правила будут проигнорированы, если у состояния есть common.smartName. В этом случае будет использоваться только умное имя.
+Все правила будут проигнорированы, если у состояния есть common.smartName. В этом случае будет использоваться только смарт-имя.
 
-если *common.smartName* имеет значение **false**, состояние или перечисление не будут включены в генерацию списка.
+если `common.smartName` равно `false`, состояние или перечисление не будут включены в генерацию списка.
 
 Диалоговое окно конфигурации позволяет удобно удалять и добавлять отдельные состояния в виртуальные группы или как одно устройство.
 ![Конфигурация](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-Если у группы только одно состояние, его можно переименовать, так как для этого будет использоваться smartName состояния.
+Если в группе только одно состояние, его можно переименовать, так как для этого будет использоваться smartName состояния.
 Если группа имеет более одного состояния, группу необходимо переименовать с помощью имен перечисления.
 
 Для создания собственных групп пользователь может установить адаптер «сцены» или создать «скрипт» в адаптере Javascript.
 
 ### Заменяет
-Вы можете указать строки, которые могут автоматически заменяться в именах устройств. Например. если вы установите replaces на: `.STATE,.LEVEL`, все ".STATE" и ".LEVEL" будут удалены из имен. Будьте осторожны с пробелами.
-Если вы установите `.STATE, .LEVEL`, будут заменены «.STATE» и «.LEVEL», а не «.LEVEL».
+Вы можете указать строки, которые могут быть автоматически заменены в именах устройств. Например, если вы установите replaces на: `.STATE,.LEVEL`, все `.STATE` и `.LEVEL` будут удалены из имен. Будьте осторожны с пробелами.
+Если вы установите `.STATE, .LEVEL`, то `.STATE` и `.LEVEL` будут заменены, а не `.LEVEL`.
 
 ## Вспомогательные состояния
-- **smart.lastObjectID**: это состояние будет установлено, если только одно устройство контролировалось домашним навыком (alexa, google home).
-- **smart.lastFunction**: Имя функции (если существует), для которой была выполнена последняя команда.
-- **smart.lastRoom**: имя комнаты (если существует), для которой была выполнена последняя команда.
-- **smart.lastCommand**: Последняя выполненная команда. Команда может быть: true(ON), false(OFF), число(%), -X(уменьшение на x), +X(увеличение на X)
-- **smart.lastResponse**: текстовый ответ на команду. Его можно отправить на какой-нибудь движок text2speech (sayit).
+- `smart.lastObjectID`: это состояние будет установлено, если только одно устройство контролировалось домашним навыком (alexa, google home).
+- `smart.lastFunction`: Имя функции (если существует), для которой была выполнена последняя команда.
+- `smart.lastRoom`: имя комнаты (если существует), для которой была выполнена последняя команда.
+- `smart.lastCommand`: Последняя выполненная команда. Команда может быть: `true(ON)`, `false(OFF)`, `number(%)`, `-X(уменьшение на x)`, `+X(увеличение на X)`
+- `smart.lastResponse`: Текстовый ответ на команду. Его можно отправить в какой-нибудь движок `text2speech` (`sayit`).
 
 ## ИФТТТ
 [инструкции](doc/ifttt.md)
@@ -155,11 +156,11 @@ Alexa, lock the "lock name"
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Если задать в настройках в поле "Белый список для сервисов" имя *custom_test*, и вызвать с "custom_test" в качестве имени сервиса, то состояние **cloud.0.services.custom_test** будет установлено на *myString *.
+Если задать в настройках в поле "Белый список для сервисов" имя `custom_test` и вызвать с "custom_test" в качестве имени сервиса, будет установлено состояние **cloud.0.services.custom_test** в *myString*.
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
-Здесь вы можете найти инструкции, как использовать его с [таскировщик](doc/tasker.md).
+Здесь вы можете найти инструкции о том, как использовать его с [таскировщик](doc/tasker.md).
 
 Услуга IFTTT разрешена, только если установлен ключ IFTTT.
 
@@ -202,33 +203,33 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
 
 Адаптер предоставит детали в двух состояниях с разным уровнем детализации
 
-* **smart.lastCommand** содержит полученный текст, включая информацию о типе запроса (намерении). Пример: «спросить статус устройства Rasenmäher»
-* **smart.lastCommandObj*** содержит строку JSON, которая может быть преобразована в объект, содержащий следующую информацию
-  * **words** содержат полученные слова в массиве
-  * **намерение** содержит тип запроса. Возможные значения в настоящее время:
-    * Навык v1: "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
-    * Навык v2: "queryIntent", когда был захвачен весь указанный текст, "controlDevice" для отката с частичным текстом
-  * **deviceId** содержит идентификатор устройства, идентифицирующий устройство, на которое был отправлен запрос, доставленный Amazon, будет пустой строкой, если не указан
-  * **deviceRoom** содержит сопоставленный идентификатор комнаты, который можно настроить в пользовательском интерфейсе администратора IoT для собранных идентификаторов устройств.
-  * **sessionId** содержит sessionId сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
-  * **userId** содержит идентификатор пользователя от владельца устройства (или, возможно, позже пользователя, который взаимодействовал с навыком), предоставленный Amazon, будет пустой строкой, если не указан
-  * **userName** содержит сопоставленное имя пользователя, которое можно настроить в пользовательском интерфейсе администратора iot для собранных идентификаторов пользователей.
+* `smart.lastCommand` содержит полученный текст, включая информацию о типе запроса (намерении). Пример: `askDevice Status Rasenmäher`
+* `smart.lastCommandObj` содержит строку JSON, которая может быть преобразована в объект, содержащий следующую информацию
+  * `words` содержат полученные слова в массиве
+  * `intent` содержит тип запроса. Возможные значения в настоящее время:
+    * Навык v1: `askDevice`, `controlDevice`, `actionStart`, `actionEnd`, `askWhen`, `askWhere`, `askWho`
+    * Навык v2: `queryIntent`, когда был захвачен весь указанный текст, `controlDevice` для отката с частичным текстом
+  * `deviceId` содержит идентификатор устройства, идентифицирующий устройство, на которое был отправлен запрос, доставленный Amazon, будет пустой строкой, если не указан
+  * `deviceRoom` содержит сопоставленный идентификатор комнаты, который вы можете настроить в пользовательском интерфейсе администратора iot для собранных идентификаторов устройств.
+  * `sessionId` содержит sessionId сеанса Skill, должен быть таким же, если было произнесено несколько команд, доставленных Amazon, будет пустой строкой, если не указан
+  * `userId` содержит идентификатор пользователя от владельца устройства (или, возможно, позже пользователя, который взаимодействовал с навыком), предоставленный Amazon, будет пустой строкой, если не указан
+  * `userName` содержит сопоставленное имя пользователя, которое вы можете настроить в пользовательском интерфейсе администратора iot для собранных идентификаторов пользователей.
 
  Более подробную информацию о том, как обнаруживаются слова и какие типы запросов различает Alexa Custom Skill, см. на странице https://forum.iobroker.net/viewtopic.php?f=37&t=17452.
 
 **Вернуть результат через состояние smart.lastResponse**
 
-Ответ должен быть отправлен в течение 200 мс в состоянии «smart.lastResponse» и может быть простой текстовой строкой или объектом JSON.
-Если это текстовая строка, то этот текст будет отправлен как ответ на навык.
-если текст является объектом JSON, можно использовать следующие ключи:
+Ответ должен быть отправлен в течение 200 мс в состоянии `smart.lastResponse` и может быть простой текстовой строкой или объектом JSON.
+Если это текстовая строка, то этот текст будет отправлен как ответ на скилл.
+Если текст является объектом JSON, можно использовать следующие ключи:
 
-* **responseText** должен содержать текст для возврата в Amazon
-* **shouldEndSession** является логическим значением и определяет, будет ли сеанс закрыт после произнесения ответа или останется открытым, чтобы принять другой голосовой ввод.
-* **sessionId** должен содержать идентификатор sessionId, для которого предназначен ответ. В идеале предоставьте его, чтобы разрешить одновременные сеансы. Если не указано, предполагается, что первый сеанс ожидает ответа.
+* `responseText` должен содержать текст для возврата в Amazon
+* `shouldEndSession` является логическим значением и определяет, закрывается ли сеанс после произнесения ответа или остается открытым, чтобы принять другой голосовой ввод.
+* `sessionId` должен содержать идентификатор сеанса, для которого предназначен ответ. В идеале предоставьте его, чтобы разрешить одновременные сеансы. Если не указано, предполагается первый сеанс, ожидающий ответа.
 
 **Вернуть результат через сообщение в экземпляр IoT**
 
-Экземпляр IoT также принимает сообщение с именем «alexaCustomResponse», содержащее ключ «response» с объектом, который может содержать ключи **responseText** и **shouldEndSession** и **sessionId**, как описано выше.
+Экземпляр IoT также принимает сообщение с именем «alexaCustomResponse», содержащее ключ «response» с объектом, который может содержать ключи `responseText` и `shouldEndSession` и `sessionId`, как описано выше.
 На сообщение не будет ответа от экземпляра iot!
 
 **Пример скрипта, использующего тексты**
@@ -286,11 +287,41 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 ## Яндекс Алиса
 [инструкции](doc/alisa.md)
 
+## Отправлять сообщения в приложение
+Начиная с версии 1.15.x вы можете отправлять сообщения в приложение `ioBroker.visu` (Android и iOS).
+Для этого вам нужно написать следующие состояния:
+
+```
+setState('iot.0.app.expire', 60); // optional. Time in seconds
+setState('iot.0.app.priority', 'normal'); // optional. Priority: 'high' or 'normal'
+setState('iot.0.app.title', 'ioBroker'); // optional. Default "ioBroker"
+setState('iot.0.app.message', 'Message text'); // important, that ack=false (default)
+
+// or just one state
+// only is message is mandatory. All other are optional
+setState('iot.0.app.message', JSON.stringify({
+  message: 'Message text',
+  title: 'ioBroker',
+  expire: 60,
+  priority: 'normal'
+})); // important, that ack=false (default)
+```
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.0.3 (2023-06-06)
+* (bluefox) Working on support for amazon alexa v3
+
+### 2.0.2 (2023-06-05)
+* (bluefox) Added support for amazon alexa v3
+* (bluefox) Removed support for sugar blood indication
+
+### 1.14.6 (2023-05-12)
+* (bluefox) Corrected translations
+
 ### 1.14.5 (2023-03-01)
 * (bluefox) Corrected names of enums in GUI
 
@@ -301,7 +332,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Updated GUI packages
 
 ### 1.14.1 (2022-12-22)
-* (bluefox) Downgraded axios version to 0.27.2
+* (bluefox) Downgraded the axios version to 0.27.2
 
 ### 1.14.0 (2022-12-13)
 * (bluefox) Added netatmo support
@@ -317,7 +348,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Corrected blockly for unknown languages
 
 ### 1.12.2 (2022-10-01)
-* (Apollon77) Fix crash case
+* (Apollon77) Fixed crash case
 
 ### 1.12.1 (2022-09-27)
 * (bluefox) Corrected error in GUI with empty password
@@ -352,8 +383,8 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.11.0 (2022-03-17)
 * (Apollon77) Also support "stored" when a rgb state is turned on/off
-* (Apollon77) Fix control percent value to respect min/max correctly
-* (bluefox) Support of response messages longer than 128k (zip)
+* (Apollon77) Fixed control percent value to respect min/max correctly
+* (bluefox) Support for response messages longer than 128k (zip)
 
 ### 1.10.0 (2022-03-09)
 * (Apollon77) Respect min/max when calculating the value for byOn with % values
@@ -394,7 +425,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
 
 ### 1.8.20 (2021-05-16)
-* (foxriver76) we now write data received from custom services with acknowledge flag
+* (foxriver76) we now write data received from custom services with the acknowledge flag
 
 ### 1.8.19 (2021-05-14)
 * (bluefox) Only added one debug output
@@ -489,7 +520,7 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 
 ### 1.5.2 (2020-05-21)
 * (bluefox) Changed requirements for password
-* (bluefox) Do not try load the "sharp" if blood sugar not enabled
+* (bluefox) Do not try to load the "sharp" if the blood sugar not enabled
 
 ### 1.4.18 (2020-05-11)
 * (Apollon77) Make sure that invalid configured states or values without a timestamp do not crash adapter (Sentry IOBROKER-IOT-8)
@@ -511,8 +542,8 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 * (bluefox) Fixed crashes reported by sentry
 
 ### 1.4.7 (2020-04-23)
-* fix iot crash when timeouts in communications to Google happens (Sentry IOBROKER-IOT-2)
-* fix iot crash when google answers without customData (Sentry IOBROKER-IOT-1)
+* fixed iot crash when timeouts in communications to Google happens (Sentry IOBROKER-IOT-2)
+* fixed iot crash when google answers without customData (Sentry IOBROKER-IOT-1)
 
 ### 1.4.6 (2020-04-18)
 * (Apollon77) Add the Sentry error reporting to `React Frontend`

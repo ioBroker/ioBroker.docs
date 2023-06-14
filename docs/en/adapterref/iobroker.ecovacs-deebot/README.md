@@ -40,7 +40,7 @@ Please note: Some features are only available for some models and some are still
 The fully supported models are those that I own myself:
 
 * Deebot OZMO 920
-* Deebot T8 AIVI
+* Deebot OZMO T8 AIVI
 * Deebot X1 Turbo
 
 ### Other supported models
@@ -96,7 +96,7 @@ I also don't use my Slim 2, Deebot 901 and OZMO 930 anymore.
 
 To use this adapter, you will need to already have [ioBroker](iobroker.net) installed. 
 
-The minimum required version of Node.js is 14.x. It is recommended to use version 14.x or 16.x
+The minimum required version of Node.js is 14.x. It is recommended to use version 16.x or 18.x
 
 ### Optional prerequisites
 
@@ -136,13 +136,13 @@ and [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkt
 
 * The generation of map images is currently not stable on 32-bit systems
 * The "edge" function does not work with Deebot U2 (starts auto clean instead)
-* The "move" functions do not work with Deebot OZMO T8 AIVI (and maybe also for some other models)
+* The "move" functions do not work properly on some models
 * The generation of map images does not work properly with the Deebot X1 series
 
 ## Changelog
 
 ### 1.4.14 (alpha)
-* Bumped ecovacs-deebot.js to 0.9.5
+* Bumped ecovacs-deebot.js to 0.9.6 (alpha)
 
 ### 1.4.13
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)

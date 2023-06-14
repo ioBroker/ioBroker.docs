@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: ioBroker.倒计时
-hash: r6I1FG7xQx245iTOHvnerFWAKe63AsJ5gONZzELKjik=
+hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
 ---
 ![标识](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -23,7 +23,9 @@ ioBroker 的倒计时适配器-------------------------------------------- -----
 该适配器的目标是为您提供对未来事件进行倒计时的可能性，包括年、月、日、小时和分钟。它将分别为您提供这些值中的每一个，以及两个带有日期的短版本和长版本的字符串。
 
 ## 显示倒计时
-适配器会自动为您提供一个 json 表。您只需要将它与 json 表一起使用即可。请在此处勾选“无标题”。可以显示短文本或长文本。
+适配器会自动为您提供一个 json 表和一个 HTML 表。对于 json，请选择小部件“basic-table”。对于 html，选择“基本 - 字符串（未转义）”之一。
+
+可以显示短文本或长文本。
 ![标识](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
 ## 如何创建倒计时
@@ -56,7 +58,7 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 * m：分钟
 
 ## 可用输出
-|数据类型|说明|
+|数据类型|描述|
 |:---:|:---:|
 |分钟|倒计时结束前的分钟数（不是总数！）|
 |小时|倒计时结束前的小时数（不是总计！）|
@@ -64,12 +66,15 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 |月|倒计时结束前的月数（不是总数！）|
 |years|倒计时结束前的年数（不是总数！）|
 |名称|倒计时名称|
-|endDate|倒计时的结束日期 - 按照设置中定义的格式设置|
+|endDate|倒计时的结束日期 - 格式与定义的设置相同|
 |inWordsShort|分钟、小时...的组合值 - 例如1年5月4天|
 |inWordsLong|分钟、小时...的组合值 - 例如1年5个月4天|
-|totalHours|到结束日期为止的总小时数|
-|totalDays|到结束日期为止的总天数|
-|totalWeeks|到结束日期为止的总周数|
+|totalHours|总人数到结束日期的小时数|
+|totalDays|总人数到结束日期的天数|
+|totalWeeks|总人数到结束日期的周数|
+|totalMonths|总数到结束日期的月数|
+|totalYears|总人数到结束日期的年数|
+
 |reached|定义是否达到结束日期的布尔字段|
 |repeatEvery|倒计时在到达结束日期后按此时间段重复|
 
@@ -77,88 +82,99 @@ sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01
 * 可以添加脚本作为参数并在倒计时结束时启动它
 * 在 addminutes 和其他添加函数中使用加号和减号的可能性
 
-## 1.3.0 (2023-02-22)
-* (jack-blackson) 依赖更新
+## Changelog
 
-## 1.2.5 (2021-06-16)
-* (jack-blackson) 使用 sendto 删除倒计时的修正
+### 2.0.1 (2023-05-24) 
+* (jack-blackson) Added objects for total number of months and years
 
-## 1.2.4 (2021-06-09)
-* (jack-blackson) 小错误修正，翻译
+### 2.0.0 (2023-05-07) 
+* (jack-blackson) Reworked adapter due to wrong process layout
+* (jack-blackson) Added headers for HTML and JSON
 
-## 1.2.3 (2021-05-27)
-* (jack-blackson) 小错误修正，翻译
+### 1.3.1 (2023-05-01) 
+* (jack-blackson) Bugfix date calculation (thanks to Lueghi for the hint)
 
-## 1.2.2 (2021-05-25)
-* (jack-blackson) 小错误修复，为翻译添加了 weblate
+### 1.3.0 (2023-02-22) 
+* (jack-blackson) Updates for dependencies
 
-## 1.2.1 (2021-05-09)
-* (jack-blackson) 小错误修正
+### 1.2.5 (2021-06-16) 
+* (jack-blackson) Bugfix to delete countdown with sendto
 
-## 1.2.0 (2021-05-09)
-* (jack-blackson) 更新包，添加哨兵
-* (jack-blackson) 修复 JS-controller 3.3
-* (jack-blackson) 修复立即创建倒计时
+### 1.2.4 (2021-06-09) 
+* (jack-blackson) Small bugfixes, translations
 
-## 1.1.0 (2020-04-02)
-* (jack-blackson) 修正自述文件链接
-* (jack-blackson) 错误修正 repeatCycle
+### 1.2.3 (2021-05-27) 
+* (jack-blackson) Small bugfixes, translations
 
-## 1.0.9 (2020-03-31)
-* (jack-blackson) 修正日志消息
+### 1.2.2 (2021-05-25) 
+* (jack-blackson) Small bugfixes, added weblate for translations
 
-## 1.0.8 (2020-03-31)
-* (jack-blackson) 在定义的时间段内重复倒计时（例如每年）
+### 1.2.1 (2021-05-09) 
+* (jack-blackson) Small Bugfixes
 
-## 1.0.7 (2020-03-30)
-* (jack-blackson) 为设置添加了新的日期类型：YYYY-MM-DD
-* (jack-blackson) 直接在适配器设置中添加倒计时
+### 1.2.0 (2021-05-09) 
+* (jack-blackson) Updated packages, added Sentry
+* (jack-blackson) Fixes for JS-controller 3.3
+* (jack-blackson) Fix that countdowns are created immediatly
 
-## 1.0.6 (2020-03-20)
-* (DutchmanNL) 固定适配器类型
 
-## 1.0.5 (2020-02-05)
-* (jack-blackson) 午夜闹钟错误修复 -> 感谢@Lueghi
+### 1.1.0 (2020-04-02) 
+* (jack-blackson) bugfix Read-Me link
+* (jack-blackson) bugfix repeatCycle
 
-## 1.0.4 (2019-08-25)
-* (jack-blackson) 重新排序的发布信息
+### 1.0.9 (2020-03-31)
+* (jack-blackson) Bugfix log messages
 
-## 1.0.3 (2019-08-10)
-* (jack-blackson) 紧凑模式的变化
-* (jack-blackson) 各种错误修正
-* (jack-blackson) 现在可以拥有多个适配器实例
+### 1.0.8 (2020-03-31)
+* (jack-blackson) Repeat countdown in defined period (e.g. every year)
 
-## 1.0.2 (2019-07-22)
-* (jack-blackson) 发行版
+### 1.0.7 (2020-03-30)
+* (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+* (jack-blackson) Add countdown directly in adapter settings
 
-## 0.7.0 (2019-07-07)
-* (jack-blackson) 错误修正
-* (jack-blackson) addminutes 和 addhours 现在也是可能的
-* (jack-blackson) 设置中的数据点现在可以编辑
-* (jack-blackson) 添加了总数。几周
+### 1.0.6 (2020-03-20)
+* (DutchmanNL) Fixed adapter type
 
-## 0.6.0 (2019-07-06)
-* (jack-blackson) 输入和输出的可调日期格式
-* (jack-blackson) 使用 sendto 删除倒计时
-* (jack-blackson) 能够按“从现在开始的天/月/周”添加倒计时
+### 1.0.5 (2020-02-05)
+* (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
 
-## 0.5.0 (2019-07-04)
-* (jack-blackson) 调整表中数据
-* (jack-blackson) 错误修复日期导入
+### 1.0.4 (2019-08-25)
+* (jack-blackson) Reordered release infos
+
+### 1.0.3 (2019-08-10)
+* (jack-blackson) Changes for Compact Mode
+* (jack-blackson) Various bugfixes
+* (jack-blackson) Having multiple instances of the adapater are now possible
+
+### 1.0.2 (2019-07-22)
+* (jack-blackson) Release version
+
+### 0.7.0 (2019-07-07)
+* (jack-blackson) Bugfixes
+* (jack-blackson) addminutes and addhours are now also possible
+* (jack-blackson) datapoint in setup is now editable
+* (jack-blackson) added total no. of weeks
+
+### 0.6.0 (2019-07-06)
+* (jack-blackson) adjustable date format for input and output
+* (jack-blackson) delete countdowns with sendto
+* (jack-blackson) ability to add countdowns by "days/months/weeks from now)
+
+### 0.5.0 (2019-07-04)
+* (jack-blackson) adjust the data in the table
+* (jack-blackson) bugfix date import 
 
 ### 0.4.0 (2019-06-04)
-* (jack-blackson) 重组 - 现在可以使用 sendto 或手动使用数据点创建警报
+* (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
 
 ### 0.3.0 (2019-05-24)
-* (jack-blackson) 添加总天数和小时数
+* (jack-blackson) added total No. of days and hours
 
 ### 0.2.0 (2019-05-21)
-* (jack-blackson) 调整包
+* (jack-blackson) adjusted packages
 
 ### 0.1.0 (2019-04-29)
-* (jack-blackson) 初始版本
-
-## Changelog
+* (jack-blackson) initial version
 
 ## License
 The MIT License (MIT)

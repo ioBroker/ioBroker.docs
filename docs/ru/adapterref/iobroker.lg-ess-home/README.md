@@ -2,42 +2,73 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-ess-home/README.md
-title: ioBroker.lg-ess-home
-hash: 2eL0UVFcmdRSjNgOgVhDCAy9KFCsDkov29qCT4hXbg0=
+title: ioBroker.lg-ess-дом
+hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lg-ess-home.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/lg-ess-home-installed.svg)
+![Количество установок (последние)](http://iobroker.live/badges/lg-ess-home-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/lg-ess-home-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Morluktom/iobroker.lg-ess-home.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
 
 # IoBroker.lg-ess-home
-** Тесты: ** ![Тестирование и выпуск](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестируйте и выпускайте](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
 
-## Домашний адаптер LG ESS для ioBroker
-Адаптер iobroker для гибридного инвертора LG ESS. С помощью этого адаптера можно прочитать состояние инвертора. Также возможно управление инвертором.
+## Адаптер LG ESS Home для ioBroker
+Адаптер iobroker для гибридного инвертора LG ESS. С помощью этого адаптера можно считывать состояние инвертора. Также возможно управление инвертором.
 
 ## Конфигурация
 ### Получение пароля
 1. Загрузите файл [LG_Ess_Password.exe] (https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
-1. Подключите компьютер к WLAN системы LG_ESS. (Пароль WLAN указан на заводской табличке)
+1. Подключите компьютер к WLAN системы LG_ESS. (пароль WLAN указан на заводской табличке)
 1. Запустите LG_Ess_Password.exe (требуется как минимум .Net Framework 4.5)
-1. Запишите свой пароль.
+1. Запишите свой пароль
 
-Для тех, кому не нравится exe: (спасибо grex1975) \ вы можете использовать любой REST-клиент для получения пароля:
+Для тех, кому не нравится exe: (Спасибо grex1975)\ вы можете использовать любой REST-клиент для получения пароля:
 
 1. подключитесь к WLAN LG_ESS
-1. Выполните запрос GET \
+1. Выполните POST-запрос\
 
-URL: https://192.168.23.1/v1/user/setting/read/password \ Headers: "Charset": "UTF-8", "Content-Type": "application / json" \ Body: "key": "lgepmsuser! @ #"
+URL: https://192.168.23.1/v1/user/setting/read/password \ Заголовки: "Charset": "UTF-8", "Content-Type": "application/json"\ {Body: "key" : "lgepmsuser!@#"}
 
 Это должно дать вам пароль и статус взамен.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (Morluktom) Fixed warnings found by adapter checker
+* (Morluktom) Added Admin 5 configuration
+* (Morluktom) Added Ukrainan language
+
+### 0.2.3 (2022-04-05)
+* (Morluktom) Chart widget: Datepicker changed to jquery
+
+### 0.2.2 (2022-04-04)
+* (Morluktom) Chart widget updated
+
+### 0.2.1 (2022-04-04)
+* (Morluktom) Chart widget updated
+
+### 0.2.0 (2022-03-14)
+* (Morluktom) Chart widget added
+
+### 0.1.1 (2022-01-07)
+* (Morluktom) replaced deprecated library and login as installer only when needed
+
+### 0.1.0 (2021-11-27)
+* (Morluktom) Read chart data and data from the installer settings
+
+### 0.0.10 (2021-05-04)
+* (Morluktom) Bugfix boolean value
+
+### 0.0.9 (2021-05-04)
+* (Morluktom) Bugfix boolean value
 
 ### 0.0.8 (2021-02-06)
 * (Morluktom) Code cleanup
@@ -67,7 +98,7 @@ URL: https://192.168.23.1/v1/user/setting/read/password \ Headers: "Charset": "U
 ## License
 MIT License
 
-Copyright (c) 2020 - 2021 Morluktom <strassertom@gmx.de>
+Copyright (c) 2023 Morluktom <strassertom@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

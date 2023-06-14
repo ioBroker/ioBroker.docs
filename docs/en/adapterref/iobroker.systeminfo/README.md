@@ -99,6 +99,14 @@ It handles text, HTML, json and XML data types wizh special query mechanisms.
 * Requires node >=v4.5
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 0.3.0
 * Added save and load config in admin screen
 

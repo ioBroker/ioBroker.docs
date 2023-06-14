@@ -38,6 +38,9 @@ With this adapter you can also set some settings of your car. Currently these ar
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.8 (2023-05-01)
+* (virusbrain) Updated dependencies
+
 ### 0.0.7 (2022-11-09)
 * (virusbrain) Fix automatic wake_up
 

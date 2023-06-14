@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: ioBroker.meteoalarm
-hash: shouD1ahIo8Rcv3515jbk16VSS/LkGHhEkdquGEaU0E=
+hash: suv+UdbX4a72rDz8cV39J/tDHYHU6fNSBxHtpluWEyU=
 ---
 ![Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -13,204 +13,180 @@ hash: shouD1ahIo8Rcv3515jbk16VSS/LkGHhEkdquGEaU0E=
 ![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
 
 # IoBroker.meteoalarm
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-meteoalarm Adapter für ioBroker ---------------------------------------------- --------------------------------- Dieser Adapter zieht Wetteralarme von https://meteoalarm.org, einschließlich Wind , Schnee, Regen, hohe und niedrige Temperaturen usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
+meteoalarm-Adapter für ioBroker ---------------------------------------------- -------------------------------- Dieser Adapter ruft Wetteralarme von https://meteoalarm.org ab, einschließlich Wind , Schnee, Regen, hohe und niedrige Temperaturen usw. Diese Informationen sind in der Landessprache und für detaillierte Regionen verfügbar.
 
-HAFTUNGSAUSSCHLUSS: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Für die aktuellsten Informationen zu Alarmstufen, wie sie von den teilnehmenden nationalen Wetterdiensten veröffentlicht werden, verwenden Sie bitte https://www.meteoalarm.org.
+HAFTUNGSAUSSCHLUSS: Zeitverzögerungen zwischen dieser Website und der Website www.meteoalarm.org sind möglich. Die aktuellsten Informationen zu den von den teilnehmenden nationalen Wetterdiensten veröffentlichten Alarmstufen finden Sie unter https://www.meteoalarm.org.
 
-Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig behandelt werden oder dass es Fehler und Probleme gibt, die dazu führen, dass Warnungen überhaupt nicht behandelt werden!
+Der Entwickler kann nicht garantieren, dass die Warnungen rechtzeitig bearbeitet werden oder dass es Fehler und Probleme gibt, die dazu führen, dass Warnungen überhaupt nicht bearbeitet werden!
 
 ## Wie man es benutzt
-Wählen Sie Ihr Land und anschließend die Region, für die Sie die Warnungen erhalten möchten. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
+Wählen Sie Ihr Land und anschließend die Region aus, für die Sie Warnungen wünschen. Wenn Sie sich nicht sicher sind, wie Ihre Region heißt, gehen Sie bitte zu https://meteoalarm.org und versuchen Sie, sie auf der Karte zu finden.
 
 [Englische Beschreibung](docs/en/meteoalarm.md)
 
 [Deutsche Anleitung](docs/de/meteoalarm.md)
 
-## 2.3.5 (2023-03-27)
-* (Jack-Blackson) IOBROKER-METEOALARM-47 & IOBROKER-METEOALARM-48
-
-## 2.3.4 (2023-03-26)
-* (Jack-Blackson) IOBROKER-METEOALARM-4A
-
-## 2.3.3 (2023-02-09)
-* (jack-blackson) Möglichkeit hinzugefügt, die Alarmstufen für das Widget, JSON und die Benachrichtigung zu definieren
-* (jack-blackson) Ukrainische Sprache hinzugefügt
-
-## 2.3.2 (2023-01-07)
-* (jack-blackson) Bugfix um Warnungen korrekt zu bereinigen
-* (jack-blackson) Bugfix für Pushover, wenn mehrere Instanzen verwendet werden
-
-## 2.3.1 (2022-09-15)
-* (jack-blackson) Fähigkeit, Alarme an andere Adapter zu senden (Telegramm, eMail, Pushover, Signal, Synochat
-* (jack-blackson) Link im Alarmordner reparieren
-
-## 2.2.1 (2022-07-28)
-* (jack-blackson) Bugfix noOfAlarms und Nummerierung von Objekten
-
-## 2.2.0 (2022-07-05)
-* (jack-blackson) Objekt JSON hinzugefügt, das alle aktiven Fehler im JSON-Format enthält (z. B. für Benutzer von iqontrol)
-* (jack-blackson) Erster Schritt, um doppelte Fehlermeldungen loszuwerden
-
-## 2.1.5 (2022-06-13)
-* (jack-blackson) Fehler „Fehler von InMemDB: Fehler: Nicht vorhanden“ behoben
-
-## 2.1.4 (2022-05-26)
-* (jack-blackson) Breadcrumb für Sentry hinzugefügt, um zu sehen, an welcher Stelle ein Fehler aufgetreten ist
-* (jack-blackson) Tracking in Sentry starten, wenn XMLs ohne Geocode gesendet werden
-
-## 2.1.3 (2022-05-23)
-* (jack-blackson) Umgang mit Warnungen, die ohne Geocode gesendet werden -> Sentry IOBROKER-METEOALARM-3B
-
-## 2.1.2 (2022-05-16)
-* (jack-blackson) Bugfix für Änderung in xml (falscher Link für Warnung wurde verwendet) -> Sentry IOBROKER-METEOALARM-2Y und IOBROKER-METEOALARM-31
-
-## 2.1.1 (08.02.2022)
-* (jack-blackson) Aktualisierte Lizenzinformationen
-* (jack-blackson) Fehler für js-controller 4.x behoben
-
-## 2.1.0 (2022-02-03)
-* (jack-blackson) Schweiz hinzugefügt
-
-## 2.0.10 (2021-12-10)
-* (Jack-Blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
-* (jack-blackson) Bugfix für Irland
-
-## 2.0.9 (2021-11-27)
-* (jack-blackson) Datum in Worten richtig berechnen - diesmal echt :)
-
-## 2.0.10 (2021-12-10)
-* (Jack-Blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
-* (jack-blackson) BUgfix für Irland
-
-## 2.0.9 (2021-11-27)
-* (jack-blackson) Datum in Worten richtig berechnen - diesmal echt :)
-* (Jack-Blackson) Bugfix Sentry IOBROKER-METEOALARM-2N
-
-## 2.0.8 (2021-11-26)
-* (jack-blackson) Neuen Datenpunkt "Anzahl aktiver Alarme" hinzugefügt
-* (jack-blackson) Angepasste Paketinformationen
-* (jack-blackson) Bugfix Datumsdarstellung im HTML Widget für Warnungen 2 Tage im Voraus
-
-## 2.0.7 (01.10.2021)
-* (Jack-Blackson) Fehlerbehebung
-
-## 2.0.6 (2021-09-29)
-* (jack-blackson) Nordmazedonien hinzugefügt
-* (jack-blackson) Fehlerbehebung für den Fehler „result.feed.entry.forEach ist keine Funktion“.
-
-## 2.0.5 (2021-08-15)
-* (jack-blackson) Bugfix-Datum in Worten
-
-## 2.0.4 (2021-08-13)
-* (Jack-Blackson) Bugfix-Liesmich-Link
-
-## 2.0.3 (2021-08-09)
-* (jack-blackson) Zeigt das Datum in Worten anstelle des Tages im HTML-Widget an
-* (jack-blackson) Sprachcode für Belgien hinzugefügt
-
-## 2.0.2 (2021-07-15)
-* (Jack-Blackson) Fehlerbehebung
-
-## 2.0.1 (2021-07-08)
-* (jack-blackson) Name des Alarmordners in Alarm_X geändert
-* (jack-blackson) Legen Sie im Setup fest, welche Alarme Sie sehen möchten
-* (jack-blackson) Alarme nach Datum des Inkrafttretens sortieren
-
-## 2.0.0 (2021-07-06)
-* (jack-blackson) Wechsel zu Meteoalarm.org, kompletter Neuaufbau
-
-## 1.2.1 (2021-06-05)
-* (jack-blackson) Bugfix zur Behandlung von falschem XML (wenn Land statt Region verwendet wird)
-* (jack-blackson) Luxemburg hinzugefügt
-
-## 1.2.0 (2021-05-16)
-* (jack-blackson) Neues Setup: "Keine Hintergrundfarbe im HTML-Widget", "Warnfarben definieren" und "Weiße Icons verwenden"
-* (Jack-Blackson) Neue Symbole
-
-## 1.1.11 (2021-05-09)
-* (Jack-Blackson) Paketaktualisierungen
-
-## 1.1.9 (2021-05-07)
-* (Jack-Blackson) Paketaktualisierungen
-
-## 1.1.5 (2021-05-02)
-* (jack-blackson) Bugfix JS-Controller 3.3.1 Fehler, Fehlerbehandlung keine Sprache definiert
-
-## 1.1.4 (2021-04-05)
-* (jack-blackson) ENOTFOUND-Fehlermeldung behandeln, Sentry hinzugefügt
-
-## 1.1.3 (2021-03-29)
-* (jack-blackson) Fehler behebt Adapterprüfer
-
-## 1.1.2 (2021-03-29)
-* (jack-blackson) Bugfix für nicht funktionierende Datenaktualisierung, automatische Linkgenerierung aufgrund von CORS-Fehlern entfernt
-
-## 1.1.1 (2020-10-28)
-* (Jack-Blackson) Bugfix HTML-Daten
-
-## 1.1.0 (2020-03-29)
-* (jack-blackson) Bugfix Deutschland
-
-## 1.0.9 (2020-02-06)
-* (jack-blackson) Bugfix Deutschland
-
-## 1.0.8 (2019-11-15)
-* (jack-blackson) Polen, Moldawien, Griechenland, Rumänien hinzugefügt
-* (jack-blackson) Neuen Datenpunkt hinzugefügt, um Link zur Wetterkarte zu erhalten
-
-## 1.0.7 (2019-11-13)
-* (jack-blackson) Tschechische Republik, Irland, Israel, Litauen, Lettland, Montenegro, Malta, Serbien, Schweden hinzugefügt
-
-## 1.0.6 (2019-10-19)
-* (jack-blackson) Schweiz & Slowakei hinzugefügt
-
-## 1.0.5 (2019-09-22)
-* (jack-blackson) Kleine Logging-Anpassungen
-
-## 1.0.4 (2019-09-11)
-* (Jack-Blackson) Travis-Fehler
-
-## 1.0.3 (09.09.2019)
-* (jack-blackson) Kleine Bugfixes, Änderung von Typ "deamon" zu "schedule"
-
-## 1.0.2 (2019-08-25)
-* (jack-blackson) Veröffentlichungsinfos neu geordnet
-
-### 1.0.1 (2019-08-18)
-* (jack-blackson) Bugfix kein Alarmsymbol
-
-### 1.0.0 (2019-08-12)
-* (Jack-Blackson) Release-Version
-
-### 0.6.0 (2019-08-05)
-* (jack-blackson) Wettersymbole lokal im Adapter speichern
-
-### 0.5.0 (2019-07-21)
-* (jack-blackson) Handle-Timeouts
-* (jack-blackson) Übersetzungen für alle Sprachen
-* (Jack-Blackson) URL-Prüfungen
-
-### 0.4.0 (2019-07-20)
-* (jack-blackson) Daten für NL, NO, HR, FI, ES hinzugefügt
-* (jack-blackson) Typtext hinzugefügt, Typ ist jetzt leer, wenn Level 1 ist (keine Warnung)
-* (jack-blackson) Angepasste Farben
-
-### 0.3.0 (2019-07-13)
-* (Jack-Blackson) HTML-Widget hinzugefügt
-* (Jack-Blackson) Bugfix-Symbol
-
-### 0.2.0 (2019-07-12)
-* (jack-blackson) „Morgen“-Daten hinzugefügt
-
-### 0.1.0 (2019-07-11)
-* (Jack-Blackson) Erstversion
-
 ## Credits
-Glocke im Symbol, entworfen von Freepik von www.flaticon.com
+Glocke im Icon, entworfen von Freepik von www.flaticon.com
 
 ## Changelog
+
+### 2.3.6 (2023-05-27)
+* (jack-blackson) Bugfix "No Alarm" Message
+
+### 2.3.5 (2023-03-27)
+* (jack-blackson) IOBROKER-METEOALARM-47 & IOBROKER-METEOALARM-48
+
+### 2.3.4 (2023-03-26)
+* (jack-blackson) IOBROKER-METEOALARM-4A
+
+### 2.3.3 (2023-02-09)
+* (jack-blackson) Added possibility to define the alarm levels for the widget, JSON and notification
+* (jack-blackson) Added ukrainian language 
+
+### 2.3.2 (2023-01-07)
+* (jack-blackson) Bugfix to clean up alerts correctly
+* (jack-blackson) Bugfix for pushover if multiple instances are used
+
+### 2.3.1 (2022-09-15)
+* (jack-blackson) Ability to send alarms to other adapters (Telegramm, eMail, Pushover, Signal,Synochat
+* (jack-blackson) Fix link in alarms folder
+
+### 2.2.1 (2022-07-28)
+* (jack-blackson) Bugfix noOfAlarms and numbering of objects
+
+### 2.2.0 (2022-07-05)
+* (jack-blackson) Added Object JSON that contains all activ errors in JSON format (e.g. for users of iqontrol)
+* (jack-blackson) First step to get rid of duplicate error messages
+
+### 2.1.5 (2022-06-13)
+* (jack-blackson) Fixed Error "Error from InMemDB: Error: Not exists"
+
+### 2.1.4 (2022-05-26)
+* (jack-blackson) Added breadcrumb for Sentry to see what location created an error
+* (jack-blackson) Start tracking in Sentry when XMLs without geocode are sent
+
+### 2.1.3 (2022-05-23)
+* (jack-blackson) Handle Warnings that are sent without a geocode -> Sentry IOBROKER-METEOALARM-3B
+
+### 2.1.2 (2022-05-16)
+* (jack-blackson) Bugfix for change in xml (wrong link for warning was used) -> Sentry IOBROKER-METEOALARM-2Y and IOBROKER-METEOALARM-31
+
+### 2.1.1 (2022-02-08)
+* (jack-blackson) Updated License Info
+* (jack-blackson) Fixed errors for js-controller 4.x
+
+### 2.1.0 (2022-02-03)
+* (jack-blackson) Added Switzerland
+
+### 2.0.10 (2021-12-10)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
+* (jack-blackson) Bugfix for Ireland
+
+### 2.0.9 (2021-11-27)
+* (jack-blackson) Calculate date in words correctly - this time for real :)
+
+### 2.0.10 (2021-12-10)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2K
+* (jack-blackson) BUgfix for Ireland
+
+### 2.0.9 (2021-11-27)
+* (jack-blackson) Calculate date in words correctly - this time for real :)
+* (jack-blackson) Bugfix Sentry IOBROKER-METEOALARM-2N
+
+### 2.0.8 (2021-11-26)
+* (jack-blackson) Added new datapoint "No. of active alarms"
+* (jack-blackson) Adjusted package information
+* (jack-blackson) Bugfix date-presentation in HTML Widget for warnings 2 days in advance
+
+### 2.0.7 (2021-10-01)
+* (jack-blackson) Bugfix
+
+### 2.0.6 (2021-09-29)
+* (jack-blackson) Added North Macedonia
+* (jack-blackson) Bugfix for "result.feed.entry.forEach is not a function" error
+
+### 2.0.5 (2021-08-15)
+* (jack-blackson) Bugfix date in words
+
+### 2.0.4 (2021-08-13)
+* (jack-blackson) Bugfix readme link
+
+### 2.0.3 (2021-08-09)
+* (jack-blackson) Show date in words instead of day in HTML widget
+* (jack-blackson) Added language code for Belgium
+
+### 2.0.2 (2021-07-15)
+* (jack-blackson) Bugfix
+
+### 2.0.1 (2021-07-08)
+* (jack-blackson) Changed Alarm Folder Name to Alarm_X
+* (jack-blackson) Define in setup which Alarms you want to see
+* (jack-blackson) Sort Alarms by effective date
+### 2.0.0 (2021-07-06)
+* (jack-blackson) Switch to Meteoalarm.org, complete rebuild
+### 1.2.1 (2021-06-05)
+* (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
+* (jack-blackson) Added Luxembourg
+### 1.2.0 (2021-05-16)
+* (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"
+* (jack-blackson) New Icons
+### 1.1.11 (2021-05-09)
+* (jack-blackson) Package Updates
+### 1.1.9 (2021-05-07)
+* (jack-blackson) Package Updates
+### 1.1.5 (2021-05-02)
+* (jack-blackson) Bugfix JS-Controller 3.3.1 errors, error handling no language defined
+### 1.1.4 (2021-04-05)
+* (jack-blackson) Handle ENOTFOUND error message, added Sentry
+### 1.1.3 (2021-03-29)
+* (jack-blackson) Error fixes adapter checker
+### 1.1.2 (2021-03-29)
+* (jack-blackson) Bugfix for not working data update, removed link autogeneration due to CORS errors
+### 1.1.1 (2020-10-28)
+* (jack-blackson) Bugfix HTML Data
+### 1.1.0 (2020-03-29)
+* (jack-blackson) Bugfix Germany
+### 1.0.9 (2020-02-06)
+* (jack-blackson) Bugfix Germany
+### 1.0.8 (2019-11-15)
+* (jack-blackson) Added Poland, Moldova, Greece, Romania
+* (jack-blackson) Added new Datapoint to get Link to Weather Map
+### 1.0.7 (2019-11-13)
+* (jack-blackson) Added Czech Republic, Ireland, Israel, Lithuania, Latvia, Montenegro, Malta, Serbia, Sweden
+### 1.0.6 (2019-10-19)
+* (jack-blackson) Added Switzerland & Slowakia
+### 1.0.5 (2019-09-22)
+* (jack-blackson) Small logging adjustments
+### 1.0.4 (2019-09-11)
+* (jack-blackson) Travis error
+### 1.0.3 (2019-09-09)
+* (jack-blackson) Small bugfixes, change from type "deamon" to "schedule"
+### 1.0.2 (2019-08-25)
+* (jack-blackson) Reordered release infos
+### 1.0.1 (2019-08-18)
+* (jack-blackson) Bugfix no alarm icon
+### 1.0.0 (2019-08-12)
+* (jack-blackson) Release version
+### 0.6.0 (2019-08-05)
+* (jack-blackson) Store weather icons local in adapter
+### 0.5.0 (2019-07-21)
+* (jack-blackson) Handle Timeouts
+* (jack-blackson) Translations for all languages
+* (jack-blackson) URL checks
+### 0.4.0 (2019-07-20)
+* (jack-blackson) Added data for NL,NO,HR,FI,ES
+* (jack-blackson) Added Type Text, Type is now empty if Level is 1 (No Warning)
+* (jack-blackson) Adjusted colors
+### 0.3.0 (2019-07-13)
+* (jack-blackson) Added HTML Widget
+* (jack-blackson) Bugfix icon
+### 0.2.0 (2019-07-12)
+* (jack-blackson) Added "Tomorrow" data
+### 0.1.0 (2019-07-11)
+* (jack-blackson) initial version
 
 ## License
 The MIT License (MIT)

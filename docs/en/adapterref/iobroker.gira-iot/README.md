@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.gira-iot?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.gira-iot/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.gira-iot/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.gira-iot?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
@@ -19,11 +19,17 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 # ioBroker.gira-iot
 
+## Compatible devices
+
+- Gira X1
+- Gira Homeserver
+- Gira One Server
+
 ## Getting started
 
-- Install the iobroker.web adapter and create a new instance
+- Install the [iobroker.web](https://github.com/ioBroker/ioBroker.web) adapter and create a new instance
 - Configure HTTPS (secure) on that instance and choose the IP address which should be used for external connections
-- Choose this web instance in the configuration of the gira-iot instance
+- Choose this web instance in the configuration of the `gira-iot` instance
 - Configure IP, user name and password of your Gira X1 (or Home Server) in the instance
 - Start the instance
 
@@ -34,6 +40,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added missing channel type for remote access
 * (klein0r) Url preview in instance configuration
 
 ### 0.2.1 (2023-01-11)

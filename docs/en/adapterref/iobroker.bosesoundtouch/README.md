@@ -74,6 +74,14 @@ Soundtouch Application itself.
 | removeMasterOf| Add MAC address of the speaker you would like to remove from this master speaker. Also possible to put more then one speaker (split by ";").|
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 0.10.3 (2022-06-17)
 * (Apollon77) Fix crash case reported by Sentry
 

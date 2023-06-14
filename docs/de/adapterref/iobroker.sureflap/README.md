@@ -3,58 +3,64 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
+hash: TdDuowa721DZjQPbC8KSYgVBvO1rHTDrLlYryfVNftI=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/sureflap-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/sureflap-installed.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
-![Travis-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
 # IoBroker.sureflap
-## Adapter für Smart Pet Devices von Sure Petcare®
+![Test und Freigabe](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
+
+## Adapter für intelligente Haustiergeräte von Sure Petcare®
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
 ## Aufbau
-Fügen Sie den Benutzernamen und das Passwort Ihres Sure Petcare®-Kontos auf der Adapterkonfigurationsseite hinzu.
+Fügen Sie auf der Adapterkonfigurationsseite den Benutzernamen und das Passwort Ihres Sure Petcare®-Kontos hinzu.
 
-Auch Batterie-Voll- und -Leer-Schwellenwerte können hier bei Verwendung von Akkus angepasst werden. Dies wirkt sich auf die Prozentwerte der Batterie aus.
+Auch die Akku-Voll- und Leerschwellen können hier bei Verwendung von Akkus angepasst werden. Dies wirkt sich auf die Batterieprozentwerte aus.
 
 ## Beschreibung
-Der Adapter gibt Auskunft über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe, Futterautomat oder Wasserspender.
+Der Adapter liefert Informationen über die Einstellungen und den Status Ihrer Haustierklappe, Katzenklappe, Ihres Futterautomaten oder Ihres Wasserspenders.
 
-Es zeigt auch den Standort Ihrer Haustiere und deren Futter- und Wasserverbrauch (mit Futternapf und/oder Wasserspender).
+Außerdem wird der Standort Ihrer Haustiere sowie deren Futter- und Wasserverbrauch (mit Futterautomat und/oder Wasserspender) angezeigt.
 
-Damit können Sie den Sperrmodus und die Ausgangssperre Ihrer Klappe steuern und den Standort Ihrer Haustiere festlegen.
+Damit können Sie den Sperrmodus und die Sperrstunde Ihrer Klappe steuern und den Standort Ihrer Haustiere festlegen.
 
 ### Veränderbare Werte
-Die folgenden Status können geändert werden und werden auf Ihrem Gerät wirksam bzw. in Ihrer Sure Petcare®-App wiedergegeben.
+Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. werden in Ihrer Sure Petcare®-App widergespiegelt.
 
-| Staat | Beschreibung | zulässige Werte |
+| Zustand | Beschreibung | zulässige Werte |
 |-------|-------------|----------------|
-| haushaltsname.hub_name.control.led_mode | stellt die Helligkeit der Hub-LEDs ein | **0** - aus<br> **1** - hoch<br> **4** - gedimmt |
-| Haushaltsname.Hub_Name.Klappenname.Kontrolle.Ausgangssperre | aktiviert oder deaktiviert die konfigurierte Ausgangssperre<br> (Ausgangssperre muss per App konfiguriert werden) | **wahr** oder **falsch** |
-| Haushaltsname.Hub_Name.Klappenname.Steuerung.Sperrmodus | setzt den Sperrmodus | **0** - offen<br> **1** - einsperren<br> **2** - sperren<br> **3** - geschlossen (ein- und aussperren) |
-| Haushaltsname.Hub_Name.Klappenname.Zugewiesene_Haustiere.Haustiername.Steuerung.Typ | setzt den Haustiertyp für das zugewiesene Haustier und die Klappe | **2** - Haustier im Freien<br> **3** - Haustier |
-| haushaltsname.hub_name.feeder_name.control.close_delay | legt die Schließverzögerung des Speiserdeckels fest | **0** - schnell<br> **4** - normal<br> **20** - langsam |
-| haushaltsname.haustiere.haustiername.innen | legt fest, ob sich Ihr Haustier darin befindet | **wahr** oder **falsch** |
+| Haushaltsname.Hub_name.control.led_mode | Legt die Helligkeit der Hub-LEDs fest | **0** – aus<br> **1** – hoch<br> **4** - gedimmt |
+| Household_name.hub_name.flap_name.control.curfew | Aktiviert oder deaktiviert die konfigurierte Sperrstunde<br> (Sperrstunde muss per App konfiguriert werden) | **wahr** oder **falsch** |
+| Household_name.hub_name.flap_name.control.lockmode | legt den Sperrmodus fest | **0** – offen<br> **1** – einsperren<br> **2** – aussperren<br> **3** – geschlossen (ein- und aussperrbar) |
+| Household_name.hub_name.flap_name.assigned_pets.pet_name.control.type | legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier im Freien<br> **3** - Haustier im Innenbereich |
+| Household_name.hub_name.feeder_name.control.close_delay | Legt die Schließverzögerung des Futterdeckels fest | **0** – schnell<br> **4** – normal<br> **20** - langsam |
+| Household_name.pets.pet_name.inside | Legt fest, ob Ihr Haustier drinnen ist | **wahr** oder **falsch** |
 
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ hub_name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ kontrollieren<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ feeder_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterie_Prozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ pet_name<br> │ │ │ ├ Schalen<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ Lebensmitteltyp<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ kontrollieren<br> │ │ │ └ Schließverzögerung<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ kontrollieren<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ lock_time<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_haustiere<br> │ │ └ pet_name<br> │ │ └ kontrollieren<br> │ │ └ eingeben<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ pet_name<br> │ ├ innen<br> │ ├ Namen<br> │ ├ seit<br> │ ├ Essen<br> │ │ ├ zuletzt_gegessen<br> │ │ ├ aufgewendete Zeit<br> │ │ ├ mal_gegessen<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ mal_betrunken<br> │ └ Gewicht<br> └ Infos<br> ├ alle_Geräte_online<br> ├ Verbindung<br> └ letzte_aktualisierung<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ Hub_Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ Feeder-Name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ drinnen<br> │ ├ Name<br> │ ├ seitdem<br> │ ├ Essen<br> │ │ ├ last_time_eaten<br> │ │ ├ verbrachte Zeit<br> │ │ ├ times_eaten<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ times_drunk<br> │ └ Gewicht<br> └Info<br> ├ all_devices_online<br> ├ Verbindung<br> └ last_update<br>
 
 ## Anmerkungen
-SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Warenzeichen von [SureFlap Ltd.](https://www.surepetcare.com/)
+SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
 
-Die Bilder der SureFlap®-Geräte werden ab [Sicher Petcare®](https://www.surepetcare.com/en-us/press) kostenlos zur Verfügung gestellt.
+Die Bilder der SureFlap®-Geräte werden ab [Klar, Petcare®](https://www.surepetcare.com/en-us/press) zur kostenlosen Nutzung bereitgestellt.
 
 ## Changelog
+
+### 1.1.8 (2023-06-01)
+* (Sickboy78) adjustments for Surepet API changes
+
+### 1.1.7 (2023-03-13)
+* (Sickboy78) fixed false login error in case pet had no photo
 
 ### 1.1.6 (2023-01-07)
 * (Sickboy78) added battery voltage configuration
@@ -126,7 +132,7 @@ Die Bilder der SureFlap®-Geräte werden ab [Sicher Petcare®](https://www.surep
 
 MIT License
 
-Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

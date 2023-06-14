@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
+hash: V4ISnss7tsahkwLRKntb/ZHb75ptTvTUQp4w13zChfY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -17,11 +17,19 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 ## Адаптер alpha-ess для ioBroker
 Этот адаптер входит в веб-API [Альфа ЭСС](https://www.alphaess.com/) и извлекает информацию для вашего оборудования Alpha ESS.\ В зависимости от вашего продукта Alpha ESS можно получать данные в реальном времени и данные конфигурации для вашего оборудования. Какие точки данных возвращаются API, зависит от вашего оборудования Alpha ESS.
 
-Этот адаптер основан на замечательной работе [Чарльз Гилландерс](https://github.com/CharlesGillanders/alphaess), реконструировавшего веб-API Alpha ESS. Это внутренний API, который Alpha ESS может изменить в любое время.
+Этот адаптер поддерживает два API: внутренний веб-API Alpha ESS, который может быть изменен Alpha ESS в любое время, и открытый API Alpha ESS, который обеспечивает меньшую функциональность, но находится в официальном и задокументированном API для устройств Alpha ESS.
 
-В настоящее время этот адаптер создает состояние с, надеюсь, самообъясняющим именем для каждой точки данных, которую мне удалось идентифицировать. Все остальные точки данных игнорируются. Во время запуска адаптера эти точки данных регистрируются как информационное сообщение.
+В настоящее время этот адаптер создает состояние с самообъясняющим именем для каждой поддерживаемой точки данных.\ Все остальные точки данных игнорируются. Во время запуска адаптера эти точки данных регистрируются как отладочное сообщение.
 
-По сути, можно изменить выбранные параметры конфигурации с помощью веб-API Alpha ESS. Это еще не реализовано.
+Начиная с версии 1.0.0-alpha.5 атрибут качества каждого состояния устанавливается в соответствии с его статусом:
+
+| Качество | значение |
+|:--------|:--------------------------------------------------|
+|0x00 |Хорошо и актуально |
+|0x01 |значение не обновлено по неизвестной причине, см. журнал |
+|0x02 |проблема с онлайн-соединением для этой точки данных |
+|0x12 |адаптер отключен или остановлен |
+|0x44 |API вернул ошибку или внутреннюю ошибку, см. журнал |
 
 ## Настройки:
 **Используемый API:** Выберите между неофициальным «Закрытым» API и официальным «Открытым» API (в разработке). В зависимости от выбранного API доступны различные настройки.
@@ -54,21 +62,16 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 - **Интервал для чтения сводных данных:** Единица измерения: минуты.
 
 ## Отказ от ответственности
-**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.**
+**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или любыми связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.**
 
 ## Changelog
-### 1.0.0-alpha.1 (2023-04-16)
 
--   (Gaspode) Writing charging and discharging settings implemented (OpenAPI only)
-
-### 1.0.0-alpha.0 (2023-04-11)
+### **WORK IN PROGRESS**
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS
-
-### 0.5.0 (2023-03-05)
-
+-   (Gaspode) Set state quality accordingly to status of data
+-   (Gaspode) Writing charging and discharging settings implemented for 'Closed API' and OpenAPI
 -   (Gaspode) Remove no more supported states at startup automatically
--   (Gaspode) Prepared data migration for future versions
 
 ### 0.4.0 (2023-02-16)
 
@@ -77,20 +80,13 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 
 ### 0.3.0 (2023-02-11)
 
--   (Gaspode) Rearranged statistical data and added more values. Many thanks to [Thorsten](https://github.com/ThorstenBoettler) for his valuable contribution in testing the early alpha versions of this release and providing informative suggestions and recommendations for new data points.
+-   (Gaspode) Read selected statistical data
 -   (Gaspode) Added Summary data
 -   (Gaspode) Refactored complete implementation
 -   (Gaspode) Changed the unit of settings for all intervals, except of realtime data, to minutes (Caution: settings are reset to defaults)
 -   (Gaspode) Remove disabled states at adapter startup
 -   (Gaspode) Removed no more supported value 'createtime' (state ID Realtime.Last_update).
 -   (Gaspode) Optimized rounding for selected values
-
-### 0.2.1-beta.0 (2023-01-31)
-
--   (Gaspode) Read selected statistical data
-
-### 0.2.0 (2023-01-19)
-
 -   (Gaspode) Added states EV1_power, EV2_power, EV3_power and EV4_power to Realtime folder
 
 ### 0.1.0 (2023-01-15)
@@ -98,21 +94,9 @@ hash: UslDWiBGRjPCtrHax99ES3x5k9QSerk9mrhTUe/Fm6s=
 -   (Gaspode) First release for Latest repository
 -   (Gaspode) Corrected typo in state ID Battery_SOC
 -   (Gaspode) Implemented improvements as suggested in code review
-
-### 0.0.6-beta.5 (2023-01-07)
-
 -   (Gaspode) Slow down requests in case of permanent errors
-
-### 0.0.6-beta.4 (2023-01-03)
-
 -   (Gaspode) Changed adapter type from metering to energy
-
-### 0.0.6-beta.3 (2023-01-02)
-
 -   (Gaspode) Correction for NPM
-
-### 0.0.6-beta.2 (2023-01-02)
-
 -   (Gaspode) Enable NPM
 
 ### 0.0.5

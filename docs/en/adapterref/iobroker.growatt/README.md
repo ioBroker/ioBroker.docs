@@ -68,6 +68,25 @@ This data record contains some data from the device. Some data are also availabl
 
 This data set contains the weather forecast.
 
+#### Write inverter settings
+
+If this is activated, some settings can be edited for some inverters.
+
+Objects are created below the inverter serial number element for the settings. A channel is created for each setting.
+
+Below the objects are "read", "write", "msg" and and the node values. Below the values are parameters.
+
+If the values of the parameters could be read, they are written with ACK=true. "read" is set to true on successful reading with ack. If reading fails, "Read" is set to false ack=true. Writing to "Read" from "true" without ACK triggers a read operation. If a new connection to the cloud is established, the settings are also read out.
+
+To write the settings, the parameters must first be set. Then "write" is set to true with ack=false.
+If the data was written successfully, "write" is set to "true" ack=true, if the inverter reported an error, "write" is set to "false" ack=true. In addition, the return message of the inverter is written to the "msg" status.
+
+If writing was successful, reading is automatically triggered.
+
+The inverter can only change one setting at a time and the transmission path is from ioBroker via the cloud to the WLAN adapter and then to the inverter. The settings are processed one after the other via a queue. A session time that is too short can lead to problems.
+
+The writing of the settings was developed to the best of our knowledge. However, no guarantee is given
+
 #### Timeout in seconds
 
 The default timeout for HTTP requests. The default value 60 seconds, as with web browsers
@@ -187,6 +206,30 @@ Therefore, the description has also been removed.
 -\*-
 
 ## Changelog
+
+### 3.0.2 (08.06.2023)
+
+- (PLCHome) Write inverter settings, it can be activated via the config
+
+  - mix
+    - Time
+    - Grid first
+    - Battery first
+    - Inverter On/Off
+    - LoadFirst
+    - Failsafe
+    - PV active power rate
+    - Backflow setting
+      - Backflow setting power
+    - EPSOn
+  - tlx/tlxh
+    - Time
+    - PV active power rate
+
+### 2.1.1 (17.04.2023)
+
+- (PLCHome) Calendar structure was not always changed to timestamp
+- (PLCHome) Improvement in the internal handling of objects without considering their case.
 
 ### 2.1.0 (14.04.2023)
 

@@ -12,6 +12,8 @@
 
 **Tests:** ![Test and Release](https://github.com/git-kick/ioBroker.e3dc-rscp/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## e3dc-rscp adapter for ioBroker
 
 Control your E3/DC power station using the proprietary RSCP protocol which allows for reading state values and also setting control parameters, e.g. the charge power limit. This is the advantage of RSCP compared to the standard Modbus, which is only for reading values. If you have no need to write values, have a look at the (simpler) [Modbus adapter](https://github.com/ioBroker/ioBroker.modbus).
@@ -21,6 +23,7 @@ The e3dc-rscp adapter was developed for the <a href="https://www.e3dc.com/produk
 ## Table of Content
 1. [ Adapter configuration ](#toc)
 1. [ Coverage of interface messages ](#cov)
+1. [ Issues and feature requests ](#iss)
 1. [ Sample script ](#sam)
 1. [ Changelog ](#log)
 1. [ License](#lic)
@@ -100,6 +103,15 @@ Here is what to configure when creating a new instance of the adapter. Settings 
 </table>
 <a name="toc"></a>
 
+### Reuse of adapter configuration
+You can use the built-in "save"/"load"-Buttons in the Instance Settings to save your adapter settings in a json-file and load it from there, e.g. after you did a completely new ioBroker installation.
+
+But: in some situations the reuse of adapter configuration will lead to unexpected behavior. In cases where a new adapter version introduces new parameters, e.g. new lines in the Polling Interval list, reloading settings from an older json file will delete those new parameters. **This is why it's generally recommended to start with blank settings and re-enter them at least for every new major (X) or minor (Y) version (X.Y.z):** 
+1. Delete e3dc-rscp instance
+2. Create a new e3dc-rscp instance
+3. Enter settings manually (do *not* load settings from a json file)
+
+
 ## Coverage of interface messages
 ### Supported RSCP namespaces
 The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. groups of tags). 
@@ -142,7 +154,7 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>DB</td>
     <td>Database</td>
-    <td>experimental</td>
+    <td>experimental (see README-dev.md)</td>
   </tr>
   <tr>
     <td>FMS</td>
@@ -162,12 +174,12 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
   <tr>
     <td>INFO</td>
     <td>Information</td>
-    <td>not supported (yet)</td>
+    <td>partially supported (REQ tags ok, SET tags not implemented yet)</td>
   </tr>
   <tr>
     <td>EP</td>
     <td>Emergency Power</td>
-    <td>complete</td>
+    <td>supported</td>
   </tr>
   <tr>
     <td>SYS</td>
@@ -341,10 +353,31 @@ For DB, it is not clear what makes the difference between the scales (DAY/WEEK/M
 
 Further investigation is necessary.
 
-For the currently unspupported RSCP namespaces and tags, please refer to the official E3/DC tag list provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip).
-
 Note that RSCP knows more than 600 tags (representing ca. 300 parameters), so we think it does not make sense to read all of them.
 Therefore, we will add tags to the adapter upon upcoming use-cases.
+
+<a name="iss"></a>
+## Issues and feature requests
+
+For issues and feature requests, you can write in English or German.
+
+### Bug reports
+Open the [bug report form](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new?assignees=&labels=&template=bug_report.md&title=), and enter comprehensive information.
+Most times a log-file will be neccessary for debugging, so please provide a debug-log:
+
+1. stop instance
+2. delete log
+3. set instance to log mode "debug" (or even "silly", depending on type of issue)
+4. start instance an let it run for ca. 1 minute (or longer, if you know the bug takes more time to show up)
+5. store log in a file
+6. attach logfile to the issue (no inline log please; it's too long)
+
+### Feature requests and general issues
+Open a [blank issue](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/new), and describe what you would like the adapter to do, and why.
+Please keep in mind:
+* The adapter is meant to trigger RSCP and provide the results in ioBroker's object tree, nothing more. Further processing or storage are left to other code.
+* **To search for currently unspupported RSCP namespaces and tags, please refer to the official E3/DC tag list** provided with the [sample application](http://s10.e3dc.com/dokumentation/RscpExample.zip). 
+* Everything not listed in the RSCP tag list or otherwise shown to be delivered is regarded "out of scope".
 
 <a name="sam"></a>
 ## Sample script
@@ -364,6 +397,32 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+
+### 1.2.3 - UNDER CONSTRUCTION - 
+(git-kick)
+* Added testing with Node 18 and Node 20 - [Issue #165](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/165)
+* Upgraded to new translations, adding "uk" language - [Issue #166](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/166)
+* Stop polling "unavailable" tags - [Issue #169](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/169)
+* Adapter uses Sentry now.
+
+### 1.2.2
+(git-kick)
+* Fixed TAG_PVI_REQ_FREQUENCY_UNDER_OVER warning with polling interval 'N' - [Issue #157](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/157)
+* Log "warn - received message with invalid ..." reclassified to 'debug' - [Issue #159](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/159)
+* Revised BAT and PVI probing; now resilient with lost responses - [Issue #160](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/160)
+* Integrated Sentry plugin for crash reporting - see [documentation](https://github.com/ioBroker/plugin-sentry)
+
+### 1.2.1
+__MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
+
+(git-kick)
+* Added INFO namespace REQ tags (no SET tags yet) - [Issue #149](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/149)
+* Fixed representation of EMS.EPTEST_NEXT_TESTSTART in object tree.
+* Fixed out of range exceptions upon TCP/IP noise (i.e., if a frame has inconsistent length, then stop processing it.)
+* Added two README.md sections: "Reuse of adapter configuration", "Issues and feature requests"
+
+### 1.2.0 - Deprecated - Do not install -
+
 ### 1.1.2
 (ka-vaNu)
 * WB Control.* no longer updated by rscp response - [PR #144](https://github.com/git-kick/ioBroker.e3dc-rscp/pull/144)
@@ -371,13 +430,13 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 (git-kick)
 * Avoid cleartext password in silly log.
 
-## Changelog
 ### 1.1.1
 (ka-vaNu)
 * Fixed typo which prevented creation of wallbox object - [Issue #139](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/139)
 
 (git-kick)
 * Fixed vulnerable dependency: glob-parent < 5.1.2 - [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2022-28469)
+
 ### 1.1.0
 (ka-vaNu)
 * Added support for wallboxes, including setter tags - [Issue #106](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/106)
@@ -388,6 +447,7 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 (git-kick)
 * Fixed vulnerable dependency: minimatch < 3.0.5 - [CVE-2022-3517](https://nvd.nist.gov/vuln/detail/CVE-2022-3517)
 * Fixed vulnerable dependency: decode-uri-component < 0.2.1 - [CVE-2022-38900](https://nvd.nist.gov/vuln/detail/CVE-2022-38900)
+
 ### 1.0.8
 (git-kick)
 * No updates for e3dc-rscp.0.EP.PARAM_0.* - [Issue #117](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/117)
@@ -395,20 +455,25 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 * Define info.connection and RSCP.AUTHENTICATION synchronously (to avoid warning in adapter log)
 
 __Note__: DO NOT import adapter settings from a json-file created with an older version of e3dc-rscp. Instead, create a new adapter configuration from the scratch and then store it to a json-file. Reason is that importing an older json-file will delete polling interval list entries which have been added with v1.0.8 and this will invalidate the bugfix!
+
 ### 1.0.7
 (git-kick)
 * High CPU load on js-controller after triggering historical data - [Issue #114](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/114)
+
 ### 1.0.6
 (git-kick)
 * Boolean switches (e.g. EMS.WEATHER_REGULATED_CHARGE_ENABLED) did not work properly - [Issue #109](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
 * Fixed vulnerable dependency: minimist < 1.2.6 - [CVE-2021-44906](https://nvd.nist.gov/vuln/detail/CVE-2021-44906)
+
 ### 1.0.5
 (git-kick)
 * SET_POWER not effective due to delayed transmission - [Issue #103](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/103)
+
 ### 1.0.4
 (git-kick)
 * BAT_1 not visible after update to v1.0.3 - [Issue #96](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/96)
 * Save button inactive after loading adapter configuration - [Issue #95](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/95)
+
 ### 1.0.3
 (git-kick)
 * Reconnect does not work after RESTART_APPLICATION - [Issue #74](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/74)
@@ -416,6 +481,7 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 * DCB_CELL_TEMPERATURE = 0 obviously means there is no value, so display "(null)" instead of "0 °C"
 * Uncaught out-of-range exception when entering invalid data - [Issue #88](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/88)
 * Emergency Power Level - [Issue #89](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/89)
+
 ### 1.0.2
 (git-kick)
 * SYS namespace, experimental support - [Issue #60](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/60)
@@ -424,11 +490,13 @@ __Note__: DO NOT import adapter settings from a json-file created with an older 
 * WB.PM_ACTIVE_PHASES decode values - [Issue #76](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/76)
 * WB.MODE decode value 8 - [Issue #77](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/77)
 * Dependabot: follow-redirects 1.14.8
+
 ### 1.0.1
 (git-kick)
 * [CVE-2021-23566](https://nvd.nist.gov/vuln/detail/CVE-2021-23566): require nanoid >=3.1.31 - [Issue #61](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/61)
 * [CVE-2020-28469](https://nvd.nist.gov/vuln/detail/CVE-2020-28469): require glob-parent >=5.1.2
 * [Sentry Event](https://sentry.io/organizations/ulrich-kick/issues/2812710513/events/0c4653a38cd24b6a8732a10d07370e06/): Type Error in sendNextFrame(), handling case this == null
+
 ### 1.0.0
 (git-kick)
 * Prerequisites for ioBroker repo in README.md, io-package.json, github
@@ -1191,4 +1259,4 @@ the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <https://www.gnu.org/licenses/why-not-lgpl.html>.
 ```
-Copyright (c) 2022 Ulrich Kick <iobroker@kick-web.de>
+Copyright (c) 2023 Ulrich Kick <iobroker@kick-web.de>

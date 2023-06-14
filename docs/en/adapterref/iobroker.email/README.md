@@ -102,6 +102,13 @@ To send email from other adapter use **adapter.sendTo** function.
 For other services see documentation of **Nodemailer**: `[https://github.com/nodemailer/nodemailer](https://github.com/nodemailer/nodemailer)`
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.2.0 (2023-06-02)
+* (foxriver76) support [Notification Manager](https://github.com/foxriver76/ioBroker.notification-manager)
+
 ### 1.1.4 (2022-10-08)
 * (Apollon77) Prepare compatibility with future js-controller versions
 
@@ -177,7 +184,7 @@ For other services see documentation of **Nodemailer**: `[https://github.com/nod
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox
+Copyright (c) 2014-2023 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

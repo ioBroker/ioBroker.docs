@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.countdown/README.md
 title: ioBroker.обратный отсчет
-hash: r6I1FG7xQx245iTOHvnerFWAKe63AsJ5gONZzELKjik=
+hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
 ---
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -23,7 +23,9 @@ hash: r6I1FG7xQx245iTOHvnerFWAKe63AsJ5gONZzELKjik=
 Цель адаптера — предоставить вам возможность вести обратный отсчет для будущих событий с годами, месяцами, днями, часами и минутами. Он предоставит вам каждое из этих значений отдельно, а также две строки с короткой и длинной версией даты.
 
 ## Отображение обратного отсчета
-Адаптер автоматически предоставляет вам таблицу json. Вам просто нужно использовать его с таблицей json. Пожалуйста, отметьте там «Без заголовка». Можно отображать краткий текст или длинный текст.
+Адаптер автоматически предоставляет вам таблицу json и таблицу HTML. Для json выберите виджет "basic-table". Для html выберите «базовый — строка (без экранирования)».
+
+Можно отображать краткий текст или длинный текст.
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
 ## Как создать обратный отсчет
@@ -65,11 +67,14 @@ sendTo("countdown.0", "send", { "name": 'День свадьбы', "date": '01.0
 |years|Годы до окончания обратного отсчета (не всего!)|
 |имя|имя обратного отсчета|
 |endDate|Конечная дата обратного отсчета – в формате, указанном в настройке|
-|inWordsShort|Совокупное значение минут, часов и т. д. – например, 1Г 5М 4D|
+|inWordsShort|Совокупное значение минут, часов,... - например, 1Г 5М 4D|
 |inWordsLong|Совокупное значение минут, часов,... - например, 1 год 5 месяцев 4 дня|
 |totalHours|Общее количество часов до даты окончания|
 |totalDays|Общее количество дней до даты окончания|
-|totalWeeks|Общее количество недель до даты окончания|
+|totalWeeks|Всего кол. недель до даты окончания|
+|totalMonths|Всего месяцев до даты окончания|
+|totalYears|Всего кол. лет до даты окончания|
+
 |reached|Логическое поле, определяющее, была ли достигнута дата окончания|
 |repeatEvery|Обратный отсчет повторяется через этот период после достижения конечной даты|
 
@@ -77,88 +82,99 @@ sendTo("countdown.0", "send", { "name": 'День свадьбы', "date": '01.0
 * Возможность добавить скрипт в качестве параметра и запускать его по окончанию обратного отсчета
 * Возможность использовать плюс и минус в аддминутах и других функциях добавления
 
-## 1.3.0 (2023-02-22)
-* (jack-blackson) Обновления для зависимостей
+## Changelog
 
-## 1.2.5 (2021-06-16)
-* (jack-blackson) Исправлено удаление обратного отсчета с помощью sendto
+### 2.0.1 (2023-05-24) 
+* (jack-blackson) Added objects for total number of months and years
 
-## 1.2.4 (2021-06-09)
-* (jack-blackson) Мелкие исправления, переводы
+### 2.0.0 (2023-05-07) 
+* (jack-blackson) Reworked adapter due to wrong process layout
+* (jack-blackson) Added headers for HTML and JSON
 
-## 1.2.3 (2021-05-27)
-* (jack-blackson) Мелкие исправления, переводы
+### 1.3.1 (2023-05-01) 
+* (jack-blackson) Bugfix date calculation (thanks to Lueghi for the hint)
 
-## 1.2.2 (2021-05-25)
-* (jack-blackson) Небольшие исправления, добавлен веб-сайт для переводов
+### 1.3.0 (2023-02-22) 
+* (jack-blackson) Updates for dependencies
 
-## 1.2.1 (09.05.2021)
-* (джек-блэксон) Мелкие исправления
+### 1.2.5 (2021-06-16) 
+* (jack-blackson) Bugfix to delete countdown with sendto
 
-## 1.2.0 (09.05.2021)
-* (jack-blackson) Обновлены пакеты, добавлен Sentry
-* (jack-blackson) Исправления для JS-контроллера 3.3
-* (jack-blackson) Исправлено, что обратный отсчет создается сразу
+### 1.2.4 (2021-06-09) 
+* (jack-blackson) Small bugfixes, translations
 
-## 1.1.0 (2020-04-02)
-* (jack-blackson) исправление ошибки ссылка Read-Me
-* (джек-блэксон) исправлена ошибка RepeatCycle
+### 1.2.3 (2021-05-27) 
+* (jack-blackson) Small bugfixes, translations
 
-## 1.0.9 (31.03.2020)
-* (jack-blackson) Сообщения журнала об исправлении ошибок
+### 1.2.2 (2021-05-25) 
+* (jack-blackson) Small bugfixes, added weblate for translations
 
-## 1.0.8 (31.03.2020)
-* (джек-блэксон) Повторить обратный отсчет в определенный период (например, каждый год)
+### 1.2.1 (2021-05-09) 
+* (jack-blackson) Small Bugfixes
 
-## 1.0.7 (30.03.2020)
-* (jack-blackson) Добавлен новый тип даты для настроек: ГГГГ-ММ-ДД
-* (jack-blackson) Добавить обратный отсчет прямо в настройках адаптера
+### 1.2.0 (2021-05-09) 
+* (jack-blackson) Updated packages, added Sentry
+* (jack-blackson) Fixes for JS-controller 3.3
+* (jack-blackson) Fix that countdowns are created immediatly
 
-## 1.0.6 (20.03.2020)
-* (DutchmanNL) Фиксированный тип адаптера
 
-## 1.0.5 (2020-02-05)
-* (jack-blackson) Исправление для будильника в полночь -> спасибо @Lueghi
+### 1.1.0 (2020-04-02) 
+* (jack-blackson) bugfix Read-Me link
+* (jack-blackson) bugfix repeatCycle
 
-## 1.0.4 (2019-08-25)
-* (jack-blackson) Информация о релизе изменена
+### 1.0.9 (2020-03-31)
+* (jack-blackson) Bugfix log messages
 
-## 1.0.3 (2019-08-10)
-* (джек-блэксон) Изменения для компактного режима
-* (jack-blackson) Различные исправления
-* (jack-blackson) Теперь возможно иметь несколько экземпляров адаптера.
+### 1.0.8 (2020-03-31)
+* (jack-blackson) Repeat countdown in defined period (e.g. every year)
 
-## 1.0.2 (2019-07-22)
-* (джек-блэксон) Релизная версия
+### 1.0.7 (2020-03-30)
+* (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+* (jack-blackson) Add countdown directly in adapter settings
 
-## 0.7.0 (07.07.2019)
-* (джек-блэксон) Исправления
-* (Джек-Блэксон) добавление минут и часов теперь также возможно
-* (Джек-Блэксон) точка данных в настройках теперь доступна для редактирования
-* (джек-блэксон) добавлено общее количество. недель
+### 1.0.6 (2020-03-20)
+* (DutchmanNL) Fixed adapter type
 
-## 0.6.0 (2019-07-06)
-* (джек-блэксон) настраиваемый формат даты для ввода и вывода
-* (джек-блэксон) удалить обратный отсчет с помощью sendto
-* (Джек-Блэксон) возможность добавлять обратный отсчет на "дни/месяцы/недели с сегодняшнего дня)
+### 1.0.5 (2020-02-05)
+* (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
 
-## 0.5.0 (2019-07-04)
-* (джек-блэксон) скорректировать данные в таблице
-* (Джек-Блэксон) исправление импорта даты
+### 1.0.4 (2019-08-25)
+* (jack-blackson) Reordered release infos
+
+### 1.0.3 (2019-08-10)
+* (jack-blackson) Changes for Compact Mode
+* (jack-blackson) Various bugfixes
+* (jack-blackson) Having multiple instances of the adapater are now possible
+
+### 1.0.2 (2019-07-22)
+* (jack-blackson) Release version
+
+### 0.7.0 (2019-07-07)
+* (jack-blackson) Bugfixes
+* (jack-blackson) addminutes and addhours are now also possible
+* (jack-blackson) datapoint in setup is now editable
+* (jack-blackson) added total no. of weeks
+
+### 0.6.0 (2019-07-06)
+* (jack-blackson) adjustable date format for input and output
+* (jack-blackson) delete countdowns with sendto
+* (jack-blackson) ability to add countdowns by "days/months/weeks from now)
+
+### 0.5.0 (2019-07-04)
+* (jack-blackson) adjust the data in the table
+* (jack-blackson) bugfix date import 
 
 ### 0.4.0 (2019-06-04)
-* (jack-blackson) реструктуризация - теперь возможно создание алармов с sendto или вручную с datapoint
+* (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
 
 ### 0.3.0 (2019-05-24)
-* (джек-блэксон) добавлено общее количество дней и часов
+* (jack-blackson) added total No. of days and hours
 
-### 0.2.0 (21 мая 2019 г.)
-* (jack-blackson) скорректированные пакеты
+### 0.2.0 (2019-05-21)
+* (jack-blackson) adjusted packages
 
-### 0.1.0 (29 апреля 2019 г.)
-* (джек-блэксон) начальная версия
-
-## Changelog
+### 0.1.0 (2019-04-29)
+* (jack-blackson) initial version
 
 ## License
 The MIT License (MIT)

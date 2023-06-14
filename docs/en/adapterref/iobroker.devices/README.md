@@ -26,8 +26,18 @@ Manage and create devices for using it in other adapters like material, iot,...
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.5 (2023-06-06)
+* (Garfonso) fixed: problem with editing imported states
+* (Garfonso) fixed: warning
+* (Garfonso) fixed: enabling iot again (without setting a custom smartName)
+* (Garfonso) fixed: possible crash / typo in 1.1.3.
 
-## Changelog
+### 1.1.4 (2023-06-06)
+* (bluefox) Updated packages
+
+### 1.1.3 (2023-05-16)
+* (bluefox) Better behavior of category selection
+
 ### 1.1.2 (2022-11-09)
 * (Garfonso) corrected the double states in light devices
 * (Garfonso) added CIE color type as equivalent to `rgbSingle` type
@@ -122,7 +132,7 @@ Manage and create devices for using it in other adapters like material, iot,...
 ## License
 MIT License
 
-Copyright (c) 2019-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

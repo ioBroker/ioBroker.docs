@@ -24,6 +24,10 @@ You can akso move only one Item, to both directions.
 
 I hope you enjoy
 
+**If you like it, please consider a donation:**
+
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=7QGL5CXJCUSCE)
+
 ## Datapoints
 
 | DP Name             | Type   | Description                                                                                         |
@@ -86,7 +90,7 @@ function setOnDblClickCustomShop( myvalue) {
 
 ### 0.1.0 ( 20.02.2022)
 
-- First complete working Release
+- First complete working Releases
 
 ### 0.0.1
 

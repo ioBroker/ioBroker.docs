@@ -30,6 +30,14 @@ To get camera-url link work with user and pw you have to deselect AUTH_HASH_IPS 
 ![Logo](admin/auth_hash_ips.png)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 0.3.3 (12.11.2019)
 * (MeisterTR) error fixes, fix login error, fixes for latest
 * (MeisterTR) add ZmEvents

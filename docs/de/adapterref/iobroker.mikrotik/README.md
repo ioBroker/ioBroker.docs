@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mikrotik/README.md
 title: kein Titel
-hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
+hash: l03AVE0l5fMyhDH6nYJ7yt3FriBrXjW4y0qv1IlBneE=
 ---
 ![Logo](../../../en/adapterref/iobroker.mikrotik/admin/mikrotik_admin.png) ioBroker MikroTik Router-Adapter
 
@@ -22,16 +22,20 @@ hash: QwuylqO95Mkdycl8AGYWiKRb9Ob5t1POByJgziBuzw4=
 Adresse zur Firewall-Liste hinzufügen und aktivieren.
 z.B. `name,127.0.0.1,comment`.
 
-### Raw API-Befehl an mikrotik senden, das Ergebnis der Ausführung wird im Objekt `mikrotik.0.commands.response` empfangen, z. B.: `/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`. ODER `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org` `ip/kid-control/print` `ip/kid-control/pause .id=*1` `ip/kid-control/resume .id=*1`
-### Neustart, Herunterfahren Neustart/Herunterfahren von mikrotik
-### Usb_reset USB-Stromversorgung in mikrotik zurücksetzen
+### Raw API-Befehl an mikrotik senden, das Ergebnis der Ausführung wird im `mikrotik.0.commands.response`-Objekt empfangen, z. B.: `/ip/firewall/address-list/add\n=list=2vpn\n=address=195.82.146.0/24\n=comment=rutracker.org`. ODER `ip/firewall/address-list/add list=FuckRKN address=195.82.146.0/24 comment=rutracker.org` `ip/kid-control/print` `ip/kid-control/pause .id=*1` `ip/kid-control/resume .id=*1`
+### Neustart, Herunterfahren Mikrotik neu starten/herunterfahren
+### Usb_reset USB-Stromversorgung in Mikrotik zurücksetzen
 *Die erstellten Objekte werden beim Löschen im Router nicht automatisch gelöscht.*
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
-
-### **IN ARBEIT** -->
-
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.1 (2022-10-17)
 * (bluefox) Packages updated
 

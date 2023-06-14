@@ -25,7 +25,7 @@ Adapter for Innoxel Master 3 (https://innoxel.ch)
 
 ## Installation
 
-Until the adapter is part of the latest or stable repository, you can install the latest version by enabling expert mode in ioBroker and install the adapter from npm or github.
+Until the adapter is part of the stable repository, you can install the latest version by enabling expert mode in ioBroker and install the adapter from npm. Don't install it directly from Github, this will lead to an error on adapter start ("cannot find start file").
 
 After installation, create a new instance and configure the settings:
 
@@ -100,17 +100,46 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 -   <code>dimSpeed</code> (optional) is the dimming speed to use (0-15)
 -   <code>callback</code> (optional) callback function to call when action has been performed
 
+### setTemperature
+
+Set heating or cooling temperature.
+
+```ts
+sendTo("innoxel.0", "setTemperature", "<moduleId>:<temperatureType>:<temperature>", callback);
+
+// i.e. to set setTemperatureHeating to 20° on room climate module 0
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20");
+sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
+    // do something after the button press has been executed
+});
+```
+
+-   <code>moduleId</code> is the id/address room climate module
+-   <code>temperatureType</code> is the temperature type to set (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+-   <code>temperature</code> temperature to set, in 0.5° steps. There's also a min/max value depending on type
+-   <code>callback</code> (optional) callback function to call when action has been performed
+
 ## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2023-05-23)
+
+-   (matthsc) change actual value from temperature sensor if it doesn't provide values
+-   (matthsc & dependabot) dependency updates
+
+### 0.3.0 (2023-04-22)
+
+-   (matthsc) allow to set heating/cooling temperatures
+-   (matthsc & dependabot) dependency updates
+
 ### 0.2.0 (2022-09-28)
 
 -   (matthsc) drop support for Node 12 and js-controller 3
 -   (matthsc) implement migrations from create-adapter
--   (matthsc) dependency updates
+-   (matthsc & dependabot) dependency updates
 
 ### 0.1.5 (2022-02-12)
 
@@ -144,7 +173,7 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 
 MIT License
 
-Copyright (c) 2022 matthsc <matthsc@gmx.net>
+Copyright (c) 2023 matthsc <matthsc@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

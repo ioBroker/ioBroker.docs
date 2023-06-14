@@ -6,7 +6,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)](https://nodei.co/npm/iobroker.homepilot/)
 
-Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019). Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)
+## _Adapter needs Homepilot Base Station's firmware to be lower than v5.0 (earlier than September 2019)._<br>_Newer or updated stations can be managed with [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_
+
 NodeJS 10 or higher required
 
 :de: [Dokumentation](/docs/de/doc_homepilot_de.md)
@@ -28,6 +29,14 @@ NodeJS 10 or higher required
 :poland: [Dokumentacja](/docs/en/doc_homepilot_en.md)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 

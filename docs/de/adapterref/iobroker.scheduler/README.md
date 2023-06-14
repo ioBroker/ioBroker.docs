@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scheduler/README.md
 title: ioBroker Scheduler-Adapter
-hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
+hash: 2M0vpSNpqWYw45m24+ipLsssDu3kRjwa7sJMX61p+zc=
 ---
 ![Logo](../../../en/adapterref/iobroker.scheduler/admin/scheduler.png)
 
@@ -13,25 +13,38 @@ hash: jaR2G1Z9ybzfi/jsgg5FlS2Ynf3eN1g9q1TD0/IjCbY=
 ![NPM](https://nodei.co/npm/iobroker.scheduler.png?downloads=true)
 
 # IoBroker Scheduler-Adapter
-Dieser Adapter wurde entwickelt, um Geräte nach einem Zeitplan zu steuern. Zum Beispiel Heizungs- oder Bewässerungssteuerung.
+Dieser Adapter dient zur zeitgesteuerten Steuerung von Geräten. Zum Beispiel Heizungs- oder Bewässerungssteuerung.
 
-Sie können die Profile mit unterschiedlicher Priorität erstellen: normal (z. B. Werktage), hoch (z. B. Wochenende) und am höchsten (z. B. für Feiertage).
+Sie können die Profile mit unterschiedlicher Priorität erstellen: normal (z. B. an Werktagen), hoch (z. B. am Wochenende) und am höchsten (z. B. für Feiertage).
 Das Profil mit der höheren Priorität überlastet andere Profile.
 
-Für jedes Profil wird die aktive Variable erstellt. Der Benutzer kann jedoch eine eigene Aktivierungsvariable auswählen, z. Feiertage zu kontrollieren.
+Für jedes Profil wird die aktive Variable erstellt.
+Der Benutzer kann jedoch eine eigene Aktivierungsvariable auswählen, um beispielsweise Feiertage zu steuern.
 
-Der Benutzer sollte Geräte zum Profil hinzufügen und alle Geräte im Profil werden auf denselben Wert gesetzt.
+Der Benutzer sollte dem Profil Geräte hinzufügen, und alle Geräte im Profil werden auf denselben Wert eingestellt.
 
-Dieser Adapter hat ein vis2-Widget.
+Dieser Adapter verfügt über ein Vis2-Widget.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.scheduler/img/scheduler.png)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### 1.1.2 (2023-03-02)
+### **WORK IN PROGRESS**
+* (bluefox) Packages updated
+
+### 1.1.7 (2023-03-24)
+* (bluefox) Worked on the build process
+
+### 1.1.6 (2023-03-14)
+* (bluefox) update packages
+
+### 1.1.4 (2023-03-06)
+* (bluefox) Tried to fix vis-2 widget
+
+### 1.1.3 (2023-03-06)
 * (bluefox) Added widget for vis-2
 
 ### 1.0.4 (2022-12-23)

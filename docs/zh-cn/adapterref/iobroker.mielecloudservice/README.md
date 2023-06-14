@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
+hash: utkRsFtZBLnnrbiKMhFWnLy7zFBrA5SbERuqBGMc8yI=
 ---
 ![标识](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -113,20 +113,29 @@ API 的功能可能（目前如此）与 iOS 和 Android 应用程序的功能�
 如果您想更深入地了解或需要原始值翻译，请参阅[本文档。](machine_states.md)
 
 ## Sentry.io
-此适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.哨兵](https://github.com/ioBroker/plugin-sentry) 插件用于它。如果您不想用有关崩溃的信息来支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件功能、收集哪些信息以及如何禁用它的详细信息。
+此适配器使用 sentry.io 收集有关崩溃的详细信息并自动向作者报告。 [ioBroker.哨兵](https://github.com/ioBroker/plugin-sentry) 插件用于它。如果您不想用您的崩溃信息来支持作者，请参阅 [插件主页](https://github.com/ioBroker/plugin-sentry) 了解有关插件功能、收集哪些信息以及如何禁用它的详细信息。
 
 ## 版权所有
-版权所有 (c) 2019-2022 grizzelbee <open.source@hingsen.de>
+版权所有 (c) 2023 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.5.0 (2023-04-xx) (Dying for an Angel)
+### 6.5.1 (2023-04-21) (Dying for an Angel)
+* (grizzelbee) Fix: Some minor fixes for ioBroker adapter checker
+
+### 6.5.0 (2023-04-18) (Dying for an Angel)
 * (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
 * (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
-* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
+* (grizzelbee) Chg: Changed SpinningSpeed from number to string 
+* (grizzelbee) New: Added RAW-Value to SpinningSpeed 
+* (grizzelbee) Chg: Changed PlateStep-xxx from number to string (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERROR occurred when switching ventilationStep
+* (grizzelbee) Fix: [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356) In some cases the value 0 (zero) is ignored (e.g. at PlateStep)
+* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup with downgrade of axios-oauth-client to v1.5.0
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

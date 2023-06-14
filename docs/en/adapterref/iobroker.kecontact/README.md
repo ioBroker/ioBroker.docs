@@ -105,6 +105,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
+* (Sneak-L8) added new Keba model Company Car Wall Box MID
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

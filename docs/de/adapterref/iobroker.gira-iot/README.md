@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.gira-iot?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.gira-iot/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.gira-iot/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.gira-iot?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
@@ -19,6 +19,14 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 # ioBroker.gira-iot
 
+## Kompatible Geräte
+
+- Gira X1
+- Gira Homeserver
+- Gira One Server
+
+## Erste Schritte
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -26,6 +34,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added missing channel type for remote access
 * (klein0r) Url preview in instance configuration
 
 ### 0.2.1 (2023-01-11)

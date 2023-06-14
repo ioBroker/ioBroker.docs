@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
+hash: RFeBysZWTP8BR32lWsOhYe0RCp9j/1cB/dBhCaLN83w=
 ---
 ![标识](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -11,59 +11,59 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 ![下载](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
 ![NPM 版本](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol/badge.svg)
-![新PM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
+![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
 
 # IoBroker.HeatingControl
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
 
-**如果你喜欢它，请考虑捐赠：**
+**如果喜欢，请考虑捐款：**
 
-[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## 文档
-**我正在寻找创建/更新用户文档和常见问题解答的支持。如果有人有兴趣，请联系我...**
+**我正在寻求创建/更新用户文档和常见问题解答方面的支持。如果有人感兴趣，请联系我...**
 
 ## 用于控制加热系统的适配器。
 特征：
 
-*按计划控制所有恒温器的设定温度水平
-* 每天和晚上配置多个加热时段
-* 支持各种恒温器（前提：ioBroker 必须有）
-* Homematic 设备自动检测
+* 按计划控制所有恒温器的设定点温度水平
+* 为每个白天和晚上配置多个供暖时段
+* 支持所有类型的温控器（前提：ioBroker 必须有）
+* 家庭设备自动检测
 * 支持多个配置文件
-* 如果温控器和执行器之间没有直接连接，执行器可以直接从适配器上切换出来
-* 目前，当达到设定温度时，执行器直接关闭。一旦设定点温度低于实际温度，执行器就会开启。 （待办事项：实施改进的控制）
+* 如果温控器和执行器之间没有直接连接，执行器可以直接从适配器中切换出来
+* 目前，执行器在达到设定温度时直接关闭。一旦设定点温度低于实际温度，执行器就会打开。 （要做的：实施改进的控制）
 * 每个房间支持无限数量的恒温器、执行器和传感器
-* 每个房间都会自动检测恒温器、执行器和传感器。功能（例如“加热”）用于此目的。
+* 自动检测每个房间的恒温器、执行器和传感器。为此使用功能（例如“加热”）。
 * 如果房间包含恒温器但不应控制，则可以在管理界面中排除房间
-* 传感器用于降低目标温度（例如，如果窗户打开）；可选配 SensorDelay
-* 与 Feiertag-Adapter 或任何其他接口连接以检测公共假期。公共假期可以是正常的一天，也可以是周日。 （管理员设置）
-* 手动温度覆盖一段时间
-*预定义的加热时间
+* 传感器用于降低目标温度（例如，如果窗户打开）；可选择使用 SensorDelay
+* Feiertag-Adapter 或任何其他检测公共假期的接口。公共假期可以是普通的一天或像星期天一样。 （管理员设置）
+* 手动温度覆盖一定时间
+*预定义的加热期
 * 接管恒温器的变化（可选）
-* 支持来自 [Pittini](https://github.com/Pittini/iobroker-heatcontrol-vis) 的可视化。谢谢！
+* 支持来自 [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) 的可视化。谢谢你！
 
 [常问问题](doc/FAQ.md)
 
 ＃＃ 安装
 ## 设置
 ＃＃＃ 主要的
-* 功能 = 用于检测每个房间的恒温器、执行器和传感器的功能。它是系统枚举之一
-* timezone = 用于 cron 来调整 cron 作业
-* Feiertag 的路径 - 适配器 = 如果您想使用 Feiertag-Adapter 自动检测今天的公共假期，则在此处设置路径（例如 feiertage.0）
-* 管理员打开时删除所有设备 = 应禁用。仅当您需要删除所有房间、执行器和传感器设置时才启用它。适配器管理员打开时将执行设备搜索
-* 使用的传感器 = 如果您有窗户传感器，并且您想在窗户打开时降低目标温度，则启用该选项
+* Function = 用于检测每个房间的恒温器、执行器和传感器的功能。这是系统枚举之一
+* 时区 = 用于 cron 调整 cron 作业
+* Feiertag - Adapter 的路径 = 如果您想使用 Feiertag-Adapter 自动检测今天的公共假期，请在此处设置路径（例如 feiertage.0）
+* 管理员打开时删除所有设备 = 应该被禁用。仅当您需要删除所有房间、执行器和传感器设置时才启用它。适配器管理员打开时将执行设备搜索
+* 使用的传感器 = 如果您有窗户传感器并且您想在窗户打开时降低目标温度，请启用该选项
 * 使用的执行器 = 如果您想直接从适配器控制执行器。以防万一恒温器和执行器之间没有直接连接。
-* 如果没有加热期，则使用执行器 = 仅对执行器有效。定义当没有加热周期处于活动状态时如何设置执行器
-* 如果没有可用的恒温器，请使用执行器 = 仅对执行器有效。如果您有没有恒温器但带有加热执行器的房间，您可以永久打开或关闭它们
+* 如果没有加热期则使用执行器 = 仅对执行器有效。定义当没有加热周期处于活动状态时如何设置执行器
+* 如果没有可用的恒温器，则使用执行器 = 仅对执行器有效。如果您的房间没有恒温器但有加热执行器，您可以永久打开或关闭它们
 
 ＃＃＃ 轮廓
-* 配置文件类型 = 支持三种不同的配置文件类型（周一 - 周日，或周一 - 周五和周六/周日或每天）
-*配置文件数量=如果您需要更多配置文件，请增加该值。然后，您可以选择要使用的配置文件。
-* 周期数 = 定义您每天需要多少个不同温度的部分。随着您设置的越多，将创建更多数据点。最好使用较低的值（例如 5）
-*“像周日这样的公共假期=如果您想在像周日这样的公共假期设置目标温度，请启用该选项。否则公共假期设置与正常日子相同
+* 配置文件类型 = 支持三种不同的配置文件类型（周一至周日，或周一至周五和周六/周日或每天）
+* 配置文件数量 = 如果您需要更多配置文件，则增加该值。然后您可以选择要使用的配置文件。
+* 期间数 = 定义您需要多少个具有不同温度的每日部分。随着您设置的越多，将创建更多的数据点。最好使用较低的值（例如 5）
+*“像星期天这样的公共假期=如果你想在像星期天这样的公共假期设置目标温度，启用该选项。否则公共假期设置与正常日子相同
 * HeatingPeriod = 供暖期的开始和结束日期。用于设置“HeatingPeriodActive”
 
 ＃＃＃ 设备
@@ -72,150 +72,183 @@ hash: GXLYfYAO6FCc6XWgfauyAEEqBcHkiJNY+gcuXjkDPSI=
 
 ### 编辑房间
 * 在这里您可以验证和设置恒温器、执行器和传感器的对象 ID
-* 您可以手动添加新的恒温器、执行器或传感器。只需按 + 按钮。然后你会得到一个需要填充的空行。编辑按钮打开系统上可用设备的列表
-*恒温器：
+* 您可以手动添加新的恒温器、执行器或传感器。只需按 + 按钮。然后你得到一个需要填充的空行。编辑按钮打开系统上可用设备的列表
+* 恒温器：
 
-** 名称、温度目标 OID 和当前温度 OID 应设置。
+** 名称、温度目标OID 和当前温度OID 应设置。
 
-* 执行器
+*执行器
 
 ** 应设置状态的名称和 OID
 
-* 传感器
+*传感器
 
 ** 应设置当前状态的名称和 OID
 
 ＃＃ 数据点
-|摄影指导名称 |描述 |
+| DP 名称 |说明 |
 |---------------------|-----------------------------------------------------------------------------------------------------|
 | HeatingPeriodActive |如果关闭，将不使用配置文件 |
-|当前简介 |选择当前配置文件（基于 1，意味着配置文件 1 使用 heatcontrol.0.Profiles.0 下的数据点）|
-|最后程序运行 |显示适配器上次运行的时间 |
+|当前概况 |选择当前配置文件（基于 1，表示配置文件 1 使用 heatingcontrol.0.Profiles.0 下的数据点）|
+|最后一个程序运行 |显示上次适配器运行时间 |
 
-###温度降低/升高
-|摄影指导名称 |描述 |相对降低的目标温度 |绝对下降的目标温度 |
+### 温度降低/升高
+| DP 名称 |说明 |相对降低的目标温度 |绝对降低的目标温度 |
 |---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-|嘉宾介绍 |增加温度，因为客人希望它更温暖|通过 Profiles.0.room.GuestIncrease | 增加当前配置文件温度将目标设置为 Profiles.0.room.absolute.GuestIncrease |
-|派对现在 |降低温度，因为它变热了' |通过 Profiles.0.room.PartyDecrease | 降低当前配置文件温度将目标设置为 Profiles.0.room.absolute.PartyDecrease |
-|礼物 |我们在场，如果我们不在场，请降低温度 |通过 Profiles.0.room.AbsentDecrease | 降低当前配置文件温度将目标设置为 Profiles.0.room.absolute.AbsentDecrease |
-|假期缺席 |我们缺席，所以周末也减少|通过 Profiles.0.room.VacationAbsentDecrease | 降低当前配置文件温度将目标设置为 Profiles.0.room.absolute.VacationAbsentDecrease |
-|壁炉模式活动 |降低温度，因为你使用壁炉，会|通过 Profiles.0.room.FireplaceModeDecrease | 降低当前配置文件温度将目标设置为 Profiles.0.room.absolute.FireplaceModeDecrease |
+|嘉宾出席 |提高温度，因为客人希望它更温暖|通过 Profiles.0.room.GuestIncrease | 增加当前配置文件温度将目标设置为 Profiles.0.room.absolute.GuestIncrease |
+|现在派对 |降低温度，因为它变热了' |通过 Profiles.0.room.PartyDecrease 降低当前配置文件温度 |将目标设置为 Profiles.0.room.absolute.PartyDecrease |
+|礼物 |我们在场，如果我们不在场，请降低温度 |将当前配置文件温度降低 Profiles.0.room.AbsentDecrease |将目标设置为 Profiles.0.room.absolute.AbsentDecrease |
+|假期缺席 |我们缺席，所以周末也减少|通过 Profiles.0.room.VacationAbsentDecrease 降低当前配置文件温度 |将目标设置为 Profiles.0.room.absolute.VacationAbsentDecrease |
+| FireplaceModeActive |降低温度因为你使用壁炉，将是 |通过 Profiles.0.room.FireplaceModeDecrease 降低当前配置文件温度 |将目标设置为 Profiles.0.room.absolute.FireplaceModeDecrease |
 
 | |在可调时间自动重置
 
-* 在这两种情况下，只使用一种降低剂（在以前版本的适配器中，可以使用一种以上的脱脂剂）
-* 在绝对脱脂情况下，仅使用不等于 0°C 的目标值。如果您不需要对某个房间进行任何降低，则将降低值保持在 0°C
+* 在两个 szenarious 中只使用了一种脱脂剂（在以前版本的适配器中可以使用不止一种脱脂剂）
+* 在绝对脱脂方案中，仅使用不等于 0°C 的目标值。如果您不需要对某个房间进行任何降低，则将降低值保持在 0°C
 
-###无供暖期
+###无采暖期
 有三个选项
 
-*固定每个房间的温度
+* 固定每个房间的温度
 
-如果选择此选项，则对象树中的每个房间都会出现一个新数据点。您可以在此处设置固定目标温度，该目标温度在加热期未激活时设置。
+如果选择此选项，则每个房间的对象树中都会出现一个新数据点。您可以在此处设置一个固定目标温度，该温度在供暖期未激活时设置。
 
-*修复所有房间的温度
+* 修复所有房间的温度
 
-使用此选项，您可以在供暖期未激活时为每个房间使用一个目标温度
+使用此选项，当供暖期未激活时，您可以为每个房间使用一个目标温度
 
 * 没有什么
 
-使用此选项，如果没有加热时段处于活动状态，则不会向恒温器发送任何内容。当加热期仍处于活动状态时，目标温度与上一个目标保持一致。
-在这种情况下，如果您使用适配器中的执行器，那么您可以定义如何设置执行器（关闭、打开或保持原样）
+使用此选项，如果没有加热期处于活动状态，则不会向恒温器发送任何内容。当加热期仍处于活动状态时，目标温度与上次目标保持一致。
+在这种情况下，如果您使用适配器中的执行器，那么您可以定义执行器的设置方式（关闭、打开或保持原样）
 
-＃＃ 其他
+＃＃ 其他的
 * HolidayPresent / PublicHolidyToday
 
-如果您在管理中启用“像星期日一样的假日礼物”或“像星期日一样的公共假日”，当适配器被告知今天是公共假日或您在家度假时，将使用星期日的配置文件。
+如果您在管理中启用“像星期天一样的假日礼物”或“像星期天这样的公共假期”，当适配器被告知今天是公共假期或者您在家度假时，将使用星期天的配置文件。
 
-### 窗口打开
-如果“使用传感器”处于活动状态并且房间的传感器已配置，则
+###窗口打开
+如果“使用传感器”处于活动状态并且房间的传感器已/已配置，则
 
-* 如果配置了相对降低，则通过 Profiles.0.room.WindowOpenDecrease 在窗口打开时降低当前配置文件温度（true）
+* 如果配置了相对降低，则通过 Profiles.0.room.WindowOpenDecrease 打开窗口时降低当前配置文件温度（真）
 * 如果配置了绝对减少，则在窗口打开时将目标设置为 Profiles.0.room.absolute.WindowOpenDecrease (true)
 
-可以选择使用延迟。如果窗口只打开很短的时间，传感器延迟可以避免在很短的时间内减少并恢复正常。
+可以选择使用延迟。如果窗户只打开很短的时间，传感器延迟可以避免在很短的时间内减少并恢复正常。
 
 ## 支持
-您可以使用日历或任何其他数据点来更改适配器中的数据点。
-只需在管理员中配置来自 ical 或其他数据点的事件。支持的是
+您可以使用您的日历或任何其他数据点来更改适配器中的数据点。
+只需在管理中配置来自 ical 或其他数据点的事件。支持的有
 
-|数据点 |说明 |-------------------------|---------- -------------------------------------------------- ---------------- |加热控制.0.Present |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|加热控制.0.HolidayPresent |假期在家时将其设置为true |加热控制.0.VacationAbsent |假期不在家时设置为真|加热控制.0.GuestsPresent |将其设置为 true（在布尔值的情况下）或高于限制的数字（在数字的情况下）|加热控制.0.PartyNow |将其设置为 true（如果是布尔值）或高于限制的数字（如果是数字）
+|数据点 |描述|------------------------------------|---------- ---------------------------------------------- -------------- |heatingcontrol.0.Present |将其设置为 true（如果是布尔值）或高于 limit 的数字（如果是数字）|heatingcontrol.0.HolidayPresent |当你在家度假时将其设置为真 |heatingcontrol.0.VacationAbsent |假期不在家时设置为真 |heatingcontrol.0.GuestsPresent |将其设置为 true（如果是布尔值）或高于 limit 的数字（如果是数字）|heatingcontrol.0.PartyNow |将其设置为 true（在布尔值的情况下）或高于 limit 的数字（在数字的情况下）
 
-提示：使用数字数据点，您可以计算房子里有多少人，然后再决定，例如我们有足够的聚会...
+提示：使用数字数据点，您可以计算房子里有多少人，然后决定，例如我们有足够的派对...
 
 ## 使用恒温器的变化
-许多用户要求一个选项来接管从恒温器到适配器的变化。现在实现了四个选项：
+许多用户要求提供一个选项来接管从恒温器到适配器的更改。现在实施了四个选项：
 
-|选项 |描述 |-------------------------|---------- -------------------------------------------------- ---------------- |没有 |恒温器的变化被忽略 |作为覆盖 |恒温器的变化被视为覆盖；覆盖时间必须提前在heatcontrol.0.Rooms.RoomName.TemperaturOverrideTime | |如果未设置覆盖时间，则不执行覆盖 |作为新的个人资料设置|恒温器的变化被视为当前配置文件周期的目标温度 |直到下一个个人资料点 |恒温器的变化被视为目标温度，直到下一个曲线点。这是手动模式，因此仅使用窗口传感器。所有其他 | |增加/减少被忽略。每个房间都有一个数据点，可在到达下一个配置文件点之前禁用手动模式。
+|选项 |描述|------------------------|-------------------- ---------------------------------------------- -------------- |没有 |恒温器的变化被忽略 |作为覆盖 |恒温器的变化被视为覆盖； override 时间必须提前在 heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | 中设置|如果未设置覆盖时间，则不执行覆盖 |作为新的配置文件设置 |恒温器的变化被视为当前配置文件周期的目标温度 |直到下一个配置文件点 |恒温器的变化被视为目标温度，直到下一个配置文件点。这是手动模式，因此仅使用窗口传感器。所有其他 | |增加/减少被忽略。每个房间都有一个数据点，用于在到达下一个配置文件点之前禁用手动模式。
 
-## 当温度改变时扩展覆盖
-覆盖的标准行为是，当您改变温度时，覆盖时间不会改变。例如，如果您以 25°C 开始覆盖 20 分钟，然后在 15 分钟后更改为 28°C，则 28°C 仅用于最后 5 分钟。使用该选项，您可以在更改覆盖温度时重新启动覆盖。
-在高于 28°C 的示例中，然后将使用 20 分钟，这导致 15 分钟 25°C 和 20 分钟 28°C
+##当温度改变时扩展覆盖
+覆盖的标准行为是，当您更改温度时，覆盖时间不会改变。例如，如果您以 25°C 开始覆盖 20 分钟，然后在 15 分钟后更改为 28°C，则仅在最后 5 分钟使用 28°C。使用该选项，您可以在更改覆盖温度时重新启动覆盖。
+在示例中，高于 28°C 将使用 20 分钟，从而导致 15 分钟 25°C 和 20 分钟 28°C
 
 ##覆盖模式
-所有房间的管理员都有两种可调节的模式。
+所有房间的管理员都有两种模式可调节。
 
-*定时器控制
+* 定时器控制
 
 这是众所周知的函数，它使用温度和持续时间。给定温度用于持续时间，然后温度目标将设置回自动模式下的值
 
 * 直到下一个配置文件点
 
-这是一个新功能。在这里，我们可以使用温度覆盖，直到下一个轮廓点。持续时间将被忽略，但必须非零！
+这是一个新功能。在这里我们可以使用温度覆盖直到下一个配置文件点。持续时间将被忽略，但必须是非零的！
 
-##恒温器处理“窗口打开”
-一些恒温器可以自行处理“窗口已打开”。在这些情况下，配置了窗户传感器和恒温器之间的直接连接，当窗户打开时，恒温器会自行降低目标温度。
-结合选项“使用恒温器的更改”/“直到下一个配置点”将导致意外的手动状态。在这种情况下，将使用降低的温度直到下一个剖面点。
-但是适配器可以处理这种行为。您必须启用选项“恒温器处理'窗口已打开'”，并且您也可以在适配器中配置窗口传感器。
-当窗口打开时，适配器等待最大值。恒温器的新目标温度需要 3 秒。如果它在那个时间收到一个新的目标温度，它将被用作降低的绝对温度。然后状态将是“自动打开窗口”。一旦窗口关闭，状态就会回到自动，恒温器会恢复原始目标温度**注意**在这种情况下不要使用传感器打开延迟。如果您使用它，则在从恒温器收到目标温度后会出现 Window open 事件。这最终处于手动状态。
+## 恒温器处理“窗口打开”
+一些恒温器可以自行处理“窗户打开”。在这些情况下，窗户传感器和恒温器之间的直接连接被配置，当窗户打开时，恒温器会自行降低目标温度。
+结合选项“使用恒温器的变化”/“直到下一个配置文件点”将导致意外的手动状态。在这种情况下，将使用降低的温度直到下一个剖面点。
+但是 adpater 可以处理这种行为。您必须启用选项“Thermostat handles 'Window is Open'”并且您也可以在适配器中配置窗口传感器。
+当窗口打开时，适配器等待最大值。恒温器的新目标温度需要 3 秒。如果它在那段时间收到一个新的目标温度，它将被用作降低的绝对温度。然后状态将是“自动窗口打开”。一旦窗口关闭，状态就会恢复为自动，恒温器会设置回原始目标温度**注意**在这种情况下不要使用传感器打开延迟。如果你使用它，Window open 事件会在从恒温器接收到目标温度后出现。这最终处于手动状态。
 
-## 复制期间和复制配置文件
-`` 加热控制.0.Profiles.1.CopyProfile 加热控制.0.Profiles.1.Room.CopyProfile ``
+## 复制周期和复制配置文件
+`` heatingcontrol.0.Profiles.1.CopyProfile heatingcontrol.0.Profiles.1.Room.CopyProfile ``
 
 和
 
-``加热控制.0.Profiles.1.Küche.Fri.CopyPeriods ``
+`` heatingcontrol.0.Profiles.1.Küche.Fri.CopyPeriods ``
 
-CopyProfile 将按下按钮的配置文件的全部内容复制到下一个配置文件。在上面的示例中，按钮位于配置文件 1 中。按钮将所有内容从配置文件 1 复制到配置文件 2。
-如果您只想复制一个房间，请使用某个房间中的按钮。
+CopyProfile 将按下按钮的配置文件的全部内容复制到下一个配置文件。在上面的示例中，按钮位于配置文件 1 中。按钮复制从配置文件 1 到配置文件 2 的所有内容。
+如果只想复制一个房间，请使用某个房间中的按钮。
 
-CopyPeriod 每天或周一至周五每间客房提供。这会将期间复制到下一部分。在上面的示例中，CopyPeriods 将厨房房间中从星期五到星期六的所有时段复制到厨房房间中的所有时段。
-所以你可以例如在“每天分开”的配置文件中，复制周一到周日的时间段......
+CopyPeriods 每天或周一至周五每间客房提供。这会将句点复制到下一部分。在上面的示例中，CopyPeriods 复制从厨房房间的星期五到星期六在厨房房间的所有时间段。
+所以你可以，例如在“每天分开”的个人资料中，复制周一至周日的时间段......
 
 ＃＃ 维护模式
 去做
 
-##壁炉模式
+## 壁炉模式
 去做
 
-## 执行器处理
+##执行器处理
 去做
 
 在线性和带滞后的线性之间切换
 
-描述两个新的数据点 heatcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset 和 heatcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
+描述两个新数据点 heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset 和 heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
 
 ## 扩展执行器处理
-检查是否正确设置了值并设置了 ack，否则重试...
+检查值是否设置正确并设置 ack，否则重试...
 
 去做
 
+## EVU Sperrzeit / PowerInterruption
+当达到供电公司的闭锁时间时，所有执行器都会关闭，并在闭锁时间结束时再次打开。
+状态进入“EVU Sperrzeit”/“PowerInterruption” 目的：关闭电加热器并以有针对性的方式再次打开它们，以最大限度地减少接触器上的负载并最大限度地减少浪涌电流 配置：EVU 阻断的开始/结束时间时间，可以配置多个时间段
+
 ## 问题和功能请求
-* 如果您遇到任何错误或对此适配器有功能要求，请在 [github](https://github.com/rg-engineering/ioBroker.heatcontrol/issues) 的适配器的 GitHub 问题部分中创建问题）。任何反馈表示赞赏，将有助于改进此适配器。
+* 如果您遇到任何错误或对此适配器有功能请求，请在适配器的 GitHub 问题部分中创建问题 [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ).感谢任何反馈，这将有助于改进此适配器。
 
 ＃＃ 已知的问题
-### 带 Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 的适配器 – 10fach, 230 V
-似乎 HmIP-FAL230-C10 不能直接用作与该适配器组合的执行器。如果您将 HmIP-FAL230-C10 与 Homematic 恒温器一起使用，它应该可以工作。
+### 带 Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 的适配器 – 10fach，230 V
+看来 HmIP-FAL230-C10 不能直接用作与该适配器组合的执行器。如果您将 HmIP-FAL230-C10 与 Homematic 恒温器一起使用，它应该可以工作。
 另见[论坛](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
-### HM温控器开窗功能
-HM 恒温器有两种变体的开窗功能。一方面作为温度下降检测，另一方面与窗口接触有关。
-此功能使适配器在窗口打开时切换到手动模式。理想情况下，应该禁用此功能，以免干扰适配器的功能。
-如果恒温器使用来自窗户传感器的信息，则应启用“恒温器处理窗户打开”选项。
+### HM温控器的开窗功能
+HM 恒温器有两种型号的开窗功能。一方面作为温度下降检测，另一方面与窗口接触有关。
+此函数使适配器在窗口打开时切换到手动模式。理想情况下，应停用此功能，以免干扰适配器的功能。
+如果恒温器使用来自窗口传感器的信息，则应启用“恒温器处理窗口打开”选项。
 
-当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息将提交给 Sentry。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
 
 ## Changelog
+
+### 2.11.0 (in progress)
+* (René) see issue #368: units added in datapoints
+* (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
+* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #367: wait for set target temperature before checking actor changes
+
+### 2.10.6 (2023-01-31)
+* (René) see issue #355: reset override is now also with Button ResetManual possible
+
+### 2.10.5 (2023-01-21)
+* (René) see issue #356: create list if room list is empty
+* (René) see issue #357: remove change event when loading telegram data
+* (René) handling of exceptions reported by sentry in notification modul
+
+### 2.10.4 (2022-12-21)
+* (René) UTF8 conversion for some files
+* (René) more space for same values in admin
+
+### 2.10.3 (2022-12-19)
+* (René) see issue #347: waiting time for target temperature update from thermostat adjustable per room
+* (René) see issue #348: bug fix to avoid unnecessary error message
+
+### 2.10.1 (2022-12-10)
+* (René) update dependencies
+* (René) see issue #337: bug fix in calculate profil position
+* (René) see issue #336: translation of notification mesaages
+* (René) see issue #347: bug room status if option "thermostat handles windows open" is enabled and window opened and closed
+* (René) some minor bug fixes
 
 ### 2.9.3 (2022-10-28)
 * (René) update dependencies
@@ -594,11 +627,24 @@ Attention: some changes in datapoints!!
 * (René) initial release
 
 ## License
+MIT License
 
-Copyright (C) 2019-2022  info@rg-engineering.eu
+Copyright (c) 2019-2023 rg-engineering info@rg-engineering.eu
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

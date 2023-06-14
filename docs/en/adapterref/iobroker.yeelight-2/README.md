@@ -73,8 +73,14 @@ NOTE: Accepted on both "on" and "off" state.
 after 5 minutes.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 
-### __WORK IN PROGRESS__
 * (Apollon77) make sure reconnects work correctly
 
 ### 1.2.1 (2022-06-16)

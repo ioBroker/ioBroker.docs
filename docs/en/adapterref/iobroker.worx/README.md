@@ -46,6 +46,21 @@ worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
     Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0
     Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0]
 
+## Schedule setzen:
+
+wochentagname/borderCut
+wochentagname/startTime
+wochentagname/workTime
+
+Danach ein Timeout von 1,1 Sek. und worx.0.xxxxxxxxxxx.calendar.calJson_tosend auf true setzen.
+In dieser Zeit darf natürlich nicht automatisch ein Update kommen, da die geänderten Zeiten wieder glöscht werden. Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT oder den 10 Minuten Refresh unterbindet.
+
+Das gleich gilt natürlich auch für diese:
+mower.oneTimeWithBorder
+mower.oneTimeWorkTime
+
+Und dann nach 1,1 Sek. worx.0.xxx.mower.oneTimeStart setzen
+
 ## Disscussion und Questions
 
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
@@ -53,6 +68,14 @@ worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 2.1.3
+
+Add ping option in the instance settings",
+
+### 2.1.2
+
+Improve reconnection for multiple mower
 
 ### 2.1.1
 

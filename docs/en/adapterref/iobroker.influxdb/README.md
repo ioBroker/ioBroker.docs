@@ -18,36 +18,36 @@ This adapter saves state history into InfluxDB.
 ## InfluxDB version support
 
 ### InfluxDB 1.x
-If you have an InfluxDB 1.x installation (preferably 1.8.x or 1.9.x) then you choose " 1.x" in the adapter configuration and enter the Host-IP and Port together with Username and Password for the Access.
-You can also define a database name. The default is "iobroker". On first adapter start this database is created.
+If you have an InfluxDB 1.x installation (preferably `1.8.x` or `1.9.x`) then you choose "1.x" in the adapter configuration and enter the Host-IP and Port together with Username and Password for the Access.
+You can also define a database name. The default is "iobroker". On the first adapter start, this database is created.
 
-When doing custom queries via the "query" message you can use InfluxQL to select the data you want. FluxQL with InfluxDB 1.x is not supported (and will also not be added).
+When doing custom queries via the "query" message, you can use InfluxQL to select the data you want. FluxQL with InfluxDB 1.x is not supported (and will also not be added).
 
 ### InfluxDB 2.x
 Since 2.0 of the adapter also InfluxDB 2.x is supported which works a bit different.
 Here beside the Host-IP and Port the following data are required:
-* **Organization**: You need to create an organization on the commandline and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB setup you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
-* **Authentication Token**: You need to create an Authentication token  that have sufficient rights to basically do all actions on the provided organization! **Important: For now just use the initial owner auth token because we still struggle on how to create a token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process. If you know how to create the right tokens let us now :-)**
+* **Organization**: You need to create an organization on the commandline and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB-setup, you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
+* **Authentication Token**: You need to create an Authentication token that has sufficient rights to basically do all actions on the provided organization! **Important: For now, just use the initial owner auth token because we still struggle on how to create a token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process. If you know how to create the right tokens let us now :-)**
 
-You can also define a database name - this is used as Bucket. The default is "iobroker". On first adapter start this bucket is created in the configured organization.
+You can also define a database name - this is used as a Bucket. The default is `iobroker`. On the first adapter start, this bucket is created in the configured organization.
 
-When doing custom queries via the "query" message you can use Flux queries to select the data you want. Details on Flux can be found at https://docs.influxdata.com/influxdb/v2.0/reference/flux/
+When doing custom queries via the "query" message, you can use Flux queries to select the data you want. Details on Flux can be found at https://docs.influxdata.com/influxdb/v2.0/reference/flux/
 
 #### Store metadata information as tags instead of fields
-For Influx 1.x state value, as well as associated metadata fields (`q`, `ack` and `from`) are stored as fields within InfluxDB. When using Flux-commands to retrieve this data (instead of InfluxQL) the data is returned in separate tables, which makes it more difficult to view the data in a joined way when using external database clients or Influx CLI `query` command. This is by design, as Influx only supports one field per data-point.
+For `Influx 1.x` state value, as well as associated metadata fields (`q`, `ack` and `from`) are stored as fields within InfluxDB. When using Flux-commands to retrieve this data (instead of `InfluxQL`) the data is returned in separate tables, which makes it more difficult to view the data in a joined way when using external database clients or Influx CLI `query` command. This is by design, as Influx only supports one field per data-point.
 
-With Influx 2.x it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition, they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside this adapter. There are limitations with this however:
+With `Influx 2.x` it is now also possible, to store this metadata-information besides the actual value of the state as Influx Tags. Tags are indexed and allow for faster search queries. In addition, they are closely linked to the measurement stored within the db, meaning they will be returned in one table with the queried measurement which makes them much easier to handle, when used outside this adapter. There are limitations with this, however:
 - The use of tags for metadata needs to be enabled under `Advanced Settings`. It is disabled by default.
 - If you decide to use tags, you cannot continue to use old measurements that were gathered with Influx 1.x, as they are stored in fields.
 - Attempting to use an existing database that was set up without enabling the Tag-feature will cause the adapter to fail to initialize, and you will see an error message about it in the log.
   - This also is valid the other way: Once you start using the Tag-feature in a new database, you cannot switch back to using fields for this database.
-- This feature is currently only available, if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
+- This feature is currently only available if you use Influx 2.x. And only if you use the new responsive GUI of Admin 5.
 
 ### Migration from InfluxDB 1 to 2
 
 Please refer to the [official guides on how to migrate](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/) from InfluxDB 1.x to 2.x. Especially the [migration instructions for time series data](https://docs.influxdata.com/influxdb/v2.0/upgrade/v1-to-v2/manual-upgrade/#migrate-time-series-data) have been verified to work during adapter testing. Please always create a backup of your data before performing the migration.
 
-After the migration, the adapter is able to work with the old data (e.g. for history-queries) as well. This only applies, if you don't decide to [use Tags for storing metadata fields](#Store-metadata-information-as-tags-instead-of-fields).
+After the migration, the adapter is able to work with the old data (e.g. for history-queries) as well. This only applies if you don't decide to [use Tags for storing metadata fields](#Store-metadata-information-as-tags-instead-of-fields).
 
 ## Retention Policy
 While Influx 1.x supports the concept of multiple **retention policies** for one database, Influx 2 by design allows only one **retention period** per bucket. Therefore, it is only possible to set one policy for the whole database/bucket with this adapter via _Default Settings -> Storage retention_. The retention selected here will be applied on the fly and can be changed at any time. Retention policies set by the adapter will never be deleted, but instead altered if required, as otherwise Influx 1.x would delete all data that the policy applied to.
@@ -55,21 +55,21 @@ While Influx 1.x supports the concept of multiple **retention policies** for one
 Please also read [Understanding Retention Policies](RetentionPolicies.md). 
 
 ## Direct writes or buffered writes?
-With the default configuration the adapter stores each single datapoint directly into the database and only use the internal buffer if the database is not available. If the database was not available the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
+With the default configuration, the adapter stores each single datapoint directly into the database and only uses the internal buffer if the database is not available. If the database was not available, the buffer is flushed at the given interval, so it can take the defined interval till the missing points are written!
 
-By changing the configuration it is possible to cache new data points up to a defined count or a defined maximum interval after which all points are stored into the database. This also gives better performance and less system load compared to writing the data points directly.
+By changing the configuration, it is possible to cache new data points up to a defined count or a defined maximum interval after which all points are stored into the database. This also gives better performance and less system load compared to writing the data points directly.
 InfluxDB has a limitation of the maximum size for writes which is at around 2MB. It should be safe to have up to 15.000 data points as buffer maximum, maybe also 20.000, but this highly depends on the length of your datapoint-IDs.
 
-On exit of the adapter the buffer is stored on disk and reinitialized with next adapter start, so no data points should be lost and will be written after next start.
+On exit of the adapter the buffer is stored on disk and reinitialized with the next adapter start, so no data points should be lost and will be written after the next start.
 
 ## InfluxDB and data types
-InfluxDB is very strict on data types. The datatype for a measurement value is defined with it's first write.
-The adapter tries to write with the correct value, but if the datatype changes for the same state then there may be the write
-errors in the InfluxDB. The adapter detects this and will write these potential conflicting data points always directly, but write errors mean that the value is not written into the DB at all. So make sure to check the logs for such cases.
+InfluxDB is very strict on data types. The datatype for a measurement value is defined with its first write.
+The adapter tries to write with the correct value, but if the datatype changes for the same state, then there may be the write errors in the InfluxDB.
+The adapter detects this and will write these potential conflicting data points always directly, but write errors mean that the value is not written into the DB at all. So make sure to check the logs for such cases.
 
-**In Version 1.x and 2.x of the adapter it could also be that some values were converted wrong when no datatype was defined. E.g. a String like "37.5;foo bar" was converted to a number 37.5 in older versions. The version 3 odf the adapter will detect that this is not a valid number and will not convert this value. This could lead to type conflicts after the update. Please check these values and think if you need to store it and how (for the future).**
+**In Version 1.x and 2.x of the adapter, it could also be that some values were converted wrong when no datatype was defined. E.g. a String like `37.5;foo bar` was converted to a number 37.5 in older versions. The version 3 odf the adapter will detect that this is not a valid number and will not convert this value. This could lead to type conflicts after the update. Please check these values and think if you need to store it and how (for the future).**
 
-Additionally, InfluxDB do not support "null" values, so these are not written at all into the DB.
+Additionally, InfluxDB does not support "null" values, so these are not written at all into the DB.
 
 ## Installation of InfluxDB
 Please refer to the official InfluxDB pages for installation instructions depending on your OS.
@@ -80,7 +80,7 @@ Please refer to the official InfluxDB pages for installation instructions depend
 ### Setup authentication for InfluxDB 1.x (optional)
 **NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! This is only applicable for InfluxDB 1.x
 
-If you use DB locally you may leave authentication disabled and skip this part.
+If you use DB locally, you may leave authentication disabled and skip this part.
 
 - Start service: ``` service influxdb start ```
 - Go to admin page: http://<ip>:8083
@@ -91,7 +91,7 @@ CREATE USER "user" WITH PASSWORD '<userpassword>'
 CREATE DATABASE "iobroker"
 GRANT ALL ON "iobroker" TO "user"
 ```
-Enable authentication, by editing /etc/influxdb/influxdb.conf:
+Enable authentication by editing /etc/influxdb/influxdb.conf:
 ```
  [http]  
  enabled = true  
@@ -106,27 +106,27 @@ Enable authentication, by editing /etc/influxdb/influxdb.conf:
 - Restart service: ``` service influxdb restart ```
 
 ## Installation of Grafana (Charting Tool)
-There is additional charting tool for InfluxDB - Grafana.
+There is an additional charting tool for InfluxDB - Grafana.
 It must be installed additionally.
 
 Install a current version of Grafana 3.x+ because InfluxDB support is enhanced there in comparison to earlier Grafana versions.
 
 Under debian you can install it as described at http://docs.grafana.org/installation/debian/ .
-For ARM platforms your can check vor v3.x at https://github.com/fg2it/grafana-on-raspberry.
+For ARM platforms you can check vor v3.x at https://github.com/fg2it/grafana-on-raspberry.
 
 Explanation for other OS can be found [here](http://docs.grafana.org/installation/).
 
-After the Grafana is installed, follow [this](http://docs.grafana.org/datasources/influxdb/) to create connection.
+After the Grafana is installed, follow [this](http://docs.grafana.org/datasources/influxdb/) to create a connection.
 
 ## Default Settings
 - **Debounce Time** - Protection against unstable values to make sure that only stable values are logged when the value did not change in the defined amount of Milliseconds. ATTENTION: If values change more often then this setting effectively no value will be logged (because any value is unstable)
 - **Blocktime** - Defines for how long after storing the last value no further value is stored. When the given time in Milliseconds is over then the next value that fulfills all other checks is logged.
-- **Record changes only** - This function make sure that only changed values are logged if they fulfill other checks (see below). Same values will not be logged.
+- **Record changes only** - This function makes sure that only changed values are logged if they fulfill other checks (see below). Same values will not be logged.
 - **still record the same values (seconds)** - When using "Record changes only" you can set a time interval in seconds here after which also unchanged values will be re-logged into the DB. You can detect the values re-logged by the adapter with the "from" field.
 - **Minimum difference from last value** - When using "Record changes only" you can define the required minimum difference between the new value and the last value. If this is not reached the value is not recorded.
 - **ignore 0 or null values (==0)** - You can define if 0 or null values should be ignored.
 - **ignore values below zero (<0)** - You can define if values below zero should be ignored.
-- **Disable charting optimized logging of skipped values** - By default the adapter tries to record the values for optimized charting. This can mean that additional values (that e.g. not fulfilled all checks above) are logged automatically. If this is not wanted, you can disable this feature.
+- **Disable charting optimized logging of skipped values** - By default, the adapter tries to record the values for optimized charting. This can mean that additional values (that e.g. not fulfilled all checks above) are logged automatically. If this is not wanted, you can disable this feature.
 - **Alias-ID** - You can define an alias for the ID. This is useful if you have changed a device and want to have continuous data logging. Please consider switching to real alias States in teh future!
 - **Storage retention** - How many values in the past will be stored on disk. Data are deleted when the time is reached as soon as new data should be stored for a datapoint.
 - **Enable enhanced debug logs for the datapoint** - If you want to see more detailed logs for this datapoint, you can enable this option. You still need to enable "debug" loglevel for these additional values to be visible! This helps in debugging issues or understanding why the adapter is logging a value (or not).
@@ -172,8 +172,8 @@ sendTo('influxdb.0', 'getHistory', {
 ```
 
 Possible options:
-- **start** - (optional) time in ms - *Date.now()*'
-- **end** - (optional) time in ms - *Date.now()*', by default is (now + 5000 seconds)
+- **start** - (optional) time in ms - `Date.now()`
+- **end** - (optional) time in ms - `Date.now()`, by default is (`now + 5000 seconds`)
 - **step** - (optional) used in aggregate (max, min, average, total, ...) step in ms of intervals
 - **count** - number of values if aggregate is 'onchange' or number of intervals if other aggregate method. Count will be ignored if step is set, else default is 500 if not set
 - **from** - if *from* field should be included in answer
@@ -183,7 +183,7 @@ Possible options:
 - **limit** - do not return more entries than limit
 - **round** - round result to number of digits after decimal point
 - **ignoreNull** - if null values should be included (false), replaced by last not null value (true) or replaced with 0 (0)
-- **removeBorderValues** - By default additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
+- **removeBorderValues** - By default, additional border values are returned to optimize charting. Set this option to true if this is not wanted (e.g. for script data processing)
 - **returnNewestEntries** - The returned data are always sorted by timestamp ascending. When using aggregate "none" and also providing "count" or "limit" this means that normally the oldest entries are returned (unless no start data is provided). Set this option to true to get the newest entries instead.
 - **aggregate** - aggregate method (Default: 'average'):
   - *minmax* - used special algorithm. Splice the whole time range in small intervals and find for every interval max, min, start and end values.
@@ -192,22 +192,22 @@ Possible options:
   - *average* - Same as max, but take average value.
   - *total* - Same as max, but calculate total value.
   - *count* - Same as max, but calculate number of values (nulls will be calculated).
-  - *percentile* - Calculate n-th percentile (n is given in options.percentile or defaults to 50 if not provided).
+  - *percentile* - Calculate n-th percentile (n is given in `options.percentile` or defaults to 50 if not provided).
   - *quantile* - Calculate n quantile (n is given in options.quantile or defaults to 0.5 if not provided).
   - *integral* - Calculate integral (additional parameters see below).
-  - *none* - No aggregation at all. Only raw values in given period.
+  - *none* - No aggregation at all. Only raw values in the given period.
 - **percentile** - (optional) when using aggregate method "percentile" defines the percentile level (0..100)(defaults to 50)
 - **quantile** - (optional) when using aggregate method "quantile" defines the quantile level (0..1)(defaults to 0.5)
-- **integralUnit** - (optional) when using aggregate method "integral" defines the unit in seconds (defaults to 60s). e.g. to get integral in hours for Wh or such, set to 3600.
+- **integralUnit** - (optional) when using aggregate method "integral" defines the unit in seconds (default to 60s). e.g. to get integral in hours for Wh or such, set to 3600.
 - **integralInterpolation** - (optional) when using aggregate method "integral" defines the interpolation method (defaults to "none").
   - *linear* - linear interpolation
   - *none* - no/stepwise interpolation
 
 The first and last points will be calculated for aggregations, except aggregation "none".
-If you manually request some aggregation you should ignore first and last values, because they are calculated from values outside of period.
+If you manually request some aggregation, you should ignore first and last values, because they are calculated from values outside of the period.
 
-When raw data are selected without using 'step' the returned fields are ts, val, ack, q and from.
-As soon as step is used the returned fields are ts and val.
+When raw data are selected without using 'step', the returned fields are ts, val, ack, q and from.
+As soon as a step is used, the returned fields are ts and val.
 
 Interpolated values will be marked as `i=true`, like: `{i: true, val: 4.7384845, ts: 29892365723652}`.
 
@@ -228,7 +228,7 @@ That's why the result is always an array with one numbered index for each query.
 ### Influx 1.x
 Example with one query:
 
-```
+```javascript
 sendTo('influxdb.0', 'query', 'SELECT * FROM iobroker.global."system.adapter.admin.0.memRss" LIMIT 100', function (result) {
     if (result.error) {
         console.error(result.error);
@@ -240,7 +240,7 @@ sendTo('influxdb.0', 'query', 'SELECT * FROM iobroker.global."system.adapter.adm
 ```
 Two queries:
 
-```
+```javascript
 sendTo('influxdb.0', 'query', 'SELECT * FROM iobroker.global."system.adapter.admin.0.memRss" LIMIT 100; SELECT * FROM iobroker.global."system.adapter.admin.0.memHeapUsed" LIMIT 100', function (result) {
     if (result.error) {
         console.error(result.error);
@@ -254,11 +254,11 @@ sendTo('influxdb.0', 'query', 'SELECT * FROM iobroker.global."system.adapter.adm
 **NOTE:** The values are coming back in the result array in filename "value" (instead of "val" as normal in ioBroker)
 
 ### Influx 2.x
-In InfluxDB v2.0 onwards the SQL-based query language *InfluxQL* is deprecated in favour of *Flux*. For more information please refer to [the offical InfluxDB 2.0 documentation](https://docs.influxdata.com/influxdb/v2.0/reference/flux/).
+In InfluxDB v2.0 onwards, the SQL-based query language *InfluxQL* is deprecated in favour of *Flux*. For more information, please refer to [the offical InfluxDB 2.0 documentation](https://docs.influxdata.com/influxdb/v2.0/reference/flux/).
 
 Example with one query:
 
-```
+```javascript
 sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h)', function (result) {
     if (result.error) {
         console.error(result.error);
@@ -269,44 +269,43 @@ sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h)', f
 });
 ```
 Two queries:
-**NOTE:** By default you cannot execute 2 queries at once via Flux-language, as there is no delimiter available. This adapter emulates this behaviour by defining ; as delimiter, so you can still run two queries in one statement.
+**NOTE:** By default, you cannot execute 2 queries at once via Flux-language, as there is no delimiter available. This adapter emulates this behaviour by defining `;` as delimiter, so you can still run two queries in one statement.
 
-```
+```javascript
 sendTo('influxdb.0', 'query', 'from(bucket: "iobroker") |> range(start: -3h); from(bucket: "iobroker") |> range(start: -1h)" LIMIT 100', function (result) {
     if (result.error) {
         console.error(result.error);
     } else {
         // show result
-        console.log('Rows First: ' + JSON.stringify(result.result[0])); //Values from last 3 hours
-        console.log('Rows Second: ' + JSON.stringify(result.result[1])); //Values from last hour
+        console.log('Rows First: ' + JSON.stringify(result.result[0])); // Values from last 3 hours
+        console.log('Rows Second: ' + JSON.stringify(result.result[1])); // Values from last hour
     }
 });
 ```
 **NOTE:** The values are coming back in the result array in filename "value" (instead of "val" as normal in ioBroker)
 
-
 ## storeState
-If you want to write other data into the InfluxDB you can use the build in system function **storeState**.
+If you want to write other data into the InfluxDB, you can use the build in system function **storeState**.
 This function can also be used to convert data from other History adapters like History or SQL.
 
-A successful response do not mean that the data are really written out to the disk. It just means that they were processed.
+A successful response does not mean that the data is really written out to the disk. It just means that they were processed.
 
-The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
+The given ids are not checked against the ioBroker database and do not need to be set up or enabled there. If own IDs are used without settings, then the "rules" parameter is not supported and will result in an error. The default "Maximal number of stored in RAM values" is used for such IDs.
 
 The Message can have one of the following three formats:
 * one ID and one state object
 
-```
-sendTo('history.0', 'storeState', [
+```javascript
+sendTo('influxdb.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}
-], result => console.log('added'));
+}, result => console.log('added'));
 ```
 
 * one ID and array of state objects
 
-```
-sendTo('history.0', 'storeState', {
+```javascript
+sendTo('influxdb.0', 'storeState', {
     id: 'mbus.0.counter.xxx',
     state: [
       {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}, 
@@ -317,21 +316,21 @@ sendTo('history.0', 'storeState', {
 
 * array of multiple IDs with one state object each
 
-```
-sendTo('history.0', 'storeState', [
+```javascript
+sendTo('influxdb.0', 'storeState', [
     {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}, 
     {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 123, ack: false, from: 'system.adapter.whatever.0', ...}}
 ], result => console.log('added'));
 ```
 
-Additionally, you can add attribute `rules: true` in message to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on
+Additionally, you can add attribute `rules: true` in a message to activate all rules, like `counter`, `changesOnly`, `de-bounce` and so on
 
-In case of errors an array with all single error messages is returned and also a successCount to see how many entries were stored successfully.
+In case of errors, an array with all single error messages is returned and also a successCount to see how many entries were stored successfully.
 
 ## delete state
-If you want to delete entry from the Database you can use the build in system function **delete**:
+If you want to delete entry from the Database, you can use the build in system function `delete`:
 
-```
+```javascript
 sendTo('influxdb.0', 'delete', [
     {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352}}, 
     {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353}}
@@ -340,7 +339,7 @@ sendTo('influxdb.0', 'delete', [
 
 To delete ALL history data for some data point execute:
 
-```
+```javascript
 sendTo('influxdb.0', 'deleteAll', [
     {id: 'mbus.0.counter.xxx'}, 
     {id: 'mbus.0.counter.yyy'}
@@ -349,7 +348,7 @@ sendTo('influxdb.0', 'deleteAll', [
 
 To delete history data for some data point and for some range, execute:
 
-```
+```javascript
 sendTo('influxdb.0', 'deleteRange', [
     {id: 'mbus.0.counter.xxx', start: '2019-01-01T00:00:00.000Z', end: '2019-12-31T23:59:59.999'}, 
     {id: 'mbus.0.counter.yyy', start: 1589458809352, end: 1589458809353}
@@ -361,21 +360,21 @@ Time could be ms since epoch or ans string, that could be converted by javascrip
 Values will be deleted including defined limits. `ts >= start AND ts <= end`
 
 ## change state
-If you want to change entry's value, quality or acknowledge flag in the database you can use the build in system function **update**:
+If you want to change entry's value, quality or acknowledge flag in the database, you can use the build in system function `update`:
 
-```
+```javascript
 sendTo('influxdb.0', 'update', [
     {id: 'mbus.0.counter.xxx', state: {ts: 1589458809352, val: 15, ack: true, q: 0}}, 
     {id: 'mbus.0.counter.yyy', state: {ts: 1589458809353, val: 16, ack: true, q: 0}}
 ], result => console.log('deleted'));
 ```
 
-`ts` is mandatory. At least one other flags must be included in state object.
+`ts` is mandatory. At least one other flags must be included in a state object.
 
 ## Flush Buffers
-If you want to flush the buffers for one or all datapoints to the Database you can use the build in system function **flushBuffer**:
+If you want to flush the buffers for one or all datapoints to the Database, you can use the build in system function `flushBuffer`:
 
-```
+```javascript
 sendTo('influxdb.0', 'flushBuffer', {id: 'mbus.0.counter.xxx'
 , result => console.log('deleted, error: ' + result.error));
 ```
@@ -385,9 +384,9 @@ if no id is provided all buffers will be flushed.
 The adapter supports enabling and disabling of history logging via JavaScript and also retrieving the list of enabled data points with their settings.
 
 ### enable
-The message requires to have the "id" of the datapoint. Additionally, optional "options" to define the datapoint specific settings:
+The message requires to have the `id` of the datapoint. Additionally, optional `options` to define the datapoint specific settings:
 
-```
+```javascript
 sendTo('influxdb.0', 'enableHistory', {
     id: 'system.adapter.influxdb.0.memRss',
     options: {
@@ -409,9 +408,9 @@ sendTo('influxdb.0', 'enableHistory', {
 ```
 
 ### disable
-The message requires to have the "id" of the datapoint.
+The message requires to have the `id` of the datapoint.
 
-```
+```javascript
 sendTo('influxdb.0', 'disableHistory', {
     id: 'system.adapter.influxdb.0.memRss',
 }, function (result) {
@@ -427,19 +426,19 @@ sendTo('influxdb.0', 'disableHistory', {
 ### get List
 The message has no parameters.
 
-```
+```javascript
 sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
     //result is object like:
     {
-        "system.adapter.influxdb.0.memRss": {
-            "changesOnly":true,
-            "debounce":0,
-            "retention":31536000,
-            "maxLength":3,
-            "changesMinDelta":0.5,
-            "enabled":true,
-            "changesRelogInterval":0,
-            "aliasId":""
+        'system.adapter.influxdb.0.memRss': {
+            changesOnly: true,
+            debounce: 0,
+            retention: 31536000,
+            maxLength: 3,
+            changesMinDelta: 0.5,
+            enabled: true,
+            changesRelogInterval: 0,
+            aliasId: ''
         }
         ...
     }
@@ -459,7 +458,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Fix crash cases reported by Sentry
 
 ### 3.1.7 (2022-06-27)
-* (Apollon77) Allow to remove a configuration value for "round" in config again
+* (Apollon77) Allows removing a configuration value for "round" in config again
 
 ### 3.1.6 (2022-06-27)
 * (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
@@ -469,7 +468,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 ### 3.1.4 (2022-06-08)
 * (Apollon77) Performance optimizations for GetHistory calls, especially for "minmax" aggregate method
-* (Apollon77) Prevent crash case reported by Sentry
+* (Apollon77) Prevent the crash case reported by Sentry
 
 ### 3.1.3 (2022-06-01)
 * (Apollon77) Corrected issue when testing connection to InfluxDBv1 with weird passwords
@@ -478,7 +477,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Workaround an admin issue when testing connection to InfluxDB
 
 ### 3.1.0 (2022-05-27)
-* (Apollon77) Data are not converted to number if they are other data types on getHistory to respect the saved data formats as defined in the datapoint settings for storage.
+* (Apollon77) Data are not converted to number if they are other data types on `getHistory` to respect the saved data formats as defined in the datapoint settings for storage.
 * (Apollon77) Fix retention change to lower checkbox in UI
 * (Apollon77) Allow storeState again to write to InfluxDB for "unknown state ids" - "rules" usage is not supported in for this and storeState would be silently discarded in this case!
 * (Apollon77) Fix several crash cases reported by Sentry
@@ -486,7 +485,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
 
 ### 3.0.2 (2022-05-12)
-* (Apollon77) handle an empty Path for InfluxDB 2.0 correctly in all cases
+* (Apollon77) handles an empty Path for InfluxDB 2.0 correctly in all cases
 
 ### 3.0.1 (2022-05-11)
 * (Apollon77) BREAKING: Configuration is only working in the new Admin 5 UI!
@@ -697,7 +696,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox, apollon77
+Copyright (c) 2015-2023 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

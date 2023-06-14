@@ -19,9 +19,9 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric 文件
-hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
+hash: 9cP2W86lwtNUhi/XkkHewtT4fzMaMb6W2oJ945+NJxE=
 ---
-![商标](../../../en/admin/lametric.png)
+![标识](../../../en/admin/lametric.png)
 
 #ioBroker.lametric
 ＃＃ 目录
@@ -34,7 +34,7 @@ hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件 _2.3.3_（或更高版本）
+- _LaMetric Time_ 固件 _2.3.5_（或更高版本）
 
 [固件更新日志](https://firmware.lametric.com)
 
@@ -49,7 +49,7 @@ hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
 - 配置屏幕保护程序（启用/禁用，基于时间，黑暗时）
 - 激活/停用蓝牙并更改蓝牙名称
 - 在应用程序之间切换（下一个，上一个，转到特定应用程序）
-- 块发送通知（具有可配置的优先级，声音，图标，文本，......）
+- 块发送通知（具有可配置的优先级，声音，图标，文本，...）
 - 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
 - 使用_My Data (DIY)_ LaMetric App 显示持久信息
 
@@ -61,44 +61,29 @@ hash: lHQ+ubABPLOgXg2kBAU/Ddk3jpDWoOoAA4f1mfcshFw=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 2.2.0 (2023-01-05)
+### 2.4.0 (2023-05-10)
 
-* (klein0r) Added custom sound feature (mp3 via url)
-* (klein0r) Added visible state of widgets
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.3
+* (klein0r) Allow to change device mode via state (manual, auto, kiosk, schedule)
+* (klein0r) Added state for available firmware update
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.5
 
-### 2.1.0 (2022-11-01)
+### 2.3.2 (2023-02-21)
 
-NodeJS 14.5 is required
+* (klein0r) Optimized setState logic
 
-* (klein0r) Added web extension to get My Data DIY object
-* (klein0r) Allow colon in My Data DIY object ID
-* (klein0r) Fixed duration of My Data DIY frames (milliseconds)
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.0
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Minor optimizations
+### 2.3.1 (2023-02-21)
 
-### 2.0.0 (2022-05-17)
+* (klein0r) Update My Data DIY when object changes data type
 
-NodeJS 14.x is required (NodeJS 12.x is EOL)
+### 2.3.0 (2023-02-13)
 
-* (klein0r) Added states for clock alarm widget configuration
-* (klein0r) Added duration for My Data DIY frame configuration
-* (klein0r) Updated LaMetric firmware version recommendation to 2.2.3
-* (klein0r) Updated dependencies
-* (klein0r) Updated depedency for js-controller to 4.0.15
+* (klein0r) Fixed message responses
+* (klein0r) Added icon button to instance configuration
+* (klein0r) Added preview for web url in instance configuration
 
-### 1.6.0 (2022-02-27)
+### 2.2.1 (2023-01-19)
 
-* (klein0r) Allow german umlauts in My Data DIY objects
-* (klein0r) Updated documentation
-* (klein0r) Updated state roles
-* (klein0r) Added hint for Admin 4 configuration
-
-### 1.5.3 (2022-02-08)
-
-* (klein0r) Updated log messages and error handling
-* (klein0r) Updated dependencies
+* (klein0r) Format number values for My Data DIY
 
 ## License
 

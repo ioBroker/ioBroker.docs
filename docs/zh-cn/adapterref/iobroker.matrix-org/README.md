@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.matrix-org/README.md
 title: ioBroker.matrix-org
-hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
+hash: thDSPGk0mvt0gLe1EZ7FJPRN6KyItq0/2Hx0xO/FJeY=
 ---
 ![标识](../../../en/adapterref/iobroker.matrix-org/admin/matrix-logo.png)
 
@@ -22,7 +22,7 @@ hash: GZR4bzUQOeknIhKMSjDEg1JPvz/1REXq4jJPMWMgKYs=
 ＃＃＃ 配置
 最佳：在您的服务器上运行您自己的客户端！
 
-使用密码创建自己的用户作为您的 BOT。为所有需要机器人消息的成员创建一个房间。将您的 BOT 添加到此房间。将所有成员添加到此房间。将所有数据放入配置中。 (BOT名称、密码、房间名称)
+使用密码创建自己的用户作为您的 BOT。为所有需要机器人消息的成员创建一个房间。将您的 BOT 添加到此房间（如果自动加入处于活动状态则不需要）。将所有成员添加到此房间。将所有数据放入配置中。 (BOT名称、密码、房间名称)
 
 ＃＃＃ 用法
 根据需要添加任意数量的实例。按照你喜欢的方式为matrix-org.0.sendMessage添加一个值，用js 如果你设置“image”为matrix.0.sendMessage，它会发送矩阵标志到你的频道。
@@ -89,6 +89,10 @@ sendTo("matrix-org.0",{html: "<table><tr><td>1</td><td>2</td></tr><tr><td>a</td>
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* upgrade matrix-js-sdk
+* auto join added (default false)
+
 ### 1.0.0 (2023-04-01)
 * upgrade matrix-js-sdk (node 18 needed)
 

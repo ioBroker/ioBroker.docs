@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.worx/README.md
 title: ioBroker.worx
-hash: VUNH3zAnmKpHk8Ft4gP/Xx2uNBbyr/5zkyhbcjnGftM=
+hash: Ol2vkPFqs9qkriLlPG0oWXLVC/aQEMmYbyvPCkshdVc=
 ---
 ![Logo](../../../en/adapterref/iobroker.worx/admin/worx.png)
 
@@ -30,10 +30,20 @@ Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last
 
 ## Einstellungen
 - Um sich mit dem Mäher zu verbinden, geben Sie E-Mail und Passwort von Ihrem Worx-Konto in der Config ein.
-- Verzögerung für Kantenschnitt: Wenn der Kantenschnitt in einer Kurve oder Biegung beginnt, kann der Rasenmäher das Kabel verlieren und mit einem Fehler anhalten, oder die Messer drehen sich möglicherweise nicht. Dazu kann der Startpunkt eingestellt werden, an dem sich die Messer zu drehen beginnen.
+- Verzögerung für Kantenschnitt: Wenn der Kantenschnitt in einer Kurve oder Biegung beginnt, kann der Rasenmäher das Kabel verlieren und mit einem Fehler stoppen, oder die Messer drehen sich möglicherweise nicht. Dazu kann der Startpunkt eingestellt werden, an dem sich die Messer zu drehen beginnen.
 - Mäher ab eine Zone oder Meterzahl starten lassen:
 
 Setze area.area_0 auf die Meterzahl des gewünschten Startpunktes Setze area.area_1, area.area_2 und area.area_3 jeweils auf 0 Setze area.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
+
+## Zeitplan setzen:
+wochentagname/borderCut wochentagname/startTime wochentagname/workTime
+
+Danach ein Timeout von 1,1 Sek. und worx.0.xxxxxxxxxxx.calendar.calJson_tosend auf true setzen.
+In dieser Zeit darf natürlich nicht automatisch ein Update kommen, da die geänderten Zeiten wieder gelöscht werden. Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT oder den 10 Minuten Refresh unterbindet.
+
+Das gleiche gilt natürlich auch für diese: mower.oneTimeWithBorder mower.oneTimeWorkTime
+
+Und dann nach 1,1 Sek. worx.0.xxx.mower.oneTimeStart setzen
 
 ## Diskussion und Fragen
 <https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
@@ -41,6 +51,14 @@ Setze area.area_0 auf die Meterzahl des gewünschten Startpunktes Setze area.are
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
 
 ## Changelog
+
+### 2.1.3
+
+Add ping option in the instance settings",
+
+### 2.1.2
+
+Improve reconnection for multiple mower
 
 ### 2.1.1
 

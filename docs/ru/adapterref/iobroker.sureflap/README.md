@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
+hash: TdDuowa721DZjQPbC8KSYgVBvO1rHTDrLlYryfVNftI=
 ---
 ![Стабильная версия](http://iobroker.live/badges/sureflap-stable.svg)
 ![версия NPM](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![Количество установок (последние)](http://iobroker.live/badges/sureflap-installed.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
-![Трэвис-CI](http://img.shields.io/travis/Sickboy78/ioBroker.sureflap/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Sickboy78/ioBroker.sureflap?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
 
 # IoBroker.sureflap
+![Тестируйте и выпускайте](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
+
 ## Адаптер для умных устройств для домашних животных от Sure Petcare®
 <p align="center"> <img src="/admin/SureFlap_Pet_Door_Connect_Hub_Phone.png" /> </p> <p align="center"> <img src="/admin/Sure_Petcare_Surefeed_Feeder_Connect.png" /> <img src="/admin/Sure_Petcare_Felaqua_Connect.png" /> </p>
 
@@ -35,7 +35,7 @@ hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
 ### Изменяемые значения
 Следующие состояния могут быть изменены и вступят в силу на вашем устройстве, соответственно, они будут отражены в вашем приложении Sure Petcare®.
 
-| состояние | описание | допустимые значения |
+| государство | описание | допустимые значения |
 |-------|-------------|----------------|
 | house_name.hub_name.control.led_mode | устанавливает яркость светодиодов хаба | **0** - выкл.<br> **1** - высокий<br> **4** - затемненный |
 | house_name.hub_name.flap_name.control.curfew | включает или отключает настроенный комендантский час<br> (комендантский час необходимо настроить через приложение) | **правда** или **ложь** |
@@ -49,12 +49,18 @@ hash: vBY84XTsuv7W8xLxuW9JP+uHqoh9itqNLLAJ84aYZgk=
 
 адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_хаба<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ └ вода<br> │ │ │ └ вес<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ pet_name<br> │ │ │ ├ чаши<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ управление<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ батарея<br> │ │ ├ батарея_процент<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ управление<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ комендантский час<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ включен<br> │ │ │ ├ время блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ pet_name<br> │ │ └ управление<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ pet_name<br> │ ├ внутри<br> │ ├ имя<br> │ ├ так как<br> │ ├ питание<br> │ │ ├ last_time_eaten<br> │ │ ├ потраченное_время<br> │ │ ├ раз_съедено<br> │ │ └ сухая..мокрая<br> │ │ └ вес<br> │ └ вода<br> │ ├ last_time_drunk<br> │ ├ затраченное время<br> │ ├ раз_пьяный<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ подключение<br> └ последнее_обновление<br>
 
-## Ноты
+## Примечания
 SureFlap®, Sure Petcare® и Felaqua® являются зарегистрированными товарными знаками [ООО «СюрФлап».](https://www.surepetcare.com/)
 
 Изображения устройств SureFlap® предоставляются бесплатно с [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.1.8 (2023-06-01)
+* (Sickboy78) adjustments for Surepet API changes
+
+### 1.1.7 (2023-03-13)
+* (Sickboy78) fixed false login error in case pet had no photo
 
 ### 1.1.6 (2023-01-07)
 * (Sickboy78) added battery voltage configuration
@@ -126,7 +132,7 @@ SureFlap®, Sure Petcare® и Felaqua® являются зарегистрир�
 
 MIT License
 
-Copyright (c) 2022 Sickboy78 <asmoday_666@gmx.de>
+Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

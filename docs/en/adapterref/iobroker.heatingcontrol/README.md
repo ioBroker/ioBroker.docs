@@ -19,7 +19,7 @@ For more details and for information how to disable the error reporting see [Sen
 
 **If you like it, please consider a donation:**
                                                                           
-[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url) 
+[![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC) 
 
 
 ## Documentation
@@ -235,6 +235,14 @@ checks that value was set correctly and ack is set, otherwise retries...
 to do
 
 
+## EVU Sperrzeit / PowerInterruption
+
+when the power supply company blocking time is reached, all actuators are switched off and switched on again at the end of the blocking time.
+Status goes to "EVU Sperrzeit" / "PowerInterruption"
+Aim: switch off electrical heaters and switch them on again in a targeted manner in order to minimize the load on the contactors and to minimize inrush currents
+Configuration: Start / end time of the EVU blocking time, several periods can be configured
+
+
 ## Issues and Feature Requests
 * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
@@ -252,6 +260,12 @@ If thermostat use information from window sensor then "thermostat handles window
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.11.0 (in progress)
+* (René) see issue #368: units added in datapoints
+* (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
+* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #367: wait for set target temperature before checking actor changes
 
 ### 2.10.6 (2023-01-31)
 * (René) see issue #355: reset override is now also with Button ResetManual possible

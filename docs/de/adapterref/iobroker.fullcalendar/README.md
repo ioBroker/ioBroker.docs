@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fullcalendar/README.md
 title: ioBroker.fullcalendar
-hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
+hash: aK2B2glZDSol529TZiHY9yAAyRGwmFS9/XwsNgsuvEU=
 ---
 ![Logo](../../../en/adapterref/iobroker.fullcalendar/admin/fullcalendar.png)
 
@@ -15,22 +15,44 @@ hash: 1ScYPpXdVmnzZfRkYzou01nsp2indpcL+Ja/8kXosAs=
 # IoBroker.fullcalendar
 Fahrpläne mit [voller Kalender](https://fullcalendar.io).
 
+## Planen Sie die Ereignisse (steuern Sie Ihre Geräte)
 Sie müssen keine externen Ressourcen verwenden, die Terminplanung wird nur in ioBroker verarbeitet und wird nicht mit externen Diensten wie "Google Kalender" oder "iTunes" kombiniert.
 
 ![Beispiel](../../../en/adapterref/iobroker.fullcalendar/img/example.png)
 
 Sie können Ihre Ereignisse mit dem Kalender steuern und planen, sie regelmäßig zu steuern.
 
+## Ereignissimulation
+Sie können Ihr Verhalten aufzeichnen und später wiedergeben.
+So können Sie beispielsweise zwei Aufnahmen für Werktag und Wochenende erstellen und an entsprechenden Tagen wiedergeben.
+
+Oder Sie nehmen die ganze Woche auf und spielen sie während Ihrer Abwesenheit in den nächsten Wochen ab.
+
+Wie benutzt man:
+
+- Gehen Sie zur Registerkarte Simulation
+- Erstellen Sie die neue Simulation, indem Sie auf die Schaltfläche "+" klicken, und wählen Sie den Simulationstyp aus: Tag oder Woche
+- Klicken Sie auf die Aufnahmeschaltfläche und warten Sie 24 Stunden oder 7 Tage, bis die Simulation stoppt, um Ereignisse aufzuzeichnen
+- Jetzt können Sie die Simulation erneut abspielen, indem Sie auf die Wiedergabeschaltfläche klicken. Zusätzlich können Sie den Zeitpunkt festlegen, zu dem die Simulation gestartet werden soll.
+
 ## Machen
 - Woche und Tag müssen zur aktuellen Uhrzeit scrollen
-- Astro-Veranstaltungen
 
 <!-- Platzhalter für die nächste Version (am Zeilenanfang):
 
 ### **IN ARBEIT** -->
 
 ## Changelog
-### 2.0.2 (2023-03-03)
+### 2.2.1 (2023-04-25)
+* (bluefox) Corrected stop of the recording
+
+### 2.2.0 (2023-04-24)
+* (bluefox) Added simulation of events
+
+### 2.0.8 (2023-03-24)
+* (bluefox) Corrected vis-2 widgets
+
+### 2.0.5 (2023-03-07)
 * (bluefox) New material design
 * (bluefox) License changed to MIT
 * (bluefox) Allowed deletion of events

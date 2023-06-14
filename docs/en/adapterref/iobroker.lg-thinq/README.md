@@ -21,6 +21,8 @@ Adapter for LG ThinQ
 
 ## Changelog
 
+### 0.1.4
+* Added warning for not supported devices
 ### 0.1.1
 * Added AC Device 401 thinq2
 * Bugfix
@@ -32,7 +34,7 @@ Adapter for LG ThinQ
 ## License
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eventlist/README.md
 title: ioBroker.eventlist
-hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
+hash: +WYlO771RZHfMZcPbi7B6ca9nsdaJq3P3c3zZiCLU5s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eventlist/admin/eventlist.png)
 
@@ -19,7 +19,7 @@ hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 ## Адаптер Event-List для ioBroker
 Позволяет определить состояния, которые должны регистрироваться в списке событий.
 
-Список можно показать в админке, сети, визе, сохранить в формате PDF, материале (пока не реализовано).
+Список можно показать в админке, вебе, визе, сохранить в формате PDF, материале (пока не реализовано).
 
 Кроме того, вы можете отправлять события через Telegram или WhatsApp.
 
@@ -35,7 +35,7 @@ hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 
 Вариант использования:
 
-- напр. датчик двери может отправлять сообщения, только если никого нет дома. В противном случае события об открытии двери будут собираться только в списке событий.
+- Например, дверной датчик может отправлять сообщения, только если никого нет дома. В противном случае события об открытии двери будут собираться только в списке событий.
 
 ## Возможные презентации
 ### В админке как вкладка
@@ -63,7 +63,7 @@ hash: HxDwMRvKkYD+DWbR1NuYV4A7bkvoZS3RecdhaMCxCdY=
 **Значки не отображались в формате PDF.**
 
 ## Окно сообщения
-Пользователь может добавлять пользовательские события в список через javascript:
+Пользователи могут добавлять собственные события в список через javascript:
 
 ```
 // add custom event to event list
@@ -103,7 +103,7 @@ sendTo('eventlist.0', 'list', 'my.0.state.id1', result => {
 });
 ```
 
-Пользователь может удалить некоторые или все события из списка событий.
+Пользователи могут удалить некоторые или все события из списка событий.
 
 ```
 // delete all events
@@ -135,21 +135,38 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 - %o - разница значений (`Состояние изменилось с %o на %` => `Состояние изменилось на 1%`)
 
 ## Использование нескольких экземпляров в сети
-Например. вы можете показать конкретный список для экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
+Например, вы можете показать конкретный список экземпляра 2, например `http://IP:8082/eventlist/index.htmlindex.html?2`.
 
 Сгенерированный отчет будет сохранен, например, под номером 0 в `eventlist/report.pdf`, а под номером 1 — в `eventlist/report-1.pdf`.
 
-## Сделать
+## Делать
 - Изменить начальные тексты в PDF на соответствующем языке
 - Множество предустановленных иконок (минимум 100)
 - Материальный виджет
-- Отправка сообщений в системный журнал (возможно, splunk) https://www.npmjs.com/package/splunk-logging
+- Отправлять сообщения в системный журнал (возможно, splunk) https://www.npmjs.com/package/splunk-logging
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.2.4 (2023-05-17)
+* (bluefox) Just the packages were updated
+
+### 1.2.3 (2023-03-16)
+* (bluefox) Corrected the edit of the event sources
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
+### 1.2.2 (2022-12-27)
+* (bluefox) Corrected web page loading in web adapter
+
+### 1.2.1 (2022-12-23)
+* (bluefox) Updated GUI packages
+
+### 1.2.0 (2022-11-12)
+* (bluefox) Fixed error with edit of the state settings
+* (bluefox) Added possibility to use default texts for strings values like for booleans
+
 ### 1.1.1 (2022-10-12)
 * (bluefox) Fixed icons of devices
 * (bluefox) Migrated GUI to `mui5`
@@ -160,7 +177,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 * (bluefox) Added preparations for ioBroker cloud
 
 ### 1.0.0 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 0.5.5 (2022-04-23)
 * (Apollon77) Fix a crash issue
@@ -177,12 +194,12 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 * (bluefox) Corrected the warning for js-controller 3.x
 
 ### 0.4.3 (2021-04-19)
-* (bluefox) Added the support of Admin5
+* (bluefox) Added the support for Admin5
 
 ### 0.4.2 (2020-12-05)
 * (bluefox) Added possibility to add multiple states
 * (bluefox) Moved the duration to previous state
-* (bluefox) Support of multiple instances
+* (bluefox) Support for multiple instances
 
 ### 0.4.0 (2020-11-10)
 * (bluefox) Added setting of even/odd background for widget
@@ -220,7 +237,7 @@ sendTo('eventlist.0', 'delete', '2020-10-20T21:00:12.000Z', result => {
 ## License
 MIT License
 
-Copyright (c) 2020-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2020-2023 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

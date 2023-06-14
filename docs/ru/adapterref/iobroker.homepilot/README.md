@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homepilot/README.md
 title: ioBroker.homepilot
-hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
+hash: Qr538CSIqS4MSNYizNQlWNosoc7hZnbsf0aYbEnxf2g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homepilot/admin/homepilot.png)
 
@@ -13,7 +13,8 @@ hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
 ![НПМ](https://nodei.co/npm/iobroker.homepilot.png?downloads=true)
 
 # IoBroker.homepilot
-Для адаптера требуется, чтобы прошивка базовой станции Homepilot была ниже версии 5.0 (ранее, чем сентябрь 2019 г.). Более новыми или обновленными станциями можно управлять с помощью [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20) Требуется NodeJS 10 или выше.
+## _Adapter требует, чтобы прошивка базовой станции Homepilot была ниже версии 5.0 (ранее, чем сентябрь 2019 г.)._<br> _Более новыми или обновленными станциями можно управлять с помощью [ioBroker.homepilot20](https://github.com/homecineplexx/ioBroker.homepilot20)_
+Требуется NodeJS 10 или выше
 
 :de: [Документация](/docs/de/doc_homepilot_de.md)
 
@@ -35,12 +36,20 @@ hash: If5+FxBOyPmusPj/AbqOIe5lhH5rfgHLffi+GQ1QjY8=
 
 ## Дорожная карта
 * 1.4.0 получить список всех установленных продуктов duofern в вашей сети в окне настроек
-* 1.5.0 переставить дерево объектов на "homepilot.0.device.channel.state"
+* 1.5.0 переупорядочить дерево объектов в "homepilot.0.device.channel.state"
 * 2.0.0 получать данные в реальном времени со станции Homepilot (zwave)
 
 Взносы приветствуются!
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+
 ### 1.1.7a (2021-08-25)
 * (pix) DeviceId should be string [#27](https://github.com/iobroker-community-adapters/ioBroker.homepilot/issues/27)
 

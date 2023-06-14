@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
 title: ioBroker.mielecloudservice
-hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
+hash: utkRsFtZBLnnrbiKMhFWnLy7zFBrA5SbERuqBGMc8yI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
@@ -116,17 +116,26 @@ hash: i3abhisWskDCqWlgUOF716971iez5R56vkPqonlT/Kc=
 Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения об этом автору. Для этого используется плагин [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
 
 ## Авторские права
-Авторское право (c) 2019-2022 grizzelbee <open.source@hingsen.de>
+Copyright (c) grizzelbee, 2023 г. <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### 6.5.0 (2023-04-xx) (Dying for an Angel)
+### 6.5.1 (2023-04-21) (Dying for an Angel)
+* (grizzelbee) Fix: Some minor fixes for ioBroker adapter checker
+
+### 6.5.0 (2023-04-18) (Dying for an Angel)
 * (grizzelbee) New: added device type 74 = Hob with vapour extraction (part of Miele API v1.0.6)
 * (grizzelbee) Upd: Updated ReadMe file
 * (grizzelbee) Chg: Dependencies got Updated
 * (grizzelbee) Chg: Important: Requires at least Node.js 14
-* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERORR occured when switching ventilationStep
+* (grizzelbee) Chg: Changed SpinningSpeed from number to string 
+* (grizzelbee) New: Added RAW-Value to SpinningSpeed 
+* (grizzelbee) Chg: Changed PlateStep-xxx from number to string (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) New: Added RAW-Value to Platesteps (related to issue [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356))
+* (grizzelbee) Fix: [343](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/343) GENERIC_BUSINESS_ERROR occurred when switching ventilationStep
+* (grizzelbee) Fix: [356](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/356) In some cases the value 0 (zero) is ignored (e.g. at PlateStep)
+* (grizzelbee) Fix: [359](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/359) Fixed "oauth is not a function" error during startup with downgrade of axios-oauth-client to v1.5.0
 
 ### 6.4.0 (2022-09-07) (Dying for an Angel)
 * (grizzelbee) Fix: program names get localized now

@@ -30,6 +30,7 @@ Example:
 
 ### Usage
 There are two possibilities to send a messages:
+ATENTION! It has been noticed that when sending multiple messages within one second, CallMeBot locks a user for 15 minutes. Therefore, it should be ensured that only one message is sent per second.
 - via `signal-cmb.0.sendMessage`. Just write some text into this state and the message will be sent to default number, that was configured in settings dialog.
 - via message from javascript adapter:
 ```

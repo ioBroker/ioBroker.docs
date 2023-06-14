@@ -1,20 +1,11 @@
 [
   {
-    "file": "win/iobroker-installer-2.1.1.exe",
+    "file": "win/iobroker-installer-2.2.1.exe",
     "platform": "Windows 32/64Bit",
-    "date": "20230329",
+    "date": "20230430",
     "device": "Windows",
     "details": "Small Windows Installer",
     "picture": "windows.png"
-  },
-  {
-    "file": "win/iobroker-latest-windows-installer.exe",
-    "platform": "Windows 32/64Bit",
-    "date": "20191123",
-    "device": "Windows",
-    "details": "Universal Installer mit<br><ul><li>Node.js + npm</li><li>Visual Studio 2017</li><li>Python, Git, Bonjour, ...</li></ul><br>Bitte UNBEDINGT die Info lesen und bei Neuinstallation und Update befolgen!",
-    "picture": "windows.png",
-    "info": "https://forum.iobroker.net/post/446928"
   },
   {
     "file": "https://hub.docker.com/r/buanet/iobroker/",

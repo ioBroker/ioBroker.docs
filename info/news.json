@@ -1706,5 +1706,41 @@
         "conditions": {
             "fahrplan": "smaller(1.2.3)"
         }
+    },
+    {
+        "title": {
+            "en": "js-controller 5.0.x in BETA now! IMPORTANT: Read Forum! Node.js 16+!",
+            "de": "js-controller 5.0.x in BETA jetzt! WICHTIG: Forum lesen! Node.js 16+!",
+            "ru": "js-controller 5.0.x в BETA сейчас! ВАЖНО: Читайте Форум! Node.js 16+!",
+            "pt": "js-controller 5.0.x em BETA agora! IMPORTANTE: Leia Fórum! Node.js 16+!",
+            "nl": "js-controller 5.0x in BETA nu! Lees Forum! Node!",
+            "fr": "js-controller 5.0.x dans BETA maintenant! IMPORTANT: Lire Forum! Node.js 16+!",
+            "it": "js-controller 5.0.x in BETA ora! IMPORTANTE: Leggi il Forum! Node.js 16+!",
+            "es": "js-controller 5.0.x en BETA ahora! IMPORTANTE: ¡Lea Foro! Node.js 16+!",
+            "pl": "js-controller 5.0.x w wersji BETA już teraz! WAŻNE: Czytaj forum! Node.js 16+!",
+            "uk": "js-controller 5.0.x в BETA тепер! ВАЖЛИВО: Читати Форум Node.js 16+!",
+            "zh-cn": "现! IMPORTANT: 阅读论坛! 页:1!"
+        },
+        "content": {
+            "en": "The new js-controller 5.0.x is available now in BETA channel. Several Adapters needs to be updated! More information on this version, and FAQ and other instructions can be found in the german forum at https://forum.iobroker.net/post/1002513",
+            "de": "Der neue js-Controller 5.0.x ist jetzt im BETA-Kanal erhältlich. Mehrere Adapter müssen aktualisiert werden! Weitere Informationen zu dieser Version und FAQ und weitere Anweisungen finden Sie im deutschen Forum unter https://forum.iobroker.net/post/1002513",
+            "ru": "Новый js-controller 5.0.x доступен сейчас в BETA канале. Несколько адаптеров должны быть обновлены! Более подробную информацию об этой версии, и FAQ и другие инструкции можно найти на немецком форуме на https://forum.iobroker.net/post/1002513",
+            "pt": "O novo js-controller 5.0.x está disponível agora no canal BETA. Vários adaptadores precisam ser atualizados! Mais informações sobre esta versão, e FAQ e outras instruções podem ser encontradas no fórum alemão em https://forum.iobroker.net/post/1002513",
+            "nl": "De nieuwe Js-controller 5.0.x is nu beschikbaar in BETA kanaal. Verschillende Adapters moeten geüpload worden. Meer informatie over deze versie, en FAQ en andere instructies kunnen gevonden worden in het Duitse forum bij https://forum.iobroker.net/post/1002513",
+            "fr": "Le nouveau js-controller 5.0.x est maintenant disponible dans le canal BETA. Plusieurs adaptateurs doivent être mis à jour! Plus d ' informations sur cette version, ainsi que sur la FAQ et d ' autres instructions figurent dans le forum allemand à l ' adresse https://forum.iobroker.net/post/1002513",
+            "it": "Il nuovo js-controller 5.0.x è disponibile ora nel canale BETA. Diversi adattatori devono essere aggiornati! Ulteriori informazioni su questa versione, e FAQ e altre istruzioni possono essere trovate nel forum tedesco all'indirizzo https://forum.iobroker.net/post/1002513",
+            "es": "El nuevo js-controller 5.0.x está disponible ahora en el canal BETA. ¡Hay que actualizar varios Adaptadores! Más información sobre esta versión, y FAQ y otras instrucciones pueden encontrarse en el foro alemán en https://forum.iobroker.net/post/1002513",
+            "pl": "Nowy js-controller 5.0.x jest dostępny na kanale BETA. Kilka Adapterów musi być aktualizowanych. Więcej informacji na tej wersji, FAQ i inne instrukcje można znaleźć w forum german w https://forum.iobroker.net/post/1002513",
+            "uk": "Новий js-controller 5.0.x тепер доступний в каналі BETA. Кілька адаптерів потрібно оновити! Більше інформації про цю версію, і FAQ та інші інструкції можна знайти в німецькому форумі https://forum.iobroker.net/post/1002513",
+            "zh-cn": "新的一栏管制容忍5.0x现可在联索政治处的渠道查阅。 需要更新几名记者! 有关这一版本的更多资料和FAQ和其他指示可在以下网址查阅:https://forum.iobroker.net/post/1002513。"
+        },
+        "id": "jscontroller50xinfobeta",
+        "created": "2022-03-05T18:10:00.000Z",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "repo": "latest",
+        "conditions": {
+            "js-controller": "smaller(5.0.2)"
+        }
     }
 ]

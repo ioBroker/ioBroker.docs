@@ -18,11 +18,17 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gira-iot/README.md
 title: ioBroker.gira-iot
-hash: CIGLX3iWa9xDpAneUSra5qOFGX39A73NayIQhyzXYak=
+hash: 42b5t7Ag8bOVizM8R2yy4fFKO/1vkz4kgbNKcBg/wnw=
 ---
 ![标识](../../../de/admin/gira-iot.png)
 
 # IoBroker.gira-物联网
+## 兼容设备
+- 吉拉 X1
+- Gira 家庭服务器
+- Gira One 服务器
+
+＃＃ 第一步
 
 ## Changelog
 <!--
@@ -31,6 +37,7 @@ hash: CIGLX3iWa9xDpAneUSra5qOFGX39A73NayIQhyzXYak=
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added missing channel type for remote access
 * (klein0r) Url preview in instance configuration
 
 ### 0.2.1 (2023-01-11)

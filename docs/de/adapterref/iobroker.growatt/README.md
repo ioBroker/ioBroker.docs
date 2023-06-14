@@ -3,43 +3,43 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: DCWXE3a0M+TwFXpYSMfkRsoD7F56SUPQdrOuzkwScTA=
+hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.growatt.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.growatt.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/growatt-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/growatt-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/growatt-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/growatt-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
 ## Wichtig: Bitte lesen
-Die Cloud-Server von Growatt sind sehr instabil. Beim Anfordern von Daten kommt es zu Fehlermeldungen und Timeouts.
-Wer dennoch über die Anschaffung eines Wechselrichters nachdenkt, greift besser zu einem guten Produkt. Am besten eignen sich Geräte, die die Daten direkt im Haus per modbus-ip übertragen.
-Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt. Hier kommt es aber auch vor, dass ältere Datensätze übertragen werden oder die Übertragung ausgesetzt wird, da diese die Daten nur mithört und zwischenspeichert.
+Die Cloud-Server von Growatt sind sehr instabil. Bei der Datenanforderung kommt es zu Fehlermeldungen und Timeouts.
+Wenn Sie noch über die Anschaffung eines Wechselrichters nachdenken, ist es besser, auf ein gutes Produkt zurückzugreifen. Am besten eignen sich Geräte, die die Daten per Modbus-IP direkt im Haus übertragen.
+Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt. Hierbei kommt es jedoch auch vor, dass ältere Datensätze übertragen werden oder die Übertragung ausgesetzt wird, da diese nur mithört und die Daten zwischenspeichert.
 
 ---
 
 ### Growatt-Adapter für ioBroker
-ioBroker Growatt Adapter zur Kommunikation mit Growatt Shine Server.
+ioBroker Growatt-Adapter zur Kommunikation mit Growatt Shine Server.
 Ich bin nicht angeschlossen.
-Normalerweise werden die Daten alle 5 Minuten vom Datenlogger in die Cloud gesendet.
+Normalerweise werden die Daten alle 5 Minuten vom Datenlogger an die Cloud gesendet.
 Sie können es ändern, siehe unten.
 
-Nicht alle Anlagentypen sind implementiert.
+Nicht alle Anlagentypen werden umgesetzt.
 
-Aktuell können nur Daten gelesen werden, das Schreiben von Parametern oder das Ändern von Parametern ist nicht möglich.
+Derzeit können nur Daten gelesen werden, das Schreiben von Parametern oder das Ändern von Parametern ist nicht möglich.
 
 ---
 
-## Adapter-Admin-Seite
+## Adapter-Administratorseite
 ### Haupteinstellungen
 #### Benutzer und Passwort
 Bitte geben Sie den Namen und das Passwort ein, die Sie auch in der Shine-App oder im Webportal verwenden.
 
 #### Anmeldung mit gemeinsamem Schlüssel
-Auf der Growatt-Website unter Energie, Anlagenmanagement, Betriebstools können Sie sich selbst einen Schlüssel per E-Mail zusenden.
+Auf der Growatt-Website unter Energie, Anlagenmanagement, Betriebstools können Sie sich einen Schlüssel per E-Mail zusenden.
 
 #### Anlagendaten lesen
 Dieser Datensatz enthält die hinterlegten Stammdaten
@@ -49,78 +49,96 @@ Liest den letzten Datensatz aus der Historie des Datenloggers.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 #### Statusdaten lesen
-Diese Daten sind nicht für alle Anlagen (nicht INV/MAX/TLX) verfügbar. Dieser Datensatz enthält Live-Daten.
+Diese Daten sind nicht für alle Anlagen verfügbar (nicht INV/MAX/TLX). Dieser Datensatz enthält Live-Daten.
 Diese Funktion unterstützt Minutenintervalle für den Datenlogger.
 
 #### Gesamtdaten lesen
 Dieser Datensatz enthält Aggregationsdaten.
 
 #### Gerätedaten lesen
-Dieser Datensatz enthält einige Daten des Geräts. Einige Daten sind auch in den anderen Kategorien verfügbar.
+Dieser Datensatz enthält einige Daten vom Gerät. Einige Daten sind auch in den anderen Kategorien verfügbar.
 
 #### Wetter lesen
 Dieser Datensatz enthält die Wettervorhersage.
 
-#### Timeout in Sekunden
-Das Standardzeitlimit für HTTP-Anforderungen. Der Standardwert 60 Sekunden, wie bei Webbrowsern
+#### Wechselrichtereinstellungen schreiben
+Wenn diese aktiviert ist, können einige Einstellungen für einige Wechselrichter bearbeitet werden.
 
-#### Prozesszeitüberschreitung in Sekunden
-Dieses Timeout überwacht die Sammlung von Daten vom Growatt-Server. Wenn der Server innerhalb dieser Zeit nicht alle Daten verarbeitet, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklus-Timer gestartet. Der Standardwert ist 600 Sekunden.
-Wenn der Wert 0 ist, wird diese Prüffunktion nicht ausgeführt.
+Für die Einstellungen werden Objekte unterhalb des Wechselrichter-Seriennummernelements erstellt. Für jede Einstellung wird ein Kanal erstellt.
+
+Unterhalb der Objekte befinden sich „read“, „write“, „msg“ und die Knotenwerte. Unter den Werten befinden sich Parameter.
+
+Konnten die Werte der Parameter gelesen werden, werden sie mit ACK=true geschrieben. „read“ wird bei erfolgreichem Lesen mit ack auf true gesetzt. Wenn das Lesen fehlschlägt, wird „Read“ auf false ack=true gesetzt. Das Schreiben von „true“ auf „Read“ ohne ACK löst einen Lesevorgang aus. Wird eine neue Verbindung zur Cloud hergestellt, werden die Einstellungen ebenfalls ausgelesen.
+
+Um die Einstellungen zu schreiben, müssen zunächst die Parameter eingestellt werden. Dann wird „write“ mit ack=false auf true gesetzt.
+Wenn die Daten erfolgreich geschrieben wurden, wird „write“ auf „true“ ack=true gesetzt, wenn der Wechselrichter einen Fehler gemeldet hat, wird „write“ auf „false“ ack=true gesetzt. Zusätzlich wird die Rückmeldung des Wechselrichters in den Status „msg“ geschrieben.
+
+War das Schreiben erfolgreich, wird automatisch das Lesen ausgelöst.
+
+Der Wechselrichter kann jeweils nur eine Einstellung ändern und der Übertragungsweg verläuft vom ioBroker über die Cloud zum WLAN-Adapter und dann zum Wechselrichter. Die Einstellungen werden nacheinander über eine Warteschlange abgearbeitet. Eine zu kurze Sitzungszeit kann zu Problemen führen.
+
+Das Verfassen der Einstellungen erfolgte nach bestem Wissen und Gewissen. Es wird jedoch keine Garantie übernommen
+
+#### Timeout in Sekunden
+Das Standard-Timeout für HTTP-Anfragen. Der Standardwert beträgt 60 Sekunden, wie bei Webbrowsern
+
+#### Prozess-Timeout in Sekunden
+Dieses Timeout überwacht die Datenerfassung vom Growatt-Server. Verarbeitet der Server innerhalb dieser Zeit nicht alle Daten, wird ein Fehler gemeldet, die Sitzung beendet und ein neuer Zyklustimer gestartet. Der Standardwert beträgt 600 Sekunden.
+Bei einem Wert von 0 wird diese Prüffunktion nicht ausgeführt.
 
 #### Websitzung beibehalten
-Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist es eingeschaltet.
+Der Adapter meldet sich nur einmal an und nicht bei jeder Datenanfrage vom Growatt-Server. Standardmäßig ist es aktiviert.
 
 #### Sitzungszeit in Minuten
-Hier können Sie einstellen, wann sich der Adapter vom Server ab- und wieder anmeldet. Eine 0 bedeutet nie abmelden. Der Standardwert ist 0 = unendlich.
+Hier können Sie einstellen, wann sich der Adapter vom Server abmeldet und wieder anmeldet. Eine 0 bedeutet, dass Sie sich nie abmelden. Der Standardwert ist 0=unendlich.
 
 #### Zykluszeit in Sekunden
-Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100ms. Der Standardwert ist 30 Sekunden.
+Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100 ms. Der Standardwert beträgt 30 Sekunden.
 
 #### Fehlerzykluszeit in Sekunden
-Tritt bei der Abfrage der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert ist 120 Sekunden
+Tritt bei der Abfrage der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert beträgt 120 Sekunden
 
 #### Growatt-Server
-Hier kann eine andere URL eingetragen werden, um beispielsweise die US-Domain zu verwenden. Aber es muss mit "https://" beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
+Hier kann eine andere URL eingegeben werden, um beispielsweise die US-Domain zu verwenden. Es muss jedoch mit „https://“ beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
 
 ### Objekte verwalten
-Hier können Sie festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Umrichter abgeholt wird.
+Hier können Sie festlegen, was mit jedem Wert (Objekt) passieren soll, der vom Wechselrichter erfasst wird.
 Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können hier entfernt werden.
-Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Die Schaltfläche „Aktualisieren“ muss verwendet werden, wenn „Speichern“ gedrückt wird.
+Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Beim Drücken von „Speichern“ muss die Schaltfläche „Aktualisieren“ verwendet werden.
 
 #### Normal
-Das Objekt bleibt bestehen, der Wert wird aktualisiert.
+Das Objekt bleibt erhalten, der Wert wird aktualisiert.
 
 #### Löschen
-Das Objekt wird gelöscht und der vom Umrichter geladene Wert wird verworfen.
-Nach der Aktualisierung werden nur die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Wenn Sie normal auswählen, wird das Objekt nach dem Speichern erneut erstellt.
+Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert verworfen.
+Nach dem Update werden nur noch die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Bei normaler Auswahl wird das Objekt nach dem Speichern erneut erstellt.
 
 #### Kein Update
-Das Objekt bleibt bestehen, die Werte aus dem Wechselrichter werden verworfen.
+Das Objekt bleibt erhalten, die Werte vom Wechselrichter werden verworfen.
 
 ### Logger verwalten
-Die Instanz muss ausgeführt werden und beim Server angemeldet sein. Anschließend können die Einstellungen des Datenloggers über den Aktualisieren-Button in diesem Reiter aufgerufen werden.
-Die Daten werden nicht automatisch abgefragt, die Abfrage kann nur über die Schaltfläche erfolgen.
-Die angezeigten Felder für den Datenlogger können nicht geändert werden. Es geht nur um abgerufene Daten.
+Die Instanz muss ausgeführt und beim Server angemeldet sein. Anschließend können die Einstellungen des Datenloggers über den Aktualisieren-Button in diesem Reiter aufgerufen werden.
+Die Daten werden nicht automatisch abgefragt, die Anfrage kann nur über den Button erfolgen.
+Die für den Datenlogger angezeigten Felder können nicht geändert werden. Es handelt sich lediglich um abgerufene Daten.
 Für jeden Logger werden Schaltflächen angezeigt. Einstellungen können mit der Schaltfläche bearbeitet werden.
 _Bei Verwendung von GROTT muss das Ändern von Einstellungen in der INI aktiviert sein._ Bitte verwenden Sie die Einstellungen nicht, wenn ein Wert erscheint, den Sie nicht erwartet haben.
-Achtung, dies basiert auf Reingeneering. Ich übernehme keine Haftung für Schäden am Gerät.
+Achtung, dies basiert auf Reingeneering. Für Schäden am Gerät übernehme ich keine Haftung.
 
 #### Tastenintervall
 Das aktuelle Intervall in Minuten wird aus dem Datenlogger ausgelesen und es erscheint eine Eingabemaske, in der der Wert angepasst werden kann.
 Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
 
-#### Button-Server-IP
-Hier kann der Server für die Datenübertragung auf den Logger eingestellt werden. Bei Verwendung von Grott oder US kann hier die lokale oder US-IP angegeben werden.
+#### Schaltfläche Server-IP
+Hier kann der Server für die Datenübertragung auf dem Logger eingestellt werden. Bei Verwendung von Grott oder US kann hier die lokale oder US-IP angegeben werden.
 Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
 
-#### Button-Server-Port
+#### Schaltfläche Server-Port
 Hier kann der Port auf dem Server für die Datenübertragung auf den Logger eingestellt werden.
 Wenn Sie eine erfolgreiche Antwort erhalten, sollte der Datenlogger neu gestartet werden, um die Einstellungen zu aktivieren.
 
-#### Taste Firmware prüfen
-Es wird gefragt, ob die Firmware des Datenloggers aktuell ist.
-Das Update muss auf der growatt Seite durchgeführt werden.
+#### Schaltfläche Firmware überprüfen
+Es wird abgefragt, ob die Firmware des Datenloggers aktuell ist.
+Das Update muss auf der Growatt-Seite durchgeführt werden.
 
 #### Schaltfläche Datenlogger neu starten
 Jeder Stiefel ist gut.
@@ -128,37 +146,67 @@ Die Einstellungen werden übernommen.
 
 ---
 
-## Interne Methode zum Beschleunigen des Datenintervalls
-Werfen Sie einen Blick auf Logger verwalten und Schaltflächenintervall
+## Interne Methode des Datenintervalls beschleunigen
+Schauen Sie sich „Logger verwalten“ und „Schaltflächenintervall“ an
 
-## Datenintervall externe App-Methode beschleunigen
+## Externe App-Methode zur Beschleunigung des Datenintervalls
 - Öffnen Sie die ShinePhone-App
 - Klicken Sie unten auf den Anhang
 - Oben rechts +, dann Datenlogger auflisten
 - Klicken Sie auf vorhandenen Datenlogger
 - Datenlogger konfigurieren
 - Drahtloser Hotspot-Modus
-- Bringen Sie den Stick in den AP-Modus
-- Mit WLAN-Hotspot verbinden, PW 123456789 ? <- erneut prüfen
-- Fortsetzen
+- Versetzen Sie den Stick in den AP-Modus
+- Mit WLAN-Hotspot verbinden, PW 123456789? <- nochmal prüfen
+- Weitermachen
 - Fortschrittlich
 - Zeiteinstellung
 - Intervall bis 1
-- Geben Sie das Passwort growattJJJJMMTT ein (z. B. growatt20220209)
+- Geben Sie das Passwort „growattJJJJMMTT“ ein (z. B. „growatt20220209“).
 - Freischalten
 - Klicken Sie auf und übernehmen Sie die Änderungen
-- Verlassen Sie den Hotspot-Modus
+- Hotspot-Modus verlassen
 
-## Datenintervall beschleunigen externe alte Methode
-Im Hotspot-Modus ist es nur möglich, das Intervall auf der alten Firmware zu ändern.
+## Externe alte Methode des Datenintervalls beschleunigen
+Im Hotspot-Modus ist es nur auf der alten Firmware möglich, das Intervall zu ändern.
 Growatt hat die Website aus der Firmware entfernt.
 Daher wurde auch die Beschreibung entfernt.
 
-**Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort sehen Sie nur eine Änderung der Daten des Datenloggers.**
+**Es gibt keine Änderung an den Diagrammen auf der Growatt-Seite. Dort ist lediglich eine Änderung der Daten des Datenloggers zu erkennen.**
 
 -\*-
 
 ## Changelog
+
+### 3.0.2 (08.06.2023)
+
+- (PLCHome) Write inverter settings, it can be activated via the config
+
+  - mix
+    - Time
+    - Grid first
+    - Battery first
+    - Inverter On/Off
+    - LoadFirst
+    - Failsafe
+    - PV active power rate
+    - Backflow setting
+      - Backflow setting power
+    - EPSOn
+  - tlx/tlxh
+    - Time
+    - PV active power rate
+
+### 2.1.1 (17.04.2023)
+
+- (PLCHome) Calendar structure was not always changed to timestamp
+- (PLCHome) Improvement in the internal handling of objects without considering their case.
+
+### 2.1.0 (14.04.2023)
+
+- (PLCHome) Status data now also from TLX/TLXH
+- (PLCHome) TLX Hybrid is now working
+- (PLCHome) If there are different inverters, these are now shown
 
 ### 2.0.0 (06.10.2022)
 

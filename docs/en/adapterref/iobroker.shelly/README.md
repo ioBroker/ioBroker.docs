@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-communi
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.shelly?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.shelly?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.shelly?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/iobroker-community-adapters/iobroker.shelly/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.shelly/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.shelly?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
@@ -46,10 +46,10 @@ Check the list of *supported devices* for more details.
 
 ## General
 
-You can use the adapter in CoAP or MQTT mode.
+The adapter can be used in MQTT (recommended) or CoAP/CoIoT mode.
 
-- The default mode is MQTT (see [documentation](protocol-mqtt.md) for details)
-- CoAP is just compatible with devices of generation 1
+- The default mode of the adapter is MQTT (see [documentation](protocol-mqtt.md) for details)
+- CoAP/CoIoT is just compatible with Gen1 devices!
 - **If you want to use Gen2 devices, you must use MQTT!**
 
 Questions? Check the [FAQ](faq.md) section first!
@@ -63,6 +63,10 @@ Questions? Check the [FAQ](faq.md) section first!
   ### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+* (klein0r) 
+
+### 6.4.1 (2023-04-23)
 
 * (viper4gh) Added Shelly Pro 3 EM energy data
 * (klein0r) Fixed IP handling in Docker containers
@@ -92,11 +96,6 @@ Questions? Check the [FAQ](faq.md) section first!
 
 * (klein0r) IP address of CoAP devices is unknown in some cases
 * (klein0r) Optimized destroy process
-
-### 6.2.3 (2022-10-20)
-
-* (klein0r) Use unique ID for each command - generation 2 devices
-* (klein0r) Fix: Ack state if value is unchanged
 
 ## License
 

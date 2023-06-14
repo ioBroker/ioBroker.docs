@@ -94,6 +94,13 @@ Change the value of programs.active.BSH_Common_Root_ActiveProgram leads to start
 Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to selecting a program or options
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 
 ### 1.0.3
 

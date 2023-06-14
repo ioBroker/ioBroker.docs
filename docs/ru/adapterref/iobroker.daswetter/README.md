@@ -3,64 +3,103 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
+hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![Количество установок](http://iobroker.live/badges/daswetter-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
 # IoBroker.DasWetter.
-![Действия GitHub](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+![Действия на GitHub](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+**Если вам это нравится, рассмотрите пожертвование:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 Этот адаптер считывает данные прогноза погоды с сайта DasWetter.com.
 
-Вам нужна учетная запись на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись предоставляется бесплатно при определенных условиях.
+Вам нужна учетная запись на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись бесплатна при определенных условиях.
 
 В вашем аккаунте вы найдете три URL для четырех разных моделей данных:
 
-* Прогноз на следующие 7 дней и общая информация на день: максимум и минимум, ветер (символ и описание), символ дня и погодные условия
-* подробная информация за 5 дней и каждые 3 часа: Общая ежедневная информация следующая: пик, минимумы, ветер, порывы, осадки, относительная влажность,
+* Прогноз на ближайшие 7 дней и общая информация дня: приливы и отливы, ветер (символ и описание), символ дня и погодные условия
+* подробная информация за 5 дней и каждые 3 часа: Общая суточная информация следующая: пик, минимумы, ветер, порывы, осадки, относительная влажность,
 
-атмосферное давление на уровне моря, линия снега, восход и закат, даты, связанные с луной, местное время
+атмосферное давление на уровне моря, линия снега, восход и закат солнца, лунные даты, местное время
 
 * Предварительный просмотр с подробными данными каждый час (только первые 2 дня, затем каждые 3 часа)
 * Прогноз на 5 дней и каждые 3 часа (в формате JSON)
 
-Реализованы все четыре модели, нужно использовать хотя бы одну.
-В настройках должен использоваться URL типа http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx. Просто скопируйте полный URL из своей учетной записи.
+Все четыре модели реализованы, и следует использовать хотя бы одну.
+В настройках должен использоваться URL вида http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx. Просто скопируйте полный URL-адрес из своей учетной записи.
 
 ## Подсказки
 ### Значки, используемые в vis
-* Доступ к таким иконкам, как `http:// ip: 8082 / adapter / daswetter / icons / tiempo-weather / galeria1 / 1.png`.
-* в galerie6 оригинальные иконки имеют формат svg. В приложении Vis могут возникнуть проблемы с его визуализацией. Так что конвертированные png доступны. Просто используйте опцию «использовать png».
-* в galerie5 оригинальные иконки имеют формат svg и png. Также доступны цветная и белая версии.
+* Доступ к таким значкам, как `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png`.
+* в galerie6 оригинальные иконки в формате svg. Приложение Vis может иметь проблемы с его визуализацией. Итак, конвертированные png доступны. Просто используйте опцию «использовать png»
+* в galerie5 оригинальные иконки в формате svg и png. Кроме того, доступны цветные и белые версии.
 
 ### "текущий" в NextHours_Day1:
-* DasWetter.com не предоставляет реальные текущие данные о погоде.
+* DasWetter.com не предоставляет реальные текущие значения погоды.
 * но иногда полезно иметь прогноз на текущий час
-* поэтому мы добавили «текущий», который является просто копией соответствующих значений часов прогноза.
-* пожалуйста, убедитесь, что вы звоните адаптеру хотя бы один раз в час, чтобы убедиться, что "текущий" обновлен правильно
+* поэтому мы добавили «текущий», который является просто копией соответствующих часовых значений прогноза
+* пожалуйста, убедитесь, что вы вызываете адаптер по крайней мере один раз в час, чтобы убедиться, что «текущий» обновлен правильно
 * см. также запрос функции github [issue24] (https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
 ### Путь 4
-* на данный момент DasWetter.com отправляет данные, которые отличаются от их собственных спецификаций.
+* в настоящее время DasWetter.com отправляет данные, которые отличаются от их собственной спецификации.
 
-Теперь мы реализовали «автоматический ремонт», который меняет структуру до задокументированной формы.
+Теперь мы реализовали «автоматическое восстановление», которое меняет структуру на задокументированную форму.
 
-## Известные проблемы
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.daswetter/issues), если вы обнаружите ошибки или захотите новые функции
+## Известные вопросы
+* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), если вы обнаружите ошибки или хотите добавить новые функции
 
 ## Changelog
+
+### 3.1.8 (2023-04-07)
+* (René) update dependencies
+
+### 3.1.7 (2023-01-31)
+* (René) update dependencies
+
+### 3.1.6 (2022-12-23)
+* (René) see issue #153: package Axios downgraded
+
+### 3.1.5 (2022-12-04)
+* (René) update dependencies
+
+### 3.1.4 (2022-08-19)
+* (René) update dependencies
+* (dipts) Added missing / corrected inappropriate icons for galeria 1
+
+### 3.1.3 (2022-05-05)
+* (René) see issue #139: bug fix moon icon
+
+### 3.1.2 (2022-03-20)
+* (René) see issue #130: bug fix json data
+
+### 3.1.1 (2022-03-19)
+* (René) bug fix UV index
+
+### 3.1.0 (2022-03-19)
+* (René) replace bent by axios
+* (René) dependencies updated
+* (René) see issue #128: add UV index
+
+### 3.0.9 (2021-11-09)
+* (René) dependencies updated
+* (René) see issue #114: "connectionType" and "dataSource" fixed
+
+### 3.0.8 (2021-09-22)
+* (DutchmanNL) Warn messages for channels solved
+* (DutchmanNL) Optimize log message at adapter termination
+* (DutchmanNL) Ensure adapter will always handle data at start
 
 ### 3.0.7 (2021-05-03)
 * (René) issue #91: remove warnings with js-controller 3.3.
@@ -150,10 +189,25 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+MIT License
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

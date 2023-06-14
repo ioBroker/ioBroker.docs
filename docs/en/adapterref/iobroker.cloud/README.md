@@ -75,6 +75,9 @@ You can deactivate HTTPS and authentication on these web instance, but better is
 -->
 
 ## Changelog
+### 4.4.1 (2023-04-17)
+* (bluefox) allowed to use "neural" voices for aws text-to-speech engine
+
 ### 4.4.0 (2023-04-03)
 * (bluefox) Corrected error with `name` command
 * (bluefox) Corrected `text2speech` functionality

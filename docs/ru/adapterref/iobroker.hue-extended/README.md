@@ -2,37 +2,48 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hue-extended/README.md
-title: ioBroker.hue-продлен
-hash: sBrCWO4MEpdKluxvRIDbaHch4XEonRKGqBodYFjMWZ8=
+title: Этот адаптер УСТАРЕЛ и не будет развиваться дальше.
+hash: w7NTK7ablM+TXniTYb20aFEQoCwZkD5MCZwy6mQaW0g=
 ---
-![логотип](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+# Этот адаптер УСТАРЕЛ и больше не будет развиваться
 
-![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![Пожертвование PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![Количество установок](http://iobroker.live/badges/hue-extended-installed.svg)
 ![Стабильная версия](http://iobroker.live/badges/hue-extended-stable.svg)
 ![Версия NPM](http://img.shields.io/npm/v/iobroker.hue-extended.svg)
-![Фиксируется с момента последнего выпуска](https://img.shields.io/github/commits-since/Zefau/ioBroker.hue-extended/latest.svg)
+![Коммиты с момента последнего релиза](https://img.shields.io/github/commits-since/Zefau/ioBroker.hue-extended/latest.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hue-extended.svg)
-![NPM](https://nodei.co/npm/iobroker.hue-extended.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.hue-extended.png?downloads=true)
 
-# IoBroker.hue-extended Подключите устройства Philips Hue и / или deCONZ с помощью ioBroker.
-[![Travis CI] (https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.hue-extended)
+-----
 
-## Характеристики
-- Поддерживает устройства Philips Hue и deCONZ
-- Синхронизировать огни
+В настоящее время дальнейшее развитие этого адаптера не планируется. __Пожалуйста, перейдите на адаптер ioBroker.hue__, который поддерживается.
+Если вы пропустите какие-либо функции на ioBroker.hue, создайте проблему в этом репозитории (https://github.com/iobroker-community-adapters/ioBroker.hue).
+
+ioBroker.hue-extended будет оставаться доступным в течение некоторого времени, но имейте в виду, что он не будет тестироваться с узлом 20 или будущим js-controller v5.
+
+-----
+
+![Логотип](../../../en/adapterref/iobroker.hue-extended/admin/hue-extended.png)
+
+# IoBroker.hue-extended Подключите устройства Philips Hue и/или deCONZ к ioBroker
+[![Travis CI](https://travis-ci.com/Zefau/ioBroker.hue-extended.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.hue-extended)
+
+## Функции
+- Поддерживает устройства Philips Hue и deCONZ.
+- Синхронизировать свет
 - Синхронизировать группы
-- Синхронизация сцен (в том числе групповых сцен, световых сцен и сцен из [HueLabs] (https://labs.meethue.com/))
+- Синхронизация сцен (включая GroupScenes, LightScenes и сцены из [HueLabs](https://labs.meethue.com/))
 - Синхронизировать датчики
-- синхронизировать расписание
+- Синхронизировать расписания
 - Синхронизировать конфигурацию
 - Синхронизировать ресурсы
 - Синхронизировать правила
-- Запускать изменения в состояниях `вкл / выкл`,` яркости` (`уровень`),` оттенка`, `насыщенности`,` xy`, `colorTempera`,` alert`, `effect` и` transitiontime`
-- Дополнительные триггеры, основанные на цветовых пространствах для `rgb`,` hsv` и `hex`
-- Применить собственную комбинацию команд, используя триггер `_commands`
-- Управляйте светом всех групп одновременно, используя группу `0-all`
-- Запустите сцену или примените «_scene» к свету или группе
+- Инициировать изменения состояний «вкл / выкл», «яркость» ( «уровень»), «оттенок», «насыщенность», «xy», «colorTemperature», «alert», «effect» и «transitiontime».
+- Дополнительные триггеры на основе цветовых пространств для `rgb`, `hsv` и `hex`
+- Применить собственную комбинацию команд с помощью триггера _commands
+- Управляйте огнями всех групп одновременно, используя группу «0-все».
+- Запустите сцену или примените `_scene` к свету или группе
 
 ## Changelog
 

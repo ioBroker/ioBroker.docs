@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.netatmo-energy/README.md
 title: ioBroker.netatmo-energy
-hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
+hash: qKgIcf4QnPlWNCJkFatU2nf5JMeKfH2BnXl7kVzZzOw=
 ---
 ![标识](https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/raw/master/admin/netatmo-energy.png)
 
@@ -28,7 +28,7 @@ hash: Fmn20MfuW0IuNXJv9L7ChDDT/aJM2/ojMEIhsyJZYZc=
 ## 要求和配置
 Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
-- 适配器适用于 admin >= 3 和 nodejs >= 14
+- 适配器适用于 admin >= 3 和 nodejs >= 16
 - 创建您自己的帐户 <https://auth.netatmo.com/de-de/access/signup>
 - 执行 API 登录 <https://dev.netatmo.com/apidocumentation/energy>
 - 通过单击您的帐户（顶部/左侧）创建您自己的应用程序，然后按“创建”按钮
@@ -51,7 +51,7 @@ Netatmo 能源硬件（恒温器、阀门）帐户与 Netatmo 云
 
   接收信息消息、警告或错误消息。为此，有必要在“登录信息”中激活选项“激活/停用通知”，然后在“通知”菜单中进行设置。
 
-  - 此外，可以在传感器系统中输入门/窗传感器并存储所需的动作
+  - 此外，可以在传感器系统中输入门/窗传感器并存储所需的动作。这些功能通常可以在登录页面上激活或停用。
 
 详细说明可作为 wiki (<https://github.com/Homemade-Disaster/ioBroker.netatmo-energy/wiki>)。
 
@@ -152,10 +152,15 @@ VIS 的小部件，用于显示完整的恒温器。您只需输入“SetTemp”
 ## Changelog
 
 [Older changes](CHANGELOG_OLD.md)
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+<!-- ### **WORK IN PROGRESS** -->
+### 2.6.1 (2023-06-01)
+
+* (ioKlausi) Correct some adapter check issues
+
+### 2.6.0 (2023-05-01)
+
+* (ioKlausi) Enable / Disable sensor actions
+
 ### 2.5.8 (2023-04-16)
 
 * (ioKlausi) Bug fix of translations

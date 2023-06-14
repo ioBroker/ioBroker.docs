@@ -94,6 +94,10 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+#### 0.10.3 Bugfixes
+
+#### 0.10.2 Bugfixes
+
 #### 0.10.0 Added new sensors for Lightning, Piezo elements, DP250 and minor fixes
 
 #### 0.8.2 Updated UVRaw to maxvalue 4000
@@ -133,7 +137,7 @@ Lisa for her [code to translate wind degrees in a heading](https://www.programmi
 ## License
 MIT License
 
-Copyright (c) 2022 Fogg <foggch@gmail.com>
+Copyright (c) 2023 Fogg <foggch@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
