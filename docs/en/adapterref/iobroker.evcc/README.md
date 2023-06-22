@@ -22,6 +22,10 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.10 (2023-06-14)
+* (arteck) generate dynamic objects
+* (Newan) typo fixes
+
 ### 0.0.8 (2023-05-09)
 * fix for minSoc & targetSoc
 

@@ -2,20 +2,30 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-lcars/README.md
-title: без названия
-hash: NxPECMvNNGAssEJHqmMvN10x35lH+cVfYApxqN6jJt4=
+title: ioBroker.vis-lcars
+hash: 0TTN2ZRpYTc7pEM0ndJLOdfOW0hnKWlzafmiWdHfUlI=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-lcars/admin/lcars.png) ioBroker.vis-lcars ============
+![Логотип](../../../en/adapterref/iobroker.vis-lcars/admin/lcars.png)
 
-Наборы виджетов Lcars (Star Trek) для ioBroker.vis ![пример](../../../en/adapterref/iobroker.vis-lcars/img/widgets.png)
+![Количество установок](http://iobroker.live/badges/vis-lcars-stable.svg)
+
+# IoBroker.vis-lcars
+Наборы виджетов Lcars (Звездный путь) для ioBroker.vis ![Пример](../../../en/adapterref/iobroker.vis-lcars/img/widgets.png)
 
 Атрибуты кнопки: ![Описание кнопки](../../../en/adapterref/iobroker.vis-lcars/widgets/lcars/img/buttons.jpg)
 
+<!--
+
+### **В РАБОТЕ** -->
+
 ## Changelog
-![Number of Installations](http://iobroker.live/badges/vis-lcars-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-lcars-stable.svg) ### 1.0.4 (2017-10-04)
+### 1.1.1 (2023-06-14)
+* (oelison) Added two color schemes: gray and light gray
+
+### 1.0.4 (2017-10-04)
 - (bluefox) fix render of state on slow devices
 
-### 1.0.1 (2016-06-07)
+### 1.0.1 (2016-06-07)[README.md](..%2FioBroker.vis-hqwidgets%2FREADME.md)
 - (ploebb) fix radius settings for firefox
 
 ### 1.0.0 (2016-04-04)
@@ -34,5 +44,5 @@ hash: NxPECMvNNGAssEJHqmMvN10x35lH+cVfYApxqN6jJt4=
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2016 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2023 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
  MIT

@@ -32,6 +32,10 @@ Help or hints are welcome.
 
 ## Changelog
 
+### 1.3.6
+
+* (unltdnetworx) support for controller v5
+
 ### 1.3.4
 
 * (unltdnetworx) disabled "getQueryTypes" for creating lots of spam entries
@@ -101,7 +105,7 @@ Kaffee spendieren/serve a coffee
 
 MIT License
 
-Copyright (c) 2022 Michael Schuster
+Copyright (c) 2023 Michael Schuster
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

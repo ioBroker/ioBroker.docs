@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: O5E6Z8YTdApdFUlwwbZJwZ/f9ao+LkM5uBNwB3g6Qa8=
+hash: JPnlIFy/83N8YL+xT6RPPgAbLCKa0RvquthoR5d43zU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -18,6 +18,11 @@ hash: O5E6Z8YTdApdFUlwwbZJwZ/f9ao+LkM5uBNwB3g6Qa8=
 С помощью этого адаптера вы можете создать визуализацию для ioBroker с пользовательским интерфейсом Home Assistant Lovelace.
 
 [Немецкая документация](docs/de/README.md)
+
+## Экземпляры объектов
+В экземплярах папок есть некоторые объекты, которые можно использовать для управления пользовательским интерфейсом. Для каждого браузера будет создана новая вложенная папка со случайным идентификатором. Этот идентификатор хранится в веб-хранилище клиентского браузера. Если вы удалите веб-хранилище, будет создан новый экземпляр. Если вы используете Fully Kiosk Browser, убедитесь, что функция `Delete webstorage on reload` **отключена**.
+
+Эта функциональность использует browser_mod, который устанавливается и обновляется адаптером. Не добавляйте свою версию browser_mod в качестве пользовательской карты.
 
 ## Конфигурация
 Существует два способа настройки объектов:
@@ -395,7 +400,7 @@ midnight:
 Используйте значки в форме `mdi:NAME`, например «mdi:play-network». Имена можно взять отсюда: https://materialdesignicons.com/
 
 ## Уведомления
-Вы можете добавлять уведомления с помощью функции `sendTo` или путем записи состояния в `lovelace.X.notifications.add`:
+Вы можете добавить уведомления с помощью функции `sendTo` или путем записи состояния в `lovelace.X.notifications.add`:
 
 ```
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version

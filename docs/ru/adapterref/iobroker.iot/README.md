@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: Адаптер Интернета вещей ioBroker
-hash: 9RSaCbzgta8J3fyIuFi/fHg3lNowghfK57iTacPMcio=
+hash: X6WngySwjCY/SKfHhMAZ1gSk9+xtBp6YQTLhXJAyFjQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -106,7 +106,7 @@ Alexa, lock the "lock name"
 
 - состояние должно быть доступно для записи: `common.write` = true
 - диммер состояния должен иметь `common.type` в качестве 'number'
-- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K', а `common.type` как `число`
+- состояние нагрева должно иметь `common.unit` как '°C', '°F' или '°K' и `common.type` как `число`
 
 Если состояние находится только в «функциях», а не в какой-либо «комнате», будет использоваться имя состояния.
 
@@ -137,6 +137,10 @@ Alexa, lock the "lock name"
 - `smart.lastCommand`: Последняя выполненная команда. Команда может быть: `true(ON)`, `false(OFF)`, `number(%)`, `-X(уменьшение на x)`, `+X(увеличение на X)`
 - `smart.lastResponse`: Текстовый ответ на команду. Его можно отправить в какой-нибудь движок `text2speech` (`sayit`).
 
+## Переключить режим
+Alexa v3 поддерживает режим переключения.
+Это означает, что если вы скажете «Алекса, включи свет», а свет уже включен, он будет выключен.
+
 ## ИФТТТ
 [инструкции](doc/ifttt.md)
 
@@ -156,7 +160,7 @@ Alexa, lock the "lock name"
 
 `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Если задать в настройках в поле "Белый список для сервисов" имя `custom_test` и вызвать с "custom_test" в качестве имени сервиса, будет установлено состояние **cloud.0.services.custom_test** в *myString*.
+Если установить в настройках в поле "Белый список для сервисов" имя `custom_test` и позвонить с "custom_test" в качестве имени сервиса, будет установлено состояние **cloud.0.services.custom_test** в *myString*.
 
 Вы можете написать «*» в белом списке, и все услуги будут разрешены.
 
@@ -307,12 +311,20 @@ setState('iot.0.app.message', JSON.stringify({
 })); // important, that ack=false (default)
 ```
 
+## Делать
+- Смарт-имена должны иметь более высокий приоритет как группы
+- Устройства должны быть сгруппированы по умному имени
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### 2.0.3 (2023-06-06)
+### 2.0.11 (2023-06-20)
+* (bluefox) Added support for the state toggling (alexa 3)
+* (bluefox) Done small improvements for alexa 3
+
+### 2.0.9 (2023-06-15)
 * (bluefox) Working on support for amazon alexa v3
 
 ### 2.0.2 (2023-06-05)

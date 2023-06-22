@@ -261,10 +261,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
-### 2.11.0 (in progress)
+### 2.11.0 (2023-06-18)
 * (René) see issue #368: units added in datapoints
 * (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)
-* (René) see issue #359: support of discord added to notifications (not yet finished)
+* (René) see issue #359: support of discord added to notifications
 * (René) see issue #367: wait for set target temperature before checking actor changes
 
 ### 2.10.6 (2023-01-31)

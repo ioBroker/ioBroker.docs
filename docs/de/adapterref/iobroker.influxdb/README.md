@@ -104,6 +104,10 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (Marc-Berg) Allowed the self signed certificates using "test connection" button
+* (Marc-Berg) The deletion of data from DB was implemented for V2
+
 ### 3.2.0 (2022-09-19)
 * (Apollon77) Adjust cache file to be different per instance when having multiple instances
 

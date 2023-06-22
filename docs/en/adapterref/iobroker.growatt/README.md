@@ -9,11 +9,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
-## Important: please read
 
-Growatt's cloud servers are very unstable. There are error messages and timeouts when data is requested.
-If you are still thinking about getting an inverter, it is better to use a good product. Devices that transmit the data directly in the house via modbus-ip are best.
-There is also the [Grott project](https://github.com/johanmeijer/grott) that intercepts the data from the communication. Here, however, it also happens that older data sets are transmitted or the transmission is suspended, since this only listens in and temporarily stores the data.
+This adapter works through Growatt's cloud servers. There is also the [Grott project](https://github.com/johanmeijer/grott) that intercepts the data from the communication.
 
 ---
 
@@ -85,7 +82,7 @@ If writing was successful, reading is automatically triggered.
 
 The inverter can only change one setting at a time and the transmission path is from ioBroker via the cloud to the WLAN adapter and then to the inverter. The settings are processed one after the other via a queue. A session time that is too short can lead to problems.
 
-The writing of the settings was developed to the best of our knowledge. However, no guarantee is given
+The writing of the settings was developed to the best of our knowledge. However, the author does not assume liability for errors contained in or for damages arising from the use of the software. 
 
 #### Timeout in seconds
 
@@ -410,7 +407,7 @@ Therefore, the description has also been removed.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2022 PLCHome
+Copyright (c) 2020 - 2023 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

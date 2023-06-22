@@ -35,7 +35,7 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 2.2.1 (2023-04-25)
+### 2.2.2 (2023-06-19)
 * (bluefox) Corrected stop of the recording
 
 ### 2.2.0 (2023-04-24)
@@ -45,7 +45,7 @@ How to use:
 * (bluefox) Corrected vis-2 widgets
 
 ### 2.0.5 (2023-03-07)
-* (bluefox) New material design
+* (bluefox) New material design added
 * (bluefox) License changed to MIT
 * (bluefox) Allowed deletion of events
 
@@ -56,23 +56,23 @@ How to use:
 * (foxriver76) Updated to use with js-controller 2.x
 
 ### 1.0.0 (2019-11-17)
-* (bluefox) Support of compact mode added
+* (bluefox) Support for compact mode is added
 
 ### 0.2.4 (2017-11-23)
 * Translations
 
 ### 0.2.3 (2017-11-22)
-* (bluefox) Fix interval settings
+* (bluefox) Fixed interval settings
 * (bluefox) Update fullcalendar library
 
 ### 0.2.1 (2017-09-25)
 * (bluefox) Fixed error
 
 ### 0.2.0 (2017-08-06)
-* (bluefox) Support of new admin
+* (bluefox) Support for new admin
 
 ### 0.1.1 (2017-07-13)
-* (bluefox) fix double event by creation
+* (bluefox) Fixed double event by creation
 
 ### 0.1.0 (2017-03-20)
 * (bluefox) initial commit

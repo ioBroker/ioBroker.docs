@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
+hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -56,7 +56,7 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 
 ![Посмотреть в виджете - кнопка](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-В виде кнопки: вы можете показать маленькую миниатюру вида, и, нажав на нее, она будет показана в полном размере.
+В виде кнопки: Вы можете показать маленькую миниатюру вида, и, нажав на нее, она будет показана в полном размере.
 
 ### Термостат
 ![Термостат](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
@@ -68,11 +68,6 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 
 ![Фактическое значение с диаграммой](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
 
-### Статическая информация
-![Статическая информация](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-static-info-1.png)
-
-![Статическая информация](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-static-info-2.png)
-
 ### Контроль безопасности
 ![Контроль безопасности](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-0.png)
 
@@ -80,7 +75,7 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 
 Вы можете определить задержку в секундах.
 
-При активации определенный идентификатор будет записан с количеством секунд задержки, и после того, как задержка закончится, определенный идентификатор будет установлен на 0, а идентификатор тревоги установлен на истину.
+При активации в определенный идентификатор будет записано количество секунд задержки, и после того, как задержка закончится, определенный идентификатор будет установлен на 0, а идентификатор тревоги будет установлен на истину.
 
 ![Контроль безопасности](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-2.png)
 
@@ -96,6 +91,9 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 ### HTML-шаблон
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
+HTML-шаблон можно использовать для отображения любого html-кода.
+Кроме того, вы также можете показывать изображение или iframe с помощью этого виджета.
+
 ### Жалюзи
 ![Жалюзи](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
 
@@ -103,11 +101,32 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 
 ### Цветная лампа
 ### Выбор времени
+## Делать
+- Изменить шрифт кнопок
+
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.5.3 (2023-06-21)
+* (bluefox) Corrected errors with view in widget
+
+### 0.5.1 (2023-06-20)
+* (bluefox) Added widget to switch the theme
+* (bluefox) Improved HTML widget to show iframe and image
+
+### 0.4.0 (2023-06-16)
+* (bluefox) Added button texts for switches widget
+* (bluefox) Removed static widget, as it replaced by switches widget
+
+### 0.3.1 (2023-06-14)
+* (bluefox) Improved buttons widget
+
+### 0.2.13 (2023-03-22)
+* (bluefox) BREAKING CHANGE: The names of widgets must be entered anew 
+* (bluefox) update packages
+
 ### 0.2.9 (2023-02-27)
 * (bluefox) Made this adapter singleton
 

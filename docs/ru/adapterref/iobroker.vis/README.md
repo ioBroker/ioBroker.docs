@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: tjdnVerbGCXnTiD95xeu8HV7Wjq0L5ar4B3x/y5fwNM=
+hash: v3zoDVW7a8TAyB2Qa64ZYPy/etV6vOpHLeRtAE/TqHg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -142,7 +142,7 @@ Vis создает 3 переменные:
 
 * `alert` - показывать окно алерта в вис. «control.data» имеет следующий формат: «сообщение; заголовок; значок jquery». Заголовок и значок jquery необязательны. Названия иконок можно найти [здесь](http://jqueryui.com/themeroller/). Чтобы отобразить значок «ui-icon-info», напишите `Message;;info`.
 * `changeView` - переключиться на нужный вид. "control.data" должно иметь имя представления. Вы также можете указать имя проекта как «проект/представление». Проект по умолчанию — `main`.
-* `refresh` - перезагрузить вид, например, после изменения проекта для перезагрузки во всех браузерах.
+* `refresh` - перезагрузить визуализацию, например, после изменения проекта для перезагрузки во всех браузерах.
 * `reload` - то же, что и обновление.
 * `dialog` - Показать диалоговое окно. Диалог должен существовать в поле зрения. Один из:
 
@@ -208,7 +208,10 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### 2.0.27 (2023-05-08)
+### 2.0.35 (2023-06-21)
+* (bluefox) Added widgeteria
+
+### 2.0.29 (2023-05-17)
 * (bluefox) Corrected errors
 
 ### 2.0.10 (2022-12-01)

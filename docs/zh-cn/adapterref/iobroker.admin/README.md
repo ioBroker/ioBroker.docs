@@ -72,6 +72,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### 6.5.9 (2023-06-19)
+* (bluefox) Added support for update of the js-controller slaves
+
 ### 6.5.8 (2023-06-12)
 * (foxriver76) The log size will be parsed correctly for controller v5
 
@@ -83,10 +86,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 
 ### 6.5.3 (2023-05-24)
 * (bluefox) Added support for the js-controller update
-
-### 6.4.4 (2023-05-10)
-* (bluefox) Added `imageSendTo` Control to JSONConfig
-* (bluefox) Added possibility to filter objects in selectID JSON component
 
 ## License
 The MIT License (MIT)

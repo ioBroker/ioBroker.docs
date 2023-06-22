@@ -718,6 +718,12 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (bluefox) Packets were updated
+
+### 1.16.0 (2023-06-16)
+* (foxriver76) We have added support for the `notification-manager` adapter
+
 ### 1.15.6 (2023-02-17)
 * (bluefox) Implemented the optional escaping of characters in blockly
 * (bluefox) Added the possibility to send updates of states only by changes
@@ -734,9 +740,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 * (klein0r) Fixed custom component (username was missing)
 * (klein0r) Translated all objects
 * (bluefox) Updated GUI packages and corrected build process
-
-### 1.14.1 (2022-07-04)
-* (bluefox) Fixed warnings for `botSendChatId`
 
 ## License
 

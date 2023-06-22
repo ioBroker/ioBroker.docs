@@ -16,15 +16,31 @@
 Adapter for Intex Whirlpool with wifi modul 
 
 ## Loginablauf:
+
 Die Intex App Mail und Passwort eingeben.
 
+
 ## Steuern
-intex.0.id.remote auf true setzen steuert den jeweiligen Befehl
+intex.0.<id>.remote auf true setzen steuert den jeweiligen Befehl.
+intex.0.<id>.control auf true oder false setzen, steuert den Pool Befehl in den Zustand.
+
+## Lokal
+
+Bei Cloudbetrieb versucht das System den Befehl lokal abzusetzen, es sei denn, es ist nur Cloud angegeben. Sollte ein Fehler auftreten, wechselt das System wieder in den Cloudbetrieb bis zum nächsten Start des Adapters.
+
+Im lokal Betreib werden aktuell auch Funktionen angeboten, die der Pool nicht unterstützt. Hier mus unter Adresse entweder der DNS-Name des Pools beim Router oder die IP-Adresse des Pools angegeben werden.
+Das Intervall kann hier auf eine Minute gesetzt werden.
+
+Dieses kann über den Suchbutton gesucht werden. Dieses kann allerdings von Router Unterbundnen werden, wenn z. B. WLAN Geräte nicht untereinander kommunizieren dürfen oder in der lokalen Firewall des Rechners Ports oder Bordcasting gesperrt ist.
 
 ## Diskussion und Fragen:
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
+
+### 0.1.0
+* (PLCHome/rbartl) Unterstützung lokale IP. Sowohl über Cloud als auch nur lokal ohne Cloud. Danke nach Österreich an Robert Bartl.
+* (PLCHome) Nach dem Schalten über Control direkt bestätigen.
 
 ### 0.0.7
 * (PLCHome) Schalten über remote funktioniert wieder.

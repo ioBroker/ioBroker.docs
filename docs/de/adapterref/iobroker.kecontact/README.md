@@ -3,24 +3,24 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
+hash: 2Vpc9wYKmn8IAuy5qokvBysTvCuYwoUmU1ScPC9TXwI=
 ---
 ![Logo](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.kecontact.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.kecontact.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/kecontact-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/kecontact-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/kecontact-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/kecontact-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.kecontact.svg)
 ![NPM](https://nodei.co/npm/iobroker.kecontact.png?downloads=true)
 
 # IoBroker.kecontact
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/kecontact/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
-Steuern Sie Ihre Ladestation und nutzen Sie die automatische Regelung z.B. zum Laden Ihres Fahrzeugs durch Photovoltaik-Überschuss und Batteriespeicher mit seinem UDP-Protokoll.
+# IoBroker-Adapter für KEBA KeContact P20 oder P30 und BMW i Wallbox
+Steuern Sie Ihre Ladestation und nutzen Sie die automatische Regelung z.B. zum Laden Ihres Fahrzeugs durch Photovoltaik-Überschuss und Batteriespeicher mithilfe des UDP-Protokolls.
 
 ## Installieren
 Installieren Sie diesen Adapter über ioBroker Admin:
@@ -32,63 +32,64 @@ Installieren Sie diesen Adapter über ioBroker Admin:
 5. Starten Sie den Adapter
 
 ## Aufbau
-### IP-Adresse von KeContact
-Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox.
+### KeContact IP-Adresse
+Dies ist die IP-Adresse Ihrer KEBA KeContact oder BMW i Wallbox. Kombination mit Keba KeContact S10 (Phasenumschaltgerät) wird unterstützt.
 
-### Firmware-Check
-Einmal am Tag prüft der Adapter, ob eine neuere Firmware auf der KEBA-Website verfügbar ist. Diese Informationen werden im Protokoll als Warnung ausgedruckt.
+### Firmware-Überprüfung
+Einmal am Tag prüft der Adapter, ob auf der KEBA-Website eine neuere Firmware verfügbar ist. Diese Informationen werden ausgedruckt und als Warnung protokolliert.
 
 ### Passivmodus
-Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und nicht möchten, dass dieser Adapter einige Automatiken durchführt. In diesem Fall werden alle nachfolgenden Optionen bezüglich PV-Automatik und Leistungsbegrenzung ignoriert.
+Aktivieren Sie diese Option, wenn Sie Ihre Wallbox selbst steuern möchten und nicht möchten, dass dieser Adapter einige Automatikfunktionen ausführt. In diesem Fall werden alle weiteren Optionen bezüglich PV-Automatik und Leistungsbegrenzung ignoriert.
 
-### Nachfolgende Wallbox
-Aktivieren Sie diese Option, wenn es sich um eine nachfolgende Wallbox in Ihrer Umgebung handelt. Aktuell kann nur eine Wallbox aktiv verwaltet werden. Alle anderen (separate Instanzen) müssen diese Option aktivieren, da nur eine Instanz Broadcast-Nachrichten empfangen kann. Diese Wallbox/Instanz wird im passiven Modus ausgeführt.
+### Nachträgliche Wallbox
+Aktivieren Sie diese Option, wenn es sich um eine nachfolgende Wallbox in Ihrer Umgebung handelt. Derzeit kann nur eine Wallbox aktiv verwaltet werden. Alle anderen (separate Instanzen) müssen diese Option aktivieren, da nur eine Instanz Broadcast-Nachrichten empfangen kann. Diese Wallbox/Instanz wird im passiven Modus betrieben.
 
 ### Ladesitzungen laden
-Sie können diese Option aktivieren, um regelmäßig die neuesten Ladesitzungen (30) von Ihrer Wallbox herunterzuladen.
-ACHTUNG für Benutzer ab Version v1.1.1 und niedriger: Sie müssen diese Option aktivieren, um weiterhin Ladesitzungen zu erhalten!
+Sie können diese Option aktivieren, um regelmäßig die neuesten Ladevorgänge (30) von Ihrer Wallbox herunterzuladen.
+ACHTUNG für Benutzer ab Version v1.1.1 und niedriger: Sie müssen diese Option aktivieren, um weiterhin Ladevorgänge zu erhalten!
 
 ### Aktualisierungsintervall
 Dies ist das Intervall in Sekunden, wie oft die Wallbox nach neuen Ladewerten abgefragt werden soll.
 
-Der Standardwert beträgt 10 Minuten, was eine gute Balance zwischen der Belastung für KeConnect und aktuellen Informationen in ioBroker darstellt.
+Der Standardwert beträgt 10 Minuten, was ein gutes Gleichgewicht zwischen der Auslastung von KeConnect und der Verfügbarkeit aktueller Informationen in ioBroker darstellt.
 
 ### PV-Automatik
-Um Ihr Fahrzeug entsprechend einem Überschuss (z. B. durch Photovoltaik) zu laden, können Sie auch Zustände definieren, die Überschuss und Bezug auf Hauptstrom darstellen. Diese Werte werden verwendet, um die Stromstärke zu berechnen, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
+Um Ihr Fahrzeug entsprechend einem Überschuss zu laden (z. B. durch Photovoltaik), können Sie auch Zustände definieren, die Überschuss und Berücksichtigung der Hauptstromversorgung darstellen. Diese Werte werden zur Berechnung der Stromstärke verwendet, die zum Laden verwendet werden kann. Durch zusätzliche Werte können Sie definieren
 
-* ein Zustand für die aktuelle Leistung des Batteriespeichers, damit die Photovoltaik-Automatik diese zusätzlich zum Laden Ihres Fahrzeugs verwendet
-* eine Option, um die Leistung des Batteriespeichers zu begrenzen, um den Ladevorgang nur mit minimaler Leistung aufrechtzuerhalten
-* Schalten Sie die X1-Option um, wenn Sie den X1-Eingang von der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder durch Photovoltaik-Automatik geladen werden soll
-* eine andere Mindeststromstärke als die voreingestellten 6 A (wird nur für z. B. Renault Zoe benötigt)
-* ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (d. h. der Ladevorgang beginnt, auch wenn nicht genügend Überschuss verfügbar ist - empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang)
+* ein Zustand zum Umschalten der Ladephasen 1p/3p oder über den X2-Anschluss von Keba Kecontact (mit Keba KeContact S10 oder einem anderen Schütz)
+* ein Status für die aktuelle Leistung des Batteriespeichers, sodass die Photovoltaik-Automatik diese zusätzlich zum Laden Ihres Fahrzeugs nutzt
+* eine Option zur Begrenzung der Leistung des Batteriespeichers, um den Ladevorgang nur mit minimaler Leistung aufrechtzuerhalten
+* Schalten Sie die X1-Option um, wenn Sie den X1-Eingang der Ladestation verwenden möchten, um zu steuern, ob mit voller Leistung oder per Photovoltaik-Automatik geladen werden soll
+* eine andere Mindeststromstärke als die standardmäßigen 6 A (nur erforderlich für z. B. Renault Zoe)
+* ein Wert für die Leistung, die zum Starten des Ladevorgangs verwendet werden kann (das bedeutet, dass der Ladevorgang auch dann beginnt, wenn nicht genügend Überschuss verfügbar ist – empfohlen 0 W für 1-Phasen-Ladevorgang, 500 W bis 2000 W für 3-Phasen-Ladevorgang)
 * ein Inkrement für die Stromstärke (empfohlen 500 mA)
-* ein Bezugswert, der vorübergehend verwendet werden kann, um den Ladevorgang aufrechtzuerhalten (das bedeutet, dass der Ladevorgang später beendet wird, auch wenn nicht mehr genügend Überschuss verfügbar ist - der Startbezug wird hinzugefügt - vorgeschlagen 500 W)
-* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit - empfohlen 300 Sek.)
-* Zeit zur Fortsetzung des Ladevorgangs jedes Mal, wenn der Überschuss nicht mehr ausreicht (um die Zeit an bewölkten Tagen zu überbrücken)
+* ein Wert der Rücksichtnahme, der vorübergehend zum Aufrechterhalten der Ladesitzung verwendet werden kann (das bedeutet, dass der Ladevorgang später gestoppt wird, auch wenn nicht mehr genügend Überschuss verfügbar ist – Startrücksicht wird hinzugefügt – empfohlen 500 W)
+* Mindestdauer des Ladevorgangs (auch wenn der Überschuss nicht mehr ausreicht, dauert ein Ladevorgang mindestens diese Zeit – empfohlen 300 Sekunden)
+* Zeit zum Fortsetzen des Ladevorgangs jedes Mal, wenn der Überschuss nicht mehr ausreicht (zur Überbrückung der Zeit an bewölkten Tagen)
 
 ### 1p/3p Aufladung
-Wenn Sie ein Installationsschütz zum (Trennen) von Phase 2 und 3 Ihrer Ladestation haben und dieser Schalter durch einen Zustand ausgelöst werden kann, dann ist dieser Adapter in der Lage, den Ladevorgang mit einer Phase zu starten und auf 3-Phasen-Ladevorgang umzuschalten, wenn Ihr Überschuss ausreicht dafür.
-Tragen Sie in diesem Fall bitte den Zustand Ihres Installationsschützes ein und ob es sich um einen NO (normally open) oder NC (normally closed) handelt.
+Wenn Sie über ein Installationsschütz zum (Trennen) der Phasen 2 und 3 Ihrer Ladestation verfügen und dieser Schalter durch einen Zustand ausgelöst werden kann, ist dieser Adapter in der Lage, den Ladevorgang mit einer Phase zu starten und auf den 3-Phasen-Ladevorgang umzuschalten, wenn Ihr Überschuss ausreicht dafür.
+Geben Sie in diesem Fall bitte den Zustand Ihres Installationsschützes ein und ob es sich um NO (normally open) oder NC (normally close) handelt.
 
 ### Leistungsbegrenzung
-Sie können auch max. Leistung Ihrer Wallbox, um die Hauptleistung zu begrenzen. Z.B. Beim Betrieb von Nachtspeicherheizungen müssen Sie ggf. eine maximale Leistungsbegrenzung beachten.
+Sie können auch max. begrenzen. Leistung Ihrer Wallbox, um den Hauptstrom zu begrenzen. Z.B. Beim Betrieb von Nachtspeicherheizungen müssen Sie ggf. eine maximale Leistungsbegrenzung beachten.
 Wenn Sie einen Wert eingeben, wird Ihre Wallbox kontinuierlich begrenzt, um Ihr Leistungslimit nicht zu überschreiten.
-Zur Begrenzung können bis zu drei Zustände von Energiezählern vorgegeben werden. Alle Werte werden zur Berechnung des Stromverbrauchs addiert.
-Ein zusätzliches Kontrollkästchen wird verwendet, um anzugeben, ob die Wallbox-Leistung enthalten ist (in diesem Fall wird die Wallbox-Leistung von den Zustandswerten abgezogen).
+Zur Begrenzung können bis zu drei Zustände von Energiezählern vorgegeben werden. Zur Berechnung des aktuellen Verbrauchs werden alle Werte addiert.
+Über ein zusätzliches Kontrollkästchen wird festgelegt, ob die Wallbox-Leistung einbezogen wird (in diesem Fall wird die Wallbox-Leistung von den Statuswerten abgezogen).
 
 ### Dynamische Optionen
-Zusätzlich gibt es einige Zustände, um das Verhalten der Photovoltaik automatisch im laufenden Betrieb zu beeinflussen, z. durch ein eigenes Skript, das diese Werte gemäß Ihren Anforderungen aktualisiert)
+Darüber hinaus gibt es einige Zustände, die das Verhalten der Photovoltaik-Automatik im laufenden Betrieb beeinflussen können, z.B. durch ein eigenes Skript, das diese Werte entsprechend Ihren Anforderungen aktualisiert)
 
-* kecontact.0.automatic.photovoltaics - Aktiviert automatisch die Photovoltaik (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn es auf false gesetzt ist
-* kecontact.0.automatic.calcPhases - definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dieser wird für die Keba Deutschland Edition benötigt und kann für die Erstladung für alle Ladestationen verwendet werden
-* kecontact.0.automatic.addPower - definiert eine Wattmenge, die zum Aufladen Ihres Fahrzeugs zulässig ist (wie in den Optionen)
-* kecontact.0.automatic.pauseWallbox - stoppt jeden Ladevorgang sofort, solange auf true gesetzt
-* kecontact.0.automatic.limitCurrent - begrenzt Ihren Ladevorgang auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
+* kecontact.0.automatic.photovoltaics – Aktiviert die Photovoltaik-Automatik (true) oder lädt das Fahrzeug mit maximaler Leistung, wenn es auf false gesetzt ist
+* kecontact.0.automatic.calcPhases – definiert die aktuelle Anzahl der Phasen, die für die Ladeberechnung verwendet werden sollen. Dieser wird für die Keba Deutschland Edition benötigt und kann für die Erstladung aller Ladestationen genutzt werden
+* kecontact.0.automatic.addPower – definiert eine Wattzahl, die zum Laden Ihres Fahrzeugs zulässig ist (wie in den Optionen).
+* kecontact.0.automatic.pauseWallbox – stoppt jeden Ladevorgang sofort, solange dieser auf „true“ gesetzt ist
+* kecontact.0.automatic.limitCurrent – begrenzt Ihren Ladevorgang auf die angegebene Stromstärke in mA (0 = keine Begrenzung)
 
-Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6A zu laden, stellen Sie photovoltaics auf false und limitCurrent auf 6000.
+Beispiel: Um Ihr Fahrzeug unabhängig vom Überschuss mit einer konstanten Stromstärke von 6 A zu laden, stellen Sie „Photovoltaik“ auf „false“ und limitCurrent auf 6000.
 
-## Rechtlich
-Dieses Projekt ist weder direkt noch indirekt mit der Firma KEBA AG verbunden.
+## Legal
+Dieses Projekt steht in keiner direkten oder indirekten Verbindung zur Firma KEBA AG.
 
 KeConnect ist eine eingetragene Marke der KEBA AG.
 
@@ -100,11 +101,12 @@ KeConnect ist eine eingetragene Marke der KEBA AG.
 -->
 
 ### **WORK IN PROGRESS**
-* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
+* (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

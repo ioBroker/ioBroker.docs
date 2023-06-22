@@ -121,6 +121,9 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### 6.5.9 (2023-06-19)
+* (bluefox) Added support for update of the js-controller slaves
+
 ### 6.5.8 (2023-06-12)
 * (foxriver76) The log size will be parsed correctly for controller v5
 
@@ -132,10 +135,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 
 ### 6.5.3 (2023-05-24)
 * (bluefox) Added support for the js-controller update
-
-### 6.4.4 (2023-05-10)
-* (bluefox) Added `imageSendTo` Control to JSONConfig
-* (bluefox) Added possibility to filter objects in selectID JSON component
 
 ## License
 The MIT License (MIT)

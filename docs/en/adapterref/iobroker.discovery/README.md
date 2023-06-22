@@ -10,7 +10,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)](https://www.npmjs.com/package/iobroker.discovery)
 **Detect devices with all known methods.**
 
-This is a special adapter, that tries to find all possible devices, that can be reachable from host.
+This is a special adapter that tries to find all possible devices that can be reachable from the iobroker host.
 Just now it can detect via ping, UPnP (serial planned).
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
@@ -106,6 +106,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Cloud
 - History (if no SQL or InfluxDB found) 
 - IoT
+- iControl
 - eCharts (offered when a History-Adapter is present)
 - JavaScript
 - Info
@@ -113,7 +114,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Web
 
 ## If the adapter can not find IPs ...
-The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS is used to detect IPs. 
+The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS are used to detect IPs. 
 
 If not all IPs are found then please check that the iobroker user can execute `/bin/ping`. 
 You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
@@ -142,6 +143,9 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.2.0 (2023-06-15)
+* (sbormann) Added iControl to the suggested adapters
+
 ### 3.1.0 (2022-10-10)
 * (bluefox) Corrected syntax error in the german translation
 
@@ -186,14 +190,14 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 * (bluefox) Added support of Admin5
 
 ### 2.6.2 (2021-04-13)
-* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
-* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
-* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
+* (Apollon77) Fixed the crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fixed the crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fixed the crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
 * (Apollon77) Adjust and optimize UDP and UPnP discoveries
-* (Apollon77) Added option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
+* (Apollon77) Added an option to specify the "own IP address" and netmask to also allow discovery for e.g. docker cases where an external network should be scanned
 * (Apollon77) Fix ping progress counter when scanning multiple ip ranges
 * (JeyCee) removed mobile
 * (Apollon77) fix sonos and synology
@@ -203,11 +207,11 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 ### 2.5.0 (2021-01-11)
 * (Zefau) Replace nuki2 with nuki-extended
 * (Zefau) Suggest jarvis for discovery as advice
-* (Apollon77) Added checks on broadlink2 discovery to prevent crash case (Sentry IOBROKER-DISCOVERY-2H)
+* (Apollon77) Added checks on broadlink2 discovery to prevent the crash case (Sentry IOBROKER-DISCOVERY-2H)
 
 ### 2.4.1 (2020-12-06)
-* (Apollon77) Fix potential crash case in lightify (Sentry IOBROKER-DISCOVERY-2D)
-* (Apollon77) Fix potential crash case (Sentry IOBROKER-DISCOVERY-2C)
+* (Apollon77) Fixed the potential crash case in lightify (Sentry IOBROKER-DISCOVERY-2D)
+* (Apollon77) Fixed the potential crash case (Sentry IOBROKER-DISCOVERY-2C)
 
 ### 2.4.0 (2020-11-29)
 * (withstu) added heos
@@ -237,7 +241,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 * (APollon77) fix megad discovery error
 
 ### 2.3.3 (2020-04-23)
-* (Apollon77) correct access to wrong variable (Sentry IOBROKER-DISCOVERY-3)
+* (Apollon77) corrected access to a wrong variable (Sentry IOBROKER-DISCOVERY-3)
 * (Apollon77) catch http errors better (Sentry IOBROKER-DISCOVERY-2)
 
 ### 2.3.2 (2020-04-18)
@@ -267,7 +271,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 * (Apollon77) Support for nodejs 12 added, nodejs 4 is no longer supported!
 
 ### 1.3.0 (2019-01-04)
-* (bluefox) Support of compact mode
+* (bluefox) Added support of the compact mode
 * (ldittmar) info Adapter added
 
 ### 1.2.4 (2018-09-22)
@@ -309,7 +313,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 ### 0.4.4 (2017-06-01)
 * (bluefox) Added lgtv
-* (bluefox) disable serial by default. It must be explicit enabled every time
+* (bluefox) disable serial by default. It must be explicitly enabled every time
 * (bluefox) Added mihome
 
 ### 0.4.2 (2017-05-17)
@@ -353,7 +357,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,57 +3,108 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wamo/README.md
 title: ioBroker.wamo
-hash: WnzSTJpviwrVOACza9hw9Prl9+fd3ajJe1vBA9XkMaw=
+hash: WKinYaFEFw1eXdHpi7raxiioJyEMKwflJSrV2PZmEtY=
 ---
 ![标识](../../../en/adapterref/iobroker.wamo/admin/wamo.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.wamo.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.wamo.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.wamo.svg)
 ![安装数量](https://iobroker.live/badges/wamo-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/wamo-stable.svg)
 ![依赖状态](https://img.shields.io/david/smarthausleben/iobroker.wamo.svg)
-![NPM](https://nodei.co/npm/iobroker.wamo.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.wamo.png?downloads=true)
 
-#ioBroker.wamo
-**测试：** ![测试和发布](https://github.com/smarthausleben/ioBroker.wamo/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.wamo
+**测试：** ![测试与发布](https://github.com/smarthausleben/ioBroker.wamo/workflows/Test%20and%20Release/badge.svg)
 
 # IoBroker 的 WAMO 适配器
-此适配器将“wamo”泄漏保护监控添加到您的 ioBroker 安装中。
+该适配器为您的 ioBroker 安装添加了“wamo”漏电保护监控。
 
-该适配器连接到您的 **SYR SafeTech Connect 2422** 或 **POLYGONVATRO** 漏电保护设备，以便从设备读取数据并创建一些统计数据，例如耗水历史记录。
+该适配器连接到您的 **SYR SafeTech Connect 2422** 或 **POLYGONVATRO** 漏电保护设备，以便从设备中读取数据、创建一些统计数据（例如水消耗历史记录）并控制设备。
+自**SafeFlo Connect 版本*以来，您还可以将此类设备添加到适配器并从这些设备读取数据。
 
-有关 SYR SaveTech Connect 2422 的详细信息，请参见[这里。](https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect)
+有关 **SYR SaveTech Connect 2422** 设备的更多详细信息，请参阅[SYR SaveTech Connect 2422 详细信息网页](https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect)。有关 **SafeFloor Connect** 设备的更多详细信息也可以在相关的 [SYR afeFloor Connect 详细信息网页上找到](https://www.syr.de/de/Produkte/699373BB-C8BE-4992-9CFA-2CB15A5A6166/SafeFloor-Connect#FocusContent)。
 
-POLYGONVATRO 装置在引擎盖下是 SYR SaveTech Connect 2422 装置，但没有压力、温度和电导率传感器。 POLYGONVATRO 装置目前不可用。
+POLYGONVATRO 装置在内部是一个 SYR SaveTech Connect 2422 装置，但没有压力、温度和电导率传感器。 POLYGONVATRO 装置目前不可用。
 
 ## 重要
-自从 **_Jam Protection release_** 以来，添加了主阀的计划移动，并且可以在适配器设置区域（选项卡：任务）中激活和计划
+除其他事项外，`SafeFloor Connect release` 还实现了 SafeFlore Connect 设备的新功能。目前您最多可以添加 4 个设备。
+要使用当前的 SafeFloor 传感器固件（版本 2.21）读取该传感器，请仔细阅读下面的 **免责声明/警告** 部分。
 
-使用此功能时要非常小心，因为它会 **_close_** 和 **_open_** 主阀，以防止它卡在打开位置，因此在发生泄漏时不会关闭。
-
-**_Jam Protection_** 可以使用 CRON 计划进行规划，该计划也将在适配器设置 **_Tasks_** 选项卡中进行配置。
-在那里也要非常小心，因为如果你安排一次堵塞保护，例如每 1 分钟一次，你就会遇到大麻烦，因为你的主阀每分钟都会关闭和打开！
-
-在 **_Jam Protection_** 活动期间，不会更新任何常规状态（阀门、警报等），以防止您可能已设置这些状态的错误触发。
-
-如果主阀已经处于 **_closed_** 位置，则不会执行 **_Jam Protection_** 活动以防止打开主阀。
-如果在 **_Jam Protection_** 开始时有水消耗，该动作将延迟 1 分钟。 10 次失败尝试后（水仍在流动）**_Jam Protection_** 将中止。
+有关旧版本的重要信息，请阅读 [维基百科](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information) 中的 `Importent release related information` 中的相关章节。
 
 ### 免责声明/警告
-如果在 **_Jam Protection_** 活动期间与设备的通信丢失或 WAMO 适配器或 ioBroker 本身崩溃或将停止，主阀将停留在最后一个命令位置！这意味着如果出现问题，阀门可能会关闭，需要使用相关应用程序或设备本身的按钮自行打开。
+**SafeFloor Connect** 数据读出功能尚未真正有用地实现到设备固件中。目前，地板传感器醒来后会立即进入睡眠模式，并将信息发送到 SYR 云。因此，在此期间还没有办法捕获该设备。因此，为了使用此 ioBroker 适配器读取该传感器，您必须在适配器设置选项卡“SAFEFLOOR UNITS”中激活选项“Keep online”，并通过按一次设备内部的按钮来唤醒设备。但这意味着设备不再进入睡眠模式，因此设备电池将很快耗尽。目前唯一可行的解决方案是使用电池适配器。您可以从亚马逊轻松获得此适配器。您可以在我的网站上针对此 [项目](https://smarthausleben.de/wasserwaechter/) 的特定硬件部分找到我使用的适配器的链接。
 
 ## 支持这个项目
-如果您发现此适配器有用并且希望支持该项目，我们将不胜感激。你可以很容易地支持我[这里。](https://www.paypal.com/paypalme/smarthausleben)谢谢😊
+如果您发现此适配器有用并且想要支持该项目，我们将非常感谢您的善意。您可以轻松支持我[这里。](https://www.paypal.com/paypalme/smarthausleben)谢谢😊
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
+
+* ======================================================================== (max broad of READMR.md page )
 -->
 
 ### **WORK IN PROGRESS**
+* (smarthausleben) FIX: Profile parameter PV1 ... PV8 maximum value set to 9000 **_(Issue #24)_** `State objects PV1 ... PV8 need to be deleted first in order to be create correctly during adapter start`
+* ========================================================================
 * (smarthausleben) ADD: [SafeFloor Device] New **SafeFloor Units** Tab in adapter settings to manage up to 4 **_SafeFloor Connect_** devices
-* (smarthausleben) ADD: New option **_"Enable executing test loop"_** in Tab **_"Advanced Options"_** to enable/disable cron based executed [Test Loop]
+* (smarthausleben) ADD: New option **_"Hide all trigger info logging messages"_** in Tab **_"Advanced Options"_** to `hide all info logging messages at trigger events`
+* (smarthausleben) ADD: New option **_"Allow SERVICE and FACTORY state changes"_** in Tab **_"Advanced Options"_** to enable/disable changes of objects protected by the manufacturer
+* (smarthausleben) ADD: State `CLRALA` - **_DeviceControl State_** to clear current alarm and reopen main valve
+* (smarthausleben) ADD: State `BFT` - **_Button filter threshold_**
+* (smarthausleben) ADD: State `BPT` - **_Button proximity threshold_**
+* (smarthausleben) ADD: State `CNF` - **_Conductivity factor_**
+* (smarthausleben) ADD: State `CNL` - **_Conductivity limit_**
+* (smarthausleben) ADD: State `DBD` - **_MLT pressure drop_**
+* (smarthausleben) ADD: State `DBT` - **_MLT pressure drop time_**
+* (smarthausleben) ADD: State `DCM` - **_MLT test time close_**
+* (smarthausleben) ADD: State `DOM` - **_MLT test time open_**
+* (smarthausleben) ADD: State `DPL` - **_MLT pulses_**
+* (smarthausleben) ADD: State `DST` - **_MLT test time NOPULS_**
+* (smarthausleben) ADD: State `DTC` - **_MLT verification cycles_**
+* (smarthausleben) ADD: State `DTT` - **_Micro-Leakage-Test start time_**
+* (smarthausleben) ADD: State `HTD` - **_Disable HTTPS connection (only MQTT)_**
+* (smarthausleben) ADD: State `MQT` - **_MQTT connection type_**
+* (smarthausleben) ADD: State `MRT` - **_Maintenance (Husty) server connection_**
+* (smarthausleben) ADD: State `MSC` - **_MQTT reconnect time_**
+* (smarthausleben) ADD: State `DSV` - **_Micro-Leakage-Test state_**
+* (smarthausleben) ADD: State `FSL` - **_Paired Floorsensors list_**
+* (smarthausleben) ADD: State `ALH` - **_Alarm history file_**
+* (smarthausleben) ADD: State `STH` - **_Statistics history file_**
+* (smarthausleben) ADD: State `PAH` - **_Parameters history file_**
+* (smarthausleben) ADD: State `WFL` - **_WiFi scan_**
+* (smarthausleben) ADD: State `BUZ` - **_Buzzer parameters_**
+* (smarthausleben) ADD: State `ALM` - **_Alarm memory_**
+* (smarthausleben) ADD: State `TTM` - **_Turbine no pulse max. time_**
+* (smarthausleben) ADD: State `TYP` - **_Safe-Tec type_**
+* (smarthausleben) ADD: State `WNS` - **_WiFi AP disabled_**
+* (smarthausleben) ADD: State `HWV` - **_Hardware version_**
+* (smarthausleben) ADD: State `DKI` - **_Safe-Tec device kind ID_**
+* (smarthausleben) ADD: State `FSA` - **_Add (Pair) Floorsensor_**
+* (smarthausleben) ADD: State `WFK` - **_WiFi key_** After entering the WiFi key into the WFK state the key will be send to device and afterwards state value will be cleared imediatly
+* (smarthausleben) ADD: Device Control State `UPG` set to true initiates **_Firmware upgrase_** (only if new firmware is available)
+* (smarthausleben) ADD: Device Control State `DEX` set to 1 initiates **_MLT (Micro Leake Test)_**
+* (smarthausleben) ADD: Warn message in log if a new firmware for SafeTech Connect device is available
+* (smarthausleben) REM: Removed **_testing loop_** functionality
+* ========================================================================
+* = The following objects need to be deleted first in order to get the new functionality
+* = Since objects will be checked and created only during startup of the adapter follow this procedure
+* = (stop wamo adapter -> delete state object -> start wamo -> object will be created)
+* ========================================================================
+* (smarthausleben) CHG: State `ALD` - **_Alarm duration (signaling time)_** can now be changed by user
+* (smarthausleben) CHG: State `CLP` - **_Cluster Profile can_** now be changed by user
+* (smarthausleben) CHG: State `SLO` - **_Self learning offset_** can now be changed by user
+* (smarthausleben) CHG: State `SLP` - **_Self learning phase_** can now be changed by user
+* (smarthausleben) CHG: State `SMF` - **_Self learning minimum flow_** can now be changed by user
+* (smarthausleben) CHG: State `SOF` - **_Self learning offset flow_** can now be changed by user
+* (smarthausleben) CHG: State `TMZ` - **_Time zone_** can now be changed by user
+* (smarthausleben) CHG: State `WFC` - **_WiFi connect (SSID)_** can now be changed by user
+* (smarthausleben) CHG: State `71` - **_Leakage protection deactivated_** - State moved from **_Settings_** to **_Device-Control_** (please delete Object **_71_** in object _Settings_ folder )
+* (smarthausleben) CHG: State `71` - **_Leakage protection deactivated_** - is now changable (warn message appears in log if Leakage protection is deaktivated) 
+* ========================================================================
 
 ### 0.3.0 (2023-04-04) - ***Jam Protection*** release
 * (smarthausleben) ADD: [Main valve jam protection] New State JPR for Jam protection running 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.kecontact/README.md
 title: ioBroker.keконтакт
-hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
+hash: 2Vpc9wYKmn8IAuy5qokvBysTvCuYwoUmU1ScPC9TXwI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -33,7 +33,7 @@ hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 
 ## Конфигурация
 ### IP-адрес KeContact
-Это IP-адрес вашего KEBA KeContact или настенного ящика BMW i.
+Это IP-адрес вашего KEBA KeContact или настенного ящика BMW i. Поддерживается комбинация с Keba KeContact S10 (устройство переключения фаз).
 
 ### Проверка прошивки
 Раз в день адаптер будет проверять, доступна ли более новая прошивка на сайте KEBA. Эта информация будет напечатана в журнале как предупреждение.
@@ -56,6 +56,7 @@ hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 ### Автоматика PV
 Чтобы зарядить свой автомобиль в соответствии с избытком (например, с помощью фотогальваники), вы также можете определить состояния, которые представляют избыток и отношение к основной мощности. Эти значения используются для расчета силы тока, которую можно использовать для зарядки. По дополнительным значениям можно определить
 
+* состояние для переключения фаз зарядки 1p/3p или с помощью порта X2 Keba Kecontact (с Keba KeContact S10 или любым другим контактором)
 * состояние текущей мощности аккумуляторной батареи, чтобы фотоэлектрическая автоматика использовала ее дополнительно для зарядки вашего автомобиля
 * возможность ограничить мощность аккумуляторной батареи, чтобы просто держать зарядку с минимальной мощностью
 * Переключите опцию X1, если вы хотите использовать вход X1 от зарядной станции, чтобы контролировать, заряжать ли полной мощностью или фотогальваническим автоматическим способом.
@@ -71,9 +72,9 @@ hash: LKGHnXzAIq821xdC8UXfHqEwrLe7ezq5Y6Hg4ftgqls=
 В этом случае введите состояние контактора вашей установки и укажите, является ли он НО (нормально разомкнутым) или НЗ (нормально замкнутым).
 
 ### Ограничение мощности
-Вы также можете ограничить макс. мощность вашего настенного блока для ограничения основного питания. Например. при работе с ночными накопительными нагревателями вам, возможно, придется соблюдать ограничение максимальной мощности.
+Вы также можете ограничить макс. мощность вашего настенного блока для ограничения основного питания. Например. при работе с ночными нагревателями вам, возможно, придется соблюдать ограничение максимальной мощности.
 Если вы введете значение, ваш настенный ящик будет постоянно ограничен, чтобы не превысить лимит мощности.
-Для ограничения можно указать до трех состояний счетчиков энергии. Все значения будут добавлены для расчета текущего потребления.
+Для ограничения можно указать до трех состояний счетчиков электроэнергии. Все значения будут добавлены для расчета текущего потребления.
 Дополнительный флажок используется для указания того, включено ли питание настенного ящика (в этом случае мощность настенного ящика будет вычтена из значений состояния).
 
 ### Динамические параметры
@@ -100,11 +101,12 @@ KeConnect является зарегистрированной торговой
 -->
 
 ### **WORK IN PROGRESS**
-* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
+* (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

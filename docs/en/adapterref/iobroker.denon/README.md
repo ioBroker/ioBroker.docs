@@ -914,6 +914,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.2 (2023-06-12)
+* (foxriver76) fixed crash case with controller v5
+
 ### 1.15.1 (2023-06-09)
 * (foxriver76) fix `displayContent` showing old information (closes #318)
 

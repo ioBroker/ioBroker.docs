@@ -244,6 +244,16 @@ relation.
 -->
 
 ## Changelog
+### 2.0.21 (17.06.2023)
+* fixed license handling
+
+### 2.0.20 (16.06.2023)
+* fixed license handling with js-controller Version > 5
+
+### 2.0.19 (29.05.2023)
+* added ETS V6.1.0 import
+* required node version >= 16.13.1
+
 ### 2.0.18 (08.04.2023)
 * fixed send-delay
 * small changes

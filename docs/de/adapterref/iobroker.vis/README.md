@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: tjdnVerbGCXnTiD95xeu8HV7Wjq0L5ar4B3x/y5fwNM=
+hash: v3zoDVW7a8TAyB2Qa64ZYPy/etV6vOpHLeRtAE/TqHg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -182,7 +182,7 @@ Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgr
 Zusätzlich können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden soll.
 
 Bei jedem Aufruf der `index.html` (ohne `#viewName`) wird also die für diese Auflösung am besten geeignete Ansicht geöffnet.
-Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig von der Bildschirmauflösung oder Ausrichtung geöffnet.
+Wenn nur eine Ansicht das Flag *"Default"* hat, wird diese Ansicht unabhängig von der Bildschirmauflösung oder Ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten „Querformat-Mobil“ und „Hochformat-Mobil“ erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
@@ -208,7 +208,10 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### 2.0.27 (2023-05-08)
+### 2.0.35 (2023-06-21)
+* (bluefox) Added widgeteria
+
+### 2.0.29 (2023-05-17)
 * (bluefox) Corrected errors
 
 ### 2.0.10 (2022-12-01)

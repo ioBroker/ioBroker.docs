@@ -3,49 +3,49 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: 7IHLz/tapp08N9APUPMn1oaS5CtG3bxyukS3VKinNrY=
+hash: NvvMnCDXQgnMkATWxwf9jlfwGXVtvdHtYKYrptQP9D8=
 ---
-![логотип](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
+![Логотип](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
 ![Количество установок](http://iobroker.live/badges/lgtv-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.lgtv.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.lgtv.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.lgtv.svg)
-![NPM](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
 ![Трэвис-CI](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv.svg?branch=master)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/xx55hgsuff4fas47/branch/master?svg=true)
 
 # IoBroker.lgtv
-LG WebOS SmartTV адаптер для ioBroker
+Адаптер LG WebOS SmartTV для ioBroker
 
 Дистанционное управление LG WebOS SmartTV (модели 2013 года и выше) из [ioBroker](https://www.iobroker.net).
 
 ---
 
-## Применение:
+## Использование:
 Установите адаптер через интерфейс администратора ioBroker.
 В конфигурации адаптера введите IP-адрес вашего телевизора LG WebOS.
-При первом подключении вы получите сообщение о сопряжении на экране телевизора, где вы должны разрешить подключение.
+При первом подключении вы получите запрос на сопряжение на экране телевизора, где вы должны разрешить подключение.
 
 ### Опрос
-Некоторые телевизоры отключаются от сетевой розетки, когда телевизор выключен, и не сообщают об этом правильно адаптеру. Затем требуется дополнительный опрос. Вы можете определить время в настройках. Если значение пустое, адаптер пытается определить это автоматически: при перезапуске адаптера опрос (каждые 60 секунд) активен, пока не будет обнаружено первое правильное событие выключения телевизора.
+Некоторые телевизоры отключаются от веб-розетки при выключении телевизора и неправильно сообщают об этом адаптеру. Тогда требуется дополнительный опрос. Вы можете указать время в настройках. Если значение пустое, адаптер пытается определить это автоматически: При перезапуске адаптера опрос (каждые 60 секунд) активен до тех пор, пока не будет обнаружено первое корректное событие выключения телевизора.
 
 ## Некоторые примеры:
 ```setState('lgtv.0.states.popup', 'Some text!');```
 
-Это покажет всплывающее окно с текстом "Некоторый текст!" на ТВ.
-Вы можете использовать HTML разрывы строк (br) в тексте.
+Это покажет всплывающее окно с текстом «Некоторый текст!» на ТВ.
+В тексте можно использовать разрывы строк HTML (br).
 
 ```setState('lgtv.0.states.turnOff', true);```
 
-Выключаю телевизор.
+Выключение телевизора.
 
 ```setState('lgtv.0.states.mute', true);```
 
-Приглушить телевизор.
+Выключите телевизор.
 
 ```setState('lgtv.0.states.mute', false);```
 
-Включить звук телевизора.
+Включите звук телевизора.
 
 ```setState('lgtv.0.states.volumeUp', true);```
 
@@ -61,7 +61,7 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.channelDown', true);```
 
-Уменьшается текущий телеканал.
+Уменьшение текущего телеканала.
 
 ```setState('lgtv.0.states.3Dmode', true);```
 
@@ -73,11 +73,11 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.channel', 7);```
 
-Переключение прямого эфира на канал № 7.
+Переключение прямого эфира на канал номер 7.
 
 ```setState('lgtv.0.states.launch', 'livetv');```
 
-Переключение в режим Live TV.
+Переключение в режим прямого эфира.
 
 ```setState('lgtv.0.states.launch', 'smartshare');```
 
@@ -85,7 +85,7 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.launch', 'tvuserguide');```
 
-Запускает приложение «Руководство пользователя телевизора» на телевизоре.
+Запускает приложение TV User Guide на телевизоре.
 
 ```setState('lgtv.0.states.launch', 'netflix');```
 
@@ -97,7 +97,7 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.launch', 'prime');```
 
-Открывает приложение Amazon Prime по телевизору.
+Открывает приложение Amazon Prime на телевизоре.
 
 ```setState('lgtv.0.states.launch', 'amazon');```
 
@@ -105,32 +105,32 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.openURL', 'http://www.iobroker.net');```
 
-Открывает веб-браузер на телевизоре и переходит на www.iobroker.net.
-Может также использоваться для открытия изображений или видео (в браузере).
+Открывает веб-браузер на телевизоре и переходит на сайт www.iobroker.net.
+Также может использоваться для открытия изображений или видео (в браузере).
 
 ```setState('lgtv.0.states.input', 'av1');```
 
-Переключает iput с телевизора на AV1.
+Переключает вход телевизора на AV1.
 
 ```setState('lgtv.0.states.input', 'scart');```
 
-Переключает iput с телевизора на Scart.
+Переключает вход телевизора на Scart.
 
 ```setState('lgtv.0.states.input', 'component');```
 
-Переключает входной сигнал телевизора на компонентный.
+Переключает вход телевизора на компонентный.
 
 ```setState('lgtv.0.states.input', 'hdmi1');```
 
-Переключение входа телевизора на HDMI 1.
+Переключает вход телевизора на HDMI 1.
 
 ```setState('lgtv.0.states.input', 'hdmi2');```
 
-Переключает входной сигнал телевизора на HDMI 2.
+Переключает вход телевизора на HDMI 2.
 
 ```setState('lgtv.0.states.input', 'hdmi3');```
 
-Переключение входа телевизора на HDMI 3.
+Переключает вход телевизора на HDMI 3.
 
 ```setState('lgtv.0.states.youtube', 'https://www.youtube.com/watch?v=AjSpMQfRmEo'); OR setState('lgtv.0.states.youtube', 'AjSpMQfRmEo');```
 
@@ -140,15 +140,15 @@ LG WebOS SmartTV адаптер для ioBroker
 
 ```setState('lgtv.0.states.raw', '{"url": "ssap://api/getServiceList", "cmd": ""}');```
 
-Отправка и ответ RAW команды API.
+Отправка и ответ команды RAW через API.
 
 ```setState('lgtv.0.remote.*KEY*', true);```
 
-Отправить удаленный ключ к телевизору.
+Отправьте удаленный КЛЮЧ на телевизор.
 
 ```setState('lgtv.0.states.power', true/false);```
 
-Выключите телевизор и включите телевизор (TurnOn, работает только локальная сеть, используя WOL).
+Turn Off TV and Turn On TV (Включить, работает только по локальной сети, используя WOL).
 
 ```setState('lgtv.0.states.soundOutput', 'external_arc');```
 
@@ -159,19 +159,29 @@ LG WebOS SmartTV адаптер для ioBroker
 ## Состояния
 канал
 
-содержит текущий канал
+удерживает текущий канал
 
 объем
 
-удерживает текущий уровень громкости и может изменить громкость
+удерживает текущий уровень громкости и может изменять громкость
 
 на
 
-Значение true, когда телевизор включен, и значение false, если телевизор выключен.
+true, когда телевизор включен, и false, если телевизор выключен
 
 ---
 
 ## Changelog
+
+### 1.1.10
+* (foxriver76) prepare for controller v5
+
+### 1.1.9 (2020-07-14)
+* (SebastianSchultz) re-upload for fixing NPM update issue
+
+### 1.1.8 (2020-07-08)
+* (SebastianSchultz) bugfix for "IndexOf" error
+
 ### 1.1.6 (2020-03-07)
 * (dirkhe) make healthintervall configurable
 

@@ -15,6 +15,13 @@ With this adapter you can build visualization for ioBroker with Home Assistant L
 
 [Deutsche Dokumentation](docs/de/README.md)
 
+## Instance objects
+In the folder instances there are some objects that can be used to control the UI. For every browser a new subfolder will
+be created with a random ID. This ID is stored in the client browser's web storage. If you delete the web storage a new
+instance will be created. If you use Fully Kiosk Browser make sure the function `Delete webstorage on reload` is **disabled**.
+
+This functionality uses browser_mod, which is installed and updated by the adapter. Do not add your own version of browser_mod as custom card.
+
 ## Configuration
 There are two ways how the entities could be configured:
 - auto

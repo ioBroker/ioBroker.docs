@@ -706,7 +706,6 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bidirectional-counter/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/blockly.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/carddav.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.birthdays/ical.md
@@ -1306,7 +1305,6 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bidirectional-counter/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/blockly.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/carddav.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.birthdays/ical.md
@@ -1906,7 +1904,6 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bidirectional-counter/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/blockly.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/carddav.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.birthdays/ical.md
@@ -2506,7 +2503,6 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benq/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bestway/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bidirectional-counter/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.binance/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/blockly.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/carddav.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.birthdays/ical.md

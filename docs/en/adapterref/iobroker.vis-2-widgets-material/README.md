@@ -32,7 +32,7 @@
 ![Digital2](img/material-clock-digital-2.png)
 
 ### Simple state
-With this widget you can control one device. Boolean or number.
+With this widget, you can control one device. Boolean or number.
 - Number
 
 ![Simple state](img/material-simple-state-1.png)
@@ -48,7 +48,7 @@ Not as button: View could be shown in full size, and you can control elements in
 
 ![View in widget - button](img/material-view-in-widget-2.png)
 
-As button: You can show small thumbnail of view and by pressing on it, it will be shown in full size.
+As button: You can show a small thumbnail of view and by pressing on it, it will be shown in full size.
 
 ### Thermostat
 ![Thermostat](img/material-thermostat-1.png)
@@ -60,11 +60,6 @@ Additionally, it can show a history if you activated it.
 
 ![Actual value with chart](img/material-actual-value-2.png)
 
-### Static information
-![Static information](img/material-static-info-1.png)
-
-![Static information](img/material-static-info-2.png)
-
 ### Security control
 ![Security control](img/material-security-0.png)
 
@@ -72,8 +67,8 @@ Additionally, it can show a history if you activated it.
 
 You can define the delay in seconds.
 
-By activation the defined ID will be written with number of delay seconds 
-and after the delay is over the defined ID will be set to 0 and alarm ID be set to true.
+By activation, the defined ID will be written with number of the delay seconds, 
+and after the delay is over, the defined ID will be set to 0, and the alarm ID be set to true.
 
 ![Security control](img/material-security-2.png)
 
@@ -89,6 +84,9 @@ and after the delay is over the defined ID will be set to 0 and alarm ID be set 
 ### Html Template
 ![Player](img/material-html-1.png)
 
+Html template can be used to show any html code.
+Additionally, you can show image or iframe with this widget too.
+
 ### Blinds
 ![Blinds](img/material-blinds-1.png)
 
@@ -98,13 +96,27 @@ and after the delay is over the defined ID will be set to 0 and alarm ID be set 
 
 ### Time picker
 
+
+## Todo
+- Change font of buttons
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.5.3 (2023-06-21)
+* (bluefox) Corrected errors with view in widget
+
+### 0.5.1 (2023-06-20)
+* (bluefox) Added widget to switch the theme
+* (bluefox) Improved HTML widget to show iframe and image
+
+### 0.4.0 (2023-06-16)
+* (bluefox) Added button texts for switches widget
+* (bluefox) Removed static widget, as it replaced by switches widget
+
+### 0.3.1 (2023-06-14)
 * (bluefox) Improved buttons widget
 
 ### 0.2.13 (2023-03-22)

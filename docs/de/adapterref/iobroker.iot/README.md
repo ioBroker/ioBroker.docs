@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: 9RSaCbzgta8J3fyIuFi/fHg3lNowghfK57iTacPMcio=
+hash: X6WngySwjCY/SKfHhMAZ1gSk9+xtBp6YQTLhXJAyFjQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -137,6 +137,10 @@ Wenn Sie `.STATE, .LEVEL` setzen, werden also `.STATE` und `.LEVEL` ersetzt und 
 - „smart.lastCommand“: Letzter ausgeführter Befehl. Der Befehl kann sein: „true(ON)“, „false(OFF)“, „number(%)“, „-X(senken bei x)“, „+X(ansteigen bei X)“.
 - „smart.lastResponse“: Textantwort auf Befehl. Es kann an eine „text2speech“-Engine („sayit“) gesendet werden.
 
+## Modus umschalten
+Alexa v3 unterstützt den Umschaltmodus.
+Das heißt, wenn Sie „Alexa, schalte das Licht ein“ sagen und das Licht bereits an ist, wird es ausgeschaltet.
+
 ## IFTTT
 [Anweisungen](doc/ifttt.md)
 
@@ -229,7 +233,7 @@ Wenn der Text ein JSON-Objekt ist, können die folgenden Schlüssel verwendet we
 
 **Ergebnis über die Nachricht an die IoT-Instanz zurücksenden**
 
-Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das wie oben beschrieben die Schlüssel `responseText` und `shouldEndSession` und `sessionId` enthalten kann.
+Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das die Schlüssel `responseText` und `shouldEndSession` und `sessionId` enthalten kann, wie oben beschrieben.
 Es erfolgt keine Antwort der iot-Instanz auf die Nachricht!
 
 **Beispiel für ein Skript, das Texte verwendet**
@@ -307,12 +311,20 @@ setState('iot.0.app.message', JSON.stringify({
 })); // important, that ack=false (default)
 ```
 
+## Machen
+- Smartnames müssen als Gruppen eine höhere Priorität haben
+- Geräte sollten nach intelligentem Namen gruppiert werden
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### 2.0.3 (2023-06-06)
+### 2.0.11 (2023-06-20)
+* (bluefox) Added support for the state toggling (alexa 3)
+* (bluefox) Done small improvements for alexa 3
+
+### 2.0.9 (2023-06-15)
 * (bluefox) Working on support for amazon alexa v3
 
 ### 2.0.2 (2023-06-05)

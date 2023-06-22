@@ -53,7 +53,10 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
-### 1.3.0 (2023-06-11)
+### 1.3.2 (2023-06-12)
+* (René) bug fix: sentry reported exceptions fixed
+
+### 1.3.1 (2023-06-11)
 * (René) bug fix: exception in wallbox interface fixed
 
 ### 1.3.0 (2023-06-10)

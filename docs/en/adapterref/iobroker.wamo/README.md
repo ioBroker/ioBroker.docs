@@ -15,27 +15,22 @@
 
 This adapter adds "wamo" leakage protection monitoring to your ioBroker installation.
 
-The adapter connects to your **SYR SafeTech Connect 2422** or **POLYGONVATRO** leakage protection device in order to read data from the device and create some statistic data like water consumption history.
+The adapter connects to your **SYR SafeTech Connect 2422** or **POLYGONVATRO** leakage protection device in order to read out data from the device, create some statistic data like water consumption history and control the device.
+And since the **SafeFlor Connect Release* you can also add such devices to the adapter and read out data from those devices.
 
-Details about the SYR SaveTech Connect 2422 can be found [here.](https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect)
+Further details about the **SYR SaveTech Connect 2422** device can be found on the [SYR SaveTech Connect 2422 detail webpage](https://www.syr.de/de/Produkte/CB9D9A72-BC51-40CE-840E-73401981A519/SafeTech-Connect). And further details about the **SafeFloor Connect** device can also be found on the related [SYR afeFloor Connect detail webpage](https://www.syr.de/de/Produkte/699373BB-C8BE-4992-9CFA-2CB15A5A6166/SafeFloor-Connect#FocusContent).
 
 The POLYGONVATRO unit is, under the hood, a SYR SaveTech Connect 2422 unit but without pressure-, temperature- and conductivity sensor. The POLYGONVATRO unit is currently not available. 
 
 ## IMPORTENT
-Since the **_Jam Protection release_** a scheduled move of the main valve was added and can be activated and scheduled in the adapter settings area (Tab: Tasks)
 
-Be verry careful with this functionality because it will **_close_** and **_open_** the main valve in order to prevent it to get stuck in open position and therefore will not close in case of an leakage.
+Within the `SafeFloor Connect release` was, among other things, a new functionality for SafeFlore Connect devices implemented. Currently you can add up to 4 Devices.
+To read out this sensor with the current SafeFloor Sensor firmware (Version 2.21) please read the **Disclaimer / Warning** section below verry carefully.
 
-The **_Jam Protection_** can be planed using a CRON schedule which will also be configured in the adapter settings **_Tasks_** tab.
-Be verry careful there as well, because if you schedule a jam protection for example every 1 Minute you are having big trouble because your main valve will close and open every minute!
-
-During the **_Jam Protection_** activity, no regular states (Valve, Alarms etc.) will be updated in order to prevent false trigger you may have set on of those states.
-
-If the main valve is already in **_closed_** position, the **_Jam Protection_** activity will not be performed in order to prevent opening the main valve.
-If there is water consumption at start of **_Jam Protection_** the action will be delayed for 1 minute. After 10 faild attempts (water still flowing)  **_Jam Protection_** will be aborted.
+For importent information about older versions please read the related capter in `Importent release related information` in the [Wiki](https://github.com/smarthausleben/ioBroker.wamo/wiki/Importent-release-related-information).  
 
 ### Disclaimer / Warning
-If during the **_Jam Protection_** activity communication to the device gets lost or the WAMO adapter or ioBroker itself crashes or will be stopped, the main valve will stay in the last commanded position! This means if something gets wrong, the valve could be closed and needs to be opened by yourself using the related app or the button on the device itself.
+The **SafeFloor Connect** data read out functionality is not yet really useful implemented into the device firmware. Currently the floor sensors are going immediately into sleep mode after they woke up and have send their information’s to the SYR cloud. Therefore there is no way to catch the device during this period yet. So in order to read out this sensors using this ioBroker adapter you have to activate the option “Keep online” in the adapter settings tab “SAFEFLOOR UNITS” and wake up the device by pushing the button inside the unit once. But this means that the device is not going into sleep mode anymore and therefore the device battery’s will be drained really quick. At the moment the only viable solution is the use of an battery adapter. This adapters you can easily get from amazon. Link to the adapter I use you can find in the specific hardware section for this [project](https://smarthausleben.de/wasserwaechter/) on my website.
 
 ## Support this project
 If you find this adapter useful and you want to support this project, your kindness will be highly appreciated. You can easily support me [here.](https://www.paypal.com/paypalme/smarthausleben) Thanks 😊   
@@ -52,8 +47,9 @@ If you find this adapter useful and you want to support this project, your kindn
 * (smarthausleben) FIX: Profile parameter PV1 ... PV8 maximum value set to 9000 **_(Issue #24)_** `State objects PV1 ... PV8 need to be deleted first in order to be create correctly during adapter start`
 * ========================================================================
 * (smarthausleben) ADD: [SafeFloor Device] New **SafeFloor Units** Tab in adapter settings to manage up to 4 **_SafeFloor Connect_** devices
-* (smarthausleben) ADD: New option **_"Enable executing test loop"_** in Tab **_"Advanced Options"_** to enable/disable cron based executed [Test Loop]
+* (smarthausleben) ADD: New option **_"Hide all trigger info logging messages"_** in Tab **_"Advanced Options"_** to `hide all info logging messages at trigger events`
 * (smarthausleben) ADD: New option **_"Allow SERVICE and FACTORY state changes"_** in Tab **_"Advanced Options"_** to enable/disable changes of objects protected by the manufacturer
+* (smarthausleben) ADD: State `CLRALA` - **_DeviceControl State_** to clear current alarm and reopen main valve
 * (smarthausleben) ADD: State `BFT` - **_Button filter threshold_**
 * (smarthausleben) ADD: State `BPT` - **_Button proximity threshold_**
 * (smarthausleben) ADD: State `CNF` - **_Conductivity factor_**
@@ -87,7 +83,8 @@ If you find this adapter useful and you want to support this project, your kindn
 * (smarthausleben) ADD: State `WFK` - **_WiFi key_** After entering the WiFi key into the WFK state the key will be send to device and afterwards state value will be cleared imediatly
 * (smarthausleben) ADD: Device Control State `UPG` set to true initiates **_Firmware upgrase_** (only if new firmware is available)
 * (smarthausleben) ADD: Device Control State `DEX` set to 1 initiates **_MLT (Micro Leake Test)_**
-* (smarthausleben) ADD: Warn message in log if a new firmware for SafeTech Connect device is available 
+* (smarthausleben) ADD: Warn message in log if a new firmware for SafeTech Connect device is available
+* (smarthausleben) REM: Removed **_testing loop_** functionality
 * ========================================================================
 * = The following objects need to be deleted first in order to get the new functionality
 * = Since objects will be checked and created only during startup of the adapter follow this procedure

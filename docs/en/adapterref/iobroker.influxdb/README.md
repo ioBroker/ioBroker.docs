@@ -26,8 +26,8 @@ When doing custom queries via the "query" message, you can use InfluxQL to selec
 ### InfluxDB 2.x
 Since 2.0 of the adapter also InfluxDB 2.x is supported which works a bit different.
 Here beside the Host-IP and Port the following data are required:
-* **Organization**: You need to create an organization on the commandline and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB-setup, you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
-* **Authentication Token**: You need to create an Authentication token that has sufficient rights to basically do all actions on the provided organization! **Important: For now, just use the initial owner auth token because we still struggle on how to create a token that has sufficient permissions. The Owner Token was generated on InfluxDB setup process. If you know how to create the right tokens let us now :-)**
+* **Organization**: You need to create an organization on the commandline/WebUI and need to enter the name or ID of that organization here. If you created one Organization when doing the InfluxDB-setup, you have created an initial organization and can use this here, else use `influx org list` to see available organizations.
+* **Authentication Token**: You must create an authentication token that has sufficient rights to allow the adapter to perform all necessary actions! To create a token with only minimal permissions for a single bucket, go to the WebUI and select: "API Tokens" --> "Generate API Token" --> "Custom API Token", select read/write permissions for the bucket and read permissions for "All Orgs" and "All Users". Alternatively you can generate an "All Access" token, which will grant all permissions for ALL buckets of given organization.
 
 You can also define a database name - this is used as a Bucket. The default is `iobroker`. On the first adapter start, this bucket is created in the configured organization.
 
@@ -75,7 +75,7 @@ Additionally, InfluxDB does not support "null" values, so these are not written 
 Please refer to the official InfluxDB pages for installation instructions depending on your OS.
 
 * InfluxDB 1.x: https://docs.influxdata.com/influxdb/v1.8/introduction/install/
-* InfluxDB 2.x: https://docs.influxdata.com/influxdb/v2.0/install/
+* InfluxDB 2.x: https://docs.influxdata.com/influxdb/v2.2/install/
 
 ### Setup authentication for InfluxDB 1.x (optional)
 **NOTE:** Influx DB V2.x relies on organization/token login, instead of username/password! This is only applicable for InfluxDB 1.x
@@ -451,6 +451,10 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (Marc-Berg) Allowed the self signed certificates using "test connection" button
+* (Marc-Berg) The deletion of data from DB was implemented for V2
+
 ### 3.2.0 (2022-09-19)
 * (Apollon77) Adjust cache file to be different per instance when having multiple instances
 

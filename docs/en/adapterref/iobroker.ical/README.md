@@ -202,8 +202,8 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.13.3 (2023-06-20)
+* (jens-maus) updated node-ical to latest 0.16.1
 * (klein0r) Use color picker in adapter settings
 * (klein0r) Dropped Admin 4 UI
 * (klein0r) Added Ukrainian language
@@ -221,14 +221,11 @@ Whitelist: If you only want to include events of a specific location, use regula
 ### 1.12.2 (2022-06-03)
 * (Apollon77) Fix displaying rest-time of event in one case
 
-### 1.12.1 (2022-03-22)
-* (Apollon77) Adjust colorize of dates to also show dates started in the past with today's color
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

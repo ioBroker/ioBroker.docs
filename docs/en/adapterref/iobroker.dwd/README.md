@@ -23,6 +23,9 @@ This adapter loads the weather warnings from the German weather service via JSON
 -->
 
 ## Changelog
+### 2.8.5 (2023-06-15)
+* (Quarkmax) added the hint for warning instructions
+
 ### 2.8.3 (2022-03-23)
 * (Apollon77) Do not add unused warning0
 
@@ -40,7 +43,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 * (bluefox) Breaking change: Rename state `numberofwarnings` to `numberOfWarnings`
 
 ### 2.7.5 (2021-02-09)
-* (Apollon77) Update region list to the official one completely
+* (Apollon77) Update the region list to the official one completely
 
 ### 2.7.4 (2021-02-04)
 * (Apollon77) Fix region list entry
@@ -49,11 +52,11 @@ This adapter loads the weather warnings from the German weather service via JSON
 * (Apollon77) Fix issue on deleting old objects
 
 ### 2.7.1 (2021-01-19)
-* (Apollon77) Make sure to end process when no data could be received
+* (Apollon77) Make sure to end the process when no data could be received
 
 ### 2.7.0 (2021-01-18)
 * (Apollon77) restructure code to not exit before really done with setting all states
-* (Apollon77) js-controller 2.0 is now required at minimum
+* (Apollon77) js-controller 2.0 is now required at the minimum
 
 ### 2.6.1 (2021-01-16)
 * (wendy2702) correct Region "Leer"
@@ -179,7 +182,7 @@ This adapter loads the weather warnings from the German weather service via JSON
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 bluefox <dogafox@gmail.com>, hobbyquaker
+Copyright (c) 2016-2023 bluefox <dogafox@gmail.com>, hobbyquaker
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

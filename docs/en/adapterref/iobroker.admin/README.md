@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.5.9 (2023-06-19)
+* (bluefox) Added support for update of the js-controller slaves
+
 ### 6.5.8 (2023-06-12)
 * (foxriver76) The log size will be parsed correctly for controller v5
 
@@ -85,10 +88,6 @@ lettering of the log appears in red.
 
 ### 6.5.3 (2023-05-24)
 * (bluefox) Added support for the js-controller update
-
-### 6.4.4 (2023-05-10)
-* (bluefox) Added `imageSendTo` Control to JSONConfig
-* (bluefox) Added possibility to filter objects in selectID JSON component
 
 ## License
 The MIT License (MIT)

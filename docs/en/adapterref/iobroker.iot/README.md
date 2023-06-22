@@ -131,6 +131,10 @@ If you set `.STATE, .LEVEL`, so `.STATE` and `.LEVEL` will be replaced and not `
 - `smart.lastCommand`: Last executed command. Command can be: `true(ON)`, `false(OFF)`, `number(%)`, `-X(decrease at x)`, `+X(increase at X)`
 - `smart.lastResponse`: Textual response on command. It can be sent to some `text2speech` (`sayit`) engine.
 
+## Toggle mode
+Alexa v3 supports toggle mode.
+It means that if you say "Alexa, turn on the light" and the light is already on, it will be turned off.
+
 ## IFTTT
 [instructions](doc/ifttt.md)
 
@@ -293,6 +297,9 @@ setState('iot.0.app.message', JSON.stringify({
   priority: 'normal'
 })); // important, that ack=false (default)
 ```
+## Todo
+- Smartnames must have higher priority as groups
+- Devices should be grouped by smart name
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -300,7 +307,11 @@ setState('iot.0.app.message', JSON.stringify({
 -->
 
 ## Changelog
-### 2.0.3 (2023-06-06)
+### 2.0.11 (2023-06-20)
+* (bluefox) Added support for the state toggling (alexa 3)
+* (bluefox) Done small improvements for alexa 3
+
+### 2.0.9 (2023-06-15)
 * (bluefox) Working on support for amazon alexa v3
 
 ### 2.0.2 (2023-06-05)

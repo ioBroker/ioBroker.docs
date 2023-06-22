@@ -10,11 +10,11 @@ It exports devices and groups from pimatic and then monitors updates of variable
 
 ## Changelog
 
-### 0.3.1 (2023.03.22)
+### 0.3.2 (2023.03.22)
 * (Apollon77) Prepare for future js-controller versions
 
 ### 0.3.0 (2020.04.12)
-* (Apollon77) make auto decrypt compatble with js-controller 3.0
+* (Apollon77) make auto decrypt compatible with js-controller 3.0
 * (Apollon77) Remove Admin 2 support
 
 ### 0.2.1 (2020.03.08)

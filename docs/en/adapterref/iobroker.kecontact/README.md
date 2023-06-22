@@ -29,7 +29,7 @@ Install this adapter via ioBroker Admin:
 
 ### KeContact IP Address
 
-This is the IP address of your KEBA KeContact or BMW i wallbox.
+This is the IP address of your KEBA KeContact or BMW i wallbox. Combination with Keba KeContact S10 (phase switching device) is supported.
 
 ### Firmware check
 
@@ -57,6 +57,7 @@ The default value is 10 minutes which is a good balance between the load for the
 ### PV automatics
 
 To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can also define states which represent surplus and regard of main power. These value are used to calculate amperage which can be used for charging. By additional values you can define
+* a state to switch charging phases 1p/3p or using X2 port of Keba Kecontact (with Keba KeContact S10 or any other contactor)
 * a state for current power of battery storage, so the photovoltaics automatics will use it additionally for charging your vehicle
 * an option to limit power of battery storage to just hold charging with minimum power
 * toggle X1 option if you want to use X1 input from charging station to control whether to charge with full power or by photovoltaic automatic
@@ -100,12 +101,12 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 -->
 
 ### **WORK IN PROGRESS**
-* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available)
+* (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
-* (Sneak-L8) added new Keba model Company Car Wall Box MID
+* (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script

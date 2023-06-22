@@ -3,45 +3,45 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lgtv/README.md
 title: ioBroker.lgtv
-hash: 7IHLz/tapp08N9APUPMn1oaS5CtG3bxyukS3VKinNrY=
+hash: NvvMnCDXQgnMkATWxwf9jlfwGXVtvdHtYKYrptQP9D8=
 ---
-![商标](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
+![标识](../../../en/adapterref/iobroker.lgtv/admin/lgtv.png)
 
 ![安装数量](http://iobroker.live/badges/lgtv-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.lgtv.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.lgtv.svg)
-![NPM](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
-![特拉维斯](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv.svg?branch=master)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/xx55hgsuff4fas47/branch/master?svg=true)
+![下载](https://img.shields.io/npm/dm/iobroker.lgtv.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.lgtv.png?downloads=true)
+![特拉维斯-CI](https://travis-ci.org/SebastianSchultz/ioBroker.lgtv.svg?branch=master)
+![应用程序载体](https://ci.appveyor.com/api/projects/status/xx55hgsuff4fas47/branch/master?svg=true)
 
-＃ioBroker.lgtv
-适用于ioBroker的LG WebOS SmartTV适配器
+# IoBroker.lgtv
+适用于 ioBroker 的 LG WebOS SmartTV 适配器
 
-从[ioBroker](https://www.iobroker.net)远程控制LG WebOS SmartTV（2013年及更高版本）。
+从[io经纪商](https://www.iobroker.net)远程控制 LG WebOS SmartTV（2013 型号及更高版本）。
 
 ---
 
-##用法：
-通过ioBroker管理界面安装适配器。
-在适配器配置中，输入LG WebOS TV的IP地址。
-首次连接时，您会在电视屏幕上收到一个配对提示，您应该在其中允许连接。
+＃＃ 用法：
+通过 ioBroker 管理界面安装适配器。
+在适配器配置中输入 LG WebOS 电视的 IP 地址。
+首次连接时，您将在电视屏幕上收到配对提示，您应允许连接。
 
-###轮询
-关闭电视时，某些电视会与网络插座断开连接，因此无法正确地将其报告给适配器。然后，需要额外的轮询。您可以在设置中定义时间。如果该值为空，则适配器尝试自动检测到此值：在适配器上重新启动轮询（每60秒），直到检测到第一个正确的电视关闭事件为止。
+### 投票
+有些电视在关闭时会与网络插座断开连接，并且不会正确地将其报告给适配器。然后需要进行额外的轮询。您可以在设置中定义时间。如果该值为空，适配器会尝试自动检测此情况：在适配器重新启动时，轮询（每 60 秒一次）处于活动状态，直到检测到第一个正确的电视关闭事件。
 
 ＃＃ 一些例子：
 ```setState('lgtv.0.states.popup', 'Some text!');```
 
-这将显示一个带有文本“ Some text！”的弹出窗口。在电视上。
-您可以在文本中使用HTML换行符（br）。
+这将显示一个带有文本“Some text!”的弹出窗口。在电视上。
+您可以在文本中使用 HTML 换行符 (br)。
 
 ```setState('lgtv.0.states.turnOff', true);```
 
-关闭电视。
+关掉电视。
 
 ```setState('lgtv.0.states.mute', true);```
 
-使电视静音。
+将电视静音。
 
 ```setState('lgtv.0.states.mute', false);```
 
@@ -49,31 +49,31 @@ hash: 7IHLz/tapp08N9APUPMn1oaS5CtG3bxyukS3VKinNrY=
 
 ```setState('lgtv.0.states.volumeUp', true);```
 
-这将增加电视的音量。
+这会增加电视的音量。
 
 ```setState('lgtv.0.states.volumeDown', true);```
 
-减少电视的音量。
+降低电视的音量。
 
 ```setState('lgtv.0.states.channelUp', true);```
 
-增加当前的电视频道。
+增加当前电视频道。
 
 ```setState('lgtv.0.states.channelDown', true);```
 
-减少当前的电视频道。
+减少当前电视频道。
 
 ```setState('lgtv.0.states.3Dmode', true);```
 
-在电视上激活3D模式
+激活电视上的 3D 模式
 
 ```setState('lgtv.0.states.3Dmode', false);```
 
-在电视上禁用3D模式。
+停用电视上的 3D 模式。
 
 ```setState('lgtv.0.states.channel', 7);```
 
-将直播电视切换到7号频道。
+将直播电视切换至 7 号频道。
 
 ```setState('lgtv.0.states.launch', 'livetv');```
 
@@ -81,60 +81,60 @@ hash: 7IHLz/tapp08N9APUPMn1oaS5CtG3bxyukS3VKinNrY=
 
 ```setState('lgtv.0.states.launch', 'smartshare');```
 
-在电视上打开SmartShare应用程序。
+在电视上打开 SmartShare 应用程序。
 
 ```setState('lgtv.0.states.launch', 'tvuserguide');```
 
-在电视上运行电视用户指南应用。
+在电视上运行电视用户指南应用程序。
 
 ```setState('lgtv.0.states.launch', 'netflix');```
 
-在电视上打开Netflix App。
+在电视上打开 Netflix 应用程序。
 
 ```setState('lgtv.0.states.launch', 'youtube');```
 
-在电视上打开YouTube应用。
+在电视上打开 Youtube 应用程序。
 
 ```setState('lgtv.0.states.launch', 'prime');```
 
-在电视上打开Amazon Prime应用。
+在电视上打开 Amazon Prime 应用程序。
 
 ```setState('lgtv.0.states.launch', 'amazon');```
 
-在某些电视上，此命令会打开Amazon Prime应用程序。
+在某些电视上，此命令会打开 Amazon Prime 应用程序。
 
 ```setState('lgtv.0.states.openURL', 'http://www.iobroker.net');```
 
-在电视上打开Webbrowser并导航到www.iobroker.net。
-也可以用于打开图像或视频（在浏览器中）。
+打开电视上的网络浏览器并导航至 www.iobroker.net。
+还可以用于打开图像或视频（在浏览器中）。
 
 ```setState('lgtv.0.states.input', 'av1');```
 
-将电视的输入切换到AV1。
+将电视输入切换至 AV1。
 
 ```setState('lgtv.0.states.input', 'scart');```
 
-将电视的输入切换为Scart。
+将电视输入切换至 Scart。
 
 ```setState('lgtv.0.states.input', 'component');```
 
-将电视的输入切换到分量。
+将电视的输入切换为分量输入。
 
 ```setState('lgtv.0.states.input', 'hdmi1');```
 
-将电视的输入切换到HDMI 1。
+将电视输入切换至 HDMI 1。
 
 ```setState('lgtv.0.states.input', 'hdmi2');```
 
-将电视的输入切换到HDMI 2。
+将电视输入切换至 HDMI 2。
 
 ```setState('lgtv.0.states.input', 'hdmi3');```
 
-将电视的输入切换到HDMI 3。
+将电视输入切换至 HDMI 3。
 
 ```setState('lgtv.0.states.youtube', 'https://www.youtube.com/watch?v=AjSpMQfRmEo'); OR setState('lgtv.0.states.youtube', 'AjSpMQfRmEo');```
 
-播放YouTube视频。
+播放 YouTube 视频。
 
 ```setState('lgtv.0.states.raw', '{"url": "ssap://system.launcher/launch", "cmd": "{id: 'netflix'}" }');```
 
@@ -144,34 +144,44 @@ hash: 7IHLz/tapp08N9APUPMn1oaS5CtG3bxyukS3VKinNrY=
 
 ```setState('lgtv.0.remote.*KEY*', true);```
 
-将远程KEY发送到电视。
+将远程 KEY 发送到电视。
 
 ```setState('lgtv.0.states.power', true/false);```
 
-关闭电视并打开电视（使用WOL，打开电视，仅适用于LAN）。
+关闭电视并打开电视（打开，仅适用于 LAN，使用 WOL）。
 
 ```setState('lgtv.0.states.soundOutput', 'external_arc');```
 
-通过ARC（HDMI）切换音频输出。
+通过 ARC (HDMI) 切换音频输出。
 
 ---
 
 ＃＃ 状态
 渠道
 
-保留当前频道
+保持当前频道
 
 体积
 
-保持当前音量，并可以更改音量
+保持当前音量并可以更改音量
 
-上
+在
 
-电视打开时为true，电视关闭时为false
+电视打开时为 true，电视关闭时为 false
 
 ---
 
 ## Changelog
+
+### 1.1.10
+* (foxriver76) prepare for controller v5
+
+### 1.1.9 (2020-07-14)
+* (SebastianSchultz) re-upload for fixing NPM update issue
+
+### 1.1.8 (2020-07-08)
+* (SebastianSchultz) bugfix for "IndexOf" error
+
 ### 1.1.6 (2020-03-07)
 * (dirkhe) make healthintervall configurable
 

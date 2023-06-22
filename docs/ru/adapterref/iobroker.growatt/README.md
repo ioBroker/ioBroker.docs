@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.growatt/README.md
 title: без заголовка
-hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
+hash: 0sU0Bw8iqzjCWsTpAtijZLZv3PQpobwnBhs8WUcNgW4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,10 +14,7 @@ hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
 ![НПМ](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
-## Важно: прочтите
-Облачные серверы Growatt очень нестабильны. При запросе данных появляются сообщения об ошибках и тайм-ауты.
-Если вы все еще думаете о приобретении инвертора, лучше использовать хороший продукт. Лучше всего использовать устройства, которые передают данные прямо в дом по протоколу Modbus-IP.
-Существует также [Гротт проект](https://github.com/johanmeijer/grott), который перехватывает данные из сообщения. Однако здесь также случается, что передаются более старые наборы данных или передача приостанавливается, так как это только прослушивает и временно сохраняет данные.
+Этот адаптер работает через облачные серверы Growatt. Существует также [Гротт проект](https://github.com/johanmeijer/grott), который перехватывает данные из сообщения.
 
 ---
 
@@ -77,7 +74,7 @@ hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
 
 Инвертор может изменять только одну настройку за раз, и путь передачи лежит от ioBroker через облако к адаптеру WLAN, а затем к инвертору. Настройки обрабатываются одна за другой через очередь. Слишком короткое время сеанса может привести к проблемам.
 
-Написание настроек было разработано в меру наших знаний. Однако никаких гарантий не дается
+Написание настроек было разработано в меру наших знаний. Однако автор не несет ответственности за ошибки, содержащиеся в программном обеспечении, или за ущерб, возникший в результате его использования.
 
 #### Время ожидания в секундах
 Тайм-аут по умолчанию для HTTP-запросов. Значение по умолчанию 60 секунд, как и в веб-браузерах.
@@ -381,7 +378,7 @@ Growatt удалил сайт из прошивки.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2022 PLCHome
+Copyright (c) 2020 - 2023 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

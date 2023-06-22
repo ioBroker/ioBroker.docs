@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
+hash: 0sU0Bw8iqzjCWsTpAtijZLZv3PQpobwnBhs8WUcNgW4=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,10 +14,7 @@ hash: ER+35iKj0YhtF58blC/BVn1Nibl+utaPPgDrBI9aMiA=
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
-## Wichtig: Bitte lesen
-Die Cloud-Server von Growatt sind sehr instabil. Bei der Datenanforderung kommt es zu Fehlermeldungen und Timeouts.
-Wenn Sie noch über die Anschaffung eines Wechselrichters nachdenken, ist es besser, auf ein gutes Produkt zurückzugreifen. Am besten eignen sich Geräte, die die Daten per Modbus-IP direkt im Haus übertragen.
-Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt. Hierbei kommt es jedoch auch vor, dass ältere Datensätze übertragen werden oder die Übertragung ausgesetzt wird, da diese nur mithört und die Daten zwischenspeichert.
+Dieser Adapter funktioniert über die Cloud-Server von Growatt. Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt.
 
 ---
 
@@ -77,7 +74,7 @@ War das Schreiben erfolgreich, wird automatisch das Lesen ausgelöst.
 
 Der Wechselrichter kann jeweils nur eine Einstellung ändern und der Übertragungsweg verläuft vom ioBroker über die Cloud zum WLAN-Adapter und dann zum Wechselrichter. Die Einstellungen werden nacheinander über eine Warteschlange abgearbeitet. Eine zu kurze Sitzungszeit kann zu Problemen führen.
 
-Das Verfassen der Einstellungen erfolgte nach bestem Wissen und Gewissen. Es wird jedoch keine Garantie übernommen
+Das Verfassen der Einstellungen erfolgte nach bestem Wissen und Gewissen. Der Autor übernimmt jedoch keine Haftung für enthaltene Fehler oder für Schäden, die durch die Nutzung der Software entstehen.
 
 #### Timeout in Sekunden
 Das Standard-Timeout für HTTP-Anfragen. Der Standardwert beträgt 60 Sekunden, wie bei Webbrowsern
@@ -107,7 +104,7 @@ Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können h
 Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Beim Drücken von „Speichern“ muss die Schaltfläche „Aktualisieren“ verwendet werden.
 
 #### Normal
-Das Objekt bleibt erhalten, der Wert wird aktualisiert.
+Das Objekt bleibt bestehen, der Wert wird aktualisiert.
 
 #### Löschen
 Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert verworfen.
@@ -381,7 +378,7 @@ Daher wurde auch die Beschreibung entfernt.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2022 PLCHome
+Copyright (c) 2020 - 2023 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

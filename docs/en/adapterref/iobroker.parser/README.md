@@ -15,7 +15,7 @@ This adapter parses data received via URL or from a file, by using regular expre
 
 ## Settings
 ### 1. Default poll interval
-This default poll interval value will be used, if no individual poll interval value is specified for an entry in the configuration table (column: "Interval"). The interval is in milliseconds and defines how often the link or file is being read and the states are being updated.
+This default poll interval value will be used if no individual poll interval value is specified for an entry in the configuration table (column: "Interval"). The interval is in milliseconds and defines how often the link or file is being read and the states are being updated.
 
 **Note:** 
 Do not use a too aggressive poll interval especially for website URLs. For example, if you want to retrieve the price of your shares from a certain website, you probably should be good with an interval of just every 24 hours (= 86400000 ms), if you are not a day trader. If you try to retrieve data from certain URLs too often, the website may ban you and put you on a server blacklist. So please use the poll interval with care.
@@ -26,15 +26,15 @@ Specify how long the adapter waits for an HTTP response when doing website queri
 ### 3. Delay between requests
 Specify how long the adapter waits between making HTTP requests when performing remote queries. Useful when retrieving data from slow hosts or over slow connections to avoid overloading either one. Zero (default) means no delay.
 
-This delay is on a per-host basis. If remote queries are configured to fetch from multiple remote hosts each host will be queried in parallel.
+This delay is on a per-host basis. If remote queries are configured to fetch from multiple remote hosts, each host will be queried in parallel.
 
-The delay is a minimum value between initiating each request. I.e. if a query takes longer than this delay parameter to be read, the next will start instantly the read completes.
+The delay is a minimum value between initiating each request. I.e., if a query takes longer than this delay parameter to be read, the next will start instantly the read completes.
 
 ### 4. Accept invalid certificates
 Specify if self-signed/invalid SSL/TLS certificates are accepted or declined when doing HTTPS requests
 
 ### 5. Use insecure HTTP parser
-Specify to use an insecure HTTP parser that accepts invalid HTTP headers. This may allow interoperability with non-conformant HTTP implementations.
+Specify to use an insecure HTTP parser that accepts invalid HTTP headers. This may allow interoperability with non-conformance HTTP implementations.
 Using the insecure parser should be avoided.
 
 ### 6. Table
@@ -47,7 +47,7 @@ If you enter the same URL or filename more than once into different table rows, 
 
 - ***Name*** - name of state that is being created under `parser.<instance number>`. Spaces are not allowed. You can use dots `.` as separator to create sub folders. Example: `Shares.Microsoft.Current` will result in `parser.<instance number>.Shares.Microsoft.Current`.
 - ***URL or file name*** - either a URL of a website or the path to a file of which we want to retrieve information. Examples `https://darksky.net/forecast/48.1371,11.5754/si24/de` (weather information Munich), or `/opt/iobroker/test/testdata.txt` (file from within ioBroker).
-- ***RegEx*** - regular expression, how to extract data from link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. `temp swip">(-?\d+)˚<` for the line above.
+- ***RegEx*** - regular expression, how to extract data from a link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. `temp swip">(-?\d+)˚<` for the line above.
 - ***Item*** (German: "Num") - a regex can find (match) multiple entries. With this option you can define which match to be chosen. 0 = first match, 1 = second match, 2 = third match, etc. Default is 0 (first match).
 - ***Role*** - one of the roles:
     - custom - user defines itself via *admin* the role
@@ -125,7 +125,7 @@ Values can have quality codes:
 
 ## Triggering
 Additionally, to the polling interval, the parsing of specific rules can be triggered by writing of empty value (`false`, `0`, '' - depends on the type of state) to the state with `false` acknowledge flag.
-In this case the value will be read from the URL/file and parsed immediately.
+In this case, the value will be read from the URL/file and parsed immediately.
 
 You can also send a message to adapter with `sendTo` command:
 ```Javascript
@@ -142,7 +142,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 2.0.4 (2023-04-03)
+### 2.0.5 (2023-06-19)
 * (bluefox) The result could be an array of values
 
 ### 2.0.3 (2023-04-02)
@@ -169,9 +169,9 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 * (Apollon77) Always use raw response and not try to parse it
 
 ### 1.2.0 (2022-09-12)
-* (Apollon77) Allow to specify if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
-* (Apollon77) Allow to specify if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
-* (Apollon77) Allow to specify the HTTP request timeout
+* (Apollon77) Allow specifying if self-signed/invalid SSL certificates are ignored or not (default is to ignore as till now)
+* (Apollon77) Allow specifying if an "insecure HTTP parser" is used which also enables HTTP implementations that are not compliant to specifications
+* (Apollon77) Allow specifying the HTTP request timeout
 
 ### 1.1.8 (2022-06-27)
 * (Apollon77) Check that a link is configured
@@ -186,7 +186,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 * (Apollon77) Ignore objects without configuration for parser and log it
 
 ### 1.1.4 (2022-03-21)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed a crash case reported by Sentry
 
 ### 1.1.3 (2022-03-20)
 * (Apollon77) if regex did not match set defined replacement value (or null)
@@ -216,7 +216,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 * (bluefox) Added additional option: old value
 
 ### 1.0.0 (2017-05-19)
-* (bluefox) Allow set the number of found item
+* (bluefox) Allow setting the number of found items
 
 ### 0.2.2 (2017-04-03)
 * (Apollon77) fix handling of multiple fields for one URL
@@ -228,7 +228,7 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 * (bluefox) Add visual test
 
 ### 0.1.1 (2017-01-30)
-* (bluefox) move to common group
+* (bluefox) move to a common group
 
 ### 0.0.1 (2017-01-16)
 * (bluefox) initial commit

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
+hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -13,7 +13,7 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-material.png?downloads=true)
 
 # Material-Widgets für ioBroker.vis 2.0
-##Widgets
+## Widgets
 ### Knöpfe und Schalter
 ![Schalter](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-switches.png)
 
@@ -24,11 +24,11 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 ### Uhr
 - Analog
 
-![Uhr analog](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-1.png)
+![Uhr Analog](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-1.png)
 
 - Analoge Variante
 
-![Uhr analog 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
+![Uhr Analog 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
 
 - Digital
 
@@ -39,7 +39,7 @@ hash: cKHRTVBeG8kUHylekx+2Num3as39qjPPHxLFVCu95Ak=
 ![Digital2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-digital-2.png)
 
 ### Einfacher Zustand
-Mit diesem Widget können Sie ein Gerät steuern. Boolesch oder Zahl.
+Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
@@ -52,26 +52,21 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolesch oder Zahl.
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
 
-Nicht als Schaltfläche: Die Ansicht könnte in voller Größe angezeigt werden, und Sie können Elemente in der Ansicht steuern.
+Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden und Sie können Elemente in der Ansicht steuern.
 
-![Im Widget anzeigen - Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
+![Im Widget anzeigen – Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-Als Schaltfläche: Sie können ein kleines Miniaturbild der Ansicht anzeigen und durch Drücken darauf wird es in voller Größe angezeigt.
+Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen und durch Drücken darauf wird sie in voller Größe angezeigt.
 
-###Thermostat
+### Thermostat
 ![Thermostat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
 
-Zusätzlich kann es einen Verlauf anzeigen, wenn Sie es aktiviert haben.
+Darüber hinaus kann ein Verlauf angezeigt werden, wenn Sie ihn aktiviert haben.
 
-### Aktueller Wert mit Diagramm
+### Tatsächlicher Wert mit Diagramm
 ![Tatsächlicher Wert](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-1.png)
 
-![Istwert mit Diagramm](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
-
-### Statische Informationen
-![Statische Informationen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-static-info-1.png)
-
-![Statische Informationen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-static-info-2.png)
+![Tatsächlicher Wert mit Diagramm](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-actual-value-2.png)
 
 ### Sicherheitskontrolle
 ![Sicherheitskontrolle](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-0.png)
@@ -80,7 +75,7 @@ Zusätzlich kann es einen Verlauf anzeigen, wenn Sie es aktiviert haben.
 
 Sie können die Verzögerung in Sekunden definieren.
 
-Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden geschrieben und nach Ablauf der Verzögerung wird die definierte ID auf 0 und die Alarm-ID auf wahr gesetzt.
+Durch die Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden geschrieben und nach Ablauf der Verzögerung wird die definierte ID auf 0 und die Alarm-ID auf „true“ gesetzt.
 
 ![Sicherheitskontrolle](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-security-2.png)
 
@@ -96,6 +91,9 @@ Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden 
 ### HTML-Vorlage
 ![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
+Mit der HTML-Vorlage kann jeder beliebige HTML-Code angezeigt werden.
+Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
+
 ### Jalousien
 ![Jalousie](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
 
@@ -103,11 +101,32 @@ Bei Aktivierung wird die definierte ID mit der Anzahl der Verzögerungssekunden 
 
 ### Farblampe
 ### Zeitauswahl
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+## Machen
+- Schriftart der Schaltflächen ändern
 
-### **IN ARBEIT** -->
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 0.5.3 (2023-06-21)
+* (bluefox) Corrected errors with view in widget
+
+### 0.5.1 (2023-06-20)
+* (bluefox) Added widget to switch the theme
+* (bluefox) Improved HTML widget to show iframe and image
+
+### 0.4.0 (2023-06-16)
+* (bluefox) Added button texts for switches widget
+* (bluefox) Removed static widget, as it replaced by switches widget
+
+### 0.3.1 (2023-06-14)
+* (bluefox) Improved buttons widget
+
+### 0.2.13 (2023-03-22)
+* (bluefox) BREAKING CHANGE: The names of widgets must be entered anew 
+* (bluefox) update packages
+
 ### 0.2.9 (2023-02-27)
 * (bluefox) Made this adapter singleton
 

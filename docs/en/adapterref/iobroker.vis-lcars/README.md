@@ -1,6 +1,7 @@
 ![Logo](admin/lcars.png)
-ioBroker.vis-lcars
-============
+# ioBroker.vis-lcars
+
+![Number of Installations](http://iobroker.live/badges/vis-lcars-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-lcars-stable.svg)
 
 Lcars (Star trek) widget sets for ioBroker.vis
 ![Example](img/widgets.png)
@@ -8,11 +9,17 @@ Lcars (Star trek) widget sets for ioBroker.vis
 Button attributes:
 ![Button description](widgets/lcars/img/buttons.jpg)
 
+<!--
+	### **WORK IN PROGRESS**
+-->
 ## Changelog
-![Number of Installations](http://iobroker.live/badges/vis-lcars-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-lcars-stable.svg) ### 1.0.4 (2017-10-04)
+### 1.1.1 (2023-06-14)
+* (oelison) Added two color schemes: gray and light gray
+
+### 1.0.4 (2017-10-04)
 - (bluefox) fix render of state on slow devices
 
-### 1.0.1 (2016-06-07)
+### 1.0.1 (2016-06-07)[README.md](..%2FioBroker.vis-hqwidgets%2FREADME.md)
 - (ploebb) fix radius settings for firefox
 
 ### 1.0.0 (2016-04-04)
@@ -31,5 +38,5 @@ Button attributes:
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2016 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2023 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
  MIT

@@ -2,20 +2,30 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-lcars/README.md
-title: kein Titel
-hash: NxPECMvNNGAssEJHqmMvN10x35lH+cVfYApxqN6jJt4=
+title: ioBroker.vis-lcars
+hash: 0TTN2ZRpYTc7pEM0ndJLOdfOW0hnKWlzafmiWdHfUlI=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-lcars/admin/lcars.png) ioBroker.vis-lcars ==============
+![Logo](../../../en/adapterref/iobroker.vis-lcars/admin/lcars.png)
 
-Lcars (Star Trek) Widget-Sets für ioBroker.vis ![Beispiel](../../../en/adapterref/iobroker.vis-lcars/img/widgets.png)
+![Anzahl der Installationen](http://iobroker.live/badges/vis-lcars-stable.svg)
 
-Tastenattribute: ![Beschreibung der Schaltfläche](../../../en/adapterref/iobroker.vis-lcars/widgets/lcars/img/buttons.jpg)
+# IoBroker.vis-lcars
+Lcars (Star Trek)-Widget-Sets für ioBroker.vis ![Beispiel](../../../en/adapterref/iobroker.vis-lcars/img/widgets.png)
+
+Schaltflächenattribute: ![Beschreibung der Schaltfläche](../../../en/adapterref/iobroker.vis-lcars/widgets/lcars/img/buttons.jpg)
+
+<!--
+
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-![Number of Installations](http://iobroker.live/badges/vis-lcars-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-lcars-stable.svg) ### 1.0.4 (2017-10-04)
+### 1.1.1 (2023-06-14)
+* (oelison) Added two color schemes: gray and light gray
+
+### 1.0.4 (2017-10-04)
 - (bluefox) fix render of state on slow devices
 
-### 1.0.1 (2016-06-07)
+### 1.0.1 (2016-06-07)[README.md](..%2FioBroker.vis-hqwidgets%2FREADME.md)
 - (ploebb) fix radius settings for firefox
 
 ### 1.0.0 (2016-04-04)
@@ -34,5 +44,5 @@ Tastenattribute: ![Beschreibung der Schaltfläche](../../../en/adapterref/iobrok
 - (bluefox) initial checkin
 
 ## License
- Copyright (c) 2013-2016 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
+ Copyright (c) 2013-2023 hobbyquaker https://github.com/hobbyquaker, bluefox https://github.com/GermanBluefox
  MIT
