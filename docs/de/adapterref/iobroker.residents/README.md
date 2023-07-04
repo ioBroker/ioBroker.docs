@@ -23,6 +23,10 @@ Der Adapter ist außerdem so konzipiert, dass er _in Zukunft_ ein ausgeklügelte
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.0 (2023-06-29)
+
+-   (jpawlowski) First stable version
+
 ### 0.1.0-beta.2 (2023-03-12)
 
 -   (jpawlowski) Pets are now allowed to follow the presence of guest residents

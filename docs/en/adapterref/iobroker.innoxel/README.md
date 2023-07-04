@@ -19,7 +19,7 @@ Adapter for Innoxel Master 3 (https://innoxel.ch)
 
 ## Requirements
 
--   NodeJS >= 14.x
+-   NodeJS >= 18.x
 -   ioBroker >= 4.x, with admin >= 5.x
 -   Innoxel Master 3 Smart Home system
 
@@ -125,6 +125,11 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-(matthsc) drop support for Node 16
+
 ### 0.3.1 (2023-05-23)
 
 -   (matthsc) change actual value from temperature sensor if it doesn't provide values

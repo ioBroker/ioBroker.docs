@@ -2,36 +2,52 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.easee/README.md
-title: ioBroker.esee
-hash: hGjDWYqWQrWPgaQGtPV2tZMVZTYEgOLPjF6ljaLvbn8=
+title: ioBroker.easee
+hash: Nhtw//Pj0JtYaC4vkoXniAzHmPhI26dZny0RA6ZuJJ4=
 ---
 ![标识](../../../en/adapterref/iobroker.easee/admin/easee.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.easee.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.easee.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.easee.svg)
 ![安装数量（最新）](http://iobroker.live/badges/easee-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/easee-stable.svg)
 ![依赖状态](https://img.shields.io/david/Newan/iobroker.easee.svg)
 ![已知漏洞](https://snyk.io/test/github/Newan/ioBroker.easee/badge.svg)
-![新产品管理](https://nodei.co/npm/iobroker.easee.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.easee.png?downloads=true)
 
-# IoBroker.esee
-**测试：** ![测试和发布](https://github.com/Newan/ioBroker.easee/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.easee
+**测试：** ![测试与发布](https://github.com/Newan/ioBroker.easee/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的easee 适配器
-用于连接 Easee Wallbox 的适配器
+## IoBroker 的 easye 适配器
+连接 Easee Wallbox 的适配器
 
 ＃＃ 帮助
-ChargerOpMode = Offline: 0, Disconnected: 1, AwaitingStart: 2, Charging: 3, Completed: 4, Error: 5, ReadyToCharge: 6
+ChargerOpMode = 离线：0、已断开连接：1、正在等待开始：2、正在充电：3、已完成：4、错误：5、ReadyToCharge：6
 
-dynamicCircuitCurrentPX -> 所有阶段必须在 500 毫秒内设置（脚本），否则阶段将设置为 0。
+DynamicCircuitCurrentPX -> 所有相位必须在 500ms 内设置（脚本），否则相位将设置为 0。
 
-##捐赠
+## 捐赠
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.0.8 (2023-07-02)
+* (Newan)  small fixes
+
+### 1.0.7
+* (Newan) Changed login URL
+
+### 1.0.6
+* (Newan) Changed that smart charging is editable
+
+### 1.0.5
+* (marwin79) More Features supported and convert values to expected datatypes
+
 ### 1.0.4
-* (Newan) dynamicCircuitCurrentPX writeable (set all Phases in 500ms) to limit ampere 
+* (Newan) dynamicCircuitCurrentPX writeable (set all Phases in 500ms) to limit ampere
 
 ### 1.0.3
 * (Newan) Adapter crash fixed an other bugfixes

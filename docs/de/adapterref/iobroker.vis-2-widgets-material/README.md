@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
+hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -43,7 +43,7 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
-![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
+![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
 
 - Kontrolle
 
@@ -102,13 +102,23 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### Farblampe
 ### Zeitauswahl
 ## Machen
-- Schriftart der Schaltflächen ändern
+- RGBW-Farbcontroller
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 0.7.1 (2023-07-02)
+* (bluefox) Added washer widget
+
+### 0.6.2 (2023-06-29)
+* (bluefox) Allowed usage without frame for all widgets
+
+### 0.6.0 (2023-06-28)
+* (bluefox) Added blinds to switches widget
+* (bluefox) Allowed to place widgets in widgets
+
 ### 0.5.3 (2023-06-21)
 * (bluefox) Corrected errors with view in widget
 

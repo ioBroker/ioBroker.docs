@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius/README.md
 title: ioBroker.fronius
-hash: GKi98IwoluJMwH+FOLLvAeQRHvU3pc566UGgNXHdEL0=
+hash: aRknBDFFiexqqTkvancXw+4YiCs8a9Estg5pBvJkDVk=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius/admin/fronius.png)
 
@@ -31,6 +31,8 @@ Hierbei handelt es sich um einen ioBroker-Adapter für Ihren Fronius PV-Wechselr
 ## Installation
 Für die Installation ist kein spezielles Setup erforderlich. Installieren Sie einfach den Adapter und starten Sie die Instanz. Gehen Sie dann zur Adapterkonfiguration. Geben Sie im Konfigurationsabschnitt die IP-Adresse oder URL für Ihren Wechselrichter ein. Dann müssen Sie auf die Schaltfläche „IP prüfen“ klicken. Dies ist erforderlich, um eine Überprüfung und das Auslesen der Systemkonfiguration auszulösen. Diese Systemkonfiguration wird benötigt, um später die API-Aufrufe zu steuern.
 
+Hinweis zum Upgrade von V1 auf V2 des Adapters. Bitte beachten Sie [DatastructureMapping_V1.3-V2.0.pdf](doc/DatastructureMapping_V1.3-V2.0.pdf). Es wird empfohlen, das obige Dokument sorgfältig zu prüfen und die nicht mehr verfügbaren oder verschobenen Zustände manuell zu löschen.
+
 ## Zusätzliche Parameter anfordern
 Wenn Sie einen zusätzlichen Parameter oder API-Aufruf wünschen, geben Sie bitte in einem Ticket den von Ihnen ausgeführten Aufruf sowie eine Datei mit der JSON-Antwort auf diesen Aufruf an, damit dieser dem System und auch der Testumgebung hinzugefügt werden kann. Bitte geben Sie in jedem Fall die Systeminformationen aus diesem Aufruf http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System an, damit die Systemeinrichtung klar ist.
 
@@ -40,7 +42,7 @@ Wenn Sie ein Problem feststellen, melden Sie es bitte unter [Github](https://git
 - Adapterversion installiert
 - Detailliertes Protokoll (Protokollebene Debug oder Silly) des aktuellen Verhaltens
 - Detaillierte Beschreibung des Problems
-- Gegebenenfalls die Systeminformationen von http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System (Anpassung der IP-Adresse ist erforderlich)
+- Gegebenenfalls die Systeminformationen von http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System (Anpassung der IP-Adresse erforderlich)
 
 ## Ausgeführte API-Aufrufe
 Die folgende Anfrage wird an die API gesendet. Die verfügbaren Datenpunkte hängen jedoch stark vom jeweiligen Gerät am Bus ab. Sollte daher ein Datenpunkt fehlen, prüfen Sie bitte zunächst, ob die API diese Informationen liefert. Die IP-Adresse und der DeviceId-Parameter müssen an Ihr eigenes Setup angepasst werden.
@@ -87,6 +89,10 @@ Die folgende Anfrage wird an die API gesendet. Die verfügbaren Datenpunkte hän
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-06-28)
+-   (nkleber78) Instability issues fixed. (#306, #313)
+-   (nkleber78) Set values for parameters delivered as 'null' from API to 0. (#315)
+
 ### 2.0.1 (2023-06-04)
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
@@ -98,16 +104,10 @@ Die folgende Anfrage wird an die API gesendet. Die verfügbaren Datenpunkte hän
 -   (nkleber78) The usage of the ping utility has been removed. (#169)
 -   (nkleber78) Reading of mpp values has been added. (#78)
 -   (nkleber78) 'Request' module has been replaced by 'axios'.
--   (mcm1957) Dependencies and toolset have been updated.
-
-### 1.2.0 (2021-12-18)
-
 -   (nkleber78) Fixed changes related to GEN24 API update for latest FW incl. object creation for storage objects
-
-### 1.1.6 (2021-03-xx)
-
 -   (nkleber78) Fixed issue #97, Added some new predefined objects
 -   (nkleber78) Added Inverter Temperature readout (#86)
+-   (mcm1957) Dependencies and toolset have been updated.
 
 ### 1.1.3 (2021-03-15)
 

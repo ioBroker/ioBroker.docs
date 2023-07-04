@@ -4,7 +4,7 @@ lastChanged: 02.11.2022
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/imprint.md
-hash: ZkKvmaBTF9Xql6nq+rC6Jzf3EyLh98w7W4iyKI6A28k=
+hash: m/le4rnINxIhMPsIbkVsFZI++y8EhxHdiC2HmuJikeA=
 ---
 # Выходные данные
 ## Согласно § 5 TMG:
@@ -12,7 +12,7 @@ hash: ZkKvmaBTF9Xql6nq+rC6Jzf3EyLh98w7W4iyKI6A28k=
 
 **Адрес:** Талстр. 27, 67317 Альтлайнинген, Германия
 
-**Номер отдела кадров:** HRB 68933 окружной суд Людвигсхафен на Рейне
+**Номер отдела кадров:** HRB 68933 Окружной суд Людвигсхафена на Рейне
 
 ** Идентификационный номер налогоплательщика согласно § 27a UStG:** DE 352273606
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
+hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -56,7 +56,7 @@ hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
 
 ![Посмотреть в виджете - кнопка](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-В виде кнопки: Вы можете показать маленькую миниатюру вида, и, нажав на нее, она будет показана в полном размере.
+В виде кнопки: Вы можете отобразить маленькую миниатюру вида, и, нажав на нее, она будет показана в полном размере.
 
 ### Термостат
 ![Термостат](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
@@ -102,13 +102,23 @@ HTML-шаблон можно использовать для отображен�
 ### Цветная лампа
 ### Выбор времени
 ## Делать
-- Изменить шрифт кнопок
+- контроллер цвета RGBW
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.7.1 (2023-07-02)
+* (bluefox) Added washer widget
+
+### 0.6.2 (2023-06-29)
+* (bluefox) Allowed usage without frame for all widgets
+
+### 0.6.0 (2023-06-28)
+* (bluefox) Added blinds to switches widget
+* (bluefox) Allowed to place widgets in widgets
+
 ### 0.5.3 (2023-06-21)
 * (bluefox) Corrected errors with view in widget
 

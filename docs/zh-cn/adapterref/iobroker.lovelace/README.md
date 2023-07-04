@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: JPnlIFy/83N8YL+xT6RPPgAbLCKa0RvquthoR5d43zU=
+hash: rLcYrHueZ/fc6Rm9UQJEQONETYq6uT7Vlf+iJPQ6cms=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -280,7 +280,7 @@ createState('location.latitude', 39.5681295, false, {
 }
 ```
 
-或者只是手动将实体类型设置为`camera`并将URL写入其中。
+或者只需手动将实体类型设置为`camera`并将URL写入其中。
 
 ### 隐藏工具栏
 要隐藏工具栏，您可以在主题选项卡上的 ioBroker 配置对话框中设置复选框。
@@ -442,13 +442,13 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用的版本 home-assistant-frontend@20220707.0
+使用的版本 home-assistant-frontend@20230608.0
 
 ### 如何构建新的 Lovelace 版本
 首先，实际的 https://github.com/home-assistant/frontend （开发分支）必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob*** 分支！）。
 
 ioBroker 的所有更改均标有注释 `// IoB`。
-目前（20221027.0）以下文件已被修改：
+目前（20230608.0）以下文件已被修改：
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务
 - `build-scripts/gulp/webpack.js` - 添加新的 gulp 任务
@@ -486,6 +486,10 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) Update frontent to 2023.06.08.0
+* (Garfonso) Use better random numbers
+
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.
 * (Garfonso) notifications working again.

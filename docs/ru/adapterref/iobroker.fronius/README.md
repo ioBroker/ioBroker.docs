@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fronius/README.md
 title: ioBroker.fronius
-hash: GKi98IwoluJMwH+FOLLvAeQRHvU3pc566UGgNXHdEL0=
+hash: aRknBDFFiexqqTkvancXw+4YiCs8a9Estg5pBvJkDVk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fronius/admin/fronius.png)
 
@@ -31,8 +31,10 @@ hash: GKi98IwoluJMwH+FOLLvAeQRHvU3pc566UGgNXHdEL0=
 ## Монтаж
 Для установки не требуется специальной настройки. Просто установите адаптер и запустите экземпляр. Затем перейдите к настройке адаптера. В разделе конфигурации введите IP-адрес или URL-адрес вашего инвертора. Затем нужно нажать кнопку «проверить IP». Это необходимо для запуска проверки и чтения конфигурации системы. Эта конфигурация системы необходима для последующего управления вызовами API.
 
+Примечание для обновления с V1 до V2 адаптера. См. [DatastructureMapping_V1.3-V2.0.pdf](doc/DatastructureMapping_V1.3-V2.0.pdf). Рекомендуется внимательно проверить вышеуказанный документ и вручную удалить статусы, которые больше не доступны или перемещены.
+
 ## Запросить дополнительные параметры
-Если вы хотите иметь дополнительный параметр или вызов API, укажите в билете вызов, который вы выполнили, файл с ответом JSON на этот вызов, чтобы его можно было добавить в Систему, а также в тестовую среду. В любом случае предоставьте системную информацию из этого вызова http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System, чтобы настройка системы была понятна.
+Если вы хотите иметь дополнительный параметр или вызов API, укажите в заявке вызов, который вы выполнили, файл с ответом JSON на этот вызов, чтобы его можно было добавить в Систему, а также в тестовую среду. В любом случае предоставьте системную информацию из этого вызова http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System, чтобы настройка системы была понятна.
 
 ## Сообщить о проблемах
 Если вы обнаружите какую-либо проблему, сообщите о ней в [Гитхаб](https://github.com/iobroker-community-adapters/ioBroker.fronius/issues) со следующей информацией.
@@ -87,6 +89,10 @@ hash: GKi98IwoluJMwH+FOLLvAeQRHvU3pc566UGgNXHdEL0=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-06-28)
+-   (nkleber78) Instability issues fixed. (#306, #313)
+-   (nkleber78) Set values for parameters delivered as 'null' from API to 0. (#315)
+
 ### 2.0.1 (2023-06-04)
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
@@ -98,16 +104,10 @@ hash: GKi98IwoluJMwH+FOLLvAeQRHvU3pc566UGgNXHdEL0=
 -   (nkleber78) The usage of the ping utility has been removed. (#169)
 -   (nkleber78) Reading of mpp values has been added. (#78)
 -   (nkleber78) 'Request' module has been replaced by 'axios'.
--   (mcm1957) Dependencies and toolset have been updated.
-
-### 1.2.0 (2021-12-18)
-
 -   (nkleber78) Fixed changes related to GEN24 API update for latest FW incl. object creation for storage objects
-
-### 1.1.6 (2021-03-xx)
-
 -   (nkleber78) Fixed issue #97, Added some new predefined objects
 -   (nkleber78) Added Inverter Temperature readout (#86)
+-   (mcm1957) Dependencies and toolset have been updated.
 
 ### 1.1.3 (2021-03-15)
 

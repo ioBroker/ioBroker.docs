@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
+hash: DWJJsbfonhXBf24vSS1kcAhLpPQuHcc7m3av2X8T3yA=
 ---
 ![标识](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -11,7 +11,6 @@ hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
 ![下载](https://img.shields.io/npm/dm/iobroker.intex.svg)
 ![安装数量](https://iobroker.live/badges/intex-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/intex-stable.svg)
-![依赖状态](https://img.shields.io/david/TA2k/iobroker.intex.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.intex.png?downloads=true)
 
 # IoBroker.intex
@@ -20,42 +19,60 @@ hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
 ## IoBroker 的 intex 适配器
 带 wifi 模块的 Intex Whirlpool 适配器
 
-## 登录ablauf：
-Intex App Mail 和 Passwort eingeben。
+## 与矿池和云端通信的策略
+### 关于云
+#### 云辅助；本地池（如果可用）
+在此模式下，系统尝试在本地发出控制命令和更新命令。如果本地通信出现错误，系统将切换到云操作，直到适配器再次启动。
 
-## 斯图恩
-intex.0.<id>.remote auf true setzen steuert den jeweiligen Befehl。
-intex.0.<id>.control auf true 或 false setzen，在 Zustand 中设置 Pool Befehl。
+IP地址和端口来自云端。如果IP地址相同，则必须在应用程序中重新注册池。长按连接按钮并搜索池。通常不需要从应用程序中删除它。
 
-## 洛卡尔
-Cloudbetrieb versucht das System den Befehl lokal abzusetzen, es sei denn, es ist nur Cloud angegeben。请注意，系统将在 Cloudbetrieb 中启动，然后再启动适配器。
+#### 云辅助；仅本地池
+该模式下，系统在本地发出控制命令和更新命令。如果本地通信出现错误，系统不会切换到云端运行。
 
-我很喜欢 Betreib werden aktuell auch Funktionen angeboten, die der Pool nicht unterstützt。您必须将池的 DNS 名称地址设置为路由器或池的 IP 地址。
-Das Intervall kann hier auf eine Minute gesetzt werden。
+这里可以将间隔设置为0.5分钟。
 
-Dieses kann über den Suchbutton gesucht werden。可以看到 Router Unterbundnen werden 上的所有错误，wenn z。 B. WLAN Geräte nicht untereinander kommunizieren dürfen der lokalen Firewall des Rechners Ports oder Bordcasting gesperrt ist。
+IP地址和端口来自云端。如果IP地址相同，则必须在应用程序中重新注册池。长按连接按钮并搜索池。通常不需要从应用程序中删除它。
 
-## 讨论和讨论：
+#### 仅云
+该模式下，系统仅通过云端发送控制命令和更新命令。
+
+＃＃＃＃＃ 登录
+输入 Intex 应用程序邮件和密码。
+
+＃＃＃ 当地的
+#### 仅限本地
+在本地操作中，目前还提供池不支持的功能。必须在地址下指定路由器上池的 DNS 名称或池的 IP 地址。
+
+这里也可以将间隔设置为0.5分钟。
+
+可以使用搜索按钮搜索池的 IP 地址。但是，如果例如，路由器可以防止这种情况发生。 B. 不允许 WLAN 设备相互通信，或者计算机的本地防火墙阻止端口或板载投射。
+
+## 控制水疗中心的功能
+“intex.0.-id-.remote.-command-”设置为 true 控制相应的命令。
+
+“intex.0.-id-.control.-command-”设置为 true 或 false 控制池命令的状态。
+
+## 德语讨论和提问
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
 
 ### 0.1.0
-* (PLCHome/rbartl) Unterstützung lokale IP. Sowohl über Cloud als auch nur lokal ohne Cloud. Danke nach Österreich an Robert Bartl.
-* (PLCHome) Nach dem Schalten über Control direkt bestätigen.
+* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+* (PLCHome) Confirm directly after switching via Control.
 
 ### 0.0.7
-* (PLCHome) Schalten über remote funktioniert wieder.
-* (PLCHome) Nach dem Schalten über Control kann von der Cloud der vorherige Staus übermittelt werden. Dadurch kann es zu einem Toggeln des Zutands kommen.
+* (PLCHome) Switching via remote works again.
+* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
 
 ### 0.0.6
-* (PLCHome) Definiertes Setzen von Zuständen
-* (PLCHome) Ändern Fahrenheit Celsius
-* (PLCHome) control.temperatur, nur lesen, Objekt aus 0.0.5 muss einmal gelöscht werden.
+* (PLCHome) Defined setting of states
+* (PLCHome) Change Fahrenheit Celsius
+* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
 
 ### 0.0.5
-* (PLCHome) Temperatur setzen hinzugefügt, Objekt muss einmal gelöscht werden.
-* (PLCHome) Decodierung der Statusinformationen
+* (PLCHome) Set temperature added, object must be deleted once.
+* (PLCHome) Decoding of status information
 
 ### 0.0.1
 * (TA2k) initial release
@@ -63,7 +80,7 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 ## License
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021 - 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

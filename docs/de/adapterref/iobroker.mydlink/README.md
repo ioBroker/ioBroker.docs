@@ -73,9 +73,12 @@ Gerät, die er braucht.
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.2 (2023-06-23)
+* better handle possible exception on unload.
+
 ### 1.3.1 (2023-06-12)
 * fix minor errors
-* improved siren supprt.
+* improved siren support.
 
 ### 1.3.0 (2023-05-15)
 * reworked code to type-script (please report errors / things that work worse than before)

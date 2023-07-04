@@ -99,8 +99,10 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
+
+### 2.0.0 (2023-06-26)
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
@@ -127,10 +129,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) separate states for charging and discharging battery storage
 * (Sneak-L8) additional states to (de)authorize or unlock charging station and set date/time
 * (Sneak-L8) fix unsubscribing foreign states (sentry IOBROKER-KECONTACT-10)
-
-### 1.4.0 (2022-03-31)
-* (Sneak-L8) support for battery storage in photovoltaics automatics
-* (Sneak-L8) add state selector in settings dialog
 
 ## Legal
 
@@ -327,7 +325,7 @@ KeConnect is a registered trademark of KEBA AG.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2022 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2023 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

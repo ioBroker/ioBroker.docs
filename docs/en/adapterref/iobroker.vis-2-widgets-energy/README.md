@@ -23,6 +23,9 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.2.1 (2023-06-28)
+* (bluefox) Added settings for units, rounding, invert direction, multiplier
+
 ### 0.1.12 (2023-04-03)
 * (bluefox) Corrected the consumption widget
 

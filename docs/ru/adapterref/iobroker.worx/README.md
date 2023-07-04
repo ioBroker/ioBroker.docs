@@ -1,81 +1,277 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.worx.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.worx.svg
+BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
-title: ioBroker.worx
-hash: Ol2vkPFqs9qkriLlPG0oWXLVC/aQEMmYbyvPCkshdVc=
+title: Адаптер ioBroker.worx
+hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ---
-![Логотип](../../../en/adapterref/iobroker.worx/admin/worx.png)
+![Логотип](../../../en/admin/worx.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.worx.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.worx.svg)
-![Количество установок](https://iobroker.live/badges/worx-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/worx-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.worx.png?downloads=true)
+# Адаптер ioBroker.worx
+## Описание
+### Настройки экземпляра
+- «Электронная почта приложения»: ваше имя пользователя приложения.
+- `Пароль приложения`: Ваш пароль приложения
+- «Имя приложения»: выберите свое устройство.
+- «Задержка для EdgeCut»: когда должен начаться EdgeCut (например, 5 секунд до газона)
 
-# IoBroker.worx
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.worx/workflows/Test%20and%20Release/badge.svg)
+![Настройки экземпляра img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
 
-## Адаптер Worx (Kress, Landxcape и Ferrex) для ioBroker
-управление через облако и mqtt
+- `Расстояние и время в мин и м`: по умолчанию ч и км
+- `Ping MQTT Connection каждые 10 минут`: просто для проверки. Пожалуйста, не более 1 часа!
 
-Этот адаптер соединяет ioBroker с газонокосилкой Landroid Kress Landxcape или Ferrex через облако.
-Температура, время скашивания, уровень заряда батареи и другие данные считываются с газонокосилки.
-Адаптер может управлять газонокосилкой, и вы можете изменять параметры конфигурации, такие как время работы.
+![Настройки экземпляра img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
-Минимальная версия узла 14.18
+### Папка
+- `activityLog`: Ваш журнал активности (возможен контроль)
+- `areas`: Области (возможен контроль)
+- `календарь`: расписание (возможен контроль)
+- `Модули`: Ваш(и) модуль(и) (возможен контроль)
+- `косилка`: Ваша косилка (возможно управление)
+- `product`: все свойства ваших устройств (только для чтения)
+- `rawMqtt`: все данные из облака (только для чтения)
 
-ActivityLog das Aktivitätenprotokoll aus der App Areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produkinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen workx.0.xx.косилка .firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> Datum Update der Letzten Firmware worx.0.xx.mower.firmware_available_all -> History der Firmware als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower Welche Features, Board und Accessories er hat.
-Update der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
+![Папка img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
-## Настройки
-- для подключения к газонокосилке введите адрес электронной почты и пароль от своего рабочего аккаунта в Config.
-- Задержка для обрезки кромок: если обрезка кромок начинается на повороте или изгибе, газонокосилка может потерять провод и остановиться с ошибкой, или лезвия могут не вращаться. Для этого можно задать начальную точку, в которой лопасти начинают вращаться.
-- Mäher ab eine Zone oder Meterzahl starten lassen:
+### ActivityLog (Wire и Vision)
+- `last_update`: Последнее обновление в виде метки времени
+- `manuell_update`: загружает текущий журнал активности
+- `payload`: журнал активности в виде таблицы JSON (для VIS или Blockly)
 
-Setze Areas.area_0 auf die Meterzahl des Gewünschten Startpunktes Setze Areas.area_1, Areas.area_2 und Areas.area_3 Jeweils auf 0 Setze Areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
+![Активность img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
-## Расписание setzen:
-wochentagname/borderCut wochentagname/startTime wochentagname/workTime
+### Областей (без Vision)
+- `actualArea`: текущий
+- `actualAreaIndicator`: Начало следующей зоны массива
+- `area_0`: Начало зоны 1 в метрах (изменяемое)
+- `area_1`: Начало зоны 2 в метрах (изменяемое)
+- `area_2`: Начало зоны 3 в метрах (изменяемое)
+- `area_3`: Начало зоны 4 в метрах (изменяемое)
+- `startSequence`: начало зоны массива (события 0-9), например. Старт только в Зоне 2 [2,2,2,2,2,2,2,2,2,2] (изменяемый)
+- `zoneKeeper`: Безопасное вождение в узких пересечениях зон (начиная с прошивки 3.30) (изменяемый)
 
-Danach ein Timeout 1,1 Sek. и worx.0.xxxxxxxxxxx.calendar.calJson_tosend на истинную установку.
-In dieser Zeit darf natürlich nicht autotisch ein Update kommen, da die geänderten Zeiten wieder glöscht werden. Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT oder den 10 Minuten Refresh unterbindet.
+![Район img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
-Естественная позолота для печати: mower.oneTimeWithBorder mower.oneTimeWorkTime
+### Календарь (Wire и Vision)
+- напр. настройка времени на среду
 
-Und dann nach 1,1 Sek. worx.0.xxx.mower.oneTimeStart setzen
+    - `wednesday.borderCut`: с границей или без нее (изменение значения без задержки)
+    - `wednesday.startTime`: время начала чч:мм (0-23/0-59), например. 09:00 (Изменение значения без задержки)
+    - `wednesday.workTime`: рабочее время в минутах (180 мин = 3 часа), например. 30 (Изменить значение без задержки)
+    - `calJson_sendto`: если все точки данных установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут.
+    - `calJson_tosend`: Эти данные отправляются в Mqtt (как график скашивания, так и устанавливается автоматически). Вы также можете создать этот JSON самостоятельно.
+    - `calendar.calJson`: название дня недели графика скашивания без номера (график скашивания 1/устанавливается автоматически - только для провода)
+    - `calendar.calJson2`: название дня недели расписания скашивания с номером (график скашивания 2/устанавливается автоматически - только для провода)
 
-## Обсуждение и вопросы
-<https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
+![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+### Модули (Wire и Vision)
+- Модуль Off Limit (Wire и Vision)
+
+    - `DF.OLMSwitch_Cutting`: Запретные зоны true-on/false-off
+    - `DF.OLMSwitch_FastHoming`: быстрый возврат на зарядную станцию в режиме true-on/false-off
+
+- Модуль ACS (только провод)
+    - `US.ACS`: 1-вкл./0-выкл.
+
+![Модуль img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
+
+### Косилка (Wire и Vision)
+- `AutoLock`: автоматическая блокировка истинного включения/ложного выключения (провод и видение/изменяемый)
+- `AutoLockTimer`: Таймер автоматической блокировки макс. 10 минут с шагом 30 секунд (проводной и Vision/сменный)
+- `batteryChargeCycle`: цикл зарядки батареи (провод и видение/только чтение)
+- `batteryCharging`: зарядка батареи false->нет/true->yes (провод и видение/только для чтения)
+- `batteryState`: состояние батареи в % (провод и видение/только для чтения)
+- `batteryTemperature`: температура батареи в градусах Цельсия (провод и видение/только для чтения)
+- `batteryVoltage`: напряжение батареи в вольтах (провод и видение/только для чтения)
+- `direction`: Направление в градусах (проволока и видение/только для чтения)
+- `edgecut`: запуск EdgeCut (проволока и Vision/изменяемый)
+- `ошибка`: сообщение об ошибке от газонокосилки (провод и Vision/только для чтения)
+
+```json
+{
+    "states": {
+        "0": "No error", //(wire & Vision)
+        "1": "Trapped", //(wire & Vision unknown)
+        "2": "Lifted", //(wire & Vision)
+        "3": "Wire missing", //(wire & Vision unknown)
+        "4": "Outside wire", //(wire & Vision unknown)
+        "5": "Raining", //(wire & Vision)
+        "6": "Close door to mow", //(wire & Vision)
+        "7": "Close door to go home", //(wire & Vision)
+        "8": "Blade motor blocked", //(wire & Vision)
+        "9": "Wheel motor blocked", //(wire & Vision)
+        "10": "Trapped timeout", //(wire & Vision)
+        "11": "Upside down", //(wire & Vision)
+        "12": "Battery low", //(wire & Vision)
+        "13": "Reverse wire", //(wire & Vision unknown)
+        "14": "Charge error", //(wire & Vision)
+        "15": "Timeout finding home", //(wire & Vision)
+        "16": "Mower locked", //(wire & Vision)
+        "17": "Battery over temperature", //(wire & Vision)
+        "18": "dummy model", //(wire & Vision)
+        "19": "Battery trunk open timeout", //(wire & Vision)
+        "20": "wire sync", //(wire & Vision unknown)
+        "21": "msg num" //(wire & Vision)
+    }
+}
+```
+
+![Косилка img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
+
+- `firmware`: текущая установленная прошивка (проводная и Vision/только для чтения)
+- `firmware_available`: Доступная прошивка (проводная/только для чтения)
+- `firmware_available_all`: Все доступные прошивки (проводные/только для чтения)
+- `firmware_available_date`: Дата выпуска прошивки (только для чтения)
+- `градиент`: Градиент в градиенте (проволока и видение/только для чтения)
+- `наклон`: наклон в градусах (проволока и видение/только для чтения)
+- `last_command`: последний запрос от iobroker или APP в виде таблицы JSON (провод и видение/только для чтения)
+- `mowTimeExtend`: время скашивания увеличивается в % Диапазон: -100%->100% (проводной/изменяемый)
+- `mowerActive`: приостановить план скашивания (проводной/изменяемый)
+- `mqtt_update`: макс. обновление данных Mqtt. 150/день (проводной и Vision/сменный)
+- `mqtt_update_count`: счетчик обновлений данных Mqtt (провод и видение/только для чтения)
+
+![Косилка img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
+
+- `oneTimeJson`: Однократное скашивание в формате JSON.
+
+```json
+{
+    "wtm": 60, //Minutes
+    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
+}
+```
+
+- `oneTimeStart`: однократный запуск скашивания "сначала заполнить oneTimeWithBorder и oneTimeWorkTime" - с задержкой 1,1 секунды (проводная и Vision/изменяемая)
+- `oneTimeWithBorder`: с границей - изменение значения без задержки (проводное и видение/изменяемое)
+- `oneTimeWorkTime`: максимальное рабочее время. 8 часов с шагом 30 минут - изменение значения без задержки (проводное и визуальное/изменяемое)
+- `онлайн`: газонокосилка онлайн (провод и Vision/только для чтения)
+- `partyModus`: включение/выключение Partymodus (проводной и Vision/изменяемый)
+- `pause`: включение/выключение перерыва косилки (проводной и Vision/изменяемый)
+- `sendCommand`: Отправить команду cmd (проводная и Vision/изменяемая)
+
+```json
+{
+    "states": {
+        "1": "Start", //(wire & Vision)
+        "2": "Stop", //(wire & Vision)
+        "3": "Home", //(wire & Vision)
+        "4": "Start Zone Taining", //(wire & Vision unknown)
+        "5": "Lock", //(wire & Vision unknown)
+        "6": "Unlock", //(wire & Vision unknown)
+        "7": "Restart Robot", //(wire & Vision unknown)
+        "8": "pause when follow wire", //(wire & Vision unknown)
+        "9": "safe homing" //(wire & Vision unknown)
+    }
+}
+```
+
+- `состояние`: True для запуска газонокосилки и False для остановки газонокосилки (проводной и Vision/изменяемый)
+- `статус`: Статус газонокосилки (провод и видение/только для чтения)
+
+```json
+{
+    "states": {
+        "0": "IDLE", //(wire & Vision)
+        "1": "Home", //(wire & Vision)
+        "2": "Start sequence", //(wire & Vision)
+        "3": "Leaving home", //(wire & Vision)
+        "4": "Follow wire", //(wire & Vision unknown)
+        "5": "Searching home", //(wire & Vision)
+        "6": "Searching wire", //(wire & Vision unknown)
+        "7": "Mowing", //(wire & Vision)
+        "8": "Lifted", //(wire & Vision)
+        "9": "Trapped", //(wire & Vision)
+        "10": "Blade blocked", //(wire & Vision)
+        "11": "Debug", //(wire & Vision)
+        "12": "Remote control", //(wire & Vision)
+        "13": "escape from off limits", //(wire & Vision)
+        "30": "Going home", //(wire & Vision)
+        "31": "Zone training", //(wire & Vision)
+        "32": "Border Cut", //(wire & Vision)
+        "33": "Searching zone", //(wire & Vision)
+        "34": "Pause" //(wire & Vision)
+    }
+}
+```
+
+![Косилка img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
+
+- `крутящий момент`: диапазон крутящего момента колеса -50-> 50 (проводной и визуальный/изменяемый)
+- `totalBladeTime`: общее время блейда (провод и видение/только чтение)
+- `totalDistance`: общее расстояние (провод и видение/только для чтения)
+- `totalTime`: общее время работы (провод и видение/только для чтения)
+- `waitRain`: макс. задержка дождя. 12 часов с шагом 30 минут (проводной и Vision/сменный)
+- `wifiQuality`: качество Wi-Fi (провод и видение/только для чтения)
+
+![Косилка img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
+
+### Дополнительно для зрения
+-   Область
+    - `rfid`: общая площадь (только для чтения)
+
+![Видение img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
+
+- Косилка
+    - `log_improvement`: отправить журнал улучшений в worx отключить/включить (изменяемый)
+    - `log_troubleshooting`: отправить журнал устранения неполадок в worx отключить/включить (изменяемый)
+
+![Видение img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
+
+- Косилка
+    - `paused`: приостановленное расписание в минутах (изменяемое)
+
+![Видение img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Fix unique mqtt clientid
+-   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
+-   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
+-   (Lucky-ESA) Preparation new Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+
+### 2.2.0 (2023-06-27)
+
+-   (Lucky-ESA) Removed mowerActive for Vision
+-   (Lucky-ESA) Add Vision paused schedule
+-   (Lucky-ESA) Add Vision partyModus
+-   (Lucky-ESA) Fix ping request Vision
+-   (Lucky-ESA) Fix send message inheritance
+-   (Lucky-ESA) Fix [#684](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/684)
+-   (Lucky-ESA) Fix deviceArray inheritance
+-   (Lucky-ESA) Add Vision mowers w/o Status & Error message
+-   (Lucky-ESA) Add ZoneKeeper for previous mowers
+
 ### 2.1.3
 
-Add ping option in the instance settings",
+-   (TA2k) Add ping option in the instance settings
 
 ### 2.1.2
 
-Improve reconnection for multiple mower
+-   (TA2k) Improve reconnection for multiple mower
 
 ### 2.1.1
 
-Change reconnection times
+-   (TA2k) Change reconnection times
 
 ### 2.1.0
 
-Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
-Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
+-   (TA2k) Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
 
 ### 2.0.3
 
-Add manual refresh. Fix empty status and firmware format. Reduce info logs.
+-   (TA2k) Add manual refresh. Fix empty status and firmware format. Reduce info logs.
 
 ### 2.0.1
 
-Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
+-   (TA2k) Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
 
 ### 1.7.0 (2022-09-28)
 
@@ -126,10 +322,10 @@ Adapter rewritten. Added product info and activity log. rawMqtt values improved 
 
 ### 1.4.2 (2021-07-24)
 
-(MeisterTR) fix bug with OLMSwitch_Cutting
-(MeisterTR) fix bug with PartyMode
-(TA2k) fix error with wrong serialnumber (please delete all objects manually)
-(MeisterTR) fix bug in autolock function
+-   (MeisterTR) fix bug with OLMSwitch_Cutting
+-   (MeisterTR) fix bug with PartyMode
+-   (TA2k) fix error with wrong serialnumber (please delete all objects manually)
+-   (MeisterTR) fix bug in autolock function
 
 ### 1.4.1 (2021-07-06)
 
@@ -201,7 +397,7 @@ Adapter rewritten. Added product info and activity log. rawMqtt values improved 
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

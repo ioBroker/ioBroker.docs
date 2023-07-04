@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
+hash: DWJJsbfonhXBf24vSS1kcAhLpPQuHcc7m3av2X8T3yA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -11,7 +11,6 @@ hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.intex.svg)
 ![Количество установок](https://iobroker.live/badges/intex-installed.svg)
 ![Текущая версия в стабильном репозитории](https://iobroker.live/badges/intex-stable.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.intex.svg)
 ![НПМ](https://nodei.co/npm/iobroker.intex.png?downloads=true)
 
 # IoBroker.intex
@@ -20,42 +19,60 @@ hash: vidHWdxc5eeX+XnUFQtmFMETAZUYCX6fBRuQxeyaYW0=
 ## Адаптер intex для ioBroker
 Адаптер для Intex Whirlpool с модулем Wi-Fi
 
-## Войти в систему:
-Die Intex App Mail и пароль автоматически.
+## Стратегия взаимодействия с пулом и облаком
+### Об облаках
+#### Облако вторично; Локальный пул, если он доступен
+В этом режиме система пытается выдать команду управления и команду обновления локально. В случае ошибки локальной связи система переключается в облачный режим до повторного запуска адаптера.
 
-## Штойрн
-intex.0.<id>.remote auf true setzen steuert den jeweiligen Befehl.
-intex.0.<id>.control auf true или false setzen, steuert den Pool Befehl in den Zusstand.
+IP-адрес и порт взяты из облака. Если IP-адрес тот же, пул необходимо заново зарегистрировать в приложении. Нажмите и удерживайте кнопку подключения и найдите пул. Удалять его из приложения обычно не нужно.
 
-## Локал
-Bei Cloudbetrieb versucht das System den Befehl lokal abzusetzen, es sei denn, es ist nur Cloud angegeben. Sollte ein Fehler auftreten, wechselt das System wieder in den Cloudbetrieb bis zum nächsten Start des Adapters.
+#### Облако вторично; Бассейн только местный
+В этом режиме система выдает команду управления и команду обновления локально. При ошибке локальной связи система не переключается на работу в облаке.
 
-Im local Betreib werden aktuell auch Funktionen angeboten, die der Pool nicht unterstützt. Он должен передавать адреса DNS-имен пулов на маршрутизаторе или IP-адреса пулов, которые не соответствуют друг другу.
-Das Intervall kann Hier auf eine Minute gesetzt werden.
+Здесь можно установить интервал 0,5 минуты.
 
-Dieses kann über densuchbutton gesucht werden. Dieses kann allerdings von Router Unterbundnen werden, wenn z. B. WLAN Geräte nicht untereinander kommunizieren dürfen oder in der localen Firewall des Rechners Ports oder Bordcasting gesperrt ist.
+IP-адрес и порт взяты из облака. Если IP-адрес тот же, пул необходимо заново зарегистрировать в приложении. Нажмите и удерживайте кнопку подключения и найдите пул. Удалять его из приложения обычно не нужно.
 
-## Обсуждение и обсуждение:
+#### Только облако
+В этом режиме система отправляет только команду управления и команду обновления через облако.
+
+##### Авторизоваться
+Введите почту и пароль приложения Intex.
+
+### Местный
+#### Только локально
+В локальной эксплуатации в настоящее время также предлагаются функции, которые пул не поддерживает. В поле Адрес необходимо указать либо DNS-имя пула на маршрутизаторе, либо IP-адрес пула.
+
+Интервал также может быть установлен на 0,5 минуты здесь.
+
+IP-адрес пула можно найти с помощью кнопки поиска. Однако это может быть предотвращено маршрутизаторами, если, например. B. Устройствам WLAN не разрешено взаимодействовать друг с другом или порты или трансляция на плате заблокированы в локальном брандмауэре компьютера.
+
+## Управление функциями спа
+"intex.0.-id-.remote.-command-" со значением true управляет соответствующей командой.
+
+"intex.0.-id-.control.-command-" со значением true или false управляет состоянием команды пула.
+
+## Обсуждение и вопросы на немецком
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
 
 ### 0.1.0
-* (PLCHome/rbartl) Unterstützung lokale IP. Sowohl über Cloud als auch nur lokal ohne Cloud. Danke nach Österreich an Robert Bartl.
-* (PLCHome) Nach dem Schalten über Control direkt bestätigen.
+* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+* (PLCHome) Confirm directly after switching via Control.
 
 ### 0.0.7
-* (PLCHome) Schalten über remote funktioniert wieder.
-* (PLCHome) Nach dem Schalten über Control kann von der Cloud der vorherige Staus übermittelt werden. Dadurch kann es zu einem Toggeln des Zutands kommen.
+* (PLCHome) Switching via remote works again.
+* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
 
 ### 0.0.6
-* (PLCHome) Definiertes Setzen von Zuständen
-* (PLCHome) Ändern Fahrenheit Celsius
-* (PLCHome) control.temperatur, nur lesen, Objekt aus 0.0.5 muss einmal gelöscht werden.
+* (PLCHome) Defined setting of states
+* (PLCHome) Change Fahrenheit Celsius
+* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
 
 ### 0.0.5
-* (PLCHome) Temperatur setzen hinzugefügt, Objekt muss einmal gelöscht werden.
-* (PLCHome) Decodierung der Statusinformationen
+* (PLCHome) Set temperature added, object must be deleted once.
+* (PLCHome) Decoding of status information
 
 ### 0.0.1
 * (TA2k) initial release
@@ -63,7 +80,7 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 ## License
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021 - 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

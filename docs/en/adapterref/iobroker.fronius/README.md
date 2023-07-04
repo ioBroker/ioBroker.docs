@@ -34,6 +34,8 @@ This is an ioBroker adapter for your Fronius PV inverter with Fronius Datalogger
 
 For installation no special setup is needed. Just install the Adapter and start the instance. Then go to the Adapter configuration. In the configuration section enter the IP Address or URL for your Inverter. Then you need to press the "check IP" button. This is needed to trigger a check and reading the system configuration. This system configuration is needed to control the API calls later on.
 
+Note for upgrade from V1 to V2 of the adapter. Please refer to [DatastructureMapping_V1.3-V2.0.pdf](doc/DatastructureMapping_V1.3-V2.0.pdf). It is recommended to check the above document carefully and delete the no longer available or moved states manually.
+
 ## Request additional parameters
 
 If you like to have an additional parameter or API call, then please provide in a ticket the call you have executed, a file with the JSON response to that call so this can be added to the System and also to the test environment. In any case please provide the system information from this call http://192.168.0.1/solar_api/v1/GetActiveDeviceInfo.cgi?DeviceClass=System so that the system setup is clear.
@@ -102,6 +104,10 @@ The following request are sent to the API. But the availlable datapoints strongl
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-06-28)
+-   (nkleber78) Instability issues fixed. (#306, #313)
+-   (nkleber78) Set values for parameters delivered as 'null' from API to 0. (#315)
+
 ### 2.0.1 (2023-06-04)
 
 -   (mcm1957) Deploy mechanism at github has been reactivated.
@@ -113,16 +119,10 @@ The following request are sent to the API. But the availlable datapoints strongl
 -   (nkleber78) The usage of the ping utility has been removed. (#169)
 -   (nkleber78) Reading of mpp values has been added. (#78)
 -   (nkleber78) 'Request' module has been replaced by 'axios'.
--   (mcm1957) Dependencies and toolset have been updated.
-
-### 1.2.0 (2021-12-18)
-
 -   (nkleber78) Fixed changes related to GEN24 API update for latest FW incl. object creation for storage objects
-
-### 1.1.6 (2021-03-xx)
-
 -   (nkleber78) Fixed issue #97, Added some new predefined objects
 -   (nkleber78) Added Inverter Temperature readout (#86)
+-   (mcm1957) Dependencies and toolset have been updated.
 
 ### 1.1.3 (2021-03-15)
 

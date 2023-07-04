@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
+hash: VKgsaXa83kaMqCtr9cKRlAFeLWMLDCmTLldAQujBdpI=
 ---
 ![Logo](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -19,51 +19,51 @@ hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
 # IoBroker.innoxel
 Adapter für Innoxel Master 3 (https://innoxel.ch)
 
-![Testen und freigeben](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ## Anforderungen
-- NodeJS >= 14.x
+- NodeJS >= 18.x
 - ioBroker >= 4.x, mit Admin >= 5.x
 - Innoxel Master 3 Smart Home-System
 
 ## Installation
-Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm installieren. Installieren Sie es nicht direkt von Github, dies führt zu einem Fehler beim Start des Adapters ("cannot find start file").
+Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm aus installieren. Installieren Sie es nicht direkt von Github, da dies beim Start des Adapters zu einem Fehler führt („Startdatei kann nicht gefunden werden“).
 
 Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die Einstellungen:
 
-- Verbindungseinstellungen für den Zugriff auf den innoxel master
+- Verbindungseinstellungen für den Zugriff auf Innoxel Master
     -   IP Adresse
     -   Hafen
     -   Nutzername
     -   Passwort
-- Polling-Intervalle für verschiedene Bereiche
-    - Zustandsänderungen (z.B. Schalter, Dimmer)
+- Abfrageintervalle für verschiedene Bereiche
+    - Zustandsänderungen (z. B. Schalter, Dimmer)
     - Raumklima / Thermostate
     -   Wetter
-    - Einzelheiten zum Innoxel-Master-Gerät
+    - Details zum Innoxel-Master-Gerät
 
 ## Unterstützte Module und Firmware
-Eine Vorabversion dieses Adapters funktioniert seit mehr als 2 Jahren mit Firmware 1.4.1.0 und dann 1.5.1.0.
+Eine Vorabversion dieses Adapters funktioniert seit mehr als 2 Jahren mit der Firmware 1.4.1.0 und dann 1.5.1.0.
 
-Diese ursprünglich veröffentlichte Version wurde mit der Firmware 1.6.0.0 getestet.
+Diese ursprünglich veröffentlichte Version wurde mit Firmware 1.6.0.0 getestet.
 
 Folgende Module wurden getestet/werden unterstützt:
 
-- Innoxel-Master 3
+- Innoxel Master 3
 - Schalter 8 G1
 - Motor 4 x 230 VAC G1
 - Dimmen Sie 4 x 600 VA
 - Schnupper-RGB
-- Therme
+- Thermo
 - Wetterstation P03/3-RS485-CET
 
-Wenn es für Sie mit verschiedenen Modulen funktioniert oder Sie andere Module haben, die nicht funktionieren, können Sie gerne ein Problem eröffnen.
+Wenn es bei Ihnen mit verschiedenen Modulen funktioniert oder Sie andere Module haben, die nicht funktionieren, können Sie gerne ein Problem eröffnen.
 
 ## Mitteilungen
 Der Adapter unterstützt die in den folgenden Abschnitten beschriebenen Nachrichten.
 
 ### TriggerInModule
-Simulieren Sie das Drücken einer Taste auf einem „Taster“.
+Simulieren Sie den Tastendruck an einem „Taster“.
 
 ```ts
 sendTo("innoxel.0", "triggerInModule", "<moduleId>:<channelId>", callback);
@@ -75,12 +75,12 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 });
 ```
 
-- <code>moduleId</code> ist die ID/Adresse des &quot;Tasters&quot;
-- <code>channelId</code> ist der Index des Buttons auf dem &quot;Taster&quot;
-- <code>callback</code> (optional) Rückruffunktion, die aufgerufen wird, wenn eine Aktion ausgeführt wurde
+- <code>moduleId</code> ist die ID/Adresse des „Schnuppers“
+<code>channelId</code> ist der Index der Schaltfläche auf dem „Taster“
+- <code>callback</code> (optional) Callback-Funktion zum Aufrufen, wenn eine Aktion ausgeführt wurde
 
 ### SetDimValue
-Simulieren Sie das Drücken einer Taste auf einem „Taster“.
+Simulieren Sie den Tastendruck an einem „Taster“.
 
 ```ts
 sendTo("innoxel.0", "setDimValue", "<moduleId>:<channelId>:<dimValue>:<dimSpeed>", callback);
@@ -94,9 +94,9 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 
 - <code>moduleId</code> ist die ID/Adresse des Dimmermoduls
 - <code>channelId</code> ist der Kanal des Dimmers auf dem Modul
-- <code>dimValue</code> ist der einzustellende Wert in Prozent (0-100)
+- <code>dimValue</code> ist der Wert in Prozent, der eingestellt werden soll (0-100)
 - <code>dimSpeed</code> (optional) ist die zu verwendende Dimmgeschwindigkeit (0-15)
-- <code>callback</code> (optional) Rückruffunktion, die aufgerufen wird, wenn eine Aktion ausgeführt wurde
+- <code>callback</code> (optional) Callback-Funktion zum Aufrufen, wenn eine Aktion ausgeführt wurde
 
 ### Temperatur einstellen
 Heiz- oder Kühltemperatur einstellen.
@@ -112,9 +112,9 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 ```
 
 - <code>moduleId</code> ist die ID/Adresse des Raumklimamoduls
-- <code>temperatureType</code> ist der einzustellende Temperaturtyp (absenceSetbackTemperatureCooling, absenceSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
-- <code>temperature</code> einzustellende Temperatur in 0,5°-Schritten. Je nach Typ gibt es auch einen Min/Max-Wert
-- <code>callback</code> (optional) Rückruffunktion, die aufgerufen wird, wenn eine Aktion ausgeführt wurde
+- <code>temperatureType</code> ist der Temperaturtyp, der eingestellt werden soll (absenceSetbackTemperatureCooling, freedomSetbackTemperatureHeating, nightSetbackTemperatureCooling, nightSetbackTemperatureHeating, setTemperatureCooling, setTemperatureHeating, )
+- <code>temperature</code> , in 0,5°-Schritten. Je nach Typ gibt es auch einen Min.-/Max.-Wert
+- <code>callback</code> (optional) Callback-Funktion zum Aufrufen, wenn eine Aktion ausgeführt wurde
 
 ## Changelog
 
@@ -122,6 +122,16 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-(matthsc) drop support for Node 16
+
+### 0.3.1 (2023-05-23)
+
+-   (matthsc) change actual value from temperature sensor if it doesn't provide values
+-   (matthsc & dependabot) dependency updates
+
 ### 0.3.0 (2023-04-22)
 
 -   (matthsc) allow to set heating/cooling temperatures

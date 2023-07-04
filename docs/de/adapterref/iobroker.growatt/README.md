@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: 0sU0Bw8iqzjCWsTpAtijZLZv3PQpobwnBhs8WUcNgW4=
+hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -104,7 +104,7 @@ Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können h
 Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Beim Drücken von „Speichern“ muss die Schaltfläche „Aktualisieren“ verwendet werden.
 
 #### Normal
-Das Objekt bleibt bestehen, der Wert wird aktualisiert.
+Das Objekt bleibt erhalten, der Wert wird aktualisiert.
 
 #### Löschen
 Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert verworfen.
@@ -174,6 +174,15 @@ Daher wurde auch die Beschreibung entfernt.
 -\*-
 
 ## Changelog
+
+### 3.0.4 (03.07.2023)
+
+- (PLCHome) No retrieval of the other parameters value possible after parameter error
+- (PLCHome) Grid first and Battery first setting on MIX may not work
+
+### 3.0.3 (27.06.2023)
+
+- (PLCHome) setting for tlx/tlxh time improved
 
 ### 3.0.2 (08.06.2023)
 

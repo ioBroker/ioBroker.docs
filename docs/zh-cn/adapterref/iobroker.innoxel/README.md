@@ -3,31 +3,31 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
+hash: VKgsaXa83kaMqCtr9cKRlAFeLWMLDCmTLldAQujBdpI=
 ---
 ![标识](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
 ![节点](https://img.shields.io/node/v-lts/iobroker.innoxel)
-![NPM 版本](https://img.shields.io/npm/v/iobroker.innoxel.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.innoxel.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.innoxel.svg)
 ![执照](https://img.shields.io/npm/l/iobroker.innoxel)
 ![安装数量](https://iobroker.live/badges/innoxel-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/innoxel-stable.svg)
 ![依赖状态](https://img.shields.io/david/matthsc/iobroker.innoxel.svg)
-![NPM](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.innoxel.png?downloads=true)
 
-#ioBroker.innoxel
+# IoBroker.innoxel
 Innoxel Master 3 适配器 (https://innoxel.ch)
 
-![测试和发布](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ＃＃ 要求
--NodeJS >= 14.x
-- ioBroker >= 4.x，admin >= 5.x
-- Innoxel Master 3 智能家居系统
+- NodeJS >= 18.x
+- ioBroker >= 4.x，管理员 >= 5.x
+- Innoxel Master 3智能家居系统
 
 ＃＃ 安装
-在适配器成为稳定存储库的一部分之前，您可以通过在 ioBroker 中启用专家模式并从 npm 安装适配器来安装最新版本。不要直接从 Github 安装它，这将导致适配器启动时出错（“找不到启动文件”）。
+在适配器成为稳定存储库的一部分之前，您可以通过在 ioBroker 中启用专家模式来安装最新版本，并从 npm 安装适配器。不要直接从 Github 安装它，这将导致适配器启动时出现错误（“找不到启动文件”）。
 
 安装后，创建一个新实例并配置设置：
 
@@ -40,27 +40,27 @@ Innoxel Master 3 适配器 (https://innoxel.ch)
     - 状态变化（即开关、调光器）
     - 室内气候/恒温器
     -   天气
-    - Innoxel 主设备详细信息
+    - innoxel主设备详细信息
 
 ## 支持的模块和固件
-此适配器的预发布版本已使用固件 1.4.1.0 和 1.5.1.0 运行了 2 年多。
+该适配器的预发布版本已使用固件 1.4.1.0 和 1.5.1.0 运行了 2 年多。
 
-此最初发布的版本已使用固件 1.6.0.0 进行了测试。
+该最初发布的版本已使用固件 1.6.0.0 进行了测试。
 
-以下模块已经过测试/受支持：
+以下模块已经过测试/支持：
 
-- Innoxel Master 3
+- 不锈钢大师 3
 - 开关 8 G1
 - 电机 4 x 230 VAC G1
-- 昏暗 4 x 600 VA
-- 品酒师RGB
-- 热
+- 暗淡 4 x 600 VA
+- 品尝者RGB
+- 热能
 - Wetterstation P03/3-RS485-CET
 
-如果它适用于不同的模块，或者您有其他模块不起作用，请随时提出问题。
+如果它适用于您的不同模块，或者您有其他模块不起作用，请随时提出问题。
 
 ## 消息
-适配器支持以下部分中描述的消息。
+该适配器支持以下各节中描述的消息。
 
 ### 触发模块
 模拟按下“Taster”上的按钮。
@@ -76,10 +76,10 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 ```
 
 - <code>moduleId</code>是“Taster”的 ID/地址
-- <code>channelId</code>是“Taster”按钮的索引
-- 执行操作时调用的<code>callback</code> （可选）回调函数
+<code>channelId</code>是“Taster”上按钮的索引
+- <code>callback</code> （可选）执行操作时调用的回调函数
 
-### 设置暗值
+### SetDimValue
 模拟按下“Taster”上的按钮。
 
 ```ts
@@ -93,10 +93,10 @@ sendTo("innoxel.0", "setDimValue", "1:7:80", () => {
 ```
 
 - <code>moduleId</code>是调光器模块的 ID/地址
-- <code>channelId</code>是模块上调光器的通道
+<code>channelId</code>是模块上调光器的通道
 - <code>dimValue</code>是要设置的百分比值 (0-100)
-- <code>dimSpeed</code> （可选）是要使用的调光速度 (0-15)
-- 执行操作时调用的<code>callback</code> （可选）回调函数
+- <code>dimSpeed</code> （可选）是要使用的调光速度（0-15）
+- <code>callback</code> （可选）执行操作时调用的回调函数
 
 ### 设置温度
 设置加热或冷却温度。
@@ -111,10 +111,10 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
 });
 ```
 
-- <code>moduleId</code>是 id/address room climate 模块
-- <code>temperatureType</code>是要设置的温度类型（absenceSetbackTemperatureCooling、absenceSetbackTemperatureHeating、nightSetbackTemperatureCooling、nightSetbackTemperatureHeating、setTemperatureCooling、setTemperatureHeating，）
-- 要设置的<code>temperature</code> ，以 0.5° 为步长。根据类型还有一个最小值/最大值
-- 执行操作时调用的<code>callback</code> （可选）回调函数
+- <code>moduleId</code>是房间气候模块的 ID/地址
+<code>temperatureType</code>是要设置的温度类型（absenceSetbackTemperatureCooling、absenceSetbackTemperatureHeating、nightSetbackTemperatureCooling、nightSetbackTemperatureHeating、setTemperatureCooling、setTemperatureHeating、）
+- <code>temperature</code>设置温度，以 0.5° 为步长。根据类型还有最小/最大值
+- <code>callback</code> （可选）执行操作时调用的回调函数
 
 ## Changelog
 
@@ -122,6 +122,16 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-(matthsc) drop support for Node 16
+
+### 0.3.1 (2023-05-23)
+
+-   (matthsc) change actual value from temperature sensor if it doesn't provide values
+-   (matthsc & dependabot) dependency updates
+
 ### 0.3.0 (2023-04-22)
 
 -   (matthsc) allow to set heating/cooling temperatures

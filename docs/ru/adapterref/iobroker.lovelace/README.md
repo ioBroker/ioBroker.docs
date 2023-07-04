@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: JPnlIFy/83N8YL+xT6RPPgAbLCKa0RvquthoR5d43zU=
+hash: rLcYrHueZ/fc6Rm9UQJEQONETYq6uT7Vlf+iJPQ6cms=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -119,7 +119,7 @@ common: {
     }
 ```
 
-другими словами, in также должен быть input select в IoB.
+другими словами, в IoB также должен быть выбор ввода.
 
 ### Таймер
 Таймер можно смоделировать с помощью следующего скрипта:
@@ -442,13 +442,13 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Используемая версия home-assistant-frontend@20220707.0
+Используемая версия home-assistant-frontend@20230608.0
 
 ### Как собрать новую версию Lovelace
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/GermanBluefox/home-assistant-polymer.git (* ветка **иоб***!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
-На данный момент (20221027.0) были изменены следующие файлы:
+На данный момент (20230608.0) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - добавить новую задачу gulp
 - `build-scripts/gulp/webpack.js` - добавить новую задачу gulp
@@ -486,6 +486,10 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) Update frontent to 2023.06.08.0
+* (Garfonso) Use better random numbers
+
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.
 * (Garfonso) notifications working again.

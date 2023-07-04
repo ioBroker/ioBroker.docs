@@ -432,13 +432,13 @@ Security must be taken from current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20220707.0
+Used version of home-assistant-frontend@20230608.0
 
 ### How to build the new Lovelace version
 First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20221027.0) following files were modified:
+For now (20230608.0) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task
 - `build-scripts/gulp/webpack.js` - Add new gulp task
 - `src/data/lovelace.ts` - add hide toolbar option
@@ -475,6 +475,10 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) Update frontent to 2023.06.08.0
+* (Garfonso) Use better random numbers
+
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.
 * (Garfonso) notifications working again.

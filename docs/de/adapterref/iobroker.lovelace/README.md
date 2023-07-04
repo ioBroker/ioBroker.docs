@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: JPnlIFy/83N8YL+xT6RPPgAbLCKa0RvquthoR5d43zU=
+hash: rLcYrHueZ/fc6Rm9UQJEQONETYq6uT7Vlf+iJPQ6cms=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -100,7 +100,7 @@ common: {
 
 ### Eingang auswählen
 Dies kann manuell erfolgen, wenn der Entitätstyp „input_select“ im benutzerdefinierten Dialogfeld ausgewählt ist.
-Die Liste der Optionen zur Auswahl sollte im Standardobjekt „comm.states“ bereitgestellt werden:
+Die Liste der zur Auswahl stehenden Optionen sollte im Standardobjekt „comm.states“ bereitgestellt werden:
 
 ```
 "common": {
@@ -308,7 +308,7 @@ Folgende benutzerdefinierte Karten konnten erfolgreich getestet werden:
 Ich habe diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten gefunden.
 
 Oft sind die benutzerdefinierten Karten als Quellen auf Github gespeichert und müssen vor der Verwendung kompiliert werden.
-Sie sollten das `Releases`-Menü auf Github überprüfen und versuchen, dort kompilierte Dateien zu finden.
+Sie sollten das Menü `Releases` auf Github überprüfen und versuchen, dort kompilierte Dateien zu finden.
 Wie dieser: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
 
 ## Eigene Bilder
@@ -442,13 +442,13 @@ Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übern
 
 ## Entwicklung
 ### Ausführung
-Verwendete Version von home-assistant-frontend@20220707.0
+Verwendete Version von home-assistant-frontend@20230608.0
 
 ### So erstellen Sie die neue Lovelace-Version
 Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden. **iob*** Zweig!).
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Derzeit (20221027.0) wurden folgende Dateien geändert:
+Derzeit (20230608.0) wurden folgende Dateien geändert:
 
 - `build-scripts/gulp/app.js` – Neue Gulp-Aufgabe hinzufügen
 - `build-scripts/gulp/webpack.js` – Neue Gulp-Aufgabe hinzufügen
@@ -486,6 +486,10 @@ Derzeit (20221027.0) wurden folgende Dateien geändert:
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) Update frontent to 2023.06.08.0
+* (Garfonso) Use better random numbers
+
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.
 * (Garfonso) notifications working again.

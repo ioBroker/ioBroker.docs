@@ -1,81 +1,277 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.worx.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.worx.svg
+BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
-title: ioBroker.worx
-hash: Ol2vkPFqs9qkriLlPG0oWXLVC/aQEMmYbyvPCkshdVc=
+title: ioBroker.worx 适配器
+hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ---
-![标识](../../../en/adapterref/iobroker.worx/admin/worx.png)
+![标识](../../../en/admin/worx.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.worx.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.worx.svg)
-![安装数量](https://iobroker.live/badges/worx-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/worx-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.worx.png?downloads=true)
+# IoBroker.worx 适配器
+＃＃ 描述
+### 实例设置
+- `应用程序电子邮件`：您的应用程序用户名
+- `应用程序密码`：您的应用程序密码
+- `应用程序名称`：选择您的设备
+- `Delay for EdgeCut`：EdgeCut 何时开始（例如 5 秒到草坪）
 
-#ioBroker.worx
-**测试：** ![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.worx/workflows/Test%20and%20Release/badge.svg)
+![实例设置 img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
 
-## IoBroker 的 Worx（Kress、Landxcape 和 Ferrex）适配器
-通过云和 mqtt 进行控制
+- `以分钟和米为单位的距离和时间`：默认 h 和 km
+- `每 10 分钟 Ping 一次 MQTT 连接。`：只是为了测试。请不要超过1小时！
 
-此适配器通过云将 ioBroker 与您的 Landroid Kress Landxcape 或 Ferrex 割草机连接起来。
-从割草机中读取温度、割草时间、电池电量和各种其他数据。
-适配器可以控制割草机，您可以更改割草时间等配置参数。
+![实例设置 img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
-最低节点版本 14.18
+＃＃＃ 文件夹
+- `activityLog`：您的活动日志（可以控制）
+- `area`：区域（可以控制）
+- `日历`：时间表（可以控制）
+- `Modules`：您的模块（可以控制）
+- `割草机`：你的割草机（可以控制）
+- `产品`：您设备的所有属性（只读）
+- `rawMqtt`：来自云端的所有数据（只读）
 
-activityLog das Aktivitätenprotokoll aus der App areas Die Areas des Mähers calendar Der Mähkalender des Mähers modules Die verbauten Modules des Mähers mower Aufbereite Informationen des Mähers sowie Steuerung des Mähers product Produktinformationen zum Mäher rawMqtt dieRohaten die via MQTT vom Mäher kommen worx.0。 xx.割草机.firmware_available -> Verfügbare Firmware worx.0.xx.mower.firmware_available_date -> letzten Firmware worx.0.xx.mower.firmware_available_all 的数据更新 -> Firmware 历史 als JSON Update der Daten 24H worx.0.xx.product - > Informationen von eurem Mower welche Features, Board und Accessories 呃帽子。
-更新 der Daten einmalig nach einem Neustart/Restart worx.0.xx.activityLog.last_update -> Letzte Aktualisierung worx.0.xx.activityLog.payload -> Alle Aktivitäten der letzten 8 Tage als JSON
+![文件夹 img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
-## 设置
-- 从配置中的 worx 帐户连接到割草机，输入电子邮件和密码。
-- 切边延迟：如果切边从曲线或弯道开始，割草机可能会丢失电线并因故障而停止，或者刀片可能不会旋转。为此，可以设置叶片开始旋转的起点。
-- Mäher ab eine Zone oder Meterzahl starten lassen：
+### 活动日志（Wire 和 Vision）
+- `last_update`：上次更新时间戳
+- `manuell_update`：加载当前活动日志
+- `payload`：作为 JSON 表的活动日志（对于 VIS 或 Blockly）
 
-设置 areas.area_0 auf die Meterzahl des gewünschten Startpunktes Setze areas.area_1, areas.area_2 und areas.area_3 jeweils auf 0 Setze areas.startSequence auf [0,0,0,0,0,0,0,0,0,0 ]
+![活动 img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
 
-## 安排 setzen：
-wochentagname/borderCut wochentagname/startTime wochentagname/workTime
+### 区域（无愿景）
+- `实际区域`：当前
+- `actualAreaIndicator`：下一个数组区域开始
+- `area_0`：区域 1 的起点（以米为单位）（可更改）
+- `area_1`：区域 2 的起点（以米为单位）（可更改）
+- `area_2`：区域 3 的起点（以米为单位）（可更改）
+- `area_3`：区域 4 的起点（以米为单位）（可更改）
+- `startSequence`：数组区域开始（0-9 事件），例如仅从区域 2 开始 [2,2,2,2,2,2,2,2,2,2]（可更改）
+- `zoneKeeper`：在狭窄区域交叉口安全驾驶（从固件 3.30 开始）（可更改）
 
-Danach ein Timeout von 1,1 Sek。 und worx.0.xxxxxxxxxxx.calendar.calJson_tosend auf true setzen。
-在 dieser Zeit darf natürlich nicht automatisch ein Update kommen 中，da die geänderten Zeiten wieder glöscht werden。 Wenn das zu oft vorkommt, dann muss ich leider einen weiteren Datenpunkt hinzufügen der Updates von MQTT 或 10 分钟刷新未绑定。
+![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
-Das gleich gilt natürlich auch für diese: mower.oneTimeWithBorder mower.oneTimeWorkTime
+### 日历（Wire 和 Vision）
+- 例如星期三的时间设置
 
-Und dann nach 1,1 Sek。 worx.0.xxx.mower.oneTimeStart setzen
+    - `wednesday.borderCut`：有或没有边界剪切（立即更改值）
+    - `wednesday.startTime`: 开始时间 hh:mm (0-23/0-59) 例如09:00（立即更改值）
+    - `wednesday.workTime`：工作时间以分钟为单位（180 分钟 = 3 小时），例如30（立即更改值）
+    - `calJson_sendto`：如果所有数据点均已设置，则按按钮发送（有 1.1 秒延迟）。割草机现在将割草 30 分钟
+    - `calJson_tosend`：此数据发送到 Mqtt（割草时间表/自动设置）。您也可以自己创建此 JSON。
+    - `calendar.calJson`：割草计划工作日名称，不带编号（割草计划 1/自动设置 - 仅适用于电线）
+    - `calendar.calJson2`：带有数字的割草计划工作日名称（割草计划 2/自动设置 - 仅适用于电线）
 
-## 讨论与提问
-<https://forum.iobroker.net/topic/4834/adapter-worx-landroid/>
+![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+### 模块（有线和视觉）
+- 限制模块（有线和视觉）
+
+    - `DF.OLMSwitch_Cutting`：禁区 true-on/false-off
+    - `DF.OLMSwitch_FastHoming`：快速返回充电站真开/假关
+
+- ACS 模块（仅限有线）
+    - `US.ACS`：1-开/0-关
+
+![模块 img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
+
+### 割草机（电线和视觉）
+- `AutoLock`：自动锁定真开/假关（电线和视觉/可更改）
+- `AutoLockTimer`：定时器自动锁定最大值。 10 分钟，30 秒步长（线材和视觉/可更换）
+- `batteryChargeCycle`：电池充电周期（电线和视觉/只读）
+- `batteryCharging`: 电池充电 false->no/true->yes (wire & Vision/readonly)
+- `batteryState`：电池状态百分比（电线和视觉/只读）
+- `batteryTemperature`：电池温度（摄氏度）（电线和视觉/只读）
+- `batteryVoltage`：电池电压（伏特）（电线和视觉/只读）
+- `direction`：梯度方向（电线和视觉/只读）
+- `edgecut`：启动 EdgeCut（电线和视觉/可更改）
+- `error`：来自割草机的错误消息（电线和视觉/只读）
+
+```json
+{
+    "states": {
+        "0": "No error", //(wire & Vision)
+        "1": "Trapped", //(wire & Vision unknown)
+        "2": "Lifted", //(wire & Vision)
+        "3": "Wire missing", //(wire & Vision unknown)
+        "4": "Outside wire", //(wire & Vision unknown)
+        "5": "Raining", //(wire & Vision)
+        "6": "Close door to mow", //(wire & Vision)
+        "7": "Close door to go home", //(wire & Vision)
+        "8": "Blade motor blocked", //(wire & Vision)
+        "9": "Wheel motor blocked", //(wire & Vision)
+        "10": "Trapped timeout", //(wire & Vision)
+        "11": "Upside down", //(wire & Vision)
+        "12": "Battery low", //(wire & Vision)
+        "13": "Reverse wire", //(wire & Vision unknown)
+        "14": "Charge error", //(wire & Vision)
+        "15": "Timeout finding home", //(wire & Vision)
+        "16": "Mower locked", //(wire & Vision)
+        "17": "Battery over temperature", //(wire & Vision)
+        "18": "dummy model", //(wire & Vision)
+        "19": "Battery trunk open timeout", //(wire & Vision)
+        "20": "wire sync", //(wire & Vision unknown)
+        "21": "msg num" //(wire & Vision)
+    }
+}
+```
+
+![割草机 img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
+
+- `固件`：当前安装的固件（Wire & Vision/只读）
+- `firmware_available`：可用固件（有线/只读）
+- `firmware_available_all`：所有可用固件（有线/只读）
+- `firmware_available_date`：可用固件的日期（有线/只读）
+- `gradient`：grad 中的梯度（wire & Vision/只读）
+- `inclination`：梯度倾斜（电线和视觉/只读）
+- `last_command`：来自 iobroker 或 APP 的最后一个请求，作为 JSON 表（wire & Vision/只读）
+- `mowTimeExtend`：割草时间延长百分比范围：-100%->100%（有线/可更改）
+- `mowerActive`：暂停割草计划（有线/可更改）
+- `mqtt_update`：更新 Mqtt 数据最大值。 150/天（有线和视觉/可变）
+- `mqtt_update_count`：计数器更新 Mqtt 数据（wire & Vision/只读）
+
+![割草机 img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
+
+- `oneTimeJson`：一次性割草为 JSON
+
+```json
+{
+    "wtm": 60, //Minutes
+    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
+}
+```
+
+- `oneTimeStart`：一次性割草开始“首先填充 oneTimeWithBorder 和 oneTimeWorkTime” - 延迟 1.1 秒（电线和视觉/可更改）
+- `oneTimeWithBorder`：带边框 - 立即更改值（电线和视觉/可更改）
+- `oneTimeWorkTime`：最大工作时间。 8 小时，30 分钟步长 - 立即更改值（电线和视觉/可更改）
+- `在线`：在线割草机（电线和视觉/只读）
+- `partyModus`：Partymodus 打开/关闭（电线和视觉/可更改）
+- `暂停`：割草机中断打开/关闭（电线和视觉/可更改）
+- `sendCommand`：发送 cmd 命令（wire & Vision/可更改）
+
+```json
+{
+    "states": {
+        "1": "Start", //(wire & Vision)
+        "2": "Stop", //(wire & Vision)
+        "3": "Home", //(wire & Vision)
+        "4": "Start Zone Taining", //(wire & Vision unknown)
+        "5": "Lock", //(wire & Vision unknown)
+        "6": "Unlock", //(wire & Vision unknown)
+        "7": "Restart Robot", //(wire & Vision unknown)
+        "8": "pause when follow wire", //(wire & Vision unknown)
+        "9": "safe homing" //(wire & Vision unknown)
+    }
+}
+```
+
+- `state`：对于启动割草机为 True，对于停止割草机为 False（电线和视觉/可更改）
+- `status`：割草机状态（电线和视觉/只读）
+
+```json
+{
+    "states": {
+        "0": "IDLE", //(wire & Vision)
+        "1": "Home", //(wire & Vision)
+        "2": "Start sequence", //(wire & Vision)
+        "3": "Leaving home", //(wire & Vision)
+        "4": "Follow wire", //(wire & Vision unknown)
+        "5": "Searching home", //(wire & Vision)
+        "6": "Searching wire", //(wire & Vision unknown)
+        "7": "Mowing", //(wire & Vision)
+        "8": "Lifted", //(wire & Vision)
+        "9": "Trapped", //(wire & Vision)
+        "10": "Blade blocked", //(wire & Vision)
+        "11": "Debug", //(wire & Vision)
+        "12": "Remote control", //(wire & Vision)
+        "13": "escape from off limits", //(wire & Vision)
+        "30": "Going home", //(wire & Vision)
+        "31": "Zone training", //(wire & Vision)
+        "32": "Border Cut", //(wire & Vision)
+        "33": "Searching zone", //(wire & Vision)
+        "34": "Pause" //(wire & Vision)
+    }
+}
+```
+
+![割草机 img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
+
+- `torque`：车轮扭矩范围 -50->50（线材和视觉/可更改）
+- `totalBladeTime`：刀片总时间（线材和视觉/只读）
+- `totalDistance`：总距离（电线和视觉/只读）
+- `totalTime`：总工作时间（线路和视觉/只读）
+- `waitRain`：最大下雨延迟。 12 小时，30 分钟步长（线材和视觉/可更换）
+- `wifiQuality`：Wifi 质量（有线和视觉/只读）
+
+![割草机 img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
+
+### 另外对于视力
+-   区域
+    - `rfid`：总区域（只读）
+
+![愿景 img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
+
+- 割草机
+    - `log_improvement`：发送改进日志到 worx 禁用/启用（可更改）
+    - `log_troubleshooting`：发送故障排除日志到 worx 禁用/启用（可更改）
+
+![视觉 img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
+
+- 割草机
+    - `paused`：暂停的时间表（以分钟为单位）（可更改）
+
+![视觉 img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Fix unique mqtt clientid
+-   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
+-   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
+-   (Lucky-ESA) Preparation new Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+
+### 2.2.0 (2023-06-27)
+
+-   (Lucky-ESA) Removed mowerActive for Vision
+-   (Lucky-ESA) Add Vision paused schedule
+-   (Lucky-ESA) Add Vision partyModus
+-   (Lucky-ESA) Fix ping request Vision
+-   (Lucky-ESA) Fix send message inheritance
+-   (Lucky-ESA) Fix [#684](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/684)
+-   (Lucky-ESA) Fix deviceArray inheritance
+-   (Lucky-ESA) Add Vision mowers w/o Status & Error message
+-   (Lucky-ESA) Add ZoneKeeper for previous mowers
+
 ### 2.1.3
 
-Add ping option in the instance settings",
+-   (TA2k) Add ping option in the instance settings
 
 ### 2.1.2
 
-Improve reconnection for multiple mower
+-   (TA2k) Improve reconnection for multiple mower
 
 ### 2.1.1
 
-Change reconnection times
+-   (TA2k) Change reconnection times
 
 ### 2.1.0
 
-Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
-Verschieben des Calendar in eine Json und andere Verbesserung, um ein 24h Block zu verhindern, der passiert wenn zu viele Anfragen gesendet werden.
+-   (TA2k) Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
 
 ### 2.0.3
 
-Add manual refresh. Fix empty status and firmware format. Reduce info logs.
+-   (TA2k) Add manual refresh. Fix empty status and firmware format. Reduce info logs.
 
 ### 2.0.1
 
-Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
+-   (TA2k) Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
 
 ### 1.7.0 (2022-09-28)
 
@@ -126,10 +322,10 @@ Adapter rewritten. Added product info and activity log. rawMqtt values improved 
 
 ### 1.4.2 (2021-07-24)
 
-(MeisterTR) fix bug with OLMSwitch_Cutting
-(MeisterTR) fix bug with PartyMode
-(TA2k) fix error with wrong serialnumber (please delete all objects manually)
-(MeisterTR) fix bug in autolock function
+-   (MeisterTR) fix bug with OLMSwitch_Cutting
+-   (MeisterTR) fix bug with PartyMode
+-   (TA2k) fix error with wrong serialnumber (please delete all objects manually)
+-   (MeisterTR) fix bug in autolock function
 
 ### 1.4.1 (2021-07-06)
 
@@ -201,7 +397,7 @@ Adapter rewritten. Added product info and activity log. rawMqtt values improved 
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

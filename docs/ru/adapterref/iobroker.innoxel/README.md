@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.innoxel/README.md
 title: ioBroker.innoxel
-hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
+hash: VKgsaXa83kaMqCtr9cKRlAFeLWMLDCmTLldAQujBdpI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.innoxel/admin/innoxel.png)
 
@@ -22,7 +22,7 @@ hash: YWvSHO+X/h/ZGS5buCxI8XnfX8yhZcFSbdgMIybvluo=
 ![Тестируйте и выпускайте](https://github.com/matthsc/ioBroker.innoxel/workflows/Test%20and%20Release/badge.svg)
 
 ## Требования
-- NodeJS >= 14.x
+- NodeJS >= 18.x
 - ioBroker >= 4.x, с администратором >= 5.x
 - Система «Умный дом» Innoxel Master 3
 
@@ -77,7 +77,7 @@ sendTo("innoxel.0", "triggerInModule", "20:1", () => {
 
 - <code>moduleId</code> - это id/адрес &quot;дегустатора&quot;
 - <code>channelId</code> - это индекс кнопки на &quot;Дегустаторе&quot;
-- функция <code>callback</code> (необязательная) функция обратного вызова для вызова, когда действие было выполнено
+- функция <code>callback</code> (необязательно) функция обратного вызова для вызова, когда действие было выполнено
 
 ### SetDimValue
 Имитация нажатия кнопки на "Дегустаторе".
@@ -122,6 +122,16 @@ sendTo("innoxel.0", "setTemperature", "1:setTemperature:20", () => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-(matthsc) drop support for Node 16
+
+### 0.3.1 (2023-05-23)
+
+-   (matthsc) change actual value from temperature sensor if it doesn't provide values
+-   (matthsc & dependabot) dependency updates
+
 ### 0.3.0 (2023-04-22)
 
 -   (matthsc) allow to set heating/cooling temperatures

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.growatt/README.md
 title: без заголовка
-hash: 0sU0Bw8iqzjCWsTpAtijZLZv3PQpobwnBhs8WUcNgW4=
+hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -174,6 +174,15 @@ Growatt удалил сайт из прошивки.
 -\*-
 
 ## Changelog
+
+### 3.0.4 (03.07.2023)
+
+- (PLCHome) No retrieval of the other parameters value possible after parameter error
+- (PLCHome) Grid first and Battery first setting on MIX may not work
+
+### 3.0.3 (27.06.2023)
+
+- (PLCHome) setting for tlx/tlxh time improved
 
 ### 3.0.2 (08.06.2023)
 

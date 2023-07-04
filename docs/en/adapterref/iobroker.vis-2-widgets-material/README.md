@@ -98,13 +98,24 @@ Additionally, you can show image or iframe with this widget too.
 
 
 ## Todo
-- Change font of buttons
+- RGBW color controller 
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 0.7.1 (2023-07-02)
+* (bluefox) Added washer widget
+
+### 0.6.2 (2023-06-29)
+* (bluefox) Allowed usage without frame for all widgets
+
+### 0.6.0 (2023-06-28)
+* (bluefox) Added blinds to switches widget
+* (bluefox) Allowed to place widgets in widgets
+
 ### 0.5.3 (2023-06-21)
 * (bluefox) Corrected errors with view in widget
 

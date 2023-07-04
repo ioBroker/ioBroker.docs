@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
+hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -92,7 +92,7 @@ hash: BL7Sx+MePvprD762EWglptukzT/+Oni5UMr7OW/aoyE=
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
 Html 模板可用于显示任何 html 代码。
-此外，您也可以使用此小部件显示图像或 iframe。
+此外，您还可以使用此小部件显示图像或 iframe。
 
 ### 百叶窗
 ![百叶窗](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
@@ -102,13 +102,23 @@ Html 模板可用于显示任何 html 代码。
 ### 彩色灯
 ### 时间选择器
 ＃＃ 去做
-- 更改按钮的字体
+- RGBW颜色控制器
 
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 0.7.1 (2023-07-02)
+* (bluefox) Added washer widget
+
+### 0.6.2 (2023-06-29)
+* (bluefox) Allowed usage without frame for all widgets
+
+### 0.6.0 (2023-06-28)
+* (bluefox) Added blinds to switches widget
+* (bluefox) Allowed to place widgets in widgets
+
 ### 0.5.3 (2023-06-21)
 * (bluefox) Corrected errors with view in widget
 

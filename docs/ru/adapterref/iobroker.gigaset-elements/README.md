@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-элементы
-hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
+hash: 3BQgy9cTB1yS5R6UEnre+B1g4tCi8zlCs2ichCE95uw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -21,7 +21,7 @@ hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
 ![Тестируйте и выпускайте](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
 
 ## Требования
-- NodeJS >= 14.x
+- NodeJS >= 18.x
 - ioBroker >= 4.x, с администратором >= 5.x
 - Система Gigaset Elements
 
@@ -116,6 +116,10 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (matthsc) drop support for Node 14 and 16
 
 ### **WORK IN PROGRESS**
 

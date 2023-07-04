@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: 0sU0Bw8iqzjCWsTpAtijZLZv3PQpobwnBhs8WUcNgW4=
+hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
 ---
 ![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -45,7 +45,7 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 从数据记录器的历史记录中读取最后的数据记录。
 此功能支持数据记录器的分钟间隔。
 
-####读取状态数据
+#### 读取状态数据
 这些数据并非适用于所有工厂（不适用于 INV/MAX/TLX）。该数据集包含实时数据。
 此功能支持数据记录器的分钟间隔。
 
@@ -174,6 +174,15 @@ Growatt 已从固件中删除了该网站。
 -\*-
 
 ## Changelog
+
+### 3.0.4 (03.07.2023)
+
+- (PLCHome) No retrieval of the other parameters value possible after parameter error
+- (PLCHome) Grid first and Battery first setting on MIX may not work
+
+### 3.0.3 (27.06.2023)
+
+- (PLCHome) setting for tlx/tlxh time improved
 
 ### 3.0.2 (08.06.2023)
 

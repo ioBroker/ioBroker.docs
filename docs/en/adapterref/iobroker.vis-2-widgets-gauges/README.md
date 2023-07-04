@@ -21,6 +21,12 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.1.14 (2023-07-01)
+* (bluefox) Changed layout of widgets
+
+### 0.1.13 (2023-06-28)
+* (bluefox) Better compatibility
+
 ### 0.1.12 (2023-03-22)
 * (bluefox) update packages
 

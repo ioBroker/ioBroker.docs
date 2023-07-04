@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
+hash: 3BQgy9cTB1yS5R6UEnre+B1g4tCi8zlCs2ichCE95uw=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -18,15 +18,15 @@ hash: CPt7RK1ly5GBGE38scTJYdHKKfCloJCfCqD4+eCPNNQ=
 # IoBroker.gigaset-elements
 Adapter für Gigaset Elements (https://gigaset.com/smart-home)
 
-![Testen und freigeben](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/matthsc/ioBroker.gigaset-elements/workflows/Test%20and%20Release/badge.svg)
 
 ## Anforderungen
-- NodeJS >= 14.x
+- NodeJS >= 18.x
 - ioBroker >= 4.x, mit Admin >= 5.x
 - Gigaset Elements-System
 
 ## Installation
-Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm installieren. Installieren Sie es nicht direkt von Github, dies führt zu einem Fehler beim Start des Adapters ("cannot find start file").
+Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm aus installieren. Installieren Sie es nicht direkt von Github, da dies beim Start des Adapters zu einem Fehler führt („Startdatei kann nicht gefunden werden“).
 
 Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die Einstellungen:
 
@@ -34,39 +34,39 @@ Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die 
     -   Email
     -   Passwort
     - Authentifizierungsintervall, sollte 6 (Stunden) betragen
-- Polling-Intervalle für verschiedene Bereiche
-    - Ereignisse (z. B. Fenster/Tür öffnen/kippen/schließen) - Anzahl Sekunden zwischen Abfragen
-    - Element-/Sensordaten (z. B. Temperatur, Feuchtigkeit) - Anzahl der Minuten zwischen den Abfragen
+- Abfrageintervalle für verschiedene Bereiche
+    - Ereignisse (z. B. Fenster/Tür öffnen/kippen/schließen) - Anzahl der Sekunden zwischen den Abfragen
+    - Element-/Sensordaten (z. B. Temperatur, Luftfeuchtigkeit) - Anzahl der Minuten zwischen den Abfragen
 
 ## Einschränkungen
-Der Adapter liest derzeit nur Daten und lässt keine Änderungen zu.
+Der Adapter liest derzeit nur Daten und erlaubt keine Änderungen.
 
 ### Unterstützte Elemente
-Bisher wurde der Adapter getestet/es ist bekannt, dass er mit den folgenden Elementen funktioniert, und Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
+Bisher wurde der Adapter mit den folgenden Elementen getestet bzw. es ist bekannt, dass er mit diesen funktioniert. Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
 
 | Elementtyp | Elementname | Getestet von |
 | ------------ | ----------------------- | ----------- |
-| ist01 | Sirene | matthsc |
+| is01 | Sirene | matthsc |
 | um01 | Universal/Fenster/Tür | matthsc |
 | wd01 | Wasser | matthsc |
-| sd01 | Rauch (nur Testalarm) | Haussteuerung |
+| sd01 | Rauch (nur Testalarm) | HomeControl |
 
 Der Adapter unterstützt auch die folgenden anderen Geräte:
 
-| Gerätetyp | Anzeigename | Ereignistypen |
+| Gerätetyp | Freundlicher Name | Ereignistypen |
 | ----------- | ------------- | ----------- |
 | gp02 | Telefon | gp.call |
 
-### Geben Sie Testdaten für nicht unterstützte Elemente an
-Wenn Sie andere Elemente haben oder auf Ereignistypen stoßen, die noch nicht vom Adapter verarbeitet werden, können Sie den Expertenmodus in ioBroker aktivieren, in den Adaptereinstellungen auf die Registerkarte _Debug_ gehen (nur im Expertenmodus sichtbar) und „Debug – Prepare test data", um Testdaten zu generieren, die als Teil eines Github-Problems für diesen Adapter eingereicht werden können, um die zusätzlichen Elemente/Ereignistypen enthalten zu bekommen. Personenbezogene Daten wie Basisstations- oder Elementnamen und -IDs werden so weit wie möglich aus den generierten Daten entfernt.
+### Stellen Sie Testdaten für nicht unterstützte Elemente bereit
+Wenn Sie andere Elemente haben oder auf Ereignistypen stoßen, die noch nicht vom Adapter verarbeitet werden, können Sie den Expertenmodus in ioBroker aktivieren, in den Adaptereinstellungen zur Registerkarte _Debug_ gehen (nur im Expertenmodus sichtbar) und „Debug – Vorbereiten“ verwenden Testdaten“, um Testdaten zu generieren, die als Teil eines Github-Problems für diesen Adapter übermittelt werden können, um die zusätzlichen Elemente/Ereignistypen einzubeziehen. Persönliche Daten wie Basisstations- oder Elementnamen und -IDs werden so weit wie möglich aus den generierten Daten entfernt.
 
 ## Mitteilungen
 Bisher unterstützt der Adapter nur Nachrichten, die zum Testen/Debuggen verwendet werden.
 
 ### Testen
-Callback-Antworten sind entweder <code>{ response: &quot;&lt;message&gt;&quot; }</code> , wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
+Rückrufantworten sind entweder <code>{ response: &quot;&lt;message&gt;&quot; }</code> , wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
 
-#### Pingen
+#### Ping
 Senden Sie einen Ping an den Adapter und erhalten Sie eine <code>{ response: &quot;pong&quot; }</code> .
 
 ```ts
@@ -80,21 +80,21 @@ Testdaten aus [gigaset-elements-api](https://github.com/matthsc/gigaset-elements
 sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 ```
 
-### Debugging
-Callback-Antworten sind entweder <code>{ response: object }</code> wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
+### Debuggen
+Rückrufantworten sind entweder <code>{ response: object }</code> , wenn die Aktion erfolgreich war, oder <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , falls etwas schief gelaufen ist.
 
 #### Testdaten vorbereiten
-Laden Sie aktuelle Daten aus der Gigaset Elements API und bereiten Sie diese für die Integration als Testdaten in [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) vor, z. B. für neue Ereignisse oder Elemente, die noch keine Testdaten haben.
+Laden Sie aktuelle Daten aus der Gigaset Elements API und bereiten Sie diese für die Integration als Testdaten in [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) vor, also für neue Ereignisse oder Elemente, die noch keine Testdaten haben.
 
-Lädt Basisstationen, Elemente und Ereignisse aus der API, reduziert sie, um die Datenmenge zu minimieren, und versucht, persönliche Informationen wie Namen und IDs aus den Daten zu entfernen.
+Lädt Basisstationen, Elemente und Ereignisse von der API, reduziert sie, um die Datenmenge zu minimieren, und versucht, persönliche Informationen wie Namen und IDs aus den Daten zu entfernen.
 
-Gibt die Daten als <code>{ response: { bs: [], elements: [], events: [] } }</code> Objekt zurück.
+Gibt die Daten als <code>{ response: { bs: [], elements: [], events: [] } }</code> -Objekt zurück.
 
 ```ts
 sendTo("gigaset-elements.0", "debug", { action: "prepare-test-data" from?: Date }, callback);
 ```
 
-#### Basisstation und Elementdaten laden
+#### Basisstations- und Elementdaten laden
 Lädt die Rohdaten der Basisstation und der Elemente als <code>{ response: { bs: [], elements: []} }</code> -Objekt und gibt sie zurück.
 
 ```ts
@@ -102,9 +102,9 @@ sendTo("gigaset-elements.0", "test", { action: "load-bases-elements" }, callback
 ```
 
 #### Ereignisse laden
-Lädt Ereignisse und gibt ein <code>{ response: { events: [] } }</code> Objekt zurück.
+Lädt Ereignisse und gibt ein <code>{ response: { events: [] } }</code> -Objekt zurück.
 
-Ereignisdaten sind normalerweise für 1 Monat verfügbar, ältere Daten scheinen nicht verfügbar zu sein.
+Ereignisdaten sind in der Regel 1 Monat lang verfügbar, ältere Daten scheinen nicht verfügbar zu sein.
 
 ```ts
 sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Date }, callback);
@@ -116,6 +116,10 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (matthsc) drop support for Node 14 and 16
 
 ### **WORK IN PROGRESS**
 

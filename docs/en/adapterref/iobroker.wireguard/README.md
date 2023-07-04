@@ -106,6 +106,15 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### v1.5.0 (2023-06-27)
+* (grizzelbee) Deprecated: The current peer name/description will be dropped in one of the next versions. So please move over to Username/Device config.
+* (grizzelbee) New: Splitted Peer names in config in user and device names; So that you are able to group devices by user
+* (grizzelbee) New: Some new data fields: connectedPeers, connectedPeersCount, connectedUsers, connectedUsersCount and connection states per user
+* (grizzelbee) Fix:  [#61](https://github.com/Grizzelbee/ioBroker.wireguard/issues/61) Fixed continuous recreation of objects
+* (grizzelbee) Upd: Dependencies got updates
+* (grizzelbee) Upd: Dropped support for NodeJS 12
+* (grizzelbee) Upd: Added support for NodeJS 18
+
 ### v1.4.1 (2022-10-26)
 * (grizzelbee) New: Showing number of currently connected peers for each interface
 

@@ -9,7 +9,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
-
 This adapter works through Growatt's cloud servers. There is also the [Grott project](https://github.com/johanmeijer/grott) that intercepts the data from the communication.
 
 ---
@@ -82,7 +81,7 @@ If writing was successful, reading is automatically triggered.
 
 The inverter can only change one setting at a time and the transmission path is from ioBroker via the cloud to the WLAN adapter and then to the inverter. The settings are processed one after the other via a queue. A session time that is too short can lead to problems.
 
-The writing of the settings was developed to the best of our knowledge. However, the author does not assume liability for errors contained in or for damages arising from the use of the software. 
+The writing of the settings was developed to the best of our knowledge. However, the author does not assume liability for errors contained in or for damages arising from the use of the software.
 
 #### Timeout in seconds
 
@@ -203,6 +202,15 @@ Therefore, the description has also been removed.
 -\*-
 
 ## Changelog
+
+### 3.0.4 (03.07.2023)
+
+- (PLCHome) No retrieval of the other parameters value possible after parameter error
+- (PLCHome) Grid first and Battery first setting on MIX may not work
+
+### 3.0.3 (27.06.2023)
+
+- (PLCHome) setting for tlx/tlxh time improved
 
 ### 3.0.2 (08.06.2023)
 
