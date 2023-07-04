@@ -9,7 +9,7 @@ lastChanged: "02.11.2022"
 
 **Adresse:** Talstr. 27, 67317 Altleiningen, Deutschland
 
-**HR-Nummer:** HRB 743629 Amtsgericht Mannheim
+**HR-Nummer:** HRB 68933 Amtsgericht Ludwigshafen a.Rhein
 
 **Umsatzsteuer-Identifikationsnummer gem. § 27a UStG:** DE 352273606
 

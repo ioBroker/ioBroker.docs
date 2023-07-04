@@ -12,7 +12,7 @@ hash: ZkKvmaBTF9Xql6nq+rC6Jzf3EyLh98w7W4iyKI6A28k=
 
 **地址：** 27, 67317 阿尔特莱宁根, 德国
 
-**HR 编号：** HRB 743629 曼海姆地方法院
+**HR 编号：** HRB 68933 Ludwigshafen a.Rhein
 
 **根据 § 27a UStG 的营业税识别号：** DE 352273606
 

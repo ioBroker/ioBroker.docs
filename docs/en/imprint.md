@@ -8,7 +8,7 @@ lastChanged: 14.09.2018
 
 **Address:** Talstr. 27, 67317 Altleiningen,
 
-**Germany HR number:** HRB 743629 District Court Mannheim
+**Germany HR number:** HRB 68933 District Court of Ludwigshafen a.Rhein
 
 **VAT identification number acc. Section 27a UStG:** DE 352273606
 
