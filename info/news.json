@@ -1742,5 +1742,40 @@
         "conditions": {
             "js-controller": "smaller(5.0.2)"
         }
+    },
+    {
+        "title":{
+            "en": "Adapter km200 is deprecated now",
+            "de": "Adapter km200 wird abgeschrieben",
+            "ru": "Адаптер km200 отсчитан сейчас",
+            "pt": "Adapter km200 é deprecated agora",
+            "nl": "Adapter km200 is nu gedepreceerd",
+            "fr": "Adaptateur km200 est déprécié maintenant",
+            "it": "L'adattatore km200 è deprecato ora",
+            "es": "El adaptador km200 está deprecado ahora",
+            "pl": "Adapter km200 jest obecnie zaniedbany",
+            "uk": "Перехідник км200 тепер",
+            "zh-cn": "目前已投入了200公里的宽限期。"
+        },
+        "content": {
+            "en": "The adapter km200 has been deprecated and will not be supported with upcoming js-controller5. Please consider migrating to adapter ems-esp.",
+            "de": "Der Adapter km200 wurde abgekündigt und ist nicht mit dem anstehenden js-controller5 kompatibel. Bitte eine Migration auf Adapter ems-esp planen.",
+            "ru": "Адаптер km200 был отсортирован и не будет поддерживаться с предстоящим js-controller5. Пожалуйста, обратите внимание на миграцию к адаптеру ems-esp.",
+            "pt": "O adaptador km200 foi depreciado e não será suportado com js-controller5 próximo. Por favor, considere a migração para o adaptador ems-esp.",
+            "nl": "De adapter is gedegradeerd en zal niet worden ondersteund met Js-controller5. Beschouw het als een migratie voor het aanpassen van ems-esp.",
+            "fr": "L'adaptateur km200 a été amorti et ne sera pas pris en charge avec js-controller5 à venir. Veuillez envisager d'immigrer pour adapter ems-esp.",
+            "it": "L'adattatore km200 è stato deprecato e non sarà supportato con il prossimo js-controller5. Si prega di considerare la migrazione per adattatore ems-esp.",
+            "es": "El adaptador km200 ha sido deprecado y no será compatible con el próximo js-controller5. Por favor considere migrar al adaptador ems-esp.",
+            "pl": "Dostosowy model km200 został nieprzychylny i nie będzie wspierany przez nadchodzącego js-controller5. Zajmuje się migracją do adapter ems-esp.",
+            "uk": "Перехідник км200 був відхилений і не буде підтримуватися з майбутніми js-controller5. Будь ласка, враховуйте міграцію до адаптера ems-esp.",
+            "zh-cn": "调整后的200公里已经消失,将不会得到即将到来的控制容忍5的支持。 请考虑逐步调整幅度。."
+        },
+        "id": "km200-deprecation",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2023-07-10T017:00:00.000Z",
+        "conditions": {
+            "km200": "installed"
+        }
     }
 ]
