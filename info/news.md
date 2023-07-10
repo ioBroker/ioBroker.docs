@@ -1,7 +1,12 @@
 # How to add messages
 
+## Adding messages
+New news-messages must be added to the file 'news.json' located at ioBroker.doc/info. After testing the modified file, 
+create a PR for the news to be published.
+
 ## Test messages
-To test the messages, a link to a Json file can be added in the data point "readTestFile" e.g. https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json.
+To test the messages, a link to a Json file can be stored at the state "readTestFile" of adapter ioBroker.info e.g. https://raw.githubusercontent.com/ioBrokerChecker/testData/master/testMessage.json. Consider using the changed news.json 
+located at your fork for best test results. Note that a restart of info adapter might be necessary to pick up the new file.
 
 ## Required infos
 - **title** - *required* Object in different languages (can be automatically translated from English with Gulp)
