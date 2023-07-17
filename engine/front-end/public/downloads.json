@@ -1,8 +1,8 @@
 [
   {
-    "file": "win/iobroker-installer-2.2.1.exe",
+    "file": "win/iobroker-installer-2.2.2.exe",
     "platform": "Windows 32/64Bit",
-    "date": "20230430",
+    "date": "20230717",
     "device": "Windows",
     "details": "Small Windows Installer",
     "picture": "windows.png"
