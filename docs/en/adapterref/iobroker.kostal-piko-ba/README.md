@@ -35,6 +35,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 3.0.2 (14.07.2023)
+* (HombachC) fix small error in MP recognition
+* (HombachC) sentry notified error in object handling
 ### 3.0.1 (23.06.2023)
 * (HombachC) corrected state description
 ### 3.0.0 (08.06.2023)

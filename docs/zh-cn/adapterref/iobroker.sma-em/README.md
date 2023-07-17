@@ -7,52 +7,63 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sma-em/README.md
-title: SMA 电表适配器文档
-hash: JYOczVv4WHkgpzr0qUX+rTgxvi+M7KfhoBpM/5kJfAo=
+title: SMA 电能表适配器文档
+hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
 ---
-# SMA 能量计适配器文档
+# SMA 电能表适配器文档
 ＃＃ 一般信息
-SMA Energy Meter Adapter 从 Energy Meter 或 Sunny Home Manager 接收多播数据报。它们每秒或更频繁地将数据包及其测量数据发送到网络中。可以在 Sunny Portal 中设置 200ms、600ms 或 1000ms 的传输间隔。
+SMA 电能表适配器从电能表或 Sunny Home Manager 接收多播数据报。它们每秒或更频繁地将带有测量数据的数据包发送到网络中。在 Sunny Portal 中可以设置 200ms、600ms 或 1000ms 的传输间隔。
 
 ## 管理/管理页面
-![Adapter_admin_config](img/adminpage1-en.png)![Adapter_admin_config2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
+![适配器管理配置](../../../en/adapterref/iobroker.sma-em/img/adminpage1-en.png)
 
 - 选项卡组播设置
-  - 多播 IP：SMA 预定义的默认设置是 IP 地址 239.12.255.254。
+  - 多播 IP：默认设置和由 SMA 预定义的 IP 地址是 239.12.255.254。
   - 组播端口：SMA 预定义的默认设置是 UDP 端口 9522。
+  - 自己的网络接口 IP：选择框显示 ioBroker 服务器上所有可用的网络接口 IPv4。从此框中选择网络接口 IP 以侦听多播。
+  - 选择的网络接口 IP：当前选择的网络接口 IP 侦听多播消息。 IP 0.0.0.0 表示适配器侦听所有可用的网络接口。
+
+![适配器_管理_配置2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
 
 - 选项卡选项
-  - 扩展模式：提供更详细的信息，例如无功功率、视在功率、cosphi、电压、安培数等。默认情况下禁用此设置。
-  - 详细信息 L1 - L3：这些选择点可用于显示每个阶段的详细信息。
-  - 实时更新周期：设置瞬时功率或电网频率等实时数据的更新周期。这用于减少系统负载。示例：对于 5/s 的数据包速率（200ms 传输间隔），所有值在一秒的实时更新间隔内求和，仅在间隔结束时是频率的平均值或中值和在相应的 ioBroker 数据点中更新阶段。
-  - 非实时更新周期：此处设置非实时数据（如抄表）的更新周期。此处最后接收到的值仅在间隔结束时在相应的 ioBroker 数据点中更新。
+  - 扩展模式：提供更详细的信息，例如无功功率、视在功率、功率因数、电压、电流强度等。默认情况下禁用此设置。
+  - 详细信息L1 - L3：这些选择点可用于显示每个阶段的详细信息。
+  - 实时更新间隔：此处设置瞬时功率或电网频率等实时数据的更新间隔。这有助于减少系统负载。示例：数据包速率为 5/s（200ms 传输间隔）时，在一秒的实时更新间隔内对所有值进行求和，仅在间隔结束时计算频率和频率的平均值或中值。阶段在相应的 ioBroker 数据点中更新。
+  - 非实时更新间隔：此处设置抄表等非实时数据的更新间隔。这里，仅在间隔结束时在相应的 ioBroker 数据点中更新最后接收的值。
 
 ## 文件夹结构/对象
 ![适配器_概述](../../../en/adapterref/iobroker.sma-em/img/overview-en.png)
 
-安装并启动适配器后，将创建如图所示的文件夹结构。 Energy Meter 的全部数据位于根文件夹中。如果已配置，则各个阶段的值位于子文件夹 L1-L3 中。
-如果网络中有多个 Energy Meter 或 Sunny Home Manager，则每个设备的对象文件夹都在同一个 sma-em 实例中创建。
+安装并启动适配器后，将创建如图所示的文件夹结构。电能表的全部数据位于根文件夹中。如果已配置，则各个相位的值位于子文件夹 L1-L3 中。
+如果网络中有多个电能表或 Sunny Home Manager，则每个设备的对象文件夹都会在同一个 sma-em 实例中创建。
 
-## 对象ID的解释
+## 对象 ID 说明
 字母 p、q 和 s 源自电气工程，代表：
 
 - P - 有功功率
 - Q - 无功功率
-- S - 视在功率
+- S——视在功率
 
-——这里的“regard”是“消费”的意思。 （从电网接收的电力）
-——这里的“余”字就是“馈入”的意思。 （馈入电网的功率）
-- 这里的“计数器”是指“能量计”。
+- 这里的“重视”是“消费”的意思。 （从电网接收的电力）
+- 这里“剩余”一词的意思是“馈入”。 （电力馈入电网）
+- 这里“计数器”一词的意思是“能量计”。
 
 由此，对象名称被放在一起，例如
 
-- pregard - 从电网接收到的有功功率
+- pregard - 从电网接收的有功功率
 - psurplus - 馈入电网的有功功率
 - pregardcounter - 从电网接收到的有功功率的电能表
-- qregard - 从电网接收到的无功功率
+- qregard - 从电网接收的无功功率
 - ...
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+
+- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (ticaki) Fix: Catch interface errors
+- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
+
 ### 0.7.0 (2023-03-14)
 
 - (pdbjjens) New: Configurable data point update intervals to reduce system load

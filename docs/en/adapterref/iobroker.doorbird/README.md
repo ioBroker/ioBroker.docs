@@ -1,18 +1,38 @@
 ![Logo](admin/doorbird.png)
+
 # ioBroker.doorbird
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.doorbird.svg)](https://www.npmjs.com/package/iobroker.doorbird)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.doorbird.svg)](https://www.npmjs.com/package/iobroker.doorbird)
-[![Tests](https://travis-ci.org/BuZZy1337/ioBroker.doorbird.svg?branch=master)](https://travis-ci.org/BuZZy1337/ioBroker.doorbird)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+
+![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.doorbird/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.doorbird.png?downloads=true)](https://nodei.co/npm/iobroker.doorbird/)
 
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.doorbird.svg?color=red&label=beta)
+![Stable](http://iobroker.live/badges/doorbird-stable.svg)
+![Installed](http://iobroker.live/badges/doorbird-installed.svg)
+
+## What is Doorbird?
+
+DoorBird is a door intercom that functions both as a doorbell and security system. The product goes on the outside of a house, where a doorbell would typically be, and features a doorbell push button with a camera above.
+
 ## Configuration
+
 1. Enter the IP on which the Adapter should listen to Events from the Doorbird Device.
-(This is normally the IP of your ioBroker Host).
-The adapter tries to prefill the field with the correct IP for you. If the prefilled IP is not the IP of your ioBroker Host please change it to the correct IP.
+   (This is normally the IP of your ioBroker Host).
+   The adapter tries to prefill the field with the correct IP for you. If the prefilled IP is not the IP of your ioBroker Host please change it to the correct IP.
 2. The Port is predefined to `8100`. You can change it if the Port is already used by another service.
-Just try to run the Adapter with this Port. If the Port is not available you will get an error while starting the adapter. Then just get back here and change the port.
+   Just try to run the Adapter with this Port. If the Port is not available you will get an error while starting the adapter. Then just get back here and change the port.
 3. Enter the IP of your Doorbird device. You can click on the "search icon" left to the input field. After you clicked the icon a message at the top of the config screen will appear. Now you have 60 Seconds to press the ring button on your Doorbird device. The Adapter tries to detect the IP and fill all fields for you.
 4. The Device ID (NOT IP!) of your Doorbird.
 5. The Username which needs to have the API Permission on the Doorbird device.
@@ -23,51 +43,64 @@ Just try to run the Adapter with this Port. If the Port is not available you wil
 After you entered all required information to the config dialog click "Save & Close".
 The Adapter should now restart, and you are ready to go!
 
+## Access to the Snapshots of Motion and DoorBell
+
+Use the following URL to get the current snapshot:
+
+```
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
+```
+
+Exampble:
+
+```
+http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
+```
+
+## Compatible Devices
+
+| Device                           | Hardware version | Firmware version |
+| -------------------------------- | ---------------- | ---------------- |
+| DoorBird Video Door Station D10x | 1.00 and above   | 000099 and above |
+| DoorBird Video Door Station D20x | 1.00 and above   | 000099 and above |
+| DoorBird Video Door Station D21x | 1.00 and above   | 000108 and above |
+| BirdGuard B10x                   | 1.00 and above   | 000099 and above |
+| DoorBird Video Door Station D11x | 1.00 and above   | 000130 and above |
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.2.0 (2023-06-25)
+### 1.0.5 (2023-07-05)
 
-* (mcm1957) Adapter has been moved into iobroker-community-adapters-area
-* (mcm1957) Github actions and testing has been added
-* (mcm1957) standard development tools have been added
-* (mcm1957) dependencies have been upgraded
+-   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]
 
-### 0.1.7 (2023-05-16)
-* (todde99) Fixed js-controller 5 issue
+### 1.0.4 (2023-07-05)
 
-### 0.1.5 (2018-09-18)
-* (BuZZy1337) Check response of Doorbird when triggering relays
-* (BuZZy1337) Check if any favorite has to be updated (For example when adapter address or port changes)
-* (BuZZy1337) Added state for restarting DoorBird Device (There is a bug in DoorBird Firmware. DoorBird will fix it with next FW Update!)
-* (BuZZy1337) Change some Code for working more with responses from DoorBird
+-   (Schmakus) Interim solution because deletion of duplicate favorites
 
-### 0.1.0 (2018-09-08)
-* (BuZZy1337) "public release"
-* (BuZZy1337) Changed Adapter address option from dropdown list to input field
-* (BuZZy1337) Added Support for triggering Doorbird-Relays
+### 1.0.2 (2023-07-04)
 
-### 0.0.4
-* (BuZZy1337) DO A COMPLETE REINSTALL OF THE ADAPTER (DELETE AND INSTALL THE ADAPTER AGAIN!)
-DELETE ALL IOBROKER SCHEDULES AND THEN ALL IOBROKER FAVORITES IN YOUR DOORBIRD APP BEFORE STARTING 0.0.4!
-* (BuZZy1337) Added support for more than one Doorbell Button
-* (BuZZy1337) Encrypted saving of Doorbird Password
-* (BuZZy1337) Detect and create Favorites & Schedules on the Doorbird Device.
-* There is a Bug in the Doorbird Firmware for the Motion schedule! You can delete and set the Schedule for the Motion sensor in the App - that's a workaround for now.
+-   (Schmakus) Hotfix because dev-mode was active
 
-### 0.0.3
-* (BuZZy1337) Added possibility to choose the AdapterIP Address
+### 1.0.1 (2023-07-04)
 
-### 0.0.2
-* (BuZZy1337) Just added the info that the Adapter is not ready yet .. just to be sure! ;)
+-   (Schmakus) remove unused packages
+-   (Schmakus) added migration from older versions to delete unused snapshot states
+-   (Schmakus) some code improvements
 
-### 0.0.1
-* (BuZZy1337) initial release
+### 1.0.0 (2023-07-04)
+
+-   (Schmakus) Re-new with adapter creator
+-   (Schmakus) Changed snapshot handling! Find snapshot at ioBroker Files now!
+-   (Schmakus) Support take snapshot manually has been added
+-   (Schmakus) Support for light-On has been added
 
 ## License
+
 The MIT License (MIT)
 
 Copyright (c) 2023 iobroker-community-adapters <>

@@ -12,12 +12,13 @@
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Comparison of ioBroker adapters using MQTT protocol
-If you only have Tasmotas speaking MQTT protocol go for `ioBroker.sonoff`. For other scenarios consider the different options:
+If you only have Tasmotas speaking MQTT protocol go for `ioBroker.sonoff`.
+For other scenarios, consider the different options:
 
 | Feature                                       | ioBroker.sonoff  | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in broker mode)  | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (in client mode) | [ioBroker.mqtt-client](https://github.com/Pmant/ioBroker.mqtt-client/) |
 |-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
 | Has a built-in MQTT broker                    | yes              | yes                                                                           | no                                                                           | no                                                                     |
-| Relays messages to other MQTT subscribers     | NO!!!            | yes                                                                           | not aplicable                                                                | not aplicable                                                          |
+| Relays messages to other MQTT subscribers     | NO!!!            | yes                                                                           | not applicable                                                               | not applicable                                                         |
 | External MQTT broker                          | unsupported      | unsupported                                                                   | required                                                                     | required                                                               |
 | Tasmota MQTT messages to ioBroker Objects     | smart processing | 1:1 processing of all messages                                                | 1:1 processing of subscribed messages                                        | 1:1 processing of subscribed messages                                  |
 | non-Tasmota MQTT messages to ioBroker Objects | no processing    | 1:1 processing of all messages                                                | 1:1 processing of subscribed messages                                        | 1:1 processing of subscribed messages                                  |
@@ -27,7 +28,7 @@ If you only have Tasmotas speaking MQTT protocol go for `ioBroker.sonoff`. For o
 
 This adapter communicates with Sonoff devices with Tasmota firmware or ESP devices via MQTT.
 
-Following topics are expected:
+The following topics are expected:
 - `tele/DeviceNAME/STATE`
 - `tele/DeviceNAME/SENSOR`
 - `tele/DeviceNAME/INFOx`
@@ -89,10 +90,10 @@ Following topics are expected:
 - `/DeviceNAME/SDS0X1/Longitude`
 - `/DeviceNAME/SR04/Distance`
 
-**Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to developer (via issue).
+**Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to the developer (via issue).
 
 ## Auto-creation of objects
-In the web config you can determine which MQTT telegrams create the new objects not in default data points:
+In the web config, you can determine which MQTT telegrams create the new objects not in default data points:
 
 * `TELE_SENSOR` - creates objects from `tele/xxx/SENSOR` telegrams
 * `TELE_STATE` - creates objects from `tele/xxx/STATE` telegrams
@@ -107,7 +108,7 @@ Store the object structure as JSON file, so you can recreate your old structure.
 Best is to stop the adapter, delete all objects under sonoff and start the adapter again.
 
 ## Flags for LED controllers
-The mode states will be created only if device has one of the states:
+The mode states will be created only if the device has one of the states:
 
 - `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
 
@@ -121,15 +122,19 @@ States:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.5.7 (2023-07-07)
+* (mcm1957) Disabled the logging of username and password during connection errors
+* (bluefox) added json config
+
 ### 2.5.3 (2023-03-30)
 * (GreatSUN) Implemented potential `.STATE.POWER` update
 
 ### 2.5.1 (2022-04-23)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.5.0 (2022-03-21)
 * (GreatSUN) Implement writing of NSPanel Widget changes
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
@@ -157,17 +162,17 @@ States:
 ### 2.4.0 (2021-02-04)
 * (anwa) add several data points
 * (anwa) Fix translation for 'ignorePings'
-* (anwa) Fix wrong unit for humidity
+* (anwa) Fixed the wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
 * (Apollon77) js-controller 2.0 is required at least
 
 ### 2.3.3 (2019-11-27)
-* (bluefox) Error with empty packet was caught
+* (bluefox) Error with the empty packet was caught
 
 ### 2.3.2 (2019-10-23)
 * (bluefox) Fixed the password input in the configuration
-* (bluefox) Allowed to set the IP interface for server
+* (bluefox) Allowed setting the IP interface for server
 * (bluefox) Fixed tests for js-controller 2.0
 * (bluefox) Fixed the monitoring of the client connection
 * (bluefox) Changed "indicator.connected" to "indicator.reachable" for clients

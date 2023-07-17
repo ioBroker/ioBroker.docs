@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ring/README.md
 title: Кольцевой адаптер
-hash: BVIA7BeS5PgjNWVxnjPjl5RqQbirM8xg7AS2/9pSL8c=
+hash: /by4CHU08+LjfNQu6jeMDeIHKGRDe1ilZOVm8HLEOZE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -26,7 +26,7 @@ hash: BVIA7BeS5PgjNWVxnjPjl5RqQbirM8xg7AS2/9pSL8c=
 npx -p ring-client-api ring-auth-cli
 ```
 
-или же
+или
 
 ```
 # Unix
@@ -70,37 +70,74 @@ node ring-auth-cli
 Если вы нажмете кнопку `livestream request`, вы получите новую информацию SIP для создания сеанса видеовызова SIP.
 Если вы используете облако [Ring.com](https://ring.com), вы найдете в журнале http-ссылку на ваше последнее записанное видео с движением / дверным звонком.
 
-### Скрипты в `package.json`
-Для вашего удобства предопределены несколько сценариев npm. Вы можете запустить их, используя `npm run <scriptname>`
-
-| Имя сценария | Описание |
-| `build:ts` | Скомпилируйте исходники TypeScript. |
-| `watch:ts` | Скомпилируйте исходники TypeScript и следите за изменениями. |
-| `watch` | Ярлык для `npm run watch:ts` |
-| `test:ts` | Выполняет тесты, определенные в файлах `*.test.ts`. |
-| `test:package` | Гарантирует, что ваши `package.json` и `io-package.json` действительны. |
-| `test:unit` | Проверяет запуск адаптера с помощью модульных тестов (быстро, но для работы могут потребоваться макеты модулей). |
-| `test:integration` | Проверяет запуск адаптера с реальным экземпляром ioBroker. |
-| `test` | Выполняет минимальный тестовый прогон файлов пакета и ваших тестов. |
-| `check` | Выполняет проверку типа вашего кода (без компиляции). |
-| `coverage` | Генерирует покрытие кода, используя ваши тестовые файлы. |
-| `lint` | Запускает `ESLint` для проверки кода на наличие ошибок форматирования и потенциальных ошибок. |
-| `ворс` | Запускает ESLint для проверки вашего кода на наличие ошибок форматирования и потенциальных ошибок. |
-| `release` | Создает новую версию. Подробнее см. в [`@alcalzone/релиз-скрипт`](https://github.com/AlCalzone/release-script#usage). |
-
-### Написание тестов
-Когда все сделано правильно, тестирование кода имеет неоценимое значение, потому что оно дает вам уверенность в том, что вы можете изменить свой код, точно зная, когда что-то сломается. На тему разработки через тестирование хорошо почитать https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92.
-Хотя написание тестов перед кодом может показаться странным поначалу, у этого есть очень явные преимущества.
-
-Шаблон предоставляет базовые тесты для запуска адаптера и файлов пакетов.
-Рекомендуется добавить в смесь свои собственные тесты.
-
 ## Changelog
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (theimo1221) Compliance to adapter-checker
+
+### 3.4.0 (2023-06-09)
+
+* (theimo1221) Update Packages (which allows node 20 now)
+
+### 3.3.1 (2023-05-18)
+
+* (theimo1221) Update Packages
+
+### 3.3.0 (2023-04-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) Device with Type stickup_cam_longfin not yet supported #483
+
+### 3.2.7 (2023-03-22)
+
+* (foxriver76) prepare js-controller v5
+
+### 3.2.6 (2023-02-18)
+
+* (theimo1221) Improve behaviour on initial Location load fail
+* (theimo1221) Update Packages
+
+### 3.2.5 (2023-01-28)
+
+* (theimo1221) Update Packages
+
+### 3.2.4 (2022-12-15)
+
+* (theimo1221) #385 Fix for Unlock Request on intercoms
+
+### 3.2.3 (2022-12-15)
+
+* (theimo1221) Update Packages
+* (theimo1221) #385 Experimental Ring Intercom support
+
+### 3.2.2 (2022-12-02)
+
+* (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname
+
+### 3.2.1 (2022-12-02)
+
+* (theimo1221) Redeploy
+
+### 3.2.0 (2022-12-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) #373 Increase logging and change recording order on Doorbell Event
+
+### 3.1.9 (2022-11-20)
+
+* (theimo1221) #395 Resolve Package-lock.json issues
+
+### 3.1.8 (2022-11-20)
+
+* (theimo1221) Update Packages
+* (theimo1221) Compliance to newest ring api version
+
 ### 3.1.7 (2022-10-28)
 
 * (theimo1221) Update Packages
@@ -357,7 +394,7 @@ node ring-auth-cli
 
 MIT License
 
-Copyright (c) 2018-2022 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

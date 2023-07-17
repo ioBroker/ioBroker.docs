@@ -7,130 +7,130 @@ BADGE-NPM: https://nodei.co/npm/iobroker.discord.png?downloads=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discord/README.md
-title: ioBroker.discord 文件
-hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
+title: ioBroker.discord
+hash: qO5QN8JfvxdRfxYlfehVNzpKvxkxg+zHyVgL1XFlMkI=
 ---
-#ioBroker.discord
+# IoBroker.discord
 ![标识](../../../de/admin/discord.png)
 
 此 [ioBroker] 适配器将 [Discord] 机器人集成到 ioBroker 中。
 
-适配器创建一个对象树，其中包含表示机器人的服务器和通道的对象和状态。
-此外，还会为机器人看到的所有用户创建一个对象树。
-然后可以通过这些状态通过 Discord 接收消息以及发送消息和文件。
+适配器创建一个对象树，其中包含代表机器人的服务器和通道的对象和状态。
+此外，还会为机器人看到的所有用户创建对象树。
+然后可以通过这些状态通过 Discord 接收消息并发送消息和文件。
 
 此外，适配器可以注册 Discord Slash 命令。
 然后可以通过它查询或设置 ioBroker 状态。
 
 - [ioBroker.discord](#iobrokerdiscord)
-  - [函数](#functions)
+  - [功能](#功能)
   - [创建一个 Discord 机器人](#create-a-discord-bot)
   - [将机器人添加到服务器](#add-the-bot-to-a-server)
     - [从服务器中删除机器人](#remove-the-bot-from-a-server)
-  - [状态](#states-states)
+  - [州](#states-states)
     - [discord.0.bot.\*](#discord0bot)
-    - [discord.0.servers.\<server-id\>.\*](#discord0serversserver-id)
+    - [discord.0.servers.\<服务器 ID\>.\*](#discord0servers 服务器 ID)
     - [discord.0.servers.\<server-id\>.channels.\<channel-id\>.\*](#discord0serversserver-idchannelschannel-id)
     - [discord.0.servers.\<server-id\>.members.\<user-id\>.\*](#discord0serversserver-idmembersuser-id)
-    - [discord.0.users.\<user-id\>.\*](#discord0usersuser-id)
-    - [discord.0.slashCommands.\<command-name\>.\*](#discord0slashcommandscommand-name)
+    - [discord.0.users.\<用户 ID\>.\*](#discord0users 用户 ID)
+    - [discord.0.slashCommands.\<命令名称\>.\*](#discord0slashcommands命令名称)
     - [discord.0.raw.\*](#discord0raw)
-  - [授权](#authorization)
+  - [授权](#授权)
   - [消息](#messages)
     - [收到的消息](#messages-received)
-      - [使用 text2command](#use-of-text2command)
+      - [text2command 的使用](#use-of-text2command)
     - [发送消息](#send-messages)
       - [发送简单文本](#senden-simple-texts)
       - [发送文件](#send-files)
       - [发送反应](#send-reactions)
       - [发送回复](#sending-responses)
       - [发送特殊自定义消息](#sending-special-custom-messages)
-  - [斜杠命令]（#slash 命令）
-    - [为斜杠命令配置状态](#configure-states-for-slash-commands)
+  - [斜线命令](#斜线命令)
+    - [配置斜杠命令的状态](#configure-states-for-slash-commands)
     - [查询状态](#states-query)
     - [设置状态](#set-states)
-    - [使用斜杠命令配置获取状态概览](#get-an-overview-of-states-with-configurations-for-slash-commands)
+    - [获取带有斜线命令配置的状态概述](#get-an-overview-of-states-with-configurations-for-slash-commands)
     - [自定义斜杠命令](#custom-slash-commands)
-      - [自定义斜杠命令的 json 状态结构](#structure-of-a-json-state-of-custom-slash-commands)
-  - [块状]（#块状）
-    - [块状示例：向用户发送消息并在三秒后处理它](#blockly-example-send-a-message-to-a-user-and-process-it-after-three-seconds)
+      - [自定义斜杠命令的 json 状态结构](#struct-of-a-json-state-of-custom-slash-commands)
+  - [Blockly](#blockly)
+    - [Blockly 示例：向用户发送消息并在三秒后处理该消息](#blockly-example-send-a-message-to-a-user-and-process-it-after-third-seconds)
     - [Blockly 示例：发送带有嵌入和两个文件附件的复合消息](#blockly-example-sending-a-compound-message-with-an-embed-and-two-file-attachments)
-    - [块状示例：响应自定义斜杠命令并发送请求的网络摄像头图像]
+    - [Blockly 示例：响应自定义斜线命令并发送请求的 IP 摄像头图像]
   - [脚本中的用法](#usage-in-scripts)
     - [在脚本中发送消息](#sending-a-message-in-a-script)
     - [在脚本中编辑消息](#editing-a-message-in-a-script)
     - [删除脚本中的消息](#deleting-a-message-in-a-script)
     - [将反应表情符号添加到脚本中的消息](#add-reaction-emoji-to-a-message-in-a-script)
-    - [等待对脚本中消息的反应](#waiting-for-reactions-to-a-message-in-a-script)
-    - [在脚本中回复自定义斜杠命令](#reply-to-custom-slash-commands-in-a-script)
+    - [等待脚本中消息的反应](#waiting-for-reactions-to-a-message-in-a-script)
+    - [回复脚本中的自定义斜杠命令](#reply-to-custom-slash-commands-in-a-script)
     - [在脚本中请求有关服务器的信息](#Request-information-about-a-server-in-a-script)
     - [在脚本中请求有关服务器通道的信息](#Request-information-about-a-server-channel-in-a-script)
     - [在脚本中请求有关用户的信息](#request-information-about-a-user-in-a-script-)
     - [在脚本中请求有关服务器成员的信息](#request-information-about-a-server-member-in-a-script)
-    - [获取有关脚本中上一条消息的信息](#Get-information-about-a-previous-message-in-a-script)
+    - [获取脚本中前一条消息的信息](#Get-information-about-a-previous-message-in-a-script)
 
 ＃＃ 功能
-* ioBroker 状态为机器人的所有服务器接收和发送消息
-* ioBroker 状态为机器人看到的所有用户接收和发送直接消息
-* 简化加入和离开机器人的 Discord 服务器
-* 设置机器人状态，包括动作
-*可选择监视用户的在线状态
-* 可选择监听用户的语音状态
-* 服务器成员的语音操作（静音、失聪、断开连接）
-* 处理所有消息，或仅处理服务器频道中提及机器人的消息
+* ioBroker 状态用于机器人接收和发送消息的所有服务器
+* ioBroker 状态为机器人看到的用于接收和发送直接消息的所有用户
+* 简化了机器人加入和离开 Discord 服务器的过程
+* 设置机器人状态，包括操作
+* 可选择监控用户的在线状态
+* 可选择监控用户的语音状态
+* 服务器成员的语音操作（静音、聋哑、断开连接）
+* 处理所有消息，或仅处理服务器通道中提及机器人的消息
 * 处理直接消息
-* 可选择使用表情符号自动响应机器人的提及
-* 频道、用户和消息数据的 .json 状态
+* 可选择自动使用表情符号回复提及机器人
+* 通道、用户和消息数据的`.json`状态
 * 使用 JSON 格式发送消息、文件、反应（表情符号）、回复或自定义消息内容
 * 服务器和频道成员列表，包括分配的角色
-* Discord 斜杠命令支持获取和设置状态值
+* Discord 斜线命令支持获取和设置状态值
 * 支持可在自定义脚本（包括 Blockly）中执行的自定义 Discord Slash 命令。
-* [text2command] 支持（必须为每个“.message”状态单独启用）
-* 发送、编辑和删除消息，在自定义脚本中发送和等待对消息的响应
-* 可选的原始状态，以在自定义脚本中提供更大的灵活性
-* Blockly 支持自定义块，用于发送和编辑消息以及处理自定义斜杠命令
+* [text2command] 支持（必须单独为每个“.message”状态启用）
+* 发送、编辑和删除消息，发送并等待自定义脚本中消息的响应
+* 可选的原始状态可提高自定义脚本的灵活性
+* 块支持自定义块，用于发送和编辑消息以及处理自定义斜线命令
 
 *不*支持和*不*预期的内容：
 
 * 线程中的消息
-* 发送和接收语音信息
+* 发送和接收语音消息
 
-缺少功能吗？只需在 [GitHub][GitHub New Issue] 上创建一个功能请求。
+是否缺少某个功能？只需在 [GitHub][GitHub New Issue] 上创建功能请求即可。
 
 ## 创建一个 Discord 机器人
 要使用此适配器，需要创建一个 Discord Bot 应用程序。
 
-1. 前往 [Discord Developer Portal] 并使用您的 Discord 帐户登录（如果尚未登录）。
-2. 在_Applications_ 视图中，单击右上角的_New Application_ 按钮。
+1. 前往 [Discord 开发者门户]，如果尚未登录，请使用您的 Discord 帐户登录。
+2. 在_应用程序_视图中，单击右上角的_新建应用程序_按钮。
 
 [![新应用](../en/media/bot-creation-1.png)](../../../de/adapterref/en/media/bot-creation-1.png)
 
-3. 为应用程序选择一个名称（这将是机器人的名称）并单击_Create_。
+3. 为应用程序选择一个名称（这将是机器人的名称），然后单击_创建_。
 
-[![应用名称](../en/media/bot-creation-2.png)](../../../de/adapterref/en/media/bot-creation-2.png)
+[![应用程序名称](../en/media/bot-creation-2.png)](../../../de/adapterref/en/media/bot-creation-2.png)
 
-4. （可选）上传_App Icon_，更改名称 (_Name_)，更改描述 (_Description_)，添加一些 _Tags_ 并保存更改 (_Save Changes_)。
+4.（可选）上传_应用程序图标_，更改名称 (_Name_)，更改描述 (_Description_)，添加一些_标签_并保存更改 (_保存更改_)。
 
 [![应用程序设置](../en/media/bot-creation-3.png)](../../../de/adapterref/en/media/bot-creation-3.png)
 
-5. 导航到左侧菜单中的_Bot_，然后单击_Add Bot_ 按钮。
+5. 导航至左侧菜单中的_机器人_，然后单击_添加机器人_按钮。
 
-[![添加机器人](../en/media/bot-creation-4.png)](../../../de/adapterref/en/media/bot-creation-4.png) 在接下来的对话框中单击_是，执行！_ 以确认机器人的创建。
+[![添加机器人](../en/media/bot-creation-4.png)](../../../de/adapterref/en/media/bot-creation-4.png) 在以下对话框中单击_是，执行！_ 确认机器人的创建。
 
-6. 创建机器人后，您需要点击一次_Reset Token_按钮来获取机器人令牌。
+6. 创建机器人后，您需要单击一次_重置令牌_按钮以获取机器人令牌。
 
-[![重置令牌](../en/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) 由于这将使之前的所有令牌失效，因此您必须在弹出的对话框中使用按钮_是，执行！_ 进行确认。
+[![重置令牌](../en/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) 由于这会使之前的所有令牌失效，因此您必须在弹出的对话框中使用按钮 _Yes, do it!_ 确认这一点。
 之后，机器人令牌将显示**一次**，您应该将其复制到安全的地方（例如适配器实例配置）。
 
-7. 在 _Bot_ 页面上，向下滚动到 _Privileged Gateway Intents_ 并启用 _Presence Intent_、_Server Members Intent_ 和 _Message Content Intent_。不要忘记保存更改 (_Save Changes_)。
+7. 在_Bot_页面上，向下滚动到_Privileged Gateway Intent_并启用_Presence Intent_、_Server Members Intent_和_Message Content Intent_。不要忘记保存更改（_保存更改_）。
 
-[![特权网关意图](../en/media/bot-creation-6.png)](../../../de/adapterref/en/media/bot-creation-6.png) 注意：一旦机器人出现在超过 100 台服务器上，这些意图将需要 Discord 的验证和批准。
+[![特权网关意图](../en/media/bot-creation-6.png)](../../../de/adapterref/en/media/bot-creation-6.png)注意：一旦机器人出现在超过 100 个服务器上，这些意图将需要来自 Discord 的验证和批准。
 
-8. 现在一切准备就绪，可以启动适配器实例，然后将机器人添加到 discord 服务器。
+8. 现在一切准备就绪，可以启动适配器实例，然后将机器人添加到不和谐服务器。
 
 ## 将机器人添加到服务器
 要将机器人添加到服务器，您可以使用适配器实例配置中的_将机器人添加到服务器_选项卡。
-那里会出现一个链接，允许将机器人添加到服务器，并正确设置所有必要的权限和范围。
+那里将出现一个链接，允许将机器人添加到服务器，并正确设置所有必要的权限和范围。
 
 [![将机器人添加到服务器](./media/bot-add-to-server.png)](../../../de/adapterref/iobroker.discord/media/bot-zu-server-hinzufuegen.png)
 
@@ -142,10 +142,10 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 * 发送信息
 * 嵌入链接
 * 附加文件
-* 阅读消息历史
+* 读取消息历史记录
 * 提及所有人
 * 添加反应
-* 静音成员
+* 将成员静音
 * 聋人会员
 * 移动成员
 
@@ -154,222 +154,225 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 * 机器人
 * 应用程序.命令
 
-如果缺少权限或范围，则适配器的某些功能将无法使用。
+如果缺少权限或范围，则适配器的某些功能将无法工作。
 
 ### 从服务器中删除机器人
-要再次从服务器中删除机器人，在适配器实例配置的同一页面的更下方，有一个选择服务器的选项，然后单击_离开服务器！_按钮告诉机器人离开服务器。
+要再次从服务器中删除机器人，在适配器实例配置的同一页面上，您可以选择一个服务器，然后单击 _离开服务器！_ 按钮告诉机器人离开该服务器。
 
 ＃＃ 状态
-每个服务器、通道和用户都由其唯一的数字 ID 标识。
-因为名称可以更改，所以适配器创建的对象树使用这些 ID 来创建可靠的结构。
+每个服务器、通道和用户都由其唯一的数字 ID 来标识。
+由于名称可以更改，因此适配器创建的对象树使用这些 ID 来创建可靠的结构。
 
 整个对象树是根据机器人可以看到的内容生成的。
-因此，例如，服务器上的频道可能比显示的多。
+因此，例如，服务器上的频道可能比显示的频道多。
 
-### Discord.0.bot.*
-|姓名 |说明 |
+###不和谐.0.bot.*
+|名称 |描述 |
 |---|---|
-| `activityType` |机器人活动的类型。可能的值是 `Playing`、`Streaming`、`Listening`、`Watching`、`Competing` 或空字符串。 |
-| `status` |机器人的存在状态。可能的值是 `online`、`idle`、`dnd` 和 `invisible`。 |
-| `状态` |机器人的存在状态。可能的值是 `online`、`idle`、`dnd` 和 `invisible`。 |
+| `activityType` |机器人活动的类型。可能的值为 `Playing`、`Streaming`、`Listening`、`Watching`、`Competing` 或空字符串。 |
+| `status` |机器人的存在状态。可能的值为`online`、`idle`、`dnd` 和`invisible`。 |
+| `状态` |机器人的存在状态。可能的值为“online”、“idle”、“dnd”和“invisible”。 |
 
 这些状态用于设置机器人的存在状态和活动，就像它应该向用户显示的那样。
 
-### Discord.0.servers.\<server-id\>.*
-|姓名 |说明 |
+### Discord.0.servers.\<服务器 ID\>.*
+|名称 |描述 |
 |---|---|
 | `channels.*` |服务器通道。 |
-| `成员*` |服务器的成员。 |
+| `成员。*` |服务器成员。 |
 
 ### Discord.0.servers.\<server-id\>.channels.\<channel-id\>.*
-|姓名 |说明 |
+|名称 |描述 |
 |---|---|
-| `channels.*` |只有当频道是一个类别时才会出现。那里的结构与服务器通道相同。 |
-| `members` |逗号分隔的频道成员列表（显示名称）。 |
-| `message` |此频道中最后收到的消息。 |
+| `channels.*` |仅当频道是类别时才出现。那里的结构与服务器通道相同。 |
+| `members` |频道成员（显示名称）的逗号分隔列表。 |
+| `message` |在此频道中最后收到的消息。 |
 | `messageId` |最后收到的消息的 ID。 |
-| `messageAuthor` |最后收到的消息的作者（用户标签）。 |
+| `messageAuthor` |最后收到的消息的作者（唯一的用户名或用户标签）。 |
 | `messageTimestamp` |最后收到的消息的时间戳。 |
 | `messageJson` |最后收到的消息的 JSON 数据。 |
 | `send` |发送文本或 JSON 格式的消息。 |
 | `sendFile` |发送文件。 |
-| `sendReply` |发送对消息的回复。 |
+| `sendReply` |发送消息回复。 |
 | `sendReaction` |发送对消息的反应（表情符号）。 |
 | `json` |频道信息的JSON数据。 |
 | `json` |频道信息的JSON数据。 |
 
 对于所有 `message*` 和 `send*` 状态，请参阅下面的_消息_部分。
 
-### Discord.0.servers.\<server-id\>.members.\<user-id\>.*
-|姓名 |说明 |
+### Discord.0.servers.\<服务器 ID\>.members.\<用户 ID\>.*
+|名称 |描述 |
 |---|---|
 | `tag` |用户在 Discord 中的唯一标签。 |
-| `roles` |以逗号分隔的用户在服务器上的角色列表。 |
+| `displayName` |用户在服务器上的显示名称。 |
+| `roles` |用户在服务器上的角色的逗号分隔列表。 |
 | `joinedAt` |用户加入服务器时的时间戳。 |
 | `voiceChannel` |用户当前连接的语音通道，如果未连接则为空字符串。 |
 | `voiceDisconnect` |用于断开用户与语音通道的按钮。 |
-| `voiceSelfDeaf` |指示用户是否已将自己调聋。 |
+| `voiceSelfDeaf` |指示用户是否将自己置为聋子。 |
 | `voiceSelfMute` |指示用户是否已将自己静音。 |
-| `voiceServerDeaf` |指示用户是否已被服务器关闭。也可用于更改此状态。 |
+| `voiceServerDeaf` |指示用户是否已被服务器置为聋。也可用于更改此状态。 |
 | `voiceServerMute` |指示用户是否已被服务器静音。也可用于更改此状态。 |
-| `json` |用户信息的JSON数据。 |
-| `json` |用户信息的JSON数据。 |
+| `json` |用户信息的 JSON 数据。 |
+| `json` |用户信息的 JSON 数据。 |
 
 为了使 `voice*` 状态保持最新，必须在实例配置中启用_观察用户的语音聊天状态_选项。
-要使用 `voiceDisconnect`、`voiceServerDeaf` 和 `voiceServerMute` 操作，机器人必须在服务器上具有适当的权限。
+要使用 `voiceDisconnect`、`voiceServerDeaf` 和 `voiceServerMute` 操作，机器人必须在服务器上拥有适当的权限。
 
-### Discord.0.users.\<userid\>.*
-|姓名 |说明 |
+### Discord.0.users.\<用户 ID\>.*
+|名称 |描述 |
 |---|---|
 | `tag` |用户在 Discord 中的唯一标签。 |
-| `activityType` |用户当前活动的性质。 `Playing`、`Streaming`、`Listening`、`Watching`、`Competing`、`Custom` 之一，或空字符串。 |
-| `activityName` |用户当前活动的名称。例如，`Playing` 期间的游戏名称。 |
+| `status` |用户的存在状态。 `online`、`offline`、`idle`、`dnd` 之一 |
+| `activityType` |用户当前活动的性质。 `Playing`、`Streaming`、`Listening`、`Watching`、`Competing`、`Custom` 之一或空字符串。 |
+| `activityName` |用户当前活动的名称。例如，`Playing`期间的游戏名称。 |
 | `avatarUrl` |用户头像的 URL。 |
 | `bot` |指示用户是否是机器人。 |
-| `message` |最后收到用户的直接消息。 |
+| `message` |最后收到的用户私信。 |
 | `messageId` |最后收到的来自用户的直接消息的 ID。 |
-| `messageTimestamp` |最后收到来自用户的直接消息的时间戳。 |
+| `messageTimestamp` |最后收到的来自用户的直接消息的时间戳。 |
 | `messageJson` |最后收到的来自用户的直接消息的 JSON 数据。 |
 | `send` |发送文本或 JSON 格式的消息。 |
 | `sendFile` |发送文件。 |
-| `sendReply` |发送对消息的回复。 |
+| `sendReply` |发送消息回复。 |
 | `sendReaction` |发送对消息的反应（表情符号）。 |
-| `json` |用户信息的JSON数据。 |
-| `json` |用户信息的JSON数据。 |
+| `json` |用户信息的 JSON 数据。 |
+| `json` |用户信息的 JSON 数据。 |
 
-为了使 `status` 和 `activity*` 状态保持最新，必须在实例配置中启用 _Observe user presence_ 选项。
+为了使 `status` 和 `activity*` 状态保持最新，必须在实例配置中启用_观察用户状态_选项。
 
 对于所有 `message*` 和 `send*` 状态，请参阅下面的_消息_部分。
 
-### Discord.0.slashCommands.\<command-name\>.*
-此外，当在适配器的实例配置中启用自定义命令时，存在以下状态。
+### Discord.0.slashCommands.\<命令名称\>.*
+此外，当在适配器的实例配置中启用自定义命令时，会存在以下状态。
 
 每次调用自定义命令时，所有这些状态都会更新。
 
-|姓名 |说明 |
+|名称 |描述 |
 |---|---|
-| `json` |上次使用命令的 JSON 数据。包含个别州未包含的一些附加信息。 |
-| `userId` |调用命令的用户的 ID。 |
-| `userTag` |调用命令的用户的唯一标记。 |
-| `channelId` |调用命令的通道 ID。 |
-| `serverId` |调用命令的服务器 ID，如果命令是在直接消息中调用的，则为 `null`。 |
+| `json` |最后一次使用该命令的 JSON 数据。包含一些未包含在各个状态中的附加信息。 |
+| `userId` |调用该命令的用户的 ID。 |
+| `userTag` |调用该命令的用户的唯一标记。 |
+| `userName` |调用该命令的用户的名称。 （如果 `userTag` 以 `#0` 结尾，则一次）|
+| `channelId` |调用该命令的通道ID。 |
+| `serverId` |调用命令的服务器的 ID，或者 `null`（如果在直接消息中调用命令）。 |
 | `timestamp` |上次使用命令的时间戳。 |
-| `option-*` |为命令指定的选项。为每个配置的选项创建一个单独的状态。如果调用命令时未指定选项，则关联状态设置为 `null`。 |
-| `option-*.value` |调用命令时为选项指定的最后一个值。如果未指定选项，则关联状态设置为 `null`。 |
-| `option-*.choices` |带有此选项的预定义选项的 JSON 数组。仅适用于文本类型选项。示例：`["Wert 1", "Wert 2", { "name": "Wert 3", "value": "w3" }]` |
-| `sendReply` |发送对调用命令的响应。对于频道或用户的 `.send` 状态，这可以是字符串或 JSON 对象。请参阅下面的_新闻_部分。 |
-| `发送回复` |发送对调用命令的响应。与通道或用户“.send”状态一样，这可以是字符串或 JSON 对象。请参阅下面的_新闻_部分。 |
+| `option-*` |为命令指定的选项。为每个配置的选项创建一个单独的状态。如果调用命令时未指定选项，则关联状态将设置为`null`。 |
+| `option-*.value` |调用命令时为选项指定的最后一个值。如果未指定选项，则关联状态将设置为`null`。 |
+| `option-*.choices` | JSON 数组，包含此选项的预定义选项。仅适用于文本类型选项。示例：`["Wert 1", "Wert 2", { "name": "Wert 3", "value": "w3" }]` |
+| `sendReply` |发送对调用的命令的响应。与通道或用户的`.send`状态一样，这可以是字符串或 JSON 对象。请参阅下面的_新闻_部分。 |
+| `发送回复` |发送对调用的命令的响应。与通道或用户“.send”状态一样，这可以是字符串或 JSON 对象。请参阅下面的_新闻_部分。 |
 
-**注意：** 建议在您自己的脚本中使用 `json` 状态以避免重叠。
-示例：自定义脚本读取各个 `option-*` 状态，而用户再次调用该命令，第一次和第二次调用命令的选项混淆了。
+**注意：** 建议在您自己的脚本中使用`json`状态以避免重叠。
+示例：当用户再次调用命令时，自定义脚本会读取各个 `option-*` 状态，并且第一次和第二次调用命令时的选项会混淆。
 
-### Discord.0.raw.*
-此外，当在适配器的实例配置中启用原始状态时，有以下状态。
+###不和谐.0.raw.*
+此外，当在适配器的实例配置中启用原始状态时，会有以下状态。
 
-**注意：** 这些状态包含未经适配器任何检查、过滤或修改的原始数据。服务器被称为公会。
+**注意：** 这些状态包含原始数据，未经适配器进行任何检查、过滤或修改。服务器被称为公会。
 
-|姓名 |说明 |
+|名称 |描述 |
 |---|---|
-| `messageJson` |最后收到的消息的原始 JSON 数据。 （频道消息和直接消息）|
+| `messageJson` |最后收到的消息的原始 JSON 数据。 （频道消息和私信）|
 | `interactionJson` |收到的最后一次交互的原始 JSON 数据。 （例如斜杠命令）|
 
 ＃＃ 授权
-默认情况下，授权是启用的，只有授权的用户才能与适配器交互。
+默认情况下，授权已启用，只有授权用户才能与适配器交互。
 
-可以在适配器的实例配置中设置授权用户和服务器角色，包括每个用户/角色的权限。
-对于服务器角色，权限仅适用于该服务器，不适用于其他服务器，也不适用于直接消息。
-如果已经为每个用户和服务器角色分配了权限，那么这些权限将合并到相应的服务器。
+授权用户和服务器角色可以在适配器的实例配置中设置，包括每个用户/角色的权限。
+对于服务器角色，权限仅应用于该服务器，不适用于其他服务器，也不适用于直接消息。
+如果已为每个用户和服务器角色分配了授权，则这些权限将合并到相应的服务器。
 
-用户和角色由其内部 ID 标识，因此即使更改用户标签、用户名或角色名称也不会影响授权。
+用户和角色通过其内部 ID 进行标识，因此即使更改用户标签、用户名或角色名称也不会影响授权。
 
-也可以停用授权。但是，只有在 bot 所有服务器上的所有用户都可以信任时才应该这样做！
+也可以取消授权。但是，只有当机器人的所有服务器上的所有用户都可以信任时才应该这样做！
 
 ＃＃ 消息
-该适配器能够从 Discord 文本频道和用户接收和发送消息。
+该适配器能够从 Discord 文本通道和用户接收和发送消息。
 
-默认情况下，只有提及机器人的消息才会在频道中处理。
-为了也处理没有提及的消息，必须在实例配置中激活选项_处理服务器通道中的所有消息_。
+默认情况下，只有提及机器人的消息才会在通道中处理。
+为了也处理未提及的消息，必须在实例配置中激活选项“处理服务器通道中的所有消息”。
 
 如果收到提及机器人的消息，则适配器会使用表情符号响应该消息。
 这可以在适配器的实例配置中进行调整。
 如果启用授权，则机器人将仅响应授权用户的提及。
 
 ### 收到的消息
-接收到的消息被放置在频道消息的相应频道对象或直接消息的用户对象的 `.message*` 状态。
+接收到的消息被放置在对应通道对象（对于通道消息）或用户对象（对于直接消息）的`.message*`状态中。
 
-默认情况下，启用授权后，只会归档来自授权用户的消息。
-这可以通过适配器实例配置中的_Process messages from unauthorized users_选项进行调整，以便丢弃来自未授权用户的消息。
+默认情况下，启用授权后，仅归档来自授权用户的消息。
+这可以通过适配器实例配置中的_处理来自未经授权的用户的消息_选项进行调整，以便来自未经授权的用户的消息也被丢弃。
 
-每个频道/用户最后收到的消息始终存储在 `.message` 状态。
-最后收到的消息的时间戳、作者和 ID 存储在关联状态中。
-此外，所有这些信息也以 JSON 格式存储在 `.messageJson` 状态。
+每个通道/用户最后收到的消息始终存储在`.message`状态中。
+最后收到的消息的时间戳、作者和 ID 存储在关联的状态中。
+此外，所有这些信息也以 JSON 格式存储在 `.messageJson` 状态中。
 
-#### 使用 text2 命令
-要使用 text2command，必须在适配器的实例配置中选择一个 text2command 实例。
+#### 使用text2命令
+要使用text2command，必须在适配器的实例配置中选择text2command 实例。
 
 对于每个 `.message` 状态，可以启用自定义设置_为此状态启用 text2command_。
 如果激活，则收到的消息将发送到选定的 text2command 实例。
 
-来自 text2command 的响应由适配器作为回复、普通消息或根本不发送，具体取决于适配器的实例配置。
+来自 text2command 的响应由适配器作为回复、作为普通消息发送，或者根本不发送，具体取决于适配器的实例配置。
 
 ＃＃＃ 发送信息
-要发送消息，可以将内容写入频道或用户的 `.send*` 状态。
+要发送消息，可以将内容写入通道或用户的`.send*`状态。
 
 #### 发送简单的文本
-要发送简单的文本，只需将文本写入所需目的地的 `.send` 状态即可。
+要发送简单文本，只需在所需目的地的 `.send` 状态中写入文本即可。
 [Discord Markdown] 可用于格式化文本，就像在 Discord 客户端中一样。
 
-要提及用户，用户 ID 可以以 `<@Benutzer-ID>` 的形式使用。
-`<@&Gruppen-ID>` 可用于提及群组，而 `<#Kanal-ID>` 可用于提及频道。
+要提及用户，可以使用 `<@Benutzer-ID>` 形式的用户 ID。
+`<@&Gruppen-ID>` 可用于提及群组，`<#Kanal-ID>` 可用于提及频道。
 
 示例：`Dies ist meine Nachricht.`、`Dies ist _meine_ **formatierte** Nachricht.`、`Hey <@490222742801481728>!`
 
 ＃＃＃＃ 发送文件
-要将文件作为附件发送，请将文件的位置写入所需目的地的 `.sendFile` 状态。
+要将文件作为附件发送，请在所需目的地的 `.sendFile` 状态中写入文件的位置。
 
 文件的位置可以是...
 
 * 本地文件的绝对或相对路径。
 
-相对路径是相对于 ioBroker 安装的适配器目录。
-该路径可以选择以 `file://` 作为前缀。
+相对路径是相对于 ioBroker 安装的适配器目录的。
+该路径可以选择以 `file://` 为前缀。
 示例：`/home/user/image.png`、`../../iobroker-data/files/myfile.txt`、`file:///tmp/image.jpg`
 
 * 远程文件的 URL。
 
   示例：`https://www.iobroker.dev/images/iobroker.png`
 
-* Base64 编码的文件内容。
+* Base64编码的文件内容。
 
   示例：`data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACzklEQVQ4y3WTy2tcdRTHP+d3753HncncmbaJiYvEhZrU+ii2urJgFCyCLnykpbQrsbR/gRQaXPUPUHBlH4ogUsRSqq7qLtlZrQpKg6Uu1OCkSWZ65859zfzucTExsYLf3Tl8zznf85JHZ5+cVuGcMebg0YXXHN/3UVVAqfk1VJV+HCMiAKRpyuXPr1hrixsCZ10VzgEnXMeRF+afJwgaFIUC0Go1UYVOp4OYUYIoivjiyjWszecUMMaYAyXPk7m5R8jznCjqk2YpjuMQhj1AcT2XLM3oR30GgyFB0KDkeWKMOeAeP7ZgDh16jizNeO/9Dwh7PR7ft5ejRxa49tXXvPnG6yRJzNWrX/LDjz8xMTHOu4tnKJXLLC0tG1OtViVoNKhWK9wLQ9pr6yRJwtTUJC/Oz3P9+jckccrk5APcXd+g3V6jUqkwiqmKKwKIMBrbCKpw585vvHNmkT17dvHQzAylUhkjZocnggi4I0+BAML9sEXBX+27XLj0MXGSMLR2h6cFKLh+zSdoNlHYXtW/oaq019a3bRGhPlYnaDbxaz5GVflHV7lcYlcrYJRH+V9s8VUVN4r6bG5ugginT52k2+ny/c2bADjGMDG+m073HlmWbyvq9XoURUEU9TGO4+C4DsPBgI31DZIkwVqLAs8+8zQnjh/j1Vdevq84Iriei+M4GABByLKMTz+7zMWPPuHBqSkGgwGdbpeZ6WmiXu+/g9nu0E2SRMMwJMty6rUa+596gsOHX+L8hUvEcUyp5PH7H38yMb4bgMbYGFmWE4YhSZKozO3b/7PruI/Nzj7MybffotVqYYwhjmPq9TpBo8Hq6iqFjkpmWcaH5y+ysnKboR3+4lpbfGdtvvfWrV+lUi5T8jyKoqBeq9FqBqiC7/sYM7qAnggrK7fJ8lyBG67AWQWstQeXlpd33lmhVt96535/60aENE0YWmuBbwUW/wZQx0cNXLu4ygAAAABJRU5ErkJggg==`
 
-此外，还可以将文本消息添加到文件中。只需写下文件的位置，然后是管道字符 `|` 和 `.sendFile` 状态中的消息。
+此外，还可以将文本消息添加到文件中。只需写入文件的位置，后跟管道字符`|`和`.sendFile`状态中的消息。
 示例：`/tmp/image.png|Dies ist meine Datei`、`https://www.iobroker.dev/images/iobroker.png|Das ioBroker Logo`
 
 #### 发送反应
-`.sendReaction` 状态可用于对之前带有表情符号的消息做出反应。只需在状态下编写表情符号即可。
+`.sendReaction`状态可用于使用表情符号对之前的消息做出反应。只需在状态中写下表情符号即可。
 
-默认情况下，响应发送到其 ID 当前包含在关联的 `.messageId` 状态中的消息。
+默认情况下，响应将发送至 ID 当前包含在关联的 `.messageId` 状态中的消息。
 
-如果要对特定消息采取行动，则可以将消息 ID 后跟管道字符 `|` 和表情符号写入 `.sendReaction` 状态。
+如果要对特定消息进行操作，则可以将消息 ID 后跟竖线字符`|` 和表情符号写入`.sendReaction` 状态。
 
 示例：`👍`、`971032590515568660|👍`
 
 #### 发送回复
-`.sendReply` 状态可用于回复之前的消息。
+`.sendReply`状态可用于回复先前的消息。
 为此，只需在状态中写入响应即可。
 
-默认情况下，回复发送到其 ID 当前包含在关联的 `.messageId` 状态中的消息。
+默认情况下，回复将发送至 ID 当前包含在关联的 `.messageId` 状态中的消息。
 
-如果要回复特定消息，则可以将消息 ID 后跟管道字符 `|` 和回复写入 `.sendReply` 状态。
+如果要回复特定消息，则可以将消息 ID 后跟管道字符`|` 和回复写入`.sendReply` 状态。
 
 示例：`Dies ist eine Antwort.`、`971032590515568660|Dies ist eine Antwort.`
 
 #### 发送特殊的自定义消息
-也可以通过将 JSON 消息对象写入 `.send` 或 `.sendReply` 状态来发送特殊的自定义消息。
+还可以通过将 JSON 消息对象写入 `.send` 或 `.sendReply` 状态来发送特殊自定义消息。
 
 JSON 对象必须是 `MessageOptions` 类型。
-有关详细信息，请参阅 [discord.js MessageOptions 文档][MessageOptions]。
+有关更多信息，请参阅 [discord.js MessageOptions 文档][MessageOptions]。
 
 例子：
 
@@ -437,85 +440,85 @@ JSON 对象必须是 `MessageOptions` 类型。
 ```
 
 ## 斜线命令
-如果在适配器的实例配置中启用，适配器可以使用 discord slash 命令。这些命令可用于查询或设置 ioBroker 状态。
+如果在适配器的实例配置中启用，则适配器可以使用不和谐的斜杠命令。这些命令可用于查询或设置 ioBroker 状态。
 
-**注意：** Discord 斜杠命令可用的状态必须单独配置。见下文。
+**注意：** Discord 斜线命令可用的状态必须单独配置。见下文。
 
-Discord 斜杠命令可以由适配器注册为服务器命令（默认）或全局命令。这可以在适配器的实例配置中设置。
-使用服务器命令的优点是可以立即应用对命令的更改（例如添加状态），而不会延迟。
-但是，服务器命令不能用于用户和机器人之间的直接消息。
-全局命令也可以在直接消息中使用，但对命令的任何更改最多可能需要一个小时才能被 Discord 反映出来。这是 Discord 的限制，而不是适配器。
+适配器可以将 Discord 斜杠命令注册为服务器命令（默认）或全局命令。这可以在适配器的实例配置中设置。
+使用服务器命令的优点是对命令的更改（例如添加状态）会立即应用且不会延迟。
+但是，服务器命令不能在用户和机器人之间的直接消息中使用。
+全局命令也可以在直接消息中使用，但对命令的任何更改都可能需要一个小时才能在 Discord 中反映出来。这是一个 Discord 限制，而不是适配器。
 
-使用的默认斜杠命令是 `/iob-get` 和 `/iob-set`。
-可以在适配器的实例配置中自定义命令的名称和描述。
+使用的默认斜杠命令为`/iob-get` 和`/iob-set`。
+命令的名称和描述可以在适配器的实例配置中自定义。
 
-### 配置斜杠命令的状态
-对于应通过 Discord 斜线命令可用的每个状态，需要在状态的自定义设置中启用。
-为此，只需单击管理中_Objects_视图中的_Custom Settings_齿轮图标，启用适配器实例的设置并选中选项_Enable Discord commands for this state_。
+### 配置斜线命令的状态
+对于应通过 Discord 斜线命令可用的每个状态，需要在该状态的自定义设置中启用此功能。
+为此，只需单击管理中_对象_视图中的_自定义设置_齿轮图标，启用适配器实例的设置并选中选项_为此状态启用 Discord 命令_。
 
 [![启用 Discord 命令](./media/slash-command-configuration-1.png)](../../../de/adapterref/iobroker.discord/media/slash-befehl-konfiguration-1.png)
 
 [![启用 Discord 命令](./media/slash-command-configuration-2.png)](../../../de/adapterref/iobroker.discord/media/slash-befehl-konfiguration-2.png)
 
-可以为每个状态定义一个 _Name_ 和一个 _Alias_ 以便在 Discord 中使用。
-_Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长度不得超过 100 个字符。
+可以为每个状态定义_Name_和_Alias_以在Discord中使用。
+_Name_ 用于自动完成命令，_Alias_ 作为内部标识。两者的长度不得超过 100 个字符。
 
-可以为每个状态单独指定它是否应该可用于查询和/或设置。
-此外，可以激活查询时显示信息，如果相应状态未确认，或者设置时应始终设置确认。
+可以为每个状态单独指定是否可用于查询和/或设置。
+另外，可以激活在未确认相应状态时查询时显示信息，或者在设置时始终设置确认。
 
-对于数据类型 `string` 的状态，可以选择将值视为文件（文件位置）。
-如果它被激活，则状态的当前值将与 `.sendFile` 状态一起发送。
-例如，这使得通过查询命令请求图像成为可能。
+对于数据类型`string`的状态，可以选择将该值视为文件（文件的位置）。
+如果激活此功能，则状态的当前值将与 `.sendFile` 状态一样发送。
+例如，这使得可以通过查询命令请求图像。
 
-对于数据类型为`number` 的状态，可以指定查询命令中值四舍五入的小数位数。
+对于数据类型`number`的状态，可以指定用于对查询命令中的值进行四舍五入的小数位数。
 
-对于数据类型为`boolean`的状态，可以定义`true`和`false`的用户定义值，然后用于显示的查询命令和用于检测的设置命令。
+对于数据类型`boolean`的状态，可以定义`true`和`false`的用户定义值，然后将其用于显示的查询命令和用于检测的设置命令。
 
 ### 查询状态
-要查询状态，只需在 Discord 客户端中调用 `/iob-get Zustandsalias`。
-对于 `Zustandsalias`，键入命令时会显示自动完成。
+要查询状态，只需在 Discord 客户端中调用 `/iob-get Zustandsalias` 即可。
+对于`Zustandsalias`，键入命令时会显示自动完成信息。
 
 每个值都按照状态对象及其自定义设置中指定的格式进行输出。
-可选地，如果没有状态确认则添加信息。
+可选地，如果没有确认状态，则添加信息。
 
 ### 设置状态
-要查询状态，只需在 Discord 客户端中调用 `/iob-set Zustandsalias Neuer-Wert`。
-对于 `Zustandsalias`，键入命令时会显示自动完成。
-当状态的数据类型为 `boolean` 或 `number` 时，适配器会解析 `Neuer-Wert`。
+要查询状态，只需在 Discord 客户端中调用 `/iob-set Zustandsalias Neuer-Wert` 即可。
+对于`Zustandsalias`，键入命令时会显示自动完成信息。
+当状态的数据类型为`boolean`或`number`时，`Neuer-Wert`由适配器解析。
 
-根据状态，可以单独配置是否应在确认或不确认的情况下设置值。
+根据状态，可以单独配置是否应在确认的情况下设置该值。
 
-对于数据类型 `boolean` 的状态，值 `true`、`on`、`yes`、`1` 及其相应的翻译（`wahr`、§§ §SSSSS_6§ §, `ja`)，并且为状态配置的_True Value_ 被解释为 `true`。
-任何其他值都被解释为 `false`。
+对于数据类型`boolean`的状态，值`true`、`on`、`yes`、`1`及其相应的翻译（`wahr`、§§ §SSSSS_6§§、`ja`)，为状态配置的_True Value_解释为`true`。
+任何其他值均被解释为`false`。
 
-对于数据类型 `number` 的状态，指定值被解释为十进制数。
-如果 ioBroker 安装配置为使用逗号作为小数点分隔符，则可以使用逗号或句点作为小数点分隔符来指定数字。否则，只允许句点作为小数点分隔符。
-如果在状态对象中指定了 `min` 和 `max` 的值，那么也会检查这些值。
+对于数据类型`number`的状态，指定的值被解释为十进制数。
+如果 ioBroker 安装配置为使用逗号作为小数分隔符，则可以使用逗号或句点作为小数分隔符指定数字。否则，仅允许句点作为小数点分隔符。
+如果在状态对象中指定了`min`和`max`的值，那么也会检查这些值。
 
-### 通过斜杠命令的配置获取状态概览
-为了通过斜杠命令的活动配置获得所有状态的概览，可以在适配器的实例配置中单击按钮 _Log state objects configured for commands_。然后输出会出现在 ioBroker 安装的日志中。
+### 获取斜线命令配置的状态概述
+为了获得斜杠命令的活动配置的所有状态的概述，可以在适配器的实例配置中单击_记录为命令配置的状态对象_按钮。然后输出将出现在 ioBroker 安装的日志中。
 
 ### 自定义斜杠命令
-可以在适配器的实例配置中激活和配置自己的斜杠命令。
-然后将配置的自定义命令与标准的 get 和 set 命令一起注册到 Discord。
+可以在适配器的实例配置中激活和配置自己的斜线命令。
+然后将配置的自定义命令与标准 get 和 set 命令一起注册到 Discord。
 
-可以将选项添加到每个自定义命令。
-然后，这些选项将出现在命令的 Discord 客户端中。
-如果调用命令时未指定选项，则该选项包含值 `null`。
-对于 _Text_ 类型的选项，可以在关联的 `option-*.choices` 状态中将动态预定义的选项指定为 JSON 数组。
+可以将选项添加到每个自定义命令中。
+这些选项随后将出现在该命令的 Discord 客户端中。
+如果调用命令时未指定选项，则该选项包含值`null`。
+对于 _Text_ 类型的选项，可以在关联的 `option-*.choices` 状态中将动态预定义选项指定为 JSON 数组。
 
-当调用用户定义的命令时，关联的数据将写入关联的状态。请参阅上面 _States_ 部分中的状态描述。
+当调用用户定义的命令时，相关数据被写入相关状态。请参阅上面_States_ 部分中的状态描述。
 
-包括选项在内的所有信息都写入命令的 `.json` 状态。
-这种状态应该主要用于接收脚本中的命令数据，因为所有必要的信息都存储在一个地方，因此即使在短时间内调用多个命令也不会混淆。
-对于 _User_、_Role_、_Channel_ 或 _Mentionable_ 类型的选项，选项对象中会填充其他字段。
+包括选项在内的所有信息均写入命令的`.json`状态。
+该状态主要用于接收脚本中的命令数据，因为所有必要的信息都存储在一个位置，因此即使短时间内调用多个命令也不会混淆。
+对于_User_、_Role_、_Channel_ 或_Mentionable_ 类型的选项，选项对象中会填充其他字段。
 
-**注意：**命令必须自行评估，然后将响应发送到命令。例如，您可以使用自己的脚本执行此操作。
-必须在 15 分钟内通过 `.sendReply` 状态或关联的 `sendTo(...)` 操作发送响应。
-如果在此时间内未发送响应，则 Discord 客户端将显示错误_应用程序未响应_。
+**注意：** 该命令必须自行评估，然后将响应发送到该命令。例如，您可以使用自己的脚本来执行此操作。
+必须在 15 分钟内通过 `.sendReply` 状态或相关的 `sendTo(...)` 操作发送响应。
+如果在规定时间内没有发送响应，Discord 客户端将显示错误_应用程序没有响应_。
 
-**注意：** 可以多次发送对命令调用的响应。
-答案被编辑并被新内容覆盖。
+**注意：** 对命令调用的响应可以多次发送。
+答案将被编辑并用新内容覆盖。
 
 #### 自定义斜杠命令的 json 状态结构
 ```js
@@ -525,6 +528,7 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
   user: {
     id: string,
     tag: string,
+    name: string,
     displayName: string,
   },
   channelId: string,
@@ -537,10 +541,13 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
       user?: { // wenn type USER oder MENIONABLE ist
         id: string,
         tag: string,
+        name: string,
         bot: boolean,
       },
       member?: { // wenn type USER oder MENIONABLE ist und der Befehl auf einem Server aufgerufen wurde
         id: string,
+        tag: string,
+        name: string,
         displayName: string,
         roles: { id: string, name: string }[],
       },
@@ -564,15 +571,15 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
 该适配器带有自己的 Blockly 块，用于...
 
 * 向用户或服务器通道发送消息
-* 编辑直接消息或服务器频道中的消息
-* 为消息添加表情符号反应
-* 使用可选的嵌入、附件和回复参考来组装消息内容
+* 在私信或服务器频道中编辑消息
+* 在消息中添加表情符号反应
+* 使用可选的嵌入、附件和回复引用来组合消息内容
 * 组装消息嵌入
 * 合并邮件附件
-* 响应自定义斜杠命令
-*回复自定义斜杠命令
+* 对自定义斜杠命令做出反应
+* 回复自定义斜杠命令
 
-### Blockly 示例：向用户发送消息并在三秒后编辑它
+### Blockly 示例：向用户发送消息并在三秒后对其进行编辑
 [![发送和编辑 Blockly 消息](./media/blockly-1.png)](../../../de/adapterref/iobroker.discord/media/blockly-1.png)
 
 <details><summary>块状代码</summary>
@@ -582,12 +589,12 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
   <variables>
     <variable id="KIILW$,(eB?pT`;GDuMF">messageId</variable>
   </variables>
-  <block type="discord_send_message_user" id="?xkCV};-Lk_-|Q`]%(Gt" x="63" y="38">
+  <block type="discord_send_message_user" id="?xkCV};-Lk_-|Q`]%(Gt" x="163" y="38">
     <field name="instance">.0</field>
     <field name="logResultOk">FALSE</field>
     <value name="user">
       <shadow type="text" id="jXN@CluUy_M/ig@4[(Uk">
-        <field name="TEXT">cryCode#9911</field>
+        <field name="TEXT">crycode</field>
       </shadow>
     </value>
     <value name="content">
@@ -614,7 +621,7 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
             <field name="logResultOk">FALSE</field>
             <value name="user">
               <shadow type="text" id="voJ:{uuYtbBZ!Xe,rtV|">
-                <field name="TEXT">cryCode#9911</field>
+                <field name="TEXT">crycode</field>
               </shadow>
             </value>
             <value name="messageId">
@@ -643,8 +650,8 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
 
 </详情>
 
-### Blockly 示例：发送带有嵌入和两个文件附件的复合消息
-[![发送分块复合消息](./media/blockly-2.png)](../../../de/adapterref/iobroker.discord/media/blockly-2.png)
+### Blockly 示例：发送带有嵌入内容和两个文件附件的复合消息
+[![发送 blockly 复合消息](./media/blockly-2.png)](../../../de/adapterref/iobroker.discord/media/blockly-2.png)
 
 <details><summary>块状代码</summary>
 
@@ -764,7 +771,7 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
 
 </详情>
 
-### Blockly 示例：响应自定义斜杠命令并发送请求的网络摄像头图像
+### Blockly 示例：响应自定义斜线命令并发送请求的 IP 摄像头图像
 [![Blockly 自定义斜杠命令](./media/blockly-3.png)](../../../de/adapterref/iobroker.discord/media/blockly-3.png)
 
 <details><summary>块状代码</summary>
@@ -773,7 +780,7 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="Wcj[Gmy,vX]b,)s,O)`U">interactionId</variable>
-    <variable id="{sXn[Mn@ZN#fWtTV6O^;">userTag</variable>
+    <variable id="{sXn[Mn@ZN#fWtTV6O^;">userName</variable>
     <variable id="ULmVI=-QcXLnD!e60KTV">camID</variable>
   </variables>
   <block type="discord_on_custom_cmd" id="GE,i32wKhz%KGlBhV$j=" x="63" y="13">
@@ -785,11 +792,13 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
     <value name="varUserId">
       <shadow type="logic_null" id="/}0,E!Gq=C2U]C^.8m1@"></shadow>
     </value>
+    <value name="varUserName">
+      <block type="variables_get" id="Q=v?u?yU}Tw*@FH*|x7.">
+        <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userName</field>
+      </block>
+    </value>
     <value name="varUserTag">
       <shadow type="logic_null" id="+r2I4SpfhuW%9DE21,[c"></shadow>
-      <block type="variables_get" id="Q=v?u?yU}Tw*@FH*|x7.">
-        <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userTag</field>
-      </block>
     </value>
     <value name="option0">
       <shadow type="logic_null" id="hL^g}gJg-b.+SOH0s9m1"></shadow>
@@ -820,7 +829,7 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
                 </value>
                 <value name="ADD1">
                   <block type="variables_get" id="|[[T@|n1Ro{EU56/jJ@P">
-                    <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userTag</field>
+                    <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userName</field>
                   </block>
                 </value>
                 <value name="ADD2">
@@ -891,27 +900,44 @@ _Name_ 用于命令的自动完成，_Alias_ 用作内部标识。两者的长�
 </详情>
 
 ## 在脚本中使用
-在脚本中，函数 `sendTo(...)` 可用于与适配器实例交互。
+在脚本中，函数`sendTo(...)`可用于与适配器实例交互。
 
-_注意：_ 所有使用的 ID 都是字符串。
+_注意：_ 使用的所有 ID 都是字符串。
 
 ### 在脚本中发送消息
-要发送消息，可以使用 `send` 或 `sendMessage` 命令。它们都是相同的。
+要发送消息，可以使用`send` 或`sendMessage` 命令。它们都是相同的。
 
-`sendTo(...)` 的 `message` 部分必须是一个对象，其中包含要发送的 `content` 和以下参数之一以标识目的地：
+`sendTo(...)` 的 `message` 部分必须是一个对象，其中包含要发送的 `content` 以及用于标识目标的以下参数之一：
 
+* `用户ID`
+* `用户标签`
 * `用户名`
-*`用户标签`
 * `serverId` 和 `channelId`
 
-`content` 可以是简单的字符串或 [MessageOptions] 对象。
+`content` 可以是一个简单的字符串或一个 [MessageOptions] 对象。
 
-`sendTo(...)` 回调中的返回值是一个包含消息参数和 `result` 字符串的对象，以及成功发送的不和谐消息的 `messageId` 或 §§SSSSS_3§ § 错误信息。
+`sendTo(...)`回调中的返回值是一个对象，其中包含消息参数和`result`字符串，以及成功发送的不和谐消息的`messageId`或§§SSSSS_3§ § 出现错误时的消息。
 
 例子：
 
 ```js
-// Senden einer Nachricht zu einem Benutzer
+// Senden einer Nachricht zu einem Benutzer bei Verwendung des einmaligen Benutzernamens
+sendTo('discord.0', 'sendMessage', {
+  userName: 'crycode',
+  content: 'Hi!',
+}, (ret) => {
+  log(ret);
+  // {'result':'Message sent to user crycode','userName':'crycode','content':'Hi!','messageId':'971779972052155891'}
+
+  if (ret.error) {
+    log(ret.error, 'error');
+    return;
+  }
+  log(`Nachricht gesendet mit ID ${ret.messageId}`);
+});
+
+// Senden einer Nachricht zu einem Benutzer bei Verwendung des Benutzer-Tags
+// (für Bots und Benutzer, die noch nicht zu einem einmaligen Benutzernamen migriert sind)
 sendTo('discord.0', 'sendMessage', {
   userTag: 'cryCode#9911',
   content: 'Hi!',
@@ -937,7 +963,7 @@ sendTo('discord.0', 'sendMessage', {
   },
 }, (ret) => {
   log(ret);
-  // {'result':'Message sent to user cryCode#9911','userId':'490222742801481728','content':{'content':'Ok!','reply':{'messageReference':'971779972052160552'}},'messageId':'971786369401761832'}
+  // {'result':'Message sent to user crycode','userId':'490222742801481728','content':{'content':'Ok!','reply':{'messageReference':'971779972052160552'}},'messageId':'971786369401761832'}
 });
 
 // Senden einer Datei an einen Serverkanal
@@ -961,29 +987,29 @@ sendTo('discord.0', 'sendMessage', {
 ```
 
 ### 在脚本中编辑消息
-可以使用 `editMessage` 命令编辑以前的消息。
+可以使用`editMessage`命令编辑以前的消息。
 当然，只能编辑机器人发送的消息。
 
-`sendTo(...)` 的 `message` 部分与 `sendMessage`（见上文）相同，只是添加了要处理的消息的 `messageId`。
+`sendTo(...)` 的`message` 部分与`sendMessage` 相同（见上文），但添加了要处理的消息的`messageId`。
 
-返回值与 `sendMessage` 相同。
+返回值与`sendMessage`相同。
 
 例子：
 
 ```js
 // Eine Nachricht bearbeiten
 sendTo('discord.0', 'editMessage', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   content: 'Hallo!',
   messageId: '971495175367049276',
 }, (ret) => {
   log(ret);
-  // {'result':'Message edited','userTag':'cryCode#9911','content':'Hallo!','messageId':'971495175367049276'}
+  // {'result':'Message edited','userName':'crycode','content':'Hallo!','messageId':'971495175367049276'}
 });
 
 // Nachricht senden und nach fünf Sekunden bearbeiten
 sendTo('discord.0', 'sendMessage', {
-    userTag: 'cryCode#9911',
+    userName: 'crycode',
     content: 'Es ist jetzt: ' + new Date().toLocaleString(),
 }, (ret) => {
   if (ret.error) {
@@ -992,73 +1018,73 @@ sendTo('discord.0', 'sendMessage', {
   }
   setTimeout(() => {
     sendTo('discord.0', 'editMessage', {
-      userTag: 'cryCode#9911',
+      userName: 'crycode',
       content:  'Es ist jetzt: ' + new Date().toLocaleString(),
       messageId: ret.messageId,
     }, (ret2) => {
       log(ret2);
-      // {'result':'Message edited','userTag':'cryCode#9911','content':'Es ist jetzt: 5.5.2022, 16:25:38','messageId':'971779692166266920'}
+      // {'result':'Message edited','userName':'crycode','content':'Es ist jetzt: 5.5.2022, 16:25:38','messageId':'971779692166266920'}
     });
   }, 5000);
 });
 ```
 
 ### 删除脚本中的消息
-可以使用 `deleteMessage` 命令删除之前的消息。
+可以使用`deleteMessage`命令删除先前的消息。
 当然，只能删除机器人发送的消息。
 
-`sendTo(...)` 的 `message` 部分与 `sendMessage` 相同（见上文），但没有 `content`，但添加了消息的 `messageId` ，这是要删除的。
+`sendTo(...)`的`message`部分与`sendMessage`相同（见上文），但没有`content`，但添加了消息的`messageId` ，即要删除的内容。
 
-返回值与 `sendMessage` 相同。
+返回值与`sendMessage`相同。
 
 例子：
 
 ```js
 // Löschen einer Nachricht
 sendTo('discord.0', 'deleteMessage', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   messageId: '971495175367049276',
 }, (ret) => {
   log(ret);
-  // {'result':'Message deleted','userTag':'cryCode#9911','messageId':'971495175367049276'}
+  // {'result':'Message deleted','userName':'crycode','messageId':'971495175367049276'}
 });
 ```
 
-### 将反应表情符号添加到脚本中的消息
+### 将反应表情符号添加到脚本中的消息中
 可以通过 `addReaction` 命令将反应（表情符号）添加到之前的消息中。
 
-`sendTo(...)` 的 `message` 部分与 `sendMessage` 相同（见上文），但没有 `content`，但添加了消息的 `messageId` ，应该对此做出反应，以及 `emoji`。
+`sendTo(...)`的`message`部分与`sendMessage`相同（见上文），但没有`content`，但添加了消息的`messageId` ，应对此做出反应，以及`emoji`。
 
-返回值与 `sendMessage` 相同。
+返回值与`sendMessage`相同。
 
 例子：
 
 ```js
 // Hinzufügen einer Reaktion auf eine Nachricht
 sendTo('discord.0', 'addReaction', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   messageId: '971786369401761832',
   emoji: '😎',
 }, (ret) => {
   log(ret);
-  // {'result':'Reaction added to message','userTag':'cryCode#9911','messageId':'971786369401761832','emoji':'😎'}
+  // {'result':'Reaction added to message','userName':'crycode','messageId':'971786369401761832','emoji':'😎'}
 });
 ```
 
-### 等待对脚本中消息的反应
-可以使用 `awaitMessageReaction` 命令等待对先前消息的反应（表情符号）。
+### 等待对脚本中的消息的反应
+可以使用 `awaitMessageReaction` 命令等待对上一条消息的反应（表情符号）。
 
-`sendTo(...)` 的 `message` 部分与 `editMessage` 相同（见上文），但没有 `content`，但有一个额外的 `timeout` 和一个 §§SSSSS_5 §§ 数字。
+`sendTo(...)`的`message`部分与`editMessage`相同（见上文），但没有`content`，但多了一个`timeout`和一个§§SSSSS_5 §§ 数字。
 
-`timeout` 是在 100 到 60000 毫秒范围内收集反应的最长等待时间。
+`timeout` 是收集反应的最大等待时间，范围为 100 到 60000 毫秒。
 
 `max` 数字决定了要收集的最大反应数。
 如果未指定，则默认为 1。
 
-当达到最长等待时间或指定的反应数时，将调用 `sendTo(...)` 的回调。
-返回值是一个包含消息参数和 `reactions` 数组的对象。每个响应都是 `emoji`、`emojiId` 和 `users` 的对象，其中 `users` 是包含 `id` 和 `tag` 的对象数组。
+当达到最大等待时间或指定的反应次数时，将调用`sendTo(...)`的回调。
+返回值是一个包含消息参数和`reactions`数组的对象。每个响应都是 `emoji`、`emojiId` 和 `users` 的对象，其中 `users` 是包含 `id` 和 `tag` 的对象数组。
 如果反应是常规表情符号，则为 `emojiId` `null`。
-对于自定义表情符号，`emoji` 包含表情符号的名称，而 `emojiId` 包含表情符号的 ID。
+对于自定义表情符号，`emoji` 包含表情符号的名称，`emojiId` 包含表情符号的 ID。
 
 ```js
 sendTo('discord.0', 'awaitMessageReaction', {
@@ -1069,21 +1095,21 @@ sendTo('discord.0', 'awaitMessageReaction', {
   max: 3,
 }, (ret) => {
   log(ret);
-  // {'reactions':[{'emoji':'👍','emojiId':null,'users':[{'id':'490222742801481728','tag':'cryCode#9911'}]}],'serverId':'813364154118963251','channelId':'813364154559102998','messageId':'970754574879162458','timeout':10000,'max':3}
+  // {'reactions':[{'emoji':'👍','emojiId':null,'users':[{'id':'490222742801481728', 'name': 'crycode','tag':'crycode#0'}]}],'serverId':'813364154118963251','channelId':'813364154559102998','messageId':'970754574879162458','timeout':10000,'max':3}
 });
 ```
 
-### 在脚本中回复自定义斜杠命令
-`sendCustomCommandReply` 命令可用于发送对自定义命令调用的响应。
+### 回复脚本中的自定义斜杠命令
+`sendCustomCommandReply`命令可用于发送对自定义命令调用的响应。
 
-`sendTo(...)` 的 `message` 部分必须是一个包含要发送的 `content` 和命令调用的 `interactionId` 的对象。
+`sendTo(...)` 的 `message` 部分必须是具有要发送的 `content` 和命令调用的 `interactionId` 的对象。
 
-`content` 可以是简单的字符串或 [MessageOptions] 对象（如 `sendMessage`）。
+`content` 可以是一个简单的字符串或一个 [MessageOptions] 对象（如`sendMessage`）。
 
 ```js
 on({ id: 'discord.0.slashCommands.iob-test.json', change: 'any', ack: true }, (obj) => {
   log(`Benutzerdefinierter Slash-Befehl ${obj.state.val}`);
-  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728","tag":"cryCode#9911","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"String"}}}
+  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728", "name":"crycode","tag":"crycode#0","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"String"}}}
 
   const data = JSON.parse(obj.state.val);
 
@@ -1131,7 +1157,7 @@ sendTo('discord.0', 'getChannelInfo', {
 });
 ```
 
-### 在脚本中获取用户信息
+### 在脚本中获取有关用户的信息
 ```js
 sendTo('discord.0', 'getUserInfo', {
   userId: '490222742801481728',
@@ -1167,7 +1193,7 @@ sendTo('discord.0', 'getServerMemberInfo', {
 });
 ```
 
-### 获取有关脚本中上一条消息的信息
+### 获取脚本中前一条消息的信息
 ```js
 sendTo('discord.0', 'getMessageInfo', {
   serverId: '813364154118963251',
@@ -1216,6 +1242,12 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2023-07-12)
+
+* (crycode-de) Added support for unique user names
+* (crycode-de) Detect possible DNS errors during login to prevent restart loops
+* (crycode-de) Better handling for login errors, first 4 errors are now logged just as info
+
 ### 2.0.0 (2023-06-11)
 
 * (crycode-de) Updated discord.js to v14

@@ -25,6 +25,9 @@ It is recommended that a second account, for which the devices have been shared,
 
 ## Changelog
 
+### 2.2.0
+* Added feature to automatically load the app version from GitHub.
+
 ### 2.1.0
 * Added app version to settings.
 

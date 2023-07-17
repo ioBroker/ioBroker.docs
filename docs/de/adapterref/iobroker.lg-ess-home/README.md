@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lg-ess-home/README.md
 title: ioBroker.lg-ess-home
-hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
+hash: p6Wnv8ekFf7E+Df8Fc+aiEHNI3jmEupjw1Wdy9bP7RI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
@@ -22,11 +22,17 @@ Ein iobroker-Adapter für einen LG ESS Hybrid-Wechselrichter. Mit diesem Adapter
 
 ## Aufbau
 ### Das Passwort erhalten
+#### Möglichkeit Nummer 1
+Das Passwort ist die MAC-Adresse der LAN-Schnittstelle des ESS in Kleinbuchstaben und ohne :.
+Die MAC-Adresse kann in der Fritzbox (oder einem anderen Router) ausgelesen werden. (Danke riessfa)
+
+#### Möglichkeit Nummer 2
 1. Laden Sie die Datei [LG_Ess_Password.exe] herunter (https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools).
 1. Verbinden Sie den Computer mit dem WLAN des LG_ESS-Systems. (WLAN-Passwort steht auf dem Typenschild)
 1. Starten Sie LG_Ess_Password.exe (mindestens .Net Framework 4.5 erforderlich)
 1. Notieren Sie sich Ihr Passwort
 
+#### Möglichkeit Nummer 3
 Für diejenigen, die exe nicht mögen: (Danke grex1975)\ Sie können jeden REST-Client verwenden, um das Passwort zu erhalten:
 
 1. Verbinden Sie sich mit dem WLAN des LG_ESS

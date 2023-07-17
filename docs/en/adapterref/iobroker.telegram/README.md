@@ -719,7 +719,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (bluefox) Packets were updated
+* (bluefox) Packets were updated.
 
 ### 1.16.0 (2023-06-16)
 * (foxriver76) We have added support for the `notification-manager` adapter

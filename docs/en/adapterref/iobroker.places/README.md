@@ -32,7 +32,7 @@ To process location update just send a message using the following syntax:
 
 ```
 // send a message to all instances of places adapter
-sendTo('locations', {
+sendTo('places', {
         user:       "Name of person", 
         latitude:   50.9576191, 
         longitude:  6.8272409, 
@@ -40,7 +40,7 @@ sendTo('locations', {
 });
 
 // send a message to a specific instance of places adapter adapter
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person", 
         latitude:   50.9576191, 
         longitude:  6.8272409, 
@@ -48,7 +48,7 @@ sendTo('locations.0', {
 });
 
 // send a message to a specific instance and define a callback
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person", 
         latitude:   50.9576191, 
         longitude:  6.8272409, 

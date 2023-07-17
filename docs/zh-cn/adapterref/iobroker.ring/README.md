@@ -2,25 +2,25 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ring/README.md
-title: 环适配器
-hash: BVIA7BeS5PgjNWVxnjPjl5RqQbirM8xg7AS2/9pSL8c=
+title: 环形适配器
+hash: /by4CHU08+LjfNQu6jeMDeIHKGRDe1ilZOVm8HLEOZE=
 ---
 ![标识](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
 ![Travis CI 构建状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
 ![AppVeyor 构建状态](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.ring?branch=master&svg=true)
 ![安装数量](http://iobroker.live/badges/ring-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.ring.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.ring.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.ring.svg)
-![新PM](https://nodei.co/npm/iobroker.ring.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
-# 环适配器
+# 环形适配器
 需要 Admin v4 和`node 16.x`。
 
-Ring 适配器可与 Ring Video Doorbell 和 Ring Cam 等 Ring 设备配合使用，并显示是否有人按门铃或检测到运动。如果检测到运动或门铃，则环形视频门铃或摄像头会发送视频流。
+Ring 适配器可与 Ring 视频门铃和 Ring Cam 等 Ring 设备配合使用，并显示是否有人按门铃或是否检测到运动。如果检测到运动或门铃，环形视频门铃或摄像头会发送视频流。
 
 ## 安装和配置
-安装适配器后，您必须输入您的 [环网](https://ring.com) 帐户的电子邮件和密码以及令牌。 Ring 现在需要对所有帐户使用双重身份验证 (2fa)。要获取令牌，请在您的外壳上执行以下操作。
+安装适配器后，您必须输入您的 [环网](https://ring.com) 帐户的电子邮件和密码以及令牌。 Ring 现在要求所有帐户使用双因素身份验证 (2fa)。要获取令牌，请在您的 shell 上执行以下操作。
 
 ```
 npx -p ring-client-api ring-auth-cli
@@ -37,63 +37,38 @@ cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
 node ring-auth-cli
 ```
 
-您可以为直播和快照路径和文件名使用特殊变量。这些变量将替换为计数器、时间戳、环 ID 或环类型。
+您可以为直播和快照路径和文件名使用特殊变量。这些变量将被替换为计数器、时间戳、环 ID 或环类型。
 
 * `%d`: Unix 时间戳。示例：`test_%d -> test_1588331430061`
-* `%i`：你的环设备的 ID：例如：`test_%i -> test_234567890`
-* `%n`: 自环实例启动以来的计数器。示例：`test_%n -> test_1`
-* `%k`：你的响铃设备类型：例如：`test_%k -> test_doorbell`
+* `%i`：您的戒指设备的 ID：示例：`test_%i -> test_234567890`
+* `%n`：自环实例启动以来的计数器。示例：`test_%n -> test_1`
+* `%k`：您的响铃设备类型：示例：`test_%k -> test_doorbell`
 
 ＃＃＃ 常问问题
 #### 我没有收到有关运动或检测到的人的事件、快照和视频
-恭喜，您当前的令牌很可能被环列入黑名单，拒绝您需要的推送通知。
-解决此问题的最佳方法是删除 ring 网站上任何以前的浏览器/适配器令牌并为适配器生成一个新令牌。
+恭喜，您当前的令牌很可能已被按环列入黑名单，从而拒绝您需要的推送通知。
+解决此问题的最佳方法是删除环网站上任何以前的浏览器/适配器令牌，并为适配器生成新令牌。
 
-为了让这个适配器正确地对事件做出反应，Ring 必须将推送通知发送到使用的[环 Api 客户端](https://github.com/dgreif/ring)，以便该适配器对其做出反应。此适配器中的逻辑经过多次检查并适用于大量用户，因此如果您遇到有关丢失事件的问题，则不太可能是此适配器的故障。
+为了使该适配器对事件做出正确反应，Ring 必须将推送通知发送到所使用的 [环API客户端](https://github.com/dgreif/ring)，以便该适配器对其做出反应。该适配器中的逻辑经过多次检查并且适用于大量用户，因此如果您遇到有关丢失事件的问题，则不太可能是该适配器的故障。
 
 ### V3 重写重大更改
-1. 设备名称通过它们的描述得到扩展（例如来自 `Device 1234567`
+1. 设备名称通过其描述进行扩展（例如来自“设备 1234567”
 
    至`Device 1234567 ("Floodlight Garden")`)
 
-2. 快照/直播数据现在位于相应的频道中，包含其他数据点。
-3. 快照/直播对象从元类型更改为文件类型状态。
-4. 事件（Motion、Ding 等）现在位于各自的频道中。
-5. 由于 `ring-api` 放弃了对 `v16.x` 之前的节点的支持，这个适配器需要 `node v16.x` 或 `node v18.x`
-6. 活动刷新减少到每 2 小时一次，因为我们正在侦听/响应事件。
+2. 快照/直播数据现在位于各自的通道中，包含其他数据点。
+3.快照/直播对象从meta类型更改为file类型的state。
+4. 事件（运动、叮等）现在位于各自的频道中。
+5. 由于“ring-api”放弃了对“v16.x”之前的节点的支持，此适配器需要“node v16.x”或“node v18.x”
+6. 由于我们正在监听/对事件做出反应，主动刷新减少到每 2 小时一次。
 
 ### SIP（版本 3.x 之前）
-您可以将 SIP 信息用于与您的 SIP 客户端进行 SIP 视频会议。
+您可以通过 SIP 客户端使用 SIP 信息进行 SIP 视频会议。
 适配器不会提供所有环设备，因为使用的 API 不包括所有环设备。
 
-例如，您可以在 [http://icanblink.com/](http://icanblink.com/) 上使用 Blink SIP 客户端。要使视频正常工作，请进入 Blink 的首选项并在“帐户”下，将选项卡切换到“媒体”并取消选择“RTP 选项”下的“加密音频和视频”。请注意 SIP 信息会在几秒钟后过期！希望我能尽快支持视频流。遗憾的是 [环网](https://ring.com) 没有支持此功能的官方 API。
+例如，您可以在 [http://icanblink.com/](http://icanblink.com/) 上使用 Blink SIP 客户端。要使视频正常工作，请进入 Blink 的首选项，在“帐户”下，将选项卡切换到“媒体”，然后取消选择“RTP 选项”下的“加密音频和视频”。请注意，SIP 信息会在几秒钟后过期！希望我很快就能支持视频流。遗憾的是，[环网](https://ring.com) 没有支持此功能的官方 API。
 如果您按下 `livestream request` 按钮，您将获得用于建立 SIP 视频呼叫会话的新 SIP 信息。
-如果您使用 [环网](https://ring.com) 云，您会在历史记录下找到指向您上次动作/门铃录制视频的 http 链接。
-
-### `package.json`中的脚本
-为方便起见，预定义了几个 npm 脚本。您可以使用`npm run <scriptname>`运行它们
-
-|脚本名称 |说明 |
-| `build:ts`|编译 TypeScript 源代码。 |
-| `watch:ts`|编译 TypeScript 源代码并观察变化。 |
-| `watch`| `npm run watch:ts`的快捷方式|
-| `test:ts`|执行您在 `*.test.ts` 文件中定义的测试。 |
-| `test:package`|确保您的 `package.json` 和 `io-package.json` 有效。 |
-| `test:unit`|使用单元测试测试适配器启动（快速，但可能需要模块模拟才能工作）。 |
-| `test:integration`|使用 ioBroker 的实际实例测试适配器启动。 |
-| `test`|对包文件和您的测试执行最小的测试运行。 |
-| `check`|对您的代码执行类型检查（不编译任何内容）。 |
-| `coverage`|使用您的测试文件生成代码覆盖率。 |
-| `lint`|运行 `ESLint` 以检查您的代码是否存在格式错误和潜在错误。 |
-| `lint` |运行 `ESLint` 来检查您的代码是否存在格式错误和潜在错误。 |
-| `release`|创建一个新版本，有关详细信息，请参阅[`@alcalzone/发布脚本`](https://github.com/AlCalzone/release-script#usage)。 |
-
-### 编写测试
-如果做得好，测试代码是无价的，因为它让您有信心更改代码，同时确切地知道是否以及何时出现问题。关于测试驱动开发主题的好读物是 https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92。
-虽然在代码之前编写测试一开始可能看起来很奇怪，但它有非常明显的好处。
-
-该模板为您提供适配器启动和包文件的基本测试。
-建议您将自己的测试添加到组合中。
+如果您使用[环网](https://ring.com)云，您会在历史记录下找到指向您上次动作/门铃录制视频的http链接。
 
 ## Changelog
 
@@ -101,6 +76,68 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (theimo1221) Compliance to adapter-checker
+
+### 3.4.0 (2023-06-09)
+
+* (theimo1221) Update Packages (which allows node 20 now)
+
+### 3.3.1 (2023-05-18)
+
+* (theimo1221) Update Packages
+
+### 3.3.0 (2023-04-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) Device with Type stickup_cam_longfin not yet supported #483
+
+### 3.2.7 (2023-03-22)
+
+* (foxriver76) prepare js-controller v5
+
+### 3.2.6 (2023-02-18)
+
+* (theimo1221) Improve behaviour on initial Location load fail
+* (theimo1221) Update Packages
+
+### 3.2.5 (2023-01-28)
+
+* (theimo1221) Update Packages
+
+### 3.2.4 (2022-12-15)
+
+* (theimo1221) #385 Fix for Unlock Request on intercoms
+
+### 3.2.3 (2022-12-15)
+
+* (theimo1221) Update Packages
+* (theimo1221) #385 Experimental Ring Intercom support
+
+### 3.2.2 (2022-12-02)
+
+* (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname
+
+### 3.2.1 (2022-12-02)
+
+* (theimo1221) Redeploy
+
+### 3.2.0 (2022-12-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) #373 Increase logging and change recording order on Doorbell Event
+
+### 3.1.9 (2022-11-20)
+
+* (theimo1221) #395 Resolve Package-lock.json issues
+
+### 3.1.8 (2022-11-20)
+
+* (theimo1221) Update Packages
+* (theimo1221) Compliance to newest ring api version
+
 ### 3.1.7 (2022-10-28)
 
 * (theimo1221) Update Packages
@@ -357,7 +394,7 @@ node ring-auth-cli
 
 MIT License
 
-Copyright (c) 2018-2022 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

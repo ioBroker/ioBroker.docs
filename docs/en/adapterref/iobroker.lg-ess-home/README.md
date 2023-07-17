@@ -18,12 +18,17 @@ An iobroker adapter for a LG ESS hybrid inverter. With this adapter, the status 
 ## Configuration
 
 ### Getting the password
+####  Possibility Number 1
+The password is the MAC address of the LAN interface of the ESS in lower case and without :. 
+The MAC address can be read in the Fritzbox (or other router). (Thanks riessfa)
 
+####  Possibility Number 2
 1. Download the file [LG_Ess_Password.exe](https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
 1. Connect the computer to the WLAN of the LG_ESS system. (WLAN password is on the type plate)
 1. Start LG_Ess_Password.exe (At least .Net Framework 4.5 required)
 1. Make a note of your password
 
+####  Possibility Number 3
 For those, who don't like exe: (Thanks grex1975)\
 you can use any REST Client to get the password:
 1. connect to the WLAN of the LG_ESS

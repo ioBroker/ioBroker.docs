@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.places/README.md
 title: ioBroker.places
-hash: IZ3xVAwrX/8hKuFdFHuCG8pIYwTjGTZIoShTd11M/vo=
+hash: hjIkwB4JXT8fYW0UgWnjmkRHGf8xKpfjWJTof7ce7Ro=
 ---
 ![Логотип](../../../en/adapterref/iobroker.places/admin/places.png)
 
@@ -31,12 +31,12 @@ hash: IZ3xVAwrX/8hKuFdFHuCG8pIYwTjGTZIoShTd11M/vo=
 * **Места** — это гибкий список, содержащий настраиваемые места, где каждое место должно иметь допустимые значения имени, широты и долготы.
 * **Пользователи** — гибкий список, содержащий сопоставления пользователей.
 
-## Применение
+## Использование
 Чтобы обработать обновление местоположения, просто отправьте сообщение, используя следующий синтаксис:
 
 ```
 // send a message to all instances of places adapter
-sendTo('locations', {
+sendTo('places', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -44,7 +44,7 @@ sendTo('locations', {
 });
 
 // send a message to a specific instance of places adapter adapter
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -52,7 +52,7 @@ sendTo('locations.0', {
 });
 
 // send a message to a specific instance and define a callback
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -86,14 +86,14 @@ sendTo('locations.0', {
 Измените режим на **HTTP Private** и используйте следующий адрес в качестве **Host**: https://iobroker.pro/service/custom_xyz/<user-app-key>
 
 ### 3. Настройте iobroker.places
-На вкладке Интеграция необходимо выбрать экземпляр облачного адаптера и **xyz** в качестве службы. Адаптер прослушивает входящие запросы к сервису и запускает обработку.
+На вкладке Интеграция необходимо выбрать экземпляр облачного адаптера и **xyz** в качестве сервиса. Адаптер прослушивает входящие запросы к сервису и запускает обработку.
 
 ## Пример: Telegram + ioBroker.telegram + ioBroker.places
 ### 1. Настройте iobroker.telegram
 Включите параметр **хранить необработанные запросы**.
 
 ### 2. Создать скрипт (ioBroker.javascript)
-Создайте короткий скрипт с подпиской на необработанный запрос, например. из **telegram.0.communicate.requestRaw** и отправьте новый объект запроса на iobroker.places (или его экземпляр):
+Создайте короткий скрипт с подпиской на необработанный запрос, например. из **telegram.0.communicate.requestRaw** и отправить новый объект запроса на iobroker.places (или его экземпляр):
 
 ```
 on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
@@ -113,6 +113,12 @@ on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
 Реализация частично основана на dschaedls [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency). Логотип был взят из [Free Icons PNG](http://www.freeiconspng.com/images/maps-icon) и была изменена, чтобы иметь прозрачный фон.
 
 ## Changelog
+### 1.1.2 (2022-04-17)
+* (Apollon77) Fix personsAtHome and anybodyAtHome states
+
+### 1.1.1 (2022-03-29)
+* (Apollon77) Allow (again?) to consume external subscribed state value independently of ack flag
+
 ### 1.1.0 (2022-03-25)
 * (Basgo) Correctly set ack flag
 * (Apollon77) Add Sentry for crash reporting

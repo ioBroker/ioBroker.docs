@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
+hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 ---
 ![Logo](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -15,49 +15,59 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 ![NPM](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)
 
 # IoBroker.fronius-wattpilot
-**Tests:** ![Testen und freigeben](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-Barebones-Implementierung der inoffiziellen Fronius Watt Pilot (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API . Basierend auf https://github.com/joscha82/wattpilot.
+Barebone-Implementierung der inoffiziellen Fronius Watt Pilot (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API . Basierend auf https://github.com/joscha82/wattpilot.
 
 ## Wie installiert man:
 **Ich übernehme keine Verantwortung für Ihr Gerät. Mit dieser API können Sie direkt auf das Gerät zugreifen, seien Sie vorsichtig.**
 
 ### **Anforderungen**
-- Beenden Sie Ihre normale Installation der Fronius Wattpilot App. Merken Sie sich das Passwort!
-- Gehen Sie zur Registerkarte Internet und verbinden Sie Ihren Pilot mit Ihrem Wi-Fi.
+- Schließen Sie Ihre normale Installation der Fronius Watt Pilot-App ab. Merken Sie sich das Passwort!
+- Gehen Sie zur Registerkarte „Internet“ und verbinden Sie Ihren Pilot mit Ihrem WLAN.
 - Finden Sie die IP-Adresse Ihres WattPilot heraus.
-  - Möglichkeit 1: Über die Web-GUI Ihres Routers.
-  - Option 2: Via Wattpilot App: Nach dem Verbindungsaufbau auf den WLAN-Namen klicken.
+  - Option 1: Über die Web-GUI Ihres Routers.
+  - Option 2: Über die Wattpilot-App: Klicken Sie nach dem Verbindungsaufbau auf den WLAN-Namen.
 
   Sie sehen eine Seite mit weiteren Informationen zu Ihrer WLAN-Verbindung. Notieren Sie sich die IP-Adresse.
 
-### **iobroker.fronuis-wattpilot Adapter**
-- Über die „Adapter“-Seite können Sie nun regelmäßig eine Instanz des iobroker.fronius-wattpilot installieren.
-- Nachdem Sie die Instanz erstellt haben, werden Sie aufgefordert, die IP-Adresse und das Passwort Ihres WattPilot einzugeben. Füllen Sie die Werte aus, die Ihnen zuvor aufgefallen sind, und speichern Sie die Konfiguration. Wenn Sie alles richtig gemacht haben, wird der Adapter nach einer Weile grün und Sie können die eingehenden Daten im Reiter Objekte sehen.
+### **iobroker.fronuis-wattpilot-Adapter**
+- Jetzt können Sie über die „Adapter“-Seite regulär eine Instanz von iobroker.fronius-wattpilot installieren.
+- Nachdem Sie die Instanz erstellt haben, werden Sie aufgefordert, die IP-Adresse und das Passwort Ihres WattPilot einzugeben. Geben Sie die Werte ein, die Sie zuvor bemerkt haben, und speichern Sie die Konfiguration. Wenn Sie alles richtig gemacht haben, wird der Adapter nach einer Weile grün und Sie können die eingehenden Daten im Reiter „Objekte“ sehen.
 
-**Es wird dringend empfohlen, deinem WattPilot eine statische IP zuzuweisen.**
+**Es wird dringend empfohlen, Ihrem WattPilot eine statische IP zuzuweisen.**
 
 ## Wie kann ich den Adapter verwenden...
 Sie können die Datenpunkte dieses Adapters wie jeden anderen Datenpunkt in Ihrem Broker verwenden.
-Um einige Ideen zu bekommen, siehe "Beispiele".
+Einige Anregungen finden Sie unter „Beispiele“.
 
-Es gibt einen [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml), wie Sie Ihre Solarnetzleistung messen können und der Pilot automatisch auf den richtigen Stromwert (Amp) eingestellt wird, um Ihren internen Energieverbrauch zu verbessern.
-Du kannst es einfach importieren, indem du den Inhalt des Beispiels kopierst und über das „Import blocks“-Icon in der oberen rechten Ecke deines Blockly-Skripts einfügst.
+Es gibt eine [Blockly-Beispiel](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) Möglichkeit, die Leistung Ihres Solarnetzes zu messen und den Piloten automatisch auf den richtigen Stromwert (Ampere) einzustellen, um Ihren internen Energieverbrauch zu verbessern.
+Sie können es einfach importieren, indem Sie den Inhalt des Beispiels kopieren und über das „Import Blocks“-Symbol in der oberen rechten Ecke Ihres Blockly-Skripts einfügen.
 
-## Was macht der Adapter?
-Der Adapter verbindet sich mit dem WattPilots WebSocket und trennt eingehende Daten in ioBroker-Datenpunkte, die Sie ganz bequem verwenden können.
+## Was leistet der Adapter?
+Der Adapter verbindet sich mit dem WattPilots WebSocket und trennt eingehende Daten in ioBroker-Datenpunkte, die Sie ganz komfortabel nutzen können.
 
 ## Zustände abrufen
-Standardmäßig schreibt der Adapter nur die Eckdaten des Wattpilot. Wenn Sie alle möglichen Werte wünschen, die die API liefern kann, deaktivieren Sie das Kontrollkästchen in den Instanzeinstellungen.
-Eine Dokumentation der Datapoints ist hier verfügbar: https://github.com/joscha82/wattpilot/blob/main/API.md (Danke an joscha82)
+Standardmäßig schreibt der Adapter nur die Eckpunkte des Wattpiloten. Wenn Sie alle möglichen Werte wünschen, die die API liefern kann, deaktivieren Sie das Kontrollkästchen in den Instanzeinstellungen.
+Eine Dokumentation der Datenpunkte finden Sie hier: https://github.com/joscha82/wattpilot/blob/main/API.md (Danke an joscha82)
 
-## Zustände setzen?
-Ja, schreiben Sie einfach den Zustandsnamen gefolgt von einem Semikolon und dann den Wert in den Zustand set_state.
+## Zustände festlegen?
+Die wichtigsten Zustände, die Sie direkt setzen können, sind AccessState, amp, CableLock, cae und mode.
+
+**AccessState**: „Offen“ oder „Warten“
+
+**Verstärker**: 6-16
+
+**cableLock**: „Normal“ oder „AutoUnlock“ oder „AlwaysLock“
+
+**cae**: „true“ oder „false“ (Achtung: Dadurch wird die Cloud-Funktionalität Ihres WattPilot deaktiviert, möglicherweise muss ein Neustart erfolgen)
+
+Ja, schreiben Sie einfach den Statusnamen, gefolgt von einem Semikolon und dann den Wert im Status set_state.
 Zum Beispiel:
 
-    Ampere;6
+    Amp;6
 
-**Sie können den Zustand „amp“ und „lmo“ direkt über die Zustände set_power und set_mode steuern.**
+**Sie können den „amp“- und den „lmo“-Zustand direkt über die set_power- und set_mode-Zustände steuern.**
 
 ## Was bedeutet dieses Durcheinander?
 Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
@@ -72,6 +82,19 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.0 (2023-07-15)
+- Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
+- Fixed a number of issues concerning the static parser mode
+- Quality of life improvements --> you can now set the common states directly! (set_power, set_mode) are still available for compatibility reasons and for the dynamic parser mode
+
+### 4.5.1 (2023-03-02)
+- Fixed issue #29 (custom states not working)
+
+### 4.5.0 (2023-02-19)
+- Fixed random log messages
+- Fixed a type conflict at the set_state state
+- Commits from now on should be signed
+
 ### 4.4.0 (2023-02-16)
 - known states will now be updated even if the dynamic parser is enabled
 
@@ -180,25 +203,25 @@ Dank joscha82 wissen wir: https://github.com/joscha82/wattpilot/blob/main/API.md
 - Did some changes
 - Did some more changes
 
-### v0.0.5 (2020-01-01)
+### 0.0.5 (2020-01-01)
 - Better Code
 
-### v0.0.4 (2020-01-01)
+### 0.0.4 (2020-01-01)
 - Parser option added
 
-### v0.0.3 (2020-01-01)
+### 0.0.3 (2020-01-01)
 - Parser added
 
-### v0.0.2 (2020-01-01)
+### 0.0.2 (2020-01-01)
 - Bug fixed
 
-### v0.0.1 (2020-01-01)
+### 0.0.1 (2020-01-01)
 - Initial release
 
 ## License
 MIT License
 
-Copyright (c) 2022 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

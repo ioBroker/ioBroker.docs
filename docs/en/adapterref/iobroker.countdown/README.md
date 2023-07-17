@@ -85,6 +85,9 @@ Parameters here are:
 
 ## Changelog
 
+### 2.0.2 (2023-07-16) 
+* (jack-blackson) Bugfix month calculation
+
 ### 2.0.1 (2023-05-24) 
 * (jack-blackson) Added objects for total number of months and years
 

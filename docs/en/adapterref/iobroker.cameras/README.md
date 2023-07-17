@@ -11,11 +11,11 @@
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)](https://travis-ci.org/ioBroker/ioBroker.cameras)
 
 ## IP-Cameras adapter for ioBroker
-You can integrate you web/ip cameras into vis and other visualisations.
+You can integrate your web/ip cameras into vis and other visualizations.
 If you configure a camera with name `cam1` it will be available on 
 web server under `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
-Additionally, the image could be requested via message:
+Additionally, the image could be requested via a message:
 ```
 sendTo('cameras.0', 'image', {
     name: 'cam1', 
@@ -32,7 +32,7 @@ The result is always in `jpg` format.
 
 Supported cameras:
 ### URL image
-This is normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`  
+This is a normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`  
 
 ### URL image with basic authentication
 This is URL request for image, where all parameters are in URL, but you can provide the credentials for basic authentication. Like `http://mycam/snapshot.jpg`  
@@ -42,7 +42,7 @@ If you want to access snapshots on RTSP cameras, you can use ffmpeg. You need to
 - Windows has precompiled ffmpeg and there is no need to download anything. (Windows version is taken from here: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z) 
 - Linux: `sudo apt-get install ffmpeg -y`
 
-Here is an example how to add Reolink E1:
+Here is an example of how to add Reolink E1:
 
 ![rtsp](img/rtsp.png)
 
@@ -52,6 +52,12 @@ Here is an example how to add Reolink E1:
 -->
 
 ## Changelog
+### 1.2.2 (2023-07-07)
+* (bluefox) Corrected passwords with exclamation mark
+
+### 1.2.1 (2023-07-06)
+* (bluefox) Added eufy camera
+
 ### 1.1.1 (2023-03-15)
 * (bluefox) Added Reolink E1 camera
 

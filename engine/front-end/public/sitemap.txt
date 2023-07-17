@@ -699,6 +699,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.artnet-recorder/README
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.asuswrt/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.awattar/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.beckhoff/README.md
@@ -1298,6 +1299,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.artnet-recorder/README
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.asuswrt/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.awattar/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.beckhoff/README.md
@@ -1897,6 +1899,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.artnet-recorder/README
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.asuswrt/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.awattar/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.beckhoff/README.md
@@ -2496,6 +2499,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.artnet-recorder/REA
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asterisk/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.asuswrt/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awattar/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.beckhoff/README.md

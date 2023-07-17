@@ -8,18 +8,22 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sma-em/README.md
 title: Документация по адаптеру счетчика энергии SMA
-hash: JYOczVv4WHkgpzr0qUX+rTgxvi+M7KfhoBpM/5kJfAo=
+hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
 ---
 # Документация по адаптеру счетчика энергии SMA
 ## Общая информация
 Адаптер счетчика энергии SMA получает многоадресные дейтаграммы от счетчика энергии или Sunny Home Manager. Они отправляют пакеты данных со своими данными измерений в сеть каждую секунду или чаще. Интервал передачи 200 мс, 600 мс или 1000 мс можно установить в Sunny Portal.
 
 ## Страница администрирования / администратора
-![Адаптер_admin_config](img/adminpage1-en.png) ![Адаптер_admin_config2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
+![Адаптер_admin_config](../../../en/adapterref/iobroker.sma-em/img/adminpage1-en.png)
 
 - Вкладка Настройки многоадресной рассылки
   - IP-адрес многоадресной рассылки: настройка по умолчанию, предварительно заданная SMA, — это IP-адрес 239.12.255.254.
   - Порт многоадресной рассылки: настройка по умолчанию, предопределенная SMA, — это порт UDP 9522.
+  - Собственные IP-адреса сетевого интерфейса: установите флажок, показывающий все доступные IPv4-адреса сетевого интерфейса на сервере ioBroker. В этом поле выберите IP-адрес сетевого интерфейса для прослушивания многоадресной рассылки.
+  - Выбранный IP-адрес сетевого интерфейса: текущий выбранный IP-адрес сетевого интерфейса для прослушивания многоадресных сообщений. IP 0.0.0.0 означает, что адаптер прослушивает все доступные сетевые интерфейсы.
+
+![Адаптер_admin_config2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
 
 - Параметры вкладки
   - Расширенный режим: предоставляет более подробную информацию, такую как реактивная мощность, полная мощность, cosph, напряжения, сила тока и т. д. По умолчанию этот параметр отключен.
@@ -53,6 +57,13 @@ hash: JYOczVv4WHkgpzr0qUX+rTgxvi+M7KfhoBpM/5kJfAo=
 - ...
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+
+- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (ticaki) Fix: Catch interface errors
+- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
+
 ### 0.7.0 (2023-03-14)
 
 - (pdbjjens) New: Configurable data point update intervals to reduce system load

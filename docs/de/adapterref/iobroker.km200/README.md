@@ -2,10 +2,10 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.km200/README.md
-title: ioBroker.km200
-hash: 0jOL48Jt7HVKEcKPFioyMHDFRzdxzYyUjNfUNvtkCA8=
+title: Dieser Adapter ist veraltet und wird nicht weiterentwickelt
+hash: Ddot5xcNC6sREnW6nGImZAmdi9FoTlYzZ74ir13C2YE=
 ---
-# IoBroker.km200
+# Dieser Adapter ist veraltet und wird nicht weiterentwickelt
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.km200.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.km200.svg)
@@ -13,77 +13,92 @@ hash: 0jOL48Jt7HVKEcKPFioyMHDFRzdxzYyUjNfUNvtkCA8=
 ![Travis-CI](http://img.shields.io/travis/frankjoke/ioBroker.km200/master.svg)
 ![NPM](https://nodei.co/npm/iobroker.km200.png?downloads=true)
 
-## Für Buderus KM50 / KM100 / KM200 / KM300 & Junkers / Bosch MB LANi
+-----
+
+Derzeit ist keine Weiterentwicklung dieses Adapters geplant. __Bitte migrieren Sie zum ioBroker.ems-esp-Adapter__, der beibehalten wird.
+Wenn Sie Funktionen bei ioBroker.ems-esp vermissen, öffnen Sie ein Problem in diesem Repository (https://github.com/tp1de/ioBroker.ems-esp/issues).
+
+ioBroker.km200 wird noch einige Zeit verfügbar bleiben, aber bedenken Sie, dass es nicht an Node 20 und den kommenden js-controller v5 angepasst wird.
+
+-----
+
+# IoBroker.km200
+## Für Buderus KM50/KM100/KM200/KM300 & Junkers/Bosch MB LANi
 ![Logo](../../../en/adapterref/iobroker.km200/admin/km200.png)
 
 [Deutsches Handbuch](README_DE.md)
 
-Der Adapter unterstützt das folgende Heizsystem:
+Der Adapter unterstützt folgende Heizsysteme:
 
-* Buderus mit den [Netzwerkadaptern] (https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50) KM50, KM100, KM200 und KM300
-* Junker mit dem [Netzwerkadapter] (https://www.bosch-smarthome.com/de/mblani) MB LANi
-* Bosch mit dem [Netzwerkadapter] (https://www.bosch-smarthome.com/de/mblani) MB LANi
+* Buderus mit den [Netzwerkadaptern](https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50) KM50, KM100, KM200 und KM300
+* Junkers mit dem [Netzwerkadapter](https://www.bosch-smarthome.com/de/mblani) MB LANi
+* Bosch mit dem [Netzwerkadapter](https://www.bosch-smarthome.com/en/mblani) MB LANi
 
-Für den Zugriff auf die Systeme verwende ich Code, der ursprünglich von Andreas Hahn entwickelt und in seinem Blog [Eintrag hier] (https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe) und [Eintrag dort](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m) beschrieben wurde.
+Für den Zugriff auf das System wird Code verwendet, der ursprünglich von Andreas Hahn entwickelt und in seinem Blog [Eintrag hier](https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe) und [Eintrag dort](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m) beschrieben wurde.
 
-Das Heizsystem kann über die Buderus-Website ([https://www.buderus-connect.de]) oder über die 'EasyControl'-App von Ihrem Mobiltelefon aus gesteuert werden. Die App- und Buderus-Website funktioniert auch mit Junkers- und Bosch-Heizsystemen.
+Die Steuerung der Heizung kann über die Buderus-Website ([https://www.buderus-connect.de]) oder über die „EasyControl“-App von Ihrem Mobiltelefon aus erfolgen. App und Buderus-Website funktionieren auch mit Junkers- und Bosch-Heizsystemen.
 
-Dies ist nun in beide Richtungen gelungen und der Adapter ist bereits voll verwendbar.
+Dies ist nun in beide Richtungen gelungen und der Adapter ist bereits voll nutzbar.
 
-Dazu muss zunächst die App auf einem Mobiltelefon installiert und ein privates Passwort festgelegt werden.
-Die App fragt nach dem Gerätekennwort und dem Anmeldenamen des Geräts.
+Hierzu ist es notwendig, zunächst die App auf einem Mobiltelefon zu installieren und ein privates Passwort festzulegen.
+Die App fragt nach dem Gerätepasswort und dem Anmeldenamen vom Gerät.
 
-Der Adapter benötigt weiterhin die IP (oder den Netzwerknamen, z. B. 'BuderusKM200.fritz.box') und die Portadresse (Port 80 auf dem Gerät, aber wenn Sie ihn über einen Router geändert haben ...).
+Der Adapter benötigt weiterhin die IP (bzw. den Netzwerknamen, zum Beispiel „BuderusKM200.fritz.box“) und die Portadresse (Port 80 am Gerät, wenn man diese aber über einen Router geändert hat ...).
 
-Wenn Sie ein '!' Am Ende der Adresse arbeitet der Adapter im Debug-Modus und liefert viele Informationen!
+Wenn Sie ein „!“ hinzufügen Am Ende der Adresse arbeitet der Adapter im Debug-Modus und liefert viele Informationen!
 
-Da der Adapter die Daten vom System abfragen muss, habe ich ein Aktualisierungsintervall definiert. Dies ist auf mindestens 5 Minuten festgelegt, da für jede Aktualisierung eine separate Abfrage erforderlich ist.
+Da der Adapter die Daten vom System abfragen muss, müssen Sie ein Aktualisierungsintervall angeben.
+Diese ist auf mindestens 5 Minuten eingestellt, da jedes Update eine separate Abfrage erfordert.
 
-Mein System (2 Heizkreise und ein Warmwasserkreislauf) bietet mehr als 180 Datenpunkte, an denen ich die meisten nicht verwenden kann und einige doppelt sind.
+Mit der Black-/Push-Liste können Sie bestimmte Daten ein- oder ausblenden und die Anzahl der Zustände reduzieren.
+Diese Liste besteht aus Strings ähnlich wie RegExp (in die sie vom Adapter umgewandelt werden) und anschließend werden die Dienste im Heater mit ihnen gefiltert.
 
-Aus diesem Grund habe ich eine Black / Push-Liste eingeführt, um bestimmte Daten auszublenden oder anzuzeigen.
-Diese Liste besteht aus Zeichenfolgen, die RegExp ähnlich sind (in die sie vom Adapter konvertiert werden), und die Dienste in der Heizung werden anschließend mit ihnen gefiltert.
-
-Die Syntax lautet, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht mit Skiern versehen werden sollte, selbst wenn eine andere Regel es blockieren würde.
+Die Syntax ist, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht übersprungen werden sollte, auch wenn eine andere Regel es blockieren würde.
 Ein `-` ist wie nichts und führt dazu, dass der berechnete Zustand blockiert wird.
-Jede Übereinstimmung ist durch `,` getrennt und kann für den Anfang `/` oder `^`, am Anfang `*`, die zu allem passen, und am Ende `Die Syntax lautet, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht mit Skiern versehen werden sollte, selbst wenn eine andere Regel es blockieren würde.
+Jede Übereinstimmung wird durch `,` getrennt und kann `/` oder `^` für den Anfang, `*`die mit allem übereinstimmen, und `Die Syntax ist, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht übersprungen werden sollte, auch wenn eine andere Regel es blockieren würde.
 Ein `-` ist wie nichts und führt dazu, dass der berechnete Zustand blockiert wird.
-Jede Übereinstimmung ist durch `,` getrennt und kann für den Anfang `/` oder `^`, am Anfang `*`, die zu allem passen, und am Ende  enthalten, um mit dem Ende übereinzustimmen.
-Die Saiten unterscheiden zwischen Groß- und Kleinschreibung !!! Wenn Sie wissen möchten, welche Zustände gefunden werden, schalten Sie den Debug-Modus ein und entfernen Sie alle Blockierungen. Dann finden Sie alle angegebenen erstellten und können ein nicht benötigtes Datum mit der Blockierungsliste blockieren.
-Beispiele: Mit `+*temp*` können Sie alles einblenden, was 'temp' enthält, und mit `_HourlyDie Syntax lautet, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht mit Skiern versehen werden sollte, selbst wenn eine andere Regel es blockieren würde.
-Ein `-` ist wie nichts und führt dazu, dass der berechnete Zustand blockiert wird.
-Jede Übereinstimmung ist durch `,` getrennt und kann für den Anfang `/` oder `^`, am Anfang `*`, die zu allem passen, und am Ende `Die Syntax lautet, dass `+` ganz am Anfang bedeutet, dass dieses Feld nicht mit Skiern versehen werden sollte, selbst wenn eine andere Regel es blockieren würde.
-Ein `-` ist wie nichts und führt dazu, dass der berechnete Zustand blockiert wird.
-Jede Übereinstimmung ist durch `,` getrennt und kann für den Anfang `/` oder `^`, am Anfang `*`, die zu allem passen, und am Ende  enthalten, um mit dem Ende übereinzustimmen.
-Die Saiten unterscheiden zwischen Groß- und Kleinschreibung !!! Wenn Sie wissen möchten, welche Zustände gefunden werden, schalten Sie den Debug-Modus ein und entfernen Sie alle Blockierungen. Dann finden Sie alle angegebenen erstellten und können ein nicht benötigtes Datum mit der Blockierungsliste blockieren.
-Beispiele: Mit `+*temp*` können Sie alles einblenden, was 'temp' enthält, und mit  können Sie alles blockieren, was am Ende '_Hourly' hat, beide zusammen blockieren alle _Hourly am Ende, die nicht haben temp in ihrem Namen.
+Jede Übereinstimmung wird durch `,` getrennt und kann `/` oder `^` für den Anfang, `*`die mit allem übereinstimmen, und  am Ende enthalten, um mit dem Ende übereinzustimmen.
 
-Meine Liste sieht aus wie `/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*` und versteckt ungefähr 90 von ~ 180 Aufzeichnungen meiner Anlage.
+Bei den Zeichenfolgen muss die Groß-/Kleinschreibung beachtet werden. Wenn Sie wissen möchten, welche Zustände gefunden werden, schalten Sie den Debug-Modus ein und entfernen Sie alle Blockierungen. Dann sehen Sie alle erstellten Zustände und können einige nicht benötigte Daten mit der Blockierungsliste blockieren.
+Beispiele: Mit `+*temp*` können Sie alles einblenden, was „temp“ enthält und mit `_HourlyBei den Zeichenfolgen muss die Groß-/Kleinschreibung beachtet werden. Wenn Sie wissen möchten, welche Zustände gefunden werden, schalten Sie den Debug-Modus ein und entfernen Sie alle Blockierungen. Dann sehen Sie alle erstellten Zustände und können einige nicht benötigte Daten mit der Blockierungsliste blockieren.
+Beispiele: Mit `+*temp*` können Sie alles einblenden, was „temp“ enthält und mit  können Sie alles blockieren, was „_Hourly“ am Ende hat. Beides zusammen blockiert alle _Hourly am Ende, die nicht enthalten sind temp in ihrem Namen.
 
-Derzeit sind zwei weitere Zeitpläne verfügbar: der schnelle (für Zustände, die schneller als alle 30 Minuten abgefragt werden) und der langsame für Zustände, die in Stunden- oder Mehrstundenzyklen abgefragt werden.
-Auf diese Weise können Sie einige Informationen wie Temperaturen in Zyklen von 1 bis 5 Minuten und andere Elemente in normalen Zyklen von 20 Minuten verfolgen. Diejenigen, die sich normalerweise nicht innerhalb einer Stunde ändern (wie _Daily $ oder _Monthly $ und mehrere andere allgemeine Daten), müssen nicht einmal alle 30 Minuten gelesen werden, da sie sich nicht ändern.
-Diese Strategie hilft dabei, schnellere Messwerte für wichtige Daten und langsamere Messwerte für weniger wichtige Daten zu erhalten.
+Eine Beispielliste sieht wie `/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*` aus und verbirgt etwa 90 von ~ 180 Datensätzen.
 
-Die Daten für die Aufzeichnung sind (kleine) Verlaufsdaten innerhalb des Heizsystems. Es stehen 3 verschiedene zur Verfügung: _Stündlich, _Täglich und Monatlich.
-Stündlich deckt noprmal die letzten 48 Stunden ab. _Täglich die letzten 2 Monate und monatlich nicht mehr als ein Jahr, alle ab dem aktuellen Zeitpunkt der Anzeige. Einige Datenpunkte zeigen weniger Datenpunkte.
-Sie müssen verstehen, dass der Adapter die Daten von 3 einzelnen Anrufen für jeden aufgezeichneten Datenpunkt sammelt!
+Es sind jetzt zwei weitere Zeitpläne verfügbar: der schnelle (für Staaten, die schneller als alle 30 Minuten abgefragt werden) und der langsame für Staaten, die in Stunden- oder Mehrstundenzyklen abgefragt werden.
 
-`switchPrograms` können jetzt auch wieder geschrieben werden. Es handelt sich um einen JSON-String, der ein Array von Wochentagen widerspiegelt. Bitte ändern Sie beim Hochladen nicht das Format, sondern nur die Zahlen. Es scheint, dass die Zahlen Minuten sind, die nur in Schritten von 15 Minuten eingestellt werden können!
+Auf diese Weise können Sie einige Informationen wie Temperaturen in 1-5-Minuten-Zyklen und andere Elemente in normalen 20-Minuten-Zyklen verfolgen. Diejenigen, die sich normalerweise nicht einmal innerhalb einer Stunde ändern (wie _Daily$ oder _Monthly$ und mehrere andere allgemeine Daten), müssen nicht einmal alle 30 Minuten gelesen werden, da sie sich nicht ändern. Diese Strategie hilft dabei, schnellere Messwerte für wichtige Daten und langsamere Messwerte für weniger wichtige Daten zu erhalten.
 
-Seit V 1.1.2 können die Klammern und Kommas weggelassen werden und die blockierten / Push-Werte können nur mit Komma geschrieben werden!
+Bei den zu erfassenden Daten handelt es sich um (kleine) Verlaufsdaten innerhalb der Heizungsanlage. Es stehen 3 verschiedene zur Verfügung: _Hourly, _Daily und Monthly.
+Stündlich deckt normalerweise die letzten 48 Stunden ab. _Täglich in den letzten 2 Monaten und Monatlich nicht länger als ein Jahr, jeweils ab dem aktuellen Zeitpunkt der Auslesung. Einige Datenpunkte zeigen weniger Datenpunkte an.
+Sie müssen verstehen, dass der Adapter für jeden aufgezeichneten Datenpunkt die Daten von 3 einzelnen Anrufen sammelt.
 
-Das System arbeitet mit Diensten, die wie ein Verzeichnisbaum strukturiert sind und im Adapter repliziert werden.
+`switchPrograms` kann jetzt auch gelesen und geschrieben werden, es ist ein JSON-String, der ein Array von Wochentagen widerspiegelt. Bitte ändern Sie beim Hochladen nicht das Format, sondern nur die Zahlen. Es scheint, dass es sich bei den Zahlen um Minuten handelt, die nur in 15-Minuten-Schritten eingestellt werden können.
 
-### Wichtig, wenn km200 von Version 1.1 aktualisiert wird. *
-Wenn Sie den 64-stelligen Zugangsschlüssel eingegeben haben, benötigen Sie das Passwort nicht, es sollte jedoch nicht leer bleiben. Schreiben Sie einfach etwas ein!
+Seit V 1.1.2 können die Klammern und Kommas weggelassen werden und die geblockten/gepushten Werte können nur noch mit Komma geschrieben werden.
+
+### Wichtig, wenn km200 von Version 1.1 aktualisiert wird.*
+Wenn Sie den 64-stelligen Zugangsschlüssel eingegeben haben, benötigen Sie das Passwort nicht, es sollte aber nicht leer bleiben, sondern einfach etwas eingeben.
 
 ## Wichtig
-*Adapter benötigt Knoten> = v6.1.*
+* Adapter erfordert Knoten >= v16.*.*
 
 ## Machen
 * Zusätzliche Sprachunterstützung und Textübersetzung
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.5 (2023-07-09)
+* (McM1957) Missing dependy to iobroker/adapter-core has been added
+* (McM1957) Eslint has been activated and required adaptions to code have been done.
+* (McM1957) dependencies have been updated
+
+### 2.0.4
+* fixed issue with js-controller version 5
 
 ### 2.0.3
 
@@ -98,7 +113,7 @@ Wenn Sie den 64-stelligen Zugangsschlüssel eingegeben haben, benötigen Sie das
 * Changed readout for 'mins' units to enable these fields for read/write
 * Implemented 2 additional time schedule where you can define fast cycle (1-30 minutes), normal with 30-60 minutes and slow with 1-24 hours. You define the lists whjich go to fast or slow in a similar way than the blocklist.
 * Blocklist syntax changed sligly. `/` or `^` first is for from beginning, `*` can now be everywhere and `$` can be the end
-* `switchPrograms` are supported now for read and write!  
+* `switchPrograms` are supported now for read and write!
 
 ### 1.2.4
 
@@ -115,7 +130,6 @@ Wenn Sie den 64-stelligen Zugangsschlüssel eingegeben haben, benötigen Sie das
 * Adapter uses other module and removes need for mcrypt which makes it working on all platforms
 * Adapter can now have debug mode set via '!' at end of address
 * Adapter needs node >=v6
-
 
 ### 1.2.0
 * Integrating Schupu's changes and also make the adapter ready for compact mode
@@ -167,7 +181,8 @@ Cleaning of objects / states for current adapters instance which are not part of
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Frank Joke <frankjoke@hotmail.com>
+Copyright (c) 2023 iobroker-community-adapters
+Includes code copyright (c) 2016-2019 Frank Joke (frankjoke@hotmail.com)
 Includes communications and crypto routines copyright (c) 2014 Andreas Hahn km200@andreashahn.info
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

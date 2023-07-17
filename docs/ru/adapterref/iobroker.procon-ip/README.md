@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.procon-ip/README.md
 title: ioBroker.procon-ip
-hash: s9j/diXoENNlkXNzKhLMccdP5Lo/FFRHRQ35GraehFM=
+hash: aMNLji4uA9N1wUdcLx1o82psBHqm0anzKlD445qWJN0=
 ---
-![Логотип](../../../en/adapterref/iobroker.procon-ip/admin/iobroker-procon-ip.png)
+![Значок адаптера](../../../en/adapterref/iobroker.procon-ip/admin/procon-ip.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
-![Установки](http://iobroker.live/badges/procon-ip-installed.svg)
+![Количество установок](http://iobroker.live/badges/procon-ip-installed.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.procon-ip.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)
 ![Купи мне кофе](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat)
 ![НПМ](https://nodei.co/npm/iobroker.procon-ip.png?downloads=true)
@@ -19,7 +19,7 @@ hash: s9j/diXoENNlkXNzKhLMccdP5Lo/FFRHRQ35GraehFM=
 
 ## Адаптер управления пулом ProCon.IP для ioBroker
 Адаптер ioBroker для базовой поддержки блока управления бассейном ProCon.IP. Он предназначен для интеграции с вашей домашней автоматизацией ioBroker, например.
-для построения логики, включающей другие устройства, или просто для сопряжения с вашими любимыми голосовыми помощниками:
+для построения логики, включающей другие устройства, или просто для связи с вашими любимыми голосовыми помощниками:
 
 * Вы можете использовать [_cloud_](https://github.com/ioBroker/ioBroker.cloud) или
 
@@ -69,61 +69,65 @@ hash: s9j/diXoENNlkXNzKhLMccdP5Lo/FFRHRQ35GraehFM=
 * [руководство для разработчиков адаптеров](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Changelog
+### Release v1.3.3
+* Update dependencies.
+
+### Release v1.3.2
+* Update dependencies.
+* Adapter Icon change.
+
+### Release v1.3.1
+* re-add read-only restrictions on `onOff` states of dosage control relays.
+* Add writable numeric `dosage` states to trigger timer-based manual dosage.
+
+### Release v1.3.0
+* Remove restrictions on dosage control relays: enable manual switching.
+* Add additional boolean states for dosage control information:
+  `info.system.chlorineDosageEnabled`, `info.system.phPlusDosageEnabled`, 
+  `info.system.phMinusDosageEnabled`, `info.system.electrolysis` (formerly 
+  only available as combined bit-state/integer value 
+  `info.system.dosageControl` as delivered by the GetState.csv).
+* Update dependencies.
 
 ### Release v1.2.3
-Dependency updates.
+* Update dependencies.
 
 ### Release v1.2.2
-Dependency updates.
+* Update dependencies.
 
 ### Release v1.2.1
-Bugfix release:
 * Fix connection problem (see [related issue](https://github.com/ylabonte/ioBroker.procon-ip/issues/29))
 
 ### Release v1.2.0
-Minor release:
 * Update `procon-ip` API library package to v1.3.2  
   (should fix a bug that let the relay switching fail).
 * Fix minor issues that occur with invalid controller URLs.
 * Update further dependencies.
 
-### ~~Release v1.1.3~~
-Skipped.
-
-### ~~Release v1.1.2~~
-Release skipped, because it failed in integration tests.
-
 ### Release v1.1.1
-Minor release:
 * Move API library sources into a [separate package](https://www.npmjs.com/package/procon-ip).
 * Update `common.name` attributes when the corresponding label changes.
 * Update dependencies
 
-### ~~Release v1.1.0~~
-Release skipped.
-
 ### Release v1.0.2
-Minor update (was accidentally released as patch, regarding the version number):
 * Fine tune the polling and control requests 
   (add additional adapter settings for this).
 * Wait a configurable amount of consecutive errors, before raising the log 
   level to _Warning_ for polling requests.
 * Try to send control commands two more times, if an error occurs on the 
   request. 
-**All point should reduce issues regarding irregular network disruptions.**
 
 ### Release v1.0.1
-Hotfix release:
 * Fix Object State updates  
   For some reason the two js objects used to compare the before and after values
   of the GetState.csv calls became the same object (before was referencing the
   new values). That caused the adapter to never update the object states.
 
 ### Release v1.0.0
-Official release in ioBroker adapter repository:  
-The most exciting change with this release is, that it's available from the
-ioBroker adapter repository. Hence you can just install it, without copy/
-pasting the github repo url of this adapter!
+* Official release in ioBroker adapter repository:  
+  The most exciting change with this release is, that it's available from the
+  ioBroker adapter repository. Hence you can just install it, without copy/
+  pasting the github repo url of this adapter!
 * Fix all open [milestone issues](https://github.com/ylabonte/ioBroker.procon-ip/milestone/1)
   especially regarding the ones resulted from the [adapter review](https://github.com/ioBroker/ioBroker.repositories/pull/756#issuecomment-646988248))
 * Add/Extend documentation
@@ -132,59 +136,48 @@ pasting the github repo url of this adapter!
   the wiki or README.md regarding a specific content.
 
 ### Release v0.4.1
-Bugfix release:
 * Fix write actions to the appropriate states of external relays  
   _This will add auto-recognition on whether the external relays are activated
   or not and therefore decide on how to handle write actions to the
   corresponding relay state._
 
 ### Release v0.4.0
-Public release version:
 * Add encryption for configuration settings stored in ioBroker's internal db
 * Improve http request/connection error handling
 * Reduce logging output
 * Remove the unused admin tab
 
 ### Release v0.3.1
-Functional and security update:
 * Update dependencies including some reported as vulnerable
 * Add connection status indication for iobroker's instance tab
 * Add form validation for the configuration settings
 
 ### Release v0.2.0
-Minor update:
 * Update npm dependencies
 * Group admin settings input fields in rows
 
 ### Release v0.1.1
-Security update:
 * Update vulnerable eslint-utils
 
 ### Release v0.1.0
-Functional update and minor fixes:
 * Fix object attributes regarding the cloud adapter
-* Optimization for the cloud adapter
-    * Pre-defined `smartName` attributes for active relays and temperature
-      sensors
-    * Recognize relays with 'light', 'licht' or 'leucht' in its name as
-      `smartType` _LIGHT_ 
+* Pre-defined `smartName` attributes for active relays and temperature
+  sensors
+* Recognize relays with 'light', 'licht' or 'leucht' in its name as
+  `smartType` _LIGHT_ 
 
 ### Release v0.0.4
-Security update:
 * Update `lodash` (pinning version `4.17.14`)
 * Update other indirect and direct dependencies
 
 ### Release v0.0.3
-Bugfix release:
 * Fix missing `value` states
 * Reduce logging output
 
 ### Release v0.0.2
-Bugfix release:
 * Fix sys info state values
 
 ### Release v0.0.1
-Initial release with following features:
 * All information from `GetState.csv` as readonly states
 * Writable states for all relays to toggle auto/manual
 * Writable states for relays not configured for dosage control to toggle on/off
@@ -210,4 +203,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2021 Yannic Labonte <yannic.labonte@gmail.com>
+Copyright (c) 2019-2023 Yannic Labonte <yannic.labonte@gmail.com>

@@ -23,7 +23,7 @@
 **[English description](docs/en/alarm_en.md)**
 
 ******************************************************************************************
-## CHANGELOG
+## Changelog
 
 <!--
     Placeholder for the next version (at the beginning of the line):

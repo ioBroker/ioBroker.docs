@@ -3,16 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: zbejmqSBx6zSdGTk14KEC5BhMxHrKABP/OtBbL2wL5w=
+hash: liLpYUbAoBOrKz9+OghjC2kHxQWaJ1omE17aHHuvEng=
 ---
 ![Логотип](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
 ![версия NPM](https://img.shields.io/npm/v/iobroker.doorbird.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.doorbird.svg)
-![Тесты](https://travis-ci.org/BuZZy1337/ioBroker.doorbird.svg?branch=master)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
+![Гитхаб](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Активность фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
 ![НПМ](https://nodei.co/npm/iobroker.doorbird.png?downloads=true)
+![Бета](https://img.shields.io/npm/v/iobroker.doorbird.svg?color=red&label=beta)
+![Стабильный](http://iobroker.live/badges/doorbird-stable.svg)
+![Установлен](http://iobroker.live/badges/doorbird-installed.svg)
 
 # IoBroker.doorbird
+![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.doorbird/workflows/Test%20and%20Release/badge.svg)
+
+## Версии
+## Что такое Doorbird?
+DoorBird — это дверной домофон, который работает и как дверной звонок, и как система безопасности. Продукт размещается снаружи дома, где обычно находится дверной звонок, и имеет кнопку дверного звонка с камерой наверху.
+
 ## Конфигурация
 1. Введите IP-адрес, на котором адаптер должен прослушивать события с устройства Doorbird.
 
@@ -21,7 +35,7 @@ hash: zbejmqSBx6zSdGTk14KEC5BhMxHrKABP/OtBbL2wL5w=
 
 2. Порт предварительно определен как «8100». Вы можете изменить его, если порт уже используется другой службой.
 
-Просто попробуйте запустить адаптер с этим портом. Если порт недоступен, вы получите сообщение об ошибке при запуске адаптера. Затем просто вернитесь сюда и измените порт.
+   Просто попробуйте запустить адаптер с этим портом. Если порт недоступен, вы получите сообщение об ошибке при запуске адаптера. Затем просто вернитесь сюда и измените порт.
 
 3. Введите IP-адрес вашего устройства Doorbird. Вы можете нажать на «значок поиска» слева от поля ввода. После нажатия на значок появится сообщение в верхней части экрана конфигурации. Теперь у вас есть 60 секунд, чтобы нажать кнопку звонка на вашем устройстве Doorbird. Адаптер пытается определить IP и заполнить все поля за вас.
 4. Идентификатор устройства (НЕ IP!) вашего Doorbird.
@@ -33,39 +47,65 @@ hash: zbejmqSBx6zSdGTk14KEC5BhMxHrKABP/OtBbL2wL5w=
 После того, как вы ввели всю необходимую информацию в диалоговое окно конфигурации, нажмите «Сохранить и закрыть».
 Теперь адаптер должен перезапуститься, и вы готовы к работе!
 
+## Доступ к снимкам движения и дверного звонка
+Используйте следующий URL-адрес, чтобы получить текущий снимок:
+
+```
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
+```
+
+Пример:
+
+```
+http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
+```
+
+## Совместимые устройства
+| Устройство | Аппаратная версия | Версия прошивки |
+| -------------------------------- | ---------------- | ---------------- |
+| Видеодомофон DoorBird D10x | 1.00 и выше | 000099 и выше |
+| Видеодомофон DoorBird D20x | 1.00 и выше | 000099 и выше |
+| Видеодомофон DoorBird D21x | 1.00 и выше | 000108 и выше |
+| Защита от птиц B10x | 1.00 и выше | 000099 и выше |
+| Видеодомофон DoorBird D11x | 1.00 и выше | 000130 и выше |
+
 ## Changelog
-### 0.1.5 (2018-09-18)
-* (BuZZy1337) Check response of Doorbird when triggering relays
-* (BuZZy1337) Check if any favorite has to be updated (For example when adapter address or port changes)
-* (BuZZy1337) Added state for restarting DoorBird Device (There is a bug in DoorBird Firmware. DoorBird will fix it with next FW Update!)
-* (BuZZy1337) Change some Code for working more with responses from DoorBird
 
-### 0.1.0 (2018-09-08)
-* (BuZZy1337) "public release"
-* (BuZZy1337) Changed Adapter address option from dropdown list to input field
-* (BuZZy1337) Added Support for triggering Doorbird-Relays
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.5 (2023-07-05)
 
-### 0.0.4
-* (BuZZy1337) DO A COMPLETE REINSTALL OF THE ADAPTER (DELETE AND INSTALL THE ADAPTER AGAIN!)
-DELETE ALL IOBROKER SCHEDULES AND THEN ALL IOBROKER FAVORITES IN YOUR DOORBIRD APP BEFORE STARTING 0.0.4!
-* (BuZZy1337) Added support for more than one Doorbell Button
-* (BuZZy1337) Encrypted saving of Doorbird Password
-* (BuZZy1337) Detect and create Favorites & Schedules on the Doorbird Device.
-* There is a Bug in the Doorbird Firmware for the Motion schedule! You can delete and set the Schedule for the Motion sensor in the App - that's a workaround for now.
+-   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]
 
-### 0.0.3
-* (BuZZy1337) Added possibility to choose the AdapterIP Address
+### 1.0.4 (2023-07-05)
 
-### 0.0.2
-* (BuZZy1337) Just added the info that the Adapter is not ready yet .. just to be sure! ;)
+-   (Schmakus) Interim solution because deletion of duplicate favorites
 
-### 0.0.1
-* (BuZZy1337) initial release
+### 1.0.2 (2023-07-04)
+
+-   (Schmakus) Hotfix because dev-mode was active
+
+### 1.0.1 (2023-07-04)
+
+-   (Schmakus) remove unused packages
+-   (Schmakus) added migration from older versions to delete unused snapshot states
+-   (Schmakus) some code improvements
+
+### 1.0.0 (2023-07-04)
+
+-   (Schmakus) Re-new with adapter creator
+-   (Schmakus) Changed snapshot handling! Find snapshot at ioBroker Files now!
+-   (Schmakus) Support take snapshot manually has been added
+-   (Schmakus) Support for light-On has been added
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 BuZZy1337 <buzzy1337@outlook.de>
+Copyright (c) 2023 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

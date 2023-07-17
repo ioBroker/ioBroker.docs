@@ -18,19 +18,19 @@
 Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br>
 Mit unserem Widgets-Set hast du die freie Wahl individuelle Visualisierungen ganz einfach für dein Smart-Home zu erstellen. 
 
-![Vorschau Universal- & Multi-Widget](https://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+![Vorschau Universal- & Multi-Widget](http://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
 
 Analog Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Analog Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
+![Vorschau Analog Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks.png)
 
 Digital Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digital Uhren](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
+![Vorschau Digital Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
 
 Colorpicker [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Colorpicker](https://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+![Vorschau Colorpicker](http://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
 
 ###### .. ab v 2.0.0
 
@@ -514,3 +514,7 @@ SOFTWARE.
 ---
 
 Icons from Icons8 https://icons8.com/
+
+---
+
+Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com

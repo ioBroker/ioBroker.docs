@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: o5xc+g7/g6wP3/8ROBkVgNHLEDKIK1YPwBJkDMzpcGk=
+hash: dOQpPOEcGT/VCyUB2KTqeOreQjN8EXpe3bmjWcwWxfk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -19,9 +19,9 @@ hash: o5xc+g7/g6wP3/8ROBkVgNHLEDKIK1YPwBJkDMzpcGk=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Настройка веб-сокетов
-На некоторых клиентах веб-сокетов есть проблемы с производительностью связи.
+На некоторых клиентах веб-сокетов возникают проблемы с производительностью связи.
 Иногда эта проблема возникает из-за отката связи socket.io в механизме длительного опроса.
-Вы можете установить опцию *Force Web-Sockets*, чтобы принудительно использовать транспорт только через веб-сокеты.
+Вы можете установить параметр *Force Web-Sockets*, чтобы принудительно использовать транспорт только через веб-сокеты.
 
 ## Давайте зашифруем сертификаты
 Читать [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
@@ -31,7 +31,7 @@ hash: o5xc+g7/g6wP3/8ROBkVgNHLEDKIK1YPwBJkDMzpcGk=
 Расширение является обработчиком URL, который будет вызываться при появлении такого запроса URL.
 Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
 
-Например. пользователь может активировать специальный прокси-адаптер и получить доступ к другим устройствам (например, веб-камерам) на том же веб-сервере.
+Например, пользователь может активировать специальный прокси-адаптер и получить доступ к другим устройствам (например, к веб-камерам) на том же веб-сервере.
 Необходимо, чтобы все службы были доступны на одном веб-сервере.
 
 Веб-расширение может и должно поддерживать функцию `unload`, которая может возвращать `promise`, если действие выгрузки займет некоторое время.
@@ -82,11 +82,20 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 6.0.2 (2023-07-07)
+* (bluefox) Updated packages
+
+### 6.0.1 (2023-03-20)
+* (bluefox) Removed letsencrypt handling from web adapter
+
+### 5.5.3 (2023-03-17)
+* (bluefox) Increased max size of the uploaded file via socket.io to 200MB (from 10MB)
+
 ### 5.5.2 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects
 
 ### 5.5.1 (2023-02-25)
-* (bluefox) Allowed to read projects of vis-2-beta
+* (bluefox) Allowed reading projects of vis-2-beta
 
 ### 5.5.0 (2023-02-15)
 * (bluefox) Added special end-points for app authentication
@@ -98,7 +107,7 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 * (bluefox) Corrected GUI error
 
 ### 5.4.0 (2022-12-22)
-* (bluefox) Used new version of socket classes
+* (bluefox) Used a new version of socket classes
 
 ## License
 The MIT License (MIT)

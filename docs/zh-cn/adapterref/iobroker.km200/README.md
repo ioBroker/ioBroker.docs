@@ -2,87 +2,103 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.km200/README.md
-title: ioBroker.km200
-hash: 0jOL48Jt7HVKEcKPFioyMHDFRzdxzYyUjNfUNvtkCA8=
+title: 该适配器已弃用，不会进一步开发
+hash: Ddot5xcNC6sREnW6nGImZAmdi9FoTlYzZ74ir13C2YE=
 ---
+# 该适配器已弃用，不会进一步开发
+
 ![NPM版本](http://img.shields.io/npm/v/iobroker.km200.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.km200.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.km200.svg)
 ![安装数量](http://iobroker.live/badges/km200-installed.svg)
-![特拉维斯](http://img.shields.io/travis/frankjoke/ioBroker.km200/master.svg)
-![NPM](https://nodei.co/npm/iobroker.km200.png?downloads=true)
+![特拉维斯-CI](http://img.shields.io/travis/frankjoke/ioBroker.km200/master.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.km200.png?downloads=true)
 
-＃ioBroker.km200
-##适用于Buderus KM50 / KM100 / KM200 / KM300和Junkers / Bosch MB LANi
-![商标](../../../en/adapterref/iobroker.km200/admin/km200.png)
+-----
 
-[德文手册](README_DE.md)
+目前没有计划进一步开发该适配器。 __请迁移到已维护的 ioBroker.ems-esp 适配器__。
+如果您错过了 ioBroker.ems-esp 的任何功能，请在该存储库中提出问题 (https://github.com/tp1de/ioBroker.ems-esp/issues)。
 
-适配器支持以下加热系统：
+ioBroker.km200 将保持可用一段时间，但请记住，它不会适应节点 20 和即将推出的 js-controller v5。
 
-*具有[网络适配器]的Buderus（https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50）KM50，KM100，KM200和KM300
-*带有[网络适配器]的垃圾邮件（https://www.bosch-smarthome.com/de/mblani）MB LANi
-*带有[网络适配器]的博世（https://www.bosch-smarthome.com/en/mblani）MB LANi
+-----
 
-为了访问系统，我使用了最初由Andreas Hahn开发并在其博客[在这里输入]（https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe）和[在此输入](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m)中描述的代码。
+# IoBroker.km200
+## 适用于布德鲁斯 KM50/KM100/KM200/KM300 和 Junkers/博世 MB LANi
+![标识](../../../en/adapterref/iobroker.km200/admin/km200.png)
 
-可以通过Buderus网站（[https://www.buderus-connect.de]）或通过手机的“ EasyControl”应用程序来控制加热系统。 App and Buderus网站还可以与Junkers和Bosch加热系统配合使用。
+[德语手册](README_DE.md)
 
-现在，这已经在两个方向上都成功了，并且适配器已经完全可用。
+该适配器支持以下加热系统：
 
-为此，必须首先在手机上安装该应用程序并设置一个私人密码。
-该应用程序要求设备密码和设备的登录名。
+*布德鲁斯与[网络适配器](https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50)KM50、KM100、KM200和KM300
+* Junkers 带有 [网络适配器](https://www.bosch-smarthome.com/de/mblani) MB LANi
+* 博世配备 [网络适配器](https://www.bosch-smarthome.com/en/mblani) MB LANi
 
-适配器仍需要IP（或网络名称，例如'BuderusKM200.fritz.box'）和端口地址（设备上的端口80，但是如果通过路由器进行了更改...）。
+为了访问系统，代码最初由 Andreas Hahn 开发，并在他的博客[此处输入](https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe) 和 [此处输入](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m)中进行了描述。
 
-如果添加“！”在地址末尾，适配器将在调试模式下工作并提供很多信息！
+加热系统可以通过布德鲁斯网站 ([https://www.buderus-connect.de]) 或通过手机上的“EasyControl”应用程序进行控制。应用程序和布德鲁斯网站也适用于容克斯和博世供暖系统。
 
-由于适配器必须查询系统中的数据，因此我已定义了一个更新间隔，由于每次更新都需要单独的查询，因此将其设置为最少5分钟。
+现在这在两个方向上都取得了成功，并且适配器已经完全可用。
 
-我的系统（2个加热回路和一个热水回路）提供了180多个数据点，这些数据点我用得最多，有些是双倍的。
+为此，必须首先在手机上安装该应用程序并设置私人密码。
+该应用程序要求提供设备密码和设备登录名。
 
-这就是为什么我引入了一个黑色/推送列表来隐藏或显示某些数据的原因。
-该列表由类似于RegExp的字符串组成（它们被适配器转换为字符串），然后用它们过滤加热器中的服务。
+适配器仍然需要 IP（或网络名称，例如“BuderusKM200.fritz.box”）和端口地址（设备上的端口 80，但如果您通过路由器更改它......）。
 
-语法是，一开始的`+`意味着不应跳过此字段，即使另一个规则将阻止它。
-`-`就像什么都没有，并且使数学状态被阻止。
-每个匹配项之间均以`,`隔开，开头可以包括`/`或`^`，匹配所有内容的`*`和末尾的`语法是，一开始的`+`意味着不应跳过此字段，即使另一个规则将阻止它。
-`-`就像什么都没有，并且使数学状态被阻止。
-每个匹配项之间均以`,`隔开，开头可以包括`/`或`^`，匹配所有内容的`*`和末尾的以匹配结尾。
-字符串区分大小写！！！如果您想知道找到了哪些状态，请打开调试模式并删除所有阻止，然后您将发现所有声明的已创建状态，并且可以使用阻止列表阻止某些不需要的日期。
-示例：使用`+*temp*`，您可以淡入包含“ temp”的所有内容；使用`_Hourly语法是，一开始的`+`意味着不应跳过此字段，即使另一个规则将阻止它。
-`-`就像什么都没有，并且使数学状态被阻止。
-每个匹配项之间均以`,`隔开，开头可以包括`/`或`^`，匹配所有内容的`*`和末尾的`语法是，一开始的`+`意味着不应跳过此字段，即使另一个规则将阻止它。
-`-`就像什么都没有，并且使数学状态被阻止。
-每个匹配项之间均以`,`隔开，开头可以包括`/`或`^`，匹配所有内容的`*`和末尾的以匹配结尾。
-字符串区分大小写！！！如果您想知道找到了哪些状态，请打开调试模式并删除所有阻止，然后您将发现所有声明的已创建状态，并且可以使用阻止列表阻止某些不需要的日期。
-示例：使用`+*temp*`，您可以淡入包含“ temp”的所有内容；使用，您可以阻止末尾具有“ _Hourly”的所有内容，这两者的组合将阻止所有末尾具有“ _Hourly”的内容临时的名字。
+如果添加一个“！”在地址末尾，适配器将在调试模式下工作并提供大量信息！
 
-Mye列表看起来像`/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*`，并且隐藏了我工厂关闭的约180条记录中的90条。
+由于适配器必须从系统查询数据，因此您必须指定更新间隔。
+由于每次更新都需要单独的查询，因此该时间设置为至少 5 分钟。
 
-现在还有其他两个时间表，快速（对于以30分钟为单位的轮询状态）和慢速（以小时或数小时为周期的轮询状态）。
-这使您可以跟踪某些信息，例如1-5分钟周期内的温度以及正常20分钟周期内的其他项目。通常在一个小时内不会改变的数据（例如_Daily $或_Monthly $和Severyl其他常规数据）即使每30分钟也不需要读取，因为它们不会改变。
-该策略有助于获得重要数据的更快读数，而对于不太重要的数据则可以降低读数。
+您可以使用黑色/推送列表来隐藏或显示某些数据并减少状态数量。
+该列表由类似于 RegExp 的字符串组成（它们由适配器转换为），然后使用它们过滤加热器中的服务。
 
-用于记录的数据是加热系统内的（小）历史数据。共有3种可用选项：_小时，_每日和每月。
-每小时通常覆盖过去48小时。 _最近两个月每天一次，每月不超过一年，全部从当前读数时间开始。某些数据点确实显示较少的数据点。
-您必须了解适配器针对每个记录的数据点从3个单独的调用中收集数据！
+语法是，最开始的 `+` 意味着该字段不应被跳过，即使另一个规则会阻止它。
+`-` 就像什么都没有一样，会导致数学状态被阻止。
+每场匹配由 `,` 分隔，并且可以包含 `/` 或 `^` 作为开头，`*` 匹配所有内容，以及 `语法是，最开始的 `+` 意味着该字段不应被跳过，即使另一个规则会阻止它。
+`-` 就像什么都没有一样，会导致数学状态被阻止。
+每场匹配由 `,` 分隔，并且可以包含 `/` 或 `^` 作为开头，`*` 匹配所有内容，以及  匹配结尾。
 
-`switchPrograms`也可以立即编写，它是一个JSON-String，它反映了一个工作日数组，请不要更改格式，上传时请仅更改数字。似乎分钟数只能设置为15分钟增量！
+字符串区分大小写。如果您想知道找到哪些状态，请打开调试模式并删除所有阻止，然后您将看到创建的所有状态，并可以使用阻止列表阻止一些不需要的数据。
+示例：使用 `+*temp*`，您可以淡入所有包含“temp”的内容，使用 `_Hourly字符串区分大小写。如果您想知道找到哪些状态，请打开调试模式并删除所有阻止，然后您将看到创建的所有状态，并可以使用阻止列表阻止一些不需要的数据。
+示例：使用 `+*temp*`，您可以淡入所有包含“temp”的内容，使用 ，您可以阻止所有末尾有“_Hourly”的内容，两者组合将阻止所有结尾处没有“_Hourly”的内容temp 以他们的名义。
 
-从V 1.1.2开始，括号和逗号可以省略，被阻止/推入的值只能用逗号写！
+示例列表类似于 `/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*`，隐藏了约 180 条记录中的大约 90 条。
 
-该系统使用结构类似于目录树的服务，并将其复制到适配器中。
+现在还有另外两种可用的时间表，快速（适用于轮询速度快于每 30 分钟的州）和慢速（适用于按小时或多小时周期轮询的州）。
 
-###如果km200是从1.1版更新的，则很重要。*
-如果您输入了64个字符的访问密钥，则不需要密码，但不要将其留空，只需输入任何内容即可！
+这使您可以跟踪一些信息，例如 1-5 分钟周期的温度和正常 20 分钟周期的其他项目。通常一小时内也不会改变的数据（例如 _Daily$ 或 _Monthly$ 以及其他一些一般数据）甚至不需要每 30 分钟读取一次，因为它们不会改变。此策略有助于更快地读取重要数据，并减慢读取不那么重要的数据。
 
-##重要
-*适配器需要节点> = v6.1。*
+用于记录的数据是加热系统内的（小）历史数据。有 3 种不同的可用方式：_每小时、_每日和每月。
+每小时通常涵盖过去 48 小时。 _最近2个月的每日和不超过一年的每月，均从当前读出时间开始。某些数据点确实显示较少的数据点。
+您必须了解适配器从每个记录数据点的 3 个单独调用中收集数据。
+
+`switchPrograms` 现在也可以读取和写入，它是一个反映工作日数组的 JSON 字符串。上传时请不要更改格式，仅更改数字。数字似乎是分钟，只能设置为 15 分钟增量。
+
+从 V 1.1.2 开始，括号和逗号可以省略，并且阻塞/推送的值只能用逗号写入。
+
+### 如果 km200 是从 1.1 版本更新的，则很重要。*
+如果您输入了 64 个字符的访问密钥，则不需要密码，但不应留空，只需填写任何内容即可。
+
+＃＃ 重要的
+* 适配器需要节点 >= v16.*.*
 
 ＃＃ 去做
-*其他语言支持和文本翻译
+* 额外的语言支持和文本翻译
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.5 (2023-07-09)
+* (McM1957) Missing dependy to iobroker/adapter-core has been added
+* (McM1957) Eslint has been activated and required adaptions to code have been done.
+* (McM1957) dependencies have been updated
+
+### 2.0.4
+* fixed issue with js-controller version 5
 
 ### 2.0.3
 
@@ -97,7 +113,7 @@ Mye列表看起来像`/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *Ho
 * Changed readout for 'mins' units to enable these fields for read/write
 * Implemented 2 additional time schedule where you can define fast cycle (1-30 minutes), normal with 30-60 minutes and slow with 1-24 hours. You define the lists whjich go to fast or slow in a similar way than the blocklist.
 * Blocklist syntax changed sligly. `/` or `^` first is for from beginning, `*` can now be everywhere and `$` can be the end
-* `switchPrograms` are supported now for read and write!  
+* `switchPrograms` are supported now for read and write!
 
 ### 1.2.4
 
@@ -114,7 +130,6 @@ Mye列表看起来像`/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *Ho
 * Adapter uses other module and removes need for mcrypt which makes it working on all platforms
 * Adapter can now have debug mode set via '!' at end of address
 * Adapter needs node >=v6
-
 
 ### 1.2.0
 * Integrating Schupu's changes and also make the adapter ready for compact mode
@@ -166,7 +181,8 @@ Cleaning of objects / states for current adapters instance which are not part of
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Frank Joke <frankjoke@hotmail.com>
+Copyright (c) 2023 iobroker-community-adapters
+Includes code copyright (c) 2016-2019 Frank Joke (frankjoke@hotmail.com)
 Includes communications and crypto routines copyright (c) 2014 Andreas Hahn km200@andreashahn.info
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

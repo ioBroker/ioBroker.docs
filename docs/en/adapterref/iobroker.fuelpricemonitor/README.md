@@ -27,8 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.3.5 (2023-07-07)
 * (HGlab01) Spread API calls
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 
 ### 0.3.4 (2023-02-05)
 * (HGlab01) Cheapest station from experimental to stable
@@ -44,11 +45,6 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 
 ### 0.3.1 (2022-10-25)
 * (HGlab01) Add option to exclude closed gas stations (#407)
-
-### 0.3.0 (2022-08-30)
-* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
-* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
-* (HGlab01) Bump is-online from 9.0.1 to 10.0.0
 
 ## License
 MIT License

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
-title: ioBroker.Kameras
-hash: 7dDTSTOHUkH6f4vfxV/NGQJ6JmTNR4/PpJeOlVSdk5k=
+title: ioBroker.cameras
+hash: UVa1GRfkkhHgm8Z1m3FgE2CNIFRQM7CQ9OSXFi/VCJA=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -14,10 +14,10 @@ hash: 7dDTSTOHUkH6f4vfxV/NGQJ6JmTNR4/PpJeOlVSdk5k=
 ![NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
-# IoBroker.Kameras
-## IP-Kamera-Adapter für ioBroker
-Sie können Ihre Web-/IP-Kameras in Vis- und andere Visualisierungen integrieren.
-Wenn Sie eine Kamera mit dem Namen `cam1` konfigurieren, wird sie auf dem Webserver unter `http(s)://iobroker-IP:8082/cameras.0/cam1` verfügbar sein.
+# IoBroker.cameras
+## IP-Kameras-Adapter für ioBroker
+Sie können Ihre Web-/IP-Kameras in VIS und andere Visualisierungen integrieren.
+Wenn Sie eine Kamera mit dem Namen `cam1` konfigurieren, ist sie auf dem Webserver unter `http(s)://iobroker-IP:8082/cameras.0/cam1` verfügbar.
 
 Zusätzlich kann das Bild per Nachricht angefordert werden:
 
@@ -33,29 +33,41 @@ sendTo('cameras.0', 'image', {
 });
 ```
 
-Das Ergebnis ist immer im Format `jpg`.
+Das Ergebnis liegt immer im Format `jpg` vor.
 
 Unterstützte Kameras:
 
-### URL-Bild Dies ist eine normale URL-Anforderung, bei der alle Parameter in URLs enthalten sind. Wie `http://mycam/snapshot.jpg`
+### URL-Bild Dies ist eine normale URL-Anfrage, bei der alle Parameter in der URL enthalten sind. Gefällt mir `http://mycam/snapshot.jpg`
 ### URL-Bild mit Basisauthentifizierung
-Dies ist eine URL-Anforderung für ein Bild, bei der sich alle Parameter in der URL befinden, aber Sie können die Anmeldeinformationen für die grundlegende Authentifizierung angeben. Wie `http://mycam/snapshot.jpg`
+Dies ist eine URL-Anfrage für ein Bild, bei der alle Parameter in der URL enthalten sind, Sie jedoch die Anmeldeinformationen für die Basisauthentifizierung angeben können. Gefällt mir `http://mycam/snapshot.jpg`
 
 ### FFmpeg
-Wenn Sie auf Schnappschüsse auf RTSP-Kameras zugreifen möchten, können Sie ffmpeg verwenden. Sie müssen ffmpeg auf Ihrem System installieren:
+Wenn Sie auf Schnappschüsse von RTSP-Kameras zugreifen möchten, können Sie ffmpeg verwenden. Sie müssen ffmpeg auf Ihrem System installieren:
 
-- Windows hat ffmpeg vorkompiliert und es muss nichts heruntergeladen werden. (Die Windows-Version stammt von hier: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
+- Windows hat ffmpeg vorkompiliert und es ist nicht erforderlich, etwas herunterzuladen. (Die Windows-Version stammt von hier: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
 - Linux: `sudo apt-get install ffmpeg -y`
 
-Hier ist ein Beispiel, wie man Reolink E1 hinzufügt:
+Hier ist ein Beispiel für das Hinzufügen von Reolink E1:
 
 ![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.2.2 (2023-07-07)
+* (bluefox) Corrected passwords with exclamation mark
+
+### 1.2.1 (2023-07-06)
+* (bluefox) Added eufy camera
+
+### 1.1.1 (2023-03-15)
+* (bluefox) Added Reolink E1 camera
+
+### 1.0.3 (2023-01-11)
+* (bluefox) Corrected GUI config error
+
 ### 1.0.2 (2023-01-07)
 * (bluefox) added RTSP camera
 * (bluefox) added cache of snapshots

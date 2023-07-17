@@ -8,14 +8,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
+hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
 # Адаптер ioBroker.worx
 ## Описание
 ### Настройки экземпляра
-- «Электронная почта приложения»: ваше имя пользователя приложения.
+- «Электронная почта приложения»: ваше имя пользователя в приложении (электронная почта).
 - `Пароль приложения`: Ваш пароль приложения
 - «Имя приложения»: выберите свое устройство.
 - «Задержка для EdgeCut»: когда должен начаться EdgeCut (например, 5 секунд до газона)
@@ -24,6 +24,7 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 
 - `Расстояние и время в мин и м`: по умолчанию ч и км
 - `Ping MQTT Connection каждые 10 минут`: просто для проверки. Пожалуйста, не более 1 часа!
+- `Обновление данных MQTT после обновления токена`: загружает данные Worx после обновления токена. 24 дополнительных запроса в день/устройство.
 
 ![Настройки экземпляра img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
 
@@ -39,8 +40,8 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ![Папка img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
 
 ### ActivityLog (Wire и Vision)
-- `last_update`: Последнее обновление в виде метки времени
-- `manuell_update`: загружает текущий журнал активности
+- `last_update`: последнее обновление в виде метки времени
+- `manuell_update`: загружает текущий журнал активности (автоматически после изменения статуса)
 - `payload`: журнал активности в виде таблицы JSON (для VIS или Blockly)
 
 ![Активность img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
@@ -48,36 +49,36 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ### Областей (без Vision)
 - `actualArea`: текущий
 - `actualAreaIndicator`: Начало следующей зоны массива
-- `area_0`: Начало зоны 1 в метрах (изменяемое)
-- `area_1`: Начало зоны 2 в метрах (изменяемое)
-- `area_2`: Начало зоны 3 в метрах (изменяемое)
-- `area_3`: Начало зоны 4 в метрах (изменяемое)
-- `startSequence`: начало зоны массива (события 0-9), например. Старт только в Зоне 2 [2,2,2,2,2,2,2,2,2,2] (изменяемый)
-- `zoneKeeper`: Безопасное вождение в узких пересечениях зон (начиная с прошивки 3.30) (изменяемый)
+- `area_0`: Начало зоны 1 в метрах (массив=0) (изменяемый)
+- `area_1`: Начало зоны 2 в метрах (массив=1) (изменяемый)
+- `area_2`: Начало зоны 3 в метрах (массив=2) (изменяемый)
+- `area_3`: Начало зоны 4 в метрах (массив=3) (изменяемый)
+- `startSequence`: начало зоны массива (события 0-9), например. Старт только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемый)
+- `zoneKeeper`: Безопасное вождение в узких пересечениях зон (Области должны быть созданы) (начиная с прошивки 3.30) (изменяемый)
 
 ![Район img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
 ### Календарь (Wire и Vision)
 - напр. настройка времени на среду
 
-    - `wednesday.borderCut`: с границей или без нее (изменение значения без задержки)
-    - `wednesday.startTime`: время начала чч:мм (0-23/0-59), например. 09:00 (Изменение значения без задержки)
-    - `wednesday.workTime`: рабочее время в минутах (180 мин = 3 часа), например. 30 (Изменить значение без задержки)
-    - `calJson_sendto`: если все точки данных установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут.
-    - `calJson_tosend`: Эти данные отправляются в Mqtt (как график скашивания, так и устанавливается автоматически). Вы также можете создать этот JSON самостоятельно.
-    - `calendar.calJson`: название дня недели графика скашивания без номера (график скашивания 1/устанавливается автоматически - только для провода)
-    - `calendar.calJson2`: название дня недели расписания скашивания с номером (график скашивания 2/устанавливается автоматически - только для провода)
+    - `wednesday.borderCut`: с бордюром или без него (изменение значения без задержки) (изменяемый)
+    - `wednesday.startTime`: время начала чч:мм (0-23/0-59), например. 09:00 (Изменение значения без задержки) (изменяемое)
+    - `wednesday.workTime`: рабочее время в минутах (180 мин = 3 часа), например. 30 = Endzeit 09:30 (изменить значение без задержки) (изменяемый)
+    - `calJson_sendto`: если все точки данных установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут (можно изменить).
+    - `calJson_tosend`: Эти данные отправляются в Mqtt (как график скашивания, так и устанавливается автоматически). Вы также можете создать этот JSON самостоятельно. (Сменный)
+    - `calendar.calJson`: массив для недельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (режим скашивания 1/ устанавливается автоматически - только для проволоки) (изменяемый)
+    - `calendar.calJson2`: массив недельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (режим скашивания 2/ устанавливается автоматически - только для проволоки) (изменяемый)
 
 ![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
 
 ### Модули (Wire и Vision)
 - Модуль Off Limit (Wire и Vision)
 
-    - `DF.OLMSwitch_Cutting`: Запретные зоны true-on/false-off
-    - `DF.OLMSwitch_FastHoming`: быстрый возврат на зарядную станцию в режиме true-on/false-off
+    - `DF.OLMSwitch_Cutting`: предотвращает наезд на магнитную ленту – true-on/false-off
+    - `DF.OLMSwitch_FastHoming`: Быстрый возврат на зарядную станцию - true-on/false-off
 
 - Модуль ACS (только провод)
-    - `US.ACS`: 1-вкл./0-выкл.
+    - `US.ACS`: включить или выключить ACS - 1-вкл./0-выкл.
 
 ![Модуль img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
 
@@ -125,9 +126,22 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ![Косилка img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
 
 - `firmware`: текущая установленная прошивка (проводная и Vision/только для чтения)
-- `firmware_available`: Доступная прошивка (проводная/только для чтения)
-- `firmware_available_all`: Все доступные прошивки (проводные/только для чтения)
-- `firmware_available_date`: Дата выпуска прошивки (только для чтения)
+- `firmware_available`: Доступная прошивка (проводная и Vision/только для чтения)
+- `firmware_available_all`: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться, когда будет доступно новое обновление (проводное и Vision/только для чтения).
+
+```json
+{
+    "mandatory": false,
+    "product": {
+        "uuid": "1236ll8d-0000-0000-9999-07ff6690003f",
+        "version": "3.30.0+1",
+        "released_at": "2023-05-24",
+        "changelog": "•\tSupport for new models \tWR166E and WR184E\n•\tImproved Grass cutting coverage\n•\tImproved ACS\n•\tAdded Zone Keeper function (need to be enabled by app)\n•\tImproved wheel torque algorithm\n• \tNew FML firmware\n•\tFixed \"FML\" and \"Radiolink\" Activation problem\n•\tFixed some translations error\n•\tRain delay can now be cleared pressing START / HOME button, (1 minute after countdown has started)\n•\tImproved PRO Battery management\n• \tImproved boundary wire recognition\n• \tFixed border cut when zones are active\n• \tNew wifi firmware for board HW REV > 7\n\nThe Worx Landroid team would like to thank our amazing beta testers, with hundreds of hours of their own free time to make this firmware possible."
+    }
+}
+```
+
+- `firmware_available_date`: Дата выпуска прошивки - фиктивный 1970-01-01, когда адаптер переустановлен и обновление недоступно (wire & Vision/только для чтения)
 - `градиент`: Градиент в градиенте (проволока и видение/только для чтения)
 - `наклон`: наклон в градусах (проволока и видение/только для чтения)
 - `last_command`: последний запрос от iobroker или APP в виде таблицы JSON (провод и видение/только для чтения)
@@ -138,7 +152,7 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 
 ![Косилка img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
 
-- `oneTimeJson`: Однократное скашивание в формате JSON.
+- `oneTimeJson`: одноразовое скашивание в формате JSON (проводное и видение/изменяемое)
 
 ```json
 {
@@ -147,12 +161,19 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 }
 ```
 
-- `oneTimeStart`: однократный запуск скашивания "сначала заполнить oneTimeWithBorder и oneTimeWorkTime" - с задержкой 1,1 секунды (проводная и Vision/изменяемая)
+- `oneTimeStart`: однократный запуск скашивания "сначала заполнить oneTimeWithBorder и oneTimeWorkTime" - с задержкой 1,1 секунды (проводной и Vision/изменяемый)
 - `oneTimeWithBorder`: с границей - изменение значения без задержки (проводное и видение/изменяемое)
-- `oneTimeWorkTime`: максимальное рабочее время. 8 часов с шагом 30 минут - изменение значения без задержки (проводное и визуальное/изменяемое)
+- `oneTimeWorkTime`: рабочее время макс. 8 часов с шагом 30 минут - изменение значения без задержки (проводное и визуальное/изменяемое)
 - `онлайн`: газонокосилка онлайн (провод и Vision/только для чтения)
 - `partyModus`: включение/выключение Partymodus (проводной и Vision/изменяемый)
 - `pause`: включение/выключение перерыва косилки (проводной и Vision/изменяемый)
+- `reset_battery_time`: сброс заряда батареи в 2 этапа (проводной и визуальный/изменяемый)
+- `reset_battery_time_approved`: Подтверждение сброса заряда батареи - `reset_battery_time` должно быть установлено значение true (проводное и визуальное/модифицируемое)
+- `reset_blade_time`: сбросить время работы лезвия в 2 шага (проводное и визуальное/изменяемое)
+- `reset_blade_time_approved`: подтверждение сброса рабочего времени лезвия - `reset_battery_time` должно быть установлено значение true (проводное и визуальное/изменяемое)
+
+![Косилка img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
+
 - `sendCommand`: Отправить команду cmd (проводная и Vision/изменяемая)
 
 ```json
@@ -200,8 +221,6 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 }
 ```
 
-![Косилка img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
-
 - `крутящий момент`: диапазон крутящего момента колеса -50-> 50 (проводной и визуальный/изменяемый)
 - `totalBladeTime`: общее время блейда (провод и видение/только чтение)
 - `totalDistance`: общее расстояние (провод и видение/только для чтения)
@@ -228,14 +247,32 @@ hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 
 ![Видение img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
 
+### Info_mqtt (Wire и Vision)
+- `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не были завершены. Неподтвержденные операции являются подмножеством этого.
+- `incompleteOperationSize`: общий размер пакета операций, отправленных в соединение, которые еще не были завершены. Неподтвержденные операции являются подмножеством этого.
+- `unackedOperationCount`: общее количество операций, отправленных на сервер и ожидающих соответствующего подтверждения ACK, прежде чем их можно будет завершить.
+- `unackedOperationSize`: общий размер пакета операций, которые были отправлены на сервер и ожидают соответствующего подтверждения ACK, прежде чем их можно будет завершить.
+- `last_update`: Последнее обновление с токена
+- `next_update`: Следующее обновление с токена
+- `online`: Статус соединения MQTT (false=offline/true=online)
+
+![Видение img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
+
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
+-   (Lucky-ESA) Added reset blade time and battery time
+-   (Lucky-ESA) Added ping after refresh token
+-   (Lucky-ESA) Added german description
+-   (TA2k) Changed firmware request
+-   (Lucky-ESA) Changed auth-endpoint
+-   (Lucky-ESA) Some bug fixes
 -   (Lucky-ESA) Fix unique mqtt clientid
 -   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
 -   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
--   (Lucky-ESA) Preparation new Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+-   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
 
 ### 2.2.0 (2023-06-27)
 

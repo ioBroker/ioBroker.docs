@@ -3,38 +3,44 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-ess-home/README.md
 title: ioBroker.lg-ess-home
-hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
+hash: p6Wnv8ekFf7E+Df8Fc+aiEHNI3jmEupjw1Wdy9bP7RI=
 ---
 ![标识](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.lg-ess-home.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.lg-ess-home.svg)
 ![安装数量（最新）](http://iobroker.live/badges/lg-ess-home-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/lg-ess-home-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/Morluktom/ioBroker.lg-ess-home/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.lg-ess-home.png?downloads=true)
 
 # IoBroker.lg-ess-home
-**测试：** ![测试和发布](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/Morluktom/ioBroker.lg-ess-home/workflows/Test%20and%20Release/badge.svg)
 
-## 用于 ioBroker 的 LG ESS Home 适配器
-用于 LG ESS 混合逆变器的 iobroker 适配器。使用此适配器，可以读取逆变器的状态。也可以操作逆变器。
+## 适用于 ioBroker 的 LG ESS 家用适配器
+适用于 LG ESS 混合逆变器的 iobroker 适配器。通过该适配器，可以读取逆变器的状态。也可以操作逆变器。
 
 ＃＃ 配置
-###获取密码
-1. 下载文件[LG_Ess_Password.exe](https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
-1. 将电脑连接到LG_ESS系统的WLAN。 （WLAN 密码在铭牌上）
-1. 启动 LG_Ess_Password.exe（至少需要 .Net Framework 4.5）
-1.记下您的密码
+### 获取密码
+#### 可能性 1
+密码为ESS LAN口MAC地址，小写且不带:。
+MAC 地址可以在 Fritzbox（或其他路由器）中读取。 （感谢里斯法）
 
-对于那些不喜欢 exe 的人：（感谢 grex1975）\ 你可以使用任何 REST 客户端来获取密码：
+#### 可能性 2
+1.下载文件[LG_Ess_Password.exe](https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
+1. 将计算机连接到 LG_ESS 系统的 WLAN。 （WLAN 密码位于铭牌上）
+1.启动LG_Ess_Password.exe（至少需要.Net Framework 4.5）
+1. 记下您的密码
 
-1.连接到LG_ESS的WLAN
-1.执行POST请求\
+#### 可能性 3
+对于那些不喜欢 exe 的人：（感谢 grex1975）\ 您可以使用任何 REST 客户端来获取密码：
 
-网址：https://192.168.23.1/v1/user/setting/read/password \ Headers: "Charset": "UTF-8", "Content-Type": "application/json"\ {Body: "key" : "lgepmsuser!@#"}
+1.连接LG_ESS的WLAN
+1. 执行POST请求\
 
-这应该给你密码和状态作为回报。
+网址：https://192.168.23.1/v1/user/setting/read/password \ 标头：“字符集”：“UTF-8”，“内容类型”：“application/json”\ {正文：“key” ：“lgepmsuser！@#”}
+
+这应该会给你密码和状态作为回报。
 
 ## Changelog
 <!--

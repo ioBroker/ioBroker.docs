@@ -4,238 +4,281 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.worx.svg
 BADGE-Number of Installations: https://iobroker.live/badges/worx-installed.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/worx-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.worx/README.md
-title: ioBroker.worx-Adapter
-hash: Uhw8niNCQQPen2x6WAmPDxAcOcsubHLP63T3Jrd+I7U=
 ---
-![Logo](../../../en/admin/worx.png)
+![Logo](../../admin/worx.png)
 
-# IoBroker.worx-Adapter
+# ioBroker.worx Adapter
+
 ## Beschreibung
+
 ### Instanzeinstellungen
-- „App-E-Mail“: Ihr APP-Benutzername
-- „App-Passwort“: Ihr APP-Passwort
-- „App-Name“: Wählen Sie Ihr Gerät
-- „Verzögerung für EdgeCut“: Wann soll EdgeCut starten (Beispiel: 5 Sekunden bis zum Rasen)
 
-![Instanzeinstellungen img/instance_1.png](../../../en/adapterref/iobroker.worx/img/instance_1.png)
+-   `App-Benutzername`: APP Benutzername (eMail)
+-   `App-Passwort`: APP Passwort
+-   `App Name`: Geräte auswählen
+-   `Verzögerung für Kantenschnitt`: Wann soll EdgeCut nach dem Losfahren starten (Beispiel nach 5 Sekunden bis zum Rasen)
 
-- „Entfernung und Zeit in Minuten und Metern“: Standardmäßig in Stunden und Kilometern
-- „MQTT-Verbindung alle 10 Minuten anpingen.“: Nur zum Testen. Bitte nicht länger als 1 Stunde!
+![Instance Settings img/instance_1.png](img/instance_1.png)
 
-![Instanzeinstellungen img/instance_2.png](../../../en/adapterref/iobroker.worx/img/instance_2.png)
+-   `Entfernung und Zeit in Minuten und Metern`: Einheit für Laufzeit und Arbeitszeit in Min./Std. und Meter/KM
+-   `MQTT-Verbindung alle 10 Minuten anpingen`: Nur zum testen. Bitte nicht länger als 1 Stunde!
+-   `Aktualisieren der MQTT-Daten nach der Token-Aktualisierung.`: Nach der Erneuerung vom Token (jede Stunde) die Mqtt Daten neu laden. Das sind 24 zusätzlich Abfragen pro Tag und pro Geräte.
+
+![Instance Settings img/instance_2.png](img/instance_2.png)
 
 ### Ordner
-- „activityLog“: Ihr Aktivitätsprotokoll (Kontrolle möglich)
-- „Bereiche“: Bereiche (Steuerung möglich)
-- „Kalender“: Zeitplan (Steuerung möglich)
-- „Module“: Ihr(e) Modul(e) (Steuerung möglich)
-- „Mäher“: Ihr Mäher (Steuerung möglich)
-- „Produkt“: Alle Eigenschaften Ihrer Geräte (schreibgeschützt)
-- „rawMqtt“: Alle Daten aus der Cloud (schreibgeschützt)
 
-![Ordner img/all_folders.png](../../../en/adapterref/iobroker.worx/img/all_folders.png)
+-   `activityLog`: Aktivitätenprotokoll (Kontrolle möglich)
+-   `areas`: Zonen (Kontrolle möglich)
+-   `calendar`: Mähplan (Kontrolle möglich)
+-   `Modules`: Verfügbare Module (Kontrolle möglich)
+-   `mower`: Mäher (Kontrolle möglich)
+-   `product`: Alle Eigenschaften vom Geräte (Nur lesen)
+-   `rawMqtt`: Alle Daten von der Worx-Cloud (Nur lesen)
 
-### Aktivitätsprotokoll (Wire und Vision)
-- „last_update“: Letzte Aktualisierung als Zeitstempel
-- `manuell_update`: Lädt das aktuelle Aktivitätsprotokoll
-- „Payload“: Aktivitätsprotokoll als JSON-Tabelle (für VIS oder Blockly)
+![Folder img/all_folders.png](../en/img/all_folders.png)
 
-![Aktivität img/activity.png](../../../en/adapterref/iobroker.worx/img/activity.png)
+### activityLog (Draht und Vision)
 
-### Bereiche (ohne Vision)
-- „actualArea“: Aktuell
-- „actualAreaIndicator“: Nächster Array-Zonenstart
-- `area_0`: Beginn der Zone 1 in Metern (veränderbar)
-- `area_1`: Beginn der Zone 2 in Metern (veränderbar)
-- `area_2`: Beginn der Zone 3 in Metern (veränderbar)
-- `area_3`: Beginn der Zone 4 in Metern (veränderbar)
-- „startSequence“: Array-Zonenstart (0-9 Ereignisse), z.B. Start nur in Zone 2 [2,2,2,2,2,2,2,2,2,2] (veränderbar)
-- „zoneKeeper“: Sicheres Fahren in engen Zonenübergängen (ab Firmware 3.30) (veränderbar)
+-   `last_update`: Letzte Update als Zeitstempel (nur lesen)
+-   `manuell_update`: Lädt das aktuelle Aktivitätenprotokoll (automatisch nach Statusänderungen) (änderbar)
+-   `payload`: Protokoll als JSON (für VIS oder Blockly) (nur lesen)
 
-![Bereich img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
+![Activity img/activity.png](../en/img/activity.png)
 
-### Kalender (Wire und Vision)
--   Z.B. Zeiteinstellung für Mittwoch
+### areas (Nur Draht)
 
-    - „wednesday.borderCut“: Mit oder ohne Randschnitt (Wert ohne Verzögerung ändern)
-    - „wednesday.startTime“: Startzeit hh:mm (0-23/0-59), z.B. 09:00 (Wert ohne Verzögerung ändern)
-    - `wednesday.workTime`: Arbeitszeit in Minuten (180 min = 3h) z.B. 30 (Wert ohne Verzögerung ändern)
-    - „calJson_sendto“: Wenn alle Datenpunkte festgelegt sind, drücken Sie die Taste zum Senden (mit einer Verzögerung von 1,1 Sekunden). Der Mäher mäht nun 30 Minuten lang
-    - „calJson_tosend“: Diese Daten werden an Mqtt gesendet (sowohl der Mähplan als auch der Mähplan werden automatisch festgelegt). Sie können dieses JSON auch selbst erstellen.
-    - „calendar.calJson“: Name des Mähplans für den Wochentag ohne Nummer (Mähplan 1/wird automatisch eingestellt – nur für Kabel)
-    - „calendar.calJson2“: Mähplan-Wochentagsname mit Nummer (Mähplan 2/wird automatisch eingestellt – nur für Draht)
+-   `actualArea`: Aktuelle Zone (nur lesen)
+-   `actualAreaIndicator`: Nächste Zonenanfahrt im Array. Bsp. 0 - [`2`,2,2,2,2,2,2,2,2,2] (nur lesen)
+-   `area_0`: Start Zone 1 in Meter (array=0) (änderbar)
+-   `area_1`: Start Zone 2 in Meter (array=1) (änderbar)
+-   `area_2`: Start Zone 3 in Meter (array=2) (änderbar)
+-   `area_3`: Start Zone 4 in Meter (array=3) (änderbar)
+-   `startSequence`: Zonenstart Array (0-9 Ereignisse) Bsp.: Nur Zone 3 anfahren [2,2,2,2,2,2,2,2,2,2] (änderbar)
+-   `zoneKeeper`: Verhindert Zonendurchbrüche (Zonen müssen erstellt sein) (ab Firmware 3.30) (änderbar)
 
-![Ordner img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
+![Area img/areas.png](../en/img/areas.png)
 
-### Module (Wire und Vision)
-- Off-Limit-Modul (Draht und Vision)
+### calendar (Draht und Vision)
 
-    - „DF.OLMSwitch_Cutting“: Verbotene Zonen wahr-ein/falsch-aus
-    - `DF.OLMSwitch_FastHoming`: Schnelle Rückkehr zur Ladestation true-on/false-off
+-   Beispiel Zeiteinstellung Mittwoch
 
-- ACS-Modul (nur Kabel)
-    - „US.ACS“: 1-an/0-aus
+    -   `wednesday.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar)
+    -   `wednesday.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar)
+    -   `wednesday.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar)
+    -   `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen (mit einer Verzögerung von 1,1). Der Mäher mäht nun für 30 Minuten! (änderbar)
+    -   `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar)
+    -   `calendar.calJson`: Array für den Wochenmähplan 1 (wird automatisch gesetzt - nur Draht) (änderbar)
+    -   `calendar.calJson2`: Array für den Wochenmähplan 2 (wird automatisch gesetzt - nur Draht) (änderbar)
 
-![Modul img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
+![Folder img/calendar.png](../en/img/calendar.png)
 
-### Mäher (Wire und Vision)
-- „AutoLock“: Automatische Sperre True-On/False-Off (Draht & Vision/veränderbar)
-- „AutoLockTimer“: Timer-Autosperre max. 10 Minuten in 30-Sekunden-Schritten (Draht & Vision/veränderbar)
-- „batteryChargeCycle“: Batterieladezyklus (Kabel & Vision/schreibgeschützt)
-- „batteryCharging“: Batterieladung false->no/true->yes (wire & Vision/readonly)
-- „batteryState“: Batteriestatus in % (Kabel & Vision/schreibgeschützt)
-- „batteryTemperature“: Batterietemperatur in Celsius (Kabel & Vision/schreibgeschützt)
-- „batteryVoltage“: Batteriespannung in Volt (Kabel & Vision/schreibgeschützt)
-- `direction`: Richtung in grad (wire & Vision/readonly)
-- `edgecut`: EdgeCut starten (Draht & Vision/veränderbar)
-- „Fehler“: Fehlermeldung vom Mäher (Kabel & Vision/schreibgeschützt)
+### modules (Draht und Vision)
 
-```json
-{
-    "states": {
-        "0": "No error", //(wire & Vision)
-        "1": "Trapped", //(wire & Vision unknown)
-        "2": "Lifted", //(wire & Vision)
-        "3": "Wire missing", //(wire & Vision unknown)
-        "4": "Outside wire", //(wire & Vision unknown)
-        "5": "Raining", //(wire & Vision)
-        "6": "Close door to mow", //(wire & Vision)
-        "7": "Close door to go home", //(wire & Vision)
-        "8": "Blade motor blocked", //(wire & Vision)
-        "9": "Wheel motor blocked", //(wire & Vision)
-        "10": "Trapped timeout", //(wire & Vision)
-        "11": "Upside down", //(wire & Vision)
-        "12": "Battery low", //(wire & Vision)
-        "13": "Reverse wire", //(wire & Vision unknown)
-        "14": "Charge error", //(wire & Vision)
-        "15": "Timeout finding home", //(wire & Vision)
-        "16": "Mower locked", //(wire & Vision)
-        "17": "Battery over temperature", //(wire & Vision)
-        "18": "dummy model", //(wire & Vision)
-        "19": "Battery trunk open timeout", //(wire & Vision)
-        "20": "wire sync", //(wire & Vision unknown)
-        "21": "msg num" //(wire & Vision)
-    }
-}
-```
+-   Off Limit Module (Draht und Vision)
 
-![Mäher img/mower_1.png](../../../en/adapterref/iobroker.worx/img/mower_1.png)
+    -   `DF.OLMSwitch_Cutting`: Verhindert das überfahren vom Magnetband - true-an/false-aus
+    -   `DF.OLMSwitch_FastHoming`: Verwendet erstellte Abkürzungen mit Magnetband - true-an/false-aus
 
-- „Firmware“: Aktuell installierte Firmware (Wire & Vision/schreibgeschützt)
-- „firmware_available“: Verfügbare Firmware (drahtgebunden/schreibgeschützt)
-- „firmware_available_all“: Alle verfügbaren Firmware (wire/readonly)
-- „firmware_available_date“: Datum der verfügbaren Firmware (wire/readonly)
-- „Gradient“: Gradient in Grad (Wire & Vision/readonly)
-- „Neigung“: Neigung in Grad (wire & Vision/readonly)
-- „last_command“: Letzte Anfrage von iobroker oder APP als JSON-Tabelle (wire & Vision/readonly)
-- „mowTimeExtend“: Mähzeitverlängerung in % Bereich: -100 % -> 100 % (kabelgebunden/veränderbar)
-- „mowerActive“: Mähplan pausieren (kabelgebunden/veränderbar)
-- „mqtt_update“: Mqtt-Daten max. aktualisieren. 150/Tag (Kabel & Vision/veränderbar)
-- „mqtt_update_count“: Counter Update Mqtt-Daten (Wire & Vision/readonly)
+-   ACS Module (nur Draht)
+    -   `US.ACS`: ACS aktivieren oder deaktivieren - 1-on/0-off
 
-![Mäher img/mower_2.png](../../../en/adapterref/iobroker.worx/img/mower_2.png)
+![Module img/module.png](../en/img/module.png)
 
-- „oneTimeJson“: Einmalige Mähung als JSON
+### mower (Draht und Vision)
 
-```json
-{
-    "wtm": 60, //Minutes
-    "bc": 0 //0=w/o bordercut 1=with bordercut or use the next datapoints
-}
-```
-
-- `oneTimeStart`: Einmaliger Mähstart „zuerst oneTimeWithBorder und oneTimeWorkTime füllen“ – mit 1,1 Sekunden Verzögerung (Draht & Vision/veränderbar)
-- `oneTimeWithBorder`: Mit Bordercut - Wert ohne Verzögerung ändern (Draht & Vision/veränderbar)
-- `oneTimeWorkTime`: Arbeitszeitmax. 8h in 30-Minuten-Schritten - Wert ohne Verzögerung ändern (Kabel & Vision/veränderbar)
-- „online“: Mäher online (Kabel & Vision/schreibgeschützt)
-- „partyModus“: Partymodus ein-/ausschalten (Kabel & Vision/veränderbar)
-- „Pause“: Ein-/Ausschalten der Mäherpause (Kabel und Sicht/veränderbar)
-- „sendCommand“: CMD-Befehl senden (Draht & Vision/veränderbar)
+-   `AutoLock`: automatische Verriegelung true-an/false-aus (Draht & Vision/änderbar)
+-   `AutoLockTimer`: Timer für automatische Verriegelung max. 10 Minuten in 30 Sekunden Schritte (Draht & Vision/änderbar)
+-   `batteryChargeCycle`: Batterieladezyklus (Draht & Vision/nur lesen)
+-   `batteryCharging`: Batterieladung false->nein/true->ja (Draht & Vision/nur lesen)
+-   `batteryState`: Batteriestatus in % (Draht & Vision/nur lesen)
+-   `batteryTemperature`: Batterietemperatur in Celsius (Draht & Vision/nur lesen)
+-   `batteryVoltage`: Batteriespannung in Volt (Draht & Vision/nur lesen)
+-   `direction`: Richtung in Grad (Draht & Vision/nur lesen)
+-   `edgecut`: Start EdgeCut (Draht & Vision/änderbar)
+-   `error`: Errormeldung vom Mäher (Draht & Vision/nur lesen)
 
 ```json
 {
     "states": {
-        "1": "Start", //(wire & Vision)
-        "2": "Stop", //(wire & Vision)
-        "3": "Home", //(wire & Vision)
-        "4": "Start Zone Taining", //(wire & Vision unknown)
-        "5": "Lock", //(wire & Vision unknown)
-        "6": "Unlock", //(wire & Vision unknown)
-        "7": "Restart Robot", //(wire & Vision unknown)
-        "8": "pause when follow wire", //(wire & Vision unknown)
-        "9": "safe homing" //(wire & Vision unknown)
+        "0": "No error", //(Draht & Vision)
+        "1": "Trapped", //(Draht & Vision unbekannt)
+        "2": "Lifted", //(Draht & Vision)
+        "3": "Wire missing", //(Draht & Vision unbekannt)
+        "4": "Outside wire", //(Draht & Vision unbekannt)
+        "5": "Raining", //(Draht & Vision)
+        "6": "Close door to mow", //(Draht & Vision)
+        "7": "Close door to go home", //(Draht & Vision)
+        "8": "Blade motor blocked", //(Draht & Vision)
+        "9": "Wheel motor blocked", //(Draht & Vision)
+        "10": "Trapped timeout", //(Draht & Vision)
+        "11": "Upside down", //(Draht & Vision)
+        "12": "Battery low", //(Draht & Vision)
+        "13": "Reverse wire", //(Draht & Vision unbekannt)
+        "14": "Charge error", //(Draht & Vision)
+        "15": "Timeout finding home", //(Draht & Vision)
+        "16": "Mower locked", //(Draht & Vision)
+        "17": "Battery over temperature", //(Draht & Vision)
+        "18": "dummy model", //(Draht & Vision)
+        "19": "Battery trunk open timeout", //(Draht & Vision)
+        "20": "wire sync", //(Draht & Vision unbekannt)
+        "21": "msg num" //(Draht & Vision)
     }
 }
 ```
 
-- „Zustand“: True für Mäher starten und False für Mäher stoppen (Kabel & Sicht/veränderbar)
-- „Status“: Status Mäher (Kabel & Vision/schreibgeschützt)
+![Mower img/mower_1.png](../en/img/mower_1.png)
+
+-   `firmware`: Installierte Firmware (Draht & Vision/nur lesen)
+-   `firmware_available`: Verfügbare Firmware (Draht & Vision/nur lesen)
+-   `firmware_available_all`: Letzte verfügbare Firmware als JSON - Dieses JSON wird aktualisiert, wenn ein neues Update zur Verfügung steht (Draht & Vision/nur lesen)
+
+```json
+{
+    "mandatory": false,
+    "product": {
+        "uuid": "1236ll8d-0000-0000-9999-07ff6690003f",
+        "version": "3.30.0+1",
+        "released_at": "2023-05-24",
+        "changelog": "•\tSupport for new models \tWR166E and WR184E\n•\tImproved Grass cutting coverage\n•\tImproved ACS\n•\tAdded Zone Keeper function (need to be enabled by app)\n•\tImproved wheel torque algorithm\n• \tNew FML firmware\n•\tFixed \"FML\" and \"Radiolink\" Activation problem\n•\tFixed some translations error\n•\tRain delay can now be cleared pressing START / HOME button, (1 minute after countdown has started)\n•\tImproved PRO Battery management\n• \tImproved boundary wire recognition\n• \tFixed border cut when zones are active\n• \tNew wifi firmware for board HW REV > 7\n\nThe Worx Landroid team would like to thank our amazing beta testers, with hundreds of hours of their own free time to make this firmware possible."
+    }
+}
+```
+
+-   `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
+-   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
+-   `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
+-   `last_command`: Letzter Befehl von iobroker oder der APP als JSON Table (Draht & Vision/nur lesen)
+-   `mowTimeExtend`: Mähzeitverlängerung-/Verkürzung in % Bereich: -100%->100% (Draht/änderbar)
+-   `mowerActive`: Pause Mähplan (Draht/änderbar)
+-   `mqtt_update`: Update Mqtt Daten vom Mäher - max. 150/Tag (Draht & Vision/änderbar)
+-   `mqtt_update_count`: Counter von Update Mqtt Daten (Draht & Vision/nur lesen)
+
+![Mower img/mower_2.png](../en/img/mower_2.png)
+
+-   `oneTimeJson`: einmaliges Mähen als JSON (Draht & Vision/änderbar)
+
+```json
+{
+    "wtm": 60, //Minuten
+    "bc": 0 //0=ohne Kantenschnitt 1=mit Kantenschnitt - oder die nächsten Datenpunkte verwenden
+}
+```
+
+-   `oneTimeStart`: einmaliges Mähen start "Erst oneTimeWithBorder und oneTimeWorkTime setzen" - mit einer Verzögerung von 1,1 Sekunde (Draht & Vision/änderbar)
+-   `oneTimeWithBorder`: Mit Kantenschnitt - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
+-   `oneTimeWorkTime`: Mähzeit max. 8h in 30 Minuten Schritte - Wert ohne Verzögerung setzen (Draht & Vision/änderbar)
+-   `online`: Mäher Online (Draht & Vision/nur lesen)
+-   `partyModus`: Party-Modus schalten an/aus (Draht & Vision/änderbar)
+-   `pause`: Mähpause schalten an/aus (Draht & Vision/änderbar)
+-   `reset_battery_time`: Batterieladungen in 2 Schritten zurücksetzen (Draht & Vision/änderbar)
+-   `reset_battery_time_approved`: Batterieladungen zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar)
+-   `reset_blade_time`: Klingenarbeitszeit in 2 Schritten zurücksetzen (Draht & Vision/änderbar)
+-   `reset_blade_time_approved`: Klingenarbeitszeit zurücksetzen bestätigen - `reset_battery_time` muss auf true gesetzt sein (Draht & Vision/änderbar)
+
+![Mower img/mower_3.png](../en/img/mower_3.png)
+
+-   `sendCommand`: Ein Befehl versenden (Draht & Vision/änderbar)
 
 ```json
 {
     "states": {
-        "0": "IDLE", //(wire & Vision)
-        "1": "Home", //(wire & Vision)
-        "2": "Start sequence", //(wire & Vision)
-        "3": "Leaving home", //(wire & Vision)
-        "4": "Follow wire", //(wire & Vision unknown)
-        "5": "Searching home", //(wire & Vision)
-        "6": "Searching wire", //(wire & Vision unknown)
-        "7": "Mowing", //(wire & Vision)
-        "8": "Lifted", //(wire & Vision)
-        "9": "Trapped", //(wire & Vision)
-        "10": "Blade blocked", //(wire & Vision)
-        "11": "Debug", //(wire & Vision)
-        "12": "Remote control", //(wire & Vision)
-        "13": "escape from off limits", //(wire & Vision)
-        "30": "Going home", //(wire & Vision)
-        "31": "Zone training", //(wire & Vision)
-        "32": "Border Cut", //(wire & Vision)
-        "33": "Searching zone", //(wire & Vision)
-        "34": "Pause" //(wire & Vision)
+        "1": "Start", //(Draht & Vision)
+        "2": "Stop", //(Draht & Vision)
+        "3": "Home", //(Draht & Vision)
+        "4": "Start Zone Taining", //(Draht & Vision unbekannt)
+        "5": "Lock", //(Draht & Vision unbekannt)
+        "6": "Unlock", //(Draht & Vision unbekannt)
+        "7": "Restart Robot", //(Draht & Vision unbekannt)
+        "8": "pause when follow wire", //(Draht & Vision unbekannt)
+        "9": "safe homing" //(Draht & Vision unbekannt)
     }
 }
 ```
 
-![Mäher img/mower_3.png](../../../en/adapterref/iobroker.worx/img/mower_3.png)
+-   `state`: True für Mähvorgang starten und False für Mähvorgang beenden (Draht & Vision/änderbar)
+-   `status`: Status vom Mäher (Draht & Vision/nur lesen)
 
-- „Drehmoment“: Raddrehmomentbereich -50->50 (Draht und Sicht/veränderbar)
-- „totalBladeTime“: Gesamtklingenzeit (Wire & Vision/schreibgeschützt)
-- „totalDistance“: Gesamtdistanz (Draht & Sicht/schreibgeschützt)
-- „totalTime“: Gesamtarbeitszeit (wire & Vision/readonly)
-- „waitRain“: Regenverzögerung max. 12h in 30-Minuten-Schritten (Kabel & Vision/veränderbar)
-- „wifiQuality“: WLAN-Qualität (Kabel & Vision/schreibgeschützt)
+```json
+{
+    "states": {
+        "0": "IDLE", //(Draht & Vision)
+        "1": "Home", //(Draht & Vision)
+        "2": "Start sequence", //(Draht & Vision)
+        "3": "Leaving home", //(Draht & Vision)
+        "4": "Follow wire", //(Draht & Vision unbekannt)
+        "5": "Searching home", //(Draht & Vision)
+        "6": "Searching wire", //(Draht & Vision unbekannt)
+        "7": "Mowing", //(Draht & Vision)
+        "8": "Lifted", //(Draht & Vision)
+        "9": "Trapped", //(Draht & Vision)
+        "10": "Blade blocked", //(Draht & Vision)
+        "11": "Debug", //(Draht & Vision)
+        "12": "Remote control", //(Draht & Vision)
+        "13": "escape from off limits", //(Draht & Vision)
+        "30": "Going home", //(Draht & Vision)
+        "31": "Zone training", //(Draht & Vision)
+        "32": "Border Cut", //(Draht & Vision)
+        "33": "Searching zone", //(Draht & Vision)
+        "34": "Pause" //(Draht & Vision)
+    }
+}
+```
 
-![Mäher img/mower_4.png](../../../en/adapterref/iobroker.worx/img/mower_4.png)
+-   `torque`: Raddrehmoment Bereich -50->50 (Draht & Vision/änderbar)
+-   `totalBladeTime`: Gesamte Klingen-Arbeitszeit (Draht & Vision/nur lesen)
+-   `totalDistance`: Gesamte Entfernung (Draht & Vision/nur lesen)
+-   `totalTime`: Gesamte Rasenmäher-Arbeitszeit (Draht & Vision/nur lesen)
+-   `waitRain`: Regenverzögerung max. 12h in 30 Minuten Schritte (Draht & Vision/änderbar)
+-   `wifiQuality`: Wifi Qualität (Draht & Vision/nur lesen)
 
-### Zusätzlich zum Sehen
--   Bereich
-    - `rfid`: Gesamtflächen (schreibgeschützt)
+![Mower img/mower_4.png](../en/img/mower_4.png)
 
-![Vision img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
+### Additionally for vision
 
-- Mäher
-    - „log_improvement“: Verbesserungsprotokoll an Worx senden/aktivieren (änderbar)
-    - „log_troubleshooting“: Fehlerbehebungsprotokoll an Worx senden/aktivieren (änderbar)
+-   Area
+    -   `rfid`: Anzahl Zonen (nur lesen)
 
-![Vision img/logs_vision.png](../../../en/adapterref/iobroker.worx/img/logs_vision.png)
+![Vision img/areas_vision.png](../en/img/areas_vision.png)
 
-- Mäher
-    - „pausiert“: Pausierter Zeitplan in Minuten (änderbar)
+-   Mower
+    -   `log_improvement`: Protokoll zur Verbesserung an Worx senden de-/aktivieren (änderbar)
+    -   `log_troubleshooting`: Fehlerbericht an Worx senden de-/aktivieren (änderbar)
 
-![Vision img/paused_vision.png](../../../en/adapterref/iobroker.worx/img/paused_vision.png)
+![Vision img/logs_vision.png](../en/img/logs_vision.png)
+
+-   Mower
+    -   `paused`: Mähstartverzögerung (änderbar)
+
+![Vision img/paused_vision.png](../en/img/paused_vision.png)
+
+### info_mqtt (Wire and Vision)
+
+-   `incompleteOperationCount`: Gesamtzahl der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht gepackte Operationen sind eine Teilmenge davon.
+-   `incompleteOperationSize`: Gesamtpaketgröße der an die Verbindung übermittelten Vorgänge, die noch nicht abgeschlossen sind. Nicht gepackte Operationen sind eine Teilmenge davon.
+-   `unackedOperationCount`: Gesamtzahl der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
+-   `unackedOperationSize`: Gesamtpaketgröße der Vorgänge, die an den Server gesendet wurden und auf eine entsprechende Bestätigung warten, bevor sie abgeschlossen werden können.
+-   `last_update`: Letzte Aktualisierung vom Token
+-   `next_update`: Nächste Aktualisierung vom Token
+-   `online`: Status MQTT Verbindung (false=offline/true=online)
+
+![Vision img/mqtt_info.png](../en/img/mqtt_info.png)
 
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
+-   (Lucky-ESA) Added reset blade time and battery time
+-   (Lucky-ESA) Added ping after refresh token
+-   (Lucky-ESA) Added german description
+-   (TA2k) Changed firmware request
+-   (Lucky-ESA) Changed auth-endpoint
+-   (Lucky-ESA) Some bug fixes
 -   (Lucky-ESA) Fix unique mqtt clientid
 -   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
 -   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
--   (Lucky-ESA) Preparation new Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+-   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
 
 ### 2.2.0 (2023-06-27)
 

@@ -244,6 +244,9 @@ relation.
 -->
 
 ## Changelog
+### 2.0.22 (04.07.2023)
+* added import specification, solved problems in GaTools
+    
 ### 2.0.21 (17.06.2023)
 * fixed license handling
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.places/README.md
 title: ioBroker.places
-hash: IZ3xVAwrX/8hKuFdFHuCG8pIYwTjGTZIoShTd11M/vo=
+hash: hjIkwB4JXT8fYW0UgWnjmkRHGf8xKpfjWJTof7ce7Ro=
 ---
 ![Logo](../../../en/adapterref/iobroker.places/admin/places.png)
 
@@ -12,31 +12,31 @@ hash: IZ3xVAwrX/8hKuFdFHuCG8pIYwTjGTZIoShTd11M/vo=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.places.svg)
 
 # IoBroker.places
-![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.places/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/places/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.places/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/places/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Beschreibung
-Dies ist ein ioBroker-Adapter zur Verarbeitung von Standortinformationen, die mindestens einen Benutzer, eine Geo-Position und einen Zeitstempel enthalten sollten.
-Der Adapter analysiert, ob sich die Standortinformationen in einem Umkreis um die Standortkonfiguration von ioBroker oder optional an anderen Orten befinden.
+Dabei handelt es sich um einen ioBroker-Adapter zur Verarbeitung von Standortinformationsnachrichten, die mindestens einen Benutzer, eine Geoposition und einen Zeitstempel enthalten sollten.
+Der Adapter analysiert, ob sich die Standortinformationen in einem Umkreis um die Standortkonfiguration von ioBroker oder optional anderen Orten befinden.
 
 ## Aufbau
-Es gibt nur einen obligatorischen Konfigurationswert: den Radius (Meter), der verwendet wird, um den aktuellen Standort eines Benutzers zu identifizieren.
-Der Standort von ioBroker wird verwendet, um Benutzer zu identifizieren, die "zu Hause" sind, andere Orte können als Teil der Konfiguration hinzugefügt werden.
+Es gibt nur einen obligatorischen Konfigurationswert: den Radius (Meter), der zur Identifizierung des aktuellen Standorts eines Benutzers verwendet wird.
+Der Standort von ioBroker wird verwendet, um Benutzer zu identifizieren, die „zu Hause“ sind. Andere Orte können im Rahmen der Konfiguration hinzugefügt werden.
 
-* **Radius** (_mandatory_) sollte der Radius in Metern sein, der verwendet wird, um zu überprüfen, ob sich der Benutzer an einem bestimmten Ort befindet (zu Hause oder benutzerdefiniert).
-* **Name for home** kann verwendet werden, um einen benutzerdefinierten Namen für den Heimatort festzulegen.
-* **Google Maps-API-Schlüssel** wird zum Aktivieren der Geocodierung verwendet. Ein fehlender API-Schlüssel wird von einer konfigurierten Vis-Map-Instanz (falls verfügbar) abgerufen, wenn die Konfigurationsseite geöffnet wurde.
+* **Radius** (_mandatory_) sollte der Radius in Metern sein, der verwendet wird, um zu überprüfen, ob sich der Benutzer an einem bestimmten Ort (zu Hause oder benutzerdefiniert) befindet.
+* **Name für Zuhause** kann verwendet werden, um einen benutzerdefinierten Namen für den Heimatort festzulegen.
+* **Der API-Schlüssel von Google Maps** wird zur Aktivierung der Geokodierung verwendet. Ein fehlender API-Schlüssel wird von einer konfigurierten Vis-Map-Instanz (falls verfügbar) abgerufen, wenn die Konfigurationsseite geöffnet wurde.
 * **Google Maps Geocoding** kann aktiviert werden, um eine echte Adresse und eine Höhe für eine angegebene Geoposition zu erhalten.
-* **Orte** ist eine flexible Liste mit benutzerdefinierten Orten, bei denen jeder Ort gültige Werte für Name, Breitengrad und Längengrad haben sollte.
+* **Orte** ist eine flexible Liste mit benutzerdefinierten Orten, wobei jeder Ort gültige Werte für Name, Breiten- und Längengrad haben sollte.
 * **Benutzer** ist eine flexible Liste mit Benutzerzuordnungen.
 
-## Verwendungszweck
-Um die Standortaktualisierung zu verarbeiten, senden Sie einfach eine Nachricht mit der folgenden Syntax:
+## Verwendung
+Um die Standortaktualisierung durchzuführen, senden Sie einfach eine Nachricht mit der folgenden Syntax:
 
 ```
 // send a message to all instances of places adapter
-sendTo('locations', {
+sendTo('places', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -44,7 +44,7 @@ sendTo('locations', {
 });
 
 // send a message to a specific instance of places adapter adapter
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -52,7 +52,7 @@ sendTo('locations.0', {
 });
 
 // send a message to a specific instance and define a callback
-sendTo('locations.0', {
+sendTo('places.0', {
         user:       "Name of person",
         latitude:   50.9576191,
         longitude:  6.8272409,
@@ -61,7 +61,7 @@ sendTo('locations.0', {
 ```
 
 ## Struktur für zurückgegebene Nachrichten
-Der folgende Block zeigt, wie Antwortnachrichten aussehen. Für jeden Wert hat der ioBroker-Objektbaum einen entsprechenden Zustand.
+Der folgende Block zeigt, wie Antwortnachrichten aussehen. Für jeden Wert hat der ioBroker-Objektbaum einen entsprechenden Status.
 
 ```
 {
@@ -80,20 +80,20 @@ Der folgende Block zeigt, wie Antwortnachrichten aussehen. Für jeden Wert hat d
 
 ## Beispiel: OwnTracks + ioBroker.iot + ioBroker.places
 ### 1. Konfigurieren Sie iobroker.iot
-Fügen Sie einen benutzerdefinierten Dienst **xyz** unter **Weiße Liste für Dienste** hinzu.
+Fügen Sie einen benutzerdefinierten Dienst **xyz** unter **Whitelist for Services** hinzu.
 
-### 2. Konfigurieren Sie die mobilen Apps von OwnTracks
-Ändern Sie den Modus auf **HTTP Private** und verwenden Sie die folgende Adresse als **Host** : https://iobroker.pro/service/custom_xyz/<user-app-key>
+### 2. Konfigurieren Sie die mobilen OwnTracks-Apps
+Ändern Sie den Modus auf **HTTP Private** und verwenden Sie die folgende Adresse als **Host**: https://iobroker.pro/service/custom_xyz/<user-app-key>
 
 ### 3. Konfigurieren Sie iobroker.places
-Auf der Registerkarte Integration müssen Sie die Instanz des Cloud-Adapters und **xyz** als Dienst auswählen. Der Adapter hört auf eingehende Anforderungen für den Dienst und startet die Verarbeitung.
+Auf der Registerkarte Integration müssen Sie die Instanz des Cloud-Adapters und **xyz** als Dienst auswählen. Der Adapter hört eingehende Anfragen für den Dienst ab und startet die Verarbeitung.
 
-## Beispiel: Telegramm + ioBroker.telegram + ioBroker.places
+## Beispiel: Telegram + ioBroker.telegram + ioBroker.places
 ### 1. Konfigurieren Sie iobroker.telegram
-Aktivieren Sie die Option zum **Speichern von Rohanforderungen**.
+Aktivieren Sie die Option zum **Speichern von Rohanfragen**.
 
 ### 2. Skript erstellen (ioBroker.javascript)
-Erstellen Sie ein kurzes Skript mit einem Abonnement für die Rohanfrage, z. von **telegram.0.communicate.requestRaw**, und senden Sie ein neues Anforderungsobjekt an iobroker.places (oder eine Instanz davon):
+Erstellen Sie ein kurzes Skript mit einem Abonnement für die Rohanfrage, z. B. von **telegram.0.communicate.requestRaw** und senden Sie ein neues Anforderungsobjekt an iobroker.places (oder eine Instanz davon):
 
 ```
 on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
@@ -110,9 +110,15 @@ on({id: "telegram.0.communicate.requestRaw", change: "ne"}, function (obj) {
 ```
 
 ## Credits
-Die Implementierung basiert teilweise auf dschaedls [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency)-Adapter. Das Logo wurde von [Free Icons PNG](http://www.freeiconspng.com/images/maps-icon) und wurde modifiziert, um einen transparenten Hintergrund zu haben.
+Die Implementierung basiert teilweise auf dschaedls [ioBroker.geofency](https://github.com/ioBroker/ioBroker.geofency)-Adapter. Das Logo wurde von [Free Icons PNG übernommen](http://www.freeiconspng.com/images/maps-icon) und wurde so geändert, dass sie einen transparenten Hintergrund hat.
 
 ## Changelog
+### 1.1.2 (2022-04-17)
+* (Apollon77) Fix personsAtHome and anybodyAtHome states
+
+### 1.1.1 (2022-03-29)
+* (Apollon77) Allow (again?) to consume external subscribed state value independently of ack flag
+
 ### 1.1.0 (2022-03-25)
 * (Basgo) Correctly set ack flag
 * (Apollon77) Add Sentry for crash reporting

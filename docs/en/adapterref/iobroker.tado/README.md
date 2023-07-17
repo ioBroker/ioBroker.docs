@@ -43,8 +43,12 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
+
 -->
 ### __WORK IN PROGRESS__
+* (HGlab01) Add attribute 'isBalanceHpEligible'
+
+### 0.4.9 (2023-07-05)
 * (HGlab01) Add attribute 'zonesCount'
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 

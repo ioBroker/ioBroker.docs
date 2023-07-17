@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
+hash: irY/iuda19liBWKDfloda8VwtnnwEfOLTAcoS4Ye7sI=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -101,6 +101,46 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 
 ### Farblampe
 ### Zeitauswahl
+## Assistentenzuordnung
+### Eine Aussicht – ein Raum
+- Thermostat => Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
+- Licht Ein/Aus => Einfacher Status Ein/Aus mit Gerätename
+- Dimmer => Einfacher Zustand
+- Rollladen => Jalousien mit Namen
+- Temperatur => tatsächlicher Wert mit Diagramm (Wenn möglich, Luftfeuchtigkeit hinzufügen)
+- Bewegung => Einfacher Zustand mit spezifischem Symbol (Junge), schreibgeschützt, aktive Farbe rgba(52,170,68,1)
+- Feuer => Einfacher Zustand mit spezifischem Symbol (Feuer), schreibgeschützt, aktive Farbe „Rot“
+- Überschwemmung => Einfacher Zustand mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe „blau“
+- Tür => Einfacher Zustand mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
+- Slider => Einfacher Zustand
+- Sperren => Einfacher Zustand
+- Socket => Einfacher Status mit spezifischem Symbol
+- Mediaplayer => Mediaplayer
+- Volume => einfacher Status mit spezifischem Symbol (Volume)
+- Wettervorhersage => Openweathermap (nur wenn installiert)
+- Fenster => Einfacher Zustand mit bestimmten Symbolen (geöffnet => wahr, geschlossen => falsch)
+
+### Eine Ansicht – alle Räume
+- Thermostat => Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
+- Licht ein/aus => Schalter und Tastenschalter
+- Dimmer => Schalter und Tastenschieber
+- Rollladen => Schalter und Knöpfe Jalousien
+- Themerature => Informationen zu Schaltern und Tasten mit Diagramm
+
+-- Luftfeuchtigkeit => Informationen zu Schaltern und Tasten mit Diagramm
+
+- Bewegung => Schalter- und Schaltflächen-Info-spezifisches Symbol, schreibgeschützt, aktive Farbe rgba(52,170,68,1)
+- Feuer => ISwitch and Buttons nfo-spezifisches Symbol (Feuer), schreibgeschützt, aktive Farbe 'rot'
+- Flood => Schalter- und Schaltflächen-Info mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe 'blau'
+- Tür => Schalter- und Tasteninfo mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
+- Schieberegler => Schalter- und Tastenschieberegler
+- Sperren => Schalter und Tastenschalter
+- Steckdose => Schalter und Tasten wechseln mit spezifischem Symbol
+- Mediaplayer => Mediaplayer (als Karte) mit Raumname
+- Lautstärke => Schalter und Tasten-Schieberegler mit spezifischem Symbol (Lautstärke)
+- Wettervorhersage => Openweathermap als Karte (nur wenn installiert)
+- Fenster => Schalter- und Schaltflächeninformationen mit spezifischen Symbolen (geöffnet => wahr, geschlossen => falsch)
+
 ## Machen
 - RGBW-Farbcontroller
 

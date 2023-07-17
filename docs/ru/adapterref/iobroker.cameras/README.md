@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
 title: ioBroker.камеры
-hash: 7dDTSTOHUkH6f4vfxV/NGQJ6JmTNR4/PpJeOlVSdk5k=
+hash: UVa1GRfkkhHgm8Z1m3FgE2CNIFRQM7CQ9OSXFi/VCJA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -37,9 +37,9 @@ sendTo('cameras.0', 'image', {
 
 Поддерживаемые камеры:
 
-### URL image Это обычный запрос URL, где все параметры указаны в URL. Нравится `http://mycam/snapshot.jpg`
+### URL image Это обычный запрос URL, в котором все параметры указаны в URL. Нравится `http://mycam/snapshot.jpg`
 ### URL изображения с базовой аутентификацией
-Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете предоставить учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
+Это URL-запрос изображения, где все параметры указаны в URL-адресе, но вы можете указать учетные данные для базовой аутентификации. Нравится `http://mycam/snapshot.jpg`
 
 ### FFmpeg
 Если вы хотите получить доступ к снимкам на камерах RTSP, вы можете использовать ffmpeg. Вам необходимо установить ffmpeg в вашей системе:
@@ -47,7 +47,7 @@ sendTo('cameras.0', 'image', {
 - В Windows есть предварительно скомпилированный ffmpeg и ничего скачивать не нужно. (Версия для Windows взята отсюда: https://www.gyan.dev/ffmpeg/builds/ffmpeg-git-essentials.7z)
 - Linux: `sudo apt-get install ffmpeg -y`
 
-Вот пример, как добавить Reolink E1:
+Вот пример того, как добавить Reolink E1:
 
 ![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
@@ -56,6 +56,18 @@ sendTo('cameras.0', 'image', {
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 1.2.2 (2023-07-07)
+* (bluefox) Corrected passwords with exclamation mark
+
+### 1.2.1 (2023-07-06)
+* (bluefox) Added eufy camera
+
+### 1.1.1 (2023-03-15)
+* (bluefox) Added Reolink E1 camera
+
+### 1.0.3 (2023-01-11)
+* (bluefox) Corrected GUI config error
+
 ### 1.0.2 (2023-01-07)
 * (bluefox) added RTSP camera
 * (bluefox) added cache of snapshots

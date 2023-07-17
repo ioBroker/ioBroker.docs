@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonoff/README.md
 title: ioBroker Sonoff
-hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
+hash: wPAup01SFAbWUNZvoOWrvxxZqchVQG19zEZZKPS8SAk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
@@ -17,7 +17,8 @@ hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
 
 ## Сравнение адаптеров ioBroker, использующих протокол MQTT
-Если у вас есть только протокол MQTT, говорящий на Tasmotas, выберите `ioBroker.sonoff`. Для других сценариев рассмотрите другие варианты:
+Если у вас есть только протокол MQTT, говорящий на Tasmotas, выберите `ioBroker.sonoff`.
+Для других сценариев рассмотрите другие варианты:
 
 | Особенность | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме брокера) | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/) (в режиме клиента) | [ioBroker.mqtt-клиент](https://github.com/Pmant/ioBroker.mqtt-client/) |
 |-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
@@ -126,15 +127,19 @@ hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.5.7 (2023-07-07)
+* (mcm1957) Disabled the logging of username and password during connection errors
+* (bluefox) added json config
+
 ### 2.5.3 (2023-03-30)
 * (GreatSUN) Implemented potential `.STATE.POWER` update
 
 ### 2.5.1 (2022-04-23)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.5.0 (2022-03-21)
 * (GreatSUN) Implement writing of NSPanel Widget changes
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
@@ -162,17 +167,17 @@ hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ### 2.4.0 (2021-02-04)
 * (anwa) add several data points
 * (anwa) Fix translation for 'ignorePings'
-* (anwa) Fix wrong unit for humidity
+* (anwa) Fixed the wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
 * (Apollon77) js-controller 2.0 is required at least
 
 ### 2.3.3 (2019-11-27)
-* (bluefox) Error with empty packet was caught
+* (bluefox) Error with the empty packet was caught
 
 ### 2.3.2 (2019-10-23)
 * (bluefox) Fixed the password input in the configuration
-* (bluefox) Allowed to set the IP interface for server
+* (bluefox) Allowed setting the IP interface for server
 * (bluefox) Fixed tests for js-controller 2.0
 * (bluefox) Fixed the monitoring of the client connection
 * (bluefox) Changed "indicator.connected" to "indicator.reachable" for clients

@@ -3,11 +3,11 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: BVIA7BeS5PgjNWVxnjPjl5RqQbirM8xg7AS2/9pSL8c=
+hash: /by4CHU08+LjfNQu6jeMDeIHKGRDe1ilZOVm8HLEOZE=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
-![Travis CI-Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
+![Travis CI Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.ring.svg?branch=master)
 ![AppVeyor-Build-Status](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.ring?branch=master&svg=true)
 ![Anzahl der Installationen](http://iobroker.live/badges/ring-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.ring.svg)
@@ -15,12 +15,12 @@ hash: BVIA7BeS5PgjNWVxnjPjl5RqQbirM8xg7AS2/9pSL8c=
 ![NPM](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
 # Ringadapter
-Benötigt Admin v4 und `node 16.x`.
+Erfordert Admin v4 und `node 16.x`.
 
-Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand an der Tür klingelt oder ob eine Bewegung erkannt wird. Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder Türklingel erkannt wird.
+Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand an der Tür klingelt oder eine Bewegung erkannt wird. Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder Türklingel erkannt wird.
 
-## Installation & Konfiguration
-Nach der Installation des Adapters müssen Sie Ihre E-Mail und Ihr Passwort Ihres [ring.com](https://ring.com) Kontos und einen Token eingeben. Ring erfordert jetzt die Verwendung von Zwei-Faktor-Authentifizierung (2fa) für alle Konten. Um das Token zu erhalten, gehen Sie bitte wie folgt auf Ihrer Shell vor.
+## Installation und Konfiguration
+Nach der Installation des Adapters müssen Sie Ihre E-Mail-Adresse und Ihr Passwort für Ihr [ring.com](https://ring.com)-Konto sowie einen Token eingeben. Ring erfordert jetzt die Verwendung von Two-Factor Auth (2fa) für alle Konten. Um den Token zu erhalten, gehen Sie bitte in Ihrer Shell wie folgt vor.
 
 ```
 npx -p ring-client-api ring-auth-cli
@@ -37,63 +37,38 @@ cd /opt/iobroker/node_modules/iobroker.ring/node_modules/ring-client-api
 node ring-auth-cli
 ```
 
-Sie können spezielle Variablen für Ihren Livestream und Snapshot-Pfad und Dateinamen verwenden. Diese Variablen werden durch einen Zähler, einen Zeitstempel, eine Ring-ID oder eine Ringart ersetzt.
+Sie können spezielle Variablen für den Pfad und Dateinamen Ihres Livestreams und Snapshots verwenden. Diese Variablen werden durch einen Zähler, Zeitstempel, Ring-ID oder Ringart ersetzt.
 
-* `%d`: Unix-Zeitstempel. Beispiel: `test_%d -> test_1588331430061`
-* `%i`: ID Ihres Ringgeräts: Beispiel: `test_%i -> test_234567890`
-* `%n`: Zähler seit Start der Ringinstanz. Beispiel: `test_%n -> test_1`
-* `%k`: Art Ihres Klingelgeräts: Beispiel: `test_%k -> test_doorbell`
+* „%d“: Unix-Zeitstempel. Beispiel: „test_%d -> test_1588331430061“.
+* „%i“: ID Ihres Ringgeräts: Beispiel: „test_%i -> test_234567890“.
+* „%n“: Zähler seit dem Start der Ringinstanz. Beispiel: „test_%n -> test_1“.
+* „%k“: Art Ihres Ring-Geräts: Beispiel: „test_%k -> test_doorbell“.
 
 ### FAQ
 #### Ich erhalte keine Ereignisse, Schnappschüsse und Videos zu Bewegungen oder erkannten Personen
-Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktueller Token von Ring auf eine schwarze Liste gesetzt wurde, wodurch Ihnen die Push-Benachrichtigung verweigert wird, die Sie benötigen.
-Der beste Weg, dies zu beheben, besteht darin, alle vorherigen Browser/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu generieren.
+Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token per Ring auf eine schwarze Liste gesetzt wurde, sodass Sie die Push-Benachrichtigung, die Sie benötigen, nicht erhalten.
+Der beste Weg, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu erstellen.
 
-Damit dieser Adapter richtig auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an den verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn Sie also Probleme mit fehlenden Ereignissen haben, ist es unwahrscheinlich, dass dieser Adapter schuld ist.
+Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an die verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn also Probleme mit fehlenden Ereignissen auftreten, liegt dies wahrscheinlich nicht an diesem Adapter.
 
-### V3 Breaking Changes umschreiben
-1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z.B. von `Gerät 1234567`
+### V3 Breaking Changes neu schreiben
+1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von „Gerät 1234567“)
 
    zu `Device 1234567 ("Floodlight Garden")`)
 
-2. Snapshot/Livestream-Daten befinden sich jetzt in einem entsprechenden Kanal, der die anderen Datenpunkte enthält.
-3. Das Schnappschuss-/Livestream-Objekt wurde vom Typ „Meta“ in den Zustand „Datei“ geändert.
-4. Ereignisse (Bewegung, Ding usw.) befinden sich jetzt in einem entsprechenden Kanal.
-5. Da `ring-api` die Unterstützung für Knoten vor `v16.x` einstellt, benötigt dieser Adapter `node v16.x` oder `node v18.x`
-6. Aktive Aktualisierungen werden auf einmal alle 2 Stunden reduziert, da wir auf Ereignisse hören/reagieren.
+2. Snapshot-/Livestream-Daten befinden sich jetzt in einem entsprechenden Kanal, der die anderen Datenpunkte enthält.
+3. Das Snapshot-/Livestream-Objekt wurde vom Typ „Meta“ in „Status mit Typ Datei“ geändert.
+4. Ereignisse (Bewegung, Klingeln usw.) befinden sich jetzt in einem entsprechenden Kanal.
+5. Da „ring-api“ die Unterstützung für Knoten vor „v16.x“ eingestellt hat, benötigt dieser Adapter „node v16.x“ oder „node v18.x“.
+6. Aktive Aktualisierungen werden auf einmal alle 2 Stunden reduziert, da wir Ereignisse abhören/auf sie reagieren.
 
 ### SIP (vor Version 3.x)
 Sie können die SIP-Informationen für eine SIP-Videokonferenz mit Ihrem SIP-Client verwenden.
-Der Adapter stellt nicht alle Ringgeräte bereit, da die verwendete API nicht alle Ringgeräte enthält.
+Der Adapter stellt nicht alle Ringgeräte bereit, da die verwendete API nicht alle Ringgeräte umfasst.
 
-Sie können zum Beispiel den Blink SIP-Client auf [http://icanblink.com/](http://icanblink.com/) verwenden. Um das Video zum Laufen zu bringen, gehen Sie in Blinks Einstellungen und wechseln Sie unter „Konten“ auf die Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“. Achtung, die SIP-Informationen verfallen nach ein paar Sekunden! Hoffentlich kann ich bald einen Videostream unterstützen. Leider hat [ring.com](https://ring.com) keine offizielle API, die diese Funktion unterstützt.
+Sie können beispielsweise den Blink SIP-Client auf [http://icanblink.com/](http://icanblink.com/) verwenden. Um das Video zum Laufen zu bringen, gehen Sie zu Blinks Einstellungen und wechseln Sie unter „Konten“ zur Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“. Achten Sie darauf, dass die SIP-Informationen nach einigen Sekunden verfallen! Hoffentlich kann ich bald einen Videostream unterstützen. Leider verfügt [ring.com](https://ring.com) nicht über eine offizielle API, die diese Funktion unterstützt.
 Wenn Sie die `livestream request`-Taste drücken, erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung.
-Wenn Sie die [ring.com](https://ring.com)-Cloud verwenden, finden Sie unter Verlauf einen http-Link zu Ihrem letzten Bewegungs- / Türklingel-Aufzeichnungsvideo.
-
-### Skripte in `package.json`
-Mehrere npm-Skripte sind für Ihre Bequemlichkeit vordefiniert. Sie können sie mit `npm run <scriptname>` ausführen.
-
-| Skriptname | Beschreibung |
-| `build:ts` | Kompilieren Sie die TypeScript-Quellen. |
-| `watch:ts` | Kompilieren Sie die TypeScript-Quellen und achten Sie auf Änderungen. |
-| `watch` | Abkürzung für `npm run watch:ts` |
-| `test:ts` | Führt die Tests aus, die Sie in `*.test.ts`-Dateien definiert haben. |
-| `test:package` | Stellt sicher, dass Ihre `package.json` und `io-package.json` gültig sind. |
-| `test:unit` | Testet den Start des Adapters mit Einheitentests (schnell, erfordert aber möglicherweise Modul-Mocks, um zu funktionieren). |
-| `test:integration` | Testet den Adapterstart mit einer tatsächlichen Instanz von ioBroker. |
-| `test` | Führt einen minimalen Testlauf für Paketdateien und Ihre Tests durch. |
-| `check` | Führt eine Typprüfung Ihres Codes durch (ohne etwas zu kompilieren). |
-| `coverage` | Generiert Codeabdeckung mit Ihren Testdateien. |
-| `lint` | Führt `ESLint` aus, um Ihren Code auf Formatierungsfehler und potenzielle Fehler zu überprüfen. |
-| `lint` | Führt `ESLint` aus, um Ihren Code auf Formatierungsfehler und potenzielle Fehler zu überprüfen. |
-| `release` | Erstellt eine neue Version, siehe [`@alcalzone/release-script`](https://github.com/AlCalzone/release-script#usage) für weitere Details. |
-
-### Schreibtests
-Wenn es richtig gemacht wird, ist das Testen von Code von unschätzbarem Wert, da es Ihnen das Vertrauen gibt, Ihren Code zu ändern, während Sie genau wissen, ob und wann etwas kaputt geht. Eine gute Lektüre zum Thema testgetriebene Entwicklung ist https://hackernoon.com/introduction-to-test-driven-development-tdd-61a13bc92d92.
-Das Schreiben von Tests vor dem Code mag zunächst seltsam erscheinen, hat aber ganz klare Vorteile.
-
-Die Vorlage bietet Ihnen grundlegende Tests für die Start- und Paketdateien des Adapters.
-Es wird empfohlen, dass Sie dem Mix Ihre eigenen Tests hinzufügen.
+Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verlauf einen http-Link zu Ihrem zuletzt aufgezeichneten Bewegungs-/Türklingelvideo.
 
 ## Changelog
 
@@ -101,6 +76,68 @@ Es wird empfohlen, dass Sie dem Mix Ihre eigenen Tests hinzufügen.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+* (theimo1221) Compliance to adapter-checker
+
+### 3.4.0 (2023-06-09)
+
+* (theimo1221) Update Packages (which allows node 20 now)
+
+### 3.3.1 (2023-05-18)
+
+* (theimo1221) Update Packages
+
+### 3.3.0 (2023-04-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) Device with Type stickup_cam_longfin not yet supported #483
+
+### 3.2.7 (2023-03-22)
+
+* (foxriver76) prepare js-controller v5
+
+### 3.2.6 (2023-02-18)
+
+* (theimo1221) Improve behaviour on initial Location load fail
+* (theimo1221) Update Packages
+
+### 3.2.5 (2023-01-28)
+
+* (theimo1221) Update Packages
+
+### 3.2.4 (2022-12-15)
+
+* (theimo1221) #385 Fix for Unlock Request on intercoms
+
+### 3.2.3 (2022-12-15)
+
+* (theimo1221) Update Packages
+* (theimo1221) #385 Experimental Ring Intercom support
+
+### 3.2.2 (2022-12-02)
+
+* (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname
+
+### 3.2.1 (2022-12-02)
+
+* (theimo1221) Redeploy
+
+### 3.2.0 (2022-12-02)
+
+* (theimo1221) Update Packages
+* (theimo1221) #373 Increase logging and change recording order on Doorbell Event
+
+### 3.1.9 (2022-11-20)
+
+* (theimo1221) #395 Resolve Package-lock.json issues
+
+### 3.1.8 (2022-11-20)
+
+* (theimo1221) Update Packages
+* (theimo1221) Compliance to newest ring api version
+
 ### 3.1.7 (2022-10-28)
 
 * (theimo1221) Update Packages
@@ -357,7 +394,7 @@ Es wird empfohlen, dass Sie dem Mix Ihre eigenen Tests hinzufügen.
 
 MIT License
 
-Copyright (c) 2018-2022 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
+Copyright (c) 2018-2023 Thorsten <thorsten@stueben.de> / <https://github.com/schmupu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

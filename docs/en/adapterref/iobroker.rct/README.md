@@ -5,11 +5,12 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)](https://www.npmjs.com/package/iobroker.rct)
 ![Number of Installations (latest)](https://iobroker.live/badges/rct-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/rct-stable.svg)
-[![Dependency Status](https://img.shields.io/david/lauff/iobroker.rct.svg)](https://david-dm.org/lauff/iobroker.rct)
+
+[![Dependency Status](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)](https://david-dm.org/aruttkamp/iobroker.rct)
 
 [![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)](https://nodei.co/npm/iobroker.rct/)
 
-**Tests:** ![Test and Release](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test and Release](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
 ## Owner Change
 
@@ -44,6 +45,9 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) interne Arbeiten
+
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components
 * (Andreas Ruttkamp) Vorbereitung neues Backend

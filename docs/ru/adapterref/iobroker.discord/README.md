@@ -8,7 +8,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discord/README.md
 title: ioBroker.discord
-hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
+hash: qO5QN8JfvxdRfxYlfehVNzpKvxkxg+zHyVgL1XFlMkI=
 ---
 # IoBroker.discord
 ![логотип](../../../de/admin/discord.png)
@@ -54,7 +54,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
       - [Структура json-состояния пользовательских слеш-команд](#structure-of-a-json-state-of-custom-slash-commands)
   - [Блочный](#блочный)
     - [Пример Blockly: отправить сообщение пользователю и обработать его через три секунды](#blockly-example-send-a-message-to-a-user-and-process-it-after-three-seconds)
-    - [Пример Blockly: отправка составного сообщения с вложением и двумя прикрепленными файлами](#blockly-example-sending-a-compound-message-with-embed-and-two-file-attachments)
+    - [Пример Blockly: отправка составного сообщения с вложением и двумя прикрепленными файлами] (#blockly-example-sending-a-compound-message-with-embed-and-two-file-attachments)
     - [Блочный пример: ответьте на пользовательскую команду косой черты и отправьте изображение запрошенной IP-камеры]
   - [использование в скриптах](#использование-в-скриптах)
     - [отправка сообщения в скрипте](#sending-a-message-in-a-script)
@@ -119,7 +119,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 
 6. Когда бот создан, вам нужно нажать кнопку _Reset Token_ один раз, чтобы получить токен бота.
 
-[![токен сброса](../en/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) Поскольку это приведет к аннулированию всех предыдущих токенов, вы должны подтвердить это, нажав кнопку _Да, сделайте это!_ в появившемся диалоговом окне.
+[![токен сброса](../en/media/bot-creation-5.png)](../../../de/adapterref/en/media/bot-creation-5.png) Поскольку это делает недействительными все предыдущие токены, вы должны подтвердить это с помощью кнопки _Да, сделайте это!_ в появившемся диалоговом окне.
 После этого токен бота будет показан **один раз**, и вам следует скопировать его в безопасное место (например, в конфигурацию экземпляра адаптера).
 
 7. На странице _Bot_ прокрутите вниз до _Privileged Gateway Intent_ и включите _Presence Intent_, _Server Members Intent_ и _Message Content Intent_. Не забудьте сохранить изменения (_Save Changes_).
@@ -188,7 +188,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 | `members` | Разделенный запятыми список участников (отображаемых имен) канала. |
 | `message` | Последнее полученное сообщение на этом канале. |
 | `messageId` | ID последнего полученного сообщения. |
-| `messageAuthor` | Автор (тег пользователя) последнего полученного сообщения. |
+| `messageAuthor` | Автор (уникальное имя пользователя или тег пользователя) последнего полученного сообщения. |
 | `messageTimestamp` | Отметка времени последнего полученного сообщения. |
 | `messageJson` | Данные JSON последнего полученного сообщения. |
 | `send` | Отправляйте текстовые сообщения или сообщения в формате JSON. |
@@ -204,6 +204,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 | имя | Описание |
 |---|---|
 | `tag` | Уникальный тег пользователя в Discord. |
+| `displayName` | Отображаемое имя пользователя на сервере. |
 | `roles` | Разделенный запятыми список ролей пользователя на сервере. |
 | `joinedAt` | Отметка времени, когда пользователь присоединился к серверу. |
 | `voiceChannel` | Голосовой канал, к которому в данный момент подключен пользователь, или пустая строка, если он не подключен. |
@@ -222,6 +223,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 | имя | Описание |
 |---|---|
 | `tag` | Уникальный тег пользователя в Discord. |
+| `status` | Статус присутствия пользователя. Один из `online`, `offline`, `idle`, `dnd` |
 | `activityType` | Характер текущей активности пользователя. Один из `Playing`, `Streaming`, `Listening`, `Watching`, `Competing`, `Custom` или пустая строка. |
 | `activityName` | Название текущей активности пользователя. Например, название игры во время `Playing`. |
 | `avatarUrl` | URL-адрес аватара пользователя. |
@@ -251,6 +253,7 @@ hash: CZM5yIOTrE9VduCTYP7lVj20ArTk0WeDRrCTNnlIgm4=
 | `json` | Данные JSON о последнем использовании команды. Содержит некоторую дополнительную информацию, не включенную в отдельные состояния. |
 | `userId` | ID пользователя, вызвавшего команду. |
 | `userTag` | Уникальный тег пользователя, вызвавшего команду. |
+| `userName` | Имя пользователя, вызвавшего команду. (один раз, если `userTag` заканчивается на `#0`) |
 | `channelId` | ID канала, в котором была вызвана команда. |
 | `serverId` | Идентификатор сервера, на котором была вызвана команда, или `null`, если команда была вызвана в прямом сообщении. |
 | `timestamp` | Отметка времени последнего использования команды. |
@@ -469,7 +472,7 @@ _Имя_ используется для автоматического заве
 
 Для состояний типа данных `number` можно указать количество знаков после запятой для округления значения в командах запроса.
 
-Для состояний типа данных `boolean` могут быть определены пользовательские значения для `true` и `false`, которые затем используются для команд запроса для отображения и для команд установки для обнаружения.
+Для состояний типа данных `boolean` могут быть определены пользовательские значения для `true` и `false`, которые затем используются в командах запроса для отображения и в командах установки для обнаружения.
 
 ### Состояния запроса
 Чтобы запросить состояние, просто вызовите `/iob-get Zustandsalias` в клиенте Discord.
@@ -525,6 +528,7 @@ _Имя_ используется для автоматического заве
   user: {
     id: string,
     tag: string,
+    name: string,
     displayName: string,
   },
   channelId: string,
@@ -537,10 +541,13 @@ _Имя_ используется для автоматического заве
       user?: { // wenn type USER oder MENIONABLE ist
         id: string,
         tag: string,
+        name: string,
         bot: boolean,
       },
       member?: { // wenn type USER oder MENIONABLE ist und der Befehl auf einem Server aufgerufen wurde
         id: string,
+        tag: string,
+        name: string,
         displayName: string,
         roles: { id: string, name: string }[],
       },
@@ -561,7 +568,7 @@ _Имя_ используется для автоматического заве
 ```
 
 ## Блочный
-Адаптер поставляется с собственными блоками Blockly, для...
+Адаптер поставляется с собственными блоками Blockly, для ...
 
 * Отправка сообщений на пользовательские или серверные каналы
 * Редактировать сообщения в прямых сообщениях или каналах сервера
@@ -582,12 +589,12 @@ _Имя_ используется для автоматического заве
   <variables>
     <variable id="KIILW$,(eB?pT`;GDuMF">messageId</variable>
   </variables>
-  <block type="discord_send_message_user" id="?xkCV};-Lk_-|Q`]%(Gt" x="63" y="38">
+  <block type="discord_send_message_user" id="?xkCV};-Lk_-|Q`]%(Gt" x="163" y="38">
     <field name="instance">.0</field>
     <field name="logResultOk">FALSE</field>
     <value name="user">
       <shadow type="text" id="jXN@CluUy_M/ig@4[(Uk">
-        <field name="TEXT">cryCode#9911</field>
+        <field name="TEXT">crycode</field>
       </shadow>
     </value>
     <value name="content">
@@ -614,7 +621,7 @@ _Имя_ используется для автоматического заве
             <field name="logResultOk">FALSE</field>
             <value name="user">
               <shadow type="text" id="voJ:{uuYtbBZ!Xe,rtV|">
-                <field name="TEXT">cryCode#9911</field>
+                <field name="TEXT">crycode</field>
               </shadow>
             </value>
             <value name="messageId">
@@ -773,7 +780,7 @@ _Имя_ используется для автоматического заве
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="Wcj[Gmy,vX]b,)s,O)`U">interactionId</variable>
-    <variable id="{sXn[Mn@ZN#fWtTV6O^;">userTag</variable>
+    <variable id="{sXn[Mn@ZN#fWtTV6O^;">userName</variable>
     <variable id="ULmVI=-QcXLnD!e60KTV">camID</variable>
   </variables>
   <block type="discord_on_custom_cmd" id="GE,i32wKhz%KGlBhV$j=" x="63" y="13">
@@ -785,11 +792,13 @@ _Имя_ используется для автоматического заве
     <value name="varUserId">
       <shadow type="logic_null" id="/}0,E!Gq=C2U]C^.8m1@"></shadow>
     </value>
+    <value name="varUserName">
+      <block type="variables_get" id="Q=v?u?yU}Tw*@FH*|x7.">
+        <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userName</field>
+      </block>
+    </value>
     <value name="varUserTag">
       <shadow type="logic_null" id="+r2I4SpfhuW%9DE21,[c"></shadow>
-      <block type="variables_get" id="Q=v?u?yU}Tw*@FH*|x7.">
-        <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userTag</field>
-      </block>
     </value>
     <value name="option0">
       <shadow type="logic_null" id="hL^g}gJg-b.+SOH0s9m1"></shadow>
@@ -820,7 +829,7 @@ _Имя_ используется для автоматического заве
                 </value>
                 <value name="ADD1">
                   <block type="variables_get" id="|[[T@|n1Ro{EU56/jJ@P">
-                    <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userTag</field>
+                    <field name="VAR" id="{sXn[Mn@ZN#fWtTV6O^;">userName</field>
                   </block>
                 </value>
                 <value name="ADD2">
@@ -902,6 +911,7 @@ _Примечание:_ Все используемые идентификато
 
 * `идентификатор пользователя`
 * `тег пользователя`
+* `имя_пользователя`
 * `serverId` и `channelId`
 
 `content` может быть простой строкой или объектом [MessageOptions].
@@ -911,7 +921,23 @@ _Примечание:_ Все используемые идентификато
 Примеры:
 
 ```js
-// Senden einer Nachricht zu einem Benutzer
+// Senden einer Nachricht zu einem Benutzer bei Verwendung des einmaligen Benutzernamens
+sendTo('discord.0', 'sendMessage', {
+  userName: 'crycode',
+  content: 'Hi!',
+}, (ret) => {
+  log(ret);
+  // {'result':'Message sent to user crycode','userName':'crycode','content':'Hi!','messageId':'971779972052155891'}
+
+  if (ret.error) {
+    log(ret.error, 'error');
+    return;
+  }
+  log(`Nachricht gesendet mit ID ${ret.messageId}`);
+});
+
+// Senden einer Nachricht zu einem Benutzer bei Verwendung des Benutzer-Tags
+// (für Bots und Benutzer, die noch nicht zu einem einmaligen Benutzernamen migriert sind)
 sendTo('discord.0', 'sendMessage', {
   userTag: 'cryCode#9911',
   content: 'Hi!',
@@ -937,7 +963,7 @@ sendTo('discord.0', 'sendMessage', {
   },
 }, (ret) => {
   log(ret);
-  // {'result':'Message sent to user cryCode#9911','userId':'490222742801481728','content':{'content':'Ok!','reply':{'messageReference':'971779972052160552'}},'messageId':'971786369401761832'}
+  // {'result':'Message sent to user crycode','userId':'490222742801481728','content':{'content':'Ok!','reply':{'messageReference':'971779972052160552'}},'messageId':'971786369401761832'}
 });
 
 // Senden einer Datei an einen Serverkanal
@@ -973,17 +999,17 @@ sendTo('discord.0', 'sendMessage', {
 ```js
 // Eine Nachricht bearbeiten
 sendTo('discord.0', 'editMessage', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   content: 'Hallo!',
   messageId: '971495175367049276',
 }, (ret) => {
   log(ret);
-  // {'result':'Message edited','userTag':'cryCode#9911','content':'Hallo!','messageId':'971495175367049276'}
+  // {'result':'Message edited','userName':'crycode','content':'Hallo!','messageId':'971495175367049276'}
 });
 
 // Nachricht senden und nach fünf Sekunden bearbeiten
 sendTo('discord.0', 'sendMessage', {
-    userTag: 'cryCode#9911',
+    userName: 'crycode',
     content: 'Es ist jetzt: ' + new Date().toLocaleString(),
 }, (ret) => {
   if (ret.error) {
@@ -992,12 +1018,12 @@ sendTo('discord.0', 'sendMessage', {
   }
   setTimeout(() => {
     sendTo('discord.0', 'editMessage', {
-      userTag: 'cryCode#9911',
+      userName: 'crycode',
       content:  'Es ist jetzt: ' + new Date().toLocaleString(),
       messageId: ret.messageId,
     }, (ret2) => {
       log(ret2);
-      // {'result':'Message edited','userTag':'cryCode#9911','content':'Es ist jetzt: 5.5.2022, 16:25:38','messageId':'971779692166266920'}
+      // {'result':'Message edited','userName':'crycode','content':'Es ist jetzt: 5.5.2022, 16:25:38','messageId':'971779692166266920'}
     });
   }, 5000);
 });
@@ -1016,11 +1042,11 @@ sendTo('discord.0', 'sendMessage', {
 ```js
 // Löschen einer Nachricht
 sendTo('discord.0', 'deleteMessage', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   messageId: '971495175367049276',
 }, (ret) => {
   log(ret);
-  // {'result':'Message deleted','userTag':'cryCode#9911','messageId':'971495175367049276'}
+  // {'result':'Message deleted','userName':'crycode','messageId':'971495175367049276'}
 });
 ```
 
@@ -1036,12 +1062,12 @@ sendTo('discord.0', 'deleteMessage', {
 ```js
 // Hinzufügen einer Reaktion auf eine Nachricht
 sendTo('discord.0', 'addReaction', {
-  userTag: 'cryCode#9911',
+  userName: 'crycode',
   messageId: '971786369401761832',
   emoji: '😎',
 }, (ret) => {
   log(ret);
-  // {'result':'Reaction added to message','userTag':'cryCode#9911','messageId':'971786369401761832','emoji':'😎'}
+  // {'result':'Reaction added to message','userName':'crycode','messageId':'971786369401761832','emoji':'😎'}
 });
 ```
 
@@ -1050,7 +1076,7 @@ sendTo('discord.0', 'addReaction', {
 
 Часть `message` `sendTo(...)` аналогична `editMessage` (см. выше), но без `content`, но с дополнительными `timeout` и §§SSSSS_5 §§ число.
 
-`timeout` — это максимальное время ожидания для сбора реакций в диапазоне от 100 до 60000 мс.
+`timeout` — максимальное время ожидания для сбора реакций в диапазоне от 100 до 60000 мс.
 
 Число `max` определяет максимальное количество собираемых реакций.
 По умолчанию 1, если не указано.
@@ -1069,7 +1095,7 @@ sendTo('discord.0', 'awaitMessageReaction', {
   max: 3,
 }, (ret) => {
   log(ret);
-  // {'reactions':[{'emoji':'👍','emojiId':null,'users':[{'id':'490222742801481728','tag':'cryCode#9911'}]}],'serverId':'813364154118963251','channelId':'813364154559102998','messageId':'970754574879162458','timeout':10000,'max':3}
+  // {'reactions':[{'emoji':'👍','emojiId':null,'users':[{'id':'490222742801481728', 'name': 'crycode','tag':'crycode#0'}]}],'serverId':'813364154118963251','channelId':'813364154559102998','messageId':'970754574879162458','timeout':10000,'max':3}
 });
 ```
 
@@ -1083,7 +1109,7 @@ sendTo('discord.0', 'awaitMessageReaction', {
 ```js
 on({ id: 'discord.0.slashCommands.iob-test.json', change: 'any', ack: true }, (obj) => {
   log(`Benutzerdefinierter Slash-Befehl ${obj.state.val}`);
-  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728","tag":"cryCode#9911","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"String"}}}
+  // Benutzerdefinierter Slash-Befehl {"interactionId":"977265764136517725","commandName":"iob-test","channelId":"813364154559102998","serverId":"813364154118963251","user":{"id":"490222742801481728", "name":"crycode","tag":"crycode#0","displayName":"Peter"},"timestamp":1653068714890,"options":{"myopt":{"value":"test","type":"String"}}}
 
   const data = JSON.parse(obj.state.val);
 
@@ -1216,6 +1242,12 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2023-07-12)
+
+* (crycode-de) Added support for unique user names
+* (crycode-de) Detect possible DNS errors during login to prevent restart loops
+* (crycode-de) Better handling for login errors, first 4 errors are now logged just as info
+
 ### 2.0.0 (2023-06-11)
 
 * (crycode-de) Updated discord.js to v14

@@ -965,6 +965,9 @@ und info.connection. Zusätzlich werden die folgenden States für jede Zone 2-12
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.3 (2023-07-13)
+* (foxriver76) fixed log entry when setting channel volume states (closes #321)
+
 ### 1.15.2 (2023-06-12)
 * (foxriver76) fixed crash case with controller v5
 

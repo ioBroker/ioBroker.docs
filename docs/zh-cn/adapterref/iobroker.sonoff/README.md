@@ -2,99 +2,100 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonoff/README.md
-title: ioBroker索诺夫
-hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
+title: ioBroker 索诺夫
+hash: wPAup01SFAbWUNZvoOWrvxxZqchVQG19zEZZKPS8SAk=
 ---
 ![标识](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
 ![安装数量](http://iobroker.live/badges/sonoff-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.sonoff.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
 # IoBroker 索诺夫
-![测试和发布](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 使用 MQTT 协议的 ioBroker 适配器比较
-如果您只有 Tasmotas 说 MQTT 协议，请选择 `ioBroker.sonoff`。对于其他情况，请考虑不同的选项：
+如果您只有使用 MQTT 协议的 Tasmotas，请选择`ioBroker.sonoff`。
+对于其他场景，请考虑不同的选项：
 
-|专题 | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（代理模式）| [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（客户端模式）| [ioBroker.mqtt-客户端](https://github.com/Pmant/ioBroker.mqtt-client/) |
+|特色 | ioBroker.sonoff | ioBroker.sonoff | [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（在代理模式下）| [ioBroker.mqtt](https://github.com/ioBroker/ioBroker.mqtt/)（客户端模式）| [ioBroker.mqtt-客户端](https://github.com/Pmant/ioBroker.mqtt-client/) |
 |-----------------------------------------------|------------------|-------------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------|
-|有一个内置的 MQTT 代理 |是 |是 |没有 |没有 |
-|将消息中继到其他 MQTT 订阅者 |不！！！ |是 |不适用 |不适用 |
-|外部 MQTT 经纪人 |不支持 |不支持 |需要 |需要 |
-| Tasmota MQTT 消息到 ioBroker 对象 |智能加工 | 1:1 处理所有消息 | 1:1处理订阅消息 | 1:1处理订阅消息 |
-|到 ioBroker 对象的非 Tasmota MQTT 消息 |没有处理 | 1:1 处理所有消息 | 1:1处理订阅消息 | 1:1处理订阅消息 |
-|将 ioBroker 值发布为 MQTT 消息 |无 |配置的子树 |配置的子树 |单独配置的值 |
+|拥有内置 MQTT 代理 |是的 |是的 |没有|没有|
+|将消息转发给其他 MQTT 订阅者 |不！！！ |是的 |不适用 |不适用 |
+|外部 MQTT 代理 |不支持 |不支持 |必填|必填|
+|发送至 ioBroker 对象的 Tasmota MQTT 消息 |智能处理|所有消息1:1处理|订阅消息1:1处理 |订阅消息1:1处理 |
+|发送至 ioBroker 对象的非 Tasmota MQTT 消息 |没有处理|所有消息1:1处理 |订阅消息1:1处理 |订阅消息1:1处理 |
+|将 ioBroker 值发布为 MQTT 消息 |无 |配置子树 |配置子树 |单独配置的值|
 
 ＃＃ 用法
-此适配器通过 MQTT 与带有 Tasmota 固件或 ESP 设备的 Sonoff 设备通信。
+该适配器通过 MQTT 与具有 Tasmota 固件的 Sonoff 设备或 ESP 设备进行通信。
 
-预计将有以下主题：
+预计将讨论以下主题：
 
 - `tele/DeviceNAME/STATE`
-- `tele/DeviceNAME/SENSOR`
+- `tele/设备名称/传感器`
 - `tele/DeviceNAME/INFOx`
 - `tele/DeviceNAME/ENERGY`
--`cmnd/设备名称/POWERx`
+- `cmd/DeviceNAME/POWERx`
 - `stat/DeviceNAME/POWERx`
--`/DeviceNAME/BM280/Temperature`
--`/DeviceNAME/BM280/湿度`
--`/DeviceNAME/BM280/Temperatur`
--`/DeviceNAME/BM280/Feuchtigkeit`
--`/DeviceNAME/BM280/Vcc`
--`/DeviceNAME/BM280/VCC`
--`/DeviceNAME/BM280/Laufzeit`
--`/DeviceNAME/BM280/RSSI`
--`/DeviceNAME/BM280/POWER`
--`/DeviceNAME/BM280/POWER1`
--`/DeviceNAME/BM280/POWER2`
--`/DeviceNAME/BM280/POWER3`
--`/DeviceNAME/BM280/POWER4`
--`/DeviceNAME/BM280/Switch1`
--`/DeviceNAME/BM280/Switch2`
--`/DeviceNAME/BM280/Total`
--`/DeviceNAME/BM280/今天`
--`/DeviceNAME/BM280/heute`
--`/DeviceNAME/BM280/昨天`
--`/DeviceNAME/BM280/gestern`
--`/DeviceNAME/BM280/Faktor`
--`/DeviceNAME/BM280/Factor`
--`/DeviceNAME/BM280/Power`
--`/DeviceNAME/BM280/Leistung`
--`/DeviceNAME/BM280/Voltage`
--`/DeviceNAME/BM280/Spannung`
--`/DeviceNAME/BM280/Current`
--`/DeviceNAME/BM280/Strom`
--`/DeviceNAME/BM280/Punkt`
--`/DeviceNAME/BM280/Counter1`
--`/DeviceNAME/BM280/Counter2`
--`/DeviceNAME/BM280/Counter3`
--`/DeviceNAME/BM280/Counter4`
--`/DeviceNAME/BM280/Pressure`
--`/DeviceNAME/BM280/SeaPressure`
--`/DeviceNAME/BM280/Druck`
--`/DeviceNAME/BM280/Approx。海拔`
--`/DeviceNAME/BM280/Module`
--`/DeviceNAME/BM280/Version`
--`/DeviceNAME/BM280/主机名`
--`/DeviceNAME/BM280/IPAddress`
-- `/DeviceNAME/BM280/IPaddress`
--`/DeviceNAME/BM280/RestartReason`
--`/DeviceNAME/BM280/CarbonDioxide`
--`/设备名称/DHT11/照度`
+- `/DeviceNAME/BM280/温度`
+- `/DeviceNAME/BM280/湿度`
+- `/DeviceNAME/BM280/Temperatur`
+- `/DeviceNAME/BM280/Feuchtigkeit`
+- `/DeviceNAME/BM280/Vcc`
+- `/DeviceNAME/BM280/VCC`
+- `/DeviceNAME/BM280/Laufzeit`
+- `/DeviceNAME/BM280/RSSI`
+- `/DeviceNAME/BM280/POWER`
+- `/DeviceNAME/BM280/POWER1`
+- `/DeviceNAME/BM280/POWER2`
+- `/DeviceNAME/BM280/POWER3`
+- `/DeviceNAME/BM280/POWER4`
+- `/DeviceNAME/BM280/Switch1`
+- `/DeviceNAME/BM280/Switch2`
+- `/DeviceNAME/BM280/Total`
+- `/DeviceNAME/BM280/今天`
+- `/DeviceNAME/BM280/heute`
+- `/DeviceNAME/BM280/昨天`
+- `/DeviceNAME/BM280/gestern`
+- `/DeviceNAME/BM280/Faktor`
+- `/DeviceNAME/BM280/Factor`
+- `/DeviceNAME/BM280/Power`
+- `/DeviceNAME/BM280/Leistung`
+- `/设备名称/BM280/电压`
+- `/DeviceNAME/BM280/Spannung`
+- `/DeviceNAME/BM280/Current`
+- `/DeviceNAME/BM280/Strom`
+- `/DeviceNAME/BM280/Punkt`
+- `/DeviceNAME/BM280/Counter1`
+- `/DeviceNAME/BM280/Counter2`
+- `/DeviceNAME/BM280/Counter3`
+- `/DeviceNAME/BM280/Counter4`
+- `/DeviceNAME/BM280/Pressure`
+- `/DeviceNAME/BM280/SeaPressure`
+- `/DeviceNAME/BM280/Druck`
+- `/DeviceNAME/BM280/大约。海拔高度`
+- `/DeviceNAME/BM280/Module`
+- `/DeviceNAME/BM280/版本`
+- `/DeviceNAME/BM280/主机名`
+- `/DeviceNAME/BM280/IPAddress`
+- `/设备名称/BM280/IP地址`
+- `/DeviceNAME/BM280/RestartReason`
+- `/DeviceNAME/BM280/二氧化碳`
+- `/DeviceNAME/DHT11/照度`
 - `/DeviceNAME/SonoffSC/Light`
--`/DeviceNAME/SonoffSC/Noise`
--`/DeviceNAME/SonoffSC/AirQuality`
--`/设备名称/SDS0X1/PM2.5`
--`/设备名称/SDS0X1/PM10`
--`/DeviceNAME/SDS0X1/UvLevel`
--`/DeviceNAME/SDS0X1/Latitude`
--`/DeviceNAME/SDS0X1/Longitude`
--`/DeviceNAME/SR04/Distance`
+- `/DeviceNAME/SonoffSC/Noise`
+- `/DeviceNAME/SonoffSC/AirQuality`
+- `/DeviceNAME/SDS0X1/PM2.5`
+- `/DeviceNAME/SDS0X1/PM10`
+- `/DeviceNAME/SDS0X1/UvLevel`
+- `/DeviceNAME/SDS0X1/Latitude`
+- `/DeviceNAME/SDS0X1/经度`
+- `/DeviceNAME/SR04/距离`
 
-**注意**：该列表可以轻松扩展。请将未知状态的 `Pull Requests` 或 *调试数据* 发送给开发人员（通过问题）。
+**注意**：该列表可以轻松扩展。请将未知状态的`Pull Requests`或*调试数据*发送给开发人员（通过问题）。
 
 ## 自动创建对象
 在 Web 配置中，您可以确定哪些 MQTT 电报创建不在默认数据点中的新对象：
@@ -103,38 +104,42 @@ hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 * `TELE_STATE` - 从 `tele/xxx/STATE` 电报创建对象
 * `STAT_RESULT` - 从 `stat/xxx/RESULT` 电报创建对象
 
-通常 TELE_SENSOR 对大多数用户来说应该足够了。
+通常 TELE_SENSOR 对于大多数用户来说应该足够了。
 
-* `Create object tree` 将对象创建为树结构
+* `创建对象树` 将对象创建为树结构
 
-**警告！** 这个选项会弄乱你的 sonoff 对象树！您必须重做所有存储设置...
+**警告！** 此选项会弄乱您的 sonoff 对象树！您必须重做所有存储设置...
 将对象结构存储为 JSON 文件，以便您可以重新创建旧结构。
-最好是停止适配器，删除 sonoff 下的所有对象，然后重新启动适配器。
+最好的方法是停止适配器，删除 sonoff 下的所有对象，然后再次启动适配器。
 
 ## LED 控制器的标志
 仅当设备具有以下状态之一时才会创建模式状态：
 
-- `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
+- `红色`、`绿色`、`蓝色`、`WW`、`CW`、`颜色`、`RGB_POWER`、`WW_POWER`、`CW_POWER`、`色调`、`饱和度`
 
 状态：
 
-* `modeLedExor` - 白色 LED 和彩色 LED 的异或 => 如果白色 LED 打开，彩色 LED 关闭，反之亦然（默认为真）
-* `modeReadColors` - 允许从 MQTT 读取颜色（默认为 false）
+* `modeLedExor` - 白色 LED 和彩色 LED 的异或 => 如果白色 LED 打开，彩色 LED 关闭，反之亦然（默认 true）
+* `modeReadColors` - 允许从 MQTT 读取颜色（默认 false）
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.5.7 (2023-07-07)
+* (mcm1957) Disabled the logging of username and password during connection errors
+* (bluefox) added json config
+
 ### 2.5.3 (2023-03-30)
 * (GreatSUN) Implemented potential `.STATE.POWER` update
 
 ### 2.5.1 (2022-04-23)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.5.0 (2022-03-21)
 * (GreatSUN) Implement writing of NSPanel Widget changes
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed the crash case reported by Sentry
 
 ### 2.4.7 (2021-11-14)
 * (Apollon77) Fix crash case (Sentry IOBROKER-SONOFF-1S)
@@ -162,17 +167,17 @@ hash: HIhsZIGI+Mnha/+SJtFzoKcTct9VLIFEMwKdgR812Qw=
 ### 2.4.0 (2021-02-04)
 * (anwa) add several data points
 * (anwa) Fix translation for 'ignorePings'
-* (anwa) Fix wrong unit for humidity
+* (anwa) Fixed the wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
 * (Apollon77) js-controller 2.0 is required at least
 
 ### 2.3.3 (2019-11-27)
-* (bluefox) Error with empty packet was caught
+* (bluefox) Error with the empty packet was caught
 
 ### 2.3.2 (2019-10-23)
 * (bluefox) Fixed the password input in the configuration
-* (bluefox) Allowed to set the IP interface for server
+* (bluefox) Allowed setting the IP interface for server
 * (bluefox) Fixed tests for js-controller 2.0
 * (bluefox) Fixed the monitoring of the client connection
 * (bluefox) Changed "indicator.connected" to "indicator.reachable" for clients

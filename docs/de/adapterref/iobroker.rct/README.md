@@ -3,51 +3,68 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: k9hP2CX8WzRlBmnA+uAz1Ll2DUkb994uTPQxjZA4YUg=
+hash: 6bl+JsrKnieEzH+l76SwFov8++7uv3R2b1YmBRUV01A=
 ---
 ![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/rct-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/rct-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/lauff/iobroker.rct.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/rct-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/rct-stable.svg)
+![Abhängigkeitsstatus](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)
 ![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
 # IoBroker.rct
-**Tests:** ![Testen und freigeben](https://github.com/lauff/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
 
-## Eigentümerwechsel
-Nach Umstellung von lauff auf Home Assistant - Projekt wird von aruttkamp fortgeführt
+## Besitzerwechsel
+Nachdem Lauff zum Home Assistant gewechselt ist, wird das Projekt von aruttkamp weitergeführt
 
 ## RCT-Adapter für ioBroker
-Bitte beachten Sie, dass dies ein privates Projekt ist und dass ich (Andreas Ruttkamp) in keiner Weise mit RCT verwandt bin.
+Bitte beachten Sie, dass es sich um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keinerlei Zusammenhang mit RCT stehe.
 
-Werte eines Photovoltaik-Stromrichters von RCT Power anzeigen
+Werte eines RCT Power Photovoltaik-Stromrichters anzeigen
 
 ## BEMERKUNGEN
-### Erste Produktivversion
+### Erste produktive Veröffentlichung
 Dies ist eine erste produktive Version, nachdem sich die vorherige Version als stabil erwiesen hat und den minimal realisierbaren Umfang erfüllt.
 
-Die Konfiguration ist noch begrenzt und ziemlich technisch. Über das „RCT ELemente“ kann ausgewählt werden, welche Daten aus dem Stromrichter gelesen werden sollen. Standard ist "battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].enabled,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].enabled, dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_mng,.islandsflag,.islandsm .Zustand". Weitere Elemente finden sich im Code (Datei „rct/rc_core.js“). Aber das ist überhaupt nicht selbstbeschreibend (auch nicht wirklich getestet).
+Die Konfiguration ist immer noch begrenzt und eher technisch. Über „RCT ELemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen. Der Standardwert ist „battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].enabled,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].enabled, dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim _sm.island_flag,prim_sm .Zustand". Weitere Elemente finden Sie im Code (Datei „rct/rc_core.js“). Aber das ist überhaupt nicht selbsterklärend (auch nicht wirklich getestet).
 
 ## Bekannte Probleme
-### Falsche Kanäle / Zustände
-Eine neue Version kann möglicherweise nicht die richtigen ioBroker-Kanäle / -Zustände erstellen. In den meisten Fällen ist dies daran zu erkennen, dass der Knoten "Batterie" als einzelnes Element anstelle eines Ordners angezeigt wird.
+### Falsche Kanäle/Zustände
+Eine neue Version ist möglicherweise nicht in der Lage, die richtigen ioBroker-Kanäle/-Zustände zu erstellen. In den meisten Fällen ist dies daran zu erkennen, dass der Knoten „Batterie“ als einzelnes Element und nicht als Ordner angezeigt wird.
 
 Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ manuell.
 
 ## Changelog
-### 1.0.2
-* (Andreas Ruttkamp) 
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) interne Arbeiten
+
+### 1.0.4 (2023-04-24)
+* (Andreas Ruttkamp) Release Script added and update dev-components
+* (Andreas Ruttkamp) Vorbereitung neues Backend
+
+### 1.0.3 (2023-03-30)
+* (Andreas Ruttkamp) Release Script added and update dev-components
+
 ### 1.0.1
 * (Markus Lauff) fixing review comments - thanks to Apollon77
+
 ### 1.0.0
 * (Markus Lauff) 0.0.6 version proved stable and fulfilling minimal functional requirements, so releasing it as version 1.0.0 for productive usage
+
 ### 0.0.6
 * (Markus Lauff) adding further channels/states, major stability improvements
+
 ### 0.0.5
 * (Markus Lauff) some fixes / minor improvements
+
 ### 0.0.1
 * (Markus Lauff) initially bare minimum working release
 

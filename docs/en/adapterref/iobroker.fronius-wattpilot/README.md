@@ -45,6 +45,16 @@ By default, the adapter only writes the key points of the Wattpilot. If you want
 A documentation of the Datapoints is available here: https://github.com/joscha82/wattpilot/blob/main/API.md (Thanks to joscha82)
 
 ## Set states?
+The most important states you can set directly, these are AccessState, amp, cableLock, cae and mode. 
+
+**AccessState**: "Open" or "Wait"
+
+**amp**: 6-16
+
+**cableLock**: "Normal" or "AutoUnlock" or "AlwaysLock"
+
+**cae**: "true" or "false" (watch out this disables the cloud functionality of your WattPilot may need to restart)
+
 Yes, just write the state name followed by a semicolon and then the value in the set_state state.     
 For example:
 
@@ -65,6 +75,11 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.0 (2023-07-15)
+- Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
+- Fixed a number of issues concerning the static parser mode
+- Quality of life improvements --> you can now set the common states directly! (set_power, set_mode) are still available for compatibility reasons and for the dynamic parser mode
+
 ### 4.5.1 (2023-03-02)
 - Fixed issue #29 (custom states not working)
 
@@ -199,7 +214,7 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 ## License
 MIT License
 
-Copyright (c) 2022 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

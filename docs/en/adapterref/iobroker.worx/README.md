@@ -13,7 +13,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ### Instance settings
 
--   `App Email`: Your APP Username
+-   `App Email`: Your APP Username (eMail)
 -   `App Password`: Your APP Password
 -   `App Name`: Choose your device
 -   `Delay for EdgeCut`: When should EdgeCut start (example 5 seconds to lawn)
@@ -22,6 +22,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   `Distance and time in min and m`: Default h and km
 -   `Ping MQTT Connection every 10 minutes.`: Just to test. Please no longer than 1 hour!
+-   `Updating MQTT data after token update.`: Loads the Worx data after the refresh token. 24 additional queries per day/devices.
 
 ![Instance Settings img/instance_2.png](img/instance_2.png)
 
@@ -40,7 +41,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ### activityLog (Wire and Vision)
 
 -   `last_update`: Last update as timestamp
--   `manuell_update`: Loads the current activity log
+-   `manuell_update`: Loads the current activity log (automatically after status changes)
 -   `payload`: Activity log as JSON Table (for VIS or Blockly)
 
 ![Activity img/activity.png](img/activity.png)
@@ -49,12 +50,12 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   `actualArea`: Current
 -   `actualAreaIndicator`: Next array zone start
--   `area_0`: Start of zone 1 in meters (changeable)
--   `area_1`: Start of zone 2 in meters (changeable)
--   `area_2`: Start of zone 3 in meters (changeable)
--   `area_3`: Start of zone 4 in meters (changeable)
--   `startSequence`: Array zone start (0-9 events) e.g. Start in Zone 2 only [2,2,2,2,2,2,2,2,2,2] (changeable)
--   `zoneKeeper`: Safe driving in narrow zone crossings (as of Firmware 3.30) (changeable)
+-   `area_0`: Start of zone 1 in meters (array=0) (changeable)
+-   `area_1`: Start of zone 2 in meters (array=1) (changeable)
+-   `area_2`: Start of zone 3 in meters (array=2) (changeable)
+-   `area_3`: Start of zone 4 in meters (array=3) (changeable)
+-   `startSequence`: Array zone start (0-9 events) e.g. Start in Zone 3 only [2,2,2,2,2,2,2,2,2,2] (changeable)
+-   `zoneKeeper`: Safe driving in narrow zone crossings (Areas must be created) (as of Firmware 3.30) (changeable)
 
 ![Area img/areas.png](img/areas.png)
 
@@ -62,13 +63,13 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   E.g. time setting for wednesday
 
-    -   `wednesday.borderCut`: With or without bordercut (Change value without delay)
-    -   `wednesday.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay)
-    -   `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 (Change value without delay)
-    -   `calJson_sendto`: If all datapoints are set, then press button to send (with a 1,1 second delay). The mower will now mow for 30 minutes
-    -   `calJson_tosend`: This data is sent to Mqtt (Both mowing schedule/is set automatically). You can also create this JSON yourself.
-    -   `calendar.calJson`: Mowing schedule weekday name w/o number (mowing schedule 1/is set automatically - for wire only)
-    -   `calendar.calJson2`: Mowing schedule weekday name with number (mowing schedule 2/is set automatically - for wire only)
+    -   `wednesday.borderCut`: With or without bordercut (Change value without delay) (changeable)
+    -   `wednesday.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable)
+    -   `wednesday.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
+    -   `calJson_sendto`: If all datapoints are set, then press button to send (with a 1,1 second delay). The mower will now mow for 30 minutes (changeable)
+    -   `calJson_tosend`: This data is sent to Mqtt (Both mowing schedule/is set automatically). You can also create this JSON yourself. (changeable)
+    -   `calendar.calJson`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 1/is set automatically - for wire only) (changeable)
+    -   `calendar.calJson2`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 2/is set automatically - for wire only) (changeable)
 
 ![Folder img/calendar.png](img/calendar.png)
 
@@ -76,11 +77,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   Off Limit Module (Wire and Vision)
 
-    -   `DF.OLMSwitch_Cutting`: Forbidden Zones true-on/false-off
-    -   `DF.OLMSwitch_FastHoming`: Fast return to the charging station true-on/false-off
+    -   `DF.OLMSwitch_Cutting`: Prevents magnetic tape from being run over - true-on/false-off
+    -   `DF.OLMSwitch_FastHoming`: Fast return to the charging station - true-on/false-off
 
 -   ACS Module (Wire only)
-    -   `US.ACS`: 1-on/0-off
+    -   `US.ACS`: Enable or disable ACS - 1-on/0-off
 
 ![Module img/module.png](img/module.png)
 
@@ -129,9 +130,22 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ![Mower img/mower_1.png](img/mower_1.png)
 
 -   `firmware`: Current installed firmware (wire & Vision/readonly)
--   `firmware_available`: Available firmware (wire/readonly)
--   `firmware_available_all`: All available firmware (wire/readonly)
--   `firmware_available_date`: Date available firmware (wire/readonly)
+-   `firmware_available`: Available firmware (wire & Vision/readonly)
+-   `firmware_available_all`: Last available firmware as JSON - This JSON will be updated when a new update is available (wire & Vision/readonly)
+
+```json
+{
+    "mandatory": false,
+    "product": {
+        "uuid": "1236ll8d-0000-0000-9999-07ff6690003f",
+        "version": "3.30.0+1",
+        "released_at": "2023-05-24",
+        "changelog": "•\tSupport for new models \tWR166E and WR184E\n•\tImproved Grass cutting coverage\n•\tImproved ACS\n•\tAdded Zone Keeper function (need to be enabled by app)\n•\tImproved wheel torque algorithm\n• \tNew FML firmware\n•\tFixed \"FML\" and \"Radiolink\" Activation problem\n•\tFixed some translations error\n•\tRain delay can now be cleared pressing START / HOME button, (1 minute after countdown has started)\n•\tImproved PRO Battery management\n• \tImproved boundary wire recognition\n• \tFixed border cut when zones are active\n• \tNew wifi firmware for board HW REV > 7\n\nThe Worx Landroid team would like to thank our amazing beta testers, with hundreds of hours of their own free time to make this firmware possible."
+    }
+}
+```
+
+-   `firmware_available_date`: Date available firmware - Dummy 1970-01-01 when the adapter is reinstalled and no update is available (wire & Vision/readonly)
 -   `gradient`: Gradient in grad (wire & Vision/readonly)
 -   `inclination`: Inclination in grad (wire & Vision/readonly)
 -   `last_command`: Last Request from iobroker or APP as JSON Table (wire & Vision/readonly)
@@ -142,7 +156,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Mower img/mower_2.png](img/mower_2.png)
 
--   `oneTimeJson`: One-time mowing as JSON
+-   `oneTimeJson`: One-time mowing as JSON (wire & Vision/changeable)
 
 ```json
 {
@@ -153,10 +167,17 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 -   `oneTimeStart`: One-time mowing start "first fill oneTimeWithBorder and oneTimeWorkTime" - with a 1,1 second delay (wire & Vision/changeable)
 -   `oneTimeWithBorder`: With bordercut - Change value without delay (wire & Vision/changeable)
--   `oneTimeWorkTime`: Worktimemax. 8h in 30 minute steps - Change value without delay (wire & Vision/changeable)
+-   `oneTimeWorkTime`: Worktime max. 8h in 30 minute steps - Change value without delay (wire & Vision/changeable)
 -   `online`: Mower online (wire & Vision/readonly)
 -   `partyModus`: Partymodus turn on/off (wire & Vision/changeable)
 -   `pause`: Mower break turn on/off (wire & Vision/changeable)
+-   `reset_battery_time`: reset battery charges in 2 steps (wire & vision/changeable)
+-   `reset_battery_time_approved`: Confirm reset battery charges - `reset_battery_time` must be set to true (wire & vision/modifiable)
+-   `reset_blade_time`: reset blade working time in 2 steps (wire & vision/changeable)
+-   `reset_blade_time_approved`: confirm reset blade working time - `reset_battery_time` must be set to true (wire & vision/changeable)
+
+![Mower img/mower_3.png](img/mower_3.png)
+
 -   `sendCommand`: Send cmd command (wire & Vision/changeable)
 
 ```json
@@ -204,8 +225,6 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 }
 ```
 
-![Mower img/mower_3.png](img/mower_3.png)
-
 -   `torque`: Wheel torque Range -50->50 (wire & Vision/changeable)
 -   `totalBladeTime`: Total blade time (wire & Vision/readonly)
 -   `totalDistance`: Total distance (wire & Vision/readonly)
@@ -233,14 +252,33 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Vision img/paused_vision.png](img/paused_vision.png)
 
+### info_mqtt (Wire and Vision)
+
+-   `incompleteOperationCount`: Total number of operations submitted to the connection that have not yet been completed. Unacked operations are a subset of this.
+-   `incompleteOperationSize`: Total packet size of operations submitted to the connection that have not yet been completed. Unacked operations are a subset of this.
+-   `unackedOperationCount`: Total number of operations that have been sent to the server and are waiting for a corresponding ACK before they can be completed.
+-   `unackedOperationSize`: Total packet size of operations that have been sent to the server and are waiting for a corresponding ACK before they can be completed.
+-   `last_update`: Last update from token
+-   `next_update`: Next update from token
+-   `online`: Status MQTT Connection (false=offline/true=online)
+
+![Vision img/mqtt_info.png](img/mqtt_info.png)
+
 ## Changelog
 
 ### **WORK IN PROGRESS**
 
+-   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
+-   (Lucky-ESA) Added reset blade time and battery time
+-   (Lucky-ESA) Added ping after refresh token
+-   (Lucky-ESA) Added german description
+-   (TA2k) Changed firmware request
+-   (Lucky-ESA) Changed auth-endpoint
+-   (Lucky-ESA) Some bug fixes
 -   (Lucky-ESA) Fix unique mqtt clientid
 -   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
 -   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
--   (Lucky-ESA) Preparation new Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+-   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
 
 ### 2.2.0 (2023-06-27)
 

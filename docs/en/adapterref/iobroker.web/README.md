@@ -15,9 +15,9 @@ Web server on the base of Node.js and express to read the files from ioBroker DB
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Tuning Web-Sockets
-On some web-sockets clients there is performance problem with communication. 
-Sometimes this issue is due to fallback of socket.io communication on long polling mechanism.
-You can set option *Force Web-Sockets* to force using only web-sockets transport.
+On some web-sockets clients, there is a performance problem with communication. 
+Sometimes this issue is due to the fallback of socket.io communication on long polling mechanism.
+You can set the option *Force Web-Sockets* to force using only web-sockets transport.
 
 ## Let's Encrypt Certificates
 Read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
@@ -28,7 +28,7 @@ The extension is URL handler, that will be called if such URL request appears.
 The extensions look like the normal adapter, but they have no running process 
 and will be called by web server.
 
-E.g. the user can activate special proxy adapter and reach other devices (like webcams) in the same web server.
+E.g., the user can activate a special proxy adapter and reach other devices (like webcams) in the same web server.
 It is required to let all services be available under one web server.
 
 Web-extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
@@ -37,10 +37,10 @@ You can read more about web-extensions [here](WEB-EXTENSIONS-HOWTO.md).
 
 ## Brute-force protection
 If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
-After 15th wrong attempt the user must wait 1 hour.
+After the 15th wrong attempt, the user must wait 1 hour.
 
 ## "Stay logged in" option
-If this options is selected the user stays logged in for one month.
+If this options is selected, the user stays logged in for one month.
 If not, the user will stay logged in for the configured "login timeout".
 
 ## Access state's values
@@ -82,6 +82,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.0.2 (2023-07-07)
+* (bluefox) Updated packages
+
 ### 6.0.1 (2023-03-20)
 * (bluefox) Removed letsencrypt handling from web adapter
 
@@ -92,7 +95,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) Allowed deletion of fullcalendar objects
 
 ### 5.5.1 (2023-02-25)
-* (bluefox) Allowed to read projects of vis-2-beta
+* (bluefox) Allowed reading projects of vis-2-beta
 
 ### 5.5.0 (2023-02-15)
 * (bluefox) Added special end-points for app authentication
@@ -104,7 +107,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 * (bluefox) Corrected GUI error
 
 ### 5.4.0 (2022-12-22)
-* (bluefox) Used new version of socket classes
+* (bluefox) Used a new version of socket classes
 
 ## License
 The MIT License (MIT)

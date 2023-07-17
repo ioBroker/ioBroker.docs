@@ -21,14 +21,28 @@ Adapter for LG ThinQ
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+* (Lucky-ESA) Added automatic terms acceptance
+* (Lucky-ESA) Added 401 Thinq1 device
+* (Lucky-ESA) Added 101 Thinq1 device
+* (TA2k) Bugfix
+
 ### 0.1.4
-* Added warning for not supported devices
+
+* (TA2k) Added warning for not supported devices
+
 ### 0.1.1
-* Added AC Device 401 thinq2
-* Bugfix
+
+* (TA2k) Added AC Device 401 thinq2
+* (TA2k) Bugfix
+
 ### 0.1.0
-* Added MQTT connection for live status updates
+
+* (TA2k) Added MQTT connection for live status updates
+
 ### 0.0.3
+
 * (TA2k) initial release
 
 ## License

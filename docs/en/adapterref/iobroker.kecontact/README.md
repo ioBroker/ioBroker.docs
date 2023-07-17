@@ -99,7 +99,7 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.1 (2023-07-10)
 * (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
 
 ### 2.0.0 (2023-06-26)
@@ -124,11 +124,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) handle message at wallbox startup
 * (Sneak-L8) catch error when UDP connection got lost (sentry IOBROKER-KECONTACT-1C)
 * (Sneak-L8) update url and regex to Keba firmware
-
-### 1.4.1 (2022-05-30)
-* (Sneak-L8) separate states for charging and discharging battery storage
-* (Sneak-L8) additional states to (de)authorize or unlock charging station and set date/time
-* (Sneak-L8) fix unsubscribing foreign states (sentry IOBROKER-KECONTACT-10)
 
 ## Legal
 

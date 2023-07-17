@@ -3,69 +3,109 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: zbejmqSBx6zSdGTk14KEC5BhMxHrKABP/OtBbL2wL5w=
+hash: liLpYUbAoBOrKz9+OghjC2kHxQWaJ1omE17aHHuvEng=
 ---
 ![标识](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.doorbird.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.doorbird.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.doorbird.svg)
-![测试](https://travis-ci.org/BuZZy1337/ioBroker.doorbird.svg?branch=master)
-![新PM](https://nodei.co/npm/iobroker.doorbird.png?downloads=true)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
+![国家公共管理](https://nodei.co/npm/iobroker.doorbird.png?downloads=true)
+![贝塔](https://img.shields.io/npm/v/iobroker.doorbird.svg?color=red&label=beta)
+![稳定的](http://iobroker.live/badges/doorbird-stable.svg)
+![已安装](http://iobroker.live/badges/doorbird-installed.svg)
 
 # IoBroker.doorbird
+![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.doorbird/workflows/Test%20and%20Release/badge.svg)
+
+## 版本
+## 什么是门鸟？
+DoorBird 是一款门对讲机，兼具门铃和安全系统的功能。该产品安装在房子的外面，通常是门铃所在的地方，并配有一个门铃按钮，上面有一个摄像头。
+
 ＃＃ 配置
-1. 输入适配器应在其上侦听来自 Doorbird 设备的事件的 IP。
+1. 输入适配器应侦听来自 Doorbird 设备的事件的 IP。
 
 （这通常是您的 ioBroker 主机的 IP）。
-适配器会尝试使用正确的 IP 为您预填充该字段。如果预填的 IP 不是您的 ioBroker 主机的 IP，请将其更改为正确的 IP。
+适配器会尝试为您预先填充正确的 IP 字段。如果预填的 IP 不是您的 ioBroker 主机的 IP，请将其更改为正确的 IP。
 
-2. 端口预定义为“8100”。如果端口已被其他服务使用，您可以更改它。
+2. 端口预定义为“8100”。如果该端口已被其他服务使用，您可以更改它。
 
-只需尝试使用此端口运行适配器。如果端口不可用，您将在启动适配器时收到错误消息。然后回到这里并更改端口。
+   只需尝试使用此端口运行适配器即可。如果端口不可用，您将在启动适配器时收到错误消息。然后回到这里并更改端口即可。
 
-3. 输入您的 Doorbird 设备的 IP。您可以单击输入字段左侧的“搜索图标”。单击该图标后，将出现配置屏幕顶部的一条消息。现在您有 60 秒的时间来按下 Doorbird 设备上的响铃按钮。适配器尝试检测 IP 并为您填写所有字段。
+3. 输入 Doorbird 设备的 IP。您可以单击输入字段左侧的“搜索图标”。单击该图标后，配置屏幕顶部会出现一条消息。现在您有 60 秒的时间按下 Doorbird 设备上的响铃按钮。适配器尝试检测 IP 并为您填写所有字段。
 4. Doorbird 的设备 ID（不是 IP！）。
-5. 需要在 Doorbird 设备上有 API 权限的用户名。
+5.需要在Doorbird设备上拥有API权限的用户名。
 6. 在字段 5 中输入的用户名密码。
 
 ![截屏](../../../en/adapterref/iobroker.doorbird/img/configscreen.png)
 
-在配置对话框中输入所有必需的信息后，单击“保存并关闭”。
+在配置对话框中输入所有必需信息后，单击“保存并关闭”。
 适配器现在应该重新启动，您就可以开始了！
 
+## 访问 Motion 和 DoorBell 的快照
+使用以下 URL 获取当前快照：
+
+```
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
+http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
+```
+
+示例：
+
+```
+http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
+```
+
+## 兼容设备
+|设备|硬件版本 |固件版本 |
+| -------------------------------- | ---------------- | ---------------- |
+| DoorBird 视频门口站 D10x | 1.00 及以上 | 000099 及以上 |
+| DoorBird 视频门口站 D20x | 1.00 及以上 | 000099 及以上 |
+| DoorBird 视频门口站 D21x | 1.00 及以上 | 000108 及以上 |
+|鸟卫 B10x | 1.00 及以上 | 000099 及以上 |
+| DoorBird 视频门禁站 D11x | 1.00 及以上 | 000130及以上 |
+
 ## Changelog
-### 0.1.5 (2018-09-18)
-* (BuZZy1337) Check response of Doorbird when triggering relays
-* (BuZZy1337) Check if any favorite has to be updated (For example when adapter address or port changes)
-* (BuZZy1337) Added state for restarting DoorBird Device (There is a bug in DoorBird Firmware. DoorBird will fix it with next FW Update!)
-* (BuZZy1337) Change some Code for working more with responses from DoorBird
 
-### 0.1.0 (2018-09-08)
-* (BuZZy1337) "public release"
-* (BuZZy1337) Changed Adapter address option from dropdown list to input field
-* (BuZZy1337) Added Support for triggering Doorbird-Relays
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.5 (2023-07-05)
 
-### 0.0.4
-* (BuZZy1337) DO A COMPLETE REINSTALL OF THE ADAPTER (DELETE AND INSTALL THE ADAPTER AGAIN!)
-DELETE ALL IOBROKER SCHEDULES AND THEN ALL IOBROKER FAVORITES IN YOUR DOORBIRD APP BEFORE STARTING 0.0.4!
-* (BuZZy1337) Added support for more than one Doorbell Button
-* (BuZZy1337) Encrypted saving of Doorbird Password
-* (BuZZy1337) Detect and create Favorites & Schedules on the Doorbird Device.
-* There is a Bug in the Doorbird Firmware for the Motion schedule! You can delete and set the Schedule for the Motion sensor in the App - that's a workaround for now.
+-   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]
 
-### 0.0.3
-* (BuZZy1337) Added possibility to choose the AdapterIP Address
+### 1.0.4 (2023-07-05)
 
-### 0.0.2
-* (BuZZy1337) Just added the info that the Adapter is not ready yet .. just to be sure! ;)
+-   (Schmakus) Interim solution because deletion of duplicate favorites
 
-### 0.0.1
-* (BuZZy1337) initial release
+### 1.0.2 (2023-07-04)
+
+-   (Schmakus) Hotfix because dev-mode was active
+
+### 1.0.1 (2023-07-04)
+
+-   (Schmakus) remove unused packages
+-   (Schmakus) added migration from older versions to delete unused snapshot states
+-   (Schmakus) some code improvements
+
+### 1.0.0 (2023-07-04)
+
+-   (Schmakus) Re-new with adapter creator
+-   (Schmakus) Changed snapshot handling! Find snapshot at ioBroker Files now!
+-   (Schmakus) Support take snapshot manually has been added
+-   (Schmakus) Support for light-On has been added
 
 ## License
+
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 BuZZy1337 <buzzy1337@outlook.de>
+Copyright (c) 2023 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

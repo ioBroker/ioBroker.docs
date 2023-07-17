@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
+hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
@@ -52,6 +52,16 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 Документация по точкам данных доступна здесь: https://github.com/joscha82/wattpilot/blob/main/API.md (спасибо joscha82)
 
 ## Установить состояния?
+Наиболее важные состояния, которые вы можете установить напрямую, это AccessState, amp, cableLock, cae и mode.
+
+**AccessState**: «Открыть» или «Подождать».
+
+**усилитель**: 6-16
+
+**cableLock**: «Обычный», «Авторазблокировка» или «Всегда блокировка».
+
+**cae**: «true» или «false» (обратите внимание, что это отключает облачные функции вашего WattPilot, возможно, потребуется перезапуск)
+
 Да, просто напишите имя состояния, за которым следует точка с запятой, а затем значение в состоянии set_state.
 Например:
 
@@ -72,6 +82,19 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.0 (2023-07-15)
+- Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
+- Fixed a number of issues concerning the static parser mode
+- Quality of life improvements --> you can now set the common states directly! (set_power, set_mode) are still available for compatibility reasons and for the dynamic parser mode
+
+### 4.5.1 (2023-03-02)
+- Fixed issue #29 (custom states not working)
+
+### 4.5.0 (2023-02-19)
+- Fixed random log messages
+- Fixed a type conflict at the set_state state
+- Commits from now on should be signed
+
 ### 4.4.0 (2023-02-16)
 - known states will now be updated even if the dynamic parser is enabled
 
@@ -180,25 +203,25 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 - Did some changes
 - Did some more changes
 
-### v0.0.5 (2020-01-01)
+### 0.0.5 (2020-01-01)
 - Better Code
 
-### v0.0.4 (2020-01-01)
+### 0.0.4 (2020-01-01)
 - Parser option added
 
-### v0.0.3 (2020-01-01)
+### 0.0.3 (2020-01-01)
 - Parser added
 
-### v0.0.2 (2020-01-01)
+### 0.0.2 (2020-01-01)
 - Bug fixed
 
-### v0.0.1 (2020-01-01)
+### 0.0.1 (2020-01-01)
 - Initial release
 
 ## License
 MIT License
 
-Copyright (c) 2022 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

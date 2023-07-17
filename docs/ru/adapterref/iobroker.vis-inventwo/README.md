@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: zbuKROSjKbUgOtcrUsAKqzheswCFfLhR6/bn6DZiwHo=
+hash: 7tIQPvhFRj4TSdKlG/nUyUSxVccx5iy6jjrmsc741EA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -19,26 +19,26 @@ hash: zbuKROSjKbUgOtcrUsAKqzheswCFfLhR6/bn6DZiwHo=
 
 # IoBroker.vis-inventwo
 ## Виджеты для адаптера ioBroker.vis
-Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons и многое другое...<br> Mit unserem Widgets-Set имеет свободную индивидуальную визуализацию, предназначенную для умного дома.
+Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons и многое другое...<br> Mit unserem Widgets-Set имеет свободный доступ к отдельным визуальным элементам для умного дома, установленного в нем.
 
-![Универсальный и мультивиджет Vorschau](https://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+![Универсальный и мультивиджет Vorschau](http://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
 
 Аналоговый Урен [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Аналог Форшау Урен](https://resources.inventwo.com/github/inventwo/preview_clocks.png)
+![Аналог Форшау Урен](http://resources.inventwo.com/github/inventwo/preview_clocks.png)
 
 Цифровой Урен [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Форшау Диджитал Урен](https://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
+![Форшау Диджитал Урен](http://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
 
 Палитра цветов [Дополнительная информация](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Форшау Colorpicker](https://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+![Форшау Colorpicker](http://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
 
 ###### ..аб v 2.0.0
 <table><tr><td><center><b>Универсальный<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Мульти<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Изображение<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Стол<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Список<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Шатер<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Переключатель<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Слайдер<br> вертикальный</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Слайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Цветслайдер<br> горизонтальный</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Переключить переключатель<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Основной переключатель<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Флажок/<br> Переключатель</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Палитра цветов<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
-Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Адаптер NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
+Бесплатно Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Адаптер NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
 ![Бейшпиль](http://resources.inventwo.com/github/inventwo/Preview.png)
 
@@ -77,7 +77,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
 - JSON-Tabelle: Standardsortierung einer Spalte [# 286] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/286)
 - Универсальный и мультивиджетный виджет ViewInPopUp: Прокрутите вид сверху [#344](https://github.com/inventwo/ioBroker.vis-inventwo/issues/344)
-- Универсальный и мультивиджет HTTP: ссылка на новую вкладку geöffnet werden [#363] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
+- Универсальный и мультивиджет HTTP: ссылка на новую вкладку geöffnet werden [#363](https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
 
 - ИСПРАВЛЕНО: JSON-Tabelle funktioniert nun auch wenn nur ein einzelnes Objekt statt Array mit Objekten im Datenpunkt steht [#319] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/319)
 - ИСПРАВЛЕНО: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376] (https://github.com/inventwo/ioBroker.vis-inventwo/issues/376)
@@ -106,7 +106,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 - Активный/неактивный текст для универсального и мультивиджета
 - Colorslider CIE Wert mit eckigen Klammern
 - Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
-- JSON Tabelle: Разнообразный и понятный текст
+- JSON Tabelle: Разночтения и изменения текста
 
 ## 3.1.3
 - Исправлена ошибка
@@ -197,7 +197,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Исправлена ошибка
 
 ## 2.9.0
-- Multi-Widget-Status показывает статус виджета, отображая дату и количество просмотров
+- Multi-Widget-Status показывает неиспользованный виджет-Typ nach Datenpunkten oder Views prüfen
 - Optionen Zum Automaticischen Schließen des Popups hinzugefügt
 - Исправление ошибок
 
@@ -208,7 +208,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Проблема с Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
 
 ## 2.8.1
-- Пользуйтесь: Color Slider RGB актуализируйте в Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
+- Необязательный: Ползунок цвета RGB актуализируется с помощью Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
 
 ## 2.8.0
 - Просмотр во всплывающем окне для универсального и многофункционального виджета
@@ -226,11 +226,11 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Fehler von vorheriger Версия behoben
 
 ## 2.7.8
-- Проблема с Textausrichtung behoben
+- Проблема с Textausrichtung behofen
 - Проблема с Bildgröße im Image-Widget behoben
 
 ## 2.7.7
-- Проблема мит дер Bildgröße behoben
+- Проблема с Bildgröße behoben
 - Проблема с дем Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
 ## 2.7.6
@@ -256,7 +256,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Фелер в Radiobutton mit Bildfarbe behoben
 - Fehler behoben: Двойные клики Bei State mit Verweildauer
 - Hovereffect для кнопок eingefügt
-- Проблема с анализом слайдера.
+- Проблема с запросом на слайдервертс
 - Слайдер Text anhängen möglich
 
 ## 2.7.1
@@ -279,7 +279,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 
 . JSON Table anzeige von Millisekunden moglich
 
-- JSON Tabelle Platzhalter wenn Eintrag leer ist
+- JSON Tabelle Platzhalter wenn Eintrag ist ist
 - JSON Tabelle Spalten können per Klick sortiert werden
 
 ## 2.5.11
@@ -343,7 +343,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.3.0
 - Проблема behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
-- Универсальный и мульти-виджет-атрибут, который позволяет активировать виджет.
+- Универсальный и мульти-виджет-атрибут, позволяющий активировать виджет.
 
 ## 2.2.3
 - Фелер в JSON Tabelle behoben
@@ -358,7 +358,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 ## 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezigt
 - Новый виджет: бегущая строка (Laufschrift)
-- Universal und Multi State Verweildauer hinzugefügt
+- Универсальное и мультигосударственное Verweildauer hinzugefügt
 - List Widget Abstand zwischen den Einträgen kann eingestell werden
 
 ## 2.1.0
@@ -370,7 +370,7 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Widget-Untertitel behoben
 
 ## 2.0.0
-- Переключатель, кнопка, навигационный и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
+- Переключатель, кнопка, навигация и фоновый виджет (необходимо использовать виджет) с помощью универсального виджета -> универсального виджета.
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
 - Image Widget kann nun auf Datenpunkt prüfen
 - Радиокнопки hinzugefügt
@@ -431,10 +431,10 @@ die Widgets einmal EINZELN im Editor angeklickt werden.
 - Добавлен виджет слайдера
 - Добавлена возможность зеркального отображения
 - Добавлены новые иконки
-- Изменены виджеты кнопок для использования шрифта и параметров текста по умолчанию.
+- Изменены виджеты кнопок, чтобы использовать параметры шрифта и текста по умолчанию.
 
 ### 1.0.0
-- Фон виджета и непрозрачность содержимого, переключатель может быть изменен с логического на значение, изменены значки с белого на черный, добавлен бесшовный фон.
+- Фон виджета и непрозрачность содержимого, переключатель может быть изменен с логического на значение, изменены значки с белого на черный, добавлены бесшовные фоны
 
 ### 0.1.2
 - Исправление ошибок
@@ -485,3 +485,7 @@ SOFTWARE.
 ---
 
 Icons from Icons8 https://icons8.com/
+
+---
+
+Copyright (c) 2020-2023 jkvarel jkvarel@inventwo.com

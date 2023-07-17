@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-ess-home/README.md
 title: ioBroker.lg-ess-дом
-hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
+hash: p6Wnv8ekFf7E+Df8Fc+aiEHNI3jmEupjw1Wdy9bP7RI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lg-ess-home/admin/lg-ess-home.png)
 
@@ -22,11 +22,17 @@ hash: 4GNoYej3oFgZU3Caa/hTX61SFlVk0Tli/uFXc5ZzeE4=
 
 ## Конфигурация
 ### Получение пароля
+#### Возможность номер 1
+Пароль представляет собой MAC-адрес LAN-интерфейса ESS в нижнем регистре и без :.
+MAC-адрес можно прочитать в Fritzbox (или другом маршрутизаторе). (Спасибо, Рисфа)
+
+#### Возможность номер 2
 1. Загрузите файл [LG_Ess_Password.exe] (https://github.com/Morluktom/ioBroker.lg-ess-home/tree/master/tools)
 1. Подключите компьютер к WLAN системы LG_ESS. (пароль WLAN указан на заводской табличке)
 1. Запустите LG_Ess_Password.exe (требуется как минимум .Net Framework 4.5)
 1. Запишите свой пароль
 
+#### Возможность номер 3
 Для тех, кому не нравится exe: (Спасибо grex1975)\ вы можете использовать любой REST-клиент для получения пароля:
 
 1. подключитесь к WLAN LG_ESS

@@ -14,11 +14,14 @@ The SMA Energy Meter Adapter receives multicast datagrams from the Energy Meter 
 ## Administration / Admin page
 
 ![Adapter_admin_config](img/adminpage1-en.png)
-![Adapter_admin_config2](img/adminpage2-en.png)
 
 - Tab Multicast Settings
   - Multicast IP: The default setting and predefined by SMA is the IP address 239.12.255.254.
   - Multicast Port: The default setting and predefined by SMA is the UDP port 9522.
+  - Own Network Interface IPs: Select box showing all available Network Interface IPv4s on ioBroker Server. Select the Network Interface IP to listen for Multicasts from this box.
+  - Selected Network Interface IP: Currently selected Network Interface IP listening for Multicast messages. IP 0.0.0.0 means that the adapter listens on all available Network Interfaces.
+
+![Adapter_admin_config2](img/adminpage2-en.png)
 
 - Tab Options
   - Extended Mode: Provides more detailed information such as reactive power, apparent power, cosphi, voltages, amperage etc. This setting is disabled by default.
@@ -54,6 +57,13 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+
+- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (ticaki) Fix: Catch interface errors
+- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
+
 ### 0.7.0 (2023-03-14)
 
 - (pdbjjens) New: Configurable data point update intervals to reduce system load

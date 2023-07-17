@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
+hash: irY/iuda19liBWKDfloda8VwtnnwEfOLTAcoS4Ye7sI=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -92,7 +92,7 @@ hash: Zu80z+0anvbg+VvMiP6+kNzN/KHkbNbj3TAJjURPWFk=
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
 Html 模板可用于显示任何 html 代码。
-此外，您还可以使用此小部件显示图像或 iframe。
+此外，您也可以使用此小部件显示图像或 iframe。
 
 ### 百叶窗
 ![百叶窗](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
@@ -101,6 +101,46 @@ Html 模板可用于显示任何 html 代码。
 
 ### 彩色灯
 ### 时间选择器
+## 向导映射
+### 一景一房
+- 恒温器 => 带设备名称的小组件恒温器（实际、所需、湿度）
+- 灯开/关 => 带有设备名称的简单状态开/关
+- 调光器 => 简单状态
+- 百叶窗 => 带有名称的百叶窗
+- 温度 => 带图表的实际值（如果可能的话添加湿度）
+- 运动 => 具有特定图标的简单状态（男孩），只读，活动颜色 rgba(52,170,68,1)
+- Fire => 具有特定图标（火）的简单状态，只读，活动颜色“红色”
+- 洪水 => 具有特定图标（水）的简单状态，只读，活动颜色“蓝色”
+- 门 => 具有特定图标（门）的简单状态，只读，活动颜色“红色”
+- 滑块 => 简单状态
+- 锁定=>简单状态
+- Socket => 具有特定图标的简单状态
+- 媒体播放器=>媒体播放器
+- 音量=>带有特定图标的简单状态（音量）
+- 天气预报 => Openweathermap（仅当安装时）
+- 窗口 => 具有特定图标的简单状态（打开 => true，关闭 => false）
+
+### 一种视图 - 所有房间
+- 恒温器 => 带设备名称的小组件恒温器（实际、所需、湿度）
+- 灯开/关 => 开关和按钮开关
+- 调光器 => 开关和按钮滑块
+- 快门 => 开关和按钮百叶窗
+- 温度=>带有图表的开关和按钮信息
+
+-- 湿度 => 带图表的开关和按钮信息
+
+- Motion => 开关和按钮信息特定图标，只读，活动颜色 rgba(52,170,68,1)
+- Fire => ISwitch and Buttons nfo 特定图标（fire），只读，活动颜色“红色”
+- 洪水=>带有特定图标（水）的开关和按钮信息，只读，活动颜色“蓝色”
+- 门 => 带有特定图标（门）的开关和按钮信息，只读，活动颜色“红色”
+- 滑块 => 开关和按钮滑块
+- 锁=>开关和按钮开关
+- 插座 => 开关和按钮带有特定图标的开关
+- 媒体播放器 => 带有房间名称的媒体播放器（如卡）
+- 音量 => 带有特定图标（音量）的开关和按钮滑块
+- 天气预报 => Openweathermap 作为卡（仅当安装时）
+- 窗口=>带有特定图标的开关和按钮信息（打开=> true，关闭=> false）
+
 ＃＃ 去做
 - RGBW颜色控制器
 

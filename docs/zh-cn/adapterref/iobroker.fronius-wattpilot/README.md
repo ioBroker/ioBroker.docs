@@ -3,67 +3,77 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fronius-wattpilot/README.md
 title: ioBroker.fronius-wattpilot
-hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
+hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 ---
 ![标识](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.fronius-wattpilot.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.fronius-wattpilot.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.fronius-wattpilot.svg)
 ![安装数量](https://iobroker.live/badges/fronius-wattpilot-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/fronius-wattpilot-stable.svg)
 ![依赖状态](https://img.shields.io/david/tim2zg/iobroker.fronius-wattpilot.svg)
-![NPM](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)
 
 # IoBroker.fronius-wattpilot
-**测试：** ![测试和发布](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-非官方 Fronius Watt 试点 (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API 的准系统实施.基于 https://github.com/joscha82/wattpilot。
+非官方 Fronius Watt 试点的准系统实施 (https://www.fronius.com/de-ch/switzerland/solanergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API 。基于 https://github.com/joscha82/wattpilot。
 
 ＃＃ 如何安装：
-**我不对您的设备负责。使用此 API 可以直接访问设备，请注意。**
+**我不对您的设备负责。通过此API您可以直接访问设备，请小心。**
 
 ＃＃＃ **要求**
-- 完成 Fronius Watt pilot 应用程序的正常安装。记住密码！
-- 转到 Internet 选项卡并将您的 Pilot 连接到您的 Wi-Fi。
+- 完成 Fronius Watt Pilot 应用程序的正常安装。记住密码！
+- 转到“互联网”选项卡并将 Pilot 连接到 Wi-Fi。
 - 找出您的 WattPilot 的 IP 地址。
   - 选项 1：通过路由器的 Web-GUI。
   - 选项 2：通过 Wattpilot 应用程序：建立连接后，单击 Wi-Fi 名称。
 
-  您将看到一个页面，其中包含有关您的 Wi-Fi 连接的更多信息。记下IP地址。
+  您将看到一个页面，其中包含有关您的 Wi-Fi 连接的更多信息。记下 IP 地址。
 
 ### **iobroker.fronuis-wattpilot 适配器**
 - 现在您可以通过“适配器”页面定期安装 iobroker.fronius-wattpilot 实例。
-- 创建实例后，系统会提示您输入 WattPilot 的 IP 地址和密码。填写您之前注意到的值并保存配置。如果您已正确完成所有操作，适配器将在一段时间后变为绿色，您可以在对象选项卡中看到传入的数据。
+- 创建实例后，系统将提示您输入 WattPilot 的 IP 地址和密码。填写您之前注意到的值并保存配置。如果您正确完成了所有操作，适配器将在一段时间后变为绿色，您可以在对象选项卡中看到传入的数据。
 
-**强烈建议为您的 WattPilot 分配一个静态 IP。**
+**强烈建议为您的 WattPilot 分配静态 IP。**
 
 ## 我如何使用适配器...
-您可以像使用代理中的所有其他数据点一样使用此适配器的数据点。
+您可以像代理中的所有其他数据点一样使用此适配器的数据点。
 要获得一些想法，请参阅“示例”。
 
-[块示例](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) 如何测量您的太阳能电网输出并自动将 Pilot 调整到正确的电流值 (Amp) 以改善您的内部能源消耗。
-您可以通过复制示例的内容来简单地导入它，然后通过 Blockly 脚本右上角的“导入块”图标插入它。
+您可以通过 [块示例](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) 测量太阳能电网输出并自动将 Pilot 调整至正确的电流值 (Amp)，以改善内部能耗。
+您只需复制示例的内容即可导入它，然后通过 Blockly 脚本右上角的“导入块”图标插入它。
 
-## 适配器是什么？
-该适配器连接到 WattPilots WebSocket 并将传入数据分离到您可以非常舒适地使用的 ioBroker-datapoints 中。
+## 适配器有什么作用？
+该适配器连接到 WattPilots WebSocket 并将传入数据分离到 ioBroker 数据点中，您可以轻松使用。
 
 ## 获取状态
 默认情况下，适配器只写入 Wattpilot 的关键点。如果您想要 API 可以提供的所有可能值，请取消选中实例设置中的复选框。
 此处提供了数据点的文档：https://github.com/joscha82/wattpilot/blob/main/API.md（感谢 joscha82）
 
 ## 设置状态？
-是的，只需写下状态名称，后跟分号，然后是 set_state 状态中的值。
+您可以直接设置的最重要的状态是 AccessState、amp、cableLock、cae 和 mode。
+
+**访问状态**：“打开”或“等待”
+
+**安培**：6-16
+
+**cableLock**：“正常”或“自动解锁”或“始终锁定”
+
+**cae**：“true”或“false”（注意这会禁用您的 WattPilot 的云功能，可能需要重新启动）
+
+是的，只需写状态名称，后跟分号，然后写 set_state 状态中的值即可。
 例如：
 
-    amp;6
+    放大器；6
 
 **您可以直接通过 set_power 和 set_mode 状态控制“amp”和“lmo”状态。**
 
-## 这个烂摊子是什么意思？
-感谢 joscha82 我们知道：https://github.com/joscha82/wattpilot/blob/main/API.md
+## 这个混乱是什么意思？
+感谢 joscha82，我们知道：https://github.com/joscha82/wattpilot/blob/main/API.md
 
-## 开发者
-- [塞巴斯蒂安汉兹](https://github.com/SebastianHanz)
+## 开发人员
+- [SebastianHanz](https://github.com/SebastianHanz)
 - [tim2zg](https://github.com/tim2zg)
 - [derHaubi](https://github.com/derHaubi)
 
@@ -72,6 +82,19 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.0 (2023-07-15)
+- Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
+- Fixed a number of issues concerning the static parser mode
+- Quality of life improvements --> you can now set the common states directly! (set_power, set_mode) are still available for compatibility reasons and for the dynamic parser mode
+
+### 4.5.1 (2023-03-02)
+- Fixed issue #29 (custom states not working)
+
+### 4.5.0 (2023-02-19)
+- Fixed random log messages
+- Fixed a type conflict at the set_state state
+- Commits from now on should be signed
+
 ### 4.4.0 (2023-02-16)
 - known states will now be updated even if the dynamic parser is enabled
 
@@ -180,25 +203,25 @@ hash: /eSzdIpYtnNkZHhPmFlG2qootBGdQGbo1HJUOH6hYA4=
 - Did some changes
 - Did some more changes
 
-### v0.0.5 (2020-01-01)
+### 0.0.5 (2020-01-01)
 - Better Code
 
-### v0.0.4 (2020-01-01)
+### 0.0.4 (2020-01-01)
 - Parser option added
 
-### v0.0.3 (2020-01-01)
+### 0.0.3 (2020-01-01)
 - Parser added
 
-### v0.0.2 (2020-01-01)
+### 0.0.2 (2020-01-01)
 - Bug fixed
 
-### v0.0.1 (2020-01-01)
+### 0.0.1 (2020-01-01)
 - Initial release
 
 ## License
 MIT License
 
-Copyright (c) 2022 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

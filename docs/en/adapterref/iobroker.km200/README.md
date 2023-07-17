@@ -1,3 +1,15 @@
+
+# This adapter is DEPRECATED and will not be developed any further
+
+-----
+
+Currently there is no further development for this adapter planned. __Please migrate to ioBroker.ems-esp adapter__ which is maintained.
+If you miss any features at ioBroker.ems-esp open an issue at that repository (https://github.com/tp1de/ioBroker.ems-esp/issues).
+
+IoBroker.km200 will stay available for some time, but keep in mind, that it will not be adapted to  node 20 and upcoming js-controller v5.
+
+-----
+
 # ioBroker.km200
 
 ## for Buderus KM50/KM100/KM200/KM300 & Junkers/Bosch MB LANi
@@ -12,13 +24,13 @@
 
 [German manual](README_DE.md)
 
-The adapter supports the following heating system:
+The adapter supports the following heating systems:
   
 * Buderus with the [network adapters](https://www.buderus.de/de/produkte/catalogue/alle-produkte/7719_gateway-logamatic-web-km200-km100-km50) KM50, KM100, KM200 and KM300
 * Junkers with the [network adapter](https://www.bosch-smarthome.com/de/mblani) MB LANi
 * Bosch with the [Network Adapter](https://www.bosch-smarthome.com/en/mblani) MB LANi
 
-For access to the systems I use code originally developed by Andreas Hahn and described in his blog [entry here](https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe) and [entry there](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m).
+For access to the systems code is used originally developed by Andreas Hahn and described in his blog [entry here](https://www.andreashahn.info/2014/07/kernthema-am-eigenen-leibe) and [entry there](https://www.andreashahn.info/2014/08/easycontrol-pro-unter-der-lupe-oder-m).
 
 The heating system can be controlled via the Buderus website ([https://www.buderus-connect.de]) or by the 'EasyControl' app from your mobile phone. App and Buderus website also works with Junkers and Bosch heatings systems.
 
@@ -32,48 +44,58 @@ and the port address (Port 80 on the device, but if you changed it via a router 
 
 If you add an '!' at the end of the address the adapter will work in debug mode and provide a lot of information!
 
-Since the adapter must query the data from the system I have defined an update interval,
+Since the adapter must query the data from the system you must specify an update interval.
 This is set to a minimum of 5 minutes since every update requires a separate query.
 
-My system (2 heating circuits and a hot water circuit) provides more than 180 data points where I can not use most and some are double.
-
-That's why I introduced a black / push list to hide or show certain data.
+You can use theblack / push list to hide or show certain data and reduce the number of states.
 This list consists of strings similar to RegExp (which they are conbverted to by the adapter) and the services in the heater are then filtered with them afterwards.
 
 The syntax is that `+` at the very beginning means that this field should not be skiupped, even if another rule would block it.
 A `-` is like nothing and caiuses the mathced state to be blocked.
 each match is separated by `,` and can include `/` or `^` for the beginning, `*`which match everything and `$` at the end to match the end.
-The strings are case sensitive!!! If you like to know which states are found switch on debug mode and remove all blockings, then you will find all stated created and can block some unneeded date with block list.
+
+The strings are case sensitive. If you like to know which states are found switch on debug mode and remove all blockings, then you will see all states created and can block some unneeded data with block list.
 Examples: With `+*temp*` you can fade in everything that contains 'temp' and with `_Hourly$` you can block everything which has '_Hourly' at the end, both combined will block all _Hourly at end which do not have temp in their name.
 
-Mye list looks like `/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*` And hides about 90 of ~ 180 records my plant off.
+An example list looks like `/gateway*, /recordings*,*SwitchPrograms*,/HeatSource*, *HolidayModes*` and hides about 90 of ~ 180 records.
 
 There are two other schedules available now, the fast (for states polled faster than every 30 minutes) and slow for states which are polled on hours or multihours cycles.
-This allows you to track some  information like temperatures in 1-5 minute cycles and other items in normal 20 minute cycles. The ones which usually do not change wven within an hour (like _Daily$ or _Monthly$ and severyl other general data) do not need to be read even every 30 minutes because they will not change.
-THis strategy helps to get faster readings for important data and slower readings for not so important.
+
+This allows you to track some  information like temperatures in 1-5 minute cycles and other items in normal 20 minute cycles. The ones which usually dho not change even within an hour (like _Daily$ or _Monthly$ and several other general data) do not need to be read even every 30 minutes because they will not change. THis strategy helps to get faster readings for important data and slower readings for not so important.
 
 The data for recording is (small) history data within the heating system. There are 3 different available: _Hourly, _Daily and Monthly.
 Hourly covers noprmally the last 48 hours. _Daily the last 2 month and Monthly not more than a year, all from current time of readout. Some data points do show less data points.
-You have to understand that the adapter collects the data from 3 individual calls for each recorded datapoint!  
+You have to understand that the adapter collects the data from 3 individual calls for each recorded datapoint.  
 
-`switchPrograms` can be reat and written now as well, it's a JSON-String which reflects an Array of weekdays, Please don't change format, just the numbers when uploading. It seems the numbers are minutes can be set only to 15 minutes increments!
+`switchPrograms` can be read and written now as well, it's a JSON-String which reflects an Array of weekdays. Please don't change format, just the numbers when uploading. It seems the numbers are minutes that can be set only to 15 minutes increments.
 
-Since V 1.1.2 the brackets and commas can be omitted and the blocked / pushed values ​​can only be written with comma!
+Since V 1.1.2 the brackets and commas can be omitted and the blocked / pushed values ​​can only be written with comma.
 
-The system works with services that are structured like a directory tree and this is replicated in the adapter.
 
 ### Important if km200 is updated from version 1.1.*
 
-If you have entered the 64-character access-key you don't need the password, but it should not be left blank, just write in anything!
+If you have entered the 64-character access-key you don't need the password, but it should not be left blank, just fill in anything.
 
 ## Important
-* Adapter requires node >= v6.1.* 
+* Adapter requires node >= v16.*.* 
 
 ## Todo
 
 * Additional language support and text translation
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.0.5 (2023-07-09)
+* (McM1957) Missing dependy to iobroker/adapter-core has been added
+* (McM1957) Eslint has been activated and required adaptions to code have been done.
+* (McM1957) dependencies have been updated
+
+### 2.0.4
+* fixed issue with js-controller version 5
 
 ### 2.0.3
 
@@ -88,7 +110,7 @@ If you have entered the 64-character access-key you don't need the password, but
 * Changed readout for 'mins' units to enable these fields for read/write
 * Implemented 2 additional time schedule where you can define fast cycle (1-30 minutes), normal with 30-60 minutes and slow with 1-24 hours. You define the lists whjich go to fast or slow in a similar way than the blocklist.
 * Blocklist syntax changed sligly. `/` or `^` first is for from beginning, `*` can now be everywhere and `$` can be the end
-* `switchPrograms` are supported now for read and write!  
+* `switchPrograms` are supported now for read and write!
 
 ### 1.2.4
 
@@ -105,7 +127,6 @@ If you have entered the 64-character access-key you don't need the password, but
 * Adapter uses other module and removes need for mcrypt which makes it working on all platforms
 * Adapter can now have debug mode set via '!' at end of address
 * Adapter needs node >=v6
-
 
 ### 1.2.0
 * Integrating Schupu's changes and also make the adapter ready for compact mode
@@ -157,7 +178,8 @@ Cleaning of objects / states for current adapters instance which are not part of
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 Frank Joke <frankjoke@hotmail.com>
+Copyright (c) 2023 iobroker-community-adapters
+Includes code copyright (c) 2016-2019 Frank Joke (frankjoke@hotmail.com)
 Includes communications and crypto routines copyright (c) 2014 Andreas Hahn km200@andreashahn.info
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
