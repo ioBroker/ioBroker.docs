@@ -330,6 +330,10 @@ Hierbei wird man durch die Installation geführt und muss währenddessen einige 
 
 <span style="color:red">**ACHTUNG! - Es darf kein root Passwort vergeben werden.**</span>
 
+Hinweis:
+
+**iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
+
 
 <details>
 <summary>Bilderserie Debian Install</summary>
@@ -612,6 +616,10 @@ apt install sudo curl
 
 
 Jetzt legt man den zukünftigen Benutzer an. "Benutzername" in dem Fall ersetzen. Passwortvergabe für den User. Der Rest kann mit ENTER bestätigt werden.
+
+Hinweis:
+
+**iobroker** nicht als Benutzernamen wählen, da dieser schon Systemintern verwendet wird.
 
 ~~~
 adduser benutzername
