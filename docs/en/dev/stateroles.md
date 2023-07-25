@@ -47,6 +47,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `button.stop`           - e.g. rollo stop,
 * `button.stop.tilt`
 * `button.start`
+* `button.resume`
 * `button.open.door`
 * `button.open.window`
 * `button.open.blind`
