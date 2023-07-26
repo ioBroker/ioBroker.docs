@@ -332,9 +332,7 @@ class Intro extends Component {
         >
             <div
                 className={this.props.classes.userButton}
-                onClick={() => {
-                    this.setState({ showUserMeetingDialog: true });
-                }}
+                onClick={() => this.setState({ showUserMeetingDialog: true })}
             >
                 <IconCake className={this.props.classes.coloredIcon} />
                 <div

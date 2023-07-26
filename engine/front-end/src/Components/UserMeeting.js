@@ -62,7 +62,6 @@ class SupportUs extends Component {
                 intention: this.state.intention,
             }),
         })
-            .then(res => res.json())
             .then(() => this.setState({ result: 'Ihre Email Adresse wurde erfolgreich in der Interessentenliste eingetragen!' }))
             .catch(e => {
                 console.error(e);
