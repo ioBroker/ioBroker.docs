@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import Paper from '@mui/material/Paper';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import TableBody from '@mui/material/TableBody';
+import {
+    Paper,
+    IconButton,
+    Table,
+    TableHead,
+    TableRow,
+    TableCell,
+    TableBody,
+} from '@mui/material';
 
 import ReactEchartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';

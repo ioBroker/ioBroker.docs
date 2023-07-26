@@ -93,18 +93,22 @@ class SupportUs extends Component {
             <DialogTitle id="user-meeting-dialog-support-title">10 Jahre Jubiläums-User-Treffen 2024 Herbst!</DialogTitle>
             <DialogContent>
                 <DialogContentText id="user-meeting-dialog-slide-description" className={this.props.classes.background}>
-                    <div style={{
-                        width: 'calc(100% - 40px)',
-                        height: 'calc(100% - 40px)',
-                        backgroundColor: '#FFFFFFC0',
-                        padding: 20,
-                        textAlign: 'left',
-                    }}>
+                    <div
+                        style={{
+                            width: 'calc(100% - 40px)',
+                            height: 'calc(100% - 40px)',
+                            backgroundColor: '#FFFFFFC0',
+                            padding: 20,
+                            textAlign: 'left',
+                        }}
+                    >
                         {this.state.result ? <div style={{ textAlign: 'center', color: this.state.error ? 'red' : undefined }}>
                             {this.state.result}
                         </div> : <div>
-                            Wir nähern uns einem wichtigen Datum, das ioBroker Projekt wird im Juli 2024 bereits <b>10 Jahre</b> alt!<br/>
-                            Dies wollen wir mit einem <b>User-Treffen</b> feiern!<br/>
+                            Wir nähern uns einem wichtigen Datum, das ioBroker Projekt wird im Juli 2024 bereits <b>10 Jahre</b> alt!
+                            <br/>
+                            Dies wollen wir mit einem <b>User-Treffen</b> feiern!
+                            <br/>
                             Falls du interesse hast, melde Dich unverbindlich mit deiner Email-Adresse für Neuigkeiten an.
                             Deine Rückmeldung hilft uns die Veranstaltung besser planen zu können.
                             <br />
@@ -128,7 +132,7 @@ class SupportUs extends Component {
                                 label="Deine Email Adresse"
                                 type="email"
                                 fullWidth
-                                onChange={(e) => this.setState({ email: e.target.value })}
+                                onChange={e => this.setState({ email: e.target.value })}
                             />
                             <div style={{ height: 20 }} />
                             <FormControl fullWidth variant="standard">
@@ -136,8 +140,8 @@ class SupportUs extends Component {
                                 <Select
                                     value={this.state.intention || '_'}
                                     fullWidth
-                                    onChange={(e) => this.setState({ intention: e.target.value })}
-                                    renderValue={value => !value || value === '_' ? <span style={{ opacity: 0.5 }}>{INTENTIONS[0]}</span> : INTENTIONS[value]}
+                                    onChange={e => this.setState({ intention: e.target.value })}
+                                    renderValue={value => (!value || value === '_' ? <span style={{ opacity: 0.5 }}>{INTENTIONS[0]}</span> : INTENTIONS[value])}
                                 >
                                     {INTENTIONS.map((item, i) => <MenuItem
                                         key={i || '_'}

@@ -57,8 +57,6 @@ class Adapters extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            inputFocused: '',
             adapters: [],
             count: 250,
         };
@@ -67,7 +65,7 @@ class Adapters extends Component {
     }
 
     load() {
-        fetch(`adapters.json`)
+        fetch('adapters.json')
             .then(res => res.json())
             .then(adapters => {
                 const ads = [];
@@ -78,7 +76,12 @@ class Adapters extends Component {
                         Object.keys(pages).forEach(a => {
                             count++;
                             if (!IGNORE.includes(type)) {
-                                ads.push({ name: a, type, installs: pages[a].installs || 0, icon: `${this.props.language}/${pages[a].icon}`} );
+                                ads.push({
+                                    name: a,
+                                    type,
+                                    installs: pages[a].installs || 0,
+                                    icon: `${this.props.language}/${pages[a].icon}`,
+                                });
                             }
                         });
                     }
@@ -96,14 +99,22 @@ class Adapters extends Component {
         this.words = this.words || {};
         this.words.installed = I18n.t('installed %s times');
 
-        return <div key="adaptersAll" className={`${this.props.classes.mainDiv} ${this.props.backClass || ''} ${this.props.mobile ? this.props.classes.mainDivMobile : ''}`}>
+        return <div
+            key="adaptersAll"
+            className={`${this.props.classes.mainDiv} ${this.props.backClass || ''} ${this.props.mobile ? this.props.classes.mainDivMobile : ''}`}
+        >
             <div className={this.props.classes.title}>{I18n.t('Over %s connected services and systems!', this.state.count)}</div>
             <div className={this.props.classes.boxDiv}>
                 <div className={this.props.classes.box}>
                     {this.state.adapters.map((a, i) =>
                         <div key={`${a}_${i}`} className={this.props.classes.adapter} title={`${a.name}, ${this.words.installed.replace('%s', a.installs)}`}>
-                            <img className={this.props.classes.icon} src={a.icon} alt={a.name} onClick={() =>
-                                this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}/>
+                            <img
+                                className={this.props.classes.icon}
+                                src={a.icon}
+                                alt={a.name}
+                                onClick={() =>
+                                    this.props.onNavigate(null, 'adapters', `adapterref/iobroker.${a.name}/README.md`)}
+                            />
                         </div>)}
                 </div>
             </div>
@@ -114,7 +125,6 @@ class Adapters extends Component {
 Adapters.propTypes = {
     onNavigate: PropTypes.func,
     language: PropTypes.string,
-    theme: PropTypes.string,
     mobile: PropTypes.bool,
     backClass: PropTypes.string,
 };
