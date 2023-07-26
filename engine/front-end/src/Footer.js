@@ -2,13 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 
-import I18n from './i18n';
+import {
+    FaGithubSquare as IconGithub,
+    FaFacebookSquare as IconFacebook,
+    FaDiscord as IconDiscord,
+} from 'react-icons/fa';
 
 import LogoIoBroker from './assets/iobroker-logo-small.png';
-import { FaGithubSquare as IconGithub } from 'react-icons/fa';
-import { FaFacebookSquare as IconFacebook } from 'react-icons/fa';
-import { FaDiscord as IconDiscord } from 'react-icons/fa';
+
 import Utils from './Utils';
+import I18n from './i18n';
 
 const styles = theme => ({
     footer: {
@@ -79,7 +82,7 @@ class Loader extends React.Component {
                     onClick={() => Utils.openLink('https://discord.gg/HwUCwsH')}
                 />
             </div>
-            <br/>
+            <br />
 
             <div className={this.props.classes.footerLink} onClick={() => this.props.onNavigate(null, 'imprint')}>{I18n.t('Imprint')}</div>
             <div className={this.props.classes.footerLink} style={{ cursor: 'inherit' }}> | </div>
@@ -93,9 +96,6 @@ class Loader extends React.Component {
 
 Loader.propTypes = {
     onNavigate: PropTypes.func,
-    language: PropTypes.string,
-    mobile: PropTypes.bool,
-    theme: PropTypes.string,
 };
 
 export default withStyles(styles)(Loader);

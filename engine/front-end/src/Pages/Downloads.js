@@ -2,25 +2,29 @@ import React from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import Paper from '@mui/material/Paper';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import Input from '@mui/material/Input';
-import IconButton from '@mui/material/IconButton';
-import Snackbar from '@mui/material/Snackbar';
-import Dialog from '@mui/material/Dialog';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import Select from '@mui/material/Select';
+import {
+    Paper,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    Button,
+    MenuItem,
+    FormHelperText,
+    FormControl,
+    Input,
+    IconButton,
+    Snackbar,
+    Dialog,
+    DialogContent,
+    DialogActions,
+    Select,
+} from '@mui/material';
 
-import { MdContentCopy as IconCopy } from 'react-icons/md';
-import { MdClose as IconClose } from 'react-icons/md';
+import {
+    MdContentCopy as IconCopy,
+    MdClose as IconClose,
+} from 'react-icons/md';
 
 import Loader from '../Components/Loader';
 import I18n from '../i18n';
@@ -167,25 +171,29 @@ class Downloads extends Router {
         user: 'pi',
         password: 'raspberry',
         info: 'http://www.iobroker.net/docu/?page_id=8955&lang=de'
-    }*/
+    } */
     renderLine(name, value) {
         return <div key={name} className={this.props.classes.cardLine}>
-            <span className={this.props.classes.cardLineName}>{I18n.t(name)}:</span>
-            <span className={this.props.classes.cardLineValue}>{value}</span>
+            <span className={this.props.classes.cardLineName}>
+                {I18n.t(name)}
+                :
+            </span>
+            <span className={this.props.classes.cardLineValue}>
+                {value}
+            </span>
         </div>;
     }
 
-    formatDate(date) {
+    static formatDate(date) {
         return `${date.substring(0, 4)}-${date.substring(4, 6)}-${date.substring(6, 8)}`;
     }
 
-    formatDetails(details) {
+    static formatDetails(details) {
         const lines = details.split(/<br\/?>|<\/li>/);
         lines.forEach((line, i) =>
             lines[i] = line
                 .replace(/<\/?\w+>/g, '')
-                .replace(/^ioBroker/, '')
-        );
+                .replace(/^ioBroker/, ''));
 
         return <div>{lines.map(line => [line, <br key="br" />])}</div>;
     }
@@ -224,7 +232,9 @@ class Downloads extends Router {
                         editMode={false}
                         editEnabled={false}
                         onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
-                    /> : <div dangerouslySetInnerHTML={{ __html: this.state.info}} />}
+                    />
+                    :
+                    <div dangerouslySetInnerHTML={{ __html: this.state.info}} />}
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => this.closeDialog()} color="primary">{I18n.t('Close')}</Button>
@@ -248,17 +258,18 @@ class Downloads extends Router {
 
         return <Card key={image.file} className={this.props.classes.card} style={{width: this.cardWidth}}>
             <CardActionArea>
-                <div className={this.props.classes.cardMedia}
-                     style={{ backgroundImage: `url(img/${image.picture})` }}
+                <div
+                    className={this.props.classes.cardMedia}
+                    style={{ backgroundImage: `url(img/${image.picture})` }}
                 />
-                <div  className={this.props.classes.cardTitle}>
+                <div className={this.props.classes.cardTitle}>
                     <h2>{image.device}</h2>
                 </div>
                 <CardContent className={this.props.classes.cardContent}>
                     <h2>&nbsp;</h2>
                     <div className={this.props.classes.cardInfo}>
                         <div>
-                            {image.date ? this.renderLine('Date', this.formatDate(image.date)) : null}
+                            {image.date ? this.renderLine('Date', Downloads.formatDate(image.date)) : null}
                             {image.linux === 'Windows' ? this.renderLine('OS', image.linux) : this.renderLine('Linux', image.linux)}
 
                             {Object.keys(image)
@@ -271,7 +282,7 @@ class Downloads extends Router {
                                     }
                                 })}
 
-                            {image.details && this.renderLine('Details', this.formatDetails(image.details))}
+                            {image.details && this.renderLine('Details', Downloads.formatDetails(image.details))}
                         </div>
                     </div>
                 </CardContent>

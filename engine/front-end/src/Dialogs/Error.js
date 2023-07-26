@@ -46,8 +46,5 @@ DialogError.propTypes = {
     onClose: PropTypes.func,
     title: PropTypes.string,
     text: PropTypes.string,
-    icon: PropTypes.object,
 };
-
 export default DialogError;
-

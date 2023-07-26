@@ -1,29 +1,34 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Snackbar from '@mui/material/Snackbar';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import CircularProgress from '@mui/material/CircularProgress';
+import SplitterLayout from 'react-splitter-layout';
 
-import { MdClose as IconClose } from 'react-icons/md';
+import {
+    Button,
+    IconButton,
+    Snackbar,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    FormControlLabel,
+    Checkbox,
+    CircularProgress,
+} from '@mui/material';
+
+import {
+    MdClose as IconClose,
+    MdContentCopy as IconCopy,
+} from 'react-icons/md';
 import { FaGithub as IconGithub } from 'react-icons/fa';
-import { MdContentCopy as IconCopy } from 'react-icons/md';
 
 import I18n from '../i18n';
 import Utils from '../Utils';
 import MonacoEditor from '../Components/ScriptEditorVanilaMonaco';
 import Markdown from '../Markdown';
-import SplitterLayout from 'react-splitter-layout';
 
-const styles = theme => ({
+const styles = () => ({
     root: {
         width: '100%',
         height: '100%',
@@ -62,7 +67,7 @@ class Editor extends Component {
         super(props);
         this.state = {
             menuSize: window.localStorage ? parseFloat(window.localStorage.getItem('Docs.editorSize')) || 50 : 50,
-            resizing: false,
+            // resizing: false,
             changed: false,
             tooltip: '',
             code: this.props.code || '',
@@ -113,12 +118,12 @@ class Editor extends Component {
 
     renderInstructions() {
         if (!this.state.showInstructions) {
-            return;
+            return null;
         }
 
         return <Dialog
             key="instructions"
-            open={true}
+            open={!0}
             onClose={() => this.setState({ showInstructions: false })}
         >
             <DialogTitle id="alert-dialog-title">{I18n.t('How to use it...')}</DialogTitle>
@@ -129,16 +134,25 @@ class Editor extends Component {
             </DialogContent>
             <DialogActions>
                 <FormControlLabel
-                    control={<Checkbox checked={this.state.noInstructions} onChange={() => {
-                        window.localStorage && window.localStorage.setItem('Docs.noInstructions', 'true');
-                        this.setState({ noInstructions: true });
-                    }}/>}
+                    control={<Checkbox
+                        checked={this.state.noInstructions}
+                        onChange={() => {
+                            window.localStorage && window.localStorage.setItem('Docs.noInstructions', 'true');
+                            this.setState({ noInstructions: true });
+                        }}
+                    />}
                     label={I18n.t('Don\'t show anymore')}
                 />
-                <Button onClick={() => {
-                    this.setState({ showInstructions: false });
-                    this.openGithub();
-                }} color="primary" autoFocus>{I18n.t('Ok')}</Button>
+                <Button
+                    onClick={() => {
+                        this.setState({ showInstructions: false });
+                        this.openGithub();
+                    }}
+                    color="primary"
+                    autoFocus
+                >
+                    {I18n.t('Ok')}
+                </Button>
             </DialogActions>
         </Dialog>;
     }
@@ -151,28 +165,38 @@ class Editor extends Component {
                     className={`${this.props.classes.copyButton} ${this.state.changed ? this.props.classes.copyButtonChanged : ''}`}
                     onClick={e => {
                         Utils.onCopy(e, this.state.text);
-                        this.setState({ tooltip: I18n.t('Copied') })
+                        this.setState({ tooltip: I18n.t('Copied') });
                     }}
                 >
-                    <IconCopy/>{I18n.t('Copy to clipboard')}
+                    <IconCopy />
+                    {I18n.t('Copy to clipboard')}
                 </Button>
                 <Button
                     color="grey"
                     className={this.props.classes.githubButton}
-                    onClick={e =>
-                        this.state.noInstructions ? this.openGithub(e) : this.setState({showInstructions: true}, () => console.log(this.state.showInstructions))}>
-                    <IconGithub/>{I18n.t('Go to github')}
+                    onClick={e => {
+                        if (this.state.noInstructions) {
+                            this.openGithub(e);
+                        } else {
+                            this.setState({ showInstructions: true }, () => console.log(this.state.showInstructions));
+                        }
+                    }}
+                >
+                    <IconGithub />
+                    {I18n.t('Go to github')}
                 </Button>
                 <Button
                     color="primary"
                     className={this.props.classes.closeButton}
-                    onClick={() => this.props.onClose()}>
-                    <IconClose/>{I18n.t('Close')}
+                    onClick={() => this.props.onClose()}
+                >
+                    <IconClose />
+                    {I18n.t('Close')}
                 </Button>
             </div>
 
             {this.state.code ? <MonacoEditor
-                onChange={text => this.setState({text, changed: text !== this.state.code})}
+                onChange={text => this.setState({ text, changed: text !== this.state.code })}
                 theme={this.props.theme}
                 readOnly={false}
                 code={this.state.code || ''}
@@ -222,12 +246,12 @@ class Editor extends Component {
                 primaryIndex={1}
                 percentage
                 secondaryInitialSize={this.state.menuSize}
-                onDragStart={() => this.setState({ resizing: true })}
+                // onDragStart={() => this.setState({ resizing: true })}
                 onSecondaryPaneSizeChange={size => this.menuSize = parseFloat(size)}
                 customClassName={this.props.classes.splitterDivs}
                 onDragEnd={() => {
                     window.localStorage && window.localStorage.setItem('Docs.editorSize', this.menuSize.toString());
-                    this.setState({ resizing: false, menuSize: this.menuSize });
+                    this.setState({ /* resizing: false, */ menuSize: this.menuSize });
                 }}
             >
                 {this.renderEditor()}
@@ -244,7 +268,6 @@ Editor.propTypes = {
     mobile: PropTypes.bool,
     path: PropTypes.string,
     onClose: PropTypes.func,
-    editLink: PropTypes.string,
 };
 
 export default withStyles(styles)(Editor);

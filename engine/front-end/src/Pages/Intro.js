@@ -206,7 +206,7 @@ const styles = theme => ({
         animation: `$colors 3000ms ${theme.transitions.easing.easeInOut} infinite alternate`,
         width: 30,
         height: 30,
-    }
+    },
 });
 
 class Intro extends Component {
@@ -336,7 +336,7 @@ class Intro extends Component {
                     this.setState({ showUserMeetingDialog: true });
                 }}
             >
-                <IconCake className={this.props.classes.coloredIcon}/>
+                <IconCake className={this.props.classes.coloredIcon} />
                 <div
                     className={this.props.classes.userButtonText}
                     style={{

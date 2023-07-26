@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 
-import { MdMenu as IconMenuClosed } from 'react-icons/md';
-import { MdArrowBack as IconMenuOpened } from 'react-icons/md';
+import {
+    MdMenu as IconMenuClosed,
+    MdArrowForward as IconMenuOpened,
+} from 'react-icons/md';
 
 import Markdown from './Markdown';
 import Footer from './Footer';
@@ -43,7 +45,7 @@ class MDPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            editMode: false
+            editMode: false,
         };
         this.mounted = false;
 
@@ -72,21 +74,21 @@ class MDPage extends Component {
             return <div
                 key="closeMenu"
                 className={`${this.props.classes.menuOpenCloseButton} ${this.props.classes.menuOpenCloseButtonMobile}`}
-                style={{left: 0}}
+                style={{ left: 0 }}
                 onClick={() => this.props.onMenuOpenClose()}
             >
                 <IconMenuClosed />
             </div>;
-        } else {
-            return <div
-                key="closeMenu"
-                className={`${this.props.classes.menuOpenCloseButton} ${this.props.mobile ? this.props.classes.menuOpenCloseButtonMobile : ''}`}
-                style={{left: this.props.menuOpened ? this.props.menuWidth + 3 : 0}}
-                onClick={() => this.props.onMenuOpenClose()}
-            >
-                {this.props.menuOpened ? <IconMenuOpened /> : <IconMenuClosed />}
-            </div>;
         }
+
+        return <div
+            key="closeMenu"
+            className={`${this.props.classes.menuOpenCloseButton} ${this.props.mobile ? this.props.classes.menuOpenCloseButtonMobile : ''}`}
+            style={{ left: this.props.menuOpened ? this.props.menuWidth + 3 : 0 }}
+            onClick={() => this.props.onMenuOpenClose()}
+        >
+            {this.props.menuOpened ? <IconMenuOpened /> : <IconMenuClosed />}
+        </div>;
     }
 
     onNavigate(language, tab, page, chapter) {
@@ -104,7 +106,11 @@ class MDPage extends Component {
     render() {
         return [
             this.renderOpenCloseButton(),
-            <div key="mdpage" className={`${this.props.classes.content} ${!this.props.mobile && !this.props.menuOpened ? this.props.classes.contentMenuClosed : ''}`} ref={this.contentRef}>
+            <div
+                key="mdpage"
+                className={`${this.props.classes.content} ${!this.props.mobile && !this.props.menuOpened ? this.props.classes.contentMenuClosed : ''}`}
+                ref={this.contentRef}
+            >
                 {this.props.path === 'adapters.md' || this.props.path === 'adapters' ?
                     <Adapters path={this.props.path}
                          language={this.props.language}
