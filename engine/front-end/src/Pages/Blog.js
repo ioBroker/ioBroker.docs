@@ -1,20 +1,25 @@
 import React from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Paper from '@mui/material/Paper';
-import Button from '@mui/material/Button';
+import MarkdownView from 'react-showdown';
+
+import {
+    Paper,
+    Button,
+} from '@mui/material';
+
+import {
+    MdEdit as IconEdit,
+    MdRssFeed as IconRss,
+} from 'react-icons/md';
 
 import Footer from '../Footer';
 import Loader from '../Components/Loader';
 import I18n from '../i18n';
 import Utils from '../Utils';
 import Router from '../Router';
-import MarkdownView from 'react-showdown';
 
-import { MdEdit as IconEdit } from 'react-icons/md';
-import { MdRssFeed as IconRss } from 'react-icons/md';
-
-const styles = theme => ({
+const styles = () => ({
     root: {
         width: '100%',
     },
@@ -27,7 +32,7 @@ const styles = theme => ({
     },
     rssIcon: {
         fontSize: 22,
-        color: '#ffa30c'
+        color: '#ffa30c',
     },
     headerTitle: {
         color: '#FFFFFF',
@@ -63,17 +68,17 @@ const styles = theme => ({
     },
     pageTitle: {
         fontSize: 32,
-        //fontFamily: 'Open Sans,sans-serif',
+        // fontFamily: 'Open Sans,sans-serif',
         fontWeight: 400,
         lineHeight: '42px',
     },
     pagePosted: {
         fontSize: 14,
-        //fontFamily: 'Open Sans,sans-serif',
+        // fontFamily: 'Open Sans,sans-serif',
     },
     pageDesc: {
         fontWeight: 400,
-        //fontFamily: 'Open Sans,sans-serif',
+        // fontFamily: 'Open Sans,sans-serif',
         marginTop: 50,
     },
     pageTitleNextButton: {
@@ -136,14 +141,14 @@ class Blog extends Router {
         this.contentRef = React.createRef();
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
+    componentWillReceiveProps(nextProps) {
         if (this.props.language !== nextProps.language) {
             this.page && this.loadBlog(this.page, nextProps.language);
         }
     }
 
     onHashChange() {
-        let location = Router.getLocation();
+        const location = Router.getLocation();
         if (location.page !== this.page) {
             this.page = location.page;
             if (location.page) {
@@ -155,7 +160,7 @@ class Blog extends Router {
     }
 
     static fetchData() {
-        blogPromise = blogPromise || new Promise(resolve =>{
+        blogPromise = blogPromise || new Promise(resolve => {
             const d = new Date();
 
             fetch(`blog.json?t=${d.getFullYear()}_${d.getMonth()}_${d.getDate()}_${d.getHours()}`)
@@ -170,7 +175,7 @@ class Blog extends Router {
         Blog.fetchData()
             .then(content =>
                 this.setState({ content }, () => {
-                    let location = Router.getLocation();
+                    const location = Router.getLocation();
                     this.page = location.page;
                     if (location.page) {
                         this.loadBlog(location.page);
@@ -188,11 +193,21 @@ class Blog extends Router {
     }
 
     renderHeader() {
-        return <div key={"header"}  style={this.page ? {cursor: 'pointer'} : {}} onClick={() => this.onNavigate(null, null, '')} className={this.props.classes.header}>
-            <h1 key="title" className={this.props.classes.headerTitle}>{I18n.t('ioBroker Blog')}
-                <a href={`./blog_${this.props.language}.xml`} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}><IconRss className={this.props.classes.rssIcon}/></a>
+        return <div
+            key="header"
+            style={this.page ? { cursor: 'pointer' } : {}}
+            onClick={() => this.onNavigate(null, null, '')}
+            className={this.props.classes.header}
+        >
+            <h1 key="title" className={this.props.classes.headerTitle}>
+                {I18n.t('ioBroker Blog')}
+                <a href={`./blog_${this.props.language}.xml`} rel="noopener noreferrer" target="_blank" title={I18n.t('RSS Feed')}>
+                    <IconRss className={this.props.classes.rssIcon} />
+                </a>
             </h1>
-            <div key="notice"  className={this.props.classes.headerNotice}>{I18n.t('News, announcements and ideas about ioBroker')}</div>
+            <div key="notice" className={this.props.classes.headerNotice}>
+                {I18n.t('News, announcements and ideas about ioBroker')}
+            </div>
         </div>;
     }
 
@@ -209,7 +224,8 @@ class Blog extends Router {
                         reactObj.props.children[i] = <div
                             className={`${this.props.classes.mdLink} md-link`}
                             title={link}
-                            onClick={() => this.onNavigate(null, link)}>
+                            onClick={() => this.onNavigate(null, link)}
+                        >
                             {item.props.children[0]}
                         </div>;
                     }
@@ -223,10 +239,9 @@ class Blog extends Router {
     }
 
     static page2Date(page) {
-
         let date = page.substring(0, 10).replace(/_/g, '.');
         let d = new Date(date);
-        if (isNaN(d.getTime())) {
+        if (Number.isNaN(d.getTime())) {
             date = `${page.substring(0, 10).replace(/_/g, '-').replace(/\./g, '-')}T00:00:00`;
             d = new Date(date);
         }
@@ -237,9 +252,12 @@ class Blog extends Router {
         const data = this.state.content.pages[page];
 
         return <Paper key={page} className={this.props.classes.pagePage}>
-            {data.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${data.logo})` }}/> : null}
-            <h2 className={this.props.classes.pageTitle}  style={{cursor: 'pointer'}} onClick={() => this.props.onNavigate(null, null, page)}>{data.title[this.props.language] || data.title.en}</h2>
-            <div className={this.props.classes.pagePosted}><strong>{data.author || data.Author}</strong> {I18n.t('posted on %s', Blog.page2Date(page))}</div>
+            {data.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${data.logo})` }} /> : null}
+            <h2 className={this.props.classes.pageTitle} style={{ cursor: 'pointer' }} onClick={() => this.props.onNavigate(null, null, page)}>{data.title[this.props.language] || data.title.en}</h2>
+            <div className={this.props.classes.pagePosted}>
+                <span style={{ fontWeight: 'bold', marginRight: 8 }}>{data.author || data.Author}</span>
+                {I18n.t('posted on %s', Blog.page2Date(page))}
+            </div>
             <p className={this.props.classes.pageDesc}>{data.desc && (data.desc[this.props.language] || data.desc.en || '').replace(/\\n/g, '\n')}</p>
             <Button variant="contained" className={this.props.classes.pageButton} onClick={() => this.props.onNavigate(null, null, page)}>{I18n.t('Read')}</Button>
         </Paper>;
@@ -247,7 +265,7 @@ class Blog extends Router {
 
     renderEntries() {
         if (!this.state.content || !this.state.content.pages) {
-            return;
+            return null;
         }
 
         return <div className={this.props.classes.pages}>{
@@ -257,12 +275,12 @@ class Blog extends Router {
 
     renderPage() {
         if (!this.state.text) {
-            return;
+            return null;
         }
 
-        let date = this.page.substring(0, 10).replace(/_/g, '.');
+        const date = this.page.substring(0, 10).replace(/_/g, '.');
 
-        const {body, header} = Utils.extractHeader(this.state.text);
+        const { body, header } = Utils.extractHeader(this.state.text);
 
         const reactElement = <MarkdownView markdown={body} options={CONVERTER_OPTIONS} />;
 
@@ -271,14 +289,17 @@ class Blog extends Router {
         const pages = Object.keys(this.state.content.pages);
         const pos = pages.indexOf(this.page);
 
-        let next = pos ? Blog.page2Date(pages[pos - 1]) : '';
-        let prev = pos + 1 < pages.length ? Blog.page2Date(pages[pos + 1]) : '';
+        const next = pos ? Blog.page2Date(pages[pos - 1]) : '';
+        const prev = pos + 1 < pages.length ? Blog.page2Date(pages[pos + 1]) : '';
 
         return <Paper className={this.props.classes.pagePage}>
-            {header.logo ? <div className={this.props.classes.pageLogoDiv} style={{backgroundImage: 'url(' + header.logo + ')'}}/> : null}
+            {header.logo ? <div className={this.props.classes.pageLogoDiv} style={{ backgroundImage: `url(${header.logo})` }} /> : null}
             <div className={this.props.classes.pageTitleDiv}>
                 <h2 className={this.props.classes.pageTitle}>{header.title}</h2>
-                <div className={this.props.classes.pagePosted}><strong>{header.author || header.Author}</strong> {I18n.t('posted on %s', Blog.page2Date(date))}</div>
+                <div className={this.props.classes.pagePosted}>
+                    <span style={{ fontWeight: 'bold', marginRight: 8 }}>{header.author || header.Author}</span>
+                    {I18n.t('posted on %s', Blog.page2Date(date))}
+                </div>
                 {next ? <Button variant="contained" className={this.props.classes.pageTitleNextButton} onClick={() => this.onNavigate(null, null, pages[pos - 1])}>← {next}</Button> : null}
                 {prev ? <Button variant="contained" className={this.props.classes.pageTitlePrevButton} onClick={() => this.onNavigate(null, null, pages[pos + 1])}>{prev} →</Button> : null}
             </div>
@@ -290,14 +311,17 @@ class Blog extends Router {
 
             {header.editLink ?
                 <div className={this.props.classes.info}>
-                    <a className={this.props.classes.infoEdit} rel="noopener noreferrer" href={header.editLink} target="_blank"><IconEdit />{I18n.t('Edit on github')}</a>
+                    <a className={this.props.classes.infoEdit} rel="noopener noreferrer" href={header.editLink} target="_blank">
+                        <IconEdit />
+                        {I18n.t('Edit on github')}
+                    </a>
                 </div> : null}
         </Paper>;
     }
 
     render() {
         if (this.state.loadTimeout && !this.state.content) {
-            return <Loader theme={this.props.theme}/>;
+            return <Loader theme={this.props.theme} />;
         }
 
         return [

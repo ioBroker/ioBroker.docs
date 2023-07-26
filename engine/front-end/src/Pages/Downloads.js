@@ -234,7 +234,7 @@ class Downloads extends Router {
                         onNavigate={(language, tab, page, chapter) => this.onNavigate(language, tab, page, chapter)}
                     />
                     :
-                    <div dangerouslySetInnerHTML={{ __html: this.state.info}} />}
+                    <div dangerouslySetInnerHTML={{ __html: this.state.info }} />}
             </DialogContent>
             <DialogActions>
                 <Button onClick={() => this.closeDialog()} color="primary">{I18n.t('Close')}</Button>
@@ -256,7 +256,7 @@ class Downloads extends Router {
             return null;
         }
 
-        return <Card key={image.file} className={this.props.classes.card} style={{width: this.cardWidth}}>
+        return <Card key={image.file} className={this.props.classes.card} style={{ width: this.cardWidth }}>
             <CardActionArea>
                 <div
                     className={this.props.classes.cardMedia}
@@ -276,10 +276,10 @@ class Downloads extends Router {
                                 .filter(attr => IGNORED_ATTRS.indexOf(attr) === -1)
                                 .map(attr => {
                                     if (image[attr].match(/^https?:/)) {
-                                        return this.renderLine(attr, <a href={image[attr]} target="_blank" rel="noopener noreferrer">I18n.t('link')</a>);
-                                    } else {
-                                        return this.renderLine(attr, image[attr]);
+                                        return this.renderLine(attr, <a href={image[attr]} target="_blank" rel="noopener noreferrer">{I18n.t('link')}</a>);
                                     }
+
+                                    return this.renderLine(attr, image[attr]);
                                 })}
 
                             {image.details && this.renderLine('Details', Downloads.formatDetails(image.details))}
@@ -317,13 +317,18 @@ class Downloads extends Router {
 
     renderInfoAboutInstall() {
         return <Paper key="instruction" className={this.props.classes.instructionDiv}>
-            {I18n.t('instruction1')}<br /><br />
-            {I18n.t('instruction2')}<br /><br />
+            {I18n.t('instruction1')}
+            <br />
+            <br />
+            {I18n.t('instruction2')}
+            <br />
+            <br />
             <pre className={this.props.classes.instructionCode}>
-                curl -sLf https://iobroker.net/install.sh | bash -<br />
+                curl -sLf https://iobroker.net/install.sh | bash -
+                <br />
                 <IconButton
                     className={this.props.classes.instructionCopy}
-                    title={I18n.t( 'copy to clipboard')}
+                    title={I18n.t('copy to clipboard')}
                     onClick={e => {
                         Utils.onCopy(e, 'curl -sLf https://iobroker.net/install.sh | bash -');
                         this.setState({ tooltip: I18n.t('Copied') });
@@ -338,7 +343,7 @@ class Downloads extends Router {
 
     renderSelector() {
         if (!this.state.content) {
-            return;
+            return null;
         }
         const types = [];
         this.state.content.forEach(item => !types.includes(item.device) && types.push(item.device));
@@ -347,7 +352,7 @@ class Downloads extends Router {
             <Select
                 variant="standard"
                 value={this.state.filter}
-                onChange={e => this.setState({filter: e.target.value})}
+                onChange={e => this.setState({ filter: e.target.value })}
                 input={<Input name="type" id="type-helper" />}
             >
                 <MenuItem value="all"><em>{I18n.t('All')}</em></MenuItem>
