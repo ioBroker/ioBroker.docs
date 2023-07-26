@@ -38,11 +38,12 @@ const styles = () => ({
         position: 'absolute',
         top: 10,
         right: 10,
-        background: '#ff9d00',
+        background: '#3399CC',
         color: '#FFFFFF',
         '&:hover': {
             animation: 'none',
-            background: '#ff9d00',
+            background: '#3399CC',
+            opacity: 0.9,
         },
     },
     dialog: {
@@ -177,7 +178,7 @@ class SupportUs extends Component {
             <Button
                 key="button"
                 color="grey"
-                className={`${this.props.classes.mainButton} hue-animation`}
+                className={`${this.props.classes.mainButton} ${!this.props.noColoring ? 'hue-animation' : this.props.classes.staticColor}`}
                 onClick={() => this.setState({ opened: true })}
             >
                 <img src={ImgAmazonSmall} className={this.props.classes.mainButtonIcon} alt="logo" />
@@ -190,6 +191,7 @@ class SupportUs extends Component {
 
 SupportUs.propTypes = {
     mobile: PropTypes.bool,
+    noColoring: PropTypes.bool,
 };
 
 export default withStyles(styles)(SupportUs);

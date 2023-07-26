@@ -3,62 +3,54 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.elero-usb-transmitter/README.md
 title: ioBroker.elero-usb-transmitter
-hash: +jchsQ7wvg3ef2f53maFtyqUjc+JBFjWfQ1PKo9sK3g=
+hash: TMXUiZdhXhEbVGe/VhbTs/SHmHhG1hvkmaFZ/F0CMVE=
 ---
+# IoBroker.elero-usb-transmitter
 ![Logo](../../../en/adapterref/iobroker.elero-usb-transmitter/admin/elero-usb-transmitter.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/elero-usb-transmitter-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/elero-usb-transmitter-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/elero-usb-transmitter-stable.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/marc2016/ioBroker.elero-usb-transmitter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.elero-usb-transmitter.png?downloads=true)
 
-# IoBroker.elero-usb-transmitter
 ## Elero-USB-Transmitter-Adapter für ioBroker
-Adapter zur Steuerung von Elero Geräten mit dem Elero USB Transmitter Stick.
+Adapter zur Steuerung von Elero-Geräten mit dem Elero USB-Transmitter-Stick.
 Sie benötigen den USB-Sender-Stick und müssen die vorhandenen Rollladenmotoren an den Stick anschließen. Der Adapter erkennt automatisch die aktiven Kanäle und fügt die Geräte hinzu. In den Einstellungen können Sie die Namen für die Geräte und das Intervall für das Update festlegen
 
-## Changelog
-
+## **IN ARBEIT**
 ### 0.5.2
-
-- Missing translation for title and description added
+- Fehlende Übersetzung für Titel und Beschreibung hinzugefügt
 
 ### 0.5.1
-
-- Translation added
+- Übersetzung hinzugefügt
 
 ### 0.5.0
-
-- Translations added
-- Ignore state changes with ack=true in onStateChanged handler
-- messages handler removed
-- node-scheduler package removed
+- Übersetzungen hinzugefügt
+– Statusänderungen mit ack=true im onStateChanged-Handler ignorieren
+- Nachrichtenhandler entfernt
+- Node-Scheduler-Paket entfernt
 
 ### 0.4.0
-
-- Added channel for connection info.
+- Kanal für Verbindungsinformationen hinzugefügt.
 
 ### 0.3.0
-
-- Use only open state to controle devices.
+- Verwenden Sie zur Steuerung von Geräten nur den offenen Zustand.
 
 ### 0.1.0
+- Übertragungszeit entfernt und Code bereinigt.
 
-- Transmission time removed and code clean up.
-
-### 0.0.3"
-
-- Log messages added.
+### 0,0,3"
+- Protokollmeldungen hinzugefügt.
 
 ### 0.0.2
-
-- bug fixes
+- Fehlerbehebung
 
 ### 0.0.1
+- Erstveröffentlichung
 
-- initial release
+## Changelog
 
 ## License
 

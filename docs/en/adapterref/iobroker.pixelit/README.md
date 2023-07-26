@@ -30,10 +30,11 @@ Fill the IP and have fun :)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2023-07-25)
 **!!! Breaking changes works only with PixelIt v2.1.3 and higher !!!**
-- (d4rkd3v1l)  removed parameters from "show_clock" call
+
+-   (d4rkd3v1l) removed parameters from "show_clock" call
+-   (o0Shojo0o) fix "iob Adapter Checker" issues
 
 ### 0.2.0 (2022-08-19)
 
@@ -41,6 +42,7 @@ Fill the IP and have fun :)
 
 ### 0.1.0 (2022-07-22)
 **!!! Breaking changes works only with PixelIt v1.0.0 and higher !!!**
+
 -   (o0Shojo0o) change conncetion to websocket
 -   (o0Shojo0o) add buttons datapoints
 -   (o0Shojo0o) add sensor gas datapoint
@@ -89,7 +91,7 @@ Fill the IP and have fun :)
 
 MIT License
 
-Copyright (c) 2022 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

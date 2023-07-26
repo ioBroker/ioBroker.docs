@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
 title: ioBroker-Szenenadapter
-hash: uzfech7dSQyHGa0mz33Ji3tdQir/hKEhp3XJctU/vbM=
+hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -12,9 +12,9 @@ hash: uzfech7dSQyHGa0mz33Ji3tdQir/hKEhp3XJctU/vbM=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)
 
 # IoBroker-Szenenadapter
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-_scenes Adapter_ kann Szenen erstellen und sie in der ioBroker-Umgebung ausführen.
+_scenes Adapter_ kann Szenen erstellen und in der ioBroker-Umgebung ausführen.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
@@ -25,9 +25,9 @@ Dieser Adapter kann drei Arten von Szenen erstellen:
 - **virtuelle Gruppen**
 
 ## Szenen
-**Szenen** werden erstellt, wenn die Einstellung "Set on false" nicht verwendet wird.
-Jede Szene kann individuell konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Instanz des Adapters haben können.
-Die **Szene** ist nur eine Liste von Zuständen und Werten, die diese Zustände haben müssen, wenn die Szene aktiviert wird. Z.B. wir haben auf der Szene "_scene.allLightInBath_" erstellt:
+**Szenen** werden erstellt, wenn die Einstellung „set on false“ nicht verwendet wird.
+Jede Szene kann einzeln konfiguriert werden, sodass Sie **Szenen** und **Gruppen** in einer Instanz des Adapters haben können.
+Die **Szene** ist lediglich eine Liste von Status-IDs und -Werten, die diese Status bei Aktivierung der Szene haben müssen. Z.B. Wir haben vor Ort `scene.allLightInBath` erstellt:
 
 ```
   scene.allLightInBath
@@ -35,11 +35,11 @@ Die **Szene** ist nur eine Liste von Zuständen und Werten, die diese Zustände 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Um die Szene zu aktivieren müssen wir "_scene.allLightInBath_" auf true setzen (z.B. über script oder vis). Dann werden beide Zustände auf die gewünschten Werte gesetzt, auf **true**.
-Der Wert von _scene.allLightInBath_ wird auch **true** sein. Wenn wir das obere Licht manuell ausschalten, geht der Wert von _scene.allLightInBath_ auf **false**.
-Und wieder auf **true**, wenn wir das Licht manuell einschalten.
+Um die Szene zu aktivieren, müssen wir `scene.allLightInBath` auf true setzen (z. B. über ein Skript oder Vis). Dann werden beide Zustände auf die gewünschten Werte gesetzt, auf `true`.
+Der Wert von `scene.allLightInBath` wird auch `true` sein. Wenn wir manuell zum oberen Licht wechseln, wechselt der Wert von `scene.allLightInBath` zu `false`.
+Und noch einmal zu `true`, wenn wir das Licht manuell einschalten.
 
-Fügen wir der **Szene** den Lüfter hinzu:
+Fügen wir der **Szene** den Fan hinzu:
 
 ```
   scene.allLightInBath
@@ -49,12 +49,12 @@ Fügen wir der **Szene** den Lüfter hinzu:
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-In diesem Fall wird der Lüfter bei Aktivierung der **Szene** eingeschaltet und nach einer Minute wieder ausgeschaltet.
-Nachdem der Lüfter ausgeschaltet wird, geht der Wert von _scene.allLightInBath_ auf **false**, da nicht alle Zustände den gewünschten Werten entsprechen.
-Verspätete Staaten nehmen nicht an Berechnungen teil.
+In diesem Fall wird der Ventilator durch Aktivierung der **Szene** eingeschaltet und in einer Minute wieder ausgeschaltet.
+Nach dem Ausschalten des Lüfters geht der Wert von `scene.allLightInBath` auf `false` über, da nicht alle Zustände den gewünschten Werten entsprechen.
+Staaten mit Verspätung werden an den Berechnungen nicht beteiligt.
 
-Sie können die Szene mit einem "Play"-Button testen.
-Zusätzlich können Sie diese **Szene** direkt mit anderen Szenen-IDs verknüpfen. Z.B. Wenn Sie einen Sensor an der Tür haben, können Sie ihn als Auslöser auswählen:
+Sie können die Szene mit einem „Play“-Button testen.
+Darüber hinaus können Sie diese **Szene** direkt mit einer anderen Szenen-ID verknüpfen. Z.B. Wenn Sie einen Sensor an der Tür haben, können Sie diesen als Auslöser auswählen:
 
 ```
   trigger
@@ -66,8 +66,8 @@ Zusätzlich können Sie diese **Szene** direkt mit anderen Szenen-IDs verknüpfe
 Und jedes Mal, wenn Sie die Tür im Bad öffnen, werden alle Lichter mit Ventilator eingeschaltet.
 
 ## Gruppen
-**Gruppen** sind wie virtuelle Kanäle. Sie können mit Hilfe von **Gruppen** virtuelle Geräte aus mehreren Aktoren erstellen und gemeinsam wie ein Gerät steuern.
-Lassen Sie uns unser Beispiel mit den Lichtern der Badewanne modifizieren.
+**Gruppen** sind wie virtuelle Kanäle. Mithilfe von **Gruppen** können Sie aus mehreren Aktoren virtuelle Geräte erstellen und diese gemeinsam wie ein Gerät steuern.
+Lassen Sie uns unser Beispiel mit den Lichtern des Bades modifizieren.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -75,7 +75,7 @@ Lassen Sie uns unser Beispiel mit den Lichtern der Badewanne modifizieren.
   +- hm-rpc.0.TOP_LIGHT.STATE     - true             false
 ```
 
-Wenn Sie diese **Gruppe** wie folgt mit dem Türsensor verknüpfen:
+Wenn Sie diese **Gruppe** mit dem Türsensor verknüpfen, wie folgt:
 
 ```
   trigger on true
@@ -89,32 +89,32 @@ Wenn Sie diese **Gruppe** wie folgt mit dem Türsensor verknüpfen:
     value:     false
 ```
 
-Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter in einem Bad eingeschaltet. Der Wert von _scene.allLightInBath_ wird auf **true** gesetzt.
-Wenn Sie die Tür schließen, wird das Licht ausgeschaltet und der Wert von _scene.allLightInBath_ wird auf **false** gesetzt.
+Jedes Mal, wenn Sie die Tür öffnen, werden alle Lichter in einer Badewanne eingeschaltet. Der Wert von `scene.allLightInBath` wird auf **true** gesetzt.
+Wenn Sie die Tür schließen, wird das Licht ausgeschaltet und der Wert von `scene.allLightInBath` geht auf **false**.
 
-Es ist nutzlos, aber es ist ein gutes Beispiel.
+Es ist nutzlos, aber als Beispiel gut.
 
-Wenn Sie ein Licht manuell einschalten, wird der Wert von _scene.allLightInBath_ auf **uncertain** gesetzt.
+Wenn Sie ein Licht manuell einschalten, geht der Wert von `scene.allLightInBath` auf **unsicher**.
 
-Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung nehmen nicht an Berechnungen des aktuellen Werts von **Gruppe** teil.
+Verzögerungen können auch in der **Gruppe** verwendet werden, aber die Zustände mit Verzögerung werden nicht an der Berechnung des aktuellen Werts der **Gruppe** beteiligt.
 
 ## Virtuelle Gruppen
-**Virtuelle Gruppen** sind wie virtuelle Kanäle und wie Gruppen, können aber jede Art von Werten haben: Zahlen, Zeichenketten und so weiter.
+**Virtuelle Gruppen** sind wie virtuelle Kanäle und Gruppen, können aber beliebige Werte haben: Zahlen, Zeichenfolgen usw.
 Sie können eine virtuelle Gruppe erstellen, um alle Rollläden im Wohnzimmer zu steuern.
-Durch das Schreiben von 40 % in die virtuelle Gruppe werden alle Jalousien auf 40 % gesetzt.
+Durch das Schreiben von 40 % in eine virtuelle Gruppe werden alle Rollläden auf 40 % gesetzt.
 
-Zusätzlich kann definiert werden, welches Verhalten für die Gruppe angenommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert haben.
+Darüber hinaus können Sie das Verhalten definieren, bei dem der Wert für die Gruppe übernommen werden soll, wenn nicht alle Zustände der Gruppe den gleichen Wert haben.
 
 Sie können folgende Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
 
-- "uncertain" - (Standard) - Der Wert der Gruppe hat den Text "uncertain".
-- "any" - erster Wert ungleich Null aller Zustände in der Gruppe.
-- `min` - Minimalwert aller Zustände in der Gruppe.
-- "max" - Maximalwert aller Zustände in der Gruppe.
-- „avg“ – Durchschnittswert aller Zustände in der Gruppe.
+- „unsicher“ – (Standard) – der Wert der Gruppe wird den Text „unsicher“ haben.
+- „any“ – erster Nicht-Null-Wert aller Zustände in einer Gruppe.
+- „min“ – Minimalwert aller Zustände in einer Gruppe.
+- „max“ – Maximalwert aller Zustände in einer Gruppe.
+- „avg“ – Durchschnittswert aller Zustände in einer Gruppe.
 
 ## Aktuelle Zustände als Szene speichern
-Um aktuelle Zustände in einigen Szenen zu speichern, können Sie eine Nachricht an den Adapter senden:
+Um aktuelle Zustände in einer Szene zu speichern, können Sie eine Nachricht an den Adapter senden:
 
 ```
 sendTo(
@@ -128,19 +128,23 @@ sendTo(
 );
 ```
 
-Der Adapter liest alle aktuellen Werte für IDs, die in dieser Szene definiert sind, und speichert sie als konfigurierte.
+Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten IDs und speichert sie als konfigurierte Werte.
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __LAUFENDE ARBEIT__ -->
+### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.4.0 (2022-12-23)
+* (Apollon77) prevent a crash case reported by Sentry
+* (bluefox) Updated some GUI libraries
+
 ### 2.3.9 (2022-02-13)
 * (bluefox) Updated some GUI libraries
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -156,7 +160,7 @@ Der Adapter liest alle aktuellen Werte für IDs, die in dieser Szene definiert s
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
-* (bluefox) Possibility to use set point from other state
+* (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
@@ -195,10 +199,10 @@ Der Adapter liest alle aktuellen Werte für IDs, die in dieser Szene definiert s
 * (bluefox) The tolerance is implemented
 
 ### 2.0.3 (2020-06-14)
-* (bluefox) New GUI based on react
+* (bluefox) New GUI based on React
 
 ### 1.1.1 (2019-05-26)
-* (bluefox) Added storing of actual values in scene via message
+* (bluefox) Added storing of actual values in a scene via a message
 
 ### 1.1.0 (2018-04-24)
 * (bluefox) Works now with Admin3
@@ -221,7 +225,7 @@ Der Adapter liest alle aktuellen Werte für IDs, die in dieser Szene definiert s
 * (bluefox) update node-schedule
 
 ### 0.2.4 (2016-01-24)
-* (bluefox) fix error disabled states in scene
+* (bluefox) fix error disabled states in a scene
 
 ### 0.2.3 (2015-12-10)
 * (bluefox) fix error with trigger on false
@@ -263,7 +267,7 @@ Der Adapter liest alle aktuellen Werte für IDs, die in dieser Szene definiert s
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

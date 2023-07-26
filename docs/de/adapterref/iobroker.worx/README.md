@@ -146,6 +146,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ```
 
 -   `firmware_available_date`: Datum verfügbaren Firmware - Dummy 1970-01-01 wenn der Adapter neu installiert wird und es kein Update zur Verfügung steht (Draht & Vision/nur lesen)
+-   `firmware_update_start`: Start Update in 2 Schritten (Draht & Vision/änderbar)
+-   `firmware_update_start_approved`: Aktualisierung der Firmware starten - `firmware_update_start` muss auf true gesetzt sein (Draht & Vision/änderbar)
 -   `gradient`: Gefälle oder Anstieg in Grad (Draht & Vision/nur lesen)
 -   `inclination`: Neigung in Grad (Draht & Vision/nur lesen)
 -   `last_command`: Letzter Befehl von iobroker oder der APP als JSON Table (Draht & Vision/nur lesen)
@@ -265,9 +267,14 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 ![Vision img/mqtt_info.png](../en/img/mqtt_info.png)
 
 ## Changelog
+### 2.3.2 (2023-07-21)
 
-### **WORK IN PROGRESS**
+-   (Lucky-ESA) Wrong folder for areas
+-   (Lucky-ESA) New data points can only be read
 
+### 2.3.1 (2023-07-20)
+
+-   (Lucky-ESA) Added Firmware Update
 -   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
 -   (Lucky-ESA) Added reset blade time and battery time
 -   (Lucky-ESA) Added ping after refresh token

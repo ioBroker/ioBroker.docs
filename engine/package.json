@@ -13,12 +13,14 @@
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^7.2.1",
+    "@google-cloud/translate": "^7.2.2",
     "gulp": "^4.0.2",
     "axios": "^1.4.0"
   },
   "scripts": {
     "start": "node main",
-    "build-all": "gulp"
+    "build-all": "gulp",
+    "update-packages": "ncu --upgrade && cd front-end && ncu --upgrade && cd ..",
+    "npm": "npm i && cd front-end && npm i -f && cd .."
   }
 }

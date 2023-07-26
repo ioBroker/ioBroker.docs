@@ -1,9 +1,10 @@
+# ioBroker.panasonic-comfort-cloud
+
 | :warning: WARNING          |
 |:---------------------------|
 | New app version in adapter settings is 1.18.0      |
 
 ![Logo](admin/panasonic-comfort-cloud.png)
-# ioBroker.panasonic-comfort-cloud
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)](https://www.npmjs.com/package/iobroker.panasonic-comfort-cloud)
@@ -22,34 +23,44 @@ To use the a adpter you need to enter your username and password in the configur
 With the method used, only one client can be logged on with the account at a time.
 It is recommended that a second account, for which the devices have been shared, is used.
 
-
 ## Changelog
 
+### **WORK IN PROGRESS**
+
 ### 2.2.0
+
 * Added feature to automatically load the app version from GitHub.
 
 ### 2.1.0
+
 * Added app version to settings.
 
 ### 2.0.6
+
 * panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
 
 ### 2.0.5
+
 * Translation for news added.
 
 ### 2.0.4
+
 * New version of dependencies installed.
 
 ### 2.0.3
+
 * panasonic-comfort-cloud-client updated to new version. (appVersion changed again)
 
 ### 2.0.2
+
 * panasonic-comfort-cloud-client updated to new version.
 
 ### 2.0.1
+
 * Changed the type of some states from string to number.
 
 ### 2.0.0
+
 * Added js-controller 3 dependency.
 * Added username and password to protectedNative and password to encryptedNative.
 * Added connection info.
@@ -57,36 +68,47 @@ It is recommended that a second account, for which the devices have been shared,
 * Fixes for async await pattern.
 
 ### 1.2.9
+
 * Error handling for get device added.
 
 ### 1.2.8
+
 * Fixed bug in Comfort Cloud client.
 
 ### 1.2.7
+
 * Comfort Cloud client updated.
 
 ### 1.2.6
+
 * Fixed bug that guid is null in device creation.
 
 ### 1.2.5
+
 * *Comfort Cloud client updated.
 
 ### 1.2.4
+
 * Fixed bug with undefined guid. Log messages added.
 
 ### 1.2.3
+
 * Set parameters only for writable states.
 
 ### 1.2.2
+
 * *Fixed error handling and added stack info.
 
 ### 1.2.1
+
 * Fixed bug in refesh device method.
 
 ### 1.2.0
+
 * States insideTemperature, outTemperature and Nanoe added.
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 marc <marc@lammers.dev>

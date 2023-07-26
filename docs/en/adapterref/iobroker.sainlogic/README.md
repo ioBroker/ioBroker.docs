@@ -94,6 +94,10 @@ Station does not answer to scheduler commands, so only listener mode is supporte
 
 Latest version
 
+#### 0.10.5 Bugfix for state initialization, removed log messages for forwarding
+
+#### 0.10.4 Bugfix for lightning count, new battery states for additional sensors
+
 #### 0.10.3 Bugfixes
 
 #### 0.10.2 Bugfixes

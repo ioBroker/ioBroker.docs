@@ -9,13 +9,11 @@ BADGE-NPM: https://nodei.co/npm/iobroker.ds18b20.png?downloads=true
 
 # ioBroker.ds18b20
 
-The adapter `ds18b20` enables the direct integration of 1-wire temperature sensors of the type DS18B20 into ioBroker.
+The adapter `ds18b20` enables the direct integration of 1-wire temperature sensors of the type DS18B20 or similar into ioBroker.
 
 An appropriate hardware with support for the 1-wire bus is required (e.g. Raspberry Pi). Also the 1-wire bus must be properly functional on the system (sensors listed in `/sys/bus/w1/devices/`).
 
-
 An example of the connection of DS18B20 sensors to a Raspberry Pi can be found below.
-
 
 ## Features
 
@@ -24,7 +22,6 @@ An example of the connection of DS18B20 sensors to a Raspberry Pi can be found b
 * Detection of errors while reading a sensor (checksum, communication error, device disconnected)
 * Query interval customizable per sensor
 * Single senors may be disabled
-* Rundung und Umrechnung des gemessenen Wertes pro Sensor anpassbar
 * Rounding and conversion of the measured value customizable per sensor
 * Support for sensors at remote systems using the _remote client_
 
@@ -35,7 +32,6 @@ The adapter is available in the stable and latest repository.
 Alternatively, the latest development version can be installed using the GitHub URL `https://github.com/crycode-de/ioBroker.ds18b20.git`.
 This is recommended in only some cases!
 
-
 ## Configuration
 
 In the adapter configuration, a **Default query interval** can be specified in milliseconds for all sensors. Minimum is 500.
@@ -44,11 +40,11 @@ In addition, the **Path of the 1-wire devices** can be adjusted if necessary.
 Default is `/sys/bus/w1/devices`, where sensors on all bus masters will be detected.  
 Alternatively you may set the direct path ot one bus master, e.g. `/sys/bus/w1/devices/w1_bus_master1`. Then you will get only sensors for this single bus master.
 
-An integrated server can be activated and configured for the integration of sensors at a remote system.
+![Main Settings](./img/config1.png)
 
-The sensors can be added to a table manually or by **Search Sensors**.
+The sensors can be added to a table manually or by **Search for Sensors**.
 
-![Konfiguration](./img/config.png)
+![Sensors](./img/config2.png)
 
 The **Address** is the 1-wire address/ID of the sensor and determines the object ID.  
 As an example, a sensor with the address `28-0000077ba131` gets the object ID `ds18b20.0.sensors.28-0000077ba131`.
@@ -58,8 +54,7 @@ The **Name** is used to identity the sensor. It's freely selectable by you.
 The **Remote system ID** is empty for directly attached sensors or the ID of the remote system for sensors attached to a remote system.
 
 For each sensor a custom **Query interval** may be specified in milliseconds.  
-If this field is left blank, the default query interval will be used.
-Minimum is 500.
+If this field is left blank, the default query interval will be used. Minimum is 500.
 
 The **Unit** defines the stored unit in the ioBroker object for the value.
 Default is `°C`.
@@ -75,11 +70,15 @@ If unset, the state will not be updated on errors.
 
 The **Enabled** checkbox allows you disable specific sensors separately.
 
+An integrated server can be activated and configured for the integration of sensors at a remote system.
+
+![Remote-Systems](./img/config3.png)
+
+The Encryption key must be given to all remote systems. Using this key, the communication between the server and the clients is encrypted.
 
 ### Conversion from `°C` to `°F`
 
 To get the temperatures from the adapter in `°F` you need to use `1.8` as factor and `32` as offset.
-
 
 ## Actions
 
@@ -87,35 +86,35 @@ It is possible to trigger the instant reading of one or all sensors by writing t
 
 To trigger the reading of all sensors, write `all` to the state.
 
-To tirgger the reading of a single sensor, write the address or ioBroker object ID of the sensor to the state.
-
+To trigger the reading of a single sensor, write the address or ioBroker object ID of the sensor to the state.
 
 ## Using in scripts
 
 It is possible to send commands to the adapter to read from the sensors or search for sensors.
 
-### `readNow`
+### `read` / `readNow`
 
-Using the commans `readNow` you can trigger the instant reading of one or all sensors.
-To read all sensors, the message part can be empty or set to the string `all`.
+Via the command `read` or `readNow`, all sensors or a single sensor can be read.
+
+If all sensors are requested, the result will contain an object with the sensor addresses mapped to the current value.
+
 To read a single sensor, the message part must be set to the address or ioBroker object ID of the sensor.
-
-The commant `readNow` returns no data. It will only trigger the reading of the sensors.
-
-```js
-sendTo('ds18b20.0', 'readNow');
-sendTo('ds18b20.0', 'readNow', '28-0000077ba131');
-```
-
-### `read`
-
-Via the command `read`, a single sensor can be read.
-The message part must be set to the address or ioBroker object ID of the sensor.
-The value can be processed by a callback function.
+In this case the value is provided directly.
 
 ```js
+sendTo('ds18b20.0', 'read', null, (ret) => {
+    log('ret: ' + JSON.stringify(ret));
+    // ret: {"err":null,"value":{"28-0000077b9fea":21.94}}
+
+    if (ret.err) {
+        log(ret.err, 'warn');
+    }
+});
+
 sendTo('ds18b20.0', 'read', '28-0000077ba131', (ret) => {
     log('ret: ' + JSON.stringify(ret));
+    // ret: {"err":null,"value":21.94}
+
     if (ret.err) {
         log(ret.err, 'warn');
     }
@@ -156,10 +155,13 @@ sendTo('ds18b20.0', 'getRemoteSystems', {}, (ret) => {
 ```
 
 ## Adapter information
+
 Via the `ds18b20.*.info.connection` State, each adapter instance provides information on whether all configured sensors provide data.  
 If the last reading of all sensors was successful, this state is `true`.
-As soon as one of the sensors has an error, this state is `false`.
+As soon as one of the sensors has an error, this state is `false`.  
+This state will be `false` too if remote systems are enabled but there is a problem with the remote server.
 
+If remote systems are enabled the state `ds18b20.*.info.remotesConnected` will hold a list of the currently connected remote systems.
 
 ## DS18B20 connected to a Raspberry Pi
 
@@ -170,12 +172,14 @@ In this example the GPIO.04 (BCM) is used.
 ![DS18B20 Raspberry Pi](./img/raspi-ds18b20.png)
 
 To activate the 1-Wire bus on the Raspberry Pi, add the following line in the file `/boot/config.txt` and then restart the Raspberry Pi.
-```
+
+```text
 dtoverlay=w1-gpio,gpiopin=4
 ```
 
 If everything works, the connected sensors will be visible under `/sys/bus/w1/devices/`.
-```
+
+```sh
 $ ls -l /sys/bus/w1/devices/
 total 0
 lrwxrwxrwx 1 root root 0 Nov  2 11:18 28-0000077b4592 -> ../../../devices/w1_bus_master1/28-0000077b4592
@@ -193,7 +197,7 @@ Each wire needs it's own pull-up resistor.
 
 To enable the multiple wires you simply need to add multiple entries in the file `/boot/config.txt`:
 
-```
+```text
 dtoverlay=w1-gpio,gpiopin=4
 dtoverlay=w1-gpio,gpiopin=17
 ```
@@ -222,7 +226,7 @@ Then the _ioBroker.ds18b20 remote client_ connects to the adapter and will be sh
 
 ### Installation of the ioBroker.ds18b20 remote client
 
-A setup for the _ioBroker.ds18b20 remote client_ is served by the adapter.
+A setup for the _ioBroker.ds18b20 remote client_ is provided via GitHub.
 
 Instructions how to set up the client are includes in the adapter configuration.
 
@@ -232,12 +236,26 @@ Instructions how to set up the client are includes in the adapter configuration.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-07-23)
 
-### **WORK IN PROGRESS**
+* (crycode-de) Fixed bug on sensor migration
+* (crycode-de) 💥 Need to set a new remote encryption key in admin if remote sensors are used
+
+### 2.0.1 (2023-07-19)
+
+* (crycode-de) Fixed config migration
+* (crycode-de) Added warning message for upgrades
+
+### 2.0.0 (2023-07-19)
 
 * (crycode-de) 💥 Node.js 16.4+, js-controller 4+ and admin 6+ are required
 * (crycode-de) New Admin UI using JsonConfig
-* (crycode-de) `read` and `readNow` actions are now merged
+* (crycode-de) 💥 `read` and `readNow` actions are now merged
+* (crycode-de) New state `info.remotesConnected` with a list of connected remote systems (if enabled)
+* (crycode-de) Added icons for the sensor status to the sensor objects
+* (crycode-de) Label objects of disabled sensors
+* (crycode-de) Delete objects of unconfigured/deleted sensors
+* (crycode-de) Updated translations
 * (crycode-de) Code optimizations and upgrades to current standards
 * (crycode-de) Updated dependencies
 
@@ -251,110 +269,9 @@ Instructions how to set up the client are includes in the adapter configuration.
 * (crycode-de) Allow usage of w1_bus_masterX directly as w1DevicesPath
 * (crycode-de) Fixed display of errors in admin
 
-### 1.5.4 (2022-01-06)
-
-* (crycode-de) Catch errors while sending request to remote client (IOBROKER-DS18B20-C)
-
-### 1.5.3 (2021-12-28)
-
-* (crycode-de) Increased remote client protocol version to inform users that they should update their remote clients
-
-### 1.5.2 (2021-12-19)
-
-* (ghecker1) Fix remote client reconnect after multiple failed attempts
-  * **Reinstall of remote client needed to apply this fix!**
-
-### 1.5.1 (2021-12-12)
-
-* (crycode-de) Fix crash on undefined obj.native
-* (crycode-de) Updated remote-client-setup info in admin if https is used
-
-### 1.5.0 (2021-12-11)
-
-* (crycode-de) Add setting to disable specific sensors
-
-### 1.4.2 (2021-11-22)
-
-* (crycode-de) Added some instructions for installing remote client in admin
-
-### 1.4.1 (2021-04-20)
-
-* (crycode-de) Fixed bug if multiple remote sensors are used
-
-### 1.4.0 (2021-02-21)
-
-* (crycode-de) Support for remote sensors using an own tiny daemon and encrypted TCP sockets
-* (crycode-de) Set `q` flag to `0x81` (general problem by sensor) if a sensor reported a `null` value
-
-### 1.3.0 (2021-02-11)
-
-* (crycode-de) Searching for sensors now works for multiple 1-wire masters
-
-### 1.2.3 (2021-02-11)
-
-* (crycode-de) Added check of temperatures higher/lower than possible sensor values
-
-### 1.2.2 (2021-02-06)
-
-* (crycode-de) Fixed crash if settings are malformed (IOBROKER-DS18B20-3)
-
-### 1.2.1 (2021-01-09)
-
-* (crycode-de) Small fixes
-* (crycode-de) Updated dependencies
-
-### 1.2.0 (2020-12-21)
-
-* (crycode-de) Added Sentry error reporting
-* (crycode-de) Updated dependencies
-* (crycode-de) Optimized npm package
-
-### 1.1.5 (2020-10-14)
-
-* (crycode-de) Fixed incorrect data type of object
-* (crycode-de) Updated dependencies
-
-### 1.1.4 (2020-02-03)
-
-* (crycode-de) Updated connectionType and dataSource in io-package.json.
-
-### 1.1.3 (2020-01-23)
-
-* (crycode-de) Added `connectionType` in `io-package.json` and updated dependencies.
-
-### 1.1.2 (2020-01-22)
-
-* (crycode-de) Better handling of changed objects in admin.
-
-### 1.1.1 (2020-01-09)
-
-* (crycode-de) Fixed wrong communication errror detection on some sensors.
-
-### 1.1.0 (2019-11-11)
-
-* (crycode-de) Own implementation of reading the sensor data.
-* (crycode-de) Fixed bug on decimals rounding.
-* (crycode-de) 1-wire devices path is now configurable.
-
-### 1.0.3 (2019-11-03)
-
-* (crycode-de) Added documentation about DS18B20 at a Raspberry Pi; Dependencies updated
-
-### 1.0.2 (2019-10-07)
-
-* (crycode-de) Display error message when tried to search for sensors without adapter running.
-
-### 1.0.1 (2019-10-01)
-
-* (crycode-de) Type changed to hardware, Renamed command, Added missing documentation
-
-### 1.0.0 (2019-09-09)
-
-* (crycode-de) initial release
-
 ## License
 
-Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
 
 ### MIT License
 

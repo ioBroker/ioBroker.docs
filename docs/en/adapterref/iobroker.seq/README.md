@@ -33,31 +33,31 @@ It is also possible to apply a filter to the log levels and also to the adapters
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 0.3.0 (2023-07-25)
 
-### **WORK IN PROGRESS**
-
-- (o0shojo0o) Add adapter to TIER 1
+- (o0shojo0o) added adminTab
+- (o0shojo0o) added adapter to TIER 1
 
 ### 0.2.10 (2021-04-15)
 
-- (o0shojo0o) Check log message of undefine
+- (o0shojo0o) check log message of undefine
 
 ### 0.2.9 (2021-02-05)
 
-- (o0shojo0o) Bugfix 'Cannot read property common of null'
+- (o0shojo0o) fix 'Cannot read property common of null'
 
 ### 0.2.8 (2021-01-30)
 
-- (o0shojo0o) Bugfix NullPointerException
+- (o0shojo0o) fix NullPointerException
 
 ### 0.2.7 (2021-01-24)
 
-- (o0shojo0o) Add overview card
+- (o0shojo0o) added overview card
 
 ### 0.2.6 (2021-01-21)
 
-- (bluefox) Refactoring
-- (bluefox) Better translations
+- (bluefox) refactoring
+- (bluefox) better translations
 
 ### 0.2.5 (2021-01-20)
 
@@ -67,11 +67,11 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 - (o0shojo0o) bugfix display of the filter options
 - (o0shojo0o) bugfix display of template parameters
-- (o0shojo0o) add parameter logging Arch
-- (o0shojo0o) add parameter logging JsController
-- (o0shojo0o) add parameter logging Node
-- (o0shojo0o) add parameter logging Platform
-- (o0shojo0o) add parameter logging SourceVersion
+- (o0shojo0o) added parameter logging Arch
+- (o0shojo0o) added parameter logging JsController
+- (o0shojo0o) added parameter logging Node
+- (o0shojo0o) added parameter logging Platform
+- (o0shojo0o) added parameter logging SourceVersion
 
 ### 0.2.3 (2021-01-15)
 
@@ -98,7 +98,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 ### 0.0.5 (2020-09-23)
 
-- (o0shojo0o) add param SystemName for display in Seq
+- (o0shojo0o) added param SystemName for display in Seq
 
 ### 0.0.4 (2020-09-23)
 
@@ -124,7 +124,7 @@ It is also possible to apply a filter to the log levels and also to the adapters
 
 MIT License
 
-Copyright (c) 2022 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2023 Dennis Rathjen <dennis.rathjen@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

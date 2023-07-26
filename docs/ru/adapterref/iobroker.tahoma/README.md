@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tahoma/README.md
 title: ioBroker.тахома
-hash: /u36vdt/QGfAt0NT2GYFz89qeEwptfVxxitwHElxe+I=
+hash: ol4x0rHy3INAcP+Q6hOW4O02EskWBI7/Af5wKSwTmHE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tahoma/admin/tahoma.png)
 
@@ -12,7 +12,6 @@ hash: /u36vdt/QGfAt0NT2GYFz89qeEwptfVxxitwHElxe+I=
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Количество установок (последние)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/tahoma-stable.svg)
-![Языковой уровень: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)
 
 ![Статус выпуска на гитхабе](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
@@ -21,13 +20,22 @@ hash: /u36vdt/QGfAt0NT2GYFz89qeEwptfVxxitwHElxe+I=
 # IoBroker.tahoma
 Адаптер ioBroker для Somfy Tahoma. Этот проект не имеет никакого отношения к Somfy. Первоначально на основе сценария, взятого с https://forum.iobroker.net/post/336001 и разветвленного с https://github.com/StrathCole/ioBroker.tahoma.
 
-Адаптер подключается к API конечного пользователя Tahomalink и управляет устройствами, настроенными через Tahoma Box (и, скорее всего, Connexoon).
+Адаптер подключается к API конечного пользователя Tahomalink и управляет устройствами. настроить через Tahoma Box (и, скорее всего, через Connexoon).
 Адаптер еще не полностью функционален, но он должен поддерживать большинство действий по управлению жалюзи, рольставнями и т. д.
 
 Пожалуйста, также прочитайте [Часто задаваемые вопросы](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) в случае возникновения проблем.
 
 ## Текущие протестированные устройства
 Как правило, этот адаптер должен поддерживать все устройства, к которым можно получить доступ через __tahomalink.com__, но разработчику адаптера трудно это гарантировать. Главным образом потому, что документация используемого Somfy-API (по крайней мере, публично) не существует, и разработчик может тестировать только те устройства Somfy, которыми он владеет сам, или может протестировать при поддержке желающих участников.
+
+Устройства, которыми можно управлять через tahomalink.com, обычно также поддерживаются этим адаптером. Это включает в себя:
+
+| Устройство | Поддержка онлайн-API | Поддержка локального API |
+|-|-|-|
+| Коробка Тахома | ✓ | ✓ |
+| связь | ✓ | ✓ ([доказательство](https://github.com/Excodibur/ioBroker.tahoma/issues/241)) |
+| Тахома Переключатель | ✓ | ✓ |
+| Комплект для подключения | ✓ ([доказательство] (https://github.com/Excodibur/ioBroker.tahoma/issues/171)) | ✗ ([доказательство](https://service.somfy.com/downloads/fr_v5/fichecomparative_tahoma_switch_vs_kit_connectivite_a4_1221.pdf)) |
 
 Следующие устройства Somfy были проверены на совместимость с этим адаптером:
 
@@ -94,7 +102,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGEL
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2022 Marius Burkard & Excodibur
+Copyright (c) 2020-2023 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

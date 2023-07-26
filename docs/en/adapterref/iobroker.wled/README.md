@@ -48,6 +48,10 @@ When the adapter crashes or another Code error happens, this error message that 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.7.0 (2023-07-25)
+* several fixes by [HaggardFFM](https://github.com/HaggardFFM) fixes #479, #423
+* implement white color channel by [HaggardFFM](https://github.com/HaggardFFM), fixes #306, #306
+
 ### 0.6.7 (2022-06-08) - Bugfix [#400](https://github.com/DrozmotiX/ioBroker.wled/issues/400)
 * (DutchmanNL) Bugfix: Cannot read property 'initialized' of undefined handleStates solved [#400](https://github.com/DrozmotiX/ioBroker.wled/issues/400)
 
@@ -63,9 +67,6 @@ When the adapter crashes or another Code error happens, this error message that 
 ### 0.6.3 (2021-09-08) - HotFixes
 * (DutchmanNL) Missing dropdown for ID of effects added
 * (DutchmanNL) HotFix: Missing axios dependency added
-
-### 0.6.1 (2021-09-08)
-* (DutchmanNL) Missing state definitions WLED FW 0.13.0-b12 added.
 
 ## License
 MIT License

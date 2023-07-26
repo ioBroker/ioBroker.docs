@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.countdown/README.md
 title: ioBroker.обратный отсчет
-hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
+hash: YriSKJ2tSBYLXy04DTVTy1F66xYqwnTd/C+pkBNEdy4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -49,6 +49,11 @@ hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
 
 sendTo("countdown.0", "send", { "name": 'День свадьбы', "date": '01.04.2020 00:01+1Y' });
 
+## Посчитать
+Недавно добавлена функция «подсчета» — то есть подсчета дней от даты в прошлом. Это можно сделать либо в настройках адаптера, либо добавив «#» к строке даты, например.
+
+sendTo("countdown.0", "send", { "name": 'Дата рождения', "date": '01.04.2020 00:01# });
+
 Параметры здесь:
 
 * Г: Годы
@@ -83,6 +88,13 @@ sendTo("countdown.0", "send", { "name": 'День свадьбы', "date": '01.0
 * Возможность использовать плюс и минус в аддминутах и других функциях добавления
 
 ## Changelog
+
+### 2.1.0 (2023-07-XX) 
+* (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
+* (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
+
+### 2.0.2 (2023-07-16) 
+* (jack-blackson) Bugfix month calculation
 
 ### 2.0.1 (2023-05-24) 
 * (jack-blackson) Added objects for total number of months and years

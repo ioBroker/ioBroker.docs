@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: Ft42eUkODbXzui6lWz8gv5B+qZ4u1CNzC9GfXTBVTaw=
+hash: IufM3tIMikJYx7enM7YMVTmo8P/MOZdVP9yIgUo2CAw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -23,21 +23,23 @@ hash: Ft42eUkODbXzui6lWz8gv5B+qZ4u1CNzC9GfXTBVTaw=
 
 ## Он может взаимодействовать с системой отопления с использованием вызовов Web-API в направлении:
 * км200, км200 грн, км100, км50, HMC300 или IP-внутри (от Bosch Group)
+
 * Интерфейс ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией dev (см. ниже) и чипом ESP32.
 
-* Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ!!
+  Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ!!
 
 Адаптер ems-esp может считывать и записывать данные на оба шлюза для управления всеми компонентами системы отопления.
 Его можно использовать либо для исходных шлюзов Bosch-group, либо для ems-esp, либо для обоих параллельно.
+Все измененные состояния из собственных скриптов или обозревателя объектов должны быть установлены без подтверждения = false !!!
 
-Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.4.0.
+Адаптер протестирован для шлюза ems-esp с последними версиями прошивки ESP32 >= v3.5.1.
 
 ## Важные настройки в EMS-ESP:
 * Параметры форматирования для логического формата должны быть 1/0, а для значения/числа формата Enum.
 * Должен быть включен параметр «Включить команды записи API» в ems-esp.
 * Должна быть установлена авторизация Bypass Access Token для вызовов API или должен быть введен токен.
 
-При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходное представление устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. состав. Тогда все сущности/состояния находятся в одном и том же месте в структуре объекта ioBroker.
+При установке флажка либо используется структура устройства типа km200 для полей данных ems-esp, либо сохраняется исходное представление устройства EMS-ESP: котел, термостат, смеситель и т. д. При параллельном использовании шлюза km200 рекомендуется использовать данные km200. состав. Тогда все сущности/состояния находятся в одном и том же месте в структуре объектов ioBroker.
 
 ## Опрос
 Этот адаптер считывает значения after start из ems-esp и km200 с помощью HTTP-запросов get и может подписываться на изменения состояния и отправлять соответствующие http-команды (post) обратно либо на оборудование ems-esp, либо на шлюз km200.
@@ -50,10 +52,9 @@ hash: Ft42eUkODbXzui6lWz8gv5B+qZ4u1CNzC9GfXTBVTaw=
 Вызовы веб-API к/от шлюза km200 зашифрованы. Для шифрования/дешифрования необходимы два пароля:
 
 * пароль шлюза на этикетке шлюза в виде: xxxx-xxxx-xxxx-xxxx (с учетом регистра)
-* личный пароль, установленный с помощью приложения Buderus **MyDevice** (не используйте myBuderus или аналогичные приложения!)
+* личный пароль, установленный с помощью приложения Buderus **MyDevice** (не используйте myBuderus / EasyCom или аналогичные облачные приложения!)
 
-Используемые поля можно определить путем опроса структуры km200 (*) или соответствующего CSV-файла в параметрах экземпляра адаптера.
-
+Поля, которые будут использоваться для шлюза bosch, также можно определить путем опроса структуры km200 (*) или соответствующего CSV-файла в параметрах экземпляра адаптера.
 Для запуска 1-го адаптера рекомендуется использовать «*» для выбора всех полей данных km200.
 Затем адаптер создает файл km200.csv в каталоге ../iobroker-data/ems-esp/{instance}.
 
@@ -130,10 +131,47 @@ hash: Ft42eUkODbXzui6lWz8gv5B+qZ4u1CNzC9GfXTBVTaw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.3 (2023-07-25)
+* error corrections for km200 read
+
+### 2.0.2 (2023-07-24)
+* re-add parameters for room / function
+* change statistics update intervall for number of starts to every 5 minutes
+
+### 2.0.1 (2023-07-24)
+* without parameters for enum attributes
+* Error correction on v2.0.0 for ems-esp datanames and structure
+
+### 2.0.0 (2023-07-23)
+* DO NOT USE - DOES NOT WORK correctly !!
+* support for ems-esp version 3.6
+* message about ems-esp adapter version to use for old gateway v2 users
+* rework statistics to avoid slowing down admin adapter
+* some minor improvements
+
+### 1.34.0 (2023-07-21)
+* avoid warnings on statistics processing for new installations without historic data yet
+* allow statistics for polling-time for both gateways without active database
+* allow old "dallas" prefix instead of "temperaturesensors"
+
+### 1.33.0 (2023-07-20)
+* Rework adapter instance config: Split EMS-ESP and KM200 config pages
+* parameters stay the same
+
+### 1.32.0 (2023-07-19)
+* ems-esp v3.6 adjustments for dallas/temperaturesensors (not tested yet)
+* update dependencies 
+* improve processing off errors on statistics
+* Small adjustments on parameter screen
+
+### 1.31.0 (2023-07-08)
+* correction on JSON errors for ems-esp gateway entities (heatpump)
+
+### 1.30.0 (2023-04-12)
 * update efficience calculation to support external sensor for return temperature
 * when 3 state fields are empty then standard fields are used.
 * when state field(s) are filled, than this state(s) are used - e.g. own sensor for return temp
+* coorect error processing when no ems-esp devices found
 
 ### 1.29.0 (2023-03-08)
 * update dependencies

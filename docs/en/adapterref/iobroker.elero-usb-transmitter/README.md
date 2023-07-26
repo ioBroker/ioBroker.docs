@@ -1,6 +1,6 @@
-![Logo](admin/elero-usb-transmitter.png)
-
 # ioBroker.elero-usb-transmitter
+
+![Logo](admin/elero-usb-transmitter.png)
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.elero-usb-transmitter.svg)](https://www.npmjs.com/package/iobroker.elero-usb-transmitter)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.elero-usb-transmitter.svg)](https://www.npmjs.com/package/iobroker.elero-usb-transmitter)
@@ -16,6 +16,8 @@ Adapter to control Elero devices with the Elero USB Transmitter Stick.
 You need the usb transmitter stick and have to connect the existing roller shutter motors to the stick. The adapter automatically detects the active channels and adds the devices. In the settings you can set the names for the devices and the interval for the update
 
 ## Changelog
+
+## **WORK IN PROGRESS**
 
 ### 0.5.2
 

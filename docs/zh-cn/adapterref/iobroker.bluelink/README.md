@@ -3,35 +3,46 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
+hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.bluelink.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
 ![安装数量（最新）](https://iobroker.live/badges/bluelink-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/bluelink-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![测试和发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 bluelink 适配器
-控制现代或起亚汽车的适配器
+用于控制现代或起亚车辆的适配器
 
 讨论：https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 登录信息：https://developers.kia.com/web/v1/kia/specification/account/account_authorize
 
+<!-- 下一个版本的占位符（在行的开头）：
+
+https://github.com/AlCalzone/release-script#usage npm run 发行版主要 -- -p iobroker 许可证 --all 0.9.8 -> 1.0.0 npm run 发行版次要 -- -p iobroker 许可证 --all 0.9 .8 -> 0.10.0 npm run 发布补丁 -- -p iobroker 许可证 --all 0.9.8 -> 0.9.9 npm run 发布预发布 beta -- -p iobroker 许可证 --all v0.2.1 -> v0.2.2 -beta.0
+
+### **正在进行中** -->
 ## 捐赠
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 2.3.5 
+* (arteck) add force_login button
+* (arteck) corr history bug
+
+### 2.3.4 (2023-07-19)
+* (arteck) clima control is redesigned
+
+### 2.3.3 (2023-07-19)
+* (arteck) charge_limit_fast and charge_limit_slow is now in control folder
+
 ### 2.3.2 (2023-04-12)
 * (arteck) force update only selected vin
 * (arteck) add buttons for force_refresh_from_server and force_refresh_from_car

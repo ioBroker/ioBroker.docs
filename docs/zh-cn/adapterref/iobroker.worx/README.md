@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
+hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -141,7 +141,9 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 }
 ```
 
-- `firmware_available_date`：可用固件日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
+- `firmware_available_date`：可用固件的日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
+- `firmware_update_start`：分两步开始固件更新（wire & Vision/changeable）
+- `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true（wire & Vision/changeable）
 - `gradient`：grad 中的梯度（wire & Vision/只读）
 - `inclination`：梯度倾斜（电线和视觉/只读）
 - `last_command`：来自 iobroker 或 APP 的最后一个请求，作为 JSON 表（wire & Vision/只读）
@@ -259,9 +261,14 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 ![视觉 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
 ## Changelog
+### 2.3.2 (2023-07-21)
 
-### **WORK IN PROGRESS**
+-   (Lucky-ESA) Wrong folder for areas
+-   (Lucky-ESA) New data points can only be read
 
+### 2.3.1 (2023-07-20)
+
+-   (Lucky-ESA) Added Firmware Update
 -   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
 -   (Lucky-ESA) Added reset blade time and battery time
 -   (Lucky-ESA) Added ping after refresh token

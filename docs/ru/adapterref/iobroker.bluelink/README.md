@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
+hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -23,15 +23,26 @@ hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
 
 Информация для входа: https://developers.kia.com/web/v1/kia/specification/account/account_authorize
 
+<!-- Заполнитель для следующей версии (в начале строки):
+
+https://github.com/AlCalzone/release-script#usage npm run основной релиз -- -p iobroker license --all 0.9.8 -> 1.0.0 npm run второстепенный релиз -- -p iobroker license --all 0.9 .8 -> 0.10.0 npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2 -бета.0
+
+### **В РАБОТЕ** -->
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 2.3.5 
+* (arteck) add force_login button
+* (arteck) corr history bug
+
+### 2.3.4 (2023-07-19)
+* (arteck) clima control is redesigned
+
+### 2.3.3 (2023-07-19)
+* (arteck) charge_limit_fast and charge_limit_slow is now in control folder
+
 ### 2.3.2 (2023-04-12)
 * (arteck) force update only selected vin
 * (arteck) add buttons for force_refresh_from_server and force_refresh_from_car

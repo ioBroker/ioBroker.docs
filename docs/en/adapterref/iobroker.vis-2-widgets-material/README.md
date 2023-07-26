@@ -48,7 +48,7 @@ Not as button: View could be shown in full size, and you can control elements in
 
 ![View in widget - button](img/material-view-in-widget-2.png)
 
-As button: You can show a small thumbnail of view and by pressing on it, it will be shown in full size.
+As button: You can show a small thumbnail of view, and by pressing on it, it will be shown in full size.
 
 ### Thermostat
 ![Thermostat](img/material-thermostat-1.png)
@@ -99,58 +99,61 @@ Additionally, you can show image or iframe with this widget too.
 
 ## Wizard mapping
 ### One view - one room
-- Thermostat => Widget Thermostat (Actual, Desired, Humidity) with device name
-- Light On/Off => Simple State On/Off with device name
-- Dimmer => Simple state
-- Shutter => Blinds with name
-- Themerature => actual value with chart (If possible add humidity)
-- Motion => Simple state with specific icon (boy), read only, active color rgba(52,170,68,1)
-- Fire => Simple state with specific icon (fire), read only, active color 'red'
-- Flood => Simple state with specific icon (water), read only, active color 'blue'
-- Door => Simple state with specific icon (Door), read only, active color 'red'
-- Slider => Simple state
-- Lock => Simple state
-- Socket => Simple state with specific icon
-- Media player => media player
-- Volume => simple state with specific icon (Volume)
-- Weather Forecast => Openweathermap (only if installed)
-- Window => Simple state with specific iconS (opened => true, closed => false)
+- Thermostat → Widget Thermostat (Actual, Desired, Humidity) with device name
+- Light On/Off → Simple State On/Off with device name
+- Dimmer → Simple state
+- Shutter → Blinds with name
+- Themerature → actual value with chart (If possible add humidity)
+- Motion → Simple state with specific icon (boy), read only, active color rgba(52,170,68,1)
+- Fire → Simple state with specific icon (fire), read only, active color 'red'
+- Flood → Simple state with specific icon (water), read only, active color 'blue'
+- Door → Simple state with specific icon (Door), read only, active color 'red'
+- Slider → Simple state
+- Lock → Simple state
+- Socket → Simple state with specific icon
+- Media player → media player
+- Volume → simple state with specific icon (Volume)
+- Weather Forecast → Openweathermap (only if installed)
+- Window → Simple state with specific iconS (opened → true, closed → false)
 
 ### One view - all rooms
-- Thermostat => Widget Thermostat (Actual, Desired, Humidity) with device name
-- Light On/Off => Switch and Buttons Switch
-- Dimmer => Switch and Buttons Slider
-- Shutter => Switch and Buttons Blinds
-- Themerature => Switch and Buttons info with chart
--- humidity => Switch and Buttons info with chart
-- Motion => Switch and Buttons Info specific icon, read only, active color rgba(52,170,68,1)
-- Fire => ISwitch and Buttons nfo specific icon (fire), read only, active color 'red'
-- Flood => Switch and Buttons Info with specific icon (water), read only, active color 'blue'
-- Door => Switch and Buttons Info with specific icon (Door), read only, active color 'red'
-- Slider => Switch and Buttons Slider
-- Lock => Switch and Buttons Switch
-- Socket => Switch and Buttons switch with specific icon
-- Media player => media player (As card) with room name
-- Volume => Switch and Buttons Slider with specific icon (Volume)
-- Weather Forecast => Openweathermap as card (only if installed)
-- Window =>  Switch and Buttons Info with specific iconS (opened => true, closed => false)
-
-
+- Thermostat → Widget Thermostat (Actual, Desired, Humidity) with device name
+- Light On/Off → Switch and Buttons Switch
+- Dimmer → Switch and Buttons Slider
+- Shutter → Switch and Buttons Blinds
+- Temperature → Switch and Buttons info with chart
+-- humidity → Switch and Buttons info with chart
+- Motion → Switch and Buttons Info specific icon, read only, active color rgba(52,170,68,1)
+- Fire → ISwitch and Buttons nfo specific icon (fire), read only, active color 'red'
+- Flood → Switch and Buttons Info with specific icon (water), read only, active color 'blue'
+- Door → Switch and Buttons Info with specific icon (Door), read only, active color 'red'
+- Slider → Switch and Buttons Slider
+- Lock → Switch and Buttons Switch
+- Socket → Switch and Buttons switch with specific icon
+- Media player → media player (As card) with room name
+- Volume → Switch and Buttons Slider with specific icon (Volume)
+- Weather Forecast → Openweathermap as card (only if installed)
+- Window → Switch and Buttons Info with specific iconS (opened → true, closed → false)
 
 ## Todo
 - RGBW color controller 
-
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### 0.8.2 (2023-07-19)
+* (bluefox) Corrected small layout problems
+
+### 0.8.0 (2023-07-18)
+* (bluefox) Added wizard for widgets
+
 ### 0.7.1 (2023-07-02)
 * (bluefox) Added washer widget
 
 ### 0.6.2 (2023-06-29)
-* (bluefox) Allowed usage without frame for all widgets
+* (bluefox) Allowed usage without a frame for all widgets
 
 ### 0.6.0 (2023-06-28)
 * (bluefox) Added blinds to switches widget
@@ -165,7 +168,7 @@ Additionally, you can show image or iframe with this widget too.
 
 ### 0.4.0 (2023-06-16)
 * (bluefox) Added button texts for switches widget
-* (bluefox) Removed static widget, as it replaced by switches widget
+* (bluefox) Removed static widget, as it was replaced by switches widget
 
 ### 0.3.1 (2023-06-14)
 * (bluefox) Improved buttons widget

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
 title: ioBroker.countdown
-hash: xHWJ07rn8dUEqgl2AAfmDDdyTyc480/5uVKlpqzD2to=
+hash: YriSKJ2tSBYLXy04DTVTy1F66xYqwnTd/C+pkBNEdy4=
 ---
 ![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -49,6 +49,11 @@ Wenn Sie möchten, dass sich ein Countdown in einem definierten Zeitraum wiederh
 
 sendTo("countdown.0", "send", { "name": 'Hochzeitstag', "date": '01.04.2020 00:01+1Y' });
 
+## Zusammenzählen
+Neu hinzugekommen ist die Funktion zum „Hochzählen“, also zum Zählen der Tage ab einem Datum in der Vergangenheit. Dies kann entweder im Adapter-Setup oder durch Hinzufügen eines „#“ zu einer Datumszeichenfolge erfolgen, z. B.
+
+sendTo("countdown.0", "send", { "name": 'Birthdate', "date": '01.04.2020 00:01# });
+
 Parameter sind hier:
 
 * Y: Jahre
@@ -83,6 +88,13 @@ Parameter sind hier:
 * Möglichkeit, Plus und Minus in Addminuten und den anderen Additionsfunktionen zu verwenden
 
 ## Changelog
+
+### 2.1.0 (2023-07-XX) 
+* (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
+* (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
+
+### 2.0.2 (2023-07-16) 
+* (jack-blackson) Bugfix month calculation
 
 ### 2.0.1 (2023-05-24) 
 * (jack-blackson) Added objects for total number of months and years

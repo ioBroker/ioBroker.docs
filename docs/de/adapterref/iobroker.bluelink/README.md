@@ -3,35 +3,46 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: UzuUoxnMYcAFcT4PUpDt3p0WrXjw0PLOldl/TLoZTFk=
+hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/bluelink-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/bluelink-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/bluelink-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Testen und freigeben](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Bluelink-Adapter für ioBroker
 Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen
 
 Diskussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
-Login-Infos: https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+Login-Informationen: https://developers.kia.com/web/v1/kia/specification/account/account_authorize
 
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker-Lizenz --all 0.9.8 -> 1.0.0 npm run Release Minor -- -p iobroker-Lizenz --all 0.9 .8 -> 0.10.0 npm Run Release Patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Prerelease Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -beta.0
+
+### **ARBEIT IN ARBEIT** -->
 ## Spende
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 2.3.5 
+* (arteck) add force_login button
+* (arteck) corr history bug
+
+### 2.3.4 (2023-07-19)
+* (arteck) clima control is redesigned
+
+### 2.3.3 (2023-07-19)
+* (arteck) charge_limit_fast and charge_limit_slow is now in control folder
+
 ### 2.3.2 (2023-04-12)
 * (arteck) force update only selected vin
 * (arteck) add buttons for force_refresh_from_server and force_refresh_from_car

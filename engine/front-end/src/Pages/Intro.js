@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import {
+    Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+} from '@mui/material';
 
 import {
     MdCloud as IconCloud,
     MdClose as IconClose,
+    MdCake as IconCake,
 } from 'react-icons/md';
 import ServerImg from '../assets/iob-server.png';
 import HausAutomatisierungImg from '../assets/haus_automatisierung.png';
@@ -25,6 +28,7 @@ import Adapters from '../Components/Adapters';
 import SupportUs from '../Components/SupportUs';
 import About from '../Components/About';
 import Screenshots from '../Components/Screenshots';
+import UserMeeting from '../Components/UserMeeting';
 
 import BackImage from '../assets/background.jpg';
 import LinusShell from '../Components/LinusShell';
@@ -126,6 +130,35 @@ const styles = theme => ({
         display: 'inline-block',
         verticalAlign: 'top',
     },
+    userButton: {
+        marginTop: 100,
+        marginLeft: 10,
+        marginRight: 10,
+        padding: 15,
+        borderRadius: 100,
+        textTransform: 'uppercase',
+        background: '#3399CC',
+        color: '#FFFFFF',
+        fontSize: 20,
+        opacity: 0.9,
+        fontFamily: 'Audiowide, sans-serif',
+        cursor: 'pointer',
+        display: 'flex',
+        gap: 8,
+        alignItems: 'center',
+    },
+    userButtonImage: {
+        width: 50,
+        height: 40,
+        marginRight: 10,
+        verticalAlign: 'top',
+        marginTop: -8,
+    },
+    userButtonText: {
+        whiteSpace: 'nowrap',
+        display: 'inline-block',
+        verticalAlign: 'top',
+    },
     hausButtonImage: {
         width: 75,
         height: 40,
@@ -155,6 +188,25 @@ const styles = theme => ({
         fontSize: 24,
         textAlign: 'center',
     },
+    '@keyframes colors': {
+        '0%':   {
+            color: '#4778e1',
+        },
+        '25%': {
+            color: '#a9a9a9',
+        },
+        '50%':  {
+            color: '#2f4c8f',
+        },
+        '100%': {
+            color: '#ffffff',
+        },
+    },
+    coloredIcon: {
+        animation: `$colors 3000ms ${theme.transitions.easing.easeInOut} infinite alternate`,
+        width: 30,
+        height: 30,
+    }
 });
 
 class Intro extends Component {
@@ -256,6 +308,47 @@ class Intro extends Component {
         </div>;
     }
 
+    renderUserMeetingDialog() {
+        if (!this.state.showUserMeetingDialog) {
+            return null;
+        }
+        return <UserMeeting
+            key="userMeeting"
+            mobile={this.props.mobile}
+            onClose={() => this.setState({ showUserMeetingDialog: false })}
+        />;
+    }
+
+    renderUserMeeting() {
+        const smallMargin = window.screen.height < 500;
+
+        return <div
+            style={{
+                marginTop: smallMargin ? 10 : undefined,
+                width: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+            }}
+        >
+            <div
+                className={this.props.classes.userButton}
+                onClick={() => {
+                    this.setState({ showUserMeetingDialog: true });
+                }}
+            >
+                <IconCake className={this.props.classes.coloredIcon}/>
+                <div
+                    className={this.props.classes.userButtonText}
+                    style={{
+                        whiteSpace: this.props.mobile ? 'wrap' : undefined,
+                    }}
+                >
+                    {I18n.t('Abfrage: Usertreffen November 2024')}
+                </div>
+            </div>
+        </div>;
+    }
+
     renderHausAutomatisierung() {
         const smallMargin = window.screen.height < 500;
 
@@ -303,7 +396,11 @@ class Intro extends Component {
             link = 0;
         }
         let middleButton;
-        if (this.action) {
+        let noColoring = false;
+        if (window.location.hash === '#usertreffen') {
+            middleButton = this.renderUserMeeting();
+            noColoring = true;
+        } else if (this.action) {
             middleButton = this.renderAction();
         } else {
             switch (link) {
@@ -337,7 +434,7 @@ class Intro extends Component {
                     typedText="curl -sLf https://iobroker.net/install.sh | bash -"
                 /> : null}
             </div>,
-            <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
+            <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={noColoring} />,
             <ForumInfo key="forum" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <About key="about" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <Subscribe key="subscribe" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
@@ -345,6 +442,7 @@ class Intro extends Component {
             <Adapters key="adapters" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
             <Screenshots key="screenshots" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} onNavigate={this.props.onNavigate} />,
             <Footer key="footer" theme={this.props.theme} mobile={this.props.mobile} onNavigate={this.props.onNavigate} />,
+            this.renderUserMeetingDialog(),
         ];
     }
 }

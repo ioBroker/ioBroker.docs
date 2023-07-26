@@ -211,19 +211,16 @@ class Utils {
 
             if (line.startsWith('=========')) {
                 // ignore it
-            } else
-            if (line.match(/^# /)) {
+            } else if (line.match(/^# /)) {
                 const cont = Utils.findTitle(line, -1, path);
                 title = cont.title;
-            } else
-            if (line.trim().startsWith('|')) {
+            } else if (line.trim().startsWith('|')) {
                 if (!parts[last] || parts[last].type !== 'table') {
                     parts.push({ type: 'table', lines: [line] });
                 } else {
                     parts[last].lines.push(line);
                 }
-            } else
-            if (line.match(/^##+ /)) {
+            } else if (line.match(/^##+ /)) {
                 parts.push({ lines: [line], type: 'chapter' });
                 last++;
                 let level = line.split('#').length - 3;
@@ -234,8 +231,7 @@ class Utils {
                 while (current[level] !== undefined) {
                     level = null;
                 }
-            } else
-            if (line.startsWith('@@@')) {
+            } else if (line.startsWith('@@@')) {
                 line = line.substring(3).trim();
                 parts.push({ lines: [line], type: '@@@' });
                 last++;

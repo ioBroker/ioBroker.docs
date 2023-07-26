@@ -7,7 +7,7 @@ lastChanged: 15.02.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: AzCAKVIwH8fViCVYiDvlTrcVtIFPhiO12fiiVz3eZrM=
+hash: j2mg07NLFm9m2TAspQMBW/bpoCbaO9Dq+TastiW6UfI=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -118,9 +118,9 @@ The next step of the installer deals with the network settings. A static IP addr
 
 At the end a summary of the installation is displayed:
 
-<details><summary>summary</summary>
+<details><summary>Summary</summary>
 
-![Summary](../../de/install/media/proxmox/zusammenfassung.png)
+![summary](../../de/install/media/proxmox/zusammenfassung.png)
 
 </details>
 
@@ -152,9 +152,9 @@ Now it continues in the browser (example https://10.1.1.89:8006). First, however
 
 The login then takes place with the user root and the password selected during installation. You can switch the language to German here **first**, otherwise the Proxmox interface will be displayed in English and you don't have to enter your username and password a second time.
 
-<details><summary>registration</summary>
+<details><summary>Registration</summary>
 
-![Sign up](../../de/install/media/proxmox/anmeldung.png)
+![registration](../../de/install/media/proxmox/anmeldung.png)
 
 </details>
 
@@ -289,6 +289,10 @@ After the VM has been started, go to the VM console and start the **Install**.
 You will be guided through the installation and have to make some settings during this process. To use it, you need the tab, space and arrow keys. Due to the scope, various shots of the series of images can be found.
 
 <span style="color:red">**DANGER! - No root password may be assigned.**</span>
+
+A notice:
+
+Do not select **iobroker** as a user name, as this is already used internally.
 
 <details><summary>Image series Debian Install</summary>
 
@@ -522,6 +526,10 @@ Now **sudo** and **curl** will be installed. Sudo is required, as in the next st
 
 Now create the future user. Replace "username" in that case. Password assignment for the user. The rest can be confirmed with ENTER.
 
+A notice:
+
+Do not select **iobroker** as a user name, as this is already used internally.
+
 ~~~ adduser username ~~~
 
 The user must then be assigned to the sudo group.
@@ -699,7 +707,7 @@ The configuration file has the same ID number that was assigned when the lxc was
 
 ![proxmoxlxc09](../../de/install/media/proxmox/proxmoxlxc09.PNG)
 
-Before editing the configuration file, a backup copy should be created:
+Before editing the configuration file, a backup copy should be made:
 
 ~~~ cp 201.conf 201.conf.backup ~~~
 
@@ -713,7 +721,7 @@ Now the configuration file is edited with vi or nano:
 
 The following is added to the end of the configuration file:
 
-~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B00124B00124B001202=052 create
+~~~ lxc.cgroup2.devices.allow: c 189:* rwm lxc.mount.entry: usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00 dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0 012023529-if00 none bind,optional,create=file
 
 lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
@@ -722,7 +730,7 @@ Replace the marked values with the noted entries from your note!
 ![12](../../de/install/media/proxmox/proxmoxlxc12.PNG)
 
 * The first line refers to the major device number **189** Note: #1
-* In the second line, the unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) from Note: #2 is given individually and with the absolute path, note that the complete text is written in one line without line breaks.
+* In the second line, the unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) from Note: #2 is specified individually and with the absolute path, note that the entire text is written in one line without line breaks.
 * In the third line, the major device number **166** from ttyACM from Note: #3 is given.
 
 Save the configuration file (in the nano editor with the key combination: CTRL + o & CTRL + x to exit the editor)
@@ -798,7 +806,7 @@ it is checked whether the adjustments to the configuration file were successful.
 
 * The screenshot also shows that the device number of the cc2531 has changed from 3 to 4, this is because the stick has been unplugged and plugged in again in the meantime. However, since the unique ID and not the bus/device number is specified in the configuration file, the USB passthrough continues to work.
 
-If, as described above, a Zigbee stick is passed through to the container, it must be entered in iobroker in the Zigbee adapter settings under COM port name
+If, as described above, a Zigbee stick is passed through to the container, it must be entered in the iobroker in the Zigbee adapter settings under COM port name
 
 ~~~ /dev/ttyACM0 ~~~
 

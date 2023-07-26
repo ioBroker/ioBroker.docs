@@ -19,6 +19,23 @@ Provides support for media players, internet radios and SmartRadios equipped wit
 
 NOTE: This adapter has been transferred to iobroker-community-adapters for maintenance. Thus planned features (see below) will not be implemented. Only important bug fixes and dependency updates will be released in the future. However PRs with bug fixes or feature enhancements are always welcome.
 
+RELEASE NOTES: Version 0.1.x includes some Breaking Changes:
+
+- node>=14, js-contoller>=4 and admin>=5 required
+
+Upgrade your ioBroker to at least this software level, if you want to use this adapter
+
+- PIN encryption and validity check of all parameters in config UI
+If you update this adapter from a previous version instead of a new installation, the adapter will not start, even if your PIN in your config is correct and has not been changed. To fix this, simply enter the same previous PIN once more in the config UI and store and close the config UI to restart the adapter. This of course is only neccessary once after the first start after the update.
+
+- The type of "frontier_silicon.X.modes.selectPreset" changed from "string" to "number"
+If you update this adapter from a previous version instead of a new installation, you may possibly find warnings in the ioBroker log like:
+`State value to set for "frontier_silicon.0.modes.selectPreset" has to be type "string" but received type "number"`
+To prevent this from happening, the most simple solution is to stop the adapter in the instances tab of ioBroker, completely delete the object tree in the objects tab and then restart the adapter. This of course is only neccessary once after the update and is not required if you do a clean new installation.
+
+- Synchronization of power, volume and mute states with the UNDOK App
+Synchronization with the UNDOK App here means that power, volume and mute settings changed by the UNDOK App will now also be updated in the states of this adapter.  Due to the limitations of the FSAPI protocol the state synchronization of the UNDOK App with the adapter still is unreliable and will not be instantaneous but only happen when e.g. a preset or a mode is changed using the UNDOK App.
+
 ## Features
 
 ### Implemented features
@@ -43,20 +60,20 @@ NOTE: This adapter has been transferred to iobroker-community-adapters for maint
 
 - Changing system information
 
-### Known Bugs
+### Known Bugs and Limitations
 
-- Media player must be on for preset discovery
-- No notifies after some time
+- The Media player must be on for preset discovery
+- Due to limitations of the FSAPI protocol, parallel operation with the UNDOK App is not reliable and thus not supported. Use at own risk.
 
 ## Documentation
 
-This adapter lets you control internet radios and media players based on Frontier Silicon chipsets. Many devices which can be controlled via [Undok](https://www.frontiersmart.com/undok) should work. Tested devices come from [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp) and [SilverCrest](https://www.silvercrest-multiroom.de/produkte/produktuebersicht/), others should work, too.
+This adapter lets you control internet radios and media players based on Frontier Silicon chipsets. Many devices which can be controlled via [UNDOK](https://support.undok.net) should work. Tested devices come from [Revo](https://revo.co.uk/de/products/), [Sangean](https://www.sangean.eu/products/all_product.asp), [Hama](https://de.hama.com/produkte/audio-hifi/digitalradio) and [SilverCrest](https://www.lidl.de), others should work, too.
 
-After installation the device's IP and PIN must be entered in the configuration dialog. If the radio does not play DAB after switching on via Undok or this adapter try with "DAB starts without sound" enabled.
+After installation the device's IP and PIN must be entered in the configuration dialog. If the radio does not play DAB after switching on via the UNDOK App or this adapter try again with "DAB starts without sound" enabled.
 
 When the adapter starts for the first time it collects information about the device. For that it needs to switch through all modes. During checking settings the device will be muted for a few seconds to avoid disturbing sounds.
 
-While the adapter reads the device's setting objects and states are created. States can be read-only (`ro`) or read-write (`rw`) *ok, write-only for buttons is also possible*.
+While the adapter reads the device's settings ioBroker objects and states are created. States can be read-only (`ro`) or read-write (`rw`) *ok, write-only for buttons is also possible*.
 
 - audio
 
@@ -190,6 +207,15 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+- (pdbjjens) Breaking Change: node>=14, js-contoller>=4 and admin>=5 required
+- (pdbjjens) Breaking Change: PIN encryption and validity check of all parameters in config UI
+- (pdbjjens) Breaking Change: Type of `frontier_silicon.X.modes.selectPreset` changed from "string" to  "number"
+- (pdbjjens) Change: Validity check of all parameters in config UI
+- (pdbjjens) Change: Re-establish session if network connection is lost
+- (pdbjjens) New: Synchronization of power, volume and mute states with the UNDOK App
+
 ### 0.1.0 (2023-07-15)
 
 - (pdbjjens) Breaking Changes: node>=14, js-contoller>=4 and admin>=5 required
@@ -224,7 +250,7 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 
 ## Legal Notices
 
-Frontier, Frontier Silicon, SmartRadio and associated logos are trademarks or registered trademarks of Frontier Smart Technologies Limited  [https://www.frontiersmart.com](https://www.frontiersmart.com)
+Frontier, Frontier Silicon, SmartRadio, UNDOK and associated logos are trademarks or registered trademarks of Frontier Smart Technologies Limited  [https://www.frontiersmart.com](https://www.frontiersmart.com)
 
 All other trademarks are the property of their respective owners.
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: liLpYUbAoBOrKz9+OghjC2kHxQWaJ1omE17aHHuvEng=
+hash: /40V0ry/4JPiH4ksWi+hfkq7gH//s9zMYYThERI6TaE=
 ---
 ![Logo](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -55,10 +55,36 @@ http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Doorbell<number>_1.jpg
 http://<ioBroker-IP>:<Port>/files/doorbird.<instance>.Motion_1.jpg
 ```
 
-Beispiel:
+oder
 
 ```
+/opt/iobroker/iobroker-data/files/doorbird.<instance>/Doorbell<number>_1.jpg'
+```
+
+#### Beispiel:
+```
 http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
+```
+
+### Schnappschuss per Telegramm senden
+#### Beispiel
+```
+sendTo('telegram.0', {
+   text: '/opt/iobroker/iobroker-data/files/doorbird.0/Doorbell1_1.jpg',
+   type: 'Foto'
+});
+```
+
+oder
+
+```
+setState('doorbird.0.TakeSnapshot'/*Schnappschuss holen*/, true);
+timeout = setTimeout(function () {
+   sendTo('telegram.0', {
+      text: '/opt/iobroker/iobroker-data/files/doorbird.0/TakeSnapshot_1.jpg',
+      type: 'Foto'
+   });
+}, 1000);
 ```
 
 ## Kompatible Geräte
@@ -76,6 +102,12 @@ http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Schmakus) Update documentation
+-   (Schmakus) Update dependencies
+
 ### 1.0.5 (2023-07-05)
 
 -   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]

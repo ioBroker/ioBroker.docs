@@ -24,7 +24,9 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.70_ (or later) - e.g. [Ulanzi TC001](https://haus-auto.com/p/ali/UlanziTC001) (Affiliate-Link)
+- _Awtrix Light_ device with firmware _0.70_ (or later) - e.g. Ulanzi TC001
+
+Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Getting started
 
@@ -169,8 +171,19 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Setting default of repeat to 0
+
+### 0.5.1 (2023-07-19)
+
+* (klein0r) Fixed color conversion for svg
+* (klein0r) Added support for state type "mixed"
+* (klein0r) Improved log messages
+
+### 0.5.0 (2023-07-18)
+
 * (klein0r) Added options to override icon, text color and backgroup color for thresholds
 * (klein0r) Added option to download screen content to state (as SVG graphic)
+* (klein0r) Draw welcome icon on connection
 
 ### 0.4.0 (2023-07-12)
 
@@ -184,16 +197,6 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 ### 0.3.3 (2023-07-07)
 
 * (klein0r) Use default duration if 0
-
-### 0.3.2 (2023-07-06)
-
-* (klein0r) Delete apps on instance stop (configurable)
-* (klein0r) Added scrolling speed to settings
-* (klein0r) Added block buttons to settings
-
-### 0.3.1 (2023-07-06)
-
-* (klein0r) Some app options were ignored for static text apps
 
 ## License
 MIT License

@@ -74,19 +74,31 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 ## Changelog
 
 ### **WORK IN PROGRESS**
-* (foxriver76) also show non-stable repo warning on hosts tab
+* (foxriver76) fixed "Let's Encrypt" link not being clickable inside system settings
+* (foxriver76) fixed false positives for "not much space left on device" warning
+* (foxriver76) fixed issue with npm version determination on some installations
+* (foxriver76) reset the logout timer UI if session is extended
+* (rovo89) apply button color change of v6.6.1 for all buttons
+* (foxriver76) correctly display materialized tabs when configured with io-package `adminUi` property
+* (foxriver76) enable keyboard navigation for objects tab
+
+### 6.6.1 (2023-07-17)
+* (foxriver76) Many GUI improvements
+* (bluefox) New json config component added: license agreement
+* (foxriver76) also show non-stable repo warning on the hosts tab
 * (foxriver76) fixed jsonConfig slider with different max/min values than 0/100
 * (foxriver76) fixed jsonConfig number element arrows
 * (foxriver76) fixed jsonConfig coordinates not triggering onChange and not being prefilled
 * (foxriver76) fixed jsonConfig jsonEditor component
-* (foxriver76) assume status as offline if status state value has been deleted (e.g. via `setState` with `expire` option)
+* (foxriver76) assume status as offline if status state value has been deleted (e.g., via `setState` with `expire` option)
 * (foxriver76) fixed jsonConfig CheckLicense edge case error
 * (foxriver76) added tooltip to ObjectBrowserValue to show that ack-flag cannot be used to control a device
 * (foxriver76) fixed host name not being visible on some themes
 * (foxriver76) fixed issue with jsonConfig CRON placeholder overlapping input
-* (foxriver76) button color in non-expert mode will not change according to ack/q anymore
+* (foxriver76) button color in non-expert mode will not be changed according to ack/q anymore
 * (foxriver76) fixed multiple problems with jsonConfig coordinates when using `useSystemName` and separate `latitude`/`longitutde` states
 * (foxriver76) when adding an icon to an object, to not show already uploaded non-existing image initially
+* (foxriver76) when the session timer falls below the 2 - minute mark, show button to extend the session
 
 ### 6.6.0 (2023-07-05)
 * (klein0r) New json config component added: accordion
@@ -97,12 +109,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 
 ### 6.5.8 (2023-06-12)
 * (foxriver76) The log size will be parsed correctly for controller v5
-
-### 6.5.7 (2023-06-06)
-* (bluefox) ZIP archives will be saved in files and not in states
-
-### 6.5.6 (2023-06-01)
-* (bluefox) Sentry packages were updated
 
 ## License
 The MIT License (MIT)

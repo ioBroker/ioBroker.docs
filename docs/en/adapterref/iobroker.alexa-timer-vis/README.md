@@ -54,6 +54,8 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 ## Changelog
 
+- lengthen and shorten timers
+
 ### 0.1.15 (22.09.2022)
 
 - Include creation time to avoid creating duplicate timers

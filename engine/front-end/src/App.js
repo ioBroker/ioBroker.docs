@@ -2,24 +2,28 @@ import React from 'react';
 import { withStyles } from '@mui/styles';
 import ReactGA from 'react-ga';
 
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Toolbar from '@mui/material/Toolbar';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import Drawer from '@mui/material/Drawer';
-import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import Input from '@mui/material/Input';
-import Popper from '@mui/material/Popper';
-import Paper from '@mui/material/Paper';
+import {
+    Tabs,
+    Tab,
+    Toolbar,
+    Menu,
+    MenuItem,
+    IconButton,
+    Drawer,
+    List,
+    ListItemText,
+    ListItem,
+    ListItemIcon,
+    Input,
+    Popper,
+    Paper,
+} from '@mui/material';
 
-import { MdLanguage as IconLanguage } from 'react-icons/md';
-import { MdMenu as IconMenu } from 'react-icons/md';
-import { MdSearch as IconSearch } from 'react-icons/md';
+import {
+    MdLanguage as IconLanguage,
+    MdMenu as IconMenu,
+    MdSearch as IconSearch,
+} from 'react-icons/md';
 
 import { Utils as ARUtils } from '@iobroker/adapter-react-v5';
 
@@ -66,7 +70,7 @@ const styles = theme => ({
         height: theme.tabs.height - 10,
         cursor: 'pointer',
     },
-    tabs: Object.assign({ display: 'flex' }, theme.tabs),
+    tabs: { display: 'flex', ...theme.tabs },
     tabsNoTabs: {
         paddingLeft: 0,
     },
@@ -507,7 +511,7 @@ class App extends Router {
                   const selectedPage = Object.keys(PAGES)[value];
                   if (selectedPage === 'blog') {
                       window.localStorage.setItem('iobroker.net.lastSeenBlog', new Date().toISOString());
-                      this.setState({lastSeenBlog: Date.now()});
+                      this.setState({ lastSeenBlog: Date.now() });
                   }
 
                   if (PAGES[selectedPage].links) {
@@ -564,49 +568,59 @@ class App extends Router {
         return <Drawer key="drawer" open={this.state.showTabMenu} anchor="right" onClose={() => this.setState({showTabMenu: false})}>
             <List>
                 {Object.keys(PAGES).map(tab => {
-                    if (!PAGES[tab].tabIndex) return null;
+                    if (!PAGES[tab].tabIndex) {
+                        return null;
+                    }
 
                     if (PAGES[tab].menu) {
                         return [
-                            (<ListItem button key={tab}
-                                       onClick={e => {
-                                           const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
-                                           const pos = menuOpened.indexOf(tab);
-                                           if (pos === -1) {
-                                               menuOpened.push(tab);
-                                           } else {
-                                               menuOpened.splice(pos, 1);
-                                           }
-                                           this.setState({menuOpened});
-                                       }}
+                            <ListItem button key={tab}
+                                   onClick={() => {
+                                       const menuOpened = JSON.parse(JSON.stringify(this.state.menuOpened));
+                                       const pos = menuOpened.indexOf(tab);
+                                       if (pos === -1) {
+                                           menuOpened.push(tab);
+                                       } else {
+                                           menuOpened.splice(pos, 1);
+                                       }
+                                       this.setState({menuOpened});
+                                   }}
                             >
-                                {PAGES[tab].icon ? (<ListItemIcon>{PAGES[tab].icon}</ListItemIcon>) : null}
+                                {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
                                 <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                            </ListItem>),
+                            </ListItem>,
 
-                            this.state.menuOpened.indexOf(tab) !== -1 ? <List className={this.props.classes.subMenu}>
+                            this.state.menuOpened.indexOf(tab) !== -1 ? <List key="list" className={this.props.classes.subMenu}>
                                 {PAGES[tab].menu.map(item =>
-                                    <ListItem classes={{root: this.props.classes.subMenuItem}} selected={this.state.selectedPage === tab} button key={item}
-                                               onClick={() => {
-                                                   if (item.links) {
-                                                       Utils.openLink(item.links[this.state.language] || item.links.en, item.target);
-                                                   } else
-                                                   if (item.link) {
-                                                       Utils.openLink(item.link, item.target)
-                                                   } else if (item.tab) {
-                                                       this.onNavigate(null, item.tab);
-                                                   }
-                                                   this.setState({showTabMenu: false});
-                                               }}>
-                                        {item.icon ? (<ListItemIcon>{item.icon}</ListItemIcon>) : null}
-                                        <ListItemText classes={{primary: this.props.classes.subMenuItemText}} primary={item.name} />
+                                    <ListItem
+                                        classes={{ root: this.props.classes.subMenuItem }}
+                                        selected={this.state.selectedPage === tab}
+                                        button
+                                        key={item}
+                                        onClick={() => {
+                                            if (item.links) {
+                                                Utils.openLink(item.links[this.state.language] || item.links.en, item.target);
+                                            } else if (item.link) {
+                                                Utils.openLink(item.link, item.target)
+                                            } else if (item.tab) {
+                                                this.onNavigate(null, item.tab);
+                                            }
+                                            this.setState({ showTabMenu: false });
+                                        }}
+                                    >
+                                        {item.icon ? <ListItemIcon>{item.icon}</ListItemIcon> : null}
+                                        <ListItemText classes={{ primary: this.props.classes.subMenuItemText }} primary={item.name} />
                                     </ListItem>
                                 )}
                             </List> : null
                         ];
-                    } else {
-                        return <ListItem selected={this.state.selectedPage === tab} button key={tab} onClick={e => {
-                            this.setState({showTabMenu: false}, () => {
+                    }
+                    return <ListItem
+                        selected={this.state.selectedPage === tab}
+                        button
+                        key={tab}
+                        onClick={() => {
+                            this.setState({ showTabMenu: false }, () => {
                                 if (PAGES[tab].links) {
                                     Utils.openLink(PAGES[tab].links[this.state.language] || PAGES[tab].links.en, PAGES[tab].target);
                                 } else if (PAGES[tab].link) {
@@ -614,13 +628,13 @@ class App extends Router {
                                 } else {
                                     this.onNavigate(null, tab);
                                 }
-                                this.setState({showTabMenu: false});
+                                this.setState({ showTabMenu: false });
                             });
-                        }}>
-                            {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
-                            <ListItemText primary={I18n.t(PAGES[tab].name)} />
-                        </ListItem>;
-                    }
+                        }}
+                    >
+                        {PAGES[tab].icon ? <ListItemIcon>{PAGES[tab].icon}</ListItemIcon> : null}
+                        <ListItemText primary={I18n.t(PAGES[tab].name)} />
+                    </ListItem>;
                 })}
             </List>
         </Drawer>;

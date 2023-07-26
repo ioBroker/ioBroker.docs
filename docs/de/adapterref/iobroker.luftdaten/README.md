@@ -58,6 +58,10 @@ Warte einige Sekunden, bis die Daten das erste Mal vom Sensor abgeholt werden.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Added link to sensor map to intro tab
+
 ### 3.0.0 (2023-05-01)
 
 NodeJS 14.x is required (NodeJS 12.x is EOL)

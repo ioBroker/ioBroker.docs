@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: irY/iuda19liBWKDfloda8VwtnnwEfOLTAcoS4Ye7sI=
+hash: 0UPQVBLQXBUPZXSeutYlngsNJHJbF0jJ5dajxjktBuI=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -43,11 +43,11 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
-![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
+![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
 
 - Kontrolle
 
-![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
+![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
 
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
@@ -56,7 +56,7 @@ Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden und
 
 ![Im Widget anzeigen – Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen und durch Drücken darauf wird sie in voller Größe angezeigt.
+Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen. Wenn Sie darauf drücken, wird sie in voller Größe angezeigt.
 
 ### Thermostat
 ![Thermostat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
@@ -103,43 +103,43 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### Zeitauswahl
 ## Assistentenzuordnung
 ### Eine Aussicht – ein Raum
-- Thermostat => Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
-- Licht Ein/Aus => Einfacher Status Ein/Aus mit Gerätename
-- Dimmer => Einfacher Zustand
-- Rollladen => Jalousien mit Namen
-- Temperatur => tatsächlicher Wert mit Diagramm (Wenn möglich, Luftfeuchtigkeit hinzufügen)
-- Bewegung => Einfacher Zustand mit spezifischem Symbol (Junge), schreibgeschützt, aktive Farbe rgba(52,170,68,1)
-- Feuer => Einfacher Zustand mit spezifischem Symbol (Feuer), schreibgeschützt, aktive Farbe „Rot“
-- Überschwemmung => Einfacher Zustand mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe „blau“
-- Tür => Einfacher Zustand mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
-- Slider => Einfacher Zustand
-- Sperren => Einfacher Zustand
-- Socket => Einfacher Status mit spezifischem Symbol
-- Mediaplayer => Mediaplayer
-- Volume => einfacher Status mit spezifischem Symbol (Volume)
-- Wettervorhersage => Openweathermap (nur wenn installiert)
-- Fenster => Einfacher Zustand mit bestimmten Symbolen (geöffnet => wahr, geschlossen => falsch)
+- Thermostat → Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
+- Licht Ein/Aus → Einfacher Status Ein/Aus mit Gerätename
+- Dimmer → Einfacher Zustand
+- Rollladen → Jalousien mit Namen
+- Temperatur → tatsächlicher Wert mit Diagramm (wenn möglich, Feuchtigkeit hinzufügen)
+- Bewegung → Einfacher Zustand mit spezifischem Symbol (Junge), schreibgeschützt, aktive Farbe rgba(52,170,68,1)
+- Feuer → Einfacher Zustand mit spezifischem Symbol (Feuer), schreibgeschützt, aktive Farbe „Rot“
+- Überschwemmung → Einfacher Zustand mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe „blau“
+- Tür → Einfacher Zustand mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
+- Schieberegler → Einfacher Zustand
+- Sperren → Einfacher Zustand
+- Socket → Einfacher Status mit spezifischem Symbol
+- Mediaplayer → Mediaplayer
+- Lautstärke → einfacher Zustand mit spezifischem Symbol (Lautstärke)
+- Wettervorhersage → Openweathermap (nur wenn installiert)
+- Fenster → Einfacher Zustand mit bestimmten Symbolen (geöffnet → wahr, geschlossen → falsch)
 
 ### Eine Ansicht – alle Räume
-- Thermostat => Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
-- Licht ein/aus => Schalter und Tastenschalter
-- Dimmer => Schalter und Tastenschieber
-- Rollladen => Schalter und Knöpfe Jalousien
-- Themerature => Informationen zu Schaltern und Tasten mit Diagramm
+- Thermostat → Widget-Thermostat (Ist, Soll, Luftfeuchtigkeit) mit Gerätename
+- Licht ein/aus → Schalter und Tastenschalter
+- Dimmer → Schalter und Tasten-Schieberegler
+- Rollladen → Schalter und Tasten Jalousien
+- Temperatur → Schalter- und Tasteninformationen mit Diagramm
 
--- Luftfeuchtigkeit => Informationen zu Schaltern und Tasten mit Diagramm
+-- Luftfeuchtigkeit → Informationen zu Schaltern und Tasten mit Diagramm
 
-- Bewegung => Schalter- und Schaltflächen-Info-spezifisches Symbol, schreibgeschützt, aktive Farbe rgba(52,170,68,1)
-- Feuer => ISwitch and Buttons nfo-spezifisches Symbol (Feuer), schreibgeschützt, aktive Farbe 'rot'
-- Flood => Schalter- und Schaltflächen-Info mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe 'blau'
-- Tür => Schalter- und Tasteninfo mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
-- Schieberegler => Schalter- und Tastenschieberegler
-- Sperren => Schalter und Tastenschalter
-- Steckdose => Schalter und Tasten wechseln mit spezifischem Symbol
-- Mediaplayer => Mediaplayer (als Karte) mit Raumname
-- Lautstärke => Schalter und Tasten-Schieberegler mit spezifischem Symbol (Lautstärke)
-- Wettervorhersage => Openweathermap als Karte (nur wenn installiert)
-- Fenster => Schalter- und Schaltflächeninformationen mit spezifischen Symbolen (geöffnet => wahr, geschlossen => falsch)
+- Bewegung → Schalter- und Schaltflächen-Info-spezifisches Symbol, schreibgeschützt, aktive Farbe rgba(52,170,68,1)
+- Feuer → ISwitch und Buttons nfo-spezifisches Symbol (Feuer), schreibgeschützt, aktive Farbe „Rot“
+- Überschwemmung → Schalter- und Schaltflächeninfo mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe „blau“
+- Tür → Schalter- und Tasteninfo mit spezifischem Symbol (Tür), schreibgeschützt, aktive Farbe „Rot“
+- Schieberegler → Schalter- und Tastenschieberegler
+- Sperren → Schalter und Tastenschalter
+- Steckdose → Schalter und Tasten wechseln mit spezifischem Symbol
+- Mediaplayer → Mediaplayer (als Karte) mit Raumname
+- Lautstärke → Schalter und Tasten-Schieberegler mit spezifischem Symbol (Lautstärke)
+- Wettervorhersage → Openweathermap als Karte (nur wenn installiert)
+- Fenster → Schalter- und Schaltflächeninformationen mit spezifischen Symbolen (geöffnet → wahr, geschlossen → falsch)
 
 ## Machen
 - RGBW-Farbcontroller
@@ -149,11 +149,17 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 0.8.2 (2023-07-19)
+* (bluefox) Corrected small layout problems
+
+### 0.8.0 (2023-07-18)
+* (bluefox) Added wizard for widgets
+
 ### 0.7.1 (2023-07-02)
 * (bluefox) Added washer widget
 
 ### 0.6.2 (2023-06-29)
-* (bluefox) Allowed usage without frame for all widgets
+* (bluefox) Allowed usage without a frame for all widgets
 
 ### 0.6.0 (2023-06-28)
 * (bluefox) Added blinds to switches widget
@@ -168,7 +174,7 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 
 ### 0.4.0 (2023-06-16)
 * (bluefox) Added button texts for switches widget
-* (bluefox) Removed static widget, as it replaced by switches widget
+* (bluefox) Removed static widget, as it was replaced by switches widget
 
 ### 0.3.1 (2023-06-14)
 * (bluefox) Improved buttons widget

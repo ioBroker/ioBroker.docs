@@ -138,6 +138,10 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.1.9 (2023-07-21)
+* (Sickboy78) fixed undefined serial number
+* (Sickboy78) dependency updates
+
 ### 1.1.8 (2023-06-01)
 * (Sickboy78) adjustments for Surepet API changes
 

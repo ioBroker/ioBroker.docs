@@ -8,7 +8,6 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/tahoma-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/tahoma-stable.svg)
 
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.tahoma.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Excodibur/ioBroker.tahoma/context:javascript)
 ![Github release status](https://github.com/Excodibur/iobroker.tahoma/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/tahoma/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
@@ -17,7 +16,7 @@
 
 An ioBroker adapter for Somfy Tahoma. This project has no affiliation with Somfy. Initially based on the script taken from https://forum.iobroker.net/post/336001 and forked from https://github.com/StrathCole/ioBroker.tahoma.
 
-The adapter connects to the Tahomalink end user API and controls the devices set up through Tahoma Box (and most likely Connexoon).  
+The adapter connects to the Tahomalink end user API and controls the devices. set up through Tahoma Box (and most likely Connexoon).  
 The adapter is not feature-complete, yet, but it should support most actions for controlling blinds and shutters etc.
 
 Please also read the [FAQ](https://github.com/Excodibur/ioBroker.tahoma/blob/master/FAQ.md) in case of issues first.
@@ -25,6 +24,14 @@ Please also read the [FAQ](https://github.com/Excodibur/ioBroker.tahoma/blob/mas
 ## Currently tested devices
 
 Generally, this adapter should support all devices that can be accessed via __tahomalink.com__, but for the adapter developer it is difficult to guarantee this. Mainly, because the documention of the used Somfy-API is (at least publically) non-existant and the developer can only test Somfy-devices which he owns himself, or is able to test with support of willing participants.
+
+Devices that can be controlled via tahomalink.com usually are also supported by this adapter. This includes:
+| Device | Support for Online API | Support for Local API |
+|-|-|-|
+| Tahoma box | ✓ | ✓ |
+| Connexoon | ✓ | ✓ ([proof](https://github.com/Excodibur/ioBroker.tahoma/issues/241))
+| Tahoma Switch | ✓ | ✓ |
+| Connectivity Kit | ✓ ([proof](https://github.com/Excodibur/ioBroker.tahoma/issues/171)) | ✗ ([proof](https://service.somfy.com/downloads/fr_v5/fichecomparative_tahoma_switch_vs_kit_connectivite_a4_1221.pdf))
 
 The following Somfy devices were verified to work with this adapter:
 
@@ -99,7 +106,7 @@ See [Changelog](https://github.com/Excodibur/ioBroker.tahoma/blob/master/CHANGEL
 
 The MIT License (MIT)
 
-Copyright (c) 2020-2022 Marius Burkard & Excodibur
+Copyright (c) 2020-2023 Marius Burkard & Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

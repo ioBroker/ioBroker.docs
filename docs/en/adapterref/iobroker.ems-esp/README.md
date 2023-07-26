@@ -19,14 +19,15 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 ## It can interface towards the heating system with use of Web-API calls toward:
 
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
-* ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
 
-* The old ESP8266 gateways with API V2 is NOT SUPPORTED ANYMORE !!
+* ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
+  The old ESP8266 gateways with API V2 is NOT SUPPORTED ANYMORE !!
 
 The ems-esp adapter can read and write data to both gateways to steer all heating components. 
 It can be used either for the original Bosch-group gateways or the ems-esp or both in parallel.
+All changed states from own scripts or the object browser does have to set acknowledged = false !!!
 
-The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.4.0. 
+The adapter is tested for the ems-esp gateway with latest firmware versions of ESP32 >= v3.5.1. 
 
 
 ## important settings in EMS-ESP:
@@ -50,10 +51,9 @@ This adapter reads after start values from ems-esp and km200 by http get request
 The web-api calls toward/from the km200 gateway is encrypted. For the en-/decryption there are two passords needed:
 
 * the gateway password on an label on the gateway in the form: xxxx-xxxx-xxxx-xxxx (case sensitive)
-* the private password set by using the Buderus **MyDevice** App (do not use myBuderus or similar apps !) 
+* the private password set by using the Buderus **MyDevice** App (do not use myBuderus / EasyCom or similar cloud based apps !) 
 
-The fields to be used could be defined by polling the km200-structure (*) or the respective csv-file within the adapter instance parameters. 
-
+The fields to be used for the bosch gateway could also be defined by polling the km200-structure (*) or the respective csv-file within the adapter instance parameters. 
 For 1st adapter start it is recommended to use a "*" to select all km200 data-fields.
 The adapter then creates a km200.csv file within ../iobroker-data/ems-esp/{instance} directory.
 
@@ -135,9 +135,38 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* ems-esp v3.6 adjustments for dallas/temperature sensors 
+### 2.0.3 (2023-07-25)
+* error corrections for km200 read
 
+### 2.0.2 (2023-07-24)
+* re-add parameters for room / function
+* change statistics update intervall for number of starts to every 5 minutes
+
+### 2.0.1 (2023-07-24)
+* without parameters for enum attributes
+* Error correction on v2.0.0 for ems-esp datanames and structure
+
+### 2.0.0 (2023-07-23)
+* DO NOT USE - DOES NOT WORK correctly !!
+* support for ems-esp version 3.6
+* message about ems-esp adapter version to use for old gateway v2 users
+* rework statistics to avoid slowing down admin adapter
+* some minor improvements
+
+### 1.34.0 (2023-07-21)
+* avoid warnings on statistics processing for new installations without historic data yet
+* allow statistics for polling-time for both gateways without active database
+* allow old "dallas" prefix instead of "temperaturesensors"
+
+### 1.33.0 (2023-07-20)
+* Rework adapter instance config: Split EMS-ESP and KM200 config pages
+* parameters stay the same
+
+### 1.32.0 (2023-07-19)
+* ems-esp v3.6 adjustments for dallas/temperaturesensors (not tested yet)
+* update dependencies 
+* improve processing off errors on statistics
+* Small adjustments on parameter screen
 
 ### 1.31.0 (2023-07-08)
 * correction on JSON errors for ems-esp gateway entities (heatpump)

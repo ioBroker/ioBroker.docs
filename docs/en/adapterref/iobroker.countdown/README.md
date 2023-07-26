@@ -48,6 +48,16 @@ sendTo("countdown.0", "send", {
    "date": '01.04.2020 00:01+1Y'
 });
 
+## Count Up
+Newly added is the feature to "count up" - so to count the days from a date in the past. This can be done either in the adapter setup, or with  adding a "#" to a date string, e.g. 
+
+sendTo("countdown.0", "send", {
+   "name": 'Birthdate',
+   "date": '01.04.2020 00:01#
+});
+
+
+
 Parameters here are:
 * Y: Years
 * M: Months
@@ -84,6 +94,10 @@ Parameters here are:
 * Possibility to use plus and minus in addminutes and the other add functions
 
 ## Changelog
+
+### 2.1.0 (2023-07-XX) 
+* (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
+* (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
 
 ### 2.0.2 (2023-07-16) 
 * (jack-blackson) Bugfix month calculation

@@ -46,6 +46,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.6.1 (2023-07-17)
+* (simatec) Fix Heat protection
+
 ### 1.6.0 (2023-07-16)
 * (simatec) Manu mode block added
 * (simatec) Heat protection added

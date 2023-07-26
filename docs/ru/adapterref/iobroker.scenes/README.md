@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: Адаптер сцен ioBroker
-hash: uzfech7dSQyHGa0mz33Ji3tdQir/hKEhp3XJctU/vbM=
+hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -27,7 +27,7 @@ _scenes Adapter_ может создавать сцены и выполнять 
 ## Сцены
 **Сцены** будут созданы, если не используется настройка «установить на false».
 Каждую сцену можно настроить индивидуально, поэтому вы можете иметь **сцены** и **группы** в одном экземпляре адаптера.
-**сцена** — это просто список идентификаторов состояний и значений, которые эти состояния должны иметь при активации сцены. Например. мы создали на сцене "_scene.allLightInBath_":
+**сцена** — это просто список идентификаторов состояний и значений, которые эти состояния должны иметь при активации сцены. Например. мы создали на сцене `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -35,9 +35,9 @@ _scenes Adapter_ может создавать сцены и выполнять 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Чтобы активировать сцену, мы должны установить для параметра "_scene.allLightInBath_" значение true (например, поверх скрипта или vis). Затем оба состояния будут установлены на желаемые значения, на **true**.
-Значение _scene.allLightInBath_ также будет **true**. Если мы вручную переключим верхний свет, значение _scene.allLightInBath_ станет **false**.
-И снова к **true**, если мы включим свет вручную.
+Чтобы активировать сцену, мы должны установить `scene.allLightInBath` в значение true (например, через скрипт или визуализацию). Затем оба состояния будут установлены на желаемые значения, на `true`.
+Значение `scene.allLightInBath` также будет равно `true`. Если мы вручную переключимся на верхний свет, значение `scene.allLightInBath` изменится на `false`.
+И снова к `true`, если мы включим свет вручную.
 
 Добавим к **сцене** веер:
 
@@ -50,7 +50,7 @@ _scenes Adapter_ может создавать сцены и выполнять 
 ```
 
 В этом случае вентилятор включится при активации **сцены** и выключится через одну минуту.
-После выключения вентилятора значение _scene.allLightInBath_ станет **false**, так как не все состояния равны желаемым значениям.
+После выключения вентилятора значение `scene.allLightInBath` изменится на `false`, так как не все состояния равны желаемым значениям.
 Состояния с запаздыванием в расчетах не участвуют.
 
 Вы можете протестировать сцену с помощью кнопки «play».
@@ -63,7 +63,7 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     true
 ```
 
-И каждый раз, когда вы будете открывать дверь в ванне, будет включаться весь свет с вентилятором.
+И каждый раз, когда вы открываете дверь в ванне, все освещение с вентилятором будет включаться.
 
 ## Группы
 **Группы** похожи на виртуальные каналы. Вы можете создавать с помощью **групп** виртуальные устройства из нескольких приводов и управлять ими вместе, как одним устройством.
@@ -89,23 +89,23 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     false
 ```
 
-Каждый раз, когда вы будете открывать дверь, в ванной будет включаться весь свет. Значение _scene.allLightInBath_ станет **true**.
-Если вы закроете дверь, свет будет выключен, а значение _scene.allLightInBath_ станет **false**.
+Каждый раз, когда вы открываете дверь, все освещение в ванной будет включаться. Значение `scene.allLightInBath` станет **true**.
+Если вы закроете дверь, свет будет выключен, а значение `scene.allLightInBath` станет **false**.
 
 Это бесполезно, но как пример хорошо.
 
-Если вы вручную включите один свет, значение _scene.allLightInBath_ станет **неопределенным**.
+Если вы вручную включите один свет, значение `scene.allLightInBath` станет **неопределенным**.
 
 Задержки можно использовать и в **группе**, но состояния с задержкой не участвуют в расчетах текущего значения **группы**.
 
 ## Виртуальные группы
-**Виртуальные группы** аналогичны виртуальным каналам и группам, но могут иметь любые значения: числа, строки и т. д.
+**Виртуальные группы** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и т. д.
 Вы можете создать виртуальную группу для управления всеми жалюзи в гостиной.
-При записи 40% в виртуальную группу все жалюзи будут установлены на 40%.
+Записав 40% в виртуальную группу, все жалюзи будут установлены на 40%.
 
 Кроме того, вы можете определить поведение, для которого значение должно быть принято для группы, если не все состояния группы имеют одинаковое значение.
 
-Вы можете предоставить следующие агрегаты (доступно только в расширенном режиме):
+Вы можете предоставить следующие агрегации (доступно только в расширенном режиме):
 
 - `uncertain` - (по умолчанию) - значение группы будет иметь текст `uncertain`.
 - `any` - первое ненулевое значение всех состояний в группе.
@@ -113,8 +113,8 @@ _scenes Adapter_ может создавать сцены и выполнять 
 - `max` - максимальное значение всех состояний в группе.
 - `avg` - среднее значение всех состояний в группе.
 
-## Сохранить фактические состояния как сцену
-Чтобы сохранить актуальные состояния в какой-либо сцене, вы можете отправить сообщение адаптеру:
+## Сохранить актуальные состояния как сцену
+Чтобы сохранить актуальные состояния в какой-то сцене, можно отправить адаптеру сообщение:
 
 ```
 sendTo(
@@ -135,12 +135,16 @@ sendTo(
 ### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
 
 ## Changelog
+### 2.4.0 (2022-12-23)
+* (Apollon77) prevent a crash case reported by Sentry
+* (bluefox) Updated some GUI libraries
+
 ### 2.3.9 (2022-02-13)
 * (bluefox) Updated some GUI libraries
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -156,7 +160,7 @@ sendTo(
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
-* (bluefox) Possibility to use set point from other state
+* (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
@@ -195,10 +199,10 @@ sendTo(
 * (bluefox) The tolerance is implemented
 
 ### 2.0.3 (2020-06-14)
-* (bluefox) New GUI based on react
+* (bluefox) New GUI based on React
 
 ### 1.1.1 (2019-05-26)
-* (bluefox) Added storing of actual values in scene via message
+* (bluefox) Added storing of actual values in a scene via a message
 
 ### 1.1.0 (2018-04-24)
 * (bluefox) Works now with Admin3
@@ -221,7 +225,7 @@ sendTo(
 * (bluefox) update node-schedule
 
 ### 0.2.4 (2016-01-24)
-* (bluefox) fix error disabled states in scene
+* (bluefox) fix error disabled states in a scene
 
 ### 0.2.3 (2015-12-10)
 * (bluefox) fix error with trigger on false
@@ -263,7 +267,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

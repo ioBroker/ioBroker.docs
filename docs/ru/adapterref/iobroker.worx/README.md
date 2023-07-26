@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
+hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
@@ -141,7 +141,9 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 }
 ```
 
-- `firmware_available_date`: Дата выпуска прошивки - фиктивный 1970-01-01, когда адаптер переустановлен и обновление недоступно (wire & Vision/только для чтения)
+- `firmware_available_date`: дата выпуска прошивки - фиктивный 1970-01-01, когда адаптер переустановлен и обновление недоступно (wire & Vision/только для чтения)
+- `firmware_update_start`: запустить обновление прошивки в 2 этапа (проводное и Vision/изменяемое)
+- `firmware_update_start_approved`: начать обновление прошивки - `firmware_update_start` должно быть установлено значение true (проводное и Vision/изменяемое)
 - `градиент`: Градиент в градиенте (проволока и видение/только для чтения)
 - `наклон`: наклон в градусах (проволока и видение/только для чтения)
 - `last_command`: последний запрос от iobroker или APP в виде таблицы JSON (провод и видение/только для чтения)
@@ -161,7 +163,7 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 }
 ```
 
-- `oneTimeStart`: однократный запуск скашивания "сначала заполнить oneTimeWithBorder и oneTimeWorkTime" - с задержкой 1,1 секунды (проводной и Vision/изменяемый)
+- `oneTimeStart`: однократный запуск скашивания "сначала заполнить oneTimeWithBorder и oneTimeWorkTime" - с задержкой 1,1 секунды (проводная и Vision/изменяемая)
 - `oneTimeWithBorder`: с границей - изменение значения без задержки (проводное и видение/изменяемое)
 - `oneTimeWorkTime`: рабочее время макс. 8 часов с шагом 30 минут - изменение значения без задержки (проводное и визуальное/изменяемое)
 - `онлайн`: газонокосилка онлайн (провод и Vision/только для чтения)
@@ -251,7 +253,7 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 - `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не были завершены. Неподтвержденные операции являются подмножеством этого.
 - `incompleteOperationSize`: общий размер пакета операций, отправленных в соединение, которые еще не были завершены. Неподтвержденные операции являются подмножеством этого.
 - `unackedOperationCount`: общее количество операций, отправленных на сервер и ожидающих соответствующего подтверждения ACK, прежде чем их можно будет завершить.
-- `unackedOperationSize`: общий размер пакета операций, которые были отправлены на сервер и ожидают соответствующего подтверждения ACK, прежде чем их можно будет завершить.
+- `unackedOperationSize`: общий размер пакета операций, отправленных на сервер и ожидающих соответствующего подтверждения ACK, прежде чем они смогут быть завершены.
 - `last_update`: Последнее обновление с токена
 - `next_update`: Следующее обновление с токена
 - `online`: Статус соединения MQTT (false=offline/true=online)
@@ -259,9 +261,14 @@ hash: WMD7G74hsODqT3YaK7GSFHf1pe5bVU0VcDYSyEi9qPs=
 ![Видение img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
 ## Changelog
+### 2.3.2 (2023-07-21)
 
-### **WORK IN PROGRESS**
+-   (Lucky-ESA) Wrong folder for areas
+-   (Lucky-ESA) New data points can only be read
 
+### 2.3.1 (2023-07-20)
+
+-   (Lucky-ESA) Added Firmware Update
 -   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
 -   (Lucky-ESA) Added reset blade time and battery time
 -   (Lucky-ESA) Added ping after refresh token

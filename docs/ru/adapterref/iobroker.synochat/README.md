@@ -2,22 +2,21 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synochat/README.md
-title: <img src="docs/images/synochatLogo.png" alt="Рисование"/>Адаптер Synology-Chat для ioBroker
-hash: DzT6jCvzbCdQRXm+MK1pxWib1vd3CPkC2plPyUPr+Ok=
+title: <img src="docs/images/synochatLogo.png" alt="рисунок"/>Адаптер Synology-Chat для ioBroker
+hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 ---
+![Стабильная версия](https://iobroker.live/badges/synochat-stable.svg)
 ![версия NPM](https://img.shields.io/npm/v/iobroker.synochat.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.synochat.svg)
 ![Количество установок](https://iobroker.live/badges/synochat-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/synochat-stable.svg)
-![Статус зависимости](https://img.shields.io/david/phoeluga/iobroker.synochat.svg)
 ![НПМ](https://nodei.co/npm/iobroker.synochat.png?downloads=true)
 
-#<img src="docs/images/synochatLogo.png" alt="Рисование"/> Адаптер Synology-Chat для ioBroker
+#<img src="docs/images/synochatLogo.png" alt="рисунок"/> Адаптер Synology-Chat для ioBroker
 ![Тестируйте и выпускайте](https://github.com/phoeluga/ioBroker.synochat/workflows/Test%20and%20Release/badge.svg)
 
 [![Пожертвовать][пожертвовать-значок2]][пожертвовать-ссылка]
 
-## Что это?
+## Что это такое?
 Этот адаптер обеспечивает интерфейс между Synology Chat и ioBroker.\ Для этой цели используются стандартные функции интеграции, предоставляемые Synology Chat, и соответствующие конечные точки REST API.
 Входящие и исходящие интеграции можно использовать для отправки сообщений на сервер чата Synology или обновления объекта сообщения в вашем экземпляре ioBroker для получения сообщений.
 
@@ -36,16 +35,16 @@ hash: DzT6jCvzbCdQRXm+MK1pxWib1vd3CPkC2plPyUPr+Ok=
 
 - Для создания сообщений через интерфейс Synology Chat необходимо создать интеграцию в Synology Chat:
 
-![SynoChatChannel](./docs/images/diSynoChatChannel.png) ![SynoChatИнтеграции](../../../en/adapterref/iobroker.synochat/./docs/images/diSynoChatIntegrations.png)
+![SynoChatChannel](./docs/images/diSynoChatChannel.png) ![SynoChatИнтеграции](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrations.png)
 
   #### 2.1.1. Входящая интеграция
 Для интеграции входящего сообщения в чат Synology необходим токен, который можно взять из URL-адреса, сгенерированного при создании.
-![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationIncoming.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/./docs/images/diSynoChatIntegrationIncomingSettings.png)
+![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationIncoming.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationIncomingSettings.png)
 
 <div id="synologyChatConfigurationOutgoingIntegration"></div>
 
   #### 2.1.1. Исходящая интеграция
-Для интеграции исходящего сообщения в чат Synology необходимо указать URL-адрес веб-перехватчика. Вы получите этот URL-адрес веб-перехватчика из объектов экземпляра после создания экземпляра адаптера `synochat`. Более подробную информацию можно найти в [3. Использование > 3.1 Общие](#webHookLocation) ![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/./docs/images/diSynoChatIntegrationOutgoingSettings.png)
+Для интеграции исходящего сообщения в чат Synology необходимо указать URL-адрес веб-перехватчика. Вы получите этот URL-адрес веб-перехватчика из объектов экземпляра после создания экземпляра адаптера `synochat`. Более подробную информацию можно найти в [3. Использование > 3.1 Общие](#webHookLocation) ![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
 ***ПРИМЕЧАНИЕ.*** *Тип канала (входящий; исходящий) указывается с точки зрения чата Synology. Например, «Входящие» означает, что сообщения будут отправлены на сервер чата Synology.*
 
@@ -54,8 +53,8 @@ hash: DzT6jCvzbCdQRXm+MK1pxWib1vd3CPkC2plPyUPr+Ok=
 ### 2.2. Конфигурация экземпляра адаптера ioBroker
 - Конфигурация этого адаптера может быть выполнена в настройках экземпляра.
 
-    #### 2.2.1. Основные параметры:
-	![IobrokerInstanceSettingsMainSettings](../../../en/adapterref/iobroker.synochat/./docs/images/diIobrokerInstanceSettingsMainSettings.png)
+    #### 2.2.1. Основные настройки:
+	![IobrokerInstanceSettingsMainSettings](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsMainSettings.png)
 
 * **URL-адрес/IP-адрес Synology**
 
@@ -89,8 +88,8 @@ hash: DzT6jCvzbCdQRXm+MK1pxWib1vd3CPkC2plPyUPr+Ok=
 
 <div id="channel-configuration"></div>
 
-    #### 2.2.2. Конфигурация/управление каналом:
-	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/./docs/images/diIobrokerInstanceSettingsChannelConfiguration.png)
+    #### 2.2.2. Управление/конфигурация канала:
+	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsChannelConfiguration.png)
 
 * **Канал включен**
 
@@ -113,7 +112,7 @@ hash: DzT6jCvzbCdQRXm+MK1pxWib1vd3CPkC2plPyUPr+Ok=
 
 https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22QF5DWyG7M47Ls3cv%22
 
-*В этом примере токен включен в URL-адрес. Закодированные управляющие символы — `%22` — указываются здесь в начале и в конце настройки.\ **Их необходимо удалить!**\ В этом примере вводимым токеном будет `QF5DWyG7M47Ls3cv`. *
+*В этом примере токен включен в URL-адрес. Закодированные управляющие символы - `%22` - указываются здесь в начале и в конце настройки.\ **Их необходимо удалить!**\ В этом примере вводимым токеном будет `QF5DWyG7M47Ls3cv`. *
 
 * **Тип канала**
 
@@ -131,14 +130,191 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 Обратите внимание, что при использовании этого типа канала имя канала конфигурации экземпляра адаптера ioBroker должно совпадать с именем канала канала чата Synology для получения сообщений.
 
+> Примечание. Убедитесь, что не выбраны параметры «*реагировать на*» для исходящих каналов.
+
 Если канал должен быть настроен как для отправки, так и для получения сообщений, просто добавьте второй канал с тем же именем и выберите другой тип канала.
+
+    * **Шаблон значения объекта**
+
+Если значение объекта сообщения канала содержит значение JSON, вы можете выбрать шаблон, который преобразует это значение объекта в удобочитаемое значение перед его отправкой в канал чата Synology.
+
+Соответствующий шаблон сообщения можно настроить в разделе [Шаблоны сообщений](#message-templates).
+
+  * **Реагировать на диспетчер уведомлений**
+
+        `synochat` может получать сообщения от [ioBroker Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager). Этот параметр позволяет выбрать, должен ли соответствующий канал реагировать на сообщения из диспетчера уведомлений и соответствующим образом перенаправлять их в Synology Chat.
+
+Соответствующий шаблон сообщения можно настроить в разделе [Шаблоны сообщений](#messageTemplates).
+
+    * **Реагировать на все сообщения ioBroker**
+
+Помимо сообщений от [ioBroker Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager) `synochat` также может принимать другие сообщения от других адаптеров. Этот параметр позволяет выбрать, должен ли соответствующий канал реагировать на сообщения от всех других отправителей и соответствующим образом перенаправлять их в Synology Chat.
+
+Экземпляр адаптера может получать сообщения. Эти сообщения состоят из объекта с несколькими атрибутами, которые можно включить в качестве параметров в шаблон сообщения. Эти параметры заменяются соответствующим образом перед отправкой сообщения.
+
+Соответствующий шаблон сообщения можно настроить в разделе [Шаблоны сообщений](#message-templates).
 
 * **Подтвердить SSL-сертификат — для нетекстовых сообщений**
 
 В случае, если для типа входящего канала должно быть отправлено содержимое, отличное от текста, например изображение, это указывается из источника HTTP через URL-адрес. Если этот контент предоставляется с самозаверяющим сертификатом, проверку сертификата можно включить или отключить с помощью этого параметра.
 Подробнее об отправке нетекстового содержимого см. в главе [Настройка чата Synology](#synology-chat-configuration)..
 
-#### 2.2.3. Помощь:
+<div id="message-templates"></div>
+
+#### 2.2.3. Шаблоны сообщений:
+    Можно определить шаблоны сообщений, которые обрабатываются перед отправкой сообщения на Synology Chat Server. Эти шаблоны могут содержать шаблоны, которые заменяются в процессе отправки.
+
+	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsMessageTemplates.png)
+
+Шаблоны всегда должны начинаться с `${` и заканчиваться на `}`. например `${foo}`. При обработке сообщения шаблон `${foo}` будет заменен соответствующим значением JSON атрибута `foo`.
+
+**Образец:**
+
+Если канал, настроенный для отправки данных в Synology Chat, получает изменение объекта в своем объекте сообщения, он может содержать значение JSON, подобное следующему:
+
+	```json
+    {
+        "sensor": {
+            "id": "temp0815",
+            "name": "Temperature - Living room",
+            "type": "temperature",
+            "location": "living room",
+            "value": "23.4"
+        }
+    }
+	```
+
+Вы можете получить доступ к внутренним атрибутам этого значения, указав их по пути, например `${sensor.value}`.
+
+Если вы хотите отправить текст, как > Температура в гостиной изменилась на 23,4°C
+
+ваш шаблон сообщения будет выглядеть так:
+
+`The ${type} in the ${location} changed to ${value}°C`
+
+**ПРИМЕЧАНИЕ И ОГРАНИЧЕНИЯ:**
+
+    1. Если вы пытаетесь получить доступ к атрибуту с помощью ключа, содержащего точки (`.`), вы должны экранировать их символами `/-`!
+
+    например если ваше значение объекта сообщения выглядит так:
+
+```JSON
+{
+       "category": {
+           "instances": {
+               "system.adapter.notification-manager.0": {
+                   "notification": "Test notification",
+               }
+           }
+       }
+   }
+```
+
+    и вы хотите получить доступ к атрибуту `notification`, ваш шаблон будет `${category.instances.system/-adapter/-notification-manager/-0.notification}`
+
+2. Невозможно получить доступ к определенным элементам в массивах.
+
+например если ваше значение объекта сообщения выглядит так:
+
+```JSON
+{
+       "messages": [
+           {
+           "text": "Lorem"
+           },
+           {
+           "text": "Ipsum"
+           }
+       ]
+   }
+```
+
+вы не можете получить доступ к атрибуту `text` в объекте `message`. В этом случае вам необходимо подготовить значение объекта вне этого адаптера, прежде чем передать его в объект сообщения канала `synochat`.
+
+* **Шаблон для отправки сообщений, полученных через ioBroker Notification-Manager**
+
+        Этот шаблон будет определять сообщение сообщений, полученных от Notification-Manager. В качестве параметров в вашем шаблоне вы можете использовать имена атрибутов объекта `iobroker.Message` и встроенного объекта сообщения Notification-Manager.
+
+Внутренний полученный объект имеет тип `iobroker.Message`:
+
+		```javascript
+		/** A message being passed between adapter instances */
+        interface Message {
+            /** The command to be executed */
+            command: string;
+            /** The message payload */
+            message: MessagePayload;
+            /** The source of this message */
+            from: string;
+            /** ID of this message */
+            _id: number;
+            /** Callback information. This is set when the source expects a response */
+            callback: MessageCallbackInfo;
+        }
+		```
+
+Согласно описанию, Notification-Manager предоставит свой собственный объект сообщения, встроенный в атрибут `message` как часть `iobroker.Message`.
+
+Вы можете получить доступ к этим данным через атрибут `message`, используя шаблон `${message.NOTIFICATION_MANAGER_ATTRIBUTES}`.
+
+**Доступные шаблоны:**
+
+* `${command}` — шаблон, относящийся к объекту iobroker.Message.
+* `${message}` - Шаблон, связанный с объектом `iobroker.Message`
+* `${from}` — шаблон, относящийся к объекту iobroker.Message.
+* `${_id}` - Шаблон, связанный с объектом `iobroker.Message`
+* `${instances}` - Шаблон будет заменен списком экземпляров, связанных с полученным уведомлением диспетчера уведомлений.
+
+        Дополнительная информация о структуре файла [Объект сообщения Notification-Manager](https://github.com/foxriver76/ioBroker.notification-manager) можно найти в [README](https://github.com/foxriver76/ioBroker.notification-manager).
+
+> Примечание. Убедитесь, что не выбраны параметры «*реагировать на*» для исходящих каналов.
+
+    * **Шаблон для отправки сообщений всех других полученных сообщений**
+
+        Тот же самый объект `iobroker.Message`, как описано выше, используется для отправки всех видов сообщений экземпляру адаптера.
+
+		```javascript
+		/** A message being passed between adapter instances */
+        interface Message {
+            /** The command to be executed */
+            command: string;
+            /** The message payload */
+            message: MessagePayload;
+            /** The source of this message */
+            from: string;
+            /** ID of this message */
+            _id: number;
+            /** Callback information. This is set when the source expects a response */
+            callback: MessageCallbackInfo;
+        }
+		```
+
+Из самого этого объекта можно использовать следующие шаблоны для доступа к значениям связанных атрибутов.
+
+**Доступные шаблоны:**
+
+* `${command}` — шаблон, относящийся к объекту iobroker.Message.
+* `${message}` - Шаблон, связанный с объектом `iobroker.Message`
+* `${from}` — шаблон, относящийся к объекту iobroker.Message.
+* `${_id}` - Шаблон, связанный с объектом `iobroker.Message`
+
+        Шаблон `${message}` всегда содержит информацию от соответствующего отправителя. Если сообщение содержит только `String`, вам нужно указать только шаблон `${message}`. Предоставляет ли он значение JSON, вы также можете получить доступ к внутренним атрибутам, указав путь к значению, например `${message.foo.bar}`.
+
+> Примечание. Убедитесь, что не выбраны параметры «*реагировать на*» для исходящих каналов.
+
+    * **Шаблон 1-10 — Шаблон для применения к определенному каналу**
+
+        Вы также можете указать значение JSON для объекта сообщения определенного канала. В этом случае вы можете определить до десяти пользовательских шаблонов, которые можно применить перед отправкой сообщения на сервер Synology Chat.
+
+Доступ к атрибутам JSON можно получить, указав путь к значению в виде шаблона, например `${foo.bar}`.
+
+Шаблон может быть связан с каналом в [Конфигурация канала](#channel-configuration).
+
+**Доступные шаблоны:**
+
+Доступные шаблоны связаны со значением JSON клиента, которое будет предоставлено объекту сообщения канала.
+
+#### 2.2.4. Помощь:
    * Эта вкладка обычно перенаправляет на официальную страницу GitHub этого проекта, где дана подробная помощь и инструкции по использованию.
 * Если есть открытые вопросы, предложения по изменениям, нежелательному поведению или ошибкам, создайте [проблему GitHub](https://github.com/phoeluga/ioBroker.synochat/issues/new/choose), чтобы убедиться в качестве этот проект.
 
@@ -147,13 +323,10 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 ### 2.3. Конфигурация экземпляра `web`
 Для получения сообщений с сервера чата Synology необходимо настроить исходящую интеграцию — см. [Исходящая интеграция](#synologyChatConfigurationOutgoingIntegration).
 
-Для этого требуется, чтобы экземпляр адаптера `web` был запущен и настроен в файле [Экземпляр адаптера `synochat` настроен](#configurationAdapterWebInstance).
+Для этого требуется, чтобы экземпляр адаптера `web` был запущен и настроен в файле [Настроен экземпляр адаптера `synochat`](#configurationAdapterWebInstance).
 
-Если используемый экземпляр `web` настроен на использование безопасного соединения через HTTPS, **убедитесь, что вы предоставили действительный сертификат или импортировали свой собственный сертификат в свои доверенные сертификаты Synology**.\ В противном случае сообщения не отправляются с Сервер чата Synology к экземпляру адаптера ioBroker.
+Если используемый экземпляр `web` настроен на использование безопасного соединения через HTTPS, **убедитесь, что вы предоставили действительный сертификат или импортировали свой собственный сертификат в список доверенных сертификатов в Synology**.\ В противном случае сообщения не отправляются. с сервера чата Synology на экземпляр адаптера ioBroker.
 Связь не будет установлена, и, к сожалению, пользователю на обоих сайтах не будет прямого указания, что сообщение было отклонено из-за недействительного сертификата.
-
-Если настроенный экземпляр `web` настроен на использование безопасного соединения через HTTPS, обязательно укажите действительный сертификат или импортируйте свой собственный сертификат в доверенные сертификаты в Synology.
-В противном случае сообщения с сервера чата Synology не будут отправляться на ваш экземпляр адаптера ioBroker.
 
 <div id="usage"></div>
 
@@ -161,23 +334,23 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 ### 3.1 Общие
 * После настройки экземпляра адаптера для каждого настроенного канала в объектах соответствующего экземпляра адаптера создается папка с именем канала.
 
-	![IobrokerObjectОбзор](../../../en/adapterref/iobroker.synochat/./docs/images/diIobrokerObjectOverview.png)
+	![IobrokerObjectОбзор](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectOverview.png)
 
 * В этой папке можно найти объект сообщения соответствующего канала, который представляет отправленное или полученное сообщение.
 
 ***ПРИМЕЧАНИЕ:***\ *При отправке сообщения или изменении объекта сообщения пользователем убедитесь, что флаг Ack не установлен. Флаг Ack будет установлен адаптером после подтверждения успешного получения сообщения сервером чата Synology.*\ **Если флаг Ack установлен пользователем при изменении значения сообщения в представлении объекта ioBroker, сообщение будет не обрабатываться!***
 
-	![IobrokerObjectSetMessage](../../../en/adapterref/iobroker.synochat/./docs/images/diIobrokerObjectSetMessage.png)
+	![IobrokerObjectSetMessage](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectSetMessage.png)
 
 * Если объект сообщения изменен и тип канала установлен на «Отправить данные на сервер чата Synology», это сообщение — в зависимости от типа канала — передается в чат Synology.
 
-	![SynoChatChannelIncomingMessage](../../../en/adapterref/iobroker.synochat/./docs/images/diSynoChatChannelIncomingMessage.png)
+	![SynoChatChannelIncomingMessage](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatChannelIncomingMessage.png)
 
 <div id="webHookLocation"></div>
 
 * URL-адрес/адрес веб-перехватчика будет предоставлен как значение объекта в информационной папке экземпляра адаптера и действителен для всех каналов с одним экземпляром адаптера.
 
-	![IobrokerObjectWebHook](../../../en/adapterref/iobroker.synochat/./docs/images/diIobrokerObjectWebHook.png)
+	![IobrokerObjectWebHook](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectWebHook.png)
 
 ### 3.2 Тип содержимого сообщения
 Помимо отправки обычных текстовых сообщений, во входящий канал также можно отправлять другие типы контента, такие как изображения. Для реализации этого контент должен быть доступен как веб-ресурс. Чтобы отправить изображение, просто установите URL-адрес в качестве значения объекта сообщения экземпляра адаптера Syno-Chat, упомянутого в [3. Использование > 3.1 Общие](#usage).
@@ -202,10 +375,62 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 [donate-link]: https://www.paypal.com/donate/?hosted_button_id=9MLB29CKX5674
 
 ## Changelog
-All changes to this project are described in the [CHANGELOG](./CHANGELOG.md).
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.0 (2023-07-23)
+- *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
+- *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.
+- *[@phoeluga]* Added message templates for received messages from other adapters.
+- *[@phoeluga]* Added message templates for object values related to an associated channel.
+
+### 1.2.1 (2022-05-18)
+- *[@phoeluga]* The IP family check to determine the local IP address of the ioBroker instance has been adjusted.
+
+### 1.2.0 (2022-05-17)
+
+- *[@phoeluga]* Added enhancement #6 - Delayed sending of messages has been added to work around the limitations of messages sent to the Synology Chat Server in a certain time interval.
+- *[@phoeluga]* Regarding #6, a message queue has been added to ensure that the order of messages to be sent is respected when the sending of messages is delayed.
+- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Adding MIT license hint to the Readme.
+- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Moved adapter instance object subscription after initial connectivity check.
+- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127520995) for adding the adapter in the ioBroker repository - Added exception handling to cover https://github.com/nodejs/node/issues/43014 in Nodejs 18
+- *[@phoeluga]* Implementation of the [requirements](https://github.com/ioBroker/ioBroker.repositories/pull/1759#issuecomment-1127527703) for adding the adapter in the ioBroker repository - Added axios as dependency in package.json
+
+### 1.1.1 (2022-04-16)
+
+- *[@phoeluga]* Fixed issue #4 - Issue while migrating data from version < 1.1.0
+- *[@phoeluga]* Added collecting and loading of default values when loading the initial configuration of the adapter instance
+- *[@phoeluga]* The channel search behavior has been adjusted to react accordingly to deactivated channels and to query the remaining channels.
+
+### 1.1.0 (2022-04-14)
+
+- *[@phoeluga]* Added the ability to manage multiple channels in one adapter instance per Synology chat server.
+- *[@phoeluga]* A possibility of ioBroker hostname / IP address configuration has been introduced.\
+(May be helpful when using an ioBroker Docker instance).
+- *[@phoeluga]* A functionality to receive incoming messages from the Synology chat server using WebHooks has been added.\
+(An instance of the web adapter is required to use this feature)
+- *[@phoeluga]* The translation of the UI properties was added.
+- *[@phoeluga]* Added function to migrate channel data from an older version to a new channel object in the list approach.
+- *[@phoeluga]* Added possibility for a user to disable dedicated channels from being processed.
+
+### 1.0.1 (2022-04-06)
+
+- *[@phoeluga]* Resolved #1 - Unable to send messages with special characters
+- *[@phoeluga]* Resolved #2 - Send images
+
+
+### 1.0.0 (2022-04-05)
+
+- *[@phoeluga]* Initial release
+
+
+### 0.0.1 (2022-04-03) - ALPHA
+
+- *[@phoeluga]* Start of development
 
 ## License
 
 This code is licensed under 'The MIT License (MIT)' license specified in the [LICENSE](./LICENSE) file.
 
-Copyright (c) 2022 phoeluga <phoeluga@gmail.com>
+Copyright (c) 2023 phoeluga <phoeluga@gmail.com>

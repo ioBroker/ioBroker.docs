@@ -21,7 +21,7 @@ This adapter can create three types of scenes:
 ## Scenes
 **Scenes** will be created if setting "set on false" are not used. 
 Every scene can be configured individually, so you can have **scenes** and **groups** in one instance of adapter.
-The **scene** is just list of states id and values, that these states must have by activation of the scene. E.g. we have created on the scene "_scene.allLightInBath_":
+The **scene** is just a list of states id and values, that these states must have by activation of the scene. E.g. we have created on the scene `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -29,9 +29,9 @@ The **scene** is just list of states id and values, that these states must have 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-To activate the scene we must set "_scene.allLightInBath_" to true (e.g. over script or vis). Then both states will be set to desired values, to **true**. 
-The value of _scene.allLightInBath_ will be **true** too. If we manually switch of the top light the value of the _scene.allLightInBath_ will go to **false**.
-And again to **true** if we will switch manually the light on.
+To activate the scene, we must set `scene.allLightInBath` to true (e.g., over a script or vis). Then both states will be set to desired values, to `true`. 
+The value of `scene.allLightInBath` will be `true` too. If we manually switch to the top light, the value of the `scene.allLightInBath` will go to `false`.
+And again to `true` if we will manually switch the light on.
 
 Let's add to the **scene** the fan:
 
@@ -43,12 +43,12 @@ Let's add to the **scene** the fan:
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-In this case the fan will be switched on ba activation of the **scene** and will be switched off in one minute. 
-After the fan will be switched off the value of _scene.allLightInBath_ will go to **false**, because not all states are equal to desired values. 
-States with delay are not participate in calculations.
+In this case, the fan will be switched on ba activation of the **scene** and will be switched off in one minute. 
+After the fan will be switched off the value of `scene.allLightInBath` will go to `false`, because not all states are equal to desired values. 
+States with delay are not participated in calculations.
 
 You can test the scene with a "play" button.
-Additionally, you can link this **scene** direct with other scene ID. E.g. if you have a sensor on the door you can select it as a trigger:
+Additionally, you can link this **scene** direct with other scene ID. E.g. if you have a sensor on the door, you can select it as a trigger:
 
 ```
   trigger
@@ -57,7 +57,7 @@ Additionally, you can link this **scene** direct with other scene ID. E.g. if yo
     value:     true
 ```
 
-And every time you will open the door in the bath all lights with fan will be switched on.
+And every time you open the door in the bath, all lights with fan will be switched on.
 
 ## Groups
 **Groups** are like virtual channels. You can create with the help of **groups** virtual device from several actuators and control them together, like one device.
@@ -83,31 +83,31 @@ If you link this **group** with the door sensor like:
     value:     false
 ```
 
-Every time you will open the door all lights in a bath will be switched on. The value of the _scene.allLightInBath_ will go to **true**.
-If you close the door the lights will be switched off, and the value of _scene.allLightInBath_ will go to **false**. 
+Every time you open the door, all lights in a bath will be switched on. The value of the `scene.allLightInBath` will go to **true**.
+If you close the door, the lights will be switched off, and the value of `scene.allLightInBath` will go to **false**. 
 
 It is useless, but it is good as an example.
 
-If you will manually switch on one light, the value of the _scene.allLightInBath_ will go to **uncertain**.
+If you manually switch on one light, the value of the `scene.allLightInBath` will go to **uncertain**.
 
-Delays can be used in the **group** too, but the states with delay are not participate in calculations of the current value of **group**.
+Delays can be used in the **group** too, but the states with delay are not participated in calculations of the current value of **group**.
 
 ## Virtual groups
-**Virtual groups** are like virtual channels and like groups, but can have any kind of values: numbers, strings and so on. 
-You can create virtual group to control all shutters in living room. 
-By writing 40% into virtual group all shutters will be set to 40%.
+**Virtual groups** are like virtual channels and like groups, but can have any kind of values: numbers, strings, and so on. 
+You can create a virtual group to control all shutters in living room. 
+By writing 40% into a virtual group all shutters will be set to 40%.
 
 Additionally, you can define the behaviour for which value should be taken for the group if not all states of the group have the same value.
 
 You can provide following aggregations (available only in advanced mode):
 - `uncertain` - (default) - the value of the group will have text `uncertain`.
-- `any` - first non-zero value of all states in group.
-- `min` - minimal value of all states in group.
-- `max` - maximal value of all states in group.
-- `avg` - average value of all states in group.
+- `any` - first non-zero value of all states in a group.
+- `min` - minimal value of all states in a group.
+- `max` - maximal value of all states in a group.
+- `avg` - average value of all states in a group.
 
-## Save actual states as scene
-To save actual states in some scene you can send a message to the adapter:
+## Save actual states as a scene
+To save actual states in some scene, you can send a message to the adapter:
 ```
 sendTo(
     'scenes.0', 
@@ -128,7 +128,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 
 ## Changelog
 ### 2.4.0 (2022-12-23)
-* (Apollon77) prevent crash case reported by Sentry
+* (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
 
 ### 2.3.9 (2022-02-13)
@@ -136,7 +136,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -152,7 +152,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
-* (bluefox) Possibility to use set point from other state
+* (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
@@ -191,10 +191,10 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) The tolerance is implemented
 
 ### 2.0.3 (2020-06-14)
-* (bluefox) New GUI based on react
+* (bluefox) New GUI based on React
 
 ### 1.1.1 (2019-05-26)
-* (bluefox) Added storing of actual values in scene via message
+* (bluefox) Added storing of actual values in a scene via a message
 
 ### 1.1.0 (2018-04-24)
 * (bluefox) Works now with Admin3
@@ -217,7 +217,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 * (bluefox) update node-schedule
 
 ### 0.2.4 (2016-01-24)
-* (bluefox) fix error disabled states in scene
+* (bluefox) fix error disabled states in a scene
 
 ### 0.2.3 (2015-12-10)
 * (bluefox) fix error with trigger on false
@@ -259,7 +259,7 @@ The adapter will read all actual values for IDs defined in this scene and save i
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
