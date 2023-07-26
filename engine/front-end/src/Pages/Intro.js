@@ -343,7 +343,7 @@ class Intro extends Component {
                         whiteSpace: this.props.mobile ? 'wrap' : undefined,
                     }}
                 >
-                    {I18n.t('Abfrage: Usertreffen November 2024')}
+                    {'Abfrage: Usertreffen November 2024'}
                 </div>
             </div>
         </div>;

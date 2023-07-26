@@ -44,6 +44,7 @@ class SupportUs extends Component {
             email: '',
             intention: '',
             result: '',
+            error: false,
         };
     }
 
@@ -65,7 +66,7 @@ class SupportUs extends Component {
             .then(() => this.setState({ result: 'Ihre Email Adresse wurde erfolgreich in der Interessentenliste eingetragen!' }))
             .catch(e => {
                 console.error(e);
-                this.setState({ result: 'Kann Ihre Email Adresse nicht eintragen :(' });
+                this.setState({ result: 'Kann Ihre Email Adresse nicht eintragen :(', error: true });
             });
     }
 
@@ -92,7 +93,7 @@ class SupportUs extends Component {
                         padding: 20,
                         textAlign: 'left',
                     }}>
-                        {this.state.result ? <div style={{ textAlign: 'center' }}>
+                        {this.state.result ? <div style={{ textAlign: 'center', color: this.state.error ? 'red' : undefined }}>
                             {this.state.result}
                         </div> : <div>
                             Wir nähern uns zu einem wichtigen Datum, nämlich wird es ioBroker Projekt im Juli 2024 <b>10 Jahre</b> her sein!<br/>
