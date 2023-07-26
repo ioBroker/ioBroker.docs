@@ -37,6 +37,14 @@ const styles = () => ({
     },
 });
 
+const INTENTIONS = [
+    'Bitte auswählen...',
+    'Ich habe keine Interesse am User-Treffen, aber haltet mich auf dem laufenden',
+    'Ich überlege vorbei zu schauen',
+    'Ich werde das User-Treffen nicht verpassen',
+    'Ich will einen Vortrag halten (Eintritt kostenlos)',
+];
+
 class SupportUs extends Component {
     constructor(props) {
         super(props);
@@ -82,7 +90,7 @@ class SupportUs extends Component {
             aria-labelledby="user-meeting-dialog-support-title"
             aria-describedby="user-meeting-dialog-support-description"
         >
-            <DialogTitle id="user-meeting-dialog-support-title">10 Jahre Jubiläums-Usertreffen 2024 Herbst!</DialogTitle>
+            <DialogTitle id="user-meeting-dialog-support-title">10 Jahre Jubiläums-User-Treffen 2024 Herbst!</DialogTitle>
             <DialogContent>
                 <DialogContentText id="user-meeting-dialog-slide-description" className={this.props.classes.background}>
                     <div style={{
@@ -95,20 +103,22 @@ class SupportUs extends Component {
                         {this.state.result ? <div style={{ textAlign: 'center', color: this.state.error ? 'red' : undefined }}>
                             {this.state.result}
                         </div> : <div>
-                            Wir nähern uns zu einem wichtigen Datum, nämlich wird es ioBroker Projekt im Juli 2024 <b>10 Jahre</b> her sein!<br/>
-                            Dies wollen wir mit einem <b>Usertreffen</b> feiern!<br/>
-                            Falls du interesse hast, dann lass uns deine Email adresse, so dass wir die Organisation planen können.<br/><br />
-                            Wann: <b>November 2024</b>,
+                            Wir nähern uns einem wichtigen Datum, das ioBroker Projekt wird im Juli 2024 bereits <b>10 Jahre</b> alt!<br/>
+                            Dies wollen wir mit einem <b>User-Treffen</b> feiern!<br/>
+                            Falls du interesse hast, melde Dich unverbindlich mit deiner Email-Adresse für Neuigkeiten an.
+                            Deine Rückmeldung hilft uns die Veranstaltung besser planen zu können.
+                            <br />
+                            <br />
+                            Wann: <b>November 2024</b> (voraussichtlich 09 Nov. 24),
                             <br />
                             Wo: Kreis <b>Frankfurt am Main</b>,
                             <br />
                             Preis: <b>ca 30€</b> pro Person,
                             <br />
-                            Dauer: <b>einen Samstag</b> (voraussichtlich 09 Nov. 24).
+                            Dauer: <b>einen Tag</b>.
                             <br />
                             <br />
-                            Weitere Details werden nach der Interessentenermittlung folgen.
-                            <br />
+                            Weitere Details werden wir zu einem späteren Zeitpunkt kommunizieren.
                             <br />
                             <TextField
                                 variant="standard"
@@ -122,20 +132,26 @@ class SupportUs extends Component {
                             />
                             <div style={{ height: 20 }} />
                             <FormControl fullWidth variant="standard">
-                                <InputLabel>Intentionen</InputLabel>
+                                <InputLabel>Ich habe Interesse...</InputLabel>
                                 <Select
                                     value={this.state.intention || '_'}
-                                    label="Intention"
                                     fullWidth
                                     onChange={(e) => this.setState({ intention: e.target.value })}
+                                    renderValue={value => !value || value === '_' ? <span style={{ opacity: 0.5 }}>{INTENTIONS[0]}</span> : INTENTIONS[value]}
                                 >
-                                    <MenuItem value="_" style={{ opacity: 0.5 }}>Bitte auswählen...</MenuItem>
-                                    <MenuItem value="1">Ich habe keine Interesse an User-Treffen aber haltet mich an laufendem</MenuItem>
-                                    <MenuItem value="2">Ich überlege vorbei zu schauen</MenuItem>
-                                    <MenuItem value="3">Ich werde user-Treffen nicht verpassen</MenuItem>
-                                    <MenuItem value="4">Ich will einen Vortrag halten (Eintritt kostenlos)</MenuItem>
+                                    {INTENTIONS.map((item, i) => <MenuItem
+                                        key={i || '_'}
+                                        style={{ opacity: !i ? 0.5 : 1 }}
+                                        value={i}
+                                        disabled={!i}
+                                    >
+                                        {item}
+                                    </MenuItem>)}
                                 </Select>
                             </FormControl>
+                            <div style={{ fontSize: 12, fontStyle: 'italic', marginTop: 20 }}>
+                                * Mit Anmeldung stimme ich zu das die ioBroker GmbH mir Informationen über das geplante User-Treffen zusenden darf.
+                            </div>
                         </div>}
                     </div>
                 </DialogContentText>
