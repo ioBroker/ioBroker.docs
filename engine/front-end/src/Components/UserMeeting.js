@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 
+import {
+    Close as CloseIcon,
+    Check as CheckIcon,
+} from '@mui/icons-material';
+
 import  {
     Button,
     Dialog,
@@ -135,26 +140,48 @@ class SupportUs extends Component {
                                 onChange={e => this.setState({ email: e.target.value })}
                             />
                             <div style={{ height: 20 }} />
-                            <FormControl fullWidth variant="standard">
-                                <InputLabel>Ich habe Interesse...</InputLabel>
-                                <Select
+                            {this.props.mobile ?
+                                <select
+                                    style={{
+                                        width: '100%',
+                                        overflow: 'hidden',
+                                        whiteSpace: 'pre',
+                                        textOverflow: 'ellipsis',
+                                        webkitAppearance: 'none',
+                                    }}
                                     value={this.state.intention || '_'}
-                                    fullWidth
                                     onChange={e => this.setState({ intention: e.target.value })}
-                                    renderValue={value => (!value || value === '_' ? <span style={{ opacity: 0.5 }}>{INTENTIONS[0]}</span> : INTENTIONS[value])}
                                 >
-                                    {INTENTIONS.map((item, i) => <MenuItem
+                                    {INTENTIONS.map((item, i) => <option
                                         key={i || '_'}
                                         style={{ opacity: !i ? 0.5 : 1 }}
                                         value={i}
                                         disabled={!i}
                                     >
                                         {item}
-                                    </MenuItem>)}
-                                </Select>
-                            </FormControl>
+                                    </option>)}
+                                </select>
+                                :
+                                <FormControl fullWidth variant="standard">
+                                    <InputLabel>Ich habe Interesse...</InputLabel>
+                                    <Select
+                                        value={this.state.intention || '_'}
+                                        fullWidth
+                                        onChange={e => this.setState({ intention: e.target.value })}
+                                        renderValue={value => (!value || value === '_' ? <span style={{ opacity: 0.5 }}>{INTENTIONS[0]}</span> : INTENTIONS[value])}
+                                    >
+                                        {INTENTIONS.map((item, i) => <MenuItem
+                                            key={i || '_'}
+                                            style={{ opacity: !i ? 0.5 : 1 }}
+                                            value={i}
+                                            disabled={!i}
+                                        >
+                                            {item}
+                                        </MenuItem>)}
+                                    </Select>
+                                </FormControl>}
                             <div style={{ fontSize: 12, fontStyle: 'italic', marginTop: 20 }}>
-                                * Mit Anmeldung stimme ich zu das die ioBroker GmbH mir Informationen über das geplante User-Treffen zusenden darf.
+                                * Mit der Anmeldung stimme ich zu, dass die ioBroker GmbH mir Informationen über das geplante User-Treffen zusenden darf.
                             </div>
                         </div>}
                     </div>
@@ -173,16 +200,27 @@ class SupportUs extends Component {
                         }
                     }}
                     color="primary"
+                    startIcon={<CheckIcon />}
                 >
                     Ich habe interesse!
                 </Button>}
-                <Button
-                    color="grey"
-                    variant="contained"
-                    onClick={() => this.props.onClose()}
-                >
-                    {I18n.t('Close')}
-                </Button>
+                {this.props.mobile ?
+                    <Button
+                        color="grey"
+                        variant="contained"
+                        onClick={() => this.props.onClose()}
+                    >
+                        <CloseIcon />
+                    </Button>
+                    :
+                    <Button
+                        color="grey"
+                        variant="contained"
+                        onClick={() => this.props.onClose()}
+                        startIcon={<CloseIcon />}
+                    >
+                        {I18n.t('Close')}
+                    </Button>}
             </DialogActions>
         </Dialog>;
     }

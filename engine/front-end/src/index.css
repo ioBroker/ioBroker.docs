@@ -39,25 +39,6 @@ body {
     35%, 100% { background-position: 0 100vh; }
 }
 
-/* used for support us button */
-@keyframes hue-animation {
-    0% {
-        background: hsl(82, 100%, 50%);
-    }
-
-    50% {
-      background: hsl(200, 100%, 50%);
-    }
-
-    100% {
-      background: hsl(82, 100%, 50%);
-    }
-}
-
-.hue-animation {
-  animation: hue-animation 16s infinite;
-}
-
 /* overwrite carousel classes */
 .carousel .thumb.selected, .carousel .thumb:hover {
   border: 1px solid #39c !important;

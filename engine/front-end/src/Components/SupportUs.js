@@ -35,9 +35,6 @@ import Utils from '../Utils';
 
 const styles = () => ({
     mainButton: {
-        position: 'absolute',
-        top: 10,
-        right: 10,
         background: '#3399CC',
         color: '#FFFFFF',
         '&:hover': {
@@ -81,6 +78,20 @@ const styles = () => ({
         background: 'linear-gradient(to bottom, #f8de9a 0%,#f7c641 100%)',
         border: '1px solid #A48D53',
         height: 35,
+    },
+    '@keyframes hue-animation': {
+        '0%': {
+            backgroundColor: 'hsl(82, 100%, 50%)',
+        },
+        '50%': {
+            backgroundColor: 'hsl(200, 100%, 50%)',
+        },
+        '100%': {
+            backgroundColor: 'hsl(82, 100%, 50%)',
+        },
+    },
+    hueAnimation: {
+        animation: '$hue-animation 16s infinite',
     },
 });
 
@@ -178,7 +189,7 @@ class SupportUs extends Component {
             <Button
                 key="button"
                 color="grey"
-                className={`${this.props.classes.mainButton} ${!this.props.noColoring ? 'hue-animation' : this.props.classes.staticColor}`}
+                className={`${this.props.classes.mainButton} ${!this.props.noColoring ? this.props.classes.hueAnimation : ''}`}
                 onClick={() => this.setState({ opened: true })}
             >
                 <img src={ImgAmazonSmall} className={this.props.classes.mainButtonIcon} alt="logo" />

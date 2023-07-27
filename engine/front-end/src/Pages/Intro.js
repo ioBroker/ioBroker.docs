@@ -29,6 +29,7 @@ import SupportUs from '../Components/SupportUs';
 import About from '../Components/About';
 import Screenshots from '../Components/Screenshots';
 import UserMeeting from '../Components/UserMeeting';
+import Query from '../Components/Query';
 
 import BackImage from '../assets/background.jpg';
 import LinusShell from '../Components/LinusShell';
@@ -57,6 +58,8 @@ const styles = theme => ({
         paddingLeft: 40,
         paddingBottom: 20,
         paddingRight: 40,
+        marginLeft: 10,
+        marginRight: 10,
     },
     titleMain: {
         fontSize: 48,
@@ -394,10 +397,10 @@ class Intro extends Component {
             link = 0;
         }
         let middleButton;
-        let noColoring = false;
+        let userMeeting = false;
         if (window.location.hash === '#usertreffen') {
             middleButton = this.renderUserMeeting();
-            noColoring = true;
+            userMeeting = true;
         } else if (this.action) {
             middleButton = this.renderAction();
         } else {
@@ -406,11 +409,13 @@ class Intro extends Component {
                     middleButton = I18n.getLanguage() === 'de' ? this.renderHausAutomatisierung() : this.renderCloud();
                     break;
                 case 2:
-                    middleButton = this.renderServer();
+                    userMeeting = I18n.getLanguage() === 'de';
+                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderServer();
                     break;
                 case 0:
                 default:
-                    middleButton = this.renderCloud();
+                    userMeeting = I18n.getLanguage() === 'de';
+                    middleButton = userMeeting ? this.renderUserMeeting() : this.renderCloud();
                     break;
             }
         }
@@ -432,7 +437,18 @@ class Intro extends Component {
                     typedText="curl -sLf https://iobroker.net/install.sh | bash -"
                 /> : null}
             </div>,
-            <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={noColoring} />,
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 10,
+                    right: 10,
+                    display: 'flex',
+                    gap: 10,
+                }}
+            >
+                {!userMeeting ? <Query key="query" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} /> : null}
+                <SupportUs key="supportus" theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} noColoring={userMeeting} />,
+            </div>,
             <ForumInfo key="forum" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <About key="about" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
             <Subscribe key="subscribe" backClass={(i++ % 2) ? this.props.classes.darkPart : this.props.classes.lightPart} theme={this.props.theme} mobile={this.props.mobile} language={this.props.language} />,
