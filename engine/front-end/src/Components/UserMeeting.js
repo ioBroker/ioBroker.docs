@@ -127,7 +127,7 @@ class SupportUs extends Component {
                             Dauer: <b>einen Tag</b>.
                             <br />
                             <br />
-                            Weitere Details werden wir zu einem späteren Zeitpunkt kommunizieren.
+                            Weitere Details werden wir zu einem späteren Zeitpunkt kommunizieren. <a href="https://forum.iobroker.net/topic/67171/anmeldung-umfrage-iobroker-usertreffen-2024" target="_blank">Oder schaue in forum vorbei.</a>
                             <br />
                             <TextField
                                 variant="standard"
