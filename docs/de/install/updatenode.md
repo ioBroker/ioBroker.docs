@@ -1,6 +1,6 @@
 ---
 title:       "Update NodeJS"
-lastChanged: "29.10.2022"
+lastChanged: "11.08.2023"
 ---
 
 # Node.js Update
@@ -10,6 +10,7 @@ lastChanged: "29.10.2022"
 | ------ | ----------- | ------------- |
 | < 4.x | 12.x, 14.x, 16.x | 6.x |
 | 4.x | 12.x, 14.x, 16.x | 6.x, 7.x, 8.x |
+| 5.x | 16.x, 18.x, 20.x | 8.x, 9.x |
 
 ## Warum muss man das updaten?
 Wie bei vielen Open-Source-Technologien üblich, entwickelt sich Node.js schnell weiter.  
@@ -63,7 +64,7 @@ In der Regel werden alle Prozesse dadurch beendet. Sicherheitshalber sollte noch
 Im nächsten Schritt aktualisiert man Node.js auf die gewünschte neue Version.  
 Das Update unterscheidet sich jedoch je nach installiertem Betriebssystem, siehe Anleitung  
 
-?> Der Node Package Manager, kurz `npm`, wird ebenfalls mit aktualisiert, dieser muss gegebenenfalls, bis js-controller Version 3, je nach verwendeter Node.js Version auf npm v6.x zurückgesetzt werden. Ab js-controller Version 4 wird auch npm v7/8 unterstützt.
+?> Der Node Package Manager, kurz `npm`, wird ebenfalls mit aktualisiert, dieser muss gegebenenfalls, bis js-controller Version 3, je nach verwendeter Node.js Version auf npm v6.x zurückgesetzt werden. Ab js-controller Version 4 wird auch npm v8.x/9.x unterstützt.
 
 #### 7 - Version und Pfade kontrollieren
 Nach abgeschlossenem Update werden die Pfade und installierten Versionen noch einmal gegengeprüft.
@@ -171,12 +172,12 @@ sudo kill -9 <ProzessID>
 - Details zu [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
 
 ```
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
-- Für andere Node.js Versionen einfach in der URL die 16 durch die andere Versionsnummer ersetzen.
+- Für andere Node.js Versionen einfach in der URL die 18 durch die andere Versionsnummer ersetzen.
 
-!> Stand Oktober 2022 ist die Version 16 von Node.js für ioBroker empfohlen! 
+!> Stand März 2023 ist die Version 18 von Node.js für ioBroker empfohlen! 
 
 !> Ungerade Node.js Versionen dürfen nicht verwendet werden.
 
