@@ -1,9 +1,9 @@
 ---
 title: Proxmox
-Version: 0.1
-Autoren: TeNNo2k5
-Schlüsselworte: Proxmox, LXC, USB Passthrough
-lastChanged: 15.02.2022
+Version: 0.2
+Autoren: TeNNo2k5, crunchip
+Schlüsselworte: Proxmox, VM, LXC, USB Passthrough, Usb-Backup
+lastChanged: 12.08.2023
 ---
 
 # Proxmox 
@@ -1073,3 +1073,109 @@ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,
 
 </details>
 
+---
+
+## Usb-Stick/Platte für Backups einrichten
+
+Damit zukünftige Backups separat gespeichert werden können, gibt es die Möglichkeit ein USB-Device in Form eines Stick`s oder Platte auf dem Proxmox Host einzubinden.
+Hierzu muss das Device ein bestimmtes Format aufweisen.
+Gängige [Filesysteme](https://wiki.ubuntuusers.de/Dateisystem/) sind **vFAT** oder auch **NTFS**. Beide können sowohl von Linux als auch Windows oder MacOS gelesen werden.
+Für reines Linux üblicherweise **EXT4**.
+
+Ist der Datenträger noch unpartitioniert, bzw möchte man neu formartieren, besteht die Möglichkeit dies an einem Windows PC (ntfs) oder direkt am Proxmox Server zu tun.
+Wenn der Datenträger vorbereitet ist, kann er danach ins System gemountet und im Anschluss direkt über die Proxmox Gui als Storage(Verzeichnis) zugefügt werden.
+
+
+<span style="color:orange">**ACHTUNG! - Bei einer Neu Formatierung werden alle bisherigen Daten auf dem Datenträger gelöscht</span>
+
+
+Folgende Beispiel-Anleitung bezieht sich auf das Einrichten direkt auf dem Proxmox Host. Es kann auch ssh/putty verwendet werden.
+
+**Zu beachten,
+die folgenden Befehle setzen root voraus, sollte ein eigener User auf dem Host verwendet werden, müssen untenstehende Befehle mit sudo voran ausgeführt werden.**
+
+
+### Device vorbereiten
+
+
+### 1 - Gerät identifizieren
+
+Zuerst macht man das Device mittels [lsblk](https://wiki.ubuntuusers.de/lsblk/) ausfindig. Dabei ist es ratsam den Befehl einmal vor und nach dem Einstecken auszuführen. Dadurch lässt sich das Device leichter identifizieren.
+
+~~~
+lsblk
+~~~
+
+sieht dann in etwa so aus (Buchstaben varieren, je nachdem wie viele Geräte eingebunden sind)
+
+~~~
+sdd                    8:48   0 119.2G  0 disk 
+├─sdd1                 8:49   0 119.2G  0 part 
+└─sdd9                 8:57   0     8M  0 part 
+sde                    8:64   0 931.5G  0 disk                    <-- Das ist die Disk /dev/sde
+└─sde1                 8:65   0 931.5G  0 part                    <-- Das ist die erste Partition /dev/sde1, falls schon formartiert
+sr0                   11:0    1  1024M  0 rom  
+sr1                   11:1    1  1024M  0 rom
+~~~
+
+### 2 - Partitionieren
+
+Mit dem menügesteuerten [cfdisk](https://wiki.ubuntuusers.de/fdisk/) wird das Laufwerk partitioniert
+
+~~~
+cfdisk /dev/sde
+~~~
+
+### 3 - Filesystem erstellen
+
+Nun muss die zuvor erstellte Partition noch formatiert werden. Wie oben bereits erwähnt, gibt es verschiedene Möglichkeiten, abhänging vom jeweilegen Verwendungszweck.
+Mit dem Befehl [mkfs](https://wiki.ubuntuusers.de/Formatieren/) und den passenden Parametern wird die Partition formatiert.
+
+~~~
+mkfs.vfat /dev/sde1
+~~~
+
+### 4 - Laufwerk mounten
+
+Um den fertiggestellten Datenträger verwenden zu können muss dieser [gemountet](https://wiki.ubuntuusers.de/mount/) werden.
+
+Dazu wird ein passender Mountpoint erstellt und damit der Datenträger auch nach einem Reboot automatisch wieder eingebunden wird, benötigt man noch einen passenden Eintrag in der [/etc/fstab](https://wiki.ubuntuusers.de/fstab/).
+
+Hierzu muss die eindeutige **UUID** des Laufwerks ausgelesen werden.
+
+Mountpoint erstellen
+~~~
+mkdir /media/ext_usb
+~~~
+
+Datenträger mounten
+~~~
+mount /dev/sde1 /media/ext_usb
+~~~
+
+UUID ermitteln
+~~~
+blkid | grep -i sde
+~~~
+ergibt
+~~~
+/dev/sde1: LABEL="Export_Bilder" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE="4096" TYPE="btrfs" PARTUUID="00011a10-01"
+~~~
+
+Eintrag in der */etc/fstab* mit nano bearbeiten
+~~~
+nano /etc/fstab
+~~~
+nun wird dieser Eintrag hinzugefügt und anschließend gespeichert
+~~~
+UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ext_usb vfat defaults 0 0
+~~~
+
+
+### 5- Storage in Proxmox hinzufügen
+
+Unter Rechenzentrum>Storage kann jetzt ein Verzeichnis hinzugefügt werden. Die ID Bezeichnung ist frei wählbar, z.b *usb-backup*.
+
+In der Spalte *Verzeichnis* wird der Pfad angegeben, in dem Fall */media/ext_usb*.
+
+Bei *Inhalt* muss nur noch das gewünschte Anliegen ausgewählt werden. 
