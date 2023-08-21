@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: /40V0ry/4JPiH4ksWi+hfkq7gH//s9zMYYThERI6TaE=
+hash: WruIwtqYcKUvaAzEuztcNU3bhGO37Sm43rwg/2Yosek=
 ---
 ![标识](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -39,7 +39,7 @@ DoorBird 是一款门对讲机，兼具门铃和安全系统的功能。该产�
 
 3. 输入 Doorbird 设备的 IP。您可以单击输入字段左侧的“搜索图标”。单击该图标后，配置屏幕顶部会出现一条消息。现在您有 60 秒的时间按下 Doorbird 设备上的响铃按钮。适配器尝试检测 IP 并为您填写所有字段。
 4. Doorbird 的设备 ID（不是 IP！）。
-5.需要在Doorbird设备上具有API权限的用户名。
+5.需要在Doorbird设备上拥有API权限的用户名。
 6. 在字段 5 中输入的用户名密码。
 
 ![截屏](../../../en/adapterref/iobroker.doorbird/img/configscreen.png)
@@ -69,22 +69,28 @@ http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
 ### 通过 Telegram 发送快照
 ＃＃＃＃ 例子
 ```
-sendTo('telegram.0', {
-   text: '/opt/iobroker/iobroker-data/files/doorbird.0/Doorbell1_1.jpg',
-   type: 'Foto'
+readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
+  if (error) {
+    console.error(error);
+  } else {
+    sendTo("telegram.0", {
+      text: data,
+      type: "photo",
+    });
+  }
 });
 ```
 
-或者
+或者从 js-controller 4.1.x 开始
 
 ```
-setState('doorbird.0.TakeSnapshot'/*Schnappschuss holen*/, true);
-timeout = setTimeout(function () {
-   sendTo('telegram.0', {
-      text: '/opt/iobroker/iobroker-data/files/doorbird.0/TakeSnapshot_1.jpg',
-      type: 'Foto'
-   });
-}, 1000);
+setState('doorbird.0.TakeSnapshot', true);
+onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, fileData, mimeType) {
+    sendTo('telegram.0', {
+        text: fileData,
+        type: 'photo'
+    });
+});
 ```
 
 ## 兼容设备
@@ -94,7 +100,7 @@ timeout = setTimeout(function () {
 | DoorBird 视频门禁站 D20x | 1.00 及以上 | 000099 及以上 |
 | DoorBird 视频门口站 D21x | 1.00 及以上 | 000108 及以上 |
 |鸟卫 B10x | 1.00 及以上 | 000099 及以上 |
-| DoorBird 视频门禁站 D11x | 1.00 及以上 | 000130及以上 |
+| DoorBird 视频门禁站 D11x | 1.00 及以上 | 000130及以上|
 
 ## Changelog
 
@@ -102,36 +108,26 @@ timeout = setTimeout(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.3 (2023-08-17)
 
-### **WORK IN PROGRESS**
+-   (Schmakus) changed schedule handling. (fix status code 400)
 
--   (Schmakus) Update documentation
--   (Schmakus) Update dependencies
+### 1.2.2 (2023-08-17)
 
-### 1.0.5 (2023-07-05)
-
--   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]
-
-### 1.0.4 (2023-07-05)
-
--   (Schmakus) Interim solution because deletion of duplicate favorites
-
-### 1.0.2 (2023-07-04)
-
--   (Schmakus) Hotfix because dev-mode was active
-
-### 1.0.1 (2023-07-04)
-
--   (Schmakus) remove unused packages
--   (Schmakus) added migration from older versions to delete unused snapshot states
 -   (Schmakus) some code improvements
 
-### 1.0.0 (2023-07-04)
+### 1.2.1 (2023-08-17)
 
--   (Schmakus) Re-new with adapter creator
--   (Schmakus) Changed snapshot handling! Find snapshot at ioBroker Files now!
--   (Schmakus) Support take snapshot manually has been added
--   (Schmakus) Support for light-On has been added
+-   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
+
+### 1.2.0 (2023-08-08)
+
+-   (Schmakus) Update package.json (Node.js v16 or higher and NPM v7 or higher is required!)
+-   (Stefan592/Schmakus) bugfix 'listen on all interfaces'
+
+### 1.1.1 (2023-08-03)
+
+-   (Schmakus) fixed js-controller dependency [#69]
 
 ## License
 

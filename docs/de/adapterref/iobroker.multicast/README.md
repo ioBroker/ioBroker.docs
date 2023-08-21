@@ -2,15 +2,15 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.multicast/README.md
-title: Multicast-APi-Adapter für ioBroker
-hash: BMajt41V8iwGH+aqDL/L/f3MZJja6m62+jbpW80vWiM=
+title: Multicast-API-Adapter für ioBroker
+hash: XlqUkNYCj9aeZw7d9E3YOLDU99ujqoUYwCtqx3WXJlU=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.multicast.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.multicast.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/multicast-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/multicast-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/multicast-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/multicast-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/ioBroker.multicast.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/DrozmotiX/ioBroker.multicast/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.multicast/badge.svg)
 ![NPM](https://nodei.co/npm/ioBroker.multicast.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/DrozmotiX/ioBroker.multicast/master.svg)
 
@@ -18,70 +18,74 @@ hash: BMajt41V8iwGH+aqDL/L/f3MZJja6m62+jbpW80vWiM=
 
 <img  src="admin/multicast.png"  width="64" alt=""/>ioBroker.multicast
 
-</ h1>
+</h1>
 
-# Multicast-APi-Adapter für ioBroker
-Dieser Adapter bietet eine API, die auf dem Multicast-Kommunikationsprotokoll basiert, um Status an Geräte mit benutzerdefinierter Firmware zu senden und zu empfangen.
+# Multicast-API-Adapter für ioBroker
+Dieser Adapter bietet eine auf dem Multicast-Kommunikationsprotokoll basierende API zum Senden und Empfangen von Zuständen an Geräte mit benutzerdefinierter Firmware.
 
 Zweck dieses Adapters war:
 
-* bieten eine Alternative zu http post und MQTT protokoll
-* Halten Sie eine einheitliche API bereit, die auf Multicast-Kommunikation und JSON-formatierter Datenübertragung basiert
-* Verfügen Sie über einen Zero-Touch-Adapter, um jedes Ethernet-Gerät (Beispiel: ESP-basiertes Board-Equalizer Wemos D1 mini) wie Vansware / Gosound-Smart-Plugs oder andere kundenspezifische Automatisierungen zu integrieren.
+* bieten eine Alternative zu http-Post und MQTT-Protokoll
+* Verfügen Sie über eine einheitliche API basierend auf Multicast-Kommunikation und JSON-formatierter Datenübertragung
+* Halten Sie einen Zero-Touch-Adapter bereit, um jedes Ethernet-Gerät zu integrieren (Beispiel: ESP-basiertes Board eq Wemos D1 mini), wie Vansware/Gosound Smart Plugs oder andere benutzerdefinierte Build-Automatisierungen.
 
-### Keine Berührung?
-Der APi ist so aufgebaut, dass keine zusätzliche Konfiguration des Endbenutzers im Adapter selbst oder im zu verwendenden Gerät erforderlich ist.
-Wenn der Wi-Fi-Übergang verwendet wird, muss nur der Wi-Fi-Berechtigungsnachweis angegeben werden (LAN-basierte Geräte werden vollautomatisch behandelt).
-Dies erfordert, dass der Entwickler der Binärdatei versucht, auf dem zugehörigen Chipsatz (wie ESP-basierten Chipsätzen) zu flashen.
+### Nullberührung?
+Das APi ist so aufgebaut, dass keine zusätzliche Konfiguration des Endbenutzers im Adapter selbst oder im zu verwendenden Gerät erforderlich ist.
+Falls die Wi-Fi-Umstellung verwendet wird, müssen nur die Wi-Fi-Anmeldeinformationen angegeben werden (LAN-basierte Geräte werden vollautomatisch gehandhabt).
+Dies erfordert Aufwand seitens des Entwicklers der Binärdatei, die auf dem entsprechenden Chipsatz (z. B. ESP-basierten Chipsätzen) geflasht werden muss.
 
-Wenn die Firmware alle Regeln des APi befolgt (siehe weiter unten), wird die Kommunikation wie folgt behandelt:
+Wenn die Firmware alle Regeln des APi befolgt (siehe weiter unten), wird die Kommunikation wie folgt gehandhabt:
 
 * Gerät sendet Statuswerte per UDP-Multicast
-* Der Adapter erkennt diese Meldung und prüft, ob in ioBroker Status für dieses Gerät vorhanden sind
+* Der Adapter erkennt diese Nachricht und prüft, ob in ioBroker Zustände für dieses Gerät vorhanden sind
 
 #### Neues Gerät
-In einer vorherigen Nachricht hat der Adapter angegeben, dass kein Gerät gefunden wurde. Die folgende Routine wird ausgeführt:
+Aus einer vorherigen Nachricht geht hervor, dass der Adapter kein Gerät gefunden hat. Die folgende Routine wird ausgeführt:
 
 * ioBroker sendet eine Broadcast-Nachricht, um das Gerät zu initialisieren
-* Gerät sendet alle Zustände und zugehörige Struktur an ioBroker
-* ioBroker erstellt das neue Gerät und alle erforderlichen Status
-* Wenn alle Status erstellt wurden, sendet ioBroker einen Handshake an das Gerät "bereit, Daten zu empfangen".
-* Das Gerät sendet seine Status in Intervallen oder durch Änderungen (wie durch die Firmware-Konfiguration definiert).
+* Das Gerät sendet alle Zustände und die zugehörige Struktur an ioBroker
+* ioBroker erstellt das neue Gerät und alle erforderlichen Zustände
+* Wenn alle Zustände erstellt sind, sendet ioBroker einen Handshake an das Gerät „bereit zum Empfangen von Daten“.
+* Das Gerät beginnt, seine Zustände in Intervallen oder durch Änderungen zu senden (wie durch die Firmware-Konfiguration definiert).
 
 #### Wiederverbindung bestehender Geräte
-Aus einer vorherigen Nachricht geht hervor, dass das vom Adapter angegebene Gerät bereits vorhanden ist. Die folgende Routine wird behandelt:
+Aus einer vorherigen Nachricht geht hervor, dass der Adapter angegeben hat, dass das Gerät bereits vorhanden ist. Die folgende Routine wird ausgeführt:
 
-* ioBroker prüft, ob die Konfiguration auf "Wiederherstellen" eingestellt ist.
-* Wenn die Wiederherstellung aktiviert ist, sendet ioBroker alle Status (außer Info-Status) an das Gerät
-* Wenn alle Zustände empfangen wurden, sendet das Gerät einen Handshake an ioBroker "bereit, Daten zu empfangen".
+* ioBroker prüft, ob die Konfiguration auf „Wiederherstellen“ eingestellt ist.
+* Wenn die Wiederherstellung aktiviert ist, sendet ioBroker alle Zustände (außer Info-Zustände) an das Gerät
+* Wenn alle Zustände empfangen wurden, sendet das Gerät einen Handshake an ioBroker „Bereit zum Empfangen von Daten“.
 * ioBroker bestätigt
-* Das Gerät sendet seine Status in Intervallen oder durch Änderungen (wie durch die Firmware-Konfiguration definiert).
+* Das Gerät beginnt, seine Zustände in Intervallen oder durch Änderungen zu senden (wie durch die Firmware-Konfiguration definiert).
 
-#### Statusänderungen
-Der Adapter ist so aufgebaut, dass er bis zu fünfmal einen erneuten Versuch sendet, um sicherzustellen, dass alle Statusänderungen vom Gerät empfangen werden. Dieser Vorgang wird wie folgt behandelt:
+#### Zustandsänderungen
+Der Adapter ist so konzipiert, dass er bis zu fünf Wiederholungsversuche sendet, um sicherzustellen, dass alle Statusänderungen vom Gerät empfangen werden. Dieser Vorgang wird wie folgt abgewickelt:
 
-* Der Status wird in ioBroker geändert
+* Der Status wurde in ioBroker geändert
 * Der Adapter erkennt die Wertänderung und sendet den neuen Wert an das Gerät
-* Das Gerät muss die Meldung innerhalb von 500 ms bestätigen
+* Das Gerät muss die Nachricht innerhalb von 500 ms bestätigen
 * Wenn die Nachricht nicht bestätigt wird, sendet der Adapter den Wert erneut
-* Dies wird bis zu maximal 5 Wiederholungsversuchen behandelt. Danach zeigt eine Fehlermeldung an, dass die Kommunikation unterbrochen wurde
+* Dies wird bis zu maximal 5 Wiederholungen durchgeführt. Danach wird eine Fehlermeldung angezeigt, die auf einen Kommunikationsverlust hinweist
 
-### APi Struktur und Dokumentation
-{zu erledigen / in Bearbeitung}
+### APi-Struktur und Dokumentation
+{ noch zu erledigen / in Bearbeitung }
 
 ## To-Do geplant:
-* [] Warteschlangen implementieren, 20 ms nach der Statusänderung auf ein Gerät warten und ein Array mit allen Statusaktualisierungen senden
-* [] Ablaufwert per API implementieren
-* [x] Optimieren Sie die Statuswiederholung und feuern Sie nicht alle 500 ms mehr Warteschlangen ab
-* [x] Wiederherstellungsdaten senden, wenn Harbert empfangen wird und die Verbindung zum Gerät FALSE ist
-* [x] Implementiere Zustände (Fähigkeit zur Werteliste)
-* [x] Korrekte Behandlung von Änderungen an Hostnamen und Hostnamen
+* [] Implementieren Sie Warteschlangen, warten Sie 20 ms nach der Statusänderung für ein Gerät und senden Sie ein Array mit allen Statusaktualisierungen
+* [x] Implementieren Sie den Ablaufwert per API
+* [x] Zustandswiederholung optimieren, nicht alle 500 ms weitere Warteschlange auslösen
+* [x] Wiederherstellungsdaten senden, wenn Harbert empfangen wird und die Verbindung zum Gerät FALSCH ist
+* [x] Gerätezustände (Fähigkeit für Werteliste)
+* [x] Korrekte Handhabung von Hostnamen und Hostnamenänderungen
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* ([Andiling](https://github.com/andiling)) Expire value by API implemented
+* (DutchmanNL) Rebuild retry functionality
 
 ### 0.1.6 (2021-03-23)
 * (DutchmanNL) Dependency updates

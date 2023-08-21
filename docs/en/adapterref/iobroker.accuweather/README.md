@@ -1,14 +1,10 @@
 ![Logo](admin/accuweather.png)
 # ioBroker.accuweather
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.accuweather.svg)](https://www.npmjs.com/package/iobroker.accuweather)
+![Number of Installations](http://iobroker.live/badges/accuweather-installed.svg) ![Number of Installations](http://iobroker.live/badges/accuweather-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.accuweather.svg)](https://www.npmjs.com/package/iobroker.accuweather)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.accuweather.svg)](https://www.npmjs.com/package/iobroker.accuweather)
-[![Dependency Status](https://img.shields.io/david/algar42/iobroker.accuweather.svg)](https://david-dm.org/algar42/iobroker.accuweather)
-[![Known Vulnerabilities](https://snyk.io/test/github/algar42/ioBroker.accuweather/badge.svg)](https://snyk.io/test/github/algar42/ioBroker.accuweather)
 
 [![NPM](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)](https://nodei.co/npm/iobroker.accuweather/)
-
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)](https://travis-ci.org/algar42/ioBroker.accuweather) 
 
 ## accuweather adapter for ioBroker
 Weather forecast using AccuWeather API.
@@ -21,17 +17,17 @@ and 12 hours forecast (updated every six hours at 12am, 6am, 12pm and 6pm).
 
 ### Get API Key
 To get API Key, register on https://developer.accuweather.com/ and create application in `My Apps` menu. 
-Once the application created, you will have API key generated. 
-For free use it is possible to make 50 requests to API per day. 
-It was noted that to get API working the following settings are preferred (please choose your country!):
+Once the application is created, you will have an API key generated. 
+For free use, it is possible to make 50 requests to API per day. 
+It was noted that to get the API working, the following settings are preferred (please choose your country!):
 ![settings](admin/image.png)
 
 ### Get Location Key
-In order to get location key, go to https://www.accuweather.com/ and enter your city name, or try to enter your coordinates (latitude, longitude) as you have them e.g. in IoBroker settings. 
-Your location key wil be the number at the end of URL of forecast.
+In order to get location key, go to https://www.accuweather.com/ and enter your city name, or try to enter your coordinates (latitude, longitude) as you have them, e.g., in ioBroker settings. 
+Your location key will be the number at the end of the forecast URL.
 
 ### Using in Lovelace visualization (starting version 1.1.0)
-Summary channel contains current and by-day forecast with role/types of states supported by type-detector. 
+The summary channel contains a current and by-day forecast with role/types of states supported by type-detector. 
 New feature can be used in order to show weather forecast in Lovelace UI. 
 For better view a custom lovelace card is created - see https://github.com/algar42/IoB.lovelace.accuweather-card
 
@@ -41,6 +37,9 @@ For better view a custom lovelace card is created - see https://github.com/algar
 -->
 
 ## Changelog
+### 1.3.1 (2023-08-15)
+* (isi07) added the Wind Direction Text und Cloud Cover
+* (bluefox) Added json config
 
 ### 1.2.4 (2022-02-08)
 * (algar42) Depency updates
@@ -55,7 +54,7 @@ For better view a custom lovelace card is created - see https://github.com/algar
 * (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
 
 ### 1.1.7 (2021-06-24)
-* (bluefox) Create device for device-detector 
+* (bluefox) Create device for device-detector
 
 ### v1.1.6 (2021-05-05)
 Minor bug fixes to `Object.common` section
@@ -78,7 +77,7 @@ Minor bug fixes to `Object.common` section
 ## License
 MIT License
 
-Copyright (c) 2022 algar42 <igor.aleschenkov@gmail.com>
+Copyright (c) 2021-2023 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

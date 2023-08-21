@@ -55,6 +55,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+### 3.2.2 (2023-07-30)
+* (René) dependencies updated
+
 ### 3.2.1 (2023-04-07)
 * (René) dependencies updated
 

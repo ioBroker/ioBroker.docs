@@ -19,6 +19,9 @@ Check the current stock value
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.0.5 (2023-08-07)
+* fix for Cookiebug #6
+
 ### 0.0.4 (2022-10-14)
 * update for latest-repository
 
@@ -34,7 +37,7 @@ Check the current stock value
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2023 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

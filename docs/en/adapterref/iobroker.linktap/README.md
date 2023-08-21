@@ -33,6 +33,9 @@ Important: The desired schedules must be set up in the app prior to use. These c
 
 ## Changelog
 
+### 0.2.2
+* (Smart-Gang) Added support for new devices (ValveLinker and multiple-outlet water timer) with 18-digit IDs.
+
 ### 0.2.1
 * (Smart-Gang) Updated CI testing & dependencies.
 

@@ -209,6 +209,10 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 -->
 ### **WORK IN PROGRESS**
 
+- (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
+
+### 0.1.1 (2023-07-26)
+
 - (pdbjjens) Breaking Change: node>=14, js-contoller>=4 and admin>=5 required
 - (pdbjjens) Breaking Change: PIN encryption and validity check of all parameters in config UI
 - (pdbjjens) Breaking Change: Type of `frontier_silicon.X.modes.selectPreset` changed from "string" to  "number"
@@ -243,10 +247,6 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 - (halloamt) (Hopefully) more robust session handling.
 - (halloamt) Long polling should work more reliably
 - (halloamt) Sleep timers are cleared on `onUnload`
-
-### 0.0.7 und 0.0.8
-
-- (halloamt) Formal but neccessary stuff for ioBroker
 
 ## Legal Notices
 

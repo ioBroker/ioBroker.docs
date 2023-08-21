@@ -1,0 +1,219 @@
+---
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
+title: ioBroker.roborock
+hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
+---
+![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
+
+![NPM-Version](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.roborock.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/roborock-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/roborock-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
+
+# IoBroker.roborock
+**Tests:** ![Test und Freigabe](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+
+**Übersetzung:** [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+## Roborock-Adapter für ioBroker
+Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Status und Reinigungsverlauf abrufen und die Karte anzeigen, die in der Roborock-App eingerichtet ist.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+## Die unterstützten Roboter sind:
+- Roborock S4
+- Roborock S5
+- Roborock S5 Max
+- Roborock S6
+- Roborock S6 Pure
+- Roborock S6 MaxV
+- Roborock S7
+- Roborock S7 MaxV (Ultra)
+- Roborock Q7 Max
+- Roborock S7 Pro Ultra
+
+## Zonenreinigung
+Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
+
+ - Es läuft ein Webserver. Der Standardport ist 6824
+ - Öffnen Sie http://iobroker:6824/map.html in Ihrem Browser (ändern Sie http://iobroker Ihren ioBroker-Hostnamen oder Ihre IP!!!)
+ - Zeichnen Sie Ihr zum Reinigen vorgesehenes Quadrat. Roborock unterstützt bis zu 4 Reinigungszonen gleichzeitig.
+
+ ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
+
+## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.2.1 (2023-07-12)
+* (copystring) Fix adapter options
+
+### 0.2.0 (2023-07-11)
+* (copystring) Make adapter turn green only when username & password are correct
+* (copystring) Add vacuum online status and deviceInfo
+* (copystring) Add support for Camera of MaxV models
+* (copystring) Add support for titles of obstacles
+* (copystring) Make options a little prettier
+* (copystring) Add support to check for new firmware
+* (copystring) Add Support for Roborock S8, S8 Pro Ultra, S4 Max, Q7, S7 Max Ultra
+* (copystring) Loads of bug fixes
+* (copystring) Add option to sniff traffic via mitmproxy
+
+### 0.1.6 (2023-03-13)
+* (copystring) Add touch support for zones in web interface
+* (copystring) Fix room mapping
+* (copystring) Refactor map creation code
+* (copystring) Fix robot rotation when parked
+* (copystring) Display obstacles of Roborock S6 MaxV (and maybe others) on map
+* (copystring) Add support for virtual walls
+* (copystring) Add support for no mop zones
+
+### 0.1.5 (2023-03-13)
+* (copystring) Fix bug with sendRequest
+
+### 0.1.4 (2023-03-12)
+* (copystring) Correctly process map on web interface with multiple robots
+* (copystring) Fix robot running detection to start map updater correctly
+* (copystring) Fix huge memory leak when creating maps
+* (copystring) Fix consumables for S6 MaxV
+* (copystring) Start webserver and websocket server only when map creation is enabled
+* (copystring) Update homedata without fully reinitializing the adapter
+* (copystring) Add ability to reset consumables
+* (copystring) Add clean count for room cleaning
+* (copystring) Add resume_segment_clean and resume_zoned_clean
+
+### 0.1.4-beta.6 (2023-03-12)
+* (copystring) Correctly process map on web interface with multiple robots
+
+### 0.1.4-beta.5 (2023-03-11)
+* (copystring) Fix bug when getting isCleaning state outside of vacuum.js
+
+### 0.1.4-beta.4 (2023-03-11)
+* (copystring) Fix robot running detection to start map updater correctly
+* (copystring) Fix robot list duplicate entries on map update
+* (copystring) Better error handling for map creation
+
+### 0.1.4-beta.3 (2023-03-10)
+* (copystring) Fix charger position
+
+### 0.1.4-beta.2 (2023-03-08)
+* (copystring) Temporarily disable sendRequest timeout
+
+### 0.1.4-beta.1 (2023-03-08)
+* (copystring) Fix huge memory leak when creating maps
+
+### 0.1.4-beta.0 (2023-03-06)
+* (copystring) Create and clear update interval for each vacuum correctly
+* (copystring) Fix consumables for S6 MaxV
+* (copystring) Start webserver and websocket server only when map creation is enabled
+* (copystring) Update homedata without fully reinitializing the adapter
+* (copystring) Add clean count for room cleaning
+* (copystring) Ability to reset consumables
+* (copystring) Add clean count for room cleaning
+* (copystring) Add resume_segment_clean and resume_zoned_clean
+
+### 0.1.3 (2023-03-03)
+* (copystring) "retry" on getMap() is not an error
+* (copystring) Fix *_life calculation
+* (copystring) Fix reconnect
+
+### 0.1.2 (2023-03-01)
+* (copystring) Fix ignoring get_carpet_clean_mode and get_water_box_custom_mode for S6 and older vacuums
+
+### 0.1.1 (2023-03-01)
+* (copystring) Encrypt username & password. This means you need to re-enter username and password in the options
+* (copystring) Use Sentry Plugin instead native sentry
+* (copystring) Convert setInterval()/setTimeout() to this.setInterval()/this.setTimeout()
+* (copystring) Correctly clear intervals and timeouts on unload and reconnect
+* (copystring) Update consumables code
+
+### 0.1.0 (2023-02-28)
+* (copystring) Fix a lot of my seriously shitty robot coords and pixel XY code
+* (copystring) Fix connecting to websocket for hosts with more than one network card
+* (copystring) Disable buttons on webinterface when they can't be used
+* (copystring) Improve deleting/addin zones in webinterface
+* (copystring) map_status the currently selected map when bitwise shifted by 2 to the right
+* (copystring) use currently selected map to get floor rooms of selected map
+* (copystring) Update map only once on start of adapter
+* (copystring) Automatically send current map to webinterface when updating map
+* (copystring) Update clean summary only after once after cleaning and once at start
+* (copystring) Implement charger and robot angle on map
+* (copystring) Fix zone positions
+* (copystring) Locating should not be an error. Make this an info instead
+* (copystring) Fix robot position and rotation
+* (copystring) Fix mop path detection at start of robot
+* (copystring) Don't process is_Locating for starting the map updater
+* (copystring) Add go to and go to predicted path feature in webinterface
+* (copystring) Make the actual path slightly transparent
+* (copystring) New robot image on map
+* (copystring) Add pause, stop, dock buttons to webinterface
+* (copystring) Reconnect websocket after 10 seconds of disconnection
+* (copystring) Remove unnecessary getMap() calls
+* (copystring) Improve reconnect logic
+* (copystring) Add Sentry
+* (copystring) Correct mop_mode state
+* (copystring) Add consumables life in percent
+
+### 0.0.10-alpha.0 (2023-02-21)
+* (copystring) Fix a few lint errors and fix bugs regarding zone cleaning (JSON conversion to string and back to JSON)
+
+### 0.0.9-alpha.0 (2023-02-21)
+* (copystring) Added zone cleaning
+
+### 0.0.8-alpha.0 (2023-02-08)
+* (copystring) Update translations
+* (copystring) Enable translations via weblate
+* (copystring) Fix robot commands
+* (copystring) Fix map size (height and width were swapped)
+* (copystring) Add all mqtt client events
+
+### 0.0.7-alpha.0 (2023-02-06)
+* (copystring) Fix cleaningInfo for Roborock S4 to S6
+* (copystring) Add optional map with selectable update intervall
+* (copystring) Prepare for npm releases
+* (copystring) Fix crashes on initialisation
+* (copystring) Fix type m³ to m²
+* (copystring) Add ukranian language
+* (copystring) Fix map creation check
+
+### 0.0.6-alpha.0 (2023-01-29)
+* (copystring) report unknown attributes
+
+### 0.0.5-alpha.0 (2023-01-28)
+* (copystring) remove old and unused deviceInfo code
+
+### 0.0.4-alpha.0 (2023-01-28)
+* (copystring) add missing mop and carpet commands
+
+### 0.0.3-alpha.0 (2023-01-28)
+* (copystring) randomize the client ID
+
+### 0.0.2-alpha.0 (2023-01-28)
+* (copystring) initial release
+
+## License
+MIT License
+
+Copyright (c) 2023 copystring <copystring@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

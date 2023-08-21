@@ -74,7 +74,7 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
 ## To-Do planned :
 
 * [ ] Implement queuing, wait 20ms after state change for a device and send an array with all state updates
-* [ ] Implement expire value by API
+* [x] Implement expire value by API
 * [x] Optimise state retry, dont fire every 500ms more queuing
 * [x] Send recovery data if Harbert is received and connection to device is FALSE
 * [x] Implement states (capability for value list)
@@ -86,6 +86,10 @@ The adapter is build to send up to 5-times a retry to ensure all state changes a
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* ([Andiling](https://github.com/andiling)) Expire value by API implemented
+* (DutchmanNL) Rebuild retry functionality
 
 ### 0.1.6 (2021-03-23)
 * (DutchmanNL) Dependency updates

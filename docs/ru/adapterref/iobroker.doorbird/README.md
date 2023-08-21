@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: /40V0ry/4JPiH4ksWi+hfkq7gH//s9zMYYThERI6TaE=
+hash: WruIwtqYcKUvaAzEuztcNU3bhGO37Sm43rwg/2Yosek=
 ---
 ![Логотип](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -69,22 +69,28 @@ http://192.168.0.2:8081/files/doorbird.0/Doorbell1_1.jpg
 ### Отправить снимок в телеграмму
 #### Пример
 ```
-sendTo('telegram.0', {
-   text: '/opt/iobroker/iobroker-data/files/doorbird.0/Doorbell1_1.jpg',
-   type: 'Foto'
+readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
+  if (error) {
+    console.error(error);
+  } else {
+    sendTo("telegram.0", {
+      text: data,
+      type: "photo",
+    });
+  }
 });
 ```
 
-или
+или начиная с js-контроллера 4.1.x
 
 ```
-setState('doorbird.0.TakeSnapshot'/*Schnappschuss holen*/, true);
-timeout = setTimeout(function () {
-   sendTo('telegram.0', {
-      text: '/opt/iobroker/iobroker-data/files/doorbird.0/TakeSnapshot_1.jpg',
-      type: 'Foto'
-   });
-}, 1000);
+setState('doorbird.0.TakeSnapshot', true);
+onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, fileData, mimeType) {
+    sendTo('telegram.0', {
+        text: fileData,
+        type: 'photo'
+    });
+});
 ```
 
 ## Совместимые устройства
@@ -102,36 +108,26 @@ timeout = setTimeout(function () {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.3 (2023-08-17)
 
-### **WORK IN PROGRESS**
+-   (Schmakus) changed schedule handling. (fix status code 400)
 
--   (Schmakus) Update documentation
--   (Schmakus) Update dependencies
+### 1.2.2 (2023-08-17)
 
-### 1.0.5 (2023-07-05)
-
--   (Schmakus) Fixed AxiosError (deletion of duplicates) [#55]
-
-### 1.0.4 (2023-07-05)
-
--   (Schmakus) Interim solution because deletion of duplicate favorites
-
-### 1.0.2 (2023-07-04)
-
--   (Schmakus) Hotfix because dev-mode was active
-
-### 1.0.1 (2023-07-04)
-
--   (Schmakus) remove unused packages
--   (Schmakus) added migration from older versions to delete unused snapshot states
 -   (Schmakus) some code improvements
 
-### 1.0.0 (2023-07-04)
+### 1.2.1 (2023-08-17)
 
--   (Schmakus) Re-new with adapter creator
--   (Schmakus) Changed snapshot handling! Find snapshot at ioBroker Files now!
--   (Schmakus) Support take snapshot manually has been added
--   (Schmakus) Support for light-On has been added
+-   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
+
+### 1.2.0 (2023-08-08)
+
+-   (Schmakus) Update package.json (Node.js v16 or higher and NPM v7 or higher is required!)
+-   (Stefan592/Schmakus) bugfix 'listen on all interfaces'
+
+### 1.1.1 (2023-08-03)
+
+-   (Schmakus) fixed js-controller dependency [#69]
 
 ## License
 

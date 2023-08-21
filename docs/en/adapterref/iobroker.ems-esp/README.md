@@ -20,7 +20,7 @@ The adapter supports an interface towards the heating systems from Bosch Group u
 
 * km200, km200 hrv, km100, km50, HMC300 or IP-inside (from Bosch Group) 
 
-* ems-esp interface (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
+* ems-esp gateway (https://github.com/emsesp/EMS-ESP32) with latest dev version (see below) and the ESP32 chip. 
   The old ESP8266 gateways with API V2 is NOT SUPPORTED ANYMORE !!
 
 The ems-esp adapter can read and write data to both gateways to steer all heating components. 
@@ -51,7 +51,8 @@ This adapter reads after start values from ems-esp and km200 by http get request
 The web-api calls toward/from the km200 gateway is encrypted. For the en-/decryption there are two passords needed:
 
 * the gateway password on an label on the gateway in the form: xxxx-xxxx-xxxx-xxxx (case sensitive)
-* the private password set by using the Buderus **MyDevice** App (do not use myBuderus / EasyCom or similar cloud based apps !) 
+* the private password is set by using the Buderus **MyDevice** App (do not use myBuderus / EasyCom or similar cloud based apps !) 
+* without private password (if MyDevice APp doesn't work) the km200 adapter part does not work !!!
 
 The fields to be used for the bosch gateway could also be defined by polling the km200-structure (*) or the respective csv-file within the adapter instance parameters. 
 For 1st adapter start it is recommended to use a "*" to select all km200 data-fields.
@@ -66,9 +67,9 @@ Most modern heating systems have an ip-inside gateway and support energy statist
 
 * recording for power consumptions and temperature statistics
 * For these systems and where this recordings data is available the respective statistics are polled and stored in states. 
-Available are hourly, dayly and monthly statistics and stored as array data in states and if an db-instance is selected as well in states filled with db-entries.(statenames start with "_")
-* The checkbox recordings has to be enabled and the database instance (mySQL or InfluxDB) has to be defined. SQL or InfluxDB History adapter need to be installed and active to use this option.
-* the original recording data read by web-api calls are stored under statestructure km200.
+* Available are hourly, dayly and monthly statistics and stored as array data in states and if an db-instance is selected as well in states filled with db-entries.(statenames start with "_")
+* The checkbox recordings has to be enabled and the database instance (History, mySQL or InfluxDB) has to be defined. SQL,InfluxDB or History adapter need to be installed and active to use this option.
+* the original recording data read by web-api calls are stored under statestructure km200 too.
 * DB-statistics to be shown in flot graphs or grafana are only available yet for mySQL and InfluxDB databases.
 * For InfluxDB V1 the retention policy has to be set to a minimum of 170 weeks. (alter retention policy global on iobroker duration 170w;)
 * For InfluxDB V2 the global retention policy is set by the influxdb adapter - please set within influxdb adapter the storage retention time to "no automatic deletion" !
@@ -121,7 +122,7 @@ Boiler efficiency can be calculated if parameters are filled. (Gas- and Oilboile
 ## changes in state-structure
 
 Whenever a new EMS-ESP firmware adds new datafields and/or changes datafield names they are processed during adapter run. Nevertheless obsolete datafields are not deleted automatically by the adapter. 
-There is an option to re-build the state-structure by deleting states on adapter re-start (states with history / db entries are kept)
+There is an option to re-build the state-structure by deleting states on adapter re-start. (states with history / db entries are kept)
 
 ## heatdemand control 
 
@@ -135,6 +136,21 @@ https://github.com/tp1de/ioBroker.ems-esp/wiki
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2023-08-20)
+* trim km200 passwords
+* require node version >= 16
+* update dependencies
+
+### 2.2.0 (2023-08-09)
+* enable history adapter for recordings and statistics
+* update km200 states for valid range of min/max 
+* avoid warnings from v2.1 related to min/max in combination with km200 state-list
+* update dependencies
+
+### 2.1.0 (2023-07-30)
+* ems-esp V3.6 release preparation
+* error corrections for ems-esp state changes
+
 ### 2.0.3 (2023-07-25)
 * error corrections for km200 read
 

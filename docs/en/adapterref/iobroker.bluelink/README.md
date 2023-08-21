@@ -33,6 +33,8 @@ Login Infos : https://developers.kia.com/web/v1/kia/specification/account/accoun
 
 
 ## Changelog
+### 2.3.6 (2023-08-05)
+* (arteck) corr crash
 
 ### 2.3.5 
 * (arteck) add force_login button
@@ -112,7 +114,7 @@ Login Infos : https://developers.kia.com/web/v1/kia/specification/account/accoun
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2023 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

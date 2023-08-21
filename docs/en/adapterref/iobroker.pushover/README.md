@@ -89,8 +89,10 @@ sendTo('pushover', 'glances', {
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 3.0.4 (2023-08-08)
+* (MrStefanH) Added new ttl parameter to blockly
 
 ### 3.0.3 (2022-07-27)
 * (Apollon77) Fix crash cases reported by Sentry
@@ -110,14 +112,11 @@ sendTo('pushover', 'glances', {
 * (Apollon77) Remove some legacy code
 * (Apollon77) Prevent potential crash case when error occurs
 
-### 2.0.5 (2021-06-29)
-* (bluefox) Corrected error with token
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

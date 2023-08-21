@@ -15,26 +15,26 @@ Translate!!!!
 
 ## Einstellungen / Configuration
 ### User / Passwort
-Seit 2017 ist die Authentifizierung beim Anbieter nötig. Dazu muss kostenpflichtig beim Anbieter ein Zugang erstanden werden. Die Login-Daten können nun hier im Adapter hinterlegt werden.
+Seit 2022/03 ist die Authentifizierung beim Anbieter nicht mehr nötig.
 
-Since 2017 the provider is charging for its service. A personal login can be obtained on solar-wetter.com. username and password will be stored here.
+Since 2022/03, authentication is no longer needed.
 
 ### Standort / Location
 Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen
 Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
 
-Choose your region by selecting from the list of post codes.
+Choose your region by selecting from the list of post-codes.
 Type in power of your solar plant to calculate energy output.
 
 ### Solaranlage / Solar plant
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Bechnung der vorraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
+Hier kann die Gesamtleistung der eigenen Solaranlage zur Rechnung der voraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
 
 Put in the total power of your solar plant to calculate the daily forecast for energy production (decimal separators possible)
 
 ### 4-Tage-Prognose / 4-day-forecast
-Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt solarwetter.0.forecast.chart.__url__ ).
+Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt `solarwetter.0.forecast.chart.__url__` ).
 
-Choose a city to have the adapter build a link to a 4-day-forecast chart (datapoint solarwetter.0.forecast.chart.__url__ ).
+Choose a city to have the adapter build a link to a 4-day-forecast chart (datapoint `solarwetter.0.forecast.chart.__url__` ).
 
 ![alt text](img/solarwetterSettingScreenshot.jpg "Screenshot Settings")
 
@@ -45,36 +45,38 @@ The adapter starts once a day.
 
 ##  Datenpunkte / Datapoints
 
-solarwetter.0.forecast.__clearSky__ (*value*)
+`solarwetter.0.forecast.__clearSky__` (*value*)
 
-solarwetter.0.forecast.__realSky_min__(*value*)
+`solarwetter.0.forecast.__realSky_min__` (*value*)
 
-solarwetter.0.forecast.__realSky_max__ (*value*)
+`solarwetter.0.forecast.__realSky_max__` (*value*)
 
-solarwetter.0.forecast.__Datum__  (*string, no timestamp*)
+`solarwetter.0.forecast.__Datum__`  (*string, no timestamp*)
 
-solarwetter.0.forecast.__Region__ (*value*)
+`solarwetter.0.forecast.__Region__` (*value*)
 
-solarwetter.0.forecast.home.__clearSky__ (*value*)
+`solarwetter.0.forecast.home.__clearSky__` (*value*)
 
-solarwetter.0.forecast.home.__realSky_min__(*value*)
+`solarwetter.0.forecast.home.__realSky_min__` (*value*)
 
-solarwetter.0.forecast.home.__realSky_max__ (*value*)
+`solarwetter.0.forecast.home.__realSky_max__` (*value*)
 
-solarwetter.0.forecast.home.__Leistung__ (*value*)
+`solarwetter.0.forecast.home.__Leistung__` (*value*)
 
-solarwetter.0.forecast.chart.__city__ (*value*)
+`solarwetter.0.forecast.chart.__city__` (*value*)
 
-solarwetter.0.forecast.chart.__url__ (*value*)
+`solarwetter.0.forecast.chart.__url__` (*value*)
 
+<!-- ### **WORK IN PROGRESS** -->
+### 1.1.5 (2023-08-15)
+* (motuditli) Adjusted for Website Changes - removal of authentication
+* (bluefox) Added compact mode and JSON config
 
-
-## Changelog
 ### 1.0.0 (2017-10-15)
-* (pix) End of beta, Nodejs 4 or higher required
+* (pix) End of beta, Node.js 4 or higher required
 
 ### 0.3.0 (2017-05-28)
-* (pix) Login with website password & username  
+* (pix) Login with website password & username
 
 ### 0.2.0 (2017-01-05)
 * (pix) Travis CI testing added
@@ -108,13 +110,13 @@ solarwetter.0.forecast.chart.__url__ (*value*)
 
 ## ToDo
 * Translation of Datapoints
-* Russian translation of settings window
+* Russian translation of a settings window
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 pix
+Copyright (c) 2020-2023 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -135,4 +137,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-*Logo is partly crafted by CHALLENGER* :+1: 
+*Logo is partly crafted by CHALLENGER* :+1:

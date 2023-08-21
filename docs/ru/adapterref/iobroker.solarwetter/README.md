@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarwetter/README.md
 title: ioBroker.solarwetter
-hash: nJnn/B5IPBfUOftcQmBXS+tWm06nbK79ueA7VZm6fC4=
+hash: iFiZKXxoTa8ilR4AJyMW3YZS4yNkcUfjQV+4FuxNpG8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
 
@@ -18,13 +18,13 @@ hash: nJnn/B5IPBfUOftcQmBXS+tWm06nbK79ueA7VZm6fC4=
 Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
 
 :uk: Этот адаптер предоставляет прогноз ежедневного количества солнечной энергии для определенного региона от поставщика [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Перевести!!!!
+Переводить!!!!
 
 ## Einstellungen / Конфигурация
 ### Пользователь/Пароль
-Seit 2017 ist die Authentifizierung beim Anbieter nötig. Dazu muss kostenpflichtig beim Anbieter ein Zugang erstanden werden. Die Login-Daten können nun Hier im Adapter hinterlegt werden.
+Seit 2022/03 ist die Authentifizierung beim Anbieter nicht mehr nötig.
 
-С 2017 года провайдер взимает плату за свои услуги. Персональный логин можно получить на сайте solar-wetter.com. имя пользователя и пароль будут храниться здесь.
+С 2022/03 аутентификация больше не требуется.
 
 ### Стандарт/местоположение
 Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
@@ -33,14 +33,14 @@ Seit 2017 ist die Authentifizierung beim Anbieter nötig. Dazu muss kostenpflich
 Введите мощность вашей солнечной электростанции, чтобы рассчитать выходную мощность.
 
 ### Solaranlage / Солнечная электростанция
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Bechnung der vorraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
+Hier kann die Gesamtleistung der eigenen Solaranlage zur Rechnung der voraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
 
 Введите общую мощность вашей солнечной электростанции, чтобы рассчитать ежедневный прогноз производства энергии (возможны десятичные разделители)
 
 ### 4-Tage-Prognose / 4-дневный прогноз
-Wählen Sie Hier Eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt solarwetter.0.forecast.chart.__url__).
+Wählen Sie Hier Eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt `solarwetter.0.forecast.chart.__url__` ).
 
-Выберите город, чтобы адаптер создал ссылку на график прогноза на 4 дня (точка данных solarwetter.0.forecast.chart.__url__ ).
+Выберите город, чтобы адаптер создал ссылку на график прогноза на 4 дня (точка данных `solarwetter.0.forecast.chart.__url__` ).
 
 ![альтернативный текст](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Настройки снимка экрана")
 
@@ -50,74 +50,79 @@ Der Adapter startet einmal täglich.
 Адаптер запускается раз в сутки.
 
 ## Datenpunkte / Datapoints
-solarwetter.0.forecast.__clearSky__ (*значение*)
+`solarwetter.0.forecast.__clearSky__` (*значение*)
 
-solarwetter.0.forecast.__realSky_min__(*значение*)
+`solarwetter.0.forecast.__realSky_min__` (*значение*)
 
-solarwetter.0.forecast.__realSky_max__ (*значение*)
+`solarwetter.0.forecast.__realSky_max__` (*значение*)
 
-solarwetter.0.forecast.__Datum__ (*строка, без метки времени*)
+`solarwetter.0.forecast.__Datum__` (*строка, без метки времени*)
 
-solarwetter.0.forecast.__Region__ (*значение*)
+`solarwetter.0.forecast.__Region__` (*значение*)
 
-solarwetter.0.forecast.home.__clearSky__ (*значение*)
+`solarwetter.0.forecast.home.__clearSky__` (*значение*)
 
-solarwetter.0.forecast.home.__realSky_min__(*значение*)
+`solarwetter.0.forecast.home.__realSky_min__` (*значение*)
 
-solarwetter.0.forecast.home.__realSky_max__ (*значение*)
+`solarwetter.0.forecast.home.__realSky_max__` (*значение*)
 
-solarwetter.0.forecast.home.__Leistung__ (*значение*)
+`solarwetter.0.forecast.home.__Leistung__` (*значение*)
 
-solarwetter.0.forecast.chart.__city__ (*значение*)
+`solarwetter.0.forecast.chart.__city__` (*значение*)
 
-solarwetter.0.forecast.chart.__url__ (*значение*)
+`solarwetter.0.forecast.chart.__url__` (*значение*)
 
-## Сделать
-* Перевод точек данных
-* Русский перевод окна настроек
+<!-- ### **ВЫПОЛНЯЕТСЯ** -->
 
-## Changelog
+### 1.1.5 (15 августа 2023 г.)
+* (motuditli) С поправкой на изменения сайта - удаление аутентификации
+* (bluefox) Добавлен компактный режим и конфигурация JSON
+
 ### 1.0.0 (2017-10-15)
-* (pix) End of beta, Nodejs 4 or higher required
+* (pix) Конец бета-тестирования, требуется Node.js 4 или выше
 
-### 0.3.0 (2017-05-28)
-* (pix) Login with website password & username  
+### 0.3.0 (28 мая 2017 г.)
+* (pix) Войти с паролем веб-сайта и именем пользователя
 
-### 0.2.0 (2017-01-05)
-* (pix) Travis CI testing added
+### 0.2.0 (05.01.2017)
+* (пикс) Добавлено тестирование Travis CI
 
-### 0.1.2 (2016-06-21)
-* (pix) city selection fixed
+### 0.1.2 (21 июня 2016 г.)
+* (пиксель) исправлен выбор города
 
-### 0.1.1 (2016-06-20)
-* (pix) 4-Day-Forecast Chart
+### 0.1.1 (20 июня 2016 г.)
+* (пикс) Диаграмма прогноза на 4 дня
 
 ### 0.1.0 (2016-06-12)
-* (pix) publish on npm
+* (пикс) опубликовать на npm
 
 ### 0.0.6 (2016-06-09)
-* (pix) Adapter.stop() fixed
+* (пикс.) Исправлена функция Adapter.stop()
 
 ### 0.0.5 (2016-05-14)
-* (pix) Settings now show correct location if already defined
+* (пиксель) Настройки теперь показывают правильное местоположение, если оно уже определено
 
-### 0.0.4 (2016-05-13)
-* (pix) Appearance of settings window
+### 0.0.4 (13 мая 2016 г.)
+* (пикс) Внешний вид окна настроек
 
-### 0.0.3 (2016-05-13)
-* (pix) Calculates power of own solar plant
+### 0.0.3 (13 мая 2016 г.)
+* (пикс) Расчет мощности собственной солнечной электростанции
 
-### 0.0.2 (2016-05-13)
-* (pix) Post code area selectable
+### 0.0.2 (13 мая 2016 г.)
+* (пикс.) Выбираемая область почтового индекса
 
 ### 0.0.1 (2016-05-12)
-* (pix) first release
+* (пикс) первый выпуск
+
+## Делать
+* Перевод точек данных
+* Русский перевод окна настроек
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2020 pix
+Copyright (c) 2020-2023 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

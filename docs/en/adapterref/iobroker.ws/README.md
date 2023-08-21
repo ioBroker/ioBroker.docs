@@ -45,8 +45,8 @@ State is the actual value of the data point and presented by javascript object:
 States change itself very frequently in compare to the objects. (Normally objects should be changed once by creation and that's all) 
 
 ### Acknowledgment
-Every state has the attribute "ack". It shows the direction of command. 
-- If ack=false, it means some other adapter wants to control (write) this variable, so that command will be executed (e.g. light will be switched on).
+Every state has the attribute `ack`. It shows the direction of command. 
+- If ack=false, it means some other adapter wants to control (write) this variable, so that command will be executed (e.g., light will be switched on).
 - If ack=true, it means that the device informs about new value. (e.g., light was switched on manually or motion was detected)
  
 **Example**: we have some home automation adapter (HAA) that has one lamp connected under address `haa.0.lamp1`. 
@@ -69,8 +69,11 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.5.3 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 2.4.0 (2023-07-07)
-(bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects

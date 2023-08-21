@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-energy/README.md
 title: Vis 2 能源小部件
-hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
+hash: bTmYTZnhbP6JBiq95E/CDpD+srKyIf3+DjHb9xBCMgE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-energy/admin/vis-2-widgets-energy.png)
 
 ![安装数量](http://iobroker.live/badges/vis-2-widgets-energy-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-energy.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.vis-2-widgets-energy.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-energy.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-energy.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.vis-2-widgets-energy.png?downloads=true)
 
 # Vis 2 能源小部件
 该小部件集包含以下小部件：
@@ -19,11 +19,13 @@ hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
 
 ![能源分配](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/distribution.png)
 
-- 能源消耗比较
+- 能耗比较
 
-![能源比较](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/comparison.png)
+![能量比较](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/comparison.png)
 
-- 能源消耗的时间选择器
+![饼形图](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/pie.png)
+
+- 能源消耗时间选择器
 
 ![时间选择器](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/timeSelector.png)
 
@@ -36,6 +38,24 @@ hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
 ### **正在进行中** -->
 
 ## Changelog
+### 0.3.0 (2023-08-16)
+* (bluefox) Added pie chart for comparison
+
+### 0.2.3 (2023-07-28)
+* (bluefox) Corrected layout of date selector
+
+### 0.2.1 (2023-06-28)
+* (bluefox) Added settings for units, rounding, invert direction, multiplier
+
+### 0.1.12 (2023-04-03)
+* (bluefox) Corrected the consumption widget
+
+### 0.1.11 (2023-03-31)
+* (bluefox) translation was corrected
+
+### 0.1.10 (2023-03-09)
+* (bluefox) update packages
+
 ### 0.1.8 (2023-02-27)
 * (bluefox) packages were updated
 

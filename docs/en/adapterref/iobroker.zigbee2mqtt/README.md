@@ -32,6 +32,25 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+-   (o0shojo0o) added automatic download of device image from zigbee2mqtt to meta-storage
+-   (o0shojo0o) device images from Meta-Storage added to the object 
+-   (o0shojo0o) device images from Meta-Storage auto resize to 28x28 pixel for smaller object
+-   (o0shojo0o) added option `Download device images from Zigbee2Mqtt and use them as object icons.`
+-   (o0shojo0o) fixed Hue_Move ([#223](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/223))
+
+### 2.10.1 (2023-08-13)
+
+-   (o0shojo0o) fixed type definitions (thx @arteck)
+
+### 2.10.0 (2023-08-12)
+
+-   (o0shojo0o) optimisation for the MQTT connection  
+-   (o0shojo0o) fixed for MQTT output type: attribute_and_json ([#87](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/87))
+-   (o0shojo0o) added support for external MQTT-Server credentials ([#148](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/148))
+  	- *After update, Websocket Auth-Token must be set again, if used.*
+
 ### 2.9.0 (2023-07-21)
 
 -   (o0shojo0o) added state `send_payload` to send a raw json payload
@@ -47,7 +66,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.7.4 (2023-03-05)
 
--   (o0shojo0o) fix for Aqara presence detector FP1 `reset_nopresence_status`
+-   (o0shojo0o) fixed for Aqara presence detector FP1 `reset_nopresence_status`
 
 ### 2.7.3 (2023-02-18)
 
@@ -74,7 +93,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -   (o0shojo0o) added state `transition` for transition overwrite (-1 disabled overwrite) ([#101](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/101))
 -   (o0shojo0o) consideration of the description when creating the friendly name ([#105](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/105))
 -   (o0shojo0o) added state `effect` for groups ([#101](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/101))
--   (o0shojo0o) fix state contact
+-   (o0shojo0o) fixed state contact
 -   (o0shojo0o) added handling for disabled devices
 
 ### 2.5.0 (2023-01-02)
@@ -93,20 +112,20 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.4.3 (2022-11-23)
 
--   (o0shojo0o) fix availability when `friendly_name` `/` contains
+-   (o0shojo0o) fixed availability when `friendly_name` `/` contains
 
 ### 2.4.2 (2022-11-20)
 
 -   (o0shojo0o) added correct handling of `move_to_saturation`, `hue_move` and `brightness_move_to_level` ([#68](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/68))
--   (o0shojo0o) fix when `friendly_name` `/` contains
+-   (o0shojo0o) fixed when `friendly_name` `/` contains
 
 ### 2.4.1 (2022-11-16)
 
--   (o0shojo0o) fix based on [review](https://github.com/ioBroker/ioBroker.repositories/pull/1976#issuecomment-1316656378)
+-   (o0shojo0o) fixed based on [review](https://github.com/ioBroker/ioBroker.repositories/pull/1976#issuecomment-1316656378)
 
 ### 2.4.0 (2022-11-08)
 
--   (o0shojo0o) fix for devices with multiple endpoints ([#57](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/57)).
+-   (o0shojo0o) fixed for devices with multiple endpoints ([#57](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/57)).
 -   (o0shojo0o) added option `Brightness move should also turn the light on or off`
 -   (o0shojo0o) added state toggle for groups 
 -   (o0shojo0o) more dynamic during data point creation ([#48](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/48)).
@@ -118,9 +137,9 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 
 ### 2.2.1 (2022-10-25)
 
--   (o0shojo0o) fix state roles and access
--   (o0shojo0o) fix state handling
--   (o0shojo0o) fix createZ2MMessage
+-   (o0shojo0o) fixed state roles and access
+-   (o0shojo0o) fixed state handling
+-   (o0shojo0o) fixed createZ2MMessage
 
 ### 2.2.0 (2022-10-20)
 
@@ -136,7 +155,7 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 ### 2.1.0 (2022-10-14)
 
 -   (o0shojo0o) added option for color temperature sync with color
--   (o0shojo0o) fix logfilter and debugDevices
+-   (o0shojo0o) fixed logfilter and debugDevices
 -   (o0shojo0o) lots of bugfixes
 -   (o0shojo0o) now set the correct min/max at color temp
 -   (o0shojo0o) better error handling for the connections
@@ -175,8 +194,8 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -   (arteck) added debugmessage for specific device functionality
 -   (arteck) added some states are default false
 -   (o0shojo0o) added support for scenes defined on a device
--   (o0shojo0o) fix available state role
--   (o0shojo0o) fix subscribeWritableStates
+-   (o0shojo0o) fixed available state role
+-   (o0shojo0o) fixed edsubscribeWritableStates
 
 ### 0.1.0 (2022-09-29)
 

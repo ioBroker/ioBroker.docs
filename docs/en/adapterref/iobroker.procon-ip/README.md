@@ -81,6 +81,11 @@ Useful links for the approach will be
 * the [guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Changelog
+### Release v1.4.0
+* Add generic relay timers
+  (relays must be set to 'auto' for the timer to function).
+* Update dependencies.
+
 ### Release v1.3.3
 * Update dependencies.
 

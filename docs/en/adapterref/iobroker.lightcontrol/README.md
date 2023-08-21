@@ -56,6 +56,12 @@ iobroker add lightcontrol
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-08-16)
+
+-   (Schmakus) Node >=16 and NPM >=7 necessary!
+-   (Schmakus) fixed rampOff.time
+-   (Schmakus) update dependencies
+
 ### 0.3.0 (2023-07-17)
 
 -   (Schmakus) (thoml95) Changed conversion of color-temperature (edit of ct-states required)
@@ -80,10 +86,6 @@ iobroker add lightcontrol
 
 -   (Schmakus) Fix AdaptiveCt - StartYoureDay Interpolated
 -   (Schmakus) Update docs
-
-### 0.2.15 (2023-05-08)
-
--   (Schmakus) Allow smaller and larger Kelvin values in the settings
 
 ## License
 

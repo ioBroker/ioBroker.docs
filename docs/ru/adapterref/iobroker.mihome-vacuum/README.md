@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
 title: Адаптер ioBroker mihome-vacuum
-hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
+hash: bIUbX1gdnh92hTES+t2l/YxK7HMYGxG8DIFdFNWZhbk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
@@ -36,7 +36,7 @@ hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
 - [Очистка зоны](#zoneclean)
     - [комнаты](#комнаты)
     - [таймер](#таймер)
-    - [Собственные команды](#отправить-свои-собственные-команды)
+    - [Собственные команды](#отправить-ваши-собственные-команды)
     - [sendTo hook](#send-custom-commands-with-sendto)
 - [виджет](#виджет)
 - [ошибки](#ошибки)
@@ -55,6 +55,19 @@ hash: mQQwhZ+4GvYdz04iepSgxvhrwKk+65ODmcmdWgUkEp8=
 | роборок.вакуум.м1с | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
 | роборок.вакуум.а10 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
 | роборок.вакуум.а15 | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark: |:heavy_check_mark: |
+| мечта.вакуум.r2205 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.r2216o | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.r2228o | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2008 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2009 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2027 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2028 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2029 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2036 | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2041o | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2114a | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2148o | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
+| мечта.вакуум.p2156o | :heavy_check_mark: | :heavy_check_mark: |:x: | :х: |
 
 ## Известные ошибки
 ### Ошибка при установке
@@ -196,7 +209,7 @@ xVal, yval
 #### Номера
 более новый пылесос с последним приложением Home App поддерживает определение комнат, см. [видео](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
-У каждой комнаты на текущей карте есть индекс, который затем назначается комнате из приложения. От робота мы получаем только карту с номером комнаты и индексом. Адаптер запрашивает эти комнаты при каждом запуске адаптера и создает канал для каждой комнаты, который затем знает текущий индекс комнаты. То же самое происходит вручную с помощью кнопки loadRooms. Затем этот канал можно назначить комнатам ioBroker. Если нажата кнопка roomClean, то определяется индекс карты и отправляется роботу, чтобы он потом мог пропылесосить эту комнату. До этого мощность ВЕНТИЛЯТОРА устанавливается на всасывание в одном помещении. Если у вас еще нет возможности давать названия комнатам в приложении, также есть возможность создать такой канал вручную, указав индекс карты. Также возможно добавить координаты зоны вместо mapIndex.
+У каждой комнаты на текущей карте есть индекс, который затем назначается комнате из приложения. От робота мы получаем только карту с номером комнаты и индексом. Адаптер запрашивает эти комнаты при каждом запуске адаптера и создает канал для каждой комнаты, который затем знает текущий индекс комнаты. То же самое происходит вручную с помощью кнопки loadRooms. Затем этот канал можно назначить комнатам ioBroker. Если нажата кнопка roomClean, то определяется номер карты и отправляется роботу, чтобы он потом мог пропылесосить эту комнату. До этого мощность ВЕНТИЛЯТОРА устанавливается на всасывание в одном помещении. Если у вас еще нет возможности давать названия комнатам в приложении, также есть возможность создать такой канал вручную, указав индекс карты. Также возможно добавить координаты зоны вместо mapIndex.
 Если вы хотите спонтанно очистить несколько комнат, вы можете сделать это с помощью multiRoomClean, назначив комнаты ioBroker этой точке данных, а затем нажав кнопку.
 
 #### Таймер
@@ -228,7 +241,7 @@ xVal, yval
 |                 |                                                                     |                                                                                          |
 | приложение_rc_start | | Запустить удаленное управление |
 | приложение_rc_move | `[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
-| приложение_rc_move | `[{"seqnum":'0-1000',"скорость":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (длительность)|
+| приложение_rc_move | `[{"seqnum":'0-1000',"скорость":VALUE1,"omega":VALUE2,"duration":VALUE3}]`| Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3–0,3, VALUE2 (вращение) = -3,1–3,1, VALUE3 (продолжительность)|
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 | app_segment_clean | `[12,15]` | чистая комната с индексами 12 и 15 |
 
@@ -262,7 +275,7 @@ sendTo("mihome-vacuum.0",
 
 ```
 
-если возможен только один параметр, вы можете отправить только строку, иначе вам придется использовать объект с ожидаемыми параметрами, например:
+если возможен только один параметр, вы можете отправить только строку, в противном случае вам придется использовать объект с ожидаемыми параметрами, например:
 
 ```
 sendTo("mihome-vacuum.0",
@@ -289,7 +302,7 @@ sendTo("mihome-vacuum.0",
 | Вернуться на базу | `charge` | - нет - | |
 | Скажите "Привет, я здесь!" | `findMe` | - нет - | |
 | Проверить состояние расходных материалов (щетки и т. д.) | `getConsumableStatus` | - нет - | |
-| Сброс состояния расходных материалов (щетки и т.д.) | `resetConsumables` | `consumable` | Строка: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
+| Сброс состояния расходных материалов (щетки и т.п.) | `resetConsumables` | `consumable` | Строка: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
 | Получите сводку всех предыдущих процессов очистки | `getCleaningSummary` | - нет - | |
 | Получите подробный отчет о предыдущем процессе очистки | `getCleaningRecord` | `recordId` | |
 | Получить карту | `getMap` | - нет - | Неизвестно, что делать с результатом |
@@ -321,7 +334,7 @@ sendTo("mihome-vacuum.0",
 ![Виджет](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
 
 ## Ошибки
-- Периодические отключения, однако это не из-за адаптера, а в основном из-за собственных сетей
+- Периодические отключения, правда, это не из-за адаптера, а в основном из-за собственных сетей
 - Виджет на время без функции
 
 ## Changelog
@@ -330,6 +343,13 @@ sendTo("mihome-vacuum.0",
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 4.0.0 (2023-08-15)
+* (DemigodCode) inital version of dream support
+* (Dirkhe) add Roborock S8 Ultra Pro
+
+### 3.11.0 (2023-05-12)
+* (TA2k) fix too much map request to prevent map rate limit in the app
+
 ### 3.10.1 (2023-04-10)
 * (Dirkhe) fix waterBoxLevel 
 * (Dirkhe) fix overwriting of roomStates from global

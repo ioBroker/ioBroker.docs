@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: 9JkQkAkEUwCAcPs2Nmazq+dTiQcPBBp+DG/V6J0DVqk=
+hash: O869NPKJcRTO44Sz17Hz0dXrl3LKDNy0MQbUb7arwHs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -53,9 +53,9 @@ hash: 9JkQkAkEUwCAcPs2Nmazq+dTiQcPBBp+DG/V6J0DVqk=
 Состояния меняются очень часто по сравнению с объектами. (Обычно объекты должны быть изменены один раз при создании и все)
 
 ### Подтверждение
-Каждое состояние имеет атрибут "ack". Он показывает направление команды.
+Каждое состояние имеет атрибут `ack`. Он показывает направление команды.
 
-- Если ack=false, это означает, что какой-то другой адаптер хочет контролировать (записывать) эту переменную, чтобы эта команда была выполнена (например, включится свет).
+- Если ack=false, значит какой-то другой адаптер хочет контролировать (записывать) эту переменную, чтобы эта команда была выполнена (например, включился свет).
 - Если ack=true, это означает, что устройство сообщает о новом значении. (например, свет был включен вручную или обнаружено движение)
 
 **Пример**: у нас есть адаптер домашней автоматизации (HAA), к которому подключена одна лампа по адресу `haa.0.lamp1`.
@@ -78,8 +78,11 @@ hash: 9JkQkAkEUwCAcPs2Nmazq+dTiQcPBBp+DG/V6J0DVqk=
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 2.5.3 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 2.4.0 (2023-07-07)
-(bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects

@@ -236,6 +236,14 @@ Instructions how to set up the client are includes in the adapter configuration.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.4 (2023-08-20)
+
+* (crycode-de) Fix js-controller 5 compatibility
+
+### 2.0.3 (2023-08-20)
+
+* (crycode-de) Dependency updates
+
 ### 2.0.2 (2023-07-23)
 
 * (crycode-de) Fixed bug on sensor migration
@@ -258,16 +266,6 @@ Instructions how to set up the client are includes in the adapter configuration.
 * (crycode-de) Updated translations
 * (crycode-de) Code optimizations and upgrades to current standards
 * (crycode-de) Updated dependencies
-
-### 1.6.1 (2022-12-15)
-
-* (crycode-de) Remote client setup url displayed in admin UI fixed
-
-### 1.6.0 (2022-01-29)
-
-* (crycode-de) Added sorting of sensors in admin and keep the sort order
-* (crycode-de) Allow usage of w1_bus_masterX directly as w1DevicesPath
-* (crycode-de) Fixed display of errors in admin
 
 ## License
 

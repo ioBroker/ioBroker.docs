@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: rLcYrHueZ/fc6Rm9UQJEQONETYq6uT7Vlf+iJPQ6cms=
+hash: FbSRDOejotbBUcQE1/nvCIsZ3J18OxbJoct0YTh+UaU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -442,7 +442,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Используемая версия home-assistant-frontend@20230608.0
+Используемая версия home-assistant-frontend@20230608.0 Версия браузера Mod: 2.3.0
 
 ### Как собрать новую версию Lovelace
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/GermanBluefox/home-assistant-polymer.git (* ветка **иоб***!).
@@ -450,15 +450,16 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 Все изменения для ioBroker отмечены комментарием `// IoB`.
 На данный момент (20230608.0) были изменены следующие файлы:
 
-- `build-scripts/gulp/app.js` - добавить новую задачу gulp
-- `build-scripts/gulp/webpack.js` - добавить новую задачу gulp
+- `build-scripts/gulp/app.js` - добавить новую задачу gulp development-iob
+- `build-scripts/bundle.cjs` - отключить сбой при ошибке
+- `build-scripts/gulp/webpack.js` - добавить новую задачу gulp webpack-dev-app
 - `src/data/lovelace.ts` - добавить опцию скрытия панели инструментов
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды с URL-адреса.
 - `src/dialogs/more-info/const.ts` - удалить состояние погоды и историю
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - удалить кнопку и вкладку настроек объекта
 - `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку "показать больше" в истории
-- `src/dialogs/more-info/controls/more-info-climate.ts` - имя режима печати для неподдерживаемых режимов
 - `src/dialogs/more-info/controls/more-info-weather.ts` - добавлена поддержка отображения значка погоды с URL-адреса.
+- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - отключить настройку голосовых помощников
 - `src/entrypoints/core.ts` - изменен процесс аутентификации
 - `src/layouts/home-assistant-main.ts` - удалить боковую панель приложения
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - добавлена поддержка отображения значка погоды с URL-адреса.
@@ -466,6 +467,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 - `src/panels/lovelace/hui-root.ts` - добавлены уведомления и голосовое управление
 - `src/util/documentation-url.ts` - для ссылки на справку iobroker вместо homeassistant.
 - `.gitignore` - добавить `.idea` игнорировать
+- `.husky/pre-commit` - удалить перехватчики коммитов git.
 - `package.json` - удалить хук хриплого коммита
 
 + После этого загрузите модифицированную версию в папку `./build`. Затем.

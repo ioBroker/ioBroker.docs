@@ -19,7 +19,9 @@ The SMA Energy Meter Adapter receives multicast datagrams from the Energy Meter 
   - Multicast IP: The default setting and predefined by SMA is the IP address 239.12.255.254.
   - Multicast Port: The default setting and predefined by SMA is the UDP port 9522.
   - Own Network Interface IPs: Select box showing all available Network Interface IPv4s on ioBroker Server. Select the Network Interface IP to listen for Multicasts from this box.
-  - Selected Network Interface IP: Currently selected Network Interface IP listening for Multicast messages. IP 0.0.0.0 means that the adapter listens on all available Network Interfaces.
+  - Selected Network Interface IP: Currently selected Network Interface IP listening for Multicast messages. IP 0.0.0.0 means that the adapter listens on all available Network Interfaces. This setting is not recommended as it can cause problems on some networks.
+  - Energy Meter IP: IP address of a specific energy meter. If this is entered, the data will only be recorded for this one energy meter in one instance of the adapter. If there are several energy meters, they can each be configured individually in other instances of the adapter. This procedure is simplified via the ioBroker discovery, which detects the SMA energy meters that can be reached in the network and offers the creation of one instance for each energy meter found.
+  IP 0.0.0.0 selects all energy meters. All existing energy meters are handled by one instance of the adapter. This is the default and provides compatibility with previous versions of the adapter.
 
 ![Adapter_admin_config2](img/adminpage2-en.png)
 
@@ -34,7 +36,6 @@ The SMA Energy Meter Adapter receives multicast datagrams from the Energy Meter 
 ![Adapter_overview](img/overview-en.png)
 
 After installing and starting the adapter, the folder structure shown in the picture is created. The entire data of the Energy Meter is located in the root folder. If they have been configured, the values of the individual phases are located in the subfolders L1-L3.
-If there are several Energy Meters or Sunny Home Managers in the network, the object folders for each device are created in the same sma-em instance.
 
 ## Explanation of object IDs
 
@@ -57,12 +58,16 @@ From this, the object names are put together, e.g.
 - ...
 
 ## Changelog
+### 1.0.0 (2023-08-19)
 
-### __WORK IN PROGRESS__
-
-- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+- (pdbjjens) Change: Configurable Energy Meters per adapter instance
+- (pdbjjens) Change: Selectable own network device IP to listen for multicast messages
+- (pdbjjens) Change: Objects "last_message" and "TimeTick" were removed
+- (pdbjjens) New: Support ioBroker discovery
+- (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
+- (arteck) New: Detect new SHM 2.0 with SUSy 501
 - (ticaki) Fix: Catch interface errors
-- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
 
 ### 0.7.0 (2023-03-14)
 
@@ -85,10 +90,6 @@ From this, the object names are put together, e.g.
 - (TGuybrush) Bug fixes
 - Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
 - Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
-### 0.6.3 (2021-03-04)
-
-- (TGuybrush) The adapter binds now to all external IPv4 addresses.
 
 ## License
 

@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
-title: Material-Widgets für ioBroker.vis 2.0
-hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
+title: Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
+hash: Ta+VSlxWD5cdm7oEr2W52PZD5C1t3yo72JsZoutNOjk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -12,7 +12,7 @@ hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 ![NPM](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
-# Material-Widgets für ioBroker.vis 2.0
+# Spezielle Jaeger Design-Widgets für ioBroker.vis 2.0
 ## Widgets
 ### Knöpfe und Schalter
 ### Aktuelle Nachrichten
@@ -41,7 +41,26 @@ Und verwenden Sie dann das Objekt `javascript.0.rss` in diesem Widget.
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### 0.4.3 (2023-06-07)
+### 0.6.3 (2023-07-25)
+* (bluefox) Added many new features
+
+### 0.6.1 (2023-07-21)
+* (bluefox) Added max height/width for floors
+
+### 0.6.0 (2023-07-19)
+* (bluefox) Corrected some errors with information
+
+### 0.5.2 (2023-07-02)
+* (bluefox) Support of false for scenes
+
+### 0.5.0 (2023-06-28)
+* (bluefox) Added support for the new vis
+* (bluefox) Added page configurable margins
+
+### 0.4.6 (2023-06-19)
+* (bluefox) Corrected sub menu
+
+### 0.4.5 (2023-06-13)
 * (bluefox) Corrected visualization of view
 
 ### 0.4.0 (2023-05-31)

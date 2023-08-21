@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: rLcYrHueZ/fc6Rm9UQJEQONETYq6uT7Vlf+iJPQ6cms=
+hash: FbSRDOejotbBUcQE1/nvCIsZ3J18OxbJoct0YTh+UaU=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -100,7 +100,7 @@ common: {
 
 ### Eingang auswählen
 Dies kann manuell erfolgen, wenn der Entitätstyp „input_select“ im benutzerdefinierten Dialogfeld ausgewählt ist.
-Die Liste der zur Auswahl stehenden Optionen sollte im Standardobjekt „comm.states“ bereitgestellt werden:
+Die Liste der Optionen zur Auswahl sollte im Standardobjekt „comm.states“ bereitgestellt werden:
 
 ```
 "common": {
@@ -308,7 +308,7 @@ Folgende benutzerdefinierte Karten konnten erfolgreich getestet werden:
 Ich habe diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten gefunden.
 
 Oft sind die benutzerdefinierten Karten als Quellen auf Github gespeichert und müssen vor der Verwendung kompiliert werden.
-Sie sollten das Menü `Releases` auf Github überprüfen und versuchen, dort kompilierte Dateien zu finden.
+Sie sollten das `Releases`-Menü auf Github überprüfen und versuchen, dort kompilierte Dateien zu finden.
 Wie dieser: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
 
 ## Eigene Bilder
@@ -442,7 +442,7 @@ Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übern
 
 ## Entwicklung
 ### Ausführung
-Verwendete Version von home-assistant-frontend@20230608.0
+Verwendete Version von home-assistant-frontend@20230608.0 Version von Browser Mod: 2.3.0
 
 ### So erstellen Sie die neue Lovelace-Version
 Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden. **iob*** Zweig!).
@@ -450,15 +450,16 @@ Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Z
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
 Derzeit (20230608.0) wurden folgende Dateien geändert:
 
-- `build-scripts/gulp/app.js` – Neue Gulp-Aufgabe hinzufügen
-- `build-scripts/gulp/webpack.js` – Neue Gulp-Aufgabe hinzufügen
+- „build-scripts/gulp/app.js“ – Neue Gulp-Aufgabe „develop-iob“ hinzufügen
+- „build-scripts/bundle.cjs“ – „Fehler bei Fehler“ deaktivieren
+- „build-scripts/gulp/webpack.js“ – Neue Gulp-Aufgabe „Webpack-Dev-App“ hinzufügen
 - `src/data/lovelace.ts` – Option zum Ausblenden der Symbolleiste hinzufügen
 - `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols über die URL hinzufügen.
 - `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-dialog.ts` – Schaltfläche und Registerkarte für Entitätseinstellungen entfernen
 - `src/dialogs/more-info/ha-more-info-history.ts` – Link „Mehr anzeigen“ im Verlauf entfernen
-- `src/dialogs/more-info/controls/more-info-climate.ts` – Name des Druckmodus für nicht unterstützte Modi
 - `src/dialogs/more-info/controls/more-info-weather.ts` – Unterstützung für die Anzeige des Wettersymbols über die URL hinzufügen.
+- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` – Konfiguration von Sprachassistenten deaktivieren
 - `src/entrypoints/core.ts` – geänderter Authentifizierungsprozess
 - `src/layouts/home-assistant-main.ts` – App-Seitenleiste entfernen
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
@@ -466,6 +467,7 @@ Derzeit (20230608.0) wurden folgende Dateien geändert:
 - `src/panels/lovelace/hui-root.ts` – Benachrichtigungen und Sprachsteuerung hinzugefügt
 - `src/util/documentation-url.ts` – für Link zur iobroker-Hilfe anstelle von homeassistant.
 - „.gitignore“ – „.idea“ hinzufügen, ignorieren
+- „.husky/pre-commit“ – Git-Commit-Hooks entfernen.
 - „package.json“ – Husky-Commit-Hook entfernen
 
 + Danach die geänderte Version im Ordner `./build` auschecken. Dann.

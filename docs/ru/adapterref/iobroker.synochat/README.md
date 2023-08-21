@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="рисунок"/>Адаптер Synology-Chat для ioBroker
-hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
+hash: 8+CDL/UDMzxpuBfUyveIUWQuIl/ql1uXHc6XOIJSCEA=
 ---
 ![Стабильная версия](https://iobroker.live/badges/synochat-stable.svg)
 ![версия NPM](https://img.shields.io/npm/v/iobroker.synochat.svg)
@@ -43,8 +43,8 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
 <div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-  #### 2.1.1. Исходящая интеграция
-Для интеграции исходящего сообщения в чат Synology необходимо указать URL-адрес веб-перехватчика. Вы получите этот URL-адрес веб-перехватчика из объектов экземпляра после создания экземпляра адаптера `synochat`. Более подробную информацию можно найти в [3. Использование > 3.1 Общие](#webHookLocation) ![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
+  #### 2.1.2. Исходящая интеграция
+Для интеграции исходящего сообщения в чат Synology необходимо указать URL-адрес веб-перехватчика. Вы получите этот URL-адрес веб-перехватчика из объектов экземпляра после создания экземпляра адаптера `synochat`. Более подробную информацию можно найти в [3. Использование > 3.1 Общие](#web-hook-location) ![SynoChatIntegrationВходящие](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
 ***ПРИМЕЧАНИЕ.*** *Тип канала (входящий; исходящий) указывается с точки зрения чата Synology. Например, «Входящие» означает, что сообщения будут отправлены на сервер чата Synology.*
 
@@ -78,7 +78,7 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
 В случае использования ioBroker в качестве экземпляра Docker может потребоваться изменить это значение, например. если для доступа к вашему экземпляру ioBroker используется обратный прокси-сервер или аналогичный.
 
-Это значение используется для создания URL-адреса веб-перехватчика для каналов, которые получают сообщения с сервера чата Synology.
+Это значение используется для создания URL-адреса веб-перехватчика для каналов, которые получают сообщения от сервера чата Synology.
 
 <div id="configurationAdapterWebInstance"></div>
 
@@ -88,7 +88,7 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
 <div id="channel-configuration"></div>
 
-    #### 2.2.2. Управление/конфигурация канала:
+    #### 2.2.2. Управление/конфигурация каналов:
 	![IobrokerInstanceSettingsChannelConfiguration](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerInstanceSettingsChannelConfiguration.png)
 
 * **Канал включен**
@@ -99,9 +99,12 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
     * **Название канала**
 
-Этот параметр указывает имя канала, из/в который отправляются сообщения. Это имя может быть свободно выбрано и используется для ссылок.
+Этот параметр указывает имя канала, из/в который отправляются сообщения. Это имя можно выбрать в случае каналов типа `Send data to Synology chat server - Incoming integration`, и оно используется для ссылки.
 
 Настраиваемое здесь имя канала должно совпадать с именем канала чата Synology.
+
+Для каналов типа `Get data from Synology chat server - Outgoing integration` имя должно совпадать с именем канала чата Synology, чтобы можно было получать сообщения.
+Отображение имен каналов чувствительно к регистру (необходимо учитывать верхний и нижний регистр).
 
 * **Токен канала**
 
@@ -112,7 +115,7 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
 https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incoming&version=2&token=%22QF5DWyG7M47Ls3cv%22
 
-*В этом примере токен включен в URL-адрес. Закодированные управляющие символы - `%22` - указываются здесь в начале и в конце настройки.\ **Их необходимо удалить!**\ В этом примере вводимым токеном будет `QF5DWyG7M47Ls3cv`. *
+*В этом примере токен включен в URL-адрес. Закодированные управляющие символы — `%22` — указываются здесь в начале и в конце настройки.\ **Их необходимо удалить!**\ В этом примере вводимым токеном будет `QF5DWyG7M47Ls3cv`. *
 
 * **Тип канала**
 
@@ -129,6 +132,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 Этот параметр позволяет каналу получать сообщения от сервера чата Synology и обновлять новое значение объекта сообщения ioBroker ([см. главу об использовании](#usage)).
 
 Обратите внимание, что при использовании этого типа канала имя канала конфигурации экземпляра адаптера ioBroker должно совпадать с именем канала канала чата Synology для получения сообщений.
+Отображение имен каналов чувствительно к регистру (необходимо учитывать верхний и нижний регистр).
 
 > Примечание. Убедитесь, что не выбраны параметры «*реагировать на*» для исходящих каналов.
 
@@ -325,8 +329,8 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 Для этого требуется, чтобы экземпляр адаптера `web` был запущен и настроен в файле [Настроен экземпляр адаптера `synochat`](#configurationAdapterWebInstance).
 
-Если используемый экземпляр `web` настроен на использование безопасного соединения через HTTPS, **убедитесь, что вы предоставили действительный сертификат или импортировали свой собственный сертификат в список доверенных сертификатов в Synology**.\ В противном случае сообщения не отправляются. с сервера чата Synology на экземпляр адаптера ioBroker.
-Связь не будет установлена, и, к сожалению, пользователю на обоих сайтах не будет прямого указания, что сообщение было отклонено из-за недействительного сертификата.
+Если используемый экземпляр `web` настроен на использование безопасного соединения через HTTPS, **убедитесь, что вы предоставили действительный сертификат или импортировали свой собственный сертификат в доверенные сертификаты в Synology**.\ В противном случае сообщения не отправляются. с сервера чата Synology на экземпляр адаптера ioBroker.
+Связь не будет установлена, и, к сожалению, на обоих сайтах не будет прямого указания пользователю, что сообщение было отклонено из-за недействительного сертификата.
 
 <div id="usage"></div>
 
@@ -342,13 +346,19 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 	![IobrokerObjectSetMessage](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectSetMessage.png)
 
-* Если объект сообщения изменен и тип канала установлен на «Отправить данные на сервер чата Synology», это сообщение — в зависимости от типа канала — передается в чат Synology.
+* При изменении объекта сообщения и выборе типа канала «Отправить данные на сервер чата Synology» это сообщение передается в чат Synology.
 
 	![SynoChatChannelIncomingMessage](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatChannelIncomingMessage.png)
 
-<div id="webHookLocation"></div>
+* Чтобы получать сообщения от Synology Chat Server и чтобы объект сообщения обновлялся соответствующим образом, убедитесь, что настроенное `Триггерное слово` (см. [Конфигурация чата Synology](#synology-chat-configuration)) находится в сообщении без знаков препинания. Поэтому он должен стоять один.
 
-* URL-адрес/адрес веб-перехватчика будет предоставлен как значение объекта в информационной папке экземпляра адаптера и действителен для всех каналов с одним экземпляром адаптера.
+**Пример:**\ Если `Trigger word` будет `Alarm`, сообщение в чате Synology должно выглядеть следующим образом:\ `An alarm was triggered in the hallway.`
+
+Обратите внимание, что `Trigger word` чувствителен к регистру (необходимо учитывать прописные и строчные буквы).
+
+<div id="web-hook-location"></div>
+
+* URL-адрес/адрес веб-хука будет предоставлен как значение объекта в информационной папке экземпляра адаптера и действителен для всех каналов с одним экземпляром адаптера.
 
 	![IobrokerObjectWebHook](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectWebHook.png)
 
@@ -360,7 +370,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 ### 3.3 Отладка в случае возникновения проблем
 Чтобы получить более подробную информацию о поведении адаптера в случае возникновения проблем, вы можете повысить уровень журнала экземпляра адаптера `synochat` до `debug`.
 
-Поскольку этот адаптер использует экземпляр адаптера `web` для предоставления веб-перехватчиков серверу чата Synology, настроенный экземпляр `web` выполняет некоторые функции. Чтобы получить более подробную информацию в случае проблем с получением сообщений, вам необходимо повысить уровень журнала настроенного экземпляра `web`, а также до `debug`. Сообщения журнала, относящиеся к адаптеру `synochat`, можно идентифицировать по префиксу сообщений журнала `synochat.<INSTANCE_NUMBER>`.
+Поскольку этот адаптер использует экземпляр адаптера `web` для предоставления веб-перехватчиков серверу чата Synology, настроенный экземпляр `web` выполняет некоторые функции. Чтобы получить более подробную информацию в случае проблем с получением сообщений, необходимо повысить уровень журнала настроенного экземпляра `web`, а также до `debug`. Сообщения журнала, относящиеся к адаптеру `synochat`, можно идентифицировать по префиксу сообщений журнала `synochat.<INSTANCE_NUMBER>`.
 
 ---
 
@@ -379,6 +389,12 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2023-08-13)
+- *[@phoeluga]* Fixed TypeError issue with empty initial value of outgoing channels - #13
+- *[@phoeluga]* Updated information about handling of outgoing channels - #14
+- *[@phoeluga]* Fixed special character escaping issue - #16
+- *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
+
 ### 1.3.0 (2023-07-23)
 - *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
 - *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.

@@ -110,14 +110,17 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 3.0.47 (2023-08-08)
+* (bluefox) Updated packages
+
 ### 3.0.46 (2023-03-30)
-* (foxriver76) fix for controller v5 (closes #368)
+* (foxriver76) fixed for controller v5 (closes #368)
 
 ### 3.0.44 (2023-02-20)
-* (foxriver76) compatibility of RSSI_DEVICE and RSSI_PEER for CCU update (closes #352)
-* (foxriver76) also sync enums for maintenance channel of rfd devices (closes #320)
+* (foxriver76) compatibility of RSSI_DEVICE and RSSI_PEER for CCU updated (closes #352)
+* (foxriver76) also sync enums for a maintenance channel of rfd devices (closes #320)
 
 ### 3.0.43 (2022-07-28)
 * (foxriver76) if LGW is not reachable we now set duty cycle to `null` instead of `-1` in all cases (closes #298)
@@ -135,10 +138,10 @@ IP-адрес CCU можно выбрать в раскрывающемся ме
 * (foxriver76) only delete hm-rpc objects of configured instances from enums (fixes #253)
 
 ### 3.0.35 (2022-01-28)
-* (foxriver76) do not log warning if we cannot sychnoronize favorites of empty string user (fixes #227)
+* (foxriver76) do not log warning if we cannot synchronize favorites of empty string user (fixes #227)
 
 ### 3.0.34 (2022-01-24)
-* (martin-herzog/foxriver76) fixed unnedded call which lead to warnings in rega log
+* (martin-herzog/foxriver76) fixed unneeded call which lead to warnings in rega log
 
 ### 3.0.33 (2021-11-18)
 * (foxriver76) if function or room names on CCU include dots, we replace them (fixes Sentry IOBROKER-HM-REGA-3H)
@@ -178,7 +181,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 
 ### 3.0.22 (2021-04-30)
 * (foxriver76) parse the dutyCycle state to int (fixes #144)
-* (foxriver76) update dependencies
+* (foxriver76) updated dependencies
 * (foxriver76) removed unneeded dependency
 
 ### 3.0.21 (2021-04-24)
@@ -188,7 +191,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) admin/controller has a bug still requiring `common.title` (fixes #133)
 
 ### 3.0.19 (2021-04-16)
-* (foxriver76) fix for custom webinterface port (addresses #117)
+* (foxriver76) fixed for custom webinterface port (addresses #117)
 
 ### 3.0.18 (2021-04-05)
 * (foxriver76) local link now respects port and protocol
@@ -197,13 +200,13 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) correctly identify incomplete requests
 
 ### 3.0.16 (2021-01-31)
-* (foxriver76) fix issue with non-existing objects when using LAN-Gateways
+* (foxriver76) fixed issue with non-existing objects when using LAN-Gateways
 
 ### 3.0.15 (2021-01-31)
-* (foxriver76) Ensure that objects are created if something (devices, variables, programs) created during runtime (fixes #124)
+* (foxriver76) Ensures that objects are created if something (devices, variables, programs) created during runtime (fixes #124)
 
 ### 3.0.14 (2021-01-30)
-* (foxriver76) fix pot. crash after reconnect because of existingStates array
+* (foxriver76) fixed pot. crash after reconnecting because of existingStates array
 
 ### 3.0.13 (2021-01-30)
 * (foxriver76) ensure to not set states of non-existing RPC objects due to differences in the APIs (fixes #123)
@@ -215,7 +218,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) no build needed
 
 ### 3.0.9 (2021-01-27)
-* (foxriver76) fix gh actions
+* (foxriver76) fixed gh actions
 
 ### 3.0.8 (2021-01-27)
 * (foxriver76) we now wait until objects are created before setting states (fixes #122)
@@ -225,7 +228,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) we notify the user about aborted connection by CCU during request
 
 ### 3.0.6 (2020-12-25)
-* (Hirsch-DE) don't write datapoints if timestamp is 0"
+* (Hirsch-DE) don't write data points if timestamp is 0"
 
 ### 3.0.5 (2020-12-24)
 * (foxriver76) provide possibility to use custom webinterface port, please see FAQ
@@ -236,7 +239,7 @@ __Please note: This will only work for deleted programs up from now. You have to
 * __this can be breaking for some users, please check your enums__
 
 ### 2.6.25 (2020-12-16)
-* (foxriver76) fix aliases being removed from enums if they contain `hm-rpc.`
+* (foxriver76) fixed aliases being removed from enums if they contain `hm-rpc.`
 
 ### 2.6.24 (2020-11-03)
 * (foxriver76) now states will be accordingly marked to indicate that rega is down when receiving invalid responses
@@ -248,33 +251,32 @@ __Please note: This will only work for deleted programs up from now. You have to
 * (foxriver76) fixed error where alarm states of hm-rpc instances with instance number >= 10 are created for the wrong instance (issue #111)
 
 ### 2.6.20 (2020-09-15)
-* (foxriver76) set explicit object type on extending object (issue #109)
+* (foxriver76) set an explicit object type on extending object (issue #109)
 
 ### 2.6.19 (2020-08-23)
 * (foxriver76) fixed issue on syncing service message counter when invisible variables are synchronized
 * (foxriver76) fixed issue where value list variables are a string instead of an integer
 
 ### 2.6.17 (2020-08-17)
-* (foxriver76) fix for % scaling of float numbers
+* (foxriver76) fixed for % scaling of float numbers
 
 ### 2.6.15 (2020-08-08)
-* (foxriver76) fix potential issues with scaling of % values as in https://github.com/ioBroker/ioBroker.hm-rpc/issues/263
+* (foxriver76) fixed potential issues with scaling of % values as in https://github.com/ioBroker/ioBroker.hm-rpc/issues/263
 
 ### 2.6.14 (2020-06-11)
-* (foxriver76) fix potential problem on enum sync, where to many channels could be deleted
+* (foxriver76) fixed a potential problem on enum sync, where to many channels could be deleted
 
 ### 2.6.11 (2020-06-11)
 * (foxriver76) timeout of requests increased to 90 seconds (its only important to have a timeout to prevent infinite stucking)
 
 ### 2.6.10 (2020-06-10)
-* (foxriver76) fix crash when a user on CCU is a empty string on synchronizing favorites
+* (foxriver76) fixed crash when a user on CCU is an empty string on synchronizing favorites
 
 ### 2.6.9 (2020-05-29)
 * (foxriver76) fixed crash when we cannot determine CCU version
 
 ### 2.6.8 (2020-05-26)
-* (foxriver76) Script post requests will time out after 15 seconds to prevent 
-stucking in queue if no answer from ccu received
+* (foxriver76) Script post requests will time out after 15 seconds to prevent stucking in queue if no answer from ccu received
 
 ### 2.6.7 (2020-05-11)
 * (foxriver76) fixed some edge cases, reported by Sentry
@@ -289,10 +291,10 @@ stucking in queue if no answer from ccu received
 * (foxriver76) now storing scripts in iob file storage
 
 ### 2.6.2 (2020-04-11)
-* (foxriver76) minor fix on ccu object
+* (foxriver76) minor fixed on a ccu object
 
 ### 2.6.1 (2020-04-04)
-* (foxriver76) fix synchronization
+* (foxriver76) fixed synchronization
 
 ### 2.6.0 (2020-04-02)
 * (foxriver76) sentry plugin support added
@@ -307,25 +309,25 @@ stucking in queue if no answer from ccu received
 * (foxriver76) improved error handling in edge cases and more verbose logging on errors
 
 ### 2.5.2 (2019-12-29)
-* (foxriver76) fixed issue which originated by undefined tclsh alias on CCU for dutycycle.fn script
+* (foxriver76) fixed issue which originated by undefined tclsh alias on CCU for `dutycycle.fn` script
 
 ### 2.5.1 (2019-12-14)
-* (foxriver76) no longer use adapter.objects
+* (foxriver76) no longer use `adapter.objects`
 * (foxriver76) js-controller v > 2 required
 
 ### 2.4.12 (2019-09-26)
-* (foxriver76) fixed bug which lead to alarm counter showing number of service messages
+* (foxriver76) fixed bug which leads to alarm counter showing the number of service messages
 
 ### 2.4.10 (2019-09-17)
-* (foxriver76) we set enum name as translation object again
+* (foxriver76) we set enum name as a translation object again
 
 ### 2.4.9 (2019-09-04)
-* (foxriver76) fix minor bug which prevented correct room sync
+* (foxriver76) fixed minor bug which prevented correct room sync
 * (foxriver76) in 2.4.6 we implemented the mechanism for hm-rega and rpc, in fact we should only delete hm-rpc devices, 
 because rega will be added on ioB side (can't be done in CCU)
 
 ### 2.4.7 (2019-08-28)
-* (foxriver76) fixed another legacy bug, which prevented some enums from getting correct name
+* (foxriver76) fixed another legacy bug, which prevented some enums from getting the correct name
 
 ### 2.4.6 (2019-08-11)
 * (foxriver76) only deleting hm adapter objects from enums
@@ -343,7 +345,7 @@ because rega will be added on ioB side (can't be done in CCU)
 * (foxriver76) added possibility to synchronize hidden variables
 
 ### 2.3.3 (2019-04-05)
-* (foxriver76) added more systeminfo states when syncing duty cycle
+* (foxriver76) added more system info states when syncing duty cycle
 * (foxriver76) when setting ts, do it in ms
 
 ### 2.3.2 (2019-03-10)
@@ -351,21 +353,21 @@ because rega will be added on ioB side (can't be done in CCU)
 
 ### 2.3.1 (2019-03-07)
 * (foxriver76) also unescape %0A (\n)
-* (foxriver76) remove line break in firmware version
+* (foxriver76) remove line break in a firmware version
 
 ### 2.3.0 (2019-02-07)
 * (foxriver76) implemented messagebox
 
 ### 2.2.2 (2019-02-04)
-* (foxriver76) show correct number of service messages even if automatic checking is enabled
+* (foxriver76) show the correct number of service messages even if automatic checking is enabled
 
 ### 2.2.1 (2019-01-29)
-* (foxriver76) create alarm states with correct name instead of renaming on restart
-* (foxriver76) fix to enable acknowledging servicemessages for all instance types
+* (foxriver76) create alarm states with the correct name instead of renaming on restart
+* (foxriver76) fixed to enabled acknowledging servicemessages for all instance types
 
 ### 2.2.0 (2019-01-26)
 * (foxriver76) reworked alarm states, see FAQ
-* (foxriver76) fix where virtual devices were not named
+* (foxriver76) fixed where virtual devices were not named
 
 ### 2.1.8 (2019-01-24)
 * (foxriver76) from now on we are displaying the firmware version instead of coprocessor fw version
@@ -375,27 +377,27 @@ because rega will be added on ioB side (can't be done in CCU)
 ### 2.1.7 (2019-01-21)
 * (foxriver76) fixed the bug that all alarms of devices are in hm-rpc rfd instance 
 or non existent if no rpc instance existed
-* (foxriver76) fix bug where datapoints were not named
+* (foxriver76) fixed bug where datapoints were not named
 
 ### 2.1.6 (2019-01-20)
-* (foxriver76) update state when same value is set with another timestamp
-* (foxriver76) revert duty cycle script
-* (foxriver76) fix for parse errors on -inf values
+* (foxriver76) updated state when the same value is set with another timestamp
+* (foxriver76) reverted the duty cycle script
+* (foxriver76) fixed for parse errors on -inf values
 
 ### 2.1.3 (2019-01-14)
 * (foxriver76) also decode string values when setting foreign states
-* (foxriver76) add more translations
+* (foxriver76) added more translations
 
 ### 2.1.2 (2019-01-10)
-* (foxriver76) fix duty cycle script
-* (foxriver76) fix bug where state units were ignored for all except rfd
+* (foxriver76) fixed duty cycle script
+* (foxriver76) fixed bug where state units were ignored for all except rfd
 
 ### 2.1.0 (2019-01-07)
 * (foxriver76) usage of adapter-core
 * (bluefox) compact mode compatibility
 
 ### 2.0.1 (2019-01-01)
-* (foxriver76) fix error that prevented setting umlauts to system variables in ioBroker
+* (foxriver76) fixed error that prevented setting umlauts to system variables in ioBroker
 * (foxriver76) usage and application of eslint
 
 ### 2.0.0 (2018-11-28)
@@ -414,34 +416,34 @@ or non existent if no rpc instance existed
 * (bluefox) Ready for Admin3
 
 ### 1.6.6 (2017-09-23)
-* (AlGu1) Fix error if Lan Interfaces exits
+* (AlGu1) Fixed error if Lan Interfaces exits
 
 ### 1.6.5 (2017-09-10)
 * (AlGu1) Change adapter logging of new values to debug
 
 ### 1.6.4 (2017-09-10)
-* (AlGu1) Config Settings changed to set defaults after update adapter
+* (AlGu1) Config Settings changed to set defaults after updated adapter
 
 ### 1.6.3 (2017-09-06)
 * (AlGu1) Read values from CCU in raw format and create JSON string and object in adapter
 
 ### 1.6.2 (2017-09-05)
-* (AlGu1) dutycycle.fn script changed for better compatiblity without ReGaHss Beta version
+* (AlGu1) dutycycle.fn script changed for better compatibility without ReGaHss Beta version
 
 ### 1.6.1 (2017-09-05)
 * (AlGu1) Error in script file fixed
 
 ### 1.6.0 (2017-09-05)
-* (AlGu1) Read DutyCycle and other params from listBidcosInterfaces
+* (AlGu1) Read DutyCycle and other params from `listBidcosInterfaces`
 
 ### 1.5.0 (2017-06-29)
-* (Apollon77) Also update names of states when syncing with CCU
+* (Apollon77) Also updated names of states when syncing with CCU
 
 ### 1.4.8 (2017-05-24)
-* (bluefox) Fix values conversion for CUxD
+* (bluefox) Fixed values conversion for CUxD
 
 ### 1.4.4 (2017-02-28)
-* (Apollon77) small fix (issue #23)
+* (Apollon77) small fixed (issue #23)
 
 ### 1.4.3 (2017-02-01)
 * (Apollon77) respect settings and only sync variables and programs if selected in settings (issue #22)
@@ -456,18 +458,18 @@ or non existent if no rpc instance existed
 * (jens-maus) Add HMIP support
 
 ### 1.3.0 (2016-08-23)
-* (bluefox) update states only if changed
+* (bluefox) updated states only if changed
 
 ### 1.2.1 (2016-07-15)
-* (nobody) fix initial read of states
+* (nobody) fixed initial read of states
 
 ### 1.2.0 (2016-05-27)
 * (bluefox) read variables anew if connection of rfd detected
 * (bluefox) read alarms
-* (bluefox) support of acknowledgment of alarms
+* (bluefox) support for acknowledgment of alarms
 
 ### 1.1.1 (2016-05-27)
-* (bluefox) fix min/max for variables
+* (bluefox) fixed min/max for variables
 
 ### 1.1.0 (2016-04-19)
 * (bluefox) change timestamp and last change of states
@@ -476,10 +478,10 @@ or non existent if no rpc instance existed
 * (bluefox) detect disconnection and handle it
 
 ### 0.3.7 (2016-04-18)
-* (bluefox) fix error with polling trigger
+* (bluefox) fixed error with polling trigger
 
 ### 0.3.6 (2016-03-12)
-* (bluefox) fix read datapoints
+* (bluefox) fixed read data points
 
 ### 0.3.5 (2016-03-12)
 * (bluefox) remove deprecated unescape
@@ -489,19 +491,19 @@ or non existent if no rpc instance existed
 
 ### 0.3.3 (2016-03-01)
 * (bluefox) remove deprecated unescape
-* (bluefox) add connection state
+* (bluefox) added connection state
 
 ### 0.3.2 (2016-03-01)
 * (bluefox) remove deprecated unescape
 
 ### 0.3.1 (2016-02-29)
-* (bluefox) fix dimmer and blinds values at start
+* (bluefox) fixed dimmer and blinds values at start
 
 ### 0.3.0 (2016-02-28)
 * (bluefox) remove deprecated unescape
 
 ### 0.2.1 (2015-03-25)
-* (bluefox) fix "\n" in values
+* (bluefox) fixed "\n" in values
 
 ### 0.2.0 (2015-03-24)
 * (bluefox) implement check init function
@@ -510,32 +512,32 @@ or non existent if no rpc instance existed
 * (bluefox) catch errors if states deleted
 
 ### 0.1.15 (2015-01-03)
-* (bluefox) add hm-rpc as dependency
+* (bluefox) added hm-rpc as dependency
 
 ### 0.1.14 (2015-01-03)
-* (bluefox) enable npm install
+* (bluefox) enabled npm install
 
 ### 0.1.13 (2014-12-11)
-* (bluefox) process errors
+* (bluefox) processed errors
 
 ### 0.1.12 (2014-12-10)
-* (bluefox) update devices if hm-rpc updates the device list
+* (bluefox) updated devices if hm-rpc updates the device list
 
 ### 0.1.11 (2014-12-06)
-* (bluefox) update devices if hm-rpc updates the device list
+* (bluefox) updated devices if hm-rpc updates the device list
 
 ### 0.1.10 (2014-11-21)
 * (bluefox) support of new naming concept with no parents and children
 
 ### 0.1.9 (2014-11-11)
-* (bluefox) fix error with stopping adapter
+* (bluefox) fixed error with stopping adapter
 
 ### 0.1.8 (2014-10-22)
-* (bluefox) fix error with scripts
-* (bluefox) add gruntfile.js and remove jscs warnings
+* (bluefox) fixed error with scripts
+* (bluefox) added gruntfile.js and removed jscs warnings
 
 ### 0.1.7
-* (Bluefox, Hobbyquaker) fix bug if no programs or variables exist
+* (Bluefox, Hobbyquaker) fixed bug if no programs or variables exist
 
 ### 0.1.6
 * (hobbyquaker) added common.role for variables
@@ -547,16 +549,16 @@ or non existent if no rpc instance existed
 
 ### 0.1.4
 * (hobbyquaker) fixes
-* (hobbyquaker) add settings ui
+* (hobbyquaker) added settings ui
 
 ### 0.1.3
 * (hobbyquaker) common.children vs children
 
 ### 0.1.2
-* (hobbyquaker) Fix common.children in getPrograms
+* (hobbyquaker) Fixed common.children in getPrograms
 
 ### 0.1.1
-* (hobbyquaker) Fix common.name attribute
+* (hobbyquaker) Fixed common.name attribute
 
 ## License
 The MIT License (MIT)

@@ -25,6 +25,9 @@ link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn
 
 ## Changelog
 
+### v2.0.1
+* Alexa integration re-designed
+
 ### v1.0.2
 * reconfiguration (re-scanning of QR-Codes) on Peers required
 * required review changes in io-package

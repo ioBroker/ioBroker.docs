@@ -106,59 +106,85 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### v1.5.0 (2023-06-27)
+### 1.5.10 (2023-08-17)
+* (grizzelbee) Fix: Adapter doesn't crash anymore when user or device name is missing in config.
+
+### 1.5.9 (2023-08-12)
+* (grizzelbee) Fix: First device of any user was missing in users viewing
+* (grizzelbee) New: Added an icon to peers, users, peer and user
+
+### 1.5.8 (2023-08-11)
+* (grizzelbee) Fix: Interface is now correctly set to offline if host is not reachable. 
+
+### 1.5.7 (2023-08-10)
+* (grizzelbee) Fix: Added missing icon file
+* (grizzelbee) Fix: Some fixes to make iobroker.adapterchecker happy
+* (grizzelbee) Fix: Another icon fix
+
+### 1.5.2 (2023-08-09)
+* (grizzelbee) Fix: Adapter does not crash anymore when host isn't reachable
+* (grizzelbee) Fix: Added .releaseconfig file 
+* (grizzelbee) Fix: Added icon to interface-device
+* (grizzelbee) Fix: Some fixes to make iobroker.adapterchecker happy
+
+### 1.5.1 (2023-08-08)
+* (grizzelbee) Fix:  [#65](https://github.com/Grizzelbee/ioBroker.wireguard/issues/65) No names in object tree
+* (grizzelbee) Fix:  [#64](https://github.com/Grizzelbee/ioBroker.wireguard/issues/64) Online state of interface isn't set correctly if more than one server is queried
+* (grizzelbee) Upd: Dependencies got updated
+
+### 1.5.0 (2023-06-27)
 * (grizzelbee) Deprecated: The current peer name/description will be dropped in one of the next versions. So please move over to Username/Device config.
 * (grizzelbee) New: Splitted Peer names in config in user and device names; So that you are able to group devices by user
 * (grizzelbee) New: Some new data fields: connectedPeers, connectedPeersCount, connectedUsers, connectedUsersCount and connection states per user
 * (grizzelbee) Fix:  [#61](https://github.com/Grizzelbee/ioBroker.wireguard/issues/61) Fixed continuous recreation of objects
-* (grizzelbee) Upd: Dependencies got updates
+* (grizzelbee) Upd: Dependencies got updated
 * (grizzelbee) Upd: Dropped support for NodeJS 12
 * (grizzelbee) Upd: Added support for NodeJS 18
 
-### v1.4.1 (2022-10-26)
+### 1.4.1 (2022-10-26)
 * (grizzelbee) New: Showing number of currently connected peers for each interface
 
-### v1.4.0 (2022-09-09)
+### 1.4.0 (2022-09-09)
 * (grizzelbee) New: [#37](https://github.com/Grizzelbee/ioBroker.wireguard/issues/37) Added config options for port and docker container name
 * (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
 
-### v1.3.2 (2022-09-07)
+### 1.3.2 (2022-09-07)
 * (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
 
-### v1.3.1 (2022-06-26)
+### 1.3.1 (2022-06-26)
 * (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer
 
-### v1.3.0 (2022-06-25)
+### 1.3.0 (2022-06-25)
 * (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added buttons to suspend single and restore all peers of an interface
 * (grizzelbee) Chg: Changed polling log entry from info to debug 
 * (grizzelbee) Upd: dependencies got updated
 
-### v1.2.1 (2022-04-24)
+### 1.2.1 (2022-04-24)
 * (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
 
-### v1.2.0 (2022-04-21)
+### 1.2.0 (2022-04-21)
 * (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Added support for WireGuard inside a docker container
 
-### v1.1.3 (2022-03-31)
+### 1.1.3 (2022-03-31)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-C](https://sentry.io/organizations/grizzelbee/issues/3036902024/events/?project=6215712)
 * (grizzelbee) Upd: dependencies got updated
 
-### v1.1.2 (2022-03-17)
+### 1.1.2 (2022-03-17)
 * (grizzelbee) New: Added donate button
 * (grizzelbee) Upd: dependency update
 
-### v1.1.1 (2022-03-13)
+### 1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update
 
-### v1.1.0 (2022-03-06)
+### 1.1.0 (2022-03-06)
 * (grizzelbee) New: Added support for sudo when using a proper sudoers rule
 * (grizzelbee) Upd: Documentation update regarding security
 * (grizzelbee) Upd: dependency update
 
-### v1.0.0 (2022-02-25)
+### 1.0.0 (2022-02-25)
 * (grizzelbee) New: Added individual online state indicator for each interface
 * (grizzelbee) fix: Improved some data roles
 * (grizzelbee) fix: Improved documentation
@@ -231,4 +257,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Copyright
-Copyright (c) 2022 grizzelbee <open.source@hingsen.de>
+Copyright (c) 2023 grizzelbee <open.source@hingsen.de>

@@ -12,6 +12,8 @@ This widget set consists of the following widgets:
 
 - Energy consumption comparison
 ![Energy comparison](img/comparison.png)
+ 
+![Pie chart](img/pie.png)
 
 - Time selector for energy consumption
 ![Time selector](img/timeSelector.png)
@@ -23,6 +25,12 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.0 (2023-08-16)
+* (bluefox) Added pie chart for comparison
+
+### 0.2.3 (2023-07-28)
+* (bluefox) Corrected layout of date selector
+
 ### 0.2.1 (2023-06-28)
 * (bluefox) Added settings for units, rounding, invert direction, multiplier
 

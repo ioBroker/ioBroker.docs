@@ -100,6 +100,9 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
    
 ## Changelog
 
+### 1.8.9 (2023-07-30)
+* (René) dependencies updates
+
 ### 1.8.8 (2023-04-07)
 * (René) dependencies updates
 

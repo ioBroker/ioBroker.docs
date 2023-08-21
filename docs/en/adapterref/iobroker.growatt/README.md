@@ -9,6 +9,8 @@
 
 [![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)](https://nodei.co/npm/iobroker.growatt/)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 This adapter works through Growatt's cloud servers. There is also the [Grott project](https://github.com/johanmeijer/grott) that intercepts the data from the communication.
 
 ---
@@ -83,6 +85,12 @@ The inverter can only change one setting at a time and the transmission path is 
 
 The writing of the settings was developed to the best of our knowledge. However, the author does not assume liability for errors contained in or for damages arising from the use of the software.
 
+#### Select it if your Growatt page is a black C&I page
+
+Select it if your Growatt page is a C&I Plant page with indexbC or plantDo in the Path of the Growatt webinterface.
+
+The black C&I pages (commercial and industrial) have an other path to the objects but it semms to work if this Checkbox is on. It Changed index to indexbC in the webpath.
+
 #### Timeout in seconds
 
 The default timeout for HTTP requests. The default value 60 seconds, as with web browsers
@@ -115,7 +123,7 @@ Another url can be entered here, for example to use the US domain. But it must s
 ### Manage Objects
 
 Here you can define what should happen to each value (object) that is picked up by the inverter.
-There are a lot of values ​​that do not belong to your inverter. These can be removed here.
+There are a lot of values that do not belong to your inverter. These can be removed here.
 Since there is no event with which the object list can be reloaded when saving. The update button must be used when save is pressed.
 
 #### Normal
@@ -129,7 +137,7 @@ After the update, only the ID and the action are displayed because the object no
 
 #### No update
 
-The object remains, the values ​​from the inverter are discarded.
+The object remains, the values from the inverter are discarded.
 
 ### Manage Loggers
 
@@ -168,6 +176,150 @@ The settings are accepted.
 
 ---
 
+## sendTo for scripts
+
+It is possible to send a command to the instance via sendTo. The adapter then responds.
+The following commands are implemented.
+The return value is returned depending on the parameter transfer. If the parameters are passed as a JSON string, a JSON is returned. If the parameters are passed as an object, an object is returned.
+
+### getHistory
+
+This command lists the history. It can be used, for example, to supplement data in a database.
+Regardless of the time range, Growatt always seems to return 80 records. If the interval is set to 1 minute and more than 80 minutes are needed, the command must be executed several times and the start from 0 must be increased more and more.
+
+| Parameter | Type    | Description                                                                                                  |
+| --------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| type      | String  | The type of inverter can be found in object "growatt. - instance - . - nr - .devices. - sn - .growattType".  |
+| sn        | String  | The serialnumber of inverter can be found in object path "growatt. - instance - . - nr - .devices. - sn - ". |
+| startDate | Date    | The atart                                                                                                    |
+| endDate   | Date    | The end mast be grater then start                                                                            |
+| start     | Integer | 0 is the start page for the call with the most recent data first                                             |
+
+Example call:
+
+```
+  sendTo('growatt.0','getHistory',{"type":"<your inverter type>","sn":"<your inverter serial>","startDate":new Date((new Date()).getTime()- 60*60*1000),"endDate":new Date() , "start":0},(res)=>{console.log(res)})
+```
+
+Example code:
+
+```
+const sn = " your sn "; //your inverter sn
+const inType = " your typ "; // the invertertyp
+const hist = 'growatt.0. your nr .devices. your sn .historyLast.'; // the Path to history
+const storeField =['accChargePower','etoGridToday']; //the fields to store
+const history = "influx.0" //your History sql.0 or influx.0 or history.0 ...
+const min = 10 // größer 10 min auffüllen....
+
+on({id: hist+'calendar', change: "ne"},(obj)=>{
+    if ((obj.state.val - obj.oldState.val) > min*60000) {
+        console.log(obj.state.val - obj.oldState.val);
+        function fillup(res) {
+            res.forEach((r)=>{
+                const ti = (new Date(r.calendar)).getTime();
+                if (ti > obj.oldState.val && ti < obj.state.val) {
+                    function store(n) {
+                        sendTo(history, 'storeState', {
+                            id: hist+n,
+                            state: {ts: ti, val: r[n], ack: true}
+                        }, result => {console.log(`added ${hist+n} ${new Date(ti)} ${r[n]}`)});
+                    }
+                    storeField.forEach((f) => {store(f)});
+                }
+            })
+        }
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":0},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":1},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":2},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":3},fillup)
+    }
+});
+```
+
+### getDatalogger
+
+It gives you information about the dataloggers.
+This function has no parameters. Either "{}" or {} must be passed.
+The return is an array of object.
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+
+### getDataLoggerIntervalRegister
+
+It reads out the interval and returns it. the return value is an OBJ. The interval is in msg.
+
+| Parameter | Type   | Description                                                   |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn        | string | The serial number of the logger is returned by getDatalogger. |
+
+### setDataLoggerIntervalRegister
+
+Writes the interval at which the logger sends the data.
+
+| Parameter | Type    | Description                                                   |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn        | string  | The serial number of the logger is returned by getDatalogger. |
+| value     | integer | The new value in minutes                                      |
+
+An object is returned with a message.
+
+### getDataLoggerIpRegister
+
+It reads the IP to which the logger sends the data and returns it. The return value is an OBJ. The IP is in msg.
+
+| Parameter | Type   | Description                                                   |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn        | string | The serial number of the logger is returned by getDatalogger. |
+
+### setDataLoggerIp
+
+It writes the IP to which the logger sends the data. It's useful for the Grott project. The return value is an object that says what happened.
+
+| Parameter | Type    | Description                                                   |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn        | string  | The serial number of the logger is returned by getDatalogger. |
+| value     | integer | The new value in minutes                                      |
+
+An object is returned with a message.
+
+### getDataLoggerPortRegister
+
+It reads the port to which the logger sends the data and returns it. The return value is an OBJ. The IP is in msg.
+
+| Parameter | Type   | Description                                                   |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn        | string | The serial number of the logger is returned by getDatalogger. |
+
+### setDataLoggerPort
+
+It writes the port to which the logger sends the data. It's useful for the Grott project. The return value is an object that says what happened.
+
+| Parameter | Type    | Description                                                   |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn        | string  | The serial number of the logger is returned by getDatalogger. |
+| value     | integer | The new value in minutes                                      |
+
+An object is returned with a message.
+
+### checkLoggerFirmware
+
+Calls up the firmware check from the logger. If an update is necessary, you can see it in the answer.
+
+| Parameter | Type   | Description                                                   |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn        | string | The serial number of the logger is returned by getDatalogger. |
+
+### restartDatalogger
+
+Causes a warm start of the data logger.
+
+| Parameter | Type   | Description                                                   |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn        | string | The serial number of the logger is returned by getDatalogger. |
+
+---
+
 ## Speedup data interval internal method
 
 Have a look at Manage Loggers and Button Interval
@@ -202,6 +354,15 @@ Therefore, the description has also been removed.
 -\*-
 
 ## Changelog
+
+### 3.1.2 (16.08.2023)
+
+- (PLCHome) sendTo now also possible with objects as message data
+- (PLCHome) Added message getHistory
+
+### 3.1.1 (03.07.2023)
+
+- (PLCHome) Added support for Growatt page when Plant is a C&I Plant page with indexbC or plantDo in Path of the Growatt web interface. Thanks to Denn281
 
 ### 3.0.4 (03.07.2023)
 
@@ -265,7 +426,7 @@ Therefore, the description has also been removed.
 
 ### 1.1.15 (28.04.2022)
 
-- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values are empty
 
 ### 1.1.14 (26.04.2022)
 

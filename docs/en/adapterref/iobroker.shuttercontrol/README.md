@@ -46,6 +46,10 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) node 20 tests added
+
 ### 1.6.1 (2023-07-17)
 * (simatec) Fix Heat protection
 

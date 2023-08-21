@@ -45,10 +45,30 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.5 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
+* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+
+### 1.1.4 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+
+### 1.1.3 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+
+### 1.1.2 (2023-08-17)
+* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+
+### 1.1.1 (2023-08-17)
+* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
+* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
+* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
+* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
+* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+
+### 1.0.5 (2023-07-29)
 * (Andreas Ruttkamp) interne Arbeiten
 * (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
-
+* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components

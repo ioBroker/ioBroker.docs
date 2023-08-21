@@ -433,6 +433,9 @@ A structure like the following is possible:
 
 ## Troubleshooting
 
+### Problem with Cookie determination with SMS based 2 FA flow
+If you still use the SMS based 2FA flow then this might now work. Please update the 2fa method in the amazon settings to the current process.
+
 ### Problems with Cookie determination via E-Mail/Password
 Sometimes Amazon has weired checks in place when they detect unexpected traffic on Login.
 This can result in the problem that a captcha needs to be answered in order to login.
@@ -484,6 +487,10 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting unused device please restart the adapter to remove them there too.
 
 ## Changelog
+### 3.24.1 (2023-08-08)
+* (Apollon77) Work around Amazon changes that affected all functions over the Push connection
+* (Apollon77) Some smaller fixes and adjustments
+
 ### 3.23.2 (2022-11-30)
 * (Apollon77) Prioritize real devices higher than app devices when serialnumbers overlap
 
@@ -1016,7 +1023,7 @@ After deleting unused device please restart the adapter to remove them there too
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
+Copyright (c) 2018-2023 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

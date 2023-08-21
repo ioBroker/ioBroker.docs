@@ -52,6 +52,13 @@ Actually only following attributes are supported:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.5 (2023-08-13)
+* (mcm1957) Dependencies have been updated
+* (mcm1957) Adapter now requires node 16
+
+### 2.0.4 (2023-08-13)
+* (LausiD) Several problems have been fixed (#213, #214)
+
 ### 2.0.3 (2023-01-03)
 * (Apollon77/LausiD) Made sure that all objects are initialized correctly
 

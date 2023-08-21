@@ -1,13 +1,13 @@
 ---
 title: Proxmox
-Version: 0.1
-Autoren: TeNNo2k5
-Schlüsselworte: Proxmox, LXC, USB Passthrough
-lastChanged: 15.02.2022
+Version: 0.2
+Autoren: TeNNo2k5, crunchip
+Schlüsselworte: Proxmox, VM, LXC, USB Passthrough, Usb-Backup
+lastChanged: 12.08.2023
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/proxmox.md
-hash: j2mg07NLFm9m2TAspQMBW/bpoCbaO9Dq+TastiW6UfI=
+hash: FRNF0eft/LaCJQVSJhYkS0UKIzaPwujbe+4BZ0VQxEY=
 ---
 # Proxmox
 ![proxmox logo](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -216,7 +216,7 @@ It is of course also possible to update the Proxmox server via the command line 
 
 ~~~ apt update && apt dist-upgrade ~~~
 
-The only important thing here is that you use an **apt dist-upgrade** (on “normal” Debian/Ubuntu machines, you tend to use apt upgrade). However, the "dist upgrade" is important with Proxmox, since dependencies that are required to operate Proxmox are resolved better here.
+The only important thing here is that you use an **apt dist-upgrade** (on “normal” Debian/Ubuntu machines, you tend to use apt upgrade). However, the "dist-upgrade" is important with Proxmox, since dependencies that are required to operate Proxmox are resolved better here.
 
 In this respect, Proxmox is now complete in its basic configuration. If you want to deal more extensively with Proxmox, it's worth taking a look at [Proxmox Wiki](https://pve.proxmox.com/wiki/Main_Page) or to the [official forum](https://forum.proxmox.com/).
 
@@ -707,7 +707,7 @@ The configuration file has the same ID number that was assigned when the lxc was
 
 ![proxmoxlxc09](../../de/install/media/proxmox/proxmoxlxc09.PNG)
 
-Before editing the configuration file, a backup copy should be made:
+Before editing the configuration file, a backup copy should be created:
 
 ~~~ cp 201.conf 201.conf.backup ~~~
 
@@ -730,7 +730,7 @@ Replace the marked values with the noted entries from your note!
 ![12](../../de/install/media/proxmox/proxmoxlxc12.PNG)
 
 * The first line refers to the major device number **189** Note: #1
-* In the second line, the unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) from Note: #2 is specified individually and with the absolute path, note that the entire text is written in one line without line breaks.
+* In the second line, the unique id (usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0012023529-if00) from Note: #2 is given individually and with the absolute path, note that the complete text is written in one line without line breaks.
 * In the third line, the major device number **166** from ttyACM from Note: #3 is given.
 
 Save the configuration file (in the nano editor with the key combination: CTRL + o & CTRL + x to exit the editor)
@@ -885,3 +885,63 @@ is replaced by:
 ~~~ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none bind,optional,create=file ~~~
 
 </details>
+
+---
+
+## Set up USB stick/disk for backups
+So that future backups can be saved separately, there is the option of integrating a USB device in the form of a stick or disk on the Proxmox host.
+To do this, the device must have a specific format.
+Common [filesystems](https://wiki.ubuntuusers.de/Dateisystem/) are **vFAT** or **NTFS**. Both can be read by Linux, Windows or MacOS.
+For pure Linux, typically **EXT4**.
+
+If the data medium is still unpartitioned or if you want to reformat it, you can do this on a Windows PC (ntfs) or directly on the Proxmox server.
+When the data medium is prepared, it can then be mounted in the system and then added directly as a storage (directory) via the Proxmox Gui.
+
+<span style="color:orange">**DANGER! - With a new formatting, all previous data on the data medium will be deleted</span>
+
+The following example instructions refer to the setup directly on the Proxmox host. ssh/putty can also be used.
+
+**Note, the following commands require root, if using a custom user on the host, the commands below must be prefixed with sudo.**
+
+### Prepare device
+### 1 - Identify device
+First you find the device with [lsblk](https://wiki.ubuntuusers.de/lsblk/). It is advisable to run the command once before and after plugging it in. This makes it easier to identify the device.
+
+~~~ lsblk ~~~
+
+looks something like this (letters vary depending on how many devices are connected)
+
+~~~ sdd 8:48 0 119.2G 0 disk ├─sdd1 8:49 0 119.2G 0 part └─sdd9 8:57 0 8M 0 part sde 8:64 0 931.5G 0 disk <-- This is the disk / dev/sde └─sde1 8:65 0 931.5G 0 part <-- This is the first partition /dev/sde1 if already formatted sr0 11:0 1 1024M 0 rom sr1 11:1 1 1024M 0 rom ~~~
+
+### 2 - Partitioning
+The drive is partitioned with the menu-driven [cfdisk](https://wiki.ubuntuusers.de/fdisk/)
+
+~~~ cfdisk /dev/sde ~~~
+
+### 3 - Create file system
+Now the previously created partition has to be formatted. As mentioned above, there are different options, depending on the intended use.
+The partition is formatted with the command [mkfs](https://wiki.ubuntuusers.de/Formatieren/) and the appropriate parameters.
+
+~~~ mkfs.vfat /dev/sde1 ~~~
+
+### 4 - Mount drive
+In order to be able to use the completed data medium, it must be [mounted](https://wiki.ubuntuusers.de/mount/).
+
+A suitable mount point is created for this and so that the data medium is automatically integrated again after a reboot, you also need a suitable entry in [/etc/fstab](https://wiki.ubuntuusers.de/fstab/).
+
+To do this, the unique **UUID** of the drive must be read out.
+
+Create mount point ~~~ mkdir /media/ext_usb ~~~
+
+Mount media ~~~ mount /dev/sde1 /media/ext_usb ~~~
+
+Get UUID ~~~ blkid | grep -i sde ~~~ gives ~~~ /dev/sde1: LABEL="Export_Images" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE=" 4096" TYPE="btrfs" PARTUUID="00011a10-01" ~~~
+
+Edit entry in */etc/fstab* with nano ~~~ nano /etc/fstab ~~~ now this entry is added and then saved ~~~ UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ ext_usb vfat defaults 0 0 ~~~
+
+### 5- Add Storage in Proxmox
+A directory can now be added under Data Center>Storage. The ID designation can be freely selected, e.g. *usb-backup*.
+
+The path is specified in the *Directory* column, in this case */media/ext_usb*.
+
+With *Content*, you only have to select the desired request.

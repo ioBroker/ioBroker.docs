@@ -99,6 +99,10 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Sneak-L8) fix calculation of phases for reduced charging
+
 ### 2.0.1 (2023-07-10)
 * (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
 

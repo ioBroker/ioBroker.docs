@@ -16,7 +16,7 @@ With the Zigbee-coordinator based on Texas Instruments SoC, deCONZ ConBee/RaspBe
 ## Hardware
 
 
-One coordinator device is required for each zigbee Adapter instance. The device must be flashed with the respective coordinator firmware. A list of supported coordinators, the necessary equipment for the firmware and the device preparation process for different coordinator devices are described [here (in English)](https://www.zigbee2mqtt.io/guide/adapters/) or [here (in Russian)](https://myzigbee.ru/books/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B8/page/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0-cc2531cc2530)
+One coordinator device is required for each zigbee Adapter instance. The device must be flashed with the respective coordinator firmware. A list of supported coordinators, the necessary equipment for the firmware and the device preparation process for different coordinator devices are described [here in English](https://www.zigbee2mqtt.io/guide/adapters/) or [smarthomescene.com ](https://smarthomescene.com/blog/best-zigbee-dongles-for-home-assistant-2023/) or [here in Russian](https://myzigbee.ru/books/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B8/page/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0-cc2531cc2530)
 
 
 ### Texas Instruments SoC
@@ -25,16 +25,15 @@ Recommended devices are based on either the CC2652 or CC1352 chip. Devices based
 Only CC26xx/cc1352/cc2538 Devices support extraction of the NVRam backup which should allow to swap coordinator hardware without having to reconnect all zigbee devices to the network.
 Current firmware files for these devices can be found [on GitHub](https://github.com/Koenkk/Z-Stack-firmware)
 
-<span><img src="https://ae01.alicdn.com/kf/HTB1Httue3vD8KJjSsplq6yIEFXaJ/Wireless-Zigbee-CC2531-Sniffer-Bare-Board-Packet-Protocol-Analyzer-Module-USB-Interface-Dongle-Capture-Packet.jpg_640x640.jpg" width="100"></span>
-<span><img src="https://ae01.alicdn.com/kf/HTB1zAA5QVXXXXahapXXq6xXFXXXu/RF-TO-USB-CC2530-CC2591-RF-switch-USB-transparent-serial-data-transmission-equipment.jpg_640x640.jpg" width="100"></span>
-<span><img src="docs/de/img/sonoff.png" width="100"></span>
-<span><img src="docs/de/img/CC2538_CC2592_PA.PNG" width="100"></span>
-<span><img src="docs/de/img/cc26x2r.PNG" width="100"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2531.png" width="100"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2591.png" width="100"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/sonoff.png" width="100"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2538_CC2592_PA.PNG" width="100"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/cc26x2r.PNG" width="100"></span>
 
-
+tutorial/zigbee.png
 ### Dresden Elektronik SoC
-
-<span><img src="docs/en/img/deconz.png"></span>
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/en/img/deconz.png" width="180"></span>
 
 recommended:
 - ConBee II
@@ -111,11 +110,18 @@ There are knowledge bases that can be useful for working with Zigbee-devices and
 
 ## Supported devices
 
-Works with devices from this list https://github.com/ioBroker/ioBroker.zigbee/wiki/Supported-devices
+[Works with devices from this list](https://github.com/ioBroker/ioBroker.zigbee/wiki/Supported-devices)
 
 
 ## More Informations
-https://github.com/ioBroker/ioBroker.zigbee/wiki
+
+[in Deutsch](https://github.com/ioBroker/ioBroker.zigbee/blob/master/docs/de/readme.md)
+
+[in English](https://github.com/ioBroker/ioBroker.zigbee/blob/master/docs/en/readme.md)
+
+or 
+
+[wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki)
 
 
 
@@ -125,22 +131,27 @@ You can thank the authors by these links:
 * to Kirov Ilya https://www.paypal.me/goofyk
 * to Arthur Rupp https://paypal.me/ArthurRupp
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-
-    https://github.com/AlCalzone/release-script#usage
-    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
-    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
-    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
-    ### **WORK IN PROGRESS**
--->
-
+-----------------------------------------------------------------------------------------------------
 
 ## Changelog
+### 1.8.23 (2023-08-10)
+* (arteck) query from xiaomi is now better
+
+### 1.8.22 (2023-08-05)
+* (arteck) crash when meta is empty
+
+### 1.8.21 (2023-07-31)
+* (arteck) no converter found
+
+### 1.8.20 (2023-07-31)
+* (arteck) add log
+
+### 1.8.19 (2023-07-31)
+* (arteck) fix occupancy_timeout
+* (arteck) fix battery percentage and voltage
+
 ### 1.8.18 (2023-07-16)
 * (arteck) little fix sentry and error log
-*
 
 ### 1.8.17 (2023-07-15)
 * (arteck) sentry corr

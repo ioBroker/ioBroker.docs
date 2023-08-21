@@ -189,6 +189,11 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel an object with name telegram, type string.
 
 ## Changelog
+### 0.9.0 (2023-07-27)
+* added Afriso ASD 10
+* fix D2-05-00 Goto top/bottom
+* catch error while update objects on adapter start
+* workaround for serial port selection does not display all options
 
 ### 0.8.5 (2023-02-11)
 * rework TF-13-25, fixes Eltako DSZ14 (#87)

@@ -261,6 +261,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+### 2.11.1 (2023-07-30)
+* (René) dependencies updated
+
 ### 2.11.0 (2023-06-18)
 * (René) see issue #368: units added in datapoints
 * (René) see issue #361: EVU Sperrzeit / PowerInterruption (description see above)

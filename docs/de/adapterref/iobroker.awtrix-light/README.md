@@ -26,32 +26,42 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+Updated recommended firmware version to 0.74
+
+* (klein0r) Allow to set custom app positions (expert options)
+* (klein0r) Unsubscribe from all states if device is not reachable
+* (klein0r) Added expert apps
+
+### 0.7.1 (2023-08-09)
+
+* (klein0r) Added option for number format
+
+### 0.7.0 (2023-08-03)
+
+Updated recommended firmware version to 0.72
+
+* (klein0r) Added MovingLine effect
+* (klein0r) Added settings for time style and transition effect
+* (klein0r) Setting repeat to 1 in blockly notifications
+
+### 0.6.2 (2023-07-30)
+
+* (klein0r) Fixed handling of state cache when object has been changed
+
+### 0.6.1 (2023-07-28)
+
+* (klein0r) Remove background effect in threshold overrides
+* (klein0r) Minor fixes in admin config
+* (klein0r) Fixed missing icon in history apps
+
+### 0.6.0 (2023-07-26)
+
+Updated recommended firmware version to 0.71
+
+* (klein0r) Added option for background effects
 * (klein0r) Setting default of repeat to 0
-
-### 0.5.1 (2023-07-19)
-
-* (klein0r) Fixed color conversion for svg
-* (klein0r) Added support for state type "mixed"
-* (klein0r) Improved log messages
-
-### 0.5.0 (2023-07-18)
-
-* (klein0r) Added options to override icon, text color and backgroup color for thresholds
-* (klein0r) Added option to download screen content to state (as SVG graphic)
-* (klein0r) Draw welcome icon on connection
-
-### 0.4.0 (2023-07-12)
-
-* (klein0r) Allow to import settings from another instance
-
-### 0.3.4 (2023-07-11)
-
-* (klein0r) Use default scroll speed if 0
-* (klein0r) Instance selection for history apps
-
-### 0.3.3 (2023-07-07)
-
-* (klein0r) Use default duration if 0
+* (klein0r) Dropped timer support (removed in firmware 0.71)
+* (klein0r) Removed native app "eyes" (removed in firmware 0.71)
 
 ## License
 MIT License

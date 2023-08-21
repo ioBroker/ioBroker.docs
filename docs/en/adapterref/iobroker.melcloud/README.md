@@ -29,6 +29,9 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.3.5 (2023-08-01)
+* (Black-Thunder) Memory leak was fixed
+
 ### 1.3.4 (2023-05-11)
 * (Black-Thunder) Certificate issues were fixed (e.g. "Error: unable to verify the first certificate")
 
