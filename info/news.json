@@ -1,4 +1,4 @@
-[    
+[
     {
         "title": {
             "en": "The Squeezebox adapter will be discontinued and will be replaced.",
@@ -542,6 +542,23 @@
         "created": "2023-07-10T016:00:00.000Z",
         "conditions": {
             "km200": "installed"
+        }
+    },
+    {
+        "title": {
+            "en": "10th anniversary event",
+            "de": "10-jähriges Jubiläums-Event"
+        },
+        "content": {
+            "en": "For this occasion a user meeting with presentations and workshops around ioBroker is planned in 2024. To register without obligation, click on the banner under <a href=\"https://www.iobroker.net/#usertreffen\">user meeting registration</a>",
+            "de": "Zu diesem Anlass ist 2024 ein Usertreffen mit Vorträgen und Workshops rund um ioBroker geplant. Um dich unverbindlich anzumelden, klicke auf den Banner unter <a href=\"https://www.iobroker.net/#usertreffen\">Registrierung Usertreffen</a>."
+        },
+        "id": "anniversary",
+        "class": "info",
+        "fa-icon": "exclamation-circle",
+        "created": "2023-08-23T08:15:00.000Z",
+        "conditions": {
+            "admin": "installed"
         }
     }
 ]
