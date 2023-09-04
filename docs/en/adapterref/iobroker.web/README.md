@@ -82,8 +82,12 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
-### 6.0.2 (2023-07-07)
+### 6.1.0 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
+### 6.0.3 (2023-07-27)
 * (bluefox) Updated packages
+* (bluefox) Implemented the possibility to view folder content
 
 ### 6.0.1 (2023-03-20)
 * (bluefox) Removed letsencrypt handling from web adapter

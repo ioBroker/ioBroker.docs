@@ -138,6 +138,12 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.2.0 (2023-08-19)
+* (Sickboy78) repetitive errors are now logged as debug to avoid spamming the error log
+* (Sickboy78) increased timeout for surepet API from 60 to 120 seconds
+* (Sickboy78) added removal of deleted or renamed pets
+* (Sickboy78) security updates
+
 ### 1.1.9 (2023-07-21)
 * (Sickboy78) fixed undefined serial number
 * (Sickboy78) dependency updates

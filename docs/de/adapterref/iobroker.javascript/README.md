@@ -13,7 +13,7 @@ Der javascript-Adapter dient dazu komfortabel Skripte zu erstellen, editieren un
 
 
 ![Einstellungsmenü Javascript Adapter](img/javascript_Einstellungen-Javascript.png)
-   Die eigentliche Konfiguration besteht aus der Eingabe von zusätzlichen zu ladenden npm-Module (durch Komma getrennt), sowie der Geo-Koordinaten, die für diverse Berechnungen benutzt werden sollen. Um die Koordinaten zu erhalten, kann man z.B. _google maps_ ziemlich weit aufzoomen und an der gewünschten Stelle anklicken. Die Koordinaten werden dann angezeigt. Nach dem Speichern muss der Adapter noch über die rote Play-Taste aktiviert werden.
+   Die eigentliche Konfiguration besteht aus der Eingabe von zusätzlichen zu ladenden npm-Modulen (durch Komma getrennt), sowie der Geo-Koordinaten, die für diverse Berechnungen benutzt werden sollen. Um die Koordinaten zu erhalten, kann man z.B. _google maps_ ziemlich weit aufzoomen und an der gewünschten Stelle anklicken. Die Koordinaten werden dann angezeigt. Nach dem Speichern muss der Adapter noch über die rote Play-Taste aktiviert werden.
 
 * * *
 
@@ -57,8 +57,9 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.1.4 (2023-08-09)
 * (bluefox) Added version to the side menu
+* (klein0r) Added blockly blocks for `getHistory` and calculated times
 
 ### 7.1.1 (2023-06-20)
 * (bluefox) corrected the script export
@@ -78,10 +79,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ### 7.0.5 (2023-06-06)
 * (klein0r) reset timeouts in blockly
 * (klein0r) added additional blockly blocks
-
-### 7.0.4 (2023-06-06)
-* (bluefox) packages updated
-* (bluefox) Files are used for export of scripts
 
 ## License
 The MIT License (MIT)

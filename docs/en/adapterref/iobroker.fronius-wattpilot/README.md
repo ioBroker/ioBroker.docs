@@ -75,6 +75,12 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.2 (2023-08-15)
+- Thanks to Norb1204 for fixing a few bugs that I missed. More in Issue #40
+
+### 4.6.1 (2023-08-15)
+- Fixed Issue #39 (set_state not working)
+
 ### 4.6.0 (2023-07-15)
 - Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
 - Fixed a number of issues concerning the static parser mode

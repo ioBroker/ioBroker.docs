@@ -88,10 +88,14 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 3.4.1 (2023-08-06)
 
 * (theimo1221) Compliance to adapter-checker
+* (theimo1221) Update Packages
+* (theimo1221) Debounce Doorbell Presses
+* (theimo1221) Add Support for cocoa_doorbell_v2
+* (theimo1221) Add Support for stickup_cam_longfin
+* (theimo1221) Fix compatibility and recompile
 
 ### 3.4.0 (2023-06-09)
 

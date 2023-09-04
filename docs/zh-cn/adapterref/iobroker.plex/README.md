@@ -3,134 +3,148 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: jXJT6rWqMtSZBhI5P93fF0BtQxWaPG/3qBnjz5B9ryA=
+hash: A8eCcDj15R8FhUETlsXlfmx67TBie0BQbsms6hlMyvQ=
 ---
-![商标](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
+![标识](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![安装数量](http://iobroker.live/badges/plex-installed.svg)
 ![稳定版](http://iobroker.live/badges/plex-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.plex.svg)
-![自上次发行以来提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.plex.svg)
-![NPM](https://nodei.co/npm/iobroker.plex.png?downloads=true)
+![自上次发布以来的提交](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.plex.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
-＃ioBroker.plex在ioBroker中集成Plex媒体服务器（带有或不带有Plex Pass）。此外，Tautulli集成。
-[![Travis CI]（https://travis-ci.com/Zefau/ioBroker.plex.svg?branch=master）](https://travis-ci.com/Zefau/ioBroker.plex)
+# IoBroker.plex Plex 媒体服务器在 ioBroker 中的集成（带或不带 Plex Pass）。此外，Tautulli 整合。
+[![特拉维斯 CI](https://travis-ci.com/Zefau/ioBroker.plex.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.plex)
 
 **目录**
 
-1. [功能]（＃1-功能）
-2. [设置说明]（＃2-设置说明）
-   1. [基本设置]（＃21-基本设置）
-   2. [高级设置]（＃22-高级设置双工或tautulli）
-3. [通道和状态]（＃3通道-状态）
-   1. [使用基本设置]（＃31-with-basis-setup）
-   2. [使用高级设置]（＃32-高级设置）
-4. [变更日志]（＃changelog）
-5. [许可证]（＃license）
+1. [功能](#1-功能)
+2. [设置说明](#2-设置-说明)
+   1. [基本设置](#21-基本-设置)
+   2. [高级设置](#22-advanced-setup-plex-pass-or-tautulli)
+3. [通道和状态](#3-通道--状态)
+   1. [基本设置](#31-with-basis-setup)
+   2. [高级设置](#32-with-advanced-setup)
+4. [变更日志](#changelog)
+5. [许可证](#license)
 
-## 1.功能
--接收有关当前播放的媒体项目的详细媒体信息（例如视频比特率，编解码器，字幕信息，音频；请参阅[高级设置]（https://github.com/Zefau/ioBroker.plex/blob/master/README- States.md＃with-advanced-setup）以获取完整列表）
--从Plex接收“事件”（通过[Plex Webhook]（https://support.plex.tv/articles/115002267687-webhooks/#toc-0）和[Plex通知]（https://support.plex.tv / articles / push-notifications /＃toc-0）使用Plex Pass或通过Tautulli，[__请参阅设置！__]（＃22-advanced-setup-plex-pass-or-tautulli））
--播放器的播放控制
--检索服务器
--检索“库”
--检索库中的所有项目
--检索“用户”（仅适用于Tautulli）
--检索“统计信息”（仅适用于Tautulli）
--检索“播放列表”
--检索“设置”
--Web界面，显示来自Plex的最近事件：
+## 1. 特点
+- 接收有关当前播放媒体项的详细媒体信息（例如视频比特率、编解码器、字幕信息、音频；请参阅[高级设置](https://github.com/Zefau/ioBroker.plex/blob/master/README- states.md#with-advanced-setup）查看完整列表）
+- 从 Plex 接收“事件”（通过 [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) 和 [Plex 通知](https://support.plex.tv /articles/push-notifications/#toc-0) 使用 Plex Pass 或通过 Tautulli，[__see setup!__](#22-advanced-setup-plex-pass-or-tautulli))
+- 玩家的播放控制
+- 检索“服务器”
+- 检索“库”
+- 检索图书馆内的所有项目
+- 检索“用户”（仅适用于 Tautulli）
+- 检索“统计数据”（仅适用于 Tautulli）
+- 检索“播放列表”
+- 检索“设置”
+- 显示 Plex 最近事件的 Web 界面：
 
-  ![Plex Web界面](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
+  ![Plex 网络界面](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
 
-## 2.安装说明
-### 2.1。基本设定
-对于基本设置，需要提供Plex安装的IP地址（和端口）。此外，您必须为适配器检索专用令牌以从Plex检索数据。
+## 2. 设置说明
+### 2.1。基本设置
+对于基本设置，需要提供 Plex 安装的 IP 地址（和端口）。此外，您必须检索适配器的专用令牌才能从 Plex 检索数据。
 
-一旦给出，ioBroker.plex将检索所有基本数据（包括服务器，库）。有关基本数据的完整列表，请参见[频道与州](#21-with-basis-setup)。
+一旦给出，ioBroker.plex 将检索所有基本数据（包括服务器、库）。有关基本数据的完整列表，请参阅[频道和状态](#21-with-basis-setup)。
 
-### 2.2。高级设置（Plex Pass或Tautulli）
-#### 2.2.1。 Plex通行证
-__Webhook__
+### 2.2。高级设置（Plex Pass 或 Tautulli）
+#### 2.2.1.复合通行证
+__网络钩子__
 
-如果您是Plex Pass用户，则可以在Plex设置中[设置一个webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0)从Plex Media Server中检索当前事件/动作（播放，暂停，继续，停止，查看和评分）。
+如果您是 Plex Pass 用户，您可以在 Plex 设置中[设置网络钩子](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) 从 Plex 媒体服务器检索当前事件/操作（播放、暂停、恢复、停止、观看和评级）。
 
-导航到您的Plex Media Server并转到```Settings```和```Webhook```§。通过单击§§JJJJJ_2_2§§创建一个新的Webhook，并使用ioBroker.plex设置中指定的自定义端口输入ioBroker IP地址，并在路径中尾随```/plex```路径，例如```http://192.168.178.29:41891/plex```：
+导航至您的 Plex 媒体服务器并转至 ```Settings``` 和 ```Webhook```。单击 ```Add Webhook``` 创建了一个新的 Webhook，然后输入您的 ioBroker IP 地址以及 ioBroker.plex 设置中指定的自定义端口和尾随 ```/plex``` 路径，例如```http://192.168.178.29:41891/plex```：
 
 ![Plex Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
 
-__事件__
+__活动__
 
-有关Plex通知的信息，请[参阅官方文件](https://support.plex.tv/articles/push-notifications/#toc-0)。要打开Plex Media Server上的通知，请转至`Settings`>`Server`>`General`，然后启用`Push Notifications`首选项。
+有关 Plex 通知的信息，请[查看官方文档](https://support.plex.tv/articles/push-notifications/#toc-0)。要在 Plex 媒体服务器上打开通知，请转至 `Settings` > `Server` > `General`，然后启用 `Push Notifications` 首选项。
 
-#### 2.2.2.Tautulli
-[Tautulli是第三方应用程序]（https://tautulli.com/#about），可以与Plex Media Server一起运行以监视活动并跟踪各种统计信息。最重要的是，这些统计信息包括已观看的内容，观看者，观看时间和地点以及观看方式。所有统计信息均以漂亮美观的界面呈现，其中包含许多表格和图表，这使向其他人轻松炫耀您的服务器变得容易。签出[Tautulli预览]（https://tautulli.com/#preview）并[将其安装在您的首选系统上](https://github.com/Tautulli/Tautulli-Wiki/wiki/Installation)（如果您有兴趣）。
+#### 2.2.2.陶图利
+[Tautulli 是一个第三方应用程序](https://tautulli.com/#about)，您可以与 Plex 媒体服务器一起运行来监控活动并跟踪各种统计数据。最重要的是，这些统计数据包括观看过的内容、观看者、观看时间和地点以及观看方式。所有统计数据都显示在一个漂亮且干净的界面中，其中包含许多表格和图表，这使得您可以轻松地向其他人吹嘘您的服务器。查看 [Tautulli 预览版](https://tautulli.com/#preview) 并[将其安装在您的首选系统上](https://github.com/Tautulli/Tautulli-Wiki/wiki/Installation)如果您有兴趣。
 
-此适配器连接到[Tautulli API](https://github.com/Tautulli/Tautulli/blob/master/API.md)，并且还从Tautulli接收webhook事件。
+此适配器连接到 [陶图利API](https://github.com/Tautulli/Tautulli/blob/master/API.md) 并还接收来自 Tautulli 的 Webhook 事件。
 
-##### 2.2.2.1。 API
-安装Tautulli后，从Tautulli仪表板打开_Settings_页面，然后导航到_Web Interface_。向下滚动到_API_部分，并确保已选中§§JJJJJ_0_0§§。复制```API key```并将其输入ioBroker.plex设置中。此外，添加Tautulli IP地址和端口以允许API通信。
+##### 2.2.2.1。应用程序编程接口
+安装 Tautulli 后，从 Tautulli 仪表板打开“设置”页面并导航至“Web 界面”。向下滚动到 _API_ 部分并确保选中 ```Enable API```。复制 ```API key``` 并将其输入到 ioBroker.plex 设置中。此外，添加 Tautulli IP 地址和端口以允许 API 通信。
 
-##### 2.2.2.2。 Webhook
-######概述
-要使用Tautulli设置webook，请遵循以下指示并确保您已完成所有4个步骤：
+##### 2.2.2.2。网络钩子
+＃＃＃＃＃＃ 概述
+要使用 Tautulli 设置网络书，请按照以下说明进行操作，并确保您已完成所有 4 个步骤：
 
 1.添加通知代理
-2.在Notification Agent中配置Webhook
-3.在Notification Agent中配置触发器
-4.在Notification Agent中配置数据
-5.配置通知选项
+2. 在通知代理中配置 Webhook
+3. 在通知代理中配置触发器
+4. 在通知代理中配置数据
+5. 配置通知选项
 
-######说明
-安装后，从Tautulli仪表板打开设置页面，并导航到Notification Agents，如下所示：
+＃＃＃＃＃＃ 描述
+安装后，从 Tautulli 仪表板打开设置页面并导航到通知代理，如下所示：
 
-![Tautulli设置](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-settings.png)
+![陶图利设置](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-settings.png)
 
-1.单击_添加新的通知代理_和_Webhook_。
-2.使用在ioBroker.plex设置中指定的自定义端口输入ioBroker IP地址，并在路径末尾加上“ / tautulli”路径，例如```http：//192.168.178.29：41891 / tautulli`''：
+1. 单击_添加新通知代理_和_Webhook_。
+2. 输入您的 ioBroker IP 地址以及 ioBroker.plex 设置中指定的自定义端口和尾随 ``/tautulli``` 路径，例如``http://192.168.178.29:41891/tautulli````：
 
-![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png)此外，为_Webhook方法_选择§§JJJJJ_0_0§§，然后在_Description_中输入您喜欢的任何描述。
+![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) 此外，为_Webhook 方法_选择```POST```，并在_描述_中输入您喜欢的任何描述。
 
-3.接下来，转到_Triggers_选项卡，选择所需的（或全部）通知代理。启用的通知代理将触发事件，然后将其发送到ioBroker。 __请确保__在下一步中为每个已启用的通知代理提供必要的数据！
-4.现在，最重要的是__，根据__ [此处的通知配置]（README-tautulli.md＃notification-configuration）__填写_Data_选项卡中的相应数据有效负载。
+3. 接下来，转到_触发器_选项卡，选择所需的（或全部）通知代理。启用的通知代理将触发一个事件，然后该事件将发送到 ioBroker。 __确保__ 在下一步中为每个启用的通知代理提供必要的数据！
+4. 现在，__最重要的是__，根据__[此处找到的通知配置](README-tautulli.md#notification-configuration)__ 在_Data_选项卡中填写相应的数据负载。
 
-   在每个文本框中复制上一步中相关通知代理的通知配置（例如```Playback Start```，```Playback Stop```，§§JJJJ_2_2§§和```Playback Resume```），如下所示，用于§ §JJJJJ_4§§：
+   将上一步中相关通知代理的通知配置（例如 ```Playback Start```、```Playback Stop```、```Playback Pause``` 和 ```Playback Resume```）复制到每个文本框中，如下所示 § §JJJJJ_4§§：
 
-   ![Tautulli通知](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
+   ![陶图利通知](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification.png)
 
-5.最后，选中选项“允许连续通知”以启用允许发送连续通知（例如，已观看和已停止的通知）：
+5. 最后，选中选项“允许连续通知”以允许发送连续通知（例如，观看和停止的通知）：
 
-   ![Tautulli通知设置](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification_settings.png)
+   ![陶图利通知设置](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-notification_settings.png)
 
-## 3.频道和状态
-配置了基本设置和高级设置后，将出现以下通道（库，服务器和用户仅是示例）。有关[频道和状态的完整列表](#21-with-basis-setup)的更多信息，请参见下文。
+## 3. 通道和状态
+配置基本和高级设置后，将出现以下通道（库、服务器和用户当然只是示例）。进一步参见下文的[频道和状态的完整列表](#21-with-basis-setup)。
 
-![频道与州范例](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
+![通道和状态示例](../../../en/adapterref/iobroker.plex/img/screenshot_plex-states.jpg)
 
-### 3.1。使用基础设置
-基本设置成功后，将根据下表创建通道。有关将要创建的所有状态的列表，请[查看国家的专用清单](README-states.md#with-basis-setup)。
+### 3.1。带基础设置
+成功完成基本设置后，将根据下表创建通道。有关将创建的所有州的列表，请[请参阅专门的州列表](README-states.md#with-basis-setup)。
 
-|频道/文件夹|描述 |
+|频道/文件夹 |描述 |
 | ------- | ----------- |
-| __图书馆__ | Plex库|
-| __服务器__ | Plex服务器|
-| __设置__ | Plex设置|
+| __图书馆__ | Plex 图书馆 |
+| __服务器__ | Plex 服务器 |
+| __设置__ |丛设置 |
 
-### 3.2。使用高级设置
-成功进行高级设置后，将“创建”以下通道。有关将要创建的所有状态的列表，请[查看国家的专用清单](README-states.md#with-advanced-setup)。
+### 3.2。具有高级设置
+成功进行高级设置后，将额外创建以下通道。有关将创建的所有州的列表，请[请参阅专门的州列表](README-states.md#with-advanced-setup)。
 
-|频道/文件夹|描述备注|
+|频道/文件夹|描述 |备注 |
 | ---------------- | ----------- | ------ |
-| __ \ _ playing__ | Plex Media正在播放|使用Plex Pass或Tautulli |
-| __统计__ | Plex手表统计信息|仅与Tautulli |
-| __用户__ | Plex用户|仅与Tautulli |
+| __\_玩__ |正在播放 Plex Media |使用 Plex Pass 或 Tautulli |
+| __统计__ | Plex 观察统计 |仅限 Tautulli |
+| __用户__ | Plex 用户 |仅限 Tautulli |
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.1 (2023-08-21)
+- (ticaki) Xmlparser call fixed
+
+### 1.0.0 (2023-08-20)
+- (ticaki) fixed: several minor issues have been fixed
+
+### 1.0.0-alpha.3 (2023-08-16)
+- (ticaki) fixed: common.type warnings have been fixed and missing state definitions have been added #114 #101 #100
+- (ticaki) fixed: player controls  
+- (ticaki) fixed: history page has been fixed 
+- (ticaki) fixed: translation error has been fixed #108
 
 ### 0.9.0 (2020-05-23)
-- (Zefau) added option for webhook Ip address in case Plex is running in a Docker environment (see [#53](https://github.com/Zefau/ioBroker.plex/issues/53))
+- (Zefau) added option for webhook IP address in case Plex is running in a Docker environment (see [#53](https://github.com/Zefau/ioBroker.plex/issues/53))
 - (Zefau) updated dependencies
 
 ### 0.8.11 (2020-02-26)
@@ -231,6 +245,7 @@ __事件__
 The MIT License (MIT)
 
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
+Copyright (c) 2023 iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

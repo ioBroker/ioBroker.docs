@@ -24,7 +24,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.70_ (or later) - e.g. Ulanzi TC001
+- _Awtrix Light_ device with firmware _0.74_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -56,6 +56,22 @@ The hardware design is not the best. Please use a power supply which deliveres m
 
 Yes, but you have to open the case with a heat gun (since the front glued to the case) and [modify the PCB with a step down converter](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765).
 
+**Is it possible to re-order apps?**
+
+By default, apps are displayed in the same order as in the instance configuration. Just move an app up or down to change it's position. History apps are always positioned after all custom apps!
+
+To set custom positions for each app, the expert option `custom positions` has to be enabled. After that, it is possible to define a position on each app.
+
+**Can I define a custom number format?**
+
+All states (of common.type `number`) are formatted as configured in the system settings of ioBroker. It is possible to override the system format (since adapter version 0.7.1) by using an expert option. Numbers can be formatted in the following styles:
+
+- System default
+- `xx.xxx,xx`
+- `xx,xxx.xx` (US-Format)
+- `xxxxx,xx`
+- `xxxxx.xx` (US-Format)
+
 ## Same apps on multiple devices
 
 If you have multiple awtrix-light devices, it is required to create a new instance for each device. But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
@@ -71,7 +87,6 @@ Example:
 `sendTo` / message box can be used to
 
 - send one time notifications (with text, sound, duration, ...)
-- create a timer
 - play a custom sound
 
 ### Notifications
@@ -79,7 +94,7 @@ Example:
 Send a "one time" notification to your device:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, duration: 5, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -89,22 +104,6 @@ sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repea
 The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties) for details.
 
 *You can also use a Blockly block to send a notification (doesn't provide all available options).*
-
-### Timer
-
-Create a new timer (in 1 hour, 10 minutes and 5 seconds):
-
-```javascript
-sendTo('awtrix-light', 'timer', { sound: 'example', seconds: 5, minutes: 10, hours: 1 }, (res) => {
-    if (res && res.error) {
-        console.error(res.error);
-    }
-});
-```
-
-The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=timer) for details.
-
-*You can also use a Blockly block to create a timer.*
 
 ### Sounds
 
@@ -126,7 +125,7 @@ The message object supports all available options of the firmware. See [document
 
 **App names must be lowercase (a-z) and unique. No numbers, no capital letters, no special characters, no whitespaces.**
 
-The following names are used by internal apps and cannot be used: `time`, `eyes`, `date`, `temp`, `hum`, `bat`.
+The following names are used by internal apps and cannot be used: `time`, `date`, `temp`, `hum`, `bat`.
 
 - `%s` is a placeholder for the state value
 - `%u` is a placeholder for the unit of the state object (e.g. `°C`)
@@ -147,14 +146,14 @@ The following combinations will lead to a warning in the log:
 
 **App names must be lowercase (a-z) and unique. No numbers, no capital letters, no special characters, no whitespaces.**
 
-The following names are used by internal apps and cannot be used: `time`, `eyes`, `date`, `temp`, `hum`, `bat`.
+The following names are used by internal apps and cannot be used: `time`, `date`, `temp`, `hum`, `bat`.
 
 **History apps just display acknowledged history values! Control states with `ack: false` are ignored!**
 
 ## App states
 
 - You can use the state `activate` of each app to bring that app to front
-- This state has the role `button` and allows just the value `true` (everything other value will raise a warning)
+- This state has the role `button` and allows just the value `true` (other values will raise a warning)
 
 ## Hide custom or history apps
 
@@ -171,32 +170,42 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
 -->
 ### **WORK IN PROGRESS**
 
+Updated recommended firmware version to 0.74
+
+* (klein0r) Allow to set custom app positions (expert options)
+* (klein0r) Unsubscribe from all states if device is not reachable
+* (klein0r) Added expert apps
+
+### 0.7.1 (2023-08-09)
+
+* (klein0r) Added option for number format
+
+### 0.7.0 (2023-08-03)
+
+Updated recommended firmware version to 0.72
+
+* (klein0r) Added MovingLine effect
+* (klein0r) Added settings for time style and transition effect
+* (klein0r) Setting repeat to 1 in blockly notifications
+
+### 0.6.2 (2023-07-30)
+
+* (klein0r) Fixed handling of state cache when object has been changed
+
+### 0.6.1 (2023-07-28)
+
+* (klein0r) Remove background effect in threshold overrides
+* (klein0r) Minor fixes in admin config
+* (klein0r) Fixed missing icon in history apps
+
+### 0.6.0 (2023-07-26)
+
+Updated recommended firmware version to 0.71
+
+* (klein0r) Added option for background effects
 * (klein0r) Setting default of repeat to 0
-
-### 0.5.1 (2023-07-19)
-
-* (klein0r) Fixed color conversion for svg
-* (klein0r) Added support for state type "mixed"
-* (klein0r) Improved log messages
-
-### 0.5.0 (2023-07-18)
-
-* (klein0r) Added options to override icon, text color and backgroup color for thresholds
-* (klein0r) Added option to download screen content to state (as SVG graphic)
-* (klein0r) Draw welcome icon on connection
-
-### 0.4.0 (2023-07-12)
-
-* (klein0r) Allow to import settings from another instance
-
-### 0.3.4 (2023-07-11)
-
-* (klein0r) Use default scroll speed if 0
-* (klein0r) Instance selection for history apps
-
-### 0.3.3 (2023-07-07)
-
-* (klein0r) Use default duration if 0
+* (klein0r) Dropped timer support (removed in firmware 0.71)
+* (klein0r) Removed native app "eyes" (removed in firmware 0.71)
 
 ## License
 MIT License

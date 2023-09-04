@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: 9JkQkAkEUwCAcPs2Nmazq+dTiQcPBBp+DG/V6J0DVqk=
+hash: O869NPKJcRTO44Sz17Hz0dXrl3LKDNy0MQbUb7arwHs=
 ---
 ![标识](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -17,7 +17,7 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 
 它与`ioBroker.socketio`几乎相同，但不使用socket.io库，只是模拟它。
 
-**重要提示：自此适配器 v4.0 起，仅使用纯 Websockets！ Socket.io不再由socket.io库实现，而是通过纯WebSockets模拟！**
+**重要提示：自该适配器 v4.0 起，仅使用纯 Websockets！ Socket.io不再由socket.io库实现，而是通过纯WebSockets模拟！**
 
 用户可以使用此适配器通过网络套接字将其产品连接到 ioBroker。
 实际上，echarts、vis 和许多其他适配器都可以使用此适配器从 ioBroker 提取数据。
@@ -53,7 +53,7 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 与对象相比，状态本身的变化非常频繁。 （通常对象应该在创建时更改一次，仅此而已）
 
 ### 致谢
-每个状态都有属性“ack”。它显示了命令的方向。
+每个状态都有属性`ack`。它显示了命令的方向。
 
 - 如果 ack=false，则意味着其他适配器想要控制（写入）此变量，以便执行该命令（例如，灯将打开）。
 - 如果ack=true，则意味着设备通知新值。 （例如，手动打开灯或检测到运动）
@@ -78,8 +78,11 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.5.3 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 2.4.0 (2023-07-07)
-(bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects

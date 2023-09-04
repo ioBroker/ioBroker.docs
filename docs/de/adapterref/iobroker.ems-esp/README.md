@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: IufM3tIMikJYx7enM7YMVTmo8P/MOZdVP9yIgUo2CAw=
+hash: 84zjgqUw/NKFjU+JudJR+kSqD/M87XZqfih5owu1tdc=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -24,7 +24,7 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 ## Es kann über Web-API-Aufrufe eine Schnittstelle zum Heizsystem herstellen:
 * km200, km200 hrv, km100, km50, HMC300 oder IP-inside (von Bosch Group)
 
-* ems-esp-Schnittstelle (https://github.com/emsesp/EMS-ESP32) mit der neuesten Entwicklungsversion (siehe unten) und dem ESP32-Chip.
+* ems-esp-Gateway (https://github.com/emsesp/EMS-ESP32) mit der neuesten Entwicklungsversion (siehe unten) und dem ESP32-Chip.
 
   Die alten ESP8266-Gateways mit API V2 werden NICHT MEHR UNTERSTÜTZT!!
 
@@ -52,7 +52,8 @@ Dieser Adapter liest After-Start-Werte von ems-esp und km200 über HTTP-Get-Anfr
 Die Web-API-Aufrufe zum/vom km200-Gateway sind verschlüsselt. Für die Ver-/Entschlüsselung werden zwei Passwörter benötigt:
 
 * das Gateway-Passwort auf einem Etikett am Gateway in der Form: xxxx-xxxx-xxxx-xxxx (Groß-/Kleinschreibung beachten)
-* das private Passwort, das mit der Buderus **MyDevice**-App festgelegt wurde (verwenden Sie nicht myBuderus / EasyCom oder ähnliche cloudbasierte Apps!)
+* Das private Passwort wird über die Buderus **MyDevice** App festgelegt (verwenden Sie nicht myBuderus / EasyCom oder ähnliche cloudbasierte Apps!)
+* ohne privates Passwort (wenn MyDevice APP nicht funktioniert) funktioniert der km200-Adapterteil nicht !!!
 
 Die für das Bosch-Gateway zu verwendenden Felder können auch durch Abfrage der km200-Struktur (*) oder der jeweiligen CSV-Datei innerhalb der Adapterinstanzparameter definiert werden.
 Für den ersten Adapterstart wird empfohlen, alle km200-Datenfelder mit einem „*“ auszuwählen.
@@ -66,11 +67,9 @@ Die meisten modernen Heizsysteme verfügen über ein IP-Inside-Gateway und unter
 
 * Aufzeichnung für Stromverbrauch und Temperaturstatistik
 * Für diese Systeme und sofern diese Aufzeichnungsdaten verfügbar sind, werden die entsprechenden Statistiken abgefragt und in Zuständen gespeichert.
-
-Verfügbar sind stündliche, tägliche und monatliche Statistiken sowie die Speicherung als Array-Daten in Zuständen und bei Auswahl einer Datenbankinstanz auch in Staaten, die mit Datenbankeinträgen gefüllt sind. (Statusnamen beginnen mit „_“)
-
-* Das Kontrollkästchen Aufzeichnungen muss aktiviert sein und die Datenbankinstanz (mySQL oder InfluxDB) muss definiert sein. Um diese Option nutzen zu können, muss der SQL- oder InfluxDB-Verlaufsadapter installiert und aktiv sein.
-* Die von Web-API-Aufrufen gelesenen Originalaufzeichnungsdaten werden unter der Statusstruktur km200 gespeichert.
+* Verfügbar sind stündliche, tägliche und monatliche Statistiken und werden als Array-Daten in Zuständen gespeichert und bei Auswahl einer Datenbankinstanz auch in Staaten, die mit Datenbankeinträgen gefüllt sind. (Statusnamen beginnen mit „_“)
+* Das Kontrollkästchen Aufzeichnungen muss aktiviert sein und die Datenbankinstanz (History, mySQL oder InfluxDB) muss definiert sein. Um diese Option nutzen zu können, müssen SQL, InfluxDB oder der Verlaufsadapter installiert und aktiv sein.
+* Die von Web-API-Aufrufen gelesenen Originalaufzeichnungsdaten werden ebenfalls unter der Statusstruktur km200 gespeichert.
 * DB-Statistiken zur Anzeige in Flot-Diagrammen oder Grafana sind bisher nur für mySQL- und InfluxDB-Datenbanken verfügbar.
 * Für InfluxDB V1 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden. (Ändern Sie die globale Aufbewahrungsrichtlinie für die Dauer von iobroker auf 170 W;)
 * Für InfluxDB V2 wird die globale Aufbewahrungsrichtlinie vom Influxdb-Adapter festgelegt – bitte stellen Sie im Influxdb-Adapter die Speicheraufbewahrungszeit auf „keine automatische Löschung“ ein!
@@ -119,7 +118,7 @@ Der Kesselwirkungsgrad kann berechnet werden, wenn die Parameter ausgefüllt sin
 
 ## Veränderungen in der Staatsstruktur
 Immer wenn eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden diese während der Adapterausführung verarbeitet. Dennoch werden veraltete Datenfelder vom Adapter nicht automatisch gelöscht.
-Es besteht die Möglichkeit, die Statusstruktur neu aufzubauen, indem Status beim Neustart des Adapters gelöscht werden (Status mit Verlaufs-/Datenbankeinträgen bleiben erhalten).
+Es besteht die Möglichkeit, die Statusstruktur neu aufzubauen, indem Status beim Neustart des Adapters gelöscht werden. (Zustände mit Verlauf / Datenbankeinträge bleiben erhalten)
 
 ## Wärmebedarfssteuerung
 Erläuterung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher Sprache verfügbar: https://github.com/tp1de/ioBroker.ems-esp/wiki
@@ -131,6 +130,21 @@ Erläuterung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutsche
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2023-08-20)
+* trim km200 passwords
+* require node version >= 16
+* update dependencies
+
+### 2.2.0 (2023-08-09)
+* enable history adapter for recordings and statistics
+* update km200 states for valid range of min/max 
+* avoid warnings from v2.1 related to min/max in combination with km200 state-list
+* update dependencies
+
+### 2.1.0 (2023-07-30)
+* ems-esp V3.6 release preparation
+* error corrections for ems-esp state changes
+
 ### 2.0.3 (2023-07-25)
 * error corrections for km200 read
 

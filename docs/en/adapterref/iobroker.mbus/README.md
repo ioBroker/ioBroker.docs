@@ -40,6 +40,10 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 2.5.0 (2023-08-11)
+* IMPORTANT: Node.js 14.x is now required at least
+* (Apollon77) Update dependencies to also support Node.js 20
+
 ### 2.4.0 (2022-06-30)
 * IMPORTANT: Node.js 12.x is now required at least
 * (Apollon77) Several updates and optimizations
@@ -123,7 +127,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

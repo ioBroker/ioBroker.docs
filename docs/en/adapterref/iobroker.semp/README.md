@@ -53,6 +53,12 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
+### 1.3.3 (2023-08-01)
+* (René) check max power consumption added
+
+### 1.3.4 (2023-07-30)
+* (René) dependencies updated
+
 ### 1.3.2 (2023-06-12)
 * (René) bug fix: sentry reported exceptions fixed
 

@@ -73,6 +73,9 @@ Afterwards, when you delete the device from the object tree, the adapter will no
 
 ## Changelog
 
+### 0.9.2
+* (ChL) Fix handling of frame type B without CRC
+
 ### 0.9.1
 * (ChL) Fix custom port display in admin page if SerialPort returns no ports
 

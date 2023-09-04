@@ -20,6 +20,9 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.4.2 (2023-08-11)
+* (bluefox) Optimized the state subscription in vis-2 widget
+
 ### 0.3.11 (2023-07-19)
 * (bluefox) Small layout changes
 

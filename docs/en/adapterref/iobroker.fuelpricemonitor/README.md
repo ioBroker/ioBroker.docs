@@ -27,6 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.3.6 (2023-08-10)
+* (HGlab01) switch to Admin5 UI for configuration
+
 ### 0.3.5 (2023-07-07)
 * (HGlab01) Spread API calls
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
@@ -43,13 +46,10 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
 * (HGlab01) Bump axios to 1.2.1
 
-### 0.3.1 (2022-10-25)
-* (HGlab01) Add option to exclude closed gas stations (#407)
-
 ## License
 MIT License
 
-Copyright (c) 2022 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

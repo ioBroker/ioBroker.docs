@@ -75,9 +75,9 @@ Dieser stellt unter anderem die für den Betrieb von ioBroker notwendigen Sicher
 
 #### 9 - ioBroker starten
 Einige verwendete JavaScript Module beinhalten Teile die kompiliert werden müssen. Dieser Prozess findet bei der Installation statt.  
-Durch das kompilieren sind diese Module an die Node.js Version gebunden. Nachdem Update müssen diese Teile daher neu kompiliert werden.
+Durch das kompilieren sind diese Module an die Node.js Version gebunden. Nach einem Update müssen diese Teile daher neu kompiliert werden.
 Seit js-controller Version 3.0 wird versucht, Adapter die solche Teile beinhalten, zu erkennen und automatisch einen Rebuild durch zu führen.
-Dieser Prozess kann eingie Zeit in Anspruch nehmen und die betroffenen Adapter können mehrfach neu starten.
+Dieser Prozess kann einige Zeit in Anspruch nehmen und die betroffenen Adapter können mehrfach neu starten. Dies kann im LogFile beobachtet werden. Dies geht am einfachsten in einem Terminal mittels ``iob logs --watch | uniq ``
 
 <details>
 <summary>Automatische Rebuilds</summary>
@@ -111,7 +111,7 @@ Es gibt auch andere Fehlermeldungen die jedoch alle auf das gleiche hinauslaufen
 Die einfachste Option ist es dann manuell im **richtigen** Verzeichnis neu zu bauen.
 In dem Fall das Verzeichnis mit "bindings" suchen - oben ist das */opt/iobroker/node_modules/serialport/node_modules/bindings ...* bei neueren Versionen kann es auch etwas wie */opt/iobroker/node_modules/serialport/node_modules/@serialport/bindings* sein.
 
-Anschließend in dieses Verzeichnis wechseln und `npm install --production` ausführen. Danach den Adapter nochmal neu starten.
+Anschließend in dieses Verzeichnis wechseln und `npm install --omit=dev` ausführen. Danach den Adapter nochmal neu starten.
 
 Ein weiterer Fall sind Adapter mit canvas Modul (ggf echarts oder Mihome-vacuum) wo es Probleme gebe kann.
 
@@ -122,7 +122,9 @@ Ein weiterer Fall sind Adapter mit canvas Modul (ggf echarts oder Mihome-vacuum)
 
 #### 1 - Version und Pfad prüfen
 ```
-which nodejs node npm && nodejs -v && node -v && npm -v
+sudo ln -s /usr/bin/node /usr/bin/nodejs &> /dev/null
+type -p nodejs node npm npx corepack && nodejs -v && node -v && npm -v && npx -v && corepack -v 
+
 ```
 - Ausgabe
 
@@ -130,10 +132,21 @@ which nodejs node npm && nodejs -v && node -v && npm -v
 /usr/bin/nodejs
 /usr/bin/node
 /usr/bin/npm
-v14.18.3
-v14.18.3
-6.14.15
+/usr/bin/npx
+/usr/bin/corepack
+v18.15.0
+v18.15.0
+9.6.0
+9.6.0
+0.19.0
 ```
+Wichtig ist:
+nodejs liegt in /usr/bin
+node liegt in /usr/bin
+npm liegt in /usr/bin
+npx liegt in /usr/bin
+corepack liegt in /usr/bin
+und die Versionsnummern von nodejs und node sowie von npm und npx stimmen jeweils überein.
 
 #### 2 - Backup
 
@@ -184,7 +197,7 @@ sudo apt install -y nodejs
 #### 7 - Version/Pfad kontrollieren
 
 ```
-which nodejs node npm && nodejs -v && node -v && npm -v
+type -p nodejs node npm npx corepack && nodejs -v && node -v && npm -v && npx -v && corepack -v
 ```
 
 #### 8 - iobroker fixer ausführen

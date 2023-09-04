@@ -2,25 +2,44 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.landroid/README.md
-title: ioBroker.landroid
-hash: E5DdgJBBgxL7Nif7ZHuxb9euevhp2JM5FdpvUOSUYr8=
+title: Этот адаптер УСТАРЕЛ и не будет развиваться дальше.
+hash: 0EHhr5qlOIy7tWNtiOKpY5u9grZDQwwP6h6mvcA9Q3Q=
 ---
-![логотип](../../../en/adapterref/iobroker.landroid/admin/landroid.png)
+![Логотип](../../../en/adapterref/iobroker.landroid/admin/landroid.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.landroid.svg)
+![Количество установок](http://iobroker.live/badges/landroid-stable.svg)
+![версия NPM](http://img.shields.io/npm/v/iobroker.landroid.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.landroid.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.landroid.svg)
 ![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.landroid/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.landroid.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.landroid.png?downloads=true)
 ![Трэвис-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.landroid/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.landroid?branch=master&svg=true)
-![Значок Greenkeeper](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.landroid.svg)
+![Значок Гринкипера](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.landroid.svg)
+
+# Этот адаптер УСТАРЕЛ и больше не будет развиваться
+-----
+
+В настоящее время дальнейшее развитие этого адаптера не планируется. __Пожалуйста, перейдите на адаптер ioBroker.worx__, который поддерживается.
+Если вы пропустите какие-либо функции на ioBroker.worx, откройте задачу в этом репозитории (https://github.com/tp1de/ioBroker.worx/issues).
+
+ioBroker.landroid будет оставаться доступным в течение некоторого времени, но имейте в виду, что он не будет адаптирован к Node 20 и грядущему js-controller v5.
+
+-----
 
 # IoBroker.landroid
 ## Адаптер Worx Landroid для ioBroker
 Это адаптер ioBroker для вашей косилки Worx Landroid. Он был протестирован с Landroid WG796E.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 
 ### 1.0.3
 * (ldittmar) compact mode compatibility added

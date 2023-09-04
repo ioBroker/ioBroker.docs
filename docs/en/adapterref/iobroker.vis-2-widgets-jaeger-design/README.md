@@ -1,5 +1,5 @@
 ![Logo](admin/vis-2-widgets-jaeger-design.png)
-# Material widgets for ioBroker.vis 2.0
+# Special Jaeger Design widgets for ioBroker.vis 2.0
 
 ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-jaeger-design-installed.svg) ![Number of Installations](http://iobroker.live/badges/vis-2-widgets-jaeger-design-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.vis-2-widgets-jaeger-design.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-jaeger-design)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)](https://www.npmjs.com/package/iobroker.vis-2-widgets-jaeger-design)
@@ -34,7 +34,26 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### 0.4.3 (2023-06-07)
+### 0.6.3 (2023-07-25)
+* (bluefox) Added many new features
+
+### 0.6.1 (2023-07-21)
+* (bluefox) Added max height/width for floors
+
+### 0.6.0 (2023-07-19)
+* (bluefox) Corrected some errors with information
+
+### 0.5.2 (2023-07-02)
+* (bluefox) Support of false for scenes
+
+### 0.5.0 (2023-06-28)
+* (bluefox) Added support for the new vis
+* (bluefox) Added page configurable margins
+
+### 0.4.6 (2023-06-19)
+* (bluefox) Corrected sub menu
+
+### 0.4.5 (2023-06-13)
 * (bluefox) Corrected visualization of view
 
 ### 0.4.0 (2023-05-31)

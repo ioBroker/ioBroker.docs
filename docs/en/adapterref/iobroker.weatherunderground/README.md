@@ -73,6 +73,20 @@ http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef8
 There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (mcm1957) Dependencies have been updated
+* (mcm1957) Adapter now requires node 16 or newer
+* (waldmensch1) Cloudcover states have been added (PR #178)
+
+### 3.4.3 (2023-08-15)
+* (Aplollon77) Translations have been updated (#159)
+* (mcm1957) The testenvironment has been updated to use node 16/18/20
+* (bluefox) Dependencies have been updated
+
 ### 3.4.2 (2022-04-26)
 * (Apollon77) Added special logging when no current observation data are available because Station most likely offline to reduce confusion
 
@@ -228,7 +242,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 dschaedl <daniel.schaedler@gmail.com>, iobroker-community
+Copyright (c) 2015-2023 dschaedl <daniel.schaedler@gmail.com>, iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

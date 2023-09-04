@@ -2685,8 +2685,9 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.1.4 (2023-08-09)
 * (bluefox) Added version to the side menu
+* (klein0r) Added blockly blocks for `getHistory` and calculated times
 
 ### 7.1.1 (2023-06-20)
 * (bluefox) corrected the script export
@@ -2706,10 +2707,6 @@ return 'your result';
 ### 7.0.5 (2023-06-06)
 * (klein0r) reset timeouts in blockly
 * (klein0r) added additional blockly blocks
-
-### 7.0.4 (2023-06-06)
-* (bluefox) packages updated
-* (bluefox) Files are used for export of scripts
 
 ## License
 The MIT License (MIT)

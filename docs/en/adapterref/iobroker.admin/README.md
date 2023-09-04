@@ -74,43 +74,42 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### 6.9.0 (2023-08-21)
+* (bluefox) Added possibility to change log direction
+* (bluefox) JSON config: Added possibility to filter out internal IP addresses
+* (bluefox) JSON config: Added _changed flag for formula in JSON config
+* (bluefox) JSON config: Added option `reloadBrowser` to sendto in JSON config
+* (bluefox) JSON config: Allowed positioning of add button on the very top of the table
+* (bluefox) JSON config: Trim strings by saving and not by typing
+* (bluefox) Added alias creation from object browser
+* (bluefox) Allowed to change chart type
+* (foxriver76) show a date picker when setting state (role: date/type: number)
+* (foxriver76) fixed problem, that creation of folders was not possible
+* (foxriver76) adapted text to clarify, that only tarball can be installed from path
+* (foxriver76) type string/role date will now also be previewed as a date in objects tab
+* (foxriver76) fixed problem with table formatting on history data point viewer
+* (foxriver76) fixed problem that could render update dialog with invalid property
+* (foxriver76) fixed sentry icon being in wrong position if no compact flag provided
 
-### **WORK IN PROGRESS**
-* (foxriver76) fixed "Let's Encrypt" link not being clickable inside system settings
-* (foxriver76) fixed false positives for "not much space left on device" warning
-* (foxriver76) fixed issue with npm version determination on some installations
-* (foxriver76) reset the logout timer UI if session is extended
-* (rovo89) apply button color change of v6.6.1 for all buttons
-* (foxriver76) correctly display materialized tabs when configured with io-package `adminUi` property
-* (foxriver76) enable keyboard navigation for objects tab
+### 6.8.3 (2023-08-16)
+* (foxriver76) added description to adapter rating dialog
+* (bluefox) Extended the select component with grouping
+* (bluefox) Allowed the sorting of adapters by name and not only by title
+* (bluefox) Allowed the set state JSON config component
 
-### 6.6.1 (2023-07-17)
-* (foxriver76) Many GUI improvements
-* (bluefox) New json config component added: license agreement
-* (foxriver76) also show non-stable repo warning on the hosts tab
-* (foxriver76) fixed jsonConfig slider with different max/min values than 0/100
-* (foxriver76) fixed jsonConfig number element arrows
-* (foxriver76) fixed jsonConfig coordinates not triggering onChange and not being prefilled
-* (foxriver76) fixed jsonConfig jsonEditor component
-* (foxriver76) assume status as offline if status state value has been deleted (e.g., via `setState` with `expire` option)
-* (foxriver76) fixed jsonConfig CheckLicense edge case error
-* (foxriver76) added tooltip to ObjectBrowserValue to show that ack-flag cannot be used to control a device
-* (foxriver76) fixed host name not being visible on some themes
-* (foxriver76) fixed issue with jsonConfig CRON placeholder overlapping input
-* (foxriver76) button color in non-expert mode will not be changed according to ack/q anymore
-* (foxriver76) fixed multiple problems with jsonConfig coordinates when using `useSystemName` and separate `latitude`/`longitutde` states
-* (foxriver76) when adding an icon to an object, to not show already uploaded non-existing image initially
-* (foxriver76) when the session timer falls below the 2 - minute mark, show button to extend the session
+### 6.8.0 (2023-08-14)
+* (foxriver76) try to find the correct IP for the controller UI multihost slave upgrade
+* (foxriver76) admin is now showing update information, while it is stopped during upgrade
+* (foxriver76) required Node.js version is 16 as 14 is End-Of-Life
+* (foxriver76) fixed downloading folders recursive
 
-### 6.6.0 (2023-07-05)
-* (klein0r) New json config component added: accordion
-* (bluefox) Added site name and corrected the system dialog
-
-### 6.5.9 (2023-06-19)
-* (bluefox) Added support for update of the js-controller slaves
-
-### 6.5.8 (2023-06-12)
-* (foxriver76) The log size will be parsed correctly for controller v5
+### 6.7.2 (2023-08-09)
+* (foxriver76) remove https certificate options
+* (foxriver76) prevent error log of not used certificates even-though they are used
+* (foxriver76) fixed issue with docker host cards on intro tab
+* (foxriver76) fixed issue if adapter readme is opened in new tab
+* (bluefox) corrected opening of custom tabs, e.g., for fullcalendar
+* (bluefox) allowed downloading of recursive folders
 
 ## License
 The MIT License (MIT)

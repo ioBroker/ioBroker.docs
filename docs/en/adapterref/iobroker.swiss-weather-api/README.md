@@ -6,36 +6,40 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api)
+![GitHub issues](https://img.shields.io/github/issues/baerengraben/ioBroker.swiss-weather-api?logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/baerengraben/ioBroker.swiss-weather-api/test-and-release.yml?branch=master&logo=github&style=flat-square)
+
 
 [![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)](https://nodei.co/npm/iobroker.swiss-weather-api/)
 
-**Tests:** ![Test and Release](https://github.com/baerengraben/ioBroker.swiss-weather-api/workflows/Test%20and%20Release/badge.svg)
 
-## swiss-weather-api adapter for ioBroker
-Connects to the great SRF weather API (https://developer.srgssr.ch/apis/srf-weather).
-The SRF Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland. A "Freemium" subscription allows you to get 50 Request/day.
+# swiss-weather-api adapter for ioBroker
+Connects to the great SRF weather API - Version 2 (https://developer.srgssr.ch/api-catalog/srf-weather/srf-weather-description).
+The SRF Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland. A "Freemium" subscription allows you to get 25 Request/day.
 
-##**Please Be aware:
-1. that this adapter only supports locations within Switzerland. And
-1. that this adapter only supports RF Weather REST API Version 1 - Version 2 is comming soon
+## **Please Be aware:**
+1. This adapter only supports locations within Switzerland.
+1. SRF Weather API V1 is supported until Adapter-Version 1.0.6. SRF Weather API V2 is supported from Version 2.0.0
 
-**Update procedure Version 1.0.1 to 1.0.x**
-- Just update in ioBroker. No special additional steps necessary
+## **Update procedure Version 1.x.x to 2.0.x**
+- Remove the adapter (delete all Adapter-Objects in ioBroker!)
+- Install Adapter completly new => New Objects will be generated
+- Since SRF has changed the Path-Names, you have to update your Visu. Just [reimport the views](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views).  
 
-### Getting started
+## Getting started
 1. Get a free accout on https://developer.srgssr.ch/
-1. Go to "My Apps" and create a new App. Here you can choose a Product. "Freemium" is their free product. If you only want a forecast for one location and get only 50 request per day (every 30min) or/and don't want to pay for more request per day, "Freemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
-1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed. This information is optional if you have set your location in the ioBroker settings (main settings) (via the map). In this case you could leave the latitude and longitude fields empty. The adapter then takes over the settings of the ioBroker. Latitude and longitude entered in the adapter configuration override the ioBroker settings.
+1. Go to "Apps" and add new App. Here you can choose a API-Product. "SRF-MeteoProductFreemium" is their free product. If you only want a forecast for one location and get only 25 request per day (every 60min) or/and don't want to pay for more request per day, "SRF-MeteoProductFreemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
+1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed. This information is optional if you have set your location in the ioBroker settings (main settings) (via the map). In this case you could leave the latitude and longitude fields empty. The adapter then ueses the settings of the ioBroker. Latitude and longitude entered in the adapter configuration override the ioBroker settings.
 1. Install this Adapter on ioBroker => This can take several minutes (~7min on a Raspberry Pi 3)
 1. On Adapter Configuration fill in
    1. Name of App
    1. ConsumerKey of App
    1. ConsumerSecret of App
    1. Longitude / Latitude of the chosen swiss location for which forecast is needed. => Please use decimal degrees (for example Zürich: 47.36667 / 8.5)
-   1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
+   1. Poll Interval in Minutes (By default 60 minutes - 25 Request/Day)
 
 The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes).
-The Objects in forecast.current_hour will be createt 30s after frist startup and updated every hour by copying the corresponding values from forecast.60minutes.
+The Objects in forecast.current_hour will be createt 30s after frist startup and updated every hour by copying the corresponding values from forecast.hours.
 
 ### Visualisation Example
 
@@ -45,7 +49,11 @@ The Objects in forecast.current_hour will be createt 30s after frist startup and
 * [Import Views to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
 
 ###### Example
+Simple Example:
 ![Tablet](doc/Wettervorhersage_visu_anim.gif)
+
+Extended Example:
+![Tablet](doc/Wettervorhersage_visu_anim2.gif)
 
 ## Changelog
 
@@ -54,35 +62,26 @@ The Objects in forecast.current_hour will be createt 30s after frist startup and
   ### **WORK IN PROGRESS**
 -->
 
-### 1.0.6
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/78
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/93
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/97
+### **WORK IN PROGRESS**
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/102
+* (baerengraben) Using ioBroker "formatDate" to format date_time attribut to "TT.MM.JJJJ SS:mm:ss"
 
-### 1.0.5
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/81
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/76
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/75
+### 2.0.4-alpha.0 (2023-08-03)
+* (baerengraben) Adding four new hour-based Views 
+* (baerengraben) JSON-Chart is now starting with 00:00 instead of 01:00 
+* (baerengraben) SRF sometimes delivers more and sometimes less daily data. This can lead to old data in certain objects. To prevent this, I delete the entire object tree with each new call to rebuild it.
 
-### 1.0.4
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/85
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/82
+### 2.0.3 (2023-08-01)
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94
 
-### 1.0.3
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/67
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/66
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/52
+### 2.0.2 (2023-07-31)
+* (baerengraben) Just another freaking release-script test
 
-### 1.0.2
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/51
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/53
+### 2.0.1 (2023-07-31)
+* (baerengraben) Just a release-script test
 
-### 1.0.1
-* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/57
-This change makes it necessary to regenerate IDs. So, to install version 1.0.1, the currently running adapter instance must be completely removed and replaced with a new instance.
-
-### 1.0.0
-* (baerengraben) Bugfix https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/64
+### 2.0.0 (2023-07-31) - Release for SRF Weather API Version 2!
+* (baerengraben) Update SRF API version 1 to version 2 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94. With this Update new attributes are available: symbol24_code, DEWPOINT_C, RELHUM_PERCENT, FRESHSNOW_CM, PRESSURE_HPA, SUN_MIN, IRRADIANCE_WM2 and TTTFEEL_C
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="Zeichnung"/>Synology-Chat-Adapter für ioBroker
-hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
+hash: 8+CDL/UDMzxpuBfUyveIUWQuIl/ql1uXHc6XOIJSCEA=
 ---
 ![stabile Version](https://iobroker.live/badges/synochat-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.synochat.svg)
@@ -43,8 +43,8 @@ Für die Einbindung einer eingehenden Nachricht in den Synology-Chat wird ein To
 
 <div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-  #### 2.1.1. Ausgehende Integration
-Für die Einbindung einer ausgehenden Nachricht in den Synology-Chat muss eine Web-Hook-URL angegeben werden. Sie erhalten diese Web-Hook-URL von den Instanzobjekten, nachdem Sie den `synochat`-Adapter instanziiert haben. Weitere Details finden Sie in [3. Nutzung > 3.1 Allgemeines](#webHookLocation) ![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
+  #### 2.1.2. Ausgehende Integration
+Für die Einbindung einer ausgehenden Nachricht in den Synology-Chat muss eine Web-Hook-URL angegeben werden. Sie erhalten diese Web-Hook-URL von den Instanzobjekten, nachdem Sie den `synochat`-Adapter instanziiert haben. Weitere Details finden Sie in [3. Nutzung > 3.1 Allgemeines](#web-hook-location) ![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
 ***HINWEIS:*** *Der Kanaltyp (eingehend; ausgehend) wird aus der Perspektive des Synology-Chats angegeben. „Eingehend“ bedeutet beispielsweise, dass die Nachrichten an den Synology-Chatserver gesendet werden.*
 
@@ -99,9 +99,12 @@ Dies kann nützlich sein, wenn z.B. Der Benutzer möchte die Nutzung eines Kanal
 
     * **Kanal Name**
 
-Diese Einstellung gibt den Namen des Kanals an, von dem/an den Nachrichten gesendet werden. Dieser Name ist frei wählbar und dient der Referenzierung.
+Diese Einstellung gibt den Namen des Kanals an, von dem/an den Nachrichten gesendet werden. Dieser Name ist bei Kanälen vom Typ `Send data to Synology chat server - Incoming integration` frei wählbar und dient der Referenzierung.
 
 Der hier zu konfigurierende Kanalname sollte mit dem Kanalnamen des Synology-Chats identisch sein.
+
+Bei Kanälen vom Typ `Get data from Synology chat server - Outgoing integration` muss der Name mit dem Kanalnamen des Synology-Chat-Kanals identisch sein, um Nachrichten zu empfangen.
+Bei der Zuordnung der Kanalnamen wird zwischen Groß- und Kleinschreibung unterschieden (Groß- und Kleinschreibung muss berücksichtigt werden).
 
 * **Kanal-Token**
 
@@ -128,7 +131,8 @@ Diese Option ermöglicht es dem Kanal, den neuen Wert des ioBroker-Nachrichtenob
 
 Mit dieser Option kann der Kanal Nachrichten vom Synology-Chatserver empfangen und den neuen Wert des ioBroker-Nachrichtenobjekts ([siehe Kapitel „Verwendung“.](#usage)) aktualisieren.
 
-Bitte beachten Sie, dass bei Verwendung dieses Kanaltyps der Kanalname der ioBroker-Adapter-Instanzkonfiguration mit dem Kanalnamen des Synology-Chat-Kanals identisch sein muss, um Nachrichten zu empfangen.
+Bitte beachten Sie, dass bei Verwendung dieses Kanaltyps der Kanalname der ioBroker-Adapterinstanzkonfiguration mit dem Kanalnamen des Synology-Chatkanals identisch sein muss, um Nachrichten zu empfangen.
+Bei der Zuordnung der Kanalnamen wird zwischen Groß- und Kleinschreibung unterschieden (Groß- und Kleinschreibung muss berücksichtigt werden).
 
 > Hinweis: Bitte stellen Sie sicher, dass Sie für ausgehende Kanäle nicht die Option „*Reagieren auf*“ auswählen
 
@@ -314,7 +318,7 @@ Eine Vorlage kann einem Kanal im [Kanalkonfiguration](#channel-configuration) zu
 
 Die verfügbaren Muster beziehen sich auf den JSON-Wert des Kunden, der dem Kanalnachrichtenobjekt bereitgestellt wird.
 
-#### 2.2.4. Hilfe:
+#### 2.2.4. Helfen:
    * Dieser Tab leitet normalerweise zur offiziellen GitHub-Seite dieses Projekts weiter, wo detaillierte Hilfe und Nutzungsanweisungen gegeben werden.
 * Wenn es offene Fragen, Änderungsvorschläge, unerwünschtes Verhalten oder Fehler gibt, erstellen Sie bitte ein [GitHub-Problem](https://github.com/phoeluga/ioBroker.synochat/issues/new/choose), um die Qualität sicherzustellen dieses Projekt.
 
@@ -342,11 +346,17 @@ Die Kommunikation kommt nicht zustande und leider gibt es auf beiden Seiten kein
 
 	![IobrokerObjectSetMessage](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectSetMessage.png)
 
-* Wenn das Nachrichtenobjekt geändert wird und der Kanaltyp auf „Daten an Synology-Chat-Server senden“ eingestellt ist, wird diese Nachricht – abhängig vom Kanaltyp – an den Synology-Chat weitergeleitet.
+* Wenn das Nachrichtenobjekt geändert wird und der Kanaltyp auf „Daten an den Synology-Chat-Server senden“ eingestellt ist, wird diese Nachricht an den Synology-Chat weitergeleitet.
 
 	![SynoChatChannelIncomingMessage](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatChannelIncomingMessage.png)
 
-<div id="webHookLocation"></div>
+* Um Nachrichten vom Synology Chat Server zu empfangen und das Nachrichtenobjekt entsprechend zu aktualisieren, stellen Sie sicher, dass das konfigurierte „Triggerwort“ (siehe [Synology Chat-Konfiguration](#synology-chat-configuration)) ohne Satzzeichen in der Nachricht enthalten ist. Es muss also alleine stehen.
+
+**Beispiel:**\ Wenn `Trigger word` `Alarm` wäre, sollte die Nachricht im Synology-Chat so aussehen:\ `An alarm was triggered in the hallway.`
+
+Bitte beachten Sie, dass bei den `Trigger word` die Groß-/Kleinschreibung beachtet wird (Groß- und Kleinschreibung muss berücksichtigt werden).
+
+<div id="web-hook-location"></div>
 
 * Die Web-Hook-URL/Adresse wird als Objektwert im Info-Ordner der Adapterinstanz bereitgestellt und ist für alle Kanäle innerhalb einer Adapterinstanz gültig.
 
@@ -379,6 +389,12 @@ Da dieser Adapter eine `web`-Adapterinstanz verwendet, um Web-Hooks für den Syn
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2023-08-13)
+- *[@phoeluga]* Fixed TypeError issue with empty initial value of outgoing channels - #13
+- *[@phoeluga]* Updated information about handling of outgoing channels - #14
+- *[@phoeluga]* Fixed special character escaping issue - #16
+- *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
+
 ### 1.3.0 (2023-07-23)
 - *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
 - *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.

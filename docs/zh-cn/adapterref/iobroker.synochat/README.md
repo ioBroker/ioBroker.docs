@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.synochat/README.md
 title: <img src="docs/images/synochatLogo.png" alt="绘画"/>适用于 ioBroker 的 Synology-Chat 适配器
-hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
+hash: 8+CDL/UDMzxpuBfUyveIUWQuIl/ql1uXHc6XOIJSCEA=
 ---
 ![稳定版](https://iobroker.live/badges/synochat-stable.svg)
 ![NPM版本](https://img.shields.io/npm/v/iobroker.synochat.svg)
@@ -43,8 +43,8 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
 <div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-  #### 2.1.1。传出整合
-为了将传出消息集成到 Synology 聊天中，需要提供 Web hook URL。实例化 `synochat` 适配器后，您将从实例对象获取此 Web 挂钩 URL。更多详情请参见[3. 使用 > 3.1 概述](#webHookLocation) ![SynoChatIntegration传入](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
+  #### 2.1.2。传出整合
+为了将传出消息集成到 Synology 聊天中，需要提供 Web hook URL。实例化 `synochat` 适配器后，您将从实例对象获取此 Web 挂钩 URL。更多详情请参见[3. 使用 > 3.1 概述](#web-hook-location) ![SynoChatIntegration传入](./docs/images/diSynoChatIntegrationOutgoing.png) ![SynoChatIntegrationIncomingSettings](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
 ***注：*** *通道类型（传入；传出）是从 Synology 聊天的角度指定的。例如，“传入”表示消息将发送到 Synology 聊天服务器。*
 
@@ -59,7 +59,7 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 * **Synology URL/IP**
 
 通过此属性，将提供 Synology-Chat 应用程序的 URL。请注意，请使用包含`http://`或`https://`的绝对网址，并且不要提供诸如`/`之类的后缀。
-可以像平常一样使用`:` 在 URL 后面提供特定端口。
+可以像往常一样使用`:` 在 URL 后面提供特定端口。
 
 ***有效值示例：***
 
@@ -99,9 +99,12 @@ hash: cqNQ0YkjiMQk6PwQycLYd5qD250ylkBM0gePJSN+Nmo=
 
     * **频道名称**
 
-此设置指定消息发送来源/目的地的通道名称。该名称可以自由选择，仅供参考。
+此设置指定消息发送来源/目的地的通道名称。如果通道类型为`Send data to Synology chat server - Incoming integration`，则可以自由选择该名称，并用于引用。
 
 此处要配置的频道名称应与 Synology 聊天的频道名称相同。
+
+对于 `Get data from Synology chat server - Outgoing integration` 类型的频道，名称必须与 Synology 聊天频道的频道名称相同才能接收消息。
+通道名称的映射区分大小写（必须考虑大小写）。
 
 * **频道令牌**
 
@@ -129,6 +132,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 此选项使通道能够从 Synology 聊天服务器接收消息并更新 ioBroker 消息对象的新值 ([参见使用章节](#usage))。
 
 请注意，使用此通道类型时，ioBroker 适配器实例配置的通道名称必须与 Synology 聊天通道的通道名称相同才能接收消息。
+通道名称的映射区分大小写（必须考虑大小写）。
 
 > 注意：请确保不要为传出通道选择“*react on*”选项
 
@@ -146,7 +150,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 相关消息模板可以在[消息模板](#messageTemplates)部分配置。
 
-    * **对所有 ioBroker 消息作出反应**
+    * **对所有 ioBroker 消息做出反应**
 
 除了来自 [ioBroker 通知管理器](https://github.com/foxriver76/ioBroker.notification-manager) `synochat` 的消息之外，还能够接收来自其他适配器的其他消息。此选项允许您选择相应的频道是否应对来自所有其他发件人的消息做出反应并将其相应地转发到 Synology Chat。
 
@@ -326,7 +330,7 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 这需要在 [配置的“synochat”适配器实例](#configurationAdapterWebInstance) 中运行并配置 `web` 适配器的实例。
 
 如果使用的 `web` 实例配置为通过 HTTPS 使用安全连接，**请确保您提供有效的证书或将您自己的证书导入到 Synology 中的受信任证书**。\ 否则，不会发送任何消息从 Synology 聊天服务器到 ioBroker 适配器实例。
-将不会建立通信，遗憾的是，两个站点上都不会直接向用户表明消息因证书无效而被拒绝。
+将不会建立通信，不幸的是，两个站点上都不会直接向用户表明消息因证书无效而被拒绝。
 
 <div id="usage"></div>
 
@@ -342,13 +346,19 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
 
 	![Iobroker对象设置消息](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectSetMessage.png)
 
-* 当消息对象更改且通道类型设置为“将数据发送到 Synology 聊天服务器”时，此消息 - 根据通道类型 - 将传递到 Synology 聊天。
+* 当消息对象更改且通道类型设置为“发送数据到 Synology 聊天服务器”时，此消息将传递到 Synology 聊天。
 
 	![SynoChatChannel传入消息](../../../en/adapterref/iobroker.synochat/docs/images/diSynoChatChannelIncomingMessage.png)
 
-<div id="webHookLocation"></div>
+* 要从 Synology Chat Server 接收消息并相应更新消息对象，请确保消息中包含已配置的“触发词”（请参阅 [Synology 聊天配置](#synology-chat-configuration)），且不带标点符号。所以它必须是独立的。
 
-* Web 挂钩 URL/地址将作为适配器实例的信息文件夹中的对象值提供，并且对于一个适配器实例的所有通道都有效。
+**示例：**\ 如果 `Trigger word` 为 `Alarm`，则 Synology 聊天中的消息应如下所示：\ `An alarm was triggered in the hallway.`
+
+请注意，`Trigger word` 区分大小写（必须考虑大小写）。
+
+<div id="web-hook-location"></div>
+
+* Web 挂钩 URL/地址将作为适配器实例的信息文件夹中的对象值提供，并且对一个适配器实例的所有通道都有效。
 
 	![IobrokerObjectWebHook](../../../en/adapterref/iobroker.synochat/docs/images/diIobrokerObjectWebHook.png)
 
@@ -379,6 +389,12 @@ https://mychat.mydomain.tld/webapi/entry.cgi?api=SYNO.Chat.External&method=incom
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2023-08-13)
+- *[@phoeluga]* Fixed TypeError issue with empty initial value of outgoing channels - #13
+- *[@phoeluga]* Updated information about handling of outgoing channels - #14
+- *[@phoeluga]* Fixed special character escaping issue - #16
+- *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
+
 ### 1.3.0 (2023-07-23)
 - *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
 - *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.

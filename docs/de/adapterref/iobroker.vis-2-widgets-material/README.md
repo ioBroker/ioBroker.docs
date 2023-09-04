@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: 0UPQVBLQXBUPZXSeutYlngsNJHJbF0jJ5dajxjktBuI=
+hash: QAyGBv5DI9AcG2zSTLWUThe/okJ2NS3QBokkg0UUGlU=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -56,7 +56,7 @@ Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden und
 
 ![Im Widget anzeigen – Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen. Wenn Sie darauf drücken, wird sie in voller Größe angezeigt.
+Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen und durch Drücken darauf wird sie in voller Größe angezeigt.
 
 ### Thermostat
 ![Thermostat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
@@ -100,6 +100,8 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### Farblampe
+![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+
 ### Zeitauswahl
 ## Assistentenzuordnung
 ### Eine Aussicht – ein Raum
@@ -143,12 +145,25 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 
 ## Machen
 - RGBW-Farbcontroller
+- Untersuchen Sie die Verzögerung für Widgets
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added RGB widget
+
+### 0.8.5 (2023-08-11)
+* (bluefox) Improvement of the widget loading
+
+### 0.8.4 (2023-08-10)
+* (bluefox) Improvement of wizard
+
+### 0.8.3 (2023-07-30)
+* (bluefox) Font styles are applied to all buttons
+
 ### 0.8.2 (2023-07-19)
 * (bluefox) Corrected small layout problems
 

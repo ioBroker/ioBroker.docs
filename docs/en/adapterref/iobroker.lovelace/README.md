@@ -433,21 +433,23 @@ Security must be taken from current user and not from default_user
 ## Development
 ### Version
 Used version of home-assistant-frontend@20230608.0
+Version of Browser Mod: 2.3.0
 
 ### How to build the new Lovelace version
 First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
 For now (20230608.0) following files were modified:
-- `build-scripts/gulp/app.js` - Add new gulp task
-- `build-scripts/gulp/webpack.js` - Add new gulp task
+- `build-scripts/gulp/app.js` - Add new gulp task develop-iob
+- `build-scripts/bundle.cjs` - disable fail on error
+- `build-scripts/gulp/webpack.js` - Add new gulp task webpack-dev-app
 - `src/data/lovelace.ts` - add hide toolbar option
 - `src/data/weather.ts` - add support to display weather icon from url.
 - `src/dialogs/more-info/const.ts` - remove weather state & history
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and tab
 - `src/dialogs/more-info/ha-more-info-history.ts` - remove 'show more' link in history
-- `src/dialogs/more-info/controls/more-info-climate.ts` - print mode name for unsupported modes
 - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
+- `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - disable configuration of voice assistants
 - `src/entrypoints/core.ts` - modified authentication process
 - `src/layouts/home-assistant-main.ts` - remove app sidebar
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
@@ -455,6 +457,7 @@ For now (20230608.0) following files were modified:
 - `src/panels/lovelace/hui-root.ts` - added notifications and voice control
 - `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
 - `.gitignore` - add `.idea` ignore
+- `.husky/pre-commit` - remove git commit hooks.
 - `package.json` - remove husky commit hook
 +
 After that checkout modified version in `./build` folder. Then.

@@ -30,14 +30,17 @@ The adapter starts daily at midnight. Due to the nature of the subject, no highe
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 1.1.3 (2023-08-13)
+* (mcm1957) changed: missing translations have been added
+* (mcm1957) changed: Swiss national holiday has been corrected (# 164)
+* (mcm1957) changed: Adapter required node 16 now
+* (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+* (mcm1957) changed: Dependencies have been updated
 * (klein0r) Dependencies updated
 
 ### 1.1.1 (2022-02-01)
 * (alcalzone, pix) Dependencies updated
- 
+
 ### 1.1.0 (2021-12-26)
 * (bluefox) Formatting
 * (bluefox) fixed error with the events in the next year
@@ -181,7 +184,7 @@ The adapter starts daily at midnight. Due to the nature of the subject, no highe
 
 ## License
 
-Copyright (c) 2022 pix
+Copyright (c) 2023 iobroker-community-adapters
 
 The MIT License (MIT)
 

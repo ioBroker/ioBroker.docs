@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: 0UPQVBLQXBUPZXSeutYlngsNJHJbF0jJ5dajxjktBuI=
+hash: QAyGBv5DI9AcG2zSTLWUThe/okJ2NS3QBokkg0UUGlU=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -100,6 +100,8 @@ Html 模板可用于显示任何 html 代码。
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### 彩色灯
+![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+
 ### 时间选择器
 ## 向导映射
 ### 一景一房
@@ -134,7 +136,7 @@ Html 模板可用于显示任何 html 代码。
 - 洪水→带有特定图标（水）的开关和按钮信息，只读，活动颜色“蓝色”
 - 门 → 带有特定图标（门）的开关和按钮信息，只读，活动颜色“红色”
 - 滑块 → 开关和按钮滑块
-- 锁→开关和按钮开关
+- 锁 → 开关和按钮开关
 - 插座→开关和按钮带有特定图标的开关
 - 媒体播放器→带有房间名称的媒体播放器（如卡）
 - 音量→带有特定图标（音量）的开关和按钮滑块
@@ -143,12 +145,25 @@ Html 模板可用于显示任何 html 代码。
 
 ＃＃ 去做
 - RGBW颜色控制器
+- 调查小部件的延迟
 
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added RGB widget
+
+### 0.8.5 (2023-08-11)
+* (bluefox) Improvement of the widget loading
+
+### 0.8.4 (2023-08-10)
+* (bluefox) Improvement of wizard
+
+### 0.8.3 (2023-07-30)
+* (bluefox) Font styles are applied to all buttons
+
 ### 0.8.2 (2023-07-19)
 * (bluefox) Corrected small layout problems
 

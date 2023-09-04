@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
+hash: GeVXVbkQmQnp8GetMJf25XoxQLPAsUpgxpWQ1TROWiA=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,6 +14,8 @@ hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
 ![NPM](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 Dieser Adapter funktioniert über die Cloud-Server von Growatt. Es gibt auch den [Grott-Projekt](https://github.com/johanmeijer/grott), der die Daten aus der Kommunikation abfängt.
 
 ---
@@ -76,6 +78,11 @@ Der Wechselrichter kann jeweils nur eine Einstellung ändern und der Übertragun
 
 Das Verfassen der Einstellungen erfolgte nach bestem Wissen und Gewissen. Der Autor übernimmt jedoch keine Haftung für enthaltene Fehler oder für Schäden, die durch die Nutzung der Software entstehen.
 
+#### Wählen Sie es aus, wenn Ihre Growatt-Seite eine schwarze C&I-Seite ist
+Wählen Sie es aus, wenn Ihre Growatt-Seite eine C&I-Pflanzenseite mit indexbC oder plantDo im Pfad der Growatt-Weboberfläche ist.
+
+Die schwarzen C&I-Seiten (gewerblich und industriell) haben einen anderen Pfad zu den Objekten, aber es scheint zu funktionieren, wenn dieses Kontrollkästchen aktiviert ist. Der Index wurde im Webpfad in indexbC geändert.
+
 #### Timeout in Sekunden
 Das Standard-Timeout für HTTP-Anfragen. Der Standardwert beträgt 60 Sekunden, wie bei Webbrowsern
 
@@ -104,14 +111,14 @@ Es gibt viele Werte, die nicht zu Ihrem Wechselrichter gehören. Diese können h
 Da es kein Ereignis gibt, mit dem die Objektliste beim Speichern neu geladen werden kann. Beim Drücken von „Speichern“ muss die Schaltfläche „Aktualisieren“ verwendet werden.
 
 #### Normal
-Das Objekt bleibt erhalten, der Wert wird aktualisiert.
+Das Objekt bleibt bestehen, der Wert wird aktualisiert.
 
 #### Löschen
 Das Objekt wird gelöscht und der vom Wechselrichter geladene Wert verworfen.
 Nach dem Update werden nur noch die ID und die Aktion angezeigt, da das Objekt nicht mehr existiert. Bei normaler Auswahl wird das Objekt nach dem Speichern erneut erstellt.
 
 #### Kein Update
-Das Objekt bleibt erhalten, die Werte vom Wechselrichter werden verworfen.
+Das Objekt bleibt bestehen, die Werte vom Wechselrichter werden verworfen.
 
 ### Logger verwalten
 Die Instanz muss ausgeführt und beim Server angemeldet sein. Anschließend können die Einstellungen des Datenloggers über den Aktualisieren-Button in diesem Reiter aufgerufen werden.
@@ -140,6 +147,139 @@ Das Update muss auf der Growatt-Seite durchgeführt werden.
 #### Schaltfläche Datenlogger neu starten
 Jeder Stiefel ist gut.
 Die Einstellungen werden übernommen.
+
+---
+
+## SendTo für Skripte
+Es ist möglich, über sendTo einen Befehl an die Instanz zu senden. Der Adapter antwortet dann.
+Die folgenden Befehle sind implementiert.
+Der Rückgabewert wird abhängig von der Parameterübergabe zurückgegeben. Wenn die Parameter als JSON-String übergeben werden, wird ein JSON zurückgegeben. Werden die Parameter als Objekt übergeben, wird ein Objekt zurückgegeben.
+
+### GetHistory
+Dieser Befehl listet den Verlauf auf. Es kann beispielsweise zur Ergänzung von Daten in einer Datenbank verwendet werden.
+Unabhängig vom Zeitraum scheint Growatt immer 80 Datensätze zurückzugeben. Wenn das Intervall auf 1 Minute eingestellt ist und mehr als 80 Minuten benötigt werden, muss der Befehl mehrmals ausgeführt und der Start bei 0 immer weiter erhöht werden.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| Typ | Zeichenfolge | Der Typ des Wechselrichters ist im Objekt „growatt. – Instanz – . – nr – .devices. – sn – .growattType“ zu finden. |
+| sn | Zeichenfolge | Die Seriennummer des Wechselrichters finden Sie im Objektpfad „growatt. - Instanz - . - nr - .devices. - sn -“. |
+| Startdatum | Datum | Der Atart |
+| Enddatum | Datum | Der Endmast wird größer als der Anfang |
+| Start | Ganzzahl | 0 ist die Startseite für den Anruf mit den aktuellsten Daten zuerst |
+
+Beispielaufruf:
+
+```
+  sendTo('growatt.0','getHistory',{"type":"<your inverter type>","sn":"<your inverter serial>","startDate":new Date((new Date()).getTime()- 60*60*1000),"endDate":new Date() , "start":0},(res)=>{console.log(res)})
+```
+
+Beispielcode:
+
+```
+const sn = " your sn "; //your inverter sn
+const inType = " your typ "; // the invertertyp
+const hist = 'growatt.0. your nr .devices. your sn .historyLast.'; // the Path to history
+const storeField =['accChargePower','etoGridToday']; //the fields to store
+const history = "influx.0" //your History sql.0 or influx.0 or history.0 ...
+const min = 10 // größer 10 min auffüllen....
+
+on({id: hist+'calendar', change: "ne"},(obj)=>{
+    if ((obj.state.val - obj.oldState.val) > min*60000) {
+        console.log(obj.state.val - obj.oldState.val);
+        function fillup(res) {
+            res.forEach((r)=>{
+                const ti = (new Date(r.calendar)).getTime();
+                if (ti > obj.oldState.val && ti < obj.state.val) {
+                    function store(n) {
+                        sendTo(history, 'storeState', {
+                            id: hist+n,
+                            state: {ts: ti, val: r[n], ack: true}
+                        }, result => {console.log(`added ${hist+n} ${new Date(ti)} ${r[n]}`)});
+                    }
+                    storeField.forEach((f) => {store(f)});
+                }
+            })
+        }
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":0},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":1},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":2},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":3},fillup)
+    }
+});
+```
+
+### GetDatalogger
+Es gibt Ihnen Informationen über die Datenlogger.
+Diese Funktion hat keine Parameter. Es muss entweder „{}“ oder {} übergeben werden.
+Die Rückgabe ist ein Array von Objekten.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ---- | ----------- |
+
+### GetDataLoggerIntervalRegister
+Es liest das Intervall aus und gibt es zurück. Der Rückgabewert ist ein OBJ. Das Intervall ist in msg.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+
+### SetDataLoggerIntervalRegister
+Schreibt das Intervall, in dem der Logger die Daten sendet.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| Wert | Ganzzahl | Der neue Wert in Minuten |
+
+Ein Objekt wird mit einer Nachricht zurückgegeben.
+
+### GetDataLoggerIpRegister
+Es liest die IP, an die der Logger die Daten sendet, und gibt sie zurück. Der Rückgabewert ist ein OBJ. Die IP ist in msg.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+
+### SetDataLoggerIp
+Es schreibt die IP, an die der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das sagt, was passiert ist.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| Wert | Ganzzahl | Der neue Wert in Minuten |
+
+Ein Objekt wird mit einer Nachricht zurückgegeben.
+
+### GetDataLoggerPortRegister
+Es liest den Port, an den der Logger die Daten sendet, und gibt sie zurück. Der Rückgabewert ist ein OBJ. Die IP ist in msg.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+
+### SetDataLoggerPort
+Es schreibt den Port, an den der Logger die Daten sendet. Es ist nützlich für das Grott-Projekt. Der Rückgabewert ist ein Objekt, das sagt, was passiert ist.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------- | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+| Wert | Ganzzahl | Der neue Wert in Minuten |
+
+Ein Objekt wird mit einer Nachricht zurückgegeben.
+
+### CheckLoggerFirmware
+Ruft den Firmware-Check vom Logger auf. Ob ein Update notwendig ist, können Sie der Antwort entnehmen.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
+
+### RestartDatalogger
+Bewirkt einen Warmstart des Datenloggers.
+
+| Parameter | Geben Sie | ein Beschreibung |
+| --------- | ------ | ------------------------------------------------------------- |
+| sn | Zeichenfolge | Die Seriennummer des Loggers wird von getDatalogger zurückgegeben. |
 
 ---
 
@@ -174,6 +314,15 @@ Daher wurde auch die Beschreibung entfernt.
 -\*-
 
 ## Changelog
+
+### 3.1.2 (16.08.2023)
+
+- (PLCHome) sendTo now also possible with objects as message data
+- (PLCHome) Added message getHistory
+
+### 3.1.1 (03.07.2023)
+
+- (PLCHome) Added support for Growatt page when Plant is a C&I Plant page with indexbC or plantDo in Path of the Growatt web interface. Thanks to Denn281
 
 ### 3.0.4 (03.07.2023)
 
@@ -237,7 +386,7 @@ Daher wurde auch die Beschreibung entfernt.
 
 ### 1.1.15 (28.04.2022)
 
-- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values are empty
 
 ### 1.1.14 (26.04.2022)
 

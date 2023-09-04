@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
+hash: GeVXVbkQmQnp8GetMJf25XoxQLPAsUpgxpWQ1TROWiA=
 ---
 ![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,6 +14,8 @@ hash: blo2ahO34UHTwsHxBmCui1W9zwZm/oQqcUrsdl3Dwf8=
 ![国家公共管理](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+
 该适配器通过古瑞瓦特的云服务器工作。还有 [格罗特项目](https://github.com/johanmeijer/grott) 拦截通信中的数据。
 
 ---
@@ -45,7 +47,7 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 从数据记录器的历史记录中读取最后的数据记录。
 此功能支持数据记录器的分钟间隔。
 
-#### 读取状态数据
+####读取状态数据
 这些数据并非适用于所有工厂（不适用于 INV/MAX/TLX）。该数据集包含实时数据。
 此功能支持数据记录器的分钟间隔。
 
@@ -67,7 +69,7 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 
 如果可以读取参数值，则使用 ACK=true 写入它们。使用 ack 成功读取时，“read”设置为 true。如果读取失败，则“Read”设置为 false ack=true。在没有 ACK 的情况下从“true”写入“Read”会触发读取操作。如果建立了与云的新连接，也会读出设置。
 
-要写入设置，必须首先设置参数。然后“write”设置为true，ack=false。
+要写入设置，必须首先设置参数。然后将“write”设置为 true 且 ack=false。
 如果数据写入成功，“write”设置为“true”ack=true，如果逆变器报错，“write”设置为“false”ack=true。另外，将变频器的返回信息写入“msg”状态。
 
 如果写入成功，会自动触发读取。
@@ -75,6 +77,11 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 逆变器一次只能更改一项设置，传输路径是从 ioBroker 通过云端到 WLAN 适配器，然后到逆变器。这些设置通过队列一个接一个地处理。会话时间太短可能会导致问题。
 
 据我们所知，这些设定的编写是经过深思熟虑的。但是，作者不对软件中包含的错误或因使用该软件而造成的损害承担责任。
+
+#### 如果您的古瑞瓦特页面是黑色 C&I 页面，请选择它
+如果您的 Growatt 页面是 C&I Plant 页面，并且在 Growatt Web 界面的路径中包含 indexbC 或 plantDo，请选择它。
+
+黑色 C&I 页面（商业和工业）有通往对象的其他路径，但如果启用此复选框，它似乎可以工作。它将网络路径中的索引更改为indexbC。
 
 #### 超时（以秒为单位）
 HTTP 请求的默认超时时间。默认值 60 秒，与 Web 浏览器一样
@@ -100,7 +107,7 @@ HTTP 请求的默认超时时间。默认值 60 秒，与 Web 浏览器一样
 
 ### 管理对象
 您可以在此处定义逆变器拾取的每个值（对象）应发生的情况。
-有很多值不属于你的逆变器。这些可以在这里删除。
+有很多值不属于您的逆变器。这些可以在这里删除。
 由于保存时没有可以重新加载对象列表的事件。按下保存时必须使用更新按钮。
 
 ＃＃＃＃ 普通的
@@ -143,6 +150,139 @@ _使用 GROTT 时，必须启用更改 INI 中的设置。_如果出现您不期
 
 ---
 
+## 脚本的 sendTo
+可以通过 sendTo 向实例发送命令。然后适配器做出响应。
+执行以下命令。
+返回值根据参数传递而返回。如果参数作为 JSON 字符串传递，则返回 JSON。如果参数作为对象传递，则返回一个对象。
+
+### 获取历史记录
+该命令列出历史记录。例如，它可用于补充数据库中的数据。
+无论时间范围如何，古瑞瓦特似乎总是返回 80 条记录。如果间隔设置为1分钟，需要超过80分钟，则必须多次执行该命令，并且从0开始的次数必须越来越多。
+
+|参数|类型 |描述 |
+| --------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+|类型 |字符串|逆变器的类型可以在对象“growatt.-instance-.-nr-.devices.-sn-.growattType”中找到。 |
+| SN |字符串|逆变器的序列号可以在对象路径“growatt.-instance-.-nr-.devices.-sn-”中找到。 |
+|开始日期 |日期 |艺术 |
+|结束日期 |日期 |结束必须比开始更美好 |
+|开始 |整数 | 0 是调用的起始页，最新数据在前 |
+
+调用示例：
+
+```
+  sendTo('growatt.0','getHistory',{"type":"<your inverter type>","sn":"<your inverter serial>","startDate":new Date((new Date()).getTime()- 60*60*1000),"endDate":new Date() , "start":0},(res)=>{console.log(res)})
+```
+
+示例代码：
+
+```
+const sn = " your sn "; //your inverter sn
+const inType = " your typ "; // the invertertyp
+const hist = 'growatt.0. your nr .devices. your sn .historyLast.'; // the Path to history
+const storeField =['accChargePower','etoGridToday']; //the fields to store
+const history = "influx.0" //your History sql.0 or influx.0 or history.0 ...
+const min = 10 // größer 10 min auffüllen....
+
+on({id: hist+'calendar', change: "ne"},(obj)=>{
+    if ((obj.state.val - obj.oldState.val) > min*60000) {
+        console.log(obj.state.val - obj.oldState.val);
+        function fillup(res) {
+            res.forEach((r)=>{
+                const ti = (new Date(r.calendar)).getTime();
+                if (ti > obj.oldState.val && ti < obj.state.val) {
+                    function store(n) {
+                        sendTo(history, 'storeState', {
+                            id: hist+n,
+                            state: {ts: ti, val: r[n], ack: true}
+                        }, result => {console.log(`added ${hist+n} ${new Date(ti)} ${r[n]}`)});
+                    }
+                    storeField.forEach((f) => {store(f)});
+                }
+            })
+        }
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":0},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":1},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":2},fillup)
+        sendTo('growatt.0','getHistory',{"type":inType,"sn":sn,"startDate":obj.oldState.val,"endDate":obj.state.val, "start":3},fillup)
+    }
+});
+```
+
+### 获取数据记录器
+它为您提供有关数据记录器的信息。
+该函数没有参数。必须传递“{}”或 {}。
+返回的是一个对象数组。
+
+|参数|类型 |描述 |
+| --------- | ---- | ----------- |
+
+### GetDataLoggerIntervalRegister
+它读出间隔并返回它。返回值是一个 OBJ。间隔以 msg 为单位。
+
+|参数|类型 |描述 |
+| --------- | ------ | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+
+### SetDataLoggerIntervalRegister
+写入记录器发送数据的间隔。
+
+|参数|类型 |描述 |
+| --------- | ------- | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+|价值|整数 |以分钟为单位的新值 |
+
+返回一个带有消息的对象。
+
+### GetDataLoggerIpRegister
+它读取记录器发送数据的 IP 并将其返回。返回值是一个 OBJ。 IP 位于消息中。
+
+|参数|类型 |描述 |
+| --------- | ------ | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+
+### SetDataLoggerIp
+它写入记录器发送数据的 IP。它对于 Grott 项目很有用。返回值是一个对象，说明发生了什么。
+
+|参数|类型 |描述 |
+| --------- | ------- | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+|价值|整数 |以分钟为单位的新值 |
+
+返回一个带有消息的对象。
+
+### 获取DataLoggerPortRegister
+它读取记录器发送数据的端口并将其返回。返回值是一个 OBJ。 IP 位于消息中。
+
+|参数|类型 |描述 |
+| --------- | ------ | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+
+### 设置DataLoggerPort
+它写入记录器发送数据的端口。它对于 Grott 项目很有用。返回值是一个对象，说明发生了什么。
+
+|参数|类型 |描述 |
+| --------- | ------- | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+|价值|整数 |以分钟为单位的新值 |
+
+返回一个带有消息的对象。
+
+### 检查Logger固件
+从记录器调用固件检查。如果需要更新，您可以在答案中看到。
+
+|参数|类型 |描述 |
+| --------- | ------ | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+
+### 重新启动数据记录器
+导致数据记录器热启动。
+
+|参数|类型 |描述 |
+| --------- | ------ | ------------------------------------------------------------- |
+| SN |字符串|记录器的序列号由 getDatalogger 返回。 |
+
+---
+
 ## 加速数据区间内部方法
 查看管理记录器和按钮间隔
 
@@ -174,6 +314,15 @@ Growatt 已从固件中删除了该网站。
 -\*-
 
 ## Changelog
+
+### 3.1.2 (16.08.2023)
+
+- (PLCHome) sendTo now also possible with objects as message data
+- (PLCHome) Added message getHistory
+
+### 3.1.1 (03.07.2023)
+
+- (PLCHome) Added support for Growatt page when Plant is a C&I Plant page with indexbC or plantDo in Path of the Growatt web interface. Thanks to Denn281
 
 ### 3.0.4 (03.07.2023)
 
@@ -237,7 +386,7 @@ Growatt 已从固件中删除了该网站。
 
 ### 1.1.15 (28.04.2022)
 
-- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values ​​are empty
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values are empty
 
 ### 1.1.14 (26.04.2022)
 

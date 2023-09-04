@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wireguard/README.md
 title: ioBroker.wireguard
-hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
+hash: h4iXJQNtFlC6N7AvEImkVaMZjydeMDlTjbCL6cOuo8U=
 ---
 ![Логотип](../../../en/adapterref/iobroker.wireguard/admin/Logo_of_WireGuard.svg)
 
@@ -39,13 +39,13 @@ hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
 Поскольку WireGuard внутренне использует открытые ключи только для идентификации пиров, но их довольно неудобно читать и распознавать для людей, была добавлена страница перевода. Не стесняйтесь добавлять к нему открытые ключи и имена, чтобы имена были интегрированы в дерево объектов.
 
 * Главная страница
-  - Имя: Просто символическое имя хоста, так как оно более удобно и лучше запоминается, чем его IP-адрес.
+  - Имя: просто символическое имя хоста, так как оно более удобно и лучше запоминается, чем его IP-адрес.
   - Адрес хоста: IP-адрес хоста. Также работает имя FQDN или DNS. Если вы используете WireGuard и ioBroker на одном хосте, вы можете просто использовать «localhost» в качестве IP-адреса.
   - Порт: номер порта вашего ssh-сервера. По умолчанию: 22
   - Пользователь: пользователь, который выполняет скрипт на хосте (будет храниться в зашифрованном виде).
   - Пароль: пароль для этого пользователя (будет храниться в зашифрованном виде)
   - sudo: должна ли команда wg выполняться с использованием sudo или нет (требуется действующая конфигурация sudoers! -> см. [советы по безопасности])
-  - Docker: выполняет команду `docker exec` для доступа к серверу wireguard внутри контейнера док-станции. Пожалуйста, проверьте, соответствует ли он вашим потребностям или вы можете переключиться на поддерживаемый контейнер.
+  - Docker: выполняет команду `docker exec` для доступа к серверу wireguard внутри контейнера док-станции. Пожалуйста, проверьте, соответствует ли он вашим потребностям и можете ли вы переключиться на поддерживаемый контейнер.
   - интервал опроса: пауза между каждым опросом в секундах (также задерживает первый запуск после запуска адаптера)
   - Контейнер: имя вашего док-контейнера. Часто «wireguard», но может отличаться, особенно при запуске более одного на одном сервере.
 * Страница перевода
@@ -82,7 +82,7 @@ hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
 * info.connection адаптера используется для указания того, что по крайней мере один интерфейс WireGuard находится в сети, о чем сообщает `wg show all`. Если ни один интерфейс Wireguard не подключен к сети - ничего не сообщается. В этом случае регистрируется ошибка, и светофор адаптеров становится желтым.
 * Этот адаптер открывает оболочку ssh на каждом сконфигурированном хосте, выполняет команду `wg show all dump`, удаляет оболочку и анализирует результат.
 * Поскольку каждый открытый ключ уникален, адаптер использует их для преобразования открытого ключа в удобные для пользователя, читаемые и узнаваемые имена.
-* WireGuard, к сожалению, не обеспечивает состояние «подключено» само по себе. Он предоставляет только информацию о последнем рукопожатии.
+* WireGuard, к сожалению, сам по себе не обеспечивает состояние «подключено». Он предоставляет только информацию о последнем рукопожатии.
 
 Поскольку рукопожатия обычно происходят каждые 120 секунд, этот адаптер вычисляет состояние соединения таким образом, что предполагается, что одноранговый узел подключен, когда последнее рукопожатие получено менее чем за 130 секунд до этого.
 
@@ -90,14 +90,14 @@ hash: l2KcXfWxECeqpFt0fRvIkn55Ehn9lNTjogJTLqNDn8M=
 > Я настоятельно рекомендую использовать sudoers под Linux!
 
 Эти подсказки безопасности в основном полагаются на Linux, поскольку его система безопасности более сложна, чем система Windows. На сервере Windows вам просто нужно использовать администратора.
-Поскольку команда `wg` (которая выполняется для захвата состояния WireGuard) требует прав администратора, хорошо подумайте о том, что вы здесь делаете и как вы настраиваете пользователя, которого вы помещаете в config.
+Поскольку команда `wg` (которая выполняется для захвата состояния WireGuard) требует прав администратора, хорошо подумайте, что вы здесь делаете и как вы настраиваете пользователя, которого вы помещаете в config.
 Чтобы максимально защитить эти учетные данные, имя пользователя и пароль зашифрованы.
 
 В основном есть три способа выполнить команду:
 
 * используйте административного пользователя (root или аналогичный). Это будет работать, но откроет весь ваш сервер в случае потери/кражи учетных данных.
-* использование SetUID-Bit: установив этот бит (насколько я понял), каждый пользователь может запускать помеченный файл с административными привилегиями без необходимости ввода пароля. **Включая хакеров**. Таким образом, установка этого бита в команде wg раскрывает всю мощь команды wg. Если хотите, выполните chmod u+s /usr/bin/wg от имени администратора.
-* использование sudoers: с моей точки зрения, самый безопасный способ — настроить нового простого пользователя с базовыми привилегиями и добавить простую строку в файл sudoers, которая позволяет этому пользователю выполнять необходимую команду без ввода пароля — и ТОЛЬКО ЭТО команда. Пожалуйста, обратитесь к документации вашего дистрибутива для правильной информации о редактировании файла sudoers и использовании visudo. На скриншоте ниже показано, что нужно добавить в файл. `wireguard-monitoring-user` — пользователь по вашему выбору. Остальное должно быть именно так, как вы видите.
+* Использование SetUID-Bit: установив этот бит (насколько я понял), каждый пользователь может запускать помеченный файл с правами администратора без необходимости ввода пароля. **Включая хакеров**. Таким образом, установка этого бита в команде wg раскрывает всю мощь команды wg. Если хотите, выполните `chmod u+s /usr/bin/wg` от имени администратора.
+* использование sudoers: с моей точки зрения, самый безопасный способ — настроить нового простого пользователя с базовыми привилегиями и добавить простую строку в файл sudoers, которая позволяет этому пользователю выполнять необходимую команду без ввода пароля — и ТОЛЬКО ЭТО команда. Пожалуйста, обратитесь к документации вашего дистрибутива для получения надлежащей информации о редактировании файла sudoers и использовании visudo. На скриншоте ниже показано, что нужно добавить в файл. `wireguard-monitoring-user` — пользователь по вашему выбору. Остальное должно быть именно так, как вы видите.
 
 ```
 #iobroker.wireguard adapter
@@ -121,55 +121,90 @@ wireguard-monitoring-user ALL=NOPASSWD:/usr/bin/wg syncconf * *
 Этот проект никак не связан с WireGuard. Название WireGuard и логотип WireGuard используются только для обозначения этого проекта и являются собственностью их владельцев. Они не являются частью этого проекта.
 
 ## Авторские права
-Copyright (c) grizzelbee, 2022 г. <open.source@hingsen.de>
+Copyright (c) grizzelbee, 2023 г. <open.source@hingsen.de>
 
 ## Changelog
 ### **WORK IN PROGRESS**
 
-### v1.4.1 (2022-10-26)
+### 1.5.10 (2023-08-17)
+* (grizzelbee) Fix: Adapter doesn't crash anymore when user or device name is missing in config.
+
+### 1.5.9 (2023-08-12)
+* (grizzelbee) Fix: First device of any user was missing in users viewing
+* (grizzelbee) New: Added an icon to peers, users, peer and user
+
+### 1.5.8 (2023-08-11)
+* (grizzelbee) Fix: Interface is now correctly set to offline if host is not reachable. 
+
+### 1.5.7 (2023-08-10)
+* (grizzelbee) Fix: Added missing icon file
+* (grizzelbee) Fix: Some fixes to make iobroker.adapterchecker happy
+* (grizzelbee) Fix: Another icon fix
+
+### 1.5.2 (2023-08-09)
+* (grizzelbee) Fix: Adapter does not crash anymore when host isn't reachable
+* (grizzelbee) Fix: Added .releaseconfig file 
+* (grizzelbee) Fix: Added icon to interface-device
+* (grizzelbee) Fix: Some fixes to make iobroker.adapterchecker happy
+
+### 1.5.1 (2023-08-08)
+* (grizzelbee) Fix:  [#65](https://github.com/Grizzelbee/ioBroker.wireguard/issues/65) No names in object tree
+* (grizzelbee) Fix:  [#64](https://github.com/Grizzelbee/ioBroker.wireguard/issues/64) Online state of interface isn't set correctly if more than one server is queried
+* (grizzelbee) Upd: Dependencies got updated
+
+### 1.5.0 (2023-06-27)
+* (grizzelbee) Deprecated: The current peer name/description will be dropped in one of the next versions. So please move over to Username/Device config.
+* (grizzelbee) New: Splitted Peer names in config in user and device names; So that you are able to group devices by user
+* (grizzelbee) New: Some new data fields: connectedPeers, connectedPeersCount, connectedUsers, connectedUsersCount and connection states per user
+* (grizzelbee) Fix:  [#61](https://github.com/Grizzelbee/ioBroker.wireguard/issues/61) Fixed continuous recreation of objects
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: Dropped support for NodeJS 12
+* (grizzelbee) Upd: Added support for NodeJS 18
+
+### 1.4.1 (2022-10-26)
 * (grizzelbee) New: Showing number of currently connected peers for each interface
 
-### v1.4.0 (2022-09-09)
+### 1.4.0 (2022-09-09)
 * (grizzelbee) New: [#37](https://github.com/Grizzelbee/ioBroker.wireguard/issues/37) Added config options for port and docker container name
 * (grizzelbee) Chg: Moved over to new jsonConfig Admin UI
 
-### v1.3.2 (2022-09-07)
+### 1.3.2 (2022-09-07)
 * (grizzelbee) New: [#38](https://github.com/Grizzelbee/ioBroker.wireguard/issues/38) Fixed "Adapter doesn't come online" bug caused by pseudo-tty settings 
 
-### v1.3.1 (2022-06-26)
+### 1.3.1 (2022-06-26)
 * (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added button to resume a single peer
 
-### v1.3.0 (2022-06-25)
+### 1.3.0 (2022-06-25)
 * (grizzelbee) New: [#33](https://github.com/Grizzelbee/ioBroker.wireguard/issues/33) Added buttons to suspend single and restore all peers of an interface
 * (grizzelbee) Chg: Changed polling log entry from info to debug 
 * (grizzelbee) Upd: dependencies got updated
 
-### v1.2.1 (2022-04-24)
+### 1.2.1 (2022-04-24)
 * (grizzelbee) Fixed: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Fixed a bug in tty linking which prevented docker option to work.
 
-### v1.2.0 (2022-04-21)
+### 1.2.0 (2022-04-21)
 * (grizzelbee) New: [#20](https://github.com/Grizzelbee/ioBroker.wireguard/issues/20) Added support for WireGuard inside a docker container
 
-### v1.1.3 (2022-03-31)
+### 1.1.3 (2022-03-31)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-1](https://sentry.io/organizations/grizzelbee/issues/3027754005/events/?project=6215712)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-H](https://sentry.io/organizations/grizzelbee/issues/3129951381/events/?project=6215712)
 * (grizzelbee) New: Fixed sentry error [WIREGUARD-C](https://sentry.io/organizations/grizzelbee/issues/3036902024/events/?project=6215712)
 * (grizzelbee) Upd: dependencies got updated
 
-### v1.1.2 (2022-03-17)
+### 1.1.2 (2022-03-17)
 * (grizzelbee) New: Added donate button
 * (grizzelbee) Upd: dependency update
 
-### v1.1.1 (2022-03-13)
+### 1.1.1 (2022-03-13)
 * (grizzelbee) Upd: Changed titleLang from WireGuard to WireGuard monitoring
 * (grizzelbee) Upd: dependency update
 
-### v1.1.0 (2022-03-06)
+### 1.1.0 (2022-03-06)
 * (grizzelbee) New: Added support for sudo when using a proper sudoers rule
 * (grizzelbee) Upd: Documentation update regarding security
 * (grizzelbee) Upd: dependency update
 
-### v1.0.0 (2022-02-25)
+### 1.0.0 (2022-02-25)
 * (grizzelbee) New: Added individual online state indicator for each interface
 * (grizzelbee) fix: Improved some data roles
 * (grizzelbee) fix: Improved documentation

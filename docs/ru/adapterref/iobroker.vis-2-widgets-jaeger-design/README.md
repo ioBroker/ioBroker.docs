@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
-title: Виджеты материалов для ioBroker.vis 2.0
-hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
+title: Специальные виджеты Jaeger Design для ioBroker.vis 2.0
+hash: Ta+VSlxWD5cdm7oEr2W52PZD5C1t3yo72JsZoutNOjk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-jaeger-design/admin/vis-2-widgets-jaeger-design.png)
 
@@ -12,7 +12,7 @@ hash: //Q4E7vgLGJl6O1SWB6NV8Tg1l7EjWwvhnPz4IN34tY=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-2-widgets-jaeger-design.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-2-widgets-jaeger-design.png?downloads=true)
 
-# Материальные виджеты для ioBroker.vis 2.0
+# Специальные виджеты Jaeger Design для ioBroker.vis 2.0
 ## Виджеты
 ### Кнопки и переключатели
 ### Актуальные новости
@@ -41,7 +41,26 @@ createState('javascript.0.rss', {type: 'string'}, () => {
 ### **В РАБОТЕ** -->
 
 ## Changelog
-### 0.4.3 (2023-06-07)
+### 0.6.3 (2023-07-25)
+* (bluefox) Added many new features
+
+### 0.6.1 (2023-07-21)
+* (bluefox) Added max height/width for floors
+
+### 0.6.0 (2023-07-19)
+* (bluefox) Corrected some errors with information
+
+### 0.5.2 (2023-07-02)
+* (bluefox) Support of false for scenes
+
+### 0.5.0 (2023-06-28)
+* (bluefox) Added support for the new vis
+* (bluefox) Added page configurable margins
+
+### 0.4.6 (2023-06-19)
+* (bluefox) Corrected sub menu
+
+### 0.4.5 (2023-06-13)
 * (bluefox) Corrected visualization of view
 
 ### 0.4.0 (2023-05-31)

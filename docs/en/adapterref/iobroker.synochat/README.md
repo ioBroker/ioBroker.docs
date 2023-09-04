@@ -43,8 +43,8 @@ More information can be found in the official [ioBroker documentation](https://w
 
 	<div id="synologyChatConfigurationOutgoingIntegration"></div>
 
-  	#### 2.1.1. Outgoing integration
-	For the integration of an outgoing message in the Synology chat, a web hook URL needs to be provided. You will get this web hook URL from the instance objects after instantiating the `synochat` adapter. More details can be found in [3. Usage > 3.1 General](#webHookLocation)
+  	#### 2.1.2. Outgoing integration
+	For the integration of an outgoing message in the Synology chat, a web hook URL needs to be provided. You will get this web hook URL from the instance objects after instantiating the `synochat` adapter. More details can be found in [3. Usage > 3.1 General](#web-hook-location)
 	![SynoChatIntegrationIncoming](./docs/images/diSynoChatIntegrationOutgoing.png)
 	![SynoChatIntegrationIncomingSettings](./docs/images/diSynoChatIntegrationOutgoingSettings.png)
 
@@ -100,9 +100,12 @@ For more details on how to handle integrations within Synology chat, please refe
 
     * **Channel name**
 
-		This setting specifies the name of the channel from/to which messages are sent. This name can be freely selected and is used for referencing.
+		This setting specifies the name of the channel from/to which messages are sent. This name is free to choose in case of channels of type `Send data to Synology chat server - Incoming integration` and is used for referencing.
 
 		The channel name to be configured here should be identical to the channel name of the Synology chat.
+
+		For channels of type `Get data from Synology chat server - Outgoing integration` the name must be identical to the channel name of the Synology chat channel in order to receive messages.
+		The mapping of the channel names is case sensitive (upper and lower case must be taken into account).
 
 	* **Channel token**
 
@@ -132,6 +135,7 @@ For more details on how to handle integrations within Synology chat, please refe
 			This option enables the channel to receive messages from the Synology chat server and update the new value of the ioBroker message object ([see usage chapter](#usage)).
 
 			Please note that when using this channel type, the channel name of the ioBroker adapter instance configuration must be identical to the channel name of the Synology chat channel in order to receive messages.
+			The mapping of the channel names is case sensitive (upper and lower case must be taken into account).
 
 			> Note: Please make sure not to select the '*react on*' options for outgoing channels
 
@@ -346,12 +350,20 @@ The communication will not be established and unfortunately there will be no dir
 		
 	![IobrokerObjectSetMessage](./docs/images/diIobrokerObjectSetMessage.png)
 
-* When the message object is changed and the channel type is set to `Send data to Synology chat server`, this message - depending on the channel type - is passed to the Synology chat.
+* When the message object is changed and the channel type is set to `Send data to Synology chat server`, this message is passed to the Synology chat.
 	![SynoChatChannelIncomingMessage](./docs/images/diSynoChatChannelIncomingMessage.png)
 
-<div id="webHookLocation"></div>
+* To receive messages from Synology Chat Server and for the message object to be updated accordingly, make sure that the configured `Trigger word` (see [Synology chat configuration](#synology-chat-configuration)) is in the message without punctuation. So it must stand alone.
 
-* The web hook URL / address will be provided as an object value in the info folder of the adapter instance ans is valid for all channels withing one adapter instance.
+    **Example:**\
+        If the `Trigger word` would be `Alarm`, the message in Synology chat should look like this:\
+        `An alarm was triggered in the hallway.`
+
+	Please note that the `Trigger word` is case sensitive (upper and lower case must be taken into account).
+
+<div id="web-hook-location"></div>
+
+* The web hook URL / address will be provided as an object value in the info folder of the adapter instance and is valid for all channels withing one adapter instance.
 	![IobrokerObjectWebHook](./docs/images/diIobrokerObjectWebHook.png)
 
 ### 3.2 Message content type
@@ -377,6 +389,12 @@ Since this adapter is using a `web` adapter instance to provide web hooks to the
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2023-08-13)
+- *[@phoeluga]* Fixed TypeError issue with empty initial value of outgoing channels - #13
+- *[@phoeluga]* Updated information about handling of outgoing channels - #14
+- *[@phoeluga]* Fixed special character escaping issue - #16
+- *[@phoeluga]* Added text mapping for 'human readable' descriptions of the message parent objects - #14
+
 ### 1.3.0 (2023-07-23)
 - *[@phoeluga]* Added feature to react on messages from Notification-Manager - #9
 - *[@phoeluga]* Added feature to react on general received messages sent to the `synochat` adapter instance.

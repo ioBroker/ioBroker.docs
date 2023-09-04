@@ -1,13 +1,13 @@
 ---
 title: 普罗克斯莫克斯
-Version: 0.1
-Autoren: TeNNo2k5
-Schlüsselworte: Proxmox, LXC, USB Passthrough
-lastChanged: 15.02.2022
+Version: 0.2
+Autoren: TeNNo2k5, crunchip
+Schlüsselworte: Proxmox, VM, LXC, USB Passthrough, Usb-Backup
+lastChanged: 12.08.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/proxmox.md
-hash: j2mg07NLFm9m2TAspQMBW/bpoCbaO9Dq+TastiW6UfI=
+hash: FRNF0eft/LaCJQVSJhYkS0UKIzaPwujbe+4BZ0VQxEY=
 ---
 # 普罗克斯莫克斯
 ![普罗克斯标志](../../de/install/media/proxmox/Proxmox-logo-860.png)
@@ -806,7 +806,7 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 
 * 屏幕截图还显示 cc2531 的设备编号已从 3 变为 4，这是因为在此期间棒已被拔出并再次插入。但是，由于在配置文件中指定了唯一 ID 而不是总线/设备编号，因此 USB 直通将继续工作。
 
-如果如上所述，将 Zigbee 棒传递到容器，则必须将其输入到 iobroker 的 Zigbee 适配器设置中的 COM 端口名称下
+如果如上所述，将 Zigbee 棒传递到容器，则必须在 Zigbee 适配器设置的 iobroker 中的 COM 端口名称下输入它
 
 ~~~ /dev/ttyACM0 ~~~
 
@@ -885,3 +885,63 @@ lxc.cgroup2.devices.allow: c 166:* rwm lxc.mount.entry: /dev/ttyACM0 dev/ttyACM0
 ~~~ lxc.mount.entry: /var/lib/lxc/CONTAINERID/devices/ttyACM0 dev/ttyACM0 none 绑定，可选，创建=文件 ~~~
 
 </详情>
+
+---
+
+## 设置 USB 记忆棒/磁盘用于备份
+为了以后可以单独保存备份，可以选择在 Proxmox 主机上以棒或磁盘的形式集成 USB 设备。
+为此，设备必须具有特定的格式。
+常见的[文件系统](https://wiki.ubuntuusers.de/Dateisystem/)是**vFAT**或**NTFS**。两者都可以在 Linux、Windows 或 MacOS 上读取。
+对于纯 Linux，通常是 **EXT4**。
+
+如果数据介质仍未分区或者您想重新格式化它，您可以在 Windows PC (ntfs) 上或直接在 Proxmox 服务器上执行此操作。
+准备好数据介质后，就可以将其安装到系统中，然后通过 Proxmox Gui 直接添加为存储（目录）。
+
+<span style="color:orange">**危险！ - 采用新格式后，数据介质上所有以前的数据都将被删除</span>
+
+以下示例说明直接参考 Proxmox 主机上的设置。也可以使用 ssh/putty。
+
+**注意，以下命令需要 root，如果在主机上使用自定义用户，则以下命令必须以 sudo 为前缀。**
+
+### 准备设备
+### 1 - 识别设备
+首先，您找到带有 [LSBLK](https://wiki.ubuntuusers.de/lsblk/) 的设备。建议在插入之前和之后运行该命令一次。这使得识别设备变得更加容易。
+
+~~~ lsblk ~~~
+
+看起来像这样（字母根据连接的设备数量而变化）
+
+~~~ sdd 8:48 0 119.2G 0 磁盘 ├─sdd1 8:49 0 119.2G 0 部分 └─sdd9 8:57 0 8M 0 部分 sde 8:64 0 931.5G 0 磁盘 <-- 这是磁盘 / dev/sde └─sde1 8:65 0 931.5G 0 部分 <-- 这是第一个分区 /dev/sde1 如果已经格式化 sr0 11:0 1 1024M 0 rom sr1 11:1 1 1024M 0 rom ~~~
+
+### 2 - 分区
+驱动器通过菜单驱动的[cfdisk](https://wiki.ubuntuusers.de/fdisk/)进行分区
+
+~~~ cfdisk /dev/sde ~~~
+
+### 3 - 创建文件系统
+现在必须格式化之前创建的分区。如上所述，根据预期用途，有不同的选择。
+使用命令[MKFS](https://wiki.ubuntuusers.de/Formatieren/)和适当的参数格式化分区。
+
+~~~ mkfs.vfat /dev/sde1 ~~~
+
+### 4 - 安装驱动器
+为了能够使用完整的数据介质，它必须是[安装的](https://wiki.ubuntuusers.de/mount/)。
+
+为此创建了一个合适的安装点，以便在重新启动后重新自动集成数据介质，您还需要在[/etc/fstab](https://wiki.ubuntuusers.de/fstab/)中添加一个合适的条目。
+
+为此，必须读出驱动器的唯一 **UUID**。
+
+创建挂载点~~~ mkdir /media/ext_usb ~~~
+
+挂载媒体 ~~~ 挂载 /dev/sde1 /media/ext_usb ~~~
+
+获取 UUID ~~~ blkid | grep -i sde ~~~ 给出 ~~~ /dev/sde1: LABEL="Export_Images" UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" UUID_SUB="951e8519-8478-4d64-b093-c3597147f989" BLOCK_SIZE="第4096章 类型=“btrfs”PARTUUID=“00011a10-01”~~~
+
+使用 nano 编辑 */etc/fstab* 中的条目 ~~~ nano /etc/fstab ~~~ 现在添加并保存此条目 ~~~ UUID="136b058d-f0c8-406d-a82b-2adcc00b72bf" /media/ ext_usb vfat 默认 0 0 ~~~
+
+### 5- 在 Proxmox 中添加存储
+现在可以在数据中心>存储下添加目录。 ID名称可以自由选择，例如*usb-backup*。
+
+路径在 *Directory* 列中指定，在本例中为 */media/ext_usb*。
+
+使用*内容*，您只需选择所需的请求。

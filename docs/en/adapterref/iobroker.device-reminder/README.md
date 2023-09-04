@@ -162,6 +162,17 @@ is displayed.
 	Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 2.0.1 (2023-08-20)
+* (xenon-s) : !!! BREAKING CHANGE ! Reinstallation is strongly recommended !!!
+* (xenon-s) Fixes for js-controller 5.*
+* (xenon-s) bugfix: [issue #278](https://github.com/Xenon-s/ioBroker.device-reminder/issues/278)
+* (xenon-s) bugfix: [issue #273](https://github.com/Xenon-s/ioBroker.device-reminder/issues/273)
+* (xenon-s) bugfix: [issue #267](https://github.com/Xenon-s/ioBroker.device-reminder/issues/267)
+* (xenon-s) bugfix: [issue #218](https://github.com/Xenon-s/ioBroker.device-reminder/issues/218)
+* (xenon-s) bugfix: [issue #207](https://github.com/Xenon-s/ioBroker.device-reminder/issues/207)
+
+
 ### 1.2.9 (2021-06-22)
 * (xenon-s) bugfix: error catching JSON last operations doesn't work
 
@@ -241,7 +252,7 @@ is displayed.
 
 MIT License
 
-Copyright (c) 2021 xenon-s <ente_s@hotmail.de>
+Copyright (c) 2023 xenon-s <ente_s@hotmail.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -93,6 +93,7 @@ Additionally, you can show image or iframe with this widget too.
 ![Player](img/material-blinds-2.png)
 
 ### Color Lamp
+![RGB](img/material-rgb.png)
 
 ### Time picker
 
@@ -136,13 +137,26 @@ Additionally, you can show image or iframe with this widget too.
 - Window → Switch and Buttons Info with specific iconS (opened → true, closed → false)
 
 ## Todo
-- RGBW color controller 
+- RGBW color controller
+- Investigate delay for widgets
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added RGB widget
+
+### 0.8.5 (2023-08-11)
+* (bluefox) Improvement of the widget loading
+
+### 0.8.4 (2023-08-10)
+* (bluefox) Improvement of wizard
+
+### 0.8.3 (2023-07-30)
+* (bluefox) Font styles are applied to all buttons
+
 ### 0.8.2 (2023-07-19)
 * (bluefox) Corrected small layout problems
 

@@ -36,6 +36,13 @@ or any associated subsidiaries, logos or trademarks.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 0.1.3 (2023-07-27)
+* stable release
+
+### 0.1.2 (2023-07-27)
+* stable release
+
 ### 0.1.1 (2022-11-17)
 * some fixes for relesase
 
@@ -50,7 +57,7 @@ or any associated subsidiaries, logos or trademarks.
 ## License
 MIT License
 
-Copyright (c) 2022 Jey Cee <jey-cee@live.com>
+Copyright (c) 2023 Jey Cee <jey-cee@live.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

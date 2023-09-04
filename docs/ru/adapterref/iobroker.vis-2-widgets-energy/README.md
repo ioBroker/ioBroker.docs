@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-energy/README.md
 title: Виджеты Vis 2 Energy
-hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
+hash: bTmYTZnhbP6JBiq95E/CDpD+srKyIf3+DjHb9xBCMgE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-energy/admin/vis-2-widgets-energy.png)
 
@@ -23,6 +23,8 @@ hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
 
 ![Сравнение энергии](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/comparison.png)
 
+![Круговая диаграмма](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/pie.png)
+
 - Селектор времени для потребления энергии
 
 ![Селектор времени](../../../en/adapterref/iobroker.vis-2-widgets-energy/img/timeSelector.png)
@@ -36,6 +38,24 @@ hash: dm04Hr7vkucXmgZVii1wJYIN4RXQ90O8jmEt35LU408=
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### 0.3.0 (2023-08-16)
+* (bluefox) Added pie chart for comparison
+
+### 0.2.3 (2023-07-28)
+* (bluefox) Corrected layout of date selector
+
+### 0.2.1 (2023-06-28)
+* (bluefox) Added settings for units, rounding, invert direction, multiplier
+
+### 0.1.12 (2023-04-03)
+* (bluefox) Corrected the consumption widget
+
+### 0.1.11 (2023-03-31)
+* (bluefox) translation was corrected
+
+### 0.1.10 (2023-03-09)
+* (bluefox) update packages
+
 ### 0.1.8 (2023-02-27)
 * (bluefox) packages were updated
 

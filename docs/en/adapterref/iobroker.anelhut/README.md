@@ -67,6 +67,14 @@ Please use the latest firmeware (4.2). You can download it from https://de.anel.
 
 ## Changelog
 
+### 1.0.15
+
+-   (dan1-de) Bugfix for new jscontroller 5
+
+### 1.0.14
+
+-   (dan1-de) Added new Logs messages for Relais Switch Command in Debug Mode
+
 ### 1.0.13
 
 -   (dan1-de) Improved error message for user/password missing. Added new Testcase for Message decode of NET-PWRCTRL_07.1
@@ -115,7 +123,7 @@ Please use the latest firmeware (4.2). You can download it from https://de.anel.
 
 MIT License
 
-Copyright (c) 2021 dan1-de <dan1-de@gmx.de>
+Copyright (c) 2023 dan1-de dan1-de@gmx.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

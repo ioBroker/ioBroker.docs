@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: 0UPQVBLQXBUPZXSeutYlngsNJHJbF0jJ5dajxjktBuI=
+hash: QAyGBv5DI9AcG2zSTLWUThe/okJ2NS3QBokkg0UUGlU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -28,7 +28,7 @@ hash: 0UPQVBLQXBUPZXSeutYlngsNJHJbF0jJ5dajxjktBuI=
 
 - Аналоговая вариация
 
-![Часы аналоговые 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
+![Аналоговые часы 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-clock-analog-2.png)
 
 - Цифровой
 
@@ -100,6 +100,8 @@ HTML-шаблон можно использовать для отображен�
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### Цветная лампа
+![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+
 ### Выбор времени
 ## Сопоставление мастера
 ### Один вид - одна комната
@@ -143,12 +145,25 @@ HTML-шаблон можно использовать для отображен�
 
 ## Делать
 - контроллер цвета RGBW
+- Исследуйте задержку для виджетов
 
 <!-- Заполнитель для следующей версии (в начале строки):
 
 ### **В РАБОТЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added RGB widget
+
+### 0.8.5 (2023-08-11)
+* (bluefox) Improvement of the widget loading
+
+### 0.8.4 (2023-08-10)
+* (bluefox) Improvement of wizard
+
+### 0.8.3 (2023-07-30)
+* (bluefox) Font styles are applied to all buttons
+
 ### 0.8.2 (2023-07-19)
 * (bluefox) Corrected small layout problems
 

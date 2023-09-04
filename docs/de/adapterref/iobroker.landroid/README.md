@@ -2,25 +2,44 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.landroid/README.md
-title: ioBroker.landroid
-hash: E5DdgJBBgxL7Nif7ZHuxb9euevhp2JM5FdpvUOSUYr8=
+title: Dieser Adapter ist veraltet und wird nicht weiterentwickelt
+hash: 0EHhr5qlOIy7tWNtiOKpY5u9grZDQwwP6h6mvcA9Q3Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.landroid/admin/landroid.png)
 
+![Anzahl der Installationen](http://iobroker.live/badges/landroid-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.landroid.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.landroid.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.landroid.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.landroid/badge.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.landroid/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.landroid.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.landroid/master.svg)
 ![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.landroid?branch=master&svg=true)
 ![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.landroid.svg)
+
+# Dieser Adapter ist veraltet und wird nicht weiterentwickelt
+-----
+
+Derzeit ist keine Weiterentwicklung dieses Adapters geplant. __Bitte migrieren Sie zum ioBroker.worx-Adapter__, der beibehalten wird.
+Wenn Sie Funktionen bei ioBroker.worx vermissen, öffnen Sie ein Problem in diesem Repository (https://github.com/tp1de/ioBroker.worx/issues).
+
+ioBroker.landroid wird noch einige Zeit verfügbar bleiben, aber bedenken Sie, dass es nicht an Node 20 und den kommenden js-controller v5 angepasst wird.
+
+-----
 
 # IoBroker.landroid
 ## Ein Worx Landroid-Adapter für ioBroker
 Dies ist ein ioBroker-Adapter für Ihre Worx Landroid-Mähmaschine. Es wurde mit einem Landroid WG796E getestet.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 
 ### 1.0.3
 * (ldittmar) compact mode compatibility added

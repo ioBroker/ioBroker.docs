@@ -585,53 +585,24 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
-### 1.3.9 (Nobl)
-* Added (some) Wallbox Datapoints to high-prio polling
-* Added more state definitions
+### 1.4.1 (NoBl)
+* Fix: Autarky calculations are working again.
 
-### 1.3.8 (NoBl)
-* Removed (unnecessary) admin tab
+### 1.4.0 (NoBl)
+* Added object caching along with some minor code updates. Due to the amount of objects we deal with caching is about mandatory.
 
-### 1.3.7 (NoBl, noffycws, git-ZeR0)
-* Updates to state translations (new values when SENEC turned off appliances)
-* Added state definitions
-* Added high priority datapoints: temperatures, voltages, ... to better monitor safety relevant data
-
-### 1.3.6 (NoBl)
-* Fixed log.warning error
-
-### 1.3.5 (NoBl)
-* Added more state attributes (if you have updated descriptions or anything, please open an issue!)
-* Workaround in case SENEC reports bogus request data
-
-### 1.3.4 (NoBl)
-* Moved from request to axios
-* Added more state attributes (if you have updated descriptions or anything, please open an issue!)
-
-### 1.3.3 (NoBl)
-* Updated to current template.
-
-### 1.3.2 (NoBl)
-* Autarky without decimal places (again). They are causing more updates than we really need.
-* Autarky values won't reset to 0 at change of timeframe (day, week, ...) anymore. They are calculated based on reference values anyways.
-* Ensuring that only values meant to be changeable by user are defined so (attribute changes upon the next update of value)
-
-### 1.3.1 (NoBl) 20210513
-* Added calculation of autarky for day/week/month/year
-
-### 1.3.0 (NoBl) 20210509
-* Rewrote translations handling
-* Added translations for wallbox status.
-* Translated status get an extra datapoint with _Text as postfix. Former translations that didn't add an extra dp will now revert to their numeric representation and add the _Text DP.
-* Translations are now handled via lib/state_trans.js for all 3 languages available in the senec system (german, english, italian).
-* Language used is decided by the language of the SENEC appliance.
+### 1.3.10 (NoBl)
+* Fixed wrong Unit for STATISTIC.LIVE_WB_ENERGY
+* Updated to json Admin UI
+* Technical Updates
+* Added more state_attr definitions
 
 ### [Former Updates](CHANGELOG_old.md)
 
 ## License
 MIT License
 
-Copyright (c) 2022 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2023 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

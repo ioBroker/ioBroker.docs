@@ -64,6 +64,12 @@ DSP-W115 and other *newer* devices use a completely different protocol and a dif
 	Placeholder for next versions (this needs to be indented):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.4 (2023-08-18)
+* fixed: missing build...
+
+### 1.3.3 (2023-08-07)
+* fix: crash with js-controller 5.x
+
 ### 1.3.2 (2023-06-23)
 * better handle possible exception on unload.
 

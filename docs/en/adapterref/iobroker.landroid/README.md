@@ -1,4 +1,15 @@
 ![Logo](admin/landroid.png)
+# This adapter is DEPRECATED and will not be developed any further
+
+-----
+
+Currently there is no further development for this adapter planned. __Please migrate to ioBroker.worx adapter__ which is maintained.
+If you miss any features at ioBroker.worx open an issue at that repository (https://github.com/tp1de/ioBroker.worx/issues).
+
+IoBroker.landroid will stay available for some time, but keep in mind, that it will not be adapted to node 20 and upcoming js-controller v5.
+
+-----
+
 # ioBroker.landroid
 
 ![Number of Installations](http://iobroker.live/badges/landroid-installed.svg) ![Number of Installations](http://iobroker.live/badges/landroid-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.landroid.svg)](https://www.npmjs.com/package/iobroker.landroid)

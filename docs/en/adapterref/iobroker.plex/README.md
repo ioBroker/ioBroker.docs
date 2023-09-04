@@ -2,8 +2,6 @@
 # ioBroker.plex
 Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Furthermore, Tautulli integration.
 
-[![Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=S45U45EHXGQHN&source=url)
-
 ![Number of Installations](http://iobroker.live/badges/plex-installed.svg)
 ![Stable Version](http://iobroker.live/badges/plex-stable.svg)
 [![NPM Version](http://img.shields.io/npm/v/iobroker.plex.svg)](https://www.npmjs.com/package/iobroker.plex)
@@ -126,6 +124,21 @@ After sucessful advanced setup the following channels will _additionally_ be cre
 
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.1 (2023-08-21)
+- (ticaki) Xmlparser call fixed
+
+### 1.0.0 (2023-08-20)
+- (ticaki) fixed: several minor issues have been fixed
+
+### 1.0.0-alpha.3 (2023-08-16)
+- (ticaki) fixed: common.type warnings have been fixed and missing state definitions have been added #114 #101 #100
+- (ticaki) fixed: player controls  
+- (ticaki) fixed: history page has been fixed 
+- (ticaki) fixed: translation error has been fixed #108
 
 ### 0.9.0 (2020-05-23)
 - (Zefau) added option for webhook IP address in case Plex is running in a Docker environment (see [#53](https://github.com/Zefau/ioBroker.plex/issues/53))
@@ -225,11 +238,11 @@ After sucessful advanced setup the following channels will _additionally_ be cre
 - (Zefau) receive events from Plex Webhook (Plex Pass only)
 - (Zefau) receive events from Tatulli (if used)
 
-
 ## License
 The MIT License (MIT)
 
 Copyright (c) 2019-2020 Zefau <zefau@mailbox.org>
+Copyright (c) 2023 iobroker-community-adapters
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

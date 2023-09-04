@@ -7,8 +7,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sma-em.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sma-em/README.md
-title: Документация по адаптеру счетчика энергии SMA
-hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
+title: Документация по адаптеру счетчика электроэнергии SMA
+hash: WS7L5oYrhVkm1f4PLor2KG6Ab/cXAojCxkX/Z0Wo/rY=
 ---
 # Документация по адаптеру счетчика энергии SMA
 ## Общая информация
@@ -21,7 +21,10 @@ hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
   - IP-адрес многоадресной рассылки: настройка по умолчанию, предварительно заданная SMA, — это IP-адрес 239.12.255.254.
   - Порт многоадресной рассылки: настройка по умолчанию, предопределенная SMA, — это порт UDP 9522.
   - Собственные IP-адреса сетевого интерфейса: установите флажок, показывающий все доступные IPv4-адреса сетевого интерфейса на сервере ioBroker. В этом поле выберите IP-адрес сетевого интерфейса для прослушивания многоадресной рассылки.
-  - Выбранный IP-адрес сетевого интерфейса: текущий выбранный IP-адрес сетевого интерфейса для прослушивания многоадресных сообщений. IP 0.0.0.0 означает, что адаптер прослушивает все доступные сетевые интерфейсы.
+  - Выбранный IP-адрес сетевого интерфейса: текущий выбранный IP-адрес сетевого интерфейса для прослушивания многоадресных сообщений. IP 0.0.0.0 означает, что адаптер прослушивает все доступные сетевые интерфейсы. Этот параметр не рекомендуется использовать, так как он может вызвать проблемы в некоторых сетях.
+  - IP счетчика энергии: IP-адрес определенного счетчика энергии. Если это введено, данные будут записаны только для этого одного счетчика энергии в одном экземпляре адаптера. Если счетчиков энергии несколько, то каждый из них можно настроить отдельно в других экземплярах адаптера. Эта процедура упрощается благодаря обнаружению ioBroker, которое обнаруживает счетчики электроэнергии SMA, доступные в сети, и предлагает создание одного экземпляра для каждого найденного счетчика энергии.
+
+  IP 0.0.0.0 выбирает все счетчики энергии. Все существующие счетчики энергии обрабатываются одним экземпляром адаптера. Это значение по умолчанию, обеспечивающее совместимость с предыдущими версиями адаптера.
 
 ![Адаптер_admin_config2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
 
@@ -35,7 +38,6 @@ hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
 ![Adapter_overview](../../../en/adapterref/iobroker.sma-em/img/overview-en.png)
 
 После установки и запуска адаптера создается структура папок, показанная на картинке. Все данные счетчика энергии находятся в корневой папке. Если они были сконфигурированы, значения отдельных фаз находятся в подпапках L1-L3.
-Если в сети есть несколько счетчиков энергии или Sunny Home Manager, папки объектов для каждого устройства создаются в одном и том же экземпляре sma-em.
 
 ## Объяснение идентификаторов объектов
 Буквы p, q и s заимствованы из электротехники и обозначают:
@@ -57,12 +59,16 @@ hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
 - ...
 
 ## Changelog
+### 1.0.0 (2023-08-19)
 
-### __WORK IN PROGRESS__
-
-- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+- (pdbjjens) Change: Configurable Energy Meters per adapter instance
+- (pdbjjens) Change: Selectable own network device IP to listen for multicast messages
+- (pdbjjens) Change: Objects "last_message" and "TimeTick" were removed
+- (pdbjjens) New: Support ioBroker discovery
+- (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
+- (arteck) New: Detect new SHM 2.0 with SUSy 501
 - (ticaki) Fix: Catch interface errors
-- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
 
 ### 0.7.0 (2023-03-14)
 
@@ -85,10 +91,6 @@ hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
 - (TGuybrush) Bug fixes
 - Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
 - Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
-### 0.6.3 (2021-03-04)
-
-- (TGuybrush) The adapter binds now to all external IPv4 addresses.
 
 ## License
 

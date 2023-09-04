@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: 9JkQkAkEUwCAcPs2Nmazq+dTiQcPBBp+DG/V6J0DVqk=
+hash: O869NPKJcRTO44Sz17Hz0dXrl3LKDNy0MQbUb7arwHs=
 ---
 ![Logo](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -53,7 +53,7 @@ Der Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascr
 Zustände ändern sich im Vergleich zu den Objekten sehr häufig. (Normalerweise sollten Objekte bei der Erstellung einmal geändert werden und das ist alles)
 
 ### Wissen
-Jeder Zustand hat das Attribut „ack“. Es zeigt die Befehlsrichtung an.
+Jeder Staat hat das Attribut `ack`. Es zeigt die Befehlsrichtung an.
 
 – Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit der Befehl ausgeführt wird (z. B. das Licht wird eingeschaltet).
 - Wenn ack=true, bedeutet dies, dass das Gerät über den neuen Wert informiert. (z. B. Licht wurde manuell eingeschaltet oder Bewegung wurde erkannt)
@@ -78,8 +78,11 @@ Es wird empfohlen, für die Kommunikation [Socket-Klasse](https://github.com/ioB
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.5.3 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 2.4.0 (2023-07-07)
-(bluefox) extended the getObjects function with the possibility to read the list of IDs
+* (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
 ### 2.3.6 (2023-03-03)
 * (bluefox) Allowed deletion of fullcalendar objects

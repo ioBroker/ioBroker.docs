@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sma-em/README.md
 title: SMA 电能表适配器文档
-hash: kkpuC3n9lXgzLTqHQBDV3Vo/OSB1KtyBD65m+NmgeJg=
+hash: WS7L5oYrhVkm1f4PLor2KG6Ab/cXAojCxkX/Z0Wo/rY=
 ---
 # SMA 电能表适配器文档
 ＃＃ 一般信息
@@ -19,9 +19,12 @@ SMA 电能表适配器从电能表或 Sunny Home Manager 接收多播数据报�
 
 - 选项卡组播设置
   - 多播 IP：默认设置和由 SMA 预定义的 IP 地址是 239.12.255.254。
-  - 组播端口：SMA 预定义的默认设置是 UDP 端口 9522。
+  - 多播端口：SMA 预定义的默认设置是 UDP 端口 9522。
   - 自己的网络接口 IP：选择框显示 ioBroker 服务器上所有可用的网络接口 IPv4。从此框中选择网络接口 IP 以侦听多播。
-  - 选择的网络接口 IP：当前选择的网络接口 IP 侦听多播消息。 IP 0.0.0.0 表示适配器侦听所有可用的网络接口。
+  - 选择的网络接口 IP：当前选择的网络接口 IP 侦听多播消息。 IP 0.0.0.0 表示适配器侦听所有可用的网络接口。不建议使用此设置，因为它可能会导致某些网络出现问题。
+  - 电表IP：特定电表的IP 地址。如果输入此项，则仅在适配器的一个实例中记录该电能表的数据。如果有多个电表，则可以在适配器的其他实例中单独配置它们。这一过程通过 ioBroker 发现得到简化，它检测网络中可以到达的 SMA 电表，并为找到的每个电表创建一个实例。
+
+  IP 0.0.0.0 选择所有电表。所有现有的电表均由适配器的一个实例处理。这是默认设置，并提供与以前版本的适配器的兼容性。
 
 ![适配器_管理_配置2](../../../en/adapterref/iobroker.sma-em/img/adminpage2-en.png)
 
@@ -35,7 +38,6 @@ SMA 电能表适配器从电能表或 Sunny Home Manager 接收多播数据报�
 ![适配器_概述](../../../en/adapterref/iobroker.sma-em/img/overview-en.png)
 
 安装并启动适配器后，将创建如图所示的文件夹结构。电能表的全部数据位于根文件夹中。如果已配置，则各个相位的值位于子文件夹 L1-L3 中。
-如果网络中有多个电能表或 Sunny Home Manager，则每个设备的对象文件夹都会在同一个 sma-em 实例中创建。
 
 ## 对象 ID 说明
 字母 p、q 和 s 源自电气工程，代表：
@@ -57,12 +59,16 @@ SMA 电能表适配器从电能表或 Sunny Home Manager 接收多播数据报�
 - ...
 
 ## Changelog
+### 1.0.0 (2023-08-19)
 
-### __WORK IN PROGRESS__
-
-- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+- (pdbjjens) Change: Configurable Energy Meters per adapter instance
+- (pdbjjens) Change: Selectable own network device IP to listen for multicast messages
+- (pdbjjens) Change: Objects "last_message" and "TimeTick" were removed
+- (pdbjjens) New: Support ioBroker discovery
+- (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
+- (arteck) New: Detect new SHM 2.0 with SUSy 501
 - (ticaki) Fix: Catch interface errors
-- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
 
 ### 0.7.0 (2023-03-14)
 
@@ -85,10 +91,6 @@ SMA 电能表适配器从电能表或 Sunny Home Manager 接收多播数据报�
 - (TGuybrush) Bug fixes
 - Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
 - Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
-### 0.6.3 (2021-03-04)
-
-- (TGuybrush) The adapter binds now to all external IPv4 addresses.
 
 ## License
 

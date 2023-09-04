@@ -19,7 +19,9 @@ Der SMA Energy Meter Adapter empfängt die Multicast Datagramme des Energy-Meter
   - Multicast IP: Standardmäßig eingestellt und von SMA vorgegeben ist die IP-Adresse 239.12.255.254.
   - Multicast Port: Standardmäßig eingestellt und von SMA vorgegeben ist der UDP Port: 9522.
   - Eigene Netzwerkschnittstellen-IPs: Ein Auswahlfeld, das alle verfügbaren Netzwerkschnittstellen-IPv4s auf dem ioBroker-Server anzeigt. Wählen Sie hier die Netzwerkschnittstellen-IP aus, auf der auf Multicasts gewartet werden soll.
-  - Ausgewählte Netzwerkschnittstellen-IP: Derzeit ausgewählte Netzwerkschnittstellen-IP, die auf Multicast-Nachrichten wartet. IP 0.0.0.0 bedeutet, dass der Adapter auf alle verfügbaren Netzwerkschnittstellen lauscht.
+  - Ausgewählte Netzwerkschnittstellen-IP: Derzeit ausgewählte Netzwerkschnittstellen-IP, die auf Multicast-Nachrichten wartet. IP 0.0.0.0 bedeutet, dass der Adapter auf alle verfügbaren Netzwerkschnittstellen lauscht. Diese Einstellung wird nicht empfohlen, da sie in manchen Netzwerken zu Problemen führen kann.
+  - Energiezähler-IP: IP Adresse eines bestimmten Energiezählers. Wird diese eingegeben, werden die Daten nur dieses einen Energiezählers in einer Instanz des Adapters erfasst. Sind mehrere Energiezähler vorhanden, so können diese jeweils einzeln in weiteren Instanzen des Adapters konfiguriert werden. Vereinfacht wird dieses Verfahren über die ioBroker discovery, die die im Netzwerk erreichbaren SMA Energiezähler detektiert und die Erstellungen von einer Instanz je gefundenem Energiezähler anbietet.
+  IP 0.0.0.0 wählt alle Energiezähler aus. Alle vorhandenen Energiezähler werden von einer Instanz des Adapters erfasst. Dies ist die Standardeinstellung und bietet die Kompatibilität mit früheren Versionen des Adapters.
 
 ![adapter_admin_konfiguration2](img/adminpage2-de.png)
 
@@ -34,7 +36,6 @@ Der SMA Energy Meter Adapter empfängt die Multicast Datagramme des Energy-Meter
 ![adapter_uebersicht](img/overview-de.png)
 
 Nach Installation und Start des Adapters wird die auf dem Bild gezeigte Ordnerstruktur angelegt. Im Stammverzeichnis befinden sich die Gesamtdaten des Energy Meters. Sofern sie konfiguriert wurden, befinden sich in den Unterordnern L1-L3 jeweils die Werte der einzelnen Phasen.
-Wenn sich mehrere Energy Meter oder Sunny Home Manager im Netzwerk befinden, werden die Objektordner für jedes Gerät in derselben sma-em Instanz angelegt.
 
 ## Erklärung der Objekt-IDs
 
@@ -57,12 +58,16 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+### 1.0.0 (2023-08-19)
 
-### __WORK IN PROGRESS__
-
-- (pdbjjens) New: Selectable own network device IP (single or all) to listen for multicast messages
+- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+- (pdbjjens) Change: Configurable Energy Meters per adapter instance
+- (pdbjjens) Change: Selectable own network device IP to listen for multicast messages
+- (pdbjjens) Change: Objects "last_message" and "TimeTick" were removed
+- (pdbjjens) New: Support ioBroker discovery
+- (pdbjjens) New: Detect SMA-EM 1.0 (SUSy 270)
+- (arteck) New: Detect new SHM 2.0 with SUSy 501
 - (ticaki) Fix: Catch interface errors
-- (pdbjjens) New: Detect SMA-EM1.0 SUSy270
 
 ### 0.7.0 (2023-03-14)
 
@@ -85,10 +90,6 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - (TGuybrush) Bug fixes
 - Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
 - Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
-### 0.6.3 (2021-03-04)
-
-- (TGuybrush) The adapter binds now to all external IPv4 addresses.
 
 ## License
 

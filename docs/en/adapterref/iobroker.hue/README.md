@@ -74,6 +74,17 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.9.6 (2023-08-16)
+* (foxriver76) do not set invalid states on unknown group updates
+* (foxriver76) only use push connection if ssl is configured
+
+### 3.9.5 (2023-07-31)
+* (foxriver76) fixed crash case
+
+### 3.9.4 (2023-07-30)
+* (foxriver76) fixed edge case crash on button updates
+* (foxriver76) fix crash case if uuids can not be retrieved
+
 ### 3.9.3 (2023-06-14)
 * (foxriver76) fix crash cases on unknown push updates (closes #417)
 

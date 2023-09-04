@@ -2,7 +2,7 @@
 # ioBroker.roomba
 Connect your iRobot Roomba to ioBroker.
 
-Based on the dorita980 library https://github.com/koalazak/dorita980#readme
+Based on the dorita980 library https://github.com/karlvr/dorita980#readme
 
 [![Number of Installations](http://iobroker.live/badges/roomba-installed.svg)](http://iobroker.live/badges/roomba-installed.svg)
 [![Stable Version](http://iobroker.live/badges/roomba-stable.svg)](http://iobroker.live/badges/roomba-stable.svg)
@@ -94,7 +94,7 @@ To automatically setup ioBroker.roomba following the instructions in the admin p
 If the automated process fails retrieving your credentials, please use the manual setup.
 
 ### Manual setup
-For manual setup see https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password.
+For manual setup see https://github.com/karlvr/dorita980#how-to-get-your-usernameblid-and-password.
 
 
 ## Supported Roomba's / Firmware versions
@@ -207,7 +207,7 @@ After sucessful setup the following channels and states will be created:
 
 
 ## Description of Preferences _(incomplete)_
-The following payload will be received when calling ```getPreferences()``` (see https://github.com/koalazak/dorita980#getpreferences):
+The following payload will be received when calling ```getPreferences()``` (see https://github.com/karlvr/dorita980#getpreferences):
 
 | Object | Index | Type | Description | ioBroker State |
 | ------ | ----- | ---- | ----------- | -------------- |
@@ -304,6 +304,17 @@ You may edit the variable ```message``` to any notification you would like to re
 
 
 ## Changelog
+### 1.2.1 (2023-08-09)
+
+* (mcm1957) dorita980 dependency has been upgraded
+* (mcm1957) some other dependencies have been upgraded
+* (mcm1957) Adapter now requires node 16 or newer and js-controller 4.0.24 or newer
+
+### 1.2.0 (2023-08-09)
+
+* (TheRealArthurDent) dorita980 has been updated (see PR #144)
+* (mcm1957) Release script has been updated
+* (mcm1957) Several issues reported by adapter checker have been fixed
 
 ### 1.1.4 (2021-07-19)
 * (Apollon77) Adjust some types to prevent js-controller 3.3 warnings
@@ -380,9 +391,6 @@ You may edit the variable ```message``` to any notification you would like to re
 ### 0.4.0 (2019-01-08)
 - (zefau) Support for e5 and 600 series (due to support by [dorita980](https://github.com/koalazak/dorita980#readme))
 
-### 0.3.x (2019-01-06)
-- (zefau) Bug fixed (```Mission saved``` loop)
-
 ### 0.3.0 (2019-01-06)
 - (zefau) Image / Map of the current cleaning mission will be created
 - (zefau) Removed encryption of password
@@ -404,7 +412,6 @@ Note: If you are coming from an earlier version, you have to (1) empty your sett
 ### 0.1.0 (2018-11-04)
 - (zefau) initial version
 
-
 ## Credits
 ### unofficial API
 Thanks to [@koalazak](https://github.com/koalazak) for the [unofficial iRobot Roomba 980 node.js library (SDK)](https://github.com/koalazak/dorita980#readme).
@@ -416,6 +423,7 @@ Icons made by <a href="https://www.flaticon.com/authors/iconnice" title="Iconnic
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2018-2020 Zefau <zefau@mailbox.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

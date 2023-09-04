@@ -1,10 +1,10 @@
 ---
 title: ioBroker basics
-lastChanged: 23.10.2022
+lastChanged: 11.08.2023
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/basics/README.md
-hash: AmA1ZvnW3SNWQ3FZ5TRleBlAX4ldH+b7dGJL3uCgcY0=
+hash: OFLJIxPUGqZC8Thl+rB13dwO3QA5gP+alrK9ttB/3E8=
 ---
 ioBroker is a pure software solution to connect different IoT systems to a complete system. Accordingly, a control center (gateway/interface) is still required for each system in order to be able to integrate its devices.
 
@@ -27,7 +27,7 @@ A special feature of ioBroker is that the tasks **can** be distributed to severa
 ### Hardware requirements
 An ioBroker server can be installed on almost any hardware. The only condition is that there is a current version of [nodejs](https://nodejs.org/en/download/) for the corresponding operating system.
 
-!> As of October 2022, Node.js 16.x is recommended for ioBroker.
+!> As of March 2023, Node.js 18.x is recommended for ioBroker.
 
 For a larger installation, a working memory (RAM) of at least 2 GB, better 4 GB, is also recommended. A Raspberry Pi 2/3 with 1 GB RAM is sufficient for testing, as a slave for a few adapters in a multi-host environment even smaller computers are sufficient.
 

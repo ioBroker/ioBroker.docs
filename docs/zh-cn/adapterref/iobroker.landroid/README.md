@@ -2,25 +2,44 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.landroid/README.md
-title: ioBroker.landroid
-hash: E5DdgJBBgxL7Nif7ZHuxb9euevhp2JM5FdpvUOSUYr8=
+title: 该适配器已弃用，不会进一步开发
+hash: 0EHhr5qlOIy7tWNtiOKpY5u9grZDQwwP6h6mvcA9Q3Q=
 ---
-![商标](../../../en/adapterref/iobroker.landroid/admin/landroid.png)
+![标识](../../../en/adapterref/iobroker.landroid/admin/landroid.png)
 
+![安装数量](http://iobroker.live/badges/landroid-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.landroid.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.landroid.svg)
 ![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.landroid.svg)
-![已知的漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.landroid/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.landroid.png?downloads=true)
+![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.landroid/badge.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.landroid.png?downloads=true)
 ![特拉维斯-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.landroid/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.landroid?branch=master&svg=true)
-![Greenkeeper徽章](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.landroid.svg)
+![应用程序载体](https://ci.appveyor.com/api/projects/status/github/iobroker-community-adapters/ioBroker.landroid?branch=master&svg=true)
+![绿卫士徽章](https://badges.greenkeeper.io/iobroker-community-adapters/ioBroker.landroid.svg)
 
-＃ioBroker.landroid
-##适用于ioBroker的Worx Landroid适配器
-这是适用于Worx Landroid割草机的ioBroker适配器。它已经过Landroid WG796E的测试。
+# 该适配器已弃用，不会进一步开发
+-----
+
+目前没有计划进一步开发该适配器。 __请迁移到已维护的 ioBroker.worx 适配器__。
+如果您错过了 ioBroker.worx 的任何功能，请在该存储库中提出问题 (https://github.com/tp1de/ioBroker.worx/issues)。
+
+ioBroker.landroid 将保持可用一段时间，但请记住，它不会适应节点 20 和即将推出的 js-controller v5。
+
+-----
+
+# IoBroker.landroid
+## 适用于 ioBroker 的 Worx Landroid 适配器
+这是适用于 Worx Landroid 割草机的 ioBroker 适配器。它已使用 Landroid WG796E 进行了测试。
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
 
 ### 1.0.3
 * (ldittmar) compact mode compatibility added

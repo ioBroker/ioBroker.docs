@@ -48,6 +48,7 @@ This should give you the password and a status in return.
 * (Morluktom) Fixed warnings found by adapter checker
 * (Morluktom) Added Admin 5 configuration
 * (Morluktom) Added Ukrainan language
+* (Morluktom) Add PV Forecast to chart
 
 ### 0.2.3 (2022-04-05)
 * (Morluktom) Chart widget: Datepicker changed to jquery
