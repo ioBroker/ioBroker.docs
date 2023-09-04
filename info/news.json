@@ -576,7 +576,7 @@
         "fa-icon": "exclamation-circle",
         "created": "2023-08-16T011:00:00.000Z",
         "conditions": {
-            "deconz": "bigger(2.0.0)"
+            "deconz": "between(2.0.0,2.0.6)"
         }
     },
     {
