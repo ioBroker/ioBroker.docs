@@ -576,17 +576,17 @@
             "zh-cn": "现已取消原状。"
        },
         "content": {
-            "en": "The adapter km200 has been deprecated and will not be supported with upcoming js-controller 5.x.",
-            "de": "Der Adapter km200 wurde abgeschrieben und wird nicht mit dem anstehenden js-controller 5.x unterstützt.",
-            "ru": "Адаптер km200 был отсортирован и не будет поддерживаться с предстоящим js-controller 5.x.",
-            "pt": "O adaptador km200 foi depreciado e não será suportado com o próximo js-controller 5.x.",
-            "nl": "De adapter is gedegradeerd en zal niet worden ondersteund met Js-controller 5.",
-            "fr": "L'adaptateur km200 a été amorti et ne sera pas pris en charge avec js-controller 5.x.",
-            "it": "L'adattatore km200 è stato deprecato e non sarà supportato con il prossimo js-controller 5.x.",
-            "es": "El adaptador km200 ha sido deprecado y no será compatible con el próximo js-controller 5.x.",
-            "pl": "Dostosowy model km200 został stłumiony i nie będzie wspierany przez nadchodzącego js-controllera 5.x.",
-            "uk": "Перехідник км200 був відхилений і не підтримується майбутніми js-controller 5.x.",
-            "zh-cn": "调整后的200公里已经消失,将不支持即将到来的丛卫5.x。."
+            "en": "The adapter samsung_tizen has been deprecated and will not be supported with upcoming js-controller 5.x.",
+            "de": "Der Adapter samsung_tizen wurde abgeschrieben und wird nicht mit dem anstehenden js-controller 5.x unterstützt.",
+            "ru": "Адаптер samsung_tizen был отсортирован и не будет поддерживаться с предстоящим js-controller 5.x.",
+            "pt": "O adaptador samsung_tizen foi depreciado e não será suportado com o próximo js-controller 5.x.",
+            "nl": "De adapter samsung_tizen is gedegradeerd en zal niet worden ondersteund met Js-controller 5.",
+            "fr": "L'adaptateur samsung_tizen a été amorti et ne sera pas pris en charge avec js-controller 5.x.",
+            "it": "L'adattatore samsung_tizen è stato deprecato e non sarà supportato con il prossimo js-controller 5.x.",
+            "es": "El adaptador samsung_tizen ha sido deprecado y no será compatible con el próximo js-controller 5.x.",
+            "pl": "Dostosowy model samsung_tizen został stłumiony i nie będzie wspierany przez nadchodzącego js-controllera 5.x.",
+            "uk": "Перехідник samsung_tizen був відхилений і не підтримується майбутніми js-controller 5.x.",
+            "zh-cn": "调整后的samsung_tizen公里已经消失,将不支持即将到来的丛卫5.x。."
          },
         "id": "samsung_tyzen-deprecation",
         "class": "warning",
