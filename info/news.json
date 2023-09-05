@@ -598,6 +598,41 @@
     },
     {
         "title":{
+            "en": "Adapter iogopro is deprecated now",
+            "de": "Adapter iogopro ist abgeschrieben",
+            "ru": "Адаптер iogopro депректируется сейчас",
+            "pt": "Adaptador iogopro é deprecated agora",
+            "nl": "Adapter iogopro is nu gedepreceerd",
+            "fr": "Adaptateur iogopro est déprécié maintenant",
+            "it": "L'adattatore iogopro è deprecato ora",
+            "es": "Adaptador iogopro se deprecató ahora",
+            "pl": "Adapter iogopro jest obecnie używany",
+            "uk": "Адаптер iogopro відхилений зараз",
+            "zh-cn": "碘盐的预测现已减少。"
+        },
+        "content": {
+            "en": "The adapter iogopro has been deprecated as the developer has shut down the required web services. It will be removed from repositories.",
+            "de": "Der Adapter iogopro wurde abgeschrieben, da der Entwickler die erforderlichen Webdienste abgeschaltet hat. Es wird aus Repositories entfernt.",
+            "ru": "Адаптер iogopro был определён как разработчик закрыл необходимые веб-сервисы. Он будет удален из репозиторий.",
+            "pt": "O adaptador iogopro foi desprezado como o desenvolvedor desligou os serviços web necessários. Ele será removido de repositórios.",
+            "nl": "De adapter iogopro is gedegradeerd als de ontwikkelaar de vereiste web diensten heeft gesloten. Het zal worden verwijderd van herplaatsingen.",
+            "fr": "L'adaptateur iogopro a été déprécié car le développeur a fermé les services web requis. Il sera retiré des dépôts.",
+            "it": "L'adattatore iogopro è stato deprecato in quanto lo sviluppatore ha chiuso i servizi web richiesti. Sarà rimosso dai repository.",
+            "es": "El adaptador iogopro ha sido deprecado ya que el desarrollador ha cerrado los servicios web necesarios. Se eliminará de los depósitos.",
+            "pl": "Adaptator iogopro został wykluczony, ponieważ programista zamknął wymagane usługi internetowe. Został on usunięty z repozytoriów.",
+            "uk": "Перехідник iogopro був відхилений як розробник закриває необхідні веб-служби. Буде видалено з репозиторій.",
+            "zh-cn": "由于开发商关闭了所需的网络服务,因此对适应者进行了预测。 它将从档案中删除。."
+        },
+        "id": "iogopro-deprecation",
+        "class": "warning",
+        "fa-icon": "exclamation-circle",
+        "created": "2023-07-10T020:00:00.000Z",
+        "conditions": {
+            "iogopro": "installed"
+        }
+    },
+    {
+        "title": {
             "en": "Adapter samsung_tizen is deprecated now",
             "de": "Adapter samsung_tizen wird jetzt depreciert",
             "ru": "Адаптер samsung_tizen устарел сейчас",
