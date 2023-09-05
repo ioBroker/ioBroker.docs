@@ -5,6 +5,8 @@ chapters: {"pages":{"en/adapterref/iobroker.shelly/README.md":{"title":{"en":"io
 
 # ioBroker.shelly
 
+This is the English documentation - [🇩🇪 German version](../de/state-changes.md)
+
 ## State changes
 
 By default, only if a value of a state changes, you will see the change. In this case *Update objects even if there is no value change* is deactivated.

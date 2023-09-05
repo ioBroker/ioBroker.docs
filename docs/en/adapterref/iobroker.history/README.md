@@ -560,8 +560,10 @@ Possible options and parameters:
 - **--simulate**: With this parameter you enable the simulation mode, means that no real write happens and also the analyze-datafiles will not be updated on exit.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fix history2db.js with controller v5
 
-### __WORK IN PROGRESS__
+### 2.2.6 (2023-08-23)
 * (Apollon77) Fix getHistory when aggregations were used in some cases
 
 ### 2.2.4 (2022-09-19)
@@ -834,7 +836,7 @@ Possible options and parameters:
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>, Apollon77
 
 Copyright (c) 2016 Smiling_Jack
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: QAyGBv5DI9AcG2zSTLWUThe/okJ2NS3QBokkg0UUGlU=
+hash: ed2ad5iuHZiXvWCyClX8jS0JNcQRr+KRXyMpLufB/aQ=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -128,9 +128,7 @@ Html 模板可用于显示任何 html 代码。
 - 调光器 → 开关和按钮滑块
 - 百叶窗 → 开关和按钮 百叶窗
 - 温度→带有图表的开关和按钮信息
-
--- 湿度 → 开关和按钮信息及图表
-
+- 湿度→带有图表的开关和按钮信息
 - 运动 → 开关和按钮信息特定图标，只读，活动颜色 rgba(52,170,68,1)
 - 火 → ISwitch 和按钮 nfo 特定图标（火），只读，活动颜色“红色”
 - 洪水→带有特定图标（水）的开关和按钮信息，只读，活动颜色“蓝色”
@@ -152,7 +150,7 @@ Html 模板可用于显示任何 html 代码。
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.0 (2023-08-21)
 * (bluefox) Added RGB widget
 
 ### 0.8.5 (2023-08-11)
@@ -216,7 +214,7 @@ Html 模板可用于显示任何 html 代码。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2023 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

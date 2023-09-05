@@ -52,12 +52,13 @@ Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ei
 
 ## Konfiguration
 
-### Fenster "Haupteinstellungen"
-![Main Settings](media/mainSettings.png "Haupteinstellungen")
+### Fenster "Allgemeine Einstellungen"
+![Main Settings](media/mainSettings.png "Allgemeine Einstellungen")
 
 | Feld         | Beschreibung |                                                                       
 |:-------------|:-------------|
 |SENEC System    |Hier wird die IP-Adresse des gewünschten Senec.Home Systems angegeben werden. Falls im Netzwerk ein funktionierender DNS existiert, kann auch der FQDN angegeben werden.|
+|https verwenden?|Sollte das SENEC System bereits auf https umgestellt worden sein, so muss diese Option aktiviert werden.|
 |Abfrageintervall hohe Priorität|Hier wird eingegeben, in welchen Zeitintervallen (Millisekunden) die Werde hoher Priorität vom Senec.Home Systems abgerufen werden. (Default: 10 Sekunden)|
 |Abfrageintervall niedrige Priorität|Hier wird eingegeben, in welchen Zeitintervallen (Millisekunden) die Werde niedriger Priorität vom Senec.Home Systems abgerufen werden. (Default: 60 Minuten)<br>
 Achtung! Wird das SENEC System mit zu hoher Frequenz abgefragt, kann dies dazu führen, dass keine Daten mehr an die SENEC Server übermittelt werden können! (z.B. keine aktuellen Werte in der App oder auf mein-senec.de)|
@@ -68,8 +69,22 @@ Achtung! Wird das SENEC System mit zu hoher Frequenz abgefragt, kann dies dazu f
 Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
 Dadurch erfolgt im Anschluß ein Neustart des Adapters.
 
+### Fenster "Zusätzliche HighPrio Polling Datenpunkte"
+![Polling Settings](media/pollingSettings.png "Zusätzliche HighPrio Polling Datenpunkte")
+
+| Feld         | Beschreibung |                                                                       
+|:-------------|:-------------|
+|Disclaimer    |Um Änderungen am Polling-Verhalten des Adapters vorzunehmen, muss bestätigt werden, dass Sie möglicher Risiken gewahr sind und diese willentlich und wissentlich akzeptieren. Der Entwickler des Adapters trägt keine Verantwortung.|
+|Datenpunkte für unterschiedliche Bereiche|Hier können zusätzliche Datenpunkte angegeben werden, die mit hoher Priorität abgerufen werden sollen. Es dürfen nur Zeichen A-Z und Ziffern 0-9 sowie , zur Trennung genutzt werden.|
+|Datapoints zum Abruf hinzufügen?|Bestätigen Sie hier nochmals, dass sie die von Ihnen angegebenen Datenpunkte tatsächlich dem Polling mit hoher Priorität hinzufügen möchten.|
+
+Achtung! Wird das SENEC System mit zu hoher Frequenz und/oder zuvielen Datenpunkten abgefragt, kann dies dazu führen, dass keine Daten mehr an die SENEC Server übermittelt werden können (z.B. keine aktuellen Werte in der App oder auf mein-senec.de)! Auch kann das SENEC-System unmotiviert neu starten und/oder auf Anfragen nicht mehr reagieren. In diesem Fall hilft ein Stopp des Adapters und anschließende Korrektur der Einstellungen.
+
+Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen. 
+Dadurch erfolgt im Anschluß ein Neustart des Adapters.
+
 ## Instanzen
-Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des sonnen Adapters angelegt.
+Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des Senec Adapters angelegt.
 
 Auf einem ioBroker Server können mehrere Senec Adapter Instanzen angelegt werden. Umgekehrt kann ein Senec.Home System auch mit mehreren ioBroker Servern betrieben werden. Sollen mehrere Geräte von einem ioBroker Server gesteuert werden, sollte je System eine Instanz angelegt werden.
 <br/><br/>
@@ -585,6 +600,29 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
+### 1.6.1 (NoBl)
+* Bugfixes
+
+### 1.6.0 (NoBl)
+* Added option to also poll SENEC App API. This requires user credentials for mein-senec.de
+* We are starting with just some information - more to follow. But with Dashboard we at least have current values and day statistics back.
+
+### 1.5.1 (NoBl)
+* Added more datapoints. If you experience messages in log - feel free to add them yourself to state_attr on github (pull request)
+* Autarky calculations will stopp working because SENEC removed STATISTICS branch.
+* If you experience issues with connecting to your appliance after it got updated, please activate https connection in settings.
+
+### 1.5.0 (NoBl)
+* Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
+* ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
+* Possible Candidate for stable. Please report any findings!
+
+### 1.4.3 (NoBl)
+* Working on https connection. Please test and report!
+
+### 1.4.2 (NoBl)
+* Added option to use https for connecting to SENEC (only activate if your appliance supports / requires this!)
+
 ### 1.4.1 (NoBl)
 * Fix: Autarky calculations are working again.
 

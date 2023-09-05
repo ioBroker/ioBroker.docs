@@ -355,6 +355,10 @@ Therefore, the description has also been removed.
 
 ## Changelog
 
+### 3.2.0 (01.09.2023)
+
+- (PLCHome) Added nverter typ singleBackflow and multipleBackflow
+
 ### 3.1.2 (16.08.2023)
 
 - (PLCHome) sendTo now also possible with objects as message data

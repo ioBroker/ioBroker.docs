@@ -5,6 +5,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/state-changes.md)
+
 ## Zustandsänderungen
 
 Im Standard wird ein Zustand nur aktualisiert, wenn sich der Wert ändert. In diesem Fall ist *Objekte aktualisieren, auch wenn keine Wertänderung vorliegt* deaktiviert.

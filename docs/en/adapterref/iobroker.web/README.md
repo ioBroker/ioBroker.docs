@@ -82,6 +82,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.1.1 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
 ### 6.1.0 (2023-08-01)
 * (bluefox) Added the subscribing on the specific instance messages
 

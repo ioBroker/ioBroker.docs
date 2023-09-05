@@ -53,8 +53,22 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 
 ## Changelog
 
-### 1.3.3 (2023-08-01)
-* (René) check max power consumption added
+<!--
+  Placeholder for the next version (at the beginning of the line):
+### 1.3.7 (2023-09-02)
+-->
+
+
+(René) see issue #30: bug fix for type based status check of wallboxes
+
+### 1.3.6 (2023-08-28)
+  (René) see issue #81: smaller bug fixes
+
+### 1.3.5 (2023-08-26)
+* (René) see issue #81: wallbox three phase enabler by URL
+* (René) see issue #81: wallbox three phase switch time configurable (default 3 minutes)
+* (René) see issue #74: check max power consumption added
+* (René) dependencies updated
 
 ### 1.3.4 (2023-07-30)
 * (René) dependencies updated
@@ -69,7 +83,7 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 * (René) see #17: additional checks for BaseID
 * (René) check BaseId of every DeviceId when adapter starts
 * (René) bug fix csv-logging: create file if not exist and complete filename is provided, was working with path name only before
-* (René) additional debug: show last timeframe sent to SHM as datapoint for every timeframe 
+* (René) additional debug: show last timeframe sent to SHM as datapoint for every timeframe
 
 ### 1.2.0 (2023-05-29)
 * (René) device off at end of maximum running time and latest end overworked; option "Switch Off At End Of Timer" removed
@@ -125,7 +139,6 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 * (René) csv logger for data to be sent to SHM (for debugging)
 * (René) see issue #14: cancel request if device does not turn on
 * (René) bug fix issue #19: turn off device at the end of maximum operation time
-
 
 ### 0.0.1 (2022-10-01)
 * (René) initial release

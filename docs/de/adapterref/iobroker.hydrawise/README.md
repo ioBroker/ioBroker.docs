@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hydrawise/README.md
 title: ioBroker.hydrawise
-hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
+hash: AJvlcGfJ5pFFewhbPFRr+t7Qj/UIS1/pv0MCsQN8/cQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.hydrawise/admin/hydrawise.jpg)
 
@@ -30,6 +30,7 @@ Sie können alle Controller-Informationen, Zeitpläne und Sensoren sehen. Es ist
 - Melden Sie sich bei https://app.hydrawise.com/config/account-details an
 - Generieren Sie einen API-Schlüssel, indem Sie unter „Kontoeinstellungen“ auf „API-Schlüssel generieren“ klicken.
 - Schlüssel in die Adaptereinstellungen einfügen
+- API-Dokumentation: https://support.hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information
 
 > **Hinweis** > Nach dem Update von 0.0.15 müssen Sie Ihren API-Schlüssel erneut eingeben
 
@@ -39,6 +40,15 @@ Sie können alle Controller-Informationen, Zeitpläne und Sensoren sehen. Es ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.2 (2023-08-22)
+
+-   (SentiQ) added link to api docu
+
+### 0.1.1 (2023-08-22)
+
+-   (SentiQ) fixed random crash, when api domain can't be resolved by dns
+-   (SentiQ) added time string of last api call
+
 ### 0.0.19 (2023-08-05)
 
 -   (SentiQ) fixed button roles

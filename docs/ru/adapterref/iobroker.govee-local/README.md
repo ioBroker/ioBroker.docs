@@ -3,12 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.govee-local/README.md
 title: без заголовка
-hash: mWfsw3tMVFJay9b2I2cIy3WrU20pZCjMa2tSKinzg+M=
+hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
 ---
+![Логотип](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
+
 ## Govee-local адаптер для ioBroker
 Управляйте устройствами Govee через локальный доступ (без облака)
 
-Чтобы иметь возможность управлять устройством govee локально, эта функция должна быть явно включена в настройках приложения govve, как описано в их [документация](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>) Поскольку в настоящее время у меня есть только лампа H6051, это единственное устройство. Могу протестировать с.
+Чтобы иметь возможность локально управлять устройством govee, эту функцию необходимо явно включить в настройках приложения govve, как описано в [документация](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>). Поскольку в настоящее время у меня есть только лампа H6051, это единственное устройство Могу протестировать с помощью.
 
 ## Changelog
 
@@ -16,6 +18,14 @@ hash: mWfsw3tMVFJay9b2I2cIy3WrU20pZCjMa2tSKinzg+M=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+-  change icon path and resolution
+
+### 0.1.1 (2023-08-21)
+
+-   fix image
+
 ### 0.1.0 (2023-08-09)
 
 -   make search intervals configurable

@@ -74,6 +74,10 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.10.0 (2023-08-29)
+* (foxriver76) fixed problem on auto-deletion of groups
+* (foxriver76) implemented Hue Tap Dial (closes #368, closes #416)
+
 ### 3.9.6 (2023-08-16)
 * (foxriver76) do not set invalid states on unknown group updates
 * (foxriver76) only use push connection if ssl is configured

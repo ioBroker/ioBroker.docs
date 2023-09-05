@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hydrawise/README.md
 title: ioBroker.hydrawise
-hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
+hash: AJvlcGfJ5pFFewhbPFRr+t7Qj/UIS1/pv0MCsQN8/cQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hydrawise/admin/hydrawise.jpg)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.hydrawise.svg?style=flat-square)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.hydrawise.svg?style=flat-square)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hydrawise.svg?label=npm%20downloads&style=flat-square)
 ![узел-lts](https://img.shields.io/node/v-lts/iobroker.hydrawise?style=flat-square)
 ![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.hydrawise?label=npm%20dependencies&style=flat-square)
-![Гитхаб](https://img.shields.io/github/license/sentiq/iobroker.hydrawise?style=flat-square)
+![GitHub](https://img.shields.io/github/license/sentiq/iobroker.hydrawise?style=flat-square)
 ![Размер репозитория GitHub](https://img.shields.io/github/repo-size/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
-![Активность фиксации GitHub](https://img.shields.io/github/commit-activity/m/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
-![Последний коммит на GitHub](https://img.shields.io/github/last-commit/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
 ![Проблемы с GitHub](https://img.shields.io/github/issues/sentiq/iobroker.hydrawise?logo=github&style=flat-square)
 ![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/sentiq/iobroker.hydrawise/test-and-release.yml?branch=master&logo=github&style=flat-square)
 ![Бета](https://img.shields.io/npm/v/iobroker.hydrawise.svg?color=red&label=beta)
@@ -23,13 +23,14 @@ hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
 
 # IoBroker.hydrawise
 ## Версии
-Интегрируйте свой контроллер Hydrawise в iobroker.
-Вы можете видеть всю информацию контроллера, расписания и датчики. Также можно приостановить запланированный полив на x секунд.
+Интегрируйте контроллер Hydrawise в iobroker.
+Вы можете увидеть всю информацию о контроллере, расписаниях и датчиках. Также возможно приостановить запланированный полив на x секунд.
 
 ## Документация
 - войдите в https://app.hydrawise.com/config/account-details
 - сгенерируйте ключ API, нажав «Создать ключ API» в разделе «Настройки учетной записи».
 - вставить ключ в настройки адаптера
+- Документация по API: https://support.hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information.
 
 > **Примечание** > После обновления с версии 0.0.15 вам необходимо повторно ввести ключ API.
 
@@ -39,6 +40,15 @@ hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.2 (2023-08-22)
+
+-   (SentiQ) added link to api docu
+
+### 0.1.1 (2023-08-22)
+
+-   (SentiQ) fixed random crash, when api domain can't be resolved by dns
+-   (SentiQ) added time string of last api call
+
 ### 0.0.19 (2023-08-05)
 
 -   (SentiQ) fixed button roles

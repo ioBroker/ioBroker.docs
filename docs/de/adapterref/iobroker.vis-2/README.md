@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: G5MYz5866agFCCdjfoysN0CW8/Z6G74ph/BE4JDq7Yw=
+hash: T4JOkL3zc7MNtIeXv19fycU96zqVyiWvcnWAGuA/8Wg=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -62,7 +62,7 @@ Patten hat das folgende Format:
 
 Die folgenden Operationen werden unterstützt:
 
-- `\*` - Multiplikation. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
+- `\*` - multiplizieren. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
 - `\+` - hinzufügen. Das Argument muss in Klammern stehen, z. B. „+(4,5)“. In diesem Beispiel addieren wir zum Wert 4,5.
 - `\-` - subtrahieren. Das Argument muss in Klammern stehen, z. B. „-(-674,5)“. In diesem Beispiel subtrahieren wir vom Wert -674,5.
 - `/` - Teilen. Das Argument muss in Klammern stehen, z. B. „/(0,5)“. In diesem Beispiel teilen wir den Wert durch 0,5.
@@ -171,7 +171,7 @@ Wenn der Benutzer die Ansicht wechselt oder beim Start, werden die Variablen vom
 - „control.data“: Projekt- und Ansichtsname in der Form „Projekt/Ansicht“, z.B. „main/view“ (und „ack=true“)
 - „control.command“: „changedView“ und „ack=true“.
 
-Sie können den JSON-String oder das Objekt als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in `control.command` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
+Sie können den JSON-String oder das Objekt in `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
 
 Beispiel für einen Javascript-Adapter:
 
@@ -208,13 +208,16 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ![Dunkel](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
 
 ## Machen
-- Filtern Sie auch im Bearbeitungsmodus
+- Horizontale Navigation
 
-- <!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.2.4 (2023-09-04)
+* (bluefox) Corrected license checking
+
 ### 2.2.2 (2023-08-16)
 * (bluefox) Changed sentry settings
 

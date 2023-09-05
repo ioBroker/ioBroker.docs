@@ -42,6 +42,10 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2023-08-26)
+
+-   folder action created as real folder
+-   folder sysvars created as real folder
 
 ### 1.0.0 (2023-08-10)
 

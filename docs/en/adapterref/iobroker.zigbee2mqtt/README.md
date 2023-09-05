@@ -34,11 +34,18 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 -->
 ### **WORK IN PROGRESS**
 
+-   (o0shojo0o) added option `Size of the object icons in pixels`
+
+### 2.11.0 (2023-08-24)
+
 -   (o0shojo0o) added automatic download of device image from zigbee2mqtt to meta-storage
 -   (o0shojo0o) device images from Meta-Storage added to the object 
 -   (o0shojo0o) device images from Meta-Storage auto resize to 28x28 pixel for smaller object
 -   (o0shojo0o) added option `Download device images from Zigbee2Mqtt and use them as object icons.`
 -   (o0shojo0o) fixed Hue_Move ([#223](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/223))
+-   (o0shojo0o) added option `Generate simple 'Hold' and 'Release' states`
+-   (o0shojo0o) added option `Generate simple 'Move' and 'Stop' states`
+-   (o0shojo0o) added option `Generate simple 'Press' and 'Release' states`
 
 ### 2.10.1 (2023-08-13)
 

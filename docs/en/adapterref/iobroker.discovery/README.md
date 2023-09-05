@@ -143,6 +143,10 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.0.0 (2023-09-04)
+* (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
+* (bluefox) Dropped node14 support, refactoring
+
 ### 3.2.0 (2023-06-15)
 * (sbormann) Added iControl to the suggested adapters
 
@@ -357,7 +361,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -36,15 +36,11 @@ Please use the "adapter list" in ioBroker to install a stable version of this ad
 iobroker add youtube
 ```
 
-## Configuration
+## Documentation
 
-To get an API-Key you have to go to [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
+[🇺🇸 Documentation](./docs/en/README.md)
 
-1. Create a new Project
-2. Create a new API key
-3. Add "YouTube Data API v3" of the library
-4. Use that API-Key in the options panel
-5. Add multiple channels in the channels tab by using the id and a custom name
+[🇩🇪 Dokumentation](./docs/de/README.md)
 
 ## Changelog
 
@@ -52,6 +48,10 @@ To get an API-Key you have to go to [console.developers.google.com](https://cons
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.3.0 (2023-08-28)
+
+* (klein0r) Added customUrl to JSON summary
+
 ### 4.2.1 (2023-03-13)
 
 * (klein0r) Video data as JSON
@@ -75,12 +75,6 @@ NodeJS >= 14.5 is required
 NodeJS 14.x is required (NodeJS 12.x is EOL)
 
 * (klein0r) Fixed last update time
-
-### 3.0.1 (2022-03-17)
-
-* (klein0r) Just perform video info request if previous request was successful
-* (klein0r) Improved error handling when API key is missing
-* (klein0r) Updated logging
 
 ## License
 

@@ -3,82 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iwg-vpn/README.md
 title: ioBroker.iwg-vpn
-hash: i6vSK/HmGFbQgNeBSkKeERf+Vs/B8unO9hjK+QuqoFw=
+hash: busbgtYocktxzrv8Dn+9zYER6zcQzA8Sg/OYgA5pyeY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.iwg-vpn.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.iwg-vpn.svg)
 ![НПМ](https://nodei.co/npm/iobroker.iwg-vpn.png?downloads=true)
 
 # IoBroker.iwg-vpn
-WireGuard является зарегистрированным товарным знаком Джейсона А. Доненфельда. (https://www.wireguard.com)
+WireGuard является зарегистрированной торговой маркой Джейсона А. Доненфельда. (https://www.wireguard.com)
 
 ## Адаптер iwg-vpn для ioBroker
-Адаптер для установки безопасного подключения удаленных устройств к ioBroker и локальной сети с использованием [WireGuard](https://www.wireguard.com) VPN и управления локальными устройствами через Alexa.
+Адаптер для настройки безопасного соединения удаленных устройств с ioBroker и локальной сетью с использованием [WireGuard](https://www.wireguard.com) VPN и управления локальными устройствами через Alexa.
 
-Подробное описание см. на экране конфигурации адаптера или перейдите по ссылке: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/ read-me.html.
+Подробное описание настройки VPN см. на экране конфигурации адаптера или перейдите по ссылке: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/ Howto/read-me.html.
 
-## Предпосылки
+После настройки VPN его можно использовать в качестве канала связи для управления локальными устройствами с помощью голосового помощника Alexa. Уже существующая конфигурация устройства (т. е. устройства ioBroker.iot) просто берется, никаких изменений в существующей конфигурации не требуется.
+
+Подробное описание настройки Alexa можно найти по ссылке: https://htmlpreview.github.io/?https://raw.githubusercontent.com/iwg-vpn/iobroker.iwg-vpn/main/howto/alexa-config.html. .
+
+## Предварительные условия
 * узел: >= 14.17.x
 * js-контроллер: >=2.0.0
 * администратор: >=5.1.0
-
-## Changelog
-
-### v1.0.0
-* IP ranges are released after a long inactivity period
-* additional checks for NAT functionality
-* logo fixed
-* dependencies updated
-
-
-### v0.11.4
-* icons in settings fixed
-* dependencies updated
-* orphan keys clean up added
-
-### v0.11.3
-* a way to allow write operations on whitelisted variables added
-* bug fixes
-
-### v0.11.2
-* warnings while writing a state fixed
-
-### v0.11.1
-* http communication over VPN additionally secured by means of asymmetric keys
-* bug fixes
-
-### v0.11.0
-* improved http communication
-* percentage controller capability added
-* relative changes support added
-
-### v0.10.7
-* bug fixes
-
-### v0.10.6
-* http server enhancements
-* bug fixes
-* doorbell capability support added
-
-### v0.10.5
-* Change reporting on ack=true only
-* Local keys storage moved to iobroker-data
-
-### Previous versions
-* Change reporting and motion sensor support added
-* Bug fixes
-* Config screen enhancements
-* Control your real and virtual devices via Alexa
-* Adapter starts own HTTP server to support configuration via QR Codes
-* Remote access support for ioBroker windows hosts
-* Peer configuration as QR Code to import into a WireGuard App on a mobile peer
-* Auto generation of key pairs for configured peers
-* Adapter review feedback incorporated
-* Validate your configuration before applying it
-* Information about latest handshake and sent/received bytes via the WireGuard network interface
-* Support of NAT between VPN and the ioBroker host's local network
 
 ## License
 Creative Commons Attribution-NonCommercial (CC BY-NC)

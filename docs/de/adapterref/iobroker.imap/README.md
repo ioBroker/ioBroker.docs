@@ -409,6 +409,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 -   Hiermit kann man diese [Datenpunkte](#datenpunkte-imap0benutzernameremote) setzen.
 -   Mögliche Flags findet man [in der Instanz Konfig](#instanz-konfiguration-tab-imap-erstellen).
 -   Auswahl der IMAP Verbindung möglich oder für alle anwenden.
+-   Max. 100 Emails erlaubt.
 
 ![blockly_imap_1.png](img/blockly_imap_1.png)
 ![blockly_imap_2.png](img/blockly_imap_2.png)
@@ -421,6 +422,7 @@ UNSEEN - ungesehen – Nachrichten, bei denen das Flag „Gesehen“ nicht geset
 -   Die Daten werden dann als JSON geliefert.
 -   Bei Logausgaben wird das Logfile sehr groß. Daher später die Logausgaben wieder löschen.
 -   Es muss eine Variable mit dem Namen `result` erstellt werden.
+-   Max. 100 Emails erlaubt.
 -   [Beispiele](/docs/de/EXAMPLE.md)
 
 ![blockly_imap_request.png](img/blockly_imap_request.png)

@@ -1,3 +1,5 @@
+![Logo](admin/govee-local.png)
+
 ## govee-local adapter for ioBroker
 
 Control Govee devices via local access (no cloud)
@@ -11,6 +13,14 @@ As I currently only have the H6051 lamp, this is the only device I can test with
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+-  change icon path and resolution
+
+### 0.1.1 (2023-08-21)
+
+-   fix image
+
 ### 0.1.0 (2023-08-09)
 
 -   make search intervals configurable

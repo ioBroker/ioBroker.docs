@@ -5,6 +5,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/faq.md)
+
 ## Kann man CoAP und MQTT gleichzeitig nutzen?
 
 Nein, aber Du kannst eine zweite Instanz des Shelly-Adapters erstellen, welche dann für MQTT konfiguriert wird (und die andere für CoAP).

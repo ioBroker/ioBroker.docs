@@ -1,9 +1,3 @@
----
-BADGE-Number of Installations: http://iobroker.live/badges/xbox-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.xbox.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.xbox.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.xbox.png?downloads=true
----
 ![Logo](admin/xbox.png)
 # ioBroker.xbox
 ===========================
@@ -322,12 +316,15 @@ In this section you can find a description of every state of the adapter.
 
 ### Folder friends
 For every friend a channel will be created. Under this channel you will find several read-only states.
-
+   
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.1.0 (2023-09-04)
+* (foxriver76) allow to send web API commands even if Xbox is locally not connected
+
 ### 1.0.2 (2022-12-14)
 * (foxriver76) we have ensured, that instance object is existing again
 
@@ -587,7 +584,7 @@ self detected and prevents reconnection on shutdown
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2023 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

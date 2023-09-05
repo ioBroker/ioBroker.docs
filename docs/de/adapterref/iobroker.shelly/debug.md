@@ -5,6 +5,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/debug.md)
+
 ## Debug
 
 *Debugging ist nur für Generation 2 Geräte verfügbar*

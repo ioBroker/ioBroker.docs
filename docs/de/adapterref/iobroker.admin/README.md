@@ -121,6 +121,25 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed problem with discovery dialog
+* (foxriver76) object browser now validates setting state of type number
+* (foxriver76) allow to specify unique columns for tables
+* (foxriver76) fix crash on invalid states, which are missing the property `common.role`
+
+### 6.9.2 (2023-09-01)
+* (foxriver76) show info, if server time differs from client time
+* (foxriver76) remove confusion with different names for state (datapoint and state)
+* (jogibear9988) fixed link on 404-page being opened inside child view
+* (foxriver76) fixed issue if non-text default values are provided to a text jsonConfig component
+* (foxriver76) implemented del key shortcut to delete a selected object
+
+### 6.9.1 (2023-08-22)
+* (foxriver76) allow resizing of all columns in objects tab
+* (foxriver76) without expert mode users are only allowed to edit objects in `0_userdata.0` and `alias.0` namespace
+* (foxriver76) fixed keyboard navigation
+* (foxriver76) fixed problem with showing controller upgrade instructions if no UI upgrade is supported
+
 ### 6.9.0 (2023-08-21)
 * (bluefox) Added possibility to change log direction
 * (bluefox) JSON config: Added possibility to filter out internal IP addresses
@@ -149,14 +168,6 @@ Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitt
 * (foxriver76) admin is now showing update information, while it is stopped during upgrade
 * (foxriver76) required Node.js version is 16 as 14 is End-Of-Life
 * (foxriver76) fixed downloading folders recursive
-
-### 6.7.2 (2023-08-09)
-* (foxriver76) remove https certificate options
-* (foxriver76) prevent error log of not used certificates even-though they are used
-* (foxriver76) fixed issue with docker host cards on intro tab
-* (foxriver76) fixed issue if adapter readme is opened in new tab
-* (bluefox) corrected opening of custom tabs, e.g., for fullcalendar
-* (bluefox) allowed downloading of recursive folders
 
 ## License
 The MIT License (MIT)

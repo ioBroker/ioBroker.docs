@@ -604,8 +604,10 @@ Mögliche Optionen und Parameter:
  Analysedatendateien werden beim Beenden nicht aktualisiert.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fix history2db.js with controller v5
 
-### __WORK IN PROGRESS__
+### 2.2.6 (2023-08-23)
 * (Apollon77) Fix getHistory when aggregations were used in some cases
 
 ### 2.2.4 (2022-09-19)
@@ -878,7 +880,7 @@ Mögliche Optionen und Parameter:
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>, Apollon77
 
 Copyright (c) 2016 Smiling_Jack
 

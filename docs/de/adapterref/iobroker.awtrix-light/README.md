@@ -26,11 +26,19 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
-Updated recommended firmware version to 0.74
+* (klein0r) Added expert apps
+
+### 0.8.0 (2023-09-04)
+
+Updated recommended firmware version to 0.83
 
 * (klein0r) Allow to set custom app positions (expert options)
 * (klein0r) Unsubscribe from all states if device is not reachable
-* (klein0r) Added expert apps
+* (klein0r) Added options basic auth
+* (klein0r) Get background effects via API
+* (klein0r) Fixed 0 decimals setting
+* (klein0r) Changed log level of some messages
+* (klein0r) Added states for transitions
 
 ### 0.7.1 (2023-08-09)
 
@@ -53,15 +61,6 @@ Updated recommended firmware version to 0.72
 * (klein0r) Remove background effect in threshold overrides
 * (klein0r) Minor fixes in admin config
 * (klein0r) Fixed missing icon in history apps
-
-### 0.6.0 (2023-07-26)
-
-Updated recommended firmware version to 0.71
-
-* (klein0r) Added option for background effects
-* (klein0r) Setting default of repeat to 0
-* (klein0r) Dropped timer support (removed in firmware 0.71)
-* (klein0r) Removed native app "eyes" (removed in firmware 0.71)
 
 ## License
 MIT License

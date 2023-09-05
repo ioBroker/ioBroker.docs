@@ -208,13 +208,15 @@ Notice that these settings are valid only for reconnection and not for the first
 ![Dark](img/dark_screen.png)
 
 ## Todo
-- Filter in edit mode too
-- 
+- Horizontal navigation
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.2.4 (2023-09-04)
+* (bluefox) Corrected license checking
+
 ### 2.2.2 (2023-08-16)
 * (bluefox) Changed sentry settings
 

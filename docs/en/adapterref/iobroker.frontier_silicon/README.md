@@ -209,6 +209,7 @@ Please be aware that you can sometimes choose between "pushing a button" or "set
 -->
 ### **WORK IN PROGRESS**
 
+- (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=5 required
 - (pdbjjens) New: Optionally display PIN code and limit to 4 digits in config GUI
 
 ### 0.1.1 (2023-07-26)

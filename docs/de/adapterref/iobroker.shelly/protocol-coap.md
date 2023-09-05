@@ -5,6 +5,8 @@ chapters: {"pages":{"de/adapterref/iobroker.shelly/README.md":{"title":{"de":"io
 
 # ioBroker.shelly
 
+This is the German documentation - [🇺🇸 English version](../en/protocol-coap.md)
+
 ## CoAP
 
 ![iobroker_general_coap](./img/iobroker_general_coap.png)

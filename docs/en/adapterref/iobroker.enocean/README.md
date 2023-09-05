@@ -189,6 +189,15 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel an object with name telegram, type string.
 
 ## Changelog
+
+### 0.9.1 (2023-09-01)
+* (Jey Cee) added support for Eltako FKD-am
+* (Jey Cee) added Afriso ASD 20
+* (Jey Cee) added EEP F6-05-02
+* (Jey Cee) change log level for missing /dev/serial/by-id
+* (Jey Cee) change log level for initial information request on gateway
+* (Holger Will) update X1-01-02.json
+
 ### 0.9.0 (2023-07-27)
 * added Afriso ASD 10
 * fix D2-05-00 Goto top/bottom

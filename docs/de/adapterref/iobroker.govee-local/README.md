@@ -3,8 +3,10 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.govee-local/README.md
 title: kein Titel
-hash: mWfsw3tMVFJay9b2I2cIy3WrU20pZCjMa2tSKinzg+M=
+hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
 ---
+![Logo](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
+
 ## Govee-local-Adapter für ioBroker
 Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
 
@@ -16,6 +18,14 @@ Um das Govee-Gerät lokal steuern zu können, muss die Funktion explizit in den 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+-  change icon path and resolution
+
+### 0.1.1 (2023-08-21)
+
+-   fix image
+
 ### 0.1.0 (2023-08-09)
 
 -   make search intervals configurable

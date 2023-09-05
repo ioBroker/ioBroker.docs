@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: QAyGBv5DI9AcG2zSTLWUThe/okJ2NS3QBokkg0UUGlU=
+hash: ed2ad5iuHZiXvWCyClX8jS0JNcQRr+KRXyMpLufB/aQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -47,7 +47,7 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Kontrolle
 
-![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
+![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
 
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
@@ -56,7 +56,7 @@ Nicht als Schaltfläche: Die Ansicht kann in voller Größe angezeigt werden und
 
 ![Im Widget anzeigen – Schaltfläche](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-2.png)
 
-Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen und durch Drücken darauf wird sie in voller Größe angezeigt.
+Als Schaltfläche: Sie können eine kleine Miniaturansicht der Ansicht anzeigen. Wenn Sie darauf drücken, wird sie in voller Größe angezeigt.
 
 ### Thermostat
 ![Thermostat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-thermostat-1.png)
@@ -128,9 +128,7 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 - Dimmer → Schalter und Tasten-Schieberegler
 - Rollladen → Schalter und Tasten Jalousien
 - Temperatur → Schalter- und Tasteninformationen mit Diagramm
-
--- Luftfeuchtigkeit → Informationen zu Schaltern und Tasten mit Diagramm
-
+- Luftfeuchtigkeit → Schalter- und Tasteninformationen mit Diagramm
 - Bewegung → Schalter- und Schaltflächen-Info-spezifisches Symbol, schreibgeschützt, aktive Farbe rgba(52,170,68,1)
 - Feuer → ISwitch und Buttons nfo-spezifisches Symbol (Feuer), schreibgeschützt, aktive Farbe „Rot“
 - Überschwemmung → Schalter- und Schaltflächeninfo mit spezifischem Symbol (Wasser), schreibgeschützt, aktive Farbe „blau“
@@ -152,7 +150,7 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.0.0 (2023-08-21)
 * (bluefox) Added RGB widget
 
 ### 0.8.5 (2023-08-11)
@@ -216,7 +214,7 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2023 Denis Haev <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

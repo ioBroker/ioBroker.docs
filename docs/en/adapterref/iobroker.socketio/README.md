@@ -76,6 +76,9 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 -->
 
 ## Changelog
+### 6.5.3 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
 ### 6.5.2 (2023-08-01)
 * (bluefox) Added the subscribing on the specific instance messages
 

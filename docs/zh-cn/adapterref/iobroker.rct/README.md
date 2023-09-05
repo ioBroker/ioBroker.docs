@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: 6bl+JsrKnieEzH+l76SwFov8++7uv3R2b1YmBRUV01A=
+hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
 ---
 ![标识](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -29,7 +29,7 @@ hash: 6bl+JsrKnieEzH+l76SwFov8++7uv3R2b1YmBRUV01A=
 ### 初始生产版本
 这是在先前版本被证明稳定并满足最小可行范围之后的初始生产版本。
 
-配置仍然有限并且相当技术性。使用“RCT ELemente”可以选择从电源转换器读取哪些数据。默认为“battery.bat_status、battery.soc、battery.soc_target、battery.soc_target_high、battery.soc_target_low、dc_conv.dc_conv_struct[0].enabled、dc_conv.dc_conv_struct[0].p_dc_lp、dc_conv.dc_conv_struct[1].enabled， dc_conv.dc_conv_struct[1].p_dc_lp,故障[0].flt,故障[1].flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.is土地标志，prim_sm 。状态”。其他元素可以在代码（文件“rct/rc_core.js”）中找到。但这根本不是自我描述的（甚至没有真正测试过）。
+配置仍然有限并且相当技术性。使用“RCT ELemente”可以选择从电源转换器读取哪些数据。默认为“battery.bat_status、battery.soc、battery.soc_target、battery.soc_target_high、battery.soc_target_low、dc_conv.dc_conv_struct[0].p_dc_lp、dc_conv.dc_conv_struct[1].p_dc_lp、fault[0].flt、fault[ 1].flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board .s0_external_power，power_mng.is_heiphoss，power_mng.state，power_mng.use_grid_power_enable，power_mng.u_acc_mix_lp，prim_sm.island_flag，prim_sm.state”。其他元素可以在代码（文件“rct/rc_core2.js”）中找到。但这根本不是自我描述的（甚至没有真正测试过）。
 
 ＃＃ 已知的问题
 ### 错误的频道/状态
@@ -43,8 +43,43 @@ hash: 6bl+JsrKnieEzH+l76SwFov8++7uv3R2b1YmBRUV01A=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) Connection state bei Stop des Adapters zurückgesetzt
+* (Andreas Ruttkamp) Connection state bei Start des Adapters nochmals angepasst
+
+### 1.1.7 (2023-08-30)
+* (Andreas Ruttkamp) Connection state korrigiert
+
+### 1.1.6 (2023-08-23)
+* (Andreas Ruttkamp) rct_core.js entfernt (wurde durch rct_core2 ersetzt)
+* (Andreas Ruttkamp) Parameter die nicht unterstützt werden aus Defaultbelegung entfernt.
+* (Andreas Ruttkamp) min. Node 18
+
+### 1.1.5 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
+* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+
+### 1.1.4 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+
+### 1.1.3 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+
+### 1.1.2 (2023-08-17)
+* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+
+### 1.1.1 (2023-08-17)
+* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
+* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
+* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
+* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
+* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+
+### 1.0.5 (2023-07-29)
 * (Andreas Ruttkamp) interne Arbeiten
+* (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
+* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components

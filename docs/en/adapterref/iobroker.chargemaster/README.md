@@ -27,6 +27,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
+### 0.8.1 (29.08.2023)
+* (HombachC) bumped dependencies, added min/max to settings state defaults
 ### 0.8.0 (23.06.2023)
 * (HombachC) changed config screen to admin 5 solution
 ### 0.7.2 (19.06.2023)

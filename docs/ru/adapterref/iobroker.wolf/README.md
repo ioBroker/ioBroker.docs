@@ -1,38 +1,61 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wolf/README.md
-title: iobroker.wolf
-hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
+title: ioBroker.wolf
+hash: nJLscxSDJxrAWxYFBppacqXWlGu8j0jpszP6YkQiZJc=
 ---
-# Iobroker.wolf
-## Области применения: отопление / солнечная энергия / домашняя вентиляция
-Адаптер может оценивать максимум 4 из следующих обогревателей через ISM8i:
+![Логотип](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
 
-   *Газоконденсаторная установка: ЦГВ-2 (включает: ЦГВ-2, ЦГС-2, ЦСЗ-2), МГК-2
-   * Конденсационный котел на жидком топливе: TOB
-   * Раздельный тепловой насос: BWL-1-S
-   * Вентиляция гостиной CWL Отлично
+![Количество установок](http://iobroker.live/badges/wolf-stable.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.wolf.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.wolf.svg)
 
-Всегда требуется модуль управления системой BM-2 или дисплейный модуль AM.
-Кроме того, в системе eBus могут присутствовать дополнительные компоненты, такие как смесительный модуль MM, каскадный модуль KM, солнечный модуль SM1 или SM2.
+# IoBroker.wolf
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.wolf/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wolf/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Максимальное количество отдельных модулей:
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-   * Макс. 4 нагревателя hg (1) -hg (4)
-   * Макс. 3 смесителя мм (1) - мм (3)
-   * Макс. 4 пульта оператора (БМ-2) бм(1)-бм(4)
-   * Макс. 1 каскадный модуль км (1)
-   * Макс. 1 солнечный модуль (SM1 или SM2) см (1)
-   * Макс. 1 Сплит-тепловой насос воздух/вода (BWL-1-S) hg (0)
+Подключайтесь к устройствам WOLF.
+Прочтите в [английский](docs/en/README.md).
 
-   Бытовая вентиляционная установка серии CWL Excellent также может оцениваться и эксплуатироваться с помощью ISM8i.
+Lese auf [немецкий](docs/de/README.md).
+
+<!-- Заполнитель следующей версии (в начале строки):
+
+### __РАБОТА В ПРОГРЕССЕ__ -->
 
 ## Changelog
+### 1.7.0 (2023-01-26)
+* (fred0815) added missing ISM8i states
+* (fred0815) optimized channel object naming
+* (fred0815) fixed configuration of polling interval
+* (Apollon77) Adjust some temperature states to allow to go negative
+
+### 1.6.1 (2023-01-16)
+* (Apollon77) Fixed some crash cases with unknown datapoints
+
+### 1.6.0 (2022-12-30)
+* (Apollon77) Add DPT10 Encoding (TimeofDay) - but ignores weekday!
+* (Apollon77) Adjust some temperature states to allow to go negative
+* (Apollon77) Add additional polling of all values to ensure that all values are updated
+* (Apollon77) Fix configuration issue with Mixing modules
+
+### 1.5.0 (2022-05-30)
+* (Apollon77) make sure datapoints are created correctly and resolve name-mixup since 1.2.0 (all states now be names with _t!)
+* (Apollon77) Drop support for Admin <3.0.0
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.4.0 (2022-04-26)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (Apollon77) Optimize Configuration UI to prevent people from selecting bind interfaces that do not allow external connections!
+* (Apollon77) Correctly create all objects when "Status as bool" is used
+* (Apollon77) Adjust some min/max values
+* (Apollon77/Dark-Tower-Coder) Fix parsing of DP 149
+* (Apollon77/Dark-Tower-Coder) Add encoding of DPT_Date type
+* (Dark-Tower-Coder) return value for DPT_Switch corrected from '0ff' to 'Off'
+* (Apollon77) Add sentry for crash reporting
+
 ### 1.3.4 (2021-11-14)
 * (eifel-tech) Min value of outside temperature corrected
 
@@ -109,7 +132,7 @@ hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 smiling_Jack
+Copyright (c) 2015-2023 smiling_Jack, ioBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

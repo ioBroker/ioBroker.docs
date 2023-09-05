@@ -432,7 +432,7 @@ Security must be taken from current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20230608.0
+Used version of home-assistant-frontend@20230802.1
 Version of Browser Mod: 2.3.0
 
 ### How to build the new Lovelace version

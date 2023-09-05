@@ -39,6 +39,9 @@ He can also control:
 * [Tutorial über die Messages](https://forum.iobroker.net/topic/51534/tutorial-wiobrowser-windows-desktop-popup-messages) by user hydrotec
 
 ## Changelog
+### 2.0.2
+* (bettman66) add sip action objects
+
 ### 2.0.1
 * (bettman66) add more objects
 

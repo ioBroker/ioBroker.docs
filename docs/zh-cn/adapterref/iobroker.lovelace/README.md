@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: FbSRDOejotbBUcQE1/nvCIsZ3J18OxbJoct0YTh+UaU=
+hash: dkfhogBDO4pbgOFE4FFfi6gfqdhrEYaJj5xPQZLgR58=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -430,7 +430,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ```
 
 ＃＃ 故障排除
-如果您弄乱了 YAML 代码并看到空白页面但仍然有顶部菜单，您可以从菜单中启用编辑模式（如果尚未启用），然后再次打开菜单以访问“RAW Yaml 编辑器”，您可以在其中使用查看完整的 YAML 代码并可以清理它。
+如果您弄乱了 YAML 代码并看到空白页面但仍然有顶部菜单，您可以从菜单启用编辑模式（如果尚未启用），然后再次打开菜单以访问“RAW Yaml 编辑器”，您可以在其中使用查看完整的 YAML 代码并可以清理它。
 如果这没有帮助，您可以在 ioBroker 的 raw-editor 中打开对象 lovelace.*.configuration 并查看那里。
 您还可以从备份中恢复该对象。它包含可视化的完整配置。
 
@@ -442,7 +442,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用的版本 home-assistant-frontend@20230608.0 浏览器版本：2.3.0
+使用的版本 home-assistant-frontend@20230802.1 浏览器版本：2.3.0
 
 ### 如何构建新的 Lovelace 版本
 首先，实际的 https://github.com/home-assistant/frontend （开发分支）必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob*** 分支！）。
@@ -458,7 +458,7 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 - `src/dialogs/more-info/const.ts` - 删除天气状态和历史记录
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
 - `src/dialogs/more-info/ha-more-info-history.ts` - 删除历史记录中的“显示更多”链接
-- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加对从 url 显示天气图标的支持。
+- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加支持显示来自 url 的天气图标。
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - 禁用语音助手的配置
 - `src/entrypoints/core.ts` - 修改了身份验证过程
 - `src/layouts/home-assistant-main.ts` - 删除应用程序侧边栏

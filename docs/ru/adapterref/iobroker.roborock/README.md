@@ -3,43 +3,49 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
+hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.roborock.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.roborock.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.roborock.svg)
 ![Количество установок](https://iobroker.live/badges/roborock-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/roborock-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/roborock-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.roborock.png?downloads=true)
 
 # IoBroker.roborock
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/copystring/ioBroker.roborock/workflows/Test%20and%20Release/badge.svg)
 
 **Перевод:** [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/roborock/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Roborock для ioBroker
-Этот адаптер позволяет вам контролировать, получать состояния, историю уборки и просматривать карту пылесоса Roborock, которая настроена в приложении Roborock.
+Этот адаптер позволяет вам управлять, получать состояния, историю уборки и просматривать карту пылесоса Roborock, настроенную в приложении Roborock.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Поддерживаемые роботы:
 - Роборок S4
+- Роборок S4 Макс
 - Роборок S5
 - Роборок S5 Макс
 - Роборок S6
 - Роборок S6 Чистый
-- Роборок S6 МаксВ
+- Роборок С6 МаксВ
 - Роборок S7
 - Роборок S7 MaxV (Ультра)
+- Роборок Q7
 - Роборок Q7 Макс
-- Роборок S7 Pro Ультра
+- Роборок С7 Про Ультра
+- Роборок S7 Макс Ультра
+- Роборок S8
+- Роборок С8 Про Ультра
+- Роборок Кью Рево
 
 ## Очистка зоны
-Эта функция работает только тогда, когда создание карт включено в настройках адаптера!
+Эта функция работает только тогда, когда в настройках адаптера включено создание карт!
 
- - Работает веб-сервер. Порт по умолчанию 6824.
- - Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker имя хоста или IP-адрес ioBroker!!!)
+ - Работает веб-сервер. Порт по умолчанию — 6824.
+ - Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker на свое имя хоста или IP-адрес ioBroker!!!)
  - Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон очистки одновременно.
 
  ![](https://github.com/copystring/ioBroker.roborock/blob/main/images/Rockrock_zone_cleaning.gif)
@@ -49,6 +55,17 @@ hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2023-09-04)
+* (copystring) Fix some S8 Pro Ultra object types
+
+### 0.3.1 (2023-08-29)
+* (copystring) Fix water_box_custom_mode for S4 Max
+
+### 0.3.0 (2023-08-29)
+* (copystring) Add support for clean_percent of Roborock S7 MaxV (Ultra)
+* (copystring) Basic Revo Q support
+* (copystring) Fix consumables for S6
+
 ### 0.2.1 (2023-07-12)
 * (copystring) Fix adapter options
 

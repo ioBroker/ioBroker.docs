@@ -3,12 +3,14 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.govee-local/README.md
 title: 无题
-hash: mWfsw3tMVFJay9b2I2cIy3WrU20pZCjMa2tSKinzg+M=
+hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
 ---
+![标识](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
+
 ## IoBroker 的 govee 本地适配器
 通过本地访问控制 Govee 设备（无云）
 
-为了能够在本地控制 govee 设备，需要在 govve 应用程序设置中明确打开该功能，如 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中所述），因为我目前只有 H6051 灯，这是唯一的设备我可以测试一下。
+为了能够在本地控制 govee 设备，需要在 govve 应用程序设置中明确打开该功能，如其 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中所述），因为我目前只有 H6051 灯，这是唯一的设备我可以测试一下。
 
 ## Changelog
 
@@ -16,6 +18,14 @@ hash: mWfsw3tMVFJay9b2I2cIy3WrU20pZCjMa2tSKinzg+M=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+-  change icon path and resolution
+
+### 0.1.1 (2023-08-21)
+
+-   fix image
+
 ### 0.1.0 (2023-08-09)
 
 -   make search intervals configurable

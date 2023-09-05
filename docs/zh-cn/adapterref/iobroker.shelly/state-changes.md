@@ -4,24 +4,26 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/state-changes.md
 title: ioBroker.shelly
-hash: cLd3jjs1lrgsDBW6cgu260X+Paxok+eWAI4qtLf6fCg=
+hash: lWYanYLK0VfMK/GF2eu89YOn0y3awI3qieN2IuwDw+k=
 ---
-![标识](../../../de/adapterref/iobroker.shelly/../../admin/shelly.png)
+![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
+这是德语文档 - [🇺🇸英文版](../en/state-changes.md)
+
 ## 状态变化
-默认情况下，状态仅在值更改时更新。在这种情况下，*即使没有值更改也更新对象*被禁用。
+在标准中，状态仅在值更改时更新。在这种情况下，“即使没有值更改也更新对象”被禁用。
 
 例子：
 
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S'（最后更改时间：02/01/2020 10:20:00）
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S'（最后更改时间：02/01/2020 **10:20:00**） - ioBroker 中的状态未更新
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L'（最后更改时间：02/01/2020 10:22:00）
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 2020年2月1日 **10:20:00**) - ioBroker 中的状态没有更新
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后更改时间: 02/01/2020 10:22:00)
 
-如果激活*即使没有值变化也更新对象*，即使没有值变化，所有状态也会不断更新。所以只有最后一次更新的时间会改变。
+如果选中*即使没有值变化也更新对象*，即使没有值变化，所有状态也会不断更新。所以只有最后一次更新的时间发生了变化。
 
 例子：
 
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S'（最后更改时间：02/01/2020 10:20:00）
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S'（最后更改时间：02/01/2020 **10:21:00**） - 虽然没有更新，但时间已更新价值变化
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L'（最后更改时间：02/01/2020 10:22:00）
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 **10:21:00**) - 即使有价值没有变化
+* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后更改时间: 02/01/2020 10:22:00)

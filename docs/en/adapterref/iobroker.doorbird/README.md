@@ -4,7 +4,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.doorbird.svg)](https://www.npmjs.com/package/iobroker.doorbird)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.doorbird.svg)](https://www.npmjs.com/package/iobroker.doorbird)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
 
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
@@ -109,6 +108,11 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2023-08-31)
+
+-   (Schmakus) tryed to fixed [#73] Maximum call stack size exceeded
+-   (Stefan592) fixed 'listen on all interfaces'
+
 ### 1.2.3 (2023-08-17)
 
 -   (Schmakus) changed schedule handling. (fix status code 400)
@@ -125,10 +129,6 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
 
 -   (Schmakus) Update package.json (Node.js v16 or higher and NPM v7 or higher is required!)
 -   (Stefan592/Schmakus) bugfix 'listen on all interfaces'
-
-### 1.1.1 (2023-08-03)
-
--   (Schmakus) fixed js-controller dependency [#69]
 
 ## License
 

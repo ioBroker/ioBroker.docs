@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: 6bl+JsrKnieEzH+l76SwFov8++7uv3R2b1YmBRUV01A=
+hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
 ---
 ![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -29,7 +29,7 @@ Werte eines RCT Power Photovoltaik-Stromrichters anzeigen
 ### Erste produktive Veröffentlichung
 Dies ist eine erste produktive Version, nachdem sich die vorherige Version als stabil erwiesen hat und den minimal realisierbaren Umfang erfüllt.
 
-Die Konfiguration ist immer noch begrenzt und eher technisch. Über „RCT ELemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen. Der Standardwert ist „battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].enabled,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].enabled, dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync .p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power,power_mng.battery_type,power_mng.is_grid,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim _sm.island_flag,prim_sm .Zustand". Weitere Elemente finden Sie im Code (Datei „rct/rc_core.js“). Aber das ist überhaupt nicht selbsterklärend (auch nicht wirklich getestet).
+Die Konfiguration ist immer noch begrenzt und eher technisch. Über „RCT ELemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen. Der Standardwert ist „battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[ 1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board .s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state". Weitere Elemente finden Sie im Code (Datei „rct/rc_core2.js“). Aber das ist überhaupt nicht selbsterklärend (auch nicht wirklich getestet).
 
 ## Bekannte Probleme
 ### Falsche Kanäle/Zustände
@@ -43,8 +43,43 @@ Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ m
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
 ### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) Connection state bei Stop des Adapters zurückgesetzt
+* (Andreas Ruttkamp) Connection state bei Start des Adapters nochmals angepasst
+
+### 1.1.7 (2023-08-30)
+* (Andreas Ruttkamp) Connection state korrigiert
+
+### 1.1.6 (2023-08-23)
+* (Andreas Ruttkamp) rct_core.js entfernt (wurde durch rct_core2 ersetzt)
+* (Andreas Ruttkamp) Parameter die nicht unterstützt werden aus Defaultbelegung entfernt.
+* (Andreas Ruttkamp) min. Node 18
+
+### 1.1.5 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
+* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+
+### 1.1.4 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+
+### 1.1.3 (2023-08-18)
+* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+
+### 1.1.2 (2023-08-17)
+* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+
+### 1.1.1 (2023-08-17)
+* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
+* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
+* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
+* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
+* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+
+### 1.0.5 (2023-07-29)
 * (Andreas Ruttkamp) interne Arbeiten
+* (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
+* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components

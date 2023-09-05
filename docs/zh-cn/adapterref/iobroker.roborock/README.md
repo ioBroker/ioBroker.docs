@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
+hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -25,6 +25,7 @@ hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
 
 ## 支持的机器人有：
 - 石头扫地机器人S4
+- 石头扫地机器人S4 Max
 - 石头扫地机器人S5
 - 石头扫地机器人S5 Max
 - 石头扫地机器人S6
@@ -32,8 +33,13 @@ hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
 - 石头扫地机器人S6 MaxV
 - 石头扫地机器人S7
 - 石头扫地机器人S7 MaxV（超）
+- 石头扫地机器人Q7
 - 石头扫地机器人Q7 Max
 - 石头扫地机器人S7 Pro Ultra
+- 石头扫地机器人S7 Max Ultra
+- 石头扫地机器人S8
+- 石头扫地机器人S8 Pro Ultra
+- 石头扫地机器人Q Revo
 
 ## 区域清洁
 仅当在适配器选项中启用地图创建时，此功能才有效！
@@ -49,6 +55,17 @@ hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2023-09-04)
+* (copystring) Fix some S8 Pro Ultra object types
+
+### 0.3.1 (2023-08-29)
+* (copystring) Fix water_box_custom_mode for S4 Max
+
+### 0.3.0 (2023-08-29)
+* (copystring) Add support for clean_percent of Roborock S7 MaxV (Ultra)
+* (copystring) Basic Revo Q support
+* (copystring) Fix consumables for S6
+
 ### 0.2.1 (2023-07-12)
 * (copystring) Fix adapter options
 

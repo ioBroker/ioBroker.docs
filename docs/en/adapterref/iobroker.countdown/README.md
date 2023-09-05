@@ -31,7 +31,13 @@ The goal of the adapter is to provide you a possibility to run countdowns for fu
 
 ## Changelog
 
-### 2.1.0 (2023-07-XX) 
+### 2.2.0 (2023-08-25) 
+* (jack-blackson) Added ability to maintain, adjust and delete countdowns in adapter settings
+* (jack-blackson) Bugfix with incorrect spaces as first character in "in words long" and "in words short"
+* (jack-blackson) Bugfix incorrect calculation totalYears
+* (bagsik) added "totalJSON" object in each countdown
+
+### 2.1.0 (2023-07-22) 
 * (jack-blackson) Ability to use the countdown "backwards" - e.g. for calculating age of a baby
 * (jack-blackson) Adjustments for "in words" -> fixed year/years and adjusted which detail level is shown at which point of time
 

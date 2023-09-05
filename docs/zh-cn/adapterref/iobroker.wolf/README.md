@@ -1,38 +1,61 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.wolf.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.wolf/README.md
-title: iobroker.wolf
-hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
+title: ioBroker.wolf
+hash: nJLscxSDJxrAWxYFBppacqXWlGu8j0jpszP6YkQiZJc=
 ---
-#iobroker.wolf
-## 应用领域：供暖/太阳能/家用通风
-适配器可以通过 ISM8i 评估最多 4 个以下加热器：
+![标识](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
 
-   * 气体冷凝机组：CGB-2（包括：CGW-2、CGS-2、CSZ-2）、MGK-2
-   * 油冷凝锅炉：TOB
-   * 分体式热泵：BWL-1-S
-   *客厅通风CWL优秀
+![安装数量](http://iobroker.live/badges/wolf-stable.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.wolf.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.wolf.svg)
 
-始终需要系统控制模块 BM-2 或显示模块 AM。
-此外，eBus 系统中可能存在其他组件，例如混合器模块 MM、级联模块 KM、太阳能模块 SM1 或 SM2。
+# IoBroker.wolf
+![测试与发布](https://github.com/ioBroker/ioBroker.wolf/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/wolf/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-单个模块的最大数量：
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
-   * 最大限度。 4 加热器 hg (1) -hg (4)
-   * 最大限度。 3 个混合器 mm (1) - mm (3)
-   * 最大限度。 4 个操作面板 (BM-2) bm (1) -bm (4)
-   * 最大限度。 1 级联模块公里 (1)
-   * 最大限度。 1 个太阳能模块（SM1 或 SM2）sm (1)
-   * 最大限度。 1 分体式空气/水热泵 (BWL-1-S) hg (0)
+连接到 WOLF 设备。
+阅读[英语](docs/en/README.md)。
 
-   CWL Excellence 系列的住宅通风装置也可以使用 ISM8i 进行评估和操作。
+[德语](docs/de/README.md)。
+
+<!-- 下一个版本的占位符（在行的开头）：
+
+### __正在进行中__ -->
 
 ## Changelog
+### 1.7.0 (2023-01-26)
+* (fred0815) added missing ISM8i states
+* (fred0815) optimized channel object naming
+* (fred0815) fixed configuration of polling interval
+* (Apollon77) Adjust some temperature states to allow to go negative
+
+### 1.6.1 (2023-01-16)
+* (Apollon77) Fixed some crash cases with unknown datapoints
+
+### 1.6.0 (2022-12-30)
+* (Apollon77) Add DPT10 Encoding (TimeofDay) - but ignores weekday!
+* (Apollon77) Adjust some temperature states to allow to go negative
+* (Apollon77) Add additional polling of all values to ensure that all values are updated
+* (Apollon77) Fix configuration issue with Mixing modules
+
+### 1.5.0 (2022-05-30)
+* (Apollon77) make sure datapoints are created correctly and resolve name-mixup since 1.2.0 (all states now be names with _t!)
+* (Apollon77) Drop support for Admin <3.0.0
+* (Apollon77) Fix crash cases reported by Sentry
+
+### 1.4.0 (2022-04-26)
+* IMPORTANT: Requires now at least js-controller 2.0
+* (Apollon77) Optimize Configuration UI to prevent people from selecting bind interfaces that do not allow external connections!
+* (Apollon77) Correctly create all objects when "Status as bool" is used
+* (Apollon77) Adjust some min/max values
+* (Apollon77/Dark-Tower-Coder) Fix parsing of DP 149
+* (Apollon77/Dark-Tower-Coder) Add encoding of DPT_Date type
+* (Dark-Tower-Coder) return value for DPT_Switch corrected from '0ff' to 'Off'
+* (Apollon77) Add sentry for crash reporting
+
 ### 1.3.4 (2021-11-14)
 * (eifel-tech) Min value of outside temperature corrected
 
@@ -109,7 +132,7 @@ hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 smiling_Jack
+Copyright (c) 2015-2023 smiling_Jack, ioBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

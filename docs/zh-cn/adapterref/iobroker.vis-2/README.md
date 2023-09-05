@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: G5MYz5866agFCCdjfoysN0CW8/Z6G74ph/BE4JDq7Yw=
+hash: T4JOkL3zc7MNtIeXv19fycU96zqVyiWvcnWAGuA/8Wg=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -208,13 +208,16 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 ![黑暗的](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
 
 ＃＃ 去做
-- 也在编辑模式下过滤
+- 水平导航
 
-- <!-- 下一个版本的占位符（在行的开头）：
+<!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.2.4 (2023-09-04)
+* (bluefox) Corrected license checking
+
 ### 2.2.2 (2023-08-16)
 * (bluefox) Changed sentry settings
 

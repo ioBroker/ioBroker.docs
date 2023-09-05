@@ -14,80 +14,17 @@ WireGuard is a registered trademark of Jason A. Donenfeld. (https://www.wireguar
 
 THE adapter for setting up a secure connection from remote devices to the ioBroker and local network leveraging the [WireGuard](https://www.wireguard.com) VPN and controlling local devices via Alexa.
 
-For detailed description please refer to the adapter configuration screen or follow the
+For detailed VPN setup description please refer to the adapter configuration screen or follow the
 link: https://htmlpreview.github.io/?https://github.com/iwg-vpn/iobroker.iwg-vpn/blob/main/howto/read-me.html.
+
+Once the VPN is set up, it can be used as a communication channel for controlling local devices via Alexa voice assistant. The already existing device configuration (i.e. ioBroker.iot devices) is just taken, no changes on existing configuration needed.
+
+For detailed Alexa setup description please follow the link: https://htmlpreview.github.io/?https://raw.githubusercontent.com/iwg-vpn/iobroker.iwg-vpn/main/howto/alexa-config.html.
 
 ## Prerequisites
 * node: >= 14.17.x
 * js-controller: >=2.0.0
 * admin: >=5.1.0
-
-
-## Changelog
-
-### v2.0.1
-* Alexa integration re-designed
-
-### v1.0.2
-* reconfiguration (re-scanning of QR-Codes) on Peers required
-* required review changes in io-package
-
-### v1.0.1
-* bug fixes
-
-### v1.0.0
-* IP ranges are released after a long inactivity period
-* additional checks for NAT functionality
-* logo fixed
-* dependencies updated
-
-
-### v0.11.4
-* icons in settings fixed
-* dependencies updated
-* orphan keys clean up added
-
-### v0.11.3
-* a way to allow write operations on whitelisted variables added
-* bug fixes
-
-### v0.11.2
-* warnings while writing a state fixed
-
-### v0.11.1
-* http communication over VPN additionally secured by means of asymmetric keys
-* bug fixes
-
-### v0.11.0
-* improved http communication
-* percentage controller capability added
-* relative changes support added
-
-### v0.10.7
-* bug fixes
-
-### v0.10.6
-* http server enhancements
-* bug fixes
-* doorbell capability support added
-
-### v0.10.5
-* Change reporting on ack=true only
-* Local keys storage moved to iobroker-data
-
-### Previous versions
-* Change reporting and motion sensor support added
-* Bug fixes
-* Config screen enhancements
-* Control your real and virtual devices via Alexa
-* Adapter starts own HTTP server to support configuration via QR Codes
-* Remote access support for ioBroker windows hosts
-* Peer configuration as QR Code to import into a WireGuard App on a mobile peer
-* Auto generation of key pairs for configured peers
-* Adapter review feedback incorporated
-* Validate your configuration before applying it
-* Information about latest handshake and sent/received bytes via the WireGuard network interface
-* Support of NAT between VPN and the ioBroker host's local network
 
 ## License
 Creative Commons Attribution-NonCommercial (CC BY-NC)

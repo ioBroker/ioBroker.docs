@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hydrawise/README.md
 title: ioBroker.Hydrawise
-hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
+hash: AJvlcGfJ5pFFewhbPFRr+t7Qj/UIS1/pv0MCsQN8/cQ=
 ---
 ![标识](../../../en/adapterref/iobroker.hydrawise/admin/hydrawise.jpg)
 
@@ -30,6 +30,7 @@ hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
 - 登录 https://app.Hydrawise.com/config/account-details
 - 通过点击“账户设置”下的“生成 API 密钥”来生成 API 密钥
 - 将密钥粘贴到适配器设置中
+- API 文档：https://support.Hydrawise.com/hc/en-us/articles/360008965753-Hydrawise-API-Information
 
 > **注意** > 从 0.0.15 更新后，您必须重新输入您的 API 密钥
 
@@ -39,6 +40,15 @@ hash: lSaTJihtfkiz26nPnWiPzoMyHT1HFOHgpSQj8fBk818=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.2 (2023-08-22)
+
+-   (SentiQ) added link to api docu
+
+### 0.1.1 (2023-08-22)
+
+-   (SentiQ) fixed random crash, when api domain can't be resolved by dns
+-   (SentiQ) added time string of last api call
+
 ### 0.0.19 (2023-08-05)
 
 -   (SentiQ) fixed button roles

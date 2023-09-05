@@ -1341,6 +1341,15 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.1.2 (2023-09-04)
+
+* (crycode-de) Fixed response to notification-manager adapter
+
+### 2.1.1 (2023-08-27)
+
+* (crycode-de) Updated dependencies
+* Updated translations
+
 ### 2.1.0 (2023-07-12)
 
 * (crycode-de) Added support for unique user names

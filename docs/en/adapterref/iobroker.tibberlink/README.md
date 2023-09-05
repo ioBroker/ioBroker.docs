@@ -35,6 +35,20 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.2.6 (2023-09-04)
+* (HombachC) fix error with boolean states
+### 0.2.5 (2023-09-03)
+* (HombachC) optimize code to mitigate set state timing for long JSON states (#68) 
+### 0.2.4 (2023-08-30)
+* (HombachC) enable correct price poll also for adapter running in different timezones (#63) 
+### 0.2.3 (2023-08-27)
+* (HombachC) fix error in 0.2.2 in start conditions of adapter
+### 0.2.2 (2023-08-24)
+* (HombachC) reducing polls at Tibber server by precheck of known data
+* (HombachC) code optimizations
+* (HombachC) fix config screen (#55)
+### 0.2.1 (2023-08-21)
+* (HombachC) double timeout for Tibber server queries
 ### 0.2.0 (2023-08-18)
 * (HombachC) introduces JSONs for prices sorted by price ascending
 * (HombachC) fix stupid error for obsolete next day pricing (#23, #50)

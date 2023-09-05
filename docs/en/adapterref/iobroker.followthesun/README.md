@@ -21,11 +21,19 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
+## Requires
+* NodeJS 16 or higher
+* ioBroker host (js-controller) 4.0 or higher
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (HGlab01) !Breaking change! NodeJS 16 or higher required
+
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
 

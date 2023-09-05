@@ -144,6 +144,10 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (withstu) update dependencies
+* (withstu) add admin 5 UI support
+
 ### 2.1.0 (2023-08-05)
 * (withstu) replace got with axios
 * (withstu) improve upnp handling

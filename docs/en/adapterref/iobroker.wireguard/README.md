@@ -106,6 +106,9 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 1.5.11 (2023-08-30)
+* (grizzelbee) Fix: [#88](https://github.com/Grizzelbee/ioBroker.wireguard/issues/88) Avoid warning: Cannot read properties of undefined (reading 'at') when user- or devicename is empty
+
 ### 1.5.10 (2023-08-17)
 * (grizzelbee) Fix: Adapter doesn't crash anymore when user or device name is missing in config.
 
@@ -128,8 +131,8 @@ Basically there are three ways to execute the command:
 * (grizzelbee) Fix: Some fixes to make iobroker.adapterchecker happy
 
 ### 1.5.1 (2023-08-08)
-* (grizzelbee) Fix:  [#65](https://github.com/Grizzelbee/ioBroker.wireguard/issues/65) No names in object tree
-* (grizzelbee) Fix:  [#64](https://github.com/Grizzelbee/ioBroker.wireguard/issues/64) Online state of interface isn't set correctly if more than one server is queried
+* (grizzelbee) Fix: [#65](https://github.com/Grizzelbee/ioBroker.wireguard/issues/65) No names in object tree
+* (grizzelbee) Fix: [#64](https://github.com/Grizzelbee/ioBroker.wireguard/issues/64) Online state of interface isn't set correctly if more than one server is queried
 * (grizzelbee) Upd: Dependencies got updated
 
 ### 1.5.0 (2023-06-27)

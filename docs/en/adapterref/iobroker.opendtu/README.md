@@ -40,13 +40,20 @@ For more information on the data points, see their description or click [here](h
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (o0shojo0o) added option `Protect self-set names from being overwritten by the adapter` ([#76](https://github.com/o0shojo0o/ioBroker.opendtu/issues/76))
+- (o0shojo0o) allow multiple AdminTabs for multiple instances ([#88](https://github.com/o0shojo0o/ioBroker.opendtu/issues/88))
+- (o0shojo0o) fixed password with special characters ([#35](https://github.com/o0shojo0o/ioBroker.opendtu/issues/35))
+
 ### 0.1.7 (2023-06-30)
 
 - (o0shojo0o) workaround for incorrectly used button data point
 
 ### 0.1.6 (2023-06-30)
 
-- (o0shojo0o) fix power control (power_off)
+- (o0shojo0o) fixed power control (power_off)
 
 ### 0.1.5 (2023-05-15)
 
@@ -54,13 +61,13 @@ For more information on the data points, see their description or click [here](h
 
 ### 0.1.4 (2023-03-23)
 
-- (o0shojo0o) fix power control `on`, `off`, `restart`
+- (o0shojo0o) fixed power control `on`, `off`, `restart`
 - (o0shojo0o) support for password protected liveview
 - (o0shojo0o) other small fixes
 
 ### 0.1.2 (2023-03-03)
 
-- (o0shojo0o) fix yield* values
+- (o0shojo0o) fixed yield* values
 
 ### 0.1.1 (2023-02-24)
 

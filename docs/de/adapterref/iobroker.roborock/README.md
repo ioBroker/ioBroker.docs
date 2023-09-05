@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 5CvbgpBIpg504IjBMTa826zNHoz3HCBexv6pl7jDdek=
+hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 ---
 ![Logo](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -25,6 +25,7 @@ Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Status und Re
 
 ## Die unterstützten Roboter sind:
 - Roborock S4
+- Roborock S4 Max
 - Roborock S5
 - Roborock S5 Max
 - Roborock S6
@@ -32,8 +33,13 @@ Mit diesem Adapter können Sie einen Roborock-Staubsauger steuern, Status und Re
 - Roborock S6 MaxV
 - Roborock S7
 - Roborock S7 MaxV (Ultra)
+- Roborock Q7
 - Roborock Q7 Max
 - Roborock S7 Pro Ultra
+- Roborock S7 Max Ultra
+- Roborock S8
+- Roborock S8 Pro Ultra
+- Roborock Q Revo
 
 ## Zonenreinigung
 Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptionen aktiviert ist!
@@ -49,6 +55,17 @@ Diese Funktion funktioniert nur, wenn die Kartenerstellung in den Adapteroptione
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.2 (2023-09-04)
+* (copystring) Fix some S8 Pro Ultra object types
+
+### 0.3.1 (2023-08-29)
+* (copystring) Fix water_box_custom_mode for S4 Max
+
+### 0.3.0 (2023-08-29)
+* (copystring) Add support for clean_percent of Roborock S7 MaxV (Ultra)
+* (copystring) Basic Revo Q support
+* (copystring) Fix consumables for S6
+
 ### 0.2.1 (2023-07-12)
 * (copystring) Fix adapter options
 

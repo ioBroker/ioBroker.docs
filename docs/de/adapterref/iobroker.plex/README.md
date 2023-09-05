@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: A8eCcDj15R8FhUETlsXlfmx67TBie0BQbsms6hlMyvQ=
+hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 ---
 ![Logo](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -15,7 +15,9 @@ hash: A8eCcDj15R8FhUETlsXlfmx67TBie0BQbsms6hlMyvQ=
 ![NPM](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
 # IoBroker.plex Integration des Plex Media Servers in ioBroker (mit oder ohne Plex Pass). Darüber hinaus Tautulli-Integration.
-[![Travis CI](https://travis-ci.com/Zefau/ioBroker.plex.svg?branch=master)](https://travis-ci.com/Zefau/ioBroker.plex)
+[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
+
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Inhaltsverzeichnis**
 
@@ -30,7 +32,7 @@ hash: A8eCcDj15R8FhUETlsXlfmx67TBie0BQbsms6hlMyvQ=
 5. [Lizenz](#license)
 
 ## 1. Funktionen
-- Erhalten Sie detaillierte Medieninformationen zum aktuell wiedergegebenen Medienelement (z. B. Videobitrate, Codec, Untertitelinformationen, Audio; siehe [Erweiterte Einrichtung](https://github.com/Zefau/ioBroker.plex/blob/master/README- states.md#with-advanced-setup) für eine vollständige Liste)
+- Erhalten Sie detaillierte Medieninformationen zum aktuell wiedergegebenen Medienelement (z. B. Videobitrate, Codec, Untertitelinformationen, Audio; siehe [Erweiterte Einrichtung](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/ (master/README-states.md#with-advanced-setup) für eine vollständige Liste)
 - Empfangen Sie „Ereignisse“ von Plex (über [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) und [Plex-Benachrichtigungen](https://support.plex.tv). /articles/push-notifications/#toc-0) mit Plex Pass oder über Tautulli, [__siehe Setup!__](#22-advanced-setup-plex-pass-or-tautulli))
 - Wiedergabesteuerung für Spieler
 - Rufen Sie „Server“ ab
@@ -93,7 +95,7 @@ Um ein Webbook mit Tautulli einzurichten, befolgen Sie die nachstehenden Anweisu
 ![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Wählen Sie außerdem ```POST``` für die _Webhook-Methode_ und geben Sie unter _Beschreibung_ eine beliebige Beschreibung ein.
 
 3. Gehen Sie als Nächstes zur Registerkarte „Trigger“ und wählen Sie die gewünschten (oder einfach alle) Benachrichtigungsagenten aus. Ein aktivierter Benachrichtigungsagent löst ein Ereignis aus, das dann an ioBroker gesendet wird. __Stellen Sie sicher, dass__ im nächsten Schritt die erforderlichen Daten für jeden aktivierten Benachrichtigungsagenten angegeben werden!
-4. Geben Sie nun __am wichtigsten__ die entsprechende Datennutzlast in der Registerkarte _Daten_ ein, entsprechend der __[Benachrichtigungskonfiguration, die Sie hier finden](README-tautulli.md#notification-configuration)__.
+4. Geben Sie nun __am wichtigsten__ die entsprechende Datennutzlast in der Registerkarte _Daten_ entsprechend der __[Benachrichtigungskonfiguration hier gefunden](README-tautulli.md#notification-configuration)__ ein.
 
    Kopieren Sie die Benachrichtigungskonfiguration der relevanten Benachrichtigungsagenten aus dem vorherigen Schritt (z. B. ```Playback Start```, ```Playback Stop```, ```Playback Pause``` und ```Playback Resume```) in jedes der Textfelder, wie unten für § gezeigt. §JJJJ_4§§:
 
@@ -126,11 +128,30 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 | __statistics__ | Plex Watch-Statistiken | nur mit Tautulli |
 | __Benutzer__ | Plex-Benutzer | nur mit Tautulli |
 
+## Credits
+Dieser Adapter wäre ohne die großartige Arbeit von @Zefau (https://github.com/Zefau), die ihn erstellt und bis 2021 gepflegt hat, nicht möglich gewesen.
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.5 (2023-08-31)
+- (ticaki) Fixed: Control did not work with Plexamp.
+- (ticaki) some minor improvements.
+
+### 1.0.4 (2023-08-27)
+- (ticaki) Fixed: [#184](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/184)
+
+### 1.0.3 (2023-08-25)
+- (ticaki) Fixed: Don't add empty notifications to history [#183](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/183)
+- (ticaki) Fixed: prevent the creation of duplicate history entries in most cases
+
+### 1.0.2 (2023-08-23)
+- (ticaki) Added: a play/pause switch for mediaplayer
+- (ticaki) Added: links to artworks (ready to use)
+- (ticaki) Added: state viewOffsetSeconds refresh every second while playing media(internal counter)
+
 ### 1.0.1 (2023-08-21)
 - (ticaki) Xmlparser call fixed
 
@@ -144,7 +165,7 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 - (ticaki) fixed: translation error has been fixed #108
 
 ### 0.9.0 (2020-05-23)
-- (Zefau) added option for webhook IP address in case Plex is running in a Docker environment (see [#53](https://github.com/Zefau/ioBroker.plex/issues/53))
+- (Zefau) added option for webhook IP address in case Plex is running in a Docker environment (see [#53](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/53))
 - (Zefau) updated dependencies
 
 ### 0.8.11 (2020-02-26)
@@ -159,7 +180,7 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 ### 0.8.9 (2019-12-14)
 - (Zefau) updated dependencies
 - (Zefau) fixed missing spaces in events (and thus Adapter Web View)
-- (Zefau) fixed using username instead of email for statistics (see [#17](https://github.com/Zefau/ioBroker.plex/issues/17))
+- (Zefau) fixed using username instead of email for statistics (see [#17](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/17))
 
 ### 0.8.8 (2019-12-05)
 - (Zefau) fixed player controls
@@ -168,13 +189,13 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 - (Zefau) fixed error with http / https settings
 
 ### 0.8.6 (2019-12-02)
-- (Zefau) added further states to Tautulli Notification (see [README-tautulli.md](https://github.com/Zefau/ioBroker.plex/blob/master/README-tautulli.md))
+- (Zefau) added further states to Tautulli Notification (see [README-tautulli.md](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/master/README-tautulli.md))
 - (Zefau) fixed design issue with select-box in the adapter settings
 - (Zefau) fixed not showing thumbnails in adapter web view (when not using a secure connection)
 
 ### 0.8.5 (2019-12-01)
 - (Zefau) fixed missing user / library statistics
-- (Zefau) fixed using username instead of email for statistics (see [#17](https://github.com/Zefau/ioBroker.plex/issues/17))
+- (Zefau) fixed using username instead of email for statistics (see [#17](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/17))
 
 ### 0.8.4 (2019-11-07)
 - (Zefau) added support for remote player control via cloud / iot adapter
@@ -190,18 +211,18 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 
 ### 0.8.0 (2019-10-28)
 - (Zefau) added support for Plex Notifications including customization in adapter settings
-- (Zefau) added count of streams (see [#14](https://github.com/Zefau/ioBroker.plex/issues/14))
-- (Zefau) reworked cleaning up states when new webhook is received (see [#11](https://github.com/Zefau/ioBroker.plex/issues/11))
+- (Zefau) added count of streams (see [#14](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/14))
+- (Zefau) reworked cleaning up states when new webhook is received (see [#11](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/11))
 
 ### 0.7.0 (2019-10-17)
 - (Zefau) reworked duty cycle (clean up of outdated / old states)
-- (Zefau) fixed incorrect states (see [#15](https://github.com/Zefau/ioBroker.plex/issues/15))
+- (Zefau) fixed incorrect states (see [#15](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/15))
 
 ### 0.6.0 (2019-08-19)
 - (Zefau) replaced password with token authentication
 
 ### 0.5.0 (2019-08-18)
-- (Zefau) added support for Plex Notifications (see [#9](https://github.com/Zefau/ioBroker.plex/issues/9))
+- (Zefau) added support for Plex Notifications (see [#9](https://github.com/iobroker-community-adapters/ioBroker.plex/issues/9))
 - (Zefau) added support for all Tautulli triggers
 - (Zefau) added Adapter Web Interface that shows the recent events
 
@@ -226,7 +247,7 @@ Nach erfolgreicher erweiterter Einrichtung werden _zusätzlich_ folgende Kanäle
 - (Zefau) updated dependencies to fix security vulnerabilities in depending packages
 
 ### 0.3.0 (2019-05-16)
-- ([@Apollon77](https://github.com/Apollon77)) updated testing for Node.js v12 (see [#6](https://github.com/Zefau/ioBroker.plex/pull/6))
+- ([@Apollon77](https://github.com/Apollon77)) updated testing for Node.js v12 (see [#6](https://github.com/iobroker-community-adapters/ioBroker.plex/pull/6))
 - (Zefau) added support / discovery in [iobroker.discovery](https://github.com/ioBroker/ioBroker.discovery) (see [#62](https://github.com/ioBroker/ioBroker.discovery/pull/62))
 - (Zefau) added playlists to states
 - (Zefau) added state description for object tree ```_playing```

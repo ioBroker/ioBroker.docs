@@ -88,6 +88,12 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2023-08-22)
+
+* (theimo1221) !!Breaking Change!! From now on Node 18 or 20 is required, Node 16 is not supported anymore
+* (theimo1221) Update Ring-Api to V12 which needs Node 18 or 20
+* (theimo1221) Update Packages
+
 ### 3.4.1 (2023-08-06)
 
 * (theimo1221) Compliance to adapter-checker

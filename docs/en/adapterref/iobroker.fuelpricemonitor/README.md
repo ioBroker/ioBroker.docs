@@ -19,7 +19,7 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 14.16 or higher
+* NodeJS 16 or higher
 * ioBroker host (js-controller) 4.0 or higher
 
 ## Changelog
@@ -27,6 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+* (HGlab01) !Breaking change! NodeJS 16 or higher required
+
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
 

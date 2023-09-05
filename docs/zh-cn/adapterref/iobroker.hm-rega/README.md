@@ -112,6 +112,11 @@ CCU 和 info 文件夹包含网关的基本信息，包括。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 4.0.0 (2023-09-04)
+* (mcm1957) required node 16 due to adapter-core 3.x.x
+* (bluefox) removed deprecated package - `request`
+*
+
 ### 3.0.47 (2023-08-08)
 * (bluefox) Updated packages
 

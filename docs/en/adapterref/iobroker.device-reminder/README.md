@@ -163,6 +163,9 @@ is displayed.
     ### __WORK IN PROGRESS__
 -->
 
+### open (2023-08-20)
+* (xenon-s) GUI Fixes "devices" : switch may be empty, but then no longer selectable
+
 ### 2.0.1 (2023-08-20)
 * (xenon-s) : !!! BREAKING CHANGE ! Reinstallation is strongly recommended !!!
 * (xenon-s) Fixes for js-controller 5.*

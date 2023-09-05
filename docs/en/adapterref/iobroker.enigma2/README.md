@@ -125,6 +125,9 @@ sendTo("enigma2.0", "send", {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+**WORK IN PROGRESS**
+* (TDCroPower) fixed the problem that no objects are updated
+
 ### 2.0.2 (2023-08-17)
 * (Lucky-ESA) Bugfixes: [#61](https://github.com/Matten-Matten/ioBroker.enigma2/issues/61)
 * (Lucky-ESA) Bugfixes: undefined e2eventlist

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: 84zjgqUw/NKFjU+JudJR+kSqD/M87XZqfih5owu1tdc=
+hash: sWkuDLk1K7dgx2t/3Efr5H5g7GYOdzos6O2NfP50fB4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -28,100 +28,17 @@ Der Adapter unterstützt eine Schnittstelle zu den Heizsystemen der Bosch-Gruppe
 
   Die alten ESP8266-Gateways mit API V2 werden NICHT MEHR UNTERSTÜTZT!!
 
-Der ems-esp-Adapter kann Daten zu beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
+* Neue Cloud-Gateways (MX300 ...) werden nicht unterstützt!
+
+Der ioBroker ems-esp-Adapter kann Daten zu beiden Gateways lesen und schreiben, um alle Heizungskomponenten zu steuern.
 Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp oder beide parallel verwendet werden.
-Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen quittiert = falsch gesetzt werden !!!
 
-Der Adapter wurde für das EMS-ESP-Gateway mit den neuesten Firmware-Versionen von ESP32 >= v3.5.1 getestet.
+## Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen quittiert = false setzen !!!
+Der Adapter wurde für das EMS-ESP-Gateway mit der neuesten Firmware-Version (V3.6.0) von ESP32 getestet
 
-## Wichtige Einstellungen in EMS-ESP:
-* Formatierungsoptionen für das Boolesche Format müssen 1/0 und für das Enum-Format Wert/Zahl sein.
-* Die Einstellungen „API-Schreibbefehle aktivieren“ in ems-esp müssen aktiviert sein
-* Die Bypass Access Token-Autorisierung bei API-Aufrufen muss festgelegt oder das Token eingegeben werden.
+Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
-Beim Aktivieren der Checkbox wird entweder eine km200-ähnliche Gerätestruktur für EMS-ESP-Datenfelder verwendet oder die ursprüngliche EMS-ESP-Geräteansicht beibehalten: Kessel, Thermostat, Mischer usw. Bei paralleler Verwendung des km200-Gateways wird empfohlen, die km200-Daten zu verwenden Struktur. Dann befinden sich alle Entitäten/Zustände am selben Ort innerhalb der Objektstruktur von ioBroker.
-
-## Umfrage
-Dieser Adapter liest After-Start-Werte von ems-esp und km200 über HTTP-Get-Anfragen und ist in der Lage, Statusänderungen zu abonnieren und die entsprechenden http-Befehle (Post) entweder an die ems-esp-Hardware oder das km200-Gateway zurückzusenden.
-
-* EMS-ESP-Leseabfrage ist ein Parameter (Standard 60 Sekunden) und kann nicht auf weniger als 15 Sekunden eingestellt werden.
-* Die KM200-Abfrage ist ebenfalls ein Parameter (Standard 300 Sekunden) und der minimal einstellbare Wert beträgt 90 Sekunden.
-* km200-Aufzeichnungen (Energieverbrauchs- und Temperaturstatistiken) werden stündlich aktualisiert
-
-## Km200
-Die Web-API-Aufrufe zum/vom km200-Gateway sind verschlüsselt. Für die Ver-/Entschlüsselung werden zwei Passwörter benötigt:
-
-* das Gateway-Passwort auf einem Etikett am Gateway in der Form: xxxx-xxxx-xxxx-xxxx (Groß-/Kleinschreibung beachten)
-* Das private Passwort wird über die Buderus **MyDevice** App festgelegt (verwenden Sie nicht myBuderus / EasyCom oder ähnliche cloudbasierte Apps!)
-* ohne privates Passwort (wenn MyDevice APP nicht funktioniert) funktioniert der km200-Adapterteil nicht !!!
-
-Die für das Bosch-Gateway zu verwendenden Felder können auch durch Abfrage der km200-Struktur (*) oder der jeweiligen CSV-Datei innerhalb der Adapterinstanzparameter definiert werden.
-Für den ersten Adapterstart wird empfohlen, alle km200-Datenfelder mit einem „*“ auszuwählen.
-Der Adapter erstellt dann eine km200.csv-Datei im Verzeichnis ../iobroker-data/ems-esp/{instance}.
-
-Diese Datei kann für den nächsten Start der Adapterinstanz verwendet werden.
-Nicht benötigte Zeilen (Felder) können gelöscht werden, um die Anzahl der auszulesenden km200-Felder zu reduzieren. (Erstellen Sie eine Kopie und benennen Sie die Datei um.)
-
-## Km200-Aufzeichnungen (Energie- und Temperaturstatistik)
-Die meisten modernen Heizsysteme verfügen über ein IP-Inside-Gateway und unterstützen Energiestatistiken:
-
-* Aufzeichnung für Stromverbrauch und Temperaturstatistik
-* Für diese Systeme und sofern diese Aufzeichnungsdaten verfügbar sind, werden die entsprechenden Statistiken abgefragt und in Zuständen gespeichert.
-* Verfügbar sind stündliche, tägliche und monatliche Statistiken und werden als Array-Daten in Zuständen gespeichert und bei Auswahl einer Datenbankinstanz auch in Staaten, die mit Datenbankeinträgen gefüllt sind. (Statusnamen beginnen mit „_“)
-* Das Kontrollkästchen Aufzeichnungen muss aktiviert sein und die Datenbankinstanz (History, mySQL oder InfluxDB) muss definiert sein. Um diese Option nutzen zu können, müssen SQL, InfluxDB oder der Verlaufsadapter installiert und aktiv sein.
-* Die von Web-API-Aufrufen gelesenen Originalaufzeichnungsdaten werden ebenfalls unter der Statusstruktur km200 gespeichert.
-* DB-Statistiken zur Anzeige in Flot-Diagrammen oder Grafana sind bisher nur für mySQL- und InfluxDB-Datenbanken verfügbar.
-* Für InfluxDB V1 muss die Aufbewahrungsrichtlinie auf mindestens 170 Wochen eingestellt werden. (Ändern Sie die globale Aufbewahrungsrichtlinie für die Dauer von iobroker auf 170 W;)
-* Für InfluxDB V2 wird die globale Aufbewahrungsrichtlinie vom Influxdb-Adapter festgelegt – bitte stellen Sie im Influxdb-Adapter die Speicheraufbewahrungszeit auf „keine automatische Löschung“ ein!
-
-Dieser Adapter erstellt dann die jeweiligen Aufzeichnungszustände, aktiviert SQL-Statistiken, schreibt historische Datenbankeinträge mithilfe von SQL-Befehlen und aktualisiert die Aufzeichnungen. Die Aktualisierungshäufigkeit beträgt jede Stunde.
-
-WICHTIG: Seien Sie bitte nicht verärgert, wenn die Werte der jeweiligen Bundesstaaten NULL()-Werte anzeigen.
-IN EINIGEN FÄLLEN WERDEN DIE WERTE IM ADMIN-OBJEKT-BROWSER NICHT KORREKT ANGEZEIGT - BITTE VERWENDEN SIE FLOT ODER GRAFANA ZUR ANZEIGE !!!
-
-## Km200-Aufzeichnungen – eine Erklärung
-Einige Feldwerte sind als „aufzeichnungsfähig“ festgelegt. Diese Felder verfügen dann über „Aufnahmen“.
-Je nach Art der Heizungsanlage werden diese Aufzeichnungen unter Aufzeichnungen/... oder EnergieMonitoring/... gespeichert.
-
-Für aufgezeichnete Zustände wird jede Minute eine Probe innerhalb des km200-Gateways gesammelt.
-Ein stündlicher Wert sollte 60 Proben haben, ein täglicher 24*60=1440 Proben, ein monatlicher 1440 x #Tage.
-Jeder Zeitraum muss innerhalb des Adapters durch 3 API-Aufrufe gelesen werden:
-
-* Stundenwerte: heute, gestern, vorgestern
-* Tageswerte: aktueller Monat, letzte Monate, Monat -2
-* Monatswerte: aktuelles Jahr, letztes Jahr, Jahr -2
-
-Im von der Web-API gelesenen Datenfeld wird die Summe der Stichprobenwerte im Y-Wert und die Anzahl der Stichproben im C-Wert gespeichert.
-(Siehe Originalwerte in JSON-Daten in km200...-Feldern.)
-
-Da manchmal Proben fehlen, können die Energiewerte interpoliert werden. Die Interpolation ist konfigurierbar (ein/aus).
-Für einige Monate (vor mehr als 12 Monaten) könnten einige Daten fehlen. (Bosch-Fehler im Code?)
-
-Für den tatsächlichen Energieverbrauch des Monats berechnet der Adapter die Summe der Tageswerte und verwendet diese Summe, um genauere Daten zu erhalten.
-
-## Statistiken
-Die Kesselstatistik kann aktiviert werden und zeigt Folgendes an:
-
-* Die Verarbeitungszeit des Abfragezyklus für EMS-ESP- und/oder km200-Gateway-Lesevorgänge und Statusverarbeitung
-* Die Anzahl der Kessel- und WW-Starts pro Stunde / 24 Stunden
-* Kesselauslastung pro Stunde (0-100 %).
-* Zur Berechnung der Statistiken ist eine aktive Datenbankinstanz (siehe oben) erforderlich.
-
-## Kesseleffizienz
-Der Kesselwirkungsgrad kann berechnet werden, wenn die Parameter ausgefüllt sind. (Nur Gas- und Ölkessel)
-
-* Der Kesselwirkungsgrad kann auf der Grundlage der durchschnittlichen Kesseltemperatur berechnet werden: (Kesseltemperatur + Rücklauftemperatur) / 2.
-* Wenn die Rücklauftemperatur in km200/ems-esp nicht verfügbar ist, ist die Effizienzberechnung nicht sinnvoll – bitte deaktivieren, um Fehler zu vermeiden
-* Sehen Sie sich das Datenblatt Ihres Heizkessels an, um die Effizienztabelle entsprechend anzupassen.
-* Bei einigen Heizsystemen führt diese Funktion zu Fehlern - bitte ausschalten!!!
-* Logik mit Release >= v1.30.0 geändert
-
-## Veränderungen in der Staatsstruktur
-Immer wenn eine neue EMS-ESP-Firmware neue Datenfelder hinzufügt und/oder Datenfeldnamen ändert, werden diese während der Adapterausführung verarbeitet. Dennoch werden veraltete Datenfelder vom Adapter nicht automatisch gelöscht.
-Es besteht die Möglichkeit, die Statusstruktur neu aufzubauen, indem Status beim Neustart des Adapters gelöscht werden. (Zustände mit Verlauf / Datenbankeinträge bleiben erhalten)
-
-## Wärmebedarfssteuerung
-Erläuterung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutscher Sprache verfügbar: https://github.com/tp1de/ioBroker.ems-esp/wiki
+Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
 
 # Iobroker.ems-esp
 
@@ -130,6 +47,24 @@ Erläuterung zur Berechnung und Konfiguration des Wärmebedarfs. Nur in deutsche
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.4.0 (2023-09-03)
+* integrate custom entities for ems-esp gateway
+* rework async functions
+
+### 2.3.3 (2023-08-28)
+* error correction mySQL too many connections
+* read database name from db-instance settings
+
+### 2.3.2 (2023-08-27)
+* optimize SQL access for energy statistics
+
+### 2.3.1 (2023-08-27)
+* avoid sql errors within energy statistics for mySQL
+
+### 2.3.0 (2023-08-26)
+* New function: ems-esp gateway energy statistics (consumption)
+* change sorting order of enegry statistics & recordings in array from new to old
+
 ### 2.2.1 (2023-08-20)
 * trim km200 passwords
 * require node version >= 16

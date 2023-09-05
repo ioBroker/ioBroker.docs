@@ -412,6 +412,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 -   With this you can set these [data points](#data-point-imap0usernameremote).
 -   See the [instance setting](#instance-settings-tab---create-imaps) for possible flags.
 -   Select IMAP connection or apply to all.
+-   Max. 100 emails allowed.
 
 ![blockly_imap_1.png](img/blockly_imap_1.png)
 ![blockly_imap_2.png](img/blockly_imap_2.png)
@@ -424,6 +425,7 @@ UNSEEN - Messages that do not have the Seen flag set.
 -   The data is then delivered as JSON.
 -   With log outputs, the log file becomes very large. Therefore delete the log outputs again later.
 -   A variable called `result` must be created.
+-   Max. 100 emails allowed.
 -   [Beispiele](/docs/en/EXAMPLE.md)
 
 ![blockly_imap_request.png](img/blockly_imap_request.png)

@@ -64,7 +64,8 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 -->
 ### **WORK IN PROGRESS**
 
-* (klein0r) 
+* (klein0r) Added Shelly Pro Dual Cover/Shutter PM
+* (klein0r) Added Shelly Pro 3 EM 400A
 
 ### 6.4.1 (2023-04-23)
 
