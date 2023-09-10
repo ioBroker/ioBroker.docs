@@ -25,6 +25,10 @@ The adapter is also designed to support a sophisticated notification routing sys
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.1.1 (2023-09-09)
+
+-   (jpawlowski) Update package dependencies
+
 ### 0.1.0 (2023-06-29)
 
 -   (jpawlowski) First stable version

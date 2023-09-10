@@ -1,46 +1,77 @@
-![Logo](admin/youtube.png)
+---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.youtube?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
+BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
+---
+![Logo](../../admin/youtube.png)
 
 # ioBroker.youtube
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.youtube?style=flat-square)](https://www.npmjs.com/package/iobroker.youtube)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.youtube)
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square)
-![node-lts](https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square)
+## Requirements
 
-![GitHub](https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub issues](https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square)
-![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square)
+- nodejs 14.5 (or later)
+- js-controller 4.0.15 (or later)
+- Admin Adapter 6.0.0 (or later)
 
-## Versions
+## Configuration
 
-![Beta](https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta)
-![Stable](http://iobroker.live/badges/youtube-stable.svg)
-![Installed](http://iobroker.live/badges/youtube-installed.svg)
+To get an API-Key you have to go to [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
 
-Statistics like views, subscribers and videos
+1. Create a new Project
+2. Create a new API key
+3. Add "YouTube Data API v3" of the library
+4. Use that API-Key in the instance configuration
+5. Add multiple channels in the channels tab by using the id and a custom name
 
-## Sponsored by
+## Log all statistics to InfluxDB
 
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-youtube)
+```javascript
+on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
+    try {
+        const youtubeJson = obj.state.val;
+        const channels = JSON.parse(youtubeJson);
+        const ts = Date.now();
 
-## Installation
+        for (const channel of channels) {
+            const alias = channel.customUrl.substr(1); // remove leading @
 
-Please use the "adapter list" in ioBroker to install a stable version of this adapter. You can also use the CLI to install this adapter:
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.subscribers`,
+                state: {
+                    ts,
+                    val: channel.subscriberCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
 
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.views`,
+                state: {
+                    ts,
+                    val: channel.viewCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
+        }
+    } catch (err) {
+        console.error(err);
+    }
+});
 ```
-iobroker add youtube
-```
-
-## Documentation
-
-[🇺🇸 Documentation](./docs/en/README.md)
-
-[🇩🇪 Dokumentation](./docs/de/README.md)
 
 ## Changelog
 

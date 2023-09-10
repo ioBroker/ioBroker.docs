@@ -53,8 +53,6 @@ The IP address of the pool can be searched for using the search button. However,
 
 ## Controlling the functions of the spa
 
-"intex.0.-id-.remote.-command-" set to true controls the respective command.
-
 "intex.0.-id-.control.-command-" set to true or false controls the pool command's state.
 
 
@@ -63,6 +61,22 @@ The IP address of the pool can be searched for using the search button. However,
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
 
 ### 0.1.1
 

@@ -12,51 +12,36 @@
 **Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/workflows/Test%20and%20Release/badge.svg)
 
 ## Smart Control Adapter for ioBroker
+The `ioBroker.smartcontrol` adapter is a powerful tool for managing and automating various scenarios in your [ioBroker](https://github.com/ioBroker/ioBroker) home automation system. It allows you to define triggers, conditions, and actions to control your smart devices and create customized automation routines.
 
-This adapter would not exist without Mic-M. He started this awsome adapter and bring it to a well working adapter. Due to personal issues he stopped the work on this. Thank you for your work. You will be welcome to take it over or work together on this very helpfull adapter. A lot of fans of this adapter was asking for continue this and this will happen inside of iobroker-community-adapters.
+With `ioBroker.smartcontrol`, you can easily configure scenarios based on triggers such as motion sensors, switches, or specific times. You can also set conditions to verify additional requirements, like checking if it's a holiday or if a window is open. Having met the specified triggers and conditions, you can then define which target devices to switch or control.
 
-## Introduction
+The adapter also provides a timer function which can activate after a motion sensor is triggered. This timer automatically switches off the target devices after a specified number of seconds when no more motion is detected.
 
-In our [ioBroker](https://github.com/ioBroker/ioBroker) home automation we have several triggers, e.g.
- * motion sensor in the corridor triggers, 
- * a wall switch is pressed, 
- * a certain time occurs (e.g. 30 minutes after sunset or Mon-Fri at 7:00)
-
-Once such a trigger is triggering, we often want that additional conditions are (not) met (e.g. 'Today is a holiday', 'living room window is open', brightness is greater than 100 lux, etc.).
-
-Once these optional verifications passed, target states (i.e. **Target devices**) should be switched.
-
-In addition, a timer should run after a motion sensor is triggered, which (as soon as there is no more motion) switches off the target devices after the set number of seconds.
-
-All of this can be easily accomplished with this adapter, und even much more ;-)
-
-The purpose of this adapter is to to provide you a very **user-friendly environment** for various scenarios you need, and while the above was just one simple example using IFTTT (*if this, then that*), you can configure many different scenarios (called "zones" in the adapter option) for your home.
-Also, if your are using Javascripts/Blockly, you should be typically able to replace several scripts with this adapter, which will also ensure more consistency, a stable environment, and especially a way user-friendlier configuration.
-
-## Installation
-
-Just install the adapter regularly through the ioBroker admin interface. The adapter is both in the latest and stable repository.<br>Once done, add an adapter instance accordingly.
+By using `ioBroker.smartcontrol`, you can achieve a user-friendly and versatile environment for automating various aspects of your home. It eliminates the need for complex scripts and offers a more consistent and stable automation setup.
 
 ## Instructions
+All the instructions for configuring and using the `ioBroker.smartcontrol` adapter are available within the admin settings of the adapter itself. To access the instructions, follow these steps:
 
-I have included all instructions right in the admin settings of this adapter.
+1. Open the ioBroker admin interface.
+2. Go to the "Instances" tab.
+3. Find the `ioBroker.smartcontrol` instance and click on the wrench icon to open the settings.
+4. Detailed instructions and options for configuring the adapter are available on the settings page.
 
-<sub>Reason: We are having a nice term [Medienbruch](https://de.wikipedia.org/wiki/Medienbruch) in the German language, which is an unnecessary requirement to 'break' the current medium and switch to a different medium (like different website, program, etc.) to execute/complete a task, etc. Since this is cumbersome, I have included all instructions in the admin settings of this adapter.</sub>
+Read and follow the instructions carefully to set up your desired automation scenarios using `ioBroker.smartcontrol`.
 
-Also, you can read most of these instructions here as well:
-* [**Basic Adapter Instructions**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
-* [**Target Devices**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
-* [**Additional Conditions**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
-* [**Triggers: Motion Sensors**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
-* [**Triggers: Other Devices (wall switch, etc.)**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de.md)
-* [**Triggers: Time-dependent**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
-* [**Zones**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
-* [**Execution Settings**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) - for German [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
+Additionally, you can access most of these instructions below:
+* [**Basic Adapter Instructions**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/start_de.md)
+* [**Target Devices**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-target-devices_de.md)
+* [**Additional Conditions**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-conditions_de.md)
+* [**Triggers: Motion Sensors**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-motion_de.md)
+* [**Triggers: Other Devices (wall switch, etc.)**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-devices_de.md)
+* [**Triggers: Time-dependent**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-trigger-times_de.md)
+* [**Zones**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-zones_de.md)
+* [**Execution Settings**](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_en.md) - for German, [click here (Deutsch)](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/blob/master/admin/doc-md/table-execution_de.md)
 
-## Screenshots of adapter options (17-Sep-2020)
-
-Please note that these screenshots are a snapshot and do not reflect the latest adapter options.
-This is just to provide you an overview of the adapter options. 
+### Screenshots of adapter options (17-Sep-2020)
+Please note that these screenshots are snapshots, providing an overview of the adapter options only, and do not reflect the latest adapter options.
 
 ![SmartControl Options](admin/img/option-screenshots/tab-start.png)
 
@@ -80,18 +65,25 @@ This is just to provide you an overview of the adapter options.
 ## Links and resources
 * [**Permanent Smart Control ioBroker Forum Link (Splash Page)**](https://forum.iobroker.net/topic/36728/smart-control-adapter-splash-page)
 
-
 ## Notes
-* This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+* Sentry reporting, starting with js-controller 3.0, means that this adapter can use Sentry libraries to automatically report exceptions and code errors to developers. For more details and how to turn off error reporting, see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry).
 * Adapter icon made by [freepik](https://www.flaticon.com/authors/freepik) from [flaticon.com](https://www.flaticon.com/).</sup></sub>
+
+## Contributing
+This adapter is a collaborative effort within the iobroker-community-adapters organization. Mic-M initially started it, and thanks to his hard work, it has become a well-functioning adapter. However, due to personal reasons, he has discontinued further development.
+
+We welcome contributions and collaboration from the community to continue enhancing and maintaining this adapter. If you are interested in taking over or working together on this project, please contact us. Your contributions are highly appreciated.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.0.1 (2023-09-07)
 * (oelison) warn log for not existing objects removed (fixed)
+* (inkade) updated readme
+* (bluefox) supported only node 16 or higher
+* (bluefox) updated packages
 
 ### 1.3.2 (2022-11-25)
 * (oelison) #19 problem with any web request solved
@@ -111,19 +103,19 @@ This is just to provide you an overview of the adapter options.
 * (oelison) node testing to 12, 14, 16
 
 ### 1.2.1
-* (Mic-M) Enhancement: Now, all adapter config validations take place while saving the adapter configuration, and all identified errors are shown in a dialog. Addresses issue [#61](https://github.com/Mic-M/ioBroker.smartcontrol/issues/61)
+* (Mic-M) Enhancement: Now, all adapter config validations take place while saving the adapter configuration, and all identified errors are shown in a dialog. Addresses issue [#61](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/61)
 
 ### 1.2.0
-* (Mic-M) Fix: [#60 - Linked triggers of motion sensors issue](https://github.com/Mic-M/ioBroker.smartcontrol/issues/60)
+* (Mic-M) Fix: [#60 - Linked triggers of motion sensors issue](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/60)
 * (Mic-M) Several code improvements
-* (Mic-M) Issues [#35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) and [#43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) confirmed as resolved, therefore all workaround code removed.
+* (Mic-M) Issues [#35](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/35) and [#43](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/43) confirmed as resolved, therefore all workaround code removed.
 
 ### 1.1.1 
-* (Mic-M) Fix: Most likely finally fixes [issue #43](https://github.com/Mic-M/ioBroker.smartcontrol/issues/43) as well as workaround for [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) (scheduleJob() of node-schedule module: now applying 'cancel' method prior to reschedule every midnight)
+* (Mic-M) Fix: Most likely finally fixes [issue #43](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/43) as well as workaround for [issue #35](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/35) (scheduleJob() of node-schedule module: now applying 'cancel' method prior to reschedule every midnight)
 * (Mic-M) Update adapter documentation
 
 ### 1.1.0 
-* (Mic-M) Improvement: if multiple motion sensors assigned to zone, zone will not switch off if any other motion sensor assigned to same zone is still motion=true (addresses [issue #45](https://github.com/Mic-M/ioBroker.smartcontrol/issues/45))
+* (Mic-M) Improvement: if multiple motion sensors assigned to zone, zone will not switch off if any other motion sensor assigned to same zone is still motion=true (addresses [issue #45](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/45))
 * (Mic-M) Internal: align testing with latest adapter creator (remove travis and use github test only)
 
 ### 1.0.0 
@@ -156,16 +148,16 @@ This is just to provide you an overview of the adapter options.
 
 ### 0.5.7
 * (Mic-M) Various code fixes and improvements
-* (Mic-M) Potentially fix of [issue #35](https://github.com/Mic-M/ioBroker.smartcontrol/issues/35) - to be tested
-* (Mic-M) Enhancement for 'Target Devices': Add table to call URLs als target (implementation of [issue #1](https://github.com/Mic-M/ioBroker.smartcontrol/issues/1))
+* (Mic-M) Potentially fix of [issue #35](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/35) - to be tested
+* (Mic-M) Enhancement for 'Target Devices': Add table to call URLs als target (implementation of [issue #1](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/1))
 
 ### 0.5.6
 * (Mic-M) Hotfix: loading admin settings for enums
 
 ### 0.5.5
-* (Mic-M) Fixed error (reported by [Sentry](https://github.com/Mic-M/ioBroker.smartcontrol#notes)): `Cannot read property 'log' of undefined` in _asyncSetTargetDevices_processZone()
+* (Mic-M) Fixed error (reported by [Sentry](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol#notes)): `Cannot read property 'log' of undefined` in _asyncSetTargetDevices_processZone()
 * (Mic-M) Fixed issue: Tab TARGET DEVICES > Enumerations: functions and rooms selection were sometimes blank, and chosen item was sometimes deleted after saving and reopening admin options.
-* (Mic-M) Future - Early preparation work, not yet visible and not yet activated! - Tab TARGET DEVICES: new table for URLs as targets will be added ([see issue](https://github.com/Mic-M/ioBroker.smartcontrol/issues/1))
+* (Mic-M) Future - Early preparation work, not yet visible and not yet activated! - Tab TARGET DEVICES: new table for URLs as targets will be added ([see issue](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/1))
 
 ### 0.5.4
 * (Mic-M) New feature: TARGET DEVICES - add delay option for delayed switching on of target device.
@@ -182,8 +174,8 @@ This is just to provide you an overview of the adapter options.
 * (Mic-M) Fixed clearing timeout while adapter is stopping.
 
 ### 0.5.0
-* (Mic-M) New feature: ZONES - New option "Delay for switching zone on (in seconds)" - [issue #31](https://github.com/Mic-M/ioBroker.smartcontrol/issues/31)
-* (Mic-M) New feature: ZONES - New option "Never switch off if..." - [issue #32](https://github.com/Mic-M/ioBroker.smartcontrol/issues/32)
+* (Mic-M) New feature: ZONES - New option "Delay for switching zone on (in seconds)" - [issue #31](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/31)
+* (Mic-M) New feature: ZONES - New option "Never switch off if..." - [issue #32](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/32)
 
 ### 0.4.4
 * (Mic-M) New feature: allow comparison operators `!=` / `<>` in 'TRIGGERS -> Other triggers' to trigger if state value is unequal. Example: `<>30` or `!=30` - see [Forum](https://forum.iobroker.net/post/496133)
@@ -203,19 +195,19 @@ This is just to provide you an overview of the adapter options.
 * (Mic-M) Fixed io-package.json
 
 ### 0.4.0
-* (Mic-M) New feature: Tab 'Target Devices': New table 'Targets: Enum functions' to **support enum functions**, and optionally limit to certain enum rooms. [issue #29](https://github.com/Mic-M/ioBroker.smartcontrol/issues/29).
-* (Mic-M) New feature: New JSON state for recent zone activations: 'smartcontrol.x.info.log.zoneActivations.json'. [issue #30](https://github.com/Mic-M/ioBroker.smartcontrol/issues/30).
+* (Mic-M) New feature: Tab 'Target Devices': New table 'Targets: Enum functions' to **support enum functions**, and optionally limit to certain enum rooms. [issue #29](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/29).
+* (Mic-M) New feature: New JSON state for recent zone activations: 'smartcontrol.x.info.log.zoneActivations.json'. [issue #30](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/30).
 * (Mic-M) Code fixes
 
 ### 0.3.10
 * (Mic-M) Fixed io-package.json
 
 ### 0.3.9
-* (Mic-M) New feature: Table "Additional Conditions" is now allowing comparators like `> 30`, `<= 25` etc. in column 'State value'. See [issue #28](https://github.com/Mic-M/ioBroker.smartcontrol/issues/28)
+* (Mic-M) New feature: Table "Additional Conditions" is now allowing comparators like `> 30`, `<= 25` etc. in column 'State value'. See [issue #28](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/28)
 
 ### 0.3.8
 * (Mic-M) Updated readme since adapter [is now in latest repository](https://github.com/ioBroker/ioBroker.repositories/pull/930)
-* (Mic-M) Updated translations, which also addresses [#26](https://github.com/Mic-M/ioBroker.smartcontrol/issues/26)
+* (Mic-M) Updated translations, which also addresses [#26](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/26)
 * (Mic-M) Fixed/improved 'admin/index_m.js'
 
 ### 0.3.7
@@ -231,7 +223,7 @@ This is just to provide you an overview of the adapter options.
 * (Mic-M) Test: Implementation of markdown documentation files within adapter configuration by using [zero-md](https://github.com/zerodevx/) for tables 'Target Devices' and 'Additional Conditions' to prepare adapter for multiple languages. Based on your language set in the adapter configuration, either German will be displayed (if language set to German) or English, if set language is not German.
 
 ### 0.3.3
-* (Mic-M) New feature for Motion sensors: the timer duration and brightness threshold can now be changed via states. These states are available under `smartcontrol.0.options.TriggerMotion.xxx.<duration|briThreshold>` for each of your motion sensors. Please note that any change will cause an adapter restart (for initializing and clearing all existing timers to apply the new values). [Issue #18](https://github.com/Mic-M/ioBroker.smartcontrol/issues/18)
+* (Mic-M) New feature for Motion sensors: the timer duration and brightness threshold can now be changed via states. These states are available under `smartcontrol.0.options.TriggerMotion.xxx.<duration|briThreshold>` for each of your motion sensors. Please note that any change will cause an adapter restart (for initializing and clearing all existing timers to apply the new values). [Issue #18](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/18)
 
 ### 0.3.2
 * (Mic-M) New feature: In the adapter configuration, tab 'Further Options' > 'Input Validation', you can now select if deactivated configuration table rows should be validated as well.
@@ -246,9 +238,9 @@ This is just to provide you an overview of the adapter options.
 **Breaking Changes**
 * (Mic-M) Entire adapter code refactored. Therefore, tests are required to verify if these massive changes do not affect the adapter functionality. However, none of your existing adapter configuration should be lost and will be kept if you upgrade from 0.2.0+. But please check ALL of your configuration, since new options were added which
 can have an effect to your existing configuration.
-* (Mic-M) New feature: Implemented [issue #22](https://github.com/Mic-M/ioBroker.smartcontrol/issues/22) - Motion sensors timeout, e.g. for Homematic sensors: Motion sensor timer will now start once a motion sensor is set to false. In previous adapter versions, it was started once set to true.
+* (Mic-M) New feature: Implemented [issue #22](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/22) - Motion sensors timeout, e.g. for Homematic sensors: Motion sensor timer will now start once a motion sensor is set to false. In previous adapter versions, it was started once set to true.
 <br><strong>Note:</strong> This change will cause that per your existing adapter configuration, the timer end will be reached later (so: once no motion detected any longer + the seconds you have set)
-* (Mic-M) New feature: Time triggers - added options for additional conditions for 'any' or 'all'. [issue #24](https://github.com/Mic-M/ioBroker.smartcontrol/issues/24)
+* (Mic-M) New feature: Time triggers - added options for additional conditions for 'any' or 'all'. [issue #24](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/24)
 * (Mic-M) New feature: Zones > Execution - added options for additional conditions for 'any' or 'all'. 
 * (Mic-M) Many fixes under the hood
 
@@ -277,15 +269,15 @@ Change Log for 0.2.0:
 * (Mic-M) New feature: Changing name fields in admin options now also sets the names in all other fields to the new value.
 
 ### 0.1.2-beta.5
-* (Mic-M) New feature: option in Target Devices table to not verify if device is already on/off. Use case is e.g. for button states which do not reflect the actual status of the device in the state (like Broadlink, etc.). Addresses [request #5](https://github.com/Mic-M/ioBroker.smartcontrol/issues/5)
+* (Mic-M) New feature: option in Target Devices table to not verify if a device is already on/off. Use case is e.g. for button states which do not reflect the actual status of the device in the state (like Broadlink, etc.). Addresses [request #5](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/5)
 
 ### 0.1.2-beta.4
-* (Mic-M) Enhance functionality of validating/correcting config settings  (new feature with 0.1.2-beta.3) to also process overwritten target device values. The issue is described here: [ioBroker forum post](https://forum.iobroker.net/post/472856).
+* (Mic-M) Enhance the functionality of validating/correcting config settings (new feature with 0.1.2-beta.3) to also process overwritten target device values. The issue is described here: [ioBroker forum post](https://forum.iobroker.net/post/472856).
 * (Mic-M) Improved validation of all adapter config settings (user input)
 
 ### 0.1.2-beta.3
-* (Mic-M) New feature: Overwrite target device values in Zones table, addresses [#16](https://github.com/Mic-M/ioBroker.smartcontrol/issues/16) and [#15](https://github.com/Mic-M/ioBroker.smartcontrol/issues/15)
-* (Mic-M) Improved dialogs for selection: all selected nodes are expanded when opening, and additional buttons 'collapse all' and 'expand all' - [#17](https://github.com/Mic-M/ioBroker.smartcontrol/issues/17)
+* (Mic-M) New feature: Overwrite target device values in Zones table, addresses [#16](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/16) and [#15](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/15)
+* (Mic-M) Improved dialogs for selection: all selected nodes are expanded when opening, and additional buttons 'collapse all' and 'expand all' - [#17](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/17)
 
 ### 0.1.2-beta.2
 * (Mic-M) Fixed saving of admin options for tab 'Further Options'.
@@ -315,9 +307,9 @@ Change Log for 0.2.0:
 * (Mic-M) Fix: Perform configuration validation and correction also for non-active table rows, since these can be switched on thru `smartcontrol.x.options.xxx.xxx.active` states.
 
 ### 0.1.1-beta.1
-* (Mic-M) New feature: New option in motion sensor table: if activated, motion triggers will not set a timeout if target device was turned on previously without a motion trigger ("manually"). [Forum Link](https://forum.iobroker.net/post/433871)
+* (Mic-M) New feature: New option in motion sensor table: if activated, motion triggers will not set a timeout if a target device was turned on previously without a motion trigger ("manually"). [Forum Link](https://forum.iobroker.net/post/433871)
 * (Mic-M) Fix: non-consistent logs for verifying config
-* (Mic-M) Change: changed limitTriggerInterval from 2s to 1s - [Issue #3](https://github.com/Mic-M/ioBroker.smartcontrol/issues/3)
+* (Mic-M) Change: changed limitTriggerInterval from 2s to 1s - [Issue #3](https://github.com/iobroker-community-adapters/ioBroker.smartcontrol/issues/3)
 * (Mic-M) Fix: 24:00 as time: now treated as 0:00 but adding 24h to timestamp. 
 * (Mic-M) Fix: If a trigger state path was used multiple times in different triggers and schedules, second schedule stopped. [Forum Link](https://forum.iobroker.net/post/464208)
 * (Mic-M) Improvement: Better info log / extended info log per Option 'Extended Info Log'

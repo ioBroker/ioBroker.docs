@@ -35,6 +35,8 @@ Get the SurveillanceStation info is a getInfo method with no additional paramete
 ### Control
 **commands.reboot** - reboot NAS
 
+**commands.wake** - send Wake On Lan to NAS
+
 **commands.shutdown** - shutdown NAS
 
 ***SurveillanceStation.cameras.{NAMECAM}***:
@@ -71,12 +73,14 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 });
 ```
 
-
-
 ## Changelog
 <!--
-## __WORK IN PROGRESS__
+     ### **WORK IN PROGRESS**
 -->
+### 3.0.0 (2023-09-07)
+* (Standarduser) Added WOL to awake Synology NAS server
+* (bluefox) Only node 16 or higher supported
+
 ### 2.1.13 (2022-11-05)
 *(McM1957) Code has been prepared for upcoming js-controller release. Reference to utils.controllerDir has been removed. (#198)
 *(McM1957) Several base modules have been updated.
@@ -242,7 +246,7 @@ sendTo('synology.0', 'getSnapshot', {camId: 2}, (res) => {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2022 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
+Copyright (c) 2021-2023 instalator <vvvalt@mail.ru>, ioBroker Community-Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

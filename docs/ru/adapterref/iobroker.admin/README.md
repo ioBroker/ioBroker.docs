@@ -169,6 +169,10 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ## Changelog
 ### **WORK IN PROGRESS**
+* (foxriver76) fixed `between` function for showing news
+
+### 6.10.0 (2023-09-08)
+* (foxriver76) various minor improvements
 * (foxriver76) fixed problem with discovery dialog
 * (foxriver76) object browser now validates setting state of type number
 * (foxriver76) allow to specify unique columns for tables
@@ -209,12 +213,6 @@ IP-адрес с которого доступен драйвер (поддер�
 * (bluefox) Extended the select component with grouping
 * (bluefox) Allowed the sorting of adapters by name and not only by title
 * (bluefox) Allowed the set state JSON config component
-
-### 6.8.0 (2023-08-14)
-* (foxriver76) try to find the correct IP for the controller UI multihost slave upgrade
-* (foxriver76) admin is now showing update information, while it is stopped during upgrade
-* (foxriver76) required Node.js version is 16 as 14 is End-Of-Life
-* (foxriver76) fixed downloading folders recursive
 
 ## License
 The MIT License (MIT)

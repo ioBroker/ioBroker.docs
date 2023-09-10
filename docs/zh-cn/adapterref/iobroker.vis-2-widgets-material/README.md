@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: ed2ad5iuHZiXvWCyClX8jS0JNcQRr+KRXyMpLufB/aQ=
+hash: w26XlATbPNFRa+YVX2R4yF4O8TFhOF9HQg3jbtZotsA=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -92,7 +92,7 @@ hash: ed2ad5iuHZiXvWCyClX8jS0JNcQRr+KRXyMpLufB/aQ=
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-html-1.png)
 
 Html 模板可用于显示任何 html 代码。
-此外，您还可以使用此小部件显示图像或 iframe。
+此外，您也可以使用此小部件显示图像或 iframe。
 
 ### 百叶窗
 ![百叶窗](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-1.png)
@@ -102,6 +102,9 @@ Html 模板可用于显示任何 html 代码。
 ### 彩色灯
 ![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
 
+＃＃＃ 门锁
+![门锁](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
+
 ### 时间选择器
 ## 向导映射
 ### 一景一房
@@ -110,7 +113,7 @@ Html 模板可用于显示任何 html 代码。
 - 调光器→简单状态
 - 百叶窗 → 带有名称的百叶窗
 - 温度 → 带图表的实际值（如果可能的话添加湿度）
-- 运动 → 带有特定图标的简单状态（男孩），只读，活动颜色 rgba(52,170,68,1)
+- 运动 → 具有特定图标的简单状态（男孩），只读，活动颜色 rgba(52,170,68,1)
 - 火 → 具有特定图标（火）的简单状态，只读，活动颜色“红色”
 - 洪水→带有特定图标（水）的简单状态，只读，活动颜色“蓝色”
 - 门→带有特定图标（门）的简单状态，只读，活动颜色“红色”
@@ -142,7 +145,6 @@ Html 模板可用于显示任何 html 代码。
 - 窗口→带有特定图标的开关和按钮信息（打开→ true，关闭→ false）
 
 ＃＃ 去做
-- RGBW颜色控制器
 - 调查小部件的延迟
 
 <!-- 下一个版本的占位符（在行的开头）：
@@ -150,6 +152,12 @@ Html 模板可用于显示任何 html 代码。
 ### **正在进行中** -->
 
 ## Changelog
+### 1.1.2 (2023-09-09)
+* (bluefox) Door lock improved
+
+### 1.1.0 (2023-09-08)
+* (bluefox) Added door lock
+
 ### 1.0.0 (2023-08-21)
 * (bluefox) Added RGB widget
 

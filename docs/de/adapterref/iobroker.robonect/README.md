@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: /RwCGnFEBJcLPzocUpMkNyEI8dPgxD4aX2NmAItkyNU=
+hash: /J7NWkUewLRmDxh77HnnO8LrgKCJCsGgU4NFYv4Dq0c=
 ---
 ![Logo](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
 
@@ -34,9 +34,12 @@ Diese Daten müssen auch im Robonect-Modul konfiguriert werden. Auch wenn Sie al
 
 Da nur eine Teilmenge der Statusinformationen gepusht wird (WLAN-Signal, Status, Gestoppt, Modus, Dauer, Stunden, Entfernung und Akku), ist immer noch ein Pull erforderlich, z. B. um den Blade-Status zu erhalten.
 
-Admin-Konfiguration: ![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
+### Die Push-Service-Konfiguration sollte so aussehen:
+#### Admin-Konfiguration:
+![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
 
-Robonect-Konfiguration: ![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
+#### Robonect-Konfiguration:
+![Bild](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
 
 ## Kontrolle
 ### Modus
@@ -49,6 +52,36 @@ Es ist möglich, die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-
 
 ### Work in progress
 * to use timePickers in admin at least admin version 6.4.3 is required - will implement as soon as admin >= 6.4.3 is in stable repo.
+
+### 1.1.5 (2023-09-08)
+* (grizzelbee) Fix: Command-URL was invalid when Robonect UI wasn't protected by username and password
+* (grizzelbee) Upd: minor code refactoring
+
+### 1.1.4 (2023-09-04)
+* (grizzelbee) Fix: Attempting to fix the error: Cannot read properties of null (reading 'val')
+
+### 1.1.3 (2023-09-01)
+* (grizzelbee) New: Added release script for easier publishing to stable repo
+
+### 1.1.1 (2023-08-24)
+* (grizzelbee) Fix: Fixed status.stopped for push messages.
+
+### 1.1.0 (2023-08-23)
+* (grizzelbee) Fix: [#18](https://github.com/Grizzelbee/ioBroker.robonect/issues/18) Showing values for battery with fractions (again)
+* (grizzelbee) New: Added START button
+* (grizzelbee) New: Added STOP button
+* (grizzelbee) New: Added SERVICE button to reboot, shutdown or sleep Robonect module 
+* (grizzelbee) New: Push states and interval can be set 
+* (grizzelbee) New: Nickname of the mower can be set 
+* (grizzelbee) New: Timers of the mower can be set 
+
+
+### 1.0.5 (2023-08-22)
+* (grizzelbee) Upd: Added new state #18 - Garage door is opening
+* (grizzelbee) Fix: Status.stopped gets correctly updated 
+
+### 1.0.4 (2023-08-22)
+* (grizzelbee) Upd: Improved error handling
 
 ### 1.0.3 (2023-08-21)
 * (grizzelbee) Upd: Improved error handling

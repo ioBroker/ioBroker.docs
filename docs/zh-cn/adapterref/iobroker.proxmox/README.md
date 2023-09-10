@@ -3,30 +3,54 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.proxmox/README.md
 title: ioBroker.proxmox
-hash: Wrv64f3rwuPXn1ILAfcIuj0IqU4RDj49XXMnIRX3nJo=
+hash: yODvJqqWvJaLpKPyo5BMt8Os++iQ2vkq+ruzTRO3pHo=
 ---
-![商标](../../../en/adapterref/iobroker.proxmox/admin/logo.png)
+![标识](../../../en/adapterref/iobroker.proxmox/admin/proxmox.png)
 
-![安装数量](http://iobroker.live/badges/proxmox-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.proxmox.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.proxmox.svg)
-![NPM](https://nodei.co/npm/iobroker.proxmox.png?downloads=true)
+![NPM版本](https://img.shields.io/npm/v/iobroker.proxmox?style=flat-square)
+![下载](https://img.shields.io/npm/dm/iobroker.proxmox?label=npm%20downloads&style=flat-square)
+![npm 包的 Snyk 漏洞](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.proxmox?label=npm%20vulnerabilities&style=flat-square)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.proxmox?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.proxmox?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.proxmox?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.proxmox?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.proxmox?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.proxmox?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.proxmox?logo=github&style=flat-square)
+![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.proxmox/test-and-release.yml?branch=master&logo=github&style=flat-square)
+![GitHub Repo 的 Snyk 漏洞](https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.proxmox?label=repo%20vulnerabilities&logo=github&style=flat-square)
+![贝塔](https://img.shields.io/npm/v/iobroker.proxmox.svg?color=red&label=beta)
+![稳定的](http://iobroker.live/badges/proxmox-stable.svg)
+![已安装](http://iobroker.live/badges/proxmox-installed.svg)
 
-＃ioBroker.proxmox
-=================
-
-![建置状态](https://github.com/iobroker-community-adapters/ioBroker.proxmox/workflows/Test%20and%20Release/badge.svg)
-
-该适配器从proxmox安装中读取数据
-
-＃＃ 要求
-至少需要节点10.X.X，并且需要js-controller 3.2.0或更高版本
+# IoBroker.proxmox
+## 版本
+控制和使用 ProxmoxVM 中的数据
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 2.0.2 (2023-09-08)
+* (klein0r) Added option for disk information
+* (klein0r) Check type of disk wearout
+* (klein0r) Catch exception when requesting disk information
+
+### 2.0.1 (2023-09-07)
+* (klein0r) Added node disks (heals, wearout)
+
+### 2.0.0 (2023-09-07)
+
+* (klein0r) Updated admin instance configuration
+* (klein0r) Refactoring of adapter
+* (klein0r) Allow dots in resource names
+
+__Requires js-controller >= 3.3.22__
+__Requires admin >= 6.0.0__
+
+### 1.3.5 (2022-08-11)
+* (foxriver76) fixed warning if `max_cpu` is not in response
 
 ### 1.3.4 (2021-05-07)
 * (foxriver76) add dataSource and connectionType
@@ -42,7 +66,7 @@ hash: Wrv64f3rwuPXn1ILAfcIuj0IqU4RDj49XXMnIRX3nJo=
 * (foxriver76) Detect newly added VMs/storages/nodes during runtime and restart instance to initialize everything correctly
 * (foxriver76) clean up deleted VM/storage/node objects
 __Requires js-controller >= 2.2.8__
-  
+
 ### 1.2.0 (2020-01-24)
 * (foxriver76) Created info connection state + channel
 * (foxriver76) status is a string and not a boolean, so set obj type correctly
@@ -98,7 +122,7 @@ __node v10 or above required__
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2021 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2023 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

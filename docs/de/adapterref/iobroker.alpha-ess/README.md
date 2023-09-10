@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: V4ISnss7tsahkwLRKntb/ZHb75ptTvTUQp4w13zChfY=
+hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -18,8 +18,6 @@ hash: V4ISnss7tsahkwLRKntb/ZHb75ptTvTUQp4w13zChfY=
 Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen für Ihr Alpha ESS-Gerät ab.\ Abhängig von Ihrem Alpha ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrer Alpha ESS-Ausrüstung ab.
 
 Dieser Adapter unterstützt zwei APIs, die interne Alpha ESS Web API, die jederzeit von Alpha ESS geändert werden kann, und die Alpha ESS Open API, die weniger Funktionalität bietet, aber eine offizielle und dokumentierte API für Alpha ESS-Geräte ist.
-
-Derzeit erstellt dieser Adapter für jeden unterstützten Datenpunkt einen Status mit einem hoffentlich selbsterklärenden Namen. Alle anderen Datenpunkte werden ignoriert. Beim Adapterstart werden diese Datenpunkte als Debug-Meldung protokolliert.
 
 Ab Version 1.0.0-alpha.5 wird das Qualitätsattribut jedes Staates entsprechend seinem Status festgelegt:
 
@@ -65,8 +63,7 @@ Um die neue Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter h
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 1.0.0 (2023-06-20)
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS
 -   (Gaspode) Set state quality accordingly to status of data

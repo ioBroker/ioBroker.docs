@@ -33,6 +33,9 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.4 (2023-09-07)
+* (Quarkmax) Fixed description for Saxony from SA to SN
+
 ### 1.1.3 (2023-08-13)
 * (mcm1957) changed: missing translations have been added
 * (mcm1957) changed: Swiss national holiday has been corrected (# 164)
@@ -187,7 +190,7 @@ Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsa
 
 ## License
 
-Copyright (c) 2023 iobroker-community-adapters
+Copyright (c) 2016-2023 iobroker-community-adapters
 
 The MIT License (MIT)
 

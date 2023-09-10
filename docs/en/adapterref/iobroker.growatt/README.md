@@ -355,9 +355,13 @@ Therefore, the description has also been removed.
 
 ## Changelog
 
+### 3.2.1 (08.09.2023)
+
+- (PLCHome) Additionally query the status information via the Plant List.
+
 ### 3.2.0 (01.09.2023)
 
-- (PLCHome) Added nverter typ singleBackflow and multipleBackflow
+- (PLCHome) Added inverter typ singleBackflow and multipleBackflow
 
 ### 3.1.2 (16.08.2023)
 

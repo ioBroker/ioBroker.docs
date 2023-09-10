@@ -1,46 +1,78 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.youtube?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
+BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: TkNzrlaPuiWSxDi44H60IfPnfLfcvFyljbVeVnrAoBU=
+hash: /lng91j3s8SZ+6L0FGom2NvYFQYTJ552ZWGGwvtHJhI=
 ---
-![标识](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
-
-![NPM版本](https://img.shields.io/npm/v/iobroker.youtube?style=flat-square)
-![下载](https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square)
-![npm 包的 Snyk 漏洞](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square)
-![节点-lts](https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square)
-![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square)
-![GitHub](https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub 问题](https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square)
-![GitHub Repo 的 Snyk 漏洞](https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square)
-![贝塔](https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta)
-![稳定的](http://iobroker.live/badges/youtube-stable.svg)
-![已安装](http://iobroker.live/badges/youtube-installed.svg)
+![标识](../../../en/admin/youtube.png)
 
 # IoBroker.youtube
-## 版本
-观看次数、订阅者和视频等统计数据
+＃＃ 要求
+-nodejs 14.5（或更高版本）
+- js-controller 4.0.15（或更高版本）
+- 管理适配器 6.0.0（或更高版本）
 
-＃＃ 由...赞助
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-youtube)
+＃＃ 配置
+要获取 API 密钥，您必须转至 [console.developers.google.com](https://console.developers.google.com/apis/dashboard)。
 
-＃＃ 安装
-请使用ioBroker中的“适配器列表”安装此适配器的稳定版本。您还可以使用 CLI 安装此适配器：
+1. 创建一个新项目
+2. 创建新的API密钥
+3.添加库的“YouTube Data API v3”
+4. 在实例配置中使用该 API-Key
+5. 使用 id 和自定义名称在频道选项卡中添加多个频道
 
+## 将所有统计数据记录到 InfluxDB
+```javascript
+on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
+    try {
+        const youtubeJson = obj.state.val;
+        const channels = JSON.parse(youtubeJson);
+        const ts = Date.now();
+
+        for (const channel of channels) {
+            const alias = channel.customUrl.substr(1); // remove leading @
+
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.subscribers`,
+                state: {
+                    ts,
+                    val: channel.subscriberCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
+
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.views`,
+                state: {
+                    ts,
+                    val: channel.viewCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
+        }
+    } catch (err) {
+        console.error(err);
+    }
+});
 ```
-iobroker add youtube
-```
-
-## 文档
-[🇺🇸 文档](./docs/en/README.md)
-
-[🇩🇪 文档](./docs/de/README.md)
 
 ## Changelog
 

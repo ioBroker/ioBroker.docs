@@ -5,11 +5,22 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 # ioBroker.lametric
 
-## My Data (DIY) *(Adapter version >= 1.1.0 required)*
-
 *LaMetric* offers an app (on the integrated app market) to poll custom data. This app is called [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). This adapter creates a new state in the required format.
 
-Different adapters can be used to transfer these data to the *LaMetric Time*:
+Since version 2.0.0 of this app, data can be transferred in different ways to the device.
+
+- Push: the adapter sends the required information on its own to the device (when data has changed)
+- Poll: the information are requested by the *LaMetric Time* periodically (configurable)
+
+Both methods are explained in this document.
+
+## My Data (DIY) - Push *(Adapter version >= 3.0.0 required)*
+
+*Not implemented yet*
+
+## My Data (DIY) - Poll *(Adapter version >= 1.1.0 required)*
+
+Different adapters can be used to transfer the data to the *LaMetric Time*:
 
 - Web Adapter (recommended) *(Adapter version >= 2.1.0 required)*
 - REST API Adapter
@@ -27,8 +38,10 @@ Different adapters can be used to transfer these data to the *LaMetric Time*:
 6. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 7. Don't forget to select the previously configured web instance!
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8082/lametric.0/
+URL: http://172.16.0.219:8082/lametric.0/
 ```
 
 ### REST API Adapter
@@ -44,11 +57,15 @@ http://172.16.0.219:8082/lametric.0/
 5. Open the *My Data (DIY)* app settings and configure the rest api url (see below)
 6. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 
+HTTP Poll Config:
+
 ```
-http://lametric:HhX7dZl3Fe@172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/plain?extraPlain=true
+URL: http://172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/plain?extraPlain=true
+Username: lametric
+Password: HhX7dZl3Fe
 ```
 
-**Replace example IP, port, user and password in the URL!**
+**Replace example IP, port, user and password!**
 
 ### Simple API Adapter
 
@@ -63,8 +80,10 @@ http://lametric:HhX7dZl3Fe@172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/p
 5. Open the *My Data (DIY)* app settings and configure the simple api url (see below)
 6. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
+URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
 
 **Important: use json flag of SimpleAPI Adapter (available since version 2.6.2)**
@@ -78,8 +97,10 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lamet
 3. Open the *My Data (DIY)* app settings and configure the simple api url (see below)
 4. Go to the adapter configuration and configure the frames with your custom information (see next chapter)
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 ```
 
 **Important: use json flag of SimpleAPI Adapter (available since version 2.6.2)**
@@ -97,4 +118,16 @@ Example configuration of some frames:
 
 ![example frame config](./img/my-data-diy.png)
 
-![example config iphone](./img/my-data-diy-iphone.png)
+### My Data DIY app configuration
+
+Since version 2.0.0 of the *My Data DIY* app a lot of options have been added to the configuration.
+
+- Type: "HTTP Poll"
+- HTTP Poll Config
+    - URL: *see above (depends on method)*
+    - Poll Interval: 15 Sek.
+    - Username: *see above (depends on method)*
+    - Passwort: *see above (depends on method)*
+- Data Format: Predefined (LaMetric Format)
+
+![example config iPhone poll](./img/my-data-diy-iphone-poll.png)

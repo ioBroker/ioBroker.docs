@@ -2,16 +2,15 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pushbullet/README.md
-title: ioBroker pushbullet 适配器
-hash: lKZlQ2FROoQEQYkZ3dCKppma/Rp5CZ4XAxcZYj/jCMM=
+title: ioBroker 推子弹适配器
+hash: CtKKZqxl/lmSpVf4JdH+/LeT9EhUHhmLI5c+DX5vhTk=
 ---
 ![标识](../../../en/adapterref/iobroker.pushbullet/admin/pushbullet.png)
 
 ![安装数量](http://iobroker.live/badges/pushbullet-stable.svg)
 
-# IoBroker pushbullet 适配器
-从 ioBroker 发送 pushbullet 通知。
-这个Adapter主要基于bluefox's Pushover Adapter for ioBroker。
+# IoBroker 推子弹适配器
+从 ioBroker 发送推送通知。
 
 ＃＃ 用法
 要从 ScriptEngine 发送通知，只需编写：
@@ -44,11 +43,16 @@ sendTo("pushbullet", {
 });
 ```
 
-<!-- 下一版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行的开头）：
 
-### __工作进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 1.0.1 (2023-09-10)
+* (bluefox) Breaking change: Only node version 16+ supported
+* (bluefox) Added JSON config and used the latest version of a pushbullet library
+* (bluefox) Added encryption
+
 ### 0.1.0 (2021-10-15)
 * (bluefox) Refactoring
 
@@ -78,7 +82,7 @@ sendTo("pushbullet", {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Jens1809
+Copyright (c) 2015-2023 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

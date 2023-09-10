@@ -22,6 +22,11 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 -->
 
 ## Changelog
+### 4.2.0 (2023-09-08)
+* (mcm1957) Adapter requires node 16 or newer now
+* (mcm1957) A timeout of 5s has been added to http requests to avoid hanging processes (#110)
+* (mcm1957) Dependencies have been updated
+
 ### 4.1.2 (2022-04-10)
 * (bluefox) Corrected configuration GUI
 
@@ -76,6 +81,7 @@ This adapter allows getting data from the Oilfox sensor via the Oilfox Website.
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 ioBroker Community Developers 
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, ioBroker Community Developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -9,7 +9,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.lametric?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.lametric/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.lametric/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.lametric?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.lametric.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
@@ -19,7 +19,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: 9cP2W86lwtNUhi/XkkHewtT4fzMaMb6W2oJ945+NJxE=
+hash: uyz42x61PglmuTylkSlysAGtoxIRhGGsKoGJj5hiFjo=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -27,29 +27,29 @@ hash: 9cP2W86lwtNUhi/XkkHewtT4fzMaMb6W2oJ945+NJxE=
 ## Оглавление
 - [Приложения](apps.md)
 - [Блокли](blockly.md)
-- [Мои данные своими руками](my-data-diy.md)
+- [Мои данные DIY](my-data-diy.md)
 - [Уведомления](notifications.md)
 
 ## Требования
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.5_ (или новее)
+- _LaMetric Time_ с прошивкой _2.3.6_ (_3.0.16_ на модели 2022 г.) (или более поздней версии)
 
-[Журнал изменений прошивки](https://firmware.lametric.com)
+[Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
 ## Конфигурация
-Вы можете получить ключ API своего устройства [здесь](https://developer.lametric.com/user/devices).
+Вы можете получить ключ API вашего устройства [здесь](https://developer.lametric.com/user/devices).
 
 ![API-ключ](../../../en/adapterref/iobroker.lametric/img/api-key.png)
 
 ## Функции
-- Установить яркость дисплея (в процентах, автоматический режим/ручной режим)
+- Установите яркость дисплея (в процентах, автоматический режим/ручной режим)
 - Установить громкость звука (в процентах)
-- Настройка скринсейвера (включить/отключить, по времени, когда темно)
-- Активировать / деактивировать Bluetooth и изменить имя Bluetooth
-- Переключение между приложениями (следующее, предыдущее, переход к определенному приложению)
-- Отправляйте уведомления блочно (с настраиваемым приоритетом, звуком, значками, текстом, ...)
+- Настройка заставки (включить/отключить, по времени, в темноте)
+- Активировать/деактивировать Bluetooth и изменить имя Bluetooth
+- Переключение между приложениями (следующее, предыдущее, переход к конкретному приложению)
+- Отправка уведомлений блочно (с настраиваемым приоритетом, звуком, значками, текстом и т. д.)
 - Управляйте специальными приложениями, такими как «часы», «радио», «секундомер» или «погода».
 - Используйте приложение _My Data (DIY)_ LaMetric для отображения постоянной информации.
 
@@ -61,6 +61,20 @@ hash: 9cP2W86lwtNUhi/XkkHewtT4fzMaMb6W2oJ945+NJxE=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Added push option for My Data DIY
+* (klein0r) Added option to force app reload
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6 (3.0.16)
+
+### 2.4.2 (2023-09-08)
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
+
+### 2.4.1 (2023-06-10)
+
+* (klein0r) Blockly bugfix
+
 ### 2.4.0 (2023-05-10)
 
 * (klein0r) Allow to change device mode via state (manual, auto, kiosk, schedule)
@@ -74,16 +88,6 @@ hash: 9cP2W86lwtNUhi/XkkHewtT4fzMaMb6W2oJ945+NJxE=
 ### 2.3.1 (2023-02-21)
 
 * (klein0r) Update My Data DIY when object changes data type
-
-### 2.3.0 (2023-02-13)
-
-* (klein0r) Fixed message responses
-* (klein0r) Added icon button to instance configuration
-* (klein0r) Added preview for web url in instance configuration
-
-### 2.2.1 (2023-01-19)
-
-* (klein0r) Format number values for My Data DIY
 
 ## License
 

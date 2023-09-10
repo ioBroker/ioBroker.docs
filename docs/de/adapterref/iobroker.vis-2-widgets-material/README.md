@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: ed2ad5iuHZiXvWCyClX8jS0JNcQRr+KRXyMpLufB/aQ=
+hash: w26XlATbPNFRa+YVX2R4yF4O8TFhOF9HQg3jbtZotsA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -43,7 +43,7 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
-![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
+![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
 
 - Kontrolle
 
@@ -102,6 +102,9 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### Farblampe
 ![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
 
+### Türschloss
+![Türschloss](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
+
 ### Zeitauswahl
 ## Assistentenzuordnung
 ### Eine Aussicht – ein Raum
@@ -142,7 +145,6 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 - Fenster → Schalter- und Schaltflächeninformationen mit spezifischen Symbolen (geöffnet → wahr, geschlossen → falsch)
 
 ## Machen
-- RGBW-Farbcontroller
 - Untersuchen Sie die Verzögerung für Widgets
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -150,6 +152,12 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.1.2 (2023-09-09)
+* (bluefox) Door lock improved
+
+### 1.1.0 (2023-09-08)
+* (bluefox) Added door lock
+
 ### 1.0.0 (2023-08-21)
 * (bluefox) Added RGB widget
 

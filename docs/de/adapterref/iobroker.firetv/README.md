@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.firetv/README.md
 title: kein Titel
-hash: CovZUdv+x4gbupj11lkb3U6+4IVmRfxlLmRx36rxneY=
+hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
 ---
 ![Logo](../../../en/adapterref/iobroker.firetv/admin/firetv.png)
 
@@ -16,7 +16,7 @@ hash: CovZUdv+x4gbupj11lkb3U6+4IVmRfxlLmRx36rxneY=
 
 ### IoBroker.firetv
 <!--
-[![NPM-Version] (https://badge.fury.io/js/iobroker.firetv.svg)](https://www.npmjs.com/package/iobroker.firetv)
+[![NPM-Version](https://badge.fury.io/js/iobroker.firetv.svg)](https://www.npmjs.com/package/iobroker.firetv)
 -->
 
 Mit diesem Adapter können Sie einige Funktionen Ihres Fire TV oder Fire TV Sticks steuern.
@@ -25,30 +25,39 @@ Z.B.:
 - An aus
 - Senden Sie wichtige Ereignisse
 - Senden Sie Textzeichenfolgen an Eingabefelder
-- Apps starten / stoppen
+- Apps starten/stoppen
 - Neustart
 - Shell-Befehle ausführen
 
 #### Einige Infos
-Dieser Adapter verwendet Funktionen der "Android Debug Bridge", bekannt als "adb". Adb ist Teil des Android Developer SDK. Da Fire TV über ein Android-Betriebssystem verfügt, kann es von adb gesteuert werden.
+Dieser Adapter nutzt Funktionen der „Android Debug Bridge“, bekannt als „adb“. Adb ist Teil des Android Developer SDK. Da Fire TV über ein Android-Betriebssystem verfügt, kann es über ADB gesteuert werden.
 
-#### Bedarf
-Um diesen Adapter verwenden zu können, müssen Sie mindestens das ADB-Paket des Anroid SDK installieren. Um nicht das komplette Android SDK zu installieren, sollten Sie das installieren
-
-- *Minimaler ADB und Fastboot*
+#### Anforderungen
+Um diesen Adapter nutzen zu können, müssen Sie mindestens das ADB-Paket des Android SDK installieren. Um nicht das komplette Android SDK zu installieren, sollten Sie *Minimal ADB und Fastboot* installieren.
 
 Suchen Sie auf Google (Minimal ADB und Fastboot) nach dem neuesten Download-Link.
 
-Alternativ können Sie *adbLink* verwenden
+Alternativ können Sie *adbLink* verwenden.
+
+<!--
+
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.0.2 (2023-09-09) 
+* (jonaskn) A crash has been fixed (#56)
+
+### 2.0.1 (2023-09-07)
+* (Grothesk242) make compatible with Node.js 18+
+* (bluefox) a minimum node.js version is 16
+
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 soef <soef@gmx.net>
+Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

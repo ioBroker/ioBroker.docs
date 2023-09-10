@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pushbullet/README.md
-title: ioBroker pushbullet Adapter
-hash: lKZlQ2FROoQEQYkZ3dCKppma/Rp5CZ4XAxcZYj/jCMM=
+title: ioBroker Pushbullet-Adapter
+hash: CtKKZqxl/lmSpVf4JdH+/LeT9EhUHhmLI5c+DX5vhTk=
 ---
 ![Logo](../../../en/adapterref/iobroker.pushbullet/admin/pushbullet.png)
 
@@ -11,9 +11,8 @@ hash: lKZlQ2FROoQEQYkZ3dCKppma/Rp5CZ4XAxcZYj/jCMM=
 
 # IoBroker Pushbullet-Adapter
 Senden Sie Pushbullet-Benachrichtigungen von ioBroker.
-Dieser Adapter basiert größtenteils auf dem Pushover Adapter von bluefox für ioBroker.
 
-## Verwendungszweck
+## Verwendung
 Um eine Benachrichtigung von ScriptEngine zu senden, schreiben Sie einfach:
 
 ```javascript
@@ -44,11 +43,16 @@ sendTo("pushbullet", {
 });
 ```
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.0.1 (2023-09-10)
+* (bluefox) Breaking change: Only node version 16+ supported
+* (bluefox) Added JSON config and used the latest version of a pushbullet library
+* (bluefox) Added encryption
+
 ### 0.1.0 (2021-10-15)
 * (bluefox) Refactoring
 
@@ -78,7 +82,7 @@ sendTo("pushbullet", {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Jens1809
+Copyright (c) 2015-2023 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

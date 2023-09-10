@@ -577,6 +577,19 @@ This channel contains calculated values. Currently these are day/week/month/year
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
+### 1.6.5 (NoBl)
+* Added AllTime Statistics (trigger initial calculations in adapter settings)
+* https is now default for new instances
+
+### 1.6.4 (NoBl)
+* Bugfix (numbers are numbers again)
+
+### 1.6.3 (NoBl)
+* Code optimization
+
+### 1.6.2 (NoBl)
+* Added statistics values from API along with some own calculations.
+
 ### 1.6.1 (NoBl)
 * Bugfixes
 

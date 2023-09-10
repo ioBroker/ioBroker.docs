@@ -11,7 +11,7 @@
 [![Build Status](https://secure.travis-ci.org/soef/iobroker.firetv.svg?branch=master)](https://travis-ci.org/soef/iobroker.firetv)
 -->
 
-With this adapter you can control some funtions of your Fire TV or Fire TV Stick.
+With this adapter, you can control some functions of your Fire TV or Fire TV Stick.
 E.g.: 
 - On /Off
 - Send key events
@@ -25,17 +25,22 @@ This adapter uses functions of the "Android Debug Bridge", known as "adb". Adb i
 
 #### Requirements
 
-To use this adapter you have to install at least the adb packet of the Anroid SDK. In order not to install the complete Android SDK, you should install the 
-- *Minimal ADB and Fastboot*
+To use this adapter, you have to install at least the adb packet of the Android SDK. In order not to install the complete Android SDK, you should install the *Minimal ADB and Fastboot*.
 
-Search on google (Minimal ADB and Fastboot) for the latest download link.
+Search on Google (Minimal ADB and Fastboot) for the latest download link.
 
 Alternatively, you can use *adbLink* 
 
+<!-- 
+    ### **WORK IN PROGRESS** 
+-->
 ## Changelog
+### 2.0.2 (2023-09-09) 
+* (jonaskn) A crash has been fixed (#56)
 
-### __WORK IN PROGRESS__
+### 2.0.1 (2023-09-07)
 * (Grothesk242) make compatible with Node.js 18+
+* (bluefox) a minimum node.js version is 16
 
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
@@ -43,7 +48,7 @@ Alternatively, you can use *adbLink*
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 soef <soef@gmx.net> and Community developers
+Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -62,5 +67,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
-

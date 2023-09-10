@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kodi/README.md
 title: Kodi für ioBroker (JSON-RPC-API)
-hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
+hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
 ---
 ![Logo](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
@@ -13,20 +13,20 @@ hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
 ![NPM](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# Kodi für ioBroker (JSON-RPC-API)
+# Kodi für ioBroker (JSON-RPC API)
 [![Tests](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
 [Englisches Handbuch](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) und олный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
+Sie können eine offizielle Dokumentation von KODI über die API JSON-RCP [Tut](http://kodi.wiki/view/JSON-RPC_API) und polnischer Quelltext des Befehls (ab Protokollversion 6) [Tut](http://kodi.wiki/view/JSON-RPC_API/v6) lesen.
 
-## Онфигурация KODI
+## KODI-Konfiguration
 Включение удаленного управления и веб-сервера.
-![Fernbedienung aktivieren.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+![Fernbedienungsfreigabe.](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC API использует **по умолчанию орт 9090**, для того чтобы его изменить необходимо внести изменения в LLай_0§§§0
+Die JSON-RPC-API wird **über Port 9090** bereitgestellt, damit diese Personen keine Einträge in der Datei [advancedsettings.xml](http://kodi.wiki/view/AdvancedSettings.xml) vornehmen können.
 
-_Примечание: айл advancedsettings.xml не существует о умолчанию. Вы должны сначала создать его!_
+_Hinweis: Die Datei advancedsettings.xml wird nicht aktualisiert. Вы должны сначала создать его!_
 
 ```xml
 <jsonrpc>
@@ -36,28 +36,28 @@ _Примечание: айл advancedsettings.xml не существует о 
 ```
 
 ## Конфигурация драйвера
-настройках адаптера указывается IP адрес und орт для JSON-RPC API (по умолчанию 9090), und логин/пароль для доствеба нае
+Der installierte Adapter bietet eine IP-Adresse und einen Port für die JSON-RPC-API (ab Version 9090) sowie ein Login/Paar für die Bereitstellung auf dem Web-Server Kodi.
 
 ## Использование
 ### ShowNotif:
 Один важный момент, если используется заголовок сообщения, то он должен всегда находится перед самим текстом сообщения (Внимание;Протечка воды), расположение остальных параметров не критично.
 
-**Bild:** ровень сообщения
+**Bild:** Уровень сообщения
 
   * 'info' - 0 (Standard),
   * 'Warnung' - 1,
   * 'Fehler' - 2.
 
-**displaytime:** ремя отображения сообщения в миллисекундах, минимум 1500 макс 30000 мс.
+**Anzeigezeit:** Anzeigedauer in Millionen, minimal 1500 bis 30000 Minuten.
 
 **Пример:**
 
  * 1;Внимание;Протечка воды;15000
- * нимание;Протечка воды;2;10000
+ * Внимание;Протечка воды;2;10000
  * Внимание;Протечка воды
  * Протечка воды
 
-ак же сообщения можно отправлять из драйвера Javascript:
+Mit dieser Funktion können Sie den Javascript-Downloader aufrufen:
 
 ```js
 sendTo("kodi.0", {
@@ -69,51 +69,51 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR:
-ереключение PVR IPTV каналов о названию канала в плейлисте.
-**Пример:** ТВ канал - Discovery Science найдет как по полному наименованию так и по entdecken,
+Sperren von PVR-IPTV-Kanälen bei der Suche nach Kanälen auf der Website.
+**Beispiel:** Der Fernsehsender „Discovery Science“ ist auf die Suche nach mehr Informationen zum Thema „Entdecken“ ausgerichtet.
 
 ### Youtube:
-ля открытия видео с сайта youtube достаточно записать код видео в данный статус. ачиная сверсии 0.1.5 und ве можно вставлять рямую ссылку на видео, ein также код или олную ссылку на
-апример: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+Um das Video auf der YouTube-Seite zu sehen, müssen Sie den Videocode im aktuellen Status herunterladen. Ab der Version 0.1.5 können Sie die Software auf Video, zusätzlich zum Code oder auf der Wiedergabesoftware herunterladen.
+Beispiel: Um diese [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA) zu öffnen, muss der Status geändert werden - Bvmxr24D4TA
 
 ### Offen:
-да аписывается ссылка на медиконтент в сети интернет либо путь до локального медиа айла.
-осле записи начения начнется воспроизведение на роигрывателе KODI.
+Es wird eine Liste mit Medikamenteninhalten in Internet-Websites erstellt, die in die lokale Mediendatenbank aufgenommen wurden.
+Nach der Download-Nachricht erfolgt die Weitergabe an den KODI-Benutzer.
 
-###Position:
-екущая озиция в лейлисте, так же в этот статус можно записать необходимую озицую и KODI тут жео
+### Position:
+Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую и KODI тут же перейдет к воспроизведению этой позиции.
 
 ### Suchen:
-екущее значение позиции воспроизведения в процентах von 0 bis 100.
+Die folgenden Ergebnisse werden in Prozenten von 0 bis 100 angezeigt.
 
 ### Wiederholen:
 Повтор воспроизведения, принимает следующие значения:
 
-* aus - повтор воспроизведения отключен
+* aus - Повтор воспроизведения отключен
 * on - повтор воспроизведения текущего трека
-* alle - повтор всего плейлиста
+* all - повтор всего плейлиста
 
 ### Mischen:
-еремешивание списка треков в плейлисте для случайного воспроизведения.
-ринимает значения true und false
+Detaillierte Beschreibung des Weges auf der Playlist zur sicheren Weitergabe.
+Bedeutet: wahr und falsch
 
-### Spiel:
-Старт воспроизведения (wahr, falsch)
+### Spielen:
+Start der Anzeige (wahr, falsch)
 
 ### Geschwindigkeit:
-корость воспроизведения. иксированные начения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), а также 'inkrement' und 'decrement'
+Скорость воспроизведения. Reduzierte Werte (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32) sowie 'Inkrement' und 'Dekrement'
 
 ### Verzeichnis:
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
 
-### Fenster aktivieren:
+### ActivateWindow:
 Активизирует в проигрывателе окно. Поддерживает следующий список:
 
 ```
 "home", "programs", "pictures", "filemanager", "files", "settings", "music", "video", "videos", "tv", "pvr", "pvrguideinfo", "pvrrecordinginfo", "pvrtimersetting", "pvrgroupmanager", "pvrchannelmanager", "pvrchannelmanager", "pvrguidesearch", "pvrchannelscan", "pvrupdateprogress", "pvrosdchannels", "pvrosdguide", "pvrosddirector", "pvrosdcutter", "pvrosdteletext", "systeminfo", "testpattern", "screencalibration", "guicalibration", "picturessettings", "programssettings", "weathersettings", "musicsettings", "systemsettings", "videossettings", "networksettings", "servicesettings", "appearancesettings", "pvrsettings", "tvsettings", "scripts", "videofiles", "videolibrary", "videoplaylist", "loginscreen", "profiles", "skinsettings", "addonbrowser", "yesnodialog", "progressdialog", "virtualkeyboard", "volumebar", "submenu", "favourites", "contextmenu", "infodialog", "numericinput", "gamepadinput", "shutdownmenu", "mutebug", "playercontrols", "seekbar", "musicosd", "addonsettings", "visualisationsettings", "visualisationpresetlist", "osdvideosettings", "osdaudiosettings", "videobookmarks", "filebrowser", "networksetup", "mediasource", "profilesettings", "locksettings", "contentsettings", "songinformation", "smartplaylisteditor", "smartplaylistrule", "busydialog", "pictureinfo", "accesspoints", "fullscreeninfo", "karaokeselector", "karaokelargeselector", "sliderdialog", "addoninformation", "musicplaylist", "musicfiles", "musiclibrary", "musicplaylisteditor", "teletext", "selectdialog", "musicinformation", "okdialog", "movieinformation", "textviewer", "fullscreenvideo", "fullscreenlivetv", "visualisation", "slideshow", "filestackingdialog", "karaoke", "weather", "screensaver", "videoosd", "videomenu", "videotimeseek", "musicoverlay", "videooverlay", "startwindow", "startup", "peripherals", "peripheralsettings", "extendedprogressdialog", "mediafilter".
 ```
 
-### Aktion ausführen:
+### ExecuteAction:
 Можно выполнить одно из следующих действий:
 
 ```
@@ -122,13 +122,25 @@ sendTo("kodi.0", {
 ```
 
 ### System:
- - EjectOpticalDrive - влекает или закрывает дисковод оптических дисков (если имеется)
- - Ruhezustand - включение спящего режима
- - Neustart - ерезагрузка системы
- - Herunterfahren - выключает систему
- - Aussetzen - приостанавливает Kodi
+ - EjectOpticalDrive - Erfasst oder schließt optische Disks (wird nicht angezeigt)
+ - Ruhezustand – Ausschalten des Schlafmodus
+ - Neustart - Systemwiederherstellung
+ - Herunterfahren - System wird ausgeschaltet
+ - Suspend – unterstützt Kodi
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 3.0.0 (2023-09-08)
+* (agross) Fixed seeking on Kodi >= 19
+* (bluefox) Supported only node.js versions >= 16
+
+### 2.0.9 (2022-12-08)
+* (Apollon77) Prevent crash if received data from Kodi are not valid UTF-8
+* (Apollon77) Optimize Adapter unload
+
 ### 2.0.8
 * Important: js-controller >= 2.0.0 is required at least
 * (Apollon77) Update kode-ws dependency
@@ -244,7 +256,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,30 +3,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kodi/README.md
 title: Kodi for ioBroker（JSON-RPC API）
-hash: 6tz1xec3ctMhLSz0uWt7cA4TZKg4YmF4WsQ53Me+5n4=
+hash: qAlRZtML3qdXIoe7sRiqtDoHz6EMGa0+6KEfbAqyHPE=
 ---
 ![标识](../../../en/adapterref/iobroker.kodi/admin/kodi.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.kodi.svg)
 ![安装数量](http://iobroker.live/badges/kodi-installed.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.kodi.svg)
 ![捐](https://img.shields.io/badge/Donate-PayPal-green.svg)
-![新产品管理](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.kodi.png?downloads=true)
 
-# Kodi for ioBroker（JSON-RPC API）
-[![测试]（https://github.com/instator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg）](https://github.com/instalator/ioBroker.kodi/actions/)
+# Kodi for ioBroker (JSON-RPC API)
+[![测试](https://github.com/instalator/iobroker.kodi/workflows/Test%20and%20Release/badge.svg)](https://github.com/instalator/ioBroker.kodi/actions/)
 
-[英文手册](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
+[英文说明书](https://github.com/instalator/ioBroker.kodi/wiki/en_EN)
 
-Вы можете найти официальную документацию KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) и полный список доступных команд (для протокола версии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6).
+我们使用 KODI по API JSON-RCP [тут](http://kodi.wiki/view/JSON-RPC_API) 和 полный список доступных команд (для протокола версиии 6) [тут](http://kodi.wiki/view/JSON-RPC_API/v6)。
 
-## Конфигурация KODI
+## KODI KODI
 Включение удаленного управления и веб-сервера.
-![遥控使能。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
+![远程控制启用。](../../../en/adapterref/iobroker.kodi/admin/remote.png)
 
-JSON-RPC API использует **по умолчанию порт 9090**, для того чтобы его изменить необходимо внести измевенеть
+JSON-RPC API использует **по умолчанию порт 9090**，для того чтобы его изменить необходимо внести изменени в файл [高级设置.xml](http://kodi.wiki/view/AdvancedSettings.xml)я
 
-_Примечание：Файл advancedsettings.xml не существует по умолчанию。 Вы должны сначала создать его!_
+_注意：在 Advancedsettings.xml 中设置该文件。 Вы должны сначала создать его!_
 
 ```xml
 <jsonrpc>
@@ -36,7 +36,7 @@ _Примечание：Файл advancedsettings.xml не существует 
 ```
 
 ## Конфигурация драйвера
-В настройках адаптера указывается IP адрес и порт для JSON-RPC API (по умолчанию 9090), и логин/парольбется
+包括 IP 和 JSON-RPC API (по умолчанию 9090)，以及 логин/пароль дял доступа на веб-сервер Kodi。
 
 ## Использование
 ### 显示通知：
@@ -46,9 +46,9 @@ _Примечание：Файл advancedsettings.xml не существует 
 
   * '信息' - 0（默认），
   * '警告' - 1,
-  * '错误' - 2。
+  *“错误”- 2。
 
-**显示时间：** Время отображения сообщения в миллисекундах, минимум 1500 макс 30000 мс。
+**显示时间：** 比赛时间为 1500 月 30000 月。
 
 **Пример:**
 
@@ -69,39 +69,39 @@ sendTo("kodi.0", {
 ```
 
 ### SwitchPVR：
-Переключение PVR IPTV каналов по названию канала в плейлисте。
-**Пример:** ТВ канал - Discovery Science найдет как по полному наименованию так и поdiscover,
+PVR IPTV 是一种新型的 PVR IPTV 技术。
+**示例：** ТВ канал - Discovery Science найдет как по полному наименованию так и по 发现，
 
 ＃＃＃ YouTube：
-Для открытия видео с сайта youtube достаточно записать код видео в данный статус。 Начиная с версии 0.1.5 и выше можно вставлять прямую ссылку на видео, а также код или полнасть
-Например: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
+Для открытия видео с сайта youtube достаточно записать код видео в данный статус。 Начиная с версии 0.1.5 和 выше можно вставлять прямую ссылку на видео，а также код или полную ссылку на плейлист。
+名称: Для открытия этого [видео](https://www.youtube.com/watch?v=Bvmxr24D4TA), необходимо установить в статус - Bvmxr24D4TA
 
 ＃＃＃ 打开：
-Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла。
-После записи значения начнется воспроизведение на проигрывателе KODI。
+Сюда записывается ссылка на медиконтент в сети интернет либо путь до локального медиа файла.
+KODI 上的 записи значения начнется воспроизведение на проигрывателе KODI。
 
 ＃＃＃ 位置：
-Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую позицую позицую позицую позицую и рнепрак
+Текущая позиция в плейлисте, так же в этот статус можно записать необходимую позицую 和 KODI тут же перейдет к вос произведению этой позиции.
 
 ＃＃＃ 寻找：
-Текущее значение позиции воспроизведения в процентах от 0 до 100。
+Текущее значение позиции воспроизведения в процентах от 0 до 100.
 
 ＃＃＃ 重复：
 Повтор воспроизведения, принимает следующие значения:
 
 * 关闭 - повтор воспроизведения отключен
-* on - повтор воспроизведения текущего трека
-* 所有 - повтор всего плейлиста
+* 上 - повтор воспроизведения текущего трека
+* 全部 - повтор всего плейлиста
 
 ### 随机播放：
 Перемешивание списка треков в плейлисте для случайного воспроизведения。
-Принимает значения true и false
+正确与错误
 
 ＃＃＃ 玩：
-Старт воспроизведения（真，假）
+Старт воспроизведения（真、假）
 
 ＃＃＃ 速度：
-Скорость воспроизведения。 Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32), атакже '增量' и '减量'
+Скорость воспроизведения。 Фиксированные значения (-32, -16, -8, -4, -2, -1, 0, 1, 2, 4, 8, 16, 32)，表示“递增”和“递减”
 
 ＃＃＃ 目录：
 Сюда записывается путь до папки или диска, в ответ в этот статус записывается список каталогов указанной папки или диска.
@@ -122,13 +122,25 @@ sendTo("kodi.0", {
 ```
 
 ＃＃＃ 系统：
- - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имется)
- - 休眠 - включение спящего режима
+ - EjectOpticalDrive - Извлекает или закрывает дисковод оптических дисков (если имеется)
+ - Hibernate - 休眠模式
  - 重新启动 - перезагрузка системы
- - 关机 - выключает систему
+ - 关闭 - выключает систему
  - 暂停 - приостанавливает Kodi
 
+<!-- 下一个版本的占位符（在行的开头）：
+
+### **正在进行中** -->
+
 ## Changelog
+### 3.0.0 (2023-09-08)
+* (agross) Fixed seeking on Kodi >= 19
+* (bluefox) Supported only node.js versions >= 16
+
+### 2.0.9 (2022-12-08)
+* (Apollon77) Prevent crash if received data from Kodi are not valid UTF-8
+* (Apollon77) Optimize Adapter unload
+
 ### 2.0.8
 * Important: js-controller >= 2.0.0 is required at least
 * (Apollon77) Update kode-ws dependency
@@ -244,7 +256,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020-2021 instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,46 +1,78 @@
 ---
+BADGE-NPM version: https://img.shields.io/npm/v/iobroker.youtube?style=flat-square
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square
+BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square
+BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square
+BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square
+BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square
+BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta
+BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
+BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: TkNzrlaPuiWSxDi44H60IfPnfLfcvFyljbVeVnrAoBU=
+hash: /lng91j3s8SZ+6L0FGom2NvYFQYTJ552ZWGGwvtHJhI=
 ---
-![Логотип](../../../en/adapterref/iobroker.youtube/admin/youtube.png)
-
-![НПМ-версия](https://img.shields.io/npm/v/iobroker.youtube?style=flat-square)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square)
-![Уязвимости Snyk для пакета npm](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square)
-![узел-lts](https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square)
-![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square)
-![GitHub](https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![Последний коммит GitHub](https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![Проблемы с GitHub](https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square)
-![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square)
-![Уязвимости Snyk для репозитория GitHub](https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square)
-![Бета](https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta)
-![Стабильный](http://iobroker.live/badges/youtube-stable.svg)
-![Установлен](http://iobroker.live/badges/youtube-installed.svg)
+![Логотип](../../../en/admin/youtube.png)
 
 # IoBroker.youtube
-## Версии
-Статистика, такая как просмотры, подписчики и видео
+## Требования
+- nodejs 14.5 (или новее)
+- js-контроллер 4.0.15 (или новее)
+- Адаптер администратора 6.0.0 (или новее)
 
-## При поддержке
-[![ioBroker Master Kurs](https://haus-automatisierung.com/images/ads/ioBroker-Kurs.png)](https://haus-automatisierung.com/iobroker-kurs/?refid=iobroker-youtube)
+## Конфигурация
+Чтобы получить API-ключ, вам необходимо перейти на страницу [console.developers.google.com](https://console.developers.google.com/apis/dashboard).
 
-## Монтаж
-Пожалуйста, используйте «список адаптеров» в ioBroker, чтобы установить стабильную версию этого адаптера. Вы также можете использовать CLI для установки этого адаптера:
+1. Создайте новый проект.
+2. Создайте новый ключ API.
+3. Добавьте «YouTube Data API v3» библиотеки.
+4. Используйте этот API-ключ в конфигурации экземпляра.
+5. Добавьте несколько каналов на вкладке каналов, используя идентификатор и собственное имя.
 
+## Записывать всю статистику в InfluxDB
+```javascript
+on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
+    try {
+        const youtubeJson = obj.state.val;
+        const channels = JSON.parse(youtubeJson);
+        const ts = Date.now();
+
+        for (const channel of channels) {
+            const alias = channel.customUrl.substr(1); // remove leading @
+
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.subscribers`,
+                state: {
+                    ts,
+                    val: channel.subscriberCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
+
+            await this.sendToAsync('influxdb.0', 'storeState', {
+                id: `youtube.0.channels.${alias}.views`,
+                state: {
+                    ts,
+                    val: channel.viewCount,
+                    ack: true,
+                    from: `system.adapter.javascript.0.${scriptName}`,
+                }
+            });
+        }
+    } catch (err) {
+        console.error(err);
+    }
+});
 ```
-iobroker add youtube
-```
-
-## Документация
-[🇺🇸 Документация](./docs/en/README.md)
-
-[🇩🇪 Документация](./docs/de/README.md)
 
 ## Changelog
 

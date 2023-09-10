@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: /RwCGnFEBJcLPzocUpMkNyEI8dPgxD4aX2NmAItkyNU=
+hash: /J7NWkUewLRmDxh77HnnO8LrgKCJCsGgU4NFYv4Dq0c=
 ---
 ![标识](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
 
@@ -34,9 +34,12 @@ robonect 模块有一个名为“推送服务”的配置选项 - 它根据一�
 
 由于仅推送状态信息的子集（WLAN 信号、状态、已停止、模式、持续时间、小时数、距离和电池），因此仍然需要拉动，例如获取刀片状态。
 
-管理配置：![图像](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
+### 推送服务配置应如下所示：
+#### 管理配置：
+![图像](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
 
-Robonect 配置：![图像](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
+####Robonect 配置：
+![图像](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
 
 ＃＃ 控制
 ＃＃＃ 模式
@@ -49,6 +52,36 @@ Robonect 配置：![图像](../../../en/adapterref/iobroker.robonect/admin/Push-
 
 ### Work in progress
 * to use timePickers in admin at least admin version 6.4.3 is required - will implement as soon as admin >= 6.4.3 is in stable repo.
+
+### 1.1.5 (2023-09-08)
+* (grizzelbee) Fix: Command-URL was invalid when Robonect UI wasn't protected by username and password
+* (grizzelbee) Upd: minor code refactoring
+
+### 1.1.4 (2023-09-04)
+* (grizzelbee) Fix: Attempting to fix the error: Cannot read properties of null (reading 'val')
+
+### 1.1.3 (2023-09-01)
+* (grizzelbee) New: Added release script for easier publishing to stable repo
+
+### 1.1.1 (2023-08-24)
+* (grizzelbee) Fix: Fixed status.stopped for push messages.
+
+### 1.1.0 (2023-08-23)
+* (grizzelbee) Fix: [#18](https://github.com/Grizzelbee/ioBroker.robonect/issues/18) Showing values for battery with fractions (again)
+* (grizzelbee) New: Added START button
+* (grizzelbee) New: Added STOP button
+* (grizzelbee) New: Added SERVICE button to reboot, shutdown or sleep Robonect module 
+* (grizzelbee) New: Push states and interval can be set 
+* (grizzelbee) New: Nickname of the mower can be set 
+* (grizzelbee) New: Timers of the mower can be set 
+
+
+### 1.0.5 (2023-08-22)
+* (grizzelbee) Upd: Added new state #18 - Garage door is opening
+* (grizzelbee) Fix: Status.stopped gets correctly updated 
+
+### 1.0.4 (2023-08-22)
+* (grizzelbee) Upd: Improved error handling
 
 ### 1.0.3 (2023-08-21)
 * (grizzelbee) Upd: Improved error handling

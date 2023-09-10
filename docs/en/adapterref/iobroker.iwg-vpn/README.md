@@ -26,6 +26,24 @@ For detailed Alexa setup description please follow the link: https://htmlpreview
 * js-controller: >=2.0.0
 * admin: >=5.1.0
 
+## Changelog
+
+### v2.0.3
+* Drop-in replacement for iobroker.iot for Alexa integration
+
+### v1.0.2
+* reconfiguration (re-scanning of QR-Codes) on Peers required
+* required review changes in io-package
+
+### v1.0.1
+* bug fixes
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
+
 ## License
 Creative Commons Attribution-NonCommercial (CC BY-NC)
 

@@ -5,11 +5,22 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 # ioBroker.lametric
 
-## My Data (DIY) *(Adapter-Version >= 1.1.0 notwendig)*
-
 *LaMetric* bietet (über den integrierten App-Store) eine zusätzliche App an, um eigene Informationen darzustellen. Diese App heißt [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Dieser Adapter erstellt einen Datenpunkt im erforderlichen Format.
 
-Es können verschiedene Adapter genutzt werden, um diese Daten zur *LaMetric Time* zu übertragen:
+Seit Version 2.0.0 dieser App, können Daten auf unterschiedliche Weite an das Gerät übergeben werden.
+
+- Push: der Adapter sendet die Daten regelmäßig an das Gerät (wenn diese sich ändern)
+- Poll: die Daten von der *LaMetric Time* regelmäßig abgeholt (konfigurierbar)
+
+Beide Methoden werden in diesem Dokument erklärt.
+
+## My Data (DIY) - Push *(Adapter-Version >= 3.0.0 notwendig)*
+
+*noch nicht implementiert*
+
+## My Data (DIY) - Poll *(Adapter-Version >= 1.1.0 notwendig)*
+
+Es können verschiedene Adapter genutzt werden, um die Daten zur *LaMetric Time* zu übertragen:
 
 - Web Adapter (empfohlen) *(Adapter-Version >= 2.1.0 notwendig)*
 - REST API Adapter
@@ -27,8 +38,10 @@ Es können verschiedene Adapter genutzt werden, um diese Daten zur *LaMetric Tim
 6. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 7. Vergiss nicht, die zuvor konfigurierte Web-Instanz auszuwählen!
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8082/lametric.0/
+URL: http://172.16.0.219:8082/lametric.0/
 ```
 
 ### REST API Adapter
@@ -44,11 +57,15 @@ http://172.16.0.219:8082/lametric.0/
 5. Öffne die Einstellungen der *My Data (DIY)* App und konfiguriere die URL des REST API Adapters (siehe unten)
 6. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 
+HTTP Poll Config:
+
 ```
-http://lametric:HhX7dZl3Fe@172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/plain?extraPlain=true
+URL: http://172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/plain?extraPlain=true
+Username: lametric
+Password: HhX7dZl3Fe
 ```
 
-**Ersetze die Beispiel-IP, -Port, -Benutzername und -Passwort in der URL!**
+**Ersetze die Beispiel-IP, -Port, -Benutzername und -Passwort!**
 
 ### Simple API Adapter
 
@@ -63,8 +80,10 @@ http://lametric:HhX7dZl3Fe@172.16.0.219:8093/v1/state/lametric.0.mydatadiy.obj/p
 5. Öffne die Einstellungen der *My Data (DIY)* App und konfiguriere die URL des Simple API Adapters (siehe unten)
 6. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
+URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lametric&pass=HhX7dZl3Fe
 ```
 
 **Wichtig: Nutze das json-Flag des SimpleAPI Adapters (verfügbar seit Version 2.6.2)**
@@ -78,8 +97,10 @@ http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json&user=lamet
 3. Öffne die Einstellungen der *My Data (DIY)* App und konfiguriere die URL des Simple API Adapters (siehe unten)
 4. Gehe in die Adaptereinstellungen und füge neue Frames mit deinen eigenen Informationen hinzu (siehe nächster Abschnitt)
 
+HTTP Poll Config:
+
 ```
-http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
+URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 ```
 
 **Wichtig: Nutze das json-Flag des SimpleAPI Adapters (verfügbar seit Version 2.6.2)**
@@ -97,4 +118,16 @@ Beispielkonfiguration von einigen Frames:
 
 ![example frame config](./img/my-data-diy.png)
 
-![example config iphone](./img/my-data-diy-iphone.png)
+### My Data DIY App-Konfiguration
+
+Seit Version 2.0.0 der *My Data DIY* App können weitere Einstellungen vorgenommen werden.
+
+- Type: "HTTP Poll"
+- HTTP Poll Config
+    - URL: *siehe oben (je nach Methode)*
+    - Poll Interval: 15 Sek.
+    - Username: *siehe oben (je nach Methode)*
+    - Passwort: *siehe oben (je nach Methode)*
+- Data Format: Predefined (LaMetric Format)
+
+![example config iPhone poll](./img/my-data-diy-iphone-poll.png)

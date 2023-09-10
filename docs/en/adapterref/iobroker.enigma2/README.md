@@ -125,7 +125,7 @@ sendTo("enigma2.0", "send", {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-**WORK IN PROGRESS**
+### 2.0.3 (2023-09-06)
 * (TDCroPower) fixed the problem that no objects are updated
 
 ### 2.0.2 (2023-08-17)

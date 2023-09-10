@@ -129,6 +129,7 @@ https://doc.iobroker.net/#de/documentation/dev/adapterdebug.md
 https://doc.iobroker.net/#de/documentation/dev/adapterdev.md
 https://doc.iobroker.net/#de/documentation/dev/adapterdocstyleguide.md
 https://doc.iobroker.net/#de/documentation/dev/adapterdoctemplate.md
+https://doc.iobroker.net/#de/documentation/dev/adapterjsonconfig.md
 https://doc.iobroker.net/#de/documentation/dev/adapterpublish.md
 https://doc.iobroker.net/#de/documentation/dev/adapterref.md
 https://doc.iobroker.net/#de/documentation/dev/adaptersecurity.md
@@ -162,6 +163,7 @@ https://doc.iobroker.net/#de/documentation/faq/_020_usage.md
 https://doc.iobroker.net/#de/documentation/faq/_040_contibution.md
 https://doc.iobroker.net/#de/documentation/faq/_050_advanced.md
 https://doc.iobroker.net/#de/documentation/faq/_050_cloud.md
+https://doc.iobroker.net/#de/documentation/history/history.md
 https://doc.iobroker.net/#de/documentation/imprint.md
 https://doc.iobroker.net/#de/documentation/install/centos.md
 https://doc.iobroker.net/#de/documentation/install/docker.md
@@ -273,6 +275,7 @@ https://doc.iobroker.net/#en/documentation/dev/adapterdebug.md
 https://doc.iobroker.net/#en/documentation/dev/adapterdev.md
 https://doc.iobroker.net/#en/documentation/dev/adapterdocstyleguide.md
 https://doc.iobroker.net/#en/documentation/dev/adapterdoctemplate.md
+https://doc.iobroker.net/#en/documentation/dev/adapterjsonconfig.md
 https://doc.iobroker.net/#en/documentation/dev/adapterpublish.md
 https://doc.iobroker.net/#en/documentation/dev/adapterref.md
 https://doc.iobroker.net/#en/documentation/dev/adaptersecurity.md
@@ -306,6 +309,7 @@ https://doc.iobroker.net/#en/documentation/faq/_020_usage.md
 https://doc.iobroker.net/#en/documentation/faq/_040_contibution.md
 https://doc.iobroker.net/#en/documentation/faq/_050_advanced.md
 https://doc.iobroker.net/#en/documentation/faq/_050_cloud.md
+https://doc.iobroker.net/#en/documentation/history/history.md
 https://doc.iobroker.net/#en/documentation/imprint.md
 https://doc.iobroker.net/#en/documentation/install/centos.md
 https://doc.iobroker.net/#en/documentation/install/docker.md
@@ -417,6 +421,7 @@ https://doc.iobroker.net/#ru/documentation/dev/adapterdebug.md
 https://doc.iobroker.net/#ru/documentation/dev/adapterdev.md
 https://doc.iobroker.net/#ru/documentation/dev/adapterdocstyleguide.md
 https://doc.iobroker.net/#ru/documentation/dev/adapterdoctemplate.md
+https://doc.iobroker.net/#ru/documentation/dev/adapterjsonconfig.md
 https://doc.iobroker.net/#ru/documentation/dev/adapterpublish.md
 https://doc.iobroker.net/#ru/documentation/dev/adapterref.md
 https://doc.iobroker.net/#ru/documentation/dev/adaptersecurity.md
@@ -450,6 +455,7 @@ https://doc.iobroker.net/#ru/documentation/faq/_020_usage.md
 https://doc.iobroker.net/#ru/documentation/faq/_040_contibution.md
 https://doc.iobroker.net/#ru/documentation/faq/_050_advanced.md
 https://doc.iobroker.net/#ru/documentation/faq/_050_cloud.md
+https://doc.iobroker.net/#ru/documentation/history/history.md
 https://doc.iobroker.net/#ru/documentation/imprint.md
 https://doc.iobroker.net/#ru/documentation/install/centos.md
 https://doc.iobroker.net/#ru/documentation/install/docker.md
@@ -561,6 +567,7 @@ https://doc.iobroker.net/#zh-cn/documentation/dev/adapterdebug.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adapterdev.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adapterdocstyleguide.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adapterdoctemplate.md
+https://doc.iobroker.net/#zh-cn/documentation/dev/adapterjsonconfig.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adapterpublish.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adapterref.md
 https://doc.iobroker.net/#zh-cn/documentation/dev/adaptersecurity.md
@@ -594,6 +601,7 @@ https://doc.iobroker.net/#zh-cn/documentation/faq/_020_usage.md
 https://doc.iobroker.net/#zh-cn/documentation/faq/_040_contibution.md
 https://doc.iobroker.net/#zh-cn/documentation/faq/_050_advanced.md
 https://doc.iobroker.net/#zh-cn/documentation/faq/_050_cloud.md
+https://doc.iobroker.net/#zh-cn/documentation/history/history.md
 https://doc.iobroker.net/#zh-cn/documentation/imprint.md
 https://doc.iobroker.net/#zh-cn/documentation/install/centos.md
 https://doc.iobroker.net/#zh-cn/documentation/install/docker.md
@@ -887,7 +895,6 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.innoxel/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.intex/README.md
-https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -1510,7 +1517,6 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.innoxel/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.intex/README.md
-https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -2133,7 +2139,6 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.innoxel/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.intex/README.md
-https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -2756,7 +2761,6 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innogy-smarthome/RE
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innoxel/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intesishome/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intex/README.md
-https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iogopro/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iqontrol/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iwg-vpn/README.md

@@ -3,37 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.linktap/README.md
 title: ioBroker.LinkTap
-hash: 2yr7qegTAGfyyl8UeCEV+aUGEcxLjFojhTuzAXpEHM4=
+hash: 3fxXNSl3Q46kwluuppMYZNwqFjy+3v/cFiVl/7t3+lg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.linktap/admin/Logo_small.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.linktap.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.linktap.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.linktap.svg)
-![Статус зависимости](https://img.shields.io/david/Smart-Gang/iobroker.linktap.svg)
-![Тесты](https://img.shields.io/travis/Smart-Gang/ioBroker.linktap.svg)
-![Статус сборки](https://ci.appveyor.com/api/projects/status/x1s8imx6x3ayfsu5/branch/master?svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.linktap.png?downloads=true)
 
 # IoBroker.LinkTap
 ## IoBroker.linktap
-Управляйте поливом своего сада с помощью беспроводного таймера LinkTap. Производитель: https://www.link-tap.com/
+Контролируйте полив вашего сада с помощью беспроводного таймера подачи воды LinkTap. Производитель: https://www.link-tap.com/
 
-## Установка
-Разрабатывался под Node.js 12. Поэтому рекомендуется использовать хотя бы эту версию.
+## Монтаж
+Используйте Node.js 16 или выше.
 
 ## Настройки
-Создайте ключ Api на https://www.link-tap.com/#!/api-for-developers с вашими учетными данными LinkTap.
+Создайте ключ API по адресу https://www.link-tap.com/#!/api-for-developers, используя свои учетные данные LinkTap.
 
 Пожалуйста, введите имя пользователя и ключ API в конфигурации.
-Все подключенные шлюзы и ответвители будут извлечены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет поиск автоматически каждый час или каждый раз при перезапуске адаптера.
+Все подключенные шлюзы и ответвители будут восстановлены после запуска адаптера. Производитель разрешает опрос всех шлюзов и устройств каждые 5 минут. Адаптер выполняет извлечение автоматически каждый час или при каждом перезапуске адаптера.
 
-Получение статуса полива можно настроить индивидуально в конфигурации на основе минут. Веб-сервис LinkTap может предоставить обновленную информацию о поливе в течение одной минуты.
+Получение статуса полива можно настроить индивидуально в конфигурации по минутам. Веб-сервису LinkTap может потребоваться до одной минуты, чтобы предоставить обновленную информацию о поливе.
 
-Реализованы все функции орошения, предоставляемые API.
+Все функции орошения, предоставляемые API, реализованы.
 
-Важно: желаемые расписания должны быть настроены в приложении перед использованием. Затем их можно включить / отключить через адаптер. Для этого необходимо дополнительно установить соответствующие состояния роли «Аргумент в».
+Важно: перед использованием необходимо настроить в приложении нужные расписания. Затем их можно включить/отключить через адаптер. Для этого необходимо дополнительно установить соответствующие состояния роли «Аргумент в».
 
 ## Changelog
+
+### 0.2.3
+* (Smart-Gang) Added support for new devices (ValveLinker and multiple-outlet water timer) with 18-digit IDs.
 
 ### 0.2.1
 * (Smart-Gang) Updated CI testing & dependencies.

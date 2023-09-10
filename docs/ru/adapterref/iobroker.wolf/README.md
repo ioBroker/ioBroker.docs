@@ -1,29 +1,35 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/wolf-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.wolf.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.wolf.svg
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.wolf/README.md
-title: ioBroker.wolf
-hash: nJLscxSDJxrAWxYFBppacqXWlGu8j0jpszP6YkQiZJc=
+title: iobroker.wolf
+hash: pDtMB9foXkJXjjQ5/dxzpSFjGTXi8W15I1kZGV8qa3E=
 ---
-![Логотип](../../../en/adapterref/iobroker.wolf/admin/wolf.png)
+# Iobroker.wolf
+## Области применения: отопление/солнечная энергия/бытовая вентиляция.
+Адаптер может оценивать максимум 4 из следующих нагревателей через ISM8i:
 
-![Количество установок](http://iobroker.live/badges/wolf-stable.svg)
-![НПМ-версия](http://img.shields.io/npm/v/iobroker.wolf.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.wolf.svg)
+   *Газоконденсационная установка: ЦГБ-2 (в составе: ЦГВ-2, ЦГС-2, ЦСЗ-2), МГК-2.
+   * Масляный конденсационный котел: TOB
+   * Сплит-тепловой насос: BWL-1-S.
+   * Вентиляция гостиной CWL Отлично
 
-# IoBroker.wolf
-![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.wolf/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/wolf/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+Всегда требуется модуль управления системой BM-2 или модуль дисплея AM.
+Кроме того, в системе eBus могут присутствовать дополнительные компоненты, такие как модуль смесителя MM, каскадный модуль KM, солнечный модуль SM1 или SM2.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+Максимальное количество отдельных модулей:
 
-Подключайтесь к устройствам WOLF.
-Прочтите в [английский](docs/en/README.md).
+   * Макс. 4 нагревателя рт.ст. (1) - рт.ст. (4)
+   * Макс. 3 смесителя мм (1) - мм (3)
+   * Макс. 4 панели оператора (БМ-2) бм(1)-бм(4)
+   * Макс. 1 каскадный модуль км (1)
+   * Макс. 1 солнечный модуль (SM1 или SM2) см (1)
+   * Макс. 1 сплит-воздушно-водяной тепловой насос (BWL-1-S) hg (0)
 
-Lese auf [немецкий](docs/de/README.md).
-
-<!-- Заполнитель следующей версии (в начале строки):
-
-### __РАБОТА В ПРОГРЕССЕ__ -->
+   Бытовую вентиляционную установку серии CWL Excellent также можно оценивать и эксплуатировать с помощью ISM8i.
 
 ## Changelog
 ### 1.7.0 (2023-01-26)

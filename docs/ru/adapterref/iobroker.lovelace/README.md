@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: dkfhogBDO4pbgOFE4FFfi6gfqdhrEYaJj5xPQZLgR58=
+hash: ucysTQCpKxeYf2xX4WyMgGwuO0byAUkW6HEbkxtIZ5Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -81,7 +81,7 @@ createState(
 или вы просто используете для этого `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)`.
 
 ### Ввод номера
-Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип сущности input_number.
+Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип объекта input_number.
 Для этого типа требуются значения `min` и `max` в `common`, а также можно добавить дополнительные `step`.
 Если вы хотите видеть стрелки вверх и вниз, вам следует установить в пользовательском `mode` значение «номер»:
 
@@ -442,7 +442,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20230802.1 Версия браузерного мода: 2.3.0
+Использованная версия home-assistant-frontend@20230906.1 Версия браузерного мода: 2.3.0
 
 ### Как собрать новую версию Лавлейса
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/НемецкийBluefox/home-assistant-polymer.git (* **iob*** ветка!).

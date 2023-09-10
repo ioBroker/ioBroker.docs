@@ -26,17 +26,17 @@ In Adapter settings change "Custom Icon-Base-URL" to one of the available Icon S
 
 |    Icon Set   |     		URL	 	   |       Example	 	|
 | ------------- | -------------------------------- | --------------------- 	|
-|	1	|  https://icons.wxug.com/i/c/a/   |		![alt text](https://icons.wxug.com/i/c/a/partlycloudy.gif) 	|
-|	2	|  https://icons.wxug.com/i/c/b/   |		![alt text](https://icons.wxug.com/i/c/b/partlycloudy.gif)	|
-|	3	|  https://icons.wxug.com/i/c/c/   |		![alt text](https://icons.wxug.com/i/c/c/partlycloudy.gif)	|
-|	4	|  https://icons.wxug.com/i/c/d/   |		![alt text](https://icons.wxug.com/i/c/d/partlycloudy.gif)	|
-|	5	|  https://icons.wxug.com/i/c/e/   |		![alt text](https://icons.wxug.com/i/c/e/partlycloudy.gif)	|
-|	6	|  https://icons.wxug.com/i/c/f/   |		![alt text](https://icons.wxug.com/i/c/f/partlycloudy.gif)	|
-|	7	|  https://icons.wxug.com/i/c/g/   |		![alt text](https://icons.wxug.com/i/c/g/partlycloudy.gif)	|
-|	8	|  https://icons.wxug.com/i/c/h/   |		![alt text](https://icons.wxug.com/i/c/h/partlycloudy.gif)	|
-|	9	|  https://icons.wxug.com/i/c/i/   |		![alt text](https://icons.wxug.com/i/c/i/partlycloudy.gif)	|
-|	10	|  https://icons.wxug.com/i/c/j/   |		![alt text](https://icons.wxug.com/i/c/j/partlycloudy.gif)	|
-|	11	|  https://icons.wxug.com/i/c/k/   |		![alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
+|	1	|  https://www.wunderground.com/static/i/c/a/   |		![alt text](https://www.wunderground.com/static/i/c/a/partlycloudy.gif) 	|
+|	2	|  https://www.wunderground.com/static/i/c/b/   |		![alt text](https://www.wunderground.com/static/i/c/b/partlycloudy.gif)	|
+|	3	|  https://www.wunderground.com/static/i/c/c/   |		![alt text](https://www.wunderground.com/static/i/c/c/partlycloudy.gif)	|
+|	4	|  https://www.wunderground.com/static/i/c/d/   |		![alt text](https://www.wunderground.com/static/i/c/d/partlycloudy.gif)	|
+|	5	|  https://www.wunderground.com/static/i/c/e/   |		![alt text](https://www.wunderground.com/static/i/c/e/partlycloudy.gif)	|
+|	6	|  https://www.wunderground.com/static/i/c/f/   |		![alt text](https://www.wunderground.com/static/i/c/f/partlycloudy.gif)	|
+|	7	|  https://www.wunderground.com/static/i/c/g/   |		![alt text](https://www.wunderground.com/static/i/c/g/partlycloudy.gif)	|
+|	8	|  https://www.wunderground.com/static/i/c/h/   |		![alt text](https://www.wunderground.com/static/i/c/h/partlycloudy.gif)	|
+|	9	|  https://www.wunderground.com/static/i/c/i/   |		![alt text](https://www.wunderground.com/static/i/c/i/partlycloudy.gif)	|
+|	10	|  https://www.wunderground.com/static/i/c/j/   |		![alt text](https://www.wunderground.com/static/i/c/j/partlycloudy.gif)	|
+|	11	|  https://www.wunderground.com/static/i/c/k/   |		![alt text](https://www.wunderground.com/static/i/c/k/partlycloudy.gif)	|
 
 Or you can aso use your own "custom" icons, for this purpose the following gif-files must be provided within an Base-URL directory  :
 
@@ -77,10 +77,16 @@ There is a still a problem with encoding. The addresses with "äüöß" will be 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (mcm1957) Dependencies have been updated
+### 3.6.0 (2023-09-09)
+* (mcm1957) Icon urls at admin ui have been adapted to weatherunderground website changes (#158)
+* (mcm1957) Forecast periods have been extended
+
+### 3.5.0 (2023-09-08)
 * (mcm1957) Adapter now requires node 16 or newer
+* (mcm1957) Dependencies have been updated
 * (waldmensch1) Cloudcover states have been added (PR #178)
+* (mcm1957) Date format has been fixed to avoid incorrect display with newer admin versions (#191)
+* (mcm1957) Forecast urls have been adapted to weatherunderground website changes (#158)
 
 ### 3.4.3 (2023-08-15)
 * (Aplollon77) Translations have been updated (#159)

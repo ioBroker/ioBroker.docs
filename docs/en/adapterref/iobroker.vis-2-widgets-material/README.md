@@ -95,6 +95,9 @@ Additionally, you can show image or iframe with this widget too.
 ### Color Lamp
 ![RGB](img/material-rgb.png)
 
+### Door lock
+![Door lock](img/material-lock.png)
+
 ### Time picker
 
 
@@ -137,7 +140,6 @@ Additionally, you can show image or iframe with this widget too.
 - Window → Switch and Buttons Info with specific iconS (opened → true, closed → false)
 
 ## Todo
-- RGBW color controller
 - Investigate delay for widgets
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -145,6 +147,12 @@ Additionally, you can show image or iframe with this widget too.
 -->
 
 ## Changelog
+### 1.1.2 (2023-09-09)
+* (bluefox) Door lock improved
+
+### 1.1.0 (2023-09-08)
+* (bluefox) Added door lock
+
 ### 1.0.0 (2023-08-21)
 * (bluefox) Added RGB widget
 

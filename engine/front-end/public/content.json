@@ -649,6 +649,15 @@
           },
           "content": "dev/adapterref.md"
         },
+        "JSON config": {
+          "title": {
+            "en": "JSON config",
+            "de": "ioBroker JSON-Konfiguration",
+            "ru": "Конфигурация JSON ioBroker",
+            "zh-cn": "ioBroker JSON 配置"
+          },
+          "content": "dev/adapterjsonconfig.md"
+        },
         "Object schema": {
           "title": {
             "en": "Object schema",

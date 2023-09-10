@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: DWJJsbfonhXBf24vSS1kcAhLpPQuHcc7m3av2X8T3yA=
+hash: NwQnuxNpFXZ5n4vtiRTbKM9JfyAWEb1zWbSw14lLVDU=
 ---
 ![标识](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -48,14 +48,34 @@ IP地址和端口来自云端。如果IP地址相同，则必须在应用程序�
 可以使用搜索按钮搜索池的 IP 地址。但是，如果例如，路由器可以防止这种情况发生。 B. 不允许 WLAN 设备相互通信，或者计算机的本地防火墙阻止端口或板载投射。
 
 ## 控制水疗中心的功能
-“intex.0.-id-.remote.-command-”设置为 true 控制相应的命令。
-
 “intex.0.-id-.control.-command-”设置为 true 或 false 控制池命令的状态。
 
 ## 德语讨论和提问
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+
+### 0.1.1
+
+* (PLCHome) Remaining time for filter and sanitizer added under control.
+* (PLCHome) Refresh added under Control.
+* (PLCHome) Remote deleted because Control can do it better.
 
 ### 0.1.0
 * (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.

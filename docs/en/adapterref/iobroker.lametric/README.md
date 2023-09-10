@@ -32,9 +32,9 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.5_ (or later)
+- _LaMetric Time_ with firmware _2.3.6_ (_3.0.16_ on the 2022 model) (or later)
 
-[Firmware-Changelog](https://firmware.lametric.com)
+[Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
 ## Configuration
 
@@ -61,6 +61,16 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Added push option for My Data DIY
+* (klein0r) Added option to force app reload
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6 (3.0.16)
+
+### 2.4.2 (2023-09-08)
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
+
 ### 2.4.1 (2023-06-10)
 
 * (klein0r) Blockly bugfix
@@ -78,12 +88,6 @@ Features are limited by the [official API features](https://lametric-documentati
 ### 2.3.1 (2023-02-21)
 
 * (klein0r) Update My Data DIY when object changes data type
-
-### 2.3.0 (2023-02-13)
-
-* (klein0r) Fixed message responses
-* (klein0r) Added icon button to instance configuration
-* (klein0r) Added preview for web url in instance configuration
 
 ## License
 

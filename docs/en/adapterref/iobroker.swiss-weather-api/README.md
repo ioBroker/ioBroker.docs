@@ -61,10 +61,15 @@ Extended Example:
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.0.4-alpha.2 (2023-09-06)
+* (baerengraben) Dummy-Deploy - because npm did not get 2.0.4-alpha.1 (2nd try...)
 
-### **WORK IN PROGRESS**
+### 2.0.4-alpha.1 (2023-09-05)
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/102
 * (baerengraben) Using ioBroker "formatDate" to format date_time attribut to "TT.MM.JJJJ SS:mm:ss"
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/105
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/104 
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/103
 
 ### 2.0.4-alpha.0 (2023-08-03)
 * (baerengraben) Adding four new hour-based Views 
@@ -76,12 +81,6 @@ Extended Example:
 
 ### 2.0.2 (2023-07-31)
 * (baerengraben) Just another freaking release-script test
-
-### 2.0.1 (2023-07-31)
-* (baerengraben) Just a release-script test
-
-### 2.0.0 (2023-07-31) - Release for SRF Weather API Version 2!
-* (baerengraben) Update SRF API version 1 to version 2 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94. With this Update new attributes are available: symbol24_code, DEWPOINT_C, RELHUM_PERCENT, FRESHSNOW_CM, PRESSURE_HPA, SUN_MIN, IRRADIANCE_WM2 and TTTFEEL_C
 
 ## License
 MIT License

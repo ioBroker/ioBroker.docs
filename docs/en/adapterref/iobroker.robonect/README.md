@@ -28,10 +28,13 @@ These data must also be configured in the Robonect module. Even if listening to 
 
 Since only a subset of status information is pushed (WLAN-Signal, Status, Stopped, Mode, duration, hours, distance and battery) pulling is still needed e.g. to get the blade status.
 
-Admin config:
+### The Push-Service config should look like this:
+#### Admin config:
+
 ![image](./admin/Push-Service-Adapter.png)
 
-Robonect config:
+#### Robonect config:
+
 ![image](./admin/Push-Service-Robonect.png)
 
 ## Control
@@ -45,6 +48,10 @@ It is possible to control the extensions GPIO 1, GPIO 2, OUT 1 and OUT 2 of the 
 
 ### Work in progress
 * to use timePickers in admin at least admin version 6.4.3 is required - will implement as soon as admin >= 6.4.3 is in stable repo.
+
+### 1.1.5 (2023-09-08)
+* (grizzelbee) Fix: Command-URL was invalid when Robonect UI wasn't protected by username and password
+* (grizzelbee) Upd: minor code refactoring
 
 ### 1.1.4 (2023-09-04)
 * (grizzelbee) Fix: Attempting to fix the error: Cannot read properties of null (reading 'val')

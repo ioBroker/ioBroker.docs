@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: DWJJsbfonhXBf24vSS1kcAhLpPQuHcc7m3av2X8T3yA=
+hash: NwQnuxNpFXZ5n4vtiRTbKM9JfyAWEb1zWbSw14lLVDU=
 ---
 ![Logo](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -48,14 +48,34 @@ Das Intervall kann hier auch auf 0,5 Minuten eingestellt werden.
 Über die Suchschaltfläche kann nach der IP-Adresse des Pools gesucht werden. Dies kann jedoch durch Router verhindert werden, wenn z.B. B. WLAN-Geräte nicht untereinander kommunizieren dürfen oder Ports oder On-Board-Casting in der lokalen Firewall des Rechners blockiert sind.
 
 ## Steuerung der Funktionen des Spas
-„intex.0.-id-.remote.-command-“ auf true gesetzt steuert den jeweiligen Befehl.
-
 „intex.0.-id-.control.-command-“ mit der Einstellung „true“ oder „false“ steuert den Status des Poolbefehls.
 
 ## Diskussion und Fragen auf Deutsch
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
 
 ## Changelog
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+
+### 0.1.1
+
+* (PLCHome) Remaining time for filter and sanitizer added under control.
+* (PLCHome) Refresh added under Control.
+* (PLCHome) Remote deleted because Control can do it better.
 
 ### 0.1.0
 * (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.

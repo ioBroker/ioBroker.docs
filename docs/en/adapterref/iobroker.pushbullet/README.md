@@ -4,11 +4,10 @@
 ![Number of Installations](http://iobroker.live/badges/pushbullet-installed.svg) ![Number of Installations](http://iobroker.live/badges/pushbullet-stable.svg)
 
 Send pushbullet notifications from ioBroker. 
-This Adapter is mostly based on bluefox's Pushover Adapter for ioBroker.
 
 ## Usage
 
-To send notification from ScriptEngine just write: 
+To send a notification from ScriptEngine, just write: 
 
 ```javascript
 // send note
@@ -40,9 +39,14 @@ sendTo("pushbullet", {
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
-	### __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.1 (2023-09-10)
+* (bluefox) Breaking change: Only node version 16+ supported
+* (bluefox) Added JSON config and used the latest version of a pushbullet library
+* (bluefox) Added encryption
+
 ### 0.1.0 (2021-10-15)
 * (bluefox) Refactoring
 
@@ -72,7 +76,7 @@ sendTo("pushbullet", {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2021 Jens1809
+Copyright (c) 2015-2023 Jens1809
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

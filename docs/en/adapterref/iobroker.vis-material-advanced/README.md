@@ -22,7 +22,6 @@ but rewritten in 90%
 
 Several bugfixes and lots of new widgets added.
 
-
 ## Following widgets are present right now
 
 ### current
@@ -46,31 +45,29 @@ Several bugfixes and lots of new widgets added.
  
 ### in progress
 Not yet final:
- - Garagedoor
+ - Garage door
  - Radiostation 
  
  lot of widgets still in plan
 
 ## Options
-    following options are available in most of the widgets:
-    
+The following options are available in most of the widgets:
     - text-color
-    - cardIcon ( does not yet make sense everywhere, e.g. dimmer )
-    - opacity color ( the standard opacity color )
-    - colorizeByValue ( depending on some values the opacity color can be changed e.g. if it is too hot make it red, to cold blue )
-    - below,above, min, max ( the values for colorizeByValue )
-    - color-low/high,medium... ( the color to use if border is raised)
-    - read-only ( some widgets can be set to read only mode for display only)
+    - cardIcon (does not yet make sense everywhere, e.g. dimmer)
+    - opacity color (the standard opacity color)
+    - colorizeByValue (depending on some values, the opacity color can be changed e.g. if it is too hot make it red, to cold blue)
+    - below,above, min, max (the values for colorizeByValue)
+    - color-low/high,medium... (the color to use if border is raised)
+    - read-only (some widgets can be set to read only mode for display only)
     - border-radius to enable and change the round corner
     - valueAlign Align the Value field left,center or right
     - value-vertical Align the Value field top,bottom or middle
     - borderColor Color of the Border if activated
 
-
 ### Getting started
 
 install the Adapter and start VIS in Edit mode.
-On left side choose vis-material-adapter and then all widgets are shown in preview.
+On the left side, choose vis-material-adapter and then all widgets are shown in preview.
 
 ............. lots of docu missing ......................
 
@@ -85,6 +82,9 @@ thanks to @sigi234
     Placeholder
     ### **WORK IN PROGRESS**
 -->
+### 1.7.4 (2023-09-07)
+* (DEV2DEV-DE) Subscribe to updates of both values (temperature, humidity)
+
 ### 1.7.3 (2022-04-11)
 * (bluefox) Removed erroneous chars from HTML
 
@@ -97,13 +97,10 @@ thanks to @sigi234
 ### 1.7.0 (2021-04-19)
 * added new Widget Window3 for possibility showing open/tilted/closed [0/1/2] windows
 
-### 1.6.0 (2021-04-01)
-* new Temperature widget with ONLY an icon from blue to red depending on temperature setting
-
 ## License
 MIT License
 
-Copyright (c) 2020-2022 EdgarM73 <edgar.miller@gmail.com>
+Copyright (c) 2020-2023 EdgarM73 <edgar.miller@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

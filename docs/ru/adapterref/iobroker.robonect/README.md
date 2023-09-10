@@ -3,52 +3,85 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: /RwCGnFEBJcLPzocUpMkNyEI8dPgxD4aX2NmAItkyNU=
+hash: /J7NWkUewLRmDxh77HnnO8LrgKCJCsGgU4NFYv4Dq0c=
 ---
 ![Логотип](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
 
 ![НПМ](https://nodei.co/npm/iobroker.robonect.png?downloads=true)
 ![Количество установок](http://iobroker.live/badges/robonect-stable.svg)
-![версия NPM](https://img.shields.io/npm/v/iobroker.robonect.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.robonect.svg)
 
 # IoBroker.robonect
-[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL] (https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
+[![Тестирование и выпуск] (https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
 
-Это адаптер ioBroker для газонокосилки с поддержкой Robonect HX.
+Это адаптер ioBroker для вашей газонокосилки с поддержкой Robonect HX.
 
 * Было протестировано с Robonect v1.1b (с ZeroConf v1.4) и Gardena R70Li.
-* Кроме того, он был протестирован с Robonect v1.3b (с ZeroConf v1.9) и Gardena R40Li.
+* Он также был протестирован с Robonect v1.3b (с ZeroConf v1.9) и Gardena R40Li.
 
 ## Настройки
-* Требуется ввести IP-адрес (например, 192.168.x.x) или имя хоста (например, robonect-D247BF) или полное доменное имя (например, robonect-D247BF.fritz.box) модуля Robonect. Если имя пользователя и пароль установлены, они также необходимы.
-* ioBroker.robonect опрашивает данные через разные промежутки времени: по умолчанию информация о состоянии опрашивается каждые 60 секунд (1 минута), а другая информация опрашивается каждые 900 секунд (15 минут).
-* Можно настроить два периода отдыха, чтобы предотвратить опрос, например. в полдень и ночью. Информация, которая может быть опрошена без пробуждения газонокосилки (и подачи звукового сигнала), все равно будет опрошена.
-* Для каждого API-запроса можно выбрать интервал опроса (статус или информация) или вообще не опрашивать.
-* служба push: при активации выберите IP-адрес и порт, которые адаптер должен прослушивать.
+* Необходимо ввести IP-адрес (например, 192.168.xx) или имя хоста (например, robonect-D247BF) или полное доменное имя (например, robonect-D247BF.fritz.box) модуля Robonect. Если заданы имя пользователя и пароль, они также потребуются.
+* ioBroker.robonect опрашивает данные с разными интервалами: по умолчанию информация о состоянии запрашивается каждые 60 секунд (1 минута), а другая информация запрашивается каждые 900 секунд (15 минут).
+* Можно настроить два периода отдыха, чтобы предотвратить опрос, например. в полдень и ночью. Информация, которую можно опросить, не пробуждая газонокосилку (и не подавая звуковой сигнал), все равно будет опрашиваться.
+* Для каждого запроса API можно выбрать интервал опроса (статус или информацию) или не опрашивать вообще.
+* push-сервис: при активации выберите IP-адрес и порт, который должен прослушивать адаптер.
 
 ### Push-сервис:
-Модуль robonect имеет параметр конфигурации под названием «Push Service» — он отправляет информацию о состоянии в зависимости от некоторых настраиваемых событий.
+Модуль robonect имеет опцию конфигурации под названием «Push Service» — она передает информацию о состоянии в зависимости от некоторых настраиваемых событий.
 При активации адаптер будет получать push-уведомления, если произойдет одно из событий. Если эта опция активирована, вы можете использовать гораздо более длинные интервалы опроса, чем значения по умолчанию (например, 6-12 часов для статуса и 24 часа для информации).
-Эти данные также должны быть настроены в модуле Robonect. Даже при прослушивании всех IP-адресов (0.0.0.0) вам необходимо настроить реальный IP-адрес в robonect. Используемый формат IP похож на 192.168.x.x:Port +. Вы можете выбрать GET или POST в Robonect — он работает и то, и другое.
-+ Имя пользователя или пароль не требуются.
+Эти данные также необходимо настроить в модуле Robonect. Даже если вы прослушиваете все IP-адреса (0.0.0.0), вам необходимо настроить реальный IP-адрес в robonect. Используемый формат IP похож на 192.168.x.x:Port + Вы можете выбрать GET или POST в Robonect — он работает оба и делает одно и то же.
++ Никакое имя пользователя или пароль не требуются.
 
-Поскольку передается только подмножество информации о состоянии (сигнал WLAN, состояние, остановлено, режим, продолжительность, часы, расстояние и батарея), извлечение по-прежнему необходимо, например. чтобы получить статус лезвия.
+Поскольку передается только часть информации о состоянии (сигнал WLAN, статус, остановлено, режим, продолжительность, часы, расстояние и батарея), извлечение по-прежнему необходимо, например. чтобы получить статус блейда.
 
-Конфигурация администратора: ![изображение](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
+### Конфигурация Push-Service должна выглядеть так:
+#### Конфигурация администратора:
+![изображение](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Adapter.png)
 
-Конфигурация Робонекта: ![изображение](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
+#### Конфигурация Робонекта:
+![изображение](../../../en/adapterref/iobroker.robonect/admin/Push-Service-Robonect.png)
 
 ## Контроль
 ### Режим
-Режим газонокосилки можно контролировать, изменяя robonect.0.status.mode. Возможные режимы: «Авто», «Дом», «Ручной», «Конец дня» и «Работа» (на данный момент реализованы не полностью).
+Режимом газонокосилки можно управлять, изменяя robonect.0.status.mode. Возможные режимы: «Авто», «Домой», «Ручной», «Конец дня» и «Задание» (на данный момент реализовано не полностью).
 
 ### Расширения
-Возможно управление расширениями GPIO 1, GPIO 2, OUT 1 и OUT 2 модуля Robonect. Требование состоит в том, чтобы режим расширения был настроен как «API» через веб-интерфейс Robonect. Если, например, светодиоды подключены к OUT1, их можно включать ночью и выключать утром, установив для Robonect.0.extension.out1.status значение «true» или «false».
+Можно управлять расширениями GPIO 1, GPIO 2, OUT 1 и OUT 2 модуля Robonect. Требованием является то, что режим расширения настроен как «API» через веб-интерфейс Robonect. Если, например, светодиоды подключены к OUT1, их можно включать ночью и выключать утром, установив для Robonect.0.extension.out1.status значение «true» или «false».
 
 ## Changelog
 
 ### Work in progress
 * to use timePickers in admin at least admin version 6.4.3 is required - will implement as soon as admin >= 6.4.3 is in stable repo.
+
+### 1.1.5 (2023-09-08)
+* (grizzelbee) Fix: Command-URL was invalid when Robonect UI wasn't protected by username and password
+* (grizzelbee) Upd: minor code refactoring
+
+### 1.1.4 (2023-09-04)
+* (grizzelbee) Fix: Attempting to fix the error: Cannot read properties of null (reading 'val')
+
+### 1.1.3 (2023-09-01)
+* (grizzelbee) New: Added release script for easier publishing to stable repo
+
+### 1.1.1 (2023-08-24)
+* (grizzelbee) Fix: Fixed status.stopped for push messages.
+
+### 1.1.0 (2023-08-23)
+* (grizzelbee) Fix: [#18](https://github.com/Grizzelbee/ioBroker.robonect/issues/18) Showing values for battery with fractions (again)
+* (grizzelbee) New: Added START button
+* (grizzelbee) New: Added STOP button
+* (grizzelbee) New: Added SERVICE button to reboot, shutdown or sleep Robonect module 
+* (grizzelbee) New: Push states and interval can be set 
+* (grizzelbee) New: Nickname of the mower can be set 
+* (grizzelbee) New: Timers of the mower can be set 
+
+
+### 1.0.5 (2023-08-22)
+* (grizzelbee) Upd: Added new state #18 - Garage door is opening
+* (grizzelbee) Fix: Status.stopped gets correctly updated 
+
+### 1.0.4 (2023-08-22)
+* (grizzelbee) Upd: Improved error handling
 
 ### 1.0.3 (2023-08-21)
 * (grizzelbee) Upd: Improved error handling

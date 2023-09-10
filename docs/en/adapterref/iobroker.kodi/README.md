@@ -117,8 +117,16 @@ sendTo("kodi.0", {
  - Reboot -  перезагрузка системы
  - Shutdown - выключает систему
  - Suspend - приостанавливает Kodi
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### 3.0.0 (2023-09-08)
+* (agross) Fixed seeking on Kodi >= 19
+* (bluefox) Supported only node.js versions >= 16
+
 ### 2.0.9 (2022-12-08)
 * (Apollon77) Prevent crash if received data from Kodi are not valid UTF-8
 * (Apollon77) Optimize Adapter unload
@@ -238,7 +246,7 @@ sendTo("kodi.0", {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2020-2022 ioBroker Community and instalator <vvvalt@mail.ru>
+Copyright (c) 2020-2023 ioBroker Community and instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

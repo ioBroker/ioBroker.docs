@@ -3,52 +3,61 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.firetv/README.md
 title: без заголовка
-hash: CovZUdv+x4gbupj11lkb3U6+4IVmRfxlLmRx36rxneY=
+hash: fjWzek3jOInDjaIinISqARTUz5CM+4h3/ctYyQQkH2k=
 ---
-![логотип](../../../en/adapterref/iobroker.firetv/admin/firetv.png)
+![Логотип](../../../en/adapterref/iobroker.firetv/admin/firetv.png)
 
 ![Количество установок](http://iobroker.live/badges/firetv-community-installed.svg)
 ![Стабильная версия](http://iobroker.live/badges/firetv-community-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.firetv.svg)
-![тесты](https://img.shields.io/travis/soef/iobroker.firetv/master.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.firetv.svg)
+![Тесты](https://img.shields.io/travis/soef/iobroker.firetv/master.svg)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Статус сборки](https://secure.travis-ci.org/soef/iobroker.firetv.svg?branch=master)
 
 ### IoBroker.firetv
 <!--
-[![Версия NPM] (https://badge.fury.io/js/iobroker.firetv.svg)](https://www.npmjs.com/package/iobroker.firetv)
+[![Версия NPM](https://badge.fury.io/js/iobroker.firetv.svg)](https://www.npmjs.com/package/iobroker.firetv)
 -->
 
 С помощью этого адаптера вы можете управлять некоторыми функциями вашего Fire TV или Fire TV Stick.
 Например.:
 
 - Вкл выкл
-- Отправить ключевые события
-- Отправить текстовые строки в поля ввода
-- запуск / остановка приложений
-- перезагрузка
-- точные команды оболочки
+- Отправка ключевых событий
+- Отправка текстовых строк в поля ввода
+- Запуск/остановка приложений
+- перезагрузить
+- выполнять команды оболочки
 
-#### Некоторая информация
-Этот адаптер использует функции «Android Debug Bridge», известного как «adb». Adb является частью Android Developer SDK. Поскольку Fire TV имеет операционную систему Android, им можно управлять с помощью adb.
+#### Немного информации
+Этот адаптер использует функции «Android Debug Bridge», известного как «adb». Adb является частью SDK для разработчиков Android. Поскольку Fire TV имеет операционную систему Android, им можно управлять с помощью adb.
 
 #### Требования
-Чтобы использовать этот адаптер, вы должны установить как минимум пакет adb Anroid SDK. Чтобы не устанавливать полный Android SDK, необходимо установить
+Чтобы использовать этот адаптер, вам необходимо установить как минимум пакет adb Android SDK. Чтобы не устанавливать полный Android SDK, вам следует установить *Minimal ADB и Fastboot*.
 
-- *Минимальный ADB и Fastboot*
+Найдите в Google (Minimal ADB и Fastboot) последнюю ссылку для скачивания.
 
-Поищите в Google (Minimal ADB и Fastboot) последнюю ссылку для скачивания.
+Альтернативно вы можете использовать *adbLink*
 
-Кроме того, вы можете использовать *adbLink*
+<!--
+
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 2.0.2 (2023-09-09) 
+* (jonaskn) A crash has been fixed (#56)
+
+### 2.0.1 (2023-09-07)
+* (Grothesk242) make compatible with Node.js 18+
+* (bluefox) a minimum node.js version is 16
+
 ### 1.0.0 (2020-04-09)
 * (foxriver76) compatibility for js-c 3
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2020 soef <soef@gmx.net>
+Copyright (c) 2016-2023 soef <soef@gmx.net> and Community developers
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
