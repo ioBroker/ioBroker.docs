@@ -401,10 +401,9 @@ gulp.task('2.downloadAdapters', () =>
         .then(content =>
             console.log(JSON.stringify(content))));
 
-gulp.task('3.downloadJsonConfig', done => {
-    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.admin/src/src/components/JsonConfigComponent/SCHEMA.md')
-        .then(result => fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/dev/adapterjsonconfig.md'), result.data));
-});
+gulp.task('3.downloadJsonConfig', () =>
+    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.admin/master/src/src/components/JsonConfigComponent/SCHEMA.md')
+        .then(result => fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/dev/adapterjsonconfig.md'), result.data)));
 
 
 gulp.task('4.downloadVisCordova', done => {

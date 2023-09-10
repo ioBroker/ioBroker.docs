@@ -25,78 +25,78 @@ All labels, texts, help texts can be multi-language or just strings.
 Possible types:
 
 - `tabs` - Tabs with items
-    - `items` - Object with panels `{"tab1": {}, "tab2": {}...}`
-
+  - `items` - Object with panels `{"tab1": {}, "tab2": {}...}`
+  
 - `panel` - Tab with items
-    - `icon` - tab can have icon (base64)
-    - `label` - Label of tab
-    - `items` - Object `{"attr1": {}, "attr2": {}}...`
-    - `collapsable` - only possible as not part of tabs
-    - `color` - color of collapsable header `primary` or `secondary` or nothing
+  - `icon` - tab can have icon (base64)
+  - `label` - Label of tab
+  - `items` - Object `{"attr1": {}, "attr2": {}}...`
+  - `collapsable` - only possible as not part of tabs
+  - `color` - color of collapsable header `primary` or `secondary` or nothing
 
 - `text` - Text component
-    - `maxLength` - max length of the text in field
-    - `readOnly` - read only field
-    - `trim` - default is true. Set this attribute to `false` if trim is not desired.
-    - `minRows` - default is 1. Set this attribute to `2` or more if you want to have a textarea with more than one row.
-    - `maxRows` - max rows of textarea. Used only if `minRows` > 1.
+  - `maxLength` - max length of the text in field
+  - `readOnly` - read only field
+  - `trim` - default is true. Set this attribute to `false` if trim is not desired.
+  - `minRows` - default is 1. Set this attribute to `2` or more if you want to have a textarea with more than one row.  
+  - `maxRows` - max rows of textarea. Used only if `minRows` > 1.  
 
 - `number`
-    - `min` - minimal value
-    - `max` - maximal value
-    - `step` - step
+  - `min` - minimal value
+  - `max` - maximal value
+  - `step` - step
 
 - `color` - color picker
 
 - `checkbox` - show checkbox
 
-- `slider` - show slider (only Admin6)
-    - `min` - (default 0)
-    - `max` - (default 100)
-    - `step` - (default `(max - min) / 100`)
-    - `unit` - Unit of slider
+- `slider` - show slider (only Admin6)              
+  - `min` - (default 0)
+  - `max` - (default 100)
+  - `step` - (default `(max - min) / 100`)
+  - `unit` - Unit of slider
 
 - `ip` - bind address
-    - `listenOnAllPorts` - add 0.0.0.0 to option
-    - `onlyIp4` - show only IP4 addresses
-    - `onlyIp6` - show only IP6 addresses
-    - `noInternal` - do not show internal IP addresses
+  - `listenOnAllPorts` - add 0.0.0.0 to option
+  - `onlyIp4` - show only IP4 addresses
+  - `onlyIp6` - show only IP6 addresses
+  - `noInternal` - do not show internal IP addresses
 
 - `user` - Select user from system.user. (With color and icon)
-    - `short` - no system.user.
+  - `short` - no system.user.
 
 - `room` - Select room from `enum.room` (With color and icon) - (only Admin6)
-    - `short` - no `enum.rooms.`
-    - `allowDeactivate` - allow letting room empty
+  - `short` - no `enum.rooms.`
+  - `allowDeactivate` - allow letting room empty
 
 - `func` - Select function from `enum.func` (With color and icon) - (only Admin6)
-    - `short` - no `enum.func.`
-    - `allowDeactivate` - allow letting functionality empty
+  - `short` - no `enum.func.`
+  - `allowDeactivate` - allow letting functionality empty
 
-- `select`
-    - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` or
-      `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
+- `select` 
+  - `options` - `[{label: {en: "option 1"}, value: 1}, ...]` or
+                `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 - `autocomplete`
-    - `options` - `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1"}, "value2", ...]`
-    - `freeSolo` - Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.
+  - `options` - `["value1", "value2", ...]` or `[{"value": "value", "label": "Value1"}, "value2", ...]`
+  - `freeSolo` - Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.
 
 - `!icon` - base64 icon
-    - `maxSize`
-    - `maxWidth`
-    - `maxHeight`
-    - `crop` - if true, allow user to crop the image (only for non svg)
-    - `square` - width must be equal to height, or crop must allow only square as shape
+  - `maxSize`
+  - `maxWidth`
+  - `maxHeight`
+  - `crop` - if true, allow user to crop the image (only for non svg)
+  - `square` - width must be equal to height, or crop must allow only square as shape
 
 - `image` - saves image as file of the `adapter.X` object or as base64 in attribute
-    - `filename` - name of file is structure name. In the below example `login-bg.png` is file name for `writeFile("myAdapter.INSTANCE", "login-bg.png")`
-    - `accept` - html accept attribute, like `image/*,.pdf`
-    - `maxSize` - maximal size of file to upload
-    - `base64` - if true the image will be saved as data-url in attribute, elsewise as binary in file storage
-    - `!maxWidth`
-    - `!maxHeight`
-    - `!crop` - if true, allow user to crop the image
-    - `!square` - width must be equal to height, or crop must allow only square as shape
+  - `filename` - name of file is structure name. In the below example `login-bg.png` is file name for `writeFile("myAdapter.INSTANCE", "login-bg.png")`
+  - `accept` - html accept attribute, like `image/*,.pdf`
+  - `maxSize` - maximal size of file to upload
+  - `base64` - if true the image will be saved as data-url in attribute, elsewise as binary in file storage
+  - `!maxWidth`
+  - `!maxHeight`
+  - `!crop` - if true, allow user to crop the image
+  - `!square` - width must be equal to height, or crop must allow only square as shape
 ```
   "login-bg.png": {
        "type": "image",
@@ -122,16 +122,16 @@ Possible types:
     - `types` - Desired type: `channel`, `device`, ... (has only `state` by default). It is singular, because `type` is already occupied.
     - `root` - [optional] Show only this root object and its children
     - `customFilter` - [optional] Cannot be used together with `type` settings. Examples
-      `{common: {custom: true}}` - show only objects with some custom settings
-      `{common: {custom: 'sql.0'}}` - show only objects with sql.0 custom settings (only of the specific instance)
-      `{common: {custom: '_dataSources'}}` - show only objects of adapters `influxdb` or `sql` or `history`
-      `{common: {custom: 'adapterName.'}}` - show only objects of custom settings of specific adapter (all instances)
-      `{type: 'channel'}` - show only channels
-      `{type: ['channel', 'device']}` - show only channels and devices
-      `{common: {type: 'number'}` - show only states of type 'number
-      `{common: {type: ['number', 'string']}` - show only states of type 'number and string
-      `{common: {role: 'switch']}` - show only states with roles starting from switch
-      `{common: {role: ['switch', 'button]}` - show only states with roles starting from `switch` and `button`
+       `{common: {custom: true}}` - show only objects with some custom settings
+       `{common: {custom: 'sql.0'}}` - show only objects with sql.0 custom settings (only of the specific instance)
+       `{common: {custom: '_dataSources'}}` - show only objects of adapters `influxdb` or `sql` or `history`
+       `{common: {custom: 'adapterName.'}}` - show only objects of custom settings of specific adapter (all instances)
+       `{type: 'channel'}` - show only channels
+       `{type: ['channel', 'device']}` - show only channels and devices
+       `{common: {type: 'number'}` - show only states of type 'number
+       `{common: {type: ['number', 'string']}` - show only states of type 'number and string
+       `{common: {role: 'switch']}` - show only states with roles starting from switch
+       `{common: {role: ['switch', 'button]}` - show only states with roles starting from `switch` and `button`
 
 - `password` - password field
   This field-type just have an effect in the UI.
@@ -295,7 +295,7 @@ Possible types:
     - `command` - sendTo command
     - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to backend
     - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to backend if jsonData is not defined.
-      Example of code in back-end:
+  Example of code in back-end:
 ```
 adapter.on('message', obj => {
     if (obj.command === 'send') {
@@ -353,26 +353,26 @@ adapter.on('message', obj => {
 
 - `autocompleteSendTo`
   Shows autocomplete control with the given from the instance values.
-    - `command` - sendTo command
-    - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend
-    - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.
-    - `freeSolo` - Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.
-    - `alsoDependsOn` - by change of which attributes, the command must be resent
-    - `maxLength` - max length of the text in field
-      To use this option, your adapter must implement message handler:
-      The result of command must be an array in form `["value1", {"value": "value2", "label": "Value2"}, ...]`
-      See `selectSendTo` for handler example
+  - `command` - sendTo command
+  - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend
+  - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.
+  - `freeSolo` - Set `freeSolo` to `true`, so the textbox can contain any arbitrary value.
+  - `alsoDependsOn` - by change of which attributes, the command must be resent
+  - `maxLength` - max length of the text in field
+  To use this option, your adapter must implement message handler:
+    The result of command must be an array in form `["value1", {"value": "value2", "label": "Value2"}, ...]`
+    See `selectSendTo` for handler example
 
 - `textSendTo`
   Shows readonly control with the given from the instance values.
-    - `container` - div, text
-    - `copyToClipboard` - if true - show button
-    - `alsoDependsOn` - by change of which attributes, the command must be resent
-    - `command` - sendTo command
-    - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend
-    - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.
-      To use this option, your adapter must implement a message handler:
-      The result of command must be a string.
+  - `container` - div, text
+  - `copyToClipboard` - if true - show button
+  - `alsoDependsOn` - by change of which attributes, the command must be resent
+  - `command` - sendTo command
+  - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. This data will be sent to the backend
+  - `data` - object - `{"subject1": 1, "data": "static"}`. You can specify jsonData or data, but not both. This data will be sent to the backend if jsonData is not defined.
+  To use this option, your adapter must implement a message handler:
+    The result of command must be a string.
 ```
 adapter.on('message', obj => {
     if (obj) {
@@ -387,22 +387,22 @@ adapter.on('message', obj => {
 
 - `coordinates`
   Determines current location and used `system.config` coordinates if not possible in form "latitude,longitude"
-    - `divider` - divider between latitude and longitude. Default "," (Used if longitudeName and latitudeName are not defined)
-    - `autoInit` - init field with current coordinates if empty
-    - `longitudeName` - if defined, the longitude will be stored in this attribute, divider will be ignored
-    - `latitudeName` - if defined, the latitude will be stored in this attribute, divider will be ignored
-    - `useSystemName` - if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from system.config, a boolean will be saved to the given name
+  - `divider` - divider between latitude and longitude. Default "," (Used if longitudeName and latitudeName are not defined)
+  - `autoInit` - init field with current coordinates if empty
+  - `longitudeName` - if defined, the longitude will be stored in this attribute, divider will be ignored
+  - `latitudeName` - if defined, the latitude will be stored in this attribute, divider will be ignored
+  - `useSystemName` - if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from system.config, a boolean will be saved to the given name
 
 - `license` - shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
-    - `texts` - array of paragraphs with texts, which will be shown each as a separate paragraph
-    - `licenseUrl` - URL to the license file (e.g. https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE)
-    - `title` - Title of the license dialog
-    - `agreeText` - Text of the agreed button
-    - `checkBox` - If defined, the checkbox with the given name will be shown. If checked, the agreed button will be enabled.
+  - `texts` - array of paragraphs with texts, which will be shown each as a separate paragraph
+  - `licenseUrl` - URL to the license file (e.g. https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE)
+  - `title` - Title of the license dialog
+  - `agreeText` - Text of the agreed button
+  - `checkBox` - If defined, the checkbox with the given name will be shown. If checked, the agreed button will be enabled.
 
 - `checkLicense` - Very special component to check the license online. It's required exactly `license` and `useLicenseManager` properties in native.
-    - `uuid` - Check UUID
-    - `version` - Check version
+  - `uuid` - Check UUID
+  - `version` - Check version
 
 - `uuid` - Show iobroker UUID
 - `port` - Special input for ports. It checks automatically if port is used by other instances and shows a warning
@@ -424,7 +424,7 @@ All types could have:
 - `helpLink` - href to help (could be used only together with `help`)
 - `icon` - base64 svg
 - `!encrypted` - is value encrypted or not (of course only for texts)
-    - if encrypted, use `__encrypted__` value for show and if was changed, encrypt it with `socket.encrypt`
+  - if encrypted, use `__encrypted__` value for show and if was changed, encrypt it with `socket.encrypt`
 - `style` - css style in ReactJS notation: `radiusBorder` and not `radius-border`.
 - `darkStyle` - css style for dark mode
 - `validator` - JS function: true no error, false - error
@@ -434,25 +434,25 @@ All types could have:
 - `default` - default value
 - `defaultFunc` - JS function to calculate default value
 - `defaultSendTo` - command to request initial value from running instance, example: `"myInstance": {"type": "text", "defaultSendTo": "fill"}`
-    - `data` - static data
-    - `jsonData` - static data
-    - if no `data` and `jsonData` defined, the following info will be sent `{"attr": "<attribute name>", "value": "<current value>"}`
-    - `button` - button label to re-trigger request from instance
-    - `buttonTooltip` - Button tooltip (default: `Request data by instance`)
-    - `buttonTooltipNoTranslation` - Do not translate button tooltip
+  - `data` - static data
+  - `jsonData` - static data
+  - if no `data` and `jsonData` defined, the following info will be sent `{"attr": "<attribute name>", "value": "<current value>"}`
+  - `button` - button label to re-trigger request from instance
+  - `buttonTooltip` - Button tooltip (default: `Request data by instance`)
+  - `buttonTooltipNoTranslation` - Do not translate button tooltip
 - `placeholder` - placeholder (for text control)
 - `noTranslation` - do not translate selects or other options (not for help, label or placeholder)
 - `onChange` - Structure in form `{"alsoDependsOn": ["attr1", "attr2], "calculateFunc": "attr1 + attr2", "ignoreOwnChanges": true}`
 - `doNotSave` - Do not save this attribute as used only for internal calculations
 - `noMultiEdit` - if this flag set to true, this field will not be shown if user selected more than one object for edit.
 - `confirm`
-    - `condition` - JS function: true show confirm dialog
-    - `text` - text of confirmation dialog
-    - `title` - title of confirmation dialog
-    - `ok` - Text for OK button
-    - `cancel` - Text for Cancel button
-    - `type` - One of: `info`, `warning`, `error`, `none`
-    - `alsoDependsOn` - array with attributes, to check the condition by these attributes too
+  - `condition` - JS function: true show confirm dialog
+  - `text` - text of confirmation dialog
+  - `title` - title of confirmation dialog
+  - `ok` - Text for OK button
+  - `cancel` - Text for Cancel button
+  - `type` - One of: `info`, `warning`, `error`, `none`
+  - `alsoDependsOn` - array with attributes, to check the condition by these attributes too
 
 ```
 {
@@ -613,7 +613,7 @@ or
 }
 ```
 
-We suggest using the second variant, as it will be possible to process the texts with Weblate.
+We suggest using variant 2, as it will be possible to process the texts with Weblate.
 
 ## JS Functions
 ### Configuration dialog
@@ -693,7 +693,6 @@ The following variables are available in JS function in custom settings:
     onError={error => error can be true/false or text}
 />
 ```
-You can find examples in [`telegram`](https://github.com/iobroker-community-adapters/ioBroker.telegram/tree/master/src-admin) or in [`pushbullet`](https://github.com/Jens1809/ioBroker.pushbullet/tree/master/src-admin) adapter.
 
 ## Schema
 Schema is [here](https://github.com/ioBroker/adapter-react-v5/tree/master/schemas)
