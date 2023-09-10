@@ -19,7 +19,7 @@ const utils         = require('./build-lib/utils');
 const EMPTY = '';
 const fileName = 'temp_words.js';
 
-const dir = __dirname + '/front-end/src/i18n/';
+const dir = `${__dirname}/front-end/src/i18n/`;
 const languages = {
     en: {},
     de: {},
@@ -81,11 +81,11 @@ function writeWordJs(data, src) {
     text += 'systemDictionary = {\n';
     for (const word in data) {
         if (data.hasOwnProperty(word)) {
-            text += `    ${padRight('"' + word.replace(/"/g, '\\"') + '": {', 50)}`;
+            text += `    ${padRight(`"${word.replace(/"/g, '\\"')}": {`, 50)}`;
             let line = '';
             for (const lang in data[word]) {
                 if (data[word].hasOwnProperty(lang)) {
-                    line += `"${lang}": "${padRight(data[word][lang].replace(/"/g, '\\"') + '",', 50)} `;
+                    line += `"${lang}": "${padRight(`${data[word][lang].replace(/"/g, '\\"')}",`, 50)} `;
                 }
             }
             if (line) {
@@ -108,20 +108,24 @@ function languagesFlat2words(src) {
         const posA = order.indexOf(a);
         const posB = order.indexOf(b);
         if (posA === -1 && posB === -1) {
-            if (a > b)
+            if (a > b) {
                 return 1;
-            if (a < b)
+            }
+            if (a < b) {
                 return -1;
+            }
             return 0;
         } else if (posA === -1) {
             return -1;
         } else if (posB === -1) {
             return 1;
         } else {
-            if (posA > posB)
+            if (posA > posB) {
                 return 1;
-            if (posA < posB)
+            }
+            if (posA < posB) {
                 return -1;
+            }
             return 0;
         }
     });
@@ -167,7 +171,6 @@ function languagesFlat2words(src) {
                 });
             }
         }
-
     }
 
     writeWordJs(bigOne, src);
@@ -311,7 +314,7 @@ gulp.task('translate', async function () {
         for (let l in languages) {
             if (!languages.hasOwnProperty(l)) continue;
 
-            console.log('Translate Text: ' + l);
+            console.log(`Translate Text: ${l}`);
             let existing = {};
             if (fs.existsSync(`./front-end/src/i18n/${l}.json`)) {
                 existing = require(`./front-end/src/i18n/${l}.json`);
@@ -342,9 +345,7 @@ gulp.task('downloadAndSyncOne', done => {
         .then(content => {
             documentation.syncDocs(`iobroker.${ADAPTER_NAME}`, () => {
                 Promise.all(consts.LANGUAGES.map(lang => adapters.copyAdapterToFrontEnd(lang, ADAPTER_NAME)))
-                    .then(() => {
-                        done();
-                    });
+                    .then(() => done());
             });
         });
 
@@ -400,7 +401,13 @@ gulp.task('2.downloadAdapters', () =>
         .then(content =>
             console.log(JSON.stringify(content))));
 
-gulp.task('3.downloadVisCordova', done => {
+gulp.task('3.downloadJsonConfig', done => {
+    axios('https://raw.githubusercontent.com/ioBroker/ioBroker.admin/src/src/components/JsonConfigComponent/SCHEMA.md')
+        .then(result => fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/dev/adapterjsonconfig.md'), result.data));
+});
+
+
+gulp.task('4.downloadVisCordova', done => {
     axios('https://raw.githubusercontent.com/ioBroker/ioBroker.vis.cordova/master/README.md')
         .then(result => {
             fs.writeFileSync(path.join(consts.SRC_DOC_DIR, 'en/viz/app.md'),
@@ -419,18 +426,18 @@ gulp.task('3.downloadVisCordova', done => {
 });
 
 // translate all documents: adapters and docu
-gulp.task('4.syncDocs', done => documentation.syncDocs(done));
+gulp.task('5.syncDocs', done => documentation.syncDocs(done));
 
 // combine
-gulp.task('5.faq', done => faq.processFiles(consts.SRC_DOC_DIR).then(() => done()));
+gulp.task('6.faq', done => faq.processFiles(consts.SRC_DOC_DIR).then(() => done()));
 
 // Build content.md file
-gulp.task('6.documentation', () =>
+gulp.task('7.documentation', () =>
     // build content
     documentation.processContent(path.join(consts.SRC_DOC_DIR, 'content.md')));
 
 // copy all docs/LN/adapterref/* => engine/front-end/public/LN/adapterref/*
-gulp.task('7.copyFiles', () =>
+gulp.task('8.copyFiles', () =>
     Promise.all([adapters.copyAllAdaptersToFrontEnd(), documentation.processFiles(consts.SRC_DOC_DIR)]));
 
 function scanDir(folder, root, result) {
@@ -452,7 +459,7 @@ function scanDir(folder, root, result) {
     return result;
 }
 
-gulp.task('8.createSitemap', done => {
+gulp.task('9.createSitemap', done => {
     const root = 'https://doc.iobroker.net/';
     const links = [
         '#{lang}/download',
@@ -483,7 +490,7 @@ gulp.task('8.createSitemap', done => {
     // generate file
     let lines = [];
     links.forEach(l => {
-        if (l.indexOf('{lang}') !== -1) {
+        if (l.includes('{lang}')) {
             consts.LANGUAGES.forEach(lang => lines.push(root + l.replace('{lang}', lang)));
         } else {
             lines.push(root + l);
@@ -493,7 +500,7 @@ gulp.task('8.createSitemap', done => {
     done();
 });
 
-gulp.task('9.build', done => {
+gulp.task('10.build', done => {
     const { exec } = require('child_process');
     const SRC_DATA_DIR = `${__dirname}/front-end/build/data`;
     const TGT_DATA_DIR = `${__dirname}/front-end/data`;
@@ -538,22 +545,23 @@ gulp.task('default', gulp.series(
     '0.clean',              // clean dir
     '1.blog',               // translate and copy blogs
     '2.downloadAdapters',   // download all adapters and create adapter.json
-    '3.downloadVisCordova', // download app documentation
-    '4.syncDocs',           // translate documents and adapters
-    '5.faq',                // combine FAQ together
-    '6.documentation',      // create content for documentation
-    '7.copyFiles',          // copy all adapters and docs to public
-    '8.createSitemap',      // create site-map for google
-    '9.build'               // build react site
+    '3.downloadJsonConfig', // download app documentation
+    '4.downloadVisCordova', // download app documentation
+    '5.syncDocs',           // translate documents and adapters
+    '6.faq',                // combine FAQ
+    '7.documentation',      // create content for documentation
+    '8.copyFiles',          // copy all adapters and docs to public
+    '9.createSitemap',      // create site-map for google
+    '10.build'               // build react site
 ));
 
 gulp.task('buildOnly', gulp.series(
     '0.clean',              // clean dir
     '1.blog',               // translate and copy blogs
-    '5.faq',                // combine FAQ together
-    '6.documentation',      // create content for documentation
-    '7.copyFiles',          // copy all adapters and docs to public
-    '9.build'               // build react site
+    '6.faq',                // combine FAQ
+    '7.documentation',      // create content for documentation
+    '8.copyFiles',          // copy all adapters and docs to public
+    '10.build'               // build react site
 ));
 
 

@@ -126,6 +126,7 @@
     * [WebStorm](dev/webstorm)
     * [VS Code](dev/vscode)
   * [Adapter reference](dev/adapterref)
+  * [JSON config](dev/adapterjsonconfig)
   * [Object schema](dev/objectsschema)
   * [en:State roles;de:Zustandsrollen;ru:Роли состояний;zh-cn:国家角色](dev/stateroles)
   * [Aliases](dev/aliases)
