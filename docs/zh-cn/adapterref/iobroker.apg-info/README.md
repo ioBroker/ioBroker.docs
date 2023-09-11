@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-信息
-hash: y2hUSfwHLjsonpvMM8jvQjjvYP1lqlRZ9wezy5eVZbo=
+hash: kKMb1dxFc/rDAhwj4SwKf/sZmTvLYcKs86zSPWHBhF4=
 ---
 ![标识](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -21,10 +21,10 @@ hash: y2hUSfwHLjsonpvMM8jvQjjvYP1lqlRZ9wezy5eVZbo=
 ## IoBroker 的 apg-info 适配器
 该适配器为奥地利电网提供高峰时间，避免电力消耗。此外，该适配器还提供奥地利的 PHELIX-AT 日前（EPEX 现货）价格。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## 需要
-* NodeJS 14.16 或更高版本
+* NodeJS 16 或更高版本
 * ioBroker 主机（js-controller）4.0 或更高版本
 
 ## Changelog
@@ -32,8 +32,8 @@ hash: y2hUSfwHLjsonpvMM8jvQjjvYP1lqlRZ9wezy5eVZbo=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.1-alpha.9 (2023-07-03)
-* (HGlab01) preparing first release
+### 0.0.1 (2023-09-11)
+* (HGlab01) first release
 
 ## License
 MIT License

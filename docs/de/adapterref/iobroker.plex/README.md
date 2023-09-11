@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
+hash: K5ET/VY6xyAMIImuN+ozU3Spxy4k4ijIBIzTguT6J0I=
 ---
 ![Logo](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -15,9 +15,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 ![NPM](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
 # IoBroker.plex Integration des Plex Media Servers in ioBroker (mit oder ohne Plex Pass). Darüber hinaus Tautulli-Integration.
-[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
-
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Inhaltsverzeichnis**
 
@@ -33,7 +31,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 
 ## 1. Funktionen
 - Erhalten Sie detaillierte Medieninformationen zum aktuell wiedergegebenen Medienelement (z. B. Videobitrate, Codec, Untertitelinformationen, Audio; siehe [Erweiterte Einrichtung](https://github.com/iobroker-community-adapters/ioBroker.plex/blob/ (master/README-states.md#with-advanced-setup) für eine vollständige Liste)
-- Empfangen Sie „Ereignisse“ von Plex (über [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) und [Plex-Benachrichtigungen](https://support.plex.tv). /articles/push-notifications/#toc-0) mit Plex Pass oder über Tautulli, [__siehe Setup!__](#22-advanced-setup-plex-pass-or-tautulli))
+- Empfangen Sie „Ereignisse“ von Plex (über [Plex Webhook](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) und [Plex Notifications](https://support.plex.tv). /articles/push-notifications/#toc-0) mit Plex Pass oder über Tautulli, [__siehe Setup!__](#22-advanced-setup-plex-pass-or-tautulli))
 - Wiedergabesteuerung für Spieler
 - Rufen Sie „Server“ ab
 - Rufen Sie „Bibliotheken“ ab
@@ -42,6 +40,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 - „Statistiken“ abrufen (nur mit Tautulli)
 - Rufen Sie „Wiedergabelisten“ ab
 - „Einstellungen“ abrufen
+- Rufen Sie alle Daten von steuerbaren Clients ab
 - Webinterface, das die neuesten Ereignisse von Plex anzeigt:
 
   ![Plex-Webschnittstelle](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
@@ -95,7 +94,7 @@ Um ein Webbook mit Tautulli einzurichten, befolgen Sie die nachstehenden Anweisu
 ![Tautulli Webhook](../../../en/adapterref/iobroker.plex/img/screenshot_tautulli-webhook.png) Wählen Sie außerdem ```POST``` für die _Webhook-Methode_ und geben Sie unter _Beschreibung_ eine beliebige Beschreibung ein.
 
 3. Gehen Sie als Nächstes zur Registerkarte „Trigger“ und wählen Sie die gewünschten (oder einfach alle) Benachrichtigungsagenten aus. Ein aktivierter Benachrichtigungsagent löst ein Ereignis aus, das dann an ioBroker gesendet wird. __Stellen Sie sicher, dass__ im nächsten Schritt die erforderlichen Daten für jeden aktivierten Benachrichtigungsagenten angegeben werden!
-4. Geben Sie nun __am wichtigsten__ die entsprechende Datennutzlast in der Registerkarte _Daten_ entsprechend der __[Benachrichtigungskonfiguration hier gefunden](README-tautulli.md#notification-configuration)__ ein.
+4. Geben Sie nun __am wichtigsten__ die entsprechende Datennutzlast in der Registerkarte _Daten_ ein, entsprechend der __[Benachrichtigungskonfiguration, die Sie hier finden](README-tautulli.md#notification-configuration)__.
 
    Kopieren Sie die Benachrichtigungskonfiguration der relevanten Benachrichtigungsagenten aus dem vorherigen Schritt (z. B. ```Playback Start```, ```Playback Stop```, ```Playback Pause``` und ```Playback Resume```) in jedes der Textfelder, wie unten für § gezeigt. §JJJJ_4§§:
 
@@ -136,6 +135,12 @@ Dieser Adapter wäre ohne die großartige Arbeit von @Zefau (https://github.com/
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-09-11)
+- (ticaki) Added: Lyrics are written as link and text in _playing.device.Metadata.Music.Lyric
+- (ticaki) Added: Connection to players with refresh of playerdetail
+- (ticaki) Added: New states with player data.
+- (ticaki) Added: Refresh of player can be activate by set _Controls.timeline.refreshDetails to true
+
 ### 1.0.5 (2023-08-31)
 - (ticaki) Fixed: Control did not work with Plexamp.
 - (ticaki) some minor improvements.

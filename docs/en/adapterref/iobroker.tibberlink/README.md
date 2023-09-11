@@ -25,8 +25,8 @@ If you're not a Tibber user right now, it's greatly appreciated when you're usin
 ## Configuration
 1. Create a new instance of the adapter
 2. You will also need an API token from Tibber. Get it here: [https://developer.tibber.com/](https://developer.tibber.com/)
-3. Fill in your Tibber API token
-4. Choose to also pull data from your Tibber Pulse  -  !! Only working if hardware is installed
+3. Fill in your Tibber API token -> save config to restart the adapter
+4. Choose the homes to also pull live data from your Tibber Pulse  -  !! Only working if hardware is installed
 5. Save the settings
 
 ## Notes
@@ -35,8 +35,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.2.8 (2023-09-WORK in PROGRESS)
-* (HombachC) optimize code again to mitigate set state timing for long JSON states (#68) 
+### 0.3.0 (2023-09-WORK in PROGRESS)
+* (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
+* (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
 * (HombachC) preparations for tibber calculator
 ### 0.2.7 (2023-09-07)
 * (HombachC) reducing polls at Tibber server by precheck of current price data

@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/history/history.md
 title: 什么是新的
-hash: 41VX/vVrPIsPAQ9kWvOhW2R7yBHRExmxyTskHtg1hLY=
+hash: ef6eMWMuY5hWeMvtpZEtxnxmJacCYJaffVmAObfjnuE=
 ---
 ＃ 什么是新的
 ## Vis-2-widgets-material (2023-09-10)
@@ -18,4 +18,4 @@ hash: 41VX/vVrPIsPAQ9kWvOhW2R7yBHRExmxyTskHtg1hLY=
  ![JSON 配置](../../de/history/media/2023_09_10_pushbullet.png)
 
 ## JSON 配置文档
-JSON-Config 文档 [已添加]() 到 ioBroker 网页。
+* (bluefox) JSON-Config 文档[添加]到ioBroker 网页(https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md)。

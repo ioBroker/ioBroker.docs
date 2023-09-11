@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: cWrHtGghV+tWk8SBfeWecFwIkzPfwCU5Qv403t3MxWA=
+hash: k2fkSaJpy/zfa4W/w1v59WpKBZXrQgFC6KXNau26fog=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -18,6 +18,8 @@ hash: cWrHtGghV+tWk8SBfeWecFwIkzPfwCU5Qv403t3MxWA=
 
 ## Tinymqttbroker-Adapter für ioBroker
 Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen. Sehr hilfreich, um mehrere Geräte mit einem Broker kommunizieren zu lassen und auf iobroker mit einem MQTT-Client-Javascript zu interagieren.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 So könnte ein MQTT-Client aussehen
 
@@ -89,7 +91,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.5-alpha.0 (2023-07-03)
+### 0.0.5 (2023-09-11)
+* (HGlab01) add sentry support
+
+### 0.0.4(2023-06-30)
 * (HGlab01) first release
 
 ## License

@@ -324,6 +324,10 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.0.0 (2023-09-10)
+* (bluefox) Updated packages
+* (bluefox) Breaking change: minimal supported node.js version is 16.x
+
 ### 1.9.26 (2023-02-03)
 * (bluefox) Corrected widget
 
@@ -335,9 +339,6 @@ ioBroker的官方适配器数量已经相当可观。 当然，网上还有更�
 
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
-
-### 1.9.22 (2022-11-21)
-* (bluefox) Corrected widget
 
 ## License
 The MIT License (MIT)

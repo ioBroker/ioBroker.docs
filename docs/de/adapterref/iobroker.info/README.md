@@ -314,6 +314,10 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.0.0 (2023-09-10)
+* (bluefox) Updated packages
+* (bluefox) Breaking change: minimal supported node.js version is 16.x
+
 ### 1.9.26 (2023-02-03)
 * (bluefox) Corrected widget
 
@@ -325,9 +329,6 @@ Forumeinträge werde ohne Probleme angezeigt, wenn man auf ioBroker per IP oder 
 
 ### 1.9.23 (2022-12-06)
 * (bluefox) Packages were updated
-
-### 1.9.22 (2022-11-21)
-* (bluefox) Corrected widget
 
 ## License
 The MIT License (MIT)

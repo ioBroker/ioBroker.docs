@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
+hash: K5ET/VY6xyAMIImuN+ozU3Spxy4k4ijIBIzTguT6J0I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -15,9 +15,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 ![НПМ](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
 # IoBroker.plex Интеграция Plex Media Server в ioBroker (с Plex Pass или без него). Кроме того, интеграция Таутулли.
-[![Трэвис CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
-
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Трэвис CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Оглавление**
 
@@ -42,6 +40,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 - Получить `статистику` (только с Таутулли)
 - Получить `плейлисты`
 - Получить `настройки`
+- Получение всех данных от контролируемых клиентов
 - Веб-интерфейс, показывающий последние события из Plex:
 
   ![Веб-интерфейс Plex](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
@@ -58,7 +57,7 @@ __Вебхук__
 
 Если вы являетесь пользователем Plex Pass, вы можете [настроить вебхук](https://support.plex.tv/articles/115002267687-webhooks/#toc-0) в настройках Plex, чтобы получить текущее событие/действие с вашего Plex Media Server (воспроизведение, пауза, возобновление, остановка, просмотр и оценка).
 
-Перейдите на свой Plex Media Server и перейдите к ```Settings``` и ```Webhook```. Создал новый вебхук, щелкнув ```Add Webhook``` и введя свой IP-адрес ioBroker с настраиваемым портом, указанным в настройках ioBroker.plex, и конечным путем ```/plex```, например: ```http://192.168.178.29:41891/plex```:
+Перейдите на свой Plex Media Server и перейдите к ```Settings``` и ```Webhook```. Создал новый вебхук, щелкнув ```Add Webhook``` и введя свой IP-адрес ioBroker с настраиваемым портом, указанным в настройках ioBroker.plex, и конечным путем ```/plex```, например. ```http://192.168.178.29:41891/plex```:
 
 ![Плекс Вебхук](../../../en/adapterref/iobroker.plex/img/screenshot_plex-webhook.png)
 
@@ -136,6 +135,12 @@ __События__
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-09-11)
+- (ticaki) Added: Lyrics are written as link and text in _playing.device.Metadata.Music.Lyric
+- (ticaki) Added: Connection to players with refresh of playerdetail
+- (ticaki) Added: New states with player data.
+- (ticaki) Added: Refresh of player can be activate by set _Controls.timeline.refreshDetails to true
+
 ### 1.0.5 (2023-08-31)
 - (ticaki) Fixed: Control did not work with Plexamp.
 - (ticaki) some minor improvements.

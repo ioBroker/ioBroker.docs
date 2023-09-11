@@ -18,7 +18,7 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 14.16 or higher
+* NodeJS 16 or higher
 * ioBroker host (js-controller) 4.0 or higher
 
 ## Changelog
@@ -26,8 +26,8 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.1-alpha.9 (2023-07-03)
-* (HGlab01) preparing first release
+### 0.0.1 (2023-09-11)
+* (HGlab01) first release
 
 ## License
 MIT License

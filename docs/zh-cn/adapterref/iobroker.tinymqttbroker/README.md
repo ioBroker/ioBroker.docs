@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: cWrHtGghV+tWk8SBfeWecFwIkzPfwCU5Qv403t3MxWA=
+hash: k2fkSaJpy/zfa4W/w1v59WpKBZXrQgFC6KXNau26fog=
 ---
 ![标识](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -18,6 +18,8 @@ hash: cWrHtGghV+tWk8SBfeWecFwIkzPfwCU5Qv403t3MxWA=
 
 ## IoBroker 的tinymqttbroker 适配器
 这是一个非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供一个中央 MQTT 代理实例来作为 MQTT 客户端发布订阅主题。让多个设备与一个代理通信并使用 MQTT 客户端 JavaScript 在 iobroker 上进行交互非常有帮助。
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 MQTT 客户端可能看起来像
 
@@ -89,7 +91,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.5-alpha.0 (2023-07-03)
+### 0.0.5 (2023-09-11)
+* (HGlab01) add sentry support
+
+### 0.0.4(2023-06-30)
 * (HGlab01) first release
 
 ## License

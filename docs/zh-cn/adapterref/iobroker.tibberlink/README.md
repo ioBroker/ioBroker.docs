@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: OBo1uXBP212CGq4pe3o2GO8pui2BDrOqS3OAOyg7z04=
+hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -28,16 +28,37 @@ hash: OBo1uXBP212CGq4pe3o2GO8pui2BDrOqS3OAOyg7z04=
 ＃＃ 配置
 1. 创建适配器的新实例
 2. 您还需要 Tibber 提供的 API 令牌。在这里获取：[https://developer.tibber.com/](https://developer.tibber.com/)
-3. 填写您的 Tibber API 令牌
-4. 选择同时从 Tibber Pulse 中提取数据 -!!仅在安装硬件后才有效
+3. 填写您的 Tibber API 令牌 -> 保存配置以重新启动适配器
+4. 选择还可以从您的 Tibber Pulse 中提取实时数据的房屋 -!!仅在安装硬件后才有效
 5. 保存设置
 
 ## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 0.3.0 (2023-09-WORK in PROGRESS)
+* (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
+* (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
+* (HombachC) preparations for tibber calculator
+### 0.2.7 (2023-09-07)
+* (HombachC) reducing polls at Tibber server by precheck of current price data
+* (HombachC) preparations for tibber calculator
+### 0.2.6 (2023-09-04)
+* (HombachC) fix error with boolean states
+### 0.2.5 (2023-09-03)
+* (HombachC) optimize code to mitigate set state timing for long JSON states (#68) 
+### 0.2.4 (2023-08-30)
+* (HombachC) enable correct price poll also for adapter running in different timezones (#63) 
+### 0.2.3 (2023-08-27)
+* (HombachC) fix error in 0.2.2 in start conditions of adapter
+### 0.2.2 (2023-08-24)
+* (HombachC) reducing polls at Tibber server by precheck of known data
+* (HombachC) code optimizations
+* (HombachC) fix config screen (#55)
+### 0.2.1 (2023-08-21)
+* (HombachC) double timeout for Tibber server queries
 ### 0.2.0 (2023-08-18)
 * (HombachC) introduces JSONs for prices sorted by price ascending
 * (HombachC) fix stupid error for obsolete next day pricing (#23, #50)

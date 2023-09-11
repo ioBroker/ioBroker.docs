@@ -76,6 +76,7 @@ lettering of the log appears in red.
 ## Changelog
 ### **WORK IN PROGRESS**
 * (foxriver76) fixed `between` function for showing news
+* (foxriver76) if date string is not parseable show the original string instead of `Invalid Date`
 
 ### 6.10.0 (2023-09-08)
 * (foxriver76) various minor improvements

@@ -45,43 +45,42 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
-* (Andreas Ruttkamp) Connection state bei Stop des Adapters zurückgesetzt
-* (Andreas Ruttkamp) Connection state bei Start des Adapters nochmals angepasst
+### 1.2.0 (2023-09-11)
+* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) depencies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state korrigiert
+* (Andreas Ruttkamp) Connection state corrected
 
 ### 1.1.6 (2023-08-23)
-* (Andreas Ruttkamp) rct_core.js entfernt (wurde durch rct_core2 ersetzt)
-* (Andreas Ruttkamp) Parameter die nicht unterstützt werden aus Defaultbelegung entfernt.
+* (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
+* (Andreas Ruttkamp) parameters in default setting deleted 
 * (Andreas Ruttkamp) min. Node 18
 
 ### 1.1.5 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
-* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+* (Andreas Ruttkamp) Fix: crash reading UInt8 corrected
+* (Andreas Ruttkamp) some cleaning actions
 
 ### 1.1.4 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+* (Andreas Ruttkamp) Fix: proofments corrected.
 
 ### 1.1.3 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+* (Andreas Ruttkamp) Fix: more data proofments implemented
 
 ### 1.1.2 (2023-08-17)
-* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+* (Andreas Ruttkamp) Fix: crash adapter
 
 ### 1.1.1 (2023-08-17)
-* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
-* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
+* (Andreas Ruttkamp) data for g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp added
+* (Andreas Ruttkamp) more parameters added. 
 * (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
 * (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
-* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+* (Andreas Ruttkamp) instance crash if data failure fixed
 
 ### 1.0.5 (2023-07-29)
-* (Andreas Ruttkamp) interne Arbeiten
-* (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
-* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
+* (Andreas Ruttkamp) some intern work
+* (Andreas Ruttkamp) preparation for new admin
+* (Andreas Ruttkamp) dependecies update
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components

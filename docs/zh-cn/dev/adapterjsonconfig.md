@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: 3b5laR6XRnAsBaL2XM30/xCa9fg0OcqaW1ch6misfQM=
+hash: qufDhnsOFjQzXYCUb/DFcLplumUdj+3yWhae9qcoq0Q=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -24,6 +24,9 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 ```
 
 说明适配器支持 JSON 配置。
+
+如果测试此适配器，您可以看到几乎所有正在运行的组件：https://github.com/mcm1957/ioBroker.jsonconfig-demo。
+您可以通过管理中的 GitHub 图标安装它，方法是在 npm 选项卡上输入 `iobroker.jsonconfig-demo`。
 
 所有标签、文本、帮助文本都可以是多语言的或只是字符串。
 
@@ -412,7 +415,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则用当前坐标初始化字段
+  - `autoInit` - 如果为空，则使用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
@@ -422,7 +425,7 @@ adapter.on('message', obj => {
   - `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
   - `title` - 许可证对话框的标题
   - `agreeText` - 同意按钮的文本
-  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，则将启用同意的按钮。
+  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，同意的按钮将被启用。
 
 - `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要原生的 `license` 和 `useLicenseManager` 属性。
   - `uuid` - 检查 UUID

@@ -8,9 +8,9 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 [![Commits since last release](https://img.shields.io/github/commits-since/Zefau/ioBroker.plex/latest.svg)](https://github.com/iobroker-community-adapters/ioBroker.plex/releases/latest)
 [![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.plex.svg)](https://www.npmjs.com/package/iobroker.plex)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.plex.png?downloads=true)](https://nodei.co/npm/iobroker.plex/) 
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **Table of contents**
 1. [Features](#1-features)
@@ -35,6 +35,7 @@ Integration of the Plex Media Server in ioBroker (with or without Plex Pass). Fu
 - Retrieve `statistics` (only with Tautulli)
 - Retrieve `playlists`
 - Retrieve `settings`
+- Retrieve all data from controllable clients
 - Web Interface that shows the recent events from Plex:
   ![Plex Web Interface](img/screenshot_adapter-interface.png)
 
@@ -132,7 +133,8 @@ This adapter would not have been possible without the great work of @Zefau (http
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.1.0 (2023-09-11)
+- (ticaki) Added: Lyrics are written as link and text in _playing.device.Metadata.Music.Lyric
 - (ticaki) Added: Connection to players with refresh of playerdetail
 - (ticaki) Added: New states with player data.
 - (ticaki) Added: Refresh of player can be activate by set _Controls.timeline.refreshDetails to true

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: y2hUSfwHLjsonpvMM8jvQjjvYP1lqlRZ9wezy5eVZbo=
+hash: kKMb1dxFc/rDAhwj4SwKf/sZmTvLYcKs86zSPWHBhF4=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -24,7 +24,7 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 14.16 oder höher
+* NodeJS 16 oder höher
 * ioBroker-Host (JS-Controller) 4.0 oder höher
 
 ## Changelog
@@ -32,8 +32,8 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.1-alpha.9 (2023-07-03)
-* (HGlab01) preparing first release
+### 0.0.1 (2023-09-11)
+* (HGlab01) first release
 
 ## License
 MIT License

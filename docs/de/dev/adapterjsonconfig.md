@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: 3b5laR6XRnAsBaL2XM30/xCa9fg0OcqaW1ch6misfQM=
+hash: qufDhnsOFjQzXYCUb/DFcLplumUdj+3yWhae9qcoq0Q=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -24,6 +24,9 @@ Zusätzlich zur JSON-Datei müssen Sie im Abschnitt `io-package.json` in `common
 ```
 
 Dies bedeutet, dass der Adapter die JSON-Konfiguration unterstützt.
+
+Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: https://github.com/mcm1957/ioBroker.jsonconfig-demo.
+Sie können es über das GitHub-Symbol im Admin installieren, indem Sie `iobroker.jsonconfig-demo` auf der Registerkarte „npm“ eingeben.
 
 Alle Beschriftungen, Texte und Hilfetexte können mehrsprachig oder nur Zeichenfolgen sein.
 
@@ -292,7 +295,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
   Eingabefeld mit Dateiauswahl
 
     - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
-    - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „meta“ und folgenden Pfad beschränken (nicht obligatorisch)
+    - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
     - „filterFiles“ – wie „[‘png‘, ‚svg‘, ‚bmp‘, ‚jpg‘, ‚jpeg‘]“.
     - „filterByType“ – „Bilder, Code, TXT, Audio, Video“.
     - „allowUpload“ – erlaubtes Hochladen von Dateien

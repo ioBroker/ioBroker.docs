@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.plex/README.md
 title: ioBroker.plex
-hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
+hash: K5ET/VY6xyAMIImuN+ozU3Spxy4k4ijIBIzTguT6J0I=
 ---
 ![标识](../../../en/adapterref/iobroker.plex/admin/plex.jpg)
 
@@ -15,9 +15,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 ![国家公共管理](https://nodei.co/npm/iobroker.plex.png?downloads=true)
 
 # IoBroker.plex Plex 媒体服务器在 ioBroker 中的集成（带或不带 Plex Pass）。此外，Tautulli 整合。
-[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex)
-
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.plex) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/plex/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 **目录**
 
@@ -42,6 +40,7 @@ hash: Ob/sF36lBqIc9B48WDXX0QzWJGvP466cPgXc3E5rctA=
 - 检索“统计数据”（仅适用于 Tautulli）
 - 检索“播放列表”
 - 检索“设置”
+- 从可控客户端检索所有数据
 - 显示 Plex 最近事件的 Web 界面：
 
   ![Plex 网络界面](../../../en/adapterref/iobroker.plex/img/screenshot_adapter-interface.png)
@@ -122,7 +121,7 @@ __活动__
 ### 3.2。具有高级设置
 成功进行高级设置后，将额外创建以下通道。有关将创建的所有州的列表，请[请参阅专门的州列表](README-states.md#with-advanced-setup)。
 
-|频道/文件夹|描述 |备注 |
+|频道/文件夹 |描述 |备注 |
 | ---------------- | ----------- | ------ |
 | __\_玩__ |正在播放 Plex Media |使用 Plex Pass 或 Tautulli |
 | __统计__ | Plex 观察统计 |仅限 Tautulli |
@@ -136,6 +135,12 @@ __活动__
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-09-11)
+- (ticaki) Added: Lyrics are written as link and text in _playing.device.Metadata.Music.Lyric
+- (ticaki) Added: Connection to players with refresh of playerdetail
+- (ticaki) Added: New states with player data.
+- (ticaki) Added: Refresh of player can be activate by set _Controls.timeline.refreshDetails to true
+
 ### 1.0.5 (2023-08-31)
 - (ticaki) Fixed: Control did not work with Plexamp.
 - (ticaki) some minor improvements.
