@@ -21,6 +21,8 @@
     ![picture1](media/2023_09_12_echart-1.png)
 * (bluefox) Die Möglichkeit wurde hinzugefügt, Zoom und verschiebung nach X Sekunden der Inaktivität wiederherzustellen
     ![picture1](media/2023_09_12_echart-2.png)
+* (bluefox) Zeige Legende as dialog
+  ![picture2](media/2023_09_13_echart-3.png)
 
 ## alexa2 (2023-09-09)
 * (Apollon77) Update Alexa2 dapter to adjust to te changed Push-Notification system from Amazon to allow getting history and interaction information again
