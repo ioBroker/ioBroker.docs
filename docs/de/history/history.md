@@ -30,6 +30,9 @@ https://github.com/iobroker-community-adapters/ioBroker.cec2
 
 Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
 
+## alexa2 (2023-09-09)
+* (Apollon77) Update Alexa2 adapter to adjust to the changed Push-Notification system from Amazon to allow getting history and interaction information again
+
 ## vis-2-widgets-material (2023-09-10)
 * (bluefox) Door lock widget has been added
     ![picture1](media/2023_09_10_vis-2-widgets-material-lock-1.png)
@@ -60,5 +63,12 @@ Easily create Telegram Menus
 * (bluefox) Show legend as dialog
   ![picture2](media/2023_09_13_echart-3.png)
 
-## alexa2 (2023-09-09)
-* (Apollon77) Update Alexa2 adapter to adjust to the changed Push-Notification system from Amazon to allow getting history and interaction information again
+## apg-info (2023-09-16)
+This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
+
+## tinymqttbroker (2023-09-16)
+This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+
+
+
+
