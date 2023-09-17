@@ -30,6 +30,9 @@ https://github.com/iobroker-community-adapters/ioBroker.cec2
 
 Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
 
+## alexa2 (2023-09-09)
+* (Apollon77) Update Alexa2 adapter to adjust to the changed Push-Notification system from Amazon to allow getting history and interaction information again
+
 ## vis-2-widgets-material (2023-09-10)
 * (bluefox) Door lock widget has been added
     ![picture1](media/2023_09_10_vis-2-widgets-material-lock-1.png)
@@ -60,5 +63,6 @@ Easily create Telegram Menus
 * (bluefox) Show legend as dialog
   ![picture2](media/2023_09_13_echart-3.png)
 
-## alexa2 (2023-09-09)
-* (Apollon77) Update Alexa2 adapter to adjust to the changed Push-Notification system from Amazon to allow getting history and interaction information again
+## js-controller (2023-09-14)
+* (foxriver76) Release js-controller 5 to stable
+* (foxriver76) Upgrade installer to just allow Node.js 16.x+
