@@ -66,3 +66,9 @@ Easily create Telegram Menus
 ## js-controller (2023-09-14)
 * (foxriver76) Release js-controller 5 to stable
 * (foxriver76) Upgrade installer to just allow Node.js 16.x+
+
+## apg-info (2023-09-16)
+This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
+
+## tinymqttbroker (2023-09-16)
+This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
