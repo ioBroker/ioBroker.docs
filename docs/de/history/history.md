@@ -80,6 +80,9 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
 ## tinymqttbroker (2023-09-16)
 This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
 
+## atlas-scientific-ezo-i2c (20230-09-18)
+This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://atlas-scientific.com/ into your own ioBroker environment.
+
 ## rct (2023-09-21)
 Show values of a RCT Power photovolatics power converter
 Note: older adapter from llauf refurbished. Was never at stable.
