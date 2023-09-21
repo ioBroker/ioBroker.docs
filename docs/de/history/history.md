@@ -1,3 +1,10 @@
+---
+translatedFrom: en
+translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
+title: What's new
+hash: ef6eMWMuY5hWeMvtpZEtxnxmJacCYJaffVmAObfjnuE=
+---
 # What's new
 
 ## frigate (2023-08-20)
@@ -75,3 +82,7 @@ This is very tiny MQTT broker which is not managing any objects/states in iobrok
 
 ## atlas-scientific-ezo-i2c (20230-09-18)
 This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://atlas-scientific.com/ into your own ioBroker environment.
+
+## rct (2023-09-21)
+Show values of a RCT Power photovolatics power converter
+Note: older adapter from llauf refurbished. Was never at stable.
