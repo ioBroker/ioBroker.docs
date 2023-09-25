@@ -86,3 +86,8 @@ This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://at
 ## rct (2023-09-21)
 Show values of a RCT Power photovolatics power converter
 Note: older adapter from llauf refurbished. Was never at stable.
+
+## imap (2023-09-25)
+- Monitor your email accounts via IMAP (Internet Message Access Protocol)
+- Receive notification of new emails or updates (e. g. marked unseen)
+- Simple login with password and username (without xoauth2 or xoauth).
