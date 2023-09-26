@@ -55,7 +55,7 @@ Easily create Telegram Menus
 * (bluefox) Horizontaler Menü
   ![picture1](media/2023_09_12_vis-2-menu.png)
 
-## echart (2023-09-12)
+## echarts (2023-09-12)
 * (bluefox) Added the ability to export the data to JSON file
   ![picture1](media/2023_09_12_echart-1.png)
 * (bluefox) Added the ability to restore zoom and pan after X seconds of inactivity
@@ -71,4 +71,10 @@ Easily create Telegram Menus
 This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
 
 ## tinymqttbroker (2023-09-16)
-This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+
+## admin  (2023-09-01)
+Context menu:
+- e.g., easy creation of aliases
+  ![picture1](media/2023_09_26_admin_context.png)
+- 
