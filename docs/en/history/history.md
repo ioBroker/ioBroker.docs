@@ -1,30 +1,56 @@
 # What's new
 
-## frigate (2023-08-20)
+## Instructions for writers
+- Please define the header as
+  ## AdapterName (YYYY-MM-DD) - [short description]
+- Shot description could be: 
+  - new adapter
+  - stable release
+  - new feature
+- if your news about the new adapter, please add a GitHub link and a logo of the adapter
+  Example:
+``` 
+    ## frigate (2023-08-20) - new adapter
+    https://github.com/Bettman66/ioBroker.frigate
+   
+    <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
+```
+
+
+## frigate (2023-08-20) - new adapter
 https://github.com/Bettman66/ioBroker.frigate
+
+<img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 
 Frigate is an open source NVR built around real-time AI object detection. This adapter parses Frigate's MQTT messages and creates data objects from them
 
-## notification-manager (2023-08-21)
+## notification-manager (2023-08-21) - new adapter
 https://github.com/foxriver76/ioBroker.notification-manager
+
+<img src="https://raw.githubusercontent.com/foxriver76/ioBroker.notification-manager/master/admin/notification-manager.png" width="100" height="100" />
 
 Manage ioBroker notifications, e.g., by sending them as messages
 
 ## procon-ip (2023-08-24)
 https://github.com/ylabonte/ioBroker.procon-ip
 
+<img src="https://raw.githubusercontent.com/ylabonte/ioBroker.procon-ip/master/admin/procon-ip.png" width="100" height="100" />
+
 ioBroker adapter for basic support of the `ProCon.IP` swimming pool control unit.
 
 ## deyeicd (2023-08-29)
 https://github.com/raschy/ioBroker.deyeidc
+
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.deyeidc/master/admin/deyeidc.png" width="100" height="100" />
 
 Data Collector vor `Deye`-compatible Inverter
 
 ## acme (2023-09-01)
 https://github.com/iobroker-community-adapters/ioBroker.acme
 
-This adapter generates certificates using ACME challenges.
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.acme/master/admin/acme.png" width="100" height="100" />
 
+This adapter generates certificates using ACME challenges.
 
 ## admin (2023-09-01)
 Context menu:
@@ -33,11 +59,13 @@ Context menu:
 
 ## javascript (2023-09-01)
 Playground for JavaScript code:
-- You can use Chat GPT (required API key) to generate the script. It is only to test the possibilities of ChatGPT
+- You can use ChatGPT (required API key) to generate the script. It is only to test the possibilities of ChatGPT
   ![picture1](media/2023_09_27_javascript_chat_gpt.png)
 
 ## cec2 (2023-09-06)
 https://github.com/iobroker-community-adapters/ioBroker.cec2
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.cec2/master/admin/cec2.png" width="100" height="100" />
 
 Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
 
@@ -50,6 +78,8 @@ Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most mo
   ![picture1](media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
 ## pushbullet (2023-09-10)
+<img src="https://raw.githubusercontent.com/mcm1957/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
+
 * (bluefox) API has been updated to version 3
 * (bluefox) JSON configuration was added
   ![JSON config](media/2023_09_10_pushbullet.png)
@@ -59,6 +89,8 @@ Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most mo
 
 ## telegram-menu (2023-09-11)
 https://github.com/MiRo1310/ioBroker.telegram-menu
+
+<img src="https://raw.githubusercontent.com/MiRo1310/ioBroker.telegram-menu/master/admin/telegram-menu.png" width="100" height="100" />
 
 Easily create Telegram Menus
 
@@ -79,7 +111,15 @@ Easily create Telegram Menus
 * (foxriver76) Upgrade installer to just allow Node.js 16.x+
 
 ## apg-info (2023-09-16)
+https://github.com/HGlab01/ioBroker.apg-info
+
+<img src="https://raw.githubusercontent.com/HGlab01/ioBroker.apg-info/master/admin/apg-info.png" width="100" height="100" />
+
 This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
 
 ## tinymqttbroker (2023-09-16)
+https://github.com/HGlab01/ioBroker.tinymqttbroker
+
+<img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
+
 This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
