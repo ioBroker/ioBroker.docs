@@ -40,12 +40,16 @@ Easy usage in ioBroker was kept in mind during the whole development. For exampl
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-Updated `zwave-js` to `10.15.0`. This includes the following changes:
+### 3.1.0 (2023-09-27)
+Updated `zwave-js` to `10.23.6`. This includes the following changes:
 * Added support for `Security S2` multicast
 * Added support for parsing additional information from `Notification CC Reports`. Note that this may change the values reported for Door/Window sensors! If you rely on the old behavior, use the new `Door state (simple)` value instead.
+* Added support for `Energy Production CC` and `Window Covering CC`
 * On devices where legacy alarm values are mapped, the resulting `Notification` values are now created during the interview.
 * Fixed an issue where communication with a node included with `Security S2` was not always using encryption.
+* Fixed an issue where the Z-Wave stack would not start on Windows systems
+* Z-Wave controllers hosted remotely over TCP can now be discovered using mDNS
+* Disconnects of Z-Wave controllers hosted remotely over TCP are now detected again
 * All commands contained in a `Multi Command CC` are now properly handled
 * Failures while assigning routes to nodes no longer mark the node as dead (unless they actually are)
 * Values for unsupported `Door Lock CC` features are no longer created
@@ -53,6 +57,9 @@ Updated `zwave-js` to `10.15.0`. This includes the following changes:
 * Auto-assign routes between nodes after creating a new association
 * Values for `Battery`, `Meter`, `Multilevel Switch` and (in some cases) `Notification CC` are now queried periodically or on device wakeup
 * Notification variables (like Lock jammed) are now updated when another received report indicates a change, even if the device did not update the notification variable itself.
+* Fixed a startup crash that happens when the controller returns an empty list of nodes
+* Fixed a crash that happens when message from an unknown node was received
+* Several improvements for auto-assigning Lifeline associations
 * Lots of new and updated configuration files, see [Z-Wave JS releases](https://github.com/zwave-js/node-zwave-js/releases) for details
 
 ### 3.0.5 (2023-01-28)
@@ -74,9 +81,6 @@ Fixed some more communication issues. If a device isn't working properly after u
 
 ### 3.0.2 (2022-08-30)
 * Fixed some crashes and communication issues
-
-### 3.0.1 (2022-08-27)
-* Fixed crashes related to missing or incorrectly loaded dependencies
 
 ## License
 

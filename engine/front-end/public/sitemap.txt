@@ -314,7 +314,6 @@ https://www.iobroker.net/#en/documentation/faq/_020_usage.md
 https://www.iobroker.net/#en/documentation/faq/_040_contibution.md
 https://www.iobroker.net/#en/documentation/faq/_050_advanced.md
 https://www.iobroker.net/#en/documentation/faq/_050_cloud.md
-https://www.iobroker.net/#en/documentation/history/2023_09_blog.md
 https://www.iobroker.net/#en/documentation/history/history.md
 https://www.iobroker.net/#en/documentation/imprint.md
 https://www.iobroker.net/#en/documentation/install/centos.md
