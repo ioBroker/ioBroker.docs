@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: A0UXMam6e3LIeD148XsRnIzKz1HL6bCa2HyEFU8PhNE=
+hash: /XtZjIifd5fOIWxzaFqp8baBG5sSv18DL3sfRGKayMQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
