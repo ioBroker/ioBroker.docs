@@ -5,7 +5,7 @@
       "title": {
         "de": "Neuigkeiten von ioBroker (August-September 2023)",
         "en": "News from ioBroker (August-September 2023)",
-        "ru": "",
+        "ru": "Новости от ioBroker (август-сентябрь 2023 г.)",
         "zh-cn": ""
       },
       "logo": "",
@@ -14,8 +14,8 @@
       "desc": {
         "de": "In diesem Blog-Beitrag werfen wir einen Blick auf einige der neuen Adapter und neuen Funktionen, die im August und September 2023 für ioBroker veröffentlicht wurden.",
         "en": "In this blog post, we'll take a look at some of the new adapters and new features that have been released for ioBroker in August and September 2023.",
-        "ru": "# Новости от ioBroker (август-сентябрь 2023 г.)",
-        "zh-cn": "# 来自 ioBroker 的新闻（2023 年 8 月至 9 月）"
+        "ru": "В этом сообщении блога мы рассмотрим некоторые новые адаптеры и новые функции, выпущенные для ioBroker в августе и сентябре 2023 года.",
+        "zh-cn": "# 来自 ioBroker 的新闻（2023 年 8 月至 9 月）\\n在这篇博文中，我们将了解 2023 年 8 月和 9 月为 ioBroker 发布的一些新适配器和新功能。"
       }
     },
     "2023_02_15": {
@@ -31,8 +31,8 @@
       "originalName": "2023_02_15.md",
       "desc": {
         "de": "## JS-Controller 4.0.24 und Node.js 18: Ein Update lohnt sich",
-        "en": "## JS Controller 4.0.24 and Node.js 18: An update is worth it",
-        "ru": "## JS Controller 4.0.24 и Node.js 18: обновление того стоит",
+        "en": "## JS Controller 4.0.24 and Node.js 18: An update is worth it\\nThe latest version of the JS controller, version 4.0.24, improves compatibility with Node.js 18. It still prefers IPv4 addresses, which was changed in Node.js 18. Additionally, Node.js 18 becomes the recommended version as Node.js 14 and 16 reach end of life later this year. This is an important step to ensure the stability and security of your system.",
+        "ru": "## JS Controller 4.0.24 и Node.js 18: обновление того стоит\\nПоследняя версия контроллера JS, версия 4.0.24, улучшает совместимость с Node.js 18. Он по-прежнему предпочитает адреса IPv4, которые были изменены в Node.js 18. Кроме того, Node.js 18 становится рекомендуемой версией, поскольку срок службы Node.js 14 и 16 истекает позднее в этом году. Это важный шаг для обеспечения стабильности и безопасности вашей системы.",
         "zh-cn": "## JS Controller 4.0.24 和 Node.js 18：更新是值得的"
       }
     },

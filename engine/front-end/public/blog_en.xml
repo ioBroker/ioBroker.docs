@@ -18,7 +18,7 @@
         <item>
             <title><![CDATA[Dev meeting February 2023]]></title>
             <description><![CDATA[
-                <p>## JS Controller 4.0.24 and Node.js 18: An update is worth it</p>
+                <p>## JS Controller 4.0.24 and Node.js 18: An update is worth it\nThe latest version of the JS controller, version 4.0.24, improves compatibility with Node.js 18. It still prefers IPv4 addresses, which was changed in Node.js 18. Additionally, Node.js 18 becomes the recommended version as Node.js 14 and 16 reach end of life later this year. This is an important step to ensure the stability and security of your system.</p>
             ]]></description>
             <link>https://www.iobroker.net/#en/blog/2023_02_15</link>
             <guid isPermaLink="true">https://www.iobroker.net/#en/blog/2023_02_15</guid>

@@ -6,7 +6,7 @@ const utils = require('./utils');
 const consts = require('./consts');
 const translation = require('./translation');
 
-// build list of blogs
+// build a list of blogs
 function build(lang, content) {
     return new Promise(resolve => {
         if (!fs.existsSync(consts.SRC_BLOG_DIR + lang)) {
@@ -23,7 +23,7 @@ function build(lang, content) {
                 let {body, header} = utils.extractHeader(text);
                 body = body.replace(/\r/g, '');
                 header.title = header.title || utils.getTitle(body) || '';
-                header.editLink = consts.GITHUB_EDIT_ROOT + 'blog/' + lang + '/' + item;
+                header.editLink = `${consts.GITHUB_EDIT_ROOT}blog/${lang}/${item}`;
 
                 const lines = body.trim().split('\n');
 
@@ -34,9 +34,9 @@ function build(lang, content) {
                         let link = m[2];
                         if (!link.toLowerCase().match(/^https?:\/\//)) {
                             if (link.startsWith('../')) {
-                                link = lang + '/blog/' + link.substring(3);
+                                link = `${lang}/blog/${link.substring(3)}`;
                             } else {
-                                link = lang + '/blog/' + link;
+                                link = `${lang}/blog/${link}`;
                             }
                         }
                         header.logo = link;
@@ -44,15 +44,19 @@ function build(lang, content) {
                 }
 
                 // remove leading empty lines
-                while(lines.length && !lines[0]) lines.shift();
+                while(lines.length && !lines[0]) {
+                    lines.shift();
+                }
 
-                // remove title from text
+                // remove title from a text
                 if (header.title) {
                     if (lines[0].startsWith('# ')) {
                         lines.shift();
 
                         // remove leading empty lines
-                        while(lines.length && !lines[0]) lines.shift();
+                        while(lines.length && !lines[0]) {
+                            lines.shift();
+                        }
                     }
                 }
 
@@ -68,7 +72,7 @@ function build(lang, content) {
                 }
 
                 if (d) {
-                    const date = d[1] + '.' + d[2] + '.' + d[3] + (d[4] ? '_' + d[4] : '');
+                    const date = `${d[1]}.${d[2]}.${d[3]}${d[4] ? `_${d[4]}` : ''}`;
                     content.pages[name] = content.pages[name] || {
                         date,
                         title: {},
@@ -79,23 +83,23 @@ function build(lang, content) {
                     };
                     content.pages[name].title[lang] = header.title || date;
                     content.pages[name].desc[lang] = desc.join('\\n');
-                    utils.writeSafe(consts.FRONT_END_DIR + lang + '/blog/' + name + '.md', utils.addHeader(lines.join('\n'), header));
+                    utils.writeSafe(`${consts.FRONT_END_DIR + lang}/blog/${name}.md`, utils.addHeader(lines.join('\n'), header));
                 } else {
-                    console.error('Invalid name format: ' + name + '. Expected YEAR_MM_DD.md or YEAR_MM_DD_N.md');
+                    console.error(`Invalid name format: ${name}. Expected YEAR_MM_DD.md or YEAR_MM_DD_N.md`);
                 }
             }
         });
 
         // copy blog/images if exists
-        if (fs.existsSync(consts.SRC_BLOG_DIR + 'images/')) {
-            utils.createDir(consts.FRONT_END_DIR + lang + '/blog/images/');
-            utils.copyDir(consts.SRC_BLOG_DIR + 'images/', consts.FRONT_END_DIR + lang  + '/blog/images/');
+        if (fs.existsSync(`${consts.SRC_BLOG_DIR}images/`)) {
+            utils.createDir(`${consts.FRONT_END_DIR + lang}/blog/images/`);
+            utils.copyDir(`${consts.SRC_BLOG_DIR}images/`, `${consts.FRONT_END_DIR + lang}/blog/images/`);
         }
 
         // copy images
-        if (fs.existsSync(consts.SRC_BLOG_DIR + lang + '/images/')) {
-            utils.createDir(consts.FRONT_END_DIR + lang + '/blog/images/');
-            utils.copyDir(consts.SRC_BLOG_DIR + lang + '/images/', consts.FRONT_END_DIR + lang + '/blog/images/');
+        if (fs.existsSync(`${consts.SRC_BLOG_DIR + lang}/images/`)) {
+            utils.createDir(`${consts.FRONT_END_DIR + lang}/blog/images/`);
+            utils.copyDir(`${consts.SRC_BLOG_DIR + lang}/images/`, `${consts.FRONT_END_DIR + lang}/blog/images/`);
         }
 
         resolve(content);
@@ -104,23 +108,25 @@ function build(lang, content) {
 
 function sync2Languages(fromLang, toLang, content, cb) {
     const file = Object.keys(content.pages).find(file => {
-        const fromFile = consts.SRC_BLOG_DIR + fromLang + '/' + content.pages[file].originalName;
-        const toFile = consts.SRC_BLOG_DIR + toLang + '/' + content.pages[file].originalName;
+        const fromFile = `${consts.SRC_BLOG_DIR + fromLang}/${content.pages[file].originalName}`;
+        const toFile = `${consts.SRC_BLOG_DIR + toLang}/${content.pages[file].originalName}`;
 
-        //const fromFilePublic = consts.FRONT_END_DIR + fromLang + '/blog/' + file + '.md';
-        //const toFilePublic = consts.FRONT_END_DIR + toLang + '/blog/' + file + '.md';
-
+        // const fromFilePublic = consts.FRONT_END_DIR + fromLang + '/blog/' + file + '.md';
+        // const toFilePublic = consts.FRONT_END_DIR + toLang + '/blog/' + file + '.md';
 
         // read from
         if (fs.existsSync(fromFile)) {
-            let {header} = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
+            let { header } = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
             if (!header.translatedFrom) {
                 let doTranslate = !fs.existsSync(toFile);
                 if (!doTranslate) {
-                    let {header} = utils.extractHeader(fs.readFileSync(toFile).toString('utf-8'));
-                    let {body} = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
+                    let { header } = utils.extractHeader(fs.readFileSync(toFile).toString('utf-8'));
+                    let { body } = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
                     if (header.translatedFrom === fromLang) {
-                        doTranslate = header.hash !== utils.getFileHash(body);
+                        const hash = utils.getFileHash(body);
+                        if (header.hash !== hash) {
+                            doTranslate = true;
+                        }
                     }
                 }
                 return doTranslate;
@@ -129,11 +135,11 @@ function sync2Languages(fromLang, toLang, content, cb) {
     });
 
     if (file) {
-        const fromFile = consts.SRC_BLOG_DIR + fromLang + '/' + content.pages[file].originalName;
-        const toFile = consts.SRC_BLOG_DIR + toLang + '/' + content.pages[file].originalName;
+        const fromFile = `${consts.SRC_BLOG_DIR + fromLang}/${content.pages[file].originalName}`;
+        const toFile = `${consts.SRC_BLOG_DIR + toLang}/${content.pages[file].originalName}`;
 
-        const fromFilePublic = consts.FRONT_END_DIR + fromLang + '/blog/' + file + '.md';
-        const toFilePublic = consts.FRONT_END_DIR + toLang + '/blog/' + file + '.md';
+        // const fromFilePublic = `${consts.FRONT_END_DIR + fromLang}/blog/${file}.md`;
+        const toFilePublic = `${consts.FRONT_END_DIR + toLang}/blog/${file}.md`;
 
         // read from
         let {body, header} = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
@@ -141,24 +147,27 @@ function sync2Languages(fromLang, toLang, content, cb) {
         const originalHeader = header;
         let translatedBody;
         if (fs.existsSync(toFile)) {
-            let {body} = utils.extractHeader(fs.readFileSync(toFile).toString('utf-8'));
+            let { body } = utils.extractHeader(fs.readFileSync(toFile).toString('utf-8'));
             translatedBody = body;
         }
 
-        translation.translateMD(fromLang, originalBody, toLang, translatedBody)
+        translation.translateMD(fromLang, originalBody, toLang, translatedBody, true)
             .then(result => {
                 body = utils.trim(result.result, '\n');
                 originalBody = utils.trim(result.source, '\n');
-                const text = utils.addHeader(originalBody, originalHeader);
-                utils.writeSafe(fromFile, utils.addHeader(originalBody, originalHeader));
-                let rr = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
-                originalBody = rr.body;
+                // const text = utils.addHeader(originalBody, originalHeader);
+                // utils.writeSafe(fromFile, text);
+                // let rr = originalHeader;
+                // originalBody = rr.body;
                 return translation.translateText(fromLang, originalHeader.title, toLang);
-            }).then(title => {
+            })
+            .then(title => {
                 originalHeader.title = title;
                 content.pages[file].title[toLang] = title;
                 originalHeader.translatedFrom = fromLang;
-                originalHeader.hash = utils.getFileHash(originalBody);
+                const from = utils.extractHeader(fs.readFileSync(fromFile).toString('utf-8'));
+
+                originalHeader.hash = utils.getFileHash(from.body);
                 const localHeader = JSON.parse(JSON.stringify(originalHeader));
                 delete localHeader.editLink;
                 content.pages[file].title[toLang] = title;
@@ -168,7 +177,7 @@ function sync2Languages(fromLang, toLang, content, cb) {
                 // remove leading empty lines
                 while(lines.length && !lines[0]) lines.shift();
 
-                // take first paragraph as description
+                // take the first paragraph as description
                 const desc = [];
                 let i = 0;
                 while(lines[i]) {
@@ -226,7 +235,7 @@ function buildAll() {
                     content.pages = {};
                     names.forEach(name => content.pages[name] = old[name]);
 
-                    fs.writeFileSync(consts.FRONT_END_DIR + 'blog.json', JSON.stringify(contents[0], null, 2));
+                    fs.writeFileSync(`${consts.FRONT_END_DIR}blog.json`, JSON.stringify(contents[0], null, 2));
 
                     buildRSS().then(() => resolve(content));
                 });
@@ -245,7 +254,7 @@ function buildRSS() {
 
             Object.keys(blog.pages).forEach(date => {
                 const item = blog.pages[date];
-                const dateObj = new Date(date.replace(/_/g, '-') + 'T06:00:00.000Z');
+                const dateObj = new Date(`${date.replace(/_/g, '-')}T06:00:00.000Z`);
 
                 if (!rss) {
                     rss = '<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">\n';
@@ -272,7 +281,7 @@ function buildRSS() {
             rss += `    </channel>\n`;
             rss += `</rss>\n`;
 
-            fs.writeFileSync(consts.FRONT_END_DIR + `blog_${lang}.xml`, rss);
+            fs.writeFileSync(`${consts.FRONT_END_DIR}blog_${lang}.xml`, rss);
         });
 
         resolve();

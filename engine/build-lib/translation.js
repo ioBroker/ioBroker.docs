@@ -271,7 +271,7 @@ function partsTake(text, addIds) {
         if (m) {
             if (!current) {
                 current = 'p';
-                parts.push({type: current, lines: []});
+                parts.push({ type: current, lines: [] });
                 last++;
             }
 
@@ -281,7 +281,8 @@ function partsTake(text, addIds) {
                     mm[2] = mm[2].trim();
                     const pos = mm[2].indexOf(' ');
                     parts[last].images = parts[last].images || [];
-                    if (pos !== -1) {
+                    // if title exists (size instructions start with "=")
+                    if (pos !== -1 && mm[2][pos + 1] !== '=') {
                         parts[last].images.push({
                             text: mm[1].trim(),
                             link: mm[2].substring(0, pos),
@@ -437,7 +438,7 @@ function partsSave(parts, saveNoSource) {
             }
 
             if (part.original) {
-                // if last line is empty, put <!----> just before it
+                // if the last line is empty, put <!----> just before it
                 if (text.match(/\n$/)) {
                     lines.push(text);
                     !saveNoSource && lines.push(`<!-- SOURCE: ${part.id} ${part.original.replace(/\n$/, '')} -->\n`);
