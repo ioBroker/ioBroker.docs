@@ -74,6 +74,9 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) JSON config component `port` does no longer mark port as occupied if it is only occupied on another host
+
 ### 6.10.4 (2023-09-25)
 * (foxriver76) fixed parsing `jsonConfig`
 

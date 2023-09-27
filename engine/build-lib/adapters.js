@@ -9,7 +9,7 @@ const path   = require('path');
 const utils  = require('./utils');
 const consts = require('./consts');
 
-const ADAPTERS_DIR = path.normalize(__dirname + '/../../docs/LANG/adapterref/').replace(/\\/g, '/');
+const ADAPTERS_DIR = path.normalize(`${__dirname}/../../docs/LANG/adapterref/`).replace(/\\/g, '/');
 
 const urlsCache = {};
 
@@ -26,7 +26,7 @@ function getAuthor(data) {
     return data && typeof data === 'object' ? `${data.name} <${data.email}>` : data || '';
 }
 
-// scan document for images and if some local references found try to find it in the same repo.
+// scan a document for images and if some local references found try to find it in the same repo.
 // If not found => download them
 function downloadImagesForReadme(lang, repo, data) {
     return new Promise(resolve => {
@@ -36,29 +36,41 @@ function downloadImagesForReadme(lang, repo, data) {
 
         const localDirName = `${consts.SRC_DOC_DIR + lang}/adapterref/iobroker.${repo.name}/`;
 
-        // check that all images are exists
+        // check that all images exist
         const promises = result.doDownload.map(link =>
             new Promise(resolve1 => {
                 link = link.split('?')[0];
                 link = link.split(' ')[0];
 
-                const absLocalPath = path.normalize(localDirName + link);
+                let startsFromSlash = false;
+                if (link.startsWith('/')) {
+                    startsFromSlash = true;
+                    link = link.substring(1);
+                }
 
-                // Check if file should be downloaded within adapter path
-                if (absLocalPath.indexOf(localDirName) === 0 && !fs.existsSync(localDirName)) {
+                const absLocalPath = path.normalize(localDirName + link).replace(/\\/g, '/');
+
+                // Check if file should be downloaded within an adapter path
+                if (absLocalPath.startsWith(localDirName) && !fs.existsSync(absLocalPath)) {
                     let relative;
 
                     if (data.link) {
                         const parts = data.link.split('/');
-                        parts.pop();
-                        relative = parts.join('/') + '/';
+                        if (startsFromSlash) {
+                            parts.splice(6); // https:, "", "", github.com, iobroker, ioBroker.docs, master, ...
+                        } else {
+                            parts.pop();
+                        }
+                        relative = `${parts.join('/')}/`;
                     } else {
                         relative = link;
                     }
 
                     axios(relative + link, {responseType: 'arraybuffer'})
                         .then(result => result && result.data && utils.writeSafe(absLocalPath, result.data))
-                        .catch(err => err && console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`))
+                        .catch(err => {
+                            err && console.error(`Cannot _download "${relative}${link}" to "${absLocalPath}": ${err}`);
+                        })
                         .then(() => resolve1());
                 } else {
                     resolve1();
@@ -422,23 +434,23 @@ function getReadme(lang, dirName, repo, adapter) {
 // 2. If file on disk is marked as local. If yes: Download remote file and get License and Changelog, write it into local file
 // 3. For non-local files, download the remote files and replace local ones
 function processAdapterLang(adapter, repo, lang, content) {
-    const dirName = `${ADAPTERS_DIR.replace('/LANG/', '/' + lang + '/')}iobroker.${adapter}`;
+    const dirName = `${ADAPTERS_DIR.replace('/LANG/', `/${lang}/`)}iobroker.${adapter}`;
 
     let iconName = repo.extIcon ? repo.extIcon.split('/').pop() : '';
 
     if (!iconName) {
-        console.error('!!!! ADAPTER has no extIcon: ' + adapter);
+        console.error(`!!!! ADAPTER has no extIcon: ${adapter}`);
     }
 
     iconName = iconName.split('?')[0];
 
     // download logo
-    return getIcon(repo.extIcon, `${consts.FRONT_END_DIR + consts.LANGUAGES[0]}/adapterref/iobroker.${adapter}/${iconName}`)
+    return getIcon(repo.extIcon, `${consts.FRONT_END_DIR}${consts.LANGUAGES[0]}/adapterref/iobroker.${adapter}/${iconName}`)
         .then(icon => {
             if (icon) {
-                utils.writeSafe(`${consts.FRONT_END_DIR + lang}/adapterref/iobroker.${adapter}/${iconName}`, icon);
+                utils.writeSafe(`${consts.FRONT_END_DIR}${lang}/adapterref/iobroker.${adapter}/${iconName}`, icon);
             } else if (adapter !== 'js-controller') {
-                console.error('!!!! ADAPTER has no icon: ' + adapter);
+                console.error(`!!!! ADAPTER has no icon: ${adapter}`);
             }
 
             content.pages[repo.type] = content.pages[repo.type] || {title: consts.ADAPTER_TYPES[repo.type] || {en: repo.type}, pages: {}};
@@ -506,7 +518,7 @@ function processAdapterLang(adapter, repo, lang, content) {
                     return Promise.all(results.map(result =>
                         downloadImagesForReadme(lang, repo, result)
                             .then(result =>
-                                result && utils.writeSafe(dirName + '/' + result.name, result.body))));
+                                result && utils.writeSafe(`${dirName}/${result.name}`, result.body))));
                 })
                 .catch(error => {
                     console.error(`Cannot get readme for ${adapter}: ${error}`);
@@ -572,7 +584,7 @@ function downloadStatistics() {
 
 }
 
-// Download stable and latest repositories
+// Download stable and the latest repositories
 // Apply versions from stable to the latest repo
 // For every adapter in the latest repo
 //    execute processAdapter (it downloads the readme from repo and stores it in docs)
@@ -586,12 +598,14 @@ function buildAdapterContent(adapter, noDownload) {
     return downloadRepo()
         .then(repo =>
             new Promise(resolve => {
-                const content = {pages: {
-                    overview: {
-                        title: consts.OVERVIEW,
-                        content: 'adapters.md'
-                    }
-                }};
+                const content = {
+                    pages: {
+                        overview: {
+                            title: consts.OVERVIEW,
+                            content: 'adapters.md'
+                        }
+                    },
+                };
 
                 let promises = Object.keys(repo)
                     .filter(a => a !== 'js-controller' && (!adapter || a === adapter) && a !== '_repoInfo')
@@ -620,7 +634,7 @@ function buildAdapterContent(adapter, noDownload) {
                             const sorted = {pages: {}};
                             names.forEach(name => sorted.pages[name] = content.pages[name]);
 
-                            fs.writeFileSync(consts.FRONT_END_DIR + 'adapters.json', JSON.stringify(sorted, null, 2));
+                            fs.writeFileSync(`${consts.FRONT_END_DIR}adapters.json`, JSON.stringify(sorted, null, 2));
                             resolve(sorted);
                         });
                     });
@@ -732,7 +746,7 @@ function copyAllAdaptersToFrontEnd() {
 }
 
 if (!module.parent) {
-    buildAdapterContent('shelly')
+    buildAdapterContent('tesla-wallconnector3', true)
         .then(content => {
             console.log(JSON.stringify(content));
         });

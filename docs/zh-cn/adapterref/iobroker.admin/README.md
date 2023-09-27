@@ -72,6 +72,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) JSON config component `port` does no longer mark port as occupied if it is only occupied on another host
+
 ### 6.10.4 (2023-09-25)
 * (foxriver76) fixed parsing `jsonConfig`
 
