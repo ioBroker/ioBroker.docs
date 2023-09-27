@@ -2,12 +2,17 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 
-import theme from '@iobroker/adapter-react-v5/Theme';
+import { Theme } from '@iobroker/adapter-react-v5';
+import { StylesProvider, createGenerateClassName } from '@mui/styles';
 
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import themeExtend from './createTheme';
+
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'www-io',
+});
 
 let themeName = 'light';
 
@@ -15,7 +20,7 @@ function build() {
     const container = document.getElementById('root');
     const root = createRoot(container);
 
-    const _theme = theme(themeName);
+    const _theme = Theme(themeName);
     const extend = themeExtend(themeName);
     _theme.tabs = extend.tabs;
     _theme.content = extend.content;
@@ -24,16 +29,18 @@ function build() {
     _theme.palette.darkPart = extend.palette.darkPart;
     _theme.palette.lightPart = extend.palette.lightPart;
 
-    return root.render(<StyledEngineProvider injectFirst>
-        <ThemeProvider theme={_theme}>
-            <App
-                onThemeChange={_themeName => {
-                    themeName = _themeName;
-                    build();
-                }}
-            />
-        </ThemeProvider>
-    </StyledEngineProvider>);
+    return root.render(<StylesProvider generateClassName={generateClassName}>
+        <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={_theme}>
+                <App
+                    onThemeChange={_themeName => {
+                        themeName = _themeName;
+                        build();
+                    }}
+                />
+            </ThemeProvider>
+        </StyledEngineProvider>
+    </StylesProvider>);
 }
 
 build();

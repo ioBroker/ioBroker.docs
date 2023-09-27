@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
+import {
+    Button,
+} from '@mui/material';
 
 import {
     FaUsers as IconForum,

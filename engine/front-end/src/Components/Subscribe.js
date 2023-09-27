@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import Snackbar from '@mui/material/Snackbar';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+
+import {
+    Button,
+    IconButton,
+    Input,
+    Snackbar,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+} from '@mui/material';
 
 import { FaMailBulk as IconEmail } from 'react-icons/fa';
 import { FaEnvelopeOpen as IconSubscribe } from 'react-icons/fa';

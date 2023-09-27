@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import Typed from 'react-typed';
-import IconButton from '@mui/material/IconButton';
+
+import { IconButton } from '@mui/material';
 
 import { MdContentCopy as IconCopy } from 'react-icons/md';
 import Utils from '../Utils';

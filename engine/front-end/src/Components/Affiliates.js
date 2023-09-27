@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionActions from '@mui/material/AccordionActions';
 
-import { MdExpandMore as IconExpandMore, MdHelpOutline as IconQuestion } from 'react-icons/md';
+import {
+    Button,
+    IconButton,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Accordion,
+    AccordionSummary,
+    AccordionActions,
+} from '@mui/material';
+
+import {
+    MdExpandMore as IconExpandMore,
+    MdHelpOutline as IconQuestion,
+} from 'react-icons/md';
 
 import I18n from '../i18n';
 import Utils from '../Utils';

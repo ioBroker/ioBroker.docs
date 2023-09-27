@@ -3,24 +3,28 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@mui/styles';
 import MarkdownView from 'react-showdown';
 
-import Paper from '@mui/material/Paper';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionActions from '@mui/material/AccordionActions';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Snackbar from '@mui/material/Snackbar';
+import {
+    Paper,
+    Accordion,
+    AccordionSummary,
+    AccordionActions,
+    List,
+    ListItem,
+    IconButton,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    Snackbar,
+} from '@mui/material';
 
-import { MdEdit as IconEdit } from 'react-icons/md';
-import { MdClose as IconClose } from 'react-icons/md';
-import { MdMenu as IconMenu } from 'react-icons/md';
-import { MdExpandMore as IconExpandMore } from 'react-icons/md';
+import {
+    MdEdit as IconEdit,
+    MdClose as IconClose,
+    MdMenu as IconMenu,
+    MdExpandMore as IconExpandMore,
+} from 'react-icons/md';
 import { FaGithub as IconGithub } from 'react-icons/fa';
 import IconGlobe from './assets/globe.svg';
 import IconLink from './assets/link.svg';

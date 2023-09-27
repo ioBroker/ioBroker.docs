@@ -3,14 +3,16 @@ import { withStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
 import SplitterLayout from 'react-splitter-layout';
 
-import Drawer from '@mui/material/Drawer';
-import Input from '@mui/material/Input';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import IconButton from '@mui/material/IconButton';
+import {
+    Drawer,
+    Input,
+    Divider,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    IconButton,
+} from '@mui/material';
 
 import {
     FaFileAlt as IconDocument,

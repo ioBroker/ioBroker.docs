@@ -459,7 +459,7 @@ function scanDir(folder, root, result) {
 }
 
 gulp.task('9.createSitemap', done => {
-    const root = 'https://doc.iobroker.net/';
+    const root = 'https://www.iobroker.net/';
     const links = [
         '#{lang}/download',
         '#{lang}/blog',
