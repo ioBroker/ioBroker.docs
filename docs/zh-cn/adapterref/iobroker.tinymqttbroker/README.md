@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: k2fkSaJpy/zfa4W/w1v59WpKBZXrQgFC6KXNau26fog=
+hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
 ---
 ![标识](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
+![稳定存储库中的当前版本](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 ![NPM版本](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![安装数量](https://iobroker.live/badges/tinymqttbroker-installed.svg)
-![稳定存储库中的当前版本](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-**测试：** ![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的tinymqttbroker 适配器
 这是一个非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供一个中央 MQTT 代理实例来作为 MQTT 客户端发布订阅主题。让多个设备与一个代理通信并使用 MQTT 客户端 JavaScript 在 iobroker 上进行交互非常有帮助。
@@ -91,6 +91,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.6 (2023-09-18)
+* (HGlab01) Improve error handling
+* (HGlab01) Verify if port is used from other process
+
 ### 0.0.5 (2023-09-11)
 * (HGlab01) add sentry support
 

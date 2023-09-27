@@ -9,14 +9,15 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 
 Since version 2.0.0 of this app, data can be transferred in different ways to the device.
 
-- Push: the adapter sends the required information on its own to the device (when data has changed)
+- Push: the adapter sends the required information on its own to the device (when data has changed) - **default option**
 - Poll: the information are requested by the *LaMetric Time* periodically (configurable)
 
 Both methods are explained in this document.
 
-## My Data (DIY) - Push *(Adapter version >= 3.0.0 required)*
+## My Data (DIY) - Push *(Adapter version >= 3.0.0 required)* (recommended)
 
-*Not implemented yet*
+- Requires *My Data DIY* App >= 2.0.0
+- Requires Firmware >=2.3.7 (>= 3.0.16)
 
 ## My Data (DIY) - Poll *(Adapter version >= 1.1.0 required)*
 

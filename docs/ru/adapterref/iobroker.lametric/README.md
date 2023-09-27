@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.lametric?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lametric?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lametric?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.lametric?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.lametric?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.lametric?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.lametric?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.lametric/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.lametric?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.lametric.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/lametric-stable.svg
 BADGE-Installed: http://iobroker.live/badges/lametric-installed.svg
@@ -19,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: uyz42x61PglmuTylkSlysAGtoxIRhGGsKoGJj5hiFjo=
+hash: Xl0rPydT6FJLL1YIQNLNXuJaESgWz3mr6Kl8h/wVIsc=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -34,7 +32,7 @@ hash: uyz42x61PglmuTylkSlysAGtoxIRhGGsKoGJj5hiFjo=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.6_ (_3.0.16_ на модели 2022 г.) (или более поздней версии)
+- _LaMetric Time_ с прошивкой _2.3.7_ (_3.0.16_ на модели 2022 г.) (или новее)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
@@ -61,11 +59,11 @@ hash: uyz42x61PglmuTylkSlysAGtoxIRhGGsKoGJj5hiFjo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-09-13)
 
 * (klein0r) Added push option for My Data DIY
 * (klein0r) Added option to force app reload
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6 (3.0.16)
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
 
 ### 2.4.2 (2023-09-08)
 
@@ -84,10 +82,6 @@ hash: uyz42x61PglmuTylkSlysAGtoxIRhGGsKoGJj5hiFjo=
 ### 2.3.2 (2023-02-21)
 
 * (klein0r) Optimized setState logic
-
-### 2.3.1 (2023-02-21)
-
-* (klein0r) Update My Data DIY when object changes data type
 
 ## License
 

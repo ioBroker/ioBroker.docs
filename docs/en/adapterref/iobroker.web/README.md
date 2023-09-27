@@ -82,6 +82,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.1.2 (2023-09-14)
+* (foxriver76) upgrade socketio and ws dependencies
+
 ### 6.1.1 (2023-09-05)
 * (mcm1957) added missing node16 requirement
 

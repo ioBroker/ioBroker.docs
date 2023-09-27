@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/restricted-login.md
 title: ioBroker.shelly
-hash: mP+C+OosHM5WstZl0BqEhyMWam9ulfH5fTmPxZiBCXo=
+hash: Jz01hRDR/meJiTU4NFp+7LH30ano1xPtvf9w2dei7to=
 ---
 ![标识](../../../de/admin/shelly.png)
 

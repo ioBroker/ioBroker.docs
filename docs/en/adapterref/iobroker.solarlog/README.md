@@ -45,6 +45,10 @@ SolarLog 50: There is no open JSON-Interface @ SolarLog 50 devices. So certain v
 
 ## Changelog
 
+### 2.2.8
+
+-   ready for js-controller 5.0, enhanced error-handling, dependecies updated
+
 ### 2.2.6
 
 -   bug in 'forecast' fixed, dependecies updated

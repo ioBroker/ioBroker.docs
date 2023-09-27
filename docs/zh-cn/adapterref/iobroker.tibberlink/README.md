@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
+hash: q6tcD9V+1vd5xqcZioq6ggdpTrbdXmpu6Fb7CjcRpVM=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -28,17 +28,34 @@ hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
 ＃＃ 配置
 1. 创建适配器的新实例
 2. 您还需要 Tibber 提供的 API 令牌。在这里获取：[https://developer.tibber.com/](https://developer.tibber.com/)
-3. 填写您的 Tibber API 令牌 -> 保存配置以重新启动适配器
-4. 选择还可以从您的 Tibber Pulse 中提取实时数据的房屋 -!!仅在安装硬件后才有效
+3. 填写您的 Tibber API 令牌 -> 创建至少一行实时源配置（选择“无可用”）
+4. 保存设置并保留配置以重新启动适配器（现在将从 Tibber 服务器轮询您的家庭）
+4. 返回配置屏幕并选择主目录以从 Tibber Pulse 提取实时数据，或者选择主目录并禁用源 -（！！仅在安装了硬件且 Tibber 服务器验证了与 Pulse 的连接时才有效）
 5. 保存设置
 
 ## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.3.0 (2023-09-WORK in PROGRESS)
+### 0.4.1 (2023-09-24)
+* (HombachC) Hardened 2 typeerrors uppon sentry recognition
+* (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
+* (HombachC) preparations for tibber calculator
+### 0.4.0 (2023-09-20)
+* (HombachC) Added daily average price values (#89)
+### 0.3.3 (2023-09-17)
+* (HombachC) Fixed false positive connection message (#87)
+* (HombachC) Updated translations with ChatGPT
+* (HombachC) preparations for tibber calculator
+### 0.3.2 (2023-09-14)
+* (HombachC) Fixed error when starting adapter first time (#82)
+* (HombachC) Fixed error in admin config from 0.3.0 (#81)
+### 0.3.1 (2023-09-13)
+* (HombachC) Mitigate error in admin config from 0.3.0 (#81)
+* (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
+### 0.3.0 (2023-09-12)
 * (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
 * (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
 * (HombachC) preparations for tibber calculator

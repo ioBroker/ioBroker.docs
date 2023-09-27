@@ -33,6 +33,29 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   #53 feature: sendPicture von server-path
+-   #52 icons are missing, copy data
+-   #51 by creating a new Menu, the Users are not shown
+
+### 0.6.10 (2023-09-23)
+
+-   bug fix
+
+### 0.6.9 (2023-09-23)
+
+-   Rearranging listed actions #49
+-   when calling up the submenu, Text was send no entry found, fixed
+-   bug switch menu, fixed
+-   set a state, and receive the change of another state
+
+### 0.6.8 (2023-09-16)
+
+-   chatId in UI
+-   trigger is not displayed when editing, fixed
+
 ### 0.6.7 (2023-09-05)
 
 -   fixed, send menu with error

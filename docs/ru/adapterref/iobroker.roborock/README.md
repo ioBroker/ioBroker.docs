@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
+hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ---
 ![Логотип](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -44,6 +44,7 @@ hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 ## Очистка зоны
 Эта функция работает только тогда, когда в настройках адаптера включено создание карт!
 
+### Создание карты не работает на Raspberry Pi
  - Работает веб-сервер. Порт по умолчанию — 6824.
  - Откройте http://iobroker:6824/map.html в своем браузере (измените http://iobroker на свое имя хоста или IP-адрес ioBroker!!!)
  - Нарисуйте свой квадрат, предназначенный для уборки. Roborock поддерживает до 4 зон очистки одновременно.
@@ -55,6 +56,28 @@ hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2023-09-24)
+* (copystring) Fix for getting the map for each cleaning record
+
+### 0.4.3 (2023-09-23)
+* (copystring) Refactor code
+* (copystring) Fix mainUpdateInterval not working
+
+### 0.4.2 (2023-09-18)
+* (copystring) Fix S6 gen path
+* (copystring) Add missing types library
+
+### 0.4.1 (2023-09-17)
+* (copystring) Fix typos in definitions docs generation
+* (copystring) Add missing types library
+
+### 0.4.0 (2023-09-17)
+* (copystring) When a robot goes offline after error during cleaning then clear all intervals and start them when it robot comes back online
+* (copystring) When it fails to receive the map output a warning instead of error since most of them are timeouts
+* (copystring) Migrate definitions for each robot to new system
+* (copystring) Use the system to automatically generate documentation for each robot and it's parameters, attributes, commands, etc
+* (copystring) S7 Max Ultra support
+
 ### 0.3.2 (2023-09-04)
 * (copystring) Fix some S8 Pro Ultra object types
 

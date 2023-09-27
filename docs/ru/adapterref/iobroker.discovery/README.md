@@ -2,148 +2,157 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
-title: Адаптер обнаружения ioBroker
-hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
+title: Адаптер Discover для ioBroker
+hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
 ![Количество установок](http://iobroker.live/badges/discovery-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.discovery.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
 # Адаптер обнаружения ioBroker
-![Тестируйте и выпускайте](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
+![Тестирование и выпуск](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Обнаружение устройств всеми известными методами.**
 
-Это специальный адаптер, который пытается найти все возможные устройства, которые могут быть доступны с хоста iobroker.
-Просто сейчас его можно обнаружить через пинг, UPnP (планируется серийный).
+Это специальный адаптер, который пытается найти все возможные устройства, доступные с хоста iobroker.
+Просто сейчас умеет определять через пинг, UPnP (серийный планируется).
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-## Фактически поддерживается
-### Автоматически обнаруживается
+## Действительно поддерживается
+### Обнаружено автоматически
 - Бекхофф ПЛС
 - Умный дом Бош
 - Бозе Саундтач
 - Бродлинк
 - БСБЛан
 - Хромкаст
-- Климат-контроль Дайкин
-- деконц
+— Климат-контроль Дайкин.
+- деКонц
 - Денон/Маранц
-- Дверная птица
+- Дверная Птица
 - e3dc-rscp
 - эбус
-- Экей
+- экей
 - энергоменеджер (E.ON/Solarwatt)
 - энэт (Юнг)
-- Стилус Epson PX830
+- Эпсон Стилус PX830
 - Факероку (гармония)
-- ФГЭМ
-- ФайрТВ
+- ФЭМ
+- ФаерТВ
 - Фрицдект
 - Фрониус
-- заглушки G-Homa
+- Frontier_silicon
+- Заглушки G-Homa
 - Гармония
 - Хеос
 - Домашний помощник
 - Homematic CCU (hm-rpc, hm-rega)
 - Домашний пилот
-- HP-лио
+- ХП-лио
 - Филипс ХЮЭ
-- плекс
-- Приток БД
+- Плекс
+- ИнфлюксБД
 - КЛФ-200
 - KNX (фактически отключен)
 - Кеба КеКонтакт P30
 - Коди
 - Ландроид
-- ЛГТВ
-- осветлить
+- LGTV
+- Осветлить
 - Локсон
-- Люпусек
-- МАКС! куб
+- Лупусек
+- МАКС! Куб
 - Маклайтинг
 - МегаД
 - Миле
 - Облачный сервис Miele
-- Mi Home Умный дом
+- Умный дом Mi Home
 - Микротик
-- Мостик МиЛайт (v6)
+- Мост MiLight (v6)
 - МПД
-- Музыкальная передача
+- Музыкальная трансляция
 - мойДлинк
 - Mysensors USB/Serial (9600, 38400, 57600, 115200)
+- мойвбус
 - Световые панели nanoleaf/холст
-- Сетевые инструменты
+- Чистые инструменты
 - Нуки2
 - Орех
-- Онкио
-- OpenHAB
+- Онкё
+- ОпенХАБ
 - OpenKNX
 - Пинг
-- плекс
+- Плекс
 - Проксмокс
-- RFLink (последовательный 57600 бод)
+- RFLink (последовательный порт 57600 бод)
 - СамсунгТВ
+- Сма-эм
 - Смаппи
 - Соларлог
 - Соннен
 - Сонос
 - Stiebel-Eltron/Tecalor ISG (плюс)
 - SQL (MySQL, MSSQL, PostgreSQL)
-- Соковыжималка
-- СжатиебоксRPC
+- Сжимающая коробка
+- СквизбоксРПК
 - Синология
 - ТР-064
 - Традфри
-- УПНП
+- УПнП
 - ВаллоксМВ
-- Wifilight
+- Wi-Filight
 - Ямаха
-- Ярлайт
-- Z-wave USB (проверено Aeon Labs)
+- Йилайт
+- Z-wave USB (протестировано в Aeon Labs)
 
-### Предлагаются в качестве дополнительных адаптеров
+### Предлагается в качестве дополнительных адаптеров
 - Облако
-- История (если SQL или InfluxDB не найдены)
+- История (если не найден SQL или InfluxDB)
 - Интернет вещей
-- iКонтроль
-- eCharts (предлагается при наличии History-Adapter)
+- iControl
+- электронные диаграммы (предлагаются при наличии адаптера истории)
 - JavaScript
 - Информация
 - Вис
 - Интернет
 
 ## Если адаптер не может найти IP...
-Адаптер пингует сеть IP-адреса текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
-
-Если не все IP-адреса найдены, проверьте, может ли пользователь iobroker выполнить `/bin/ping`.
-Вы можете выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить отсутствующие возможности/разрешения.
+Адаптер пингует сеть IP текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
+Если не все IP-адреса найдены, убедитесь, что пользователь iobroker может выполнить `/bin/ping`.
+Вы можете выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности/разрешения.
 
 ## Делать
 - артнет? (Блюфокс)
-- Б-Контроль-Эм? (Блюфокс)
-- кул/макскул (Bluefox)
-- Foobar200 (установщик)
-- фрицбокс (рур70)
-- км200 (откровение)
-- мегаэсп (аусхаус)
+- Би-Контроль-Эм? (Блюфокс)
+- cul/maxcul (Bluefox)
+- Foobar200 (Инсталлятор)
+- фрицбокс (ruhr70)
+- км200 (откровенная шутка)
+- мегаэсп (ausHaus)
 - Modbus (Bluefox)
 - mqtt/mqtt-клиент (Bluefox)
-- owfs (Блюфокс)
+- owfs (Bluefox)
 - rpi2 (если ioBroker работает на Raspberry)
 - rwe-умный дом (PArns)
 - s7 (Блюфокс)
-- смартметр (Apollon77)
-- унифи (йенс-маус)
+- смартметр (Аполлон77)
+- унифи (jens-maus)
 - волк (улыбающийся валет)
-- xs1 (откровение)
+- xs1 (откровенная шутка)
 
-<!-- Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 4.1.0 (2023-09-25)
+* (pdbjjens) Added detection of myvbus and resol
+
+### 4.0.0 (2023-09-04)
+* (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
+* (bluefox) Dropped node14 support, refactoring
+
 ### 3.2.0 (2023-06-15)
 * (sbormann) Added iControl to the suggested adapters
 
@@ -358,7 +367,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

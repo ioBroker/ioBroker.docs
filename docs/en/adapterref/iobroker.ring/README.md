@@ -21,7 +21,7 @@ After installing the Adapter you have to enter your Email and Password of your [
 a Token. Ring now requires the use of Two-Factor Auth (2fa) for all accounts. For getting the token please do following
 on your shell.
 
-```
+```shell
 npx -p ring-client-api ring-auth-cli
 ```
 
@@ -88,6 +88,19 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0-alpha.0 (2023-09-16)
+
+* (crocri) Ding event is now working again for Ring-Intercom
+* (crocri) auto livestream creation takes now value from config, before fix
+* (crocri) snapshot now async, because snapshot and livestream in parallel does not work
+* (crocri) livestream duration now settable via tree entry will be auto reset via livestream request.
+* (crocri) two new config entries auto_livestream and auto_snapshot to disable auto creation of livestream and snapshot.
+* (crocri) some minor corrections to code
+* (crocri) Removed binary States
+* (crocri) Improvements for vis compatibility
+* (theimo1221) Refactoring and cleanup
+* (theimo1221) Update Packages
+
 ### 4.0.0 (2023-08-22)
 
 * (theimo1221) !!Breaking Change!! From now on Node 18 or 20 is required, Node 16 is not supported anymore

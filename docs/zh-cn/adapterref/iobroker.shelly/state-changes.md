@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/state-changes.md
 title: ioBroker.shelly
-hash: lWYanYLK0VfMK/GF2eu89YOn0y3awI3qieN2IuwDw+k=
+hash: rkeOdF+pLvPvPPWG9ZwdD/ZmWNTbeaEbYr5z++0cs3U=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -16,14 +16,14 @@ hash: lWYanYLK0VfMK/GF2eu89YOn0y3awI3qieN2IuwDw+k=
 
 例子：
 
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 2020年2月1日 **10:20:00**) - ioBroker 中的状态没有更新
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后更改时间: 02/01/2020 10:22:00)
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)`
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 2020 年 2 月 1 日 **10:20:00**)` - 状态没有更新在ioBroker中
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后修改时间: 02/01/2020 10:22:00)`
 
 如果选中*即使没有值变化也更新对象*，即使没有值变化，所有状态也会不断更新。所以只有最后一次更新的时间发生了变化。
 
 例子：
 
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 **10:21:00**) - 即使有价值没有变化
-* shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后更改时间: 02/01/2020 10:22:00)
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 10:20:00)`
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'S' (最后更改时间: 02/01/2020 **10:21:00**)` - 即使有，时间也会更新给定的值没有变化
+* `shelly.0.SHBTN-1#A4CF12F454A3#1.Button.Event = 'L' (最后修改时间: 02/01/2020 10:22:00)`

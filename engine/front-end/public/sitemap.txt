@@ -713,6 +713,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.bambulab/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.batrium-bms/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.beckhoff/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.benq/README.md
@@ -829,6 +830,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.geofency/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.gigaset-elements/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.gira-iot/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.go-e/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.googleauth/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.gotify/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.govee-local/README.md
@@ -1112,6 +1114,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.shuttercontrol/README.
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.siegenia/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.signal-cmb/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.signifylights/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.sma-em/README.md
@@ -1246,6 +1249,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.weatherunderground/REA
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.web/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.web-speedy/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.weblogin/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.webui/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.webuntis/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.weishaupt-wem/README.md
@@ -1335,6 +1339,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.bambulab/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.batrium-bms/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.beckhoff/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.benq/README.md
@@ -1451,6 +1456,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.geofency/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.gigaset-elements/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.gira-iot/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.go-e/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.googleauth/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.gotify/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.govee-local/README.md
@@ -1734,6 +1740,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.shuttercontrol/README.
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.siegenia/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.signal-cmb/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.signifylights/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.sma-em/README.md
@@ -1868,6 +1875,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.weatherunderground/REA
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.web/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.web-speedy/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.weblogin/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.webui/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.webuntis/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.weishaupt-wem/README.md
@@ -1957,6 +1965,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.awtrix-light/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.bambulab/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.batrium-bms/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.beckhoff/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.benq/README.md
@@ -2073,6 +2082,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.geofency/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.gigaset-elements/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.gira-iot/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.go-e/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.googleauth/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.gotify/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.govee-local/README.md
@@ -2356,6 +2366,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.shuttercontrol/README.
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.siegenia/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.signal-cmb/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.signifylights/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.sma-em/README.md
@@ -2490,6 +2501,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.weatherunderground/REA
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.web/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.web-speedy/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.weblogin/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.webui/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.webuntis/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.weishaupt-wem/README.md
@@ -2579,6 +2591,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.awtrix-light/README
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.b-control-em/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.backitup/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bambulab/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.batrium-bms/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.beckhoff/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benchmark/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.benq/README.md
@@ -2695,6 +2708,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.geofency/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gigaset-elements/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gira-iot/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.go-e/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.google-spreadsheet/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.googleauth/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.gotify/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.govee-local/README.md
@@ -2978,6 +2992,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.shuttercontrol/READ
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sia/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.siegenia/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.signal-cmb/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.signifylights/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.simple-api/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.slideshow/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sma-em/README.md
@@ -3112,6 +3127,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherunderground/
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.web/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.web-speedy/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weblogin/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webui/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webuntis/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weishaupt-wem/README.md

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-gateway
-hash: ZbXps5bi5Ycj0fEoRzrSrqUtuLCPQQ35384m/3FDP9Q=
+hash: JyqlBi6iqRvvzSL8upXGGaifDYjXTKbJpZOdlCW89CU=
 ---
 ![Logo](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -25,6 +25,9 @@ Nachdem der Adapter das Mediola Gateway gefunden hat, wird die Instanz grün und
 Dort wird auch jede Änderung der Systemvariablen angezeigt und kann zur Automatisierung genutzt werden.
 Die sendIrData werden mit mehreren gelernten IR-Codes getestet. Geben Sie einfach den IR-Code in das Objekt ein, um die Daten zu senden.
 
+## Fehlerbehebung
+Überprüfen Sie http://ip-of-mediola/command?XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {"XC_ERR":{"code": "000007", "msg" :"Zugriff verweigert"}} (nie gesehen auf Gateway V4)\ Wenn dies funktioniert, haben Sie eine Mediola ohne festgelegtes Passwort. Es gibt keine Ahnung, warum der Adapter nicht funktionieren sollte.\ Kontaktieren Sie das Forum: https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway (leider ist es Deutsch, aber Englisch ist auch möglich)\ Mit Benutzer und Passwort:\ Überprüfen Sie http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {XC_ERR}{"code" :"010000"}\ Wenn dies funktioniert, müssen der Benutzername und das Passwort zur Konfiguration hinzugefügt werden. Wenn dies nicht funktioniert, verfügen Sie möglicherweise nicht über den Benutzernamen und das richtige Passwort. Wenn Sie nur ein Passwort festgelegt haben, müssen Sie einen Vollbenutzer einrichten. (Gateway V6)
+
 ## Verwendung für Sonnenschutzrollos WIR (WR) und Roto (BK).
 Diese Sonnenschutzrollos werden automatisch gefunden. Sie beginnen mit WR oder BK. Es gibt zwei Ordner im Adapter. Das eine wird Zustand genannt, das andere Aktion.
 Im Status wird der WR-Status in Prozent der Schließung angezeigt. Der BK-Status ist immer leer (es wurde nie ein anderer Wert gesehen). Um den Status zu aktualisieren, muss in den Adapterinstanzeinstellungen das Flag „Status von Mediola lesen“ gesetzt werden. Das Aktualisierungsintervall kann in Minuten eingestellt werden.
@@ -42,6 +45,15 @@ HAFTUNGSAUSSCHLUSS Alle Produkt- und Firmennamen oder Logos sind Marken™ oder 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   RT (Somfy) system added (Thanks to Falk)
+
+### 1.0.1 (2023-08-26)
+
+-   folder action created as real folder
+-   folder sysvars created as real folder
 
 ### 1.0.0 (2023-08-10)
 

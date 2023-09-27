@@ -61,6 +61,9 @@ npm install https://github.com/foxthefox/ioBroker.lifx/tarball/master --producti
 - values outside of range cause crash of adapter
 
 ## Changelog:
+### 1.0.3
+* translation with adapter-dev
+
 ### 1.0.2
 * some changes to loglevel
 * fix crash when no label is provided

@@ -112,6 +112,12 @@ Please note: highlighting current playing favorite is not supported.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.3 (2023-09-21)
+* (foxriver76) fixed cover url
+
+### 2.3.2 (2023-09-20)
+* (foxriver76) store the cover file in files instead of binary states
+
 ### 2.3.1 (2023-03-22)
 * (Apollon77) Prepare for future js-controller versions
 

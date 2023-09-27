@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.gira-iot?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.gira-iot?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.gira-iot?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.gira-iot?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.gira-iot?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.gira-iot?style=flat-square
@@ -9,8 +8,7 @@ BADGE-GitHub repo size: https://img.shields.io/github/repo-size/klein0r/iobroker
 BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.gira-iot?logo=github&style=flat-square
-BADGE-GitHub Workflow Status: https://img.shields.io/github/workflow/status/klein0r/iobroker.gira-iot/Test%20and%20Release?label=Test%20and%20Release&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.gira-iot?label=repo%20vulnerabilities&logo=github&style=flat-square
+BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.gira-iot/test-and-release.yml?branch=master&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
 BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
@@ -18,15 +16,15 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gira-iot/README.md
 title: ioBroker.gira-iot
-hash: 42b5t7Ag8bOVizM8R2yy4fFKO/1vkz4kgbNKcBg/wnw=
+hash: 1UNCQgOaNs357wtc7SITLiJR6usxSkM2+yWt2uP5NOM=
 ---
 ![标识](../../../de/admin/gira-iot.png)
 
-# IoBroker.gira-物联网
+# IoBroker.gira-iot
 ## 兼容设备
 - 吉拉 X1
-- Gira 家庭服务器
-- Gira One 服务器
+- Gira 家庭服务器（推荐固件 >=4.12）
+- Gira 一台服务器
 
 ＃＃ 第一步
 
@@ -37,8 +35,12 @@ hash: 42b5t7Ag8bOVizM8R2yy4fFKO/1vkz4kgbNKcBg/wnw=
 -->
 ### **WORK IN PROGRESS**
 
-* (klein0r) Added missing channel type for remote access
+* (klein0r) Added types for remote access (not documented by Gira)
+
+### 0.3.0 (2023-09-13)
+
 * (klein0r) Url preview in instance configuration
+* (klein0r) Improved error handling
 
 ### 0.2.1 (2023-01-11)
 
@@ -58,12 +60,6 @@ hash: 42b5t7Ag8bOVizM8R2yy4fFKO/1vkz4kgbNKcBg/wnw=
 
 * (klein0r) Improved callback registration handling
 * (klein0r) Improved error handling
-
-### 0.1.1 (2022-09-29)
-
-* (klein0r) Changed registration of callbacks via web adapter
-* (klein0r) Request current values on init
-* (klein0r) Updated state roles
 
 ## License
 

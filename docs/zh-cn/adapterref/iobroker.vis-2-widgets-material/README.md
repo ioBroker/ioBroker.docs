@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: w26XlATbPNFRa+YVX2R4yF4O8TFhOF9HQg3jbtZotsA=
+hash: 1fgkkKQY5X8S3cuug/eWiCXdSl4D1IgBnG3oSUKmZh4=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -106,53 +106,19 @@ Html 模板可用于显示任何 html 代码。
 ![门锁](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
 ### 时间选择器
-## 向导映射
-### 一景一房
-- 恒温器 → 小部件恒温器（实际、所需、湿度）以及设备名称
-- 灯开/关 → 带有设备名称的简单状态开/关
-- 调光器→简单状态
-- 百叶窗 → 带有名称的百叶窗
-- 温度 → 带图表的实际值（如果可能的话添加湿度）
-- 运动 → 具有特定图标的简单状态（男孩），只读，活动颜色 rgba(52,170,68,1)
-- 火 → 具有特定图标（火）的简单状态，只读，活动颜色“红色”
-- 洪水→带有特定图标（水）的简单状态，只读，活动颜色“蓝色”
-- 门→带有特定图标（门）的简单状态，只读，活动颜色“红色”
-- 滑块→简单状态
-- 锁定→简单状态
-- 套接字→带有特定图标的简单状态
-- 媒体播放器 → 媒体播放器
-- 音量→带有特定图标的简单状态（音量）
-- 天气预报 → Openweathermap（仅当安装时）
-- 窗口→具有特定图标的简单状态（打开→ true，关闭→ false）
-
-### 一种视图 - 所有房间
-- 恒温器 → 小部件恒温器（实际、所需、湿度）以及设备名称
-- 灯开/关 → 开关和按钮开关
-- 调光器 → 开关和按钮滑块
-- 百叶窗 → 开关和按钮 百叶窗
-- 温度→带有图表的开关和按钮信息
-- 湿度→带有图表的开关和按钮信息
-- 运动 → 开关和按钮信息特定图标，只读，活动颜色 rgba(52,170,68,1)
-- 火 → ISwitch 和按钮 nfo 特定图标（火），只读，活动颜色“红色”
-- 洪水→带有特定图标（水）的开关和按钮信息，只读，活动颜色“蓝色”
-- 门 → 带有特定图标（门）的开关和按钮信息，只读，活动颜色“红色”
-- 滑块 → 开关和按钮滑块
-- 锁 → 开关和按钮开关
-- 插座→开关和按钮带有特定图标的开关
-- 媒体播放器→带有房间名称的媒体播放器（如卡）
-- 音量→带有特定图标（音量）的开关和按钮滑块
-- 天气预报 → Openweathermap 作为卡片（仅当安装时）
-- 窗口→带有特定图标的开关和按钮信息（打开→ true，关闭→ false）
-
 ＃＃ 去做
 - 调查小部件的延迟
+- 带百叶窗的百叶窗展开
 
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### 1.1.2 (2023-09-09)
+### 1.2.1 (2023-09-18)
+* (bluefox) Added door lock, rgb and thermostat to switches widget
+
+### 1.1.3 (2023-09-10)
 * (bluefox) Door lock improved
 
 ### 1.1.0 (2023-09-08)

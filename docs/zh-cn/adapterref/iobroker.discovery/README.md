@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker 发现适配器
-hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
+hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 ---
 ![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -17,7 +17,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 这是一个特殊的适配器，它尝试查找可从 iobroker 主机访问的所有可能的设备。
 目前可以通过 ping、UPnP（串行计划）进行检测。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 实际支持
 ### 自动发现
@@ -42,6 +42,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 - 消防电视
 - 弗里茨德克特
 - 伏能士
+- Frontier_silicon
 - G-Homa 插头
 - 和谐
 - 赫奥斯
@@ -73,6 +74,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 - 音乐广播
 - 我的Dlink
 - Mysensors USB/串行（9600、38400、57600、115200）
+- myvbus
 - nanoleaf 灯板/画布
 - 网络工具
 - 努基2
@@ -85,6 +87,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 - 普罗克斯莫克斯
 - RFLink（串行 57600 波特）
 - 三星电视
+- Sma-em
 - 斯马皮
 - 太阳能日志
 - 索南
@@ -116,7 +119,6 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 
 ## 如果适配器找不到 IP ...
 适配器 ping 当前主机 IP 的网络 (x.y.z.1..255)。此外，UPnP 和 mDNS 用于检测 IP。
-
 如果未找到所有 IP，请检查 iobroker 用户是否可以执行`/bin/ping`。
 您可以执行`sudo setcap cap_net_raw+p /bin/ping`来添加缺少的功能/权限。
 
@@ -144,6 +146,13 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 ### **正在进行中** -->
 
 ## Changelog
+### 4.1.0 (2023-09-25)
+* (pdbjjens) Added detection of myvbus and resol
+
+### 4.0.0 (2023-09-04)
+* (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
+* (bluefox) Dropped node14 support, refactoring
+
 ### 3.2.0 (2023-06-15)
 * (sbormann) Added iControl to the suggested adapters
 
@@ -358,7 +367,7 @@ hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

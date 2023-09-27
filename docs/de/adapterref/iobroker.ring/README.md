@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: /by4CHU08+LjfNQu6jeMDeIHKGRDe1ilZOVm8HLEOZE=
+hash: Y4VqKG2x6vjJ2uLpp4Zd3FM/Smz5DPCI4zYhLSVLzuw=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -22,7 +22,7 @@ Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und 
 ## Installation und Konfiguration
 Nach der Installation des Adapters müssen Sie Ihre E-Mail-Adresse und Ihr Passwort für Ihr [ring.com](https://ring.com)-Konto sowie einen Token eingeben. Ring erfordert jetzt die Verwendung von Two-Factor Auth (2fa) für alle Konten. Um den Token zu erhalten, gehen Sie bitte in Ihrer Shell wie folgt vor.
 
-```
+```shell
 npx -p ring-client-api ring-auth-cli
 ```
 
@@ -76,10 +76,33 @@ Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verl
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0-alpha.0 (2023-09-16)
 
-### **WORK IN PROGRESS**
+* (crocri) Ding event is now working again for Ring-Intercom
+* (crocri) auto livestream creation takes now value from config, before fix
+* (crocri) snapshot now async, because snapshot and livestream in parallel does not work
+* (crocri) livestream duration now settable via tree entry will be auto reset via livestream request.
+* (crocri) two new config entries auto_livestream and auto_snapshot to disable auto creation of livestream and snapshot.
+* (crocri) some minor corrections to code
+* (crocri) Removed binary States
+* (crocri) Improvements for vis compatibility
+* (theimo1221) Refactoring and cleanup
+* (theimo1221) Update Packages
+
+### 4.0.0 (2023-08-22)
+
+* (theimo1221) !!Breaking Change!! From now on Node 18 or 20 is required, Node 16 is not supported anymore
+* (theimo1221) Update Ring-Api to V12 which needs Node 18 or 20
+* (theimo1221) Update Packages
+
+### 3.4.1 (2023-08-06)
 
 * (theimo1221) Compliance to adapter-checker
+* (theimo1221) Update Packages
+* (theimo1221) Debounce Doorbell Presses
+* (theimo1221) Add Support for cocoa_doorbell_v2
+* (theimo1221) Add Support for stickup_cam_longfin
+* (theimo1221) Fix compatibility and recompile
 
 ### 3.4.0 (2023-06-09)
 

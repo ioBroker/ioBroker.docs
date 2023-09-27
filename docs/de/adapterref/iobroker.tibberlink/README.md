@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
+hash: q6tcD9V+1vd5xqcZioq6ggdpTrbdXmpu6Fb7CjcRpVM=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -28,8 +28,9 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, freuen wir uns sehr über die Verwen
 ## Aufbau
 1. Erstellen Sie eine neue Instanz des Adapters
 2. Sie benötigen außerdem einen API-Token von Tibber. Holen Sie es sich hier: [https://developer.tibber.com/](https://developer.tibber.com/)
-3. Geben Sie Ihr Tibber-API-Token ein -> Speichern Sie die Konfiguration, um den Adapter neu zu starten
-4. Wählen Sie die Häuser aus, um auch Live-Daten von Ihrem Tibber Pulse abzurufen - !! Funktioniert nur, wenn Hardware installiert ist
+3. Geben Sie Ihr Tibber-API-Token ein -> erstellen Sie eine Live-Feed-Konfiguration mit mindestens einer Zeile (wählen Sie „Keine verfügbar“).
+4. Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten (Ihre Häuser werden jetzt vom Tibber-Server abgefragt).
+4. Gehen Sie zurück zum Konfigurationsbildschirm und wählen Sie die Häuser aus, um auch Live-Daten von Ihrem Tibber Pulse abzurufen, oder wählen Sie Häuser aus und deaktivieren Sie den Feed – (!! Funktioniert nur, wenn Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat)
 5. Speichern Sie die Einstellungen
 
 ## Anmerkungen
@@ -38,7 +39,23 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.3.0 (2023-09-WORK in PROGRESS)
+### 0.4.1 (2023-09-24)
+* (HombachC) Hardened 2 typeerrors uppon sentry recognition
+* (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
+* (HombachC) preparations for tibber calculator
+### 0.4.0 (2023-09-20)
+* (HombachC) Added daily average price values (#89)
+### 0.3.3 (2023-09-17)
+* (HombachC) Fixed false positive connection message (#87)
+* (HombachC) Updated translations with ChatGPT
+* (HombachC) preparations for tibber calculator
+### 0.3.2 (2023-09-14)
+* (HombachC) Fixed error when starting adapter first time (#82)
+* (HombachC) Fixed error in admin config from 0.3.0 (#81)
+### 0.3.1 (2023-09-13)
+* (HombachC) Mitigate error in admin config from 0.3.0 (#81)
+* (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
+### 0.3.0 (2023-09-12)
 * (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
 * (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
 * (HombachC) preparations for tibber calculator

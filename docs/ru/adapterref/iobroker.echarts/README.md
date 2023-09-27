@@ -3,40 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
+hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![Количество установок](http://iobroker.live/badges/echarts-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.echarts.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Адаптер echarts для ioBroker
-Создавайте полезные графики в ioBroker:
+Создавайте полезные диаграммы в ioBroker:
 
 ![Скриншот](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
 ![Бары](../../../en/adapterref/iobroker.echarts/img/bars.png)
 
 ## Использование
-Добавить после перезагрузки вкладку в админке: ![Администратор](../../../en/adapterref/iobroker.echarts/img/admin.png)
+Добавляем после перезагрузки вкладку в админке: ![Админ](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-Доступ к созданному пресету можно получить и в веб-адаптере. URL-адрес: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
+Доступ к созданному пресету также можно получить в веб-адаптере. URL: `http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`.
 
 Для `vis` есть специальный виджет с удобным выбором пресетов.
 
 ### Подсказка
-Нижний регистр `i` указывает, что значение было интерполировано из двух соседних значений и не существует в данный момент времени.
+Нижний регистр `i` указывает, что значение было интерполировано из значений двух соседей и не существует на данной отметке времени.
 
 ![Подсказка](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### Данные из JSON
-Вы можете определить источник данных из JSON. В этом случае вы можете создать некоторое пользовательское состояние типа `json` и сохранить значение следующим образом:
+Вы можете определить источник данных из JSON. В этом случае вы можете создать собственное состояние типа `json` и сохранить значение следующим образом:
 
 ```
 [
@@ -47,14 +47,14 @@ hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
 ```
 
 Для `val` поддерживаются следующие альтернативные имена атрибутов: `value`, `v`, `data`, `y`.
-И далее для `ts`: `time`, `t`, `date`.
+А для `ts`: `time`, `t`, `date`.
 
-Вы не можете определить начало и начало в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
-Объединение также невозможно. Все манипуляции должны производиться путем записи данных в формате JSON.
+Вы не можете определить старт и старт в настройках echarts. Начало и конец будут рассчитаны автоматически на основе данных.
+Агрегация также невозможна. Все манипуляции необходимо производить путем записи данных в формате JSON.
 Диаграмма будет автоматически обновляться каждый раз при изменении значения.
 
 ### Рендеринг на стороне сервера
-Вы можете отрендерить пресеты на сервере и получить их как URL-адрес base64 или сохранить их на диске в БД ioBroker:
+Вы можете отобразить пресеты на сервере и получить их как URL-адрес base64 или сохранить на диске в базе данных ioBroker:
 
 ```
 sendTo('echarts.0', {
@@ -85,27 +85,40 @@ sendTo('echarts.0', {
 });
 ```
 
-**Внимание: Вы не можете включать/отключать линии в легенде на сенсорных устройствах с включенным масштабированием**
+**Внимание: вы не можете включать/отключать линии в легенде на сенсорных устройствах с включенным масштабированием**
 
 ## Руководство разработчика
-**Для не-разработчиков эта ссылка не работает!**
+**Для неразработчиков эта ссылка не работает!**
 
-Вы можете отлаживать диаграммы просмотра локально с помощью:
+Вы можете отладить диаграммы просмотра локально с помощью:
 
-- cd iobroker.echarts/src-chart
+- cd iobroker.ecarts/src-chart
 - запуск запуска npm
 - Браузер: http://localhost:8081/adapter/echarts/tab.html?dev=true.
 
 ## Делать
 - виджет для вис (кнопка)
 - виджет для материала
-- показывать значки enum на папках или рядом с ними
+- показывать значки перечислений в папках или рядом с ними
 
-<!-- Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.5.4 (2023-09-13)
+* (bluefox) Added an option to the export dialog: select / unselect all
+* (bluefox) Added the availability to show legend as dialog
+
+### 1.5.3 (2023-09-12)
+* (bluefox) Added an option to reset zoom and tilt after X seconds of idle
+
+### 1.5.1 (2023-06-14)
+* (bluefox) Error handling in JSON data was improved
+
+### 1.5.0 (2023-05-17)
+* (bluefox) Implemented raw data export
+
 ### 1.4.15 (2023-05-10)
 * (bluefox) Allowed using the timestamp in seconds in JSON sources
 

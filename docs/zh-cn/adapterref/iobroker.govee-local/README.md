@@ -3,11 +3,19 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.govee-local/README.md
 title: 无题
-hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
+hash: m9G1tXNj6IUJh9RyR238pwrauTfZ0Lhd6fRevJOg7zk=
 ---
 ![标识](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
+![NPM版本](https://img.shields.io/npm/v/iobroker.govee-local.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.govee-local.svg)
+![安装数量](https://iobroker.live/badges/govee-local-installed.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/govee-local-stable.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
+
 ## IoBroker 的 govee 本地适配器
+**测试：** ![测试与发布](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
+
 通过本地访问控制 Govee 设备（无云）
 
 为了能够在本地控制 govee 设备，需要在 govve 应用程序设置中明确打开该功能，如其 [文档](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)> 中所述），因为我目前只有 H6051 灯，这是唯一的设备我可以测试一下。
@@ -18,8 +26,7 @@ hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.2 (2023-09-06)
 -  change icon path and resolution
 
 ### 0.1.1 (2023-08-21)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: qufDhnsOFjQzXYCUb/DFcLplumUdj+3yWhae9qcoq0Q=
+hash: O3SEv62cWxOopwE+VNvtxc6nqI53posCSvBi4O2HaLM=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -142,7 +142,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true
@@ -166,7 +166,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
     - `textAlive` - 默认文本是“实例 %s 处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
     - `textNotAlive` - 默认文本是`实例 %s 不活动`，其中 %s 将被替换为 `ADAPTER.0`。
 
-- `pattern` - 具有“https://${data.ip}:${data.port}”等模式的只读字段（不会保存在配置中）
+- `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
 
   带有只读标志的文本输入，显示模式。
 
@@ -415,7 +415,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则使用当前坐标初始化字段
+  - `autoInit` - 如果为空，则用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
@@ -589,6 +589,25 @@ newData: {
 - 名称 `timeout` => 数字，help="ms"
 
 如果元素没有属性`type`，则假设它具有默认类型“面板”。
+
+## 面板样式
+您也可以为面板提供样式。这是一个带有面板背景的示例：
+
+```json
+{
+  "i18n": true,
+  "type": "panel",
+  "style": {
+    "backgroundImage": "url(adapter/mpd/background.png)",
+    "backgroundPosition": "top",
+    "backgroundRepeat": "no-repeat",
+    "backgroundSize": "cover"
+  },
+  "items": {
+    "...": {}
+  }
+}
+```
 
 ## 国际化
 有多种选项可以提供翻译。

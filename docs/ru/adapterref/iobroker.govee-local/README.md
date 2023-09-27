@@ -3,11 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.govee-local/README.md
 title: без заголовка
-hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
+hash: m9G1tXNj6IUJh9RyR238pwrauTfZ0Lhd6fRevJOg7zk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.govee-local/admin/govee-local.png)
 
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.govee-local.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.govee-local.svg)
+![Количество установок](https://iobroker.live/badges/govee-local-installed.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/govee-local-stable.svg)
+![НПМ](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)
+
 ## Govee-local адаптер для ioBroker
+**Тесты:** ![Тестирование и выпуск](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
+
 Управляйте устройствами Govee через локальный доступ (без облака)
 
 Чтобы иметь возможность локально управлять устройством govee, эту функцию необходимо явно включить в настройках приложения govve, как описано в [документация](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>). Поскольку в настоящее время у меня есть только лампа H6051, это единственное устройство Могу протестировать с помощью.
@@ -18,8 +26,7 @@ hash: VvoVImR+3Y8CAXatjHypsjvEsvLwTrKvjIb7N2j1rFE=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.2 (2023-09-06)
 -  change icon path and resolution
 
 ### 0.1.1 (2023-08-21)

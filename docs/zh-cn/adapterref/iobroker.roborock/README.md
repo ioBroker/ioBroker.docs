@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
+hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -44,6 +44,7 @@ hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 ## 区域清洁
 仅当在适配器选项中启用地图创建时，此功能才有效！
 
+### 地图创建不适用于树莓派
  - 有一个网络服务器正在运行。默认端口为 6824
  - 在浏览器中打开http://iobroker:6824/map.html（将http://iobroker更改为您的ioBroker主机名或ip！！！）
  - 画出用于清洁的正方形。 Roborock 同时支持最多 4 个清洁区域。
@@ -55,6 +56,28 @@ hash: 5QdyBWk2isBsPmU9/Su0g6ER766UBrSpO1YfhyiDGFw=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2023-09-24)
+* (copystring) Fix for getting the map for each cleaning record
+
+### 0.4.3 (2023-09-23)
+* (copystring) Refactor code
+* (copystring) Fix mainUpdateInterval not working
+
+### 0.4.2 (2023-09-18)
+* (copystring) Fix S6 gen path
+* (copystring) Add missing types library
+
+### 0.4.1 (2023-09-17)
+* (copystring) Fix typos in definitions docs generation
+* (copystring) Add missing types library
+
+### 0.4.0 (2023-09-17)
+* (copystring) When a robot goes offline after error during cleaning then clear all intervals and start them when it robot comes back online
+* (copystring) When it fails to receive the map output a warning instead of error since most of them are timeouts
+* (copystring) Migrate definitions for each robot to new system
+* (copystring) Use the system to automatically generate documentation for each robot and it's parameters, attributes, commands, etc
+* (copystring) S7 Max Ultra support
+
 ### 0.3.2 (2023-09-04)
 * (copystring) Fix some S8 Pro Ultra object types
 

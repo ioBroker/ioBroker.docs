@@ -15,7 +15,7 @@
 Sentry.io is a service for developers to get an overview about errors from their applications. Exactly this is implemented in this adapter.
 
 When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.
-When you have allowed ioBroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of these helps me to provide error free adapters that basically never crashs.
+When you have allowed ioBroker GmbH to collect diagnostic data, then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of these helps me to provide error-free adapters that basically never crash.
 
 ## English :gb:
 This adapter connects your Philips Hue Bridges with ioBroker to control Philips Hue LED bulbs, Friends of Hue LED lamps, stripes, plugs like from Osram, and other SmartLink capable devices (like LivingWhites and some LivingColors).
@@ -48,13 +48,13 @@ Please note: Adapter settings button "Find Bridge" will be inactive if field "Br
 
 ### Commands
 Command states (e.g. `hue.0.All.command`) can be used to set multiple commands to the bridge. 
-This allows to set a group or a light to a specific state using e.g. a transiton time.
+This allows setting a group or a light to a specific state using e.g. a transition time.
 
 ```javascript
 setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
 ```
 
-For groups which contain scenes, like `hue.0.Wohnzimmer.scene_hell` the scenes can also be activated with a transitiontime.
+For groups which contain scenes, like `hue.0.Wohnzimmer.scene_hell` the scenes can also be activated with a transition time.
 To do this, pass the scene argument to the corresponding command.
 
 ```javascript
@@ -86,21 +86,21 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) fixed crash case
 
 ### 3.9.4 (2023-07-30)
-* (foxriver76) fixed edge case crash on button updates
-* (foxriver76) fix crash case if uuids can not be retrieved
+* (foxriver76) fixed the edge case crash on button updates
+* (foxriver76) fixed crash case if uuids cannot be retrieved
 
 ### 3.9.3 (2023-06-14)
-* (foxriver76) fix crash cases on unknown push updates (closes #417)
+* (foxriver76) fixed crash cases on unknown push updates (closes #417)
 
 ### 3.9.2 (2023-06-13)
-* (foxriver76) fix sensor converting (closes #415)
+* (foxriver76) fixed sensor converting (closes #415)
 
 ### 3.9.1 (2023-06-13)
 * (foxriver76) implemented more commands of the Push API (mainly buttons)
 
 ### 3.9.0 (2023-06-11)
 * (foxriver76) implemented poll API (closes #227, #343)
-* (foxriver76) fix polling not working (closes #408, #410)
+* (foxriver76) fixed polling not working (closes #408, #410)
 
 ### 3.8.0 (2023-06-09)
 * (Schmakus) Possibility to disable turn on lights with states other than `on` and `brightness` [#386]
@@ -121,10 +121,10 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) ct values of groups can be even lower due to third party lights
 
 ### 3.6.0 (2021-12-30)
-* (foxriver76) allow triggering scenes via `command` state, this allows to start a scene with `transitiontime`
+* (foxriver76) allow triggering scenes via `command` state, this allows starting a scene with `transitiontime`
 
 ### 3.5.31 (2021-11-20)
-* (foxriver76) ct value fix of #234 ported for 0 (All) group
+* (foxriver76) ct value fixed of #234 ported for 0 (All) group
 
 ### 3.5.30 (2021-11-14)
 * (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
@@ -133,7 +133,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (bluefox) Caught SENTRY error.
 
 ### 3.5.28 (2021-11-04)
-* (foxriver76) another fix for invalid ct values (fixes #234)
+* (foxriver76) another fixed for invalid ct values (fixes #234)
 
 ### 3.5.27 (2021-11-01)
 * (foxriver76) we fixed missing object type of some scenes (closes #255)
@@ -143,10 +143,10 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (klein0r) fixed translation of search popup (fixes #247)
 
 ### 3.5.25 (2021-09-15)
-* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+* (foxriver76) if we cannot determine the correct ct value, we won't set it (fixes #234)
 
 ### 3.5.23 (2021-08-26)
-* (Pmant) fix for third party devices delivering wrong ct values
+* (Pmant) fixed for third party devices delivering wrong ct values
 
 ### 3.5.22 (2021-08-12)
 * (foxriver76) fixed several sentry issues (closes #217, closes #218, closes #219, closes #220)
@@ -155,7 +155,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) we now define minimum ct of groups to 2000 instead of 2179 (fixes #216)
 
 ### 3.5.19 (2021-06-02)
-* (foxriver76) fix crash case if we cannot get min/max ct values
+* (foxriver76) fixed crash case if we cannot get min/max ct values
 
 ### 3.5.18 (2021-06-01)
 * (foxriver76) get the correct min/max ct values from api for lights (closes #192)
@@ -181,7 +181,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) we have corrected the min max of color temperature (empirically found)
 
 ### 3.5.11 (2021-05-02)
-* (foxriver76) we now update objects if type has changed
+* (foxriver76) we now update objects if a type has changed
 
 ### 3.5.10 (2021-04-30)
 * (foxriver76) we removed the common.max from lightlevel, was 17,000 but can be much higher
@@ -200,10 +200,10 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) fixing several edge case crashes
 
 ### 3.5.2 (2021-02-24)
-* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
-* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
-* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
-* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
+* (foxriver76) fixed crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fixed crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fixed potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fixed a graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
 
 ### 3.5.1 (2021-02-20)
 * (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
@@ -229,16 +229,16 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (Apollon77) do not catch undhandeledRejections anymore, because controller can handle and report now
 * (foxriver76) dependencies updated
 * (foxriver76) temperature is now correctly read-only
-* (foxriver76) fix duplicate filtering on browse
+* (foxriver76) fixed duplicate filtering on browse
 
 ### 3.3.5 (2020-06-03)
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts
+* (foxriver76) implemented fixed for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
-* (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time
+* (foxriver76) we now handle potential id conflicts, when adding devices from a different type with same name over time
 
 ### 3.3.2 (2020-05-15)
 * (foxriver76) internal optimizations - polling after change timeout removed, was 150 ms now instant
@@ -247,7 +247,7 @@ In den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfigurie
 * (foxriver76) introduce `allOn` state for groups
 * (foxriver76) `anyOn` and `allOn` are now controllable and act like the `on` state
 * (foxriver76) when native turn on/off behaviour is used, the brightness change of partially turned on groups will not turn
-the whole group on, like the hue app does instead it will only change the brightness of the currently turned on lamps
+the whole group on, like the hue app does, instead it will only change the brightness of the currently turned on lamps
 
 ### 3.2.9 (2020-05-12)
 * (foxriver76) fixed issues on user creation
@@ -255,16 +255,16 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 3.2.8 (2020-04-26)
 * (foxriver76) replace dots in light/group/sensor/.. names by underscores
-* (foxriver76) fix potential state update delay after state change on lights/groups containing blanks
+* (foxriver76) fixed potential state update delay after state change on lights/groups containing blanks
 
 ### 3.2.4 (2020-04-08)
 * (xXBJXx) changed role of battery to `value.battery` and made unit `%`
 
 ### 3.2.3 (2020-02-20)
-* (Apollon77) minor fix regarding handleParam called with non-existing id
+* (Apollon77) minor fixed regarding handleParam called with non-existing id
 
 ### 3.2.2 (2020-02-12)
-* (foxriver76) fix potential issues when error type is not HueError
+* (foxriver76) fixed potential issues when error type is not HueError
 
 ### 3.2.1 (2020-01-26)
 * (foxriver76) if lights/groups/sensors are deleted during runtime, restart of adapter is no longer necessary
@@ -296,7 +296,7 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 2.4.6 (2019-12-06)
 * (foxriver76) log unhandeld promise rejections
-* (foxriver76) fix potential issue for negative temperature values
+* (foxriver76) fixed potential issue for negative temperature values
 
 ### 2.4.4 (2019-11-27)
 * (foxriver76) only stringify huge jsons if necessary
@@ -305,7 +305,7 @@ the whole group on, like the hue app does instead it will only change the bright
 * (foxriver76) improved performance
 
 ### 2.4.3 (2019-11-19)
-* (foxriver76) increased version of node-hue-api to fix authentication for old bridge
+* (foxriver76) increased version of node-hue-api to fixed authentication for old bridge
 
 ### 2.4.2 (2019-11-16)
 * (foxriver76) we now use nupnp + upnp to discover bridges (previously only upnp)
@@ -338,8 +338,8 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (foxriver76) usage of iobroker testing
 * (foxriver76) add possibility to sync scenes
 * (foxriver76) restart adapter when room is deleted in app
-* (foxriver76) fix .hue value, user had to set 0-360° but adapter set 0-65535
-* (foxriver76) fix .color.temperature
+* (foxriver76) fixed .hue value, user had to set 0-360° but adapter set 0-65535
+* (foxriver76) fixed .color.temperature
 * (foxriver76) remove unnecessary bridge channel, adapter namespace is the bridge
 * (foxriver76) add "update available" indicator for light bulbs
 * (foxriver76) we now poll the root endpoint instead of (|lights| + |groups| + |sensors|) endpoints every pollingInterval seconds
@@ -390,10 +390,10 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (pmant) add light name to log
 
 ### 0.5.9 (2016.10.11)
-* (pmant) fix error with null values
+* (pmant) fixed error with null values
 
 ### 0.5.8 (2016.06.05)
-* (bluefox) fix typo
+* (bluefox) fixed typo
 
 ### 0.5.7 (2016.06.05)
 * (soef) write back known states for group/room
@@ -403,7 +403,7 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (Pmant) (experimental) support for power switches
 
 ### 0.5.5
-* (Pmant) fix error with xy state
+* (Pmant) fixed error with xy state
 * (Pmant) support level in command state
 
 ### 0.5.4
@@ -415,27 +415,27 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (soef) Default Lightset 0 added
 
 ### 0.5.2
-* (Pman) fix jscs warnings
+* (Pman) fixed jscs warnings
 * (Pman) improve RGB conversion
 * (Pman) add update rgb color
 
 ### 0.5.1
-* (Pman) fix find bridge popup
+* (Pman) fixed find bridge popup
 
 ### 0.5.0
 * (Pman) update to node-hue-api 1.2.x
 * (Pman) add level state (bri percentage)
 
 ### 0.4.4
-* (bluefox) fix config edit
+* (bluefox) fixed config edit
 
 ### 0.4.3
-* (Pmant) fix adapter crash
+* (Pmant) fixed adapter crash
 
 ### 0.4.2
 * (Pmant) add find bridge (experimental)
 * (Pmant) add create user (experimental)
-* (Pmant) fix enable polling
+* (Pmant) fixed enable polling
 
 ### 0.4.1
 * (Pmant) calculate and write back inc values
@@ -445,30 +445,30 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 ### 0.3.2
 * (Pmant) add groups as channels (write only)
-* (Pmant) fix prevent duplicate channel names
+* (Pmant) fixed prevent duplicate channel names
 
 ### 0.3.1
-* (Pmant) fix another bug with spaces
-* (Pmant) fix hue/sat bug
-* (Pmant) fix effect bug
-* (Pmant) fix xy colormode
+* (Pmant) fixed another bug with spaces
+* (Pmant) fixed hue/sat bug
+* (Pmant) fixed effect bug
+* (Pmant) fixed xy colormode
 
 ### 0.3.0
-* (Pmant) fix rgb states only for color lights
+* (Pmant) fixed rgb states only for color lights
 * (Pmant) change set known state changes immediately
 * (Pmant) change on/off sets brightness to 254/0
 * (Pmant) change changing any color (hs,ct,xy) while light is off sets brightness to max
-* (Pmant) fix set brightness to zero if light is off
+* (Pmant) fixed set brightness to zero if light is off
 * (Pmant) change set bri to zero if lamp is not reachable
-* (Pmant) fix bridges and lamps with spaces in name
+* (Pmant) fixed bridges and lamps with spaces in name
 
 ### 0.2.1
 * (Pmant) add rgb states (write only)
-* (Pmant) fix parent/children warnings
+* (Pmant) fixed parent/children warnings
 * (Pmant) add switch light off if brightness is zero
 
 ### 0.1.4
-* (bluefox) fix some null objects
+* (bluefox) fixed some null objects
 
 ### 0.1.3
 * (hobbyquaker) config UI

@@ -6,44 +6,29 @@
 
 [![NPM](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)](https://nodei.co/npm/iobroker.solarwetter/)
 
-## Beschreibung / Description
-:de: Dieser Adapter liefert den prognostizierten Solarstrom Tagesertrag für eine bestimmte Region. Die Daten kommen von [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
+## Description
+This adapter delivers a forecast of the daily amount of solar power for a specific region from supplier [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com). 
 
-:uk: This adapter delivers a forecast of the daily amount of solar power for a specific region from supplier [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com). 
-Translate!!!!
-
-## Einstellungen / Configuration
+## Configuration
 ### User / Passwort
-Seit 2022/03 ist die Authentifizierung beim Anbieter nicht mehr nötig.
-
 Since 2022/03, authentication is no longer needed.
 
-### Standort / Location
-Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen
-Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
-
+### Location
 Choose your region by selecting from the list of post-codes.
 Type in power of your solar plant to calculate energy output.
 
-### Solaranlage / Solar plant
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Rechnung der voraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
-
+### Solar plant
 Put in the total power of your solar plant to calculate the daily forecast for energy production (decimal separators possible)
 
-### 4-Tage-Prognose / 4-day-forecast
-Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt `solarwetter.0.forecast.chart.__url__` ).
-
+### 4-day-forecast
 Choose a city to have the adapter build a link to a 4-day-forecast chart (datapoint `solarwetter.0.forecast.chart.__url__` ).
 
 ![alt text](img/solarwetterSettingScreenshot.jpg "Screenshot Settings")
 
-## Aktivierung / Schedule
-Der Adapter startet einmal täglich.
-
+## Schedule
 The adapter starts once a day.
 
-##  Datenpunkte / Datapoints
+## States
 
 `solarwetter.0.forecast.__clearSky__` (*value*)
 
@@ -67,7 +52,12 @@ The adapter starts once a day.
 
 `solarwetter.0.forecast.chart.__url__` (*value*)
 
-<!-- ### **WORK IN PROGRESS** -->
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
 ### 1.1.5 (2023-08-15)
 * (motuditli) Adjusted for Website Changes - removal of authentication
 * (bluefox) Added compact mode and JSON config

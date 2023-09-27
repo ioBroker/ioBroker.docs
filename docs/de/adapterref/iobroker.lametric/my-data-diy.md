@@ -7,16 +7,17 @@ chapters: {"pages":{"de/adapterref/iobroker.lametric/README.md":{"title":{"de":"
 
 *LaMetric* bietet (über den integrierten App-Store) eine zusätzliche App an, um eigene Informationen darzustellen. Diese App heißt [My Data DIY](https://apps.lametric.com/apps/my_data__diy_/8942). Dieser Adapter erstellt einen Datenpunkt im erforderlichen Format.
 
-Seit Version 2.0.0 dieser App, können Daten auf unterschiedliche Weite an das Gerät übergeben werden.
+Seit Version 2.0.0 dieser App, können Daten auf unterschiedliche Weise an das Gerät übergeben werden.
 
-- Push: der Adapter sendet die Daten regelmäßig an das Gerät (wenn diese sich ändern)
+- Push: der Adapter sendet die Daten regelmäßig an das Gerät (wenn diese sich ändern) - **Standard-Option**
 - Poll: die Daten von der *LaMetric Time* regelmäßig abgeholt (konfigurierbar)
 
 Beide Methoden werden in diesem Dokument erklärt.
 
-## My Data (DIY) - Push *(Adapter-Version >= 3.0.0 notwendig)*
+## My Data (DIY) - Push *(Adapter-Version >= 3.0.0 notwendig)* (empfohlen)
 
-*noch nicht implementiert*
+- Erfordert *My Data DIY* App >= 2.0.0
+- Erfordert Firmware >=2.3.7 (>= 3.0.16)
 
 ## My Data (DIY) - Poll *(Adapter-Version >= 1.1.0 notwendig)*
 

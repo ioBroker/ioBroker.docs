@@ -71,7 +71,6 @@ The following objects are currently implemented:
 |{zone}.enhancer|boolean|x|set enhancer|
 |{zone}.bass_extension|boolean|x|set bass extension|
 |{zone}.sleep|value|x|sleep timer|
-
 |{zone}.disable_flags|boolean|x|set disable_flags|
 |{zone}.contents_display|boolean|x|set contents_display|
 |{zone}.party_enable|boolean|x|set party_enable|
@@ -210,6 +209,9 @@ The following objects are currently implemented:
 * dialog level
 
 ## Changelog
+### 1.1.3
+* translation with adapter-dev
+
 ### 1.1.2
 * new version yamahe-yxc library
 
@@ -336,4 +338,4 @@ The following objects are currently implemented:
 
 The MIT License (MIT)
 
-Copyright (c) 2017 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2017 - 2023 foxthefox <foxthefox@wysiwis.net>

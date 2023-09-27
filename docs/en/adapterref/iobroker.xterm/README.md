@@ -39,6 +39,11 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 -->
 
 ## Changelog
+### 2.0.1 (2023-09-18)
+* (bluefox) xterm library updated
+* (bluefox) Move Lets encrypt settings to acme adapter
+* (bluefox) Minimal supported node.js version is 16
+
 ### 1.1.0 (2022-10-08)
 * (Apollon77) Update xterm library
 * (Apollon77) Prepare for future js-controller versions
@@ -55,7 +60,7 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 ### 0.3.0 (2022-03-12)
 * (Apollon77) Prevent some warnings in js-controller 3+
 * (Apollon77) Add Fallback to simulated shell if bash/cmd.exe is selected by node-pty was not installed correctly!
-* (Apollon77) Rework info.connection status to show that server is connected also as green by using "none" to show that no one is connected
+* (Apollon77) Rework `info.connection` status to show that server is connected also as green by using "none" to show that no one is connected
 * (Apollon77) Update all dependencies
 * (Apollon77) Add sentry for crash reporting
 
@@ -74,7 +79,7 @@ Note: Some terminal commands with interactivity do not work. E.g. `nano` and som
 ## License
 MIT License
 
-Copyright (c) 2021-2022 ioBroker <dogafox@gmail.com>
+Copyright (c) 2021-2023 ioBroker <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

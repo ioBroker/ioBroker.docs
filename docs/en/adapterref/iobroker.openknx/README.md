@@ -363,6 +363,9 @@ Openknx uses sentry.io for application monitoring and error tracking.
 It aids developers to better hunt bugs and gain field usage data. The identification of an user is tracked in a pseudonymised way.
 Data is sent to Iobroker Sentry server hosted in Germany. If you have allowed iobroker GmbH to collect diagnostic data then also your anonymous installation ID is included. This allows Sentry to group errors and show how many unique users are affected by such an error.
 
+![ETS export](docs/pictures/busload.png)
+Openknx estimates the current bus load of the KNX line it is connected to in object info.busload.
+
 # Features
 
 -   stable and reliable knx stack

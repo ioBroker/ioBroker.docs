@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
+hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -106,6 +106,19 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.5.4 (2023-09-13)
+* (bluefox) Added an option to the export dialog: select / unselect all
+* (bluefox) Added the availability to show legend as dialog
+
+### 1.5.3 (2023-09-12)
+* (bluefox) Added an option to reset zoom and tilt after X seconds of idle
+
+### 1.5.1 (2023-06-14)
+* (bluefox) Error handling in JSON data was improved
+
+### 1.5.0 (2023-05-17)
+* (bluefox) Implemented raw data export
+
 ### 1.4.15 (2023-05-10)
 * (bluefox) Allowed using the timestamp in seconds in JSON sources
 

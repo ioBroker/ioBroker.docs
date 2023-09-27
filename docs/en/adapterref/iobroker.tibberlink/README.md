@@ -25,8 +25,9 @@ If you're not a Tibber user right now, it's greatly appreciated when you're usin
 ## Configuration
 1. Create a new instance of the adapter
 2. You will also need an API token from Tibber. Get it here: [https://developer.tibber.com/](https://developer.tibber.com/)
-3. Fill in your Tibber API token -> save config to restart the adapter
-4. Choose the homes to also pull live data from your Tibber Pulse  -  !! Only working if hardware is installed
+3. Fill in your Tibber API token -> create minimum one line Live Feed Configuration (choose the "None available")
+4. Save the settings and leave configaration to get adapter restarted (your home(s) will be polled from Tibber server now)
+4. Go back to config screen and choose the home(s) to also pull live data from your Tibber Pulse or choose home(s) and disable feed  -  (!! Only working if hardware is installed and Tibber server verified connection to Pulse)
 5. Save the settings
 
 ## Notes
@@ -35,7 +36,23 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.3.0 (2023-09-WORK in PROGRESS)
+### 0.4.1 (2023-09-24)
+* (HombachC) Hardened 2 typeerrors uppon sentry recognition
+* (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
+* (HombachC) preparations for tibber calculator
+### 0.4.0 (2023-09-20)
+* (HombachC) Added daily average price values (#89)
+### 0.3.3 (2023-09-17)
+* (HombachC) Fixed false positive connection message (#87)
+* (HombachC) Updated translations with ChatGPT
+* (HombachC) preparations for tibber calculator
+### 0.3.2 (2023-09-14)
+* (HombachC) Fixed error when starting adapter first time (#82)
+* (HombachC) Fixed error in admin config from 0.3.0 (#81)
+### 0.3.1 (2023-09-13)
+* (HombachC) Mitigate error in admin config from 0.3.0 (#81)
+* (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
+### 0.3.0 (2023-09-12)
 * (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
 * (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
 * (HombachC) preparations for tibber calculator

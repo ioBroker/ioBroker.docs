@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.shelly?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shelly?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.shelly?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.shelly?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.shelly?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.shelly?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.shelly?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.shelly?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.shelly/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.shelly?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.shelly.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/shelly-stable.svg
 BADGE-Installed: http://iobroker.live/badges/shelly-installed.svg
@@ -32,8 +30,7 @@ This is the German documentation - [🇺🇸 English version](../en/README.md)
 - [FAQ](faq.md)
 
 ## Anforderungen
-
-1. nodejs 14.5 (oder neuer)
+1. Node.js 16.0 (oder neuer)
 2. js-controller 3.3.22 (oder neuer)
 4. Admin Adapter 6.0.0 (oder neuer)
 
@@ -62,10 +59,12 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-
+### 6.4.3 (2023-09-25)
 * (klein0r) Added Shelly Pro Dual Cover/Shutter PM
 * (klein0r) Added Shelly Pro 3 EM 400A
+* (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
+* (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
+* (D1gitaldad) Added support of Plus PM Mini
 
 ### 6.4.1 (2023-04-23)
 
@@ -92,11 +91,6 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
 * (jlegen) Improved Shelly TRV integration
 * (klein0r) Updated knowledge base urls
 * (klein0r) Added Ukrainian language
-
-### 6.2.4 (2022-10-23)
-
-* (klein0r) IP address of CoAP devices is unknown in some cases
-* (klein0r) Optimized destroy process
 
 ## License
 

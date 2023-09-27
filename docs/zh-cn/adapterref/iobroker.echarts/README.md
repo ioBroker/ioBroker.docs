@@ -3,18 +3,18 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
+hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
 ---
 ![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
 ![安装数量](http://iobroker.live/badges/echarts-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.echarts.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.echarts.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.echarts.svg)
 
 # IoBroker.echarts
-![测试和发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/ioBroker/ioBroker.echarts/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## IoBroker 的 echarts 适配器
 在 ioBroker 中构建有用的图表：
@@ -24,19 +24,19 @@ hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
 ![酒吧](../../../en/adapterref/iobroker.echarts/img/bars.png)
 
 ＃＃ 用法
-在管理员重新启动选项卡后添加：![行政](../../../en/adapterref/iobroker.echarts/img/admin.png)
+重新启动后在管理选项卡中添加：![行政](../../../en/adapterref/iobroker.echarts/img/admin.png)
 
-创建的预设也可以在网络适配器中访问。网址：`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`。
+创建的预设也可以在 Web 适配器中访问。网址：`http://IP:8082/echarts/index.html?preset=echarts.0.PRESETID`。
 
-对于 `vis` 有一个特殊的小部件，可以轻松选择预设。
+对于`vis`，有一个特殊的小部件可以轻松选择预设。
 
 ### 工具提示
-小写字母 `i` 表示该值是从 2-neighbor 值中插入的，并且在这个时间戳中不存在。
+小写的 `i` 表示该值是从 2 个邻居值插值得到的，并且在该时间戳处不存在。
 
 ![工具提示](../../../en/adapterref/iobroker.echarts/img/tooltip.png)
 
 ### 来自 JSON 的数据
-您可以从 JSON 定义数据源。在这种情况下，您可以创建一些类型为 `json` 的自定义状态并像这样存储值：
+您可以从 JSON 定义数据源。在这种情况下，您可以创建一些类型为 `json` 的自定义状态并存储如下值：
 
 ```
 [
@@ -47,13 +47,13 @@ hash: MeWldIrxZX3/bZ79jf+iC0CUg+946xWacZgCGLaJmmE=
 ```
 
 `val` 支持以下替代属性名称：`value`、`v`、`data`、`y`。
-并遵循 `ts`：`time`、`t`、`date`。
+对于 `ts`，如下：`time`、`t`、`date`。
 
-您不能在 echarts 设置中定义 start 和 start。开始和结束将根据数据自动计算。
+无法在echarts设置中定义start和start。开始和结束将根据数据自动计算。
 聚合也是不可能的。所有操作都必须通过写入 JSON 数据来完成。
-每次值更改时，图表都会自动更新。
+每次值发生变化时，图表都会自动更新。
 
-### 服务器端渲染
+### 服务端渲染
 您可以在服务器上呈现预设并将其作为 base64 URL 获取或将其保存在 ioBroker DB 的磁盘上：
 
 ```
@@ -85,27 +85,40 @@ sendTo('echarts.0', {
 });
 ```
 
-**注意：您不能在启用缩放功能的触摸设备上启用/禁用图例中的线条**
+**注意：您无法在启用缩放的触摸设备上启用/禁用图例中的线条**
 
 ## 开发者手册
-**对于非开发人员，此链接无效！**
+**对于非开发者，此链接不起作用！**
 
-您可以在本地调试视图图表：
+您可以使用以下命令在本地调试视图图表：
 
 - cd iobroker.echarts/src-chart
-- npm 运行开始
+- npm 运行启动
 - 浏览器：http://localhost:8081/adapter/echarts/tab.html?dev=true
 
 ＃＃ 去做
-- 用于 vis 的小部件（按钮）
+- vis 小部件（按钮）
 - 材料小部件
-- 在文件夹上或附近显示枚举图标
+- 在文件夹或附近显示枚举图标
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 1.5.4 (2023-09-13)
+* (bluefox) Added an option to the export dialog: select / unselect all
+* (bluefox) Added the availability to show legend as dialog
+
+### 1.5.3 (2023-09-12)
+* (bluefox) Added an option to reset zoom and tilt after X seconds of idle
+
+### 1.5.1 (2023-06-14)
+* (bluefox) Error handling in JSON data was improved
+
+### 1.5.0 (2023-05-17)
+* (bluefox) Implemented raw data export
+
 ### 1.4.15 (2023-05-10)
 * (bluefox) Allowed using the timestamp in seconds in JSON sources
 

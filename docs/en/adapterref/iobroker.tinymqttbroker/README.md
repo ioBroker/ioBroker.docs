@@ -1,14 +1,13 @@
 ![Logo](admin/tinymqttbroker.png)
 # ioBroker.tinymqttbroker
 
+![Current version in stable repository](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 [![NPM version](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)](https://www.npmjs.com/package/iobroker.tinymqttbroker)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)](https://www.npmjs.com/package/iobroker.tinymqttbroker)
 ![Number of Installations](https://iobroker.live/badges/tinymqttbroker-installed.svg)
-![Current version in stable repository](https://iobroker.live/badges/tinymqttbroker-stable.svg)
+![Test and Release](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)](https://nodei.co/npm/iobroker.tinymqttbroker/)
-
-**Tests:** ![Test and Release](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 
 ## tinymqttbroker adapter for ioBroker
 
@@ -82,6 +81,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.6 (2023-09-18)
+* (HGlab01) Improve error handling
+* (HGlab01) Verify if port is used from other process
+
 ### 0.0.5 (2023-09-11)
 * (HGlab01) add sentry support
 

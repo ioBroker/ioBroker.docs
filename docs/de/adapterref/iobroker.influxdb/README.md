@@ -104,9 +104,11 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (Marc-Berg) Allowed the self signed certificates using "test connection" button
+### 4.0.0 (2023-09-19)
+* (Marc-Berg) Allowed the self-signed certificates using "test connection" button
 * (Marc-Berg) The deletion of data from DB was implemented for V2
+* (bluefox) Added support for `count` aggregate type on getHistory
+* (bluefox) minimal supported node.js version is 16 now
 
 ### 3.2.0 (2022-09-19)
 * (Apollon77) Adjust cache file to be different per instance when having multiple instances
@@ -121,7 +123,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
 
 ### 3.1.5 (2022-06-12)
-* (Apollon77) Make sure debug log is active according to the settings
+* (Apollon77) Make sure the debug log is active, according to the settings
 
 ### 3.1.4 (2022-06-08)
 * (Apollon77) Performance optimizations for GetHistory calls, especially for "minmax" aggregate method
@@ -153,20 +155,20 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Apollon77) Breaking! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
 * (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
 * (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
-* (Apollon77) Add new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
-* (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
+* (Apollon77) Added new Debug flag to enable/disable debug logging on datapoint level (default is false) to optimize performance
+* (Apollon77) Added flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
 * (Apollon77) Flush the buffer for the datapoint which is queried by GetHistory before the query is done, so that all data are in the database
 * (Apollon77) make sure id is always returned on GetHistory when addId is set
-* (Apollon77) Add aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used. Calculation will be done by InfluxDB
-* (Apollon77) Add aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used. Calculation will be done by InfluxDB
-* (Apollon77) Add (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear". Calculation will be done byInfluxDB (except for InfluxDB 1 and interpolation "linear", this is done by adapter on raw data)
+* (Apollon77) Added aggregate method "percentile" to calculate the percentile (0..100) of the values (requires options.percentile with the percentile level, defaults to 50 if not provided). Basically same as Quantile just different levels are used. Calculation will be done by InfluxDB
+* (Apollon77) Added aggregate method "quantile" to calculate the quantile (0..1) of the values (requires options.quantile with the quantile level, defaults to 0.5 if not provided). Basically same as Percentile just different levels are used. Calculation will be done by InfluxDB
+* (Apollon77) Added (experimental) method "integral" to calculate the integral of the values. Requires options.integralUnit with the time duration of the integral in seconds, defaults to 60s if not provided. Optionally a linear interpolation can be done by setting options.integralInterpolation to "linear". Calculation will be done byInfluxDB (except for InfluxDB 1 and interpolation "linear", this is done by adapter on raw data)
 * (Apollon77) When request contains flag removeBorderValues: true, the result then cut the additional pre and post border values out of the results
 * (Apollon77) Enhance the former "Ignore below 0" feature and now allow specifying to ignore below or above specified values. The old setting is converted to the new one
 * (Apollon77) Allow to specify custom retention duration in days
-* (Apollon77) Add a new message flushBuffer to flush complete buffers or for a given id
+* (Apollon77) Added a new message flushBuffer to flush complete buffers or for a given id
 * (Apollon77) Allow to specify an additional path for the InfluxDB URL, when Reverse proxies are used or such
 * (Apollon77) Make sure that min change delta allows numbers entered with comma (german notation) in all cases
-* (Apollon77) Add support to specify how to round numbers on query per datapoint
+* (Apollon77) Added support to specify how to round numbers on query per datapoint
 * (Apollon77) Allow to specify if the last value of a state is logged on startup
 
 ### 2.6.3 (2022-03-07)
@@ -174,7 +176,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 2.6.2 (2022-03-03)
 * (Apollon77) Correctly handle db names with hyphens for InfluxDB 1
-* (Apollon77) Fix getHistory for non boolean fields
+* (Apollon77) Fix getHistory for non-boolean fields
 * (Apollon77) Adjust shard group duration to influxdb proposals
 
 ### 2.6.1 (2022-02-28)
@@ -182,7 +184,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 2.6.0 (2022-02-24)
 * (Excodibur) Make request timeout configurable - defaults to 30s
-* (Apollon77) Add option to also accept self signed ssl certificates for InfluxDB 2.x
+* (Apollon77) Added an option to also accept self-signed ssl certificates for InfluxDB 2.x
 
 ### 2.5.2 (2022-02-22)
 * (bluefox) Marked interpolated data with `i=true`
@@ -195,7 +197,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (Excodibur) Added expert settings to deactivate health checks for Influx 2 db (There are no health checks for Influx 1)
 * (Excodibur) Hide settings not relevant when "log changes only" is not used
 * (Apollon77) Allow all number values for debounce again
-* (Apollon77) InfluxDB also do not like Infinite values, so ignore them too
+* (Apollon77) InfluxDB also does not like Infinite values, so ignore them too
 
 ### 2.3.0 (2021-12-14)
 * (bluefox) Support only `js.controller` >= 3.3.x
@@ -203,7 +205,7 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (bluefox) Implemented option to ignore zero- or/and below zero- values
 
 ### 2.2.0 (2021-08-25)
-* (Excodibur) Added option to store metadata (q, ack, from) as tags instead of fields for Influx 2.x - see README!
+* (Excodibur) Added an option to store metadata (q, ack, from) as tags instead of fields for Influx 2.x - see README!
 * (Excodibur) Failure to update/set retention policy will now cause warning instead of error/restart, to support more restrictive DB setups
 * (Excodibur/Apollon77) Bug fixes and adjustments
 
@@ -255,13 +257,13 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ### 1.8.2 (2020-04-19)
 * __Requires js-controller >= 2.0.0__
-* (Apollon77) removed usage of adapter.objects
+* (Apollon77) removed usage of `adapter.objects`
 * (Apollon77) check if objects have changed and ignore unchanged
-* (Apollon77) Add Sentry for Error Reporting with js-controller 3.0
+* (Apollon77) Added Sentry for Error Reporting with js-controller 3.0
 * (Apollon77) Make sure value undefined is ignored
 
 ### 1.4.2 (2017-03-02)
-* (Apollon77) Add option to define storage datatype per datapoint inclusing converting the value if needed
+* (Apollon77) Added option to define storage datatype per datapoint inclusing converting the value if needed
 
 ### 1.3.4 (2017-02-22)
 * (Apollon77) Small fix for older configurations
@@ -277,8 +279,8 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 * (bluefox) Fix handling of float values in Adapter config and Datapoint config.
 
 ### 1.3.0 (2016-12-02)
-* (Apollon77) Add messages enableHistory/disableHistory
-* (Apollon77) add support to log changes only if value differs a minimum value for numbers
+* (Apollon77) Added messages enableHistory/disableHistory
+* (Apollon77) Added support to log changes only if value differs a minimum value for numbers
 
 ### 1.2.1 (2016-11)
 * (Apollon77) small enhancements and fixes
@@ -286,20 +288,20 @@ Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 ### 1.2.0 (2016-11-05)
 * (Apollon77) support re-logging also for states that are not updated often (timed relog using relog-Interval)
 * (Apollon77) try to solve easy type conflicts and convert float <--> boolean if needed
-* (Apollon77) enhance getHistory to retrieve also boundary values better by selecting also points outside of the given time boundaries
+* (Apollon77) enhance `getHistory` to retrieve also boundary values better by selecting also points outside of the given time boundaries
 
 ### 1.1.1 (2016-11-03)
 * (Apollon77) small final change on custom dialog
 
 ### 1.1.0 (2016-10-29)
-* (Apollon77) optimizations and enhancements for high traffic situations
+* (Apollon77) optimizations and enhancements for high-traffic situations
 * (Apollon77) Bugfix if InfluxDB is unavailable
-* (Apollon77) add functions getConflictingPoints and resetConflictingPoints
-* (Apollon77) add option to re-log unchanged values to make it easier for visualization
+* (Apollon77) Added functions getConflictingPoints and resetConflictingPoints
+* (Apollon77) Added option to re-log unchanged values to make it easier for visualization
 
 ### 1.0.1 (2016-10-18)
 * (Apollon77) changed storing values to asynchronous way
-* (Apollon77) add support for „minmax“ aggregate type on getHistory
+* (Apollon77) Added support for `minmax` aggregate type on getHistory
 
 ### 1.0.0 (2016-10-10)
 * (Apollon77) bulk write into DB

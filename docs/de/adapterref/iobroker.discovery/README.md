@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover-Adapter
-hash: yhYbdtA0PicQ6yswcH5mlDlhrmMRU3M3d0Xx3OTDmAw=
+hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -42,6 +42,7 @@ Gerade jetzt kann es per Ping, UPnP (seriell geplant) erkennen.
 - FireTV
 - Fritzdect
 - Fronius
+- Frontier_silicon
 - G-Homa-Stecker
 - Harmonie
 - Heos
@@ -73,10 +74,11 @@ Gerade jetzt kann es per Ping, UPnP (seriell geplant) erkennen.
 - Musikcast
 - myDlink
 - Mysensors USB/Seriell (9600, 38400, 57600, 115200)
+- myvbus
 - Nanoleaf-Lichtpaneele / Leinwand
 - Netzwerkzeuge
 - Nuki2
-- Mutter
+- Nuss
 - Onkyo
 - OpenHAB
 - OpenKNX
@@ -85,6 +87,7 @@ Gerade jetzt kann es per Ping, UPnP (seriell geplant) erkennen.
 - Proxmox
 - RFLink (seriell 57600 Baud)
 - SamsungTV
+- Sma-em
 - Smappee
 - Solarlog
 - Sonnen
@@ -116,7 +119,6 @@ Gerade jetzt kann es per Ping, UPnP (seriell geplant) erkennen.
 
 ## Wenn der Adapter keine IPs finden kann ...
 Der Adapter pingt das Netzwerk der IP des aktuellen Hosts (x.y.z.1..255). Zusätzlich werden UPnP und mDNS zur Erkennung von IPs verwendet.
-
 Wenn nicht alle IPs gefunden werden, prüfen Sie bitte, ob der iobroker-Benutzer `/bin/ping` ausführen kann.
 Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähigkeiten/Berechtigungen hinzuzufügen.
 
@@ -144,6 +146,13 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 4.1.0 (2023-09-25)
+* (pdbjjens) Added detection of myvbus and resol
+
+### 4.0.0 (2023-09-04)
+* (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
+* (bluefox) Dropped node14 support, refactoring
+
 ### 3.2.0 (2023-06-15)
 * (sbormann) Added iControl to the suggested adapters
 
@@ -358,7 +367,7 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

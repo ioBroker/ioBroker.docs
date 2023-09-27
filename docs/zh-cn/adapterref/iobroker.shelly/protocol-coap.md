@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-coap.md
 title: ioBroker.shelly
-hash: wtQyxnpCov+lR9Vk0SyMHMQKW12pD5amhRj7BR008wg=
+hash: mwV6RFHCnF5YCi49CVyQClGljQYzohPsXjalqg/EoTU=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -16,9 +16,11 @@ hash: wtQyxnpCov+lR9Vk0SyMHMQKW12pD5amhRj7BR008wg=
 
 **如果使用高于 1.9.4 的固件版本，则必须在 Shelly 设备上配置 CoIoT 服务器（单播）。**
 
-输入 ioBroker 服务器的 IP 地址作为 CoIoT 服务器 - 后跟端口 ```5683```。例如，如果可以通过地址 ```192.168.1.2``` 联系您的 ioBroker，请在其中输入 ```192.168.1.2:5683``` 并激活 CoIoT。
+输入 ioBroker 服务器的 IP 地址作为 CoIoT 服务器 - 后跟端口`5683`。例如，如果可以通过地址 `192.168.1.2` 联系您的 ioBroker，请在其中输入 `192.168.1.2:5683` 并激活 CoIoT。
 
 ![雪莉_科普](../../../de/adapterref/iobroker.shelly/img/shelly_coap.png)
+
+**此更改后必须重新启动 Shelly 设备！**
 
 CoAP 添加网络上的所有设备。如果您想排除个别设备，可以将其配置到黑名单中。为此，请将序列号插入表中：
 
@@ -31,7 +33,7 @@ CoAP 添加网络上的所有设备。如果您想排除个别设备，可以将
 
 ### 重要说明
 #### 码头工人
-如果您在 Docker 容器中运行 ioBroker，则该容器必须配置为网络模式 ```host``` 或 ```macvlan```。如果 Docker 容器在网络模式```bridge```下运行，则不会找到 Shelly 设备。
+如果您在 Docker 容器中运行 ioBroker，则该容器必须配置为网络模式 `host` 或 `macvlan`。如果 Docker 容器在网络模式`bridge`下运行，则不会找到 Shelly 设备。
 
 #### Shelly 固件 1.8.0（或更高版本）
 - 如果您使用 CoAP 协议，则必须从该版本开始使用适配器版本 4.0.0（或更高版本）。

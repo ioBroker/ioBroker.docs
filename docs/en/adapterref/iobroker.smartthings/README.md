@@ -1,4 +1,5 @@
 ![Logo](admin/smartthings.png)
+
 # ioBroker.smartthings
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.smartthings.svg)](https://www.npmjs.com/package/iobroker.smartthings)
@@ -16,26 +17,31 @@
 Adapter for Samsung Smartthings
 
 ## Loginablauf:
-Besuchen Sie den Link.  https://account.smartthings.com/tokens  
+
+Besuchen Sie den Link. https://account.smartthings.com/tokens  
 Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite \"Persönliche Zugriffstoken\" zu gelangen.  
 Tippen Sie auf die Schaltfläche „Neuen Token generieren“, um auf die Seite „Neuer Zugriffstoken“ zu gelangen.  
 Geben Sie einen Namen für das neue Token an. Wählen Sie im Abschnitt „Autorisierte Bereiche“ eine beliebige Funktionalität aus, die Sie für das Token autorisieren möchten.  
-Tippen Sie auf die Schaltfläche \"Token generieren\", wenn Sie fertig sind, und Sie kehren zur Seite \"Persönliche Zugriffstoken\" zurück.  Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
+Tippen Sie auf die Schaltfläche \"Token generieren\", wenn Sie fertig sind, und Sie kehren zur Seite \"Persönliche Zugriffstoken\" zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
 
 ## Steuern
-smartthings.0.id.capabilities entweder true setzen oder ein vorgegebenen Wert setzen  
+
+smartthings.0.id.capabilities entweder true setzen oder ein vorgegebenen Wert setzen
 
 ## Diskussion und Fragen:
-https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
+https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
 
-* 0.0.4 Reduced cpu load while writing states
+- 0.1.0 Added object excluding to reduce cpu usage
 
-* 0.0.3 (TA2k) initial release
+- 0.0.4 Reduced cpu load while writing states
+
+- 0.0.3 (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021 TA2k <tombox2020@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: KXxKax0NFNwCyfYeQhzwzMl39r3rJCPv2LdKDjNUqqs=
+hash: u6RHwdGE8h+6GmwqJEo0/eXOOBqw568qHzRfz6s4tKk=
 ---
 # IoBroker.tado
 
@@ -16,69 +16,70 @@ hash: KXxKax0NFNwCyfYeQhzwzMl39r3rJCPv2LdKDjNUqqs=
 
 <img src="./admin/tado.png" width="50" height="50">
 
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Tado-Adapter für ioBroker
-tado° sorgt für ein angenehmes und gesundes Klima und spart dabei bis zu 31 % Heizkosten.
+tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis zu 31 % Ihrer Heizkostenrechnung.
 
-## Dinge, die du steuern kannst
-| Zustand | Beschreibung |
+## Dinge, die Sie steuern können
+| Staat | Beschreibung |
 | ----- | ----------- |
-| tado.[x].[yyyyyy].Räume.[z].setting.power | Gerät ein-/ausschalten |
-| tado.[x].[yyyyyy].Räume.[z].Einstellung.Temperatur.Celsius | Temperatur definieren |
-| tado.[x].[yyyyyy].Räume.[z].overlayClearZone | Wechseln Sie in den Automatikmodus |
+| tado.[x].[yyyyyy].Rooms.[z].setting.power | Gerät ein-/ausschalten |
+| tado.[x].[yyyyyy].Rooms.[z].setting.temperature.celsius | Temperatur definieren |
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | In den Automatikmodus wechseln |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Zeitplanmodus einstellen |
-| tado.[x].[yyyyyy].Räume.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Zeitplanmodus gelten soll |
-| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperatur-Offset |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Legen Sie fest, wie lange der Zeitplanmodus gelten soll |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius | Temperaturoffset |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled | Kindersicherung ein/aus |
-| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Wählen Sie aktiven Zeitplan |
+| tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id | Aktiven Zeitplan auswählen |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Erkennung offener Fenster am Thermostat aktivieren/deaktivieren |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, wie lange Thermostate ausgeschaltet werden, wenn ein offenes Fenster erkannt wird |
-| tado.[x].[yyyyyy].Räume.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
-| tado.[x].[yyyyyy].Home.state.presence | Modus ZUHAUSE oder ABWESEND einstellen |
-| tado.[x].[yyyyyy].Home.Hauptschalter | Alle Geräte ein-/ausschalten |
-| tado.[x].[yyyyyy].Räume.[z].setting.mode | AC-Modus (nur AC-Geräte) |
-| tado.[x].[yyyyyy].Räume.[z].setting.fanspeed | Fanspeed (nur AC-Geräte mit V3 und älteren Versionen) |
-| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlabel (nur AC-Geräte mit Version V3+) |
-| tado.[x].[yyyyyy].Räume.[z].setting.verticalSwing | Vertikalschwenk (nur AC-Geräte mit Version V3+) |
-| tado.[x].[yyyyyy].Räume.[z].setting.horizontalSwing | Horizontalschwenk (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
+| tado.[x].[yyyyyy].Home.state.presence | Heim- oder Abwesenheitsmodus einstellen |
+| tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
+| tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel (nur AC-Geräte mit V3+-Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.verticalSwing | Vertikaler Schwenk (nur AC-Geräte mit V3+-Version) |
+| tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontaler Schwenk (nur AC-Geräte mit V3 und älteren Versionen) |
 
 ## Erfordert
-* NodeJS 14.16 oder höher
-* ioBroker-Host (js-Controller) 4.0 oder höher
+* NodeJS 16 oder höher
+* ioBroker-Host (JS-Controller) 4.0 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
+
 -->
-### 0.4.4 (2023-02-03)
-* (HGlab01) Add attribute 'energyIqReminder' and 'specialOffersEnabled'
-* (HGlab01) Bump axios to 1.3.1
-* (HGlab01) Fix 'Invalid value TADO_MODE' (#585)
+### 0.4.10 (2023-09-26)
+* (HGlab01) Add attribute 'isBalanceHpEligible'
+* (HGlab01) improve axios keep_a_live
 
-### 0.4.3 (2022-12-06)
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10 (#551)
-* (HGlab01) Bump axios to 1.2.1 (final fix for #561)
-* (HGlab01) Improve logs
+### 0.4.9 (2023-07-05)
+* (HGlab01) Add attribute 'zonesCount'
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 
-### 0.4.2 (2022-11-27)
-* (HGlab01) Downgrade axios to 1.1.3 (#561)
+### 0.4.8 (2023-05-12)
+* (HGlab01) Add attribute 'isHeatSourceInstalled'
+* (HGlab01) Bump axios to 1.4.0
 
-### 0.4.1 (2022-11-24)
-* (HGlab01) Add attribute isBalanceAcEligible
-* (HGlab01) Bump axios from 0.27.2 to 1.2.0
-* (HGlab01) Bump simple-oauth2 from 4.3.0 to 5.0.0
+### 0.4.7 (2023-04-26)
+* (HGlab01) Add attribute 'generation'
+* (HGlab01) improve axios error handling
+* (HGlab01) Bump axios to 1.3.6
 
-### 0.4.0 (2022-09-05)
-* (HGlab01) !Breaking change! NodeJS 14.16 or higher required
-* (HGlab01) !Breaking change! ioBroker js-controller 4.0 or higher required
-* (HGlab01) Bump is-online from 9.0.1 to 10.0.0
+### 0.4.6 (2023-04-12)
+* (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
+* (HGlab01) improve ETIMEDOUT issue
+* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
+* (HGlab01) js-controller v5 readiness (#618)
 
 ## License
 MIT License
 
-Copyright (c) 2022 DutchmanNL <rdrozda@hotmail.com> & HGlab01
+Copyright (c) 2023 HGlab01 & DutchmanNL <rdrozda@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

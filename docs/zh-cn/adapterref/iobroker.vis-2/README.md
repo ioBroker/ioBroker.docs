@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: T4JOkL3zc7MNtIeXv19fycU96zqVyiWvcnWAGuA/8Wg=
+hash: A0UXMam6e3LIeD148XsRnIzKz1HL6bCa2HyEFU8PhNE=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -62,7 +62,7 @@ Patten 具有以下格式：
 
 支持以下操作：
 
-- `\*` - 乘法。参数必须放在括号中，例如“*(4)”。在此示例中，我们将该值乘以 4。
+- `\*` - 相乘。参数必须放在括号中，例如“*(4)”。在此示例中，我们将该值乘以 4。
 - `\+` - 添加。参数必须放在括号中，例如“+(4.5)”。在此示例中，我们添加值 4.5。
 - `\-` - 减法。参数必须位于括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
 - `/` - 除法。参数必须放在括号中，例如“/(0.5)”。在此示例中，我们将该值除以 0.5。
@@ -183,7 +183,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。
 这只是编辑模式下的视觉边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框之外的所有小部件都将可见。
 
-此外，您还可以定义是否必须将此视图用作此分辨率的默认视图。
+此外，您可以定义是否必须将此视图用作此分辨率的默认视图。
 
 因此，每次调用`index.html`（没有`#viewName`）时，都会打开最适合该分辨率的视图。
 如果只有一个视图具有“默认”标志，则该视图将独立于屏幕分辨率或方向打开。
@@ -192,7 +192,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 
 有一个帮助小部件“基本 - 屏幕分辨率”，它显示实际的屏幕分辨率和最适合该分辨率的默认视图。
 
-## 设置
+＃＃ 设置
 ### 如果睡眠时间超过则重新加载
 有一个规则，断线一段时间后，整个VIS页面将重新加载以同步项目。
 您可以在菜单“设置...”中对其进行配置。如果将间隔设置为“从不”，则页面将永远不会重新加载。
@@ -207,14 +207,40 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 
 ![黑暗的](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
 
-＃＃ 去做
-- 水平导航
+## SVG 和当前颜色
+CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本颜色。
+它在 SVG（可缩放矢量图形）中特别有用，因为它允许更动态的样式并且更容易与 HTML 内容集成。
 
+您可以使用 currentColor 关键字来代替 SVG 内接受颜色值的任何属性的特定颜色值。
+下面是一个 SVG 中带有圆圈的简单示例：
+
+```xml
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="currentColor" />
+</svg>
+```
+
+在这种情况下，如果 SVG 采用父元素的颜色。
+例如，如果它用在菜单中并且菜单是红色的，则圆圈将为红色。
+
+＃＃ 去做
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 2.2.7 (2023-09-18)
+* (bluefox) Improved icon selector: you can upload your own icon directly
+* (bluefox) Optimized loading: do not load unused widget sets
+
+### 2.2.6 (2023-09-17)
+* (bluefox) Date binding corrected
+* (bluefox) Optimized loading of widgeteria
+* (bluefox) Horizontal navigation is fixed
+
+### 2.2.5 (2023-09-12)
+* (bluefox) Implemented horizontal navigation
+
 ### 2.2.4 (2023-09-04)
 * (bluefox) Corrected license checking
 

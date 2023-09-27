@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-mqtt.md
 title: ioBroker.shelly
-hash: XoKd2ykHFdC4H9F9Q/p9JiWFQCS1ZRNLAqYt2AkSpuc=
+hash: Mkjpfc1TwG4yTveWNCQC4rK4RUK+Ak6KU5NS9c4+vII=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -16,7 +16,7 @@ hash: XoKd2ykHFdC4H9F9Q/p9JiWFQCS1ZRNLAqYt2AkSpuc=
 
 ### 重要说明
 - 无法将 Shelly 适配器连接到现有 MQTT 代理
-- Shelly 适配器启动自己的 MQTT 代理，该代理在端口“1882”上启动，以避免与同一系统上的其他 MQTT 代理发生冲突（MQTT 的默认端口是“1883”）
+- Shelly 适配器启动自己的 MQTT 代理，该代理在端口“1882”上启动，以避免与同一系统上的其他 MQTT 代理发生冲突（MQTT 的默认端口为“1883”）
 - 无法将 MQTT 客户端（例如 MQTT Explorer）连接到内部 MQTT 代理
 - 内部MQTT代理的默认端口可以在适配器的配置中调整
 - **无需了解 MQTT 协议** - 所有通信均在内部处理
@@ -38,7 +38,7 @@ hash: XoKd2ykHFdC4H9F9Q/p9JiWFQCS1ZRNLAqYt2AkSpuc=
 ### 第 2 代设备（Plus 和 Pro）
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
 2. 转到“网络 -> Mqtt”
-3. 激活 MQTT 并输入刚刚配置的用户数据和安装 ioBroker 的系统的 IP 地址 - 后跟配置的端口（例如``192.168.1.2:1882``）
+3. 激活 MQTT 并输入刚刚配置的用户数据和安装 ioBroker 的系统的 IP 地址 - 后跟配置的端口（例如“192.168.1.2:1882”）
 4.保存配置-Shelly会自动重启
 
 - **不要更改此配置中的“客户端 ID”**
@@ -51,8 +51,8 @@ hash: XoKd2ykHFdC4H9F9Q/p9JiWFQCS1ZRNLAqYt2AkSpuc=
 
 ### 第一代设备
 1. 在浏览器中打开 Shelly Web 配置（不是在 Shelly 应用程序中！）
-2. 转到“Internet 和安全设置 -> 高级 - 开发人员设置”
-3. 激活 MQTT 并输入刚刚配置的用户数据和安装 ioBroker 的系统的 IP 地址 - 后跟配置的端口（例如``192.168.1.2:1882``）
+2. 转到“互联网和安全设置 -> 高级 - 开发人员设置”
+3. 激活 MQTT 并输入刚刚配置的用户数据和安装 ioBroker 的系统的 IP 地址 - 后跟配置的端口（例如“192.168.1.2:1882”）
 4.保存配置-Shelly会自动重启
 
 ![雪莉第一代](../../../de/adapterref/iobroker.shelly/img/shelly_mqtt-gen1.png)

@@ -41,6 +41,7 @@ For more details and for information how to disable the error reporting see [Sen
 - FireTV
 - Fritzdect
 - Fronius
+- Frontier_silicon
 - G-Homa plugs
 - Harmony
 - Heos
@@ -72,6 +73,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Musiccast
 - myDlink
 - Mysensors USB/Serial (9600, 38400, 57600, 115200)
+- myvbus
 - nanoleaf Light Panels / Canvas
 - Net Tools
 - Nuki2
@@ -84,6 +86,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Proxmox
 - RFLink (Serial 57600baud)
 - SamsungTV
+- Sma-em
 - Smappee
 - Solarlog
 - Sonnen
@@ -103,6 +106,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Z-wave USB (Tested with Aeon Labs)
 
 ### Offered as additional adapters
+
 - Cloud
 - History (if no SQL or InfluxDB found) 
 - IoT
@@ -114,12 +118,13 @@ For more details and for information how to disable the error reporting see [Sen
 - Web
 
 ## If the adapter can not find IPs ...
-The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS are used to detect IPs. 
 
+The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS are used to detect IPs.  
 If not all IPs are found then please check that the iobroker user can execute `/bin/ping`. 
 You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
 
 ## Todo
+
 - artnet? (Bluefox)
 - B-Control-Em? (Bluefox)
 - cul / maxcul (Bluefox)
@@ -143,6 +148,9 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.1.0 (2023-09-25)
+* (pdbjjens) Added detection of myvbus and resol
+
 ### 4.0.0 (2023-09-04)
 * (pdbjjens) Added: frontier_silicon, sma-em, and speedwire
 * (bluefox) Dropped node14 support, refactoring

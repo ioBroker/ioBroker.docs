@@ -3,58 +3,58 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hue/README.md
 title: Адаптер ioBroker Philips Hue Bridge
-hash: iJT+orqAnBFHf5VwoZ9V0eNwVozQnYCbZSECUmkv9Bs=
+hash: Rc6ilS4FX1PSwiEhplxS3IualIGE9rSvltuTHBEyc9w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
 ![Количество установок](http://iobroker.live/badges/hue-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.hue.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.hue.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hue.svg)
 
-# Адаптер ioBroker Philips Hue Bridge
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker Адаптер Philips Hue Bridge
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует службу [Sentry.io](https://sentry.io), чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода, а также о новых схемах устройств.** Подробнее см. ниже!
+**Этот адаптер использует службу [Сентри.ио](https://sentry.io) для автоматического сообщения об исключениях, ошибках кода и новых схемах устройств мне как разработчику.** Более подробную информацию см. ниже!
 
-## Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. Именно это реализовано в данном адаптере.
+## Что такое Sentry.io и какие данные передаются на серверы этой компании?
+Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. Именно это и реализовано в этом адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry.
-Когда вы разрешаете ioBroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
+При сбое адаптера или возникновении другой ошибки кода это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry.
+Если вы разрешили ioBroker GmbH собирать диагностические данные, тогда также включается ваш установочный идентификатор (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, адресе электронной почты, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуло такая ошибка. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
 
 ## Английский :gb:
-Этот адаптер соединяет ваши мосты Philips Hue Bridge с ioBroker для управления светодиодными лампами Philips Hue, светодиодными лампами Friends of Hue, лентами, вилками, такими как Osram, и другими устройствами с поддержкой SmartLink (например, LivingWhites и некоторыми LivingColors).
+Этот адаптер соединяет ваши мосты Philips Hue Bridge с ioBroker для управления светодиодными лампами Philips Hue, светодиодными лампами Friends of Hue, полосами, вилками, такими как Osram, и другими устройствами с поддержкой SmartLink (например, LivingWhites и некоторыми LivingColors).
 
 ### Настраивать
-После того, как вы установили этот адаптер в ioBroker, создайте соответствующий экземпляр адаптера. Затем вам нужно подключить мост Hue к ioBroker в настройках адаптера:
+После установки этого адаптера в ioBroker создайте соответствующий экземпляр адаптера. Далее вам необходимо подключить ваш мост Hue к ioBroker в настройках адаптера:
 
-1. Если вы используете мост, отличный от v2, настройте порт на 80 (не https), в противном случае следует использовать 443 (https).
-2. Нажмите кнопку «Найти мост», чтобы получить IP-адрес вашего моста. Это будет искать все мосты в вашей среде. Затем выберите мост, к которому вы хотите подключиться. Поле «Адрес моста» будет заполнено IP-адресом выбранного вами моста Hue.
-3. Затем нажмите кнопку «Создать пользователя» в настройках, а затем подойдите к устройству моста Hue, то есть к вашему оборудованию, чтобы нажать его круглую кнопку. У вас будет 30 секунд, чтобы продолжить. После нажатия кнопки поле «Bridge User» должно быть заполнено сгенерированной строкой.
-4. Измените любые другие параметры в настройках адаптера, а затем выберите «сохранить и закрыть».
-5. Наконец, все готово: адаптер будет генерировать все объекты для управления вашими устройствами Hue соответствующим образом.
+1. Если вы используете другой мост, кроме v2, настройте порт на 80 (не https), в противном случае следует использовать порт 443 (https).
+2. Нажмите кнопку «Найти мост», чтобы узнать IP-адрес вашего моста. Это позволит найти все мосты в вашей среде. Затем выберите мост, к которому вы хотите подключиться. Поле «Адрес моста» будет заполнено IP-адресом выбранного вами моста Hue.
+3. Затем нажмите кнопку «Создать пользователя» в настройках, а затем перейдите к устройству Hue Bridge, то есть к вашему оборудованию, и нажмите его круглую кнопку. У вас будет 30 секунд, чтобы продолжить. После того, как вы нажмете кнопку, поле «Пользователь моста» должно быть заполнено сгенерированной строкой.
+4. Измените любые другие параметры в настройках адаптера, а затем выберите «Сохранить и закрыть».
+5. Наконец, у вас все готово: адаптер сгенерирует все объекты для соответствующего управления вашими устройствами Hue.
 
-Обратите внимание: кнопка в настройках адаптера «Найти мост» будет неактивна, если поле «Адрес моста» заполнено, и кнопка «Создать пользователя» будет неактивна, если заполнено поле «Пользователь моста».
+Обратите внимание: кнопка настроек адаптера «Найти мост» будет неактивна, если заполнено поле «Адрес моста», а кнопка «Создать пользователя» будет неактивна, если заполнено поле «Пользователь моста».
 
 ### Настройки
 | Имя | Описание |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| __Адрес моста__ | IP-адрес вашего моста Hue. Вы можете попытаться определить его, нажав кнопку `Find Bridge`. |
+| __Адрес моста__ | IP-адрес вашего моста Hue, вы можете попытаться определить его, нажав кнопку `Find Bridge`. |
 | __Порт__ | Порт вашего моста Hue, обычно 443 (SSL) и 80 (без SSL). |
 | __Пользователь__ | Имя пользователя вашего моста. Вы можете создать его, нажав кнопку `Create User` и следуя инструкциям на экране. |
 | __Пользователь__ | Имя пользователя вашего моста. Вы можете создать его, нажав кнопку «Создать пользователя» и следуя инструкциям на экране. |
-| __Игнорировать сцены__ | Если флажок установлен, сцены не будут отображаться/управляться адаптером. |
-| __"Старая" структура__ | Для поддержки обратной совместимости в ioBroker можно сохранить старую структуру объектов. Эта старая структура — `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. Новая структура удаляет `<bridge_name_channel>` и, таким образом, делает необходимым адаптировать старые скрипты и т. д. Если адаптер обнаружит существующую старую структуру, эта структура будет использоваться без установки флажка. Однако, если желателен переход от старой к новой структуре, удалите все пространство имен `hue.<instance_number>` один раз. |
-| __"Старая" структура__ | Для поддержки обратной совместимости в ioBroker можно сохранить старую структуру объектов. Эта старая структура называется `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. Новая структура удаляет `<bridge_name_channel>` и, таким образом, делает необходимым адаптировать старые скрипты и т. д. Если адаптер обнаружит существующую старую структуру, эта структура будет использоваться без установки флажка. Однако, если желателен переход от старой структуры к новой, удалите все пространство имен hue.<instance_number> один раз. |
-| __Синхронизация программных датчиков__ | Также синхронизируйте программные датчики. Это виртуальные датчики, т.е. созданные сценами Hue Labs. Управляя точкой данных `status` такого датчика, вы можете запускать/останавливать сцены, которые следуют этой логике. В большинстве случаев `0` выключает сцену, а `1` включает ее. |
-| __Включите с другими__ | Включите свет также с состоянием ct, состоянием цвета, ... Установите `false` и включите только с состоянием питания и яркости. |
-| __Включите с другими__ | Включите свет также с состоянием ct, состоянием цвета, ... Установите «false» и включите только с состоянием питания и яркости. |
-| __Опрос__ | Если флажок установлен, адаптер будет опрашивать изменения состояния, в противном случае его можно использовать только для управления лампами, а не для отображения их состояния. |
-| __Интервал опроса__ | Определяет, как часто состояния будут опрашиваться и, таким образом, обновляться в ioBroker. Низкие интервалы опроса могут вызвать проблемы с производительностью в некоторых настройках. Следовательно, минимально допустимый интервал опроса составляет 2 секунды. Если интервал опроса установлен менее чем на 2 секунды, он будет установлен на 2 секунды во время выполнения. |
+| __Игнорировать сцены__ | Если этот флажок установлен, адаптер не будет отображать/контролировать сцены. |
+| __Структура «Наследие»__ | Для поддержки обратной совместимости в ioBroker можно сохранить старую структуру объекта. Эта старая структура — `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`. Новая структура удаляет `<bridge_name_channel>` и, таким образом, приводит к необходимости адаптации старых скриптов и т. д. Если адаптер обнаружит существующую старую структуру, она будет использоваться без установки флажка. Однако если требуется миграция из старой структуры в новую, удалите все пространство имен `hue.<instance_number>` один раз. |
+| __Структура «Наследие»__ | Для поддержки обратной совместимости в ioBroker можно сохранить старую структуру объекта. Эта старая структура — `hue.<номер_экземпляра>.<bridge_name_channel>.<light_or_group_channel>.<state>`. Новая структура удаляет `<bridge_name_channel>` и, таким образом, вызывает необходимость адаптации старых скриптов и т. д. Если существующая старая структура обнаружена адаптером, структура будет использоваться без установки флажка. Однако, если требуется миграция из старой структуры в новую, удалите все пространство имен `hue.<instance_number>` один раз. |
+| __Синхронизация программных датчиков__ | Также синхронизируйте программные датчики. Это виртуальные датчики, например. созданные сценами Hue Labs. Управляя точкой данных `status` такого датчика, вы можете запускать/останавливать сцены, которые следуют этой логике. В большинстве случаев `0` выключает сцену, а `1` включает ее. |
+| __Включайся вместе с другими__ | Включайте освещение также с состоянием ct, состоянием цвета, ... Установите значение `false` и включайте только состояние питания и яркости. |
+| __Включайся вместе с другими__ | Включайте освещение также с состоянием ct, состоянием цвета... Установите значение «false» и включайте только состояние питания и яркости. |
+| __Опрос__ | Если этот флажок установлен, адаптер будет опрашивать изменения состояния, в противном случае его можно использовать только для управления лампами, а не для отображения их состояния. |
+| __Интервал опроса__ | Определяет, как часто будут опрашиваться состояния и, следовательно, обновляться в ioBroker. Низкие интервалы опроса могут вызвать проблемы с производительностью в некоторых настройках. Следовательно, минимально допустимый интервал опроса составляет 2 секунды. Если интервал опроса установлен менее 2 секунд, во время выполнения он будет установлен на 2 секунды. |
 
 ### Команды
-Состояния команд (например, `hue.0.All.command`) можно использовать для установки нескольких команд мосту.
-Это позволяет установить группу или источник света в определенное состояние, используя, например, переходное время.
+Состояния команд (например, `hue.0.All.command`) можно использовать для подачи нескольких команд на мост.
+Это позволяет установить группу или источник света в определенное состояние, например. переходное время.
 
 ```javascript
 setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
@@ -68,24 +68,48 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 ```
 
 ### Дополнительная информация
-В версии 3.3.0 состояния группы `anyOn` и `allOn` стали управляемыми, обратите внимание, что они будут вести себя как состояние `on`, когда они находятся под контролем. В некоторых случаях может быть желательно иметь управляемое состояние `anyOn` в визуализации.
+В версии 3.3.0 состояния группы `anyOn` и `allOn` стали управляемыми, обратите внимание, что при управлении они будут действовать так же, как состояние `on`. В некоторых случаях может быть желательно иметь в вашей визуализации контролируемое состояние `anyOn`.
 
 ## Немецкий :de:
-Подсветка Philips Hue / LivingColors / LivingWhites Lampen ein.
-В настройках адаптера необходимо изменить IP-адрес Hue Bridge, чтобы изменить имя пользователя. Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken. Dann wird Automaticisch der User übergeben.
+Шкаф Philips Hue / LivingColors / LivingWhites Lampen ein.
+В настройках адаптера необходимо указать IP-адрес Hue Bridge, чтобы сконфигурировать имя пользователя. Чтобы активировать пользователя, необходимо создать пользователя и включить его в течение 30 секунд после нажатия кнопки и нажатия моста Hue. Это позволит автоматизировать работу пользователя.
 
-## Дорожная карта/Задачи
+## Дорожная карта/Todo
 * Автоматическое обнаружение моста
-* Автоматическая настройка пользователя с помощью кнопки моста
+* Автоматическая настройка пользователя с помощью кнопки мостовой связи.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.10.0 (2023-08-29)
+* (foxriver76) fixed problem on auto-deletion of groups
+* (foxriver76) implemented Hue Tap Dial (closes #368, closes #416)
+
+### 3.9.6 (2023-08-16)
+* (foxriver76) do not set invalid states on unknown group updates
+* (foxriver76) only use push connection if ssl is configured
+
+### 3.9.5 (2023-07-31)
+* (foxriver76) fixed crash case
+
+### 3.9.4 (2023-07-30)
+* (foxriver76) fixed the edge case crash on button updates
+* (foxriver76) fixed crash case if uuids cannot be retrieved
+
+### 3.9.3 (2023-06-14)
+* (foxriver76) fixed crash cases on unknown push updates (closes #417)
+
+### 3.9.2 (2023-06-13)
+* (foxriver76) fixed sensor converting (closes #415)
+
+### 3.9.1 (2023-06-13)
+* (foxriver76) implemented more commands of the Push API (mainly buttons)
+
 ### 3.9.0 (2023-06-11)
 * (foxriver76) implemented poll API (closes #227, #343)
-* (foxriver76) fix polling not working (closes #408, #410)
+* (foxriver76) fixed polling not working (closes #408, #410)
 
 ### 3.8.0 (2023-06-09)
 * (Schmakus) Possibility to disable turn on lights with states other than `on` and `brightness` [#386]
@@ -106,10 +130,10 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (foxriver76) ct values of groups can be even lower due to third party lights
 
 ### 3.6.0 (2021-12-30)
-* (foxriver76) allow triggering scenes via `command` state, this allows to start a scene with `transitiontime`
+* (foxriver76) allow triggering scenes via `command` state, this allows starting a scene with `transitiontime`
 
 ### 3.5.31 (2021-11-20)
-* (foxriver76) ct value fix of #234 ported for 0 (All) group
+* (foxriver76) ct value fixed of #234 ported for 0 (All) group
 
 ### 3.5.30 (2021-11-14)
 * (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
@@ -118,7 +142,7 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (bluefox) Caught SENTRY error.
 
 ### 3.5.28 (2021-11-04)
-* (foxriver76) another fix for invalid ct values (fixes #234)
+* (foxriver76) another fixed for invalid ct values (fixes #234)
 
 ### 3.5.27 (2021-11-01)
 * (foxriver76) we fixed missing object type of some scenes (closes #255)
@@ -128,10 +152,10 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (klein0r) fixed translation of search popup (fixes #247)
 
 ### 3.5.25 (2021-09-15)
-* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+* (foxriver76) if we cannot determine the correct ct value, we won't set it (fixes #234)
 
 ### 3.5.23 (2021-08-26)
-* (Pmant) fix for third party devices delivering wrong ct values
+* (Pmant) fixed for third party devices delivering wrong ct values
 
 ### 3.5.22 (2021-08-12)
 * (foxriver76) fixed several sentry issues (closes #217, closes #218, closes #219, closes #220)
@@ -140,7 +164,7 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (foxriver76) we now define minimum ct of groups to 2000 instead of 2179 (fixes #216)
 
 ### 3.5.19 (2021-06-02)
-* (foxriver76) fix crash case if we cannot get min/max ct values
+* (foxriver76) fixed crash case if we cannot get min/max ct values
 
 ### 3.5.18 (2021-06-01)
 * (foxriver76) get the correct min/max ct values from api for lights (closes #192)
@@ -166,7 +190,7 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (foxriver76) we have corrected the min max of color temperature (empirically found)
 
 ### 3.5.11 (2021-05-02)
-* (foxriver76) we now update objects if type has changed
+* (foxriver76) we now update objects if a type has changed
 
 ### 3.5.10 (2021-04-30)
 * (foxriver76) we removed the common.max from lightlevel, was 17,000 but can be much higher
@@ -185,10 +209,10 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (foxriver76) fixing several edge case crashes
 
 ### 3.5.2 (2021-02-24)
-* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
-* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
-* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
-* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
+* (foxriver76) fixed crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fixed crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fixed potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fixed a graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
 
 ### 3.5.1 (2021-02-20)
 * (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
@@ -214,16 +238,16 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (Apollon77) do not catch undhandeledRejections anymore, because controller can handle and report now
 * (foxriver76) dependencies updated
 * (foxriver76) temperature is now correctly read-only
-* (foxriver76) fix duplicate filtering on browse
+* (foxriver76) fixed duplicate filtering on browse
 
 ### 3.3.5 (2020-06-03)
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts
+* (foxriver76) implemented fixed for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
-* (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time
+* (foxriver76) we now handle potential id conflicts, when adding devices from a different type with same name over time
 
 ### 3.3.2 (2020-05-15)
 * (foxriver76) internal optimizations - polling after change timeout removed, was 150 ms now instant
@@ -232,7 +256,7 @@ setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, fals
 * (foxriver76) introduce `allOn` state for groups
 * (foxriver76) `anyOn` and `allOn` are now controllable and act like the `on` state
 * (foxriver76) when native turn on/off behaviour is used, the brightness change of partially turned on groups will not turn
-the whole group on, like the hue app does instead it will only change the brightness of the currently turned on lamps
+the whole group on, like the hue app does, instead it will only change the brightness of the currently turned on lamps
 
 ### 3.2.9 (2020-05-12)
 * (foxriver76) fixed issues on user creation
@@ -240,16 +264,16 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 3.2.8 (2020-04-26)
 * (foxriver76) replace dots in light/group/sensor/.. names by underscores
-* (foxriver76) fix potential state update delay after state change on lights/groups containing blanks
+* (foxriver76) fixed potential state update delay after state change on lights/groups containing blanks
 
 ### 3.2.4 (2020-04-08)
 * (xXBJXx) changed role of battery to `value.battery` and made unit `%`
 
 ### 3.2.3 (2020-02-20)
-* (Apollon77) minor fix regarding handleParam called with non-existing id
+* (Apollon77) minor fixed regarding handleParam called with non-existing id
 
 ### 3.2.2 (2020-02-12)
-* (foxriver76) fix potential issues when error type is not HueError
+* (foxriver76) fixed potential issues when error type is not HueError
 
 ### 3.2.1 (2020-01-26)
 * (foxriver76) if lights/groups/sensors are deleted during runtime, restart of adapter is no longer necessary
@@ -281,7 +305,7 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 2.4.6 (2019-12-06)
 * (foxriver76) log unhandeld promise rejections
-* (foxriver76) fix potential issue for negative temperature values
+* (foxriver76) fixed potential issue for negative temperature values
 
 ### 2.4.4 (2019-11-27)
 * (foxriver76) only stringify huge jsons if necessary
@@ -290,7 +314,7 @@ the whole group on, like the hue app does instead it will only change the bright
 * (foxriver76) improved performance
 
 ### 2.4.3 (2019-11-19)
-* (foxriver76) increased version of node-hue-api to fix authentication for old bridge
+* (foxriver76) increased version of node-hue-api to fixed authentication for old bridge
 
 ### 2.4.2 (2019-11-16)
 * (foxriver76) we now use nupnp + upnp to discover bridges (previously only upnp)
@@ -323,8 +347,8 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (foxriver76) usage of iobroker testing
 * (foxriver76) add possibility to sync scenes
 * (foxriver76) restart adapter when room is deleted in app
-* (foxriver76) fix .hue value, user had to set 0-360° but adapter set 0-65535
-* (foxriver76) fix .color.temperature
+* (foxriver76) fixed .hue value, user had to set 0-360° but adapter set 0-65535
+* (foxriver76) fixed .color.temperature
 * (foxriver76) remove unnecessary bridge channel, adapter namespace is the bridge
 * (foxriver76) add "update available" indicator for light bulbs
 * (foxriver76) we now poll the root endpoint instead of (|lights| + |groups| + |sensors|) endpoints every pollingInterval seconds
@@ -375,10 +399,10 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (pmant) add light name to log
 
 ### 0.5.9 (2016.10.11)
-* (pmant) fix error with null values
+* (pmant) fixed error with null values
 
 ### 0.5.8 (2016.06.05)
-* (bluefox) fix typo
+* (bluefox) fixed typo
 
 ### 0.5.7 (2016.06.05)
 * (soef) write back known states for group/room
@@ -388,7 +412,7 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (Pmant) (experimental) support for power switches
 
 ### 0.5.5
-* (Pmant) fix error with xy state
+* (Pmant) fixed error with xy state
 * (Pmant) support level in command state
 
 ### 0.5.4
@@ -400,27 +424,27 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (soef) Default Lightset 0 added
 
 ### 0.5.2
-* (Pman) fix jscs warnings
+* (Pman) fixed jscs warnings
 * (Pman) improve RGB conversion
 * (Pman) add update rgb color
 
 ### 0.5.1
-* (Pman) fix find bridge popup
+* (Pman) fixed find bridge popup
 
 ### 0.5.0
 * (Pman) update to node-hue-api 1.2.x
 * (Pman) add level state (bri percentage)
 
 ### 0.4.4
-* (bluefox) fix config edit
+* (bluefox) fixed config edit
 
 ### 0.4.3
-* (Pmant) fix adapter crash
+* (Pmant) fixed adapter crash
 
 ### 0.4.2
 * (Pmant) add find bridge (experimental)
 * (Pmant) add create user (experimental)
-* (Pmant) fix enable polling
+* (Pmant) fixed enable polling
 
 ### 0.4.1
 * (Pmant) calculate and write back inc values
@@ -430,30 +454,30 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 ### 0.3.2
 * (Pmant) add groups as channels (write only)
-* (Pmant) fix prevent duplicate channel names
+* (Pmant) fixed prevent duplicate channel names
 
 ### 0.3.1
-* (Pmant) fix another bug with spaces
-* (Pmant) fix hue/sat bug
-* (Pmant) fix effect bug
-* (Pmant) fix xy colormode
+* (Pmant) fixed another bug with spaces
+* (Pmant) fixed hue/sat bug
+* (Pmant) fixed effect bug
+* (Pmant) fixed xy colormode
 
 ### 0.3.0
-* (Pmant) fix rgb states only for color lights
+* (Pmant) fixed rgb states only for color lights
 * (Pmant) change set known state changes immediately
 * (Pmant) change on/off sets brightness to 254/0
 * (Pmant) change changing any color (hs,ct,xy) while light is off sets brightness to max
-* (Pmant) fix set brightness to zero if light is off
+* (Pmant) fixed set brightness to zero if light is off
 * (Pmant) change set bri to zero if lamp is not reachable
-* (Pmant) fix bridges and lamps with spaces in name
+* (Pmant) fixed bridges and lamps with spaces in name
 
 ### 0.2.1
 * (Pmant) add rgb states (write only)
-* (Pmant) fix parent/children warnings
+* (Pmant) fixed parent/children warnings
 * (Pmant) add switch light off if brightness is zero
 
 ### 0.1.4
-* (bluefox) fix some null objects
+* (bluefox) fixed some null objects
 
 ### 0.1.3
 * (hobbyquaker) config UI

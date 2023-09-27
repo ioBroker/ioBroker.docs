@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.awtrix-light?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.awtrix-light?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.awtrix-light?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.awtrix-light?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.awtrix-light?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.awtrix-light?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.awtrix-light/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.awtrix-light?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
@@ -18,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
+hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -26,8 +24,8 @@ hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
 ## Требования
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
-- Адаптер администратора 6.0.0 (или новее)
-- Устройство _Awtrix Light_ с версией прошивки _0.84_ (или новее) - например, Ulanzi TC001
+- Адаптер администратора 6.6.0 (или новее)
+- Устройство _Awtrix Light_ с версией прошивки _0.86_ (или новее) - например, Ulanzi TC001
 
 Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
@@ -47,15 +45,15 @@ hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
 
 **Как мне перейти на последнюю версию прошивки?**
 
-Просто используйте [Меню на устройстве](https://blueforcer.github.io/awtrix-light/#/onscreen), чтобы перейти к точке `update`. Дальше часы сделают все остальное сами, нет необходимости повторно использовать веб-прошивальщик (если только обновление прошивки явно не требует этого).
+Просто используйте [Меню на устройстве](https://blueforcer.github.io/awtrix-light/#/onscreen), чтобы перейти к точке `update`. Далее часы сделают все остальное сами, нет необходимости повторно использовать веб-прошивальщик (если только обновление прошивки явно не требует этого).
 
-**Во время зарядки устройство нагревается.**
+**Устройство нагревается во время зарядки.**
 
-К сожалению, аппаратная конструкция не оптимальна. Рекомендуется использовать как можно более слабый блок питания, способный выдавать ток не более 1 А.
+К сожалению, аппаратная конструкция не оптимальна. Рекомендуется использовать максимально слабый источник питания, способный выдавать максимум 1 А.
 
 **Можно ли вынуть аккумулятор из устройства?**
 
-Да, есть такой вариант. Однако открывать устройство приходится с помощью термофена, поскольку передняя панель приклеена. Вам также понадобится [Припой понижающий преобразователь](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765), чтобы все работало.
+Да, есть такой вариант. Однако устройство необходимо открывать с помощью фена с горячим воздухом, поскольку переднее окно приклеено. Вам также понадобится [Припой понижающий преобразователь](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765), чтобы все работало.
 
 **Можно ли по-другому отсортировать приложения на устройстве?**
 
@@ -78,7 +76,7 @@ hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
 Да, начиная с версии прошивки 0.82 доступ может быть защищен именем пользователя и паролем. Начиная с версии адаптера 0.8.0, эти пользовательские данные также можно хранить в настройках экземпляра.
 
 ## Идентичные приложения на нескольких устройствах
-Если необходимо управлять несколькими устройствами awtrix-light с помощью одних и тех же приложений, для каждого устройства необходимо создать отдельный экземпляр. Однако затем в настройках экземпляра других устройств можно указать, что приложения должны быть перенесены из другого экземпляра.
+Если необходимо управлять несколькими устройствами awtrix-light с помощью одних и тех же приложений, для каждого устройства необходимо создать отдельный экземпляр. Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть перенесены из другого экземпляра.
 
 Пример
 
@@ -103,7 +101,7 @@ sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repea
 });
 ```
 
-Объект сообщения поддерживает все опции, доступные в прошивке. Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties).
+Объект сообщения поддерживает все параметры, доступные во встроенном ПО. Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties).
 
 *Для создания уведомления также можно использовать блок Blockly (там предлагаются не все доступные варианты).*
 
@@ -130,7 +128,7 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 - `%s` является заполнителем для значения состояния.
 - `%u` — это заполнитель для единицы измерения состояния (например, `°C`)
 
-Эти заполнители можно использовать в текстах пользовательских приложений (например, `Außentemperatur: %s %u`).
+Эти заполнители можно использовать в тексте пользовательских приложений (например, `Außentemperatur: %s %u`).
 
 **Пользовательские приложения отображают только подтвержденные значения! Управляющие значения с `ack: false` игнорируются (во избежание дублирования запросов к устройству и для обеспечения корректности отображаемых значений)!**
 
@@ -154,7 +152,7 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 - Эти состояния имеют роль «кнопка» и допускают только логическое значение «истина» (другие значения приводят к предупреждению в журнале)
 
 ## Скрыть пользовательские приложения
-Каждое самостоятельно созданное приложение имеет статус с идентификатором `apps.<name>.visible`. Если для этого состояния установлено значение `false` (ложь), приложение будет удалено с устройства и больше не будет отображаться. Это полезно, например, для отображения определенных приложений только в течение дня или в определенные периоды времени.
+Каждое самостоятельно созданное приложение имеет состояние с идентификатором `apps.<name>.visible`. Если для этого состояния установлено значение `false` (ложь), приложение будет удалено с устройства и больше не будет отображаться. Это полезно для отображения определенных приложений, например, только в течение дня или в определенные периоды времени.
 
 ## Скрыть родные приложения
 Чтобы скрыть на устройстве приложения по умолчанию (например, температуру или влажность): используйте меню на самом устройстве! Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/onscreen).
@@ -166,9 +164,12 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 -->
 ### **WORK IN PROGRESS**
 
-Updated recommended firmware version to 0.84
+Updated recommended firmware version to 0.86
 
 * (klein0r) Added expert apps
+* (klein0r) Use the last value of fast refreshing states
+* (klein0r) Added settings for calendar colors
+* (klein0r) Allow to use apps without text (just background effect)
 
 ### 0.8.0 (2023-09-04)
 

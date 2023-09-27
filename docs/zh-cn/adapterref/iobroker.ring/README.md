@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ring/README.md
 title: 环形适配器
-hash: /by4CHU08+LjfNQu6jeMDeIHKGRDe1ilZOVm8HLEOZE=
+hash: Y4VqKG2x6vjJ2uLpp4Zd3FM/Smz5DPCI4zYhLSVLzuw=
 ---
 ![标识](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -22,7 +22,7 @@ Ring 适配器可与 Ring 视频门铃和 Ring Cam 等 Ring 设备配合使用�
 ## 安装和配置
 安装适配器后，您必须输入您的 [环网](https://ring.com) 帐户的电子邮件和密码以及令牌。 Ring 现在要求所有帐户使用双因素身份验证 (2fa)。要获取令牌，请在您的 shell 上执行以下操作。
 
-```
+```shell
 npx -p ring-client-api ring-auth-cli
 ```
 
@@ -76,10 +76,33 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.0-alpha.0 (2023-09-16)
 
-### **WORK IN PROGRESS**
+* (crocri) Ding event is now working again for Ring-Intercom
+* (crocri) auto livestream creation takes now value from config, before fix
+* (crocri) snapshot now async, because snapshot and livestream in parallel does not work
+* (crocri) livestream duration now settable via tree entry will be auto reset via livestream request.
+* (crocri) two new config entries auto_livestream and auto_snapshot to disable auto creation of livestream and snapshot.
+* (crocri) some minor corrections to code
+* (crocri) Removed binary States
+* (crocri) Improvements for vis compatibility
+* (theimo1221) Refactoring and cleanup
+* (theimo1221) Update Packages
+
+### 4.0.0 (2023-08-22)
+
+* (theimo1221) !!Breaking Change!! From now on Node 18 or 20 is required, Node 16 is not supported anymore
+* (theimo1221) Update Ring-Api to V12 which needs Node 18 or 20
+* (theimo1221) Update Packages
+
+### 3.4.1 (2023-08-06)
 
 * (theimo1221) Compliance to adapter-checker
+* (theimo1221) Update Packages
+* (theimo1221) Debounce Doorbell Presses
+* (theimo1221) Add Support for cocoa_doorbell_v2
+* (theimo1221) Add Support for stickup_cam_longfin
+* (theimo1221) Fix compatibility and recompile
 
 ### 3.4.0 (2023-06-09)
 

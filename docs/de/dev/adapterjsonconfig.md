@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: qufDhnsOFjQzXYCUb/DFcLplumUdj+3yWhae9qcoq0Q=
+hash: O3SEv62cWxOopwE+VNvtxc6nqI53posCSvBi4O2HaLM=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -383,7 +383,7 @@ adapter.on('message', obj => {
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „maxLength“ – maximale Länge des Texts im Feld
 
-Um diese Option verwenden zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein. Siehe `selectSendTo` für ein Beispiel für einen Handler
+Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein. Siehe `selectSendTo` für ein Beispiel für einen Handler
 
 - `textSendTo`
 
@@ -589,6 +589,25 @@ Wenn kein Schema bereitgestellt wird, muss das Schema automatisch aus Daten erst
 - Name `timeout` => Zahl, help="ms"
 
 Wenn das Element kein Attribut `type` hat, wird davon ausgegangen, dass es den Standardtyp „Panel“ hat.
+
+## Panel-Stil
+Sie können auch Paneelen Stil verleihen. Hier ist ein Beispiel mit Panel-Hintergrund:
+
+```json
+{
+  "i18n": true,
+  "type": "panel",
+  "style": {
+    "backgroundImage": "url(adapter/mpd/background.png)",
+    "backgroundPosition": "top",
+    "backgroundRepeat": "no-repeat",
+    "backgroundSize": "cover"
+  },
+  "items": {
+    "...": {}
+  }
+}
+```
 
 ## I18n
 Es gibt mehrere Möglichkeiten, die Übersetzungen bereitzustellen.

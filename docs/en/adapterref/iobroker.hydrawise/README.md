@@ -39,6 +39,14 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.2 (2023-09-22)
+
+-   (SentiQ) fixed versions
+
+### 0.2.0 (2023-09-22)
+
+-   (SentiQ) added button to run zone for default runtime
+
 ### 0.1.2 (2023-08-22)
 
 -   (SentiQ) added link to api docu

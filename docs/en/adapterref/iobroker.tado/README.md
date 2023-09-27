@@ -36,7 +36,7 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
 
 ## Requires
-* NodeJS 14.16 or higher
+* NodeJS 16 or higher
 * ioBroker host (js-controller) 4.0 or higher
 
 ## Changelog
@@ -45,8 +45,9 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     ### __WORK IN PROGRESS__
 
 -->
-### __WORK IN PROGRESS__
+### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
+* (HGlab01) improve axios keep_a_live
 
 ### 0.4.9 (2023-07-05)
 * (HGlab01) Add attribute 'zonesCount'
@@ -67,14 +68,10 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
 * (HGlab01) js-controller v5 readiness (#618)
 
-### 0.4.5 (2023-03-08)
-* (HGlab01) Add attribute 'sensorType' (#604)
-* (HGlab01) Bump axios to 1.3.4
-
 ## License
 MIT License
 
-Copyright (c) 2022 DutchmanNL <rdrozda@hotmail.com> & HGlab01
+Copyright (c) 2023 HGlab01 & DutchmanNL <rdrozda@hotmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

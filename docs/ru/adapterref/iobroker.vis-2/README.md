@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: T4JOkL3zc7MNtIeXv19fycU96zqVyiWvcnWAGuA/8Wg=
+hash: A0UXMam6e3LIeD148XsRnIzKz1HL6bCa2HyEFU8PhNE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -207,14 +207,40 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 
 ![Темный](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
 
-## Делать
-- Горизонтальная навигация
+## SVG и currentColor
+Ключевое слово currentColor в CSS позволяет элементам наследовать текущий цвет текста от родительского элемента.
+Это может быть особенно полезно в SVG (масштабируемой векторной графике), поскольку обеспечивает более динамичное оформление и более простую интеграцию с HTML-контентом.
 
+Вы можете использовать ключевое слово currentColor вместо определенного значения цвета для любого свойства внутри SVG, которое принимает значение цвета.
+Вот простой пример с кругом в SVG:
+
+```xml
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="currentColor" />
+</svg>
+```
+
+В этом случае SVG принимает цвет родительского элемента.
+Например, если он использовался в меню и меню красного цвета, кружок будет красным.
+
+## Делать
 <!-- Заполнитель следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 2.2.7 (2023-09-18)
+* (bluefox) Improved icon selector: you can upload your own icon directly
+* (bluefox) Optimized loading: do not load unused widget sets
+
+### 2.2.6 (2023-09-17)
+* (bluefox) Date binding corrected
+* (bluefox) Optimized loading of widgeteria
+* (bluefox) Horizontal navigation is fixed
+
+### 2.2.5 (2023-09-12)
+* (bluefox) Implemented horizontal navigation
+
 ### 2.2.4 (2023-09-04)
 * (bluefox) Corrected license checking
 

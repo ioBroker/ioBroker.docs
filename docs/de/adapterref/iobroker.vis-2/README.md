@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: T4JOkL3zc7MNtIeXv19fycU96zqVyiWvcnWAGuA/8Wg=
+hash: A0UXMam6e3LIeD148XsRnIzKz1HL6bCa2HyEFU8PhNE=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -62,7 +62,7 @@ Patten hat das folgende Format:
 
 Die folgenden Operationen werden unterstützt:
 
-- `\*` - multiplizieren. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
+- `\*` - Multiplikation. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
 - `\+` - hinzufügen. Das Argument muss in Klammern stehen, z. B. „+(4,5)“. In diesem Beispiel addieren wir zum Wert 4,5.
 - `\-` - subtrahieren. Das Argument muss in Klammern stehen, z. B. „-(-674,5)“. In diesem Beispiel subtrahieren wir vom Wert -674,5.
 - `/` - Teilen. Das Argument muss in Klammern stehen, z. B. „/(0,5)“. In diesem Beispiel teilen wir den Wert durch 0,5.
@@ -171,7 +171,7 @@ Wenn der Benutzer die Ansicht wechselt oder beim Start, werden die Variablen vom
 - „control.data“: Projekt- und Ansichtsname in der Form „Projekt/Ansicht“, z.B. „main/view“ (und „ack=true“)
 - „control.command“: „changedView“ und „ack=true“.
 
-Sie können den JSON-String oder das Objekt in `control.command` als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
+Sie können den JSON-String oder das Objekt als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in `control.command` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
 
 Beispiel für einen Javascript-Adapter:
 
@@ -207,14 +207,40 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 
 ![Dunkel](../../../en/adapterref/iobroker.vis-2/img/dark_screen.png)
 
-## Machen
-- Horizontale Navigation
+## SVG und currentColor
+Mit dem Schlüsselwort currentColor in CSS können Elemente die aktuelle Textfarbe von ihrem übergeordneten Element erben.
+Es kann besonders in SVGs (Scalable Vector Graphics) nützlich sein, da es ein dynamischeres Styling und eine einfachere Integration mit HTML-Inhalten ermöglicht.
 
+Sie können das Schlüsselwort currentColor anstelle eines bestimmten Farbwerts für jede Eigenschaft innerhalb der SVG verwenden, die einen Farbwert akzeptiert.
+Hier ist ein einfaches Beispiel mit einem Kreis in einer SVG-Datei:
+
+```xml
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="currentColor" />
+</svg>
+```
+
+In diesem Fall nimmt das SVG die Farbe des übergeordneten Elements an.
+Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, wäre der Kreis rot.
+
+## Machen
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.2.7 (2023-09-18)
+* (bluefox) Improved icon selector: you can upload your own icon directly
+* (bluefox) Optimized loading: do not load unused widget sets
+
+### 2.2.6 (2023-09-17)
+* (bluefox) Date binding corrected
+* (bluefox) Optimized loading of widgeteria
+* (bluefox) Horizontal navigation is fixed
+
+### 2.2.5 (2023-09-12)
+* (bluefox) Implemented horizontal navigation
+
 ### 2.2.4 (2023-09-04)
 * (bluefox) Corrected license checking
 

@@ -69,6 +69,9 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.5.5 (2023-09-14)
+* (foxriver76) upgraded socket-classes to fix crash cases
+
 ### 2.5.4 (2023-09-05)
 * (mcm1957) added missing node16 requirement
 

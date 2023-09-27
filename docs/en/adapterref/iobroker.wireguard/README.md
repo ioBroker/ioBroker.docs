@@ -106,6 +106,11 @@ Basically there are three ways to execute the command:
 ## Changelog
 ### **WORK IN PROGRESS**
 
+### 1.6.1 (2023-09-14)
+* (mcm1957) Fix: [#90](https://github.com/Grizzelbee/ioBroker.wireguard/pull/90) adapter-core 3.x.x is known to fail during installation at node 14 as npm 6 fails to install peerDependencies. So this adapter requires node 16 or newer
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) Upd: removed some old news entries in io-package file
+
 ### 1.5.11 (2023-08-30)
 * (grizzelbee) Fix: [#88](https://github.com/Grizzelbee/ioBroker.wireguard/issues/88) Avoid warning: Cannot read properties of undefined (reading 'at') when user- or devicename is empty
 

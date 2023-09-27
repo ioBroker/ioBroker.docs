@@ -45,9 +45,16 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2023-09-13)
+* (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
+* (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
+
+### 1.2.1 (2023-09-13)
+* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+
 ### 1.2.0 (2023-09-11)
 * (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
-* (Andreas Ruttkamp) depencies updated
+* (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
 * (Andreas Ruttkamp) Connection state corrected
@@ -65,26 +72,26 @@ If this happens, stop the adapter and manually delete the node "rct.0".
 * (Andreas Ruttkamp) Fix: proofments corrected.
 
 ### 1.1.3 (2023-08-18)
-* (Andreas Ruttkamp) Fix: more data proofments implemented
+* (Andreas Ruttkamp) Fix: more data checks implemented
 
 ### 1.1.2 (2023-08-17)
-* (Andreas Ruttkamp) Fix: crash adapter
+* (Andreas Ruttkamp) Fix: adapter crashes
 
 ### 1.1.1 (2023-08-17)
 * (Andreas Ruttkamp) data for g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp added
-* (Andreas Ruttkamp) more parameters added. 
-* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
-* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
+* (Andreas Ruttkamp) more parameters added 
+* (Andreas Ruttkamp) date conversions fixed
+* (Andreas Ruttkamp) conversions of percentages fixed
 * (Andreas Ruttkamp) instance crash if data failure fixed
 
 ### 1.0.5 (2023-07-29)
-* (Andreas Ruttkamp) some intern work
+* (Andreas Ruttkamp) some internal work
 * (Andreas Ruttkamp) preparation for new admin
 * (Andreas Ruttkamp) dependecies update
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components
-* (Andreas Ruttkamp) Vorbereitung neues Backend
+* (Andreas Ruttkamp) Preparation of new backend
 
 ### 1.0.3 (2023-03-30)
 * (Andreas Ruttkamp) Release Script added and update dev-components

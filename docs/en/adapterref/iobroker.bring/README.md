@@ -146,6 +146,15 @@ For every shopping list a channel with the following states will be created:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.8.4 (2023-09-25)
+* (foxriver76) fixed setting `undefined` state when no name specified
+
+### 1.8.3 (2023-09-25)
+* (foxriver76) Improve error messages
+
+### 1.8.2 (2023-09-24)
+* (foxriver76) do not crash on invalid `setState` calls (closes #211)
+
 ### 1.8.1 (2022-06-01)
 * (foxriver76) implemented a minor fix for acknowledgment of `translated` objects
 

@@ -560,8 +560,10 @@ Possible options and parameters:
 - **--simulate**: With this parameter you enable the simulation mode, means that no real write happens and also the analyze-datafiles will not be updated on exit.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-09-19)
 * (foxriver76) fix history2db.js with controller v5
+* (bluefox) Minimal node.sj version is 16
+* (bluefox) Added support for `count` aggregate type on getHistory
 
 ### 2.2.6 (2023-08-23)
 * (Apollon77) Fix getHistory when aggregations were used in some cases
@@ -578,25 +580,25 @@ Possible options and parameters:
 
 ### 2.2.0 (2022-07-22)
 * (Apollon77) make sure getHistory works for all cases
-* (Bluefox/Apollon77) Add option to add comment and user info to results
+* (Bluefox/Apollon77) Added an option to add comment and user info to results
 
 ### 2.1.7 (2022-06-27)
-* (Apollon77) Allow to remove a configuration value for "round" in config again
+* (Apollon77) Allowed removing a configuration value for "round" in config again
 
 ### 2.1.6 (2022-06-27)
 * (Apollon77) When not count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
 
 ### 2.1.5 (2022-06-24)
-* (Apollon77) Ignore errors from forked process after response was sent for GetHistory
+* (Apollon77) Ignore errors from a forked process after response was sent for GetHistory
 
 ### 2.1.4 (2022-06-12)
-* (Apollon77) Make sure debug log is active according to the settings
+* (Apollon77) Make sure the debug log is active, according to the settings
 
 ### 2.1.3 (2022-06-08)
 * (Apollon77) Huge performance optimizations for GetHistory calls
 
 ### 2.1.2 (2022-05-28)
-* (Apollon77) Fix crash case reported by Sentry
+* (Apollon77) Fixed crash case reported by Sentry
 
 ### 2.1.1 (2022-05-27)
 * (Apollon77) Fix crash case reported by Sentry

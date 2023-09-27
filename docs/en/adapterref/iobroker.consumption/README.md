@@ -14,11 +14,11 @@ Calculates consumption for defined sensors and resources.
 You can define different resources, like water, heating, electricity and make an analysis in vis with it.
 
 4 different analysis types are implemented:
-- Plan - Actual consumption in €/$ in this year compared with planned values and compared with previous year.
-- Donut - Comparison between sensors or resources in form of pie/donut diagram
-- Stack - Monthly consumption of every sensor and resource compared with data from the previous year in form of stack bar diagram.
+- Plan - Actual consumption in €/$ in this year compared with planned values and compared with the previous year.
+- Donut - Comparison between sensors or resources in the form of pie/donut diagram
+- Stack - Monthly consumption of every sensor and resource compared with data from the previous year in the form of stack bar diagram.
 - Heat map - Hourly consumption in this year for resources 
-- Table - Monthly consumption of every sensor and resource compared with previous year in form of table  
+- Table - Monthly consumption of every sensor and resource compared with the previous year in the form of table  
 
 ## Requirements
 Adapter requires the my-SQL or postgres SQL DB and ioBroker.sql adapter to be installed (It will be automatically installed)
@@ -28,19 +28,19 @@ MS-SQL is not yet supported, but could be easily implemented if required.
 
 **Adapter is still beta.**
     
-**Free edition supports only 4 sensors and only one station.** 
-To support more sensors or stations you need a valid license. Request it under info@iobroker.com.   
+**Free edition supports only four sensors and only one station.** 
+To support more sensors or stations, you need a valid license. Request it under info@iobroker.com.   
 
 ## Usage
 You have resources (like water, energy, heating, gas, etc), stations (like house, dacha, village villa, etc) and sensors.
 
-Sensor is a counter, that always increases its value like electricity meter that always growing.
+Sensor is a counter, that always increases its value like an electricity meter that is always growing.
 
 You must spread all these sensors first into defined resources and then into stations.
 
-**Actually is only one station is supported!**
+**Actually is only one station being supported!**
 
-After that you can analyse your consumption in time and resources over years.
+After that, you can analyze your consumption in time and resources over years.
 
 You can compare the actual year with the previous one and build some prognose about consumption.
 
@@ -101,6 +101,9 @@ Select:
 -->
 
 ## Changelog
+### 1.0.0 (2023-09-13)
+* (bluefox) Fixed pie chart
+
 ### 0.8.0 (2023-05-12)
 * (bluefox) Do not take the price of sensor if it is empty or 0
 * (bluefox) Refactoring (async/await)

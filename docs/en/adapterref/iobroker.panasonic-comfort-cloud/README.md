@@ -25,7 +25,13 @@ It is recommended that a second account, for which the devices have been shared,
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 2.2.2 (2023-09-16)
+
+* Fixed wrong version number.
+
+### 2.2.1 (2023-09-16)
+
+* panasonic-comfort-cloud-client updated to new version. New headers added.
 
 ### 2.2.0
 
@@ -111,7 +117,7 @@ It is recommended that a second account, for which the devices have been shared,
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2023 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

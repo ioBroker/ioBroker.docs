@@ -28,6 +28,9 @@ For detailed Alexa setup description please follow the link: https://htmlpreview
 
 ## Changelog
 
+### v2.0.4
+* Code review feedback of Apollon77 incorporated
+
 ### v2.0.3
 * Drop-in replacement for iobroker.iot for Alexa integration
 

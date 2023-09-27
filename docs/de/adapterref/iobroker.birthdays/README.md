@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.birthdays?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.birthdays?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.birthdays?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.birthdays?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.birthdays?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.birthdays?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.birthdays?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.birthdays/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.birthdays?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.birthdays.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/birthdays-stable.svg
 BADGE-Installed: http://iobroker.live/badges/birthdays-installed.svg

@@ -52,13 +52,13 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
 
 ## Changelog
+### 1.3.9 (2023-09-24)
+(René) see issue #30: bug fix URL as string to be used
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
+### 1.3.8 (2023-09-23)
+(René) see issue #30: URL can now be used directly to get status of wallbox (JSON only)
+
 ### 1.3.7 (2023-09-02)
--->
-
-
 (René) see issue #30: bug fix for type based status check of wallboxes
 
 ### 1.3.6 (2023-08-28)

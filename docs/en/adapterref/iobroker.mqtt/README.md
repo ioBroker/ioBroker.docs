@@ -804,6 +804,12 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 5.0.0 (2023-09-18)
+* (klein0r) Added blockly block for custom messages (sendMessage2Client)
+* (klein0r) Added retain flag for sendMessage2Client
+* (klein0r) Removed support for Admin 4 UI (materialize)
+* (bluefox) Minimal supported node.js version is 16
+
 ### 4.1.1 (2023-03-22)
 * (Apollon77) Fix regex on subscribes of server clients to only match wanted states
 * (Apollon77) Prepare for future js-controller versions

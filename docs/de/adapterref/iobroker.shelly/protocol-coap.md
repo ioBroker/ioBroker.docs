@@ -13,9 +13,11 @@ This is the German documentation - [🇺🇸 English version](../en/protocol-coa
 
 **Falls eine Firmware-Version größer als 1.9.4 verwendet wird, musst ein CoIoT-Server auf den Shelly-Geräten konfiguriert werden (unicast).**
 
-Trage als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port ```5683```. Wenn dein ioBroker beispielsweise unter der Adresse ```192.168.1.2``` erreichbar ist, trage dort ```192.168.1.2:5683``` ein und aktiviere CoIoT.
+Trage als CoIoT-Server die IP-Adresse von deinem ioBroker Server ein - gefolgt von Port `5683`. Wenn dein ioBroker beispielsweise unter der Adresse `192.168.1.2` erreichbar ist, trage dort `192.168.1.2:5683` ein und aktiviere CoIoT.
 
 ![shelly_coap](./img/shelly_coap.png)
+
+**Das Shelly-Gerät muss nach dieser Änderung neugestartet werden!**
 
 CoAP fügt alle Geräte in deinem Netzwerk hinzu. Falls Du einzelne Geräte ausschließen möchtest, kannst Du diese in der Blacklist konfigurieren. Füge dafür die Seriennummern in die Tabelle ein:
 
@@ -31,7 +33,7 @@ Falls Du einen Shelly mit einer Firmware kleiner oder gleich 1.9.4 verwendest, i
 
 #### Docker
 
-Falls Du ioBroker in einem Docker-Container laufen hast, muss der Container im Netzwerkmodus ```host``` oder ```macvlan``` konfiguriert sein. Sollte der Docker-Container im Netzwerkmodus ```bridge``` laufen, werden keine Shelly-Geräte gefunden.
+Falls Du ioBroker in einem Docker-Container laufen hast, muss der Container im Netzwerkmodus `host` oder `macvlan` konfiguriert sein. Sollte der Docker-Container im Netzwerkmodus `bridge` laufen, werden keine Shelly-Geräte gefunden.
 
 #### Shelly Firmware 1.8.0 (oder neuer)
 

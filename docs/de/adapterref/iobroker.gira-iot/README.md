@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.gira-iot?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.gira-iot?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.gira-iot?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.gira-iot?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.gira-iot?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.gira-iot?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.gira-iot?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.gira-iot/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.gira-iot?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.gira-iot.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/gira-iot-stable.svg
 BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
@@ -22,7 +20,7 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 ## Kompatible Geräte
 
 - Gira X1
-- Gira Homeserver
+- Gira Homeserver (Firmware >=4.12 empfohlen)
 - Gira One Server
 
 ## Erste Schritte
@@ -34,8 +32,12 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
-* (klein0r) Added missing channel type for remote access
+* (klein0r) Added types for remote access (not documented by Gira)
+
+### 0.3.0 (2023-09-13)
+
 * (klein0r) Url preview in instance configuration
+* (klein0r) Improved error handling
 
 ### 0.2.1 (2023-01-11)
 
@@ -55,12 +57,6 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 * (klein0r) Improved callback registration handling
 * (klein0r) Improved error handling
-
-### 0.1.1 (2022-09-29)
-
-* (klein0r) Changed registration of callbacks via web adapter
-* (klein0r) Request current values on init
-* (klein0r) Updated state roles
 
 ## License
 

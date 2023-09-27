@@ -487,6 +487,9 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting unused device please restart the adapter to remove them there too.
 
 ## Changelog
+### 3.25.2 (2023-09-12)
+* (Apollon77) Optimize reconnection handling for push connections
+
 ### 3.25.1 (2023-09-09)
 * IMPORTANT: Minimum required Node-js version is 16 now!
 * (Apollon77) Updated the Push connection after Amazon technology changes

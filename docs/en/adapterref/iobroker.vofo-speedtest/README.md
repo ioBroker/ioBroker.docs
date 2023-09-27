@@ -22,18 +22,26 @@ Implements same technique as https://speedtest.vodafone.de
 ## What is Sentry.io and what is reported to the servers of that company?
 Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
 
-When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+When the adapter crashes or another Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.
+When you allowed to ioBroker GmbH to collect diagnostic data, then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included.
+This allows Sentry to group errors and shows how many unique users are affected by such an error. All of this helps me to provide error-free adapters that basically never crash.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2023-09-13)
+* (bluefox) Updated packages and refactored code
+
+### 1.0.0 (2023-09-13)
+* (bluefox) Updated packages and refactored code
+
 ### 0.0.13 (2022-06-06)
 * some more "already running" fixes
 
 ### 0.0.12 (2022-05-28)
-* rerelease for 0.0.11 because of missing version in io-package.json
+* re-release for 0.0.11 because of a missing version in io-package.json
 
 ### 0.0.11 (2022-05-27)
 * updating dependencies
@@ -63,11 +71,11 @@ When the adapter crashes or an other Code error happens, this error message that
 * Added calculated values by actual raw data
 
 ### 0.0.4 (2020-04-30)
-* Changed Adapter start type to scheduled (reinstallation might be needed)
+* Changed Adapter start type to scheduled (re-installation might be needed)
 * Bug fixes and feedback implementation
 
 ### 0.0.3 (2020-04-24)
-* Implemented feedback from Forum and github issue
+* Implemented feedback from Forum and GitHub issue
 
 ### 0.0.2 (2020-04-19)
 * Added actual settings in Admin interface
@@ -82,7 +90,7 @@ Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliat
 ## License
 MIT License
 
-Copyright (c) 2020-2022 Peter Baumert
+Copyright (c) 2020-2023 Peter Baumert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -101,6 +109,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-[pr112]: https://github.com/peterbaumert/ioBroker.vofo-speedtest/pull/112

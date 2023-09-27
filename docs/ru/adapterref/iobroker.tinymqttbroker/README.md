@@ -3,21 +3,21 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: k2fkSaJpy/zfa4W/w1v59WpKBZXrQgFC6KXNau26fog=
+hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.tinymqttbroker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)
 ![Количество установок](https://iobroker.live/badges/tinymqttbroker-installed.svg)
-![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/tinymqttbroker-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-**Тесты:** ![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер tinymqttbroker для ioBroker
-Это очень маленький брокер MQTT, который не управляет никакими объектами/состояниями в iobroker, но предлагает центральный экземпляр брокера MQTT для публикации тем подписки в качестве клиента MQTT. Очень полезно позволить нескольким устройствам общаться с одним брокером и взаимодействовать на iobroker с клиентским javascript MQTT.
+Это очень маленький брокер MQTT, который не управляет какими-либо объектами/состояниями в iobroker, но предлагает центральный экземпляр брокера MQTT для публикации тем подписки в качестве клиента MQTT. Очень полезно позволить нескольким устройствам общаться с одним брокером и взаимодействовать на iobroker с клиентским javascript MQTT.
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
@@ -91,6 +91,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.6 (2023-09-18)
+* (HGlab01) Improve error handling
+* (HGlab01) Verify if port is used from other process
+
 ### 0.0.5 (2023-09-11)
 * (HGlab01) add sentry support
 

@@ -1,93 +1,95 @@
 ---
 translatedFrom: en
-translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
-title: What's new
-hash: ef6eMWMuY5hWeMvtpZEtxnxmJacCYJaffVmAObfjnuE=
+title: Was ist neu
+hash: xEnDmMOyZbUGU+z2PKVontDcbYyyl5otD1cyxydveII=
 ---
-# What's new
-
-## frigate (2023-08-20)
+# Was ist neu
+## Fregatte (20.08.2023)
 https://github.com/Bettman66/ioBroker.frigate
 
-Frigate is an open source NVR built around real-time AI object detection. This adapter parses Frigate's MQTT messages and creates data objects from them
+Frigate ist ein Open-Source-NVR, der auf der Erkennung von KI-Objekten in Echtzeit basiert. Dieser Adapter analysiert die MQTT-Nachrichten von Frigate und erstellt daraus Datenobjekte
 
-## notification-manager (2023-08-21)
+## Benachrichtigungsmanager (21.08.2023)
 https://github.com/foxriver76/ioBroker.notification-manager
 
-Manage ioBroker notifications, e.g., by sending them as messages
+Verwalten Sie ioBroker-Benachrichtigungen, indem Sie sie z. B. als Nachrichten versenden
 
-## procon-ip (2023-08-24)
+## Procon-ip (24.08.2023)
 https://github.com/ylabonte/ioBroker.procon-ip
 
-ioBroker adapter for basic support of the `ProCon.IP` swimming pool control unit. 
+ioBroker-Adapter zur Basisunterstützung der `ProCon.IP` Schwimmbadsteuereinheit.
 
-## deyeicd (2023-08-29)
+## Deyeicd (29.08.2023)
 https://github.com/raschy/ioBroker.deyeidc
 
-Data Collector vor `Deye`-compatible Inverter
+Datensammler für `Deye`-kompatible Wechselrichter
 
-## acme (2023-09-01)
+## Acme (01.09.2023)
 https://github.com/iobroker-community-adapters/ioBroker.acme
 
-This adapter generates certificates using ACME challenges.
+Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 
-## cec2 (2023-09-06)
+## Cec2 (06.09.2023)
 https://github.com/iobroker-community-adapters/ioBroker.cec2
 
-Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most modern TVs and multimedia devices support CEC to some extent.
+Adapter für HDMI CEC – Sie können Geräte mit HDMI CEC überwachen/steuern. Die meisten modernen Fernseher und Multimediageräte unterstützen CEC in gewissem Umfang.
 
-## alexa2 (2023-09-09)
-* (Apollon77) Update Alexa2 adapter to adjust to the changed Push-Notification system from Amazon to allow getting history and interaction information again
+## Alexa2 (09.09.2023)
+* (Apollon77) Aktualisieren Sie den Alexa2-Adapter, um ihn an das geänderte Push-Benachrichtigungssystem von Amazon anzupassen und den Abruf von Verlaufs- und Interaktionsinformationen wieder zu ermöglichen
 
-## vis-2-widgets-material (2023-09-10)
-* (bluefox) Door lock widget has been added
-    ![picture1](media/2023_09_10_vis-2-widgets-material-lock-1.png)
-    ![picture1](media/2023_09_10_vis-2-widgets-material-lock-2.png)
+## Vis-2-widgets-material (10.09.2023)
+* (bluefox) Türschloss-Widget wurde hinzugefügt
 
-## pushbullet (2023-09-10)
-* (bluefox) API has been updated to version 3
-* (bluefox) JSON configuration was added
- ![JSON config](media/2023_09_10_pushbullet.png)
+![Bild 1](media/2023_09_10_vis-2-widgets-material-lock-1.png) ![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
-## JSON config Dokumentation
-* (bluefox) JSON-Config documentation has been added to the ioBroker website [hinzugefügt](https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md). 
+## Pushbullet (10.09.2023)
+* (bluefox) API wurde auf Version 3 aktualisiert
+* (bluefox) JSON-Konfiguration wurde hinzugefügt
 
-## telegram-menu (2023-09-11)
+  ![JSON-Konfiguration](../../en/history/media/2023_09_10_pushbullet.png)
+
+## JSON-Konfigurationsdokumentation
+* (bluefox) JSON-Config-Dokumentation wurde der ioBroker-Website hinzugefügt [hinzugefügt](https://www.iobroker.net/#en/documentation/dev/adapterjsonconfig.md).
+
+## Telegram-menu (11.09.2023)
 https://github.com/MiRo1310/ioBroker.telegram-menu
 
-Easily create Telegram Menus
+Erstellen Sie ganz einfach Telegram-Menüs
 
-## vis-2 (2023-09-12)
-* (bluefox) Horizontaler Menü
-    ![picture1](media/2023_09_12_vis-2-menu.png)
+## Vis-2 (12.09.2023)
+* (bluefox) Horizontales Menü
 
-## echart (2023-09-12)
-* (bluefox) Added the ability to export the data to JSON file
-    ![picture1](media/2023_09_12_echart-1.png)
-* (bluefox) Added the ability to restore zoom and pan after X seconds of inactivity
-    ![picture1](media/2023_09_12_echart-2.png)
-* (bluefox) Show legend as dialog
-  ![picture2](media/2023_09_13_echart-3.png)
+  ![Bild 1](../../en/history/media/2023_09_12_vis-2-menu.png)
 
-## js-controller (2023-09-14)
-* (foxriver76) Release js-controller 5 to stable
-* (foxriver76) Upgrade installer to just allow Node.js 16.x+
+## Echarts (12.09.2023)
+* (bluefox) Möglichkeit hinzugefügt, die Daten in eine JSON-Datei zu exportieren
 
-## apg-info (2023-09-16)
-This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
+  ![Bild 1](../../en/history/media/2023_09_12_echart-1.png)
 
-## tinymqttbroker (2023-09-16)
-This is very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+* (bluefox) Es wurde die Möglichkeit hinzugefügt, Zoom und Schwenk nach X Sekunden Inaktivität wiederherzustellen
 
-## atlas-scientific-ezo-i2c (20230-09-18)
-This ioBroker Adapter integrates several Atlas Scientific EZO Devices https://atlas-scientific.com/ into your own ioBroker environment.
+  ![Bild 1](../../en/history/media/2023_09_12_echart-2.png)
 
-## rct (2023-09-21)
-Show values of a RCT Power photovolatics power converter
-Note: older adapter from llauf refurbished. Was never at stable.
+* (bluefox) Legende als Dialog anzeigen
 
-## imap (2023-09-25)
-- Monitor your email accounts via IMAP (Internet Message Access Protocol)
-- Receive notification of new emails or updates (e. g. marked unseen)
-- Simple login with password and username (without xoauth2 or xoauth).
+  ![Bild2](../../en/history/media/2023_09_13_echart-3.png)
+
+## Js-controller (14.09.2023)
+* (foxriver76) Geben Sie js-controller 5 auf stabil frei
+* (foxriver76) Aktualisieren Sie das Installationsprogramm, um nur Node.js 16.x+ zuzulassen
+
+## Apg-info (16.09.2023)
+Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX-AT Day-Ahead (EPEX Spot) Preise für Österreich bereit.
+
+## Tinymqttbroker (16.09.2023)
+Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen.
+
+## Admin (01.09.2023)
+Kontextmenü:
+
+- z. B. einfache Erstellung von Aliasen
+
+  ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
+-

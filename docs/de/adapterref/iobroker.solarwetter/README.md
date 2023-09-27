@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarwetter/README.md
 title: ioBroker.solarwetter
-hash: iFiZKXxoTa8ilR4AJyMW3YZS4yNkcUfjQV+4FuxNpG8=
+hash: N9jcCi7jpOsufYNjUhK1MpH6xfIXnNOyJE9q1vy1Amc=
 ---
 ![Logo](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
 
@@ -13,43 +13,29 @@ hash: iFiZKXxoTa8ilR4AJyMW3YZS4yNkcUfjQV+4FuxNpG8=
 ![NPM](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)
 
 # IoBroker.solarwetter
-## Beschreibung / Beschreibung
-:de: Dieser Adapter liefert den prognostizierten Solarstrom-Tagesertrag für eine bestimmte Region. Die Daten kommen von [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
+## Beschreibung
+Dieser Adapter liefert eine Prognose der täglichen Solarstrommenge für eine bestimmte Region vom Anbieter [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
 
-:uk: Dieser Adapter liefert eine Prognose der täglichen Solarstrommenge für eine bestimmte Region vom Anbieter [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Übersetzen!!!!
-
-##Einstellungen / Configuration
+## Aufbau
 ### Benutzer / Passwort
-Seit 2022/03 ist die Authentifizierung beim Anbieter nicht mehr nötig.
-
 Seit 2022/03 ist keine Authentifizierung mehr erforderlich.
 
-### Standort / Location
-Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmt die Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
-
+### Standort
 Wählen Sie Ihre Region aus, indem Sie sie aus der Liste der Postleitzahlen auswählen.
 Geben Sie die Leistung Ihrer Solaranlage ein, um den Energieertrag zu berechnen.
 
-### Solaranlage / Solar plant
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Rechnung der voraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
-
+### Solaranlage
 Geben Sie die Gesamtleistung Ihrer Solaranlage ein, um die Tagesprognose für die Energieproduktion zu berechnen (Dezimaltrennzeichen möglich)
 
-### 4-Tage-Prognose / 4-Tages-Vorhersage
-Wählen Sie hier eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt `solarwetter.0.forecast.chart.__url__` ).
-
+### 4-Tages-Vorhersage
 Wählen Sie eine Stadt aus, damit der Adapter eine Verbindung zu einem 4-Tages-Vorhersagediagramm (Datenpunkt `solarwetter.0.forecast.chart.__url__` ) erstellt.
 
 ![Alt-Text](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Screenshot-Einstellungen")
 
-## Aktivierung / Zeitplan
+## Zeitplan
 Der Adapter startet einmal täglich.
 
-Der Adapter startet einmal täglich.
-
-## Datenpunkte / Datapoints
+## Zustände
 `solarwetter.0.forecast.__clearSky__` (*Wert*)
 
 `solarwetter.0.forecast.__realSky_min__` (*Wert*)
@@ -72,51 +58,55 @@ Der Adapter startet einmal täglich.
 
 `solarwetter.0.forecast.chart.__url__` (*Wert*)
 
-<!-- ### **ARBEIT IN ARBEIT** -->
-
-### 1.1.5 (15.08.2023)
-* (Motuditli) Angepasst an Website-Änderungen – Entfernung der Authentifizierung
-* (bluefox) Kompaktmodus und JSON-Konfiguration hinzugefügt
-
-### 1.0.0 (15.10.2017)
-* (pix) Ende der Beta, Node.js 4 oder höher erforderlich
-
-### 0.3.0 (28.05.2017)
-* (pix) Melden Sie sich mit Website-Passwort und Benutzernamen an
-
-### 0.2.0 (05.01.2017)
-* (pix) Travis CI-Tests hinzugefügt
-
-### 0.1.2 (21.06.2016)
-* (pix) Stadtauswahl korrigiert
-
-### 0.1.1 (20.06.2016)
-* (pix) 4-Tages-Prognosediagramm
-
-### 0.1.0 (12.06.2016)
-* (Bilder) auf npm veröffentlichen
-
-### 0.0.6 (09.06.2016)
-* (pix) Adapter.stop() behoben
-
-### 0.0.5 (14.05.2016)
-* (pix) Einstellungen zeigen jetzt den korrekten Standort an, wenn dieser bereits definiert ist
-
-### 0.0.4 (13.05.2016)
-* (pix) Darstellung des Einstellungsfensters
-
-### 0.0.3 (13.05.2016)
-* (pix) Berechnet die Leistung der eigenen Solaranlage
-
-### 0.0.2 (13.05.2016)
-* (Pixel) PLZ-Gebiet wählbar
-
-### 0.0.1 (12.05.2016)
-* (Bilder) erste Veröffentlichung
-
 ## Machen
 * Übersetzung von Datenpunkten
 * Russische Übersetzung eines Einstellungsfensters
+
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### 1.1.5 (2023-08-15)
+* (motuditli) Adjusted for Website Changes - removal of authentication
+* (bluefox) Added compact mode and JSON config
+
+### 1.0.0 (2017-10-15)
+* (pix) End of beta, Node.js 4 or higher required
+
+### 0.3.0 (2017-05-28)
+* (pix) Login with website password & username
+
+### 0.2.0 (2017-01-05)
+* (pix) Travis CI testing added
+
+### 0.1.2 (2016-06-21)
+* (pix) city selection fixed
+
+### 0.1.1 (2016-06-20)
+* (pix) 4-Day-Forecast Chart
+
+### 0.1.0 (2016-06-12)
+* (pix) publish on npm
+
+### 0.0.6 (2016-06-09)
+* (pix) Adapter.stop() fixed
+
+### 0.0.5 (2016-05-14)
+* (pix) Settings now show correct location if already defined
+
+### 0.0.4 (2016-05-13)
+* (pix) Appearance of settings window
+
+### 0.0.3 (2016-05-13)
+* (pix) Calculates power of own solar plant
+
+### 0.0.2 (2016-05-13)
+* (pix) Post code area selectable
+
+### 0.0.1 (2016-05-12)
+* (pix) first release
 
 ## License
 

@@ -4,22 +4,23 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/my-data-diy.md
 title: ioBroker.lametric
-hash: P0jG+7p9aIGXTX/nCFYbOgCJ7SHVFrrY4UAX7TnJUKI=
+hash: X7Dc+dqW0V7txXEV+jnvqgGJGnhbIMLjFK5+GecN5QY=
 ---
 ![标识](../../../de/admin/lametric.png)
 
 # IoBroker.lametric
-*LaMetric* 提供（通过集成应用程序商店）一个附加应用程序来显示您自己的信息。此应用程序名为[我的数据DIY](https://apps.lametric.com/apps/my_data__diy_/8942)。该适配器以所需格式创建数据点。
+*LaMetric* 提供了一个附加应用程序（通过集成应用程序商店）来显示您自己的信息。此应用程序名为[我的数据DIY](https://apps.lametric.com/apps/my_data__diy_/8942)。该适配器以所需格式创建数据点。
 
-从该应用程序的 2.0.0 版本开始，可以通过不同的方式将数据传输到设备。
+从该应用程序的 2.0.0 版本开始，数据可以通过不同的方式传输到设备。
 
-- 推送：适配器定期将数据发送到设备（如果发生变化）
-- 轮询：定期从 *LaMetric Time* 获取数据（可配置）
+- 推送：适配器定期将数据发送到设备（如果发生变化） - **标准选项**
+- 民意调查：定期收集*LaMetric Time* 的数据（可配置）
 
 本文档中对这两种方法进行了解释。
 
-## 我的数据 (DIY) - 推送 *（需要适配器版本 >= 3.0.0）*
-*尚未实施*
+## 我的数据 (DIY) - 推送 *（需要适配器版本 >= 3.0.0）*（推荐）
+- 需要 *我的数据 DIY* 应用程序 >= 2.0.0
+- 需要固件 >=2.3.7 (>=3.0.16)
 
 ## 我的数据 (DIY) - 投票 *（需要适配器版本 >= 1.1.0）*
 可以使用各种适配器将数据传输到*LaMetric Time*：
@@ -36,7 +37,7 @@ hash: P0jG+7p9aIGXTX/nCFYbOgCJ7SHVFrrY4UAX7TnJUKI=
 3. 配置新Web实例的端口（例如``8082``）
 4. 通过应用程序商店在您的 *LaMetric Time* 上安装 *My Data DIY* 应用程序
 5. 打开*我的数据（DIY）*应用程序的设置并配置REST API适配器的URL（见下文）
-6. 进入适配器设置并使用您自己的信息添加新框架（请参阅下一节）
+6. 转到适配器设置并使用您自己的信息添加新框架（请参阅下一节）
 7. 不要忘记选择之前配置的Web实例！
 
 HTTP 轮询配置：
@@ -101,7 +102,7 @@ URL: http://172.16.0.219:8087/getPlainValue/lametric.0.mydatadiy.obj/?json
 
 **重要提示：使用 SimpleAPI 适配器的 json 标志（自版本 2.6.2 起可用）**
 
-**替换URL中的示例IP和端口！**
+**替换 URL 中的示例 IP 和端口！**
 
 ### 帧配置
 - 使用加号按钮添加任意数量的框架

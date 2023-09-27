@@ -25,6 +25,15 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.8 (2023-09-20)
+* (bluefox) Added support of counters for consumption
+
+### 0.3.5 (2023-09-18)
+* (bluefox) Corrected the default history
+
+### 0.3.2 (2023-09-16)
+* (bluefox) Error corrected in Consumption-Widget
+
 ### 0.3.1 (2023-09-09)
 * (bluefox) Updated packages
 

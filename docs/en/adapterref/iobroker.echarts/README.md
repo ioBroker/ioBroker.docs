@@ -93,12 +93,18 @@ You can debug view charts locally with:
 - widget for vis (button)
 - widget for material
 - show enum icons on folders or near it
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.5.4 (2023-09-13)
+* (bluefox) Added an option to the export dialog: select / unselect all
+* (bluefox) Added the availability to show legend as dialog
+
+### 1.5.3 (2023-09-12)
+* (bluefox) Added an option to reset zoom and tilt after X seconds of idle
+
 ### 1.5.1 (2023-06-14)
 * (bluefox) Error handling in JSON data was improved
 

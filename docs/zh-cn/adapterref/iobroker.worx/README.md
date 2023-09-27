@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
+hash: qh79wqJ6UtWyIF11OwDiyEIyfntDCdq4lI/mbxcFpRE=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -66,7 +66,7 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
     - `wednesday.workTime`：工作时间以分钟为单位（180 分钟 = 3 小时），例如30 = Endzeit 09:30（立即更改值）（可更改）
     - `calJson_sendto`：如果所有数据点均已设置，则按按钮发送（有 1.1 秒延迟）。割草机现在将割草 30 分钟（可更改）
     - `calJson_tosend`：此数据发送到 Mqtt（割草时间表/自动设置）。您也可以自己创建此 JSON。 （多变）
-    - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。 （割草计划 1/自动设置 - 仅适用于钢丝）（可更改）
+    - `calendar.calJson`：每周割草计划的数组。您也可以自己创建此数组。 （割草时间表 1/自动设置 - 仅适用于钢丝）（可更改）
     - `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。 （割草时间表 2/自动设置 - 仅适用于钢丝）（可更改）
 
 ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
@@ -118,7 +118,8 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
         "18": "dummy model", //(wire & Vision)
         "19": "Battery trunk open timeout", //(wire & Vision)
         "20": "wire sync", //(wire & Vision unknown)
-        "21": "msg num" //(wire & Vision)
+        "21": "msg num", //(wire & Vision)
+        "110": "Camera error" //(Vision)
     }
 }
 ```
@@ -141,7 +142,7 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
 }
 ```
 
-- `firmware_available_date`：可用固件的日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
+- `firmware_available_date`：可用固件日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
 - `firmware_update_start`：分两步开始固件更新（wire & Vision/changeable）
 - `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true（wire & Vision/changeable）
 - `gradient`：grad 中的梯度（wire & Vision/只读）
@@ -186,8 +187,8 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
         "3": "Home", //(wire & Vision)
         "4": "Start Zone Taining", //(wire & Vision unknown)
         "5": "Lock", //(wire & Vision unknown)
-        "6": "Unlock", //(wire & Vision unknown)
-        "7": "Restart Robot", //(wire & Vision unknown)
+        "6": "Unlock", //(wire & Vision)
+        "7": "Restart Robot", //(wire & Vision)
         "8": "pause when follow wire", //(wire & Vision unknown)
         "9": "safe homing" //(wire & Vision unknown)
     }
@@ -235,6 +236,70 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
 ### 另外对于视力
 -   区域
     - `rfid`：总区域（只读）
+    - `startSequence`：多区域 JSON（视觉/可变）[示例](#example-blockly-startsequence-vison)
+
+例子：
+
+```json
+{
+    "mz": {
+        "p": [
+            // Passages between zones
+            {
+                "z1": 1, // Zone from (must z1 < z2)
+                "z2": 2, // Zone to (must z2 > z1)
+                "t1": "E000000000000000", // RFID id from z1
+                "t2": "E0000000KKKKKKKK" // RFID id from z2
+            }
+        ],
+        "s": [
+            // The zones themselves
+            {
+                "id": 1, // Numbering - Start with 1
+                "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
+                "cfg": {
+                    "cut": {
+                        "bd": 100, // bordercut in mm
+                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0.
+                    }
+                }
+            },
+            {
+                "id": 2, // Numbering
+                "c": 0, // 1 if the charging station is in this zone. 0 for no charging station.
+                "cfg": {
+                    "cut": {
+                        "bd": 100, // bordercut in mm
+                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0.
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+默认无区域：
+
+```json
+{
+    "mz": {
+        "p": [],
+        "s": [
+            {
+                "id": 1,
+                "c": 1,
+                "cfg": {
+                    "cut": {
+                        "bd": 150,
+                        "ob": 0
+                    }
+                }
+            }
+        ]
+    }
+}
+```
 
 ![愿景 img/areas_vision.png](../../../en/adapterref/iobroker.worx/img/areas_vision.png)
 
@@ -260,182 +325,230 @@ hash: 8qmPDH9m7bYl0GPqh/MsVdb5JoQykT529mE+YhuHzXw=
 
 ![视觉 img/mqtt_info.png](../../../en/adapterref/iobroker.worx/img/mqtt_info.png)
 
-## Changelog
-### 2.3.2 (2023-07-21)
-
--   (Lucky-ESA) Wrong folder for areas
--   (Lucky-ESA) New data points can only be read
-
-### 2.3.1 (2023-07-20)
-
--   (Lucky-ESA) Added Firmware Update
--   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
--   (Lucky-ESA) Added reset blade time and battery time
--   (Lucky-ESA) Added ping after refresh token
--   (Lucky-ESA) Added german description
--   (TA2k) Changed firmware request
--   (Lucky-ESA) Changed auth-endpoint
--   (Lucky-ESA) Some bug fixes
--   (Lucky-ESA) Fix unique mqtt clientid
--   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
--   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
--   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
-
-### 2.2.0 (2023-06-27)
-
--   (Lucky-ESA) Removed mowerActive for Vision
--   (Lucky-ESA) Add Vision paused schedule
--   (Lucky-ESA) Add Vision partyModus
--   (Lucky-ESA) Fix ping request Vision
--   (Lucky-ESA) Fix send message inheritance
--   (Lucky-ESA) Fix [#684](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/684)
--   (Lucky-ESA) Fix deviceArray inheritance
--   (Lucky-ESA) Add Vision mowers w/o Status & Error message
--   (Lucky-ESA) Add ZoneKeeper for previous mowers
-
-### 2.1.3
-
--   (TA2k) Add ping option in the instance settings
-
-### 2.1.2
-
--   (TA2k) Improve reconnection for multiple mower
-
-### 2.1.1
-
--   (TA2k) Change reconnection times
-
-### 2.1.0
-
--   (TA2k) Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
-
-### 2.0.3
-
--   (TA2k) Add manual refresh. Fix empty status and firmware format. Reduce info logs.
-
-### 2.0.1
-
--   (TA2k) Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
-
-### 1.7.0 (2022-09-28)
-
--   (TA2k) fix login
-
-### 1.6.6 (2022-06-25)
-
--   (MeisterTR) fix edgecut
-
-### 1.6.5 (2022-06-19)
-
--   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions also on second place
-
-### 1.6.4 (2022-06-18)
-
--   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions
--   (Apollon77) fix error cases reported by Sentry
-
-### 1.6.3 (2022-06-17)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.6.2 (2022-06-17)
-
--   (TA2k) fix issues introduced in 1.6.0
-
-### 1.6.1 (2022-06-17)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.6.0 (2022-06-16)
-
--   (Apollon77) fix some error cases reported by Sentry
-
-### 1.5.5 (2021-09-29)
-
--   (MeisterTR) fix error
-
-### 1.5.0 (2021-09-26)
-
--   (MeisterTR) many fixes
--   (MeisterTR) add torque control
--   (MeisterTR) fixed States
-
-### 1.4.3 (2021-07-25)
-
--   (MeisterTR) fix Partymode detection
-
-### 1.4.2 (2021-07-24)
-
--   (MeisterTR) fix bug with OLMSwitch_Cutting
--   (MeisterTR) fix bug with PartyMode
--   (TA2k) fix error with wrong serialnumber (please delete all objects manually)
--   (MeisterTR) fix bug in autolock function
-
-### 1.4.1 (2021-07-06)
-
--   (MeisterTR) fix bug in sendCommand (please remove state manually)
-
-### 1.4.0 (2021-07-05)
-
--   update testing
--   add gps coordinates
--   add new status states
--   add new Autolock states
--   add new OffLinits states
-
-### 1.3.7 (03.06.2021)
-
--   (TA2k) type fixes
-
-### 1.3.6 (27.05.2021)
-
--   (MeisterTR) bugfixes
--   (MeisterTR) better errorhandling
-
-### 1.2.9 (02.12.2020)
-
--   (MeisterTR) add sentry
--   (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
-
-### 1.2.4 (15.11.2020)
-
--   (MeisterTR) Bugfix (error type of sc...)
--   (MeisterTR) change Testing to git
-
-### 1.2.3 (29.08.2020)
-
--   (MeisterTR) add option to crate a Json Obj to set mowtime with scripts
--   (MeisterTR) add option to disable weather
--   (MeisterTR) add double Shedule, oneTimeShedule, PartyMode
--   (MeisterTR) fix setIntervall => setTimeout
--   (MeisterTR) fix error with Meter and Min. in Config
--   (MeisterTR) add Kress and Landxcape
-
-### 1.0.0 (03.12.2019)
-
--   (MeisterTR) bump Version
--   (MeisterTR) transfer to community
-
-### 0.4.0 (03.08.2019)
-
--   (MeisterTR) fix multimower
--   (MeisterTR) change loglevel
--   (MeisterTR) fix online Status
-
-### 0.3.1 (12.06.2019)
-
--   (MeisterTR) add delay for edgecut in config
--   (MeisterTR) fix mowtime error
-
-### 0.2.0 (01.06.2019)
-
--   (MeisterTR) add border
--   (MeisterTR) fix small errors
--   (MeisterTR) code cleanup
-
-### 0.0.1
-
--   (MeisterTR) initial release
+### Blockly 启动序列 Vison 示例
+```
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="${]4s$w?n24Az}=7iAIY">mz</variable>
+    <variable id="o.FQ]_Xa!tHn2T7Ak{Pt">value</variable>
+    <variable id="/@E4iFRMr:x+u?{7yFlB">test</variable>
+    <variable id="jxTInS{}mk_)WJa[:,fA">i</variable>
+  </variables>
+  <block type="procedures_defcustomnoreturn" id="u:w*aBH!92nydG0Mu.1-" x="-87" y="-87">
+    <mutation statements="false">
+      <arg name="mz" varid="${]4s$w?n24Az}=7iAIY"></arg>
+      <arg name="value" varid="o.FQ]_Xa!tHn2T7Ak{Pt"></arg>
+    </mutation>
+    <field name="NAME">set_bd</field>
+    <field name="SCRIPT">bXouY2ZnLmN1dC5iZCA9IDE1MA==</field>
+    <comment pinned="false" h="80" w="160">Beschreibe diese Funktion …</comment>
+  </block>
+  <block type="variables_set" id="jiP0218}2,Y]B]RdKD~`" x="-87" y="-35">
+    <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+    <value name="VALUE">
+      <block type="convert_json2object" id=";Ef{FHk_~heeozyHFxci">
+        <value name="VALUE">
+          <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
+            <field name="ATTR">val</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="controls_forEach" id="D{XG==q$flbH?32eX%D(">
+        <field name="VAR" id="jxTInS{}mk_)WJa[:,fA">i</field>
+        <value name="LIST">
+          <block type="get_attr" id="b~2/cb$WhEj*9i6,(ey5">
+            <value name="PATH">
+              <shadow type="text" id="+n~;GfHf{,#D!5D}H+m=">
+                <field name="TEXT">s</field>
+              </shadow>
+            </value>
+            <value name="OBJECT">
+              <block type="variables_get" id="YloS$N%I=6[yk;loD*1O">
+                <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="procedures_callcustomnoreturn" id="er{Pwq:Y7n_I|CQoup,|">
+            <mutation name="set_bd">
+              <arg name="mz"></arg>
+              <arg name="value"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="variables_get" id="(-_i0(y:W}U_x?s(7k%4">
+                <field name="VAR" id="jxTInS{}mk_)WJa[:,fA">i</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="math_number" id="{2u/=v!k|yJsOesq[CU^">
+                <field name="NUM">150</field>
+              </block>
+            </value>
+            <next>
+              <block type="debug" id="b1}}DmS-[_W:+Y+$|%)r">
+                <field name="Severity">log</field>
+                <value name="TEXT">
+                  <shadow type="text" id="7wx?ca_U[S~8DA4}*RXx">
+                    <field name="TEXT">test</field>
+                  </shadow>
+                  <block type="variables_get" id="_zz;w64g-!E$zX$]pvyI">
+                    <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="debug" id="o[S0+1%{oLU+r:03tz7=">
+            <field name="Severity">log</field>
+            <value name="TEXT">
+              <shadow type="text" id="7wx?ca_U[S~8DA4}*RXx">
+                <field name="TEXT">test</field>
+              </shadow>
+              <block type="variables_get" id="tjqxQ(MO|CR~/Xq5;Pm[">
+                <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+              </block>
+            </value>
+            <next>
+              <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="WITH_DELAY">FALSE</field>
+                <value name="VALUE">
+                  <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
+                    <field name="PRETTIFY">FALSE</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="C4np)gS@^Y*?-0I+R6+r">
+                        <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
+
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="${]4s$w?n24Az}=7iAIY">mz</variable>
+    <variable id="o.FQ]_Xa!tHn2T7Ak{Pt">value</variable>
+    <variable id="/@E4iFRMr:x+u?{7yFlB">test</variable>
+    <variable id="jxTInS{}mk_)WJa[:,fA">i</variable>
+  </variables>
+  <block type="procedures_defcustomnoreturn" id="u:w*aBH!92nydG0Mu.1-" x="-87" y="-87">
+    <mutation statements="false">
+      <arg name="mz" varid="${]4s$w?n24Az}=7iAIY"></arg>
+      <arg name="value" varid="o.FQ]_Xa!tHn2T7Ak{Pt"></arg>
+    </mutation>
+    <field name="NAME">set_bd</field>
+    <field name="SCRIPT">bXouY2ZnLmN1dC5iZCA9IDE1MA==</field>
+    <comment pinned="false" h="80" w="160">Beschreibe diese Funktion …</comment>
+  </block>
+  <block type="variables_set" id="jiP0218}2,Y]B]RdKD~`" x="-87" y="-35">
+    <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+    <value name="VALUE">
+      <block type="convert_json2object" id=";Ef{FHk_~heeozyHFxci">
+        <value name="VALUE">
+          <block type="get_value" id="LMfldD:[D4%}yWE8,N0y">
+            <field name="ATTR">val</field>
+            <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="controls_forEach" id="D{XG==q$flbH?32eX%D(">
+        <field name="VAR" id="jxTInS{}mk_)WJa[:,fA">i</field>
+        <value name="LIST">
+          <block type="get_attr" id="b~2/cb$WhEj*9i6,(ey5">
+            <value name="PATH">
+              <shadow type="text" id="+n~;GfHf{,#D!5D}H+m=">
+                <field name="TEXT">s</field>
+              </shadow>
+            </value>
+            <value name="OBJECT">
+              <block type="variables_get" id="YloS$N%I=6[yk;loD*1O">
+                <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="procedures_callcustomnoreturn" id="er{Pwq:Y7n_I|CQoup,|">
+            <mutation name="set_bd">
+              <arg name="mz"></arg>
+              <arg name="value"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="variables_get" id="(-_i0(y:W}U_x?s(7k%4">
+                <field name="VAR" id="jxTInS{}mk_)WJa[:,fA">i</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="math_number" id="{2u/=v!k|yJsOesq[CU^">
+                <field name="NUM">150</field>
+              </block>
+            </value>
+            <next>
+              <block type="debug" id="b1}}DmS-[_W:+Y+$|%)r">
+                <field name="Severity">log</field>
+                <value name="TEXT">
+                  <shadow type="text" id="7wx?ca_U[S~8DA4}*RXx">
+                    <field name="TEXT">test</field>
+                  </shadow>
+                  <block type="variables_get" id="_zz;w64g-!E$zX$]pvyI">
+                    <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="debug" id="o[S0+1%{oLU+r:03tz7=">
+            <field name="Severity">log</field>
+            <value name="TEXT">
+              <shadow type="text" id="7wx?ca_U[S~8DA4}*RXx">
+                <field name="TEXT">test</field>
+              </shadow>
+              <block type="variables_get" id="tjqxQ(MO|CR~/Xq5;Pm[">
+                <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+              </block>
+            </value>
+            <next>
+              <block type="control" id="C^lZ^SNIQ#,vh}?hSG_O">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                <field name="OID">worx.0.xxxxxxxxxxxxxxxxxxxx.areas.startSequence</field>
+                <field name="WITH_DELAY">FALSE</field>
+                <value name="VALUE">
+                  <block type="convert_object2json" id="z)EXA+%8lB4K#7!Hp1V%">
+                    <field name="PRETTIFY">FALSE</field>
+                    <value name="VALUE">
+                      <block type="variables_get" id="C4np)gS@^Y*?-0I+R6+r">
+                        <field name="VAR" id="/@E4iFRMr:x+u?{7yFlB">test</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
+```
 
 ## License
 

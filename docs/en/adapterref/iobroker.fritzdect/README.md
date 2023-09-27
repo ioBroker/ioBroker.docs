@@ -157,6 +157,23 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |*enpositionsset*|boolean|-|status configuration | | | | | |Blinds| |
 |*mode*|text|-|modus | | | | | |Blinds| |
 
+### stats (part of device)
+|Object|Value|settable|Description|
+|--------|-------|:-:|--------|
+|count|number|-|count of the values in array|
+|grid|number|-|time between values in array in s|
+|datatime|number|-|reference timestamp for array|
+|stats|array|-|array of values|
+
+Above is available for power and voltage. 
+Additional the energy has monthly and daily array and their belonging descriptive data.
+Furthermore for energy the array values are summed up for:
+* today
+* last 31 days
+* month to date
+* last 12 month
+* year to date 
+
 ### groups
 |Object|Value|settable|Description|
 |--------|-------|:-:|--------|
@@ -170,6 +187,11 @@ The datapoints are created on the basis of the returned values of the Fritz AHA 
 |--------|-------|:-:|--------|
 |toggle|boolean|x|toggle switch for template activation|
 |lasttemplate|text|-|last confirmed template|
+
+### routines
+|Object|Value|settable|Description|
+|--------|-------|:-:|--------|
+|active|boolean|x|toggle switch for routine activation|
 
 
 ## API limitations
@@ -195,6 +217,23 @@ otherwise it is more complex and individually to be parametrized.
 * blind alert state -> decode bit array
 
 ## Changelog
+### 2.5.2
+* correction for komfort, absenk if receiving 253/254 for OFF/ON
+
+### 2.5.1
+* correction for energy today value
+
+### 2.5.0
+* getbasicdevicestats for powermeter (voltage, power, energy)
+* derived values from energy stats -> year to date, month to date, last 12 month, last 31 days, todays accumulation
+
+### 2.4.1 (npm)
+* corrections reported by adapter-checker
+
+### 2.4.0
+* new function for routines which activatetrigger
+* correction for templates and scenario (all templates are buttons, no need to check functionbitmask)
+
 ### 2.3.1
 * new function gettriggerlist in admin
 * corrected xml2json-light (included drirectly in repo until PR#8 is merged in repo), caused problems with templates in newer FB-firmware
@@ -476,4 +515,4 @@ otherwise it is more complex and individually to be parametrized.
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>

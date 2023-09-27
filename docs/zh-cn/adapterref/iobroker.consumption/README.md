@@ -3,95 +3,95 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.consumption/README.md
 title: ioBroker.消费
-hash: IU3fuiA8q7+wtovCQhv0niK5RpmRWduO6XYklZ+qGVk=
+hash: PtcwnNZx9+3u0/ZklKIRGknfGy+cH7yKo+iZU8jeTYQ=
 ---
 ![标识](../../../en/adapterref/iobroker.consumption/admin/consumption.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.consumption.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.consumption.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.consumption.svg)
 ![依赖状态](https://img.shields.io/david/bluefox/iobroker.consumption.svg)
 ![已知漏洞](https://snyk.io/test/github/bluefox/ioBroker.consumption/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.consumption.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.consumption.png?downloads=true)
 
 # IoBroker.消费
 ## IoBroker 的消费适配器
 计算定义的传感器和资源的消耗。
 
-您可以定义不同的资源，如水、暖气、电力，并对其进行分析。
+您可以定义不同的资源，例如水、热力、电力，并对其进行分析。
 
-实现了 4 种不同的分析类型：
+实施了 4 种不同的分析类型：
 
-- 计划 - 今年与计划值和上一年相比的实际消费量（以欧元/美元表示）。
+- 计划 - 今年与计划值以及与上一年相比的实际消耗（以欧元/美元为单位）。
 - 甜甜圈 - 以饼图/甜甜圈图的形式比较传感器或资源
-- 堆栈 - 每个传感器和资源的每月消耗量与上一年的数据相比，以堆栈条形图的形式表示。
-- 热图 - 今年资源的每小时消耗量
-- 表格 - 每个传感器和资源的每月消耗量与上一年相比以表格形式
+- 堆栈 - 每个传感器和资源的每月消耗量与上一年的数据相比，以堆栈条形图的形式显示。
+- 热图 - 今年每小时的资源消耗
+- 表格 - 每个传感器和资源的每月消耗量与上一年相比，以表格形式显示
 
 ＃＃ 要求
-适配器需要安装 my-SQL 或 postgres SQL DB 和 ioBroker.sql 适配器（它将自动安装）它也应该与 SQLite 一起工作，但由于性能原因不推荐使用。
+适配器需要安装 my-SQL 或 postgres SQL DB 和 ioBroker.sql 适配器（它将自动安装）它也应该与 SQLite 一起使用，但由于性能原因不建议使用。
 
-MS-SQL 尚不支持，但如果需要可以轻松实现。
+尚不支持 MS-SQL，但如果需要，可以轻松实现。
 
 **适配器仍处于测试阶段。**
 
-**免费版仅支持 4 个传感器和一个站点。**要支持更多传感器或站点，您需要一个有效的许可证。通过 info@iobroker.com 索取。
+**免费版仅支持四个传感器和一个工作站。** 要支持更多传感器或工作站，您需要有效的许可证。请通过 info@iobroker.com 请求。
 
 ＃＃ 用法
-你有资源（如水、能源、暖气、煤气等）、站点（如房屋、别墅、乡村别墅等）和传感器。
+你有资源（如水、能源、供暖、天然气等）、站点（如房屋、别墅、乡村别墅等）和传感器。
 
-传感器是一个计数器，它总是增加它的值，就像电表一直在增长一样。
+传感器是一个计数器，它的值总是在增加，就像电表总是在增长一样。
 
-您必须首先将所有这些传感器分布到定义的资源中，然后再分布到站点中。
+您必须首先将所有这些传感器分布到定义的资源中，然后分布到站点中。
 
-**实际上只支持一站！**
+**实际上只支持一个电台！**
 
-之后，您可以分析多年来的时间和资源消耗。
+之后，您可以分析多年来您的时间和资源消耗情况。
 
-您可以将实际年份与上一年进行比较，并对消费做出一些预测。
+您可以将实际年份与前一年进行比较，并对消费做出一些预测。
 
-计划当年的所有费用。
-![预后](../../../en/adapterref/iobroker.consumption/img/planAll.png)
+计划本年度的所有费用。
+![预测](../../../en/adapterref/iobroker.consumption/img/planAll.png)
 
 按资源分配成本。
-![预后](../../../en/adapterref/iobroker.consumption/img/pieAll.png)
+![预测](../../../en/adapterref/iobroker.consumption/img/pieAll.png)
 
 一种资源的传感器消耗分布。
-![预后](../../../en/adapterref/iobroker.consumption/img/pieHeating.png)
+![预测](../../../en/adapterref/iobroker.consumption/img/pieHeating.png)
 
-传感器的消耗分布和一种资源的月数。
-![预后](../../../en/adapterref/iobroker.consumption/img/stackBarWater.png)
+传感器的消耗分布和一种资源的月份。
+![预测](../../../en/adapterref/iobroker.consumption/img/stackBarWater.png)
 
-当年一种资源消耗的热图。
-![预后](../../../en/adapterref/iobroker.consumption/img/heatmap.png)
+本年度一种资源消耗的热图。
+![预测](../../../en/adapterref/iobroker.consumption/img/heatmap.png)
 
-当年每个月一种资源的消耗表。
-![预后](../../../en/adapterref/iobroker.consumption/img/tableHeating.png)
+当年每月一种资源的消耗表。
+![预测](../../../en/adapterref/iobroker.consumption/img/tableHeating.png)
 
-### 隐函数
-传感器数据可以转换，但公式必须是线性的。
-您可以用 javascript 编写公式，但注意结果必须是数字（浮点数）。
+### 隐藏函数
+传感器数据可以进行转换，但公式必须是线性的。
+您可以用 javascript 编写公式，但请注意结果必须是数字（浮点数）。
 例子：
 
-- Wh => kWh: `val / 1000`
-- kWh => Wh: `val * 1000`
+- Wh => kWh：`val / 1000`
+- kWh => Wh：`val * 1000`
 - °F => °C：`(val - 32) / 1.8`
 - °C => °F：`val * 1.8 + 32`
 
-## 更新echarts（仅供开发者使用）
-前往 https://echarts.apache.org/en/builder.html 选择：
+## 更新echarts（仅针对开发者）
+转到 https://echarts.apache.org/en/builder.html 选择：
 
-- 图表：条形图、折线图、饼图、热图，
+- 图表：条形图、折线图、饼图、热图、
 - 坐标系：网格
 - 组件：标题、图例、工具提示、MarkPoint、MarkArea、VisualMap、工具箱
 - 其他：SVG 渲染器、实用程序、代码压缩
 
 ＃＃ 去做
-- 每种传感器的价格
+- 每个传感器的价格
 - 更改价格：
   - 按资源删除所有价格，
   - 每个传感器添加复选框：自己的价格
   - 如果每个传感器都有自己的价格，则隐藏站=>资源价格
-  - 直接写入状态，不将价格保存在对象中
+  - 直接写入状态并且不将价格保存在对象中
 
 - 热图
   - 按年份显示
@@ -99,16 +99,23 @@ MS-SQL 尚不支持，但如果需要可以轻松实现。
 
 - 将数据导出为 PDF
 - 不止一站。
-- 根据主题（单位、开始、结束）选择风格
+- 根据主题选择风格（单元、开始、结束）
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 ## 允许使用
-一份许可授予执行一次软件安装的权利。
-软件的每次额外安装都需要额外购买的许可证。
+一份许可证授予执行一次软件安装的权利。
+每次额外安装该软件都需要额外购买许可证。
 
 ## Changelog
+### 1.0.0 (2023-09-13)
+* (bluefox) Fixed pie chart
+
+### 0.8.0 (2023-05-12)
+* (bluefox) Do not take the price of sensor if it is empty or 0
+* (bluefox) Refactoring (async/await)
+
 ### 0.7.0 (2023-02-08)
 * (bluefox) Added offset and factor to sensors
 

@@ -53,6 +53,11 @@ Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und Zel
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.4.1 (2023-09-24)
+* Compatibility with js.controller 5x
+* Removed some bugs in detecting inverter
+* Inverternumber ist logged, so I can easily add new inverters if neccerary, just send me the silly-log if inverter is unknown.
+
 ### 1.4.0 (2022-10-31)
 * Update of referred modules (mainly around testing)
 * improvmenets contributed by Tapter (5 modules, readme and better readable code)
@@ -72,9 +77,6 @@ Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und Zel
 
 ### 1.2.3 (2021-06-18)
 * changed ratio of logo
-
-### 1.2.2 (2021-06-14)
-* bump to new patch-level (to get rid of the "-0")
 
 ###
 

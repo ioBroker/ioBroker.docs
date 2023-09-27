@@ -118,6 +118,10 @@ IoBroker state bjects will be created after successful polling the target device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2023-09-11)
+* (mcm1957) This adapter requires node 18 or newer now
+* (mcm1957) Dependencies have been updated
+
 ### 0.1.2 (2022-12-03)
 * (mcm1957) missing config data has been added to io-package.json (#15)
 * (mcm1957) timer functions have been replaced with iob adapter versions (#22)
@@ -129,7 +133,7 @@ IoBroker state bjects will be created after successful polling the target device
 ## License
 MIT License
 
-Copyright (c) 2022 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2022-2023 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

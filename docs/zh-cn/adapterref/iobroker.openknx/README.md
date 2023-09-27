@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: pt4f9a+VJ80bQU9zjBz7scpBsR9zTiTme1bt9Siwmak=
+hash: /zgMZpXrx8fhw4Dfwu8imMatwl2T5fShYIUJI+jAWkg=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -78,7 +78,7 @@ hash: pt4f9a+VJ80bQU9zjBz7scpBsR9zTiTme1bt9Siwmak=
 可以在日志中找到其他信息。
 将存储数据并重置适配器。
 
-ETS 配置提示：如果 GA 和使用该 GA 的通信对象具有不同的 DPT 子类型，则 ETS 似乎会使用编号最低的 DPT 类型。
+ETS 配置提示：如果 GA 和使用该 GA 的通信对象具有不同的 DPT 子类型，则 ETS 似乎会使用编号最小的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 无法使用此适配器导入没有 DPT 基本类型的 GA。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
 
@@ -327,6 +327,8 @@ KNX 对象标志定义它们所代表的对象的总线行为。
 Openknx 使用 Sentry.io 进行应用程序监控和错误跟踪。
 它可以帮助开发人员更好地寻找错误并获取现场使用数据。用户的身份以假名方式进行跟踪。
 数据被发送到位于德国的 Iobroker Sentry 服务器。如果您允许 iobroker GmbH 收集诊断数据，那么您的匿名安装 ID 也会包含在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。
+
+![碳排放交易体系出口](../../../en/adapterref/iobroker.openknx/docs/pictures/busload.png) Openknx 在对象 info.busload 中估计其所连接的 KNX 线路的当前总线负载。
 
 ＃ 特征
 - 稳定可靠的knx堆栈

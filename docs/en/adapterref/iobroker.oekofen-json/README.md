@@ -40,6 +40,15 @@ The adapter maintains the connected state, even there's no real permanent connec
 	Placeholder for the next version (at the beginning of the line):
 	**WORK IN PROGRESS**
 -->
+### 1.0.5 (2023-09-23)
+* (chaozmc) set min node version to 18.x (merge pull request #23)
+
+### 1.0.4 (2023-09-22)
+* (chaozmc) Removed Node 16.x from Test-and-release (fix Issue #19)
+* (chaozmc) updated dependencies
+* (chaozmc) updated protobufjs and google-gax
+* (chaozmc) updated word-wrap
+
 ### 1.0.3 (2023-05-09)
 * (chaozmc) Bump version
 
@@ -53,13 +62,6 @@ The adapter maintains the connected state, even there's no real permanent connec
 * (chaozmc) Fixed extensive object creation when using a wrong password (fixes Issue #18)
 * (chaozmc) Added counter to stop adapter after 10 unsuccessful requests
 * (chaozmc) Added check if there would be more than 50 top-level-objects to be created
-
-### 1.0.0 (2023-01-15)
-* (chaozmc) Push version to v1.0.0 as the code seems to be considerable as first stable release
-
-### 0.3.0 (2023-01-15)
-* (chaozmc) Changed Adapter Type to more suitable climate-control instead of communication
-* (chaozmc) Altered query URL for inital scan to use single ?-symbol instead of double
 
 ### **0.0.3**
 * (chaozmc) code cleanup, trigger for update & rescan

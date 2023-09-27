@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.pvforecast?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pvforecast?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.pvforecast?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.pvforecast?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.pvforecast?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/iobroker.pvforecast?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/io
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/iobroker.pvforecast?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/iobroker-community-adapters/iobroker.pvforecast/test-and-release.yml?branch=main&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/iobroker-community-adapters/iobroker.pvforecast?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
 BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
@@ -73,6 +71,14 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.8.1 (2023-09-16)
+* (klein0r) Fixed graph limits in summary
+* (klein0r) Added options for summary graph and label color
+
+### 2.8.0 (2023-09-16)
+* (klein0r) Graphs are limited to maximum power (max)
+* (klein0r) Installed power is Wp or kWp (as configured)
+
 ### 2.7.1 (2023-05-10)
 * (klein0r) Summary channel should not be deleted
 
@@ -84,12 +90,6 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 * (arteck) chart summary for more strings
 * (klein0r) Fixed charting summary
 * (klein0r) Rounded values in JSON summary
-
-### 2.5.2 (2023-03-08)
-* (klein0r) Fixed error when weather data could not be fetched
-
-### 2.5.1 (2023-01-13)
-* (klein0r) Fixed JSON table when using solcast
 
 ## License
 MIT License

@@ -3,53 +3,39 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.solarwetter/README.md
 title: ioBroker.solarwetter
-hash: iFiZKXxoTa8ilR4AJyMW3YZS4yNkcUfjQV+4FuxNpG8=
+hash: N9jcCi7jpOsufYNjUhK1MpH6xfIXnNOyJE9q1vy1Amc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.solarwetter/admin/solarwetter.png)
 
 ![Количество установок](http://iobroker.live/badges/solarwetter-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.solarwetter.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.solarwetter.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.solarwetter.svg)
 ![НПМ](https://nodei.co/npm/iobroker.solarwetter.png?downloads=true)
 
 # IoBroker.solarwetter
-## Информация / Описание
-:de: Dieser Adapter обеспечивает прогнозирование данных Solarstrom Tagesertrag für eine bestimmte Region. Die Daten kommen [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Bei Eingabe der Leistung der eigenen Solaranlage errechnet der Adapter auch die zu erwartende Energieabgabe der Anlage.
+## Описание
+Этот адаптер предоставляет прогноз ежедневного количества солнечной энергии для определенного региона от поставщика [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
 
-:uk: Этот адаптер предоставляет прогноз ежедневного количества солнечной энергии для определенного региона от поставщика [http://www.auswahl-plz-bereich.solar-wetter.com](http://solar-wetter.com).
-Переводить!!!!
-
-## Einstellungen / Конфигурация
-### Пользователь/Пароль
-Seit 2022/03 ist die Authentifizierung beim Anbieter nicht mehr nötig.
-
+## Конфигурация
+### Пользователь/пароль
 С 2022/03 аутентификация больше не требуется.
 
-### Стандарт/местоположение
-Örtlichkeit durch Auswahl des Postleitzahlenbereichs bestimmen Gesamtleistung der eigenen Solaranlage zur Berechnung der Energieerzeugung
-
+### Расположение
 Выберите свой регион, выбрав из списка почтовых индексов.
 Введите мощность вашей солнечной электростанции, чтобы рассчитать выходную мощность.
 
-### Solaranlage / Солнечная электростанция
-Hier kann die Gesamtleistung der eigenen Solaranlage zur Rechnung der voraussichtlich erzeugten Energiemenge eingegeben werden (auch Dezimalzahlen möglich).
+### Солнечная электростанция
+Введите общую мощность вашей солнечной электростанции, чтобы рассчитать ежедневный прогноз производства энергии (возможны десятичные разделители).
 
-Введите общую мощность вашей солнечной электростанции, чтобы рассчитать ежедневный прогноз производства энергии (возможны десятичные разделители)
+### Прогноз на 4 дня
+Выберите город, чтобы адаптер создал ссылку на диаграмму прогноза на 4 дня (точка данных `solarwetter.0.forecast.chart.__url__`).
 
-### 4-Tage-Prognose / 4-дневный прогноз
-Wählen Sie Hier Eine Stadt. Der Adapter erzeugt einen Link zu einem Chart mit der 4-Tage-Prognose (Datenpunkt `solarwetter.0.forecast.chart.__url__` ).
+![альтернативный текст](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Настройки скриншотов")
 
-Выберите город, чтобы адаптер создал ссылку на график прогноза на 4 дня (точка данных `solarwetter.0.forecast.chart.__url__` ).
+## Расписание
+Адаптер запускается один раз в день.
 
-![альтернативный текст](../../../en/adapterref/iobroker.solarwetter/img/solarwetterSettingScreenshot.jpg "Настройки снимка экрана")
-
-## Активация / Расписание
-Der Adapter startet einmal täglich.
-
-Адаптер запускается раз в сутки.
-
-## Datenpunkte / Datapoints
+## Состояния
 `solarwetter.0.forecast.__clearSky__` (*значение*)
 
 `solarwetter.0.forecast.__realSky_min__` (*значение*)
@@ -72,51 +58,55 @@ Der Adapter startet einmal täglich.
 
 `solarwetter.0.forecast.chart.__url__` (*значение*)
 
-<!-- ### **ВЫПОЛНЯЕТСЯ** -->
-
-### 1.1.5 (15 августа 2023 г.)
-* (motuditli) С поправкой на изменения сайта - удаление аутентификации
-* (bluefox) Добавлен компактный режим и конфигурация JSON
-
-### 1.0.0 (2017-10-15)
-* (pix) Конец бета-тестирования, требуется Node.js 4 или выше
-
-### 0.3.0 (28 мая 2017 г.)
-* (pix) Войти с паролем веб-сайта и именем пользователя
-
-### 0.2.0 (05.01.2017)
-* (пикс) Добавлено тестирование Travis CI
-
-### 0.1.2 (21 июня 2016 г.)
-* (пиксель) исправлен выбор города
-
-### 0.1.1 (20 июня 2016 г.)
-* (пикс) Диаграмма прогноза на 4 дня
-
-### 0.1.0 (2016-06-12)
-* (пикс) опубликовать на npm
-
-### 0.0.6 (2016-06-09)
-* (пикс.) Исправлена функция Adapter.stop()
-
-### 0.0.5 (2016-05-14)
-* (пиксель) Настройки теперь показывают правильное местоположение, если оно уже определено
-
-### 0.0.4 (13 мая 2016 г.)
-* (пикс) Внешний вид окна настроек
-
-### 0.0.3 (13 мая 2016 г.)
-* (пикс) Расчет мощности собственной солнечной электростанции
-
-### 0.0.2 (13 мая 2016 г.)
-* (пикс.) Выбираемая область почтового индекса
-
-### 0.0.1 (2016-05-12)
-* (пикс) первый выпуск
-
 ## Делать
 * Перевод точек данных
 * Русский перевод окна настроек
+
+## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### 1.1.5 (2023-08-15)
+* (motuditli) Adjusted for Website Changes - removal of authentication
+* (bluefox) Added compact mode and JSON config
+
+### 1.0.0 (2017-10-15)
+* (pix) End of beta, Node.js 4 or higher required
+
+### 0.3.0 (2017-05-28)
+* (pix) Login with website password & username
+
+### 0.2.0 (2017-01-05)
+* (pix) Travis CI testing added
+
+### 0.1.2 (2016-06-21)
+* (pix) city selection fixed
+
+### 0.1.1 (2016-06-20)
+* (pix) 4-Day-Forecast Chart
+
+### 0.1.0 (2016-06-12)
+* (pix) publish on npm
+
+### 0.0.6 (2016-06-09)
+* (pix) Adapter.stop() fixed
+
+### 0.0.5 (2016-05-14)
+* (pix) Settings now show correct location if already defined
+
+### 0.0.4 (2016-05-13)
+* (pix) Appearance of settings window
+
+### 0.0.3 (2016-05-13)
+* (pix) Calculates power of own solar plant
+
+### 0.0.2 (2016-05-13)
+* (pix) Post code area selectable
+
+### 0.0.1 (2016-05-12)
+* (pix) first release
 
 ## License
 

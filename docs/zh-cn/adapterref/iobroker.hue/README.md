@@ -2,90 +2,114 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hue/README.md
-title: ioBroker 飞利浦 Hue 桥接适配器
-hash: iJT+orqAnBFHf5VwoZ9V0eNwVozQnYCbZSECUmkv9Bs=
+title: ioBroker 飞利浦 Hue 桥适配器
+hash: Rc6ilS4FX1PSwiEhplxS3IualIGE9rSvltuTHBEyc9w=
 ---
 ![标识](../../../en/adapterref/iobroker.hue/admin/hue.jpeg)
 
 ![安装数量](http://iobroker.live/badges/hue-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.hue.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.hue.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hue.svg)
 
-# IoBroker 飞利浦 Hue 桥接适配器
-![测试和发布](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker 飞利浦 Hue 桥适配器
+![测试与发布](https://github.com/iobroker-community-adapters/iobroker.hue/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/hue/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用服务 [哨兵.io](https://sentry.io) 自动向作为开发人员的我报告异常和代码错误以及新的设备架构。**更多详细信息请参见下文！
+**此适配器使用服务[哨兵大作战](https://sentry.io)自动向我（作为开发人员）报告异常和代码错误以及新设备架构。**更多详细信息请参阅下文！
 
-## 什么是 Sentry.io 以及向该公司服务器报告的内容？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
+## Sentry.io 是什么以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概述。这正是在该适配器中实现的。
 
-当适配器崩溃或发生另一个代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。
-当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息会提交给 Sentry。
+当您允许 ioBroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包含在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都帮助我提供基本上不会崩溃的无错误适配器。
 
 ## 英语 :gb:
-此适配器将您的 Philips Hue Bridges 与 ioBroker 连接起来，以控制 Philips Hue LED 灯泡、Friends of Hue LED 灯、条纹、来自欧司朗的插头，以及其他支持 SmartLink 的设备（如 LivingWhites 和一些 LivingColors）。
+该适配器将您的飞利浦 Hue 桥与 ioBroker 连接起来，以控制飞利浦 Hue LED 灯泡、Friends of Hue LED 灯、条纹、欧司朗插头以及其他支持 SmartLink 的设备（例如 LivingWhites 和一些 LivingColors）。
 
 ＃＃＃ 设置
-在 ioBroker 中安装此适配器后，相应地创建一个适配器实例。接下来，您需要在适配器设置中将您的 Hue 网桥与 ioBroker 连接起来：
+在 ioBroker 中安装此适配器后，请相应地创建一个适配器实例。接下来，您需要在适配器设置中将 Hue 桥连接到 ioBroker：
 
-1. 如果您使用的是除 v2 以外的其他网桥，请将端口配置为 80（非 https），否则应该使用 443（https）。
-2. 单击“Find Bridge”按钮获取您的网桥的IP 地址。这将搜索您环境中的所有网桥。然后选择要连接的网桥。 “网桥地址”字段将填充您选择的 Hue 网桥的 IP 地址。
-3. 接下来，单击设置中的“创建用户”按钮，然后走到您的 Hue 桥接设备，即您的硬件，按下它的圆形按钮。您将有 30 秒的时间继续。按下按钮后，应使用生成的字符串填充字段“Bridge User”。
+1. 如果您使用 v2 以外的其他网桥，请将端口配置为 80（非 https），否则应选择 443 (https)。
+2. 单击“查找网桥”按钮获取网桥的 IP 地址。这将搜索您环境中的所有网桥。然后选择您要连接的网桥。 “网桥地址”字段将填充您选择的 Hue 网桥的 IP 地址。
+3. 接下来，单击设置中的“创建用户”按钮，然后走到您的 Hue 桥接设备（即您的硬件）以按下其圆形按钮。您将有 30 秒的时间继续。按下按钮后，“Bridge User”字段应填充生成的字符串。
 4. 修改适配器设置中的任何其他选项，然后选择“保存并关闭”。
-5. 最后，您应该准备就绪：适配器将生成所有对象以相应地控制您的 Hue 设备。
+5. 最后，您应该已准备就绪：适配器将生成所有对象来相应地控制您的 Hue 设备。
 
-请注意：如果填充了“桥接地址”字段，则适配器设置按钮“查找桥接器”将处于非活动状态，如果填充了“桥接用户”字段，则“创建用户”按钮将处于非活动状态。
+请注意：如果填充了“桥地址”字段，则适配器设置按钮“查找桥”将处于非活动状态；如果填充“桥用户”字段，则“创建用户”按钮将处于非活动状态。
 
-### 设置
-|名称 |说明 |
+＃＃＃ 设置
+|名称 |描述 |
 |----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| __桥接地址__ |您的 Hue 网桥的 IP 地址，您可以尝试通过按 `Find Bridge` 按钮来检测它。 |
-| __端口__ | Hue 网桥的端口，通常为 443 (SSL) 和 80（非 SSL）。 |
-| __用户__ |您的网桥用户的用户名。您可以创建它，方法是按 `Create User` 按钮并按照屏幕说明进行操作。 |
-| __用户__ |您的网桥用户的用户名。您可以通过按“创建用户”按钮并按照屏幕说明进行操作来创建它。 |
+| __网桥地址__ |您的 Hue 桥接器的 IP 地址，您可以尝试按 `Find Bridge` 按钮来检测它。 |
+| __港口__ | Hue 桥的端口，通常为 443 (SSL) 和 80（非 SSL）。 |
+| __用户__ |您的桥接用户的用户名。您可以通过按`Create User`按钮并按照屏幕说明进行创建。 |
+| __用户__ |您的桥接用户的用户名。您可以通过按“创建用户”按钮并按照屏幕说明进行创建。 |
 | __忽略场景__ |如果选中，场景将不会由适配器显示/控制。 |
-| __“遗留”结构__ |为了支持向后兼容性，可以在 ioBroker 中保留旧的对象结构。这个旧结构是 `hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`。新结构删除了 `<bridge_name_channel>`，因此有必要调整旧脚本等。如果适配器检测到现有的旧结构，将使用该结构而不选中复选框。但是，如果需要从旧结构迁移到新结构，请删除整个 `hue.<instance_number>` 命名空间一次。 |
-| __“遗留”结构__ |为了支持向后兼容性，可以在 ioBroker 中保留旧的对象结构。这个旧结构是`hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`。新结构删除了“<bridge_name_channel>”，因此有必要调整旧脚本等。如果适配器检测到现有的旧结构，将使用该结构而不选中复选框。但是，如果需要从旧结构迁移到新结构，请删除整个 `hue.<instance_number>` 命名空间一次。 |
-| __同步软件传感器__ |还同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的 `status` 数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 关闭场景，`1` 将其打开。 |
-| __与他人一起开启__ |还可以使用 ct 状态、颜色状态、... 设置为 `false` 并仅使用电源和亮度状态打开灯。 |
-| __与他人一起开启__ |还可以使用 ct 状态、颜色状态、... 设置为“false”并仅使用电源和亮度状态打开灯。 |
-| __轮询__ |如果选中，适配器将轮询状态变化，否则它只能用于控制灯，不能显示它们的状态。 |
-| __轮询间隔__ |定义轮询状态的频率，从而在 ioBroker 中更新状态。在某些设置中，低轮询间隔可能会导致性能问题。因此，允许的最小轮询间隔为 2 秒。如果轮询间隔设置为小于 2 秒，它将在运行时设置为 2 秒。 |
+| __“遗留”结构__ |为了支持向后兼容性，可以在 ioBroker 中保留旧的对象结构。这个旧结构是`hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`。新结构删除了`<bridge_name_channel>`，因此需要适应旧脚本等。如果适配器检测到现有旧结构，则将使用该结构而不选中该复选框。但是，如果需要从旧结构迁移到新结构，请删除整个`hue.<instance_number>`命名空间一次。 |
+| __“遗留”结构__ |为了支持向后兼容性，可以在 ioBroker 中保留旧的对象结构。这个旧结构是`hue.<instance_number>.<bridge_name_channel>.<light_or_group_channel>.<state>`。新结构删除了“<bridge_name_channel>”，因此需要适应旧脚本等。如果适配器检测到现有旧结构，则将使用该结构而不选中该复选框。但是，如果需要从旧结构迁移到新结构，请删除整个“hue.<instance_number>”命名空间一次。 |
+| __同步软件传感器__ |还同步软件传感器。这些是虚拟传感器，例如由 Hue Labs 场景创建。通过控制此类传感器的`status`数据点，您可以启动/停止遵循此逻辑的场景。在大多数情况下，`0` 会关闭场景，`1` 将其打开。 |
+| __与他人一起开启__ |还可以使用 ct 状态、颜色状态...设置为 `false` 并仅使用电源和亮度状态打开灯。 |
+| __与他人一起开启__ |还可以使用 ct 状态、颜色状态等打开灯...设置为“false”并仅使用电源和亮度状态打开。 |
+| __投票__ |如果选中，适配器将轮询状态变化，否则只能用于控制灯，而不能显示其状态。 |
+| __轮询间隔__ |定义状态轮询的频率，从而在 ioBroker 中更新状态。在某些设置中，低轮询间隔可能会导致性能问题。因此，允许的最小轮询间隔为 2 秒。如果轮询间隔设置为小于 2 秒，则在运行时将设置为 2 秒。 |
 
 ### 命令
-命令状态（例如 `hue.0.All.command`）可用于为桥设置多个命令。
-这允许使用例如将组或灯设置为特定状态。过渡时间。
+命令状态（例如`hue.0.All.command`）可用于向桥接器设置多个命令。
+这允许使用例如将组或灯设置为特定状态。一个过渡时间。
 
 ```javascript
 setState('hue.0.All.command', { "bri": 50, "transitiontime": 30 }, false);
 ```
 
-对于包含场景的组，如 `hue.0.Wohnzimmer.scene_hell` 场景也可以用过渡时间激活。
-为此，将场景参数传递给相应的命令。
+对于包含场景的组，例如`hue.0.Wohnzimmer.scene_hell`，场景也可以通过过渡时间激活。
+为此，请将场景参数传递给相应的命令。
 
 ```javascript
 setState('hue.0.All.Wohnzimmer', { "scene": "hell", "transitiontime": 30 }, false);
 ```
 
 ＃＃＃ 附加信息
-在 3.3.0 版本中，组状态 `anyOn` 和 `allOn` 变得可控，请注意，当受控时，它们的行为就像 `on` 状态。在某些情况下，可能需要在您的可视化中有一个可控的 `anyOn` 状态。
+在版本 3.3.0 中，组状态 `anyOn` 和 `allOn` 变得可控，请注意，在受控制时，它们的行为就像 `on` 状态。在某些情况下，可能需要在可视化中具有可控的`anyOn`状态。
 
-## 德语:de:
+## 德语 :de:
 Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
-在 den Adapter-Settings muss die IP der Hue Bridge sowie ein Username konfiguriert werden。 Um einen User zu aktivieren, einmal auf create user drücken und dann innerhalb von 30 Sekunden den Button an der Hue bridge drücken。 Dann wird automatisch der User übergeben。
+在适配器设置中，Hue Bridge 的 IP 被设置为用户名 konfiguriert werden。 Um einen User zu aktivieren, einmal auf create user drücken and dann insidehalb von 30 Sekunden den Button an der Hue Bridge drücken.用户可以自动执行此操作。
 
 ## 路线图/待办事项
-* 自动桥接发现
-* 通过网桥链接按钮自动设置用户
+* 自动桥发现
+* 通过桥接按钮自动设置用户
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 3.10.0 (2023-08-29)
+* (foxriver76) fixed problem on auto-deletion of groups
+* (foxriver76) implemented Hue Tap Dial (closes #368, closes #416)
+
+### 3.9.6 (2023-08-16)
+* (foxriver76) do not set invalid states on unknown group updates
+* (foxriver76) only use push connection if ssl is configured
+
+### 3.9.5 (2023-07-31)
+* (foxriver76) fixed crash case
+
+### 3.9.4 (2023-07-30)
+* (foxriver76) fixed the edge case crash on button updates
+* (foxriver76) fixed crash case if uuids cannot be retrieved
+
+### 3.9.3 (2023-06-14)
+* (foxriver76) fixed crash cases on unknown push updates (closes #417)
+
+### 3.9.2 (2023-06-13)
+* (foxriver76) fixed sensor converting (closes #415)
+
+### 3.9.1 (2023-06-13)
+* (foxriver76) implemented more commands of the Push API (mainly buttons)
+
 ### 3.9.0 (2023-06-11)
 * (foxriver76) implemented poll API (closes #227, #343)
-* (foxriver76) fix polling not working (closes #408, #410)
+* (foxriver76) fixed polling not working (closes #408, #410)
 
 ### 3.8.0 (2023-06-09)
 * (Schmakus) Possibility to disable turn on lights with states other than `on` and `brightness` [#386]
@@ -106,10 +130,10 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) ct values of groups can be even lower due to third party lights
 
 ### 3.6.0 (2021-12-30)
-* (foxriver76) allow triggering scenes via `command` state, this allows to start a scene with `transitiontime`
+* (foxriver76) allow triggering scenes via `command` state, this allows starting a scene with `transitiontime`
 
 ### 3.5.31 (2021-11-20)
-* (foxriver76) ct value fix of #234 ported for 0 (All) group
+* (foxriver76) ct value fixed of #234 ported for 0 (All) group
 
 ### 3.5.30 (2021-11-14)
 * (foxriver76) we fixed Sentry IOBROKER-HUE-1K, IOBROKER-HUE-A, IOBROKER-HUE-1J
@@ -118,7 +142,7 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (bluefox) Caught SENTRY error.
 
 ### 3.5.28 (2021-11-04)
-* (foxriver76) another fix for invalid ct values (fixes #234)
+* (foxriver76) another fixed for invalid ct values (fixes #234)
 
 ### 3.5.27 (2021-11-01)
 * (foxriver76) we fixed missing object type of some scenes (closes #255)
@@ -128,10 +152,10 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (klein0r) fixed translation of search popup (fixes #247)
 
 ### 3.5.25 (2021-09-15)
-* (foxriver76) if we cannot determine correct ct value, we won't set it (fixes #234)
+* (foxriver76) if we cannot determine the correct ct value, we won't set it (fixes #234)
 
 ### 3.5.23 (2021-08-26)
-* (Pmant) fix for third party devices delivering wrong ct values
+* (Pmant) fixed for third party devices delivering wrong ct values
 
 ### 3.5.22 (2021-08-12)
 * (foxriver76) fixed several sentry issues (closes #217, closes #218, closes #219, closes #220)
@@ -140,7 +164,7 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) we now define minimum ct of groups to 2000 instead of 2179 (fixes #216)
 
 ### 3.5.19 (2021-06-02)
-* (foxriver76) fix crash case if we cannot get min/max ct values
+* (foxriver76) fixed crash case if we cannot get min/max ct values
 
 ### 3.5.18 (2021-06-01)
 * (foxriver76) get the correct min/max ct values from api for lights (closes #192)
@@ -166,7 +190,7 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) we have corrected the min max of color temperature (empirically found)
 
 ### 3.5.11 (2021-05-02)
-* (foxriver76) we now update objects if type has changed
+* (foxriver76) we now update objects if a type has changed
 
 ### 3.5.10 (2021-04-30)
 * (foxriver76) we removed the common.max from lightlevel, was 17,000 but can be much higher
@@ -185,10 +209,10 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) fixing several edge case crashes
 
 ### 3.5.2 (2021-02-24)
-* (foxriver76) fix crashes if wrong data type or invalid value passed for ct and hue, now logging an error
-* (foxriver76) fix crashes if rgb where outside allowed range or wrong type
-* (foxriver76) fix potential crashes on bridge discovery, due to unnecessary stringify/parse logic
-* (foxriver76) fix graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
+* (foxriver76) fixed crashes if wrong data type or invalid value passed for ct and hue, now logging an error
+* (foxriver76) fixed crashes if rgb where outside allowed range or wrong type
+* (foxriver76) fixed potential crashes on bridge discovery, due to unnecessary stringify/parse logic
+* (foxriver76) fixed a graphical issue with the label of bridge user when newly created, due to missing call of updateTextFields
 
 ### 3.5.1 (2021-02-20)
 * (foxriver76) avoid crash cases on invalid xy, setting state for non-existing device and on failing user creation
@@ -214,16 +238,16 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (Apollon77) do not catch undhandeledRejections anymore, because controller can handle and report now
 * (foxriver76) dependencies updated
 * (foxriver76) temperature is now correctly read-only
-* (foxriver76) fix duplicate filtering on browse
+* (foxriver76) fixed duplicate filtering on browse
 
 ### 3.3.5 (2020-06-03)
 * (foxriver76) fixed issue on frontend validation of polling intervals starting with 1
 
 ### 3.3.4 (2020-06-02)
-* (foxriver76) implemented fix for problems with switches and handling id conflicts
+* (foxriver76) implemented fixed for problems with switches and handling id conflicts
 
 ### 3.3.3 (2020-05-31)
-* (foxriver76) we now handle potential id conflicts, when adding devices from different type with same name over time
+* (foxriver76) we now handle potential id conflicts, when adding devices from a different type with same name over time
 
 ### 3.3.2 (2020-05-15)
 * (foxriver76) internal optimizations - polling after change timeout removed, was 150 ms now instant
@@ -232,7 +256,7 @@ Bindet Philips Hue / LivingColors / LivingWhites Lampen ein。
 * (foxriver76) introduce `allOn` state for groups
 * (foxriver76) `anyOn` and `allOn` are now controllable and act like the `on` state
 * (foxriver76) when native turn on/off behaviour is used, the brightness change of partially turned on groups will not turn
-the whole group on, like the hue app does instead it will only change the brightness of the currently turned on lamps
+the whole group on, like the hue app does, instead it will only change the brightness of the currently turned on lamps
 
 ### 3.2.9 (2020-05-12)
 * (foxriver76) fixed issues on user creation
@@ -240,16 +264,16 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 3.2.8 (2020-04-26)
 * (foxriver76) replace dots in light/group/sensor/.. names by underscores
-* (foxriver76) fix potential state update delay after state change on lights/groups containing blanks
+* (foxriver76) fixed potential state update delay after state change on lights/groups containing blanks
 
 ### 3.2.4 (2020-04-08)
 * (xXBJXx) changed role of battery to `value.battery` and made unit `%`
 
 ### 3.2.3 (2020-02-20)
-* (Apollon77) minor fix regarding handleParam called with non-existing id
+* (Apollon77) minor fixed regarding handleParam called with non-existing id
 
 ### 3.2.2 (2020-02-12)
-* (foxriver76) fix potential issues when error type is not HueError
+* (foxriver76) fixed potential issues when error type is not HueError
 
 ### 3.2.1 (2020-01-26)
 * (foxriver76) if lights/groups/sensors are deleted during runtime, restart of adapter is no longer necessary
@@ -281,7 +305,7 @@ the whole group on, like the hue app does instead it will only change the bright
 
 ### 2.4.6 (2019-12-06)
 * (foxriver76) log unhandeld promise rejections
-* (foxriver76) fix potential issue for negative temperature values
+* (foxriver76) fixed potential issue for negative temperature values
 
 ### 2.4.4 (2019-11-27)
 * (foxriver76) only stringify huge jsons if necessary
@@ -290,7 +314,7 @@ the whole group on, like the hue app does instead it will only change the bright
 * (foxriver76) improved performance
 
 ### 2.4.3 (2019-11-19)
-* (foxriver76) increased version of node-hue-api to fix authentication for old bridge
+* (foxriver76) increased version of node-hue-api to fixed authentication for old bridge
 
 ### 2.4.2 (2019-11-16)
 * (foxriver76) we now use nupnp + upnp to discover bridges (previously only upnp)
@@ -323,8 +347,8 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (foxriver76) usage of iobroker testing
 * (foxriver76) add possibility to sync scenes
 * (foxriver76) restart adapter when room is deleted in app
-* (foxriver76) fix .hue value, user had to set 0-360° but adapter set 0-65535
-* (foxriver76) fix .color.temperature
+* (foxriver76) fixed .hue value, user had to set 0-360° but adapter set 0-65535
+* (foxriver76) fixed .color.temperature
 * (foxriver76) remove unnecessary bridge channel, adapter namespace is the bridge
 * (foxriver76) add "update available" indicator for light bulbs
 * (foxriver76) we now poll the root endpoint instead of (|lights| + |groups| + |sensors|) endpoints every pollingInterval seconds
@@ -375,10 +399,10 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (pmant) add light name to log
 
 ### 0.5.9 (2016.10.11)
-* (pmant) fix error with null values
+* (pmant) fixed error with null values
 
 ### 0.5.8 (2016.06.05)
-* (bluefox) fix typo
+* (bluefox) fixed typo
 
 ### 0.5.7 (2016.06.05)
 * (soef) write back known states for group/room
@@ -388,7 +412,7 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (Pmant) (experimental) support for power switches
 
 ### 0.5.5
-* (Pmant) fix error with xy state
+* (Pmant) fixed error with xy state
 * (Pmant) support level in command state
 
 ### 0.5.4
@@ -400,27 +424,27 @@ __ATTENTION: Remove all objects once, ids have changed__
 * (soef) Default Lightset 0 added
 
 ### 0.5.2
-* (Pman) fix jscs warnings
+* (Pman) fixed jscs warnings
 * (Pman) improve RGB conversion
 * (Pman) add update rgb color
 
 ### 0.5.1
-* (Pman) fix find bridge popup
+* (Pman) fixed find bridge popup
 
 ### 0.5.0
 * (Pman) update to node-hue-api 1.2.x
 * (Pman) add level state (bri percentage)
 
 ### 0.4.4
-* (bluefox) fix config edit
+* (bluefox) fixed config edit
 
 ### 0.4.3
-* (Pmant) fix adapter crash
+* (Pmant) fixed adapter crash
 
 ### 0.4.2
 * (Pmant) add find bridge (experimental)
 * (Pmant) add create user (experimental)
-* (Pmant) fix enable polling
+* (Pmant) fixed enable polling
 
 ### 0.4.1
 * (Pmant) calculate and write back inc values
@@ -430,30 +454,30 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 ### 0.3.2
 * (Pmant) add groups as channels (write only)
-* (Pmant) fix prevent duplicate channel names
+* (Pmant) fixed prevent duplicate channel names
 
 ### 0.3.1
-* (Pmant) fix another bug with spaces
-* (Pmant) fix hue/sat bug
-* (Pmant) fix effect bug
-* (Pmant) fix xy colormode
+* (Pmant) fixed another bug with spaces
+* (Pmant) fixed hue/sat bug
+* (Pmant) fixed effect bug
+* (Pmant) fixed xy colormode
 
 ### 0.3.0
-* (Pmant) fix rgb states only for color lights
+* (Pmant) fixed rgb states only for color lights
 * (Pmant) change set known state changes immediately
 * (Pmant) change on/off sets brightness to 254/0
 * (Pmant) change changing any color (hs,ct,xy) while light is off sets brightness to max
-* (Pmant) fix set brightness to zero if light is off
+* (Pmant) fixed set brightness to zero if light is off
 * (Pmant) change set bri to zero if lamp is not reachable
-* (Pmant) fix bridges and lamps with spaces in name
+* (Pmant) fixed bridges and lamps with spaces in name
 
 ### 0.2.1
 * (Pmant) add rgb states (write only)
-* (Pmant) fix parent/children warnings
+* (Pmant) fixed parent/children warnings
 * (Pmant) add switch light off if brightness is zero
 
 ### 0.1.4
-* (bluefox) fix some null objects
+* (bluefox) fixed some null objects
 
 ### 0.1.3
 * (hobbyquaker) config UI

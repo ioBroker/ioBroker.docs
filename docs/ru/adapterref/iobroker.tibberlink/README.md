@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
+hash: q6tcD9V+1vd5xqcZioq6ggdpTrbdXmpu6Fb7CjcRpVM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -28,8 +28,9 @@ hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
 ## Конфигурация
 1. Создайте новый экземпляр адаптера.
 2. Вам также понадобится токен API от Tibber. Загрузите его здесь: [https://developer.tibber.com/](https://developer.tibber.com/)
-3. Введите свой токен Tibber API -> сохраните конфигурацию, чтобы перезапустить адаптер.
-4. Выберите дома, чтобы также получать данные в реальном времени с вашего Tibber Pulse — !! Работает только если установлено оборудование
+3. Введите свой токен API Tibber -> создайте конфигурацию прямой трансляции минимум в одну строку (выберите «Нет доступно»)
+4. Сохраните настройки и выйдите из конфигурации, чтобы перезапустить адаптер (теперь ваш дом будет опрашиваться с сервера Tibber)
+4. Вернитесь к экрану конфигурации и выберите дом(а), чтобы также получать данные в реальном времени из вашего Tibber Pulse, или выберите дом(ы) и отключите ленту - (!! Работает только в том случае, если установлено оборудование и сервер Tibber подтвердил соединение с Pulse)
 5. Сохраните настройки
 
 ## Примечания
@@ -38,7 +39,23 @@ hash: 9ibb79eJYZjH4J4TEbm/A0rh9Pkn7YD9WQ9zQscJI64=
 ## Changelog
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 0.3.0 (2023-09-WORK in PROGRESS)
+### 0.4.1 (2023-09-24)
+* (HombachC) Hardened 2 typeerrors uppon sentry recognition
+* (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
+* (HombachC) preparations for tibber calculator
+### 0.4.0 (2023-09-20)
+* (HombachC) Added daily average price values (#89)
+### 0.3.3 (2023-09-17)
+* (HombachC) Fixed false positive connection message (#87)
+* (HombachC) Updated translations with ChatGPT
+* (HombachC) preparations for tibber calculator
+### 0.3.2 (2023-09-14)
+* (HombachC) Fixed error when starting adapter first time (#82)
+* (HombachC) Fixed error in admin config from 0.3.0 (#81)
+### 0.3.1 (2023-09-13)
+* (HombachC) Mitigate error in admin config from 0.3.0 (#81)
+* (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
+### 0.3.0 (2023-09-12)
 * (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
 * (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
 * (HombachC) preparations for tibber calculator

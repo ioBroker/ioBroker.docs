@@ -2,6 +2,15 @@
 
 ## govee-local adapter for ioBroker
 
+[![NPM version](https://img.shields.io/npm/v/iobroker.govee-local.svg)](https://www.npmjs.com/package/iobroker.govee-local)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.govee-local.svg)](https://www.npmjs.com/package/iobroker.govee-local)
+![Number of Installations](https://iobroker.live/badges/govee-local-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/govee-local-stable.svg)
+
+[![NPM](https://nodei.co/npm/iobroker.govee-local.png?downloads=true)](https://nodei.co/npm/iobroker.govee-local/)
+
+**Tests:** ![Test and Release](https://github.com/boergegrunicke/ioBroker.govee-local/workflows/Test%20and%20Release/badge.svg)
+
 Control Govee devices via local access (no cloud)
 
 To be able to control govee deivce locally, the feature needs to be explicitely turned on in the settings of the govve application settings as described in their [documentation](<https://app-h5.govee.com/user-manual/wlan-guide#:~:text=Supported%20Product%20Models%20(continually%20updated)>)

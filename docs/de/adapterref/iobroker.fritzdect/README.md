@@ -62,6 +62,23 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.5.2
+* correction for komfort, absenk if receiving 253/254 for OFF/ON
+
+### 2.5.1
+* correction for energy today value
+
+### 2.5.0
+* getbasicdevicestats for powermeter (voltage, power, energy)
+* derived values from energy stats -> year to date, month to date, last 12 month, last 31 days, todays accumulation
+
+### 2.4.1 (npm)
+* corrections reported by adapter-checker
+
+### 2.4.0
+* new function for routines which activatetrigger
+* correction for templates and scenario (all templates are buttons, no need to check functionbitmask)
+
 ### 2.3.1
 * new function gettriggerlist in admin
 * corrected xml2json-light (included drirectly in repo until PR#8 is merged in repo), caused problems with templates in newer FB-firmware
@@ -343,4 +360,4 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2022 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>

@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.awtrix-light?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.awtrix-light?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.awtrix-light?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.awtrix-light?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.awtrix-light?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.awtrix-light?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.awtrix-light/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.awtrix-light?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
@@ -23,8 +21,8 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 
 - nodejs 14.5 (oder neuer)
 - js-controller 4.0.15 (oder neuer)
-- Admin Adapter 6.0.0 (oder neuer)
-- _Awtrix Light_ Gerät mit Firmware-Version _0.84_ (oder neuer) - z.B. Ulanzi TC001
+- Admin Adapter 6.6.0 (oder neuer)
+- _Awtrix Light_ Gerät mit Firmware-Version _0.86_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -174,9 +172,12 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
 -->
 ### **WORK IN PROGRESS**
 
-Updated recommended firmware version to 0.84
+Updated recommended firmware version to 0.86
 
 * (klein0r) Added expert apps
+* (klein0r) Use the last value of fast refreshing states
+* (klein0r) Added settings for calendar colors
+* (klein0r) Allow to use apps without text (just background effect)
 
 ### 0.8.0 (2023-09-04)
 

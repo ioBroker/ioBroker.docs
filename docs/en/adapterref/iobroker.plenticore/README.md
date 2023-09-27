@@ -195,6 +195,9 @@ Details:
 
 ## Changelog
 
+### 2.3.1
+- Added further option to control battery management [PastCoder]
+
 ### 2.3.0
 - (Jey Cee) Added possibility to control battery charging
 
@@ -290,7 +293,7 @@ Details:
 
 ### 0.1.2
 
--   Resolved adapter check issues, see https://github.com/StrathCole/ioBroker.plenticore/issues/1
+-   Resolved adapter check issues, see https://github.com/pixcept/ioBroker.plenticore/issues/1
 -   Added statistics data points.
 
 ### 0.1.1

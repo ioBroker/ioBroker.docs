@@ -3,63 +3,63 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sql/README.md
 title: ioBroker.sql
-hash: rF75FeEj3Bi1VVhPAPj1pKQYcElzGEG3Ogc26MwBNuE=
+hash: Bi3ptQbgUjHqvdo4OMjEIUPARp03KwOBRITLD2P7B8M=
 ---
 ![Logo](../../../en/adapterref/iobroker.sql/admin/sql.png)
 
 ![Anzahl der Installationen](http://iobroker.live/badges/sql-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sql.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sql.svg)
-![Prüfungen](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
+![Tests](https://travis-ci.org/ioBroker/ioBroker.sql.svg?branch=master)
 ![NPM](https://nodei.co/npm/iobroker.sql.png?downloads=true)
 
 # IoBroker.sql
-Dieser Adapter speichert den Zustandsverlauf in der SQL-Datenbank.
+Dieser Adapter speichert den Statusverlauf in der SQL-Datenbank.
 
 Unterstützt PostgreSQL, MySQL, Microsoft SQL Server und SQLite.
-Sie können Port 0 beibehalten, wenn der Standardport gewünscht wird.
+Sie können Port 0 belassen, wenn Sie den Standardport wünschen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 ## Verbindungseinstellungen
-- **DB-Typ**: Typ der SQL-DB: MySQL, PostgreSQL, MS-SQL oder SQLite3
+- **DB-Typ**: Typ der SQL-Datenbank: MySQL, PostgreSQL, MS-SQL oder SQLite3
 - **Host**: IP-Adresse oder Hostname bei SQL Server
-- **Port**: Port von SQL Server (leer lassen, wenn nicht sicher)
-- **Datenbankname**: Datenbankname. Standard-iobroker
+- **Port**: Port von SQL Server (leer lassen, wenn Sie nicht sicher sind)
+- **Datenbankname**: Datenbankname. Standard-Iobroker
 - **Benutzer**: Benutzername für SQL. Muss in der DB vorhanden sein.
 - **Passwort**: Passwort für SQL.
-- **Passwort bestätigen**: Wiederholen Sie hier einfach das Passwort.
-- **Verschlüsseln**: Einige DBs unterstützen Verschlüsselung.
-- **Reelle Zahl runden auf**: Anzahl der Ziffern nach dem Komma.
-- **Parallele Anfragen zulassen**: Gleichzeitige SQL-Anfragen an DB zulassen.
-- **Datenbank nicht erstellen**: Aktivieren Sie diese Option, wenn die Datenbank bereits erstellt wurde (z. B. vom Administrator) und der ioBroker-Benutzer nicht über ausreichende Rechte zum Erstellen einer Datenbank verfügt.
+- **Passwort bestätigen**: Hier einfach das Passwort wiederholen.
+- **Verschlüsseln**: Einige Datenbanken unterstützen die Verschlüsselung.
+- **Reell auf runden**: Anzahl der Stellen nach dem Komma.
+- **Parallele Anfragen zulassen**: Gleichzeitige SQL-Anfragen an die Datenbank zulassen.
+- **Datenbank nicht erstellen**: Aktivieren Sie diese Option, wenn bereits eine Datenbank erstellt wurde (z. B. vom Administrator) und der ioBroker-Benutzer nicht über ausreichende Rechte zum Erstellen einer Datenbank verfügt.
 
 ## Standardeinstellungen
-- **Entprellzeit** - Schutz vor instabilen Werten, um sicherzustellen, dass nur stabile Werte protokolliert werden, wenn sich der Wert in der definierten Anzahl von Millisekunden nicht geändert hat. ACHTUNG: Wenn sich Werte häufiger ändern, wird bei dieser Einstellung effektiv kein Wert protokolliert (da jeder Wert instabil ist).
-- **Blocktime** - Legt fest, wie lange nach Speicherung des letzten Wertes kein weiterer Wert gespeichert wird. Wenn die angegebene Zeit in Millisekunden abgelaufen ist, wird der nächste Wert protokolliert, der alle anderen Prüfungen erfüllt.
-- **Nur Änderungen aufzeichnen** - Diese Funktion sorgt dafür, dass nur geänderte Werte protokolliert werden, wenn sie andere Prüfungen erfüllen (siehe unten). Gleiche Werte werden nicht protokolliert.
-- **noch die gleichen Werte aufzeichnen (Sekunden)** - Bei "Nur Änderungen aufzeichnen" kann hier ein Zeitintervall in Sekunden eingestellt werden, nach dem auch unveränderte Werte erneut in die DB eingeloggt werden. Die vom Adapter neu geloggten Werte können Sie am Feld "von" erkennen.
-- **Mindestdifferenz zum letzten Wert** - Bei „Nur Änderungen aufzeichnen“ können Sie die gewünschte Mindestdifferenz zwischen dem neuen Wert und dem letzten Wert festlegen. Wird diese nicht erreicht, wird der Wert nicht erfasst.
-- **Null- oder 0-Werte ignorieren (==0)** - Sie können festlegen, ob 0- oder Null-Werte ignoriert werden sollen.
-- **Werte unter Null ignorieren (<0)** - Sie können festlegen, ob Werte unter Null ignoriert werden sollen.
-- **Diagrammoptimierte Protokollierung übersprungener Werte deaktivieren** - Standardmäßig versucht der Adapter, die Werte für optimierte Diagramme aufzuzeichnen. Dies kann bedeuten, dass zusätzliche Werte (die z. B. nicht alle oben genannten Prüfungen erfüllt haben) automatisch protokolliert werden. Wenn dies nicht erwünscht ist, können Sie diese Funktion deaktivieren.
-- **Alias-ID** - Sie können einen Alias für die ID definieren. Dies ist nützlich, wenn Sie ein Gerät gewechselt haben und eine kontinuierliche Datenaufzeichnung wünschen. Bitte denken Sie darüber nach, in Zukunft zu echten Alias-Staaten zu wechseln!
-- **Speicherdauer** - Wie viele Werte in der Vergangenheit werden auf der Festplatte gespeichert. Daten werden gelöscht, wenn der Zeitpunkt erreicht ist, sobald neue Daten für einen Datenpunkt gespeichert werden sollen.
-- **Maximale Anzahl von im RAM gespeicherten Werten** - Definieren Sie, wie viele Werte im RAM gehalten werden, bevor sie auf der Festplatte gespeichert werden. Sie können steuern, wie viele E/A ausgeführt werden.
-- **Erweiterte Debug-Protokolle für den Datenpunkt aktivieren** - Wenn Sie detailliertere Protokolle für diesen Datenpunkt sehen möchten, können Sie diese Option aktivieren. Damit diese zusätzlichen Werte sichtbar sind, müssen Sie noch den Loglevel "debug" aktivieren! Dies hilft beim Debuggen von Problemen oder beim Verstehen, warum der Adapter einen Wert protokolliert (oder nicht).
+- **Entprellzeit** – Schutz vor instabilen Werten, um sicherzustellen, dass nur stabile Werte protokolliert werden, wenn sich der Wert nicht innerhalb der definierten Anzahl von Millisekunden geändert hat. ACHTUNG: Wenn sich Werte häufiger ändern, wird bei dieser Einstellung praktisch kein Wert protokolliert (da jeder Wert instabil ist).
+- **Blockzeit** – Definiert, wie lange nach dem Speichern des letzten Werts kein weiterer Wert gespeichert wird. Wenn die angegebene Zeit in Millisekunden abgelaufen ist, wird der nächste Wert protokolliert, der alle anderen Prüfungen erfüllt.
+- **Nur Änderungen aufzeichnen** – Diese Funktion stellt sicher, dass nur geänderte Werte protokolliert werden, wenn sie andere Prüfungen erfüllen (siehe unten). Gleiche Werte werden nicht protokolliert.
+- **immer noch die gleichen Werte aufzeichnen (Sekunden)** - Bei Verwendung von „Nur Änderungen aufzeichnen“ können Sie hier ein Zeitintervall in Sekunden einstellen, nach dem auch unveränderte Werte erneut in die Datenbank protokolliert werden. Sie können die vom Adapter neu protokollierten Werte anhand des Felds „von“ erkennen.
+- **Mindestdifferenz zum letzten Wert** - Bei Verwendung von „Nur Änderungen aufzeichnen“ können Sie die erforderliche Mindestdifferenz zwischen dem neuen Wert und dem letzten Wert festlegen. Wird dieser nicht erreicht, wird der Wert nicht erfasst.
+- **0- oder Nullwerte ignorieren (==0)** - Sie können festlegen, ob 0- oder Nullwerte ignoriert werden sollen.
+- **Werte unter Null (<0) ignorieren** – Sie können festlegen, ob Werte unter Null ignoriert werden sollen.
+– **Deaktivieren Sie die für die Diagrammerstellung optimierte Protokollierung übersprungener Werte.** – Standardmäßig versucht der Adapter, die Werte für die optimierte Diagrammerstellung aufzuzeichnen. Dies kann dazu führen, dass zusätzliche Werte (die z. B. nicht alle oben genannten Prüfungen erfüllt haben) automatisch protokolliert werden. Wenn Sie dies nicht wünschen, können Sie diese Funktion deaktivieren.
+- **Alias-ID** – Sie können einen Alias für die ID definieren. Dies ist nützlich, wenn Sie ein Gerät gewechselt haben und eine kontinuierliche Datenprotokollierung wünschen. Bitte denken Sie darüber nach, in Zukunft auf echte Alias-Staaten umzusteigen!
+- **Speicheraufbewahrung** – Wie viele Werte in der Vergangenheit auf der Festplatte gespeichert werden. Daten werden bei Erreichen des Zeitpunkts gelöscht, sobald für einen Datenpunkt neue Daten gespeichert werden sollen.
+- **Maximale Anzahl der im RAM gespeicherten Werte** – Definieren Sie, wie viele Werte im RAM gespeichert werden, bevor sie auf der Festplatte gespeichert werden. Sie können steuern, wie viel I/O ausgeführt wird.
+- **Erweiterte Debug-Protokolle für den Datenpunkt aktivieren** – Wenn Sie detailliertere Protokolle für diesen Datenpunkt sehen möchten, können Sie diese Option aktivieren. Sie müssen noch die Protokollebene „Debug“ aktivieren, damit diese zusätzlichen Werte sichtbar sind! Dies hilft beim Debuggen von Problemen oder beim Verständnis, warum der Adapter einen Wert protokolliert (oder nicht).
 
-Die meisten dieser Werte können in den Instanzeinstellungen vordefiniert werden und werden dann vorbelegt oder für den Datenpunkt verwendet.
+Die meisten dieser Werte können in den Instanzeinstellungen vordefiniert werden und werden dann vorab ausgefüllt oder für den Datenpunkt verwendet.
 
 ## Tipps zur Datenbankinstallation
 ### MS-SQL:
-Verwenden Sie ```localhost\instance``` für den Host und prüfen Sie, ob TCP/IP-Verbindungen aktiviert sind.
+Verwenden Sie ```localhost\instance``` für den Host und prüfen Sie, ob die TCP/IP-Verbindungen aktiviert sind.
 https://msdn.microsoft.com/en-us/library/bb909712(v=vs.90).aspx
 
 ### SQLite:
-ist "Datei"-DB und kann nicht zu viele Ereignisse verwalten. Wenn Sie eine große Datenmenge haben, verwenden Sie die echte DB, wie PostgreSQL und Co.
+ist „file“-DB und kann nicht zu viele Ereignisse verwalten. Wenn Sie über große Datenmengen verfügen, verwenden Sie die echte Datenbank wie PostgreSQL und Co.
 
-SQLite DB muss nicht extra installiert werden. Es ist nur eine Datei auf der Festplatte, aber um sie zu installieren, benötigen Sie Build-Tools auf Ihrem System. Für Linux einfach schreiben:
+SQLite DB muss nicht extra installiert werden. Es handelt sich lediglich um eine Datei auf der Festplatte. Für die Installation benötigen Sie jedoch Build-Tools auf Ihrem System. Für Linux schreiben Sie einfach:
 
 ```
 sudo apt-get install build-essential
@@ -71,7 +71,7 @@ Für Windows:
 c:\>npm install --global --production windows-build-tools
 ```
 
-und installieren Sie dann den Adapter neu, z.
+und dann den Adapter neu installieren, z.B.:
 
 ```
 cd /opt/iobroker
@@ -80,8 +80,8 @@ npm install iobroker.sql --production
 iobroker start sql
 ```
 
-###MySQL:
-Sie können mysql auf Linux-Systemen wie folgt installieren:
+### MySQL:
+Sie können MySQL wie folgt auf Linux-Systemen installieren:
 
 ```
 apt-get install mysql-server mysql-client
@@ -95,21 +95,21 @@ FLUSH PRIVILEGES;
 
 Bearbeiten Sie bei Bedarf */etc/mysql/my.cnf*, um die Bindung an die IP-Adresse für die Remoteverbindung festzulegen.
 
-**Warnung**: iobroker-Benutzer ist „admin“. Falls erforderlich, geben Sie dem iobroker-Benutzer eingeschränkte Rechte.
+**Warnung**: Der iobroker-Benutzer ist „admin“. Geben Sie dem iobroker-Benutzer bei Bedarf eingeschränkte Rechte.
 
-Unter "Windows" kann es einfach per Installer installiert werden: https://dev.mysql.com/downloads/installer/.
+Unter „Windows“ kann es einfach per Installer installiert werden: https://dev.mysql.com/downloads/installer/.
 
-Achten Sie auf die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird noch nicht von `node.js` unterstützt und Sie müssen die Legacy-Authentifizierungsmethode auswählen.
+Achten Sie auf die Authentifizierungsmethode. Der neue Verschlüsselungsalgorithmus in MySQL 8.0 wird von `node.js` noch nicht unterstützt und Sie müssen die alte Authentifizierungsmethode auswählen.
 
 ![Windows](../../../en/adapterref/iobroker.sql/img/WindowsMySQLinstaller.png)
 
 ## Aufbau der DBs
-Der Standarddatenbankname ist „iobroker“, kann aber in der Konfiguration geändert werden.
+Der Standarddatenbankname lautet `iobroker`, er kann jedoch in der Konfiguration geändert werden.
 
-### Quellen Diese Tabelle ist eine Liste von Adapterinstanzen, die die Einträge geschrieben haben. (Zustand.von)
-| DB | Name in Abfrage |
+### Quellen Diese Tabelle ist eine Liste der Adapterinstanzen, die die Einträge geschrieben haben. (state.from)
+| DB | Name in der Abfrage |
 |------------|----------------------|
-| MS SQL | iobroker.dbo.sources |
+| MS-SQL | iobroker.dbo.sources |
 | MySQL | iobroker.sources |
 | PostgreSQL | Quellen |
 | SQLite | Quellen |
@@ -118,18 +118,18 @@ Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |-------|--------------------------------------------|-------------------------------------------|
-| ID | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
-| Name | varchar(255) / TEXT | Instanz des Adapters, die den Eintrag | geschrieben hat |
+| id | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
+| Name | varchar(255) / TEXT | Instanz des Adapters, der den Eintrag | geschrieben hat |
 
 *Hinweis:* MS-SQL verwendet varchar(255) und andere verwenden TEXT
 
 ### Datenpunkte
 Diese Tabelle ist eine Liste von Datenpunkten. (IDs)
 
-| DB | Name in Abfrage |
+| DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS SQL | iobroker.dbo.Datenpunkte |
-| MySQL | iobroker.Datenpunkte |
+| MS-SQL | iobroker.dbo.datapoints |
+| MySQL | iobroker.datapoints |
 | PostgreSQL | Datenpunkte |
 | SQLite | Datenpunkte |
 
@@ -137,40 +137,40 @@ Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |-------|--------------------------------------------|-------------------------------------------------|
-| ID | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
+| id | INTEGER NOT NULL PRIMARY KEY IDENTITY(1,1) | eindeutige ID |
 | Name | varchar(255) / TEXT | ID der Variablen, z.B. hm-rpc.0.JEQ283747.1.STATE |
-| Typ | GANZZAHL | 0 - Zahl, 1 - Zeichenkette, 2 - boolescher Wert |
+| Typ | Ganzzahl | 0 – Zahl, 1 – Zeichenfolge, 2 – Boolescher Wert |
 
 *Hinweis:* MS-SQL verwendet varchar(255) und andere verwenden TEXT
 
 ### Zahlen
-Werte für Zustände vom Typ "Nummer". **ts** bedeutet "Zeitreihe".
+Werte für Zustände vom Typ „Nummer“. **ts** bedeutet „Zeitreihe“.
 
-| DB | Name in Abfrage |
+| DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS SQL | iobroker.dbo.ts_number |
+| MS-SQL | iobroker.dbo.ts_number |
 | MySQL | iobroker.ts_number |
-| PostgreSQL | ts_nummer |
-| SQLite | ts_nummer |
+| PostgreSQL | ts_number |
+| SQLite | ts_number |
 
 Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | BIGINT / INTEGER | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
-| Wert | WIRKLICH | Wert |
-| ack | BIT/BOOLESCH | Wird quittiert: 0 - not ack, 1 - ack |
-| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
-| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| id | Ganzzahl | ID des Bundesstaates aus Tabelle „Datenpunkte“ |
+| ts | BIGINT / INTEGER | Zeit in ms bis zur Epoche. Kann mit „new Date(ts)“ | in Uhrzeit umgerechnet werden |
+| Wert | ECHT | Wert |
+| ack | BIT/BOOLEAN | Wird bestätigt: 0 – keine Bestätigung, 1 – Bestätigung |
+| _von | Ganzzahl | ID der Quelle aus der Tabelle „Quellen“ |
+| q | Ganzzahl | Qualität als Zahl. Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
-Der Benutzer kann zusätzlich zum Typ `number` die Funktionalität von "Zählern" definieren. Dazu wird folgende Tabelle erstellt:
+Der Benutzer kann zusätzlich zum Typ `number` die Funktionalität von `counters` definieren. Zu diesem Zweck wird folgende Tabelle erstellt:
 
 | DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS SQL | iobroker.dbo.ts_counter |
+| MS-SQL | iobroker.dbo.ts_counter |
 | MySQL | iobroker.ts_counter |
 | PostgreSQL | ts_counter |
 | SQLite | ts_counter |
@@ -179,18 +179,18 @@ Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | BIGINT / INTEGER | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
-| Wert | WIRKLICH | Wert |
+| id | Ganzzahl | ID des Bundesstaates aus Tabelle „Datenpunkte“ |
+| ts | BIGINT / INTEGER | Zeit in ms bis zur Epoche. Kann mit „new Date(ts)“ | in Uhrzeit umgerechnet werden |
+| Wert | ECHT | Wert |
 
-Diese Tabelle speichert die Werte, wenn der Zähler ausgetauscht wurde und der Wert nicht erhöht, sondern auf Null oder niedrigeren Wert ausgefallen ist.
+In dieser Tabelle werden die Werte gespeichert, wenn der Zähler ausgetauscht wurde und der Wert nicht ansteigt, jedoch nicht auf Null oder einen niedrigeren Wert zurückgeht.
 
-### Saiten
-Werte für Zustände vom Typ "String".
+### Zeichenfolgen
+Werte für Zustände mit Typ `string`.
 
-| DB | Name in Abfrage |
+| DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS SQL | iobroker.dbo.ts_string |
+| MS-SQL | iobroker.dbo.ts_string |
 | MySQL | iobroker.ts_string |
 | PostgreSQL | ts_string |
 | SQLite | ts_string |
@@ -199,21 +199,21 @@ Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | GROSSARTIG | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
+| id | Ganzzahl | ID des Bundesstaates aus Tabelle „Datenpunkte“ |
+| ts | BIGINT | Zeit in ms bis zur Epoche. Kann mit „new Date(ts)“ | in Uhrzeit umgerechnet werden |
 | Wert | TEXT | Wert |
-| ack | BIT/BOOLESCH | Wird quittiert: 0 - not ack, 1 - ack |
-| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
-| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| ack | BIT/BOOLEAN | Wird bestätigt: 0 – keine Bestätigung, 1 – Bestätigung |
+| _von | Ganzzahl | ID der Quelle aus der Tabelle „Quellen“ |
+| q | Ganzzahl | Qualität als Zahl. Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
 ### Boolesche Werte
-Werte für Zustände vom Typ "boolean".
+Werte für Zustände mit Typ `boolean`.
 
-| DB | Name in Abfrage |
+| DB | Name in der Abfrage |
 |------------|-------------------------|
-| MS SQL | iobroker.dbo.ts_bool |
+| MS-SQL | iobroker.dbo.ts_bool |
 | MySQL | iobroker.ts_bool |
 | PostgreSQL | ts_bool |
 | SQLite | ts_bool |
@@ -222,19 +222,19 @@ Struktur:
 
 | Feld | Geben Sie | ein Beschreibung |
 |--------|--------------------------------------------|-------------------------------------------------|
-| ID | GANZZAHL | ID des Zustands aus Tabelle "Datenpunkte" |
-| ts | GROSSARTIG | Zeit in ms bis Epoche. Kann mit "new Date(ts)" | in Zeit umgerechnet werden |
-| Wert | BIT/BOOLESCH | Wert |
-| ack | BIT/BOOLESCH | Wird quittiert: 0 - not ack, 1 - ack |
-| _von | GANZZAHL | ID der Quelle aus Tabelle "Quellen" |
-| q | GANZZAHL | Qualität als Zahl. Beschreibung finden Sie in [hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
+| id | Ganzzahl | ID des Bundesstaates aus Tabelle „Datenpunkte“ |
+| ts | BIGINT | Zeit in ms bis zur Epoche. Kann mit „new Date(ts)“ | in Uhrzeit umgerechnet werden |
+| Wert | BIT/BOOLEAN | Wert |
+| ack | BIT/BOOLEAN | Wird bestätigt: 0 – keine Bestätigung, 1 – Bestätigung |
+| _von | Ganzzahl | ID der Quelle aus der Tabelle „Quellen“ |
+| q | Ganzzahl | Qualität als Zahl. Beschreibung finden Sie [Hier](https://github.com/ioBroker/ioBroker/blob/master/doc/SCHEMA.md#states) |
 
 *Hinweis:* MS-SQL verwendet BIT und andere verwenden BOOLEAN. SQLite verwendet für ts INTEGER und alle anderen BIGINT.
 
-## Greifen Sie auf Werte vom Javascript-Adapter zu
+## Zugriff auf Werte über den Javascript-Adapter
 Auf die sortierten Werte kann über den Javascript-Adapter zugegriffen werden.
 
-* Holen Sie sich 50 zuletzt gespeicherte Ereignisse für alle IDs
+* Erhalten Sie 50 zuletzt gespeicherte Ereignisse für alle IDs
 
 ```
 sendTo('sql.0', 'getHistory', {
@@ -252,7 +252,7 @@ sendTo('sql.0', 'getHistory', {
 });
 ```
 
-* Holen Sie sich gespeicherte Werte für "system.adapter.admin.0.memRss" in der letzten Stunde
+* Gespeicherte Werte für „system.adapter.admin.0.memRss“ in der letzten Stunde abrufen
 
 ```
 var end = Date.now();
@@ -274,41 +274,41 @@ sendTo('sql.0', 'getHistory', {
 Möglichkeiten:
 
 - **start** - (optional) Zeit in ms - *Date.now()*'
-- **Ende** - (optional) Zeit in ms - *Date.now()*', standardmäßig ist (jetzt + 5000 Sekunden)
-- **step** - (optional) verwendet in aggregierter (Max, Min, Durchschnitt, Gesamt, ...) Schritt in ms von Intervallen
-- **count** - Anzahl der Werte, wenn das Aggregat „onchange“ ist, oder Anzahl der Intervalle, wenn eine andere Aggregatmethode verwendet wird. Count wird ignoriert, wenn step gesetzt ist, andernfalls ist der Standardwert 500, wenn nicht gesetzt
-- **von** - wenn das Feld *von* in der Antwort enthalten sein soll
-- **ack** - wenn das *ack*-Feld in der Antwort enthalten sein soll
-- **q** - wenn das *q*-Feld in der Antwort enthalten sein soll
-- **addId** - wenn das Feld *id* in der Antwort enthalten sein soll
-- **limit** - nicht mehr Einträge als limit zurückgeben
-- **round** - Runden Sie das Ergebnis auf die Anzahl der Nachkommastellen
-- **ignoreNull** - wenn Nullwerte enthalten sein sollen (false), durch den letzten Nicht-Null-Wert ersetzt (true) oder durch 0 (0) ersetzt werden sollen
-- **removeBorderValues** - Standardmäßig werden zusätzliche Randwerte zurückgegeben, um die Diagrammerstellung zu optimieren. Setzen Sie diese Option auf true, wenn dies nicht erwünscht ist (z. B. für die Verarbeitung von Skriptdaten).
-- **returnNewestEntries** - Die zurückgegebenen Daten werden immer nach Zeitstempel aufsteigend sortiert. Bei Verwendung von Aggregat "none" und zusätzlicher Angabe von "count" oder "limit" bedeutet dies, dass normalerweise die ältesten Einträge zurückgegeben werden (es sei denn, es werden keine Startdaten bereitgestellt). Setzen Sie diese Option auf true, um stattdessen die neuesten Einträge zu erhalten.
-- **Aggregate** - Aggregationsmethode (Standard: 'Durchschnitt'):
-    - *minmax* - verwendeter spezieller Algorithmus. Teilen Sie den gesamten Zeitbereich in kleine Intervalle und finden Sie für jedes Intervall Max-, Min-, Start- und Endwerte.
-    - *max* - Teilt den gesamten Zeitbereich in kleine Intervalle auf und findet für jedes Intervall den Maximalwert und verwendet ihn für dieses Intervall (Nullen werden ignoriert).
-    - *min* - Wie max, aber minimaler Wert.
-    - *Durchschnitt* - Dasselbe wie Max, aber nehmen Sie den Durchschnittswert.
-    - *gesamt* - Wie max, aber Gesamtwert berechnen.
-    - *count* - Wie max, aber Anzahl der Werte berechnen (Nullen werden berechnet).
-    - *Perzentil* - Berechnet das n-te Perzentil (n wird in options.percentile angegeben oder ist standardmäßig 50, wenn nicht angegeben).
-    - *quantile* - Berechne n-Quantile (n wird in options.quantile angegeben oder ist standardmäßig 0,5, wenn nicht angegeben).
-    - *integral* - Integral berechnen (weitere Parameter siehe unten).
-    - *none* - Überhaupt keine Aggregation. Nur Rohwerte im angegebenen Zeitraum.
-- **Perzentil** - (optional) bei Verwendung der Aggregatmethode "Perzentil" definiert das Perzentilniveau (0..100) (standardmäßig 50)
-- **Quantil** - (optional) bei Verwendung der Aggregatmethode "Quantil" definiert das Quantilniveau (0..1) (Standardwert 0,5)
-- **integralUnit** - (optional) bei Verwendung der Aggregatmethode "integral" definiert die Einheit in Sekunden (standardmäßig 60s). z.B. Um ein Integral in Stunden für Wh oder ähnliches zu erhalten, setzen Sie es auf 3600.
-- **integralInterpolation** - (optional) bei Verwendung der Aggregatmethode "integral" definiert die Interpolationsmethode (standardmäßig "none").
-    - *linear* - lineare Interpolation
-    - *none* - keine/schrittweise Interpolation
+- **Ende** – (optional) Zeit in ms – *Date.now()*‘, standardmäßig ist (jetzt + 5000 Sekunden)
+- **Schritt** – (optional) wird in aggregierten Schritten (Max, Min, Durchschnitt, Gesamt, ...) in ms von Intervallen verwendet
+- **Anzahl** – Anzahl der Werte, wenn das Aggregat „onchange“ ist, oder Anzahl der Intervalle, wenn eine andere Aggregatmethode verwendet wird. Die Anzahl wird ignoriert, wenn ein Schritt festgelegt ist. Andernfalls ist der Standardwert 500, wenn nicht festgelegt
+- **von** – wenn das Feld *von* in die Antwort einbezogen werden soll
+- **ack** – wenn das Feld *ack* in der Antwort enthalten sein soll
+- **q** – wenn das Feld *q* in die Antwort einbezogen werden soll
+- **addId** – wenn das Feld *id* in die Antwort einbezogen werden soll
+- **Limit** – nicht mehr Einträge als das Limit zurückgeben
+- **runden** – Runden Sie das Ergebnis auf die Anzahl der Nachkommastellen
+- **ignoreNull** – wenn Nullwerte eingeschlossen werden sollen (false), durch den letzten Nicht-Null-Wert ersetzt (true) oder durch 0 (0) ersetzt werden sollen
+- **removeBorderValues** – Standardmäßig werden zusätzliche Rahmenwerte zurückgegeben, um die Diagrammerstellung zu optimieren. Setzen Sie diese Option auf true, wenn dies nicht erwünscht ist (z. B. für die Skriptdatenverarbeitung).
+- **returnNewestEntries** – Die zurückgegebenen Daten werden immer nach aufsteigendem Zeitstempel sortiert. Bei Verwendung des Aggregats „none“ und zusätzlicher Angabe von „count“ oder „limit“ bedeutet dies, dass normalerweise die ältesten Einträge zurückgegeben werden (es sei denn, es werden keine Startdaten bereitgestellt). Setzen Sie diese Option auf „true“, um stattdessen die neuesten Einträge zu erhalten.
+- **aggregate** – Aggregatmethode (Standard: 'average'):
+    - *minmax* – verwendeter spezieller Algorithmus. Teilen Sie den gesamten Zeitbereich in kleine Intervalle auf und ermitteln Sie für jedes Intervall die Maximal-, Minimal-, Start- und Endwerte.
+    - *max* – Splice den gesamten Zeitbereich in kleine Intervalle und finde für jedes Intervall den Maximalwert und verwende ihn für dieses Intervall (Nullen werden ignoriert).
+    - *min* – Wie max, aber mit minimalem Wert.
+    - *Durchschnitt* – Wie max, aber mit Durchschnittswert.
+    - *total* – Wie max, aber Gesamtwert berechnen.
+    - *count* – Wie max, aber Anzahl der Werte berechnen (Nullwerte werden berechnet).
+    - *Perzentil* – Berechnen Sie das n-te Perzentil (n wird in „options.percentile“ angegeben oder ist standardmäßig 50, wenn nicht angegeben).
+    - *Quantil* – Berechnen Sie n Quantile (n wird in options.quantile angegeben oder ist standardmäßig 0,5, wenn nicht angegeben).
+    - *integral* – Integral berechnen (zusätzliche Parameter siehe unten).
+    - *none* – Überhaupt keine Aggregation. Nur Rohwerte in einem bestimmten Zeitraum.
+- **Perzentil** – (optional) bei Verwendung der Aggregatmethode definiert „Perzentil“ das Perzentilniveau (0..100) (Standard ist 50)
+- **Quantil** – (optional) bei Verwendung der Aggregatmethode definiert „Quantil“ die Quantilebene (0..1) (Standard ist 0,5)
+- **integralUnit** – (optional) bei Verwendung der Aggregatmethode „integral“ definiert die Einheit in Sekunden (Standard ist 60s). z.B. Um die Integralzahl für Wh oder ähnliches in Stunden zu erhalten, stellen Sie den Wert auf 3600 ein.
+- **integralInterpolation** – (optional) bei Verwendung der Aggregatmethode „integral“ definiert die Interpolationsmethode (standardmäßig „none“).
+    - *linear* – lineare Interpolation
+    - *none* – keine/schrittweise Interpolation
 
-Der erste und der letzte Punkt werden für Aggregationen berechnet, außer Aggregation "keine".
-Wenn Sie eine Aggregation manuell anfordern, sollten Sie die ersten und letzten Werte ignorieren, da sie aus Werten außerhalb des Zeitraums berechnet werden.
+Der erste und letzte Punkt werden für Aggregationen berechnet, mit Ausnahme der Aggregation `none`.
+Wenn Sie manuell eine Aggregation anfordern, sollten Sie die ersten und letzten Werte ignorieren, da diese aus Werten außerhalb eines Zeitraums berechnet werden.
 
 ## Zähler abrufen
-Der Benutzer kann den Wert eines Zählers (Typ = Zahl, Zähler = wahr) für einen bestimmten Zeitraum abfragen.
+Der Benutzer kann den Wert eines Zählers (Typ=Zahl, Zähler=Wahr) für einen bestimmten Zeitraum abfragen.
 
 ```
 var now = Date.now();
@@ -324,10 +324,10 @@ sendTo('sql.0', 'getCounter', {
 });
 ```
 
-Wenn das Zählergerät ersetzt wird, wird es ebenfalls berechnet.
+Bei Austausch des Zählers wird dieser ebenfalls berechnet.
 
 ## Benutzerdefinierte Abfragen
-Der Benutzer kann benutzerdefinierte Abfragen für Tabellen vom Javascript-Adapter ausführen:
+Der Benutzer kann benutzerdefinierte Abfragen für Tabellen über den Javascript-Adapter ausführen:
 
 ```
 sendTo('sql.0', 'query', 'SELECT * FROM datapoints', function (result) {
@@ -360,26 +360,26 @@ sendTo('sql.0', 'query', 'SELECT id FROM datapoints WHERE name="system.adapter.a
 
 *Notiz:*
 
-Je nach Datenbank muss vor dem Tabellennamen der Datenbankname oder Datenbankname + Schema eingefügt werden - siehe Kästen oben unter 'Aufbau der DBs'.
+Je nach Datenbank muss vor dem Tabellennamen der Datenbankname oder Datenbankname + Schema eingefügt werden – siehe Boxen oben unter „Aufbau der DBs“.
 
 Beispiel, wenn Ihre Datenbank „iobroker“ heißt:
 
-| DB | Name in Abfrage |
+| DB | Name in der Abfrage |
 |------------|------------------------------------------|
-| MS SQL | SELECT * FROM iobroker.dbo.datapoints ...|
-| MySQL | WÄHLEN Sie * FROM iobroker.datapoints ... |
+| MS-SQL | SELECT * FROM iobroker.dbo.datapoints ...|
+| MySQL | SELECT * FROM iobroker.datapoints ... |
 
 ## StoreState
 Wenn Sie andere Daten in die InfluxDB/SQL schreiben möchten, können Sie die eingebaute Systemfunktion **storeState** verwenden.
-Diese Funktion kann auch verwendet werden, um Daten von anderen History-Adaptern wie History oder SQL zu konvertieren.
+Diese Funktion kann auch zum Konvertieren von Daten von anderen Verlaufsadaptern wie Verlauf oder SQL verwendet werden.
 
-Eine erfolgreiche Antwort bedeutet nicht, dass die Daten wirklich auf die Platte geschrieben werden. Es bedeutet nur, dass sie verarbeitet wurden.
+Eine erfolgreiche Antwort bedeutet nicht, dass die Daten tatsächlich auf die Festplatte geschrieben werden. Es bedeutet lediglich, dass sie verarbeitet wurden.
 
-Die angegebenen IDs werden nicht gegen die ioBroker-Datenbank geprüft und müssen dort nicht eingerichtet oder aktiviert werden. Wenn eigene IDs ohne Einstellungen verwendet werden, wird der Parameter "rules" nicht unterstützt und führt zu einem Fehler. Für solche IDs wird die Voreinstellung "Maximale Anzahl gespeicherter Werte im RAM" verwendet.
+Die angegebenen IDs werden nicht mit der ioBroker-Datenbank abgeglichen und müssen dort nicht eingerichtet oder aktiviert werden. Wenn eigene IDs ohne Einstellungen verwendet werden, wird der Parameter „rules“ nicht unterstützt und führt zu einem Fehler. Für solche IDs wird der Standardwert „Maximale Anzahl der im RAM gespeicherten Werte“ verwendet.
 
 Die Nachricht kann eines der folgenden drei Formate haben:
 
-* ein ID- und ein Zustandsobjekt
+* eine ID und ein Statusobjekt
 
 ```
 sendTo('history.0', 'storeState', [
@@ -388,7 +388,7 @@ sendTo('history.0', 'storeState', [
 ], result => console.log('added'));
 ```
 
-* eine ID und ein Array von Zustandsobjekten
+* eine ID und ein Array von Statusobjekten
 
 ```
 sendTo('history.0', 'storeState', {
@@ -400,7 +400,7 @@ sendTo('history.0', 'storeState', {
 }, result => console.log('added'));
 ```
 
-* Array mehrerer IDs mit jeweils einem Zustandsobjekt
+* Array mehrerer IDs mit jeweils einem Statusobjekt
 
 ```
 sendTo('history.0', 'storeState', [
@@ -409,12 +409,12 @@ sendTo('history.0', 'storeState', [
 ], result => console.log('added'));
 ```
 
-Zusätzlich können Sie das Attribut `rules: true` in der Nachricht hinzufügen, um alle Regeln zu aktivieren, wie `counter`, `changesOnly`, `de-bounce` und so weiter.
+Darüber hinaus können Sie einer Nachricht das Attribut `rules: true` hinzufügen, um alle Regeln zu aktivieren, z. B. `counter`, `changesOnly`, `de-bounce` und so weiter.
 
-Im Fehlerfall wird ein Array mit allen einzelnen Fehlermeldungen zurückgegeben und auch ein successCount um zu sehen wie viele Einträge erfolgreich gespeichert wurden.
+Im Fehlerfall wird ein Array mit allen einzelnen Fehlermeldungen zurückgegeben und außerdem ein successCount, um zu sehen, wie viele Einträge erfolgreich gespeichert wurden.
 
-## Zustand löschen
-Wenn Sie einen Eintrag aus der Datenbank löschen möchten, können Sie die eingebaute Systemfunktion **löschen** verwenden:
+## Status löschen
+Wenn Sie einen Eintrag aus der Datenbank löschen möchten, können Sie die integrierte Systemfunktion **delete** verwenden:
 
 ```
 sendTo('sql.0', 'delete', [
@@ -441,12 +441,12 @@ sendTo('sql.0', 'deleteRange', [
 ], result => console.log('deleted'));
 ```
 
-Die Zeit könnte ms seit Epoche oder eine Zeichenfolge sein, die durch das Javascript-Datumsobjekt konvertiert werden könnte.
+Die Zeit kann ms seit der Epoche oder eine Ans-Zeichenfolge sein, die durch ein Javascript-Datumsobjekt konvertiert werden kann.
 
-Werte werden inklusive definierter Grenzen gelöscht. `ts >= start AND ts <= end`
+Werte werden inklusive definierter Grenzwerte gelöscht. `ts >= start AND ts <= end`
 
-## Zustand ändern
-Wenn Sie den Wert, die Qualität oder das Acknowledge-Flag in der Datenbank ändern möchten, können Sie die eingebaute Systemfunktion **update** verwenden:
+## Status ändern
+Wenn Sie den Wert, die Qualität oder das Bestätigungsflag eines Eintrags in der Datenbank ändern möchten, können Sie die integrierte Systemfunktion **Update** verwenden:
 
 ```
 sendTo('sql.0', 'update', [
@@ -455,15 +455,15 @@ sendTo('sql.0', 'update', [
 ], result => console.log('deleted'));
 ```
 
-`ts` ist obligatorisch. Mindestens ein weiteres Flag muss im Zustandsobjekt enthalten sein.
+`ts` ist obligatorisch. In einem Statusobjekt muss mindestens ein weiteres Flag enthalten sein.
 
-Seien Sie vorsichtig mit `counters`. Die `counters` in DB werden nicht zurückgesetzt, und Sie müssen sich selbst darum kümmern.
+Seien Sie vorsichtig mit `counters`. Die `counters` in der DB werden nicht zurückgesetzt und Sie müssen sich selbst darum kümmern.
 
-## Verwaltung der Verlaufsprotokollierung über Javascript
+## Verlaufsprotokollierungsverwaltung über Javascript
 Der Adapter unterstützt das Aktivieren und Deaktivieren der Verlaufsprotokollierung über JavaScript sowie das Abrufen der Liste der aktivierten Datenpunkte mit ihren Einstellungen.
 
-### Ermöglichen
-Die Nachricht muss die "ID" des Datenpunkts haben. Zusätzlich optionale "Optionen" zum Definieren der datenpunktspezifischen Einstellungen:
+### Aktivieren
+Die Nachricht erfordert die „ID“ des Datenpunkts. Zusätzlich optionale „Optionen“ zum Definieren der datenpunktspezifischen Einstellungen:
 
 ```
 sendTo('sql.0', 'enableHistory', {
@@ -487,7 +487,7 @@ sendTo('sql.0', 'enableHistory', {
 ```
 
 ### Deaktivieren
-Die Nachricht muss die "ID" des Datenpunkts haben.
+Die Nachricht erfordert die „ID“ des Datenpunkts.
 
 ```
 sendTo('sql.0', 'disableHistory', {
@@ -524,13 +524,19 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 });
 ```
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __LAUFENDE ARBEIT__ -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 3.0.0 (2023-09-13)
+* IMPORTANT: Node.js 16.x is now needed at a minimum!
+* (bluefox) Allowed setting port 0 as default
+* (bluefox) Checked if a string is written into the number table
+* (bluefox) Added support for `count` aggregate type on getHistory
+
 ### 2.2.0 (2022-09-19)
-* IMPORTANT: Node.js 14.x is now needed at minimum!
+* IMPORTANT: Node.js 14.x is now needed at a minimum!
 * (Apollon77) Fix potential crash cases with upcoming js-controller versions
 
 ### 2.1.8 (2022-08-13)
@@ -541,14 +547,14 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Fix crash cases reported by Sentry
 
 ### 2.1.6 (2022-06-27)
-* (Apollon77) Allow to remove a configuration value for "round" in config again
+* (Apollon77) Allowed removing a configuration value for "round" in config again
 
 ### 2.1.5 (2022-06-27)
 * (Apollon77) When no count is provided for aggregate "none" or "onchange" then the limit (default 2000) is used as count to define the number of data to return.
 * (Apollon77) Fix the initialization of types and IDs for some cases.
 
 ### 2.1.3 (2022-06-12)
-* (Apollon77) Make sure debug log is active according to the settings
+* (Apollon77) Make sure the debug log is active, according to the settings
 
 ### 2.1.2 (2022-06-08)
 * (Apollon77) Huge performance optimizations for GetHistory calls
@@ -562,7 +568,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 * (Apollon77) Work around an issue in used Pooling library that potentially gave out too many connections
 * (Apollon77) Optimize retention check to better spread the first checks over time
 * (Apollon77) Default to not use datapoint buffering as in 1.x when set to 0
-* (Apollon77) Make sure disabling "Log changes only" also really do not log the changes anymore
+* (Apollon77) Make sure disabling "Log changes only" also really does not log the changes anymore
 * (Apollon77) Allow storeState and GetHistory also to be called for "unknown ids"
 * (Apollon77) Adjust the fallback logic for type detection to use the type of the state value to log as last fallback
 * (Apollon77) Fix storing booleans on MSSQL
@@ -574,7 +580,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 ### 2.0.0 (2022-05-11)
 * (Apollon77) Breaking: Configuration is only working in the new Admin 5 UI!
 * (Apollon77) Breaking! Did bigger adjustments to the recording logic. Debounce is refined and blockTime is added to differentiate between the two checks
-* (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up to date scripts and Charting UIs
+* (Apollon77) Breaking! GetHistory requests now need to deliver the ts in milliseconds! Make sure to use up-to-date scripts and Charting UIs
 * (Apollon77) Add RAM buffering and mass inserts for logging
 * (Apollon77) New setting added to disable the "logging of additional values for charting optimization" - then only the expected data are logged
 * (Apollon77) Add flag returnNewestEntries for GetHistory to determine which records to return when more entries as "count" are existing for aggregate "none"
@@ -859,7 +865,7 @@ sendTo('sql.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 bluefox <dogafox@gmail.com>, Apollon77
+Copyright (c) 2015-2023 bluefox <dogafox@gmail.com>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

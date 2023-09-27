@@ -4,7 +4,7 @@
       "date": "2023.02.15",
       "title": {
         "de": "Dev Meeting Februar 2023",
-        "en": "February 2023 dev meeting",
+        "en": "Dev meeting February 2023",
         "ru": "Встреча разработчиков, февраль 2023 г.",
         "zh-cn": "2023 年 2 月开发会议"
       },
@@ -15,7 +15,7 @@
         "de": "## JS-Controller 4.0.24 und Node.js 18: Ein Update lohnt sich",
         "en": "## JS Controller 4.0.24 and Node.js 18: An update is worth it",
         "ru": "## JS Controller 4.0.24 и Node.js 18: обновление того стоит",
-        "zh-cn": "## JS 控制器 4.0.24 和 Node.js 18：值得更新"
+        "zh-cn": "## JS Controller 4.0.24 和 Node.js 18：更新是值得的"
       }
     },
     "2022_02_16": {

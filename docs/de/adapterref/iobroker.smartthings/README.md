@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smartthings/README.md
 title: ioBroker.smartthings
-hash: irxde3p+Zw5xYEuO02TuHmIvb5wsZ1APyn+Zr/1aNGI=
+hash: Q2OX4G2Y4FGzXN5q/OzU4jrQLAkq9jVnCD1TgAceyog=
 ---
 ![Logo](../../../en/adapterref/iobroker.smartthings/admin/smartthings.png)
 
@@ -14,29 +14,34 @@ hash: irxde3p+Zw5xYEuO02TuHmIvb5wsZ1APyn+Zr/1aNGI=
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.smartthings.svg)
 ![NPM](https://nodei.co/npm/iobroker.smartthings.png?downloads=true)
 
-#ioBroker.smartthings
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.smartthings
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.smartthings/workflows/Test%20and%20Release/badge.svg)
 
 ## Smartthings-Adapter für ioBroker
 Adapter für Samsung Smartthings
 
-##Anmeldeablauf:
-Besuchen Sie den Link. https://account.smartthings.com/tokens Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite \"Persönliche Zugriffstoken\" zu gelangen.
+## Loginablauf:
+Besuchen Sie den Link. https://account.smartthings.com/tokens Melden Sie sich mit Ihrem Samsung-Konto an, um zur Seite „Persönliche Zugriffstoken“ zu gelangen.
 Tippen Sie auf die Schaltfläche „Neuen Token generieren“, um auf die Seite „Neuer Zugriffstoken“ zu gelangen.
-Geben Sie einen Namen für das neue Token an. Choose im Abschnitt „Autorisierte Bereiche“ Eine beliebige Funktionalität aus, sterben SIE für das Token autorisieren möchten.
-Tippen Sie auf die Schaltfläche \"Token generieren\", WENN SIE fertig sind, und Sie kehren zur Seite \"Persönliche Zugriffstoken\" zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
+Geben Sie einen Namen für das neue Token an. Wählen Sie im Abschnitt „Autorisierte Bereiche“ eine beliebige Funktionalität aus, die Sie für das Token autorisieren möchten.
+Tippen Sie auf die Schaltfläche „Token generieren“, wenn Sie fertig sind, und kehren Sie zur Seite „Persönliche Zugriffstoken“ zurück. Kopieren Sie das neu generierte Token und bewahren Sie es an einem sicheren Ort auf. Dies ist Ihre einzige Möglichkeit, den neu generierten Tokenwert abzurufen.
 
-##Steuern
-smartthings.0.id.capabilities entweder true setzen oder ein vorgegeben Wert setzen
+## Steuern
+smartthings.0.id.capabilities entweder true setzen oder einen vorgegebenen Wert setzen
 
 ## Diskussion und Fragen:
 https://forum.iobroker.net/topic/48091/test-adapter-samsung-smartthings-v-0-0-x
 
 ## Changelog
 
-* 0.0.1 (TA2k) initial release
+- 0.1.0 Added object excluding to reduce cpu usage
+
+- 0.0.4 Reduced cpu load while writing states
+
+- 0.0.3 (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021 TA2k <tombox2020@gmail.com>

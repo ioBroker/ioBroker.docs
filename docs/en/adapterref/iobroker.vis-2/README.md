@@ -207,13 +207,40 @@ Notice that these settings are valid only for reconnection and not for the first
 
 ![Dark](img/dark_screen.png)
 
+## SVG and currentColor
+The currentColor keyword in CSS allows elements to inherit the current text color from their parent element.
+It can be particularly useful in SVGs (Scalable Vector Graphics) because it allows for more dynamic styling and easier integration with HTML content.
+
+You can use the currentColor keyword in place of a specific color value for any property inside the SVG that accepts a color value.
+Here's a simple example with a circle in an SVG:
+```xml
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="currentColor" />
+</svg>
+```
+In this case, if the SVG takes the color of parent element.
+E.g., if it was used in a menu and the menu is red, the circle would be red.
+
+
 ## Todo
-- Horizontal navigation
+ 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.2.7 (2023-09-18)
+* (bluefox) Improved icon selector: you can upload your own icon directly
+* (bluefox) Optimized loading: do not load unused widget sets
+
+### 2.2.6 (2023-09-17)
+* (bluefox) Date binding corrected
+* (bluefox) Optimized loading of widgeteria
+* (bluefox) Horizontal navigation is fixed
+
+### 2.2.5 (2023-09-12)
+* (bluefox) Implemented horizontal navigation
+
 ### 2.2.4 (2023-09-04)
 * (bluefox) Corrected license checking
 

@@ -4,14 +4,14 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/debug.md
 title: ioBroker.shelly
-hash: khD3DPjZfe+F71Lt/m7cEg0aPFEBC1GqkQ+s1upEXn8=
+hash: KVTitqklg4RU1iuba/LwscH4vzBa0K/tcd29J3k2QFw=
 ---
 ![标识](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
 这是德语文档 - [🇺🇸英文版](../en/debug.md)
 
-## 调试
+＃＃ 调试
 *调试仅适用于第 2 代设备*
 
 ＃＃＃ 要求
@@ -20,6 +20,6 @@ hash: khD3DPjZfe+F71Lt/m7cEg0aPFEBC1GqkQ+s1upEXn8=
 
 ### 启用调试
 1. 必须在每个 Shelly 设备上单独启用调试模式。为此，可以使用 Web 界面或状态“<device-id>.Sys.debugEnabled”。
-2.为了将调试消息写入ioBroker的标准日志（日志级别``info``），必须在实例中激活``Log debug messages``配置（默认为``false``） 。
+2. 为了将调试消息写入ioBroker的标准日志（日志级别“info”），必须在实例中激活“记录调试消息”配置（默认为“false”）。
 
-日志中的所有调试消息均以“`[Shelly Debug Message] ...`”开头
+日志中的所有调试消息均以 `[Shelly Debug Message] ...` 开头

@@ -74,9 +74,27 @@ of the single instance can be set. In the selection Menu the the displayed minim
 lettering of the log appears in red.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.10.4 (2023-09-25)
+* (foxriver76) fixed parsing `jsonConfig`
+
+### 6.10.3 (2023-09-25)
+* (foxriver76) fixed `installedFrom` other source indicator not shown on adapter's tab
+* (foxriver76) allowed using enter key to save changes in object edit dialog
+* (foxriver76) fixed json config crash with empty table
+
+### 6.10.2 (2023-09-20)
+* (foxriver76) harmonized data on csv export with actual data shown by admin
+* (foxriver76) on expert mode installation tab, on no selection deactivate install button
+* (foxriver76) ensure the latest version is installed on `npm install`
+* (foxriver76) optimized enum objects
+* (foxriver76) disallow Google Translate as the plugin causes crash cases
+* (foxriver76) fixed crash on intro tab on docker hosts
+* (foxriver76) fixed crash case on invalid state objects
+
+### 6.10.1 (2023-09-11)
 * (foxriver76) fixed `between` function for showing news
 * (foxriver76) if date string is not parseable show the original string instead of `Invalid Date`
+* (foxriver76) updated socket classes to not crash on invalid patterns
 
 ### 6.10.0 (2023-09-08)
 * (foxriver76) various minor improvements
@@ -84,42 +102,6 @@ lettering of the log appears in red.
 * (foxriver76) object browser now validates setting state of type number
 * (foxriver76) allow to specify unique columns for tables
 * (foxriver76) fix crash on invalid states, which are missing the property `common.role`
-
-### 6.9.2 (2023-09-01)
-* (foxriver76) show info, if server time differs from client time
-* (foxriver76) remove confusion with different names for state (datapoint and state)
-* (jogibear9988) fixed link on 404-page being opened inside child view
-* (foxriver76) fixed issue if non-text default values are provided to a text jsonConfig component
-* (foxriver76) implemented del key shortcut to delete a selected object
-
-### 6.9.1 (2023-08-22)
-* (foxriver76) allow resizing of all columns in objects tab
-* (foxriver76) without expert mode users are only allowed to edit objects in `0_userdata.0` and `alias.0` namespace
-* (foxriver76) fixed keyboard navigation
-* (foxriver76) fixed problem with showing controller upgrade instructions if no UI upgrade is supported
-
-### 6.9.0 (2023-08-21)
-* (bluefox) Added possibility to change log direction
-* (bluefox) JSON config: Added possibility to filter out internal IP addresses
-* (bluefox) JSON config: Added _changed flag for formula in JSON config
-* (bluefox) JSON config: Added option `reloadBrowser` to sendto in JSON config
-* (bluefox) JSON config: Allowed positioning of add button on the very top of the table
-* (bluefox) JSON config: Trim strings by saving and not by typing
-* (bluefox) Added alias creation from object browser
-* (bluefox) Allowed to change chart type
-* (foxriver76) show a date picker when setting state (role: date/type: number)
-* (foxriver76) fixed problem, that creation of folders was not possible
-* (foxriver76) adapted text to clarify, that only tarball can be installed from path
-* (foxriver76) type string/role date will now also be previewed as a date in objects tab
-* (foxriver76) fixed problem with table formatting on history data point viewer
-* (foxriver76) fixed problem that could render update dialog with invalid property
-* (foxriver76) fixed sentry icon being in wrong position if no compact flag provided
-
-### 6.8.3 (2023-08-16)
-* (foxriver76) added description to adapter rating dialog
-* (bluefox) Extended the select component with grouping
-* (bluefox) Allowed the sorting of adapters by name and not only by title
-* (bluefox) Allowed the set state JSON config component
 
 ## License
 The MIT License (MIT)

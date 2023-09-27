@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.consumption/README.md
 title: ioBroker.consumption
-hash: IU3fuiA8q7+wtovCQhv0niK5RpmRWduO6XYklZ+qGVk=
+hash: PtcwnNZx9+3u0/ZklKIRGknfGy+cH7yKo+iZU8jeTYQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.consumption/admin/consumption.png)
 
@@ -13,43 +13,43 @@ hash: IU3fuiA8q7+wtovCQhv0niK5RpmRWduO6XYklZ+qGVk=
 ![Bekannte Schwachstellen](https://snyk.io/test/github/bluefox/ioBroker.consumption/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.consumption.png?downloads=true)
 
-# IoBroker.Verbrauch
+# IoBroker.consumption
 ## Verbrauchsadapter für ioBroker
 Berechnet den Verbrauch für definierte Sensoren und Ressourcen.
 
-Sie können verschiedene Ressourcen, wie Wasser, Heizung, Strom definieren und eine Analyse darüber machen.
+Sie können verschiedene Ressourcen wie Wasser, Heizung, Strom definieren und damit eine Analyse durchführen.
 
-4 verschiedene Analysetypen sind implementiert:
+Es sind 4 verschiedene Analysetypen implementiert:
 
-- Plan - Ist-Verbrauch in €/$ in diesem Jahr im Vergleich zu Planwerten und im Vergleich zum Vorjahr.
-- Donut - Vergleich zwischen Sensoren oder Ressourcen in Form eines Torten-/Donut-Diagramms
-- Stack - Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zu den Daten des Vorjahres in Form eines Stack-Balkendiagramms.
-- Heatmap - Stündlicher Verbrauch in diesem Jahr für Ressourcen
-- Tabelle - Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zum Vorjahr in Form einer Tabelle
+- Plan - Tatsächlicher Verbrauch in €/$ in diesem Jahr im Vergleich zu Planwerten und im Vergleich zum Vorjahr.
+- Donut – Vergleich zwischen Sensoren oder Ressourcen in Form eines Kreis-/Donut-Diagramms
+- Stack – Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zu den Daten des Vorjahres in Form eines Stack-Balkendiagramms.
+- Heatmap – Stündlicher Ressourcenverbrauch in diesem Jahr
+- Tabelle - Monatlicher Verbrauch jedes Sensors und jeder Ressource im Vergleich zum Vorjahr in Tabellenform
 
 ## Anforderungen
 Der Adapter erfordert die Installation der my-SQL- oder Postgres-SQL-Datenbank und des ioBroker.sql-Adapters (wird automatisch installiert). Er sollte auch mit SQLite funktionieren, wird aber aus Leistungsgründen nicht empfohlen.
 
-MS-SQL wird noch nicht unterstützt, könnte aber bei Bedarf einfach implementiert werden.
+MS-SQL wird noch nicht unterstützt, könnte aber bei Bedarf problemlos implementiert werden.
 
 **Adapter ist noch Beta.**
 
-**Die kostenlose Edition unterstützt nur 4 Sensoren und nur eine Station.** Um mehr Sensoren oder Stationen zu unterstützen, benötigen Sie eine gültige Lizenz. Fordern Sie es unter info@iobroker.com an.
+**Die kostenlose Edition unterstützt nur vier Sensoren und nur eine Station.** Um mehr Sensoren oder Stationen zu unterstützen, benötigen Sie eine gültige Lizenz. Fordern Sie es unter info@iobroker.com an.
 
 ## Verwendung
-Sie haben Ressourcen (wie Wasser, Energie, Heizung, Gas usw.), Stationen (wie Haus, Datscha, Dorfvilla usw.) und Sensoren.
+Sie verfügen über Ressourcen (wie Wasser, Energie, Heizung, Gas usw.), Stationen (wie Haus, Datscha, Dorfvilla usw.) und Sensoren.
 
-Sensor ist ein Zähler, der seinen Wert immer mehr erhöht, wie ein Stromzähler, der immer größer wird.
+Der Sensor ist ein Zähler, der seinen Wert ständig erhöht, wie ein Stromzähler, der ständig wächst.
 
-Sie müssen alle diese Sensoren zuerst auf definierte Ressourcen und dann auf Stationen verteilen.
+Sie müssen alle diese Sensoren zunächst auf definierte Ressourcen und dann auf Stationen verteilen.
 
-**Eigentlich wird nur eine Station unterstützt!**
+**Tatsächlich wird nur eine Station unterstützt!**
 
-Danach können Sie Ihren Zeit- und Ressourcenverbrauch über Jahre hinweg analysieren.
+Anschließend können Sie Ihren Zeit- und Ressourcenverbrauch über Jahre hinweg analysieren.
 
-Sie können das aktuelle Jahr mit dem Vorjahr vergleichen und eine Verbrauchsprognose erstellen.
+Sie können das aktuelle Jahr mit dem vorherigen vergleichen und eine Prognose über den Verbrauch erstellen.
 
-Planen Sie über alle Kosten für das laufende Jahr.
+Planen Sie alle Kosten für das laufende Jahr.
 ![Prognose](../../../en/adapterref/iobroker.consumption/img/planAll.png)
 
 Verteilung der Kosten nach Ressourcen.
@@ -58,32 +58,32 @@ Verteilung der Kosten nach Ressourcen.
 Verteilung des Verbrauchs durch Sensoren einer Ressource.
 ![Prognose](../../../en/adapterref/iobroker.consumption/img/pieHeating.png)
 
-Verbrauchsverteilung nach Sensoren und Monaten einer Ressource.
+Verteilung des Verbrauchs nach Sensoren und Monaten einer Ressource.
 ![Prognose](../../../en/adapterref/iobroker.consumption/img/stackBarWater.png)
 
 Heatmap des Verbrauchs einer Ressource für das laufende Jahr.
 ![Prognose](../../../en/adapterref/iobroker.consumption/img/heatmap.png)
 
-Tabelle des Verbrauchs einer Ressource für das laufende Jahr für jeden Monat.
+Verbrauchstabelle einer Ressource für das laufende Jahr für jeden Monat.
 ![Prognose](../../../en/adapterref/iobroker.consumption/img/tableHeating.png)
 
 ### Verdeckte Funktion
-Die Sensordaten können umgerechnet werden, aber die Formel muss linear sein.
-Sie können die Formel in Javascript schreiben, aber achten Sie darauf, dass das Ergebnis eine Zahl (float) sein muss.
+Die Sensordaten können umgerechnet werden, allerdings muss die Formel linear sein.
+Sie können die Formel in Javascript schreiben, achten Sie jedoch darauf, dass das Ergebnis eine Zahl (Float) sein muss.
 Beispiele:
 
-- Wh => kWh: `val / 1000`
+- Wh => kWh: „Wert / 1000“.
 - kWh => Wh: `val * 1000`
-- °F => °C: `(Wert - 32) / 1,8`
-- °C => °F: `Wert * 1,8 + 32`
+- °F => °C: „(Wert - 32) / 1,8“.
+- °C => °F: „Wert * 1,8 + 32“.
 
 ## Echarts aktualisieren (nur für die Entwickler)
-Gehen Sie zu https://echarts.apache.org/en/builder.html Wählen Sie:
+Gehen Sie zu https://echarts.apache.org/en/builder.html. Wählen Sie:
 
-- Diagramm: Balken, Linie, Torte, Heatmap,
+- Diagramm: Balken, Linie, Kreis, Heatmap,
 - Koordinatensysteme: Gitter
 - Komponente: Titel, Legende, Tooltip, MarkPoint, MarkArea, VisualMap, Toolbox
-- Sonstiges: SVG-Renderer, Dienstprogramme, Codekomprimierung
+- Andere: SVG-Renderer, Dienstprogramme, Codekomprimierung
 
 ## Machen
 - Preis für jeden Sensor möglich
@@ -94,21 +94,28 @@ Gehen Sie zu https://echarts.apache.org/en/builder.html Wählen Sie:
   - direkt in Zustände schreiben und den Preis nicht im Objekt speichern
 
 - Heatmap
-  - Zeigen Sie nach Jahr an
+  - Nach Jahr anzeigen
 - Diagramme
 
 - Daten als PDF exportieren
 - Mehr als eine Station.
-- Stilauswahl nach Thema (Einheit, Start, Ende)
+- Stilauswahl nach Thema (Einheit, Anfang, Ende)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
-## Zulässige Nutzung
+### **ARBEIT IN ARBEIT** -->
+## Zulässige Verwendung
 Eine Lizenz gewährt das Recht, eine Installation der Software durchzuführen.
-Jede weitere Installation der Software erfordert eine zusätzlich erworbene Lizenz.
+Für jede weitere Installation der Software ist eine zusätzlich erworbene Lizenz erforderlich.
 
 ## Changelog
+### 1.0.0 (2023-09-13)
+* (bluefox) Fixed pie chart
+
+### 0.8.0 (2023-05-12)
+* (bluefox) Do not take the price of sensor if it is empty or 0
+* (bluefox) Refactoring (async/await)
+
 ### 0.7.0 (2023-02-08)
 * (bluefox) Added offset and factor to sensors
 

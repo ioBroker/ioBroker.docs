@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.awtrix-light?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.awtrix-light?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.awtrix-light?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.awtrix-light?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.awtrix-light?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.awtrix-light?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.awtrix-light?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.awtrix-light/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.awtrix-light?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
@@ -18,7 +16,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
+hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -26,8 +24,8 @@ hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
 ＃＃ 要求
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
-- 管理适配器 6.0.0（或更高版本）
-- 固件版本为 _0.84_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 管理适配器 6.6.0（或更高版本）
+- 固件版本为 _0.86_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -43,25 +41,25 @@ hash: 5C1Z+MP29CrscOkXs4nzVIvudBHKKvF/95auMm9hAgI=
 
 **你能用其他文本替换逻辑值（真/假）吗？**
 
-为此，只需在 `alias.0` 中创建类型为 `string`（字符串）的别名，然后使用读取函数将逻辑值转换为任何其他值（例如 `val ? 'offen' : 'geschlossen'`）。 *这是ioBroker的标准功能，与此适配器没有直接关系。*
+为此，只需在 `alias.0` 中创建类型为 `string`（字符串）的别名，然后使用读取函数将逻辑值转换为任何其他值（例如 `val ? 'offen' : 'geschlossen'`）。 *这是 ioBroker 的标准功能，与此适配器没有直接关系。*
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix-light/#/onscreen) 导航至点 `update`。然后时钟会自行完成剩下的工作。无需再次使用网络闪烁器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix-light/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
-不幸的是，硬件设计并不是最佳的。建议使用尽可能弱且最大可提供 1A 的电源装置。
+不幸的是，硬件设计并不是最佳的。建议使用可提供最大 1A 电流的最弱电源。
 
 **您可以从设备中取出电池吗？**
 
-是的，有这个选项。然而，由于前面板是粘着的，所以必须用热风枪才能打开该设备。您还需要 [焊料降压转换器](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765) 才能使一切正常工作。
+是的，有这个选项。但该设备必须用热风干燥机才能打开，因为前窗是粘着的。您还需要 [焊料降压转换器](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765) 才能使一切正常工作。
 
 **是否可以对设备上的应用程序进行不同的排序？**
 
 默认情况下，应用程序的显示顺序与在实例设置中创建的顺序相同。只需向上或向下移动应用程序即可更改位置。具有历史数据/图表的应用程序位于其他自定义应用程序后面。
 
-如果您想设置自己的仓位，可以在专家选项中激活用户定义的仓位。之后，可以为每个应用程序分配一个数字位置。
+如果您想定义自己的职位，可以在专家选项中激活用户定义的职位。然后可以为每个应用程序分配一个数字位置。
 
 **可以存储不同的数字格式吗？**
 
@@ -139,7 +137,7 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 以下组合会导致日志中出现警告：
 
 - 具有所选对象 ID 的自定义应用程序在文本中不包含占位符“%s”
-- 使用“common.unit”中选定的无单位对象 ID 创建自定义应用程序，但主体中包含“%u”
+- 使用选定的对象 ID 创建自定义应用程序，“common.unit”中没有单位，但正文中包含“%u”
 - 未选择对象 ID，但文本中使用了“%s”
 
 ## 历史应用程序/图表
@@ -166,9 +164,12 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 -->
 ### **WORK IN PROGRESS**
 
-Updated recommended firmware version to 0.84
+Updated recommended firmware version to 0.86
 
 * (klein0r) Added expert apps
+* (klein0r) Use the last value of fast refreshing states
+* (klein0r) Added settings for calendar colors
+* (klein0r) Allow to use apps without text (just background effect)
 
 ### 0.8.0 (2023-09-04)
 
