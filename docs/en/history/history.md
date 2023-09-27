@@ -25,6 +25,17 @@ https://github.com/iobroker-community-adapters/ioBroker.acme
 
 This adapter generates certificates using ACME challenges.
 
+
+## admin (2023-09-01)
+Context menu:
+- e.g., easy creation of aliases
+  ![picture1](media/2023_09_26_admin_context.png)
+
+## javascript (2023-09-01)
+Playground for JavaScript code:
+- You can use Chat GPT (required API key) to generate the script. It is only to test the possibilities of ChatGPT
+  ![picture1](media/2023_09_27_javascript_chat_gpt.png)
+
 ## cec2 (2023-09-06)
 https://github.com/iobroker-community-adapters/ioBroker.cec2
 
@@ -72,9 +83,3 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
 
 ## tinymqttbroker (2023-09-16)
 This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
-
-## admin  (2023-09-01)
-Context menu:
-- e.g., easy creation of aliases
-  ![picture1](media/2023_09_26_admin_context.png)
-- 
