@@ -123,3 +123,9 @@ https://github.com/HGlab01/ioBroker.tinymqttbroker
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
 This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
+
+## awtrix-light (2.10.2023)
+https://github.com/klein0r/ioBroker.awtrix-light
+
+Integrate your Awtrix Light device (e.g. Ulanzi TC001) via HTTP
+
