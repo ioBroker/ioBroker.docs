@@ -129,3 +129,7 @@ https://github.com/klein0r/ioBroker.awtrix-light
 
 Integrate your Awtrix Light device (e.g. Ulanzi TC001) via HTTP
 
+## webui (3.10.2023)
+https://github.com/iobroker-community-adapters/ioBroker.webui
+
+This is a complete visualization system for ioBroker.
