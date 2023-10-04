@@ -137,3 +137,12 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
 
 This is a complete visualization system for ioBroker.
+
+## heizungssteuerung (4.10.2023) - new adapter
+https://github.com/jbeenenga/ioBroker.heizungssteuerung
+
+<img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
+
+This adapter can be used to manage heating systems. You can choose between cooling and heating mode and activate boost or pause for one room. Furthermore you can overwrite the target temperature for one room.
+
+
