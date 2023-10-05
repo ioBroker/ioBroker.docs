@@ -77,8 +77,8 @@ Adapter for HDMI CEC - You can monitor / control devices using HDMI CEC. Most mo
   ![picture1](media/2023_09_10_vis-2-widgets-material-lock-1.png)
   ![picture1](media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
-## pushbullet (2023-09-10)
-<img src="https://raw.githubusercontent.com/mcm1957/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
+## pushbullet (2023-09-10) 
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
 
 * (bluefox) API has been updated to version 3
 * (bluefox) JSON configuration was added
@@ -111,25 +111,38 @@ Easily create Telegram Menus
 * (foxriver76) Upgrade installer to just allow Node.js 16.x+
 
 ## apg-info (2023-09-16)
-https://github.com/HGlab01/ioBroker.apg-info
+https://github.com/HGlab01/ioBroker.apg-info - new adapter
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.apg-info/master/admin/apg-info.png" width="100" height="100" />
 
 This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
 
-## tinymqttbroker (2023-09-16)
+## tinymqttbroker (2023-09-16) - new adapter
 https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
 This is a very tiny MQTT broker which is not managing any objects/states in iobroker but offers a central MQTT broker instance to publish an subscribe topics as MQTT client. 
 
-## awtrix-light (2.10.2023)
+## awtrix-light (2.10.2023) - new adapter
 https://github.com/klein0r/ioBroker.awtrix-light
+
+<img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" width="100" height="100" />
 
 Integrate your Awtrix Light device (e.g. Ulanzi TC001) via HTTP
 
-## webui (3.10.2023)
+## webui (3.10.2023) - new adapter
 https://github.com/iobroker-community-adapters/ioBroker.webui
 
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
+
 This is a complete visualization system for ioBroker.
+
+## heizungssteuerung (4.10.2023) - new adapter
+https://github.com/jbeenenga/ioBroker.heizungssteuerung
+
+<img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
+
+This adapter can be used to manage heating systems. You can choose between cooling and heating mode and activate boost or pause for one room. Furthermore you can overwrite the target temperature for one room.
+
+
