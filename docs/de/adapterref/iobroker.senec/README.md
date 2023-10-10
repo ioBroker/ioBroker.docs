@@ -113,39 +113,8 @@ Falls zu einem State keine Dokumentation vorhanden ist, jemand aber weiß, was d
    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Verbindung zwischen ioBroker und Senec.Home hergestellt ist.*
    
 #### Channel: _calc
-Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-/Jahres-Werte zu bestimmten Datenpunkten.
+Dieser Kanal enthielt berechnete Werte. Nicht mehr versorgt, da STATISTIC nicht mehr verfügbar.
 
-* xxx.refDay/Week/Month/Year
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|W|
-
-   *Änderbare Zahl, die angibt, für welchen Tag/Woche/Monat/Jahr die Daten gelten.*
-   
-* xxx.refValue/Week/Mont/Year
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|W|
-
-   *Änderbare Zahl, die angibt, was der Referenzwert zur Berechnung des aktuellen Wertes ist.*
-   
-* xxx.today/week/month/year
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|W|
-
-   *Änderbare Zahl, die den aktuellen Wert für Tag/Woche/Monat/Jahr des entspr. Datenpunkts repräsentiert.*
-   
-* xxx.yesterday/lastWeek/lastMonth/lastYear
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|W|
-
-   *Änderbare Zahl, die den vorangegangenen Wert für Tag/Woche/Monat/Jahr des entspr. Datenpunkts repräsentiert.*
    
 #### Channel: BMS
 
@@ -480,55 +449,8 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbare Zeichenkette, die den Zustand des Systems in Klartext angibt. Leider liegen uns nur die original Senec-Texte in Deutsch vor.*
    
 #### Channel: STATISTIC
-
-* STAT_DAY_BAT_CHARGE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele kWh heute in der Batterie gespeichert wurden.*
-   
-* STAT_DAY_BAT_DISCHARGE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele kWh heute aus der Batterie entnommen wurden.*
-   
-* STAT_DAY_E_GRID_EXPORT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele kWh heute ins Netz eingespeist wurden.*
-   
-* STAT_DAY_E_GRID_IMPORT
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele kWh heute aus dem Netz bezogen wurden.*
-   
-* STAT_DAY_E_HOUSE
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die den heutigen Hausverbrauch in kWh angibt.*
-   
-* STAT_DAY_E_PV
-
-    |Data type|Permission|                                                                       
-    |:---:|:---:|
-    |number|R|
-
-   *Nur lesbare Zahl, die angibt, wieviele kWh heute von der PV Anlage produziert wurden.*
-   
+Existiert nicht mehr
+ 
    
 #### Channel: SYS_UPDATE
 
@@ -600,6 +522,15 @@ Dieser Kanal enthält berechnete Werte. Aktuell sind dies Tages-/Wochen-/Monats-
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
+### 1.6.7 (NoBl)
+* Added option to turn off local polling.
+
+### 1.6.6 (NoBl)
+* Node 16 required
+* Bugfixes
+* Removed non-existing branches: _calc, Bat1Obj[2-4], Display, Statistic, File
+* Added branches: CURRENT_IMBALANCE_CONTROL, BMZ_CURRENT_LIMITS, CELL_DEVIATION_ROC, SENEC_IO_OUTPUT, SENEC_IO_INPUT
+
 ### 1.6.5 (NoBl)
 * Added AllTime Statistics (trigger initial calculations in adapter settings)
 * https is now default for new instances

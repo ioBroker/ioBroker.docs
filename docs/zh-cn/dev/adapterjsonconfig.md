@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: O3SEv62cWxOopwE+VNvtxc6nqI53posCSvBi4O2HaLM=
+hash: LexY9A0at19A+Ujovu4Yx+sKBDambx+4gyh2wEa98vM=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -37,12 +37,13 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `tabs` - 带有项目的选项卡
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
+  - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
 - `面板` - 带有项目的选项卡
-  - `icon` - 选项卡可以有图标 (base64)
+  - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
-  - `可折叠` - 只能作为选项卡的一部分
+  - `可折叠` - 只能作为选项卡的一部分[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - `color` - 可折叠标题的颜色 `primary` 或 `secondary` 或什么都没有
 
 - `text` - 文本组件
@@ -92,13 +93,6 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `自动完成`
   - `选项` - `["value1", "value2", ...]` 或 `[{"value": "value", "label": "Value1"}, "value2", ...]`
   - `freeSolo` - 将 `freeSolo` 设置为 `true`，因此文本框可以包含任意值。
-
-- `!icon` - base64 图标
-  - `最大尺寸`
-  - `最大宽度`
-  - `最大高度`
-  - `crop` - 如果为 true，则允许用户裁剪图像（仅适用于非 svg）
-  - `square` - 宽度必须等于高度，或者裁剪必须只允许正方形作为形状
 
 - `image` - 将图像保存为`adapter.X`对象的文件或属性中的base64
   - `filename` - 文件名是结构名称。在下面的示例中，`login-bg.png` 是 `writeFile("myAdapter.INSTANCE", "login-bg.png")` 的文件名
@@ -166,7 +160,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
     - `textAlive` - 默认文本是“实例 %s 处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
     - `textNotAlive` - 默认文本是`实例 %s 不活动`，其中 %s 将被替换为 `ADAPTER.0`。
 
-- `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
+- `pattern` - 具有“https://${data.ip}:${data.port}”等模式的只读字段（不会保存在配置中）
 
   带有只读标志的文本输入，显示模式。
 
@@ -186,7 +180,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
       `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
-    - `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用“base64”图标。 （如果您需要更多图标，请通过问题请求）
+    - `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`。您可以使用“base64”图标（例如“data:image/svg+xml;base64,...”）或“jpg/png”图像（以“.png”结尾）。 （如果您需要更多图标，请通过问题请求）
     - `useNative` - 如果适配器返回带有 `native` 属性的结果，它将用于配置。如果“saveConfig”为 true，将请求用户保存配置。
     - `showProcess` - 在请求进行时显示微调器
     - `timeout` - 请求超时（以毫秒为单位）。默认值：无。
@@ -208,7 +202,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
     - `button` - 将链接显示为按钮
     - `variant` - 按钮类型（`outlined`、`contained`、`text`）
     - `color` - 按钮的颜色（例如`primary`）
-    - `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload` 。您可以使用“base64”图标（以“data:image/svg+xml;base64,...”开头）。 （如果您需要更多图标，请通过问题请求）
+    - `icon` - 是否应显示图标：`auth`、`send`、`web`、`warning`、`error`、`info`、`search`、`book`、`help`、`upload` 。您可以使用 `base64` 图标（以 `data:image/svg+xml;base64,...` 开头）或 `jpg/png` 图像（以 `.png` 结尾）。 （如果您需要更多图标，请通过问题请求）
 
 - `staticImage` - 静态图像
     - `href` - 可选的 HTTP 链接
@@ -415,7 +409,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则用当前坐标初始化字段
+  - `autoInit` - 如果为空，则使用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
@@ -450,9 +444,6 @@ adapter.on('message', obj => {
 - `disabled` - 可以使用 `native.attribute` 进行计算的 JS 函数
 - `help` - 帮助文本（多语言）
 - `helpLink` - href 帮助（只能与 `help` 一起使用）
-- `图标` - base64 svg
-- `!encrypted` - 值是否加密（当然仅适用于文本）
-  - 如果加密，则使用“__encrypted__”值进行显示，如果更改，则使用“socket.encrypt”对其进行加密
 - `style` - ReactJS 表示法中的 css 样式：`radiusBorder` 而不是 `radius-border`。
 - `darkStyle` - 深色模式的 css 样式
 - `validator` - JS 函数： true 无错误， false - 错误

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: kKMb1dxFc/rDAhwj4SwKf/sZmTvLYcKs86zSPWHBhF4=
+hash: wTeQqpdC016MkqkxOvzgxJrsAjA1XX7nPJN0upqHLzo=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,7 +19,7 @@ hash: kKMb1dxFc/rDAhwj4SwKf/sZmTvLYcKs86zSPWHBhF4=
 [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info-Adapter für ioBroker
-Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX-AT Day-Ahead (EPEX Spot) Preise für Österreich bereit.
+Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX Day-Ahead (EPEX Spot)-Preise für Österreich und Deutschland bereit (in den Adaptereinstellungen konfigurieren).<br> `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
@@ -32,8 +32,25 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.1 (2023-09-11)
-* (HGlab01) first release
+### 0.0.7-alpha.1 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+* (HGlab01) add jsonChart-json for market prices
+
+### 0.0.6 (2023-10-04)
+* (HGlab01) fix "TypeError: Cannot read properties of undefined (reading 'Warning')"
+
+### 0.0.5 (2023-10-03)
+* (HGlab01) switch data provider for prices to EXAA
+* (HGlab01) support DE market prices in addiotion to AT prices
+
+### 0.0.3 (2023-09-24)
+* (HGlab01) add point in times sorted as array
+* (HGlab01) add average price
+* (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
+
+### 0.0.2 (2023-09-14)
+* (HGlab01) add number of days below/above treshold
+* (HGlab01) add states sorted by price
 
 ## License
 MIT License

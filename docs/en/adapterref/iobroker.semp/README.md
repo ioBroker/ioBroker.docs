@@ -52,17 +52,21 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 * please create issues at [github](https://github.com/rg-engineering/ioBroker.semp/issues) if you find bugs or whish new features
 
 ## Changelog
+### 1.3.10 (2023-10-03)
+* (René) bug fix: removed missing Start() call in wallbox (avoid exception)
+* (René) see issue #30: URL can be used to set recommended power to wallbox (attention: still only power, not current as needed for go-e)
+
 ### 1.3.9 (2023-09-24)
-(René) see issue #30: bug fix URL as string to be used
+* (René) see issue #30: bug fix URL as string to be used
 
 ### 1.3.8 (2023-09-23)
-(René) see issue #30: URL can now be used directly to get status of wallbox (JSON only)
+* (René) see issue #30: URL can now be used directly to get status of wallbox (JSON only)
 
 ### 1.3.7 (2023-09-02)
-(René) see issue #30: bug fix for type based status check of wallboxes
+* (René) see issue #30: bug fix for type based status check of wallboxes
 
 ### 1.3.6 (2023-08-28)
-  (René) see issue #81: smaller bug fixes
+* (René) see issue #81: smaller bug fixes
 
 ### 1.3.5 (2023-08-26)
 * (René) see issue #81: wallbox three phase enabler by URL

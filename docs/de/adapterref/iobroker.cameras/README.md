@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: UVa1GRfkkhHgm8Z1m3FgE2CNIFRQM7CQ9OSXFi/VCJA=
+hash: G5ILPuXndl+4ODPBk23JmubLFHujA1t7T865XkR354k=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -37,7 +37,16 @@ Das Ergebnis liegt immer im Format `jpg` vor.
 
 Unterstützte Kameras:
 
-### URL-Bild Dies ist eine normale URL-Anfrage, bei der alle Parameter in der URL enthalten sind. Gefällt mir `http://mycam/snapshot.jpg`
+- Reolink E1 Pro über RTSP (wichtig, ohne „Pro“ geht es nicht)
+- Eufy über Eusec-Adapter
+- [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7 -2-Generation-) der zweiten und dritten Generation über ONVIF (für S6, Q8, A7 2. Generation), A7 Pro, A9
+- [WIWICam M1 über HiKam-Adapter](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
+- RTSP Native – wenn Ihre Kamera das RTSP-Protokoll unterstützt
+- Screenshots über HTTP-URL – wenn Sie den Schnappschuss von Ihrer Kamera über die URL erhalten können
+
+### URL-Bild
+Dies ist eine normale URL-Anfrage, bei der alle Parameter in der URL enthalten sind. Gefällt mir `http://mycam/snapshot.jpg`
+
 ### URL-Bild mit Basisauthentifizierung
 Dies ist eine URL-Anfrage für ein Bild, bei der alle Parameter in der URL enthalten sind, Sie jedoch die Anmeldeinformationen für die Basisauthentifizierung angeben können. Gefällt mir `http://mycam/snapshot.jpg`
 
@@ -51,11 +60,32 @@ Hier ist ein Beispiel für das Hinzufügen von Reolink E1:
 
 ![rtsp](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
+## So fügen Sie eine neue Kamera hinzu (Für Entwickler)
+Um eine neue Kamera hinzuzufügen, müssen Sie einen Pull Request auf GitHub mit den folgenden Änderungen erstellen:
+
+- Fügen Sie eine neue Datei zum Ordner „Kameras“ hinzu. Dies ist ein Backend, um das einzelne Bild von der Kamera zu lesen.
+- Fügen Sie die GUI-Datei im Ordner „src/src/Types/“ hinzu. Dies ist der Konfigurationsdialog für die Kamera
+- Fügen Sie diesen Dialog in der Datei „src/src/Tabs/Cameras.js“ hinzu, analog zum Hinzufügen anderer Kameras. Es sollten nur zwei Zeilen hinzugefügt werden:
+  - Importieren Sie einen neuen Konfigurationsdialog wie „import RTSPMyCamConfig from '../Types/RTSPMyCam';“.
+  - Erweitern Sie die `TYPES`-Struktur mit der neuen Kamera wie `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
+
+    Der Attributname muss mit dem Namen der Datei im Ordner `cameras` übereinstimmen.
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Changed widget set name
+
+### 1.3.0 (2023-09-28)
+* (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher
+* (bluefox) Implemented a second widget for simple cameras
+
+### 1.2.3 (2023-09-27)
+* (bluefox) Added WiWiCam MW1 and HiKam cameras
+
 ### 1.2.2 (2023-07-07)
 * (bluefox) Corrected passwords with exclamation mark
 
@@ -82,7 +112,7 @@ Hier ist ein Beispiel für das Hinzufügen von Reolink E1:
 * (bluefox) Preparations for js-controller@4.x are made
 
 ### 0.1.4 (2021-07-13)
-* (bluefox) Add role for states
+* (bluefox) Add a role for states
 
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied

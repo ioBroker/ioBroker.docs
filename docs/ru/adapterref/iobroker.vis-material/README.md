@@ -3,27 +3,25 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-material/README.md
 title: ioBroker.vis-материал
-hash: DaRFePAumlXVn0w4cJGm3OBHbcAqAvL58a4S7jdtG1g=
+hash: MYsxfscz9r6IlcJpl12t36MveqGuaH5NlMlqsC0Ax0U=
 ---
-![логотип](../../../en/adapterref/iobroker.vis-material/admin/material.png)
+![Логотип](../../../en/adapterref/iobroker.vis-material/admin/material.png)
 
 ![Количество установок](http://iobroker.live/badges/vis-material-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-material.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-material.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-material.svg)
-![Трэвис-CI](http://img.shields.io/travis/nisiode/ioBroker.vis-material/master.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-material.png?downloads=true)
+![НПМ](https://nodei.co/npm/iobroker.vis-material.png?downloads=true)
 
-# IoBroker.vis-material ============
-материал - виджеты материалов для ioBroker.vis.
+# IoBroker.vis-материал
+материал — виджеты материалов для ioBroker.vis.
 
-Вы можете прочитать инструкции в файлах material.js, material.html.
+Инструкции можно прочитать в файлахmaterial.js,material.html.
 
-Эти виджеты являются дополнением к стилю оформления материалов Uhula, который вы можете найти здесь: https://github.com/Uhula/ioBroker-Material-Design-Style
+Эти виджеты дополняют стиль материального дизайна Uhula, который вы можете найти здесь: https://github.com/Uhula/ioBroker-Material-Design-Style.
 
-![пример](../../../en/adapterref/iobroker.vis-material/img/widgets.png)
+![Пример](../../../en/adapterref/iobroker.vis-material/img/widgets.png)
 
 ## Changelog
-
 ### 0.1.5 (2018-07-11)
 - (pix) feat: new window shutter widget
 
@@ -46,5 +44,24 @@ hash: DaRFePAumlXVn0w4cJGm3OBHbcAqAvL58a4S7jdtG1g=
 - (nisio) Initial version for internal testing
 
 ## License
- Copyright (c) 2018-2018 nisiode
- MIT
+The MIT License (MIT)
+
+Copyright (c) 2015-2023 nisiode <nisio.air@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

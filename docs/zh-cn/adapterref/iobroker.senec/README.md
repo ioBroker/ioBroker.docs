@@ -9,7 +9,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.senec/README.md
 title: ioBroker.senec
-hash: n0udcB9LwDV3pNK2snIyndfuJomhJIy8fF/3PJqGuSM=
+hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
 ---
 ![标识](../../../de/adapterref/iobroker.senec/admin/senec.png)
 
@@ -115,39 +115,7 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
    *只读布尔值，当ioBroker和Senec.Home建立连接时为true。*
 
 #### 频道：_calc
-该通道包含计算值。目前这些是特定数据点的每日/每周/每月/每年值。
-
-* xxx.ref日/周/月/年
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数量|W|
-
-   *可更改的数字表示数据适用于哪一天/周/月/年。*
-
-* xxx.refValue/周/月/年
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数量|W|
-
-   *可变数字指示计算当前值的参考值。*
-
-* xxx.今天/周/月/年
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数量|W|
-
-   *代表相应数据点的当前日/周/月/年值的可变数字。*
-
-* xxx.昨天/上周/上个月/去年
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数量|W|
-
-   *代表相应数据点前一天/周/月/年值的可变数字。*
+该通道包含计算值。不再提供，因为 STATISTIC 不再可用。
 
 #### 通道：BMS
 * BL[0-3]
@@ -480,53 +448,7 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
    *只读字符串，以纯文本形式指示系统状态。不幸的是，我们只有德语版的 Senec 文本。*
 
 #### 频道：统计
-* STAT_DAY_BAT_CHARGE
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *只读数字，表示今天电池中存储了多少千瓦时。*
-
-* STAT_DAY_BAT_DISCHARGE
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *可读数字仅表示今天从电池中移除了多少千瓦时。*
-
-* STAT_DAY_E_GRID_EXPORT
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *唯一可读的数字表示今天有多少千瓦时并入电网。*
-
-* STAT_DAY_E_GRID_导入
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *仅可读数字，表示今天从电网消耗了多少千瓦时。*
-
-* STAT_DAY_E_HOUSE
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *仅供可读数字，表示今天的房屋消耗量（千瓦时）。*
-
-* STAT_DAY_E_PV
-
-    |数据类型|权限|
-    |:---:|:---:|
-    |数字|R|
-
-   *仅可读数字表明光伏系统今天发电了多少千瓦时。*
+不复存在
 
 #### 频道：SYS_UPDATE
 * NPU_IMAGE_VERSION
@@ -551,7 +473,7 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
     |:---:|:---:|
     |布尔值|R|
 
-   *仅可读的布尔值，指示更新是否可用（但是，这些由 Senec 提供并且也会自动安装）。*
+   *仅可读的布尔值，指示更新是否可用（但是，这些是由 Senec 提供的，并且也会自动安装）。*
 
 #### 频道：向导
 * 应用程序_版本
@@ -595,6 +517,28 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
    *仅可读文本指示任何壁箱 0-3 的序列号。*
 
 ## Changelog
+### 1.6.7 (NoBl)
+* Added option to turn off local polling.
+
+### 1.6.6 (NoBl)
+* Node 16 required
+* Bugfixes
+* Removed non-existing branches: _calc, Bat1Obj[2-4], Display, Statistic, File
+* Added branches: CURRENT_IMBALANCE_CONTROL, BMZ_CURRENT_LIMITS, CELL_DEVIATION_ROC, SENEC_IO_OUTPUT, SENEC_IO_INPUT
+
+### 1.6.5 (NoBl)
+* Added AllTime Statistics (trigger initial calculations in adapter settings)
+* https is now default for new instances
+
+### 1.6.4 (NoBl)
+* Bugfix (numbers are numbers again)
+
+### 1.6.3 (NoBl)
+* Code optimization
+
+### 1.6.2 (NoBl)
+* Added statistics values from API along with some own calculations.
+
 ### 1.6.1 (NoBl)
 * Bugfixes
 

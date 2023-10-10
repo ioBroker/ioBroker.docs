@@ -41,6 +41,8 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 
 ## Changelog
 
+### 0.3.1
+* Code Quality Improvements
 ### 0.3.0
 * Add support for BSB_LAN 2.x
 * BREAKING: Names of 24h Average values changed (e.g. Außentemperatur_(8700) => 24h Durchschnittswert. Außentemperatur_(20050))
@@ -72,6 +74,28 @@ The BSB_LAN Interface brings the BSB (Boiler System Bus) to LAN. This adapter co
 
 ### 0.0.1
 * (hacki11) initial release
+## License
+MIT License
+
+Copyright (c) 2023 hacki11
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ## Credits
 - Icon made by [Freepik](https://www.freepik.com/home) from www.flaticon.com

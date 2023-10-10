@@ -3,9 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: yjdW1qnpqD83Ji1Oov1Ih8lpB7KE38Q4PLHsdrpz/v0=
+hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 ---
 # IoBroker.webui
+
+![安装数量](https://iobroker.live/badges/webui-installed.svg)
+![稳定版](https://iobroker.live/badges/webui-stable.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.webui.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.webui.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.webui.png?downloads=true)
+
 ioBroker 的 webui
 
 ![图像](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)

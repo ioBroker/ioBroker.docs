@@ -3,62 +3,62 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
+hash: SGZuGqRJeW7c5U8Vgtso6l5ZQUBvFkhvPdWzJ1vl4+E=
 ---
 ![标识](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![安装数量](http://iobroker.live/badges/sonos-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
-#ioBroker.sonos
-![测试和发布](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# IoBroker.sonos
+![测试与发布](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 使用 ioBroker 控制和监控 SONOS 设备。
 
 ## 组的处理
 * 处理 SONOS 组的状态：
-   * **`coordinator`**：设置/获取协调器，即主控和协调组的 SONOS 设备。它需要 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线“_”而不是点“.”，因此使用例如“192_168_0_100”来表示 IP 地址“192.168.0.100”。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
-   * **`group_volume`**: 组的音量
-   * **`group_muted`**: 组的静音状态。
-   * **`add_to_group`**：将某个SONOS设备添加到该状态下的SONOS设备。使用带下划线的 IP 地址（见上文）。
-   * **`remove_from_group`**：从该状态下的SONOS设备中移除某个SONOS设备。使用带下划线的 IP 地址（见上文）。
+   * **`coordinator`**：设置/获取协调器，因此 SONOS 设备是主设备并协调组。它要求 SONOS 设备的 IP 地址（通道名称）作为协调器，但使用下划线“_”而不是点“.”，因此使用例如“192_168_0_100”作为 IP 地址“192.168.0.100”。如果设备不属于任何组，则该值等于自己的通道名称 (IP)。
+   * **`group_volume`**：组的音量
+   * **`group_muted`**：群组静音状态。
+   * **`add_to_group`**：将某个SONOS设备添加到该状态下的SONOS设备中。使用带下划线的 IP 地址（见上文）。
+   * **`remove_from_group`**：从该状态所在的SONOS设备中删除某个SONOS设备。使用带下划线的 IP 地址（见上文）。
 
-*) 如果在 SONOS 应用程序中进行更改，这些状态将更新。
+*) 如果在 SONOS 应用程序中进行更改，这些状态将会更新。
 
 ## 与 sayIt 适配器一起使用
-要使用 [sayit 适配器](https://github.com/ioBroker/ioBroker.sayit) 与此 SONOS 适配器，确保 [web 适配器](https://github.com/ioBroker/ioBroker.web) 也会实例化并运行。 Web 适配器需要允许 SONOS 适配器从 sayit 适配器读取生成的 MP3 文件。
+使用 [sayit 适配器](https://github.com/ioBroker/ioBroker.sayit) 使用此 SONOS 适配器，确保 [Web 适配器](https://github.com/ioBroker/ioBroker.web) 已实例化并运行。需要 Web 适配器才能允许 SONOS 适配器从 sayit 适配器读取生成的 MP3 文件。
 
-### 警告：结合 sayIt 适配器的稳定性问题
-请注意：如果将“文本转语音”与 sayIt 适配器一起使用，则此 SONOS 适配器会出现稳定性问题。观察到的症状：
+### 警告：与 sayIt 适配器结合使用时存在稳定性问题
+请注意：如果将“文本转语音”与 sayIt 适配器一起使用，此 SONOS 适配器会出现稳定性问题。观察到的症状：
 
-1. 任意将音量更改为 0 或 100 %。
-2.随机数个文本转语音序列后无响应
+1. 任意改变音量至0或100%。
+2. 随机数量的文本转语音序列后没有响应
 
 文本转语音的解决方法是使用 [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api)。
 
 ## VIS 中的收藏夹和队列
-使用状态 `favorites_list_html` 和 `queue_html` 在 VIS 中使用基本的 html 小部件显示播放列表和当前队列。通过单击一行，播放列表或曲目将立即播放。
+使用状态`favorites_list_html`和`queue_html`通过VIS中的基本html小部件显示播放列表和当前队列。通过单击一行，将立即播放播放列表或曲目。
 使用以下 css 类格式化表格：
 
-###收藏夹
-* `sonosFavoriteTable`: 最喜欢的表
-* `sonosFavoriteRow`: 包含收藏信息的行
-* `sonosFavoriteNumber`: 收藏数量
-* `sonosFavoriteCover`：最喜欢的专辑封面（使用 `.sonosFavoriteCover img` 抓取图像）
-* `sonosFavoriteTitle`: 最喜欢的名字
+### 收藏夹
+* `sonosFavoriteTable`：最喜欢的表格
+* `sonosFavouriteRow`：包含收藏夹信息的行
+* `sonosFavoriteNumber`: 收藏夹数量
+* `sonosFavoriteCover`：最喜欢的专辑艺术（使用`.sonosFavoriteCover img`抓取图像）
+* `sonosFavoriteTitle`: 最喜欢的名称
 
 ＃＃＃ 队列
-*`.sonosQueueTable`：孔表
-* `.sonosQueueRow`：包含轨道信息的行
+* `.sonosQueueTable`：孔表
+* `.sonosQueueRow`：包含曲目信息的行
 * `.currentTrack`: 添加到包含当前播放曲目的行
-* `.sonosQueueTrackNumber`: 编号或轨道
-* `.sonosQueueTrackCover`：曲目的专辑封面（使用 `.sonosQueueTrackCover img` 抓取图像）
-* `.sonosQueueTrackArtist`: 艺术家姓名
+* `.sonosQueueTrackNumber`：编号或曲目
+* `.sonosQueueTrackCover`：曲目的专辑封面（使用`.sonosQueueTrackCover img`抓取图像）
+* `.sonosQueueTrackArtist`：艺术家姓名
 * `.sonosQueueTrackAlbum`：专辑名称（如果不需要，请使用 `display:none`）
-* `.sonosQueueTrackTitle`: 标题名称
+* `.sonosQueueTrackTitle`：标题名称
 
-对于长列表，将 `overflow:auto;` 或 `overflow-y:auto;` 添加到基本 html 小部件。
+对于长列表，请将 `overflow:auto;` 或 `overflow-y:auto;` 添加到基本 html 小部件。
 请注意：不支持突出显示当前播放的最爱。
 
 ### 示例 CSS
@@ -111,13 +111,26 @@ hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 
 ＃＃ 配置
 - Web 服务器 - [可选] 是否启用 Web 服务器
-- 更新经过时间（毫秒） - 以毫秒为单位的间隔，在播放标题时更新经过的计时器的频率。 （默认 2000）
+- 更新经过时间（毫秒） - 标题播放时更新经过计时器的间隔（以毫秒为单位）。 （默认 2000）
 
-<!-- 下一个版本的占位符（在行首）：
+<!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### 3.0.0 (2023-10-09)
+* (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
+* (bluefox) The minimal node.js version is 16
+
+### 2.3.3 (2023-09-21)
+* (foxriver76) fixed cover url
+
+### 2.3.2 (2023-09-20)
+* (foxriver76) store the cover file in files instead of binary states
+
+### 2.3.1 (2023-03-22)
+* (Apollon77) Prepare for future js-controller versions
+
 ### 2.3.0 (2023-01-11)
 * (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found

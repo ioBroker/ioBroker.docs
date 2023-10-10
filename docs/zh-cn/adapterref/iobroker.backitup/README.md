@@ -10,7 +10,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: 免责声明
-hash: 2FXfXlEEV6RU+pjzGy0iuMcc41LpHEUjayLXUYunXKo=
+hash: +l9qnD1bqIzOOrGHvwfikKTDSKnjDGcfm3HW8hiTMMU=
 ---
 ![标识](https://github.com/simatec/ioBroker.backitup/blob/master/docs/de/img/backitup.png)
 
@@ -183,16 +183,16 @@ bind-address = "0.0.0.0:8088"
 如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>这里重要的是，即使 PostgreSQL 服务器运行在远程系统上，PostgreSQL 也必须运行在 ioBroker 系统上。<br>有 Linux 系统的安装说明[这里](https://www.postgresql.org/download/linux/debian/)。<br><br>如果您不想只备份一个数据库，则可以激活“备份多个系统”选项，然后在表中定义您的数据库。
 
 ## JavaScript 备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>从 ioBroker.backitup 版本 2.2.0 开始，脚本直接从对象保存。旧版 ioBroker.backitup 的 Javascript 备份不兼容恢复！<br><br>为了能够使用 ioBroker.backitup 版本 &lt; 2.2.0 执行 Javascript 备份，必须在 Javascript 适配器配置中提前设置菜单项“在文件路径中镜像脚本”和“执行镜像的实例”。<br>然后 ioBroker.backitup 可以应用配置菜单中的设置。
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>从 ioBroker.backitup 版本 2.2.0 开始，脚本直接从对象保存。旧版 ioBroker.backitup 的 Javascript 备份不兼容恢复！<br><br>为了能够使用 ioBroker.backitup 版本 &lt; 2.2.0 执行 Javascript 备份，必须在 Javascript 适配器配置中提前设置菜单项“在文件路径中镜像脚本”和“执行镜像的实例”。<br>然后 ioBroker.backitup 可以应用配置菜单中的设置。
 
 ## 贾维斯备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>
 
 ## Zigbee 备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ## Zigbee2MQTT 备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ioBroker.backitup 适配器中的路径应始终直接在 zigbee2mqtt 的“数据”路径上创建。
 示例：`/opt/zigbee2mqtt/data` 或通过 Docker 安装 zigbee2mqtt 直接进入卷
@@ -210,10 +210,10 @@ sudo reboot
 如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ## Grafana 备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br> **为了创建 Grafana 备份，需要 Grafana 用户名 (admin) 和密码。**<br><br> **此外，必须在 Grafana Web 界面中生成 API 密钥或服务令牌才能访问仪表板。**<br> API 密钥可以在***“配置 → API 密钥或服务令牌”***下创建，并且必须具有完整的管理权限。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br> **为了创建 Grafana 备份，需要 Grafana 用户名 (admin) 和密码。**<br><br> **此外，必须在 Grafana Web 界面中生成 API 密钥或服务令牌才能访问仪表板。**<br> API 密钥可以在***“配置 → API 密钥或服务令牌”***下创建，并且必须具有完整的管理权限。
 
 ## 夜卡备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>所有系统设置和设备设置均由 Homekit 备份。
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>所有系统设置和设备设置均由 Homekit 备份。
 
 _[回到顶部](#top)_
 
@@ -314,7 +314,7 @@ _[回到顶部](#top)_
 # Docker 支持
 从2.2.0版本开始，支持在官方Docker容器中进行备份和恢复。
 
-由于Docker容器中不应安装任何数据库系统，因此不支持所有数据库的备份，并且在识别Docker容器时默认无法选择。为了仍然能够备份外部数据库，必须设置两个容器环境变量：
+由于Docker容器中不应该安装任何数据库系统，因此不支持所有数据库的备份，并且在识别Docker容器时默认无法选择。为了仍然能够备份外部数据库，必须设置两个容器环境变量：
 
 * IOB_BACKITUP_EXTDB=true
 * 套餐
@@ -341,7 +341,9 @@ _[回到顶部](#top)_
     * info.iobrokerNextTime -> 显示ioBroker备份的下一次执行时间
     * info.latestBackup -> 显示为 json 启动时确定的最后一个备份
 
-2. Vis中显示历史日志
+2、Vis中查看备份历史日志
+   - 备份历史记录显示最近的x个备份
+   - 可以在额外设置中设置要显示的历史条目数。
    - 可以在 HTML 小部件中显示历史日志，例如，通过在 HTML 中输入以下行：
 
 ```
@@ -475,7 +477,7 @@ iobroker fix
 sudo reboot
 ```
 
-7、如果创建Redis数据库时出现错误提示，请检查您的用户iobroker是否有权限以及是否存在于Redis用户组中。
+7. 如果您在创建Redis数据库时出现错误提示，请检查您的用户iobroker是否有权限以及是否存在于Redis用户组中。
 
     如果不是这种情况，您可以在控制台中使用以下命令修复此问题。
 
@@ -486,7 +488,7 @@ sudo reboot
 
     如果您没有使用安装程序脚本设置 ioBroker 安装，并且您的用户具有不同的名称，请在命令中将“iobroker”替换为您的用户。
 
-8. 如果将 Fritzbox 用作固件 >= 7.21 的 NAS，则应在 ioBroker.backitup 中将 SMB 设置设置为“3.1.1”，并激活“noserverino”选项。
+8. 如果将 Fritzbox 用作固件 >= 7.21 的 NAS，则应在 ioBroker.backitup 中将 SMB 设置设置为“3.1.1”，并应激活“noserverino”选项。
 
 _[回到顶部](#top)_
 
@@ -494,6 +496,13 @@ _[回到顶部](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.8.3 (2023-10-10)
+* (simatec) Wake on LAN Advanced Settings added
+* (simatec) dependencies updated
+
+### 2.8.2 (2023-09-28)
+* (simatec) Fix redis backup
+
 ### 2.8.1 (2023-09-12)
 * (simatec) Fix roles
 * (simatec) help-links added

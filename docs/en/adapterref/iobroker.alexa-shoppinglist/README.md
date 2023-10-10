@@ -71,6 +71,10 @@ function setOnDblClickCustomShop( myvalue) {
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 16.x
+
 ### 0.1.5 (09.01.2023)
 
 - Error when deleting via the JSON list fixed

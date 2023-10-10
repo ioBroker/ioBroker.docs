@@ -35,6 +35,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+Several dependency updates
+### 3.0.7 (01.10.2023)
+* (HombachC) Several dependency updates 
 ### 3.0.6 (27.08.2023)
 * (HombachC) improved error handling in case of offline inverters - centralized error handling 
 ### 3.0.5 (19.08.2023)

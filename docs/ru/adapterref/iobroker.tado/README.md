@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: u6RHwdGE8h+6GmwqJEo0/eXOOBqw568qHzRfz6s4tKk=
+hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
 ---
 # IoBroker.tado
 
@@ -25,7 +25,7 @@ tado° обеспечивает комфортный и здоровый кли�
 | Государство | Описание |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power | Включить/выключить устройство |
-| тадо.[x].[гггггг].Комнаты.[z].setting.temperature.celsius | Определить температуру |
+| тадо.[x].[yyyyyy].Комнаты.[z].setting.temperature.celsius | Определить температуру |
 | tado.[x].[yyyyyy].Rooms.[z].overlayClearZone | Переключиться в автоматический режим |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp | Установить режим расписания |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds | Установите, как долго будет действовать режим расписания |
@@ -35,7 +35,7 @@ tado° обеспечивает комфортный и здоровый кли�
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Включить/выключить обнаружение открытого окна на термостате |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Тайм-аут, в течение которого термостаты отключаются при обнаружении открытого окна |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Выключать термостаты при обнаружении открытого окна (работает только в том случае, если термостат обнаруживает открытое окно) |
-| тадо.[x].[гггггг].Home.state.presence | Установите режим ДОМА или ВЫЙДИТЕ |
+| тадо.[x].[гггггг].Home.state.presence | Установите режим ДОМА, В гостях или АВТО |
 | тадо.[x].[гггггг].Home.masterswitch | Включить/выключить все устройства |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | Режим переменного тока (только устройства переменного тока) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Скорость вентилятора (только устройства переменного тока с V3 и более ранними версиями) |
@@ -53,6 +53,10 @@ tado° обеспечивает комфортный и здоровый кли�
     ### __WORK IN PROGRESS__
 
 -->
+### 0.4.11 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
 * (HGlab01) improve axios keep_a_live
@@ -69,12 +73,6 @@ tado° обеспечивает комфортный и здоровый кли�
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
 * (HGlab01) Bump axios to 1.3.6
-
-### 0.4.6 (2023-04-12)
-* (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
-* (HGlab01) improve ETIMEDOUT issue
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
-* (HGlab01) js-controller v5 readiness (#618)
 
 ## License
 MIT License

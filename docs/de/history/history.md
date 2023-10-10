@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: aqX8HvUjquoJThp/l6FE0+UWXoJ0pS2GufidZG86ISk=
+hash: ydCcQNeaJsdSO0DpIiPNzdsditWhD967JCb2ljfBpI0=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -90,7 +90,7 @@ Adapter für HDMI CEC – Sie können Geräte mit HDMI CEC überwachen/steuern. 
 ![Bild 1](media/2023_09_10_vis-2-widgets-material-lock-1.png) ![Bild 1](../../en/history/media/2023_09_10_vis-2-widgets-material-lock-2.png)
 
 ## Pushbullet (10.09.2023)
-<img src="https://raw.githubusercontent.com/mcm1957/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.pushbullet/master/admin/pushbullet.png" width="100" height="100" />
 
 * (bluefox) API wurde auf Version 3 aktualisiert
 * (bluefox) JSON-Konfiguration wurde hinzugefügt
@@ -130,15 +130,38 @@ Erstellen Sie ganz einfach Telegram-Menüs
 * (foxriver76) Aktualisieren Sie das Installationsprogramm, um nur Node.js 16.x+ zuzulassen
 
 ## Apg-info (16.09.2023)
-https://github.com/HGlab01/ioBroker.apg-info
+https://github.com/HGlab01/ioBroker.apg-info – neuer Adapter
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.apg-info/master/admin/apg-info.png" width="100" height="100" />
 
 Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX-AT Day-Ahead (EPEX Spot) Preise für Österreich bereit.
 
-## Tinymqttbroker (16.09.2023)
+## Tinymqttbroker (16.09.2023) – neuer Adapter
 https://github.com/HGlab01/ioBroker.tinymqttbroker
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.tinymqttbroker/master/admin/tinymqttbroker.png" width="100" height="100" />
 
 Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen.
+
+## Awtrix-light (2.10.2023) – neuer Adapter
+https://github.com/klein0r/ioBroker.awtrix-light
+
+<img src="https://raw.githubusercontent.com/klein0r/ioBroker.awtrix-light/master/admin/awtrix-light.png" width="100" height="100" />
+
+Integrieren Sie Ihr Awtrix Light-Gerät (z. B. Ulanzi TC001) über HTTP
+
+## Webui (3.10.2023) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.webui
+
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
+
+Dies ist ein vollständiges Visualisierungssystem für ioBroker.
+
+## Heizungssteuerung (4.10.2023) - neuer Adapter
+https://github.com/jbeenenga/ioBroker.heizungssteuerung
+
+<img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
+
+Mit diesem Adapter können Heizungsanlagen verwaltet werden.
+Sie können zwischen Kühl- und Heizmodus wählen und für einen Raum Boost oder Pause aktivieren.
+Darüber hinaus können Sie die Solltemperatur für einen Raum überschreiben.

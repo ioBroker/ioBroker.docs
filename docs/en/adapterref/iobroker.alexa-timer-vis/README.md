@@ -58,6 +58,12 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- Breaking change: minimal supported node.js version is 16.x
+- Another String Variation #58
+
 ### 0.2.0 (2023-07-27)
 
 - create Timer with Alexa2 TextCommand, fixed

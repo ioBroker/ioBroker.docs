@@ -63,7 +63,7 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 ## Changelog
 ### 2.5.2
-* correction for komfort, absenk if receiving 253/254 for OFF/ON
+* correction for komfort, absenk if receiving 253/254 for OFF/ON it will be NaN see issue #164
 
 ### 2.5.1
 * correction for energy today value

@@ -26,11 +26,38 @@ For more details and for information how to disable the error reporting see [Sen
 ## Info
 This adapter can be used to poll information from devices like printers, network devices, etc. using SNMP protocol.
 
+## Adapter-Configuration
+The adapter queries specified oids which are grouped within oid groups which in turn are assigned to devices. The configuration data is entered at several tabs. The adapter supports IPv4 adn IPv6 connections.
+
+For destails see documentation referenced below.
+
+## Documentation
+
+[english documentation](docs/en/snmp.md)<br>
+[deutsche Dokumentation](docs/de/snmp.md)<br>
+[russian documentation](docs/ru/snmp.md)
+
 ## Changelog
 
 <!--
 ## __WORK IN PROGRESS__
 -->
+### 2.4.11 (2023-07-13)
+* (McM1957) Node-net-snmp has been updated to improve uint32 handling (#282)
+* (McM1957) Several other dependencies have been updated
+
+### 2.4.10 (2023-07-08)
+* (McM1957) Another typo at error output has been fixed
+
+### 2.4.9 (2023-07-05)
+* (McM1957) An option to disable closing of reader session in case of an error has been added.
+* (McM1957) Logging in case of errors hase been enhanced when debug log enabled.
+
+### 2.4.8 (2023-07-04)
+* (McM1957) fixed: UDP ports got lost during error handling (#282)
+* (McM1957) fixed: Incorrect toString() syntax caused several issues, i.e. missing error output (#283)
+* (McM1957) Dependencies have been updated
+
 ### 2.4.7 (2023-04-12)
 * (McM1957) changed: several externalmodules including net-snmp have been updated
 
@@ -165,54 +192,6 @@ This adapter can be used to poll information from devices like printers, network
 ### 0.0.1
 * (Bluefox)    refactoring
 * (Marcolotti) initial release
-
-## Adapter-Configuration
-The adapter queries specified oids which are grouped within oid groups which in turn are assigned to devices. The configuration data is entered at several tabs:
-
-### TAB OID-Groups
-Here you specify all oids to be queried by the adapter, one oid per line.
-
-| Parameter     | Type        | Description                       | Comment                             |
-|---------------|-------------|-----------------------------------|-------------------------------------|
-| active        | boolean     | if set to true, OID will be used  | can be used to disable a single OID |
-| OID-Group     | text        | name of the OID group             | will used to assign group to device |
-| OID-Name      | text        | name assigned to the OID          | will used to name datapoint         |
-| OID           | text        | oid string (1.2.3.4.)             | oid string as specified by device vendor |
-| writeable     | boolean     | should be set to true if OID is writeable | reserved for future use     |
-| optional      | boolean     | should be set to true if OID is optional  | if set to true, no error will be raised if oid is unknown |
-
-### TAB Device
-Here you specify which devices should be queried.
-
-| Parameter     | Type        | Description                       | Comment                             |
-|---------------|-------------|-----------------------------------|-------------------------------------|
-| active        | boolean     | if set to true, the device will be used  | can be used to disable a single device |
-| Name          | text        | name of the device                | will be used to create name of data points |
-| IP address    | text        | ip address (IPv4 or IPv6) with optional port number    | NOTE: currently only IPv4 is supported |
-| OID-Group     | text        | OID group specified at tab IOD Groups | A OID group can be assigned to more than one device |                   |
-| SNMP-Version  | select      | SNMP version to use               | NOTE: SNMPv3 is not yet supported   |
-| Community (v1, v2c) or Auth-ID (v3) | text | community for SNMP v1 or V2c, authorization group for SNMP v3 | NOTE: SNMPv3 is not yet supported |
-| timeout (sec) | number      | processing timeout in seconds     |                                     |
-| retry (sec)   | number      | retry intervall in seconds        |                                     |
-| polling (sec) | number      | poll intervall in seconds         |                                     |
-
-
-### TAB Authorization
-This tab contains SNMP V3 authorization information. Please note that SNMP V3 is not yet implemented.
-
-| Parameter     | Type        | Description                       | Comment                             |
-|---------------|-------------|-----------------------------------|-------------------------------------|
-
-
-### TAB Options
-Here you specify some general options
-
-| Parameter     | Type        | Description                       | Comment                             |
-|---------------|-------------|-----------------------------------|-------------------------------------|
-| Packetsize    | integer     | maximum number of OIDs sent within a single request | reduce this value in case of TOOBIG errors |
-| Compatibility mode | boolean | if this option is activated, datapoint names are based on ip address | NOTE: outdated - do not use any longer. This flag will not work with IPv6 addresses. Might be removed in future releases. |
-
-
 
 ## License
 The MIT License (MIT)

@@ -15,14 +15,14 @@
 
 Adapter for Myenergi devices
 
-## Loginablauf:
+## Login:
 
-Die Myenergie Hub Seriennummer und den API Key eingeben
-Die Seriennummern findet man unter anderem unter https://myaccount.myenergi.com/ auf dem Tab "myenergi products"
-Dort muss auch ein API Key für den Hub generiert werden.
-Dazu auf "Advanced" klicken, Key generieren
+Enter the Myenergie Hub serial number and API key
+The serial numbers can be found at https://myaccount.myenergi.com/ under the “myenergi products” tab.
+An API key for the hub must also be generated there.
+To do this, click on “Advanced” and generate key
 
-## Fragen und Diskussionen
+## Questions and discussions
 
 <https://forum.iobroker.net/topic/60175/test-myenergi-adapter>
 

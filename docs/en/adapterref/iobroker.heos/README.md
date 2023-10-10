@@ -147,6 +147,8 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 ### **WORK IN PROGRESS**
 * (withstu) update dependencies
 * (withstu) add admin 5 UI support
+* (withstu) improve preferred IP handling
+* (withstu) improve undefined station handling #299
 
 ### 2.1.0 (2023-08-05)
 * (withstu) replace got with axios

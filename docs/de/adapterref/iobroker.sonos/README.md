@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
+hash: SGZuGqRJeW7c5U8Vgtso6l5ZQUBvFkhvPdWzJ1vl4+E=
 ---
 ![Logo](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
@@ -12,54 +12,54 @@ hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
 # IoBroker.sonos
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 Steuern und überwachen Sie SONOS-Geräte mit ioBroker.
 
 ## Umgang mit Gruppen
 * Zustände für den Umgang mit SONOS-Gruppen:
-   * **`Koordinator`**: Koordinator einstellen/abrufen, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, aber mit Unterstrich `_` anstelle des Punktes `.`, verwenden Sie also zum Beispiel `192_168_0_100` für die IP-Adresse `192.168.0.100`. Gehört das Gerät keiner Gruppe an, entspricht der Wert dem eigenen Kanalnamen (IP).
-   * **`group_volume`**: die Lautstärke der Gruppe
-   * **`group_muted`**: Mute-Status der Gruppe.
-   * **`add_to_group`**: Fügen Sie ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, unter dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
-   * **`remove_from_group`**: Entferne ein bestimmtes SONOS-Gerät von dem SONOS-Gerät, unter dem sich dieser Zustand befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+   * **`Koordinator`**: Legen Sie den Koordinator fest/erhalten Sie ihn, also das SONOS-Gerät, das der Master ist und die Gruppe koordiniert. Es erfordert, dass die IP-Adresse (Kanalname) des SONOS-Geräts der Koordinator ist, jedoch mit dem Unterstrich „_“ anstelle des Punkts „.“, also verwenden Sie beispielsweise „192_168_0_100“ für die IP-Adresse „192.168.0.100“. Wenn das Gerät keiner Gruppe angehört, entspricht der Wert dem eigenen Kanalnamen (IP).
+   * **`group_volume`**: das Volumen der Gruppe
+   * **`group_muted`**: Stummschaltungsstatus der Gruppe.
+   * **`add_to_group`**: Fügen Sie ein bestimmtes SONOS-Gerät zu dem SONOS-Gerät hinzu, in dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
+   * **`remove_from_group`**: Entferne ein bestimmtes SONOS-Gerät von dem SONOS-Gerät, in dem sich dieser Status befindet. Verwenden Sie die IP-Adresse mit Unterstrichen (siehe oben).
 
-*) Diese Zustände werden bei Änderungen in der SONOS App aktualisiert.
+*) Diese Zustände werden aktualisiert, wenn Änderungen in der SONOS-App vorgenommen werden.
 
 ## Verwendung mit dem sayIt-Adapter
-Zur Verwendung wird [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) mit diesem SONOS-Adapter, stellen Sie sicher, dass die [web adapter](https://github.com/ioBroker/ioBroker.web) instanziiert und läuft ebenfalls. Der Webadapter wird benötigt, damit der SONOS-Adapter die generierte MP3-Datei aus dem sayit-Adapter lesen kann.
+Zur Verwendung wird [sayit-Adapter](https://github.com/ioBroker/ioBroker.sayit) Stellen Sie bei diesem SONOS-Adapter sicher, dass der [Web-Adapter](https://github.com/ioBroker/ioBroker.web) instanziiert und ausgeführt. Der Webadapter ist erforderlich, damit der SONOS-Adapter die generierte MP3-Datei vom sayit-Adapter lesen kann.
 
-### Warnung: Stabilitätsprobleme in Verbindung mit sayIt-Adapter
-Bitte beachten: Dieser SONOS-Adapter hat Stabilitätsprobleme, wenn „Text to Speech“ mit dem sayIt-Adapter verwendet wird. Beobachtete Symptome:
+### Warnung: Stabilitätsprobleme in Kombination mit sayIt-Adapter
+Bitte beachten Sie: Bei diesem SONOS-Adapter treten Stabilitätsprobleme auf, wenn Sie „Text to Speech“ mit dem sayIt-Adapter verwenden. Beobachtete Symptome:
 
-1. Willkürliche Volumenänderung auf 0 oder 100 %.
+1. Beliebige Änderung der Lautstärke auf 0 oder 100 %.
 2. Keine Reaktion nach einer zufälligen Anzahl von Text-zu-Sprache-Sequenzen
 
-Problemumgehung für Text-to-Speech ist die Verwendung von [SONOS-HTTP-API](https://github.com/jishi/node-sonos-http-api).
+Eine Problemumgehung für Text-to-Speech ist die Verwendung von [SONOS HTTP-API](https://github.com/jishi/node-sonos-http-api).
 
-## Favoriten & Warteschlange in VIS
-Verwenden Sie die Zustände `favorites_list_html` und `queue_html`, um Wiedergabelisten und die aktuelle Warteschlange mit einem einfachen HTML-Widget in VIS anzuzeigen. Durch Klick auf eine Zeile wird die Playlist oder der Track sofort abgespielt.
+## Favoriten und Warteschlange in VIS
+Verwenden Sie die Zustände `favorites_list_html` und `queue_html`, um Wiedergabelisten und die aktuelle Warteschlange mit dem einfachen HTML-Widget in VIS anzuzeigen. Durch Klicken auf eine Zeile wird die Playlist oder der Titel sofort abgespielt.
 Formatieren Sie die Tabelle mit den folgenden CSS-Klassen:
 
 ### Favoriten
-* `sonosFavoriteTable`: gesamter Lieblingstisch
+* „sonosFavoriteTable“: ganzer Lieblingstisch
 * „sonosFavoriteRow“: Zeilen mit Favoriteninformationen
-* „sonosFavoriteNumber“: Nummer des Favoriten
-* `sonosFavoriteCover`: Albumcover des Favoriten (Bild mit `.sonosFavoriteCover img` aufnehmen)
+* „sonosFavoriteNumber“: Anzahl der Favoriten
+* „sonosFavoriteCover“: Albumcover des Favoriten (Bild mit „.sonosFavoriteCover img“ aufnehmen)
 * „sonosFavoriteTitle“: Name des Favoriten
 
 ### Warteschlange
-* „.sonosQueueTable“: Lochtabelle
+* `.sonosQueueTable`: Lochtabelle
 * „.sonosQueueRow“: Zeilen mit Titelinformationen
-* `.currentTrack`: hinzugefügt zu der Zeile, die den aktuell spielenden Track enthält
-* „.sonosQueueTrackNumber“: Nummer oder Titel
-* `.sonosQueueTrackCover`: Albumcover des Titels (Grab-Bild mit `.sonosQueueTrackCover img`)
+* `.currentTrack`: zur Zeile hinzugefügt, die den aktuell wiedergegebenen Titel enthält
+* `.sonosQueueTrackNumber`: Nummer oder Titel
+* „.sonosQueueTrackCover“: Albumcover des Titels (Bild mit „.sonosQueueTrackCover img“ aufnehmen)
 * „.sonosQueueTrackArtist“: Name des Künstlers
 * „.sonosQueueTrackAlbum“: Name des Albums (verwenden Sie „display:none“, wenn nicht erforderlich)
-* „.sonosQueueTrackTitle“: Name des Titels
+* `.sonosQueueTrackTitle`: Name des Titels
 
-Fügen Sie für lange Listen `overflow:auto;` oder `overflow-y:auto;` zum Basis-HTML-Widget hinzu.
-Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird nicht unterstützt.
+Für lange Listen fügen Sie `overflow:auto;` oder `overflow-y:auto;` zum Basis-HTML-Widget hinzu.
+Bitte beachten Sie: Das Hervorheben des aktuellen Wiedergabefavoriten wird nicht unterstützt.
 
 ### Beispiel-CSS
 ```
@@ -110,14 +110,27 @@ Bitte beachten Sie: Das Hervorheben des aktuell wiedergegebenen Favoriten wird n
 * Umschreiben mit https://github.com/svrooij/node-sonos-ts
 
 ## Aufbau
-- Webserver - [optional] Wenn der Webserver aktiviert ist oder nicht
-- Aktualisierung der verstrichenen Zeit (ms) - Intervall in ms, wie oft der verstrichene Timer aktualisiert werden soll, wenn der Titel abgespielt wird. (Standard 2000)
+- Webserver – [optional] Wenn der Webserver aktiviert ist oder nicht
+- Aktualisierung der verstrichenen Zeit (ms) – Intervall in ms, wie oft der verstrichene Timer aktualisiert werden soll, wenn der Titel abgespielt wird. (Standard 2000)
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 3.0.0 (2023-10-09)
+* (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
+* (bluefox) The minimal node.js version is 16
+
+### 2.3.3 (2023-09-21)
+* (foxriver76) fixed cover url
+
+### 2.3.2 (2023-09-20)
+* (foxriver76) store the cover file in files instead of binary states
+
+### 2.3.1 (2023-03-22)
+* (Apollon77) Prepare for future js-controller versions
+
 ### 2.3.0 (2023-01-11)
 * (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found

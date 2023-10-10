@@ -381,7 +381,9 @@ _[Zurück zum Anfang](#top)_
     * info.iobrokerNextTime -> zeigt die nächste Ausführungszeit des ioBroker-Backups
     * info.latestBackup -> zeigt als json das letzte beim Start ermittelte Backup
 
-2. History-Log in Vis anzeigen
+2. Backup History-Log in Vis anzeigen
+   - Der Backup History-Log zeigt die letzten x Backups an
+   - Die Anzahl der anzuzeigenen History-Einträge kann in den Extra-Einstellungen festgelegt werden.
    - Es ist möglich, den History-Log bspw. in einem Html-Widget durch eintragen folgender Zeile in HTML darzustellen:
 ```
 {backitup.0.history.html}
@@ -530,7 +532,11 @@ _[Zurück zum Anfang](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 2.8.3 (2023-10-10)
+* (simatec) Wake on LAN Advanced Settings added
+* (simatec) dependencies updated
+
+### 2.8.2 (2023-09-28)
 * (simatec) Fix redis backup
 
 ### 2.8.1 (2023-09-12)

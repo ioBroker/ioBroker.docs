@@ -31,6 +31,10 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 16.x is required
+
 ### 2.3.1 (2023-06-16)
 
 * (klein0r) Added current age text to JSON

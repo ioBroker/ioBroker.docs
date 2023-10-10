@@ -47,6 +47,7 @@ English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/e
 ### **WORK IN PROGRESS**
 * replace request by axios
 * some corrections for ems-esp sensors and custom elements
+* move database config to parameter page
 
 ### 2.4.1 (2023-09-10)
 * add parameter to read ems-esp custom elments

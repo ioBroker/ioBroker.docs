@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: O3SEv62cWxOopwE+VNvtxc6nqI53posCSvBi4O2HaLM=
+hash: LexY9A0at19A+Ujovu4Yx+sKBDambx+4gyh2wEa98vM=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -37,12 +37,13 @@ Mögliche Typen:
 
 - „Tabs“ – Tabs mit Elementen
   - `items` – Objekt mit Panels `{"tab1": {}, "tab2": {}...}`
+  - „iconPosition“ – „bottom“, „end“, „start“ oder „top“. Nur für Panels mit dem Attribut „icon“. Standard: `start`
 
 - „Panel“ – Registerkarte mit Elementen
-  - „Symbol“ – Registerkarte kann ein Symbol haben (Base64)
+  - „Symbol“ – die Registerkarte kann ein Symbol (base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) enthalten.
   - `label` – Beschriftung der Registerkarte
   - `items` – Objekt `{"attr1": {}, "attr2": {}}...`
-  - „zusammenklappbar“ – nur möglich, wenn es nicht Teil von Registerkarten ist
+  - `collapsable` – nur möglich, wenn nicht Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - „Farbe“ – Farbe des reduzierbaren Headers „primär“ oder „sekundär“ oder nichts
 
 - `text` – Textkomponente
@@ -92,13 +93,6 @@ Mögliche Typen:
 - „Autovervollständigung“.
   - `Optionen` - `["Wert1", "Wert2", ...]` oder `[{"Wert": "Wert", "Label": "Wert1"}, "Wert2", ...]`
   - „freeSolo“ – Setzen Sie „freeSolo“ auf „true“, damit das Textfeld jeden beliebigen Wert enthalten kann.
-
-- `!icon` – Base64-Symbol
-  - „maxSize“.
-  - `maxWidth`
-  - „maxHeight“.
-  - „crop“ – wenn true, dem Benutzer erlauben, das Bild zuzuschneiden (nur für Nicht-SVG)
-  - „Quadrat“ – Breite muss gleich Höhe sein, sonst darf der Zuschnitt nur ein Quadrat als Form zulassen
 
 - „image“ – speichert das Bild als Datei des „adapter.X“-Objekts oder als base64 im Attribut
   - „Dateiname“ – Name der Datei ist Strukturname. Im folgenden Beispiel ist „login-bg.png“ der Dateiname für „writeFile("myAdapter.INSTANCE", "login-bg.png")`
@@ -186,7 +180,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
       `this.props.socket.sendTo(adapterName.instance, command || 'send', data, result => {});`
 
-    - „Symbol“ – wenn das Symbol angezeigt werden soll: „Authentifizierung“, „Senden“, „Web“, „Warnung“, „Fehler“, „Info“, „Suche“. Sie können „base64“-Symbole verwenden. (Anfrage per Ausgabe, wenn Sie weitere Symbole benötigen)
+    - „Symbol“ – wenn das Symbol angezeigt werden soll: „Authentifizierung“, „Senden“, „Web“, „Warnung“, „Fehler“, „Info“, „Suche“. Sie können „base64“-Symbole (wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) verwenden. (Anfrage per Ausgabe, wenn Sie weitere Symbole benötigen)
     - „useNative“ – wenn der Adapter ein Ergebnis mit dem Attribut „native“ zurückgibt, wird es für die Konfiguration verwendet. Wenn „saveConfig“ wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
     - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
     - „timeout“ – Zeitüberschreitung für die Anfrage in ms. Standard: keine.
@@ -208,7 +202,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
     - „Schaltfläche“ – zeigt einen Link als Schaltfläche an
     - „Variante“ – Art der Schaltfläche („umrissen“, „enthalten“, „Text“)
     - „Farbe“ – Farbe der Schaltfläche (z. B. „primär“)
-    - „Symbol“ – wenn das Symbol angezeigt werden soll: „Authentifizierung“, „Senden“, „Web“, „Warnung“, „Fehler“, „Info“, „Suche“, „Buch“, „Hilfe“, „Hochladen“. . Sie können „base64“-Symbole verwenden (beginnen Sie mit „data:image/svg+xml;base64,...“). (Anfrage per Ausgabe, wenn Sie weitere Symbole benötigen)
+    - „Symbol“ – wenn das Symbol angezeigt werden soll: „Authentifizierung“, „Senden“, „Web“, „Warnung“, „Fehler“, „Info“, „Suche“, „Buch“, „Hilfe“, „Hochladen“. . Sie können „base64“-Symbole (es beginnt mit „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) verwenden. (Anfrage per Ausgabe, wenn Sie weitere Symbole benötigen)
 
 - „staticImage“ – statisches Bild
     - „href“ – optionaler HTTP-Link
@@ -450,9 +444,6 @@ Alle Typen könnten Folgendes haben:
 - „deaktiviert“ – JS-Funktion, die „native.attribute“ zur Berechnung verwenden könnte
 - „Hilfe“ – Hilfetext (mehrsprachig)
 - „helpLink“ – href zur Hilfe (konnte nur zusammen mit „help“ verwendet werden)
-- „Symbol“ – base64 SVG
-- `!encrypted` – ist der Wert verschlüsselt oder nicht (natürlich nur für Texte)
-  - Wenn verschlüsselt, verwenden Sie den Wert „__encrypted__“ für die Anzeige und wenn er geändert wurde, verschlüsseln Sie ihn mit „socket.encrypt“.
 - „style“ – CSS-Stil in ReactJS-Notation: „radiusBorder“ und nicht „radius-border“.
 - „darkStyle“ – CSS-Stil für den Dunkelmodus
 - „Validator“ – JS-Funktion: wahr, kein Fehler, falsch – Fehler

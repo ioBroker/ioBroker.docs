@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.enocean/README.md
 title: ioBroker.enocean
-hash: tOJBzvSrwuyYVzh2993/1JSLZo9/zJPK1W6digF8lGs=
+hash: y/viydDLxV2KiiNnj5jhcxJRBDdNfxzPs6ESoqDTG3w=
 ---
 ![标识](../../../en/adapterref/iobroker.enocean/admin/enocean.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.enocean.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.enocean.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.enocean.svg)
 ![安装数量（最新）](http://iobroker.live/badges/enocean-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/enocean-stable.svg)
 ![依赖状态](https://img.shields.io/david/jey-cee/iobroker.enocean.svg)
-![NPM](https://nodei.co/npm/iobroker.enocean.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/jey-cee/ioBroker.enocean/master.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.enocean.png?downloads=true)
+![特拉维斯-CI](http://img.shields.io/travis/jey-cee/ioBroker.enocean/master.svg)
 
-#ioBroker.enocean
+# IoBroker.enocean
 ## IoBroker 的 EnOcean 适配器
-通过带有 TCM300 芯片的 USB/串行设备连接 EnOcean 设备
+通过 USB/串行设备与 TCM300 芯片连接 EnOcean 设备
 
-## 加入 Discord 服务器讨论关于 ioBroker-enocean 集成的一切！
+## 加入 Discord 服务器讨论有关 ioBroker-enocean 集成的一切！
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
 ## [赞助商](./SPONSORS.md)
-如果您喜欢我的作品，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
+如果您喜欢我的工作，请随时提供个人捐赠（这是 Jey Cee 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ## 兼容的 USB 记忆棒和模块
 USB300
@@ -32,65 +32,65 @@ USB300
 
 FAM-USB（ESP3 固件）
 
-EnOcean Pi 模块 **重要提示：**在 Pi3 和 Pi4 上，您必须禁用板载蓝牙模块，否则 EnOcean 模块将无法工作！
+EnOcean Pi 模块 **重要提示：** 在 Pi3 和 Pi4 上，您必须禁用板载蓝牙模块，否则 EnOcean 模块将无法工作！
 
 Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能和设备。
-不工作的已知功能：RSSI，无法读取网关信息，并且在没有 FTD14 的情况下只能控制 RS485 总线设备（尚未测试）。如果没有使用此网关的技术原因，强烈建议使用其他网关。
-总线设备报告它们的总线地址，即它以 00 00 00 01 开头。
+已知不起作用的功能：RSSI、无法读取网关信息以及在没有 FTD14 的情况下只能控制 RS485 总线设备（尚未测试）。如果没有技术原因需要使用此网关，强烈建议使用其他网关。
+总线设备报告其总线地址，即以 00 00 00 01 开头。
 
-全智能 EnOcean LAN 网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ 不再可用。
+ALL SMART EnOcean LAN 网关 - ~~[买](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ 不再可用。
 
-全智能 EnOcean 多网关 - [买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
+ALL SMART EnOcean 多网关 - [买](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 
 ### [支持的设备](./docs/devices.md)
 ## 控制设备
-通常有一个 cmd 对象，您可以在其中选择要执行的命令。在执行命令之前，您必须设置所有必要的属性，您可以在配置文件定义中找到此信息。
+一般来说，有一个 cmd 对象，您可以在其中选择要执行的命令。在执行命令之前，您必须设置所有必需的属性，您可以在配置文件定义中找到此信息。
 
 特别的：
 
-* A5-20-xx：具有此配置文件的设备在发送消息后仅在 1 秒内接受命令。他们定期发送（10 分钟？），请阅读手册。
+* A5-20-xx：具有此配置文件的设备仅在发送消息后 1 秒内接受命令。他们定期发送（10 分钟？），请阅读手册。
 
 ## 示教
-- 在适配器配置中用（简短的）分步说明记录了该过程。在那里你可以选择
+- 该过程通过适配器配置中的（简短）分步说明进行记录。在那里你可以选择
 
-  您的设备和说明将显示。跟着他们。
+  您的设备和说明将会显示。跟着他们。
 
-- 无法对另一台设备进行示教的设备（如 Eltako 系列 12，也称为 Opus Green Net）：
+- 无法示教其他设备的设备（例如 Eltako 系列 12，也称为 Opus Green Net）：
 
-它们可以通过虚拟开关 (F6-02-02) 进行控制：打开配置并单击添加新设备。
-现在选择 X_Virtual 作为制造商并选择 Switch 作为设备，使用 ID fffffff0。对每个新虚拟交换机的最后一个符号 1-9 和 a-f 进行计数。
-单击添加设备并关闭配置。然后根据手册在您的设备上开始示教，从虚拟交换机发送命令。
-现在您应该可以控制设备了。
+它们可以通过虚拟交换机 (F6-02-02) 进行控制：打开配置并单击添加新设备。
+现在选择 X_Virtual 作为制造商，选择 Switch 作为设备，使用 ID fffffff0。计算每个新虚拟交换机的最后一个符号 1-9 和 a-f。
+单击添加设备并关闭配置。然后根据手册在设备上开始示教，从虚拟交换机发送命令。
+现在您应该能够控制该设备。
 
 ## 示教（从设备中删除适配器绑定）
 - Eltako Tipp-Funk：在 2 秒内从 ioBroker 向设备发送 3 次示教命令
 - 带 UTE 的设备：启动适配器的示教并按照设备说明进行操作。
 - RPS：只需删除对象
-- 无：只删除对象
+- 无：仅删除对象
 
 ＃＃ 故障排除
-1.设备对命令没有反应：
-   - 示教过程不成功。根据设备的不同，会发出示教成功的信号，请注意此信号。如果没有信号，请重试。
-   - 检查与CMD相关的所有属性是否设置正确。
+1. 设备对命令没有反应：
+   - 教学过程不成功。根据设备的不同，会发出示教成功的信号，请注意该信号。如果没有信号，请重试。
+   - 检查与 CMD 相关的所有属性是否设置正确。
    - 如果 rssi 值高于 -70 dBm，则信号可能太弱。尝试将设备移近网关。
-   - 阀门执行器（恒温器）每 x 分钟发送一次消息。收到消息后，设备会在一秒钟内接受命令。要实现此目的，请使用在收到消息后发送命令的脚本。脚本中的一个很好的触发器是 rssi 值。
+   - 阀门执行器（恒温器）每 x 分钟发送一条消息。收到消息后，设备会在一秒钟内接受命令。要实现此目的，请使用在收到消息后发送命令的脚本。脚本中一个很好的触发器是 rssi 值。
 
 ## 配置文件定义文件
 ＃＃＃＃ 数据结构
-***案例：*** 可以是单个元素或数组，它包含一组数据字段。在数组的情况下，元素绑定到一个条件。
+***情况：*** 可以是单个元素或数组，包含一组数据字段。对于数组，元素绑定到一个条件。
 
-***send:*** true 表示这组数据是一个命令，将被发送到设备。
+***send:*** true 表示这组数据是将发送到设备的命令。
 
-***auto_answer:*** true 表示此命令将在收到来自设备的电报后执行。
+***auto_answer:*** true 表示收到设备发来的报文后将执行该命令。
 
-***条件：*** 必须处理这组数据字段的条件。在大多数情况下，条件是数据包中的特定值。
+***条件：*** 处理这组数据字段必须满足的条件。在大多数情况下，条件是数据包中的特定值。
 
 ***数据字段：*** 数据在数据包中的位置以及如何处理该值的信息。此外，还有 ioBroker 的对象定义。
 
-***datafield -> secondArgument:*** 用于从数据包中获取次要信息/值。用例：单位的数量可能会有所不同，因此设备会将单位作为单独的信息发送。
-要根据发送的信息更改 ioBroker 中的单位，有必要在处理值时知道这一点。
+***数据字段 -> 第二个参数：*** 用于从数据包中获取辅助信息/值。使用案例：单位的数量可能有所不同，因此设备将单位作为单独的信息发送。
+要根据发送的信息更改 ioBroker 内部的单位，需要在处理该值时了解这一点。
 
-***数据字段 -> 条件：*** 这可能是一个转换值的公式。这是基于 JSON 逻辑的，有关详细信息，请参阅 http://jsonlogic.com/operations.html。
+***数据字段 -> 条件：*** 这可能是转换值的公式。这是基于 JSON-logic 的详细信息，请参阅 http://jsonlogic.com/operations.html。
 
 例子：
 
@@ -101,7 +101,7 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 //This will take the delivered value and check if it is equal to 0, if it is the state in iobroker will set to true.
 ```
 
-***datafield -> value:*** 这表示返回的值，除了条件是输出值。不应定义比值。
+***datafield -> value:*** 这表示返回的值，但条件是输出值。不应定义比值。
 
 例子：
 
@@ -118,7 +118,7 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 
-***datafield -> value_out:*** 这表示将发送到设备的值。只有在需要转换时才需要定义它。
+***datafield -> value_out:*** 这表示将发送到设备的值。仅当需要转换时才需要定义此值。
 
 例子：
 
@@ -135,9 +135,9 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 
-***datafield -> decimals:*** 定义显示小数点后的位数。
+***数据字段 -> 小数：*** 定义小数点后显示多少位。
 
-***datafield -> unit:*** 如果 Unit 是可变的，则使用它，否则在 iobroker 中定义它。
+***数据字段 -> 单位：*** 如果单位是变量，则使用此字段，否则在 iobroker 中定义它。
 
 例子：
 
@@ -154,9 +154,10 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 ```
 
 ## 设备定义
-设备的完整实现至少由两部分组成：“lib/definitions/devices.json”中的一个条目和一个 EEP 文件，它定义了对象以及如何处理数据电报。
-有些设备使用不止一种数据电报类型进行通信，这意味着它们有更多的 EEP 文件。
-在特殊情况下，如 Eltako，在定义的“packet_handler.js”中还有一个制造商特定的部分。
+设备的完整实现至少由两部分组成：“lib/devices/MANUFACTURER/MODEL/device.json”中的条目和 EEP 文件，该文件定义对象以及如何处理数据电报。
+lib/definitions/devices.js 必须使用新设备进行更新。
+有些设备使用多种数据电报类型进行通信，这意味着它们有更多的 EEP 文件。
+在特殊情况下，如 Eltako，在定义的“packet_handler.js”中还有制造商特定的部分。
 
 ```
 "Model name or type" : {
@@ -166,7 +167,7 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
       ],
       "autocreate": false,         //false if the device needs additional steps for teachin
       "teachin_method": "none",    //filter for automated teachin telegrams
-      "id_offset": true,           //not all devices checks if the telegram whether it is for them
+      "id_offset": true,           //not all devices checks if the telegram whether it is for them. Not applicable where teachin_method is 4BS.
       "broadcast": false,          //true if the receiver id has to be ffffffff. This is used for virtual devices like a switch.
       "help": {                    //a step by step instruction how to add the device.
         "en": {
@@ -182,19 +183,35 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 ```
 
 ## 用于开发
-要测试电报处理，请创建一个名为 development 的通道，并在该通道中创建一个名为 telegram 的对象，类型为字符串。
+要测试电报处理，请创建一个名为development的通道，并在此通道中创建一个名为telegram的对象，输入字符串。
 
 ## Changelog
 
+### 0.9.1 (2023-09-01)
+* (Jey Cee) added support for Eltako FKD-am
+* (Jey Cee) added Afriso ASD 20
+* (Jey Cee) added EEP F6-05-02
+* (Jey Cee) change log level for missing /dev/serial/by-id
+* (Jey Cee) change log level for initial information request on gateway
+* (Holger Will) update X1-01-02.json
+
+### 0.9.0 (2023-07-27)
+* added Afriso ASD 10
+* fix D2-05-00 Goto top/bottom
+* catch error while update objects on adapter start
+* workaround for serial port selection does not display all options
+
 ### 0.8.5 (2023-02-11)
-* rework TF-13-25, fixes Eltako DSZ14
+* rework TF-13-25, fixes Eltako DSZ14 (#87)
 * rework TF-13-14, SP uses now temperature range 0-40°C
 * remove useless object ASC from A5-20-01
 * added Afriso FT & FTF
 * added R-Tronic RT B (A5-10-06 + RPS)
+* added Eltako F3Z14D, FWZ14, FRGBW14, FWS81
 * added new teachin telegram for FUD61NPN-230V
+* added remove button to device list in config
+* added profile F6-05-01
 * fix F6-10-00: The close state was not set, the window was always shown as open.
-* fix & rework TF-13-25 Eltako DSZ14 (#87)
 * fix multiple conditions in eep's
 * fix Eltako FGW14-USB does not receive status updates
 * fix lastID is null when using Eltako FGW14-USB
@@ -203,296 +220,19 @@ Eltako FGW14：**重要说明**：此网关不支持此适配器的所有功能�
 * fix device definition Oventrop mote 420
 * fix missing zeros in front of sender IDs while using FGW14
 * fix incomplete data while receiving type 10 messages
+* fix missing device name
 * code cleanup and refactoring
 
-### 0.8.4 (2022-11-17)
-* added Eltako FSSG-230V, TF100A, FM4H
-* added Afriso APR234(-NF)
-* added EASYFIT ETHSx (ETSHA/ETSHU)
-* added Oventrop mote 420
-* added support information tab
-* update TF-01-01 (Eltako FTA55J & TF-TA55J)
-* update Eltako TF-4FT, switch EEP from F6-02-02 to F6-02-03
-* highlight too short ID in add device dialog
-
-### 0.8.3 (2022-09-28)
-* fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)
-* remove RT from TF-14-04 (Eltako FSB14 and similar)
-
-### 0.8.2 (2022-09-25)
-* Fix: Wrong or missing Base ID for gateway
-
-### 0.8.0 (2022-09-16)
-* added EIMSIG EM-USE-00 & EM-FSGE-00
-* added Kieback & Peter RBW322-FTL
-* added MICROPELT MVA002
-* added EEP A5-14-07
-* added Traveled Time & Time to travel objects to TF-14-04 (FSB14)
-* added EnOcean Pi & FAM-USB (ESP3 Firmware) as choice in admin
-* added translation for object names
-* change teachin method for Kieback and Peter MD15-FTL-HE
-* check on startup if all objects for existing devices are exists, if not create them
-* fix D2-10-01 sending configuration message
-
-### 0.7.1 (2022-07-24)
-* increase timeout for response time from gateway
-* change base id for dummy gateway info (effects Eltako FGW14)
-* change EEP for TF-TAx5J
-* update FSR61-230V (>10/14) help text
-* update PSC 234 help text
-* update TF61L-230V help text
-* update help for Eltako FSR14-2/4x
-* fix Teachin for Eltako FAFT60
-
-### 0.7.0 (2022-05-30)
-* added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)
-* added PEHA 452 FU-EBIM JR o.T.
-* added EUROTRONIC Stella E
-* added SIEGENIA senso secure
-* added new Eltako MSC Teachin Telegram for FSR71-2x
-* added state for window to F6-10-00
-* updated settings page 
-* fix HORA SmartDrive MX teachin
-* fix A5-20-01 CMD default value string to number
-
-### 0.6.4 (2022-02-22)
-* fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement
-
-### 0.6.3 (2022-02-07)
-* added SODA S8
-* added Thermokon SAB+
-* added Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB
-* added Battery state to D2-06-01
-* added default values to all objects
-* updated Eltako FSVA-230V
-* fix FJ62/12-36V DC teachin
-
-### 0.6.2 (2022-01-08)
-* fix teachin
-
-### 0.6.1 (2022-01-08)
-* added Dimplex DL 50 WE2
-* added EnOcean STM 350
-* added Eltako & MACO eTronic
-* added Afriso CO2-Sensor
-* change TF-13-03 set time to 100ms for sending cases
-* change TF-13-07 add On with last value
-* fix teachin which makes it hard to add new devices
-* (uklatt) fix Humidity datapoint & change decimals from 2 to 1
-
-### 0.6.0 (2021-11-22)
-* (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
-* (j1s2e3) added virtual Window/Door contact
-* use /dev/serial/by-id/xxx as path for USB device #104
-* use index for sender ID. Remeber already learnd device IDs.
-* seperated objects from datafields
-* detect when socket connection is broken #72
-* fix Teachin for Eltako devices
-
-### 0.5.4 (2021-09-10)
-* added Kessel Staufix Control
-* added Thermokon SR-MDS Solar
-* added Omnio WS-CH-102
-* added PENTAIR Transmitter FTJP
-* split datapoint PAE for D2-06-10 & 11 to EPA und PAE
-
-### 0.5.3 (2021-08-08)
-* fix context for sendData when called from packet handler
-* fix teachin method
-* fix ser2net reconnect
-
-### 0.5.1 (2021-07-25)
-* fix crash if no mailboxes present in controller
-
-### 0.5.0 (2021-07-25)
-* added serial over network (ser2net) capabilities
-* added release script
-
-### 0.4.0
-* added Permundo PSC 234 & PSC 152 
-* added Nodon Soft Button (TSB-2-2-01)
-* added Eltako FFT60SB 
-* added REHAU Smart Guard & Smart Guard Inline / Ontop 
-* added Hoppe eHandle ConnectHome
-* added SCHÜCO SenseTrack wireless
-* added Smart ACK teachin procedure
-* fix teach-in Nodon SDO-2-1-05
-* TF-13-07 set Dimming Level to 100% with on command
-
-### 0.3.8
-* added Thermokon SR04 & SR07
-* added Micropelt MVA003
-* added Eltako FWG14MS & FSR61-230V KW 02/21 and newer
-
-### 0.3.7
-* added WINKHAUS FM.V.SW
-* added Eltako TF-TA55DL, DSZ14
-* added PHEA D 451 FU-BM, D 4511 FU-BM, D450 FU FK 
-* added telegram repeater count object
-* fix numbers with decimals are strings
-* fix warning "Read-only state "enocean.0.gateway.lastID" has been written without ack-flag with value "xxxxxxxx""
-* fix A5-20-01 remove conversion for valve position in summer mode & summer mode valve position
-* fix TF-14-06
-
-### 0.3.6
-* added Eltako FMS14 (<32/19)
-* added Eltako FTS14EM
-* revised profiles
-* fix FUD14 ON command
-
-### 0.3.5
-* added Eltako FMZ61-230V, FSR70S-230V 
-* added Trio2Sys OUTDOOR -30/+50°C TEMPERATURE SENSOR 
-* added Nodon Motion Sensor PIR-2-1-01 
-* added Virtual Room operating panel EEP: A5-10-06 
-* added Oventrop R-Tronic RT B
-* change help description for eltako rs485 devices
-* update FFR61-230V
-* make id always lower case
-* fix Eltako F4HK14
-
-### 0.3.4
-* added PHEA 451 FU-EBI PF o.T. 
-* added Hora SmartDrive MX
-* added Eltako FAFT60, FWZ-65A, FSVA-230V
-* extended teachin description for Eltako FSB14
-* fix A5-02-05 calculation
-* fix A5-04-02
-
-### 0.3.3
-* add techin procedure for FSR61 to Packet_handler.js
-* add ack for cmd & optionals
-* added A5-14-09 
-* use queue for sending message 
-* changed Telefunken SES FS-EO to D2-01-08
-* fix A5-04-01 calculation
-* fix TF-13-10 calculation
-
-### 0.3.2
-* added possibility to request a device directly 
-* added Base ID & Sender ID to configuration 
-* added Eltako F4SR14-LED
-* added Afriso FTM T, FTM TF & Viessmann Temperature sensor 7554507, Temperature- and humidity sensor 7554951
-* added Eltako FFG7B (A5-14-09) & FFG7B (F6-10-00)
-* added Micropelt MVA005
-* added Eltako FKF65 & Nodon Card Switch (CCS-2-1-01)
-* added Eltako FSS12-12V-DC
-* added OPUS GN-BH63AP-pw
-* added Thermokon SR04
-* revised D2-01-0E, this effects Micro Smart Plug (MSP-2-1-11) & Plug actuator (SES FS-EO)
-* fix A5-20-06
-* fix TF-13-01 Windspeed, Rain, Dawn Sensor
-* fix Eltako Teachin ID offset
-* fix TF-13-13: removed useless fixed parameter
-* small fixes
-* Eltako automatic device teachin wait before send teachin telegram
-* use serialport esp3 parser in getGatewayInfos
-* close listener properly
-* change Hoppe SecuSignal teachin procedure
-
-### 0.3.1
-* added Eltako FABH65S, FBH65, FBH65S, FHF, FTR65DSB, FTR55DSB, FTR65HB, FTR55HB, FTR65SB, FTR55SB, FTRF65HB, FTRF65SB
-* added Hoppe SecuSignal Window Handle 
-* added Telefunken SES FS-EO
-* updated: FTA65J teachin
-* changed: FWS61 teachin
-* fix TF-13-12 & TF-13-10 
-* fixed TF-13-03
-* use sender ID instead offset
-
-### 0.3.0
-* added Eltako devices: TF61D, TF100D, FTA65D, FTA55D, TF100L, TF100SSR, FTA65L, FTA55L, TF-1FT, TF-2FT, TF-2FT55, TF-2ZT, 
-  TF-2ZT55, F4PT, F4PT55, TF-4FT, TF-4FT55, TF-8FM, FUD71, FSUD-230V, FSG71/1-10V, FDG71L, FKLD61, FLD61, FL62-230V, 
-  FL62NP-230V, FR62-230V, FR62NP-230V FSR61NP-230V, TF-TA55D, TF-TA65D, TF-TA55J, TF-TA65J, TF-TA55L, TF-TA65L, FTK, 
-  FTKB-RW, FFKB, FTKB-gr, FAH65S, FIH65S   
-* re-add virtual switch with broadcast
-* added possibility to use json logic for conditions
-* added send converted value
-* added value out to a5-20-01
-* added double response for UTE 
-* added send eltako teachin response twice
-* added filter telegrams in addEltakoDevices
-* update FSUD-230V teachin help
-* update device list in config during teachin
-* fix id offset for Eltako devices
-* fix teachin for eltako devices when no offset in gateway is defined
-* fix teachin for Eltako FTKB-hg
-* fix manaual teachin devices
-* fix correct formula in EEPs
-* fix name of Eltako TF100L
-* fix id offset for manual teachin
-
-### 0.2.1
-* fix for UTE teachin
-* double response for UTE
-* fix id offset for Eltako devices
-* added Eltako devices: TF61D, TF100D, FTA65D, FTA55D, TF100L, TF100SSR, FTA65L, FTA55L, TF-1FT, TF-2FT, TF-2FT55, TF-2ZT, TF-2ZT55, F4PT, F4PT55, TF-4FT, TF-4FT55, TF-8FM, FUD71, FSUD-230V, FSG71/1-10V, FDG71L, FKLD61, FLD61
-* update fsud-230v teachin help
-
-### 0.2.0
-* fix calculation for temperature in A5-02-13
-* added Eltako FMMS44SB
-* correct formula in readme
-* add commands for D2-05-00
-* json-logic-js security update
-* change UI for add new devices
-* teachin procedure revised
-
-### 0.1.8
-* added devices Eltako FUD61NPN-230V, FRW, TF61L-230V, FTKB
-* fix teachin: was not set to false
-
-### 0.1.7
-* added profiles for Eltako F4HK14, FSB14, FUD14
-* fix tf-14-01
-
-### 0.1.5
-* added virtual switch
-* rewrite A5-20-01
-* fix profile A5-02-13
-
-### 0.1.4
-* added base id offset
-* added new devices
-
-### 0.1.3
-* fix profile F6-10-00
-
-### 0.1.2
-* fix 4BS Teach-in
-* added profile A510-20
-* added profile TF14-02 relais contact
-* fix profile D5-00-01
-* fix profile A5-04-01
-* fix profile TF-13-02
-
-### 0.1.1
-* fix Teach-in/out
-* fix send data
-* fix profile D2-05-00
-
-### 0.1.0
-* (Jey Cee) initial release
+[Older changelog entries are moved to changelog.md](changelog.md)
 
 ## License
-MIT License
+Attribution-NonCommercial 3.0 (CC BY-NC 3.0)
 
-Copyright (c) 2022 Jey Cee <jey-cee@live.com>
+Copyright (c) 2023 Jey Cee <iobroker@all-smart.net>
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is**
-furnished to do so, subject to the following conditions:
+http://creativecommons.org/licenses/by-nc/4.0/
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Short content:
+Licensees may copy, distribute, display and perform the work and make derivative works based on it only if they give the author or licensor the credits in the manner specified by these.
+Licensees may copy, distribute, display, and perform the work and make derivative works based on it only for noncommercial purposes.
+(Free for non-commercial use).

@@ -1,5 +1,12 @@
 # ioBroker.webui
 
+![Number of Installations](https://iobroker.live/badges/webui-installed.svg) 
+![Stable version](https://iobroker.live/badges/webui-stable.svg) 
+[![NPM version](https://img.shields.io/npm/v/iobroker.webui.svg)](https://www.npmjs.com/package/iobroker.webui)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.webui.svg)](https://www.npmjs.com/package/iobroker.webui)
+
+[![NPM](https://nodei.co/npm/iobroker.webui.png?downloads=true)](https://nodei.co/npm/iobroker.webui/)
+
 webui for ioBroker
 
 ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)

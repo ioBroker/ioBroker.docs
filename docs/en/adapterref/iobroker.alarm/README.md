@@ -29,6 +29,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.4.0 (2023-10-03)
+* (misanorot) fixed #168
+
 ### 3.3.13 (2023-09-19)
 * (misanorot) fixed #147
 
@@ -40,9 +43,6 @@
 
 ### 3.3.10 (2023-03-31)
 * (misanorot) fixed litle speech and presence bug
-
-### 3.3.9 (2023-01-14)
-* (misanorot) fixed issues at burgle log
 
 ## License
 MIT License

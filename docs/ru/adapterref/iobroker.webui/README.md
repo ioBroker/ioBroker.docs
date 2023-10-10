@@ -3,9 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: yjdW1qnpqD83Ji1Oov1Ih8lpB7KE38Q4PLHsdrpz/v0=
+hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 ---
 # IoBroker.webui
+
+![Количество установок](https://iobroker.live/badges/webui-installed.svg)
+![Стабильная версия](https://iobroker.live/badges/webui-stable.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.webui.svg)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.webui.svg)
+![НПМ](https://nodei.co/npm/iobroker.webui.png?downloads=true)
+
 вебуи для ioBroker
 
 ![изображение](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
@@ -115,7 +122,7 @@ hash: yjdW1qnpqD83Ji1Oov1Ih8lpB7KE38Q4PLHsdrpz/v0=
 ## Информация об адаптере.
 Адаптер основан на следующем компоненте Designer: https://github.com/node-projects/web-comComponent-designer.
 
-Вам нужно создать экран «Пуск», это первый экран, вызываемый при открытии runtime.html, но вы можете изменить его с помощью параметра запроса: runtime.html?screenName=screen2
+Вам нужно создать экран «Пуск», это первый экран, который вызывается при открытии runtime.html, но вы можете изменить его с помощью параметра запроса: runtime.html?screenName=screen2
 
 ## Changelog
 <!--

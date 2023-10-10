@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: UVa1GRfkkhHgm8Z1m3FgE2CNIFRQM7CQ9OSXFi/VCJA=
+hash: G5ILPuXndl+4ODPBk23JmubLFHujA1t7T865XkR354k=
 ---
 ![标识](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -37,7 +37,16 @@ sendTo('cameras.0', 'image', {
 
 支持的相机：
 
-### URL image 这是一个普通的URL请求，所有参数都在URL中。喜欢`http://mycam/snapshot.jpg`
+- 通过 RTSP 的 Reolink E1 Pro（重要，没有“Pro”，它将无法工作）
+- Eufy 通过eusec适配器
+- [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2- Generation-via-onvif-f%C3%BCr-s6-q8-a7 -2-代-) 通过 ONVIF 的第二代和第三代（适用于 S6、Q8、A7 第二代）、A7 Pro、A9
+- [通过 HiKam 适配器的 WIWICam M1](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
+- RTSP Native - 如果您的相机支持 RTSP 协议
+- 通过 HTTP URL 的屏幕截图 - 如果您可以通过 URL 从相机获取快照
+
+### 网址图片
+这是一个普通的URL请求，所有参数都在URL中。喜欢`http://mycam/snapshot.jpg`
+
 ### 具有基本身份验证的 URL 图像
 这是图像的 URL 请求，其中所有参数都在 URL 中，但您可以提供基本身份验证的凭据。喜欢`http://mycam/snapshot.jpg`
 
@@ -51,11 +60,32 @@ sendTo('cameras.0', 'image', {
 
 ![实时传输协议](../../../en/adapterref/iobroker.cameras/img/rtsp.png)
 
+## 如何添加新相机（针对开发人员）
+要添加新摄像头，您必须在 GitHub 上创建拉取请求并进行以下更改：
+
+- 将新文件添加到“cameras”文件夹中。这是从相机读取单个图像的后端。
+- 在 `src/src/Types/` 文件夹中添加 GUI 文件。这是相机的配置对话框
+- 在 `src/src/Tabs/Cameras.js` 文件中添加此对话框，与添加其他相机类似。只需添加两行：
+  - 导入新的配置对话框，例如“从 '../Types/RTSPMyCam' 导入 RTSPMyCamConfig”；
+  - 使用新相机扩展“TYPES”结构，例如“mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },”
+
+    属性名称必须与`cameras`文件夹中的文件名称相同。
+
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Changed widget set name
+
+### 1.3.0 (2023-09-28)
+* (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher
+* (bluefox) Implemented a second widget for simple cameras
+
+### 1.2.3 (2023-09-27)
+* (bluefox) Added WiWiCam MW1 and HiKam cameras
+
 ### 1.2.2 (2023-07-07)
 * (bluefox) Corrected passwords with exclamation mark
 
@@ -82,7 +112,7 @@ sendTo('cameras.0', 'image', {
 * (bluefox) Preparations for js-controller@4.x are made
 
 ### 0.1.4 (2021-07-13)
-* (bluefox) Add role for states
+* (bluefox) Add a role for states
 
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied

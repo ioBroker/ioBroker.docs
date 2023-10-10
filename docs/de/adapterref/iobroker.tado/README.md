@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: u6RHwdGE8h+6GmwqJEo0/eXOOBqw568qHzRfz6s4tKk=
+hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
 ---
 # IoBroker.tado
 
@@ -35,7 +35,7 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis z
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Erkennung offener Fenster am Thermostat aktivieren/deaktivieren |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout, wie lange Thermostate ausgeschaltet werden, wenn ein offenes Fenster erkannt wird |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Thermostate ausschalten, wenn ein offenes Fenster erkannt wird (funktioniert nur, wenn der Thermostat ein offenes Fenster erkennt) |
-| tado.[x].[yyyyyy].Home.state.presence | Heim- oder Abwesenheitsmodus einstellen |
+| tado.[x].[yyyyyy].Home.state.presence | Stellen Sie den Modus ZUHAUSE, ABWESEND oder AUTO ein |
 | tado.[x].[yyyyyy].Home.masterswitch | Alle Geräte ein-/ausschalten |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC-Modus (nur AC-Geräte) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Lüftergeschwindigkeit (nur AC-Geräte mit V3 und älteren Versionen) |
@@ -53,6 +53,10 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis z
     ### __WORK IN PROGRESS__
 
 -->
+### 0.4.11 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
 * (HGlab01) improve axios keep_a_live
@@ -69,12 +73,6 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis z
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
 * (HGlab01) Bump axios to 1.3.6
-
-### 0.4.6 (2023-04-12)
-* (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
-* (HGlab01) improve ETIMEDOUT issue
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
-* (HGlab01) js-controller v5 readiness (#618)
 
 ## License
 MIT License

@@ -69,6 +69,10 @@ Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+NodeJS 16.x is required
+
 ### 5.0.1 (2023-05-30)
 
 * (klein0r) Allow self-signed certificates

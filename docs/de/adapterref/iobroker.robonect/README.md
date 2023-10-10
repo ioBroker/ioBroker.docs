@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
+hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 ---
 # IoBroker.robonect
 ![Logo](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -25,6 +25,10 @@ Dies ist ein ioBroker-Adapter für Ihren Robonect HX-fähigen Rasenmäher.
 * Es ist möglich, zwei Ruhezeiten zu konfigurieren, um eine Abfrage zu verhindern, z. B. mittags und in der Nacht. Informationen, die abgefragt werden können, ohne den Rasenmäher aufzuwecken (und einen Piepton auslösen zu lassen), werden weiterhin abgefragt.
 * Für jede API-Anfrage ist es möglich, das Abfrageintervall (Status oder Info) zu wählen oder überhaupt keine Abfrage durchzuführen.
 * Push-Dienst: Wenn aktiviert, wählen Sie die IP-Adresse und den Port aus, auf die der Adapter hören soll.
+
+### Passwort für Robonect
+Für Versionen vor v1.3.0 war ein einfaches Passwort erforderlich, das nur Klein- und Großbuchstaben sowie Zahlen enthielt.
+Ab Version 1.3.0 wurden sichere Passwörter durch die Implementierung der HTTP-Basisauthentifizierung möglich.
 
 ### Push-Dienst
 Das Robonect-Modul verfügt über eine Konfigurationsoption namens „Push Service“ – es sendet Statusinformationen abhängig von einigen konfigurierbaren Ereignissen.
@@ -54,6 +58,27 @@ Es ist möglich, die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-
 
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
+
+### 1.3.3 (2023-10-04)
+
+* (grizzelbee) Chg: massive code refactoring 
+* (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
+* (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
+
+### 1.3.2 (2023-10-04)
+
+* (grizzelbee) Fix: Switching of extensions works now
+* (grizzelbee) Fix: Fixed false error message when switching extensions
+
+### 1.3.1 (2023-10-02)
+
+* (grizzelbee) Chg: removed unnecessary Info log entries 
+
+### 1.3.0 (2023-10-02)
+
+* (grizzelbee) Chg: [#28](https://github.com/Grizzelbee/ioBroker.robonect/issues/28) Changed authentication method from URL-Encoding to basic authentication
+* (grizzelbee) Chg: [#27](https://github.com/Grizzelbee/ioBroker.robonect/issues/27) Improved error handling
+* (grizzelbee) Upd: Dependencies got updated
 
 ### 1.2.0 (2023-09-22)
 

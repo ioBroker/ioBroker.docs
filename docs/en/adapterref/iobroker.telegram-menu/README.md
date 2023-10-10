@@ -36,6 +36,15 @@ You can create different groups with separate menus, and then assign users to th
 
 ### **WORK IN PROGRESS**
 
+-   Convert milliseconds value to a local time specification
+-   setstate and get result of another state with text adjusted
+
+### 0.7.1 (2023-10-02)
+
+-   bugfix, Error read UserListTypeError: Cannot read properties of undefined
+
+### 0.7.0 (2023-10-01)
+
 -   #53 feature: sendPicture von server-path
 -   #52 icons are missing, copy data
 -   #51 by creating a new Menu, the Users are not shown

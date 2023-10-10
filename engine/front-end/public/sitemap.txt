@@ -749,6 +749,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.bydhvs/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.calendar/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cameras/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.canbus/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.cec2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.chargemaster/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.cleveron/README.md
@@ -1075,6 +1076,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.pushsafer/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pvforecast/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pvforecast/vis.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.pvoutputorg/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.pylontech/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radar-trap/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
@@ -1375,6 +1377,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.bydhvs/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.calendar/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cameras/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.canbus/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.cec2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.chargemaster/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.cleveron/README.md
@@ -1701,6 +1704,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.pushsafer/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvforecast/vis.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.pvoutputorg/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.pylontech/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radar-trap/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
@@ -2001,6 +2005,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.bydhvs/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.calendar/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cameras/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.canbus/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cec2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.chargemaster/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.cleveron/README.md
@@ -2327,6 +2332,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pushsafer/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pvforecast/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pvforecast/vis.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pvoutputorg/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.pylontech/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radar-trap/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
@@ -2627,6 +2633,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.bydhvs/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.calendar/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cameras/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.canbus/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cec2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.chargemaster/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.chromecast/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.cleveron/README.md
@@ -2953,6 +2960,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pushsafer/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pvforecast/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pvforecast/vis.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pvoutputorg/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pylontech/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar-trap/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md

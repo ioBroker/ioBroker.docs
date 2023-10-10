@@ -129,9 +129,6 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
 ### **WORK IN PROGRESS**
 
 -   (matthsc) drop support for Node 14 and 16
-
-### **WORK IN PROGRESS**
-
 -   (matthsc/dependabot) dependency updates
 
 ### 0.3.0 (2022-09-28)

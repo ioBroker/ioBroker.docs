@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.myenergi/README.md
 title: ioBroker.myenergi
-hash: 4od9A3VQBKkRb8d9vmHfJ650d8Nb+/KkyxO8O8k3QUQ=
+hash: cuUZOBForRr44VEP//YhaCKgKf+r3OU7TLrQV6kS1u0=
 ---
 ![Logo](../../../en/adapterref/iobroker.myenergi/admin/myenergi.png)
 
@@ -14,14 +14,15 @@ hash: 4od9A3VQBKkRb8d9vmHfJ650d8Nb+/KkyxO8O8k3QUQ=
 ![NPM](https://nodei.co/npm/iobroker.myenergi.png?downloads=true)
 
 # IoBroker.myenergi
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.myenergi/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.myenergi/workflows/Test%20and%20Release/badge.svg)
 
 ## Myenergi-Adapter für ioBroker
 Adapter für Myenergi-Geräte
 
-## Anmeldeablauf:
-Die Myenergie Hub Seriennummer und den API Key eingeben Die Seriennummern findet man unter anderem unter https://myaccount.myenergi.com/ auf dem Tab "myenergi products" Dort muss auch ein API Key für den Hub generiert werden.
-Dazu auf "Erweitert" klicken, Schlüssel generieren
+## Anmeldung:
+Geben Sie die Seriennummer und den API-Schlüssel des Myenergie Hub ein. Die Seriennummern finden Sie unter https://myaccount.myenergi.com/ unter der Registerkarte „Myenergi-Produkte“.
+Dort muss auch ein API-Schlüssel für den Hub generiert werden.
+Klicken Sie dazu auf „Erweitert“ und generieren Sie den Schlüssel
 
 ## Fragen und Diskussionen
 <https://forum.iobroker.net/topic/60175/test-myenergi-adapter>

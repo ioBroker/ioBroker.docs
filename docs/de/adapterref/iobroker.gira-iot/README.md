@@ -32,7 +32,12 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 -->
 ### **WORK IN PROGRESS**
 
+NodeJS 16.x is required
+
+### 0.4.0 (2023-10-02)
+
 * (klein0r) Added types for remote access (not documented by Gira)
+* (klein0r) Added option for custom callback url (e.g. in Docker environments)
 
 ### 0.3.0 (2023-09-13)
 
@@ -52,11 +57,6 @@ BADGE-Installed: http://iobroker.live/badges/gira-iot-installed.svg
 
 * (klein0r) Update objects if configuration changed
 * (klein0r) Fixed client registration for Gira Home Server
-
-### 0.1.2 (2022-10-01)
-
-* (klein0r) Improved callback registration handling
-* (klein0r) Improved error handling
 
 ## License
 

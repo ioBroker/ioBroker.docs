@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
+hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 ---
 # IoBroker.robonect
 ![标识](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -14,7 +14,7 @@ hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
 
 [![测试和发布](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
 
-这是一款适用于支持 Robonect HX 的割草机的 ioBroker 适配器。
+这是一个 ioBroker 适配器，适用于支持 Robonect HX 的割草机。
 
 * 已使用 Robonect v1.1b（使用 ZeroConf v1.4）和 Gardena R70Li 进行测试。
 * 它还使用 Robonect v1.3b（使用 ZeroConf v1.9）和 Gardena R40Li 进行了测试。
@@ -23,8 +23,12 @@ hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
 * 需要输入 Robonect 模块的 IP 地址（如 192.168.x.x）或主机名（如 robonect-D247BF）或完全限定域名（如 robonect-D247BF.fritz.box）。如果设置了用户名和密码，它们也是必需的。
 * ioBroker.robonect 以不同的时间间隔轮询数据：默认情况下，状态信息每 60 秒（1 分钟）轮询一次，其他信息每 900 秒（15 分钟）轮询一次。
 * 可以配置两个休息时间来防止轮询，例如中午和晚上。无需唤醒割草机（并使其发出蜂鸣声）即可轮询的信息仍将被轮询。
-* 对于每个 API 请求，都可以选择轮询间隔（状态或信息）或根本不轮询。
+* 对于每个 API 请求，可以选择轮询间隔（状态或信息）或根本不轮询。
 * 推送服务：激活时选择适配器应侦听的 IP 地址和端口。
+
+### Robonect 的密码
+v1.3.0 之前的版本需要一个简单的密码 - 仅包含小写和大写字母以及数字。
+从 v1.3.0 开始，由于 HTTP 基本身份验证的实施，强密码成为可能。
 
 ### 推送服务
 robonect 模块有一个名为“推送服务”的配置选项 - 它根据一些可配置事件推送状态信息。
@@ -54,6 +58,27 @@ robonect 模块有一个名为“推送服务”的配置选项 - 它根据一�
 
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
+
+### 1.3.3 (2023-10-04)
+
+* (grizzelbee) Chg: massive code refactoring 
+* (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
+* (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
+
+### 1.3.2 (2023-10-04)
+
+* (grizzelbee) Fix: Switching of extensions works now
+* (grizzelbee) Fix: Fixed false error message when switching extensions
+
+### 1.3.1 (2023-10-02)
+
+* (grizzelbee) Chg: removed unnecessary Info log entries 
+
+### 1.3.0 (2023-10-02)
+
+* (grizzelbee) Chg: [#28](https://github.com/Grizzelbee/ioBroker.robonect/issues/28) Changed authentication method from URL-Encoding to basic authentication
+* (grizzelbee) Chg: [#27](https://github.com/Grizzelbee/ioBroker.robonect/issues/27) Improved error handling
+* (grizzelbee) Upd: Dependencies got updated
 
 ### 1.2.0 (2023-09-22)
 

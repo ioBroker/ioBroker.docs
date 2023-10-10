@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: u6RHwdGE8h+6GmwqJEo0/eXOOBqw568qHzRfz6s4tKk=
+hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
 ---
 # IoBroker.tado
 
@@ -26,8 +26,8 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的供暖费用。
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power |打开/关闭设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.温度.celsius |定义温度 |
-| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式|
-| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式|
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式 |
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式 |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式应用多长时间 |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled |童锁开/关 |
@@ -35,7 +35,7 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的供暖费用。
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled |启用/禁用恒温器上的开窗检测 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds |检测到打开的窗户时关闭恒温器的超时时间 |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow |检测到打开的窗户时关闭恒温器（仅当恒温器检测到打开的窗户时才起作用）|
-| tado.[x].[yyyyyy].Home.state.presence | tado.[x].[yyyyyy].Home.state.presence |设置在家或外出模式 |
+| tado.[x].[yyyyyy].Home.state.presence | tado.[x].[yyyyyy].Home.state.presence |设置“在家”、“外出”或“自动”模式 |
 | tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC 模式（仅限 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed（仅限 V3 及更早版本的交流设备）|
@@ -53,6 +53,10 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的供暖费用。
     ### __WORK IN PROGRESS__
 
 -->
+### 0.4.11 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
 * (HGlab01) improve axios keep_a_live
@@ -69,12 +73,6 @@ tado° 确保舒适健康的气候，同时节省高达 31% 的供暖费用。
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
 * (HGlab01) Bump axios to 1.3.6
-
-### 0.4.6 (2023-04-12)
-* (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
-* (HGlab01) improve ETIMEDOUT issue
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
-* (HGlab01) js-controller v5 readiness (#618)
 
 ## License
 MIT License

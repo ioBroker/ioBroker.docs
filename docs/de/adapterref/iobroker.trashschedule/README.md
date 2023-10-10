@@ -65,6 +65,8 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 -->
 ### **WORK IN PROGRESS**
 
+NodeJS 16.x is required
+
 * (klein0r) Improved log messages
 
 ### 2.2.0 (2023-01-16)

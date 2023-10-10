@@ -69,6 +69,12 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.5.7 (2023-10-07)
+* (foxriver76) upgraded socket-classes to fix vis problems
+
+### 2.5.6 (2023-09-28)
+* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+
 ### 2.5.5 (2023-09-14)
 * (foxriver76) upgraded socket-classes to fix crash cases
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
+hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 ---
 # IoBroker.robonect
 ![Логотип](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -25,6 +25,10 @@ hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
 * Можно настроить два периода отдыха, чтобы предотвратить опрос, например. в полдень и ночью. Информация, которую можно опросить, не пробуждая газонокосилку (и не подавая звуковой сигнал), все равно будет опрашиваться.
 * Для каждого запроса API можно выбрать интервал опроса (статус или информацию) или не опрашивать вообще.
 * push-сервис: при активации выберите IP-адрес и порт, который должен прослушивать адаптер.
+
+### Пароль для Робонекта
+Для версий старше 1.3.0 требовался простой пароль, содержащий только строчные и прописные буквы, а также цифры.
+Начиная с версии 1.3.0, надежные пароли стали возможны благодаря реализации базовой аутентификации HTTP.
 
 ### Push-сервис
 Модуль robonect имеет опцию конфигурации под названием «Push Service» — она передает информацию о состоянии в зависимости от некоторых настраиваемых событий.
@@ -54,6 +58,27 @@ hash: fLtDdh80TIOzEDo7FPBTZdzcAZMXJVrA9i+SE06hWFo=
 
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
+
+### 1.3.3 (2023-10-04)
+
+* (grizzelbee) Chg: massive code refactoring 
+* (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses
+* (grizzelbee) Chg: Forcing pollType info for pushService when enabled it's enabled in config
+
+### 1.3.2 (2023-10-04)
+
+* (grizzelbee) Fix: Switching of extensions works now
+* (grizzelbee) Fix: Fixed false error message when switching extensions
+
+### 1.3.1 (2023-10-02)
+
+* (grizzelbee) Chg: removed unnecessary Info log entries 
+
+### 1.3.0 (2023-10-02)
+
+* (grizzelbee) Chg: [#28](https://github.com/Grizzelbee/ioBroker.robonect/issues/28) Changed authentication method from URL-Encoding to basic authentication
+* (grizzelbee) Chg: [#27](https://github.com/Grizzelbee/ioBroker.robonect/issues/27) Improved error handling
+* (grizzelbee) Upd: Dependencies got updated
 
 ### 1.2.0 (2023-09-22)
 

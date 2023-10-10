@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
+hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +25,7 @@ hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.6.0 (или новее)
-- Устройство _Awtrix Light_ с версией прошивки _0.86_ (или новее) - например, Ulanzi TC001
+- Устройство _Awtrix Light_ с версией прошивки _0.88_ (или новее) - например, Ulanzi TC001
 
 Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
@@ -120,6 +120,16 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 
 *Блок Blockly можно использовать, чтобы сделать этот вызов еще проще.*
 
+Чтобы воспроизвести собственную мелодию звонка:
+
+```javascript
+sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+    if (res && res.error) {
+        console.error(res.error);
+    }
+});
+```
+
 ## Пользовательские приложения
 **Имена приложений могут содержать только строчные буквы (a–z) и должны быть уникальными. Никаких цифр, специальных символов и пробелов.**
 
@@ -162,14 +172,23 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.9.1 (2023-10-02)
 
-Updated recommended firmware version to 0.86
+NodeJS 16.x is required
+
+* (klein0r) Fixed hidden apps
+* (klein0r) Fixed color conversions of settings
+
+### 0.9.0 (2023-10-01)
+
+Updated recommended firmware version to 0.88
 
 * (klein0r) Added expert apps
 * (klein0r) Use the last value of fast refreshing states
 * (klein0r) Added settings for calendar colors
 * (klein0r) Allow to use apps without text (just background effect)
+* (AlCalzone) Added rtttl api endpoint support (via sendTo)
+* (klein0r) Native apps have been renamed
 
 ### 0.8.0 (2023-09-04)
 
@@ -194,16 +213,6 @@ Updated recommended firmware version to 0.72
 * (klein0r) Added MovingLine effect
 * (klein0r) Added settings for time style and transition effect
 * (klein0r) Setting repeat to 1 in blockly notifications
-
-### 0.6.2 (2023-07-30)
-
-* (klein0r) Fixed handling of state cache when object has been changed
-
-### 0.6.1 (2023-07-28)
-
-* (klein0r) Remove background effect in threshold overrides
-* (klein0r) Minor fixes in admin config
-* (klein0r) Fixed missing icon in history apps
 
 ## License
 MIT License

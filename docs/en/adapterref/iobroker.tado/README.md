@@ -27,7 +27,7 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled | Enable/Disable open window detection on thermostat |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds | Timeout how long thermostats are turned off when an open window is detected |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow | Switch thermostats off when an open window is detected (only works if the thermostat detects an open window) | 
-| tado.[x].[yyyyyy].Home.state.presence | Set HOME or AWAY mode |
+| tado.[x].[yyyyyy].Home.state.presence | Set HOME, AWAY or AUTO mode |
 | tado.[x].[yyyyyy].Home.masterswitch | Turn all devices on/off |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC mode (only AC devices) |
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed (only AC devices with V3 and older versions) |
@@ -45,6 +45,10 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
     ### __WORK IN PROGRESS__
 
 -->
+### 0.4.11 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
 * (HGlab01) improve axios keep_a_live
@@ -61,12 +65,6 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 * (HGlab01) Add attribute 'generation'
 * (HGlab01) improve axios error handling
 * (HGlab01) Bump axios to 1.3.6
-
-### 0.4.6 (2023-04-12)
-* (HGlab01) Add attribute 'isEnergyIqEligible' (#613)
-* (HGlab01) improve ETIMEDOUT issue
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.11
-* (HGlab01) js-controller v5 readiness (#618)
 
 ## License
 MIT License

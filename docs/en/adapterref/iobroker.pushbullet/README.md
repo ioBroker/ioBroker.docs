@@ -42,6 +42,16 @@ sendTo("pushbullet", {
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.1 (2023-10-09)
+- (mcm1957) Dependencies have been updated
+
+### 2.0.0 (2023-10-09)
+- (mcm1957) first official release after migration to iobroker-community-adapters
+
+### 2.0.0-alpha.0 (2023-09-30)
+- (mcm1957) Adapter has been migrated to iobroker-community-adapters area
+- (mcm1957) Dependencies have been updated
+
 ### 1.0.1 (2023-09-10)
 * (bluefox) Breaking change: Only node version 16+ supported
 * (bluefox) Added JSON config and used the latest version of a pushbullet library

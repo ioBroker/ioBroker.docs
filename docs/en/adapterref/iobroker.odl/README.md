@@ -16,7 +16,7 @@
 
 This adapter integrates the ODL (Ortsdosisleistung / Ambient Dose Rate) values of specified measuring points of the German [Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/) into ioBroker.
 
-For more information about the ambient dose rate in germany visit https://odlinfo.bfs.de/.
+For more information about the ambient dose rate in germany visit <https://odlinfo.bfs.de/>.
 
 ---
 
@@ -26,7 +26,7 @@ Dieser Adapter integriert die ODL (Ortsdosisleistung) Messwerte von ausgewählte
 
 Das bundesweite Messnetz des BfS umfasst rund 1700 ortsfeste Messstellen, die permanent die vor Ort aktuelle Gamma-Umweltradioaktivität (Ortsdosisleistung) erfassen und aufzeichnen. Die gewonnenen Messdaten werden vom BfS gesammelt, ausgewertet und öffentlich unter der _Datenlizenz Deutschland_ zur Verfügung gestellt.
 
-Für weitere Informationen zur ODL siehe https://odlinfo.bfs.de/.
+Für weitere Informationen zur ODL siehe <https://odlinfo.bfs.de/>.
 
 Dieser Adapter läd die aktuellen 1-Stunden-Mittelwerte der Messdaten direkt über die [offizielle Datenschnittstelle des BfS](https://odlinfo.bfs.de/ODL/DE/service/datenschnittstelle/datenschnittstelle_node.html). Das BfS ist Urheber der vom Adapter verwendeten Daten.  
 Alle Daten werden in unveränderter Form, so wie sie von der Datenschnittstelle geliefert werden, vom Adapter bereitgestellt.
@@ -39,11 +39,22 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 [![Screenshot 1](./docs/ioBroker-odl-01.png)](./docs/ioBroker-odl-01.png)
 
 [![Screenshot 2](./docs/ioBroker-odl-02.png)](./docs/ioBroker-odl-02.png)
+
 ---
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 3.0.1 (2023-09-27)
+
+* (crycode-de) Node.js >= 16 is required
+* (crycode-de) Fixed issue with history adapters
+* (crycode-de) Updated dependencies
 
 ### 2.0.5 (2022-04-24)
 
@@ -84,49 +95,60 @@ Beim ersten Start des Adapters wird automatisch der Zeitpunkt für den Abruf der
 * (crycode-de) Use weblate for translations
 
 ### 1.1.4 (2021-01-16)
+
 * (crycode-de) Updated BfS logo
 * (crycode-de) Updated dependencies
 
 ### 1.1.3 (2020-12-31)
+
 * (crycode-de) Fixed issue when log is not available at startup timeout
 
 ### 1.1.2 (2020-12-23)
+
 * (crycode-de) Fix objects parameters for objects created before v1.1.1
 
 ### 1.1.1 (2020-12-23)
+
 * (crycode-de) Fixed issue creating odl state object
 
 ### 1.1.0 (2020-12-21)
+
 * (crycode-de) Added Sentry error reporting
 * (crycode-de) Updated dependencies
 
 ### 1.0.7 (2020-10-14)
+
 * (crycode-de) Added timeout to force exit the adapter after 10 minutes in case of any problems
 * (crycode-de) Updated dependencies
 
 ### 1.0.6 (2020-10-01)
+
 * (crycode-de) Hopefully fixed a bug where adapter did not exit as expected
 * (crycode-de) Updated dependencies
 
 ### 1.0.5 (2020-02-05)
+
 * (crycode-de) Use of `extendObject` to update names of existing objects.
 
 ### 1.0.4 (2020-02-03)
+
 * (crycode-de) Updated connectionType and dataSource in io-package.json.
 
 ### 1.0.3 (2020-01-23)
+
 * (crycode-de) Added `connectionType` in `io-package.json` and updated dependencies.
 
 ### 1.0.2 (2019-10-22)
+
 * (crycode-de) Minimum required js-conntroller version is now 1.5.7
 
 ### 1.0.1 (2019-10-14)
-* (crycode-de) initial release
 
+* (crycode-de) initial release
 
 ## License
 
-Copyright (c) 2019-2022 Peter Müller <peter@crycode.de>
+Copyright (c) 2019-2023 Peter Müller <peter@crycode.de>
 
 Data (c) [German Federal Office for Radiation Protection (Bundesamt für Strahlenschutz, BfS)](https://www.bfs.de/), [Data licence Germany – attribution – Version 2.0](http://www.govdata.de/dl-de/by-2-0)
 

@@ -22,7 +22,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.86_ (or later) - e.g. Ulanzi TC001
+- _Awtrix Light_ device with firmware _0.88_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -123,6 +123,16 @@ The message object supports all available options of the firmware. See [document
 
 *You can also use a Blockly block to play a sound.*
 
+To play a custom ringtone:
+
+```javascript
+sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+    if (res && res.error) {
+        console.error(res.error);
+    }
+});
+```
+
 ## Custom apps
 
 **App names must be lowercase (a-z) and unique. No numbers, no capital letters, no special characters, no whitespaces.**
@@ -170,14 +180,23 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.9.1 (2023-10-02)
 
-Updated recommended firmware version to 0.86
+NodeJS 16.x is required
+
+* (klein0r) Fixed hidden apps
+* (klein0r) Fixed color conversions of settings
+
+### 0.9.0 (2023-10-01)
+
+Updated recommended firmware version to 0.88
 
 * (klein0r) Added expert apps
 * (klein0r) Use the last value of fast refreshing states
 * (klein0r) Added settings for calendar colors
 * (klein0r) Allow to use apps without text (just background effect)
+* (AlCalzone) Added rtttl api endpoint support (via sendTo)
+* (klein0r) Native apps have been renamed
 
 ### 0.8.0 (2023-09-04)
 
@@ -202,16 +221,6 @@ Updated recommended firmware version to 0.72
 * (klein0r) Added MovingLine effect
 * (klein0r) Added settings for time style and transition effect
 * (klein0r) Setting repeat to 1 in blockly notifications
-
-### 0.6.2 (2023-07-30)
-
-* (klein0r) Fixed handling of state cache when object has been changed
-
-### 0.6.1 (2023-07-28)
-
-* (klein0r) Remove background effect in threshold overrides
-* (klein0r) Minor fixes in admin config
-* (klein0r) Fixed missing icon in history apps
 
 ## License
 MIT License

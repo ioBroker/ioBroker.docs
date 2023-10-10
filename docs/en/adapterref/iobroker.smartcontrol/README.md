@@ -358,6 +358,7 @@ Change Log for 0.2.0:
 ## License
 MIT License
 
+Copyright (c) 2023 Christian Oelschlegel <iobrokermatrix@sciphy.de>
 Copyright (c) 2020 Mic-M <iob.micm@gmail.com>
 
 Copyright (c) 2022 Oelison <iobrokersmartcontrol@sciphy.de>

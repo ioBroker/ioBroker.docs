@@ -42,6 +42,11 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+### 1.3.22 (2023-10-09)
+* (grizzelbee) Fix: Re-enabled window covers
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) New: Added ukrainian translation
+
 ### 1.3.21 (2022-05-13)
 * added schedule to object definition
 * changed limit for duration to 999999

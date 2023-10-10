@@ -18,10 +18,10 @@ Control and monitor SONOS devices with ioBroker.
    * **`group_muted`**: mute status of the group.
    * **`add_to_group`**: Add a certain SONOS device to the SONOS device under which this state is. Use IP address with underscores (see above).
    * **`remove_from_group`**: Remove a certain SONOS device from the SONOS device under which this state is. Use IP address with underscores (see above).
-   
+
 *) These states will be updated if changes are made in the SONOS app.
 
-## Using with the sayIt adapter
+## Using it with the sayIt adapter
 To use the [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) with this SONOS adapter, ensure that the [web adapter](https://github.com/ioBroker/ioBroker.web) is instantiated and running too. The web adapter is required to allow the SONOS adapter to read the generated MP3 file from the sayit adapter.
 
 ### Warning: Stability problems in combination with sayIt adapter
@@ -32,20 +32,20 @@ Please note: This SONOS adapter has stability issues if using 'text to speech' w
 Workaround for text to speech is to use the [SONOS HTTP API](https://github.com/jishi/node-sonos-http-api).
 
 ## Favorites & Queue in VIS
-Use states `favorites_list_html` and `queue_html` to show playlists and current queue with basic html widget in VIS. By click on a row the playlist or track will be played immediatly.
-Format the table with following css classes:
+Use states `favorites_list_html` and `queue_html` to show playlists and current queue with basic html widget in VIS. By clicking on a row, the playlist or track will be played immediately.
+Format the table with the following css classes:
 
 ### Favorites
 * `sonosFavoriteTable`: hole favorite table
 * `sonosFavoriteRow`: rows with favorite information
-* `sonosFavoriteNumber`: Number of favorite
+* `sonosFavoriteNumber`: Number of favorites
 * `sonosFavoriteCover`: Album art of favorite (grab image with `.sonosFavoriteCover img`)
 * `sonosFavoriteTitle`: Name of favorite
 
 ### Queue
 * `.sonosQueueTable`: hole table
 * `.sonosQueueRow`: rows containing track information
-* `.currentTrack`: added to the row containg current playing track
+* `.currentTrack`: added to the row containg the current playing track
 * `.sonosQueueTrackNumber`: Number or track
 * `.sonosQueueTrackCover`: Album art of track (grab image with `.sonosQueueTrackCover img`)
 * `.sonosQueueTrackArtist`: Name of artist
@@ -112,6 +112,10 @@ Please note: highlighting current playing favorite is not supported.
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 3.0.0 (2023-10-09)
+* (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
+* (bluefox) The minimal node.js version is 16
+
 ### 2.3.3 (2023-09-21)
 * (foxriver76) fixed cover url
 

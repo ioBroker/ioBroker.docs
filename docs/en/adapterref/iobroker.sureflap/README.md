@@ -138,6 +138,11 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.2.1 (2023-10-03)
+* (Sickboy78) fixed get_history_since call failing because of API changes
+* (Sickboy78) added workaround for removed parent object because of API changes
+* (Sickboy78) removed wrongly created objects because of API changes
+
 ### 1.2.0 (2023-08-19)
 * (Sickboy78) repetitive errors are now logged as debug to avoid spamming the error log
 * (Sickboy78) increased timeout for surepet API from 60 to 120 seconds

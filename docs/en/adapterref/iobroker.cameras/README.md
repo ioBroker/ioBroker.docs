@@ -31,6 +31,13 @@ sendTo('cameras.0', 'image', {
 The result is always in `jpg` format.
 
 Supported cameras:
+- Reolink E1 Pro via RTSP (important, without `Pro` it will not work)
+- Eufy via eusec adapter
+- [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2-generation-via-onvif-f%C3%BCr-s6-q8-a7-2-generation-) of second and third generation via ONVIF (für S6, Q8, A7 2. Generation), A7 Pro, A9
+- [WIWICam M1 via HiKam adapter](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
+- RTSP Native - if your camera supports RTSP protocol
+- Screenshots via HTTP URL - if you can get the snapshot from your camera via URL
+
 ### URL image
 This is a normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`  
 
@@ -46,12 +53,31 @@ Here is an example of how to add Reolink E1:
 
 ![rtsp](img/rtsp.png)
 
+## How to add a new camera (For developers)
+To add a new camera, you must create a Pull Request on GitHub with the following changes:
+- Add new file into `cameras` folder. This is backend to read the single image from the camera. 
+- Add GUI file in the `src/src/Types/` folder. This is the configuration dialog for the camera
+- Add this dialog in `src/src/Tabs/Cameras.js` file analogical as other cameras are added. Only two lines should be added:
+  - Import new configuration dialog like `import RTSPMyCamConfig from '../Types/RTSPMyCam';`
+  - Extend `TYPES` structure with the new camera like `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
+    The attribute name must be the same as the name of the file in the `cameras` folder.
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Changed widget set name
+
+### 1.3.0 (2023-09-28)
+* (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher
+* (bluefox) Implemented a second widget for simple cameras
+
+### 1.2.3 (2023-09-27)
+* (bluefox) Added WiWiCam MW1 and HiKam cameras
+
 ### 1.2.2 (2023-07-07)
 * (bluefox) Corrected passwords with exclamation mark
 
@@ -78,7 +104,7 @@ Here is an example of how to add Reolink E1:
 * (bluefox) Preparations for js-controller@4.x are made
 
 ### 0.1.4 (2021-07-13)
-* (bluefox) Add role for states
+* (bluefox) Add a role for states
 
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied

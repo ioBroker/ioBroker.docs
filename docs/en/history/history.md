@@ -143,6 +143,8 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
-This adapter can be used to manage heating systems. You can choose between cooling and heating mode and activate boost or pause for one room. Furthermore you can overwrite the target temperature for one room.
+This adapter can be used to manage heating systems.
+You can choose between cooling and heating mode and activate boost or pause for one room.
+Furthermore, you can overwrite the target temperature for one room.
 
 

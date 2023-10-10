@@ -14,18 +14,25 @@ Jung/Gira eNet Smarthome Adapter for [ioBroker smart home system](https://www.io
 Control Jung/Gira eNet smarthome devices using the Jung/Gira eNet Mobile Gate Wireless IP gateway (https://www.gira.com/en_GB/gebaeudetechnik/systeme/enet/enet-produkte/bediengeraete/enet-mobile-gate.html) or the Jung/Gira eNet Smart Home Server.
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (stoffel7)  prepare for automated release
+### 1.2.2 (2023-09-28)
+
+-   minor changes/fixes for js-controller 5
+
 ### 1.2.0 (2023-09-19)
 * (stoffel7) fixed some bugs, check for js-contoller 5.0 ( uploaded source)
+
 ### 1.1.0 (2022-11-29)
 * (stoffel7) fixed some minor bugs ( uploaded orignal source)
+
 ### 1.0.52 (2021-03-23)
 * (stoffel7) fixed some errors ( deltree.fct, valueChanged..)
+
 ### 1.0.2 (2021-03-19)
-* (stoffel7) reprogrammed eNet-Server part
+* (stoffel7) reprogrammed eNet-Server
+
 ### 1.0.1 (2019-01-21)
 * (SebastianSchultz) added support for compact mode
+
 ### 1.0.0 (2019-01-21)
 * (SebastianSchultz) first release
 
@@ -33,7 +40,7 @@ Control Jung/Gira eNet smarthome devices using the Jung/Gira eNet Mobile Gate Wi
 
 The MIT License (MIT)
 
-Copyright (c) 2019 SebastianSchultz
+Copyright (c) 2023 stoffel7
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

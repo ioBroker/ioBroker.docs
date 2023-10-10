@@ -3,62 +3,62 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonos/README.md
 title: ioBroker.sonos
-hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
+hash: SGZuGqRJeW7c5U8Vgtso6l5ZQUBvFkhvPdWzJ1vl4+E=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sonos/admin/sonos.png)
 
 ![Количество установок](http://iobroker.live/badges/sonos-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.sonos.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.sonos.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.sonos.svg)
 
 # IoBroker.sonos
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.sonos/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/sonos/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Контролируйте и контролируйте устройства SONOS с помощью ioBroker.
+Управляйте и контролируйте устройства SONOS с помощью ioBroker.
 
 ## Обработка групп
-* Состояния для обработки групп SONOS:
-   * **`координатор`**: установить/получить координатора, то есть устройство SONOS, которое является главным и координирует группу. Для этого требуется, чтобы IP-адрес (имя канала) устройства SONOS был координатором, но с подчеркиванием `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`. Если устройство не принадлежит ни к одной группе, то значение равно собственному имени канала (IP).
-   * **`group_volume`**: громкость группы
+* Состояния для работы с группами SONOS:
+   * **`координатор`**: установите/получите координатор, то есть устройство SONOS, которое является ведущим и координирует группу. Для этого требуется, чтобы IP-адрес (имя канала) устройства SONOS был координатором, но с подчеркиванием `_` вместо точки `.`, поэтому используйте, например, `192_168_0_100` для IP-адреса `192.168.0.100`. Если устройство не принадлежит ни к одной группе, то значение равно собственному имени канала (IP).
+   * **`group_volume`**: объем группы.
    * **`group_muted`**: статус отключения звука группы.
-   * **`add_to_group`**: добавить определенное устройство SONOS к устройству SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
-   * **`remove_from_group`**: Удалить определенное устройство SONOS из устройства SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
+   * **`add_to_group`**: добавьте определенное устройство SONOS к устройству SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
+   * **`remove_from_group`**: удалить определенное устройство SONOS из устройства SONOS, под которым находится это состояние. Используйте IP-адрес с подчеркиванием (см. выше).
 
 *) Эти состояния будут обновлены, если в приложении SONOS будут внесены изменения.
 
-## Использование с адаптером sayIt
-Для использования [sayit adapter](https://github.com/ioBroker/ioBroker.sayit) с этим адаптером SONOS убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) также создается и работает. Веб-адаптер необходим для того, чтобы адаптер SONOS мог читать сгенерированный файл MP3 из адаптера sayit.
+## Использование его с адаптером SayIt
+Для использования [Sayit адаптер](https://github.com/ioBroker/ioBroker.sayit) с этим адаптером SONOS убедитесь, что [веб-адаптер](https://github.com/ioBroker/ioBroker.web) также создается и запускается экземпляр. Веб-адаптер необходим для того, чтобы адаптер SONOS мог читать сгенерированный файл MP3 из адаптера Sayit.
 
-### Предупреждение: проблемы со стабильностью в сочетании с адаптером sayIt
-Обратите внимание: этот адаптер SONOS имеет проблемы со стабильностью при использовании преобразования текста в речь с адаптером sayIt. Наблюдаемые симптомы:
+### Внимание: проблемы со стабильностью в сочетании с адаптером SayIt.
+Обратите внимание: этот адаптер SONOS имеет проблемы со стабильностью при использовании преобразования текста в речь с адаптером SayIt. Наблюдаемые симптомы:
 
 1. Произвольное изменение громкости на 0 или 100 %.
-2. Нет ответа после случайного количества последовательностей преобразования текста в речь
+2. Нет ответа после случайного количества последовательностей текста в речь.
 
-Обходной путь для преобразования текста в речь — использовать [SONOS HTTP-API](https://github.com/jishi/node-sonos-http-api).
+Обходной путь преобразования текста в речь — использовать [HTTP-API SONOS](https://github.com/jishi/node-sonos-http-api).
 
 ## Избранное и очередь в VIS
-Используйте состояния `favorites_list_html` и `queue_html`, чтобы отобразить плейлисты и текущую очередь с помощью базового HTML-виджета в VIS. При нажатии на строку плейлист или трек будут воспроизведены немедленно.
-Отформатируйте таблицу с помощью следующих классов css:
+Используйте состояния `favorites_list_html` и `queue_html` для отображения списков воспроизведения и текущей очереди с помощью базового html-виджета в VIS. При нажатии на строку плейлист или трек будет воспроизведен немедленно.
+Отформатируйте таблицу, используя следующие классы CSS:
 
 ### Избранное
-* `sonosFavoriteTable`: выделить любимую таблицу
+* `sonosFavoriteTable`: любимая таблица с отверстиями
 * `sonosFavoriteRow`: строки с избранной информацией
-* `sonosFavoriteNumber`: Номер избранного
-* `sonosFavoriteCover`: обложка альбома избранного (захватите изображение с `.sonosFavoriteCover img`)
+* `sonosFavoriteNumber`: количество избранных
+* `sonosFavoriteCover`: обложка любимого альбома (захват изображения с помощью `.sonosFavoriteCover img`)
 * `sonosFavoriteTitle`: Имя избранного
 
 ### Очередь
 * `.sonosQueueTable`: таблица отверстий
-* `.sonosQueueRow`: строки, содержащие информацию о дорожке
-* `.currentTrack`: добавляется в строку, содержащую текущую воспроизводимую дорожку
-* `.sonosQueueTrackNumber`: номер или дорожка
-* `.sonosQueueTrackCover`: обложка альбома трека (захватите изображение с `.sonosQueueTrackCover img`)
-* `.sonosQueueTrackArtist`: Имя исполнителя
-* `.sonosQueueTrackAlbum`: название альбома (используйте `display:none`, если не требуется)
-* `.sonosQueueTrackTitle`: Название заголовка
+* `.sonosQueueRow`: строки, содержащие информацию о треке.
+* `.currentTrack`: добавляется в строку, содержащую текущий воспроизводимый трек.
+* `.sonosQueueTrackNumber`: Номер или дорожка.
+* `.sonosQueueTrackCover`: обложка альбома трека (захват изображения с помощью `.sonosQueueTrackCover img`)
+* `.sonosQueueTrackArtist`: Имя исполнителя.
+* `.sonosQueueTrackAlbum`: Название альбома (используйте `display:none`, если не нужно)
+* `.sonosQueueTrackTitle`: Название заголовка.
 
-Для длинных списков добавьте `overflow:auto;` или `overflow-y:auto;` к базовому HTML-виджету.
+Для длинных списков добавьте `overflow:auto;` или `overflow-y:auto;` к базовому html-виджету.
 Обратите внимание: выделение текущего избранного не поддерживается.
 
 ### Пример CSS
@@ -107,17 +107,30 @@ hash: xzIhwph10e7ZCKT8rI/MGLvk3sv5pCLONvcB03Edyog=
 ```
 
 ## Делать
-* Перепишите с помощью https://github.com/svrooij/node-sonos-ts
+* Перепишите с помощью https://github.com/svrooij/node-sonos-ts.
 
 ## Конфигурация
-- Веб-сервер - [опционально] Если веб-сервер включен или нет
-- Обновление прошедшего времени (мс) - Интервал в мс, как часто обновлять истекший таймер при воспроизведении заголовка. (по умолчанию 2000)
+- Веб-сервер - [необязательно] Если веб-сервер включен или нет
+- Обновление прошедшего времени (мс) - Интервал в мс, как часто обновлять истекший таймер при воспроизведении заголовка. (по умолчанию 2000 г.)
 
-<!-- Заполнитель для следующей версии (в начале строки):
+<!-- Заполнитель следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 3.0.0 (2023-10-09)
+* (udondan) Added support for the playing Sonos playlists (added new state `playlist_set`)
+* (bluefox) The minimal node.js version is 16
+
+### 2.3.3 (2023-09-21)
+* (foxriver76) fixed cover url
+
+### 2.3.2 (2023-09-20)
+* (foxriver76) store the cover file in files instead of binary states
+
+### 2.3.1 (2023-03-22)
+* (Apollon77) Prepare for future js-controller versions
+
 ### 2.3.0 (2023-01-11)
 * (Standarduser & Jey-Cee) Added new states `favorites_list_html` and `queue_html with covers`
 * (Standarduser) Changed default album art if no cover was found

@@ -133,6 +133,9 @@ This adapter would not have been possible without the great work of @Zefau (http
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2023-10-05)
+- (ticaki) fixed: bug in readable offset
+
 ### 1.1.2 (2023-09-16)
 - (ticaki) prevent Plex from crashing due to incorrect tautulli configuration
 

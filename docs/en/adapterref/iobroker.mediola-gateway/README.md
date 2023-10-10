@@ -41,9 +41,9 @@ These sun blinds will be found automatically. They start with WR or BK. There ar
 In state the WR status will be shown in percent of closure. The BK state is ever empty (never seen an other value). To update the state, the flag "read status from Mediola" in the adapter instance settings need to be set. The update intervall could be adjusted in minutes.
 In the action folder, the sun blinds could be controlled. To move up a 1 need to be written, for down a 2 and 3 for a stop. For WIR you could send 10, 20, 30, 40, 50, 60, 70, 80 and 90 for setting a percentage.
 
-## usage for Nobily (NY) sun blinds
+## usage for Nobily (NY/DY) sun blinds
 
-This is actually a bit complicated. The devices are not auto detected. You need to switch to the expert mode! If not existing, a folder "action" needs to be created under "mediola-gateway.0". In this folder you need to add a state "Datapoint" with type string and the name "NY12345678". "NY" need to be in capital letters and the hexadecimal number with 8 chars you need to get from the debug tool from the config tool. Take all the numbers you find under the group section.
+This is actually a bit complicated. The devices are not auto detected. You need to switch to the expert mode! If not existing, a folder "action" needs to be created under "mediola-gateway.0". In this folder you need to add a state "Datapoint" with type string and the name "NY12345678" or "DY12345678". "NY" or "DY" need to be in capital letters and the hexadecimal number with 8 chars you need to get from the debug tool from the config tool. Take all the numbers you find under the group section.
 
 ### DISCLAIMER
 
@@ -59,6 +59,7 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
 ### **WORK IN PROGRESS**
 
 -   RT (Somfy) system added (Thanks to Falk)
+-   DY (Nobily) system added (Thanks to BlindlyBlinds)
 
 ### 1.0.1 (2023-08-26)
 

@@ -3,9 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: yjdW1qnpqD83Ji1Oov1Ih8lpB7KE38Q4PLHsdrpz/v0=
+hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 ---
 # IoBroker.webui
+
+![Anzahl der Installationen](https://iobroker.live/badges/webui-installed.svg)
+![stabile Version](https://iobroker.live/badges/webui-stable.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.webui.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.webui.svg)
+![NPM](https://nodei.co/npm/iobroker.webui.png?downloads=true)
+
 Webui für ioBroker
 
 ![Bild](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
@@ -41,7 +48,7 @@ Der Designer verwendet Webkomponenten, sodass sich der von Ihnen entworfene HTML
 ### Benutzerdefinierte Steuerelemente in WebUI
 Sie können in WebUI eigene wiederverwendbare CustomControls erstellen. Dies kann individuelles Javascript, Eigenschaften und eine Vorlage haben.
 
-Sie können die Double-Bracket-Syntax und die Double-Curly-Braket-Syntax von „BaseCustomWebcomponent“ verwenden, um Bindungen aus der Vorlage an die im Designer definierten Eigenschaften zu erstellen. Curylklammern erzeugen Zwei-Wege-Bindungen.
+Sie können die Double-Bracket-Syntax und die Double-Curly-Braket-Syntax von „BaseCustomWebcomponent“ verwenden, um Bindungen aus der Vorlage an die im Designer definierten Eigenschaften zu erstellen. Curylklammern erzeugen bidirektionale Bindungen.
 Wenn Sie das Dialogfeld „Bindungen“ verwenden, können Sie über „Propertyname“ eine Bindung an eine Eigenschaft und über „Propertyname“ an ein ioBroker-Objekt in der Eigenschaft vornehmen.
 In Skripten können Sie auch in Signale schreiben, die in benutzerdefinierten Eigenschaften definiert sind.
 

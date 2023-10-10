@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-网关
-hash: JyqlBi6iqRvvzSL8upXGGaifDYjXTKbJpZOdlCW89CU=
+hash: 19Y7WFjGHqvwR1p525Fa2pucM4HVGxcUwMzhpKBaxdc=
 ---
 ![标识](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -33,8 +33,8 @@ sendIrData 使用多个学习的 IR 代码进行测试。只需将IR代码放入
 在状态下，WR 状态将以关闭百分比显示。 BK 状态始终为空（从未见过其他值）。要更新状态，需要在适配器实例设置中设置“从 Mediola 读取状态”标志。更新间隔可以在几分钟内调整。
 在动作文件夹中，可以控制遮阳帘。向上移动需要写1，向下写2，停止则写3。对于 WIR，您可以发送 10、20、30、40、50、60、70、80 和 90 来设置百分比。
 
-## Nobily (NY) 遮阳帘的用法
-这其实有点复杂。不会自动检测到这些设备。你需要切换到专家模式！如果不存在，则需要在“mediola-gateway.0”下创建文件夹“action”。在此文件夹中，您需要添加一个类型为字符串且名称为“NY12345678”的状态“Datapoint”。 “NY”需要大写字母和需要从配置工具的调试工具获取的 8 个字符的十六进制数字。取出您在组部分下找到的所有号码。
+## Nobily (NY/DY) 遮阳帘的用法
+这其实有点复杂。不会自动检测到这些设备。你需要切换到专家模式！如果不存在，则需要在“mediola-gateway.0”下创建文件夹“action”。在此文件夹中，您需要添加一个类型为字符串且名称为“NY12345678”或“DY12345678”的状态“Datapoint”。 “NY”或“DY”需要大写字母和需要从配置工具的调试工具获取的 8 个字符的十六进制数字。取出您在组部分下找到的所有号码。
 
 ### 免责声明
 免责声明 所有产品和公司名称或徽标均为其各自所有者的 Trademarks™ 或 Registered® 商标。它们的使用并不意味着它们或关联附属公司有任何从属关系或认可！这个个人项目是出于娱乐目的而进行的，没有商业目标。 mediola 是 mediola - Connected Living AG 的商标。
@@ -49,6 +49,7 @@ sendIrData 使用多个学习的 IR 代码进行测试。只需将IR代码放入
 ### **WORK IN PROGRESS**
 
 -   RT (Somfy) system added (Thanks to Falk)
+-   DY (Nobily) system added (Thanks to BlindlyBlinds)
 
 ### 1.0.1 (2023-08-26)
 

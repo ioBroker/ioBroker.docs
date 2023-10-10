@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-gateway
-hash: JyqlBi6iqRvvzSL8upXGGaifDYjXTKbJpZOdlCW89CU=
+hash: 19Y7WFjGHqvwR1p525Fa2pucM4HVGxcUwMzhpKBaxdc=
 ---
 ![Logo](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -33,8 +33,8 @@ Diese Sonnenschutzrollos werden automatisch gefunden. Sie beginnen mit WR oder B
 Im Status wird der WR-Status in Prozent der Schließung angezeigt. Der BK-Status ist immer leer (es wurde nie ein anderer Wert gesehen). Um den Status zu aktualisieren, muss in den Adapterinstanzeinstellungen das Flag „Status von Mediola lesen“ gesetzt werden. Das Aktualisierungsintervall kann in Minuten eingestellt werden.
 Im Aktionsordner konnten die Sonnenschutzrollos gesteuert werden. Für die Aufwärtsbewegung muss eine 1 geschrieben werden, für die Abwärtsbewegung eine 2 und für einen Stopp eine 3. Für WIR können Sie 10, 20, 30, 40, 50, 60, 70, 80 und 90 senden, um einen Prozentsatz festzulegen.
 
-## Verwendung für Nobily (NY) Sonnenschutzrollos
-Das ist tatsächlich etwas kompliziert. Die Geräte werden nicht automatisch erkannt. Sie müssen in den Expertenmodus wechseln! Falls noch nicht vorhanden, muss unter „mediola-gateway.0“ ein Ordner „action“ erstellt werden. In diesem Ordner müssen Sie einen Status „Datapoint“ mit dem Typ string und dem Namen „NY12345678“ hinzufügen. „NY“ muss in Großbuchstaben geschrieben sein und die Hexadezimalzahl mit 8 Zeichen muss aus dem Debug-Tool des Konfigurationstools stammen. Nehmen Sie alle Nummern, die Sie im Gruppenbereich finden.
+## Verwendung für Nobily (NY/DY) Sonnenschutzrollos
+Das ist tatsächlich etwas kompliziert. Die Geräte werden nicht automatisch erkannt. Sie müssen in den Expertenmodus wechseln! Falls noch nicht vorhanden, muss unter „mediola-gateway.0“ ein Ordner „action“ erstellt werden. In diesem Ordner müssen Sie einen Status „Datapoint“ mit dem Typ string und dem Namen „NY12345678“ oder „DY12345678“ hinzufügen. „NY“ oder „DY“ müssen in Großbuchstaben angegeben werden und die Hexadezimalzahl mit 8 Zeichen muss aus dem Debug-Tool des Konfigurationstools bezogen werden. Nehmen Sie alle Nummern, die Sie im Gruppenbereich finden.
 
 ### HAFTUNGSAUSSCHLUSS
 HAFTUNGSAUSSCHLUSS Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Eigentümer. Ihre Verwendung impliziert keine Zugehörigkeit oder Billigung durch sie oder verbundene Partner! Dieses persönliche Projekt wird auf Freizeitbasis verfolgt und hat keine geschäftlichen Ziele. mediola ist eine Marke der mediola – connected Living AG.
@@ -49,6 +49,7 @@ HAFTUNGSAUSSCHLUSS Alle Produkt- und Firmennamen oder Logos sind Marken™ oder 
 ### **WORK IN PROGRESS**
 
 -   RT (Somfy) system added (Thanks to Falk)
+-   DY (Nobily) system added (Thanks to BlindlyBlinds)
 
 ### 1.0.1 (2023-08-26)
 

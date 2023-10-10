@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
+hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +25,7 @@ hash: 334ijLAV8mZMLXEp6NM2RdGnJirqOZp3mrQkMmrSGkE=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.86_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.88_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -120,6 +120,16 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
 
 *可以使用 Blockly 块来使此调用更易于使用。*
 
+要播放您自己的铃声：
+
+```javascript
+sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+    if (res && res.error) {
+        console.error(res.error);
+    }
+});
+```
+
 ## 自定义应用程序
 **应用程序名称只能包含小写字母 (a-z) 并且必须是唯一的。没有数字，没有特殊字符，没有空格。**
 
@@ -162,14 +172,23 @@ sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.9.1 (2023-10-02)
 
-Updated recommended firmware version to 0.86
+NodeJS 16.x is required
+
+* (klein0r) Fixed hidden apps
+* (klein0r) Fixed color conversions of settings
+
+### 0.9.0 (2023-10-01)
+
+Updated recommended firmware version to 0.88
 
 * (klein0r) Added expert apps
 * (klein0r) Use the last value of fast refreshing states
 * (klein0r) Added settings for calendar colors
 * (klein0r) Allow to use apps without text (just background effect)
+* (AlCalzone) Added rtttl api endpoint support (via sendTo)
+* (klein0r) Native apps have been renamed
 
 ### 0.8.0 (2023-09-04)
 
@@ -194,16 +213,6 @@ Updated recommended firmware version to 0.72
 * (klein0r) Added MovingLine effect
 * (klein0r) Added settings for time style and transition effect
 * (klein0r) Setting repeat to 1 in blockly notifications
-
-### 0.6.2 (2023-07-30)
-
-* (klein0r) Fixed handling of state cache when object has been changed
-
-### 0.6.1 (2023-07-28)
-
-* (klein0r) Remove background effect in threshold overrides
-* (klein0r) Minor fixes in admin config
-* (klein0r) Fixed missing icon in history apps
 
 ## License
 MIT License

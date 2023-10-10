@@ -2685,6 +2685,9 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.1.5 (2023-10-09)
+* (bluefox) Added play-ground for ChatGPT (API key required)
+
 ### 7.1.4 (2023-08-09)
 * (bluefox) Added version to the side menu
 * (klein0r) Added blockly blocks for `getHistory` and calculated times
@@ -2703,10 +2706,6 @@ return 'your result';
 * (bluefox) coffescript was degraded to the previous version
 * (bluefox) tried to correct vscode font
 * (bluefox) reverted blockly to the previous version
-
-### 7.0.5 (2023-06-06)
-* (klein0r) reset timeouts in blockly
-* (klein0r) added additional blockly blocks
 
 ## License
 The MIT License (MIT)

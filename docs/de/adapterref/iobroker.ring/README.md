@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: Y4VqKG2x6vjJ2uLpp4Zd3FM/Smz5DPCI4zYhLSVLzuw=
+hash: wBvVgVDQ5C1q5LAueoWqrfBt+F8w8nmPwlZD884QKok=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -15,12 +15,13 @@ hash: Y4VqKG2x6vjJ2uLpp4Zd3FM/Smz5DPCI4zYhLSVLzuw=
 ![NPM](https://nodei.co/npm/iobroker.ring.png?downloads=true)
 
 # Ringadapter
-Erfordert Admin v4 und `node 16.x`.
-
-Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand an der Tür klingelt oder eine Bewegung erkannt wird. Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder Türklingel erkannt wird.
+Der Ring-Adapter funktioniert mit Ring-Geräten wie der Ring Video Doorbell und der Ring Cam und zeigt an, ob jemand an der Tür klingelt oder eine Bewegung erkannt wird.
+Die Ring Video Doorbell oder Cam sendet einen Videostream, wenn eine Bewegung oder Türklingel erkannt wird.
 
 ## Installation und Konfiguration
-Nach der Installation des Adapters müssen Sie Ihre E-Mail-Adresse und Ihr Passwort für Ihr [ring.com](https://ring.com)-Konto sowie einen Token eingeben. Ring erfordert jetzt die Verwendung von Two-Factor Auth (2fa) für alle Konten. Um den Token zu erhalten, gehen Sie bitte in Ihrer Shell wie folgt vor.
+Nach der Installation des Adapters müssen Sie Ihren Token eingeben.
+Ring erfordert jetzt die Verwendung der Zwei-Faktor-Authentifizierung (2fa) für alle Konten.
+Um das Token zu erhalten, gehen Sie bitte in Ihrer Shell wie folgt vor.
 
 ```shell
 npx -p ring-client-api ring-auth-cli
@@ -46,19 +47,16 @@ Sie können spezielle Variablen für den Pfad und Dateinamen Ihres Livestreams u
 
 ### FAQ
 #### Ich erhalte keine Ereignisse, Schnappschüsse und Videos zu Bewegungen oder erkannten Personen
-Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token per Ring auf eine schwarze Liste gesetzt wurde, sodass Sie die Push-Benachrichtigung, die Sie benötigen, nicht erhalten.
-Der beste Weg, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu erstellen.
+Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token per Ring auf eine schwarze Liste gesetzt wurde, wodurch Ihnen die Push-Benachrichtigung verweigert wurde, die Sie benötigen würden.
+Der beste Weg, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu generieren.
 
 Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an die verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn also Probleme mit fehlenden Ereignissen auftreten, liegt dies wahrscheinlich nicht an diesem Adapter.
 
 ### V3 Breaking Changes neu schreiben
-1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von „Gerät 1234567“)
-
-   zu `Device 1234567 ("Floodlight Garden")`)
-
+1. Die Gerätenamen wurden um ihre Beschreibung erweitert (z. B. von „Gerät 1234567“ zu „Gerät 1234567 („Floodlight Garden“)“)
 2. Snapshot-/Livestream-Daten befinden sich jetzt in einem entsprechenden Kanal, der die anderen Datenpunkte enthält.
 3. Das Snapshot-/Livestream-Objekt wurde vom Typ „Meta“ in „Status mit Typ Datei“ geändert.
-4. Ereignisse (Bewegung, Klingeln usw.) befinden sich jetzt in einem entsprechenden Kanal.
+4. Ereignisse (Bewegung, Klingeln usw.) befinden sich jetzt im jeweiligen Kanal.
 5. Da „ring-api“ die Unterstützung für Knoten vor „v16.x“ eingestellt hat, benötigt dieser Adapter „node v16.x“ oder „node v18.x“.
 6. Aktive Aktualisierungen werden auf einmal alle 2 Stunden reduziert, da wir Ereignisse abhören/auf sie reagieren.
 
@@ -66,288 +64,237 @@ Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring di
 Sie können die SIP-Informationen für eine SIP-Videokonferenz mit Ihrem SIP-Client verwenden.
 Der Adapter stellt nicht alle Ringgeräte bereit, da die verwendete API nicht alle Ringgeräte umfasst.
 
-Sie können beispielsweise den Blink SIP-Client auf [http://icanblink.com/](http://icanblink.com/) verwenden. Um das Video zum Laufen zu bringen, gehen Sie zu Blinks Einstellungen und wechseln Sie unter „Konten“ zur Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“. Achten Sie darauf, dass die SIP-Informationen nach einigen Sekunden verfallen! Hoffentlich kann ich bald einen Videostream unterstützen. Leider verfügt [ring.com](https://ring.com) nicht über eine offizielle API, die diese Funktion unterstützt.
+Sie können beispielsweise den Blink SIP-Client auf [http://icanblink.com/](http://icanblink.com/) verwenden.
+Um das Video zum Laufen zu bringen, gehen Sie zu Blinks Einstellungen und wechseln Sie unter „Konten“ zur Registerkarte „Medien“ und deaktivieren Sie „Audio und Video verschlüsseln“ unter „RTP-Optionen“.
+Seien Sie vorsichtig, die SIP-Informationen verfallen nach einigen Sekunden! Hoffentlich kann ich bald einen Videostream unterstützen.
+Leider verfügt [ring.com](https://ring.com) nicht über eine offizielle API, die diese Funktion unterstützt.
 Wenn Sie die `livestream request`-Taste drücken, erhalten Sie neue SIP-Informationen zum Aufbau einer SIP-Videoanrufsitzung.
 Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verlauf einen http-Link zu Ihrem zuletzt aufgezeichneten Bewegungs-/Türklingelvideo.
 
 ## Changelog
-
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.0.0-alpha.0 (2023-09-16)
+### 5.0.0 (2023-10-10)
+* (bluefox) migrated the configuration to JSON
+* (crocri) many changes for livestream and high-definition screenshots
+* (theimo1221) Refactoring and cleanup
 
+### 5.0.0-Beta (2023-10-10)
 * (crocri) Ding event is now working again for Ring-Intercom
 * (crocri) auto livestream creation takes now value from config, before fix
-* (crocri) snapshot now async, because snapshot and livestream in parallel does not work
+* (crocri) snapshot now async, because snapshot and livestream in parallel do not work
 * (crocri) livestream duration now settable via tree entry will be auto reset via livestream request.
 * (crocri) two new config entries auto_livestream and auto_snapshot to disable auto creation of livestream and snapshot.
 * (crocri) some minor corrections to code
 * (crocri) Removed binary States
-* (crocri) Improvements for vis compatibility
+* (crocri) Improvements for vis compatibility done
 * (theimo1221) Refactoring and cleanup
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 4.0.0 (2023-08-22)
-
 * (theimo1221) !!Breaking Change!! From now on Node 18 or 20 is required, Node 16 is not supported anymore
-* (theimo1221) Update Ring-Api to V12 which needs Node 18 or 20
-* (theimo1221) Update Packages
+* (theimo1221) Updated Ring-Api to v12 which needs Node 18 or 20
+* (theimo1221) Updated Packages
 
 ### 3.4.1 (2023-08-06)
-
 * (theimo1221) Compliance to adapter-checker
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 * (theimo1221) Debounce Doorbell Presses
-* (theimo1221) Add Support for cocoa_doorbell_v2
-* (theimo1221) Add Support for stickup_cam_longfin
-* (theimo1221) Fix compatibility and recompile
+* (theimo1221) Added Support for cocoa_doorbell_v2
+* (theimo1221) Added Support for stickup_cam_longfin
+* (theimo1221) Fixed compatibility and recompile
 
 ### 3.4.0 (2023-06-09)
-
-* (theimo1221) Update Packages (which allows node 20 now)
+* (theimo1221) Updated Packages (which allows node 20 now)
 
 ### 3.3.1 (2023-05-18)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 3.3.0 (2023-04-02)
-
-* (theimo1221) Update Packages
-* (theimo1221) Device with Type stickup_cam_longfin not yet supported #483
+* (theimo1221) Updated Packages
+* (theimo1221) Device with Type stickup_cam_longfin didn't yet support #483
 
 ### 3.2.7 (2023-03-22)
-
-* (foxriver76) prepare js-controller v5
+* (foxriver76) prepared js-controller v5
 
 ### 3.2.6 (2023-02-18)
-
-* (theimo1221) Improve behaviour on initial Location load fail
-* (theimo1221) Update Packages
+* (theimo1221) Improve behavior on initial Location load fail
+* (theimo1221) Updated Packages
 
 ### 3.2.5 (2023-01-28)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 3.2.4 (2022-12-15)
-
 * (theimo1221) #385 Fix for Unlock Request on intercoms
 
 ### 3.2.3 (2022-12-15)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 * (theimo1221) #385 Experimental Ring Intercom support
 
 ### 3.2.2 (2022-12-02)
-
-* (theimo1221) #373 Fix event receiving for iobroker instances without unique hostname
+* (theimo1221) #373 Fix event receiving for iobroker instances without a unique hostname
 
 ### 3.2.1 (2022-12-02)
-
 * (theimo1221) Redeploy
 
 ### 3.2.0 (2022-12-02)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 * (theimo1221) #373 Increase logging and change recording order on Doorbell Event
 
 ### 3.1.9 (2022-11-20)
-
 * (theimo1221) #395 Resolve Package-lock.json issues
 
 ### 3.1.8 (2022-11-20)
-
-* (theimo1221) Update Packages
-* (theimo1221) Compliance to newest ring api version
+* (theimo1221) Updated Packages
+* (theimo1221) Compliance to the newest ring api version
 
 ### 3.1.7 (2022-10-28)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 3.1.6 (2022-10-28)
-
 * (theimo1221) Inline subscription instead of properties for Event observer
 
 ### 3.1.5 (2022-10-16)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 3.1.4 (2022-10-16)
-
 * (theimo1221) #376 Handling when reconnect fails
 
 ### 3.1.3 (2022-10-04)
-
-* (theimo1221) Update Packages
+* (theimo1221) Updated Packages
 
 ### 3.1.2 (2022-09-22)
-
-* (theimo1221) Update Packages
-* (theimo1221) Fix an issue with floodlight control
+* (theimo1221) Updated Packages
+* (theimo1221) Fixed an issue with floodlight control
 
 ### 3.1.1 (2022-08-11)
-
-* (theimo1221) Improve Doorbell Event Logging
+* (theimo1221) Improved Doorbell Event Logging
 
 ### 3.1.0 (2022-08-04)
-
 * (bluefox) Allowed to be used with node.js 18
 
 ### 3.0.5 (2022-07-05)
-
-* (theimo1221) Improve Log Message on failed Snapshots during event handling
-* (theimo1221) Add Support for doorbell oyster
+* (theimo1221) Improved Log Message on failed Snapshots during event handling
+* (theimo1221) Added Support for doorbell oyster
 
 ### 3.0.4 (2022-06-17)
-
-* (theimo1221) Fix Edge Case resulting in lamps being permanently on
+* (theimo1221) Fixed Edge Case resulting in lamps being permanently on
 
 ### 3.0.3 (2022-06-16)
-
-* (theimo1221) Implement location mode
+* (theimo1221) Implemented location mode
 
 ### 3.0.1 (2022-06-08)
-
 * (bluefox) Changed the russian translations
 
 ### 3.0.0-beta.13 (2022-05-30)
-
-* (theimo1221) Prevent missing of events, due to socket drop within ring-api-client
-* (theimo1221) Improve device logging readability
+* (theimo1221) Prevented missing of events, due to a socket drop within ring-api-client
+* (theimo1221) Improved device logging readability
 
 ### 3.0.0-beta.12 (2022-05-28)
-
-* (theimo1221) Fix error in beta.11 in regard to new installations
+* (theimo1221) Fixed error in beta.11 in regard to new installations
 * (theimo1221) Harden Event Handling to prevent rare permanent busy occasions
-* (theimo1221) Add support for doorbell device `doorbell_graham_cracker`
+* (theimo1221) Added support for doorbell device `doorbell_graham_cracker`
 
 ### 3.0.0-beta.11 (2022-05-24)
-
-* (theimo1221) Add processing of new token provided by ring.
+* (theimo1221) Added processing of new token provided by ring.
 
 ### 3.0.0-beta.10 (2022-05-24)
-
-* (theimo1221) Add `lpd_v4` Doorbell
+* (theimo1221) Added `lpd_v4` Doorbell
 
 ### 3.0.0-beta.9 (2022-05-21)
-
 * (theimo1221) For stability reasons, perform an active refresh every 2 hours.
 
 ### 3.0.0-beta.8 (2022-05-17)
-
-* (theimo1221) Fix writing to iobroker-data/files folder (thx to Apollon)
+* (theimo1221) Fixed writing to iobroker-data/files folder (thx to Apollon)
 
 ### 3.0.0-beta.7 (2022-05-16)
-
 * (theimo1221) Prevent Crashes on unsupported devices
 
 ### 3.0.0-beta.6 (2022-05-16)
-
 * (theimo1221) Record more events (without recording twice)
-* (theimo1221) Improve snapshot deleting for initial snapshot after restart
+* (theimo1221) Improved snapshot deleting for initial snapshot after restart
 
 ### 3.0.0-beta.5 (2022-05-14)
-
-* (theimo1221) Prevent crashes during installation by clearer enforcing of node 16
+* (theimo1221) Prevented crashes during installation by clearer enforcing of node 16
 
 ### 3.0.0-beta.4 (2022-05-14)
-
 * (theimo1221) Changes in io-package.json for release workflow
 
 ### 3.0.0-beta.3 (2022-05-14)
-
-* (theimo1221) Rewrite V3 (Breaking Changes listed below)
-* (theimo1221) Update packages
-* (theimo1221) Fix in GitHub release workflow
+* (theimo1221) Rewrote V3 (Breaking Changes listed below)
+* (theimo1221) Updated packages
+* (theimo1221) Fixed in GitHub release workflow
 
 ### 2.0.0-beta.3 (2022-02-08)
-
-* (theimo1221) Fix adapter checker issues
+* (theimo1221) Fixed adapter checker issues
 
 ### 2.0.0-beta.0 (2022-02-05)
-
-* (theimo1221) Update packages
-* (theimo1221) Add JS-Controller 4.0 dependency
+* (theimo1221) Updated packages
+* (theimo1221) Added JS-Controller 4.0 dependency
 * (theimo1221) On ding --> First take snapshot then livestream
 
 ### 1.2.8 (2021-10-14)
-
-* (theimo1221) Update packages
+* (theimo1221) Updated packages
 
 ### 1.2.6 (2021-09-05)
-
-* (theimo1221) Update packages
-* (theimo1221) Stop adapter on unhandled Error
-* (theimo1221) Terminate adapter on invalid ring credentials
+* (theimo1221) Updated packages
+* (theimo1221) Stopped adapter on unhandled Error
+* (theimo1221) Terminated adapter on invalid ring credentials
 
 ### 1.2.4-1 (2021-08-12)
-
-* (theimo1221) Update packages
+* (theimo1221) Updated packages
 
 ### 1.2.4-0 (2021-08-07)
-
 * (theimo1221) Refactoring
-* (theimo1221) Update packages
+* (theimo1221) Updated packages
 
 ### 1.2.3 (2021-07-30)
-
-* (theimo1221) Update packages
-* (theimo1221) Fix compatibility issues with new ring api
+* (theimo1221) Updated packages
+* (theimo1221) Fixed compatibility issues with new ring api
 
 ### 1.2.2 (2021-05-05)
-
-* (theimo1221) Update packages due to security patches
+* (theimo1221) Updated packages due to security patches
 
 ### 1.2.1 (2021-04-09)
-
-* (theimo1221) Bump version
+* (theimo1221) Bumped version
 
 ### 1.2.0 (2021-04-08)
-
-* (theimo1221) Add new device type spotlightw as doorbell
-* (theimo1221) Update dependencies (ringapi, node-schedule, etc.)
+* (theimo1221) Added new device type spotlightw as doorbell
+* (theimo1221) Updated dependencies (ringapi, node-schedule, etc.)
 
 ### 1.1.6-3 (2021-03-29)
-
-* (theimo1221) Fix typo preventing Livestream recordings after motion detection
-* (theimo1221) Reduce Levels of Log Messages, to not spam iobroker Log
+* (theimo1221) Fixed typo preventing Livestream recordings after motion detection
+* (theimo1221) Reduced Levels of Log Messages, to not spam iobroker Log
 
 ### 1.1.6-2 (2021-03-29)
-
 * (theimo1221) Fixing some Issues while saving snapshots and place Snapshots within 'iobroker-data' Folder.
 
 ### 1.1.6-1 (2021-03-26)
-
 * (theimo1221) Support for Floodlight V2
 * (theimo1221) Control Floodlight by Switch
 
 ### 1.1.5 (04.11.2020)
-
-* (Stübi) Add floodlight
+* (Stübi) Added floodlight
 
 ### 1.1.4 (23.05.2020)
-
-* (Stübi) Add new libraries
+* (Stübi) Added new libraries
 
 ### 1.1.3 (06.05.2020)
-
 * (Stübi) Fixed error of missing objects
 
 ### 1.1.2 (02.05.2020)
-
 * (Stübi) Fixed health info like missing battery status (Issue #22, Issue #25)
 * (Stübi) Change error handling
 * (Stübi) Providing Stick Up Cam (BETA)
 * (Stübi) Using variables in the filename of the livestream or snapshot
 
 ### 1.1.1 (02.05.2020)
-
 * (Stübi) Bugfixing
 * (Stübi) User can enable/disable external sentry logging
 
 ### 1.1.0 (01.05.2020)
-
 * (Stübi) Node 10 is now required, Node 12 recommended. If you use Node 8 or less, the adapter will stop immediately.
 * (Stübi) Tested with js-controller 3. I recommend using js-controller 3 or higher because of sentry logging and more
   features in the future
@@ -356,61 +303,47 @@ Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verl
 * (Stübi) Old snapshots and livestreams can be deleted on the filesystem
 * (Stübi) Sentry logging added
 * (Stübi) Small improvements and bugfixing
-* (Stübi) Add a Two-Factor Auth (2fa) description (Issue #14, Issue #13, Issue #19)
+* (Stübi) Added a Two-Factor Auth (2fa) description (Issue #14, Issue #13, Issue #19)
 
 ### 1.0.7 (24.12.2019)
-
 * (Stübi) Bugfixing
 
 ### 1.0.6 (20.12.2019)
-
 * (Stübi) Bugfixing: Login with username and password changed
-* (Stübi) New feature (BETA): Now you can make snapshots in jpg and a livestream in mp4 format. Unfortunately the
-  snapshot / livestream does not work always!
+* (Stübi) New feature (BETA): Now you can make snapshots in jpg and a livestream in mp4 format. Unfortunately, the snapshot / livestream does not always work!
 
 ### 1.0.5 (18.04.2019)
-
 * (Stübi) Bugfixing
 * (Stübi) Using new API. With this API livestreaming and snapshots are possible (work still in progress and not
   supported in this version)
 * (Stübi) Fixed an error with js-controller 2.0. You need at least this version with js-controller 2.0
-* (Stübi) two face authentication
+* (Stübi) Added two factory authentications
 
 ### 1.0.4 (17.04.2019)
-
 * (Stübi) Bugfixing for Ring Pro
 
 ### 1.0.3 (09.03.2019)
-
-* (Stübi) Major change! I had to change the used ring.com API to an other API. The old one did not work anymore. For
-  this reason, a lot has to be redesigned.
+* (Stübi) Major change! I had to change the used ring.com API to another API. The old one did not work anymore. For this reason, a lot has to be redesigned.
 
 ### 1.0.2 (01.02.2019)
-
 * (Stübi) More debug information
 
 ### 1.0.1 (05.01.2019)
-
 * (Stübi) Support js-controller compact mode
 
 ### 1.0.0 (04.01.2018)
-
-* (Stübi) Add camera device. For this reason, the device name changed from doorbot to doorbell.
+* (Stübi) Added a camera device. For this reason, the device name changed from doorbot to doorbell.
 
 ### 0.1.3 (20.12.2018)
-
 * (Stübi) Update error handling
 
 ### 0.1.2 (17.12.2018)
-
 * (Stübi) Update error handling
 
 ### 0.1.1 (15.12.2018)
-
 * (Stübi) Improvements
 
 ### 0.1.0 (14.12.2018)
-
 * (Stübi) First Version
 
 ## License
