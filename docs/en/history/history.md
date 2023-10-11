@@ -115,7 +115,7 @@ https://github.com/HGlab01/ioBroker.apg-info - new adapter
 
 <img src="https://raw.githubusercontent.com/HGlab01/ioBroker.apg-info/master/admin/apg-info.png" width="100" height="100" />
 
-This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
+This adapter provides the peak-times for the Austrian Power Grid, where power consumption shall be avoided. In addition, the adapter provides the PHELIX-AT Day-Ahead (EPEX Spot) prices for Austria.
 
 ## tinymqttbroker (2023-09-16) - new adapter
 https://github.com/HGlab01/ioBroker.tinymqttbroker
@@ -147,4 +147,13 @@ This adapter can be used to manage heating systems.
 You can choose between cooling and heating mode and activate boost or pause for one room.
 Furthermore, you can overwrite the target temperature for one room.
 
+## admin and mqtt (11.10.2023) - new feature
+Admin and MQTT adapters now checks if they are reachable from public internet if no authentication enabled. If not, they will show warning in the log and in the admin.
 
+This is useful feature, as not all users understand how to secure their adapters, and it is very dangerous to have MQTT or admin adapter open to the internet without authentication.
+
+
+## iobroker (11.10.2023) - new feature
+Now it is possible to update your node.js via command line: `iob nodejs-update`
+
+You can update to suggested version (current 18) without additional parameters or specify version: `iob nodejs-update 20`
