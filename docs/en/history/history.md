@@ -148,12 +148,12 @@ You can choose between cooling and heating mode and activate boost or pause for 
 Furthermore, you can overwrite the target temperature for one room.
 
 ## admin and mqtt (11.10.2023) - new feature
-Admin and MQTT adapters now checks if they are reachable from public internet if no authentication enabled. If not, they will show warning in the log and in the admin.
+Admin and MQTT adapters now check if they are reachable from the public internet if no authentication is enabled. If not, they will show warning in the log and in the admin.
 
-This is useful feature, as not all users understand how to secure their adapters, and it is very dangerous to have MQTT or admin adapter open to the internet without authentication.
+This is a useful feature, as not all users understand how to secure their adapters, and it is hazardous to have MQTT or admin adapter open to the internet without authentication.
 
 
 ## iobroker (11.10.2023) - new feature
 Now it is possible to update your node.js via command line: `iob nodejs-update`
 
-You can update to suggested version (current 18) without additional parameters or specify version: `iob nodejs-update 20`
+You can update to a suggested version (current 18) without additional parameters or specify a version: `iob nodejs-update 20`
