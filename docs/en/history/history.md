@@ -155,5 +155,6 @@ This is a useful feature, as not all users understand how to secure their adapte
 
 ## iobroker (11.10.2023) - new feature
 Now it is possible to update your node.js via command line: `iob nodejs-update`
+https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update
 
 You can update to a suggested version (current 18) without additional parameters or specify a version: `iob nodejs-update 20`
