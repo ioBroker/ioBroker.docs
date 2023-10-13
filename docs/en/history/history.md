@@ -7,6 +7,7 @@
   - new adapter
   - stable release
   - new feature
+  - new widget
 - if your news about the new adapter, please add a GitHub link and a logo of the adapter
   Example:
 ``` 
@@ -158,3 +159,12 @@ Now it is possible to update your node.js via command line: `iob nodejs-update`
 https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update
 
 You can update to a suggested version (current 18) without additional parameters or specify a version: `iob nodejs-update 20`
+
+## vis-2-widgets-material (13.10.2023) - new widget
+Vacuum cleaner widget has been added.
+
+This widget is primary for Xiaomi vacuum cleaner.
+But it can be used for any other vacuum cleaner too.
+The only difference is that Xiaomi supports room cleaning.
+
+![picture1](media/2023_10_13_material-vacuum.png)
