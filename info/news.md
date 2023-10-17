@@ -22,6 +22,8 @@ located at your fork for best test results. Note that a restart of info adapter 
 - **date-start** - When should the message be displayed (in format 2019-01-01T00:00:00.000Z)
 - **date-end** - When should the message no longer be displayed (in format 2019-01-01T00:00:00.000Z)
 - **node-version** - Can be used with bigger(x.x.x), smaller(x.x.x), equals(x.x.x) or between(x.x.x,y.y.y) to check the installed node version (since Info 1.5.1, Admin 3.6.7)
+- **objects-db-type** - Array of objects dbs for which this condition will be true, e.g. `['jsonl', 'file']`
+- **number-of-objects** - Number of objects in the database to match this condition, e.g. `>=15000`
 - **npm-version** - Can be used with bigger(x.x.x), smaller(x.x.x), equals(x.x.x) or between(x.x.x,y.y.y) to check the installed npm version (since Info 1.5.5, Admin 3.6.12)
 - **os** - Can be 'aix', 'darwin', 'freebsd', 'linux', 'openbsd', 'sunos', 'win32' and 'android' (since Info 1.5.5, Admin 3.6.10)
 - **repo** - Can be 'latest' or 'default' (since Info 1.5.6, Admin 3.6.12)

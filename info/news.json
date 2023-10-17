@@ -630,5 +630,45 @@
     "conditions": {
       "samsung_tyzen": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Recommendation: Migration to Redis DB",
+      "de": "Empfehlung: Migration auf Redis DB",
+      "ru": "Рекомендация: Миграция в Redis DB",
+      "pt": "Recomendação: Migração para Redis DB",
+      "nl": "Vertaling:",
+      "fr": "Recommandation: Migration vers Redis DB",
+      "it": "Raccomandazione: migrazione a Redis DB",
+      "es": "Recomendación: Migración a Redis DB",
+      "pl": "Rekomendacja: Migration to Redis (ang.)",
+      "uk": "Рекомендація: Міграція в Redis DB",
+      "zh-cn": "建议:移徙到红十字行"
+    },
+    "content": {
+      "en": "Your database stores more than 15,000 objects. Migrating to Redis will be more performant for larger installations.",
+      "de": "Ihre Datenbank speichert mehr als 15.000 Objekte. Die Migration auf Redis wird für größere Installationen performanter sein.",
+      "ru": "Ваша база данных хранит более 15 000 объектов. Migrating to Redis будет более исполнителем для больших установок.",
+      "pt": "Seu banco de dados armazena mais de 15.000 objetos. Migrar para Redis será mais performante para instalações maiores.",
+      "nl": "Je database beheert meer dan 15.000 objecten. Het verdelen naar Redis zal groter zijn voor grotere installaties.",
+      "fr": "Votre base de données stocke plus de 15 000 objets. Migrating to Redis sera plus performant pour les grandes installations.",
+      "it": "Il tuo database memorizza più di 15.000 oggetti. La migrazione a Redis sarà più performante per installazioni più grandi.",
+      "es": "Su base de datos almacena más de 15.000 objetos. Migrar a Redis será más performant para instalaciones más grandes.",
+      "pl": "Jego baza danych gromadzi ponad 15 000 obiektów. Migrating do Redis będzie bardziej aktywny dla większych instalacji.",
+      "uk": "Ваша база даних зберігає більше 15 000 об'єктів. Міграція в Redis буде більш виконавцем для великих установок.",
+      "zh-cn": "你的数据库储存了15 000多个物体。 更大规模的设施将更能发挥警惕作用。."
+    },
+    "id": "recommend-objects-redis",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2023-9-04T019:36:00.000Z",
+    "number-of-objects": ">15000",
+    "objects-db-type": [
+      "file",
+      "jsonl"
+    ],
+    "conditions": {
+      "admin": "bigger(6.10.9)"
+    }
   }
 ]
