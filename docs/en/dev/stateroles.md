@@ -117,6 +117,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.sun.azimuth`     - sun azimuth in °
 * `value.voltage`         - Voltage in Volt, `unit=V`
 * `value.current`         - Current in Ampere, `unit=A`
+* `value.frequency`       - Freuency in Hz, `unit=Hz`
 * `value.fill`            - Fill level, `unit=l,ml,m3,%`
 * `value.blood.sugar`     - Blood sugar value, `unit=mmol,mgdl`
 
@@ -160,7 +161,10 @@ With **levels**, you can control or set some number value.
 * `level.voltage.max`     - maximum voltage for generators
 * `level.current`         - target current for i.e. loading battery devices
 * `level.current.min`     - minimum current for i.e. loading battery devices
-* `level.current.max`     - maximum current for i.e. loading battery devices
+* `level.current.max`     - maximum current for i.e. loading battery devices 
+* `level.frequency`       - target frequency for generators
+* `level.frequency.min`   - minimum frequency for generators or for power grid alarms
+* `level.frequency.max`   - maximum frequency for generators or for power grid alarms
 * `level.fill`            - setpoint for any container fill level states 
 * `level.min`             - minimum level allowed  
 * `level.max`             - maximum level allowed
