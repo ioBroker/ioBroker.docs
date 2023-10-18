@@ -168,3 +168,12 @@ But it can be used for any other vacuum cleaner too.
 The only difference is that Xiaomi supports room cleaning.
 
 ![picture1](media/2023_10_13_material-vacuum.png)
+
+## welcome (17.10.2023) - new adapter
+https://github.com/ioBroker/ioBroker.welcome
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/admin/welcome.png" width="100" height="100" />
+
+This adapter shows all web and admin instances of ioBroker on one page on port 80 (configurable)
+
+![picture](https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/img/screen.png)
