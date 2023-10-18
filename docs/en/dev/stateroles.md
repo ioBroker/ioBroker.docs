@@ -117,7 +117,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.sun.azimuth`     - sun azimuth in °
 * `value.voltage`         - Voltage in Volt, `unit=V`
 * `value.current`         - Current in Ampere, `unit=A`
-* `value.frequency`       - Freuency in Hz, `unit=Hz`
+* `value.frequency`       - Frequency in Hz, `unit=Hz`
 * `value.fill`            - Fill level, `unit=l,ml,m3,%`
 * `value.blood.sugar`     - Blood sugar value, `unit=mmol,mgdl`
 
