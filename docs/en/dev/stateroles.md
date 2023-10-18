@@ -82,6 +82,7 @@ in the [Type-detector repository](https://github.com/ioBroker/ioBroker.type-dete
 * `value.valve`           - valve level
 * `value.time`            - getTime() of Date() object
 * `value.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
+* `value.duration`    (common.unit='sec') - Duration in seconds (can be 0.1 or less)
 * ~~value.date        (common.type=string) - Date in form 2015.01.01 (without time)~~
 * ~~value.datetime    (common.type=string) - Date and time in system format~~
 * `value.gps.longitude`   - gps longitude coordinates
@@ -186,6 +187,8 @@ With **levels**, you can control or set some number value.
 * `level.color.temperature` - color temperature in K° `2200 warm-white, 6500° cold white`
 * `level.timer`
 * `level.timer.sleep`    - sleep timer. 0 - off, or in minutes
+* `level.interval`    (common.unit='sec') - Interval in seconds (can be 0.1 or less)
+* `level.duration`    (common.unit='sec') - Duration in seconds (can be 0.1 or less)
 * ...
 * `level.volume`         - (`min=0, max=100`) - sound volume, but min, max can differ. min < max
 * `level.volume.group`   - (`min=0, max=100`) - sound volume, for the group of devices
