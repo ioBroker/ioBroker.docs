@@ -687,5 +687,26 @@
     "conditions": {
       "admin": "installed"
     }
+  },
+  "content": {
+      "en": "The adapter hue-extended has been deprecated and will not be supported with js-controller 5.x.",
+      "de": "Der Adapter hue-extended wurde abgekündigt und wird nicht mehr mit js-controller 5.x unterstützt.",
+      "ru": "Адаптер hue-extended был отсортирован и не будет поддерживаться с предстоящим js-controller 5.x.",
+      "pt": "O adaptador hue-extended foi depreciado e não será suportado com o próximo js-controller 5.x.",
+      "nl": "De adapter hue-extended is gedegradeerd en zal niet worden ondersteund met Js-controller 5.",
+      "fr": "L'adaptateur hue-extended a été amorti et ne sera pas pris en charge avec js-controller 5.x.",
+      "it": "L'adattatore hue-extended è stato deprecato e non sarà supportato con il prossimo js-controller 5.x.",
+      "es": "El adaptador hue-extended ha sido deprecado y no será compatible con el próximo js-controller 5.x.",
+      "pl": "Dostosowy model samsung_tizen został stłumiony i nie będzie wspierany przez nadchodzącego js-controllera 5.x.",
+      "uk": "Перехідник hue-extended був відхилений і не підтримується майбутніми js-controller 5.x.",
+      "zh-cn": "调整后的hue-extended公里已经消失,将不支持即将到来的丛卫5.x。."
+    },
+    "id": "hue-extended-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2023-10-18T09:00:00.000Z",
+    "conditions": {
+      "hue-extended": "installed"
+    }
   }
 ]
