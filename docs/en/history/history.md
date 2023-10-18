@@ -138,6 +138,12 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 <img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/admin/logo.png" width="100" height="100" />
 
 This is a complete visualization system for ioBroker.
+* completely based on webcomponents
+* wysiwyg editor for UI, but you can also switch to source view, or split view
+* multi window ui in edit view, like in visal studio
+* bindings per drag/drop of ioBroker objects on ui-elments or properties
+* complex bindings with javascript inside, and converters
+* simple script language wich could be created via ui
 
 ## heizungssteuerung (4.10.2023) - new adapter
 https://github.com/jbeenenga/ioBroker.heizungssteuerung
