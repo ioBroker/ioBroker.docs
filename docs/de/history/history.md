@@ -25,7 +25,7 @@ hash: ydCcQNeaJsdSO0DpIiPNzdsditWhD967JCb2ljfBpI0=
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
-## Fregatte (20.08.2023) – neuer Adapter
+## Frigate (20.08.2023) – neuer Adapter
 https://github.com/Bettman66/ioBroker.frigate
 
 <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
@@ -46,7 +46,7 @@ https://github.com/ylabonte/ioBroker.procon-ip
 
 ioBroker-Adapter zur Basisunterstützung der `ProCon.IP` Schwimmbadsteuereinheit.
 
-## Deyeicd (29.08.2023)
+## Deyeidc (29.08.2023)
 https://github.com/raschy/ioBroker.deyeidc
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.deyeidc/master/admin/deyeidc.png" width="100" height="100" />
