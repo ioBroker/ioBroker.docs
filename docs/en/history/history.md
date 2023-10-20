@@ -159,7 +159,6 @@ Admin and MQTT adapters now check if they are reachable from the public internet
 
 This is a useful feature, as not all users understand how to secure their adapters, and it is hazardous to have MQTT or admin adapter open to the internet without authentication.
 
-
 ## iobroker (11.10.2023) - new feature
 Now it is possible to update your node.js via command line: `iob nodejs-update`
 https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update
@@ -183,3 +182,11 @@ https://github.com/ioBroker/ioBroker.welcome
 This adapter shows all web and admin instances of ioBroker on one page on port 80 (configurable)
 
 ![picture](https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/img/screen.png)
+
+## govee-local (20.10.2023) - new adapter
+https://github.com/boergegrunicke/ioBroker.govee-local
+
+<img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
+
+Control Govee devices via local access (no cloud)
+
