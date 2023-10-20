@@ -16,6 +16,6 @@ macOS | | MAC |x GB RAM <br> y GByte HDD | x GB RAM <br> y GByte HDD
 <br>
 Es wird empfohlen ioBroker auf einer Debian und Ubuntu basierten Linux Distributionen zu installieren.
 
-ioBroker kann auf alle Systeme installiert werden, auf denen Node.js zur Verfügung steht.
+ioBroker kann auf allen Systeme installiert werden, auf denen Node.js zur Verfügung steht.
 
 Achte bei der Hardwareauswahl auf den Stromverbrauch der Hardware, da ioBroker rund um die Uhr (24/7 Betrieb) laufen wird. Wenige Watt Unterschied machen sich im Laufe des Jahres beim Stromverbrauch bemerkbar.
