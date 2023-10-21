@@ -17,7 +17,7 @@ macOS | | MAC |x GB RAM <br> y GByte Speicherkapazität  | x GB RAM <br> y GByte
 <br>
 <br>
 
-- Es wird empfohlen ioBroker auf einer Debian und Ubuntu basierten Linux Distributionen zu installieren.
+- Es wird empfohlen ioBroker auf einer Debian/Ubuntu basierten Linux Distributionen zu installieren.
 - ioBroker kann auf allen Systemen installiert werden, auf denen Node.js zur Verfügung steht.
-- Der benötigte Speicherplatz steigt, wenn Datenpunkte historisiert werden (z.b. mit dem History Adapter welcher Text Dateien auf dem System speichert oder wenn Datenbanken wie Influx oder mysql installiert werden)
+- Der benötigte Speicherplatz steigt, wenn z.B. Datenpunkte historisiert werden (z.b. mit dem History Adapter welcher Text Dateien auf dem System speichert) oder wenn Datenbanken wie Influx oder mysql oder andere Anwendungen zusätzlich installiert und betrieben werden
 - Achte bei der Hardwareauswahl auf den Stromverbrauch der Hardware, da ioBroker rund um die Uhr (24/7 Betrieb) laufen wird. Wenige Watt Unterschied machen sich im Laufe des Jahres beim Stromverbrauch bemerkbar.
