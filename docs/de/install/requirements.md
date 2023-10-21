@@ -14,7 +14,7 @@ macOS | | MAC |x GB RAM <br> y GB Speicherkapazität  | x GB RAM <br> y GB Speic
 
 <sup>1</sup> Derivate der genannten Distributionen können ebenfalls verwendet werden
 
-<sup>2</sup> Diese Werte basieren auf Erfahrungen einer typischen Durchschnittsinstallation eines ioBroker Systems mit ~40 aktiven Adaptern
+<sup>2</sup> Diese Werte basieren auf Erfahrungen einer typischen Durchschnittsinstallation eines ioBroker Systems mit ~40 aktiven Adaptern, Grafana und einer externen Datenbank
 
 <br>
 <br>
