@@ -1,6 +1,6 @@
 ---
 title:       "Anforderungen"
-lastChanged: "20.10.2023"
+lastChanged: "21.10.2023"
 ---
 
 
@@ -9,7 +9,7 @@ lastChanged: "20.10.2023"
 |---|:---------:|:---------:|:---------:|:---------:|
 Linux-Distributionen | Arch, <br>Debian, <br> Gentoo, <br> Red-Hat, <br> Slackware<sup>1</sup> | <br> Raspberry PI, <br> Einplantinencomputer, <br> Mini-PC (z.B. NUC), <br> Hardware mit einer Virtualisierungsumgebung | 2 GB RAM <br> 30 GByte HDD | >= 4 GB RAM <br> >30 GByte HDD
 Docker | | Mini-PC (z.B. NUC), <br> NAS <br> | x GB RAM <br> y GByte HDD | x GB RAM <br> y GByte HDD
-Windows | Windows xx | PC, <br> Mini-PC (z.B. NUC)| x GB RAM <br> y GByte HDD | x GB RAM <br> y GByte HDD
+Windows | Windows xx | PC, <br> Mini-PC (z.B. NUC)| 4 GB RAM <br> 50 GByte HDD (inkl. OS) | 8 GB RAM <br> 100 GByte HDD (inkl. OS)
 macOS | | MAC |x GB RAM <br> y GByte HDD | x GB RAM <br> y GByte HDD
 
 <sup>1</sup> Derivate der genannten Distributionen können ebenfalls verwendet werden
