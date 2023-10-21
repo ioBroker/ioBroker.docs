@@ -7,7 +7,7 @@ lastChanged: "21.10.2023"
 ## Systemanforderungen
 | Betriebssystem | Varianten | Hardwareumgebungen (z.B.) | Mindestanforderungen für ioBroker | Empfohlene Ressourcen für ioBroker <sup>2</sup> 
 |---|:---------:|:---------:|:---------:|:---------:|
-Linux-Distributionen | Empfehlung: Debian inkl. entsprechende Derivate <sup>1</sup> | <br> Raspberry PI, <br> Einplantinencomputer, <br> Mini-PC (z.B. NUC), <br> Hardware mit einer Virtualisierungsumgebung | 2 GB RAM <br> 32 GB Speicherkapazität  | >= 4 GB (besser 6 GB - 8 GB) RAM <br> >= 64 GB Speicherkapazität 
+Linux-Distributionen | Empfehlung: Debian inkl. entsprechender Derivate <sup>1</sup> | <br> Raspberry PI, <br> Einplantinencomputer, <br> Mini-PC (z.B. NUC), <br> Hardware mit einer Virtualisierungsumgebung | 2 GB RAM <br> 32 GB Speicherkapazität  | >= 4 GB (besser 6 GB - 8 GB) RAM <br> >= 64 GB Speicherkapazität 
 Docker | | Mini-PC (z.B. NUC), <br> NAS <br> | x GB RAM <br> y GB Speicherkapazität  | x GB RAM <br> y GB Speicherkapazität 
 Windows | Windows xx | PC, <br> Mini-PC (z.B. NUC)| 4 GB RAM <br> 50 GB Speicherkapazität  (inkl. OS) | 8 GB RAM <br> 100 GB Speicherkapazität  (inkl. OS)
 macOS | | MAC |x GB RAM <br> y GB Speicherkapazität  | x GB RAM <br> y GB Speicherkapazität 
