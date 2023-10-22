@@ -3,59 +3,44 @@ title:       "Linux"
 lastChanged: "11.10.2022"
 ---
 
-***ioBroker Installation auf einem Linux System***
+Auf diser Seite wird beschrieben, wie ioBroker unter Linux installiert wird
 
-!> Diese Anleitung gilt NICHT für fertige Images der Webseite! Die hier beschriebene manuelle Installation ist einem Image gegenüber zu bevorzugen! 
+# Linux & Raspberry Pi
 
-## Allgemeines
-Die manuelle Installation von ioBroker erfolgt über ein Skript, welches die notwendigen 
+Die Installation von ioBroker erfolgt über ein Skript, welches die notwendigen 
 Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete nachlädt.
 Während der Installation wird im System ein neuer Benutzer “iobroker” angelegt sowie ein
 zugehöriges Home-Verzeichnis (/home/iobroker). Der ioBroker läuft dann unter diesem User. 
 
-Diese Installationsanleitung beschreibt eine *Neuinstallation* von ioBroker auf Linux am 
-Beispiel vom Raspberry Pi mit Raspberry OS 'Bullseye'. 
 
-## Benötigte Hardware
+## Voraussetzungen prüfen
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
 
-***Raspberry Pi 2/3/4*** mit Raspberry OS oder jede andere beliebige Hardware mit einem 
-gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen. 
-
-Wir raten davon ab, einen Pi 1 als Master einzusetzen, da dieser einfach nicht leistungsstark 
-genug (500 MB RAM, usw.) ist. Aufgrund der unterschiedlichen Hardware passt diese Anleitung 
-ohnehin nicht für einen Pi 1.
-
-Auch ein Pi 2 oder Pi 3 hat nur max. 1 GB RAM. Bei 15 Adapter-Instanzen sollte dieser noch 
-ausreichen, aber darüberhinaus kann es knapp werden. Jede Adapter-Instanz benötigt etwa 40 MB 
-(und auch schon mal 200MB und mehr) an RAM. Daher sollte immer die RAM-Auslastung im Auge behalten 
-werden, bevor weitere Adapter-Instanzen aktiviert werden – 1 GB RAM sind endlich.
-
-Daher empfiehlt sich aus der Raspberry-Reihe der Raspberry4 mit 4, besser 8 GB RAM. 
-
-Es ist wichtig ein gutes ***Netzteil*** zu haben. Mit schwachem Netzteil (z.B. Handy Netzteile) 
+## Wichtige Punkte die beachtet werden müssen
+- KEINE Installation von ioBroker als root User
+- ioBroker arbeitet als Server 24/7 und wird über Terminalprogramme wie Putty o.ä. administriert. Ein Desktop zu installieren bindet Ressourcen und ist nicht notwendig!
+- Wir raten, aus den bekannten Sicherheitsaspekten, davon ab den Root Zugang für SSH freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen Befehl voran zu stellen.
+- Einsteiger sollten mit Debian (Raspberrypi OS / Armbian) ohne weitere zusätzliche Schichten/Ebenen wie Docker, proxmox (bes. lxc) beginnen, da mit jeder weiteren Ebene weiterer administrativer Aufwand und mögliche Problemquellen hinzukommen.
+Eigenen User anlegen (der nicht iobroker heißt, dieser wird bereits verwendet)
+- Benötigte Hardware: Raspberry Pi mit Raspberry OS oder jede andere beliebige Hardware mit einem gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen. 
+- Hardware Raspberry Pi: Es ist wichtig ein gutes ***Netzteil*** zu haben. Mit schwachem Netzteil (z.B. Handy Netzteile) 
 sind Stabilitätsprobleme zu erwarten.
 
-***Speicherkarte*** oder SSD, USB-Stick, usw. (je nach verwendeter Hardware)
 
-## benötigte / wichtige Links
-* Download Image: https://www.raspberrypi.org/software/operating-systems/
-* Win32DiskImager: https://sourceforge.net/projects/win32diskimager/  **oder**
-* Balena Etcher: https://www.balena.io/etcher/
-* Putty: http://www.putty.org/
+## Raspberry Pi Installationsanleitung
+Anleitung zur Installation von ioBroker auf einem Raspberry Pi: https://forum.iobroker.net/topic/51869/installation-auf-raspi-einfacher-geht-s-nicht
 
-## Installationsanleitung
+## Linux Installationsanleitung
 
-* Das gewünschte Basis-Betriebssystem (Raspberry OS Bullseye, Ubuntu, Debian, usw.) – je nach verwendeter Hardware installieren.
+* Das gewünschte aktuelle Basis-Betriebssystem (Raspberry OS,  Debian, Ubuntu, usw.) – je nach verwendeter Hardware installieren.
 
   Hilfe und Anleitungen zu den jeweiligen Versionen gibt es auf entsprechenden Supportseiten, Youtube, usw.
   
-?> ioBroker arbeitet als Server 24/7 und wird über Terminalprogramme wie Putty o.ä. administriert. Ein Desktop zu installieren bindet Ressourcen und ist nicht notwendig!
+* Verwende für die Installation einen normalen User und verwendet NICHT den root User
 
-?> Wir raten, aus den bekannten Sicherheitsaspekten, davon ab den Root Zugang für SSH freizuschalten. Für die Installation von ioBroker reicht es aus, *sudo* dem jeweiligen Befehl voran zu stellen.
+* Über die Konsole und je nach verwendetem OS ein System-Update  mit ``sudo apt update && sudo apt full-upgrade`` durchführen.
 
-* Über die Konsole und je nach verwendetem OS ein System-Update  mit ``sudo apt-get update && sudo apt-get upgrade`` bzw. ``sudo apt update && sudo apt upgrade`` durchführen.
-
-* ioBroker mit dem ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
+* ioBroker mit dem Befehl ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
 
   Es wird das Installationsskript ausgeführt. Je nach Hardware kann die Installation dauern.
   
@@ -76,3 +61,11 @@ sind Stabilitätsprobleme zu erwarten.
   ``Open http://localhost:8081 in a browser and start configuring!``
 
 ioBroker kann nun über die angegebene IP im Webbrowser aufrufen werden ``http://<IP-Adresse>:8081`` und eingerichtet werden.
+
+
+# Docker
+## Voraussetzungen prüfen
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
+
+## Installation
+Auf dieser Seite findest du die offizielle Dokumentation, um ioBroker unter Docker zu installieren: https://docs.buanet.de/de/iobroker-docker-image/docs/
