@@ -212,6 +212,8 @@ iobroker fix
  iobroker start
  ```
  
+## Anleitung für Windows 
+Node.js wird mittels des Windows Installers aktualisiert
 
 
 ## Anleitung für Docker
