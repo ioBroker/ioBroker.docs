@@ -50,32 +50,32 @@ Zunächst muss der Installer heruntergeladen werden. Die aktuelle Version liegt 
 
 Anschließend wird der Installer per Doppelklick gestartet. Zunächst wählen wir die zu verwendende Sprache aus:
 
-![Sprachauswahl](./media/InstallWin_language.png 'Sprachauswahl')
+![Sprachauswahl](./media/windows/InstallWin_language.png 'Sprachauswahl')
 
 Anschließend erscheint die Begrüßungsseite:
 
-![Begrüßungsseite](./media/InstallWin_welcome.png 'Begrüßungsseite')
+![Begrüßungsseite](./media/windows/InstallWin_welcome.png 'Begrüßungsseite')
 
 Nach einem Klick auf "Weiter" erscheint die Lizenzseite:
 
-![Lizenzseite](./media/InstallWin_license.png 'Lizenzseite')
+![Lizenzseite](./media/windows/InstallWin_license.png 'Lizenzseite')
 
 Die Lizenz müssen wir akzeptieren und anschließend klicken wir wieder auf "Weiter". Auf der folgenden Seite können wir nun den Installationsordner für unsere ioBroker-Installation auswählen:
 
-![Installationsordner](./media/InstallWin_folder.png 'Installationsordner')
+![Installationsordner](./media/windows/InstallWin_folder.png 'Installationsordner')
 
 In der Regel ist es eine gute Idee, einfach den Vorgabewert "C:\ioBroker" zu verwenden. Nach einem Klick auf "Weiter" werden einige Überprüfungen durchgeführt:
 
-![Überprüfungen](./media/InstallWin_check.png 'Überprüfungen')
+![Überprüfungen](./media/windows/InstallWin_check.png 'Überprüfungen')
 
 Dies kann einen Moment dauern. Im Anschluss erscheint automatisch das Ergebnis der Überprüfung:
 
-![Überprüfungsergebnis](./media/InstallWin_checkresult.png 'Überprüfungsergebnis')
+![Überprüfungsergebnis](./media/windows/InstallWin_checkresult.png 'Überprüfungsergebnis')
 
 In diesem Beispiel ist alles in Ordnung und wir können fortfahren. Sollten jetzt nicht alle erforderlichen Voraussetzungen erfüllt sein, dann muss zunächst geklärt werden, was zu tun ist. Meist sind Ports nicht verfügbar, die für die Installation und den Betrieb von ioBroker benötigt werden. Wer in dieser Situation ist und nicht weiß, was zu tun ist, findet Hilfe im ioBroker Forum unter https://forum.iobroker.net/
 Nach einem Klick auf "Weiter" können wir einige Details auswählen:
 
-![Optionen](./media/InstallWin_options.png 'Optionen')
+![Optionen](./media/windows/InstallWin_options.png 'Optionen')
 
 Bei der ioBroker Erstinstallation sind die ersten drei Optionen fest vorgegeben:
 
@@ -86,17 +86,17 @@ Bei der ioBroker Erstinstallation sind die ersten drei Optionen fest vorgegeben:
    Und schließlich bietet der Installer noch die Möglichkeit, die Konfiguration einer vorhandenen Installation zu übernehmen. Dafür ist der komplette Ordner "iobroker-data" erforderlich, der bei einer vorhandenen ioBroker Installation im ioBroker Ordner zu finden ist. Dieser kann von einer ioBroker Installation unter Windows oder Linux stammen. Die Daten werden während der Installation aus diesem Ordner übernommen, der Inhalt dieses Ordners wird nicht verändert.
    Nach Klick auf "Weiter" sehen wir jetzt die Zusammenfassung der geplanten Aktionen:
 
-   ![Optionen](./media/InstallWin_summary.png 'Optionen')
+   ![Optionen](./media/windows/InstallWin_summary.png 'Optionen')
 
    Mit einem Klick auf "Installieren" wird jetzt die eigentliche Installation gestartet:
 
-   ![Optionen](./media/InstallWin_downloadnode.png 'Optionen')
+   ![Optionen](./media/windows/InstallWin_downloadnode.png 'Optionen')
 
-   ![Optionen](./media/InstallWin_installnode.png 'Optionen')
+   ![Optionen](./media/windows/InstallWin_installnode.png 'Optionen')
 
-   ![Optionen](./media/InstallWin_installiobroker.png 'Optionen')
+   ![Optionen](./media/windows/InstallWin_installiobroker.png 'Optionen')
 
-   ![Optionen](./media/InstallWin_finish.png 'Optionen')
+   ![Optionen](./media/windows/InstallWin_finish.png 'Optionen')
 
 Mit einem Klick auf "Fertigstellen" öffnet sich ein Webbrowser und ioBroker leitet dich durch die ersten Schritte der Einrichtung.
 
