@@ -15,7 +15,7 @@ Windows | | PC, <br> Mini-PC (z.B. NUC)| 4 GB RAM <br> 50 GB Speicherkapazität 
 
 <sup>2</sup> Diese Werte basieren auf Erfahrungen einer typischen Durchschnittsinstallation eines ioBroker Systems mit ~40 aktiven Adaptern, Grafana und einer externen Datenbank
 
- <sup>3</sup> Für die Installation auf einem NAS gelten die Anforderungen unter Linux, zuzüglich weiterer Ressourcen für die NAS-eigenen Aufgaben.
+ <sup>3</sup> Für die Installation auf einem NAS gelten die Anforderungen unter Docker, zuzüglich weiterer Ressourcen für die NAS-eigenen Aufgaben.
 
 <br>
 <br>
