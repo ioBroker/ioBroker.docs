@@ -1,57 +1,25 @@
 ---
 title:       "Anforderungen"
-lastChanged: "13.09.2018"
+lastChanged: "21.10.2023"
 ---
 
-# Systemanforderungen
-@@@ Tabelle mit RAM, CPU, OS, Node.js, npm, build-tools, Netzwerk,
-Plattenplatz, SD-Kartengröße @@@
 
-## Neuinstallation
+## Systemanforderungen
+| Betriebssystem | Varianten | Hardwareumgebungen (z.B.) | Mindestanforderungen für ioBroker | Empfohlene Ressourcen für ioBroker <sup>2</sup> 
+|---|:---------:|:---------:|:---------:|:---------:|
+Linux-Distributionen | Empfehlung: Debian inkl. entsprechender Derivate <sup>1</sup> | <br> Raspberry PI, <br> Einplantinencomputer, <br> Mini-PC (z.B. NUC), <br> Hardware mit einer Virtualisierungsumgebung | 2 GB RAM <br> 32 GB Speicherkapazität  | >= 4 GB (besser 6 GB - 8 GB) RAM <br> >= 64 GB Speicherkapazität 
+Docker | | Mini-PC (z.B. NUC), <br> NAS <sup>3</sup><br> | 2 GB RAM <br> 32 GB Speicherkapazität  | >= 4 GB (besser 6 GB - 8 GB) RAM <br> >= 64 GB Speicherkapazität 
+Windows | | PC, <br> Mini-PC (z.B. NUC)| 4 GB RAM <br> 50 GB Speicherkapazität  (inkl. OS) | 8 GB RAM <br> 100 GB Speicherkapazität  (inkl. OS)
 
-|   | Varianten | Version |
-|---|:---------:|:-------:|
-**Laufzeitumgebung** | | 
-&emsp;Node.js | 32-/64-bit<br>ppc641e<br>arm v61, armv71, arm64<br>aix-ppc64, s390x | 8.12.0
-**Paket Manager** | |
-&emsp;Node Packet Manager npm  |                 | 6.4.1
+<sup>1</sup> Es wird empfohlen ioBroker auf einer Debian/Ubuntu basierten Linux Distributionen (Serverversion ohne Desktop!) zu installieren. Die Installation auf einer anderen Linuxdistribution ist generell möglich (solange die gültige Node.js Version unterstützt wird) bedarf aber Expertenwissens, da die Standardskripte zur Installation / Pflege sowie Anleitungen auf Debian abgestimmt sind
 
-ioBroker kann auf alle Systeme installiert werden, auf denen Node.js zur
-Verfügung steht.
+<sup>2</sup> Diese Werte basieren auf Erfahrungen einer typischen Durchschnittsinstallation eines ioBroker Systems mit ~40 aktiven Adaptern, Grafana und einer externen Datenbank
 
+ <sup>3</sup> Für die Installation auf einem NAS gelten die Anforderungen unter Docker, zuzüglich weiterer Ressourcen für die NAS-eigenen Aufgaben.
 
-## Bestehende Installationen
-|   | Varianten | Version |
-|---|:---------:|:-------:|
-**Laufzeitumgebung** | | 
-&emsp;Node.js | 32-/64-bit<br>ppc641e<br>arm v61, armv71, arm64<br>aix-ppc64, s390x | 6.0.0 - 10.10.0<sup>*1</sup>
-**Paket Manager** | |
-&emsp;Node Packet Manager npm  |                 | 3.0.0 - 4.6.1  5.7.1 - 6.4.1
+<br>
+<br>
 
-<sup>*1</sup>Die folgenden Adapter haben noch Probleme mit Node.js-Versionen >= 10.0:
-- maxcul (wegen serialport-Abhängigkeit)
-- noolite (wegen serialport-Abhängigkeit)
-- wetty (wegen pty.js-Abhängigkeit)
-
-
-## Unterstützte Betriebssysteme
-|   | Varianten | 
-|---|:---------:|
-&emsp;*Windows* |
-&emsp;&emsp;Windows 7 | 32-/64-bit
-&emsp;&emsp;Windows Server 2008 R2 | 64-bit/IA64-edition
-&emsp;&emsp;Windows 8 | 32-/64-bit
-&emsp;&emsp;Windows Server 2012 |  64-bit
-&emsp;&emsp;Windows 8.1 | 32-/64-bit
-&emsp;&emsp;Windows Server 2012 R2 | 64-bit
-&emsp;&emsp;Windows 10 | 32-/64-bit
-&emsp;&emsp;Windows Server 2016 | 64-bit
-*&emsp;Linux-Distributionen* |
-&emsp;&emsp;Arch und Derivate |
-&emsp;&emsp;Debian und Derivate | z.B. Ubuntu, Bananian, <br>Cubian, Raspbian, Knoppix
-&emsp;&emsp;Gentoo und Derivate |
-&emsp;&emsp;Red-Hat und Derivate | z.B. Fedora, Pidora, <br>CentOS, Mandriva
-&emsp;&emsp;Slackware und Derivate | z.B. openSUSE
-&emsp;*Andere* |
-&emsp;&emsp;macOS | 64-bit
-&emsp;&emsp;Linux From Scratch |
+- ioBroker kann auf allen Systemen installiert werden, auf denen Node.js zur Verfügung steht.
+- Der benötigte RAM sowie die Speicherkapazität steigt, wenn z.B. Datenpunkte historisiert werden (z.b. mit dem History Adapter welcher Text Dateien auf dem System speichert) oder wenn Datenbanken wie Influx oder MySQL oder andere Anwendungen auf diesem System zusätzlich installiert und betrieben werden
+- Achte bei der Hardwareauswahl auf den Stromverbrauch der Hardware, da ioBroker rund um die Uhr (24/7 Betrieb) laufen wird. Wenige Watt Unterschied machen sich im Laufe des Jahres beim Stromverbrauch bemerkbar.
