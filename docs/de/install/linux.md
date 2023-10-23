@@ -17,7 +17,7 @@ Vor der Installation prüfe bitte, ob das System alle notwendigen [Installations
 
 ## Wichtige Punkte die beachtet werden müssen
 - **KEINE Installation (Ausführung des Installationsskriptes) von ioBroker als root User!**. Erstelle einen normalen User (der nicht iobroker heißt) mit welchem das System administriert wird
-- Benötigte Hardware: Raspberry Pi mit Raspberry OS oder jede andere beliebige Hardware mit einem gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen. 
+- Benötigte Hardware: Raspberry Pi mit Raspberry OS oder jede andere beliebige Hardware mit einem gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen 
 - Einsteiger sollten mit Debian / Raspberrypi OS / Armbian ohne  zusätzliche Virtualisierungsschicht wie Docker oder Proxmox beginnen, da mit jeder weiteren Ebene weiterer administrativer Aufwand und mögliche Problemquellen hinzukommen
 - Installiere dein Betriebssystem als Servervariante ohne einen Desktop
   - ioBroker arbeitet als Server 24/7 und wird über Terminalprogramme wie Putty, Powershell o.ä. administriert. Eine Desktop Umgebung verbraucht unnötige Ressourcen und vergrößert das Fehlerpotential
