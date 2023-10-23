@@ -213,7 +213,7 @@ iobroker fix
  ```
  
 ## Anleitung für Windows 
-Node.js wird mittels des Windows Installers aktualisiert
+Node.js wird durch die Ausführung des [Windows Installers](windows.md) aktualisiert.
 
 
 ## Anleitung für Docker

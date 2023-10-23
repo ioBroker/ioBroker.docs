@@ -9,7 +9,8 @@ lastChanged: "22.10.2023"
 - [Der ioBroker Windows Installer](#der-iobroker-windows-installer )
   - [ioBroker unter Windows - ist das überhaupt sinnvoll?](#iobroker-unter-windows---ist-das-überhaupt-sinnvoll )
   - [ioBroker installieren](#iobroker-installieren )
-
+- [Update](#update)
+- [Fehlersuche](#fehlersuche)
 
 
 
@@ -101,3 +102,8 @@ Bei der ioBroker Erstinstallation sind die ersten drei Optionen fest vorgegeben:
 Mit einem Klick auf "Fertigstellen" öffnet sich ein Webbrowser und ioBroker leitet dich durch die ersten Schritte der Einrichtung.
 
 
+# Update
+@@@ tbd @@@
+
+# Fehlersuche
+@@@ tbd @@@
