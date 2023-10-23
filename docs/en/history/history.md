@@ -190,3 +190,11 @@ https://github.com/boergegrunicke/ioBroker.govee-local
 
 Control Govee devices via local access (no cloud)
 
+## pylontech (23.10.2023) - new adapter
+https://github.com/PLCHome/ioBroker.pylontech
+
+<img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
+
+Query the cell voltages and the status of pylontech batteries via the console.
+
+
