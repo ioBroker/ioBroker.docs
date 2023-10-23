@@ -3,7 +3,6 @@ title:       "Linux"
 lastChanged: "23.10.2022"
 ---
 
-Auf diser Seite wird beschrieben, wie ioBroker unter Linux installiert wird
 
 # ioBroker Installation unter Linux & auf einem Raspberry Pi
 
