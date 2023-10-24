@@ -212,67 +212,9 @@ iobroker fix
  iobroker start
  ```
  
-## Anleitung für Windows
+## Anleitung für Windows 
+Node.js wird durch die Ausführung des [Windows Installers](windows.md) aktualisiert.
 
-#### 1 - Version prüfen (Windowstaste + R)
-
-```
-cmd.exe /C node -v & pause
-```
-
-#### 2 - Backup
-
-```
-iobroker backup
-```
-- alternative [Möglichkeiten](https://www.iobroker.net/#de/documentation/config/backup.md)
-
-#### 3 - Adapter aktualisieren
-- Anleitung dazu findet man unter [Adapter verwalten](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
-
-#### 4- Sicherung des Ordners:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 5 - iobroker stoppen
-
-```
-iobroker stop
-```
-
-#### 6 - Node.js update
-
-- [Node.js](https://nodejs.org) als Archiv herunterladen, nicht als msi Datei
-- Entpacke den Download und kopiere den gesamten Ordner über den vorhandenen Ordner:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
--  Kopiere aus der Sicherungskopie die Datei **nodevars.bat** zurück in den Ordner:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 7 - Version kontrollieren
-
-```
-cmd.exe /C node -v & pause
-```
-
-#### 8 - iobroker fixer ausführen
-
-```
-iobroker fix
-```
-
-#### 9 - ioBroker starten
-
-```
-iobroker start
-```
 
 ## Anleitung für Docker
 - Node.js wird in der Regel durch ein Update des Containers auf eine neue Version des [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags) durchgeführt.  
