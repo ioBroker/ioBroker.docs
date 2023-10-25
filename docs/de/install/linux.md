@@ -8,15 +8,15 @@ lastChanged: "23.10.2022"
 
 Die Installation von ioBroker erfolgt über ein Skript, welches die notwendigen 
 Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete nachlädt.
-Während der Installation wird im System ein neuer Benutzer “iobroker” angelegt sowie ein
-zugehöriges Home-Verzeichnis (/home/iobroker). Der ioBroker läuft dann unter dem User "iobroker". 
 
 
 ## Voraussetzungen prüfen
 Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
 
 ## Wichtige Punkte die beachtet werden müssen
-- **KEINE Installation (Ausführung des Installationsskriptes) von ioBroker als root User!**. Erstelle einen normalen User (der nicht iobroker heißt) mit welchem das System administriert wird
+
+- KEINE Installation von ioBroker als **root** User! Das Ausführen des Installationsskriptes **muss** als ein normaler User durchgeführt werden,
+durch diesen User wird auch das System zukünftig administriert. Der `normale` User sollte, nicht `iobroker` heißen, es sollte der bei der Basisinstallation, angelegte User sein.
 - Benötigte Hardware: Raspberry Pi mit Raspberry OS oder jede andere beliebige Hardware mit einem gängigen Linux. Empfohlen wird jedoch Debian, Ubuntu oder eine der darauf basierenden Distributionen 
 - Einsteiger sollten mit Debian / Raspberrypi OS / Armbian ohne  zusätzliche Virtualisierungsschicht wie Docker oder Proxmox beginnen, da mit jeder weiteren Ebene weiterer administrativer Aufwand und mögliche Problemquellen hinzukommen
 - Installiere dein Betriebssystem als Servervariante ohne einen Desktop
@@ -63,8 +63,6 @@ ioBroker kann nun über die angegebene IP im Webbrowser aufgerufen werden ``http
 ## Voraussetzungen prüfen
 Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
 
-## Wichtige Punkte die beachtet werden müssen
-- tbd
 
 ## Installation
 Auf dieser Seite findest du die offizielle Dokumentation, um ioBroker unter Docker zu installieren: https://docs.buanet.de/de/iobroker-docker-image/
