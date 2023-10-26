@@ -6,7 +6,7 @@ lastChanged: "26.10.2023"
 
 # ioBroker Installation unter Docker
 ## Voraussetzungen prüfen
-Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
 
 
 ## Installation
