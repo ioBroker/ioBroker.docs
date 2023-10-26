@@ -16,7 +16,7 @@ lastChanged: "22.10.2023"
 
 # Voraussetzungen prüfen
 
-Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](requirements.md) erfüllt.
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
 
 Probleme zum Windows Installer können hier im Forum diskutiert werden: https://forum.iobroker.net/topic/63610/test-iobroker-unter-windows-installieren-2023-edition
 
