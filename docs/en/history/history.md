@@ -197,4 +197,12 @@ https://github.com/PLCHome/ioBroker.pylontech
 
 Query the cell voltages and the status of pylontech batteries via the console.
 
+## signifylights (26.10.2023) - new adapter
+https://github.com/disaster123/ioBroker.signifylights
+
+<img src="https://raw.githubusercontent.com/disaster123/ioBroker.signifylights/main/admin/signifylights.png" width="100" height="100" />
+
+Signify Lights adapter for all Types of Signify WLAN lights like WIZ, Philips WLAN and many more...
+
+
 
