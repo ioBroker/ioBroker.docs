@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.signifylights/README.md
 title: ioBroker.signifylights
-hash: NomQXSSoUUCvrY0bGMypS4I5jiJeEmZRry5PVMl5rLk=
+hash: jpUQ+tfhgmQ6g52wkjjx1e1umiIRldRNMrcgAASm6Tc=
 ---
 ![标识](../../../en/adapterref/iobroker.signifylights/admin/signifylights.png)
 
@@ -19,11 +19,20 @@ hash: NomQXSSoUUCvrY0bGMypS4I5jiJeEmZRry5PVMl5rLk=
 ## IoBroker 的signifylights 适配器
 Signify 灯适配器适用于所有类型的 Signify WLAN 灯，例如 WIZ、飞利浦 WLAN 等等...
 
+问题和讨论在这里：https://forum.iobroker.net/topic/69656/test-adapter-signifylights
+
 ### 免责声明
 该项目不隶属于 WIZ、Signify 或飞利浦，也不受其资助或以任何方式与之相关。所有品牌和产品名称均为其各自所有者的商标或注册商标。
 提及公司或产品名称并不意味着批准或推荐该公司或产品，而排除其他公司或产品。
 
 ## Changelog
+### 0.3.0 (2023-10-27)
+* several translation fixes
+* replace logo
+* use adapter interval instead of timeout
+* new DEVICES: ESP24_SHRGBC_01 + ESP25_SHWRGB_01 + ESP15_SHRGB1S_01I
+* config: allow to run without udp mac and ip set
+
 ### 0.2.0 (2023-05-02)
 * more setTimeout fixes
 

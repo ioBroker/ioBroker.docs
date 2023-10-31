@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
+hash: VJezKzQm0NVAzd4h+qpCrTmTeJG5qPGNfNUs87AWI8g=
 ---
 # IoBroker.tado
 
@@ -19,7 +19,9 @@ hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Tado-Adapter für ioBroker
-tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis zu 31 % Ihrer Heizkostenrechnung.
+Tado° (https://www.tado.com) ist der Experte für intelligentes Heizen und Energiemanagement für Ihr Zuhause, entworfen und entwickelt in Deutschland. Sparen Sie mit uns nachhaltig Energie und Kosten – genießen Sie ein gemütliches und nachhaltiges Zuhause.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Dinge, die Sie steuern können
 | Staat | Beschreibung |
@@ -51,11 +53,13 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis z
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
-
 -->
+### 0.4.12-alpha.0 (2023-10-13)
+* (HGlab01) switch finaly to Admin5 UI
+
 ### 0.4.11 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
-* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+* (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
 
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
@@ -68,11 +72,6 @@ tado° sorgt für ein angenehmes und gesundes Klima und spart gleichzeitig bis z
 ### 0.4.8 (2023-05-12)
 * (HGlab01) Add attribute 'isHeatSourceInstalled'
 * (HGlab01) Bump axios to 1.4.0
-
-### 0.4.7 (2023-04-26)
-* (HGlab01) Add attribute 'generation'
-* (HGlab01) improve axios error handling
-* (HGlab01) Bump axios to 1.3.6
 
 ## License
 MIT License

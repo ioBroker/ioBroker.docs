@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-网关
-hash: 19Y7WFjGHqvwR1p525Fa2pucM4HVGxcUwMzhpKBaxdc=
+hash: mt+jhkQ8cCtlRO5VITibW6l4BtpRaTN0AdcfhOu/Uak=
 ---
 ![标识](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -28,9 +28,9 @@ sendIrData 使用多个学习的 IR 代码进行测试。只需将IR代码放入
 ＃＃ 故障排除
 检查http://ip-of-mediola/command?XC_FNC=getstates\ 预期结果：{XC_SUC}[...]\ 非预期结果：{"XC_ERR":{"code":"000007","msg" :"访问被拒绝"}}（在 Gateway V4 上从未见过）\ 当此功能正常工作时，您的 mediola 未设置密码。不知道为什么适配器不能工作。\联系论坛：https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway（抱歉是德语，但英语也是可以的）\使用用户名和密码：\ 检查 http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\ 预期结果：{XC_SUC}[...]\ 非预期结果：{XC_ERR}{"code" :"010000"}\ 当此功能起作用时，需要将用户名和密码添加到配置中。如果这不起作用，您可能没有用户名和正确的密码。当您只设置了密码时，您需要设置一个完整的用户。 （网关V6）
 
-## WIR (WR) 和 Roto (BK) 遮阳帘的用法
-这些遮阳帘将被自动找到。他们从 WR 或 BK 开始。适配器中有两个文件夹。一个称为状态，另一个称为动作。
-在状态下，WR 状态将以关闭百分比显示。 BK 状态始终为空（从未见过其他值）。要更新状态，需要在适配器实例设置中设置“从 Mediola 读取状态”标志。更新间隔可以在几分钟内调整。
+## WIR (WR)、Roto (BK) 和 Elero (ER) 遮阳帘的用法
+这些遮阳帘将被自动找到。他们从 WR、BK 或 ER 开始。适配器中有两个文件夹。一个称为状态，另一个称为动作。
+在状态下，WR 状态将以关闭百分比显示。 BK 和 ER 状态始终为空（从未见过其他值）。要更新状态，需要在适配器实例设置中设置“从 Mediola 读取状态”标志。更新间隔可以在几分钟内调整。
 在动作文件夹中，可以控制遮阳帘。向上移动需要写1，向下写2，停止则写3。对于 WIR，您可以发送 10、20、30、40、50、60、70、80 和 90 来设置百分比。
 
 ## Nobily (NY/DY) 遮阳帘的用法
@@ -50,6 +50,7 @@ sendIrData 使用多个学习的 IR 代码进行测试。只需将IR代码放入
 
 -   RT (Somfy) system added (Thanks to Falk)
 -   DY (Nobily) system added (Thanks to BlindlyBlinds)
+-   ER (Elero) system added (Thanks to CsL-007 [#35](https://github.com/oelison/ioBroker.mediola-gateway/issues/35))
 
 ### 1.0.1 (2023-08-26)
 

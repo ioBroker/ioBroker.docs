@@ -2,20 +2,20 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tesla-motors/README.md
-title: ioBroker.tesla-motoren
-hash: o04OO9LDv6ceGFyCmuMYEXkwyoaesyhuZY70xjz9wE4=
+title: ioBroker.tesla-motors
+hash: qiJyGYl+iytQgjCKWTgus6qTMM6Fh7ONOiqQLYWwcsA=
 ---
 ![Logo](../../../en/adapterref/iobroker.tesla-motors/admin/tesla-motors.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.tesla-motors.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/tesla-motors-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/tesla-motors-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/tesla-motors-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/tesla-motors-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.tesla-motors.svg)
 ![NPM](https://nodei.co/npm/iobroker.tesla-motors.png?downloads=true)
 
-# IoBroker.tesla-motoren
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.tesla-motors
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.tesla-motors/workflows/Test%20and%20Release/badge.svg)
 
 ## Tesla-Adapter für ioBroker
 Es werden alle Tesla Modelle und Powerwalls aus der Tesla App angezeigt und aktualisiert.
@@ -24,34 +24,61 @@ Es werden alle Tesla Modelle und Powerwalls aus der Tesla App angezeigt und aktu
 
 **Loginablauf:**
 
-- In den Instanzoptionen den Auth Link klicken.
-- Die Logindaten eingeben und gegebenenfalls Captcha/reCaptcha und MFA eingeben.
-- Auf der Seite nicht gefunden Seite die komplette URL aus dem Browser kopieren und in die Instanzoptionen einfügen und auf Speichen und Schließen klicken.
+- Klicken Sie in den Instanzoptionen auf den Auth-Link.
+- Die Logindaten eingeben und ggf. Captcha/reCaptcha und MFA eingeben.
+- Auf der Page not Found Seite die komplette URL aus dem Browser kopieren und in die Instanzoptionen einfügen und auf Speichen und Schließen klicken.
 - Die ersten Daten kommen unter Umständen erst nach der ersten Fahrt
 
 **Feld Beschreibung**
 
-- df Fahrer vorne
-- dr Fahrer hinten
-- pf Beifahrer vorne
-- pr Beifahrer hinten
+- DF-Fahrer vorne
+- Dr. Fahrer hinten
+- Beifahrer vorne
+- PR Beifahrer hinten
 - ft vorderer Kofferraum
-- rt Heckkofferraum
+- RT hinterer Kofferraum
 
-[Optionscodes Erklärung](https://tesla-api.timdorr.com/vehicle/optioncodes)
+[Erklärung der Optionscodes](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
-##Fragen und Diskussionen:
+## Fragen und Diskussionen:
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.5 (2023-10-24)
+
+- fix vehicle update
+
+### 1.3.4 (2023-10-24)
+
+- add wall_connector devices
+
+### 1.3.4-alpha.0 (2023-10-18)
+
+- (mcm1957) Standard iobroker release environment has been added.
+- (mcm1957) Some dependencies have been updated.
+
+### 1.3.2
+
+- Create history elements by index not by date
+
+### 1.3.1
+
+- login url and ordered car fix
+
 ### 1.0.2
-* (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+
+- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 iobroker-community
+Copyright (c) 2021-2023 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

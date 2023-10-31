@@ -23,6 +23,10 @@ Set the proper device (example /dev/ttyUSB0) in adapter config.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### 0.3.1 (2023-10-29)
+* (DutchmanNL) Message buffer implemented to avoid system overload
+
 ### 0.3.0 (2023-08-07) - Support Protocol Version 3.33
 * (DutchmanNL) Bugfixes
 * ([Andiling](https://github.com/andiling)) Update to support Protocol Version 3.33

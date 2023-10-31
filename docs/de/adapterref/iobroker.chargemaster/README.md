@@ -3,37 +3,77 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: DA1aBMw3hBev2eTwywOu8X/m2BHoHKN0weeXj0r4Z54=
+hash: zO3EtS2rpnpNs2nGou1sBEsZVtWbMhvnBczSZovQsK4=
 ---
 ![Logo](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.chargemaster.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![NPM-Version](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
+![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
+![GitHub-Workflow-Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/node.js.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
+![SNYK Bekannte Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![Beta](https://img.shields.io/npm/v/iobroker.chargemaster.svg?color=red&label=beta)
+![Stabil](https://iobroker.live/badges/chargemaster-stable.svg)
+![Eingerichtet](https://iobroker.live/badges/chargemaster-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)
 
 # IoBroker.chargemaster
-![NPM-Version (stabil)](http://ioBroker.live/badges/chargemaster-stable.svg) ![Anzahl der Installationen (neueste)](http://ioBroker.live/badges/chargemaster-installed.svg)
+[![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 
-CI-Tests: ![Node.js-CI](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
+## Versionen
+## Adapter zur Verwaltung eines oder mehrerer EV-Ladegeräte unter Nutzung von PV-Energie
+**!!!!!! DIESER ADAPTER STELLT NOCH EINEN ENTWICKLUNGSSTAND dar!!!**
 
-## Adapter zur Verwaltung eines oder mehrerer EV-Ladegeräte mit Nutzung von PV-Energie
-**!!! DIESER ADAPTER IST NOCH EIN ENTWICKLUNGSSTAND !!!**
-
-Adapter zur Verwaltung eines oder mehrerer EV-Ladegeräte (Wallboxen) mit Nutzung von PV-Energie. Der Adapter kann derzeit mit bis zu 3 EV-Wallboxen verwendet werden, um das Aufladen des verfügbaren Netzstroms mit potenzieller Nutzung von PV-Überschussenergie zu verwalten.
+Adapter zur Verwaltung eines oder mehrerer EV-Ladegeräte (Wallboxen) mit Nutzung von PV-Energie. Der Adapter kann derzeit mit bis zu 3 EV-Wallboxen betrieben werden, um das Laden des verfügbaren Netzstroms mit der potenziellen Nutzung überschüssiger PV-Energie zu verwalten.
 
 ## Einstellungen
-Um sich mit den Wallboxen zu verbinden, geben Sie die Zustände mit den erforderlichen Daten in der Konfiguration ein.
+Um eine Verbindung zu den Wallboxen herzustellen, geben Sie in der Konfiguration die Staaten mit den benötigten Daten ein.
 
 ## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codefehler an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlermeldung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Getestet mit
 - 3x go-E Ladegerät & Kostal PikoBA
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+
+### 0.8.3 (29.10.2023)
+* (HombachC) Bumb adapter core to 3.x
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
+### 0.8.2 (01.10.2023)
+* (HombachC) Several dependency updates
+* (HombachC) Fixed acknowledging of state changes (#339)
+### 0.8.1 (29.08.2023)
+* (HombachC) bumped dependencies, added min/max to settings state defaults
+### 0.8.0 (23.06.2023)
+* (HombachC) changed config screen to admin 5 solution
+### 0.7.2 (19.06.2023)
+* (HombachC) Removed Travis 
+### 0.7.1 (13.06.2023)
+* (HombachC) Fixed typo in docu, added translations 
+### 0.7.0 (11.06.2023)
+* (HombachC) BREAKING: dropped node.js 14 support
+* (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
+* (HombachC) BREAKING: dropped ioBroker.admin 4 support
+### 0.6.3 (29.12.2022)
+* (HombachC) bumped dependencies and year 2023 changes
+### 0.6.2 (11.09.2022)
+* (HombachC) fixed error in calc with active charge current
+### 0.6.1 (08.09.2022)
+* (HombachC) bump @iobroker/testing from 3.0.2 to 4.1.0
+### 0.6.0 (09.08.2022)
+* (HombachC) fix error in max total current, fix error in charge manager
+### 0.5.1 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, small code tweaks
+### 0.5.0 (09.05.2022)
+* (HombachC) BREAKING: dropped node.js 12 support
+* (HombachC) Add tests for node.js 18, removed for node.js 12
+* (HombachC) bumped dependencies to non node.js 12 support
+### 0.4.4 (27.04.2022)
+* (HombachC) fixed vulnerability, bumped dependencies
 ### 0.4.3 (22.02.2022)
 * (HombachC) added github tests for MAC-OS and Windows
 ### 0.4.2 (21.02.2022)
@@ -72,7 +112,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um automatisch Ausnahmen und Codef
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Christian Hombach
+Copyright (c) 2021-2023 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

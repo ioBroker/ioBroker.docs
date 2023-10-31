@@ -2,25 +2,25 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.porsche/README.md
-title: ioBroker.porsche
-hash: dMsKQHR/sNfHajyBai/WHQswuHHunggZSMxnnQ4CEdg=
+title: ioBroker.保时捷
+hash: R5ESABh9xYKCE/pZLm13vKEmB62fx97pfOyspBoauQ8=
 ---
 ![标识](../../../en/adapterref/iobroker.porsche/admin/porsche.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.porsche.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.porsche.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.porsche.svg)
 ![安装数量](https://iobroker.live/badges/porsche-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/porsche-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.porsche.svg)
-![新PM](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.porsche.png?downloads=true)
 
 # IoBroker.porsche
-**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/TA2k/ioBroker.porsche/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的保时捷适配器
 myPorsche 适配器
 
-## 登录
+## 登录ablauf
 Die myPorsche Mail und Passwort eingeben。
 
 ## 斯图恩
@@ -31,13 +31,15 @@ porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
 ## Changelog
 
-### 0.0.1
-* (TA2k) initial release
+### 0.2.0
+
+- (TA2k) fix login
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

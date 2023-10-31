@@ -3,37 +3,77 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: DA1aBMw3hBev2eTwywOu8X/m2BHoHKN0weeXj0r4Z54=
+hash: zO3EtS2rpnpNs2nGou1sBEsZVtWbMhvnBczSZovQsK4=
 ---
-![商标](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
+![标识](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.chargemaster.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)
-![已知漏洞](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
+![下载](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
+![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/node.js.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
-![新PM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)
+![SNYK 已知漏洞](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![贝塔](https://img.shields.io/npm/v/iobroker.chargemaster.svg?color=red&label=beta)
+![稳定的](https://iobroker.live/badges/chargemaster-stable.svg)
+![已安装](https://iobroker.live/badges/chargemaster-installed.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)
 
 # IoBroker.chargemaster
-![NPM 版本（稳定）](http://ioBroker.live/badges/chargemaster-stable.svg)![安装数量（最新）](http://ioBroker.live/badges/chargemaster-installed.svg)
+[![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 
-CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
+## 版本
+## 使用光伏能源管理一个或多个电动汽车充电器的适配器
+**！！！该适配器仍处于开发状态!!!**
 
-## 适配器使用 PV 能源管理一个或多个 EV 充电器
-**！！！这个适配器仍然代表一个发展状态！！！**
+使用光伏能源管理一个或多个电动汽车充电器（壁箱）的适配器。适配器目前可处理多达 3 个 EV 壁箱，以管理可用电网电源的充电，并可能利用光伏剩余能源。
 
-使用 PV 能源管理一个或多个 EV 充电器（壁箱）的适配器。适配器目前最多可处理 3 个 EV 墙盒，以管理对可用电网电力的充电，并可能使用 PV 剩余能源。
+＃＃ 设置
+要连接到墙盒，请在配置中输入所需数据的状态。
 
-## 设置
-要连接到墙盒，请在配置中输入具有所需数据的状态。
+## 注释
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
-## 备注
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
-
-##经过测试
+## 测试用
 - 3x go-E 充电器和 Kostal PikoBA
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+
+### 0.8.3 (29.10.2023)
+* (HombachC) Bumb adapter core to 3.x
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
+### 0.8.2 (01.10.2023)
+* (HombachC) Several dependency updates
+* (HombachC) Fixed acknowledging of state changes (#339)
+### 0.8.1 (29.08.2023)
+* (HombachC) bumped dependencies, added min/max to settings state defaults
+### 0.8.0 (23.06.2023)
+* (HombachC) changed config screen to admin 5 solution
+### 0.7.2 (19.06.2023)
+* (HombachC) Removed Travis 
+### 0.7.1 (13.06.2023)
+* (HombachC) Fixed typo in docu, added translations 
+### 0.7.0 (11.06.2023)
+* (HombachC) BREAKING: dropped node.js 14 support
+* (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
+* (HombachC) BREAKING: dropped ioBroker.admin 4 support
+### 0.6.3 (29.12.2022)
+* (HombachC) bumped dependencies and year 2023 changes
+### 0.6.2 (11.09.2022)
+* (HombachC) fixed error in calc with active charge current
+### 0.6.1 (08.09.2022)
+* (HombachC) bump @iobroker/testing from 3.0.2 to 4.1.0
+### 0.6.0 (09.08.2022)
+* (HombachC) fix error in max total current, fix error in charge manager
+### 0.5.1 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, small code tweaks
+### 0.5.0 (09.05.2022)
+* (HombachC) BREAKING: dropped node.js 12 support
+* (HombachC) Add tests for node.js 18, removed for node.js 12
+* (HombachC) bumped dependencies to non node.js 12 support
+### 0.4.4 (27.04.2022)
+* (HombachC) fixed vulnerability, bumped dependencies
 ### 0.4.3 (22.02.2022)
 * (HombachC) added github tests for MAC-OS and Windows
 ### 0.4.2 (21.02.2022)
@@ -72,7 +112,7 @@ CI-测试：![Node.js 持续集成](https://github.com/hombach/ioBroker.chargema
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Christian Hombach
+Copyright (c) 2021-2023 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

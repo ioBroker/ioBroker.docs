@@ -1,7 +1,14 @@
 ---
-BADGE-GitHub: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff
-BADGE-npm: https://img.shields.io/npm/v/iobroker.beckhoff.svg
-BADGE-Number of Installations: http://iobroker.live/badges/beckhoff-installed.svg
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.beckhoff.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.beckhoff/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.beckhoff
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.beckhoff.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/beckhoff-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/beckhoff-installed.svg
 ---
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.beckhoff) ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.beckhoff/workflows/Test%20and%20Release/badge.svg) ![npm](https://img.shields.io/npm/dm/iobroker.beckhoff) [![npm](https://img.shields.io/npm/v/iobroker.beckhoff.svg)](https://www.npmjs.com/package/iobroker.beckhoff) ![Number of Installations](http://iobroker.live/badges/beckhoff-stable.svg) ![Number of Installations](http://iobroker.live/badges/beckhoff-installed.svg)
 
@@ -79,6 +86,17 @@ Upload your \*.tpy File from your PLC Project -> Every Time you change something
 3. Sync never meant the Dataexchange of the Symbols. Sync is the create or delete the States in ioBroker dependent on the GlobalVariableTable in the PLC.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.5.3 (2023-10-29)
+
+- (mcm1957) Dependencies have been updated
+
+### 1.5.3-alpha.0 (2023-10-29)
+
+- (mcm1957) Standard test environment has been updated
 
 ### 1.5.2 (2023-03-21)
 

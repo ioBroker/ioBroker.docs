@@ -3,19 +3,19 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
+hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
 ![Статус сборки](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
 
 # IoBroker.homeconnect
-## Voraussetzungen vor der Installation
-Вы должны установить Node.js версии 8 сразу!!
+## Информация об установке
+Очень важно установить Node.js версии 8!!
 
-Для адаптера Wird eine ClientID bentigt. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
+Для адаптера будет полезен ClientID. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
 
 ## Требования перед установкой
 Должен быть установлен как минимум Node.js версии 8!
@@ -26,66 +26,82 @@ hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Учетная запись пользователя Home Connect по умолчанию для тестирования** с адресом электронной почты, зарегистрированным в Home-Connect-App, не может быть изменен и одобрен процесс авторизации.
+Если вы используете **учетную запись пользователя Home Connect по умолчанию для тестирования**, где указан адрес электронной почты, при регистрации приложения Home-Connect-App этот адрес будет отправлен, а также будет полезен процесс авторизации.
 
-Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, с которого должно быть отправлено приложение Home Connect.
-был зарегистрирован, это также требуется позже в процессе авторизации.
+Для **Учетной записи пользователя Home Connect по умолчанию для тестирования** укажите адрес электронной почты, на который будет отправлено приложение Home Connect.
+был зарегистрирован, это также потребуется в дальнейшем в процессе авторизации.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Тип счета** Индивидуальный учет. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
+Bei **Тип учетной записи** Индивидуальный аккаунт. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
 
-Для **Типа учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверено).
+В поле **Тип учетной записи** выберите Индивидуальный. Добавьте оставшиеся данные, если они доступны (не знаю, будет ли это проверено).
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Dann auf **Applications** и anschließend auf **Register Application** gehen.
+Пожалуйста, перейдите к разделу **Приложения** и отмените его в разделе **Зарегистрировать приложение**.
 
-Затем перейдите в **Приложения**, а затем в **Зарегистрировать приложение**.
+Затем перейдите в раздел **Приложения**, а затем в раздел **Зарегистрировать приложение**.
 
 ![Скриншот](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **Идентификатор приложения** einen Namen für die Application eintragen, z.B. ioБрокер. Выберите **OAuth Flow** Device Flow.
-**Учетная запись пользователя Home Connect для тестирования** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
-Dann Speichern и Dann Hat Man Di Benötigte ClientID.
+**Идентификатор приложения** einen Namen für die Application eintragen, z.B. ioБрокер. Выберите **Поток OAuth** Поток устройства.
+**Учетная запись пользователя Home Connect для тестирования** kann leer bleiben. **Успешное перенаправление** eine URI eintragen, z.B. https://example.com.
+Дайте знать и еще раз, чтобы получить хороший ClientID.
 
-В поле **Идентификатор приложения** введите имя приложения, например. ioБрокер. Выберите **OAuth Flow** Device Flow.
-**Учетная запись пользователя Home Connect для тестирования** может оставаться пустой. Для **Успешного перенаправления** введите URI, например. https://example.com.
+В поле **Идентификатор приложения** введите имя приложения, например. ioБрокер. С помощью **Потока OAuth** выберите «Поток устройства».
+**Учетная запись пользователя Home Connect для тестирования** может оставаться пустой. Для параметра **Перенаправление успеха** введите URI, например. https://example.com.
 Затем сохраните, и у вас есть необходимый ClientID.
 
 ## Конфигурация
-В адаптере-конфигурации должно быть указано имя пользователя и пароль приложения Homeconnect, а также идентификатор клиента.
+В конфигурации адаптера необходимо указать имя приложения Homeconnect, пароль и второй ClientID.
 
-## Обращение
-Mit den заявляет в командах kannst du das Programm stoppen, pausieren oder fortführen.
+## Бенуцунг
+В командах указано, что программа может быть остановлена, приостановлена или приостановлена.
 
-Mit den заявляет в настройках kannst du das Gerät ein oder ausschalten.
+В настройках указано, что вы можете быть готовы к использованию или отключены.
 
-Дополнительные программы для штатов.active.BSH_Common_Root_ActiveProgram для запуска программ
+Обновление программ iQ300: Es muss das gewüschnte Programm eingetragen werden. Если вы используете program.selected.BSH_Common_Root_SelectedProgram и хотите, чтобы пользователь мог использовать новую программу, она будет доступна для использования ioBroker.
 
-Внутренние программы государств.
+Список состояний программ.выбранных.BSH_Common_Root_SelectedProgram для выбора программ или опций
 
-Wenn man checken möchte, ob ein Programm fertig ist muss
+Если вы хотите проверить свою программу, вы должны сделать это
 
 status.BSH_Common_Status_OperationState
 
-auf den kompletten Название статуса übrprüft werden:
+auf den kompletten Статус Имя übrprüft werden:
 
 BSH.Common.EnumType.OperationState.Finished
 
 Weitere Zustände sind noch:
 
-"BSH.Common.EnumType.OperationState.Inactive": "Неактивно", "BSH.Common.EnumType.OperationState.Ready": "Готово", "BSH.Common.EnumType.OperationState.Run": "Выполнить", "BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Finished"
+"BSH.Common.EnumType.OperationState.Inactive": "Неактивно", "BSH.Common.EnumType.OperationState.Ready": "Готово", "BSH.Common.EnumType.OperationState.Run": "Выполнить", "BSH" .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Завершено"
 
 Oder ob ein Gerät geöffnet ist
 
 "BSH.Common.EnumType.DoorState.Open": "Открыто", "BSH.Common.EnumType.DoorState.Closed": "Закрыто"
 
-## Применение
-С помощью состояний в командах вы можете остановить, приостановить и возобновить программу.
-С состояниями в настройках можно выключить или включить устройство Изменение значенияprograms.active.BSH_Common_Root_ActiveProgram приводит к запуску программы Изменение значенияprograms.selected.BSH_Common_Root_SelectedProgram ведет к выбору программы или опций
+## Использование
+С помощью состояний команд вы можете остановить, приостановить и возобновить программу.
+С помощью состояний в настройках вы можете выключить или включить устройство. Изменение значения programs.active.BSH_Common_Root_ActiveProgram приводит к запуску программы. Обновление iQ300: в этой переменной необходимо указать имя программы. Если программы.selected.BSH_Common_Root_SelectedProgram скопированы, пользователь машины может заранее определить нужную программу на машине, и она будет запущена через ioBroker. Изменение значения программы.selected.BSH_Common_Root_SelectedProgram приведет к выбору программы или параметров.
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+-   (ta2k) restart adapter instead of relogin
+
+### 1.1.1 
+
+- Fix auto login for SingleKey User
+
+### 1.1.0
+
+- Add auto login for SingleKey User
 
 ### 1.0.3
 
@@ -94,6 +110,7 @@ Oder ob ein Gerät geöffnet ist
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
+
 ### 0.0.36
 
 - fix for js.controller 3.3. Please delete the device in Objects manually

@@ -121,36 +121,26 @@ Auch die Repositorien und Sicherheitseinstellungen können hier eingestellt werd
 Eine tiefergehende Beschreibung ist über den Link in dem Titel dieses Abschnitts zu erreichen.
 
 ## Changelog
-### **WORK IN PROGRESS**
-* (bluefox) Added possibility to show the icon on JSON config tabs
+### 6.12.1 (2023-10-29)
+* (foxriver76) optimzied the notificaiton popup (auto-extend first entry per category, respect line breaks, respect severity for icons)
+* (theimo1221) #2178 Stabilize onObjectChange handling during creation of new objects in WebUi, to directly show new element.
 
-### 6.10.5 (2023-10-10)
-* (foxriver76) JSON config component `port` does no longer mark port as occupied if it is only occupied on another host
-* (foxriver76) register news as notifications
-* (foxriver76) if upgrade all is stopped on error, activate close button
-* (bluefox) Export/import objects with its values
+### 6.12.0 (2023-10-24)
+* (foxriver76) fixed issue when updating news in backend
+* (foxriver76) validate json config against the schema
+* (foxriver76) update socket-client to improve performance
 
-### 6.10.4 (2023-09-25)
-* (foxriver76) fixed parsing `jsonConfig`
+### 6.11.0 (2023-10-19)
+* (foxriver76) jsonConfig type number now stores values as number instead of string
+* (foxriver76) objects browser number value input behavior change to allow leading minus
+* (bluefox) Added component `interfaces` to the JSON config
+* (bluefox) Implemented Backend to GUI communication
 
-### 6.10.3 (2023-09-25)
-* (foxriver76) fixed `installedFrom` other source indicator not shown on adapter's tab
-* (foxriver76) allowed using enter key to save changes in object edit dialog
-* (foxriver76) fixed json config crash with empty table
+### 6.10.9 (2023-10-16)
+* (bluefox) Improvement of the public accessibility check
 
-### 6.10.2 (2023-09-20)
-* (foxriver76) harmonized data on csv export with actual data shown by admin
-* (foxriver76) on expert mode installation tab, on no selection deactivate install button
-* (foxriver76) ensure the latest version is installed on `npm install`
-* (foxriver76) optimized enum objects
-* (foxriver76) disallow Google Translate as the plugin causes crash cases
-* (foxriver76) fixed crash on intro tab on docker hosts
-* (foxriver76) fixed crash case on invalid state objects
-
-### 6.10.1 (2023-09-11)
-* (foxriver76) fixed `between` function for showing news
-* (foxriver76) if date string is not parseable show the original string instead of `Invalid Date`
-* (foxriver76) updated socket classes to not crash on invalid patterns
+### 6.10.8 (2023-10-13)
+* (foxriver76) update adapter-react-v5 to fix issues with object browser
 
 ## License
 The MIT License (MIT)

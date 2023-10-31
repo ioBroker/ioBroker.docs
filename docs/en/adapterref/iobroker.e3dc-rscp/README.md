@@ -43,7 +43,7 @@ Here is what to configure when creating a new instance of the adapter. Settings 
   </tr>
   <tr>
     <td>E3/DC Portal Password</td>
-    <td>Your username at the <a href="https://s10.e3dc.com/s10/">E3/DC portal</a>.</td>
+    <td>Your password at the <a href="https://s10.e3dc.com/s10/">E3/DC portal</a>.</td>
   </tr>
   <tr>
     <td>E3/DC IP address</td>
@@ -215,97 +215,145 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>EMS</td>
     <td>MAX_CHARGE_POWER</td>
     <td>number</td>
-    <td>Charge limit in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true"</td>
+    <td>Charge limit in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true".</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>MAX_DISCHARGE_POWER</td>
     <td>number</td>
-    <td>Discharge limit in [W] - NOTE: inffective unless POWER_LIMITS_USED is "true"</td>
+    <td>Discharge limit in [W] - NOTE: inffective unless POWER_LIMITS_USED is "true".</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>DISCHARGE_START_POWER</td>
     <td>number</td>
-    <td>Minimal battery discharge power in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true"</td>
+    <td>Minimal battery discharge power in [W] - NOTE: ineffective unless POWER_LIMITS_USED is "true".</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>POWERSAVE_ENABLED</td>
     <td>boolean</td>
-    <td>Powersave mode is enabled</td>
+    <td>Powersave mode is enabled.</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>POWERLIMITS_USED</td>
     <td>boolean</td>
-    <td>Power limits are used</td>
+    <td>Power limits are used.</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>WEATHER_REGULATED_CHARGE_ENABLED</td>
     <td>boolean</td>
-    <td>Weather regulated charging is enabled</td>
+    <td>Weather regulated charging is enabled.</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>SET_POWER_MODE</td>
     <td>states</td>
-    <td>Charging mode; usually propagates to MODE</td>
+    <td>Charging mode; usually propagates to MODE.</td>
   </tr>
   <tr>
     <td>EMS</td>
     <td>SET_POWER_VALUE</td>
     <td>number</td>
-    <td>Charging power [W]; usually propagates to SET_POWER</td>
+    <td>Charging power [W]; usually propagates to SET_POWER.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>MANUAL_CHARGE_ENERGY</td>
+    <td>number</td>
+    <td>Manual charging energy [Wh]; setting this value will start manual charge.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>BATTERY_BEFORE_CAR_MODE</td>
+    <td>boolean</td>
+    <td>Charge battery before wallbox.</td>
+  </tr>  
+  <tr>
+    <td>EMS</td>
+    <td>BATTERY_TO_CAR_MODE</td>
+    <td>boolean</td>
+    <td>Discharge battery by wallbox in sun mode.</td>
+  </tr>  
+  <tr>
+    <td>EMS</td>
+    <td>WB_DISCHARGE_BAT_UNTIL</td>
+    <td>number</td>
+    <td>Percentage down to which the wallbox may discharge the battery.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>WB_ENFORCE_POWER_ASSIGNMENT</td>
+    <td>boolean</td>
+    <td>Prevent battery discharge through wallbox in mixing mode, true=forbidden, false=allowed</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>OVERRIDE_AVAILABLE_POWER</td>
+    <td>number</td>
+    <td>E3/DC will send this value [W] to wallvox as available solar power.</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>EMERGENCY_POWER</td>
+    <td>states</td>
+    <td>Emergency power mode. **experimental**</td>
+  </tr>
+  <tr>
+    <td>EMS</td>
+    <td>START_EMERGENCY_POWER_TEST</td>
+    <td>boolean</td>
+    <td>Setting this value will switch the E3/DC to island mode. **experimental**</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>IDLE_PERIOD_ACTIVE</td>
     <td>boolean</td>
-    <td>(de-)activate idle period (2)</td>
+    <td>(de-)activate idle period (2).</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>START_HOUR</td>
     <td>number</td>
-    <td>Start hour of idle period (2)</td>
+    <td>Start hour of idle period (2).</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>START_MINUTE</td>
     <td>number</td>
-    <td>Start minute of idle period (2)</td>
+    <td>Start minute of idle period (2).</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>END_HOUR</td>
     <td>number</td>
-    <td>End hour of idle period (2)</td>
+    <td>End hour of idle period (2).</td>
   </tr>
   <tr>
     <td>EMS (1)</td>
     <td>END_MINUTE</td>
     <td>number</td>
-    <td>End minute of idle period (2)</td>
+    <td>End minute of idle period (2).</td>
   </tr>
   <tr>
     <td>DB (3)</td>
     <td>TIME_START</td>
     <td>string</td>
-    <td>Start of time range to request data for</td>
+    <td>Start of time range to request data for.</td>
   </tr>
   <tr>
     <td>DB (3)</td>
     <td>TIME_SPAN</td>
     <td>string</td>
-    <td>Length of time range to request data for (seconds)</td>
+    <td>Length of time range to request data for (seconds).</td>
   </tr>
   <tr>
     <td>DB (3)</td>
     <td>TIME_INTERVAL</td>
     <td>string</td>
-    <td>Interval between data points</td>
+    <td>Interval between data points.</td>
   </tr>
   <tr>
     <td>SYS</td>
@@ -403,10 +451,21 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 
 ## Changelog
 ### 1.2.4
+__MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
+
+(ka-vaNu / git-kick)
+* Added setter functions for wallbox: BATTERY_BEFORE_CAR_MODE, BATTERY_TO_CAR_MODE, WB_DISCHARGE_BAT_UNTIL, WB_ENFORCE_POWER_ASSIGNMENT - [Issue #185](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/185)
+
 (git-kick)
+* Added EMS.REQ_SET_EMERGENCY_POWER (=>EMERGENCY_POWER), EMS.REQ_START_EMERGENCY_POWER_TEST (=>START_EMERGENCY_POWER_TEST) and EMS.REQ_SET_OVERRIDE_AVAILABLE_POWER (=>OVERRIDE_AVAILABLE_POWER). **EMERGENCY_POWER tags are experimental. Testing against the real E3/DC is difficult unless you have an UPS for all relevant devices.** - [Issue #57](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/57)
+
+* Added EMS.REQ_EMERGENCY_POWER_RETRY (=>EMERGENCY_POWER_RETRY) and EMS.REQ_EMERGENCY_POWER_OVERLOAD_STATUS (=>PARAM_NO_REMAINING_ENTRY,PARAM_TIME_TO_RETRY). Note that both have polling interval "N" by default. (Reason is that they are not in the official tag list and use is unclear.)
+* Check for IP address and port - [Issue #194](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/194)
+* Added setter EMS.MANUAL_CHARGE_ENERGY - [Issue #184](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/184)
 * Fixed onReady() async calls causing (very rare) unhandled exceptions - [Issue #178](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/178)
-* Handle ENOENT exception if words.js is unavailable - [Issue #180](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/180)
+* Handle ENOENT exception if admin/words.js is unavailable - [Issue #180](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/180)
 * Added config switch lazy_setstate  - [Issue #174](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/174). The adapter is now capable of updating State.ts according to convention (also when the value was unchanged). **Note** that the default ist "false" (i.e. no setState() call as long as value remains unchanged) in order to avoid a breaking chage for users with small hardware. 
+* New chapter in [README-dev.md](https://github.com/git-kick/ioBroker.e3dc-rscp/blob/master/README-dev.md) describing how to add a standard setter tag to the adapter.
 
 ### 1.2.3
 (git-kick)

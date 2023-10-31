@@ -3,29 +3,30 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
+hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
 ---
 ![Логотип](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.blebox.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.blebox.svg)
 ![Известные уязвимости](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
 
 # IoBroker.blebox
-## Адаптер blebox для ioBroker
-Адаптер для системы Blebox. Подробная информация о продуктах [блебокс](https://blebox.eu/). Die Implementierung hat ohne Unterstützung des Herstellers stattgefunden.
+##адаптер blebox для ioBroker
+Адаптер для управления устройствами Умного дома производителя [blebox](https://blebox.eu/). Описание API можно найти [здесь](https://technical.blebox.eu/). Внедрение произошло без поддержки производителя.
 
-Eine unvollständige und veraltete API-Simulation kann [выше](https://github.com/blebox/blebox-virtual-devices) heruntergeladen werden.
+Неполную и устаревшую модель API можно загрузить [здесь](https://github.com/blebox/blebox-virtual-devices).
 
-Aktuell werden folgende Geräte unterstützt:
+В настоящее время поддерживаются следующие устройства:
 
-* затвор
+* ставень
 * распределительная коробка
-* баня
+* саунабокс
 * датчик температуры
-* привратник
-* твлифт
+* воротная коробка
+* ТВлифт
+* мультисенсор — не тестировался на реальном оборудовании, поддерживается до 4 датчиков
 
 ## Changelog
 
@@ -33,6 +34,10 @@ Aktuell werden folgende Geräte unterstützt:
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.1.0 (2023-10-13)
+
+* (Kai van Nuis) Support for multiSensor
 
 ### 2.0.1 (2023-03-12)
 
@@ -44,15 +49,14 @@ Aktuell werden folgende Geräte unterstützt:
 
 ### 1.1.0
 
-* Support für gateBox implementiert und eslint umgestellt
+* Support for gateBox implemented and eslint converted
 
 ### 0.1.2
 
-* Fixes aufgrund Codereview
-
+* Fixes due to code review
 ### 0.1.1
 
-* Erstes Stable-Release
+* First stable release
 
 ## License
 MIT License

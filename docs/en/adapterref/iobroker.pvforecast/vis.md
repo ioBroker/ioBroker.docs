@@ -1,5 +1,5 @@
 ---
-chapters: {"pages":{"en/adapterref/iobroker.pvforecast/README.md":{"title":{"en":"ioBroker.pvforecast - Adapter for the forecast of PV incomes"},"content":"en/adapterref/iobroker.pvforecast/README.md"},"en/adapterref/iobroker.pvforecast/vis.md":{"title":{"en":"ioBroker.pvforecast - VIS"},"content":"en/adapterref/iobroker.pvforecast/vis.md"}}}
+chapters: {"pages":{"en/adapterref/iobroker.pvforecast/README.md":{"title":{"en":"ioBroker.pvforecast"},"content":"en/adapterref/iobroker.pvforecast/README.md"},"en/adapterref/iobroker.pvforecast/vis.md":{"title":{"en":"ioBroker.pvforecast - VIS"},"content":"en/adapterref/iobroker.pvforecast/vis.md"}}}
 ---
 ![Logo](../../admin/pvforecast.png)
 

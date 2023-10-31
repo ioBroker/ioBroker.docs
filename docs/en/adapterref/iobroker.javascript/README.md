@@ -58,6 +58,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [clearTimeout](#cleartimeout)
     - [setImmediate](#setImmediate)
     - [formatDate](#formatdate)
+    - [formatTimeDiff](#formattimediff)
     - [getDateObject](#getDateObject)
     - [formatValue](#formatvalue)
     - [adapterSubscribe](#adaptersubscribe)
@@ -1224,12 +1225,48 @@ formatDate(millisecondsOrDate, format);
 #### Example
 
 ```js
-  formatDate(new Date(), "YYYY-MM-DD") // => Date "2015-02-24"
-  formatDate(new Date(), "hh:mm") // => Hours and minutes "17:41"
-  formatDate(state.ts) // => "24.02.2015"
-  formatDate(state.ts, "JJJJ.MM.TT SS:mm:ss.sss") // => "2015.02.15 17:41:98.123"
-  formatDate(new Date(), "WW") // => Day of week "Tuesday"
-  formatDate(new Date(), "W") // => Day of week "Tu"
+formatDate(new Date(), "YYYY-MM-DD") // => Date "2015-02-24"
+formatDate(new Date(), "hh:mm") // => Hours and minutes "17:41"
+formatDate(state.ts) // => "24.02.2015"
+formatDate(state.ts, "JJJJ.MM.TT SS:mm:ss.sss") // => "2015.02.15 17:41:98.123"
+formatDate(new Date(), "WW") // => Day of week "Tuesday"
+formatDate(new Date(), "W") // => Day of week "Tu"
+```
+
+### formatTimeDiff
+```js
+formatTimeDiff(milliseconds, format);
+```
+
+#### Parameters:
+
+- `milliseconds`: difference in milliseconds*
+- `format`: Can be `null`, so the `hh:mm:ss` format will be used, otherwise
+
+* DD, TT, ДД - full day, e.g. 02
+* D, T, Д - short day, e.g. 2
+* hh, SS, чч - full hours, e.g. 03
+* h, S, ч - short hours, e.g. 3
+* mm, мм(cyrillic) - full minutes, e.g. 04
+* m, м(cyrillic) - short minutes, e.g. 4
+* ss, сс(cyrillic) - full seconds, e.g. 05
+* s, с(cyrillic) - short seconds, e.g. 5
+
+#### Example
+
+```js
+formatTimeDiff(60000, "mm:ss") // => "01:00"
+
+const diff = 172800000 + 10800000 + 540000 + 15000; // 2 days, 3 hours, 9 minutes + 15 secoonds
+formatTimeDiff(diff); // "51:09:15"
+formatTimeDiff(diff, "DD hh:mm"); // "02 03:09"
+formatTimeDiff(diff, "D hh:mm"); // "2 03:09"
+formatTimeDiff(diff, "hh:mm:ss"); // "51:09:15"
+formatTimeDiff(diff, "h:m:s"); // "51:9:15"
+formatTimeDiff(diff, "hh:mm"); // "51:09"
+formatTimeDiff(diff, "mm:ss"); // "3069:15"
+formatTimeDiff(diff, "hh"); // "51"
+formatTimeDiff(diff, "mm"); // "3069"
 ```
 
 ### getDateObject
@@ -1805,6 +1842,13 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Added function to format time difference `formatTimeDiff`
+* (klein0r) Added blockly blocks for `formatTimeDiff`
+
+### 7.1.6 (2023-10-24)
+* (bluefox) Fixed pushover rules block
+
 ### 7.1.5 (2023-10-09)
 * (bluefox) Added play-ground for ChatGPT (API key required)
 
@@ -1819,13 +1863,6 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 * (klein0r) Added new blocks: new line, random number, value between min and max, if empty
 * (klein0r) Updated blockly core to v9.3.3
 * (bluefox) corrected blockly
-
-### 7.0.8 (2023-06-12)
-* (klein0r) Corrected trigger block
-* (klein0r) Corrected typescript V5
-* (bluefox) coffescript was degraded to the previous version
-* (bluefox) tried to correct vscode font
-* (bluefox) reverted blockly to the previous version
 
 ## License
 The MIT License (MIT)

@@ -98,6 +98,13 @@ Additionally, you can show image or iframe with this widget too.
 ### Door lock
 ![Door lock](img/material-lock.png)
 
+### Vacuum cleaner
+This widget is primary for Xiaomi vacuum cleaner. But it can be used for any other vacuum cleaner too.
+
+The only difference is that Xiaomi supports the room cleaning.
+
+![Vacuum cleaner](img/material-vacuum.png)
+
 ### Time picker
 
 
@@ -110,6 +117,17 @@ Additionally, you can show image or iframe with this widget too.
 -->
 
 ## Changelog
+### 1.3.3 (2023-10-26)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added color settings to actual
+* (bluefox) Vacuum settings were hidden
+
+### 1.3.2 (2023-10-14)
+* (bluefox) Small improvements done
+
+### 1.3.1 (2023-10-13)
+* (bluefox) Added the vacuum cleaner widget
+
 ### 1.2.1 (2023-09-18)
 * (bluefox) Added door lock, rgb and thermostat to switches widget
 

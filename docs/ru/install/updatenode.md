@@ -4,7 +4,7 @@ lastChanged: 11.08.2023
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/updatenode.md
-hash: pGgc+A+dB6ugB5PyKBBdMMv+sp5PBupo1so0DvGNIXQ=
+hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
 ---
 # Обновление Node.js
 | js-контроллер | Node.js | НПМ |
@@ -17,10 +17,10 @@ hash: pGgc+A+dB6ugB5PyKBBdMMv+sp5PBupo1so0DvGNIXQ=
 Как это часто бывает со многими технологиями с открытым исходным кодом, Node.js быстро развивается.
 Обновления, повышающие **стабильность** и **безопасность** или даже добавляющие **новые функции**, появляются регулярно.
 
-ioBroker не работает без Node.js, подробности об этом см. в разделе [архитектура](https://www.iobroker.net/#de/documentation/basics/architecture.md).
+ioBroker не работает без Node.js, подробности об этом см. [архитектура](https://www.iobroker.net/#de/documentation/basics/architecture.md).
 Если вы хотите узнать больше о Node.js, [Википедия Node.js](https://de.wikipedia.org/wiki/Node.js).
 
-?> **При изменении версии Node.js необходимо заранее проверить и при необходимости исправить определенные предварительные условия.
+?> **При изменении версии Node.js необходимо заранее проверить и при необходимости исправить определенные требования.
 Обратите внимание на пути, по которым расположена установка.**
 
 ### Метод
@@ -200,59 +200,7 @@ iobroker fix
  ```
 
 ## Инструкции для Windows
-#### 1 — Проверить версию (клавиша Windows + R)
-```
-cmd.exe /C node -v & pause
-```
-
-####2 - Резервное копирование
-```
-iobroker backup
-```
-
-- альтернативные [варианты](https://www.iobroker.net/#de/documentation/config/backup.md)
-
-####3 - Обновить адаптер
-- Инструкции можно найти по адресу [Управление адаптерами](https://www.iobroker.net/#de/documentation/tutorial/adapter.md).
-
-#### 4- Сделайте резервную копию папки:
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-####5 - остановить iobroker
-```
-iobroker stop
-```
-
-#### 6 — Обновление Node.js
-- Загрузите [Node.js](https://nodejs.org) как архив, а не как файл MSI.
-- Разархивируйте загрузку и скопируйте всю папку поверх существующей:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-- Скопируйте файл **nodevars.bat** из резервной копии обратно в папку:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-####7 - Проверить версию
-```
-cmd.exe /C node -v & pause
-```
-
-#### 8 — Запустите iobroker fixer
-```
-iobroker fix
-```
-
-####9 - Запустите ioBroker
-```
-iobroker start
-```
+Node.js обновляется путем выполнения [Установщик Windows](./windows.md).
 
 ## Инструкции для Docker
 - Node.js обычно выполняется путем обновления контейнера до новой версии [Docker Image] (https://hub.docker.com/r/buanet/iobroker/tags).

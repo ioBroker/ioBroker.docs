@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
+hash: WS7yxh0uGILkbJGM1g5iiUlCJSovZX7NCzqbzAp7iVw=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +25,7 @@ hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.88_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.90_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -172,6 +172,17 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.0 (2023-10-23)
+
+Updated recommended firmware version to 0.90
+
+* (klein0r) Added support for sleep mode
+* (klein0r) Added fading for indicators
+
+### 0.9.2 (2023-10-22)
+
+* (klein0r) Fixed: Visisble state of expert apps
+
 ### 0.9.1 (2023-10-02)
 
 NodeJS 16.x is required
@@ -201,18 +212,6 @@ Updated recommended firmware version to 0.83
 * (klein0r) Fixed 0 decimals setting
 * (klein0r) Changed log level of some messages
 * (klein0r) Added states for transitions
-
-### 0.7.1 (2023-08-09)
-
-* (klein0r) Added option for number format
-
-### 0.7.0 (2023-08-03)
-
-Updated recommended firmware version to 0.72
-
-* (klein0r) Added MovingLine effect
-* (klein0r) Added settings for time style and transition effect
-* (klein0r) Setting repeat to 1 in blockly notifications
 
 ## License
 MIT License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: iobroker.modbus
-hash: Sb020lslki6ZXpGnYu1JKyZBEyYnJYYr2SBb1hxZZFs=
+hash: 9Qoy4ecF4s29MQeyVp/A8MXNQQ4wdTtd3IdDBEcLddY=
 ---
 ![Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -12,197 +12,213 @@ hash: Sb020lslki6ZXpGnYu1JKyZBEyYnJYYr2SBb1hxZZFs=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.modbus.svg)
 
 # Iobroker.modbus
-![Testen und freigeben](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Test und Freigabe](https://github.com/ioBroker/iobroker.modbus/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/modbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 Implementierung von ModBus Slave und Master für ioBroker. Folgende Typen werden unterstützt:
 
-- Modbus RTU über Seriell (Master)
+- Modbus RTU über seriell (Master)
 - Modbus RTU über TCP (Master)
 - Modbus TCP (Slave, Master)
 
 ## Einstellungen
-### IP-Adresse des Partners
+### Partner-IP-Adresse
 IP-Adresse des Modbus-Partners.
 
 ### Hafen
-TCP Port des Modbus-Partners, wenn als Master (Client) konfiguriert, oder eigener Port, wenn als Slave (Server) konfiguriert.
+TCP-Port des Modbus-Partners, wenn er als Master (Client) konfiguriert ist, oder eigener Port, wenn er als Slave (Server) konfiguriert ist.
 
 ### Geräte ID
-Modbus-Geräte-ID. Wichtig, wenn TCP/Modbus Bridge verwendet wird.
+Modbus-Geräte-ID. Wichtig, wenn eine TCP/Modbus-Brücke verwendet wird.
 
 ### Typ
 Slave (Server) oder Master (Client).
 
 ### Aliase als Adresse verwenden
-Normalerweise können alle Register Adressen von 0 bis 65535 haben. Durch die Verwendung von Aliasen können Sie virtuelle Adressfelder für jeden Registertyp definieren. Normalerweise:
+Normalerweise können alle Register Adressen von 0 bis 65535 haben. Mithilfe von Aliasnamen können Sie virtuelle Adressfelder für jeden Registertyp definieren. Normalerweise:
 
-- diskrete Eingänge sind von 10001 bis 20000
+- Die diskreten Eingänge reichen von 10001 bis 20000
 - Spulen sind von 1 bis 1000
-- Eingangsregister sind von 30001 bis 40000
-- Bestandsregister sind von 40001 bis 60000
+- Eingaberegister liegen zwischen 30001 und 40000
+- Die Bestandsregister reichen von 40001 bis 60000
 
-Jeder Alias wird intern einer Adresse zugeordnet, z. 30011 wird dem Eingangsregister 10 zugeordnet und so weiter.
+Jeder Alias wird intern einer Adresse zugeordnet, z. B. 30011 wird dem Eingaberegister 10 zugeordnet und so weiter.
+
+### Direktadressen
+Wird für Binäreingänge und Spulen verwendet.
+Ohne dieses Flag werden die Bits wie folgt angesprochen: `0 => 15, 1 => 14, 2 => 13, ..., 15 => 0`.
+Wenn dieses Flag aktiviert ist, werden die Bits wie folgt adressiert: `0 => 0, 1 => 1, 2 => 2, ..., 15 => 15`.
 
 ### Adressen nicht auf 16 Bit (Wort) ausrichten
-Normalerweise sind die Spulen und die diskreten Eingangsadressen auf 16 Bit ausgerichtet. Gleiche Adressen von 3 bis 20 werden auf 0 bis 32 ausgerichtet.
-Wenn diese Option aktiv ist, werden die Adressen nicht ausgerichtet.
+Normalerweise sind die Adressen der Spulen und der diskreten Eingänge auf 16 Bit ausgerichtet.
+Gleiche Adressen von 3 bis 20 werden auf 0 bis 32 ausgerichtet.
+Wenn diese Option aktiv ist, werden die Adressen nicht abgeglichen.
 
 ### Verwenden Sie nicht mehrere Register
-Wenn der Slave den Befehl "Mehrere Register schreiben" nicht unterstützt, können Sie ihn aktivieren, um Warnungen zu erhalten, wenn die mehreren Register geschrieben werden.
+Wenn der Slave den Befehl „Mehrere Register schreiben“ nicht unterstützt, können Sie ihn aktivieren, um Warnungen zu erhalten, wenn mehrere Register geschrieben werden.
 
 ### Verwenden Sie nur mehrere Schreibregister
-Wenn der Slave nur den Befehl „Mehrere Register schreiben“ unterstützt, können Sie aktivieren, dass die Register immer mit dem FC15/FC16-Befehl geschrieben werden.
+Wenn der Slave nur den Befehl „Mehrere Register schreiben“ unterstützt, können Sie ihn aktivieren, sodass die Register immer mit dem Befehl FC15/FC16 geschrieben werden.
 
 ### Real auf runden
-Wie viele Stellen nach dem Komma für Gleitkommazahlen und Doubles.
+Wie viele Stellen nach dem Komma für Float und Doubles vorhanden sind.
 
 ### Datenabfrageintervall
-Zyklisches Poll-Intervall (Nur für Master relevant)
+Zyklisches Poll-Intervall (Nur relevant für Master)
 
-### Verbindungsverzögerung
-Wiederverbindungsintervall (Nur für Master relevant)
+### Verzögerung bei Wiederverbindung
+Wiederverbindungsintervall (Nur relevant für Master)
 
 ### Zeitüberschreitung beim Lesen
-Timeout für Leseanfragen in Millisekunden.
+Timeout für Leseanfragen in Millisekunden. Erfolgt innerhalb dieser Zeit keine Antwort von einem Slave, wird die Verbindung abgebrochen.
 
 ### Pulszeit
-Wenn Impuls für Spulen verwendet wird, definiert dies das Intervall, wie lange der Impuls ist.
+Wenn Impulse für Spulen verwendet werden, definiert dies das Intervall in Millisekunden, wie lang der Impuls ist.
 
 ### Wartezeit
-Wartezeit zwischen dem Abfragen zweier unterschiedlicher Geräte-IDs in Millisekunden.
+Wartezeit zwischen der Abfrage zweier unterschiedlicher Geräte-IDs in Millisekunden.
 
-### Maximale Leseanforderungslänge
+### Maximale Länge der Leseanforderung
 Maximale Länge des Befehls READ_MULTIPLE_REGISTERS als Anzahl der zu lesenden Register.
 
-Einige Systeme verlangen zuerst eine „Schreibanfrage“, um die Daten bei einer „Leseanfrage“ zu liefern.
-Sie können diesen Modus erzwingen, indem Sie die "Max. Leseanforderungslänge" auf 1 setzen.
+Einige Systeme erfordern zunächst eine „Schreibanforderung“, um die Daten bei einer „Leseanforderung“ zu liefern.
+Sie können diesen Modus erzwingen, indem Sie die „Maximale Leseanforderungslänge“ auf 1 setzen.
 
-**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf socat) können Probleme haben, mit dem Serialport-npm-Modul zu arbeiten.
+**Hinweis:** Einige USB-Modbus-Lösungen (z. B. basierend auf Socat) können Probleme bei der Arbeit mit dem Serialport-NPM-Modul haben.
 
-Es gibt ein Software-[**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html)-Gateway, um die Verwendung des seriellen RTU-über-TCP-Protokolls zu ermöglichen.
+Es gibt ein Software-Gateway [**Modbus RTU <-> Modbus RTU über TCP**](http://mbus.sourceforge.net/index.html), um die Verwendung des seriellen RTU-über-TCP-Protokolls zu ermöglichen.
 
-Beide Lösungen **RTU over TCP** und **TCP** funktionieren gut.
+Beide Lösungen **RTU über TCP** und **TCP** funktionieren gut.
 
 ### Leseintervall
-Verzögerung zwischen zwei Leseanfragen in ms. Standard 0.
+Verzögerung zwischen zwei Leseanforderungen in ms. Standard 0.
 
-### Intervall schreiben
+### Schreibintervall
 Verzögerung zwischen zwei Schreibanfragen in ms. Standard 0.
 
 ### Unveränderte Zustände aktualisieren
-Wenn sich der Wert nicht geändert hat, wird er normalerweise nicht in ioBroker geschrieben. Dieses Flag ermöglicht es, den Zeitstempel des Werts in jedem Zyklus zu aktualisieren.
+Wenn sich der Wert nicht geändert hat, wird er normalerweise nicht in ioBroker geschrieben.
+Dieses Flag ermöglicht die Aktualisierung des Zeitstempels des Werts in jedem Zyklus.
 
-### Keine Adressen in Ausweis aufnehmen
-Fügen Sie der generierten ioBroker-ID keine Adresse hinzu. `10_Input10` vs. `Input10`.
+### Geben Sie keine Adressen in die ID ein
+Fügen Sie der generierten ioBroker-iD keine Adresse hinzu. `10_Input10` vs. `Input10`.
 
-### Punkte in ID beibehalten
-Mit diesem Flag ist der Name `Inputs.Input10`. Ohne => `Inputs_Input10`
+### Punkte in der ID beibehalten
+Mit diesem Flag lautet der Name `Inputs.Input10`. Ohne => `Inputs_Input10`.
 
-## Parameter für einzelne Adresszeile in Konfig
+## Parameter für eine einzelne Adresszeile in der Konfiguration
 ### Adresse
-Zu lesende Modbus-Adresse
+Zu lesende Modbus-Adresse.
 
 ### Slave-ID
-Falls mehrere Slaves vorhanden sind, ist dies die ID, wenn nicht die Standard-ID, die in der globalen Konfiguration angegeben ist
+Falls mehrere Slaves vorhanden sind, ist dies die ID, sofern nicht die Standard-ID, die in der globalen Konfiguration angegeben ist.
 
 ### Name
-Dies ist der Name für den Parameter
+Dies ist der Name für den Parameter.
 
 ### Beschreibung
-Parameterbeschreibung
+Parameterbeschreibung.
 
 ### Einheit
-Einheit des Parameters
+Einheit des Parameters.
 
 ### Typ
-Vom Bus zu lesender Datentyp. Einzelheiten zu den möglichen Datentypen finden Sie im Abschnitt Datentypen
+Vom Bus zu lesender Datentyp. Einzelheiten zu den möglichen Datentypen finden Sie im Abschnitt Datentypen.
 
 ### Länge
-Länge des Parameters. Für die meisten Parameter wird dies anhand des Datentyps bestimmt, aber für Strings definiert dies die Länge in Bytes / Zeichen
+Länge des Parameters. Bei den meisten Parametern wird dies anhand des Datentyps bestimmt, bei Strings definiert dies jedoch die Länge in Bytes/Zeichen.
 
 ### Faktor
-Dieser Faktor wird verwendet, um den gelesenen Wert von Bus für die statische Skalierung zu multiplizieren. Die Berechnung sieht also folgendermaßen aus: val = x * Factor + Offset
+Mit diesem Faktor wird der vom Bus gelesene Wert für die statische Skalierung multipliziert. Die Berechnung sieht also wie folgt aus: `val = x * Factor + Offset`.
 
 ### Versatz
-Dieser Offset wird nach obiger Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also folgendermaßen aus: val = x * Factor + Offset
+Dieser Offset wird nach obiger Multiplikation zum gelesenen Wert addiert. Die Berechnung sieht also wie folgt aus: `val = x * Factor + Offset`.
 
 ### Formel
-Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. **Wenn dieses Feld gesetzt ist, werden die Felder Faktor und Offset ignoriert.** Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Vor allem die Math-Funktionen. Die Formel muss der Javascript-Syntax entsprechen, also auch auf Groß- und Kleinschreibung achten.
+Dieses Feld kann für erweiterte Berechnungen verwendet werden, wenn Faktor und Offset nicht ausreichen. **Wenn dieses Feld festgelegt ist, werden die Felder Faktor und Offset ignoriert.** Die Formel wird von der Funktion eval() ausgeführt. Daher werden alle gängigen Funktionen unterstützt. Besonders die Mathe-Funktionen. Die Formel muss der Javascript-Syntax entsprechen, achten Sie daher auch auf Groß- und Kleinschreibung.
 
-In der Formel muss "x" für den gelesenen Wert von Modbus verwendet werden. Z.B. `x * Math.pow(10, sf['40065'])`
+In der Formel muss „x“ für den aus Modbus gelesenen Wert verwendet werden. Z.B. `x * Math.pow(10, sf['40065'])`
 
-Mit dem "sf"-Array (siehe obiges Beispiel) können Sie auf andere gelesene Modbus-Werte zugreifen, wenn sie als "Scale Factor" in der Konfiguration gekennzeichnet sind (siehe unten Infos zum "SF"-Flag).
+Mithilfe des „sf“-Arrays (siehe Beispiel oben) können Sie auf andere gelesene Modbus-Werte zugreifen, wenn diese in der Konfiguration als „Skalierungsfaktor“ gekennzeichnet sind (siehe unten Informationen zum „SF“-Flag).
 
 Wenn die Formel zur Laufzeit nicht ausgewertet werden kann, schreibt der Adapter eine Warnmeldung in das Protokoll.
 
-Ein weiterer Anwendungsfall für Formeln könnte auch sein, unplausible Daten mit einer Formel wie `x > 2000000 ? null : x` zu verhindern.
+Ein weiterer Anwendungsfall für Formeln könnte auch sein, unplausible Daten mit einer Formel wie `x > 2000000 ? null : x` zu verhindern
 
 ### Rolle
 Zuzuweisende ioBroker-Rolle.
 
 ### Zimmer
-Zuzuweisender ioBroker-Raum.
+ioBroker-Raum zuzuweisen.
 
 ### Umfrage
-Wenn aktiviert, werden die Werte in vordefinierten Intervallen vom Slave abgefragt.
+Wenn aktiviert, werden die Werte in einem vordefinierten Intervall vom Slave abgefragt.
 
-###WP
-Impuls schreiben
+### WP
+Schreibimpuls
 
-### KW
+### CW
 Zyklisches Schreiben
 
-###SF
-Wert als Skalierungsfaktor verwenden. Dies wird benötigt, um dynamische Skalierungsfaktoren zu verwenden, die auf einigen Systemen durch Werte auf der Schnittstelle bereitgestellt werden. Wenn ein Wert mit diesem Flac markiert ist, dann wird der Wert in einer Variablen mit folgender Namenskonvention gespeichert: sf['Modbus_address']. Diese Variable kann dann später in beliebigen Formeln für andere Parameter verwendet werden. Z.B. Folgende Formel kann gesetzt werden: "(x * sf['40065']) + 50;"
+### SF
+Verwenden Sie den Wert als Skalierungsfaktor.
+Dies wird benötigt, um von dynamischen Skalierungsfaktoren verwendet zu werden, die auf einigen Systemen über Werte auf der Schnittstelle bereitgestellt werden.
+Wenn ein Wert mit diesem Flag markiert ist, wird der Wert in einer Variablen mit der folgenden Namenskonvention gespeichert: `sf['Modbus_address']`.
+Diese Variable kann dann später in jeder Formel für andere Parameter verwendet werden. Beispielsweise kann die folgende Formel festgelegt werden: `(x * sf['40065']) + 50;`
 
 ## Datentypen
-- `uint16be` - `Unsigned 16 bit (Big Endian): AABB => AABB`
-- `uint16le` - `Unsigned 16 bit (Little Endian): AABB => BBAA`
-- `int16be` - `Signed 16 bit (Big Endian): AABB => AABB`
-- `int16le` - `Signed 16 bit (Little Endian): AABB => BBAA`
-- `uint32be` - `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `uint32le` - `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
-- `uint32sw` - `Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `uint32sb` - `Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `int32be` - `Signed 32 bit (Big Endian): AABBCCDD => AABBCCDD`
-- `int32le` - `Signed 32 bit (Little Endian): ABBCCDD => DDCCBBAA`
-- `int32sw` - `Signed 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB`
-- `int32sb` - `Signed 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
-- `uint64be` - `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
-- `uint64le` - `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `uint8be` - `Unsigned 8 bit (Big Endian): AA => AA`
-- `uint8le` - `8 Bit ohne Vorzeichen (Little Endian): AA => AA`
-- `int8be` - `Vorzeichenbehaftetes 8-Bit (Big Endian): AA => AA`
-- `int8le` - `Vorzeichenbehaftetes 8-Bit (Little Endian): AA => AA`
-- `floatbe` - `Float (Big Endian): AABBCCDD => AABBCCDD`
-- `floatle` - `Float (Little Endian): AABBCCDD => DDCCBBAA`
-- `floatsw` - `Float (Big Endian Worttausch): AABBCCDD => CCDDAABB`
-- `floatsb` - `Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA`
+- `uint16be` – `Unsigned 16 bit (Big Endian): AABB => AABB`
+- `uint16le` – `Unsigned 16 bit (Little Endian): AABB => BBAA`
+- `int16be` – `Signed 16 bit (Big Endian): AABB => AABB`
+- `int16le` – `Signed 16 bit (Little Endian): AABB => BBAA`
+- `uint32be` – `Unsigned 32 bit (Big Endian): AABBCCDD => AABBCCDD`
+- `uint32le` – `Unsigned 32 bit (Little Endian): AABBCCDD => DDCCBBAA`
+- „uint32sw“ – „Unsigned 32 bit (Big Endian Word Swap): AABBCCDD => CCDDAABB“.
+- „uint32sb“ – „Unsigned 32 bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA“.
+- „int32be“ – „Signiertes 32-Bit (Big Endian): AABBCCDD => AABBCCDD“.
+- `int32le` – `Signiertes 32-Bit (Little Endian): ABBCCDD => DDCCBBAA`
+- „int32sw“ – „Signiertes 32-Bit (Big Endian Word Swap): AABBCCDD => CCDDAABB“.
+- „int32sb“ – „Signiertes 32-Bit (Big Endian Byte Swap): AABBCCDD => DDCCBBAA“.
+- `uint64be` – `Unsigned 64 bit (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
+- `uint64le` – `Unsigned 64 bit (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
+- `uint8be` – `Unsigned 8 bit (Big Endian): AA => AA`
+- `uint8le` – `Unsigned 8 bit (Little Endian): AA => AA`
+- `int8be` – `Signed 8 bit (Big Endian): AA => AA`
+- `int8le` – `Signed 8 bit (Little Endian): AA => AA`
+- „floatbe“ – „Float (Big Endian): AABBCCDD => AABBCCDD“.
+- „floatle“ – „Float (Little Endian): AABBCCDD => DDCCBBAA“.
+- „floatsw“ – „Float (Big Endian Word Swap): AABBCCDD => CCDDAABB“.
+- „floatsb“ – „Float (Big Endian Byte Swap): AABBCCDD => DDCCBBAA“.
 - `doublebe` - `Double (Big Endian): AABBCCDDEEFFGGHH => AABBCCDDEEFFGGHH`
 - `doublele` - `Double (Little Endian): AABBCCDDEEFFGGHH => HHGGFFEEDDCCBBAA`
-- `string` - `String (Null-Ende): ABCDEF\0 => ABCDEF\0`
-- `stringle` - `String (Little Endian, Null-Ende): BADCFE\0 => ABCDEF\0`
+- `string` – `String (Null-Ende): ABCDEF\0 => ABCDEF\0`
+- `stringle` – `String (Little Endian, Zero-end): BADCFE\0 => ABCDEF\0`
 
-Folgende Beschreibung wurde aus [hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
+Die folgende Beschreibung wurde aus [Hier](http://www.chipkin.com/how-real-floating-point-and-32-bit-data-is-encoded-in-modbus-rtu-messages/) kopiert
 
-Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, allein schon wegen seiner grundlegenden Bequemlichkeit. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse festlegt, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
+Das Punkt-zu-Punkt-Modbus-Protokoll ist eine beliebte Wahl für die RTU-Kommunikation, schon allein wegen seiner grundsätzlichen Bequemlichkeit. Das Protokoll selbst steuert die Interaktionen jedes Geräts in einem Modbus-Netzwerk, wie das Gerät eine bekannte Adresse festlegt, wie jedes Gerät seine Nachrichten erkennt und wie grundlegende Informationen aus den Daten extrahiert werden. Im Wesentlichen ist das Protokoll die Grundlage des gesamten Modbus-Netzwerks.
 
-Dieser Komfort kommt jedoch nicht ohne Komplikationen, und das Modbus RTU-Nachrichtenprotokoll ist keine Ausnahme. Das Protokoll selbst wurde basierend auf Geräten mit einer Registerlänge von 16 Bit entwickelt. Folglich waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich. Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern, um 32 Datenbits oder im Wesentlichen 4 Datenbytes darzustellen. Innerhalb dieser 4 Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus-RTU-Nachricht codiert werden.
+Ein solcher Komfort ist jedoch nicht ohne Komplikationen möglich, und das Modbus-RTU-Nachrichtenprotokoll bildet da keine Ausnahme.
+Das Protokoll selbst wurde auf Basis von Geräten mit einer Registerlänge von 16 Bit entwickelt.
+Daher waren bei der Implementierung von 32-Bit-Datenelementen besondere Überlegungen erforderlich.
+Diese Implementierung entschied sich für die Verwendung von zwei aufeinanderfolgenden 16-Bit-Registern zur Darstellung von 32 Datenbits oder im Wesentlichen 4 Datenbytes.
+Innerhalb dieser vier Datenbytes können Gleitkommadaten mit einfacher Genauigkeit in eine Modbus-RTU-Nachricht codiert werden.
 
-### Die Bedeutung der Byte-Reihenfolge
-Modbus selbst definiert keinen Gleitkommadatentyp, aber es ist allgemein anerkannt, dass es 32-Bit-Gleitkommadaten unter Verwendung des IEEE-754-Standards implementiert. Der IEEE-Standard hat jedoch keine klare Definition der Byte-Reihenfolge der Nutzdaten. Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
+### Die Bedeutung der Bytereihenfolge
+Modbus selbst definiert keinen Gleitkomma-Datentyp, es ist jedoch allgemein anerkannt, dass es 32-Bit-Gleitkommadaten mithilfe des IEEE-754-Standards implementiert.
+Allerdings gibt es im IEEE-Standard keine klare Definition der Bytereihenfolge der Datennutzlast.
+Daher ist die wichtigste Überlegung beim Umgang mit 32-Bit-Daten, dass die Daten in der richtigen Reihenfolge adressiert werden.
 
-Beispielsweise sieht die Zahl 123/456.00, wie sie im IEEE 754-Standard für 32-Bit-Gleitkommazahlen mit einfacher Genauigkeit definiert ist, wie folgt aus:
+Beispielsweise sieht die Zahl 123/456,00 gemäß der Definition im IEEE 754-Standard für 32-Bit-Gleitkommazahlen mit einfacher Genauigkeit wie folgt aus:
 
 ![Bild1](../../../en/adapterref/iobroker.modbus/img/img1.png)
 
-Die Auswirkungen verschiedener Byte-Reihenfolgen sind signifikant. Beispielsweise wird die Anordnung der 4 Datenbytes, die 123456,00 darstellen, in einer `B A D C`-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkommadatentyp ist das Ergebnis ganz anders:
+Die Auswirkungen verschiedener Bytereihenfolgen sind erheblich. Beispielsweise wird das Anordnen der 4 Datenbytes, die 123456,00 darstellen, in einer `B A D C`-Sequenz als „Byte-Swap“ bezeichnet. Bei der Interpretation als IEEE 744-Gleitkomma-Datentyp ist das Ergebnis ganz anders:
 
 ![Bild2](../../../en/adapterref/iobroker.modbus/img/img2.png)
 
-Das Anordnen der gleichen Bytes in einer „C D A B“-Folge wird als „Worttausch“ bezeichnet. Auch hier weichen die Ergebnisse drastisch vom ursprünglichen Wert von 123456,00 ab:
+Das Anordnen derselben Bytes in einer „C D A B“-Sequenz wird als „Worttausch“ bezeichnet. Auch hier weichen die Ergebnisse drastisch vom ursprünglichen Wert von 123456,00 ab:
 
 ![Bild3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
@@ -210,79 +226,98 @@ Darüber hinaus würden sowohl ein `byte swap` als auch ein `word swap` im Wesen
 
 ![Bild4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
-Bei der Verwendung von Netzwerkprotokollen wie Modbus muss natürlich streng darauf geachtet werden, wie die Speicherbytes bei der Übertragung geordnet werden, auch bekannt als „Byte-Reihenfolge“.
+Bei der Verwendung von Netzwerkprotokollen wie Modbus muss natürlich streng darauf geachtet werden, wie die Speicherbytes bei der Übertragung geordnet werden, was auch als „Byte-Reihenfolge“ bezeichnet wird.
 
-### Bestimmung der Byte-Reihenfolge
+### Bestimmen der Byte-Reihenfolge
 Das Modbus-Protokoll selbst ist gemäß der Modbus Application Protocol Specification, V1.1.b, als „Big-Endian“-Protokoll deklariert:
 
 **Modbus verwendet eine „Big-Endian“-Darstellung für Adressen und Datenelemente.
-Das heißt, wenn eine Zahl größer als ein einzelnes Byte übertragen wird, wird das höchstwertige Byte zuerst gesendet.**
+Dies bedeutet, dass bei der Übertragung einer numerischen Menge größer als ein einzelnes Byte das höchstwertige Byte zuerst gesendet wird.**
 
-Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so verbreitet, dass es auch als „Netzwerkordnung“ bezeichnet wird.
+Big-Endian ist das am häufigsten verwendete Format für Netzwerkprotokolle – so häufig, dass es auch als „Netzwerkreihenfolge“ bezeichnet wird.
 
-Da das Modbus-RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus-RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und Slave-Geräte ermöglichen eine spezifische Auswahl der Byte-Reihenfolge, insbesondere im Fall von Software-simulierten Einheiten. Es muss lediglich darauf geachtet werden, dass beide Units auf die gleiche Byte-Order eingestellt sind.
+Da das Modbus-RTU-Nachrichtenprotokoll Big-Endian ist, muss für den erfolgreichen Austausch eines 32-Bit-Datentyps über eine Modbus-RTU-Nachricht die Endianness sowohl des Masters als auch des Slaves berücksichtigt werden. Viele RTU-Master- und -Slave-Geräte ermöglichen eine spezifische Auswahl der Bytereihenfolge, insbesondere bei softwaresimulierten Einheiten. Es muss lediglich darauf geachtet werden, dass beide Einheiten auf die gleiche Bytereihenfolge eingestellt sind.
 
-Als Faustregel bestimmt die Familie des Mikroprozessors eines Geräts dessen Endianness. Typischerweise wird der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs gefunden, die mit einem Motorola-Prozessor entwickelt wurden. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, gefolgt vom höherwertigen Byte) ist im Allgemeinen in CPUs zu finden, die die Intel-Architektur verwenden. Es ist eine Frage der persönlichen Perspektive, welcher Stil als „rückständig“ gilt.
+Als Faustregel gilt, dass die Familie des Mikroprozessors eines Geräts dessen Endianness bestimmt. Typischerweise ist der Big-Endian-Stil (das höherwertige Byte wird zuerst gespeichert, gefolgt vom niederwertigen Byte) im Allgemeinen in CPUs zu finden, die mit einem Motorola-Prozessor ausgestattet sind. Der Little-Endian-Stil (das niederwertige Byte wird zuerst gespeichert, gefolgt vom höherwertigen Byte) findet sich im Allgemeinen in CPUs, die die Intel-Architektur verwenden. Es ist eine Frage der persönlichen Sichtweise, welcher Stil als „rückständig“ gilt.
 
-Wenn jedoch Byte-Reihenfolge und Endianness keine konfigurierbare Option sind, müssen Sie festlegen, wie das Byte interpretiert werden soll. Dies kann durch Anfordern eines bekannten Fließkommawerts vom Slave erfolgen. Wenn ein unmöglicher Wert zurückgegeben wird, z. B. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss die Byte-Reihenfolge höchstwahrscheinlich geändert werden.
+Wenn Bytereihenfolge und Endianness jedoch keine konfigurierbaren Optionen sind, müssen Sie bestimmen, wie das Byte interpretiert werden soll. Dies kann durch Anfordern eines bekannten Gleitkommawerts vom Slave erfolgen. Wenn ein unmöglicher Wert zurückgegeben wird, z. B. eine Zahl mit einem zweistelligen Exponenten oder dergleichen, muss höchstwahrscheinlich die Bytereihenfolge geändert werden.
 
 ### Praktische Hilfe
-Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsverschiebungen, die 32-Bit-Ganzzahlen und 32-Bit-Float-Werte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Bytesequenzierung berücksichtigen. Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
+Die FieldServer Modbus RTU-Treiber bieten mehrere Funktionsbewegungen, die 32-Bit-Ganzzahlen und 32-Bit-Float-Werte verarbeiten. Noch wichtiger ist, dass diese Funktionsbewegungen alle verschiedenen Formen der Bytesequenzierung berücksichtigen. Die folgende Tabelle zeigt die FieldServer-Funktionsbewegungen, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Ganzzahlwert kopieren.
 
 | Funktionsschlüsselwort | Swap-Modus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.i32 | Nicht zutreffend | [ ein b ] [ c d ] | [ a b c d ] |
-| 2.i16-1.i32-s | Byte- und Worttausch | [ ein b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.i32-sb | Bytetausch | [ ein b ] [ c d ] | [ b a d c ] |
-| 2.i16-1.i32-sw | Worttausch | [ ein b ] [ c d ] | [ cd ein b ] |
+| 2.i16-1.i32 | N/A | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.i32-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
+| 2.i16-1.i32-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.i32-sw | Worttausch | [ a b ] [ c d ] | [ c d a b ] |
 
-Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Gleitkommawert kopieren:
+Die folgende Tabelle zeigt die FieldServer-Funktionsbewegungen, die zwei benachbarte 16-Bit-Register in einen 32-Bit-Gleitkommawert kopieren:
 
 | Funktionsschlüsselwort | Swap-Modus | Quellbytes | Zielbytes |
 |-------------------|--------------------|-----------------|--------------|
-| 2.i16-1.ifloat | Nicht zutreffend | [ ein b ] [ c d ] | [ a b c d ] |
-| 2.i16-1.ifloat-s | Byte- und Worttausch | [ ein b ] [ c d ] | [ d c b a ] |
-| 2.i16-1.ifloat-sb | Bytetausch | [ ein b ] [ c d ] | [ b a d c ] |
-| 2.i16-1.ifloat-sw | Worttausch | [ ein b ] [ c d ] | [ cd ein b ] |
+| 2.i16-1.ifloat | N/A | [ a b ] [ c d ] | [ a b c d ] |
+| 2.i16-1.ifloat-s | Byte- und Worttausch | [ a b ] [ c d ] | [ d c b a ] |
+| 2.i16-1.ifloat-sb | Byte-Swap | [ a b ] [ c d ] | [ b a d c ] |
+| 2.i16-1.ifloat-sw | Worttausch | [ a b ] [ c d ] | [ c d a b ] |
 
-Die folgende Tabelle zeigt die Verschiebungen der FieldServer-Funktion, die einen einzelnen 32-Bit-Gleitkommawert in zwei benachbarte 16-Bit-Register kopieren:
+Die folgende Tabelle zeigt die FieldServer-Funktionsbewegungen, die einen einzelnen 32-Bit-Gleitkommawert in zwei benachbarte 16-Bit-Register kopieren:
 
 | Funktionsschlüsselwort | Swap-Modus | Quellbytes | Zielbytes |
 |------------------|-------------------|-----------------|----------------|
-| 1.float-2.i16 |Nicht zutreffend | [ ein b ] [ c d ] | [ ein b ][ c d ] |
-| 1.float-2.i16-s |Byte- und Worttausch | [ ein b ] [ c d ] | [ d c ][ b a ] |
-| 1.float-2.i16-sb |Bytetausch | [ ein b ] [ c d ] | [ b a ][ d c ] |
-| 1.float-2.i16-sw |Worttausch | [ ein b ] [ c d ] | [ c d ][ a b ] |
+| 1.float-2.i16 |N/A | [ a b ] [ c d ] | [ a b ][ c d ] |
+| 1.float-2.i16-s |Byte- und Worttausch | [ a b ] [ c d ] | [ d c ][ b a ] |
+| 1.float-2.i16-sb |Byte-Swap | [ a b ] [ c d ] | [ b a ][ d c ] |
+| 1.float-2.i16-sw |Worttausch | [ a b ] [ c d ] | [ c d ][ a b ] |
 
-Angesichts der verschiedenen Verschiebungen von FieldServer-Funktionen hängt die korrekte Handhabung von 32-Bit-Daten von der Auswahl der richtigen ab. Beachten Sie das folgende Verhalten dieser FieldServer-Funktionsverschiebungen bei dem bekannten Dezimalwert mit einfacher Genauigkeit von 123456,00:
+Angesichts der verschiedenen FieldServer-Funktionsbewegungen hängt die korrekte Verarbeitung von 32-Bit-Daten von der Auswahl der richtigen ab. Beobachten Sie das folgende Verhalten dieser FieldServer-Funktionsbewegungen auf dem bekannten dezimalen Gleitkommawert mit einfacher Genauigkeit von 123456,00:
 
-|16-Bit-Werte | Funktion Bewegen | Ergebnis | Funktion Bewegen | Ergebnis |
-|---------------|-------------------|-----------|-------------------|---------------|
+|16-Bit-Werte | Funktion Verschieben | Ergebnis | Funktion Verschieben | Ergebnis |
+|--------------|------------------|-----------|------------------|---------------|
 |0x2000 0x47F1 | 2.i16-1.float | 123456,00 | 1.float-2.i16 | 0x2000 0x47F1 |
 |0xF147 0x0020 | 2.i16-1.float-s | 123456,00 | 1.float-2.i16-s | 0xF147 0X0020 |
 |0x0020 0xF147 | 2.i16-1.float-sb | 123456,00 | 1.float-2.i16-sb | 0x0020 0xF147 |
 |0x47F1 0x2000 | 2.i16-1.float-sw | 123456,00 | 1.float-2.i16-sw | 0x47F1 0x2000 |
 
-Beachten Sie, dass unterschiedliche Byte- und Wortreihenfolgen die Verwendung der entsprechenden FieldServer-Funktion move erfordern. Sobald die richtige Funktion Move ausgewählt ist, können die Daten in beide Richtungen konvertiert werden.
+Beachten Sie, dass unterschiedliche Byte- und Wortreihenfolgen die Verwendung der entsprechenden FieldServer-Funktionsverschiebung erfordern. Sobald die richtige Bewegungsfunktion ausgewählt ist, können die Daten in beide Richtungen konvertiert werden.
 
-Von den vielen Hex-zu-Gleitkomma-Konvertern und -Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolgen. Eines dieser Dienstprogramme befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
+Von den vielen Hex-zu-Fließkomma-Konvertern und Rechnern, die im Internet verfügbar sind, erlauben nur sehr wenige tatsächlich die Manipulation der Byte- und Wortreihenfolge. Ein solches Dienstprogramm befindet sich unter www.61131.com/download.htm, wo sowohl Linux- als auch Windows-Versionen der Dienstprogramme heruntergeladen werden können. Nach der Installation wird das Dienstprogramm als ausführbare Datei mit einer einzigen Dialogschnittstelle ausgeführt. Das Dienstprogramm stellt den dezimalen Gleitkommawert von 123456,00 wie folgt dar:
 
 ![Bild5](../../../en/adapterref/iobroker.modbus/img/img5.png)
 
-Man kann dann Bytes und/oder Wörter austauschen, um zu analysieren, welche potenziellen Endianness-Probleme zwischen Modbus RTU-Master- und Slave-Geräten bestehen können.
+Anschließend können Bytes und/oder Wörter ausgetauscht werden, um zu analysieren, welche potenziellen Endianness-Probleme zwischen Modbus RTU-Master- und Slave-Geräten bestehen könnten.
+
+## Export / Import von Registern
+Mit der Export-/Importfunktion können Sie alle Registerdaten (nur eines Typs) in eine TSV-Datei (durch Tabulatoren getrennte Werte) und zurück konvertieren, um Daten einfach von einem Gerät auf ein anderes zu kopieren oder Register in Excel zu bearbeiten.
+
+Sie können Ihre Schemata mit anderen Benutzern in [Modbus-Vorlagen](https://github.com/ioBroker/modbus-templates) teilen oder dort einige Registerschemata finden.
 
 ## Prüfen
-Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation:
+Im Ordner `test` gibt es einige Programme zum Testen der TCP-Kommunikation:
 
 - Ananas32/64 ist ein Slave-Simulator (hält nur Register und Eingänge, keine Spulen und digitalen Eingänge)
 - RMMS ist Master-Simulator
-- mod_RSsim.exe ist ein Slave-Simulator. Es kann sein, dass Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582) benötigen, um es zu starten (wegen SideBySide-Fehler).
+- mod_RSsim.exe ist ein Slave-Simulator. Möglicherweise benötigen Sie [Microsoft Visual C++ 2008 SP1 Redistributable Package](https://www.microsoft.com/en-us/download/details.aspx?id=5582), um es zu starten (aufgrund eines SideBySide-Fehlers).
+
+## Machen
+- [ ] Dateien auf https://github.com/ioBroker/modbus-templates analysieren und deren direkten Import vom Adapter ermöglichen
 
 <!--
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 6.0.1 (2023-10-30)
+* (bluefox) Better tooltips in settings
+
+### 6.0.0 (2023-10-27)
+* (bluefox) GUI packages updated
+* (bluefox) Added help for settings
+* (bluefox) Minimal supported node.js version is 16
+
+### 5.0.11 (2022-12-01)
+* (clausmuus) fixed reconnect of serial communication
+
 ### 5.0.8 (2022-09-27)
 * (bluefox) GUI packages updated
 
@@ -554,7 +589,7 @@ Im Ordner *test' befinden sich einige Programme zum Testen der TCP-Kommunikation
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 Bluefox <dogafox@gmail.com>
+Copyright (c) 2015-2023 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

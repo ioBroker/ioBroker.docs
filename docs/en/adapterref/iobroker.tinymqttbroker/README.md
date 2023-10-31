@@ -6,6 +6,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tinymqttbroker.svg)](https://www.npmjs.com/package/iobroker.tinymqttbroker)
 ![Number of Installations](https://iobroker.live/badges/tinymqttbroker-installed.svg)
 ![Test and Release](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 [![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)](https://nodei.co/npm/iobroker.tinymqttbroker/)
 
@@ -81,6 +82,9 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.9-alpha.0 (2023-10-22)
+* (HGlab01) Update dependencies
+
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
 
@@ -119,3 +123,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)

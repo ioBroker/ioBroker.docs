@@ -2685,6 +2685,13 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (klein0r) Added function to format time difference `formatTimeDiff`
+* (klein0r) Added blockly blocks for `formatTimeDiff`
+
+### 7.1.6 (2023-10-24)
+* (bluefox) Fixed pushover rules block
+
 ### 7.1.5 (2023-10-09)
 * (bluefox) Added play-ground for ChatGPT (API key required)
 
@@ -2699,13 +2706,6 @@ return 'your result';
 * (klein0r) Added new blocks: new line, random number, value between min and max, if empty
 * (klein0r) Updated blockly core to v9.3.3
 * (bluefox) corrected blockly
-
-### 7.0.8 (2023-06-12)
-* (klein0r) Corrected trigger block
-* (klein0r) Corrected typescript V5
-* (bluefox) coffescript was degraded to the previous version
-* (bluefox) tried to correct vscode font
-* (bluefox) reverted blockly to the previous version
 
 ## License
 The MIT License (MIT)

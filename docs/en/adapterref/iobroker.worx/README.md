@@ -264,8 +264,8 @@ Example:
                 "c": 1, // 1 if the charging station is in this zone. 0 for no charging station.
                 "cfg": {
                     "cut": {
-                        "bd": 100, // bordercut in mm
-                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0.
+                        "bd": 100, // bordercut in mm - allowed 10mm, 15mm und 20mm
+                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
             },
@@ -275,7 +275,7 @@ Example:
                 "cfg": {
                     "cut": {
                         "bd": 100, // bordercut in mm
-                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0.
+                        "ob": 0 // 1 for driving over slabs if they are detected, otherwise 0. Different per-zone is not allowed
                     }
                 }
             }
@@ -331,7 +331,7 @@ Default without zone:
 
 ![Vision img/mqtt_info.png](img/mqtt_info.png)
 
-### Example Blockly startsequence Vison
+### Example Blockly startsequence Vision
 
 ```
 <xml xmlns="https://developers.google.com/blockly/xml">
@@ -556,6 +556,303 @@ Default without zone:
   </block>
 </xml>
 ```
+
+### or
+
+```
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="2#Mf$#JFCN9Nw2F2L[?=">x</variable>
+    <variable id="fNt-C|86(glunJ:-t=dK">p</variable>
+    <variable id="Rci4:iMYXzjoI2k]P^X)">s</variable>
+    <variable id="[t-srB,I/UkXaWBk4*A*">list</variable>
+    <variable id="]WA|%5f=H9^9uiLc;KS[">new_json</variable>
+  </variables>
+  <block type="procedures_defcustomreturn" id="@Y/LobsPw4k!jQb)fI!." x="88" y="13">
+    <mutation statements="false">
+      <arg name="x" varid="2#Mf$#JFCN9Nw2F2L[?="></arg>
+      <arg name="p" varid="fNt-C|86(glunJ:-t=dK"></arg>
+      <arg name="s" varid="Rci4:iMYXzjoI2k]P^X)"></arg>
+    </mutation>
+    <field name="NAME">json</field>
+    <field name="SCRIPT">eFsicCJdID0gcDsNCnhbInMiXSA9IHM7DQpyZXR1cm4geA==</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+  </block>
+  <block type="variables_set" id="WAsPqIMv;bh95{7~Y!D!" x="88" y="63">
+    <field name="VAR" id="[t-srB,I/UkXaWBk4*A*">list</field>
+    <value name="VALUE">
+      <block type="convert_json2object" id="S5uRAnpcGp/7*1b,aum~">
+        <value name="VALUE">
+          <block type="text" id="}n3]_HIP*7y5GMEo-!c3">
+            <field name="TEXT">{p:[],s:[]}</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="Kf#KkskB7l|uDiI!(fjq">
+        <field name="VAR" id="]WA|%5f=H9^9uiLc;KS[">new_json</field>
+        <value name="VALUE">
+          <block type="procedures_callcustomreturn" id="K;OJHrji~09PeJ33q.gl">
+            <mutation name="json">
+              <arg name="x"></arg>
+              <arg name="p"></arg>
+              <arg name="s"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="variables_get" id="ipM^e+~#-hoo0(047Ybo">
+                <field name="VAR" id="[t-srB,I/UkXaWBk4*A*">list</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="lists_create_with" id="HJIZHLc]lL0Tgqe$E~Ul">
+                <mutation items="0"></mutation>
+              </block>
+            </value>
+            <value name="ARG2">
+              <block type="lists_create_with" id="JH=jADj%lYJ(:7%v[o+3">
+                <mutation items="1"></mutation>
+                <value name="ADD0">
+                  <block type="convert_json2object" id="@5BT0}WJ`srV89LD5h?D">
+                    <value name="VALUE">
+                      <block type="text" id="=.e.D[I2IQ{u!4;(-D-,">
+                        <field name="TEXT">{"id":1,"c":1,"cfg":{"cut":{"bd":150,"ob":1}}}</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="control" id="k$;?LM/[x-TbZ^m=F4}i">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+            <field name="OID">worx.0.xxxxxxxxxx.areas.startSequence</field>
+            <field name="WITH_DELAY">FALSE</field>
+            <value name="VALUE">
+              <block type="convert_object2json" id="b~2Bz}OiNg{V]!QgN^J7">
+                <field name="PRETTIFY">FALSE</field>
+                <value name="VALUE">
+                  <block type="variables_get" id="b|+SOSd+ZD@*XHPGu*I(">
+                    <field name="VAR" id="]WA|%5f=H9^9uiLc;KS[">new_json</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
+```
+
+### or direct
+
+```
+{"p": [],"s": [{"id": 1, "c": 1, "cfg": {"cut": {"bd": 100, "ob": 1}}}]}
+```
+
+![img/ok_direct.png](img/ok_direct.png)
+
+### not allowed
+
+![img/ok_direct.png](img/not_ok_direct.png)
+![img/json_nok.png](img/json_nok.png)
+![img/array_nok.png](img/array_nok.png)
+
+## Changelog
+### 2.3.4 (2023-10-19)
+
+-   (Lucky-ESA) Fixed folder without raw
+-   (Lucky-ESA) Changed Loglevel at refresh token
+-   (Lucky-ESA) Fixed restriction vision bordercut
+-   (Lucky-ESA) Fixed check json vision startsequence
+
+### 2.3.3 (2023-09-25)
+
+-   (Lucky-ESA) Added cmd wifi lock for Vision
+-   (Lucky-ESA) Fixed [#761](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/761)
+-   (Lucky-ESA) Added sequence for Vision
+-   (Lucky-ESA) Checking working hours and locktime
+-   (Lucky-ESA) Fixed incorrect log message for firmware update
+
+### 2.3.2 (2023-07-21)
+
+-   (Lucky-ESA) Wrong folder for areas
+-   (Lucky-ESA) New data points can only be read
+
+### 2.3.1 (2023-07-20)
+
+-   (Lucky-ESA) Added Firmware Update
+-   (Lucky-ESA) Deleted board info request - Worx disabled endpoint
+-   (Lucky-ESA) Added reset blade time and battery time
+-   (Lucky-ESA) Added ping after refresh token
+-   (Lucky-ESA) Added german description
+-   (TA2k) Changed firmware request
+-   (Lucky-ESA) Changed auth-endpoint
+-   (Lucky-ESA) Some bug fixes
+-   (Lucky-ESA) Fix unique mqtt clientid
+-   (Lucky-ESA) Fix [#704](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/704)
+-   (Lucky-ESA) readme.md translated [#703](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/703)
+-   (Lucky-ESA) New Mqtt connection Fix [#590](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/590)
+
+### 2.2.0 (2023-06-27)
+
+-   (Lucky-ESA) Removed mowerActive for Vision
+-   (Lucky-ESA) Add Vision paused schedule
+-   (Lucky-ESA) Add Vision partyModus
+-   (Lucky-ESA) Fix ping request Vision
+-   (Lucky-ESA) Fix send message inheritance
+-   (Lucky-ESA) Fix [#684](https://github.com/iobroker-community-adapters/ioBroker.worx/issues/684)
+-   (Lucky-ESA) Fix deviceArray inheritance
+-   (Lucky-ESA) Add Vision mowers w/o Status & Error message
+-   (Lucky-ESA) Add ZoneKeeper for previous mowers
+
+### 2.1.3
+
+-   (TA2k) Add ping option in the instance settings
+
+### 2.1.2
+
+-   (TA2k) Improve reconnection for multiple mower
+
+### 2.1.1
+
+-   (TA2k) Change reconnection times
+
+### 2.1.0
+
+-   (TA2k) Move Calendar setState to one Json and other fixes to prevent blocking because of too many sending requests
+
+### 2.0.3
+
+-   (TA2k) Add manual refresh. Fix empty status and firmware format. Reduce info logs.
+
+### 2.0.1
+
+-   (TA2k) Adapter rewritten. Added product info and activity log. rawMqtt values improved and compatible with Node v18.
+
+### 1.7.0 (2022-09-28)
+
+-   (TA2k) fix login
+
+### 1.6.6 (2022-06-25)
+
+-   (MeisterTR) fix edgecut
+
+### 1.6.5 (2022-06-19)
+
+-   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions also on second place
+
+### 1.6.4 (2022-06-18)
+
+-   (Apollon77) Remove logic to set a 0/0/0 nutrition level when deactivated again as it was in pre 1.6 versions
+-   (Apollon77) fix error cases reported by Sentry
+
+### 1.6.3 (2022-06-17)
+
+-   (Apollon77) fix some error cases reported by Sentry
+
+### 1.6.2 (2022-06-17)
+
+-   (TA2k) fix issues introduced in 1.6.0
+
+### 1.6.1 (2022-06-17)
+
+-   (Apollon77) fix some error cases reported by Sentry
+
+### 1.6.0 (2022-06-16)
+
+-   (Apollon77) fix some error cases reported by Sentry
+
+### 1.5.5 (2021-09-29)
+
+-   (MeisterTR) fix error
+
+### 1.5.0 (2021-09-26)
+
+-   (MeisterTR) many fixes
+-   (MeisterTR) add torque control
+-   (MeisterTR) fixed States
+
+### 1.4.3 (2021-07-25)
+
+-   (MeisterTR) fix Partymode detection
+
+### 1.4.2 (2021-07-24)
+
+-   (MeisterTR) fix bug with OLMSwitch_Cutting
+-   (MeisterTR) fix bug with PartyMode
+-   (TA2k) fix error with wrong serialnumber (please delete all objects manually)
+-   (MeisterTR) fix bug in autolock function
+
+### 1.4.1 (2021-07-06)
+
+-   (MeisterTR) fix bug in sendCommand (please remove state manually)
+
+### 1.4.0 (2021-07-05)
+
+-   update testing
+-   add gps coordinates
+-   add new status states
+-   add new Autolock states
+-   add new OffLinits states
+
+### 1.3.7 (03.06.2021)
+
+-   (TA2k) type fixes
+
+### 1.3.6 (27.05.2021)
+
+-   (MeisterTR) bugfixes
+-   (MeisterTR) better errorhandling
+
+### 1.2.9 (02.12.2020)
+
+-   (MeisterTR) add sentry
+-   (MeisterTR) Bugfix (error type of sc... again) (IOBROKER-WORX-3)
+
+### 1.2.4 (15.11.2020)
+
+-   (MeisterTR) Bugfix (error type of sc...)
+-   (MeisterTR) change Testing to git
+
+### 1.2.3 (29.08.2020)
+
+-   (MeisterTR) add option to crate a Json Obj to set mowtime with scripts
+-   (MeisterTR) add option to disable weather
+-   (MeisterTR) add double Shedule, oneTimeShedule, PartyMode
+-   (MeisterTR) fix setIntervall => setTimeout
+-   (MeisterTR) fix error with Meter and Min. in Config
+-   (MeisterTR) add Kress and Landxcape
+
+### 1.0.0 (03.12.2019)
+
+-   (MeisterTR) bump Version
+-   (MeisterTR) transfer to community
+
+### 0.4.0 (03.08.2019)
+
+-   (MeisterTR) fix multimower
+-   (MeisterTR) change loglevel
+-   (MeisterTR) fix online Status
+
+### 0.3.1 (12.06.2019)
+
+-   (MeisterTR) add delay for edgecut in config
+-   (MeisterTR) fix mowtime error
+
+### 0.2.0 (01.06.2019)
+
+-   (MeisterTR) add border
+-   (MeisterTR) fix small errors
+-   (MeisterTR) code cleanup
+
+### 0.0.1
+
+-   (MeisterTR) initial release
 
 ## License
 

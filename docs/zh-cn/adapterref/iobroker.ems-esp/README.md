@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: sWkuDLk1K7dgx2t/3Efr5H5g7GYOdzos6O2NfP50fB4=
+hash: YKqB7RRd9ugIYz7MDYcYZ5kAnNsHEO9kEuP5DXpZozo=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -36,6 +36,10 @@ ioBroker ems-esp 适配器可以向两个网关读取和写入数据，以控制
 ## 所有从自己的脚本或对象浏览器更改的状态都必须设置 recognize = false !!!
 该适配器针对具有 ESP32 最新固件版本 (V3.6.0) 的 ems-esp 网关进行了测试
 
+## 能源记录和统计需要一个活动的数据库实例。我强烈建议不要使用 InfluxDB V2！
+InfluxDB v2 需要将保留期设置为 > 2 年才能存储历史值。在 V2 中，这是所有状态的全局参数！
+
+## 新：实例概览中显示连接状态
 德语文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
 英文文档：https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
@@ -47,6 +51,28 @@ ioBroker ems-esp 适配器可以向两个网关读取和写入数据，以控制
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-10-30)
+* Add indicator for connection status of the gateways within instances overview
+
+### 2.5.3 (2023-10-29)
+* Replace axios post by axios put for KM200 gateway to secure that write changes are accepted
+
+### 2.5.2 (2023-10-19)
+* Update energy statistics and recordings for history and influxdb
+* include warning in log that InfluxDB V2 will not be supported in future versions anymore
+
+### 2.5.1 (2023-10-13)
+* correct hourly recordings timestamps for km200 (timezone difference)
+
+### 2.5.0 (2023-10-11)
+* avoid duplicates on ems-esp energy statistics
+* replace request by axios
+* some corrections for ems-esp sensors and custom elements
+* move database config to parameter page
+
+### 2.4.1 (2023-09-10)
+* add parameter to read ems-esp custom elments
+
 ### 2.4.0 (2023-09-03)
 * integrate custom entities for ems-esp gateway
 * rework async functions

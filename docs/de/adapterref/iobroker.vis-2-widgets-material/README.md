@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: 1fgkkKQY5X8S3cuug/eWiCXdSl4D1IgBnG3oSUKmZh4=
+hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -105,6 +105,13 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### Türschloss
 ![Türschloss](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
+### Staubsauger
+Dieses Widget ist primär für Xiaomi-Staubsauger. Es kann aber auch für jeden anderen Staubsauger verwendet werden.
+
+Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstützt.
+
+![Staubsauger](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-vacuum.png)
+
 ### Zeitauswahl
 ## Machen
 - Untersuchen Sie die Verzögerung für Widgets
@@ -115,6 +122,17 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.3.3 (2023-10-26)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added color settings to actual
+* (bluefox) Vacuum settings were hidden
+
+### 1.3.2 (2023-10-14)
+* (bluefox) Small improvements done
+
+### 1.3.1 (2023-10-13)
+* (bluefox) Added the vacuum cleaner widget
+
 ### 1.2.1 (2023-09-18)
 * (bluefox) Added door lock, rgb and thermostat to switches widget
 

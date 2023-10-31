@@ -3,38 +3,160 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: hvcs5l+L/RtP6/9hqvczR4sizOYlRgY+LsmDYSlKNnI=
+hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.hoover.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.hoover.svg)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/hoover-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/hoover-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.hoover.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/hoover-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/hoover-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.hoover.png?downloads=true)
 
 # IoBroker.hoover
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
 
 ## Hoover-Adapter für ioBroker
 Adapter für Staubsaugergeräte
 
-## Anmeldeablauf
-Die hon Mail und Passwort eingeben.
+## Loginablauf
+Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein.
 
 ## Steuern
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-##Diskussion und Fragen
+Beispiel für Waschmaschine im Adapter als Standard:
+
+Beispiel für AC:
+
+```
+{
+    "macAddress": "set by adapter",
+    "timestamp": "2023-10-29T19:01:37.014Z",
+    "ancillaryParameters": {
+        "ecoMode": {
+            "category": "general",
+            "typology": "range",
+            "mandatory": 1,
+            "defaultValue": "0",
+            "minimumValue": "0",
+            "maximumValue": "1",
+            "incrementValue": "1"
+        },
+        "programFamily": {
+            "category": "cluster",
+            "typology": "enum",
+            "mandatory": 1,
+            "enumValues": [
+                "standard"
+            ],
+            "defaultValue": "[standard]"
+        },
+        "programRules": {
+            "category": "rule",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": {
+                "tempSel": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1": {
+                                    "typology": "fixed",
+                                    "fixedValue": "26"
+                                },
+                                "4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "20"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windSpeed": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "enum",
+                                    "defaultValue": "1",
+                                    "enumValues": "1|2|3|5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windDirectionVertical": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "3"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "remoteActionable": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        },
+        "remoteVisible": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        }
+    },
+    "applianceOptions": {},
+    "applianceType": "AC",
+    "attributes": {
+        "prStr": "Heizen",
+        "channel": "mobileApp",
+        "origin": "standardProgram"
+    },
+    "commandName": "startProgram",
+    "device": {
+        "mobileId": "36bcee2ebe0dbdas",
+        "mobileOs": "android",
+        "osVersion": "28",
+        "appVersion": "2.3.12",
+        "deviceModel": "S23"
+    },
+    "parameters": {
+        "onOffStatus": "1",
+        "windSpeed": "5",
+        "tempSel": "22"
+    },
+    "transactionId": "2023-10-29T19:01:37.014Z",
+    "programName": "PROGRAMS.AC.IOT_HEAT"
+}
+```
+
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/55667/test-adapter-hoover-hon>
 
 ## Changelog
 
+### 0.0.7
+
+- (TA2k) add wizard app login
+
+### 0.0.6
+
+- (TA2k) fix login
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

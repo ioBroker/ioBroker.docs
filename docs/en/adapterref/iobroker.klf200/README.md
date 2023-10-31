@@ -2,10 +2,9 @@
 
 # ioBroker.klf200
 
-![Number of Installations](http://iobroker.live/badges/klf200-installed.svg) ![Stable version](http://iobroker.live/badges/klf200-stable.svg)
-[![Travis CI](https://travis-ci.org/MiSchroe/ioBroker.klf200.svg?branch=master)](https://travis-ci.org/MiSchroe/ioBroker.klf200)
-[![Build status](https://ci.appveyor.com/api/projects/status/t28nlps5c99jy5v7/branch/master?svg=true)](https://ci.appveyor.com/project/MiSchroe/iobroker-klf200/branch/master)
-[![GitHub issues](https://img.shields.io/github/issues/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/issues)
+![Number of Installations](https://iobroker.live/badges/klf200-installed.svg) ![Stable version](https://iobroker.live/badges/klf200-stable.svg)
+[![Known Vulnerabilities](https://snyk.io//test/github/MiSchroe/iobroker.klf200/badge.svg?targetFile=package.json)](https://snyk.io//test/github/MiSchroe/iobroker.klf200?targetFile=package.json)
+[![Build Status](https://dev.azure.com/michaelschroeder-github/GitHub%20projects/_apis/build/status%2FMiSchroe.ioBroker.klf200?branchName=master)](https://dev.azure.com/michaelschroeder-github/GitHub%20projects/_build/latest?definitionId=3&branchName=master)[![GitHub issues](https://img.shields.io/github/issues/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/issues)
 [![GitHub license](https://img.shields.io/github/license/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/blob/master/LICENSE)
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.klf200.svg)](https://www.npmjs.com/package/iobroker.klf200)
@@ -182,6 +181,10 @@ The following devices are defined:
         writable, only.
     -   subType - Depending on the category the sub type defines special kinds or
         capabilities, e.g. for a window a '1' means that the window has a rain sensor.
+    -   targetFP1Raw - Setting this state to a value different to 54272 (0xD400) lets the product
+        include this functional parameter when setting a new target position. See below for further details.
+    -   targetFP2Raw, targetFP3Raw, targetFP4Raw - Same as targetFP1Raw, but for the different
+        functional parameters.
     -   targetPosition - Set this state to a value between 0% and 100% to move a
         window or to dim a light. This state is writable.
     -   targetPositionRaw - This state reflects the target position converted to a
@@ -194,6 +197,24 @@ The following devices are defined:
     -   wink - Set this state to true to let the product wink. This is used to
         identify a device, e.g. a window will move its handle, a roller shutter
         will move up and down a little bit. This state is writable, only.
+
+##### Functional parameters
+
+The functional parameters control further aspects of the product while moving.
+Mostly they are used for controlling the speed, but they can be used for different other aspects.
+
+To use the functional parameters you have to set the values according to your need before
+you change the targetPosition state.
+
+The values of the state provide multiple manipulation modes:
+| Access method | Description | Range (Decimal) | Range (Hex) | Notes |
+|-|-|-|-|-|
+| Relative | 0% - 100% | 0 - 51200 | 0x0000 - 0xC800 | Each percent step equals 512. The product moves to that relative value, e.g. 50% open. |
+| +/- | -100% - +100% | 51456 - 53456 | ß0xC900 - 0xD0D0 | Each percent step equals 10. The product advances its position by the provided value, e.g. open the window for addition 10%. Not every product supports this method. |
+| Target | The target value for the parameter. | 53504 | 0xD100 | In case of an already running command the target value could be different to the current value. |
+| Current | The current value of the parameter. | 53760 | 0xD200 | You can use this value to stop a movement if applicable. |
+| Default | The default value for the parameter. | 54016 | 0xD300 | Sets the parameter to its default value. |
+| Ignore | The parameter won't be provided. | 54272 | 0xD400 | The parameter won't be set for the command. |
 
 #### Scenes
 
@@ -214,10 +235,25 @@ The following devices are defined:
 <!-- prettier-ignore -->
 ### __WORK IN PROGRESS__
 
+-   (Michael Schroeder) [#126](https://github.com/MiSchroe/ioBroker.klf200/issues/126) Fixed Adapter-Checker warning.
+-   (Michael Schroeder) [#124](https://github.com/MiSchroe/ioBroker.klf200/issues/124) Added help message for password in configuration dialog.
+-   (Michael Schroeder) [#106](https://github.com/MiSchroe/ioBroker.klf200/issues/106) Fixed an unhandled rejection exception.
+-   (Michael Schroeder) [#135](https://github.com/MiSchroe/ioBroker.klf200/issues/135) Fixed warning for Admin settings.
+-   (Michael Schroeder) [#137](https://github.com/MiSchroe/ioBroker.klf200/issues/137) Fixed Github Workflows.
+
+### 1.1.2 (2023-10-19)
+
+-   (Michael Schroeder) Bumped version number
+
+### 1.1.1 (2023-10-18)
+
 -   (Michael Schroeder) Upgrade dependencies, switch to Typescript 4.6, compatibility check with js-controller 4.x
 -   (Michael Schroeder) [#12](https://github.com/MiSchroe/ioBroker.klf200/issues/12) Support silent mode in scenes
 -   (Michael Schroeder) [#44](https://github.com/MiSchroe/ioBroker.klf200/issues/44) Add advanced SSL configuration settings
 -   (Michael Schroeder) [#98](https://github.com/MiSchroe/ioBroker.klf200/issues/98) Fix default values
+-   (Michael Schroeder) [#77](https://github.com/MiSchroe/ioBroker.klf200/issues/77) Add silent mode to products using functional parameters
+-   (Michael Schroeder) Upgrade dependencies
+-   (Michael Schroeder) [#55](https://github.com/MiSchroe/ioBroker.klf200/issues/55) Support functional parameters FP1-4
 
 ### 1.0.1 (2020-07-20)
 
@@ -255,7 +291,7 @@ npm run release major|minor|patch|... [-- --dry]
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Michael Schroeder <klf200@gmx.de>
+Copyright (c) 2018-2023 Michael Schroeder <klf200@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

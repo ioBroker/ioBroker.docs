@@ -37,9 +37,12 @@ If you like my work, please feel free to provide a personal donation
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.12 (2023-10-29)
+* (DutchmanNL) Ignore meters not providing any data (like removed devices) #215
 
-### 0.5.9-0 (2021-08-17) Beta version 
-* (DutchmanNL) Timestamp of last value update added
+### 0.5.11 (2023-10-27) - Bugfixes
+* (DutchmanNL) Error handling improved in cases data processing fails
+* (DutchmanNL) Fixes #214 #215 #200 #219 #220 #224 #229 #235 #236 #237 #238 #506 #507
 
 ### 0.5.8 (2021-08-17)
 * (DutchmanNL) Minor dependency & configuration updates, stable release candidate
@@ -130,7 +133,6 @@ If you like my work, please feel free to provide a personal donation
 * (DutchmanNL) Changed object tree of device from meterId to sererialnumber, please not this means all vallue are now in a different tree
 * (DutchmanNL) Remark : not all possbile devices are in the demo, if a device cannot be handled you will get an error message i need that information to implement !
 
-
 ### 0.2.2
 * (DutchmanNL) add support for values power1, power2
 * (DutchmanNL) add support for values voltage1, voltage1 & voltage3
@@ -152,7 +154,7 @@ If you like my work, please feel free to provide a personal donation
 ## License
 MIT License
 
-Copyright (c) 2021 DutchmanNL
+Copyright (c) 2023 DutchmanNL
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

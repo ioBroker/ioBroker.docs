@@ -2,7 +2,7 @@
 
 | :warning: WARNING          |
 |:---------------------------|
-| New app version in adapter settings is 1.18.0      |
+| New app version in adapter settings is 1.19.1      |
 
 ![Logo](admin/panasonic-comfort-cloud.png)
 
@@ -24,6 +24,15 @@ With the method used, only one client can be logged on with the account at a tim
 It is recommended that a second account, for which the devices have been shared, is used.
 
 ## Changelog
+### 2.2.4 (2023-10-18)
+
+* Fixed load AppVersion from Github.
+
+### 2.2.3 (2023-10-14)
+
+* Added support for admin 5 UI (jsonConfig).
+* Updated packages.
+* Fixed translation.
 
 ### 2.2.2 (2023-09-16)
 

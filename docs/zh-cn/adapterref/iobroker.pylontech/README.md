@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: lMrEcgKOI0WwWXaz0YMgU5U2JLCFuiaD1Bf6mYvANPo=
+hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
 ---
 ![标识](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -38,8 +38,16 @@ Rxd 和Txd 必须交叉。以便一个发送 (Txd) 的内容可以被另一个�
 Pylontech 随着时间的推移更换了电池上的 RJ 插头。
 一开始有一个像电话一样的RJ11插头。现在网络连接就像RJ45一样。
 下图显示了电缆上的标准九针 D-SUB 母连接器。
-该电缆可通过 USB 端口与 RS232 转 USB 适配器轻松连接。
+该电缆可通过 USB 端口轻松连接到 RS232 转 USB 适配器或 RS232 转 LAN 或 WIFI 转换器。
 只有阵列中的第一个电池提供所有信息。您只需要一根电缆和一个串口
+
+您可以使用 [可配置插头](https://www.amazon.de/gp/product/B0C8JFWNR7) 自行组装此类电缆。它配有 RJ45 连接器和 D-SUB9 母插头。您只需将一根跳线连接到它即可。 **但要小心地将其余电缆绝缘好，以免它们相互接触。并非所有电池都有未使用的剩余引脚。** 原则上，您还可以将 RJ11 电缆连接到此类适配器。但我发现它很不稳定，总觉得接触不好。
+
+![插头](../../../en/adapterref/iobroker.pylontech/media/configurablePlug.jpg)
+
+或者在[论坛](https://forum.iobroker.net/topic/68707)中联系现成的电缆。
+
+![卡贝尔](../../../en/adapterref/iobroker.pylontech/media/Kabel.jpg)
 
 #### RJ45
 | RJ45 |信号|数字SUB |信号|
@@ -126,6 +134,16 @@ SYMLINK+="ttyUSB_pylontech"
 sudo /etc/init.d/udev restart
 ```
 
+#### Linux 上查找端口第二种方法
+您可以为每个设备找到一个唯一的名称。它不会因 FTDI 或类似的东西而改变。这也可以输入到适配器中。
+
+```
+$ ls -l /dev/serial/by-id
+lrwxrwxrwx 1 root root 13 10. Okt 11:37 usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0 -> ../../ttyUSB0
+```
+
+所以设备是`/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
+
 ### Com 通过 TCP
 而不是本地连接：
 
@@ -146,11 +164,34 @@ sudo /etc/init.d/udev restart
 #### ESP 与 MAX
 有几个项目将 ESP 或 ESP32 连接到 Telnet。请记住MAX。如果 MAX 变热，则可能是 5V 信号电平太高，因为您使用的是 3.3V 型号，或者您已将 3.3V 版本连接到 5V 工作电压。
 
-以下是一些示例： ESP-LINK：https://github.com/jeelabs/esp-link
+![ESP-LINK](../../../en/adapterref/iobroker.pylontech/media/esp-link.jpg)
+
+这里有些例子：
+
+ESP-LINK：https://github.com/jeelabs/esp-link
 
 ESP-Serial-Bridge：https://github.com/yuri-rage/ESP-Serial-Bridge
 
 WiFi 串行端口：https://www.instructables.com/Serial-Port-Over-WiFi/
+
+也可以使用 Tasmota：https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+
+只有以下或者自编译的才可以作为bin，否则不包含TCP服务器：
+
+* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+
+Gipos 必须预先设置。 TCP Rx 和 TCP Tx 各一个。
+
+```
+TCPBaudRate 115200
+TCPStart 23
+Rule1 ON System#Boot do TCPStart 23 endon
+Rule1 1
+```
+
+它之所以有效，是因为在端口 23 上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
+**当然还要在 Gipos 和 RJ/DSUB 插头之间焊接 MAX2323!!!!**
 
 #### Linux 到网络
 您可以使用 ser2net 通过网络共享 PC 或迷你 Raspi 的端口。
@@ -192,11 +233,12 @@ RFC 以下是上述配置的设置。设备端口为7000。
 
 #### RS232 至 ioBroker
 |通讯硬件|类型 |正在工作 |评论 |
-| ----------------------------------- | ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |串口转USB |本地|是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
 | LogiLink AU0034 |本地 |是的 | |
 | ESP-LINK |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。记得使用像 MAX | 这样的转换器。 |
 | Waveshare RS232/485 转 ETH（适用于欧盟）|网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。 |
+| Waveshare RS232/485/422 转 POE ETH |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。转换器可通过 POE 供电。如果 POE 可用，则电池附近不需要电源。 |
 
 #### 电池
 | Pylontech模型|型号|固件|正在工作 |评论 |
@@ -204,7 +246,7 @@ RFC 以下是上述配置的设置。设备端口为7000。
 | 5000 美元 |美国 | V1.3 22-08-10 |很好| |
 | US2000C |美国 | V2.6 21-09-26 |很好| |
 | 2000 美元 (US2KBPL) |美国 | V2.8 21-04-29 |很好|温度仅增加一度 |
-|力 H2 |力| V1.5 21-06-18 |测试中 | |
+|力 H2 |力| V1.5 21-06-18 |很好|注意：在某些 Force 手册中，连接器描述中仅列出了 RX 和 TX 连接。接地位于 PIN 8 上，也必须连接。 |
 
 如果您使用硬件，请在论坛或 Github 上给我写信作为问题。我们很乐意继续这份清单。
 
@@ -217,11 +259,15 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 
 ![电池组](../../../en/adapterref/iobroker.pylontech/media/battery_stack.JPG)
 
+警察局还设有一个终端。
+
+![力量](../../../en/adapterref/iobroker.pylontech/media/H2.JPG)
+
 ## 管理界面
 ioBroker 管理界面中的设置：
 
 ＃＃＃ 联系
-#### 连接通过
+#### 连接方式
 您可以选择本地设备，即本地连接到计算机的接口，例如USB 转换器，或 TCP-IP 网络服务器作为接口。
 
 选项：
@@ -261,7 +307,7 @@ ioBroker 管理界面中的设置：
 ioBroker论坛：https://forum.iobroker.net/topic/68707
 
 ### 确定为 US 模型读取哪些数据
-如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，因此我可能需要做出改进。
+如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，所以我可能需要做出改进。
 如果您的对象太多，您也可以减少此处的数据。
 
 #### 下载电池数据
@@ -286,7 +332,7 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 仅当在此处设置时，命令“time”才会写入控制台。
 
 ### 确定为模型 Force 读取哪些数据
-如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，所以我可能需要做出改进。
+如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，因此我可能需要做出改进。
 如果您的对象太多，您也可以减少此处的数据。
 
 #### 下载电池数据

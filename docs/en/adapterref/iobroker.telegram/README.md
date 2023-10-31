@@ -718,6 +718,10 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.0.1 (2023-10-10)
+* (boergegrunicke) Incorrect trailing zero in callback of sendTo() has been fixed. [#680]
+* (mcm1957) Dependencies have been updated.
+
 ### 2.0.0 (2023-10-09)
 * (bluefox) Packets were updated.
 * (bluefox) BREAKING CHANGE: The minimal node.js version is 16
@@ -733,10 +737,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 
 ### 1.15.5 (2023-02-16)
 * (bluefox) Added possibility to set `parse_mode` in the text message
-
-### 1.15.2 (2022-11-04)
-* (Steff42) Make sure the userid is a string to show warnings in the log
-* (bluefox) Added ukrainian language
 
 ## License
 

@@ -3,38 +3,160 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: hvcs5l+L/RtP6/9hqvczR4sizOYlRgY+LsmDYSlKNnI=
+hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
 ---
 ![标识](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.hoover.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.hoover.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.hoover.svg)
 ![安装数量（最新）](https://iobroker.live/badges/hoover-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/hoover-stable.svg)
-![依赖状态](https://img.shields.io/david/TA2k/iobroker.hoover.svg)
-![新PM](https://nodei.co/npm/iobroker.hoover.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.hoover.png?downloads=true)
 
 # IoBroker.hoover
-**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/TA2k/ioBroker.hoover/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的胡佛适配器
 胡佛设备适配器
 
-## 登录
+## 登录ablauf
 Die hon Mail und Passwort eingeben。
 
 ## 斯图恩
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
+
+适配器默认为 Waschmaschine：
+
+AC 简介：
+
+```
+{
+    "macAddress": "set by adapter",
+    "timestamp": "2023-10-29T19:01:37.014Z",
+    "ancillaryParameters": {
+        "ecoMode": {
+            "category": "general",
+            "typology": "range",
+            "mandatory": 1,
+            "defaultValue": "0",
+            "minimumValue": "0",
+            "maximumValue": "1",
+            "incrementValue": "1"
+        },
+        "programFamily": {
+            "category": "cluster",
+            "typology": "enum",
+            "mandatory": 1,
+            "enumValues": [
+                "standard"
+            ],
+            "defaultValue": "[standard]"
+        },
+        "programRules": {
+            "category": "rule",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": {
+                "tempSel": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1": {
+                                    "typology": "fixed",
+                                    "fixedValue": "26"
+                                },
+                                "4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "20"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windSpeed": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "enum",
+                                    "defaultValue": "1",
+                                    "enumValues": "1|2|3|5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windDirectionVertical": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "3"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "remoteActionable": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        },
+        "remoteVisible": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        }
+    },
+    "applianceOptions": {},
+    "applianceType": "AC",
+    "attributes": {
+        "prStr": "Heizen",
+        "channel": "mobileApp",
+        "origin": "standardProgram"
+    },
+    "commandName": "startProgram",
+    "device": {
+        "mobileId": "36bcee2ebe0dbdas",
+        "mobileOs": "android",
+        "osVersion": "28",
+        "appVersion": "2.3.12",
+        "deviceModel": "S23"
+    },
+    "parameters": {
+        "onOffStatus": "1",
+        "windSpeed": "5",
+        "tempSel": "22"
+    },
+    "transactionId": "2023-10-29T19:01:37.014Z",
+    "programName": "PROGRAMS.AC.IOT_HEAT"
+}
+```
 
 ## 讨论和讨论
 <https://forum.iobroker.net/topic/55667/test-adapter-hoover-hon>
 
 ## Changelog
 
+### 0.0.7
+
+- (TA2k) add wizard app login
+
+### 0.0.6
+
+- (TA2k) fix login
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

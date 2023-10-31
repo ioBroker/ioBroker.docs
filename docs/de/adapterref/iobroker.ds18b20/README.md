@@ -235,6 +235,10 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.5 (2023-10-29)
+
+* (crycode-de) Fixed cosmetic issue in config UI
+
 ### 2.0.4 (2023-08-20)
 
 * (crycode-de) Fix js-controller 5 compatibility
@@ -252,19 +256,6 @@ Anweisungen zur Einrichtung sind in der Adapterkonfiguration zu finden.
 
 * (crycode-de) Fixed config migration
 * (crycode-de) Added warning message for upgrades
-
-### 2.0.0 (2023-07-19)
-
-* (crycode-de) 💥 Node.js 16.4+, js-controller 4+ and admin 6+ are required
-* (crycode-de) New Admin UI using JsonConfig
-* (crycode-de) 💥 `read` and `readNow` actions are now merged
-* (crycode-de) New state `info.remotesConnected` with a list of connected remote systems (if enabled)
-* (crycode-de) Added icons for the sensor status to the sensor objects
-* (crycode-de) Label objects of disabled sensors
-* (crycode-de) Delete objects of unconfigured/deleted sensors
-* (crycode-de) Updated translations
-* (crycode-de) Code optimizations and upgrades to current standards
-* (crycode-de) Updated dependencies
 
 ## License
 

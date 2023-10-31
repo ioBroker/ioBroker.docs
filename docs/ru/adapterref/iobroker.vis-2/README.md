@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: /XtZjIifd5fOIWxzaFqp8baBG5sSv18DL3sfRGKayMQ=
+hash: TxiWz7uMNsggg8SFkzzqiD0C8G7r0B5Ir/szynb3Mgk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -62,9 +62,9 @@ value = await (async function () {
 
 Поддерживаются следующие операции:
 
-- `\*` - умножение. Аргумент должен быть в квадратных скобках, например «*(4)». В этом примере мы умножаем значение на 4.
-- `\+` - доп. Аргумент должен быть в скобках, например «+(4.5)». В этом примере мы добавляем значение 4,5.
-- `\-` - вычесть. Аргумент должен быть в скобках, например «-(-674,5)». В этом примере мы вычитаем из значения -674,5.
+- `*` - умножение. Аргумент должен быть в квадратных скобках, например «*(4)». В этом примере мы умножаем значение на 4.
+- `+` - доп. Аргумент должен быть в скобках, например «+(4.5)». В этом примере мы добавляем значение 4,5.
+- `-` - вычесть. Аргумент должен быть в скобках, например «-(-674,5)». В этом примере мы вычитаем из значения -674,5.
 - `/` - деление. Аргумент должен быть в скобках, например «/(0,5)». В этом примере мы делим значение на 0,5.
 - `%` - по модулю. Аргумент должен быть в скобках, например «%(5)». В этом примере мы берем по модулю 5.
 - `round` - округлить значение.
@@ -209,7 +209,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 
 ## SVG и currentColor
 Ключевое слово currentColor в CSS позволяет элементам наследовать текущий цвет текста от родительского элемента.
-Это может быть особенно полезно в SVG (масштабируемой векторной графике), поскольку обеспечивает более динамичное оформление и более простую интеграцию с HTML-контентом.
+Это может быть особенно полезно в SVG (масштабируемой векторной графике), поскольку позволяет создавать более динамичные стили и упрощает интеграцию с HTML-контентом.
 
 Вы можете использовать ключевое слово currentColor вместо определенного значения цвета для любого свойства внутри SVG, которое принимает значение цвета.
 Вот простой пример с кругом в SVG:
@@ -229,6 +229,22 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 2.3.3 (2023-10-30)
+* (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
+* (bluefox) added the editor for bindings
+* (bluefox) background does not used if in iframe
+
+### 2.3.2 (2023-10-14)
+* (bluefox) Allowed showing only selected widgets in edit mode
+* (bluefox) Corrected the visibility calculation for old (CanJS) widgets
+
+### 2.3.1 (2023-10-13)
+* (bluefox) Corrected vertical gap between relative widgets
+* (bluefox) Better input of numbers with min/max in attribute dialog
+
+### 2.3.0 (2023-09-28)
+* (bluefox) jQui widgets (many of them) were improved
+
 ### 2.2.7 (2023-09-18)
 * (bluefox) Improved icon selector: you can upload your own icon directly
 * (bluefox) Optimized loading: do not load unused widget sets

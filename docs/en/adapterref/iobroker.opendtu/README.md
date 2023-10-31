@@ -40,6 +40,10 @@ For more information on the data points, see their description or click [here](h
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2023-10-29)
+
+- (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
+
 ### 1.0.0 (2023-10-01)
 
 - (o0shojo0o) Increase to the first major release, as it has now reached a stable level. 

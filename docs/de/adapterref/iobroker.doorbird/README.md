@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: WruIwtqYcKUvaAzEuztcNU3bhGO37Sm43rwg/2Yosek=
+hash: WjF6c3YFNfxVzrzgnMCMY1Za3n93R+RMsKUeAj75xd4=
 ---
 ![Logo](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.doorbird.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.doorbird.svg)
-![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
 ![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
@@ -39,7 +38,7 @@ Der Adapter versucht, das Feld mit der richtigen IP für Sie vorab auszufüllen.
 
 3. Geben Sie die IP Ihres Doorbird-Geräts ein. Sie können auf das „Suchsymbol“ links neben dem Eingabefeld klicken. Nachdem Sie auf das Symbol geklickt haben, wird oben im Konfigurationsbildschirm eine Meldung angezeigt. Jetzt haben Sie 60 Sekunden Zeit, um die Klingeltaste an Ihrem Doorbird-Gerät zu drücken. Der Adapter versucht, die IP zu erkennen und alle Felder für Sie auszufüllen.
 4. Die Geräte-ID (NICHT IP!) Ihres Doorbird.
-5. Der Benutzername, der über die API-Berechtigung auf dem Doorbird-Gerät verfügen muss.
+5. Der Benutzername, der auf dem Doorbird-Gerät über die Berechtigungen **API-Operator** und **Immer überwachen** verfügen muss.
 6. Das Passwort für den in Feld 5 eingegebenen Benutzernamen.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.doorbird/img/configscreen.png)
@@ -108,6 +107,16 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2023-10-03)
+
+-   (Schmakus) add debug logs to find out "Maximum call stack size exceeded"
+-   (Schmakus) update dependencies
+
+### 1.2.4 (2023-08-31)
+
+-   (Schmakus) tryed to fixed [#73] Maximum call stack size exceeded
+-   (Stefan592) fixed 'listen on all interfaces'
+
 ### 1.2.3 (2023-08-17)
 
 -   (Schmakus) changed schedule handling. (fix status code 400)
@@ -119,15 +128,6 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
 ### 1.2.1 (2023-08-17)
 
 -   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
-
-### 1.2.0 (2023-08-08)
-
--   (Schmakus) Update package.json (Node.js v16 or higher and NPM v7 or higher is required!)
--   (Stefan592/Schmakus) bugfix 'listen on all interfaces'
-
-### 1.1.1 (2023-08-03)
-
--   (Schmakus) fixed js-controller dependency [#69]
 
 ## License
 

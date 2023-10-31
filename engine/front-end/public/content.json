@@ -126,6 +126,15 @@
                 "zh-cn": "普罗克斯莫克斯"
               },
               "content": "install/proxmox.md"
+            },
+            "Docker": {
+              "title": {
+                "en": "Docker",
+                "de": "Docker",
+                "ru": "Установка",
+                "zh-cn": "泊坞窗"
+              },
+              "content": "install/docker.md"
             }
           }
         },

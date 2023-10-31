@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
+hash: yQ0eXhG2tSPxVJ1yRnio0js1/98MhPI1Qp41pSS5Wns=
 ---
 ![NPM版本](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
@@ -34,7 +34,7 @@ hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
 | AMS | :white_check_mark: |
 
 ## 支持的命令
-|命令 | X1C | X1 |点对点 | P1S |
+|命令| X1C | X1 |点对点 | P1S |
 |--------------------|---------------------|---------------------|--------------------------|--------------------------|
 |定制 G 代码 | :white_check_mark: | :white_check_mark: | :white_check_mark: | ：问题：需要测试|
 |暂停| :white_check_mark: | :white_check_mark: | :white_check_mark: | ：问题：需要测试|
@@ -51,7 +51,7 @@ hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
 |速度级别 | :white_check_mark: | :white_check_mark: | :white_check_mark: | ：问题：需要测试|
 
 ＃＃ 去做
-[ ] 实现更多命令，请反馈我们需要的内容 :感叹: [ ] 重构/完善控制文件夹中当前的控制状态 [ ] 优化状态属性定义 [ ] 测试打印机系列 P1S
+[ ] 重构/完善控制文件夹中当前的控制状态 [ ] 优化状态属性定义 [ ] 测试打印机系列 P1S
 
 ＃＃ 支持我
 如果您喜欢我的工作，请考虑个人捐赠（这是 DutchmanNL 的个人捐赠链接，与 ioBroker 项目无关！）[![捐赠](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -66,9 +66,15 @@ Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概�
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2023-10-18) - Small fixes for new firmware version
+* (DutchmanNL) Button for homing added, fixes #28
+* (DutchmanNL) Bugfix: Translation of HMS-Error codes
+* (DutchmanNL) Several bugfixes for situations no AMS is used
+* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+
 ### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
 #### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human readable start time added
+* (DutchmanNL) State for human-readable start time added
 * (DutchmanNL) Speed level control implemented solves #10
 * (DutchmanNL) Capability to control all fans implemented
 * (DutchmanNL) Control bed & Nozzle temperature implemented

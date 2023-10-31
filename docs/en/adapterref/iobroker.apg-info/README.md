@@ -27,7 +27,7 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.7-alpha.1 (2023-10-09)
+### 0.0.7 (2023-10-11)
 * (HGlab01) Bump json-explorer to 0.1.14
 * (HGlab01) add jsonChart-json for market prices
 

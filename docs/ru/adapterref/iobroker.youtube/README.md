@@ -1,7 +1,6 @@
 ---
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.youtube?style=flat-square
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.youtube?label=npm%20downloads&style=flat-square
-BADGE-Snyk Vulnerabilities for npm package: https://img.shields.io/snyk/vulnerabilities/npm/iobroker.youtube?label=npm%20vulnerabilities&style=flat-square
 BADGE-node-lts: https://img.shields.io/node/v-lts/iobroker.youtube?style=flat-square
 BADGE-Libraries.io dependency status for latest release: https://img.shields.io/librariesio/release/npm/iobroker.youtube?label=npm%20dependencies&style=flat-square
 BADGE-GitHub: https://img.shields.io/github/license/klein0r/iobroker.youtube?style=flat-square
@@ -10,7 +9,6 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/kl
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/klein0r/iobroker.youtube?logo=github&style=flat-square
 BADGE-GitHub issues: https://img.shields.io/github/issues/klein0r/iobroker.youtube?logo=github&style=flat-square
 BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/status/klein0r/iobroker.youtube/test-and-release.yml?branch=master&logo=github&style=flat-square
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/klein0r/iobroker.youtube?label=repo%20vulnerabilities&logo=github&style=flat-square
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.youtube.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/youtube-stable.svg
 BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
@@ -18,13 +16,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.youtube/README.md
 title: ioBroker.youtube
-hash: /lng91j3s8SZ+6L0FGom2NvYFQYTJ552ZWGGwvtHJhI=
+hash: cLr+/ivSywAeNSv0TVQcAPp5FSWMj3NUyPjDF0BsoN4=
 ---
 ![Логотип](../../../en/admin/youtube.png)
 
 # IoBroker.youtube
 ## Требования
-- nodejs 14.5 (или новее)
+- nodejs 16.0 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
 
@@ -80,6 +78,12 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 4.4.0 (2023-10-25)
+
+NodeJS 16.x is required
+
+* (klein0r) Added icons to admin tabs
+
 ### 4.3.0 (2023-08-28)
 
 * (klein0r) Added customUrl to JSON summary
@@ -101,12 +105,6 @@ NodeJS >= 14.5 is required
 * (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
-
-### 4.0.0 (2022-05-29)
-
-NodeJS 14.x is required (NodeJS 12.x is EOL)
-
-* (klein0r) Fixed last update time
 
 ## License
 

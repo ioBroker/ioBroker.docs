@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
+hash: yQ0eXhG2tSPxVJ1yRnio0js1/98MhPI1Qp41pSS5Wns=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
@@ -51,7 +51,7 @@ Sie müssen Ihr Druckermodell auswählen, nur der X1 ermöglicht das Senden von 
 | Geschwindigkeitsstufe | :white_check_mark: | :white_check_mark: | :white_check_mark: | :Frage: Muss getestet werden |
 
 ## Machen
-[ ] Weitere Befehle implementieren, bitte geben Sie Feedback, was wir brauchen :exclamation: [ ] Aktuelle Steuerungszustände im Steuerungsordner neu strukturieren/vervollständigen [ ] Zustandsattributdefinitionen optimieren [ ] Druckerserie P1S testen
+[ ] Aktuelle Steuerzustände im Steuerordner neu strukturieren/vervollständigen [ ] Zustandsattributdefinitionen optimieren [ ] Druckerserie P1S testen
 
 ## Unterstütze mich
 Wenn Ihnen meine Arbeit gefällt, ziehen Sie bitte eine persönliche Spende in Betracht (dies ist ein persönlicher Spendenlink für DutchmanNL, kein Bezug zum ioBroker-Projekt!) [![Spenden](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -66,9 +66,15 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2023-10-18) - Small fixes for new firmware version
+* (DutchmanNL) Button for homing added, fixes #28
+* (DutchmanNL) Bugfix: Translation of HMS-Error codes
+* (DutchmanNL) Several bugfixes for situations no AMS is used
+* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+
 ### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
 #### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human readable start time added
+* (DutchmanNL) State for human-readable start time added
 * (DutchmanNL) Speed level control implemented solves #10
 * (DutchmanNL) Capability to control all fans implemented
 * (DutchmanNL) Control bed & Nozzle temperature implemented

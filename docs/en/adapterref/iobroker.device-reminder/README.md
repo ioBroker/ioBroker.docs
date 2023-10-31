@@ -16,7 +16,7 @@
 ## german readme needed? <br>[german readme](https://github.com/Xenon-s/ioBroker.device-reminder/blob/master/README_GER.md)
 <br>
 
-# Adapter for monitoring device states Version > 1.1
+# Adapter for monitoring device states Version
 This adapter can detect by means of measurement sockets whether a device is switched on, in operation or has been switched off and react to it. Messages can then be issued automatically via Telegram, whatsapp, alexa, sayit, pushover and email (multiple selection per device possible). It is also possible to automatically turn off the outlet after the process is completed (also time delayed). With given runtime it is possible to output an alarm per datapoint (with external script, the datapoint delivers only true/false or as display in the vis). For this it is sufficient to enter the pre-gating time simply in minutes into the datapoint 'device-reminder.X.XXX.config.runtime max'.
 
 # What should be considered?
@@ -26,13 +26,15 @@ Command in the Tasmota console : TelePeriod 10
 
 # What is possible per device?
 - Notification at device start
-- Notification at the end of the process of the respective device 
+- Notification at the end of the operation of the respective device 
 - Telegram notification (multiple IDs are possible) 
 - Alexa notification (multiple IDs are possible) 
 - WhatsApp notification (multiple IDs are possible)
 - Pushover notification (multiple IDs are possible)
 - Email notification (multiple IDs are possible)
-- Notifications can be created freely or also specified by an external script
+- Signal notification (multiple IDs are possible)
+- Matrix notification (multiple IDs are possible)
+- Notifications can be created freely or can be specified by an external script
 - Data points with current status, live consumption and last sent status message to use values from this adapter in other scripts
 - Devices can be switched off on demand (also time delayed), if process was detected finished
 - Voice assistants can be temporarily disabled per datapoint
@@ -42,100 +44,43 @@ Command in the Tasmota console : TelePeriod 10
 
 ## Basic things in advance
 
-For each group of devices, alexa etc. there is a button "Check input". If this button is clicked, the existing entries are checked for plausibility and you get an immediate response whether all entries are correct. If you have made changes, this button must always be clicked!
+For each group of devices, alexa etc. there is a button "Check input". If this button is clicked, the existing entries are checked for plausibility and you immediately get an answer whether all entries are correct. If you have made changes, this button must always be clicked! The button must always be clicked when it appears!
+<br>
+![check_btn_false.png](admin/pictures/check_btn_false.png)
+<br>
+![check_btn_true.png](admin/pictures/check_btn_true.png)
 
 ## Create device
-![addDevice.png](admin/addDevice.png)
+![addDevice.png](admin/pictures/addDevice.png)
 
-- **device name**: Freely selectable name
-- **device type**: here you have to select which device it is, so that the calculations in the adapter can be carried out correctly.
-- **consumption**: Click on the button with the three white dots to open your object management. The data point that displays the **current live consumption** must be selected. 
-- **switch on/off**: Clicking on the button with the three white dots opens your object management. The data point that switches your **socket on/off** must be selected (not mandatory).
-- **Start text**: Notification to be sent when the device is started (special characters are also possible)
-- **End text**: Notification to be sent when the unit has finished its operation (special characters are also possible)
+- **Device name**: Freely selectable name
+- **Device type**: here you have to select which device it is, so that the calculations in the adapter can be executed correctly
+- **Consumption**: By clicking on the button with the three white dots your object management opens. You have to select the data point which shows the **current live consumption**. 
+- **Switch ON/OFF**: Click on the button with the three white dots to open your object management. You have to select the datapoint which switches your **socket on/off** (not mandatory). If this is not selected, no automatic switch off can take place.
+- **Start text**: Notification that should be sent when the device is started (also special characters are possible)
+- End text**: Notification to be sent when the device has finished its operation (special characters are also possible)
 
-With **Start text** and **End text** you can also get a message from an external data point. This message is read from the data point with a delay of 1 second after the status of the unit has changed. In this way, you can have a message created by an external script. The adapter automatically recognises whether a message comes from a data point or whether it was simply entered manually. To select a data point, simply click on the button with the three white dots and then select the corresponding data point. **Please note**: only either a data point **or** a manually entered message can be used!
-<br>
-<br>
-
-## Create Alexa
-![addAlexa.png](admin/addAlexa.png)
-
-- **alexa name**: Freely selectable name, special characters are also possible.
-- **alexa "announcement"/"speak "**: The data point that lets your Alexa speak must be selected here. To select the data point, simply click on the button with the three small white dots.
-- **Volume 0-100**: Volume at which your Alexa should speak (from 0 - 100%).
-The last 4 fields can be used to create a time period in which your Alexa is allowed to speak. By default, the period from 00:00 - 23:59 is active.
-- **active from hour**: Start time in hours
-- **active from minutes**: Start time in minutes
-- **inactive from hour**: End time in hours
-- **inactive from minutes**: End time in minutes
-
-## Create SayIt device
-![addSayit.png](admin/addSayit.png)
-
-- **sayit name**: Freely selectable name, special characters are also possible.
-- **sayit path "sayit/../text "**: Select the data point "text" in the respective sayIt device folder. The text output is sent here.
-- **volume 0-100**: Volume with which your sayIt device should speak (from 0 - 100%).
-- **active from hour**: Start time in hours
-- **active from minutes**: Start time in minutes
-- **inactive from hour**: End time in hours
-- **inactive from minutes**: End time in minutes
-
-## Create pushover user
-![addPushover.png](admin/addPushover.png)
-
-- **name**: Freely selectable name, special characters are also possible.
-- **pushover instance "**: the instance to send to
-- **priority**: The priority with which the message is to be sent
-- **sound**: The sound to play when Pushover receives the message.
-
-## Create email user
-![addEmail.png](admin/addEmail.png)
-
-- **name**: Freely selectable name, special characters are also possible.
-- **sender address**: Email address from which the email is sent
-- **receiver address**: Email address that is to receive the message
-
-# Default devices
-![default-devices.png](admin/default-devices.png)
-These values were determined over a period of several months and with the help of numerous testers. Changes to the values can lead to devices no longer being recorded correctly, resulting in false reports. 
-
-# Custom-devices
-![custom-devices.png](admin/custom-devices.png)
-These values can be customised by the user and then used. The following is the explanation:
-
-- **Threshold 'Start' (Watt)**: Start value in watts that must be exceeded for the device to be recognized as started.
-- **Threshold value 'End' (Watt)**: End value in watts that must be undershot for the device to be recognized as terminated.
-- **Threshold 'Standby' (Watt)**: Threshold value to indicate device as "OFF" or "IN STANDBY". If the currently calculated value is below the **Standy** threshold, the device is recognized as switched off.
-- **Number of start values**: This specifies how often the "start value" must be exceeded **in succession**. Falling below this value once will result in a start abort. The average of these values must be above the start value for the device to be recognized as started. <br>
-*Example: The value should be 10W and exceeded 3 times in a row. 1. 15W, 2. 1W, 15W => start phase was aborted because the second value was below 10.*.
-- **Number of final values**: This specifies how many values are to be recorded before calculating whether the device is ready. The fewer values here, the less accurate the result and the risk of false alarms increases. The higher the value, the more accurate the recording. The disadvantage, however, is that the finished message is sent with a strong delay. End is only detected when "Number of end values" is reached and the average consumption is below the "Threshold value 'End' (Watt)".
-
-*Short example calculation:*
-Consumption values come in every 10 seconds. **Threshold 'end' (Watt)** is set to 50, **Number of end values** is set to 100. After the device has been recognized as started, 100 values (*takes 100values x 10 seconds = 1000 seconds*) are recorded and only then the average value is formed. If this is below 50, after approx. 16.5 minutes (we remember **number of end values** = 100 values) **finished** is recognized and a message (if configured) goes out. If the value is above 50, nothing happens, because the device is still in operation. Each additional value now replaces the oldest and a new average is calculated after each new value.
+At **Starttext** and **Endtext** you can also get a message from an external datapoint. This message is read with 1 second delay from the datapoint after the status of the device has changed. So you can get a message from an external script. The adapter automatically detects if a message comes from a datapoint or if it was simply entered manually. To select a datapoint, simply click on the button with the three white dots and then select the corresponding datapoint. **Please note**: only either a data point **or** a manually entered message can be used!
 <br>
 
 # Configure Devices
-![configureDevices.png](admin/configureDevices.png)
+![configureDevices.png](admin/pictures/configureDevices.png)
 
 - **active**: Is activated by default. Here you can temporarily deactivate a device so that it no longer sends notifications.
-- **device**: is created automatically
+- Device**: will be created automatically
 - **Alexa**: all previously created Alexas are listed here and can be added by click
-- **sayit**: all previously created sayit devices are listed here and can be added by clicking on them.
-- **whatsapp**: all automatically detected whatsapp users are listed here
-- **pushover**: all previously created pushover users are listed here and can be added by clicking on them.
-- **email**: all previously created email users will be listed here and can be added by click
-- Telegram**: All available Telegram users are listed here and can be assigned to the device by clicking on them. The respective instance is indicated in the [square] brackets.
+- **sayit**: all previously created sayit devices are listed here and can be added by click
+- **telegram**: all previously created telegram users are listed here and can be added by click
+- **whatsapp**: all previously created whatsapp users will be listed here and can be added by clicking on them
+- **pushover**: all previously created pushover users are listed here and can be added by click
+- **email**: all previously created email users will be listed here and can be added by clicking on them
+- **signal**: all previously created signal users are listed here and can be added by clicking on them
+- **matrix**: all previously created matrix users are listed here and can be added by clicking on them
+- **Switch off delay**: Here you can optionally enter a timeout in **minutes**. After the timeout has expired, the socket is switched off *if auto off is activated*. The end notification of the device remains unaffected by a timeout!  Can only be used, if under "Devices" also a switch-off data point was deposited.
+- **Cancel detection**: If activated, the adapter tries to detect if a device has already been switched off manually before the notification and then does not notify anymore.
 
-    **If no names are displayed:**
-    Check whether the entry under "telegram.X.communicate.users" (the X stands for the respective instance, e.g. 0) contains the following structure: "{"ID IN NUMBERS":{"firstName": "User1"}}", if not, this can simply be adapted. The adapter searches for **firstName** as well as **userName**. You can then decide which name to send to. Only either the **firstName** or the **userName** can be selected!
-
-- **switch off**: If selected, the socket switches off automatically after the process has been completed.
-- **switch off after minutes**: A timeout in **minutes** can optionally be entered here. After the timeout has expired, the socket is switched off *if auto off is activated*. However, the end notification of the device remains unaffected by a timeout!
-- abort detection**: If activated, the adapter tries to detect whether a unit has already been switched off manually before the notification and then no longer notifies.
-
-After clicking on "**Save and close**", a folder is created under *Objects -> device-reminder* for each newly created device. 
-- do not disturb (if activated, no messages will be sent by **voice-reminder**)
+After clicking on "**Save and close**", a folder is now created under *Objects -> device-reminder* for each newly created device, in which 
+- do not disturb (if activated, no messages will be sent via **voice-reminder**)
 - runtime max
 - the current state of the device 
 - runtime alarm 
@@ -150,6 +95,82 @@ After clicking on "**Save and close**", a folder is created under *Objects -> de
 is displayed.
 <br>
 
+## Create Alexa
+![addAlexa.png](admin/pictures/addAlexa.png)
+
+- **Name**: Freely selectable name, special characters are also possible.
+- alexa2/../announcement'/'speak'**: Here you have to select the datapoint that lets your Alexa speak. To select the data point, simply click on the button with the three small white dots.
+- **volume 0-100**: Volume at which your Alexa should speak (from 0 - 100%).
+The last 2 fields can be used to create a time period in which your Alexa is allowed to do voice output. By default, the period is active from 00:00 - 23:59.
+- **active from**: Start time of the notification period
+- **active until**: End time of the notification period
+
+## Create SayIt device
+![addSayit.png](admin/pictures/addSayit.png)
+
+- **Name**: Freely selectable name, special characters are also possible.
+- **'sayit/../text'**: select the data point "text" in the respective sayIt device folder. Here the text output is sent.
+- **volume 0-100**: volume with which your sayit device should speak (from 0 - 100%)
+- **active from**: Start time of the notification period
+- **inactive from**: End time of the notification period
+
+## Create pushover user
+![addPushover.png](admin/pictures/addPushover.png)
+
+- **Name**: Freely selectable name, special characters are also possible.
+- **Pushover instance**: the instance to which the message is to be sent
+- **Subject**: optional subject of the message
+- **Device ID**: optional device ID to which the message should be sent
+- **Priority**: The priority with which to send
+- **Sound**: The sound to play when Pushover receives the message.
+
+## Create email user
+![addEmail.png](admin/pictures/addEmail.png)
+
+- **name**: Freely selectable name, special characters are also possible.
+- **sender address**: Email address from which the email is sent
+- **receiver address**: Email address that is to receive the message
+
+## Create signal user
+![addSignal.png](admin/pictures/addSignal.png)
+- **Name**: Freely selectable name, special characters are also possible.
+- **Signal instance**: The installed instance to send to.
+- **Phone**: optionally a cell phone number
+
+## create telegram user
+![addTelegram.png](admin/pictures/addTelegram.png)
+
+- **Group**: If checked, it is mandatory to specify a chat ID in order to send to a group chat
+- **Name**: Freely selectable name, special characters are also possible.
+- **Telegram instance**: The installed instance to send to.
+- **Username/Firstname**: The name stored in the Telegram adapter 
+- **Chat ID**: Must only be filled in if you want to send to a group
+
+## create whatsapp user
+![addWhatsapp.png](admin/pictures/addWhatsapp.png)
+
+- **Name**: Freely selectable name, special characters are also possible.
+- **'whatsapp-cmb/../sendMessage'**: The datapoint of the Whatsapp adapter to which the message should be sent.
+
+# Default devices
+![default-devices.png](admin/pictures/default-devices.png)
+These values were determined over a period of several months and with the help of numerous testers. Changes to the values can lead to devices no longer being recorded correctly, resulting in false reports. 
+
+# Custom-devices
+![custom-devices.png](admin/pictures/custom-devices.png)
+These values can be customised by the user and then used. The following is the explanation:
+
+- **Threshold 'Start' (Watt)**: Start value in watts that must be exceeded for the device to be recognized as started.
+- **Threshold value 'End' (Watt)**: End value in watts that must be undershot for the device to be recognized as terminated.
+- **Threshold 'Standby' (Watt)**: Threshold value to indicate device as "OFF" or "IN STANDBY". If the currently calculated value is below the **Standy** threshold, the device is recognized as switched off.
+- **Number of start values**: This specifies how often the "start value" must be exceeded **in succession**. Falling below this value once will result in a start abort. The average of these values must be above the start value for the device to be recognized as started. <br>
+*Example: The value should be 10W and exceeded 3 times in a row. 1. 15W, 2. 1W, 15W => start phase was aborted because the second value was below 10.*.
+- **Number of final values**: This specifies how many values are to be recorded before calculating whether the device is ready. The fewer values here, the less accurate the result and the risk of false alarms increases. The higher the value, the more accurate the recording. The disadvantage, however, is that the finished message is sent with a strong delay. End is only detected when "Number of end values" is reached and the average consumption is below the "Threshold value 'End' (Watt)".
+
+*Short example calculation:*
+Consumption values come in every 10 seconds. **Threshold 'end' (Watt)** is set to 50, **Number of end values** is set to 100. After the device has been recognized as started, 100 values (*takes 100values x 10 seconds = 1000 seconds*) are recorded and only then the average value is formed. If this is below 50, after approx. 16.5 minutes (we remember **number of end values** = 100 values) **finished** is recognized and a message (if configured) goes out. If the value is above 50, nothing happens, because the device is still in operation. Each additional value now replaces the oldest and a new average is calculated after each new value.
+<br>
+
 # Support
 **If you like my work :** <br>
 
@@ -162,10 +183,25 @@ is displayed.
 	Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 2.1.1 (2023-10-07)
-* (xenon-s) GUI: bugfixes
+### 3.0.1 (2023-10-18)
+* (xenon-s) Update testing: [issue #325](https://github.com/Xenon-s/ioBroker.device-reminder/issues/325)
+* (xenon-s) bugfix: [issue #327](https://github.com/Xenon-s/ioBroker.device-reminder/issues/327)
+* (xenon-s) bugfix: [issue #328](https://github.com/Xenon-s/ioBroker.device-reminder/issues/328)
+* (xenon-s) bugfix: [issue #329](https://github.com/Xenon-s/ioBroker.device-reminder/issues/329)
 
-### 2.1.0 (2023-10-07)
+### 3.0.0 (2023-10-18)
+**Breaking Changes**
+* Made basic changes to the adapter structure, because there were numerous problems with the new "js-Controller 5.x". It is mandatory to reinstall the adapter!
+* Numerous bug fixes
+* New messengers added
+* Admin GUI fundamentally reworked
+* Whatsapp and Telegram must now be created manually
+* (xenon-s) Fixes for js-controller 5.*
+* (xenon-s) bugfix: [issue #278](https://github.com/Xenon-s/ioBroker.device-reminder/issues/278)
+* (xenon-s) bugfix: [issue #273](https://github.com/Xenon-s/ioBroker.device-reminder/issues/273)
+* (xenon-s) bugfix: [issue #267](https://github.com/Xenon-s/ioBroker.device-reminder/issues/267)
+* (xenon-s) bugfix: [issue #218](https://github.com/Xenon-s/ioBroker.device-reminder/issues/218)
+* (xenon-s) bugfix: [issue #207](https://github.com/Xenon-s/ioBroker.device-reminder/issues/207)
 * (xenon-s) GUI Fixes "devices" : switch may be empty, but then no longer selectable 
 * (xenon-s) add: [issue #258: Signal Messenger added](https://github.com/Xenon-s/ioBroker.device-reminder/issues/258)
 * (xenon-s) add: [issue #245: Matrix added](https://github.com/Xenon-s/ioBroker.device-reminder/issues/245)
@@ -173,16 +209,6 @@ is displayed.
 * (xenon-s) bugfix [issue #210](https://github.com/Xenon-s/ioBroker.device-reminder/issues/210)
 * (xenon-s) bugfix [issue #169](https://github.com/Xenon-s/ioBroker.device-reminder/issues/169)
 * (xenon-s) bugfix [issue #297](https://github.com/Xenon-s/ioBroker.device-reminder/issues/297)
-
-### 2.0.1 (2023-08-20)
-* (xenon-s) : !!! BREAKING CHANGE ! Reinstallation is strongly recommended !!!
-* (xenon-s) Fixes for js-controller 5.*
-* (xenon-s) bugfix: [issue #278](https://github.com/Xenon-s/ioBroker.device-reminder/issues/278)
-* (xenon-s) bugfix: [issue #273](https://github.com/Xenon-s/ioBroker.device-reminder/issues/273)
-* (xenon-s) bugfix: [issue #267](https://github.com/Xenon-s/ioBroker.device-reminder/issues/267)
-* (xenon-s) bugfix: [issue #218](https://github.com/Xenon-s/ioBroker.device-reminder/issues/218)
-* (xenon-s) bugfix: [issue #207](https://github.com/Xenon-s/ioBroker.device-reminder/issues/207)
-
 
 ### 1.2.9 (2021-06-22)
 * (xenon-s) bugfix: error catching JSON last operations doesn't work
@@ -204,60 +230,6 @@ is displayed.
 
 ### 1.0.0 (2021-01-05)
 * (xenon-s) initial commit version 1.0
-
-### 0.7.4 (2020-12-20)
-* (xenon-s) bugfix: telegram instance was not recognised correctly
-* (xenon-s) bugfix: abort detection prevented sending of notifications
-
-### 0.7.1 (2020-12-17)
-* (xenon-s) fix telegram bug
-* (xenon-s) Deleted incorrect version numbers in the io package
-
-### 0.7.0 (2020-12-10)
-* (xenon-s) Data is now queried cyclically
-
-### 0.6.2 (2020-12-04)
-* (xenon-s) bugfix index_m
-
-### 0.6.0 (2020-12-03)
-* (xenon-s) bugfix: alexa speak-volume when input is empty
-* (xenon-s) bugfix: telegram now shows both names, otherwise there were errors in the notifications 
-* (xenon-s) add: Device status can now be configured yourself
-
-### 0.5.4 (2020-11-28)
-* (xenon-s) calculation optimised, custom / default values may have to be adjusted if they have been changed by the user
-
-### 0.5.0 (2020-11-22)
-* (xenon-s) bugfix: volume sayit
-* (xenon-s) add: volume alexa
-* (xenon-s) DP runtime in milliseconds
-
-### 0.4.10 (2020-11-17)
-* (xenon-s) bugfix main.js
-
-### 0.4.0 (2020-11-11)
-* (xenon-s) config page revised to simplify the input of devices
-* (xenon-s) inserted a break, so that it is recognized, if a device is switched off prematurely at the device switch
-* (xenon-s) bugfix: telegram users are not always recognized correctly and displayed incorrectly
-* (xenon-s) adjustable values inserted at "Type
-* (xenon-s) readme extended and adapted
-
-### 0.3.0 (2020-11-07)
-* (xenon-s) standby detection, even if the power outlet should not be switched off
-* (xenon-s) It is now possible to get messages from an external data point and send them as start / end message
-* (xenon-s) device "microwave" added
-
-### 0.2.1 (2020-11-05)
-* (xenon-s) readme adapted
-
-### 0.2.0 (2020-11-05)
-* (xenon-s) update to version 0.2: index_m completely revised and whatsapp added
-
-### 0.1.0 (2020-10-23)
-* (xenon-s) beta release
-
-### 0.0.1 (2020-10-20)
-* (xenon-s) initial commit
 
 ## License
 

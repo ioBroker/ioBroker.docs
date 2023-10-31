@@ -1,11 +1,11 @@
 ![Logo](admin/hoover.png)
+
 # ioBroker.hoover
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.hoover.svg)](https://www.npmjs.com/package/iobroker.hoover)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.hoover.svg)](https://www.npmjs.com/package/iobroker.hoover)
 ![Number of Installations (latest)](https://iobroker.live/badges/hoover-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/hoover-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.hoover.svg)](https://david-dm.org/TA2k/iobroker.hoover)
 
 [![NPM](https://nodei.co/npm/iobroker.hoover.png?downloads=true)](https://nodei.co/npm/iobroker.hoover/)
 
@@ -23,6 +23,118 @@ Die hon Mail und Passwort eingeben.
 
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
+Beispiel für Waschmaschine im Adapter als default:
+
+Beispiel für AC:
+
+```
+{
+    "macAddress": "set by adapter",
+    "timestamp": "2023-10-29T19:01:37.014Z",
+    "ancillaryParameters": {
+        "ecoMode": {
+            "category": "general",
+            "typology": "range",
+            "mandatory": 1,
+            "defaultValue": "0",
+            "minimumValue": "0",
+            "maximumValue": "1",
+            "incrementValue": "1"
+        },
+        "programFamily": {
+            "category": "cluster",
+            "typology": "enum",
+            "mandatory": 1,
+            "enumValues": [
+                "standard"
+            ],
+            "defaultValue": "[standard]"
+        },
+        "programRules": {
+            "category": "rule",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": {
+                "tempSel": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1": {
+                                    "typology": "fixed",
+                                    "fixedValue": "26"
+                                },
+                                "4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "20"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windSpeed": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "enum",
+                                    "defaultValue": "1",
+                                    "enumValues": "1|2|3|5"
+                                }
+                            }
+                        }
+                    }
+                },
+                "windDirectionVertical": {
+                    "ecoMode": {
+                        "1": {
+                            "machMode": {
+                                "1|4": {
+                                    "typology": "fixed",
+                                    "fixedValue": "3"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "remoteActionable": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        },
+        "remoteVisible": {
+            "category": "general",
+            "typology": "fixed",
+            "mandatory": 0,
+            "fixedValue": "1"
+        }
+    },
+    "applianceOptions": {},
+    "applianceType": "AC",
+    "attributes": {
+        "prStr": "Heizen",
+        "channel": "mobileApp",
+        "origin": "standardProgram"
+    },
+    "commandName": "startProgram",
+    "device": {
+        "mobileId": "36bcee2ebe0dbdas",
+        "mobileOs": "android",
+        "osVersion": "28",
+        "appVersion": "2.3.12",
+        "deviceModel": "S23"
+    },
+    "parameters": {
+        "onOffStatus": "1",
+        "windSpeed": "5",
+        "tempSel": "22"
+    },
+    "transactionId": "2023-10-29T19:01:37.014Z",
+    "programName": "PROGRAMS.AC.IOT_HEAT"
+}
+```
 
 ## Diskussion und Fragen
 
@@ -31,13 +143,19 @@ hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 ## Changelog
 
 ### 0.0.7
-* (TA2k) add wizard app login
+
+- (TA2k) add wizard app login
+
 ### 0.0.6
-* (TA2k) fix login
+
+- (TA2k) fix login
+
 ### 0.0.2
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

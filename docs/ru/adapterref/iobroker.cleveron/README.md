@@ -3,32 +3,40 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cleveron/README.md
 title: ioBroker.cleveron
-hash: xJZmOkM6vMAT5CXYfxAI2NCdYqJBiD5wlXsNlc9mkIY=
+hash: ZdX4n+yZzwVaMBMK2iEtBI3LMOuDepoVMQfUVe5/uXU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cleveron/admin/cleveron.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.cleveron.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.cleveron.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.cleveron.svg)
 ![Количество установок](https://iobroker.live/badges/cleveron-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/cleveron-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/cleveron-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.cleveron.svg)
 ![НПМ](https://nodei.co/npm/iobroker.cleveron.png?downloads=true)
 
 # IoBroker.cleveron
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/ioBroker.cleveron/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.cleveron/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер для ioBroker
-Erhalte deine Daten aus der CLEVERON - API (<https://www.cleveron.ch>)
+## Адаптер Smarton для ioBroker
+Этот адаптер получает данные из CLEVERON — API (<https://www.cleveron.ch>)
 
-## Руководство
-- Вам просто нужны ваши умные данные для входа.
-- Адаптер получает все данные о построении, помещении и устройстве, предоставляемые API-интерфейсом Smarton.
+## Использование
+- Вам просто нужны ваши данные для входа в Smarton.
+- Адаптер получает все данные о здании, помещении и устройстве - данные, предоставляемые API Smarton.
 
-- Добавить нужный опрос - интервал в минутах.
+- Добавьте нужный опрос - интервал в минутах.
 
-- Перезапустите адаптер, если вы добавили новые устройства, комнаты или дома или изменили какие-либо настройки.
+- Перезапустите адаптер, если вы добавили новые устройства, комнату или дома или изменили какие-либо настройки.
 
 ## Changelog
+
+### v0.0.6
+
+-   dependencies updated
+
+### v0.0.5
+
+-   introduced axios
 
 ### v0.0.4
 

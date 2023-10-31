@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
+hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
 ---
 ![标识](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -14,12 +14,12 @@ hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
 ![国家公共管理](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA 状态](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 ## IoBroker 的tinymqttbroker 适配器
 这是一个非常小的 MQTT 代理，它不管理 iobroker 中的任何对象/状态，但提供一个中央 MQTT 代理实例来作为 MQTT 客户端发布订阅主题。让多个设备与一个代理通信并使用 MQTT 客户端 JavaScript 在 iobroker 上进行交互非常有帮助。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 MQTT 客户端可能看起来像
 
@@ -91,6 +91,15 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.9-alpha.0 (2023-10-22)
+* (HGlab01) Update dependencies
+
+### 0.0.8 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+
+### 0.0.7 (2023-10-05)
+* (HGlab01) add logs for "address already in use"-issue
+
 ### 0.0.6 (2023-09-18)
 * (HGlab01) Improve error handling
 * (HGlab01) Verify if port is used from other process
@@ -123,3 +132,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)

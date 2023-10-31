@@ -1,14 +1,14 @@
 ---
-title: 码头工人
-lastChanged: 28.10.2022
-template: true
+title: 泊坞窗
+lastChanged: 26.10.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/docker.md
-hash: wtmhvqSUdCGQ2XnJE/R19KyVv6zdkSQx/+vNh6V4vo0=
+hash: 0ytAvqJ8u2sLePPL01DfwmIpeTsFiKp56auXbjJ+HSc=
 ---
-?> ***这是一个占位符***。<br><br>帮助 ioBroker 并扩展本文。请注意[ioBroker 风格指南](community/styleguidedoc)，以便更容易地采用更改。
+# Docker下ioBroker安装
+## 检查要求
+安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
 
-@@@ 以论坛文章为依据。此外，如何在 NAS 或操作系统上获取 Docker 并为 ioBroker 配置 Docker。@@@
-
-来自 buanet 的官方 ioBroker Docker 镜像可以在[这里](https://github.com/buanet/ioBroker.docker)中找到。
+＃＃ 安装
+在此页面上，您可以找到在 Docker 上安装 ioBroker 的官方文档：https://docs.buanet.de/de/iobroker-docker-image/

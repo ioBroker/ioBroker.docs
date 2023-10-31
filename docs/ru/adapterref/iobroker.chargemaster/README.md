@@ -3,37 +3,77 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.chargemaster/README.md
 title: ioBroker.chargemaster
-hash: DA1aBMw3hBev2eTwywOu8X/m2BHoHKN0weeXj0r4Z54=
+hash: zO3EtS2rpnpNs2nGou1sBEsZVtWbMhvnBczSZovQsK4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.chargemaster/admin/chargemaster.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.chargemaster.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)
-![Известные уязвимости](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
-![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)
+![Загрузки](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
+![Статус рабочего процесса GitHub](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/node.js.yml?branch=main&logo=github&style=flat-square)
+![Аппвейор-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)
+![Известные уязвимости SNYK](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)
+![Бета](https://img.shields.io/npm/v/iobroker.chargemaster.svg?color=red&label=beta)
+![Стабильный](https://iobroker.live/badges/chargemaster-stable.svg)
+![Установлен](https://iobroker.live/badges/chargemaster-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)
 
 # IoBroker.chargemaster
-![Версия NPM (стабильная)](http://ioBroker.live/badges/chargemaster-stable.svg) ![Количество установок (последние)](http://ioBroker.live/badges/chargemaster-installed.svg)
+[![CodeQL] (https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-anasis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 
-CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
-
+## Версии
 ## Адаптер для управления одним или несколькими зарядными устройствами для электромобилей с использованием фотоэлектрической энергии
-**!!! ЭТОТ АДАПТЕР ВСЕ ЕЩЕ НАХОДИТСЯ В СОСТОЯНИИ РАЗРАБОТКИ !!!**
+**!!! ЭТОТ АДАПТЕР ВСЕ ЕЩЕ ПРЕДСТАВЛЯЕТ СОСТОЯНИЕ РАЗВИТИЯ !!!**
 
-Адаптер для управления одним или несколькими EV-зарядными устройствами (wallboxes) с использованием фотоэлектрической энергии. Адаптер в настоящее время поддерживает до 3 настенных блоков электромобилей для управления зарядкой доступной мощности сети с потенциальным использованием избыточной энергии фотоэлектрических модулей.
+Адаптер для управления одним или несколькими зарядными устройствами для электромобилей (настенными коробками) с использованием фотоэлектрической энергии. В настоящее время адаптер поддерживает до 3 настенных коробок для электромобилей для управления зарядкой доступной мощности сети с потенциальным использованием избыточной фотоэлектрической энергии.
 
 ## Настройки
 Для подключения к настенным ящикам введите состояния с необходимыми данными в конфиг.
 
 ## Примечания
-Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Протестировано с
-- 3 зарядных устройства Go-E и Kostal PikoBA
+- 3 зарядных устройства go-E и Костал ПикоБА
 
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
+
+### 0.8.3 (29.10.2023)
+* (HombachC) Bumb adapter core to 3.x
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
+### 0.8.2 (01.10.2023)
+* (HombachC) Several dependency updates
+* (HombachC) Fixed acknowledging of state changes (#339)
+### 0.8.1 (29.08.2023)
+* (HombachC) bumped dependencies, added min/max to settings state defaults
+### 0.8.0 (23.06.2023)
+* (HombachC) changed config screen to admin 5 solution
+### 0.7.2 (19.06.2023)
+* (HombachC) Removed Travis 
+### 0.7.1 (13.06.2023)
+* (HombachC) Fixed typo in docu, added translations 
+### 0.7.0 (11.06.2023)
+* (HombachC) BREAKING: dropped node.js 14 support
+* (HombachC) Add tests for node.js 20, removed for node.js 14, bumped dependencies
+* (HombachC) BREAKING: dropped ioBroker.admin 4 support
+### 0.6.3 (29.12.2022)
+* (HombachC) bumped dependencies and year 2023 changes
+### 0.6.2 (11.09.2022)
+* (HombachC) fixed error in calc with active charge current
+### 0.6.1 (08.09.2022)
+* (HombachC) bump @iobroker/testing from 3.0.2 to 4.1.0
+### 0.6.0 (09.08.2022)
+* (HombachC) fix error in max total current, fix error in charge manager
+### 0.5.1 (06.06.2022)
+* (HombachC) removed gulp, bumped dependencies, small code tweaks
+### 0.5.0 (09.05.2022)
+* (HombachC) BREAKING: dropped node.js 12 support
+* (HombachC) Add tests for node.js 18, removed for node.js 12
+* (HombachC) bumped dependencies to non node.js 12 support
+### 0.4.4 (27.04.2022)
+* (HombachC) fixed vulnerability, bumped dependencies
 ### 0.4.3 (22.02.2022)
 * (HombachC) added github tests for MAC-OS and Windows
 ### 0.4.2 (21.02.2022)
@@ -72,7 +112,7 @@ CI-тесты: ![Node.js CI](https://github.com/hombach/ioBroker.chargemaster/wo
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Christian Hombach
+Copyright (c) 2021-2023 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,10 +1,29 @@
 ![Logo](admin/mqtt-client.png)
 # ioBroker.mqtt-client
 
-![Number of Installations](http://iobroker.live/badges/mqtt-client-installed.svg) ![Number of Installations](http://iobroker.live/badges/mqtt-client-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)](https://www.npmjs.com/package/iobroker.mqtt-client)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)](https://www.npmjs.com/package/iobroker.mqtt-client)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)](https://www.npmjs.com/package/iobroker.mqtt-client)
+![Current version in stable repository](https://iobroker.live/badges/mqtt-client-stable.svg)
+![Number of Installations](https://iobroker.live/badges/mqtt-client-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
 
-[![NPM](https://nodei.co/npm/iobroker.mqtt-client.png?downloads=true)](https://nodei.co/npm/iobroker.mqtt-client/)
+
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 
 ## Adapter Settings
 ![Adapter](img/settings.png)
@@ -61,9 +80,6 @@ default: state-ID converted to a mqtt topic.
 * when ack is set to true it will overwrite objects ack, see ```as object```
 * to prevent message loops, if both publish and subscribe are enabled ```changes only``` is always on for subscribe
 
-## TODO
-* test prefixes
-* connect/reconnect without clean session
 
 <!--
 	Placeholder for the next version (at the beginning of the line):
@@ -71,6 +87,11 @@ default: state-ID converted to a mqtt topic.
 -->
 
 ## Changelog
+### 1.7.0 (2023-10-30)
+
+* (mcm1957) Dependencies have been updated
+* (mcm1957) Adapter requires nodejs 16 now
+
 ### 1.6.5 (2023-09-28)
 * (foxriver76) prevent crash cases on invalid subscribe
 

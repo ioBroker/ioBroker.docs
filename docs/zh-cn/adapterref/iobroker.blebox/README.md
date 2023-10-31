@@ -3,29 +3,30 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
+hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
 ---
 ![标识](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.blebox.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.blebox.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.blebox.svg)
 ![已知漏洞](https://snyk.io/test/github/ka-vaNu/ioBroker.blebox/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.blebox.png?downloads=true)
 
-#ioBroker.blebox
+# IoBroker.blebox
 ## IoBroker 的 blebox 适配器
-Bleboxsysteme 适配器。详情见产品[黑盒](https://blebox.eu/)。 Die Implementierung hat ohne Unterstützung des Herstellers stattgefunden。
+用于控制制造商[blebox](https://blebox.eu/)。 API说明可以在这里找到](https://technical.blebox.eu/)的智能家居设备的适配器。该实施是在没有制造商支持的情况下进行的。
 
-Eine unvollständige und veraltete API-Simulation kann [更高的](https://github.com/blebox/blebox-virtual-devices) heruntergeladen werden。
+可以下载不完整且过时的 API 模拟[这里](https://github.com/blebox/blebox-virtual-devices)。
 
-继续执行以下操作：
+目前支持以下设备：
 
-*百叶窗盒
+* 快门盒
 * 开关盒
 * 桑拿箱
 * 温度传感器
-* 门禁箱
-* 电梯
+* 门盒
+* 电视电梯
+* 多传感器 - 未使用真实硬件进行测试，最多支持 4 个传感器
 
 ## Changelog
 
@@ -33,6 +34,10 @@ Eine unvollständige und veraltete API-Simulation kann [更高的](https://githu
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.1.0 (2023-10-13)
+
+* (Kai van Nuis) Support for multiSensor
 
 ### 2.0.1 (2023-03-12)
 
@@ -44,15 +49,14 @@ Eine unvollständige und veraltete API-Simulation kann [更高的](https://githu
 
 ### 1.1.0
 
-* Support für gateBox implementiert und eslint umgestellt
+* Support for gateBox implemented and eslint converted
 
 ### 0.1.2
 
-* Fixes aufgrund Codereview
-
+* Fixes due to code review
 ### 0.1.1
 
-* Erstes Stable-Release
+* First stable release
 
 ## License
 MIT License

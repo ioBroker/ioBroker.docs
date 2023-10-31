@@ -4,7 +4,7 @@ lastChanged: 11.08.2023
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/updatenode.md
-hash: pGgc+A+dB6ugB5PyKBBdMMv+sp5PBupo1so0DvGNIXQ=
+hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
 ---
 # Node.js update
 | js controller | Node.js | npm |
@@ -170,7 +170,7 @@ ps aux | grep 'backup\|PID'
 sudo kill -9 <ProzessID>
 ```
 
-#### 6 - Node.JS Update
+#### 6 - Node.JS update
 - Details about [Node.Js](https://github.com/nodesource/distributions#installation-instructions)
 
 ```
@@ -200,59 +200,7 @@ iobroker fix
  ```
 
 ## Instructions for Windows
-#### 1 - Check version (Windows key + R)
-```
-cmd.exe /C node -v & pause
-```
-
-#### 2 - Backup
-```
-iobroker backup
-```
-
-- alternative [options](https://www.iobroker.net/#de/documentation/config/backup.md)
-
-#### 3 - Update adapter
-- Instructions can be found at [Manage adapters](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)
-
-#### 4- Backup the folder:
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 5 - stop iobroker
-```
-iobroker stop
-```
-
-#### 6 - Node.js update
-- Download [Node.js](https://nodejs.org) as an archive, not as an msi file
-- Unzip the download and copy the entire folder over the existing folder:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-- Copy the file **nodevars.bat** from the backup copy back to the folder:
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 7 - Check version
-```
-cmd.exe /C node -v & pause
-```
-
-#### 8 - Run iobroker fixer
-```
-iobroker fix
-```
-
-#### 9 - Start ioBroker
-```
-iobroker start
-```
+Node.js is updated by executing [Windows Installer](./windows.md).
 
 ## Instructions for Docker
 - Node.js is usually done by updating the container to a new version of the [Docker Image](https://hub.docker.com/r/buanet/iobroker/tags).

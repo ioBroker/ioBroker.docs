@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cleveron/README.md
 title: ioBroker.cleveron
-hash: xJZmOkM6vMAT5CXYfxAI2NCdYqJBiD5wlXsNlc9mkIY=
+hash: ZdX4n+yZzwVaMBMK2iEtBI3LMOuDepoVMQfUVe5/uXU=
 ---
 ![Logo](../../../en/adapterref/iobroker.cleveron/admin/cleveron.png)
 
@@ -15,20 +15,28 @@ hash: xJZmOkM6vMAT5CXYfxAI2NCdYqJBiD5wlXsNlc9mkIY=
 ![NPM](https://nodei.co/npm/iobroker.cleveron.png?downloads=true)
 
 # IoBroker.cleveron
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/ioBroker.cleveron/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.cleveron/workflows/Test%20and%20Release/badge.svg)
 
 ## Cleveron-Adapter für ioBroker
-Erhalte deine Daten aus der CLEVERON - API (<https://www.cleveron.ch>)
+Dieser Adapter ruft Daten von der CLEVERON - API ab (<https://www.cleveron.ch>)
 
-## Handbuch
+## Verwendung
 - Sie benötigen lediglich Ihre cleveron-Login-Daten.
-- Der Adapter bekommt alle Gebäude-, Raum- und Gerätedaten, die von der cleveron API bereitgestellt werden.
+- Der Adapter erhält alle Gebäude-, Raum- und Gerätedaten, die von der cleveron API bereitgestellt werden.
 
-- Fügen Sie das gewünschte Polling - Intervall in Minuten hinzu.
+- Fügen Sie das gewünschte Abfrageintervall in Minuten hinzu.
 
-- Starten Sie den Adapter neu, wenn Sie neue Geräte, Räume oder Wohnungen hinzugefügt oder Einstellungen geändert haben.
+- Starten Sie den Adapter neu, wenn Sie neue Geräte, Räume oder Häuser hinzugefügt oder Einstellungen geändert haben.
 
 ## Changelog
+
+### v0.0.6
+
+-   dependencies updated
+
+### v0.0.5
+
+-   introduced axios
 
 ### v0.0.4
 

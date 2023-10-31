@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: 34dsi4QwhhZVrxl+WAsRlyDB/dFgANaOrzaPdXkEYm8=
+hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
 ---
 ![Logo](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
@@ -15,19 +15,29 @@ hash: 34dsi4QwhhZVrxl+WAsRlyDB/dFgANaOrzaPdXkEYm8=
 # IoBroker.judoisoft
 =================
 
-judoisoft Adapter für ioBroker ---------------------------------------------- --------------------------------
+judoisoft-Adapter für ioBroker ------------------------------- --------------------------------
 
 Ein kleiner Auszug nur der Befehlsoptionen:
 
-![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
+![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
 
-Einstellungen verfügbar:
+Verfügbare Einstellungen:
 
-![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
-
-<b>Knoten &gt;&gt; 8.xx.</b>
+![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
 ## Changelog
+### 1.1.0 (2023-10-27)
+* (arteck) switch to intervall
+
+### 1.0.15 (2022-05-30) 
+* (arteck) new error handling
+
+### 1.0.11  (2021-11-07)
+* (arteck) performance corr
+
+### 1.0.7  (2021-04-14)
+* (arteck) corr psw save method
+
 ### 1.0.6  (2021-04-08)
 * (arteck) add battery 
            add installationdate
@@ -41,7 +51,8 @@ Einstellungen verfügbar:
 
 ### 1.0.3  (2021-02-06)
 * (arteck) the cloud infos are not available for collection, sry 
-* 
+*
+
 ### 1.0.2  (2021-01-26)
 * (arteck) cloud login added
 
@@ -54,7 +65,7 @@ Einstellungen verfügbar:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

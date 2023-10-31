@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.simple-api/README.md
 title: Einfache API
-hash: B7EURS7YZmfmC18HdaJukWQ+PiJU+wjy1ykIjavUi0U=
+hash: RUFO6KW5sFINliHNwf6Q1qvsFmY0ih6Vrsvdmy1IjgY=
 ---
 ![Logo](../../../en/adapterref/iobroker.simple-api/admin/simple-api.png)
 
@@ -11,15 +11,15 @@ hash: B7EURS7YZmfmC18HdaJukWQ+PiJU+wjy1ykIjavUi0U=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.simple-api.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.simple-api.svg)
 
-# Simple-API
-![Testen und freigeben](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Einfache API
+![Test und Freigabe](https://github.com/ioBroker/ioBroker.simple-api/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/simple-api/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Dies ist eine RESTFul-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP-Get/Post-Anforderungen.
+Dies ist eine RESTFul-Schnittstelle zum Lesen der Objekte und Zustände von ioBroker und zum Schreiben/Steuern der Zustände über HTTP-Get/Post-Anfragen.
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Verwendungszweck
-Rufen Sie im Browser `http://ipaddress:8087/help` auf, um die Hilfe zur API zu erhalten. Das Ergebnis ist:
+## Verwendung
+Rufen Sie im Browser `http://ipaddress:8087/help` auf, um Hilfe zur API zu erhalten. Das Ergebnis ist:
 
 ```
 {
@@ -50,7 +50,7 @@ Ergebnis:
 
 `true`
 
-Zusätzlich können Sie den Abfrageschlüssel `json` verwenden, um das Parsen des gespeicherten Werts zu erzwingen:
+Darüber hinaus können Sie den Abfrageschlüssel `json` verwenden, um das Parsen des gespeicherten Werts zu erzwingen:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.value?json`
 
@@ -62,7 +62,7 @@ Und ohne `json` Flag wäre das Ergebnis
 
 `"{\"a\": 1}"`
 
-Ein weiteres nützliches Flag könnte ebenfalls verwendet werden, `noStringify`:
+Es könnte auch ein weiteres nützliches Flag verwendet werden, `noStringify`:
 
 `http://ipaddress:8087/getPlainValue/javascript.0.stringValue?noStringify`
 
@@ -75,7 +75,7 @@ Und ohne `noStringify` Flag wäre das Ergebnis
 `"VALUETEXT"`
 
 ### Erhalten
-Aufruf z.B.: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
+Rufen Sie z.B. auf: `http://ipaddress:8087/get/system.adapter.admin.0.alive`
 
 Ergebnis:
 
@@ -83,7 +83,7 @@ Ergebnis:
 {"val":true,"ack":true,"ts":1442432193,"from":"system.adapter.admin.0","lc":1442431190,"expire":23437,"_id":"system.adapter.admin.0.alive","type":"state","common":{"name":"admin.0.alive","type":"boolean","role":"indicator.state"},"native":{}}
 ```
 
-oder anrufen z.B.:
+oder rufen Sie z.B. an:
 
 ```
 http://ipaddress:8087/get/system.adapter.admin.0.alive?prettyPrint
@@ -113,7 +113,7 @@ Ergebnis:
 ### GetBulk
 Erhalten Sie viele Zustände mit einer Anfrage, die als Array von Objekten in der Reihenfolge der Liste in der Anfrage und id/val/ts als Unterobjekt zurückgegeben werden
 
-### Einstellen
+### Satz
 Rufen Sie z.B. an:
 
 ```
@@ -126,7 +126,7 @@ Ergebnis:
 {"id":"javascript.0.test","value":1}
 ```
 
-oder anrufen z.B.:
+oder rufen Sie z.B. an:
 
 ```
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint
@@ -143,67 +143,69 @@ Ergebnis:
 
 Natürlich muss der Datenpunkt `javascript.0.test` vorhanden sein.
 
-Zusätzlich kann die Art des Wertes definiert werden:
+Zusätzlich könnte die Art des Werts definiert werden:
 
 ```
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&type=string
 ```
 
-und ack-Flag könnte auch definiert werden:
+und das Ack-Flag könnte ebenfalls definiert werden:
 
 ```
 http://ipaddress:8087/set/javascript.0.test?value=1&prettyPrint&ack=true
 ```
 
 ### Umschalten
-Schaltet Wert um:
+Schaltet den Wert um:
 
-- boolesch: wahr => falsch, falsch => wahr
+- boolean: wahr => falsch, falsch => wahr
 - Zahl ohne Grenzen: x => 100-x
 - Zahl mit Grenzen: x => max - (x - min)
 
 ### SetBulk
-Legen Sie viele Zustände mit einer Anfrage fest. Diese Anfrage unterstützt auch die POST-Methode, da POST-Daten im Textkörper und nicht in der URL enthalten sein sollten.
+Legen Sie viele Zustände mit einer Anfrage fest. Diese Anfrage unterstützt auch die POST-Methode, denn POST-Daten sollten sich im Textkörper und nicht in der URL befinden.
 
 ### SetValueFromBody
-Ermöglicht das Festlegen des Werts eines bestimmten Zustands, der durch den POST-Body-Inhalt festgelegt wird.
+Ermöglicht das Festlegen des Werts eines bestimmten Status, der durch den POST-Textinhalt festgelegt wird.
+
+Rufen Sie z. B. auf: `http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state` mit Textkörper `hello` wobei `0_userdata.0.example_state` die ID des Staates ist.
 
 ### Objekte
-Liest Objekte des definierten Typs aus DB.
+Liest Objekte definierten Typs aus der Datenbank.
 
-Aufruf z.B.: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - um alle Enums zu lesen
+Rufen Sie z.B. auf: `http://ipaddress:8087/objects?pattern=enum.*&type=enum` - um alle Aufzählungen zu lesen
 
 oder
 
-`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` - um alle Zustände im Zweig `system.adapter.admin.0` zu lesen
+`http://ipaddress:8087/objects?pattern=system.adapter.admin.0.*` – um alle Zustände im Zweig `system.adapter.admin.0` zu lesen
 
 ### Zustände
-### Suche
-Ist eine Datenquelle (Historie, SQL) in der Konfiguration eingestellt, dann werden nur die Datenpunkte aufgelistet, die der Datenquelle bekannt sind.
-Wenn die Option 'Alle Datenpunkte auflisten' aktiviert oder keine Datenquelle angegeben wurde, werden alle Datenpunkte aufgelistet.
+### Suchen
+Ist in der Konfiguration eine Datenquelle (History, SQL) eingestellt, dann werden nur die Datenpunkte aufgelistet, die der Datenquelle bekannt sind.
+Wenn die Option „Alle Datenpunkte auflisten“ aktiviert ist oder keine Datenquelle angegeben wurde, werden alle Datenpunkte aufgelistet.
 Dieser Befehl wird für das Grafana JSON / SimpleJSON Plugin benötigt.
 
-### Anfrage
-Wenn in der Instanzkonfiguration eine Datenquelle (History, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen, ansonsten wird nur der aktuelle Wert ausgelesen.
+### Abfrage
+Wenn in der Instanzkonfiguration eine Datenquelle (History, SQL) angegeben wurde, werden für den angegebenen Zeitraum die Daten der angegebenen Datenpunkte ausgelesen, ansonsten wird nur der aktuelle Wert ausgelesen.
 Dieser Befehl wird für das Grafana JSON / SimpleJSON Plugin benötigt.
 
-### Hilfe
-Gibt [Dies](#usage) Ausgabe zurück
+### Helfen
+Gibt die [Das](#usage)-Ausgabe zurück
 
 ## Installieren
 ```node iobroker.js add simple-api```
 
-## Verwendungszweck
+## Verwendung
 Angenommen, wir haben keine Sicherheit und der Server läuft auf dem Standardport 8087.
 
-Für alle Abfragen kann der Name oder die ID des Bundeslandes angegeben werden.
+Für alle Abfragen kann der Name oder die ID des Staates angegeben werden.
 
-Für jede Anfrage, die JSON zurückgibt, können Sie den Parameter `prettyPrint` setzen, um die Ausgabe in menschenlesbarer Form zu erhalten.
+Für jede Anfrage, die JSON zurückgibt, können Sie den Parameter `prettyPrint` festlegen, um die Ausgabe in für Menschen lesbarer Form zu erhalten.
 
 Wenn die Authentifizierung aktiviert ist, sind zwei weitere Felder obligatorisch: `?user=admin&pass=iobroker`
 
 ### GetPlainValue
-Zustandswert als Text lesen. Sie können weitere IDs durch Semikolon getrennt angeben
+Zustandswert als Text lesen. Sie können weitere IDs getrennt durch Semikolon angeben
 
 ```http://ip:8087/getPlainValue/admin.0.memHeapTotal```
 
@@ -219,7 +221,7 @@ Zustandswert als Text lesen. Sie können weitere IDs durch Semikolon getrennt an
 ```
 
 ### Erhalten
-Zustands- und Objektdaten des Zustands als json lesen. Sie können weitere IDs durch Semikolon getrennt angeben.
+Status- und Objektdaten des Status als JSON lesen. Sie können weitere IDs getrennt durch Semikolon angeben.
 Wenn mehr als eine ID angefordert wird, wird das JSON-Array zurückgegeben.
 
 ```http://localhost:8087/get/admin.0.memHeapTotal/?prettyPrint```
@@ -307,7 +309,7 @@ Wenn mehr als eine ID angefordert wird, wird das JSON-Array zurückgegeben.
 ```
 
 ### GetBulk
-Lesen Sie die Zustände weiterer IDs mit Zeitstempel. Sie können weitere IDs durch Semikolon getrennt angeben.
+Lesen Sie den Status weiterer IDs mit Zeitstempel. Sie können weitere IDs getrennt durch Semikolon angeben.
 Das JSON-Array wird immer zurückgegeben.
 
 ```http://ip:8087/getBulk/admin.0.memHeapTotal,admin.0.memHeapUsed/?prettyPrint```
@@ -325,8 +327,8 @@ Das JSON-Array wird immer zurückgegeben.
   }
 ```
 
-### Einstellen
-Schreiben Sie die Zustände mit angegebenen IDs. Sie können die Option *wait* in Millisekunden angeben, um auf die Antwort des Treibers zu warten.
+### Satz
+Schreiben Sie die Zustände mit angegebenen IDs. Sie können die Option *wait* in Millisekunden angeben, um auf die Antwort vom Treiber zu warten.
 
 ```http://ip:8087/set/hm-rpc.0.IEQ12345.LEVEL?value=1&prettyPrint```
 
@@ -347,11 +349,11 @@ Schreiben Sie die Zustände mit angegebenen IDs. Sie können die Option *wait* i
      }
 ```
 
-Wenn innerhalb der angegebenen Zeit keine Antwort empfangen wird, wird der Wert `null` zurückgegeben.
-Im ersten Fall wird die Antwort sofort zurückgegeben und `ack` ist falsch. Im zweiten Fall ist `ack` wahr. Das heißt, es war eine Antwort vom Fahrer.
+Wenn innerhalb der angegebenen Zeit keine Antwort eintrifft, wird der Wert `null` zurückgegeben.
+Im ersten Fall wird die Antwort sofort zurückgegeben und `ack` ist falsch. Im zweiten Fall ist `ack` wahr. Das heißt, es war eine Reaktion des Fahrers.
 
 ### SetBulk
-- Masse von IDs in einer Anfrage schreiben.
+- Schreiben Sie eine große Anzahl von IDs in einer Anfrage.
 
 ```http://ip:8087/setBulk?hm-rpc.0.FEQ1234567:1.LEVEL=0.7&Anwesenheit=0&prettyPrint```
 
@@ -370,7 +372,7 @@ Im ersten Fall wird die Antwort sofort zurückgegeben und `ack` ist falsch. Im z
 Sie können diese Anfrage auch als POST senden.
 
 ### Objekte
-Holen Sie sich die Liste aller Objekte für Muster. Wenn kein Muster angegeben ist, werden alle Objekte als JSON-Array zurückgegeben.
+Rufen Sie die Liste aller Objekte für Muster ab. Wenn kein Muster angegeben ist, werden alle Objekte als JSON-Array zurückgegeben.
 
 ```http://ip:8087/objects?prettyPrint```
 
@@ -410,7 +412,7 @@ Holen Sie sich die Liste aller Objekte für Muster. Wenn kein Muster angegeben i
   ...
 ```
 
-Holen Sie sich alle Steuerobjekte des Adapters system.adapter.admin.0:
+Holen Sie sich alle Kontrollobjekte des Adapters system.adapter.admin.0:
 
 ```http://ip:8087/objects?pattern=system.adapter.admin.0*&prettyPrint```
 
@@ -432,7 +434,7 @@ Holen Sie sich alle Steuerobjekte des Adapters system.adapter.admin.0:
 ```
 
 ### Zustände
-Holen Sie sich die Liste aller Zustände für Muster. Wenn kein Muster angegeben ist, werden alle Zustände als JSON-Array zurückgegeben.
+Rufen Sie die Liste aller Status für Muster ab. Wenn kein Muster angegeben ist, werden alle Zustände als JSON-Array zurückgegeben.
 
 ```http://ip:8087/states?prettyPrint```
 
@@ -462,7 +464,7 @@ Holen Sie sich die Liste aller Zustände für Muster. Wenn kein Muster angegeben
   ...
 ```
 
-Holen Sie sich alle Steuerobjekte des Adapters system.adapter.admin.0:
+Holen Sie sich alle Kontrollobjekte des Adapters system.adapter.admin.0:
 
 ```http://ip:8087/states?pattern=system.adapter.admin.0*&prettyPrint```
 
@@ -515,9 +517,9 @@ Holen Sie sich alle Steuerobjekte des Adapters system.adapter.admin.0:
     }
 ```
 
-### Suche
-Ist eine Datenquelle (Historie, SQL) in der Konfiguration eingestellt, dann werden nur die Datenpunkte aufgelistet, die der Datenquelle bekannt sind.
-Wenn die Option 'Alle Datenpunkte auflisten' aktiviert oder keine Datenquelle angegeben wurde, werden alle Datenpunkte aufgelistet.
+### Suchen
+Ist in der Konfiguration eine Datenquelle (History, SQL) eingestellt, dann werden nur die Datenpunkte aufgelistet, die der Datenquelle bekannt sind.
+Wenn die Option „Alle Datenpunkte auflisten“ aktiviert ist oder keine Datenquelle angegeben wurde, werden alle Datenpunkte aufgelistet.
 
 ```
 http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
@@ -538,8 +540,8 @@ http://ip:8087/search?pattern=system.adapter.admin.0*&prettyPrint
   }
 ```
 
-### Anfrage
-Wenn eine Datenquelle (Historie, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen.
+### Abfrage
+Wenn eine Datenquelle (History, SQL) angegeben wurde, werden die Daten der angegebenen Datenpunkte für den angegebenen Zeitraum ausgelesen.
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&dateFrom=2019-06-08T01:00:00.000Z&dateTo=2019-06-08T01:00:10.000Z```
 
@@ -582,7 +584,7 @@ Wenn eine Datenquelle (Historie, SQL) angegeben wurde, werden die Daten der ange
   ]
 ```
 
-Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, dann wird nur der aktuelle Wert des Datenpunktes ausgelesen.
+Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, so wird nur der aktuelle Wert des Datenpunkts ausgelesen.
 
 ```http://ip:8087/query/system.host.iobroker-dev.load,system.host.iobroker-dev.memHeapUsed/?prettyPrint&noHistory=true```
 
@@ -609,9 +611,9 @@ Wurde keine Datenquelle angegeben oder der Parameter noHistory übergeben, dann 
   ]
 ```
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
 ### 2.7.2 (2022-10-08)

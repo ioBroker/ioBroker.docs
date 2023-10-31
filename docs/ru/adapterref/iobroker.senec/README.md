@@ -9,14 +9,14 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.senec/README.md
 title: ioBroker.senec
-hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
+hash: ElUBy0cv/a3WwNZ/OuBIPXp0UTVQlJueUj6s7RqKEPE=
 ---
 ![логотип](../../../de/adapterref/iobroker.senec/admin/senec.png)
 
 # IoBroker.senec
 ## Адаптер SENEC для ioBroker
-Адаптер был разработан для систем Senec Home V2.1.
-Никакие значения не могут быть изменены в системе Senec.Home. Включение нагрузки безопасности намеренно избегалось.
+Адаптер изначально был разработан для систем Senec Home V2.1.
+В системе Senec.Home с помощью адаптера можно изменить только выбранные значения. Вы используете эту функцию на свой страх и риск, и ее необходимо сначала активировать вручную в конфигурации.
 В настоящее время Senec больше не предоставляет надежный способ снижения пиковой нагрузки через веб-интерфейс. Для этого необходимо приложить усилия к mein-senec.de.
 Работают ли с ним другие системы (например, V3), зависит от того, основаны ли они также на lala.cgi и предоставляют ли ту же информацию JSON.
 Даже при интеграции в Senec.Clound нет гарантии, что к данным можно будет получить доступ через веб-интерфейс (см. отчеты об опыте).
@@ -43,6 +43,8 @@ hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
 *ОЕМ LG
 * Солнечная инвертированная память 10,0/свинец
 
+Системы Senec, не имеющие локального веб-интерфейса, по-прежнему можно отслеживать с помощью опции API. Любые отзывы по этому поводу приветствуются.
+
 ## Отказ от ответственности
 **Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения со стороны них самих или их аффилированных лиц! Этот личный проект осуществляется в свободное от работы время и не имеет деловой цели.
 
@@ -68,7 +70,7 @@ hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
 
 |Интервал запроса, низкий приоритет|Здесь вы вводите интервалы времени (в миллисекундах), через которые системы Senec.Home извлекают элементы с низким приоритетом. (По умолчанию: 60 минут)<br> Опасность! Если система SENEC запрашивается слишком часто, это может означать, что данные больше не могут передаваться на сервер SENEC! (например, в приложении или на сайте mein-senec.de нет текущих значений)|
 
-|Тайм-аут запроса|Здесь вы вводите количество миллисекунд, по истечении которых система Senec.Home должна ответить на запрос, прежде чем запрос будет отменен. (По умолчанию: 5000)|
+|Тайм-аут запроса|Здесь вы вводите количество миллисекунд, по истечении которого система Senec.Home должна ответить на запрос, прежде чем запрос будет отменен. (По умолчанию: 5000)|
 |Повторные попытки|Указывает, как часто следует предпринимать попытки запросить систему Senec в случае возникновения ошибки. Это не касается запуска адаптера - если система недоступна, адаптер перестает работать. (По умолчанию: 10)|
 |Коэффициент повтора опроса|Это значение можно использовать для влияния на интервал между повторными попытками. Применяется следующее: n-я попытка повторения происходит через интервал *множитель* n секунд после попытки n-1. Пример. При значениях по умолчанию первая повторная попытка происходит через 20 секунд после первоначальной попытки, а вторая повторная попытка происходит через 40 секунд после первой. Успешное получение данных сбрасывает счетчик повторных попыток.|
 
@@ -517,6 +519,17 @@ hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
    *Только читаемый текст, в котором указаны серийные номера любых настенных коробок 0–3.*
 
 ## Changelog
+### 1.6.10 (NoBl)
+* Bugfix for AllTimeHistory (should work again)
+
+### 1.6.9 (NoBl)
+* Added switch in config to enable active control of appliance (you will need activate this, if you want to control the appliance via the adapter)
+* Improved handling of forced loading (please report if we need more appliance-states covered by this)
+* Minor improvements and bugfixes
+
+### 1.6.8 (NoBl)
+* Added switch control.ForceLoadBattery to start/stop charging battery. Use this to start/stop forced charging (like with dynamic power prices, ...).
+
 ### 1.6.7 (NoBl)
 * Added option to turn off local polling.
 
@@ -555,24 +568,6 @@ hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
 * Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
 * ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
 * Possible Candidate for stable. Please report any findings!
-
-### 1.4.3 (NoBl)
-* Working on https connection. Please test and report!
-
-### 1.4.2 (NoBl)
-* Added option to use https for connecting to SENEC (only activate if your appliance supports / requires this!)
-
-### 1.4.1 (NoBl)
-* Fix: Autarky calculations are working again.
-
-### 1.4.0 (NoBl)
-* Added object caching along with some minor code updates. Due to the amount of objects we deal with caching is about mandatory.
-
-### 1.3.10 (NoBl)
-* Fixed wrong Unit for STATISTIC.LIVE_WB_ENERGY
-* Updated to json Admin UI
-* Technical Updates
-* Added more state_attr definitions
 
 ### [Former Updates](CHANGELOG_old.md)
 

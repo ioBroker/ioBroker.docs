@@ -10,8 +10,8 @@ BADGE-NPM: https://nodei.co/npm/iobroker.senec.png?downloads=true
 # ioBroker.senec
 
 ## SENEC Adapter für ioBroker
-Der Adapter wurde für Senec Home V2.1 Systeme entwickelt.
-Im Senec.Home System können keine Werte verändert werden. Auf die Einbindung der Sicherheitsladung wurde bewusst verzichtet.
+Der Adapter wurde initial für Senec Home V2.1 Systeme entwickelt.
+Im Senec.Home System können nur ausgewählte Werte durch den Adapter verändert werden. Die Nutzung dieser Funktionalität geschieht auf eigenes Risiko und muss vorher manuell in der Konfiguration aktiviert werden.
 Senec stellt derzeit über die Webschnittstelle auch keine zuverlässige Möglichkeit mehr zur Verfügung, das Peak Shaving zu beeinflussen. Hierzu muss mein-senec.de bemüht werden.
 Ob andere Systeme (z.B. V3) ebenfalls damit funktionieren, ist davon abhängig, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON Informationen zur Verfügung stellen.
 Auch bei Einbindung in die Senec.Clound ist nicht gewährleistet, dass die Daten weiterhin über die Webschnittstelle abgerufen werden können (hierzu bitte Erfahrungsberichte).
@@ -36,6 +36,8 @@ Systeme, die funktionieren dürften, da sie die gleiche Schnittstelle nutzen sin
 * ADS Tec
 * OEM LG
 * Solarinvert Storage 10.0 / Blei
+
+Senec Systeme, die über kein lokales Webinterface verfügen, können möglicherweise über die API Option dennoch überwacht werden. Rückmeldungen jeglicher Art diesbezüglich sind gerne gesehen.
 
 ## Haftungsausschluss
 **Alle Produkt- und Firmennamen oder -logos sind Warenzeichen™ oder eingetragene® Warenzeichen der jeweiligen Inhaber. Ihre Verwendung impliziert keine Zugehörigkeit oder Befürwortung durch diese oder zugehörige Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.
@@ -522,6 +524,17 @@ Existiert nicht mehr
    *Nur lesbarer Text, die die Seriennummern der evtl. vorhandenen Wallboxen 0-3 angibt.*
 
 ## Changelog
+### 1.6.10 (NoBl)
+* Bugfix for AllTimeHistory (should work again)
+
+### 1.6.9 (NoBl)
+* Added switch in config to enable active control of appliance (you will need activate this, if you want to control the appliance via the adapter)
+* Improved handling of forced loading (please report if we need more appliance-states covered by this)
+* Minor improvements and bugfixes
+
+### 1.6.8 (NoBl)
+* Added switch control.ForceLoadBattery to start/stop charging battery. Use this to start/stop forced charging (like with dynamic power prices, ...).
+
 ### 1.6.7 (NoBl)
 * Added option to turn off local polling.
 
@@ -560,24 +573,6 @@ Existiert nicht mehr
 * Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
 * ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
 * Possible Candidate for stable. Please report any findings!
-
-### 1.4.3 (NoBl)
-* Working on https connection. Please test and report!
-
-### 1.4.2 (NoBl)
-* Added option to use https for connecting to SENEC (only activate if your appliance supports / requires this!)
-
-### 1.4.1 (NoBl)
-* Fix: Autarky calculations are working again.
-
-### 1.4.0 (NoBl)
-* Added object caching along with some minor code updates. Due to the amount of objects we deal with caching is about mandatory.
-
-### 1.3.10 (NoBl)
-* Fixed wrong Unit for STATISTIC.LIVE_WB_ENERGY
-* Updated to json Admin UI
-* Technical Updates
-* Added more state_attr definitions
 
 ### [Former Updates](CHANGELOG_old.md)
 

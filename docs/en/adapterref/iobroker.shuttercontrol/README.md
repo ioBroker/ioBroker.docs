@@ -27,11 +27,11 @@ This adapter uses the service Sentry.io to automatically report exceptions and c
 
 automatische Rollladensteuerung
 
-[Deutsche Beschreibung hier](docs/de/shuttercontrol.md)
+[Deutsche Beschreibung hier](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-Deutsch)
 
 automatic control for shutters
 
-[English Description here](docs/en/shuttercontrol.md)
+[English Description here](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-English)
 
 
 ### What is Sentry.io and what is reported to the servers of that company?
@@ -51,6 +51,9 @@ When the adapter crashes or an other Code error happens, this error message that
 * (simatec) Dependencies updated
 * (simatec) Fix Auto-Living, Auto-Sleep & Auto-Children
 * (simatec) Timeout Fix
+* (FredF63) Update German Docu
+* (simatec) Wiki added
+
 
 ### 1.6.2 (2023-08-28)
 * (simatec) Dependencies updated

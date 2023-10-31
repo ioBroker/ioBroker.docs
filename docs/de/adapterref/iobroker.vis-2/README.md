@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: /XtZjIifd5fOIWxzaFqp8baBG5sSv18DL3sfRGKayMQ=
+hash: TxiWz7uMNsggg8SFkzzqiD0C8G7r0B5Ir/szynb3Mgk=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -62,9 +62,9 @@ Patten hat das folgende Format:
 
 Die folgenden Operationen werden unterstützt:
 
-- `\*` - Multiplikation. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
-- `\+` - hinzufügen. Das Argument muss in Klammern stehen, z. B. „+(4,5)“. In diesem Beispiel addieren wir zum Wert 4,5.
-- `\-` - subtrahieren. Das Argument muss in Klammern stehen, z. B. „-(-674,5)“. In diesem Beispiel subtrahieren wir vom Wert -674,5.
+- `*` - Multiplikation. Das Argument muss in Klammern stehen, z. B. „*(4)“. In diesem Beispiel multiplizieren wir den Wert mit 4.
+- `+` - hinzufügen. Das Argument muss in Klammern stehen, z. B. „+(4,5)“. In diesem Beispiel addieren wir zum Wert 4,5.
+- `-` - subtrahieren. Das Argument muss in Klammern stehen, z. B. „-(-674,5)“. In diesem Beispiel subtrahieren wir vom Wert -674,5.
 - `/` - Teilen. Das Argument muss in Klammern stehen, z. B. „/(0,5)“. In diesem Beispiel teilen wir den Wert durch 0,5.
 - `%` – Modulo. Das Argument muss in Klammern stehen, z. B. „%(5)“. In diesem Beispiel nehmen wir Modulo von 5.
 - „round“ – den Wert runden.
@@ -229,6 +229,22 @@ Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, w�
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.3.3 (2023-10-30)
+* (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
+* (bluefox) added the editor for bindings
+* (bluefox) background does not used if in iframe
+
+### 2.3.2 (2023-10-14)
+* (bluefox) Allowed showing only selected widgets in edit mode
+* (bluefox) Corrected the visibility calculation for old (CanJS) widgets
+
+### 2.3.1 (2023-10-13)
+* (bluefox) Corrected vertical gap between relative widgets
+* (bluefox) Better input of numbers with min/max in attribute dialog
+
+### 2.3.0 (2023-09-28)
+* (bluefox) jQui widgets (many of them) were improved
+
 ### 2.2.7 (2023-09-18)
 * (bluefox) Improved icon selector: you can upload your own icon directly
 * (bluefox) Optimized loading: do not load unused widget sets

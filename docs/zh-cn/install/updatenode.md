@@ -4,7 +4,7 @@ lastChanged: 11.08.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/updatenode.md
-hash: pGgc+A+dB6ugB5PyKBBdMMv+sp5PBupo1so0DvGNIXQ=
+hash: pFg4K3FLxNRB0d97+1vrNGa5Fk2/nQkW6FFnW2x6kk0=
 ---
 # Node.js 更新
 | js 控制器 | Node.js | npm |
@@ -17,10 +17,10 @@ hash: pGgc+A+dB6ugB5PyKBBdMMv+sp5PBupo1so0DvGNIXQ=
 与许多开源技术一样，Node.js 正在快速发展。
 提高**稳定性**和**安全性**甚至添加**新功能**的更新会定期出现。
 
-ioBroker 在没有 Node.js 的情况下无法工作，有关详细信息请参见[建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
+ioBroker 在没有 Node.js 的情况下无法工作，详细信息请参见[建筑学](https://www.iobroker.net/#de/documentation/basics/architecture.md)。
 如果您想了解有关 Node.js 的更多信息，请参见[维基百科 Node.js](https://de.wikipedia.org/wiki/Node.js)。
 
-?> **更改 Node.js 版本时，必须检查某些先决条件，并在必要时提前更正。
+?> **更改 Node.js 版本时，必须检查某些要求，并在必要时提前更正。
 请注意安装所在路径。**
 
 ＃＃＃ 方法
@@ -200,59 +200,7 @@ iobroker fix
  ```
 
 ## Windows 说明
-#### 1 - 检查版本（Windows 键 + R）
-```
-cmd.exe /C node -v & pause
-```
-
-#### 2 - 备份
-```
-iobroker backup
-```
-
-- 替代[选项](https://www.iobroker.net/#de/documentation/config/backup.md)
-
-#### 3 - 更新适配器
-- 说明可以在[管理适配器](https://www.iobroker.net/#de/documentation/tutorial/adapter.md)中找到
-
-#### 4- 备份文件夹：
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 5 - 停止 iobroker
-```
-iobroker stop
-```
-
-#### 6 - Node.js 更新
-- 将 [Node.js](https://nodejs.org) 下载为存档，而不是 msi 文件
-- 解压缩下载并将整个文件夹复制到现有文件夹上：
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-- 将文件 **nodevars.bat** 从备份副本复制回文件夹：
-
-```
-C:\Program Files\iobroker\deinhostname\nodejs
-```
-
-#### 7 - 检查版本
-```
-cmd.exe /C node -v & pause
-```
-
-#### 8 - 运行 iobroker 修复程序
-```
-iobroker fix
-```
-
-#### 9 - 启动 ioBroker
-```
-iobroker start
-```
+Node.js 通过执行 [Windows安装程序](./windows.md) 进行更新。
 
 ## Docker 使用说明
 - Node.js 通常通过将容器更新为新版本的 [Docker 映像](https://hub.docker.com/r/buanet/iobroker/tags) 来完成。
@@ -274,6 +222,6 @@ iobroker rebuild <adaptername> --install
 
 - 只需在 shell 中手动运行即可。理想情况下，一切都应该自动完成。
 
-?> 只要 js 控制器低于版本 4，即使在主要版本内进行了 Node.js 更新，也必须执行 [ioBroker 修复程序](https://www.iobroker.net/#de/documentation/install/linux.md)。
+?> 只要 js 控制器低于版本 4，即使在主要版本中进行了 Node.js 更新，也必须执行 [ioBroker 修复程序](https://www.iobroker.net/#de/documentation/install/linux.md)。
 使用版本 4 中的未来 js 控制器，重建将完全自动处理。
 不再支持手动重建。

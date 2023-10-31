@@ -30,7 +30,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.7_ (_3.0.16_ on the 2022 model) (or later)
+- _LaMetric Time_ with firmware _2.3.8_ (_3.0.18_ on the 2022 model) (or later)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,9 +59,17 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.1 (2023-10-27)
+
+* (klein0r) Fixed issue with foreign states of version 3.1.0
+
+### 3.1.0 (2023-10-25)
 
 NodeJS 16.x is required
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
+* (klein0r) Updated admin tab layout (icons, button style)
+* (klein0r) Fixed path of default widgets
 
 ### 3.0.0 (2023-09-13)
 
@@ -76,16 +84,6 @@ NodeJS 16.x is required
 ### 2.4.1 (2023-06-10)
 
 * (klein0r) Blockly bugfix
-
-### 2.4.0 (2023-05-10)
-
-* (klein0r) Allow to change device mode via state (manual, auto, kiosk, schedule)
-* (klein0r) Added state for available firmware update
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.5
-
-### 2.3.2 (2023-02-21)
-
-* (klein0r) Optimized setState logic
 
 ## License
 

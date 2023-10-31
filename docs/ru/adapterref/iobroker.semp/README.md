@@ -2,54 +2,99 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.semp/README.md
-title: ioBroker.semp
-hash: I2Oh/vLz4Xwex8EVaxD1Vtc8hLFRcWS67WPe/8QxK2o=
+title: ioBroker.samp
+hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
 ![Количество установок](http://iobroker.live/badges/semp-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.semp.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.semp.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.semp.png?downloads=true)
 
-# IoBroker.semp
-![Действия на GitHub](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.samp
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## Адаптер SMA SEMP для ioBroker
 Интерфейс к SMA SunnyPortal через SunnyHomeManager и SEMP
 
 Добавьте свои устройства из ioBroker в SunnyPortal.
-Затем SunnyPortal может лучше оценить потребление энергии и, таким образом, сделать более точные прогнозы и рекомендации. Но вы также можете управлять своими устройствами с помощью SunnyPortal. Если солнечной энергии достаточно, SunnyPortal может включить ваши устройства или, если солнечной энергии недостаточно, снова их выключить. Таким образом, вы оптимизируете собственное потребление, но не зависите от нескольких устройств, поддерживаемых SunnyPortal. С помощью адаптера любое устройство от ioBroker можно интегрировать в SunnyPortal.
-Даже не обязательно измерять потребление одного устройства. Достаточно даже оценочных значений.
+SunnyPortal сможет лучше оценить ваше энергопотребление и, таким образом, сделать более точные прогнозы и рекомендации. Но вы также можете управлять своими устройствами с помощью SunnyPortal. Если солнечной энергии достаточно, SunnyPortal может включить ваши устройства, а если солнечной энергии недостаточно, выключить их снова. Таким образом, вы оптимизируете собственное потребление, но не зависите от нескольких устройств, поддерживаемых SunnyPortal. С помощью адаптера любое устройство от ioBroker можно интегрировать в SunnyPortal.
+Даже не обязательно измерять потребление одного устройства. Даже оценочных значений достаточно.
 
 ## Пользовательская документация
 см. [документ](docu/docu_en.md)
 
-Подробную информацию о протоколе и использовании см. в [документ SMA](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+Подробную информацию о протоколе и использовании см. в [Документ SMA](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-Описание общего использования запросов энергии см. в [документ SMA](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (только немецкий)
+Описание общего использования запросов на энергию см. [Документ SMA](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (только немецкий)
 
 ## Функции
-* добавить устройства от ioBroker в SunnyPortal через SMA SEMP
-* информирует SunnyPortal о текущем потреблении
-* разрешить SunnyPortal управлять этими устройствами (включать, когда достаточно солнечной энергии, и выключать, когда солнечной энергии недостаточно)
+* добавлять устройства из ioBroker в SunnyPortal через SMA SEMP
+* сообщает SunnyPortal о текущем потреблении
+* позвольте SunnyPortal управлять этими устройствами (включать, когда солнечной энергии достаточно, и выключать, когда солнечной энергии недостаточно)
 
 ## Требования
-* узел v16 или выше
-
 ## Известные вопросы
-* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.semp/issues), если вы обнаружите ошибки или хотите добавить новые функции
+* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.semp/issues), если вы обнаружите ошибки или вам нужны новые функции.
 
 ## Changelog
 
-### 1.1.0 (in progress)
+### 1.3.12 (2023-10-29)
+* (René) some bug fixes based on changes in 1.3.11
+
+### 1.3.11 (2023-10-28)
+* (René) see issue #30: more OID's can be used with URL for wallbox
+* (René) option to set recommnended current instead of power (useful for go-e)
+
+### 1.3.10 (2023-10-03)
+* (René) bug fix: removed missing Start() call in wallbox (avoid exception)
+* (René) see issue #30: URL can be used to set recommended power to wallbox (attention: still only power, not current as needed for go-e)
+
+### 1.3.9 (2023-09-24)
+* (René) see issue #30: bug fix URL as string to be used
+
+### 1.3.8 (2023-09-23)
+* (René) see issue #30: URL can now be used directly to get status of wallbox (JSON only)
+
+### 1.3.7 (2023-09-02)
+* (René) see issue #30: bug fix for type based status check of wallboxes
+
+### 1.3.6 (2023-08-28)
+* (René) see issue #81: smaller bug fixes
+
+### 1.3.5 (2023-08-26)
+* (René) see issue #81: wallbox three phase enabler by URL
+* (René) see issue #81: wallbox three phase switch time configurable (default 3 minutes)
+* (René) see issue #74: check max power consumption added
+* (René) dependencies updated
+
+### 1.3.4 (2023-07-30)
+* (René) dependencies updated
+
+### 1.3.2 (2023-06-12)
+* (René) bug fix: sentry reported exceptions fixed
+
+### 1.3.1 (2023-06-11)
+* (René) bug fix: exception in wallbox interface fixed
+
+### 1.3.0 (2023-06-10)
+* (René) see #17: additional checks for BaseID
+* (René) check BaseId of every DeviceId when adapter starts
+* (René) bug fix csv-logging: create file if not exist and complete filename is provided, was working with path name only before
+* (René) additional debug: show last timeframe sent to SHM as datapoint for every timeframe
+
+### 1.2.0 (2023-05-29)
+* (René) device off at end of maximum running time and latest end overworked; option "Switch Off At End Of Timer" removed
+
+### 1.1.0 (never released)
 * (René) issue #30: URL as another option for configuring the wallboy interface
 
 ### 1.0.0 (2023-04-07)
@@ -100,7 +145,6 @@ hash: I2Oh/vLz4Xwex8EVaxD1Vtc8hLFRcWS67WPe/8QxK2o=
 * (René) csv logger for data to be sent to SHM (for debugging)
 * (René) see issue #14: cancel request if device does not turn on
 * (René) bug fix issue #19: turn off device at the end of maximum operation time
-
 
 ### 0.0.1 (2022-10-01)
 * (René) initial release

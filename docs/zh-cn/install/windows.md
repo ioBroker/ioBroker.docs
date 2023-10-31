@@ -1,206 +1,97 @@
 ---
 title: 视窗
-lastChanged: 18.07.2019
+lastChanged: 22.10.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: 69niA2RvwVAdu1dGhvw/9To2FnAkAKCC+n05IJR1SH0=
+hash: dOVnmfUvk92WED1e/JIqR9vgWDa4EEEKVpJpfv1r3f0=
 ---
-# 在 Windows 上安装 ioBroker
-?> ***本文目前正在扩充中***。<br><br>在 ioBroker 帮忙。请注意 [ioBroker 风格指南](../community/styleguidedoc.md) 以便可以更轻松地采用更改。
+＃ 目录
+- [检查要求](#check-requirements)
+- [ioBroker Windows 安装程序](#the-iobroker-windows-installer )
+  - [Windows 上的 ioBroker - 这有意义吗？](#iobroker-on-windows---这有任何意义吗)
+  - [安装 ioBroker](#iobroker-install )
+- [更新](#更新)
+- [疑难解答](#疑难解答)
 
-以下说明将指导您逐步完成安装。请不要跳过任何步骤，因为某些命令是相互构建的。
+# 检查需求
+安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
 
-## 检查先决条件
-!> 首先检查系统是否满足所有必要的 [安装要求](requirements.md)。
+Windows Installer 的问题可以在论坛中讨论：https://forum.iobroker.net/topic/63610/test-iobroker-unter-windows-installieren-2023-edition
 
-运行 ioBroker 需要 Node.js。下面假设 PC 上既没有安装 Node.js 也没有安装 ioBroker。如果 ioBroker 已经安装，请继续[更新](windows.md#update)部分。
+# IoBroker Windows 安装程序
+借助 ioBroker Windows 安装程序，只需单击几下即可将 ioBroker 安装在 Windows PC 上。安装程序本身不附带任何软件包。安装过程中会自动下载所需的软件。因此，必须有互联网连接。
 
-要查看是否安装了 Node.js，可以使用组合键<kbd>⊞ Windows</kbd> + <kbd>r</kbd>打开 `Ausführen` 对话框，然后输入命令
+安装 ioBroker 后，安装程序可用于以下操作：
 
-```
-cmd.exe /C node -v & pause
-```
+1.更新Node.js到当前推荐版本
+2.运行ioBroker修复程序
+3.删除或创建Windows防火墙规则，以便外部也可以访问ioBroker
+4.确定ioBroker是否在Windows启动时自动启动。
 
-进入。确认命令后，将出现一个窗口。
+安装程序会自行安装，可以在 Windows 开始菜单的“ioBroker 自动化平台”-“ioBroker 安装”下找到。
 
-![Node.js 版本](../../de/install/media/w02nodecheck.png) *Node.js 检查*
-
-显示错误消息或已安装的 Node.js 版本。
-
-如果发布了 Node.js 版本号，则必须首先检查它是否仍然对应于 [安装要求](requirements.md)。
-
-如果报错信息是`Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`，那么node.js没有安装，安装是[可以马上开始](#nodeinst)。
-
-＃＃ 快速开始
-?> 此安装步骤摘要适用于已多次安装 ioBroker 的经验丰富的 ioBroker 用户。
-
-初学者应遵循 [详细说明](#nodeinst)。
-
-* Node.js 8.x LTS 版本 [下载并安装](nodejs.md)。
-* 以管理员身份打开命令行`cmd.exe`，依次运行以下命令
-
-  执行：
-
-```
-npm install --global windows-build-tools
-md C:\iobroker
-cd /d C:\iobroker
-npm install iobroker
-npm install --production --no-optional --logevel=error
-iobroker status
-```
-
-<div id="nodeinst"></div>
-
-## 安装 Node.js 和 npm
-Node.js 是根据 [本指南](nodejs.md) 安装的。
+## Windows 上的 ioBroker - 这有意义吗？
+ioBroker 通常在 Windows 系统上运行得和在 Linux 系统上一样好。然而，用作 24/7 系统的 Windows 系统可能存在与系统相关的缺点，每个人都必须自己权衡。
+Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 ## 安装 ioBroker
-?> ioBroker 可以安装在本地硬盘驱动器上可自由选择的文件夹中。如果安装路径包含空格，则必须将所有命令的完整路径规范用引号引起来。
-示例命令：`dir "C:\ioBroker Testsystem"`。
+首先，必须下载安装程序。当前版本始终可以在官方下载页面上找到：https://www.iobroker.net/#de/download
 
-?> ioBroker 的默认安装文件夹是 `C:\iobroker`。
+然后双击启动安装程序。首先我们选择要使用的语言：
 
-1. 以管理员身份打开命令行窗口。为此，请使用组合键
+![语言选择](../../de/install/media/windows/InstallWin_language.png "“语言选择”")
 
-<kbd>⊞ Windows</kbd> + <kbd>r</kbd>打开 `Ausführen` 对话框和那里的命令
+然后出现欢迎页面：
 
-```
-cmd
-```
+![欢迎页面](../../de/install/media/windows/InstallWin_welcome.png "“欢迎页面”")
 
-   输入。
+单击“下一步”后，将出现许可证页面：
 
-由于必须以管理员身份打开命令行窗口，因此请**不**使用 `OK` 而是使用组合键 `Strg` + `Umschalt` + `Eingabetaste` 完成条目.接下来是安全查询，必须使用 `Ja` 或输入管理员密码进行确认。
+![许可证页面](../../de/install/media/windows/InstallWin_license.png "“许可证页面”")
 
-!> 现在打开的黑色命令行窗口中的标题行必须以单词 `Administrator:` 开头。
+我们必须接受许可证，然后再次单击“下一步”。在接下来的页面上，我们现在可以选择 ioBroker 安装的安装文件夹：
 
-?> 一些 ioBroker 适配器包含需要为 Windows 编译的组件。因此，在安装 ioBroker 之前，会安装所谓的 `windows-build-tools`。有关 `windows-build-tools` 的更多信息是 [可以在这里找到](https://github.com/felixrieseberg/windows-build-tools)。
+![安装文件夹](../../de/install/media/windows/InstallWin_folder.png "'安装文件夹'")
 
-1. `windows-build-tools` 使用以下命令安装：
+通常最好只使用默认值“C:\ioBroker”。单击“下一步”后，将执行一些检查：
 
-```
-npm install --global windows-build-tools
-```
+![评论](../../de/install/media/windows/InstallWin_check.png "“评论”")
 
-1.然后在命令行窗口中命令创建安装文件夹
+这可能需要一些时间。检查结果会自动出现：
 
-   执行：
+![验证结果](../../de/install/media/windows/InstallWin_checkresult.png "‘验证结果’")
 
-```
-md C:\iobroker
-```
+在这个例子中一切都很好，我们可以继续。如果没有满足所有必要的要求，您必须首先明确需要做什么。安装和操作 ioBroker 所需的端口通常不可用。如果您遇到这种情况并且不知道该怎么办，您可以在 ioBroker 论坛 https://forum.iobroker.net/ 中找到帮助。单击“下一步”后，我们可以选择一些详细信息：
 
-1、现在可以安装实际的ioBroker安装包了：
+![选项](../../de/install/media/windows/InstallWin_options.png "'选项'")
 
-```
-cd /d C:\iobroker
-npm install iobroker
-```
+在 ioBroker 的初始安装过程中，前三个选项是固定的：
 
-   结果应如下所示：
+1、ioBroker的运行环境Node.js下载并安装，推荐版本
+2.ioBroker本身安装
+3. ioBroker Fixer无法选择
 
-```
-[...]
-╭───────────────────────────────────────────────────────╮
-│ The iobroker files have been downloaded successfully. │
-│ To complete the installation, you need to run         │
-│                                                       │
-│   npm i --production --no-optional --logevel=error    │
-│                                                       │
-╰───────────────────────────────────────────────────────╯
+接下来的两个选项可以更改，但通常建议保留默认设置。
+最后，安装程序提供了采用现有安装配置的选项。这需要整个“iobroker-data”文件夹，如果存在 ioBroker 安装，则可以在 ioBroker 文件夹中找到该文件夹。这可以来自 Windows 或 Linux 下的 ioBroker 安装。数据是在安装过程中从此文件夹中获取的；该文件夹的内容不会更改。
+单击“下一步”后，我们现在可以看到计划操作的摘要：
 
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN enoent ENOENT: no such file or directory, open 'C:\iobroker\package.json'
-npm WARN iobroker No description
-npm WARN iobroker No repository field.
-npm WARN iobroker No README data
-npm WARN iobroker No license field.
+   ![选项](../../de/install/media/windows/InstallWin_summary.png "'选项'")
 
-+ iobroker@1.3.0
-added 51 packages from 28 contributors and audited 83 packages in 6.937s
-found 0 vulnerabilities
-```
+   单击“安装”现在将开始实际安装：
 
-1. ioBroker 安装完成，使用以下命令：
+   ![选项](../../de/install/media/windows/InstallWin_downloadnode.png "'选项'")
 
-```
-cd /d C:\iobroker
-npm install --production --no-optional --logevel=error
-```
+   ![选项](../../de/install/media/windows/InstallWin_installnode.png "'选项'")
 
-安装过程可能需要一些时间。运行 npm 时可能会出现与 `unix-dgram` 模块相关的红色错误消息 (gyp !ERR)。可以忽略这些错误消息。
+   ![选项](../../de/install/media/windows/InstallWin_installiobroker.png "'选项'")
 
-   安装的最后几行应该像这样结束：
+   ![选项](../../de/install/media/windows/InstallWin_finish.png "'选项'")
 
-```
-[...]
-Write "iobroker start" to start the ioBroker
-npm install node-windows@0.1.14 --production --no-optional --logevel=error --save --prefix "C:/iobroker"
-ioBroker service installed. Write "serviceIoBroker start" to start the service and go to http://localhost:8081 to open the admin UI.
-To see the outputs do not start the service, but write "node node_modules/iobroker.js-controller/controller"
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: unix-dgram@0.2.3 (node_modules\unix-dgram):
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: unix-dgram@0.2.3 install: `node-gyp rebuild`
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: Exit status 1
+单击“完成”，将打开 Web 浏览器，ioBroker 将引导您完成设置的第一步。
 
-added 514 packages from 300 contributors and audited 1808 packages in 61.874s
-found 23 vulnerabilities (17 low, 6 high)
-run `npm audit fix` to fix them, or `npm audit` for details
-```
-
-1.然后你可以使用命令
-
-```
-iobroker status
-```
-
-检查 ioBroker 是否作为 Windows 服务自动启动。
-答案应该是
-
-```
-iobroker is running
-```
-
-   或者
-
-```
-iobroker is not running
-```
-
-   戒指。
-
-   如果 ioBroker 没有自动启动，请输入以下命令：
-
-```
-net start iobroker.exe
-iobroker status
-```
-
-   答案应该是现在
-
-```
-iobroker is running
-```
-
-   戒指。
-
-?> 以后每次系统重启都会在后台自动启动ioBroker。
-
-1、最后执行命令即可打开命令行窗口
-
-```
-exit
-```
-
-   关闭。
-
-?> 进一步的配置是在 `Admin` 适配器的帮助下进行的。它通过网络浏览器和地址 [http://localhost:8081](http://localhost:8081) 调用。通过网络 ioBroker 的配置在 [Configuration]() 章节中有详细描述。
-
-?> 现在建议初学者运行[教程]()。此处逐步显示管理界面，并进行必要的基本设置。
-
-＃＃更新
+＃ 更新
 @@@待定@@@
 
-＃＃ 故障排除
+＃ 故障排除
 @@@待定@@@

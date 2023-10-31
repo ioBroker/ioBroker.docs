@@ -3,42 +3,41 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: xAXrVlj1KEjp5T55pPs4+ScYfjFy9mDtGyQ5Z/srTLE=
+hash: TP7UtprFwQisnYhIGzA8GNiWmbFtPlXUvyKmsBAB5XI=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.esphome.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/esphome-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/esphome-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/esphome-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/esphome-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/DrozmotiX/iobroker.esphome.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/DrozmotiX/ioBroker.esphome/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.esphome.png?downloads=true)
 
 <img src="./admin/esphome.png" width="10%" height="10%" align="center">
 
-#ioBroker.esphome
+# IoBroker.esphome
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/ESPHome/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Tests:** ![Testen und freigeben](https://github.com/DrozmotiX/ioBroker.esphome/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/DrozmotiX/ioBroker.esphome/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um den Entwicklern automatisch Ausnahmen und Codefehler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Dokumentation zum Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## ESPHome-Adapter für ioBroker
 Steuern Sie Ihren ESP8266/ESP32 mit einfachen, aber leistungsstarken Konfigurationsdateien, die von ESPHome erstellt und verwaltet werden.
-Native Integration des von ESPHome verwalteten Geräts (einschließlich Dashboard) durch seine native API und Sicherstellung, dass alle Daten synchronisiert werden (Live-Event-Handling, keine Datenabfrage! :)
+Native Integration des von ESPHome verwalteten Geräts (einschließlich Dashboard) über seine native API und stellt sicher, dass alle Daten synchronisiert sind (Live-Event-Verarbeitung, keine Datenabfrage! :)
 
 ![Logo](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
-Dieser Adapter verwendet die [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) mit allen Credits an @Nafaya zur Interaktion mit [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+Dieser Adapter nutzt die [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) mit allen Dank an @Nafaya für die Interaktion mit der [ESPHome-API](https://esphome.io/components/api.html?highlight=api)!
 
 ## [Dokumentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
-Alle unsere Adapterdokumentationen finden Sie unter [Die DrozmotiX Doku-Seite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
+Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokuseite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 
-##Voraussetzungen
-    * NodeJS >= 12.x
-    * Python >=3.7, <4.0
+## Voraussetzungen
+    * NodeJS >= 18.x
     * API ist in YAML aktiviert
-    * Für Admin-Tabs (optional)
-        * ESPHome Dashboard IP wird in den Instanzeinstellungen bereitgestellt provided
+    * Für Admin-Registerkarten (optional)
+        * Die ESPHome Dashboard-IP wird in den Instanzeinstellungen bereitgestellt
 
 ### API in YAML aktivieren
 ```
@@ -47,15 +46,15 @@ api:
 ```
 
 ### Beispielkonfiguration
-Beispielkonfiguration, für weitere Beispiele siehe [Die DrozmotiX-Dokumentationsseite](https://DrozmotiX.github.io) oder [ESPHome-Dokumentation](https://esphome.io/index.html)
+Beispielkonfiguration, weitere Beispiele finden Sie unter [Die DrozmotiX-Dokumentationsseite](https://DrozmotiX.github.io) oder [ESPHome-Dokumentation](https://esphome.io/index.html)
 
 <details><summary>Beispielkonfiguration anzeigen</summary>
 
-esphome: Name: sensor_badkamer Plattform: ESP32 Board: esp-wrover-kit
+esphome: Name: sensor_badkamer Plattform: ESP32-Board: esp-wrover-kit
 
-wifi: use_address: 192.168.10.122 ssid: "xxxxx" Passwort: "xxxxxx"
+WLAN: use_address: 192.168.10.122 SSID: „xxxxx“ Passwort: „xxxxxx“
 
-    # ESPHome-API aktivieren
+    # Aktivieren Sie die ESPHome-API
 API: Passwort: 'MyPassword'
 
 # I2c-Bus aktivieren i2c: sda: 21 scl: 22 scan: True id: bus_a
@@ -64,27 +63,27 @@ API: Passwort: 'MyPassword'
 
       - Plattform: bh1750
 
-Name: "Hal_Illuminance" Adresse: 0x23 Messzeit: 69 Update_Intervall: 10s
+Name: „Hal_Illuminance“ Adresse: 0x23 Messzeit: 69 Aktualisierungsintervall: 10s
 
     # Beispielkonfiguration für einen GPIO-Ausgang
     Ausgabe:
 
-      - Plattform: gpio
+      - Plattform: GPIO
 
-pin: 12 invertiert: wahr id: gpio_12
+Pin: 12 invertiert: wahr ID: gpio_12
 
     # Beispielkonfiguration, die einen Schalter mit dem zuvor definierten Ausgang verknüpft
-    Schalter:
+    schalten:
 
       - Plattform: Ausgabe
 
-Name: "Generische Ausgabe" Ausgabe: 'gpio_12' </details>
+Name: „Generische Ausgabe“ Ausgabe: „gpio_12“ </details>
 
-##Tasmota / ESPEinfache Migration
-Die Migration von früheren Sonoff Tasmota- oder ESPEasy-Setups ist sehr einfach. Sie müssen nur ESPHome eine Binärdatei erstellen lassen und diese dann in die Weboberfläche hochladen.
-Weitere Informationen finden Sie in unseren [Doku-Seite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
+## Tasmota / ESPEinfache Migration
+Die Migration von früheren Sonoff Tasmota- oder ESPEasy-Setups ist sehr einfach. Sie müssen lediglich ESPHome eine Binärdatei für Sie erstellen lassen und diese dann in die Weboberfläche hochladen.
+Weitere Einzelheiten finden Sie in unseren [Doku-Seite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html)
 
-.. Hinweis::
+.. Notiz::
 
     Generierte Yaml-Dateien werden unter ```/opt/iobroker/node_modules/iobroker.esphome/config/>device<.yaml``` gespeichert.
 
@@ -96,7 +95,16 @@ Wenn Ihnen meine Arbeit gefällt, denken Sie bitte über eine persönliche Spend
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
+    * (DutchmanNL) 
 -->
+
+### 0.2.4 (2021-08-24)
+* (DutchmanNL) Version of ESPHome Dashboard updated to 2021.8
+* (DutchmanNL) Add option if config of ESPHome device should be shown as states (default = FALSE, safes 8 states for each sensor) 
+
+### 0.2.3 (2021-06-29)
+* (Jey-Cee) Bugfix : Light component state not changed [#74](https://github.com/DrozmotiX/ioBroker.esphome/issues/74)
+* (DutchmanNL) Update compatibility to version 1.19.4 of ESPHome Dashboard
 
 ### 0.2.2 (2021-06-24)
 * (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)

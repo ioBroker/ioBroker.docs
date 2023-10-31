@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
+hash: SQXOlon+kOOGN7ozw4xZBE5GNrFNrbyPi7D+kL5AACY=
 ---
 ![Logo](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.extron.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.extron.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/extron-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/extron-stable.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/extron-installed.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/extron-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/Bannsaenger/iobroker.extron.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/Bannsaenger/ioBroker.extron/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.extron.png?downloads=true)
@@ -20,16 +20,16 @@ hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
 Extron SIS-Adapter
 
 Steuergeräte von Extron.
-Dieser Adapter dient zur Steuerung einiger Audio-Video-Produkte von Extron über das **S**imple **I**nstruction **S**et-Protokoll.
-Der Funktionsumfang der Geräte ist enorm. Nicht alle Funktionen sind sinnvoll, um mit dem Adapter und der Interaktion mit iobroker unterstützt zu werden.
+Dieser Adapter dient zur Steuerung einiger Audio-Video-Produkte von Extron über das S**et-Protokoll.
+Der Funktionsumfang der Geräte ist enorm. Es ist sinnvoll, nicht alle Funktionen mit dem Adapter und der Interaktion mit iobroker zu unterstützen.
 
-**Achtung:** Wenn der Gerätetyp in der Adapterkonfiguration ausgewählt ist, kann er in Zukunft nicht mehr geändert werden!
+**Beachten Sie:** Wenn der Gerätetyp in der Adapterkonfiguration ausgewählt wird, kann er in Zukunft nicht mehr geändert werden!
 
-In einer iobroker-Installation können mehrere Instanzen unterschiedlicher oder gleicher Typen dieses Adapters vorhanden sein. Für zukünftige Versionen müssen Sie der Adapterkonfiguration für jede Instanz eine gültige Lizenz hinzufügen.
-Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebrauch verwenden, können Sie eine kostenlose Lizenz erhalten. Bitte wenden Sie sich an den Autor.
+In einer iobroker-Installation kann es mehrere Instanzen unterschiedlichen oder gleichen Typs dieses Adapters geben. Für zukünftige Versionen müssen Sie für jede Instanz eine gültige Lizenz zur Adapterkonfiguration hinzufügen.
+Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebrauch nutzen, können Sie eine kostenlose Lizenz erhalten. Bitte wenden Sie sich an den Autor.
 
 ### Unterstützte Geräte
-- 8x2 Präsentationskreuzschiene (DTP2 CrossPoint 82)
+- 8x2-Präsentationsmatrix-Umschalter (DTP2 CrossPoint 82)
 - H.264 Streaming Media Player und Decoder (SMD 202)
 - Streaming Media Encoder (SME 211)
 - 12x8 ProDSP-Prozessor mit Dante (DMP 128 Plus AT)
@@ -37,13 +37,41 @@ Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebr
 
 ## Machen
 - Der Gerätetyp wird zu Beginn des Gesprächs überprüft. Dies schlägt manchmal fehl. Muss auf einen zuverlässigeren Mechanismus umgestellt werden.
-- Treffen Sie eine genauere Auswahl der verwendeten Ein- und Ausgänge, um die Datenbankgröße auf DSP-Geräten zu reduzieren
-- Hinzufügen weiterer Befehle und deren Implementierung auf der Datenbankseite
+- Treffen Sie eine detailliertere Auswahl der verwendeten Ein- und Ausgänge, um die Datenbankgröße bei DSP-Geräten zu reduzieren
+- Weitere Befehle und deren Implementierung auf der Datenbankseite hinzufügen
+- Verbesserung des Netzwerk-Wiederverbindungsmechanismus
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+    * (Bannsaenger) introducing admin 5 UI (jsonConfig)
+-->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated to adapter-dev and release script
+* (Bannsaenger) updated dependencies
+
+### 0.2.1
+* (mschlgl) updated log messages, improved group control
+
+### 0.2.0
+* (Bannsaenger) updated dependencies
+
+### 0.1.16
+* (mschlgl) fixed group command issues, added statedelay log message
+
+### 0.1.15
+* (mschlgl) added statedelay log message
+
+### 0.1.14
+* (mschlgl) fixed group command issues
+
+### 0.1.13
+* (mschlgl) fixed source code version issues
 
 ### 0.1.12
 * (mschlgl) added support for channel preset selection in SMD202
+
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -89,7 +117,7 @@ Wenn Sie eine nichtkommerzielle Organisation sind oder es für den privaten Gebr
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 
-Copyright (c) 2021 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2023 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
 
 ![CC BY-NC License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
 

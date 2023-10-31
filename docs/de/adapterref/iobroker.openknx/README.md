@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: /zgMZpXrx8fhw4Dfwu8imMatwl2T5fShYIUJI+jAWkg=
+hash: 3MGlO3NldNvPvKP8oirTPmlCXSg9dpSi6y4JJmRpRXs=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -328,7 +328,7 @@ Openknx nutzt sentry.io zur Anwendungsüberwachung und Fehlerverfolgung.
 Es hilft Entwicklern, Fehler besser aufzuspüren und Feldnutzungsdaten zu gewinnen. Die Identifizierung eines Nutzers wird pseudonymisiert nachverfolgt.
 Die Daten werden an den in Deutschland gehosteten Iobroker Sentry-Server gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre anonyme Installations-ID enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind.
 
-![ETS-Export](../../../en/adapterref/iobroker.openknx/docs/pictures/busload.png) Openknx schätzt im Objekt info.busload die aktuelle Buslast der KNX-Linie, mit der es verbunden ist.
+Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mit der es verbunden ist.
 
 # Merkmale
 - Stabiler und zuverlässiger KnX-Stack

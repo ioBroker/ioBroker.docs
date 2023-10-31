@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
+hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -14,7 +14,7 @@ hash: LsX7HiD2CPWX7tx7ZDNQEUU35joUEj78w5yvq9pIxHc=
 ![NPM](https://nodei.co/npm/iobroker.tinymqttbroker.png?downloads=true)
 
 # IoBroker.tinymqttbroker
-![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/HGlab01/ioBroker.tinymqttbroker/workflows/Test%20and%20Release/badge.svg) [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=shield&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_shield&issueType=license)
 
 ## Tinymqttbroker-Adapter für ioBroker
 Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker verwaltet, sondern eine zentrale MQTT-Broker-Instanz bietet, um Abonnementthemen als MQTT-Client zu veröffentlichen. Sehr hilfreich, um mehrere Geräte mit einem Broker kommunizieren zu lassen und auf iobroker mit einem MQTT-Client-Javascript zu interagieren.
@@ -91,6 +91,15 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.0.9-alpha.0 (2023-10-22)
+* (HGlab01) Update dependencies
+
+### 0.0.8 (2023-10-09)
+* (HGlab01) Bump json-explorer to 0.1.14
+
+### 0.0.7 (2023-10-05)
+* (HGlab01) add logs for "address already in use"-issue
+
 ### 0.0.6 (2023-09-18)
 * (HGlab01) Improve error handling
 * (HGlab01) Verify if port is used from other process
@@ -123,3 +132,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker.svg?type=large&issueType=license)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.tinyMQTTbroker?ref=badge_large&issueType=license)

@@ -9,14 +9,14 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.senec/README.md
 title: ioBroker.senec
-hash: lPhvRxmCZ97hIJebFR+ZOLkO2KlNPT2USj+qiRkRWE0=
+hash: ElUBy0cv/a3WwNZ/OuBIPXp0UTVQlJueUj6s7RqKEPE=
 ---
 ![标识](../../../de/adapterref/iobroker.senec/admin/senec.png)
 
 # IoBroker.senec
 ## IoBroker 的 SENEC 适配器
-该适配器是为 Senec Home V2.1 系统开发的。
-Senec.Home 系统中无法更改任何值。故意避免包含安全载荷。
+该适配器最初是为 Senec Home V2.1 系统开发的。
+在 Senec.Home 系统中，只能使用适配器更改选定的值。您使用此功能需自行承担风险，并且必须首先在配置中手动激活。
 Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，mein-senec.de 必须做出努力。
 其他系统（例如V3）是否也可以使用它取决于它们是否也基于lala.cgi并提供相同的JSON信息。
 即使集成到Senec.Clound中，也不能保证仍然可以通过Web界面访问数据（请参阅经验报告）。
@@ -42,6 +42,8 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
 *ADS 技术
 *OEM LG
 * 太阳能逆变储能10.0/铅
+
+没有本地 Web 界面的 Senec 系统仍然可以使用 API 选项进行监控。欢迎在这方面提供任何反馈。
 
 ## 免责声明
 **所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。他们的使用并不意味着他们或他们的附属公司有任何从属关系或认可！这个个人项目是在您的空闲时间进行的，没有商业目的。
@@ -228,7 +230,7 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
     |:---:|:---:|
     |数字|R|
 
-   *只读数字，指示各个电池组的充电状态。*
+   *只读数字，指示单个电池组的充电状态。*
 
 * SOH[0-3]
 
@@ -473,7 +475,7 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
     |:---:|:---:|
     |布尔值|R|
 
-   *仅可读的布尔值，指示更新是否可用（但是，这些是由 Senec 提供的，并且也会自动安装）。*
+   *仅可读的布尔值，指示更新是否可用（但是，这些由 Senec 提供并且也会自动安装）。*
 
 #### 频道：向导
 * 应用程序_版本
@@ -517,6 +519,17 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
    *仅可读文本指示任何壁箱 0-3 的序列号。*
 
 ## Changelog
+### 1.6.10 (NoBl)
+* Bugfix for AllTimeHistory (should work again)
+
+### 1.6.9 (NoBl)
+* Added switch in config to enable active control of appliance (you will need activate this, if you want to control the appliance via the adapter)
+* Improved handling of forced loading (please report if we need more appliance-states covered by this)
+* Minor improvements and bugfixes
+
+### 1.6.8 (NoBl)
+* Added switch control.ForceLoadBattery to start/stop charging battery. Use this to start/stop forced charging (like with dynamic power prices, ...).
+
 ### 1.6.7 (NoBl)
 * Added option to turn off local polling.
 
@@ -555,24 +568,6 @@ Senec 目前不再提供通过 Web 界面影响调峰的可靠方法。为此，
 * Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
 * ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
 * Possible Candidate for stable. Please report any findings!
-
-### 1.4.3 (NoBl)
-* Working on https connection. Please test and report!
-
-### 1.4.2 (NoBl)
-* Added option to use https for connecting to SENEC (only activate if your appliance supports / requires this!)
-
-### 1.4.1 (NoBl)
-* Fix: Autarky calculations are working again.
-
-### 1.4.0 (NoBl)
-* Added object caching along with some minor code updates. Due to the amount of objects we deal with caching is about mandatory.
-
-### 1.3.10 (NoBl)
-* Fixed wrong Unit for STATISTIC.LIVE_WB_ENERGY
-* Updated to json Admin UI
-* Technical Updates
-* Added more state_attr definitions
 
 ### [Former Updates](CHANGELOG_old.md)
 

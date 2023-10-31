@@ -90,6 +90,9 @@ sendTo('pushover', 'glances', {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.5 (2023-10-24)
+* (bluefox) Updated packages
+
 ### 3.0.4 (2023-08-08)
 * (MrStefanH) Added new ttl parameter to blockly
 
@@ -105,11 +108,6 @@ sendTo('pushover', 'glances', {
 * (klein0r) Changed to class definition
 * (klein0r) Updated logo
 * (klein0r) Updated testing
-
-### 2.1.0 (2022-02-20)
-* Important: js-controller 3.0+ required! 
-* (Apollon77) Remove some legacy code
-* (Apollon77) Prevent potential crash case when error occurs
 
 ## License
 

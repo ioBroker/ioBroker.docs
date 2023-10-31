@@ -29,6 +29,9 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.4.1 (2023-10-29)
+* (misanorot) fixed astro at presence simulation (jsControler 5.x???)
+
 ### 3.4.0 (2023-10-03)
 * (misanorot) fixed #168
 
@@ -40,9 +43,6 @@
 
 ### 3.3.11 (2023-04-15)
 * (misanorot) fixed issue at night rest
-
-### 3.3.10 (2023-03-31)
-* (misanorot) fixed litle speech and presence bug
 
 ## License
 MIT License

@@ -3,48 +3,119 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: g5HwsBoi5Ql0MyuJ8+GHfZNxLSLrrjnIQzM0FVO/DdM=
+hash: LT/LhbUF0XVZzj2ztND+GmoRHWjQULtqliGgbKeB0qc=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
-![NPM版本](https://img.shields.io/npm/v/iobroker.tibberlink.svg)
-![NPM版本（稳定）](https://iobroker.live/badges/tibberlink-stable.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.tibberlink.svg)
-![安装数量（最新）](https://iobroker.live/badges/tibberlink-installed.svg)
-![已知漏洞](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.tibberlink?style=flat-square)
+![下载](https://img.shields.io/npm/dm/iobroker.tibberlink?label=npm%20downloads&style=flat-square)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.tibberlink?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.tibberlink?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/hombach/iobroker.tibberlink?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/hombach/iobroker.tibberlink?logo=github&style=flat-square)
+![GitHub 工作流程状态](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.tibberlink/test-and-release.yml?branch=main&logo=github&style=flat-square)
 ![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.tibberlink?branch=master&svg=true)
+![SNYK 已知漏洞](https://snyk.io/test/github/hombach/ioBroker.tibberlink/badge.svg)
+![贝塔](https://img.shields.io/npm/v/iobroker.tibberlink.svg?color=red&label=beta)
+![稳定的](https://iobroker.live/badges/tibberlink-stable.svg)
+![已安装](https://iobroker.live/badges/tibberlink-installed.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.tibberlink.png?downloads=true)
 
 # IoBroker.tibberlink
-**CI 测试：** ![测试与发布](https://github.com/hombach/ioBroker.tibberlink/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
+[![CodeQL](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.tibberlink/actions/workflows/codeql-analysis.yml)
 
-## 在 iOBroker 中使用 TIBBER 能源数据的适配器
-用于链接来自 Tibber 帐户 API 的数据以在 ioBroker 中使用的适配器。适配器可用于单个或多个家庭。
+## 版本
+## 在 ioBroker 中利用 TIBBER 能源数据的适配器
+该适配器有助于连接来自 Tibber 账户 API 的数据，以便在 ioBroker 内使用，无论是单个家庭还是多个住宅。
 
-如果您现在还不是 Tibber 用户，非常感谢您使用我的推荐链接：
+如果您当前不是 Tibber 用户，如果您能使用我的推荐链接，我将不胜感激：[蒂伯推荐链接](https://invite.tibber.com/mu8c82n5)。
 
-[https://invite.tibber.com/2gwuign3。](https://invite.tibber.com/2gwuign3.)
+## 标准配置
+- 首先创建适配器的新实例。
+- 您还需要 Tibber 提供的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
+- 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
+- 保存设置并退出配置以重新启动适配器；此步骤允许从 Tibber 服务器查询您的家庭。
+- 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用源（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
+- 保存设置。
 
-＃＃ 配置
-1. 创建适配器的新实例
-2. 您还需要 Tibber 提供的 API 令牌。在这里获取：[https://developer.tibber.com/](https://developer.tibber.com/)
-3. 填写您的 Tibber API 令牌 -> 创建至少一行实时源配置（选择“无可用”）
-4. 保存设置并保留配置以重新启动适配器（现在将从 Tibber 服务器轮询您的家庭）
-5. 返回配置屏幕并选择主目录以从 Tibber Pulse 提取实时数据，或者选择主目录并禁用源 -（！！仅在安装了硬件并且 Tibber 服务器验证了与 Pulse 的连接时才有效）
-6. 保存设置
+## 计算器配置
+- 既然 Tibber 连接已启动并运行，您还可以利用计算器将其他自动化功能合并到 TibberLink 适配器中。
+- 计算器使用频道进行操作，每个频道都链接到选定的家庭。
+- 这些通道可以根据相应的状态被激活或停用。
+- 这些状态旨在用作 TibberLink 的外部动态输入，例如，允许您从外部源调整边际成本（“TriggerPrice”）或禁用计算器通道（“Active”）。
+- 计算器通道的状态位于与主状态相邻的位置，并根据通道编号命名。
+
+    ![计算器状态](../../../en/adapterref/iobroker.tibberlink/admin/calculatorStates.png)
+
+- 每个渠道的行为由其类型决定：“最佳成本”、“最佳单小时”或“最佳小时块”。
+- 每个通道都会填充一个外部状态作为输出，必须在设置选项卡中选择该状态。例如，此状态可能是“0_userdata.0.example_state”或任何其他可写外部状态。
+-要写入输出状态的值可以在“值是”和“值否”中定义，例如，“真”表示布尔状态或要写入的数字或文本。
+- 输出：
+    - “最佳成本”：利用“TriggerPrice”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时输出“YES”。
+    - “最佳单小时”：在最便宜的小时数期间输出为“YES”，该数字在“AmountHours”状态中定义。
+    - “最佳时间块”：在最佳时间块期间输出为“YES”，其中小时数在“AmountHours”状态中定义。
 
 ## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关更多详细信息以及有关如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.1.0 (2023-10-xx) WORK in PROGRESS
+### 1.4.2 (2023-11-xx) WORK in PROGRESS
+
+-   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
+-   (HombachC) critical vulnerability fix for axios
+-   (HombachC) fix debug message typos, code optimisations
+-   (HombachC) fix type error in price average calculation notified by Sentry
+
+### 1.4.1 (2023-10-25)
+
+-   (HombachC) implement forced update of all data after adapter restart (#155)
+-   (HombachC) Bump actions/setup-node from 3.8.1 to 4.0.0 (#157)
+-   (HombachC) remove node.js 16 actions - dependency updates
+
+### 1.4.0 (2023-10-24)
+
+-   (HombachC) implement min/max states (#131)
+-   (HombachC) fix error with ignored calculator channel deaktivations (#143)
+-   (HombachC) optimize translation handling, code cleanup
+
+### 1.3.1 (2023-10-21)
+
+-   (HombachC) fix initialisiation of channel states (#141)
+-   (HombachC) change message "reconnect successful" to level info (#80)
+-   (HombachC) documentation tweaks - dependency updates
+
+### 1.3.0 (2023-10-20)
+
+-   (HombachC) implement tibber calculator mode "best hours block" (#16)
+-   (HombachC) handle empty calculator destination states - detected by sentry
+
+### 1.2.0 (2023-10-18)
+
+-   (HombachC) implement tibber calculator mode "best single hours" (#16)
+-   (HombachC) changed i18n files to inline translations, single files aren't update compatible (#128)
+-   (HombachC) fixed error in initial read of calculator states (#129)
+
+### 1.1.2 (2023-10-15)
+
+-   (HombachC) fix timing error in calculator
+
+### 1.1.1 (2023-10-14)
+
+-   (HombachC) fix error in startup of additional channels
+
+### 1.1.0 (2023-10-14)
 
 -   (HombachC) implement tibber calculator mode "best price" (#16)
 -   (HombachC) precised pull times of current cost
 -   (HombachC) reduced error messages (#80)
+-   (HombachC) extend documentation
+-   (HombachC) update adapter-core
 
 ### 1.0.0 (2023-10-05)
 

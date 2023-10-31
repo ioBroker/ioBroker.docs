@@ -14,9 +14,9 @@
 
 ## cleveron adapter for ioBroker
 
-Erhalte deine Daten aus der CLEVERON - API (<https://www.cleveron.ch>)
+This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 
-## Manual
+## Usage
 
 -   You just need your cleveron-login-data.
 -   The adapter gets all building, room an device - data that is provided by the cleveron API.

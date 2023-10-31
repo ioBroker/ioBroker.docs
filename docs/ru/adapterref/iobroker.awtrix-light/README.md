@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
+hash: WS7yxh0uGILkbJGM1g5iiUlCJSovZX7NCzqbzAp7iVw=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +25,7 @@ hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.6.0 (или новее)
-- Устройство _Awtrix Light_ с версией прошивки _0.88_ (или новее) - например, Ulanzi TC001
+- Устройство _Awtrix Light_ с версией прошивки _0.90_ (или новее) - например, Ulanzi TC001
 
 Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
@@ -76,7 +76,7 @@ hash: dBYc6Z96qwX+bV90iUd2HqL3Y5JYkw1l0mLHMPFull8=
 Да, начиная с версии прошивки 0.82 доступ может быть защищен именем пользователя и паролем. Начиная с версии адаптера 0.8.0, эти пользовательские данные также можно хранить в настройках экземпляра.
 
 ## Идентичные приложения на нескольких устройствах
-Если необходимо управлять несколькими устройствами awtrix-light с помощью одних и тех же приложений, для каждого устройства необходимо создать отдельный экземпляр. Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть перенесены из другого экземпляра.
+Если с помощью одних и тех же приложений необходимо управлять несколькими устройствами awtrix-light, для каждого устройства необходимо создать отдельный экземпляр. Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть перенесены из другого экземпляра.
 
 Пример
 
@@ -172,6 +172,17 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.0 (2023-10-23)
+
+Updated recommended firmware version to 0.90
+
+* (klein0r) Added support for sleep mode
+* (klein0r) Added fading for indicators
+
+### 0.9.2 (2023-10-22)
+
+* (klein0r) Fixed: Visisble state of expert apps
+
 ### 0.9.1 (2023-10-02)
 
 NodeJS 16.x is required
@@ -201,18 +212,6 @@ Updated recommended firmware version to 0.83
 * (klein0r) Fixed 0 decimals setting
 * (klein0r) Changed log level of some messages
 * (klein0r) Added states for transitions
-
-### 0.7.1 (2023-08-09)
-
-* (klein0r) Added option for number format
-
-### 0.7.0 (2023-08-03)
-
-Updated recommended firmware version to 0.72
-
-* (klein0r) Added MovingLine effect
-* (klein0r) Added settings for time style and transition effect
-* (klein0r) Setting repeat to 1 in blockly notifications
 
 ## License
 MIT License

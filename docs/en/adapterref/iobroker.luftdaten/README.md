@@ -56,11 +56,13 @@ Wait some seconds until the cronjob collects the data for the first time.
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.0 (2023-10-25)
 
 NodeJS 16.x is required
 
 * (klein0r) Added link to sensor map to intro tab
+* (klein0r) Create timestamps if location is not available
+* (klein0r) Added admin icons
 
 ### 3.0.0 (2023-05-01)
 
@@ -84,10 +86,6 @@ NodeJS 14.x is required (NodeJS 12.x is EOL)
 ### 2.2.2 (2022-03-14)
 
 * (klein0r) Bugfix: Requested local sensors with https instead of http
-
-### 2.2.1 (2022-03-14)
-
-* (klein0r) Do not delete sensors on http problems
 
 ## License
 

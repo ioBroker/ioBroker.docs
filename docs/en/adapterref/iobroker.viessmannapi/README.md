@@ -18,7 +18,6 @@ Adapter for Viessmannapi
 
 **Man benötigt eine ClientID von der Viessmann API**
 
-
 https://app.developer.viessmann.com besuchen und eine Client ID mit diesen Optionen erstellen:
 
 Name: iobroker
@@ -34,8 +33,6 @@ viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.v
 
 **Remote Befehle sind möglich unter
 viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
-
-
 
 **Kompatibilitätsliste**:
 
@@ -61,7 +58,6 @@ Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12)
 Vitoligno 300-P mit Vitotronic 200 FO1
 Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
 
-
 **Liste aller Datenpunkte:
 https://documentation.viessmann.com/static/iot/data-points**
 
@@ -69,9 +65,10 @@ https://documentation.viessmann.com/static/iot/data-points**
 https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
 
 Beispiele:
+
 ```
-Vorlauftemperatur: 
-viessmannapi.0.XXXX.features.heating.circuits.0.sensors.temperature.supply.properties.value.value, 
+Vorlauftemperatur:
+viessmannapi.0.XXXX.features.heating.circuits.0.sensors.temperature.supply.properties.value.value,
 
 Anzahl Zündungen:
 viessmannapi.0.XXXXX.features.heating.burners.0.statistics.properties.starts.value
@@ -95,7 +92,7 @@ Temperatur Außensensor:		viessmannapi.0.xxx.0.features.heating.sensors.temperat
 Statistik Kompressor Starts:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.starts.value
 Statistik Kompressor Stunden:	viessmannapi.0.xxx.0.features.heating.compressors.0.statistics.properties.hours.value
 Temperatursensoren der Heizkreise:   viessmannapi.0.xxxxxxx.0.features.heating.circuits.0.sensors.temperature.supply.properties.value.value
- 
+
 Primärkreis Vorlauftemperatur:		viessmann.0.xxx.0.features.heating.primaryCircuit.sensors.temperature.supply.properties.value.value
 Sekundärkreis Vorlauftemperatur:	viessmann.0.xxx.0.features.heating.secondaryCircuit.sensors.temperature.supply.properties.value.value
 Sekundärkreis Rücklauftemperatur:	viessmann.0.xxx.0.features.heating.secondaryCircuit.sensors.temperature.return.properties.value.value
@@ -104,25 +101,27 @@ Sekundärkreis Rücklauftemperatur:	viessmann.0.xxx.0.features.heating.secondary
 ```
 
 **Beispiel zum setzen eines Schedule:**
+
 ```
 var standard = '{"mon":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"tue":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
               "wed":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"thu":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
               "fri":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],"sat":[{"start":"00:00","end":"24:00","mode":"standard","position":0}],\
               "sun":[{"start":"00:00","end":"24:00","mode":"standard","position":0}]}'
- 
-setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSchedule.setValue", JSON.parse(standard)); 
+
+setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSchedule.setValue", JSON.parse(standard));
 ```
+
 ## Changelog
 
-### 2.0.1
+### 2.3.2
 
--   (TA2k) initial release for new API. Complete new Data objects
+- (TA2k) Fix Login flow
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

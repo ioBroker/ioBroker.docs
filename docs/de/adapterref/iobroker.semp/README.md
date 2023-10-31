@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: I2Oh/vLz4Xwex8EVaxD1Vtc8hLFRcWS67WPe/8QxK2o=
+hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -16,40 +16,85 @@ hash: I2Oh/vLz4Xwex8EVaxD1Vtc8hLFRcWS67WPe/8QxK2o=
 # IoBroker.semp
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
 ## SMA SEMP-Adapter für ioBroker
-Schnittstelle zu SMA SunnyPortal über SunnyHomeManager und SEMP
+Schnittstelle zum SMA SunnyPortal über SunnyHomeManager und SEMP
 
-Fügen Sie Ihre Geräte von ioBroker in SunnyPortal hinzu.
-SunnyPortal kann dann Ihren Energieverbrauch besser einschätzen und somit bessere Vorhersagen und Empfehlungen treffen. Sie können Ihre Geräte aber auch über SunnyPortal steuern lassen. Bei ausreichender Sonnenenergie kann das SunnyPortal Ihre Geräte einschalten oder bei zu geringer Sonnenenergie wieder ausschalten. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter lassen sich beliebige Geräte aus dem ioBroker in das SunnyPortal einbinden.
-Es muss nicht einmal der Verbrauch eines einzelnen Gerätes gemessen werden. Auch Schätzwerte sind ausreichend.
+Fügen Sie Ihre Geräte von ioBroker im SunnyPortal hinzu.
+SunnyPortal kann dann Ihren Energieverbrauch besser einschätzen und so bessere Vorhersagen und Empfehlungen treffen. Sie können Ihre Geräte aber auch über SunnyPortal steuern lassen. Wenn genügend Solarenergie vorhanden ist, kann das SunnyPortal Ihre Geräte einschalten oder, wenn nicht genügend Solarenergie vorhanden ist, diese wieder ausschalten. So optimieren Sie Ihren Eigenverbrauch, sind aber nicht auf die wenigen im SunnyPortal unterstützten Geräte angewiesen. Mit dem Adapter kann jedes Gerät des ioBrokers in das SunnyPortal integriert werden.
+Es ist nicht einmal notwendig, den Verbrauch eines einzelnen Geräts zu messen. Auch Schätzwerte reichen aus.
 
 ## Benutzerdokumentation
 siehe [Doku](docu/docu_en.md)
 
-Einzelheiten zu Protokoll und Verwendung finden Sie in [SMA Doku](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
+Einzelheiten zum Protokoll und zur Verwendung finden Sie unter [SMA-Doku](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf).
 
-Eine Beschreibung zur allgemeinen Verwendung von Energieanfragen siehe [SMA Doku](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (nur deutsch)
+Eine Beschreibung zur allgemeinen Nutzung von Energieanfragen finden Sie in [SMA-Doku](docu/SMA/SSH_KANN-Zeitfenster-TI-de-10.pdf). (nur deutsch)
 
 ## Merkmale
-* Geräte von ioBroker in SunnyPortal über SMA SEMP hinzufügen
+* Geräte von ioBroker im SunnyPortal über SMA SEMP hinzufügen
 * informiert das SunnyPortal über den aktuellen Verbrauch
-* SunnyPortal diese Geräte steuern lassen (einschalten bei genügend PV-Leistung und ausschalten bei zu geringer Solarenergie)
+* Lassen Sie SunnyPortal diese Geräte steuern (einschalten, wenn genügend PV-Leistung vorhanden ist, und ausschalten, wenn nicht genügend Solarenergie vorhanden ist)
 
 ## Anforderungen
-* Knoten v16 oder höher
-
 ## Bekannte Probleme
-* Bitte erstellen Sie Probleme auf [github](https://github.com/rg-engineering/ioBroker.semp/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.semp/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
 
-### 1.1.0 (in progress)
+### 1.3.12 (2023-10-29)
+* (René) some bug fixes based on changes in 1.3.11
+
+### 1.3.11 (2023-10-28)
+* (René) see issue #30: more OID's can be used with URL for wallbox
+* (René) option to set recommnended current instead of power (useful for go-e)
+
+### 1.3.10 (2023-10-03)
+* (René) bug fix: removed missing Start() call in wallbox (avoid exception)
+* (René) see issue #30: URL can be used to set recommended power to wallbox (attention: still only power, not current as needed for go-e)
+
+### 1.3.9 (2023-09-24)
+* (René) see issue #30: bug fix URL as string to be used
+
+### 1.3.8 (2023-09-23)
+* (René) see issue #30: URL can now be used directly to get status of wallbox (JSON only)
+
+### 1.3.7 (2023-09-02)
+* (René) see issue #30: bug fix for type based status check of wallboxes
+
+### 1.3.6 (2023-08-28)
+* (René) see issue #81: smaller bug fixes
+
+### 1.3.5 (2023-08-26)
+* (René) see issue #81: wallbox three phase enabler by URL
+* (René) see issue #81: wallbox three phase switch time configurable (default 3 minutes)
+* (René) see issue #74: check max power consumption added
+* (René) dependencies updated
+
+### 1.3.4 (2023-07-30)
+* (René) dependencies updated
+
+### 1.3.2 (2023-06-12)
+* (René) bug fix: sentry reported exceptions fixed
+
+### 1.3.1 (2023-06-11)
+* (René) bug fix: exception in wallbox interface fixed
+
+### 1.3.0 (2023-06-10)
+* (René) see #17: additional checks for BaseID
+* (René) check BaseId of every DeviceId when adapter starts
+* (René) bug fix csv-logging: create file if not exist and complete filename is provided, was working with path name only before
+* (René) additional debug: show last timeframe sent to SHM as datapoint for every timeframe
+
+### 1.2.0 (2023-05-29)
+* (René) device off at end of maximum running time and latest end overworked; option "Switch Off At End Of Timer" removed
+
+### 1.1.0 (never released)
 * (René) issue #30: URL as another option for configuring the wallboy interface
 
 ### 1.0.0 (2023-04-07)
@@ -100,7 +145,6 @@ Eine Beschreibung zur allgemeinen Verwendung von Energieanfragen siehe [SMA Doku
 * (René) csv logger for data to be sent to SHM (for debugging)
 * (René) see issue #14: cancel request if device does not turn on
 * (René) bug fix issue #19: turn off device at the end of maximum operation time
-
 
 ### 0.0.1 (2022-10-01)
 * (René) initial release

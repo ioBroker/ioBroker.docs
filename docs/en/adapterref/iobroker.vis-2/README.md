@@ -65,9 +65,9 @@ Patten has the following format:
 
 The following operations are supported:
 
-- `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample, we multiply the value with 4.
-- `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
-- `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
+- `*` - multiplying. Argument must be in brackets, like "*(4)". In this sample, we multiply the value with 4.
+- `+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
+- `-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
 - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample, we divide the value by 0.5.
 - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample, we take modulo of 5.
 - `round` - round the value.
@@ -228,6 +228,19 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.3 (2023-10-30)
+* (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
+* (bluefox) added the editor for bindings
+* (bluefox) background does not used if in iframe
+
+### 2.3.2 (2023-10-14)
+* (bluefox) Allowed showing only selected widgets in edit mode
+* (bluefox) Corrected the visibility calculation for old (CanJS) widgets
+
+### 2.3.1 (2023-10-13)
+* (bluefox) Corrected vertical gap between relative widgets
+* (bluefox) Better input of numbers with min/max in attribute dialog
+
 ### 2.3.0 (2023-09-28)
 * (bluefox) jQui widgets (many of them) were improved
 

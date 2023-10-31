@@ -39,6 +39,11 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2023-10-28)
+
+-   (SentiQ) NodeJS 16.x is required
+-   (SentiQ) updated dependencies
+
 ### 0.2.2 (2023-09-22)
 
 -   (SentiQ) fixed versions

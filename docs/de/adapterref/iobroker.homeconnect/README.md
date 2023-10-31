@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
+hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -15,77 +15,93 @@ hash: 5GSNFhmWTRyGHasKupfsb68eCzOXxF/IM7j2o4VR69g=
 ## Voraussetzungen vor der Installation
 Es muss mindestens Node.js Version 8 installiert sein!!
 
-Für den Adapter wird eine ClientID benötigt. Nutzen Sie die Einstellungen um jeden Schritt der Registrierung zu erreichen.
+Für den Adapter wird eine ClientID benötigt. Nutzen Sie die Einstellungen, um jeden Schritt der Registrierung zu erreichen.
 
 ## Anforderungen vor der Installation
 Es muss mindestens Node.js Version 8 installiert sein!
 
-Für den Adapter ist eine ClientID erforderlich. Verwenden Sie die Einstellungen für jeden Schritt, um sich zu registrieren.
+Für den Adapter ist eine ClientID erforderlich. Verwenden Sie zur Registrierung die Einstellungen für jeden Schritt.
 
 <https://developer.home-connect.com>
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Default Home Connect User Account for Testing** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, this WIRD später auch beim Authorization-Prozess benötigt.
+Bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Autorisierungsprozess benötigt.
 
-Geben Sie bei **Default Home Connect Benutzerkonto zum Testen** die E-Mail-Adresse an, mit der die Home Connect App versendet werden soll.
+Geben Sie bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse an, mit der die Home Connect-App versendet werden soll.
 registriert wurde, ist dies auch später im Autorisierungsprozess erforderlich.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung2.JPG)
 
-Bei **Kontotyp** Individuell auswählen. Die restlichen Daten, sofern vorhanden, ergänzen (keine Ahnung, ob das geprüft WIRD).
+Bei **Kontotyp** Einzelperson auswählen. Die restlichen Daten sofern vorhanden ergänzen (keine Ahnung, ob das geprüft wird).
 
-Wählen Sie für **Kontotyp** Einzelperson aus. Fügen Sie die restlichen Daten hinzu, falls vorhanden (keine Ahnung, ob dies überprüft wird).
+Wählen Sie für **Kontotyp** die Option „Individuell“ aus. Fügen Sie die restlichen Daten hinzu, falls verfügbar (keine Ahnung, ob dies überprüft wird).
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/application1.JPG)
 
-Dann auf **Bewerbungen** und anschließend auf **Bewerbung registrieren** gehen.
+Dann auf **Bewerbungen** und anschließend auf **Register Application** gehen.
 
 Gehen Sie dann zu **Bewerbungen** und dann zu **Bewerbung registrieren**.
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/application2.JPG)
 
-Bei **Bewerbungs-ID** einen Namen für die Bewerbung eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren.
-**Home Connect Benutzerkonto zum Testen** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://beispiel.com.
-Dann Speichern und dann hat man die benötigte ClientID.
+Bei **Application ID** einen Namen für die Bewerbung eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow auswählen.
+**Home Connect-Benutzerkonto zum Testen** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
+Dann speichern und dann hat man die benötigte ClientID.
 
-Geben Sie bei **Anwendungs-ID** einen Namen für die Anwendung ein, z. ioBroker. Mit **OAuth Flow** Device Flow auswählen.
-**Home Connect Benutzerkonto zum Testen** kann leer bleiben. Geben Sie für **Success Redirect** einen URI ein, z. https://beispiel.com.
-Dann speichern und Sie haben die benötigte ClientID.
+Geben Sie unter **Anwendungs-ID** einen Namen für die Anwendung ein, z. B. ioBroker. Mit **OAuth Flow** Device Flow auswählen.
+**Home Connect-Benutzerkonto zum Testen** kann leer bleiben. Geben Sie für **Success Redirect** einen URI ein, z. B. https://example.com.
+Anschließend speichern und Sie haben die benötigte ClientID.
 
-##Konfiguration
-In der Adapter-Config muss der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
+## Konfiguration
+In der Adapter-Config müssen der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
 
 ## Benutzung
 Mit den Zuständen in Befehlen kannst du das Programm stoppen, pausieren oder fortführen.
 
 Mit den Zuständen in den Einstellungen kannst du das Gerät ein- oder ausschalten.
 
-Change des States programmes.active.BSH_Common_Root_ActiveProgram führt zum Starten eines Programms
+Ändern des Status „Programme.active.BSH_Common_Root_ActiveProgram“ führt zum Starten eines Programms Update iQ300: Es muss das gewünschte Programm registriert werden. Wenn man Programme.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der Benutzer die Möglichkeit, am Gerät das gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
 
-Ändern des Status programmes.s selected.BSH_Common_Root_SelectedProgram führt zum Auswählen des Programms oder der Optionen
+Das Ändern des Status „programs.selected.BSH_Common_Root_SelectedProgram“ führt zum Auswählen des Programms oder der Optionen
 
-If man checken möchte, ob ein Programm fertig ist muss
+Wenn man prüfen möchte, ob ein Programm fertig ist, muss
 
 status.BSH_Common_Status_OperationState
 
-auf den vollständigen Statusnamen übrprüft werden:
+Auf den vollständigen Statusnamen wird geprüft:
 
 BSH.Common.EnumType.OperationState.Finished
 
 Weitere Zustände sind noch:
 
-"BSH.Common.EnumType.OperationState.Inactive": "Inaktiv", "BSH.Common.EnumType.OperationState.Ready": "Bereit", "BSH.Common.EnumType.OperationState.Run": "Ausführen", "BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Fertig"
+„BSH.Common.EnumType.OperationState.Inactive“: „Inaktiv“, „BSH.Common.EnumType.OperationState.Ready“: „Bereit“, „BSH.Common.EnumType.OperationState.Run“: „Ausführen“, „BSH .Common.EnumType.OperationState.ActionRequired": "ActionRequired", "BSH.Common.EnumType.OperationState.Finished": "Fertig"
 
 Oder ob ein Gerät geöffnet ist
 
-"BSH.Common.EnumType.DoorState.Open": "Offen", "BSH.Common.EnumType.DoorState.Closed": "Geschlossen"
+„BSH.Common.EnumType.DoorState.Open“: „Offen“, „BSH.Common.EnumType.DoorState.Closed“: „Geschlossen“
 
-## Verwendungszweck
+## Verwendung
 Mit den Zuständen in Befehlen können Sie ein Programm stoppen, pausieren und fortsetzen.
-Mit den Zuständen in den Einstellungen können Sie das Gerät ein- oder ausschalten Ändern Sie den Wert von programmes.active.BSH_Common_Root_ActiveProgram führt zum Starten eines Programms Ändern Sie den Wert von programmes.s selected.BSH_Common_Root_SelectedProgram führt zur Auswahl eines Programms oder von Optionen
+Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einschalten. Ändern Sie den Wert von „Programme.active.BSH_Common_Root_ActiveProgram“, um ein Programm zu starten. Update iQ300: Sie müssen den Programmnamen in dieser Variablen festlegen. Wenn „programs.selected.BSH_Common_Root_SelectedProgram“ kopiert wird, kann der Maschinenbenutzer das gewünschte Programm an der Maschine vordefinieren und es wird über ioBroker gestartet. Eine Änderung des Werts von „programs.selected.BSH_Common_Root_SelectedProgram“ führt zur Auswahl eines Programms oder von Optionen
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+-   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) changed: Dependencies have been updated
+-   (ta2k) restart adapter instead of relogin
+
+### 1.1.1 
+
+- Fix auto login for SingleKey User
+
+### 1.1.0
+
+- Add auto login for SingleKey User
 
 ### 1.0.3
 
@@ -94,6 +110,7 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät ein- oder ausscha
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
+
 ### 0.0.36
 
 - fix for js.controller 3.3. Please delete the device in Objects manually

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 3BQgy9cTB1yS5R6UEnre+B1g4tCi8zlCs2ichCE95uw=
+hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -42,14 +42,15 @@ Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die 
 Der Adapter liest derzeit nur Daten und erlaubt keine Änderungen.
 
 ### Unterstützte Elemente
-Bisher wurde der Adapter mit den folgenden Elementen getestet bzw. es ist bekannt, dass er mit diesen funktioniert. Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
+Bisher wurde der Adapter getestet bzw. es ist bekannt, dass er mit den folgenden Elementen funktioniert. Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
 
 | Elementtyp | Elementname | Getestet von |
-| ------------ | ----------------------- | ----------- |
+| ------------ | ----------------------- | --------------------------------------------------------------------- |
 | is01 | Sirene | matthsc |
 | um01 | Universal/Fenster/Tür | matthsc |
 | wd01 | Wasser | matthsc |
 | sd01 | Rauch (nur Testalarm) | HomeControl |
+| sp01 | Stecker | matthsc (Hardware gesponsert von [Voggl93](https://github.com/Voggl93)) |
 
 Der Adapter unterstützt auch die folgenden anderen Geräte:
 
@@ -116,13 +117,10 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-10-15)
 
-### **WORK IN PROGRESS**
-
+-   (matthsc) add support for plugs
 -   (matthsc) drop support for Node 14 and 16
-
-### **WORK IN PROGRESS**
-
 -   (matthsc/dependabot) dependency updates
 
 ### 0.3.0 (2022-09-28)

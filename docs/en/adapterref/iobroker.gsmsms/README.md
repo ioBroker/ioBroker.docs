@@ -9,7 +9,6 @@
 ![Test and Release](https://github.com/forelleblau/ioBroker.gsmsms/workflows/Test%20and%20Release/badge.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.gsmsms.svg)](https://www.npmjs.com/package/iobroker.gsmsms)
 
-
 ## gsmsms adapter for ioBroker
 
 Send and recieve SMS with GSM-hardware.
@@ -55,12 +54,12 @@ The adapter is only used to send SMS. All incoming SMS are ignored (possibly sav
 
 Not to run out of SIM-Memory, all SMS are deleted from SIM after delivery/reading. Use e.g. the 'history' - adapter to store your messages or any other convenient solution.
 
-| Name                        | Type    | Default                   | Description                                                                                                                                                                                                                      |
-| --------------------------- | ------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Incoming SMS indication     | boolean | true                      | Enables the modem to notify that a new SMS message has been received.                                                                                                                                                            |
-| Enable concatenation        | boolean | true                      | Receive concatenated messages as one.                                                                                                                                                                                            |
+| Name                        | Type    | Default                   | Description                                                                                                                                                                                                                                                                                                    |
+| --------------------------- | ------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Incoming SMS indication     | boolean | true                      | Enables the modem to notify that a new SMS message has been received.                                                                                                                                                                                                                                          |
+| Enable concatenation        | boolean | true                      | Receive concatenated messages as one.                                                                                                                                                                                                                                                                          |
 | Custom Iinit command        | string  |                           | If your device needs a custom initialization command it can be provided and will be used after PIN check. i.e. some devices need 'AT+CPMS="SM","SM","SM"' to get the right storage set. The command is expected to return `'OK'` (empty, means "no custom command for init"). pls refer your GSM-device specs. |
-| CNMI when modem open/closed | string  | '2,1,0,2,0' / '2,0,2,2,1' | Defines if messages are saved on SIM or delivered instantly. pls refer your GSM-device specs.                                                                                                                                    |
+| CNMI when modem open/closed | string  | '2,1,0,2,0' / '2,0,2,2,1' | Defines if messages are saved on SIM or delivered instantly. pls refer your GSM-device specs.                                                                                                                                                                                                                  |
 
 <!--| Incoming call indication    | boolean | false                     | Receive `'onNewIncomingCall'` event when receiving calls.                                                                                                                 |-->                                                       
 
@@ -131,16 +130,25 @@ This adapter is based on the [SerialPort-GSM plugin](https://github.com/zabsalah
 -->
 
 ### **WORK IN PROGRESS**
+
+### 0.0.5
+
+-   (forelleblau) bug fixed (adapter set "undefined" into state values)
+
 ### 0.0.4
+
 -   (Apollon77) Optimizations, brush up to comply with ioBroker.repositories requirements
 
 ### 0.0.3
+
 -   (forelleblau) dependencies updated, bugs fixed
 
 ### 0.0.2
+
 -   (forelleblau) first published version
 
 ### 0.0.1
+
 -   (forelleblau) initial release
 
 ## License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
+hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ---
 # IoBroker.robonect
 ![Logo](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -18,6 +18,8 @@ Dies ist ein ioBroker-Adapter für Ihren Robonect HX-fähigen Rasenmäher.
 
 * Es wurde mit Robonect v1.1b (mit ZeroConf v1.4) und einem Gardena R70Li getestet.
 * Und es wurde auch mit Robonect v1.3b (mit ZeroConf v1.9) und einem Gardena R40Li getestet.
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 ## Einstellungen
 * Es ist erforderlich, die IP-Adresse (z. B. 192.168.x.x) oder den Hostnamen (z. B. robonect-D247BF) oder den vollqualifizierten Domänennamen (z. B. robonect-D247BF.fritz.box) des Robonect-Moduls einzugeben. Falls Benutzername und Passwort festgelegt sind, sind diese ebenfalls erforderlich.
@@ -59,7 +61,7 @@ Es ist möglich, die Erweiterungen GPIO 1, GPIO 2, OUT 1 und OUT 2 des Robonect-
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
 
-### 1.3.3 (2023-10-04)
+### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
 * (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses

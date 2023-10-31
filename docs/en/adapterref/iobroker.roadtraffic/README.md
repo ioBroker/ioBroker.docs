@@ -1,10 +1,30 @@
 ![Logo](admin/roadtraffic.png)
 # ioBroker.roadtraffic
-![Number of Installations](http://iobroker.live/badges/roadtraffic-installed.svg) ![Number of Installations](http://iobroker.live/badges/roadtraffic-stable.svg) [![NPM version](https://img.shields.io/npm/v/iobroker.roadtraffic.svg)](https://www.npmjs.com/package/iobroker.roadtraffic)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.roadtraffic.svg)](https://www.npmjs.com/package/iobroker.roadtraffic)
-[![Tests](https://travis-ci.org/BuZZy1337/ioBroker.roadtraffic.svg?branch=master)](https://travis-ci.org/BuZZy1337/ioBroker.roadtraffic)
 
-[![NPM](https://nodei.co/npm/iobroker.roadtraffic.png?downloads=true)](https://nodei.co/npm/iobroker.roadtraffic/)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.roadtraffic)](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.roadtraffic.svg)](https://www.npmjs.com/package/iobroker.roadtraffic)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.roadtraffic)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/roadtraffic/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.roadtraffic)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roadtraffic/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.roadtraffic)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.roadtraffic)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.roadtraffic.svg)](https://www.npmjs.com/package/iobroker.roadtraffic)
+![Current version in stable repository](https://iobroker.live/badges/roadtraffic-stable.svg)
+![Number of Installations](https://iobroker.live/badges/roadtraffic-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/codeql.yml)
+
+<!--
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+-->
+
 ## About this Adapter
 This Adapter uses HERE.com API to check the traffic on your routes. You can configure multiple routes and the adapter will check the actual traffic situation and show you how long your journey will take.
 The Adapter has an alarm clock - so you can tell the Adapter at which time you have to be at work - and the Adapter starts playing Radio and makes an announcement on Alexa (Alexa2 Adapter required) - or you can use your own script to react on the alarm of the adapter..
@@ -64,6 +84,21 @@ In each Channel you have following states:
 
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.2 (2023-10-27)
+* (mcm1957) Error logging has been corrected.
+
+### 1.0.1 (2023-10-26)
+* (mcm1957) Issues reported by ioBroker adapter checker and lint have been fixed.
+
+### 1.0.0 (2023-10-26)
+* (mcm1957) This adapter has been moved into iobroker-community-organization.
+* (mcm1957) Adapter requires nodejs 18.x or newer now.
+* (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2019-12-21)
 * (BuZZy1337) Alarm-Clock implemented. (See Readme "Alarm-Clock" section for details)
 
@@ -83,6 +118,7 @@ In each Channel you have following states:
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

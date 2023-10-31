@@ -34,7 +34,7 @@ DoorBird is a door intercom that functions both as a doorbell and security syste
    Just try to run the Adapter with this Port. If the Port is not available you will get an error while starting the adapter. Then just get back here and change the port.
 3. Enter the IP of your Doorbird device. You can click on the "search icon" left to the input field. After you clicked the icon a message at the top of the config screen will appear. Now you have 60 Seconds to press the ring button on your Doorbird device. The Adapter tries to detect the IP and fill all fields for you.
 4. The Device ID (NOT IP!) of your Doorbird.
-5. The Username which needs to have the API Permission on the Doorbird device.
+5. The Username which needs to have the **API-Operator** and **Watch always** permissions on the Doorbird device.
 6. The password for the Username entered in field 5.
 
 ![Screenshot](img/configscreen.png)

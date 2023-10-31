@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
+hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 ---
 # IoBroker.panasonic-comfort-cloud
 
@@ -16,7 +16,7 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 
 | ：警告：警告|
 |:---------------------------|
-|适配器设置中的新应用程序版本为 1.18.0 |
+|适配器设置中的新应用程序版本是 1.19.1 |
 
 ![标识](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
@@ -28,8 +28,23 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 建议使用已共享设备的第二个帐户。
 
 ## Changelog
+### 2.2.4 (2023-10-18)
 
-### **WORK IN PROGRESS**
+* Fixed load AppVersion from Github.
+
+### 2.2.3 (2023-10-14)
+
+* Added support for admin 5 UI (jsonConfig).
+* Updated packages.
+* Fixed translation.
+
+### 2.2.2 (2023-09-16)
+
+* Fixed wrong version number.
+
+### 2.2.1 (2023-09-16)
+
+* panasonic-comfort-cloud-client updated to new version. New headers added.
 
 ### 2.2.0
 
@@ -115,7 +130,7 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2023 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

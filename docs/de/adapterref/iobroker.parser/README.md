@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.parser/README.md
 title: ioBroker-Parser-Adapter
-hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
+hash: Le4c+UayImhSKld1ia2TKTckHZUsW4qw9xKSC9LG2fk=
 ---
 ![Logo](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -16,13 +16,13 @@ hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen werden, mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird unter `parser.<instance number>` ein Status erstellt und mit den geparsten Informationen gefüllt und aktualisiert.
+Dieser Adapter analysiert Daten, die über eine URL oder aus einer Datei empfangen werden, mithilfe regulärer Ausdrücke. Für jede Regel, die in den Einstellungen dieses Adapters konfiguriert wird, wird ein Status unter `parser.<instance number>` erstellt und mit den geparsten Informationen gefüllt und aktualisiert.
 
 ## Einstellungen
 ### 1. Standardabfrageintervall
 Dieser Standardwert für das Abfrageintervall wird verwendet, wenn für einen Eintrag in der Konfigurationstabelle (Spalte: „Intervall“) kein individueller Abfrageintervallwert angegeben ist. Das Intervall wird in Millisekunden angegeben und definiert, wie oft der Link oder die Datei gelesen und die Zustände aktualisiert werden.
 
-**Hinweis:** Verwenden Sie insbesondere für Website-URLs kein zu aggressives Abfrageintervall. Wenn Sie beispielsweise den Preis Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) gut zurechtkommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und auf eine Server-Blacklist setzen. Bitte nutzen Sie das Abfrageintervall daher mit Vorsicht.
+**Hinweis:** Verwenden Sie insbesondere für Website-URLs kein zu aggressives Abfrageintervall. Wenn Sie beispielsweise den Preis Ihrer Aktien von einer bestimmten Website abrufen möchten, sollten Sie wahrscheinlich mit einem Intervall von nur 24 Stunden (= 86400000 ms) auskommen, wenn Sie kein Daytrader sind. Wenn Sie zu oft versuchen, Daten von bestimmten URLs abzurufen, kann die Website Sie sperren und auf eine Server-Blacklist setzen. Bitte nutzen Sie das Abfrageintervall daher mit Vorsicht.
 
 ### 2. Timeout anfordern
 Geben Sie an, wie lange der Adapter bei Website-Abfragen auf eine HTTP-Antwort wartet
@@ -30,7 +30,7 @@ Geben Sie an, wie lange der Adapter bei Website-Abfragen auf eine HTTP-Antwort w
 ### 3. Verzögerung zwischen Anfragen
 Geben Sie an, wie lange der Adapter zwischen dem Senden von HTTP-Anfragen bei der Durchführung von Remote-Abfragen wartet. Nützlich beim Abrufen von Daten von langsamen Hosts oder über langsame Verbindungen, um eine Überlastung beider Hosts zu vermeiden. Null (Standard) bedeutet keine Verzögerung.
 
-Diese Verzögerung gilt pro Host. Wenn Remote-Abfragen so konfiguriert sind, dass sie von mehreren Remote-Hosts abrufen, wird jeder Host parallel abgefragt.
+Diese Verzögerung gilt pro Host. Wenn Remote-Abfragen für den Abruf von mehreren Remote-Hosts konfiguriert sind, wird jeder Host parallel abgefragt.
 
 Die Verzögerung ist ein Mindestwert zwischen der Initiierung jeder Anfrage. Das heißt, wenn das Lesen einer Abfrage länger als dieser Verzögerungsparameter dauert, wird die nächste sofort gestartet, nachdem der Lesevorgang abgeschlossen ist.
 
@@ -48,29 +48,29 @@ Klicken Sie auf die Schaltfläche „Plus“, um der Tabelle einen neuen Eintrag
 
 **Tabellenfelder:**
 
-- ***Name*** – Name des Status, der unter „parser.<Instanznummer>“ erstellt wird. Leerzeichen sind nicht erlaubt. Sie können Punkte „.“ als Trennzeichen verwenden, um Unterordner zu erstellen. Beispiel: „Shares.Microsoft.Current“ ergibt „parser.<Instanznummer>.Shares.Microsoft.Current“.
-- ***URL oder Dateiname*** – entweder eine URL einer Website oder der Pfad zu einer Datei, über die wir Informationen abrufen möchten. Beispiele „https://darksky.net/forecast/48.1371,11.5754/si24/de“ (Wetterinformationen München) oder „/opt/iobroker/test/testdata.txt“ (Datei aus ioBroker).
-- ***RegEx*** – regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen von Regula-Ausdrücken: [regex101](https://regex101.com/). Z.B. `temp swip">(-?\d+)˚<` für die Zeile oben.
-- ***Item*** (deutsch: „Num“) – ein regulärer Ausdruck kann mehrere Einträge finden (zuordnen). Mit dieser Option können Sie festlegen, welches Match ausgewählt werden soll. 0 = erste Übereinstimmung, 1 = zweite Übereinstimmung, 2 = dritte Übereinstimmung usw. Der Standardwert ist 0 (erste Übereinstimmung).
-- ***Rolle*** – eine der Rollen:
-    - Benutzerdefiniert - Benutzer definiert sich über *admin* die Rolle
+- **_Name_** – Name des Status, der unter „parser.<Instanznummer>“ erstellt wird. Leerzeichen sind nicht erlaubt. Sie können Punkte „.“ als Trennzeichen verwenden, um Unterordner zu erstellen. Beispiel: „Shares.Microsoft.Current“ ergibt „parser.<Instanznummer>.Shares.Microsoft.Current“.
+- **_URL oder Dateiname_** – entweder eine URL einer Website oder der Pfad zu einer Datei, über die wir Informationen abrufen möchten. Beispiele „https://darksky.net/forecast/48.1371,11.5754/si24/de“ (Wetterinformationen München) oder „/opt/iobroker/test/testdata.txt“ (Datei aus ioBroker).
+- **_RegEx_** – regulärer Ausdruck, wie man Daten aus einem Link extrahiert. Es gibt einen guten Dienst zum Testen von Regula-Ausdrücken: [regex101](https://regex101.com/). Z.B. `temp swip">(-?\d+)˚<` für die Zeile oben.
+- **_Item_** (deutsch: „Num“) – ein regulärer Ausdruck kann mehrere Einträge finden (zuordnen). Mit dieser Option können Sie festlegen, welches Match ausgewählt werden soll. 0 = erste Übereinstimmung, 1 = zweite Übereinstimmung, 2 = dritte Übereinstimmung usw. Der Standardwert ist 0 (erste Übereinstimmung).
+- **_Role_** – eine der Rollen:
+    - Benutzerdefiniert - Benutzer definiert sich über _admin_ die Rolle
     - Temperatur – der Wert ist die Temperatur
     - Wert – der Wert ist eine Zahl (z. B. Dimmer)
     - Jalousien – der Wert ist eine Jalousieposition
     - Schalter – der Wert ist die Schalterposition (wahr/falsch)
     - Schaltfläche – der Wert ist eine Schaltfläche
     - Indikator - boolescher Indikator
-- ***Typ*** – der Typ der Variablen gemäß dem Pulldown-Menü.
-- ***Einheit*** - Optional: Einheit des Wertes, der dem Statuseintrag hinzugefügt wird. Z.B. „°C“, „€“, „GB“ usw.
-- ***Alt*** – Wenn aktiviert, wird der Status *nicht* aktualisiert, wenn der Wert im angegebenen Datum (URL oder Datei) nicht gelesen oder gefunden werden kann, sodass in diesem Fall der vorherige Wert beibehalten wird.
-- ***Subs*** - Optional: Ersatz-URL oder Dateiname. Dieser Ersatz-URL/Dateiname wird verwendet, wenn die URL/der Dateiname der ersten Spalte nicht verfügbar ist.
-- ***Faktor/Offset*** (nur für „Typ“-Nummern) – ermöglicht die Änderung der abgerufenen Daten vor dem Versetzen in den Status:
-  - *berechneter Wert* = *extrahierter Wert* * Faktor + Offset, um sofort Änderungen am Wert vorzunehmen
-- ***Intervall*** – Abfrageintervall in ms (Millisekunden). Wenn leer oder 0, wird das Standardabfrageintervall verwendet. Weitere Informationen finden Sie oben.
+- **_Type_** – der Typ der Variablen gemäß dem Pulldown-Menü.
+- **_Unit_** – Optional: Einheit des zum Statuseintrag hinzugefügten Werts. Z.B. „°C“, „€“, „GB“ usw.
+- **_Old_** – Wenn aktiviert, wird der Status _nicht_ aktualisiert, wenn der Wert im angegebenen Datum (URL oder Datei) nicht gelesen oder gefunden werden kann, sodass in diesem Fall der vorherige Wert beibehalten wird.
+- **_Subs_** – Optional: Ersatz-URL oder Dateiname. Dieser Ersatz-URL/Dateiname wird verwendet, wenn die URL/der Dateiname der ersten Spalte nicht verfügbar ist.
+- **_Factor/Offset_** (nur für „Typ“-Nummern) – ermöglicht die Änderung der abgerufenen Daten, bevor sie in den Status versetzt werden:
+  - _berechneter Wert_ = _extrahierter Wert_ \* Faktor + Offset, um sofort Änderungen am Wert vorzunehmen
+- **_Interval_** – Abfrageintervall in ms (Millisekunden). Wenn leer oder 0, wird das Standardabfrageintervall verwendet. Weitere Informationen finden Sie oben.
 
 ## Beispieleinstellungen
 | Name | URL oder Dateiname | RegEx | Rolle | Geben Sie | ein Einheit | Intervall |
-|--------------------|:-------------------------------------------------------------|:-------------------------------------|-------------|---------|------|----------|
+| ----------------- | :----------------------------------------------------- | :----------------------------------- | ----------- | ------- | ---- | -------- |
 | TemperaturMünchen | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` | Temperatur | Nummer | °C | 180000 |
 | cloudRunning | `https://iobroker.net/` | `Privacy Notice` | Indikator | boolescher Wert | | 60000 |
 | cpuTemperature | `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` | Temperatur | Nummer | °C | 30000 |
@@ -87,8 +87,8 @@ Für boolesche Typen ist der reguläre Ausdruck eher einfach. Bei numerischen Ty
 
 Weitere Informationen zu RegExp:
 
-  * [MDN/Mozilla-Dokumentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-  * [regex101: Online-Tool zum Erstellen und Testen regulärer Ausdrücke](https://regex101.com/)
+- [MDN/Mozilla-Dokumentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [regex101: Online-Tool zum Erstellen und Testen regulärer Ausdrücke](https://regex101.com/)
 
 ### Beispiele
 - „.at“ entspricht jeder dreistelligen Zeichenfolge, die mit „at“ endet, einschließlich „hat“, „cat“ und „bat“.
@@ -149,6 +149,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.0.7 (2023-10-25)
+* (TA2k) added the user agent to prevent timeout blocking
+* (bluefox) Added a configurable userAgent option
+
 ### 2.0.5 (2023-06-19)
 * (bluefox) The result could be an array of values
 

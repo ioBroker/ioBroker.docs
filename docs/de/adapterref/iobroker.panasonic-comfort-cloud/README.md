@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.panasonic-comfort-cloud/README.md
 title: ioBroker.panasonic-comfort-cloud
-hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
+hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 ---
 # IoBroker.panasonic-comfort-cloud
 
@@ -16,7 +16,7 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 
 | :warnung: WARNUNG |
 |:---------------------------|
-| Die neue App-Version in den Adaptereinstellungen ist 1.18.0 |
+| Die neue App-Version in den Adaptereinstellungen ist 1.19.1 |
 
 ![Logo](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
@@ -28,8 +28,23 @@ Mit der verwendeten Methode kann jeweils nur ein Kunde mit dem Konto angemeldet 
 Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte freigegeben wurden.
 
 ## Changelog
+### 2.2.4 (2023-10-18)
 
-### **WORK IN PROGRESS**
+* Fixed load AppVersion from Github.
+
+### 2.2.3 (2023-10-14)
+
+* Added support for admin 5 UI (jsonConfig).
+* Updated packages.
+* Fixed translation.
+
+### 2.2.2 (2023-09-16)
+
+* Fixed wrong version number.
+
+### 2.2.1 (2023-09-16)
+
+* panasonic-comfort-cloud-client updated to new version. New headers added.
 
 ### 2.2.0
 
@@ -115,7 +130,7 @@ Es wird empfohlen, ein zweites Konto zu verwenden, für das die Geräte freigege
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2023 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

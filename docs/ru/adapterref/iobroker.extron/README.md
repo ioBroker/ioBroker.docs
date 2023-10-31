@@ -3,47 +3,75 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.extron/README.md
 title: ioBroker.extron
-hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
+hash: SQXOlon+kOOGN7ozw4xZBE5GNrFNrbyPi7D+kL5AACY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.extron/admin/extron.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.extron.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.extron.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.extron.svg)
-![Количество установок (последние)](http://iobroker.live/badges/extron-installed.svg)
+![Количество установок (последних)](http://iobroker.live/badges/extron-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/extron-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/Bannsaenger/iobroker.extron.svg)
 ![Известные уязвимости](https://snyk.io/test/github/Bannsaenger/ioBroker.extron/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.extron.png?downloads=true)
 
 # IoBroker.extron
-## Адаптер extron для ioBroker
+##адаптер extron для ioBroker
 Адаптер Extron SIS
 
 Устройства управления от Extron.
-Этот адаптер предназначен для управления некоторыми аудио-видео продуктами Extron с помощью **простой **простой **инструкции **S**et протокола.
+Этот адаптер предназначен для управления некоторыми аудио-видео продуктами Extron с помощью **простого**простого**инструкционного**инструкции**S**et протокола.
 Функциональный диапазон устройств огромен. Не все функции имеют смысл поддерживать с помощью адаптера и взаимодействия с iobroker.
 
-**Обратите внимание:** Когда тип устройства выбран в конфигурации адаптера, его нельзя будет изменить в будущем!
+**Внимание:** Если тип устройства выбран в конфигурации адаптера, его нельзя изменить в будущем!
 
-В установке iobroker может быть несколько экземпляров разных или одинаковых типов этого адаптера. Для будущих выпусков необходимо добавить действующую лицензию в конфигурацию адаптера для каждого экземпляра.
+В установке iobroker может быть несколько экземпляров разных или одинаковых типов этого адаптера. Для будущих выпусков необходимо добавить действительную лицензию в конфигурацию адаптера для каждого экземпляра.
 Если вы некоммерческая организация или используете его в личных целях, вы можете получить лицензию бесплатно. Пожалуйста, свяжитесь с автором.
 
 ### Поддерживаемые устройства
-- Матричный коммутатор презентаций 8x2 (DTP2 CrossPoint 82)
-- Проигрыватель и декодер потокового мультимедиа H.264 (SMD 202)
-- Кодировщик потокового мультимедиа (SME 211)
+- Презентационный матричный коммутатор 8x2 (DTP2 CrossPoint 82)
+- Плеер и декодер потокового мультимедиа H.264 (SMD 202)
+- Кодер потокового мультимедиа (SME 211)
 - Процессор ProDSP 12x8 с Dante (DMP 128 Plus AT)
 - Процессор ProDSP 12x8 с AEC, VoIP и Dante (DMP 128 Plus C V AT)
 
 ## Делать
-- Тип устройства проверяется в начале разговора. Иногда это не удается. Необходимо менять на более надежный механизм.
+- Тип устройства проверяется в начале разговора. Иногда это не удается. Надо менять на более надежный механизм.
 - Сделайте более детальный выбор используемых входов и выходов, чтобы уменьшить размер базы данных на устройствах DSP.
 - добавить больше команд и их реализацию на стороне базы данных
+- улучшить механизм переподключения сети
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+    * (Bannsaenger) introducing admin 5 UI (jsonConfig)
+-->
+### **WORK IN PROGRESS**
+* (Bannsaenger) updated to adapter-dev and release script
+* (Bannsaenger) updated dependencies
+
+### 0.2.1
+* (mschlgl) updated log messages, improved group control
+
+### 0.2.0
+* (Bannsaenger) updated dependencies
+
+### 0.1.16
+* (mschlgl) fixed group command issues, added statedelay log message
+
+### 0.1.15
+* (mschlgl) added statedelay log message
+
+### 0.1.14
+* (mschlgl) fixed group command issues
+
+### 0.1.13
+* (mschlgl) fixed source code version issues
 
 ### 0.1.12
 * (mschlgl) added support for channel preset selection in SMD202
+
 ### 0.1.11
 * (Bannsaenger) fixed support for groups in DSP DMP128
 
@@ -89,7 +117,7 @@ hash: MirW0DDWwLaw0/zTVl5RhrSemyrcN4OX4ivf2C5Pl9M=
 ## License
 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
 
-Copyright (c) 2021 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2023 Bannsaenger, https://github.com/bannsaenger <bannsaenger@gmx.de>
 
 ![CC BY-NC License](https://i.creativecommons.org/l/by-nc/4.0/88x31.png)
 

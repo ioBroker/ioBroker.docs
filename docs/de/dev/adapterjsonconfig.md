@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: LexY9A0at19A+Ujovu4Yx+sKBDambx+4gyh2wEa98vM=
+hash: BO3WV44vZwcvRy5TVZZAjgqHXc6hctoE5FdqcjdtBMA=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -144,7 +144,9 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
 - „Instanz“.
     - „Adapter“ – Name des Adapters. Mit dem speziellen Namen „_dataSources“ können Sie alle Adapter mit dem Flag „common.getHistory“ abrufen.
+    - „Adapter“ – optionale Liste der Adapter, die angezeigt werden sollen. Wenn nicht definiert, werden alle Adapter angezeigt. Nur aktiv, wenn das Attribut „Adapter“ nicht definiert ist.
     - „allowDeactivate“ – wenn wahr. Zusätzliche Option „Deaktivieren“ wird angezeigt
+    - „onlyEnabled“ – wenn wahr. Es werden nur aktivierte Instanzen angezeigt
     - „long“ – der Wert sieht wie „system.adapter.ADAPTER.0“ und nicht wie „ADAPTER.0“ aus
     - „kurz“ – der Wert sieht wie „0“ und nicht wie „ADAPTER.0“ aus
     - „all“ – Zu den Optionen die Option „alle“ mit dem Wert „*“ hinzufügen
@@ -290,7 +292,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
     - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
     - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
-    - „filterFiles“ – wie „[‘png‘, ‚svg‘, ‚bmp‘, ‚jpg‘, ‚jpeg‘]“.
+    - „filterFiles“ – wie „[‘png‘, ‚svg‘, ‚bmp‘, ‚jpg‘, ‚jpeg‘, ‚gif‘]“.
     - „filterByType“ – „Bilder, Code, TXT, Audio, Video“.
     - „allowUpload“ – erlaubtes Hochladen von Dateien
     - „allowDownload“ – erlaubtes Herunterladen von Dateien (Standard: true)
@@ -413,6 +415,13 @@ adapter.on('message', obj => {
   - „longitudeName“ – falls definiert, wird der Längengrad in diesem Attribut gespeichert, der Teiler wird ignoriert
   - `latitudeName` – falls definiert, wird der Breitengrad in diesem Attribut gespeichert, der Teiler wird ignoriert
   - `useSystemName` – falls definiert, wird das Kontrollkästchen mit „Systemeinstellungen verwenden“ angezeigt und Breiten- und Längengrad werden aus system.config gelesen, ein boolescher Wert wird unter dem angegebenen Namen gespeichert
+
+- „Schnittstelle“.
+
+  Wählt die Schnittstelle des Hosts aus, auf dem die Instanz ausgeführt wird
+
+  - „ignoreLoopback“ – Loopback-Schnittstelle nicht anzeigen (127.0.0.1)
+  - „ignoreInternal“ – interne Schnittstellen nicht anzeigen (normalerweise ist es auch 127.0.0.1)
 
 - „Lizenz“ – zeigt die Lizenzinformationen an, sofern diese nicht bereits akzeptiert wurden. Eines der Attribute „texts“ oder „licenseUrl“ muss definiert sein. Wenn die Lizenz akzeptiert wird, wird das definierte Konfigurationsattribut auf „true“ gesetzt.
   - „Texte“ – Array von Absätzen mit Texten, die jeweils als separater Absatz angezeigt werden

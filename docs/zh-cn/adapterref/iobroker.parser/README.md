@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.parser/README.md
 title: ioBroker 解析器适配器
-hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
+hash: Le4c+UayImhSKld1ia2TKTckHZUsW4qw9xKSC9LG2fk=
 ---
 ![标识](../../../en/adapterref/iobroker.parser/admin/parser.png)
 
@@ -18,7 +18,7 @@ hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
 
 该适配器使用正则表达式解析通过 URL 或从文件接收的数据。对于在此适配器的设置中配置的每个规则，将在`parser.<instance number>`下创建一个状态，并使用解析的信息填充和更新。
 
-## 设置
+＃＃ 设置
 ### 1.默认轮询间隔
 如果没有为配置表中的条目指定单独的轮询间隔值（列：“间隔”），则将使用此默认轮询间隔值。间隔以毫秒为单位，定义读取链接或文件以及更新状态的频率。
 
@@ -48,35 +48,35 @@ hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
 
 **表字段：**
 
-- ***名称*** - 在 `parser.<instance number>` 下创建的状态名称。不允许有空格。您可以使用点“.”作为分隔符来创建子文件夹。示例：“Shares.Microsoft.Current”将生成“parser.<实例号>.Shares.Microsoft.Current”。
-- ***URL 或文件名*** - 网站的 URL 或我们要检索其信息的文件的路径。示例“https://darksky.net/forecast/48.1371,11.5754/si24/de”（慕尼黑天气信息）或“/opt/iobroker/test/testdata.txt”（ioBroker 内的文件）。
-- ***RegEx*** - 正则表达式，如何从链接中提取数据。有一个很好的测试正则表达式的服务：[regex101](https://regex101.com/)。例如。 `temp swip">(-?\d+)°<` 对于上面的行。
-- ***Item***（德语：“Num”）- 正则表达式可以查找（匹配）多个条目。使用此选项，您可以定义要选择的匹配。 0 = 第一个匹配，1 = 第二个匹配，2 = 第三个匹配，依此类推。默认值为 0（第一个匹配）。
-- ***角色*** - 角色之一：
-    - 自定义 - 用户通过 *admin* 角色定义自己
+- **_Name_** - 在 `parser.<instance number>` 下创建的状态名称。不允许有空格。您可以使用点“.”作为分隔符来创建子文件夹。示例：“Shares.Microsoft.Current”将生成“parser.<实例号>.Shares.Microsoft.Current”。
+- **_URL 或文件名_** - 网站的 URL 或我们要检索其信息的文件的路径。示例“https://darksky.net/forecast/48.1371,11.5754/si24/de”（慕尼黑天气信息）或“/opt/iobroker/test/testdata.txt”（ioBroker 内的文件）。
+- **_RegEx_** - 正则表达式，如何从链接中提取数据。有一个很好的测试正则表达式的服务：[regex101](https://regex101.com/)。例如。 `temp swip">(-?\d+)°<` 对于上面的行。
+- **_Item_**（德语：“Num”）- 正则表达式可以查找（匹配）多个条目。使用此选项，您可以定义要选择的匹配。 0 = 第一个匹配，1 = 第二个匹配，2 = 第三个匹配，依此类推。默认值为 0（第一个匹配）。
+- **_Role_** - 角色之一：
+    - 自定义 - 用户通过_admin_角色定义自己
     - 温度 - 该值为温度
     - value - 该值是一个数字（例如调光器）
     - 盲注 - 值为盲注位置
     - switch - 值是开关位置（真/假）
     - 按钮 - 该值是一个按钮
     - 指示器 - 布尔指示器
-- ***类型*** - 每个下拉菜单的变量类型。
-- ***单位*** - 可选：添加到状态条目的值的单位。例如。 “°C”、“€”、“GB”等
-- ***旧*** - 如果激活，如果在提供的日期（URL 或文件）中无法读取或找到该值，则状态将*不会*更新，因此在这种情况下它将保留以前的值。
-- ***Subs*** - 可选：替换 URL 或文件名。如果第一列的 URL/文件名不可用，则将使用此替代 URL/文件名。
-- ***因子/偏移***（仅适用于“类型”数字）- 允许在设置为状态之前修改检索到的数据：
-  - *计算值* = *提取值* * 因子 + 偏移量，立即修改值
-- ***间隔*** - 轮询间隔，以 ms（毫秒）为单位。如果为空或 0，则将使用默认轮询间隔。请参阅上面的更多信息。
+- **_Type_** - 每个下拉菜单的变量类型。
+- **_Unit_** - 可选：添加到状态条目的值的单位。例如。 “°C”、“€”、“GB”等
+- **_旧_** - 如果激活，如果在提供的日期（URL 或文件）中无法读取或找到该值，则状态将不会更新，因此在这种情况下它将保留以前的值。
+- **_Subs_** - 可选：替换 URL 或文件名。如果第一列的 URL/文件名不可用，则将使用此替代 URL/文件名。
+- **_Factor/Offset_**（仅适用于“类型”数字）- 允许在设置为状态之前修改检索到的数据：
+  - _计算值_ = _提取值_ \* 因子 + 偏移量，立即修改值
+- **_Interval_** - 轮询间隔，以 ms（毫秒）为单位。如果为空或 0，则将使用默认轮询间隔。请参阅上面的更多信息。
 
 ## 设置示例
-|名称 | URL 或文件名 |正则表达式 |角色 |类型 |单位|间隔 |
-|--------------------|:-------------------------------------------------------------|:-------------------------------------|-------------|---------|------|----------|
+|名称 | URL 或文件名 |正则表达式 |角色 |类型 |单位|间隔|
+| ----------------- | :----------------------------------------------------- | :----------------------------------- | ----------- | ------- | ---- | -------- |
 |温度慕尼黑 | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<` |温度|数量 | ℃ | 180000 |
 |云跑 | `https://iobroker.net/` | `Privacy Notice` |指标|布尔 | | 60000 |
 | cpu温度| `/sys/devices/virtual/thermal/thermal_zone0/temp` | `(.*)` |温度|数量 | ℃ | 30000 |
 |股票价格.Visa | `https://www.finanzen.net/aktien/visa-aktie` | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` |价值|数量 |欧元 | 86400000 |
 |克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认 |字符串| | 600000 |
-|克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认 |字符串| | 600000 |
+|克莱南泽根 | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0` | `data-href="(.*?).">` |默认|字符串| | 600000 |
 
 *注意：* 将正则表达式应用于检索的 URL/文件数据时，所有换行符都将替换为空格以允许多行搜索。
 
@@ -87,8 +87,8 @@ hash: oeR9ZtyxUymKo7zcm46fSgTDep+KFOWhVQ2byZA3uNQ=
 
 有关正则表达式的更多信息：
 
-  * [MDN/Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-  * [regex101：创建和测试正则表达式的在线工具](https://regex101.com/)
+- [MDN/Mozilla 文档](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+- [regex101：创建和测试正则表达式的在线工具](https://regex101.com/)
 
 ＃＃＃ 例子
 - `.at` 匹配任何以 `at` 结尾的三字符字符串，包括 `hat`、`cat` 和 `bat`。
@@ -149,6 +149,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 ### **正在进行中** -->
 
 ## Changelog
+### 2.0.7 (2023-10-25)
+* (TA2k) added the user agent to prevent timeout blocking
+* (bluefox) Added a configurable userAgent option
+
 ### 2.0.5 (2023-06-19)
 * (bluefox) The result could be an array of values
 

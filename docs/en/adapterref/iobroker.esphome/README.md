@@ -31,8 +31,7 @@ All our adapter documentation can be found at [The DrozmotiX Docu Page](https://
 
 ## Prerequisites
 
-    * NodeJS >= 12.x
-    * Python >=3.7, <4.0
+    * NodeJS >= 18.x
     * API is activated in YAML
     * For admin tabs (optional)
         * ESPHome Dashboard IP is provided in instance settings

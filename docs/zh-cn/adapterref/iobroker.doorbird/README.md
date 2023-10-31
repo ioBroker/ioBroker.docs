@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: WruIwtqYcKUvaAzEuztcNU3bhGO37Sm43rwg/2Yosek=
+hash: WjF6c3YFNfxVzrzgnMCMY1Za3n93R+RMsKUeAj75xd4=
 ---
 ![标识](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
 ![NPM版本](https://img.shields.io/npm/v/iobroker.doorbird.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.doorbird.svg)
-![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.doorbird?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.doorbird?style=flat-square)
 ![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
 ![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/iobroker.doorbird?logo=github&style=flat-square)
@@ -39,7 +38,7 @@ DoorBird 是一款门对讲机，兼具门铃和安全系统的功能。该产�
 
 3. 输入 Doorbird 设备的 IP。您可以单击输入字段左侧的“搜索图标”。单击该图标后，配置屏幕顶部会出现一条消息。现在您有 60 秒的时间按下 Doorbird 设备上的响铃按钮。适配器尝试检测 IP 并为您填写所有字段。
 4. Doorbird 的设备 ID（不是 IP！）。
-5.需要在Doorbird设备上拥有API权限的用户名。
+5. 用户名需要在 Doorbird 设备上拥有 **API-Operator** 和 **Watch Always** 权限。
 6. 在字段 5 中输入的用户名密码。
 
 ![截屏](../../../en/adapterref/iobroker.doorbird/img/configscreen.png)
@@ -108,6 +107,16 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2023-10-03)
+
+-   (Schmakus) add debug logs to find out "Maximum call stack size exceeded"
+-   (Schmakus) update dependencies
+
+### 1.2.4 (2023-08-31)
+
+-   (Schmakus) tryed to fixed [#73] Maximum call stack size exceeded
+-   (Stefan592) fixed 'listen on all interfaces'
+
 ### 1.2.3 (2023-08-17)
 
 -   (Schmakus) changed schedule handling. (fix status code 400)
@@ -119,15 +128,6 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
 ### 1.2.1 (2023-08-17)
 
 -   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
-
-### 1.2.0 (2023-08-08)
-
--   (Schmakus) Update package.json (Node.js v16 or higher and NPM v7 or higher is required!)
--   (Stefan592/Schmakus) bugfix 'listen on all interfaces'
-
-### 1.1.1 (2023-08-03)
-
--   (Schmakus) fixed js-controller dependency [#69]
 
 ## License
 

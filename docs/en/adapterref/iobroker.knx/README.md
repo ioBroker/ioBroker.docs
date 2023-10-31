@@ -244,6 +244,11 @@ relation.
 -->
 
 ## Changelog
+### 2.0.23 (11.10.2023)
+* corrected wrong GW Port after adapter upgrade
+* allow self-defined values for min and max
+* some small other fixes
+
 ### 2.0.22 (04.07.2023)
 * added import specification, solved problems in GaTools
     

@@ -99,12 +99,15 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
 ### **WORK IN PROGRESS**
+* (Sneak-L8) multiple options for battery storage strategy
+
+### 2.0.2 (2023-10-10)
+* (Sneak-L8) default value for minimum regard time (180 seconds)
 * (Sneak-L8) fix calculation of phases for reduced charging
 * (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
-* (Sneak-L8) disable firmware chekc for c-series due to changes on webpage of Keba
-* (Sneak-L8) sometime 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
+* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
+* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
 
 ### 2.0.1 (2023-07-10)
 * (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
@@ -122,15 +125,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 ### 1.5.1 (2022-11-02)
 * (Sneak-L8) update release script to v3
-
-### 1.5.0 (2022-11-01)
-* (Sneak-L8) minor fixes from adapter check
-* (Sneak-L8) using Weblate for translations
-* (Sneak-L8) update power and amperage value immediately for better calculation
-* (Sneak-L8) fix description of authreq state
-* (Sneak-L8) handle message at wallbox startup
-* (Sneak-L8) catch error when UDP connection got lost (sentry IOBROKER-KECONTACT-1C)
-* (Sneak-L8) update url and regex to Keba firmware
 
 ## Legal
 

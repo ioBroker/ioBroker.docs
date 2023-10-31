@@ -528,6 +528,18 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.1 (2023-10-18)
+
+- (mcm1957) Standard iobroker release environment has been added.
+- (mcm1957) Some dependencies have been updated.
+
+### 1.1.0
+
+- (TA2k) Bugfixes
 
 ### 1.0.5
 

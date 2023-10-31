@@ -28,6 +28,18 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (ciddi89) Added: if available use deviceName datapoint for sonoff devices
+-   (arteck) Fixed: Changed zwave to zwave2
+
+### 2.9.4 (2023-10-16)
+
+-   (ciddi89) Added: Fallback for HmIp-eTRV-2 batterie devices [#218](https://github.com/ciddi89/ioBroker.device-watcher/issues/218)
+-   (@mango1402) Fixed: Proxmox VM/CT online status [#241](https://github.com/ciddi89/ioBroker.device-watcher/issues/241)
+-   (ciddi89) Updated: Dependencies
+
 ### 2.9.3 (2023-07-21)
 
 -   (ciddi89) Dropped: Node v14.x support and added: Node v20.x support

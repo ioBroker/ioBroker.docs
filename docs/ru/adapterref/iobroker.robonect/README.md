@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
+hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ---
 # IoBroker.robonect
 ![Логотип](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -18,6 +18,8 @@ hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 
 * Было протестировано с Robonect v1.1b (с ZeroConf v1.4) и Gardena R70Li.
 * Он также был протестирован с Robonect v1.3b (с ZeroConf v1.9) и Gardena R40Li.
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Настройки
 * Необходимо ввести IP-адрес (например, 192.168.xx) или имя хоста (например, robonect-D247BF) или полное доменное имя (например, robonect-D247BF.fritz.box) модуля Robonect. Если заданы имя пользователя и пароль, они также потребуются.
@@ -59,7 +61,7 @@ hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
 
-### 1.3.3 (2023-10-04)
+### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
 * (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses

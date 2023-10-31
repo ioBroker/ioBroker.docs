@@ -1,14 +1,14 @@
 ---
 title: docker
-lastChanged: 28.10.2022
-template: true
+lastChanged: 26.10.2023
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/docker.md
-hash: wtmhvqSUdCGQ2XnJE/R19KyVv6zdkSQx/+vNh6V4vo0=
+hash: 0ytAvqJ8u2sLePPL01DfwmIpeTsFiKp56auXbjJ+HSc=
 ---
-?> ***This is a placeholder***.<br><br> Help ioBroker and expand this article. Please note the [ioBroker Style Guide](community/styleguidedoc) so that the changes can be adopted more easily.
+# IoBroker installation under Docker
+## Check requirements
+Before installing, please check whether the system meets all the necessary [Installation requirements](./requirements.md).
 
-@@@ Article from the forum as a basis. Additionally how do I get Docker on NAS or OS and configure Docker for ioBroker.@@@
-
-The official ioBroker Docker image from buanet can be found in [here](https://github.com/buanet/ioBroker.docker).
+## Installation
+On this page you can find the official documentation to install ioBroker on Docker: https://docs.buanet.de/de/iobroker-docker-image/

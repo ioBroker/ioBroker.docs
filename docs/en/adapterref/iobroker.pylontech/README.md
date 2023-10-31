@@ -37,8 +37,17 @@ Rxd and Txd must be crossed. so that what one sends (Txd) can be received (Rxd) 
 Pylontech has changed the RJ plugs on the batteries over time.
 In the beginning there were was a RJ11 plugs like on the telephone. Now it is an RJ45 like on the network connection.
 The following drawings show a standard nine pin D-SUB female connector on the cable.
-This cable can be easily connected via the USB port with a RS232 to USB adapter.
+This cable can be easily connected via the USB port with a RS232 to USB adapter or to an RS232 to LAN or WIFI converter.
 Only the first battery in the array provides all information. You only need a cable and a serial port
+
+You can assemble such a cable yourself with a [configurable plug](https://www.amazon.de/gp/product/B0C8JFWNR7). This is available with an RJ45 connector and a female D-SUB9 plug. You simply connect a patch cable to it. **But be careful to insulate the remaining cables well so that they do not touch each other. Not all batteries have the remaining pins unused.**
+In principle, you can also connect an RJ11 cable to such an adapter. But I find it very wobbly and always think it doesn't make good contact.
+
+![plug](media/configurablePlug.jpg)
+
+Or ready-made cables contact in the [forum](https://forum.iobroker.net/topic/68707).
+
+![kabel](media/Kabel.jpg)
 
 #### RJ45
 
@@ -129,6 +138,17 @@ Then you should restart the udev and disconnect and reconnect the device once.
 sudo /etc/init.d/udev restart
 ```
 
+#### Find the port on Linux second method
+
+You can find a unique name for each device. It doesn't change with FTDI or something like that. This can also be entered into the adapter.
+
+```
+$ ls -l /dev/serial/by-id
+lrwxrwxrwx 1 root root 13 10. Okt 11:37 usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0 -> ../../ttyUSB0
+```
+
+so the device is `/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
+
 ### com over tcp
 
 Instead of local connect:
@@ -151,12 +171,31 @@ Does this adapter also support network connect:
 
 There are several projects that connect ESP or ESP32 to Telnet. Please remember the MAX. If the MAX gets hot then either the signal level of 5V is too high because you got a 3.3V model or you have connected a 3.3V version to 5V operating voltage.
 
+![ESP-LINK](media/esp-link.jpg)
+
 Here are some examples:
+
 ESP-LINK: https://github.com/jeelabs/esp-link
 
 ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serial Port Over WiFi: https://www.instructables.com/Serial-Port-Over-WiFi/
+
+Tasmota can also be used: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+
+Only the following or self-compiled ones can be used as bin, otherwise the TCP server is not included:
+* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+
+The Gipos must be set beforehand. One each on TCP Rx and TCP Tx.
+```
+TCPBaudRate 115200
+TCPStart 23
+Rule1 ON System#Boot do TCPStart 23 endon 
+Rule1 1 
+```
+It works because a transparent TCP server is provided on, for example, port 23. The port can be selected, simply exchange 23 for 9000, for example.
+**And of course solder a MAX2323 between the Gipos and the RJ/DSUB plug!!!!**
 
 #### Linux to Net
 
@@ -203,12 +242,13 @@ What was tested:
 
 #### RS232 to ioBroker
 
-| Communication hardware              | Type    | Is working | Comments                                                                                                                                                                                                                                            |
-| ----------------------------------- | ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Serial to USB                       | local   | yes        | There is a large selection of chips for the adapters. Depending on the model, identification problems can occur if the adapters do not have a serial number and more than one is connected. Windows already assigns one COM port for each USB plug. |
-| LogiLink AU0034                     | local   | yes        |                                                                                                                                                                                                                                                     |
-| ESP-LINK                            | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Remember to use a converter like the MAX                                                                                             |
-| Waveshare RS232/485 TO ETH (for EU) | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port.                                                                                                             |
+| Communication hardware              | Type    | Is working | Comments                                                                                                                                                                                                                                                          |
+| ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Serial to USB                       | local   | yes        | There is a large selection of chips for the adapters. Depending on the model, identification problems can occur if the adapters do not have a serial number and more than one is connected. Windows already assigns one COM port for each USB plug.               |
+| LogiLink AU0034                     | local   | yes        |                                                                                                                                                                                                                                                                   |
+| ESP-LINK                            | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Remember to use a converter like the MAX                                                                                                           |
+| Waveshare RS232/485 TO ETH (for EU) | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port.                                                                                                                           |
+| Waveshare RS232/485/422 TO POE ETH  | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port. The converter can be supplied with power via POE. If POE is available, you do not need a power supply near the batteries. |
 
 #### Batteries
 
@@ -217,7 +257,7 @@ What was tested:
 | US5000           | US    | V1.3 22-08-10 | fine       |                                            |
 | US2000C          | US    | V2.6 21-09-26 | fine       |                                            |
 | US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments |
-| Force H2         | Force | V1.5 21-06-18 | in test    |                                            |
+| Force H2         | Force | V1.5 21-06-18 | fine       | Attention: in some Force manuals only the RX and TX connections are listed in the connector description. The ground is on PIN 8 and must also be connected. |
 
 If you use hardware, please write to me in the forum or in Github as an issue. We would be happy to continue this list.
 
@@ -230,6 +270,10 @@ Only the first Accu in the array provides all information. If you connect this a
 Please note: **The RS485 and Canbus interfaces are not for this adapter. They speak a different language.**
 
 ![Battery stack](media/battery_stack.JPG)
+
+At the Force there is also a terminal.
+
+![Force](media/H2.JPG)
 
 ## Admin interface
 

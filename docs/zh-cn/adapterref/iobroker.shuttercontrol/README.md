@@ -3,46 +3,110 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: A6FY31pfkBeJ3dtAPOoKfuvLqc0tCJzAbqlfnkscr3Q=
+hash: U/wwCQkOGo8qdoGMYhPKgw7SxZqroelTpoQACLy7wbA=
 ---
 ![标识](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
 ![安装数量](http://iobroker.live/badges/shuttercontrol-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
 ![已知漏洞](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
-![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![执照](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![捐](https://img.shields.io/badge/donate-paypal-blue?style=flat)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shuttercontrol
-![测试和发布](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+![测试与发布](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-此适配器使用服务 Sentry.io 自动向我作为开发人员报告异常和代码错误以及新的设备模式。更多详情见下文！
+该适配器使用 Sentry.io 服务自动向我（作为开发人员）报告异常和代码错误以及新设备架构。更多详情请看下文！
 
-**如果喜欢，请考虑捐款：**
+**如果您喜欢，请考虑捐赠：**
 
 [![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 ## IoBroker 的快门控制适配器
-自动装车
+自动滚装
 
-[德意志研究报](docs/de/shuttercontrol.md)
+[德国专利法](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-Deutsch)
 
 百叶窗自动控制
 
-[英文说明在这里](docs/en/shuttercontrol.md)
+[英文说明在这里](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-English)
 
-### 什么是 Sentry.io 以及向该公司服务器报告的内容？
-Sentry.io 是一项服务，供开发人员从他们的应用程序中获取有关错误的概览。正是在这个适配器中实现了这一点。
+### Sentry.io 是什么以及向该公司的服务器报告什么？
+Sentry.io 是一项服务，供开发人员获取有关应用程序错误的概述。这正是在这个适配器中实现的。
 
-当适配器崩溃或发生其他代码错误时，此错误消息也会出现在 ioBroker 日志中，并提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包括在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
+当适配器崩溃或发生其他代码错误时，也会出现在 ioBroker 日志中的此错误消息会提交给 Sentry。当您允许 iobroker GmbH 收集诊断数据时，您的安装 ID（这只是一个唯一的 ID **没有**关于您、电子邮件、姓名等的任何其他信息）也包含在内。这允许 Sentry 对错误进行分组并显示有多少唯一用户受到此类错误的影响。所有这些都有助于我提供基本上不会崩溃的无错误适配器。
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Saturday added as work week
+* (simatec) Dependencies updated
+* (simatec) Fix Auto-Living, Auto-Sleep & Auto-Children
+* (simatec) Timeout Fix
+* (FredF63) Update German Docu
+* (simatec) Wiki added
+
+
+### 1.6.2 (2023-08-28)
+* (simatec) Dependencies updated
+* (simatec) node 20 tests added
+* (simatec) Fix ending Sunprotect with open door/window
+* (5G7K) Fix timing & some states for sunprotect
+
+### 1.6.1 (2023-07-17)
+* (simatec) Fix Heat protection
+
+### 1.6.0 (2023-07-16)
+* (simatec) Manu mode block added
+* (simatec) Heat protection added
+* (simatec) Added rounding of incoming shutter states
+* (simatec) Ukrainian language added
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+
+### 1.5.0 (2023-06-05)
+* (simatec) new Manu-Mode Check added
+* (simatec) suncalc added
+* (simatec) Dependencies updated
+
+### 1.4.29 (2023-04-26)
+* (simatec) Bugfix Brightness down
+
+### 1.4.28 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.27 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.26 (2023-04-14)
+* (simatec) Fix Sunprotect
+
+### 1.4.25 (2023-04-13)
+* (simatec) small Fixes
+
+### 1.4.24 (2023-04-10)
+* (simatec) Fix end of Sunprotect
+* (simatec) small Fixes
+* (simatec) Fix shutter alarm
+* (simatec) Sentry fixes
+* (simatec) Bugfix Brightness down
+* (simatec) Dependencies updated
+* (j4nv) Fix Astro Time
+
+### 1.4.23 (2023-03-28)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) small fixes
+
+### 1.4.22 (2023-03-18)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) Fix Alarm Settings
+
 ### 1.4.21 (2023-02-02)
 * (simatec) fix Brightness Settings
 * (simatec) Dependencies updated

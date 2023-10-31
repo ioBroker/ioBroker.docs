@@ -142,7 +142,9 @@ Possible types:
 
 - `instance`
     - `adapter` - name of adapter. With special name `_dataSources` you can get all adapters with flag `common.getHistory`.
+    - `adapters` - optional list of adapters, that should be shown. If not defined, all adapters will be shown. Only active if `adapter` attribute is not defined.
     - `allowDeactivate` - if true. Additional option "deactivate" is shown
+    - `onlyEnabled` - if true. Only enabled instances will be shown
     - `long` - value will look like `system.adapter.ADAPTER.0` and not `ADAPTER.0`
     - `short` - value will look like `0` and not `ADAPTER.0`
     - `all` - Add to the options "all" option with value `*`
@@ -278,7 +280,7 @@ Possible types:
   Input field with file selector
     - `disableEdit` - if user can manually enter the file name and not only through select dialog
     - `limitPath` - limit selection to one specific object of type `meta` and following path (not mandatory)
-    - `filterFiles` - like `['png', 'svg', 'bmp', 'jpg', 'jpeg']`
+    - `filterFiles` - like `['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
     - `filterByType` - `images, code, txt, audio, video`
     - `allowUpload` - allowed upload of files
     - `allowDownload` - allowed download of files (default true)
@@ -390,6 +392,11 @@ adapter.on('message', obj => {
   - `longitudeName` - if defined, the longitude will be stored in this attribute, divider will be ignored
   - `latitudeName` - if defined, the latitude will be stored in this attribute, divider will be ignored
   - `useSystemName` - if defined, the checkbox with "Use system settings" will be shown and latitude, longitude will be read from system.config, a boolean will be saved to the given name
+
+- `interface`
+  Selects the interface from of the host, where the instance runs
+  - `ignoreLoopback` - do not show loopback interface (127.0.0.1) 
+  - `ignoreInternal` - do not show internal interfaces (normally it is 127.0.0.1 too) 
 
 - `license` - shows the license information if not already accepted. One of attributes `texts` or `licenseUrl` must be defined. When the license is accepted, the defined configuration attribute will be set to `true`.
   - `texts` - array of paragraphs with texts, which will be shown each as a separate paragraph

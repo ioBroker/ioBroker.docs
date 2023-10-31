@@ -32,6 +32,9 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.3 (2023-10-11)
+* (BenAhrdt) Errorhandling improoved in case if device is not present. => Reducing API connection trafic
+
 ### 3.1.2 (2023-04-18)
 * (BenAhrdt) check timestamp improoved
 

@@ -3,75 +3,101 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roadtraffic/README.md
 title: ioBroker.roadtraffic
-hash: tyNpA/0hQ+n0OCG3Mnofzv9ocHgboD9cNkeV7eIb/CU=
+hash: YmnxW7ZtzsG+u0IO1fpwJZaBmGWFwiFcPvcI1jn7j5Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.roadtraffic/admin/roadtraffic.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/roadtraffic-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.roadtraffic.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.roadtraffic)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.roadtraffic.svg)
-![Tests](https://travis-ci.org/BuZZy1337/ioBroker.roadtraffic.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.roadtraffic.png?downloads=true)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.roadtraffic)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.roadtraffic)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roadtraffic/latest)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.roadtraffic)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.roadtraffic)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.roadtraffic.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/roadtraffic-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/roadtraffic-installed.svg)
 
 # IoBroker.roadtraffic
-## Über diesen Adapter
-Dieser Adapter verwendet die HERE.com-API, um den Verkehr auf Ihren Routen zu überprüfen. Sie können mehrere Routen konfigurieren. Der Adapter überprüft die aktuelle Verkehrssituation und zeigt an, wie lange Ihre Reise dauern wird.
-Der Adapter verfügt über einen Wecker - damit Sie dem Adapter mitteilen können, zu welcher Zeit Sie arbeiten müssen - und der Adapter beginnt, Radio zu spielen und macht eine Ansage auf Alexa (Alexa2-Adapter erforderlich) - oder Sie können Ihr eigenes Skript verwenden, um zu reagieren auf den Alarm des Adapters ..
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/roadtraffic/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.roadtraffic/actions/workflows/codeql.yml)
 
-## Fertig machen
+<!--
+
+## Sentry **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+->
+## Über diesen Adapter
+Dieser Adapter verwendet die HERE.com-API, um den Verkehr auf Ihren Routen zu überprüfen. Sie können mehrere Routen konfigurieren und der Adapter prüft die tatsächliche Verkehrssituation und zeigt Ihnen an, wie lange Ihre Fahrt dauern wird.
+Der Adapter verfügt über einen Wecker – so können Sie dem Adapter mitteilen, wann Sie bei der Arbeit sein müssen – und der Adapter beginnt mit der Radiowiedergabe und macht eine Ansage auf Alexa (Alexa2-Adapter erforderlich) – oder Sie können Ihr eigenes Skript verwenden, um zu reagieren auf den Alarm des Adapters..
+
+## Erste Schritte
 So lass uns gehen:
 
-1. Gehen Sie zu https://developer.here.com/sign-up?create=Freemium-Basic&keepState=true&step=account und erstellen Sie ein HERE.com Free Developer-Konto (Freemium).
+1. Gehen Sie zu https://developer.here.com/sign-up?create=Freemium-Basic&keepState=true&step=account und erstellen Sie ein kostenloses HERE.com-Entwicklerkonto (Freemium).
 
-![Here1](../../../en/adapterref/iobroker.roadtraffic/img/Here1.png)
+![Hier1](../../../en/adapterref/iobroker.roadtraffic/img/Here1.png)
 
-2. Stellen Sie sicher, dass Freemium ausgewählt ist und füllen Sie das Formular auf der linken Seite aus. (Vorname, Nachname, E-Mail, ..)
+2. Stellen Sie sicher, dass Freemium ausgewählt ist, und füllen Sie das Formular auf der linken Seite aus. (Vorname, Nachname, E-Mail usw.)
 
-![Here2](../../../en/adapterref/iobroker.roadtraffic/img/Here2.png)
+![Hier2](../../../en/adapterref/iobroker.roadtraffic/img/Here2.png)
 
-3. Klicken Sie auf Für HIER-Konto registrieren ... und vergessen Sie nicht, das Kontrollkästchen (Akzeptieren Sie die Servicebedingungen usw.) anzukreuzen.
+3. Klicken Sie auf „Für HERE-Konto registrieren ...“ und vergessen Sie nicht, das Kontrollkästchen (Akzeptieren Sie die Servicebedingungen usw.) anzukreuzen.
 
-![Here3](../../../en/adapterref/iobroker.roadtraffic/img/Here3.png)
+![Hier3](../../../en/adapterref/iobroker.roadtraffic/img/Here3.png)
 
-4. Noch einmal - stimmen Sie den Allgemeinen Geschäftsbedingungen zu und klicken Sie auf die Schaltfläche "Codierung starten".
+4. Noch einmal: Stimmen Sie den Allgemeinen Geschäftsbedingungen zu und klicken Sie auf die Schaltfläche „Codierung starten“.
 
-![Here4](../../../en/adapterref/iobroker.roadtraffic/img/Here4.png)
+![Hier4](../../../en/adapterref/iobroker.roadtraffic/img/Here4.png)
 
-5. Auf der nächsten Seite befinden Sie sich bereits in Ihrem HERE.com-Dashboard. Suchen Sie nach dem Abschnitt "REST" und klicken Sie auf "App generieren".
+5. Auf der nächsten Seite befinden Sie sich bereits auf Ihrem HERE.com-Dashboard. Suchen Sie nach dem REST-Bereich und klicken Sie auf „App generieren“.
 
-![Here5](../../../en/adapterref/iobroker.roadtraffic/img/Here5.png)
+![Hier5](../../../en/adapterref/iobroker.roadtraffic/img/Here5.png)
 
-6. Klicken Sie auf "Create API Key" - Sie erhalten einen API Key. Öffnen Sie die Instancesettings des roadtraffic Adapters in ioBroker und fügen Sie den API Key in das Konfigurationsfeld ein.
+6. Klicken Sie auf „API-Schlüssel erstellen“ – Sie erhalten einen API-Schlüssel. Öffnen Sie die Instanzeinstellungen des Roadtraffic-Adapters in ioBroker und fügen Sie den API-Schlüssel in das Konfigurationsfeld ein.
 
-![Here6](../../../en/adapterref/iobroker.roadtraffic/img/Here6.png)
+![Hier6](../../../en/adapterref/iobroker.roadtraffic/img/Here6.png)
 
 7. Klicken Sie in den Instanzeinstellungen auf das Plus-Symbol und erstellen Sie Ihre erste Route.
 
-Nachdem Sie alle Informationen in den Konfigurationsdialog eingegeben haben, klicken Sie auf "Speichern & Schließen".
+Nachdem Sie alle Informationen in den Konfigurationsdialog eingegeben haben, klicken Sie auf „Speichern und schließen“.
 Der Adapter sollte jetzt neu starten und Sie können loslegen!
 
 ## Wecker
-In den Instancesettings können Sie den Wecker aktivieren, indem Sie das Kontrollkästchen "Enable Alarm-Clock feature" aktivieren.
-In den Alexa2-Instanzeinstellungen sollte der Alexa2-Adapter für die Verwendung der Push-Verbindung installiert und eingestellt sein.
-Wählen Sie das Alexa-Gerät aus, das vom Adapter gesteuert werden soll, und geben Sie die TuneIn StationID ein, die beim Auslösen des Alarms abgespielt werden soll.
-Die Alarmlautstärke reicht von 0-100.
-Mit dem Speak-String können Sie die Ansage von Alexa steuern.
-Standard ist: Guten Morgen% name. Bei aktueller Verkehrslage benötigst du% dur zur Arbeit.
+In den Instanzeinstellungen können Sie den Wecker aktivieren, indem Sie das Kontrollkästchen „Weckerfunktion aktivieren“ aktivieren.
+Sie sollten den Alexa2-Adapter installiert und in den Alexa2-Instanzeinstellungen auf die Verwendung einer Push-Verbindung eingestellt haben.
+Wählen Sie das Alexa-Gerät aus, das über den Adapter gesteuert werden soll, und geben Sie die TuneIn-Sender-ID ein, die abgespielt werden soll, wenn der Alarm ausgelöst wird.
+Die Alarmlautstärke hat einen Bereich von 0-100.
+Mit der Speak-Zeichenfolge können Sie die Ansage von Alexa steuern.
+Standard ist: Guten Morgen %name. Bei aktueller Verkehrslage benötigst du %dur zur Arbeit.
 
-15 Sekunden nachdem Alexa mit der Wiedergabe der angegebenen TuneIn Station begonnen hat, wird die Saite angesagt.
-Wenn Sie zum Beispiel eine Route mit dem Namen 'Daniel' haben und der Alarm ausgelöst wird, sagt Alexa: Guten Morgen Daniel. Bei aktueller Verkehrslage benötigst du 29 Minuten zur Arbeit.
+15 Sekunden nachdem Alexa begonnen hat, die angegebene TuneIn-Station abzuspielen, wird die Zeichenfolge angesagt.
+Wenn Sie beispielsweise eine Route mit dem Namen „Daniel“ haben und der Alarm ausgelöst wird, sagt Alexa: Guten Morgen Daniel. Bei aktueller Verkehrslage benötigen Sie 29 Minuten zur Arbeit.
 
-Lassen Sie die Speak-Zeichenfolge leer, wenn der Adapter nur die TuneIn-Station abspielen soll und keine Ansage erhalten soll.
+Lassen Sie die Zeichenfolge „Sprechen“ leer, wenn Sie möchten, dass der Adapter nur mit der Wiedergabe der TuneIn Station beginnt und keine Ansage erhält.
 
-Jede Route hat 7 Alarmkanäle (Montag-Sonntag).
-In jedem Channel gibt es folgende Zustände:
+Jede Route verfügt über 7 Alarmkanäle (Montag-Sonntag).
+In jedem Kanal gibt es folgende Zustände:
 
-* Ankunftszeit: Geben Sie die Zeit ein, zu der Sie an Ihrem Ziel sein möchten (Beispiel: 07:30 Uhr ist halb acht Uhr morgens).
-* Badezeit: Geben Sie die Uhrzeit ein, zu der Sie zur Reisedauer hinzugefügt werden möchten. (Beispiel: 45 ist 45 Minuten. Nehmen wir an, Sie haben die Ankunftszeit auf 10:00, die Badezeit auf 30 Minuten und die aktuelle Reisedauer auf 1 Stunde eingestellt. Dann wird der Adapter um 08:30 Uhr ausgelöst (Ankunftszeit - Badezeit - Reisedauer).
-* enabled: Auf true setzen, wenn Sie den Alarm für diesen Tag aktivieren möchten
-* ausgelöst: Der Adapter setzt diesen Status auf true, wenn der Alarm ausgelöst wird. (Sie können es beispielsweise mit eigenen Skripten verwenden.) Der ausgelöste Status wird am entsprechenden Tag um 00:00 Uhr auf false zurückgesetzt. (Der Samstagstrigger wird am Samstag um 00:00 Uhr auf false gesetzt.)
+* Ankunftszeit: Geben Sie die Uhrzeit ein, zu der Sie an Ihrem Ziel sein möchten (Beispiel: 07:30 ist halb sieben Uhr morgens).
+* Badezeit: Geben Sie die Zeit ein, die zur Reisedauer hinzugefügt werden soll. (Beispiel: 45 ist 45 Minuten. Nehmen wir an, Sie haben die Ankunftszeit auf 10:00 Uhr, die Badezeit auf 30 Minuten und die aktuelle Reisedauer auf 1 Stunde eingestellt. Dann wird der Adapter um 08:30 Uhr (Ankunftszeit – Badezeit – Reisedauer) ausgelöst.
+* aktiviert: Auf „true“ setzen, wenn Sie den Alarm für diesen Tag aktivieren möchten
+* ausgelöst: Der Adapter setzt diesen Status auf „True“, wenn der Alarm ausgelöst wird. (Sie können es beispielsweise mit eigenen Skripten verwenden.) Der ausgelöste Status wird um 00:00 Uhr des entsprechenden Tages auf „false“ zurückgesetzt. (Der Samstag-Trigger wird am Samstag um 00:00 Uhr auf „false“ gesetzt).
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.2 (2023-10-27)
+* (mcm1957) Error logging has been corrected.
+
+### 1.0.1 (2023-10-26)
+* (mcm1957) Issues reported by ioBroker adapter checker and lint have been fixed.
+
+### 1.0.0 (2023-10-26)
+* (mcm1957) This adapter has been moved into iobroker-community-organization.
+* (mcm1957) Adapter requires nodejs 18.x or newer now.
+* (mcm1957) Dependencies have been updated.
+
 ### 0.2.0 (2019-12-21)
 * (BuZZy1337) Alarm-Clock implemented. (See Readme "Alarm-Clock" section for details)
 
@@ -91,6 +117,7 @@ In jedem Channel gibt es folgende Zustände:
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2019 BuZZy1337 <buzzy1337@outlook.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -12,11 +12,11 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.pvforecast.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/pvforecast-stable.svg
 BADGE-Installed: http://iobroker.live/badges/pvforecast-installed.svg
-chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast - Adapter zu vorhersage eurer PV Erträge"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
+chapters: {"pages":{"de/adapterref/iobroker.pvforecast/README.md":{"title":{"de":"ioBroker.pvforecast"},"content":"de/adapterref/iobroker.pvforecast/README.md"},"de/adapterref/iobroker.pvforecast/vis.md":{"title":{"de":"ioBroker.pvforecast - VIS"},"content":"de/adapterref/iobroker.pvforecast/vis.md"}}}
 ---
 ![Logo](../../admin/pvforecast.png)
 
-# ioBroker.pvforecast - Adapter zu vorhersage eurer PV Erträge
+# ioBroker.pvforecast
 
 Dieser Adapter ersetzt das JavaScript aus dem [ioBroker forum](https://forum.iobroker.net/topic/26068/forecast-solar-mit-dem-systeminfo-adapter)
 
@@ -71,6 +71,13 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.9.0 (2023-10-28)
+* (klein0r) Updated conversion for Solcast
+* (klein0r) Store JSON state values in prettified format
+
+### 2.8.2 (2023-10-28)
+* (klein0r) Added icons in admin tabs
+
 ### 2.8.1 (2023-09-16)
 * (klein0r) Fixed graph limits in summary
 * (klein0r) Added options for summary graph and label color
@@ -81,15 +88,6 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 
 ### 2.7.1 (2023-05-10)
 * (klein0r) Summary channel should not be deleted
-
-### 2.7.0 (2023-05-09)
-* (klein0r) Request forecast data in correct timezone
-* (bluefox) Type of the `summary` object was changed to `device`
-
-### 2.6.0 (2023-03-09)
-* (arteck) chart summary for more strings
-* (klein0r) Fixed charting summary
-* (klein0r) Rounded values in JSON summary
 
 ## License
 MIT License

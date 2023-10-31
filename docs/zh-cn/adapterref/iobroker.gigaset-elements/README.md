@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 3BQgy9cTB1yS5R6UEnre+B1g4tCi8zlCs2ichCE95uw=
+hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
 ---
 ![标识](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -42,14 +42,15 @@ Gigaset Elements 适配器 (https://gigaset.com/smart-home)
 该适配器当前仅读取数据，不允许更改任何内容。
 
 ### 支持的元素
-到目前为止，该适配器已经过测试/已知可与以下元素配合使用，并且测试数据可通过 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 获得：
+到目前为止，该适配器已经过测试/已知可与以下元素配合使用，并且测试数据可通过[gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api)获得：
 
-|元素类型|元素名称 |测试者 |
-| ------------ | ----------------------- | ----------- |
+|元素类型|元素名称|测试者 |
+| ------------ | ----------------------- | --------------------------------------------------------------------- |
 |是01 |警报器|数学 |
 |嗯01 |通用/窗/门|数学 |
 | WD01 |水 |数学 |
 | sd01 | sd01 |烟雾（仅测试警报）|家庭控制|
+| SP01 |插头| matthsc（由[沃格尔93](https://github.com/Voggl93)赞助的硬件）|
 
 该适配器还支持以下其他设备：
 
@@ -84,7 +85,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 如果操作成功，回调响应为<code>{ response: object }</code>如果出现问题，回调响应为<code>{ error: &quot;&lt;error message&gt;&quot; }</code> 。
 
 #### 准备测试数据
-从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即针对尚无测试数据的新事件或元素。
+从 Gigaset Elements API 加载当前数据，并准备将其作为测试数据集成到 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 中，即用于尚无测试数据的新事件或元素。
 
 从 API 加载基站、元素和事件，减少数据量以最大限度地减少数据量，并尝试从数据中删除姓名和 ID 等个人信息。
 
@@ -116,13 +117,10 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.0 (2023-10-15)
 
-### **WORK IN PROGRESS**
-
+-   (matthsc) add support for plugs
 -   (matthsc) drop support for Node 14 and 16
-
-### **WORK IN PROGRESS**
-
 -   (matthsc/dependabot) dependency updates
 
 ### 0.3.0 (2022-09-28)

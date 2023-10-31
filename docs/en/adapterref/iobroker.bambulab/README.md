@@ -49,7 +49,6 @@ You must select your Printer model, only the X1 allows pushing of messages, P1x 
 | Speed Level        | :white_check_mark:  | :white_check_mark:  | :white_check_mark:       | :question: needs testing |
 
 ## To-Do
-[ ] Implement more commands, please provide feedback what we need :exclamation:  
 [ ] Restructure/complete current control states in control folder
 [ ] Optimize state attributes definitions  
 [ ] Test printer series P1S  
@@ -70,9 +69,15 @@ When the adapter crashes or any other Code error happens, this error message tha
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2023-10-18) - Small fixes for new firmware version
+* (DutchmanNL) Button for homing added, fixes #28
+* (DutchmanNL) Bugfix: Translation of HMS-Error codes
+* (DutchmanNL) Several bugfixes for situations no AMS is used
+* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+
 ### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
 #### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human readable start time added
+* (DutchmanNL) State for human-readable start time added
 * (DutchmanNL) Speed level control implemented solves #10
 * (DutchmanNL) Capability to control all fans implemented
 * (DutchmanNL) Control bed & Nozzle temperature implemented

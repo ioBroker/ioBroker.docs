@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: 1fgkkKQY5X8S3cuug/eWiCXdSl4D1IgBnG3oSUKmZh4=
+hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -105,6 +105,13 @@ Html 模板可用于显示任何 html 代码。
 ＃＃＃ 门锁
 ![门锁](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
+＃＃＃ 吸尘器
+该小部件主要适用于小米吸尘器。但它也可以用于任何其他真空吸尘器。
+
+唯一的区别是小米支持房间清洁。
+
+![吸尘器](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-vacuum.png)
+
 ### 时间选择器
 ＃＃ 去做
 - 调查小部件的延迟
@@ -115,6 +122,17 @@ Html 模板可用于显示任何 html 代码。
 ### **正在进行中** -->
 
 ## Changelog
+### 1.3.3 (2023-10-26)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added color settings to actual
+* (bluefox) Vacuum settings were hidden
+
+### 1.3.2 (2023-10-14)
+* (bluefox) Small improvements done
+
+### 1.3.1 (2023-10-13)
+* (bluefox) Added the vacuum cleaner widget
+
 ### 1.2.1 (2023-09-18)
 * (bluefox) Added door lock, rgb and thermostat to switches widget
 

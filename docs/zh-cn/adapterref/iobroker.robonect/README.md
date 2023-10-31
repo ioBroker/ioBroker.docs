@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.robonect/README.md
 title: ioBroker.robonect
-hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
+hash: FGeDfBl9nVkXEzGukRkhhWxXB18TSEWxpNjl8miJV0U=
 ---
 # IoBroker.robonect
 ![标识](../../../en/adapterref/iobroker.robonect/admin/robonect.png)
@@ -14,10 +14,12 @@ hash: 842IM/hSQUSnl0BAa8+OBHGQy13DqPRK5+0t+11FGLE=
 
 [![测试和发布](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml/badge.svg)](https://github.com/Grizzelbee/ioBroker.robonect/actions/workflows/codeql.yml)
 
-这是一个 ioBroker 适配器，适用于支持 Robonect HX 的割草机。
+这是一款适用于支持 Robonect HX 的割草机的 ioBroker 适配器。
 
 * 已使用 Robonect v1.1b（使用 ZeroConf v1.4）和 Gardena R70Li 进行测试。
 * 它还使用 Robonect v1.3b（使用 ZeroConf v1.9）和 Gardena R40Li 进行了测试。
+
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ＃＃ 设置
 * 需要输入 Robonect 模块的 IP 地址（如 192.168.x.x）或主机名（如 robonect-D247BF）或完全限定域名（如 robonect-D247BF.fritz.box）。如果设置了用户名和密码，它们也是必需的。
@@ -59,7 +61,7 @@ robonect 模块有一个名为“推送服务”的配置选项 - 它根据一�
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
 
-### 1.3.3 (2023-10-04)
+### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
 * (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses

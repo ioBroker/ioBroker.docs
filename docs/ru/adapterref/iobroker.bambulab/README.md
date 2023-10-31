@@ -3,38 +3,38 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bambulab/README.md
 title: ioBroker.bambulab
-hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
+hash: yQ0eXhG2tSPxVJ1yRnio0js1/98MhPI1Qp41pSS5Wns=
 ---
-![версия NPM](https://img.shields.io/npm/v/iobroker.bambulab.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.bambulab.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bambulab.svg)
 ![Количество установок](https://iobroker.live/badges/bambulab-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bambulab-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/bambulab-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bambulab.png?downloads=true)
 
 <img src="admin/bambulab.png" alt="Логотип" width="200"/>
 
 # IoBroker.bambulab
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.bambulab/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер Bambulab для 3D-печати для ioBroker
 ## Начиная
-Благодаря кредитам [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), все другие участники и вдохновленные [этой веткой форума](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) этот адаптер интегрирует 3D-принтеры Bambulab в ioBroker.
+Благодаря [kmxak](https://forum.iobroker.net/user/kmxak), [djalexz](https://forum.iobroker.net/user/djalexz), все остальные, вовлеченные и вдохновленные [этой веткой форума](https://forum.iobroker.net/topic/61585/bambu-lab-3d-drucker-mqtt-integration) этот адаптер интегрирует 3D-принтеры Bambulab в ioBroker.
 
-Пожалуйста, укажите IP-адрес вашего принтера, токен API и серийный номер в настройках адаптера, они необходимы для локального подключения (без использования облака) к вашему принтеру.
+Укажите IP-адрес вашего принтера, токен API и серийный номер в настройках адаптера. Они необходимы для локального подключения (без использования облака) к вашему принтеру.
 Эти учетные данные хранятся локально и не передаются третьим лицам.
 
-Вы должны выбрать модель вашего принтера, только X1 позволяет отправлять сообщения, серия P1x должна запрашивать настройку интервала (по умолчанию каждые 5 секунд)
+Вы должны выбрать модель вашего принтера, только X1 позволяет отправлять сообщения, серия P1x должна запрашивать через настройку интервала (по умолчанию каждые 5 секунд)
 
 ## Поддерживаемые модели
 | Модель принтера | Статус |
 |---------------|-------------------------|
-| P1p | :white_check_mark: |
-| P1s | :вопрос:нужно проверить |
+| П1п | :white_check_mark: |
+| P1с | :question:нужно тестирование |
 | Х1 | :white_check_mark: |
 | АМС | :white_check_mark: |
 
 ## Поддерживаемые команды
-| Команда | Х1С | Х1 | P1P | П1С |
+| Команда | X1C | Х1 | P1P | П1С |
 |--------------------|---------------------|---------------------|--------------------------|--------------------------|
 | Пользовательский g-код | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
 | Пауза | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
@@ -42,33 +42,39 @@ hash: Npdxe0Wfa/8qp6RNiAfnnJRuqVEzu429TKoYNg8lwRA=
 | Стоп | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
 | Вентилятор-Aux | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
 | Фан-камера | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
-| Вентилятор-ToolHead | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
-| Световая палата | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
-| Световое сопло | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
-| Лайт-Лого | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
-| Температурная кровать | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
-| Температурное сопло | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
+| Fan-ToolHead | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
+| Световая камера | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
+| Световая насадка | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
+| Лайт-Логотип | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании | :question: нуждается в тестировании |
+| Температурный слой | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
+| Температура-Сопло | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
 | Уровень скорости | :white_check_mark: | :white_check_mark: | :white_check_mark: | :question: нуждается в тестировании |
 
 ## Делать
-[ ] Реализовать больше команд, дайте отзыв, что нам нужно :exclamation: [ ] Реструктурировать/дополнить текущие состояния элементов управления в папке управления [ ] Оптимизировать определения атрибутов состояний [ ] Протестировать серию принтеров P1S
+[ ] Реструктуризация/дополнение текущих состояний управления в папке управления [ ] Оптимизация определений атрибутов состояния [ ] Тестирование серии принтеров P1S
 
 ## Поддержите меня
 Если вам нравится моя работа, рассмотрите возможность личного пожертвования (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/master/admin/button.png)](http://paypal.me/DutchmanNL)
 
-## Что такое Sentry.io и что передается на серверы этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. И именно это реализовано в данном адаптере.
+## Что такое Sentry.io и какие данные передаются на серверы этой компании?
+Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. И именно это реализовано в этом адаптере.
 
-При сбое адаптера или любой другой ошибке кода это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
+При сбое адаптера или возникновении любой другой ошибки кода это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, тогда также включается ваш установочный идентификатор (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, адресе электронной почты, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуло такая ошибка. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.0 (2023-10-18) - Small fixes for new firmware version
+* (DutchmanNL) Button for homing added, fixes #28
+* (DutchmanNL) Bugfix: Translation of HMS-Error codes
+* (DutchmanNL) Several bugfixes for situations no AMS is used
+* (DutchmanNL) Remove control for LED calibration head (could damage hardware)
+
 ### 0.1.5 (2023-07-29) - HMS error codes Human readable, new functionalities added
 #### Several state locations have been changed, advise to completely remove adapter & reinstall to upgrade
-* (DutchmanNL) State for human readable start time added
+* (DutchmanNL) State for human-readable start time added
 * (DutchmanNL) Speed level control implemented solves #10
 * (DutchmanNL) Capability to control all fans implemented
 * (DutchmanNL) Control bed & Nozzle temperature implemented

@@ -307,6 +307,13 @@ setState('iot.0.app.message', JSON.stringify({
 -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Updated packages
+
+### 3.0.0 (2023-10-24)
+* (bluefox) Updated packages
+* (bluefox) The minimal supported node.js version is 16
+
 ### 2.0.11 (2023-06-20)
 * (bluefox) Added support for the state toggling (alexa 3)
 * (bluefox) Done small improvements for alexa 3

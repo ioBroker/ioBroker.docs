@@ -1,135 +1,133 @@
 ---
-translatedFrom: en
-translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
-editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solax/README.md
-title: ioBroker.solax
-hash: iVlWUUC4LgSLJ45K2qKDmTYfVZohJnXitCzR7fgVmNo=
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.solax.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.solax.svg
+BADGE-Number of Installations (latest): http://iobroker.live/badges/solax-installed.svg
+BADGE-Number of Installations (stable): http://iobroker.live/badges/solax-stable.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg
+BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat
+BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
+BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
-![Logo](../../../en/adapterref/iobroker.solax/admin/solax.png)
+![Logo](../../admin/solax.png)
+# ioBroker.solax
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.solax.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/solax-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/solax-stable.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)
-![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)
-![Spenden](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
+[![NPM version](http://img.shields.io/npm/v/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
+![Number of Installations (latest)](http://iobroker.live/badges/solax-installed.svg)
+![Number of Installations (stable)](http://iobroker.live/badges/solax-stable.svg)
+[![Known Vulnerabilities](https://snyk.io/test/github/simatec/ioBroker.solax/badge.svg)](https://snyk.io/test/github/simatec/ioBroker.solax)
+![Test and Release](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
 
-# IoBroker.solax
-![Testen und freigeben](https://github.com/simatec/ioBroker.solax/workflows/Test%20and%20Release/badge.svg)
+[![License](https://img.shields.io/github/license/simatec/ioBroker.solax?style=flat)](https://github.com/simatec/ioBroker.solax/blob/master/LICENSE)
+[![Donate](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)](https://paypal.me/mk1676)
+[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
+
+
 
 **************************************************************************************************************
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
-
+**Wenn Ihnen ioBroker.solax gefällt, denken Sie bitte über eine Spende nach::**
+  
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
 **************************************************************************************************************
 
-### Solax-Adapter für ioBroker
+### Solax Adapter for ioBroker
+
 **************************************************************************************************************
 
-### Deutsche Dokumentation
 #### Solax Cloud-Verbindung
+
 Solax Wechselrichter API-Cloud-Verbindung
 
-This Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für iobroker ab.
+Dieser Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für iobroker ab.
 
-Was dazu benötigt WIRD, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
+Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
 
 #### API-Token
-<span><img src="docs/en/img/solax_api.png"></span>
+
+<span><img src="../img/solax_api.png"></span>
 
 #### Seriennummer
-<span><img src="docs/en/img/wifi-stick.png"></span>
+
+<span><img src="../img/wifi-stick.png"></span>
+
 
 #### Experteneinstellungen
+
 Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
-Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
-Eine Firmware-Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3) darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi-Sticks führt .
+Achtung, wer in den Experteneinstellungen den lokalen Modus aktiviert sollte im Vorfeld zwingend die aktuelle Firmwareversion seines Pocket Wifi Sticks prüfen.
+Eine Firmware Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3) darf der Stick nicht installiert haben, da Solax in höheren Versionen den lokalen Zugriff blockiert und es zu einem Absturz des Wifi Sticks führt.
 
-Wie man die Firmware-Version prüfen kann und ein Downgrade auf die korrekte Version hinbekommt, wird hier erklärt.
+Wie man die Firmware Version prüfen kann und ein Downgrade auf die korrekte Version hinbekommt, wird hier erklärt.
 
-Um die Firmware auf dem Stick zu prüfen, müsstet ihr euch mit dem Hotspot des Sticks verbinden.
+Um die Firmware auf dem Stick zu prüfen, müsst ihr euch mit dem Hotspot des Sticks verbinden.
 Der Name des Hotspots sollte bei euch wie folgt aussehen: `Solax_SWXXXXXXXX` oder `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch eure Seriennummer ersetzt.
 
-Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse in euren Browser auf das Webinterface des Wifi-Sticks: `5.8.8.8`<br> Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
+Wenn ihr mit dem Hotspot verbunden seit, dann geht ihr mit folgender IP-Adresse in euren Browser auf das Webinterface des Wifi-Sticks: `5.8.8.8`<br>
+Solltet ihr euer Passwort bei der Ersteinrichtung nicht geändert haben, sind die Standard Login-Daten admin:admin
 
-<span><img src="docs/en/img/webif.png"></span>
+<span><img src="../img/webif.png"></span>
 
-Im Webinterface geht ihr auf den Tab &quot;System&quot; und findet dort die aktuell installierte Firmware-Version.<br> Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, könnt ihr im selben Tab über den Menüpunkt &quot;Firmware aktualisieren (.usb)&quot; die korrekte Version flashen.
+Im Webinterface geht ihr auf den Tab "System" und findet dort die aktuell installierte Firmware-Version.<br>
+Sollte die Version größer 2.033.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) sein, könnt ihr im gleichen Tab über den Menüpunkt "Update Firmware (.usb)" die korrekte Version flashen.
 
-Die Version 2.033.20 könnt ihr euch unter folgendem Link herunterladen:
+Die Version 2.033.20 könnt ihr euch unter folgenden Link herunterladen:
 
-[Laden Sie die Pocket Wifi-Firmware herunter](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
+[Download Pocket Wifi Firmware](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
 
-Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung „.usb“ ausgewählt werden.<br> Nun könnt Ihr den Downgrade starten und werdet nach ca. 20-30 Sekunden eine Meldung bekommen, dass das Update erfolgreich war und der Stick neu gestartet wird.
+Die Zip-Datei muss entpackt werden und es muss die Datei mit der Endung ".usb" ausgewählt werden.<br>
+Nun könnt Ihr den Downgrade starten und werdet nach ca. 20-30 Sekunden eine Meldung bekommen, dass das Update erfolgreich war und der Stick neu gestartet wird.
 
-Nach erfolgreichem Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure lokale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
+Nach erfolgreichen Neustart könnt ihr nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder auch über eure lokale IP in eurem Netzwerk auf den Wifi-Stick zugreifen.
 
-Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die Firmware korrekt installiert ist.
+Prüft bitte vor einer Verbindung zu dem Adapter noch einmal, ob der Downgrade erfolgreich war und die korrekte Firmware installiert ist.
 Der Stick aktualisiert die Firmware nicht automatisch und ist mit der Version 2.033.20 voll funktionsfähig.
 
-Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
-
-**************************************************************************************************************
-
-### Englische Dokumentation
-#### Solax Cloud-Verbindung
-Solax Wechselrichter-API-Cloud-Verbindung
-
-Dieser Adapter ruft die Daten Ihres Wechselrichters vom Hersteller Solax in den iobroker.
-
-Was Sie dazu benötigen, ist ein Konto bei Solax, Ihre Token-ID und die Seriennummer Ihres WLAN-Moduls.
-
-#### API-Token
-<span><img src="docs/en/img/solax_api.png"></span>
-
-#### Seriennummer
-<span><img src="docs/en/img/wifi-stick.png"></span>
-
-#### Experteneinstellungen
-Die lokale Verbindung wird derzeit nur von den Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
-
-Achtung, wenn Sie in den Experteneinstellungen den lokalen Modus aktivieren, sollten Sie vorab die aktuelle Firmware-Version Ihres Pocket Wifi Sticks prüfen.<br> Auf dem Stick darf keine Firmware-Version größer 2.30.20 (Wifi-Pocket V1/V2) und kleiner 3.001 (Wifi-Pocket V3) installiert sein, da Solax in höheren Versionen den lokalen Zugriff blockiert und den WLAN-Stick zum Absturz bringt.
-
-Wie Sie die Firmware-Version überprüfen und auf die richtige Version downgraden, wird hier erklärt.
-
-Um die Firmware auf dem Stick zu überprüfen, müssen Sie sich mit dem Hotspot des Sticks verbinden.
-Ihr Hotspot-Name sollte folgendermaßen aussehen: `Solax_SWXXXXXXXX` oder `Wifi_SWXXXXXXXX`. XXXXXXXX wird durch Ihre Seriennummer ersetzt.
-
-Wenn Sie mit dem Hotspot verbunden sind, gehen Sie in Ihrem Browser auf die Weboberfläche des WLAN-Sticks mit folgender IP-Adresse: `5.8.8.8`<br> Wenn Sie Ihr Passwort bei der Ersteinrichtung nicht geändert haben, lauten die Standard-Anmeldedaten admin:admin
-
-<span><img src="docs/en/img/webif.png"></span>
-
-Im Webinterface gehen Sie auf den Reiter „System“ und finden dort die aktuell installierte Firmware-Version.<br> Ist die Version größer als 2.033.20 (Wifi-Pocket V1/V2) und kleiner als 3.001 (Wifi-Pocket V3), können Sie im gleichen Reiter über den Menüpunkt „Firmware aktualisieren (.usb)“ die richtige Version flashen .
-
-Sie können die Version 2.033.20 unter folgendem Link herunterladen:
-
-[Laden Sie die Pocket Wifi-Firmware herunter](https://github.com/simatec/ioBroker.solax/raw/master/docs/files/618.00122.00_Pocket_WIFI_V2.033.20_20190313.usb.zip)
-
-Die Zip-Datei muss entpackt und die Datei mit der Endung „.usb“ ausgewählt werden.<br> Nun können Sie das Downgrade starten und nach ca. 20-30 Sekunden erhalten Sie eine Meldung, dass das Update erfolgreich war und der Stick neu gestartet wird.
-
-Nach erfolgreichem Neustart können Sie nun über den Hotspot mit der IP-Adresse `5.8.8.8` oder über Ihre lokale IP in Ihrem Netzwerk auf den WLAN-Stick zugreifen.
-
-Bitte überprüfen Sie vor dem Verbinden mit dem Adapter noch einmal, ob das Downgrade erfolgreich war und die richtige Firmware installiert ist.
-Glücklicherweise führt der Stick kein automatisches Firmware-Upgrade durch und ist mit der Version 2.033.20 voll funktionsfähig.
-
-Die lokale IP-Adresse (nicht die Hotspot-IP) und das Passwort des Webinterfaces müssen im Adapter eingetragen werden und schon haben Sie eine sekundengenaue lokale Analyse Ihres Wechselrichters
-
-**************************************************************************************************************
-
-### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
-
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
-
-**************************************************************************************************************
+Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort des Webinterfaces eingetragen werden, und ihr habt nun eine sekundengenaue lokale Analyse eures Wechselrichters
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.8.0 (2023-10-23)
+* (simatec) X1-Hybrid-G4 added
+
+### 0.7.7 (2023-09-06)
+* (simatec) Dependencies updated
+* (simatec) small Bugfix
+
+### 0.7.6 (2023-07-30)
+* (simatec) X3-Hybrid-G4 data updated
+* (simatec) Dependencies updated
+* (simatec) small Bugfix
+* (simatec) Ukrainian translation added
+
+### 0.7.5 (2023-05-29)
+* (simatec) X3-MIC/PRO-G2 added
+* (simatec) small Fix
+* (simatec) Dependencies updated
+
+### 0.7.4 (2023-05-04)
+* (simatec) connection state added
+* (simatec) suncalc package added
+* (simatec) change from dawn und dusk calc
+
+### 0.7.3 (2023-05-03)
+* (simatec) small Bugfix
+* (simatec) X3-Hybrid data added
+* (simatec) Dependencies updated
+
+### 0.7.2 (2023-04-27)
+* (simatec) small Bugfix
+
+### 0.7.1 (2023-04-27)
+* (simatec) small Bugfix
+
+### 0.7.0 (2023-04-26)
+* (simatec) Dependencies updated
+* (simatec) Config for Firmware Version added
+* (simatec) small Bugfix
+
 ### 0.6.0 (2023-03-04)
 * (simatec) Dependencies updated
 * (simatec) Fix URL

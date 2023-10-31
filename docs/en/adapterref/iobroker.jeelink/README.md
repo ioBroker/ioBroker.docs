@@ -66,7 +66,7 @@ to be done in admin
 
 
 ## Changelog:
-### 1.2.3
+### 1.2.3 (npm)
 * (foxthefox) serialport 12
 * (foxthefox) translation with @iobroker/adapter-dev
 

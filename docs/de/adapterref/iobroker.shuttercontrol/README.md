@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: A6FY31pfkBeJ3dtAPOoKfuvLqc0tCJzAbqlfnkscr3Q=
+hash: U/wwCQkOGo8qdoGMYhPKgw7SxZqroelTpoQACLy7wbA=
 ---
 ![Logo](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
@@ -11,15 +11,14 @@ hash: A6FY31pfkBeJ3dtAPOoKfuvLqc0tCJzAbqlfnkscr3Q=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
-![Travis-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![Lizenz](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![Spenden](https://img.shields.io/badge/donate-paypal-blue?style=flat)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shuttercontrol
-![Testen und freigeben](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie neue Geräteschemas automatisch an mich als Entwickler zu melden. Näheres siehe unten!
+Dieser Adapter nutzt den Dienst Sentry.io, um mir als Entwickler automatisch Ausnahmen und Codefehler sowie neue Geräteschemata zu melden. Weitere Details siehe unten!
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -28,21 +27,86 @@ Dieser Adapter verwendet den Dienst Sentry.io, um Ausnahmen und Codefehler sowie
 ## Shuttercontrol-Adapter für ioBroker
 automatische Rollladensteuerung
 
-[Deutsche Beschreibung hier](docs/de/shuttercontrol.md)
+[Deutsche Beschreibung hier](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-Deutsch)
 
 automatische Steuerung für Rollläden
 
-[Englische Beschreibung hier](docs/en/shuttercontrol.md)
+[Englische Beschreibung hier](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-English)
 
-### Was ist Sentry.io und was wird an die Server dieser Firma gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um sich einen Überblick über Fehler in ihren Anwendungen zu verschaffen. Und genau das ist in diesem Adapter umgesetzt.
+### Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet?
+Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, dann ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll erscheint, an Sentry übermittelt. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder ähnliches) enthalten. Dadurch kann Sentry Fehler gruppieren und anzeigen, wie viele einzelne Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die praktisch nie abstürzen.
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Saturday added as work week
+* (simatec) Dependencies updated
+* (simatec) Fix Auto-Living, Auto-Sleep & Auto-Children
+* (simatec) Timeout Fix
+* (FredF63) Update German Docu
+* (simatec) Wiki added
+
+
+### 1.6.2 (2023-08-28)
+* (simatec) Dependencies updated
+* (simatec) node 20 tests added
+* (simatec) Fix ending Sunprotect with open door/window
+* (5G7K) Fix timing & some states for sunprotect
+
+### 1.6.1 (2023-07-17)
+* (simatec) Fix Heat protection
+
+### 1.6.0 (2023-07-16)
+* (simatec) Manu mode block added
+* (simatec) Heat protection added
+* (simatec) Added rounding of incoming shutter states
+* (simatec) Ukrainian language added
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+
+### 1.5.0 (2023-06-05)
+* (simatec) new Manu-Mode Check added
+* (simatec) suncalc added
+* (simatec) Dependencies updated
+
+### 1.4.29 (2023-04-26)
+* (simatec) Bugfix Brightness down
+
+### 1.4.28 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.27 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.26 (2023-04-14)
+* (simatec) Fix Sunprotect
+
+### 1.4.25 (2023-04-13)
+* (simatec) small Fixes
+
+### 1.4.24 (2023-04-10)
+* (simatec) Fix end of Sunprotect
+* (simatec) small Fixes
+* (simatec) Fix shutter alarm
+* (simatec) Sentry fixes
+* (simatec) Bugfix Brightness down
+* (simatec) Dependencies updated
+* (j4nv) Fix Astro Time
+
+### 1.4.23 (2023-03-28)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) small fixes
+
+### 1.4.22 (2023-03-18)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) Fix Alarm Settings
+
 ### 1.4.21 (2023-02-02)
 * (simatec) fix Brightness Settings
 * (simatec) Dependencies updated

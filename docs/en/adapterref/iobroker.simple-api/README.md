@@ -153,6 +153,10 @@ Set many states with one request. This request supports POST method too, for POS
 ### setValueFromBody
 Allows to set the value of a given State be set by the POST body content.
 
+Call e.g.:
+`http://ipaddress:8087/setValueFromBody/0_userdata.0.example_state`
+with body `hello` where `0_userdata.0.example_state` is the ID of the state.
+
 ### objects
 Read objects of defined type from DB.
 

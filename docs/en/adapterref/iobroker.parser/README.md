@@ -17,7 +17,7 @@ This adapter parses data received via URL or from a file, by using regular expre
 ### 1. Default poll interval
 This default poll interval value will be used if no individual poll interval value is specified for an entry in the configuration table (column: "Interval"). The interval is in milliseconds and defines how often the link or file is being read and the states are being updated.
 
-**Note:** 
+**Note:**
 Do not use a too aggressive poll interval especially for website URLs. For example, if you want to retrieve the price of your shares from a certain website, you probably should be good with an interval of just every 24 hours (= 86400000 ms), if you are not a day trader. If you try to retrieve data from certain URLs too often, the website may ban you and put you on a server blacklist. So please use the poll interval with care.
 
 ### 2. Request timeout
@@ -45,35 +45,36 @@ If you enter the same URL or filename more than once into different table rows, 
 
 **Table fields:**
 
-- ***Name*** - name of state that is being created under `parser.<instance number>`. Spaces are not allowed. You can use dots `.` as separator to create sub folders. Example: `Shares.Microsoft.Current` will result in `parser.<instance number>.Shares.Microsoft.Current`.
-- ***URL or file name*** - either a URL of a website or the path to a file of which we want to retrieve information. Examples `https://darksky.net/forecast/48.1371,11.5754/si24/de` (weather information Munich), or `/opt/iobroker/test/testdata.txt` (file from within ioBroker).
-- ***RegEx*** - regular expression, how to extract data from a link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. `temp swip">(-?\d+)˚<` for the line above.
-- ***Item*** (German: "Num") - a regex can find (match) multiple entries. With this option you can define which match to be chosen. 0 = first match, 1 = second match, 2 = third match, etc. Default is 0 (first match).
-- ***Role*** - one of the roles:
-    - custom - user defines itself via *admin* the role
+- **_Name_** - name of state that is being created under `parser.<instance number>`. Spaces are not allowed. You can use dots `.` as separator to create sub folders. Example: `Shares.Microsoft.Current` will result in `parser.<instance number>.Shares.Microsoft.Current`.
+- **_URL or file name_** - either a URL of a website or the path to a file of which we want to retrieve information. Examples `https://darksky.net/forecast/48.1371,11.5754/si24/de` (weather information Munich), or `/opt/iobroker/test/testdata.txt` (file from within ioBroker).
+- **_RegEx_** - regular expression, how to extract data from a link. There is a good service to test regula expressions: [regex101](https://regex101.com/). E.g. `temp swip">(-?\d+)˚<` for the line above.
+- **_Item_** (German: "Num") - a regex can find (match) multiple entries. With this option you can define which match to be chosen. 0 = first match, 1 = second match, 2 = third match, etc. Default is 0 (first match).
+- **_Role_** - one of the roles:
+    - custom - user defines itself via _admin_ the role
     - temperature - the value is temperature
     - value - the value is a number (e.g. dimmer)
     - blinds - the value is a blind position
     - switch - the value is switch position (true/false)
     - button - the value is a button
     - indicator - boolean indicator
-- ***Type*** - the type of variable per the pull-down menu.
-- ***Unit*** - Optional: unit of the value added to the state entry. E.g. `°C`, `€`, `GB`, etc.
-- ***Old***  - If activated, the state will *not* be updated if the value cannot be read or found in the provided date (URL or file), so it will keep the former value in this case.
-- ***Subs*** - Optional: substitute URL or file name. This substitute URL/filename will be used if the URL/file name of the first column is not available.
-- ***Factor/Offset*** (for "Type" numbers only) - allows to modify the retrieved data prior to set into the state: 
-  - *calculated value* = *extracted value* * factor + offset , to make immediately modifications of value
-- ***Interval*** - poll interval in ms (milliseconds). If blank or 0, the default poll interval will be used. Please see further information above.
+- **_Type_** - the type of variable per the pull-down menu.
+- **_Unit_** - Optional: unit of the value added to the state entry. E.g. `°C`, `€`, `GB`, etc.
+- **_Old_** - If activated, the state will _not_ be updated if the value cannot be read or found in the provided date (URL or file), so it will keep the former value in this case.
+- **_Subs_** - Optional: substitute URL or file name. This substitute URL/filename will be used if the URL/file name of the first column is not available.
+- **_Factor/Offset_** (for "Type" numbers only) - allows to modify the retrieved data prior to set into the state:
+  -   _calculated value_ = _extracted value_ \* factor + offset , to make immediately modifications of value
+- **_Interval_** - poll interval in ms (milliseconds). If blank or 0, the default poll interval will be used. Please see further information above.
 
 ## Sample settings
-| Name               | URL or file name                                             | RegEx                                | Role        | Type    | Unit | Interval |
-|--------------------|:-------------------------------------------------------------|:-------------------------------------|-------------|---------|------|----------|
-| temperatureMunich  | `https://darksky.net/forecast/48.1371,11.5754/si24/de`       | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000   |
-| forumRunning       | `http://forum.iobroker.net/`                                 | `Forum`                              | indicator   | boolean |      | 60000    |
-| cloudRunning       | `https://iobroker.net/`                                      | `Privacy Notice`                     | indicator   | boolean |      | 60000    |
-| cpuTemperature     | `/sys/devices/virtual/thermal/thermal_zone0/temp`            | `(.*)`                               | temperature | number  | °C   | 30000    |
-| stockPrice.Visa    | `https://www.finanzen.net/aktien/visa-aktie`                 | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000 |
-| kleinanzeigen      | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`            | `data-href="(.*?).">`                | default     | string  |      | 600000   |
+
+| Name              | URL or file name                                       | RegEx                                | Role        | Type    | Unit | Interval |
+| ----------------- | :----------------------------------------------------- | :----------------------------------- | ----------- | ------- | ---- | -------- |
+| temperatureMunich | `https://darksky.net/forecast/48.1371,11.5754/si24/de` | `temp swip">(-?\d+)˚<`               | temperature | number  | °C   | 180000   |
+| forumRunning      | `http://forum.iobroker.net/`                           | `Forum`                              | indicator   | boolean |      | 60000    |
+| cloudRunning      | `https://iobroker.net/`                                | `Privacy Notice`                     | indicator   | boolean |      | 60000    |
+| cpuTemperature    | `/sys/devices/virtual/thermal/thermal_zone0/temp`      | `(.*)`                               | temperature | number  | °C   | 30000    |
+| stockPrice.Visa   | `https://www.finanzen.net/aktien/visa-aktie`           | `\d{0,3},\d{2}(?=<span>EUR<\/span>)` | value       | number  | €    | 86400000 |
+| kleinanzeigen     | `https://www.ebay-kleinanzeigen.de/s-iobroker/k0`      | `data-href="(.*?).">`                | default     | string  |      | 600000   |
 
 *Note:* While applying regex to the retrieved URL/file data, all line breaks will be replaced with spaces to allow multi-line search.
 
@@ -83,8 +84,8 @@ Regular expressions are a powerful tool to parse and extract certain data from s
 For boolean types, the regex is rather simple. For numeric types, you should mark the number with brackets - `()`. E.g. to extract the number from *The temperature is 5°C* you should use ` (\d+)` expression.
 
 Further information on RegExp:
-  * [MDN/Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
-  * [regex101: online tool to create and test regular expressions](https://regex101.com/)
+-   [MDN/Mozilla Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+-   [regex101: online tool to create and test regular expressions](https://regex101.com/)
 
 ### Examples
 - `.at` matches any three-character string ending with `at`, including `hat`, `cat`, and `bat`.
@@ -131,7 +132,7 @@ You can also send a message to adapter with `sendTo` command:
 ```Javascript
 sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.temperatureMunich */, result => {
     console.log(JSON.stringify(result)); // {"value": 10, "error": null}
-});   
+});
 ```
 
 ## Support
@@ -142,6 +143,10 @@ sendTo("parser.0", "trigger", "temperatureMunich" /* name of rule, or parser.0.t
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.0.7 (2023-10-25)
+* (TA2k) added the user agent to prevent timeout blocking
+* (bluefox) Added a configurable userAgent option
+
 ### 2.0.5 (2023-06-19)
 * (bluefox) The result could be an array of values
 

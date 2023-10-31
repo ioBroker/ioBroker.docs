@@ -15,6 +15,8 @@ This is an ioBroker adapter for your Robonect HX enabled lawn mower.
 * It has been tested with Robonect v1.1b (with ZeroConf v1.4) and a Gardena R70Li.
 * And it has also been tested with Robonect v1.3b (with ZeroConf v1.9) and a Gardena R40Li.
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## Settings
 
 * It is required to enter the IP address (like 192.168.x.x) or hostname (like robonect-D247BF) or fully qualified domainname (like robonect-D247BF.fritz.box) of the Robonect module. In case username and password are set, they are required, too.
@@ -64,7 +66,7 @@ It is possible to control the extensions GPIO 1, GPIO 2, OUT 1 and OUT 2 of the 
 ### Work in progress
 * Add timePickers to Admin UI for rest times as soon as they work properly
 
-### 1.3.3 (2023-10-04)
+### 1.3.4 (2023-10-10)
 
 * (grizzelbee) Chg: massive code refactoring 
 * (grizzelbee) Fix: Fixed false error message when PushService is listening to all IPv4 or IPv6 addresses

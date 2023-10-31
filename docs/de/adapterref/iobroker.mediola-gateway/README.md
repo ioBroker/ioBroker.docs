@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-gateway
-hash: 19Y7WFjGHqvwR1p525Fa2pucM4HVGxcUwMzhpKBaxdc=
+hash: mt+jhkQ8cCtlRO5VITibW6l4BtpRaTN0AdcfhOu/Uak=
 ---
 ![Logo](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -28,9 +28,9 @@ Die sendIrData werden mit mehreren gelernten IR-Codes getestet. Geben Sie einfac
 ## Fehlerbehebung
 Überprüfen Sie http://ip-of-mediola/command?XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {"XC_ERR":{"code": "000007", "msg" :"Zugriff verweigert"}} (nie gesehen auf Gateway V4)\ Wenn dies funktioniert, haben Sie eine Mediola ohne festgelegtes Passwort. Es gibt keine Ahnung, warum der Adapter nicht funktionieren sollte.\ Kontaktieren Sie das Forum: https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway (leider ist es Deutsch, aber Englisch ist auch möglich)\ Mit Benutzer und Passwort:\ Überprüfen Sie http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {XC_ERR}{"code" :"010000"}\ Wenn dies funktioniert, müssen der Benutzername und das Passwort zur Konfiguration hinzugefügt werden. Wenn dies nicht funktioniert, verfügen Sie möglicherweise nicht über den Benutzernamen und das richtige Passwort. Wenn Sie nur ein Passwort festgelegt haben, müssen Sie einen Vollbenutzer einrichten. (Gateway V6)
 
-## Verwendung für Sonnenschutzrollos WIR (WR) und Roto (BK).
-Diese Sonnenschutzrollos werden automatisch gefunden. Sie beginnen mit WR oder BK. Es gibt zwei Ordner im Adapter. Das eine wird Zustand genannt, das andere Aktion.
-Im Status wird der WR-Status in Prozent der Schließung angezeigt. Der BK-Status ist immer leer (es wurde nie ein anderer Wert gesehen). Um den Status zu aktualisieren, muss in den Adapterinstanzeinstellungen das Flag „Status von Mediola lesen“ gesetzt werden. Das Aktualisierungsintervall kann in Minuten eingestellt werden.
+## Verwendung für Sonnenschutzrollos WIR (WR), Roto (BK) und Elero (ER).
+Diese Sonnenschutzrollos werden automatisch gefunden. Sie beginnen mit WR, BK oder ER. Es gibt zwei Ordner im Adapter. Das eine wird Zustand genannt, das andere Aktion.
+Im Status wird der WR-Status in Prozent der Schließung angezeigt. Der BK- und ER-Zustand ist immer leer (es wurde nie ein anderer Wert gesehen). Um den Status zu aktualisieren, muss in den Adapterinstanzeinstellungen das Flag „Status von Mediola lesen“ gesetzt werden. Das Aktualisierungsintervall kann in Minuten eingestellt werden.
 Im Aktionsordner konnten die Sonnenschutzrollos gesteuert werden. Für die Aufwärtsbewegung muss eine 1 geschrieben werden, für die Abwärtsbewegung eine 2 und für einen Stopp eine 3. Für WIR können Sie 10, 20, 30, 40, 50, 60, 70, 80 und 90 senden, um einen Prozentsatz festzulegen.
 
 ## Verwendung für Nobily (NY/DY) Sonnenschutzrollos
@@ -50,6 +50,7 @@ HAFTUNGSAUSSCHLUSS Alle Produkt- und Firmennamen oder Logos sind Marken™ oder 
 
 -   RT (Somfy) system added (Thanks to Falk)
 -   DY (Nobily) system added (Thanks to BlindlyBlinds)
+-   ER (Elero) system added (Thanks to CsL-007 [#35](https://github.com/oelison/ioBroker.mediola-gateway/issues/35))
 
 ### 1.0.1 (2023-08-26)
 

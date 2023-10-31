@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.blebox/README.md
 title: ioBroker.blebox
-hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
+hash: bKDXQL6LW99S799H2zL7OE52xepqYUczF+xpwn0Fcds=
 ---
 ![Logo](../../../en/adapterref/iobroker.blebox/admin/blebox.png)
 
@@ -14,18 +14,19 @@ hash: Cksbng/chM/ppRJ7ON7076SLk6bIfRGVPVSzBj9q+88=
 
 # IoBroker.blebox
 ## Blebox-Adapter für ioBroker
-Adapter für Bleboxsysteme. Details zu den Produkten [Blebox](https://blebox.eu/). Die Implementierung hat ohne Unterstützung des Herstellers stattgefunden.
+Adapter zur Steuerung der Smarthome-Geräte des Herstellers [blebox](https://blebox.eu/). Die API-Beschreibung finden Sie [hier](https://technical.blebox.eu/). Die Umsetzung erfolgte ohne Unterstützung des Herstellers.
 
-Eine veraltete und veraltete API-Simulation kann [hier](https://github.com/blebox/blebox-virtual-devices) heruntergeladen werden.
+Eine unvollständige und veraltete API-Simulation kann heruntergeladen werden [Hier](https://github.com/blebox/blebox-virtual-devices).
 
-Aktuell werden folgende Geräte unterstützt:
+Folgende Geräte werden derzeit unterstützt:
 
-* Rollladenkasten
+* Verschlusskasten
 * Schaltkasten
 * Saunabox
 * Temperatursensor
-* Torkasten
+* Gatebox
 * Fernsehlift
+* Multisensor – nicht mit echter Hardware getestet, bis zu 4 Sensoren werden unterstützt
 
 ## Changelog
 
@@ -33,6 +34,10 @@ Aktuell werden folgende Geräte unterstützt:
     Placeholder for the next version:
     ### **WORK IN PROGRESS**
 -->
+
+### 2.1.0 (2023-10-13)
+
+* (Kai van Nuis) Support for multiSensor
 
 ### 2.0.1 (2023-03-12)
 
@@ -44,15 +49,14 @@ Aktuell werden folgende Geräte unterstützt:
 
 ### 1.1.0
 
-* Support für gateBox implementiert und eslint umgestellt
+* Support for gateBox implemented and eslint converted
 
 ### 0.1.2
 
-* Fixes aufgrund Codereview
-
+* Fixes due to code review
 ### 0.1.1
 
-* Erstes Stable-Release
+* First stable release
 
 ## License
 MIT License

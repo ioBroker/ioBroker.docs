@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: Xl0rPydT6FJLL1YIQNLNXuJaESgWz3mr6Kl8h/wVIsc=
+hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: Xl0rPydT6FJLL1YIQNLNXuJaESgWz3mr6Kl8h/wVIsc=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件为 _2.3.7_（2022 型号为 _3.0.16_）（或更高版本）
+- _LaMetric Time_ 固件为 _2.3.8_（2022 年型号为 _3.0.18_）（或更高版本）
 
 [固件更改日志](https://firmware.lametric.com) [固件更改日志时间2](https://firmware.lametric.com/?product=time2)
 
@@ -59,6 +59,18 @@ hash: Xl0rPydT6FJLL1YIQNLNXuJaESgWz3mr6Kl8h/wVIsc=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.1 (2023-10-27)
+
+* (klein0r) Fixed issue with foreign states of version 3.1.0
+
+### 3.1.0 (2023-10-25)
+
+NodeJS 16.x is required
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.18)
+* (klein0r) Updated admin tab layout (icons, button style)
+* (klein0r) Fixed path of default widgets
+
 ### 3.0.0 (2023-09-13)
 
 * (klein0r) Added push option for My Data DIY
@@ -72,16 +84,6 @@ hash: Xl0rPydT6FJLL1YIQNLNXuJaESgWz3mr6Kl8h/wVIsc=
 ### 2.4.1 (2023-06-10)
 
 * (klein0r) Blockly bugfix
-
-### 2.4.0 (2023-05-10)
-
-* (klein0r) Allow to change device mode via state (manual, auto, kiosk, schedule)
-* (klein0r) Added state for available firmware update
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.5
-
-### 2.3.2 (2023-02-21)
-
-* (klein0r) Optimized setState logic
 
 ## License
 

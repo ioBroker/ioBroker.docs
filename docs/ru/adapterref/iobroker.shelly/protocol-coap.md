@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/protocol-coap.md
 title: ioBroker.shelly
-hash: mwV6RFHCnF5YCi49CVyQClGljQYzohPsXjalqg/EoTU=
+hash: bA+3UJOe3yp/r/VelUuUuD8mwQP3SW388OFi2mt4X5o=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
@@ -12,6 +12,8 @@ hash: mwV6RFHCnF5YCi49CVyQClGljQYzohPsXjalqg/EoTU=
 Это немецкая документация - [🇺🇸 Английская версия](../en/protocol-coap.md).
 
 ##КоАП
+**CoAP/CoIoT поддерживается только устройствами Gen1. Устройства Plus и Pro (Gen2) не поддерживают этот протокол!**
+
 ![iobroker_general_coap](../../../de/adapterref/iobroker.shelly/img/iobroker_general_coap.png)
 
 **Если используется версия прошивки выше 1.9.4, на устройствах Shelly необходимо настроить сервер CoIoT (одноадресная рассылка).**

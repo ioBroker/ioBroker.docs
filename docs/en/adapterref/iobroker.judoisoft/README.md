@@ -20,9 +20,12 @@ Settings available:
 
 ![möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
-<b>NodeJs >> 8.x.x </b>
+
 
 ## Changelog
+### 1.1.0 (2023-10-27)
+* (arteck) switch to intervall
+
 ### 1.0.15 (2022-05-30) 
 * (arteck) new error handling
 
@@ -59,7 +62,7 @@ Settings available:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

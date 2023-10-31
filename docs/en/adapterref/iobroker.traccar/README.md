@@ -35,8 +35,13 @@ This adapter imports in real time the position and the extended data from [Tracc
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 1.1.2 (2023-07-16)
+### 1.1.4 (2023-10-30)
+-   (arteck) fix last_update DP
 
+### 1.1.3 (2023-10-28)
+-   (arteck) geofances fix for Server >= 5.8 (check adapter Settings)
+
+### 1.1.2 (2023-07-16)
 -   (arteck) another fix for Traccar Server >= v5.8
 
 ### 1.1.1 (2023-07-01)

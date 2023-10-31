@@ -604,6 +604,9 @@ Mögliche Optionen und Parameter:
  Analysedatendateien werden beim Beenden nicht aktualisiert.
 
 ## Changelog
+### 3.0.1 (2023-10-24)
+* (tuxyme) activated the round option when averaging
+
 ### 3.0.0 (2023-09-19)
 * (foxriver76) fix history2db.js with controller v5
 * (bluefox) Minimal node.sj version is 16

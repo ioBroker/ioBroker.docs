@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
+hash: VJezKzQm0NVAzd4h+qpCrTmTeJG5qPGNfNUs87AWI8g=
 ---
 # IoBroker.tado
 
@@ -19,7 +19,9 @@ hash: fxDUb+ewLgqw9B7cs1nMbtDhciGpVjNg8zxzfTyb2bY=
 [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/tado/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) ![Тестирование и выпуск](https://github.com/DrozmotiX/ioBroker.tado/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер tado для ioBroker
-tado° обеспечивает комфортный и здоровый климат, экономя до 31% на счетах за отопление.
+Tado° (https://www.tado.com) — эксперт в области интеллектуального отопления и управления энергопотреблением вашего дома, спроектированный и разработанный в Германии. Экономьте энергию и сокращайте расходы вместе с нами – наслаждайтесь уютным и экологичным домом.
+
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Вещи, которыми можно управлять
 | Государство | Описание |
@@ -51,11 +53,13 @@ tado° обеспечивает комфортный и здоровый кли�
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
-
 -->
+### 0.4.12-alpha.0 (2023-10-13)
+* (HGlab01) switch finaly to Admin5 UI
+
 ### 0.4.11 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
-* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+* (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
 
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
@@ -68,11 +72,6 @@ tado° обеспечивает комфортный и здоровый кли�
 ### 0.4.8 (2023-05-12)
 * (HGlab01) Add attribute 'isHeatSourceInstalled'
 * (HGlab01) Bump axios to 1.4.0
-
-### 0.4.7 (2023-04-26)
-* (HGlab01) Add attribute 'generation'
-* (HGlab01) improve axios error handling
-* (HGlab01) Bump axios to 1.3.6
 
 ## License
 MIT License

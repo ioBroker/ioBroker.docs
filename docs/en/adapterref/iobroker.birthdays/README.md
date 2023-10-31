@@ -31,9 +31,15 @@ chapters: {"pages":{"en/adapterref/iobroker.birthdays/README.md":{"title":{"en":
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.4.1 (2023-10-30)
+
+* (klein0r) Added warnings if birthday event is not recurring
+
+### 2.4.0 (2023-10-25)
 
 NodeJS 16.x is required
+
+* (klein0r) Added icons in admin tabs
 
 ### 2.3.1 (2023-06-16)
 
@@ -48,18 +54,6 @@ NodeJS 16.x is required
 
 * (klein0r) Warn if a birthday with the same name has already been added
 * (klein0r) Code optimization
-
-### 2.2.1 (2023-02-13)
-
-NodeJS 14.5 is required
-
-* (klein0r) Allow spaces in text separator
-* (klein0r) Added Ukrainian language
-
-### 2.2.0 (2022-12-12)
-
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
 
 ## License
 

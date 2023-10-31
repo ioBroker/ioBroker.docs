@@ -3,46 +3,110 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shuttercontrol/README.md
 title: ioBroker.shuttercontrol
-hash: A6FY31pfkBeJ3dtAPOoKfuvLqc0tCJzAbqlfnkscr3Q=
+hash: U/wwCQkOGo8qdoGMYhPKgw7SxZqroelTpoQACLy7wbA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.shuttercontrol/admin/shuttercontrol.png)
 
 ![Количество установок](http://iobroker.live/badges/shuttercontrol-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg)
-![Трэвис-CI](http://img.shields.io/travis/simatec/ioBroker.shuttercontrol/master.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat)
 ![Пожертвовать](https://img.shields.io/badge/donate-paypal-blue?style=flat)
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.shuttercontrol
-![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.shuttercontrol/workflows/Test%20and%20Release/badge.svg)
 
-Этот адаптер использует службу Sentry.io, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода, а также о новых схемах устройств. Подробнее смотрите ниже!
+Этот адаптер использует службу Sentry.io для автоматического сообщения об исключениях и ошибках кода, а также о новых схемах устройств мне как разработчику. Подробности смотрите ниже!
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-## Адаптер для управления затвором для ioBroker
-автоматический Rollladensteuerung
+## Адаптер управления шторками для ioBroker
+автоматическая роллладенштойерунг
 
-[Deutsche Beschreibung Hier](docs/de/shuttercontrol.md)
+[Deutsche Beschreibung hier](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-Deutsch)
 
 автоматическое управление жалюзи
 
-[Описание на английском здесь](docs/en/shuttercontrol.md)
+[Английское описание здесь](https://github.com/simatec/ioBroker.shuttercontrol/wiki/Shuttercontrol-Wiki-English)
 
-### Что такое Sentry.io и что сообщается серверам этой компании?
-Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок их приложений. И именно это реализовано в данном адаптере.
+### Что такое Sentry.io и какие данные передаются на серверы этой компании?
+Sentry.io — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. И именно это реализовано в этом адаптере.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, также включается ваш идентификатор установки (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, электронной почте, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуто такой ошибкой. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не дают сбоев.
+При сбое адаптера или возникновении другой ошибки кода это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Когда вы разрешаете iobroker GmbH собирать диагностические данные, тогда также включается ваш установочный идентификатор (это просто уникальный идентификатор **без** какой-либо дополнительной информации о вас, адресе электронной почты, имени и т. д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуло такая ошибка. Все это помогает мне создавать безошибочные адаптеры, которые практически никогда не выходят из строя.
 
 *************************************************************************************************************************************
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Saturday added as work week
+* (simatec) Dependencies updated
+* (simatec) Fix Auto-Living, Auto-Sleep & Auto-Children
+* (simatec) Timeout Fix
+* (FredF63) Update German Docu
+* (simatec) Wiki added
+
+
+### 1.6.2 (2023-08-28)
+* (simatec) Dependencies updated
+* (simatec) node 20 tests added
+* (simatec) Fix ending Sunprotect with open door/window
+* (5G7K) Fix timing & some states for sunprotect
+
+### 1.6.1 (2023-07-17)
+* (simatec) Fix Heat protection
+
+### 1.6.0 (2023-07-16)
+* (simatec) Manu mode block added
+* (simatec) Heat protection added
+* (simatec) Added rounding of incoming shutter states
+* (simatec) Ukrainian language added
+* (simatec) small Bugfixes
+* (simatec) Dependencies updated
+
+### 1.5.0 (2023-06-05)
+* (simatec) new Manu-Mode Check added
+* (simatec) suncalc added
+* (simatec) Dependencies updated
+
+### 1.4.29 (2023-04-26)
+* (simatec) Bugfix Brightness down
+
+### 1.4.28 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.27 (2023-04-17)
+* (simatec) small Fixes
+
+### 1.4.26 (2023-04-14)
+* (simatec) Fix Sunprotect
+
+### 1.4.25 (2023-04-13)
+* (simatec) small Fixes
+
+### 1.4.24 (2023-04-10)
+* (simatec) Fix end of Sunprotect
+* (simatec) small Fixes
+* (simatec) Fix shutter alarm
+* (simatec) Sentry fixes
+* (simatec) Bugfix Brightness down
+* (simatec) Dependencies updated
+* (j4nv) Fix Astro Time
+
+### 1.4.23 (2023-03-28)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) small fixes
+
+### 1.4.22 (2023-03-18)
+* (simatec) Bugfix Brightness-Sensor
+* (simatec) Dependencies updated
+* (simatec) Fix Alarm Settings
+
 ### 1.4.21 (2023-02-02)
 * (simatec) fix Brightness Settings
 * (simatec) Dependencies updated

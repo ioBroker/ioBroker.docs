@@ -62,6 +62,7 @@ Mit den states in commands kannst du das Programm stoppen, pausieren oder fortf�
 Mit den states in settings kannst du das Gerät ein oder ausschalten.
 
 Ändern des States programs.active.BSH_Common_Root_ActiveProgram führt zum starten eines Programms
+Update iQ300: Es muss das gewüschnte Programm eingetragen werden. Wenn man programs.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
 
 Ändern des States programs.selected.BSH_Common_Root_SelectedProgram führt zum auswählen des Programms oder Optionen
 
@@ -91,6 +92,7 @@ Oder ob ein Gerät geöffnet ist
 With the states in commands you can stop, pause and resume a program.
 With the states in settings you can turn off or turn on the device
 Change the value of programs.active.BSH_Common_Root_ActiveProgram leads to starting a program
+Update iQ300: You need to set the program name in this variable. If programs.selected.BSH_Common_Root_SelectedProgram is copied, the machine user can predefine the wanted program at the machine and it will be started via ioBroker
 Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to selecting a program or options
 
 ## Changelog
@@ -101,6 +103,15 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 ### **WORK IN PROGRESS**
 -   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
 -   (mcm1957) changed: Dependencies have been updated
+-   (ta2k) restart adapter instead of relogin
+
+### 1.1.1 
+
+- Fix auto login for SingleKey User
+
+### 1.1.0
+
+- Add auto login for SingleKey User
 
 ### 1.0.3
 
@@ -109,6 +120,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
+
 ### 0.0.36
 
 - fix for js.controller 3.3. Please delete the device in Objects manually

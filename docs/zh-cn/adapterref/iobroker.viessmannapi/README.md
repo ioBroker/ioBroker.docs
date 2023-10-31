@@ -3,58 +3,58 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: rJnTMsjfbY6/GtrlBGj69mnQpu98U+RlnKn7lqTwCPw=
+hash: jAMj+zFSDaMxvHI3sMbVQsP9E10CQ78tSCevQuWr5Jc=
 ---
-![商标](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
+![标识](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.viessmannapi.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.viessmannapi.svg)
 ![安装数量（最新）](https://iobroker.live/badges/viessmannapi-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/viessmannapi-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.viessmannapi.svg)
-![新PM](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.viessmannapi.png?downloads=true)
 
 # IoBroker.viessmannapi
-**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/TA2k/ioBroker.viessmannapi/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 viessmannapi 适配器
 Viessmannapi 适配器
 
-**Man benötigt eine ClientID von der Viessmann API**
+**使用 Viessmann API 的 ClientID**
 
-https://app.developer.viessmann.com besuchen und eine Client ID mitdiesen Optionen erstellen：
+https://app.developer.viessmann.com 并提供以下选项的客户端 ID：
 
 名称：iobroker
 
-**Google reCAPTCHA deaktivieren**
+**Google reCAPTCHA 取消激活**
 
-网址：http://localhost:4200/
+URI：http://localhost:4200/
 
-Die Client ID in die Einstellungen kopieren
+Einstellungen kopieren 中的客户端 ID
 
-**Außentemperatur findet sich z.B.层级：viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.value.value**
+**Außentemperatur findet sich z.B.层级： viessmannapi.0.XXXXX.0.features.heating.sensors.Temperature.outside.properties.value.value**
 
-**Remote Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
+**远程 Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.Temperature.main.commands.setTargetTemperature.setValue**
 
 **兼容性列表**：
 
-**Regelungen für Wand-oder Kompaktgeräte**
+**Regelungen für Wand- oder Kompaktgeräte**
 
-Vitotronic 200, Typ HO1, HO1A, HO1B, HO1D, HO2B, HO2C Vitotronic 200 RF, Typ HO1C, HO1E
+Vitotronic 200、典型 HO1、HO1A、HO1B、HO1D、HO2B、HO2C Vitotronic 200 RF、典型 HO1C、HO1E
 
 **Regelungen für bodenstehende Heizkessel**
 
-Vitotronic 200, Typ KO1B, KO2B, KW6, KW6A, KW6B, KW1, KW2, KW4, KW5 Vitotronic 300, Typ KW3
+Vitotronic 200，典型 KO1B、KO2B、KW6、KW6A、KW6B、KW1、KW2、KW4、KW5 Vitotronic 300，典型 KW3
 
-**Regelungen für Wärmepumpen und Hybridgeräte**
+**Wärmepumpen 和 Hybridgeräte 的调节**
 
-Vitotronic 200，典型 WO1A，WO1B，WO1C
+Vitotronic 200，类型 WO1A、WO1B、WO1C
 
-**Regelungen für Festbrennstoffkessel**
+**节日庆祝活动**
 
-Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P mit Vitotronic 200 FO1 Vitoligno 300-S mit Ecotronic (ab Softwarestand 2.04)
+Vitoligno 200-S mit Ecotronic (ab Softwarestand 2.03) Vitoligno 250-S mit Ecotronic (ab Softwarestand 2.00) Vitoligno 300-C mit Ecotronic (ab Softwarestand 2.12) Vitoligno 300-P mit Vitotronic 200 FO1 Vitoligno 300-S mit Ecotronic (ab Softwarestand) 2.04)
 
-**列出所有数据点：https://documentation.viessmann.com/static/iot/data-points**
+**列出所有日期：https://documentation.viessmann.com/static/iot/data-points**
 
 **Frage zu fehlende Datenpunkte bitte direkt an Viessmann https://www.viessmann-community.com/t5/The-Viessmann-API/bd-p/dev-viessmann-api**
 
@@ -107,15 +107,15 @@ setState("viessmannapi.0.xxxxxxx.0.features.ventilation.schedule.commands.setSch
 
 ## Changelog
 
-### 2.0.1
+### 2.3.2
 
--   (TA2k) initial release for new API. Complete new Data objects
+- (TA2k) Fix Login flow
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

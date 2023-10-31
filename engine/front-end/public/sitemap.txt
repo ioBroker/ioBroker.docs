@@ -888,13 +888,16 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.ical/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iceroad/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ico-cloud/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-eclipse-smarthome-classic/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-freepic/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-icons8/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-material-png/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-material-svg/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-mfd-png/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-mfd-svg/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-open-icon-library-png/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-smarthome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.icons-ultimate-png/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.imap/README.md
@@ -1082,6 +1085,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.renault/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.residents/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.resol/README.md
@@ -1253,6 +1257,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.web/README.md
@@ -1262,6 +1267,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.webuntis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weishaupt-wem/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.welcome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wiegand-tcpip/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.wiffi-wz/README.md
@@ -1516,13 +1522,16 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.ical/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iceroad/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ico-cloud/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-eclipse-smarthome-classic/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-freepic/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-icons8/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-material-png/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-material-svg/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-mfd-png/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-mfd-svg/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-open-icon-library-png/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-smarthome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.icons-ultimate-png/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.imap/README.md
@@ -1710,6 +1719,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.renault/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.residents/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.resol/README.md
@@ -1881,6 +1891,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.web/README.md
@@ -1890,6 +1901,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.webuntis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weishaupt-wem/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.welcome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wiegand-tcpip/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.wiffi-wz/README.md
@@ -2144,13 +2156,16 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ical/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iceroad/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ico-cloud/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-eclipse-smarthome-classic/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-freepic/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-icons8/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-material-png/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-material-svg/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-mfd-png/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-mfd-svg/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-open-icon-library-png/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-smarthome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.icons-ultimate-png/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.imap/README.md
@@ -2338,6 +2353,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.renault/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.residents/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.resol/README.md
@@ -2509,6 +2525,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vw-connect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.web/README.md
@@ -2518,6 +2535,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webuntis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weishaupt-wem/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.welcome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wiegand-tcpip/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.wiffi-wz/README.md
@@ -2772,13 +2790,16 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ical/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iceroad/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ico-cloud/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-addictive-flavour-png/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-eclipse-smarthome-classic/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-fatcow-hosting/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-freepic/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-icons8/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-material-png/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-material-svg/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-mfd-png/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-mfd-svg/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-open-icon-library-png/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-smarthome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.icons-ultimate-png/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ikettle2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.imap/README.md
@@ -2966,6 +2987,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radar2/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.radiohead/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rainbird/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rct/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renacidc/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.renault/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.residents/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.resol/README.md
@@ -3137,6 +3159,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vw-connect/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wallpanel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wamo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.warp/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weather-warnings/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow_udp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.web/README.md
@@ -3146,6 +3169,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webuntis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weishaupt-wem/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.welcome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.whatsapp-cmb/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiegand-tcpip/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.wiffi-wz/README.md

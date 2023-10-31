@@ -58,6 +58,12 @@ adapter<br>
 │ ├ hub_name<br>
 │ │ ├ online<br>
 │ │ ├ serial_number<br>
+│ │ ├ signal<br>
+│ │ │ ├ device_rssi<br>
+│ │ │ └ hub_rssi<br>
+│ │ ├ version<br>
+│ │ │ ├ firmware<br>
+│ │ │ └ hardware<br>
 │ │ ├ control<br>
 │ │ │ └ led_mode<br>
 │ │ ├ felaqua_name<br>
@@ -65,6 +71,12 @@ adapter<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
 │ │ │ ├ serial_number<br>
+│ │ │ ├ signal<br>
+│ │ │ │ ├ device_rssi<br>
+│ │ │ │ └ hub_rssi<br>
+│ │ │ ├ version<br>
+│ │ │ │ ├ firmware<br>
+│ │ │ │ └ hardware<br>
 │ │ │ ├ assigned_pets<br>
 │ │ │ │ └ pet_name<br>
 │ │ │ └ water<br>
@@ -74,6 +86,12 @@ adapter<br>
 │ │ │ ├ battery_percentage<br>
 │ │ │ ├ online<br>
 │ │ │ ├ serial_number<br>
+│ │ │ ├ signal<br>
+│ │ │ │ ├ device_rssi<br>
+│ │ │ │ └ hub_rssi<br>
+│ │ │ ├ version<br>
+│ │ │ │ ├ firmware<br>
+│ │ │ │ └ hardware<br>
 │ │ │ ├ assigned_pets<br>
 │ │ │ │ └ pet_name<br>
 │ │ │ ├ bowls<br>
@@ -92,6 +110,12 @@ adapter<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ control<br>
 │ │ &nbsp;&nbsp;&nbsp; │ ├ curfew<br>
 │ │ &nbsp;&nbsp;&nbsp; │ └ lockmode<br>
+│ │ &nbsp;&nbsp;&nbsp; ├ signal<br>
+│ │ &nbsp;&nbsp;&nbsp; │ ├ device_rssi<br>
+│ │ &nbsp;&nbsp;&nbsp; │ └ hub_rssi<br>
+│ │ &nbsp;&nbsp;&nbsp; ├ version<br>
+│ │ &nbsp;&nbsp;&nbsp; │ ├ firmware<br>
+│ │ &nbsp;&nbsp;&nbsp; │ └ hardware<br>
 │ │ &nbsp;&nbsp;&nbsp; ├ curfew<br>
 │ │ &nbsp;&nbsp;&nbsp; │ └ 0..i<br>
 │ │ &nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; ├ enabled<br>
@@ -137,6 +161,9 @@ SureFlap®, Sure Petcare® and Felaqua® are registered trademarks of [SureFlap 
 The pictures of the SureFlap® devices are provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 1.2.2 (2023-10-17)
+* (Sickboy78) added signal strength and hardware and firmware version of devices
 
 ### 1.2.1 (2023-10-03)
 * (Sickboy78) fixed get_history_since call failing because of API changes

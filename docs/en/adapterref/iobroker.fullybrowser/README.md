@@ -32,6 +32,9 @@ A small excerpt just of the command options:
 
 
 ## Changelog
+### 2.2.0 (2023-10-27)
+* (arteck) intrvall corr
+
 ### 2.1.6 (2022-11-23)
 * (arteck) add name of device to admin
 * (arteck) corr status when login fail
@@ -60,7 +63,7 @@ A small excerpt just of the command options:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: sWkuDLk1K7dgx2t/3Efr5H5g7GYOdzos6O2NfP50fB4=
+hash: YKqB7RRd9ugIYz7MDYcYZ5kAnNsHEO9kEuP5DXpZozo=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -36,6 +36,10 @@ Es kann entweder für die Original-Gateways der Bosch-Gruppe oder das ems-esp od
 ## Alle geänderten Zustände aus eigenen Skripten oder dem Objektbrowser müssen quittiert = false setzen !!!
 Der Adapter wurde für das EMS-ESP-Gateway mit der neuesten Firmware-Version (V3.6.0) von ESP32 getestet
 
+## Energieaufzeichnungen und Statistiken benötigen eine aktive Datenbankinstanz. Ich empfehle dringend, InfluxDB V2 nicht zu verwenden!!
+Für die Speicherung historischer Werte muss bei InfluxDB v2 die Aufbewahrungsfrist auf > 2 Jahre eingestellt werden. In V2 ist dies ein globaler Parameter für alle Zustände!
+
+## NEU: Verbindungsstatus wird in der Instanzenübersicht angezeigt
 Deutsche Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf
 
 Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf
@@ -47,6 +51,28 @@ Englische Dokumentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.6.0 (2023-10-30)
+* Add indicator for connection status of the gateways within instances overview
+
+### 2.5.3 (2023-10-29)
+* Replace axios post by axios put for KM200 gateway to secure that write changes are accepted
+
+### 2.5.2 (2023-10-19)
+* Update energy statistics and recordings for history and influxdb
+* include warning in log that InfluxDB V2 will not be supported in future versions anymore
+
+### 2.5.1 (2023-10-13)
+* correct hourly recordings timestamps for km200 (timezone difference)
+
+### 2.5.0 (2023-10-11)
+* avoid duplicates on ems-esp energy statistics
+* replace request by axios
+* some corrections for ems-esp sensors and custom elements
+* move database config to parameter page
+
+### 2.4.1 (2023-09-10)
+* add parameter to read ems-esp custom elments
+
 ### 2.4.0 (2023-09-03)
 * integrate custom entities for ems-esp gateway
 * rework async functions

@@ -1,4 +1,5 @@
 ![Logo](admin/tesla-motors.png)
+
 # ioBroker.tesla-motors
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.tesla-motors.svg)](https://www.npmjs.com/package/iobroker.tesla-motors)
@@ -13,13 +14,13 @@
 
 ## Tesla adapter für ioBroker
 
-
 Es werden alle Tesla Modelle und Powerwalls aus der Tesla App angezeigt und aktualisiert.
 
 **Remote Befehle für Tesla und Powerwall sind möglich unter**
 tesla-motors.0.id.remote
 
 **Loginablauf:**
+
 - In den Instanzoptionen den Auth Link klicken.
 - Die Logindaten eingeben und gegebenenfalls Captcha/reCaptcha und MFA eingeben.
 - Auf der Page not Found Seite die komplette URL aus dem Browser kopieren und in die Instanzoptionen einfügen und auf Speichen und Schließen klicken.
@@ -37,23 +38,45 @@ tesla-motors.0.id.remote
 [Option Codes Erklärung](https://tesla-api.timdorr.com/vehicle/optioncodes)
 
 ## Fragen und Diskussionen:
+
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.5 (2023-10-24)
+
+- fix vehicle update
+
+### 1.3.4 (2023-10-24)
+
+- add wall_connector devices
+
+### 1.3.4-alpha.0 (2023-10-18)
+
+- (mcm1957) Standard iobroker release environment has been added.
+- (mcm1957) Some dependencies have been updated.
+
 ### 1.3.2
-* Create history elements by index not by date
-  
+
+- Create history elements by index not by date
+
 ### 1.3.1
-* login url and ordered car fix
+
+- login url and ordered car fix
 
 ### 1.0.2
-* (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
+
+- (iobroker-community-adapters) ALLE DATENPUNKTE SIND NEU, Vis muss angepasst werden. Neue Version mit neuen Zuständen für Tesla und Powerwalls.
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 iobroker-community
+Copyright (c) 2021-2023 iobroker-community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

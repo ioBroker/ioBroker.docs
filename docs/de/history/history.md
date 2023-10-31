@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: ydCcQNeaJsdSO0DpIiPNzdsditWhD967JCb2ljfBpI0=
+hash: wtBN0K+21F8vJkPV4DG7LPzxS4UZUmzxiCcO0Ruttuc=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -14,6 +14,7 @@ hash: ydCcQNeaJsdSO0DpIiPNzdsditWhD967JCb2ljfBpI0=
   - neuer Adapter
   - stabile Version
   - neue Funktion
+  - neues Widget
 - Wenn Sie Neuigkeiten zum neuen Adapter haben, fügen Sie bitte einen GitHub-Link und ein Logo des Adapters hinzu
 
   Beispiel:
@@ -25,7 +26,7 @@ hash: ydCcQNeaJsdSO0DpIiPNzdsditWhD967JCb2ljfBpI0=
     <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
 ```
 
-## Frigate (20.08.2023) – neuer Adapter
+## Fregatte (20.08.2023) – neuer Adapter
 https://github.com/Bettman66/ioBroker.frigate
 
 <img src="https://raw.githubusercontent.com/Bettman66/ioBroker.frigate/master/admin/frigate.png" width="100" height="100" />
@@ -46,7 +47,7 @@ https://github.com/ylabonte/ioBroker.procon-ip
 
 ioBroker-Adapter zur Basisunterstützung der `ProCon.IP` Schwimmbadsteuereinheit.
 
-## Deyeidc (29.08.2023)
+## Deyeicd (29.08.2023)
 https://github.com/raschy/ioBroker.deyeidc
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.deyeidc/master/admin/deyeidc.png" width="100" height="100" />
@@ -157,6 +158,13 @@ https://github.com/iobroker-community-adapters/ioBroker.webui
 
 Dies ist ein vollständiges Visualisierungssystem für ioBroker.
 
+* vollständig auf Webkomponenten basierend
+* Wysiwyg-Editor für die Benutzeroberfläche, Sie können aber auch zur Quellansicht oder geteilten Ansicht wechseln
+* Benutzeroberfläche mit mehreren Fenstern in der Bearbeitungsansicht, wie in Visal Studio
+* Bindungen per Drag/Drop von ioBroker-Objekten auf UI-Elementen oder Eigenschaften
+* komplexe Bindungen mit Javascript und Konvertern
+* einfache Skriptsprache, die über die Benutzeroberfläche erstellt werden kann
+
 ## Heizungssteuerung (4.10.2023) - neuer Adapter
 https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
@@ -165,3 +173,52 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 Mit diesem Adapter können Heizungsanlagen verwaltet werden.
 Sie können zwischen Kühl- und Heizmodus wählen und für einen Raum Boost oder Pause aktivieren.
 Darüber hinaus können Sie die Solltemperatur für einen Raum überschreiben.
+
+## Admin und mqtt (11.10.2023) – neue Funktion
+Admin- und MQTT-Adapter prüfen jetzt, ob sie über das öffentliche Internet erreichbar sind, wenn keine Authentifizierung aktiviert ist. Wenn nicht, wird im Protokoll und im Admin eine Warnung angezeigt.
+
+Dies ist eine nützliche Funktion, da nicht alle Benutzer wissen, wie sie ihre Adapter sichern können, und es gefährlich ist, MQTT- oder Admin-Adapter ohne Authentifizierung für das Internet geöffnet zu haben.
+
+## Iobroker (11.10.2023) – neue Funktion
+Jetzt ist es möglich, Ihr node.js über die Befehlszeile zu aktualisieren: `iob nodejs-update` https://forum.iobroker.net/topic/69067/neuer-befehl-iob-nodejs-update
+
+Sie können ohne zusätzliche Parameter auf eine vorgeschlagene Version (aktuell 18) aktualisieren oder eine Version angeben: `iob nodejs-update 20`
+
+## Vis-2-widgets-material (13.10.2023) – neues Widget
+Staubsauger-Widget wurde hinzugefügt.
+
+Dieses Widget ist primär für Xiaomi-Staubsauger.
+Es kann aber auch für jeden anderen Staubsauger verwendet werden.
+Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstützt.
+
+![Bild 1](../../en/history/media/2023_10_13_material-vacuum.png)
+
+## Willkommen (17.10.2023) – neuer Adapter
+https://github.com/ioBroker/ioBroker.welcome
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/admin/welcome.png" width="100" height="100" />
+
+Dieser Adapter zeigt alle Web- und Admin-Instanzen von ioBroker auf einer Seite auf Port 80 (konfigurierbar)
+
+![Bild](https://raw.githubusercontent.com/ioBroker/ioBroker.welcome/master/img/screen.png)
+
+## Govee-local (20.10.2023) – neuer Adapter
+https://github.com/boergegrunicke/ioBroker.govee-local
+
+<img src="https://raw.githubusercontent.com/boergegrunicke/ioBroker.govee-local/main/admin/govee-local.png" width="100" height="100" />
+
+Steuern Sie Govee-Geräte über lokalen Zugriff (keine Cloud)
+
+## Pylontech (23.10.2023) – neuer Adapter
+https://github.com/PLCHome/ioBroker.pylontech
+
+<img src="https://raw.githubusercontent.com/PLCHome/ioBroker.pylontech/master/admin/logo.png" width="100" height="100" />
+
+Fragen Sie die Zellspannungen und den Status der pylontech-Batterien über die Konsole ab.
+
+## Signifylights (26.10.2023) – neuer Adapter
+https://github.com/disaster123/ioBroker.signifylights
+
+<img src="https://raw.githubusercontent.com/disaster123/ioBroker.signifylights/main/admin/signifylights.png" width="100" height="100" />
+
+Signify Lights-Adapter für alle Arten von Signify WLAN-Leuchten wie WIZ, Philips WLAN und viele mehr ...

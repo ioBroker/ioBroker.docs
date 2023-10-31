@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.shelly/protocol-coap.md
 title: ioBroker.shelly
-hash: mwV6RFHCnF5YCi49CVyQClGljQYzohPsXjalqg/EoTU=
+hash: bA+3UJOe3yp/r/VelUuUuD8mwQP3SW388OFi2mt4X5o=
 ---
 ![标识](../../../de/admin/shelly.png)
 
@@ -12,6 +12,8 @@ hash: mwV6RFHCnF5YCi49CVyQClGljQYzohPsXjalqg/EoTU=
 这是德语文档 - [🇺🇸英文版](../en/protocol-coap.md)
 
 ##CoAP
+**CoAP / CoIoT 仅受 Gen1 设备支持 - Plus 和 Pro 设备 (Gen2) 不支持此协议！**
+
 ![iobroker_general_coap](../../../de/adapterref/iobroker.shelly/img/iobroker_general_coap.png)
 
 **如果使用高于 1.9.4 的固件版本，则必须在 Shelly 设备上配置 CoIoT 服务器（单播）。**

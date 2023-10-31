@@ -47,6 +47,9 @@ bulb LBxxx
 
 
 ## Changelog
+### 2.2.0 (2023-10-27)
+* switch to intervall
+
 ### 2.1.6 (2022-12-11)
 * (arteck) refactoring
 
@@ -83,7 +86,7 @@ bulb LBxxx
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2022 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

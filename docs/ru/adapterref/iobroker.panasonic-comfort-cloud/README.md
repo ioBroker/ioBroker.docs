@@ -2,12 +2,12 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.panasonic-comfort-cloud/README.md
-title: ioBroker.panasonic-комфорт-облако
-hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
+title: ioBroker.panasonic-comfort-cloud
+hash: WhJMnUEqQIkf/Vs/OuNgbAZzw8hTdmggK27lMGSFrjw=
 ---
 # IoBroker.panasonic-comfort-cloud
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.panasonic-comfort-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.panasonic-comfort-cloud.svg)
 ![Статус зависимости](https://img.shields.io/david/marc2016/iobroker.panasonic-comfort-cloud.svg)
 ![Известные уязвимости](https://snyk.io/test/github/marc2016/ioBroker.panasonic-comfort-cloud/badge.svg)
@@ -16,20 +16,35 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 
 | :предупреждение: ВНИМАНИЕ |
 |:---------------------------|
-| Новая версия приложения в настройках адаптера — 1.18.0 |
+| Новая версия приложения в настройках адаптера — 1.19.1 |
 
 ![Логотип](../../../en/adapterref/iobroker.panasonic-comfort-cloud/admin/panasonic-comfort-cloud.png)
 
 ## Адаптер panasonic-comfort-cloud для ioBroker
 Адаптер для управления устройствами в Panasonic Comfort Cloud. Он использует вызовы REST, полученные из официального приложения Comfort Cloud.
-Для использования адаптера вам необходимо ввести имя пользователя и пароль в конфигурации. Они используются для аутентификации доступа к Comfort Cloud. Информация обо всех устройствах автоматически извлекается и вставляется как объект. Адптер циклически опрашивает информацию об устройстве (интервал смотрите в настройках) и отправляет команды напрямую в облако.
+Чтобы использовать адаптер, вам необходимо ввести имя пользователя и пароль в конфигурации. Они используются для аутентификации доступа к Comfort Cloud. Информация обо всех устройствах автоматически извлекается и вставляется в виде объекта. Адаптер циклически опрашивает информацию об устройстве (интервал смотрите в настройках) и отправляет команды напрямую в облако.
 
-С помощью используемого метода только один клиент может одновременно войти в систему с учетной записью.
-Рекомендуется использовать вторую учетную запись, для которой используются общие устройства.
+При использовании используемого метода только один клиент может одновременно войти в систему с учетной записью.
+Рекомендуется использовать вторую учетную запись, для которой были предоставлены общие устройства.
 
 ## Changelog
+### 2.2.4 (2023-10-18)
 
-### **WORK IN PROGRESS**
+* Fixed load AppVersion from Github.
+
+### 2.2.3 (2023-10-14)
+
+* Added support for admin 5 UI (jsonConfig).
+* Updated packages.
+* Fixed translation.
+
+### 2.2.2 (2023-09-16)
+
+* Fixed wrong version number.
+
+### 2.2.1 (2023-09-16)
+
+* panasonic-comfort-cloud-client updated to new version. New headers added.
 
 ### 2.2.0
 
@@ -115,7 +130,7 @@ hash: aQRpdY4IvmoXpbawPTooSprvNgVRbcGLwgXa3vC/68o=
 
 MIT License
 
-Copyright (c) 2022 marc <marc@lammers.dev>
+Copyright (c) 2023 marc <marc@lammers.dev>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -217,7 +217,16 @@ otherwise it is more complex and individually to be parametrized.
 * blind alert state -> decode bit array
 
 ## Changelog
-### 2.5.2
+### 2.5.4 (npm)
+* correction for excluding routines
+
+### 2.5.3 (npm)
+* correction for updating komfort, absenk
+* corrections for the statistics polling when device is not plugged in
+* correction for year to date energy value (not recognizing two digit month)
+* new possibility in admin page to exclude templates/routines/statistics for compatibility with older FB
+
+### 2.5.2 (npm)
 * correction for komfort, absenk if receiving 253/254 for OFF/ON it will be NaN see issue #164
 
 ### 2.5.1

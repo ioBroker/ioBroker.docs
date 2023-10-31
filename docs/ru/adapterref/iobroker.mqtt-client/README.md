@@ -3,16 +3,27 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mqtt-client/README.md
 title: ioBroker.mqtt-клиент
-hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
+hash: XK5Xtt7JLVj8s1aTQamLmu4JQk7bY/jI6kpXPlHfTXY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mqtt-client/admin/mqtt-client.png)
 
-![Количество установок](http://iobroker.live/badges/mqtt-client-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
+![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.mqtt-client)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mqtt-client.svg)
-![НПМ](https://nodei.co/npm/iobroker.mqtt-client.png?downloads=true)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.mqtt-client)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.mqtt-client)
+![GitHub фиксирует данные с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.mqtt-client/latest)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.mqtt-client)
+![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.mqtt-client)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.mqtt-client.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/mqtt-client-stable.svg)
+![Количество установок](https://iobroker.live/badges/mqtt-client-installed.svg)
 
 # IoBroker.mqtt-клиент
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/mqtt-client/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.mqtt-client/actions/workflows/codeql.yml)
+
+## Часовой
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+
 ## Настройки адаптера
 ![Адаптер](../../../en/adapterref/iobroker.mqtt-client/img/settings.png)
 
@@ -22,62 +33,84 @@ hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
 ### При отключении темы и сообщения
 ```on disconnect message``` публикуется в ```on disconnect topic```, когда адаптер корректно останавливается.
 
-### Последней будет тема и сообщение
+### Последняя тема и сообщение
 ```last will message``` публикуется в ```last will topic``` каждый раз, когда клиент подключается или повторно подключается к серверу.
 Сервер сохранит это сообщение и отправит его своим подписчикам, когда клиент неожиданно отключится.
 
 ### Подписки
-Разделенный запятыми список тем, которые не охватываются существующими штатами.
+Список тем, разделенных запятыми, которые не охвачены существующими штатами.
 Полученные сообщения преобразуются в состояния в пространстве имен адаптера (например, mqtt.0) и подписываются.
 Вы можете удалять темы после создания всех состояний.
 
-### Опубликовать префикс
+### Префикс публикации
 При публикации это будет добавлено ко всем темам.
 По умолчанию пусто (без префикса).
 
 ### Префикс подписки
-При подписке это будет добавляться ко всем темам.
+При подписке это будет добавлено ко всем темам.
 По умолчанию пусто (без префикса).
 
 ## Настройки состояния
 ![Состояние](../../../en/adapterref/iobroker.mqtt-client/img/dialog.png)
 
 ### Включено
-Включает или отключает функциональность mqtt-клиента для этого состояния.
-Отключение удалит все настройки mqtt-клиента из этого состояния.
+Включает или отключает функциональность mqtt-client для этого состояния.
+Отключение приведет к удалению всех настроек mqtt-клиента из этого состояния.
 
 ### Тема
-Тема, в которой публикуется это состояние и на которую вы подписаны.
+Тема, в которой опубликовано это состояние и на которую подписано.
 по умолчанию: идентификатор состояния преобразован в тему mqtt.
 
 ### Опубликовать
 * Состояние ```enable``` будет опубликовано
-* Состояние ```changes only``` будет опубликовано только при изменении его значения
-* ``как объект``` все состояние будет опубликовано как объект
+* ```changes only``` состояние будет опубликовано только при изменении его значения.
+* ```as object``` все состояние будет опубликовано как объект
 * ```qos``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
 * ```сохранить``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-8-retained-messages>
 
-### Подписываться
+### Подписаться
 * Тема ```enable``` будет подписана, и состояние будет соответствующим образом обновлено.
-* Состояние ```changes only``` будет записано только при изменении значения
-* сообщения ```как объект``` будут интерпретироваться как объекты
+* ```changes only``` состояние будет записано только при изменении значения
+* Сообщения ```as object``` будут интерпретироваться как объекты
 * ```qos``` см. <http://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels>
-* ```ack``` при обновлении состояния флаг подтверждения будет установлен соответствующим образом
+* ```ack``` при обновлении состояния флаг подтверждения будет установлен соответствующим образом.
 
 #### Примечание
-* когда для ack установлено значение true, он будет перезаписывать объекты ack, см. ```как объект```
-* для предотвращения зацикливания сообщений, если включены и публикация, и подписка, ```только изменения``` всегда включен для подписки
+* когда для ack установлено значение true, объекты ack будут перезаписаны, см. ```as object```
+* во избежание зацикливания сообщений, если включены и публикация, и подписка, для подписки всегда включено «только изменения»
 
-## СДЕЛАТЬ
-* тестовые префиксы
-* подключиться/переподключиться без очистки сеанса
+<!-- Заполнитель следующей версии (в начале строки):
 
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+### __РАБОТА В ПРОГРЕССЕ__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.7.0 (2023-10-30)
+
+* (mcm1957) Dependencies have been updated
+* (mcm1957) Adapter requires nodejs 16 now
+
+### 1.6.5 (2023-09-28)
+* (foxriver76) prevent crash cases on invalid subscribe
+
+### 1.6.4 (2023-07-26)
+* (DutchmanNL) Option to allow self-signed certificates in adapter settings added.
+
+### 1.6.3 (2022-06-16)
+* (Apollon77) Prevent potential crash cases reported by Sentry
+
+### 1.6.2 (2022-04-02)
+* (Apollon77) Prevent potential crash cases reported by Sentry
+
+### 1.6.1 (2022-02-24)
+* (Pmant) fix subscriptions
+* (Pmant) fix unsubscribing
+* (Pmant) use prefix for LWT topic
+
+### 1.6.0 (2022-02-19)
+* (Pmant) add option to select protocol version
+* (Pmant) add websocket support
+* (Pmant) publish values once on enabling publishing
+* (Pmant) Upgrade to MQTT version 4 (resolves many connection issues)
 * (Pmant) fix LWT documentation
 * (Pmant) optionally publish a message when disconnecting gracefully
 
@@ -148,7 +181,7 @@ hash: HdtB+RffifVs4/gPqky/n22oi7tbCSBOAqzDvzcVLbw=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2022 Pmant
+Copyright (c) 2016-2023 Pmant
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

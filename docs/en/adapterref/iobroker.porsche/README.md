@@ -1,4 +1,5 @@
 ![Logo](admin/porsche.png)
+
 # ioBroker.porsche
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.porsche.svg)](https://www.npmjs.com/package/iobroker.porsche)
@@ -29,13 +30,15 @@ porsche.0.vin.remote auf true/false setzen steuert den jeweiligen Befehl
 
 ## Changelog
 
-### 0.0.1
-* (TA2k) initial release
+### 0.2.0
+
+- (TA2k) fix login
 
 ## License
+
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

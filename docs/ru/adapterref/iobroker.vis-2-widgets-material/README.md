@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: 1fgkkKQY5X8S3cuug/eWiCXdSl4D1IgBnG3oSUKmZh4=
+hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -105,6 +105,13 @@ HTML-шаблон можно использовать для отображен�
 ### Замок
 ![Замок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
 
+### Пылесос
+Этот виджет является основным для пылесоса Xiaomi. Но его можно использовать и для любого другого пылесоса.
+
+Разница лишь в том, что Xiaomi поддерживает уборку помещений.
+
+![Пылесос](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-vacuum.png)
+
 ### Выбор времени
 ## Делать
 - Исследуйте задержку виджетов.
@@ -115,6 +122,17 @@ HTML-шаблон можно использовать для отображен�
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.3.3 (2023-10-26)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added color settings to actual
+* (bluefox) Vacuum settings were hidden
+
+### 1.3.2 (2023-10-14)
+* (bluefox) Small improvements done
+
+### 1.3.1 (2023-10-13)
+* (bluefox) Added the vacuum cleaner widget
+
 ### 1.2.1 (2023-09-18)
 * (bluefox) Added door lock, rgb and thermostat to switches widget
 

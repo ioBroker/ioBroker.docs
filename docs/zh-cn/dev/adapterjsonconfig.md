@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: LexY9A0at19A+Ujovu4Yx+sKBDambx+4gyh2wEa98vM=
+hash: BO3WV44vZwcvRy5TVZZAjgqHXc6hctoE5FdqcjdtBMA=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https:// /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
 您可以以 JSON 或 JSON5 格式定义设置。 JSON5 更易于人类阅读并支持注释。
 
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 带有项目的选项卡
+- `面板` - 包含项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -81,7 +81,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `short` - 没有`enum.rooms。`
   - `allowDeactivate` - 允许让房间空着
 
-- `func` - 从 `enum.func` 选择函数（带颜色和图标） - （仅限 Admin6）
+- `func` - 从 `enum.func` 中选择函数（带颜色和图标） - （仅限 Admin6）
   - `short` - 没有`enum.func。`
   - `allowDeactivate` - 允许让功能为空
 
@@ -136,7 +136,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true
@@ -144,7 +144,9 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 - `实例`
     - `适配器` - 适配器的名称。使用特殊名称“_dataSources”，您可以获得带有标志“common.getHistory”的所有适配器。
+    - `adapters` - 应该显示的可选适配器列表。如果未定义，将显示所有适配器。仅当未定义“适配器”属性时才有效。
     - `allowDeactivate` - 如果为 true。显示附加选项“停用”
+    - `onlyEnabled` - 如果为 true。仅显示已启用的实例
     - `long` - 值看起来像 `system.adapter.ADAPTER.0` 而不是 `ADAPTER.0`
     - `short` - 值看起来像 `0` 而不是 `ADAPTER.0`
     - `all` - 添加到选项“all”选项，值为“*”
@@ -290,7 +292,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
     - `disableEdit` - 如果用户可以手动输入文件名而不仅仅是通过选择对话框
     - `limitPath` - 将选择限制为“meta”类型和以下路径的一个特定对象（非强制）
-    - `filterFiles` - 如`['png', 'svg', 'bmp', 'jpg', 'jpeg']`
+    - `filterFiles` - 如`['png', 'svg', 'bmp', 'jpg', 'jpeg', 'gif']`
     - `filterByType` - `图像、代码、txt、音频、视频`
     - `allowUpload` - 允许上传文件
     - `allowDownload` - 允许下载文件（默认 true）
@@ -409,17 +411,24 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则使用当前坐标初始化字段
+  - `autoInit` - 如果为空，则用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
+
+- `界面`
+
+  选择运行实例的主机的接口
+
+  - `ignoreLoopback` - 不显示环回接口 (127.0.0.1)
+  - `ignoreInternal` - 不显示内部接口（通常也是 127.0.0.1）
 
 - `license` - 显示许可证信息（如果尚未接受）。必须定义属性“texts”或“licenseUrl”之一。接受许可证后，定义的配置属性将设置为“true”。
   - `texts` - 带有文本的段落数组，每个段落将显示为单独的段落
   - `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
   - `title` - 许可证对话框的标题
   - `agreeText` - 同意按钮的文本
-  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，同意的按钮将被启用。
+  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，则将启用同意的按钮。
 
 - `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要原生的 `license` 和 `useLicenseManager` 属性。
   - `uuid` - 检查 UUID

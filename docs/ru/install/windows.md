@@ -1,206 +1,97 @@
 ---
 title: Окна
-lastChanged: 18.07.2019
+lastChanged: 22.10.2023
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/install/windows.md
-hash: 69niA2RvwVAdu1dGhvw/9To2FnAkAKCC+n05IJR1SH0=
+hash: dOVnmfUvk92WED1e/JIqR9vgWDa4EEEKVpJpfv1r3f0=
 ---
-# Установите ioBroker в Windows
-?> ***Эта статья в настоящее время дополняется***.<br><br> Помогите в ioBroker. Обратите внимание на [Руководство по стилю ioBroker](../community/styleguidedoc.md), чтобы упростить принятие изменений.
+# Оглавление
+- [Проверить требования](#check-requirements)
+- [Установщик Windows ioBroker](#the-iobroker-windows-installer )
+  - [ioBroker для Windows – имеет ли это вообще смысл?](#iobroker-on-windows---имеет ли это какой-либо смысл)
+  - [install ioBroker](#iobroker-install )
+- [Обновление](#update)
+- [Устранение неполадок](#устранение неполадок)
 
-Следующие инструкции помогут вам выполнить установку шаг за шагом. Пожалуйста, не пропускайте ни одного шага, так как некоторые команды основаны друг на друге.
+# Проверьте требования
+Перед установкой проверьте, соответствует ли система всем необходимым [Требования к установке](./requirements.md).
 
-## Проверьте предварительные условия
-!> Сначала проверьте, выполняет ли система все необходимые [Требования к установке](requirements.md).
+Проблемы с установщиком Windows можно обсудить здесь, на форуме: https://forum.iobroker.net/topic/63610/test-iobroker-unter-windows-installieren-2023-edition.
 
-Node.js требуется для запуска ioBroker. Далее предполагается, что на ПК не установлены ни Node.js, ни ioBroker. Если ioBroker уже установлен, перейдите к разделу [обновления](windows.md#update).
+# Установщик Windows ioBroker
+С помощью установщика Windows ioBroker ioBroker можно установить на ПК с Windows всего за несколько кликов. Сам установщик не поставляется с какими-либо программными пакетами. Необходимое программное обеспечение автоматически загружается во время установки. Поэтому подключение к Интернету является обязательным.
 
-Чтобы узнать, установлен ли Node.js, диалоговое окно `Ausführen` открывается комбинацией клавиш <kbd>⊞ Windows</kbd> + <kbd>r</kbd> , а затем командой там
+После установки ioBroker установщик можно использовать для следующих действий:
 
-```
-cmd.exe /C node -v & pause
-```
+1. Обновите Node.js до текущей рекомендованной версии.
+2. Запустите ioBroker Fixer
+3. Удалите или создайте правила для брандмауэра Windows, чтобы к ioBroker можно было получить доступ извне.
+4. Определите, запускается ли ioBroker автоматически при запуске Windows.
 
-вошел. После подтверждения команды появится окно.
+Установщик устанавливается сам, и его можно найти в меню «Пуск» Windows в разделе «Платформа автоматизации ioBroker» — «Настройка ioBroker».
 
-![Версия Node.js](../../de/install/media/w02nodecheck.png) *Проверка Node.js*
+## IoBroker в Windows – имеет ли это вообще смысл?
+ioBroker обычно работает в системах Windows так же хорошо, как и в системах Linux. Однако системы Windows, предназначенные для круглосуточного использования, могут иметь системные недостатки, которые каждый должен взвесить самостоятельно.
+Windows особенно подходит для быстрого тестирования ioBroker на существующем ПК с Windows.
 
-Отображается либо сообщение об ошибке, либо установленная версия Node.js.
+## Установите ioBroker
+Сначала необходимо скачать установщик. Текущая версия всегда доступна на официальной странице загрузки: https://www.iobroker.net/#de/download.
 
-Если выдается номер версии Node.js, необходимо сначала проверить, соответствует ли он по-прежнему [Требования к установке](requirements.md).
+Затем установщик запускается двойным щелчком мыши. Сначала мы выбираем язык, который будем использовать:
 
-Если сообщение об ошибке `Der Befehl "node" ist entweder falsch geschrieben oder konnte nicht gefunden werden.`, значит, node.js не установлен, а установка — [можно начинать сразу](#nodeinst).
+![Выбор языка](../../de/install/media/windows/InstallWin_language.png "'Выбор языка'")
 
-## Быстрый старт
-?> Это краткое изложение шагов установки предназначено для опытных пользователей ioBroker, которые устанавливали ioBroker несколько раз.
+Затем появляется страница приветствия:
 
-Новичкам следует следовать [подробная инструкция](#nodeinst).
+![Приветственная страница](../../de/install/media/windows/InstallWin_welcome.png "«Страница приветствия»")
 
-* Версия Node.js 8.x LTS [скачать и установить] (nodejs.md).
-* Откройте командную строку `cmd.exe` от имени администратора и выполните следующие команды по порядку.
+После нажатия «Далее» появится страница лицензии:
 
-  выполнять:
+![Страница лицензии](../../de/install/media/windows/InstallWin_license.png "«Страница лицензии»")
 
-```
-npm install --global windows-build-tools
-md C:\iobroker
-cd /d C:\iobroker
-npm install iobroker
-npm install --production --no-optional --logevel=error
-iobroker status
-```
+Нам необходимо принять лицензию и снова нажать «Далее». На следующей странице мы теперь можем выбрать папку установки для нашей установки ioBroker:
 
-<div id="nodeinst"></div>
+![Папка установки](../../de/install/media/windows/InstallWin_folder.png "«Папка установки»")
 
-## Установка Node.js и npm
-Node.js устанавливается в соответствии с [это руководство](nodejs.md).
+Обычно рекомендуется просто использовать значение по умолчанию «C:\ioBroker». После нажатия «Далее» будут выполнены некоторые проверки:
 
-## Установка ioBroker
-?> ioBroker можно установить в свободно выбираемую папку на локальном жестком диске. Если путь установки содержит пробелы, полный путь должен быть заключен в кавычки для всех команд.
-Пример команды: `dir "C:\ioBroker Testsystem"`.
+![Отзывы](../../de/install/media/windows/InstallWin_check.png "«Отзывы»")
 
-?> Папка установки по умолчанию для ioBroker — `C:\iobroker`.
+Это может занять некоторое время. Результат проверки появится автоматически:
 
-1. Откройте окно командной строки от имени администратора. Для этого используйте комбинацию клавиш
+![Результат проверки](../../de/install/media/windows/InstallWin_checkresult.png "«Результат проверки»")
 
-<kbd>⊞ Windows</kbd> + <kbd>r</kbd> открыть диалоговое окно `Ausführen` и команду там
+В этом примере все в порядке, и мы можем продолжить. Если все необходимые требования не соблюдены, необходимо сначала уточнить, что необходимо сделать. Порты, необходимые для установки и работы ioBroker, обычно недоступны. Если вы попали в такую ситуацию и не знаете, что делать, вы можете найти помощь на форуме ioBroker по адресу https://forum.iobroker.net/. После нажатия «Далее» мы можем выбрать некоторые детали:
 
-```
-cmd
-```
+![Параметры](../../de/install/media/windows/InstallWin_options.png "'Параметры'")
 
-   вход.
+При первичной установке ioBroker фиксируются первые три опции:
 
-Поскольку окно командной строки должно быть открыто от имени администратора, введите **не** `OK`, а комбинацию клавиш `Strg` + `Umschalt` + `Eingabetaste` . Далее следует запрос безопасности, который необходимо подтвердить с помощью `Ja` или путем ввода пароля администратора.
+1. Node.js, среда выполнения для ioBroker, загружается и устанавливается в рекомендуемой версии.
+2. Устанавливается сам ioBroker
+3. Невозможно выбрать ioBroker Fixer.
 
-!> Строка заголовка в открывшемся черном окне командной строки должна начинаться со слова `Administrator:`.
+Следующие два параметра можно изменить, но обычно рекомендуется оставить настройки по умолчанию.
+И, наконец, установщик предлагает возможность принять конфигурацию существующей установки. Для этого требуется вся папка «iobroker-data», которую можно найти в папке ioBroker, если установлена установка ioBroker. Это может быть связано с установкой ioBroker под Windows или Linux. Данные берутся из этой папки при установке, содержимое этой папки не изменяется.
+После нажатия «Далее» мы теперь видим сводку запланированных действий:
 
-?> Некоторые адаптеры ioBroker содержат компоненты, которые необходимо скомпилировать для Windows. Поэтому перед установкой ioBroker устанавливаются так называемые `windows-build-tools`. Дополнительную информацию о `windows-build-tools` см. в [можно найти здесь](https://github.com/felixrieseberg/windows-build-tools).
+   ![Параметры](../../de/install/media/windows/InstallWin_summary.png "'Параметры'")
 
-1. Windows-build-tools устанавливаются с помощью следующей команды:
+   При нажатии «Установить» начнется фактическая установка:
 
-```
-npm install --global windows-build-tools
-```
+   ![Параметры](../../de/install/media/windows/InstallWin_downloadnode.png "'Параметры'")
 
-1. Затем в окне командной строки команда для создания папки установки
+   ![Параметры](../../de/install/media/windows/InstallWin_installnode.png "'Параметры'")
 
-   выполнять:
+   ![Параметры](../../de/install/media/windows/InstallWin_installiobroker.png "'Параметры'")
 
-```
-md C:\iobroker
-```
+   ![Параметры](../../de/install/media/windows/InstallWin_finish.png "'Параметры'")
 
-1. Теперь можно установить собственно инсталляционный пакет ioBroker:
+При нажатии «Готово» открывается веб-браузер, и ioBroker проведет вас через первые шаги настройки.
 
-```
-cd /d C:\iobroker
-npm install iobroker
-```
+# Обновлять
+@@@ подлежит уточнению @@@
 
-   Результат должен выглядеть так:
-
-```
-[...]
-╭───────────────────────────────────────────────────────╮
-│ The iobroker files have been downloaded successfully. │
-│ To complete the installation, you need to run         │
-│                                                       │
-│   npm i --production --no-optional --logevel=error    │
-│                                                       │
-╰───────────────────────────────────────────────────────╯
-
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN enoent ENOENT: no such file or directory, open 'C:\iobroker\package.json'
-npm WARN iobroker No description
-npm WARN iobroker No repository field.
-npm WARN iobroker No README data
-npm WARN iobroker No license field.
-
-+ iobroker@1.3.0
-added 51 packages from 28 contributors and audited 83 packages in 6.937s
-found 0 vulnerabilities
-```
-
-1. Установка ioBroker завершается следующими командами:
-
-```
-cd /d C:\iobroker
-npm install --production --no-optional --logevel=error
-```
-
-Процесс установки может занять некоторое время. Красные сообщения об ошибках (gyp !ERR), связанные с модулем `unix-dgram`, могут появляться при запуске npm. Эти сообщения об ошибках можно игнорировать.
-
-   Заключительные строки установки должны заканчиваться примерно так:
-
-```
-[...]
-Write "iobroker start" to start the ioBroker
-npm install node-windows@0.1.14 --production --no-optional --logevel=error --save --prefix "C:/iobroker"
-ioBroker service installed. Write "serviceIoBroker start" to start the service and go to http://localhost:8081 to open the admin UI.
-To see the outputs do not start the service, but write "node node_modules/iobroker.js-controller/controller"
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: unix-dgram@0.2.3 (node_modules\unix-dgram):
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: unix-dgram@0.2.3 install: `node-gyp rebuild`
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: Exit status 1
-
-added 514 packages from 300 contributors and audited 1808 packages in 61.874s
-found 23 vulnerabilities (17 low, 6 high)
-run `npm audit fix` to fix them, or `npm audit` for details
-```
-
-1. Затем вы можете использовать команду
-
-```
-iobroker status
-```
-
-проверьте, запускался ли ioBroker автоматически как служба Windows.
-Ответ должен быть либо
-
-```
-iobroker is running
-```
-
-   или
-
-```
-iobroker is not running
-```
-
-   звенеть.
-
-   Если ioBroker не запустился автоматически, введите следующие команды:
-
-```
-net start iobroker.exe
-iobroker status
-```
-
-   Ответ должен быть сейчас
-
-```
-iobroker is running
-```
-
-   звенеть.
-
-?> В будущем ioBroker будет автоматически запускаться в фоновом режиме при каждом перезапуске системы.
-
-1. Наконец, окно командной строки можно открыть, выполнив команду
-
-```
-exit
-```
-
-   становится закрытым.
-
-?> Дальнейшая настройка осуществляется с помощью адаптера `Admin`. Он вызывается с помощью веб-браузера и адреса [http://локальный:8081](http://localhost:8081). Через сеть Настройка ioBroker подробно описана в главе [Конфигурация]().
-
-?> Теперь новичкам рекомендуется запускать [Tutorial](). Здесь пошагово представлен интерфейс администрирования и сделаны основные базовые настройки.
-
-##Обновлять
-@@@ Подлежит уточнению @@@
-
-## Поиск неисправностей
-@@@ Подлежит уточнению @@@
+# Поиск неисправностей
+@@@ подлежит уточнению @@@

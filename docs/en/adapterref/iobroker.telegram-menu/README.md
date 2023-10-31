@@ -36,7 +36,40 @@ You can create different groups with separate menus, and then assign users to th
 
 ### **WORK IN PROGRESS**
 
--   Convert milliseconds value to a local time specification
+-   round values in getState
+
+### **WORK IN PROGRESS**
+
+-   fixed, rename menuname
+-   fixed calling submenus in subordinate menus
+-   convert type values to type of target ID
+
+### 0.8.3 (2023-10-23)
+
+-   fix, step smaller than 1 in submenu number and percent
+-   global fixes in submenu
+
+### 0.8.2 (2023-10-22)
+
+-   fix {status:...}
+
+### 0.8.1 (2023-10-22)
+
+-   hotfix, submenu switch
+
+### 0.8.0 (2023-10-22)
+
+-   text blocks created as a selection list, including the selection of the ID
+-   text in submenus is now editable in the textfield in the navigation
+-   set ID by open a menu
+-   get status
+-   small fixes
+
+### 0.7.2 (2023-10-15)
+
+-   submenu Number fixed
+-   text is lost when editing #63
+-   convert milliseconds value to a local time specification
 -   setstate and get result of another state with text adjusted
 
 ### 0.7.1 (2023-10-02)

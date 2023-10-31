@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: TdDuowa721DZjQPbC8KSYgVBvO1rHTDrLlYryfVNftI=
+hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -47,7 +47,7 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ Hub_Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ Feeder-Name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ drinnen<br> │ ├ Name<br> │ ├ seitdem<br> │ ├ Essen<br> │ │ ├ last_time_eaten<br> │ │ ├ verbrachte Zeit<br> │ │ ├ times_eaten<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ times_drunk<br> │ └ Gewicht<br> └Info<br> ├ all_devices_online<br> ├ Verbindung<br> └ last_update<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ Hub_Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ Feeder-Name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ drinnen<br> │ ├ Name<br> │ ├ seitdem<br> │ ├ Essen<br> │ │ ├ last_time_eaten<br> │ │ ├ verbrachte Zeit<br> │ │ ├ times_eaten<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ times_drunk<br> │ └ Gewicht<br> └Info<br> ├ all_devices_online<br> ├ Verbindung<br> └ last_update<br>
 
 ## Anmerkungen
 SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
@@ -55,6 +55,24 @@ SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap 
 Die Bilder der SureFlap®-Geräte werden ab [Klar, Petcare®](https://www.surepetcare.com/en-us/press) zur kostenlosen Nutzung bereitgestellt.
 
 ## Changelog
+
+### 1.2.2 (2023-10-17)
+* (Sickboy78) added signal strength and hardware and firmware version of devices
+
+### 1.2.1 (2023-10-03)
+* (Sickboy78) fixed get_history_since call failing because of API changes
+* (Sickboy78) added workaround for removed parent object because of API changes
+* (Sickboy78) removed wrongly created objects because of API changes
+
+### 1.2.0 (2023-08-19)
+* (Sickboy78) repetitive errors are now logged as debug to avoid spamming the error log
+* (Sickboy78) increased timeout for surepet API from 60 to 120 seconds
+* (Sickboy78) added removal of deleted or renamed pets
+* (Sickboy78) security updates
+
+### 1.1.9 (2023-07-21)
+* (Sickboy78) fixed undefined serial number
+* (Sickboy78) dependency updates
 
 ### 1.1.8 (2023-06-01)
 * (Sickboy78) adjustments for Surepet API changes

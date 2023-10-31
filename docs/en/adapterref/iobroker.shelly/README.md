@@ -57,9 +57,20 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 6.6.1 (2023-10-20)
 
-### **WORK IN PROGRESS**
+* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
+* (klein0r) Added humidity of Shelly Plus Addon
+* (klein0r) Not all devices have external power
 
+### 6.6.0 (2023-10-17)
+
+* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
+
+### 6.5.0 (2023-10-17)
+
+* (klein0r) Added Shelly Plus Smoke
+* (klein0r) Added Shelly Bluetooth Low Energy Gateway
 * (theimo1221) More Shelly TRV Datapoints
 
 ### 6.4.5 (2023-09-26)
@@ -74,27 +85,6 @@ Questions? Check the [FAQ](faq.md) section first!
 
 * (viper4gh) Added Shelly Pro 3 EM energy data
 * (klein0r) Fixed IP handling in Docker containers
-
-### 6.4.0 (2023-02-09)
-
-* (klein0r) Added Shelly Plus Plug S
-* (klein0r) Added Shelly Pro 3 EM
-* (klein0r) Reduced checks for firmware updates
-* (klein0r) Shelly TV profile is now changeable
-
-### 6.3.1 (2023-01-02)
-
-* (klein0r) Updated MQTT topic prefix handling
-* (klein0r) Added temperature for generation 2 devices in cover mode
-* (klein0r) Added boost start/stop for Shelly TRV
-* (klein0r) Added external power for Shelly H&T
-
-### 6.3.0 (2022-12-22)
-
-* (klein0r) Added more TRV features
-* (jlegen) Improved Shelly TRV integration
-* (klein0r) Updated knowledge base urls
-* (klein0r) Added Ukrainian language
 
 ## License
 

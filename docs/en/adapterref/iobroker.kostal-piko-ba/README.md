@@ -35,7 +35,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-Several dependency updates
+### 3.0.8 (29.10.2023)
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
+* (HombachC) Several dependency updates 
 ### 3.0.7 (01.10.2023)
 * (HombachC) Several dependency updates 
 ### 3.0.6 (27.08.2023)

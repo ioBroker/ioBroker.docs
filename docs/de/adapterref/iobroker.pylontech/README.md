@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: lMrEcgKOI0WwWXaz0YMgU5U2JLCFuiaD1Bf6mYvANPo=
+hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -38,8 +38,16 @@ Rxd und Txd müssen gekreuzt werden. so dass das, was der eine sendet (Txd), vom
 Pylontech hat im Laufe der Zeit die RJ-Stecker an den Batterien ausgetauscht.
 Am Anfang gab es einen RJ11-Stecker wie beim Telefon. Jetzt handelt es sich um einen RJ45-ähnlichen Netzwerkanschluss.
 Die folgenden Zeichnungen zeigen eine standardmäßige neunpolige D-SUB-Buchse am Kabel.
-Dieses Kabel kann einfach über den USB-Anschluss mit einem RS232-zu-USB-Adapter angeschlossen werden.
+Dieses Kabel kann einfach über den USB-Anschluss mit einem RS232-zu-USB-Adapter oder an einen RS232-zu-LAN- oder WIFI-Konverter angeschlossen werden.
 Nur die erste Batterie im Array liefert alle Informationen. Sie benötigen lediglich ein Kabel und einen seriellen Anschluss
+
+Mit einem [konfigurierbarer Stecker](https://www.amazon.de/gp/product/B0C8JFWNR7) können Sie ein solches Kabel selbst konfektionieren. Dieses ist mit einem RJ45-Stecker und einem weiblichen D-SUB9-Stecker erhältlich. Sie schließen einfach ein Patchkabel daran an. **Achten Sie aber darauf, die restlichen Kabel gut zu isolieren, damit sie sich nicht berühren. Nicht bei allen Akkus sind die restlichen Pins ungenutzt.** Grundsätzlich können Sie an einen solchen Adapter auch ein RJ11-Kabel anschließen. Aber ich finde es sehr wackelig und denke immer, dass es keinen guten Kontakt hat.
+
+![Stecker](../../../en/adapterref/iobroker.pylontech/media/configurablePlug.jpg)
+
+Oder fertig konfektionierte Kabelkontakt in den [Forum](https://forum.iobroker.net/topic/68707).
+
+![Kabel](../../../en/adapterref/iobroker.pylontech/media/Kabel.jpg)
 
 #### RJ45
 | RJ45 | Signal | DSUB | Signal |
@@ -126,6 +134,16 @@ Dann sollten Sie das udev neu starten und das Gerät einmal trennen und wieder a
 sudo /etc/init.d/udev restart
 ```
 
+#### Finden Sie den Port unter Linux mit der zweiten Methode
+Sie können für jedes Gerät einen eindeutigen Namen finden. Mit FTDI oder so etwas ändert sich nichts. Dies kann auch im Adapter eingetragen werden.
+
+```
+$ ls -l /dev/serial/by-id
+lrwxrwxrwx 1 root root 13 10. Okt 11:37 usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0 -> ../../ttyUSB0
+```
+
+also ist das Gerät `/dev/serial/by-id/usb-ftdi_usb_serial_converter_ftDZ0DGP-if00-port0`
+
 ### Com über TCP
 Anstelle einer lokalen Verbindung:
 
@@ -146,11 +164,34 @@ Unterstützt dieser Adapter auch Netzwerkverbindungen:
 #### ESP mit MAX
 Es gibt mehrere Projekte, die ESP oder ESP32 mit Telnet verbinden. Bitte denken Sie an den MAX. Wenn der MAX heiß wird, ist entweder der Signalpegel von 5V zu hoch, weil Sie ein 3,3V-Modell haben oder Sie haben eine 3,3V-Version an 5V-Betriebsspannung angeschlossen.
 
-Hier einige Beispiele: ESP-LINK: https://github.com/jeelabs/esp-link
+![ESP-LINK](../../../en/adapterref/iobroker.pylontech/media/esp-link.jpg)
+
+Hier sind einige Beispiele:
+
+ESP-LINK: https://github.com/jeelabs/esp-link
 
 ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serieller Port über WLAN: https://www.instructables.com/Serial-Port-Over-WiFi/
+
+Tasmota kann auch verwendet werden: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+
+Als Bin können nur folgende oder selbst kompilierte verwendet werden, ansonsten wird der TCP-Server nicht einbezogen:
+
+* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+
+Die Gipos müssen vorher eingestellt werden. Jeweils eine auf TCP Rx und TCP Tx.
+
+```
+TCPBaudRate 115200
+TCPStart 23
+Rule1 ON System#Boot do TCPStart 23 endon
+Rule1 1
+```
+
+Dies funktioniert, da auf beispielsweise Port 23 ein transparenter TCP-Server bereitgestellt wird. Der Port kann ausgewählt werden, einfach 23 gegen beispielsweise 9000 austauschen.
+**Und natürlich einen MAX2323 zwischen die Gipos und den RJ/DSUB-Stecker löten!!!!**
 
 #### Linux zu Net
 Mit ser2net können Sie den Port eines PCs oder Mini-Raspis über das Netzwerk freigeben.
@@ -192,11 +233,12 @@ Was wurde getestet:
 
 #### RS232 zu ioBroker
 | Kommunikationshardware | Geben Sie | ein Funktioniert | Kommentare |
-| ----------------------------------- | ------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Seriell zu USB | lokal | ja | Für die Adapter gibt es eine große Auswahl an Chips. Je nach Modell kann es zu Identifikationsproblemen kommen, wenn die Adapter keine Seriennummer haben und mehr als einer angeschlossen ist. Windows weist jedem USB-Stecker bereits einen COM-Port zu. |
 | LogiLink AU0034 | lokal | ja | |
 | ESP-LINK | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Denken Sie daran, einen Konverter wie den MAX | zu verwenden |
 | Waveshare RS232/485 TO ETH (für EU) | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. |
+| Waveshare RS232/485/422 TO POE ETH | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über POE mit Strom versorgt werden. Wenn POE verfügbar ist, benötigen Sie keine Stromversorgung in der Nähe der Batterien. |
 
 #### Batterien
 | Pylontech-Modell | Modell | Firmware | Funktioniert | Kommentar |
@@ -204,7 +246,7 @@ Was wurde getestet:
 | US5000 | USA | V1.3 22.08.10 | gut | |
 | US2000C | USA | V2.6 21.09.26 | gut | |
 | US2000 (US2KBPL) | USA | V2.8 21.04.29 | gut | Temperaturen nur in Ein-Grad-Schritten |
-| Kraft H2 | Kraft | V1.5 21.06.18 | im Test | |
+| Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
 
 Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste weiter.
 
@@ -216,6 +258,10 @@ Nur der erste Akku im Array liefert alle Informationen. Wenn Sie diesen Adapter 
 Bitte beachten Sie: **Die RS485- und Canbus-Schnittstellen sind nicht für diesen Adapter geeignet. Sie sprechen eine andere Sprache.**
 
 ![Batteriestapel](../../../en/adapterref/iobroker.pylontech/media/battery_stack.JPG)
+
+Bei der Force gibt es auch ein Terminal.
+
+![Gewalt](../../../en/adapterref/iobroker.pylontech/media/H2.JPG)
 
 ## Admin-Oberfläche
 Die Einstellungen in der ioBroker-Administratoroberfläche:

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.signifylights/README.md
 title: ioBroker.signifylights
-hash: NomQXSSoUUCvrY0bGMypS4I5jiJeEmZRry5PVMl5rLk=
+hash: jpUQ+tfhgmQ6g52wkjjx1e1umiIRldRNMrcgAASm6Tc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.signifylights/admin/signifylights.png)
 
@@ -19,11 +19,20 @@ hash: NomQXSSoUUCvrY0bGMypS4I5jiJeEmZRry5PVMl5rLk=
 ## Адаптер Signifylights для ioBroker
 Адаптер Signify Lights для всех типов светильников Signify WLAN, таких как WIZ, Philips WLAN и многих других...
 
+Вопросы и обсуждение здесь: https://forum.iobroker.net/topic/69656/test-adapter-signifylights
+
 ### ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ
 Этот проект НЕ связан, не финансируется и не связан каким-либо образом с WIZ, Signify или Philips. Все названия брендов и продуктов являются товарными знаками или зарегистрированными товарными знаками соответствующих владельцев.
 Упоминание компании или названия продукта не означает одобрения или рекомендации этой компании или продукта в ущерб другим.
 
 ## Changelog
+### 0.3.0 (2023-10-27)
+* several translation fixes
+* replace logo
+* use adapter interval instead of timeout
+* new DEVICES: ESP24_SHRGBC_01 + ESP25_SHWRGB_01 + ESP15_SHRGB1S_01I
+* config: allow to run without udp mac and ip set
+
 ### 0.2.0 (2023-05-02)
 * more setTimeout fixes
 

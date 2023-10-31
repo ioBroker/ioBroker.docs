@@ -3,31 +3,41 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.judoisoft/README.md
 title: ioBroker.judoisoft
-hash: 34dsi4QwhhZVrxl+WAsRlyDB/dFgANaOrzaPdXkEYm8=
+hash: ZxOGXDTDfqXFZ3X3m2u9JkcSLtq+rzgfSuVnFZnfARA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.judoisoft/admin/judo.png)
 
 ![Количество установок](http://iobroker.live/badges/judoisoft-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.judoisoft.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.judoisoft.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.judoisoft.svg)
 ![НПМ](https://nodei.co/npm/iobroker.judoisoft.png?downloads=true)
 
 # IoBroker.judoisoft
 =================
 
-Адаптер дзюдоизофт для ioBroker ---------------------------------------------- --------------------------------
+Адаптер judoisoft для ioBroker ---------------------------------------------- --------------------------------
 
-Небольшая выдержка только из опций команды:
+Небольшой отрывок из параметров команды:
 
-![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
+![Мёгличкейтен](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/datenpunkte.png)
 
 Доступные настройки:
 
-![Möglichkeiten](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
-
-<b>NodeJs &gt;&gt; 8.xx</b>
+![Мёгличкейтен](https://github.com/arteck/iobroker.judoisoft/blob/master/doku/settings.png)
 
 ## Changelog
+### 1.1.0 (2023-10-27)
+* (arteck) switch to intervall
+
+### 1.0.15 (2022-05-30) 
+* (arteck) new error handling
+
+### 1.0.11  (2021-11-07)
+* (arteck) performance corr
+
+### 1.0.7  (2021-04-14)
+* (arteck) corr psw save method
+
 ### 1.0.6  (2021-04-08)
 * (arteck) add battery 
            add installationdate
@@ -41,7 +51,8 @@ hash: 34dsi4QwhhZVrxl+WAsRlyDB/dFgANaOrzaPdXkEYm8=
 
 ### 1.0.3  (2021-02-06)
 * (arteck) the cloud infos are not available for collection, sry 
-* 
+*
+
 ### 1.0.2  (2021-01-26)
 * (arteck) cloud login added
 
@@ -54,7 +65,7 @@ hash: 34dsi4QwhhZVrxl+WAsRlyDB/dFgANaOrzaPdXkEYm8=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Arthur Rupp arteck@outlook.com
+Copyright (c) 2018-2023 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -22,7 +22,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.88_ (or later) - e.g. Ulanzi TC001
+- _Awtrix Light_ device with firmware _0.90_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -180,6 +180,17 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.0 (2023-10-23)
+
+Updated recommended firmware version to 0.90
+
+* (klein0r) Added support for sleep mode
+* (klein0r) Added fading for indicators
+
+### 0.9.2 (2023-10-22)
+
+* (klein0r) Fixed: Visisble state of expert apps
+
 ### 0.9.1 (2023-10-02)
 
 NodeJS 16.x is required
@@ -209,18 +220,6 @@ Updated recommended firmware version to 0.83
 * (klein0r) Fixed 0 decimals setting
 * (klein0r) Changed log level of some messages
 * (klein0r) Added states for transitions
-
-### 0.7.1 (2023-08-09)
-
-* (klein0r) Added option for number format
-
-### 0.7.0 (2023-08-03)
-
-Updated recommended firmware version to 0.72
-
-* (klein0r) Added MovingLine effect
-* (klein0r) Added settings for time style and transition effect
-* (klein0r) Setting repeat to 1 in blockly notifications
 
 ## License
 MIT License

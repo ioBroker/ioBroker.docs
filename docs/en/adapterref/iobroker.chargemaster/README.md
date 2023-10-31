@@ -1,15 +1,21 @@
 ![Logo](admin/chargemaster.png)
 # ioBroker.chargemaster
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.chargemaster.svg)](https://www.npmjs.com/package/iobroker.chargemaster)
-![NPM version (stable)](http://ioBroker.live/badges/chargemaster-stable.svg)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster.svg)](https://www.npmjs.com/package/iobroker.chargemaster)
-![Number of Installations (latest)](http://ioBroker.live/badges/chargemaster-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.chargemaster)
+[![NPM version](https://img.shields.io/npm/v/iobroker.chargemaster?style=flat-square)](https://www.npmjs.com/package/iobroker.chargemaster)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.chargemaster?label=npm%20downloads&style=flat-square)](https://www.npmjs.com/package/iobroker.chargemaster)
+![node-lts](https://img.shields.io/node/v-lts/iobroker.chargemaster?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.chargemaster?label=npm%20dependencies&style=flat-square)
 
-CI-Tests:
-![Node.js CI](https://github.com/hombach/ioBroker.chargemaster/workflows/Node.js%20CI/badge.svg)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hombach/iobroker.chargemaster/node.js.yml?branch=main&logo=github&style=flat-square)
+[![CodeQL](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/hombach/ioBroker.chargemaster/actions/workflows/codeql-analysis.yml)
 [![Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.chargemaster?branch=master&svg=true)](https://ci.appveyor.com/project/hombach/iobroker-chargemaster)
+[![SNYK Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.chargemaster/badge.svg)](https://snyk.io/test/github/hombach/ioBroker.chargemaster)
+
+## Versions
+
+![Beta](https://img.shields.io/npm/v/iobroker.chargemaster.svg?color=red&label=beta)
+![Stable](https://iobroker.live/badges/chargemaster-stable.svg)
+![Installed](https://iobroker.live/badges/chargemaster-installed.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.chargemaster.png?downloads=true)](https://nodei.co/npm/iobroker.chargemaster/)
 
@@ -27,6 +33,9 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
+### 0.8.3 (29.10.2023)
+* (HombachC) Bumb adapter core to 3.x
+* (HombachC) Bump axios to 1.6.0 because of vulnerability
 ### 0.8.2 (01.10.2023)
 * (HombachC) Several dependency updates
 * (HombachC) Fixed acknowledging of state changes (#339)

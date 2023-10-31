@@ -19,7 +19,7 @@ BADGE-Installed: http://iobroker.live/badges/youtube-installed.svg
 
 ## Requirements
 
-- nodejs 14.5 (or later)
+- nodejs 16.0 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.0.0 (or later)
 
@@ -77,9 +77,11 @@ on({ id: 'youtube.0.summary.json', change: 'any' }, async (obj) => {
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.4.0 (2023-10-25)
 
 NodeJS 16.x is required
+
+* (klein0r) Added icons to admin tabs
 
 ### 4.3.0 (2023-08-28)
 
@@ -102,12 +104,6 @@ NodeJS >= 14.5 is required
 * (klein0r) Fixed issue with unescaped characters in URL (e.g. API key)
 * (klein0r) Dropped Admin 5 support
 * (klein0r) Added Ukrainian language
-
-### 4.0.0 (2022-05-29)
-
-NodeJS 14.x is required (NodeJS 12.x is EOL)
-
-* (klein0r) Fixed last update time
 
 ## License
 

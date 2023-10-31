@@ -26,7 +26,7 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 ## Anforderungen
 
-1. nodejs 14.5 (oder neuer)
+1. nodejs 16.0 (oder neuer)
 2. js-controller 4.0.15 (oder neuer)
 3. iCal Adapter 1.12.1 (oder neuer)
 4. Admin Adapter 6.0.0 (oder neuer)
@@ -63,11 +63,12 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.3.0 (2023-10-25)
 
 NodeJS 16.x is required
 
 * (klein0r) Improved log messages
+* (klein0r) Added icons in admin tabs
 
 ### 2.2.0 (2023-01-16)
 
@@ -85,10 +86,6 @@ NodeJS 16.x is required
 ### 2.0.3 (2022-06-02)
 
 * (klein0r) Allow whitespaces in the match pattern
-
-### 2.0.2 (2022-05-27)
-
-* (klein0r) Fixed error handling for trash types with empty name
 
 ## License
 

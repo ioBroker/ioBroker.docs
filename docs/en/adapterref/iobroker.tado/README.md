@@ -11,7 +11,9 @@
 [![NPM](https://nodei.co/npm/iobroker.tado.png?downloads=true)](https://nodei.co/npm/iobroker.tado/)
 
 ## tado adapter for ioBroker
-tado° ensures a comfortable and healthy climate while saving up to 31% on your heating bill.
+Tado° (https://www.tado.com) is the expert in smart heating and energy management for your home, designed and developed in Germany. Save energy and cut costs for good with us – enjoy a cosy and sustainable home.
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Things you can steer
 | State | Description |
@@ -43,11 +45,13 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
-
 -->
+### 0.4.12-alpha.0 (2023-10-13)
+* (HGlab01) switch finaly to Admin5 UI
+
 ### 0.4.11 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
-* (Garfonso) add AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+* (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
 
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
@@ -60,11 +64,6 @@ tado° ensures a comfortable and healthy climate while saving up to 31% on your 
 ### 0.4.8 (2023-05-12)
 * (HGlab01) Add attribute 'isHeatSourceInstalled'
 * (HGlab01) Bump axios to 1.4.0
-
-### 0.4.7 (2023-04-26)
-* (HGlab01) Add attribute 'generation'
-* (HGlab01) improve axios error handling
-* (HGlab01) Bump axios to 1.3.6
 
 ## License
 MIT License
