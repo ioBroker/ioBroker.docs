@@ -204,6 +204,19 @@ https://github.com/disaster123/ioBroker.signifylights
 
 Signify Lights adapter for all Types of Signify WLAN lights like WIZ, Philips WLAN and many more...
 
+## esphome (01.11.2023) - new feature
+In a significant development for home automation enthusiasts,
+the ESPHome documentation has officially acknowledged the integration of ioBroker with its native API.
+This update follows the acceptance of a recent PR,
+placing ioBroker alongside Home Assistant as one of the exclusive home automation systems
+to utilize ESPHome's native API for direct client communication.
+
+The native API, known for its highly optimized network protocol,
+offers numerous benefits over traditional MQTT methods,
+streamlining the way smart devices interact within the ecosystem.
+With this recognition, ESPHome reaffirms its commitment to providing efficient
+and robust communication channels for the smart home industry.
+
 ## vis (06.11.2023) - new feature
 The license of vis has been changed to MIT. This means that you can use vis for free in commercial projects and no license is required.
 
