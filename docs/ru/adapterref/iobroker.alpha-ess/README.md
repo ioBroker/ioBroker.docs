@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
+hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -30,7 +30,7 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 |0x44 |API возвратил ошибку или внутреннюю ошибку, см. журнал |
 
 ## Настройки:
-**Используемый API:** Выбирайте между неофициальным «закрытым» API и официальным «открытым» API (в разработке). В зависимости от выбранного API доступны различные настройки.
+**Используемый API:** Выбирайте между неофициальным «закрытым» API и официальным «открытым» API. В зависимости от выбранного API доступны различные настройки.
 
 **Закрытые настройки API:**
 
@@ -49,6 +49,7 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 **Открыть настройки API:**
 
 Чтобы иметь возможность использовать новый Open API, вам необходимо зарегистрировать свое устройство Alpha-ESS на https://open.alphaess.com. После регистрации вы получаете идентификатор разработчика и ключ разработчика (называемый «Секретный»). Они понадобятся вам для доступа к Open API. В настоящее время у меня нет информации, будет ли это изменено в будущем.
+Как найти серийный номер и контрольный код для регистрации описано здесь: https://github.com/alphaess-developer/alphacloud_open_api
 
 - **Личный идентификатор приложения:** Идентификатор приложения (см. выше).
 - **Секрет личного приложения:** Секрет приложения (см. выше)
@@ -63,6 +64,24 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 **Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения с их стороны или любых связанных с ними дочерних компаний! Этот личный проект ведется в свободное время и не имеет бизнес-целей.**
 
 ## Changelog
+
+### 1.1.1 (2023-11-04)
+
+-   (Gaspode) Closed API adapted to latest Alpha-ESS changes and enabled again
+
+### 1.1.0 (2023-11-04)
+
+-   (Gaspode) Closed API disabled (temporarily?) because API has been changed by Alpha-ESS
+-   (Gaspode) Read back changed settings values 2 seconds after they have been changed
+
+### 1.0.2 (2023-10-05)
+
+-   (mcm1957) Updated required node version to 16 or newer
+
+### 1.0.1 (2023-10-03)
+
+-   (Gaspode) Adapted fetching energy values using 'Closed API' to latest API changes by Alpha-ESS
+
 ### 1.0.0 (2023-06-20)
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS

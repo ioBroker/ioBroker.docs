@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
+hash: A96T9KF5U5AVrmYLAJDO4JXZRD8QOO7fJfpoZZk4czg=
 ---
 # IoBroker.webui
 
@@ -16,6 +16,9 @@ hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 ioBroker 的 webui
 
 ![图像](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
+
+## 教程视频（atm. 仅德语）
+https://www.youtube.com/@jogibear9988
 
 ＃＃ 描述
 这是一个完整的ioBroker可视化系统。
@@ -129,6 +132,15 @@ ioBroker 的 webui
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+- fix upercase screen names in runtime
+- raster in designer is now adjustable
+- copy object nodes now copies complete string
+- context menu to directly edit custom element
+TODO: fix handler path in script
+TODO: uiChangedView
+TODO: error when importing invalid file (for example html instead of json)
+
 ### 0.12.3 (2023-09-20)
 - after eval removal, functions need a return
 

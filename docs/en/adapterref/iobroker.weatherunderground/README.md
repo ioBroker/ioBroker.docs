@@ -66,12 +66,6 @@ Or you can aso use your own "custom" icons, for this purpose the following gif-f
 |	tstorms.gif		|	nt_tstorms.gif		|
 |	cloudy.gif 		|	nt_cloudy.gif 		|
 
-## in ioBroker Forum (German)
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
-
-## ToDo
-There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):

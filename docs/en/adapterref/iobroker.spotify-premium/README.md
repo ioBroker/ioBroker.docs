@@ -1,13 +1,24 @@
 ![Logo](admin/spotify-premium.png)
+
 # ioBroker.spotify-premium
 
-![Number of Installations](http://iobroker.live/badges/spotify-premium-installed.svg)
-![Number of Installations](http://iobroker.live/badges/spotify-premium-stable.svg)
-[![NPM version](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)](https://www.npmjs.com/package/iobroker.spotify-premium)
-
-![Test and Release](https://github.com/iobroker-community-adapters/iobroker.spotify-premium/workflows/Test%20and%20Release/badge.svg)
-[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.spotify-premium)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/blob/master/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.spotify-premium.svg)](https://www.npmjs.com/package/iobroker.spotify-premium)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.spotify-premium)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.spotify-premium)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.spotify-premium/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.spotify-premium)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.spotify-premium)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)](https://www.npmjs.com/package/iobroker.spotify-premium)
+![Current version in stable repository](https://iobroker.live/badges/spotify-premium-stable.svg)
+![Number of Installations](https://iobroker.live/badges/spotify-premium-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml)
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -89,9 +100,14 @@ Click for widget source.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 1.3.1 (2023-10-31)
+-   (aruttkamp) A problem has been fixed which cause 'Error 400' with playUri errors [#259]
+
+### 1.3.0 (2023-10-31)
+-   (aruttkamp) A problem has been fixed which cause 'too many requests' errors [#241, #245]
+-   (mcm1957) Adapter requires nodejs 16 now
+-   (mcm1957) Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) Dependencies have been updated
 
 ### 1.2.2 (2022-06-17)
 * (Apollon77) Fix potential crash cases reported by Sentry

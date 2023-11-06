@@ -42,7 +42,11 @@ Examples:
 ## [Sponsors](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
-### 1.3.22 (2023-10-09)
+
+### 1.3.23 (2023-11-05)
+* fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
+* added possibility to change the port for websocket connection
+* updated/added translations
 * (grizzelbee) Fix: Re-enabled window covers
 * (grizzelbee) Upd: Dependencies got updated
 * (grizzelbee) New: Added ukrainian translation
@@ -289,4 +293,4 @@ Examples:
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2023 Jey Cee jey-cee@live.com

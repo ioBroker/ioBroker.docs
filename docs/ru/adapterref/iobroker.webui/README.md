@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
+hash: A96T9KF5U5AVrmYLAJDO4JXZRD8QOO7fJfpoZZk4czg=
 ---
 # IoBroker.webui
 
@@ -16,6 +16,9 @@ hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 вебуи для ioBroker
 
 ![изображение](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
+
+## Обучающие видеоролики (атм. только на немецком языке)
+https://www.youtube.com/@jogibear9988
 
 ## Описание
 Это полноценная система визуализации для ioBroker.
@@ -122,13 +125,22 @@ hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 ## Информация об адаптере.
 Адаптер основан на следующем компоненте Designer: https://github.com/node-projects/web-comComponent-designer.
 
-Вам нужно создать экран «Пуск», это первый экран, который вызывается при открытии runtime.html, но вы можете изменить его с помощью параметра запроса: runtime.html?screenName=screen2
+Вам нужно создать экран «Пуск», это первый экран, вызываемый при открытии runtime.html, но вы можете изменить его с помощью параметра запроса: runtime.html?screenName=screen2
 
 ## Changelog
 <!--
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+- fix upercase screen names in runtime
+- raster in designer is now adjustable
+- copy object nodes now copies complete string
+- context menu to directly edit custom element
+TODO: fix handler path in script
+TODO: uiChangedView
+TODO: error when importing invalid file (for example html instead of json)
+
 ### 0.12.3 (2023-09-20)
 - after eval removal, functions need a return
 

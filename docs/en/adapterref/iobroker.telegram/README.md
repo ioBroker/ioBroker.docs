@@ -1,7 +1,14 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/telegram-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-GitHub license: https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.telegram
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.telegram.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.telegram
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.telegram
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.telegram/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.telegram
+BADGE-GitHub issues: https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.telegram
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.telegram.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/telegram-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/telegram-installed.svg
 ---
 ![Logo](../../admin/telegram.png)
 
@@ -718,6 +725,13 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
+* (PeterVoronov ) Extended and improved the returned list of processed messages.
+
+### 2.0.2 (2023-11-06)
+* (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2023-10-10)
 * (boergegrunicke) Incorrect trailing zero in callback of sendTo() has been fixed. [#680]
 * (mcm1957) Dependencies have been updated.
@@ -729,14 +743,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 
 ### 1.16.0 (2023-06-16)
 * (foxriver76) We have added support for the `notification-manager` adapter
-
-### 1.15.6 (2023-02-17)
-* (bluefox) Implemented the optional escaping of characters in blockly
-* (bluefox) Added the possibility to send updates of states only by changes
-* (bluefox) Added option to select the quality of stored images
-
-### 1.15.5 (2023-02-16)
-* (bluefox) Added possibility to set `parse_mode` in the text message
 
 ## License
 

@@ -1,12 +1,24 @@
 ![Logo](admin/tractive-gps.png)
 # ioBroker.tractive-gps
 
-[![NPM version](https://img.shields.io/npm/v/iobroker.tractive-gps.svg)](https://www.npmjs.com/package/iobroker.tractive-gps)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.tractive-gps)](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tractive-gps.svg)](https://www.npmjs.com/package/iobroker.tractive-gps)
-![Number of Installations](https://iobroker.live/badges/tractive-gps-installed.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.tractive-gps)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/tractive-gps/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.tractive-gps)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.tractive-gps/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.tractive-gps)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.tractive-gps)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.tractive-gps.svg)](https://www.npmjs.com/package/iobroker.tractive-gps)
 ![Current version in stable repository](https://iobroker.live/badges/tractive-gps-stable.svg)
+![Number of Installations](https://iobroker.live/badges/tractive-gps-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/actions/workflows/codeql.yml)
 
-**Tests:** ![Test and Release](https://github.com/xXBJXx/ioBroker.tractive-gps/workflows/Test%20and%20Release/badge.svg)
 
 ## tractive-gps adapter for ioBroker
 
@@ -21,6 +33,9 @@ Has no business objectives. **[Tractive](https://tractive.com/de/)** is a tradem
 For more details and for information on how to disable error reporting, see.
 [Sentry Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reports are used starting with js-controller 3.0
 are used.
+
+### Credits
+This adapter would not have been possible without the great work of @xXBJXx (https://github.com/xXBJXx), who created this adapter and will hopefully maintain it again in the near future.
 
 ### Description
 This adapter allows you to connect to the Tractive GPS service and retrieve the location of your pets.\
@@ -63,13 +78,20 @@ Or you can use the tab **files** to upload the file. (see image below)\
 ![files-tractive-gps.png](admin%2Fimages%2Ffiles-tractive-gps.png)
 
 
-
-
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-11-05)
+* (Scrounger) Bugfix: objects will be created only if necessary
+* (Scrounger) Bugfix for excessive number of warnings has been added
+* (Scrounger) Distance calculation between ioBroker and tracker has been added
+
+### 1.0.0 (2023-11-04)
+* (mcm1957) Adapter has been moved into iobroker-community-adapters organisation
+* (mcm1957) Dependencies have been updated
+
 ### 0.1.2 (2023-02-24)
 * (xXBJXx) Dependencies updated
 * (xXBJXx) UI updated

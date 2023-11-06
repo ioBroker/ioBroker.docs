@@ -3,16 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.spotify-premium/README.md
 title: ioBroker.spotify-premium
-hash: ifHAXl5vYXt+VIoW5JF7b9Wm4koyBktRSwPHcor1phM=
+hash: B+5bCHU6ifP1QE5YABOJ/+cCAv+hYjrqcPWhJx+ezTQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.spotify-premium/admin/spotify-premium.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/spotify-premium-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.spotify-premium)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.spotify-premium.svg)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.spotify-premium)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.spotify-premium)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.spotify-premium/latest)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.spotify-premium)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.spotify-premium)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.spotify-premium.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/spotify-premium-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/spotify-premium-installed.svg)
 
 # IoBroker.spotify-premium
-![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.spotify-premium/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/spotify-premium/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.spotify-premium/actions/workflows/codeql.yml)
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
@@ -50,9 +57,14 @@ Klicken Sie hier, um die Widget-Quelle anzuzeigen.<details><summary> Starten Sie
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
+### 1.3.1 (2023-10-31)
+-   (aruttkamp) A problem has been fixed which cause 'Error 400' with playUri errors [#259]
+
+### 1.3.0 (2023-10-31)
+-   (aruttkamp) A problem has been fixed which cause 'too many requests' errors [#241, #245]
+-   (mcm1957) Adapter requires nodejs 16 now
+-   (mcm1957) Testing has been changed to support node 16, 18 and 20
+-   (mcm1957) Dependencies have been updated
 
 ### 1.2.2 (2022-06-17)
 * (Apollon77) Fix potential crash cases reported by Sentry
@@ -188,7 +200,7 @@ Klicken Sie hier, um die Widget-Quelle anzuzeigen.<details><summary> Starten Sie
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2022 Alexander Kose <twonky4@gmx.de>
+Copyright (c) 2019-2023 twonky4 <twonky4@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

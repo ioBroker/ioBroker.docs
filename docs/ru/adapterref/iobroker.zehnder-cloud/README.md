@@ -3,34 +3,48 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zehnder-cloud/README.md
 title: ioBroker.zehnder-cloud
-hash: x5n8jzHhyp+iBwW908ZUmv6qwnb+rxDHV7e8N6wc8Kg=
+hash: z0/lwnjDgEIGsMR6+GhY2Zd6+AuHWZdbdc2+Btfrr08=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zehnder-cloud/admin/zehnder-cloud.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.zehnder-cloud.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.zehnder-cloud.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zehnder-cloud.svg)
-![Количество установок (последние)](https://iobroker.live/badges/zehnder-cloud-installed.svg)
+![Количество установок (последних)](https://iobroker.live/badges/zehnder-cloud-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/zehnder-cloud-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.zehnder-cloud.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zehnder-cloud.png?downloads=true)
 
 # IoBroker.zehnder-cloud
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.zehnder-cloud/workflows/Test%20and%20Release/badge.svg)
 
 ## Адаптер zehnder-cloud для ioBroker
 Адаптер для Zehnder Cloud API
 
-## Войти
-Bei Zehnder облачный API и ключ подписки beantragen
+## Логинаблауф
+1. https://developer.beta.zehnder.cloud/profile
 
-## Обсуждение и обсуждение
+   Зарегистрируйтесь в облаке zehnder и создайте подписку. Скопируйте первичный ключ в настройках адаптера
+
+2. https://mydevices.beta.zehnder.cloud/customer/settings/application
+
+Создать ключ API. Введите имя и ключ API в настройках адаптера.
+
+## Обсуждение и Fragen
 <https://forum.iobroker.net/topic/47856/test-adapter-zehnder-cloud-v-0-0-1>
 
 ## Changelog
 
+### 2.0.0
+
+- (TA2k) switch to new api from zehnder
+
+### 0.0.8
+
+- (TA2k) improve error messages
+
 ### 0.0.3
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

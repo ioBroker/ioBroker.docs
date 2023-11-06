@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: WjF6c3YFNfxVzrzgnMCMY1Za3n93R+RMsKUeAj75xd4=
+hash: Q+foTzjjLCS/dZLAdXis/ktmhO//TJ9nS+1eOGF2pQ0=
 ---
 ![标识](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -80,11 +80,11 @@ readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
 });
 ```
 
-或者从 js-controller 4.1.x 开始
+或者从 js-controller 5 开始
 
 ```
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, fileData, mimeType) {
+onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'
@@ -99,7 +99,7 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, 
 | DoorBird 视频门禁站 D20x | 1.00 及以上 | 000099 及以上 |
 | DoorBird 视频门口站 D21x | 1.00 及以上 | 000108 及以上 |
 |鸟卫 B10x | 1.00 及以上 | 000099 及以上 |
-| DoorBird 视频门禁站 D11x | 1.00 及以上 | 000130及以上|
+| DoorBird 视频门禁站 D11x | 1.00 及以上 | 000130及以上 |
 
 ## Changelog
 

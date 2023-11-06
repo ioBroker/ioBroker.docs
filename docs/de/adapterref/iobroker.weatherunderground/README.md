@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: a5jiLETlcvxJgIyxlf4MfTQHi/MKIdodXzc3k7GgYcw=
+hash: fEsSzuic0LR7WFBozwZDWg4kn3f/hDkosdL4USvA92s=
 ---
 ![Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
@@ -68,12 +68,6 @@ Oder Sie können auch Ihre eigenen „benutzerdefinierten“ Symbole verwenden. 
 | sunny.gif | nt_sunny.gif |
 | tstorms.gif | nt_tstorms.gif |
 | wolkig.gif | nt_cloudy.gif |
-
-## Im ioBroker Forum (Deutsch)
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
-
-## Machen
-Es gibt immer noch ein Problem mit der Kodierung. Die Adressen mit „äüöß“ werden falsch angezeigt.
 
 ## Changelog
 <!--

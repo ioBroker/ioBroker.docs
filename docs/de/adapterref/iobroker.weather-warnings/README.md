@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-warnings
-hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
+hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ---
 ![Logo](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -20,9 +20,7 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
 **Tests:** [![Test und Veröffentlichung](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
 ## Wetterwarnungsadapter für ioBroker
-[Deutsche Readme](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
-
-**Noch in der Entwicklung**, daher noch keine guten Beispielvorlagen und E-Mail ist noch nicht ganz fertig. Wenn Sie Wünsche haben, stellen Sie einfach eine Feature-Anfrage.
+[Deutsche Readme (meist aktueller)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
 
 Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachrichten aus. Darüber hinaus werden nach Typ gruppierte Zustände erstellt, mit denen auf aktuelle Warnungen reagiert werden kann.
 
@@ -42,7 +40,7 @@ Push-Service
 - Sag es
 
 ## Installation
-Nach der Installation wird die Konfigurationsseite automatisch geöffnet und muss **neu geladen** werden. Dadurch werden die Vorlagen in der eingestellten Sprache angezeigt.
+Mindest. Nodejs: v18 Nach der Installation wird die Konfigurationsseite automatisch geöffnet und muss **neu geladen** werden. Dadurch werden die Vorlagen in der eingestellten Sprache angezeigt.
 
 ## Aufbau
 ![Basiseinstellung](../../../en/adapterref/iobroker.weather-warnings/img/basic.png)
@@ -126,6 +124,10 @@ Vorlagen für 3) dürfen keine `${}`-Tokens enthalten.
   1) Die Warnung ist **jetzt** aktiv (diejenige mit der höchsten Stufe).
 
 ## Symbole
+DWD-Symbol: Copyright durch Deutscher Wetterdienst ZAMG Symbol: Copyright durch
+
+Andere:
+
 Ersteller: [Adri Ansyah](https://www.youtube.com/channel/UChLOv1L-ftAFc2ZizdEAKgw?view_as=subscriber)
 
 Änderungen: Im Original sind sie blau, andere Farben sind Änderungen zum Original.
@@ -139,6 +141,18 @@ Iconseite: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2023-11-05)
+* (ticaki) Fixed: Foreign languages did not work for UWZ.
+* (ticaki) Fixed: clearHistory command didnt work on gloabl level.
+* (ticaki) Fixed: uwz colours assigned to the correct level.
+
+### 0.5.0 (2023-11-04)
+* (ticaki) breaking changes: New UWZ configuration. reconfigure
+* (ticaki) breaking changes: Rename and move manual push command states.
+* (ticaki) Quiet times changed, reconfigure. 
+* (ticaki) better DWD configuration.
+* (ticaki) alot improvements.
+
 ### 0.4.8 (2023-10-30)
 * (ticaki) Wrong level assignment for zamg fixed
 * (ticaki) better set defaults

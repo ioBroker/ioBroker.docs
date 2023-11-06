@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: a5jiLETlcvxJgIyxlf4MfTQHi/MKIdodXzc3k7GgYcw=
+hash: fEsSzuic0LR7WFBozwZDWg4kn3f/hDkosdL4USvA92s=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
@@ -68,12 +68,6 @@ hash: a5jiLETlcvxJgIyxlf4MfTQHi/MKIdodXzc3k7GgYcw=
 | солнечный.gif | nt_sunny.gif |
 | tstorms.gif | nt_tstorms.gif |
 | облачно.gif | nt_cloudy.gif |
-
-## На форуме ioBroker (немецкий)
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
-
-## Делать
-Есть еще проблема с кодировкой. Адреса с «äüöß» будут отображаться неправильно.
 
 ## Changelog
 <!--

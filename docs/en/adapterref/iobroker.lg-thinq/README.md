@@ -1,4 +1,5 @@
 ![Logo](admin/lg-thinq.png)
+
 # ioBroker.lg-thinq
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.lg-thinq.svg)](https://www.npmjs.com/package/iobroker.lg-thinq)
@@ -18,34 +19,34 @@ Adapter for LG ThinQ
 ###You can finde the values for a device under:
 ###lg-thinq.0.xxxxxx-device-id-xxxx-xxxxxxxx.snapshot
 
-
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.2.0
 
-* (Lucky-ESA) Added automatic terms acceptance
-* (Lucky-ESA) Added 401 Thinq1 device
-* (Lucky-ESA) Added 101 Thinq1 device
-* (TA2k) Bugfix
+-   (Lucky-ESA) Added automatic terms acceptance
+-   (Lucky-ESA) Added 401 Thinq1 device
+-   (Lucky-ESA) Added 101 Thinq1 device
+-   (TA2k) Bugfix
 
 ### 0.1.4
 
-* (TA2k) Added warning for not supported devices
+-   (TA2k) Added warning for not supported devices
 
 ### 0.1.1
 
-* (TA2k) Added AC Device 401 thinq2
-* (TA2k) Bugfix
+-   (TA2k) Added AC Device 401 thinq2
+-   (TA2k) Bugfix
 
 ### 0.1.0
 
-* (TA2k) Added MQTT connection for live status updates
+-   (TA2k) Added MQTT connection for live status updates
 
 ### 0.0.3
 
-* (TA2k) initial release
+-   (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021-2023 TA2k <tombox2020@gmail.com>

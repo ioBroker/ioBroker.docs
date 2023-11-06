@@ -28,7 +28,7 @@ Don't worry, in that case you can add the device manually by IP-Address.
 
 1) Ensure your WLED device is running and reachable by network
 2) Install the adapter
-3) Configure intervall times for data polling and auto-detect cycles  
+3) Configure interval times for data polling and auto-detect cycles  
 4 - A) Start the adapter, devices should be detected automatically  
 4 - B) If A fails, use the Add-Device button and provide the device IP-Address  
 5) Adapter will send changes immediately and polls data every x seconds (configurable)
@@ -48,7 +48,12 @@ When the adapter crashes or another Code error happens, this error message that 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.7.1 (2023-07-25)
+### 0.7.2 (2023-10-31) - Improve online visibility of devices
+* (DutchmanNL) Show online state of device in object tree
+* (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611
+* (DutchmanNL) Reset brightness to 0 and on to false during adapter start and if a device disconnects, fixes #565
+
+### 0.7.1 (2023-10-02)
 * several fixes by [HaggardFFM](https://github.com/HaggardFFM) fixes #479, #423
 * (DutchmanNL) missing state attribute definitions added
 * implement white color channel by [HaggardFFM](https://github.com/HaggardFFM), fixes #306, #306
@@ -66,14 +71,10 @@ When the adapter crashes or another Code error happens, this error message that 
 * (DutchmanNL) Bugfix: Correct indication of connection state #307
 * (DutchmanNL) Improve error messages & sentry reporting
 
-### 0.6.3 (2021-09-08) - HotFixes
-* (DutchmanNL) Missing dropdown for ID of effects added
-* (DutchmanNL) HotFix: Missing axios dependency added
-
 ## License
 MIT License
 
-Copyright (c) 2022 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2023 DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

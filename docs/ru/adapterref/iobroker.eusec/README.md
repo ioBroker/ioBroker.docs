@@ -3,46 +3,46 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
+hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.eusec.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.eusec.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.eusec.svg)
-![Требования к версии узла](https://img.shields.io/node/v/iobroker.eusec)
-![Количество установок (последние)](https://iobroker.live/badges/eusec-installed.svg)
+![Всего загрузок](https://img.shields.io/npm/dt/iobroker.eusec.svg)
+![Требование к версии узла](https://img.shields.io/node/v/iobroker.eusec)
+![Количество установок (последних)](https://iobroker.live/badges/eusec-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/eusec-stable.svg)
 ![Статус зависимости](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
 ![Известные уязвимости](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/bropat/ioBroker.eusec?branch=master&svg=true)
 ![НПМ](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 ![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.euSec
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
-Это библиотека [ioBroker](https://www.iobroker.net), который использует [eufy-security-client](https://github.com/bropat/eufy-security-client) для связи с устройствами Eufy.
+Это библиотека [ioBroker](https://www.iobroker.net) адаптер, использующий [eufy-security-client](https://github.com/bropat/eufy-security-client) для связи с устройствами Eufy.
 
-Если вы цените мою работу и прогресс и хотите поддержать меня, вы можете сделать это здесь:
+Если вы цените мою работу и прогресс и хотите меня поддержать, вы можете сделать это здесь:
 
-[![ко-фи] (https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
+[![ко-фи](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
 
-** Этот проект не связан с Anker и Eufy (Eufy Security). Это личный проект, который поддерживается в свободное время.**
+**Этот проект не связан с Anker и Eufy (Eufy Security). Это личный проект, который поддерживается в свободное время.**
 
 ## Описание
-Этот адаптер позволяет управлять [Охранные устройства Юфи](https://us.eufylife.com/collections/security), подключаясь к облачным серверам Eufy и локальным/удаленным станциям.
+Этот адаптер позволяет управлять [Устройства безопасности Eufy](https://us.eufylife.com/collections/security) путем подключения к облачным серверам Eufy и локальным/удаленным станциям.
 
-Вам необходимо предоставить свои учетные данные для входа в облако. Адаптер подключается к вашей облачной учетной записи и опрашивает все данные устройства через HTTPS. Теперь также поддерживается локальное или удаленное P2P-соединение со станциями/устройствами Eufy. Однако обязательным условием всегда является подключение к Eufy Cloud.
+Вам необходимо предоставить свои учетные данные для входа в облако. Адаптер подключается к вашей облачной учетной записи и запрашивает все данные устройства через HTTPS. Теперь также поддерживается локальное или удаленное P2P-соединение со станциями/устройствами Eufy. Однако подключение к Eufy Cloud всегда является обязательным условием.
 
 Один экземпляр адаптера покажет все устройства из одной учетной записи Eufy Cloud и позволит управлять ими.
 
 ## Функции
-* Поддерживает локальное и удаленное p2p-подключение к станции
+* Поддерживает локальное и удаленное p2p-соединение со станцией.
 * Двухфакторная аутентификация
-* Прямая трансляция как поток HLS (поддерживает все платформы, но вызывает задержку)
-* Последняя прямая трансляция HLS всегда сохраняется для последующего просмотра
-* Загружает видео события при получении push-уведомления (асинхронно)
-* Берет миниатюру jpeg прямой трансляции или загруженного видео
+* Прямая трансляция в формате HLS (поддерживает все платформы, но имеет задержку)
+* Последняя прямая трансляция HLS всегда сохраняется для последующего просмотра.
+* Загружает видео о событии при получении push-уведомления (асинхронно).
+* Делает миниатюру прямой трансляции или загруженного видео в формате JPEG.
 * Базовая станция:
   * Состояния:
     * Настроен режим охраны
@@ -50,113 +50,252 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
     * Имя
     * Модель
     * Серийный номер
-    * Версия программного обеспечения
-    * Аппаратная версия
+    * Версия ПО
+    * Версия оборудования
     * MAC-адрес
     * IP-адрес локальной сети
   * Действия:
-    * Изменить режим охраны
-    * Звук будильника
+    * Изменение режима охраны
+    * Звуковой сигнал триггера
     * Сбросить звук будильника
     * Перезагрузить станцию
   * События:
     * Изменение режима будильника
 * Камера:
   * Состояния:
-    * Онлайн / офлайн и т. д.
-    * Аккумулятор %
+    * Онлайн/оффлайн и т.д.
+    * Батарея %
     * Температура батареи
     * Имя
     * Модель
     * Серийный номер
-    * Версия программного обеспечения
-    * Аппаратная версия
+    * Версия ПО
+    * Версия оборудования
     * MAC-адрес
     * Wi-Fi RSSI
-    * Отфильтрованы ложные события с момента последней зарядки
+    * Отфильтрованы ложные события с момента последней зарядки.
     * Сохраненные/записанные события с момента последней зарядки
-    * Всего событий с момента последней зарядки
-    * Количество использованных дней с момента последней зарядки
+    * Общее количество событий с момента последней зарядки
+    * Количество дней использования с момента последней зарядки
     * И многое другое...
   * Действия:
-    * Начать прямую трансляцию (hls; поддерживает также локальную прямую трансляцию)
+    * Начать прямую трансляцию (hls; поддерживается также локальная прямая трансляция)
     * Остановить прямую трансляцию (hls)
-    * Включить / отключить устройство
-    * Включить / отключить автоматическое ночное видение
-    * Включение/выключение светодиода (только камеры 2, внутренние камеры, камеры с прожектором, одиночные камеры и дверные звонки)
-    * Включить/отключить обнаружение кражи (только для продуктов с камерой 2)
-    * Включить / отключить обнаружение движения
-    * Включить/отключить обнаружение домашних животных (только внутренние камеры)
-    * Включить/отключить обнаружение звука (только внутренние камеры)
-    * Включить/отключить поток RTSP (только продукты camera2, внутренние камеры и одиночные камеры)
-    * Изменить настройку водяного знака видео
+    * Включить/отключить устройство
+    * Включить/отключить автоматическое ночное видение
+    * Включение/выключение светодиода (только для продуктов с камерой 2, внутренними камерами, камерами с прожектором, одиночными камерами и дверными звонками)
+    * Включение/отключение функции обнаружения кражи (только для продуктов с камерой 2)
+    * Включить/отключить обнаружение движения
+    * Включить/отключить обнаружение домашних животных (только для внутренних камер)
+    * Включить/отключить обнаружение звука (только для внутренних камер)
+    * Включение/отключение потока RTSP (только для продуктов camera2, внутренних камер и одиночных камер)
+    * Изменить настройку водяного знака видео.
     * И многое другое...
   * События:
     * Обнаружено движение
     * Человек обнаружен
     * Звонок (только дверной звонок)
-    * Обнаружен плач (только внутренние камеры)
-    * Обнаружен звук (только внутренние камеры)
-    * Обнаружено домашнее животное (только внутренние камеры)
+    * Обнаружен плач (только для внутренних камер)
+    * Обнаружен звук (только для внутренних камер)
+    * Обнаружено домашнее животное (только для внутренних камер)
 * Датчик:
-  * Входной датчик:
+  * Датчик входа:
     * Состояния:
-      * Онлайн / офлайн и т. д.
+      * Онлайн/оффлайн и т.д.
       * Низкий заряд батареи
       * Имя
       * Модель
       * Серийный номер
-      * Версия программного обеспечения
-      * Аппаратная версия
+      * Версия ПО
+      * Версия оборудования
     * События:
       * Открыто закрыто
   * Датчик движения:
     * Состояния:
-      * Онлайн / офлайн и т. д.
+      * Онлайн/оффлайн и т.д.
       * Низкий заряд батареи
       * Имя
       * Модель
       * Серийный номер
-      * Версия программного обеспечения
-      * Аппаратная версия
+      * Версия ПО
+      * Версия оборудования
     * События:
       * Обнаружено движение
 * Клавиатура:
   * Состояния:
-    * Онлайн / офлайн и т. д.
+    * Онлайн/оффлайн и т.д.
     * Низкий заряд батареи
     * Имя
     * Модель
     * Серийный номер
-    * Версия программного обеспечения
-    * Аппаратная версия
+    * Версия ПО
+    * Версия оборудования
 * Замок:
   * Состояния:
-    * Онлайн / офлайн и т. д.
-    * Аккумулятор %
+    * Онлайн/оффлайн и т.д.
+    * Батарея %
     * Статус блокировки
     * Имя
     * Модель
     * Серийный номер
-    * Версия программного обеспечения
-    * Аппаратная версия
+    * Версия ПО
+    * Версия оборудования
     * Wi-Fi RSSI
   * Действия:
     * Блокировка/разблокировка
 * еще не все...
 
 ## Документация
-Смотри [здесь](https://bropat.github.io/ioBroker.eusec/)
+Посмотрите [здесь](https://bropat.github.io/ioBroker.eusec/)
 
 ## Известные рабочие устройства
 Информацию о поддерживаемых устройствах можно найти [здесь](https://github.com/bropat/eufy-security-client#known-working-devices).
 
-## Как сообщать о проблемах и запросах функций
-Пожалуйста, используйте для этого задачи GitHub.
+## Как сообщить о проблемах и запросах функций
+Пожалуйста, используйте для этого выпуски GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (см. [здесь](https://bropat.github.io/ioBroker.eusec/#/debugging)). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от администратора, потому что администратор обрезает строки).
+Лучше всего перевести адаптер в режим журнала отладки (см. [здесь](https://bropat.github.io/ioBroker.eusec/#/debugging)). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не из администратора, потому что администратор обрезает строки).
 
 ## Changelog
+
+### 1.2.1 (2023-11-04)
+
+* (bropat) Updated version of the package eufy-security-client (2.9.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.1)
+
+### 1.2.0 (2023-11-04)
+
+* (bropat) Requires node version >= 18
+* (bropat) Added support for SmartTrack Link (T87B0) and SmartTrack Card (T87B2)
+* (bropat) Added support for SoloCam S220 (T8134)
+* (bropat) Fixed livestream issue
+* (bropat) Updated version of the package go2rtc-static (1.8.1)
+* (bropat) Updated version of the package eufy-security-client (2.9.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.0)
+
+### 1.1.2 (2023-08-31)
+
+* (bropat) Updated version of the package eufy-security-client (2.8.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.1)
+
+### 1.1.1 (2023-08-20)
+
+* (bropat) Fixed issue #365
+* (bropat) Fixed issue #363
+* (bropat) Updated version of the package ffmpeg-static (5.2.0)
+* (bropat) Updated version of the package eufy-security-client (2.8.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.0)
+
+### 1.1.0 (2023-08-08)
+
+* (bropat) Added support for Wired Wall Light Cam S100 (T84A1; #332)
+* (bropat) Added support for Garage-Control Cam (T8452)
+* (bropat) Fixed issue #353
+* (bropat) Fixed issue #347
+* (bropat) Fixed issue #342
+* (bropat) Fixed issue #316
+* (bropat) Updated version of the package go2rtc-static (1.6.2)
+* (bropat) Updated version of the package eufy-security-client (2.7.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.7.1)
+
+### 1.0.0 (2023-05-16)
+
+* (bropat) Notification pictures are supported again
+* (bropat) Implemented new livestream support using go2rtc (WebRTC/MSE, rtsp)
+* (bropat) Fixed issue #323
+* (bropat) Updated version of the package eufy-security-client (2.6.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.6.2)
+
+**Note:** The download of event videos has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.10 (2023-02-24)
+
+* (bropat) Requires node version >= 16
+* (bropat) Fixed issue #319
+* (bropat) Fixed issue #307
+* (bropat) Fixed issue #306
+* (bropat) Fixed issue #305
+* (bropat) Updated version of the package eufy-security-client (2.4.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.2)
+
+**Note:** The download of notification images has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.9 (2022-12-24)
+
+* (bropat) Fixed issue #311
+* (bropat) Fixed issue #312
+* (bropat) Updated version of the package eufy-security-client (2.4.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.0)
+
+### 0.9.8 (2022-11-26)
+
+* (bropat) Fixed issue #300
+* (bropat) Updated version of the package eufy-security-client (2.3.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.3.0)
+
+**Note:** Those who use 2FA will be prompted to do so again after this update.
+
+### 0.9.7 (2022-11-12)
+
+* (bropat) Implemented Homebase Alarm (#271)
+* (bropat) Fixed issue #293
+* (bropat) Updated version of the package eufy-security-client (2.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.3)
+
+### 0.9.6 (2022-11-06)
+
+* (bropat) Fixed issue #292
+* (bropat) Updated version of the package eufy-security-client (2.2.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.2)
+
+### 0.9.5 (2022-11-05)
+
+* (bropat) Added new P2P feature: unlock smart safe products
+* (bropat) Added option to enable/disable "Automatically download picture" (#255)
+* (bropat) Fixed issue #269
+* (bropat) Updated version of the package eufy-security-client (2.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.1)
+
+### 0.9.4 (2022-07-30)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.2)
+
+### 0.9.3 (2022-07-16)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.1)
+
+### 0.9.2 (2022-06-12)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.0)
+
+### 0.9.1 (2022-05-03)
+
+* (bropat) Updated version of the package eufy-security-client (2.0.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.1)
+
+### 0.9.0 (2022-04-30)
+
+* (bropat) Requires node version >= 14.17
+* (bropat) Added support for Battery Doorbell Dual (T8213)
+* (bropat) Added support for Video Doorbell Dual (T8203)
+* (bropat) Added support for IndoorCam Mini (T8414)
+* (bropat) Fixed issue #250
+* (bropat) Fixed issue #238
+* (bropat) Fixed issue #236
+* (bropat) Fixed issue #231
+* (bropat) Fixed issue #229
+* (bropat) Fixed issue #208
+* (bropat) Updated version of the package eufy-security-client (2.0.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.0)
+
+### 0.8.5 (2022-02-12)
+
+* (bropat) Fixed issue #222
+* (bropat) Updated version of the package eufy-security-client (1.6.6)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.6.6)
 
 ### 0.8.4 (2022-02-08)
 
@@ -565,7 +704,7 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
 
 MIT License
 
-Copyright (c) 2022 bropat <patrick.broetto@gmail.com>
+Copyright (c) 2020-2023 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

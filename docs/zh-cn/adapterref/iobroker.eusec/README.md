@@ -3,51 +3,51 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
+hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
 ---
 ![标识](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.eusec.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.eusec.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.eusec.svg)
+![总下载量](https://img.shields.io/npm/dt/iobroker.eusec.svg)
 ![节点版本要求](https://img.shields.io/node/v/iobroker.eusec)
 ![安装数量（最新）](https://iobroker.live/badges/eusec-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/eusec-stable.svg)
 ![依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
 ![已知漏洞](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)
-![应用程序](https://ci.appveyor.com/api/projects/status/github/bropat/ioBroker.eusec?branch=master&svg=true)
-![新PM](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 ![捐](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.euSec
-**测试：** ![测试和发布](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
-这是一个 [ioBroker](https://www.iobroker.net) 适配器，使用 [eufy-security-client](https://github.com/bropat/eufy-security-client) 库，用于与 Eufy 设备通信。
+这是一个用于与 Eufy 设备通信的 [使用 [eufy-security-client 的 ioBroker](https://www.iobroker.net) 适配器](https://github.com/bropat/eufy-security-client) 库。
 
 如果您欣赏我的工作和进步并想支持我，您可以在这里进行：
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/E1E332Q6Z)
 
-**此项目不隶属于 Anker 和 Eufy (Eufy Security)。这是一个业余时间维护的个人项目。**
+**此项目不隶属于 Anker 和 Eufy (Eufy Security)。这是一个在业余时间维护的个人项目。**
 
 ＃＃ 描述
 该适配器允许通过连接到 Eufy 云服务器和本地/远程站来控制[Eufy安全设备](https://us.eufylife.com/collections/security)。
 
-您需要提供您的云登录凭据。适配器连接到您的云帐户并通过 HTTPS 轮询所有设备数据。现在还支持到 Eufy 站/设备的本地或远程 P2P 连接。但是，连接到 Eufy Cloud 始终是先决条件。
+您需要提供您的云登录凭据。该适配器连接到您的云帐户并通过 HTTPS 轮询所有设备数据。现在还支持与 Eufy 站/设备的本地或远程 P2P 连接。然而，连接到 Eufy Cloud 始终是先决条件。
 
 一个适配器实例将显示来自一个 Eufy Cloud 帐户的所有设备并允许控制它们。
 
 ＃＃ 特征
-*支持本地和远程p2p连接到站
-* 两因素身份验证
-* Livestream 作为 HLS 流（支持所有平台，但会引入延迟）
-* 始终保存最后的 HLS 直播以供以后查看
+* 支持本地和远程p2p连接到站点
+* 两因素认证
+* Livestream作为HLS流（支持所有平台，但引入延迟）
+* 始终保存最后的 HLS 直播流以供以后观看
 * 收到推送通知时下载事件视频（异步）
 * 获取直播或下载视频的 jpeg 缩略图
 * 基站：
   * 状态：
-    * 配置保护模式
+    * 配置守卫模式
     * 当前守卫模式
-    * 名称
+    * 姓名
     * 模型
     * 序列号
     * 软件版本
@@ -56,9 +56,9 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
     * 局域网IP地址
   * 行动：
     * 改变守卫模式
-    *触发警报声
-    *重置警报声
-    *重启站
+    * 触发报警声音
+    * 重置闹钟声音
+    * 重启站
   * 活动：
     * 报警模式改变
 * 相机：
@@ -66,44 +66,44 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
     * 线上/线下等
     * 电池 ％
     * 电池温度
-    * 名称
+    * 姓名
     * 模型
     * 序列号
     * 软件版本
     * 硬件版本
     * MAC地址
-    *无线RSSI
-    * 过滤自上次收费以来的虚假事件
-    *自上次充电以来保存/记录的事件
-    * 自上次充电以来的总事件
+    * 无线网络RSSI
+    * 过滤自上次充电以来的虚假事件
+    * 自上次充电以来保存/记录的事件
+    * 自上次充电以来的总事件数
     * 自上次充电以来的使用天数
     * 还有更多...
   * 行动：
     * 开始直播（hls；也支持本地直播）
-    *停止直播（hls）
-    *启用/禁用设备
-    *启用/禁用自动夜视
-    * 启用/禁用 LED（仅限摄像头 2 产品、室内摄像头、泛光灯摄像头、单人摄像头和门铃）
-    * 启用/禁用防盗检测（仅限相机 2 产品）
-    *启用/禁用运动检测
-    *启用/禁用宠物检测（仅限室内摄像机）
-    *启用/禁用声音检测（仅限室内摄像机）
-    * 启用/禁用 RTSP 流（仅限 camera2 产品、室内摄像机和单人摄像机）
+    * 停止直播 (hls)
+    * 启用/禁用设备
+    * 启用/禁用自动夜视
+    * 启用/禁用 LED（仅限摄像头 2 产品、室内摄像头、泛光摄像头、单人摄像头和门铃）
+    * 启用/禁用防盗检测（仅限摄像头2产品）
+    * 启用/禁用运动检测
+    * 启用/禁用宠物检测（仅限室内摄像机）
+    * 启用/禁用声音检测（仅限室内摄像机）
+    * 启用/禁用RTSP流（仅限camera2产品、室内摄像机和单机摄像机）
     * 更改视频水印设置
     * 还有更多...
   * 活动：
     * 检测到运动
-    * 检测到的人
+    * 检测到人员
     * 响铃（仅限门铃）
-    * 检测到哭声（仅限室内摄像机）
+    * 检测到哭泣（仅限室内摄像机）
     * 检测到声音（仅限室内摄像机）
     * 检测到宠物（仅限室内摄像机）
 * 传感器：
-  *进入传感器：
+  * 进入传感器：
     * 状态：
       * 线上/线下等
       * 低电量
-      * 名称
+      * 姓名
       * 模型
       * 序列号
       * 软件版本
@@ -114,7 +114,7 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
     * 状态：
       * 线上/线下等
       * 低电量
-      * 名称
+      * 姓名
       * 模型
       * 序列号
       * 软件版本
@@ -125,7 +125,7 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
   * 状态：
     * 线上/线下等
     * 低电量
-    * 名称
+    * 姓名
     * 模型
     * 序列号
     * 软件版本
@@ -135,28 +135,167 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
     * 线上/线下等
     * 电池 ％
     * 锁定状态
-    * 名称
+    * 姓名
     * 模型
     * 序列号
     * 软件版本
     * 硬件版本
-    *无线RSSI
+    * 无线网络RSSI
   * 行动：
-    *锁定/解锁
-* 更多...
+    * 锁定/解锁
+* 更多内容即将推出...
 
 ## 文档
 看[这里](https://bropat.github.io/ioBroker.eusec/)
 
 ## 已知的工作设备
-有关受支持设备的信息，请参见[这里](https://github.com/bropat/eufy-security-client#known-working-devices)。
+有关支持的设备的信息可以找到[这里](https://github.com/bropat/eufy-security-client#known-working-devices)。
 
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
 
-最好将适配器设置为调试日志模式（参见[这里](https://bropat.github.io/ioBroker.eusec/#/debugging)）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。
+最好的方法是将适配器设置为调试日志模式（请参阅[这里](https://bropat.github.io/ioBroker.eusec/#/debugging)）。然后，请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从管理员获取，因为管理员会截断行）。
 
 ## Changelog
+
+### 1.2.1 (2023-11-04)
+
+* (bropat) Updated version of the package eufy-security-client (2.9.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.1)
+
+### 1.2.0 (2023-11-04)
+
+* (bropat) Requires node version >= 18
+* (bropat) Added support for SmartTrack Link (T87B0) and SmartTrack Card (T87B2)
+* (bropat) Added support for SoloCam S220 (T8134)
+* (bropat) Fixed livestream issue
+* (bropat) Updated version of the package go2rtc-static (1.8.1)
+* (bropat) Updated version of the package eufy-security-client (2.9.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.0)
+
+### 1.1.2 (2023-08-31)
+
+* (bropat) Updated version of the package eufy-security-client (2.8.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.1)
+
+### 1.1.1 (2023-08-20)
+
+* (bropat) Fixed issue #365
+* (bropat) Fixed issue #363
+* (bropat) Updated version of the package ffmpeg-static (5.2.0)
+* (bropat) Updated version of the package eufy-security-client (2.8.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.0)
+
+### 1.1.0 (2023-08-08)
+
+* (bropat) Added support for Wired Wall Light Cam S100 (T84A1; #332)
+* (bropat) Added support for Garage-Control Cam (T8452)
+* (bropat) Fixed issue #353
+* (bropat) Fixed issue #347
+* (bropat) Fixed issue #342
+* (bropat) Fixed issue #316
+* (bropat) Updated version of the package go2rtc-static (1.6.2)
+* (bropat) Updated version of the package eufy-security-client (2.7.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.7.1)
+
+### 1.0.0 (2023-05-16)
+
+* (bropat) Notification pictures are supported again
+* (bropat) Implemented new livestream support using go2rtc (WebRTC/MSE, rtsp)
+* (bropat) Fixed issue #323
+* (bropat) Updated version of the package eufy-security-client (2.6.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.6.2)
+
+**Note:** The download of event videos has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.10 (2023-02-24)
+
+* (bropat) Requires node version >= 16
+* (bropat) Fixed issue #319
+* (bropat) Fixed issue #307
+* (bropat) Fixed issue #306
+* (bropat) Fixed issue #305
+* (bropat) Updated version of the package eufy-security-client (2.4.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.2)
+
+**Note:** The download of notification images has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.9 (2022-12-24)
+
+* (bropat) Fixed issue #311
+* (bropat) Fixed issue #312
+* (bropat) Updated version of the package eufy-security-client (2.4.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.0)
+
+### 0.9.8 (2022-11-26)
+
+* (bropat) Fixed issue #300
+* (bropat) Updated version of the package eufy-security-client (2.3.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.3.0)
+
+**Note:** Those who use 2FA will be prompted to do so again after this update.
+
+### 0.9.7 (2022-11-12)
+
+* (bropat) Implemented Homebase Alarm (#271)
+* (bropat) Fixed issue #293
+* (bropat) Updated version of the package eufy-security-client (2.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.3)
+
+### 0.9.6 (2022-11-06)
+
+* (bropat) Fixed issue #292
+* (bropat) Updated version of the package eufy-security-client (2.2.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.2)
+
+### 0.9.5 (2022-11-05)
+
+* (bropat) Added new P2P feature: unlock smart safe products
+* (bropat) Added option to enable/disable "Automatically download picture" (#255)
+* (bropat) Fixed issue #269
+* (bropat) Updated version of the package eufy-security-client (2.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.1)
+
+### 0.9.4 (2022-07-30)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.2)
+
+### 0.9.3 (2022-07-16)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.1)
+
+### 0.9.2 (2022-06-12)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.0)
+
+### 0.9.1 (2022-05-03)
+
+* (bropat) Updated version of the package eufy-security-client (2.0.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.1)
+
+### 0.9.0 (2022-04-30)
+
+* (bropat) Requires node version >= 14.17
+* (bropat) Added support for Battery Doorbell Dual (T8213)
+* (bropat) Added support for Video Doorbell Dual (T8203)
+* (bropat) Added support for IndoorCam Mini (T8414)
+* (bropat) Fixed issue #250
+* (bropat) Fixed issue #238
+* (bropat) Fixed issue #236
+* (bropat) Fixed issue #231
+* (bropat) Fixed issue #229
+* (bropat) Fixed issue #208
+* (bropat) Updated version of the package eufy-security-client (2.0.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.0)
+
+### 0.8.5 (2022-02-12)
+
+* (bropat) Fixed issue #222
+* (bropat) Updated version of the package eufy-security-client (1.6.6)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.6.6)
 
 ### 0.8.4 (2022-02-08)
 
@@ -565,7 +704,7 @@ hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
 
 MIT License
 
-Copyright (c) 2022 bropat <patrick.broetto@gmail.com>
+Copyright (c) 2020-2023 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

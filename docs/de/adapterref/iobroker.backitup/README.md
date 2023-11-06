@@ -532,6 +532,14 @@ _[Zurück zum Anfang](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.9.1 (2023-11-02)
+* (simatec) ignore Build directory for ESPHome added
+
+### 2.9.0 (2023-11-01)
+* (simatec) mount option "Cache Loose" added
+* (simatec) ESPHome Backup added
+* (simatec) dependencies updated
+
 ### 2.8.7 (2023-10-19)
 * (buanet) fix restore in docker v9
 

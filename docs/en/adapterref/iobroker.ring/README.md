@@ -96,6 +96,20 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.9 (2023-11-05)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.0
+
+### 5.0.8 (2023-11-05)
+
+* (crocri) Code cleanup
+* (theimo1221) #614 Add @homebridge/camera-utils as direct depency to mitigate import issue
+
+### 5.0.7 (2023-11-02)
+
+* (theimo1221) Updated Packages
+* (theimo1221) Include missing build artifacts
+
 ### 5.0.6 (2023-10-29)
 
 * (theimo1221) Updated Packages

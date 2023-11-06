@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker. 天气警告
-hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
+hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ---
 ![标识](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -20,9 +20,7 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
 **测试：** [![测试和发布](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
 ## IoBroker 的天气警告适配器
-[德语自述文件](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
-
-**仍在开发中**，因此还没有好的示例模板，电子邮件也尚未准备好。如果您有任何愿望，只需提出功能请求即可。
+[德语自述文件 (meist aktueller)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
 
 该适配器访问不同天气服务的天气警报并将其输出为文本或语音消息。此外，它还创建按类型分组的状态，可用于对当前警告做出反应。
 
@@ -42,7 +40,7 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
 - 萨伊特
 
 ＃＃ 安装
-安装后，配置站点将自动打开，并且需要**重新加载**。这将以设置的语言显示模板。
+分钟。 Nodejs：v18 安装后，配置站点将自动打开，并且需要**重新加载**。这将以设置的语言显示模板。
 
 ＃＃ 配置
 ![基本配置](../../../en/adapterref/iobroker.weather-warnings/img/basic.png)
@@ -126,6 +124,10 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
   1) 警告**现在**处于活动状态（级别最高的警告）。
 
 ## 图标
+DWD 图标：版权所有 Deutscher Wetterdienst ZAMG 图标：版权所有
+
+其他的：
+
 创建者：[阿德里·安西亚](https://www.youtube.com/channel/UChLOv1L-ftAFc2ZizdEAKgw?view_as=subscriber)
 
 变化：原版为蓝色，其他颜色为原版的变化。
@@ -139,6 +141,18 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2023-11-05)
+* (ticaki) Fixed: Foreign languages did not work for UWZ.
+* (ticaki) Fixed: clearHistory command didnt work on gloabl level.
+* (ticaki) Fixed: uwz colours assigned to the correct level.
+
+### 0.5.0 (2023-11-04)
+* (ticaki) breaking changes: New UWZ configuration. reconfigure
+* (ticaki) breaking changes: Rename and move manual push command states.
+* (ticaki) Quiet times changed, reconfigure. 
+* (ticaki) better DWD configuration.
+* (ticaki) alot improvements.
+
 ### 0.4.8 (2023-10-30)
 * (ticaki) Wrong level assignment for zamg fixed
 * (ticaki) better set defaults

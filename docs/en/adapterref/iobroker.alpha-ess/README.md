@@ -27,7 +27,7 @@ Staring with version 1.0.0-alpha.5, the quality attribute of each state is set a
 
 ## Settings:
 
-**Used API:** Choose between the inofficial "Closed" API and the official "Open" API (under development)
+**Used API:** Choose between the inofficial "Closed" API and the official "Open" API
 Depending on the selected API there are different settings available.
 
 **Closed API Settings:**
@@ -47,6 +47,7 @@ The password is stored encrypted and must therefore be entered manually: demo
 **Open API Settings:**
 
 To be able to use the new Open API you have to register your Alpha-ESS device unter https://open.alphaess.com. Once registered, you get a developer ID and a developer key (called "Secret"). You will need these to have access to the Open API. Currently I have no information if this will be changed in the future.
+How to find SN and Check code for registration is described here: https://github.com/alphaess-developer/alphacloud_open_api
 
 -   **Personal application ID:** The application ID (see above)
 -   **Personal application Secret:** The application Secret (see above)
@@ -63,8 +64,13 @@ To be able to use the new Open API you have to register your Alpha-ESS device un
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 1.1.1 (2023-11-04)
 
+-   (Gaspode) Closed API adapted to latest Alpha-ESS changes and enabled again
+
+### 1.1.0 (2023-11-04)
+
+-   (Gaspode) Closed API disabled (temporarily?) because API has been changed by Alpha-ESS
 -   (Gaspode) Read back changed settings values 2 seconds after they have been changed
 
 ### 1.0.2 (2023-10-05)

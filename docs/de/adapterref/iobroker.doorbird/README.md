@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.doorbird/README.md
 title: ioBroker.doorbird
-hash: WjF6c3YFNfxVzrzgnMCMY1Za3n93R+RMsKUeAj75xd4=
+hash: Q+foTzjjLCS/dZLAdXis/ktmhO//TJ9nS+1eOGF2pQ0=
 ---
 ![Logo](../../../en/adapterref/iobroker.doorbird/admin/doorbird.png)
 
@@ -80,11 +80,11 @@ readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
 });
 ```
 
-oder seit js-controller 4.1.x
+oder seit js-controller 5
 
 ```
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, fileData, mimeType) {
+onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'

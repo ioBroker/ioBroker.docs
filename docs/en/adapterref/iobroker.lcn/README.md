@@ -17,12 +17,12 @@ This adapter allows to connect Local Control Network [LCN](https://www.lcn.eu/) 
 
 ![pke](img/lcn-pku.png)
 
-**Don't forget, that ioBroker.lcn will block one LCN Connection License.**
+**Don't forget that ioBroker.lcn will block one LCN Connection License.**
 
 The configuration and modules will be automatically detected by scan, that must be triggered manually from the configuration dialog and can be repeated any time again.
 
 ## Types
-Following read and write groups are supported:
+The following read and write groups are supported:
 - Analog values (output/input)
 - Relays (output)
 - Sensors (input)
@@ -30,7 +30,7 @@ Following read and write groups are supported:
 - Variables (input)
 
 ## Variables
-To apply the valid convert functions to variables, the variables must have the valid roles. Following roles are supported:
+To apply the valid convert functions to variables, the variables must have the valid roles. The following roles are supported:
 
 - **value.temperature** - temperature in celsius
 - **value.brightness** - Lux (I- input) in lux
@@ -47,7 +47,7 @@ For every device you can activate if it has display or not.
 For every device you can activate if it has regulators or not.
 
 ## Settings
-- Reconnect interval(sec) - how often adapters tries to connect. Default ever 30 seconds. 
+- Reconnect interval(sec) - how often the adapter tries to connect. Default every 30 seconds. 
 - Connect timeout(ms) - how long adapter waits for connection response inclusive authentication. Default 6 seconds. 
 - Scan response timeout(ms) - how long adapter waits for answers by scan of modules.
 - Response timeout(ms) - timeout for control commands
@@ -78,7 +78,7 @@ For every device you can activate if it has regulators or not.
 ```
 
 ## How to use
-After the first start the devices must be scanned. It can be done in the configuration dialog with scan button
+After the first start, the devices must be scanned. It can be done in the configuration dialog with scan button
 
 ![scan](img/scanButton.png)
 
@@ -90,6 +90,9 @@ After the first start the devices must be scanned. It can be done in the configu
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.7 (2023-11-06)
+* (bluefox) Corrected setting of undefined values
+
 ### 1.1.1 (2022-10-19)
 * (bluefox) Corrected license check
 
@@ -138,6 +141,6 @@ After the first start the devices must be scanned. It can be done in the configu
 ## License
 CC-BY-NC-4.0
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 Bluefox <dogafox@gmail.com>
 
 Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.

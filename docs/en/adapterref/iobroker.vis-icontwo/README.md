@@ -18,11 +18,11 @@
 
 Ein reiner Icon Adapter für die Visualisierung. 
 
-![Screenshot](http://resources.inventwo.com/github/icontwo/Screen_001.png)
+![Screenshot](/img/Screen_001.png)
 
 Alle Icons sind über den Dateimanager (auf der obersten Ebene) im vis-icontwo Ordner zu finden
 
-![Pfad](http://resources.inventwo.com/github/icontwo/Pfad_001.png)
+![Pfad](/img/Pfad_001.png)
 
 ---
 
@@ -32,19 +32,19 @@ Eine kleine Vorschau über den Stil der Icons:
 
 Z.B. Lights (Teilauswahl):
 
-![Screenshot](http://resources.inventwo.com/github/icontwo/Screen_002.png)
+![Screenshot](/img/Screen_002.png)
 
 Z.B. Rooms (Teilauswahl):
 
-![Screenshot](http://resources.inventwo.com/github/icontwo/Screen_003.png)
+![Screenshot](/img/Screen_003.png)
 
 Z.B. Devices (Teilauswahl):
 
-![Screenshot](http://resources.inventwo.com/github/icontwo/Screen_004.png)
+![Screenshot](/img/Screen_004.png)
 
 Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur ist die gleiche, wie im Dateimanager):
 
--> http://icontwo.inventwo.com <-
+-> https://icontwo.inventwo.com <-
 
 ---
 
@@ -54,11 +54,19 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/icontwo/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog / Änderungsprotokoll
+
+### 0.97.1
+
+• Bugfix
+
+### 0.97.0
+
+• Neue Icons hinzugefügt (Devices - printer)
 
 ### 0.96.0
 

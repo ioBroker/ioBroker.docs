@@ -59,6 +59,10 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated handling of ble payloads
+
 ### 6.6.1 (2023-10-20)
 
 * (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2

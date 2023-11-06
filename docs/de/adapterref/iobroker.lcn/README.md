@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lcn/README.md
 title: ioBroker.lcn
-hash: uBMIxrsosNK2id39fZal584VZWlG8tHiVJdBTw5/xDM=
+hash: jMVi52CECq36Yl2DLEvygCIee5DG3bFQG2W12qnTdXU=
 ---
 ![Logo](../../../en/adapterref/iobroker.lcn/admin/lcn.png)
 
@@ -12,7 +12,7 @@ hash: uBMIxrsosNK2id39fZal584VZWlG8tHiVJdBTw5/xDM=
 ![NPM](https://nodei.co/npm/iobroker.lcn.png?downloads=true)
 
 # IoBroker.lcn
-Dieser Adapter ermöglicht es, das Local Control Network [LCN](https://www.lcn.eu/) mit ioBroker zu verbinden.
+Dieser Adapter ermöglicht die Verbindung des Local Control Network [LCN](https://www.lcn.eu/) mit ioBroker.
 
 ## Unterstützte Gateways
 - LCN-PKE
@@ -25,42 +25,42 @@ Dieser Adapter ermöglicht es, das Local Control Network [LCN](https://www.lcn.e
 
 **Vergessen Sie nicht, dass ioBroker.lcn eine LCN-Verbindungslizenz blockiert.**
 
-Die Konfiguration und Module werden automatisch per Scan erkannt, der manuell aus dem Konfigurationsdialog ausgelöst werden muss und jederzeit wiederholt werden kann.
+Die Konfiguration und Module werden automatisch durch einen Scan erkannt, der manuell über den Konfigurationsdialog ausgelöst werden muss und jederzeit wiederholt werden kann.
 
 ## Typen
 Folgende Lese- und Schreibgruppen werden unterstützt:
 
-- Analogwerte (Ausgang/Eingang)
+- Analogwerte (Ausgabe/Eingabe)
 - Relais (Ausgang)
 - Sensoren (Eingang)
-- LEDs (Ausgang / Eingang)
+- LEDs (Ausgang/Eingang)
 - Variablen (Eingabe)
 
 ## Variablen
-Um die gültigen Konvertierungsfunktionen auf Variablen anzuwenden, müssen die Variablen die gültigen Rollen haben. Folgende Rollen werden unterstützt:
+Um die gültigen Konvertierungsfunktionen auf Variablen anwenden zu können, müssen die Variablen die gültigen Rollen haben. Folgende Rollen werden unterstützt:
 
-- **Wert.Temperatur** - Temperatur in Celsius
+- **value.temperature** – Temperatur in Celsius
 - **Wert.Helligkeit** - Lux (I-Eingang) in Lux
-- **value.speed.wind** - Windgeschwindigkeit in m/s
+- **value.speed.wind** – Windgeschwindigkeit in m/s
 - **Wert.Spannung** - Spannung in Volt
-- **Wert.Strom** - Strom in Ampere
-- **value.sun.azimuth** - Sonnenazimut
-- **value.sun.elevation** - Sonnenhöhe
+- **value.current** – Strom in Ampere
+- **value.sun.azimuth** – Sonnenazimut
+- **value.sun.elevation** – Sonnenhöhe
 
 ## Anzeige
-Für jedes Gerät können Sie aktivieren, ob es ein Display hat oder nicht.
+Für jedes Gerät können Sie aktivieren, ob es über ein Display verfügt oder nicht.
 
-## Regler (Regler)
-Für jedes Gerät können Sie aktivieren, ob es Regler hat oder nicht.
+## Regulator (Regler)
+Für jedes Gerät können Sie aktivieren, ob es über Regler verfügt oder nicht.
 
 ## Einstellungen
-- Wiederverbindungsintervall (Sek.) - wie oft Adapter versuchen, eine Verbindung herzustellen. Standardmäßig alle 30 Sekunden.
-- Connect timeout(ms) - wie lange der Adapter auf die Verbindungsantwort inklusive Authentifizierung wartet. Standard 6 Sekunden.
-- Scan-Antwort-Timeout (ms) – wie lange der Adapter auf Antworten beim Scannen von Modulen wartet.
-- Response timeout(ms) - Timeout für Steuerbefehle
-- Ping-Intervall (Sek.) – wie oft der Adapter Ping-Anforderungen sendet
-- Ping-Antwortzeitüberschreitung (ms) - Zeitüberschreitung für Ping-Anforderungen
-- IN/OUT-Relais sind gleich - ob die "out"- und "in"-Relais gleich sind oder ob diese Relais unterschiedlich sind.
+- Wiederverbindungsintervall (Sek.) – wie oft der Adapter versucht, eine Verbindung herzustellen. Standardmäßig alle 30 Sekunden.
+– Verbindungs-Timeout (ms) – wie lange der Adapter auf eine Verbindungsantwort einschließlich Authentifizierung wartet. Standardmäßig 6 Sekunden.
+– Scan-Antwort-Timeout (ms) – wie lange der Adapter beim Scannen von Modulen auf Antworten wartet.
+- Response Timeout (ms) – Timeout für Steuerbefehle
+- Ping-Intervall (Sek.) – wie oft der Adapter Ping-Anfragen sendet
+- Ping-Antwort-Timeout (ms) – Timeout für Ping-Anfragen
+- IN/OUT-Relais sind gleich – wenn die „Out“- und „In“-Relais gleich sind oder wenn diese Relais unterschiedlich sind.
 
 ```
 // =====================  Same relays =============================
@@ -86,18 +86,21 @@ Für jedes Gerät können Sie aktivieren, ob es Regler hat oder nicht.
 ```
 
 ## Wie benutzt man
-Nach dem ersten Start müssen die Geräte gescannt werden. Dies kann im Konfigurationsdialog mit der Scan-Schaltfläche erfolgen
+Nach dem ersten Start müssen die Geräte gescannt werden. Dies kann im Konfigurationsdialog mit der Schaltfläche „Scannen“ erfolgen
 
 ![Scan](../../../en/adapterref/iobroker.lcn/img/scanButton.png)
 
 ## Machen
-- Konfigurationsdialog zur Definition von Variablentypen.
+- Konfigurationsdialog zum Definieren des Variablentyps.
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### **IN ARBEIT** -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.1.7 (2023-11-06)
+* (bluefox) Corrected setting of undefined values
+
 ### 1.1.1 (2022-10-19)
 * (bluefox) Corrected license check
 
@@ -146,6 +149,6 @@ Nach dem ersten Start müssen die Geräte gescannt werden. Dies kann im Konfigur
 ## License
 CC-BY-NC-4.0
 
-Copyright (c) 2018-2022 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2023 Bluefox <dogafox@gmail.com>
 
 Up to 10 devices can be connected for free. If you need more devices, you must buy a commercial license.

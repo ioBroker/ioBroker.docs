@@ -3,64 +3,229 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker.vis-icontwo
-hash: iNGWWMrNqMrkKzoWP328Dwti9OeRtqw0YCxNTLzwhss=
+hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
-![Количество установок (последнее)](http://iobroker.live/badges/vis-icontwo-installed.svg)
-![Статус зависимости](https://img.shields.io/david/inventwo/iobroker.vis-icontwo.svg)
+![Количество установок (последних)](http://iobroker.live/badges/vis-icontwo-installed.svg)
 ![Известные уязвимости](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
 ![Статус сборки](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
+![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
 ![НПМ](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)
 
 # IoBroker.vis-icontwo
-## Адаптер иконок для адаптера ioBroker.vis
-Ein reiner Icon Adapter für die Visualisierung.
+## Адаптер значков для адаптера ioBroker.vis
+Используйте адаптер Icon для визуализации.
 
-![Скриншот](http://resources.inventwo.com/github/icontwo/Screen_001.png)
+![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_001.png)
 
-Все иконы sind über den Dateimanager (auf der obersten Ebene) im vis-icontwo Ordner zu finden
+Все значки находятся в Dateimanager (на рабочем столе) в режиме просмотра значков, где они находятся.
 
-![Пфад](http://resources.inventwo.com/github/icontwo/Pfad_001.png)
+![Пфад](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
 ---
 
-## Vorschau
-Eine kleine Vorschau über den Stil der Иконки:
+## Форшау
+Eine kleine Vorschau über den Stil der Icons:
 
-З.Б. Фары (Тейлаусвал):
+З.Б. Свет (Тейлаусваль):
 
-![Скриншот](http://resources.inventwo.com/github/icontwo/Screen_002.png)
+![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-З.Б. Комнаты (Teilauswahl):
+З.Б. Комнаты (Тейлаусваль):
 
-![Скриншот](http://resources.inventwo.com/github/icontwo/Screen_003.png)
+![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
-З.Б. Устройства (Teilauswahl):
+З.Б. Устройства (Тейлаусваль):
 
-![Скриншот](http://resources.inventwo.com/github/icontwo/Screen_004.png)
+![Скриншот](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
-Eine vollständige Übersichtaller Icons ist hier zu finden (die Ordnerstruktur ist die gleiche, wie im Dateimanager):
+Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur ist die gleiche, wie im Dateimanager):
 
--> http://icontwo.inventwo.com <-
+-> https://icontwo.inventwo.com <-
 
 ---
 
 ## Unterstützung
-Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
+Падает, когда вы занимаетесь спортом, и вы можете испытать самые неожиданные моменты, с которыми вы часто тратите деньги.
 
-(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
+(Dieser Link для использования PayPal-Konto и получения дополнительной информации от ioBroker)
 
-[![Sdency] (http://resources.inventwo.com/github/icontwo/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![Расходы](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### 0.97.1
+
+• Bugfix
+
+### 0.97.0
+
+• Neue Icons hinzugefügt (Devices - printer)
+
+### 0.96.0
+
+• Neue Icons hinzugefügt (Devices - vacuum-cleaner) (Signs - sum)
+
+### 0.95.0
+
+• Neue Icons hinzugefügt (Misc)
+
+### 0.94.0
+
+• Neue Icons hinzugefügt (Brands)
+
+### 0.93.0
+
+• Neue Icons hinzugefügt (Devices/Cooling/)
+
+### 0.92.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.91.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.90.0
+
+• Neue Icons hinzugefügt (Devices/Network/hmip)
+
+### 0.89.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.88.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.87.0
+
+• Neue Icons hinzugefügt (Battery/Percent)
+
+### 0.86.2
+
+• Bugfix
+
+### 0.86.1
+
+• Bugfix (npm Version)
+
+### 0.86.0
+
+• Neue Icons hinzugefügt (Versand)
+
+### 0.85.0
+
+• Neue Icons hinzugefügt (Wetter-Warnung & Navigation & Automobil)
+
+### 0.84.0
+
+• Neue Icons hinzugefügt (Devices)
+
+### 0.83.0
+
+• Neue Icons hinzugefügt (Animals)
+
+### 0.82.0
+
+• Neue Icons hinzugefügt (Elektricity)
+
+### 0.81.0
+
+• Neue Icons hinzugefügt (Animated/Fan & Navigation)
+
+### 0.80.0
+
+• Neue Icons hinzugefügt (Brands/H2Oreader)
+
+### 0.79.0
+
+• Neue Icons hinzugefügt (Devices/Gas- & Watermeter)
+
+### 0.78.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.77.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.74.0
+
+• Neue Icons hinzugefügt (Letters/Rounded)
+
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
+### 0.66.0
+
+• Neue Icons hinzugefügt (Clock & Timer)
+
+### 0.65.1
+
+• Bugfix
+
+
+### 0.65.0
+
+• Neue Icons hinzugefügt (Player)
+
+### 0.64.0
+
+• Neue Icons hinzugefügt (Brands & Computer)
+
+### 0.63.0
+
+• Neue Icons hinzugefügt (Animated Icons - Arrows, Maps, Phones & Weather)
+
+### 0.62.0
+
+• Neue Icons hinzugefügt (Animated Icons - Charts & Alarm)
+
+### 0.61.0
+
+• Neue Icons hinzugefügt (Finance & Charts)
 
 ### 0.60.0
 
@@ -380,7 +545,7 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

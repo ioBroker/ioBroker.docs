@@ -3,64 +3,229 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker.vis-icontwo
-hash: iNGWWMrNqMrkKzoWP328Dwti9OeRtqw0YCxNTLzwhss=
+hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
 ![NPM版本](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/vis-icontwo-stable.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
+![下载](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
 ![安装数量（最新）](http://iobroker.live/badges/vis-icontwo-installed.svg)
-![依赖状态](https://img.shields.io/david/inventwo/iobroker.vis-icontwo.svg)
 ![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
-![建置状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
+![构建状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.vis-icontwo.png?downloads=true)
 
-＃ioBroker.vis-icontwo
-##图标适配器来自ioBroker.vis适配器
-视觉识别工具适配器。
+# IoBroker.vis-icontwo
+## IoBroker.vis 适配器的图标适配器
+用于可视化的图标适配器。
 
-![截屏](http://resources.inventwo.com/github/icontwo/Screen_001.png)
+![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_001.png)
 
-艾尔·图标·德·伊迪内格（Ab der Obersten Ebene）在视觉上对图标的影响Ordner zu finden
+所有图标均位于 Dateimanager (auf der obersten Ebene) 中，位于 vis-icontwo Ordner zu finden 中
 
-![帕法德](http://resources.inventwo.com/github/icontwo/Pfad_001.png)
+![普法德](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
 ---
 
-## Vorschau
-Eine kleine Vorschauüberden Stil der图标：
+## 福尔绍
+Eine kleine Vorschau über den Stil der Icons：
 
-Z.B.灯（Teilauswahl）：
+Z.B.灯（泰劳斯瓦尔）：
 
-![截屏](http://resources.inventwo.com/github/icontwo/Screen_002.png)
+![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-Z.B.客房（Teilauswahl）：
+Z.B.客房（泰劳斯瓦尔）：
 
-![截屏](http://resources.inventwo.com/github/icontwo/Screen_003.png)
+![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
 Z.B.设备（Teilauswahl）：
 
-![截屏](http://resources.inventwo.com/github/icontwo/Screen_004.png)
+![截屏](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
-EinevollständigeÜbersichtaller Icons ist hier zu finden（Die Ordnerstruktur ist die gleiche，wie im Dateimanager）：
+Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur ist die gleiche, wie im Dateimanager)：
 
--> http://icontwo.inventwo.com <-
+-> https://icontwo.inventwo.com <-
 
 ---
 
-##Unterstützung
-Falls Dir unsere Arbeitgefälltund Du unsunterstützenmöchtest，弗尔·弗里恩·乌斯·杰德·斯彭德。
+## 下图
+瀑布Dir unsere Arbeit gefällt und Du uns unterstützen möchtest，wir freuen uns über jede Spende。
 
-（使用Keiner Verbindung zum ioBroker的Dieser Linkführtzu unserem PayPal-Konto和Steht）
+（Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker）
 
-[![Spende]（http://resources.inventwo.com/github/icontwo/spende.png）](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![花费](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### 0.97.1
+
+• Bugfix
+
+### 0.97.0
+
+• Neue Icons hinzugefügt (Devices - printer)
+
+### 0.96.0
+
+• Neue Icons hinzugefügt (Devices - vacuum-cleaner) (Signs - sum)
+
+### 0.95.0
+
+• Neue Icons hinzugefügt (Misc)
+
+### 0.94.0
+
+• Neue Icons hinzugefügt (Brands)
+
+### 0.93.0
+
+• Neue Icons hinzugefügt (Devices/Cooling/)
+
+### 0.92.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.91.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.90.0
+
+• Neue Icons hinzugefügt (Devices/Network/hmip)
+
+### 0.89.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.88.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.87.0
+
+• Neue Icons hinzugefügt (Battery/Percent)
+
+### 0.86.2
+
+• Bugfix
+
+### 0.86.1
+
+• Bugfix (npm Version)
+
+### 0.86.0
+
+• Neue Icons hinzugefügt (Versand)
+
+### 0.85.0
+
+• Neue Icons hinzugefügt (Wetter-Warnung & Navigation & Automobil)
+
+### 0.84.0
+
+• Neue Icons hinzugefügt (Devices)
+
+### 0.83.0
+
+• Neue Icons hinzugefügt (Animals)
+
+### 0.82.0
+
+• Neue Icons hinzugefügt (Elektricity)
+
+### 0.81.0
+
+• Neue Icons hinzugefügt (Animated/Fan & Navigation)
+
+### 0.80.0
+
+• Neue Icons hinzugefügt (Brands/H2Oreader)
+
+### 0.79.0
+
+• Neue Icons hinzugefügt (Devices/Gas- & Watermeter)
+
+### 0.78.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.77.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.74.0
+
+• Neue Icons hinzugefügt (Letters/Rounded)
+
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
+### 0.66.0
+
+• Neue Icons hinzugefügt (Clock & Timer)
+
+### 0.65.1
+
+• Bugfix
+
+
+### 0.65.0
+
+• Neue Icons hinzugefügt (Player)
+
+### 0.64.0
+
+• Neue Icons hinzugefügt (Brands & Computer)
+
+### 0.63.0
+
+• Neue Icons hinzugefügt (Animated Icons - Arrows, Maps, Phones & Weather)
+
+### 0.62.0
+
+• Neue Icons hinzugefügt (Animated Icons - Charts & Alarm)
+
+### 0.61.0
+
+• Neue Icons hinzugefügt (Finance & Charts)
 
 ### 0.60.0
 
@@ -380,7 +545,7 @@ Falls Dir unsere Arbeitgefälltund Du unsunterstützenmöchtest，弗尔·弗里
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

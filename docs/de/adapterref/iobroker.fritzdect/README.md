@@ -62,6 +62,15 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.5.7 (npm)
+* only for the hint that password needs to be reentered
+
+### 2.5.6 (npm)
+* change in jsonUIconfig
+
+### 2.5.5 (npm)
+* implementation of jsonUIconfig
+
 ### 2.5.4 (npm)
 * correction for excluding routines
 

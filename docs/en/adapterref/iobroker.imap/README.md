@@ -605,6 +605,11 @@ UNSEEN - Messages that do not have the Seen flag set.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Missing translate
+
 ### 0.1.1 (2023-09-11)
 
 -   (Lucky-ESA) Delete wrong error parse message

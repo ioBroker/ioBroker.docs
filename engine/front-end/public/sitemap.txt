@@ -908,6 +908,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -1229,6 +1230,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-colorpicker/README
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-fancyswitch/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-google-fonts/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-history/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-homekittiles/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-hqwidgets/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-icontwo/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-inventwo/README.md
@@ -1542,6 +1544,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -1863,6 +1866,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-colorpicker/README
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-fancyswitch/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-google-fonts/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-history/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-homekittiles/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-hqwidgets/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-icontwo/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-inventwo/README.md
@@ -2176,6 +2180,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innogy-smarthome/READM
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -2497,6 +2502,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-colorpicker/README
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-fancyswitch/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-google-fonts/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-history/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-homekittiles/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-hqwidgets/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-icontwo/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-inventwo/README.md
@@ -2810,6 +2816,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innogy-smarthome/RE
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.innoxel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intesishome/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.intex/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iwg-vpn/README.md
@@ -3131,6 +3138,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-colorpicker/REA
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-fancyswitch/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-google-fonts/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-history/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-homekittiles/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-hqwidgets/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-icontwo/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-inventwo/README.md

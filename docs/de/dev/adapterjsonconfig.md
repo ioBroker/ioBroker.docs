@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: BO3WV44vZwcvRy5TVZZAjgqHXc6hctoE5FdqcjdtBMA=
+hash: iHH5LnBdYZ7oLsNl0a1WSxtKNmW36TgsoNoSknIq0YA=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -333,6 +333,8 @@ adapter.on('message', obj => {
     - „noTranslation“ – Beschriftung von Auswahlen nicht übersetzen
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `[{"value": 1, "label": "one"}, ...]` sein.
+
+    - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
 
 ```
 adapter.on('message', obj => {

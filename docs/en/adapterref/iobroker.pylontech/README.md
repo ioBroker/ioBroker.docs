@@ -1,5 +1,7 @@
 ![Logo](media/logo.png)
 
+![Logo](media/pytes.jpg)
+
 # ioBroker.pylontech
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.pylontech.svg)](https://www.npmjs.com/package/iobroker.pylontech)
@@ -11,15 +13,15 @@
 
 **Tests:** ![Test and Release](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
 
-## pylontech adapter for ioBroker
+## pylontech and pytes adapter for ioBroker
 
-Query the cell voltages and the status of pylontech batteries via the console. I'm not affiliated.
+Query the cell voltages and the status of pylontech or pytes batteries via the console. I'm not affiliated.
 
 **Please note that everything you build or connect is always your responsibility. The developer of this adapter assumes no liability for any damage!**
 
 ## how it works
 
-This adapter is used to determine the health status and functions of a Pylontech array, which can consist of one or up to fifteen batteries.
+This adapter is used to determine the health status and functions of a Pylontech or Pytes array, which can consist of one or up to fifteen batteries.
 This adapter is not used to control the battery. This is the part of a charging and power unit or an inverter.
 The batteries have a console connection that provides a RS232 or V24 interface. This adapter is connected to it via a serial interface.
 The first battery provides all the data and asks the others via the uplink.
@@ -32,7 +34,7 @@ A serial connection requires three lines rxd, txd and ground.
 
 Rxd and Txd must be crossed. so that what one sends (Txd) can be received (Rxd) by the other. Ground is needed so that a voltage can be built up and an electrical current can be started.
 
-### The serial connection cable
+### The serial connection cable for Pylontech
 
 Pylontech has changed the RJ plugs on the batteries over time.
 In the beginning there were was a RJ11 plugs like on the telephone. Now it is an RJ45 like on the network connection.
@@ -53,9 +55,9 @@ Or ready-made cables contact in the [forum](https://forum.iobroker.net/topic/687
 
 | RJ45 | signal | DSUB | signal |
 | ---- | ------ | ---- | ------ |
-| 8    | Ground | 5    | Ground |
 | 3    | TxD    | 2    | RxD    |
 | 6    | RxD    | 3    | TxD    |
+| 8    | Ground | 5    | Ground |
 
 ![RJ45](media/8p.jpg)
 
@@ -71,9 +73,19 @@ The RJ11 and RJ12 connectors are the same size. The RJ11 has only four contacts,
 
 ![RJ11 / RJ12](media/4p.jpg)
 
-There are RJ45 console cables with USB port for Cisco routers. These do not have a compatible occupancy. However, with a little experience the RJ45 plug can be replaced.
+### The serial connection cable for Pytes
 
-Please note that due to the relatively high transfer rate for RS232 connections of 115200 baud, the cable cannot be particularly long.
+#### RJ45
+
+| RJ45 | signal | DSUB | signal |
+| ---- | ------ | ---- | ------ |
+| 3    | TxD    | 2    | RxD    |
+| 4    | Ground | 5    | Ground |
+| 6    | RxD    | 3    | TxD    |
+
+### There are RJ45 console cables with USB port for Cisco routers. These do not have a compatible occupancy. However, with a little experience the RJ45 plug can be replaced.
+
+### Please note that due to the relatively high transfer rate for RS232 connections of 115200 baud, the cable cannot be particularly long.
 
 | max. baud   | max. length |
 | ----------- | ----------- |
@@ -184,16 +196,19 @@ Serial Port Over WiFi: https://www.instructables.com/Serial-Port-Over-WiFi/
 Tasmota can also be used: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 Only the following or self-compiled ones can be used as bin, otherwise the TCP server is not included:
-* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
-* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+
+- http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+- http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
 
 The Gipos must be set beforehand. One each on TCP Rx and TCP Tx.
+
 ```
 TCPBaudRate 115200
 TCPStart 23
-Rule1 ON System#Boot do TCPStart 23 endon 
-Rule1 1 
+Rule1 ON System#Boot do TCPStart 23 endon
+Rule1 1
 ```
+
 It works because a transparent TCP server is provided on, for example, port 23. The port can be selected, simply exchange 23 for 9000, for example.
 **And of course solder a MAX2323 between the Gipos and the RJ/DSUB plug!!!!**
 
@@ -252,12 +267,16 @@ What was tested:
 
 #### Batteries
 
-| Pylontech model  | Model | Firmware      | Is working | Comment                                    |
-| ---------------- | ----- | ------------- | ---------- | ------------------------------------------ |
-| US5000           | US    | V1.3 22-08-10 | fine       |                                            |
-| US2000C          | US    | V2.6 21-09-26 | fine       |                                            |
-| US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments |
+| Pylontech model  | Model | Firmware      | Is working | Comment                                                                                                                                                     |
+| ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| US5000           | US    | V1.3 22-08-10 | fine       |                                                                                                                                                             |
+| US2000C          | US    | V2.6 21-09-26 | fine       |                                                                                                                                                             |
+| US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments                                                                                                                  |
 | Force H2         | Force | V1.5 21-06-18 | fine       | Attention: in some Force manuals only the RX and TX connections are listed in the connector description. The ground is on PIN 8 and must also be connected. |
+
+| Pytes model | Model | Firmware      | Is working | Comment                                |
+| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
+| E-BOX-4850P | US    | V1.3 22-12-20 | fine       | Thanx to kletternaut for the test data |
 
 If you use hardware, please write to me in the forum or in Github as an issue. We would be happy to continue this list.
 
@@ -500,6 +519,10 @@ The time read from the inverter is stored here. On the US3000 it is called RTC a
 If true without ack is written to set, the current time is sent to the Pylontech. When the command has been executed, the status is set to ack = true.
 
 ## Changelog
+
+### 0.0.7 (01.11.2023)
+
+- (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
 
 ### 0.0.6 (09.10.2023)
 

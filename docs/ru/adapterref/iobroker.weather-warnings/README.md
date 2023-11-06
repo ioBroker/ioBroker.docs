@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-предупреждения
-hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
+hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -20,11 +20,9 @@ hash: yiZeOXwKOfzs7/rjUOm2Cyz3R8WAocXlTrleWj6ikV4=
 **Тесты:** [![Тестирование и выпуск] (https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
 ## Адаптер предупреждений о погоде для ioBroker
-[Немецкий Readme](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
+[Немецкий Readme (мейст актюллер)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
 
-**Все еще в разработке**, поэтому хороших образцов шаблонов пока нет, а электронная почта еще не совсем готова. Если у вас есть какие-либо пожелания, просто оставьте запрос на добавление функции.
-
-Этот адаптер получает доступ к погодным предупреждениям различных погодных служб и выводит их в виде текстовых или голосовых сообщений. Кроме того, он создает состояния, сгруппированные по типам, которые можно использовать для реагирования на текущие предупреждения.
+Этот адаптер получает доступ к погодным предупреждениям различных метеорологических служб и выводит их в виде текстовых или голосовых сообщений. Кроме того, он создает состояния, сгруппированные по типам, которые можно использовать для реагирования на текущие предупреждения.
 
 Провайдер:
 
@@ -42,7 +40,7 @@ Push-сервис
 - Скажи это
 
 ## Монтаж
-После установки сайт конфигурации откроется автоматически, и его необходимо будет **перезагрузить**. При этом будут показаны шаблоны на установленном языке.
+Мин. Nodejs: v18 После установки автоматически откроется сайт конфигурации, и его необходимо будет **перезагрузить**. При этом будут показаны шаблоны на установленном языке.
 
 ## Конфигурация
 ![Базовая конфигурация](../../../en/adapterref/iobroker.weather-warnings/img/basic.png)
@@ -126,6 +124,10 @@ Push-сервис
   1) Предупреждение **сейчас** активно (тот, у которого самый высокий уровень).
 
 ## Иконки
+Значок DWD: Авторские права принадлежат Deutscher Wetterdienst ZAMG. Значок: Авторские права принадлежат Deutscher Wetterdienst ZAMG.
+
+другие:
+
 Создатель: [Адри Ансия](https://www.youtube.com/channel/UChLOv1L-ftAFc2ZizdEAKgw?view_as=subscriber)
 
 Изменения: В оригинале они синие, остальные цвета - это изменения оригинала.
@@ -139,6 +141,18 @@ Push-сервис
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2023-11-05)
+* (ticaki) Fixed: Foreign languages did not work for UWZ.
+* (ticaki) Fixed: clearHistory command didnt work on gloabl level.
+* (ticaki) Fixed: uwz colours assigned to the correct level.
+
+### 0.5.0 (2023-11-04)
+* (ticaki) breaking changes: New UWZ configuration. reconfigure
+* (ticaki) breaking changes: Rename and move manual push command states.
+* (ticaki) Quiet times changed, reconfigure. 
+* (ticaki) better DWD configuration.
+* (ticaki) alot improvements.
+
 ### 0.4.8 (2023-10-30)
 * (ticaki) Wrong level assignment for zamg fixed
 * (ticaki) better set defaults

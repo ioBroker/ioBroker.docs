@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
+hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 ---
 ![标识](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -17,7 +17,7 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 ## IoBroker 的 alpha-ess 适配器
 该适配器登录到 [阿尔法ESS](https://www.alphaess.com/) 的 Web API 并检索您的 Alpha ESS 设备的信息。\ 根据您的 Alpha ESS 产品，可以获取设备的实时数据和配置数据。 API 返回哪些数据点取决于您的 Alpha ESS 设备。
 
-该适配器支持两个 API：内部 Alpha ESS Web API（Alpha ESS 可能随时更改该 API）和 Alpha ESS Open API（提供的功能较少，但它是 Alpha ESS 设备的官方且有记录的 API）。
+该适配器支持两个 API：内部 Alpha ESS Web API（Alpha ESS 可能随时更改该 API）和 Alpha ESS Open API（提供的功能较少，但是 Alpha ESS 设备的官方且有记录的 API）。
 
 从1.0.0-alpha.5版本开始，每个状态的质量属性根据其状态进行设置：
 
@@ -29,8 +29,8 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 |0x12 |适配器已断开连接或停止|
 |0x44 |API 返回错误或内部错误，请参阅日志 |
 
-## 设置：
-**使用的 API：** 在非官方“封闭”API 和官方“开放”API（正在开发中）之间进行选择 根据所选 API，有不同的可用设置。
+＃＃ 设置：
+**使用的 API：** 在非官方“封闭”API 和官方“开放”API 之间进行选择 根据所选 API，有不同的可用设置。
 
 **关闭API设置：**
 
@@ -49,6 +49,7 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 **打开API设置：**
 
 为了能够使用新的 Open API，您必须在 https://open.alphaess.com 上注册您的 Alpha-ESS 设备。注册后，您将获得开发者 ID 和开发者密钥（称为“秘密”）。您将需要这些才能访问开放 API。目前我不知道将来是否会改变。
+这里描述了如何查找SN和检查代码进行注册：https://github.com/alphaess-developer/alphacloud_open_api
 
 - **个人申请ID：**申请ID（见上文）
 - **个人应用程序秘密：**应用程序秘密（见上文）
@@ -63,6 +64,24 @@ hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
 **所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！这个个人项目是在业余时间维护的，没有商业目标。**
 
 ## Changelog
+
+### 1.1.1 (2023-11-04)
+
+-   (Gaspode) Closed API adapted to latest Alpha-ESS changes and enabled again
+
+### 1.1.0 (2023-11-04)
+
+-   (Gaspode) Closed API disabled (temporarily?) because API has been changed by Alpha-ESS
+-   (Gaspode) Read back changed settings values 2 seconds after they have been changed
+
+### 1.0.2 (2023-10-05)
+
+-   (mcm1957) Updated required node version to 16 or newer
+
+### 1.0.1 (2023-10-03)
+
+-   (Gaspode) Adapted fetching energy values using 'Closed API' to latest API changes by Alpha-ESS
+
 ### 1.0.0 (2023-06-20)
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS

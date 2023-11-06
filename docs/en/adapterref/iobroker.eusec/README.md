@@ -11,8 +11,6 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)](https://snyk.io/test/github/bropat/ioBroker.eusec)
 
 **Tests:** ![Test and Release](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/bropat/ioBroker.eusec?branch=master&svg=true)](https://ci.appveyor.com/project/bropat/ioBroker-eusec/)
-
 
 [![NPM](https://nodei.co/npm/iobroker.eusec.png?downloads=true)](https://nodei.co/npm/iobroker.eusec/)
 
@@ -158,6 +156,21 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (see [here](https://bropat.github.io/ioBroker.eusec/#/debugging)). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines).
 
 ## Changelog
+
+### 1.2.1 (2023-11-04)
+
+* (bropat) Updated version of the package eufy-security-client (2.9.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.1)
+
+### 1.2.0 (2023-11-04)
+
+* (bropat) Requires node version >= 18
+* (bropat) Added support for SmartTrack Link (T87B0) and SmartTrack Card (T87B2)
+* (bropat) Added support for SoloCam S220 (T8134)
+* (bropat) Fixed livestream issue
+* (bropat) Updated version of the package go2rtc-static (1.8.1)
+* (bropat) Updated version of the package eufy-security-client (2.9.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.0)
 
 ### 1.1.2 (2023-08-31)
 

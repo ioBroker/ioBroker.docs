@@ -80,11 +80,11 @@ readFile("doorbird.0", "TakeSnapshot_1.jpg", function (error, data) {
 });
 ```
 
-or since js-controller 4.1.x
+or since js-controller 5
 
 ```
 setState('doorbird.0.TakeSnapshot', true);
-onFile("doorbird.0", "TakeSnapshot_1.jpg", false, function (id, fileName, size, fileData, mimeType) {
+onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, fileData, mimeType) {
     sendTo('telegram.0', {
         text: fileData,
         type: 'photo'

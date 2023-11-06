@@ -63,6 +63,10 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Standarduser) Added advanced handling for trash pickup
+
 ### 2.3.0 (2023-10-25)
 
 NodeJS 16.x is required

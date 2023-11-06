@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: BO3WV44vZwcvRy5TVZZAjgqHXc6hctoE5FdqcjdtBMA=
+hash: iHH5LnBdYZ7oLsNl0a1WSxtKNmW36TgsoNoSknIq0YA=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https:// /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
 您可以以 JSON 或 JSON5 格式定义设置。 JSON5 更易于人类阅读并支持注释。
 
@@ -81,7 +81,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `short` - 没有`enum.rooms。`
   - `allowDeactivate` - 允许让房间空着
 
-- `func` - 从 `enum.func` 中选择函数（带颜色和图标） - （仅限 Admin6）
+- `func` - 从 `enum.func` 选择函数（带颜色和图标） - （仅限 Admin6）
   - `short` - 没有`enum.func。`
   - `allowDeactivate` - 允许让功能为空
 
@@ -136,7 +136,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true
@@ -334,6 +334,8 @@ adapter.on('message', obj => {
 
 要使用此选项，您的适配器必须实现消息处理程序：命令的结果必须是格式为`[{"value": 1, "label": "one"}, ...]`的数组
 
+    - `alsoDependsOn` - 通过更改哪些属性，必须重新发送命令
+
 ```
 adapter.on('message', obj => {
    if (obj) {
@@ -411,7 +413,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则用当前坐标初始化字段
+  - `autoInit` - 如果为空，则使用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称

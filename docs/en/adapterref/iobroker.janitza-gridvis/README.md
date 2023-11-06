@@ -32,6 +32,15 @@ Implemented are the following times:
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.6 (2023-11-04)
+* (BenAhrdt) Bugfix Logging utc time
+
+### 3.1.5 (2023-11-04)
+* (BenAhrdt) change endstring of timerparameters to utc
+
+### 3.1.4 (2023-11-02)
+* (BenAhrdt) corrction in jsonconfig schema & new order of deviceicons
+
 ### 3.1.3 (2023-10-11)
 * (BenAhrdt) Errorhandling improoved in case if device is not present. => Reducing API connection trafic
 

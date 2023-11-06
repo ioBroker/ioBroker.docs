@@ -15,9 +15,7 @@
 
 ## weather-warnings adapter for ioBroker
 
-[Deutsche Readme](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
-
-**Still in development** so no good sample templates yet and email is not quite ready. If you have any wishes, just make a feature request.
+[Deutsche Readme (meist aktueller)](https://github.com/ticaki/ioBroker.weather-warnings/blob/main/README_DE.md)
 
 This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally it creates States grouped by type, which can be used to react to current warnings.
 
@@ -35,6 +33,7 @@ Push service
 - Sayit
 
 ## Installation
+Min. Nodejs: v18
 After installation the configuration site will automatically open and will be needed to be **reloaded**. This will show the templates in the language that was set.
 
 ## Configuration
@@ -127,6 +126,12 @@ Templates for 3) cannot contain `${}` Tokens.
   1) Warning is **now** active (the one with the highest level).
   
 ## Icons
+
+DWD Icon: Copyright by Deutscher Wetterdienst
+ZAMG Icon: Copyright by 
+
+others:
+
 Creator: [Adri Ansyah](https://www.youtube.com/channel/UChLOv1L-ftAFc2ZizdEAKgw?view_as=subscriber)
 
 Changes: In the original they are blue, other colours are changes to the original. 
@@ -140,6 +145,18 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2023-11-05)
+* (ticaki) Fixed: Foreign languages did not work for UWZ.
+* (ticaki) Fixed: clearHistory command didnt work on gloabl level.
+* (ticaki) Fixed: uwz colours assigned to the correct level.
+
+### 0.5.0 (2023-11-04)
+* (ticaki) breaking changes: New UWZ configuration. reconfigure
+* (ticaki) breaking changes: Rename and move manual push command states.
+* (ticaki) Quiet times changed, reconfigure. 
+* (ticaki) better DWD configuration.
+* (ticaki) alot improvements.
+
 ### 0.4.8 (2023-10-30)
 * (ticaki) Wrong level assignment for zamg fixed
 * (ticaki) better set defaults

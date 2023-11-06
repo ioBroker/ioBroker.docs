@@ -21,6 +21,9 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
+
 ### 2.1.0 (2023-04-06)
 * (BenAhrdt) depencies updated
 

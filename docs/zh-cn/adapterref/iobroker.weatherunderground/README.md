@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weatherunderground/README.md
 title: ioBroker.weatherunderground
-hash: a5jiLETlcvxJgIyxlf4MfTQHi/MKIdodXzc3k7GgYcw=
+hash: fEsSzuic0LR7WFBozwZDWg4kn3f/hDkosdL4USvA92s=
 ---
 ![标识](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
@@ -14,7 +14,7 @@ hash: a5jiLETlcvxJgIyxlf4MfTQHi/MKIdodXzc3k7GgYcw=
 # IoBroker.weatherunderground
 ![测试与发布](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ioBroker 适配器可从 [地下天气](http://www.wunderground.com/) 加载您所在位置的 24 小时天气预报。
 适配器加载所有 15 分钟（默认）每日和每小时的预测数据。
@@ -68,12 +68,6 @@ ioBroker 适配器可从 [地下天气](http://www.wunderground.com/) 加载您�
 |阳光明媚.gif | nt_sunny.gif |
 | tstorms.gif | nt_tstorms.gif |
 |多云.gif | nt_cloudy.gif |
-
-## IoBroker 论坛（德语）
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
-
-＃＃ 去做
-编码仍然存在问题。带“äüöß”的地址将显示错误。
 
 ## Changelog
 <!--

@@ -3,16 +3,15 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-icontwo/README.md
 title: ioBroker.vis-icontwo
-hash: iNGWWMrNqMrkKzoWP328Dwti9OeRtqw0YCxNTLzwhss=
+hash: dMzAFxrqZ/efqvJW8nG+uq9+Ct3lCJvj2zyfRRcqQiM=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-icontwo/admin/icontwo.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.vis-icontwo.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vis-icontwo-stable.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/vis-icontwo-stable.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.vis-icontwo.svg?)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/vis-icontwo-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/inventwo/iobroker.vis-icontwo.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vis-icontwo-installed.svg)
+![Bekannte Schwachstellen](https://snyk.io/test/github/inventwo/iobroker.vis-icontwo/badge.svg)
 ![Build-Status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
 ![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-green.svg)
@@ -20,47 +19,213 @@ hash: iNGWWMrNqMrkKzoWP328Dwti9OeRtqw0YCxNTLzwhss=
 
 # IoBroker.vis-icontwo
 ## Icon Adapter für den ioBroker.vis Adapter
-Ein Reiner Icon Adapter für die Visualisierung.
+Ein reiner Icon Adapter für die Visualisierung.
 
-![Bildschirmfoto](http://resources.inventwo.com/github/icontwo/Screen_001.png)
+![Bildschirmfoto](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_001.png)
 
 Alle Icons sind über den Dateimanager (auf der obersten Ebene) im vis-icontwo Ordner zu finden
 
-![Pfad](http://resources.inventwo.com/github/icontwo/Pfad_001.png)
+![Pfad](../../../en/adapterref/iobroker.vis-icontwo/img/Pfad_001.png)
 
 ---
 
 ## Vorschau
-Eine kleine Vorschau über den Stil der Ikonen:
+Eine kleine Vorschau über den Stil der Icons:
 
-ZUM BEISPIEL. Teilauswahl:
+ZUM BEISPIEL. Lichter (Teilauswahl):
 
-![Bildschirmfoto](http://resources.inventwo.com/github/icontwo/Screen_002.png)
+![Bildschirmfoto](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_002.png)
 
-ZUM BEISPIEL. Teilauswahl:
+ZUM BEISPIEL. Zimmer (Teilauswahl):
 
-![Bildschirmfoto](http://resources.inventwo.com/github/icontwo/Screen_003.png)
+![Bildschirmfoto](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_003.png)
 
-ZUM BEISPIEL. Teilauswahl:
+ZUM BEISPIEL. Geräte (Teilauswahl):
 
-![Bildschirmfoto](http://resources.inventwo.com/github/icontwo/Screen_004.png)
+![Bildschirmfoto](../../../en/adapterref/iobroker.vis-icontwo/img/Screen_004.png)
 
-Eine vollständige Übersicht aller Ikonen ist hier zu finden.
+Eine vollständige Übersicht aller Icons ist hier zu finden (die Ordnerstruktur ist die gleiche, wie im Dateimanager):
 
--> http://icontwo.inventwo.com <-
+-> https://icontwo.inventwo.com <-
 
 ---
 
-## Besetzung
-Falls Dir unsere Arbeit betrifft und du uns nicht möchtest, wir freuen uns über jede Spende
+## Unterstützung
+Wenn Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, freuen wir uns über jede Spende.
 
-(Dieser Link gehört zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
+(Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende] (http://resources.inventwo.com/github/icontwo/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](/img/spende.png)](https://www.paypal.com/donate/?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
 ## Changelog
+
+### 0.97.1
+
+• Bugfix
+
+### 0.97.0
+
+• Neue Icons hinzugefügt (Devices - printer)
+
+### 0.96.0
+
+• Neue Icons hinzugefügt (Devices - vacuum-cleaner) (Signs - sum)
+
+### 0.95.0
+
+• Neue Icons hinzugefügt (Misc)
+
+### 0.94.0
+
+• Neue Icons hinzugefügt (Brands)
+
+### 0.93.0
+
+• Neue Icons hinzugefügt (Devices/Cooling/)
+
+### 0.92.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.91.0
+
+• Neue Icons hinzugefügt (Alarm)
+
+### 0.90.0
+
+• Neue Icons hinzugefügt (Devices/Network/hmip)
+
+### 0.89.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.88.0
+
+• Neue Icons hinzugefügt (Devices/water)
+
+### 0.87.0
+
+• Neue Icons hinzugefügt (Battery/Percent)
+
+### 0.86.2
+
+• Bugfix
+
+### 0.86.1
+
+• Bugfix (npm Version)
+
+### 0.86.0
+
+• Neue Icons hinzugefügt (Versand)
+
+### 0.85.0
+
+• Neue Icons hinzugefügt (Wetter-Warnung & Navigation & Automobil)
+
+### 0.84.0
+
+• Neue Icons hinzugefügt (Devices)
+
+### 0.83.0
+
+• Neue Icons hinzugefügt (Animals)
+
+### 0.82.0
+
+• Neue Icons hinzugefügt (Elektricity)
+
+### 0.81.0
+
+• Neue Icons hinzugefügt (Animated/Fan & Navigation)
+
+### 0.80.0
+
+• Neue Icons hinzugefügt (Brands/H2Oreader)
+
+### 0.79.0
+
+• Neue Icons hinzugefügt (Devices/Gas- & Watermeter)
+
+### 0.78.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.77.0
+
+• Neue Icons hinzugefügt (Spa_Fitness)
+
+### 0.76.0
+
+• Neue Icons hinzugefügt (Devices/thermostat)
+
+### 0.75.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.74.0
+
+• Neue Icons hinzugefügt (Letters/Rounded)
+
+### 0.73.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.72.0
+
+• Neue Icons hinzugefügt (Hobbies/Train)
+
+### 0.71.0
+
+• Neue Icons hinzugefügt (Devices/Computer)
+
+### 0.70.0
+
+• Neue Icons hinzugefügt (Player/Cover)
+
+### 0.69.0
+
+• Neue Icons hinzugefügt (Hobbies/Train & Spa_Fitness)
+
+### 0.68.0
+
+• Neue Icons hinzugefügt (Devices/Sandfilter)
+
+### 0.67.0
+
+• Neue Icons hinzugefügt (Hobbies)
+
+
+### 0.66.0
+
+• Neue Icons hinzugefügt (Clock & Timer)
+
+### 0.65.1
+
+• Bugfix
+
+
+### 0.65.0
+
+• Neue Icons hinzugefügt (Player)
+
+### 0.64.0
+
+• Neue Icons hinzugefügt (Brands & Computer)
+
+### 0.63.0
+
+• Neue Icons hinzugefügt (Animated Icons - Arrows, Maps, Phones & Weather)
+
+### 0.62.0
+
+• Neue Icons hinzugefügt (Animated Icons - Charts & Alarm)
+
+### 0.61.0
+
+• Neue Icons hinzugefügt (Finance & Charts)
 
 ### 0.60.0
 
@@ -380,7 +545,7 @@ Falls Dir unsere Arbeit betrifft und du uns nicht möchtest, wir freuen uns übe
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2022 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

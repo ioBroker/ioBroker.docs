@@ -3,50 +3,48 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bydhvs/README.md
 title: kein Titel
-hash: fp0JFosNG9bcdhM2vBDHTsHIuTrwMY0S97qqFoofkS4=
+hash: rdIh77tbZwWxtyNaiQ+u+VWM8qKa82gxi9pQbGIM1S8=
 ---
 ![Logo](../../../en/adapterref/iobroker.bydhvs/admin/bydhvs.png)
 
 ## Bydhvs-Adapter für ioBroker
-Abfragedaten der BYD HVS-Batterie
+Umfragedaten der BYD HVS-Batterie
 
-## Englisch:
 ## Einführung
-Dieser Adapter nimmt Daten von einer byd PV-Batterie (https://www.bydbatterybox.com/) und fügt sie in Datenpunkte im Adapter ein. Leider gibt es keine offizielle API und keine Dokumentation, also habe ich Wireshark und einen Byd-hvs-Simulator verwendet, um zu versuchen, die Kommunikation zu verstehen. Mein Adapter simuliert die byd-App, sendet ähnliche Pakete an das Gerät und analysiert die Antworten.
+Dieser Adapter nimmt Daten von einer Byd-PV-Batterie (https://www.bydbatterybox.com/) auf und speichert sie in Datenpunkten im Adapter. Leider gibt es keine offizielle API und keine Dokumentation, daher habe ich Wireshark und einen byd-hvs-Simulator verwendet, um zu versuchen, die Kommunikation zu verstehen. Mein Adapter simuliert die byd-App, sendet ähnliche Pakete an das Gerät und analysiert die Antworten.
 
-## Vorsichtig sein
-Es gibt zwei Schritte in der beConnect-App, im ersten Schritt erhalten Sie die normalen Daten, im zweiten Schritt erhalten Sie Detaildaten für alle Zellen (einzelne Zelltemperatur und -spannung und einige weitere Details). Um die Detaildaten zu erhalten, müssen Sie dies tun eine Verzögerung nach einem der Datenpakete sein, bis ich das Ergebnis erhalten kann. Ich denke, inzwischen sind alle Zellen gemessen, bin mir aber nicht sicher. Ich bin mir definitiv nicht sicher, ob Sie Ihrem Akku schaden, wenn Sie diese Daten zu oft abrufen, also seien Sie sich bewusst: Sie sind auf eigene Gefahr!
+## Seien Sie vorsichtig
+In der beConnect-App gibt es zwei Schritte: Im ersten Schritt erhalten Sie die normalen Daten, im zweiten Schritt erhalten Sie Detaildaten für alle Zellen (einzelne Zellentemperatur und -spannung und einige weitere Details). Um die Detaildaten zu erhalten, müssen Sie dort klicken eine Verzögerung nach einem der Datenpakete sein, bis ich das Ergebnis erhalten kann. Ich denke, dass mittlerweile alle Zellen gemessen sind, bin mir aber nicht sicher. Ich bin mir definitiv nicht sicher, ob Sie Ihrem Akku schaden, wenn Sie diese Daten zu oft abfragen. Seien Sie sich also bewusst: Sie handeln auf eigenes Risiko!
 
 ## Unterstützung für bis zu 5 Module
 Es werden jetzt bis zu 5 HVS-Module unterstützt.
 
-## Die Einstellungen
-Intervall: Ganz einfach: wie oft (s) sollen die Daten abgefragt werden IP-Adresse: Das ist selbsterklärend. Entweder Sie verwenden die Standardadresse ( 192.168.16.254 ) und ändern das Routing zu Hause, z. Der Vorteil ist: Die beConnect App funktioniert auch. Andere Möglichkeit: Du änderst die IP-Adresse der Box. Aber: Seien Sie gewarnt: Der Text auf der Webseite ist verwirrend und wenn Sie sich nicht ganz sicher sind, was Sie tun: BITTE berühren Sie nicht die Einstellungen. In den deutschen Foren lese ich von Leuten, die aus ihrem System ausgesperrt wurden und es gibt keinen Weg zurück, entweder schickt dir byd eine Ersatz-HVU oder du musst dir eine neue kaufen.
-Akku-Details: Wie oben erklärt: Benötigen Sie die Akku-Details? Wenn ja: checkobx setzen.
-Akku-Details - alle ... Zyklen :Auch wie oben, sollte frei sein Testmodus - Daten im Fehlerprotokoll anzeigen: Wenn Sie dieses Kästchen aktivieren: Die gesendeten und empfangenen Daten werden im Fehlerprotokoll angezeigt, sodass Sie sie bequem herunterladen können die Daten und sende sie mir im Fehlerfall zu.
+## Einstellungen
+Intervall: Das ist ganz einfach: Wie oft (n) sollen die Daten abgefragt werden? IP-Adresse: Das ist selbsterklärend. Entweder Sie verwenden die Standardadresse ( 192.168.16.254 ) und ändern das Routing zu Hause, z. B.: https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID=2215343#post2215343 . Der Vorteil ist: Auch die beConnect-App funktioniert. Andere Möglichkeit: Sie ändern die IP-Adresse der Box. Aber: Seien Sie gewarnt: Der Text auf der Webseite ist verwirrend und wenn Sie sich bei den Dingen, die Sie tun, nicht ganz sicher sind: Berühren Sie die Einstellungen BITTE nicht. In den deutschen Foren habe ich von Leuten gelesen, die aus ihrem System ausgesperrt wurden und es kein Zurück mehr gibt, entweder schickt dir byd eine Ersatz-HVU oder du musst eine neue kaufen.
+Batteriedetails: Wie oben erklärt: Benötigen Sie die Details der Batterie? Wenn ja: setze das checkobx.
+Batteriedetails – alle ... Zyklen: Auch wie oben, sollte klar sein. Testmodus – Daten im Fehlerprotokoll anzeigen: Wenn Sie dieses Kontrollkästchen aktivieren: Die gesendeten und empfangenen Daten werden im Fehlerprotokoll angezeigt, sodass Sie sie einfach herunterladen können die Daten und senden sie mir bei Fehlern zu.
+Kopieren und Einfügen funktioniert nicht – die Daten werden am Ende ausgeschnitten. Sie müssen es herunterladen, bevor Sie es mir senden.
 
-## Deutsch:
-## Ein wenig Erklärungen:
-Prinzipiell ist der Adapter durch Analyse der Datenpakete zwischen der BYD-App und dem BYD-Akku-System entstanden. Es werden im Angaben die Daten aus dem TAB System Info und aus dem TAB Diagnose dargestellt. Offensichtlich sind die Daten für "System Info" sofort in der Batterie bereit zum abholen, für die Diagnose-Daten sieht es so aus als wäre ein Messvorgang erforderlich, zwischen der Abfrage und den Werten muss ein Zeitintervall von gut 3 Sekunden ausgeführt werden.
-
-Ich bin mir nicht sicher, ob das BYD-System durch zu häufige Abfragen beschädigt wird, also: Es ist Dein Risiko was Du hier einträgst!
-
-## Zu den Einstellungen:
-Intervall: Zeitlicher Abstand zwischen den Abfragen des Adapters
-
-IP-Adresse: Eigentlich logisch, damit ist die IP-Adresse des Adapters gemeint. Dafür gibt es zwei Möglichkeiten: Entweder hält man sich an die Anleitung von Becker3 aus dem Photovoltaik-Forum, ist hier verlinkt: https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID= 2215343#post2215343 . Das hat den Vorteil, dass auch die BYD-APP läuft und man mit dieser direkt an die Daten, auch zum Vergleich, herankommt. Oder man trägt "nur" die IP-Adresse die die BYD-Box per DHCP erhalten hat ein. Ausdrücklich waren möchte ich vor Änderungen an den IP-Einstellungen der BOX! Im Forum kann man Berichte von Leuten lesen sterben Sich sterben Erreichbarkeit der Box dauerhaft ruiniert Haben.
-
-Batterie-Details: Steuerung, ob die Details zu den Zellen gelesen werden sollen
-
-Lesezyklen zu Batterie-Details: Anzahl der "Normal-Lese-Zyklen" bis wieder einmal die Diagnose-Daten gelesen werden. Hier die Warnung dazu: Ich habe keine Idee ob man sich durch häufige Diagnose-Messungen Einschränkungen einhandelt, daher empfehle ich den Wert möglichst hoch zu setzen. Ich wüsste auch nicht was man mit den Diagnose-Daten im einfachen Poll beginnen sollte.
-
-Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und Zellspannungen bei 2-5 Batterie-Modulen.
+[Link zur nativen deutschen Readme:](README-German.md)
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.5.0 (2023-11-04)
+* Breaking change: nodejs 16 minimum required  
+* automated checks and release-script repaired (thanks to mcm1957, he did the work)
+* nothing else changed in code
+
+### 1.4.2 (2023-09-28)
+* Typo in version number removed
+
+### 1.4.1 (2023-09-24)
+* Compatibility with js.controller 5x
+* Removed some bugs in detecting inverter
+* Inverternumber ist logged, so I can easily add new inverters if neccerary, just send me the silly-log if inverter is unknown.
+
 ### 1.4.0 (2022-10-31)
 * Update of referred modules (mainly around testing)
 * improvmenets contributed by Tapter (5 modules, readme and better readable code)
@@ -60,22 +58,12 @@ Zu den Batterie-Größen: Der Adapter funktioniert für Zelltemperaturen und Zel
 * updated even more dependencies
 * official release with new state SOH
 
-### 1.2.4-0 (2021-11-02)
-* Added state: SOH
-* updated dependencies as suggested from bot
-
-### 1.2.3 (2021-06-18)
-* changed ratio of logo
-
-### 1.2.2 (2021-06-14)
-* bump to new patch-level (to get rid of the "-0")
-
 ###
 
 ## License
 MIT License
 
-Copyright (c) 2021 Christian <github@familie-herrmann.de>
+Copyright (c) 2023 Christian <github@familie-herrmann.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -11,6 +11,10 @@ webui for ioBroker
 
 ![image](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
 
+## Tutorial Videos (atm. in german only)
+
+https://www.youtube.com/@jogibear9988
+
 ## Description
 
 This is a complete visualization system for ioBroker.
@@ -125,6 +129,15 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+- fix upercase screen names in runtime
+- raster in designer is now adjustable
+- copy object nodes now copies complete string
+- context menu to directly edit custom element
+TODO: fix handler path in script
+TODO: uiChangedView
+TODO: error when importing invalid file (for example html instead of json)
+
 ### 0.12.3 (2023-09-20)
 - after eval removal, functions need a return
 

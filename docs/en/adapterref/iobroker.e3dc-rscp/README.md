@@ -453,6 +453,8 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 ### 1.2.4
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 
+__CAUTION: re-use of config from *.json will periodically stop your inverter! See [Issue #196](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/196) for details.__
+
 (ka-vaNu / git-kick)
 * Added setter functions for wallbox: BATTERY_BEFORE_CAR_MODE, BATTERY_TO_CAR_MODE, WB_DISCHARGE_BAT_UNTIL, WB_ENFORCE_POWER_ASSIGNMENT - [Issue #185](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/185)
 

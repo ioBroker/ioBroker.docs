@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
+hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -13,16 +13,18 @@ hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pylontech-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.pylontech.png?downloads=true)
 
+![Logo](../../../en/adapterref/iobroker.pylontech/media/pytes.jpg)
+
 # IoBroker.pylontech
 **Tests:** ![Test und Freigabe](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
 
-## Pylontech-Adapter für ioBroker
-Fragen Sie die Zellspannungen und den Status der pylontech-Batterien über die Konsole ab. Ich bin nicht angeschlossen.
+## Pylontech- und Pytes-Adapter für ioBroker
+Fragen Sie über die Konsole die Zellspannungen und den Status von Pylontech- oder Pytes-Akkus ab. Ich bin nicht angeschlossen.
 
 **Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für etwaige Schäden!**
 
 ## Wie es funktioniert
-Dieser Adapter wird verwendet, um den Gesundheitszustand und die Funktionen eines Pylontech-Arrays zu ermitteln, das aus einer oder bis zu fünfzehn Batterien bestehen kann.
+Dieser Adapter wird verwendet, um den Gesundheitszustand und die Funktionen eines Pylontech- oder Pytes-Arrays zu ermitteln, das aus einer oder bis zu fünfzehn Batterien bestehen kann.
 Dieser Adapter dient nicht zur Steuerung des Akkus. Dies ist der Teil einer Lade- und Stromversorgungseinheit oder eines Wechselrichters.
 Die Akkus verfügen über einen Konsolenanschluss, der eine RS232- oder V24-Schnittstelle bereitstellt. Dieser Adapter wird über eine serielle Schnittstelle daran angeschlossen.
 Die erste Batterie stellt alle Daten bereit und fragt die anderen über den Uplink an.
@@ -34,7 +36,7 @@ Eine serielle Verbindung erfordert drei Leitungen RxD, TXD und Masse.
 
 Rxd und Txd müssen gekreuzt werden. so dass das, was der eine sendet (Txd), vom anderen empfangen werden kann (Rxd). Damit eine Spannung aufgebaut und ein elektrischer Strom gestartet werden kann, wird Erde benötigt.
 
-### Das serielle Verbindungskabel
+### Das serielle Verbindungskabel für Pylontech
 Pylontech hat im Laufe der Zeit die RJ-Stecker an den Batterien ausgetauscht.
 Am Anfang gab es einen RJ11-Stecker wie beim Telefon. Jetzt handelt es sich um einen RJ45-ähnlichen Netzwerkanschluss.
 Die folgenden Zeichnungen zeigen eine standardmäßige neunpolige D-SUB-Buchse am Kabel.
@@ -52,9 +54,9 @@ Oder fertig konfektionierte Kabelkontakt in den [Forum](https://forum.iobroker.n
 #### RJ45
 | RJ45 | Signal | DSUB | Signal |
 | ---- | ------ | ---- | ------ |
-| 8 | Boden | 5 | Boden |
 | 3 | TxD | 2 | RxD |
 | 6 | RxD | 3 | TxD |
+| 8 | Boden | 5 | Boden |
 
 ![RJ45](../../../en/adapterref/iobroker.pylontech/media/8p.jpg)
 
@@ -69,10 +71,16 @@ Die RJ11- und RJ12-Stecker sind gleich groß. Der RJ11 hat nur vier Kontakte, de
 
 ![RJ11 / RJ12](../../../en/adapterref/iobroker.pylontech/media/4p.jpg)
 
-Für Cisco-Router gibt es RJ45-Konsolenkabel mit USB-Anschluss. Für diese gibt es keine passende Belegung. Mit etwas Erfahrung lässt sich der RJ45-Stecker jedoch austauschen.
+### Das serielle Verbindungskabel für Pytes
+#### RJ45
+| RJ45 | Signal | DSUB | Signal |
+| ---- | ------ | ---- | ------ |
+| 3 | TxD | 2 | RxD |
+| 4 | Boden | 5 | Boden |
+| 6 | RxD | 3 | TxD |
 
-Bitte beachten Sie, dass aufgrund der relativ hohen Übertragungsrate bei RS232-Verbindungen von 115200 Baud das Kabel nicht besonders lang sein kann.
-
+### Für Cisco-Router gibt es RJ45-Konsolenkabel mit USB-Anschluss. Für diese gibt es keine passende Belegung. Mit etwas Erfahrung lässt sich der RJ45-Stecker jedoch austauschen.
+### Bitte beachten Sie, dass aufgrund der relativ hohen Übertragungsrate bei RS232-Verbindungen von 115200 Baud das Kabel nicht besonders lang sein kann.
 | max. Baud | max. Länge |
 | ----------- | ----------- |
 | 2400 | 900m |
@@ -178,8 +186,8 @@ Tasmota kann auch verwendet werden: https://tasmota.github.io/docs/Serial-to-TCP
 
 Als Bin können nur folgende oder selbst kompilierte verwendet werden, ansonsten wird der TCP-Server nicht einbezogen:
 
-* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
-* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+- http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+- http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
 
 Die Gipos müssen vorher eingestellt werden. Jeweils eine auf TCP Rx und TCP Tx.
 
@@ -242,11 +250,15 @@ Was wurde getestet:
 
 #### Batterien
 | Pylontech-Modell | Modell | Firmware | Funktioniert | Kommentar |
-| ---------------- | ----- | ------------- | ---------- | ------------------------------------------ |
+| ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US5000 | USA | V1.3 22.08.10 | gut | |
 | US2000C | USA | V2.6 21.09.26 | gut | |
 | US2000 (US2KBPL) | USA | V2.8 21.04.29 | gut | Temperaturen nur in Ein-Grad-Schritten |
 | Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
+
+| Pytes-Modell | Modell | Firmware | Funktioniert | Kommentar |
+| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
+| E-BOX-4850P | USA | V1.3 22.12.20 | gut | Vielen Dank an kletternaut für die Testdaten |
 
 Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste weiter.
 
@@ -436,6 +448,10 @@ Hier wird die vom Wechselrichter ausgelesene Uhrzeit gespeichert. Auf dem US3000
 Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den Pylontech gesendet. Wenn der Befehl ausgeführt wurde, wird der Status auf ack = true gesetzt.
 
 ## Changelog
+
+### 0.0.7 (01.11.2023)
+
+- (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
 
 ### 0.0.6 (09.10.2023)
 

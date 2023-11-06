@@ -18,13 +18,24 @@ Adapter for Zehnder Cloud API
 
 ## Loginablauf
 
-Bei Zehnder cloud API anmelden und ein subscription key beantragen
+1. https://developer.beta.zehnder.cloud/profile
+
+   Register in the zehnder cloud and create a subscription. Copy the primary key in the adapter settings
+
+2. https://mydevices.beta.zehnder.cloud/customer/settings/application
+
+   Create API Key
+   Enter API Name and Key in the Adapter Settings
 
 ## Diskussion und Fragen
 
 <https://forum.iobroker.net/topic/47856/test-adapter-zehnder-cloud-v-0-0-1>
 
 ## Changelog
+
+### 2.0.0
+
+- (TA2k) switch to new api from zehnder
 
 ### 0.0.8
 

@@ -3,25 +3,25 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smart-eq/README.md
 title: ioBroker.smart-eq
-hash: 3SffDYjQLlEcLtDstpxijw5d6utI22TUMFkZravHgXI=
+hash: IMKMAznd7VIK+W8PdyvoG77wKUfkOSxYpFliP5VOIC4=
 ---
 ![标识](../../../en/adapterref/iobroker.smart-eq/admin/smart-eq.png)
 
-![NPM 版本](https://img.shields.io/npm/v/iobroker.smart-eq.svg)
+![NPM版本](https://img.shields.io/npm/v/iobroker.smart-eq.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.smart-eq.svg)
 ![安装数量](https://iobroker.live/badges/smart-eq-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/smart-eq-stable.svg)
 ![依赖状态](https://img.shields.io/david/TA2k/iobroker.smart-eq.svg)
-![新PM](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
 
 # IoBroker.smart-eq
-**测试：** ![测试和发布](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
+**测试：** ![测试与发布](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker 的 smart-eq 适配器
-智能均衡器适配器
+Smart EQ 和 Hello Smart 适配器
 
-## 登录
-Die smart eq control Mail und Passwort eingeben。
+## 登录ablauf
+智能均衡控制/你好智能邮件和密码。
 
 ## 斯图恩
 smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
@@ -31,9 +31,17 @@ smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Changelog
 
+### 0.1.0
+
+hello smart support
+
+### 0.0.3
+
+- (TA2k) add relogin information
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

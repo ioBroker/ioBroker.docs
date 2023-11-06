@@ -29,20 +29,22 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.4.3 (2023-11-05)
+* (misanorot) added silent_alarm (state list) to shortcuts
+
+### 3.4.2 (2023-10-31)
+* (misanorot) added enhancement #170
+
 ### 3.4.1 (2023-10-29)
 * (misanorot) fixed astro at presence simulation (jsControler 5.x???)
 
 ### 3.4.0 (2023-10-03)
 * (misanorot) fixed #168
 
-### 3.3.13 (2023-09-19)
-* (misanorot) fixed #147
+**[older changelogs](CHANGELOG_OLD.md)**
 
-### 3.3.12 (2023-06-23)
-* (misanorot) fixed select-id popup and little issues on setting pages
-
-### 3.3.11 (2023-04-15)
-* (misanorot) fixed issue at night rest
+### 3.3.7 (2023-01-02)
+* (misanorot) fixed issues at presence light trigger
 
 ## License
 MIT License

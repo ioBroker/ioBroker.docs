@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: Qi7auzoE7FB5ClreUwZTP7WFF8cy131TVRZsKW4ugXc=
+hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -30,7 +30,7 @@ Ab Version 1.0.0-alpha.5 wird das Qualitätsattribut jedes Staates entsprechend 
 |0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Protokoll |
 
 ## Einstellungen:
-**Verwendete API:** Wählen Sie zwischen der inoffiziellen „Geschlossenen“ API und der offiziellen „Offenen“ API (in Entwicklung). Abhängig von der ausgewählten API stehen unterschiedliche Einstellungen zur Verfügung.
+**Verwendete API:** Wählen Sie zwischen der inoffiziellen „Geschlossenen“ API und der offiziellen „Offenen“ API. Abhängig von der ausgewählten API stehen unterschiedliche Einstellungen zur Verfügung.
 
 **Geschlossene API-Einstellungen:**
 
@@ -49,6 +49,7 @@ Das Passwort wird verschlüsselt gespeichert und muss daher manuell eingegeben w
 **API-Einstellungen öffnen:**
 
 Um die neue Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Sie benötigen diese, um Zugriff auf die Open API zu haben. Derzeit liegen mir keine Informationen vor, ob sich dies in Zukunft ändern wird.
+Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier beschrieben: https://github.com/alphaess-developer/alphacloud_open_api
 
 - **Persönliche Bewerbungs-ID:** Die Bewerbungs-ID (siehe oben)
 - **Persönliches Bewerbungsgeheimnis:** Das Bewerbungsgeheimnis (siehe oben)
@@ -63,6 +64,24 @@ Um die neue Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter h
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
+
+### 1.1.1 (2023-11-04)
+
+-   (Gaspode) Closed API adapted to latest Alpha-ESS changes and enabled again
+
+### 1.1.0 (2023-11-04)
+
+-   (Gaspode) Closed API disabled (temporarily?) because API has been changed by Alpha-ESS
+-   (Gaspode) Read back changed settings values 2 seconds after they have been changed
+
+### 1.0.2 (2023-10-05)
+
+-   (mcm1957) Updated required node version to 16 or newer
+
+### 1.0.1 (2023-10-03)
+
+-   (Gaspode) Adapted fetching energy values using 'Closed API' to latest API changes by Alpha-ESS
+
 ### 1.0.0 (2023-06-20)
 
 -   (Gaspode) Support also the new official OpenAPI provided by Alpha-ESS

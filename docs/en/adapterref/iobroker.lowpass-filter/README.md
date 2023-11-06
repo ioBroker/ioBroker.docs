@@ -19,6 +19,9 @@ e.g. you can filter power values to cut power peeks.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.2 (2023-11-02)
+* (BenAhrdt) correction in jsonconfig schema
+
 ### 2.2.1 (2023-04-26)
 * (BenAhrdt) ukrain language added
 

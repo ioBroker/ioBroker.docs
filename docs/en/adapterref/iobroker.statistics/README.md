@@ -50,9 +50,12 @@ The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{origina
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 2.4.0 (2023-11-03)
+NodeJS 16.x is required
 
 * (klein0r) Show error if groups are not configured correctly
+* (klein0r) Fixed cron expressions for quarter and year
+* (klein0r) Added indicators for startup and working
 
 ### 2.3.1 (2023-01-11)
 * (klein0r) Added Ukrainian language
@@ -74,12 +77,6 @@ NodeJS 14.5.0 is required
 
 ### 2.1.1 (2022-06-16)
 * (klein0r) Fixed usage of default values for groups
-
-### 2.1.0 (2022-06-16)
-* (klein0r) Added support for translated object names
-* (klein0r) Fixed sum calculation
-* (klein0r) Increased precision to 5 digits
-* (klein0r) Translated all objects
 
 ## License
 

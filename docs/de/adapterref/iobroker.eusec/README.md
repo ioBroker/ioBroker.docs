@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.eusec/README.md
 title: ioBroker.euSec
-hash: cGFfbIQvnW4jEq5y0QnYfSvmS8lzNditO9yrExlTZY0=
+hash: VZ/DSrc+CJb1AdeCUXgibAgMsPYcfamP8YaiwwDlnEY=
 ---
 ![Logo](../../../en/adapterref/iobroker.eusec/docs/_media/ioBroker.euSec.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.eusec.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.eusec.svg)
-![Knotenversionsanforderung](https://img.shields.io/node/v/iobroker.eusec)
-![Anzahl der Installationen (neueste)](https://iobroker.live/badges/eusec-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/eusec-stable.svg)
+![Gesamtzahl der Downloads](https://img.shields.io/npm/dt/iobroker.eusec.svg)
+![Anforderung an die Knotenversion](https://img.shields.io/node/v/iobroker.eusec)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/eusec-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/eusec-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/librariesio/release/npm/iobroker.eusec)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/bropat/ioBroker.eusec/badge.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/bropat/ioBroker.eusec?branch=master&svg=true)
 ![NPM](https://nodei.co/npm/iobroker.eusec.png?downloads=true)
 ![Spenden](https://img.shields.io/badge/Donate-PayPal-blue.svg)
 
 # IoBroker.euSec
-**Tests:** ![Testen und freigeben](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/bropat/ioBroker.eusec/workflows/Test%20and%20Release/badge.svg)
 
 Dies ist eine [ioBroker](https://www.iobroker.net) Adapter, der den [eufy-security-client](https://github.com/bropat/eufy-security-client) Bibliothek zur Kommunikation mit Eufy-Geräten.
 
@@ -30,19 +30,19 @@ Wenn Sie meine Arbeit und Fortschritte schätzen und mich unterstützen möchten
 **Dieses Projekt ist nicht mit Anker und Eufy (Eufy Security) verbunden. Es ist ein persönliches Projekt, das in der Freizeit gepflegt wird.**
 
 ## Beschreibung
-Dieser Adapter ermöglicht die Steuerung von [Eufy Sicherheitsgeräte](https://us.eufylife.com/collections/security) durch Verbindung mit den Eufy-Cloud-Servern und lokalen/entfernten Stationen.
+Dieser Adapter ermöglicht die Steuerung von [Eufy-Sicherheitsgeräte](https://us.eufylife.com/collections/security) durch Verbindung mit den Eufy-Cloud-Servern und lokalen/entfernten Stationen.
 
-Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter verbindet sich mit Ihrem Cloud-Konto und fragt alle Gerätedaten über HTTPS ab. Jetzt wird auch eine lokale oder entfernte P2P-Verbindung zu den Eufy-Stationen/Geräten unterstützt. Voraussetzung ist jedoch immer eine Anbindung an die Eufy Cloud.
+Sie müssen Ihre Cloud-Anmeldedaten angeben. Der Adapter stellt eine Verbindung zu Ihrem Cloud-Konto her und fragt alle Gerätedaten über HTTPS ab. Jetzt wird auch eine lokale oder entfernte P2P-Verbindung zu den Eufy-Stationen/Geräten unterstützt. Voraussetzung ist jedoch immer eine Verbindung zur Eufy Cloud.
 
-Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht deren Steuerung.
+Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos an und ermöglicht deren Steuerung.
 
 ## Merkmale
 * Unterstützt lokale und Remote-P2P-Verbindungen zur Station
 * Zwei-Faktor-Authentifizierung
-* Livestream als HLS-Stream (unterstützt alle Plattformen, führt aber zu einer Latenz)
-* Der letzte HLS-Livestream wird immer zur späteren Anzeige gespeichert
-* Lädt Ereignisvideo herunter, wenn Push-Benachrichtigung empfangen wird (asynchron)
-* Nimmt eine JPEG-Miniaturansicht des Livestreams oder heruntergeladenen Videos
+* Livestream als HLS-Stream (unterstützt alle Plattformen, führt jedoch zu einer Latenz)
+* Der letzte HLS-Livestream wird immer zur späteren Ansicht gespeichert
+* Lädt Ereignisvideo herunter, wenn eine Push-Benachrichtigung empfangen wird (asynchron)
+* Nimmt eine JPEG-Miniaturansicht des Livestreams oder des heruntergeladenen Videos auf
 * Basisstation:
   * Zustände:
     * Konfigurierter Guard-Modus
@@ -55,15 +55,15 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
     * MAC-Adresse
     * LAN-IP-Adresse
   * Aktionen:
-    * Wachmodus ändern
+    * Schutzmodus ändern
     * Alarmton auslösen
     * Alarmton zurücksetzen
-    * Station neu starten
+    * Reboot-Station
   * Veranstaltungen:
     * Änderung des Alarmmodus
 * Kamera:
   * Zustände:
-    * Online / Offline usw.
+    * Online / offline usw.
     * Batterie %
     * Batterietemperatur
     * Name
@@ -72,24 +72,24 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
     * Softwareversion
     * Hardware Version
     * MAC-Adresse
-    * WLAN-RSSI
-    * Gefilterte falsche Ereignisse seit der letzten Ladung
+    * WLAN RSSI
+    * Falsche Ereignisse seit der letzten Ladung herausgefiltert
     * Gespeicherte/aufgezeichnete Ereignisse seit dem letzten Aufladen
-    * Gesamtzahl der Ereignisse seit der letzten Aufladung
-    * Nutzungstage seit der letzten Aufladung
+    * Gesamtzahl der Ereignisse seit dem letzten Ladevorgang
+    * Nutzungstage seit dem letzten Aufladen
     * Und vieles mehr...
   * Aktionen:
     * Livestream starten (hls; unterstützt auch lokalen Livestream)
     * Livestream stoppen (hls)
     * Gerät aktivieren/deaktivieren
     * Automatische Nachtsicht aktivieren/deaktivieren
-    * LED aktivieren/deaktivieren (nur Kamera 2 Produkte, Innenkameras, Flutlichtkamera, Einzelkameras und Türklingeln)
-    * Diebstahlerkennung aktivieren/deaktivieren (nur Kamera 2 Produkte)
+    * LED aktivieren/deaktivieren (nur Kamera-2-Produkte, Innenkameras, Flutlichtkamera, Einzelkameras und Türklingeln)
+    * Diebstahlschutzerkennung aktivieren/deaktivieren (nur Kamera-2-Produkte)
     * Bewegungserkennung aktivieren/deaktivieren
-    * Tiererkennung aktivieren/deaktivieren (nur Innenkameras)
+    * Haustiererkennung aktivieren/deaktivieren (nur Innenkameras)
     * Tonerkennung aktivieren/deaktivieren (nur Innenkameras)
-    * RTSP-Stream aktivieren/deaktivieren (nur Kamera2-Produkte, Innenkameras und Einzelkameras)
-    * Ändern Sie die Video-Wasserzeicheneinstellung
+    * RTSP-Stream aktivieren/deaktivieren (nur Kamera2-Produkte, Innenkameras und Solo-Kameras)
+    * Ändern Sie die Video-Wasserzeichen-Einstellung
     * Und vieles mehr...
   * Veranstaltungen:
     * Bewegung erkannt
@@ -98,10 +98,10 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
     * Weinen erkannt (nur Innenkameras)
     * Ton erkannt (nur Innenkameras)
     * Haustier erkannt (nur Innenkameras)
-* Sensoren:
-  * Eintrittssensor:
+* Sensor:
+  * Eingangssensor:
     * Zustände:
-      * Online / Offline usw.
+      * Online / offline usw.
       * Niedriger Batteriestatus
       * Name
       * Modell
@@ -112,7 +112,7 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
       * Offen geschlossen
   * Bewegungssensor:
     * Zustände:
-      * Online / Offline usw.
+      * Online / offline usw.
       * Niedriger Batteriestatus
       * Name
       * Modell
@@ -123,7 +123,7 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
       * Bewegung erkannt
 * Tastatur:
   * Zustände:
-    * Online / Offline usw.
+    * Online / offline usw.
     * Niedriger Batteriestatus
     * Name
     * Modell
@@ -132,7 +132,7 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
     * Hardware Version
 * Sperren:
   * Zustände:
-    * Online / Offline usw.
+    * Online / offline usw.
     * Batterie %
     * Sperrstatus
     * Name
@@ -140,23 +140,162 @@ Eine Adapterinstanz zeigt alle Geräte eines Eufy Cloud-Kontos und ermöglicht d
     * Seriennummer
     * Softwareversion
     * Hardware Version
-    * WLAN-RSSI
+    * WLAN RSSI
   * Aktionen:
-    * Verriegeln Entriegeln
+    * Schliessen aufmachen
 * da kommt noch mehr...
 
 ## Dokumentation
-Siehe [Hier](https://bropat.github.io/ioBroker.eusec/)
+Schauen Sie [Hier](https://bropat.github.io/ioBroker.eusec/)
 
 ## Bekannte funktionierende Geräte
-Informationen zu unterstützten Geräten finden Sie in [Hier](https://github.com/bropat/eufy-security-client#known-working-devices).
+Informationen zu unterstützten Geräten finden Sie unter [Hier](https://github.com/bropat/eufy-security-client#known-working-devices).
 
-## So melden Sie Probleme und Funktionsanfragen
-Bitte verwenden Sie hierfür GitHub-Issues.
+## So melden Sie Probleme und Funktionswünsche
+Bitte nutzen Sie hierfür GitHub Issues.
 
-Am besten stellen Sie den Adapter in den Debug-Log-Modus (siehe [Hier](https://bropat.github.io/ioBroker.eusec/#/debugging)). Dann holen Sie sich bitte die Logdatei von der Festplatte (Unterverzeichnis "log" im ioBroker-Installationsverzeichnis und nicht vom Admin, da der Admin die Zeilen kürzt).
+Am besten stellen Sie den Adapter auf den Debug-Protokollmodus (siehe [Hier](https://bropat.github.io/ioBroker.eusec/#/debugging)). Dann holen Sie sich bitte die Protokolldatei von der Festplatte (Unterverzeichnis „log“ im ioBroker-Installationsverzeichnis und nicht vom Administrator, da der Administrator die Zeilen abschneidet).
 
 ## Changelog
+
+### 1.2.1 (2023-11-04)
+
+* (bropat) Updated version of the package eufy-security-client (2.9.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.1)
+
+### 1.2.0 (2023-11-04)
+
+* (bropat) Requires node version >= 18
+* (bropat) Added support for SmartTrack Link (T87B0) and SmartTrack Card (T87B2)
+* (bropat) Added support for SoloCam S220 (T8134)
+* (bropat) Fixed livestream issue
+* (bropat) Updated version of the package go2rtc-static (1.8.1)
+* (bropat) Updated version of the package eufy-security-client (2.9.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.9.0)
+
+### 1.1.2 (2023-08-31)
+
+* (bropat) Updated version of the package eufy-security-client (2.8.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.1)
+
+### 1.1.1 (2023-08-20)
+
+* (bropat) Fixed issue #365
+* (bropat) Fixed issue #363
+* (bropat) Updated version of the package ffmpeg-static (5.2.0)
+* (bropat) Updated version of the package eufy-security-client (2.8.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.8.0)
+
+### 1.1.0 (2023-08-08)
+
+* (bropat) Added support for Wired Wall Light Cam S100 (T84A1; #332)
+* (bropat) Added support for Garage-Control Cam (T8452)
+* (bropat) Fixed issue #353
+* (bropat) Fixed issue #347
+* (bropat) Fixed issue #342
+* (bropat) Fixed issue #316
+* (bropat) Updated version of the package go2rtc-static (1.6.2)
+* (bropat) Updated version of the package eufy-security-client (2.7.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.7.1)
+
+### 1.0.0 (2023-05-16)
+
+* (bropat) Notification pictures are supported again
+* (bropat) Implemented new livestream support using go2rtc (WebRTC/MSE, rtsp)
+* (bropat) Fixed issue #323
+* (bropat) Updated version of the package eufy-security-client (2.6.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.6.2)
+
+**Note:** The download of event videos has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.10 (2023-02-24)
+
+* (bropat) Requires node version >= 16
+* (bropat) Fixed issue #319
+* (bropat) Fixed issue #307
+* (bropat) Fixed issue #306
+* (bropat) Fixed issue #305
+* (bropat) Updated version of the package eufy-security-client (2.4.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.2)
+
+**Note:** The download of notification images has been temporarily removed as decryption of these is not yet supported. It will be added back as soon as it is supported.
+
+### 0.9.9 (2022-12-24)
+
+* (bropat) Fixed issue #311
+* (bropat) Fixed issue #312
+* (bropat) Updated version of the package eufy-security-client (2.4.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.4.0)
+
+### 0.9.8 (2022-11-26)
+
+* (bropat) Fixed issue #300
+* (bropat) Updated version of the package eufy-security-client (2.3.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.3.0)
+
+**Note:** Those who use 2FA will be prompted to do so again after this update.
+
+### 0.9.7 (2022-11-12)
+
+* (bropat) Implemented Homebase Alarm (#271)
+* (bropat) Fixed issue #293
+* (bropat) Updated version of the package eufy-security-client (2.2.3)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.3)
+
+### 0.9.6 (2022-11-06)
+
+* (bropat) Fixed issue #292
+* (bropat) Updated version of the package eufy-security-client (2.2.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.2)
+
+### 0.9.5 (2022-11-05)
+
+* (bropat) Added new P2P feature: unlock smart safe products
+* (bropat) Added option to enable/disable "Automatically download picture" (#255)
+* (bropat) Fixed issue #269
+* (bropat) Updated version of the package eufy-security-client (2.2.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.2.1)
+
+### 0.9.4 (2022-07-30)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.2)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.2)
+
+### 0.9.3 (2022-07-16)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.1)
+
+### 0.9.2 (2022-06-12)
+
+* (bropat) Updated version of the package eufy-security-client (2.1.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.1.0)
+
+### 0.9.1 (2022-05-03)
+
+* (bropat) Updated version of the package eufy-security-client (2.0.1)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.1)
+
+### 0.9.0 (2022-04-30)
+
+* (bropat) Requires node version >= 14.17
+* (bropat) Added support for Battery Doorbell Dual (T8213)
+* (bropat) Added support for Video Doorbell Dual (T8203)
+* (bropat) Added support for IndoorCam Mini (T8414)
+* (bropat) Fixed issue #250
+* (bropat) Fixed issue #238
+* (bropat) Fixed issue #236
+* (bropat) Fixed issue #231
+* (bropat) Fixed issue #229
+* (bropat) Fixed issue #208
+* (bropat) Updated version of the package eufy-security-client (2.0.0)
+* (bropat) Further details can be found in the changelog of eufy-security-client (2.0.0)
+
+### 0.8.5 (2022-02-12)
+
+* (bropat) Fixed issue #222
+* (bropat) Updated version of the package eufy-security-client (1.6.6)
+* (bropat) Further details can be found in the changelog of eufy-security-client (1.6.6)
 
 ### 0.8.4 (2022-02-08)
 
@@ -565,7 +704,7 @@ Am besten stellen Sie den Adapter in den Debug-Log-Modus (siehe [Hier](https://b
 
 MIT License
 
-Copyright (c) 2022 bropat <patrick.broetto@gmail.com>
+Copyright (c) 2020-2023 bropat <patrick.broetto@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

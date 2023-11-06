@@ -228,6 +228,20 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+
+### **WORK IN PROGRESS**
+* (foxriver76) improved performance due to optimizations on auto save
+
+### 2.3.5 (2023-11-03)
+* (foxriver76) update adapter-react to have enhanced image support in file selector
+* (foxriver76) fixed color of file browser in light mode
+* (foxriver76) fixed color inputs jumping to end of input on modify
+
+### 2.3.4 (2023-11-02)
+* (foxriver76) fix crash when selecting multiple widgets
+* (foxriver76) removed duplicate `none` entry in `border-style` dropdown
+* (foxriver76) fix crash when reordering widgets
+
 ### 2.3.3 (2023-10-30)
 * (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
 * (bluefox) added the editor for bindings

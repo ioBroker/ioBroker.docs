@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.smart-eq/README.md
 title: ioBroker.smart-eq
-hash: 3SffDYjQLlEcLtDstpxijw5d6utI22TUMFkZravHgXI=
+hash: IMKMAznd7VIK+W8PdyvoG77wKUfkOSxYpFliP5VOIC4=
 ---
 ![Logo](../../../en/adapterref/iobroker.smart-eq/admin/smart-eq.png)
 
@@ -15,25 +15,33 @@ hash: 3SffDYjQLlEcLtDstpxijw5d6utI22TUMFkZravHgXI=
 ![NPM](https://nodei.co/npm/iobroker.smart-eq.png?downloads=true)
 
 # IoBroker.smart-eq
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.smart-eq/workflows/Test%20and%20Release/badge.svg)
 
-## Smart-Eq-Adapter für ioBroker
-Adapter für Smart EQ
+## Smart-eq-Adapter für ioBroker
+Adapter für Smart EQ und Hello Smart
 
-## Anmeldeablauf
-Die smart eq control Mail und Passwort eingeben.
+## Loginablauf
+Die smart eq control/hello smart Mail und Passwort eingeben.
 
 ## Steuern
 smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/49548/test-adapter-smart-eq-v0-0-x>
 
 ## Changelog
 
+### 0.1.0
+
+hello smart support
+
+### 0.0.3
+
+- (TA2k) add relogin information
+
 ### 0.0.1
 
-* (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

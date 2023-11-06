@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
+hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
 ---
 ![标识](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -13,16 +13,18 @@ hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
 ![稳定存储库中的当前版本](https://iobroker.live/badges/pylontech-stable.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.pylontech.png?downloads=true)
 
+![标识](../../../en/adapterref/iobroker.pylontech/media/pytes.jpg)
+
 # IoBroker.pylontech
 **测试：** ![测试与发布](https://github.com/PLCHome/ioBroker.pylontech/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker 的 pylontech 适配器
-通过控制台查询 pylontech 电池的电压和状态。我不隶属。
+## IoBroker 的 pylontech 和 pytes 适配器
+通过控制台查询 pylontech 或 pytes 电池的电压和状态。我不隶属。
 
 **请注意，您构建或连接的所有内容始终由您负责。该适配器的开发商对任何损坏不承担任何责任！**
 
 ＃＃ 怎么运行的
-该适配器用于确定 Pylontech 阵列的健康状态和功能，该阵列可由一节或最多十五块电池组成。
+该适配器用于确定 Pylontech 或 Pytes 阵列的健康状态和功能，该阵列可由一节或最多十五块电池组成。
 该适配器不用于控制电池。这是充电和电源装置或逆变器的一部分。
 电池具有提供 RS232 或 V24 接口的控制台连接。该适配器通过串行接口与其连接。
 第一个电池提供所有数据并通过上行链路询问其他电池。
@@ -34,7 +36,7 @@ hash: Q5HfJ84syyGgINL0APZig8eFJDPo/CdNQ88wrdNsRys=
 
 Rxd 和Txd 必须交叉。以便一个发送 (Txd) 的内容可以被另一个接收 (Rxd)。需要接地才能建立电压并启动电流。
 
-### 串行连接电缆
+### Pylontech 的串行连接电缆
 Pylontech 随着时间的推移更换了电池上的 RJ 插头。
 一开始有一个像电话一样的RJ11插头。现在网络连接就像RJ45一样。
 下图显示了电缆上的标准九针 D-SUB 母连接器。
@@ -52,9 +54,9 @@ Pylontech 随着时间的推移更换了电池上的 RJ 插头。
 #### RJ45
 | RJ45 |信号|数字SUB |信号|
 | ---- | ------ | ---- | ------ |
-| 8 |地面| 5 |地面|
 | 3 |发送 | 2 |接收 |
 | 6 |接收 | 3 |发送 |
+| 8 |地面| 5 |地面|
 
 ![RJ45](../../../en/adapterref/iobroker.pylontech/media/8p.jpg)
 
@@ -69,10 +71,16 @@ RJ11 和 RJ12 连接器尺寸相同。 RJ11 只有四个触点，RJ12 有六个�
 
 ![RJ11/RJ12](../../../en/adapterref/iobroker.pylontech/media/4p.jpg)
 
-Cisco 路由器有带 USB 端口的 RJ45 控制台电缆。这些没有兼容的占用。不过，只要有一点经验，就可以更换 RJ45 插头。
+### Pytes 的串行连接电缆
+#### RJ45
+| RJ45 |信号|数字SUB |信号|
+| ---- | ------ | ---- | ------ |
+| 3 |发送 | 2 |接收 |
+| 4 |地面| 5 |地面|
+| 6 |接收 | 3 |发送 |
 
-请注意，由于 115200 波特的 RS232 连接传输速率相对较高，因此电缆不能特别长。
-
+### 有用于 Cisco 路由器的带 USB 端口的 RJ45 控制台电缆。这些没有兼容的占用。不过，只要有一点经验，就可以更换 RJ45 插头。
+### 请注意，由于 115200 波特的 RS232 连接传输速率相对较高，因此电缆不能特别长。
 |最大限度。波特率|最大限度。长度|
 | ----------- | ----------- |
 | 2400 | 2400 900m |
@@ -178,8 +186,8 @@ WiFi 串行端口：https://www.instructables.com/Serial-Port-Over-WiFi/
 
 只有以下或者自编译的才可以作为bin，否则不包含TCP服务器：
 
-* http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
-* http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
+- http://ota.tasmota.com/tasmota32/release/tasmota32-zbbrdgpro.bin
+- http://ota.tasmota.com/tasmota/release/tasmota-zbbrdgpro.bin
 
 Gipos 必须预先设置。 TCP Rx 和 TCP Tx 各一个。
 
@@ -190,7 +198,7 @@ Rule1 ON System#Boot do TCPStart 23 endon
 Rule1 1
 ```
 
-它之所以有效，是因为在端口 23 上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
+它之所以有效，是因为在端口 23 等端口上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
 **当然还要在 Gipos 和 RJ/DSUB 插头之间焊接 MAX2323!!!!**
 
 #### Linux 到网络
@@ -235,18 +243,22 @@ RFC 以下是上述配置的设置。设备端口为7000。
 |通讯硬件|类型 |正在工作 |评论 |
 | ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |串口转USB |本地|是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
-| LogiLink AU0034 |本地 |是的 | |
+| LogiLink AU0034 |本地|是的 | |
 | ESP-LINK |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。记得使用像 MAX | 这样的转换器。 |
 | Waveshare RS232/485 转 ETH（适用于欧盟）|网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。 |
 | Waveshare RS232/485/422 转 POE ETH |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。转换器可通过 POE 供电。如果 POE 可用，则电池附近不需要电源。 |
 
 #### 电池
 | Pylontech模型|型号|固件|正在工作 |评论 |
-| ---------------- | ----- | ------------- | ---------- | ------------------------------------------ |
+| ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 5000 美元 |美国 | V1.3 22-08-10 |很好| |
 | US2000C |美国 | V2.6 21-09-26 |很好| |
 | 2000 美元 (US2KBPL) |美国 | V2.8 21-04-29 |很好|温度仅增加一度 |
 |力 H2 |力| V1.5 21-06-18 |很好|注意：在某些 Force 手册中，连接器描述中仅列出了 RX 和 TX 连接。接地位于 PIN 8 上，也必须连接。 |
+
+|皮特斯模型|型号|固件|正在工作 |评论 |
+| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
+| E-BOX-4850P |美国 | V1.3 20-12-22 |很好|感谢 kletternaut 提供的测试数据 |
 
 如果您使用硬件，请在论坛或 Github 上给我写信作为问题。我们很乐意继续这份清单。
 
@@ -267,7 +279,7 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 ioBroker 管理界面中的设置：
 
 ＃＃＃ 联系
-#### 连接方式
+#### 连接通过
 您可以选择本地设备，即本地连接到计算机的接口，例如USB 转换器，或 TCP-IP 网络服务器作为接口。
 
 选项：
@@ -307,7 +319,7 @@ ioBroker 管理界面中的设置：
 ioBroker论坛：https://forum.iobroker.net/topic/68707
 
 ### 确定为 US 模型读取哪些数据
-如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，所以我可能需要做出改进。
+如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，因此我可能需要做出改进。
 如果您的对象太多，您也可以减少此处的数据。
 
 #### 下载电池数据
@@ -436,6 +448,10 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 如果为 true 且未写入 ack 来设置，则将当前时间发送到 Pylontech。当命令执行后，状态设置为 ack = true。
 
 ## Changelog
+
+### 0.0.7 (01.11.2023)
+
+- (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
 
 ### 0.0.6 (09.10.2023)
 

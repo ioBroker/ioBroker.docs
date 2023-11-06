@@ -28,11 +28,12 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.9.5 (2023-11-03)
 
 -   (ciddi89) Added: if available use deviceName datapoint for sonoff devices
 -   (arteck) Fixed: Changed zwave to zwave2
+-   (ciddi89) Fixed: minor bugfixes
+-   (ciddi89) Added: FullyBrowser > v3
 
 ### 2.9.4 (2023-10-16)
 

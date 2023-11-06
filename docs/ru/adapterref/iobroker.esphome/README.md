@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.esphome/README.md
 title: ioBroker.eshome
-hash: TP7UtprFwQisnYhIGzA8GNiWmbFtPlXUvyKmsBAB5XI=
+hash: brop47b6AkIPnnPCn7pqlRZ51YIu/FdYQHtS4QKGH4g=
 ---
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -28,7 +28,7 @@ hash: TP7UtprFwQisnYhIGzA8GNiWmbFtPlXUvyKmsBAB5XI=
 
 ![Логотип](../../../en/adapterref/iobroker.esphome/admin/img/dashboard.png)
 
-Этот адаптер использует [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) со всеми заслугами @Nafaya за взаимодействие с [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
+Этот адаптер использует [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) со всей благодарностью @Nafaya за взаимодействие с [ESPHome API](https://esphome.io/components/api.html?highlight=api)!
 
 ## [Документация](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
 Всю документацию по нашему адаптеру можно найти по адресу [Страница документа DrozmotiX](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/).
@@ -83,9 +83,7 @@ API: пароль: 'MyPassword'
 Миграция с предыдущих установок Sonoff Tasmota или ESPEasy очень проста. Вам просто нужно, чтобы ESPHome создал для вас двоичный файл, а затем загрузил его в веб-интерфейс.
 Более подробную информацию см. в разделе [Страница документа](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/06.migration.html).
 
-.. примечание::
-
-    Сгенерированные файлы yaml хранятся по адресу ```/opt/iobroker/node_modules/iobroker.esphome/config/>device<.yaml```.
+**_ПРИМЕЧАНИЕ:_** Сгенерированные файлы yaml хранятся в ```/opt/iobroker/iobroker-data/iobroker.esphome.>instance</>device<.yaml
 
 ## Поддержите меня
 Если вам нравится моя работа, рассмотрите возможность личного пожертвования (это личная ссылка для пожертвований для DutchmanNL, не имеющая отношения к проекту ioBroker!) [![Пожертвовать](https://raw.githubusercontent.com/DrozmotiX/ioBroker.sourceanalytix/main/admin/button.png)](http://paypal.me/DutchmanNL)
@@ -97,66 +95,35 @@ API: пароль: 'MyPassword'
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### 0.4.1 (2023-11-05)
+* (DutchmanNL) Bugfix: Password / connection issues in previous beta resolves #179
+* (DutchmanNL) Bugfix: Allow individual API password or encryption keys for devices, resolves #174
+* (DutchmanNL) Support ESPHome device Encryption Key (you should migrate from API password to Encryption Key ! resolves #152)
 
-### 0.2.4 (2021-08-24)
-* (DutchmanNL) Version of ESPHome Dashboard updated to 2021.8
-* (DutchmanNL) Add option if config of ESPHome device should be shown as states (default = FALSE, safes 8 states for each sensor) 
+### 0.4.0 (2023-11-03)
+* (DutchmanNL) Added cleanup capability for unused channels & states after initialisation of device, resolves #39
+* (DutchmanNL) Added button to info channel which allows to delete all offline devices from adapter tree. resolves #39
+* (DutchmanNL) [Breaking] Backup strategy changed, requires [BackitUp v2.9.1](https://github.com/simatec/ioBroker.backitup) and activate option for ESPHome, fixes #129
 
-### 0.2.3 (2021-06-29)
-* (Jey-Cee) Bugfix : Light component state not changed [#74](https://github.com/DrozmotiX/ioBroker.esphome/issues/74)
-* (DutchmanNL) Update compatibility to version 1.19.4 of ESPHome Dashboard
+### 0.3.2 (2023-11-01)
+* (DutchmanNL) Improved error handling if devices are not reachable/disconnected
+* (DutchmanNL) Bugfix: Allow control of brightness and color for light component, resolves #173
 
-### 0.2.2 (2021-06-24)
-* (DutchmanNL) [!!! Breaking !!!] Make YAML file persistent, backup your configuration before updating ! solves [#57](https://github.com/DrozmotiX/ioBroker.esphome/issues/57)
-* (DutchmanNL) Update ESPHome Dashboard to 1.18.0, requires  Python >=3.7 (and ensure <4.0!)
-* (DutchmanNL) Bugfix : Reconnect to devices without autodiscovery / MDNS-Broadcast in network, solves [#66](https://github.com/DrozmotiX/ioBroker.esphome/issues/66)
+### 0.3.1 (2023-10-31)
+* (DutchmanNL) Bugfix: Show online state of ESP Device correctly, resolves #106
 
-### 0.2.1-1 (2021-03-30)
-* (DutchmanNL) add cover component
-* (DutchmanNL) add transitionLength for lights
-
-### 0.2.1-0 (2021-03-30)
-* (DutchmanNL) Logging improved, solves [#48](https://github.com/DrozmotiX/ioBroker.esphome/issues/48)
-* (DutchmanNL) Name of states changed, solves [#49](https://github.com/DrozmotiX/ioBroker.esphome/issues/49)
-
-### 0.2.0 (2021-03-29)
-* (DutchmanNL) Translations updated
-* (DutchmanNL) Configuration page updated
-* (DutchmanNL) Added to sentry error reporting
-* (DutchmanNL) Native integration of ESPHome Dashboard added
-
-### 0.1.5 (2021-03-21)
-* (DutchmanNL) Add Translations
-
-### 0.1.4 (2021-03-19)
-* (DutchmanNL) Implemented RGBW
-* (DutchmanNL) Ensure correct encryption and storage of passwords
-* (DutchmanNL) Proper value ranges for type light (255 instead 100)
-* (DutchmanNL) Implemented hex color state for type light (if RGB is available)
-
-### 0.1.2 (2021-03-02)
-* (DutchmanNL) Type Fan added
-* (DutchmanNL) Type Light added
-* (DutchmanNL) Error messages optimized
-* (DutchmanNL) Device reconnect handling improved
-* (DutchmanNL) [Breaking!] Change state name to default "state" for type BinarySensor / Climate / Sensor / TextSensor & Switch  
-* (DutchmanNL) Autodiscovery improved, non-ESPHome devices excluded
-
-### 0.1.0 (2021-02-27)
-* (DutchmanNL) Autodiscovery implemented
-* (DutchmanNL) Type Climat added
-* (DutchmanNL) Type TextSensor added
-* (DutchmanNL) Solved reconnection issues
-* (DutchmanNL) Optimized error messages for unknown types
-* (DutchmanNL & @xXBJXx) Adapter configuration page optimized
-
-### 0.0.1
-* (DutchmanNL) initial release
+### 0.3.0 (2023-10-31) - Bugfixes & Improvements
+* (Dutchman & SimonFischer04) Several Bugfixes
+* (SimonFischer04) Support type "select device"
+* (DutchmanNL) ESPHome dashboard default disabled
+* (SimonFischer04) Migrate to @2colors/esphome-native-api
+* (DutchmanNL) Automatically create needed directories, resolves #168
+* (SimonFischer04) Migrate usage of python to new structure, should solve all ESPHome Dashboard related installation issues
 
 ## License
 MIT License
 
-Copyright (c) 2021 DutchmanNL <rdrozda86@gmail.com>
+Copyright (c) 2023 DutchmanNL <rdrozda86@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

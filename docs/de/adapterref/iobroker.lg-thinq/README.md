@@ -3,21 +3,21 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: UjT00hJzt+SO3wa79DbpSqJAX5gYSHx204YDbXZ/C/I=
+hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
 ---
 ![Logo](../../../en/adapterref/iobroker.lg-thinq/admin/lg-thinq.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.lg-thinq.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lg-thinq.svg)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/lg-thinq-installed.svg)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/lg-thinq-stable.svg)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/lg-thinq-installed.svg)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/lg-thinq-stable.svg)
 ![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.lg-thinq.svg)
 ![NPM](https://nodei.co/npm/iobroker.lg-thinq.png?downloads=true)
 
 # IoBroker.lg-thinq
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.lg-thinq/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.lg-thinq/workflows/Test%20and%20Release/badge.svg)
 
-## Lg-thinq-Adapter für ioBroker
+## LG-Thinq-Adapter für ioBroker
 Adapter für LG ThinQ
 
 ###Die Werte für ein Gerät finden Sie unter:
@@ -25,13 +25,35 @@ Adapter für LG ThinQ
 
 ## Changelog
 
-### 0.0.1
-* (TA2k) initial release
+### 0.2.0
+
+-   (Lucky-ESA) Added automatic terms acceptance
+-   (Lucky-ESA) Added 401 Thinq1 device
+-   (Lucky-ESA) Added 101 Thinq1 device
+-   (TA2k) Bugfix
+
+### 0.1.4
+
+-   (TA2k) Added warning for not supported devices
+
+### 0.1.1
+
+-   (TA2k) Added AC Device 401 thinq2
+-   (TA2k) Bugfix
+
+### 0.1.0
+
+-   (TA2k) Added MQTT connection for live status updates
+
+### 0.0.3
+
+-   (TA2k) initial release
 
 ## License
+
 MIT License
 
-Copyright (c) 2021 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2023 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

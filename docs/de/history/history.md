@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: wtBN0K+21F8vJkPV4DG7LPzxS4UZUmzxiCcO0Ruttuc=
+hash: 54ScqoFUJKAbvXZjLqK7AXUhLbUSVshc8+4T2q14xcg=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -64,7 +64,7 @@ Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 ## Admin (01.09.2023)
 Kontextmenü:
 
-- z. B. einfache Erstellung von Aliasen
+- z. B. einfache Erstellung von Aliasnamen
 
   ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
 
@@ -222,3 +222,6 @@ https://github.com/disaster123/ioBroker.signifylights
 <img src="https://raw.githubusercontent.com/disaster123/ioBroker.signifylights/main/admin/signifylights.png" width="100" height="100" />
 
 Signify Lights-Adapter für alle Arten von Signify WLAN-Leuchten wie WIZ, Philips WLAN und viele mehr ...
+
+## Vis (06.11.2023) – neue Funktion
+Die Lizenz von vis wurde in MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos nutzen können und keine Lizenz erforderlich ist.

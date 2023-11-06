@@ -65,12 +65,19 @@ This adapter employs Sentry libraries to automatically report exceptions and cod
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.4.2 (2023-11-xx) WORK in PROGRESS
+### 1.4.3 (2023-11-xx) WORK in PROGRESS
+
+-   (HombachC) fix possible type error in first calculator calls notified by Sentry
+-   (HombachC) preparations for other calculator channel times than 24h (#153)
+-   (HombachC) bump dependencies
+
+### 1.4.2 (2023-11-03)
 
 -   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
 -   (HombachC) critical vulnerability fix for axios
--   (HombachC) fix debug message typos, code optimisations
+-   (HombachC) fix debug message typos, code optimisations in calculator
 -   (HombachC) fix type error in price average calculation notified by Sentry
+-   (HombachC) fix error in update prices tomorrow - possible false positive
 
 ### 1.4.1 (2023-10-25)
 

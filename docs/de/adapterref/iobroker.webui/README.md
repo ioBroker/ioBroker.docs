@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.webui/README.md
 title: ioBroker.webui
-hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
+hash: A96T9KF5U5AVrmYLAJDO4JXZRD8QOO7fJfpoZZk4czg=
 ---
 # IoBroker.webui
 
@@ -16,6 +16,9 @@ hash: cfjMu1Gkniv4EaW9w1yiM6HSPUsOTETbo9Z+0j0/q60=
 Webui für ioBroker
 
 ![Bild](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.webui/master/screenshot.png)
+
+## Tutorial-Videos
+https://www.youtube.com/@jogibear9988
 
 ## Beschreibung
 Dies ist ein vollständiges Visualisierungssystem für ioBroker.
@@ -129,6 +132,15 @@ Sie müssen einen Bildschirm „Start“ erstellen. Dies ist der erste, der aufg
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### __WORK IN PROGRESS__
+- fix upercase screen names in runtime
+- raster in designer is now adjustable
+- copy object nodes now copies complete string
+- context menu to directly edit custom element
+TODO: fix handler path in script
+TODO: uiChangedView
+TODO: error when importing invalid file (for example html instead of json)
+
 ### 0.12.3 (2023-09-20)
 - after eval removal, functions need a return
 

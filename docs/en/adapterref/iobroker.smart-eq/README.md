@@ -14,11 +14,11 @@
 
 ## smart-eq adapter for ioBroker
 
-Adapter for Smart EQ
+Adapter for Smart EQ and Hello Smart
 
 ## Loginablauf
 
-Die smart eq control Mail und Passwort eingeben.
+Die smart eq control/hello smart Mail und Passwort eingeben.
 
 ## Steuern
 
@@ -30,8 +30,10 @@ smart-eq.0.vin.remote auf true setzen steuert den jeweiligen Befehl
 
 ## Changelog
 
-### 0.0.4
-fix login
+### 0.1.0
+
+hello smart support
+
 ### 0.0.3
 
 - (TA2k) add relogin information

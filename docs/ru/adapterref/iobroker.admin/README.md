@@ -168,6 +168,11 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### 6.12.2 (2023-11-02)
+* (foxriver76) fixed issue with jsonConfig `sendTo` with `native` option when returning multiple properties
+* (foxriver76) fixed crash case when schema cannot be read
+* (klein0r) Fixed noDelete attribute of JSON config accordion
+
 ### 6.12.1 (2023-10-29)
 * (foxriver76) optimzied the notificaiton popup (auto-extend first entry per category, respect line breaks, respect severity for icons)
 * (theimo1221) #2178 Stabilize onObjectChange handling during creation of new objects in WebUi, to directly show new element.
@@ -185,9 +190,6 @@ IP-адрес с которого доступен драйвер (поддер�
 
 ### 6.10.9 (2023-10-16)
 * (bluefox) Improvement of the public accessibility check
-
-### 6.10.8 (2023-10-13)
-* (foxriver76) update adapter-react-v5 to fix issues with object browser
 
 ## License
 The MIT License (MIT)

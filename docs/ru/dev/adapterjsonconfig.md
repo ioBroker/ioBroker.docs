@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Конфигурация JSON ioBroker
-hash: BO3WV44vZwcvRy5TVZZAjgqHXc6hctoE5FdqcjdtBMA=
+hash: iHH5LnBdYZ7oLsNl0a1WSxtKNmW36TgsoNoSknIq0YA=
 ---
 # Конфигурация JSON ioBroker
 Администратор (начиная с версии 6) поддерживает конфигурацию JSON для адаптеров.
@@ -333,6 +333,8 @@ adapter.on('message', obj => {
     - `noTranslation` - не переводить метки выбора
 
 Чтобы использовать эту опцию, ваш адаптер должен реализовать обработчик сообщений: Результатом команды должен быть массив в форме `[{"value": 1, "label": "one"}, ...]`.
+
+    - `alsoDependsOn` - при изменении каких атрибутов команду необходимо отправить повторно
 
 ```
 adapter.on('message', obj => {
