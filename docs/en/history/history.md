@@ -204,5 +204,6 @@ https://github.com/disaster123/ioBroker.signifylights
 
 Signify Lights adapter for all Types of Signify WLAN lights like WIZ, Philips WLAN and many more...
 
-
+## vis (06.11.2023) - new feature
+The license of vis has been changed to MIT. This means that you can use vis for free in commercial projects and no license is required.
 
