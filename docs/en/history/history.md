@@ -220,3 +220,7 @@ and robust communication channels for the smart home industry.
 ## vis (06.11.2023) - new feature
 The license of vis has been changed to MIT. This means that you can use vis for free in commercial projects and no license is required.
 
+## welcome (07.11.2023) - new feature
+Added possibility to add custom links to the welcome page. The pages will be checked if they are alive.
+
+<img src="media/2023_11_07_welcome.png" width="500" />
