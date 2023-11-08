@@ -224,3 +224,8 @@ The license of vis has been changed to MIT. This means that you can use vis for 
 Added possibility to add custom links to the welcome page. The pages will be checked if they are alive.
 
 <img src="media/2023_11_07_welcome.png" width="500" />
+
+## echarts (08.11.2023) - new feature
+Vis-2 widget was added. Now, additionally to presets, you can use the object ID with history data directly.
+
+<img src="media/2023_11_08_echarts.png" width="500" />
