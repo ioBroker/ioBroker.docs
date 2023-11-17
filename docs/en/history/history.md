@@ -229,3 +229,10 @@ Added possibility to add custom links to the welcome page. The pages will be che
 Vis-2 widget was added. Now, additionally to presets, you can use the object ID with history data directly.
 
 <img src="media/2023_11_08_echarts.png" width="500" />
+
+## renacidc (17.11.2023) - new adapter
+[https://github.com/disaster123/ioBroker.signifylights](https://github.com/raschy/ioBroker.renacidc)
+
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.renacidc/main/admin/renacidc.png" width="100" height="100" />
+
+Reading the data from renacpower solar inverters
