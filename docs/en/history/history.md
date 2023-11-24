@@ -231,8 +231,15 @@ Vis-2 widget was added. Now, additionally to presets, you can use the object ID 
 <img src="media/2023_11_08_echarts.png" width="500" />
 
 ## renacidc (17.11.2023) - new adapter
-[https://github.com/disaster123/ioBroker.signifylights](https://github.com/raschy/ioBroker.renacidc)
+https://github.com/raschy/ioBroker.renacidc
 
 <img src="https://raw.githubusercontent.com/raschy/ioBroker.renacidc/main/admin/renacidc.png" width="100" height="100" />
 
 Reading the data from renacpower solar inverters
+
+## weather-warnings (24.11.2023) - new adapter
+https://github.com/ticaki/ioBroker.weather-warnings
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
+
+This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally it creates States grouped by type, which can be used to react to current warnings.
