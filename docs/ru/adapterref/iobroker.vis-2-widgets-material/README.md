@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
+hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -100,7 +100,19 @@ HTML-шаблон можно использовать для отображен�
 ![Игрок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### Цветная лампа
-![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+С помощью виджета RGB-лампы вы можете управлять различными типами RGB-ламп. Вот некоторые примеры:
+
+- Цвета RGB установлены в одном состоянии, например «#RRGGBB».
+- Цвета R/G/B установлены в разных состояниях от 0 до 255.
+- RGBW как одна переменная, например '#RRGGBBWW'
+- Цвета R/G/B/W установлены в разных состояниях от 0 до 255.
+- оттенок/спутник/яркость в 3 разных состояниях
+- цветовая температура как одно состояние от 2700 до 6500 или определяется мин/макс объекта
+- Состояние белого режима можно использовать для переключения между RGB и белым режимом через специальное состояние.
+
+![RGB-лампа 1](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
+
+![RGB-лампа 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
 ### Замок
 ![Замок](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
@@ -122,6 +134,20 @@ HTML-шаблон можно использовать для отображен�
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.3.11 (2023-11-17)
+* (bluefox) Allowed opening/closing dialogs of some widgets by command
+
+### 1.3.9 (2023-11-10)
+* (bluefox) updated packages
+
+### 1.3.8 (2023-11-08)
+* (bluefox) Corrected RGB widget if minimal is equal with maximal
+
+### 1.3.5 (2023-11-06)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added option for RGB widget to hide brightness control
+* (bluefox) Added option for white mode in RGB widget
+
 ### 1.3.3 (2023-10-26)
 * (bluefox) Corrected layout of RGB widget
 * (bluefox) Added color settings to actual

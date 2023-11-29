@@ -21,6 +21,15 @@ e.g. you can use it for power or temperature values.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.4 (2023-11-26)
+* (BenAhrdt) Add actual value to observed values (observe more times easily possible)
+
+### 2.1.3 (2023-11-12)
+* (BenAhrdt) translation for uk added
+
+### 2.1.2 (2023-11-12)
+* (BenAhrdt) insert check vor node version >= 16
+
 ### 2.1.1 (2023-11-02)
 * (BenAhrdt) correction in jsonconfig schema
 

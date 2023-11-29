@@ -504,6 +504,12 @@ Doesn't exist anymore.
    *Read-only text, which designates the serial number of wallbox [0..3].*
 
 ## Changelog
+
+### 1.6.11 (NoBl)
+* Moving from Senec App API 3.12.0 to 4.3.3 (thanks to oakdesign@github for providing the new API!)
+* This WILL invalidate all current API datapoints in the Statistik branch. Easiest solution to this: Delete the Statistik branch.
+* Remember to force a rebuild of historic data in adapter settings!
+
 ### 1.6.10 (NoBl)
 * Bugfix for AllTimeHistory (should work again)
 

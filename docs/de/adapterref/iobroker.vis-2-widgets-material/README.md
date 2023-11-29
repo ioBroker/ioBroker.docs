@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
+hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -43,11 +43,11 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
-![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
+![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
 
 - Kontrolle
 
-![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
+![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
 
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
@@ -100,7 +100,19 @@ Darüber hinaus können Sie mit diesem Widget auch Bilder oder Iframes anzeigen.
 ![Spieler](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### Farblampe
-![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+Mit dem RGB-Lampen-Widget können Sie verschiedene Arten von RGB-Lampen steuern. Hier sind einige Beispiele:
+
+- RGB-Farben werden in einem Zustand wie „#RRGGBB“ festgelegt
+- R/G/B-Farben werden in verschiedenen Zuständen von 0 bis 255 eingestellt
+- RGBW als eine Variable wie „#RRGGBBWW“
+- R/G/B/W-Farben werden in verschiedenen Zuständen von 0 bis 255 eingestellt
+- Farbton/Sat/Licht als 3 verschiedene Zustände
+- Farbtemperatur als ein Zustand von 2700 bis 6500 oder definiert durch Min./Max. des Objekts
+- Der Weißmodus-Status kann zum Umschalten zwischen RGB- und Weißmodus über einen speziellen Status verwendet werden
+
+![RGB-Lampe 1](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
+
+![RGB-Lampe 2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
 ### Türschloss
 ![Türschloss](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
@@ -122,6 +134,20 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstü
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.3.11 (2023-11-17)
+* (bluefox) Allowed opening/closing dialogs of some widgets by command
+
+### 1.3.9 (2023-11-10)
+* (bluefox) updated packages
+
+### 1.3.8 (2023-11-08)
+* (bluefox) Corrected RGB widget if minimal is equal with maximal
+
+### 1.3.5 (2023-11-06)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added option for RGB widget to hide brightness control
+* (bluefox) Added option for white mode in RGB widget
+
 ### 1.3.3 (2023-10-26)
 * (bluefox) Corrected layout of RGB widget
 * (bluefox) Added color settings to actual

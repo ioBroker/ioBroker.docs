@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: PAhGk2e4mGMgZ6kczueNBhAEJKmsFVRugZUlzB60EQ0=
+hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -25,16 +25,19 @@ hash: PAhGk2e4mGMgZ6kczueNBhAEJKmsFVRugZUlzB60EQ0=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* NodeJS 16 или выше
-* Хост ioBroker (js-контроллер) 4.0 или выше
+* NodeJS 18 или выше
+* Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
+### 0.4.0-alpha.0 (2023-11-28)
+* (HGlab01) Breaking changes
+    - Node 18.0 or higher
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Bump axios to 1.6.2
 
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
@@ -50,15 +53,10 @@ hash: PAhGk2e4mGMgZ6kczueNBhAEJKmsFVRugZUlzB60EQ0=
 ### 0.3.3 (2022-12-22)
 * (HGlab01) Cheapest station now per fuel type (#445)
 
-### 0.3.2 (2022-12-16)
-* (HGlab01) Add feature to find cheapest stations over all locations (#365)
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
-* (HGlab01) Bump axios to 1.2.1
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

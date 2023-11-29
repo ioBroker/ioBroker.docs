@@ -33,13 +33,31 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.2 (2023-11-26)
 
-### **WORK IN PROGRESS**
+-   fixed error when the Adapter starts
+-   Drag & Drop in Action Card
+
+### 0.9.0 (2023-11-26)
+
+-   React UI with more features
+-   #75 fixed add new row in Action and edit it
+
+### 0.8.7 (2023-11-25)
+
+-   React UI with more features
+
+### 0.8.6 (2023-11-21)
+
+-   fixed change and set value
+
+### 0.8.5 (2023-11-10)
+
+-   fixed, menu:back in Subnavigation
+
+### 0.8.4 (2023-11-08)
 
 -   round values in getState
-
-### **WORK IN PROGRESS**
-
 -   fixed, rename menuname
 -   fixed calling submenus in subordinate menus
 -   convert type values to type of target ID

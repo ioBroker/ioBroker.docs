@@ -2,7 +2,8 @@
 # ioBroker.HeatingControl
 
 
-![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) ![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
+![Number of Installations](http://iobroker.live/badges/heatingcontrol-installed.svg) 
+![Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
 [![NPM version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)](https://www.npmjs.com/package/iobroker.heatingcontrol)
 
@@ -10,6 +11,23 @@
 ![GitHub Actions](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)](https://nodei.co/npm/iobroker.heatingcontrol/)
+
+
+![node-lts](https://img.shields.io/node/v-lts/iobroker.heatingcontrol?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.heatingcontrol?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.statistics?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
+
+
+
+
+
+
+
 
 
 
@@ -261,6 +279,20 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 2.12.1 (2023-11-25)
+* (René) issue #459: Show the number of objects that can be deleted in the log and indicate that they can be deleted in admin
+* (René) issue #376: notification messages customizable
+
+### 2.12.0 (2023-11-22)
+* (René) dependencies updated
+* (René) fix eslint reported issues
+* (René) see issue #486: option to use offset calculation immediately
+* (René) see issue #489: increase limit of status change list to 100
+
 ### 2.11.1 (2023-07-30)
 * (René) dependencies updated
 
@@ -303,7 +335,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ### 2.9.1 (2022-06-10)
 * (René) bug fix timer id's for extended actor handling
-* (René) bug fix exception in SetRoomTemperature 
+* (René) bug fix exception in SetRoomTemperature
 
 ### 2.9.0 (2022-06-09)
 * (René) see issue #302: adjustable info logging for temperature, aktor and window status change
@@ -313,7 +345,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #312: bug fix in window is open handling if thermostat reduces temperature
 
 ### 2.8.6 (2022-03-31)
-* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update 
+* (René) see issue #265 and #305: bg fix window handling for rooms with more then one window and sensors with regular status update
 
 ### 2.8.5 (2022-02-12)
 * (René) sentry: Cannot read property 'PARENT_TYPE' of undefined
@@ -379,7 +411,7 @@ When the adapter crashes or an other Code error happens, this error message that
 ### 2.4.3 (2021-06-17)
 * (René) see issue #243: bug fix for HeatingPeriod when adpater starts
 * (René) see issue #245: problem with manual mode when SensorOpenDelay is used
-* (René) see issue #244: bug fix for WindowOpenImg 
+* (René) see issue #244: bug fix for WindowOpenImg
 
 ### 2.4.2 (2021-05-17)
 * (René) logging for ActorsOn optimized
@@ -413,7 +445,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #219: bug fix: DecreaseValues and ProfilName are copied in CopyProfile now
 
 ### 2.1.1 (2021-02-08)
-* (René) bug fix Temperatur Offset: invert sign of TemperatureOffset 
+* (René) bug fix Temperatur Offset: invert sign of TemperatureOffset
 
 ### 2.1.0 (2021-01-31)
 * (René) see issue #198: add name to profile as a datapoint, used to be shown in visualisation
@@ -463,7 +495,6 @@ When the adapter crashes or an other Code error happens, this error message that
 	* #152 Fenstererkennung im manuellen Modus
 	* #148 Bei Änderung vom Thermostat bis zum nächsten Profilpunkt müssen Sensoren berücksichtigt werden
 
-
 ### 1.1.2 (2020-11-11)
 * (René) bug fix: activate actors after temperatur change
 
@@ -474,7 +505,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #132: timer before on and off for actuators 
 * (René) see issue #143: additional checks to avoid unneccessary override 
 * (René) see issue #140: use guests present and party now DP's also as counter like present (as a option); add adjustable counter limit for present, party now and guest present
-* (René) see issue #145: avoid reset of target temperatur by profile settings in option "until next profil point" when set by thermostat 
+* (René) see issue #145: avoid reset of target temperatur by profile settings in option "until next profil point" when set by thermostat
 
 ### 1.0.0 (2020-10-09)
 * (matida538) added better Handling of strings in HandleThermostat (convert to Number, instead of warn) (e.g. fhem connector for fht80)
@@ -522,7 +553,7 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) see issue #70: use changes from thermostat
 * (René) see issue #91 bug fix: if the same sensor is configured for more than one room thermostat target temperature will be set for all configured rooms
 * (René) script from Pittini integrated to support his visualization [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) 
-* (Dutchman) some refactoring 
+* (Dutchman) some refactoring
 
 ### 0.3.19 (2020-03-15)
 * (René) create correct cron job for sunday if profile type "every day" is used
@@ -554,11 +585,11 @@ When the adapter crashes or an other Code error happens, this error message that
 * (René) bugfix create cron jobs for profile type 3 (daily)
 
 ### 0.3.12 (2019-12-27)
-* (René) bugfix exception in CheckTemperatureChange [ReferenceError: RoomState is not defined] 
+* (René) bugfix exception in CheckTemperatureChange [ReferenceError: RoomState is not defined]
 
 ### 0.3.11 (2019-12-27)
 * (René) option: minimum temperature per room
-* (René) bugfix exception in CheckTemperatureChange [ReferenceError: PublicHolidyToday is not defined] 
+* (René) bugfix exception in CheckTemperatureChange [ReferenceError: PublicHolidyToday is not defined]
 
 ### 0.3.10 (2019-12-26)
 * (René) see issue #54: stop override with OverrideTemperature =0
@@ -610,7 +641,7 @@ Attention: some changes in datapoints!!
 ### 0.3.2 (2019-11-01)
 * (René) try to convert temperature to number if NaN
 * (René) see issue #33: check for heating period when adapter starts
-* (René) fix a problem in subscription function when room can not be found 
+* (René) fix a problem in subscription function when room can not be found
 
 ### 0.3.1 (2019-10-31)
 * (René) see issue #42 and #44: check all sensors per room and set state when adapter starts
@@ -622,7 +653,7 @@ Attention: some changes in datapoints!!
 * (René) see issue #24: use external data point to set internal "present" data point 
 * (René) see issue #15: manual temperatur override
 * (René) see issue #35: delete of devices
-* (René) reset DeleteAll at next admin start 
+* (René) reset DeleteAll at next admin start
 
 ### 0.2.3 (2019-09-20)
 * (René) see issue #19: handling of enums created in iobroker admin fixed
@@ -642,7 +673,7 @@ Attention: some changes in datapoints!!
 * (René) bug fixes in actuator handling
 
 ### 0.2.0 (2019-09-05)
-* (René) path to Feiertag-Adapter can also include a complete datapoint path 
+* (René) path to Feiertag-Adapter can also include a complete datapoint path
 
 ### 0.1.0 (2019-08-25)
 * (René) redesign of data structure

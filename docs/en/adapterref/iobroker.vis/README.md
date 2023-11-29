@@ -56,6 +56,7 @@ Following operations are supported:
 - `pow` - power of 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` - operation for getting json or object property. E.g., `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R, or just Math.random() if no argument
 - `formatValue(decimals)` - format value according to system settings and use decimals
 - `date(format)` - format value as date. The format is like: `YYYY-MM-DD hh:mm:ss.sss`
@@ -207,6 +208,15 @@ Notice that these settings are valid only for reconnection and not for the first
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.5.4 (2023-11-29)
+* (agav99) added the new binding operation for getting property of JSON or object
+* (agav99) Checked the initialization of the `local_` variables
+* (agav99) fixed subscribeOidAtRuntime
+* (stephanritscher) Added dynamic web manifest
+* (agav99) Optimization for basic-view in widget8
+* (oweitman) Changed binding regex to accept umlauts
+* (mcm1957) Corrected first installation of vis
+
 ### 1.5.1 (2023-11-06)
 * (bluefox) Changed License: it is now MIT, and the license check was removed
 

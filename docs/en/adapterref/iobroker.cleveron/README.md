@@ -27,15 +27,17 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 
 ## Changelog
 
-### v0.0.6
+### **WORK IN PROGRESS**
 
--   dependencies updated
+### 0.0.6
 
-### v0.0.5
+-   jsonConfig
+
+### 0.0.5
 
 -   introduced axios
 
-### v0.0.4
+### 0.0.4
 
 -   changed ecrypting to 'encryptedNative'
 
@@ -55,7 +57,7 @@ This adapter retrieves data from CLEVERON - API (<https://www.cleveron.ch>)
 
 MIT License
 
-Copyright (c) 2022 forelleblau <mailto:marceladam@gmx.ch>
+Copyright (c) 2023 forelleblau <mailto:marceladam@gmx.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

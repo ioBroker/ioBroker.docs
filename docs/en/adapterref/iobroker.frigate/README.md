@@ -35,6 +35,10 @@ These objects can be further processed in the ioBroker, e.g. in the Vis.
 
 ## Changelog
 
+### 0.2.7
+
+-   (bettman66) missing objects bug
+
 ### 0.2.6
 
 -   (bettman66) add camid

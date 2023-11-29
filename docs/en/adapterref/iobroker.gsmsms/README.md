@@ -131,6 +131,10 @@ This adapter is based on the [SerialPort-GSM plugin](https://github.com/zabsalah
 
 ### **WORK IN PROGRESS**
 
+### 0.0.6
+
+-   (forelleblau) jsonConfig.json, notifications-manager
+
 ### 0.0.5
 
 -   (forelleblau) bug fixed (adapter set "undefined" into state values)

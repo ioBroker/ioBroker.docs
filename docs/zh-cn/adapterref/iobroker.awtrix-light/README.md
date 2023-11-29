@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: WS7yxh0uGILkbJGM1g5iiUlCJSovZX7NCzqbzAp7iVw=
+hash: IbwMQ1Au850q2A6XVktu6q0JHRrFzeNnIlOyNvX2HqY=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -130,11 +130,17 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 });
 ```
 
-## 自定义应用程序
+＃＃应用
 **应用程序名称只能包含小写字母 (a-z) 并且必须是唯一的。没有数字，没有特殊字符，没有空格。**
 
-以下应用程序名称由内部应用程序保留，无法使用：`time`、`date`、`temp`、`hum`、`bat`。
+以下应用程序名称由内部应用程序保留，无法使用：`Time`、`Date`、`Temperature`、`Humidity`、`Battery`。
 
+- 通过每个应用程序的“激活”状态，可以将其带到前台
+- 这些状态具有`button`角色并且只允许布尔值`true`（其他值会导致日志中出现警告）
+
+每个自行创建的应用程序都有一个 ID 为 `apps.<name>.visible` 的状态。如果此状态设置为 `false` (false)，应用程序将从设备中删除并且不再显示。这对于显示某些应用程序非常有用，例如仅在白天或在某些时间段内。
+
+### 自定义应用程序
 - `%s` 是状态值的占位符
 - `%u` 是状态单位的占位符（例如 `°C`）
 
@@ -150,19 +156,19 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 - 使用选定的对象 ID 创建自定义应用程序，“common.unit”中没有单位，但正文中包含“%u”
 - 未选择对象 ID，但文本中使用了“%s”
 
-## 历史应用程序/图表
-**应用程序名称只能包含小写字母 (a-z) 并且必须是唯一的。没有数字，没有特殊字符，没有空格。**
-
-以下应用程序名称由内部应用程序保留，无法使用：`time`、`date`、`temp`、`hum`、`bat`。
+### 历史应用程序/图表
+去做
 
 **图表中仅显示确认值。带有`ack: false`的税值将被过滤并忽略！**
 
-## 应用程序状态
-- 通过每个应用程序的“激活”状态，可以将其带到前台
-- 这些状态具有`button`角色并且只允许布尔值`true`（其他值会导致日志中出现警告）
+### 专家应用程序
+自适配器版本 0.10.0 起，专家应用程序就已可用。这些应用程序允许您通过状态手动设置所有值并用您自己的逻辑控制它们。要创建新的专家应用程序：
 
-## 隐藏自定义应用程序
-每个自行创建的应用程序都有一个 ID 为 `apps.<name>.visible` 的状态。如果此状态设置为 `false` (false)，应用程序将从设备中删除并且不再显示。这对于显示某些应用程序非常有用，例如仅在白天或在某些时间段内。
+- 在实例设置中打开专家选项选项卡
+- 创建一个新的专家应用程序，其名称可自由选择（例如“test”）
+- 保存实例设置
+
+然后，应用程序`test`的所有可控状态都在`awtrix-light.0.apps.test`下创建。要更改应用程序的相应值，您只需使用自己的脚本（例如 JavaScript 或 Blockly）设置 `icon`、`text` 等状态的值即可。
 
 ## 隐藏本机应用程序
 要隐藏设备上的默认应用程序（例如温度或湿度）：使用设备本身上的菜单！有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix-light/#/onscreen)。

@@ -1,4 +1,4 @@
-﻿![Logo](admin/pvoutputorg.png)
+![Logo](admin/pvoutputorg.png)
 # ioBroker.pvoutputorg
 
 ![Number of Installations](http://iobroker.live/badges/pvoutputorg-installed.svg) ![Number of Installations](http://iobroker.live/badges/pvoutputorg-stable.svg)
@@ -104,6 +104,9 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.8.10 (2023-11-19)
+* (René) dependencies updates
+*
 
 ### 1.8.9 (2023-07-30)
 * (René) dependencies updates
@@ -125,7 +128,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 * (René) bug fix EoD upload
 
 ### 1.8.0 (2022-08-20)
-* (René) WeatherConditions can be used directly from DasWetter adapter 
+* (René) WeatherConditions can be used directly from DasWetter adapter
 
 ### 1.7.0 (2022-07-17)
 * (René) WeatherConditions for upload end of the day (EoD) data added
@@ -137,7 +140,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ### 1.6.0 (2022-07-01)
 * (René) change back from cron to interval
 * (René) end of day data are written 1 hour after sunset
-* (René) read and write data only when daylight as an option 
+* (René) read and write data only when daylight as an option
 
 ### 1.5.0 (2022-04-21)
 * (René) datapoint added to show when data uploaded to pvoutput.org

@@ -362,6 +362,12 @@ Since no database systems should be installed in the Docker container, backups o
 
 The content of the environment variable "PACKAGES" is based on the packages to be installed, which are necessary for access to the respective database. Examples would be "mysql-client" or "redis-tools". Further details can be found [here](https://docs.buanet.de/iobroker-docker-image/docs_backitup/).
 
+In order to be able to use ioBroker.backitup in Docker to its full extent, some ports still need to be mapped.
+
+* Port 8091 - Restore web interface (when using the admin with http)
+* Port 8092 - Restore web interface (when using the admin with https)
+* Port 9081 - file server for uploads and download of backups via the web interface of ioBroker.backitup
+
 _[Back to top](#top)_
 
 ---
@@ -533,6 +539,28 @@ _[Back to top](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.9.5 (2023-11-29)
+* (simatec) dependencies updated
+* (simatec) Fix redis Password
+
+### 2.9.4 (2023-11-20)
+* (simatec) dependencies updated
+* (simatec) Fix CIFS Password
+* (simatec) Fix mySql Password
+* (simatec) Fix pgSql Password
+* (simatec) Fix redis Password
+
+### 2.9.3 (2023-11-11)
+* (simatec) Fix Port for Filerserver
+* (simatec) Docu updated
+
+### 2.9.2 (2023-11-10)
+* (simatec) dependencies updated
+* (simatec) Design fix
+* (simatec) Backup File upload added
+* (simatec) Uploadserver added
+* (simatec) Translation updated
+
 ### 2.9.1 (2023-11-02)
 * (simatec) ignore Build directory for ESPHome added
 

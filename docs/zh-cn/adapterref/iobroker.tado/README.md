@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: VJezKzQm0NVAzd4h+qpCrTmTeJG5qPGNfNUs87AWI8g=
+hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
 ---
 # IoBroker.tado
 
@@ -21,18 +21,18 @@ hash: VJezKzQm0NVAzd4h+qpCrTmTeJG5qPGNfNUs87AWI8g=
 ## IoBroker 的 tado 适配器
 Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专家，在德国设计和开发。与我们一起永远节省能源并降低成本 - 享受舒适且可持续的家。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 你可以掌控的事情
 |状态|描述 |
 | ----- | ----------- |
 | tado.[x].[yyyyyy].Rooms.[z].setting.power |打开/关闭设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.温度.celsius |定义温度 |
-| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式|
+| tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式 |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式|
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式应用多长时间 |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
-| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled |童锁开/关 |
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled |童锁开/关|
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled |启用/禁用恒温器上的开窗检测 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds |检测到打开的窗户时关闭恒温器的超时时间 |
@@ -46,20 +46,31 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专�
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing |水平摆动（仅限 V3 及更早版本的交流设备）|
 
 ## 需要
-* NodeJS 16 或更高版本
-* ioBroker 主机（js-controller）4.0 或更高版本
+* 节点18或更高
+* ioBroker 主机（js-controller）5.0 或更高版本
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.12-alpha.0 (2023-10-13)
+### 0.5.0 (2023-11-25)
+* (HGlab01) Breaking changes
+    - Node 18.0 or higher
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) fix jsonConf validation issue
+* (HGlab01) Bump axios to 1.6.2
+* (HGlab01) update contact data
+
+### 0.4.12 (2023-11-14)
 * (HGlab01) switch finaly to Admin5 UI
+* (HGlab01) Improve REST-call handling
+* (HGlab01) Bump axios to 1.6.1
 
 ### 0.4.11 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
 * (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+* (HGlab01) Bump axios to 1.5.1
 
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
@@ -69,14 +80,10 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专�
 * (HGlab01) Add attribute 'zonesCount'
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 
-### 0.4.8 (2023-05-12)
-* (HGlab01) Add attribute 'isHeatSourceInstalled'
-* (HGlab01) Bump axios to 1.4.0
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 & DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -160,6 +160,14 @@ Widget for VIS to show a complete valve. You have only to define the "SetTemp" -
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 2.7.0 (2023-11-19)
+
+* (ioKlausi) Adjust default value for parameters
+
+### 2.6.5 (2023-11-05)
+
+* (ioKlausi) New options in the adapter configuration for updating datapoints
+
 ### 2.6.4 (2023-10-25)
 
 * (ioKlausi) Change value only if changes are detected

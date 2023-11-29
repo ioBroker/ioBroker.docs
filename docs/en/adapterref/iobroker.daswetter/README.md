@@ -1,4 +1,4 @@
-﻿![Logo](admin/daswettercom.png)
+![Logo](admin/daswettercom.png)
 # ioBroker.DasWetter.
 
 ![Number of Installations](http://iobroker.live/badges/daswetter-installed.svg) ![Number of Installations](http://iobroker.live/badges/daswetter-stable.svg)
@@ -57,6 +57,13 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.1.11 (2023-11-18)
+* (René) update dependencies
+
 ### 3.1.10 (2023-07-30)
 * (René) update dependencies
 
@@ -106,10 +113,10 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * (René) dependencies updated
 
 ### 3.0.4 (2020-10-16)
-* (René) see issue #76: parse rain values as float instead integer 
+* (René) see issue #76: parse rain values as float instead integer
 
 ### 3.0.3 (2020-09-19)
-* (René) see issue #66: parse numbers added 
+* (René) see issue #66: parse numbers added
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -178,15 +185,11 @@ Now we have implemented a "auto-repair" which changes to structure to documented
 * (bluefox) Added the roles and the names to states
 * (bluefox) Icons moved to admin directory
 
-
-
 ### 2.0.0
 * (René) new datastructure !not compatible to version 1.x!
 now parsing all data from xml and store them in datapoints
 for compatibility: in configuration old data structure can be enabled 
 needs also 2.x of vis-weather-widget
-
-
 
 ## License
 
@@ -211,5 +214,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-

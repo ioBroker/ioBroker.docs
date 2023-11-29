@@ -311,11 +311,20 @@ wenn sich der Wert eines anderen Datenpunktes verändert.
 * Herstellerseite [https://www.logitech.com/de-de/product/harmony-hub](https://www.logitech.com/de-de/product/harmony-hub)
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.3.0 (2023-11-08)
+* (mcm1957) Adapter requires nodejs 16 now.
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organisation.
+* (mcm1957) Dependencies have been updated.
+
 ### 1.2.2 (2019-03-11)
 * (foxriver76) reduce discover interval and only log newly discovered hubs
 
 ### 1.2.1 (2019-02-21)
-* (foxriver76) use at least 1.0.5 of harmonyhubws 
+* (foxriver76) use at least 1.0.5 of harmonyhubws
 
 ### 1.2.0 (2019-01-06)
 * (foxriver76) compact mode compatibility added
@@ -324,7 +333,7 @@ wenn sich der Wert eines anderen Datenpunktes verändert.
 * (Pmant) fix hold key (for values > 250ms)
 
 ### 1.1.4 (2018-12-25)
-* (Pmant) fix single key presses 
+* (Pmant) fix single key presses
 
 ### 1.1.2
 * (Pmant) reduce log spam
@@ -434,11 +443,26 @@ please delete all harmony.x objects once
 * (Pmant) connect to hub
 * (Pmant) listen for activies
 
-
-### TODO
-* translations
-
 ## License
-MIT
+The MIT License (MIT)
 
-Copyright (c) 20xx-2019 Pmant <patrickmo@gmx.de>
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2015-2019 Pmant <patrickmo@gmx.de>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
+hash: hZ/B/w6tNxTxwWk0cCc8PaeF2/Hj5s+b1xUaoDAijtg=
 ---
 ![标识](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
@@ -25,7 +25,8 @@ Die hon Mail und Passwort eingeben。
 ## 斯图恩
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
-适配器默认为 Waschmaschine：
+hoover.0.id.remote.send 用于定义 Befehle zum einschalten。
+Waschmaschine 适配器的默认设置：
 
 AC 简介：
 

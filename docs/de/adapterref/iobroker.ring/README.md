@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ring/README.md
 title: Ringadapter
-hash: YPLlivLg7RVp4wqyTAkGwQ5CTLlP4ubFSoZVGLsOjE0=
+hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
 ---
 ![Logo](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -50,7 +50,7 @@ Sie können spezielle Variablen für den Pfad und Dateinamen Ihres Livestreams u
 Herzlichen Glückwunsch, es ist sehr wahrscheinlich, dass Ihr aktuelles Token per Ring auf eine schwarze Liste gesetzt wurde, wodurch Ihnen die Push-Benachrichtigung verweigert wurde, die Sie benötigen würden.
 Der beste Weg, dieses Problem zu beheben, besteht darin, alle vorherigen Browser-/Adapter-Tokens auf der Ring-Website zu entfernen und ein neues Token für den Adapter zu generieren.
 
-Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an die verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn also Probleme mit fehlenden Ereignissen auftreten, liegt dies wahrscheinlich nicht an diesem Adapter.
+Damit dieser Adapter ordnungsgemäß auf Ereignisse reagieren kann, muss Ring die Push-Benachrichtigung an die verwendeten [Ring-API-Client](https://github.com/dgreif/ring) senden, damit dieser Adapter darauf reagieren kann. Die Logik in diesem Adapter wurde mehrfach überprüft und funktioniert für viele Benutzer. Wenn Sie also Probleme mit fehlenden Ereignissen haben, liegt dies wahrscheinlich nicht an diesem Adapter.
 
 ### V5 Breaking Changes
 1. Einige Datenpunkte wurden umbenannt, um konsistenter zu sein (z. B. wurde „livestream_request“ wie bereits auf „request“ reduziert).
@@ -88,6 +88,20 @@ Wenn Sie die [ring.com](https://ring.com) Cloud verwenden, finden Sie unter Verl
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.10 (2023-11-06)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
+
+### 5.0.8 (2023-11-05)
+
+* (crocri) Code cleanup
+* (theimo1221) #614 Add @homebridge/camera-utils as direct depency to mitigate import issue
+
+### 5.0.7 (2023-11-02)
+
+* (theimo1221) Updated Packages
+* (theimo1221) Include missing build artifacts
+
 ### 5.0.6 (2023-10-29)
 
 * (theimo1221) Updated Packages

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
+hash: V5/rwT+Ahk9PA7qEJp1jzPFMLz+YUXI5sWCrFFlNqR8=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -59,11 +59,25 @@ Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier be
 - **Intervall zum Lesen der Ladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Entladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Zusammenfassungsdaten:** Einheit: Minuten.
+- **Intervall zum Auslesen der Wallbox-Daten:** Einheit: Minuten. Achtung: Derzeit wird nur eine Wallbox unterstützt.
 
 ## Haftungsausschluss
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
+
+### 1.3.0 (2023-11-22)
+
+-   (Gaspode) Support wallbox with Open API
+-   (Gaspode) Start and stop charging of wallbox with Open API
+
+### 1.2.1 (2023-11-11)
+
+-   (Gaspode) Fixed severe error in ClosedAPI
+
+### 1.2.0 (2023-11-10)
+
+-   (Gaspode) Added additional realtime attributes for OpenAPI
 
 ### 1.1.1 (2023-11-04)
 

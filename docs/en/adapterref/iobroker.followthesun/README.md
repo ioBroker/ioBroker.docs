@@ -33,6 +33,7 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 
 ### __WORK IN PROGRESS__
 * (HGlab01) !Breaking change! NodeJS 16 or higher required
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.14
 
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage

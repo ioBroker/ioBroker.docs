@@ -42,11 +42,18 @@ tesla-motors.0.id.remote
 https://forum.iobroker.net/topic/47203/test-tesla-motors-v1-0-0
 
 ## Changelog
+### 1.4.2 (2023-11-17)
 
-<!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
--->
+- fix km states are not refreshed
+
+### 1.4.1 (2023-11-17)
+
+- fix \_km states are not refreshed
+
+### 1.4.0 (2023-11-14)
+
+- fix location fetching and add new option to change location fetching interval
+
 ### 1.3.5 (2023-10-24)
 
 - fix vehicle update

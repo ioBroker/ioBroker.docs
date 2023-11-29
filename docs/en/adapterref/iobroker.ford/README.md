@@ -1,4 +1,5 @@
 ![Logo](admin/ford.png)
+
 # ioBroker.ford
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.ford.svg)](https://www.npmjs.com/package/iobroker.ford)
@@ -17,20 +18,36 @@ Adapter for FordPass
 
 ## Changelog
 
+### 0.2.0
+
+- Login Fix
+
 ### 0.0.14
-* Improvements to prevent blocking from Ford
+
+- Improvements to prevent blocking from Ford
+
 ### 0.0.13
-* removed not working detail api
+
+- removed not working detail api
+
 ### 0.0.12
-* fix login
+
+- fix login
+
 ### 0.0.11
-* fix login
+
+- fix login
+
 ### 0.0.8
-* (TA2k) add remote control for refresh
+
+- (TA2k) add remote control for refresh
+
 ### 0.0.7
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2021 TA2k <tombox2020@gmail.com>

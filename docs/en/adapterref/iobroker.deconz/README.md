@@ -20,7 +20,7 @@ Connects to deConz software developed by dresden-elektronik. This software aims 
 
 You must first link to deConz.
 1.  a) Enter ip address for deConz 
-    b) Enter port number, standard is 80.
+    b) Enter standard Bridge Port: 80 and standard Websocket: 443
 2. After IP address and port is entered and saved hit "Create API Key" Button. Now you can enter the credentials for deConz or go to Phoscon APP and register ioBroker as third party APP.
 
 

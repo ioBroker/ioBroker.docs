@@ -104,6 +104,9 @@ Wählt man in der Titelzeile unter Historie "mit" oder "influxdb.0" aus, werden
 Die Beschreibung einer Installation einer influxDB-Datenbank folgt.
 
 ## Changelog
+### 4.0.1 (2023-11-07)
+* (bluefox) Corrected JSON config
+
 ### 4.0.0 (2023-09-19)
 * (Marc-Berg) Allowed the self-signed certificates using "test connection" button
 * (Marc-Berg) The deletion of data from DB was implemented for V2

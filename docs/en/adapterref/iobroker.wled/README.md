@@ -48,6 +48,10 @@ When the adapter crashes or another Code error happens, this error message that 
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+
+### __WORK IN PROGRESS__
+* (DutchmanNL & [Jey-Cee](https://github.com/Jey-Cee)) Integrate Device manager
+
 ### 0.7.2 (2023-10-31) - Improve online visibility of devices
 * (DutchmanNL) Show online state of device in object tree
 * (DutchmanNL) Bugfix: Update online state correctly in situation connection is lost, fixes #611

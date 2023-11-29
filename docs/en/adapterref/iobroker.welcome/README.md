@@ -27,6 +27,12 @@ In this case, by opening of http://IP it will be immediately redirected to a spe
 -->
 
 ## Changelog
+### 0.2.0 (2023-11-28)
+* (bluefox) Added custom redirect URL
+
+### 0.1.0 (2023-11-07)
+* (bluefox) Added custom links
+
 ### 0.0.5 (2023-10-16)
 * (bluefox) Corrected the adapter list
 

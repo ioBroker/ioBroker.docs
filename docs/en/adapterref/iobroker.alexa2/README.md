@@ -26,28 +26,28 @@ In the adapter namespace (e.g. alexa2.0) some channels are created
 
 ### alexa2.0
 
-| State name | meaning |
-| - | - |
-| Echo-Devices.* | States per Echo device, see below |
-| History.* | Infos for command history, see below |
+| State name           | meaning                                                |
+|----------------------|--------------------------------------------------------|
+| Echo-Devices.*       | States per Echo device, see below                      |
+| History.*            | Infos for command history, see below                   |
 | Smart-Home-Devices.* | States per smart home device and in general, see below |
-| info.*| General information about the adapter status |
-| requestResult | Error info for TuneIn and smart-home device requests |
+| info.*               | General information about the adapter status           |
+| requestResult        | Error info for TuneIn and smart-home device requests   |
 
 ### alexa2.0.Contacts.ContactId.*
 All Alexa-Contacts that can be used to send Text Messages to, including himself. The own contact gets a special "(Self)" after his name.
 
-| State name | meaning |
-| - | - |
+| State name        | meaning                                                                                                                                        |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | #clearOwnMessages | Only exists in own contact and a trigger deletes all messages that are send to himself (also includes messages to himself via App or devices!) |
-| textMessage | Sends this text as message to the user. It is shown on all devices of this user with a "yellow ring" |
+| textMessage       | Sends this text as message to the user. It is shown on all devices of this user with a "yellow ring"                                           |
 
 ### alexa2.0.Echo-Devices.CommandsAll.*
 Commands to be sent to all devices in the account.
 
-| State name | meaning |
-| - | - |
-| deviceStop | Stop all actions on device | Button |
+| State name         | meaning                                         |
+|--------------------|-------------------------------------------------|
+| deviceStop         | Stop all actions on device                      | Button |
 | deviceDoNotDisturb | Switch on/off "Do not Disturb" for all devices. | true/false, or number in seconds to enable (max 12h) or string in form "HH:MM" until this time it is enabled |
 
 ### alexa2.0.Echo-Devices.Serialnumber.*
@@ -56,23 +56,23 @@ Under "echo-devices" every amazon echo device is listed with it's serial number.
 ### alexa2.0.Echo-Devices.Serialnumber.Alarm.*
 Alarm (Wecker) settings for each device, if available.
 
-| State name | meaning | value |
-| - | - | - |
-| <id>.customVolume | Set a custom Volume for this Reminder. The volume is set 2s before the reminder triggers and re-set to the value before as soon as the timer is (or adapter thinks!) stopped - latest after 120s! When custom volumes and trigger times overlap it will be restored at the end once!| Number 0..100 |
-| <id>.date | Overwrite the date for existing alarm to set a new date for this alarm. In case you have an existing alarm you can change the date here by simply overwrite the time in format YYYY-MM-DD. Might have no effect when multiple-times-per-day recurring settings were used! | Date Output |
-| <id>.delete | Button to delete the Alarm | delete with true |
-| <id>.enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
-| <id>.musicEntity | Shows the track info if this alarm is a music alarm | String or null |
-| <id>.musicProvider | Shows the provider of the music  if this alarm is a music alarm | String or null |
-| <id>.nextTriggerDate | Contains the timepoint of the next expected triggering as unix epoch in ms | Number |
-| <id>.recurringDays | Shows the list of days configured if the Alarm has recurring settings | US notation of weekdays (e.g. MO,TU,WE,TH,FR,SA,SU) |
-| <id>.recurringPattern | Shows the recurring pattern of alarm | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
-| <id>.snoozed | true if the Alarm is snoozed at the moment | true/false |
-| <id>.sound | Contains the set sound for this alarm. Can be changed. Also changing between music sound entry and "build in sounds" is possible. | ID from list |
-| <id>.time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set. Might have no effect when multiple-times-per-day recurring settings were used! | Time Input |
-| <id>.triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
-| New | Data to create a new Reminder as String in following format separated by ; as "timestamp;[label];[sound];[recurring]. timestamp as unix timestamp in ms, label as Text, sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. Fields in example above in brackets mean that they are optional! | String |
-| triggered | ID of the Alarm that triggered last on this device | ID |
+| State name            | meaning                                                                                                                                                                                                                                                                                                                                                                               | value                                                                                                                                                                                                                                                                                                                              |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <id>.customVolume     | Set a custom Volume for this Reminder. The volume is set 2s before the reminder triggers and re-set to the value before as soon as the timer is (or adapter thinks!) stopped - latest after 120s! When custom volumes and trigger times overlap it will be restored at the end once!                                                                                                  | Number 0..100                                                                                                                                                                                                                                                                                                                      |
+| <id>.date             | Overwrite the date for existing alarm to set a new date for this alarm. In case you have an existing alarm you can change the date here by simply overwrite the time in format YYYY-MM-DD. Might have no effect when multiple-times-per-day recurring settings were used!                                                                                                             | Date Output                                                                                                                                                                                                                                                                                                                        |
+| <id>.delete           | Button to delete the Alarm                                                                                                                                                                                                                                                                                                                                                            | delete with true                                                                                                                                                                                                                                                                                                                   |
+| <id>.enabled          | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false                                                                                                                                                                                                                                                                                 | true / false                                                                                                                                                                                                                                                                                                                       |
+| <id>.musicEntity      | Shows the track info if this alarm is a music alarm                                                                                                                                                                                                                                                                                                                                   | String or null                                                                                                                                                                                                                                                                                                                     |
+| <id>.musicProvider    | Shows the provider of the music  if this alarm is a music alarm                                                                                                                                                                                                                                                                                                                       | String or null                                                                                                                                                                                                                                                                                                                     |
+| <id>.nextTriggerDate  | Contains the timepoint of the next expected triggering as unix epoch in ms                                                                                                                                                                                                                                                                                                            | Number                                                                                                                                                                                                                                                                                                                             |
+| <id>.recurringDays    | Shows the list of days configured if the Alarm has recurring settings                                                                                                                                                                                                                                                                                                                 | US notation of weekdays (e.g. MO,TU,WE,TH,FR,SA,SU)                                                                                                                                                                                                                                                                                |
+| <id>.recurringPattern | Shows the recurring pattern of alarm                                                                                                                                                                                                                                                                                                                                                  | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
+| <id>.snoozed          | true if the Alarm is snoozed at the moment                                                                                                                                                                                                                                                                                                                                            | true/false                                                                                                                                                                                                                                                                                                                         |
+| <id>.sound            | Contains the set sound for this alarm. Can be changed. Also changing between music sound entry and "build in sounds" is possible.                                                                                                                                                                                                                                                     | ID from list                                                                                                                                                                                                                                                                                                                       |
+| <id>.time             | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set. Might have no effect when multiple-times-per-day recurring settings were used!                                                                | Time Input                                                                                                                                                                                                                                                                                                                         |
+| <id>.triggered        | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached                                                                                                                                                                                                                         | true / false                                                                                                                                                                                                                                                                                                                       |
+| New                   | Data to create a new Reminder as String in following format separated by ; as "timestamp;[label];[sound];[recurring]. timestamp as unix timestamp in ms, label as Text, sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. Fields in example above in brackets mean that they are optional! | String                                                                                                                                                                                                                                                                                                                             |
+| triggered             | ID of the Alarm that triggered last on this device                                                                                                                                                                                                                                                                                                                                    | ID                                                                                                                                                                                                                                                                                                                                 |
 
 When changing an Alarm does not work please make sure tha the Alarm timepoint is in the future - so changing e.g. "sound" on an Alarm in the past will _not_ work!
 
@@ -80,37 +80,37 @@ When changing an Alarm does not work please make sure tha the Alarm timepoint is
 Here you find all connected or known bluetooth device(s) with MAC address(es). The states of each device:
 
 
-| State name | meaning |
-| - | - |
-| connected | Shows current connection status and allow connection (set to true) or disconnection (set to false) |
-| unpair | Button to unpair this device from the echo device |
+| State name | meaning                                                                                            |
+|------------|----------------------------------------------------------------------------------------------------|
+| connected  | Shows current connection status and allow connection (set to true) or disconnection (set to false) |
+| unpair     | Button to unpair this device from the echo device                                                  |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Commands.*
 With Commands you can trigger some actions on your Alexa-Device. If you use these on a multiroom device then they are executed independently and *will not* run in sync on the single devices!
 
-| State name | meaning | value |
-| - | - | - |
-| doNotDisturb | Switch on/off "Do not Disturb" for this device or group. Value is updated with Device Configuration updates from Cloud too| true/false, or number in seconds to enable (max 12h) or string in form "HH:MM" until this time it is enabled |
-| flashbriefing | Briefing in 100 seconds - news etc.pp| Button |
-| goodmorning | Good morning from Alexa ...| Button |
-| funfact | Fun fact from Alexa ... (Only USA at the moment)| Button |
-| joke | Joke from Alexa ...| Button |
-| cleanup | Plays a "gong" tone like for start/end of listening mode ...| Button |
-| curatedtts | Random sentence from the choosen area from Alexa ...| Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
-| singasong | Alexa sings a song ...| Button |
-| speak | Alexa says what you type in here ...| Text Input |
-| speakvolume | Adjust the speak volume of Alexa, this volume is set before the speak and reset afterwards| 0-100 |
-| skill | Launch a defined Skill | Skill-ID as String |
-| skillYours | launch a defined Skill - is prefilled with "Your Skills" as displayed in Alexa App too | Skill-ID as String |
-| tellstory | Alexa tells a story | Button |
-| traffic | Traffic news | Button |
-| weather | Weather news | Button |
-| deviceStop | Stop all actions on device | Button |
-| notification | Send text notification to customer of the device | Text, optionally specify title "title;text" |
-| announcement | Play announcement (like speak but with Bing before text) | Text |
-| ssml | Speak SSML XML string | Text |
-| textcommand | Send a Text command to Alexa,. Make sure to only use text (e.g. also 3 -> three and such, else Alexa might not correctly react to it!) | Text |
-| sound | Play a sound on the device. | Text |
+| State name    | meaning                                                                                                                                | value                                                                                                        |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| doNotDisturb  | Switch on/off "Do not Disturb" for this device or group. Value is updated with Device Configuration updates from Cloud too             | true/false, or number in seconds to enable (max 12h) or string in form "HH:MM" until this time it is enabled |
+| flashbriefing | Briefing in 100 seconds - news etc.pp                                                                                                  | Button                                                                                                       |
+| goodmorning   | Good morning from Alexa ...                                                                                                            | Button                                                                                                       |
+| funfact       | Fun fact from Alexa ... (Only USA at the moment)                                                                                       | Button                                                                                                       |
+| joke          | Joke from Alexa ...                                                                                                                    | Button                                                                                                       |
+| cleanup       | Plays a "gong" tone like for start/end of listening mode ...                                                                           | Button                                                                                                       |
+| curatedtts    | Random sentence from the choosen area from Alexa ...                                                                                   | Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
+| singasong     | Alexa sings a song ...                                                                                                                 | Button                                                                                                       |
+| speak         | Alexa says what you type in here ...                                                                                                   | Text Input                                                                                                   |
+| speakvolume   | Adjust the speak volume of Alexa, this volume is set before the speak and reset afterwards                                             | 0-100                                                                                                        |
+| skill         | Launch a defined Skill                                                                                                                 | Skill-ID as String                                                                                           |
+| skillYours    | launch a defined Skill - is prefilled with "Your Skills" as displayed in Alexa App too                                                 | Skill-ID as String                                                                                           |
+| tellstory     | Alexa tells a story                                                                                                                    | Button                                                                                                       |
+| traffic       | Traffic news                                                                                                                           | Button                                                                                                       |
+| weather       | Weather news                                                                                                                           | Button                                                                                                       |
+| deviceStop    | Stop all actions on device                                                                                                             | Button                                                                                                       |
+| notification  | Send text notification to customer of the device                                                                                       | Text, optionally specify title "title;text"                                                                  |
+| announcement  | Play announcement (like speak but with Bing before text)                                                                               | Text                                                                                                         |
+| ssml          | Speak SSML XML string                                                                                                                  | Text                                                                                                         |
+| textcommand   | Send a Text command to Alexa,. Make sure to only use text (e.g. also 3 -> three and such, else Alexa might not correctly react to it!) | Text                                                                                                         |
+| sound         | Play a sound on the device.                                                                                                            | Text                                                                                                         |
 
 Detailed information Speak and Announcement: Type in here what you want Alexa to say. You can also adjust the volume of Alexa by giving a percentage before your text.
 Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
@@ -122,86 +122,86 @@ Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-
 ### alexa2.0.Echo-Devices.Serialnumber.FireTVCommands.*
 If a device is a Amazon FireTV then you can use the following commands:
 
-| State name | meaning | value |
-| - | - | - |
-| turnOn | Turn FireTV and TV on | Button |
-| turnOff | Turn FireTV and TV off | Button |
-| videoPause | Pause the running video | Button |
-| videoResume | Resume the current video | Button |
-| navigateHome | Navigate to Home | Button |
+| State name   | meaning                  | value  |
+|--------------|--------------------------|--------|
+| turnOn       | Turn FireTV and TV on    | Button |
+| turnOff      | Turn FireTV and TV off   | Button |
+| videoPause   | Pause the running video  | Button |
+| videoResume  | Resume the current video | Button |
+| navigateHome | Navigate to Home         | Button |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Info.*
 Information about the Alexa device
 
-| State name | meaning | value |
-| - | - | - |
-| capabilities | capabilities if the alexa device | Information |
-| deviceType | device type from Amazon | Information  |
-| deviceTypeString | Device Type as string | Information |
-| isMultiroomDevice | Is multiroom device - Multiroom is a virtual device group | Information, true / false |
-| isMultiroomMember | Is Multiroom member - If true the device is part of a multiroom device group  | Information, true / false |
-| MultiroomParents | If this device is part of a multiroom device group this state shows the parent group device | Information |
-| name | Name of Alexa Device | Information |
-| SerialNumber | Serial number of Alexa device |
+| State name        | meaning                                                                                     | value                     |
+|-------------------|---------------------------------------------------------------------------------------------|---------------------------|
+| capabilities      | capabilities if the alexa device                                                            | Information               |
+| deviceType        | device type from Amazon                                                                     | Information               |
+| deviceTypeString  | Device Type as string                                                                       | Information               |
+| isMultiroomDevice | Is multiroom device - Multiroom is a virtual device group                                   | Information, true / false |
+| isMultiroomMember | Is Multiroom member - If true the device is part of a multiroom device group                | Information, true / false |
+| MultiroomParents  | If this device is part of a multiroom device group this state shows the parent group device | Information               |
+| name              | Name of Alexa Device                                                                        | Information               |
+| SerialNumber      | Serial number of Alexa device                                                               |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Music-Provider.*
 Directly tell Alexa to play Music or a playlist from supported music providers. Actually supported are: My Library, Amazon Music, Tune In. You can also include a multiroom device group name in the phrase to play it on this group (e.g. "SWR3 auf Erdgeschoss")
 
-| State name | meaning | value |
-| - | - | - |
-| Amazon-Music | Phrase to play with Amazon Music | Text input |
+| State name            | meaning                            | value      |
+|-----------------------|------------------------------------|------------|
+| Amazon-Music          | Phrase to play with Amazon Music   | Text input |
 | Amazon-Music-Playlist | Playlist to play with Amazon Music | Text input |
-| My-Library | Phrase to play with My Library | Text input |
-| My-Library-Playlist | Playlist to play with My Library | Text input |
-| Tune-In | Phrase to play with Tune In | Text input |
-| Tune-In-Playlist | Playlist to play with Tune In | Text input |
+| My-Library            | Phrase to play with My Library     | Text input |
+| My-Library-Playlist   | Playlist to play with My Library   | Text input |
+| Tune-In               | Phrase to play with Tune In        | Text input |
+| Tune-In-Playlist      | Playlist to play with Tune In      | Text input |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Player.*
 States to control the Playback of the device and to see the current status and media information
 
-| State name | meaning | value |
-| - | - | - |
-| allowNext | Is the Next/Forward action allowed? | Information |
-| allowPlayPause | Is the Play/Pause action allowed? | Information |
-| allowPrevious | Is the Previous action allowed? | Information |
-| allowRepeat | Can Repeat function be used? | Information |
-| allowShuffle | Can Shuffle function be used? | Information |
-| ContentType | text field to put in desired content to play on this device | Information |
-| controlForward | Button to trigger player "forward" command (30s) | Button |
-| controlNext | Button to trigger player "next" command | Button |
-| controlPause | Button to trigger player "pause" command | Button |
-| controlPlay | Button to trigger player "play" command | Button |
-| controlPrevious | Button to trigger player "previous" command | Button |
-| controlRepeat | Button to trigger player "repeat" command | true / false |
-| controlRewind | Button to trigger player "rewind" command (30s) | Button |
-| controlShuffle | Switch to enable or disable Shuffle mode for player | true / false |
-| currentAlbum | Current album actually playing | Information |
-| currentArtist | Current artist actually playing | Information |
-| currentState | If playing -> true , else false| true / false |
-| currentTitle | Current title actually playing | Information |
-| imageURL | URL to the image of the album | Information |
-| mainArtURL | URL to current main art | Information |
-| mediaId | media ID of the current played media (usually queueID:<number> | String, can be set to jump to the provided media ID |
-| mediaLength | Length of the current title | Information |
-| mediaLengthStr |  active media length as (HH:)MM:SS | Information |
-| mainProgress | active media elapsed time | Information |
-| mainProgressPercent | active media elapsed time in percent | Information |
-| mediaProgressStr |  active media progress as (HH:)MM:SS | Information |
-| miniArtUrl | URL to the art (mini) | Information |
-| muted | state of 'MUTE' | Information, true / false, volume = 0 is considered as muted |
-| playingInGroup | Is the medium played in a group? | Information |
-| playingInGroupId | ID of the playing group | Information |
-| providerID | ID of the current music provider | Information |
-| providerName | Name of the current music provider | Information |
-| quality | quality name of the current medium (might be empty) | Information |
-| qualityCodec | Codec of the current medium (might be empty) | Information |
-| qualityDataRate | data rate (kbps) of the current medium (might be empty) | Information |
-| qualitySampleRate | sample rate (Hz) of the current medium (might be empty) | Information |
-| queueId | queue ID of the current playlist | Information |
-| radioStationId | ID of the TuneIn radio station | Information |
-| service | name of the current music service | Information |
-| TuneIn-Station | text field to put in a Station name to play this station on this device. Also it is possible to type in the station number (s123456...), a show/podcast id (p1234567...) or a topic id (t123456789...) | Text input |
-| volume | Volume of playback. You can enter a value between 0-100% | INPUT Volume |
+| State name          | meaning                                                                                                                                                                                                | value                                                        |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| allowNext           | Is the Next/Forward action allowed?                                                                                                                                                                    | Information                                                  |
+| allowPlayPause      | Is the Play/Pause action allowed?                                                                                                                                                                      | Information                                                  |
+| allowPrevious       | Is the Previous action allowed?                                                                                                                                                                        | Information                                                  |
+| allowRepeat         | Can Repeat function be used?                                                                                                                                                                           | Information                                                  |
+| allowShuffle        | Can Shuffle function be used?                                                                                                                                                                          | Information                                                  |
+| ContentType         | text field to put in desired content to play on this device                                                                                                                                            | Information                                                  |
+| controlForward      | Button to trigger player "forward" command (30s)                                                                                                                                                       | Button                                                       |
+| controlNext         | Button to trigger player "next" command                                                                                                                                                                | Button                                                       |
+| controlPause        | Button to trigger player "pause" command                                                                                                                                                               | Button                                                       |
+| controlPlay         | Button to trigger player "play" command                                                                                                                                                                | Button                                                       |
+| controlPrevious     | Button to trigger player "previous" command                                                                                                                                                            | Button                                                       |
+| controlRepeat       | Button to trigger player "repeat" command                                                                                                                                                              | true / false                                                 |
+| controlRewind       | Button to trigger player "rewind" command (30s)                                                                                                                                                        | Button                                                       |
+| controlShuffle      | Switch to enable or disable Shuffle mode for player                                                                                                                                                    | true / false                                                 |
+| currentAlbum        | Current album actually playing                                                                                                                                                                         | Information                                                  |
+| currentArtist       | Current artist actually playing                                                                                                                                                                        | Information                                                  |
+| currentState        | If playing -> true , else false                                                                                                                                                                        | true / false                                                 |
+| currentTitle        | Current title actually playing                                                                                                                                                                         | Information                                                  |
+| imageURL            | URL to the image of the album                                                                                                                                                                          | Information                                                  |
+| mainArtURL          | URL to current main art                                                                                                                                                                                | Information                                                  |
+| mediaId             | media ID of the current played media (usually queueID:<number>                                                                                                                                         | String, can be set to jump to the provided media ID          |
+| mediaLength         | Length of the current title                                                                                                                                                                            | Information                                                  |
+| mediaLengthStr      | active media length as (HH:)MM:SS                                                                                                                                                                      | Information                                                  |
+| mainProgress        | active media elapsed time                                                                                                                                                                              | Information                                                  |
+| mainProgressPercent | active media elapsed time in percent                                                                                                                                                                   | Information                                                  |
+| mediaProgressStr    | active media progress as (HH:)MM:SS                                                                                                                                                                    | Information                                                  |
+| miniArtUrl          | URL to the art (mini)                                                                                                                                                                                  | Information                                                  |
+| muted               | state of 'MUTE'                                                                                                                                                                                        | Information, true / false, volume = 0 is considered as muted |
+| playingInGroup      | Is the medium played in a group?                                                                                                                                                                       | Information                                                  |
+| playingInGroupId    | ID of the playing group                                                                                                                                                                                | Information                                                  |
+| providerID          | ID of the current music provider                                                                                                                                                                       | Information                                                  |
+| providerName        | Name of the current music provider                                                                                                                                                                     | Information                                                  |
+| quality             | quality name of the current medium (might be empty)                                                                                                                                                    | Information                                                  |
+| qualityCodec        | Codec of the current medium (might be empty)                                                                                                                                                           | Information                                                  |
+| qualityDataRate     | data rate (kbps) of the current medium (might be empty)                                                                                                                                                | Information                                                  |
+| qualitySampleRate   | sample rate (Hz) of the current medium (might be empty)                                                                                                                                                | Information                                                  |
+| queueId             | queue ID of the current playlist                                                                                                                                                                       | Information                                                  |
+| radioStationId      | ID of the TuneIn radio station                                                                                                                                                                         | Information                                                  |
+| service             | name of the current music service                                                                                                                                                                      | Information                                                  |
+| TuneIn-Station      | text field to put in a Station name to play this station on this device. Also it is possible to type in the station number (s123456...), a show/podcast id (p1234567...) or a topic id (t123456789...) | Text input                                                   |
+| volume              | Volume of playback. You can enter a value between 0-100%                                                                                                                                               | INPUT Volume                                                 |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Preferences.*
 Here you find some device preferences.
@@ -226,108 +226,108 @@ Here you find some device preferences.
 ### alexa2.0.Echo-Devices.Serialnumber.Reminder.*
 Reminder (Erinnerungen) settings for each device, if available.
 
-| State name | meaning | value |
-| - | - | - |
-| <id>.customVolume | Set a custom Volume for this Reminder. The volume is set 2s before the reminder triggers and re-set to the value before as soon as the timer is (or adapter thinks!) stopped - latest after 120s! When custom volumes and trigger times overlap it will be restored at the end once!| Number 0..100 |
-| <id>.date | Overwrite the date for existing alarm to set a new date for this alarm. In case you have an existing alarm you can change the date here by simply overwrite the time in format YYYY-MM-DD. Might have no effect when multiple-times-per-day recurring settings were used! | Date Output |
-| <id>.delete | Button to delete the Alarm | delete with true |
-| <id>.enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
-| <id>.nextTriggerDate | Contains the timepoint of the next expected triggering as unix epoch in ms | Number |
-| <id>.recurringDays | Shows the list of days configured if the Alarm has recurring settings | US notation of weekdays (e.g. MO,TU,WE,TH,FR,SA,SU) |
-| <id>.recurringPattern | Shows the recurring pattern of alarm | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
-| <id>.snoozed | true if the Alarm is snoozed at the moment | true/false |
-| <id>.sound | Contains the set sound for this alarm. Can be adjusted | ID from list |
-| <id>.time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set. Might have no effect when multiple-times-per-day recurring settings were used! | Time Input |
-| <id>.triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
-| New | Data to create a new Reminder as String in following format separated by ; as "timestamp;label;[sound];[recurring]. timestamp as unix timestamp in ms or text like "HH:MM", label as Text (required), sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. For full flexibility recurring can also be a JSONified object with all data which is passed through. Fields in example above in brackets mean that they are optional! | String |
-| triggered | ID of the Alarm that triggered last on this device | ID |
+| State name            | meaning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | value                                                                                                                                                                                                                                                                                                                              |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <id>.customVolume     | Set a custom Volume for this Reminder. The volume is set 2s before the reminder triggers and re-set to the value before as soon as the timer is (or adapter thinks!) stopped - latest after 120s! When custom volumes and trigger times overlap it will be restored at the end once!                                                                                                                                                                                                                                     | Number 0..100                                                                                                                                                                                                                                                                                                                      |
+| <id>.date             | Overwrite the date for existing alarm to set a new date for this alarm. In case you have an existing alarm you can change the date here by simply overwrite the time in format YYYY-MM-DD. Might have no effect when multiple-times-per-day recurring settings were used!                                                                                                                                                                                                                                                | Date Output                                                                                                                                                                                                                                                                                                                        |
+| <id>.delete           | Button to delete the Alarm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | delete with true                                                                                                                                                                                                                                                                                                                   |
+| <id>.enabled          | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false                                                                                                                                                                                                                                                                                                                                                                                                                    | true / false                                                                                                                                                                                                                                                                                                                       |
+| <id>.nextTriggerDate  | Contains the timepoint of the next expected triggering as unix epoch in ms                                                                                                                                                                                                                                                                                                                                                                                                                                               | Number                                                                                                                                                                                                                                                                                                                             |
+| <id>.recurringDays    | Shows the list of days configured if the Alarm has recurring settings                                                                                                                                                                                                                                                                                                                                                                                                                                                    | US notation of weekdays (e.g. MO,TU,WE,TH,FR,SA,SU)                                                                                                                                                                                                                                                                                |
+| <id>.recurringPattern | Shows the recurring pattern of alarm                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 0 = one time, no recurring <br> P1D = daily <br> XXXX-WD = on weekdays <br> XXXX-WE = on weekends <br> XXXX-WXX-1 = every monday <br> XXXX-WXX-2 = every tuesday <br> XXXX-WXX-3 = every wednesday <br> XXXX-WXX-4 = every thursday <br> XXXX-WXX-5 = every friday <br> XXXX-WXX-6 = every saturday <br> XXXX-WXX-7 = every sunday |
+| <id>.snoozed          | true if the Alarm is snoozed at the moment                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | true/false                                                                                                                                                                                                                                                                                                                         |
+| <id>.sound            | Contains the set sound for this alarm. Can be adjusted                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | ID from list                                                                                                                                                                                                                                                                                                                       |
+| <id>.time             | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set. Might have no effect when multiple-times-per-day recurring settings were used!                                                                                                                                                                                                   | Time Input                                                                                                                                                                                                                                                                                                                         |
+| <id>.triggered        | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached                                                                                                                                                                                                                                                                                                                                                            | true / false                                                                                                                                                                                                                                                                                                                       |
+| New                   | Data to create a new Reminder as String in following format separated by ; as "timestamp;label;[sound];[recurring]. timestamp as unix timestamp in ms or text like "HH:MM", label as Text (required), sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. For full flexibility recurring can also be a JSONified object with all data which is passed through. Fields in example above in brackets mean that they are optional! | String                                                                                                                                                                                                                                                                                                                             |
+| triggered             | ID of the Alarm that triggered last on this device                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | ID                                                                                                                                                                                                                                                                                                                                 |
 
 When changing a Reminder does not work please make sure tha the Reminder timepoint is in the future - so changing e.g. "sound" on an Reminder in the past will _not_ work!
 
 ### alexa2.0.Echo-Devices.Serialnumber.Routines.*
 Overview of routines set up in Alexa App. Self created routines have a serial number, Amazon shows as 'preconfigured:...' Each routine can be triggered with a button to run once.
 
-| State name | meaning | value |
-| - | - | - |
-| Serial or internal name of routine | name of routine | Button
+| State name                         | meaning         | value  |
+|------------------------------------|-----------------|--------|
+| Serial or internal name of routine | name of routine | Button 
 
 ### alexa2.0.Echo-Devices.Serialnumber.Timer.*
 You can have one or more timer running on each Alexa device. Because of the very dynamic nature of timers there will be no further objects created like with Alarm or Reminders, but a way to get a triggered info exists.
 
-| State name | meaning | value |
-| - | - | - |
-| activeTimerList | JSON array with the list of active timers containing ID, label and trigger timepoint as unix timestamp in ms | JSON array
-| nextTimeDate | Contains the timepoint of the next expected triggering as unix epoch in ms | Number | Number
-| nextTimerId | ID of the next timer to trigger | String
-| stopTimerId | Control with a timer ID to stop the timer (also stops if the timer is currently ringing!) | String
-| triggered | A timer got triggered - in fact it is the "nextTimerId" one | true/false
+| State name      | meaning                                                                                                      | value      |
+|-----------------|--------------------------------------------------------------------------------------------------------------|------------|
+| activeTimerList | JSON array with the list of active timers containing ID, label and trigger timepoint as unix timestamp in ms | JSON array |
+| nextTimeDate    | Contains the timepoint of the next expected triggering as unix epoch in ms                                   | Number     | Number
+| nextTimerId     | ID of the next timer to trigger                                                                              | String     |
+| stopTimerId     | Control with a timer ID to stop the timer (also stops if the timer is currently ringing!)                    | String     |
+| triggered       | A timer got triggered - in fact it is the "nextTimerId" one                                                  | true/false |
 
 **Please note that it is important that the timezone of the iobroker host is set to match your local timezone, else the triggered time detection might be wrong!**
 
 ### alexa2.0.Echo-Devices.Serialnumber.online
 Is this Alexa device online and connected to the Amazon cloud ?
 
-| State name | meaning | value |
-| - | - | - |
-| online | Is the device online ? | True / False
+| State name | meaning                | value        |
+|------------|------------------------|--------------|
+| online     | Is the device online ? | True / False |
 
 ### alexa2.0.History
 
-| State name | meaning | value |
-| - | - | - |
-| #trigger | Button to get new History (more current then timestamp in creationTime), only needed when not using the push connection | Button |
-| cardContent | Additional information as shown in Alexa-App/Echo Show | Information |
-| cardJson | Additional information as shown in Alexa-App/Echo Show in JSON format | Information |
-| creationTime | date of this history entry, new history entries are only considered when later as this timestamp | Information |
-| domainApplicationId | Additional information like Skill-ID or such, optional | Information |
-| domainApplicationName | Additional information like Skill name or such, optional | Information |
-| json | Json of last command data to be able to process all infos e.g. in own JavaScripts| JSON |
-| name | Name of the device that got the last request | Information |
-| serialNumber | serialnumber of the device that got the last request | Information |
-| status | Status of last command to Alexa | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; last one is generated when activating the device by saying the wake word, or when the device discarded input as "not for me" |
-| summary | text/summary/action received by the device | Information |
+| State name            | meaning                                                                                                                                                            | value                                                                                                                                                                                |
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| #trigger              | Button to get new History (more current then timestamp in creationTime), only needed when not using the push connection or when the automatic querying is disabled | Button                                                                                                                                                                               |
+| cardContent           | Additional information as shown in Alexa-App/Echo Show                                                                                                             | Information                                                                                                                                                                          |
+| cardJson              | Additional information as shown in Alexa-App/Echo Show in JSON format                                                                                              | Information                                                                                                                                                                          |
+| creationTime          | date of this history entry, new history entries are only considered when later as this timestamp                                                                   | Information                                                                                                                                                                          |
+| domainApplicationId   | Additional information like Skill-ID or such, optional                                                                                                             | Information                                                                                                                                                                          |
+| domainApplicationName | Additional information like Skill name or such, optional                                                                                                           | Information                                                                                                                                                                          |
+| json                  | Json of last command data to be able to process all infos e.g. in own JavaScripts                                                                                  | JSON                                                                                                                                                                                 |
+| name                  | Name of the device that got the last request                                                                                                                       | Information                                                                                                                                                                          |
+| serialNumber          | serialnumber of the device that got the last request                                                                                                               | Information                                                                                                                                                                          |
+| status                | Status of last command to Alexa                                                                                                                                    | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; last one is generated when activating the device by saying the wake word, or when the device discarded input as "not for me" |
+| summary               | text/summary/action received by the device                                                                                                                         | Information                                                                                                                                                                          |
 
 ### alexa.0.Smart-Home-Devices
 Includes all smart home devices Alexa knows from your skills. States as follows, for all known devices:
 
-| State name | meaning | value |
-| - | - | - |
-| deleteAll | deletes all smart home devices from Alexa, same as the button in the Alexa App | Button
-| discoverDevices | finds new smart home devices, same as the button in the Alexa App | Button
-| queryAll | queries all devices, only visible when at least one device is able to retrieve information | Button
+| State name      | meaning                                                                                    | value  |
+|-----------------|--------------------------------------------------------------------------------------------|--------|
+| deleteAll       | deletes all smart home devices from Alexa, same as the button in the Alexa App             | Button 
+| discoverDevices | finds new smart home devices, same as the button in the Alexa App                          | Button 
+| queryAll        | queries all devices, only visible when at least one device is able to retrieve information | Button 
 
 ### alexa.0.Smart-Home-Devices.SerialNumber.*
-| State name | meaning | value |
-| - | - | - |
-| #delete | delete smart home device from Alexa | Button
-| #enabled | Is the smart home device active? Status and control to enable/disable. State will be synced with the cloud in the same interval as the smarthome deice data. | true / false |
-| #includeInAllQuery | Should this device be included when querying all device states ? | true / false |
-| #query | query data for this device, only visible when the smart home device/skill supports to retrieve information | Button |
-| active | shown for scenes when they can be activated/deactivated | true / false |
-| powerState | Switch power on / off | changeable, true / false |
-| ... | Many more possible states depending on the type of the smart home device | Information or changeable :-) |
+| State name         | meaning                                                                                                                                                      | value                         |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| #delete            | delete smart home device from Alexa                                                                                                                          | Button                        
+| #enabled           | Is the smart home device active? Status and control to enable/disable. State will be synced with the cloud in the same interval as the smarthome deice data. | true / false                  |
+| #includeInAllQuery | Should this device be included when querying all device states ?                                                                                             | true / false                  |
+| #query             | query data for this device, only visible when the smart home device/skill supports to retrieve information                                                   | Button                        |
+| active             | shown for scenes when they can be activated/deactivated                                                                                                      | true / false                  |
+| powerState         | Switch power on / off                                                                                                                                        | changeable, true / false      |
+| ...                | Many more possible states depending on the type of the smart home device                                                                                     | Information or changeable :-) |
 
 **-> Special states for color/light devices**
 
-| State name | meaning | value |
-| - | - | - |
-| brightness | brightness of the HUE light | changeable 0-100% |
-| color-Brightness | brightness for color definition (together with hue and saturation, HSV) | Information, 0-1% |
-| color-hue | hue value of the color (together with brightness and saturation, HSV) | Information, 0-360° |
-| color-saturation | saturation of the color (together with brightness and hue, HSV) | Information, 0-1 |
-| colorRGB | RGB code of actual color build out of color-* values | Information, #rrggbb |
-| colorName | Name of the color as defined by Alexa - fixed values | changeable to set color, 0-144 |
-| colorTemperarureInKelvin | Color temperature in Kelvin | Information, 1000-10000K |
-| colorTemperatureName | Color temperature name as defined by Alexa - fixed values | changeable to set, 0-18 |
+| State name               | meaning                                                                 | value                          |
+|--------------------------|-------------------------------------------------------------------------|--------------------------------|
+| brightness               | brightness of the HUE light                                             | changeable 0-100%              |
+| color-Brightness         | brightness for color definition (together with hue and saturation, HSV) | Information, 0-1%              |
+| color-hue                | hue value of the color (together with brightness and saturation, HSV)   | Information, 0-360°            |
+| color-saturation         | saturation of the color (together with brightness and hue, HSV)         | Information, 0-1               |
+| colorRGB                 | RGB code of actual color build out of color-* values                    | Information, #rrggbb           |
+| colorName                | Name of the color as defined by Alexa - fixed values                    | changeable to set color, 0-144 |
+| colorTemperarureInKelvin | Color temperature in Kelvin                                             | Information, 1000-10000K       |
+| colorTemperatureName     | Color temperature name as defined by Alexa - fixed values               | changeable to set, 0-18        |
 
 With #brightness you can adjust the brightness of your light, #colorName is to pick one predefined color (0-144). For HUE Ambient light you can choose between 19 Values fom 0-18 in #colorTemperatureName. All light can switched on and off with #powerState.
 
 ### alexa2.0.Info.*
-| State name | meaning | value |
-| - | - | - |
-| connection | If connection to Alexa is OK | Information -> true / false |
-| cookie | Alexa cookie, use with several external scripts that also want to access Alexa APIs | Information |
-| csrf | Alexa CSRF, use with several external scripts that also want to access Alexa APIs | Information |
+| State name | meaning                                                                             | value                       |
+|------------|-------------------------------------------------------------------------------------|-----------------------------|
+| connection | If connection to Alexa is OK                                                        | Information -> true / false |
+| cookie     | Alexa cookie, use with several external scripts that also want to access Alexa APIs | Information                 |
+| csrf       | Alexa CSRF, use with several external scripts that also want to access Alexa APIs   | Information                 |
 
 
 ## Installation
@@ -433,8 +433,16 @@ A structure like the following is possible:
 
 ## Troubleshooting
 
-### Problem with Cookie determination with SMS based 2 FA flow
-If you still use the SMS based 2FA flow then this might now work. Please update the 2fa method in the amazon settings to the current process.
+### Problem with Cookie determination with SMS based 2FA flow
+If you still use the SMS/E-Mail based 2FA flow then this might not work. Please update the 2FA/OTP method in the amazon settings to the current process! Not working could also mean that a Error 404/Page not found is shown. ALso then check and upgrade OTP settings!
+
+### The Alexa App opens when I try to login
+If you open the Proxy URL from a mobile device where also the Alexa App is installed on it might be that it do not work because Amazon might open the Alexa App. So please use a device or PC where the Alexa App is not installed!
+
+### I get a page shown with a QR code telling me to scan it
+If you see a page that tells you that "alexa.amazon.xx is deprecated" and you should use the alexa app and with a QR code on it when you enter the Proxy URL" then this means that you call the proxy URL ith a different IP/Domainname then you entered in the "proxy own IP" settings or you adjusted the IP shown in the Adapter configuration.
+
+The "own IP" setting **needs to** match the IP/Domainname you use to call the proxy URL!
 
 ### Problems with Cookie determination via E-Mail/Password
 Sometimes Amazon has weired checks in place when they detect unexpected traffic on Login.
@@ -460,14 +468,6 @@ As example using "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, lik
 
 You can override all those parameters in the adapter configuration.
 
-### How to determine Cookie by my own?
-If the automatic Cookie determination don't work or you do not trust the Adapter to give the Email/Password then you can determine the cookie by your own. There are several infos on the web how to do it. Here some links:
-
-* https://www.gehrig.info/alexa/Alexa.html
-* or use the shellscript from https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html to get it on shell ...
-
-But be aware: The Cookie will time out after several time and then the adapter will stop working and disable itself. You then need to manually get a new cookie!
-
 ### Push Connections do not connect
 Sometimes it could happen that because of too many connection tries aAmazon blocks the push connection endpoint for a specific IP and "device".
 
@@ -487,6 +487,21 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting unused device please restart the adapter to remove them there too.
 
 ## Changelog
+### 3.26.3 (2023-11-25)
+* (Apollon77) Fixed the proxy login process
+
+### 3.26.2 (2023-11-24)
+* (Apollon77) Removed infos how to get cookies manually because no longer available
+* (Apollon77) Optimized Admin configuration order of settings for history
+* (Apollon77) Fixed some crash cases reported by Sentry
+* (Diginix/Apollon77) Added some more device types
+
+### 3.26.1 (2023-11-08)
+* (Apollon77) Fix missing text in Admin Config
+
+### 3.26.0 (2023-11-08)
+* (Apollon77) Automatically query of activity/history needs to be enabled manually (if you need it!)
+
 ### 3.25.5 (2023-10-29)
 * (Apollon77) Optimize activity detection to process all relevant entries in all cases
 

@@ -1,4 +1,4 @@
-﻿![Logo](admin/sbfspot.png)
+![Logo](admin/sbfspot.png)
 # ioBroker.sbfspot
 
 ![Number of Installations](http://iobroker.live/badges/sbfspot-installed.svg) ![Number of Installations](http://iobroker.live/badges/sbfspot-stable.svg)
@@ -51,6 +51,13 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 4.1.7 (2023-11-18)
+* (René) dependencies updated
+
 ### 4.1.6 (2023-07-30)
 * (René) dependencies updated
 
@@ -61,7 +68,7 @@ sometimes npm intall must be called more then one time to successfully install a
 * (René) dependencies updated
 
 ### 4.1.2 (2022-08-20)
-* (René) bug fix in AddObject 
+* (René) bug fix in AddObject
 
 ### 4.1.1 (2022-08-18)
 * (René) tooltip in wizard added
@@ -79,38 +86,6 @@ sometimes npm intall must be called more then one time to successfully install a
 
 ### 4.0.5 (2021-03-21)
 * (René) dependencies updated
-
-## 4.0.4 (2021-02-14)
-* (René) dependencies updated
-
-## 4.0.3 (2021-01-15)
-* (René) bug fix based on CI tests
-
-## 4.0.2 (2020-10-09)
-* (René) bug fix based on CI tests
-
-## 4.0.0 (2020-07-28)
-* (René) rework to use async/await
-* (René) use mysql2
-
-## 3.0.0 (2020-04-25)
-* (René) sqlite3 package replaced by better-sqlite3
-* (René) roles of DP overworked
-* (René) see issue #19: get data only when daylight added as an option
-* (René) see issue #29: default color for widget axis label changed
-* (René) widget: log if widget is too small added
-
-## 2.4.3 (2020-04-02)
-* (René) bugfix in DB_CalcHistory_Today used for widget
-
-## 2.4.2 (2020-02-01)
-* (René) bugfix widget
-
-## 2.4.0 (2019-12-28)
-* (René) update to my own flot 3.0
-
-## 2.3.4 (2019-10-31)
-* (René) update flot to version 3.0
 
 ### 2.3.3 (2019-02-03)
 * (René) due to install problems downgrade of sqlite3 package
@@ -157,7 +132,7 @@ sometimes npm intall must be called more then one time to successfully install a
 ### 1.1.0
 * (René) autoscale of y axis
 * (René) color for y axis 
-* (René) adjustable date format 
+* (René) adjustable date format
 
 ### 1.0.1
 * (René) bug fix for sqlite
@@ -196,7 +171,6 @@ sometimes npm intall must be called more then one time to successfully install a
 ### 0.0.1
 * (René) initial release
 
-
 ## License
 MIT License
 
@@ -219,6 +193,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-

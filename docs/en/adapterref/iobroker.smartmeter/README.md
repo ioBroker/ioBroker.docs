@@ -13,7 +13,7 @@
 
 This adapter for ioBroker allows the reading and parsing of smartmeter protocols that follow the OBIS number logic to make their data available.
 
-***The Adapter needs nodejs 8.x+ to work!***
+***The Adapter needs nodejs 16.x+ to work!***
 
 ***This Adapter needs to have git installed currently for installing!***
 
@@ -90,6 +90,10 @@ Sentry.io is a way for developers to get an overview about errors from their app
 When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to our own Sentry server hosted in germany. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.  
 
 ## Changelog
+### 3.4.0 (2023-11-25)
+* IMPORTANT: This version requires at least Node.js 16+
+* (Apollon77) Prevent some crash cases
+
 ### 3.3.4 (2022-03-11)
 * (Apollon77) Restore functionality of Port list in Admin
 
@@ -234,7 +238,7 @@ When the adapter crashes or an other Code error happens, this error message that
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2022 Apollon77 <ingo@fischer-ka.de>
+Copyright (c) 2017-2023 Apollon77 <ingo@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

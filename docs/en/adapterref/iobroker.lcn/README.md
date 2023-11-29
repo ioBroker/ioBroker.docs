@@ -90,6 +90,9 @@ After the first start, the devices must be scanned. It can be done in the config
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.8 (2023-11-13)
+* (bluefox) Added SUM inputs
+
 ### 1.1.7 (2023-11-06)
 * (bluefox) Corrected setting of undefined values
 

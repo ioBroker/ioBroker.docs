@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ring/README.md
 title: Кольцевой адаптер
-hash: YPLlivLg7RVp4wqyTAkGwQ5CTLlP4ubFSoZVGLsOjE0=
+hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -88,6 +88,20 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.10 (2023-11-06)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
+
+### 5.0.8 (2023-11-05)
+
+* (crocri) Code cleanup
+* (theimo1221) #614 Add @homebridge/camera-utils as direct depency to mitigate import issue
+
+### 5.0.7 (2023-11-02)
+
+* (theimo1221) Updated Packages
+* (theimo1221) Include missing build artifacts
+
 ### 5.0.6 (2023-10-29)
 
 * (theimo1221) Updated Packages

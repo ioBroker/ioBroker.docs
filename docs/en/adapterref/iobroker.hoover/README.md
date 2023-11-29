@@ -23,6 +23,7 @@ Die hon Mail und Passwort eingeben.
 
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
+hoover.0.id.remote.send für Benutzerdefinierte Befehle zum einschalten.
 Beispiel für Waschmaschine im Adapter als default:
 
 Beispiel für AC:

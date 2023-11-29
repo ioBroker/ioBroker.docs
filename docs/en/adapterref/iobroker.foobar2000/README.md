@@ -1,56 +1,87 @@
 ![Logo](admin/foobar2000.png)
-# Foobar2000 adapter for iobroker
 
-[![Donate](https://img.shields.io/badge/Donate-YooMoney-green)](https://sobe.ru/na/instalator)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PFUALWTR2CTPY)
+# iobroker.foobar2000
+
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.foobar2000)](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/blob/master/LICENSE)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.foobar2000.svg)](https://www.npmjs.com/package/iobroker.foobar2000)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.foobar2000)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/foobar2000/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.foobar2000)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.foobar2000/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.foobar2000)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.foobar2000)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.foobar2000.svg)](https://www.npmjs.com/package/iobroker.foobar2000)
+![Current version in stable repository](https://iobroker.live/badges/foobar2000-stable.svg)
+![Number of Installations](https://iobroker.live/badges/foobar2000-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.foobar2000/actions/workflows/codeql.yml)
+
+<!--
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+-->
+
+## Foobar2000 adapter for iobroker
 
 ![admin settings.](admin/admin.png)
 
 ## Using
-Описание [тут](http://blog.instalator.ru/archives/541).
-Для управления проигрывателем необходимо установить плагин [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
-Для отображения обложки как ссылка на файл, необходимо в файле ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` изменить параметр ```albumart_prefer_embedded=0```
 
 To control the player, you must install the plugin [foo_httpcontrol](https://bitbucket.org/oblikoamorale/foo_httpcontrol/downloads/).
 To display the cover as a link to a file, in the file ```c:\Users\{USER}\AppData\Roaming\foobar2000\foo_httpcontrol_data\foobar2000controller\config``` change the parameter ```albumart_prefer_embedded = 0```
 
 ## Changelog
 
-#### 2.0.4
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 2.1.0 (2023-11-07)
+* (mcm1957) Adapter requires nodejs16 or newer now.
+* (mcm1957) Adapter has been moved to iobroker-community-adapters organization.
+* (mcm1957) Dependencies have been updated.
+
+### 2.0.4
 * (instalator) fixed error
 
-#### 2.0.3
+### 2.0.3
 * (instalator) fixed admin error
 
-#### 2.0.2
+### 2.0.2
 * (instalator) fixed error
 
-#### 2.0.0
+### 2.0.0
 * (instalator) Completely rewritten
 
-#### 1.0.0
+### 1.0.0
 * (instalator) Up to stable
 
-#### 0.2.0
+### 0.2.0
 * (instalator) Change for widgets vis-players
 
-#### 0.1.2
+### 0.1.2
 * (instalator) del widgets folders
 * (instalator) change log level
 * (instalator) add news object
 
-#### 0.1.1
+### 0.1.1
 * (instalator) fix start, exit for local
 
-#### 0.1.0
+### 0.1.0
 * (instalator) beta (20.10.2016)
 
-#### 0.0.1
+### 0.0.1
 * (instalator) initial (12.10.2016)
 
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2021 instalator <vvvalt@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

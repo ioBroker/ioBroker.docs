@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker. 天气警告
-hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
+hash: yJIs/0h53Ul0pFadLx7sOtFyx92lZmKyFLbAaT12Vhs=
 ---
 ![标识](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -12,10 +12,10 @@ hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ![安装数量](https://iobroker.live/badges/weather-warnings-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/weather-warnings-stable.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.weather-warnings.png?downloads=true)
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![贝宝捐款](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.天气警告
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/287x66-grey.png)](https://weblate.iobroker.net/projects/adapters/weather-warnings/)
 
 **测试：** [![测试和发布](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
@@ -97,7 +97,7 @@ hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 
 ![电报](../../../en/adapterref/iobroker.weather-warnings/img/telegram.png) **适配器：** 如果激活此选项并且存在适配器字段，则必须选择有效的选项。日志中的错误消息表明缺少设置。
 
-**激活...:** 通过此服务发送此提供商的警告。
+**激活...:** 由该提供商通过此服务发送警告。
 
 **过滤器：** 1) 忽略此类型的警告 2) 忽略同等或更低级别的警告
 
@@ -141,6 +141,44 @@ DWD 图标：版权所有 Deutscher Wetterdienst ZAMG 图标：版权所有
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ticaki) add cleartimeout, add axios timeout
+
+### 0.6.2 (2023-11-20)
+* (ticaki) Reduce zamg spam
+
+### 0.6.1 (2023-11-19)
+* (ticaki) Optimise: DWD City names, adminconfiguration, translations
+
+### 0.6.0 (2023-11-16)
+* (ticaki) Added: global alerts.
+* (ticaki) Changed: Token ...adverb - if no adverb, then day of the week.
+
+### 0.5.6 (2023-11-15)
+* (ticaki) Added: Select template for manual notification without warnings.
+* (ticaki) Added: Configuration dialogue marks invalid template keys for most notification services.
+
+### 0.5.5 (2023-11-14)
+* (ticaki) Added: Missing space in emailMessage template.
+* (ticaki) Fixed: wrong status for all removed.
+* (ticaki) Admin: moving test options to tab general.
+
+### 0.5.4 (2023-11-10)
+* (ticaki) Fixed: Fixed randomly occurring errors in the first approx. 15 seconds.
+* (ticaki) Added: max number of warnings (default 5)
+* (ticaki) Fixed: not crash with the wrong uwz configuration.
+* (ticaki) Fixed: small error in quiet times.
+
+### 0.5.3 (2023-11-09)
+* (ticaki) Fixed: command states (text / automode)
+* (ticaki) Added: .alerts. List of warning types.
+* (ticaki) Changed: .alerts. view current event with highest level or next event
+
+### 0.5.2 (2023-11-06)
+* (ticaki) Multiple Say-It instances.
+* (ticaki) Some icons added.
+* (ticaki) -no warning- Warning level for uwz corrected.
+
 ### 0.5.1 (2023-11-05)
 * (ticaki) Fixed: Foreign languages did not work for UWZ.
 * (ticaki) Fixed: clearHistory command didnt work on gloabl level.

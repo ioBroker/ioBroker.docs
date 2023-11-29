@@ -72,6 +72,18 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.0.7 (2023-11-20)
+* (arteck) check credentials
+
+### 3.0.6 (2023-11-11)
+* (arteck) add mqttTimeout in settings
+
+### 3.0.5 (2023-11-09)
+* (arteck) add setRAW DP, this allows you to send a fullbrowser command directly
+
+### 3.0.4 (2023-11-06)
+* (arteck) set to zero corr
+
 ### 3.0.3 (2023-11-04)
  * (arteck) setStringSettings corr
 

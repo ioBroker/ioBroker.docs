@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
 title: Визуализация
-hash: FXqbQUH6a3Kg+/ZYK+8uS6HA6FaYdSNGpXMlIMeJh5Y=
+hash: hyk2is8CltwN54o8devI0fHbnhr3fgj4ePi+Rtoa0nY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -53,6 +53,7 @@ WEB-визуализация для платформы ioBroker.
 - `pow` - степень 2.
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` — операция получения json или свойства объекта. Например, `{id;json(common.name.en)}`
 - `random(R)` - Math.random() * R или просто Math.random(), если нет аргумента
 - `formatValue(decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные дроби.
 - `date(format)` - форматировать значение как дату. Формат такой: `ГГГГ-ММ-ДД чч:мм:сс.сс`
@@ -207,6 +208,15 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.5.4 (2023-11-29)
+* (agav99) added the new binding operation for getting property of JSON or object
+* (agav99) Checked the initialization of the `local_` variables
+* (agav99) fixed subscribeOidAtRuntime
+* (stephanritscher) Added dynamic web manifest
+* (agav99) Optimization for basic-view in widget8
+* (oweitman) Changed binding regex to accept umlauts
+* (mcm1957) Corrected first installation of vis
+
 ### 1.5.1 (2023-11-06)
 * (bluefox) Changed License: it is now MIT, and the license check was removed
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mediola-gateway/README.md
 title: ioBroker.mediola-gateway
-hash: mt+jhkQ8cCtlRO5VITibW6l4BtpRaTN0AdcfhOu/Uak=
+hash: uDU1/2b5F0PWPDDvifZTT3djR7PxAYUgTrpnSUOkrQ8=
 ---
 ![Logo](../../../en/adapterref/iobroker.mediola-gateway/admin/mediola-gateway.png)
 
@@ -26,7 +26,9 @@ Dort wird auch jede Änderung der Systemvariablen angezeigt und kann zur Automat
 Die sendIrData werden mit mehreren gelernten IR-Codes getestet. Geben Sie einfach den IR-Code in das Objekt ein, um die Daten zu senden.
 
 ## Fehlerbehebung
-Überprüfen Sie http://ip-of-mediola/command?XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {"XC_ERR":{"code": "000007", "msg" :"Zugriff verweigert"}} (nie gesehen auf Gateway V4)\ Wenn dies funktioniert, haben Sie eine Mediola ohne festgelegtes Passwort. Es gibt keine Ahnung, warum der Adapter nicht funktionieren sollte.\ Kontaktieren Sie das Forum: https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway (leider ist es Deutsch, aber Englisch ist auch möglich)\ Mit Benutzer und Passwort:\ Überprüfen Sie http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {XC_ERR}{"code" :"010000"}\ Wenn dies funktioniert, müssen der Benutzername und das Passwort zur Konfiguration hinzugefügt werden. Wenn dies nicht funktioniert, verfügen Sie möglicherweise nicht über den Benutzernamen und das richtige Passwort. Wenn Sie nur ein Passwort festgelegt haben, müssen Sie einen Vollbenutzer einrichten. (Gateway V6)
+Überprüfen Sie http://ip-of-mediola/command?XC_FNC=getstates\ Erwartetes Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {"XC_ERR":{"code": "000007", "msg" :"Zugriff verweigert"}} (nie gesehen auf Gateway V4)\ Wenn dies funktioniert, haben Sie eine Mediola ohne festgelegtes Passwort. Es gibt keine Ahnung, warum der Adapter nicht funktionieren sollte.\ Kontaktieren Sie das Forum: https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway (leider ist es Deutsch, aber Englisch ist auch möglich)\ Mit Benutzer und Passwort oder Authkey:\ Überprüfen Sie http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\ oder Überprüfen Sie http://ip-of-mediola/command?auth=authkey&XC_FNC=getstates\ Erwartet Ergebnis: {XC_SUC}[...]\ Nicht erwartetes Ergebnis: {XC_ERR}{"code":"010000"}\ Wenn dies funktioniert, müssen der Benutzername und das Passwort zur Konfiguration hinzugefügt werden. Wenn dies nicht funktioniert, verfügen Sie möglicherweise nicht über den Benutzernamen und das richtige Passwort. Wenn Sie nur ein Passwort festgelegt haben, müssen Sie einen Vollbenutzer einrichten. (Gateway V6)\
+
+Überprüfen Sie http://ip-of-mediola/command?auth=authkey&XC_FNC=getstates\
 
 ## Verwendung für Sonnenschutzrollos WIR (WR), Roto (BK) und Elero (ER).
 Diese Sonnenschutzrollos werden automatisch gefunden. Sie beginnen mit WR, BK oder ER. Es gibt zwei Ordner im Adapter. Das eine wird Zustand genannt, das andere Aktion.

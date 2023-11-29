@@ -61,8 +61,11 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 ### **WORK IN PROGRESS**
 
+- #74 Fixed Starttime
+- #71 Name of Echo in data tree
+- #75 Percent from 0% to 100%
 - Breaking change: minimal supported node.js version is 16.x
-- Another String Variation #58
+- #58 Another String Variation
 
 ### 0.2.0 (2023-07-27)
 

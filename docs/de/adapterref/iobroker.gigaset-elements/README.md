@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
+hash: 1oyVwCTbRtET9A4NHBQpmOTqee1TGRRmfusOyCqqJ6Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -26,23 +26,21 @@ Adapter für Gigaset Elements (https://gigaset.com/smart-home)
 - Gigaset Elements-System
 
 ## Installation
-Bis der Adapter Teil des stabilen Repositorys ist, können Sie die neueste Version installieren, indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter von npm aus installieren. Installieren Sie es nicht direkt von Github, da dies beim Start des Adapters zu einem Fehler führt („Startdatei kann nicht gefunden werden“).
+Sie können den Adapter aus dem Stable- oder Latest/Test-Repository installieren (indem Sie den Expertenmodus in ioBroker aktivieren und den Adapter aus npm installieren). Installieren Sie es nicht direkt von Github, da dies beim Start des Adapters zu einem Fehler führt („Startdatei kann nicht gefunden werden“).
 
 Erstellen Sie nach der Installation eine neue Instanz und konfigurieren Sie die Einstellungen:
 
 - Verbindungseinstellungen für den Zugriff auf die Gigaset Elements Cloud
     -   Email
     -   Passwort
-    - Authentifizierungsintervall, sollte 6 (Stunden) betragen
+    - Authentifizierungsintervall in Stunden, sollte 6 sein
 - Abfrageintervalle für verschiedene Bereiche
     - Ereignisse (z. B. Fenster/Tür öffnen/kippen/schließen) - Anzahl der Sekunden zwischen den Abfragen
     - Element-/Sensordaten (z. B. Temperatur, Luftfeuchtigkeit) - Anzahl der Minuten zwischen den Abfragen
-
-## Einschränkungen
-Der Adapter liest derzeit nur Daten und erlaubt keine Änderungen.
+    - Systemzustandsdaten (grün/orange/rot) - Anzahl der Minuten zwischen den Abfragen
 
 ### Unterstützte Elemente
-Bisher wurde der Adapter getestet bzw. es ist bekannt, dass er mit den folgenden Elementen funktioniert. Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
+Bisher wurde der Adapter mit den folgenden Elementen getestet bzw. es ist bekannt, dass er funktioniert. Testdaten sind über [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) verfügbar:
 
 | Elementtyp | Elementname | Getestet von |
 | ------------ | ----------------------- | --------------------------------------------------------------------- |
@@ -117,6 +115,23 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2023-11-21)
+
+-   (matthsc) bugfix
+
+### 0.4.2 (2023-11-20)
+
+-   (matthsc) downgrade typescript to fix integration tests
+
+### 0.4.1 (2023-11-20)
+
+-   (matthsc) add states for batterySaverMode, momentaryPowerMeasurement (plug), setPoint (thermostat)
+-   (matthsc) allow to change setPoint for thermostat (experimental/untested)
+-   (matthsc) allow to change intrusion mode
+-   (matthsc) allow to trigger user alarm
+-   (matthsc) add info.systemHealth state
+-   (matthsc/dependabot) dependency updates
+
 ### 0.4.0 (2023-10-15)
 
 -   (matthsc) add support for plugs

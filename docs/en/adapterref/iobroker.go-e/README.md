@@ -2,17 +2,17 @@
 # ioBroker.go-echarger
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.go-e.svg)](https://www.npmjs.com/package/iobroker.go-e)
-[!License](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
+![Apache 2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)](https://www.npmjs.com/package/iobroker.go-e)
 ![Number of Installations (latest)](http://iobroker.live/badges/go-e-installed.svg)
 ![Version of Installations (stable)](http://iobroker.live/badges/go-e-stable.svg)
-[![Dependency Status](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)](https://david-dm.org/MK-2001/iobroker.go-e)
 [![Known Vulnerabilities](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)](https://snyk.io/test/github/MK-2001/ioBroker.go-e)
 ![Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
 [![NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)](https://nodei.co/npm/iobroker.go-e/)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)](https://www.codacy.com/gh/MK-2001/ioBroker.go-e/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MK-2001/ioBroker.go-e&amp;utm_campaign=Badge_Grade)
 ![Alerts](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
 ![Code Quality](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
+
 # Usage of Sentry
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
@@ -51,7 +51,28 @@ https://go-e.co/support/
 
 ## Changelog
 
-[moved here](./docs/CHANGELOG.md)
+### 1.0.29
+* Bugfixes.
+
+### 1.0.27
+*Enabled foreign Object usage; Full Changelog online: https://github.com/MK-2001/ioBroker.go-e/blob/main/docs/CHANGELOG.md; Issue for Object not found.
+
+### 1.0.25
+* TempArray resize on FW 054 HW V2; Readme.Adaption; Dependency security updates; Added the options to consider acknowledged value changes of foreign adapters; Added choice of ack of foreign adapters (#125)\\n Minor bug for sentry; Error in tme object; Bug in Sentry. Added Catch.
+
+### 1.0.18
+* First adaption of V3 hardware from go-e; Added switch to disable writing of the temperatures array; write different amont of temperature sensors; Added addtional attributes to ast; Updated several FOSS libs
+
+### 1.0.15
+* Bug fixes
+
+### 1.0.10
+* Enabled new Version of hardware updates
+
+[Additional moved here](./CHANGELOG_OLD.md)
+
+## Translations
+The most of the translations are coming from https://translator-ui.iobroker.in feel free to contribute, if something went wrong during the translations.
 
 ## License
                                  Apache License
@@ -257,4 +278,4 @@ https://go-e.co/support/
    limitations under the License.
 
 ## Copyright
-Copyright (c) 2022 MK-2001 go-e@itinsi.de
+Copyright (c) 2023 MK-2001 go-e@itinsi.de

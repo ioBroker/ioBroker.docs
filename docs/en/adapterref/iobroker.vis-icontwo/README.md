@@ -60,6 +60,18 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 0.98.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS)
+
+### 0.97.3
+
+• Bugfix
+
+### 0.97.2
+
+• Bugfix
+
 ### 0.97.1
 
 • Bugfix

@@ -244,6 +244,9 @@ relation.
 -->
 
 ## Changelog
+### 2.0.24 (24.11.2023)
+* updated the adapter import schema for ETS 6.1.1
+
 ### 2.0.23 (11.10.2023)
 * corrected wrong GW Port after adapter upgrade
 * allow self-defined values for min and max

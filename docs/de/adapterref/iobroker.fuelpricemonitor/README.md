@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: PAhGk2e4mGMgZ6kczueNBhAEJKmsFVRugZUlzB60EQ0=
+hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
 ---
 ![Logo](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -25,16 +25,19 @@ Der Standardplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „Inst
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 16 oder höher
-* ioBroker-Host (JS-Controller) 4.0 oder höher
+* NodeJS 18 oder höher
+* ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
+### 0.4.0-alpha.0 (2023-11-28)
+* (HGlab01) Breaking changes
+    - Node 18.0 or higher
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Bump axios to 1.6.2
 
 ### 0.3.6 (2023-08-10)
 * (HGlab01) switch to Admin5 UI for configuration
@@ -50,15 +53,10 @@ Der Standardplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „Inst
 ### 0.3.3 (2022-12-22)
 * (HGlab01) Cheapest station now per fuel type (#445)
 
-### 0.3.2 (2022-12-16)
-* (HGlab01) Add feature to find cheapest stations over all locations (#365)
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.10
-* (HGlab01) Bump axios to 1.2.1
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

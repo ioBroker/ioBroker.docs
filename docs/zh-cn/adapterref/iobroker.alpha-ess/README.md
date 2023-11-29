@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
+hash: V5/rwT+Ahk9PA7qEJp1jzPFMLz+YUXI5sWCrFFlNqR8=
 ---
 ![标识](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -17,7 +17,7 @@ hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 ## IoBroker 的 alpha-ess 适配器
 该适配器登录到 [阿尔法ESS](https://www.alphaess.com/) 的 Web API 并检索您的 Alpha ESS 设备的信息。\ 根据您的 Alpha ESS 产品，可以获取设备的实时数据和配置数据。 API 返回哪些数据点取决于您的 Alpha ESS 设备。
 
-该适配器支持两个 API：内部 Alpha ESS Web API（Alpha ESS 可能随时更改该 API）和 Alpha ESS Open API（提供的功能较少，但是 Alpha ESS 设备的官方且有记录的 API）。
+该适配器支持两个 API：内部 Alpha ESS Web API（Alpha ESS 可能随时对其进行更改）和 Alpha ESS Open API（提供的功能较少，但它是 Alpha ESS 设备的官方且有记录的 API）。
 
 从1.0.0-alpha.5版本开始，每个状态的质量属性根据其状态进行设置：
 
@@ -59,11 +59,25 @@ hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 - **读取充电设置的间隔：** 单位：分钟。
 - **读取放电设置的时间间隔：** 单位：分钟。
 - **读取摘要数据的时间间隔：** 单位：分钟。
+- **读取墙盒数据的时间间隔：** 单位：分钟。注意：目前仅支持一个 Wallbox。
 
 ## 免责声明
 **所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！这个个人项目是在业余时间维护的，没有商业目标。**
 
 ## Changelog
+
+### 1.3.0 (2023-11-22)
+
+-   (Gaspode) Support wallbox with Open API
+-   (Gaspode) Start and stop charging of wallbox with Open API
+
+### 1.2.1 (2023-11-11)
+
+-   (Gaspode) Fixed severe error in ClosedAPI
+
+### 1.2.0 (2023-11-10)
+
+-   (Gaspode) Added additional realtime attributes for OpenAPI
 
 ### 1.1.1 (2023-11-04)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weather-warnings/README.md
 title: ioBroker.weather-warnings
-hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
+hash: yJIs/0h53Ul0pFadLx7sOtFyx92lZmKyFLbAaT12Vhs=
 ---
 ![Logo](../../../en/adapterref/iobroker.weather-warnings/admin/weather-warnings.png)
 
@@ -15,7 +15,7 @@ hash: 7lA4mLxrLp/mMo9hDqi+SM77ftsiIj7VPEI+4dpX5C8=
 ![Paypal-Spende](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 
 # IoBroker.weather-warnings
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/weather-warnings/287x66-grey.png)](https://weblate.iobroker.net/projects/adapters/weather-warnings/)
 
 **Tests:** [![Test und Veröffentlichung](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml/badge.svg?event=push)](https://github.com/ticaki/ioBroker.weather-warnings/actions/workflows/test-and-release.yml)
 
@@ -49,7 +49,7 @@ Mindest. Nodejs: v18 Nach der Installation wird die Konfigurationsseite automati
 - **Telegramm/Pushover aktivieren,...:** die Ausgabe von Nachrichten an diese installierten Adapter aktivieren.
 - **E-Mail aktivieren:** Schreibt alle aktuellen Warnungen in eine E-Mail.
 - **Historie aktivieren:** schreibt die Historie, die bis zu 500 Einträge enthalten kann, in den Status: .history. Alle Daten oder ausgewählte Daten.
-- **JSON-Array aktivieren:** ganz speziell, legt die aktuellen Warnungen in ein Array oder – nach der Aktivierung – ein benutzerspezifisches Json in ein Array, das von Skripten verwendet werden kann.
+- **JSON-Array aktivieren:** ganz speziell, legt die aktuellen Warnungen in ein Array oder – nach Aktivierung – ein benutzerspezifisches Json in ein Array, das von Skripten verwendet werden kann.
 
 - **Aktualisierungsintervall:** das Intervall des Datenabrufs in Minuten (Minimum: 5)
 
@@ -141,6 +141,44 @@ Iconseite: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ticaki) add cleartimeout, add axios timeout
+
+### 0.6.2 (2023-11-20)
+* (ticaki) Reduce zamg spam
+
+### 0.6.1 (2023-11-19)
+* (ticaki) Optimise: DWD City names, adminconfiguration, translations
+
+### 0.6.0 (2023-11-16)
+* (ticaki) Added: global alerts.
+* (ticaki) Changed: Token ...adverb - if no adverb, then day of the week.
+
+### 0.5.6 (2023-11-15)
+* (ticaki) Added: Select template for manual notification without warnings.
+* (ticaki) Added: Configuration dialogue marks invalid template keys for most notification services.
+
+### 0.5.5 (2023-11-14)
+* (ticaki) Added: Missing space in emailMessage template.
+* (ticaki) Fixed: wrong status for all removed.
+* (ticaki) Admin: moving test options to tab general.
+
+### 0.5.4 (2023-11-10)
+* (ticaki) Fixed: Fixed randomly occurring errors in the first approx. 15 seconds.
+* (ticaki) Added: max number of warnings (default 5)
+* (ticaki) Fixed: not crash with the wrong uwz configuration.
+* (ticaki) Fixed: small error in quiet times.
+
+### 0.5.3 (2023-11-09)
+* (ticaki) Fixed: command states (text / automode)
+* (ticaki) Added: .alerts. List of warning types.
+* (ticaki) Changed: .alerts. view current event with highest level or next event
+
+### 0.5.2 (2023-11-06)
+* (ticaki) Multiple Say-It instances.
+* (ticaki) Some icons added.
+* (ticaki) -no warning- Warning level for uwz corrected.
+
 ### 0.5.1 (2023-11-05)
 * (ticaki) Fixed: Foreign languages did not work for UWZ.
 * (ticaki) Fixed: clearHistory command didnt work on gloabl level.

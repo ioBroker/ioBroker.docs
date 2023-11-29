@@ -725,7 +725,7 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2023-11-06)
 * (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
 * (PeterVoronov ) Extended and improved the returned list of processed messages.
 

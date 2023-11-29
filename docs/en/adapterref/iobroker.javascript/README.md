@@ -1087,6 +1087,7 @@ Same as `createAlias`, but the promise will be returned.
 ### sendTo
 ```js
 sendTo(adapter, command, message, callback);
+sendTo(adapter, command, message, options, callback);
 ```
 
 Send a message to a specific or all adapter instances. When using the adapter name, the message is sent to all instances.
@@ -1096,7 +1097,7 @@ To get specific information about messages, you must read the documentation for 
 Example:
 
 ```js
-sendTo('telegram', {user: 'UserName', text: 'Test message'});
+sendTo('telegram', {user: 'UserName', text: 'Test message'}, {timeout: 2000});
 ```
 
 Some adapters also support responses to the sent messages. (e.g. history, sql, telegram)
@@ -1105,14 +1106,17 @@ The response is only returned to the callback if the message is sent to a specif
 Example with response:
 
 ```js
-sendTo('telegram.0', {user: 'UserName', text: 'Test message'}, function (res) {
+sendTo('telegram.0', {user: 'UserName', text: 'Test message'}, (res) => {
     console.log('Sent to ' + res + ' users');
 });
 ```
 
+*Default timeout is 20000 milliseconds (if a callback function has been defined)*
+
 ### sendToAsync
 ```js
 await sendToAsync(adapter, command, message);
+await sendToAsync(adapter, command, message, options);
 ```
 Same as sendTo, but with `promise`.
 
@@ -1843,8 +1847,13 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+NodeJS 16.x is required
+
 * (klein0r) Added function to format time difference `formatTimeDiff`
 * (klein0r) Added blockly blocks for `formatTimeDiff`
+* (klein0r) messageToAsync was not working without options
+* (klein0r) Added timeout and custom options for sendToAsync
+* (klein0r) Fixed valid switch statement expressions
 
 ### 7.1.6 (2023-10-24)
 * (bluefox) Fixed pushover rules block

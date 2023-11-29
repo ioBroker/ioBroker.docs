@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
+hash: zCuOVaOVLnqaezaAMxufi8xS9i0JGB/PPN63D+mcxYk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -21,6 +21,11 @@ hash: LtNaOuu3zVDV/o1KnsP3mWYriUCzR15W9DxvTf/VsCk=
 
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
+## Требует
+* NodeJS 18 или выше
+* Хост ioBroker (js-контроллер) 5.0 или выше
+
+## Как это использовать
 Клиент MQTT может выглядеть так
 
 ```
@@ -91,8 +96,8 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.0.9-alpha.0 (2023-10-22)
-* (HGlab01) Update dependencies
+### 0.1.0-alpha.0 (2023-11-29)
+* (HGlab01) first minor release
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
@@ -113,7 +118,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

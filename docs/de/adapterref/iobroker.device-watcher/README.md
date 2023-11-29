@@ -9,7 +9,7 @@ BADGE-GitHub issues: https://img.shields.io/github/issues/ciddi89/ioBroker.devic
 BADGE-NPM version: https://img.shields.io/npm/v/iobroker.device-watcher.svg
 BADGE-Current version in stable repository: https://iobroker.live/badges/device-watcher-stable.svg
 BADGE-Number of Installations: https://iobroker.live/badges/device-watcher-installed.svg
-BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerabilities/github/ciddi89/ioBroker.device-watcher
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device-watcher/badge.svg
 ---
 ![Logo](../../admin/device-watcher.png)
 
@@ -28,6 +28,23 @@ BADGE-Snyk Vulnerabilities for GitHub Repo: https://img.shields.io/snyk/vulnerab
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.9.8 (2023-11-26)
+
+-   (ciddi89) Fixed: Added additional check for instance states [#262](https://github.com/ciddi89/ioBroker.device-watcher/issues/262)
+-   (ciddi89) Fixed: Execute adapter even if no device adapter is selected
+
+### 2.9.7 (2023-11-23)
+
+-   (ciddi89) Added: Support for Wifilight
+-   (ciddi89) Fixed: Multiple messages if Sonoff devices reachable [#244](https://github.com/ciddi89/ioBroker.device-watcher/issues/244)
+
+### 2.9.6 (2023-11-12)
+
+-   (ciddi89) Fixed: Admin jsonConfig schema
+-   (ciddi89) Changed: Admin jsonConfig to json5
+-   (ciddi89) Added: Support for Tuya devices with online state
+-   (ciddi89) Other: cleaned up files
+
 ### 2.9.5 (2023-11-03)
 
 -   (ciddi89) Added: if available use deviceName datapoint for sonoff devices

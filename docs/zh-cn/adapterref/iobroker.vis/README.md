@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: 可视化
-hash: FXqbQUH6a3Kg+/ZYK+8uS6HA6FaYdSNGpXMlIMeJh5Y=
+hash: hyk2is8CltwN54o8devI0fHbnhr3fgj4ePi+Rtoa0nY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -53,6 +53,7 @@ Patten 具有以下格式：
 - `pow` - 2 的幂。
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` - 用于获取 json 或对象属性的操作。例如，“{id;json(common.name.en)}”
 - `random(R)` - Math.random() * R，或者如果没有参数则只是 Math.random()
 - `formatValue(decimals)` - 根据系统设置格式化值并使用小数
 - `date(format)` - 将值格式化为日期。格式如下：`YYYY-MM-DD hh:mm:ss.sss`
@@ -167,7 +168,7 @@ Vis 创建了 3 个变量：
 - `control.data`：项目和视图名称，格式为`project/view`，例如`main/view` （和 `ack=true`）
 - `control.command`: `changedView` 和 `ack=true`
 
-您可以将 JSON 字符串或对象写入 `control.command` 作为`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
+您可以将 JSON 字符串或对象写入 `control.command`，如`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
 JavaScript 适配器示例：
 
@@ -207,6 +208,15 @@ setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data"
 ### **正在进行中** -->
 
 ## Changelog
+### 1.5.4 (2023-11-29)
+* (agav99) added the new binding operation for getting property of JSON or object
+* (agav99) Checked the initialization of the `local_` variables
+* (agav99) fixed subscribeOidAtRuntime
+* (stephanritscher) Added dynamic web manifest
+* (agav99) Optimization for basic-view in widget8
+* (oweitman) Changed binding regex to accept umlauts
+* (mcm1957) Corrected first installation of vis
+
 ### 1.5.1 (2023-11-06)
 * (bluefox) Changed License: it is now MIT, and the license check was removed
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: VJezKzQm0NVAzd4h+qpCrTmTeJG5qPGNfNUs87AWI8g=
+hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
 ---
 # IoBroker.tado
 
@@ -46,20 +46,31 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Горизонтальное качание (только устройства переменного тока с V3 и более ранними версиями) |
 
 ## Требует
-* NodeJS 16 или выше
-* Хост ioBroker (js-контроллер) 4.0 или выше
+* Узел 18 или выше
+* Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.12-alpha.0 (2023-10-13)
+### 0.5.0 (2023-11-25)
+* (HGlab01) Breaking changes
+    - Node 18.0 or higher
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) fix jsonConf validation issue
+* (HGlab01) Bump axios to 1.6.2
+* (HGlab01) update contact data
+
+### 0.4.12 (2023-11-14)
 * (HGlab01) switch finaly to Admin5 UI
+* (HGlab01) Improve REST-call handling
+* (HGlab01) Bump axios to 1.6.1
 
 ### 0.4.11 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14
 * (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
+* (HGlab01) Bump axios to 1.5.1
 
 ### 0.4.10 (2023-09-26)
 * (HGlab01) Add attribute 'isBalanceHpEligible'
@@ -69,14 +80,10 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
 * (HGlab01) Add attribute 'zonesCount'
 * (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
 
-### 0.4.8 (2023-05-12)
-* (HGlab01) Add attribute 'isHeatSourceInstalled'
-* (HGlab01) Bump axios to 1.4.0
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 & DutchmanNL <rdrozda@hotmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

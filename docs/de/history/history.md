@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 54ScqoFUJKAbvXZjLqK7AXUhLbUSVshc8+4T2q14xcg=
+hash: I31QMpvoc6aSyz/WrBW3eLAYwoRFeX0yQz7au3ldeio=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -64,7 +64,7 @@ Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 ## Admin (01.09.2023)
 Kontextmenü:
 
-- z. B. einfache Erstellung von Aliasnamen
+- z. B. einfache Erstellung von Aliasen
 
   ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
 
@@ -223,5 +223,36 @@ https://github.com/disaster123/ioBroker.signifylights
 
 Signify Lights-Adapter für alle Arten von Signify WLAN-Leuchten wie WIZ, Philips WLAN und viele mehr ...
 
+## Esphome (01.11.2023) – neue Funktion
+In einer bedeutenden Entwicklung für Heimautomatisierungsbegeisterte wurde in der ESPHome-Dokumentation die Integration von ioBroker mit seiner nativen API offiziell bestätigt.
+Dieses Update folgt der Annahme einer aktuellen PR, die ioBroker neben Home Assistant als eines der exklusiven Hausautomationssysteme platziert, das die native API von ESPHome für die direkte Kundenkommunikation nutzt.
+
+Die native API, die für ihr hochoptimiertes Netzwerkprotokoll bekannt ist, bietet zahlreiche Vorteile gegenüber herkömmlichen MQTT-Methoden und optimiert die Art und Weise, wie intelligente Geräte innerhalb des Ökosystems interagieren.
+Mit dieser Anerkennung bekräftigt ESPHome sein Engagement für die Bereitstellung effizienter und robuster Kommunikationskanäle für die Smart-Home-Branche.
+
 ## Vis (06.11.2023) – neue Funktion
 Die Lizenz von vis wurde in MIT geändert. Dies bedeutet, dass Sie vis in kommerziellen Projekten kostenlos nutzen können und keine Lizenz erforderlich ist.
+
+## Willkommen (07.11.2023) – neues Feature
+Möglichkeit hinzugefügt, benutzerdefinierte Links zur Willkommensseite hinzuzufügen. Die Seiten werden überprüft, ob sie aktiv sind.
+
+<img src="media/2023_11_07_welcome.png" width="500" />
+
+## Echarts (08.11.2023) – neue Funktion
+Vis-2-Widget wurde hinzugefügt. Zusätzlich zu den Voreinstellungen können Sie jetzt die Objekt-ID direkt mit Verlaufsdaten verwenden.
+
+<img src="media/2023_11_08_echarts.png" width="500" />
+
+## Renacidc (17.11.2023) – neuer Adapter
+https://github.com/raschy/ioBroker.renacidc
+
+<img src="https://raw.githubusercontent.com/raschy/ioBroker.renacidc/main/admin/renacidc.png" width="100" height="100" />
+
+Auslesen der Daten von Renacpower-Solarwechselrichtern
+
+##Wetterwarnungen (24.11.2023) – neuer Adapter
+https://github.com/ticaki/ioBroker.weather-warnings
+
+<img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
+
+Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachrichten aus. Darüber hinaus werden nach Typ gruppierte Zustände erstellt, mit denen auf aktuelle Warnungen reagiert werden kann.

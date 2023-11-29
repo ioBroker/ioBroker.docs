@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.esphome/README.md
 title: ioBroker.esphome
-hash: brop47b6AkIPnnPCn7pqlRZ51YIu/FdYQHtS4QKGH4g=
+hash: 07pFCIwvtGrFbqBigflfpCMx99ExlivM9hpq5+wqxRw=
 ---
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.esphome.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.esphome.svg)
@@ -31,7 +31,9 @@ Native Integration des von ESPHome verwalteten Geräts (einschließlich Dashboar
 Dieser Adapter nutzt die [esphome-native-api](https://github.com/Nafaya/esphome-native-api#readme) mit allen Dank an @Nafaya für die Interaktion mit der [ESPHome-API](https://esphome.io/components/api.html?highlight=api)!
 
 ## [Dokumentation](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
-Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokuseite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/)
+
+## [Dokumentation](https://DrozmotiX.github.io/linguals/en/Adapter/ESPHome/)
+Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokuseite](https://DrozmotiX.github.io/languages/en/Adapter/ESPHome/) -->
 
 ## Voraussetzungen
     * NodeJS >= 18.x
@@ -39,11 +41,61 @@ Unsere gesamte Adapterdokumentation finden Sie unter [Die DrozmotiX-Dokuseite](h
     * Für Admin-Registerkarten (optional)
         * Die ESPHome Dashboard-IP wird in den Instanzeinstellungen bereitgestellt
 
+## Verwenden des integrierten ESPHome-Dashboards
+Sie können entweder eine externe Installation von ESPHome (wie Docker) verwenden oder den in diesem Adapter enthaltenen ESPHome Dashboard-Prozess aktivieren.
+In jedem Fall ist es möglich, das Dashboard in die Admin-Oberfläche von ioBroker zu integrieren. Dazu müssen Sie die IP angeben, auf der das Dashboard ausgeführt wird
+
+![Logo](../../../en/adapterref/iobroker.esphome/admin/img/ESPhomeDashboardIP.png)
+
+> [!IMPORTANT] > Es ist derzeit nicht möglich, das in ioBroker integrierte ESPHome DashBoard anzuzeigen, wenn https aktiviert ist, siehe [#159](https://github.com/DrozmotiX/ioBroker.esphome/issues/159)
+
+## So verwenden Sie diesen Adapter
 ### API in YAML aktivieren
+> [!IMPORTANT] > ioBroker ESPHome ermöglicht die Integration von Geräten per Verschlüsselungsschlüssel (empfohlen) oder API-Passwort (alt), > Sie müssen Ihre Authentifizierungseinstellungen entsprechend angeben, > siehe [ESPHome-Dokumentation](https://esphome.io/components/api.html?highlight=api) > Bitte konfigurieren Sie nur den Verschlüsselungsschlüssel (vorzugsweise). ) oder API-Passwort (Legacy)
+
+#### Beispiel für einen Verschlüsselungsschlüssel-Konfigurationseintrag
+```
+api:
+  encryption:
+    key: "DyDfEgDzmA9GlK6ZuLkj3qgFcjXiZUzUf4chnIcjQto="
+```
+
+#### Beispiel-API-Konfigurationseintrag
 ```
 api:
   password: 'MyPassword'
 ```
+
+### ESPHome-Geräte zu ioBroker hinzufügen/ändern/entfernen
+> [!IMPORTANT] > Dieser Adapter integriert die Kommunikation mit ESPHome-fähigen Geräten und > (falls aktiviert) eine integrierte Version des ESPHome Dashboards.
+> Sie müssen Ihre ESP-Konfiguration selbst konfigurieren und hochladen, > entweder über das integrierte Dashboard oder eine externe Alternative > (wie Docker), bevor sie in ioBroker integriert werden können
+
+Auf der Registerkarte „Geräte“ werden alle derzeit bekannten Geräte angezeigt. Sie können entweder warten, bis die Geräte automatisch erkannt werden (derzeit deaktiviert, siehe Nr. 175) oder sie manuell hinzufügen, indem Sie ihre IP-Adresse und Anmeldeinformationen angeben
+
+![Registerkarte „Geräte“.](../../../en/adapterref/iobroker.esphome/admin/img/deviceTabEmpty.png)
+
+> [!NOTE] > Schaltflächen zum Hinzufügen/Ändern/Entfernen von Geräten und zum Laden der Gerätetabelle sind nur verfügbar, wenn der Adapter ausgeführt wird! > Sie müssen die Gerätetabelle manuell aktualisieren, indem Sie auf „Geräteübersicht aktualisieren“ klicken. Alle Geräte und deren Verbindungsstatus werden angezeigt
+
+Bitte geben Sie die IP-Adresse ein (wenn ein Gerät bereits bekannt ist, können Sie es aus der Dropdown-Liste auswählen) und wählen Sie die entsprechenden Aktionen aus:
+
+- Geräte hinzufügen/ändern
+  - Sendet IP-Adresse und Anmeldeinformationen an das Backend und versucht, eine Verbindung herzustellen
+  - Wenn ein Verschlüsselungsschlüssel bereitgestellt wird, wird das API-Passwort ignoriert. Bitte stellen Sie sicher, dass die YAML-Konfiguration korrekt ist!
+
+- Gerät löschen
+  – Sendet eine Nachricht an das Backend, um dieses Gerät zu entfernen
+
+> [!WARNING] > Diese Aktion entfernt ein ausgewähltes Gerät und alle damit verbundenen Zustände aus ioBroker!
+
+> [!NOTE] > Nachdem ein Gerät hinzugefügt wurde, wird bei Erfolg oder Fehler eine Meldung angezeigt. > Sie können die Tabelle aktualisieren, um aktuelle Geräte und ihren Verbindungsstatus anzuzeigen
+
+![Gerätefehler](admin/img/connectionIssue.png) ![GeräteOK](../../../en/adapterref/iobroker.esphome/admin/img/connectionOK.png)
+
+Wenn die Verbindung erfolgreich war, wird das Gerät initiiert und alle zugehörigen Zustände erstellt, um seine Attribute zu steuern.
+Wenn Sie Änderungen an Ihrer YAML-Konfiguration vornehmen, wird durch einen Neustart des ESP die Verbindung getrennt und eine neue Verbindung hergestellt.
+Während dieses Vorgangs werden Status, die nicht mehr Teil der YAML-Konfiguration sind, automatisch entfernt.
+
+![GeräteOK](../../../en/adapterref/iobroker.esphome/admin/img/deviceTree.png)
 
 ### Beispielkonfiguration
 Beispielkonfiguration, weitere Beispiele finden Sie unter [Die DrozmotiX-Dokumentationsseite](https://DrozmotiX.github.io) oder [ESPHome-Dokumentation](https://esphome.io/index.html)
@@ -95,30 +147,31 @@ Wenn Ihnen meine Arbeit gefällt, ziehen Sie bitte eine persönliche Spende in B
     ### __WORK IN PROGRESS__
     * (DutchmanNL) 
 -->
+### 0.5.0-beta.8 (2023-11-24)
+* (DutchmanNL) Capability to automatically detect new devices added
+* (DutchmanNL) Ensures a compatible pillow version is used (10.0.1)
+* (SimonFischer04) Add pillow python package by default, resolves #188
+
+### 0.5.0-beta.4 (2023-11-15)
+* (DutchmanNL) Refactor memory caching of device data, resolves #189
+
+### 0.5.0-beta.1 (2023-11-12)
+* (DutchmanNL) Only show error messages once for unreachable devices
+
+### 0.5.0-beta.0 (2023-11-12) - Rebuild Admin Interface & Connection handler
+* (DutchmanNL) Admin interface redesigned to JSON-Config relates #171
+* (DutchmanNL) Backend massages implemented to Add/Modify/Delete devices
+* (DutchmanNL) Device connection handling and visibility of devices improved
+* (DutchmanNL) Auto device discovery temporary disabled due to external bug, relates #175
+* (DutchmanNL) Possibility added to exclude IP-Addresses from device discovery, relates #175
+* (DutchmanNL) Allow Selection to listen on specific interface or all for device discovery resolves #67
+* (DutchmanNL) State implemented to show current connection status (unreachable/disconnected/connected) to improve management of devices
+* (DutchmanNL) Several bugfixes, resolves #181 resolves #
+
 ### 0.4.1 (2023-11-05)
 * (DutchmanNL) Bugfix: Password / connection issues in previous beta resolves #179
 * (DutchmanNL) Bugfix: Allow individual API password or encryption keys for devices, resolves #174
 * (DutchmanNL) Support ESPHome device Encryption Key (you should migrate from API password to Encryption Key ! resolves #152)
-
-### 0.4.0 (2023-11-03)
-* (DutchmanNL) Added cleanup capability for unused channels & states after initialisation of device, resolves #39
-* (DutchmanNL) Added button to info channel which allows to delete all offline devices from adapter tree. resolves #39
-* (DutchmanNL) [Breaking] Backup strategy changed, requires [BackitUp v2.9.1](https://github.com/simatec/ioBroker.backitup) and activate option for ESPHome, fixes #129
-
-### 0.3.2 (2023-11-01)
-* (DutchmanNL) Improved error handling if devices are not reachable/disconnected
-* (DutchmanNL) Bugfix: Allow control of brightness and color for light component, resolves #173
-
-### 0.3.1 (2023-10-31)
-* (DutchmanNL) Bugfix: Show online state of ESP Device correctly, resolves #106
-
-### 0.3.0 (2023-10-31) - Bugfixes & Improvements
-* (Dutchman & SimonFischer04) Several Bugfixes
-* (SimonFischer04) Support type "select device"
-* (DutchmanNL) ESPHome dashboard default disabled
-* (SimonFischer04) Migrate to @2colors/esphome-native-api
-* (DutchmanNL) Automatically create needed directories, resolves #168
-* (SimonFischer04) Migrate usage of python to new structure, should solve all ESPHome Dashboard related installation issues
 
 ## License
 MIT License

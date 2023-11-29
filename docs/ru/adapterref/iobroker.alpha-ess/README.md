@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
+hash: V5/rwT+Ahk9PA7qEJp1jzPFMLz+YUXI5sWCrFFlNqR8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -59,11 +59,25 @@ hash: M6Pb96xs6fXW4YBZQe3uyrcsPXcBedj/6Y5T4mEyjMI=
 - **Интервал считывания настроек зарядки:** Единица измерения: минуты.
 - **Интервал считывания настроек разрядки:** Единица измерения: минуты.
 - **Интервал чтения сводных данных:** Единица измерения: минуты.
+- **Интервал чтения данных настенного ящика:** Единица измерения: минуты. Внимание: в настоящее время поддерживается только один Wallbox.
 
 ## Отказ от ответственности
 **Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения с их стороны или любых связанных с ними дочерних компаний! Этот личный проект ведется в свободное время и не имеет бизнес-целей.**
 
 ## Changelog
+
+### 1.3.0 (2023-11-22)
+
+-   (Gaspode) Support wallbox with Open API
+-   (Gaspode) Start and stop charging of wallbox with Open API
+
+### 1.2.1 (2023-11-11)
+
+-   (Gaspode) Fixed severe error in ClosedAPI
+
+### 1.2.0 (2023-11-10)
+
+-   (Gaspode) Added additional realtime attributes for OpenAPI
 
 ### 1.1.1 (2023-11-04)
 

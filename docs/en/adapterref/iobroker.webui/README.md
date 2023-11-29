@@ -129,14 +129,59 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.17.0 (2023-11-29)
+- remove 2 uneeded files
+- designer update
+
+### 0.16.6 (2023-11-28)
+- check for invalid propertynames
+- move properties
+
+### 0.16.5 (2023-11-27)
+- copy screen and custom controls
+
+### 0.16.4 (2023-11-27)
+- fix usage of webui in windows
+
+### 0.16.3 (2023-11-24)
+- extra style for font declarations, they are not allowed in shadow dom
+
+### 0.16.2 (2023-11-23)
+- fix remove script command
+
+### 0.16.1 (2023-11-23)
+- additional file dnd
+
+### 0.16.0 (2023-11-23)
+- add additional files node and upload
+
+### 0.15.1 (2023-11-22)
+- export as xml (screens & controls)
+- binding historic with reload
+- fix dialog
+
+### 0.15.0 (2023-11-19)
+- uncloseable dialog 
+- css properties for dialog
+- binding to historic data
+
+### 0.14.1 (2023-11-12)
+- dialog centered
+
+### 0.14.0 (2023-11-12)
+- add simple dialog
+
+### 0.13.1 (2023-11-11)
+- two way bindings with expressions
+
+### 0.13.0 (2023-11-09)
 - fix upercase screen names in runtime
 - raster in designer is now adjustable
 - copy object nodes now copies complete string
 - context menu to directly edit custom element
-TODO: fix handler path in script
-TODO: uiChangedView
-TODO: error when importing invalid file (for example html instead of json)
+- fix handler path in script
+- uiChangedView now workin
+- error when importing invalid file (for example html instead of json)
 
 ### 0.12.3 (2023-09-20)
 - after eval removal, functions need a return

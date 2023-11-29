@@ -44,6 +44,12 @@ Ideally, please use GitHub issues for this, with the best method achieved by set
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-11-12)
+-   (mcm1957) Adapter requires nodejs 18 now.
+-   (mcm1957) Incorrect energy units have been corrected. [#113]
+-   (mcm1957) New internal information returned by api is no longer reported as unknown. [#110]
+-   (mcm1957) Dependencies have been updated.
+
 ### 1.0.2 (2023-03-31)
 
 -   (mcm1957) changed: Handling of statuscode '2' has been added (#44).

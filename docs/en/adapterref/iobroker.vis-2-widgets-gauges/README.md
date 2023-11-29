@@ -21,6 +21,9 @@
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.2.2 (2023-11-10)
+* (bluefox) update packages
+
 ### 0.2.0 (2023-07-28)
 * (bluefox) Changed layout of widgets
 * (bluefox) Added text color settings to water widget

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.deconz/README.md
 title: kein Titel
-hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
+hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
 ---
 ![Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
@@ -16,24 +16,24 @@ ioBroker deConz dresden-elektronik Adapter
 
 ==============
 
-## Notiz
-Kein Support für Beta-Versionen von deConz
+## Beachten
+Keine Unterstützung für Beta-Versionen von deConz
 
-Erforderliche JS-Controller-Version >2.x.x, Erforderliche node.js >= 10.x.x
+Erforderliche js-Controller-Version >2.x.x, erforderliche node.js >= 10.x.x
 
 ## Englisch
-Verbindet sich mit der von dresden-elektronik entwickelten deConz-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein, die Hardware von dresden-elektronik, den ConBee-USB-Stick und RaspBee, ein Modul für den Raspberry Pi, verwendet.
+Verbindet sich mit der von dresden-elektronik entwickelten deConz-Software. Diese Software zielt darauf ab, eine universelle ZigBee-Gateway-Lösung zu sein, die Hardware von dresden-elektronik, den ConBee-USB-Stick, und RaspBee, ein Modul für den Raspberry Pi, verwendet.
 
-Sie müssen zuerst auf deConz verlinken.
+Sie müssen zunächst auf deConz verlinken.
 
 1. a) Geben Sie die IP-Adresse für deConz ein
 
-    b) Portnummer eingeben, Standard ist 80.
+    b) Geben Sie den Standard-Bridge-Port: 80 und den Standard-Websocket: 443 ein
 
-2. Nachdem die IP-Adresse und der Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „Create API Key“. Jetzt können Sie die Zugangsdaten für deConz eingeben oder zur Phoscon APP gehen und ioBroker als Drittanbieter-APP registrieren.
+2. Nachdem IP-Adresse und Port eingegeben und gespeichert wurden, klicken Sie auf die Schaltfläche „API-Schlüssel erstellen“. Jetzt können Sie die Zugangsdaten für deConz eingeben oder zur Phoscon APP gehen und ioBroker als Drittanbieter-APP registrieren.
 
 #### Senden Sie mehr als einen Befehl gleichzeitig
-Zu diesem Zweck gibt es ein Objekt namens "Aktion".
+Zu diesem Zweck gibt es ein Objekt namens „Aktion“.
 
 Beispiele:
 
@@ -47,6 +47,18 @@ Beispiele:
 ## [Sponsoren](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.23 (2023-11-05)
+* fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
+* added possibility to change the port for websocket connection
+* updated/added translations
+* (grizzelbee) Fix: Re-enabled window covers
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) New: Added ukrainian translation
+
+### 1.3.21 (2022-05-13)
+* added schedule to object definition
+* changed limit for duration to 999999
 
 ### 1.3.20 (2022-02-26)
 * (withstu) add retry if gateway is busy
@@ -159,7 +171,6 @@ Beispiele:
 * (mobilutz) remove ip overwrite
 * (njeisecke) add transitiontime for bri_inc (dim step)
 
-
 ### 1.2.3
 * fix expire time for alive 
 * add object for open zigbee network to add new devices without admin config
@@ -197,14 +208,11 @@ Beispiele:
 *  (asgothian) added object "buttonpressd"
 *  some fixes
 
-
 ### 1.0.2
 * fix set bri for groups
 
-
 ### 1.0.1
 * small fixes
-
 
 ### 1.0.0
 *  (thewhobox) skip helper groups
@@ -218,7 +226,6 @@ Beispiele:
 *  (jey-cee) new possible to change duration (if the device accept it)
 *  (jey-cee) get API key with credentials
 
-
 ### 0.4.0
 * (asgothian) Fix for hue change
 * (halloamt)  Added support for dimming lights and groups
@@ -227,11 +234,9 @@ Beispiele:
 ### 0.3.1
 * Fixing hue from range 0-65535 to 0-360
 
-
 ### 0.3.0
 * Added scene support
 *  Drop nodejs 4 support
-
 
 ### 0.2.5
 * Fix/Change handling create objects during running Adapter
@@ -293,4 +298,4 @@ Beispiele:
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2023 Jey Cee jey-cee@live.com

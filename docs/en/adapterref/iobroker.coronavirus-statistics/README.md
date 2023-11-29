@@ -39,8 +39,8 @@ The following information is available :
 | test | Total number of COVID-19 tests taken globally |
 | tests per one  million counties | Total number of COVID-19 tests taken globally per one  million |
 
-Please be aware this adapter uses as much as possible up-to-date information but there can be a delay of several hours depending on the country's report.  
-German Federal States : https://npgeo-corona-npgeo-de.hub.arcgis.com/  s
+Please be aware this adapter uses as much as possible up-to-date information, but there can be a delay of several hours depending on the country's report.  
+```German Federal States : https://npgeo-corona-npgeo-de.hub.arcgis.com/  s```
 Generic Source : https://coronavirus-19-api.herokuapp.com
 
 ## Advanced settings
@@ -50,50 +50,18 @@ Generic Source : https://coronavirus-19-api.herokuapp.com
 | Continents | Group total amounts by a continent in separate state (Default: false) |
 | Delete unused States | Delete data when countries are deselected (Default: false) |
 
-## For Germany only
-| Option | Description |
-|--|--|
-| Federal states| Get federal state data for Germany (Selected only, Default false) |
-| counties | Get data for Germany counties (Selected only, Default false) |
-| Cities | Get data for Germany cities (Selected only, Default false) |
-| All federal states | All Germany federal states  (Default false) |
-| All cities | All Germany cities (Default false) |
-| All counties | All Germany counties (Default false) |
-
-It's possible to get data for federal states (Bundesländer), cities (Städte) counties (Landeskreise).
-You can choose to receive all data or just select specific regions in advanced settings.
-
-<span style="color:red">Vaccination data is currently only available for Germany and will only be retrieved when *"Bundesländer"* is activated</span>
-
-## Add missing countries
-It may happen that countries are not recognized correctly because the API delivers some country names not ISO conform. In such a case you will get a warning message in the log, which looks like this
-
-```
-coronavirus-statistics.0	2020-03-21 09:05:31.328	warn	(22937) Timor-Leste not found in lib! Must be added to the country name translator.
-```
-
-Using the datapoint `coronavirus-statistics.0.countryTranslator` you can assign a country yourself. Look for the name of the corresponding country here:
-
-[List with country names](https://github.com/i-rocky/country-list-js/blob/master/data/names.json)
-
-With the selected country name you have to create a JSON string and enter it in the datapoint `coronavirus-statistics.0.countryTranslator`.
-The JSON string then looks like this, for example:
-
-```
-{
-	"Cabo_Verde": "Cape Verde",
-	"Timor-Leste": "East Timor"
-}
-```
-
-As first value, the name from the warning message must be taken from the log. The name of the country from the [List with country names](https://github.com/i-rocky/country-list-js/blob/master/data/names.json) is then assigned to this.
-
 ## Changelog
 
 <!--
 	### __WORK IN PROGRESS__
 	* (DutchmanNL) 
 -->
+### 0.9.0 (2023-11-16) - Remove unsupported APIs
+* (DutchmanNL) Remove specific data regarding germany as APIs are not available anymore
+* (DutchmanNL) Data source dedicated for https://coronavirus-19-api.herokuapp.com, we are unable to support more APIs due to changes, complexity and available development capacity. But please feel free to provide PR's!
+
+### 0.8.8-0 (2021-11-19)
+* (jlssmt) added hospital index for germany and federal states of germany
 
 ### 0.8.7 (2021-11-17)
 * (DutchmanNL) Bugfix: Added missing definitions
@@ -103,22 +71,12 @@ As first value, the name from the warning message must be taken from the log. Th
 * (Simatec) Design Fix for Admin >=5.1.28 Dark/Blue Theme
 
 ### 0.8.5 (2021-10-29)
-* (jlssmt) Error handling for bundesländer api implemented 
-
-### 0.8.4 (2021-10-26)
-* (DutchmanNL) Bugfix: New DNS entry for COVID api
-* (jlssmt) Hospital data for Germany added
-* (jlssmt) fix umlauts in hospital service
-* (jlssmt) extend api timer to fix 502 errors
-
-### 0.8.3 (2021-08-20)
-* (jlssmt) Code refactoring
-* (DutchmanNL) Bugfix: Unwanted deletion of data points for Germany solved 
+* (jlssmt) Error handling for bundesländer api implemented
 
 ## License
 MIT License
 
-Copyright (c) 2022 DrozmotiX Holding B.V. <OSS@DrozmotiX.eu>
+Copyright (c) 2023 DrozmotiX Holding B.V. <OSS@DrozmotiX.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

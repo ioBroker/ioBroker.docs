@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
+hash: 1oyVwCTbRtET9A4NHBQpmOTqee1TGRRmfusOyCqqJ6Y=
 ---
 ![标识](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -26,25 +26,23 @@ Gigaset Elements 适配器 (https://gigaset.com/smart-home)
 - Gigaset Elements系统
 
 ＃＃ 安装
-在适配器成为稳定存储库的一部分之前，您可以通过在 ioBroker 中启用专家模式来安装最新版本，并从 npm 安装适配器。不要直接从 Github 安装它，这将导致适配器启动时出现错误（“找不到启动文件”）。
+您可以从稳定或最新/测试存储库安装适配器（通过在 ioBroker 中启用专家模式并从 npm 安装适配器）。不要直接从 Github 安装它，这将导致适配器启动时出现错误（“找不到启动文件”）。
 
 安装后，创建一个新实例并配置设置：
 
 - 用于访问 Gigaset Elements 云的连接设置
     -   电子邮件
     -   密码
-    - 认证间隔，应为6（小时）
+    - 身份验证间隔以小时为单位，应为 6
 - 不同区域的轮询间隔
     - 事件（即窗/门打开/倾斜/关闭） - 轮询之间的秒数
     - 元件/传感器数据（即温度、湿度） - 轮询之间的分钟数
-
-## 限制
-该适配器当前仅读取数据，不允许更改任何内容。
+    - 系统运行状况数据（绿色/橙色/红色） - 轮询之间的分钟数
 
 ### 支持的元素
-到目前为止，该适配器已经过测试/已知可与以下元素配合使用，并且测试数据可通过[gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api)获得：
+到目前为止，该适配器已经过测试/已知可与以下元素配合使用，并且测试数据可通过 [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api) 获得：
 
-|元素类型|元素名称|测试者 |
+|元素类型 |元素名称 |测试者 |
 | ------------ | ----------------------- | --------------------------------------------------------------------- |
 |是01 |警报器|数学 |
 |嗯01 |通用/窗/门|数学 |
@@ -117,6 +115,23 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2023-11-21)
+
+-   (matthsc) bugfix
+
+### 0.4.2 (2023-11-20)
+
+-   (matthsc) downgrade typescript to fix integration tests
+
+### 0.4.1 (2023-11-20)
+
+-   (matthsc) add states for batterySaverMode, momentaryPowerMeasurement (plug), setPoint (thermostat)
+-   (matthsc) allow to change setPoint for thermostat (experimental/untested)
+-   (matthsc) allow to change intrusion mode
+-   (matthsc) allow to trigger user alarm
+-   (matthsc) add info.systemHealth state
+-   (matthsc/dependabot) dependency updates
+
 ### 0.4.0 (2023-10-15)
 
 -   (matthsc) add support for plugs

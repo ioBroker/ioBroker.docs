@@ -1,4 +1,4 @@
-﻿![Logo](admin/ebus.png)
+![Logo](admin/ebus.png)
 # ioBroker.ebus
 
 ![Number of Installations](http://iobroker.live/badges/ebus-installed.svg) ![Number of Installations](http://iobroker.live/badges/ebus-stable.svg)
@@ -30,7 +30,7 @@ There is a possibillity to poll data which are not polled by ebusd directly. Com
 
 Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-current supported ebusd-version: 22.3
+current supported ebusd-version: 23.2
 
 **Attention** with ebusd - version 22.1 config path has been changed to http://cfg.ebusd.eu/. Make sure you change it in your installation of ebusd.
 details see in [changelog](https://github.com/john30/ebusd/blob/master/ChangeLog.md)
@@ -55,6 +55,17 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
    
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.2.4 (2023-11-19)
+* (René) revert back to flat 5.x
+
+### 3.2.3 (2023-11-18)
+* (René) dependencies updated
+* (René) fix sentry reported exceptions
+
 ### 3.2.2 (2023-07-30)
 * (René) dependencies updated
 
@@ -64,7 +75,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 ### 3.2.0 (2023-02-11)
 * (René) **Attention** polled variables must be set as active in admin now
 * (René) search available variables per circuit added in admin
-* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree 
+* (René) DP "find" added to force read of all existing datapoints (Attention: might take a while) and update name in data point tree
 
 ### 3.1.1 (2023-01-31)
 * (René) support ebusd 23.1
@@ -74,7 +85,6 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) support ebusd 22.4
 * (René) see issue #77: Update data point when read-cmd is used
 * (René) see issue #78: remove CR, LF in answer from ebusd for DP ebus.0.cmdResult
-
 
 ### 3.0.7 (2022-08-20)
 * (René) support ebusd 22.3
@@ -113,57 +123,6 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) update flot to 4.2.2
 * (René) bug fix missing space in command when using circuit name
 
-## 2.4.3 (2021-10-21)
-* (René) see issue #58: bug fix for Warn: ignoring history value 1 (invalid)" when no history values set
-
-## 2.4.2 (2021-10-19)
-* (René) see issue #55: bug fix
-
-## 2.4.0 (2021-10-17)
-* (René) overwork handling of read datapoints and history datapoints, circuit added optionally
-* (René) command can now include more then one command, just separate commands with ','
-* (René) see issue #55: warnings changed to debug messages
-
-## 2.3.2 (2021-09-02)
-* (René) see issue #49: support for ebusd 21.2
-* (René) see issue #40: option to use boolean instead string for values with on/off
-* (René) dependencies updated
-
-## 2.2.7 (2021-07-03)
-* (René) dependencies updated
-* (René) see issue #48: bug fix for wrong data type logs
-
-## 2.2.5 (2021-03-21)
-* (René) dependencies updated
-
-## 2.2.4 (2021-02-17)
-* (René) see issue #42: Uncaught ReferenceError: oView is not defined in widget solved
-
-## 2.2.3 (2020-10-24)
-* (René) create history DP if not available 
-
-## 2.2.0 (2020-09-06)
-* (René) change DP only if necessary to reduce system load
-* (René) update dependencies
-
-## 2.1.1 (2020-06-27)
-* (René) issue #26: bug fix: "cmd not found" is only debug message instead of error
-
-## 2.1.0 (2020-06-17)
-* (René) refactoring:  'async/await' used
-
-## 2.0.0 (2020-04-26)
-* (René) "request" replaced by "bent"
-
-## 1.0.0 (2019-12-15)
-* (René) update to my own flot 3.0
-
-## 0.8.2 (2019-11-10)
-* (René) some more error messages in datapoint "error"
-
-## 0.8.1 (2019-10-31)
-* (René) update flot to version 3.0
-
 ### 0.8.0 (2019-02-24)
 * (René) hcmode2 value 5 = EVU Sperrzeit
 
@@ -192,13 +151,13 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 * (René) write date over TCP to ebusd
 
 ### 0.4.2
-* (René) bug fix for admin V3 
+* (René) bug fix for admin V3
 
 ### 0.4.1 
-* (René) logo changed 
+* (René) logo changed
 
 ### 0.4.0 
-* (René) reading data from ebusd 
+* (René) reading data from ebusd
 
 ### 0.3.0 
 * (René) support of ebusd 
@@ -239,6 +198,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-

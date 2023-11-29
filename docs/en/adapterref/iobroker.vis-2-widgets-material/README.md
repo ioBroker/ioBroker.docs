@@ -93,7 +93,18 @@ Additionally, you can show image or iframe with this widget too.
 ![Player](img/material-blinds-2.png)
 
 ### Color Lamp
-![RGB](img/material-rgb.png)
+With the RGB lamp widget, you can control different types of RGB lamps. Here are some examples:
+- RGB colors are set in one state like '#RRGGBB'
+- R/G/B colors are set in different states from 0 to 255
+- RGBW as one variable like '#RRGGBBWW'
+- R/G/B/W colors are set in different states from 0 to 255
+- hue/sat/lum as 3 different states
+- color temperature as one state from 2700 to 6500 or defined by min/max of the object
+- White mode state can be used to switch between RGB and white mode via special state
+
+![RGB Lamp 1](img/material-rgb-1.png)
+
+![RGB Lamp 2](img/material-rgb-2.png)
 
 ### Door lock
 ![Door lock](img/material-lock.png)
@@ -117,6 +128,20 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### 1.3.11 (2023-11-17)
+* (bluefox) Allowed opening/closing dialogs of some widgets by command
+
+### 1.3.9 (2023-11-10)
+* (bluefox) updated packages
+
+### 1.3.8 (2023-11-08)
+* (bluefox) Corrected RGB widget if minimal is equal with maximal
+
+### 1.3.5 (2023-11-06)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added option for RGB widget to hide brightness control
+* (bluefox) Added option for white mode in RGB widget
+
 ### 1.3.3 (2023-10-26)
 * (bluefox) Corrected layout of RGB widget
 * (bluefox) Added color settings to actual

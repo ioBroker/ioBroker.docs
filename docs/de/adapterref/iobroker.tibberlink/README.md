@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: LT/LhbUF0XVZzj2ztND+GmoRHWjQULtqliGgbKeB0qc=
+hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -39,6 +39,7 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
 - Geben Sie in den Standardeinstellungen Ihr Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
 - Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten. Mit diesem Schritt können Ihre Häuser vom Tibber-Server abgefragt werden.
 - Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie Echtzeitdaten mit Ihrem Tibber Pulse abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
+- Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie eines oder mehrere dieser Intervalle deaktivieren.
 - Speichern Sie die Einstellungen.
 
 ## Rechnerkonfiguration
@@ -46,31 +47,88 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
 - Der Rechner arbeitet mit Kanälen, wobei jeder Kanal mit einem ausgewählten Haus verknüpft ist.
 - Diese Kanäle können basierend auf entsprechenden Zuständen aktiviert oder deaktiviert werden.
 – Diese Zustände dienen als externe, dynamische Eingaben für TibberLink und ermöglichen Ihnen beispielsweise die Anpassung der Grenzkosten („TriggerPrice“) aus einer externen Quelle oder die Deaktivierung des Rechnerkanals („Active“).
-- Die Zustände eines Rechnerkanals werden neben den Heimatzuständen positioniert und entsprechend der Kanalnummer benannt.
+- Die Zustände eines Rechnerkanals werden neben den Heimatzuständen positioniert und entsprechend der Kanalnummer benannt. Hiermit wird der im Admin-Bildschirm gewählte Kanalname angezeigt, um Ihre Konfigurationen besser identifizieren zu können.
 
-    ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/admin/calculatorStates.png)
+    ![Rechnerzustände](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
 - Das Verhalten jedes Kanals wird durch seinen Typ bestimmt: „Bester Preis“, „Beste Einzelstunden“ oder „Bester Stundenblock“.
 - Jeder Kanal füllt einen externen Zustand als Ausgang, der im Reiter „Einstellungen“ ausgewählt werden muss. Dieser Status könnte beispielsweise „0_userdata.0.example_state“ oder ein anderer beschreibbarer externer Status sein.
 - Die in den Ausgabezustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z. B. „wahr“ für boolesche Zustände oder eine zu schreibende Zahl oder ein zu schreibender Text.
 - Ausgänge:
-    - „Beste Kosten“: Verwendet den Status „TriggerPrice“ als Eingabe und die Ausgabe ist „JA“ jede Stunde, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
-    - „Beste Einzelstunden“: Die Ausgabe erfolgt mit „JA“ während der günstigsten Stundenanzahl, wobei die Anzahl im Status „AmountHours“ definiert ist.
-    - „Bester Stundenblock“: Die Ausgabe ist „JA“ während des besten Stundenblocks, wobei die Anzahl der Stunden im Status „AmountHours“ definiert ist.
+    - „Beste Kosten“: Verwendet den Status „TriggerPrice“ als Eingabe und erzeugt jede Stunde eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
+    - „Beste einzelne Stunden“: Erzeugt eine „JA“-Ausgabe während der günstigsten Stunden, wobei die im Status „AmountHours“ definierte Anzahl angegeben wird.
+    - „Bester Stundenblock“: Gibt „JA“ während des kostengünstigsten Stundenblocks aus, mit der im Status „AmountHours“ angegebenen Stundenanzahl.
+    - „Best cost LTF“: „Best cost“ innerhalb eines begrenzten Zeitrahmens (LTF).
+    - „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
+    - „Beste Stunden Block LTF“: „Beste Stunden Block“ innerhalb eines begrenzten Zeitrahmens (LTF).
+- LTF-Kanäle: Funktionieren ähnlich wie Standardkanäle, arbeiten jedoch nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitrahmens. Nach „StopTime“ deaktiviert sich der Kanal. „StartTime“ und „StopTime“ können sich über mehrere Tage erstrecken. Die Bundesstaaten müssen mit einer Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit Zeitzonenversatz gefüllt sein, z. B.: „2023-11-17T21:00:00.000+01:00“.
+
+### Hinweis
+#### Umgekehrte Verwendung:
+Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Vertausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
+
+Achtung: Für einzelne Spitzenzeiten, wie im Beispiel, müssen Sie auch die Stundenzahl anpassen. Original: 5 -> Invers (24-5) = 19 -> Sie erhalten während der 5 Spitzenstunden ein echtes Ergebnis.
+
+#### LTF-Kanäle:
+Die Berechnung wird für „mehrtägige“ Daten durchgeführt. Da uns nur Informationen für „heute“ und „morgen“ vorliegen (verfügbar ab ca. 13:00 Uhr), ist der Zeitumfang effektiv auf maximal 35 Stunden begrenzt. Es ist jedoch wichtig, dieses Verhalten im Auge zu behalten, da sich das berechnete Ergebnis gegen 13:00 Uhr ändern kann/wird, wenn neue Daten für die morgigen Preise verfügbar werden.
+
+Um diese dynamische Änderung des Zeitrahmens für einen Standardkanal zu beobachten, können Sie sich für einen Limited Time Frame (LTF) entscheiden, der sich über mehrere Jahre erstreckt. Dies ist besonders nützlich für das Szenario „Beste einzelne Stunden LTF“.
 
 ## Anmerkungen
 Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Einzelheiten und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie in den [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Reporting wird ab js-controller 3.0 initiiert.
+
+## Spenden
+<a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a> Wenn Ihnen dieses Projekt gefallen hat – oder Sie sich einfach großzügig fühlen, denken Sie darüber nach, mir ein Bier zu spendieren. Prost! :Biere:
 
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.4.2 (2023-11-xx) WORK in PROGRESS
+### 1.7.0 (2023-11-xx) WORK in PROGRESS
+
+-   (HombachC) implement getting historical consumption data from Tibber Server (#163)
+-   (HombachC) fix error in adapter unload
+-   (HombachC) some code optimisations
+
+### 1.6.1 (2023-11-26)
+
+-   (HombachC) cleanup in documentation and translation handling
+
+### 1.6.0 (2023-11-26)
+
+-   (HombachC) fixed major bug in 1.5.0, not working calculator channels (#212)
+-   (HombachC) implement limit calculations to a time frame (#153)
+-   (HombachC) fix error of missing price data upon not working tibber server connect at adapter start (#204)
+-   (HombachC) fixed possible error with wrong price date in multi home systems
+-   (HombachC) fixed possible type error, notified by Sentry
+-   (HombachC) added some documentation for inverse use of channels (#202)
+-   (HombachC) added Sentry statistics
+-   (HombachC) optimize translation handling
+-   (HombachC) bump dependencies
+
+### 1.5.0 (2023-11-13)
+
+-   (HombachC) implement calculator channel names (#186)
+-   (HombachC) fix error in cron jobs (#190)
+-   (HombachC) remove not used calculator channel state objects (#188)
+-   (HombachC) code optimizations
+-   (HombachC) optimize translation handling
+
+### 1.4.3 (2023-11-08)
+
+-   (HombachC) fix possible type error in first calculator calls notified by Sentry
+-   (HombachC) change state object description of production values (#167)
+-   (HombachC) optimize pulse feed error message in case of error as object (#176)
+-   (HombachC) preparations for calculator object names (#186)
+-   (HombachC) bump dependencies
+
+### 1.4.2 (2023-11-03)
 
 -   (HombachC) complete rework of task scheduling for more precise pull timing (#149)
 -   (HombachC) critical vulnerability fix for axios
--   (HombachC) fix debug message typos, code optimisations
+-   (HombachC) fix debug message typos, code optimisations in calculator
 -   (HombachC) fix type error in price average calculation notified by Sentry
+-   (HombachC) fix error in update prices tomorrow - possible false positive
 
 ### 1.4.1 (2023-10-25)
 
@@ -122,132 +180,7 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 -   (HombachC) Increase to the first major release, as now a stable level is reached
 -   (HombachC) Code cleanup
 
-### 0.4.2 (2023-10-03)
-
--   (HombachC) fixed error with polling multiple homes live data (#108)
--   (HombachC) Lots of dependency updates; code optimizations
-
-### 0.4.1 (2023-09-24)
-
--   (HombachC) Hardened 2 typeerrors uppon sentry recognition
--   (HombachC) Fix error with not deleted averages of tomorrow pricing (#95)
--   (HombachC) preparations for tibber calculator
-
-### 0.4.0 (2023-09-20)
-
--   (HombachC) Added daily average price values (#89)
-
-### 0.3.3 (2023-09-17)
-
--   (HombachC) Fixed false positive connection message (#87)
--   (HombachC) Updated translations with ChatGPT
--   (HombachC) preparations for tibber calculator
-
-### 0.3.2 (2023-09-14)
-
--   (HombachC) Fixed error when starting adapter first time (#82)
--   (HombachC) Fixed error in admin config from 0.3.0 (#81)
-
-### 0.3.1 (2023-09-13)
-
--   (HombachC) Mitigate error in admin config from 0.3.0 (#81)
--   (HombachC) Change logging of TibberFeed errors from type error to type warn - because of too many downtimes of Tibber server (#80)
-
-### 0.3.0 (2023-09-12)
-
--   (HombachC) BREAKING: change Pulse usage to be configurable for all homes seperately (#41)
--   (HombachC) optimize code again to mitigate set state timing for long JSON states (#68)
--   (HombachC) preparations for tibber calculator
-
-### 0.2.7 (2023-09-07)
-
--   (HombachC) reducing polls at Tibber server by precheck of current price data
--   (HombachC) preparations for tibber calculator
-
-### 0.2.6 (2023-09-04)
-
--   (HombachC) fix error with boolean states
-
-### 0.2.5 (2023-09-03)
-
--   (HombachC) optimize code to mitigate set state timing for long JSON states (#68)
-
-### 0.2.4 (2023-08-30)
-
--   (HombachC) enable correct price poll also for adapter running in different timezones (#63)
-
-### 0.2.3 (2023-08-27)
-
--   (HombachC) fix error in 0.2.2 in start conditions of adapter
-
-### 0.2.2 (2023-08-24)
-
--   (HombachC) reducing polls at Tibber server by precheck of known data
--   (HombachC) code optimizations
--   (HombachC) fix config screen (#55)
-
-### 0.2.1 (2023-08-21)
-
--   (HombachC) double timeout for Tibber server queries
-
-### 0.2.0 (2023-08-18)
-
--   (HombachC) introduces JSONs for prices sorted by price ascending
--   (HombachC) fix stupid error for obsolete next day pricing (#23, #50)
-
-### 0.1.10 (2023-08-15)
-
--   (HombachC) bump dependencies, code cleanups
--   (HombachC) preparations for tibber calculator
--   (HombachC) mitigate multi homes & pulse problems (#41)
--   (HombachC) add documentation to config screen (#47)
-
-### 0.1.9 (2023-08-14)
-
--   (HombachC) optimizing fetching homes list (#32) after Tibber server error, restart adapter in case of trouble
-
-### 0.1.8 (2023-08-12)
-
--   (HombachC) bump dev-dependencies, fix eslint/prettier issue
-
-### 0.1.7 (2023-08-11)
-
--   (HombachC) code cleanup, fix error for obsolete next day pricing (#23)
--   (HombachC) add another try/catch while fetching homes list (#32)
-
-### 0.1.6 (2023-07-30)
-
--   (HombachC) add units for live data, bump adapter-core to 3.x
-
-### 0.1.5 (2023-07-18)
-
--   (HombachC) fix error in sentry logging
-
-### 0.1.4 (2023-07-17)
-
--   (HombachC) BREAKING: encrypted API-Token in ioBroker
--   (HombachC) rearranged configuration options
--   (HombachC) fixed bug in state generation
-
-### 0.1.3 (2023-07-17)
-
--   (HombachC) all log messages in English
--   (HombachC) remove unused state change handler
--   (HombachC) fixed state roles
-
-### 0.1.2 (2023-07-17)
-
--   (HombachC) round grid consumption meter values to Wh accuracy
--   (HombachC) hide unused checkboxes in config
--   (HombachC) fix snyc and appveyor
-
-### 0.1.1 (2023-07-16)
-
--   (HombachC) remove release script and dev-server
-
-### 0.1.0 (2023-07-14)
-
--   (HombachC) initial version
+### Old Changes see [CHANGELOG OLD](CHANGELOG_OLD.md)
 
 ## License
 

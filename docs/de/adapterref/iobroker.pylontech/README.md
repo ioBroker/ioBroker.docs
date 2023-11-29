@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
+hash: DKOlUGfjhFuch4LdqxQdOBpFRbJLUjLC/Eeo8nNqgVw=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -182,7 +182,7 @@ ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serieller Port über WLAN: https://www.instructables.com/Serial-Port-Over-WiFi/
 
-Tasmota kann auch verwendet werden: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota hat Probleme verursacht, da Blöcke nicht in der richtigen Reihenfolge übertragen wurden und daher derzeit nicht verwendet werden sollten: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 Als Bin können nur folgende oder selbst kompilierte verwendet werden, ansonsten wird der TCP-Server nicht einbezogen:
 
@@ -245,6 +245,7 @@ Was wurde getestet:
 | Seriell zu USB | lokal | ja | Für die Adapter gibt es eine große Auswahl an Chips. Je nach Modell kann es zu Identifikationsproblemen kommen, wenn die Adapter keine Seriennummer haben und mehr als einer angeschlossen ist. Windows weist jedem USB-Stecker bereits einen COM-Port zu. |
 | LogiLink AU0034 | lokal | ja | |
 | ESP-LINK | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Denken Sie daran, einen Konverter wie den MAX | zu verwenden |
+| Tasmota | Netzwerk | nein | Bei Tasmota auf einem ESP8266 wurden Blöcke nicht in der richtigen Reihenfolge übertragen, was zu falschen Objekten und Daten führte. Tasmota ist daher nicht zu empfehlen. |
 | Waveshare RS232/485 TO ETH (für EU) | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. |
 | Waveshare RS232/485/422 TO POE ETH | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über POE mit Strom versorgt werden. Wenn POE verfügbar ist, benötigen Sie keine Stromversorgung in der Nähe der Batterien. |
 
@@ -295,7 +296,7 @@ Wurde „lokales Gerät“ ausgewählt, muss der Pfad bzw. Port eingestellt werd
 Siehe den Abschnitt über lokale Schnittstellen.
 
 #### Übertragungsgeschwindigkeit
-Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen liegt sie bei 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
+Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen beträgt sie 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
 
 ### Netzwerkgerät
 Die folgenden Felder werden nur angezeigt, wenn unter Verbindung über Netzwerkgerät ausgewählt wurde.

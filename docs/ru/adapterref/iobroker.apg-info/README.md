@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-информация
-hash: wTeQqpdC016MkqkxOvzgxJrsAjA1XX7nPJN0upqHLzo=
+hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -24,15 +24,20 @@ hash: wTeQqpdC016MkqkxOvzgxJrsAjA1XX7nPJN0upqHLzo=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* NodeJS 16 или выше
-* Хост ioBroker (js-контроллер) 4.0 или выше
+* NodeJS 18 или выше
+* Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.7-alpha.1 (2023-10-09)
+### 0.1.0-alpha.0 (2023-11-28)
+* (HGlab01) first minor release
+* (HGlab01) NodeJS 18 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
+
+### 0.0.7 (2023-10-11)
 * (HGlab01) Bump json-explorer to 0.1.14
 * (HGlab01) add jsonChart-json for market prices
 
@@ -48,14 +53,10 @@ hash: wTeQqpdC016MkqkxOvzgxJrsAjA1XX7nPJN0upqHLzo=
 * (HGlab01) add average price
 * (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
 
-### 0.0.2 (2023-09-14)
-* (HGlab01) add number of days below/above treshold
-* (HGlab01) add states sorted by price
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

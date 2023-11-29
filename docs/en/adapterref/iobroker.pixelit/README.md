@@ -30,13 +30,17 @@ Fill the IP and have fun :)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2023-11-06)
+
+-   (o0Shojo0o) fixed `pixelit.x.show_clock` [[#521](https://github.com/pixelit-project/ioBroker.pixelit/issues/521)]
+
 ### 1.1.2 (2023-09-24)
 
--   (o0Shojo0o) fixed "Blocked" area for Icons when sending `pixelit.0.message`
+-   (o0Shojo0o) fixed "Blocked" area for Icons when sending `pixelit.x.message`
 
 ### 1.1.1 (2023-07-28)
 
--   (o0Shojo0o) fix `brightness` and `brightness_255` handling
+-   (o0Shojo0o) fixed `brightness` and `brightness_255` handling
 
 ### 1.1.0 (2023-07-26)
 
@@ -46,7 +50,7 @@ Fill the IP and have fun :)
 **!!! Breaking changes works only with PixelIt v2.1.3 and higher !!!**
 
 -   (d4rkd3v1l) removed parameters from "show_clock" call
--   (o0Shojo0o) fix "iob Adapter Checker" issues
+-   (o0Shojo0o) fixed "iob Adapter Checker" issues
 
 ### 0.2.0 (2022-08-19)
 
@@ -56,12 +60,12 @@ Fill the IP and have fun :)
 **!!! Breaking changes works only with PixelIt v1.0.0 and higher !!!**
 
 -   (o0Shojo0o) change conncetion to websocket
--   (o0Shojo0o) add buttons datapoints
--   (o0Shojo0o) add sensor gas datapoint
+-   (o0Shojo0o) added buttons datapoints
+-   (o0Shojo0o) added sensor gas datapoint
 
 ### 0.0.8 (2021-08-19)
 
--   (o0Shojo0o) fix translation
+-   (o0Shojo0o) fixed translation
 
 ### 0.0.7 (2021-08-18)
 
@@ -71,21 +75,21 @@ Fill the IP and have fun :)
 
 ### 0.0.6 (2021-05-01)
 
--   (o0shojo0o) bugfix wrong value type
+-   (o0shojo0o) fixed wrong value type
 
 ### 0.0.5 (2021-04-25)
 
--   (o0shojo0o) fix datapoints roles
+-   (o0shojo0o) fixed datapoints roles
 
 ### 0.0.4 (2021-04-25)
 
 -   (o0shojo0o) code refactoring
 -   (o0shojo0o) luminance remove decimals
--   (o0shojo0o) add 'Show Clock' button
+-   (o0shojo0o) added 'Show Clock' button
 
 ### 0.0.3 (2021-02-11)
 
--   (o0shojo0o) add brightness and code refactoring
+-   (o0shojo0o) added brightness and code refactoring
 
 ### 0.0.2 (2021-02-01)
 

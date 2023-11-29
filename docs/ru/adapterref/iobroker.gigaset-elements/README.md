@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.gigaset-elements/README.md
 title: ioBroker.gigaset-elements
-hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
+hash: 1oyVwCTbRtET9A4NHBQpmOTqee1TGRRmfusOyCqqJ6Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.gigaset-elements/admin/gigaset-elements.png)
 
@@ -26,20 +26,18 @@ hash: 5Pqqi9cpBNq+uysabpm/MyJnJVasaw3QQyEReIdjA5A=
 - Система Gigaset Elements
 
 ## Монтаж
-Пока адаптер не является частью стабильного репозитория, вы можете установить последнюю версию, включив экспертный режим в ioBroker и установив адаптер из npm. Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера («невозможно найти стартовый файл»).
+Вы можете установить адаптер из стабильного или последнего/тестового репозитория (включив экспертный режим в ioBroker и установив адаптер из npm). Не устанавливайте его напрямую с Github, это приведет к ошибке при запуске адаптера («невозможно найти стартовый файл»).
 
 После установки создайте новый экземпляр и настройте параметры:
 
 - Настройки подключения для доступа к облаку Gigaset Elements
     -   электронная почта
     -   пароль
-    - интервал аутентификации, должен составлять 6 (часов)
+    - интервал аутентификации в часах, должен быть 6
 - Интервалы опроса для разных областей
     - события (т.е. открытие/наклон/закрытие окна/двери) - количество секунд между опросами
     - данные элемента/датчика (т.е. температура, влажность) - количество минут между опросами
-
-## Ограничения
-Адаптер на данный момент только читает данные и не позволяет ничего изменить.
+    - данные о состоянии системы (зеленый/оранжевый/красный) - количество минут между опросами
 
 ### Поддерживаемые элементы
 На данный момент адаптер протестирован/известно, что он работает со следующими элементами, а тестовые данные доступны через [Gigaset-elements-API](https://github.com/matthsc/gigaset-elements-api):
@@ -82,7 +80,7 @@ sendTo("gigaset-elements.0", "test", "process-test-data", callback);
 ```
 
 ### Отладка
-Ответами обратного вызова являются либо <code>{ response: object }</code> если действие было успешным, либо <code>{ error: &quot;&lt;error message&gt;&quot; }</code> , если что-то пошло не так.
+Ответами обратного вызова являются либо <code>{ response: object }</code> если действие было успешным, либо <code>{ error: &quot;&lt;error message&gt;&quot; }</code> если что-то пошло не так.
 
 #### Подготовьте тестовые данные
 Загрузите текущие данные из API Gigaset Elements и подготовьте их для интеграции в качестве тестовых данных в [Gigaset-elements-API](https://github.com/matthsc/gigaset-elements-api), т. е. для новых событий или элементов, для которых еще нет тестовых данных.
@@ -117,6 +115,23 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2023-11-21)
+
+-   (matthsc) bugfix
+
+### 0.4.2 (2023-11-20)
+
+-   (matthsc) downgrade typescript to fix integration tests
+
+### 0.4.1 (2023-11-20)
+
+-   (matthsc) add states for batterySaverMode, momentaryPowerMeasurement (plug), setPoint (thermostat)
+-   (matthsc) allow to change setPoint for thermostat (experimental/untested)
+-   (matthsc) allow to change intrusion mode
+-   (matthsc) allow to trigger user alarm
+-   (matthsc) add info.systemHealth state
+-   (matthsc/dependabot) dependency updates
+
 ### 0.4.0 (2023-10-15)
 
 -   (matthsc) add support for plugs

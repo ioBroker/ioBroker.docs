@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: Xr9JUnn8YFf/dMHEPxuGeC4+RwsyLxcA4e2F+iFFd9Q=
+hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -100,7 +100,19 @@ Html 模板可用于显示任何 html 代码。
 ![玩家](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-blinds-2.png)
 
 ### 彩色灯
-![RGB](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb.png)
+通过RGB灯小部件，您可以控制不同类型的RGB灯。这里有些例子：
+
+- RGB 颜色设置为一种状态，如“#RRGGBB”
+- R/G/B颜色设置为0到255的不同状态
+- RGBW 作为一个变量，如“#RRGGBBWW”
+- R/G/B/W颜色设置为0到255的不同状态
+- 色调/饱和度/亮度作为 3 种不同的状态
+- 色温为从 2700 到 6500 的一种状态或由物体的最小/最大定义
+- 白色模式状态可用于通过特殊状态在RGB和白色模式之间切换
+
+![RGB灯1个](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-1.png)
+
+![RGB灯2](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-rgb-2.png)
 
 ＃＃＃ 门锁
 ![门锁](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-lock.png)
@@ -122,6 +134,20 @@ Html 模板可用于显示任何 html 代码。
 ### **正在进行中** -->
 
 ## Changelog
+### 1.3.11 (2023-11-17)
+* (bluefox) Allowed opening/closing dialogs of some widgets by command
+
+### 1.3.9 (2023-11-10)
+* (bluefox) updated packages
+
+### 1.3.8 (2023-11-08)
+* (bluefox) Corrected RGB widget if minimal is equal with maximal
+
+### 1.3.5 (2023-11-06)
+* (bluefox) Corrected layout of RGB widget
+* (bluefox) Added option for RGB widget to hide brightness control
+* (bluefox) Added option for white mode in RGB widget
+
 ### 1.3.3 (2023-10-26)
 * (bluefox) Corrected layout of RGB widget
 * (bluefox) Added color settings to actual

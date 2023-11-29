@@ -24,25 +24,22 @@ Adapter for Gigaset Elements (https://gigaset.com/smart-home)
 
 ## Installation
 
-Until the adapter is part of the stable repository, you can install the latest version by enabling expert mode in ioBroker and install the adapter from npm. Don't install it directly from Github, this will lead to an error on adapter start ("cannot find start file").
+You can install the adapter from stable or latest/test repository (by enabling expert mode in ioBroker and install the adapter from npm). Don't install it directly from Github, this will lead to an error on adapter start ("cannot find start file").
 
 After installation, create a new instance and configure the settings:
 
 -   Connection Settings for accessing Gigaset Elements cloud
     -   email
     -   password
-    -   authentication interval, should be 6 (hours)
+    -   authentication interval in hours, should be 6
 -   Polling intervals for different areas
     -   events (i.e. window/door open/tilt/close) - number of seconds between polling
     -   element/sensor data (i.e. temperature, humidity) - number of minutes between polling
+    -   system health data (green/orange/red) - number of minutes between polling
 
-## Limitations
+### Supported elements
 
-The adapter currently only reads data and does not allow to change anything.
-
-### Supported Elements
-
-So far, the adapter has been tested/is known to work with the following Elements, and test data is available via [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api):
+So far, the adapter has been tested/is known to work with the following elements, and test data is available via [gigaset-elements-api](https://github.com/matthsc/gigaset-elements-api):
 
 | Element type | Element name            | Tested by                                                             |
 | ------------ | ----------------------- | --------------------------------------------------------------------- |
@@ -126,6 +123,23 @@ sendTo("gigaset-elements.0", "test", { action: "load-events", from: Date, to: Da
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.3 (2023-11-21)
+
+-   (matthsc) bugfix
+
+### 0.4.2 (2023-11-20)
+
+-   (matthsc) downgrade typescript to fix integration tests
+
+### 0.4.1 (2023-11-20)
+
+-   (matthsc) add states for batterySaverMode, momentaryPowerMeasurement (plug), setPoint (thermostat)
+-   (matthsc) allow to change setPoint for thermostat (experimental/untested)
+-   (matthsc) allow to change intrusion mode
+-   (matthsc) allow to trigger user alarm
+-   (matthsc) add info.systemHealth state
+-   (matthsc/dependabot) dependency updates
+
 ### 0.4.0 (2023-10-15)
 
 -   (matthsc) add support for plugs

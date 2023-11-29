@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: TxiWz7uMNsggg8SFkzzqiD0C8G7r0B5Ir/szynb3Mgk=
+hash: 5md6/uPHbzzXROFSDdKAMpxZdfEyofTngjbAwONXVaM=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -64,7 +64,7 @@ Patten 具有以下格式：
 
 - `*` - 相乘。参数必须放在括号中，例如“*(4)”。在此示例中，我们将该值乘以 4。
 - `+` - 添加。参数必须放在括号中，例如“+(4.5)”。在此示例中，我们添加值 4.5。
-- `-` - 减法。参数必须位于括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
+- `-` - 减法。参数必须放在括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
 - `/` - 除法。参数必须放在括号中，例如“/(0.5)”。在此示例中，我们将该值除以 0.5。
 - `%` - 模数。参数必须放在括号中，例如“%(5)”。在此示例中，我们取 5 的模。
 - `round` - 对值进行四舍五入。
@@ -81,6 +81,7 @@ Patten 具有以下格式：
 - `pow` - 2 的幂。
 - `floor` - Math.floor
 - `ceil` - Math.ceil
+- `json` - 用于获取 json 或对象属性的操作。例如，“{id;json(common.name.en)}”
 - `random(R)` - Math.random() * R，或者如果没有参数则只是 Math.random()
 - `formatValue(decimals)` - 根据系统设置格式化值并使用小数
 - `date(format)` - 将值格式化为日期。格式如下：“YYYY-MM-DD hh:mm:ss.sss”
@@ -198,7 +199,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 您可以在菜单“设置...”中对其进行配置。如果将间隔设置为“从不”，则页面将永远不会重新加载。
 
 ### 重新连接间隔
-设置断开连接时尝试连接的时间间隔。如果设置2秒，它将每2秒尝试建立一次连接。
+设置连接尝试之间的时间间隔（如果断开连接）。如果设置 2 秒，它将每 2 秒尝试建立一次连接。
 
 ### 黑暗的重新连接屏幕
 有时（在晚上）需要有黑暗的加载屏幕。通过这个选项，就可以设置了。
@@ -211,7 +212,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本颜色。
 它在 SVG（可缩放矢量图形）中特别有用，因为它允许更动态的样式并且更容易与 HTML 内容集成。
 
-您可以使用 currentColor 关键字来代替 SVG 内接受颜色值的任何属性的特定颜色值。
+您可以使用 currentColor 关键字来代替 SVG 中接受颜色值的任何属性的特定颜色值。
 下面是一个 SVG 中带有圆圈的简单示例：
 
 ```xml
@@ -229,6 +230,92 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.9.2 (2023-11-29)
+* (foxriver76) fixed reactivity in custom components
+* (foxriver76) fixed import for groups
+* (foxriver76) after creating a group it is now pre-selected
+* (foxriver76) fields are now updated when moved via keyboard
+
+### 2.9.1 (2023-11-28)
+* (foxriver76) recalculate fields after moving widgets
+* (foxriver76) fixed pasting group on other view
+* (foxriver76) fixed theme also applied in iframe
+* (bluefox) implemented Basic Image as react widget
+
+### 2.9.0 (2023-11-27)
+* (bluefox) implemented SVG shape and Screen Resolution widgets natively
+* (bluefox) implemented Basic iFrame as react widget
+* (foxriver76) only allow zip files at project import
+* (foxriver76) fix overflow being overwritten
+* (foxriver76) sort pages and projects alphabetically
+* (foxriver76) fixed problem on saving
+* (foxriver76) fixed problem with groups when `always render` is activated
+* (foxriver76) allow to change color and write lowercase in tabs component
+* (foxriver76) fixed problem that navigation from a alwaysRender page is shown on different page
+
+### 2.8.0 (2023-11-24)
+* (foxriver76) sort folders alphabetically in pages view
+* (foxriver76) fixed deselecting widgets with ctrl + click
+* (foxriver76) fixed display issue with a switch component
+* (bluefox) implemented Basic Red Number widget natively
+* (foxriver76) fixed copy/clone of grouped widgets
+* (foxriver76) fixed problem with open/close dialog via state
+
+### 2.7.0 (2023-11-22)
+* (foxriver76) implemented Basic Bar widget natively
+
+### 2.6.4 (2023-11-21)
+* (foxriver76) fixed typescript build
+
+### 2.6.3 (2023-11-20)
+* (foxriver76) fixed several crash cases
+
+### 2.6.2 (2023-11-20)
+* (foxriver76) fixed crash case when editing group
+* (foxriver76) fixed pasting groups
+* (foxriver76) fixed problem jumping cursor and removed characters while typing
+
+### 2.6.1 (2023-11-17)
+* (bluefox) Showed "file too large" message by icon upload
+* (bluefox) Made navigation bar for view as an own group
+* (foxriver76) sorted views alphabetically
+* (foxriver76) respect uppercase/lowercase in projects toolbar
+* (bluefox) Redirect `dialog` and `dialogClose` commands to widgets
+
+### 2.6.0 (2023-11-13)
+* (foxriver76) implemented select/unselect all buttons
+* (foxriver76) fixed bindings not working
+
+### 2.5.0 (2023-11-11)
+* (foxriver76) allowed using real html in prepend-HTML and append-HTML (basic string widget)
+* (foxriver76) fixed problem while editing groups
+* (foxriver76) do not automatically format button text as uppercase
+* (foxriver76) do not automatically show page names as uppercase
+* (bluefox) Implemented the signal icons for React widgets
+* (bluefox) Implemented the last change indication for React widgets
+* (bluefox) Implemented SVG Bool widget as React Component
+
+### 2.4.0 (2023-11-08)
+* (foxriver76) fixed issues with icon selector filter when changing category
+* (foxriver76) fixed problem, that only the first widget is pasted
+* (bluefox) added JSON binding operator
+* (bluefox) Allowed using function as filter for Object ID
+* (bluefox) Implemented View bar (with no menu)
+
+### 2.3.6 (2023-11-06)
+* (foxriver76) fixed issues with binding editor on style attributes
+* (foxriver76) improved performance due to optimizations on auto save
+
+### 2.3.5 (2023-11-03)
+* (foxriver76) update adapter-react to have enhanced image support in file selector
+* (foxriver76) fixed color of file browser in light mode
+* (foxriver76) fixed the color inputs jumping to the end of input on modifying
+
+### 2.3.4 (2023-11-02)
+* (foxriver76) fix crash when selecting multiple widgets
+* (foxriver76) removed duplicate `none` entry in `border-style` dropdown
+* (foxriver76) fix crash when reordering widgets
+
 ### 2.3.3 (2023-10-30)
 * (foxriver76) fixed problem, that vis is not loading if a single widget has a script error
 * (bluefox) added the editor for bindings

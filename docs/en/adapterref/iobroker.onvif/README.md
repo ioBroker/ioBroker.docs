@@ -91,9 +91,55 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 Wenn Stream in Apple Homekit angezeigt werden soll dann bitte direkt in yahka eine camera erzeugen. Wenn das nicht funktioniert oder hksv benötigt wird, dann scrypted in einem docker installieren und die Kamera mit onvif und homekit plugin hinzufügen
 
+## go2rtsp Docker
+
+Ein Stream wird normalerweise via rtsp stream bereitgestellt. Eine Umwandlung via motion eye ist sehr resourcen aufwändig und hat ein Verzögerng. Ein Umwandlung in webrtc ist schneller und resourcenschonender. Meine Empfehlung ist ein [go2rtsp](https://github.com/AlexxIT/go2rtc). Dazu muss ein Docker von alexxit/go2rtc erstellt werden.
+https://hub.docker.com/r/alexxit/go2rtc
+
+Es gibt auch eine Version mit Hardware Unterstützung:
+https://github.com/AlexxIT/go2rtc/wiki/Hardware-acceleration
+
+Oder go2rtc lokal zu installieren:
+https://forum.iobroker.net/post/1031526
+
+```
+ image: alexxit/go2rtc
+    network_mode: host       # important for WebRTC, HomeKit, UDP cameras
+    privileged: true         # only for FFmpeg hardware transcoding
+    restart: unless-stopped  # autorestart on fail or config change from WebUI
+    environment:
+      - TZ=Europe/Berlin  # timezone in logs
+    volumes:
+      - "~/go2rtc:/config"   # folder for go2rtc.yaml file (edit from WebUI)
+```
+
+Es muss ein Volume für den Pfad /config und das network als host eingestellt werden.
+
+Dann ist go2rtsp erreichbar über
+
+```
+http://IP:1984
+```
+
+Dann kann man ein Stream hinzufügen. Die Stream url findet man z.B. unter
+`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
+
+<img src="addgo.png" height="300">
+
+### Stream als iFrame einfügen
+
+Das Widget `iFrame` in der Vis hinzufügen und als Quelle den stream link von go2rtsp verwenden
+
+`http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
+
+Unter links kann noch die Art des Players ausgewählt werden (Mikrofon)
+
 ## Rtsp2Web Docker
 
-Ein Stream wird normalerweise via rtsp stream bereitgestellt. Eine Umwandlung via motion eye ist sehr resourcen aufwändig und hat ein Verzögerng. Ein Umwandlung in webrtc ist schneller und resourcenschonender. Meine Empfehlung ist ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb). Dazu muss ein Docker von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
+Eine Alternative ist ein [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) Docker. Dies ist aber von der Einrichtun komplizierter.
+Dazu muss ein Docker von ghcr.io/deepch/rtsptoweb:latest erstellt werden.
+
+<details>
 
 ```
 docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
@@ -200,6 +246,8 @@ Alternativ könnte man auch den Kamera Overview als Iframe einfügen:
 Das Widget `iFrame` hinzufügen und als Quelle den rtsp2web Server eintragen:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
+
+</details>
 
 ## FFMpeg Unterstützung
 
@@ -320,156 +368,142 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 
 If stream should be displayed in Apple Homekit then please create a camera directly in yahka. If that doesn't work or hksv is needed then install scrypted in a docker and add the camera with onvif and homekit plugin
 
-## Rtsp2Web Docker
+## go2rtsp Docker
 
-A stream is normally provided via rtsp stream. This needs to be converted for vis. My recommendation is a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb). This requires creating a docker from ghcr.io/deepch/rtsptoweb:latest.
-
-```
-
-docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
+A stream is normally provided via rtsp stream. A conversion via motion eye is very resource-intensive and has a delay. A conversion to webrtc is faster and saves resources. My recommendation is a [go2rtsp](https://github.com/AlexxIT/go2rtc). A docker from alexxit/go2rtc must be created for this.
+https://hub.docker.com/r/alexxit/go2rtc
 
 ```
-
-You have to set a volume for the path /config and the network as host.
-
-Then rtsptoweb is reachable via
-
+ image: alexxit/go2rtc
+    network_mode: host # important for WebRTC, HomeKit, UDP cameras
+    privileged: true # only for FFmpeg hardware transcoding
+    restart: unless-stopped # autorestart on fail or config change from WebUI
+    environment:
+      - TZ=Europe/Berlin # timezone in logs
+    volumes:
+      - "~/go2rtc:/config" # folder for go2rtc.yaml file (edit from WebUI)
 ```
 
-http://IP:8083
+A volume must be set for the path /config and the network as host.
 
+Then go2rtsp is accessible via
+
+```
+http://IP:1984
 ```
 
 Then you can add a stream. The stream url can be found e.g. under
+`onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
+<img src="addgo.png" height="300">
+
+### Insert stream as iFrame
+
+Add the `iFrame` widget in the Vis and use the stream link from go2rtsp as the source
+
+`http://192.168.178.1:1984/stream.html?src=camera&mode=webrtc`
+
+## Rtsp2Web Docker
+
+An alternative is a [RTSPtoWeb](https://github.com/deepch/RTSPtoWeb) Docker. However, this is more complicated to set up.
+A Docker must be created from ghcr.io/deepch/rtsptoweb:latest.
+
+<details>
+
+```
+docker run --name rtsp-to-web -v /YOURPATHFORCONFIG:/config --network host ghcr.io/deepch/rtsptoweb:latest
+```
+
+A volume must be set for the path /config and the network must be set as host.
+
+Then rtsptoweb can be reached via
+
+```
+http://IP:8083
+```
+
+Then you can add a stream. The stream url can be found e.g. under
 `onvif.0.IP_PORT.infos.streamUris.ProfileName.live_stream_tcp.uri`
 
 <img src="addstream.png" height="600">
 
-### After that we need the stream id. For this we need Stream Edit and in the URL we copy out the Id
+### Then we need the Stream Id. To do this, stream edit and copy out the Id in the URL
 
 `http://192.168.178.2:8083/pages/stream/edit/ddbdb583-9f80-4b61-bafa-613aa7a5daa5`
 
-## Paste the single stream in the vis
+## Insert individual stream in the vis
 
-Then select an HTML object in the vis. Then in the widget under HTML enter the rtsp2web server with stream id:
+Then select an HTML object in the vis. Then enter the rtsp2web server with stream id in the widget under HTML:
 
 <img src="html.png" height="150">
 
-## **If more than one stream should be added `webrtc-url` and `webrtc-video` must be replaced in html and script with a new id e.g. `webrtc-url2` and `webrtc-video2`.**
+## **If multiple streams are to be added, `webrtc-url` and `webrtc-video` in html and script must be replaced with a new id e.g. `webrtc-url2` and `webrtc-video2`**
 
 ```html
-<input type="hidden name="webrtc-url" id="webrtc-url"
-value="http://192.168.0.2:8083/stream/ddbdb583-9f80-4b61-bafa-613aa7a5daa5/channel/0/webrtc" />
+<input
+  type="hidden"
+  name="webrtc-url"
+  id="webrtc-url"
+  value="http://192.168.0.2:8083/stream/ddbdb583-9f80-4b61-bafa-613aa7a5daa5/channel/0/webrtc"
+/>
 
 <video id="webrtc-video" autoplay muted playsinline controls style="max-width: 100%; max-height: 100%;"></video>
 ```
 
-In the widget under scripts add this script:
+Add this script in the widget under Scripts:
 
 ```javascript
 setTimeout(function () {
-
   function startPlay(videoEl, url) {
-
     const webrtc = new RTCPeerConnection({
-
       iceServers: [
-
         {
-
-          urls: ["stun:stun.l.google.com:19302"]
-
+          urls: ["stun:stun.l.google.com:19302"],
         },
-
       ],
-
-      { "sdpSemantics": [ "unified-plan" ], [ "unified-plan"], [ "unified-plan"],
-
+      sdpSemantics: "unified-plan",
     });
-
     webrtc.ontrack = function (event) {
-
       console.log(event.streams.length + " track is delivered");
-
       videoEl.srcObject = event.streams[0];
-
       videoEl.play();
-
     };
-
     webrtc.addTransceiver("video", { direction: "sendrecv" });
-
     webrtc.onnegotiationneeded = async function handleNegotiationNeeded() {
-
       const offer = await webrtc.createOffer();
-
-
 
       await webrtc.setLocalDescription(offer);
 
-
-
       fetch(url, {
-
         method: "POST",
-
         body: new URLSearchParams({ data: btoa(webrtc.localDescription.sdp) }),
-
       })
-
         .then((response) => response.text())
-
         .then((data) => {
-
           try {
-
             webrtc.setRemoteDescription(new RTCSessionDescription({ type: "answer", sdp: atob(data) }));
-
           } catch (e) {
-
             console.warn(e);
-
           }
-
         });
-
     };
-
-
 
     const webrtcSendChannel = webrtc.createDataChannel("rtsptowebSendChannel");
-
     webrtcSendChannel.onopen = (event) => {
-
       console.log(`${webrtcSendChannel.label} has opened`);
-
       webrtcSendChannel.send("ping");
-
     };
-
     webrtcSendChannel.onclose = (_event) => {
-
       console.log(`${webrtcSendChannel.label} has closed`);
-
       startPlay(videoEl, url);
-
     };
-
     webrtcSendChannel.onmessage = (event) => console.log(event.data);
-
   }
 
-
-
   const videoEl = document.querySelector("#webrtc-video");
-
   const webrtcUrl = document.querySelector("#webrtc-url").value;
 
-
-
   startPlay(videoEl, webrtcUrl);
-
 }, 1000);
 ```
 
@@ -477,11 +511,12 @@ setTimeout(function () {
 
 ## All streams as iFrame
 
-Alternatively, you could also add the Camera Overview as an iframe:
-
+Alternatively, you could also insert the camera overview as an iframe:
 Add the widget `iFrame` and enter the rtsp2web server as source:
 
 `http://192.168.0.2:8083/pages/multiview/full?controls`
+
+</details>
 
 ## FFMpeg support
 
@@ -528,10 +563,12 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
 <https://forum.iobroker.net/topic/63145/test-adapter-onvif-camera-v1-0-0>
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 1.1.1 (2023-10-18)
 
 - (mcm1957) Standard iobroker release environment has been added.

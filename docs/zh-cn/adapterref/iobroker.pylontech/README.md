@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: ONgs2AieUJL68BRu+gZsi+F+4GBH4krMReMvcFbn714=
+hash: DKOlUGfjhFuch4LdqxQdOBpFRbJLUjLC/Eeo8nNqgVw=
 ---
 ![标识](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -182,7 +182,7 @@ ESP-Serial-Bridge：https://github.com/yuri-rage/ESP-Serial-Bridge
 
 WiFi 串行端口：https://www.instructables.com/Serial-Port-Over-WiFi/
 
-也可以使用 Tasmota：https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota 导致问题，因为块没有按顺序传输，因此目前不应使用：https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 只有以下或者自编译的才可以作为bin，否则不包含TCP服务器：
 
@@ -198,7 +198,7 @@ Rule1 ON System#Boot do TCPStart 23 endon
 Rule1 1
 ```
 
-它之所以有效，是因为在端口 23 等端口上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
+它之所以有效，是因为在端口 23 上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
 **当然还要在 Gipos 和 RJ/DSUB 插头之间焊接 MAX2323!!!!**
 
 #### Linux 到网络
@@ -242,9 +242,10 @@ RFC 以下是上述配置的设置。设备端口为7000。
 #### RS232 至 ioBroker
 |通讯硬件|类型 |正在工作 |评论 |
 | ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|串口转USB |本地|是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
+|串口转USB |本地 |是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
 | LogiLink AU0034 |本地|是的 | |
 | ESP-LINK |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。记得使用像 MAX | 这样的转换器。 |
+|塔斯莫塔 |网络|没有 |在 ESP8266 上使用 Tasmota 时，块未按正确的顺序传输，导致对象和数据不正确。因此不推荐塔斯莫塔。 |
 | Waveshare RS232/485 转 ETH（适用于欧盟）|网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。 |
 | Waveshare RS232/485/422 转 POE ETH |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。转换器可通过 POE 供电。如果 POE 可用，则电池附近不需要电源。 |
 
@@ -319,7 +320,7 @@ ioBroker 管理界面中的设置：
 ioBroker论坛：https://forum.iobroker.net/topic/68707
 
 ### 确定为 US 模型读取哪些数据
-如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，因此我可能需要做出改进。
+如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，所以我可能需要做出改进。
 如果您的对象太多，您也可以减少此处的数据。
 
 #### 下载电池数据

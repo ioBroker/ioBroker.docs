@@ -98,6 +98,16 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.7.2 (2023-11-20)
+* (bluefox) Added option to hide the value in the future
+
+### 1.7.1 (2023-11-16)
+* (bluefox) Added X-Label offset
+* (bluefox) Corrected icons in the object selection dialog
+
+### 1.6.1 (2023-11-08)
+* (bluefox) Added vis-2 widget
+
 ### 1.5.4 (2023-09-13)
 * (bluefox) Added an option to the export dialog: select / unselect all
 * (bluefox) Added the availability to show legend as dialog

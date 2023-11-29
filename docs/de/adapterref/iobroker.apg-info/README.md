@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: wTeQqpdC016MkqkxOvzgxJrsAjA1XX7nPJN0upqHLzo=
+hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -24,15 +24,20 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 16 oder höher
-* ioBroker-Host (JS-Controller) 4.0 oder höher
+* NodeJS 18 oder höher
+* ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.0.7-alpha.1 (2023-10-09)
+### 0.1.0-alpha.0 (2023-11-28)
+* (HGlab01) first minor release
+* (HGlab01) NodeJS 18 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
+
+### 0.0.7 (2023-10-11)
 * (HGlab01) Bump json-explorer to 0.1.14
 * (HGlab01) add jsonChart-json for market prices
 
@@ -48,14 +53,10 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
 * (HGlab01) add average price
 * (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
 
-### 0.0.2 (2023-09-14)
-* (HGlab01) add number of days below/above treshold
-* (HGlab01) add states sorted by price
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -43,6 +43,13 @@ Please use GitHub issues for this.
 Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+### 1.16.1 (2023-11-27)
+* (Apollon77) Fixes initial Temperature/Humidity/Voltage values of MS100 sensors
+
+### 1.16.0 (2023-11-25)
+* IMPORTANT: Node.js 16.x or higher is required
+* (Apollon77) Prevented crash case reported by Sentry
+
 ### 1.15.1 (2023-05-15)
 * (Apollon77) Fix an issue when committing devices delayed
 

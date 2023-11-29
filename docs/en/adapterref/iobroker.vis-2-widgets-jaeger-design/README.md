@@ -34,6 +34,60 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.0 (2023-11-29)
+* (bluefox) Corrected license check
+* (bluefox) Added class names to all important layout components
+
+### 1.0.12 (2023-11-22)
+* (bluefox) Allowed reordering of the actions and scenes
+* (bluefox) Added a new option to show scenes before actions
+* (bluefox) Added option to show value in dimmer
+* (bluefox) Added option for adjustable width of the right view on the home page
+* (bluefox) Added option to provide icons for scenes and actions
+* (bluefox) Added option set the distance between menu items
+* (bluefox) Added possibility to set control value for scenes
+* (bluefox) Added possibility to adjust font size for scenes and actions
+
+### 1.0.11 (2023-11-10)
+* (bluefox) Corrected error local variables and controls
+
+### 1.0.10 (2023-11-08)
+* (bluefox) Corrected error with scenes
+* (bluefox) Improved state widget with custom icons
+
+### 1.0.9 (2023-11-07)
+* (bluefox) Allowed setting distance between actions and scenes on the home page
+
+### 1.0.8 (2023-11-06)
+* (bluefox) Corrected the cameras widget
+
+### 1.0.7 (2023-10-31)
+* (bluefox) Added possibility to reorder info on status bar
+
+### 1.0.5 (2023-10-17)
+* (bluefox) Corrected error with fakeView
+
+### 1.0.4 (2023-10-10)
+* (bluefox) Corrected layout of thermostat
+
+### 1.0.3 (2023-10-10)
+* (bluefox) Corrected error if shutter was inverted
+
+### 1.0.2 (2023-09-28)
+* (bluefox) Corrected touch behavior for dimmer and shutter
+
+### 1.0.1 (2023-09-26)
+* (bluefox) Corrected small issues
+
+### 1.0.0 (2023-08-11)
+* (bluefox) Changed style of shutter and state widgets
+
+### 0.6.5 (2023-08-09)
+* (bluefox) Corrected view selector and empty menu item
+
+### 0.6.4 (2023-07-31)
+* (bluefox) Set constant width and height of thermostat icons
+
 ### 0.6.3 (2023-07-25)
 * (bluefox) Added many new features
 

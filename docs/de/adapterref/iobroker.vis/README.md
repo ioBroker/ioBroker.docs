@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
 title: Visualisierung
-hash: FXqbQUH6a3Kg+/ZYK+8uS6HA6FaYdSNGpXMlIMeJh5Y=
+hash: hyk2is8CltwN54o8devI0fHbnhr3fgj4ePi+Rtoa0nY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -53,6 +53,7 @@ Folgende Operationen werden unterstützt:
 - „pow“ – Potenz von 2.
 - `floor` – Math.floor
 - `ceil` - Math.ceil
+- „json“ – Vorgang zum Abrufen von JSON- oder Objekteigenschaften. Zum Beispiel „{id;json(common.name.en)}“.
 - „random(R)“ – Math.random() * R, oder einfach Math.random(), wenn kein Argument vorhanden ist
 - „formatValue(decimals)“ – Wert entsprechend den Systemeinstellungen formatieren und Dezimalzahlen verwenden
 - `date(format)` – Wert als Datum formatieren. Das Format ist wie folgt: „JJJJ-MM-TT hh:mm:ss.sss“.
@@ -207,6 +208,15 @@ Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.5.4 (2023-11-29)
+* (agav99) added the new binding operation for getting property of JSON or object
+* (agav99) Checked the initialization of the `local_` variables
+* (agav99) fixed subscribeOidAtRuntime
+* (stephanritscher) Added dynamic web manifest
+* (agav99) Optimization for basic-view in widget8
+* (oweitman) Changed binding regex to accept umlauts
+* (mcm1957) Corrected first installation of vis
+
 ### 1.5.1 (2023-11-06)
 * (bluefox) Changed License: it is now MIT, and the license check was removed
 

@@ -57,12 +57,26 @@ How to find SN and Check code for registration is described here: https://github
 -   **Interval to read charging settings:** Unit: minutes.
 -   **Interval to read discharging settings:** Unit: minutes.
 -   **Interval to read summary data:** Unit: minutes.
+-   **Interval to read wallbox data:** Unit: minutes. Caution: Currently only one Wallbox is supported.
 
 ## Disclaimer
 
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
+
+### 1.3.0 (2023-11-22)
+
+-   (Gaspode) Support wallbox with Open API
+-   (Gaspode) Start and stop charging of wallbox with Open API
+
+### 1.2.1 (2023-11-11)
+
+-   (Gaspode) Fixed severe error in ClosedAPI
+
+### 1.2.0 (2023-11-10)
+
+-   (Gaspode) Added additional realtime attributes for OpenAPI
 
 ### 1.1.1 (2023-11-04)
 

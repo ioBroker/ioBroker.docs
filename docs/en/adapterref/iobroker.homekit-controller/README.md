@@ -110,7 +110,7 @@ When you have issues and want to report an Issue (see below) then enhanced debug
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### __WORK IN PROGRESS__
+### 0.5.9 (2023-11-23)
 * (Apollon77) Prevent crash when a single value is returned as error status
 * (Apollon77) send booleans always as 0/1 to make sure all devices handle it correctly
 * (Apollon77) Update dependencies

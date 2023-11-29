@@ -1,12 +1,20 @@
 ![Logo](admin/fb-checkpresence.png)
 # ioBroker.fb-checkpresence
-
-[![NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
+![GitHub license](https://img.shields.io/github/license/afuerhoff/iobroker.fb-checkpresence)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
-![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
-![Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/afuerhoff/iobroker.fb-checkpresence)
+
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/afuerhoff/iobroker.fb-checkpresence)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/afuerhoff/iobroker.fb-checkpresence/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/afuerhoff/iobroker.fb-checkpresence)
+![GitHub issues](https://img.shields.io/github/issues/afuerhoff/iobroker.fb-checkpresence)
 [![Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence)
+
 [![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)](https://nodei.co/npm/iobroker.fb-checkpresence/)
+
+![Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![Stable version](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+[![Latest NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)](https://www.npmjs.com/package/iobroker.fb-checkpresence)
 
 **Tests:** ![Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
@@ -207,6 +215,10 @@ Here you will find information when the family member arrives or leaving home.
 Here you will find information about the history of the current day. 
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (afuerhoff) Readme updated
+* (afuerhoff) function jsontables optimized
+
 ### 1.2.2 (2023-07-28)
 * (afuerhoff) bug fixed json tables [#215](https://github.com/afuerhoff/ioBroker.fb-checkpresence/issues/215)
 * (afuerhoff) link feature optimized. See #206

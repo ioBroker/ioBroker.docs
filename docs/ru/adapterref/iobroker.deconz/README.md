@@ -3,36 +3,36 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.deconz/README.md
 title: без заголовка
-hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
+hash: qGWLruHZxcapCcm1lBwmUE7tdGfq2mCadXfZ+jjk1X0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 
 ![Количество установок](http://iobroker.live/badges/deconz-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.deconz.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.deconz.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.deconz.svg)
 ![НПМ](https://nodei.co/npm/iobroker.deconz.png?downloads=true)
 
-Адаптер ioBroker deConz dresden-elektronik
+Адаптер ioBroker deConz Dresden-elektronik
 
 ==============
 
 ## Уведомление
 Нет поддержки бета-версий deConz
 
-Требуемая версия js-контроллера >2.x.x, Требуется node.js >= 10.x.x
+Требуемая версия js-контроллера >2.x.x, Требуемый node.js >= 10.x.x
 
 ## Английский
-Подключается к программному обеспечению deConz, разработанному dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway с использованием оборудования от dresden-elektronik, USB-накопителя ConBee и модуля RaspBee для Raspberry Pi.
+Подключается к программному обеспечению deConz, разработанному Dresden-elektronik. Это программное обеспечение призвано стать универсальным решением ZigBee Gateway, использующим аппаратное обеспечение Dresden-elektronik (USB-накопитель ConBee) и модуль RaspBee для Raspberry Pi.
 
-Вы должны сначала установить ссылку на deConz.
+Сначала вы должны дать ссылку на deConz.
 
 1. а) Введите IP-адрес для deConz
 
-    б) Введите номер порта, стандарт 80.
+    б) Введите стандартный порт моста: 80 и стандартный веб-сокет: 443.
 
-2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или перейти в приложение Phoscon и зарегистрировать ioBroker в качестве стороннего приложения.
+2. После ввода и сохранения IP-адреса и порта нажмите кнопку «Создать ключ API». Теперь вы можете ввести учетные данные для deConz или зайти в приложение Phoscon и зарегистрировать ioBroker как стороннее приложение.
 
-#### Отправить более одной команды одновременно
+#### Отправка более одной команды одновременно
 Для этого существует объект под названием «действие».
 
 Примеры:
@@ -42,11 +42,23 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 `"on": true, "transitiontime": 5, "hue": 65500`
 
 ## Ссылки
-[деконз](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-плагин](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (аппаратные)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
+[деКонц](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [REST-плагин](https://github.com/dresden-elektronik/deconz-rest-plugin) [Шлюзы (Аппаратное обеспечение)](https://www.dresden-elektronik.de/funktechnik/solutions/wireless-light-control/gateways/)
 
 ## [Спонсоры](https://github.com/Jey-Cee/ioBroker.deconz/blob/master/SPONSORS.MD)
 
 ## Changelog
+
+### 1.3.23 (2023-11-05)
+* fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
+* added possibility to change the port for websocket connection
+* updated/added translations
+* (grizzelbee) Fix: Re-enabled window covers
+* (grizzelbee) Upd: Dependencies got updated
+* (grizzelbee) New: Added ukrainian translation
+
+### 1.3.21 (2022-05-13)
+* added schedule to object definition
+* changed limit for duration to 999999
 
 ### 1.3.20 (2022-02-26)
 * (withstu) add retry if gateway is busy
@@ -159,7 +171,6 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 * (mobilutz) remove ip overwrite
 * (njeisecke) add transitiontime for bri_inc (dim step)
 
-
 ### 1.2.3
 * fix expire time for alive 
 * add object for open zigbee network to add new devices without admin config
@@ -197,14 +208,11 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 *  (asgothian) added object "buttonpressd"
 *  some fixes
 
-
 ### 1.0.2
 * fix set bri for groups
 
-
 ### 1.0.1
 * small fixes
-
 
 ### 1.0.0
 *  (thewhobox) skip helper groups
@@ -218,7 +226,6 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 *  (jey-cee) new possible to change duration (if the device accept it)
 *  (jey-cee) get API key with credentials
 
-
 ### 0.4.0
 * (asgothian) Fix for hue change
 * (halloamt)  Added support for dimming lights and groups
@@ -227,11 +234,9 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ### 0.3.1
 * Fixing hue from range 0-65535 to 0-360
 
-
 ### 0.3.0
 * Added scene support
 *  Drop nodejs 4 support
-
 
 ### 0.2.5
 * Fix/Change handling create objects during running Adapter
@@ -293,4 +298,4 @@ hash: 4+tbBmkb3CHsa40NYBLcBSntHQkOopeu1oB/itCB7zo=
 ## License
 Apache-2.0
 
-Copyright (c) 2017-2022 Jey Cee jey-cee@live.com
+Copyright (c) 2017-2023 Jey Cee jey-cee@live.com

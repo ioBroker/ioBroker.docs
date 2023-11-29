@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
+hash: hZ/B/w6tNxTxwWk0cCc8PaeF2/Hj5s+b1xUaoDAijtg=
 ---
 ![Logo](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
@@ -25,6 +25,7 @@ Geben Sie Ihre E-Mail-Adresse und Ihr Passwort ein.
 ## Steuern
 hoover.0.id.remote auf true/false setzen steuert den jeweiligen Befehl
 
+hoover.0.id.remote.send für Benutzerdefinierte Befehle zum Einschalten.
 Beispiel für Waschmaschine im Adapter als Standard:
 
 Beispiel für AC:

@@ -3,38 +3,38 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e/README.md
 title: ioBroker.go-echarger
-hash: JQQBUpmrNcfZ1SfB79YyVuOEscS89aiyniN0x7Jw99E=
+hash: ZrummTtzjDvBnF8oxSQ2X2GUzdc5FLZMTb/TtQJWeY8=
 ---
 ![标识](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![阿帕奇2.0](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
 ![下载](https://img.shields.io/npm/dm/iobroker.go-e.svg)
 ![安装数量（最新）](http://iobroker.live/badges/go-e-installed.svg)
 ![安装版本（稳定）](http://iobroker.live/badges/go-e-stable.svg)
-![依赖状态](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
 ![已知漏洞](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
 ![构建和测试](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
-![新PM](https://nodei.co/npm/iobroker.go-e.png?mini=true)
-![Codacy 徽章](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
+![国家公共管理](https://nodei.co/npm/iobroker.go-e.png?mini=true)
+![科达西徽章](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
 ![警报](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
 ![代码质量](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
 # IoBroker.go-echarger
-[！执照](https://img.shields.io/github/license/MK-2001/ioBroker.go-eCharger)
+# 哨兵的使用
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
-# Sentry 的使用 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
-# Go-eCharger Wallbox
-![产品图片](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png)欲了解更多详情，请访问 https://go-e.co/
+# Go-eCharger 壁箱
+![产品图片](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) 欲了解更多详情，请访问 https://go-e.co/
 
 ＃＃ 注意
-此适配器当前仅使用 API v1 运行。新的 API v2 支持目前正在等待中。
-请确保您在 App 中开启了 API v1.1。
+该适配器当前仅使用 API v1 运行。新的 API v2 支持目前正在等待中。
+请确保您在应用程序中开启了 API v1.1。
 
-Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange。 Bitte stelle sicher, dass in der APP die API v1 aktiviert wurde。
-![API_v1](../../../en/adapterref/iobroker.go-e/./docs/active_v1.jpg)
+Dieser Adapter unterstützt derzeit nur die API v1。 API v2 是在 Warteschlange 中进行的。 Bitte stelle sicher，dass in der APP die API v1 aktiviert wurde。
+![API_v1](../../../en/adapterref/iobroker.go-e/docs/active_v1.jpg)
 
-## IoBroker 的 go-eCharger 适配器 **EN** go-e 是电动移动的邀请。电动汽车是我们的驱动力，我们的核心竞争力是电动汽车的充电技术。从电动汽车的单个充电站到光伏连接再到整个建筑物的负载管理，我们是满足现代电动汽车所有要求的整体系统解决方案的供应商。
-**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen。 e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist。 Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für sämtliche Anforderungen der modernen e-Mobilität。
+## IoBroker 的 go-eCharger 适配器 **EN** go-e 是电动移动的邀请。电动汽车是我们的动力，我们的核心竞争力是电动汽车的充电技术。从电动汽车的单独充电站到光伏连接，再到整个建筑的负载管理，我们是满足现代电动汽车所有要求的整体系统解决方案的提供商。
+**DE** go-e ist die Aufforderung, sich elektrisch zu bewegen。电动汽车是 Antrieb 的核心，也是 Elektroautos 的核心技术。电动汽车的最后管理是电动汽车的最后管理，它是现代电动汽车的全面管理系统。
 
 ## IoBroker-Adapter 手册/快速入门指南
 您可以在此处找到安装和配置手册：[适配器手册](./docs/Readme.md)
@@ -42,16 +42,37 @@ Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API 
 ## 开发者手册
 加入适配器社区 https://t.me/goECharger
 
-官方 API 文档：https://github.com/goecharger/go-eCharger-API-v1
+官方API文档：https://github.com/goecharger/go-eCharger-API-v1
 
 官方产品支持：https://go-e.co/support/
 
-##版权
-版权所有 (c) 2022 MK-2001 go-e@itinsi.de
+## 翻译
+大部分翻译来自 https://translator-ui.iobroker.in，如果翻译过程中出现问题，请随时贡献。
+
+## 版权
+版权所有 (c) 2023 MK-2001 go-e@itinsi.de
 
 ## Changelog
 
-[moved here](./docs/CHANGELOG.md)
+### 1.0.29
+* Bugfixes.
+
+### 1.0.27
+*Enabled foreign Object usage; Full Changelog online: https://github.com/MK-2001/ioBroker.go-e/blob/main/docs/CHANGELOG.md; Issue for Object not found.
+
+### 1.0.25
+* TempArray resize on FW 054 HW V2; Readme.Adaption; Dependency security updates; Added the options to consider acknowledged value changes of foreign adapters; Added choice of ack of foreign adapters (#125)\\n Minor bug for sentry; Error in tme object; Bug in Sentry. Added Catch.
+
+### 1.0.18
+* First adaption of V3 hardware from go-e; Added switch to disable writing of the temperatures array; write different amont of temperature sensors; Added addtional attributes to ast; Updated several FOSS libs
+
+### 1.0.15
+* Bug fixes
+
+### 1.0.10
+* Enabled new Version of hardware updates
+
+[Additional moved here](./CHANGELOG_OLD.md)
 
 ## License
                                  Apache License

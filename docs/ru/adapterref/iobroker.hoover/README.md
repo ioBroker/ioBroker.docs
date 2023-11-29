@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hoover/README.md
 title: ioBroker.hoover
-hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
+hash: hZ/B/w6tNxTxwWk0cCc8PaeF2/Hj5s+b1xUaoDAijtg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hoover/admin/hoover.png)
 
@@ -25,6 +25,7 @@ hash: Gsy8wK2/Zc/uPA0yJGsDUD5GI0B4UzmC2qjSasdXU+c=
 ## Стойерн
 hoover.0.id.remote в режиме true/false setzen steuert den jeweiligen Befehl
 
+hoover.0.id.remote.send для определенных действий.
 Действия для стиральной машины в адаптере по умолчанию:
 
 Действия для переменного тока:

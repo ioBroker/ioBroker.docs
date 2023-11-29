@@ -338,6 +338,18 @@ The RSCP protocol groups *Tags* (i.e. states or values) into *Namespaces* (i.e. 
     <td>End minute of idle period (2).</td>
   </tr>
   <tr>
+    <td>EP</td>
+    <td>PARAM_EP_RESERVE</td>
+    <td>number</td>
+    <td>Target reserve for emergency power; percentage of the battery capacity. Correlates to PARAM_EP_RESERVE_ENERGY.</td>
+  </tr>
+  <tr>
+    <td>EP</td>
+    <td>PARAM_EP_RESERVE_ENERGY</td>
+    <td>number</td>
+    <td>Target reserve for emergency power; energy in [Wh]. Correlates to PARAM_EP_RESERVE.</td>
+  </tr>
+  <tr>
     <td>DB (3)</td>
     <td>TIME_START</td>
     <td>string</td>
@@ -450,6 +462,16 @@ Here is a sample script for charge limit control - it is not meant for as-is usa
 <a name="log"></a>
 
 ## Changelog
+### 1.2.5
+ 
+(git-kick)
+* Added setter function for PARAM_EP_RESERVE and PARAM_EP_RESERVE_ENERGY in EP namespace - [Issue #199](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/199)  
+  * Renamed PARAM_EP_RESERVE_W to PARAM_EP_RESERVE_ENERGY because it is a [Wh] energy variable.
+  * Renamed PARAM_EP_RESERVE_MAX_W to PARAM_EP_RESERVE_MAX_ENERGY for the same reason.
+
+* Removed "dangerous" setter tags introduced with v1.2.4 , instead of just switching them off - [Issue #196](https://github.com/git-kick/ioBroker.e3dc-rscp/issues/196)
+
+
 ### 1.2.4
 __MODIFIED ADAPTER SETTINGS - do not re-use settings stored in *.json__
 

@@ -193,7 +193,7 @@ ESP-Serial-Bridge: https://github.com/yuri-rage/ESP-Serial-Bridge
 
 Serial Port Over WiFi: https://www.instructables.com/Serial-Port-Over-WiFi/
 
-Tasmota can also be used: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
+Tasmota Caused problems because blocks were not transferred in order and should therefore not be used at the moment: https://tasmota.github.io/docs/Serial-to-TCP-Bridge/
 
 Only the following or self-compiled ones can be used as bin, otherwise the TCP server is not included:
 
@@ -262,6 +262,7 @@ What was tested:
 | Serial to USB                       | local   | yes        | There is a large selection of chips for the adapters. Depending on the model, identification problems can occur if the adapters do not have a serial number and more than one is connected. Windows already assigns one COM port for each USB plug.               |
 | LogiLink AU0034                     | local   | yes        |                                                                                                                                                                                                                                                                   |
 | ESP-LINK                            | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Remember to use a converter like the MAX                                                                                                           |
+| Tasmota                             | network | no         | With Tasmota on an ESP8266, blocks were not transferred in the correct order, resulting in incorrect objects and data. Tasmota is therefore not recommended.                                                                                                      |
 | Waveshare RS232/485 TO ETH (for EU) | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port.                                                                                                                           |
 | Waveshare RS232/485/422 TO POE ETH  | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port. The converter can be supplied with power via POE. If POE is available, you do not need a power supply near the batteries. |
 

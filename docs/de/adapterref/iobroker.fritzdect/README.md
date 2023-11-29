@@ -62,6 +62,14 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.5.9 (npm)
+* correction for statistics,
+* new message box password needs to be reentered in versions >=2.5.4
+* xml output for buttons "my ..."
+
+### 2.5.8 (npm)
+* more error checking processing statistics
+
 ### 2.5.7 (npm)
 * only for the hint that password needs to be reentered
 

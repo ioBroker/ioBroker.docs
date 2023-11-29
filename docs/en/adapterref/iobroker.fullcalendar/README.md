@@ -35,6 +35,13 @@ How to use:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.3.4 (2023-11-28)
+* (bluefox) Corrected monthly events
+
+### 2.3.1 (2023-11-27)
+* (bluefox) Packages were updated
+* (bluefox) Corrected vis-2 widget
+
 ### 2.2.6 (2023-07-27)
 * (bluefox) Compatibility with vis-2
 

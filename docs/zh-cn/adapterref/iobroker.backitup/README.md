@@ -10,7 +10,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.backitup/README.md
 title: 免责声明
-hash: +l9qnD1bqIzOOrGHvwfikKTDSKnjDGcfm3HW8hiTMMU=
+hash: gSmqsktqBzuBNGGxJJ0JQtlfmfE9UW1b5J3BXKfALYw=
 ---
 ![标识](https://github.com/simatec/ioBroker.backitup/blob/master/docs/de/img/backitup.png)
 
@@ -103,7 +103,7 @@ _[回到顶部](#top)_
 ioBroker.backitup 提供了许多选项，用于循环或按按钮执行不同类型的备份。默认情况下，每个备份都存储在 /opt/iobroker/backups 目录中。或者，可以设置 FTP 上传，也可以使用 CIFS/NFS 安装。
 
 ## IoBroker 备份
-此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动该备份。仅在这里，它是通过适配器配置或 OneClick Backup 小部件中的指定设置来执行的，而无需使用控制台。
+此备份对应于 ioBroker 中包含的备份，可以通过调用 `iobroker backup` 在控制台中启动该备份。仅在这里，它是通过适配器配置或 OneClick Backup 小组件中的指定设置执行的，而无需使用控制台。
 
 ## CCU 备份（家庭）
 此备份提供了备份 Homematic 安装的三种不同变体（CCU-Original / pivCCU / Raspberrymatic）的选项。还可以使用适配器配置或 OneClick 备份小部件中指定的设置来执行此备份。<br><br>如果您不想只备份一个 CCU，则可以激活“备份多个系统”选项，然后在表中定义您的 Homematic 中央单元。
@@ -115,7 +115,7 @@ ioBroker.backitup 提供了许多选项，用于循环或按按钮执行不同�
 如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br> Sqlite3 (`sudo apt install sqlite3`) 必须安装在主机系统上。
 
 ## Redis 备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br>要将 Redis 与 ioBroker.backitup 结合使用，应调整 iobroker 用户的权限：<br>
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br>要将 Redis 与 ioBroker.backitup 结合使用，应调整 iobroker 用户的权限：<br>
 
 ```
 sudo usermod -a -G redis iobroker
@@ -186,13 +186,13 @@ bind-address = "0.0.0.0:8088"
 如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>从 ioBroker.backitup 版本 2.2.0 开始，脚本直接从对象保存。旧版 ioBroker.backitup 的 Javascript 备份不兼容恢复！<br><br>为了能够使用 ioBroker.backitup 版本 &lt; 2.2.0 执行 Javascript 备份，必须在 Javascript 适配器配置中提前设置菜单项“在文件路径中镜像脚本”和“执行镜像的实例”。<br>然后 ioBroker.backitup 可以应用配置菜单中的设置。
 
 ## 贾维斯备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>
 
 ## Zigbee 备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ## Zigbee2MQTT 备份
-如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
+如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。
 
 ioBroker.backitup 适配器中的路径应始终直接在 zigbee2mqtt 的“数据”路径上创建。
 示例：`/opt/zigbee2mqtt/data` 或通过 Docker 安装 zigbee2mqtt 直接进入卷
@@ -213,7 +213,7 @@ sudo reboot
 如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br> **为了创建 Grafana 备份，需要 Grafana 用户名 (admin) 和密码。**<br><br> **此外，必须在 Grafana Web 界面中生成 API 密钥或服务令牌才能访问仪表板。**<br> API 密钥可以在***“配置 → API 密钥或服务令牌”***下创建，并且必须具有完整的管理权限。
 
 ## 夜卡备份
-如果激活，此可单独调整的备份将随每个备份 ioBroker 创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>所有系统设置和设备设置均由 Homekit 备份。
+如果激活，此可单独调整的备份将随每个 ioBroker 备份一起创建，并在指定的保留时间到期后删除。如果为其他 ioBroker 备份类型设置，则 FTP 或 CIFS 也对此备份有效。<br><br>所有系统设置和设备设置均由 Homekit 备份。
 
 _[回到顶部](#top)_
 
@@ -314,12 +314,18 @@ _[回到顶部](#top)_
 # Docker 支持
 从2.2.0版本开始，支持在官方Docker容器中进行备份和恢复。
 
-由于Docker容器中不应该安装任何数据库系统，因此不支持所有数据库的备份，并且在识别Docker容器时默认无法选择。为了仍然能够备份外部数据库，必须设置两个容器环境变量：
+由于Docker容器中不应安装任何数据库系统，因此不支持所有数据库的备份，并且在识别Docker容器时默认无法选择。为了仍然能够备份外部数据库，必须设置两个容器环境变量：
 
 * IOB_BACKITUP_EXTDB=true
 * 套餐
 
 “PACKAGES”环境变量的内容基于访问相应数据库所需的要安装的软件包。例如“mysql-client”或“redis-tools”。更多详细信息请参见[这里](https://docs.buanet.de/iobroker-docker-image/docs_backitup/)。
+
+为了能够在Docker中充分使用ioBroker.backitup，仍然需要映射一些端口。
+
+* 端口 8091 - 恢复 Web 界面（使用 http 管理时）
+* 端口 8092 - 恢复 Web 界面（使用 https 管理时）
+* 端口 9081 - 用于通过 ioBroker.backitup 的 Web 界面上传和下载备份的文件服务器
 
 _[回到顶部](#top)_
 
@@ -455,7 +461,7 @@ _[回到顶部](#top)_
 # 遇到的错误/解决方案
 以下是迄今为止发生的问题及其解决方案的列表（如果有）。
 
-1. Olifall（来自论坛）存在恢复后无法再访问ioBroker Web界面的问题。他通过控制台按照以下步骤解决了这个问题：
+1. Olifall（来自论坛）存在恢复后无法再访问ioBroker Web界面的问题。他通过控制台执行以下步骤来解决此问题：
     - sudo iobroker 状态
     - 消息 =“没有连接到状态 127.0.0.0:6379[redis]”
     - sudo apt安装redis服务器
@@ -477,7 +483,7 @@ iobroker fix
 sudo reboot
 ```
 
-7. 如果您在创建Redis数据库时出现错误提示，请检查您的用户iobroker是否有权限以及是否存在于Redis用户组中。
+7、如果您在创建Redis数据库时出现错误提示，请检查您的用户iobroker是否有权限以及是否存在于Redis用户组中。
 
     如果不是这种情况，您可以在控制台中使用以下命令修复此问题。
 
@@ -488,7 +494,7 @@ sudo reboot
 
     如果您没有使用安装程序脚本设置 ioBroker 安装，并且您的用户具有不同的名称，请在命令中将“iobroker”替换为您的用户。
 
-8. 如果将 Fritzbox 用作固件 >= 7.21 的 NAS，则应在 ioBroker.backitup 中将 SMB 设置设置为“3.1.1”，并应激活“noserverino”选项。
+8. 如果将 Fritzbox 用作固件 >= 7.21 的 NAS，则应在 ioBroker.backitup 中将 SMB 设置设置为“3.1.1”，并激活“noserverino”选项。
 
 _[回到顶部](#top)_
 
@@ -496,6 +502,51 @@ _[回到顶部](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.9.5 (2023-11-29)
+* (simatec) dependencies updated
+* (simatec) Fix redis Password
+
+### 2.9.4 (2023-11-20)
+* (simatec) dependencies updated
+* (simatec) Fix CIFS Password
+* (simatec) Fix mySql Password
+* (simatec) Fix pgSql Password
+* (simatec) Fix redis Password
+
+### 2.9.3 (2023-11-11)
+* (simatec) Fix Port for Filerserver
+* (simatec) Docu updated
+
+### 2.9.2 (2023-11-10)
+* (simatec) dependencies updated
+* (simatec) Design fix
+* (simatec) Backup File upload added
+* (simatec) Uploadserver added
+* (simatec) Translation updated
+
+### 2.9.1 (2023-11-02)
+* (simatec) ignore Build directory for ESPHome added
+
+### 2.9.0 (2023-11-01)
+* (simatec) mount option "Cache Loose" added
+* (simatec) ESPHome Backup added
+* (simatec) dependencies updated
+
+### 2.8.7 (2023-10-19)
+* (buanet) fix restore in docker v9
+
+### 2.8.6 (2023-10-13)
+* (simatec) Fix node-red restore
+* (simatec) dependencies updated
+
+### 2.8.5 (2023-10-13)
+* (simatec) Fix mount errors
+
+### 2.8.4 (2023-10-11)
+* (simatec) Fix mysql Backup
+* (simatec) Fix pgsql Backup
+* (simatec) Fix InfluxDB Backup
+
 ### 2.8.3 (2023-10-10)
 * (simatec) Wake on LAN Advanced Settings added
 * (simatec) dependencies updated

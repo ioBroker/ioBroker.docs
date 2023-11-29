@@ -29,6 +29,13 @@ The counter state will increase up from its saved value, when the shelly energy 
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.1.3 (2023-11-14)
+* (BenAhrdt) debuglogging for changed values added
+
+### 2.1.2 (2023-11-12)
+* (BenAhrdt) translation for uk added
+* (BenAhrdt) insert check vor node version >= 16
+
 ### 2.1.1 (2023-11-02)
 * (BenAhrdt) correction in jsonconfig schema
 

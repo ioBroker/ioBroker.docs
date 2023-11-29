@@ -1341,6 +1341,12 @@ sendTo('discord.0', 'getMessageInfo', {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.0 (2023-11-07)
+
+* (crycode-de) Optimized error handling - Network related errors should now be handled completely without adapter restarts and better logging
+* (crycode-de) Fixed small issues in config UI
+* (crycode-de) Updated dependencies
+
 ### 2.1.2 (2023-09-04)
 
 * (crycode-de) Fixed response to notification-manager adapter

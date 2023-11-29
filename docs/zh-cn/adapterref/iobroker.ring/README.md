@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ring/README.md
 title: 环形适配器
-hash: YPLlivLg7RVp4wqyTAkGwQ5CTLlP4ubFSoZVGLsOjE0=
+hash: VAuDrniQrkEeYjoiFdJ/8lkukKW3sL1I0HFmNPJmxs4=
 ---
 ![标识](../../../en/adapterref/iobroker.ring/admin/ring.png)
 
@@ -50,14 +50,14 @@ node ring-auth-cli
 恭喜，您当前的令牌很可能已被环列入黑名单，从而拒绝您需要的推送通知。
 解决此问题的最佳方法是删除环网站上以前的任何浏览器/适配器令牌，并为适配器生成新令牌。
 
-为了使该适配器正确地对事件做出反应，Ring 必须将推送通知发送到所使用的 [环API客户端](https://github.com/dgreif/ring)，以便该适配器对其做出反应。该适配器中的逻辑经过多次检查并且适用于大量用户，因此如果您遇到有关丢失事件的问题，则不太可能是该适配器的错误。
+为了使该适配器能够正确地对事件做出反应，Ring 必须将推送通知发送到所使用的 [环API客户端](https://github.com/dgreif/ring)，以便该适配器对其做出反应。该适配器中的逻辑经过多次检查并且适用于大量用户，因此如果您遇到有关丢失事件的问题，则不太可能是该适配器的错误。
 
 ### V5 重大变化
 1. 一些数据点被重命名为更加一致（例如`livestream_request`被简化为`request`，因为它已经
 
    位于频道`livestream`)。
 
-2. 您现在可以配置是否要对事件做出反应（通过录制、快照……）。
+2. 您现在可以配置是否要对事件做出反应（通过录制、快照等）。
 3.二元状态被删除。
 
 ### V3 重写重大更改
@@ -88,6 +88,20 @@ node ring-auth-cli
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 5.0.10 (2023-11-06)
+
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
+
+### 5.0.8 (2023-11-05)
+
+* (crocri) Code cleanup
+* (theimo1221) #614 Add @homebridge/camera-utils as direct depency to mitigate import issue
+
+### 5.0.7 (2023-11-02)
+
+* (theimo1221) Updated Packages
+* (theimo1221) Include missing build artifacts
+
 ### 5.0.6 (2023-10-29)
 
 * (theimo1221) Updated Packages

@@ -168,6 +168,26 @@ IP-адрес с которого доступен драйвер (поддер�
 ![ioBroker.admin - system settings](img/admin_SystemSettings.jpg)
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed JSON config file component if no initial value exists
+* (bluefox) added the creation of a state or of a device possibility to the context menu
+
+### 6.12.5 (2023-11-23)
+* (foxriver76) fixed json config ConfigFileSelector
+* (klein0r) fixed title bar layout with username and icon
+
+### 6.12.4 (2023-11-16)
+* (foxriver76) custom settings icon has no a brighter color in dark mode
+* (foxriver76) fixed color of host selector in dark mode
+* (foxriver76) fixed problem with a JSON config language component
+
+### 6.12.3 (2023-11-15)
+* (foxriver76) fixed problem that disabled checkbox is still clickable
+* (foxriver76) no longer replace valid `common.adminUI.tab` values of adapters
+* (foxriver76) fixed `freeSolo` option for autocomplete components
+* (foxriver76) fixed issue with jsonConfig `sendTo` with `native` option when returning multiple properties
+* (foxriver76) fixed empty dropdown selection after selecting `system language` in JsonConfig
+
 ### 6.12.2 (2023-11-02)
 * (foxriver76) fixed issue with jsonConfig `sendTo` with `native` option when returning multiple properties
 * (foxriver76) fixed crash case when schema cannot be read
@@ -176,20 +196,6 @@ IP-адрес с которого доступен драйвер (поддер�
 ### 6.12.1 (2023-10-29)
 * (foxriver76) optimzied the notificaiton popup (auto-extend first entry per category, respect line breaks, respect severity for icons)
 * (theimo1221) #2178 Stabilize onObjectChange handling during creation of new objects in WebUi, to directly show new element.
-
-### 6.12.0 (2023-10-24)
-* (foxriver76) fixed issue when updating news in backend
-* (foxriver76) validate json config against the schema
-* (foxriver76) update socket-client to improve performance
-
-### 6.11.0 (2023-10-19)
-* (foxriver76) jsonConfig type number now stores values as number instead of string
-* (foxriver76) objects browser number value input behavior change to allow leading minus
-* (bluefox) Added component `interfaces` to the JSON config
-* (bluefox) Implemented Backend to GUI communication
-
-### 6.10.9 (2023-10-16)
-* (bluefox) Improvement of the public accessibility check
 
 ## License
 The MIT License (MIT)

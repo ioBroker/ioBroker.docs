@@ -29,11 +29,14 @@ Expected result: {XC_SUC}[...]\
 Not expected result: {"XC_ERR":{"code":"000007","msg":"access denied"}} (never seen on Gateway V4)\
 When this is working, you have a mediola with no password set. There is no clue why the adapter shoud not work.\
 Contact the forum: https://forum.iobroker.net/topic/63560/neuer-adapter-mediola-gateway (sorry it is german, but english is also possible)\
-With user and password:\
+With user and password or authkey:\
 Check http://ip-of-mediola/command?XC_USER=username&XC_PASS=password&XC_FNC=getstates\
+or Check http://ip-of-mediola/command?auth=authkey&XC_FNC=getstates\
 Expected result: {XC_SUC}[...]\
 Not expected result: {XC_ERR}{"code":"010000"}\
-When this is working, the username and the password need to be added to the configuration. When this is not working, you might don't have the username and correct password. When you have only set a password, you need to setup a full user. (Gateway V6)
+When this is working, the username and the password need to be added to the configuration. When this is not working, you might don't have the username and correct password. When you have only set a password, you need to setup a full user. (Gateway V6)\
+
+Check http://ip-of-mediola/command?auth=authkey&XC_FNC=getstates\
 
 ## usage for WIR (WR), Roto (BK) and Elero (ER) sun blinds
 

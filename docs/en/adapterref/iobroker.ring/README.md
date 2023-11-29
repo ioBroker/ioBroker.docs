@@ -64,7 +64,6 @@ the fault of this adapter.
 2. You can now configure wether you want to react on events (with recording, snapshot, ...) or not.
 3. Binary states got removed.
 
-
 ### V3 Rewrite Breaking Changes
 
 1. The Device Names got extended by their description (e.g., from `Device 1234567`
@@ -96,9 +95,9 @@ doorbell recorded video.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 5.0.9 (2023-11-05)
+### 5.0.10 (2023-11-06)
 
-* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.0
+* (theimo1221) #614 Enforce @homebridge/camera-utils version 2.2.4
 
 ### 5.0.8 (2023-11-05)
 
