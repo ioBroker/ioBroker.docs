@@ -12,6 +12,7 @@
   "class": "info",
   "fa-icon": "exclamation-circle",
   "created": "2023-11-30T17:00:00.000Z",
+  "date-end": "2023-14-30T00:00:00.000Z",
   "conditions": {
     "admin": "installed"
   }
