@@ -1,5 +1,23 @@
 [
   {
+  "title": {
+    "en": "[Event] ioBroker Advent of Code, join us!",
+    "de": "[Event] ioBroker Advent of Code, mach doch auch mit!"
+  },
+  "content": {
+    "en": "Register and take part in the ioBroker Advent of Code LeaderBoard, we will see who will offer the best and fastest solution, both technically and creatively, Oh... and there is something nice to win, more information at our <a href=\"https://forum.iobroker.net/topic/70656/event-iobroker-advent-of-code-mach-doch-auch-mit?_=1701360543426\">ioBroker Forum</a>.",
+    "de": "Advent Advent ein Lichtlein brennt, erst eins… dann 2 … dann 3 … dann 4 … Oh... Ein Gewinnspiel gibs auch noch hier! Registriert euch und nehmt teil an dem ioBroker Advent of Code LeaderBoard  , wir werden ja sehen, wer hier sowohl code technisch, aber auch kreativ die beste und schnellste Lösung bieten wird.Es gibt auch etwas su gewinnen, mehr dazu im <a href=\"https://forum.iobroker.net/topic/70656/event-iobroker-advent-of-code-mach-doch-auch-mit?_=1701360543426\">ioBroker Forum</a>."
+  },
+  "id": "christmasCoderEvent2023",
+  "class": "info",
+  "fa-icon": "exclamation-circle",
+  "created": "2023-11-30T17:00:00.000Z",
+  "date-end": "2023-14-30T00:00:00.000Z",
+  "conditions": {
+    "admin": "installed"
+  }
+},
+  {
     "title": {
       "en": "The Squeezebox adapter will be discontinued and will be replaced.",
       "de": "Der Squeezebox Adapter wird nicht weiterentwickelt und ersetzt.",
