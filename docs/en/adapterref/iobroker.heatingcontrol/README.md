@@ -16,7 +16,7 @@
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.heatingcontrol?style=flat-square)
 ![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.heatingcontrol?label=npm%20dependencies&style=flat-square)
 
-![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.statistics?style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.heatingcontrol?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
@@ -283,6 +283,10 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) see issue #491: bug fix in offset calculation (NaN)
+
 ### 2.12.1 (2023-11-25)
 * (René) issue #459: Show the number of objects that can be deleted in the log and indicate that they can be deleted in admin
 * (René) issue #376: notification messages customizable

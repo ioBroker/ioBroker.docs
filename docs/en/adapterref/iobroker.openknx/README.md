@@ -15,7 +15,7 @@ This adapter serves as communication interface between Iobroker and your KNX IP 
 The adapter allows to generate the iobroker communication objects automatically by importing an ETS group address xml export.  
 All generated communication objects are initially configured readable and writeable, values are fetched from the knx bus on adapter restart.
 
-**If you like it, please consider a donation:**
+**If you like OpenKNX, please consider a donation:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
 
@@ -304,7 +304,7 @@ GroupValue_Read comment does not work for javascript adapter. Use qualityAsNumbe
 | DPT-12    | number                 |                                                                                                      | 4-byte unsigned value                     |                                                       |
 | DPT-13    | number                 |                                                                                                      | 4-byte signed value                       |                                                       |
 | DPT-15    | number                 |                                                                                                      | 4-byte                                    |                                                       |
-| DPT-17    | number                 |                                                                                                      | 1-byte                                    | DPT_SceneNumber removed from autoread                 |
+| DPT-17    | number                 |                                                                                                      | 1-byte                                    | DPT_SceneNumber not read by autoread                  |
 | DPT-20    | number                 |                                                                                                      | 1-byte                                    |                                                       |
 | DPT-238   | number                 |                                                                                                      | 1-byte                                    |                                                       |
 | DPT-10    | number for Date Object |                                                                                                      | -                                         |                                                       |
@@ -398,11 +398,11 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.6.1 (2023-12-02)
 
-### **WORK IN PROGRESS**
-
--   feature: KNX bus load measurement
--   bugfix: translation
+-   feature: add KNX bus load measurement
+-   feature: remove standard autoread enable for some DPT1 datatypes which are triggers
+-   bugfix: in error logging
 
 ### 0.5.3 (2023-03-17)
 

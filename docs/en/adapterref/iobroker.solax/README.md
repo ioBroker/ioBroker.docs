@@ -86,6 +86,9 @@ The local IP address (not the hotspot IP) and the password of the web interface 
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
 ### 0.8.0 (2023-10-23)
 * (simatec) X1-Hybrid-G4 added
 

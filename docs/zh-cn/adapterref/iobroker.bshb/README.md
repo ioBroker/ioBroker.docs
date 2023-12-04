@@ -3,38 +3,93 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bshb/README.md
 title: ioBroker.bshb
-hash: Utg7/uDA/cK1Wc29XecalUq6bn8n6olNOfmw9sqEm0A=
+hash: qUdIWuOfG/Nbs8b0tq9HUmVhVxmwkhy6Gay+GR5K0Zk=
 ---
-![商标](../../../en/adapterref/iobroker.bshb/admin/bshb-logo.jpg)
+![标识](../../../en/adapterref/iobroker.bshb/admin/bshb-logo.jpg)
 
 ![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.bshb.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.bshb.svg)
+![下载](https://img.shields.io/npm/dm/iobroker.bshb.svg)
 ![安装数量（最新）](http://iobroker.live/badges/bshb-installed.svg)
 ![安装数量（稳定）](http://iobroker.live/badges/bshb-stable.svg)
 ![已知漏洞](https://snyk.io/test/github/holomekc/ioBroker.bshb/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.bshb.png)
-![特拉维斯](http://img.shields.io/travis/holomekc/ioBroker.bshb/master.svg)
+![国家公共管理](https://nodei.co/npm/iobroker.bshb.png)
 
-＃ioBroker.bshb
-[![依赖状态]（https://david-dm.org/holomekc/iobroker.bshb.svg）](https://david-dm.org/holomekc/iobroker.bshb)
+# IoBroker.bshb
+[![主要](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml/badge.svg)](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml)
 
-##适用于ioBroker的bosch-smart-home-bridge适配器
-该适配器允许与Bosch Smart Home设备进行通信。
+## IoBroker 的博世智能家居桥适配器
+该适配器允许与博世智能家居设备进行通信。
 
 [博世智能家居控制器](https://www.bosch-smarthome.com/de/de/produkte/smart-system-solutions/smart-home-controller)
 
-为此，它使用[博世智能家居桥](https://github.com/holomekc/bosch-smart-home-bridge)库，该库使用来自官方[博世智能家居控制器本地REST API](https://github.com/BoschSmartHome/bosch-shc-api-docs)的信息。
+为了实现这一目标，它使用了 [博世智能家居桥](https://github.com/holomekc/bosch-smart-home-bridge) 库，该库使用来自官方 [博世智能家居控制器本地 REST API](https://github.com/BoschSmartHome/bosch-shc-api-docs) 的信息。
 
-BSHB适配器的ioBroker论坛讨论：https://forum.iobroker.net/topic/25370/test-adapter-bshb-bosch-smart-home-v0-0-x/
+BSHB 适配器的 ioBroker 论坛讨论：https://forum.iobroker.net/topic/25370/test-adapter-bshb-bosch-smart-home-v0-0-x/
 
-示例：https：//github.com/holomekc/ioBroker.bshb/wiki/Examples
+示例：https://github.com/holomekc/ioBroker.bshb/wiki/Examples
 
-工作正在进行中。反馈表示赞赏。
+工作正在进行中。感谢反馈。
 
-如果您想支持这项工作，我将不胜感激。这是100％自愿的，不需要使用适配器。您在顶部找到一个链接。
+如果您想支持这项工作，我将不胜感激您的小额捐款。这是 100% 自愿的，对于使用适配器来说不是必需的。您可以在顶部找到一个链接。
 
 ## Changelog
+
+### 0.2.6
+* (holomekc) Support for user defined states
+
+### 0.2.5
+* (holomekc) Support for user defined states
+
+### 0.2.4
+* (holomekc) Update the adapter to the latest requirements
+
+### 0.2.3
+* (holomekc) Update to api version 3.2
+* (holomekc) Add support for climate schedules with two options to activate them
+* (holomekc) Update intrusion detection so that more information is shown
+* (holomekc) Update intrusion detection and climate schedule switches stay active now
+
+### 0.2.2
+* (holomekc) Support for rooms. Configuration to ignore server certificates. Allow ttesting controller 2 and can prevent issues in case certificates expire. Less secure though.
+
+### 0.2.1
+* (holomekc) Support for additional services
+
+### 0.1.20
+* (holomekc) Fixed problems with openDoorsAndWindows
+
+### 0.1.19
+* (holomekc) problems with initial setup fixed
+
+### 0.1.18
+* (holomekc) rateLimit added so that not too many request are executed against controller
+
+### 0.1.17
+* (holomekc) add yale values for door lock
+* (holomekc) update states on startup
+
+### 0.1.16
+* (holomekc) when scenarioTriggered received the adapter will shortly update the scenario state to true and after 1s back to false. This allows to directly listen to triggered scenarios even when not triggered from iobroker.
+  Behavior if triggered from iobroker:
+  - state: true, ack: false
+  - state: true, ack: true
+  - state: false, ack: true
+  
+  Behavior if triggered from somewhere else:
+  - state: true, ack: true
+  - state: false, ack: true
+* (holomekc) all updates received from controller are send to a new iobroker state "updates". This provides more flexibility and allow more complex logics. Each update is handled one by one even when a list of multiple update from controller received.
+
+### 0.1.15
+* (holomekc) Restore cache also possible without controller connection to internet. Device services endpoint fails in this case. These failures during detection are ignored now with a warning that e.g. detection of new devices is not possible in this case. Nevertheless, controlling Bosch devices will still work.
+* (holomekc) Fix tests and add "simple" integration test
+* (holomekc) Update structure of project
+* (holomekc) Code formatting
+
+### 0.1.14
+* (holomekc) RoomControlMode types added.
+* (holomekc) Update for js-controller 3.x.x. This serializes objects and arrays. Please check your logics.
 
 ### 0.1.13
 * (holomekc) update to api-version 2.1
@@ -142,24 +197,6 @@ BSHB适配器的ioBroker论坛讨论：https://forum.iobroker.net/topic/25370/te
 
 ## License
 
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2021 Christopher Holomek <holomekc.github@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2023 Christopher Holomek <holomekc.github@gmail.com>

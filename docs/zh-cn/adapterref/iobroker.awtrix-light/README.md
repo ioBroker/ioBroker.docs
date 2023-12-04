@@ -16,7 +16,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: IbwMQ1Au850q2A6XVktu6q0JHRrFzeNnIlOyNvX2HqY=
+hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +25,7 @@ hash: IbwMQ1Au850q2A6XVktu6q0JHRrFzeNnIlOyNvX2HqY=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.90_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.91_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -178,6 +178,12 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.1 (2023-12-01)
+
+Updated recommended firmware version to 0.91
+
+* (klein0r) Added uid and ip address states
+
 ### 0.10.0 (2023-10-23)
 
 Updated recommended firmware version to 0.90
@@ -206,18 +212,6 @@ Updated recommended firmware version to 0.88
 * (klein0r) Allow to use apps without text (just background effect)
 * (AlCalzone) Added rtttl api endpoint support (via sendTo)
 * (klein0r) Native apps have been renamed
-
-### 0.8.0 (2023-09-04)
-
-Updated recommended firmware version to 0.83
-
-* (klein0r) Allow to set custom app positions (expert options)
-* (klein0r) Unsubscribe from all states if device is not reachable
-* (klein0r) Added options basic auth
-* (klein0r) Get background effects via API
-* (klein0r) Fixed 0 decimals setting
-* (klein0r) Changed log level of some messages
-* (klein0r) Added states for transitions
 
 ## License
 MIT License

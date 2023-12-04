@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
+hash: zwrHO5IhZOJxbhK+gJrsyLhxV+yKHxp99UbKFy9h1o4=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -24,7 +24,7 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 18 oder höher
+* Node.js 18 oder höher
 * ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Changelog
@@ -32,10 +32,12 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) first minor release
-* (HGlab01) NodeJS 18 or higher
+* (HGlab01) Node.js 18 or higher
 * (HGlab01) ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Bump axios to 1.6.2
+* (HGlab01) use both providers (Awattar and Exaa) for market prices
 
 ### 0.0.7 (2023-10-11)
 * (HGlab01) Bump json-explorer to 0.1.14

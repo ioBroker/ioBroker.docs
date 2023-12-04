@@ -27,6 +27,9 @@ Use id.remote.\* to control the mower
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2023-12-01)
+
+- fix login flow
 
 ### 1.0.2 (2023-11-23)
 

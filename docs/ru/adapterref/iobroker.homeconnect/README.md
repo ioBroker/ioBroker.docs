@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
+hash: EbvV45nHv5bzjr3DjUbIxVJlEez1j/9kKEM+0Sxvm7Q=
 ---
 ![Логотип](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -86,16 +86,27 @@ Oder ob ein Gerät geöffnet ist
 С помощью состояний в настройках вы можете выключить или включить устройство. Изменение значения programs.active.BSH_Common_Root_ActiveProgram приводит к запуску программы. Обновление iQ300: в этой переменной необходимо указать имя программы. Если программы.selected.BSH_Common_Root_SelectedProgram скопированы, пользователь машины может заранее определить нужную программу на машине, и она будет запущена через ioBroker. Изменение значения программы.selected.BSH_Common_Root_SelectedProgram приведет к выбору программы или параметров.
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
+### 1.2.2 (2023-12-02)
 
-### 1.1.1 
+- bump version
+
+### 1.2.1 (2023-12-02)
+
+- bump version
+
+### 1.2.0 (2023-12-02)
+
+- fix login flow
+- (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+- (mcm1957) changed: Dependencies have been updated
+- (ta2k) restart adapter instead of relogin
+
+### 1.1.1
 
 - Fix auto login for SingleKey User
 
@@ -106,7 +117,7 @@ Oder ob ein Gerät geöffnet ist
 ### 1.0.3
 
 - Add manually login for SingleKey User
-  
+
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
@@ -212,7 +223,7 @@ Oder ob ein Gerät geöffnet ist
 
 - (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
 - (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
+  added startInRelative for Oven
 
 ### 0.0.5 (28.11.2018)
 
@@ -238,7 +249,7 @@ Oder ob ein Gerät geöffnet ist
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

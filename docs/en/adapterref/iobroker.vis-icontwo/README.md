@@ -60,6 +60,10 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 1.0.0
+
+• VIS-2 kompatibel
+
 ### 0.98.0
 
 • Neue Icons hinzugefügt (Devices - printer AMS)

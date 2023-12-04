@@ -10,6 +10,14 @@
 
 [![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)](https://nodei.co/npm/iobroker.vis-weather/)
 
+![node-lts](https://img.shields.io/node/v-lts/iobroker.vis-weather?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.vis-weather?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.vis-weather?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.vis-weather?logo=github&style=flat-square)
 
 
 **If you like it, please consider a donation:**
@@ -35,7 +43,16 @@ You might need to enable "NextDaysDetailed".
 
 ## Changelog
 
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+
+### **WORK IN PROGRESS**
+* (René) make it ready to run with vis-2
+
 ### 2.5.7 (in progress)
+* (René) dependencies update
 
 ### 2.5.6 (2022-08-18)
 * (René) tooltip with value added as an option

@@ -22,7 +22,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (oder neuer)
 - js-controller 4.0.15 (oder neuer)
 - Admin Adapter 6.6.0 (oder neuer)
-- _Awtrix Light_ Gerät mit Firmware-Version _0.90_ (oder neuer) - z.B. Ulanzi TC001
+- _Awtrix Light_ Gerät mit Firmware-Version _0.91_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -186,6 +186,12 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.10.1 (2023-12-01)
+
+Updated recommended firmware version to 0.91
+
+* (klein0r) Added uid and ip address states
+
 ### 0.10.0 (2023-10-23)
 
 Updated recommended firmware version to 0.90
@@ -214,18 +220,6 @@ Updated recommended firmware version to 0.88
 * (klein0r) Allow to use apps without text (just background effect)
 * (AlCalzone) Added rtttl api endpoint support (via sendTo)
 * (klein0r) Native apps have been renamed
-
-### 0.8.0 (2023-09-04)
-
-Updated recommended firmware version to 0.83
-
-* (klein0r) Allow to set custom app positions (expert options)
-* (klein0r) Unsubscribe from all states if device is not reachable
-* (klein0r) Added options basic auth
-* (klein0r) Get background effects via API
-* (klein0r) Fixed 0 decimals setting
-* (klein0r) Changed log level of some messages
-* (klein0r) Added states for transitions
 
 ## License
 MIT License

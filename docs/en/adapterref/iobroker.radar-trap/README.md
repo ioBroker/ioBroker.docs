@@ -29,6 +29,16 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.10 (2023-12-02)
+* (Steiger04) io-package.json changed (ignoreInVersions)
+
+### 1.0.9 (2023-11-30)
+* (Steiger04) Bugfix for using vis
+
+### 1.0.8 (2023-11-29)
+* (Steiger04) Install vis-widgets only for using vis
+* (Steiger04) vis must not be installed for using radar-trap
+
 ### 1.0.7 (2023-09-30)
 * (Steiger04) Added features for vis-widgets
 * (Steiger04) Added states for counting traps

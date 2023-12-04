@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
+hash: sfa6ISJsOEqQnyIOygbCl6Kfi9twg6kGwEtPsLmJjb0=
 ---
 ![Logo](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -25,7 +25,7 @@ Der Standardplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „Inst
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 18 oder höher
+* Node.js 18 oder höher
 * ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Changelog
@@ -33,9 +33,9 @@ Der Standardplan wird alle 20 Minuten als Cron-Job auf der Registerkarte „Inst
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
 

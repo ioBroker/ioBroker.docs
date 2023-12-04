@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
+hash: EbvV45nHv5bzjr3DjUbIxVJlEez1j/9kKEM+0Sxvm7Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -26,7 +26,7 @@ Für den Adapter ist eine ClientID erforderlich. Verwenden Sie zur Registrierung
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Autorisierungsprozess benötigt.
+Bei **Default Home Connect User Account for Testing** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Authorization-Prozess benötigt.
 
 Geben Sie bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse an, mit der die Home Connect-App versendet werden soll.
 registriert wurde, ist dies auch später im Autorisierungsprozess erforderlich.
@@ -86,16 +86,27 @@ Mit den Zuständen in Befehlen können Sie ein Programm stoppen, pausieren und f
 Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einschalten. Ändern Sie den Wert von „Programme.active.BSH_Common_Root_ActiveProgram“, um ein Programm zu starten. Update iQ300: Sie müssen den Programmnamen in dieser Variablen festlegen. Wenn „programs.selected.BSH_Common_Root_SelectedProgram“ kopiert wird, kann der Maschinenbenutzer das gewünschte Programm an der Maschine vordefinieren und es wird über ioBroker gestartet. Eine Änderung des Werts von „programs.selected.BSH_Common_Root_SelectedProgram“ führt zur Auswahl eines Programms oder von Optionen
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
+### 1.2.2 (2023-12-02)
 
-### 1.1.1 
+- bump version
+
+### 1.2.1 (2023-12-02)
+
+- bump version
+
+### 1.2.0 (2023-12-02)
+
+- fix login flow
+- (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+- (mcm1957) changed: Dependencies have been updated
+- (ta2k) restart adapter instead of relogin
+
+### 1.1.1
 
 - Fix auto login for SingleKey User
 
@@ -106,7 +117,7 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
 ### 1.0.3
 
 - Add manually login for SingleKey User
-  
+
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
@@ -212,7 +223,7 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
 
 - (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
 - (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
+  added startInRelative for Oven
 
 ### 0.0.5 (28.11.2018)
 
@@ -238,7 +249,7 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

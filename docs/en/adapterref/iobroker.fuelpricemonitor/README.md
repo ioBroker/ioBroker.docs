@@ -19,7 +19,7 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 18 or higher
+* Node.js 18 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
@@ -27,9 +27,9 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
 

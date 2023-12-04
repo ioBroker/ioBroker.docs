@@ -538,6 +538,9 @@ _[Zurück zum Anfang](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### **WORK IN PROGRESS**
+* (simatec) dependencies updated
+
 ### 2.9.5 (2023-11-29)
 * (simatec) dependencies updated
 * (simatec) Fix redis Password

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
+hash: sfa6ISJsOEqQnyIOygbCl6Kfi9twg6kGwEtPsLmJjb0=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -25,7 +25,7 @@ hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* NodeJS 18 или выше
+* Node.js 18 или выше.
 * Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
@@ -33,9 +33,9 @@ hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
 

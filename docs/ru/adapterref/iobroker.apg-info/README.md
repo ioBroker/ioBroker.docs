@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-информация
-hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
+hash: zwrHO5IhZOJxbhK+gJrsyLhxV+yKHxp99UbKFy9h1o4=
 ---
 ![Логотип](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -24,7 +24,7 @@ hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* NodeJS 18 или выше
+* Node.js 18 или выше.
 * Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
@@ -32,10 +32,12 @@ hash: pVoUEfts8+PBYVtWzZRIOMuYCYfphzCJLZKLftSgpZc=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.1.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) first minor release
-* (HGlab01) NodeJS 18 or higher
+* (HGlab01) Node.js 18 or higher
 * (HGlab01) ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Bump axios to 1.6.2
+* (HGlab01) use both providers (Awattar and Exaa) for market prices
 
 ### 0.0.7 (2023-10-11)
 * (HGlab01) Bump json-explorer to 0.1.14

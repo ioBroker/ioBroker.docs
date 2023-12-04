@@ -129,6 +129,24 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 0.18.4 (2023-12-03)
+- better text for historic bindings cancel
+
+### 0.18.3 (2023-12-03)
+- fix reload in dynamics editor
+
+### 0.18.2 (2023-12-03)
+- ui for historic binding
+- fixes in refactor view
+
+### 0.18.1 (2023-12-03)
+- fixes in refactor service
+
+### 0.18.0 (2023-12-01)
+- tooltip in solution explorer
+- npm upgrade of designer
+- refactor view for bindings and scripts
+
 ### 0.17.0 (2023-11-29)
 - remove 2 uneeded files
 - designer update

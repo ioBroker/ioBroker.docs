@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 3MGlO3NldNvPvKP8oirTPmlCXSg9dpSi6y4JJmRpRXs=
+hash: 7xnhXfnBwwgtnMe7GROyNHRqInIXrkux8HNHPYAFU68=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -20,7 +20,7 @@ Dieser Adapter dient als Kommunikationsschnittstelle zwischen Iobroker und Ihrem
 Der Adapter ermöglicht die automatische Generierung der Iobroker-Kommunikationsobjekte durch den Import eines ETS-Gruppenadressen-XML-Exports.
 Alle generierten Kommunikationsobjekte sind zunächst lesbar und schreibbar konfiguriert, Werte werden beim Neustart des Adapters vom KNX-Bus abgerufen.
 
-**Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
+**Wenn Ihnen OpenKNX gefällt, denken Sie bitte über eine Spende nach:**
 
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z8UFC8QEC4ARW&source=url)
 
@@ -276,7 +276,7 @@ Der Kommentar „GroupValue_Read“ funktioniert nicht für den Javascript-Adapt
 | DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
 | DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
 | DPT-15 | Nummer | | 4 Byte | |
-| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber aus Autoread entfernt |
+| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber wurde von Autoread nicht gelesen |
 | DPT-20 | Nummer | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
 | DPT-10 | Nummer für Datumsobjekt | | - | |
@@ -363,11 +363,11 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.6.1 (2023-12-02)
 
-### **WORK IN PROGRESS**
-
--   feature: KNX bus load measurement
--   bugfix: translation
+-   feature: add KNX bus load measurement
+-   feature: remove standard autoread enable for some DPT1 datatypes which are triggers
+-   bugfix: in error logging
 
 ### 0.5.3 (2023-03-17)
 

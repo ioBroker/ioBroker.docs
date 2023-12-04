@@ -72,7 +72,11 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 6.12.7 (2023-12-03)
+* (foxriver76) add property `onLoaded` to `sendTo` json config
+* (foxriver76) fixed easy admin height
+
+### 6.12.6 (2023-12-01)
 * (foxriver76) fixed JSON config file component if no initial value exists
 * (bluefox) added the creation of a state or of a device possibility to the context menu
 
@@ -91,15 +95,6 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 * (foxriver76) fixed `freeSolo` option for autocomplete components
 * (foxriver76) fixed issue with jsonConfig `sendTo` with `native` option when returning multiple properties
 * (foxriver76) fixed empty dropdown selection after selecting `system language` in JsonConfig
-
-### 6.12.2 (2023-11-02)
-* (foxriver76) fixed issue with jsonConfig `sendTo` with `native` option when returning multiple properties
-* (foxriver76) fixed crash case when schema cannot be read
-* (klein0r) Fixed noDelete attribute of JSON config accordion
-
-### 6.12.1 (2023-10-29)
-* (foxriver76) optimzied the notificaiton popup (auto-extend first entry per category, respect line breaks, respect severity for icons)
-* (theimo1221) #2178 Stabilize onObjectChange handling during creation of new objects in WebUi, to directly show new element.
 
 ## License
 The MIT License (MIT)

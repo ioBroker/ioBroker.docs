@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: iHH5LnBdYZ7oLsNl0a1WSxtKNmW36TgsoNoSknIq0YA=
+hash: uppBMIkpHsW8y+VZZeSZLFYEih0k4weQsKoeKGqWJHE=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https:// /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
 您可以以 JSON 或 JSON5 格式定义设置。 JSON5 更易于人类阅读并支持注释。
 
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 包含项目的选项卡
+- `面板` - 带有项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -50,7 +50,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `maxLength` - 字段中文本的最大长度
   - `readOnly` - 只读字段
   - `trim` - 默认为 true。如果不需要修剪，请将此属性设置为“false”。
-  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
+  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更多。
   - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
 
 - `数字`
@@ -186,6 +186,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
     - `useNative` - 如果适配器返回带有 `native` 属性的结果，它将用于配置。如果“saveConfig”为 true，将请求用户保存配置。
     - `showProcess` - 在请求进行时显示微调器
     - `timeout` - 请求超时（以毫秒为单位）。默认值：无。
+    - `onLoaded` - 最初执行一次按钮逻辑
 
 - `setState` - 设置实例状态的按钮
     - `id` - `system.adapter.myAdapter.%INSTANCE%.test`，可以使用占位符`%INSTANCE%`替换为当前实例名称
@@ -430,7 +431,7 @@ adapter.on('message', obj => {
   - `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
   - `title` - 许可证对话框的标题
   - `agreeText` - 同意按钮的文本
-  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，则将启用同意的按钮。
+  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，同意的按钮将被启用。
 
 - `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要原生的 `license` 和 `useLicenseManager` 属性。
   - `uuid` - 检查 UUID

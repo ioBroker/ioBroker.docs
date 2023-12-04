@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: zCuOVaOVLnqaezaAMxufi8xS9i0JGB/PPN63D+mcxYk=
+hash: N8dufdxgJrbGe3XPEuKwlYmp6TFWG8aFqmEXhJzpMMA=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -22,7 +22,7 @@ Dies ist ein sehr kleiner MQTT-Broker, der keine Objekte/Zustände in iobroker v
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Erfordert
-* NodeJS 18 oder höher
+* Node.js 18 oder höher
 * ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Wie man es benutzt
@@ -96,8 +96,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.0-alpha.0 (2023-11-29)
+### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
+* (HGlab01) Node.js 18.0 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: iHH5LnBdYZ7oLsNl0a1WSxtKNmW36TgsoNoSknIq0YA=
+hash: uppBMIkpHsW8y+VZZeSZLFYEih0k4weQsKoeKGqWJHE=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -186,6 +186,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
     - „useNative“ – wenn der Adapter ein Ergebnis mit dem Attribut „native“ zurückgibt, wird es für die Konfiguration verwendet. Wenn „saveConfig“ wahr ist, wird der Benutzer aufgefordert, die Konfiguration zu speichern.
     - „showProcess“ – Spinner anzeigen, während die Anfrage ausgeführt wird
     - „timeout“ – Zeitüberschreitung für die Anfrage in ms. Standard: keine.
+    - „onLoaded“ – führt die Schaltflächenlogik zunächst einmal aus
 
 - „setState“ – Schaltfläche, die den Status der Instanz festlegt
     - `id` - `system.adapter.myAdapter.%INSTANCE%.test`, Sie können den Platzhalter `%INSTANCE%` verwenden, um ihn durch den aktuellen Instanznamen zu ersetzen

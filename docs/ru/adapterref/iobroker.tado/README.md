@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
+hash: 5eHSe1aPZGsg+GO/TTEDgwOeteZOzQYOc2Mdi23DTkA=
 ---
 # IoBroker.tado
 
@@ -46,7 +46,7 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Горизонтальное качание (только устройства переменного тока с V3 и более ранними версиями) |
 
 ## Требует
-* Узел 18 или выше
+* Node.js 18 или выше.
 * Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Changelog
@@ -56,7 +56,7 @@ Tado° (https://www.tado.com) — эксперт в области интелл�
 -->
 ### 0.5.0 (2023-11-25)
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) fix jsonConf validation issue
 * (HGlab01) Bump axios to 1.6.2

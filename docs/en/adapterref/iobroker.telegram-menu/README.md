@@ -33,6 +33,15 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.9.3 (2023-12-04)
+
+-   fixed scrolling
+-   values changed to value not icon
+-   fixed save Value from HelperCard
+-   changeValue extends
+-   small fixes
+-   it is now possible to mark text in draggable rows
+
 ### 0.9.2 (2023-11-26)
 
 -   fixed error when the Adapter starts

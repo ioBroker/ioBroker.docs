@@ -17,7 +17,7 @@ This is very tiny MQTT broker which is not managing any objects/states in iobrok
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 18 or higher
+* Node.js 18 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
 ## How to use it
@@ -87,8 +87,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.0-alpha.0 (2023-11-29)
+### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
+* (HGlab01) Node.js 18.0 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14

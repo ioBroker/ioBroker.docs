@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fuelpricemonitor/README.md
 title: ioBroker.fuelpricemonitor
-hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
+hash: sfa6ISJsOEqQnyIOygbCl6Kfi9twg6kGwEtPsLmJjb0=
 ---
 ![标识](../../../en/adapterref/iobroker.fuelpricemonitor/admin/fuelpricemonitor.png)
 
@@ -25,7 +25,7 @@ hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## 需要
-* NodeJS 18 或更高版本
+* Node.js 18 或更高版本
 * ioBroker 主机（js-controller）5.0 或更高版本
 
 ## Changelog
@@ -33,9 +33,9 @@ hash: /j/rj0m0QywgnVt/6oncEbZJKCu+nqTo8fj+bzhyEws=
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### 0.4.0-alpha.0 (2023-11-28)
+### __WORK IN PROGRESS__
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) Bump axios to 1.6.2
 

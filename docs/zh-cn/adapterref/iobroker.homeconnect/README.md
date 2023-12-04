@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: 3kpwlPCaszxsziZAZEPjWIHfT4Ohwcoqjtgr6cfknnQ=
+hash: EbvV45nHv5bzjr3DjUbIxVJlEez1j/9kKEM+0Sxvm7Q=
 ---
 ![标识](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
@@ -26,7 +26,7 @@ Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，请注册 Home-Connect-App，然后再注册授权过程。
+Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，并已注册 Home-Connect-App，并已完成授权过程。
 
 对于 **用于测试的默认 Home Connect 用户帐户**，指定用于发送 Home Connect 应用程序的电子邮件地址。
 已注册，稍后在授权过程中也需要这样做。
@@ -86,16 +86,27 @@ Oder ob ein Gerät geoffnet ist
 通过设置中的状态，您可以关闭或打开设备。更改programs.active.BSH_Common_Root_ActiveProgram 的值将导致启动程序更新iQ300：您需要在此变量中设置程序名称。如果复制programs.selected.BSH_Common_Root_SelectedProgram，机器用户可以在机器上预定义所需的程序，并将通过ioBroker启动该程序。更改programs.selected.BSH_Common_Root_SelectedProgram的值导致选择程序或选项
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
+### 1.2.2 (2023-12-02)
 
-### 1.1.1 
+- bump version
+
+### 1.2.1 (2023-12-02)
+
+- bump version
+
+### 1.2.0 (2023-12-02)
+
+- fix login flow
+- (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+- (mcm1957) changed: Dependencies have been updated
+- (ta2k) restart adapter instead of relogin
+
+### 1.1.1
 
 - Fix auto login for SingleKey User
 
@@ -106,7 +117,7 @@ Oder ob ein Gerät geoffnet ist
 ### 1.0.3
 
 - Add manually login for SingleKey User
-  
+
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
@@ -212,7 +223,7 @@ Oder ob ein Gerät geoffnet ist
 
 - (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
 - (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
+  added startInRelative for Oven
 
 ### 0.0.5 (28.11.2018)
 
@@ -238,7 +249,7 @@ Oder ob ein Gerät geoffnet ist
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

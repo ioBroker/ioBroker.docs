@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: zCuOVaOVLnqaezaAMxufi8xS9i0JGB/PPN63D+mcxYk=
+hash: N8dufdxgJrbGe3XPEuKwlYmp6TFWG8aFqmEXhJzpMMA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -22,7 +22,7 @@ hash: zCuOVaOVLnqaezaAMxufi8xS9i0JGB/PPN63D+mcxYk=
 **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Требует
-* NodeJS 18 или выше
+* Node.js 18 или выше.
 * Хост ioBroker (js-контроллер) 5.0 или выше
 
 ## Как это использовать
@@ -96,8 +96,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.1.0-alpha.0 (2023-11-29)
+### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
+* (HGlab01) Node.js 18.0 or higher
+* (HGlab01) ioBroker host (js-controller) 5.0 or higher
 
 ### 0.0.8 (2023-10-09)
 * (HGlab01) Bump json-explorer to 0.1.14

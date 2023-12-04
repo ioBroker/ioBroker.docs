@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
+hash: 5eHSe1aPZGsg+GO/TTEDgwOeteZOzQYOc2Mdi23DTkA=
 ---
 # IoBroker.tado
 
@@ -21,7 +21,7 @@ hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
 ## IoBroker 的 tado 适配器
 Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专家，在德国设计和开发。与我们一起永远节省能源并降低成本 - 享受舒适且可持续的家。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 你可以掌控的事情
 |状态|描述 |
@@ -29,16 +29,16 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专�
 | tado.[x].[yyyyyy].Rooms.[z].setting.power |打开/关闭设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.温度.celsius |定义温度 |
 | tado.[x].[yyyyyy].Rooms.[z].overlayClearZone |切换到自动模式 |
-| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式|
+| tado.[x].[yyyyyy].Rooms.[z].overlay.termination.typeSkillBasedApp |设置时间表模式 |
 | tado.[x].[yyyyyy].Rooms.[z].overlay.termination.durationInSeconds |设置时间表模式应用多长时间 |
 | tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].offset.offsetCelsius |温度偏移|
-| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled |童锁开/关|
+| tado.[x].[yyyyyy].Rooms.[z].devices.[RUaaaaaaaaaa].childLockEnabled |童锁开/关 |
 | tado.[x].[yyyyyy].Rooms.[z].timeTables.tt_id |选择活动时间表 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.openWindowDetectionEnabled |启用/禁用恒温器上的开窗检测 |
 | tado.[x].[yyyyyy].Rooms.[z].openWindowDetection.timeoutInSeconds |检测到打开的窗户时关闭恒温器的超时时间 |
 | tado.[x].[yyyyyy].Rooms.[z].activateOpenWindow |检测到打开的窗户时关闭恒温器（仅当恒温器检测到打开的窗户时才起作用）|
 | tado.[x].[yyyyyy].Home.state.presence | tado.[x].[yyyyyy].Home.state.presence |设置“在家”、“外出”或“自动”模式 |
-| tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备|
+| tado.[x].[yyyyyy].Home.masterswitch |打开/关闭所有设备 |
 | tado.[x].[yyyyyy].Rooms.[z].setting.mode | AC 模式（仅限 AC 设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | tado.[x].[yyyyyy].Rooms.[z].setting.fanspeed | Fanspeed（仅限 V3 及更早版本的交流设备）|
 | tado.[x].[yyyyyy].Rooms.[z].setting.fanLebel | Fanlebel（仅限 V3+ 版本的 AC 设备）|
@@ -46,7 +46,7 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专�
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing |水平摆动（仅限 V3 及更早版本的交流设备）|
 
 ## 需要
-* 节点18或更高
+* Node.js 18 或更高版本
 * ioBroker 主机（js-controller）5.0 或更高版本
 
 ## Changelog
@@ -56,7 +56,7 @@ Tado° (https://www.tado.com) 是家庭智能供暖和能源管理领域的专�
 -->
 ### 0.5.0 (2023-11-25)
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) fix jsonConf validation issue
 * (HGlab01) Bump axios to 1.6.2

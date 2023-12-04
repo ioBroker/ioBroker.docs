@@ -42,7 +42,7 @@ Then go to **Applications** and then to **Register Application**.
 
 ![Screenshot](img/application2.JPG)
 
-Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren. 
+Bei **Application ID** einen Namen für die Application eintragen, z.B. ioBroker. Bei **OAuth Flow** Device Flow selektieren.
 **Home Connect User Account for Testing** kann leer bleiben. Bei **Success Redirect** eine URI eintragen, z.B. https://example.com.
 Dann Speichern und dann hat man die benötigte ClientID.
 
@@ -53,7 +53,6 @@ Then save and you have the required ClientID.
 ## Konfiguration
 
 In der Adapter-Config muss der Homeconnect App Benutzername und Passwort und die erstellte ClientID eingetragen werden.
-
 
 ## Benutzung
 
@@ -96,16 +95,27 @@ Update iQ300: You need to set the program name in this variable. If programs.sel
 Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to selecting a program or options
 
 ## Changelog
+
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
--   (ta2k) restart adapter instead of relogin
+### 1.2.2 (2023-12-02)
 
-### 1.1.1 
+- bump version
+
+### 1.2.1 (2023-12-02)
+
+- bump version
+
+### 1.2.0 (2023-12-02)
+
+- fix login flow
+- (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
+- (mcm1957) changed: Dependencies have been updated
+- (ta2k) restart adapter instead of relogin
+
+### 1.1.1
 
 - Fix auto login for SingleKey User
 
@@ -116,7 +126,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 ### 1.0.3
 
 - Add manually login for SingleKey User
-  
+
 ### 1.0.2
 
 - Adapter complete rewriten. Includes a lot of Bugfixes
@@ -222,7 +232,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 - (dna909) Oven: add Option.FastPreHeat, Logging, query stream.type DISCONNECTED
 - (tFaster) code format and cleanups,fixed devices data structure,renamed deviceArray to devices,
-    added startInRelative for Oven
+  added startInRelative for Oven
 
 ### 0.0.5 (28.11.2018)
 
@@ -248,7 +258,7 @@ Change the value of programs.selected.BSH_Common_Root_SelectedProgram leads to s
 
 The MIT License (MIT)
 
-Copyright (c) 2020 dna909 <dna909@googlemail.com>, TA2k
+Copyright (c) 2023 dna909 <dna909@googlemail.com>, TA2k
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

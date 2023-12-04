@@ -46,6 +46,9 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
 ### 1.6.3 (2023-11-01)
 * (simatec) Saturday added as work week
 * (simatec) Dependencies updated

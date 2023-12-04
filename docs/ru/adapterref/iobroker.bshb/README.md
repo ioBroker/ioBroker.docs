@@ -3,38 +3,93 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bshb/README.md
 title: ioBroker.bshb
-hash: Utg7/uDA/cK1Wc29XecalUq6bn8n6olNOfmw9sqEm0A=
+hash: qUdIWuOfG/Nbs8b0tq9HUmVhVxmwkhy6Gay+GR5K0Zk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bshb/admin/bshb-logo.jpg)
 
-![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.bshb.svg)
+![Пожертвование через PayPal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.bshb.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bshb.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/bshb-installed.svg)
+![Количество установок (последних)](http://iobroker.live/badges/bshb-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/bshb-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/holomekc/ioBroker.bshb/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.bshb.png)
-![Трэвис-Си](http://img.shields.io/travis/holomekc/ioBroker.bshb/master.svg)
+![НПМ](https://nodei.co/npm/iobroker.bshb.png)
 
 # IoBroker.bshb
-[![Статус зависимости] (https://david-dm.org/holomekc/iobroker.bshb.svg)](https://david-dm.org/holomekc/iobroker.bshb)
+[![Основная](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml/badge.svg)](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml)
 
 ## Адаптер bosch-smart-home-bridge для ioBroker
 Этот адаптер позволяет обмениваться данными с устройствами Bosch Smart Home.
 
 [Контроллер умного дома Bosch](https://www.bosch-smarthome.com/de/de/produkte/smart-system-solutions/smart-home-controller)
 
-Для этого он использует библиотеку [мост для умного дома bosch](https://github.com/holomekc/bosch-smart-home-bridge), которая использует информацию из официального [Локальный интерфейс REST API контроллера умного дома Bosch](https://github.com/BoschSmartHome/bosch-shc-api-docs).
+Для этого он использует библиотеку [Bosch-умный дом-мост](https://github.com/holomekc/bosch-smart-home-bridge), которая использует информацию из официального [Локальный REST API контроллера умного дома Bosch](https://github.com/BoschSmartHome/bosch-shc-api-docs).
 
-Обсуждение на форуме ioBroker адаптера BSHB: https://forum.iobroker.net/topic/25370/test-adapter-bshb-bosch-smart-home-v0-0-x/
+Обсуждение адаптера BSHB на форуме ioBroker: https://forum.iobroker.net/topic/25370/test-adapter-bshb-bosch-smart-home-v0-0-x/
 
-Примеры: https://github.com/holomekc/ioBroker.bshb/wiki/Examples
+Примеры: https://github.com/holomekc/ioBroker.bshb/wiki/Examples.
 
 Работа в процессе. Обратная связь приветствуется.
 
-Если вы хотите поддержать работу, я буду признателен за небольшое пожертвование. Это на 100% добровольно и не обязательно для использования адаптера. Вы найдете ссылку вверху.
+Если вы хотите поддержать работу, буду признателен за небольшое пожертвование. Это на 100% добровольно и не обязательно для использования адаптера. Вы найдете ссылку вверху.
 
 ## Changelog
+
+### 0.2.6
+* (holomekc) Support for user defined states
+
+### 0.2.5
+* (holomekc) Support for user defined states
+
+### 0.2.4
+* (holomekc) Update the adapter to the latest requirements
+
+### 0.2.3
+* (holomekc) Update to api version 3.2
+* (holomekc) Add support for climate schedules with two options to activate them
+* (holomekc) Update intrusion detection so that more information is shown
+* (holomekc) Update intrusion detection and climate schedule switches stay active now
+
+### 0.2.2
+* (holomekc) Support for rooms. Configuration to ignore server certificates. Allow ttesting controller 2 and can prevent issues in case certificates expire. Less secure though.
+
+### 0.2.1
+* (holomekc) Support for additional services
+
+### 0.1.20
+* (holomekc) Fixed problems with openDoorsAndWindows
+
+### 0.1.19
+* (holomekc) problems with initial setup fixed
+
+### 0.1.18
+* (holomekc) rateLimit added so that not too many request are executed against controller
+
+### 0.1.17
+* (holomekc) add yale values for door lock
+* (holomekc) update states on startup
+
+### 0.1.16
+* (holomekc) when scenarioTriggered received the adapter will shortly update the scenario state to true and after 1s back to false. This allows to directly listen to triggered scenarios even when not triggered from iobroker.
+  Behavior if triggered from iobroker:
+  - state: true, ack: false
+  - state: true, ack: true
+  - state: false, ack: true
+  
+  Behavior if triggered from somewhere else:
+  - state: true, ack: true
+  - state: false, ack: true
+* (holomekc) all updates received from controller are send to a new iobroker state "updates". This provides more flexibility and allow more complex logics. Each update is handled one by one even when a list of multiple update from controller received.
+
+### 0.1.15
+* (holomekc) Restore cache also possible without controller connection to internet. Device services endpoint fails in this case. These failures during detection are ignored now with a warning that e.g. detection of new devices is not possible in this case. Nevertheless, controlling Bosch devices will still work.
+* (holomekc) Fix tests and add "simple" integration test
+* (holomekc) Update structure of project
+* (holomekc) Code formatting
+
+### 0.1.14
+* (holomekc) RoomControlMode types added.
+* (holomekc) Update for js-controller 3.x.x. This serializes objects and arrays. Please check your logics.
 
 ### 0.1.13
 * (holomekc) update to api-version 2.1
@@ -142,24 +197,6 @@ hash: Utg7/uDA/cK1Wc29XecalUq6bn8n6olNOfmw9sqEm0A=
 
 ## License
 
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2021 Christopher Holomek <holomekc.github@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Copyright (c) 2023 Christopher Holomek <holomekc.github@gmail.com>

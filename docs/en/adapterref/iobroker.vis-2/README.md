@@ -229,6 +229,18 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.9.4 (2023-12-04)
+* (foxriver76) fixed issues with display width
+
+### 2.9.3 (2023-12-03)
+* (bluefox) Added the possibility to limit hard the view size
+* (foxriver76) implemented simple sort mechanic for navigation
+* (foxriver76) fixed import of views, which were inside a folder
+* (foxriver76) fixed theme also applied in iframe
+* (foxriver76) do not simply reuse widget ids when importing or copying views
+* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) made script tags work in basic html widget
+
 ### 2.9.2 (2023-11-29)
 * (foxriver76) fixed reactivity in custom components
 * (foxriver76) fixed import for groups

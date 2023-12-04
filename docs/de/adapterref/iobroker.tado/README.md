@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tado/README.md
 title: ioBroker.tado
-hash: Pjwkijsv2gTcE5B4AJG6dY6I8F/v1bXZOXhIcwWlfdg=
+hash: 5eHSe1aPZGsg+GO/TTEDgwOeteZOzQYOc2Mdi23DTkA=
 ---
 # IoBroker.tado
 
@@ -46,7 +46,7 @@ Tado° (https://www.tado.com) ist der Experte für intelligentes Heizen und Ener
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontaler Schwenk (nur AC-Geräte mit V3 und älteren Versionen) |
 
 ## Erfordert
-* Knoten 18 oder höher
+* Node.js 18 oder höher
 * ioBroker-Host (JS-Controller) 5.0 oder höher
 
 ## Changelog
@@ -56,7 +56,7 @@ Tado° (https://www.tado.com) ist der Experte für intelligentes Heizen und Ener
 -->
 ### 0.5.0 (2023-11-25)
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) fix jsonConf validation issue
 * (HGlab01) Bump axios to 1.6.2

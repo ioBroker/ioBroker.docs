@@ -7,12 +7,10 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.bshb.svg)](https://www.npmjs.com/package/iobroker.bshb)
 ![Number of Installations (latest)](http://iobroker.live/badges/bshb-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/bshb-stable.svg)
-[![Dependency Status](https://david-dm.org/holomekc/iobroker.bshb.svg)](https://david-dm.org/holomekc/iobroker.bshb)
 [![Known Vulnerabilities](https://snyk.io/test/github/holomekc/ioBroker.bshb/badge.svg)](https://snyk.io/test/github/holomekc/ioBroker.bshb)
+[![Main](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml/badge.svg)](https://github.com/holomekc/iobroker.bshb/actions/workflows/test.yml)
 
 [![NPM](https://nodei.co/npm/iobroker.bshb.png)](https://nodei.co/npm/iobroker.bshb/)
-
-[![Travis-CI](http://img.shields.io/travis/holomekc/ioBroker.bshb/master.svg)](https://travis-ci.org/holomekc/ioBroker.bshb) 
 
 ## bosch-smart-home-bridge adapter for ioBroker
 
@@ -34,6 +32,12 @@ Work in progress. Feedback appreciated.
 If you want to support the work I would appreciate a small donation. This is 100% voluntary and not necessary for the use of the adapter. You find a link at the top.
 
 ## Changelog
+
+### 0.2.6
+* (holomekc) Support for user defined states
+
+### 0.2.5
+* (holomekc) Support for user defined states
 
 ### 0.2.4
 * (holomekc) Update the adapter to the latest requirements

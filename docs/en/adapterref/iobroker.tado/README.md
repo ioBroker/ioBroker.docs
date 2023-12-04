@@ -38,7 +38,7 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 | tado.[x].[yyyyyy].Rooms.[z].setting.horizontalSwing | Horizontal swing (only AC devices with V3 and olderversions) |
 
 ## Requires
-* Node 18 or higher
+* Node.js 18 or higher
 * ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
@@ -48,7 +48,7 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 -->
 ### 0.5.0 (2023-11-25)
 * (HGlab01) Breaking changes
-    - Node 18.0 or higher
+    - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher
 * (HGlab01) fix jsonConf validation issue
 * (HGlab01) Bump axios to 1.6.2
