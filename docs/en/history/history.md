@@ -250,3 +250,8 @@ https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
 <img src="https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/admin/tractive-gps.png" width="100" height="100" />
 
 This adapter allows you to connect to the Tractive GPS service and retrieve the location of your pets.
+
+## admin (06.12.2023) - new feature
+It is possible to change menu colors in admin
+
+<img src="media/2023_12_06_admin.png" width="500" />
