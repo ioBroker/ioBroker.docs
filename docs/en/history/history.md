@@ -243,3 +243,10 @@ https://github.com/ticaki/ioBroker.weather-warnings
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
 This adapter accesses weather warnings of different weather services and outputs them as text or voice messages. Additionally it creates States grouped by type, which can be used to react to current warnings.
+
+## tractive-gps (06.12.2023) - new adapter
+https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/admin/tractive-gps.png" width="100" height="100" />
+
+This adapter allows you to connect to the Tractive GPS service and retrieve the location of your pets.
