@@ -20,6 +20,10 @@ You need an api key to access the data. The api key you can get for free after r
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.0.4 (2023-12-05)
+* (bluefox) Used the JSON config for configuration dialog
+* (bluefox) Added title to widget
+
 ### 0.4.5 (2023-10-09)
 * (feuer-sturm) changed german translation
 

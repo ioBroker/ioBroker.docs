@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.followthesun/README.md
 title: ioBroker.followthesun
-hash: vEVbQqAMHxt+5gc0m4YFo7UpB1DG6NYTK6WtaeLCaNw=
+hash: znx8CVNVzrrGmtt+3CdYqGy4tuoeHhtTbzidoNVa9Tw=
 ---
 ![标识](../../../en/adapterref/iobroker.followthesun/admin/followthesun.png)
 
@@ -23,20 +23,23 @@ hash: vEVbQqAMHxt+5gc0m4YFo7UpB1DG6NYTK6WtaeLCaNw=
 它使用配置中定义的地理位置。计算间隔可以在实例首选项中定义。
 某些日子（例如今天、明天或春/夏/秋/冬初）的太阳正午值也会被存储。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## 需要
-* NodeJS 16 或更高版本
-* ioBroker 主机（js-controller）4.0 或更高版本
+* Node.js 18 或更高版本
+* ioBroker 主机（js-controller）5.0 或更高版本
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
+### 0.5.0 (2023-12-05)
+* (HGlab01) Breaking changes
+    - Node.js 18 or higher required
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Coordinates can be configured on instance level (optional)
+* (HGlab01) Bump iobroker-jsonexplorer to v0.1.14
 
 ### 0.4.2 (2023-08-10)
 * (HGlab01) Improve admin5 UI usage
@@ -56,13 +59,10 @@ hash: vEVbQqAMHxt+5gc0m4YFo7UpB1DG6NYTK6WtaeLCaNw=
 * (HGlab01) js-controller 4.0 readiness
 * (HGlab01) fix sometimes today is not today
 
-### 0.3.8 (2021-12-07)
-* (HGlab01) Notifiy Sentry about new release
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

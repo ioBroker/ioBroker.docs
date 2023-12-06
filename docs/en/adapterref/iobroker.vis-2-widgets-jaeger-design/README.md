@@ -34,6 +34,9 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.5 (2023-12-05)
+* (bluefox) Added an option to start action or scene from new line
+
 ### 1.1.0 (2023-11-29)
 * (bluefox) Corrected license check
 * (bluefox) Added class names to all important layout components

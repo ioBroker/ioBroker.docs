@@ -22,6 +22,7 @@ sendTo('cameras.0', 'image', {
     width: 100, // optional 
     height: 50, // optional
     angle: 90   // optional
+    noCache: true // optional, if you want to get the image not from cache
 }, result => {
     const img = 'data:' + result.contentType + ';base64,' + result.data;
     console.log('Show image: ' + img);    
@@ -55,21 +56,25 @@ Here is an example of how to add Reolink E1:
 
 ## How to add a new camera (For developers)
 To add a new camera, you must create a Pull Request on GitHub with the following changes:
-- Add new file into `cameras` folder. This is backend to read the single image from the camera. 
+- Add new file into `cameras` folder. This is a backend to read the single image from the camera. 
 - Add GUI file in the `src/src/Types/` folder. This is the configuration dialog for the camera
 - Add this dialog in `src/src/Tabs/Cameras.js` file analogical as other cameras are added. Only two lines should be added:
   - Import new configuration dialog like `import RTSPMyCamConfig from '../Types/RTSPMyCam';`
   - Extend `TYPES` structure with the new camera like `mycam: { Config: RTSPMyCamConfig, name: 'MyCam' },`
     The attribute name must be the same as the name of the file in the `cameras` folder.
 
+## Todo
+- [ ] Send new subscribe requests for RTSP cameras if the dialog is opened or closed 
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
+* (bluefox) Added the caching of images with time, size and rotation
+* (bluefox) Added timeout for RTSP cameras
 
 ### 1.3.0 (2023-09-28)
 * (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher

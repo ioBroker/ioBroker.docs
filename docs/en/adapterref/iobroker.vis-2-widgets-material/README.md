@@ -120,7 +120,6 @@ The only difference is that Xiaomi supports the room cleaning.
 
 
 ## Todo
-- Investigate delay for widgets
 - Extend Blinds with shutter 
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -128,6 +127,10 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### 1.3.14 (2023-12-05)
+* (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+* (bluefox) Added class names to ON/OFF widgets to allow styling
+
 ### 1.3.11 (2023-11-17)
 * (bluefox) Allowed opening/closing dialogs of some widgets by command
 

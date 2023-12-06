@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: G5ILPuXndl+4ODPBk23JmubLFHujA1t7T865XkR354k=
+hash: NPJWIxTiBGQ6PHXsp4RvPCmVXZFyLGCAGL6gB0i0zwo=
 ---
 ![Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -27,6 +27,7 @@ sendTo('cameras.0', 'image', {
     width: 100, // optional
     height: 50, // optional
     angle: 90   // optional
+    noCache: true // optional, if you want to get the image not from cache
 }, result => {
     const img = 'data:' + result.contentType + ';base64,' + result.data;
     console.log('Show image: ' + img);
@@ -63,7 +64,7 @@ Hier ist ein Beispiel für das Hinzufügen von Reolink E1:
 ## So fügen Sie eine neue Kamera hinzu (Für Entwickler)
 Um eine neue Kamera hinzuzufügen, müssen Sie einen Pull Request auf GitHub mit den folgenden Änderungen erstellen:
 
-- Fügen Sie eine neue Datei zum Ordner „Kameras“ hinzu. Dies ist ein Backend, um das einzelne Bild von der Kamera zu lesen.
+- Fügen Sie eine neue Datei zum Ordner „Kameras“ hinzu. Dies ist ein Backend zum Auslesen des einzelnen Bildes von der Kamera.
 - Fügen Sie die GUI-Datei im Ordner „src/src/Types/“ hinzu. Dies ist der Konfigurationsdialog für die Kamera
 - Fügen Sie diesen Dialog in der Datei „src/src/Tabs/Cameras.js“ hinzu, analog zum Hinzufügen anderer Kameras. Es sollten nur zwei Zeilen hinzugefügt werden:
   - Importieren Sie einen neuen Konfigurationsdialog wie „import RTSPMyCamConfig from '../Types/RTSPMyCam';“.
@@ -71,13 +72,18 @@ Um eine neue Kamera hinzuzufügen, müssen Sie einen Pull Request auf GitHub mit
 
     Der Attributname muss mit dem Namen der Datei im Ordner `cameras` übereinstimmen.
 
+## Machen
+- [ ] Senden Sie neue Abonnementanfragen für RTSP-Kameras, wenn der Dialog geöffnet oder geschlossen wird
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
+* (bluefox) Added the caching of images with time, size and rotation
+* (bluefox) Added timeout for RTSP cameras
 
 ### 1.3.0 (2023-09-28)
 * (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher

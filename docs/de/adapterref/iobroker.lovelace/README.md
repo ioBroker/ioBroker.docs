@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: ucysTQCpKxeYf2xX4WyMgGwuO0byAUkW6HEbkxtIZ5Q=
+hash: 6wUADS4QBzbHWkv0Rbo9AiGuz0JsBr6ZLmBXymx9BiI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -282,10 +282,6 @@ Z.B.:
 
 Oder setzen Sie den Entitätstyp einfach manuell auf `camera` und schreiben Sie die URL hinein.
 
-### Werkzeugleiste verstecken
-Um die Symbolleiste auszublenden, können Sie das Kontrollkästchen im ioBroker-Konfigurationsdialog auf der Registerkarte „Themen“ aktivieren.
-Um es anzuzeigen, können Sie es im Dialog wieder deaktivieren oder einfach die URL mit dem Parameter `?toolbar=true` aufrufen.
-
 ### Abschlag
 Sie können Bindungen im Markdown wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwenden.
 
@@ -442,7 +438,7 @@ Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übern
 
 ## Entwicklung
 ### Ausführung
-Verwendete Version von home-assistant-frontend@20230906.1 Version von Browser Mod: 2.3.0
+Verwendete Version von home-assistant-frontend@20231130.0 Version von Browser Mod: 2.3.0
 
 ### So erstellen Sie die neue Lovelace-Version
 Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden. **iob*** Zweig!).
@@ -451,9 +447,7 @@ Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
 Derzeit (20230608.0) wurden folgende Dateien geändert:
 
 - „build-scripts/gulp/app.js“ – Neue Gulp-Aufgabe „develop-iob“ hinzufügen
-- „build-scripts/bundle.cjs“ – „Fehler bei Fehler“ deaktivieren
 - „build-scripts/gulp/webpack.js“ – Neue Gulp-Aufgabe „Webpack-Dev-App“ hinzufügen
-- `src/data/lovelace.ts` – Option zum Ausblenden der Symbolleiste hinzufügen
 - `src/data/weather.ts` – Unterstützung für die Anzeige des Wettersymbols über die URL hinzufügen.
 - `src/dialogs/more-info/const.ts` – Wetterstatus und -verlauf entfernen
 - `src/dialogs/more-info/ha-more-info-dialog.ts` – Schaltfläche und Registerkarte für Entitätseinstellungen entfernen
@@ -489,8 +483,10 @@ Derzeit (20230608.0) wurden folgende Dateien geändert:
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.06.08.0
-* (Garfonso) Use better random numbers
+* (Garfonso) Update frontent to 2023.11.30.0
+* (Garfonso) Use better random numbers.
+* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
+* (Garfonso) Remove hideToolbar feature. Just not working anymore.
 
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.

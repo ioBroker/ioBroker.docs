@@ -31,7 +31,7 @@ and will be called by web server.
 E.g., the user can activate a special proxy adapter and reach other devices (like webcams) in the same web server.
 It is required to let all services be available under one web server.
 
-Web-extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
+Web extension could and should support `unload` function, that could return `promise` if the unload action will take some time. 
 
 You can read more about web-extensions [here](WEB-EXTENSIONS-HOWTO.md).
 
@@ -71,6 +71,13 @@ Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-
 This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected 
 to the Login Page. 
 
+## User list
+You can define the list of users that can access the web server. You can change the access right for logged-in user.
+
+If the user is not in the list, he cannot access the web server.
+
+It is simpler as to set for every object and every state the access rights for the specific user.
+
 ## Advanced options
 ### Default redirect
 If by opening of web port im browser no APP selection should be shown, but some specific application, 
@@ -82,6 +89,9 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.2.1 (2023-12-04)
+* (bluefox) Added the user access list option
+
 ### 6.1.10 (2023-10-16)
 * (bluefox) Corrected the start screen
 

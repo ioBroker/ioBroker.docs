@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
+hash: SF6aKcWh7HrOOkgwFNHsAiMLssKtNtmSouPRzRKiiPw=
 ---
 ![Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -34,11 +34,15 @@ Der Zusammenfassungskanal enthält eine aktuelle und tagesaktuelle Prognose mit 
 Neue Funktion kann verwendet werden, um die Wettervorhersage in der Lovelace-Benutzeroberfläche anzuzeigen.
 Zur besseren Ansicht wird eine benutzerdefinierte Lovelace-Karte erstellt – siehe https://github.com/algar42/IoB.lovelace.accuweather-card
 
-<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
-
-### **ARBEIT IN ARBEIT** -->
-
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.3.2 (2023-12-04)
+* (ticaki) fixed: dependencies
+* (ticaki) fixed: error message [object Object]
+
 ### 1.3.1 (2023-08-15)
 * (isi07) added the Wind Direction Text und Cloud Cover
 * (bluefox) Added json config

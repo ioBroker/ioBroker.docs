@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
+hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -37,9 +37,10 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
 - Beginnen Sie mit der Erstellung einer neuen Instanz des Adapters.
 – Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
 - Geben Sie in den Standardeinstellungen Ihr Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
-- Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten. Mit diesem Schritt können Ihre Häuser vom Tibber-Server abgefragt werden.
+- Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten; Mit diesem Schritt können Ihre Häuser vom Tibber-Server abgefragt werden.
 - Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie Echtzeitdaten mit Ihrem Tibber Pulse abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
-- Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie eines oder mehrere dieser Intervalle deaktivieren.
+- Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie je nach Wunsch eines oder mehrere dieser Intervalle deaktivieren.
+- Hinweis: Es ist wichtig, auf die Größe des Datensatzes zu achten, da zu große Anfragen dazu führen können, dass der Tibber-Server nicht antwortet. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität sicherzustellen. Das Anpassen der Intervalle und Datensatzzahlen kann dabei helfen, das richtige Gleichgewicht zwischen der Gewinnung aufschlussreicher Daten und der Aufrechterhaltung der Serverreaktionsfähigkeit zu finden. Z.B. 48 ist eine recht gute Menge für Stunden.
 - Speichern Sie die Einstellungen.
 
 ## Rechnerkonfiguration
@@ -63,9 +64,9 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
     - „Beste Stunden Block LTF“: „Beste Stunden Block“ innerhalb eines begrenzten Zeitrahmens (LTF).
 - LTF-Kanäle: Funktionieren ähnlich wie Standardkanäle, arbeiten jedoch nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitrahmens. Nach „StopTime“ deaktiviert sich der Kanal. „StartTime“ und „StopTime“ können sich über mehrere Tage erstrecken. Die Bundesstaaten müssen mit einer Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit Zeitzonenversatz gefüllt sein, z. B.: „2023-11-17T21:00:00.000+01:00“.
 
-### Hinweis
+### Hinweise
 #### Umgekehrte Verwendung:
-Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Vertausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
+Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Austausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
 
 Achtung: Für einzelne Spitzenzeiten, wie im Beispiel, müssen Sie auch die Stundenzahl anpassen. Original: 5 -> Invers (24-5) = 19 -> Sie erhalten während der 5 Spitzenstunden ein echtes Ergebnis.
 
@@ -84,7 +85,14 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.7.0 (2023-11-xx) WORK in PROGRESS
+### 1.7.1 (2023-12-04)
+
+-   (HombachC) added hint for consumption data in documentation (#223)
+-   (HombachC) mitigate error handling (#217)
+-   (HombachC) added description to object Features/RealTimeConsumptionEnabled (#224)
+-   (HombachC) bump dependencies
+
+### 1.7.0 (2023-11-30)
 
 -   (HombachC) implement getting historical consumption data from Tibber Server (#163)
 -   (HombachC) fix error in adapter unload

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: dOQpPOEcGT/VCyUB2KTqeOreQjN8EXpe3bmjWcwWxfk=
+hash: nCZZ/tiSV0rJFdTKBfL+MhLVzVYnIIHqOk4a61i472Q=
 ---
 ![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -21,7 +21,7 @@ Webserver auf Basis von Node.js und Express zum Lesen der Dateien aus der ioBrok
 ## Optimierung von Web-Sockets
 Bei einigen Web-Sockets-Clients gibt es ein Leistungsproblem bei der Kommunikation.
 Manchmal ist dieses Problem darauf zurückzuführen, dass die Kommunikation von socket.io auf einen langen Abfragemechanismus zurückgreift.
-Sie können die Option *Web-Sockets erzwingen* festlegen, um zu erzwingen, dass nur der Web-Sockets-Transport verwendet wird.
+Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
 ## Lassen Sie uns Zertifikate verschlüsseln
 Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
@@ -73,6 +73,13 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 Ermöglicht die Anmeldung über die Standardauthentifizierung durch Senden von `401` Unauthorized mit einem `WWW-Authenticate`-Header.
 Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldeinformationen eingeben, werden Sie zur Anmeldeseite weitergeleitet.
 
+## Benutzerliste
+Sie können die Liste der Benutzer definieren, die auf den Webserver zugreifen können. Sie können das Zugriffsrecht für angemeldete Benutzer ändern.
+
+Ist der Benutzer nicht in der Liste, kann er nicht auf den Webserver zugreifen.
+
+Einfacher ist es, für jedes Objekt und jeden Zustand die Zugriffsrechte für den jeweiligen Benutzer festzulegen.
+
 ## Erweiterte Optionen
 ### Standardweiterleitung
 Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestimmte Anwendung angezeigt werden soll, kann hier der Pfad angegeben werden (z. B. `/vis/`), sodass dieser Pfad automatisch geöffnet wird.
@@ -82,8 +89,37 @@ Wenn beim Öffnen des Webports im Browser keine APP-Auswahl, sondern eine bestim
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### 6.0.2 (2023-07-07)
+### 6.2.1 (2023-12-04)
+* (bluefox) Added the user access list option
+
+### 6.1.10 (2023-10-16)
+* (bluefox) Corrected the start screen
+
+### 6.1.7 (2023-10-16)
+* (bluefox) Added the public accessibility check
+
+### 6.1.6 (2023-10-13)
+* (bluefox) Corrected adapter termination if the alias has no target
+* (bluefox) Corrected socket.io connection
+
+### 6.1.4 (2023-10-08)
+* (foxriver76) upgrade socketio and ws dependencies to fix vis subscribe problem
+
+### 6.1.3 (2023-09-28)
+* (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
+
+### 6.1.2 (2023-09-14)
+* (foxriver76) upgraded socketio and ws dependencies
+
+### 6.1.1 (2023-09-05)
+* (mcm1957) Added missing node16 requirement
+
+### 6.1.0 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
+### 6.0.3 (2023-07-27)
 * (bluefox) Updated packages
+* (bluefox) Implemented the possibility to view folder content
 
 ### 6.0.1 (2023-03-20)
 * (bluefox) Removed letsencrypt handling from web adapter

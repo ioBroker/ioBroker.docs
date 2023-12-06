@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
 title: ioBroker.web
-hash: dOQpPOEcGT/VCyUB2KTqeOreQjN8EXpe3bmjWcwWxfk=
+hash: nCZZ/tiSV0rJFdTKBfL+MhLVzVYnIIHqOk4a61i472Q=
 ---
 ![标识](../../../en/adapterref/iobroker.web/admin/web.png)
 
@@ -36,7 +36,7 @@ Web 驱动程序支持扩展。
 
 Web 扩展可以而且应该支持 `unload` 函数，如果卸载操作需要一些时间，该函数可能会返回 `promise`。
 
-您可以阅读有关网络扩展的更多信息[这里](WEB-EXTENSIONS-HOWTO.md)。
+您可以阅读有关网络扩展程序的更多信息[这里](WEB-EXTENSIONS-HOWTO.md)。
 
 ## 暴力保护
 如果启用身份验证并且用户在一分钟内输入 5 次无效密码，则他必须至少等待一分钟才能下次尝试。
@@ -73,6 +73,13 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 通过发送带有 `WWW-Authenticate` 标头的 `401` 未经授权，允许通过基本身份验证登录。
 这可用于 *FullyBrowser* 等应用程序。一旦输入错误的凭据，您将被重定向到登录页面。
 
+## 用户列表
+您可以定义可以访问 Web 服务器的用户列表。您可以更改登录用户的访问权限。
+
+如果用户不在列表中，则他无法访问 Web 服务器。
+
+更简单的是为每个对象和每个状态设置特定用户的访问权限。
+
 ＃＃ 高级选项
 ### 默认重定向
 如果在浏览器中打开网络端口，则不应显示任何应用程序选择，但某些特定应用程序可以在此处提供路径（例如`/vis/`），因此该路径将自动打开。
@@ -82,8 +89,37 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 ### **正在进行中** -->
 
 ## Changelog
-### 6.0.2 (2023-07-07)
+### 6.2.1 (2023-12-04)
+* (bluefox) Added the user access list option
+
+### 6.1.10 (2023-10-16)
+* (bluefox) Corrected the start screen
+
+### 6.1.7 (2023-10-16)
+* (bluefox) Added the public accessibility check
+
+### 6.1.6 (2023-10-13)
+* (bluefox) Corrected adapter termination if the alias has no target
+* (bluefox) Corrected socket.io connection
+
+### 6.1.4 (2023-10-08)
+* (foxriver76) upgrade socketio and ws dependencies to fix vis subscribe problem
+
+### 6.1.3 (2023-09-28)
+* (bluefox) upgraded socketio and ws dependencies to correct the error by unsubscribing on client disconnect
+
+### 6.1.2 (2023-09-14)
+* (foxriver76) upgraded socketio and ws dependencies
+
+### 6.1.1 (2023-09-05)
+* (mcm1957) Added missing node16 requirement
+
+### 6.1.0 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
+### 6.0.3 (2023-07-27)
 * (bluefox) Updated packages
+* (bluefox) Implemented the possibility to view folder content
 
 ### 6.0.1 (2023-03-20)
 * (bluefox) Removed letsencrypt handling from web adapter

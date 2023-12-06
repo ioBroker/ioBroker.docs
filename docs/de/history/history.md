@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: I31QMpvoc6aSyz/WrBW3eLAYwoRFeX0yQz7au3ldeio=
+hash: JzjvNAkeur4ukhIzwoCzsT3OuW863VD60PUrG8fpCZU=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -256,3 +256,15 @@ https://github.com/ticaki/ioBroker.weather-warnings
 <img src="https://raw.githubusercontent.com/ticaki/ioBroker.weather-warnings/main/admin/weather-warnings.png" width="100" height="100" />
 
 Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gibt diese als Text- oder Sprachnachrichten aus. Darüber hinaus werden nach Typ gruppierte Zustände erstellt, mit denen auf aktuelle Warnungen reagiert werden kann.
+
+##tractive-gps (06.12.2023) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/admin/tractive-gps.png" width="100" height="100" />
+
+Mit diesem Adapter können Sie eine Verbindung zum Tractive GPS-Dienst herstellen und den Standort Ihrer Haustiere abrufen.
+
+## Admin (06.12.2023) – neue Funktion
+Es ist möglich, die Menüfarben im Admin zu ändern
+
+<img src="media/2023_12_06_admin.png" width="500" />

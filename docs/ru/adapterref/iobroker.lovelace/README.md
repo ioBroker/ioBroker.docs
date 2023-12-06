@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: ucysTQCpKxeYf2xX4WyMgGwuO0byAUkW6HEbkxtIZ5Q=
+hash: 6wUADS4QBzbHWkv0Rbo9AiGuz0JsBr6ZLmBXymx9BiI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -215,7 +215,7 @@ createState(
 Пользовательская карта Lovelace, созданная в поддержку прогноза погоды AccuWeather — https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Список покупок
-Список покупок записывает значения в виде:
+Список покупок записывает значения в форме:
 
 ```
 [
@@ -281,10 +281,6 @@ createState('location.latitude', 39.5681295, false, {
 ```
 
 или просто вручную установите тип объекта на `camera` и напишите в него URL.
-
-### Скрыть панель инструментов
-Чтобы скрыть панель инструментов, вы можете установить флажок в диалоговом окне конфигурации ioBroker на вкладке Темы.
-Чтобы отобразить его, вы можете снова отключить его в диалоговом окне или просто вызвать URL-адрес с параметром `?toolbar=true`.
 
 ### Уценка
 Вы можете использовать привязки в уценке, как в [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
@@ -442,7 +438,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20230906.1 Версия браузерного мода: 2.3.0
+Использованная версия home-assistant-frontend@20231130.0 Версия браузерного мода: 2.3.0
 
 ### Как собрать новую версию Лавлейса
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/НемецкийBluefox/home-assistant-polymer.git (* **iob*** ветка!).
@@ -451,9 +447,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 На данный момент (20230608.0) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp development-iob
-- `build-scripts/bundle.cjs` - отключить сбой при ошибке
 - `build-scripts/gulp/webpack.js` - Добавить новую задачу gulp webpack-dev-app
-- `src/data/lovelace.ts` - добавить опцию скрытия панели инструментов.
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/dialogs/more-info/const.ts` — удалить состояние погоды и историю
 - `src/dialogs/more-info/ha-more-info-dialog.ts` — удалить кнопку и вкладку настроек объекта.
@@ -489,8 +483,10 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.06.08.0
-* (Garfonso) Use better random numbers
+* (Garfonso) Update frontent to 2023.11.30.0
+* (Garfonso) Use better random numbers.
+* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
+* (Garfonso) Remove hideToolbar feature. Just not working anymore.
 
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.

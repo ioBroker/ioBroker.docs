@@ -18,6 +18,11 @@ BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 # ioBroker.node-red
 
 ## Changelog
+### 5.0.1 (2023-12-05)
+
+- (klein0r) Fixed credentials decrypt
+- (klein0r) Added connection state (process is running)
+
 ### 5.0.0 (2023-11-26)
 
 **NodeJS 16.4.x is required**
@@ -41,12 +46,6 @@ BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 ### 4.0.1 (2023-03-22)
 
 - (Apollon77) Prepare for js-controller 5.0
-
-### 4.0.0 (2022-08-14)
-
-- IMPORTANT: Node.js 14.x now needed at least
-- (Apollon77) Upgrade to node-red 3.0.2, enable runtime-state features and switch editor to monaco-editor
-- (Apollon77) Correctly escape backslashes when writing setting file on Windows
 
 ## License
 

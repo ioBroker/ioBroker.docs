@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: G5ILPuXndl+4ODPBk23JmubLFHujA1t7T865XkR354k=
+hash: NPJWIxTiBGQ6PHXsp4RvPCmVXZFyLGCAGL6gB0i0zwo=
 ---
 ![标识](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -27,6 +27,7 @@ sendTo('cameras.0', 'image', {
     width: 100, // optional
     height: 50, // optional
     angle: 90   // optional
+    noCache: true // optional, if you want to get the image not from cache
 }, result => {
     const img = 'data:' + result.contentType + ';base64,' + result.data;
     console.log('Show image: ' + img);
@@ -40,7 +41,7 @@ sendTo('cameras.0', 'image', {
 - 通过 RTSP 的 Reolink E1 Pro（重要，没有“Pro”，它将无法工作）
 - Eufy 通过eusec适配器
 - [HiKam](https://support.hikam.de/support/solutions/articles/16000070656-zugriff-auf-kameras-der-2- Generation-via-onvif-f%C3%BCr-s6-q8-a7 -2-代-) 通过 ONVIF 的第二代和第三代（适用于 S6、Q8、A7 第二代）、A7 Pro、A9
-- [通过 HiKam 适配器的 WIWICam M1](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
+- [WIWICam M1 通过 HiKam 适配器](https://www.wiwacam.com/de/mw1-minikamera-kurzanleitung-und-faq/)
 - RTSP Native - 如果您的相机支持 RTSP 协议
 - 通过 HTTP URL 的屏幕截图 - 如果您可以通过 URL 从相机获取快照
 
@@ -71,13 +72,18 @@ sendTo('cameras.0', 'image', {
 
     属性名称必须与`cameras`文件夹中的文件名称相同。
 
+＃＃ 去做
+- [ ] 如果对话框打开或关闭，则发送新的 RTSP 摄像机订阅请求
+
 <!-- 下一个版本的占位符（在行的开头）：
 
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
+* (bluefox) Added the caching of images with time, size and rotation
+* (bluefox) Added timeout for RTSP cameras
 
 ### 1.3.0 (2023-09-28)
 * (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher

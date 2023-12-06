@@ -27,7 +27,7 @@ Default schedule is done every 20 minutes as cron job in the instance tab.
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.4.0 (2023-12-05)
 * (HGlab01) Breaking changes
     - Node.js 18.0 or higher
     - ioBroker host (js-controller) 5.0 or higher

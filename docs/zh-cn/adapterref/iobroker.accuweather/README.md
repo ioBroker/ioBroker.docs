@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
+hash: SF6aKcWh7HrOOkgwFNHsAiMLssKtNtmSouPRzRKiiPw=
 ---
 ![标识](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -34,11 +34,15 @@ hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
 新功能可用于在 Lovelace UI 中显示天气预报。
 为了更好地查看，创建了自定义lovelace卡 - 请参阅https://github.com/algar42/IoB.lovelace.accuweather-card
 
-<!-- 下一个版本的占位符（在行的开头）：
-
-### **正在进行中** -->
-
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.3.2 (2023-12-04)
+* (ticaki) fixed: dependencies
+* (ticaki) fixed: error message [object Object]
+
 ### 1.3.1 (2023-08-15)
 * (isi07) added the Wind Direction Text und Cloud Cover
 * (bluefox) Added json config

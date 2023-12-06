@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Material-Widgets für ioBroker.vis 2.0
-hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
+hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -43,11 +43,11 @@ Mit diesem Widget können Sie ein Gerät steuern. Boolescher Wert oder Zahl.
 
 - Nummer
 
-![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
+![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-1.png)
 
 - Kontrolle
 
-![Einfacher Staat](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
+![Einfacher Zustand](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-simple-state-2.png)
 
 ### Im Widget anzeigen
 ![Im Widget anzeigen](../../../en/adapterref/iobroker.vis-2-widgets-material/img/material-view-in-widget-1.png)
@@ -126,7 +126,6 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstü
 
 ### Zeitauswahl
 ## Machen
-- Untersuchen Sie die Verzögerung für Widgets
 - Jalousien mit Rollladen ausfahren
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -134,6 +133,10 @@ Der einzige Unterschied besteht darin, dass Xiaomi die Zimmerreinigung unterstü
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.3.14 (2023-12-05)
+* (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+* (bluefox) Added class names to ON/OFF widgets to allow styling
+
 ### 1.3.11 (2023-11-17)
 * (bluefox) Allowed opening/closing dialogs of some widgets by command
 

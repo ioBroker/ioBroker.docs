@@ -3,42 +3,46 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.accuweather/README.md
 title: ioBroker.accuweather
-hash: QzYvKAMKqRDtfUgDy+EtBL7KSGq2JddR4RsDjwmsDro=
+hash: SF6aKcWh7HrOOkgwFNHsAiMLssKtNtmSouPRzRKiiPw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
 ![Количество установок](http://iobroker.live/badges/accuweather-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.accuweather.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.accuweather.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
 ![НПМ](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
 
 # IoBroker.accuweather
-## Адаптер accuweather для ioBroker
+## Адаптер AccuWeather для ioBroker
 Прогноз погоды с использованием AccuWeather API.
 
-Адаптер получает текущие условия (обновляется каждый час), ежедневный прогноз на 5 дней (обновляется один раз в день примерно в 7:00) и прогноз на 12 часов (обновляется каждые шесть часов в 12:00, 6:00, 12:00 и 18:00).
+Адаптер получает текущие условия (обновляется каждый час), ежедневный прогноз на 5 дней (обновляется один раз в день примерно в 7 утра) и прогноз на 12 часов (обновляется каждые шесть часов в 12:00, 6:00, 12:00 и 18:00).
 
 ## Начиная
 ### Получить ключ API
 Чтобы получить ключ API, зарегистрируйтесь на https://developer.accuweather.com/ и создайте приложение в меню `My Apps`.
-После создания приложения у вас будет сгенерирован ключ API.
+После создания приложения вам будет сгенерирован ключ API.
 Для бесплатного использования возможно делать 50 запросов к API в день.
-Было отмечено, что для работы API предпочтительны следующие настройки (пожалуйста, выберите свою страну!): ![настройки](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+Было отмечено, что для работы API предпочтительны следующие настройки (пожалуйста, выберите свою страну!): ![настройки](../../../en/adapterref/iobroker.accuweather/admin/image.png).
 
 ### Получить ключ местоположения
-Чтобы получить ключ местоположения, зайдите на https://www.accuweather.com/ и введите название своего города, либо попробуйте ввести свои координаты (широту, долготу), как они у вас есть, например, в настройках ioBroker.
+Чтобы получить ключ местоположения, перейдите на https://www.accuweather.com/ и введите название своего города или попробуйте ввести свои координаты (широту, долготу) так, как они у вас есть, например, в настройках ioBroker.
 Ключом вашего местоположения будет число в конце URL-адреса прогноза.
 
 ### Использование в визуализации Lovelace (начиная с версии 1.1.0)
-Сводный канал содержит текущий прогноз и прогноз по дням с указанием ролей/типов состояний, поддерживаемых детектором типов.
-Новая функция может использоваться для отображения прогноза погоды в пользовательском интерфейсе Lovelace.
-Для лучшего просмотра создана пользовательская карточка ловеласа - см. https://github.com/algar42/IoB.lovelace.accuweather-card
-
-<!-- Заполнитель для следующей версии (в начале строки):
-
-### **В РАБОТЕ** -->
+Сводный канал содержит текущий и ежедневный прогноз с ролями/типами состояний, поддерживаемыми тип-детектором.
+Новую функцию можно использовать для отображения прогноза погоды в пользовательском интерфейсе Lovelace.
+Для лучшего просмотра создана специальная карта ловеласа — см. https://github.com/algar42/IoB.lovelace.accuweather-card.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 1.3.2 (2023-12-04)
+* (ticaki) fixed: dependencies
+* (ticaki) fixed: error message [object Object]
+
 ### 1.3.1 (2023-08-15)
 * (isi07) added the Wind Direction Text und Cloud Cover
 * (bluefox) Added json config

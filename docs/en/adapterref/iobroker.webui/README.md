@@ -129,6 +129,23 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 0.18.9 (2023-12-05)
+- fix tooltips
+
+### 0.18.8 (2023-12-05)
+- lazy remove the title
+
+### 0.18.7 (2023-12-05)
+- better fix for monaco
+
+### 0.18.6 (2023-12-05)
+- fix for monaco bug
+- title removed
+
+### 0.18.5 (2023-12-05)
+- code completition for base custom webcomponent
+- object property type
+
 ### 0.18.4 (2023-12-03)
 - better text for historic bindings cancel
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: uppBMIkpHsW8y+VZZeSZLFYEih0k4weQsKoeKGqWJHE=
+hash: 6z3Ebc7f9jIvmj+dmMdhG6pvvydYIluAlnq7MHqF7SM=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -91,7 +91,7 @@ Mögliche Typen:
                 `[{"items": [{"label": "Val1", "value": 1}, {"label": "Val2", value: "2}], "name": "group1"}, {"items": [{"label": "Val3", "value": 3}, {"label": "Val4", value: "4}], "name": "group2"}, {"label": "Val5", "value": 5}]`
 
 - „Autovervollständigung“.
-  - `Optionen` - `["Wert1", "Wert2", ...]` oder `[{"Wert": "Wert", "Label": "Wert1"}, "Wert2", ...]`
+  - `Optionen` - `["Wert1", "Wert2", ...]` oder `[{"Wert": "Wert", "Label": "Wert1"}, "Wert2", ...]` (Schlüssel müssen eindeutig sein)
   - „freeSolo“ – Setzen Sie „freeSolo“ auf „true“, damit das Textfeld jeden beliebigen Wert enthalten kann.
 
 - „image“ – speichert das Bild als Datei des „adapter.X“-Objekts oder als base64 im Attribut
@@ -382,7 +382,7 @@ adapter.on('message', obj => {
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „maxLength“ – maximale Länge des Texts im Feld
 
-Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein. Siehe `selectSendTo` für ein Beispiel für einen Handler
+Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
 
 - `textSendTo`
 

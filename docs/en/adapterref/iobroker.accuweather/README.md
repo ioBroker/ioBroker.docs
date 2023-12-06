@@ -31,12 +31,15 @@ The summary channel contains a current and by-day forecast with role/types of st
 New feature can be used in order to show weather forecast in Lovelace UI. 
 For better view a custom lovelace card is created - see https://github.com/algar42/IoB.lovelace.accuweather-card
 
+## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.3.2 (2023-12-04)
+* (ticaki) fixed: dependencies
+* (ticaki) fixed: error message [object Object]
 
-## Changelog
 ### 1.3.1 (2023-08-15)
 * (isi07) added the Wind Direction Text und Cloud Cover
 * (bluefox) Added json config

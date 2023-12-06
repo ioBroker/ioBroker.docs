@@ -58,6 +58,11 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+
+* (klein0r) Always set variables like isDaylightSaving
+* (klein0r) Added astro times as states
+
+### 7.2.0 (2023-12-04)
 NodeJS 16.x is required
 
 * (klein0r) Added function to format time difference `formatTimeDiff`
@@ -65,6 +70,8 @@ NodeJS 16.x is required
 * (klein0r) messageToAsync was not working without options
 * (klein0r) Added timeout and custom options for sendToAsync
 * (klein0r) Fixed valid switch statement expressions
+* (klein0r) Added text replacement, cound and reverse blocks
+* (klein0r) Added list reverse block
 
 ### 7.1.6 (2023-10-24)
 * (bluefox) Fixed pushover rules block
@@ -78,11 +85,6 @@ NodeJS 16.x is required
 
 ### 7.1.1 (2023-06-20)
 * (bluefox) corrected the script export
-
-### 7.1.0 (2023-06-13)
-* (klein0r) Added new blocks: new line, random number, value between min and max, if empty
-* (klein0r) Updated blockly core to v9.3.3
-* (bluefox) corrected blockly
 
 ## License
 The MIT License (MIT)

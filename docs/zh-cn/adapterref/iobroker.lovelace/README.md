@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: ucysTQCpKxeYf2xX4WyMgGwuO0byAUkW6HEbkxtIZ5Q=
+hash: 6wUADS4QBzbHWkv0Rbo9AiGuz0JsBr6ZLmBXymx9BiI=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -280,11 +280,7 @@ createState('location.latitude', 39.5681295, false, {
 }
 ```
 
-或者只需手动将实体类型设置为`camera`并将URL写入其中。
-
-### 隐藏工具栏
-要隐藏工具栏，您可以在主题选项卡上的 ioBroker 配置对话框中设置复选框。
-要显示它，您可以再次在对话框中禁用它，或者仅使用 `?toolbar=true` 参数调用 URL。
+或者只是手动将实体类型设置为`camera`并将URL写入其中。
 
 ### 降价
 您可以在 Markdown 中使用绑定，如 [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) 中所示。
@@ -442,7 +438,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用的版本 home-assistant-frontend@20230906.1 浏览器版本：2.3.0
+使用的版本 home-assistant-frontend@20231130.0 浏览器版本：2.3.0
 
 ### 如何构建新的 Lovelace 版本
 首先，实际的 https://github.com/home-assistant/frontend （开发分支）必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob*** 分支！）。
@@ -451,14 +447,12 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 目前（20230608.0）以下文件已被修改：
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务develop-iob
-- `build-scripts/bundle.cjs` - 禁用错误失败
 - `build-scripts/gulp/webpack.js` - 添加新的 gulp 任务 webpack-dev-app
-- `src/data/lovelace.ts` - 添加隐藏工具栏选项
 - `src/data/weather.ts` - 添加支持显示来自 url 的天气图标。
 - `src/dialogs/more-info/const.ts` - 删除天气状态和历史记录
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
 - `src/dialogs/more-info/ha-more-info-history.ts` - 删除历史记录中的“显示更多”链接
-- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加对从 url 显示天气图标的支持。
+- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加支持显示来自 url 的天气图标。
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - 禁用语音助手的配置
 - `src/entrypoints/core.ts` - 修改了身份验证过程
 - `src/layouts/home-assistant-main.ts` - 删除应用程序侧边栏
@@ -489,8 +483,10 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.06.08.0
-* (Garfonso) Use better random numbers
+* (Garfonso) Update frontent to 2023.11.30.0
+* (Garfonso) Use better random numbers.
+* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
+* (Garfonso) Remove hideToolbar feature. Just not working anymore.
 
 ### 3.0.1 (2022-11-03)
 * (Garfonso) do not crash if no history instance selected.

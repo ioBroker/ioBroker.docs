@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
+hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -29,17 +29,18 @@ hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
 
 ## 版本
 ## 在 ioBroker 中利用 TIBBER 能源数据的适配器
-该适配器有助于连接来自 Tibber 账户 API 的数据，以便在 ioBroker 内使用，无论是单个家庭还是多个住宅。
+该适配器有助于连接来自 Tibber 帐户 API 的数据，以便在 ioBroker 内使用，无论是单个家庭还是多个住宅。
 
-如果您目前还不是 Tibber 用户，如果您能使用我的推荐链接，我将不胜感激：[蒂伯推荐链接](https://invite.tibber.com/mu8c82n5)。
+如果您当前不是 Tibber 用户，如果您能使用我的推荐链接，我将不胜感激：[蒂伯推荐链接](https://invite.tibber.com/mu8c82n5)。
 
 ## 标准配置
 - 首先创建适配器的新实例。
-- 您还需要 Tibber 的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
+- 您还需要 Tibber 提供的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
 - 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
 - 保存设置并退出配置以重新启动适配器；此步骤允许从 Tibber 服务器查询您的家庭。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用源（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
-- 您也可以选择启用历史消耗数据的检索。请指定小时、天、周、月和年的数据集数量。您可以使用“0”来禁用这些间隔中的一个或多个。
+- 您也可以选择启用历史消耗数据的检索。请指定小时、天、周、月和年的数据集数量。您可以根据您的喜好使用“0”来禁用这些间隔中的一个或多个。
+- 注意：必须注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器缺乏响应。我们建议尝试数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如。 48 小时是一个相当不错的数量。
 - 保存设置。
 
 ## 计算器配置
@@ -63,7 +64,7 @@ hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
     - “最佳时间段 LTF”：有限时间范围 (LTF) 内的“最佳时间段”。
 - LTF 通道：功能与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。 “StopTime”之后，通道将自行停用。 “StartTime”和“StopTime”可能跨越几天。状态必须使用带有时区偏移量的 ISO-8601 格式的日期时间字符串填充，例如：“2023-11-17T21:00:00.000+01:00”。
 
-＃＃＃ 暗示
+### 提示
 #### 逆向用法：
 例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数即可：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) 通过交换 true <-> false，您将在第一行中以较低的成本收到 true，并在第二行的成本很高（频道名称不是触发器，仍然可以自由选择）。
 
@@ -84,7 +85,14 @@ hash: yJu5JnX7FRj82sIFhXtzqq7H7YuSNfmaOzUeSkubE64=
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.7.0 (2023-11-xx) WORK in PROGRESS
+### 1.7.1 (2023-12-04)
+
+-   (HombachC) added hint for consumption data in documentation (#223)
+-   (HombachC) mitigate error handling (#217)
+-   (HombachC) added description to object Features/RealTimeConsumptionEnabled (#224)
+-   (HombachC) bump dependencies
+
+### 1.7.0 (2023-11-30)
 
 -   (HombachC) implement getting historical consumption data from Tibber Server (#163)
 -   (HombachC) fix error in adapter unload

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2-widgets-material/README.md
 title: ioBroker.vis 2.0 的材质小部件
-hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
+hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -126,7 +126,6 @@ Html 模板可用于显示任何 html 代码。
 
 ### 时间选择器
 ＃＃ 去做
-- 调查小部件的延迟
 - 带百叶窗的百叶窗展开
 
 <!-- 下一个版本的占位符（在行的开头）：
@@ -134,6 +133,10 @@ Html 模板可用于显示任何 html 代码。
 ### **正在进行中** -->
 
 ## Changelog
+### 1.3.14 (2023-12-05)
+* (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+* (bluefox) Added class names to ON/OFF widgets to allow styling
+
 ### 1.3.11 (2023-11-17)
 * (bluefox) Allowed opening/closing dialogs of some widgets by command
 

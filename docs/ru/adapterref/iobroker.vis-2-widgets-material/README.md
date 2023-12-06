@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2-widgets-material/README.md
 title: Виджеты материалов для ioBroker.vis 2.0
-hash: oKVxLutoHfP/AZZIz8xSvT2i/2q23wsz+FUJm5cKorA=
+hash: TeiCxaPScaGHK8dfWyOoWOaqsjzlFUgLU1XalKrs/og=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2-widgets-material/admin/vis-2-widgets-material.png)
 
@@ -126,7 +126,6 @@ HTML-шаблон можно использовать для отображен�
 
 ### Выбор времени
 ## Делать
-- Исследуйте задержку виджетов.
 - Выдвижные жалюзи со ставнями
 
 <!-- Заполнитель следующей версии (в начале строки):
@@ -134,6 +133,10 @@ HTML-шаблон можно использовать для отображен�
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 1.3.14 (2023-12-05)
+* (bluefox) Allowed with on click on the widget toggling the ON/OFF state of RGB widget
+* (bluefox) Added class names to ON/OFF widgets to allow styling
+
 ### 1.3.11 (2023-11-17)
 * (bluefox) Allowed opening/closing dialogs of some widgets by command
 

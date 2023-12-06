@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
 title: ioBroker.cameras
-hash: G5ILPuXndl+4ODPBk23JmubLFHujA1t7T865XkR354k=
+hash: NPJWIxTiBGQ6PHXsp4RvPCmVXZFyLGCAGL6gB0i0zwo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
@@ -27,6 +27,7 @@ sendTo('cameras.0', 'image', {
     width: 100, // optional
     height: 50, // optional
     angle: 90   // optional
+    noCache: true // optional, if you want to get the image not from cache
 }, result => {
     const img = 'data:' + result.contentType + ';base64,' + result.data;
     console.log('Show image: ' + img);
@@ -71,13 +72,18 @@ sendTo('cameras.0', 'image', {
 
     Имя атрибута должно совпадать с именем файла в папке `cameras`.
 
+## Делать
+- [ ] Отправлять новые запросы на подписку для RTSP-камер, если диалоговое окно открыто или закрыто.
+
 <!-- Заполнитель следующей версии (в начале строки):
 
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
+* (bluefox) Added the caching of images with time, size and rotation
+* (bluefox) Added timeout for RTSP cameras
 
 ### 1.3.0 (2023-09-28)
 * (bluefox) Utilized the new js-controller feature: sendToUI. RTSP Streaming works only with js-controller 5.0.13 or higher

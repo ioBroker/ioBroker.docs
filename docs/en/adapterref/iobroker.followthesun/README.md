@@ -12,7 +12,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.followthesun.png?downloads=true)](https://nodei.co/npm/iobroker.followthesun/)
 
-## followthesun adapter for ioBroker
+## followthesun adapter for ioBroker 
 
 This adapter calculates the current altitude and azimuth of the sun based on the geoposition. Additionally compass direction and the movement (sunrise or sunset) of the sun is stored.
 It is using the geo-position defined in the configuration. Calculation interval can be defined in instance preferences.
@@ -22,17 +22,19 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
 ## Requires
-* NodeJS 16 or higher
-* ioBroker host (js-controller) 4.0 or higher
+* Node.js 18 or higher
+* ioBroker host (js-controller) 5.0 or higher
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-
-### __WORK IN PROGRESS__
-* (HGlab01) !Breaking change! NodeJS 16 or higher required
+### 0.5.0 (2023-12-05)
+* (HGlab01) Breaking changes
+    - Node.js 18 or higher required
+    - ioBroker host (js-controller) 5.0 or higher
+* (HGlab01) Coordinates can be configured on instance level (optional)
 * (HGlab01) Bump iobroker-jsonexplorer to v0.1.14
 
 ### 0.4.2 (2023-08-10)
@@ -53,13 +55,10 @@ Solar-noon values for some days like today, tomorrow or beginn of spring/summer/
 * (HGlab01) js-controller 4.0 readiness
 * (HGlab01) fix sometimes today is not today
 
-### 0.3.8 (2021-12-07)
-* (HGlab01) Notifiy Sentry about new release
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <iobroker.followthesun@gmail.com>
+Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
