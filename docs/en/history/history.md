@@ -255,3 +255,12 @@ This adapter allows you to connect to the Tractive GPS service and retrieve the 
 It is possible to change menu colors in admin
 
 <img src="media/2023_12_06_admin.png" width="500" />
+
+## emporia (07.12.2023) - new adapter
+https://github.com/Chris-656/ioBroker.emporia
+
+<img src="https://github.com/Chris-656/ioBroker.emporia/blob/main/admin/emporia.png" width="100" height="100" />
+
+This adapter retrieves data from emporia engergy system.
+
+
