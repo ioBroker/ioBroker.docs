@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.notification-manager/README.md
 title: ioBroker.通知管理器
-hash: K10xkBT17q5WBQJ8eY2Yeuw/3KIbAMBBPvJUfVKKJPM=
+hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 ---
 ![标识](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -21,6 +21,22 @@ hash: K10xkBT17q5WBQJ8eY2Yeuw/3KIbAMBBPvJUfVKKJPM=
 
 ### 一般说明
 该适配器允许将 ioBroker 内部`Notifications` 重定向到支持`Notification System` 的信使适配器。如果您缺少适配器，请在相应的适配器上开票。
+
+### 注册以用户为中心的通知
+作为用户，您最了解的是何时需要收到有关系统中特定情况的通知。
+因此，`notification-manager` 为您提供了一个接口，用于在 ioBroker 通知系统内注册您自己的通知。支持三个类别，每个严重级别对应一个类别：`notify`、`info` 和`alert`。
+
+可以通过 `sendTo` 注册通知
+
+```ts
+(async () => {
+    try {
+        await sendToAsync('notification-manager.0', 'registerUserNotification', { category: 'notify', message: 'Your delivery has arrived' });
+    } catch (e) {
+        log(`Could not register notification: ${e}`, 'error');
+    }
+})();
+```
 
 ### 消息传递适配器的要求
 请将 `io-package.json` 中的 `common.supportedMessages.notifications` 标志设置为 `true`。
@@ -73,6 +89,13 @@ hash: K10xkBT17q5WBQJ8eY2Yeuw/3KIbAMBBPvJUfVKKJPM=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-12-08)
+* (foxriver76) added possibility to send custom messages
+* (foxriver76) added UI indicators for each category
+
+### 0.1.2 (2023-10-11)
+* (foxriver76) also show notifications provided by adapters in the configuration
+
 ### 0.1.1 (2023-07-04)
 * (foxriver76) added possibility to send test messages from web interface (closes #1)
 

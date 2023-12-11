@@ -20,6 +20,38 @@ Siehe [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
 
+### v3.2.0-alpha.13 (2023-12-09)
+
+#### :bug: bug (1 changes)
+- fixed `v3.2.0-alpha.12 Geräte Liste ist leer` ([#2484](https://github.com/Zefau/ioBroker.jarvis/issues/2484))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.12 (2023-12-08)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+#### :bug: bug (2 changes)
+- fixed `v3.2.0-alpha.11 Einige Fehler Anzeigen` ([#2481](https://github.com/Zefau/ioBroker.jarvis/issues/2481))
+- fixed `v3.2.0-alpha.11 StateList Geräte hinzufügen nicht auswählbar` ([#2482](https://github.com/Zefau/ioBroker.jarvis/issues/2482))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.11 (2023-12-06)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.10 (2023-12-06)
+
+#### :star2: feature (1 changes)
+- added `Dynamic Lists for StateList` ([#2480](https://github.com/Zefau/ioBroker.jarvis/issues/2480))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
 ### v3.2.0-alpha.7 (2023-11-08)
 
 #### :star2: feature (2 changes)

@@ -916,6 +916,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.iwg-vpn/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.javascript/blockly.md
@@ -1100,6 +1101,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.rflink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rfxcom/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.rickshaw/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ring/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.rmb-bhkw/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.roadtraffic/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.robonect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.roborock/README.md
@@ -1165,6 +1167,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.spotify-premium/README
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.sql/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.squeezeboxrpc/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.srm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.starline/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.statistics/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.stiebel-isg/README.md
@@ -1560,6 +1563,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.iwg-vpn/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.javascript/blockly.md
@@ -1744,6 +1748,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.rflink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rfxcom/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.rickshaw/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ring/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.rmb-bhkw/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.roadtraffic/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.robonect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.roborock/README.md
@@ -1809,6 +1814,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.spotify-premium/README
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.sql/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.squeezeboxrpc/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.srm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.starline/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.statistics/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.stiebel-isg/README.md
@@ -2204,6 +2210,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.iwg-vpn/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.javascript/blockly.md
@@ -2388,6 +2395,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rflink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rfxcom/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rickshaw/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ring/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.rmb-bhkw/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.roadtraffic/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.robonect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.roborock/README.md
@@ -2453,6 +2461,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.spotify-premium/README
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.sql/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.squeezeboxrpc/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.srm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.starline/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.statistics/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.stiebel-isg/README.md
@@ -2848,6 +2857,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iopooleco/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iot/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iqontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.iwg-vpn/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jablotron/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.janitza-gridvis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.jarvis/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.javascript/blockly.md
@@ -3032,6 +3042,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rflink/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rfxcom/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rickshaw/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ring/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.rmb-bhkw/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.roadtraffic/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.robonect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.roborock/README.md
@@ -3097,6 +3108,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.spotify-premium/REA
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sprinklecontrol/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.sql/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.squeezeboxrpc/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.srm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.starline/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.statistics/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.stiebel-isg/README.md

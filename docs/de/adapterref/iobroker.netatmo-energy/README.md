@@ -163,6 +163,10 @@ Widget für VIS, um ein komplettes Thermostat anzuzeigen. Sie müssen nur den "S
 
 [Older changes](CHANGELOG_OLD.md)
 <!-- ### **WORK IN PROGRESS** -->
+### 2.7.1 (2023-12-10)
+
+* (ioKlausi) Remove GULP support
+
 ### 2.7.0 (2023-11-19)
 
 * (ioKlausi) Adjust default value for parameters

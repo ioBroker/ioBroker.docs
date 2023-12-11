@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iwg-vpn/README.md
 title: ioBroker.iwg-vpn
-hash: busbgtYocktxzrv8Dn+9zYER6zcQzA8Sg/OYgA5pyeY=
+hash: ft3EJbN2lQjjwwCEdMFs3xtzTH0KoXztT/1Cr1wjdYQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
@@ -24,9 +24,39 @@ Sobald das VPN eingerichtet ist, kann es als Kommunikationskanal zur Steuerung l
 Für eine detaillierte Beschreibung der Alexa-Einrichtung folgen Sie bitte dem Link: https://htmlpreview.github.io/?https://raw.githubusercontent.com/iwg-vpn/iobroker.iwg-vpn/main/howto/alexa-config.html .
 
 ## Voraussetzungen
-* Knoten: >= 14.17.x
+* Knoten: >= 16.x
 * js-controller: >=2.0.0
 * Admin: >=5.1.0
+
+## Changelog
+
+### v3.0.0
+* bug fixes
+* dependencies' updates
+* @iobroker/adapter-core is bumped up to 3.x
+* BREAKING: requires npm >=7 and Node.js >=16
+
+### v2.0.5
+* objects API introduced
+
+### v2.0.4
+* Code review feedback of Apollon77 incorportated
+
+### v2.0.3
+* Drop-in replacement for iobroker.iot for Alexa integration
+
+### v1.0.2
+* reconfiguration (re-scanning of QR-Codes) on Peers required
+* required review changes in io-package
+
+### v1.0.1
+* bug fixes
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
 
 ## License
 Creative Commons Attribution-NonCommercial (CC BY-NC)

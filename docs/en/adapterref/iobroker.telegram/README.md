@@ -725,6 +725,9 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2023-12-08)
+* (foxriver76) send the actual message too via notification-manager
+
 ### 3.0.0 (2023-11-06)
 * (boergegrunicke) BREAKING CHANGE: Socks5 support has been removed.
 * (PeterVoronov ) Extended and improved the returned list of processed messages.
@@ -740,9 +743,6 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 * (bluefox) Packets were updated.
 * (bluefox) BREAKING CHANGE: The minimal node.js version is 16
 * (boergegrunicke) BREAKING CHANGE: Return an object with chatId and messageId instead of the message count
-
-### 1.16.0 (2023-06-16)
-* (foxriver76) We have added support for the `notification-manager` adapter
 
 ## License
 

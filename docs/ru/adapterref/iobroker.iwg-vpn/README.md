@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iwg-vpn/README.md
 title: ioBroker.iwg-vpn
-hash: busbgtYocktxzrv8Dn+9zYER6zcQzA8Sg/OYgA5pyeY=
+hash: ft3EJbN2lQjjwwCEdMFs3xtzTH0KoXztT/1Cr1wjdYQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.iwg-vpn/admin/iwg-vpn-sm.png)
 
@@ -24,9 +24,39 @@ WireGuard является зарегистрированной торговой
 Подробное описание настройки Alexa можно найти по ссылке: https://htmlpreview.github.io/?https://raw.githubusercontent.com/iwg-vpn/iobroker.iwg-vpn/main/howto/alexa-config.html. .
 
 ## Предварительные условия
-* узел: >= 14.17.x
+* узел: >= 16.x
 * js-контроллер: >=2.0.0
 * администратор: >=5.1.0
+
+## Changelog
+
+### v3.0.0
+* bug fixes
+* dependencies' updates
+* @iobroker/adapter-core is bumped up to 3.x
+* BREAKING: requires npm >=7 and Node.js >=16
+
+### v2.0.5
+* objects API introduced
+
+### v2.0.4
+* Code review feedback of Apollon77 incorportated
+
+### v2.0.3
+* Drop-in replacement for iobroker.iot for Alexa integration
+
+### v1.0.2
+* reconfiguration (re-scanning of QR-Codes) on Peers required
+* required review changes in io-package
+
+### v1.0.1
+* bug fixes
+
+### v1.0.0
+* IP ranges are released after a long inactivity period
+* additional checks for NAT functionality
+* logo fixed
+* dependencies updated
 
 ## License
 Creative Commons Attribution-NonCommercial (CC BY-NC)

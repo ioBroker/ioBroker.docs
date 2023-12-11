@@ -72,6 +72,9 @@ BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.admin.svg
 日志的字体显示为红色。
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) prevent strict schema validation being logged to syslog
+
 ### 6.12.8 (2023-12-06)
 * (bluefox) corrected ACL for files
 * (bluefox) allowed changing color of the menu item

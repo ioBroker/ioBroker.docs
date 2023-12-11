@@ -22,11 +22,17 @@ Once the VPN is set up, it can be used as a communication channel for controllin
 For detailed Alexa setup description please follow the link: https://htmlpreview.github.io/?https://raw.githubusercontent.com/iwg-vpn/iobroker.iwg-vpn/main/howto/alexa-config.html.
 
 ## Prerequisites
-* node: >= 14.17.x
+* node: >= 16.x
 * js-controller: >=2.0.0
 * admin: >=5.1.0
 
 ## Changelog
+
+### v3.0.0
+* bug fixes
+* dependencies' updates
+* @iobroker/adapter-core is bumped up to 3.x
+* BREAKING: requires npm >=7 and Node.js >=16
 
 ### v2.0.5
 * objects API introduced

@@ -71,9 +71,11 @@ Add Fully Browser device(s), i.e. the tablets running Fully Browser, accordingly
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.0.9 (2023-12-07)
+* (arteck) corr error message
+
 ### 3.0.8 (2023-12-05)
 * (arteck) toForeground corr
-*
 
 ### 3.0.7 (2023-11-20)
 * (arteck) check credentials

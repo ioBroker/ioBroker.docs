@@ -129,6 +129,36 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 0.19.3 (2023-12-10)
+- switch loglevel
+
+### 0.19.2 (2023-12-10)
+- package updates
+
+### 0.19.1 (2023-12-07)
+- fix load error
+
+### 0.19.0 (2023-12-07)
+- waitForReady needs to be awaited
+
+### 0.18.15 (2023-12-06)
+- fix missing null check
+
+### 0.18.14 (2023-12-06)
+- fix normal binding unsubscribe
+
+### 0.18.13 (2023-12-06)
+- fix historic binding unsubscribe
+
+### 0.18.12 (2023-12-06)
+- remove bindings in customcontrols
+
+### 0.18.11 (2023-12-06)
+- fix broken load historic
+
+### 0.18.10 (2023-12-06)
+- load historic only when previous load is finished
+
 ### 0.18.9 (2023-12-05)
 - fix tooltips
 

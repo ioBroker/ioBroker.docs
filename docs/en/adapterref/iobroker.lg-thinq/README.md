@@ -16,10 +16,37 @@
 
 Adapter for LG ThinQ
 
-###You can finde the values for a device under:
-###lg-thinq.0.xxxxxx-device-id-xxxx-xxxxxxxx.snapshot
+## Supported devices
+
+**DEVICE**: lg-thinq.0.xxx.deviceType -> e. g. 101</br>
+**PLATFORM**: lg-thinq.0.xxx.platformType -> e. g. thinq2
+
+* Device -> 101 Refrigerator -> thinq2 + thinq1
+* Device -> 201 Washer + signature -> thinq2 + thinq1
+* Device -> 202 Dryer -> thinq2 + thinq1
+* Device -> 401 AC -> thinq2 + thinq1
+* Device -> 406 Heatpump -> thinq2
+
+## Description
+
+🇬🇧 [Description](/docs/en/README.md)</br>
+🇩🇪 [Beschreibung](/docs/de/README.md)
+
+## Questions
+
+🇩🇪 [Fragen](https://forum.iobroker.net/topic/46498/test-adapter-lg-thinq-v0-0-1)
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added device 406 (heat pump)
+-   (Lucky-ESA) Added description
+-   (Lucky-ESA) Bugfixe
 
 ### 0.2.0
 

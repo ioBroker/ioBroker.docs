@@ -2,7 +2,7 @@
 
 # ioBroker.pid
 
-![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>

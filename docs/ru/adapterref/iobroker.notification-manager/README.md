@@ -2,32 +2,48 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.notification-manager/README.md
-title: ioBroker.notification-менеджер
-hash: K10xkBT17q5WBQJ8eY2Yeuw/3KIbAMBBPvJUfVKKJPM=
+title: ioBroker.notification-manager
+hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.notification-manager.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.notification-manager.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.notification-manager.svg)
 ![Количество установок](https://iobroker.live/badges/notification-manager-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/notification-manager-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/notification-manager-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.notification-manager.png?downloads=true)
 
 # IoBroker.notification-manager
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/foxriver76/ioBroker.notification-manager/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер диспетчера уведомлений для ioBroker
-Управление уведомлениями ioBroker, например. отправив их в виде сообщений
+## Адаптер менеджера уведомлений для ioBroker
+Управляйте уведомлениями ioBroker, например. отправив их в виде сообщений
 
 ### Общее описание
-Этот адаптер позволяет перенаправить внутренний `Notifications` ioBroker на адаптеры обмена сообщениями, которые поддерживают `Notification System`. Если вам не хватает адаптера, пожалуйста, откройте тикет на соответствующий адаптер.
+Этот адаптер позволяет перенаправить внутренний `Notifications` ioBroker на адаптеры обмена сообщениями, которые поддерживают `Notification System`. Если вам не хватает адаптера, откройте заявку на соответствующий адаптер.
+
+### Регистрация уведомлений, ориентированных на пользователя
+Как пользователь, вы в лучшем случае знаете, когда хотите получать уведомления о конкретных ситуациях в вашей системе.
+Таким образом, `notification-manager` предоставляет вам интерфейс для регистрации ваших собственных уведомлений в системе уведомлений ioBroker. Поддерживаются три категории: по одной для каждого уровня серьезности `notify`, `info` и `alert`.
+
+Уведомления можно зарегистрировать через `sendTo`.
+
+```ts
+(async () => {
+    try {
+        await sendToAsync('notification-manager.0', 'registerUserNotification', { category: 'notify', message: 'Your delivery has arrived' });
+    } catch (e) {
+        log(`Could not register notification: ${e}`, 'error');
+    }
+})();
+```
 
 ### Требования к адаптерам обмена сообщениями
-Установите флаг `common.supportedMessages.notifications` на `true` в `io-package.json`.
+Пожалуйста, установите флаг `common.supportedMessages.notifications` на `true` в вашем `io-package.json`.
 
-Всякий раз, когда новое уведомление должно быть доставлено через адаптер обмена сообщениями, `notification-manager` отправит сообщение настроенному экземпляру.
+Всякий раз, когда новое уведомление должно быть доставлено через адаптер обмена сообщениями, `notification-manager` отправит сообщение в настроенный экземпляр.
 
-Сообщения состоят из команды `sendNotification` и сообщения со следующей структурой:
+Сообщения состоят из команды `sendNotification` и сообщения следующей структуры:
 
 ```json
 {
@@ -62,17 +78,24 @@ hash: K10xkBT17q5WBQJ8eY2Yeuw/3KIbAMBBPvJUfVKKJPM=
 }
 ```
 
-Где `category.instances` показывает затронутые экземпляры адаптера для этого уведомления.
-Кроме того, у категории есть описание i18n и имя i18n.
-Те же свойства существуют для области действия категории. Кроме того, затронутый узел включен.
+Где `category.instances` показаны экземпляры адаптера, затронутые этим уведомлением.
+Кроме того, категория имеет описание i18n и имя i18n.
+Те же свойства существуют и для области действия категории. Кроме того, включен затронутый хост.
 
-После отправки уведомления `notification-manager` ожидает ответ со свойством `{ sent: true }`, если адаптер обмена сообщениями смог доставить уведомление, в противном случае он должен ответить `{ sent: false }`.
+После отправки уведомления `notification-manager` ожидает ответа со свойством `{ sent: true }`, если адаптер обмена сообщениями смог доставить уведомление, в противном случае он должен ответить `{ sent: false }`.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-12-08)
+* (foxriver76) added possibility to send custom messages
+* (foxriver76) added UI indicators for each category
+
+### 0.1.2 (2023-10-11)
+* (foxriver76) also show notifications provided by adapters in the configuration
+
 ### 0.1.1 (2023-07-04)
 * (foxriver76) added possibility to send test messages from web interface (closes #1)
 

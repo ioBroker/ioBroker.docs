@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
+hash: Ydb/GntLH+ARrzo4EkkPGRrtd9VMI9Sws/Ubh9ZmQfo=
 ---
 ![标识](../../../en/adapterref/iobroker.lg-thinq/admin/lg-thinq.png)
 
@@ -20,10 +20,31 @@ hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
 ## IoBroker 的 lg-thinq 适配器
 LG ThinQ 适配器
 
-###您可以在以下位置找到设备的值：
-###lg-thinq.0.xxxxxx-device-id-xxxx-xxxxxxxx.snapshot
+## 支持的设备
+**设备**：lg-thinq.0.xxx.deviceType -> e。 G。 101 **平台**：lg-thinq.0.xxx.platformType -> e。 G。薄q2
+
+* 设备 -> 101 冰箱 -> Thinq2 + Thinq1
+* 设备 -> 201 垫圈 + 签名 -> Thinq2 + Thinq1
+* 设备 -> 202 干燥机 -> Thinq2 + Thinq1
+* 设备 -> 401 AC -> Thinq2 + Thinq1
+* 设备 -> 406 热泵 -> Thinq2
+
+＃＃ 描述
+🇬🇧 [描述](/docs/en/README.md)</br> 🇩🇪 [说明](/docs/de/README.md)
+
+＃＃ 问题
+🇩🇪 [弗拉根](https://forum.iobroker.net/topic/46498/test-adapter-lg-thinq-v0-0-1)
+
+<!-- 下一个版本的占位符（在行的开头）：
+
+### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added device 406 (heat pump)
+-   (Lucky-ESA) Added description
+-   (Lucky-ESA) Bugfixe
 
 ### 0.2.0
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
+hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
 ---
 ![Logo](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -37,8 +37,9 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
 - Beginnen Sie mit der Erstellung einer neuen Instanz des Adapters.
 – Sie benötigen außerdem ein API-Token von Tibber, das Sie hier erhalten können: [Tibber Developer API](https://developer.tibber.com).
 - Geben Sie in den Standardeinstellungen Ihr Tibber-API-Token ein und konfigurieren Sie mindestens eine Zeile für Live-Feed-Einstellungen (wählen Sie „Keine verfügbar“).
-- Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten; Mit diesem Schritt können Ihre Häuser vom Tibber-Server abgefragt werden.
+- Speichern Sie die Einstellungen und verlassen Sie die Konfiguration, um den Adapter neu zu starten. Mit diesem Schritt können Ihre Häuser zum ersten Mal vom Tibber-Server abgefragt werden.
 - Kehren Sie zum Konfigurationsbildschirm zurück und wählen Sie die Häuser aus, von denen Sie Echtzeitdaten mit Ihrem Tibber Pulse abrufen möchten. Sie können auch Häuser auswählen und den Feed deaktivieren (Hinweis: Dies funktioniert nur, wenn die Hardware installiert ist und der Tibber-Server die Verbindung zu Pulse überprüft hat).
+- Sie haben die Möglichkeit, den Abruf der Preisdaten für heute und morgen zu deaktivieren, wenn Sie beispielsweise nur Pulse-Live-Feeds nutzen möchten
 - Optional können Sie den Abruf historischer Verbrauchsdaten aktivieren. Bitte geben Sie die Anzahl der Datensätze für Stunden, Tage, Wochen, Monate und Jahre an. Mit „0“ können Sie je nach Wunsch eines oder mehrere dieser Intervalle deaktivieren.
 - Hinweis: Es ist wichtig, auf die Größe des Datensatzes zu achten, da zu große Anfragen dazu führen können, dass der Tibber-Server nicht antwortet. Wir empfehlen, mit der Datensatzgröße zu experimentieren, um eine optimale Funktionalität sicherzustellen. Das Anpassen der Intervalle und Datensatzzahlen kann dabei helfen, das richtige Gleichgewicht zwischen der Gewinnung aufschlussreicher Daten und der Aufrechterhaltung der Serverreaktionsfähigkeit zu finden. Z.B. 48 ist eine recht gute Menge für Stunden.
 - Speichern Sie die Einstellungen.
@@ -57,16 +58,17 @@ Wenn Sie derzeit kein Tibber-Benutzer sind, würde ich mich sehr freuen, wenn Si
 - Die in den Ausgabezustand zu schreibenden Werte können in „Wert JA“ und „Wert NEIN“ definiert werden, z. B. „wahr“ für boolesche Zustände oder eine zu schreibende Zahl oder ein zu schreibender Text.
 - Ausgänge:
     - „Beste Kosten“: Verwendet den Status „TriggerPrice“ als Eingabe und erzeugt jede Stunde eine „JA“-Ausgabe, wenn die aktuellen Tibber-Energiekosten unter dem Triggerpreis liegen.
-    - „Beste einzelne Stunden“: Erzeugt eine „JA“-Ausgabe während der günstigsten Stunden, wobei die im Status „AmountHours“ definierte Anzahl angegeben wird.
+    - „Beste einzelne Stunden“: Erzeugt während der günstigsten Stunden eine „JA“-Ausgabe, wobei die im Status „AmountHours“ definierte Anzahl angegeben wird.
     - „Bester Stundenblock“: Gibt „JA“ während des kostengünstigsten Stundenblocks aus, mit der im Status „AmountHours“ angegebenen Stundenanzahl.
     - „Best cost LTF“: „Best cost“ innerhalb eines begrenzten Zeitrahmens (LTF).
     - „Beste Einzelstunden LTF“: „Beste Einzelstunden“ innerhalb eines begrenzten Zeitrahmens (LTF).
     - „Beste Stunden Block LTF“: „Beste Stunden Block“ innerhalb eines begrenzten Zeitrahmens (LTF).
+    - „Smart Battery Buffer“: Noch nicht implementiert
 - LTF-Kanäle: Funktionieren ähnlich wie Standardkanäle, arbeiten jedoch nur innerhalb eines durch die Statusobjekte „StartTime“ und „StopTime“ definierten Zeitrahmens. Nach „StopTime“ deaktiviert sich der Kanal. „StartTime“ und „StopTime“ können sich über mehrere Tage erstrecken. Die Bundesstaaten müssen mit einer Datums-/Uhrzeitzeichenfolge im ISO-8601-Format mit Zeitzonenversatz gefüllt sein, z. B.: „2023-11-17T21:00:00.000+01:00“.
 
 ### Hinweise
 #### Umgekehrte Verwendung:
-Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Austausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
+Um beispielsweise Spitzenzeiten statt optimaler Stunden zu erhalten, kehren Sie einfach die Verwendung und die Parameter um: ![Rechnerzustände invers](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) Durch den Vertausch von true <-> false erhalten Sie in der ersten Zeile ein true zu geringen Kosten und ein true at ein hoher Aufwand in der zweiten Zeile (Kanalnamen sind keine Auslöser und dennoch frei wählbar).
 
 Achtung: Für einzelne Spitzenzeiten, wie im Beispiel, müssen Sie auch die Stundenzahl anpassen. Original: 5 -> Invers (24-5) = 19 -> Sie erhalten während der 5 Spitzenstunden ein echtes Ergebnis.
 
@@ -84,6 +86,19 @@ Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automa
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 1.8.0 (2023-12-xx) WORK IN PROGRESS
+
+-   (HombachC) implement optional disable of price pull (#232)
+-   (HombachC) WiP!!! implement (#193)
+-   (HombachC) changed Tibber link in config
+
+### 1.7.2 (2023-12-07)
+
+-   (HombachC) implemented dynamic raise of feed reconnect (#225)
+-   (HombachC) small bugfix in pricecalls
+-   (HombachC) first changes for "smart battery buffer" (#193)
+-   (HombachC) update typescript to 5.3.3
 
 ### 1.7.1 (2023-12-04)
 

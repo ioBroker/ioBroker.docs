@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-电子表格
-hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
+hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 ---
 ![标识](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -20,11 +20,11 @@ hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
 该适配器可用于自动与谷歌电子表格交互。
 
 ＃＃ 特征
-* 将数据附加到电子表格
-* 从电子表格中删除行
-* 添加表
-* 删除工作表
-* 重复的表
+* [将数据附加到电子表格](features/append.md)
+* [从电子表格中删除行](features/delete-rows.md)
+* [创建工作表](features/create-sheet.md)
+* [删除工作表](features/delete-sheet.md)
+* [重复表](features/duplicate-sheet.md)
 
 ＃＃ 用法
 ＃＃＃ 设置
@@ -92,6 +92,9 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 确保服务帐户具有足够的权限来写入电子表格。请参阅上面的“授予对电子表格的访问权限”部分。
 
 ## Changelog
+### 0.2.0
+* (Thomas Pohl) Parsing of private keys is now more robust
+
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

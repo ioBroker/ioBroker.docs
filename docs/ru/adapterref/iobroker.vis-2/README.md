@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: 5md6/uPHbzzXROFSDdKAMpxZdfEyofTngjbAwONXVaM=
+hash: 6DVF9NncE/6K+c7UbRycr62ZeXKEyzP8OLZsEw+feWY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -172,7 +172,7 @@ Vis создает 3 переменные:
 - `control.data`: имя проекта и представления в форме `project/view`, например. `main/view` (и `ack=true`)
 - `control.command`: `changedView` и `ack=true`
 
-Вы можете записать JSON-строку или объект в `control.command` как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
+Вы можете записать строку JSON или объект в `control.command` как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
 
 Пример адаптера JavaScript:
 
@@ -210,7 +210,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 
 ## SVG и currentColor
 Ключевое слово currentColor в CSS позволяет элементам наследовать текущий цвет текста от родительского элемента.
-Это может быть особенно полезно в SVG (масштабируемой векторной графике), поскольку обеспечивает более динамичное оформление и более простую интеграцию с HTML-контентом.
+Это может быть особенно полезно в SVG (масштабируемой векторной графике), поскольку позволяет создавать более динамичные стили и упрощает интеграцию с HTML-контентом.
 
 Вы можете использовать ключевое слово currentColor вместо определенного значения цвета для любого свойства внутри SVG, которое принимает значение цвета.
 Вот простой пример с кругом в SVG:
@@ -230,6 +230,31 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed issues with Bulb widget if min/max was once filled
+
+### 2.9.5 (2023-12-10)
+* (foxriver76) open new views at the beginning
+* (foxriver76) fixed crash case if signals are used
+* (foxriver76) fixed material-design-widgets helper 
+* (foxriver76) update references to view in widget when view is renamed
+* (bluefox) jQui Toggle icon widget was migrated to react
+* (bluefox) jQui Radio widget was migrated to react
+* (bluefox) jQui Radio List widget was migrated to react
+* (bluefox) Corrected last-change by React widgets
+
+### 2.9.4 (2023-12-04)
+* (foxriver76) fixed issues with display width
+
+### 2.9.3 (2023-12-03)
+* (bluefox) Added the possibility to limit hard the view size
+* (foxriver76) implemented simple sort mechanic for navigation
+* (foxriver76) fixed import of views, which were inside a folder
+* (foxriver76) fixed theme also applied in iframe
+* (foxriver76) do not simply reuse widget ids when importing or copying views
+* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) made script tags work in basic html widget
+
 ### 2.9.2 (2023-11-29)
 * (foxriver76) fixed reactivity in custom components
 * (foxriver76) fixed import for groups

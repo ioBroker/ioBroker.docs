@@ -539,8 +539,10 @@ _[Back to top](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
-### **WORK IN PROGRESS**
+### 2.9.6 (2023-12-10)
+* (simatec) Gotify Notication added
 * (simatec) dependencies updated
+* (simatec) Copypath check added
 
 ### 2.9.5 (2023-11-29)
 * (simatec) dependencies updated

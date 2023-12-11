@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 6wUADS4QBzbHWkv0Rbo9AiGuz0JsBr6ZLmBXymx9BiI=
+hash: JDrJtxWrzOQDDc0fPUXUpIQOqZmEmNjZUxoMg8KFVjA=
 ---
 ![标识](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -438,13 +438,13 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ＃＃ 发展
 ＃＃＃ 版本
-使用的版本 home-assistant-frontend@20231130.0 浏览器版本：2.3.0
+使用的版本 home-assistant-frontend@20231208.1 浏览器版本：2.3.0
 
 ### 如何构建新的 Lovelace 版本
 首先，实际的 https://github.com/home-assistant/frontend （开发分支）必须**手动**合并到 https://github.com/GermanBluefox/home-assistant-polymer.git (* **iob*** 分支！）。
 
 ioBroker 的所有更改均标有注释 `// IoB`。
-目前（20230608.0）以下文件已被修改：
+目前（20231208.1）以下文件已被修改：
 
 - `build-scripts/gulp/app.js` - 添加新的 gulp 任务develop-iob
 - `build-scripts/gulp/webpack.js` - 添加新的 gulp 任务 webpack-dev-app
@@ -452,10 +452,9 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 - `src/dialogs/more-info/const.ts` - 删除天气状态和历史记录
 - `src/dialogs/more-info/ha-more-info-dialog.ts` - 删除实体设置按钮和选项卡
 - `src/dialogs/more-info/ha-more-info-history.ts` - 删除历史记录中的“显示更多”链接
-- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加支持显示来自 url 的天气图标。
+- `src/dialogs/more-info/controls/more-info-weather.ts` - 添加对从 url 显示天气图标的支持。
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - 禁用语音助手的配置
 - `src/entrypoints/core.ts` - 修改了身份验证过程
-- `src/layouts/home-assistant-main.ts` - 删除应用程序侧边栏
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - 添加支持显示来自 url 的天气图标。
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - 添加支持显示带有身份验证的 url 中的天气图标。
 - `src/panels/lovelace/hui-root.ts` - 添加通知和语音控制
@@ -464,7 +463,7 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 - `.husky/pre-commit` - 删除 git commit 挂钩。
 - `package.json` - 删除 husky 提交钩子
 
-+ 之后在`./build`文件夹中签出修改后的版本。然后。
+之后在`./build`文件夹中签出修改后的版本。然后。
 
 1.进入./build目录。
 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` 它是 https://github.com/home-assistant/frontend.git 的一个分支，但有些东西被修改了（请参阅前面的文件列表）。
@@ -482,53 +481,26 @@ ioBroker 的所有更改均标有注释 `// IoB`。
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.11.30.0
-* (Garfonso) Use better random numbers.
-* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
-* (Garfonso) Remove hideToolbar feature. Just not working anymore.
+### 4.0.6 (2023-12-09)
+* (Garfonso) fixed: thermostat card for thermostats without mode / off state
+* (Garfonso) fixed: history and history graph missing for some stuff
 
-### 3.0.1 (2022-11-03)
-* (Garfonso) do not crash if no history instance selected.
-* (Garfonso) notifications working again.
-* (Garfonso) repaired color temperature handling.
+### 4.0.5 (2023-12-09)
+* (Garfonso) revert shopping list
+* (Garfonso) prevent invalid date error
 
-### 3.0.0 (2022-10-28)
-* (agross) added: per instance language support
-* (Garfonso) entity_id for devices with only one non english name should be ok again.
-* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
-* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
-* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
-* (Garfonso) removed: lovelace_reload and window_reload states
-* (Garfonso) removed: name state, not supported by browser_mod anymore
-* (Garfonso) added: Support for toasts with action button (either json or ;-string)
-* (Garfonso) added: activity state will show if user is currently using a certain browser
-* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
-* (Garfonso) crash if notification was malformed json.
-* (Garfonso) some translation stuff
-* (Garfonso) crash case when states were updated before websocket was ready
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) tried to make html requests relative
+### 4.0.4 (2023-12-09)
+* (Garfonso) fix: crash
 
-### 2.2.0 (2022-06-05)
-* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
-* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
-* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
-* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
-* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
-* (Garfonso) added: support auto entities card and subscription.
-* (Garfonso) added: improve support for input_datetime & string states.
-* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+### 4.0.3 (2023-12-09)
+* (Garfonso) fix: tests.
 
-### 2.1.4 (2022-01-09)
-* (Garfonso) Dependency update
-
-### 2.1.3 (2022-01-07)
-* (Garfonso) Fixed: remove backup of old frontend (sorry)
+### 4.0.2 (2023-12-09)
+* (Garfonso) fix: crash
 
 ## License
 
-Copyright 2019-2022, bluefox <dogafox@gmail.com>
+Copyright 2019-2023, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

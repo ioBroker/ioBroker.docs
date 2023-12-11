@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-таблица
-hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
+hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 ---
 ![Логотип](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -20,11 +20,11 @@ hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
 Этот адаптер можно использовать для автоматического взаимодействия с электронными таблицами Google.
 
 ## Функции
-* Добавить данные в таблицу
-* Удаление строк из электронной таблицы.
-* Добавить листы
-* Удаление листов
-*Дубликаты листов.
+* [Добавить данные в таблицу](features/append.md)
+* [Удалить строки из электронной таблицы](features/delete-rows.md)
+* [Создание листов] (features/create-sheet.md)
+* [Удалить листы](features/delete-sheet.md)
+* [Дубликаты листов] (features/duulate-sheet.md)
 
 ## Использование
 ### Настраивать
@@ -92,6 +92,9 @@ https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
 Убедитесь, что у учетной записи службы есть достаточные разрешения для записи в электронную таблицу. См. раздел «Предоставить доступ к электронной таблице» выше.
 
 ## Changelog
+### 0.2.0
+* (Thomas Pohl) Parsing of private keys is now more robust
+
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: JzjvNAkeur4ukhIzwoCzsT3OuW863VD60PUrG8fpCZU=
+hash: 2hSYLCnNnZDwlAgqtauatYzJK/93uNaeJMTtc12fafY=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -268,3 +268,10 @@ Mit diesem Adapter können Sie eine Verbindung zum Tractive GPS-Dienst herstelle
 Es ist möglich, die Menüfarben im Admin zu ändern
 
 <img src="media/2023_12_06_admin.png" width="500" />
+
+## Emporia (07.12.2023) – neuer Adapter
+https://github.com/Chris-656/ioBroker.emporia
+
+<img src="https://github.com/Chris-656/ioBroker.emporia/blob/main/admin/emporia.png" width="100" height="100" />
+
+Dieser Adapter ruft Daten vom Emporia-Energiesystem ab.

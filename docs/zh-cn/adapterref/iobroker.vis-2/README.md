@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: 5md6/uPHbzzXROFSDdKAMpxZdfEyofTngjbAwONXVaM=
+hash: 6DVF9NncE/6K+c7UbRycr62ZeXKEyzP8OLZsEw+feWY=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -64,7 +64,7 @@ Patten 具有以下格式：
 
 - `*` - 相乘。参数必须放在括号中，例如“*(4)”。在此示例中，我们将该值乘以 4。
 - `+` - 添加。参数必须放在括号中，例如“+(4.5)”。在此示例中，我们添加值 4.5。
-- `-` - 减法。参数必须放在括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
+- `-` - 减法。参数必须位于括号中，例如“-(-674.5)”。在此示例中，我们从值 -674.5 中减去。
 - `/` - 除法。参数必须放在括号中，例如“/(0.5)”。在此示例中，我们将该值除以 0.5。
 - `%` - 模数。参数必须放在括号中，例如“%(5)”。在此示例中，我们取 5 的模。
 - `round` - 对值进行四舍五入。
@@ -119,7 +119,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `login` - 是否需要登录（例如，显示/隐藏注销按钮）
 * `local_*` - 如果状态名称从 `local_` 开始，它不会报告给 ioBroker，但会更新所有小部件，这取决于此状态。 （当前浏览器会话的局部变量）
 
-注意：要在计算中使用“：”（例如在字符串公式中），请改用“::”。
+注意：要在计算中使用“：”（例如，在字符串公式中），请改用“::”。
 
 **请记住**，样式定义将被解释为绑定，因此请使用 `{{style: value}}` 或仅使用
 
@@ -184,7 +184,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。
 这只是编辑模式下的视觉边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框之外的所有小部件都将可见。
 
-此外，您还可以定义是否必须将此视图用作此分辨率的默认视图。
+此外，您可以定义是否必须将此视图用作此分辨率的默认视图。
 
 因此，每次调用`index.html`（没有`#viewName`）时，都会打开最适合该分辨率的视图。
 如果只有一个视图具有“默认”标志，则该视图将独立于屏幕分辨率或方向打开。
@@ -199,7 +199,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 您可以在菜单“设置...”中对其进行配置。如果将间隔设置为“从不”，则页面将永远不会重新加载。
 
 ### 重新连接间隔
-设置连接尝试之间的时间间隔（如果断开连接）。如果设置 2 秒，它将每 2 秒尝试建立一次连接。
+设置断开连接时尝试连接的时间间隔。如果设置2秒，它将每2秒尝试建立一次连接。
 
 ### 黑暗的重新连接屏幕
 有时（在晚上）需要有黑暗的加载屏幕。通过这个选项，就可以设置了。
@@ -212,7 +212,7 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本颜色。
 它在 SVG（可缩放矢量图形）中特别有用，因为它允许更动态的样式并且更容易与 HTML 内容集成。
 
-您可以使用 currentColor 关键字来代替 SVG 中接受颜色值的任何属性的特定颜色值。
+您可以使用 currentColor 关键字来代替 SVG 内接受颜色值的任何属性的特定颜色值。
 下面是一个 SVG 中带有圆圈的简单示例：
 
 ```xml
@@ -230,6 +230,31 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed issues with Bulb widget if min/max was once filled
+
+### 2.9.5 (2023-12-10)
+* (foxriver76) open new views at the beginning
+* (foxriver76) fixed crash case if signals are used
+* (foxriver76) fixed material-design-widgets helper 
+* (foxriver76) update references to view in widget when view is renamed
+* (bluefox) jQui Toggle icon widget was migrated to react
+* (bluefox) jQui Radio widget was migrated to react
+* (bluefox) jQui Radio List widget was migrated to react
+* (bluefox) Corrected last-change by React widgets
+
+### 2.9.4 (2023-12-04)
+* (foxriver76) fixed issues with display width
+
+### 2.9.3 (2023-12-03)
+* (bluefox) Added the possibility to limit hard the view size
+* (foxriver76) implemented simple sort mechanic for navigation
+* (foxriver76) fixed import of views, which were inside a folder
+* (foxriver76) fixed theme also applied in iframe
+* (foxriver76) do not simply reuse widget ids when importing or copying views
+* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) made script tags work in basic html widget
+
 ### 2.9.2 (2023-11-29)
 * (foxriver76) fixed reactivity in custom components
 * (foxriver76) fixed import for groups

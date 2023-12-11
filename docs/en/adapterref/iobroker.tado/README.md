@@ -46,6 +46,10 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.1 (2023-12-11)
+* (HGlab01) Bump json-explorer to 0.1.15
+* (HGlab01) Prepare (c) for 2024
+
 ### 0.5.0 (2023-11-25)
 * (HGlab01) Breaking changes
     - Node.js 18.0 or higher
@@ -68,14 +72,10 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 * (HGlab01) Add attribute 'isBalanceHpEligible'
 * (HGlab01) improve axios keep_a_live
 
-### 0.4.9 (2023-07-05)
-* (HGlab01) Add attribute 'zonesCount'
-* (HGlab01) Bump ioBroker-jsonExplorer to 0.1.12
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
+Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com> & DutchmanNL <oss@drozmotix.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

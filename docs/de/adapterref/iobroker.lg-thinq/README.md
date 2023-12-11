@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
+hash: Ydb/GntLH+ARrzo4EkkPGRrtd9VMI9Sws/Ubh9ZmQfo=
 ---
 ![Logo](../../../en/adapterref/iobroker.lg-thinq/admin/lg-thinq.png)
 
@@ -20,10 +20,31 @@ hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
 ## LG-Thinq-Adapter für ioBroker
 Adapter für LG ThinQ
 
-###Die Werte für ein Gerät finden Sie unter:
-###lg-thinq.0.xxxxxx-device-id-xxxx-xxxxxxxx.snapshot
+## Unterstützte Geräte
+**GERÄT**: lg-thinq.0.xxx.deviceType -> z.B. G. 101</br> **PLATTFORM**: lg-thinq.0.xxx.platformType -> e. G. Thinq2
+
+* Gerät -> 101 Kühlschrank -> Thinq2 + Thinq1
+* Gerät -> 201 Waschmaschine + Signatur -> Thinq2 + Thinq1
+* Gerät -> 202 Trockner -> Thinq2 + Thinq1
+* Gerät -> 401 AC -> Thinq2 + Thinq1
+* Gerät -> 406 Wärmepumpe -> Thinq2
+
+## Beschreibung
+🇬🇧 [Beschreibung](/docs/en/README.md)</br> 🇩🇪 [Beschreibung](/docs/de/README.md)
+
+## Fragen
+🇩🇪 [Fragen](https://forum.iobroker.net/topic/46498/test-adapter-lg-thinq-v0-0-1)
+
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
+
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added device 406 (heat pump)
+-   (Lucky-ESA) Added description
+-   (Lucky-ESA) Bugfixe
 
 ### 0.2.0
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
+hash: Ydb/GntLH+ARrzo4EkkPGRrtd9VMI9Sws/Ubh9ZmQfo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lg-thinq/admin/lg-thinq.png)
 
@@ -20,10 +20,31 @@ hash: OlYb0tj7TOyNir58/WMYQLDnZTvFsD2/ighfRwu+4Dc=
 ## Адаптер lg-thinq для ioBroker
 Адаптер для LG ThinQ
 
-###Значения для устройства можно найти в разделе:
-###lg-thinq.0.xxxxxx-device-id-xxxx-xxxxxxxxx.snapshot
+## Поддерживаемые устройства
+**УСТРОЙСТВО**: lg-thinq.0.xxx.deviceType -> e. г. 101</br> **ПЛАТФОРМА**: lg-thinq.0.xxx.platformType -> e. г. thinkq2
+
+* Устройство -> 101 Холодильник ->thinq2+thinq1
+* Устройство -> 201 Шайба + подпись ->thinq2+thinq1
+* Устройство -> 202 Сушилка ->thinq2+thinq1
+* Устройство -> 401 AC ->thinq2+thinq1
+* Устройство -> 406 Тепловой насос ->thinq2
+
+## Описание
+🇬🇧 [Описание](/docs/en/README.md)</br> 🇩🇪 [Бешрайбунг](/docs/de/README.md)
+
+## Вопросы
+🇩🇪 [Фраген](https://forum.iobroker.net/topic/46498/test-adapter-lg-thinq-v0-0-1)
+
+<!-- Заполнитель следующей версии (в начале строки):
+
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Added device 406 (heat pump)
+-   (Lucky-ESA) Added description
+-   (Lucky-ESA) Bugfixe
 
 ### 0.2.0
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: V5/rwT+Ahk9PA7qEJp1jzPFMLz+YUXI5sWCrFFlNqR8=
+hash: u2Z9jY1hAZczxTZq96CsSArFUMq1BItGiiqfEYw3XRI=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -15,11 +15,11 @@ hash: V5/rwT+Ahk9PA7qEJp1jzPFMLz+YUXI5sWCrFFlNqR8=
 
 # IoBroker.alpha-ess
 ## Alpha-ess-Adapter für ioBroker
-Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen für Ihr Alpha ESS-Gerät ab.\ Abhängig von Ihrem Alpha ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrer Alpha ESS-Ausrüstung ab.
+Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen für Ihr Alpha-ESS-Gerät ab.\ Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrer Alpha-ESS-Ausrüstung ab.
 
-Dieser Adapter unterstützt zwei APIs, die interne Alpha ESS Web API, die jederzeit von Alpha ESS geändert werden kann, und die Alpha ESS Open API, die weniger Funktionalität bietet, aber eine offizielle und dokumentierte API für Alpha ESS-Geräte ist.
+Dieser Adapter verwendet die Alpha-ESS Open API, eine offizielle und dokumentierte API für Alpha-ESS-Geräte.
 
-Ab Version 1.0.0-alpha.5 wird das Qualitätsattribut jedes Staates entsprechend seinem Status festgelegt:
+Das Qualitätsattribut jedes Staates wird entsprechend seinem Status festgelegt:
 
 | Qualität | Bedeutung |
 |:--------|:--------------------------------------------------|
@@ -30,41 +30,27 @@ Ab Version 1.0.0-alpha.5 wird das Qualitätsattribut jedes Staates entsprechend 
 |0x44 |API hat einen Fehler oder einen internen Fehler zurückgegeben, siehe Protokoll |
 
 ## Einstellungen:
-**Verwendete API:** Wählen Sie zwischen der inoffiziellen „Geschlossenen“ API und der offiziellen „Offenen“ API. Abhängig von der ausgewählten API stehen unterschiedliche Einstellungen zur Verfügung.
-
-**Geschlossene API-Einstellungen:**
-
-- **Benutzername:** Der Benutzername Ihres Alpha ESS-Kontos
-- **Passwort:** Das Passwort Ihres Alpha ESS-Kontos
-- **Alpha ESS System-ID:** Die Systemkennung Ihrer Alpha ESS-Ausrüstung
-- **Intervall zum Lesen von Echtzeitdaten:** Einheit: Sekunden.
-- **Intervall zum Lesen der Energiedaten:** Einheit: Minuten.
-- **Intervall zum Lesen der Einstellungsdaten:** Einheit: Minuten.
-- **Intervall zum Lesen statistischer Daten für den aktuellen Tag:** Einheit: Minuten.
-- **Intervall zum Lesen der Zusammenfassungsdaten:** Einheit: Minuten.
-
-Es besteht die Möglichkeit, ein von Alpha ESS bereitgestelltes Demokonto zu nutzen. Die Anmeldeinformationen (Benutzername, System-ID) werden im Adapter als Standardwerte festgelegt.
-Das Passwort wird verschlüsselt gespeichert und muss daher manuell eingegeben werden: Demo
-
-**API-Einstellungen öffnen:**
-
-Um die neue Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Sie benötigen diese, um Zugriff auf die Open API zu haben. Derzeit liegen mir keine Informationen vor, ob sich dies in Zukunft ändern wird.
+Um die Alpha-ESS Open API nutzen zu können, müssen Sie Ihr Alpha-ESS-Gerät unter https://open.alphaess.com registrieren. Nach der Registrierung erhalten Sie eine Entwickler-ID und einen Entwicklerschlüssel (genannt „Secret“). Sie benötigen diese, um Zugriff auf die Open API zu haben.
 Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier beschrieben: https://github.com/alphaess-developer/alphacloud_open_api
 
 - **Persönliche Bewerbungs-ID:** Die Bewerbungs-ID (siehe oben)
 - **Persönliches Bewerbungsgeheimnis:** Das Bewerbungsgeheimnis (siehe oben)
-- **Alpha ESS System-ID:** Die Systemkennung Ihrer Alpha ESS-Ausrüstung
+- **Alpha-ESS-System-ID:** Die Systemkennung Ihrer Alpha-ESS-Ausrüstung
 - **Intervall zum Lesen von Echtzeitdaten:** Einheit: Sekunden.
 - **Intervall zum Lesen der Energiedaten:** Einheit: Minuten.
 - **Intervall zum Lesen der Ladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Entladeeinstellungen:** Einheit: Minuten.
 - **Intervall zum Lesen der Zusammenfassungsdaten:** Einheit: Minuten.
 - **Intervall zum Auslesen der Wallbox-Daten:** Einheit: Minuten. Achtung: Derzeit wird nur eine Wallbox unterstützt.
+- **Unveränderte Zustände aktualisieren:** Wenn diese Option aktiviert ist, werden Zustände geändert, auch wenn der entsprechende Wert unverändert ist.
 
 ## Haftungsausschluss
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
+### 2.0.0 (2023-12-02)
+
+-   (Gaspode) Breaking Change: Removed support of Closed API
 
 ### 1.3.0 (2023-11-22)
 
@@ -133,11 +119,11 @@ Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier be
 
 -   (Gaspode) Use meaningful state names
 -   (Gaspode) Use suitable state roles
--   (Gaspode) Added new state for Alpha ESS settings parameter 'upsReserve'
+-   (Gaspode) Added new state for Alpha-ESS settings parameter 'upsReserve'
 
 ### 0.0.4
 
--   (Gaspode) use axios to perform Alpha ESS API calls instead of deprecated request
+-   (Gaspode) use axios to perform Alpha-ESS API calls instead of deprecated request
 -   (Gaspode) New option "Update unchanged states" added
 
 ### 0.0.3

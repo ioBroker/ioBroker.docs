@@ -37,8 +37,9 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 -   Begin by creating a new instance of the adapter.
 -   You'll also require an API token from Tibber, which you can obtain here: [Tibber Developer API](https://developer.tibber.com).
 -   Enter your Tibber API token in the standard settings and configure at least one line for live feed settings (select "None available").
--   Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried from the Tibber server.
+-   Save the settings and exit the configuration to restart the adapter; this step allows your home(s) to be queried the first time from the Tibber server.
 -   Return to the configuration screen and select the homes from which you wish to fetch real-time data using your Tibber Pulse. You can also select homes and disable the feed (Note: This works only if the hardware is installed and the Tibber server has verified the connection to Pulse).
+-   You have the option to deactivate the retrieval of price data for today and tomorrow, for instance, if you only intend to utilize Pulse live feeds
 -   Optionally, you can enable the retrieval of historical consumption data. Please specify the number of datasets for hours, days, weeks, months, and years. You can use "0" to disable one or more of these intervals based on your preferences.
 -   Note: It's essential to be mindful of the dataset size, as excessively large requests may result in a lack of response from the Tibber Server. We recommend experimenting with the dataset size to ensure optimal functionality. Adjusting the intervals and dataset numbers can help strike the right balance between obtaining insightful data and maintaining server responsiveness. E.g. 48 is a quite good amount for hours.
 -   Save the settings.
@@ -52,7 +53,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 -   The states of a calculator channel are positioned adjacent to the home states and named according to the channel number. Hereby the channelname choosen in admin screen is shown here to better identify your configurations.  
     ![Calculator States](docu/calculatorStates.png)
 -   The behavior of each channel is determined by its type: "best cost," "best single hours," or "best hours block".
--   Each channel populates an external state as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writable external state.
+-   Each channel populates an external state as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
 -   The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
 -   Outputs:
     -   "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
@@ -61,6 +62,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     -   "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
     -   "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
     -   "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
+    -   "Smart Battery Buffer": Not implemented yet
 -   LTF channels: Function similarly to standard channels but only operate within a time frame defined by the "StartTime" and "StopTime" state objects. After "StopTime," the channel deactivates itself. "StartTime" and "StopTime" may span over several days. The states must be filled with a date-time string in ISO-8601 format with a timezone offset, such as: "2023-11-17T21:00:00.000+01:00".
 
 ### Hints
@@ -91,6 +93,19 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 1.8.0 (2023-12-xx) WORK IN PROGRESS
+
+-   (HombachC) implement optional disable of price pull (#232)
+-   (HombachC) WiP!!! implement (#193)
+-   (HombachC) changed Tibber link in config
+
+### 1.7.2 (2023-12-07)
+
+-   (HombachC) implemented dynamic raise of feed reconnect (#225)
+-   (HombachC) small bugfix in pricecalls
+-   (HombachC) first changes for "smart battery buffer" (#193)
+-   (HombachC) update typescript to 5.3.3
 
 ### 1.7.1 (2023-12-04)
 

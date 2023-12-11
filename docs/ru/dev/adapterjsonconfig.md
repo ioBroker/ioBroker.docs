@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/dev/adapterjsonconfig.md
 title: Конфигурация JSON ioBroker
-hash: 6z3Ebc7f9jIvmj+dmMdhG6pvvydYIluAlnq7MHqF7SM=
+hash: OYFQd5Z1r1n4Q3EubA6abSfw7IWeoe5oap9hlEmNvVQ=
 ---
 # Конфигурация JSON ioBroker
 Администратор (начиная с версии 6) поддерживает конфигурацию JSON для адаптеров.
@@ -25,7 +25,7 @@ hash: 6z3Ebc7f9jIvmj+dmMdhG6pvvydYIluAlnq7MHqF7SM=
 
 сказать, что адаптер поддерживает конфигурацию JSON.
 
-Вы сможете увидеть почти все компоненты в действии, если протестируете этот адаптер: https://github.com/mcm1957/ioBroker.jsonconfig-demo.
+Вы сможете увидеть почти все компоненты в действии, если протестируете этот адаптер: https://github.com/mcm4iob/ioBroker.jsonconfig-demo.
 Вы можете установить его через значок GitHub в администраторе, введя `iobroker.jsonconfig-demo` на вкладке npm.
 
 Все метки, тексты, справочные тексты могут быть многоязычными или просто строками.
@@ -390,7 +390,7 @@ adapter.on('message', obj => {
 
   - `контейнер` - div, текст
   - `copyToClipboard` - если true - показать кнопку
-  - `alsoDependsOn` - при изменении каких атрибутов команду необходимо отправить повторно
+  - `alsoDependsOn` - при изменении каких атрибутов команду нужно отправить повторно
   - `команда` - команда sendTo
   - `jsonData` - строка - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Эти данные будут отправлены на серверную часть
   - `данные` - объект - `{"subject1": 1, "data": "static"}`. Вы можете указать jsonData или data, но не то и другое. Эти данные будут отправлены на серверную часть, если jsonData не определен.
@@ -582,7 +582,7 @@ newData: {
 />
 ```
 
-Если схема не указана, схема должна быть создана автоматически на основе данных.
+Если схема не указана, она должна быть создана автоматически на основе данных.
 
 - `boolean` => флажок
 - `text` => ввод текста

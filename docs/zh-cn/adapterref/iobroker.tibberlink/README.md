@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
+hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -37,8 +37,9 @@ hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
 - 首先创建适配器的新实例。
 - 您还需要 Tibber 提供的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
 - 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
-- 保存设置并退出配置以重新启动适配器；此步骤允许从 Tibber 服务器查询您的家庭。
+- 保存设置并退出配置以重新启动适配器；此步骤允许第一次从 Tibber 服务器查询您的家庭。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用源（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
+- 例如，如果您只想使用 Pulse 实时提要，您可以选择停用今天和明天的价格数据检索
 - 您也可以选择启用历史消耗数据的检索。请指定小时、天、周、月和年的数据集数量。您可以根据您的喜好使用“0”来禁用这些间隔中的一个或多个。
 - 注意：必须注意数据集的大小，因为过大的请求可能会导致 Tibber 服务器缺乏响应。我们建议尝试数据集大小以确保最佳功能。调整间隔和数据集数量有助于在获取有洞察力的数据和保持服务器响应能力之间取得适当的平衡。例如。 48 小时是一个相当不错的数量。
 - 保存设置。
@@ -62,6 +63,7 @@ hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
     - “最佳成本 LTF”：有限时间范围 (LTF) 内的“最佳成本”。
     - “最佳单小时 LTF”：有限时间范围 (LTF) 内的“最佳单小时”。
     - “最佳时间段 LTF”：有限时间范围 (LTF) 内的“最佳时间段”。
+    - “智能电池缓冲器”：尚未实施
 - LTF 通道：功能与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。 “StopTime”之后，通道将自行停用。 “StartTime”和“StopTime”可能跨越几天。状态必须使用带有时区偏移量的 ISO-8601 格式的日期时间字符串填充，例如：“2023-11-17T21:00:00.000+01:00”。
 
 ### 提示
@@ -76,7 +78,7 @@ hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
 要观察标准通道时间范围的动态变化，您可以选择跨越数年的有限时间范围 (LTF)。这对于“最佳单小时 LTF”场景特别有用。
 
 ## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
 
 ## 捐赠
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! ：啤酒：
@@ -84,6 +86,19 @@ hash: Ey/VWExP3yyoLe8A9+ziZSYap+K6xytaFocvZ4WvmNQ=
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 1.8.0 (2023-12-xx) WORK IN PROGRESS
+
+-   (HombachC) implement optional disable of price pull (#232)
+-   (HombachC) WiP!!! implement (#193)
+-   (HombachC) changed Tibber link in config
+
+### 1.7.2 (2023-12-07)
+
+-   (HombachC) implemented dynamic raise of feed reconnect (#225)
+-   (HombachC) small bugfix in pricecalls
+-   (HombachC) first changes for "smart battery buffer" (#193)
+-   (HombachC) update typescript to 5.3.3
 
 ### 1.7.1 (2023-12-04)
 

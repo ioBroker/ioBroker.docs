@@ -59,8 +59,21 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Day of week as number always returns 1 (monday) to 7 (sunday)
+* (klein0r) Fixed layout of script type selection
+
+### 7.4.0 (2023-12-08)
+
+* (klein0r) Download script as xml file (export)
+* (klein0r) Import script as file (upload)
+* (klein0r) Hide global folder if expert mode is disabled
+
+### 7.3.0 (2023-12-07)
+
+* (klein0r) Updated blockly logo
 * (klein0r) Always set variables like isDaylightSaving
 * (klein0r) Added astro times as states
+* (klein0r) Fixed copied time blocks
 
 ### 7.2.0 (2023-12-04)
 NodeJS 16.x is required
@@ -78,13 +91,6 @@ NodeJS 16.x is required
 
 ### 7.1.5 (2023-10-09)
 * (bluefox) Added play-ground for ChatGPT (API key required)
-
-### 7.1.4 (2023-08-09)
-* (bluefox) Added version to the side menu
-* (klein0r) Added blockly blocks for `getHistory` and calculated times
-
-### 7.1.1 (2023-06-20)
-* (bluefox) corrected the script export
 
 ## License
 The MIT License (MIT)

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 6wUADS4QBzbHWkv0Rbo9AiGuz0JsBr6ZLmBXymx9BiI=
+hash: JDrJtxWrzOQDDc0fPUXUpIQOqZmEmNjZUxoMg8KFVjA=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -438,13 +438,13 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20231130.0 Версия браузерного мода: 2.3.0
+Использованная версия home-assistant-frontend@20231208.1 Версия браузерного мода: 2.3.0
 
 ### Как собрать новую версию Лавлейса
 Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/НемецкийBluefox/home-assistant-polymer.git (* **iob*** ветка!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
-На данный момент (20230608.0) были изменены следующие файлы:
+На данный момент (20231208.1) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp development-iob
 - `build-scripts/gulp/webpack.js` - Добавить новую задачу gulp webpack-dev-app
@@ -455,7 +455,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 - `src/dialogs/more-info/controls/more-info-weather.ts` — добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` — отключить настройку голосовых помощников
 - `src/entrypoints/core.ts` — измененный процесс аутентификации
-- `src/layouts/home-assistant-main.ts` — удалить боковую панель приложения.
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` — добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - добавлена поддержка отображения значка погоды по URL-адресу с авторизацией.
 - `src/panels/lovelace/hui-root.ts` - добавлены уведомления и голосовое управление
@@ -464,7 +463,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 - `.husky/pre-commit` — удалить крючки фиксации git.
 - `package.json` - удалить хаски-хук фиксации
 
-+ После этого проверить измененную версию в папке `./build`. Затем.
+После этого проверьте измененную версию в папке `./build`. Затем.
 
 1. перейдите в каталог ./build.
 2. `git clone https://github.com/DeutschBluefox/home-assistant-polymer.git` это форк https://github.com/home-assistant/frontend.git, но некоторые вещи изменены ( см. список файлов ранее).
@@ -482,53 +481,26 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.11.30.0
-* (Garfonso) Use better random numbers.
-* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
-* (Garfonso) Remove hideToolbar feature. Just not working anymore.
+### 4.0.6 (2023-12-09)
+* (Garfonso) fixed: thermostat card for thermostats without mode / off state
+* (Garfonso) fixed: history and history graph missing for some stuff
 
-### 3.0.1 (2022-11-03)
-* (Garfonso) do not crash if no history instance selected.
-* (Garfonso) notifications working again.
-* (Garfonso) repaired color temperature handling.
+### 4.0.5 (2023-12-09)
+* (Garfonso) revert shopping list
+* (Garfonso) prevent invalid date error
 
-### 3.0.0 (2022-10-28)
-* (agross) added: per instance language support
-* (Garfonso) entity_id for devices with only one non english name should be ok again.
-* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
-* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
-* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
-* (Garfonso) removed: lovelace_reload and window_reload states
-* (Garfonso) removed: name state, not supported by browser_mod anymore
-* (Garfonso) added: Support for toasts with action button (either json or ;-string)
-* (Garfonso) added: activity state will show if user is currently using a certain browser
-* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
-* (Garfonso) crash if notification was malformed json.
-* (Garfonso) some translation stuff
-* (Garfonso) crash case when states were updated before websocket was ready
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) tried to make html requests relative
+### 4.0.4 (2023-12-09)
+* (Garfonso) fix: crash
 
-### 2.2.0 (2022-06-05)
-* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
-* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
-* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
-* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
-* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
-* (Garfonso) added: support auto entities card and subscription.
-* (Garfonso) added: improve support for input_datetime & string states.
-* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+### 4.0.3 (2023-12-09)
+* (Garfonso) fix: tests.
 
-### 2.1.4 (2022-01-09)
-* (Garfonso) Dependency update
-
-### 2.1.3 (2022-01-07)
-* (Garfonso) Fixed: remove backup of old frontend (sorry)
+### 4.0.2 (2023-12-09)
+* (Garfonso) fix: crash
 
 ## License
 
-Copyright 2019-2022, bluefox <dogafox@gmail.com>
+Copyright 2019-2023, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

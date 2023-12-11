@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: 6z3Ebc7f9jIvmj+dmMdhG6pvvydYIluAlnq7MHqF7SM=
+hash: OYFQd5Z1r1n4Q3EubA6abSfw7IWeoe5oap9hlEmNvVQ=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -25,7 +25,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 说明适配器支持 JSON 配置。
 
-如果测试此适配器，您可以看到几乎所有正在运行的组件：https://github.com/mcm1957/ioBroker.jsonconfig-demo。
+如果您测试此适配器，您可以看到几乎所有正在运行的组件：https://github.com/mcm4iob/ioBroker.jsonconfig-demo。
 您可以通过管理中的 GitHub 图标安装它，方法是在 npm 选项卡上输入 `iobroker.jsonconfig-demo`。
 
 所有标签、文本、帮助文本都可以是多语言的或只是字符串。
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 带有项目的选项卡
+- `面板` - 包含项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -136,7 +136,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true
@@ -414,7 +414,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则用当前坐标初始化字段
+  - `autoInit` - 如果为空，则使用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称

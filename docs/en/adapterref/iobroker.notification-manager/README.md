@@ -17,6 +17,23 @@ Manage ioBroker notifications, e.g. by sending them as messages
 This adapter allows to redirect the ioBroker internal `Notifications` to messenger adapters which support 
 the `Notification System`. If you are missing an adapter, please open a ticket on the corresponding adapter.
 
+### Registering user-centric notifications
+As a user you at best know, when you want to be notified about specific situations in your system. 
+Thus, the `notification-manager` provides you with an interface to register your own notifications inside
+the ioBroker notification system. Three categories are supported, one for each severity level `notify`, `info` and `alert`.
+
+The notifications can be registered via `sendTo` 
+
+```ts
+(async () => {
+    try {
+        await sendToAsync('notification-manager.0', 'registerUserNotification', { category: 'notify', message: 'Your delivery has arrived' });
+    } catch (e) {
+        log(`Could not register notification: ${e}`, 'error');
+    }
+})();
+```
+
 ### Requirements for messaging adapters
 Please set the `common.supportedMessages.notifications` flag to `true` in your `io-package.json`.
 
@@ -70,6 +87,10 @@ if the messaging adapter was able to deliver the notification, else it should re
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2023-12-08)
+* (foxriver76) added possibility to send custom messages
+* (foxriver76) added UI indicators for each category
+
 ### 0.1.2 (2023-10-11)
 * (foxriver76) also show notifications provided by adapters in the configuration
 

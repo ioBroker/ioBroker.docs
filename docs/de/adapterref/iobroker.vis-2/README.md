@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: 5md6/uPHbzzXROFSDdKAMpxZdfEyofTngjbAwONXVaM=
+hash: 6DVF9NncE/6K+c7UbRycr62ZeXKEyzP8OLZsEw+feWY=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -172,7 +172,7 @@ Wenn der Benutzer die Ansicht wechselt oder beim Start, werden die Variablen vom
 - „control.data“: Projekt- und Ansichtsname in der Form „Projekt/Ansicht“, z.B. „main/view“ (und „ack=true“)
 - „control.command“: „changedView“ und „ack=true“.
 
-Sie können den JSON-String oder das Objekt als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in `control.command` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
+Sie können den JSON-String oder das JSON-Objekt als `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in `control.command` schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
 
 Beispiel für einen Javascript-Adapter:
 
@@ -230,6 +230,31 @@ Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, w�
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed issues with Bulb widget if min/max was once filled
+
+### 2.9.5 (2023-12-10)
+* (foxriver76) open new views at the beginning
+* (foxriver76) fixed crash case if signals are used
+* (foxriver76) fixed material-design-widgets helper 
+* (foxriver76) update references to view in widget when view is renamed
+* (bluefox) jQui Toggle icon widget was migrated to react
+* (bluefox) jQui Radio widget was migrated to react
+* (bluefox) jQui Radio List widget was migrated to react
+* (bluefox) Corrected last-change by React widgets
+
+### 2.9.4 (2023-12-04)
+* (foxriver76) fixed issues with display width
+
+### 2.9.3 (2023-12-03)
+* (bluefox) Added the possibility to limit hard the view size
+* (foxriver76) implemented simple sort mechanic for navigation
+* (foxriver76) fixed import of views, which were inside a folder
+* (foxriver76) fixed theme also applied in iframe
+* (foxriver76) do not simply reuse widget ids when importing or copying views
+* (foxriver76) implemented basic bulb widget as react widget
+* (foxriver76) made script tags work in basic html widget
+
 ### 2.9.2 (2023-11-29)
 * (foxriver76) fixed reactivity in custom components
 * (foxriver76) fixed import for groups

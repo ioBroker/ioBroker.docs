@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.google-spreadsheet/README.md
 title: ioBroker.google-Tabelle
-hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
+hash: pNNJabJ6O6XqQiqNx6Uq1ZsvnOEWJqn8HYgvg21zAsE=
 ---
 ![Logo](../../../en/adapterref/iobroker.google-spreadsheet/admin/google-spreadsheet.png)
 
@@ -20,11 +20,11 @@ hash: izpwJ24aR0P/H6C6sJWqfSW0f8rciOnE7oBxl2EZH5Y=
 Dieser Adapter kann zur automatischen Interaktion mit Google-Tabellen verwendet werden.
 
 ## Merkmale
-* Daten an die Tabelle anhängen
-* Zeilen aus einer Tabelle löschen
-* Blätter hinzufügen
-* Blätter löschen
-* Duplikatblätter
+* [Daten an Tabellenkalkulation anhängen](features/append.md)
+* [Zeilen aus einer Tabelle löschen](features/delete-rows.md)
+* [Blätter erstellen](features/create-sheet.md)
+* [Blätter löschen](features/delete-sheet.md)
+* [Doppelte Blätter](features/duplicate-sheet.md)
 
 ## Verwendung
 ### Aufstellen
@@ -92,6 +92,9 @@ Stellen Sie beim Kopieren des privaten Schlüssels in die Konfiguration sicher, 
 Stellen Sie sicher, dass das Dienstkonto über ausreichende Berechtigungen zum Schreiben in die Tabelle verfügt. Weitere Informationen finden Sie oben im Abschnitt „Zugriff auf die Tabelle gewähren“.
 
 ## Changelog
+### 0.2.0
+* (Thomas Pohl) Parsing of private keys is now more robust
+
 ### 0.1.0
 * (Thomas Pohl) Preparation for first stable release
 * (Thomas Pohl) Improve logging + Code cleanup

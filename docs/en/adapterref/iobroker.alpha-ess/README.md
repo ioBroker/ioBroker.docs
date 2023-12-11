@@ -11,12 +11,12 @@
 
 ## alpha-ess adapter for ioBroker
 
-This adapter logs into the web API of [Alpha ESS](https://www.alphaess.com/) and retrieves information for your Alpha ESS equipment.\
-Depending on your Alpha ESS product, it is possible to get realtime data and configuration data for your equipment. Which data points are returned by the API depends on your Alpha ESS equipment.
+This adapter logs into the web API of [Alpha-ESS](https://www.alphaess.com/) and retrieves information for your Alpha-ESS equipment.\
+Depending on your Alpha-ESS product, it is possible to get realtime data and configuration data for your equipment. Which data points are returned by the API depends on your Alpha-ESS equipment.
 
-This adapter supports two APIs, the internal Alpha ESS Web API, which may be changed at any time by Alpha ESS, and the Alpha ESS Open API, which provides less functionality but is an official and documented API for Alpha ESS devices.
+This adapter uses the Alpha-ESS Open API, which is an official and documented API for Alpha-ESS devices.
 
-Staring with version 1.0.0-alpha.5, the quality attribute of each state is set accordingly to its status:
+The quality attribute of each state is set accordingly to its status:
 | Quality | meaning |
 |:--------|:--------------------------------------------------|
 |0x00 |OK and up to date |
@@ -27,43 +27,28 @@ Staring with version 1.0.0-alpha.5, the quality attribute of each state is set a
 
 ## Settings:
 
-**Used API:** Choose between the inofficial "Closed" API and the official "Open" API
-Depending on the selected API there are different settings available.
-
-**Closed API Settings:**
-
--   **Username:** The username of your Alpha ESS Account
--   **Password:** The password of your Alpha ESS Account
--   **Alpha ESS System ID:** The system Identifier of your Alpha ESS equipment
--   **Interval to read realtime data:** Unit: seconds.
--   **Interval to read energy data:** Unit: minutes.
--   **Interval to read settings data:** Unit: minutes.
--   **Interval to read statistical data for the current day:** Unit: minutes.
--   **Interval to read summary data:** Unit: minutes.
-
-It is possible to use a demo account provided by Alpha ESS. The credentials (user name, system id) are set as default values within the adapter.
-The password is stored encrypted and must therefore be entered manually: demo
-
-**Open API Settings:**
-
-To be able to use the new Open API you have to register your Alpha-ESS device unter https://open.alphaess.com. Once registered, you get a developer ID and a developer key (called "Secret"). You will need these to have access to the Open API. Currently I have no information if this will be changed in the future.
+To be able to use the Alpha-ESS Open API, you have to register your Alpha-ESS device unter https://open.alphaess.com. Once registered, you get a developer ID and a developer key (called "Secret"). You will need these to have access to the Open API.
 How to find SN and Check code for registration is described here: https://github.com/alphaess-developer/alphacloud_open_api
 
 -   **Personal application ID:** The application ID (see above)
 -   **Personal application Secret:** The application Secret (see above)
--   **Alpha ESS System ID:** The system Identifier of your Alpha ESS equipment
+-   **Alpha-ESS System ID:** The system Identifier of your Alpha-ESS equipment
 -   **Interval to read realtime data:** Unit: seconds.
 -   **Interval to read energy data:** Unit: minutes.
 -   **Interval to read charging settings:** Unit: minutes.
 -   **Interval to read discharging settings:** Unit: minutes.
 -   **Interval to read summary data:** Unit: minutes.
 -   **Interval to read wallbox data:** Unit: minutes. Caution: Currently only one Wallbox is supported.
+-   **Update unchanged states:** If this option is checked, states are changed even if the corresponding value is unchanged.
 
 ## Disclaimer
 
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
+### 2.0.0 (2023-12-02)
+
+-   (Gaspode) Breaking Change: Removed support of Closed API
 
 ### 1.3.0 (2023-11-22)
 
@@ -132,11 +117,11 @@ How to find SN and Check code for registration is described here: https://github
 
 -   (Gaspode) Use meaningful state names
 -   (Gaspode) Use suitable state roles
--   (Gaspode) Added new state for Alpha ESS settings parameter 'upsReserve'
+-   (Gaspode) Added new state for Alpha-ESS settings parameter 'upsReserve'
 
 ### 0.0.4
 
--   (Gaspode) use axios to perform Alpha ESS API calls instead of deprecated request
+-   (Gaspode) use axios to perform Alpha-ESS API calls instead of deprecated request
 -   (Gaspode) New option "Update unchanged states" added
 
 ### 0.0.3

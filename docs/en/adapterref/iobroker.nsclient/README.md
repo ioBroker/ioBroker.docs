@@ -1,9 +1,14 @@
 ---
-BADGE-NPM version: https://img.shields.io/npm/v/iobroker.nsclient.svg
-BADGE-Current version in stable repository: https://iobroker.live/badges/nsclient-stable.svg
-BADGE-Number of Installations: https://iobroker.live/badges/nsclient-installed.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.nsclient.svg
-BADGE-NPM: https://nodei.co/npm/iobroker.nsclient.png?downloads=true
+BADGE-GitHub license: https://img.shields.io/github/license/mcm4iob/iobroker.nsclient
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.pid.svg
+BADGE-GitHub repo size: https://img.shields.io/github/repo-size/mcm4iob/iobroker.nsclient
+BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/mcm4iob/iobroker.nsclient
+BADGE-GitHub commits since latest release (by date): https://img.shields.io/github/commits-since/mcm4iob/iobroker.nsclient/latest
+BADGE-GitHub last commit: https://img.shields.io/github/last-commit/mcm4iob/iobroker.nsclient
+BADGE-GitHub issues: https://img.shields.io/github/issues/mcm4iob/iobroker.nsclient
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.pid.svg
+BADGE-Current version in stable repository: https://iobroker.live/badges/pid-stable.svg
+BADGE-Number of Installations: https://iobroker.live/badges/pid-installed.svg
 ---
 ![Logo](img/nsclient.png)
 # NSCLIENT adapter configuration and usage
@@ -118,6 +123,13 @@ IoBroker state bjects will be created after successful polling the target device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.2 (2023-12-10)
+* (mcm1957) Sentry has been activated.
+
+### 0.2.1 (2023-12-10)
+* (mcm1957) Adapter has been moved to mcm4iob organization.
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.0 (2023-09-11)
 * (mcm1957) This adapter requires node 18 or newer now
 * (mcm1957) Dependencies have been updated

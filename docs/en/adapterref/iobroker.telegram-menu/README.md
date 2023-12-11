@@ -33,15 +33,33 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.2.0 (2023-12-10)
 
-### **WORK IN PROGRESS**
+-   textarea in Helper Card
+-   text table from Json
+-   It is now possible to copy rows into the same menu
+-   small fixes
+-   fixed parse_mode in submenu
+-   get json as inline-Keyboard Table
 
+### 1.1.0 (2023-12-08)
+
+-   confirm the set and not processed state
+-   fixed User checkbox check
+-   new Icons
+-   Error by Starting with new Values of Ack and Parse_mode
+-   #85 bindings
+-   added {time} to Navigation
+-   #82 Get Location
+-   #85 get state.ls oder state.ts from a state and converts to a local time
+-   #81 get Status of more than one ID
+-   #83 New line in Text
 -   fixed menu:number
 
 ### 1.0.1 (2023-12-06)
 
 -   fixed Error read UserList
--   remove ack:true and ack:false from Confirm Message, and creats a checkbox for it
+-   remove ack:true and ack:false from Confirm Message, and create a checkbox for it
 -   parse-Mode HTML
 
 ### 0.9.3 (2023-12-04)

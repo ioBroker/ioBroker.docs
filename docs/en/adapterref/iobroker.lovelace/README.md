@@ -428,14 +428,14 @@ Security must be taken from current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20231130.0
+Used version of home-assistant-frontend@20231208.1
 Version of Browser Mod: 2.3.0
 
 ### How to build the new Lovelace version
 First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20230608.0) following files were modified:
+For now (20231208.1) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
 - `build-scripts/gulp/webpack.js` - Add new gulp task webpack-dev-app
 - `src/data/weather.ts` - add support to display weather icon from url.
@@ -445,7 +445,6 @@ For now (20230608.0) following files were modified:
 - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` - disable configuration of voice assistants
 - `src/entrypoints/core.ts` - modified authentication process
-- `src/layouts/home-assistant-main.ts` - remove app sidebar
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
 - `src/panels/lovelace/hui-root.ts` - added notifications and voice control
@@ -453,7 +452,7 @@ For now (20230608.0) following files were modified:
 - `.gitignore` - add `.idea` ignore
 - `.husky/pre-commit` - remove git commit hooks.
 - `package.json` - remove husky commit hook
-+
+
 After that checkout modified version in `./build` folder. Then.
 
 1. go to ./build directory.
@@ -472,53 +471,26 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Garfonso) Update frontent to 2023.11.30.0
-* (Garfonso) Use better random numbers.
-* (Garfonso) Support media_play_pause (mini-media-player card play / pause) again.
-* (Garfonso) Remove hideToolbar feature. Just not working anymore.
+### 4.0.6 (2023-12-09)
+* (Garfonso) fixed: thermostat card for thermostats without mode / off state
+* (Garfonso) fixed: history and history graph missing for some stuff
 
-### 3.0.1 (2022-11-03)
-* (Garfonso) do not crash if no history instance selected.
-* (Garfonso) notifications working again.
-* (Garfonso) repaired color temperature handling.
+### 4.0.5 (2023-12-09)
+* (Garfonso) revert shopping list
+* (Garfonso) prevent invalid date error
 
-### 3.0.0 (2022-10-28)
-* (agross) added: per instance language support
-* (Garfonso) entity_id for devices with only one non english name should be ok again.
-* (Garfonso) changed: updated frontend to 20221027.0. Needs theme adjustment (add code-editor-background-color) and probably card updates
-* (Garfonso) added: browser_mod (2.1.3) is now integrated. Please remove manual installed versions of custom browser_mod card.
-* (Garfonso) added: 'instances.refresh' can be used to reload page in connected browsers.
-* (Garfonso) removed: lovelace_reload and window_reload states
-* (Garfonso) removed: name state, not supported by browser_mod anymore
-* (Garfonso) added: Support for toasts with action button (either json or ;-string)
-* (Garfonso) added: activity state will show if user is currently using a certain browser
-* (Garfonso) added: Support for subfolders in /cards/ for images and stuff custom cards load (please keep cards in root folder).
-* (Garfonso) crash if notification was malformed json.
-* (Garfonso) some translation stuff
-* (Garfonso) crash case when states were updated before websocket was ready
-* (Apollon77) Prepare for future js-controller versions
-* (bluefox) tried to make html requests relative
+### 4.0.4 (2023-12-09)
+* (Garfonso) fix: crash
 
-### 2.2.0 (2022-06-05)
-* (Garfonso) fixed: incorrect warning about duplicate entities on update of manual entity.
-* (Garfonso) fixed: input_datetime did not work if time was enabled and did vanish if date and time were enabled.
-* (Garfonso) fixed: RGB hex string got broken on not rounded numbers (problem with mushroom ligth card).
-* (Garfonso) fixed: state of cover entity if not 0 or 100% (fixes problem with sliter-button-card).
-* (Garfonso) fixed: light did not read brightness ACTUAL in dimmer devices.
-* (Garfonso) added: support auto entities card and subscription.
-* (Garfonso) added: improve support for input_datetime & string states.
-* (Garfonso) added: support for browser_mod (i.e. crontrol frontend from iobroker).
+### 4.0.3 (2023-12-09)
+* (Garfonso) fix: tests.
 
-### 2.1.4 (2022-01-09)
-* (Garfonso) Dependency update
-
-### 2.1.3 (2022-01-07)
-* (Garfonso) Fixed: remove backup of old frontend (sorry)
+### 4.0.2 (2023-12-09)
+* (Garfonso) fix: crash
 
 ## License
 
-Copyright 2019-2022, bluefox <dogafox@gmail.com>
+Copyright 2019-2023, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

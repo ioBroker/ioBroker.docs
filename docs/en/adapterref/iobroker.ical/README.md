@@ -202,8 +202,9 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.13.4 (2023-12-10)
 * (jens-maus) updated node-ical to latest 0.17.0
+* (jens-maus) updated dependencies
 
 ### 1.13.3 (2023-06-20)
 * (jens-maus) updated node-ical to latest 0.16.1
@@ -220,9 +221,6 @@ Whitelist: If you only want to include events of a specific location, use regula
 ### 1.13.0 (2022-06-17)
 * (klein0r) Added Admin 5 UI
 * (klein0r) Translated all object names
-
-### 1.12.2 (2022-06-03)
-* (Apollon77) Fix displaying rest-time of event in one case
 
 ## License
 
