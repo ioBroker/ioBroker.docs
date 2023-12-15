@@ -69,6 +69,9 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.5.9 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
 ### 2.5.8 (2023-10-11)
 * (bluefox) Corrected adapter termination if the alias has no target
 

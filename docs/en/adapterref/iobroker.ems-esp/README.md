@@ -50,6 +50,10 @@ English documentation: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* Update dependencies
+
+
 ### 2.6.2 (2023-11-18)
 * correct notifications and systeminfo for km200
 

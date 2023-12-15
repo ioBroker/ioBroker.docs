@@ -22,7 +22,7 @@ The adapter only connects to the cloud of the manufacturer. It's currently not p
 
 ### Forum
 
-Discuss your test experience here: https://forum.iobroker.net/topic/70798/test-adapter-jablotron-v-0-0-x
+Discuss your test experience here: https://forum.iobroker.net/topic/70798
 
 ## Known issues
 * As far as known by now, sensors, switches and other devices have to be configured as a 'programmable gate' to be readable.
@@ -40,6 +40,11 @@ The storage of sensitive data in the instance config has been changed.
 You need to re-enter your password in the instance settings if you already used an older version < 0.0.5
 
 ## Changelog
+### 0.1.1 (2023-12-13)
+* Improved readability
+* Select data segments read from server
+* Changed User-Agent in requests
+
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
 

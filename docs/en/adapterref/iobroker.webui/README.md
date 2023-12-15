@@ -129,6 +129,27 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 0.20.6 (2023-12-12)
+- few wunderbaum fixes
+
+### 0.20.5 (2023-12-11)
+- better custom properties view
+
+### 0.20.4 (2023-12-11)
+- fix in css prop binding
+
+### 0.20.3 (2023-12-11)
+- update designer npm
+
+### 0.20.2 (2023-12-11)
+- fix for class binding
+
+### 0.20.1 (2023-12-11)
+- binding for classes
+
+### 0.20.0 (2023-12-11)
+- allow bindings to css vars
+
 ### 0.19.3 (2023-12-10)
 - switch loglevel
 

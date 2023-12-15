@@ -300,6 +300,9 @@ There are some programs in folder `test` to test the TCP communication:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 6.1.0 (2023-12-14)
+* (nkleber78) Implement the connection keepAlive
+
 ### 6.0.1 (2023-10-30)
 * (bluefox) Better tooltips in settings
 

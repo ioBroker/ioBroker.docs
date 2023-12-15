@@ -18,6 +18,10 @@ BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 # ioBroker.node-red
 
 ## Changelog
+### 5.0.2 (2023-12-14)
+
+- (TheRealArthurDent) Fixed a fatal error when getting a non-existent value
+
 ### 5.0.1 (2023-12-05)
 
 - (klein0r) Fixed credentials decrypt
@@ -42,10 +46,6 @@ BADGE-Installed: http://iobroker.live/badges/node-red-installed.svg
 ### 4.0.2 (2023-03-24)
 
 - (Apollon77) Fix broken data directory when using multiple instances
-
-### 4.0.1 (2023-03-22)
-
-- (Apollon77) Prepare for js-controller 5.0
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
+hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
 ---
 ![Logo](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
@@ -12,6 +12,13 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
@@ -54,7 +61,10 @@ Manchmal muss npm intall mehr als einmal aufgerufen werden, um alle erforderlich
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 4.1.7 (2023-11-18)
+### 4.2.1 (2023-12-11)
+* (René) dependencies updated
+
+### 4.2.0 (2023-12-11)
 * (René) dependencies updated
 
 ### 4.1.6 (2023-07-30)

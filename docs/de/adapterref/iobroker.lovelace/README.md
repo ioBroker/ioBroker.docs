@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: JDrJtxWrzOQDDc0fPUXUpIQOqZmEmNjZUxoMg8KFVjA=
+hash: 55saRZ2Pznyl6Hce1A+rcyddL4XcyTqh2QE8AeM2bSo=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -219,12 +219,14 @@ Einkaufsliste schreibt die Werte in der Form:
 
 ```
 [
-   {name: 'Task 1', id: 1234222, complete: false},
-   {name: 'Task 2', id: 1234223, complete: true}
+   {"summary": "Task 1", "uid": "1234222", "status": "needs_action"},
+   {"summary": "Task 2", "uid": "1234223", "status": "completed"}
 ]
 ```
 
 in den `lovelace.X.control.shopping_list`-Zustand.
+
+Sie können auch Ihre eigenen Aufgaben- oder Einkaufslisten hinzufügen, indem Sie manuelle Entitäten mit dem Typ `todo` erstellen.
 
 ### Karte
 Die Objekte müssen wie folgt aussehen:
@@ -438,13 +440,13 @@ Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übern
 
 ## Entwicklung
 ### Ausführung
-Verwendete Version von home-assistant-frontend@20231208.1 Version von Browser Mod: 2.3.0
+Verwendete Version von home-assistant-frontend@20231208.2 Version von Browser Mod: 2.3.0
 
 ### So erstellen Sie die neue Lovelace-Version
 Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden. **iob*** Zweig!).
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Derzeit (20231208.1) wurden folgende Dateien geändert:
+Derzeit (20231208.2) wurden folgende Dateien geändert:
 
 - „build-scripts/gulp/app.js“ – Neue Gulp-Aufgabe „develop-iob“ hinzufügen
 - „build-scripts/gulp/webpack.js“ – Neue Gulp-Aufgabe „Webpack-Dev-App“ hinzufügen
@@ -481,6 +483,21 @@ Danach die geänderte Version im Ordner `./build` auschecken. Dann.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
+* (Garfonso) fix: browser console errors
+* (Garfonso) fix: sane error message if authentication failed
+* (Garfonso) added: user images on login screen
+
+### 4.0.9 (2023-12-12)
+* (Garfonso) fixed: timestamp in legacy history data
+
+### 4.0.8 (2023-12-12)
+* (Garfonso) re-add legacy history for custom cards
+
+### 4.0.7 (2023-12-12)
+* (Garfonso) history should be working again.
+
 ### 4.0.6 (2023-12-09)
 * (Garfonso) fixed: thermostat card for thermostats without mode / off state
 * (Garfonso) fixed: history and history graph missing for some stuff
@@ -488,15 +505,6 @@ Danach die geänderte Version im Ordner `./build` auschecken. Dann.
 ### 4.0.5 (2023-12-09)
 * (Garfonso) revert shopping list
 * (Garfonso) prevent invalid date error
-
-### 4.0.4 (2023-12-09)
-* (Garfonso) fix: crash
-
-### 4.0.3 (2023-12-09)
-* (Garfonso) fix: tests.
-
-### 4.0.2 (2023-12-09)
-* (Garfonso) fix: crash
 
 ## License
 

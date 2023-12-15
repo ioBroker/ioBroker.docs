@@ -28,6 +28,15 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.9.11 (2023-12-12)
+
+-   (ciddi89) Fixed: Fullybroswer >v3 use id not common name
+
+### 2.9.10 (2023-12-11)
+
+-   (ciddi89) Fixed: Fullybroswer >v3 devicename
+-   (ciddi89) Fixed: Fullybroswer >v3 wifi signal
+
 ### 2.9.9 (2023-12-07)
 
 -   (ciddi89) Fixed: Write log message of selected adapters only on startup

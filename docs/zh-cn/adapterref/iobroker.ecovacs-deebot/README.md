@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的科沃斯 Deebot 适配器
-hash: 74zLtZ8PHmREVdUkin8H5nJAs30x8gjSitAFXl9OKY8=
+hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -46,6 +46,7 @@ hash: 74zLtZ8PHmREVdUkin8H5nJAs30x8gjSitAFXl9OKY8=
 * 地宝 OZMO 920
 * 地宝 OZMO T8 AIVI
 * 地宝 X1 Turbo
+* 空中机器人Z1
 
 ### 其他支持的型号
 这些模型应该可以正常工作或至少部分正常工作。
@@ -99,7 +100,7 @@ hash: 74zLtZ8PHmREVdUkin8H5nJAs30x8gjSitAFXl9OKY8=
 Node.js 所需的最低版本是 16.x。
 
 ### 可选先决条件
-此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现某些与地图相关的功能，这可能需要安装一些附加包。
+此适配器使用 [节点画布](https://www.npmjs.com/package/canvas) 库来实现某些与地图相关的功能，这可能需要安装一些附加软件包。
 
 画布的安装是可选的，对于没有地图功能的型号来说不是必需的，但对于完整的功能范围，请安装以下软件包。
 
@@ -143,8 +144,9 @@ npm install canvas --unsafe-perm=true
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
 * Added T20 Omni and X2 to the models dictionary
 * Bumped max number of devices to 20
-* Added Australia and "Others countries" as "country"
+* Added Australia, United Arab Emirates and "Others countries" as "country"
 * Bumped some dependencies
+* Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
 * Some further improvements and optimizations
 
 ### 1.4.13

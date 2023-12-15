@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: OYFQd5Z1r1n4Q3EubA6abSfw7IWeoe5oap9hlEmNvVQ=
+hash: QmDfVWaIy44WxGFmTcd/GwTG6uc37FjQVCG5rO/J5Lc=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -439,6 +439,39 @@ adapter.on('message', obj => {
 
 - `uuid` – Iobroker-UUID anzeigen
 - „Port“ – Spezielle Eingabe für Ports. Es prüft automatisch, ob der Port von anderen Instanzen verwendet wird, und zeigt eine Warnung an
+  - „min“ – minimal zulässige Portnummer. Es könnte 0 sein. Und wenn der Wert dann Null ist, findet die Prüfung, ob der Port belegt ist, nicht statt.
+
+- „deviceManager“ – Gerätemanager anzeigen. Dazu muss der Adapter das Device-Manager-Protokoll unterstützen. Siehe iobroker/dm-utils.
+
+  Hier ist ein Beispiel dafür, wie der Geräte-Manager in einer Registerkarte angezeigt wird:
+
+```
+"_deviceManager": {
+  "type": "panel",
+  "label": "Device manager",
+  "items": {
+    "_dm": {
+      "type": "deviceManager",
+      "sm": 12,
+      "style": {
+        "width": "100%",
+        "height": "100%",
+        "overflow": "hidden"
+      }
+    }
+  },
+  "style": {
+    "width": "100%",
+    "height": "100%",
+    "overflow": "hidden"
+  },
+  "innerStyle": {
+    "width": "100%",
+    "height": "100%",
+    "overflow": "hidden"
+  }
+}
+```
 
 **Hinweis: Mit „!“ gekennzeichnete Attribute oder Steuerelemente sind noch nicht implementiert.**
 
@@ -448,7 +481,7 @@ Alle Typen könnten Folgendes haben:
 - „sm“ – Breite in 1/12 des Bildschirms auf kleinem Bildschirm
 - „md“ – Breite in 1/12 des Bildschirms auf mittleren Bildschirmen
 - „lg“ – Breite in 1/12 des Bildschirms auf großen Bildschirmen
-- „xs“ – Breite in 1/12 des Bildschirms auf sehr kleinen Bildschirmen
+- „xs“ – Breite in 1/12 des Bildschirms auf kleinen Bildschirmen
 - „newLine“ – sollte ab der neuen Zeile angezeigt werden
 - `label` – String oder Objekt wie {en: 'Name', ru: 'Имя'}
 - „versteckt“ – JS-Funktion, die „native.attribute“ zur Berechnung verwenden könnte
@@ -473,7 +506,7 @@ Alle Typen könnten Folgendes haben:
   - `buttonTooltipNoTranslation` – Schaltflächen-Tooltip nicht übersetzen
 - „Platzhalter“ – Platzhalter (zur Textsteuerung)
 - „noTranslation“ – Auswahlen oder andere Optionen nicht übersetzen (nicht für Hilfe, Beschriftung oder Platzhalter)
-- `onChange` – Struktur in Form `{"alsoDependsOn": ["attr1", "attr2], "calculateFunc": "attr1 + attr2", "ignoreOwnChanges": true}`
+- `onChange` – Struktur in Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - „doNotSave“ – Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
 - „noMultiEdit“ – wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zum Bearbeiten ausgewählt hat.
 - „Bestätigen“.
@@ -547,8 +580,8 @@ data: {
 }
 ```
 
-In diesem Fall muss die Eingabe Text sein, sofern angezeigt `__different__`, mit der Option zur automatischen Vervollständigung von 3 möglichen Werten.
-Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder ihren eigenen neuen Wert eingeben, z. B. 500.
+In diesem Fall muss die Eingabe Text sein, sofern angezeigt `__different__`, mit der Option zur automatischen Vervollständigung von drei möglichen Werten.
+Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
 
 Boolescher Wert muss unbestimmt unterstützen, wenn der Wert [falsch, wahr] ist.
 

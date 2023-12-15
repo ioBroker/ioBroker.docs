@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/objectsschema.md
 title: 核心理念
-hash: skzk8makyjHL48kI5sYrHlHdq3HdVNCPjroJZZ9LBMo=
+hash: dWNbEEbeLedpIZ8NrxkWHC+GHL8s1LKj9IxKpi3380I=
 ---
 # 核心理念
 ioBroker 中有两种根本不同的数据类型。所谓的**状态**（`states`）和**对象**。
@@ -116,7 +116,7 @@ ID有不同的级别。每个级别由点确定。示例：`system.adapter.admin
 
 <a id="states"></a>
 
-## 状态 `getState` 方法和 `stateChange` 事件提供一个具有除 `setState` 方法过期之外的所有属性的对象，除了 `val` 之外的所有属性都是可选的，`from` 由以下命令自动设置`setState`方法。 `ack` 默认为 false，`ts` 和 `lc` 按预期设置
+## 状态 `getState` 方法和 `stateChange` 事件传递一个具有除 `setState` 方法过期之外的所有属性的对象，除了 `val` 之外的所有属性都是可选的，`from` 由以下命令自动设置`setState`方法。 `ack` 默认为 false，`ts` 和 `lc` 按预期设置
 请务必注意，`array`、`object`、`mixed` 或 `file` 类型的状态值必须使用 `JSON.stringify()` 进行序列化。
 
 `getState/stateChange/setState`对象的属性：
@@ -482,6 +482,7 @@ ID：`system.adapter.<adapter.name>`
 
 * `common.adminColumns` - 自定义属性，必须显示在对象浏览器的管理中。如：`[{"name": {"en": "KNX地址"}, "path": "native.address", "width": 100, "align": "left"}, {"name": “DPT”，“路径”：“native.dpt”，“宽度”：100，“对齐”：“右”，“类型”：“数字”，“编辑”：true，“objTypes”：[“状态” ，“频道”]}]`。 `type` 是属性的类型（例如字符串、数字、布尔值），仅在启用编辑时才需要。 `objTypes` 是可以具有此类属性的对象类型的列表。也仅在编辑模式下使用。
 * `common.adminTab.fa-icon` - （已弃用）TAB 的 Font-Awesome 图标名称。
+* `common.adminTab.icon` - （可选）链接到 TAB 的图标或 Base64 编码图标。可能是 SVG
 * `common.adminTab.ignoreConfigUpdate` - 如果配置发生更改，则不更新配置选项卡（以启用选项卡中的配置设置）
 * `common.adminTab.link` - TAB 中 iframe 的链接。您可以使用这样的参数替换：`http://%ip%:%port%`。 IP 将替换为主机 IP。将从“native.port”中提取“port”。
 * `common.adminTab.name` - 管理中 TAB 的名称
@@ -500,7 +501,7 @@ ID：`system.adapter.<adapter.name>`
 * `common.connectionType` - 与设备的连接类型：`本地/云`。另请参阅“common.dataSource”。
 * `common.dataFolder` - 与 iobroker-data 相关的文件夹，适配器在其中存储数据。该文件夹将自动备份和恢复。您可以在其中使用变量“%INSTANCE%”。
 * `common.dataSource` - 如何从设备接收数据：`poll/push/asstitution`。它与“connectionType”一起很重要。
-* `common.dependency` - 像 `[{"js-controller": ">=2.0.0"}]` 这样的数组，描述同一主机上的该适配器需要哪些 ioBroker 模块。
+* `common.dependency` - 像 `[{"js-controller": ">=2.0.0"}]` 这样的数组，描述同一主机上的此适配器需要哪些 ioBroker 模块。
 * `common.disableDataReporting` - 不通过此实例的 `sentry` 报告错误
 * `common.docs` - 结构如 `{"en": "docs/en/README.md", "de": ["docs/de/README.md", "docs/de/README1.md" ]}` 描述文档（如果不在“README.md”中）
 * `common.enabled` - **强制** [true/false] 值应该为 false，因此默认情况下禁用新实例

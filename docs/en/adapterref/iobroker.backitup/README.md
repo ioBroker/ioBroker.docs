@@ -539,6 +539,13 @@ _[Back to top](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.9.8 (2023-12-14)
+* (simatec) Sentry fix
+
+### 2.9.7 (2023-12-12)
+* (simatec) URL Update
+* (simatec) Fix redis Password
+
 ### 2.9.6 (2023-12-10)
 * (simatec) Gotify Notication added
 * (simatec) dependencies updated

@@ -804,6 +804,10 @@ control (see [example above](http://www.iobroker.net/?page_id=6435&lang=en#Appli
 Congratulations! Now you can control the system ioBroker and receive data via a cloud service!
 
 ## Changelog
+### 5.1.2 (2023-12-14)
+* (ticaki) fixed: confirm onMessage()
+* (orpheus55) Added the authentication validation to request processing
+
 ### 5.1.1 (2023-10-24)
 * (theimo1221) Added an option to filter certain topics
 

@@ -33,6 +33,29 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   #88 Menu with dynamic Values
+-   #87 Event opens a menu
+
+### 1.3.0 (2023-12-13)
+
+-   insert Dynamic Values
+
+### 1.2.3 (2023-12-12)
+
+-   small fixes
+-   Menu Entrys will sorted by Name
+
+### 1.2.2 (2023-12-11)
+
+-   style fix and Helper Card texts expanded
+
+### 1.2.1 (2023-12-11)
+
+-   fix in parse_Mode SetState
+
 ### 1.2.0 (2023-12-10)
 
 -   textarea in Helper Card

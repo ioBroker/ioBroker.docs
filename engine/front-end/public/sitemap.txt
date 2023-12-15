@@ -1233,6 +1233,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-energy/R
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vis-bars/README.md
@@ -1880,6 +1881,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-energy/R
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vis-bars/README.md
@@ -2527,6 +2529,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-energy/R
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vis-bars/README.md
@@ -3174,6 +3177,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-energ
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-gauges/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-jaeger-design/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-material/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-radar-trap/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-2-widgets-sweethome3d/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-3dmodel/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vis-bars/README.md

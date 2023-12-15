@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: JDrJtxWrzOQDDc0fPUXUpIQOqZmEmNjZUxoMg8KFVjA=
+hash: 55saRZ2Pznyl6Hce1A+rcyddL4XcyTqh2QE8AeM2bSo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -219,12 +219,14 @@ createState(
 
 ```
 [
-   {name: 'Task 1', id: 1234222, complete: false},
-   {name: 'Task 2', id: 1234223, complete: true}
+   {"summary": "Task 1", "uid": "1234222", "status": "needs_action"},
+   {"summary": "Task 2", "uid": "1234223", "status": "completed"}
 ]
 ```
 
 в состояние `lovelace.X.control.shopping_list`.
+
+Вы также можете добавить свои собственные списки дел или покупок, создав вручную объекты типа `todo`.
 
 ### Карта
 Объекты должны выглядеть так:
@@ -427,7 +429,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Поиск неисправностей
 Если вы испортили код YAML и видите пустую страницу, но у вас все еще есть верхнее меню, вы можете включить режим редактирования (если он еще не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидеть полный код YAML и очистить его.
-Если это не помогло, вы можете открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
+Если это не поможет, вы можете открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
 
 ##Первоисточники ловеласа
@@ -438,13 +440,13 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Разработка
 ### Версия
-Использованная версия home-assistant-frontend@20231208.1 Версия браузерного мода: 2.3.0
+Использованная версия home-assistant-frontend@20231208.2 Версия браузерного мода: 2.3.0
 
 ### Как собрать новую версию Лавлейса
-Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/НемецкийBluefox/home-assistant-polymer.git (* **iob*** ветка!).
+Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/DeutschBluefox/home-assistant-polymer.git (* **iob*** ветка!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
-На данный момент (20231208.1) были изменены следующие файлы:
+На данный момент (20231208.2) были изменены следующие файлы:
 
 - `build-scripts/gulp/app.js` - Добавить новую задачу gulp development-iob
 - `build-scripts/gulp/webpack.js` - Добавить новую задачу gulp webpack-dev-app
@@ -481,6 +483,21 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
+* (Garfonso) fix: browser console errors
+* (Garfonso) fix: sane error message if authentication failed
+* (Garfonso) added: user images on login screen
+
+### 4.0.9 (2023-12-12)
+* (Garfonso) fixed: timestamp in legacy history data
+
+### 4.0.8 (2023-12-12)
+* (Garfonso) re-add legacy history for custom cards
+
+### 4.0.7 (2023-12-12)
+* (Garfonso) history should be working again.
+
 ### 4.0.6 (2023-12-09)
 * (Garfonso) fixed: thermostat card for thermostats without mode / off state
 * (Garfonso) fixed: history and history graph missing for some stuff
@@ -488,15 +505,6 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 ### 4.0.5 (2023-12-09)
 * (Garfonso) revert shopping list
 * (Garfonso) prevent invalid date error
-
-### 4.0.4 (2023-12-09)
-* (Garfonso) fix: crash
-
-### 4.0.3 (2023-12-09)
-* (Garfonso) fix: tests.
-
-### 4.0.2 (2023-12-09)
-* (Garfonso) fix: crash
 
 ## License
 

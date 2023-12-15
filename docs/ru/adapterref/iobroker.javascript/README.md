@@ -2685,10 +2685,11 @@ return 'your result';
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.5.0 (2023-12-15)
 
 * (klein0r) Day of week as number always returns 1 (monday) to 7 (sunday)
 * (klein0r) Fixed layout of script type selection
+* (klein0r) Fixed sendto with multiple instances (for callback / timeout handling)
 
 ### 7.4.0 (2023-12-08)
 
@@ -2716,9 +2717,6 @@ NodeJS 16.x is required
 
 ### 7.1.6 (2023-10-24)
 * (bluefox) Fixed pushover rules block
-
-### 7.1.5 (2023-10-09)
-* (bluefox) Added play-ground for ChatGPT (API key required)
 
 ## License
 The MIT License (MIT)

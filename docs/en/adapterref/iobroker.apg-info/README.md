@@ -27,6 +27,9 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.1.1 (2023-12-14)
+* (HGlab01) support Exxa10.15 auction as forecast
+
 ### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
 * (HGlab01) Node.js 18 or higher
@@ -45,15 +48,10 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
 * (HGlab01) switch data provider for prices to EXAA
 * (HGlab01) support DE market prices in addiotion to AT prices
 
-### 0.0.3 (2023-09-24)
-* (HGlab01) add point in times sorted as array
-* (HGlab01) add average price
-* (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
-
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

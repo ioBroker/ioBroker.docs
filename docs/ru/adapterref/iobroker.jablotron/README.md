@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.jablotron/README.md
 title: ioBroker.jablotron
-hash: JbnfGehH5+QShztwCz9DhtNyboqVjosxca34qwubi+E=
+hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
 ---
 ![Логотип](../../../en/adapterref/iobroker.jablotron/admin/jablotron.png)
 
@@ -26,7 +26,7 @@ hash: JbnfGehH5+QShztwCz9DhtNyboqVjosxca34qwubi+E=
 Адаптер подключается только к облаку производителя. В настоящее время невозможно подключиться к центральному блоку только по локальной сети, поскольку производитель закрыл локальный API.
 
 ### Форум
-Обсудите свой опыт тестирования здесь: https://forum.iobroker.net/topic/70798/test-adapter-jablotron-v-0-0-x.
+Обсудите свой опыт тестирования здесь: https://forum.iobroker.net/topic/70798
 
 ## Известные вопросы
 * Насколько известно на данный момент, датчики, переключатели и другие устройства должны быть настроены как «программируемые ворота», чтобы их можно было прочитать.
@@ -50,6 +50,11 @@ https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/
 * https://github.com/kukulich/home-assistant-jablotron100
 
 ## Changelog
+### 0.1.1 (2023-12-13)
+* Improved readability
+* Select data segments read from server
+* Changed User-Agent in requests
+
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
 

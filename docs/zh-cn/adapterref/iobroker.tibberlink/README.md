@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
+hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -63,7 +63,7 @@ hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
     - “最佳成本 LTF”：有限时间范围 (LTF) 内的“最佳成本”。
     - “最佳单小时 LTF”：有限时间范围 (LTF) 内的“最佳单小时”。
     - “最佳时间段 LTF”：有限时间范围 (LTF) 内的“最佳时间段”。
-    - “智能电池缓冲器”：尚未实施
+    - “智能电池缓冲器”：利用“EfficiencyLoss”参数指定电池系统的效率损失。使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜时间内激活电池充电（“值是”）并停用电池供电（“值 2 否”）。相反，它会在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于便宜时段中的最高总价。在剩余的正常时间内，电池缓冲能量在经济上不可行，两个输出都将关闭。
 - LTF 通道：功能与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。 “StopTime”之后，通道将自行停用。 “StartTime”和“StopTime”可能跨越几天。状态必须使用带有时区偏移量的 ISO-8601 格式的日期时间字符串填充，例如：“2023-11-17T21:00:00.000+01:00”。
 
 ### 提示
@@ -78,7 +78,7 @@ hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
 要观察标准通道时间范围的动态变化，您可以选择跨越数年的有限时间范围 (LTF)。这对于“最佳单小时 LTF”场景特别有用。
 
 ## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
 
 ## 捐赠
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! ：啤酒：
@@ -87,10 +87,11 @@ hash: nUITyfaJ1JciSKN/BtOiq+FF1qC4vwhuzmTUYhou3js=
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 1.8.0 (2023-12-xx) WORK IN PROGRESS
+### 1.8.0 (2023-12-14)
 
 -   (HombachC) implement optional disable of price pull (#232)
--   (HombachC) WiP!!! implement (#193)
+-   (HombachC) implement price categorization algorithm for battery buffer applications (#193)
+-   (HombachC) Fix 2 errors in pull of prices tomorrow (#235, #232)
 -   (HombachC) changed Tibber link in config
 
 ### 1.7.2 (2023-12-07)

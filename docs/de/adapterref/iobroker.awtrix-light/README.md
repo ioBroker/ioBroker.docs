@@ -186,7 +186,7 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.10.2 (2023-12-14)
 
 * (klein0r) Removed callbacks in blockly code to prevent timeouts
 
@@ -213,17 +213,6 @@ NodeJS 16.x is required
 
 * (klein0r) Fixed hidden apps
 * (klein0r) Fixed color conversions of settings
-
-### 0.9.0 (2023-10-01)
-
-Updated recommended firmware version to 0.88
-
-* (klein0r) Added expert apps
-* (klein0r) Use the last value of fast refreshing states
-* (klein0r) Added settings for calendar colors
-* (klein0r) Allow to use apps without text (just background effect)
-* (AlCalzone) Added rtttl api endpoint support (via sendTo)
-* (klein0r) Native apps have been renamed
 
 ## License
 MIT License

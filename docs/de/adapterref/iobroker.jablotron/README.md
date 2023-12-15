@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.jablotron/README.md
 title: ioBroker.jablotron
-hash: JbnfGehH5+QShztwCz9DhtNyboqVjosxca34qwubi+E=
+hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
 ---
 ![Logo](../../../en/adapterref/iobroker.jablotron/admin/jablotron.png)
 
@@ -26,7 +26,7 @@ Es ist nur möglich, die Zustände auszulesen. Die Umstellung erfolgt später!
 Der Adapter verbindet sich nur mit der Cloud des Herstellers. Es ist derzeit nicht möglich, sich nur über das lokale Netzwerk mit der Zentraleinheit zu verbinden, da der Hersteller die lokale API geschlossen hält.
 
 ### Forum
-Besprechen Sie Ihre Testerfahrungen hier: https://forum.iobroker.net/topic/70798/test-adapter-jablotron-v-0-0-x
+Besprechen Sie Ihre Testerfahrungen hier: https://forum.iobroker.net/topic/70798
 
 ## Bekannte Probleme
 * Soweit bisher bekannt, müssen Sensoren, Schalter und andere Geräte als „programmierbares Tor“ konfiguriert werden, um lesbar zu sein.
@@ -50,6 +50,11 @@ Sie müssen Ihr Passwort in den Instanzeinstellungen erneut eingeben, wenn Sie b
 * https://github.com/kukulich/home-assistant-jablotron100
 
 ## Changelog
+### 0.1.1 (2023-12-13)
+* Improved readability
+* Select data segments read from server
+* Changed User-Agent in requests
+
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
 

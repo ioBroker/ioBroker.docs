@@ -146,6 +146,10 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (ticaki) fixed: dont ignore uwz activate setting
+* (ticaki) update dp-objects on every start.
+
 ### 0.6.4 (2023-12-03)
 * (ticaki) Optimise DWD warning cell selection. Place names are being given more and more details to make them unique.
 

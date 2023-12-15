@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.jablotron/README.md
 title: ioBroker.jablotron
-hash: JbnfGehH5+QShztwCz9DhtNyboqVjosxca34qwubi+E=
+hash: qctzaG/RCZ8xUR4rJSCEsSNUyHYJ3zmEZcUEnomQM2o=
 ---
 ![标识](../../../en/adapterref/iobroker.jablotron/admin/jablotron.png)
 
@@ -26,7 +26,7 @@ hash: JbnfGehH5+QShztwCz9DhtNyboqVjosxca34qwubi+E=
 该适配器仅连接到制造商的云。目前无法仅通过本地网络连接到中央单元，因为制造商关闭了本地 API。
 
 ### 论坛
-在这里讨论您的测试体验：https://forum.iobroker.net/topic/70798/test-adapter-jablotron-v-0-0-x
+在这里讨论您的测试体验：https://forum.iobroker.net/topic/70798
 
 ＃＃ 已知的问题
 * 据目前所知，传感器、开关和其他设备必须配置为“可编程门”才能读取。
@@ -50,6 +50,11 @@ https://www.jablotron.com/de/katalog-produktu/alarme/jablotron-100/
 * https://github.com/kukulich/home-assistant-jablotron100
 
 ## Changelog
+### 0.1.1 (2023-12-13)
+* Improved readability
+* Select data segments read from server
+* Changed User-Agent in requests
+
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
 

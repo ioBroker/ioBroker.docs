@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: OYFQd5Z1r1n4Q3EubA6abSfw7IWeoe5oap9hlEmNvVQ=
+hash: QmDfVWaIy44WxGFmTcd/GwTG6uc37FjQVCG5rO/J5Lc=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https:// /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
 您可以以 JSON 或 JSON5 格式定义设置。 JSON5 更易于人类阅读并支持注释。
 
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 包含项目的选项卡
+- `面板` - 带有项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -414,7 +414,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则使用当前坐标初始化字段
+  - `autoInit` - 如果为空，则用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
@@ -439,6 +439,39 @@ adapter.on('message', obj => {
 
 - `uuid` - 显示 iobroker UUID
 - `port` - 端口的特殊输入。它会自动检查端口是否被其他实例使用并显示警告
+  - `min` - 允许的最小端口号。它可以是 0。如果该值为零，则不会检查端口是否被占用。
+
+- `deviceManager` - 显示设备管理器。为此，适配器必须支持设备管理器协议。请参阅 iobroker/dm-utils。
+
+  以下是如何在选项卡中显示设备管理器的示例：
+
+```
+"_deviceManager": {
+  "type": "panel",
+  "label": "Device manager",
+  "items": {
+    "_dm": {
+      "type": "deviceManager",
+      "sm": 12,
+      "style": {
+        "width": "100%",
+        "height": "100%",
+        "overflow": "hidden"
+      }
+    }
+  },
+  "style": {
+    "width": "100%",
+    "height": "100%",
+    "overflow": "hidden"
+  },
+  "innerStyle": {
+    "width": "100%",
+    "height": "100%",
+    "overflow": "hidden"
+  }
+}
+```
 
 **注意：标有“！”的属性或控件尚未实现。**
 
@@ -448,7 +481,7 @@ adapter.on('message', obj => {
 - `sm` - 小屏幕上屏幕宽度的 1/12
 - `md` - 中间屏幕上屏幕宽度的 1/12
 - `lg` - 大屏幕上屏幕宽度的 1/12
-- `xs` - 在非常小的屏幕上宽度为屏幕的 1/12
+- `xs` - 小屏幕上宽度为屏幕的 1/12
 - `newLine` - 应从新行显示
 - `label` - 字符串或对象，例如 {en: 'Name', ru: 'Имя'}
 - `hidden` - 可以使用 `native.attribute` 进行计算的 JS 函数
@@ -473,7 +506,7 @@ adapter.on('message', obj => {
   - `buttonTooltipNoTranslation` - 不翻译按钮工具提示
 - `placeholder` - 占位符（用于文本控制）
 - `noTranslation` - 不翻译选择或其他选项（不用于帮助、标签或占位符）
-- `onChange` - 形式为 `{"alsoDependsOn": ["attr1", "attr2], "calculateFunc": "attr1 + attr2", "ignoreOwnChanges": true}` 的结构
+- `onChange` - 形式为 `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}` 的结构
 - `doNotSave` - 不要将此属性保存为仅用于内部计算
 - `noMultiEdit` - 如果此标志设置为 true，则当用户选择多个对象进行编辑时，将不会显示此字段。
 - `确认`
@@ -547,8 +580,8 @@ data: {
 }
 ```
 
-在这种情况下，输入必须是文本，如`__different__`所示，并具有 3 个可能值的自动完成选项。
-用户可以从下拉列表中选择 1000、2000 或 3000 或输入自己的新值，例如500。
+在这种情况下，输入必须是文本，如`__different__`所示，并具有三个可能值的自动完成选项。
+用户可以从下拉列表中选择 1000、2000 或 3000，或输入自己的新值，例如 500。
 
 如果值为 [false, true]，布尔值必须支持不确定
 

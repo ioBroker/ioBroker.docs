@@ -101,12 +101,12 @@ so they will be called again and again even if the new version of a script exist
 const http = require('http');
 // Read www.google.com page
 http.request('www.google.com', function (res) {
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
+    res.setEncoding('utf8');
+    res.on('data', function (chunk) {
         log('BODY: ' + chunk);
-        });
+    });
 }).on('error', function (e) {
-        log('problem with request: ' + e.message, 'error');
+    log('problem with request: ' + e.message, 'error');
 });
 ```
 
@@ -118,7 +118,7 @@ You can use `cb` function to wrap you callback, like this
 http.request('www.google.com', cb(function (res) {
     res.setEncoding('utf8');
     res.on('data', function (chunk) {
-      log('BODY: ' + chunk);
+        log('BODY: ' + chunk);
     });
 })).on('error', cb(function (e) {
     log('problem with request: ' + e.message, 'error');
@@ -127,7 +127,7 @@ http.request('www.google.com', cb(function (res) {
 to be sure, that no callback will be called if a script is deleted or modified.
 
 ## Global functions
-You can define the global scripts in the "global" folder.
+You can define the global scripts in the `global` folder.
 All global scripts are available on all instances. If a global script is disabled, it will not be used.
 Global script will be just prepended to the normal script and compiled, so you cannot share data between scripts via global scripts. Use states for it.
 
@@ -143,7 +143,7 @@ function globalFn(arg: string): void {
 // ==============
 declare function globalFn(arg: string): void;
 // use as normal:
-globalFn("test");
+globalFn('test');
 ```
 
 #### Best practice:
@@ -158,7 +158,7 @@ const mod = require('module_name');
 ```
 The following modules are preloaded: `fs`, `crypto`, `wake_on_lan`, `request`, `suncalc2`, `util`, `path`, `os`, `net`, `events`, `dns`.
 
-To use other modules, enter the name of the module in the configuration dialog. ioBroker will install the module, after which you can require and use it in your scripts.
+To use other modules, enter the name of the module in the instance configuration. ioBroker will install the module. You can require and use it in your scripts afterwards.
 
 **Notice** - module *request* is available via variable *request*. There is no need to write `const request = require('request');`.
 
@@ -167,8 +167,6 @@ Buffer - Node.js Buffer, read here [http://nodejs.org/api/buffer.html](http://no
 
 ### console - Gives out the message into log
 Usage is the same as in `javascript`
-
-```js
 
 ### exec - execute some OS command, like `cp file1 file2`
 ```js
@@ -390,9 +388,9 @@ setState('stateId1', 'new value');
 
 Function `on` returns handler back. This handler can be used by unsubscribe.
 
-*Notice:* By default only states with quality 0x00 will be passed to callback function. If you want to get all events, add {q: '*'} to pattern structure.
+*Notice:* By default only states with quality 0x00 will be passed to callback function. If you want to get all events, add `{q: '*'}` to pattern structure.
 
-*Notice:* Please note, that by default "change" is equal to "any", except when only id as string is set (like `on("id", function (){});`). In last case change will be set to "ne".
+*Notice:* Please note, that by default "change" is equal to "any", except when only id as string is set (like `on('id', () => {});`). In last case change will be set to "ne".
 
 *Notice:* If you want to also get state deletions/expires as trigger, you need to use change with `ne` or `any` AND q with `*` as filter!
 
@@ -411,7 +409,7 @@ Remove all subscriptions for given object ID or for given handler.
 
 ```js
 // By handler
-let mySubscription = on({ id: 'javascript.0.myState', change: 'any' }, function (data) {
+let mySubscription = on({ id: 'javascript.0.myState', change: 'any' }, (data) => {
     // unsubscribe after first trigger
     if (unsubscribe(mySubscription)) {
         log('Subscription deleted');
@@ -419,13 +417,13 @@ let mySubscription = on({ id: 'javascript.0.myState', change: 'any' }, function 
 });
 
 // by Object ID
-on({ id: "javascript.0.myState1", change: 'ne' }, function (data) {
+on({ id: 'javascript.0.myState1', change: 'ne' }, (data) => {
     log('Some event');
 });
 
-on({ id: 'javascript.0.myState1', change: 'any' }, function (data) {
+on({ id: 'javascript.0.myState1', change: 'any' }, (data) => {
     // unsubscribe
-    if (unsubscribe("javascript.0.myState1")) {
+    if (unsubscribe('javascript.0.myState1')) {
         log('All subscriptions deleted');
     }
 });
@@ -488,12 +486,12 @@ Pattern can be a string with [Cron-Syntax](http://en.wikipedia.org/wiki/Cron), w
 
 ```js
 // Example with 5 digits:
-schedule('*/2 * * * *', function () {
+schedule('*/2 * * * *', () => {
     log('Will be triggered every 2 minutes!');
 });
 
 // Example with 6 digits:
-schedule('*/3 * * * * *', function () {
+schedule('*/3 * * * * *', () => {
     log('Will be triggered every 3 seconds!');
 });
 ```
@@ -510,11 +508,11 @@ the object could have the following properties:
 - `dayOfWeek`
 
 ```js
-schedule({ second: [20, 25] }, function () {
+schedule({ second: [20, 25] }, () => {
     log('Will be triggered at xx:xx:20 and xx:xx:25 of every minute!');
 });
 
-schedule({hour: 12, minute: 30}, function () {
+schedule({ hour: 12, minute: 30 }, () => {
     log('Will be triggered at 12:30!');
 });
 ```
@@ -524,12 +522,13 @@ If start or end times for a schedule are needed, this could also be implemented 
 - `start`
 - `end`
 - `rule`
+
 start and end defines a Date object a DateString or a number of milliseconds since 01 January 1970 00:00:00 UTC.
 Rule is a schedule string with [Cron-Syntax](http://en.wikipedia.org/wiki/Cron) or an object:
 ```js
 let startTime = new Date(Date.now() + 5000);
 let endTime = new Date(startTime.getTime() + 5000);
-schedule({ start: startTime, end: endTime, rule: '*/1 * * * * *' }, function () {
+schedule({ start: startTime, end: endTime, rule: '*/1 * * * * *' }, () => {
     log('It will run after 5 seconds and stop after 10 seconds');
 });
 ```
@@ -541,7 +540,7 @@ let today = new Date();
 let startTime = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 let endTime =  new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
 let ruleData = { hour: 12, minute: 30 };
-schedule({ start: startTime, end: endTime, rule: ruleData }, function () {
+schedule({ start: startTime, end: endTime, rule: ruleData }, () => {
     log('Will be triggered at 12:30, starting tomorow, ending in 7 days');
 });
 ```
@@ -551,11 +550,11 @@ schedule({ start: startTime, end: endTime, rule: ruleData }, function () {
 Astro-function can be used via "astro" attribute:
 
 ```js
-schedule({ astro: 'sunrise' }, function () {
+schedule({ astro: 'sunrise' }, () => {
     log("Sunrise!");
 });
 
-schedule({ astro: 'sunset', shift: 10 }, function () {
+schedule({ astro: 'sunset', shift: 10 }, () => {
     log("10 minutes after sunset!");
 });
 ```
@@ -585,15 +584,15 @@ The following values can be used as attribute in astro-function:
 
 **Note:** you can use "on" function for schedule with small modification:
 ```js
-on({ time: '*/2 * * * *' }, function () {
+on({ time: '*/2 * * * *' }, () => {
     log((new Date()).toString() + " - Will be triggered every 2 minutes!");
 });
 
-on({ time: { hour: 12, minute: 30 }}, function () {
+on({ time: { hour: 12, minute: 30 }}, () => {
     log((new Date()).toString() + " - Will be triggered at 12:30!");
 });
 
-on({ astro: 'sunset', shift: 10 }, function () {
+on({ astro: 'sunset', shift: 10 }, () => {
     log((new Date()).toString() + " - 10 minutes after sunset!");
 });
 ```
@@ -603,7 +602,7 @@ on({ astro: 'sunset', shift: 10 }, function () {
 const list = getSchedules(true);
 ```
 Returns the list of all CRON jobs and schedules (except astro).
-Argument must be true if you want to get the list for every running script. Else only schedules in this script will be returned.
+Argument must be `true` if you want to get the list for **every running script**. Else only schedules in the current script will be returned.
 
 ```js
 const list = getSchedules(true);
@@ -623,7 +622,7 @@ Example output:
 If **no** "astro" function is used, you can cancel the schedule later. To allow this, the schedule object must be saved:
 
 ```js
-let sch = schedule('*/2 * * * *', function () { /* ... */ });
+let sch = schedule('*/2 * * * *', () => { /* ... */ });
 
 // later:
 clearSchedule(sch);
@@ -641,20 +640,21 @@ If the first attribute is string, the function will try to parse the string as J
 ```js
 getAstroDate(pattern, date, offsetMinutes);
 ```
-Returns a javascript Date object for the specified astro-name (e.g. "sunrise" or "sunriseEnd"). For valid values see the list of allowed values in the [Astro](#astro--function) section in the *schedule* function.
+Returns a javascript Date object for the specified astro-name (e.g. `"sunrise"` or `"sunriseEnd"`). For valid values see the list of allowed values in the [Astro](#astro--function) section in the *schedule* function.
 
 The returned Date object is calculated for the passed *date*. If no date is provided, the current day is used.
 
 ```js
-let sunriseEnd = getAstroDate("sunriseEnd");
-log("Sunrise ends today at " + sunriseEnd.toLocaleTimeString());
+let sunriseEnd = getAstroDate('sunriseEnd');
+log(`Sunrise ends today at ${sunriseEnd.toLocaleTimeString()}`);
 
 let today = new Date();
 let tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-let tomorrowNight = getAstroDate("night", tomorrow);
+let tomorrowNight = getAstroDate('night', tomorrow);
 ```
 
 **Note: Depending on your geographical location, there can be cases where e.g. 'night'/'nightEnd' do not exist on certain time points (e.g. locations north in May/June each year!**
+
 You can use webpages like [suncalc.net](http://suncalc.net) to check if the time points are correct.
 
 ### isAstroDay
@@ -695,7 +695,7 @@ console.log(compareTime('sunsetStart', 'sunsetEnd', 'between') ? 'Now is sunrise
 It is possible to define the time with offset too:
 
 ```js
-console.log(compareTime({astro: 'sunsetStart', offset: 30}, {astro: 'sunrise', offset: -30}, '>') ? 'Now is at least 30 minutes after sunset' : 'No idea');
+console.log(compareTime({ astro: 'sunsetStart', offset: 30 }, { astro: 'sunrise', offset: -30 }, '>') ? 'Now is at least 30 minutes after sunset' : 'No idea');
 ```
 
 Structure of an astro object.
@@ -713,15 +713,15 @@ Structure of an astro object.
 setState(id, state, ack, callback);
 ```
 
-**Note**: The following commands are identical
+*Note*: The following commands are identical
 
-```
+```js
 setState('myState', 1, false);
-setState('myState', {val: 1, ack: false});
+setState('myState', { val: 1, ack: false });
 setState('myState', 1);
 ```
 
-Please refer to https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses for usage of "ack".
+Please refer to https://github.com/ioBroker/ioBroker/wiki/Adapter-Development-Documentation#commands-and-statuses for usage of `ack`.
 Short:
 - `ack` = false : Script wants to send a command to be executed by the target device/adapter
 - `ack` = true  : Command was successfully executed, and state is updated as a positive result
@@ -733,6 +733,7 @@ await setStateAsync(id, state, ack);
 Same as setState, but with `promise`.
 
 ### setBinaryState
+
 **Attention: This method is deprecated!**
 
 ```js
@@ -754,7 +755,7 @@ Same as setState but with delay in milliseconds. You can clear all running delay
 setStateDelayed('Kitchen.Light.Lamp', true,  1000);
 
 // Switch OFF the light in the kitchen in 5 seconds and let first timeout run.
-setStateDelayed('Kitchen.Light.Lamp', false, 5000, false, function () {
+setStateDelayed('Kitchen.Light.Lamp', false, 5000, false, () => {
     log('Lamp is OFF');
 });
 ```
@@ -769,7 +770,7 @@ Clears all delayed tasks for specified state ID or some specific delayed task.
 
 ```js
 setStateDelayed('Kitchen.Light.Lamp', false,  10000); // Switch OFF the light in the kitchen in ten second
-let timer = setStateDelayed('Kitchen.Light.Lamp', true,  5000, false); // Switch ON the light in the kitchen in five second
+let timer = setStateDelayed('Kitchen.Light.Lamp', true, 5000, false); // Switch ON the light in the kitchen in five second
 clearStateDelayed('Kitchen.Light.Lamp', timer); // Nothing will be switched on
 clearStateDelayed('Kitchen.Light.Lamp'); // Clear all running delayed tasks for this ID
 ```
@@ -788,8 +789,8 @@ getStateDelayed('hm-rpc.0.LQE91119.1.STATE');
 
 // returns an array like
 [
-	{timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false},
-	{timerId: 2, left: 12555,  delay: 15000, val: false, ack: false},
+	{ timerId: 1, left: 1123,   delay: 5000,  val: true,  ack: false },
+	{ timerId: 2, left: 12555,  delay: 15000, val: false, ack: false },
 ]
 ```
 
@@ -800,12 +801,12 @@ getStateDelayed();
 
 // returns an object like
 {
-	"hm-rpc.0.LQE91119.1.STATE": [
-		{timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false},
-		{timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false},
+	'hm-rpc.0.LQE91119.1.STATE': [
+		{ timerId: 1, left: 1123,   delay: 5000,   val: true,  ack: false },
+		{ timerId: 2, left: 12555,  delay: 15000,  val: false, ack: false },
 	],
-	"hm-rpc.0.LQE91119.2.LEVEL": [
-		{timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false}
+	'hm-rpc.0.LQE91119.2.LEVEL': [
+		{ timerId: 3, left: 5679, delay: 10000,   val: 100,  ack: false }
 	]
 }
 ```
@@ -819,7 +820,7 @@ You can ask by timerId directly. In this case, the answer will be:
 getStateDelayed(3);
 
 // returns an object like
-{"id": "hm-rpc.0.LQE91119.2.LEVEL", "left": 5679, "delay": 10000, "val": 100,  "ack": false}
+{ id: 'hm-rpc.0.LQE91119.2.LEVEL', left: 5679, delay: 10000, val: 100, ack: false }
 ```
 
 ### getState
@@ -839,7 +840,7 @@ Returns state with the given id in the following form:
 }
 ```
 
-If state does not exist, a warning will be printed in the logs and the object: `{val: null, notExist: true}` will be returned.
+If state does not exist, a warning will be printed in the logs and the object `{ val: null, notExist: true }` will be returned.
 To suppress the warning check if the state exists before calling getState (see [existsState](#existsState)).
 
 ### getStateAsync
@@ -851,7 +852,7 @@ Same as getState, but with `promise`.
 ### getBinaryState
 **Attention: This method is deprecated!**
 ```js
-getBinaryState(id, function (err, data) {});
+getBinaryState(id, (err, data) => {});
 ```
 
 Same as getState, but for the binary states, like files, images, buffers.
@@ -861,7 +862,7 @@ This function must always be used with callback. "data" is a buffer.
 
 ### existsState
 ```js
-existsState(id, function (err, isExists) {});
+existsState(id, (err, isExists) => {});
 ```
 
 If option "Do not subscribe all states on start" is deactivated, you can use simpler call:
@@ -1025,8 +1026,8 @@ It is possible short type of createState:
 
 - `createState('myDatapoint')` - simply create datapoint if it does not exist
 - `createState('myDatapoint', 1)` - create datapoint if it does not exist and initialize it with value 1
-- `createState('myDatapoint', {name: 'My own datapoint', unit: '°C'}, function () {log('created');});`
-- `createState('myDatapoint', 1, {name: 'My own datapoint', unit: '°C'})` - create datapoint if it does not exist with specific name and units
+- `createState('myDatapoint', { name: 'My own datapoint', unit: '°C' }, () => { log('created'); });`
+- `createState('myDatapoint', 1, { name: 'My own datapoint', unit: '°C' })` - create datapoint if it does not exist with specific name and units
 
 ### createStateAsync
 ```js
@@ -1073,7 +1074,7 @@ The common definition is taken from the read alias id object, but a provided com
 It is possible a short type of createAlias:
 
 - `createAlias('myAlias', 'myDatapoint')` - simply create alias.0.myAlias that refernces to javascript.X.myDatapoint if it does not exist
-- `createAlias('myAlias', {id: {read: 'myReadDatapoint', write: 'myWriteDatapoint'}})` - creates alias and reference to different read/write states
+- `createAlias('myAlias', { id: { read: 'myReadDatapoint', write: 'myWriteDatapoint' }})` - creates alias and reference to different read/write states
 
 For other details, see createState, it is similar.
 
@@ -1094,24 +1095,30 @@ Send a message to a specific or all adapter instances. When using the adapter na
 
 To get specific information about messages, you must read the documentation for a particular adapter.
 
-Example:
+Example (with custom timeout):
 
 ```js
-sendTo('telegram', {user: 'UserName', text: 'Test message'}, {timeout: 2000});
+sendTo('telegram', { user: 'UserName', text: 'Test message' }, { timeout: 2000 });
 ```
 
 Some adapters also support responses to the sent messages. (e.g. history, sql, telegram)
 The response is only returned to the callback if the message is sent to a specific instance!
 
-Example with response:
+Example (with callback):
 
 ```js
-sendTo('telegram.0', {user: 'UserName', text: 'Test message'}, (res) => {
+sendTo('telegram.0', { user: 'UserName', text: 'Test message' }, (res) => {
     console.log('Sent to ' + res + ' users');
 });
 ```
 
 *Default timeout is 20000 milliseconds (if a callback function has been defined)*
+
+```js
+sendTo('telegram.0', { user: 'UserName', text: 'Test message' }, { timeout: 2000 }, (res) => {
+    console.log('Sent to ' + res + ' users');
+});
+```
 
 ### sendToAsync
 ```js
@@ -1150,7 +1157,7 @@ It is rather specific commands and are not required often.
 Example:
 
 ```js
-sendToHost('myComputer', 'cmdExec', {data: 'ls /'}, function (res) {
+sendToHost('myComputer', 'cmdExec', { data: 'ls /' }, (res) => {
     console.log('List of files: ' + res.data);
 });
 ```
@@ -1349,7 +1356,7 @@ Prefixes ***(not implemented - should be discussed)*** :
 ***Explanation***
 Lets take a look at:
 ```js
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(function (obj) {
+$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').on(obj => {
    log('New state ' + obj.id + ' = ' + obj.state.val);
 });
 ```
@@ -1369,7 +1376,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').setState(true);
 You can interrupt the "each" loop by returning the false value, like:
 ```js
 // print two first IDs of on all switches in "Wohnzimmer"
-$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each(function (id, i) {
+$('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each((id, i) => {
     console.log(id);
     if (i == 1) {
         return false;
@@ -1379,7 +1386,7 @@ $('channel[role=switch][state.id=*.STATE](rooms=Wohnzimmer)').each(function (id,
 
 ### readFile
 ```js
-readFile(adapter, fileName, function (error, bytes) {});
+readFile(adapter, fileName, (error, bytes) => {});
 ```
 
 The result will be given in callback.
@@ -1389,7 +1396,7 @@ Argument *adapter* can be omitted.
 
 ```js
 // read vis views
-readFile('vis.0', '/main/vis-views.json', function (error, data) {
+readFile('vis.0', '/main/vis-views.json', (error, data) => {
     console.log(data.substring(0, 50));
 });
 
@@ -1403,7 +1410,7 @@ By default, working directory/adapter is `javascript.0`.
 
 ### writeFile
 ```js
-writeFile(adapter, fileName, bytes, function (error) { });
+writeFile(adapter, fileName, bytes, (error) => {});
 ```
 
 The optional error code will be given in callback. Argument *adapter* can be omitted.
@@ -1416,7 +1423,7 @@ The file that looks like `'/subfolder/file.txt'` will be stored under `"/javascr
 // store screenshot in DB
 const fs = require('fs');
 let data = fs.readFileSync('/tmp/screenshot.png');
-writeFile(null, '/screenshots/1.png', data, function (error) {
+writeFile(null, '/screenshots/1.png', data, (error) => {
     console.log('file written');
 });
 
@@ -1430,14 +1437,14 @@ writeFile(null, '/screenshots/1.png', data, function (error) {
 // store file in '/vis.0' in DB
 const fs = require('fs');
 let data = fs.readFileSync('/tmp/screenshot.png');
-writeFile('vis.0', '/screenshots/1.png', data, function (error) {
+writeFile('vis.0', '/screenshots/1.png', data, (error) => {
     console.log('file written');
 });
 ```
 
 ### delFile
 ```js
-delFile(adapter, fileName, function (error) {});
+delFile(adapter, fileName, (error) => {});
 ```
 
 Delete file or directory. fileName is the name of file or directory in DB.
@@ -1446,7 +1453,7 @@ The alternative name of this method is `unlink`
 
 ### renameFile
 ```js
-renameFile(adapter, oldName, newName, function (error) {});
+renameFile(adapter, oldName, newName, (error) => {});
 ```
 
 Rename file or directory. oldName is the name of file or directory in DB and is renamed to newName.
@@ -1455,9 +1462,9 @@ The alternative name of this method is `rename`
 
 ### onFile
 ```js
-onFile(id, fileName, withFile, function (id, fileName, size, fileData, mimeType) {});
+onFile(id, fileName, withFile, (id, fileName, size, fileData, mimeType) => {});
 // or 
-onFile(id, fileName, function (id, fileName, size) {});
+onFile(id, fileName, (id, fileName, size) => {});
 ```
 
 Subscribe to file changes:
@@ -1488,7 +1495,7 @@ Unsubscribe from file changes:
 
 ### onStop
 ```js
-onStop (function(){ /* do something when script is stopped */ }, timeout);
+onStop (() => { /* do something when script is stopped */ }, timeout);
 ```
 Install callback, that will be called if a script stopped. Used, e.g., to stop communication or to close connections.
 
@@ -1498,7 +1505,7 @@ const conn = require('net');
 // ...
 
 // close connection if script stopped
-onStop(function (callback) {
+onStop((callback) => {
     if (conn) {
         // close connection
         conn.destroy();
@@ -1510,28 +1517,33 @@ onStop(function (callback) {
 
 ### getHistory
 ```js
-getHistory(instance, options, function (error, result, options, instance) {});
+getHistory(instance, options, (error, result, options, instance) => {});
 ```
 
 Read history from specified instance. If no instance is specified, the system default history instance will be taken.
 ```js
 // Read history of 'system.adapter.admin.0.memRss' from sql driver
 const end = new Date().getTime();
-getHistory('sql.0', {
+getHistory(
+    'sql.0',
+    {
         id:         'system.adapter.admin.0.memRss',
         start:      end - 3600000,
         end:        end,
         aggregate:  'm4',
         timeout:    2000
-    }, function (err, result) {
+    },
+    (err, result) => {
         if (err) console.error(err);
         if (result) {
             for (let i = 0; i < result.length; i++) {
                 console.log(result[i].id + ' ' + new Date(result[i].ts).toISOString());
             }
         }
-    });
+    }
+);
 ```
+
 Possible options you can find [here](https://github.com/ioBroker/ioBroker.history#access-values-from-javascript-adapter).
 
 Additionally, to these parameters you must specify "id" and you may specify timeout (default: 20000ms).
@@ -1543,7 +1555,7 @@ getHistory({
         id:         'system.adapter.admin.0.alive',
         aggregate:  'none',
         count:      50
-    }, function (err, result) {
+    }, (err, result) => {
         if (err) console.error(err);
         if (result) {
             for (let i = 0; i < result.length; i++) {
@@ -1557,7 +1569,7 @@ getHistory({
 
 ### runScript
 ```js
-runScript('scriptName', function () {
+runScript('scriptName', () => {
     // Callback is optional
     console.log('Srcipt started, but not yet executed');
 });
@@ -1846,10 +1858,11 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.5.0 (2023-12-15)
 
 * (klein0r) Day of week as number always returns 1 (monday) to 7 (sunday)
 * (klein0r) Fixed layout of script type selection
+* (klein0r) Fixed sendto with multiple instances (for callback / timeout handling)
 
 ### 7.4.0 (2023-12-08)
 
@@ -1877,9 +1890,6 @@ NodeJS 16.x is required
 
 ### 7.1.6 (2023-10-24)
 * (bluefox) Fixed pushover rules block
-
-### 7.1.5 (2023-10-09)
-* (bluefox) Added play-ground for ChatGPT (API key required)
 
 ## License
 The MIT License (MIT)

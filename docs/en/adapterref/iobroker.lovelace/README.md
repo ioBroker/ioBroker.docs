@@ -213,11 +213,13 @@ Custom Lovelace card created in support of accuweather forecast - https://github
 Shopping list writes the values in form:
 ```
 [
-   {name: 'Task 1', id: 1234222, complete: false},
-   {name: 'Task 2', id: 1234223, complete: true}
+   {"summary": "Task 1", "uid": "1234222", "status": "needs_action"},
+   {"summary": "Task 2", "uid": "1234223", "status": "completed"}
 ]
 ```
 into `lovelace.X.control.shopping_list` state.
+
+You can also add your own todo or shopping lists by creating manual entities with type `todo`.
 
 ### Map
 The objects must look like this one:
@@ -428,14 +430,14 @@ Security must be taken from current user and not from default_user
 
 ## Development
 ### Version
-Used version of home-assistant-frontend@20231208.1
+Used version of home-assistant-frontend@20231208.2
 Version of Browser Mod: 2.3.0
 
 ### How to build the new Lovelace version
 First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
 All changes for ioBroker are marked with comment `// IoB`.
-For now (20231208.1) following files were modified:
+For now (20231208.2) following files were modified:
 - `build-scripts/gulp/app.js` - Add new gulp task develop-iob
 - `build-scripts/gulp/webpack.js` - Add new gulp task webpack-dev-app
 - `src/data/weather.ts` - add support to display weather icon from url.
@@ -471,6 +473,21 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
+* (Garfonso) fix: browser console errors
+* (Garfonso) fix: sane error message if authentication failed
+* (Garfonso) added: user images on login screen
+
+### 4.0.9 (2023-12-12)
+* (Garfonso) fixed: timestamp in legacy history data
+
+### 4.0.8 (2023-12-12)
+* (Garfonso) re-add legacy history for custom cards
+
+### 4.0.7 (2023-12-12)
+* (Garfonso) history should be working again.
+
 ### 4.0.6 (2023-12-09)
 * (Garfonso) fixed: thermostat card for thermostats without mode / off state
 * (Garfonso) fixed: history and history graph missing for some stuff
@@ -478,15 +495,6 @@ After that checkout modified version in `./build` folder. Then.
 ### 4.0.5 (2023-12-09)
 * (Garfonso) revert shopping list
 * (Garfonso) prevent invalid date error
-
-### 4.0.4 (2023-12-09)
-* (Garfonso) fix: crash
-
-### 4.0.3 (2023-12-09)
-* (Garfonso) fix: tests.
-
-### 4.0.2 (2023-12-09)
-* (Garfonso) fix: crash
 
 ## License
 

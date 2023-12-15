@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
+hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
 ---
 ![标识](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
@@ -12,11 +12,18 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
 ![NPM版本](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 **如果您喜欢，请考虑捐赠：**
 
@@ -54,7 +61,10 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 4.1.7 (2023-11-18)
+### 4.2.1 (2023-12-11)
+* (René) dependencies updated
+
+### 4.2.0 (2023-12-11)
 * (René) dependencies updated
 
 ### 4.1.6 (2023-07-30)

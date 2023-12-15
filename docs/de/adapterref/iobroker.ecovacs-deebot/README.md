@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: 74zLtZ8PHmREVdUkin8H5nJAs30x8gjSitAFXl9OKY8=
+hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -46,6 +46,7 @@ Die vollständig unterstützten Modelle sind diejenigen, die ich selbst besitze:
 * Deebot OZMO 920
 * Deebot OZMO T8 AIVI
 * Deebot X1 Turbo
+* Airbot Z1
 
 ### Andere unterstützte Modelle
 Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
@@ -143,8 +144,9 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
 * Added T20 Omni and X2 to the models dictionary
 * Bumped max number of devices to 20
-* Added Australia and "Others countries" as "country"
+* Added Australia, United Arab Emirates and "Others countries" as "country"
 * Bumped some dependencies
+* Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
 * Some further improvements and optimizations
 
 ### 1.4.13

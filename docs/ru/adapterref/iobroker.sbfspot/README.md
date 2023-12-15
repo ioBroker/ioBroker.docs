@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sbfspot/README.md
 title: ioBroker.sbfspot
-hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
+hash: K0zxPpUHSF36PRinbqar1b3YfDXcTQDDno2TsC9KBRc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
@@ -12,11 +12,18 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.sbfspot?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.sbfspot?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.sbfspot?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.sbfspot?logo=github&style=flat-square)
 
 # IoBroker.sbfspot
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 **Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
@@ -29,7 +36,7 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
 ## Монтаж
 следуйте инструкциям по установке sbfspot на странице https://github.com/SBFspot/SBFspot/wiki.
 
-[детальная установка на системах на базе манипулятора](docs/en/install_arm.md)
+[детальная установка на системах на базе манипуляторов](docs/en/install_arm.md)
 
 ## Подсказки
 * используйте последнюю версию sbfspot с https://github.com/SBFspot/SBFspot
@@ -54,7 +61,10 @@ hash: GlcH4CHtPblyfZrjoMJUPnlNKiE3uGFka3oe/ysQxGo=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 4.1.7 (2023-11-18)
+### 4.2.1 (2023-12-11)
+* (René) dependencies updated
+
+### 4.2.0 (2023-12-11)
 * (René) dependencies updated
 
 ### 4.1.6 (2023-07-30)
