@@ -610,23 +610,23 @@
       "zh-cn": "建议:移徙到红十字行"
     },
     "content": {
-      "en": "Your database stores more than 15,000 objects. Migrating to Redis will be more performant for larger installations.",
-      "de": "Ihre Datenbank speichert mehr als 15.000 Objekte. Die Migration auf Redis wird für größere Installationen performanter sein.",
-      "ru": "Ваша база данных хранит более 15 000 объектов. Migrating to Redis будет более исполнителем для больших установок.",
-      "pt": "Seu banco de dados armazena mais de 15.000 objetos. Migrar para Redis será mais performante para instalações maiores.",
-      "nl": "Je database beheert meer dan 15.000 objecten. Het verdelen naar Redis zal groter zijn voor grotere installaties.",
-      "fr": "Votre base de données stocke plus de 15 000 objets. Migrating to Redis sera plus performant pour les grandes installations.",
-      "it": "Il tuo database memorizza più di 15.000 oggetti. La migrazione a Redis sarà più performante per installazioni più grandi.",
-      "es": "Su base de datos almacena más de 15.000 objetos. Migrar a Redis será más performant para instalaciones más grandes.",
-      "pl": "Jego baza danych gromadzi ponad 15 000 obiektów. Migrating do Redis będzie bardziej aktywny dla większych instalacji.",
-      "uk": "Ваша база даних зберігає більше 15 000 об'єктів. Міграція в Redis буде більш виконавцем для великих установок.",
-      "zh-cn": "你的数据库储存了15 000多个物体。 更大规模的设施将更能发挥警惕作用。."
+      "en": "Your database stores more than 30,000 objects. If you experience a permanent CPU usage above 50 % migrating to Redis might improve performance for your installation.",
+      "de": "Ihre Datenbank speichert mehr als 30.000 Objekte. Wenn Sie eine dauerhafte CPU-Auslastung von über 50 % feststellen, könnte die Migration zu Redis die Leistung Ihrer Installation verbessern.",
+      "ru": "В вашей базе данных хранится более 30 000 объектов. Если вы постоянно используете процессор выше 50 %, переход на Redis может повысить производительность вашей установки.",
+      "pt": "A sua base de dados armazena mais de 30 000 objectos. Se tiver uma utilização permanente da CPU superior a 50%, a migração para o Redis poderá melhorar o desempenho da sua instalação.",
+      "nl": "Uw database slaat meer dan 30.000 objecten op. Als je een permanent CPU-gebruik van meer dan 50% ervaart, kan het migreren naar Redis de prestaties van je installatie verbeteren.",
+      "fr": "Votre base de données stocke plus de 30 000 objets. Si vous constatez une utilisation permanente du CPU supérieure à 50 %, la migration vers Redis pourrait améliorer les performances de votre installation.",
+      "it": "Il database memorizza più di 30.000 oggetti. Se l'utilizzo della CPU è costantemente superiore al 50%, la migrazione a Redis potrebbe migliorare le prestazioni dell'installazione.",
+      "es": "Su base de datos almacena más de 30.000 objetos. Si experimenta un uso permanente de la CPU superior al 50 %, migrar a Redis podría mejorar el rendimiento de su instalación.",
+      "pl": "Twoja baza danych przechowuje ponad 30 000 obiektów. Jeśli występuje stałe użycie procesora powyżej 50%, migracja do Redis może poprawić wydajność instalacji.",
+      "uk": "Ваша база даних зберігає понад 30 000 об'єктів. Якщо ви відчуваєте постійне використання процесора понад 50 %, міграція на Redis може покращити продуктивність вашої системи.",
+      "zh-cn": "您的数据库存储了超过 30,000 个对象。如果 CPU 占用率长期超过 50%，迁移到 Redis 可能会提高安装的性能。"
     },
     "id": "recommend-objects-redis",
     "class": "warning",
     "fa-icon": "exclamation-circle",
     "created": "2023-9-04T019:36:00.000Z",
-    "number-of-objects": ">15000",
+    "number-of-objects": ">30000",
     "objects-db-type": [
       "file",
       "jsonl"
