@@ -3,17 +3,6 @@ title:       "Windows"
 lastChanged: "22.10.2023"
 ---
 
-# Inhaltsverzeichnis
-
-- [Voraussetzungen prüfen](#voraussetzungen-prüfen )
-- [Der ioBroker Windows Installer](#der-iobroker-windows-installer )
-  - [ioBroker unter Windows - ist das überhaupt sinnvoll?](#iobroker-unter-windows---ist-das-überhaupt-sinnvoll )
-  - [ioBroker installieren](#iobroker-installieren )
-- [Update](#update)
-- [Fehlersuche](#fehlersuche)
-
-
-
 # Voraussetzungen prüfen
 
 Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
@@ -102,8 +91,11 @@ Bei der ioBroker Erstinstallation sind die ersten drei Optionen fest vorgegeben:
 Mit einem Klick auf "Fertigstellen" öffnet sich ein Webbrowser und ioBroker leitet dich durch die ersten Schritte der Einrichtung.
 
 
-# Update
-@@@ tbd @@@
+## Update
 
-# Fehlersuche
+Mit Hilfe des Windows Installers kann automatisch die installierte Node.js Version auf den empfohlenen Stand gebracht werden.
+Dafür einfach den Installer aus demWindows Startmenü ("ioBroker Setup") starten und den Anweisungen folgen.
+
+## Fehlersuche
+
 @@@ tbd @@@
