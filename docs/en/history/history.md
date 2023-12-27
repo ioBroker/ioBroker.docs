@@ -263,4 +263,10 @@ https://github.com/Chris-656/ioBroker.emporia
 
 This adapter retrieves data from emporia engergy system.
 
+## reolink (27.12.2023) - new adapter
+[https://github.com/Chris-656/ioBroker.emporia](https://github.com/aendue/ioBroker.reolink)
+
+<img src="https://github.com/aendue/ioBroker.reolink/blob/main/admin/reolink_logo.png" width="100" height="100" />
+
+Adapter for ioBroker Plattform to get Reolink camera information..
 
