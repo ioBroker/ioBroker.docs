@@ -22,13 +22,15 @@ function sendText(text) {
 
 ```javascript
 schedule('0 18 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 1) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 1) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Morgen wird der Müll abgeholt: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Morgen wird der Müll abgeholt: ${nextTextState.val}`);
+        }
     }
 });
 ```
@@ -37,13 +39,40 @@ schedule('0 18 * * *', async () => {
 
 ```javascript
 schedule('0 7 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 0) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 0) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Heute wird der Müll abgeholt: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Heute wird der Müll abgeholt: ${nextTextState.val}`);
+        }
+    }
+});
+```
+
+## Erinnerung über nicht gefundene Abfalltypen im Kalender
+
+```javascript
+schedule('0 12 * * *', async () => {
+    const notFoundJsonState = await getStateAsync('trashschedule.0.type.jsonNotFound');
+
+    if (notFoundJsonState && notFoundJsonState.val) {
+        try {
+            const notFoundTypes = JSON.parse(notFoundJsonState.val);
+            const notFoundTypesWarn = notFoundTypes.filter(t => !t.hideWarnings);
+
+            if (notFoundTypesWarn.length > 0) {
+                const text = notFoundTypesWarn
+                    .map(t => t.name)
+                    .join(', ');
+
+                sendText(`Einige Abfalltypen wurden im Kalender nicht gefunden: ${text}`);
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }
 });
 ```

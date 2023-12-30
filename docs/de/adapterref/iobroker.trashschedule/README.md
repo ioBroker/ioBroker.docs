@@ -63,33 +63,28 @@ chapters: {"pages":{"de/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.1.3 (2023-12-24)
 
-* (Standarduser) Added advanced handling for trash pickup
+* (klein0r) fixed configuration validation
+* (klein0r) enhanced error logging
+* (klein0r) some cities have no streets (API)
 
-### 2.3.0 (2023-10-25)
+### 3.1.2 (2023-12-22)
 
-NodeJS 16.x is required
+* (klein0r) Fixed exception when cache dir doesn't exist
 
-* (klein0r) Improved log messages
-* (klein0r) Added icons in admin tabs
+### 3.1.1 (2023-12-22)
 
-### 2.2.0 (2023-01-16)
+* (klein0r) Fixed config validation / integration test
 
-* (klein0r) Added completed flag for types
+### 3.1.0 (2023-12-22)
 
-### 2.1.1 (2023-01-11)
+* (klein0r) Use meta storage for cache files
+* (klein0r) Added configured source type as state
 
-* (klein0r) Added Ukrainian language
+### 3.0.0 (2023-12-21)
 
-### 2.1.0 (2022-12-12)
-
-* (klein0r) Dropped Admin 5 support
-* (klein0r) Added Ukrainian language
-
-### 2.0.3 (2022-06-02)
-
-* (klein0r) Allow whitespaces in the match pattern
+* (klein0r) Added API source myMuell
 
 ## License
 

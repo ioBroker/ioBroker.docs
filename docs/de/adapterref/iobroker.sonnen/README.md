@@ -382,6 +382,10 @@ Der Kanal stellt Batteriesepzifische Daten bereit, wie die Anzahl an Ladezyklen.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.17.0 (2023-12-20)
+* (foxriver76) sync brightness status of eclipse led
+* (foxriver76) fixed issue with eclipse led status (closes #293)
+
 ### 1.16.0 (2023-02-02)
 * (foxriver76) added state `battery.balanceChargeRequest` (closes #258)
 

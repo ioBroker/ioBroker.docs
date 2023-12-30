@@ -265,6 +265,10 @@ What was tested:
 | Tasmota                             | network | no         | With Tasmota on an ESP8266, blocks were not transferred in the correct order, resulting in incorrect objects and data. Tasmota is therefore not recommended.                                                                                                      |
 | Waveshare RS232/485 TO ETH (for EU) | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port.                                                                                                                           |
 | Waveshare RS232/485/422 TO POE ETH  | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged. Use the RS232 SUBD Port. The converter can be supplied with power via POE. If POE is available, you do not need a power supply near the batteries. |
+| Elfin EW10A                         | network | yes        | Make sure that there is enough bandwidth and signal strength on your WiFi so that the connection is stable. Check transmission speed 115200 8 N 1.                                                                                                                |
+| Elfin EW10A-0                       | network | yes        | Make sure that there is enough bandwidth and signal strength on your WiFi so that the connection is stable. Check transmission speed 115200 8 N 1.                                                                                                                |
+| Elfin EE10-A                        | network | yes        | Assign the device an IP in the network. Check transmission speed 115200 8 N 1. Everything else left unchanged.                                                                                                                                                    |
+
 
 #### Batteries
 
@@ -272,6 +276,8 @@ What was tested:
 | ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US5000           | US    | V1.3 22-08-10 | fine       |                                                                                                                                                             |
 | US2000C          | US    | V2.6 21-09-26 | fine       |                                                                                                                                                             |
+| US2000C          | US    | V2.1          | fine       |                                                                                                                                                             |
+| US2000C          | US    | V2.8          | fine       |                                                                                                                                                             |
 | US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments                                                                                                                  |
 | Force H2         | Force | V1.5 21-06-18 | fine       | Attention: in some Force manuals only the RX and TX connections are listed in the connector description. The ground is on PIN 8 and must also be connected. |
 

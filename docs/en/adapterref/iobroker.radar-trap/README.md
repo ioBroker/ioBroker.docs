@@ -29,6 +29,18 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.13 (2023-12-23)
+* (Steiger04) circle mode added
+
+### 1.0.12 (2023-12-19)
+* (Steiger04) test-and-release.yml changed
+
+### 1.0.11 (2023-12-19)
+* (Steiger04) figbird.js removed
+* (Steiger04) Code optimized
+* (Steiger04) packages updated
+* (Steiger04) DB moved to files folder
+
 ### 1.0.10 (2023-12-02)
 * (Steiger04) io-package.json changed (ignoreInVersions)
 

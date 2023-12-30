@@ -94,6 +94,20 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 2.0.0 (2023-12-23)
+
+-   (HombachC) BREAKING: dropped support for js-controller 3.x (#247)
+-   (HombachC) diversificate Tibber server polls to prevent potential DDoS reactions (#252)
+-   (HombachC) add data point for averageRemaining of todays prices (#254)
+-   (HombachC) add 2 data points for last successfull update of today and tomorrow prices (#261)
+-   (HombachC) year 2024 changes
+-   (HombachC) fix small error in dynamic feed timing
+-   (HombachC) bump dependencies
+
+### 1.8.1 (2023-12-16)
+
+-   (HombachC) add notice about changes in configuration
+
 ### 1.8.0 (2023-12-14)
 
 -   (HombachC) implement optional disable of price pull (#232)
@@ -217,4 +231,4 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023 Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2024 C.Hombach <TibberLink@homba.ch>

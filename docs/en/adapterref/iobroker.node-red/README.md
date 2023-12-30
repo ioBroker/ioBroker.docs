@@ -60,6 +60,11 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### ioBroker sendTo
 
 ## Changelog
+### 5.1.0 (2023-12-27)
+
+- (klein0r) Allow custom themes
+- (klein0r) Fixed scoped node-red packages
+
 ### 5.0.2 (2023-12-14)
 
 - (TheRealArthurDent) Fixed a fatal error when getting a non-existent value
@@ -84,10 +89,6 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### 4.0.3 (2023-03-24)
 
 - (Apollon77) Optimized path handling
-
-### 4.0.2 (2023-03-24)
-
-- (Apollon77) Fix broken data directory when using multiple instances
 
 ## License
 

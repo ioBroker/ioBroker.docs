@@ -4,9 +4,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.mercedesme.svg)](https://www.npmjs.com/package/iobroker.mercedesme)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)](https://www.npmjs.com/package/iobroker.mercedesme)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.mercedesme.svg)](https://david-dm.org/TA2k/iobroker.mercedesme)
-[![Known Vulnerabilities](https://snyk.io/test/github/TA2k/ioBroker.mercedesme/badge.svg)](https://snyk.io/test/github/TA2k/ioBroker.mercedesme)
-
+![Number of Installations](https://iobroker.live/badges/mercedesme-installed.svg)
 [![NPM](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)](https://nodei.co/npm/iobroker.mercedesme/)
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)](https://travis-ci.org/TA2k/ioBroker.mercedesme)
@@ -14,12 +12,14 @@
 ## mercedesme adapter for ioBroker
 
 Mercedes me adapter for ioBroker
+
 Unter commands das commando auf klappen und den button neben start drücken wenn das command available ist.
+
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
 
-### 0.1.2
+### 0.1.6
 
 - fix login
 

@@ -206,6 +206,13 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.13.6 (2023-12-25)
+* (mcm1957) Incorrect jsonConfig has been fixed [#602]
+* (mcm1957) Dependencies have been updated
+
+### 1.13.5 (2023-12-15)
+* (jens-maus) updated node-ical to latest 0.17.1
+
 ### 1.13.4 (2023-12-10)
 * (jens-maus) updated node-ical to latest 0.17.0
 * (jens-maus) updated dependencies
@@ -218,13 +225,6 @@ Whitelist: Wenn Sie nur Ereignisse einer bestimmten Position einschließen möch
 
 ### 1.13.2 (2022-08-29)
 * (Apollon77) fix strange log messages by downgrading RRule again
-
-### 1.13.1 (2022-06-27)
-* (klein0r) Changed request library
-
-### 1.13.0 (2022-06-17)
-* (klein0r) Added Admin 5 UI
-* (klein0r) Translated all object names
 
 ## License
 

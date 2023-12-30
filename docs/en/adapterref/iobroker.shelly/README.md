@@ -57,9 +57,10 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.7.0 (2023-12-22)
 
 * (klein0r) Updated handling of ble payloads
+* (D1gitaldad) Added Shelly Wall Display
 
 ### 6.6.1 (2023-10-20)
 
@@ -84,11 +85,6 @@ Questions? Check the [FAQ](faq.md) section first!
 * (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
 * (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
 * (D1gitaldad) Added support of Plus PM Mini
-
-### 6.4.1 (2023-04-23)
-
-* (viper4gh) Added Shelly Pro 3 EM energy data
-* (klein0r) Fixed IP handling in Docker containers
 
 ## License
 

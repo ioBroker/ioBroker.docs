@@ -11,10 +11,10 @@
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-This adapter allows you to remote control your Alexa (Amazon Echo) devices.
+This adapter allows you to remotely control your Alexa (Amazon Echo) devices.
 
-Big thanks go to soef for the version 1 of the adapter and to Hauke and ruhr70 for ideas in their scripts from ioBroker-Forum (especially the media progress updates)!
-Also big thanks to to meicker for support in documenting all of this and numerous users from ioBroker Forum for their testing support!
+Big thanks go to soef for version 1 of the adapter and to Hauke and ruhr70 for ideas in their scripts from ioBroker-Forum (especially the media progress updates)!
+Also, big thanks to meicker for support in documenting all of this and numerous users from ioBroker Forum for their testing support!
 
 ## Disclaimer
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
@@ -22,7 +22,7 @@ Also big thanks to to meicker for support in documenting all of this and numerou
 
 ## States and their meanings:
 
-In the adapter namespace (e.g. alexa2.0) some channels are created
+In the adapter namespace (e.g., alexa2.0) some channels are created
 
 ### alexa2.0
 
@@ -45,13 +45,13 @@ All Alexa-Contacts that can be used to send Text Messages to, including himself.
 ### alexa2.0.Echo-Devices.CommandsAll.*
 Commands to be sent to all devices in the account.
 
-| State name         | meaning                                         |
-|--------------------|-------------------------------------------------|
-| deviceStop         | Stop all actions on device                      | Button |
+| State name         | meaning                                         | Comments                                                                                                     |
+|--------------------|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| deviceStop         | Stop all actions on device                      | Button                                                                                                       |
 | deviceDoNotDisturb | Switch on/off "Do not Disturb" for all devices. | true/false, or number in seconds to enable (max 12h) or string in form "HH:MM" until this time it is enabled |
 
 ### alexa2.0.Echo-Devices.Serialnumber.*
-Under "echo-devices" every amazon echo device is listed with it's serial number. Not every device shows all the states. Every device has it's own states as described below:
+Under "echo-devices" every amazon echo device is listed with its serial number. Not every device shows all the states. Every device has its own states as described below:
 
 ### alexa2.0.Echo-Devices.Serialnumber.Alarm.*
 Alarm (Wecker) settings for each device, if available.
@@ -74,7 +74,7 @@ Alarm (Wecker) settings for each device, if available.
 | New                   | Data to create a new Reminder as String in following format separated by ; as "timestamp;[label];[sound];[recurring]. timestamp as unix timestamp in ms, label as Text, sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. Fields in example above in brackets mean that they are optional! | String                                                                                                                                                                                                                                                                                                                             |
 | triggered             | ID of the Alarm that triggered last on this device                                                                                                                                                                                                                                                                                                                                    | ID                                                                                                                                                                                                                                                                                                                                 |
 
-When changing an Alarm does not work please make sure tha the Alarm timepoint is in the future - so changing e.g. "sound" on an Alarm in the past will _not_ work!
+When changing an Alarm does not work, please make sure that the Alarm timepoint is in the future - so changing e.g. "sound" on an Alarm in the past will _not_ work!
 
 ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
 Here you find all connected or known bluetooth device(s) with MAC address(es). The states of each device:
@@ -86,7 +86,7 @@ Here you find all connected or known bluetooth device(s) with MAC address(es). T
 | unpair     | Button to unpair this device from the echo device                                                  |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Commands.*
-With Commands you can trigger some actions on your Alexa-Device. If you use these on a multiroom device then they are executed independently and *will not* run in sync on the single devices!
+With Commands, you can trigger some actions on your Alexa-Device. If you use these on a multiroom device, then they are executed independently and *will not* run in sync on the single devices!
 
 | State name    | meaning                                                                                                                                | value                                                                                                        |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
@@ -96,7 +96,7 @@ With Commands you can trigger some actions on your Alexa-Device. If you use thes
 | funfact       | Fun fact from Alexa ... (Only USA at the moment)                                                                                       | Button                                                                                                       |
 | joke          | Joke from Alexa ...                                                                                                                    | Button                                                                                                       |
 | cleanup       | Plays a "gong" tone like for start/end of listening mode ...                                                                           | Button                                                                                                       |
-| curatedtts    | Random sentence from the choosen area from Alexa ...                                                                                   | Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
+| curatedtts    | Random sentence from the chosen area from Alexa ...                                                                                   | Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
 | singasong     | Alexa sings a song ...                                                                                                                 | Button                                                                                                       |
 | speak         | Alexa says what you type in here ...                                                                                                   | Text Input                                                                                                   |
 | speakvolume   | Adjust the speak volume of Alexa, this volume is set before the speak and reset afterwards                                             | 0-100                                                                                                        |
@@ -114,13 +114,13 @@ With Commands you can trigger some actions on your Alexa-Device. If you use thes
 
 Detailed information Speak and Announcement: Type in here what you want Alexa to say. You can also adjust the volume of Alexa by giving a percentage before your text.
 Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
-Normally you only can send 250 characters per speak command. By using the semicolon it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
+Normally, you only can send 250 characters per speak command. By using the semicolon, it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
 Alexa will then speak the text after each other with a small break. You also can use the volume together with more 255 blocks by writing #Volume;#Block1;#Block2, a.s.o A volume set here will be used over a defined speak-volume.
 
 Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html work. Specify in speak or ssml as `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Details and discussion please at https://forum.iobroker.net/topic/27509/ssml-audio
 
 ### alexa2.0.Echo-Devices.Serialnumber.FireTVCommands.*
-If a device is a Amazon FireTV then you can use the following commands:
+If a device is an Amazon FireTV then you can use the following commands:
 
 | State name   | meaning                  | value  |
 |--------------|--------------------------|--------|
@@ -206,21 +206,21 @@ States to control the Playback of the device and to see the current status and m
 ### alexa2.0.Echo-Devices.Serialnumber.Preferences.*
 Here you find some device preferences.
 
-| State name | meaning | value |
-| - | - |
-| ringNotificationsEnabled | Shows if the ring notifications are enabled or not and allows to edit it (true/false). Status is updated from cloud with device configuration interval |
-| notificationVolume | The notification volume set for the device. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | number 0..100 |
-| ascendingAlarmState | The ascending alarm state set for the device. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | Boolean |
-| auxPort-*-Direction | The direction of the AuxPort (when supported). The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | "INPUT" or "OUTPUT" |
-| connectedSpeaker | The speaker with is used for the Device output. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | "InternalSpeaker", "Bluetooth" or "Aux" (if supported by Device! check the App) |
-| defaultAlarmNotificationSound | The default alarm sound set for the device. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | ID from list |
-| defaultTimerNotificationSound | The default timer sound set for the device. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | ID from list |
-| displayAdaptiveBrightnessEnabled | Is the adaptive brightness for the display of the device enabled or not. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | true/false |
-| displayEnabled | Is the display of the device enabled or not. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | true/false |
-| displayBrightness | Brightness of the display. The value is loaded once on adapterstart and then not synced with Cloud services, but changeable | 0..100% |
-| equalizerBass | Equalizer Bass setting. Value is updated when changed if push connection is enabled | Number |
-| equalizerMidRange | Equalizer Midrange  setting. Value is updated when changed if push connection is enabled | Number |
-| equalizerTreble | Equalizer Treble  setting. Value is updated when changed if push connection is enabled | Number |
+| State name                       | meaning                                                                                                                                                                    | value                                                                           |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| ringNotificationsEnabled         | Shows if the ring notifications are enabled or not and allows to edit it (true/false). The status is updated from cloud with a device configuration interval               |
+| notificationVolume               | The notification volume set for the device. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                              | number 0..100                                                                   |
+| ascendingAlarmState              | The ascending alarm state set for the device. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                            | Boolean                                                                         |
+| auxPort-*-Direction              | The direction of the AuxPort (when supported). The value is loaded once on adapter start and then not synced with Cloud services, but changeable                           | "INPUT" or "OUTPUT"                                                             |
+| connectedSpeaker                 | The speaker with is used for the Device output. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                          | "InternalSpeaker", "Bluetooth" or "Aux" (if supported by Device! check the App) |
+| defaultAlarmNotificationSound    | The default alarm sound set for the device. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                              | ID from a list                                                                  |
+| defaultTimerNotificationSound    | The default timer sound set for the device. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                              | ID from a list                                                                  |
+| displayAdaptiveBrightnessEnabled | Is the adaptive brightness for the display of the device enabled or not. The value is loaded once on adapter start and then not synced with Cloud services, but changeable | true/false                                                                      |
+| displayEnabled                   | Is the display of the device enabled or not. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                             | true/false                                                                      |
+| displayBrightness                | Brightness of the display. The value is loaded once on adapter start and then not synced with Cloud services, but changeable                                               | 0..100%                                                                         |
+| equalizerBass                    | Equalizer Bass setting. Value is updated when changed if push connection is enabled                                                                                        | Number                                                                          |
+| equalizerMidRange                | Equalizer Midrange  setting. Value is updated when changed if push connection is enabled                                                                                   | Number                                                                          |
+| equalizerTreble                  | Equalizer Treble  setting. Value is updated when changed if push connection is enabled                                                                                     | Number                                                                          |
 
 
 ### alexa2.0.Echo-Devices.Serialnumber.Reminder.*
@@ -242,17 +242,17 @@ Reminder (Erinnerungen) settings for each device, if available.
 | New                   | Data to create a new Reminder as String in following format separated by ; as "timestamp;label;[sound];[recurring]. timestamp as unix timestamp in ms or text like "HH:MM", label as Text (required), sound as sound ID, recurring either empty for once, "DAILY" for daily or "WEEKLY=MO,TU,WE,TH,FR,SA,SU" with comma separated weekly day list. For full flexibility recurring can also be a JSONified object with all data which is passed through. Fields in example above in brackets mean that they are optional! | String                                                                                                                                                                                                                                                                                                                             |
 | triggered             | ID of the Alarm that triggered last on this device                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | ID                                                                                                                                                                                                                                                                                                                                 |
 
-When changing a Reminder does not work please make sure tha the Reminder timepoint is in the future - so changing e.g. "sound" on an Reminder in the past will _not_ work!
+When changing a Reminder does not work, please make sure that the Reminder timepoint is in the future - so changing e.g. "sound" on a Reminder in the past will _not_ work!
 
 ### alexa2.0.Echo-Devices.Serialnumber.Routines.*
 Overview of routines set up in Alexa App. Self created routines have a serial number, Amazon shows as 'preconfigured:...' Each routine can be triggered with a button to run once.
 
 | State name                         | meaning         | value  |
 |------------------------------------|-----------------|--------|
-| Serial or internal name of routine | name of routine | Button 
+| Serial or internal name of routine | name of routine | Button |
 
 ### alexa2.0.Echo-Devices.Serialnumber.Timer.*
-You can have one or more timer running on each Alexa device. Because of the very dynamic nature of timers there will be no further objects created like with Alarm or Reminders, but a way to get a triggered info exists.
+You can have one or more timers running on each Alexa device. Because of the very dynamic nature of timers, there will be no further objects created like with Alarm or Reminders, but a way to get triggered info exists.
 
 | State name      | meaning                                                                                                      | value      |
 |-----------------|--------------------------------------------------------------------------------------------------------------|------------|
@@ -265,7 +265,7 @@ You can have one or more timer running on each Alexa device. Because of the very
 **Please note that it is important that the timezone of the iobroker host is set to match your local timezone, else the triggered time detection might be wrong!**
 
 ### alexa2.0.Echo-Devices.Serialnumber.online
-Is this Alexa device online and connected to the Amazon cloud ?
+Is this Alexa device online and connected to the Amazon cloud?
 
 | State name | meaning                | value        |
 |------------|------------------------|--------------|
@@ -283,7 +283,7 @@ Is this Alexa device online and connected to the Amazon cloud ?
 | domainApplicationName | Additional information like Skill name or such, optional                                                                                                           | Information                                                                                                                                                                          |
 | json                  | Json of last command data to be able to process all infos e.g. in own JavaScripts                                                                                  | JSON                                                                                                                                                                                 |
 | name                  | Name of the device that got the last request                                                                                                                       | Information                                                                                                                                                                          |
-| serialNumber          | serialnumber of the device that got the last request                                                                                                               | Information                                                                                                                                                                          |
+| serialNumber          | Serial number of the device that got the last request                                                                                                              | Information                                                                                                                                                                          |
 | status                | Status of last command to Alexa                                                                                                                                    | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; last one is generated when activating the device by saying the wake word, or when the device discarded input as "not for me" |
 | summary               | text/summary/action received by the device                                                                                                                         | Information                                                                                                                                                                          |
 
@@ -292,20 +292,20 @@ Includes all smart home devices Alexa knows from your skills. States as follows,
 
 | State name      | meaning                                                                                    | value  |
 |-----------------|--------------------------------------------------------------------------------------------|--------|
-| deleteAll       | deletes all smart home devices from Alexa, same as the button in the Alexa App             | Button 
-| discoverDevices | finds new smart home devices, same as the button in the Alexa App                          | Button 
-| queryAll        | queries all devices, only visible when at least one device is able to retrieve information | Button 
+| deleteAll       | deletes all smart home devices from Alexa, same as the button in the Alexa App             | Button |
+| discoverDevices | finds new smart home devices, same as the button in the Alexa App                          | Button |
+| queryAll        | queries all devices, only visible when at least one device is able to retrieve information | Button | 
 
 ### alexa.0.Smart-Home-Devices.SerialNumber.*
-| State name         | meaning                                                                                                                                                      | value                         |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
-| #delete            | delete smart home device from Alexa                                                                                                                          | Button                        
-| #enabled           | Is the smart home device active? Status and control to enable/disable. State will be synced with the cloud in the same interval as the smarthome deice data. | true / false                  |
-| #includeInAllQuery | Should this device be included when querying all device states ?                                                                                             | true / false                  |
-| #query             | query data for this device, only visible when the smart home device/skill supports to retrieve information                                                   | Button                        |
-| active             | shown for scenes when they can be activated/deactivated                                                                                                      | true / false                  |
-| powerState         | Switch power on / off                                                                                                                                        | changeable, true / false      |
-| ...                | Many more possible states depending on the type of the smart home device                                                                                     | Information or changeable :-) |
+| State name         | meaning                                                                                                                                                       | value                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
+| #delete            | delete smart home device from Alexa                                                                                                                           | Button                        |
+| #enabled           | Is the smart home device active? Status and control to enable/disable. State will be synced with the cloud in the same interval as the smart home deice data. | true / false                  |
+| #includeInAllQuery | Should this device be included when querying all device states ?                                                                                              | true / false                  |
+| #query             | query data for this device, only visible when the smart home device/skill supports to retrieve information                                                    | Button                        |
+| active             | shown for scenes when they can be activated/deactivated                                                                                                       | true / false                  |
+| powerState         | Switch power on / off                                                                                                                                         | changeable, true / false      |
+| ...                | Many more possible states depending on the type of the smart home device                                                                                      | Information or changeable :-) |
 
 **-> Special states for color/light devices**
 
@@ -317,10 +317,10 @@ Includes all smart home devices Alexa knows from your skills. States as follows,
 | color-saturation         | saturation of the color (together with brightness and hue, HSV)         | Information, 0-1               |
 | colorRGB                 | RGB code of actual color build out of color-* values                    | Information, #rrggbb           |
 | colorName                | Name of the color as defined by Alexa - fixed values                    | changeable to set color, 0-144 |
-| colorTemperarureInKelvin | Color temperature in Kelvin                                             | Information, 1000-10000K       |
+| colorTemperatureInKelvin | Color temperature in Kelvin                                             | Information, 1000-10000K       |
 | colorTemperatureName     | Color temperature name as defined by Alexa - fixed values               | changeable to set, 0-18        |
 
-With #brightness you can adjust the brightness of your light, #colorName is to pick one predefined color (0-144). For HUE Ambient light you can choose between 19 Values fom 0-18 in #colorTemperatureName. All light can switched on and off with #powerState.
+With #brightness you can adjust the brightness of your light, #colorName is to pick one predefined color (0-144). For HUE Ambient light, you can choose between 19 Values from 0-18 in #colorTemperatureName. All light can switched on and off with #powerState.
 
 ### alexa2.0.Info.*
 | State name | meaning                                                                             | value                       |
@@ -331,14 +331,14 @@ With #brightness you can adjust the brightness of your light, #colorName is to p
 
 
 ## Installation
-As usual using stable repository, latest repository or use the ioBroker "Install" options from GitHub
+As usual using stable repository, the latest repository or uses the ioBroker "Install" options from GitHub
 
 ## Send Alexa Device Command sequences via messages
-All commands to the alexa devices can be send via the adapter to single devices or to groups. The adapter supports sending of these commands and - if needed - also combines them to set a specific volume before a voince output and restore the original volume afterwards.
+All commands to the alexa devices can be sent via the adapter to single devices or to groups. The adapter supports sending of these commands and - if needed - also combines them to set a specific volume before a voice output and restore the original volume afterward.
 
-When you want to send custom sequences to alexa devices you can create a Routine and trigger the routine also via the states.
+When you want to send custom sequences to alexa devices, you can create a Routine and trigger the routine also via the states.
 
-If this is not flexible enough the adapter offers since version 3.14.0 a way to send commands via messages.
+If this is not flexible enough, the adapter offers since version 3.14.0 a way to send commands via messages.
 
 You provide an array structure which will be converted to commands. There are two types of options for one array element:
 
@@ -377,7 +377,7 @@ adapter.sendTo(
 );
 ```
 
-When commands are executed as "ParallelNode" in parallel which mainly makes sense tosend commands to different devices. Commands as "SerialNode" are executed one after the other - **Amazon takes care about this and handles this, not the adapter!** 
+When commands are executed as "ParallelNode" in parallel, which mainly makes sense to send commands to different devices. Commands as "SerialNode" are executed one after the other - **Amazon takes care about this and handles this, not the adapter!** 
 
 A structure like the following is possible:
 
@@ -434,34 +434,34 @@ A structure like the following is possible:
 ## Troubleshooting
 
 ### Problem with Cookie determination with SMS based 2FA flow
-If you still use the SMS/E-Mail based 2FA flow then this might not work. Please update the 2FA/OTP method in the amazon settings to the current process! Not working could also mean that a Error 404/Page not found is shown. ALso then check and upgrade OTP settings!
+If you still use the SMS/E-Mail based 2FA flow, then this might not work. Please update the 2FA/OTP method in the amazon settings to the current process! Not working could also mean that a Error 404/Page not found is shown. ALso then check and upgrade OTP settings!
 
-### The Alexa App opens when I try to login
-If you open the Proxy URL from a mobile device where also the Alexa App is installed on it might be that it do not work because Amazon might open the Alexa App. So please use a device or PC where the Alexa App is not installed!
+### The Alexa App opens when I try to log in
+If you open the Proxy URL from a mobile device where also the Alexa App is installed on, it might be that it does not work because Amazon might open the Alexa App. So please use a device or PC where the Alexa App is not installed!
 
 ### I get a page shown with a QR code telling me to scan it
-If you see a page that tells you that "alexa.amazon.xx is deprecated" and you should use the alexa app and with a QR code on it when you enter the Proxy URL" then this means that you call the proxy URL ith a different IP/Domainname then you entered in the "proxy own IP" settings or you adjusted the IP shown in the Adapter configuration.
+If you see a page that tells you that "alexa.amazon.xx is deprecated" and you should use the alexa app and with a QR code on it when you enter the Proxy URL" then this means that you call the proxy URL ith a different IP/Domainname then you entered in the "proxy own IP" settings, or you adjusted the IP shown in the Adapter configuration.
 
 The "own IP" setting **needs to** match the IP/Domainname you use to call the proxy URL!
 
 ### Problems with Cookie determination via E-Mail/Password
 Sometimes Amazon has weired checks in place when they detect unexpected traffic on Login.
-This can result in the problem that a captcha needs to be answered in order to login.
-Mostly this captcha needs to be answered once and after this the login works without Captcha.
+This can result in the problem that a captcha needs to be answered in order to log in.
+Mostly, this captcha needs to be answered once and after this, the login works without Captcha.
 
-When you need to answer such a captcha then try to do the following:
-* Use a common Browser (e.g. Chrome)
+When you need to answer such a captcha, then try to do the following:
+* Use a common Browser (e.g., Chrome)
 * disable Javascript!
 * clear all cookies that may exist for Amazon or use Private/Incognito mode of the browser
 * call https://alexa.amazon.de
 * you should get a login form (normally displayed for older mobile browsers)
 * login there with your Amazon credentials where the Echo/Alexa is registered in
-* you may need to login twice or solve a Captcha
-* At the end you should see "https://alexa.amazon.de/spa/index.html" as URL but without any real content (because JS is still disabled), BUT THIS IS COMPLETELY OK!!!!
+* you may need to log in twice or solve a Captcha
+* In the end, you should see "https://alexa.amazon.de/spa/index.html" as URL but without any real content (because JS is still disabled), BUT THIS IS COMPLETELY OK!!!!
 * now try to get cookie again
-* if it still not works do it again and check the User-Agent and accept-Language from your browser and use those in adapter on next try
+* if it still not works, do it again and check the User-Agent and accept-Language from your browser and use those in adapter on next try
 
-Additionally the Accept-Language-Header (defaults to "de-DE") needs to match with your language/the browser language/the language of the amazon page you login.
+Additionally, the Accept-Language-Header (default to "de-DE") needs to match with your language/the browser language/the language of the amazon page you log in.
 
 You can also try to play around with the User-Agent and use one which more matches to the system type you use.
 As example using "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" as User-Agent was reported as working better when ioBroker runs on a linux system.
@@ -471,7 +471,7 @@ You can override all those parameters in the adapter configuration.
 ### Push Connections do not connect
 Sometimes it could happen that because of too many connection tries aAmazon blocks the push connection endpoint for a specific IP and "device".
 
-If the Push connection is never established then you can try to use the following:
+If the Push connection is never established, then you can try to use the following:
 * delete the instance of the adapter
 * check if there are files like /opt/iobroker/node_modules/iobroker.alexa2/formerDataStore*.json - if existing please delete them
 * add new instance and get new cookie
@@ -480,11 +480,11 @@ Then it should work again
 
 ### I have too many App/"This device" devices in my list of Echo-Devices
 The adapter reads whatever Amazon reports. Sometimes unused and old Apps or other connections stay in that list.
-If you want to clean this up you need to do that by visiting the Amazon website and remove the devices there.
+If you want to clean this up, you need to do that by visiting the Amazon website and remove the devices there.
 
 Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=ALEXA_APP
 
-After deleting unused device please restart the adapter to remove them there too.
+After deleting an unused device, please restart the adapter to remove them there too.
 
 ## Changelog
 ### 3.26.3 (2023-11-25)
@@ -531,7 +531,7 @@ After deleting unused device please restart the adapter to remove them there too
 * (Apollon77) Try to prevent Amazon rate limiting (again)
 
 ### 3.21.0 (2022-11-03)
-* IMPORTANT: Because of rate limits by Amazon I decided to remove the update of smart home device values in intervals because it seems to produce too much load in Skills and Amazon systems.
+* IMPORTANT: Because of rate limits by Amazon, I decided to remove the update of smart home device values in intervals because it seems to produce too much load in Skills and Amazon systems.
 * (Apollon77) Optimizes loading of smart home device states
 * (Apollon77) Fixed issue with enabling/disabling of Alarms in combination with non-default music for the alarm
 * (Apollon77) Prevented that Timers or Alarms that are long in the future to trigger their trigger state too early

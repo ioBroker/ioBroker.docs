@@ -43,9 +43,11 @@ The widgets are designed for VIS 1.x.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.0.7 (2023-12-26)
 
 * (Standarduser) CSS adjustments
+* (Standarduser) changed block operation to old variant
+* (Standarduser) corrected value formatting in label groups
 
 ### 0.0.6 (2023-11-10)
 

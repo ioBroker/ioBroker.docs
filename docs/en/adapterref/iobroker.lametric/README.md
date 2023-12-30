@@ -30,7 +30,7 @@ chapters: {"pages":{"en/adapterref/iobroker.lametric/README.md":{"title":{"en":"
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.0.0 (or later)
-- _LaMetric Time_ with firmware _2.3.8_ (_3.0.18_ on the 2022 model) (or later)
+- _LaMetric Time_ with firmware _2.3.8_ (_3.0.21_ on the 2022 model) (or later)
 
 [Firmware-Changelog](https://firmware.lametric.com) [Firmware-Changelog Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,6 +59,11 @@ Features are limited by the [official API features](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.2 (2023-12-27)
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
+* (klein0r) Some devices don't have bluetooth low energy states (sa8)
+
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
@@ -81,15 +86,11 @@ NodeJS 16.x is required
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
-### 2.4.1 (2023-06-10)
-
-* (klein0r) Blockly bugfix
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -60,6 +60,22 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 1.3.0
+
+• Neue Icons hinzugefügt (Lights - LED)
+
+### 1.2.1
+
+• Bugfix (version number)
+
+### 1.2.0
+
+• Neue Icons hinzugefügt (Devices - thermal_heater) (Devices/Printers - printer_lable)
+
+### 1.1.0
+
+• Neue Icons hinzugefügt (Devices - printer AMS) (Games - scissors/stone/paper)
+
 ### 1.0.0
 
 • VIS-2 kompatibel

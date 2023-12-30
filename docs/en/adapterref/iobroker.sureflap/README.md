@@ -162,6 +162,10 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 1.2.3 (2023-12-29)
+* (Sickboy78) added api host to config and set default to new api
+* (Sickboy78) improved removing of obsolete objects
+
 ### 1.2.2 (2023-10-17)
 * (Sickboy78) added signal strength and hardware and firmware version of devices
 

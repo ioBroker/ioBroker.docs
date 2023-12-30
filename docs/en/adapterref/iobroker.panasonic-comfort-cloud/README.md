@@ -24,6 +24,11 @@ With the method used, only one client can be logged on with the account at a tim
 It is recommended that a second account, for which the devices have been shared, is used.
 
 ## Changelog
+### 2.3.0 (2023-12-21)
+
+* Updated packages
+* Added connected state to devices
+
 ### 2.2.4 (2023-10-18)
 
 * Fixed load AppVersion from Github.

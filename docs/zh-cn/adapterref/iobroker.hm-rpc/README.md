@@ -139,9 +139,10 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 1.16.0 (2023-12-25)
 * (JeyCee) Added support for the device manager
 * (bluefox) Added JSON config
+* (foxriver76) port to adapters internal `setTimeout/setInterval` methods
 
 ### 1.15.19 (2023-08-08)
 * (bluefox) Updated packages

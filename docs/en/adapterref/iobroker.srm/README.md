@@ -79,6 +79,15 @@ List of mesh nodes. Each mesh nodes has the following objects:
 * parent_node_id: ID of the parent node
 * signal_strength: Signal strength
 
+## wifi
+List of wifi networks and settings. Wifi settings can only be changed every 3s to avoid conflicting changes. Each mesh nodes has the following objects:
+
+* enable: Enable the wifi network (read/write)
+* enable_client_isolation: Enable client isolation (read/write)
+* hide_ssid: Hide the WIFI SSID (read/write)
+* mac_filter: Enable MAC filter (read)
+* schedule_enable: Enable schedule for network (read/write)
+
 ### Sentry
 
 What is Sentry.io and what is reported to the servers of that company? `Sentry.io` is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
@@ -88,6 +97,13 @@ When the adapter crashes or another Code error happens, this error message that 
 <a name="Revision-History"></a>
 
 ## Changelog
+### 0.2.0 (2023-12-27)
+- Added new section for WIFI settings. Some settings can be changed via the adapter.
+- Account for different API versions
+
+### 0.1.6 (2023-12-26)
+- Account for different API versions
+
 ### 0.1.5 (2023-12-10)
 - minor bug fixes
 

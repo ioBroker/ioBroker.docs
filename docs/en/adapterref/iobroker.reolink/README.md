@@ -61,11 +61,25 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 {type:"image/png",base64:"iVBORw....askldfj"}
 ```
 
+## Known working cameras (firmware out of year 2023)
+
+- RLC-420-5MP
+- E1 Outdoor
+- RLC-522
+- RLC-810A
+- RLC-823A
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2023-12-19)
+* (oelison) known working cameras added
+* (oelison) setIrLights accept "On" now
+* (oelison) [#40](https://github.com/aendue/ioBroker.reolink/issues/40)
+* (oelison) [#42](https://github.com/aendue/ioBroker.reolink/issues/42)
+
 ### 1.0.1 (2023-11-11)
 * (oelison) resolve review for latest adapter addition
 * (oelison) maybe the last node 16 version

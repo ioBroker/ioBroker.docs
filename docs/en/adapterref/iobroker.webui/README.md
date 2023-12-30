@@ -129,6 +129,48 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 0.22.7 (2023-12-25)
+- and one more...
+
+### 0.22.6 (2023-12-25)
+- and one more fix on importmaps
+
+### 0.22.5 (2023-12-25)
+- more fixes with import map
+
+### 0.22.4 (2023-12-25)
+- work on export directive
+
+### 0.22.3 (2023-12-25)
+- fix missing .js extensions
+
+### 0.22.2 (2023-12-25)
+- fix scripts
+
+### 0.22.1 (2023-12-25)
+- add open screen in blockly
+
+### 0.22.0 (2023-12-25)
+- work on esbuild (but not yet ready, delayed till blockly is ESM)
+- bugfixes with scripts
+- remove typescript, use javascript directly
+- typed value on SetValue function
+
+### 0.21.3 (2023-12-20)
+- fix set style
+
+### 0.21.2 (2023-12-20)
+- more commands in blockly
+
+### 0.21.1 (2023-12-19)
+- fixed paths
+
+### 0.21.0 (2023-12-19)
+- start of blockly support
+
+### 0.20.7 (2023-12-15)
+- fix importmap creation missed "/"
+
 ### 0.20.6 (2023-12-12)
 - few wunderbaum fixes
 

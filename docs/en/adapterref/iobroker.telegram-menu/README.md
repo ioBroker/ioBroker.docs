@@ -33,8 +33,31 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.6.1 (2023-12-27)
 
-### **WORK IN PROGRESS**
+-   fixed, shoppinglist
+
+### 1.6.0 (2023-12-26)
+
+-   json Table in combination with the alexa-shoppinglist adapter can remove items
+-   json Table without Head
+-   fixes in menu:back
+-   Possibility to stop sending Menu after restart (after save)
+
+### 1.5.1 (2023-12-20)
+
+-   no Icons in events condition
+-   fixed, copy events and echarts
+-   moveable DropBox
+
+### 1.5.0 (2023-12-19)
+
+-   #92 send echarts
+-   #93 Scrollbar in Menus
+-   #89 go back to menu by setting setDynamicValue
+-   delete all Messages by Bot
+
+### 1.4.0 (2023-12-16)
 
 -   #88 Menu with dynamic Values
 -   #87 Event opens a menu

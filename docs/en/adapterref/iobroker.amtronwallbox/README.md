@@ -10,6 +10,15 @@
 
 [![NPM](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)](https://nodei.co/npm/iobroker.amtronwallbox/)
 
+![node-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
+
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+
 
 **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** 
 For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
@@ -45,6 +54,18 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2023-12-23)
+* (René) just a sentry test
+
+### 0.2.12 (2023-12-23)
+* (René) see issue #162: ignore unused data from wallbox
+
+### 0.2.11 (2023-12-16)
+* (René) type of adapter changed back to "energy"
+
+### 0.2.9 (2023-12-16)
+* (René) dependencies updated
+
 ### 0.2.8 (2023-11-26)
 * (René) role of states overworked
 

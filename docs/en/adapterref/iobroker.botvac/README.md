@@ -33,6 +33,10 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.0.2 (2023-12-23)
+- (ar7bd) SpotWidth and spotHeight are now allowed to be zero. [#29]
+- (mcm1957) Dependencies have been updated.
+
 ### 2.0.1 (2023-09-20)
 - (PeterVoronov) A problem causing crashes if some devices are unreachable has been fixed [#46]
 

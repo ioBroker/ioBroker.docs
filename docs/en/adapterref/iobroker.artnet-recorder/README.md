@@ -5,7 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.artnet-recorder.svg)](https://www.npmjs.com/package/iobroker.artnet-recorder)
 ![Number of Installations (latest)](http://iobroker.live/badges/artnet-recorder-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/artnet-recorder-stable.svg)
-[![Dependency Status](https://img.shields.io/david/Bannsaenger/iobroker.artnet-recorder.svg)](https://david-dm.org/Bannsaenger/iobroker.artnet-recorder)
+![Test and Release](https://github.com/bannsaenger/iobroker.artnet-recorder/workflows/Test%20and%20Release/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder/badge.svg)](https://snyk.io/test/github/Bannsaenger/ioBroker.artnet-recorder)
 
 [![NPM](https://nodei.co/npm/iobroker.artnet-recorder.png?downloads=true)](https://nodei.co/npm/iobroker.artnet-recorder/)
@@ -25,19 +25,31 @@ The interval or the stepping to send the data ist set by the configuartion.
 
 ## Changelog
 
-### 0.0.1
-* (Bannsaenger) initial release
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 0.0.5 (2023-12-25)
+* (Bannsaenger) added releaseconfig
 
-### 0.0.2
-* (Bannsaenger) added engine and prepared for review
+### 0.0.4 (2023-12-21)
+* (Bannsaenger) updated dependencies
+* (Bannsaenger) switched to release script
+* (Bannsaenger) switched to json-config
 
 ### 0.0.3
 * (Bannsaenger) fixed comments from code review
 
+### 0.0.2
+* (Bannsaenger) added engine and prepared for review
+
+### 0.0.1
+* (Bannsaenger) initial release
+
 ## License
 MIT License
 
-Copyright (c) 2021-2022 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2021-2023 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

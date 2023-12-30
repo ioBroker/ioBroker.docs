@@ -32,6 +32,10 @@ This adapter allows to control the data points of the devices of a Zigbee2MQTT i
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.13.4 (2023-12-17)
+
+-   (o0shojo0o) fixed unnecessary warning for special value ([269](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/269))
+
 ### 2.13.3 (2023-10-10)
 
 -   (o0shojo0o) fixed devices erroneous offline indication ([#255](https://github.com/o0shojo0o/ioBroker.zigbee2mqtt/issues/255))

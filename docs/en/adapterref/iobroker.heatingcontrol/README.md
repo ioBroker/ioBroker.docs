@@ -283,8 +283,7 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.12.2 (2023-12-16)
 * (René) see issue #491: bug fix in offset calculation (NaN)
 
 ### 2.12.1 (2023-11-25)

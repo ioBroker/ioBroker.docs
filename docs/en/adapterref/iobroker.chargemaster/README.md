@@ -33,6 +33,10 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## Changelog
 ! Note that missing version entries are typically dependency updates for security.
 
+### 0.8.4 (29.12.2023)
+* (HombachC) BREAKING: dropped support for js-controller 3.x
+* (HombachC) Year 2024 changes
+* (HombachC) Bump axios to 1.6.3 because of vulnerability
 ### 0.8.3 (29.10.2023)
 * (HombachC) Bumb adapter core to 3.x
 * (HombachC) Bump axios to 1.6.0 because of vulnerability
@@ -108,7 +112,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Christian Hombach
+Copyright (c) 2021-2024 Christian Hombach
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

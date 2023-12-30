@@ -11,6 +11,14 @@
 
 ## alpha-ess adapter for ioBroker
 
+---
+
+### Due to current circumstances, please take note!
+
+[Interface restriction announcement](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
+
+---
+
 This adapter logs into the web API of [Alpha-ESS](https://www.alphaess.com/) and retrieves information for your Alpha-ESS equipment.\
 Depending on your Alpha-ESS product, it is possible to get realtime data and configuration data for your equipment. Which data points are returned by the API depends on your Alpha-ESS equipment.
 
@@ -46,6 +54,7 @@ How to find SN and Check code for registration is described here: https://github
 **All product and company names or logos are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them or any associated subsidiaries! This personal project is maintained in spare time and has no business goal.**
 
 ## Changelog
+
 ### 2.0.0 (2023-12-02)
 
 -   (Gaspode) Breaking Change: Removed support of Closed API

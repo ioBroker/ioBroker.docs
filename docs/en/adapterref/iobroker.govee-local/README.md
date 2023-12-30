@@ -22,8 +22,19 @@ As I currently only have the H6051 lamp, this is the only device I can test with
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.2.1 (2023-12-24)
+
+-   repair onOff / all other actions Fixes: #65
+-   fix log spamming because of wildcard
+
+### 0.2.0 (2023-12-17)
+
+-   support controlling the color
+-   extended logging mode
+
 ### 0.1.2 (2023-09-06)
--  change icon path and resolution
+
+-   change icon path and resolution
 
 ### 0.1.1 (2023-08-21)
 

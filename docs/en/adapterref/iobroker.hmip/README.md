@@ -64,6 +64,16 @@ https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 https://github.com/ioBroker/AdapterRequests/issues/62
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.21.0 (2023-12-27)
+- (ApolloSK) Implement ENERGY_SENSORS_INTERFACE_CHANNEL
+- (mcm1957) Standard workflows and testing have been updated.
+- (mcm1957) Adapter requires nodejs 16 or newer now.
+- (mcm1957) Dependencies have been updated.
+
 ### 1.20.0 (2022-09-19)
 * IMPORTANT: Node.js 12.x is now required at minimum
 * Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
@@ -290,6 +300,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

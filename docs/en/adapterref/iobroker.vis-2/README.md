@@ -229,6 +229,20 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed issue that data of different widget is displayed in edit mode
+* (foxriver76) fixed issue that every state update is used for visibility calculation
+* (bluefox) migrated jQui select, jQui Radio steps widgets to react
+* (bluefox) All jQui widgets were migrated to react
+ 
+### 2.9.8 (2023-12-21)
+* (foxriver76) fixed bug that no labels are shown for a background
+* (foxriver76) prevent short flashing of widgets with visibility condition at a page load
+* (foxriver76) fixed issue on theme switch
+
+### 2.9.7 (2023-12-19)
+* (bluefox) Allowed the read only flag for Styled/Input
+
 ### 2.9.6 (2023-12-14)
 * (foxriver76) fixed issues with the BulkEditor
 * (foxriver76) scripts in HTML are now added to the DOM, instead of being executed in eval

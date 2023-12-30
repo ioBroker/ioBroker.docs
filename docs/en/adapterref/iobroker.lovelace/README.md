@@ -473,28 +473,23 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.0 (2023-12-18)
+* (Garfons) add an option to show users on login screen (off by default)
+
+### 4.0.12 (2023-12-15)
+* (Garfonso) fix lint errors
+
+### 4.0.11 (2023-12-15)
+* (Garfonso) updated dependencies
+
+### 4.0.10 (2023-12-15)
 * (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
 * (Garfonso) fix: browser console errors
-* (Garfonso) fix: sane error message if authentication failed
-* (Garfonso) added: user images on login screen
+* (Garfonso) fix: login & authorization
+* (Garfonso) added: user images & names on login screen
 
 ### 4.0.9 (2023-12-12)
 * (Garfonso) fixed: timestamp in legacy history data
-
-### 4.0.8 (2023-12-12)
-* (Garfonso) re-add legacy history for custom cards
-
-### 4.0.7 (2023-12-12)
-* (Garfonso) history should be working again.
-
-### 4.0.6 (2023-12-09)
-* (Garfonso) fixed: thermostat card for thermostats without mode / off state
-* (Garfonso) fixed: history and history graph missing for some stuff
-
-### 4.0.5 (2023-12-09)
-* (Garfonso) revert shopping list
-* (Garfonso) prevent invalid date error
 
 ## License
 

@@ -20,6 +20,73 @@ Siehe [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
 
+### v3.2.0-alpha.30 (2023-12-29)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.28 (2023-12-29)
+
+#### :bug: bug (1 changes)
+- fixed `[v3.2.0-alpha.27] Kalender funktioniert nicht richtig` (Module Calendar, [#2503](https://github.com/Zefau/ioBroker.jarvis/issues/2503))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.27 (2023-12-28)
+
+#### :star2: feature (2 changes)
+- added `v3: icon Auswahl` ([#902](https://github.com/Zefau/ioBroker.jarvis/issues/902))
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+#### :bug: bug (3 changes)
+- fixed `Dezimaltrennzeichen bei negativen Werten Punkt statt Komma` ([#2498](https://github.com/Zefau/ioBroker.jarvis/issues/2498))
+- fixed `[v3.2.0-alpha.26] Jarvis sehr langsam` ([#2500](https://github.com/Zefau/ioBroker.jarvis/issues/2500))
+- fixed `[v3.2.0-alpha.26] Geräteliste plötzlich leer` ([#2501](https://github.com/Zefau/ioBroker.jarvis/issues/2501))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.26 (2023-12-27)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` (core, binding, [#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+SyntaxError: Unexpected token t in JSON at position 142
+    at JSON.parse (<anonymous>)
+    at /home/runner/work/jarvis/jarvis/scripts/changelog.generate.js:21:56
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (/home/runner/work/jarvis/jarvis/scripts/changelog.generate.js:20:9)
+    at Module._compile (node:internal/modules/cjs/loader:1356:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1414:10)
+    at Module.load (node:internal/modules/cjs/loader:1197:32)
+    at Module._load (node:internal/modules/cjs/loader:1013:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)
+    at node:internal/main/run_main_module:28:49 [
+  `["PVTI_lAHOANtAK84AAVGnzgLeFb0","I_kwDODbcoCM56PNH4",[":bug: bug"],2493,"3.2.0-alpha.21 - TypeError: Cannot read properties of null (reading ts)"]`
+]
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.21 (2023-12-19)
+
+#### :bug: bug (1 changes)
+- fixed `v3.2.0-alpha.13 Konfiguration ohne Inhalte` ([#2488](https://github.com/Zefau/ioBroker.jarvis/issues/2488))
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` ([#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.20 (2023-12-18)
+
+#### :star2: feature (1 changes)
+- added `Refactor ioBroker.jarvis backend` ([#2490](https://github.com/Zefau/ioBroker.jarvis/issues/2490))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
 ### v3.2.0-alpha.13 (2023-12-09)
 
 #### :bug: bug (1 changes)

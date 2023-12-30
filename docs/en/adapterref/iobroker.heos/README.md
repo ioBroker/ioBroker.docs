@@ -149,6 +149,7 @@ Alternative you can use the script from Uhula: https://forum.iobroker.net/post/4
 * (withstu) add admin 5 UI support
 * (withstu) improve preferred IP handling
 * (withstu) improve undefined station handling #299
+* (withstu) reduce upnp requests
 
 ### 2.1.0 (2023-08-05)
 * (withstu) replace got with axios

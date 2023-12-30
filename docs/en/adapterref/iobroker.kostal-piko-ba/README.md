@@ -35,11 +35,14 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
+### 3.0.9 (23.12.2023)
+* (HombachC) year 2024 changes
+* (HombachC) several dependency updates 
 ### 3.0.8 (29.10.2023)
-* (HombachC) Bump axios to 1.6.0 because of vulnerability
-* (HombachC) Several dependency updates 
+* (HombachC) bump axios to 1.6.0 because of vulnerability
+* (HombachC) several dependency updates 
 ### 3.0.7 (01.10.2023)
-* (HombachC) Several dependency updates 
+* (HombachC) several dependency updates 
 ### 3.0.6 (27.08.2023)
 * (HombachC) improved error handling in case of offline inverters - centralized error handling 
 ### 3.0.5 (19.08.2023)
@@ -56,8 +59,8 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 3.0.0 (08.06.2023)
 * (HombachC) BREAKING: Dropped support for Node.js 14
 * (HombachC) changed config screen to admin 5 solution
-* (HombachC) Dropped Admin <5 support
-* (HombachC) Removed tests for node 14
+* (HombachC) dropped Admin <5 support
+* (HombachC) removed tests for node 14
 ### 2.5.2 (02.06.2023)
 * (HombachC) fixed a wording error
 * (HombachC) bumped dependencies, added tests for node.js 20
@@ -139,17 +142,21 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ### 1.2.1 (24.12.2021)
 * (HombachC) introduced rounding of battery temp
 ### 1.2.0 (16.12.2021)
-* (HombachC) dropped node.js 10 support; fixed vulnerability
+* (HombachC) dropped node.js 10 support
+* (HombachC) fixed vulnerability
 ### 1.1.13 (16.10.2021)
 * (HombachC) fixed vulnerability
 ### 1.1.12 (07.10.2021)
 * (GermanBlueFox) fixed icon link
 ### 1.1.7 (09.05.2021)
-* (HombachC) added tests for node.js 16; fixed vulnerability
+* (HombachC) added tests for node.js 16
+* (HombachC) fixed vulnerability
 ### 1.1.3 (23.11.2020)
-* (HombachC) added battery.Voltage; added additional error handler
+* (HombachC) added battery.Voltage
+* (HombachC) added additional error handler
 ### 1.1.1 (09.10.2020) stable
-* (HombachC) minor documentation tweaks; DC current accuracy changed to mA
+* (HombachC) minor documentation tweaks
+* (HombachC) DC current accuracy changed to mA
 ### 1.1.0 (09.10.2020)
 * (tobstare) added DC1-3 current, voltage and power
 * (HombachC) added battery.ChargeCycles
@@ -168,7 +175,7 @@ This adapter uses Sentry libraries to automatically report exceptions and code e
 ## License
 MIT License
 
-Copyright (c) 2020 - 2023 HombachC
+Copyright (c) 2020 - 2024 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

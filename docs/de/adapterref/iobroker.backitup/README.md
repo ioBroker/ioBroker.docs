@@ -538,6 +538,15 @@ _[Zurück zum Anfang](#top)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.9.10 (2023-12-29)
+* (simatec) Fix node-red restore
+* (simatec) auto install after restore for node-red added
+
+### 2.9.9 (2023-12-29)
+* (simatec) dependencies updated
+* (simatec) Default storage path for history adapter added
+* (simatec) Added check of the storage path from the History Adapter
+
 ### 2.9.8 (2023-12-14)
 * (simatec) Sentry fix
 

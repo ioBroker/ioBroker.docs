@@ -2,14 +2,14 @@
 
 # ioBroker.pid
 
-[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)](https://github.com/iobroker-community-adapters/ioBroker.pid/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)](https://github.com/mcm4iob/ioBroker.pid/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
-![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
+![GitHub repo size](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.pid)
-![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.pid/latest)
-![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.pid)
-![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.pid)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![GitHub issues](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 </br>
 **Version:** </br>
 [![NPM version](http://img.shields.io/npm/v/iobroker.pid.svg)](https://www.npmjs.com/package/iobroker.pid)
@@ -17,8 +17,8 @@
 ![Number of Installations](https://iobroker.live/badges/pid-installed.svg)
 </br>
 **Tests:** </br>
-[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml)
-[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml)
+[![Test and Release](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
 
 <!--
 ## Sentry

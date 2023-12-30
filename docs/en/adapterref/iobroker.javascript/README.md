@@ -15,6 +15,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [log - Gives out the message into log](#log---gives-out-the-message-into-log)
     - [exec - execute some OS command, like "cp file1 file2"](#exec---execute-some-os-command-like-cp-file1-file2)
     - [on - Subscribe on changes or updates of some state](#on---subscribe-on-changes-or-updates-of-some-state)
+    - [once](#once)
     - [subscribe - same as on](#subscribe---same-as-on)
     - [unsubscribe](#unsubscribe)
     - [getSubscriptions](#getsubscriptions)
@@ -22,6 +23,7 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [schedule](#schedule)
         - [Time schedule](#time-schedule)
         - [Astro-function](#astro-function)
+    - [scheduleById](#scheduleById)
     - [getSchedules](#getschedules)
     - [clearSchedule](#clearschedule)
     - [getAttr](#getattr)
@@ -225,10 +227,10 @@ let timer;
 createState('counter', 0);
 
 // On change
-on('adapter.0.device.channel.sensor', function (data) {
+on('adapter.0.device.channel.sensor', (data) => {
     // But not ofter than 30 seconds
     if (!timer) {
-        timer = setTimeout(function () {
+        timer = setTimeout(() => {
             timer = null;
         }, 30000);
 
@@ -395,6 +397,13 @@ Function `on` returns handler back. This handler can be used by unsubscribe.
 *Notice:* If you want to also get state deletions/expires as trigger, you need to use change with `ne` or `any` AND q with `*` as filter!
 
 *Notice:* from 4.3.2 it is possible to write a type of trigger as second parameter: `on('my.id.0', 'any', obj => console.log(obj.state.val));`
+
+### once
+Registers a one-time subscription which automatically unsubscribes after the first invocation. Same as [on](#on---subscribe-on-changes-or-updates-of-some-state), but just executed once.
+
+```js
+once(pattern, callback);
+```
 
 ### subscribe - same as **[on](#on---subscribe-on-changes-or-updates-of-some-state)**
 
@@ -595,6 +604,44 @@ on({ time: { hour: 12, minute: 30 }}, () => {
 on({ astro: 'sunset', shift: 10 }, () => {
     log((new Date()).toString() + " - 10 minutes after sunset!");
 });
+```
+
+## scheduleById
+```js
+scheduleById(id, callback);
+scheduleById(id, ack, callback);
+```
+
+Allows to create a schedule based on a state value. If the state value changes, the old schedule will be deleted and a new schedule is created automatically.
+
+Supported formats:
+
+- `[h]h:[m]m:ss` (e.g. `12:42:15`, `15:3:12`, `3:10:25`)
+- `[h]h:[m]m` (e.g. `13:37`, `9:40`)
+
+```js
+scheduleById('0_userdata.0.configurableTimeFormat', () => {
+    log('Executed!');
+});
+```
+
+Example: Create state and register schedule on changes:
+
+```js
+createState(
+    '0_userdata.0.myTime',
+    '00:00:00', // default value
+    {
+        type: 'string',
+        read: true,
+        write: true
+    },
+    () => {
+        scheduleById('0_userdata.0.myTime', () => {
+            log('Executed!');
+        });
+    }
+);
 ```
 
 ### getSchedules
@@ -1858,9 +1905,18 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 <!--
 	### **WORK IN PROGRESS**
 -->
+### 7.6.0 (2023-12-26)
+
+* (klein0r) Added schedules by state value (scheduleById)
+
+### 7.5.1 (2023-12-18)
+
+* (klein0r) Added option for calendar week to Blockly
+* (klein0r) Fixed inpaired round brackets of getMinutes (Blockly)
+
 ### 7.5.0 (2023-12-15)
 
-* (klein0r) Day of week as number always returns 1 (monday) to 7 (sunday)
+* (klein0r) Blockly: Day of week as number always returns 1 (monday) to 7 (sunday)
 * (klein0r) Fixed layout of script type selection
 * (klein0r) Fixed sendto with multiple instances (for callback / timeout handling)
 
@@ -1876,20 +1932,6 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 * (klein0r) Always set variables like isDaylightSaving
 * (klein0r) Added astro times as states
 * (klein0r) Fixed copied time blocks
-
-### 7.2.0 (2023-12-04)
-NodeJS 16.x is required
-
-* (klein0r) Added function to format time difference `formatTimeDiff`
-* (klein0r) Added blockly blocks for `formatTimeDiff`
-* (klein0r) messageToAsync was not working without options
-* (klein0r) Added timeout and custom options for sendToAsync
-* (klein0r) Fixed valid switch statement expressions
-* (klein0r) Added text replacement, cound and reverse blocks
-* (klein0r) Added list reverse block
-
-### 7.1.6 (2023-10-24)
-* (bluefox) Fixed pushover rules block
 
 ## License
 The MIT License (MIT)

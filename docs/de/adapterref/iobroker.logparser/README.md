@@ -144,6 +144,11 @@ Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.2.1 (2023-12-22)
+
+-   (ciddi89) Fixed: Visualization tables was not working correctly [#97](https://github.com/iobroker-community-adapters/ioBroker.logparser/issues/97)
+-   (ciddi89) Updated: Dependencies
+
 ### 2.2.0 (2023-05-28)
 
 -   (ciddi89) Dropped: Node v14.x support and added: Node v20.x support

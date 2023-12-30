@@ -58,9 +58,9 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.0 (2023-12-23)
 
-### **WORK IN PROGRESS**
-
+- #82 Delete Timer by Button
 - #74 Fixed Starttime
 - #71 Name of Echo in data tree
 - #75 Percent from 0% to 100%

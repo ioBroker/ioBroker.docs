@@ -71,6 +71,10 @@ To add a new camera, you must create a Pull Request on GitHub with the following
 -->
 
 ## Changelog
+### 2.0.5 (2023-12-19)
+* (bluefox) Minimal supported NodeJS version is 18
+* (bluefox) Corrected widgets
+
 ### 1.4.0 (2023-12-04)
 * (bluefox) Changed widget set name
 * (bluefox) Added the caching of images with time, size and rotation

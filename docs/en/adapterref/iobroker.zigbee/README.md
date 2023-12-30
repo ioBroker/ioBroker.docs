@@ -134,9 +134,38 @@ You can thank the authors by these links:
 -----------------------------------------------------------------------------------------------------
 
 ## Changelog
-### next
+### 1.9.5 (2023-12-29)
+* (arteck) update dependency
+* (arteck) min node 18.x.
+
+### 1.9.4 (2023-12-29)
+* (arteck) typo
+
+### 1.9.3 (2023-12-26)
+* (arteck) last zhc Version 16.x
+* (arteck) corr reboot in statecontroller
+
+### 1.9.2 (2023-12-25)
+* (arteck) gen states from exposes as function
+* (arteck) rebuild dev_names.json with state cleanup button
+
+### 1.9.1 (2023-12-23)
+* (arteck) corr TypeError: Cannot read properties of undefined (reading 'state')
+
+### 1.9.0 (2023-12-22)
+* (arteck) up to new zhc
+* (arteck) update dependency
+
+### 1.8.27 (2023-12-22)
+* (arteck) update dependency
+
+### 1.8.26 (2023-12-22)
+* (arteck) corr toZigbee message
+* (arteck) add deviceManager
+
+### 1.8.25 (2023-12-17)
+* zhc 16.x 
 * (arteck) corr group from exclude dialog
-* (arteck) legacy mode off
 
 ### 1.8.24 (2023-09-05)
 * (arteck) switch to exposes tab for some Aqara Devices [more infos](https://github.com/ioBroker/ioBroker.zigbee/wiki/Exposes-for-device-integration)
@@ -166,10 +195,14 @@ You can thank the authors by these links:
 ### 1.8.16 (2023-07-11)
 * (arteck) battery corr
 
-### 1.8.13 
+### 1.8.15 (2023-07-11)
+* (arteck) corr battery status
+
+### 1.8.13 (2023-07-09)
 * (arteck) ota corr
 * (arteck) devices are wrong with enum exposes
-* (arteck) select field for groups is larger
+* (arteck) select field for groups is larger 
+* (kirovilya) tuya.whitelabel corr
 
 ### 1.8.12 (2023-06-30)
 * (arteck) new Documentation (thx Stefan)
