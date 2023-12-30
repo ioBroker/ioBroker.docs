@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.srm/README.md
 title: без заголовка
-hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
+hash: pLlh+ui3ZfivVM1E7leCbSJ2rIsCIuyRLCK5yZuStuk=
 ---
 ![](../../../en/adapterref/iobroker.srm/admin/synology.png)
 
@@ -54,7 +54,7 @@ hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
 * ip6_addr: IP6-адрес устройства.
 * ip_addr: IP4-адрес устройства.
 * is_banned: Забанено ли устройство?
-* is_beamforming_on: включено ли формирование луча.
+* is_beamforming_on: включено ли формирование луча?
 * is_high_qos_on: включен ли высокий QOS?
 * is_low_qos_on: включен ли низкий QOS
 * is_manual_device_type: установлен ли тип устройства вручную.
@@ -83,6 +83,15 @@ hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
 *parent_node_id: идентификатор родительского узла.
 * signal_strength: мощность сигнала.
 
+## Wi-Fi
+Список сетей Wi-Fi и настройки. Настройки Wi-Fi можно изменять только каждые 3 секунды, чтобы избежать противоречивых изменений. Каждый узел сетки имеет следующие объекты:
+
+* Enable: Включить сеть Wi-Fi (чтение/запись)
+* Enable_client_isolation: Включить изоляцию клиента (чтение/запись).
+*ide_ssid: скрыть SSID WIFI (чтение/запись)
+* mac_filter: Включить MAC-фильтр (читать)
+* Schedule_enable: включить расписание для сети (чтение/запись)
+
 ### Часовой
 Что такое Sentry.io и что передается на серверы этой компании? `Sentry.io` — это сервис для разработчиков, позволяющий получить обзор ошибок в их приложениях. И именно это реализовано в этом адаптере.
 
@@ -91,6 +100,13 @@ hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
 <a name="Revision-History"></a>
 
 ## Changelog
+### 0.2.0 (2023-12-27)
+- Added new section for WIFI settings. Some settings can be changed via the adapter.
+- Account for different API versions
+
+### 0.1.6 (2023-12-26)
+- Account for different API versions
+
 ### 0.1.5 (2023-12-10)
 - minor bug fixes
 

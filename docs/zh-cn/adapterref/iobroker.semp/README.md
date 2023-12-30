@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
+hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
 ---
 ![标识](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -12,11 +12,18 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ![NPM版本](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 **如果您喜欢，请考虑捐赠：**
 
@@ -30,7 +37,7 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 甚至不需要测量单个设备的消耗。即使是估计值也足够了。
 
 ## 用户文档
-参见[纪录片](docu/docu_en.md)
+请参阅[纪录片](docu/docu_en.md)
 
 有关协议和用法的详细信息，请查看[SMA文档](docu/SMA/SEMP-11ZE3315-Specification-1.0.6.pdf)。
 
@@ -46,6 +53,14 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 * 如果您发现错误或希望有新功能，请在 [github](https://github.com/rg-engineering/ioBroker.semp/issues) 上创建问题
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.3.13 (2023-11-19)
+* (René) dependencies updated
+* (René) fix exceptions reported by sentry
 
 ### 1.3.12 (2023-10-29)
 * (René) some bug fixes based on changes in 1.3.11

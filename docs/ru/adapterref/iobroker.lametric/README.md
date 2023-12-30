@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
+hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
 ---
 ![Логотип](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.0.0 (или новее)
-- _LaMetric Time_ с прошивкой _2.3.8_ (_3.0.18_ на модели 2022 года) (или новее)
+- _LaMetric Time_ с прошивкой _2.3.8_ (_3.0.21_ на модели 2022 года) (или новее)
 
 [Журнал изменений прошивки](https://firmware.lametric.com) [Журнал изменений прошивки Time2](https://firmware.lametric.com/?product=time2)
 
@@ -59,6 +59,11 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.2 (2023-12-27)
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
+* (klein0r) Some devices don't have bluetooth low energy states (sa8)
+
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
@@ -81,15 +86,11 @@ NodeJS 16.x is required
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
-### 2.4.1 (2023-06-10)
-
-* (klein0r) Blockly bugfix
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

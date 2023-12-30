@@ -3,64 +3,84 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter。
-hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
+hash: SclekECAZk7zWde1J3Zn2lWDshugfnkuFsE+i/5n5xg=
 ---
 ![标识](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![安装数量](http://iobroker.live/badges/daswetter-stable.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![国家公共管理](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
 # IoBroker.DasWetter。
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**此适配器使用哨兵库自动向开发人员报告异常和代码错误。**有关更多详细信息和如何禁用错误报告的信息，请参阅[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
-**如果喜欢，请考虑捐款：**
+**如果您喜欢，请考虑捐赠：**
 
 [![贝宝](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-此适配器从 DasWetter.com 读取天气预报数据。
+该适配器从 DasWetter.com 读取天气预报数据。
 
-您需要在 DasWetter.com 上有一个帐户。在 https://www.daswetter.com/api/#/login 注册该帐户在某些条件下是免费的。
+您需要在 DasWetter.com 上拥有一个帐户。在 https://www.daswetter.com/api/#/login 注册 该帐户在某些条件下是免费的。
 
-在您的帐户中，您会发现四种不同数据模型的三个 URL：
+在您的帐户中，您将找到四种不同数据模型的三个 URL：
 
-* 未来 7 天的预报和当天的一般信息：高低、风（符号和描述）、日符号和天气状况
-* 5 天和每 3 小时的详细信息：一般每日信息如下：高峰、低谷、风、阵风、降水、相对湿度、
+* 未来 7 天的天气预报和当天的一般信息：最高和最低气压、风（符号和描述）、日期符号和天气状况
+* 5 天、每 3 小时的详细信息：一般每日信息如下：高峰、低谷、风、阵风、降水量、相对湿度、
 
-海平面气压、雪线、日出和日落、与月亮有关的日期、当地时间
+海平面气压、雪线、日出和日落、与月亮相关的日期、当地时间
 
-* 每小时预览一次详细数据（仅前 2 天，之后每 3 小时一次）
-* 5 天和每 3 小时的预测（JSON 格式）
+* 每小时预览一次详细数据（仅限前 2 天，之后每 3 小时一次）
+* 5天每3小时的预测（JSON格式）
 
-四种模型都已实现，至少应使用一种。
-在设置 URL 中必须使用 http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx。只需从您的帐户中复制完整的 URL。
+所有四种模型均已实现，并且至少应使用其中一种。
+在设置中，必须使用类似 http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx 的 URL。只需从您的帐户复制完整的 URL 即可。
 
 ## 提示
 ### Vis中使用的图标
-* 访问像 `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png` 这样的图标。
-* 在 galerie6 中，原始图标为 svg 格式。 Vis 应用程序可能无法将其可视化。所以转换后的 png 是可用的。只需使用选项“使用 png”
-* 在 galerie5 中，原始图标为 svg 和 png 格式。此外还有彩色和白色版本可供选择
+* 访问“http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png”等图标。
+* galerie6 中的原始图标为 svg 格式。 Vis 应用程序可能无法将其可视化。所以转换后的png是可用的。只需使用选项“使用 png”
+* galerie5 中的原始图标为 svg 和 png 格式。此外还有彩色和白色版本可供选择
 
 ### NextHours_Day1 中的“当前”：
-* DasWetter.com 不提供真实的当前天气值
-* 但有时提供当前时间的预报会很有帮助
-* 所以我们添加了“当前”，它只是相关预测小时值的副本
-* 请确保您每小时至少调用一次适配器，以确保“当前”更新良好
+* DasWetter.com 不提供当前的真实天气值
+* 但有时提供当前时间的天气预报会很有帮助
+* 因此我们添加了“当前”，它只是相关预测时间值的副本
+* 请确保每小时至少调用适配器一次，以确保“当前”已正确更新
 * 另请参阅 github 功能请求 [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
 ###路径4
-* 目前 DasWetter.com 发送的数据与他们自己的规范不同。
+* 目前 DasWetter.com 发送的数据与其自己的规范不同。
 
-现在我们已经实施了一个“自动修复”，将结构更改为记录的形状。
+现在我们已经实现了“自动修复”，可以将结构更改为记录的形状。
 
 ＃＃ 已知的问题
-* 如果您发现错误或想要新功能，请在 [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) 创建问题
+* 如果您发现错误或希望有新功能，请在 [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) 创建问题
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.1.12 (2023-12-24)
+* (René) see issue #217: additional log added to understand root cause, please copy&past log output into github issue
+
+### 3.1.11 (2023-11-18)
+* (René) update dependencies
+
+### 3.1.10 (2023-07-30)
+* (René) update dependencies
 
 ### 3.1.8 (2023-04-07)
 * (René) update dependencies
@@ -108,10 +128,10 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 * (René) dependencies updated
 
 ### 3.0.4 (2020-10-16)
-* (René) see issue #76: parse rain values as float instead integer 
+* (René) see issue #76: parse rain values as float instead integer
 
 ### 3.0.3 (2020-09-19)
-* (René) see issue #66: parse numbers added 
+* (René) see issue #66: parse numbers added
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -179,8 +199,6 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 * (bluefox) Added URLs to icons
 * (bluefox) Added the roles and the names to states
 * (bluefox) Icons moved to admin directory
-
-
 
 ### 2.0.0
 * (René) new datastructure !not compatible to version 1.x!

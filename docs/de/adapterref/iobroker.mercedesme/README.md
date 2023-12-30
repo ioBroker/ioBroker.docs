@@ -3,25 +3,62 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: cY1eX6hSp1hWxKXwnuZDfdFKSEYODDKpZkjW/vxTAZM=
+hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/TA2k/iobroker.mercedesme.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/TA2k/ioBroker.mercedesme/badge.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/mercedesme-installed.svg)
 ![NPM](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
 ![Travis-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
 
 # IoBroker.mercedesme
-## Mercedesme Adapter für ioBroker
-Mercedes me Adapter für ioBroker Unter befiehlt das Kommando auf klappen und den Knopf neben start zusätzliche wenn das Kommando verfügbar ist.
-Fernbedienung vor vorige Fernbedienung
+## Mercedesme-Adapter für ioBroker
+Mercedes me Adapter für ioBroker
+
+Unter commands das commando auf klappen und den button neben start drücken, wenn das command verfügbar ist.
+
+Remote sind vorgefertigte Remote-Befehle
 
 ## Changelog
 
-### 0.0.46
+### 0.1.6
+
+- fix login
+
+### 0.1.1
+
+- fix login
+
+### 0.0.56
+
+- fix vehicle list while login
+  
+### 0.0.55
+
+- fix refresh login
+### 0.0.55
+
+- fix refresh login
+  
+### 0.0.54
+
+- fix login
+  
+### 0.0.52
+
+- fix js-controller 3.3 warnings
+  
+### 0.0.51
+
+- improve handling of failing logins
+
+### 0.0.50
+
+- fix refresh token
+  
+### 0.0.47
 
 - fix new login
   
@@ -149,7 +186,7 @@ Fernbedienung vor vorige Fernbedienung
 
 MIT License
 
-Copyright (c) 2020 tombox
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

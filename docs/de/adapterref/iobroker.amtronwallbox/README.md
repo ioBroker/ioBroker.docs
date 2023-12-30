@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
+hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ---
 ![Logo](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
@@ -12,6 +12,13 @@ hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
@@ -48,6 +55,18 @@ Hinweis: Da die Boxen über unterschiedliche Schnittstellen verfügen, kann es s
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2023-12-23)
+* (René) just a sentry test
+
+### 0.2.12 (2023-12-23)
+* (René) see issue #162: ignore unused data from wallbox
+
+### 0.2.11 (2023-12-16)
+* (René) type of adapter changed back to "energy"
+
+### 0.2.9 (2023-12-16)
+* (René) dependencies updated
+
 ### 0.2.8 (2023-11-26)
 * (René) role of states overworked
 

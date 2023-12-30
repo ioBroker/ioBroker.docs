@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: uC4wzjCD/fuILI8+DqR2WZ+BmA0FdS2hn6Sfym9kRYw=
+hash: ymvDetbGBh3AUlmb3DQtZzbwNoNSNpssQOO9x42wHuY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -12,6 +12,13 @@ hash: uC4wzjCD/fuILI8+DqR2WZ+BmA0FdS2hn6Sfym9kRYw=
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.ebus.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
 # IoBroker.ebus
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)

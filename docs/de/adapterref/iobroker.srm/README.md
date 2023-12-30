@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.srm/README.md
 title: kein Titel
-hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
+hash: pLlh+ui3ZfivVM1E7leCbSJ2rIsCIuyRLCK5yZuStuk=
 ---
 ![](../../../en/adapterref/iobroker.srm/admin/synology.png)
 
@@ -83,6 +83,15 @@ Liste der Mesh-Knoten. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
 * parent_node_id: ID des übergeordneten Knotens
 * signal_strength: Signalstärke
 
+## W-lan
+Liste der WLAN-Netzwerke und -Einstellungen. Die WLAN-Einstellungen können nur alle 3 Sekunden geändert werden, um widersprüchliche Änderungen zu vermeiden. Jeder Mesh-Knoten verfügt über die folgenden Objekte:
+
+* aktivieren: WLAN-Netzwerk aktivieren (Lesen/Schreiben)
+* enable_client_isolation: Client-Isolation aktivieren (Lesen/Schreiben)
+* hide_ssid: WLAN-SSID ausblenden (Lesen/Schreiben)
+* mac_filter: MAC-Filter aktivieren (lesen)
+* Schedule_enable: Zeitplan für Netzwerk aktivieren (Lesen/Schreiben)
+
 ### Wachposten
 Was ist Sentry.io und was wird an die Server dieses Unternehmens gemeldet? `Sentry.io` ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter umgesetzt.
 
@@ -91,6 +100,13 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 <a name="Revision-History"></a>
 
 ## Changelog
+### 0.2.0 (2023-12-27)
+- Added new section for WIFI settings. Some settings can be changed via the adapter.
+- Account for different API versions
+
+### 0.1.6 (2023-12-26)
+- Account for different API versions
+
 ### 0.1.5 (2023-12-10)
 - minor bug fixes
 

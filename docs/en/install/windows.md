@@ -1,19 +1,11 @@
 ---
 title: Windows
-lastChanged: 22.10.2023
+lastChanged: 17.12.2023
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/windows.md
-hash: dOVnmfUvk92WED1e/JIqR9vgWDa4EEEKVpJpfv1r3f0=
+hash: aF01SHUGHK0w8Jdl1vGRDeJjY5w5usjQaYJCMdx1U5M=
 ---
-# Table of contents
-- [Check requirements](#check-requirements)
-- [The ioBroker Windows Installer](#the-iobroker-windows-installer )
-  - [ioBroker on Windows - does that even make sense?](#iobroker-on-windows---does-that-make-any-sense)
-  - [install ioBroker](#iobroker-install )
-- [Update](#update)
-- [Troubleshooting](#troubleshooting)
-
 # Check requirements
 Before installing, please check whether the system meets all the necessary [Installation requirements](./requirements.md).
 
@@ -90,8 +82,24 @@ After clicking “Next” we now see the summary of the planned actions:
 
 By clicking on “Finish” a web browser opens and ioBroker guides you through the first steps of the setup.
 
-# Update
-@@@ tbd @@@
+## Update
+!> Normally updates are completely problem-free and safe. However, as a precaution, you should back up your data before proceeding.
 
-# Troubleshooting
+* With the help of the Windows Installer, the installed Node.js version can be automatically updated to the recommended level.
+
+To do this, simply start the installer from the Windows start menu (“ioBroker Setup”) and follow the instructions.
+
+* Unfortunately, the js-controller cannot be updated with the Windows Installer. This must be done using the ioBroker Command Line. This can be started from the Windows start menu under "ioBroker automation platform" - "ioBroker Command Line".
+
+  The update is then carried out using the following commands:
+
+  ``iob stop``
+
+  ``iob update``
+
+  ``iob upgrade self``
+
+  ``iob start``
+
+## Troubleshooting
 @@@ tbd @@@

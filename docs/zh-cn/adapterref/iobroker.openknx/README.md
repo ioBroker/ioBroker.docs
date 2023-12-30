@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: 7xnhXfnBwwgtnMe7GROyNHRqInIXrkux8HNHPYAFU68=
+hash: dKoOo3kalWRIbcQsXY8ocKttL+JAe9RDqPcW7nkUzqQ=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -57,7 +57,7 @@ hash: 7xnhXfnBwwgtnMe7GROyNHRqInIXrkux8HNHPYAFU68=
 ### 启动时自动读取 iob 对象的读出值
 所有配置有自动读取标志的 IOB 对象都会在总线上请求与 IOB 同步。
 
-### 仅导入尚不存在的 GA 作为 IOB 对象
+### 不要覆盖现有的 IOB 对象
 如果选中，导入将跳过覆盖现有通信对象。
 
 ### 删除 ETS 导入文件中不存在的现有 IOB 对象
@@ -75,10 +75,10 @@ hash: 7xnhXfnBwwgtnMe7GROyNHRqInIXrkux8HNHPYAFU68=
 
 成功导入后，会显示一条消息，显示已识别的对象数量。
 错误对话框将显示导入期间出现的问题，并给出如何清理 ets 数据库的提示。
-可以在日志中找到更多信息。
+可以在日志中找到其他信息。
 将存储数据并重置适配器。
 
-ETS 配置提示：如果 GA 和使用该 GA 的通信对象具有不同的 DPT 子类型，则 ETS 似乎会使用编号最小的 DPT 类型。
+ETS 配置提示：如果 GA 和使用该 GA 的通信对象具有不同的 DPT 子类型，则 ETS 似乎会使用编号最低的 DPT 类型。
 在这种情况下，手动确保所有元素都使用相同的所需数据类型。
 无法使用此适配器导入没有 DPT 基本类型的 GA。 ETS4 项目必须转换为 ETS5 或更高版本，并且 DPT 必须设置为 GA。
 
@@ -166,7 +166,7 @@ KNX 设备可以拥有 ga，用于属于命令 ga 的状态反馈。某些应用
 |应用程序问题确认|没有确认|没有确认|
 
 ### Node Red 复杂数据类型示例
-创建一个连接到 ioBroker out 节点的功能节点，该节点与 DPT2 的 KNX 对象连接。
+创建一个连接到 ioBroker out 节点的功能节点，该节点与 DPT-2 的 KNX 对象连接。
 msg.payload = {"优先级":1,"数据":0};返回消息；
 
 # 日志级别
@@ -187,12 +187,12 @@ ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STAT
     "type": "state",
     "common": {
         // values here can be interpreted by iobroker
-        "desc": "Basetype: 1-bit value, Subtype: switch", // informative, from dpt
+        "desc": "Basetype: 1-bit value, Subtype: switch", // informative, from DPT
         "name": "Aussen Melder Licht schalten", // informative description from ets export
         "read": true, // default set, if false incoming bus values are not updating the object
         "role": "state", // default state, derieved from DPT
-        "type": "boolean", // boolean, number, string, object, derieved from dpt
-        "unit": "", // derived from dpt
+        "type": "boolean", // boolean, number, string, object, derieved from DPT
+        "unit": "", // derived from DPT
         "write": true // default true, if set change on object is triggering knx write, succ. write sets then ack flag to true
     },
     "native": {
@@ -200,7 +200,7 @@ ioBroker 状态角色 (https://github.com/ioBroker/ioBroker/blob/master/doc/STAT
         "address": "0/1/2", // knx group address
         "answer_groupValueResponse": false, // default false, if set to true adapter responds with value on GroupValue_Read
         "autoread": true, // default true for non trigger signals , adapter sends a GroupValue_read on start to sync its states
-        "bitlength": 1, // size ob knx data, derived from dpt
+        "bitlength": 1, // size ob knx data, derived from DPT
         "dpt": "DPT1.001", // DPT
         "encoding": {
             // values of the interface if it is an enum DPT type
@@ -253,9 +253,9 @@ setState(myState, { val: false, ack: false, q: 0x10 });
 GroupValue_Read 注释不适用于 javascript 适配器。请改用qualityAsNumber 值0x10。
 
 ### 所有 DPT 的描述
-| KNX DPT | JavaScript 数据类型 |特殊值|值范围|备注 |
+| KNX DPT | javascript 数据类型 |特殊值|值范围|备注 |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| DPT-1 |数字枚举 | |假，真| |
+| DPT-1 |数字枚举 | | 1 位假，真 | |
 | DPT-2 |对象| {“优先级”：1 位，“数据”：1 位} | - | |
 | DPT-3 |对象| {“decr_incr”：1 位，“数据”：2 位} | - | |
 | DPT-18 |对象| {"save_recall":0,"场景编号":0} | - |数据点类型 DPT_SceneControl 从自动读取中删除 |
@@ -282,19 +282,21 @@ GroupValue_Read 注释不适用于 javascript 适配器。请改用qualityAsNumb
 | DPT-10 |日期对象的编号 | | - | |
 | DPT-11 |日期对象的编号 | | - | |
 | DPT-19 |日期对象的编号 | | - | |
-| DPT-26 |字符串|例如00010203..| - | autread 未读取数据点类型 DPT_SceneInfo |
+| DPT-26 |字符串 |例如00010203..| - | autread 无法读取数据点类型 DPT_SceneInfo |
+| DPT-28 |字符串 | |变量| Unicode UTF-8 编码字符串 |
+| DPT-29 |字符串|例如“123456789000”| 8 字节有符号值 |该数值在 IOB 中的数据类型是 string |
 | DPT-238 |字符串|例如00010203..| - | autread 未读取 DPT_SceneConfig |
 |休息|字符串|例如00010203..| - | |
 
 仅与基于 KNX 时间的数据类型交换时间和日期信息，例如DPT-19 具有不支持的信号质量字段。
 
-对象发送和接收值的类型为布尔值 DPT1)、数字（缩放或未缩放）、字符串。
-DPT 2 '期望对象 {"priority":0,"data":1}' 接收提供相同类型的字符串化对象。
+对象发送和接收值的类型为布尔值 DPT-1)、数字（缩放或未缩放）、字符串。
+DPT-2“期望对象 {"priority":0,"data":1}' 接收提供相同类型的字符串化对象。
 其他联合 DPT 也有类似的对象表示法。
-DPT19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳导出的 KNX ko 字段未实现，例如。质量标志。
+DPT-19 需要来自日期对象的数字，Iobroker 无法处理对象，无法从时间戳导出的 KNX ko 字段未实现，例如。质量标志。
 
 日期和时间 DPT（DPT10、DPT11） 请记住，Javascript 和 KNX 对于时间和日期具有非常不同的基本类型。
-DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为完全不同的 JS Date“Mon, Jul 8th 12:34:56”。被警告！ DPT11 是日期 (dd/mm/yyyy)：这同样适用于 DPT11，您需要忽略时间部分。
+DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可用，因此您将获取/设置常规 Date Js 对象，但请记住您需要忽略日期、月份和年份。转换为“Mon, Jul 1st 12:34:56”的完全相同的数据报将在一周后评估为完全不同的 JS Date“Mon, Jul 8th 12:34:56”。被警告！ DPT11 是日期 (dd/mm/yyyy)：这同样适用于 DPT-11，您需要忽略时间部分。
 
 （DPT 的 KNX 规范 https://www.knx.org/wAssets/docs/downloads/Certification/Interworking-Datapoint-types/03_07_02-Datapoint-Types-v02.02.01-AS.pdf）
 
@@ -303,7 +305,7 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 当总线上接收到写帧时，通信对象被触发。
 
 ### 读取组值
-发送组值读取可以通过写入带有注释的通信对象来触发。详情请参见API调用部分。
+发送组值读取可以通过写入带有注释的通信对象来触发。具体请参见API调用部分。
 接收（如果已配置）将触发实际通信对象值的组值响应（限制：此时写入组值），见下文。
 
 ### 组值响应
@@ -331,6 +333,7 @@ Openknx 使用 Sentry.io 进行应用程序监控和错误跟踪。
 Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总线负载。
 
 ＃ 特征
+- 与 ETS 5 和 ETS 6 兼容
 - 稳定可靠的knx堆栈
 - 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读取和写入
 - 支持KNX组值读取和组值写入以及组值响应
@@ -361,19 +364,37 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
   * .... -> this is used by script to generate a new entry, copy after a new release
+  * npm run release
   * npm run release major/minor/patch major.minor.patch
 -->
+### 0.7.0 (2023-12-18)
+
+-   feature: adding support for DPT-28 and DPT-29
+-   for gas appearing in multiple objects severity lifted to warning
+-   feature: some more verbose failure outputs
+-   bugfix: do not report errors resulting from bad bus data to sentry #433
+-   bugfix: do not forward invalid bus data to iob object tree
+-   cleanup of DTP library
+
+### 0.6.3 (2023-12-10)
+
+-   stable release
+
+### 0.6.3 (2023-12-10)
+
+### 0.6.2 (2023-12-09)
+
 ### 0.6.1 (2023-12-02)
 
 -   feature: add KNX bus load measurement
--   feature: remove standard autoread enable for some DPT1 datatypes which are triggers
+-   feature: remove standard autoread enable for some DPT-1 datatypes which are triggers
 -   bugfix: in error logging
 
 ### 0.5.3 (2023-03-17)
 
 -   savek-cc bugfix: Fix handling of addinfo_length - used to crash if addinfo was actually supplied #338
 -   bugfix: admin menu scroll small screen #339
--   feature: add dpt 9.009
+-   feature: add DTP-9.009
 
 ### 0.5.2 (2023-01-02)
 
@@ -387,11 +408,11 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 
 ### 0.4.5 (2022-12-19)
 
--   bugfix in knx lib: make dpt2 not an enum datatype
+-   bugfix in knx lib: make DPT-2 not an enum datatype
 
 ### 0.4.2 (2022-12-18)
 
--   bugfix: swap value for dpt 1 for enums
+-   bugfix: swap value for DPT-1 for enums
 
 ### 0.4.1 (2022-12-17)
 
@@ -415,7 +436,7 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 
 ### 0.2.7 (2022-08-26)
 
--   bugfix: fix issue with writing to dpt 19 object
+-   bugfix: fix issue with writing to DPT-19 object
 
 ### 0.2.6 (2022-07-09)
 
@@ -520,7 +541,7 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 ### 0.1.12 (2021-12-30)
 
 -   feature: improve alias status search algorithm, add units
--   feature: notify user after import if no dpt subtype is set
+-   feature: notify user after import if no DPT subtype is set
 -   fix: library did not allow to write possible 0 values to certain dpts
 -   fix: admin dialog ui fixes, better presentation of some warnings
 
@@ -530,12 +551,12 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 -   feature: sends GroupValue_Response on GroupValue_Read if configured
 -   feature: admin dialog with option to generate aliases (beta)
 -   feature: admin dialog reactivates after adapter reset
--   feature: add support for DPT 7.600
+-   feature: add support for DPT-7.600
 -   feature: show logs of knx library
 -   fix: filter out logs with device address bus interactions
 -   fix: filter ga names that are forbidden in IOB
 -   fix: reply with GroupValue_Response on request, not with GroupValue_Write
--   fix: remove more scene dpts from autoread
+-   fix: remove more scene DPTs from autoread
 
 ### 0.1.10 (2021-12-24)
 
@@ -585,7 +606,7 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 
 ### 0.0.17
 
--   (boellner) feature: raw value handling, can now write and receive ga of unsupported dpt
+-   (boellner) feature: raw value handling, can now write and receive ga of unsupported DPT
 -   (boellner) bugfix: setting onlyAddNewObjects fixed
 -   (boellner) feature: adapter restart after import
 

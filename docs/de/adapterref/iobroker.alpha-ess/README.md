@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: u2Z9jY1hAZczxTZq96CsSArFUMq1BItGiiqfEYw3XRI=
+hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -15,6 +15,13 @@ hash: u2Z9jY1hAZczxTZq96CsSArFUMq1BItGiiqfEYw3XRI=
 
 # IoBroker.alpha-ess
 ## Alpha-ess-Adapter für ioBroker
+---
+
+### Aufgrund der aktuellen Umstände beachten Sie bitte!
+[Ankündigung einer Schnittstellenbeschränkung](https://github.com/alphaess-developer/alphacloud_open_api/issues/54)
+
+---
+
 Dieser Adapter meldet sich bei der Web-API von [Alpha-ESS](https://www.alphaess.com/) an und ruft Informationen für Ihr Alpha-ESS-Gerät ab.\ Abhängig von Ihrem Alpha-ESS-Produkt ist es möglich, Echtzeitdaten und Konfigurationsdaten für Ihr Gerät abzurufen. Welche Datenpunkte von der API zurückgegeben werden, hängt von Ihrer Alpha-ESS-Ausrüstung ab.
 
 Dieser Adapter verwendet die Alpha-ESS Open API, eine offizielle und dokumentierte API für Alpha-ESS-Geräte.
@@ -48,6 +55,7 @@ Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier be
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
+
 ### 2.0.0 (2023-12-02)
 
 -   (Gaspode) Breaking Change: Removed support of Closed API

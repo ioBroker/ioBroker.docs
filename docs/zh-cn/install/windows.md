@@ -1,19 +1,11 @@
 ---
 title: 视窗
-lastChanged: 22.10.2023
+lastChanged: 17.12.2023
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/windows.md
-hash: dOVnmfUvk92WED1e/JIqR9vgWDa4EEEKVpJpfv1r3f0=
+hash: aF01SHUGHK0w8Jdl1vGRDeJjY5w5usjQaYJCMdx1U5M=
 ---
-＃ 目录
-- [检查要求](#check-requirements)
-- [ioBroker Windows 安装程序](#the-iobroker-windows-installer )
-  - [Windows 上的 ioBroker - 这有意义吗？](#iobroker-on-windows---这有任何意义吗)
-  - [安装 ioBroker](#iobroker-install )
-- [更新](#更新)
-- [疑难解答](#疑难解答)
-
 # 检查需求
 安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
 
@@ -90,8 +82,24 @@ Windows 特别适合在现有 Windows PC 上快速试用 ioBroker。
 
 单击“完成”，将打开 Web 浏览器，ioBroker 将引导您完成设置的第一步。
 
-＃ 更新
-@@@待定@@@
+＃＃ 更新
+!> 通常更新是完全没有问题且安全的。但为以防万一，在执行之前应进行数据备份。
 
-＃ 故障排除
+* 在Windows Installer的帮助下，安装的Node.js版本可以自动更新到推荐的级别。
+
+为此，只需从 Windows 开始菜单（“ioBroker 安装程序”）启动安装程序并按照说明进行操作即可。
+
+* 不幸的是，js-controller 无法使用 Windows Installer 进行更新。这必须使用 ioBroker 命令行来完成。这可以从 Windows 开始菜单中的“ioBroker 自动化平台”-“ioBroker 命令行”启动。
+
+  然后使用以下命令执行更新：
+
+  ``iob stop``
+
+  ``iob update``
+
+  ``iob upgrade self``
+
+  ``iob start``
+
+＃＃ 故障排除
 @@@待定@@@

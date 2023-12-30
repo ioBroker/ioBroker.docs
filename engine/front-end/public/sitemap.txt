@@ -1181,6 +1181,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.tado/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tahoma/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tankerkoenig/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.tapo/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.tedee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.telegram/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.telegram-menu/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.terminal/README.md
@@ -1276,6 +1277,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherflow_udp/README
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.web/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.web-speedy/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.webcal/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.weblogin/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
@@ -1310,6 +1312,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.yeelight-2/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zehnder-cloud/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.zendure-solarflow/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.zoe2/README.md
@@ -1829,6 +1832,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.tado/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tahoma/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tankerkoenig/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.tapo/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.tedee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.telegram/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.telegram-menu/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.terminal/README.md
@@ -1924,6 +1928,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherflow_udp/README
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.web/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.web-speedy/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.webcal/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.weblogin/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
@@ -1958,6 +1963,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.yeelight-2/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zehnder-cloud/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.zendure-solarflow/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.zoe2/README.md
@@ -2477,6 +2483,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tado/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tahoma/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tankerkoenig/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tapo/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.tedee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.telegram/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.telegram-menu/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.terminal/README.md
@@ -2572,6 +2579,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherflow_udp/README
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.web/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.web-speedy/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webcal/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.weblogin/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
@@ -2606,6 +2614,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.yeelight-2/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zehnder-cloud/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zendure-solarflow/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.zoe2/README.md
@@ -3125,6 +3134,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tado/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tahoma/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tankerkoenig/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tapo/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.tedee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.telegram/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.telegram-menu/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.terminal/README.md
@@ -3220,6 +3230,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherflow_udp/REA
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weatherunderground/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.web/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.web-speedy/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webcal/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.weblogin/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webui/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.webuntis/readme/readme.de.md
@@ -3254,6 +3265,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yeelight-2/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.youtube/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.yr/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zehnder-cloud/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zendure-solarflow/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zigbee/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zigbee2mqtt/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.zoe2/README.md

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: QmDfVWaIy44WxGFmTcd/GwTG6uc37FjQVCG5rO/J5Lc=
+hash: rsVSg0q9VqpPwsOeMCOHkIOLqAcuMw1pvVW+yrs8z/c=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -41,7 +41,7 @@ Mögliche Typen:
 
 - „Panel“ – Registerkarte mit Elementen
   - „Symbol“ – die Registerkarte kann ein Symbol (base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) enthalten.
-  - `label` – Beschriftung der Registerkarte
+  - „label“ – Beschriftung der Registerkarte
   - `items` – Objekt `{"attr1": {}, "attr2": {}}...`
   - `collapsable` – nur möglich, wenn nicht Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - „Farbe“ – Farbe des reduzierbaren Headers „primär“ oder „sekundär“ oder nichts
@@ -126,20 +126,29 @@ Mögliche Typen:
 ```
 
 - „objectId“ – Objekt-ID: mit Name, Farbe und Symbol anzeigen
-    - „Typen“ – Gewünschter Typ: „Kanal“, „Gerät“, ... (hat standardmäßig nur „Status“). Es ist singulär, da „type“ bereits belegt ist.
+    - „Typen“ – Gewünschter Typ: „Kanal“, „Gerät“, ... (hat standardmäßig nur „Status“). Es ist Plural, da „Typ“ bereits besetzt ist.
     - „root“ – [optional] Zeigt nur dieses Root-Objekt und seine untergeordneten Objekte an
-    - „customFilter“ – [optional] Kann nicht zusammen mit „Type“-Einstellungen verwendet werden. Beispiele
-
-`{common: {custom: true}}` – nur Objekte mit einigen benutzerdefinierten Einstellungen anzeigen `{common: {custom: 'sql.0'}}` – nur Objekte mit benutzerdefinierten SQL.0-Einstellungen anzeigen (nur der spezifischen Instanz) `{common: {custom: '_dataSources'}}` – nur Objekte von Adaptern anzeigen §§SSSSS_5§ § oder `sql` oder `history` `{common: {custom: 'adapterName.'}}` – nur Objekte der benutzerdefinierten Einstellungen eines bestimmten Adapters anzeigen (alle Instanzen) `{type: 'channel'}` – nur Kanäle anzeigen `{type: ['channel', 'device']}` – nur Kanäle anzeigen und Geräte `{common: {type: 'number'}` - nur Zustände vom Typ 'Nummer' anzeigen `{common: {type: ['number', 'string']}` - nur Zustände vom Typ 'Nummer und Zeichenkette' anzeigen `{common: {role: 'switch']}` - nur Zustände mit Rollen ab Schalter anzeigen `{common: {role: ['switch', 'button]}` - Zeige nur Staaten mit Rollen beginnend mit `switch` und `button`
+    - „customFilter“ – [optional] Kann nicht zusammen mit „Type“-Einstellungen verwendet werden. Es handelt sich um ein Objekt und nicht um einen JSON-String. Beispiele
+       - „{common: {custom: true}}“ – zeigt nur Objekte mit einigen benutzerdefinierten Einstellungen an
+       - `{common: {custom: 'sql.0'}}` – zeigt nur Objekte mit benutzerdefinierten SQL.0-Einstellungen (nur der spezifischen Instanz)
+       - `{common: {custom: '_dataSources'}}` – zeigt nur Objekte der Adapter `influxdb` oder `sql` oder `history` an
+       - `{common: {custom: 'adapterName.'}}` – zeigt nur Objekte der benutzerdefinierten Einstellungen eines bestimmten Adapters (alle Instanzen)
+       - `{type: 'channel'}` – nur Kanäle anzeigen
+       - `{type: ['channel', 'device']}` – zeigt nur Kanäle und Geräte an
+       - `{common: {type: 'number'}` – zeigt nur Zustände vom Typ 'number' an
+       - `{common: {type: ['number', 'string']}` – zeigt nur Zustände vom Typ 'Nummer und String' an
+       - `{common: {role: 'switch']}` – zeigt nur Zustände mit Rollen ab switch an
+       - „{common: {role: ['switch', 'button]}` – zeigt nur Zustände mit Rollen an, die mit „switch“ und „button“ beginnen
+    - `filterFunc` – [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'`
 
 - „Passwort“ – Passwortfeld
 
-Dieser Feldtyp hat lediglich Auswirkungen auf die Benutzeroberfläche.
+Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel in der io-package.json unter [nativeEncrypted](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
 Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter als `admin` und `cloud` bereitgestellt wird, indem Sie sie zu `protectedNative` in der Datei `io-package.json` hinzufügen.
 
     - „Wiederholen“ – Wiederholungspasswort muss mit Passwort verglichen werden
-    - „sichtbar“ – wahr, wenn die Anzeige des Passworts durch Umschalten der Ansichtsschaltfläche zulässig ist
+    - „sichtbar“ – wahr, wenn die Anzeige des Passworts durch Umschalten der Ansichtsschaltfläche erlaubt ist (nur für ein neues Passwort bei der Eingabe)
     - „maxLength“ – maximale Länge des Texts im Feld
 
 - „Instanz“.
@@ -156,7 +165,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
 - „lebendig“ – zeigt nur an, ob die Instanz aktiv ist und kann in „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
 
-  Nur Text: Instanz wird ausgeführt, Instanz wird nicht ausgeführt
+  Nur Text: Instanz läuft, Instanz läuft nicht
 
     - „Instanz“ – prüfen Sie, ob die Instanz aktiv ist. Wenn nicht definiert, wird die aktuelle Instanz verwendet. Sie können im Text das Muster „${data.number}“ verwenden.
     - „textAlive“ – Standardtext ist „Instance %s is alive“, wobei %s durch „ADAPTER.0“ ersetzt wird.
@@ -382,7 +391,7 @@ adapter.on('message', obj => {
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „maxLength“ – maximale Länge des Texts im Feld
 
-Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
+Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
 
 - `textSendTo`
 

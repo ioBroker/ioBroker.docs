@@ -3,37 +3,37 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: T3lRBLIggbW/x5Eu3EnCKSmX6yzwBn4JHckOhGrlWgk=
+hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
-![Лицензия GitHub](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)
+![Лицензия GitHub](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.pid.svg)
-![Размер репозитория GitHub](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
-![Активность фиксации GitHub](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.pid)
-![Коммиты GitHub с момента последней версии (по дате)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.pid/latest)
-![Последний коммит на GitHub](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.pid)
-![Проблемы с GitHub](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.pid)
-![версия NPM](http://img.shields.io/npm/v/iobroker.pid.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/pid-stable.svg)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
+![GitHub фиксирует с момента последнего выпуска (по дате)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![Проблемы с GitHub](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.pid.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/pid-stable.svg)
 ![Количество установок](https://iobroker.live/badges/pid-installed.svg)
 
 # IoBroker.pid
-[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск] (https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL] (https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml)
+[![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Версия:** </br> </br> **Тесты:** </br> [![Тестирование и выпуск](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
 
 <!--
 
-## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+## Sentry **Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 -->
-## Адаптер PID для ioBroker
-Этот адаптер обеспечивает настраиваемый ПИД-регулятор.
+## PID-адаптер для ioBroker
+Этот адаптер оснащен настраиваемым ПИД-регулятором.
 
 ## Общая информация
 Этот адаптер обеспечивает функциональность ПИД-регулятора.
 
-С практической точки зрения, ПИД-регулятор автоматически рассчитывает значение коррекции для системы на основе фактического значения и заданного значения. Поведение управляется параметрами. Повседневным примером является круиз-контроль в автомобиле, где подъем на холм снижает скорость, если применяется постоянная мощность двигателя. Алгоритм ПИД-регулятора восстанавливает измеренную скорость до желаемой скорости с минимальной задержкой и выбросом за счет контролируемого увеличения выходной мощности двигателя. [(с) Википедия]
+На практике ПИД-регулятор автоматически рассчитывает значение коррекции для системы на основе фактического значения и заданного значения. Поведение контролируется параметрами. Повседневным примером является круиз-контроль в автомобиле, где при подъеме на холм скорость снижается, если использовать постоянную мощность двигателя. ПИД-алгоритм контроллера восстанавливает измеренную скорость до желаемой скорости с минимальной задержкой и превышением за счет контролируемого увеличения выходной мощности двигателя. [(с) Википедия]
 
-В пределах одного экземпляра адаптера может быть настроено более одного контроллера. Адаптер поддерживает настройку параметров (компоненты P, I, D) и времени цикла, используемого для расчета. Кроме того, вычисление может быть приостановлено и возобновлено, а контроллер вообще может быть сброшен. В качестве удобного сервера можно включить ручной режим для непосредственной установки вывода. Вывод может быть ограничен минимальным/максимальным значением и содержать фиксированное смещение.
+В одном экземпляре адаптера может быть настроено более одного контроллера. Адаптер поддерживает настройку параметров (компоненты P, I, D) и времени цикла, используемого для расчета. Кроме того, расчет можно приостановить и возобновить, а контроллер можно вообще сбросить. В качестве удобного сервера можно включить ручной режим, чтобы напрямую настроить выход. Вывод может быть ограничен минимальным/максимальным значением и содержать исправленное смещение.
 
 Все соответствующие значения, включая внутренние данные, доступны в виде состояний для целей диагностики.
 
@@ -41,12 +41,12 @@ hash: T3lRBLIggbW/x5Eu3EnCKSmX6yzwBn4JHckOhGrlWgk=
 [английская документация](docs/en/pid_en.md)<br> [немецкая документация](docs/de/pid_de.md)
 
 ## Кредиты
-Предоставление этого адаптера было бы невозможно без большой работы @Philmod (https://github.com/Philmod), который разработал node-pid-controller (https://github.com/Philmod/node-pid-controller). .
+Предоставление этого адаптера было бы невозможно без великой работы @Philmod (https://github.com/Philmod), который разработал node-pid-controller (https://github.com/Philmod/node-pid-controller). .
 
-## Как сообщать о проблемах и запросах функций
-Пожалуйста, используйте для этого задачи GitHub.
+## Как сообщить о проблемах и запросах функций
+Пожалуйста, используйте для этого выпуски GitHub.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Режим эксперта -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не от администратора, потому что администратор обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (mcm57@gmx.at). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог «log» в каталоге установки ioBroker, а не из администратора, потому что администратор обрезает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (mcm57@gmx.at). Пожалуйста, добавьте ссылку на соответствующую проблему GitHub, А также опишите, что я вижу в журнале и в какое время.
 "title": "lblCtrlInvert",
 
 ## Changelog

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: QmDfVWaIy44WxGFmTcd/GwTG6uc37FjQVCG5rO/J5Lc=
+hash: rsVSg0q9VqpPwsOeMCOHkIOLqAcuMw1pvVW+yrs8z/c=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -50,7 +50,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `maxLength` - 字段中文本的最大长度
   - `readOnly` - 只读字段
   - `trim` - 默认为 true。如果不需要修剪，请将此属性设置为“false”。
-  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
+  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更多。
   - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
 
 - `数字`
@@ -126,11 +126,20 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 ```
 
 - `objectId` - 对象 ID：显示名称、颜色和图标
-    - `types` - 所需类型：`channel`、`device`、...（默认情况下只有 `state`）。它是单数，因为“type”已经被占用。
+    - `types` - 所需类型：`channel`、`device`、...（默认情况下只有 `state`）。它是复数，因为“type”已经被占用。
     - `root` - [可选] 仅显示此根对象及其子对象
-    - `customFilter` - [可选] 不能与 `type` 设置一起使用。例子
-
-`{common: {custom: true}}` - 仅显示具有某些自定义设置的对象 `{common: {custom: 'sql.0'}}` - 仅显示具有 sql.0 自定义设置的对象（仅特定实例） `{common: {custom: '_dataSources'}}` - 仅显示适配器对象 §§SSSSS_5§ § 或 `sql` 或 `history` `{common: {custom: 'adapterName.'}}` - 仅显示特定适配器（所有实例）的自定义设置的对象 `{type: 'channel'}` - 仅显示通道 `{type: ['channel', 'device']}` - 仅显示通道和设备 `{common: {type: 'number'}` - 仅显示“数字”类型的状态 `{common: {type: ['number', 'string']}` - 仅显示“数字和字符串”类型的状态 `{common: {role: 'switch']}` - 仅显示从开关开始的角色状态 `{common: {role: ['switch', 'button]}` -仅显示角色从 `switch` 和 `button` 开始的州
+    - `customFilter` - [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。例子
+       - `{common: {custom: true}}` - 仅显示具有某些自定义设置的对象
+       - `{common: {custom: 'sql.0'}}` - 仅显示具有 sql.0 自定义设置的对象（仅特定实例）
+       - `{common: {custom: '_dataSources'}}` - 仅显示适配器`influxdb`或`sql`或`history`的对象
+       - `{common: {custom: 'adapterName.'}}` - 仅显示特定适配器的自定义设置的对象（所有实例）
+       - `{type: 'channel'}` - 仅显示频道
+       - `{type: ['channel', 'device']}` - 仅显示频道和设备
+       - `{common: {type: 'number'}` - 仅显示“number”类型的状态
+       - `{common: {type: ['number', 'string']}` - 仅显示“number 和 string”类型的状态
+       - `{common: {role: 'switch']}` - 仅显示角色从 switch 开始的状态
+       - `{common: {role: ['switch', 'button]}` - 仅显示角色从 `switch` 和 `button` 开始的状态
+    - `filterFunc` - [可选] 不能与 `type` 设置一起使用。它是一个将为每个对象调用的函数，并且必须返回 true 或 false。示例： `obj.common.type === 'number'`
 
 - `密码` - 密码字段
 
@@ -139,7 +148,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
-    - `visible` - 如果允许通过切换视图按钮查看密码，则为 true
+    - `visible` - 如果允许通过切换视图按钮查看密码，则为 true（仅适用于输入时的新密码）
     - `maxLength` - 字段中文本的最大长度
 
 - `实例`
@@ -414,7 +423,7 @@ adapter.on('message', obj => {
   确定当前位置并使用`system.config`坐标（如果不可能以“纬度，经度”形式存在）
 
   - `divider` - 纬度和经度之间的分隔符。默认“,”（如果未定义 longitudeName 和 latitudeName，则使用）
-  - `autoInit` - 如果为空，则用当前坐标初始化字段
+  - `autoInit` - 如果为空，则使用当前坐标初始化字段
   - `longitudeName` - 如果定义，经度将存储在此属性中，分隔符将被忽略
   - `latitudeName` - 如果定义，纬度将存储在此属性中，分隔符将被忽略
   - `useSystemName` - 如果定义，将显示“使用系统设置”复选框，并从 system.config 读取纬度、经度，并将布尔值保存到给定名称
@@ -431,7 +440,7 @@ adapter.on('message', obj => {
   - `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
   - `title` - 许可证对话框的标题
   - `agreeText` - 同意按钮的文本
-  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，同意的按钮将被启用。
+  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，则将启用同意的按钮。
 
 - `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要原生的 `license` 和 `useLicenseManager` 属性。
   - `uuid` - 检查 UUID
@@ -735,7 +744,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 
 如果`alive`状态发生变化，则必须重新更新、验证、禁用、隐藏所有字段。
 
-适配器设置中的 JS 函数中可以使用以下变量：
+适配器设置中的 JS 函数可以使用以下变量：
 
 - `data` - 此实例或表中当前行的本机设置（要访问所有设置，请使用 globalData）
 - `_system` - 系统配置

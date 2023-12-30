@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.reolink/README.md
 title: ioBroker.reolink
-hash: LesTaspSo/QVxBVETTeSjrCtviBKY5Gx6PzonzXcFo4=
+hash: QwSlSj3ti8v4JMV37nTh1xdRXHkut2mYfbHhG/v+nm8=
 ---
 ![标识](../../../en/adapterref/iobroker.reolink/admin/reolink_logo.png)
 
@@ -71,11 +71,24 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 {type:"image/png",base64:"iVBORw....askldfj"}
 ```
 
+## 已知可用的相机（2023 年以后的固件）
+- RLC-420-5MP
+- E1户外
+- RLC-522
+- RLC-810A
+- RLC-823A
+
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.2 (2023-12-19)
+* (oelison) known working cameras added
+* (oelison) setIrLights accept "On" now
+* (oelison) [#40](https://github.com/aendue/ioBroker.reolink/issues/40)
+* (oelison) [#42](https://github.com/aendue/ioBroker.reolink/issues/42)
+
 ### 1.0.1 (2023-11-11)
 * (oelison) resolve review for latest adapter addition
 * (oelison) maybe the last node 16 version

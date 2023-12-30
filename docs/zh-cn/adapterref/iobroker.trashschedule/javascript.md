@@ -4,7 +4,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.trashschedule/javascript.md
 title: ioBroker.trashschedule
-hash: faj6aOTZ4soqf5aFj3ie/U9vtAOowzbSnbWz7H5rtNE=
+hash: cxuDJQ+FE/gJo8Qr10VP3+MokTAvixeultz+dNobj/k=
 ---
 ![标识](../../../de/admin/trashschedule.png)
 
@@ -22,30 +22,58 @@ function sendText(text) {
 }
 ```
 
-## 提货前1天提醒
+## 提货前 1 天提醒
 ```javascript
 schedule('0 18 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 1) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 1) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Morgen wird der Müll abgeholt: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Morgen wird der Müll abgeholt: ${nextTextState.val}`);
+        }
     }
 });
 ```
 
-## 取件日提醒
+## 取货日提醒
 ```javascript
 schedule('0 7 * * *', async () => {
-    const nextDateFound = getState('trashschedule.0.next.dateFound').val;
-    const daysLeft = getState('trashschedule.0.next.daysLeft').val;
+    const nextDateFoundState = await getStateAsync('trashschedule.0.next.dateFound');
+    const daysLeftState = await getStateAsync('trashschedule.0.next.daysLeft');
 
-    if (nextDateFound && daysLeft == 0) {
-        const nextText = getState('trashschedule.0.next.typesText').val;
+    if (nextDateFoundState.val && daysLeftState.val == 0) {
+        const nextTextState = await getStateAsync('trashschedule.0.next.typesText');
 
-        sendText(`Heute wird der Müll abgeholt: ${nextText}`);
+        if (nextTextState && nextTextState.val) {
+            sendText(`Heute wird der Müll abgeholt: ${nextTextState.val}`);
+        }
+    }
+});
+```
+
+## 关于日历中未找到的废物类型的提醒
+```javascript
+schedule('0 12 * * *', async () => {
+    const notFoundJsonState = await getStateAsync('trashschedule.0.type.jsonNotFound');
+
+    if (notFoundJsonState && notFoundJsonState.val) {
+        try {
+            const notFoundTypes = JSON.parse(notFoundJsonState.val);
+            const notFoundTypesWarn = notFoundTypes.filter(t => !t.hideWarnings);
+
+            if (notFoundTypesWarn.length > 0) {
+                const text = notFoundTypesWarn
+                    .map(t => t.name)
+                    .join(', ');
+
+                sendText(`Einige Abfalltypen wurden im Kalender nicht gefunden: ${text}`);
+            }
+        } catch (err) {
+            console.error(err);
+        }
     }
 });
 ```

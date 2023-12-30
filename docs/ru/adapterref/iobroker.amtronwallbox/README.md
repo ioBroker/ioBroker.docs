@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
+hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
@@ -12,6 +12,13 @@ hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
@@ -48,6 +55,18 @@ hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2023-12-23)
+* (René) just a sentry test
+
+### 0.2.12 (2023-12-23)
+* (René) see issue #162: ignore unused data from wallbox
+
+### 0.2.11 (2023-12-16)
+* (René) type of adapter changed back to "energy"
+
+### 0.2.9 (2023-12-16)
+* (René) dependencies updated
+
 ### 0.2.8 (2023-11-26)
 * (René) role of states overworked
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.amtronwallbox/README.md
 title: ioBroker.amtronwallbox
-hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
+hash: eLNhMFwzFL3Fm+3SugLYppogqdYpR5umYJEhSg6oipo=
 ---
 ![标识](../../../en/adapterref/iobroker.amtronwallbox/admin/amtronwallbox.png)
 
@@ -12,6 +12,13 @@ hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
 ![NPM版本](http://img.shields.io/npm/v/iobroker.amtronwallbox.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.amtronwallbox/badge.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.amtronwallbox.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.amtronwallbox?style=flat-square)
+![Libraries.io 最新版本的依赖状态](https://img.shields.io/librariesio/release/npm/iobroker.amtronwallbox?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.amtronwallbox?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.amtronwallbox?logo=github&style=flat-square)
 
 # IoBroker.amtronwallbox
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.amtronwallbox/workflows/Test%20and%20Release/badge.svg)
@@ -48,6 +55,18 @@ hash: zvvDlBeIc1/blNAGQuGzLZjBhllpkRbyImV+QLZpN/M=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.13 (2023-12-23)
+* (René) just a sentry test
+
+### 0.2.12 (2023-12-23)
+* (René) see issue #162: ignore unused data from wallbox
+
+### 0.2.11 (2023-12-16)
+* (René) type of adapter changed back to "energy"
+
+### 0.2.9 (2023-12-16)
+* (René) dependencies updated
+
 ### 0.2.8 (2023-11-26)
 * (René) role of states overworked
 

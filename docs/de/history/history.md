@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: 2hSYLCnNnZDwlAgqtauatYzJK/93uNaeJMTtc12fafY=
+hash: uE93xHXJF5YpfYgyx0+IQCa6sfpO71l98r9c2xNjaYw=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -275,3 +275,10 @@ https://github.com/Chris-656/ioBroker.emporia
 <img src="https://github.com/Chris-656/ioBroker.emporia/blob/main/admin/emporia.png" width="100" height="100" />
 
 Dieser Adapter ruft Daten vom Emporia-Energiesystem ab.
+
+## Reolink (27.12.2023) – neuer Adapter
+https://github.com/aendue/ioBroker.reolink
+
+<img src="https://github.com/aendue/ioBroker.reolink/blob/main/admin/reolink_logo.png" width="100" height="100" />
+
+Adapter für die ioBroker-Plattform zum Abrufen von Reolink-Kamerainformationen.

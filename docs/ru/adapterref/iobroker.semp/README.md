@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.semp/README.md
 title: ioBroker.samp
-hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
+hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -12,11 +12,18 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.samp
 ![Действия GitHub](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 **Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
@@ -46,6 +53,14 @@ SunnyPortal сможет лучше оценить ваше энергопотр
 * создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.semp/issues), если вы обнаружите ошибки или вам нужны новые функции.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.3.13 (2023-11-19)
+* (René) dependencies updated
+* (René) fix exceptions reported by sentry
 
 ### 1.3.12 (2023-10-29)
 * (René) some bug fixes based on changes in 1.3.11

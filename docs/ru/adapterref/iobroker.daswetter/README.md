@@ -3,64 +3,84 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
+hash: SclekECAZk7zWde1J3Zn2lWDshugfnkuFsE+i/5n5xg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
 ![Количество установок](http://iobroker.live/badges/daswetter-stable.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Известные уязвимости](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![НПМ](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![узел-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![Статус зависимости Libraries.io для последней версии](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
+![Размер репозитория GitHub](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![Действия по фиксации GitHub](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![Последний коммит GitHub](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![Проблемы с GitHub](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
 # IoBroker.DasWetter.
-![Действия на GitHub](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
+![Действия GitHub](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
-**Если вам это нравится, рассмотрите пожертвование:**
+**Если вам это нравится, пожалуйста, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate/?hosted_button_id=34ESBMJ932QZC)
 
-Этот адаптер считывает данные прогноза погоды с сайта DasWetter.com.
+Этот адаптер считывает данные прогноза погоды с DasWetter.com.
 
-Вам нужна учетная запись на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись бесплатна при определенных условиях.
+Вам нужна учетная запись на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. При определенных условиях учетная запись предоставляется бесплатно.
 
-В вашем аккаунте вы найдете три URL для четырех разных моделей данных:
+В вашей учетной записи вы найдете три URL-адреса для четырех разных моделей данных:
 
-* Прогноз на ближайшие 7 дней и общая информация дня: приливы и отливы, ветер (символ и описание), символ дня и погодные условия
-* подробная информация за 5 дней и каждые 3 часа: Общая суточная информация следующая: пик, минимумы, ветер, порывы, осадки, относительная влажность,
+* Прогноз на следующие 7 дней и общая информация дня: высота и температура, ветер (символ и описание), символ дня и погодные условия.
+* подробная информация за 5 дней и каждые 3 часа: Общая ежедневная информация следующая: пик, минимум, ветер, порывы, осадки, относительная влажность,
 
-атмосферное давление на уровне моря, линия снега, восход и закат солнца, лунные даты, местное время
+давление воздуха на уровне моря, линия снега, восход и заход солнца, даты, связанные с луной, местное время
 
 * Предварительный просмотр с подробными данными каждый час (только первые 2 дня, затем каждые 3 часа)
 * Прогноз на 5 дней и каждые 3 часа (в формате JSON)
 
-Все четыре модели реализованы, и следует использовать хотя бы одну.
-В настройках должен использоваться URL вида http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx. Просто скопируйте полный URL-адрес из своей учетной записи.
+Все четыре модели реализованы, и хотя бы одну следует использовать.
+В настройках необходимо использовать URL-адрес типа http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx. Просто скопируйте полный URL-адрес из своей учетной записи.
 
 ## Подсказки
 ### Значки, используемые в vis
-* Доступ к таким значкам, как `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png`.
-* в galerie6 оригинальные иконки в формате svg. Приложение Vis может иметь проблемы с его визуализацией. Итак, конвертированные png доступны. Просто используйте опцию «использовать png»
-* в galerie5 оригинальные иконки в формате svg и png. Кроме того, доступны цветные и белые версии.
+* Доступ к значкам типа `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png`.
+* в galerie6 оригинальные иконки находятся в формате svg. У приложения Vis могут возникнуть проблемы с его визуализацией. Итак, конвертированные PNG доступны. Просто используйте опцию «использовать png»
+* в galerie5 оригинальные иконки представлены в формате svg и png. Кроме того, доступны цветные и белые версии.
 
-### "текущий" в NextHours_Day1:
+### «текущий» в NextHours_Day1:
 * DasWetter.com не предоставляет реальные текущие значения погоды.
 * но иногда полезно иметь прогноз на текущий час
-* поэтому мы добавили «текущий», который является просто копией соответствующих часовых значений прогноза
-* пожалуйста, убедитесь, что вы вызываете адаптер по крайней мере один раз в час, чтобы убедиться, что «текущий» обновлен правильно
-* см. также запрос функции github [issue24] (https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
+* поэтому мы добавили «текущий», который является просто копией связанных значений часов прогноза.
+* пожалуйста, убедитесь, что вы звоните адаптеру хотя бы один раз в час, чтобы убедиться, что «текущий» обновляется правильно
+* см. также запрос функции github [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
 ### Путь 4
-* в настоящее время DasWetter.com отправляет данные, которые отличаются от их собственной спецификации.
+* на данный момент DasWetter.com отправляет данные, которые отличаются от их собственных спецификаций.
 
-Теперь мы реализовали «автоматическое восстановление», которое меняет структуру на задокументированную форму.
+Теперь мы реализовали «автовосстановление», которое изменяет структуру до документированной формы.
 
 ## Известные вопросы
-* пожалуйста, создавайте задачи на [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), если вы обнаружите ошибки или хотите добавить новые функции
+* создавайте проблемы на [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), если вы обнаружите ошибки или вам нужны новые функции.
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.1.12 (2023-12-24)
+* (René) see issue #217: additional log added to understand root cause, please copy&past log output into github issue
+
+### 3.1.11 (2023-11-18)
+* (René) update dependencies
+
+### 3.1.10 (2023-07-30)
+* (René) update dependencies
 
 ### 3.1.8 (2023-04-07)
 * (René) update dependencies
@@ -108,10 +128,10 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 * (René) dependencies updated
 
 ### 3.0.4 (2020-10-16)
-* (René) see issue #76: parse rain values as float instead integer 
+* (René) see issue #76: parse rain values as float instead integer
 
 ### 3.0.3 (2020-09-19)
-* (René) see issue #66: parse numbers added 
+* (René) see issue #66: parse numbers added
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -179,8 +199,6 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 * (bluefox) Added URLs to icons
 * (bluefox) Added the roles and the names to states
 * (bluefox) Icons moved to admin directory
-
-
 
 ### 2.0.0
 * (René) new datastructure !not compatible to version 1.x!

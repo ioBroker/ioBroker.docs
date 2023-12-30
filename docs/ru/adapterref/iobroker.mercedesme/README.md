@@ -3,25 +3,62 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mercedesme/README.md
 title: ioBroker.mercedesme
-hash: cY1eX6hSp1hWxKXwnuZDfdFKSEYODDKpZkjW/vxTAZM=
+hash: n8+F9aionWvJttL+oYB/zYoVebpcNqcuFjIWXPh7mLQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.mercedesme/admin/mercedesme.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.mercedesme.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.mercedesme.svg)
-![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.mercedesme.svg)
-![Известные уязвимости](https://snyk.io/test/github/TA2k/ioBroker.mercedesme/badge.svg)
+![Количество установок](https://iobroker.live/badges/mercedesme-installed.svg)
 ![НПМ](https://nodei.co/npm/iobroker.mercedesme.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
+![Трэвис-CI](http://img.shields.io/travis/TA2k/ioBroker.mercedesme/master.svg)
 
 # IoBroker.mercedesme
-## Адаптер mercedesme для ioBroker
-Адаптер Mercedes me для ioBroker Unter команды das commando auf klappen und den button neben start drücken wenn das command available ist.
-Удаленный sind vorgefertige Remote Befehle
+##адаптер mercedesme для ioBroker
+Адаптер Mercedes me для ioBroker
+
+Если команда не доступна, нажмите кнопку «Начать» и нажмите кнопку «Пуск».
+
+Дистанционное управление и удаленное управление Remote Befehle
 
 ## Changelog
 
-### 0.0.46
+### 0.1.6
+
+- fix login
+
+### 0.1.1
+
+- fix login
+
+### 0.0.56
+
+- fix vehicle list while login
+  
+### 0.0.55
+
+- fix refresh login
+### 0.0.55
+
+- fix refresh login
+  
+### 0.0.54
+
+- fix login
+  
+### 0.0.52
+
+- fix js-controller 3.3 warnings
+  
+### 0.0.51
+
+- improve handling of failing logins
+
+### 0.0.50
+
+- fix refresh token
+  
+### 0.0.47
 
 - fix new login
   
@@ -149,7 +186,7 @@ hash: cY1eX6hSp1hWxKXwnuZDfdFKSEYODDKpZkjW/vxTAZM=
 
 MIT License
 
-Copyright (c) 2020 tombox
+Copyright (c) 2022 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

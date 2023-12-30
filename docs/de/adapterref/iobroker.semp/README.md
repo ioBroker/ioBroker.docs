@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.semp/README.md
 title: ioBroker.semp
-hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
+hash: dC7K359kH1AF9pJs23+dFLjAfoVtQD6sxsg/LNj7xgY=
 ---
 ![Logo](../../../en/adapterref/iobroker.semp/admin/semp.png)
 
@@ -12,6 +12,13 @@ hash: rjseTAoUZDwXPRBY7+l6Ag4Bz9BkGHBIzm9As2sVxbs=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.semp.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.semp/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.semp.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.semp?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.semp?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.semp?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.semp?logo=github&style=flat-square)
 
 # IoBroker.semp
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.semp/workflows/Test%20and%20Release/badge.svg)
@@ -46,6 +53,14 @@ Eine Beschreibung zur allgemeinen Nutzung von Energieanfragen finden Sie in [SMA
 * Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.semp/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 1.3.13 (2023-11-19)
+* (René) dependencies updated
+* (René) fix exceptions reported by sentry
 
 ### 1.3.12 (2023-10-29)
 * (René) some bug fixes based on changes in 1.3.11

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.srm/README.md
 title: 无题
-hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
+hash: pLlh+ui3ZfivVM1E7leCbSJ2rIsCIuyRLCK5yZuStuk=
 ---
 ![](../../../en/adapterref/iobroker.srm/admin/synology.png)
 
@@ -33,7 +33,7 @@ hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
 
 ## 路由器
 * IPV4_IP：路由器的IP4地址
-* IPV4_status：IPV4连接状态
+* IPV4_status：IPV4连接的状态
 * IPV6_IP：路由器的IP6地址
 * IPV6_status：IPV4连接的状态
 
@@ -79,9 +79,18 @@ hash: Z754eEYNc+LCvrZm8MGpNvLzRr0F2kQSVxk8KV13bgI=
 * name: 网格节点的名称
 * network_status：网络状态
 * node_id: 网格节点的ID
-* node_status: 网格节点的状态
+* node_status：网格节点的状态
 *parent_node_id：父节点的ID
 * signal_strength: 信号强度
+
+＃＃ 无线上网
+WiFi 网络和设置列表。 Wifi 设置只能每 3 秒更改一次，以避免更改发生冲突。每个网格节点都有以下对象：
+
+*启用：启用wifi网络（读/写）
+* enable_client_isolation：启用客户端隔离（读/写）
+* hide_ssid：隐藏WIFI SSID（读/写）
+* mac_filter：启用MAC过滤器（读取）
+* Schedule_enable：启用网络调度（读/写）
 
 ### 哨兵
 Sentry.io 是什么？向该公司的服务器报告什么？ `Sentry.io` 是一项服务，供开发人员获取有关其应用程序错误的概述。这正是在这个适配器中实现的。
@@ -91,6 +100,13 @@ Sentry.io 是什么？向该公司的服务器报告什么？ `Sentry.io` 是一
 <a name="Revision-History"></a>
 
 ## Changelog
+### 0.2.0 (2023-12-27)
+- Added new section for WIFI settings. Some settings can be changed via the adapter.
+- Account for different API versions
+
+### 0.1.6 (2023-12-26)
+- Account for different API versions
+
 ### 0.1.5 (2023-12-10)
 - minor bug fixes
 

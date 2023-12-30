@@ -17,7 +17,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lametric/README.md
 title: ioBroker.lametric
-hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
+hash: 4JJHdLvdh1ZioIIBnVFtFfEaJrPstk5Ww8kVk38yEFk=
 ---
 ![标识](../../../en/admin/lametric.png)
 
@@ -32,7 +32,7 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.0.0（或更高版本）
-- _LaMetric Time_ 固件为 _2.3.8_（2022 年型号为 _3.0.18_）（或更高版本）
+- _LaMetric Time_ 固件为 _2.3.8_（2022 型号为 _3.0.21_）（或更高版本）
 
 [固件更改日志](https://firmware.lametric.com) [固件更改日志时间2](https://firmware.lametric.com/?product=time2)
 
@@ -49,7 +49,7 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
 - 在应用程序之间切换（下一个、上一个、转到特定应用程序）
 - 使用 blockly 发送通知（可配置优先级、声音、图标、文本……）
 - 控制特殊应用程序，如“时钟”、“收音机”、“秒表”或“天气”
-- 使用_我的数据（DIY）_ LaMetric App 显示持久信息
+- 使用_我的数据（DIY）_ LaMetric App显示持久信息
 
 功能受 [官方API功能](https://lametric-documentation.readthedocs.io/en/latest/reference-docs/lametric-time-reference.html) 限制。
 
@@ -59,6 +59,11 @@ hash: spbv4UIvWquES9qP2lY3sfnAFpljxwAQpKKjzY4KS5c=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.2 (2023-12-27)
+
+* (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
+* (klein0r) Some devices don't have bluetooth low energy states (sa8)
+
 ### 3.1.1 (2023-10-27)
 
 * (klein0r) Fixed issue with foreign states of version 3.1.0
@@ -81,15 +86,11 @@ NodeJS 16.x is required
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
-### 2.4.1 (2023-06-10)
-
-* (klein0r) Blockly bugfix
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.daswetter/README.md
 title: ioBroker.DasWetter.
-hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
+hash: SclekECAZk7zWde1J3Zn2lWDshugfnkuFsE+i/5n5xg=
 ---
 ![Logo](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
@@ -12,11 +12,18 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.daswetter.svg)
 ![Bekannte Schwachstellen](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.daswetter?style=flat-square)
+![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.daswetter?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.daswetter?style=flat-square)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
+![GitHub-Probleme](https://img.shields.io/github/issues/rg-engineering/ioBroker.daswetter?logo=github&style=flat-square)
 
 # IoBroker.DasWetter.
 ![GitHub-Aktionen](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
 **Wenn es Ihnen gefällt, denken Sie bitte über eine Spende nach:**
 
@@ -24,43 +31,56 @@ hash: ddazcFoy+6c5ARBhF+tuZWbxMv1PigKW/hCVWqNuNiw=
 
 Dieser Adapter liest Wettervorhersagedaten von DasWetter.com.
 
-Sie benötigen einen Account auf DasWetter.com. Registrieren Sie sich unter https://www.daswetter.com/api/#/login. Der Account ist unter bestimmten Bedingungen kostenlos.
+Sie benötigen ein Konto auf DasWetter.com. Registrieren Sie sich unter https://www.daswetter.com/api/#/login. Das Konto ist unter bestimmten Voraussetzungen kostenlos.
 
 In Ihrem Konto finden Sie drei URLs für vier verschiedene Datenmodelle:
 
-* Vorhersage für die nächsten 7 Tage und allgemeine Informationen des Tages: Hoch und Tief, Wind (Symbol und Beschreibung), Tagessymbol und Wetterbedingungen
-* Detaillierte Informationen für 5 Tage und alle 3 Stunden: Die allgemeinen Tagesinformationen sind die folgenden: Peak, Lows, Wind, Böen, Niederschlag, relative Luftfeuchtigkeit,
+* Vorhersage für die nächsten 7 Tage und allgemeine Informationen zum Tag: Höchst- und Tiefsttemperatur, Wind (Symbol und Beschreibung), Tagessymbol und Wetterbedingungen
+* detaillierte Informationen für 5 Tage und alle 3 Stunden: Die allgemeinen Tagesinformationen lauten wie folgt: Spitzenwerte, Tiefstwerte, Wind, Böen, Niederschlag, relative Luftfeuchtigkeit,
 
-Luftdruck auf Meereshöhe, Schneegrenze, Sonnenauf- und -untergang, Monddaten, Ortszeit
+Luftdruck auf Meereshöhe, Schneegrenze, Sonnenaufgang und Sonnenuntergang, mondbezogene Daten, Ortszeit
 
-* Vorschau mit detaillierten Daten stündlich (nur die ersten 2 Tage, dann alle 3 Stunden)
+* Vorschau mit detaillierten Daten stündlich (nur für die ersten 2 Tage, dann alle 3 Stunden)
 * Vorhersage für 5 Tage und alle 3 Stunden (im JSON-Format)
 
-Alle vier Modelle sind implementiert und eines sollte mindestens verwendet werden.
+Alle vier Modelle sind implementiert und es sollte mindestens eines verwendet werden.
 In den Einstellungen muss eine URL wie http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx verwendet werden. Kopieren Sie einfach die vollständige URL aus Ihrem Konto.
 
 ## Hinweise
-### Symbole, die in vis verwendet werden
-* Greifen Sie auf Symbole wie `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png` zu.
-* In galerie6 liegen die Original-Icons im SVG-Format vor. Die Vis-App hat möglicherweise Probleme, sie zu visualisieren. Es sind also konvertierte PNG verfügbar. Verwenden Sie einfach die Option "png verwenden"
-* In galerie5 liegen die Original-Icons im SVG- und PNG-Format vor. Daneben sind auch farbige und weiße Versionen erhältlich
+###-Symbole, die in vis verwendet werden
+* Greifen Sie auf Symbole wie „http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png“ zu.
+* In Galerie6 liegen die Originalsymbole im SVG-Format vor. Die Vis-App hat möglicherweise Probleme bei der Visualisierung. Es stehen also konvertierte PNGs zur Verfügung. Verwenden Sie einfach die Option „PNG verwenden“
+* In Galerie5 liegen die Originalsymbole im SVG- und PNG-Format vor. Daneben sind auch farbige und weiße Versionen erhältlich
 
-### "aktuell" in NextHours_Day1:
+### „aktuell“ in NextHours_Day1:
 * DasWetter.com liefert keine echten aktuellen Wetterwerte
-* Manchmal ist es jedoch hilfreich, die Vorhersage der aktuellen Stunde zur Verfügung zu haben
-* Daher haben wir "aktuell" hinzugefügt, was nur eine Kopie der zugehörigen prognostizierten Stundenwerte ist
-* Bitte stellen Sie sicher, dass Sie den Adapter mindestens einmal pro Stunde anrufen, um sicherzustellen, dass "aktuell" gut aktualisiert wird
-* siehe auch github Feature Request [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
+* Aber manchmal ist es hilfreich, die Vorhersage der aktuellen Stunde zur Verfügung zu haben
+* Deshalb haben wir „aktuell“ hinzugefügt, was lediglich eine Kopie der zugehörigen prognostizierten Stundenwerte ist
+* Bitte stellen Sie sicher, dass Sie den Adapter mindestens einmal pro Stunde anrufen, um sicherzustellen, dass „aktuell“ ordnungsgemäß aktualisiert wird
+* siehe auch Github-Feature-Anfrage [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
-### Weg 4
-* Momentan sendet DasWetter.com Daten, die von der eigenen Spezifikation abweichen.
+### Pfad 4
+* Momentan sendet DasWetter.com Daten, die von den eigenen Angaben abweichen.
 
-Jetzt haben wir eine "Autoreparatur" implementiert, die die Struktur in die dokumentierte Form ändert.
+Jetzt haben wir eine „automatische Reparatur“ implementiert, die die Struktur in eine dokumentierte Form ändert.
 
 ## Bekannte Probleme
-* Bitte erstellen Sie Issues unter [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+* Bitte erstellen Sie Probleme bei [github](https://github.com/rg-engineering/ioBroker.daswetter/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
 
 ## Changelog
+
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 3.1.12 (2023-12-24)
+* (René) see issue #217: additional log added to understand root cause, please copy&past log output into github issue
+
+### 3.1.11 (2023-11-18)
+* (René) update dependencies
+
+### 3.1.10 (2023-07-30)
+* (René) update dependencies
 
 ### 3.1.8 (2023-04-07)
 * (René) update dependencies
@@ -108,10 +128,10 @@ Jetzt haben wir eine "Autoreparatur" implementiert, die die Struktur in die doku
 * (René) dependencies updated
 
 ### 3.0.4 (2020-10-16)
-* (René) see issue #76: parse rain values as float instead integer 
+* (René) see issue #76: parse rain values as float instead integer
 
 ### 3.0.3 (2020-09-19)
-* (René) see issue #66: parse numbers added 
+* (René) see issue #66: parse numbers added
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -179,8 +199,6 @@ Jetzt haben wir eine "Autoreparatur" implementiert, die die Struktur in die doku
 * (bluefox) Added URLs to icons
 * (bluefox) Added the roles and the names to states
 * (bluefox) Icons moved to admin directory
-
-
 
 ### 2.0.0
 * (René) new datastructure !not compatible to version 1.x!

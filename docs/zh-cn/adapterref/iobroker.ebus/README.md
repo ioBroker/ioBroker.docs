@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ebus/README.md
 title: ioBroker.ebus
-hash: uC4wzjCD/fuILI8+DqR2WZ+BmA0FdS2hn6Sfym9kRYw=
+hash: ymvDetbGBh3AUlmb3DQtZzbwNoNSNpssQOO9x42wHuY=
 ---
 ![标识](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -12,6 +12,13 @@ hash: uC4wzjCD/fuILI8+DqR2WZ+BmA0FdS2hn6Sfym9kRYw=
 ![NPM版本](http://img.shields.io/npm/v/iobroker.ebus.svg)
 ![已知漏洞](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
 ![国家公共管理](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
+![节点-lts](https://img.shields.io/node/v-lts/iobroker.ebus?style=flat-square)
+![最新版本的 Libraries.io 依赖关系状态](https://img.shields.io/librariesio/release/npm/iobroker.ebus?label=npm%20dependencies&style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.ebus?style=flat-square)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
+![GitHub 问题](https://img.shields.io/github/issues/rg-engineering/ioBroker.ebus?logo=github&style=flat-square)
 
 # IoBroker.ebus
 ![GitHub 操作](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)

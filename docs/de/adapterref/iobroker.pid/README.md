@@ -3,23 +3,23 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: T3lRBLIggbW/x5Eu3EnCKSmX6yzwBn4JHckOhGrlWgk=
+hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 ---
 ![Logo](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
-![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)
+![GitHub-Lizenz](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.pid.svg)
-![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
-![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.pid)
-![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.pid/latest)
-![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.pid)
-![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.pid)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![GitHub-Probleme](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/pid-stable.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/pid-installed.svg)
 
 # IoBroker.pid
-[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml)
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
 
 <!--
 

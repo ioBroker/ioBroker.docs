@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: DKOlUGfjhFuch4LdqxQdOBpFRbJLUjLC/Eeo8nNqgVw=
+hash: Tr0p2E//0Nakw+VgLJt20DY6J87OlwBeeHTrwx6j7Q4=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -248,12 +248,17 @@ Was wurde getestet:
 | Tasmota | Netzwerk | nein | Bei Tasmota auf einem ESP8266 wurden Blöcke nicht in der richtigen Reihenfolge übertragen, was zu falschen Objekten und Daten führte. Tasmota ist daher nicht zu empfehlen. |
 | Waveshare RS232/485 TO ETH (für EU) | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. |
 | Waveshare RS232/485/422 TO POE ETH | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. Verwenden Sie den RS232-SUBD-Anschluss. Der Konverter kann über POE mit Strom versorgt werden. Wenn POE verfügbar ist, benötigen Sie keine Stromversorgung in der Nähe der Batterien. |
+| Elfin EW10A | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
+| Elfin EW10A-0 | Netzwerk | ja | Stellen Sie sicher, dass in Ihrem WLAN genügend Bandbreite und Signalstärke vorhanden ist, damit die Verbindung stabil ist. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. |
+| Elfin EE10-A | Netzwerk | ja | Weisen Sie dem Gerät eine IP im Netzwerk zu. Übertragungsgeschwindigkeit prüfen 115200 8 N 1. Alles andere bleibt unverändert. |
 
 #### Batterien
 | Pylontech-Modell | Modell | Firmware | Funktioniert | Kommentar |
 | ---------------- | ----- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | US5000 | USA | V1.3 22.08.10 | gut | |
 | US2000C | USA | V2.6 21.09.26 | gut | |
+| US2000C | USA | V2.1 | gut | |
+| US2000C | USA | V2.8 | gut | |
 | US2000 (US2KBPL) | USA | V2.8 21.04.29 | gut | Temperaturen nur in Ein-Grad-Schritten |
 | Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
 
@@ -296,7 +301,7 @@ Wurde „lokales Gerät“ ausgewählt, muss der Pfad bzw. Port eingestellt werd
 Siehe den Abschnitt über lokale Schnittstellen.
 
 #### Übertragungsgeschwindigkeit
-Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen beträgt sie 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
+Hier kann die Übertragungsgeschwindigkeit eingestellt werden. Bei neueren Modellen ist dieser auf 115200 eingestellt. Bei älteren Modellen liegt sie bei 1200. Kommt keine Verbindung zustande, können Sie versuchen, ob der Adapter mit 1200 läuft. Sollte dies der Fall sein, kann die Geschwindigkeit über den Status „pylontech. -n- .config.set_speed“ auf 115200 gesetzt werden. Die Adaptergeschwindigkeit muss dann wieder auf 115200 gesetzt werden.
 
 ### Netzwerkgerät
 Die folgenden Felder werden nur angezeigt, wenn unter Verbindung über Netzwerkgerät ausgewählt wurde.

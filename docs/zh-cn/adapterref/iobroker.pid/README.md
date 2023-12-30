@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pid/README.md
 title: ioBroker.pid
-hash: T3lRBLIggbW/x5Eu3EnCKSmX6yzwBn4JHckOhGrlWgk=
+hash: zZrky5ZNZ3ektsXHXSscsbb5/FlMmJdQbMUeusiCPvI=
 ---
 ![标识](../../../en/adapterref/iobroker.pid/admin/pid.png)
 
-![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.pid)
+![GitHub 许可证](https://img.shields.io/github/license/mcm4iob/ioBroker.pid)
 ![下载](https://img.shields.io/npm/dm/iobroker.pid.svg)
-![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.pid)
-![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.pid)
-![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.pid/latest)
-![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.pid)
-![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.pid)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/mcm4iob/ioBroker.pid)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/mcm4iob/ioBroker.pid)
+![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/mcm4iob/ioBroker.pid/latest)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/mcm4iob/ioBroker.pid)
+![GitHub 问题](https://img.shields.io/github/issues/mcm4iob/ioBroker.pid)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.pid.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/pid-stable.svg)
 ![安装数量](https://iobroker.live/badges/pid-installed.svg)
 
 # IoBroker.pid
-[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.pid/actions/workflows/codeql.yml)
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/pid/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml/badge.svg)](https://github.com/mcm4iob/ioBroker.pid/actions/workflows/codeql.yml)
 
 <!--
 
-## Sentry **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+## Sentry **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 -->
 ## IoBroker 的 PID 适配器
 该适配器提供可配置的 PID 控制器。
@@ -41,7 +41,7 @@ hash: T3lRBLIggbW/x5Eu3EnCKSmX6yzwBn4JHckOhGrlWgk=
 [英文文档](docs/en/pid_en.md)<br> [德语文献](docs/de/pid_de.md)
 
 ## 学分
-如果没有开发node-pid-controller (https://github.com/Philmod/node-pid-controller) 的@Philmod (https://github.com/Philmod) 的伟大工作，提供这个适配器是不可能的。
+如果没有开发node-pid-controller (https://github.com/Philmod/node-pid-controller)的@Philmod (https://github.com/Philmod)的伟大工作，提供这个适配器是不可能的。
 
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
