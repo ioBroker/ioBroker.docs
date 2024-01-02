@@ -270,3 +270,7 @@ https://github.com/aendue/ioBroker.reolink
 
 Adapter for ioBroker Plattform to get Reolink camera information..
 
+## vis-2 (02.01.2024) - new feature
+https://github.com/ioBroker/ioBroker.vis-2
+
+vis-2 is now in stable repository. It is a new generation of vis. It is based on ReactJS and has many new features.
