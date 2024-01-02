@@ -2,19 +2,39 @@
 
 # ioBroker.homeconnect
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
+[![GitHub license](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/blob/main/LICENSE)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
-[![Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub repo size](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br>
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub issues](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+</br>
+**Version:** </br>
+[![NPM version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)](https://www.npmjs.com/package/iobroker.homeconnect)
+![Current version in stable repository](https://iobroker.live/badges/homeconnect-stable.svg)
+![Number of Installations](https://iobroker.live/badges/homeconnect-installed.svg)
+</br>
+**Tests:** </br>
+[![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml)
+[![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
+
+## Sentry
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+## Homeconnect Adapter for ioBroker
 
 ## Voraussetzungen vor der Installation
 
-Es muß mindestens Node.js Version 8 installiert sein!!
+Es muß mindestens Node.js Version 16 installiert sein!!
 
 Für den Adapter wird eine ClientID benötigt. Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen.
 
 ## Requirements before installation
 
-At least Node.js version 8 must be installed!
+At least Node.js version 16 must be installed!
 
 A ClientID is required for the adapter. Use the settings for each step to register.
 

@@ -808,6 +808,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.epson_ecotank_et_2750/
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.epson_stylus_px830/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.epson_xp540/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.esphome/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.espresense/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.eusec/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.evcc/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.eventlist/README.md
@@ -1459,6 +1460,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.epson_ecotank_et_2750/
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.epson_stylus_px830/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.epson_xp540/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.esphome/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.espresense/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.eusec/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.evcc/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.eventlist/README.md
@@ -2110,6 +2112,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.epson_ecotank_et_2750/
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.epson_stylus_px830/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.epson_xp540/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.esphome/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.espresense/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.eusec/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.evcc/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.eventlist/README.md
@@ -2761,6 +2764,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_ecotank_et_27
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_stylus_px830/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.epson_xp540/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.esphome/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.espresense/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.eusec/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.evcc/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.eventlist/README.md

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: 6DVF9NncE/6K+c7UbRycr62ZeXKEyzP8OLZsEw+feWY=
+hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -164,7 +164,8 @@ Befehle:
 * „Popup“ – öffnet ein neues Browserfenster. Der Link muss in „control.data“ angegeben werden, z. B. http://google.com
 * „playSound“ – Sounddatei abspielen. Der Link zur Datei ist in „control.data“ angegeben, z. B. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Sie können Ihre eigene Datei in vis-2 hochladen und sie beispielsweise als `/vis-2.0/main/img/myFile.mp3` abspielen lassen.
+Sie können Ihre eigene Datei in vis-2 hochladen und sie beispielsweise als `/vis-2.0/main/img/myFile.mp3` abspielen lassen.
+**Wichtig**: Der Browser kann Audio erst abspielen, wenn der Benutzer mindestens einmal auf die Seite geklickt hat. Es handelt sich um eine Browser-Sicherheitsrichtlinie. [Hier](https://github.com/Hugo22O/chrome-autoplay) können Sie mehr lesen.
 
 Wenn der Benutzer die Ansicht wechselt oder beim Start, werden die Variablen vom vis-2 mit gefüllt
 
@@ -230,8 +231,30 @@ Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, w�
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.9.10 (2024-01-02)
+* (foxriver76) remove accidentally added script file, which lead to crash
+
+### 2.9.9 (2024-01-01)
+* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) make BasicBulb behave more like its old version
+* (foxriver76) fixed issue that data of different widget is displayed in edit mode
+* (foxriver76) fixed issue that every state update is used for visibility calculation
+* (bluefox) migrated jQui select, jQui Radio steps widgets to react
+* (bluefox) All jQui widgets were migrated to react
+
+### 2.9.8 (2023-12-21)
+* (foxriver76) fixed bug that no labels are shown for a background
+* (foxriver76) prevent short flashing of widgets with visibility condition at a page load
+* (foxriver76) fixed issue on theme switch
+
+### 2.9.7 (2023-12-19)
+* (bluefox) Allowed the read only flag for Styled/Input
+
+### 2.9.6 (2023-12-14)
+* (foxriver76) fixed issues with the BulkEditor
+* (foxriver76) scripts in HTML are now added to the DOM, instead of being executed in eval
 * (foxriver76) fixed issues with Bulb widget if min/max was once filled
+* (foxriver76) migrated "speech2text" widget to react
 
 ### 2.9.5 (2023-12-10)
 * (foxriver76) open new views at the beginning
@@ -415,7 +438,7 @@ Additionally, you need a license to use the adapter. The following license editi
 * **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
- Copyright (c) 2021-2023 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2024 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

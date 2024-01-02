@@ -22,25 +22,34 @@ Forum: https://forum.iobroker.net/topic/49165/neuer-adapter-iobroker-evcc
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Newan) add batteriemangement
+* (Newan) add Soc limit to loadpoint
+* (Newan) change vehicle on loadpoint
+
+### 0.1.0 (2023-12-30)
+* (Newan) rewrite for evcc api changes
+* (Newan) add multiple vehicle
+
 ### 0.0.10 (2023-06-14)
 * (arteck) generate dynamic objects
 * (Newan) typo fixes
 
 ### 0.0.8 (2023-05-09)
-* fix for minSoc & targetSoc
+* (Newan) fix for minSoc & targetSoc
 
 ### 0.0.7 (2023-01-15)
-* Update for evcc 1.11.x
-* Bugfix #4, change SoC names
+* (Newan) Update for evcc 1.11.x
+* (Newan) Bugfix #4, change SoC names
 
 ### 0.0.5 (2022-10-14)
-* update for latest-repository
+* (Newan) update for latest-repository
 
 ### 0.0.4 (2022-08-08)
-* first release
+* (Newan) first release
 
 ### 0.0.3 (2022-05-21)
-(Newan) support evcc 0.9X - change to jsonConfig GUI
+* (Newan) support evcc 0.9X - change to jsonConfig GUI
 
 ### 0.0.2 (2021-11-07)
 * (Newan) initial release

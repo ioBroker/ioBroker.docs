@@ -89,7 +89,11 @@ Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 0.9.0 (2024-01-02)
+* (simatec) Cloud URL Check added
+* (simatec) X1/X3-EVC added
+* (simatec) Inverter Data for X3-Hybrid-G4 updated
+* (simatec) Fix Inverter Data for X1 Hybrid G4
 * (simatec) Dependencies updated
 
 ### 0.8.0 (2023-10-23)
@@ -242,7 +246,7 @@ Im Adapter müssen die lokale IP-Adresse (nicht die Hotspot IP) und das Passwort
 ## License
 MIT License
 
-Copyright (c) 2021 - 2023 simatec
+Copyright (c) 2021 - 2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

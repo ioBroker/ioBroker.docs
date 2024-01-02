@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: 6DVF9NncE/6K+c7UbRycr62ZeXKEyzP8OLZsEw+feWY=
+hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -164,7 +164,8 @@ Vis 创建了 3 个变量：
 * `popup` - 打开一个新的浏览器窗口。链接必须在“control.data”中指定，例如 http://google.com
 * `playSound` - 播放声音文件。文件的链接在“control.data”中指定，例如http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
 
-  您可以在 vis-2 中上传您自己的文件并让它播放，例如`/vis-2.0/main/img/myFile.mp3`。
+您可以在 vis-2 中上传您自己的文件并让它播放，例如`/vis-2.0/main/img/myFile.mp3`。
+**重要** 在用户未在页面上至少单击一次之前，浏览器无法播放音频。这是浏览器安全策略。 [这里](https://github.com/Hugo22O/chrome-autoplay)您可以阅读更多内容。
 
 如果用户更改视图或在开始时，变量将由 vis-2 填充
 
@@ -230,8 +231,30 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.9.10 (2024-01-02)
+* (foxriver76) remove accidentally added script file, which lead to crash
+
+### 2.9.9 (2024-01-01)
+* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) make BasicBulb behave more like its old version
+* (foxriver76) fixed issue that data of different widget is displayed in edit mode
+* (foxriver76) fixed issue that every state update is used for visibility calculation
+* (bluefox) migrated jQui select, jQui Radio steps widgets to react
+* (bluefox) All jQui widgets were migrated to react
+
+### 2.9.8 (2023-12-21)
+* (foxriver76) fixed bug that no labels are shown for a background
+* (foxriver76) prevent short flashing of widgets with visibility condition at a page load
+* (foxriver76) fixed issue on theme switch
+
+### 2.9.7 (2023-12-19)
+* (bluefox) Allowed the read only flag for Styled/Input
+
+### 2.9.6 (2023-12-14)
+* (foxriver76) fixed issues with the BulkEditor
+* (foxriver76) scripts in HTML are now added to the DOM, instead of being executed in eval
 * (foxriver76) fixed issues with Bulb widget if min/max was once filled
+* (foxriver76) migrated "speech2text" widget to react
 
 ### 2.9.5 (2023-12-10)
 * (foxriver76) open new views at the beginning
@@ -415,7 +438,7 @@ Additionally, you need a license to use the adapter. The following license editi
 * **Commercial License**: When using Vis in a commercial environment or selling Vis as part of ioBroker packages to your customers, this license is for you. License check is also not requiring an online connection.
 
 ## License
- Copyright (c) 2021-2023 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2024 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

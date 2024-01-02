@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
+hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -23,13 +23,25 @@ Nachdem Lauff zum Home Assistant gewechselt ist, wird das Projekt von aruttkamp 
 ## RCT-Adapter für ioBroker
 Bitte beachten Sie, dass es sich um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keinerlei Zusammenhang mit RCT stehe.
 
-Werte eines RCT Power Photovoltaik-Stromrichters anzeigen
+Lesen Sie Werte eines RCT Power Photovoltaik-Stromrichters
 
 ## BEMERKUNGEN
-### Erste produktive Veröffentlichung
-Dies ist eine erste produktive Version, nachdem sich die vorherige Version als stabil erwiesen hat und den minimal realisierbaren Umfang erfüllt.
+### Produktive Veröffentlichung
+Diese Produktivversion hat sich als stabil erwiesen.
 
-Die Konfiguration ist immer noch begrenzt und eher technisch. Über „RCT ELemente“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen. Der Standardwert ist „battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[ 1].flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board .s0_external_power,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state". Weitere Elemente finden Sie im Code (Datei „rct/rc_core2.js“). Aber das ist überhaupt nicht selbsterklärend (auch nicht wirklich getestet).
+Über das Feld „RCT Elements“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
+Wenn hier nichts eingegeben wird, wird die Standardeinstellung verwendet:
+
+"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state"
+
+Weitere Elemente finden Sie im Code (Datei „rct/rc_core2.js“). Da dies nicht selbstbeschreibend ist, erfolgt die Verwendung auf eigene Gefahr!
+
+Das Objekt „battery.bat_status“ zeigt den Status einer angeschlossenen Batterie an:
+
+* 0 -> Laden/Entladen (Normalbetrieb)
+* 8 -> Aufladen (Kalibrierung)
+* 1024 -> Entladung (Kalibrierung)
+* 2048 -> Balancieren
 
 ## Bekannte Probleme
 ### Falsche Kanäle/Zustände
@@ -43,47 +55,53 @@ Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ m
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2023-09-13)
+* (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
+* (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
 
-### **WORK IN PROGRESS**
-* (Andreas Ruttkamp) Connection state bei Stop des Adapters zurückgesetzt
-* (Andreas Ruttkamp) Connection state bei Start des Adapters nochmals angepasst
+### 1.2.1 (2023-09-13)
+* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+
+### 1.2.0 (2023-09-11)
+* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state korrigiert
+* (Andreas Ruttkamp) Connection state corrected
 
 ### 1.1.6 (2023-08-23)
-* (Andreas Ruttkamp) rct_core.js entfernt (wurde durch rct_core2 ersetzt)
-* (Andreas Ruttkamp) Parameter die nicht unterstützt werden aus Defaultbelegung entfernt.
+* (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
+* (Andreas Ruttkamp) parameters in default setting deleted 
 * (Andreas Ruttkamp) min. Node 18
 
 ### 1.1.5 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
-* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+* (Andreas Ruttkamp) Fix: crash reading UInt8 corrected
+* (Andreas Ruttkamp) some cleaning actions
 
 ### 1.1.4 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+* (Andreas Ruttkamp) Fix: proofments corrected.
 
 ### 1.1.3 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+* (Andreas Ruttkamp) Fix: more data checks implemented
 
 ### 1.1.2 (2023-08-17)
-* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+* (Andreas Ruttkamp) Fix: adapter crashes
 
 ### 1.1.1 (2023-08-17)
-* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
-* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
-* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
-* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
-* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+* (Andreas Ruttkamp) data for g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp added
+* (Andreas Ruttkamp) more parameters added 
+* (Andreas Ruttkamp) date conversions fixed
+* (Andreas Ruttkamp) conversions of percentages fixed
+* (Andreas Ruttkamp) instance crash if data failure fixed
 
 ### 1.0.5 (2023-07-29)
-* (Andreas Ruttkamp) interne Arbeiten
-* (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
-* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
+* (Andreas Ruttkamp) some internal work
+* (Andreas Ruttkamp) preparation for new admin
+* (Andreas Ruttkamp) dependecies update
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components
-* (Andreas Ruttkamp) Vorbereitung neues Backend
+* (Andreas Ruttkamp) Preparation of new backend
 
 ### 1.0.3 (2023-03-30)
 * (Andreas Ruttkamp) Release Script added and update dev-components

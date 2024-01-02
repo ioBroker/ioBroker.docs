@@ -165,6 +165,7 @@ Commands:
 * `popup` - opens a new browser window. Link must be specified in `control.data`, e.g., http://google.com
 * `playSound` - play sound file. The link to file is specified in `control.data`, e.g., http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
   You can upload your own file in vis-2 and let it play as for instance `/vis-2.0/main/img/myFile.mp3`.
+  **Important** browser cannot play audio till the user has not clicked at least once on the page. It is a browser security policy. [Here](https://github.com/Hugo22O/chrome-autoplay) you can read more.
 
 If the user changes the view or at the start, the variables will be filled by the vis-2 with
 
@@ -229,12 +230,17 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 2.9.10 (2024-01-02)
+* (foxriver76) remove accidentally added script file, which lead to crash
+
+### 2.9.9 (2024-01-01)
+* (foxriver76) allow to import views without attribute `activeWidgets`
+* (foxriver76) make BasicBulb behave more like its old version
 * (foxriver76) fixed issue that data of different widget is displayed in edit mode
 * (foxriver76) fixed issue that every state update is used for visibility calculation
 * (bluefox) migrated jQui select, jQui Radio steps widgets to react
 * (bluefox) All jQui widgets were migrated to react
- 
+
 ### 2.9.8 (2023-12-21)
 * (foxriver76) fixed bug that no labels are shown for a background
 * (foxriver76) prevent short flashing of widgets with visibility condition at a page load
@@ -423,7 +429,7 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
 * (bluefox) Completely new visualization, but partly compatible with the previous version
 
 ## License
- Copyright (c) 2021-2023 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
+ Copyright (c) 2021-2024 Denis Haev, https://github.com/GermanBluefox <dogafox@gmail.com>,
   
  Creative Common Attribution-NonCommercial (CC BY-NC)
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: uE93xHXJF5YpfYgyx0+IQCa6sfpO71l98r9c2xNjaYw=
+hash: WSXEhoUQQNY8lz3rtNdtUlBRCFxZShmUNI0C2cLVqxs=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -282,3 +282,8 @@ https://github.com/aendue/ioBroker.reolink
 <img src="https://github.com/aendue/ioBroker.reolink/blob/main/admin/reolink_logo.png" width="100" height="100" />
 
 Adapter für die ioBroker-Plattform zum Abrufen von Reolink-Kamerainformationen.
+
+## Vis-2 (02.01.2024) – neue Funktion
+https://github.com/ioBroker/ioBroker.vis-2
+
+vis-2 befindet sich jetzt im stabilen Repository. Es ist eine neue Generation von Vis. Es basiert auf ReactJS und verfügt über viele neue Funktionen.

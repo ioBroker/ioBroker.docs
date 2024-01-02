@@ -473,6 +473,11 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Garfonso) changed: determining user id
+* (Garfosno) changed: history attributes handling
+* (Garfonso) added: handle browser_mod/recall_id service call.
+
 ### 4.1.0 (2023-12-18)
 * (Garfons) add an option to show users on login screen (off by default)
 

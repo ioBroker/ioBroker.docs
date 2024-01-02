@@ -3,22 +3,35 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: EbvV45nHv5bzjr3DjUbIxVJlEez1j/9kKEM+0Sxvm7Q=
+hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
 ---
 ![Logo](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![GitHub-Lizenz](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![Build-Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
+![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub-Commits seit der letzten Veröffentlichung (nach Datum)](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub letzter Commit](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub-Probleme](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/homeconnect-stable.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
+[![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **Version:** </br> </br> **Tests:** </br> [![Test und Veröffentlichung](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
+
+## Wachposten
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
+## Homeconnect-Adapter für ioBroker
 ## Voraussetzungen vor der Installation
-Es muss mindestens Node.js Version 8 installiert sein!!
+Es muss mindestens Node.js Version 16 installiert sein!!
 
 Für den Adapter wird eine ClientID benötigt. Nutzen Sie die Einstellungen, um jeden Schritt der Registrierung zu erreichen.
 
 ## Anforderungen vor der Installation
-Es muss mindestens Node.js Version 8 installiert sein!
+Es muss mindestens Node.js Version 16 installiert sein!
 
 Für den Adapter ist eine ClientID erforderlich. Verwenden Sie zur Registrierung die Einstellungen für jeden Schritt.
 
@@ -26,7 +39,7 @@ Für den Adapter ist eine ClientID erforderlich. Verwenden Sie zur Registrierung
 
 ![Bildschirmfoto](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **Default Home Connect User Account for Testing** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Authorization-Prozess benötigt.
+Bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse angeben, mit der die Home-Connect-App registriert wurde, wird diese später auch beim Autorisierungsprozess benötigt.
 
 Geben Sie bei **Standard-Home Connect-Benutzerkonto zum Testen** die E-Mail-Adresse an, mit der die Home Connect-App versendet werden soll.
 registriert wurde, ist dies auch später im Autorisierungsprozess erforderlich.
@@ -91,6 +104,10 @@ Mit den Zuständen in den Einstellungen können Sie das Gerät aus- oder einscha
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2023-12-15)
+
+- fix login
+
 ### 1.2.2 (2023-12-02)
 
 - bump version

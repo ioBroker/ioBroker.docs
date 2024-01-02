@@ -3,22 +3,35 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.homeconnect/README.md
 title: ioBroker.homeconnect
-hash: EbvV45nHv5bzjr3DjUbIxVJlEez1j/9kKEM+0Sxvm7Q=
+hash: kRnby0GUGm3oJYEyvIjcApJJS6PN2hNaxUS9zM/tqrg=
 ---
 ![标识](../../../en/adapterref/iobroker.homeconnect/admin/homeconnect.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![GitHub 许可证](https://img.shields.io/github/license/iobroker-community-adapters/ioBroker.homeconnect)
 ![下载](https://img.shields.io/npm/dm/iobroker.homeconnect.svg)
-![构建状态](https://travis-ci.org/iobroker-community-adapters/ioBroker.homeconnect.svg?branch=master)
+![GitHub 存储库大小](https://img.shields.io/github/repo-size/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 提交活动](https://img.shields.io/github/commit-activity/m/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 自最新版本以来提交的内容（按日期）](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.homeconnect/latest)
+![GitHub 最后一次提交](https://img.shields.io/github/last-commit/iobroker-community-adapters/ioBroker.homeconnect)
+![GitHub 问题](https://img.shields.io/github/issues/iobroker-community-adapters/ioBroker.homeconnect)
+![NPM版本](http://img.shields.io/npm/v/iobroker.homeconnect.svg)
+![稳定存储库中的当前版本](https://iobroker.live/badges/homeconnect-stable.svg)
+![安装数量](https://iobroker.live/badges/homeconnect-installed.svg)
 
 # IoBroker.homeconnect
+[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/homeconnect/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)</br> </br> **版本：** </br> </br> **测试：** </br> [![测试和发布](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/test-and-release.yml) [![CodeQL](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml/badge.svg)](https://github.com/iobroker-community-adapters/ioBroker.homeconnect/actions/workflows/codeql.yml)
+
+## 哨兵
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+
+## IoBroker 的 Homeconnect 适配器
 ## 安装前的 Voraussetzungen
-这是 Node.js 版本 8 安装过程！！
+请注意 Node.js 版本 16 安装！！
 
 Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden Schritt der Registrierung zu erreichen。
 
 ## 安装前的要求
-至少必须安装 Node.js 版本 8！
+至少必须安装 Node.js 版本 16！
 
 适配器需要 ClientID。使用每个步骤的设置进行注册。
 
@@ -26,7 +39,7 @@ Für den Adapter wrd eine ClientID benötigt。 Nutze die Einstellungen um jeden
 
 ![截屏](../../../en/adapterref/iobroker.homeconnect/img/registrierung1.JPG)
 
-Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，并已注册 Home-Connect-App，并已完成授权过程。
+Bei **用于测试的默认 Home Connect 用户帐户** 已注册电子邮件地址，请注册 Home-Connect-App，然后再注册授权过程。
 
 对于 **用于测试的默认 Home Connect 用户帐户**，指定用于发送 Home Connect 应用程序的电子邮件地址。
 已注册，稍后在授权过程中也需要这样做。
@@ -61,7 +74,7 @@ Mit den 在命令中声明 kannst du das Programm stoppen, pausieren oder fortf�
 
 Mit den 的设置为 kannst du das Gerät ein oder ausschalten。
 
-在状态programs.active.BSH_Common_Root_ActiveProgram 中启动程序更新iQ300：这是一个非常好的程序。 Wenn manprograms.selected.BSH_Common_Root_SelectedProgram ausliest und einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
+在状态programs.active.BSH_Common_Root_ActiveProgram 中启动程序更新iQ300：这是一个非常好的程序。 Wenn manprograms.selected.BSH_Common_Root_SelectedProgram ausliest and einträgt, hat der User die Möglichkeit am Gerät des gewünschte Programm auszuwählen, welches dann per ioBroker gestartet wird.
 
 在 Statesprograms.selected.BSH_Common_Root_SelectedProgram 中包含 Programms oder Optionen
 
@@ -91,6 +104,10 @@ Oder ob ein Gerät geoffnet ist
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.0 (2023-12-15)
+
+- fix login
+
 ### 1.2.2 (2023-12-02)
 
 - bump version

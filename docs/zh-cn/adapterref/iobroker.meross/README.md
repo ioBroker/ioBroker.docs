@@ -3,50 +3,61 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meross/README.md
 title: ioBroker.meross
-hash: UkhR9pGFku6oVV/spKKs8sdPvyjBzH8HOhaDYx5ktpk=
+hash: 64pu2JH3IQGKk7ZQAuxUhXYOGtcOjlIJLb5VGdmAF54=
 ---
 ![标识](../../../en/adapterref/iobroker.meross/admin/meross-logo.png)
 
 ![安装数量](http://iobroker.live/badges/meross-stable.svg)
-![NPM 版本](http://img.shields.io/npm/v/iobroker.meross.svg)
+![NPM版本](http://img.shields.io/npm/v/iobroker.meross.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.meross.svg)
 
 # IoBroker.meross
-![测试和发布](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg)[![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![测试与发布](https://github.com/Apollon77/iobroker.meross/workflows/Test%20and%20Release/badge.svg) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/meross/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！从 js-controller 3.0 开始使用哨兵报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 免责声明
-**所有产品和公司名称或徽标均为其各自所有者的商标™ 或注册® 商标。使用它们并不意味着与它们或任何相关子公司有任何关联或认可！这个个人项目是业余时间维护的，没有商业目标。** **MEROSS是成都美洛斯科技有限公司的商标**
+**所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！此个人项目是业余时间维护的，没有任何商业目标。** **MEROSS是成都Meross科技有限公司的商标**
 
 ＃＃ 描述
 该适配器允许通过连接到 Meross 云服务器来控制 Meross 设备。
 
-您需要提供您的云登录凭据。适配器连接到您的云帐户并通过 MQTT 订阅所有设备数据。因此，设备需要连接到他们的云。目前还没有办法在本地控制设备。
+您需要提供您的云登录凭据。适配器连接到您的云帐户并通过 MQTT 订阅所有设备数据。因此，设备需要连接到云。目前尚无已知的方法可以在本地控制设备。
 
 一个适配器实例将显示来自一个 Meross Cloud 帐户的所有设备并允许控制它们。
 
+## 使用MFA时的注意事项
+该适配器允许在设置中输入当前的 MFA 代码。请注意，代码的有效期只有 30 秒，因此请快速输入并保存:-)
+
+适配器尝试记住该令牌，但该令牌在一段时间后就会耗尽！因此，使用 MFA 时，这意味着适配器重新启动后无法进行新的登录，因为令牌无效，MFA 代码也无效！在这种情况下，适配器将保持离线状态，直到您输入新的 MFA 代码。
+
 ## 已知的工作设备
-根据我目前的知识，所有设备都应该工作。但请检查日志或报告未创建状态的任何功能或新设备类型（新设备类型需要我手动添加，因此问题很重要）。
-
-报告的工作至少是：
-
-* mss425e
-* mss310
-* MSS620 欧盟/英国
-* MTS100、MTS100v3、MTS150、MTS200
-* MRS100
-* ... 以及更多尚未列出的内容 :-) 只需告诉我设备何时工作，而该设备未通过 GitHub 问题列出。
+根据我目前的知识，所有设备都应该可以工作。但请检查日志或报告任何未创建状态的功能或新设备类型（新设备类型需要由我手动添加，因此问题很重要）。
 
 ## 如何报告问题和功能请求
 请为此使用 GitHub 问题。
 
-最好是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后请从磁盘中获取日志文件（ioBroker 安装目录中的子目录“log”，而不是来自管理员，因为管理员切断了行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件 (iobroker@fischer-ka.de) 将其发送给我。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
+最好的方法是将适配器设置为调试日志模式（实例 -> 专家模式 -> 列日志级别）。然后，请从磁盘获取日志文件（ioBroker 安装目录中的子目录“log”，而不是从管理员获取，因为管理员会截断行）。如果您不喜欢在 GitHub 问题中提供它，您也可以通过电子邮件将其发送给我 (iobroker@fischer-ka.de)。请添加对相关 GitHub 问题的引用，并描述我当时在日志中看到的内容。
 
 ## Changelog
+### 1.17.0 (2023-12-30)
+* (Apollon77) Adjust Signin API and add support for MFA
+* (Apollon77) Store login token and try to reuse it for reconnections, but also do not log out anymore
+* (Apollon77) Add support for DoorWindow Sensor MS200HK
 
-### __WORK IN PROGRESS__
+### 1.16.1 (2023-11-27)
+* (Apollon77) Fixes initial Temperature/Humidity/Voltage values of MS100 sensors
+
+### 1.16.0 (2023-11-25)
+* IMPORTANT: Node.js 16.x or higher is required
+* (Apollon77) Prevented crash case reported by Sentry
+
+### 1.15.1 (2023-05-15)
+* (Apollon77) Fix an issue when committing devices delayed
+
+### 1.15.0 (2023-01-03)
 * (Apollon77) Add support for MAP100 air purifier
+* (Apollon77) Add Energy Consumption states
 
 ### 1.14.0 (2022-08-12)
 * (Apollon77) Add Smoke Sensor
@@ -188,7 +199,7 @@ hash: UkhR9pGFku6oVV/spKKs8sdPvyjBzH8HOhaDYx5ktpk=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2023 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

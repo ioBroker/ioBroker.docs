@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
+hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
 ---
 ![标识](../../../en/adapterref/iobroker.rct/admin/rct.png)
 
@@ -23,13 +23,25 @@ hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
 ## IoBroker 的 RCT 适配器
 请注意，这是一个私人项目，我 (Andreas Ruttkamp) 与 RCT 没有任何关系。
 
-显示 RCT Power 光伏电源转换器的值
+读取 RCT Power 光伏电源转换器的值
 
 ＃＃ 评论
-### 初始生产版本
-这是在先前版本被证明稳定并满足最小可行范围之后的初始生产版本。
+### 高效发布
+这个富有成效的版本已被证明是稳定的。
 
-配置仍然有限并且相当技术性。使用“RCT ELemente”可以选择从电源转换器读取哪些数据。默认为“battery.bat_status、battery.soc、battery.soc_target、battery.soc_target_high、battery.soc_target_low、dc_conv.dc_conv_struct[0].p_dc_lp、dc_conv.dc_conv_struct[1].p_dc_lp、fault[0].flt、fault[ 1].flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board .s0_external_power，power_mng.is_heiphoss，power_mng.state，power_mng.use_grid_power_enable，power_mng.u_acc_mix_lp，prim_sm.island_flag，prim_sm.state”。其他元素可以在代码（文件“rct/rc_core2.js”）中找到。但这根本不是自我描述的（甚至没有真正测试过）。
+通过使用“RCT元素”字段，可以选择应从功率转换器读取哪些数据。
+如果此处未输入任何内容，将使用默认值：
+
+"电池.bat_status,电池.soc,电池.soc_target,电池.soc_target_high,电池.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,故障[0].flt,故障[1] .flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state"
+
+其他元素可以在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述，因此使用风险自负！
+
+对象“battery.bat_status”指示已连接电池的状态：
+
+* 0 -> 充电/放电（正常操作）
+* 8 -> 充电（校准）
+* 1024 -> 放电（校准）
+* 2048 -> 平衡
 
 ＃＃ 已知的问题
 ### 错误的频道/状态
@@ -43,47 +55,53 @@ hash: dKOLwGLUrES+/onbfQwzxVAzlZbq1/kxHEkiJSe7nTI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.2 (2023-09-13)
+* (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
+* (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
 
-### **WORK IN PROGRESS**
-* (Andreas Ruttkamp) Connection state bei Stop des Adapters zurückgesetzt
-* (Andreas Ruttkamp) Connection state bei Start des Adapters nochmals angepasst
+### 1.2.1 (2023-09-13)
+* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+
+### 1.2.0 (2023-09-11)
+* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state korrigiert
+* (Andreas Ruttkamp) Connection state corrected
 
 ### 1.1.6 (2023-08-23)
-* (Andreas Ruttkamp) rct_core.js entfernt (wurde durch rct_core2 ersetzt)
-* (Andreas Ruttkamp) Parameter die nicht unterstützt werden aus Defaultbelegung entfernt.
+* (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
+* (Andreas Ruttkamp) parameters in default setting deleted 
 * (Andreas Ruttkamp) min. Node 18
 
 ### 1.1.5 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Abbruch bei lesen von UInt8 Datentypen behoben
-* (Andreas Ruttkamp) Verzeichnisse aufgeräumt
+* (Andreas Ruttkamp) Fix: crash reading UInt8 corrected
+* (Andreas Ruttkamp) some cleaning actions
 
 ### 1.1.4 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Rückgabewerte nochmals angepasst.
+* (Andreas Ruttkamp) Fix: proofments corrected.
 
 ### 1.1.3 (2023-08-18)
-* (Andreas Ruttkamp) Fix: Weitere Datenprüfungen eingbaut
+* (Andreas Ruttkamp) Fix: more data checks implemented
 
 ### 1.1.2 (2023-08-17)
-* (Andreas Ruttkamp) Fix: Abbruch des Adapters
+* (Andreas Ruttkamp) Fix: adapter crashes
 
 ### 1.1.1 (2023-08-17)
-* (Andreas Ruttkamp) Daten für g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp hinzugefügt
-* (Andreas Ruttkamp) Weitere Parameter ergänzt. 
-* (Andreas Ruttkamp) Konvertierungsproblem mit Datumswerten behoben
-* (Andreas Ruttkamp) Konvertierungsfehler bei % Werten behoben
-* (Andreas Ruttkamp) Abbruch der Instanz bei Übertragungsfehlern behoben
+* (Andreas Ruttkamp) data for g_sync.p_ac_load[0-2] / dc_conv.dc_conv_struct[0-1].u_sg_lp added
+* (Andreas Ruttkamp) more parameters added 
+* (Andreas Ruttkamp) date conversions fixed
+* (Andreas Ruttkamp) conversions of percentages fixed
+* (Andreas Ruttkamp) instance crash if data failure fixed
 
 ### 1.0.5 (2023-07-29)
-* (Andreas Ruttkamp) interne Arbeiten
-* (Andreas Ruttkamp) Umgebung für Neuen Admin aktualisiert
-* (Andreas Ruttkamp) Abhängigkeiten aktualisiert
+* (Andreas Ruttkamp) some internal work
+* (Andreas Ruttkamp) preparation for new admin
+* (Andreas Ruttkamp) dependecies update
 
 ### 1.0.4 (2023-04-24)
 * (Andreas Ruttkamp) Release Script added and update dev-components
-* (Andreas Ruttkamp) Vorbereitung neues Backend
+* (Andreas Ruttkamp) Preparation of new backend
 
 ### 1.0.3 (2023-03-30)
 * (Andreas Ruttkamp) Release Script added and update dev-components

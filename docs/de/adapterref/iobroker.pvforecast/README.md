@@ -96,7 +96,7 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
 ## License
 MIT License
 
-Copyright (c) 2021-2023 Patrick-Walther
+Copyright (c) 2021-2024 Patrick-Walther
                         Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

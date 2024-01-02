@@ -27,7 +27,7 @@ startCook Beispieles Fritten:
 
 ```
 {
-            "accountId": "8604100",
+            "accountId": "000000",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -50,6 +50,34 @@ startCook Beispieles Fritten:
             },
             "tempUnit": "c"
         }
+```
+
+AirFry
+
+```
+{
+            "accountId": "000000",
+            "cookTempDECP": 0,
+            "hasPreheat": 0,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "AirFry",
+            "readyStart": true,
+            "recipeId": 14,
+            "recipeName": "Air Fry",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 600,
+                "cookTemp": 180,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 0,
+                "shakeTime": 0,
+                "targetTemp": 0
+            },
+
 ```
 
 cookMode:

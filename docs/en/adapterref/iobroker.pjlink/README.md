@@ -83,6 +83,9 @@ the other lamps will be added dynamically.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (Bannsaenger) update dependencies
+
 ### 0.1.1 (2023-01-24)
 * (Bannsaenger) temporarily fix the test script error with local libraries
 
@@ -106,7 +109,7 @@ the other lamps will be added dynamically.
 ## License
 MIT License
 
-Copyright (c) 2022-2023 Bannsaenger <bannsaenger@gmx.de>
+Copyright (c) 2022-2024 Bannsaenger <bannsaenger@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vesync/README.md
 title: ioBroker.vesync
-hash: itncUpTg0tCsqWXPL7C9iiIo4a6xpm1Tf5Itz9fh8mY=
+hash: 6KWO3g5PHUaA038TwB0lxGiz7C+MgWBuuhdUyJhUSAU=
 ---
 ![Logo](../../../en/adapterref/iobroker.vesync/admin/vesync.png)
 
@@ -14,22 +14,22 @@ hash: itncUpTg0tCsqWXPL7C9iiIo4a6xpm1Tf5Itz9fh8mY=
 ![NPM](https://nodei.co/npm/iobroker.vesync.png?downloads=true)
 
 # IoBroker.vesync
-**Tests:** ![Testen und freigeben](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/TA2k/ioBroker.vesync/workflows/Test%20and%20Release/badge.svg)
 
 ## Vesync-Adapter für ioBroker
 Adapter für VeSync
 
-# Anmeldeablauf
+# Loginablauf
 Die App Mail und Passwort eingeben.
 
-#Steuerung
-Geräte can via vesync.0.id.remote gesteuert werden
+# Steuerung
+Geräte können über vesync.0.id.remote gesteuert werden
 
-startCook Beispiele Fritten:
+startCook Beispiele für Fritten:
 
 ```
 {
-            "accountId": "8604100",
+            "accountId": "000000",
             "cookTempDECP": 0,
             "hasPreheat": 1,
             "hasWarm": false,
@@ -52,6 +52,34 @@ startCook Beispiele Fritten:
             },
             "tempUnit": "c"
         }
+```
+
+AirFry
+
+```
+{
+            "accountId": "000000",
+            "cookTempDECP": 0,
+            "hasPreheat": 0,
+            "hasWarm": false,
+            "imageUrl": "",
+            "mode": "AirFry",
+            "readyStart": true,
+            "recipeId": 14,
+            "recipeName": "Air Fry",
+            "recipeType": 3,
+            "startAct": {
+                "appointingTime": 0,
+                "cookSetTime": 600,
+                "cookTemp": 180,
+                "cookTempDECP": 0,
+                "imageUrl": "",
+                "level": 0,
+                "preheatTemp": 0,
+                "shakeTime": 0,
+                "targetTemp": 0
+            },
+
 ```
 
 Kochmodus:
@@ -80,7 +108,7 @@ Stoppen:
         }
 ```
 
-##Diskussion und Fragen
+## Diskussion und Fragen
 <https://forum.iobroker.net/topic/59466/test-adapter-vesync>
 
 ## Changelog

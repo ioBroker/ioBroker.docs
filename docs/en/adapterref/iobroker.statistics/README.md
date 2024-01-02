@@ -82,7 +82,7 @@ NodeJS 14.5.0 is required
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 foxthefox <foxthefox@wysiwis.net>,
+Copyright (c) 2018-2024 foxthefox <foxthefox@wysiwis.net>,
                         bluefox <dogafox@gmail.com> and
                         Matthias Kleine <info@haus-automatisierung.com>
 
