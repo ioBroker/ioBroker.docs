@@ -720,5 +720,40 @@
     "fa-icon": "usb",
     "created": "2023-12-11T11:00:00.000Z",
     "date-end": "2024-01-07T23:00:00.000Z"
+  },
+  {
+    "title": {
+      "en": "Adapter landroid is deprecated now",
+      "de": "Adapter landroid wird abgekündigt",
+      "ru": "Адаптер landroid отсчитан сейчас",
+      "pt": "Adapter landroid é deprecated agora",
+      "nl": "Adapter landroid is nu gedepreceerd",
+      "fr": "Adaptateur landroid est déprécié maintenant",
+      "it": "L'adattatore landroid è deprecato ora",
+      "es": "El adaptador landroid está deprecado ahora",
+      "pl": "Adapter landroid jest obecnie zaniedbany",
+      "uk": "Перехідник landroid тепер",
+      "zh-cn": "适配的陆生机器人已经贬值了"
+    },
+    "content": {
+      "en": "The adapter landroid has been deprecated. Please consider migrating to adapter worx.",
+      "de": "Der Adapter landroid wurde abgekündigt. Bitte eine Migration auf Adapter worx planen.",
+      "ru": "Адаптер андроид был обесценен. Пожалуйста, подумайте о миграции к адаптеру worx.",
+      "pt": "O adaptador landroid foi depreciado. Por favor, considere migrar para worx adaptador.",
+      "nl": "De adapter landroid is verouderd. Overweeg om naar adapter worx te migreren.",
+      "fr": "L'adaptateur landroid a été déprécié. Veuillez envisager de migrer vers l'adaptateur worx.",
+      "it": "L'adattatore landroid è stato deprecato. Si prega di considerare la migrazione all'adattatore worx.",
+      "es": "El adaptador Landroid ha sido deprecado. Por favor considere migrar a adaptador worx.",
+      "pl": "Adapter Landroid został zdepresyzowany. Należy rozważyć migrację do worksa adaptera.",
+      "uk": "Розгортання адаптера. Будь ласка, врахуйте міграцію до адаптера worx.",
+      "zh-cn": "适配器陆路机器人已经贬值. 请考虑迁移到适配器worx."
+    },
+    "id": "landroid-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-01-11T016:00:00.000Z",
+    "conditions": {
+      "landroid": "installed"
+    }
   }
 ]
