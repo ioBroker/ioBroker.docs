@@ -1,6 +1,6 @@
 ---
 title: "Windows"
-lastChanged: "17.12.2023"
+lastChanged: "14.01.2024"
 ---
 
 # Voraussetzungen prüfen
