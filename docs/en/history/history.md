@@ -281,3 +281,10 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 <img src="https://github.com/Bannsaenger/ioBroker.artnet-recorder/blob/master/admin/artnet-recorder.png" width="100" height="100" />
 
 Record Art-Net data to a file for later playback
+
+## energiefluss (25.01.2024) - new adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss
+
+<img src="https://github.com/SKB-CGN/ioBroker.energiefluss/blob/main/admin/energiefluss.png" width="100" height="100" />
+
+It provides an animated energyflow of the current consumption for photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge and up to 10 possible elements (circle or rectangle).
