@@ -755,5 +755,42 @@
     "conditions": {
       "landroid": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.info is deprecated now",
+      "de": "Adapter ioBroker.info wird abgekündigt",
+      "ru": "Adapter ioBroker.info теперь депрецирован",
+      "pt": "Adapter ioBroker.info is deprecated now",
+      "nl": "Adapter ioBroker.info is nu verouderd",
+      "fr": "Adapter ioBroker.info est déprécié",
+      "it": "Adattatore ioBroker.info è deprecato ora",
+      "es": "Adaptador ioBroker.info está deprecado ahora",
+      "pl": "Adapter iOBroker.info jest teraz zdeprecjonowany",
+      "uk": "English, Українська, Français..",
+      "zh-cn": "适配器 ioBroker. info 现在已经贬值了"
+      }    
+    },
+    "content": {
+      "en": "Adapter ioBroker.info is deprecated now. Please remove the adapter from your system as it might report incorrect information in future.",
+      "de": "Adapter ioBroker.info ist veraltet. Bitte entfernen Sie den Adapter aus Ihrem System, da er in Zukunft falsche Informationen melden kann.",
+      "ru": "Adapter ioBroker.info теперь обесценивается. Пожалуйста, удалите адаптер из вашей системы, поскольку он может сообщить неправильную информацию в будущем.",
+      "pt": "Adapter ioBroker.info está desprezado agora. Por favor, remova o adaptador do seu sistema, pois ele pode relatar informações incorretas no futuro.",
+      "nl": "Adapter ioBroker.info is nu verouderd. Verwijder de adapter van uw systeem omdat het in de toekomst onjuiste informatie kan rapporteren.",
+      "fr": "Adapter ioBroker.info est déprécié maintenant. Veuillez supprimer l'adaptateur de votre système car il pourrait signaler des informations incorrectes à l'avenir.",
+      "it": "Adattatore ioBroker.info è deprecato ora. Si prega di rimuovere l'adattatore dal sistema in quanto potrebbe segnalare informazioni errate in futuro.",
+      "es": "Adaptador ioBroker.info está deprecado ahora. Por favor, retire el adaptador de su sistema ya que podría reportar información incorrecta en el futuro.",
+      "pl": "Adapter jOBroker.info jest teraz zdeprecjonowany. Proszę usunąć adapter z systemu, ponieważ może w przyszłości zgłosić nieprawidłowe informacje.",
+      "uk": "English, Українська, Français... Будь ласка, видаліть адаптер з вашої системи, оскільки він може повідомити невірну інформацію в майбутньому.",
+      "zh-cn": "适配器ioBroker. Info现在已经贬值了. 请从您的系统中删除适配器, 因为它将来可能会报告错误的信息 ."
+      }
+    },
+    "id": "info-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-01-30T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
   }
 ]
