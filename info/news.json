@@ -755,5 +755,40 @@
     "conditions": {
       "landroid": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.info is deprecated now",
+      "de": "Adapter ioBroker.info wird abgekündigt",
+      "ru": "Adapter ioBroker.info теперь депрецирован",
+      "pt": "Adapter ioBroker.info is deprecated now",
+      "nl": "Adapter ioBroker.info is nu verouderd",
+      "fr": "Adapter ioBroker.info est déprécié",
+      "it": "Adattatore ioBroker.info è deprecato ora",
+      "es": "Adaptador ioBroker.info está deprecado ahora",
+      "pl": "Adapter iOBroker.info jest teraz zdeprecjonowany",
+      "uk": "English, Українська, Français..",
+      "zh-cn": "适配器 ioBroker. info 现在已经贬值了"
+    },
+    "content": {
+      "en": "Adapter ioBroker.info is deprecated now. The adapter will not receive any updates and might stop working correctly in future.",
+      "de": "Adapter ioBroker.info ist veraltet. Der Adapter wird keine Updates mehr erhalten und könnte zukünftig fehlerhaft funktionieren.",
+      "ru": "Adapter ioBroker.info теперь обесценивается. Адаптер не будет получать никаких обновлений и может перестать работать правильно в будущем.",
+      "pt": "Adapter ioBroker.info está desprezado agora. O adaptador não receberá atualizações e pode parar de funcionar corretamente no futuro.",
+      "nl": "Adapter ioBroker.info is nu verouderd. De adapter ontvangt geen updates en kan in de toekomst misschien stoppen met werken.",
+      "fr": "Adapter ioBroker.info est déprécié maintenant. L'adaptateur ne recevra aucune mise à jour et pourrait arrêter de fonctionner correctement à l'avenir.",
+      "it": "Adattatore ioBroker.info è deprecato ora. L'adattatore non riceverà alcun aggiornamento e potrebbe smettere di funzionare correttamente in futuro.",
+      "es": "Adaptador ioBroker.info está deprecado ahora. El adaptador no recibirá ninguna actualización y podría dejar de funcionar correctamente en el futuro.",
+      "pl": "Adapter jOBroker.info jest teraz zdeprecjonowany. Adapter nie otrzyma żadnych aktualizacji i w przyszłości może przestać działać prawidłowo.",
+      "uk": "English, Українська, Français... Перехідник не отримає ніяких оновлень і може припинити роботу в майбутньому.",
+      "zh-cn": "适配器ioBroker. Info现在已经贬值了. 适配器不会收到任何更新,今后可能停止正确工作."
+    },
+    "id": "info-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-01-30T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
   }
 ]
