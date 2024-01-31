@@ -295,3 +295,10 @@ https://github.com/rg-engineering/ioBroker.amtronwallbox
 <img src="https://github.com/rg-engineering/ioBroker.amtronwallbox/blob/master/admin/amtronwallbox.png" width="100" height="100" />
 
 The adapter serves as an interface to various Amtron wallboxes. The data provided by the box is read out and made available as a state in the adapter. The data is only processed locally, a cloud connection is not necessary.
+
+## zendure-solarflow (30.01.2024) - new adapter
+https://github.com/nograx/ioBroker.zendure-solarflow
+
+<img src="https://github.com/nograx/ioBroker.zendure-solarflow/blob/main/admin/zendure-solarflow.png" width="100" height="100" />
+
+This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
