@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
+hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ---
 ![标识](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -22,6 +22,8 @@ hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
 ![截屏](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
 ![酒吧](../../../en/adapterref/iobroker.echarts/img/bars.png)
+
+![雷达](../../../en/adapterref/iobroker.echarts/img/radar.png) 使用“实际值”聚合来预测结果。
 
 ＃＃ 用法
 重新启动后在管理选项卡中添加：![行政](../../../en/adapterref/iobroker.echarts/img/admin.png)
@@ -98,7 +100,6 @@ sendTo('echarts.0', {
 
 ＃＃ 去做
 - vis 小部件（按钮）
-- 材料小部件
 - 在文件夹或附近显示枚举图标
 
 <!-- 下一个版本的占位符（在行的开头）：
@@ -106,6 +107,19 @@ sendTo('echarts.0', {
 ### **正在进行中** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added the radar (polar) chart type
+
+### 1.7.2 (2023-11-20)
+* (bluefox) Added option to hide the value in the future
+
+### 1.7.1 (2023-11-16)
+* (bluefox) Added X-Label offset
+* (bluefox) Corrected icons in the object selection dialog
+
+### 1.6.1 (2023-11-08)
+* (bluefox) Added vis-2 widget
+
 ### 1.5.4 (2023-09-13)
 * (bluefox) Added an option to the export dialog: select / unselect all
 * (bluefox) Added the availability to show legend as dialog

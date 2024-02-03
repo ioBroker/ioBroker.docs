@@ -3,90 +3,99 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.myvbus/README.md
 title: ioBroker.myvbus
-hash: sNPkORaSVOs312S5OrbFo1j7SheCbsjHx0Y1bd/1zH0=
+hash: aF4K57u2d/78Cw2v4pkxrJUrcmi9N7upgA12YFtYMP4=
 ---
 # IoBroker.myvbus
 ![Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
 
-![Anzahl der Installationen (neueste)](http://iobroker.live/badges/myvbus-installed.svg)
+![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/myvbus-installed.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/myvbus-stable.svg)
+![Anzahl Installationen (stabil)](http://iobroker.live/badges/myvbus-stable.svg)
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.myvbus.svg)
 ![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
 
-**Tests:** ![Testen und freigeben](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 ## IoBroker-Adapter für Resol VBus
-Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten unter Verwendung von resol-vbus, einer JavaScript-Bibliothek zur Erfassung von RESOL VBus-Daten, bereitgestellt von Daniel Wippermann.
+Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten über resol-vbus, eine JavaScript-Bibliothek zur Erfassung von RESOL VBus-Daten, bereitgestellt von Daniel Wippermann.
 
 <https://github.com/danielwippermann/resol-vbus>
 
 <https://www.npmjs.com/package/resol-vbus>
 
 ## Merkmale
-* Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R)-Geräte - vorzugsweise Solar- und Systemregler der DeltaSol(R)-Serie inkl. eingebautem Wärmemengenzähler (WMZ) - mittels Datenlogger DL3 oder DL2, KM2 Kommunikationsmodule, VBus/LAN-Schnittstellenadapter oder Seriell/LAN-Gateways lokal über TCP/IP.
+* Ermöglicht das Auslesen der Messdaten verschiedener RESOL(R) VBus(R)-Geräte – vorzugsweise Solar- und Systemregler der DeltaSol(R)-Serie inklusive eingebautem Wärmemengenzähler (HQM) – mittels Datenlogger DL3 oder DL2, KM2 Kommunikationsmodule, VBus/LAN-Schnittstellenadapter oder Seriell/LAN-Gateways lokal über TCP/IP.
 * Der Gerätezugriff über den seriellen VBus/USB-Schnittstellenadapter oder über VBus.net(R) mit DLx/KMx wird ebenfalls unterstützt.
-* Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Zustände zur Verfügung.
+* Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Status zur Verfügung.
 * Werte werden mit einer konfigurierbaren Zykluszeit aktualisiert.
-* Das Lesen oder Einstellen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierfür sollten die von Resol bereitgestellten Tools verwendet werden, z. B. über VBus.net oder das Parametriertool RPT.
+* Das Lesen oder Einstellen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierzu sollten die von Resol bereitgestellten Tools genutzt werden, z.B. über VBus.net oder das Parametriertool RPT.
+
+Eine abgeleitete Version dieses Adapters, der die Steuerung von VBus-Geräten unterstützt, ist unter <https://github.com/Grizzelbee/ioBroker.resol> verfügbar
+
 * Das Lesen von DL3-Kanal 0 (direkt an das DL3-Gerät angeschlossene Sensoren) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
 
 ## Konfigurationshinweise
-* Die Standardeinstellung für die Verbindungsart ist VBus/LAN, muss aber auch für VBus/LAN explizit ausgewählt werden, sonst kommt keine Verbindung zustande.
+* Der Typ des Verbindungsgeräts, z. VBus/LAN oder DL2 muss explizit ausgewählt werden, sonst kommt keine Verbindung zustande.
+* TCP-Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
+* Gerätepasswort: Das Passwort, das Sie in Ihrem Verbindungsgerät festgelegt haben (Standard: vbus)
+* DL3-Kanal: Nur relevant für DL3/DL2Plus – für alle anderen Anschlussgeräte auf „Keine“ belassen.
+
+(erlaubte Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
+
+* Aktualisierungsintervall: Die Zeit zwischen Aktualisierungen der Messwerte (Standard 30s)
 * Die korrekten Einstellungen für den direkten LAN-Zugriff für VBus/LAN, DL3, DL2, KM2 sind:
-  * Verbindungstyp: VBus/LAN oder KM2 oder DL2 oder DL3
-  * Verbindungskennung: IP-Adresse (z. B. 192.168.178.188) oder FullyQualifiedHostName (z. B. host1.example.com)
-  * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
-  * DL3-Kanal: Nur relevant für DL3 (Werte 1-6, Kanal 0 kann nicht ausgelesen werden)
-  * Aktualisierungsintervall: Zeit zwischen Aktualisierungen der Messwerte (Standard 30s)
+  * Verbindungsgerät: VBus/LAN oder KM2/DL2 oder DL3/DL2Plus
+  * Geräteadresse: IP-Adresse (z. B. 192.168.178.188) oder FullyQualifiedHostName (z. B. myKM2.fritz.box)
 * Die korrekten Einstellungen für den DL3-, DL2-, KM2-Zugriff über VBus.net sind:
-  * Verbindungstyp: DL3 oder DL2 oder KM2
-  * Verbindungskennung: vbus.net (oder vbus.io) - beide ohne http:// und Via-Kennung!
-  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
-  * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * DL3-Kanal: Nur für DL3 relevant (Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
-  * Via-Kennung: YourViaIdentifier (z. B. d1234567890) - ohne http:// davor oder .vbus.io dahinter
-  * Aktualisierungsintervall: Zeit zwischen der Aktualisierung der Messwerte (Standard 30s)
+  * Verbindungsgerät: DL3/DL2Plus oder DL2/KM2
+  * Geräteadresse: vbus.net (oder vbus.io) – beide ohne http:// und Via-Kennung!
+  * Über Tag: YourViaIdentifier (z. B. d1234567890) – ohne http:// davor oder .vbus.io dahinter
 
 ## Rechtliche Hinweise
-RESOL, VBus, VBus.net, DeltaSol und andere sind Warenzeichen oder eingetragene Warenzeichen der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/de>
+RESOL, VBus, VBus.net, DeltaSol und andere sind Marken oder eingetragene Marken der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/de>
 
-Alle anderen Warenzeichen sind Eigentum ihrer jeweiligen Inhaber.
-Die Autoren werden in keiner Weise von RESOL GmbH oder verbundenen Tochterunternehmen, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
+Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
+Die Autoren werden in keiner Weise von der RESOL GmbH oder den damit verbundenen Tochtergesellschaften, Logos oder Marken unterstützt oder sind mit ihnen verbunden.
 
 ## Changelog
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
+### 0.3.0 (2024-01-24) - 2024 maintenance release
+
+* (pdbjjens) New: Use JSON config UI
+* (pdbjjens) New: Support ioBroker discovery
+* (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
+* (pdbjjens) Updated dependencies
+* (pdbjjens) Fix: Set info.connection false when reconnecting
+
+### 0.2.5 (2023-03-14)
+
+* (pdbjjens) Updated dependencies
+* (pdbjjens) Fix: reconnect handling for serial connections
+
+### 0.2.4 (2023-03-01)
+
+* (pdbjjens) Fix password check
+
+### 0.2.3 (2023-02-27) - 2023 maintenance release
+
+* (pdbjjens) Updated dependencies
+* (pdbjjens) New: Use adapter-dev instead of gulp translate
+* (pdbjjens) Fix: error handling for serial connections
+
 ### 0.2.2 (2022-02-11)
+
 * Updated dependencies
 * Compatibility check for js-controller 4.0
 * Support for js-controller 1.x dropped
-
-### 0.2.1 (2021-08-18)
-* Update dependencies
-* Changed allowed range of temperature values to include the error values for short circuit and open circuit
-
-### 0.2.0 (2021-06-25)
-* Dropped node.js 10 support, added node.js 14 and 16 support
-
-### 0.1.1 (2021-05-18)
-* Fixes for supporting js-controller >=3.2.x
-
-### 0.1.0
-* (grizzelbee) Fix: config page shows current settings now (not default anymore)
-* (grizzelbee) Fix: "Connected" state is updated correctly now if connection is disrupted.
-* (grizzelbee) New: Added Badge for latest(npm) version to readme
-* (grizzelbee) Fix: removed default password from config to ensure it's encrypted on first config
-* (grizzelbee) Fix: removed Force-ReInit
-* (grizzelbee) Fix: sensor maintenance indicators are booleans now
-* (grizzelbee) New: added activity indicator states for relays
-* (pdbjjens) Fix: Prevent warnings regarding non-existent objects upon adapter instance creation and start-up with js-controller 3.2.x
-* (pdbjjens) Fix: updated dependencies and vulnerabilities
 
 ## License
 
 MIT License
 
-Copyright (c) 2022 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2024 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

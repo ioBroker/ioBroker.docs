@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-солнечный поток
-hash: 9K2qEiDXnN1VlUWg1rXqNwJNHCYP8dgYcMUAFsRFYTo=
+hash: hHFeHU9GvNtSGFJipXgtZqVMDCH/HirY+dNH51/bxwg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -21,9 +21,15 @@ hash: 9K2qEiDXnN1VlUWg1rXqNwJNHCYP8dgYcMUAFsRFYTo=
 Этот проект представляет собой адаптер ioBroker для чтения данных из Zendure Solarflow Cloud API. Он использует официальный API, предоставленный Zendure.
 Подробнее об API можно прочитать здесь: https://github.com/Zendure/developer-device-data-report.
 
-Примечание. Ограничением вывода можно управлять с помощью состояния, созданного в подпапке productId/deviceKey/control.
+Примечания:
 
-Примечание 2. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение, сейчас я не знаю почему. Если у вас есть дополнительная информация, не стесняйтесь обращаться ко мне.
+1. Вам необходимо использовать глобальный сервер Zendure!
+
+2. Ограничением вывода можно управлять с помощью состояния, созданного в подпапке productId/deviceKey/control. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе установить ограничение вывода невозможно!
+
+    ![Окно настроек Solarflow](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
+
+3. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить этой учетной записи доступ к вашему Solarflow HUB. Затем используйте вторую учетную запись для ioBroker/адаптера Zendure Solarflow.
 
 ## Кредиты
 Благодарность передается по адресу https://github.com/reinhard-brandstaedter/solarflow, который очень помог мне получить знания о сервере MQTT от Zendure! Спасибо!
@@ -32,6 +38,16 @@ hash: 9K2qEiDXnN1VlUWg1rXqNwJNHCYP8dgYcMUAFsRFYTo=
 Если вы считаете адаптер полезным для себя и хотите поддержать мою работу, сделайте пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая отношения к проекту ioBroker!)<br />
 
 ## Changelog
+### 1.0.7 (2024-01-16)
+- Add control for charge and discharge limit
+- Update Readme Screenshot
+
+### 1.0.6 (2024-01-16)
+- Update Readme
+
+### 1.0.5 (2024-01-15)
+- Added state for both Solarflow PV inputs
+
 ### 1.0.4 (2023-12-16)
 
 - Added Timeout for axios
@@ -76,7 +92,7 @@ hash: 9K2qEiDXnN1VlUWg1rXqNwJNHCYP8dgYcMUAFsRFYTo=
 
 MIT License
 
-Copyright (c) 2023 Peter Frommert
+Copyright (c) 2024 Peter Frommert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

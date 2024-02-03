@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: j0s/xrvbFuZGzEpPCJYqWJqQjZ/SuuGz8QlwiqbVc3s=
+hash: EV66MfmeApEpbV7mwc4WMERUCxQOkFeRTdHBfQvUmbs=
 ---
 ![Logo](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -14,101 +14,117 @@ hash: j0s/xrvbFuZGzEpPCJYqWJqQjZ/SuuGz8QlwiqbVc3s=
 ![NPM](https://nodei.co/npm/iobroker.frigate.png?downloads=true)
 
 # IoBroker.frigate
+**Tests:** ![Test und Freigabe](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
+
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+
 ## Fregattenadapter für ioBroker
-Frigate ist ein Open-Source-NVR, der auf der Erkennung von KI-Objekten in Echtzeit basiert.
-Dieser Adapter analysiert die MQTT-Nachrichten von Frigate und erstellt daraus Datenobjekte
+Adapter für Frigate Tool [Fregattenvideo](https://frigate.video/)
 
-## Anweisungen
-MQTT muss in Frigate aktiviert und in den ioBroker integriert werden.
-In den Adaptereinstellungen werden der MQTT-Datenpunkt (normalerweise „mqtt.0.frigate“), die Fregatten-URL und die Anzahl der Web-URLs eingetragen.
+## Aufstellen
+- Geben Sie die Frigate-URL ein, z. B. localhost:5000 oder 192.168.178.2:5000
+- Geben Sie den MQTT-Port: 1883 aus der Fregattenkonfiguration ein
+- Geben Sie in der Fregattenkonfiguration unten den Host oder die IP des Iobroker-Systems ein
 
-_Automatisch erstellte Objekte:_
+```
+mqtt:
+  host: ioBrokerIP
+```
 
-- Objekte für Einstellungen in Frigate
-- Bewegungsereignisse für jede Kamera
-- die letzte Kamera-Schnappschuss-/Clip-URL im Ringpuffer
+  Nach dem Starten von Frigate und dem Adapter sollten Sie im Protokoll sehen, dass ein neuer Client verbunden ist
 
-Diese Objekte können im ioBroker weiterverarbeitet werden, z.B. im Vis.
+## Verwendung
+### Statistiken
+Allgemeine Informationen zum System und zu den Kameras
 
-## Verknüpfung
-- [ioBroker-Forum-Adapter-Thread](https://forum.iobroker.net/topic/64928/test-frigate-adapter-v0-0-1-alpha)
-- [Fregatte-Videoprojekt](https://frigate.video)
+### Fernbedienungen
+`frigate.0.remote.pauseNotifications` Benachrichtigung für alle Kameras pausieren
+
+### Veranstaltungen
+Letzte Veranstaltung mit Vorher- und Nachher-Informationen
+
+`frigate.0.events.history` Verlauf der letzten X Ereignisse
+
+Das Verlaufsereignis verfügt über eine Miniaturansicht des Ereignisses und eine URL zum Schnappschuss und Clip
+
+### Kameraname
+Status und Einstellungen der Kamera
+
+Status ändern Status, um die Einstellungen der Kamera zu ändern
+
+[Detaillierte Informationen zu allen Bundesländern](https://docs.frigate.video/integrations/mqtt/)
+
+`frigate.0.camera_name.motion`
+
+Ob camera_name derzeit Bewegung erkennt. Erwartete Werte sind EIN und AUS. HINWEIS: Nachdem eine Bewegung zum ersten Mal erkannt wurde, wird „EIN“ eingestellt, bis für mqtt_off_delay Sekunden (standardmäßig 30) keine Bewegung erkannt wurde.
+
+`frigate.0.camera_name.person_snapshot`
+
+Veröffentlicht einen JPEG-codierten Frame des erkannten Objekttyps. Wenn das Objekt nicht mehr erkannt wird, wird das Bild mit der höchsten Zuverlässigkeit veröffentlicht oder das Originalbild wird erneut veröffentlicht.
+Die Höhe und der Zuschnitt von Schnappschüssen können in der Konfiguration konfiguriert werden.
+
+`frigate.0.camera_name.history` Ereignisverlauf der Kamera
+
+`frigate.0.camera_name.remote.notificationText` benutzerdefinierter Benachrichtigungstext für die Kamera `frigate.0.camera_name.remote.notificationMinScore` benutzerdefinierter Benachrichtigungs-Mindestwert für die Kamera `frigate.0.camera_name.remote.pauseNotifications`Pause-Benachrichtigung für die Kamera
+
+## Benachrichtigungen
+Der Adapter kann Schnappschüsse und Clips von Ereignissen und Objekterkennung an Instanzen wie Telegram, Pushover und Signal-CBM senden
+
+Sie können mehrere Instanzen oder Benutzer angeben, um Schnappschüsse oder Clips zu senden
+
+Aktivieren Sie die Benachrichtigung in den Einstellungen, um die Schnappschüsse oder Clips zu erhalten
+
+Für ein Ereignis kann vor dem Senden eine Mindestpunktzahl eingegeben werden. 0 = Deaktiviert
+
+Clips werden 5 Sekunden (Instanzeinstellungen) nach Ende des Ereignisses gesendet.
+
+Sie können einen benutzerdefinierten Benachrichtigungstext mit dem Platzhalter `{{source}} {{type}} erkannt {{status}} {{score}} {{state}}` eingeben.
+
+## In vis integrieren
+Sie können Snapshots und Clips in die Vis integrieren:
+
+Schnappschuss:
+
+Fügen Sie einen `String img src` hinzu und verwenden Sie als Objekt-ID: `frigate.0.camera_name.person_snapshot`
+
+Fügen Sie einen `String img src` hinzu und verwenden Sie als Objekt-ID: `frigate.0.events.history.01.thumbnail`
+
+Clips:
+
+Fügen Sie einen `HTML` als HTML hinzu:
+
+```
+<video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
+</video>
+```
+
+## Diskussion und Fragen
+[https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
 
 ## Changelog
 
-### 0.2.6
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.2 (2024-01-29)
 
--   (bettman66) add camid
+- reduce memory usage for clip notifications
 
-### 0.2.5
+### 1.0.1 (2024-01-28)
 
--   (bettman66) fix https
+- fix frigate v12 camera fetching
+- fix pushover notifications
 
-### 0.2.4
+### 1.0.0 (2024-01-26)
 
--   (bettman66) add v0.2.4 to npm
-
-### 0.2.3
-
--   (bettman66) merge pull request
-
-### 0.2.2
-
--   (bettman66) settings translate
-
-### 0.2.1
-
--   (bettman66) add version
-
-### 0.2.0
-
--   (bettman66) add uptime and more
-
-### 0.1.9
-
--   (bettman66) add online
-
-### 0.1.8
-
--   (bettman66) add storage info
-
-### 0.1.7
-
--   (bettman66) add switch
-
-### 0.1.6
-
--   (bettman66) Number of web url
-
-### 0.1.5
-
--   (bettman66) new npm package
-
-### 0.1.4
-
--   (bettman66) update readme
-
-### 0.1.3
-
--   (bettman66) bug web objects
-
-### 0.1.2
-
--   (bettman66) ready to test
-
-### 0.1.1
-
--   (bettman66) translate
-
-### 0.1.0
-
--   (bettman66) objects add
+- New Version with new state structure. Please check you vis and scripts. The new version doesn't need the mqtt adapter and can send directly notification to telegram.
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Bettman66 <w.zengel@gmx.de>
+Copyright (c) 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

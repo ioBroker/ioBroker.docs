@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
+hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 ---
 ![标识](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
@@ -16,6 +16,7 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 # IoBroker.opendtu
 **测试：** ![测试和发布](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
+# 我正在寻找这个适配器的新维护者，如果您有兴趣，请通过问题与我联系！
 ## IoBroker 的 opendtu 适配器
 该适配器实时获取来自项目[开放式DTU](https://github.com/tbnobody/OpenDTU)的数据点。
 此外，可以通过适配器使用以下数据点来控制 OpenDTU 的功率限制。
@@ -45,13 +46,31 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2023-10-29)
+
+- (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
+
+### 1.0.0 (2023-10-01)
+
+- (o0shojo0o) Increase to the first major release, as it has now reached a stable level. 
+- (o0shojo0o) added yieldtotal Protection against incorrect zeroing when the OpenDTU restarts if the inverter is not accessible
+- (o0shojo0o) added option `Set the states to 0 if the inverter is not accessible.` ([#97](https://github.com/o0shojo0o/ioBroker.opendtu/issues/97))
+
+### 0.1.8 (2023-09-22)
+
+- (o0shojo0o) added option `Protect self-set names from being overwritten by the adapter` ([#76](https://github.com/o0shojo0o/ioBroker.opendtu/issues/76))
+- (o0shojo0o) allow multiple AdminTabs for multiple instances ([#88](https://github.com/o0shojo0o/ioBroker.opendtu/issues/88))
+- (o0shojo0o) fixed password with special characters ([#35](https://github.com/o0shojo0o/ioBroker.opendtu/issues/35))
+- (o0shojo0o) fixed incorrect handling of zeroing of `yield*` data points by OpenDTU ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
+- (o0shojo0o) remove zeroing of `yield*` data points by this adapter ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
+
 ### 0.1.7 (2023-06-30)
 
 - (o0shojo0o) workaround for incorrectly used button data point
 
 ### 0.1.6 (2023-06-30)
 
-- (o0shojo0o) fix power control (power_off)
+- (o0shojo0o) fixed power control (power_off)
 
 ### 0.1.5 (2023-05-15)
 
@@ -59,13 +78,13 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 
 ### 0.1.4 (2023-03-23)
 
-- (o0shojo0o) fix power control `on`, `off`, `restart`
+- (o0shojo0o) fixed power control `on`, `off`, `restart`
 - (o0shojo0o) support for password protected liveview
 - (o0shojo0o) other small fixes
 
 ### 0.1.2 (2023-03-03)
 
-- (o0shojo0o) fix yield* values
+- (o0shojo0o) fixed yield* values
 
 ### 0.1.1 (2023-02-24)
 

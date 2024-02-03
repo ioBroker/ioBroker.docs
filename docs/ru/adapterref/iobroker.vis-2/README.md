@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
+hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -15,6 +15,17 @@ hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
 # Визуализация нового поколения для ioBroker: vis-2
 WEB-визуализация для платформы ioBroker.
 
+## Обзор
+- [Лицензионные требования](#license-requirements)
+- [Установка и документация](#installation--документация)
+- [Привязки объектов](#привязки-объектов)
+- [Фильтры](#фильтры)
+- [Интерфейс управления](#control-interface)
+- [Вид по умолчанию](#default-view)
+- [Система разрешений](#permissions-system)
+- [Настройки](#settings)
+- [SVG и currentColor](#svg-and-currentcolor)
+
 ## Установка и документация
 ![Демо-интерфейс](img/user0.png) ![Демо-интерфейс](../../../en/adapterref/iobroker.vis-2/img/user7.png)
 
@@ -24,7 +35,7 @@ WEB-визуализация для платформы ioBroker.
 Обычно большинство виджетов имеют атрибут ObjectID, и этот атрибут может быть связан с некоторым значением идентификатора объекта.
 Но есть другой вариант привязки *любого* атрибута виджета к некоторому ObjectID.
 
-Просто запишите в атрибут `{object.id}`, и он будет привязан к значению этого объекта.
+Просто напишите в атрибут `{object.id}`, например. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}`, и он будет привязан к значению этого объекта.
 Если вы используете специальный формат, вы даже можете выполнять с ним некоторые простые операции, например, умножение или форматирование.
 
 Например, чтобы вычислить гипотенузу треугольника:
@@ -177,9 +188,11 @@ Vis создает 3 переменные:
 
 Пример адаптера JavaScript:
 
+```js
+setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
-setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
-```
+
+Если вы пишете JSON в виде строки, убедитесь, что он доступен для анализа, например. `{"instance": "*", "command": "refresh", "data": ""}`, обратите внимание на `"`.
 
 ## Вид по умолчанию
 Вы можете определить для каждого вида желаемое разрешение (Меню=>Инструменты=>Разрешение).
@@ -193,6 +206,24 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 Например, вы можете создать два вида «Альбомный-мобильный» и «Портрет-мобильный», и эти два вида будут автоматически переключаться при изменении ориентации или размера экрана.
 
 Существует вспомогательный виджет «Основное - Разрешение экрана», который показывает фактическое разрешение экрана и наиболее подходящий вид по умолчанию для этого разрешения.
+
+## Система разрешений
+### Проект
+В диалоговом окне управления проектом вы можете настроить разрешения `read` и `write` для каждого пользователя ioBroker.
+
+Флаг `read` означает, что проект доступен этому пользователю во время выполнения.
+Флаг `write` означает, что проект доступен этому пользователю в режиме редактирования.
+
+Когда новый пользователь создается через адаптер администратора ioBroker, по умолчанию он будет иметь оба разрешения.
+
+### Вид
+Вы также можете указать, к каким представлениям пользователю разрешен доступ во время выполнения и режиме редактирования.
+Если одно из прав доступа не предоставлено на уровне проекта, его указание на уровне представления не имеет никакого эффекта, поскольку проект в целом не будет доступен.
+
+Обратите внимание: всякий раз, когда вы пытаетесь получить доступ к представлению, на которое у текущего пользователя нет разрешения, вместо этого пользователь увидит панель выбора проекта.
+
+### Виджет
+Если у пользователя нет разрешений `read`, виджет не будет отображаться во время выполнения. Если у пользователя нет разрешений `write`, виджет не будет отображаться в режиме редактирования.
 
 ## Настройки
 ### Перезагрузить, если спит дольше, чем
@@ -231,6 +262,70 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 2.9.28 (2024-02-03)
+* (foxriver76) correctly determine the vis instance in all cases
+
+### 2.9.26 (2024-02-02)
+* (foxriver76) do not show empty icon category if jquery style selected for jquery button widgets
+* (foxriver76) added possibility to hide navigation after selection
+
+### 2.9.25 (2024-01-29)
+* (foxriver76) fixed resizing issue for relative widgets
+* (foxriver76) do not crash when using visibility "only for groups"
+* (foxriver76) do not crash if a widget tries to update widget on non-existent view
+
+### 2.9.24 (2024-01-24)
+* (foxriver76) Image 8 widget ported to react
+
+### 2.9.23 (2024-01-24)
+* (foxriver76) fixed another bug due to previous versions
+
+### 2.9.22 (2024-01-22)
+* (foxriver76) try to fix problems introduced with 2.9.21
+
+### 2.9.21 (2024-01-19)
+* (foxriver76) fixed crash case when fixing widgets
+* (foxriver76) fixed bug, that opacity is applied twice on image edit mode overlay
+
+### 2.9.20 (2024-01-18)
+* (foxriver76) increased timeout for project import
+* (foxriver76) added permissions on widget level
+
+### 2.9.19 (2024-01-17)
+* (foxriver76) fixed issue when resizing widget from the left side
+* (foxriver76) added select box to dimension attributes if multiple widgets selected
+
+### 2.9.18 (2024-01-15)
+* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) dedicated permission system extended to view level
+
+### 2.9.17 (2024-01-13)
+* (foxriver76) dedicated permission system on project level introduced
+
+### 2.9.16 (2024-01-11)
+* (foxriver76) use the correct fallback values for widget signals determination
+
+### 2.9.15 (2024-01-09)
+* (foxriver76) fixed issue with BulkEditor
+
+### 2.9.14 (2024-01-09)
+* (foxriver76) fixed last change y-offset for some widgets
+* (foxriver76) fixed issue where JquiState did not respect data type
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
+
+### 2.9.13 (2024-01-08)
+* (foxriver76) correctly detect IDs in bindings when they contain hash character
+* (foxriver76) fix crash when multiple JquiState widgets selected
+* (foxriver76) prevent showing widget in group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+
+### 2.9.12 (2024-01-04)
+* (foxriver76) optimized copy/paste/cut in groups
+
+### 2.9.11 (2024-01-02)
+* (foxriver76) fixed bug with visibility calculation
+
 ### 2.9.10 (2024-01-02)
 * (foxriver76) remove accidentally added script file, which lead to crash
 

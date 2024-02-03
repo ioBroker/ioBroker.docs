@@ -48,6 +48,9 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.2
+* (mschlgl) fixed SMD202 loopmode command
+
 ### 0.2.1
 * (mschlgl) updated log messages, improved group control
 

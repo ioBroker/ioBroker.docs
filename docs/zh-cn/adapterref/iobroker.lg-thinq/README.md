@@ -3,13 +3,12 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.lg-thinq.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lg-thinq.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/TA2k/iobroker.lg-thinq.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
+hash: YDnIJ0GvHTGBGq5n7NiuUhgs/mEwPiJTTbvWLyk2DeY=
 ---
 ![标识](../../../en/admin/lg-thinq.png)
 
@@ -52,6 +51,7 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
         - [远程基本命令](#406-remote-basicctrl-thinq2)
         - [远程日程设置](#406-remote-reservationctrl-thinq2)
         - [快照](#406-snapshot-thinq2)
+    - [天气](#weather)
 
 # 实例设置
 ### 实例设置 LG-Thinq
@@ -74,6 +74,17 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `interval.inactive` 当前有多少设备未接收更新
 - `interval.interval` 更改实例设置的间隔。适配器重新启动后，将应用实例设置。
 - `interval.last_update` 最新更新
+- `interval.status_devices`
+    -“确定”间隔确定
+    - `失败 - 0100` 请求失败 - 重新创建 WorkID
+    - `失败 - 0106` 未连接设备 - 重新创建 WorkID
+    - `Error` 错误 WorkID - WorkID 被重新创建
+    - `Error <code>` Unknown error - WorkID is recreated</code>
+    - `结果错误`接收错误 - WorkID 被重新创建
+    - `解析错误` 解析错误 - WorkID 被重新创建
+    -“未知”未知错误 - 重新创建 WorkID
+    - “Request”接收未知 - WorkID 被重新创建
+    - `{}` 未知 - WorkID 被重新创建
 
     ![间隔.png](../../../en/adapterref/iobroker.lg-thinq/img/interval.png)
 
@@ -95,7 +106,7 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `remote.Statistic.endDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - `remote.Statistic.startDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - 或每天
-- `remote.Statistic.endDate` 每日输入日期 - 格式：2023.12.06
+- `remote.Statistic.endDate` 每天输入日期 - 格式：2023.12.06
 - `remote.Statistic.startDate` 每天输入日期 - 格式：2023.12.01
 - 或每月
 - `remote.Statistic.endDate` 每月输入日期 - 格式：2023.12.01
@@ -345,14 +356,14 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `remote.Statistic.endDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - `remote.Statistic.startDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - 或每天
-- `remote.Statistic.endDate` 每天输入日期 - 格式：2023.12.06
+- `remote.Statistic.endDate` 每日输入日期 - 格式：2023.12.06
 - `remote.Statistic.startDate` 每天输入日期 - 格式：2023.12.01
 - 或每月
 - `remote.Statistic.endDate` 每月输入日期 - 格式：2023.12.01
 - `remote.Statistic.startDate` 每月输入日期 - 格式：2023.10.01
 - `remote.Statistic.period` 选择周期
 - `remote.Statistic.sendRequest` 发送选择
-- `remote.Statistic.jsonResult` JSON 格式的统计信息。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
+- `remote.Statistic.jsonResult` JSON 格式的统计数据。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
 
     ![202_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_statistic.png)
 
@@ -418,14 +429,14 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `remote.Statistic.endDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - `remote.Statistic.startDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - 或每天
-- `remote.Statistic.endDate` 每天输入日期 - 格式：2023.12.06
+- `remote.Statistic.endDate` 每日输入日期 - 格式：2023.12.06
 - `remote.Statistic.startDate` 每天输入日期 - 格式：2023.12.01
 - 或每月
 - `remote.Statistic.endDate` 每月输入日期 - 格式：2023.12.01
 - `remote.Statistic.startDate` 每月输入日期 - 格式：2023.10.01
 - `remote.Statistic.period` 选择周期
 - `remote.Statistic.sendRequest` 发送选择
-- `remote.Statistic.jsonResult` JSON 格式的统计数据。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
+- `remote.Statistic.jsonResult` JSON 格式的统计信息。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
 
     ![401_thinq2_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq2_remote_statistic.png)
 
@@ -499,7 +510,7 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `remote.Statistic.startDate` 每月输入日期 - 格式：2023.10.01
 - `remote.Statistic.period` 选择周期
 - `remote.Statistic.sendRequest` 发送选择
-- `remote.Statistic.jsonResult` JSON 格式的统计信息。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
+- `remote.Statistic.jsonResult` JSON 格式的统计数据。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
 
     ![401_thinq1_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/401_thinq1_remote_statistic.png)
 
@@ -613,14 +624,14 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.Statistic.endDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - `remote.Statistic.startDate` 输入每小时的日期，结束和开始必须相同 格式：2023.12.01
 - 或每天
-- `remote.Statistic.endDate` 每天输入日期 - 格式：2023.12.06
+- `remote.Statistic.endDate` 每日输入日期 - 格式：2023.12.06
 - `remote.Statistic.startDate` 每天输入日期 - 格式：2023.12.01
 - 或每月
 - `remote.Statistic.endDate` 每月输入日期 - 格式：2023.12.01
 - `remote.Statistic.startDate` 每月输入日期 - 格式：2023.10.01
 - `remote.Statistic.period` 选择周期
 - `remote.Statistic.sendRequest` 发送选择
-- `remote.Statistic.jsonResult` JSON 格式的统计数据。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
+- `remote.Statistic.jsonResult` JSON 格式的统计信息。如果属性为空，则您的设备不支持它们或指定了不正确的日期。
 
     ![406_远程_统计](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_statistic.png)
 
@@ -649,10 +660,34 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 ![406_snapshot_1.png](img/406_snapshot_1.png)![406_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_2.png)
 
-## Changelog
-### **WORK IN PROGRESS**
+＃＃＃ 天气
+[概括](#summary)
 
+lg-thinq.0.xxx.area 必须填写！
+
+- `weather.device` 选择区域。如果所有设备的区域相同，则仅显示一台设备。
+- `天气.湿度` 湿度
+- `天气.温度` 温度
+- `weather.unit` 选择摄氏度或华氏度
+- `weather.update` 请求 LG senden（设备和单元 müssen gefüllt sein！）
+
+    ![天气.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
+
+## Changelog
+### 0.3.3 (2024-01-14)
+
+-   (Lucky-ESA) Fixed thinq1 crash
+-   (Lucky-ESA) Fixed crash when internet fails (refreshToken)
+-   (Lucky-ESA) Added weather request
+-   (Lucky-ESA) Bugfixe
+
+### 0.3.2 (2024-01-08)
+
+-   (Lucky-ESA) Added data point interval.status_devices
+-   (Lucky-ESA) Fixed missing value for fridge
+-   (Lucky-ESA) Fixed thinq1 crash
 -   (Lucky-ESA) Added save modelJSON local
+-   (mcm1957) Node 16 checked
 
 ### 0.3.1 (2023-12-20)
 
@@ -694,7 +729,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 MIT License
 
-Copyright (c) 2021-2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

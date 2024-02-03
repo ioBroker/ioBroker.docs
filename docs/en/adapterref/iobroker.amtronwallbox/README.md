@@ -54,6 +54,9 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.2.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 0.2.13 (2023-12-23)
 * (René) just a sentry test
 
@@ -104,7 +107,7 @@ Note: Since the boxes have different interfaces, it may be that not all interfac
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

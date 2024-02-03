@@ -74,6 +74,10 @@ sendTo("reolink.0",{action: "snap"}, function(result){
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.3 (2024-01-21)
+* (oelison) [#49](https://github.com/aendue/ioBroker.reolink/issues/49)
+* (oelison) [#47](https://github.com/aendue/ioBroker.reolink/issues/47)
+
 ### 1.0.2 (2023-12-19)
 * (oelison) known working cameras added
 * (oelison) setIrLights accept "On" now
@@ -138,7 +142,7 @@ sendTo("reolink.0",{action: "snap"}, function(result){
 ## License
 MIT License
 
-Copyright (c) 2023 Andy Grundt <andygrundt@gmail.com>
+Copyright (c) 2024 Andy Grundt <andygrundt@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

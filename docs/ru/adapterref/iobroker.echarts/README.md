@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
+hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -22,6 +22,8 @@ hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
 ![Скриншот](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
 ![Бары](../../../en/adapterref/iobroker.echarts/img/bars.png)
+
+![Радар](../../../en/adapterref/iobroker.echarts/img/radar.png) Используйте агрегацию «Фактическое значение» для прогнозируемого результата.
 
 ## Использование
 Добавляем после перезагрузки вкладку в админке: ![Админ](../../../en/adapterref/iobroker.echarts/img/admin.png)
@@ -98,7 +100,6 @@ sendTo('echarts.0', {
 
 ## Делать
 - виджет для вис (кнопка)
-- виджет для материала
 - показывать значки перечислений в папках или рядом с ними
 
 <!-- Заполнитель следующей версии (в начале строки):
@@ -106,6 +107,19 @@ sendTo('echarts.0', {
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added the radar (polar) chart type
+
+### 1.7.2 (2023-11-20)
+* (bluefox) Added option to hide the value in the future
+
+### 1.7.1 (2023-11-16)
+* (bluefox) Added X-Label offset
+* (bluefox) Corrected icons in the object selection dialog
+
+### 1.6.1 (2023-11-08)
+* (bluefox) Added vis-2 widget
+
 ### 1.5.4 (2023-09-13)
 * (bluefox) Added an option to the export dialog: select / unselect all
 * (bluefox) Added the availability to show legend as dialog

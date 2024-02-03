@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.apg-info/README.md
 title: ioBroker.apg-info
-hash: zwrHO5IhZOJxbhK+gJrsyLhxV+yKHxp99UbKFy9h1o4=
+hash: CixtIWeegkZdILCau1XzGI68LNfcPIeaL4JErovTOIw=
 ---
 ![Logo](../../../en/adapterref/iobroker.apg-info/admin/apg-info.png)
 
@@ -19,7 +19,8 @@ hash: zwrHO5IhZOJxbhK+gJrsyLhxV+yKHxp99UbKFy9h1o4=
 [![FOSSA-Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FHGlab01%2FioBroker.apg-info?ref=badge_shield) ![Test und Freigabe](https://github.com/HGlab01/ioBroker.apg-info/workflows/Test%20and%20Release/badge.svg)
 
 ## Apg-info-Adapter für ioBroker
-Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX Day-Ahead (EPEX Spot)-Preise für Österreich und Deutschland bereit (in den Adaptereinstellungen konfigurieren).<br> `[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
+Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bereit, in denen Stromverbrauch vermieden werden soll. Darüber hinaus stellt der Adapter die PHELIX Day-Ahead (EPEX Spot)-Preise für Österreich und Deutschland bereit (in den Adaptereinstellungen konfigurieren). Anbietergebühr, Steuer, Netzkosten können optional in der Konfiguration hinzugefügt werden (Registerkarte Berechnung).
+`[..].marketprice.today.jsonChart` und `[..].marketprice.tomorrow.jsonChart` können mit https://github.com/Scrounger/ioBroker.vis-materialdesign#json-chart verwendet werden.
 
 **Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!
 
@@ -33,32 +34,29 @@ Dieser Adapter stellt die Spitzenzeiten für das österreichische Stromnetz bere
     ### __WORK IN PROGRESS__
 -->
 ### __WORK IN PROGRESS__
-* (HGlab01) first minor release
-* (HGlab01) Node.js 18 or higher
-* (HGlab01) ioBroker host (js-controller) 5.0 or higher
-* (HGlab01) Bump axios to 1.6.2
-* (HGlab01) use both providers (Awattar and Exaa) for market prices
+* (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
+* (HGlab01) bump axios to 1.6.7
 
-### 0.0.7 (2023-10-11)
-* (HGlab01) Bump json-explorer to 0.1.14
-* (HGlab01) add jsonChart-json for market prices
+### 0.1.5 (2024-01-20)
+* (HGlab01) Add fee, grid costs and tax calculation
 
-### 0.0.6 (2023-10-04)
-* (HGlab01) fix "TypeError: Cannot read properties of undefined (reading 'Warning')"
+### 0.1.4 (2024-01-15)
+* (HGlab01) fix 'Cannot read properties of undefined (reading 'status')'
 
-### 0.0.5 (2023-10-03)
-* (HGlab01) switch data provider for prices to EXAA
-* (HGlab01) support DE market prices in addiotion to AT prices
+### 0.1.3 (2023-12-26)
+* (HGlab01) Fix issue 'Request failed with status code 500' (#170)
 
-### 0.0.3 (2023-09-24)
-* (HGlab01) add point in times sorted as array
-* (HGlab01) add average price
-* (HGlab01) fix bug IOBROKER-APG-INFO-2 notified by sentry
+### 0.1.2 (2023-12-22)
+* (HGlab01) Fix issue 'no marketprice found' when price is 0.00
+* (HGlab01) Bump json-explorer to 0.1.15
+
+### 0.1.1 (2023-12-14)
+* (HGlab01) support Exxa10.15 auction as forecast
 
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

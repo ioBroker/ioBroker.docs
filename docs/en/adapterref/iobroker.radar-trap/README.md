@@ -29,6 +29,25 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.1.5 (2024-01-23)
+* (Steiger04) createTheme added
+
+### 1.1.4 (2024-01-22)
+* (Steiger04) legacy-peer-deps added
+
+### 1.1.3 (2024-01-22)
+* (Steiger04) some GUI optimizations
+
+### 1.1.2 (2024-01-15)
+* (Steiger04) fixed version conflict between react 17 and react 18
+
+### 1.1.1 (2024-01-14)
+* (Steiger04) fixed legacy-peer-deps
+
+### 1.1.0 (2024-01-14)
+* (Steiger04) updated on mui5, adapter-react-v5, react 18, react-dom 18
+* (Steiger04) fixed some issues in connection with react 18
+
 ### 1.0.13 (2023-12-23)
 * (Steiger04) circle mode added
 
@@ -77,7 +96,7 @@
 
 MIT License
 
-Copyright (c) 2023 Steiger04 <steiger04@posteo.de>
+Copyright (c) 2023-2024 Steiger04 <steiger04@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

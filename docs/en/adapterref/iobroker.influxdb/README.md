@@ -451,10 +451,9 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 -->
 
 ## Changelog
-### 4.0.1 (2023-11-07)
+### 4.0.2 (2024-01-03)
 * (bluefox) Corrected JSON config
-
-### 4.0.0 (2023-09-19)
+* (Marc-Berg) Corrected filter function in booleanTypeCheckQuery
 * (Marc-Berg) Allowed the self-signed certificates using "test connection" button
 * (Marc-Berg) The deletion of data from DB was implemented for V2
 * (bluefox) Added support for `count` aggregate type on getHistory
@@ -705,7 +704,7 @@ sendTo('influxdb.0', 'getEnabledDPs', {}, function (result) {
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2023 bluefox, apollon77
+Copyright (c) 2015-2024 bluefox, apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

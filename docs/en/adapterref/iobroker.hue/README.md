@@ -502,5 +502,5 @@ __ATTENTION: Remove all objects once, ids have changed__
 
 Apache 2.0
 
-Copyright (c) 2017-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024 Bluefox <dogafox@gmail.com>  
 Copyright (c) 2014-2016 hobbyquaker

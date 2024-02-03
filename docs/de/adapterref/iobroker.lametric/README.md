@@ -59,6 +59,10 @@ Alle Funktionen sind nur durch die [offizielle API](https://lametric-documentati
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.3 (2024-01-31)
+
+* (klein0r) Fixed web extension
+
 ### 3.1.2 (2023-12-27)
 
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.8 (3.0.21)
@@ -81,10 +85,6 @@ NodeJS 16.x is required
 * (klein0r) Added push option for My Data DIY
 * (klein0r) Added option to force app reload
 * (klein0r) Updated LaMetric firmware version recommendation to 2.3.7 (3.0.16)
-
-### 2.4.2 (2023-09-08)
-
-* (klein0r) Updated LaMetric firmware version recommendation to 2.3.6
 
 ## License
 

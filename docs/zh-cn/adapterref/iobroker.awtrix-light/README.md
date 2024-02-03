@@ -12,11 +12,12 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/README.md"},"de/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
+hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +26,7 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.91_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.94_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
@@ -75,6 +76,10 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 
 是的，从固件版本 0.82 开始，可以使用用户名和密码来保护访问。从适配器版本 0.8.0 开始，此用户数据也可以存储在实例设置中。
 
+**通知的保留选项如何工作？**
+
+当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或通过将状态`notification.dismiss`设置为`true`来实现。
+
 ## 多个设备上的相同应用程序
 如果要使用相同的应用程序控制多个 awtrix-light 设备，则必须为每个设备创建一个单独的实例。但是，您可以在其他设备的实例设置中指定应用程序应从另一个实例接管。
 
@@ -94,7 +99,7 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 向设备发送一次性通知：
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -170,6 +175,8 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 
 然后，应用程序`test`的所有可控状态都在`awtrix-light.0.apps.test`下创建。要更改应用程序的相应值，您只需使用自己的脚本（例如 JavaScript 或 Blockly）设置 `icon`、`text` 等状态的值即可。
 
+示例：[天气应用程序](weather-app.md)
+
 ## 隐藏本机应用程序
 要隐藏设备上的默认应用程序（例如温度或湿度）：使用设备本身上的菜单！有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix-light/#/onscreen)。
 
@@ -178,45 +185,35 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.1 (2023-12-01)
+### 0.13.1 (2024-01-25)
 
-Updated recommended firmware version to 0.91
+* (klein0r) Fixed hold option in blockly
 
-* (klein0r) Added uid and ip address states
+### 0.13.0 (2024-01-25)
 
-### 0.10.0 (2023-10-23)
+* (klein0r) Added state for text color and background color in expert apps
+* (klein0r) Avoid app refresh when no values have been changed
 
-Updated recommended firmware version to 0.90
+### 0.12.0 (2024-01-24)
 
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
+* (klein0r) Added hold option to blockly
+* (klein0r) Added state to dismiss notifications
 
-### 0.9.2 (2023-10-22)
+### 0.11.0 (2024-01-09)
 
-* (klein0r) Fixed: Visisble state of expert apps
+Updated recommended firmware version to 0.94
 
-### 0.9.1 (2023-10-02)
+* (klein0r) Added bar graph to history apps
+* (klein0r) Added aggregation for history apps
 
-NodeJS 16.x is required
+### 0.10.2 (2023-12-14)
 
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
-
-### 0.9.0 (2023-10-01)
-
-Updated recommended firmware version to 0.88
-
-* (klein0r) Added expert apps
-* (klein0r) Use the last value of fast refreshing states
-* (klein0r) Added settings for calendar colors
-* (klein0r) Allow to use apps without text (just background effect)
-* (AlCalzone) Added rtttl api endpoint support (via sendTo)
-* (klein0r) Native apps have been renamed
+* (klein0r) Removed callbacks in blockly code to prevent timeouts
 
 ## License
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

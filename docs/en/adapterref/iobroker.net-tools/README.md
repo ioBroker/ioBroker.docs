@@ -1,44 +1,33 @@
 ![Logo](admin/net-tools.png)
-# Net Tools
+# ioBroker.net-tools
 
-![Number of Installations](http://iobroker.live/badges/net-tools-installed.svg) ![Number of Installations](http://iobroker.live/badges/net-tools-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.net-tools.svg)](https://www.npmjs.com/package/iobroker.net-tools)
+[![NPM version](https://img.shields.io/npm/v/iobroker.net-tools.svg)](https://www.npmjs.com/package/iobroker.net-tools)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.net-tools.svg)](https://www.npmjs.com/package/iobroker.net-tools)
-[![Tests](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.net-tools)
+![Number of Installations](https://iobroker.live/badges/net-tools-installed.svg)
+![Current version in stable repository](https://iobroker.live/badges/net-tools-stable.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)](https://nodei.co/npm/iobroker.net-tools/)
 
+**Tests:** ![Test and Release](https://github.com/jey-cee/ioBroker.net-tools/workflows/Test%20and%20Release/badge.svg)
 
+## net-tools adapter for ioBroker
 
+This adapter cyclic polls configured IPs, can send wake-on-lan packages and scan for open ports.
 
-
-| [Sponsors](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
-|---|---|
-| If you like my work, please feel free to provide a personal donation (this is an personal Donate link for Jey Cee, no relation to the ioBroker Project !)   |  Join the Discord server to discuss everything about net-tools integration!|
-| [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> | 
-
-
-
-
-### Discover devices on the network
-
-Set discover object to true to discover devices on your network, this process takes while. 
-This feature is provided by discovery adapter, which means discovery will be installed if is not and it has to run.
-
+This discovery feature is provided by discovery adapter, which means discovery will be installed if is not and it has to run.
 Remark: This feature is limited to the subnet of the ioBroker host.
 
-### Add manual devices
-
-If you add a device manually, you can leave the MAC empty, the adapter will try to obtain it.
-There is a 50% chance that this automatic lookup will fail and the devices can not be added. In this case you have to enter the MAC.
+### Important: You have to buy a license to use this adapter. You can buy one here -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Wichtig: Für die Nutzung dieses Adapters müssen Sie eine Lizenz erwerben. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
 
 ### Pings configured IP addresses
 
 Pings specified IP addresses in defined interval and monitors the results. (alive, rps, time)
+The ping interval can be specified on device level.
 
 ### Wake-on-LAN
 
-Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device. 
-
+Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device.
 
 ### Port scan
 
@@ -46,7 +35,7 @@ You can enter a list of ports or an range in config that should be scanned by de
 It is also possible to specify a list or range for every device which will be used for a single scan.
 
 Enter a list or range of ports in object portList, if you want. This overwrites the setting in config.
-Set scan to true, this will scan for all open ports in the range of 0-65535 or what is defined in portList. This process takes a while. 
+Set scan to true, this will scan for all open ports in the range of 0-65535 or what is defined in portList. This process takes a while.
 The result will be written to object ports.
 
 ---
@@ -69,52 +58,29 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 
 ---
 
-**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
-
 ## Changelog
-### 0.2.0 (2022-05-16)
- * add feature to define ports they should be scanned
- * fix crash if no MAC address can be found by the adapter
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
 
-### 0.1.7 (2021-07-31)
-* fix device settings in adapter configuration
+### **WORK IN PROGRESS**
 
-### 0.1.5
-* changes on testing
+### 1.0.2 20.01.2024
+* (Jey Cee) bugfix require
 
-### 0.1.4
-* fixes for js-controller 3.3
-
-### 0.1.3
-* fixes for js-controller 3.3
-
-### 0.1.2
-* added device discovery to configuration page
-* start discovery if it is not started and stop it afterwards
-
-### 0.1.1 
-* initial release
+### 1.0.1 19.01.2024
+* (Jey Cee) add device manager to configuration
+* (Jey Cee) add use of license
 
 ## License
+Attribution-NonCommercial 4.0 (CC BY-NC 4.0)
 
-The MIT License (MIT)
+Copyright (c) 2024 Jey Cee <iobroker@all-smart.net>
 
-Copyright (c) 2020-2022, Jey Cee <jey-cee@live.com>
+http://creativecommons.org/licenses/by-nc/4.0/
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Short content:
+Licensees may copy, distribute, display and perform the work and make derivative works based on it only if they give the author or licensor the credits in the manner specified by these.
+Licensees may copy, distribute, display, and perform the work and make derivative works based on it only for noncommercial purposes.
+(Free for non-commercial use).

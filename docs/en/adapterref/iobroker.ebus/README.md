@@ -69,6 +69,9 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.5 (2024-01-12)
+* (René) dependencies updated
+
 ### 3.2.4 (2023-11-19)
 * (René) revert back to flat 5.x
 
@@ -189,7 +192,7 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
 ## License
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

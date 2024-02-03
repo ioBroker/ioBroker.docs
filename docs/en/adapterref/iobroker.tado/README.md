@@ -46,6 +46,10 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
+### 0.5.3 (2024-01-29)
+* (HGlab01) Improve axios handling
+* (HGlab01) Bump axios to 1.6.7
+
 ### 0.5.1 (2023-12-11)
 * (HGlab01) Bump json-explorer to 0.1.15
 * (HGlab01) Prepare (c) for 2024
@@ -67,10 +71,6 @@ Tado° (https://www.tado.com) is the expert in smart heating and energy manageme
 * (HGlab01) Bump json-explorer to 0.1.14
 * (Garfonso) add value AUTO for *.Home.state.presence (in addtion to HOME and AWAY)
 * (HGlab01) Bump axios to 1.5.1
-
-### 0.4.10 (2023-09-26)
-* (HGlab01) Add attribute 'isBalanceHpEligible'
-* (HGlab01) improve axios keep_a_live
 
 ## License
 MIT License

@@ -6,7 +6,6 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tapo.svg)](https://www.npmjs.com/package/iobroker.tapo)
 ![Number of Installations](https://iobroker.live/badges/tapo-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/tapo-stable.svg)
-[![Dependency Status](https://img.shields.io/david/TA2k/iobroker.tapo.svg)](https://david-dm.org/TA2k/iobroker.tapo)
 
 [![NPM](https://nodei.co/npm/iobroker.tapo.png?downloads=true)](https://nodei.co/npm/iobroker.tapo/)
 
@@ -33,6 +32,9 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 <https://forum.iobroker.net/topic/57336/test-adapter-tp-link-tapo/>
 
 ## Changelog
+### 0.2.9 (2024-01-30)
+
+- fix tapo Plugs and setLensMask
 
 ### 0.0.2
 
@@ -42,7 +44,7 @@ tapo.0.id.remote auf true/false setzen steuert den jeweiligen Befehl. Der Befehl
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

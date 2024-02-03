@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
+hash: vG8Yn8jR+++6UtW2i2J8JjSa35jID2Ixd6qaZItdCM0=
 ---
 ![Logo](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -15,6 +15,11 @@ hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
 
 # IoBroker.alpha-ess
 ## Alpha-ess-Adapter für ioBroker
+---
+
+### Für Unterstützung öffnen Sie bitte ein GitHub-Problem oder besuchen Sie
+https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
+
 ---
 
 ### Aufgrund der aktuellen Umstände beachten Sie bitte!
@@ -55,6 +60,14 @@ Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier be
 **Alle Produkt- und Firmennamen oder Logos sind Marken™ oder eingetragene® Marken ihrer jeweiligen Inhaber. Deren Nutzung impliziert keinerlei Zugehörigkeit zu oder Billigung durch sie oder verbundene Tochtergesellschaften! Dieses persönliche Projekt wird in der Freizeit gepflegt und hat kein geschäftliches Ziel.**
 
 ## Changelog
+
+### 2.0.2 (2024-01-12)
+
+-   (Gaspode) Updated Copyright year
+
+### 2.0.1 (2024-01-03)
+
+-   (Gaspode) Adapted timeout to new API restrictions
 
 ### 2.0.0 (2023-12-02)
 
@@ -150,7 +163,7 @@ Wie Sie SN finden und den Code für die Registrierung überprüfen, wird hier be
 
 MIT License
 
-Copyright (c) 2023 Gaspode <gaspode69@online.de>
+Copyright (c) 2024 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

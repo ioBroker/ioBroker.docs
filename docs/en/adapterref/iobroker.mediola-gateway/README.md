@@ -58,12 +58,13 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.1.0 (2024-01-21)
 
 -   RT (Somfy) system added (Thanks to Falk)
 -   DY (Nobily) system added (Thanks to BlindlyBlinds)
 -   ER (Elero) system added (Thanks to CsL-007 [#35](https://github.com/oelison/ioBroker.mediola-gateway/issues/35))
+-   HM (HomeMatic) read added (Thanks to drapo)
+-   command and cmd calls possible
 
 ### 1.0.1 (2023-08-26)
 
@@ -108,7 +109,7 @@ DISCLAIMER All product and company names or logos are Trademarks™ or Registere
 
 MIT License
 
-Copyright (c) 2023 oelison <iobrokermediola@sciphy.de>
+Copyright (c) 2024 oelison <iobrokermediola@sciphy.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

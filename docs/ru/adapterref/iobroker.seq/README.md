@@ -3,28 +3,28 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seq/README.md
 title: ioBroker.seq
-hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
+hash: OKXZUVLJ36izUiwt4Xt60u0A8w2G8jTdKLFYp7Wt6W8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
-![Количество установок (последнее)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
+![Количество установок (последних)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
 ![Количество установок (стабильно)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
 ![НПМ](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
 # IoBroker.seq
-[![Статус зависимостей] (https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Статус зависимостей](https://status.david-dm.org/gh/arteck/iobroker.seq.svg)](https://david-dm.org/arteck/iobroker.seq) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## Адаптер Seq для ioBroker
-Этот адаптер позволяет вам поместить ваш логин ioBroker в систему [Seq](https://datalust.co/seq).
-Также можно применить фильтр к уровням журнала, а также к адаптерам.
+Этот адаптер позволяет вам перенести журнал ioBroker в систему [сек.](https://datalust.co/seq).
+Также можно применить фильтр к уровням журналов, а также к адаптерам.
 
 ## Конфигурация
 1. Создайте новый экземпляр адаптера.
-2. Введите URL / IP и порт экземпляра [Seq] (https://datalust.co/seq).
-3. Укажите, какие события журнала вы хотите отправить в [Seq] (https://datalust.co/seq).
-4. Сохраните настройки.
+2. Укажите URL/IP и порт экземпляра [Seq](https://datatalust.co/seq).
+3. Укажите, какие события журнала вы хотите отправить в [Seq](https://datatalust.co/seq).
+4. Сохраните настройки
 
 ## Changelog
 
@@ -37,30 +37,33 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 	### __WORK IN PROGRESS__
 -->
 
-### **WORK IN PROGRESS**
+### __WORK IN PROGRESS__
+- (arteck) transfer to arteck
 
-- (o0shojo0o) Add adapter to TIER 1
+### 0.3.0 (2023-07-25)
+- (o0shojo0o) added adminTab
+- (o0shojo0o) added adapter to TIER 1
 
 ### 0.2.10 (2021-04-15)
 
-- (o0shojo0o) Check log message of undefine
+- (o0shojo0o) check log message of undefine
 
 ### 0.2.9 (2021-02-05)
 
-- (o0shojo0o) Bugfix 'Cannot read property common of null'
+- (o0shojo0o) fix 'Cannot read property common of null'
 
 ### 0.2.8 (2021-01-30)
 
-- (o0shojo0o) Bugfix NullPointerException
+- (o0shojo0o) fix NullPointerException
 
 ### 0.2.7 (2021-01-24)
 
-- (o0shojo0o) Add overview card
+- (o0shojo0o) added overview card
 
 ### 0.2.6 (2021-01-21)
 
-- (bluefox) Refactoring
-- (bluefox) Better translations
+- (bluefox) refactoring
+- (bluefox) better translations
 
 ### 0.2.5 (2021-01-20)
 
@@ -70,11 +73,11 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 - (o0shojo0o) bugfix display of the filter options
 - (o0shojo0o) bugfix display of template parameters
-- (o0shojo0o) add parameter logging Arch
-- (o0shojo0o) add parameter logging JsController
-- (o0shojo0o) add parameter logging Node
-- (o0shojo0o) add parameter logging Platform
-- (o0shojo0o) add parameter logging SourceVersion
+- (o0shojo0o) added parameter logging Arch
+- (o0shojo0o) added parameter logging JsController
+- (o0shojo0o) added parameter logging Node
+- (o0shojo0o) added parameter logging Platform
+- (o0shojo0o) added parameter logging SourceVersion
 
 ### 0.2.3 (2021-01-15)
 
@@ -101,7 +104,7 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 ### 0.0.5 (2020-09-23)
 
-- (o0shojo0o) add param SystemName for display in Seq
+- (o0shojo0o) added param SystemName for display in Seq
 
 ### 0.0.4 (2020-09-23)
 
@@ -127,7 +130,7 @@ hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024 Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

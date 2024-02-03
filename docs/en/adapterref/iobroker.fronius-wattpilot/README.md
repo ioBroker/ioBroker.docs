@@ -225,7 +225,7 @@ Thanks to joscha82 we know: https://github.com/joscha82/wattpilot/blob/main/API.
 ## License
 MIT License
 
-Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -113,9 +113,11 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.8.11 (2024-01-12)
+* (René) dependencies updates
+
 ### 1.8.10 (2023-11-19)
 * (René) dependencies updates
-*
 
 ### 1.8.9 (2023-07-30)
 * (René) dependencies updates
@@ -178,7 +180,7 @@ more on [API documentation](https://pvoutput.org/help/api_specification.html#add
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

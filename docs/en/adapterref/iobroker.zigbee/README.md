@@ -128,12 +128,25 @@ or
 ## Donate
 
 You can thank the authors by these links:
-* to Kirov Ilya https://www.paypal.me/goofyk
 * to Arthur Rupp https://paypal.me/ArthurRupp
 
 -----------------------------------------------------------------------------------------------------
 
 ## Changelog
+### 1.10.2 (2024-01-25)
+* (arteck) dependency update
+
+### 1.10.1 (2024-01-21)
+* (arteck) Baudrate is now configurable. works ONLY with Deconz/Conbee( 38400 )
+* (arteck) add nvbackup.json delete button
+
+### 1.10.0 (2024-01-13)
+* (arteck) new zigbee-herdsman-converters 18.x
+* (arteck) configure message is now a warning
+
+### 1.9.7 (2024-01-05)
+* (arteck) corr configure for some devices
+
 ### 1.9.6 (2024-01-01)
 * (arteck) corr ikea bug 
 * (crckmc) trv child lock works

@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/README.md"},"de/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-light.png)
 
@@ -22,7 +23,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (oder neuer)
 - js-controller 4.0.15 (oder neuer)
 - Admin Adapter 6.6.0 (oder neuer)
-- _Awtrix Light_ Gerät mit Firmware-Version _0.91_ (oder neuer) - z.B. Ulanzi TC001
+- _Awtrix Light_ Gerät mit Firmware-Version _0.94_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -74,6 +75,10 @@ Alle Zustände vom Typ Zahl (common.type `number`) werden so formatiert, wie es 
 
 Ja, seit Firware-Version 0.82 kann der Zugriff mit einem Benutzernamen und Passwort geschützt werden. Seit Adapter-Version 0.8.0 können diese Benutzerdaten ebenfalls in den Instanz-Einstellungen hinterlegt werden.
 
+**Wie funktioniert die halten-Option bei Benachrichtigungen?**
+
+Wenn eine Benachrichtigung mit der Option `hold: true` gesendet wird, bleibt der Text auf dem Display so lange stehen, bis die Benachrichtigung bestätigt wird. Das kann entweder über den mittleren Taster auf dem Gerät passieren, oder indem der Zustand `notification.dismiss` auf `true` gesetzt wird.
+
 ## Identische Apps auf mehreren Geräten
 
 Falls mehrere awtrix-light Geräte mit den gleichen Apps angesteuert werden sollen, muss eine eigene Instanz für jedes Gerät angelegt werden. Allerdings kann in den Instanzeinstellungen der weiteren Geräte dann festgelegt werden, dass die Apps aus einer anderen Instanz übernommen werden sollen.
@@ -96,7 +101,7 @@ Beispiel
 Sende eine einmalige Benachrichtigung an das Gerät:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -177,6 +182,8 @@ Experten-Apps sind seit Adapter-Version 0.10.0 verfügbar. Diese Apps erlauben e
 
 Danach werden alle steuerbaren Zustände der App `test` unter `awtrix-light.0.apps.test` erstellt. Um die jeweiligen Werte einer App zu verändern, kann einfach der Wert der Zustände `icon`, `text`, usw. mit eigenen Scripts (z.B. JavaScript oder Blockly) gesetzt werden.
 
+Beispiel: [Wetter-App](weather-app.md)
+
 ## Native Apps verstecken
 
 Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/onscreen) für Details.
@@ -186,33 +193,30 @@ Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die L
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.1 (2024-01-25)
+
+* (klein0r) Fixed hold option in blockly
+
+### 0.13.0 (2024-01-25)
+
+* (klein0r) Added state for text color and background color in expert apps
+* (klein0r) Avoid app refresh when no values have been changed
+
+### 0.12.0 (2024-01-24)
+
+* (klein0r) Added hold option to blockly
+* (klein0r) Added state to dismiss notifications
+
+### 0.11.0 (2024-01-09)
+
+Updated recommended firmware version to 0.94
+
+* (klein0r) Added bar graph to history apps
+* (klein0r) Added aggregation for history apps
+
 ### 0.10.2 (2023-12-14)
 
 * (klein0r) Removed callbacks in blockly code to prevent timeouts
-
-### 0.10.1 (2023-12-01)
-
-Updated recommended firmware version to 0.91
-
-* (klein0r) Added uid and ip address states
-
-### 0.10.0 (2023-10-23)
-
-Updated recommended firmware version to 0.90
-
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
-
-### 0.9.2 (2023-10-22)
-
-* (klein0r) Fixed: Visisble state of expert apps
-
-### 0.9.1 (2023-10-02)
-
-NodeJS 16.x is required
-
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
 
 ## License
 MIT License

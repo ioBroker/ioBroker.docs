@@ -1,4 +1,5 @@
 ![Logo](admin/bwt.png)
+
 # ioBroker.bwt
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.bwt.svg)](https://www.npmjs.com/package/iobroker.bwt)
@@ -19,9 +20,13 @@ Adapter for bwt devices
 
 Die lokale IP und Zugriff Code eingeben
 
-Es wird der lokale Zugriff-Code benötigt. Dazu muss man am Gerät die Cloud-Registrierung durchlaufen. Danach bekommt man den Zugriffs-Code per email zugesendet.
+BWT-Firmware >V2.02xx ( kann durch den BWT Support installiert werden auf Anfrage an ProfilineAS@bwt.de
 
-Tip zur Inbetriebnahme der Anbindung am Gerät: Bei WLAN-Anbindung muss die Option DHCP deaktiviert sein. DHCP bezieht sich nur auf die LAN-Anbindung ! Andersherum muss bei LAN-Anbindung DHCP aktiviert und WLAN ausgeschaltet sein. Es dürfen immer nur die Parameter einer Schnittstelle konfiguriert sein, sonst klappts nicht.
+-lokae API aktivieren im GeräteMenu unter Verbindungen
+
+-BWT-Firmware > V2.02xx. (can be installed by BWT-Support remotely by asking: ProfilineAS@bwt.de.
+
+-API needs to be activated by the user on-site in the Connection-Menu
 
 ## Diskussion und Fragen
 
@@ -30,9 +35,11 @@ Tip zur Inbetriebnahme der Anbindung am Gerät: Bei WLAN-Anbindung muss die Opti
 ## Changelog
 
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

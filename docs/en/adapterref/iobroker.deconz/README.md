@@ -43,6 +43,9 @@ Examples:
 
 ## Changelog
 
+### 1.4.0 (2023-01-29)
+* (mattreim) Added new objects for Tuya and Bosch thermostats
+
 ### 1.3.23 (2023-11-05)
 * fix crash when new device was added closes [#319](https://github.com/Jey-Cee/ioBroker.deconz/issues/319)
 * added possibility to change the port for websocket connection

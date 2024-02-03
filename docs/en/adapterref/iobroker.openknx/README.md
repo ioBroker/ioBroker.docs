@@ -374,7 +374,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 -   automatic encoding/deconding of KNX datagrams for most importants DPTs, raw read and write for other DPTs
 -   support of KNX group value read and group value write and group value response
 -   free open source
--   no dependencies to cloud services, runs without internet access
+-   no dependencies to cloud services, runs offline without internet access
 -   autoread on start
 -   fast import of group addresses in XML format
 -   create joint alias objects that react on status inputs
@@ -402,22 +402,36 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
   * npm run release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+  ### **WORK IN PROGRESS**
+### 0.7.2 (2024-01-09)
+- feature: handle network connection instability issesues
+- feature: generate more log messages
+- bugfix: telegram count
+
+### 0.7.1 (2024-01-07)
+
+-   feature: when requesting fast message sendout create iob acks per bus message status, before it triggered all acks on first message send confirmance
+-   feature: add message count object
+-   feature: use common.desc from ets xml Description field and move datatype info to native
+-   cleanup: stop timers on shutdown
+-   bugfix: create a log entry on reception of unknown ga
+-   bugfix: do not count send as duplicate trigger in load measurement
+-   increase default minimum send delay to 80ms
+
 ### 0.7.0 (2023-12-18)
 
 -   feature: adding support for DPT-28 and DPT-29
--   for gas appearing in multiple objects severity lifted to warning
+-   severity lifted to warning for gas appearing in multiple objects
 -   feature: some more verbose failure outputs
+-   feature: always warn if knx element in object tree not found in import file
 -   bugfix: do not report errors resulting from bad bus data to sentry #433
 -   bugfix: do not forward invalid bus data to iob object tree
--   cleanup of DTP library
+-   cleanup: DTP library
 
 ### 0.6.3 (2023-12-10)
 
--   stable release
-
-### 0.6.3 (2023-12-10)
-
-### 0.6.2 (2023-12-09)
+-   stable release of version 0.6.1
 
 ### 0.6.1 (2023-12-02)
 
@@ -655,7 +669,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ## License
 
-Copyright 2023 contributors to the ioBroker.openknx project
+Copyright 2024 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

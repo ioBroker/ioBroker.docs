@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
+hash: LqykhQgvi5/6KPSnXqA7K/A32fzmDVZvRnVF6/KOhfw=
 ---
 ![Стабильная версия](http://iobroker.live/badges/sureflap-stable.svg)
 ![НПМ-версия](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -47,7 +47,7 @@ hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
 ### Состав
 Адаптер создает следующую иерархическую структуру:
 
-адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_концентратора<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ сигнал<br> │ │ │ ├ устройство_rssi<br> │ │ │ └hub_rssi<br> │ │ ├ версия<br> │ │ │ ├ прошивка<br> │ │ │ └ аппаратное обеспечение<br> │ │ ├ контроль<br> │ │ │ └ светодиодный режим<br> │ │ ├ felaqua_name<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ Battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ сигнал<br> │ │ │ │ ├ устройство_rssi<br> │ │ │ │ └hub_rssi<br> │ │ │ ├ версия<br> │ │ │ │ ├ прошивка<br> │ │ │ │ └ аппаратное обеспечение<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ имя_питомца<br> │ │ │ └ вода<br> │ │ │ └ вес<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ Battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ сигнал<br> │ │ │ │ ├ устройство_rssi<br> │ │ │ │ └hub_rssi<br> │ │ │ ├ версия<br> │ │ │ │ ├ прошивка<br> │ │ │ │ └ аппаратное обеспечение<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ имя_питомца<br> │ │ │ ├ миски<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ тип_продукта<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ контроль<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ аккумулятор<br> │ │ ├ Battery_percentage<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ сигнал<br> │ │ │ ├ устройство_rssi<br> │ │ │ └hub_rssi<br> │ │ ├ версия<br> │ │ │ ├ прошивка<br> │ │ │ └ аппаратное обеспечение<br> │ │ ├ комендантский час<br> │ │ │ └ 0..и<br> │ │ │ ├ включено<br> │ │ │ ├ время_блокировки<br> │ │ │ └время_разблокировки<br> │ │ ├ последний_комендантский час<br> │ │ │ └ 0..и<br> │ │ │ ├ включено<br> │ │ │ ├ время_блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ имя_питомца<br> │ │ └ контроль<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ имя_питомца<br> │ ├ внутри<br> │ ├ имя<br> │ ├ поскольку<br> │ ├ еда<br> │ │ ├ последний_раз_съеденный<br> │ │ ├ потраченное_время<br> │ │ ├ раз_съедено<br> │ │ └ сухой..мокрый<br> │ │ └ вес<br> │ └ вода<br> │ ├ последний_раз_пьяный<br> │ ├ потраченное_время<br> │ ├ раз_пьяных<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ связь<br> └ последнее_обновление<br>
+адаптер<br> ├ имя_домохозяйства<br> │ ├ имя_концентратора<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ сигнал<br> │ │ │ ├ устройство_rssi<br> │ │ │ └hub_rssi<br> │ │ ├ версия<br> │ │ │ ├ прошивка<br> │ │ │ └ аппаратное обеспечение<br> │ │ ├ контроль<br> │ │ │ └ светодиодный режим<br> │ │ ├ felaqua_name<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ Battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ сигнал<br> │ │ │ │ ├ устройство_rssi<br> │ │ │ │ └hub_rssi<br> │ │ │ ├ версия<br> │ │ │ │ ├ прошивка<br> │ │ │ │ └ аппаратное обеспечение<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ имя_питомца<br> │ │ │ └ вода<br> │ │ │ └ вес<br> │ │ ├ имя_фидера<br> │ │ │ ├ аккумулятор<br> │ │ │ ├ Battery_percentage<br> │ │ │ ├ онлайн<br> │ │ │ ├ серийный_номер<br> │ │ │ ├ сигнал<br> │ │ │ │ ├ устройство_rssi<br> │ │ │ │ └hub_rssi<br> │ │ │ ├ версия<br> │ │ │ │ ├ прошивка<br> │ │ │ │ └ аппаратное обеспечение<br> │ │ │ ├ назначенные_питомцы<br> │ │ │ │ └ имя_питомца<br> │ │ │ ├ миски<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ тип_продукта<br> │ │ │ │ ├ цель<br> │ │ │ │ └ вес<br> │ │ │ └ контроль<br> │ │ │ └ close_delay<br> │ │ └ имя_клапана<br> │ │ ├ аккумулятор<br> │ │ ├ Battery_percentage<br> │ │ ├ комендантский час_активный<br> │ │ ├ онлайн<br> │ │ ├ серийный_номер<br> │ │ ├ контроль<br> │ │ │ ├ комендантский час<br> │ │ │ └ режим блокировки<br> │ │ ├ сигнал<br> │ │ │ ├ устройство_rssi<br> │ │ │ └hub_rssi<br> │ │ ├ версия<br> │ │ │ ├ прошивка<br> │ │ │ └ аппаратное обеспечение<br> │ │ ├ комендантский час<br> │ │ │ └ 0..и<br> │ │ │ ├ включено<br> │ │ │ ├ время_блокировки<br> │ │ │ └время_разблокировки<br> │ │ ├ последний_комендантский час<br> │ │ │ └ 0..и<br> │ │ │ ├ включено<br> │ │ │ ├ время_блокировки<br> │ │ │ └ время разблокировки<br> │ │ └ назначенные_питомцы<br> │ │ └ имя_питомца<br> │ │ └ контроль<br> │ │ └ тип<br> │ ├ история<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ домашние животные<br> │ └ имя_питомца<br> │ ├ внутри<br> │ ├ имя<br> │ ├ поскольку<br> │ ├ еда<br> │ │ ├ последний_раз_съеденный<br> │ │ ├ потраченное_время<br> │ │ ├ раз_съедено<br> │ │ └ сухой..мокрый<br> │ │ └ вес<br> │ ├ движение<br> │ │ ├ последнее_направление<br> │ │ ├ последний_клапан<br> │ │ ├ последний_раз<br> │ │ ├ время_проведённое_вне_<br> │ │ └ раз_снаружи<br> │ └ вода<br> │ ├ последний_раз_пьяный<br> │ ├ потраченное_время<br> │ ├ раз_пьяных<br> │ └ вес<br> └ информация<br> ├ all_devices_online<br> ├ связь<br> └ последнее_обновление<br>
 
 ## Примечания
 SureFlap®, Sure Petcare® и Felaqua® являются зарегистрированными торговыми марками [Компания SureFlap, ООО](https://www.surepetcare.com/).
@@ -55,6 +55,15 @@ SureFlap®, Sure Petcare® и Felaqua® являются зарегистрир�
 Изображения устройств SureFlap® предоставляются бесплатно с [Конечно Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 2.0.1 (2024-01-24)
+* (Sickboy78) added last movement for pets
+* (Sickboy78) added time spent outside today for pets
+* (Sickboy78) dependency updates
+
+### 1.2.3 (2023-12-29)
+* (Sickboy78) added api host to config and set default to new api
+* (Sickboy78) improved removing of obsolete objects
 
 ### 1.2.2 (2023-10-17)
 * (Sickboy78) added signal strength and hardware and firmware version of devices
@@ -150,8 +159,6 @@ SureFlap®, Sure Petcare® и Felaqua® являются зарегистрир�
 
 MIT License
 
-Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -169,3 +176,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2024 Sickboy78 <asmoday_666@gmx.de>

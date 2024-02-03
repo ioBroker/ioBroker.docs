@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: rsVSg0q9VqpPwsOeMCOHkIOLqAcuMw1pvVW+yrs8z/c=
+hash: cp6HxXeplcm6obrd+pukn6nnehJQqQHJIo7aCxXQcnc=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
 可以在 JSON 文件中定义配置，然后在 Admin 中使用它。
 
-可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
+可以在此处找到具有多个选项卡的 `jsonConfig.json` 文件示例：https://github.com/ioBroker/ioBroker.admin/blob/master/admin/jsonConfig.json5 以及仅包含一个面板的示例：https:// /github.com/ioBroker/ioBroker.dwd/blob/master/admin/jsonConfig.json
 
 您可以以 JSON 或 JSON5 格式定义设置。 JSON5 更易于人类阅读并支持注释。
 
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 带有项目的选项卡
+- `面板` - 包含项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -50,7 +50,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `maxLength` - 字段中文本的最大长度
   - `readOnly` - 只读字段
   - `trim` - 默认为 true。如果不需要修剪，请将此属性设置为“false”。
-  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更多。
+  - `minRows` - 默认值为 1。如果您想要一个包含多行的文本区域，请将此属性设置为 `2` 或更大。
   - `maxRows` - 文本区域的最大行数。仅当 `minRows` > 1 时使用。
 
 - `数字`
@@ -130,7 +130,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
     - `root` - [可选] 仅显示此根对象及其子对象
     - `customFilter` - [可选] 不能与 `type` 设置一起使用。它是一个对象，而不是 JSON 字符串。例子
        - `{common: {custom: true}}` - 仅显示具有某些自定义设置的对象
-       - `{common: {custom: 'sql.0'}}` - 仅显示具有 sql.0 自定义设置的对象（仅特定实例）
+       - `{common: {custom: 'sql.0'}}` - 仅显示具有 sql.0 自定义设置的对象（仅限特定实例）
        - `{common: {custom: '_dataSources'}}` - 仅显示适配器`influxdb`或`sql`或`history`的对象
        - `{common: {custom: 'adapterName.'}}` - 仅显示特定适配器的自定义设置的对象（所有实例）
        - `{type: 'channel'}` - 仅显示频道
@@ -145,7 +145,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true（仅适用于输入时的新密码）
@@ -167,7 +167,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
   仅文本：实例正在运行，实例未运行
 
-    - `instance` - 检查实例是否存活。如果未定义，则将使用当前实例。您可以在文本中使用“${data.number}”模式。
+    - `instance` - 检查实例是否存活。如果没有定义，它将使用当前实例。您可以在文本中使用“${data.number}”模式。
     - `textAlive` - 默认文本是“实例 %s 处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
     - `textNotAlive` - 默认文本是`实例 %s 不活动`，其中 %s 将被替换为 `ADAPTER.0`。
 
@@ -440,7 +440,7 @@ adapter.on('message', obj => {
   - `licenseUrl` - 许可证文件的 URL（例如 https://raw.githubusercontent.com/ioBroker/ioBroker.docs/master/LICENSE）
   - `title` - 许可证对话框的标题
   - `agreeText` - 同意按钮的文本
-  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，则将启用同意的按钮。
+  - `checkBox` - 如果定义，将显示具有给定名称的复选框。如果选中，同意的按钮将被启用。
 
 - `checkLicense` - 非常特殊的组件，用于在线检查许可证。它需要原生的 `license` 和 `useLicenseManager` 属性。
   - `uuid` - 检查 UUID
@@ -715,7 +715,7 @@ newData: {
 }
 ```
 
-我们建议使用变体 2，因为可以使用 Weblate 处理文本。
+我们建议尽可能使用变体 1，因为可以使用 Weblate 处理文本。
 
 ## JS 函数
 ### 配置对话框
@@ -744,7 +744,7 @@ const isValid = func(data, systemConfig.common, instanceAlive, adapter.common, t
 
 如果`alive`状态发生变化，则必须重新更新、验证、禁用、隐藏所有字段。
 
-适配器设置中的 JS 函数可以使用以下变量：
+适配器设置中的 JS 函数中可以使用以下变量：
 
 - `data` - 此实例或表中当前行的本机设置（要访问所有设置，请使用 globalData）
 - `_system` - 系统配置

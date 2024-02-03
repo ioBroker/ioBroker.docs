@@ -63,6 +63,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.2.0 (2024-01-22)
+
+* (klein0r) Added more providers
+
 ### 3.1.3 (2023-12-24)
 
 * (klein0r) fixed configuration validation
@@ -81,10 +85,6 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
 
 * (klein0r) Use meta storage for cache files
 * (klein0r) Added configured source type as state
-
-### 3.0.0 (2023-12-21)
-
-* (klein0r) Added API source myMuell
 
 ## License
 

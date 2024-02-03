@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: WSXEhoUQQNY8lz3rtNdtUlBRCFxZShmUNI0C2cLVqxs=
+hash: oj+ZivqsuDfqpQIbUGOHNxk2p//1nw8oNRh52pLGk0Y=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -64,7 +64,7 @@ Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 ## Admin (01.09.2023)
 Kontextmenü:
 
-- z. B. einfache Erstellung von Aliasen
+- z. B. einfache Erstellung von Aliasnamen
 
   ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
 
@@ -260,7 +260,7 @@ Dieser Adapter greift auf Wetterwarnungen verschiedener Wetterdienste zu und gib
 ##tractive-gps (06.12.2023) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/admin/tractive-gps.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tractive-gps/main/admin/tractive-gps.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie eine Verbindung zum Tractive GPS-Dienst herstellen und den Standort Ihrer Haustiere abrufen.
 
@@ -272,18 +272,51 @@ Es ist möglich, die Menüfarben im Admin zu ändern
 ## Emporia (07.12.2023) – neuer Adapter
 https://github.com/Chris-656/ioBroker.emporia
 
-<img src="https://github.com/Chris-656/ioBroker.emporia/blob/main/admin/emporia.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
 
 Dieser Adapter ruft Daten vom Emporia-Energiesystem ab.
 
 ## Reolink (27.12.2023) – neuer Adapter
 https://github.com/aendue/ioBroker.reolink
 
-<img src="https://github.com/aendue/ioBroker.reolink/blob/main/admin/reolink_logo.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/aendue/ioBroker.reolink/main/admin/reolink_logo.png" width="100" height="100" />
 
 Adapter für die ioBroker-Plattform zum Abrufen von Reolink-Kamerainformationen.
 
-## Vis-2 (02.01.2024) – neue Funktion
+## Vis-2 (08.01.2024) – neuer Adapter
 https://github.com/ioBroker/ioBroker.vis-2
 
-vis-2 befindet sich jetzt im stabilen Repository. Es ist eine neue Generation von Vis. Es basiert auf ReactJS und verfügt über viele neue Funktionen.
+vis-2 befindet sich jetzt in einem stabilen Repository. Es ist eine neue Generation von Vis. Es basiert auf ReactJS und verfügt über viele neue Funktionen.
+
+## Artnet-recorder (08.01.2024) – neuer Adapter
+https://github.com/Bannsaenger/ioBroker.artnet-recorder
+
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.artnet-recorder/master/admin/artnet-recorder.png" width="100" height="100" />
+
+Zeichnen Sie Art-Net-Daten zur späteren Wiedergabe in einer Datei auf
+
+## Energiefluss (25.01.2024) – neuer Adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss
+
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
+
+Es liefert einen animierten Energiefluss des Stromverbrauchs für Photovoltaik, Batterie, Hausverbrauch, Netzeinspeisung (Netzverbrauch), Autoladung und bis zu 10 mögliche Elemente (Kreis oder Rechteck).
+
+## Amtronwallbox (28.01.2024) – neuer Adapter
+https://github.com/rg-engineering/ioBroker.amtronwallbox
+
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
+
+Der Adapter dient als Schnittstelle zu verschiedenen Amtron Wallboxen. Die von der Box bereitgestellten Daten werden ausgelesen und als Zustand im Adapter zur Verfügung gestellt. Die Daten werden nur lokal verarbeitet, eine Cloud-Anbindung ist nicht notwendig.
+
+## Zendure-solarflow (30.01.2024) – neuer Adapter
+https://github.com/nograx/ioBroker.zendure-solarflow
+
+<img src="https://raw.githubusercontent.com/nograx/ioBroker.zendure-solarflow/main/admin/zendure-solarflow.png" width="100" height="100" />
+
+Bei diesem Projekt handelt es sich um einen ioBroker-Adapter zum Lesen von Daten aus der Zendure Solarflow Cloud API. Es verwendet die offizielle API von Zendure.
+
+#echarts (03.02.2024) – neue Funktion
+Kartentyp „Radar“ hinzugefügt
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />

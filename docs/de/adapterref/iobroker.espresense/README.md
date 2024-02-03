@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
+hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
@@ -25,6 +25,7 @@ Mit [ESPresense](https://espresense.com) verbinden
 - „Port, Benutzername und Passwort“ des internen oder externen mqtt-Servers
 
 - Wenn der Konfiguration Geräte hinzugefügt wurden, werden nur diese in den Objekten angezeigt.
+- Die beiden Konfigurationszeitpunkte sind verknüpft, die Anwesenheitsprüfung läuft immer mit der Verarbeitung der MQTT-Nachrichten.
 
 Best Practice: Koppeln Sie die zu überwachenden Geräte mit espresense und filtern Sie die Ausgabe, um unnötigen Netzwerkverkehr zu vermeiden.
 
@@ -37,6 +38,15 @@ Für Hilfe verwenden Sie „Problem“ oder wenn Sie Deutsch verstehen: https://
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2024-01-18)
+* (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
+
+### 0.4.3 (2024-01-14)
+* (ticaki) Collect incoming MQTT messages and process them every 5 seconds
+
+### 0.4.2 (2024-01-05)
+* (ticaki) New state for actual distance/conversion factor and calculated distance
+
 ### 0.4.1 (2023-12-30)
 * (ticaki) fixed: no names. (2. try)
 
@@ -74,7 +84,7 @@ Für Hilfe verwenden Sie „Problem“ oder wenn Sie Deutsch verstehen: https://
 ## License
 MIT License
 
-Copyright (c) 2023 ticaki <github@renopoint.de>
+Copyright (c) 2024 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

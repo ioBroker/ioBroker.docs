@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: dKoOo3kalWRIbcQsXY8ocKttL+JAe9RDqPcW7nkUzqQ=
+hash: NGEqe89x5JAXM5OLlsHew2bqs9/AaX/oQ+XHqewrvmk=
 ---
 ![标识](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -160,7 +160,7 @@ KNX 设备可以拥有 ga，用于属于命令 ga 的状态反馈。某些应用
 应用程序不得设置 ack 标志，如果数据更新，应用程序将通过 ack 标志从该适配器收到通知。
 如果另一个 knx 主机写入总线，KNX 堆栈在收到组地址时会设置相应 ioBroker 对象的 ack 标志。
 
-|遗传算法是|连接到带有 R 标志的设备 |连接到没有 R 标志的设备 |未连接 |
+|遗传算法是 |连接到带有 R 标志的设备 |连接到没有 R 标志的设备 |未连接 |
 | ----------------------------------- | --------------------------------- | ----------------------------------- | ----------- |
 | GroupValue_Write | 应用程序问题确认|确认|没有确认|
 |应用程序问题确认|没有确认|没有确认|
@@ -253,7 +253,7 @@ setState(myState, { val: false, ack: false, q: 0x10 });
 GroupValue_Read 注释不适用于 javascript 适配器。请改用qualityAsNumber 值0x10。
 
 ### 所有 DPT 的描述
-| KNX DPT | javascript 数据类型 |特殊值|值范围|备注 |
+| KNX DPT | JavaScript 数据类型 |特殊值 |值范围|备注 |
 | --------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
 | DPT-1 |数字枚举 | | 1 位假，真 | |
 | DPT-2 |对象| {“优先级”：1 位，“数据”：1 位} | - | |
@@ -262,7 +262,7 @@ GroupValue_Read 注释不适用于 javascript 适配器。请改用qualityAsNumb
 | | | | | save_recall：0 = 调用场景，1 = 保存场景 |
 | DPT-21 |对象| {"outofservice":0,"故障":0,"覆盖":0,"inalarm":0,"alarmunack":0} | - | |
 | DPT-232 |对象| {红色：0..255，绿色：0.255，蓝色：0.255} | - | |
-| DPT-237 |对象| {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
+| DPT-237|对象| {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
 | DPT-4 |字符串| |一个字符作为 8 位字符发送 | |
 | DPT-16 |字符串| | 1 个字符作为 16 个字符串发送 | |
 | DPT-5 |数量 | | 8 位无符号值 | |
@@ -282,9 +282,9 @@ GroupValue_Read 注释不适用于 javascript 适配器。请改用qualityAsNumb
 | DPT-10 |日期对象的编号 | | - | |
 | DPT-11 |日期对象的编号 | | - | |
 | DPT-19 |日期对象的编号 | | - | |
-| DPT-26 |字符串 |例如00010203..| - | autread 无法读取数据点类型 DPT_SceneInfo |
-| DPT-28 |字符串 | |变量| Unicode UTF-8 编码字符串 |
-| DPT-29 |字符串|例如“123456789000”| 8 字节有符号值 |该数值在 IOB 中的数据类型是 string |
+| DPT-26 |字符串|例如00010203..| - | autread 无法读取数据点类型 DPT_SceneInfo |
+| DPT-28 |字符串| |变量| Unicode UTF-8 编码字符串 |
+| DPT-29 |字符串|例如“123456789000” | 8 字节有符号值 |该数值在 IOB 中的数据类型是 string |
 | DPT-238 |字符串|例如00010203..| - | autread 未读取 DPT_SceneConfig |
 |休息|字符串|例如00010203..| - | |
 
@@ -305,8 +305,8 @@ DPT10 是时间 (hh:mm:ss) 加上“星期几”。这个概念在 JS 中不可�
 当总线上接收到写帧时，通信对象被触发。
 
 ### 读取组值
-发送组值读取可以通过写入带有注释的通信对象来触发。具体请参见API调用部分。
-接收（如果已配置）将触发实际通信对象值的组值响应（限制：此时写入组值），见下文。
+发送组值读取可以通过写入带有注释的通信对象来触发。详情请参见API调用部分。
+接收（如果配置）将触发实际通信对象值的组值响应（限制：此时写入组值），见下文。
 
 ### 组值响应
 如果将answer_groupValueResponse 设置为true，则适配器将使用GroupValue_Response 回复先前收到的GroupValue_Read 请求。
@@ -319,7 +319,7 @@ KNX 对象标志定义它们所代表的对象的总线行为。
 |旗帜|德旗|适配器使用| |
 | -------------------------- | ------------------------ | --------------------------------------- | ---------------------------------------------- |
 | C：通信标志| K：通讯标志 |始终设置 | |
-| R：读取标志| L：Lese-Flag |对象native.answer_groupValueResponse | |
+| R：读取标志 | L：Lese-Flag |对象native.answer_groupValueResponse | |
 | T：发送标志| Ü： Übertragen 旗帜 |对象common.write | |
 | W：写标志| S：Schreiben-Flag |对象 common.read |总线可以修改对象|
 | U：更新标志| A：Aktualisieren-Flag |对象 common.read |更新传入的 GroupValue_Responses 对象 |
@@ -338,7 +338,7 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 - 对最重要的 DPT 的 KNX 数据报进行自动编码/解码，对其他 DPT 进行原始读取和写入
 - 支持KNX组值读取和组值写入以及组值响应
 - 免费开源
-- 不依赖云服务，无需互联网访问即可运行
+- 不依赖云服务，离线运行，无需访问互联网
 - 开始时自动阅读
 - 快速导入 XML 格式的群组地址
 - 创建对状态输入做出反应的联合别名对象
@@ -367,22 +367,36 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
   * npm run release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+  ### **WORK IN PROGRESS**
+### 0.7.2 (2024-01-09)
+- feature: handle network connection instability issesues
+- feature: generate more log messages
+- bugfix: telegram count
+
+### 0.7.1 (2024-01-07)
+
+-   feature: when requesting fast message sendout create iob acks per bus message status, before it triggered all acks on first message send confirmance
+-   feature: add message count object
+-   feature: use common.desc from ets xml Description field and move datatype info to native
+-   cleanup: stop timers on shutdown
+-   bugfix: create a log entry on reception of unknown ga
+-   bugfix: do not count send as duplicate trigger in load measurement
+-   increase default minimum send delay to 80ms
+
 ### 0.7.0 (2023-12-18)
 
 -   feature: adding support for DPT-28 and DPT-29
--   for gas appearing in multiple objects severity lifted to warning
+-   severity lifted to warning for gas appearing in multiple objects
 -   feature: some more verbose failure outputs
+-   feature: always warn if knx element in object tree not found in import file
 -   bugfix: do not report errors resulting from bad bus data to sentry #433
 -   bugfix: do not forward invalid bus data to iob object tree
--   cleanup of DTP library
+-   cleanup: DTP library
 
 ### 0.6.3 (2023-12-10)
 
--   stable release
-
-### 0.6.3 (2023-12-10)
-
-### 0.6.2 (2023-12-09)
+-   stable release of version 0.6.1
 
 ### 0.6.1 (2023-12-02)
 
@@ -620,7 +634,7 @@ Openknx 在对象`info.busload` 中估计其所连接的 KNX 线路的当前总�
 
 ## License
 
-Copyright 2023 contributors to the ioBroker.openknx project
+Copyright 2024 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

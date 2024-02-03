@@ -6,7 +6,7 @@ BYD HVS Battery poll data
 
 ## Introduction
 
-This Adapter takes data from a byd PV battery ( https://www.bydbatterybox.com/ ) and puts them into datapoints in the adapter. Unfortunately there is no official API and no documentation, so I used wireshark and a byd-hvs-simulator to try to understand the communication. My adapter simulates the byd-app, sends similar packets to the device and analyses the responses. 
+This Adapter takes data from a byd PV battery ( https://www.bydbatterybox.com/ ) and puts them into datapoints in the adapter. Unfortunately there is no official API and no documentation, so I used wireshark and a byd-hvs-simulator to try to understand the communication. My adapter simulates the byd-app, sends similar packets to the device and analyses the responses.
 
 ## be careful
 
@@ -19,10 +19,10 @@ Up to 5 HVS Modules are now supported.
 ## settings
 
 Interval: That's easy: how often (s) shall the data be polled
-IP-Adress: Thats self explaining. Either you use the standard address ( 192.168.16.254 ) and change the routing at home, e.g.: https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID=2215343#post2215343 . The advantage is: The beConnect app works, too. Other possibility: You change the IP-Adress of the box. But: Be warned: the text on the webpage is confusing and if you are not absolutely shure about the things you do: PLEASE do not touch the settings. In the German forums I read from people who were locked out of their system and there is no way back, either byd sends you a replacement HVU or you have to buy a new one. 
+IP-Adress: Thats self explaining. Either you use the standard address ( 192.168.16.254 ) and change the routing at home, e.g.: https://www.photovoltaikforum.com/thread/150898-byd-hvs-firmware-update/?postID=2215343#post2215343 . The advantage is: The beConnect app works, too. Other possibility: You change the IP-Adress of the box. But: Be warned: the text on the webpage is confusing and if you are not absolutely shure about the things you do: PLEASE do not touch the settings. In the German forums I read from people who were locked out of their system and there is no way back, either byd sends you a replacement HVU or you have to buy a new one.
 Battery-details: As explained above: Do you need the details of the battery? If so: set the checkobx.
 Battery-details - every ... cycles :Also like above, should be clear
-Test Mode - show data in error log: If you check this box: the sent and recieved data are displayed in the error-log, so you can easily download the data and send it to me in case of errors. 
+Test Mode - show data in error log: If you check this box: the sent and recieved data are displayed in the error-log, so you can easily download the data and send it to me in case of errors.
 Copy and Paste does not work - the data is cut at the end. You will have to download it before you send it to me.
 
 [Link zur nativen deutschen Readme:](README-German.md)
@@ -32,8 +32,12 @@ Copy and Paste does not work - the data is cut at the end. You will have to down
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.5.1 (2024-01-15)
+* Enable the possibility to get informations from a two tower setup
+* BREAKING CHANGE of Structure.
+
 ### 1.5.0 (2023-11-04)
-* Breaking change: nodejs 16 minimum required  
+* Breaking change: nodejs 16 minimum required
 * automated checks and release-script repaired (thanks to mcm1957, he did the work)
 * nothing else changed in code
 

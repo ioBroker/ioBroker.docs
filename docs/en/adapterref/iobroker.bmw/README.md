@@ -26,6 +26,10 @@ bmw.0.VIN.remotev2
 
 ## Changelog
 
+### 2,8.0
+
+- Add support service demand and trip api
+
 ### 2.7.1
 
 - Bugfixes

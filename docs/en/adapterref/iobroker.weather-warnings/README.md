@@ -147,6 +147,14 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (ticaki) Reduce history data to 80 entries around 4000 lines, because of jerks in the admin
+
+### 0.6.6 (2024-01-14)
+* (ticaki) fullday(ZAMG only): If time span is 24h +/- 5 minutes and the start hour is between 0-3, day of the week from start time, otherwise blank.
+
+### 0.6.5 (2024-01-06)
+* (ticaki) Added: ZAMG full day token
+* (ticaki) fixed: Send emails asynchron
 * (ticaki) fixed: dont ignore uwz activate setting
 * (ticaki) update dp-objects on every start.
 
@@ -297,7 +305,7 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 ## License
 MIT License
 
-Copyright (c) 2023 ticaki <github@renopoint.de>
+Copyright (c) 2024 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

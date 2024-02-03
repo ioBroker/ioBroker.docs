@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
+hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
 ---
-![Логотип](../../../en/adapterref/iobroker.rct/admin/rct.png)
-
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![Количество установок (последних)](https://iobroker.live/badges/rct-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/rct-stable.svg)
-![Статус зависимости](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)
+![Статус зависимости Libraries.io для репозитория GitHub](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 ![НПМ](https://nodei.co/npm/iobroker.rct.png?downloads=true)
+
+[![Логотип](admin/rct.png)](https://www.rct-power.com/de)
 
 # IoBroker.rct
 **Тесты:** ![Тестирование и выпуск](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)

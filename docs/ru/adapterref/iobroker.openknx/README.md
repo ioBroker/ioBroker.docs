@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: dKoOo3kalWRIbcQsXY8ocKttL+JAe9RDqPcW7nkUzqQ=
+hash: NGEqe89x5JAXM5OLlsHew2bqs9/AaX/oQ+XHqewrvmk=
 ---
 ![Логотип](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -306,7 +306,7 @@ DPT10 — это время (чч:мм:сс) плюс «день недели».
 
 ### Чтение значения группы
 Отправка чтения группового значения может быть инициирована путем записи объекта связи с комментарием. Подробности см. в разделе «Вызовы API».
-Получение, если оно настроено, вызовет ответ на групповое значение (ограничение: запись группового значения в данный момент) фактического значения объекта связи, см. ниже.
+Прием, если он настроен, вызовет ответ на групповое значение (ограничение: запись группового значения в данный момент) фактического значения объекта связи, см. ниже.
 
 ### Ответ на групповое значение
 Если для параметра answer_groupValueResponse установлено значение true, адаптер ответит GroupValue_Response на ранее полученный запрос GroupValue_Read.
@@ -338,7 +338,7 @@ Openknx оценивает текущую загрузку шины линии K
 - автоматическое кодирование/декодирование датаграмм KNX для наиболее важных ЦСТ, необработанное чтение и запись для других ЦСТ.
 - поддержка чтения группового значения KNX, записи группового значения и ответа на групповое значение
 - бесплатный открытый исходный код
-- нет зависимости от облачных сервисов, работает без доступа в Интернет
+- нет зависимости от облачных сервисов, работает в автономном режиме без доступа в Интернет
 - авточтение при запуске
 - быстрый импорт групповых адресов в формате XML
 - создавать совместные объекты псевдонимов, которые реагируют на входные данные статуса
@@ -367,22 +367,36 @@ Openknx оценивает текущую загрузку шины линии K
   * npm run release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+  ### **WORK IN PROGRESS**
+### 0.7.2 (2024-01-09)
+- feature: handle network connection instability issesues
+- feature: generate more log messages
+- bugfix: telegram count
+
+### 0.7.1 (2024-01-07)
+
+-   feature: when requesting fast message sendout create iob acks per bus message status, before it triggered all acks on first message send confirmance
+-   feature: add message count object
+-   feature: use common.desc from ets xml Description field and move datatype info to native
+-   cleanup: stop timers on shutdown
+-   bugfix: create a log entry on reception of unknown ga
+-   bugfix: do not count send as duplicate trigger in load measurement
+-   increase default minimum send delay to 80ms
+
 ### 0.7.0 (2023-12-18)
 
 -   feature: adding support for DPT-28 and DPT-29
--   for gas appearing in multiple objects severity lifted to warning
+-   severity lifted to warning for gas appearing in multiple objects
 -   feature: some more verbose failure outputs
+-   feature: always warn if knx element in object tree not found in import file
 -   bugfix: do not report errors resulting from bad bus data to sentry #433
 -   bugfix: do not forward invalid bus data to iob object tree
--   cleanup of DTP library
+-   cleanup: DTP library
 
 ### 0.6.3 (2023-12-10)
 
--   stable release
-
-### 0.6.3 (2023-12-10)
-
-### 0.6.2 (2023-12-09)
+-   stable release of version 0.6.1
 
 ### 0.6.1 (2023-12-02)
 
@@ -620,7 +634,7 @@ Openknx оценивает текущую загрузку шины линии K
 
 ## License
 
-Copyright 2023 contributors to the ioBroker.openknx project
+Copyright 2024 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

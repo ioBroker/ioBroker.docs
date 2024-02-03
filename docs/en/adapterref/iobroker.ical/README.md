@@ -202,6 +202,17 @@ Whitelist: If you only want to include events of a specific location, use regula
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.14.2 (2024-01-29)
+* (jens-maus) update node-ical to latest 0.17.2
+
+### 1.14.1 (2024-01-29)
+* (klein0r) Create dummy file in files tab
+* (klein0r) Fixed recurring events
+
+### 1.14.0 (2024-01-07)
+* (klein0r) Allow to set custom http user agent
+* (klein0r) Added option to use files tab for calendar files
+
 ### 1.13.6 (2023-12-25)
 * (mcm1957) Incorrect jsonConfig has been fixed [#602]
 * (mcm1957) Dependencies have been updated
@@ -209,24 +220,11 @@ Whitelist: If you only want to include events of a specific location, use regula
 ### 1.13.5 (2023-12-15)
 * (jens-maus) updated node-ical to latest 0.17.1
 
-### 1.13.4 (2023-12-10)
-* (jens-maus) updated node-ical to latest 0.17.0
-* (jens-maus) updated dependencies
-
-### 1.13.3 (2023-06-20)
-* (jens-maus) updated node-ical to latest 0.16.1
-* (klein0r) Use color picker in adapter settings
-* (klein0r) Dropped Admin 4 UI
-* (klein0r) Added Ukrainian language
-
-### 1.13.2 (2022-08-29)
-* (Apollon77) fix strange log messages by downgrading RRule again
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

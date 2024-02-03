@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tinymqttbroker/README.md
 title: ioBroker.tinymqttbroker
-hash: N8dufdxgJrbGe3XPEuKwlYmp6TFWG8aFqmEXhJzpMMA=
+hash: 3KGsvglliyDCZlZEmVvH1fclVvMOAYpPGEsuoPJmfZQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.tinymqttbroker/admin/tinymqttbroker.png)
 
@@ -96,6 +96,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.1 (2024-02-01)
+* (HGlab01) Bump json-explorer to 0.1.15
+* (HGlab01) Bump aedes to 0.51.0
+
 ### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
 * (HGlab01) Node.js 18.0 or higher
@@ -120,7 +124,7 @@ onStop(function (callback) {
 ## License
 MIT License
 
-Copyright (c) 2023 HGlab01 <myiobrokeradapters@gmail.com>
+Copyright (c) 2024 HGlab01 <myiobrokeradapters@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

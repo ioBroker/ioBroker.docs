@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: GeVXVbkQmQnp8GetMJf25XoxQLPAsUpgxpWQ1TROWiA=
+hash: yeK+7qjG/tFGYwYR2fP9xAxycdFZPprsP44FK5e2mZ8=
 ---
 ![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -14,7 +14,7 @@ hash: GeVXVbkQmQnp8GetMJf25XoxQLPAsUpgxpWQ1TROWiA=
 ![国家公共管理](https://nodei.co/npm/iobroker.growatt.png?downloads=true)
 
 ## IoBroker.growatt
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 该适配器通过古瑞瓦特的云服务器工作。还有 [格罗特项目](https://github.com/johanmeijer/grott) 拦截通信中的数据。
 
@@ -60,6 +60,9 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 #### 读取天气
 该数据集包含天气预报。
 
+#### 读取故障日志条目
+读取当年故障日志中的条目并创建包含该消息的对象。仅读取包含最新报告的第一页。
+
 #### 写入逆变器设置
 如果激活此功能，则可以编辑某些逆变器的某些设置。
 
@@ -69,7 +72,7 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 
 如果可以读取参数值，则使用 ACK=true 写入它们。使用 ack 成功读取时，“read”设置为 true。如果读取失败，则“Read”设置为 false ack=true。在没有 ACK 的情况下从“true”写入“Read”会触发读取操作。如果建立了与云的新连接，也会读出设置。
 
-要写入设置，必须首先设置参数。然后将“write”设置为 true 且 ack=false。
+要写入设置，必须首先设置参数。然后“write”设置为true，ack=false。
 如果数据写入成功，“write”设置为“true”ack=true，如果逆变器报错，“write”设置为“false”ack=true。另外，将变频器的返回信息写入“msg”状态。
 
 如果写入成功，会自动触发读取。
@@ -165,7 +168,7 @@ _使用 GROTT 时，必须启用更改 INI 中的设置。_如果出现您不期
 | SN |字符串|逆变器的序列号可以在对象路径“growatt.-instance-.-nr-.devices.-sn-”中找到。 |
 |开始日期 |日期 |艺术 |
 |结束日期 |日期 |结束必须比开始更美好 |
-|开始 |整数 | 0 是调用的起始页，最新数据在前 |
+|开始 |整数| 0 是调用的起始页，最新数据在前 |
 
 调用示例：
 
@@ -314,6 +317,23 @@ Growatt 已从固件中删除了该网站。
 -\*-
 
 ## Changelog
+
+### 3.2.3 (27.01.2024)
+
+- (PLCHome) In Multiple Backflow the objects in Total Data and Status Data were swapped. Please delete the objects below Total Data and Status Data and restart the adapter after the update.
+
+### 3.2.2 (27.01.2024)
+
+- (PLCHome) Catching of the fault log messages is now possible (Thanx to ZioCain for the code)
+- (PLCHome) Setting active power for MAX inverter (Thanx to sefina for testing)
+
+### 3.2.1 (08.09.2023)
+
+- (PLCHome) Additionally query the status information via the Plant List.
+
+### 3.2.0 (01.09.2023)
+
+- (PLCHome) Added inverter typ singleBackflow and multipleBackflow
 
 ### 3.1.2 (16.08.2023)
 
@@ -536,7 +556,7 @@ Growatt 已从固件中删除了该网站。
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

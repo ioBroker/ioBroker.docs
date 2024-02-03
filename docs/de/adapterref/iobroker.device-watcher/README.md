@@ -28,6 +28,40 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.10.3 (2024-01-27)
+
+-   (ciddi89) Fixed [#299](https://github.com/ciddi89/ioBroker.device-watcher/issues/299): blacklisted devices was shown in html-list
+
+### 2.10.2 (2024-01-20)
+
+-   (ciddi89) Fixed: typeError for available adapter update messages
+-   (ciddi89) Fixed: Lists for updatable adapter
+
+### 2.10.1 (2024-01-15)
+
+-   (ciddi89) Fixed: several bugs from last version
+-   (ciddi89) Added: finished translations
+
+### 2.10.0 (2024-01-13)
+
+-   (ciddi89) Fixed: Batterie value for shelly plus Gen2 devices [#282](https://github.com/ciddi89/ioBroker.device-watcher/issues/282)
+-   (ciddi89) Added: Option to display the last signal strength value when the device is offline [#282](https://github.com/ciddi89/ioBroker.device-watcher/issues/282)
+-   (ciddi89) Added: Translation for JSON lists, HTML lists and notifications [#245](https://github.com/ciddi89/ioBroker.device-watcher/issues/245)
+-   (ciddi89) Other: clean up code
+
+### 2.9.14 (2024-01-04)
+
+-   (ciddi89) Fixed: This schould fixed the bugs with high cpu and ram load, finally. Sorry about the last two buggy versions.
+
+### 2.9.13 (2024-01-03)
+
+-   (ciddi89) Fixed: Issues from v2.9.12 [#283](https://github.com/ciddi89/ioBroker.device-watcher/issues/283)
+-   (ciddi89) Fixed: High CPU usage at object and state changes [#283](https://github.com/ciddi89/ioBroker.device-watcher/issues/283)
+
+### 2.9.12 (2024-01-02)
+
+-   (ciddi89) Fixed: Changed handling for state changes and subscriptions [#283](https://github.com/ciddi89/ioBroker.device-watcher/issues/283)
+
 ### 2.9.11 (2023-12-12)
 
 -   (ciddi89) Fixed: Fullybroswer >v3 use id not common name
@@ -361,7 +395,7 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device
 
 MIT License
 
-Copyright (c) 2023 Christian Behrends <mail@christian-behrends.de>
+Copyright (c) 2024 Christian Behrends <mail@christian-behrends.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

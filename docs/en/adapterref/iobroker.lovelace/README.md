@@ -474,9 +474,16 @@ After that checkout modified version in `./build` folder. Then.
 	### **WORK IN PROGRESS**
 -->
 ### **WORK IN PROGRESS**
+* (Garfonso) prevent warning for browser_mod/recall_id service call
+
+### 4.1.2 (2024-01-09)
+* (Garfonso) fix: time in timestamp display
+
+### 4.1.1 (2024-01-02)
 * (Garfonso) changed: determining user id
 * (Garfosno) changed: history attributes handling
 * (Garfonso) added: handle browser_mod/recall_id service call.
+* (Garfonso) changed: all states are strings (fixes #483)
 
 ### 4.1.0 (2023-12-18)
 * (Garfons) add an option to show users on login screen (off by default)
@@ -487,18 +494,9 @@ After that checkout modified version in `./build` folder. Then.
 ### 4.0.11 (2023-12-15)
 * (Garfonso) updated dependencies
 
-### 4.0.10 (2023-12-15)
-* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
-* (Garfonso) fix: browser console errors
-* (Garfonso) fix: login & authorization
-* (Garfonso) added: user images & names on login screen
-
-### 4.0.9 (2023-12-12)
-* (Garfonso) fixed: timestamp in legacy history data
-
 ## License
 
-Copyright 2019-2023, bluefox <dogafox@gmail.com>
+Copyright 2019-2024, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

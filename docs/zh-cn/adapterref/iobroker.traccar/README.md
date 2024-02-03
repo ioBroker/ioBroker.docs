@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.traccar/README.md
 title: ioBroker.traccar
-hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
+hash: Y8YCkqBRWtiVubFXfNJkRPT+T1i3n/ZiSC5DGQcMCL4=
 ---
-![商标](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
+![标识](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
-![NPM 版本](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
+![NPM版本](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
 ![下载](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
 ![安装数量（最新）](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![安装数量（稳定）](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-![已知漏洞](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)
-![新产品管理](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
+![已知漏洞](https://snyk.io/test/github/arteck/ioBroker.traccar/badge.svg?dummy=unused)
+![国家公共管理](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
 
 # IoBroker.traccar
-[![依赖状态](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![依赖状态](https://status.david-dm.org/gh/arteck/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/arteck/iobroker.traccar) [![翻译状态](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ## IoBroker 的 Traccar 适配器
-该适配器从 [特拉卡](https://www.traccar.org) 实时导入位置和扩展数据，并使它们在 ioBroker 中可用。
+该适配器实时导入来自[特拉卡](https://www.traccar.org)的位置和扩展数据，并使它们在ioBroker中可用。
 
 ＃＃ 配置
-1. 创建一个新的适配器实例
+1. 创建适配器的新实例
 2. 填写 Traccar 服务器的 URL/IP 和端口
-3. 配置用户名和密码
+3.配置用户名和密码
 4. 保存设置
 5.玩得开心:)
 
@@ -31,12 +31,50 @@ hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
 
 <!--
  https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
+    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
+    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	
 -->
+### **WORK IN PROGRESS**
+-   (arteck) transfer to arteck
+
+### 1.1.4 (2023-10-30)
+-   (arteck) fix last_update DP
+
+### 1.1.3 (2023-10-28)
+-   (arteck) geofances fix for Server >= 5.8 (check adapter Settings)
+
+### 1.1.2 (2023-07-16)
+-   (o0shojo0o) another fix for Traccar Server >= v5.8
+
+### 1.1.1 (2023-07-01)
+-   (o0shojo0o) fix translation
+
+### 1.1.0 (2023-07-01)
+-   (o0shojo0o) support for https/wss connections
+-   (o0shojo0o) fix for Traccar Server < v5.8
+
+### 1.0.1 (2023-06-22)
+-   (o0shojo0o) fix deploy workflow
+
+### 1.0.0 (2023-06-22)
+-   (o0shojo0o) fix for Traccar Server >= v5.8
+
+### 0.0.12 (2022-07-20)
+
+-   (o0shojo0o) fix geofenceIds now nullable
+-   (o0shojo0o) add Device datapoint Status
+
+### 0.0.11 (2021-08-19)
+
+-   (o0shojo0o) fix translation
+
+### 0.0.10 (2021-08-18)
+
+-   (o0shojo0o) change UI to JSONConfig
 
 ### 0.0.9 (2021-05-19)
 
@@ -84,7 +122,7 @@ hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024  Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-homekittiles/README.md
 title: ioBroker.vis-homekittiles
-hash: mOa2n5UyvM6KD1Nj95QtoEhFIPTLUWvqAF9sZzJTNYo=
+hash: uNnhx/0Ug2tl/hOGTCobHT+OrmoWIqKKS4KMkZQ9mLI=
 ---
 # IoBroker.vis-homekittiles
 
@@ -31,9 +31,7 @@ Homekit Tiles — это набор виджетов, основанный на 
 [🇩🇪 Документация](doc/homekittiles-de.md) [🇺🇸 Документация](doc/homekittiles-en.md)
 
 ## Дела, которые необходимо сделать
-* Шаг ремонта
 * Собственные сигнальные картинки для тайлов
-* Набор плиток диалогового окна активен в зависимости от состояния.
 * Мини-медиаплеер
 * Термостат
 * Выбирать
@@ -46,6 +44,26 @@ Homekit Tiles — это набор виджетов, основанный на 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (Standarduser) added Object ID for Active State for View in Widget Dialog tile and Value tile
+* (Standarduser) repaired Increment function
+
+### 0.0.9 (2024-02-02)
+
+* (Standarduser) corrected block operation. ATTENTION! You may have to delete and reinsert your widgets, if you used a different Object ID for blocking operation! Of cause only these widgets, where you used this function ;)
+* (Standarduser) corrected formatValue function
+
+### 0.0.7 (2023-12-26)
+
+* (Standarduser) CSS adjustments
+* (Standarduser) changed block operation to old variant
+* (Standarduser) corrected value formatting in label groups
+
+### 0.0.6 (2023-11-10)
+
+* (Standarduser) just some cleanup
+
 ### 0.0.5 (2023-11-04)
 
 * (Standarduser) fixed: adjustment of decimals in labelgroup 1 & 2
@@ -70,7 +88,7 @@ Homekit Tiles — это набор виджетов, основанный на 
 
 MIT License
 
-Copyright (c) 2023 Standarduser
+Copyright (c) 2024 Standarduser
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

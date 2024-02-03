@@ -2,22 +2,22 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.hmip/README.md
-title: Адаптер ioBroker HomeMatic IP Cloud AccessPoint
-hash: Kralf0GncOLRR7KFU6xsIHqXXzkKbZYW5rKEt+x/BAM=
+title: Адаптер точки доступа ioBroker HomeMatic IP Cloud
+hash: 5eoRlykq1weQE21A6Rnnfh4KaF4vAUa68EacmchWtlM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.hmip/admin/homematic.png)
 
 ![Количество установок](http://iobroker.live/badges/hmip-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.hmip.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.hmip.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.hmip.svg)
 
-# Адаптер ioBroker HomeMatic IP Cloud AccessPoint
-![Тестируйте и выпускайте](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+# Адаптер точки доступа ioBroker HomeMatic IP Cloud
+![Тестирование и выпуск](https://github.com/iobroker-community-adapters/iobroker.hmip/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/hmip/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Отказ от ответственности
-**Все названия продуктов и компаний или логотипы являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения ими или какими-либо связанными с ними дочерними компаниями! Этот личный проект поддерживается в свободное время и не имеет коммерческой цели.** **HomeMatic является торговой маркой ELV Elektronik AG**
+**Все названия и логотипы продуктов и компаний являются товарными знаками™ или зарегистрированными® товарными знаками соответствующих владельцев. Их использование не подразумевает какой-либо принадлежности или одобрения с их стороны или любых связанных с ними дочерних компаний! Этот личный проект поддерживается в свободное время и не преследует никакой коммерческой цели.** **HomeMatic является торговой маркой ELV Elektronik AG**
 
 ## Описание
 Этот адаптер обеспечивает связь с HomematicIP CloudAccessPoint через Rest API облака Homematic IP.
@@ -25,47 +25,72 @@ hash: Kralf0GncOLRR7KFU6xsIHqXXzkKbZYW5rKEt+x/BAM=
 **Важное примечание:** Пожалуйста, ограничьте запросы управления до минимума, потому что EQ-3 начал блокировать IP-адреса, когда вы делаете слишком много!
 
 ## Монтаж
-Этому адаптеру требуется node-js версии >= 10.0.
+Для этого адаптера требуется node-js версии >= 16.0.
 
 Вот пошаговое видео по установке на YouTube https://youtu.be/kXWfJRUYJIA
 
 ## Информация
 Большинство IP-устройств Homematic уже работают с последней версией адаптера.
 
-Я буду улучшать его постоянно, но это займет время. Любая помощь от сообщества, например. Запрос на вытягивание будет высоко оценен.
+Я буду постоянно его улучшать, но это займет время. Любая помощь от сообщества, например. Запрос на извлечение будет высоко оценен.
 
-Для неработающих устройств HmIP создайте проблему с этой информацией (по одной для каждого устройства и, если возможно, с техническим названием в теме).
-Переключите логирование адаптера в ioBroker в глупый режим и добавьте json устройства, которое печатается в лог в тикете.
-Мне также может понадобиться json изменения состояния.
+Если устройства HmIP не работают, создайте проблему с этой информацией (по одной на каждое устройство и, если возможно, укажите техническое название в теме).
+Переключите ведение журнала адаптера в ioBroker в глупый режим и добавьте json устройства, который печатается в журнале в задаче.
+Мне также может понадобиться JSON изменения состояния.
 
-Спасибо
+Спасибо!
 
-Если вы ищете информацию, если настройки сигнализации активны, вы должны проверить активное состояние групп ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЕ и ВНЕШНИЕ активные значения означают В гостях, только ВНЕШНИЕ активные означают, что активен только периметр.
+Если вы ищете информацию, если настройки сигнализации активны, вам необходимо проверить активное состояние группы ВНУТРЕННЯЯ и ВНЕШНЯЯ, они представляют собой комбинацию трех состояний сигнализации. ВНУТРЕННИЙ и ВНЕШНИЙ активен означает «В гостях», только ВНЕШНИЙ активен означает активен только «Периметр».
 
-## Важная информация, что можно сделать с этим адаптером
-!!! С помощью этого адаптера вы можете запускать только те события, которые можно запускать через исходное приложение Homematic IP.
+## Важная информация, что можно сделать с помощью этого адаптера
+!!! С помощью этого адаптера вы можете запускать только те события, которые можно запустить через оригинальное приложение Homematic IP.
 Например, прямые соединения между устройствами не имеют событий в приложении и также не могут быть запущены через этот адаптер!!!
 
 ## Настройки
-* введите свой SGTIN (на задней панели точки доступа) и PIN-код (если он был установлен ранее) и подтвердите данные, нажав кнопку с синим светодиодом. Это создаст токен аутентификации.
+* введите свой SGTIN (на задней стороне точки доступа) и PIN-код (если он был установлен ранее) и подтвердите данные, нажав синюю светодиодную кнопку. Это создаст токен аутентификации.
 
 ## Специальные настройки
 ### HMIP-DLD (привод дверного замка)
-Если вы назначили PIN-код замку в приложении HmIP (Настройки / Авторизация доступа — немецкий язык: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройств. Это НЕ PIN-код вашей системы!! если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
-Дополнительно добавьте клиент "iobroker" в список клиентов контроля доступа в настройках приложения HmIP!
+Если вы назначили PIN-код для замка в приложении HmIP (Настройки / Разрешения доступа - немецкий: «Zutrittsberechtigungen»), то PIN-код необходимо установить в состоянии PIN-кода объектов устройства. Это НЕ ПИН-код вашей системы! Если вы не установили PIN-код в настройках, вы также можете оставить его пустым в состоянии PIN-кода.
+Кроме того, добавьте клиента «iobroker» в список клиентов контроля доступа в настройках приложения HmIP!
 
 ## Спасибо
 * @coreGreenberet за его библиотеку Python (https://github.com/coreGreenberet/homematicip-rest-api)
 
-*
+## Обсуждение на форуме ioBroker
+https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 
-## Обсуждение на форуме ioBroker https://forum.iobroker.net/topic/27532/homematic-ip-cloud-access-point-adapter
 ## Запрос адаптера на GitHub
 https://github.com/ioBroker/AdapterRequests/issues/62
 
+<!--
+
+### **РАБОТА В ПРОГРЕССЕ** -->
+
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.22.0 (2024-01-17)
+* (bluefox) IMPORTANT: Node.js 16.x or newer is now required
+* (bluefox) Module `require` has been replaced by `axios`
+* (bluefox) Added JSON config
+* (ChristianFue) Added support for Hmip-RGBW 
+- (bluefox) Dependencies have been updated.
+
+### 1.21.1 (2024-01-15)
+- (ApolloSK) Some issuses for energySensor have been fixed.
+- (mcm1957) Dependencies have been updated.
+
+### 1.21.0 (2023-12-27)
+- (ApolloSK) Implement ENERGY_SENSORS_INTERFACE_CHANNEL
+- (mcm1957) Standard workflows and testing have been updated.
+- (mcm1957) Adapter requires nodejs 16 or newer now.
+- (mcm1957) Dependencies have been updated.
+
 ### 1.20.0 (2022-09-19)
-* IMPORTANT: Node.js 12.x is now required at minimum
+* IMPORTANT: Node.js 12.x is now required at a minimum
 * Add additional fields for MULTI_MODE_INPUT_CHANNEL for Doorbell
 * Add valve position for FLOOR_TERMINAL_BLOCK_MECHANIC_CHANNEL
 * Add several more states for SWITCH_CHANNEL, DIMMER_CHANNEL, WEATHER_SENSOR_CHANNEL, SHUTTER_CHANNEL 
@@ -105,7 +130,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Added experimental support to set dimLevel for Multi Mode Input Dimmer channels
 
 ### 1.16.1 (2022-04-19)
-* (Apollon77) Fix crash case introduced by last version
+* (Apollon77) Fixed a crash case introduced by last version
 
 ### 1.16.0 (2022-04-16)
 * (Apollon77) Optimize websocket reconnection handling
@@ -126,11 +151,11 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Wait 10s until no new "unknown state update" was received before updating the whole system
 
 ### 1.15.0 (2022-01-02)
-* Node.js 10.x is now minimum required version for this adapter
+* Node.js 10.x is now the minimum required version for this adapter
 * (Apollon77) Optimize WebSocket reconnection Logic
 * (Apollon77) Optimize current value handling and re-set value if a state change is not processed because of an unchanged value
-* (Apollon77) Implement startImpulse call for ImpulseOutputChannels for e.g. HM-WGC
-* (Apollon77) Implement support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
+* (Apollon77) Implemented startImpulse call for ImpulseOutputChannels for e.g., HM-WGC
+* (Apollon77) Implemented support for HMIP-DLD to set the lock state and also an option PIN if needed (see notes above)
 * (Apollon77) Detect new and unknown devices and channels and reinitialize the structure to add the new objects on the fly
 * (Apollon77) Implement DOOR_LOCK_SENSOR_CHANNEL
 * (Apollon77) Ignore HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, FLOOR_TERMINAL_BLOCK_CHANNEL and CHANGE_OVER_CHANNEL because no data to prevent logs
@@ -139,7 +164,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ### 1.14.0 (2021-11-07)
 * (Apollon77) Lower loglevel for state change logs to debug
 * (Apollon77) Add verification when reading some data to prevent crashes
-* (Apollon77) Removed some generic (error/info) states that only exists on chosen devices to re-add later in a generic way
+* (Apollon77) Removed some generic (error/info) states that only exist on chosen devices to re-add later in a generic way
 
 ### 1.13.2 (2021-08-25)
 * (Apollon77) Fix warning on js-controller 3.3 with two datapoints
@@ -198,10 +223,10 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) ignore DEVICE_CHANNEL_EVENT for now and also log as debug to not flood log
 
 ### 1.5.0 (2020-11-09)
-* (Apollon77) Add control options for primary/secondaryShadingLevel datapoints
+* (Apollon77) Add control options for primary/secondaryShadingLevel data points
 
 ### 1.4.1 (2020-11-03)
-* (Apollon77) fix potential crash case (Sentry IOBROKER-HMIP-1N)
+* (Apollon77) fixed a potential crash case (Sentry IOBROKER-HMIP-1N)
 
 ### 1.4.0 (2020-10-29)
 * (Apollon77) Add ROTARY_WHEEL_CHANNEL and RAIN_DETECTION_CHANNEL, ACCESS_CONTROLLER_WIRED_CHANNEL
@@ -221,7 +246,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Prevent Crash case (Sentry IOBROKER-HMIP-1B)
 
 ### 1.2.1 (2020-08-10)
-* (Apollon77) Fix pairing process
+* (Apollon77) Fixed a pairing process
 
 ### 1.2.0 (2020-07-26)
 * (saschaabraham) Added an active property INTERNAL and EXTERNAL groups for alarm zones
@@ -231,9 +256,9 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (Apollon77) Crash prevented if object is deleted by state changed (Sentry IOBROKER-HMIP-Y)
 
 ### 1.1.0 (2020-07-14)
-* (Apollon77) Remember already sent unknown channel infos to not spam Sentry
+* (Apollon77) Remember already sent unknown channel info to not spam Sentry
 * (Apollon77) Handle reconnects better (Sentry IOBROKER-HMIP-G)
-* (Apollon77) Try to prevent crashes on i valid server reponses, warning is logged
+* (Apollon77) Try to prevent crashes on invalid server responses, warning is logged
 * (SliX185) Add HMIP-SPDR (PASSAGE_DETECTOR_CHANNEL)
 
 ### 1.0.1 (2020-05-16)
@@ -249,7 +274,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 * (ApolloSK) add vaporAmount for WeatherSensorPro
 * (ApolloSK) fix HmIP-SWO-PR wrong DataType actualTemperature
 * (marcus0303) Added DEVICE_GLOBAL_PUMP_CONTROL, FLOOR_TERMINAL_BLOCK_LOCAL_PUMP_CHANNEL and DEVICE_INCORRECT_POSITIONED, Fixed role in _createWaterSensorChannel and function call in _createWeatherSensorPlusChannel
-* (marcus0303) Added CONTACT_INTERFACE_CHANNEL for HmIP-SCI (see Issue #70 ), Added FLOOR_TERMINAL_BLOCK_CHANNEL, HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, CHANGE_OVER_CHANNEL, but without functionality, because it's not implemented in REST-API. Only to supress Warnings in Log.
+* (marcus0303) Added CONTACT_INTERFACE_CHANNEL for HmIP-SCI (see Issue #70), Added FLOOR_TERMINAL_BLOCK_CHANNEL, HEAT_DEMAND_CHANNEL, DEHUMIDIFIER_DEMAND_CHANNEL, CHANGE_OVER_CHANNEL, but without functionality, because it's not implemented in REST-API. Only to supress Warnings in Log.
 
 ### 0.0.12
 * (jogibear9988) multiple fixes
@@ -290,6 +315,7 @@ https://github.com/ioBroker/AdapterRequests/issues/62
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 iobroker-community-adapters <mcm57@gmx.at>  
 Copyright (c) 2018-2022 jogibear9988 <jochen.kuehner@gmx.de>, Apollon77
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

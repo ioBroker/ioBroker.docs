@@ -40,10 +40,11 @@ The storage of sensitive data in the instance config has been changed.
 You need to re-enter your password in the instance settings if you already used an older version < 0.0.5
 
 ## Changelog
-### 0.1.1 (2023-12-13)
-* Improved readability
-* Select data segments read from server
-* Changed User-Agent in requests
+### 0.1.3 (2024-01-31)
+* Catch EAI_AGAIN
+* Automatic refresh of session-id
+* Changed headers to prevent caching
+* Catch other HTTP errors
 
 ### 0.1.0 (2023-12-10)
 * Fixed issue with restarts due to timeouts
@@ -79,7 +80,7 @@ You need to re-enter your password in the instance settings if you already used 
 ## License
 MIT License
 
-Copyright (c) 2023 DEV2DEV-DE
+Copyright (c) 2024 DEV2DEV-DE
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

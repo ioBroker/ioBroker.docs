@@ -8,6 +8,18 @@
 
 WEB visualisation for ioBroker platform.
 
+## Overview
+- [License requirements](#license-requirements)
+- [Installation & Documentation](#installation--documentation)
+- [Bindings of objects](#bindings-of-objects)
+- [Filters](#filters)
+- [Control interface](#control-interface)
+- [Default view](#default-view)
+- [Permissions System](#permissions-system)
+- [Settings](#settings)
+- [SVG and curentColor](#svg-and-currentcolor)
+
+
 ## License requirements
 To use this adapter in `ioBroker` you need to accept the source code license of the adapter. The source code of this adapter is available under the CC BY-NC license.
 
@@ -27,7 +39,7 @@ Additionally, you need a license to use the adapter. The following license editi
 Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
 But there is another option for how to bind *any* attribute of widget to some ObjectID. 
 
-Just write into attribute `{object.id}` and it will be bound to this object's value. 
+Just write into attribute `{object.id}` e.g. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` and it will be bound to this object's value. 
 If you use the special format, you can even make some simple operations with it, e.g., multiplying or formatting.
 
 E.g., to calculate the hypotenuse of a triangle:
@@ -177,9 +189,11 @@ You can write the JSON string or Object into `control.command` as `{instance: 'A
 
 Example for javascript adapter:
 
+```js
+setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
-setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
-```
+
+If you write the JSON as a string, ensure that it is parseable, e.g. `{"instance": "*", "command": "refresh", "data": ""}`, note the `"`. 
 
 ## Default view
 You can define for every view the desired resolution (Menu=>Tools=>Resolution).
@@ -193,6 +207,25 @@ If only one view has *"Default"* flag, so this view will be opened independently
 E.g., you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
 There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution. 
+
+## Permissions System
+### Project
+In the project management dialog, you can configure `read` and `write` permissions for each ioBroker user.
+
+The `read` flag means, that the project is accessible for this user in the Runtime. 
+The `write` flag means, that the project is accessible for this user in the Edit Mode.
+
+When a new user is created via ioBroker Admin adapter, it will have both permissions by default.
+
+### View
+You can also specify which views the user is allowed to access for runtime and edit mode. 
+When one of the access rights is not granted on project level, it does not have any effect to specify them on view level, as the project as a whole will not be accessible.
+
+Note, that whenever you try to access a view, where the current user has no permission for, the user will see the project selection panel instead.
+
+### Widget
+If the user has no `read` permissions, the widget will not be rendered in the runtime. If user has no `write` permissions, the widget
+will not be rendered in edit mode.
 
 ## Settings
 ### Reload if sleep longer than
@@ -230,6 +263,70 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.9.28 (2024-02-03)
+* (foxriver76) correctly determine the vis instance in all cases
+
+### 2.9.26 (2024-02-02)
+* (foxriver76) do not show empty icon category if jquery style selected for jquery button widgets
+* (foxriver76) added possibility to hide navigation after selection
+
+### 2.9.25 (2024-01-29)
+* (foxriver76) fixed resizing issue for relative widgets
+* (foxriver76) do not crash when using visibility "only for groups"
+* (foxriver76) do not crash if a widget tries to update widget on non-existent view
+
+### 2.9.24 (2024-01-24)
+* (foxriver76) Image 8 widget ported to react
+
+### 2.9.23 (2024-01-24)
+* (foxriver76) fixed another bug due to previous versions
+
+### 2.9.22 (2024-01-22)
+* (foxriver76) try to fix problems introduced with 2.9.21
+
+### 2.9.21 (2024-01-19)
+* (foxriver76) fixed crash case when fixing widgets
+* (foxriver76) fixed bug, that opacity is applied twice on image edit mode overlay
+
+### 2.9.20 (2024-01-18)
+* (foxriver76) increased timeout for project import
+* (foxriver76) added permissions on widget level
+
+### 2.9.19 (2024-01-17)
+* (foxriver76) fixed issue when resizing widget from the left side
+* (foxriver76) added select box to dimension attributes if multiple widgets selected
+
+### 2.9.18 (2024-01-15)
+* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) dedicated permission system extended to view level
+
+### 2.9.17 (2024-01-13)
+* (foxriver76) dedicated permission system on project level introduced
+
+### 2.9.16 (2024-01-11)
+* (foxriver76) use the correct fallback values for widget signals determination
+
+### 2.9.15 (2024-01-09)
+* (foxriver76) fixed issue with BulkEditor
+
+### 2.9.14 (2024-01-09)
+* (foxriver76) fixed last change y-offset for some widgets
+* (foxriver76) fixed issue where JquiState did not respect data type
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
+
+### 2.9.13 (2024-01-08)
+* (foxriver76) correctly detect IDs in bindings when they contain hash character
+* (foxriver76) fix crash when multiple JquiState widgets selected
+* (foxriver76) prevent showing widget in group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+
+### 2.9.12 (2024-01-04)
+* (foxriver76) optimized copy/paste/cut in groups
+
+### 2.9.11 (2024-01-02)
+* (foxriver76) fixed bug with visibility calculation
+
 ### 2.9.10 (2024-01-02)
 * (foxriver76) remove accidentally added script file, which lead to crash
 

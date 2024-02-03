@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
+hash: LqykhQgvi5/6KPSnXqA7K/A32fzmDVZvRnVF6/KOhfw=
 ---
 ![稳定版](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -28,7 +28,7 @@ hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
 ＃＃ 描述
 该适配器提供有关宠物盖、猫盖、喂食器或饮水器的设置和状态的信息。
 
-它还显示您的宠物的位置及其食物和水的消耗量（带有喂食器和/或饮水机）。
+它还显示您的宠物的位置以及它们的食物和水消耗量（带有喂食器和/或饮水机）。
 
 它可以让您控制襟翼的锁定模式和宵禁并设置宠物的位置。
 
@@ -47,7 +47,7 @@ hash: h0RJEj2AWjVLuD89bjnPuHEF6sMUGCIv4xUW0UOg2iI=
 ＃＃＃ 结构
 适配器创建以下层次结构：
 
-适配器<br>├ 家庭姓名<br>│ ├ 集线器名称<br>│ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 信号<br>│ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ 版本<br>│ │ │ ├ 固件<br>│ │ │ └ 硬件<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├ 信号<br>│ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ 版本<br>│ │ │ │ ├ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ ├ 分配_宠物<br>│ │ │ │ └ 宠物名<br>│ │ │ └ 水<br>│ │ │ └ 重量<br>│ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├ 信号<br>│ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ 版本<br>│ │ │ │ ├ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ ├ 分配_宠物<br>│ │ │ │ └ 宠物名<br>│ │ │ ├ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ ├ 食物类型<br>│ │ │ │ ├ 目标<br>│ │ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ close_delay<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ 宵禁_active<br> │ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁定模式<br>│ │ ├ 信号<br>│ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ 版本<br>│ │ │ ├ 固件<br>│ │ │ └ 硬件<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 已启用<br>│ │ │ ├ 锁定时间<br>│ │ │ └unlock_time<br> │ │ ├ 最后宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 已启用<br>│ │ │ ├ 锁定时间<br>│ │ │ └ 解锁时间<br>│ │ └ 分配_宠物<br>│ │ └ 宠物名<br>│ │ └ 控制<br>│ │ └ 类型<br>│ ├ 历史<br>│ │ └ 0..24<br> │ │ └ ...<br> │ └ 宠物<br>│ └ 宠物名<br>│ ├ 里面<br>│ ├ 姓名<br>│ ├ 自<br>│ ├ 食品<br>│ │ ├ 上次吃的食物<br>│ │ ├ 花费时间<br>│ │ ├ 吃过的次数<br>│ │ └ 干..湿<br>│ │ └ 重量<br>│ └ 水<br>│ ├ 最后一次喝醉<br>│ ├ 花费时间<br>│ ├ 次_醉<br>│ └ 重量<br>└ 信息<br>├ 所有设备在线<br>├ 连接<br>└ 最后更新<br>
+适配器<br>├ 家庭姓名<br>│ ├ 集线器名称<br>│ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 信号<br>│ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ 版本<br>│ │ │ ├ 固件<br>│ │ │ └ 硬件<br>│ │ ├ 控制<br>│ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├ 信号<br>│ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ 版本<br>│ │ │ │ ├ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ ├ 分配_宠物<br>│ │ │ │ └ 宠物名<br>│ │ │ └ 水<br>│ │ │ └ 重量<br>│ │ ├ feeder_name<br> │ │ │ ├ 电池<br>│ │ │ ├ 电池百分比<br>│ │ │ ├ 在线<br>│ │ │ ├ 序列号<br>│ │ │ ├ 信号<br>│ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ 版本<br>│ │ │ │ ├ 固件<br>│ │ │ │ └ 硬件<br>│ │ │ ├ 分配_宠物<br>│ │ │ │ └ 宠物名<br>│ │ │ ├ 碗<br>│ │ │ │ └ 0..1<br> │ │ │ │ ├ 食物类型<br>│ │ │ │ ├ 目标<br>│ │ │ │ └ 重量<br>│ │ │ └ 控制<br>│ │ │ └ close_delay<br> │ │ └ 襟翼名称<br>│ │ ├ 电池<br>│ │ ├ 电池百分比<br>│ │ ├ 宵禁_active<br> │ │ ├ 在线<br>│ │ ├ 序列号<br>│ │ ├ 控制<br>│ │ │ ├ 宵禁<br>│ │ │ └ 锁定模式<br>│ │ ├ 信号<br>│ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ 版本<br>│ │ │ ├ 固件<br>│ │ │ └ 硬件<br>│ │ ├ 宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 已启用<br>│ │ │ ├ 锁定时间<br>│ │ │ └unlock_time<br> │ │ ├ 最后宵禁<br>│ │ │ └ 0..i<br> │ │ │ ├ 已启用<br>│ │ │ ├ 锁定时间<br>│ │ │ └ 解锁时间<br>│ │ └ 分配_宠物<br>│ │ └ 宠物名<br>│ │ └ 控制<br>│ │ └ 类型<br>│ ├ 历史<br>│ │ └ 0..24<br> │ │ └ ...<br> │ └ 宠物<br>│ └ 宠物名<br>│ ├ 里面<br>│ ├ 姓名<br>│ ├ 自<br>│ ├ 食品<br>│ │ ├ 上次吃的食物<br>│ │ ├ 花费时间<br>│ │ ├ 吃过的次数<br>│ │ └ 干..湿<br>│ │ └ 重量<br>│ ├ 运动<br>│ │ ├ 最后方向<br>│ │ ├ 最后一瓣<br>│ │ ├ 最后时间<br>│ │ ├ time_spent_outside_<br> │ │ └ times_outside<br> │ └ 水<br>│ ├ 最后一次喝醉<br>│ ├ 花费时间<br>│ ├ 次_醉<br>│ └ 重量<br>└ 信息<br>├ 所有设备在线<br>├ 连接<br>└ 最后更新<br>
 
 ## 注释
 SureFlap®、Sure Petcare® 和 Felaqua® 是 [苏尔弗拉普有限公司](https://www.surepetcare.com/) 的注册商标
@@ -55,6 +55,15 @@ SureFlap®、Sure Petcare® 和 Felaqua® 是 [苏尔弗拉普有限公司](http
 SureFlap® 设备的图片可从 [确定宠物护理®](https://www.surepetcare.com/en-us/press) 开始免费使用。
 
 ## Changelog
+
+### 2.0.1 (2024-01-24)
+* (Sickboy78) added last movement for pets
+* (Sickboy78) added time spent outside today for pets
+* (Sickboy78) dependency updates
+
+### 1.2.3 (2023-12-29)
+* (Sickboy78) added api host to config and set default to new api
+* (Sickboy78) improved removing of obsolete objects
 
 ### 1.2.2 (2023-10-17)
 * (Sickboy78) added signal strength and hardware and firmware version of devices
@@ -150,8 +159,6 @@ SureFlap® 设备的图片可从 [确定宠物护理®](https://www.surepetcare.
 
 MIT License
 
-Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -169,3 +176,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2024 Sickboy78 <asmoday_666@gmx.de>

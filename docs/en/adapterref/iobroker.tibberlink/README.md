@@ -52,22 +52,24 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
 -   These states are designed to serve as external, dynamic inputs for TibberLink, allowing you to, for example, adjust the marginal cost ("TriggerPrice") from an external source or disable the calculator channel ("Active").
 -   The states of a calculator channel are positioned adjacent to the home states and named according to the channel number. Hereby the channelname choosen in admin screen is shown here to better identify your configurations.  
     ![Calculator States](docu/calculatorStates.png)
--   The behavior of each channel is determined by its type: "best cost," "best single hours," or "best hours block".
--   Each channel populates an external state as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
+-   The behavior of each channel is determined by its type: "best cost (LTF)", "best single hours (LTF)", "best hours block (LTF)" or "smart battery buffer".
+-   Each channel populates one or two external states as output, which has to be selected in the settings tab. For instance, this state might be "0_userdata.0.example_state" or any other writeable external state.
 -   The values to be written to the output state can be defined in "value YES" and "value NO," e.g., "true" for boolean states or a number or text to be written.
 -   Outputs:
     -   "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
     -   "Best single hours": Generates a "YES" output during the least expensive hours, with the number defined in the "AmountHours" state.
-    -   "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.
+    -   "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.  
+        Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also first and last hour of the block is written to "BlockStartTime" and "BlockEndTime" as a result of the calculation.
     -   "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
     -   "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
     -   "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
-    -   "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
--   LTF channels: Function similarly to standard channels but only operate within a time frame defined by the "StartTime" and "StopTime" state objects. After "StopTime," the channel deactivates itself. "StartTime" and "StopTime" may span over several days. The states must be filled with a date-time string in ISO-8601 format with a timezone offset, such as: "2023-11-17T21:00:00.000+01:00".
+    -   "Smart Battery Buffer": Utilize the "EfficiencyLoss" parameter to specify the efficiency loss of the battery system. The "EfficiencyLoss" parameter can range from 0 to 1, where 0 represents no efficiency loss and 1 represents complete efficiency loss. For example, a value of 0.25 indicates a 25% efficiency loss for a charge/discharge cycle.  
+        Use the "AmountHours" parameter to input the desired number of hours for battery charging. The calculator will activate battery charging ("value YES") and deactivate battery feed ("value 2 NO") during the specified "AmountHours" cheapest hours. Conversely, it will deactivate battery charging ("value NO") and activate battery feed ("value 2 YES") during hours with the highest cost, provided the cost is higher than the highest total price among the cheap hours. In the remaining normal hours where energy buffering by the battery is not economically viable, both outputs will be switched off.
+-   LTF channels: Function similarly to standard channels but only operate within a time frame defined by the "StartTime" and "StopTime" state objects. After "StopTime," the channel deactivates itself. "StartTime" and "StopTime" may span over several days. The states must be filled with a date-time string in ISO-8601 format with a timezone offset, such as: "2024-01-17T21:00:00.000+01:00". Additionally, the channels have a new state parameter called "RepeatDays," which is set to 0 by default. If "RepeatDays" is set to a positive integer value, the channel will repeat its cycle by increasing both StartTime and StopTime by the number of days specified in "RepeatDays", once StopTime is reached. E.g. For daily repetition, set "RepeatDays" to 1."
 
 ### Hints
 
-#### Inverse Usage:
+#### Inverse Usage
 
 To obtain, for example, peak hours instead of optimal hours, simply invert the usage and parameters:
 ![Calculator States Inverse](docu/calculatorStatesInverse.png)
@@ -75,13 +77,13 @@ By swapping true <-> false, you will receive a true at a low cost in the first l
 
 Attention: For peak single hours, such as in the example, you also need to adjust the number of hours. Original: 5 -> Inverse (24-5) = 19 -> You will obtain a true result during the 5 peak hours.
 
-#### LTF channels:
+#### LTF channels
 
 The calculation is performed for "multiday" data. As we only have information for "today" and "tomorrow" (available after approximately 13:00), the time scope is effectively limited to a maximum of 35 hours. However, it's crucial to be mindful of this behavior because the calculated result may/will change around 13:00 when new data for tomorrow's prices becomes available.
 
 To observe this dynamic change in the time scope for a standard channel, you may opt for a Limited Time Frame (LTF) spanning several years. This is particularly useful for the "Best Single Hours LTF" scenario.
 
-## Notes
+## Sentry
 
 This adapter employs Sentry libraries to automatically report exceptions and code errors to the developers. For more details and information on how to disable error reporting, please consult the [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is initiated starting with js-controller 3.0.
 
@@ -93,6 +95,29 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 2.2.0 (2024-02-xx) - WORK in PROGRESS
+
+-   (HombachC) add data points for BestHoursBlock results - period and average cost (#240)
+-   (HombachC) fixed wrong error message texts
+-   (HombachC) fix some possible edge cases in internal support functions
+-   (HombachC) internal code docu optimization
+
+### 2.1.1 (2024-01-27)
+
+-   (HombachC) fix reconnect error for Pulse feed (#300)
+-   (HombachC) new error message handler
+-   (HombachC) internal code docu optimization
+
+### 2.1.0 (2024-01-21)
+
+-   (HombachC) add repeatablity for LTF channels (#289)
+-   (HombachC) tweak Smart Battery Buffer documentation
+
+### 2.0.1 (2024-01-15)
+
+-   (HombachC) modify timing in Tibber Pulse feed connect (#271)
+-   (HombachC) bump dependencies
 
 ### 2.0.0 (2023-12-23)
 

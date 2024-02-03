@@ -746,11 +746,9 @@ void loop() {
 получать от нее данные через облачный сервис!
 
 ## Changelog
-### 5.1.2 (2023-12-14)
+### 5.2.0 (2024-01-08)
 * (ticaki) fixed: confirm onMessage()
 * (orpheus55) Added the authentication validation to request processing
-
-### 5.1.1 (2023-10-24)
 * (theimo1221) Added an option to filter certain topics
 
 ### 5.1.0 (2023-10-11)
@@ -1095,7 +1093,7 @@ void loop() {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

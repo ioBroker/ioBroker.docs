@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ecovacs-deebot/README.md
 title: Адаптер Ecovacs Deebot для ioBroker
-hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
+hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -43,7 +43,7 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 ### Полностью поддерживаемые модели
 Полностью поддерживаемые модели — это те, которыми я владею сам:
 
-* Деебот ОЗМО 920
+* Деебот ОЗМО 920/950
 * Deebot OZMO T8 AIVI
 * Деэбот Х1 Турбо
 * Аэробот Z1
@@ -57,7 +57,6 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 Конечно, нет претензий на полную функциональность.
 
 #### Ecovacs Дибот
-* Деебот ОЗМО 950
 * Серия Деэбот N8
 * Серия Deebot U2
 * Серия Деэбот Т8
@@ -65,7 +64,7 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 * Серия Деэбот Т10
 * Серия Деэбот Т20
 * Серия Деэбот X1
-* Серия Deebot X2
+* Серия Деэбот Х2
 
 ####йеди (начиная с версии 1.4.5)
 * йеди k650
@@ -79,7 +78,7 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 Эти модели используют XML для транспортировки данных, а также другие характеристики команд и событий, чем текущие модели.
 Я также больше не использую свои Slim 2, Deebot 901 и OZMO 930.
 
-**Поэтому поддержка этих моделей скоро будет прекращена**.
+**Поэтому поддержка этих моделей рано или поздно будет прекращена**.
 
 * Дибот Слим 2
 * Серия Deebot N79
@@ -142,11 +141,11 @@ npm install canvas --unsafe-perm=true
 ### 1.4.14 (alpha)
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
-* Added T20 Omni and X2 to the models dictionary
-* Bumped max number of devices to 20
-* Added Australia, United Arab Emirates and "Others countries" as "country"
-* Bumped some dependencies
 * Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
+* and also several improvements for the T20 and X2 series
+* Bumped max number of devices to 20
+* Added Australia, the United Arab Emirates and "Other countries" as "country"
+* Bumped some dependencies
 * Some further improvements and optimizations
 
 ### 1.4.13
@@ -252,7 +251,7 @@ npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

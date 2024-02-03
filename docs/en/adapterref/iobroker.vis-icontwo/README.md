@@ -60,6 +60,14 @@ Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen 
 
 ## Changelog / Änderungsprotokoll
 
+### 1.5.0
+
+• Neue Icons hinzugefügt (Animals - Rat & Mouse)
+
+### 1.4.0
+
+• Neue Icons hinzugefügt (Lights - Printer-LED)
+
 ### 1.3.0
 
 • Neue Icons hinzugefügt (Lights - LED)

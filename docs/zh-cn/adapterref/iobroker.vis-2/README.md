@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
+hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -15,6 +15,17 @@ hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
 # IoBroker 的下一代可视化：vis-2
 ioBroker 平台的 WEB 可视化。
 
+＃＃ 概述
+- [许可证要求](#license-requirements)
+- [安装和文档](#installation--文档)
+- [对象的绑定](#bindings-of-objects)
+- [过滤器](#filters)
+- [控制接口](#control-interface)
+- [默认视图](#default-view)
+- [权限系统](#permissions-system)
+- [设置](#settings)
+- [SVG 和 currentColor](#svg-and-currentcolor)
+
 ## 安装和文档
 ![演示界面](img/user0.png)![演示界面](../../../en/adapterref/iobroker.vis-2/img/user7.png)
 
@@ -24,7 +35,7 @@ ioBroker 平台的 WEB 可视化。
 通常，大多数小部件都具有 ObjectID 属性，并且该属性可以与对象 ID 的某个值绑定。
 但是还有另一种选择如何将小部件的*任何*属性绑定到某个ObjectID。
 
-只需写入属性`{object.id}`，它将绑定到该对象的值。
+只需写入属性`{object.id}`，例如`{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` 并且它将绑定到该对象的值。
 如果您使用特殊格式，您甚至可以用它进行一些简单的操作，例如乘法或格式化。
 
 例如，计算三角形的斜边：
@@ -145,7 +156,7 @@ Vis 创建了 3 个变量：
 
 命令：
 
-* `alert` - 在 vis-2 中显示警报窗口。 “control.data”具有以下格式“message;title;jquery-icon”。标题和 jquery-icon 是可选的。图标名称可以在[此处](http://jqueryui.com/themeroller/)找到。要显示图标“ui-icon-info”，请写入`Message;;info`。
+* `alert` - 在 vis-2 中显示警报窗口。 “control.data”具有以下格式“message;title;jquery-icon”。标题和 jquery-icon 是可选的。图标名称可以在[此处](http://jqueryui.com/themeroller/)找到。要显示图标“ui-icon-info”，请写入“Message;;info”。
 * `changeView` - 切换到所需的视图。 “control.data”必须具有视图名称。您也可以将项目名称指定为“project/view”。默认项目是“main”。
 * `refresh` - 重新加载 vis-2，例如在项目更改为在所有浏览器上重新加载之后。
 * `reload` - 与刷新相同。
@@ -173,13 +184,15 @@ Vis 创建了 3 个变量：
 - `control.data`：项目和视图名称，格式为`project/view`，例如`main/view` （和 `ack=true`）
 - `control.command`: `changedView` 和 `ack=true`
 
-您可以将 JSON 字符串或对象写入 `control.command` 作为`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
+您可以将 JSON 字符串或对象写入`control.command`，如`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
 JavaScript 适配器示例：
 
+```js
+setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
-setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
-```
+
+如果将 JSON 写为字符串，请确保它是可解析的，例如`{"instance": "*", "command": "refresh", "data": ""}`，请注意`"`。
 
 ＃＃ 默认视图
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。
@@ -193,6 +206,24 @@ setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "dat
 例如，您可以创建两个视图“横向-移动”和“纵向-移动”，当您更改方向或屏幕尺寸时，这两个视图将自动切换。
 
 有一个帮助小部件“基本 - 屏幕分辨率”，它显示实际的屏幕分辨率和最适合该分辨率的默认视图。
+
+## 权限系统
+＃＃＃ 项目
+在项目管理对话框中，您可以为每个 ioBroker 用户配置 `read` 和 `write` 权限。
+
+`read` 标志表示该用户可以在运行时访问该项目。
+`write` 标志表示该用户可以在编辑模式下访问该项目。
+
+当通过 ioBroker 管理适配器创建新用户时，默认情况下它将拥有这两种权限。
+
+＃＃＃ 看法
+您还可以指定允许用户在运行时和编辑模式下访问哪些视图。
+如果未在项目级别授予其中一项访问权限，则在视图级别指定它们不会产生任何影响，因为整个项目将不可访问。
+
+请注意，每当您尝试访问当前用户没有权限的视图时，用户将看到项目选择面板。
+
+### 小部件
+如果用户没有`read`权限，则该小部件将不会在运行时呈现。如果用户没有`write`权限，则小部件将不会在编辑模式下呈现。
 
 ＃＃ 设置
 ### 如果睡眠时间超过则重新加载
@@ -231,6 +262,70 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.9.28 (2024-02-03)
+* (foxriver76) correctly determine the vis instance in all cases
+
+### 2.9.26 (2024-02-02)
+* (foxriver76) do not show empty icon category if jquery style selected for jquery button widgets
+* (foxriver76) added possibility to hide navigation after selection
+
+### 2.9.25 (2024-01-29)
+* (foxriver76) fixed resizing issue for relative widgets
+* (foxriver76) do not crash when using visibility "only for groups"
+* (foxriver76) do not crash if a widget tries to update widget on non-existent view
+
+### 2.9.24 (2024-01-24)
+* (foxriver76) Image 8 widget ported to react
+
+### 2.9.23 (2024-01-24)
+* (foxriver76) fixed another bug due to previous versions
+
+### 2.9.22 (2024-01-22)
+* (foxriver76) try to fix problems introduced with 2.9.21
+
+### 2.9.21 (2024-01-19)
+* (foxriver76) fixed crash case when fixing widgets
+* (foxriver76) fixed bug, that opacity is applied twice on image edit mode overlay
+
+### 2.9.20 (2024-01-18)
+* (foxriver76) increased timeout for project import
+* (foxriver76) added permissions on widget level
+
+### 2.9.19 (2024-01-17)
+* (foxriver76) fixed issue when resizing widget from the left side
+* (foxriver76) added select box to dimension attributes if multiple widgets selected
+
+### 2.9.18 (2024-01-15)
+* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) dedicated permission system extended to view level
+
+### 2.9.17 (2024-01-13)
+* (foxriver76) dedicated permission system on project level introduced
+
+### 2.9.16 (2024-01-11)
+* (foxriver76) use the correct fallback values for widget signals determination
+
+### 2.9.15 (2024-01-09)
+* (foxriver76) fixed issue with BulkEditor
+
+### 2.9.14 (2024-01-09)
+* (foxriver76) fixed last change y-offset for some widgets
+* (foxriver76) fixed issue where JquiState did not respect data type
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
+
+### 2.9.13 (2024-01-08)
+* (foxriver76) correctly detect IDs in bindings when they contain hash character
+* (foxriver76) fix crash when multiple JquiState widgets selected
+* (foxriver76) prevent showing widget in group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+
+### 2.9.12 (2024-01-04)
+* (foxriver76) optimized copy/paste/cut in groups
+
+### 2.9.11 (2024-01-02)
+* (foxriver76) fixed bug with visibility calculation
+
 ### 2.9.10 (2024-01-02)
 * (foxriver76) remove accidentally added script file, which lead to crash
 

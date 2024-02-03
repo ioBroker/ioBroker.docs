@@ -9,109 +9,129 @@
 
 [![NPM](https://nodei.co/npm/iobroker.frigate.png?downloads=true)](https://nodei.co/npm/iobroker.frigate/)
 
+**Tests:** ![Test and Release](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
+
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 ## frigate adapter for ioBroker
 
-Frigate is an open source NVR built around real-time AI object detection.
-This adapter parses Frigate's MQTT messages and creates data objects from them
+Adapter for Frigate Tool [Frigate Video](https://frigate.video/)
 
-## Instructions
+## Setup
 
-MQTT must be activated in Frigate and integrated into the ioBroker.
-The MQTT data point (usually "mqtt.0.frigate"), the frigate url and
-Number of web url are entered in the adapter settings.
+- Enter Frigate url e.g. localhost:5000 or 192.168.178.2:5000
+- Enter MQTT port: 1883 from the frigate config
+- Enter host or ip of iobroker sytem in the frigate config under
+  ```
+  mqtt:
+    host: ioBrokerIP
+  ```
+  After Starting Frigate and the Adapter you should see a new client conntected in the log
 
-_Automatically created objects:_
+## Usage
 
--   objects for settings in Frigate
--   motion events for each camera
--   the last camera snapshot/clip url in the ring buffer
+### stats
 
-These objects can be further processed in the ioBroker, e.g. in the Vis.
+General Information about the system and cameras
 
-## Link
+### remotes
 
--   [ioBroker Forum Adapter Thread](https://forum.iobroker.net/topic/64928/test-frigate-adapter-v0-0-1-alpha)
--   [Frigate Video Project](https://frigate.video)
+`frigate.0.remote.pauseNotifications`
+Pause Notification for all Cameras
+
+### events
+
+Last Event with before and after information
+
+`frigate.0.events.history` History of the last X events
+
+History event has a thumbnail of the event and url to the snapshot and clip
+
+### camera_name
+
+Status and settings of the camera
+
+Change state State to change the settings of the camera
+
+[Detailed Information about all states](https://docs.frigate.video/integrations/mqtt/)
+
+`frigate.0.camera_name.motion`
+
+Whether camera_name is currently detecting motion. Expected values are ON and OFF. NOTE: After motion is initially detected, ON will be set until no motion has been detected for mqtt_off_delay seconds (30 by default).
+
+`frigate.0.camera_name.person_snapshot`
+
+Publishes a jpeg encoded frame of the detected object type. When the object is no longer detected, the highest confidence image is published or the original image is published again.
+The height and crop of snapshots can be configured in the config.
+
+`frigate.0.camera_name.history`
+Event history of the camera
+
+`frigate.0.camera_name.remote.notificationText` custom notification text for the camera
+`frigate.0.camera_name.remote.notificationMinScore` custom notification min score for the camera
+`frigate.0.camera_name.remote.pauseNotifications`pause notification for the camera
+
+## Notifcations
+
+The adapter can send snapshots and clips from events and object detection to instances like telegram, pushover and signal-cbm
+
+You can specify multiple instance or user to send snapshots or clips
+
+Active the notification in the settings to receive the snapshots or clips
+
+For Event can enter a minimum score before sending. 0 = Disabled
+
+Clips are send 5s (Instance settings) after event end.
+
+You can enter custom notification text with placeholder `{{source}} {{type}} erkannt {{status}} {{score}} {{state}}`
+
+## Integrate in vis
+
+You can integrate snapshots and clips in the vis:
+
+Snapshot:
+
+Add a `String img src` and use as Object Id: `frigate.0.camera_name.person_snapshot`
+
+Add a `String img src` and use as Object Id: `frigate.0.events.history.01.thumbnail`
+
+Clips:
+
+Add a `HTML` add as HTML:
+
+```
+<video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
+</video>
+```
+
+## Discussion and questions
+
+[https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
 
 ## Changelog
 
-### 0.2.7
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.0.2 (2024-01-29)
 
--   (bettman66) missing objects bug
+- reduce memory usage for clip notifications
 
-### 0.2.6
+### 1.0.1 (2024-01-28)
 
--   (bettman66) add camid
+- fix frigate v12 camera fetching
+- fix pushover notifications
 
-### 0.2.5
+### 1.0.0 (2024-01-26)
 
--   (bettman66) fix https
-
-### 0.2.4
-
--   (bettman66) add v0.2.4 to npm
-
-### 0.2.3
-
--   (bettman66) merge pull request
-
-### 0.2.2
-
--   (bettman66) settings translate
-
-### 0.2.1
-
--   (bettman66) add version
-
-### 0.2.0
-
--   (bettman66) add uptime and more
-
-### 0.1.9
-
--   (bettman66) add online
-
-### 0.1.8
-
--   (bettman66) add storage info
-
-### 0.1.7
-
--   (bettman66) add switch
-
-### 0.1.6
-
--   (bettman66) Number of web url
-
-### 0.1.5
-
--   (bettman66) new npm package
-
-### 0.1.4
-
--   (bettman66) update readme
-
-### 0.1.3
-
--   (bettman66) bug web objects
-
-### 0.1.2
-
--   (bettman66) ready to test
-
-### 0.1.1
-
--   (bettman66) translate
-
-### 0.1.0
-
--   (bettman66) objects add
+- New Version with new state structure. Please check you vis and scripts. The new version doesn't need the mqtt adapter and can send directly notification to telegram.
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Bettman66 <w.zengel@gmx.de>
+Copyright (c) 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: rsVSg0q9VqpPwsOeMCOHkIOLqAcuMw1pvVW+yrs8z/c=
+hash: cp6HxXeplcm6obrd+pukn6nnehJQqQHJIo7aCxXQcnc=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -41,7 +41,7 @@ Mögliche Typen:
 
 - „Panel“ – Registerkarte mit Elementen
   - „Symbol“ – die Registerkarte kann ein Symbol (base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) enthalten.
-  - „label“ – Beschriftung der Registerkarte
+  - `label` – Beschriftung der Registerkarte
   - `items` – Objekt `{"attr1": {}, "attr2": {}}...`
   - `collapsable` – nur möglich, wenn nicht Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - „Farbe“ – Farbe des reduzierbaren Headers „primär“ oder „sekundär“ oder nichts
@@ -143,7 +143,7 @@ Mögliche Typen:
 
 - „Passwort“ – Passwortfeld
 
-Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
+Dieser Feldtyp hat lediglich Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel in der io-package.json unter [nativeEncrypted](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
 Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter als `admin` und `cloud` bereitgestellt wird, indem Sie sie zu `protectedNative` in der Datei `io-package.json` hinzufügen.
 
@@ -165,7 +165,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
 - „lebendig“ – zeigt nur an, ob die Instanz aktiv ist und kann in „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
 
-  Nur Text: Instanz läuft, Instanz läuft nicht
+  Nur Text: Instanz wird ausgeführt, Instanz wird nicht ausgeführt
 
     - „Instanz“ – prüfen Sie, ob die Instanz aktiv ist. Wenn nicht definiert, wird die aktuelle Instanz verwendet. Sie können im Text das Muster „${data.number}“ verwenden.
     - „textAlive“ – Standardtext ist „Instance %s is alive“, wobei %s durch „ADAPTER.0“ ersetzt wird.
@@ -391,7 +391,7 @@ adapter.on('message', obj => {
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „maxLength“ – maximale Länge des Texts im Feld
 
-Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
+Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
 
 - `textSendTo`
 
@@ -715,7 +715,7 @@ oder
 }
 ```
 
-Wir empfehlen Variante 2 zu verwenden, da eine Bearbeitung der Texte mit Weblate möglich sein wird.
+Wir empfehlen, wann immer möglich, Variante 1 zu verwenden, da die Texte dann mit Weblate verarbeitet werden können.
 
 ## JS-Funktionen
 ### Konfigurationsdialog

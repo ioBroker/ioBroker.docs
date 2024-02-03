@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
+hash: ED3GjjBJeou0pwxCdD01AuMWY1rrtMYPLzc6uZcLvQQ=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -35,7 +35,7 @@ hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
 
 ## 标准配置
 - 首先创建适配器的新实例。
-- 您还需要 Tibber 提供的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
+- 您还需要 Tibber 的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
 - 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
 - 保存设置并退出配置以重新启动适配器；此步骤允许第一次从 Tibber 服务器查询您的家庭。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用源（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
@@ -53,32 +53,38 @@ hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
 
     ![计算器状态](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStates.png)
 
-- 每个渠道的行为由其类型决定：“最佳成本”、“最佳单小时”或“最佳小时块”。
-- 每个通道都会填充一个外部状态作为输出，必须在设置选项卡中选择该状态。例如，此状态可能是“0_userdata.0.example_state”或任何其他可写外部状态。
+- 每个通道的行为由其类型决定：“最佳成本 (LTF)”、“最佳单小时 (LTF)”、“最佳小时块 (LTF)”或“智能电池缓冲器”。
+- 每个通道填充一个或两个外部状态作为输出，必须在设置选项卡中选择。例如，此状态可能是“0_userdata.0.example_state”或任何其他可写外部状态。
 -要写入输出状态的值可以在“值是”和“值否”中定义，例如，“真”表示布尔状态或要写入的数字或文本。
 - 输出：
     - “最佳成本”：利用“TriggerPrice”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时生成“YES”输出。
     - “最佳单小时”：在最便宜的小时内生成“YES”输出，其数量在“AmountHours”状态中定义。
     -“最佳时间段”：在最具成本效益的时间段内输出“YES”，其中“AmountHours”状态中指定了小时数。
+
+        此外，确定的块中的平均总成本被写入该通道的输入状态附近的状态“AverageTotalCost”。此外，该块的第一个小时和最后一个小时也会作为计算结果写入“BlockStartTime”和“BlockEndTime”。
+
     - “最佳成本 LTF”：有限时间范围 (LTF) 内的“最佳成本”。
     - “最佳单小时 LTF”：有限时间范围 (LTF) 内的“最佳单小时”。
     - “最佳时间段 LTF”：有限时间范围 (LTF) 内的“最佳时间段”。
-    - “智能电池缓冲器”：利用“EfficiencyLoss”参数指定电池系统的效率损失。使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜时间内激活电池充电（“值是”）并停用电池供电（“值 2 否”）。相反，它会在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于便宜时段中的最高总价。在剩余的正常时间内，电池缓冲能量在经济上不可行，两个输出都将关闭。
-- LTF 通道：功能与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。 “StopTime”之后，通道将自行停用。 “StartTime”和“StopTime”可能跨越几天。状态必须使用带有时区偏移量的 ISO-8601 格式的日期时间字符串填充，例如：“2023-11-17T21:00:00.000+01:00”。
+    - “智能电池缓冲器”：利用“EfficiencyLoss”参数指定电池系统的效率损失。 “EfficiencyLoss”参数的范围可以从 0 到 1，其中 0 表示没有效率损失，1 表示完全效率损失。例如，值 0.25 表示充电/放电循环的效率损失为 25%。
+
+        使用“AmountHours”参数输入所需的电池充电小时数。计算器将在指定的“AmountHours”最便宜时间内激活电池充电（“值是”）并停用电池供电（“值 2 否”）。相反，它会在成本最高的时段停用电池充电（“值 NO”）并激活电池供电（“值 2 YES”），前提是成本高于便宜时段中的最高总价。在剩余的正常时间内，电池缓冲能量在经济上不可行，两个输出都将关闭。
+
+- LTF 通道：功能与标准通道类似，但仅在“StartTime”和“StopTime”状态对象定义的时间范围内运行。 “StopTime”之后，通道将自行停用。 “StartTime”和“StopTime”可能跨越几天。状态必须使用带有时区偏移量的 ISO-8601 格式的日期时间字符串填充，例如：“2024-01-17T21:00:00.000+01:00”。此外，通道还有一个名为“RepeatDays”的新状态参数，默认设置为 0。如果“RepeatDays”设置为正整数值，则一旦达到 StopTime，通道将通过将 StartTime 和 StopTime 增加“RepeatDays”中指定的天数来重复其循环。例如。对于每日重复，请将“RepeatDays”设置为 1。”
 
 ### 提示
-#### 逆向用法：
+#### 逆向用法
 例如，要获得高峰时段而不是最佳时段，只需反转使用情况和参数即可：![计算器状态逆](../../../en/adapterref/iobroker.tibberlink/docu/calculatorStatesInverse.png) 通过交换 true <-> false，您将在第一行中以较低的成本收到 true，并在第二行的成本很高（频道名称不是触发器，仍然可以自由选择）。
 
 注意：对于高峰单小时，例如示例中，您还需要调整小时数。原：5 -> 逆(24-5) = 19 -> 您将在5个高峰时段获得真实结果。
 
-#### LTF 频道：
+#### LTF 频道
 计算是针对“多日”数据执行的。由于我们只有“今天”和“明天”的信息（大约 13:00 之后提供），因此时间范围实际上被限制为最多 35 小时。然而，留意这种行为至关重要，因为当明天价格的新数据可用时，计算结果可能会在 13:00 左右发生变化。
 
 要观察标准通道时间范围的动态变化，您可以选择跨越数年的有限时间范围 (LTF)。这对于“最佳单小时 LTF”场景特别有用。
 
-## 注释
-该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
+## 哨兵
+该适配器使用 Sentry 库自动向开发人员报告异常和代码错误。有关如何禁用错误报告的更多详细信息和信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry 报告是从 js-controller 3.0 开始启动的。
 
 ## 捐赠
 <a href="https://www.paypal.com/donate/?hosted_button_id=F7NM9R2E2DUYS"><img src="https://raw.githubusercontent.com/Hombach/ioBroker.tibberlink/main/docu/bluePayPal.svg" height="40"></a>如果你喜欢这个项目——或者只是觉得慷慨，可以考虑给我买瓶啤酒。干杯! ：啤酒：
@@ -86,6 +92,43 @@ hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
 ## Changelog
 
 ! Note that missing version entries are typically dependency updates for improved security.
+
+### 2.2.0 (2024-02-xx) - WORK in PROGRESS
+
+-   (HombachC) add data points for BestHoursBlock results - period and average cost (#240)
+-   (HombachC) fixed wrong error message texts
+-   (HombachC) fix some possible edge cases in internal support functions
+-   (HombachC) internal code docu optimization
+
+### 2.1.1 (2024-01-27)
+
+-   (HombachC) fix reconnect error for Pulse feed (#300)
+-   (HombachC) new error message handler
+-   (HombachC) internal code docu optimization
+
+### 2.1.0 (2024-01-21)
+
+-   (HombachC) add repeatablity for LTF channels (#289)
+-   (HombachC) tweak Smart Battery Buffer documentation
+
+### 2.0.1 (2024-01-15)
+
+-   (HombachC) modify timing in Tibber Pulse feed connect (#271)
+-   (HombachC) bump dependencies
+
+### 2.0.0 (2023-12-23)
+
+-   (HombachC) BREAKING: dropped support for js-controller 3.x (#247)
+-   (HombachC) diversificate Tibber server polls to prevent potential DDoS reactions (#252)
+-   (HombachC) add data point for averageRemaining of todays prices (#254)
+-   (HombachC) add 2 data points for last successfull update of today and tomorrow prices (#261)
+-   (HombachC) year 2024 changes
+-   (HombachC) fix small error in dynamic feed timing
+-   (HombachC) bump dependencies
+
+### 1.8.1 (2023-12-16)
+
+-   (HombachC) add notice about changes in configuration
 
 ### 1.8.0 (2023-12-14)
 
@@ -210,4 +253,4 @@ hash: EBIhyAWQz3UvSR11EqIJJRCKnEPBbDqCUsHnYAF9uX0=
 
 GNU General Public License v3.0 only
 
-Copyright (c) 2023 Hombach <TibberLink@homba.ch>
+Copyright (c) 2023-2024 C.Hombach <TibberLink@homba.ch>

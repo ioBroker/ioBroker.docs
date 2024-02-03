@@ -35,6 +35,7 @@ viessmannapi.0.XXXXX.0.features.heating.sensors.temperature.outside.properties.v
 viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
 **Kompatibilitätsliste**:
+https://documentation.viessmann.com/static/compatibility
 
 **Regelungen für Wand- oder Kompaktgeräte**
 

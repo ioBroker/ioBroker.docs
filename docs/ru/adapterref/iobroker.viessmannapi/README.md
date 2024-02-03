@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: jAMj+zFSDaMxvHI3sMbVQsP9E10CQ78tSCevQuWr5Jc=
+hash: HbCYgmAvUUETxIbIjTMs1B12oTpwPN1dDa/cl1VTQUM=
 ---
 ![Логотип](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -36,7 +36,7 @@ URI: http://localhost:4200/
 
 **Удаленное управление может быть связано с viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
-**Список совместимости**:
+**Список совместимости**: https://documentation.viessmann.com/static/compatibility
 
 **Regelungen für Wand- oder Kompaktgeräte**
 

@@ -6,8 +6,8 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)](https://www.npmjs.com/package/iobroker.traccar)
 ![Number of Installations (latest)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
 ![Number of Installations (stable)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-[![Dependency Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar)
-[![Known Vulnerabilities](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar)
+[![Dependency Status](https://status.david-dm.org/gh/arteck/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/arteck/iobroker.traccar)
+[![Known Vulnerabilities](https://snyk.io/test/github/arteck/ioBroker.traccar/badge.svg?dummy=unused)](https://snyk.io/test/github/arteck/ioBroker.traccar)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)](https://nodei.co/npm/iobroker.traccar/)
@@ -33,8 +33,11 @@ This adapter imports in real time the position and the extended data from [Tracc
     npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
     npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	
 -->
+### **WORK IN PROGRESS**
+-   (arteck) transfer to arteck
+
 ### 1.1.4 (2023-10-30)
 -   (arteck) fix last_update DP
 
@@ -42,7 +45,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 -   (arteck) geofances fix for Server >= 5.8 (check adapter Settings)
 
 ### 1.1.2 (2023-07-16)
--   (arteck) another fix for Traccar Server >= v5.8
+-   (o0shojo0o) another fix for Traccar Server >= v5.8
 
 ### 1.1.1 (2023-07-01)
 -   (o0shojo0o) fix translation
@@ -68,7 +71,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 ### 0.0.10 (2021-08-18)
 
--   (o0Shojo0o) change UI to JSONConfig
+-   (o0shojo0o) change UI to JSONConfig
 
 ### 0.0.9 (2021-05-19)
 
@@ -116,7 +119,7 @@ This adapter imports in real time the position and the extended data from [Tracc
 
 MIT License
 
-Copyright (c) 2023 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024  Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -14,14 +14,14 @@
 
 # ioBroker adapter for KEBA KeContact P20 or P30 and BMW i wallbox
 
-Control your charging station and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage using its UDP protocol.
+Control your charging station using its UDP protocol and use automatic regulation e.g. to charge your vehicle by photovoltaic surplus and battery storage.
 
 ## Install
 
 Install this adapter via ioBroker Admin:
 1. Open instance config dialog
 2. Enter the IP address of your KEBA KeContact wallbox
-3. Adjust the refresh interval if needed
+3. Enter states of energy meters for PV autoamtics or power limitation and desired data for battery storage
 4. Save the configuration
 5. Start the adapter
 
@@ -33,7 +33,7 @@ This is the IP address of your KEBA KeContact or BMW i wallbox. Combination with
 
 ### Firmware check
 
-Once a day adapter will check if a newer firmware is available at KEBA website. This information will be printed to log as warning.
+No longer supported since webite of Keba was changed.
 
 ### Passive Mode
 
@@ -73,6 +73,11 @@ To charge your vehicle accordingly to a surplus (e.g. by photovoltaics) you can 
 If you have an installation contactor to (dis)connect phase 2 and 3 of your charging station and this switch can be triggered by a state then this adapter is able to start charging with one phase and switch to 3 phases charging if your surplus is sufficient for it.
 In this case please enter the state for your installation contactor and whetherit is a NO (normally open) or NC (normally close)
 
+### batery storage
+
+If you own a battery storage please fill in the options here. By specifiying states for surplus and regard of your battery storage, this adapter can control whether
+battery storage should be used for charging your vehicle or not, depenent from the strategy preficied in the options.
+
 ### power limitation
 
 You can also limit max. power of your wallbox to limit main power. E.g. when running night-storage heaters you might have to respect a maximum power limitation.
@@ -83,11 +88,13 @@ An extra checkbox is used to specified whether wallbox power is included (in thi
 ### dynamic options
 
 Additionally there are some states to influence behaviour of photovoltaics automatic on the fly, e.g. by a script of your own updating these values according to your needs)
-* kecontact.0.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
-* kecontact.0.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
-* kecontact.0.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
-* kecontact.0.automatic.pauseWallbox - stops every charging session immediately as long a set to true
-* kecontact.0.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+* kecontact.n.automatic.photovoltaics - actives photovoltaics automatic (true) or will charge vehicle with maximum power when set to false
+* kecontact.n.automatic.calcPhases - defines the current number of phases to be used for charging calculation. This is needed for Keba Deutschland edition and can be used for initial charging session for all charging stations
+* kecontact.n.automatic.addPower - defines an amount of watts of regard allowed to charge your vehicle (same as in options)
+* kecontact.n.automatic.pauseWallbox - stops every charging session immediately as long a set to true
+* kecontact.n.automatic.limitCurrent - limits your charging to specified amperage in mA (0 = no limitation)
+* kecontact.n.automatic.batteryStorageStrategy - strategy whether and how your battery storage should be using for charging your vehicle
+* kecontact.n.automatic.batterySoCForCharging - limit usage of battery torage for vehicle by specifying a SoC below which charging is prohibited
 
 Sample:
 To charge your vehicle with a constant amperage of 6A regardless of surplus, set photovoltaics to false and limitCurrent to 6000.
@@ -99,10 +106,11 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 2.1.0 (2024-01-06)
 * (Sneak-L8) multiple options for battery storage strategy
 * (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
 * (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
+* (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
 
 ### 2.0.2 (2023-10-10)
 * (Sneak-L8) default value for minimum regard time (180 seconds)
@@ -124,9 +132,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script
-
-### 1.5.1 (2022-11-02)
-* (Sneak-L8) update release script to v3
 
 ## Legal
 
@@ -323,7 +328,7 @@ KeConnect is a registered trademark of KEBA AG.
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2023 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2024 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

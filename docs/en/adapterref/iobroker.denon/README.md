@@ -914,6 +914,9 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.15.5 (2024-01-06)
+* (foxriver76) fixed issue on setting tuner frequency (closes #328)
+
 ### 1.15.4 (2023-08-19)
 * (foxriver76) fixed detection of display content if content does not contain `NULL` (closes #323)
 
@@ -1213,7 +1216,7 @@ The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2024 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

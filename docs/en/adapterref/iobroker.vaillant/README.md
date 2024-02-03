@@ -16,11 +16,13 @@
 Vaillant multiMatic und myVaillant Adapter
 
 ### Getting started
+
 In den Instanzoptionen mail und password der multimatic /senso oder myVaillant app eingeben.
 
 Configuration können geändert werde in dem sie unter dem Unterpunkt configuration angepasst werden. Manche configuration werden erst angewendet wenn der Modus auf ON oder MANUAL ist und nicht AUTO oder TIME_CONTROLLED
 
 ## **Beispiel Mutlimatic:**
+
 **Warmwasser**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint
 **Heizung**:
 Erst auf MANUAL
@@ -40,37 +42,47 @@ vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature
 vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED
 vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
 
-
-
 ## Changelog
+
+### 0.3.0
+
+- add boost
+
 ### 0.1.2
+
 - fix refresh token
+
 ### 0.1.1
+
 - add myvaillant support and stats
-  
+
 ### 0.0.15
 
--   bugfixes
+- bugfixes
+
 ### 0.0.14
 
--   add rooms support
+- add rooms support
+
 ### 0.0.13
 
--   fix livereport order
+- fix livereport order
+
 ### 0.0.11
 
--   fix issue with js-controller 3.2
+- fix issue with js-controller 3.2
+
 ### 0.0.10
 
--   fix issue with js-controller 3
+- fix issue with js-controller 3
 
 ### 0.0.8
 
--   (TA2k) Fix Authorization problem and missing configuration states
+- (TA2k) Fix Authorization problem and missing configuration states
 
 ### 0.0.6
 
--   (TA2k) initial release
+- (TA2k) initial release
 
 ## License
 

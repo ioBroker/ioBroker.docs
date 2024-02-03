@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.kecontact/README.md
 title: ioBroker.kecontact
-hash: 2Vpc9wYKmn8IAuy5qokvBysTvCuYwoUmU1ScPC9TXwI=
+hash: 9/sySE0ECgXNW2H1f5TUXan07P4AqiT2aJWxktjYLo0=
 ---
 ![标识](../../../en/adapterref/iobroker.kecontact/admin/kecontact.png)
 
@@ -20,14 +20,14 @@ hash: 2Vpc9wYKmn8IAuy5qokvBysTvCuYwoUmU1ScPC9TXwI=
 **测试：** ![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.kecontact/workflows/Test%20and%20Release/badge.svg)
 
 # 适用于 KEBA KeContact P20 或 P30 和 BMW i wallbox 的 ioBroker 适配器
-控制您的充电站并使用自动调节，例如使用 UDP 协议通过光伏剩余电量和电池存储为您的车辆充电。
+使用 UDP 协议控制您的充电站并使用自动调节，例如通过光伏剩余电量和电池存储为您的车辆充电。
 
 ＃＃ 安装
 通过 ioBroker Admin 安装此适配器：
 
 1. 打开实例配置对话框
 2. 输入 KEBA KeContact 墙盒的 IP 地址
-3. 根据需要调整刷新间隔
+3. 输入光伏自动或功率限制的电表状态以及电池存储所需的数据
 4.保存配置
 5. 启动适配器
 
@@ -36,10 +36,10 @@ hash: 2Vpc9wYKmn8IAuy5qokvBysTvCuYwoUmU1ScPC9TXwI=
 这是您的 KEBA KeContact 或 BMW i 墙盒的 IP 地址。支持与Keba KeContact S10（相位开关装置）的组合。
 
 ### 固件检查
-适配器每天都会检查 KEBA 网站上是否有更新的固件。此信息将被打印以记录为警告。
+由于 Keba 网站更改，不再支持。
 
 ### 被动模式
-如果您想自己控制墙盒并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关光伏自动和功率限制的后续选项都将被忽略。
+如果您想自己控制您的墙盒并且不希望此适配器执行某些自动操作，请激活此选项。在这种情况下，所有有关光伏自动和功率限制的后续选项都将被忽略。
 
 ### 后续墙盒
 如果这是您环境中的后续墙盒，请激活此选项。目前，只能主动管理一个 Wallbox。所有其他实例（单独的实例）必须选中此选项，因为只有一个实例可以接收广播消息。该墙盒/实例将以被动模式运行。
@@ -64,12 +64,15 @@ v1.1.1 及以下版本的用户请注意：您必须选中此选项才能仍然�
 * 可用于开始充电的功率值（这意味着即使没有足够的剩余电量也会开始充电 - 建议 0 W 用于 1 相充电，500 W 至 2000 W 用于 3 相充电）
 * 安培数增量（建议 500 mA）
 * 可以暂时用于维持充电会话的关注值（这意味着即使不再有足够的剩余电量，充电也会稍后停止 - 将添加起始关注 - 建议 500 W）
-* 充电会话的最短持续时间（即使剩余电量不再充足，充电会话将至少持续一次 - 建议 300 秒）
+* 充电会话的最短持续时间（即使剩余电量不再充足，充电会话至少会持续这一次 - 建议 300 秒）
 * 每次剩余时间不再足够时继续充电的时间（以弥补阴天的时间）
 
 ### 1p/3p 充电
 如果您有一个安装接触器来连接（断开）充电站的第 2 相和第 3 相，并且该开关可以由状态触发，则该适配器能够开始用一相充电，并在剩余电量充足的情况下切换到三相充电为了它。
 在这种情况下，请输入您的安装接触器的状态以及它是 NO（常开）还是 NC（常闭）
+
+### 电池存储
+如果您拥有电池存储，请填写此处的选项。通过指定剩余电量状态和电池存储方面的考虑，该适配器可以控制是否应使用电池存储为您的车辆充电，具体取决于选项中预定义的策略。
 
 ### 功率限制
 您还可以限制最大。壁箱的功率限制主功率。例如。当运行夜间储存加热器时，您可能必须遵守最大功率限制。
@@ -80,11 +83,13 @@ v1.1.1 及以下版本的用户请注意：您必须选中此选项才能仍然�
 ### 动态选项
 此外，还有一些状态会影响光伏发电自动运行的行为，例如通过您自己的脚本根据您的需要更新这些值）
 
-* kecontact.0.automatic.photovoltaics - 自动激活光伏发电（true）或设置为 false 时将以最大功率为车辆充电
-* kecontact.0.automatic.calcPhases - 定义当前用于充电计算的相数。这是 Keba Deutschland 版本所必需的，可用于所有充电站的初始充电会话
-* kecontact.0.automatic.addPower - 定义允许为车辆充电的瓦数（与选项中相同）
-* kecontact.0.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
-* kecontact.0.automatic.limitCurrent - 将充电限制为指定的安培数（以 mA 为单位）（0 = 无限制）
+* kecontact.n.automatic.photovoltaics - 自动激活光伏（true）或设置为 false 时将以最大功率为车辆充电
+* kecontact.n.automatic.calcPhases - 定义用于充电计算的当前相数。这是 Keba Deutschland 版本所必需的，可用于所有充电站的初始充电会话
+* kecontact.n.automatic.addPower - 定义允许为车辆充电的瓦数（与选项中相同）
+* kecontact.n.automatic.pauseWallbox - 只要设置为 true，就会立即停止每个充电会话
+* kecontact.n.automatic.limitCurrent - 将充电限制为指定的安培数（以 mA 为单位）（0 = 无限制）
+* kecontact.n.automatic.batteryStorageStrategy - 策略是否以及如何使用电池存储为车辆充电
+* kecontact.n.automatic.batterySoCForCharging - 通过指定低于该值禁止充电的 SoC 来限制车辆电池存储的使用
 
 示例：要以 6A 的恒定安培数为车辆充电（无论剩余电流有多少），请将光伏设置为 false，并将电流限制为 6000。
 
@@ -99,8 +104,23 @@ KeConnect 是 KEBA AG 的注册商标。
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.1.0 (2024-01-06)
+* (Sneak-L8) multiple options for battery storage strategy
+* (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
+* (Sneak-L8) don't try to charge when state is 5 (auth req, car not ready, ...)
+* (Sneak-L8) new state to dynamically set SoC above which battery storage may be used for charging vehicle
 
-### **WORK IN PROGRESS**
+### 2.0.2 (2023-10-10)
+* (Sneak-L8) default value for minimum regard time (180 seconds)
+* (Sneak-L8) fix calculation of phases for reduced charging
+* (chrisko) added minimum timer to switch between phases if 1p/3p charging is used.
+* (Sneak-L8) disable firmware check for c-series due to changes on webpage of Keba
+* (Sneak-L8) sometimes 1p/3p switch was not working correctly (repeatedly "stop charging fpr switch of phases...")
+
+### 2.0.1 (2023-07-10)
+* (Sneak-L8) support for Company Car Wall Box MID - GREEN EDITION (sentry IOBROKER-KECONTACT-1K & IOBROKER-KECONTACT-1N) and PV-Edition (sentry IOBROKER-KECONTACT-1M)
+
+### 2.0.0 (2023-06-26)
 * (Sneak-L8) support for 1p/3p-charging (start charging with 1 phase and switch to 3 phases when enough surplus available) including Keba KeContact S10
 * (Sneak-L8) minimum amperage allowed to 5A because some vehicles and KeContact (undocumented) allow this value
 * (Sneak-L8) new switch to limit battery storage support only to hold minimum charging power
@@ -110,27 +130,6 @@ KeConnect 是 KEBA AG 的注册商标。
 
 ### 1.5.2 (2022-11-02)
 * (Sneak-L8) fix error in release script
-
-### 1.5.1 (2022-11-02)
-* (Sneak-L8) update release script to v3
-
-### 1.5.0 (2022-11-01)
-* (Sneak-L8) minor fixes from adapter check
-* (Sneak-L8) using Weblate for translations
-* (Sneak-L8) update power and amperage value immediately for better calculation
-* (Sneak-L8) fix description of authreq state
-* (Sneak-L8) handle message at wallbox startup
-* (Sneak-L8) catch error when UDP connection got lost (sentry IOBROKER-KECONTACT-1C)
-* (Sneak-L8) update url and regex to Keba firmware
-
-### 1.4.1 (2022-05-30)
-* (Sneak-L8) separate states for charging and discharging battery storage
-* (Sneak-L8) additional states to (de)authorize or unlock charging station and set date/time
-* (Sneak-L8) fix unsubscribing foreign states (sentry IOBROKER-KECONTACT-10)
-
-### 1.4.0 (2022-03-31)
-* (Sneak-L8) support for battery storage in photovoltaics automatics
-* (Sneak-L8) add state selector in settings dialog
 
 ## License
                                  Apache License
@@ -321,7 +320,7 @@ KeConnect 是 KEBA AG 的注册商标。
       same "printed page" as the copyright notice for easier
       identification within third-party archives.
 
-   Copyright 2021-2022 UncleSamSwiss, Sneak-L8
+   Copyright 2021-2024 UncleSamSwiss, Sneak-L8
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

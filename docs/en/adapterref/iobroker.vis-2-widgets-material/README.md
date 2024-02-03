@@ -127,6 +127,10 @@ The only difference is that Xiaomi supports the room cleaning.
 -->
 
 ## Changelog
+### 1.3.18 (2024-01-16)
+* (bluefox) Corrected long click for RGB widget on touch devices
+* (bluefox) Corrected dimmer widget
+
 ### 1.3.17 (2023-12-19)
 * (bluefox) Added option to hide the line in switches widget
 

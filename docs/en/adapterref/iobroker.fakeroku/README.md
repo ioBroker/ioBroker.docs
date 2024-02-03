@@ -1,7 +1,6 @@
 ![Logo](admin/fakeroku.png)
 # ioBroker.fakeroku
 
-[![Build Status](https://travis-ci.org/Pmant/ioBroker.fakeroku.svg?branch=master)](https://travis-ci.org/Pmant/ioBroker.fakeroku)
 ![Number of Installations](http://iobroker.live/badges/fakeroku-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/fakeroku-stable.svg) 
 
@@ -27,6 +26,12 @@ You can rename the device on your Harmony.
 States are automatically created when fakeRoku receives a key for the first time.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+### 0.2.2 (2023-07-24)
+* (Appollon77) fixed issues with controller v5
 
 ### 0.2.1
   (Pmant) fix jQuery error in admin
@@ -40,7 +45,7 @@ States are automatically created when fakeRoku receives a key for the first time
 
 ### 0.1.0
   (Pmant) initial release
-  
+
 ## License
 The MIT License (MIT)
 

@@ -1,4 +1,5 @@
-![Logo](admin/rct.png)
+[![Logo](admin/rct.png)](https://www.rct-power.com/de)
+
 # ioBroker.rct
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.rct.svg)](https://www.npmjs.com/package/iobroker.rct)
@@ -6,7 +7,7 @@
 ![Number of Installations (latest)](https://iobroker.live/badges/rct-installed.svg)
 ![Number of Installations (stable)](https://iobroker.live/badges/rct-stable.svg)
 
-[![Dependency Status](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)](https://david-dm.org/aruttkamp/iobroker.rct)
+[![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 
 [![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)](https://nodei.co/npm/iobroker.rct/)
 
@@ -21,7 +22,7 @@ After lauff switched to Home Assistant - project will continued by aruttkamp
 
 Please note that this is a private project and that I (Andreas Ruttkamp) am not related to RCT in any way.
 
-Read values of a RCT Power photovoltaics power converter
+Read values of a RCT Power photovoltaics power converter.
 
 ## REMARKS
 

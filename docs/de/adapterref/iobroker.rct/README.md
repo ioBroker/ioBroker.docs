@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
+hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
 ---
-![Logo](../../../en/adapterref/iobroker.rct/admin/rct.png)
-
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/rct-installed.svg)
 ![Anzahl Installationen (stabil)](https://iobroker.live/badges/rct-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)
+![Libraries.io-Abhängigkeitsstatus für GitHub-Repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 ![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)
+
+[![Logo](admin/rct.png)](https://www.rct-power.com/de)
 
 # IoBroker.rct
 **Tests:** ![Test und Freigabe](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
@@ -23,7 +23,7 @@ Nachdem Lauff zum Home Assistant gewechselt ist, wird das Projekt von aruttkamp 
 ## RCT-Adapter für ioBroker
 Bitte beachten Sie, dass es sich um ein privates Projekt handelt und ich (Andreas Ruttkamp) in keinerlei Zusammenhang mit RCT stehe.
 
-Lesen Sie Werte eines RCT Power Photovoltaik-Stromrichters
+Lesen Sie Werte eines RCT Power Photovoltaik-Stromrichters.
 
 ## BEMERKUNGEN
 ### Produktive Veröffentlichung

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
+hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -43,7 +43,7 @@ Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar un
 ### Vollständig unterstützte Modelle
 Die vollständig unterstützten Modelle sind diejenigen, die ich selbst besitze:
 
-* Deebot OZMO 920
+* Deebot OZMO 920/950
 * Deebot OZMO T8 AIVI
 * Deebot X1 Turbo
 * Airbot Z1
@@ -57,7 +57,6 @@ Ich versuche einen möglichst großen Funktionsumfang zu erreichen, entscheide d
 Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 
 #### Ecovacs Deebot
-* Deebot OZMO 950
 * Deebot N8-Serie
 * Deebot U2-Serie
 * Deebot T8-Serie
@@ -79,7 +78,7 @@ Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 Diese Modelle nutzen XML für den Datentransport und haben zudem andere Eigenschaften für Befehle und Ereignisse als die aktuellen Modelle.
 Ich benutze auch meinen Slim 2, Deebot 901 und OZMO 930 nicht mehr.
 
-**Der Support für diese Modelle wird daher bald eingestellt**.
+**Der Support für diese Modelle wird daher früher oder später eingestellt**.
 
 * Deebot Slim 2
 * Deebot N79-Serie
@@ -142,11 +141,11 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 ### 1.4.14 (alpha)
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
-* Added T20 Omni and X2 to the models dictionary
-* Bumped max number of devices to 20
-* Added Australia, United Arab Emirates and "Others countries" as "country"
-* Bumped some dependencies
 * Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
+* and also several improvements for the T20 and X2 series
+* Bumped max number of devices to 20
+* Added Australia, the United Arab Emirates and "Other countries" as "country"
+* Bumped some dependencies
 * Some further improvements and optimizations
 
 ### 1.4.13
@@ -252,7 +251,7 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 
 MIT License
 
-Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

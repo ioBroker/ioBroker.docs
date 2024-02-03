@@ -211,12 +211,19 @@ otherwise it is more complex and individually to be parametrized.
 
 ## Known Adapter Limitations:
 * Not all FW-versions of fritz.box support all objects.
+* use exclude possibility in adapter config, to disable communication related to newer functions
 
 ## TODO:
 * map of data input from user to valid predefined colors (nearest match)
 * blind alert state -> decode bit array
+* DECT 350 (batterylow, battery)
 
 ## Changelog
+### 2.5.10 (npm)
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+
 ### 2.5.9 (npm)
 * correction for statistics,
 * new message box password needs to be reentered in versions >=2.5.4
@@ -541,4 +548,4 @@ otherwise it is more complex and individually to be parametrized.
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2024 foxthefox <foxthefox@wysiwis.net>

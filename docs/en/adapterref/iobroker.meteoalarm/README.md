@@ -25,10 +25,13 @@ Choose your country, and afterwards the region you want the warnings for. If you
 
 ## Changelog
 
+
+### 2.3.8 (2023-08-06)
+* (jack-blackson) Bugfix alarm updates
+
 ### 2.3.7 (2023-08-04)
 * (jack-blackson) Don't show duplicate warnings twice in HTML widget
 * (jack-blackson) Fix error that if you change the location, probably not all open alarms got deleted
-
 
 ### 2.3.6 (2023-05-27)
 * (jack-blackson) Bugfix "No Alarm" Message

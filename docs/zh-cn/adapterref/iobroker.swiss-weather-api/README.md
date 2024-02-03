@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
 title: ioBroker.swiss-weather-api
-hash: 08DpwOoVWwsSq0OicV4KNdP1ZymY3oIxILltcZt36vY=
+hash: eTXAI1pqMka4+hw8YGQyuucZyxhJxdKCrJ+qg/ehFKs=
 ---
 ![标识](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -32,7 +32,7 @@ SRF Weather REST API 允许您获取瑞士 25,000 多个地点的天气预报和
 
 ＃＃ 入门
 1. 在 https://developer.srgssr.ch/ 上获取免费帐户
-1. 进入“应用程序”并添加新的应用程序。您可以在此处选择 API 产品。 “SRF-MeteoProductFreemium”是他们的免费产品。如果您只想要一个地点的天气预报，并且每天仅收到 25 个请求（每 60 分钟）或/并且不想为每天更多的请求付费，那么“SRF-MeteoProductFreemium”就是您想要的选择。现在，这将创建一个特定的 ConsumerKey 和 ConsumerSecret
+1. 进入“应用程序”并添加新的应用程序。您可以在此处选择 API 产品。 “SRF-MeteoProductFreemium”是他们的免费产品。如果您只想要一个位置的天气预报并且每天仅收到 25 个请求（每 60 分钟）或/并且不想为每天更多的请求付费，那么您需要选择“SRF-MeteoProductFreemium”。现在，这将创建一个特定的 ConsumerKey 和 ConsumerSecret
 1. 找出需要预报的所选位置的经度/纬度（十进制度）。如果您已在 ioBroker 设置（主要设置）（通过地图）中设置您的位置，则此信息是可选的。在这种情况下，您可以将纬度和经度字段留空。然后适配器使用 ioBroker 的设置。在适配器配置中输入的纬度和经度会覆盖 ioBroker 设置。
 1. 在 ioBroker 上安装此适配器 => 这可能需要几分钟（在 Raspberry Pi 3 上约为 7 分钟）
 1. 在Adapter Configuration中填写
@@ -50,22 +50,28 @@ Forecast.current_hour 中的对象将在首次启动后 30 秒创建，并通过
 * 适配器 [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
 * 适配器 [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
 * [导入视图到Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [导入Widget到Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/widgets)
 
 ＃＃＃＃＃＃ 例子
 简单示例：![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
 
 扩展示例：![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim2.gif)
 
+周小部件示例：![药片](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wochensicht_reduziert.png)
+
 ## Changelog
+### 2.1.0 (2024-01-10)
+* (baerengraben) Added additional Week-View. Credits goes to https://github.com/pingus01
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+### 2.0.4-alpha.2 (2023-09-06)
+* (baerengraben) Dummy-Deploy - because npm did not get 2.0.4-alpha.1 (2nd try...)
 
-### **WORK IN PROGRESS**
+### 2.0.4-alpha.1 (2023-09-05)
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/102
 * (baerengraben) Using ioBroker "formatDate" to format date_time attribut to "TT.MM.JJJJ SS:mm:ss"
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/105
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/104 
+* (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/103
 
 ### 2.0.4-alpha.0 (2023-08-03)
 * (baerengraben) Adding four new hour-based Views 
@@ -75,19 +81,10 @@ Forecast.current_hour 中的对象将在首次启动后 30 秒创建，并通过
 ### 2.0.3 (2023-08-01)
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94
 
-### 2.0.2 (2023-07-31)
-* (baerengraben) Just another freaking release-script test
-
-### 2.0.1 (2023-07-31)
-* (baerengraben) Just a release-script test
-
-### 2.0.0 (2023-07-31) - Release for SRF Weather API Version 2!
-* (baerengraben) Update SRF API version 1 to version 2 https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94. With this Update new attributes are available: symbol24_code, DEWPOINT_C, RELHUM_PERCENT, FRESHSNOW_CM, PRESSURE_HPA, SUN_MIN, IRRADIANCE_WM2 and TTTFEEL_C
-
 ## License
 MIT License
 
-Copyright (c) 2023 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2024 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -58,6 +58,11 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - ...
 
 ## Changelog
+
+### 1.0.1 (2024-01-26) - 2024 maintenance release
+
+- (pdbjjens) Updated dependencies
+
 ### 1.0.0 (2023-08-19)
 
 - (pdbjjens) Change: node>=16, js-contoller>=4 and admin>=6 required
@@ -85,17 +90,11 @@ Daraus setzen sich die Objektnamen zusammen z.B.
 - Compatibility check for js-controller 4.0
 - Prevent onUnload warnings
 
-### 0.6.4 (2021-08-19)
-
-- (TGuybrush) Bug fixes
-- Prevent warnings regarding non-existent objects upon adapter instance creation and start-up under js-controller 3.2.x
-- Improved check of SMA Energy Meter multicast messages to prevent ghost devices and warnings regarding unknown OBIS values.
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 IoBroker-Community
+Copyright (c) 2024 IoBroker-Community
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

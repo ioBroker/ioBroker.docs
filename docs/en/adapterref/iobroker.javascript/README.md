@@ -1910,37 +1910,33 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
+* (klein0r) Raise warning if more than 100 triggers have been registered
+
+### 7.8.0 (2024-01-29)
+
+* (klein0r) Added block for multiple or conditions
+* (klein0r) Raised supported ecmaVersion from es2018 to es2021
+* (klein0r) Fixed getIdByName (returned the same id as array)
+
+### 7.7.0 (2024-01-14)
+
+* (klein0r) Added block for multiple and conditions
+
+### 7.6.3 (2024-01-11)
+
+* (klein0r) Fixed bug in formatTimeDiff Blockly
+
+### 7.6.2 (2024-01-02)
+
 * (klein0r) Added missing console.info()
 * (klein0r) Added missing type hints
 * (klein0r) Creation of astro states is now optional
+* (klein0r) Fixed logging of objects/sets
 
 ### 7.6.0 (2023-12-26)
 
 * (klein0r) Added schedules by state value (scheduleById)
-
-### 7.5.1 (2023-12-18)
-
-* (klein0r) Added option for calendar week to Blockly
-* (klein0r) Fixed inpaired round brackets of getMinutes (Blockly)
-
-### 7.5.0 (2023-12-15)
-
-* (klein0r) Blockly: Day of week as number always returns 1 (monday) to 7 (sunday)
-* (klein0r) Fixed layout of script type selection
-* (klein0r) Fixed sendto with multiple instances (for callback / timeout handling)
-
-### 7.4.0 (2023-12-08)
-
-* (klein0r) Download script as xml file (export)
-* (klein0r) Import script as file (upload)
-* (klein0r) Hide global folder if expert mode is disabled
-
-### 7.3.0 (2023-12-07)
-
-* (klein0r) Updated blockly logo
-* (klein0r) Always set variables like isDaylightSaving
-* (klein0r) Added astro times as states
-* (klein0r) Fixed copied time blocks
 
 ## License
 The MIT License (MIT)

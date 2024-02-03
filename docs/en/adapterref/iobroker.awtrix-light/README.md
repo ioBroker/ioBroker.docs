@@ -12,6 +12,7 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"en":"ioBroker.awtrix-light"},"content":"en/adapterref/iobroker.awtrix-light/README.md"},"en/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"en":"ioBroker.awtrix-light"},"content":"en/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 ---
 ![Logo](../../admin/awtrix-light.png)
 
@@ -22,7 +23,7 @@ BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.91_ (or later) - e.g. Ulanzi TC001
+- _Awtrix Light_ device with firmware _0.94_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
@@ -74,6 +75,10 @@ All states (of common.type `number`) are formatted as configured in the system s
 
 Yes, since firware version 0.82 it is possible to configure a user name and a password to protect the access. Since adapter version 0.8.0 it is also possible to enter these credentials in the instance configuration.
 
+**How does the hold option in notifications work?**
+
+When sending a notification with `hold: true`, the text will stay on the display until the notification will be confirmed. This can either happen with a press on the middle button of the device, or by setting the state `notification.dismiss` to `true`.
+
 ## Same apps on multiple devices
 
 If you have multiple awtrix-light devices, it is required to create a new instance for each device. But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
@@ -96,7 +101,7 @@ Example:
 Send a "one time" notification to your device:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -177,6 +182,8 @@ Expert apps are available since apdater version 0.10.0. They allow to set all va
 
 After that, all controllable states for the app name `test` will be created in `awtrix-light.0.apps.test`. Just set values of `icon`, `text` and other states by using your own scripts and logic (e.g. JavaScript or Blockly).
 
+Example: [Weather App](weather-app.md)
+
 ## Hide native apps
 
 If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix-light/#/onscreen) for details.
@@ -186,33 +193,30 @@ If you want to disable/hide a native app (like battery, temperature or humidity)
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.13.1 (2024-01-25)
+
+* (klein0r) Fixed hold option in blockly
+
+### 0.13.0 (2024-01-25)
+
+* (klein0r) Added state for text color and background color in expert apps
+* (klein0r) Avoid app refresh when no values have been changed
+
+### 0.12.0 (2024-01-24)
+
+* (klein0r) Added hold option to blockly
+* (klein0r) Added state to dismiss notifications
+
+### 0.11.0 (2024-01-09)
+
+Updated recommended firmware version to 0.94
+
+* (klein0r) Added bar graph to history apps
+* (klein0r) Added aggregation for history apps
+
 ### 0.10.2 (2023-12-14)
 
 * (klein0r) Removed callbacks in blockly code to prevent timeouts
-
-### 0.10.1 (2023-12-01)
-
-Updated recommended firmware version to 0.91
-
-* (klein0r) Added uid and ip address states
-
-### 0.10.0 (2023-10-23)
-
-Updated recommended firmware version to 0.90
-
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
-
-### 0.9.2 (2023-10-22)
-
-* (klein0r) Fixed: Visisble state of expert apps
-
-### 0.9.1 (2023-10-02)
-
-NodeJS 16.x is required
-
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
 
 ## License
 MIT License

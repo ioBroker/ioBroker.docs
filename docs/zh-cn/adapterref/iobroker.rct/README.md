@@ -3,16 +3,16 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
+hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
 ---
-![标识](../../../en/adapterref/iobroker.rct/admin/rct.png)
-
 ![NPM版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![安装数量（最新）](https://iobroker.live/badges/rct-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/rct-stable.svg)
-![依赖状态](https://img.shields.io/david/aruttkamp/iobroker.rct.svg)
+![GitHub 存储库的 Libraries.io 依赖关系状态](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
 ![国家公共管理](https://nodei.co/npm/iobroker.rct.png?downloads=true)
+
+[![徽标](admin/rct.png)](https://www.rct-power.com/de)
 
 # IoBroker.rct
 **测试：** ![测试与发布](https://github.com/aruttkamp/ioBroker.rct/workflows/Test%20and%20Release/badge.svg)
@@ -23,7 +23,7 @@ hash: vhal2Q16WS1kSKUNphHXFUqeIe9L0k3sGGcMsQBMMcQ=
 ## IoBroker 的 RCT 适配器
 请注意，这是一个私人项目，我 (Andreas Ruttkamp) 与 RCT 没有任何关系。
 
-读取 RCT Power 光伏电源转换器的值
+读取 RCT Power 光伏电源转换器的值。
 
 ＃＃ 评论
 ### 高效发布

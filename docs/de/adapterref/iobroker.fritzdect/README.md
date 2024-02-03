@@ -62,6 +62,11 @@ Vergleichbar für den Soll-/Istverlaufs ist demnach atualtemp und targettemp.
 Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig Information ist der debug modus über die Experteneinstellung der Instanz vorzuwählen.
 
 ## Changelog
+### 2.5.10 (npm)
+* more loggimg for issue #500 of restart loop
+* some error messages downgraded to warnings
+* correction related to thermostat value take over, when reduced setting is activated
+
 ### 2.5.9 (npm)
 * correction for statistics,
 * new message box password needs to be reentered in versions >=2.5.4
@@ -386,4 +391,4 @@ Es ist ratsam das log anzuschauen, sofern nicht aussagekräftig oder zu wenig In
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 foxthefox <foxthefox@wysiwis.net>
+Copyright (c) 2018 - 2024 foxthefox <foxthefox@wysiwis.net>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.viessmannapi/README.md
 title: ioBroker.viessmannapi
-hash: jAMj+zFSDaMxvHI3sMbVQsP9E10CQ78tSCevQuWr5Jc=
+hash: HbCYgmAvUUETxIbIjTMs1B12oTpwPN1dDa/cl1VTQUM=
 ---
 ![Logo](../../../en/adapterref/iobroker.viessmannapi/admin/viessmannapi.png)
 
@@ -36,7 +36,7 @@ Die Client-ID in die Einstellungen kopieren
 
 **Remote-Befehle sind möglich unter viessmannapi.0.XXXXX.0.features.heating.dhw.temperature.main.commands.setTargetTemperature.setValue**
 
-**Kompatibilitätsliste**:
+**Kompatibilitätsliste**: https://documentation.viessmann.com/static/compatibility
 
 **Regelungen für Wand- oder Kompaktgeräte**
 

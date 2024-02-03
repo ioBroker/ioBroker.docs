@@ -20,6 +20,38 @@ Siehe [Linksammlung im Wiki](https://github.com/Zefau/ioBroker.jarvis/wiki).
 
 Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
 
+### v3.2.0-alpha.39 (2024-01-07)
+
+#### bug :bug: (4 changes)
+- fixed `[v3.2.0-alpha.36] Darkmode` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2515](https://github.com/Zefau/ioBroker.jarvis/issues/2515))
+- fixed `[v3.2.0-alpha.36] Keine DPs mehr übernehmen` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2517](https://github.com/Zefau/ioBroker.jarvis/issues/2517))
+- fixed `v3.2.0-alpha.37 Fehlermeldungen` (alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2518](https://github.com/Zefau/ioBroker.jarvis/issues/2518))
+- fixed `[v3.2.0-alpha.37] invalid time value im ioBroker Log` (Module Calendar, alpha / beta :construction:, #status: implemented-locally :hammer_and_wrench:, v3.2, [#2519](https://github.com/Zefau/ioBroker.jarvis/issues/2519))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.37 (2024-01-04)
+
+#### bug :bug: (6 changes)
+- fixed `Bindings im Datenpunkt Stil funktionieren nicht` (binding :link:, [#2487](https://github.com/Zefau/ioBroker.jarvis/issues/2487))
+- fixed `[v3.2.0-alpha.27] Anzeigevariante zum ausblenden vom Wert greift nicht im Secondary State` (binding :link:, alpha / beta :construction:, [#2505](https://github.com/Zefau/ioBroker.jarvis/issues/2505))
+- fixed `v3.2.0-alpha.35 Einstellungen Fehler` (alpha / beta :construction:, [#2513](https://github.com/Zefau/ioBroker.jarvis/issues/2513))
+- fixed `[v3.2.0-alpha.36] Darkmode` (alpha / beta :construction:, [#2515](https://github.com/Zefau/ioBroker.jarvis/issues/2515))
+- fixed `[v3.2.0-alpha.36] Kalender` (Module Calendar, alpha / beta :construction:, [#2516](https://github.com/Zefau/ioBroker.jarvis/issues/2516))
+- fixed `[v3.2.0-alpha.36] Keine DPs mehr übernehmen` (alpha / beta :construction:, [#2517](https://github.com/Zefau/ioBroker.jarvis/issues/2517))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
+### v3.2.0-alpha.36 (2024-01-02)
+
+#### bug :bug: (4 changes)
+- fixed `v3.2.0-alpha.30 DesignFehler Layout` (#status: implemented-locally :hammer_and_wrench:, [#2510](https://github.com/Zefau/ioBroker.jarvis/issues/2510))
+- fixed `v3.2.0-alpha.34 Fehler` (alpha / beta :construction:, [#2511](https://github.com/Zefau/ioBroker.jarvis/issues/2511))
+- fixed `[v3.2.0-alpha.30] Bodystilfehler` (binding :link:, alpha / beta :construction:, [#2512](https://github.com/Zefau/ioBroker.jarvis/issues/2512))
+- fixed `v3.2.0-alpha.35 Einstellungen Fehler` (alpha / beta :construction:, [#2513](https://github.com/Zefau/ioBroker.jarvis/issues/2513))
+
+Please also see [release page](https://github.com/Zefau/ioBroker.jarvis/releases) for changelog and detailed information.
+
 ### v3.2.0-alpha.34 (2024-01-01)
 
 #### feature :star2: (1 changes)

@@ -27,6 +27,10 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 2.2.3 (2024-02-01)
+* (arteck) add icon status available for lxc and vm
+* (arteck) settings adjustment
+
 ### 2.2.2 (2023-11-06)
 * (arteck) storage message corr
 
@@ -47,16 +51,11 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 * (klein0r) Improved error handling
 * (arteck) Added cluster adaptation
 
-### 2.0.2 (2023-09-08)
-* (klein0r) Added option for disk information
-* (klein0r) Check a type of disk wear out
-* (klein0r) Catch exception when requesting disk information
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 MeisterTR <meistertr.smarthome@gmail.com>
+Copyright (c) 2024 MeisterTR <meistertr.smarthome@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

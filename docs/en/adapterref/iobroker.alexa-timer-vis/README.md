@@ -157,7 +157,7 @@ A timer or several by voice input, is created via Alexa, this is evaluated by th
 
 ## License
 
-Copyright (c) 2021-2023 Michael Roling <michael.roling@gmx.de>
+Copyright (c) 2021-2024 Michael Roling <michael.roling@gmx.de>
 
 MIT License
 

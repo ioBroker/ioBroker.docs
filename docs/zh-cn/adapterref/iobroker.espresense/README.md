@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
+hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
 ---
 ![标识](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
@@ -25,6 +25,7 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
 - 内部或外部 mqtt 服务器的“端口、用户名和密码”
 
 - 如果设备已添加到配置中，则只有这些设备才会显示在对象中。
+- 两个配置时间是链接的，存在检查始终与 MQTT 消息的处理一起运行。
 
 最佳实践：将要监控的设备与 espresense 配对并过滤输出以避免不必要的网络流量。
 
@@ -37,6 +38,15 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2024-01-18)
+* (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
+
+### 0.4.3 (2024-01-14)
+* (ticaki) Collect incoming MQTT messages and process them every 5 seconds
+
+### 0.4.2 (2024-01-05)
+* (ticaki) New state for actual distance/conversion factor and calculated distance
+
 ### 0.4.1 (2023-12-30)
 * (ticaki) fixed: no names. (2. try)
 
@@ -74,7 +84,7 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
 ## License
 MIT License
 
-Copyright (c) 2023 ticaki <github@renopoint.de>
+Copyright (c) 2024 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

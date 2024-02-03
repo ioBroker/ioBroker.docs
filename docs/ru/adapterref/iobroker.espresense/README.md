@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.espresense/README.md
 title: ioBroker.espresense
-hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
+hash: JDBUWyJH7Tl4/I3NvHTgusANe4VtARCXjZOCsDTUz4Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.espresense/admin/espresense.png)
 
@@ -25,6 +25,7 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
 - «Порт, имя пользователя и пароль» внутреннего или внешнего сервера mqtt.
 
 - Если в конфигурацию были добавлены устройства, в объектах будут отображаться только они.
+- Два времени настройки связаны, проверка присутствия всегда выполняется вместе с обработкой сообщений MQTT.
 
 Рекомендация: соедините устройства, которые будут отслеживаться, с espresense и отфильтруйте выходные данные, чтобы избежать ненужного сетевого трафика.
 
@@ -37,6 +38,15 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.4.4 (2024-01-18)
+* (ticaki) The time period over which incoming Mqtt messages are collected can be configured. min. 1 sec max. (2^31-1) / 1000 sec
+
+### 0.4.3 (2024-01-14)
+* (ticaki) Collect incoming MQTT messages and process them every 5 seconds
+
+### 0.4.2 (2024-01-05)
+* (ticaki) New state for actual distance/conversion factor and calculated distance
+
 ### 0.4.1 (2023-12-30)
 * (ticaki) fixed: no names. (2. try)
 
@@ -74,7 +84,7 @@ hash: YfSlw/wfFF0mq1sD35u0lZ8HzOtgsGlp/N4k3LJMzvo=
 ## License
 MIT License
 
-Copyright (c) 2023 ticaki <github@renopoint.de>
+Copyright (c) 2024 ticaki <github@renopoint.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

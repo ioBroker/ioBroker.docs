@@ -3,27 +3,27 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.traccar/README.md
 title: ioBroker.traccar
-hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
+hash: Y8YCkqBRWtiVubFXfNJkRPT+T1i3n/ZiSC5DGQcMCL4=
 ---
 ![Logo](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-![Bekannte Schwachstellen](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)
+![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
+![Anzahl Installationen (stabil)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
+![Bekannte Schwachstellen](https://snyk.io/test/github/arteck/ioBroker.traccar/badge.svg?dummy=unused)
 ![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
 
 # IoBroker.traccar
-[![Abhängigkeitsstatus](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![Abhängigkeitsstatus](https://status.david-dm.org/gh/arteck/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/arteck/iobroker.traccar) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##Traccar-Adapter für ioBroker
+## Traccar-Adapter für ioBroker
 Dieser Adapter importiert in Echtzeit die Position und die erweiterten Daten aus [Traccar](https://www.traccar.org) und stellt sie in ioBroker zur Verfügung.
 
 ## Aufbau
 1. Erstellen Sie eine neue Instanz des Adapters
 2. Geben Sie die URL/IP und den Port vom Traccar-Server ein
-3. Benutzername und Passwort konfigurieren
+3. Konfigurieren Sie Benutzernamen und Passwort
 4. Speichern Sie die Einstellungen
 5. Viel Spaß :)
 
@@ -31,12 +31,50 @@ Dieser Adapter importiert in Echtzeit die Position und die erweiterten Daten aus
 
 <!--
  https://github.com/AlCalzone/release-script#usage
-    npm run release minor -- --all 0.9.8 -> 0.10.0
-    npm run release patch -- --all 0.9.8 -> 0.9.9
-    npm run release prerelease beta -- --all v0.2.1 -> v0.2.2-beta.0
+    npm run release major -- -p iobroker license --all 0.9.8 -> 1.0.0
+    npm run release minor -- -p iobroker license --all 0.9.8 -> 0.10.0
+    npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9
+    npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2-beta.0
 	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
+	
 -->
+### **WORK IN PROGRESS**
+-   (arteck) transfer to arteck
+
+### 1.1.4 (2023-10-30)
+-   (arteck) fix last_update DP
+
+### 1.1.3 (2023-10-28)
+-   (arteck) geofances fix for Server >= 5.8 (check adapter Settings)
+
+### 1.1.2 (2023-07-16)
+-   (o0shojo0o) another fix for Traccar Server >= v5.8
+
+### 1.1.1 (2023-07-01)
+-   (o0shojo0o) fix translation
+
+### 1.1.0 (2023-07-01)
+-   (o0shojo0o) support for https/wss connections
+-   (o0shojo0o) fix for Traccar Server < v5.8
+
+### 1.0.1 (2023-06-22)
+-   (o0shojo0o) fix deploy workflow
+
+### 1.0.0 (2023-06-22)
+-   (o0shojo0o) fix for Traccar Server >= v5.8
+
+### 0.0.12 (2022-07-20)
+
+-   (o0shojo0o) fix geofenceIds now nullable
+-   (o0shojo0o) add Device datapoint Status
+
+### 0.0.11 (2021-08-19)
+
+-   (o0shojo0o) fix translation
+
+### 0.0.10 (2021-08-18)
+
+-   (o0shojo0o) change UI to JSONConfig
 
 ### 0.0.9 (2021-05-19)
 
@@ -84,7 +122,7 @@ Dieser Adapter importiert in Echtzeit die Position und die erweiterten Daten aus
 
 MIT License
 
-Copyright (c) 2021 Dennis Rathjen <info@bastelbunker.de>
+Copyright (c) 2024  Arthur Rupp <arteck@outlook.com>,
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

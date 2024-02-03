@@ -12,11 +12,12 @@ BADGE-GitHub Workflow Status: https://img.shields.io/github/actions/workflow/sta
 BADGE-Beta: https://img.shields.io/npm/v/iobroker.awtrix-light.svg?color=red&label=beta
 BADGE-Stable: http://iobroker.live/badges/awtrix-light-stable.svg
 BADGE-Installed: http://iobroker.live/badges/awtrix-light-installed.svg
+chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/README.md"},"de/adapterref/iobroker.awtrix-light/weather-app.md":{"title":{"de":"ioBroker.awtrix-light"},"content":"de/adapterref/iobroker.awtrix-light/weather-app.md"}}}
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
+hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -25,7 +26,7 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.6.0 (или новее)
-- Устройство _Awtrix Light_ с версией прошивки _0.91_ (или новее) - например, Ulanzi TC001
+- Устройство _Awtrix Light_ с версией прошивки _0.94_ (или новее) - например, Ulanzi TC001
 
 Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
@@ -75,6 +76,10 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 
 Да, начиная с версии прошивки 0.82 доступ может быть защищен именем пользователя и паролем. Начиная с версии адаптера 0.8.0, эти пользовательские данные также можно хранить в настройках экземпляра.
 
+**Как работает опция удержания уведомлений?**
+
+Когда уведомление отправляется с опцией `hold: true`, текст на дисплее остается до тех пор, пока уведомление не будет подтверждено. Это можно сделать либо с помощью средней кнопки на устройстве, либо установив состояние `notification.dismiss` на `true`.
+
 ## Идентичные приложения на нескольких устройствах
 Если с помощью одних и тех же приложений необходимо управлять несколькими устройствами awtrix-light, для каждого устройства необходимо создать отдельный экземпляр. Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть перенесены из другого экземпляра.
 
@@ -94,7 +99,7 @@ hash: 9S0pD9fvZdfLN6utkmk0hy553Ru3voFOeN4iVlieb30=
 Отправьте одноразовое уведомление на устройство:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true }, (res) => {
+sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -170,6 +175,8 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 
 После этого все управляемые состояния приложения `test` создаются в `awtrix-light.0.apps.test`. Чтобы изменить соответствующие значения приложения, вы можете просто установить значения состояний `icon`, `text` и т. д., используя свои собственные скрипты (например, JavaScript или Blockly).
 
+Пример: [Приложение погоды](weather-app.md)
+
 ## Скрыть родные приложения
 Чтобы скрыть на устройстве приложения по умолчанию (например, температуру или влажность): используйте меню на самом устройстве! Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/onscreen).
 
@@ -178,45 +185,35 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.10.1 (2023-12-01)
+### 0.13.1 (2024-01-25)
 
-Updated recommended firmware version to 0.91
+* (klein0r) Fixed hold option in blockly
 
-* (klein0r) Added uid and ip address states
+### 0.13.0 (2024-01-25)
 
-### 0.10.0 (2023-10-23)
+* (klein0r) Added state for text color and background color in expert apps
+* (klein0r) Avoid app refresh when no values have been changed
 
-Updated recommended firmware version to 0.90
+### 0.12.0 (2024-01-24)
 
-* (klein0r) Added support for sleep mode
-* (klein0r) Added fading for indicators
+* (klein0r) Added hold option to blockly
+* (klein0r) Added state to dismiss notifications
 
-### 0.9.2 (2023-10-22)
+### 0.11.0 (2024-01-09)
 
-* (klein0r) Fixed: Visisble state of expert apps
+Updated recommended firmware version to 0.94
 
-### 0.9.1 (2023-10-02)
+* (klein0r) Added bar graph to history apps
+* (klein0r) Added aggregation for history apps
 
-NodeJS 16.x is required
+### 0.10.2 (2023-12-14)
 
-* (klein0r) Fixed hidden apps
-* (klein0r) Fixed color conversions of settings
-
-### 0.9.0 (2023-10-01)
-
-Updated recommended firmware version to 0.88
-
-* (klein0r) Added expert apps
-* (klein0r) Use the last value of fast refreshing states
-* (klein0r) Added settings for calendar colors
-* (klein0r) Allow to use apps without text (just background effect)
-* (AlCalzone) Added rtttl api endpoint support (via sendTo)
-* (klein0r) Native apps have been renamed
+* (klein0r) Removed callbacks in blockly code to prevent timeouts
 
 ## License
 MIT License
 
-Copyright (c) 2023 Matthias Kleine <info@haus-automatisierung.com>
+Copyright (c) 2024 Matthias Kleine <info@haus-automatisierung.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

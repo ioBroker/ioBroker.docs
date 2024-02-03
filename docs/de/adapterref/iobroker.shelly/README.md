@@ -59,6 +59,11 @@ Fragen? Schaue zuerst in die [FAQ](faq.md)!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Updated Shelly i3 number limits
+* (klein0r) Added screenshots to instance configuration
+
 ### 6.7.0 (2023-12-22)
 
 * (klein0r) Updated handling of ble payloads

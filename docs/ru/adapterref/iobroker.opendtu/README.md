@@ -3,22 +3,23 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.opendtu/README.md
 title: ioBroker.opendtu
-hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
+hash: iL8WZu4JPaW2bMkFx9uIvF37y/hmAHtlwdE2mgGHVJw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.opendtu/admin/opendtu.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.opendtu.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.opendtu.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.opendtu.svg)
 ![Количество установок](https://iobroker.live/badges/opendtu-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/opendtu-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/opendtu-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.opendtu.png?downloads=true)
 
 # IoBroker.opendtu
-**Тесты:** ![Тестирование и выпуск](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /действия/рабочие процессы/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
+**Тесты:** ![Тестирование и выпуск](https://github.com/o0shojo0o/ioBroker.opendtu/workflows/Test%20and%20Release/badge.svg) [![CodeQL](https://github.com/o0shojo0o/ioBroker.opendtu /actions/workflows/codeql.yml/badge.svg)](https://github.com/o0shojo0o/ioBroker.opendtu/actions/workflows/codeql.yml)
 
+# Я ищу нового сопровождающего для этого адаптера. Если вы заинтересованы, просто свяжитесь со мной через сообщение о проблемах!
 ## Адаптер opendtu для ioBroker
-Этот адаптер получает данные из проекта [OpenDTU](https://github.com/tbnobody/OpenDTU), доступные в режиме реального времени.
-Кроме того, через адаптер можно использовать следующие точки данных для ограничения мощности OpenDTU.
+Этот адаптер получает данные из проекта [ОпенДТУ](https://github.com/tbnobody/OpenDTU), доступные в режиме реального времени.
+Кроме того, через адаптер можно использовать следующие точки данных, чтобы можно было контролировать ограничение мощности OpenDTU.
 
 ```
 - opendtu.0.xxxxxx.power_control.limit_nonpersistent_absolute
@@ -30,9 +31,9 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 Для получения дополнительной информации о точках данных см. их описание или нажмите [здесь](https://github.com/tbnobody/OpenDTU/blob/master/docs/MQTT_Topics.md#inverter-limit-specific-topics).
 
 ## Конфигурация
-1. Создайте новый экземпляр адаптера
-2. Заполните схему *(по умолчанию http)*, WebUi-Address и WebUi-port *(по умолчанию 80)* оборудования [OpenDTU](https://github.com/tbnobody/OpenDTU).
-3. Установите WebUi-пароль **(это обязательно, если он неверный, ограничение не может быть установлено!)**
+1. Создайте новый экземпляр адаптера.
+2. Заполните схему *(по умолчанию http)*, адрес WebUi и порт WebUi *(по умолчанию 80)* оборудования [OpenDTU](https://github.com/tbnobody/OpenDTU).
+3. Установите пароль WebUi **(это обязательно, если он неправильный, ограничение установить нельзя!)**
 4. Сохраните настройки
 
 ## Changelog
@@ -45,13 +46,31 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.0.1 (2023-10-29)
+
+- (o0shojo0o) fixed `power_control.current_limit_absolute" has value "-1" less than min "0"`
+
+### 1.0.0 (2023-10-01)
+
+- (o0shojo0o) Increase to the first major release, as it has now reached a stable level. 
+- (o0shojo0o) added yieldtotal Protection against incorrect zeroing when the OpenDTU restarts if the inverter is not accessible
+- (o0shojo0o) added option `Set the states to 0 if the inverter is not accessible.` ([#97](https://github.com/o0shojo0o/ioBroker.opendtu/issues/97))
+
+### 0.1.8 (2023-09-22)
+
+- (o0shojo0o) added option `Protect self-set names from being overwritten by the adapter` ([#76](https://github.com/o0shojo0o/ioBroker.opendtu/issues/76))
+- (o0shojo0o) allow multiple AdminTabs for multiple instances ([#88](https://github.com/o0shojo0o/ioBroker.opendtu/issues/88))
+- (o0shojo0o) fixed password with special characters ([#35](https://github.com/o0shojo0o/ioBroker.opendtu/issues/35))
+- (o0shojo0o) fixed incorrect handling of zeroing of `yield*` data points by OpenDTU ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
+- (o0shojo0o) remove zeroing of `yield*` data points by this adapter ([#96](https://github.com/o0shojo0o/ioBroker.opendtu/issues/96))
+
 ### 0.1.7 (2023-06-30)
 
 - (o0shojo0o) workaround for incorrectly used button data point
 
 ### 0.1.6 (2023-06-30)
 
-- (o0shojo0o) fix power control (power_off)
+- (o0shojo0o) fixed power control (power_off)
 
 ### 0.1.5 (2023-05-15)
 
@@ -59,13 +78,13 @@ hash: 5/aAAEmF79xpuBgt5z18ES7+acrc21rpLE6m5pO7Woc=
 
 ### 0.1.4 (2023-03-23)
 
-- (o0shojo0o) fix power control `on`, `off`, `restart`
+- (o0shojo0o) fixed power control `on`, `off`, `restart`
 - (o0shojo0o) support for password protected liveview
 - (o0shojo0o) other small fixes
 
 ### 0.1.2 (2023-03-03)
 
-- (o0shojo0o) fix yield* values
+- (o0shojo0o) fixed yield* values
 
 ### 0.1.1 (2023-02-24)
 

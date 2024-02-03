@@ -62,13 +62,12 @@ Build on top of the following projects:
 <!--
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
-- (mcm1957) changed: Testing gas been updsated to use node 16/18/20
-- (mcm1957) changed: dependencies have been updated
-* (raintonr) Allow YouTube videos ([#75](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/75))
-* (raintonr) Add appId to status ([#151](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/151))
-* (raintonr) When web instance listens on only one address save that correctly ([#145](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/145))
+### 3.2.0 (2024-01-22)
+- (mcm1957) changed: Testing has been updated to use node.js 16/18/20
+- (mcm1957) changed: Dependencies have been updated
+* (raintonr) YouTube videos are allowed now ([#75](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/75))
+* (raintonr) AppId has been added to status ([#151](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/151))
+* (raintonr) Storing of webserver settings has been corrected if web instance listens on only one address ([#145](https://github.com/iobroker-community-adapters/ioBroker.chromecast/issues/145))
 
 ### 3.1.0 (2022-11-12)
 * (bluefox) Refactoring done
@@ -77,7 +76,7 @@ Build on top of the following projects:
 
 ### 3.0.3 (2022-08-26)
 * (jey cee) Breaking change: Object IDs are now mac addresses instead names
-* (Bjoern3003) set album name as song if provided in icy-name
+* (Bjoern3003) set album name as song if provided in icy-nlicame
 * (Apollon77/aortmannm) Make compatible with Node.js 16+
 * (Apollon77) Add Sentry for crash reporting
 
@@ -231,7 +230,8 @@ Build on top of the following projects:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>, 2022 ioBroker Community Developers
+Copyright (c) 2022-2024 iobroker community developers <mcm57@gmx.at>
+Copyright (c) 2015-2022 Vegetto <iobroker@angelnu.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

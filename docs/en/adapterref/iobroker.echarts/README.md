@@ -17,6 +17,9 @@ Build useful charts in ioBroker:
 
 ![Bars](img/bars.png)
 
+![Radar](img/radar.png)
+Use "Actual value" aggregation for predicted result.
+
 ## Usage
 Add after the restart the tab in the admin:
 ![Admin](img/admin.png)
@@ -91,13 +94,15 @@ You can debug view charts locally with:
 
 ## Todo
 - widget for vis (button)
-- widget for material
 - show enum icons on folders or near it
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added the radar (polar) chart type
+
 ### 1.7.2 (2023-11-20)
 * (bluefox) Added option to hide the value in the future
 

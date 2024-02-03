@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
+hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -15,6 +15,17 @@ hash: cU1xM3YZ4DVOfWO+fejKvDhv3ml5Vv0eyoFFoqGk7q8=
 # Visualisierung der nächsten Generation für ioBroker: vis-2
 WEB-Visualisierung für die ioBroker-Plattform.
 
+## Überblick
+- [Lizenzanforderungen](#license-requirements)
+- [Installation & Dokumentation](#installation--documentation)
+- [Bindungen von Objekten](#bindings-of-objects)
+- [Filter](#filters)
+- [Steuerschnittstelle](#control-interface)
+- [Standardansicht](#default-view)
+- [Berechtigungssystem](#permissions-system)
+- [Einstellungen](#settings)
+- [SVG und aktuelleFarbe](#svg-und-aktuelleFarbe)
+
 ## Installation und Dokumentation
 ![Demo-Schnittstelle](img/user0.png) ![Demo-Schnittstelle](../../../en/adapterref/iobroker.vis-2/img/user7.png)
 
@@ -24,7 +35,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 Normalerweise verfügen die meisten Widgets über das ObjectID-Attribut und dieses Attribut kann mit einem bestimmten Wert der Objekt-ID verknüpft werden.
 Es gibt aber noch eine andere Möglichkeit, *beliebiges* Attribut eines Widgets an eine ObjectID zu binden.
 
-Schreiben Sie einfach in das Attribut `{object.id}` und es wird an den Wert dieses Objekts gebunden.
+Schreiben Sie einfach in das Attribut `{object.id}`, z.B. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` und es wird an den Wert dieses Objekts gebunden.
 Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Operationen durchführen, z. B. Multiplizieren oder Formatieren.
 
 Um beispielsweise die Hypotenuse eines Dreiecks zu berechnen:
@@ -177,9 +188,11 @@ Sie können den JSON-String oder das JSON-Objekt als `{instance: 'AABBCCDD', com
 
 Beispiel für einen Javascript-Adapter:
 
+```js
+setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: ''});
 ```
-setState('vis-2.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
-```
+
+Wenn Sie das JSON als String schreiben, stellen Sie sicher, dass es analysierbar ist, z. B. `{"instance": "*", "command": "refresh", "data": ""}`, beachten Sie die `"`.
 
 ## Standardansicht
 Sie können für jede Ansicht die gewünschte Auflösung festlegen (Menü=>Extras=>Auflösung).
@@ -193,6 +206,24 @@ Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig 
 Sie können beispielsweise zwei Ansichten „Querformat-Mobil“ und „Hochformat-Mobil“ erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
 Es gibt ein Hilfs-Widget „Basic – Bildschirmauflösung“, das die tatsächliche Bildschirmauflösung und die am besten geeignete Standardansicht für diese Auflösung anzeigt.
+
+## Berechtigungssystem
+### Projekt
+Im Projektverwaltungsdialog können Sie für jeden ioBroker-Benutzer die Berechtigungen `read` und `write` konfigurieren.
+
+Das Flag `read` bedeutet, dass das Projekt für diesen Benutzer in der Runtime zugänglich ist.
+Das Flag `write` bedeutet, dass das Projekt für diesen Benutzer im Bearbeitungsmodus zugänglich ist.
+
+Wenn ein neuer Benutzer über den ioBroker-Admin-Adapter erstellt wird, verfügt er standardmäßig über beide Berechtigungen.
+
+### Sicht
+Sie können außerdem festlegen, auf welche Ansichten der Benutzer im Laufzeit- und Bearbeitungsmodus zugreifen darf.
+Wenn eines der Zugriffsrechte nicht auf Projektebene gewährt wird, hat es keine Auswirkung, diese auf Ansichtsebene festzulegen, da das Projekt als Ganzes nicht zugänglich ist.
+
+Beachten Sie, dass bei jedem Versuch, auf eine Ansicht zuzugreifen, für die der aktuelle Benutzer keine Berechtigung hat, dem Benutzer stattdessen das Projektauswahlfeld angezeigt wird.
+
+### Widget
+Wenn der Benutzer keine `read`-Berechtigungen hat, wird das Widget nicht in der Laufzeit gerendert. Wenn der Benutzer keine `write`-Berechtigungen hat, wird das Widget nicht im Bearbeitungsmodus gerendert.
 
 ## Einstellungen
 ### Neu laden, wenn der Schlaf länger dauert als
@@ -231,6 +262,70 @@ Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, w�
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.9.28 (2024-02-03)
+* (foxriver76) correctly determine the vis instance in all cases
+
+### 2.9.26 (2024-02-02)
+* (foxriver76) do not show empty icon category if jquery style selected for jquery button widgets
+* (foxriver76) added possibility to hide navigation after selection
+
+### 2.9.25 (2024-01-29)
+* (foxriver76) fixed resizing issue for relative widgets
+* (foxriver76) do not crash when using visibility "only for groups"
+* (foxriver76) do not crash if a widget tries to update widget on non-existent view
+
+### 2.9.24 (2024-01-24)
+* (foxriver76) Image 8 widget ported to react
+
+### 2.9.23 (2024-01-24)
+* (foxriver76) fixed another bug due to previous versions
+
+### 2.9.22 (2024-01-22)
+* (foxriver76) try to fix problems introduced with 2.9.21
+
+### 2.9.21 (2024-01-19)
+* (foxriver76) fixed crash case when fixing widgets
+* (foxriver76) fixed bug, that opacity is applied twice on image edit mode overlay
+
+### 2.9.20 (2024-01-18)
+* (foxriver76) increased timeout for project import
+* (foxriver76) added permissions on widget level
+
+### 2.9.19 (2024-01-17)
+* (foxriver76) fixed issue when resizing widget from the left side
+* (foxriver76) added select box to dimension attributes if multiple widgets selected
+
+### 2.9.18 (2024-01-15)
+* (foxriver76) fixed issue, that old attributes value is shown in some scenarios
+* (foxriver76) dedicated permission system extended to view level
+
+### 2.9.17 (2024-01-13)
+* (foxriver76) dedicated permission system on project level introduced
+
+### 2.9.16 (2024-01-11)
+* (foxriver76) use the correct fallback values for widget signals determination
+
+### 2.9.15 (2024-01-09)
+* (foxriver76) fixed issue with BulkEditor
+
+### 2.9.14 (2024-01-09)
+* (foxriver76) fixed last change y-offset for some widgets
+* (foxriver76) fixed issue where JquiState did not respect data type
+* (foxriver76) fixed issues with BulkEdtior (dialog not closing and other dialog showing wrong button)
+* (foxriver76) implemented workaround resize bug for https://github.com/devbookhq/splitter/issues/15
+
+### 2.9.13 (2024-01-08)
+* (foxriver76) correctly detect IDs in bindings when they contain hash character
+* (foxriver76) fix crash when multiple JquiState widgets selected
+* (foxriver76) prevent showing widget in group after it is already cut out
+* (foxriver76) prevent usage of widgets which are not in group for calculating rulers on group view
+
+### 2.9.12 (2024-01-04)
+* (foxriver76) optimized copy/paste/cut in groups
+
+### 2.9.11 (2024-01-02)
+* (foxriver76) fixed bug with visibility calculation
+
 ### 2.9.10 (2024-01-02)
 * (foxriver76) remove accidentally added script file, which lead to crash
 

@@ -133,7 +133,7 @@ Add Fully Browser device(s), i.e. the tablets running Fully Browser, accordingly
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Arthur Rupp arteck@outlook.com
+Copyright (c) 2014-2024 Arthur Rupp arteck@outlook.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

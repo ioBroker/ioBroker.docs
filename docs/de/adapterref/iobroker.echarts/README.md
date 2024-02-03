@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.echarts/README.md
 title: ioBroker.echarts
-hash: ISS+cSdWYkY0XkgmTi0ARHoo/ewFcXOuHINIPO/27T0=
+hash: IFc8hjOOlysmmmZWP5K4tcOjKYxFc+HV5gzh+sRgX/w=
 ---
 ![Logo](../../../en/adapterref/iobroker.echarts/admin/echarts.png)
 
@@ -22,6 +22,8 @@ Erstellen Sie nützliche Diagramme in ioBroker:
 ![Bildschirmfoto](../../../en/adapterref/iobroker.echarts/img/screenshot1.png)
 
 ![Riegel](../../../en/adapterref/iobroker.echarts/img/bars.png)
+
+![Radar](../../../en/adapterref/iobroker.echarts/img/radar.png) Verwenden Sie die Aggregation „Tatsächlicher Wert“ für das vorhergesagte Ergebnis.
 
 ## Verwendung
 Nach dem Neustart den Tab im Admin hinzufügen: ![Administrator](../../../en/adapterref/iobroker.echarts/img/admin.png)
@@ -98,7 +100,6 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 
 ## Machen
 - Widget für Vis (Button)
-- Widget für Material
 - Enum-Symbole in Ordnern oder in deren Nähe anzeigen
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -106,6 +107,19 @@ Sie können Ansichtsdiagramme lokal debuggen mit:
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### **WORK IN PROGRESS**
+* (bluefox) Added the radar (polar) chart type
+
+### 1.7.2 (2023-11-20)
+* (bluefox) Added option to hide the value in the future
+
+### 1.7.1 (2023-11-16)
+* (bluefox) Added X-Label offset
+* (bluefox) Corrected icons in the object selection dialog
+
+### 1.6.1 (2023-11-08)
+* (bluefox) Added vis-2 widget
+
 ### 1.5.4 (2023-09-13)
 * (bluefox) Added an option to the export dialog: select / unselect all
 * (bluefox) Added the availability to show legend as dialog

@@ -3,13 +3,12 @@ BADGE-NPM version: https://img.shields.io/npm/v/iobroker.lg-thinq.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.lg-thinq.svg
 BADGE-Number of Installations (latest): https://iobroker.live/badges/lg-thinq-installed.svg
 BADGE-Number of Installations (stable): https://iobroker.live/badges/lg-thinq-stable.svg
-BADGE-Dependency Status: https://img.shields.io/david/TA2k/iobroker.lg-thinq.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.lg-thinq.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lg-thinq/README.md
 title: ioBroker.lg-thinq
-hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
+hash: YDnIJ0GvHTGBGq5n7NiuUhgs/mEwPiJTTbvWLyk2DeY=
 ---
 ![Логотип](../../../en/admin/lg-thinq.png)
 
@@ -52,6 +51,7 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
         - [Основные команды удаленного управления] (#406-remote-basicctrl-thinq2)
         - [Настройки удаленного расписания] (#406-remote-reservationctrl-thinq2)
         - [Снимок] (#406-snapshot-thinq2)
+    - [Погода](#погода)
 
 # Настройки экземпляра
 ### Настройка экземпляра LG-Thinq
@@ -74,6 +74,17 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `interval.inactive` Сколько устройств в настоящее время не получают обновления
 - `interval.interval` Изменить интервал в настройках экземпляра. После перезапуска адаптера настройки экземпляра применяются.
 - `interval.last_update` Последнее обновление
+- `interval.status_devices`
+    - `ОК` Интервал ОК
+    - `Fail - 0100` Ошибка запроса - WorkID воссоздан.
+    - `Fail - 0106` Устройство не подключено - WorkID воссоздан.
+    - `Error` Ошибка WorkID - WorkID воссоздан
+    - `Ошибка <code>` Unknown error - WorkID is recreated</code>
+    - `Result Error` Ошибка получения - WorkID воссоздан.
+    - `Ошибка синтаксического анализа` Ошибка синтаксического анализа - WorkID воссоздан
+    - `Неизвестно` Неизвестная ошибка - WorkID воссоздан.
+    - Получение `Request` не принято - WorkID создается заново.
+    - `{}` Неизвестно – WorkID воссоздан.
 
     ![интервал.png](../../../en/adapterref/iobroker.lg-thinq/img/interval.png)
 
@@ -352,7 +363,7 @@ hash: 3N+ARljomsgxWLoz4A7/ek8tUGDuVPBaiAQr6zahKjE=
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic. period` Выбор периода
 - `remote.Statistic.sendRequest` Отправить выбор
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит ваше устройство их не поддерживает или была указана неверная дата.
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит ваше устройство их не поддерживает или была указана неправильная дата.
 
     ![202_remote_statistic.png](../../../en/adapterref/iobroker.lg-thinq/img/202_remote_statistic.png)
 
@@ -620,7 +631,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 - `remote.Statistic.startDate` Введите дату ежемесячно - Формат: 2023.10.01
 - `remote.Statistic. period` Выбор периода
 - `remote.Statistic.sendRequest` Отправить выбор
-- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит ваше устройство их не поддерживает или была указана неправильная дата.
+- `remote.Statistic.jsonResult` Статистика в формате JSON. Если атрибуты пусты, значит ваше устройство их не поддерживает или была указана неверная дата.
 
     ![406_remote_statistic](../../../en/adapterref/iobroker.lg-thinq/img/406_remote_statistic.png)
 
@@ -649,10 +660,34 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 ![406_snapshot_1.png](img/406_snapshot_1.png) ![406_snapshot_2.png](../../../en/adapterref/iobroker.lg-thinq/img/406_snapshot_2.png)
 
-## Changelog
-### **WORK IN PROGRESS**
+### Погода
+[Краткое содержание](#summary)
 
+lg-thinq.0.xxx.area должен быть заполнен!
+
+- `weather.device` Выберите регион. Если все устройства имеют одинаковую площадь, отображается только одно устройство.
+- `weather.humidity` Влажность
+- `weather.temperature` Температура
+- `weather.unit` Выберите градусы Цельсия или Фаренгейта.
+- `weather.update` Запросить отправку LG (устройство и устройство müssen gefüllt sein!)
+
+    ![погода.png](../../../en/adapterref/iobroker.lg-thinq/img/weather.png)
+
+## Changelog
+### 0.3.3 (2024-01-14)
+
+-   (Lucky-ESA) Fixed thinq1 crash
+-   (Lucky-ESA) Fixed crash when internet fails (refreshToken)
+-   (Lucky-ESA) Added weather request
+-   (Lucky-ESA) Bugfixe
+
+### 0.3.2 (2024-01-08)
+
+-   (Lucky-ESA) Added data point interval.status_devices
+-   (Lucky-ESA) Fixed missing value for fridge
+-   (Lucky-ESA) Fixed thinq1 crash
 -   (Lucky-ESA) Added save modelJSON local
+-   (mcm1957) Node 16 checked
 
 ### 0.3.1 (2023-12-20)
 
@@ -694,7 +729,7 @@ lg-thinq.0.xxx.remote.SetWDirLeftRight -> {"`WDirLeftRight`":"{{WDirLeftRight}}"
 
 MIT License
 
-Copyright (c) 2021-2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2021-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

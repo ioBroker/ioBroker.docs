@@ -71,9 +71,9 @@ Wenn ihr in der ioBroker Vis die Json Diagramme und Tabellen benutzen möchtet, 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-## Changelog
 ### **WORK IN PROGRESS**
 * (klein0r) Load system configuration via parameter
+* (coltc50) Added damping factor for forecast solar
 
 ### 2.9.1 (2023-12-18)
 * (klein0r) Avoid logging of api key

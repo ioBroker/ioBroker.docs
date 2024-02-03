@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alpha-ess/README.md
 title: ioBroker.alpha-ess
-hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
+hash: vG8Yn8jR+++6UtW2i2J8JjSa35jID2Ixd6qaZItdCM0=
 ---
 ![标识](../../../en/adapterref/iobroker.alpha-ess/admin/alpha-ess.png)
 
@@ -15,6 +15,11 @@ hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
 
 # IoBroker.alpha-ess
 ## IoBroker 的 alpha-ess 适配器
+---
+
+### 如需支持，请打开 GitHub 问题或访问
+https://forum.iobroker.net/post/892023 https://www.storion4you.de/thread/683
+
 ---
 
 ### 鉴于目前情况，请注意！
@@ -55,6 +60,14 @@ hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
 **所有产品和公司名称或徽标均为其各自所有者的商标™或注册®商标。使用它们并不意味着与它们或任何关联子公司有任何隶属关系或认可！这个个人项目是在业余时间维护的，没有商业目标。**
 
 ## Changelog
+
+### 2.0.2 (2024-01-12)
+
+-   (Gaspode) Updated Copyright year
+
+### 2.0.1 (2024-01-03)
+
+-   (Gaspode) Adapted timeout to new API restrictions
 
 ### 2.0.0 (2023-12-02)
 
@@ -150,7 +163,7 @@ hash: CkBASUOMj3wCUBRJGgQCpv3+E0ShFVxZTfEe1Fau9iQ=
 
 MIT License
 
-Copyright (c) 2023 Gaspode <gaspode69@online.de>
+Copyright (c) 2024 Gaspode <gaspode69@online.de> (**NO SUPPORT VIA EMAIL**)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

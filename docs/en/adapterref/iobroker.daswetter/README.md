@@ -71,6 +71,9 @@ Now we have implemented a "auto-repair" which changes to structure to documented
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 3.1.13 (2024-01-12)
+* (René) update dependencies
+
 ### 3.1.12 (2023-12-24)
 * (René) see issue #217: additional log added to understand root cause, please copy&past log output into github issue
 
@@ -208,7 +211,7 @@ needs also 2.x of vis-weather-widget
 
 MIT License
 
-Copyright (c) 2017-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2017-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -29,6 +29,12 @@
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 3.6.0 (2024-01-06)
+* (misanorot) added new zone functions ON/OFF /  Please check the readme
+
+### 3.5.0 (2024-01-05)
+* (misanorot) added activation aborted speech output
+
 ### 3.4.3 (2023-11-05)
 * (misanorot) added silent_alarm (state list) to shortcuts
 
@@ -38,15 +44,7 @@
 ### 3.4.1 (2023-10-29)
 * (misanorot) fixed astro at presence simulation (jsControler 5.x???)
 
-### 3.4.0 (2023-10-03)
-* (misanorot) fixed #168
-
-**[older changelogs](CHANGELOG_OLD.md)**
-
-### 3.3.7 (2023-01-02)
-* (misanorot) fixed issues at presence light trigger
-
 ## License
 MIT License
 
-Copyright (c) 2019-2023 misanorot <audi16v@gmx.de>
+Copyright (c) 2019-2024 misanorot <audi16v@gmx.de>

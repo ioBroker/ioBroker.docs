@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-inventwo/README.md
 title: ioBroker.vis-inventwo
-hash: 7tIQPvhFRj4TSdKlG/nUyUSxVccx5iy6jjrmsc741EA=
+hash: GIOEhJx6TMLw6RXYVLPB4mlJQ+38O0AUalEWlro85Y8=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
@@ -21,28 +21,38 @@ hash: 7tIQPvhFRj4TSdKlG/nUyUSxVccx5iy6jjrmsc741EA=
 ## Widgets für den ioBroker.vis Adapter
 Schalter, Slider, Tabellen, Regler, Checkboxen, Radiobuttons und mehr...<br> Mit unserem Widgets-Set haben Sie die freie Wahl, individuelle Visualisierungen ganz einfach für Ihr Smart-Home zu erstellen.
 
-![Vorschau Universal- & Multi-Widget](http://resources.inventwo.com/github/inventwo/preview_universal_widget.png)
+### <span style="color:red">Wichtiger Hinweis für Vis 2</span>
+Der Adapter ist für VIS 1 entwickelt und getestet. In Vis 2 können Fehler auftreten, die die Nutzung Ihrer Visualisierung nicht ermöglichen.
+Eine nahtlose Kompatibilität wird nicht möglich sein. Ob und wann ein neuer Adapter für Vis 2 kommen wird kann nicht gesagt werden.
+Bei neuen Infos werden wir euch informieren.
+
+## Inhalt des Adapters
+Verschiedene Widgets zum schalten, handhaben und mehr.
+
+![Vorschau Universal- & Multi-Widget](../../../en/adapterref/iobroker.vis-inventwo/img/preview_universal_widget.png)
 
 Analoge Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Analoge Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks.png)
+![Vorschau Analoge Uhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clocks.png)
 
 Digitale Uhren [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Universal-%26-Multi-Widget-Inhaltstypen)
 
-![Vorschau Digitale Uhren](http://resources.inventwo.com/github/inventwo/preview_clocks_digital.png)
+![Vorschau Digitale Uhren](../../../en/adapterref/iobroker.vis-inventwo/img/preview_clock_digital.png)
 
 Farbauswahl [Weitere Informationen](https://github.com/inventwo/ioBroker.vis-inventwo/wiki/Colorpicker)
 
-![Vorschau Farbauswahl](http://resources.inventwo.com/github/inventwo/Preview_Colorpicker.png)
+![Vorschau Farbauswahl](../../../en/adapterref/iobroker.vis-inventwo/img/Preview_Colorpicker.png)
 
-###### .. ab v 2.0.0
+Für weitere Infos schaue dich im [Wiki](https://github.com/inventwo/ioBroker.vis-inventwo/wiki) um.
+
+###### Alle Widgets ab Version 2.0.0
 <table><tr><td><center><b>Universal<br></b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center> <b>Multi<br></b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center> <b>Bild<br></b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center> <b>Tisch<br></b> <br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>Aufführen<br></b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center> <b>Festzelt<br></b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center> <b>Radio knopf<br></b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center> <b>Schieberegler<br> Vertikale</b> <br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Schieberegler<br> horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center> <b>Farbschieber<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center> <b>Farbschieber<br> horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center> <b>Kippschalter<br></b> <br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center> <b>Basisschalter<br></b><br><img src="widgets/vis-inventwo/img/Switch.gif"></td><td><center> <b>Kontrollkästchen/<br> Radio knopf</b><br><img src="widgets/vis-inventwo/img/Check.gif"></td><td><center> <b>Farbwähler<br></b><br><img src="widgets/vis-inventwo/img/Colorpicker.png"></td></tr></table>
 
 Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben). Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. Zusätzlich installiert werden.
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
+![Beispiel](../../../en/adapterref/iobroker.vis-inventwo/img/Preview.png)
 
-![Beispiel](http://resources.inventwo.com/github/inventwo/Preview2.png)
+![Beispiel](../../../en/adapterref/iobroker.vis-inventwo/img/Preview2.png)
 ---
 
 ## Unterstützung
@@ -50,413 +60,422 @@ Wenn Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, freuen wir u
 
 (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-[![Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
+[![Spende](img/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
 ---
 
-## 3.3.3
-- Problem mit Umrandungsfarbe beim Multi-Widget View im PopUp behoben
+## Changelog
+### 3.3.4
+- Fixed: [#455](https://github.com/inventwo/ioBroker.vis-inventwo/issues/455) Color-Picker-Widget "verschwindet" bei Auswahl von CIE
+- Fixed: [#369](https://github.com/inventwo/ioBroker.vis-inventwo/issues/369) Simple Slider Farbe der Schritte nicht änderbar
+- Fixed: [#361](https://github.com/inventwo/ioBroker.vis-inventwo/issues/361) Image Widget zeigt immer das Image für true
+- Fixed: [#564](https://github.com/inventwo/ioBroker.vis-inventwo/issues/564) Radiobutton - Bildfarbe true wird von false übernommen
+- Fixed: [#461](https://github.com/inventwo/ioBroker.vis-inventwo/issues/461) Doppelauslösung Taster/state und "slider lässt sich nicht "sliden bei Windows Touch
+- Fixed: [#474](https://github.com/inventwo/ioBroker.vis-inventwo/issues/474) json Tabelle mit "Binding"
+- Fixed: [#580](https://github.com/inventwo/ioBroker.vis-inventwo/issues/580) JSON Table Widget: Farbänderung der Werte via Schwellwert ist nur im Editor, nicht in Runtime sichtbar.
+- Fixed: [#622](https://github.com/inventwo/ioBroker.vis-inventwo/issues/622) Think about to fix the issues found by adapter checker
 
-## 3.3.2
-- Bug-Fix
+### 3.3.3
+- Problem mit Umrandungsfarbe beim Multi-Widget View in PopUp behoben
 
-## 3.3.1
-- Bug-Fix
+### 3.3.2
+- Bugfix
 
-## 3.3.0
+### 3.3.1
+- Bugfix
+
+### 3.3.0
 - Neues Widget: Konfigurierbarer Colorpicker für HEX, RGB, HSL, HSV und CIE/XY basierend auf [iro.js](https://iro.js.org/)
 
-## 3.2.8
-- Radiobutton-Liste: Mehrzeilige/Mehrspaltige Darstellung möglich [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
+### 3.2.8
+- Radiobutton-List: Mehrzeilige/Mehrspaltige Darstellung möglich  [#393](https://github.com/inventwo/ioBroker.vis-inventwo/issues/393)
 - JSON-Tabelle: Textausrichtung für Kopfzeile hinzugefügt [#394](https://github.com/inventwo/ioBroker.vis-inventwo/issues/394)
 
-## 3.2.7
-- BEHOBEN: Popup schließt nicht bei Datenpunktwert
+### 3.2.7
+- FIXED: Popup schließt nicht bei Datenpunktwert
 
-## 3.2.6
+### 3.2.6 
 - JSON-Tabelle: Hintergrund pro Zeile in Abhängigkeit eines Wertes färben [#280](https://github.com/inventwo/ioBroker.vis-inventwo/issues/280)
 - JSON-Tabelle: Standardsortierung einer Spalte [#286](https://github.com/inventwo/ioBroker.vis-inventwo/issues/286)
-- Universal- & Multi-Widget ViewInPopUp: Scrollen der Ansicht möglich [#344](https://github.com/inventwo/ioBroker.vis-inventwo/issues/344)
-- Universal- & Multi-Widget HTTP: Link kann im gleichen oder neuen Tab geöffnet werden [#363](https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
+- Universal- & Multi-Widget ViewInPopUp: Scrollen der View möglich [#344](https://github.com/inventwo/ioBroker.vis-inventwo/issues/344)
+- Universal- & Multi-Widget HTTP: Link kann im gleichem oder neuem Tab geöffnet werden [#363](https://github.com/inventwo/ioBroker.vis-inventwo/issues/363)
 
-- BEHOBEN: JSON-Tabelle funktioniert nun auch, wenn nur ein einzelnes Objekt statt Array mit Objekten im Datenpunkt steht [#319](https://github.com/inventwo/ioBroker.vis-inventwo/issues/319)
-- BEHOBEN: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376](https://github.com/inventwo/ioBroker.vis-inventwo/issues/376)
+- FIXED: JSON-Tabelle funktioniert nun auch wenn nur ein einzelnes Objekt statt Array mit Objekten im Datenpunkt steht [#319](https://github.com/inventwo/ioBroker.vis-inventwo/issues/319)
+- FIXED: JSON-Tabelle: 10-stelliger Zeitstempel funktionierte nicht [#376](https://github.com/inventwo/ioBroker.vis-inventwo/issues/376)
 
-## 3.2.5
-- Bug-Fix
+### 3.2.5
+- Bugfix
 
-## 3.2.4
-- Bug-Fix
+### 3.2.4
+- Bugfix
 
-## 3.2.3
-- Bug-Fix
+### 3.2.3
+- Bugfix
 
-## 3.2.2
-- Bug-Fix
+### 3.2.2
+- Bugfix
 
-## 3.2.1
+### 3.2.1
 - Problem mit aktiver Textfarbe behoben (#302)
 - Problem mit Multi-Widget und unterschiedlichem Prüftyp behoben (#303)
 - Problem beim Schließen mit View im PopUp behoben (#254)
 - Navigationseffekte aus der Basisnavigation hinzugefügt (#304)
-- Neu hinzugefügter Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
+- Neu hinzugefügt Widget-Typ 'HTTP' für Universal- und Multi-Widget (#249)
 - Sichtbare Schritte für einfachen Slider hinzugefügt
 
-## 3.2.0
+### 3.2.0
 - Textfarbe aktiv/inaktiv für Universal- & Multiwidget
 - Colorslider CIE Wert mit eckigen Klammern
-- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert wurde
-- JSON Tabelle: Vorangestellter und angehängeter Text
+- Fehler behoben, dass Schattenfarbe bei Universal- & Multiwidget nicht aktualisiert
+- JSON Tabelle: Vorangestellter und angehänget Text
 
-## 3.1.3
-- Bug-Fix
+### 3.1.3
+- Bugfix
 
-## 3.1.2
-- Bug-Fix
+### 3.1.2
+- Bugfix
 
-## 3.1.1
-- Bug-Fix
+### 3.1.1
+- Bugfix
 
-## 3.1.0
+### 3.1.0
 - Neues Widget: Basisschalter
 - Neues Widget: Checkbox/Radiobutton
-- Fehlerbehebung
+- Bugfixes
 
-## 3.0.11
-- Bug-Fix
+### 3.0.11
+- Bugfix
 
-## 3.0.10
-- Bug-Fix
+### 3.0.10
+- Bugfix
 
-## 3.0.9
-- Bug-Fix
+### 3.0.9
+- Bugfix
 
-## 3.0.8
-- Bug-Fix
+### 3.0.8
+- Bugfix
 
-## 3.0.7
-- Bug-Fix
+### 3.0.7
+- Bugfix
 
-## 3.0.6
-- Bug-Fix
+### 3.0.6
+- Bugfix
 
-## 3.0.5
-- Bug-Fix
+### 3.0.5
+- Bugfix
 
-## 3.0.4
-- Bug-Fix
+### 3.0.4
+- Bugfix
 
-## 3.0.3
-- Bug-Fix
+### 3.0.3
+- Bugfix
 
-## 3.0.2
-- Bug-Fix
+### 3.0.2
+- Bugfix
 
-## 3.0.1
-- Bug-Fix
+### 3.0.1
+- Bugfix
 
-## 3.0.0
+### 3.0.0
 ```diff
 #### ACHTUNG ####
-Nach dem Update sind die Icons vom Universal- und Multiwidget
-nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
+Nach dem Update sind die Icons vom Universal- und Multiwidget 
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen 
 die Widgets einmal EINZELN im Editor angeklickt werden.
 ```
-
 - Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
-    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text
-    - Analoge und digitale Uhr: Farbe des Ziffernblatts unter Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
-    - Anstelle des Icons kann ein eigener Text oder ein Datenpunktwert pro Bindung angezeigt werden
+    - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text 
+    - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+    - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
 - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
 - PopUp kann per Datenpunk geöffnet werden
-- Bug-Fix:
-    - Colorslider unsichtbar, wenn für CIE kein Wert vorhanden ist
+- Bugfix:
+    - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
     - Links funktionieren nicht im Popup
-    - Status-Rückmeldedauer funktioniert nicht richtig
+    - State Rückmeldedauer funktioniert nicht richtig
 
-## 2.9.7
-- Bug-Fix
+### 2.9.7
+- Bugfix
 
-## 2.9.6
-- Bug-Fix
+### 2.9.6
+- Bugfix
 
-## 2.9.5
-- Bug-Fix
+### 2.9.5
+- Bugfix
 
-## 2.9.4
-- Bug-Fix
+### 2.9.4
+- Bugfix
 
-## 2.9.3
-- Fehler mit PopUp behoben: Klick zum Schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
+### 2.9.3
+- Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
 - Zustände wurden bei View in PopUp nicht richtig angezeigt
 
-## 2.9.2
+### 2.9.2
 - Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden
 
-## 2.9.1
-- Bug-Fix
+### 2.9.1
+- Bugfix
 
-## 2.9.0
-- Multi-Widget-Status kann unabhängig vom Widget-Typ nach Datenpunkten oder Ansichten prüfen
+### 2.9.0
+- Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
 - Optionen zum automatischen Schließen des Popups hinzugefügt
-- Fehlerbehebung
+- Bugfixes
 
-## 2.8.3
-- Bug-Fix
+### 2.8.3
+- Bugfix
 
-## 2.8.2
-- Problem mit Colorslider behoben: Wert wird nicht im Datenpunkt gesetzt, wenn „Wert bei Freigabe aktualisieren“ aktiviert ist,
+### 2.8.2
+- Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
 
-## 2.8.1
-- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
+### 2.8.1
+- Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!) 
 
-## 2.8.0
-- Ansicht in PopUp-Option für Universal- und Multi-Widget hinzugefügt
-- Bug-Fix
+### 2.8.0
+- View in PopUp Option für Universal- und Multi-Widget hinzugefügt
+- Bugfix
 
-## 2.7.11
-- Bug-Fix
+### 2.7.11
+- Bugfix
 
-## 2.7.10
+### 2.7.10
 - Problem mit Bildern im Universal und Multi Widget behoben
 - Problem mit Bildwechesl im Universal und Multi Widget behoben
 
-## 2.7.9
+### 2.7.9
 - Option für die Bildgröße für das Image-Widget hinzugefügt
-- Fehler der vorherigen Version behoben
+- Fehler von vorheriger Version behoben
 
-## 2.7.8
+### 2.7.8
 - Problem mit Textausrichtung behoben
-- Problem mit der Bildgröße im Image-Widget behoben
+- Problem mit Bildgröße im Image-Widget behoben
 
-## 2.7.7
+### 2.7.7
+
 - Problem mit der Bildgröße behoben
-- Problem mit dem Farbregler behoben, dass der Wert beim Loslassen nicht gespeichert wurde
+- Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
-## 2.7.6
+### 2.7.6
 - Problem mit Symbolfarbe für Navi-Widget behoben
 - Problem mit Hervorhebung auf Touch-Geräten behoben
-- Problem mit Radiobutton-Widget und Datentyp Zahlen behoben
+- Problem mit Radiobutton-Widget und Datentyp Zahlen behobenn
 
-## 2.7.5
+### 2.7.5
 - JSON Tabelle farbliche Schwellenwerte für Zahlen
-- Fehler beim Slider behoben, wenn ungültiger Wert im Datenpunkt steht
+- Fehler beim Slider behoben wenn ungültiger Wert im Datenpunkt steht
 - Fehler behoben: Signalbilder wurden mit eingefärbt
 - Option um Bildfarbe zu invertieren eingefügt, um Farbfilter zu umgehen
-- Der Farbschieberegler kann nun zwischen HEX, RGB und CIE unterscheiden
+- Color Slider kann nun zwischen HEX, RGB und CIE unterscheiden
 
-## 2.7.4
+
+### 2.7.4
 - Fehlende Übersetzung für Hover-Farben hinzugefügt
 
-## 2.7.3
+### 2.7.3
 - Fehler beim Multi-State und mehreren Zuständen behoben
 - Schatten und Rand Hover für Buttons hinzugefügt
 
-## 2.7.2
-- Fehler im Radiobutton mit Bildfarbe behoben
+### 2.7.2
+- Fehler in Radiobutton mit Bildfarbe behoben
 - Fehler behoben: Doppeltes klicken bei State mit Verweildauer
 - Hovereffekt für Buttons eingefügt
 - Problem mit anzeigen des Sliderwertss behoben
-- Slider-Text anhängen möglich
+- Slider Text anhängen möglich
 
-## 2.7.1
-- Bug-Fix
+### 2.7.1
+- Bugfix
 
-## 2.7.0
+### 2.7.0
 - Neues Widget: Farbslider
-- JSON Tabellenspaltenformat boolean und number
-- JSON Tabellenkopfzeile kann fixiert werden
-- JSON-Tabelle Fehler beim Sortieren behoben
-- JSON-Tabelle konfigurierbare Dummyzeile, wenn JSON leer ist
+- JSON Tabelle Spaltenformat boolean und number
+- JSON Tabelle Kopfzeile kann fixiert werden
+- JSON Tabelle Fehler beim sortieren behoben
+- JSON Tabelle konfigurierbare Dummyzeile wenn JSON leer ist
 - Fehler behoben
 
-## 2.6.0
-- Universal- und Multi-Widget-Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
-- Schieberegler Min/Max invertieren
+### 2.6.0
+- Universal- & Multi-Widget Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
+- Slider Min/Max invertieren
 - Slider Wert erst beim loslassen setzen
-- Widget um den Wert zu erhöhen oder zu senken
-- JSON-Tabelle Fehler mit Datum behoben
+- Widget um Wert zu erhöhen oder zu senken
+- JSON Tabelle Fehler mit Datum behoben
+. JSON Tabelle anzeige von Millisekunden möglich
+- JSON Tabelle Platzhalter wenn Eintrag leer ist
+- JSON Tabelle Spalten können per Klick sortiert werden
 
-. JSON Tabellenanzeige von Millisekunden möglich
+### 2.5.11
+- Bugfix
 
-- JSON Tabelle Platzhalter, wenn Eintrag leer ist
-- JSON-Tabellenspalten können per Klick sortiert werden
+### 2.5.10
+- Bugfix
 
-## 2.5.11
-- Bug-Fix
-
-## 2.5.10
-- Bug-Fix
-
-## 2.5.9
+### 2.5.9
 - Der Prozess der Bildfarbfilterung wurde geändert
 - Die Bildfarbe kann jetzt ein Datenpunkt sein
 
-## 2.5.8
-- Bug-Fix
+### 2.5.8
+- Bugfix
 
-## 2.5.7
-- Bug-Fix
+### 2.5.7
+- Bugfix
 
-## 2.5.6
-- Bug-Fix
+### 2.5.6
+- Bugfix
 
-## 2.5.5
-- Bug-Fix
+### 2.5.5
+- Bugfix
 
-## 2.5.4
-- Bugfix (Stand: doppeltes Senden dese Wertes bei Touch)
+### 2.5.4
+- Bugfix (State: doppeltes senden dese Wertes bei touch)
 
-## 2.5.3
+
+### 2.5.3
 - Grauer Kippschalter hinzugefügt
 
-## 2.5.2
-- Bug-Fix
+### 2.5.2
+- Bugfix
 
-## 2.5.1
-- Bug-Fix
+### 2.5.1
+- Bugfix
 
-## 2.5.0
+### 2.5.0
 - Kippschalter hinzugefügt
-- Bug-Fix
+- Bugfix
 
-## 2.4.3
-- Bug-Fix
+### 2.4.3
+- Bugfix
 
-## 2.4.2
-- Bug-Fix
+### 2.4.2
+- Bugfix
 
-## 2.4.1
-- Bug-Fix
+### 2.4.1
+- Bugfix
 
-## 2.4.0
+### 2.4.0
 - Randstil zur JSON-Tabelle hinzugefügt
-- Farbauswahl für Icons zu allen Widgets hinzugefügt
-- Behebung
+- Farbauswahö für Icons zu allen Widgets hinzugefügt
+- Fehlerbehebung
 
-## 2.3.2
+### 2.3.2
 - Fehler bei der Navigation mit dem Widget 'View in Widget' behoben
 
-## 2.3.1
-- Fehler in der JSON-Tabelle behoben
+### 2.3.1
+- Fehler in JSON Tabelle behoben
 
-## 2.3.0
-- Problem behoben, bei dem Button zweimal Werte senden
+
+### 2.3.0
+- Problem behoben, bei dem Schaltflächen zweimal Werte senden
 - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
 - Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
 
-## 2.2.3
-- Fehler in der JSON-Tabelle behoben
+### 2.2.3
+- Fehler in JSON Tabelle behoben
 
-## 2.2.2
+### 2.2.2
 - Fehler im Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
 
-## 2.2.1
-- Fehler in der JSON-Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
-- Fehler in der Werteliste behoben: Wert wird nicht aktualisiert
+### 2.2.1
+- Fehler in JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
+- Fehler in Value-List behoben: Wert wird nicht aktualisiert
 
-## 2.2.0
+### 2.2.0
 - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
 - Neues Widget: Marquee (Laufschrift)
 - Universal und Multi State Verweildauer hinzugefügt
-- List Widget Abstand zwischen den Einträgen kann eingerichtet werden
+- List Widget Abstand zwischen den Einträgen kann eingestell werden
 
-## 2.1.0
+### 2.1.0
 - Datenpunktwerte werden im VIS Editor angezeigt!
 
-## 2.0.1
+### 2.0.1
 - Übersetzungsfehler behoben
-- Randfarbe behoben
+- Border Farbe behoben
 - Widget-Untertitel behoben
 
-## 2.0.0
-- Switch, Button, Nav und Background Widget (sowie die kleinen Ausführungen) zu einem einzigen Widget zusammengeführt -> dem Universal Widget
+### 2.0.0
+- Switch, Button, Nav und Background Widget (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget 
 - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
 - Image Widget kann nun auf Datenpunkt prüfen
 - Radiobuttons hinzugefügt
 - Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
 
-## 1.3.8
-- Schiebereglerschritt auf Dezimalzahl geändert
-- Problem mit numerischen Werten behoben
+### 1.3.8
+- Changed slider step to decimal
+- Fixed problem with numeric values
 
 ### 1.3.7
-- Problem mit der Navigation auf Touchscreens behoben
+- Fixed problem with navigation on touchscreens
 
 ### 1.3.6
-- Option „Status festlegen“ für die Navigation hinzugefügt
-- Problem mit Datenpunkten ohne Konfiguration behoben
+- Added set state option for navigation
+- Fixed problem with datapoints without config
 
 ### 1.3.5
-- Aktualisierungsrate für Tabelle hinzugefügt
+- Added refresh rate for table
 
 ### 1.3.4
-- Symbole und Hintergründe entfernt, Konfiguration geändert, Navigation korrigiert
+- Removed icons and backgrounds, changed config, Fixed navigation
 
 ### 1.3.3
-- Option für Hintergrund-Widget-Werte korrigiert
+- Fixed background widget value option
 
 ### 1.3.2
-- Bug-Fix
+- Bug fix
 
 ### 1.3.1
-- Das Farbverhalten der Navigationsschaltflächen wurde geändert
-- Neue Symbole hinzugefügt
+- Changed navigation button color behaviour
+- Added new icons
 
 ### 1.3.0
-- JSON-Tabelle hinzugefügt
-- Verzögerung für Navigationen hinzugefügt
-- Text in Schaltflächen kann jetzt HTML sein
-- Neue Symbole hinzugefügt
+- Added JSON table
+- Added delay for navigations
+- Text in buttons can now be HTML
+- Added new icons
 
 ### 1.2.3
-- Aktive Navigationsfarbe hinzugefügt
-- Statusfarbe für Wertschalter korrigiert
+- Added Navigation active color
+- Fixed state color for value switch
 
-## 1.2.2
-- Fehlerbehebung: Schiebereglerwert, Konfiguration
+### 1.2.2
+- Bug Fix: slider value, config
 
-## 1.2.1
-- Slider-Widget korrigiert: in zwei Widgets aufgeteilt (horizontal und vertikal)
+### 1.2.1
+- Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)
 
 ### 1.2.0
-- Bild-Widget hinzugefügt
-- Schieberegler hinzugefügt, um den Randradius für alle 4 Ecken zu ändern (Wenn es sich bei dieser Version um ein Update für Sie handelt, müssen Sie auf jede Schaltfläche im Vis-Editor klicken, um die Standardecken wiederherzustellen)
-- Neue Symbole hinzugefügt
+- Added image widget
+- Added Slider to change border radius for all 4 corners (If this version is an update for you, you need to click on each button in the vis-editor to get back the default corners)
+- Added new icons
+
 
 ### 1.1.1
-- Bug-Fix
+- Bug fix
+
 
 ### 1.1.0
-- Slider-Widget hinzugefügt
-- Option zum Spiegeln des Bildes hinzugefügt
-- Neue Symbole hinzugefügt
-- Schaltflächen-Widgets geändert, um Standard-Schriftart- und Textoptionen zu verwenden
+- Added slider widget
+- Added option to mirror image
+- Added new icons
+- Changed button widgets to use default font and text options
 
 ### 1.0.0
-- Widget-Hintergrund und Inhaltsdeckkraft, Schalter kann von boolesch auf Wert geändert werden, Symbole von Weiß auf Schwarz geändert, nahtlose Hintergründe hinzugefügt
+- Widget background and content opacity, Switch can be changed from boolean to value, changed icons from white to black, added seamless backgrounds
 
 ### 0.1.2
-- Fehlerbehebung
-
+- Bug fixes
 ...
 
 ### 0.1.1
-- Fehlerbehebung
-
+- Bug fixes
 ...
 
 ### 0.1.0 (Erstveröffentlichung)
-- erfinde zwei Design-Widgets
-
+- inventwo Design Widgets
 ...
 
 ### 0.0.1
 - Die Idee ist geboren
 
 ---
-
-## Changelog
 
 ## License
 

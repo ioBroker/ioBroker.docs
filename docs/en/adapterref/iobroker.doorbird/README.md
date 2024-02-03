@@ -108,6 +108,10 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.3.1 (2024-02-01)
+
+-   (Schmakus) update dependencies
+
 ### 1.3.0 (2023-10-03)
 
 -   (Schmakus) add debug logs to find out "Maximum call stack size exceeded"
@@ -126,15 +130,11 @@ onFile("doorbird.0", "TakeSnapshot_1.jpg", true, function (id, fileName, size, f
 
 -   (Schmakus) some code improvements
 
-### 1.2.1 (2023-08-17)
-
--   (Schmakus) Issue 'Maximum call stack size exceeded' - try to fix
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2023 iobroker-community-adapters <>
+Copyright (c) 2024 iobroker-community-adapters <>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

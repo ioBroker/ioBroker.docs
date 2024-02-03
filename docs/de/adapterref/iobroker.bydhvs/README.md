@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bydhvs/README.md
 title: kein Titel
-hash: rdIh77tbZwWxtyNaiQ+u+VWM8qKa82gxi9pQbGIM1S8=
+hash: OL9S1Ap4Zj5QNDN46dIOF2sG5imuC2EcpBtE87vW9vc=
 ---
 ![Logo](../../../en/adapterref/iobroker.bydhvs/admin/bydhvs.png)
 
@@ -32,8 +32,12 @@ Kopieren und Einfügen funktioniert nicht – die Daten werden am Ende ausgeschn
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.5.1 (2024-01-15)
+* Enable the possibility to get informations from a two tower setup
+* BREAKING CHANGE of Structure.
+
 ### 1.5.0 (2023-11-04)
-* Breaking change: nodejs 16 minimum required  
+* Breaking change: nodejs 16 minimum required
 * automated checks and release-script repaired (thanks to mcm1957, he did the work)
 * nothing else changed in code
 

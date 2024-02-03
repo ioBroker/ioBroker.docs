@@ -3,39 +3,45 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bwt/README.md
 title: ioBroker.bwt
-hash: PP+ePNmV2FiHn4oeaoQGofPdAYFxcCtScVo0M/FQwWI=
+hash: x4VNZgkP8CtiBf4K5mONISqEvhRPs+bdWUdAp5YJQIo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bwt/admin/bwt.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.bwt.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.bwt.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bwt.svg)
 ![Количество установок](https://iobroker.live/badges/bwt-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/bwt-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/bwt-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/TA2k/iobroker.bwt.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bwt.png?downloads=true)
 
 # IoBroker.bwt
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
+**Тесты:** ![Тестирование и выпуск](https://github.com/TA2k/ioBroker.bwt/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер bwt для ioBroker
+##bwt-адаптер для ioBroker
 Адаптер для устройств bwt
 
-## Войти
-Локализованный IP-адрес и исходный код
+## Логинаблауф
+Местный IP-адрес и код Цугрифа
 
-Es wird der locale Zugriff-Code benötigt. Dazu muss man am Gerät die Cloud-Registrierung durchlaufen. Danach bekommt man den Zugriffs-Code для отправки по электронной почте.
+Прошивка BWT >V2.02xx (может быть установлена поддержка BWT через Anfrage на ProfilineAS@bwt.de)
 
-Подсказка для подключения к соединению в сети: не следует отключать соединение с WLAN. DHCP без подключения к локальной сети! Andersherum muss bei LAN-Anbindung DHCP aktiviert und WLAN ausgeschaltet sein. Es dürfen immer nur die Параметр einer Schnittstelle konfiguriert sein, sonst klappts nicht.
+-lokae API активен в меню создания настроек
 
-## Обсуждение и обсуждение
+-BWT-Прошивка > V2.02xx. (можно установить службой поддержки BWT удаленно, обратившись по адресу: ProfilineAS@bwt.de.
+
+-API должен быть активирован пользователем на месте в меню подключения.
+
+## Обсуждение и Fragen
 <https://forum.iobroker.net/topic/49576/test-adapter-bwt-v0-0-x>
 
 ## Changelog
 
 ### 0.0.1
-* (TA2k) initial release
+
+- (TA2k) initial release
 
 ## License
+
 MIT License
 
 Copyright (c) 2022 TA2k <tombox2020@gmail.com>

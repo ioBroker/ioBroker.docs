@@ -1,0 +1,124 @@
+---
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
+title: ioBroker.sun2000
+hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
+---
+![Logo](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
+
+![NPM-Version](https://img.shields.io/npm/v/iobroker.sun2000.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000.svg)
+![Anzahl der Installationen](https://iobroker.live/badges/sun2000-installed.svg)
+![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sun2000-stable.svg)
+![NPM](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)
+
+# IoBroker.sun2000
+**Tests:** ![Test und Freigabe](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
+
+## Sun2000-Adapter für ioBroker
+Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
+
+Verfolgen Sie gerne die Diskussionen im deutschen [iobroker-Forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
+
+Modbus-Schnittstellendefinition (Ausgabe 5, 16.02.2023): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+
+## Unterstützte Hardware
+* HUAWEI Wechselrichter (SUN2000 Serie) M1
+* HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: xxxSPC133 (SDongleA-05)
+* HUAWEI Luna2000-Akku
+* HUAWEI Smart Power Sensor DTSU666-H oder DDSU666-H
+
+[Huawei-Produktinformationen](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+
+## Funktionsliste
+* Es können maximal 5 Wechselrichter (Master/Slave) mit jeweils einem Batteriemodul (max. 30kWh) verarbeitet werden.
+* Echtzeitwerte wie Eingangsleistung, Ausgangsleistung, Lade-/Entladeleistung und der Netzverbrauch werden in einem festen Intervall ausgelesen.
+* Zustände werden nur für geänderte Daten vom Wechselrichter geschrieben. Dies entlastet die iobroker-Instanz.
+* Die Zustände „inputPower“ oder „activePower“ im „collected“-Pfad können mit einem „wurde aktualisiert“-Triggerelement überwacht werden. Denn diese Zustände werden immer innerhalb des eingestellten Intervalls geschrieben.
+
+## Einstellungen
+* „Adresse“: IP-Adresse des Wechselrichters
+* „Port“: Wechselrichter-Modbus-Port (Standard: 502)
+* „modbusIds“: Wechselrichter-IDs, getrennt durch „“, (Standard: 1, max. 5 Wechselrichter)
+* „updateInterval“: Schnelles Aktualisierungsintervall (Standard: 20 Sek., kleinste 5 Sekunden pro Wechselrichter)
+
+## Wechselrichter konfigurieren
+Um die Modbus-Verbindung nutzen zu können, müssen alle Huawei-Geräte die neueste Firmware-Funktion verwenden. Sie können die neueste Firmware direkt im FusionSolar-Portal unter „Upgrades“ durchführen.
+Im FusionSolar-Setup müssen Sie noch den Modbus am WLAN-Dongle aktivieren und die Zugangsberechtigung einstellen. Laden Sie sich die FusionSolar-App auf Ihr Handy herunter und verbinden Sie sich damit direkt über den WLAN-Hotspot des Wechselrichters.
+Nach dem Klick auf `Me` (Ich) im Fußzeilenmenü > `Commission Device` („Inbetriebnahme des Geräts“) > `log in` (am Wechselrichter anmelden).
+
+Um sich als `installer` in der App anzumelden, benötigen Sie in der Regel das Passwort: `00000a` oder `0000000a` Möglicherweise benötigen Sie auch ein Passwort, um sich mit dem wechselrichtereigenen WLAN zu verbinden: `Changeme`
+
+Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung fortsetzen aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
+Wenn Sie zwei Wechselrichter verwenden, schließen Sie den zweiten Wechselrichter an und lesen Sie auch dort die Kommunikationsadresse aus.
+
+[So aktivieren Sie „Modbus TCP“ – aus dem Huawei-Forum](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
+
+## Inspiration
+Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert und dem iobroker-Javascript https://github inspiriert. com/ChrisBCH/SunLuna2000_iobroker.
+
+## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+### 0.2.1 (2024-02-02)
+* Requirements from [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
+
+### 0.2.0 (2024-01-24)
+* [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
+* improve error handling (#34)
+* add simple optimizer info 
+* Riemann sum of input power with energy loss for new state `dailySolarYield`
+* try to recreate the `yield today` from the fusion portal
+
+### 0.1.3 (2024-01-17)
+* display the data from PV strings (#27)
+* optimize the timing of interval loop
+* improved handling of read timeouts from more then 2 inverters
+
+### 0.1.2 (2024-01-12)
+* fix: no Data if interval less 20 sec (#24)
+* prepare collected values more precisely
+* expand up to 5 inverters #18
+* fix: problems with multiple inverters
+
+### 0.1.1 (2024-01-07)
+* fix some collected values
+
+### 0.1.0 (2024-01-06)
+* watchdog implemented #11
+* state values are cached - only changed data should be stored 
+* derived and collected values for example `inputPowerEffective` or `inputYield`
+* deploy more register
+
+### 0.0.2 (2023-12-19)
+Dependency and configuration updates
+
+### 0.0.1 
+initial release
+
+## License
+MIT License
+
+Copyright (c) 2024 bolliy <stephan@mante.info>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

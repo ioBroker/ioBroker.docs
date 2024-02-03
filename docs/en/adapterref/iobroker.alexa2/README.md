@@ -487,6 +487,10 @@ Link: https://www.amazon.de/hz/mycd/digital-console/devicedetails?deviceFamily=A
 After deleting an unused device, please restart the adapter to remove them there too.
 
 ## Changelog
+### 3.26.4 (2024-01-25)
+* (Apollon77) Removed Weblink
+* (Apollon77) Adjust History query to recent Amazon changes
+
 ### 3.26.3 (2023-11-25)
 * (Apollon77) Fixed the proxy login process
 
@@ -1055,7 +1059,7 @@ After deleting an unused device, please restart the adapter to remove them there
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
+Copyright (c) 2018-2024 Ingo Fischer <iobroker@fischer-ka.de>, 2017-2018 soef <soef@gmx.net>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -141,8 +141,8 @@ See [example Scripts](doc/ExampleScripts.md) for some example scripts that help 
 ## Changelog
 
 <!--
-    Placeholder for the next version (at the beginning of the line):
-    ### **WORK IN PROGRESS**
+	PLACEHOLDER for next version:
+	## __WORK IN PROGRESS__
 -->
 ### 0.1.1 (2023-09-06)
 * dependency updates.

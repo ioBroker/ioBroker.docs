@@ -69,7 +69,7 @@ on({ id: stateMqttIn, change: 'any' }, function (obj) {
     else log(`MQTT publish not possible with topic '${topic}' and message '${message}'`,'warn');
 });
 ```
-IMPORTANT! If you create your own MQTT client in a ioBroker javascript, do not forget to close the client in the scipt by using
+IMPORTANT! If you create your own MQTT client in an ioBroker javascript, do not forget to close the client in the scipt by using
 ```
 onStop(function (callback) {
     log('MQTT Client will be closed...');
@@ -87,6 +87,10 @@ onStop(function (callback) {
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.1.1 (2024-02-01)
+* (HGlab01) Bump json-explorer to 0.1.15
+* (HGlab01) Bump aedes to 0.51.0
+
 ### 0.1.0 (2023-12-04)
 * (HGlab01) first minor release
 * (HGlab01) Node.js 18.0 or higher

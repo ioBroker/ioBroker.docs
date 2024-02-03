@@ -39,6 +39,10 @@ You can see all controller information, schedules and sensors. It is also possib
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.4 (2024-02-01)
+
+-   (SentiQ) updated dependencies
+
 ### 0.2.3 (2023-10-28)
 
 -   (SentiQ) NodeJS 16.x is required
@@ -146,7 +150,7 @@ You can see all controller information, schedules and sensors. It is also possib
 
 MIT License
 
-Copyright (c) 2023 SentiQ <fischer.yves@web.de>
+Copyright (c) 2024 SentiQ <fischer.yves@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

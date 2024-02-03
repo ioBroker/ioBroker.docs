@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: dKoOo3kalWRIbcQsXY8ocKttL+JAe9RDqPcW7nkUzqQ=
+hash: NGEqe89x5JAXM5OLlsHew2bqs9/AaX/oQ+XHqewrvmk=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -90,7 +90,7 @@ Der Stil definiert lediglich das Erscheinungsbild der Gruppenadresse in der ETS-
 1 3-stufige Haupt-/Mittel-/Untergruppe 1/3/5 2 2-stufige Hauptgruppe/Untergruppe 1/25 3 Freistufige Untergruppe 300
 
 Der Adapter unterstützt alle drei Stilkonfigurationen in der Projektimport-XML-Datei. Für die Speicherung im IOB-Objekt wird das Format immer in die 3-Ebenen-Form umgewandelt.
-Bitte beachten Sie, dass der kombinierte GA- und Gruppenname für den IOB-Objektbaum eindeutig sein muss. Wenn Sie beispielsweise eine ETS-Konfiguration mit zwei gleichnamigen mittleren Gruppen haben, entsteht ein gemeinsames Hierarchieelement, und wenn dort zwei gleichnamige Gase enthalten sind, führt dies zu einem Fehler.
+Bitte beachten Sie, dass der kombinierte GA- und Gruppenname für den IOB-Objektbaum eindeutig sein muss. Wenn Sie beispielsweise eine ETS-Konfiguration mit zwei gleichnamigen mittleren Gruppen haben, entsteht ein gemeinsames Hierarchieelement, und wenn dort zwei identisch benannte Gase enthalten sind, führt dies zu einem Fehler.
 
 ### Alias
 KNX-Geräte können über GA's zur Zustandsrückmeldung verfügen, die zu einem kommandierenden GA gehören. Einige Anwendungen wie bestimmte VIS-Widgets erwarten ein kombiniertes Status- und Betätigungsobjekt. Sie können diese einzelnen Objekte zu einem sogenannten Alias zusammenfassen. Das Menü hilft dabei, passende Paare gemäß der Namenskonvention mit der angegebenen Filterregel zu erstellen.
@@ -266,14 +266,14 @@ Der Kommentar „GroupValue_Read“ funktioniert nicht für den Javascript-Adapt
 | DPT-4 | Zeichenfolge | | ein Zeichen, das als 8-Bit-Zeichen gesendet wird | |
 | DPT-16 | Zeichenfolge | | ein Zeichen, gesendet als 16-stellige Zeichenfolge | |
 | DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
-| DPT-5.001 | Zahl | | 0..100 [%] skaliert auf 1 Byte | |
-| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte | |
+| DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
+| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
 | DPT-6 | Nummer | | 8-Bit mit Vorzeichen -128..127 | |
-| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
 | DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
 | DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
 | DPT-14 | Nummer | | 4-Byte-Gleitkommawert | |
-| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen | |
+| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
 | DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
 | DPT-15 | Nummer | | 4 Byte | |
 | DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber wird von Autoread | nicht gelesen |
@@ -338,7 +338,7 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
 - Automatische Kodierung/Dekodierung von KNX-Datagrammen für die wichtigsten DPTs, rohes Lesen und Schreiben für andere DPTs
 - Unterstützung von KNX-Gruppenwert-Lesen und Gruppenwert-Schreiben sowie Gruppenwert-Antworten
 - Kostenlose Open Source
-- Keine Abhängigkeiten zu Cloud-Diensten, läuft ohne Internetzugang
+- Keine Abhängigkeiten zu Cloud-Diensten, läuft offline ohne Internetzugang
 - Automatisches Lesen beim Start
 - Schneller Import von Gruppenadressen im XML-Format
 - Erstellen Sie gemeinsame Alias-Objekte, die auf Statuseingaben reagieren
@@ -350,7 +350,7 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
 - Nur IPv4 wird unterstützt
 
 # FAQ
-- Autoread löst eine Reaktion der Aktoren am Bus aus
+- Autoread löst bei Aktoren am Bus eine Reaktion aus
 
     Prüfen Sie in der ETS, ob Gruppenobjekte bestimmter Geräte, die mit dem verdächtigen GA verbunden sind, das R/L-Flag konfiguriert haben. Dies sollte nicht der Fall sein, wenn das Gerät ein Verbraucher des Signals ist. Wenn das Signal einen Ereignischarakter hat, würde ein „groupValueRead“ dieses Ereignis auslösen. Ändern Sie die Konfiguration in der ETS oder deaktivieren Sie Autoread für dieses Objekt.
 
@@ -367,22 +367,36 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
   * npm run release
   * npm run release major/minor/patch major.minor.patch
 -->
+
+  ### **WORK IN PROGRESS**
+### 0.7.2 (2024-01-09)
+- feature: handle network connection instability issesues
+- feature: generate more log messages
+- bugfix: telegram count
+
+### 0.7.1 (2024-01-07)
+
+-   feature: when requesting fast message sendout create iob acks per bus message status, before it triggered all acks on first message send confirmance
+-   feature: add message count object
+-   feature: use common.desc from ets xml Description field and move datatype info to native
+-   cleanup: stop timers on shutdown
+-   bugfix: create a log entry on reception of unknown ga
+-   bugfix: do not count send as duplicate trigger in load measurement
+-   increase default minimum send delay to 80ms
+
 ### 0.7.0 (2023-12-18)
 
 -   feature: adding support for DPT-28 and DPT-29
--   for gas appearing in multiple objects severity lifted to warning
+-   severity lifted to warning for gas appearing in multiple objects
 -   feature: some more verbose failure outputs
+-   feature: always warn if knx element in object tree not found in import file
 -   bugfix: do not report errors resulting from bad bus data to sentry #433
 -   bugfix: do not forward invalid bus data to iob object tree
--   cleanup of DTP library
+-   cleanup: DTP library
 
 ### 0.6.3 (2023-12-10)
 
--   stable release
-
-### 0.6.3 (2023-12-10)
-
-### 0.6.2 (2023-12-09)
+-   stable release of version 0.6.1
 
 ### 0.6.1 (2023-12-02)
 
@@ -620,7 +634,7 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
 
 ## License
 
-Copyright 2023 contributors to the ioBroker.openknx project
+Copyright 2024 contributors to the ioBroker.openknx project
 
     				GNU GENERAL PUBLIC LICENSE
 

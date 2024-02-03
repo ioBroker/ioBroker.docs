@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的科沃斯 Deebot 适配器
-hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
+hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -43,7 +43,7 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 ### 完全支持的型号
 完全支持的模型是我自己拥有的模型：
 
-* 地宝 OZMO 920
+* 地宝 OZMO 920/950
 * 地宝 OZMO T8 AIVI
 * 地宝 X1 Turbo
 * 空中机器人Z1
@@ -57,7 +57,6 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 当然，没有声称拥有全部功能。
 
 #### 科沃斯 Deebot
-* 地宝 OZMO 950
 * 地宝N8系列
 * 地宝U2系列
 * 地宝T8系列
@@ -79,7 +78,7 @@ hash: A8TLkbOVvEO54CW34tgNa5CM9Dc3JPe0nOdWMa6Lz7o=
 这些模型使用 XML 进行数据传输，并且命令和事件的特征也与当前模型不同。
 我也不再使用 Slim 2、Deebot 901 和 OZMO 930。
 
-**因此很快就会停止对这些模型的支持**。
+**因此，对这些模型的支持迟早会停止**。
 
 * 地宝超薄2
 * 地宝N79系列
@@ -142,11 +141,11 @@ npm install canvas --unsafe-perm=true
 ### 1.4.14 (alpha)
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
-* Added T20 Omni and X2 to the models dictionary
-* Bumped max number of devices to 20
-* Added Australia, United Arab Emirates and "Others countries" as "country"
-* Bumped some dependencies
 * Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
+* and also several improvements for the T20 and X2 series
+* Bumped max number of devices to 20
+* Added Australia, the United Arab Emirates and "Other countries" as "country"
+* Bumped some dependencies
 * Some further improvements and optimizations
 
 ### 1.4.13
@@ -252,7 +251,7 @@ npm install canvas --unsafe-perm=true
 
 MIT License
 
-Copyright (c) 2023 Sascha Hölzel <mrb1232@posteo.de>
+Copyright (c) 2024 Sascha Hölzel <mrb1232@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

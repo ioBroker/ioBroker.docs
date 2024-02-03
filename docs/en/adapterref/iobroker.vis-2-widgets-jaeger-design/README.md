@@ -34,6 +34,12 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.10 (2024-01-19)
+* (bluefox) Small changes on layout and added new distance settings
+
+### 1.1.8 (2024-01-18)
+* (bluefox) Corrected info button in mobile view
+
 ### 1.1.5 (2023-12-05)
 * (bluefox) Added an option to start action or scene from new line
 
@@ -142,5 +148,5 @@ And then use `javascript.0.rss` object in this widget.
 * (bluefox) initial commit
 
 ## License
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
 All rights reserved.

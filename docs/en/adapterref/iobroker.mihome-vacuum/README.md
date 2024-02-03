@@ -333,6 +333,10 @@ The supported commands are:
     ### **WORK IN PROGRESS**
     * () 
 -->
+### 4.1.1 (2024-01-06)
+* (Dirkhe) adapt stockConsumables to dreame
+* (dirkhe) fix url #886
+
 ### 4.1.0 (2023-10-31)
 * (Dirkhe) update dependecies
 * (Dirkhe) add Roborock S8 and P10
@@ -623,6 +627,7 @@ The supported commands are:
 ## License
 The MIT License (MIT)
 
+Copyright (c) 2023-2024 iobroker community developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2017-2023 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

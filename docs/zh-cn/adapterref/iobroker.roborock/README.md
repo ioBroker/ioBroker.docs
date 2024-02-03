@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.roborock/README.md
 title: ioBroker.roborock
-hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
+hash: ZbXfzwhuQCvaMwzAEM00uIjetXhhWHpf5hSd6wz3ids=
 ---
 ![标识](../../../en/adapterref/iobroker.roborock/admin/roborock.png)
 
@@ -21,12 +21,11 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ## IoBroker 的 Roborock 适配器
 该适配器允许您控制、获取状态、清洁历史记录并查看在 Roborock 应用程序中设置的 Roborock 真空吸尘器的地图。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 ## 支持的机器人有：
 - 石头扫地机器人S4
 - 石头扫地机器人S4 Max
-- 石头扫地机器人S5
 - 石头扫地机器人S5 Max
 - 石头扫地机器人S6
 - 石头扫地机器人S6 Pure
@@ -40,6 +39,8 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 - 石头扫地机器人S8
 - 石头扫地机器人S8 Pro Ultra
 - 石头扫地机器人Q Revo
+- 石头扫地机器人Q8 Max
+- 石头扫地机器人Q5 Pro
 
 ## 区域清洁
 仅当在适配器选项中启用地图创建时，此功能才有效！
@@ -56,6 +57,42 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.4 (2024-02-01)
+* (copystring) Fix mqtt disconnect/reconnect bug on start of adapter
+
+### 0.5.3 (2024-01-31)
+* (copystring) Restore original UserData creation
+
+### 0.5.2 (2024-01-31)
+* (copystring) Little bug fixes
+* (copystring) Remove Roborock S5. There is no such device
+* (copystring) Limit HomeData requests to prevent rate limit
+
+### 0.5.1 (2024-01-03)
+* (copystring) Fix lint
+
+### 0.5.0 (2024-01-03)
+* (copystring) Rework map parser and map creator
+* (copystring) Convert a lof of strings to template literals
+* (copystring) Improve go2rtc download logic
+* (copystring) Improve error logging
+* (copystring) Download roborock images from roborock server and make them available as base64 png (needs to be enabled in options, uses quite a lot of resources)
+* (copystring) Use some clever logic so adjacent rooms are never the same color 🎉
+* (copystring) The name for each room is now displayed on the map
+* (copystring) Fix photo popup position on map
+* (copystring) Seriously speed up drawing of carpet map
+* (copystring) Add basic Q8 Max support
+* (copystring) Basic Q5 Pro support
+* (copystring) Support new block types on the map
+* (copystring) Don't crash when Roborock Zeo One is in the account
+* (copystring) New commands for Roborock S7 MaxV
+* (copystring) Many bug fixes
+* (copystring) Add support for station for Q7 Max
+* (copystring) Add basic scene/program support
+* (copystring) Connect to devices via TCP instead of MQTT whereever possible
+* (copystring) Refactor web interface to fix popup position for good
+* (copystring) Add support for A01 encoding/decoding (With this devices like Zeo One, Dyad Pro etc would be supported). Huge thanks to rovo89!!!
+
 ### 0.4.4 (2023-09-24)
 * (copystring) Fix for getting the map for each cleaning record
 
@@ -238,7 +275,7 @@ hash: JajdNGHtlzDq+ufJMhejCIKplUdSzT8BpQ979TGRQ88=
 ## License
 MIT License
 
-Copyright (c) 2023 copystring <copystring@gmail.com>
+Copyright (c) 2024 copystring <copystring@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

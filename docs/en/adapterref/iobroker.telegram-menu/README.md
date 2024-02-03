@@ -36,6 +36,21 @@ You can create different groups with separate menus, and then assign users to th
 
 ### **WORK IN PROGRESS**
 
+-	#104 HTTP Request
+-   #111 status Value in dynamicSwitch
+-   #112 change value
+-   **_Change!!!_** menu:deleteAll removes automatic Request Ids which are older than 48h from list. The list is completely deleted once during the update
+-   fixed menu:number with negativ Values, see the documentation
+
+### 1.6.2 (2024-01-07)
+
+-   #102 **_Breaking Change!!!_** menu:dynSwitch with decimal numbers, if you use it, you have to adjust the function manually. For more information, see the documentation
+-   #106 **_Breaking Change!!!_** fixed change `{status:'id':'ID':true}` has now a new parameter, check docs
+-   #107 one line menu without workaround
+-   #103 scrollbar in Navigation and Action
+-   small visual changes in actions for small screens
+-   fixed checkbox send menu after restart in settings
+-   #94 menu:number with Float Numbers fixed
 -   Trigger Info - Overview of all menus and users, only visual but without functions
 -   remaining text reattached
 
@@ -321,7 +336,7 @@ You can create different groups with separate menus, and then assign users to th
 
 MIT License
 
-Copyright (c) 2023 MiRo1310 <michael.roling@gmx.de>
+Copyright (c) 2024 MiRo1310 <michael.roling@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

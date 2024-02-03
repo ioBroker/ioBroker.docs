@@ -66,6 +66,12 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.3.15 (2024-02-03)
+* (René) bug fix: wallbox counter and status are not handled
+
+### 1.3.14 (2024-01-12)
+* (René) dependencies updated
+
 ### 1.3.13 (2023-11-19)
 * (René) dependencies updated
 * (René) fix exceptions reported by sentry
@@ -175,7 +181,7 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
 ## License
 MIT License
 
-Copyright (c) 2022-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2022-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

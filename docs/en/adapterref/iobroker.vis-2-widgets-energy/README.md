@@ -25,6 +25,9 @@ This widget set consists of the following widgets:
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 0.3.10 (2024-01-31)
+* (bluefox) show value with green color if we feed back into power line
+
 ### 0.3.9 (2023-11-10)
 * (bluefox) update packages
 
@@ -67,7 +70,7 @@ This widget set consists of the following widgets:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2022-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2022-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

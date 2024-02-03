@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.growatt/README.md
 title: kein Titel
-hash: GeVXVbkQmQnp8GetMJf25XoxQLPAsUpgxpWQ1TROWiA=
+hash: yeK+7qjG/tFGYwYR2fP9xAxycdFZPprsP44FK5e2mZ8=
 ---
 ![Logo](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -60,6 +60,9 @@ Dieser Datensatz enthält einige Daten vom Gerät. Einige Daten sind auch in den
 #### Wetter lesen
 Dieser Datensatz enthält die Wettervorhersage.
 
+#### Fehlerprotokolleinträge lesen
+Liest die Einträge im Störungsprotokoll des aktuellen Jahres und erstellt hierfür Objekte mit den Meldungen. Es wird nur die erste Seite mit den aktuellsten Berichten gelesen.
+
 #### Wechselrichtereinstellungen schreiben
 Wenn diese aktiviert ist, können einige Einstellungen für einige Wechselrichter bearbeitet werden.
 
@@ -100,7 +103,7 @@ Hier können Sie einstellen, wann sich der Adapter vom Server abmeldet und wiede
 Das Intervall, in dem die Daten vom Server angefordert werden. Die für die Datenabfrage benötigte Zeit wird dann von der nächsten abgezogen. Dauert die Abfrage länger als die Wartezeit, schläft der Adapter nur 100 ms. Der Standardwert beträgt 30 Sekunden.
 
 #### Fehlerzykluszeit in Sekunden
-Tritt bei der Abfrage der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert beträgt 120 Sekunden
+Tritt beim Abfragen der Werte beim Growatt-Server ein Fehler auf, wird diese Zeit anstelle der Zykluszeit verwendet. Der Standardwert beträgt 120 Sekunden
 
 #### Growatt-Server
 Hier kann eine andere URL eingegeben werden, um beispielsweise die US-Domain zu verwenden. Es muss jedoch mit „https://“ beginnen. Der Standardwert ist leer, daher wird https://server.growatt.com verwendet.
@@ -157,7 +160,7 @@ Der Rückgabewert wird abhängig von der Parameterübergabe zurückgegeben. Wenn
 
 ### GetHistory
 Dieser Befehl listet den Verlauf auf. Es kann beispielsweise zur Ergänzung von Daten in einer Datenbank verwendet werden.
-Unabhängig vom Zeitraum scheint Growatt immer 80 Datensätze zurückzugeben. Wenn das Intervall auf 1 Minute eingestellt ist und mehr als 80 Minuten benötigt werden, muss der Befehl mehrmals ausgeführt und der Start bei 0 immer weiter erhöht werden.
+Unabhängig vom Zeitraum scheint Growatt immer 80 Datensätze zurückzugeben. Ist das Intervall auf 1 Minute eingestellt und werden mehr als 80 Minuten benötigt, muss der Befehl mehrmals ausgeführt und der Start bei 0 immer weiter erhöht werden.
 
 | Parameter | Geben Sie | ein Beschreibung |
 | --------- | ------- | ------------------------------------------------------------------------------------------------------------ |
@@ -314,6 +317,23 @@ Daher wurde auch die Beschreibung entfernt.
 -\*-
 
 ## Changelog
+
+### 3.2.3 (27.01.2024)
+
+- (PLCHome) In Multiple Backflow the objects in Total Data and Status Data were swapped. Please delete the objects below Total Data and Status Data and restart the adapter after the update.
+
+### 3.2.2 (27.01.2024)
+
+- (PLCHome) Catching of the fault log messages is now possible (Thanx to ZioCain for the code)
+- (PLCHome) Setting active power for MAX inverter (Thanx to sefina for testing)
+
+### 3.2.1 (08.09.2023)
+
+- (PLCHome) Additionally query the status information via the Plant List.
+
+### 3.2.0 (01.09.2023)
+
+- (PLCHome) Added inverter typ singleBackflow and multipleBackflow
 
 ### 3.1.2 (16.08.2023)
 
@@ -536,7 +556,7 @@ Daher wurde auch die Beschreibung entfernt.
 
 The MIT License (MIT)
 
-Copyright (c) 2020 - 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

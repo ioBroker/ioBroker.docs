@@ -144,6 +144,12 @@ adapter<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ times_eaten<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ └ dry..wet<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ &nbsp;&nbsp;&nbsp; └ weight<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ movement<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_direction<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_flap<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_time<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ time_spent_outside_<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ └ times_outside<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; └ water<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ last_time_drunk<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ time_spent<br>
@@ -161,6 +167,11 @@ SureFlap®, Sure Petcare® and Felaqua® are registered trademarks of [SureFlap 
 The pictures of the SureFlap® devices are provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 2.0.1 (2024-01-24)
+* (Sickboy78) added last movement for pets
+* (Sickboy78) added time spent outside today for pets
+* (Sickboy78) dependency updates
 
 ### 1.2.3 (2023-12-29)
 * (Sickboy78) added api host to config and set default to new api
@@ -260,8 +271,6 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 MIT License
 
-Copyright (c) 2023 Sickboy78 <asmoday_666@gmx.de>
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -279,3 +288,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Copyright (c) 2024 Sickboy78 <asmoday_666@gmx.de>

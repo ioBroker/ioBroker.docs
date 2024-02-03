@@ -47,6 +47,7 @@ The Objects in forecast.current_hour will be createt 30s after frist startup and
 * Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
 * Adapter [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
 * [Import Views to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+* [Import Widget to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/widgets)
 
 ###### Example
 Simple Example:
@@ -55,12 +56,14 @@ Simple Example:
 Extended Example:
 ![Tablet](doc/Wettervorhersage_visu_anim2.gif)
 
-## Changelog
+Week-Widget Example:
+![Tablet](doc/Wochensicht_reduziert.png)
 
-<!--
-  Placeholder for the next version (at the beginning of the line):
-  ### **WORK IN PROGRESS**
--->
+
+## Changelog
+### 2.1.0 (2024-01-10)
+* (baerengraben) Added additional Week-View. Credits goes to https://github.com/pingus01
+
 ### 2.0.4-alpha.2 (2023-09-06)
 * (baerengraben) Dummy-Deploy - because npm did not get 2.0.4-alpha.1 (2nd try...)
 
@@ -79,13 +82,10 @@ Extended Example:
 ### 2.0.3 (2023-08-01)
 * (baerengraben) Fixing https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/94
 
-### 2.0.2 (2023-07-31)
-* (baerengraben) Just another freaking release-script test
-
 ## License
 MIT License
 
-Copyright (c) 2023 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2024 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

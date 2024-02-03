@@ -129,6 +129,144 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.37 (2024-01-31)
+- designer fix for background
+
+### 1.0.36 (2024-01-31)
+- upgade to new designer for better style encapsulation
+
+### 1.0.35 (2024-01-30)
+- package upgrades (fix in designer for css patching)
+- typos
+
+### 1.0.34 (2024-01-28)
+- indirect signal for $ access
+
+### 1.0.33 (2024-01-24)
+- one more designer update
+
+### 1.0.32 (2024-01-24)
+- fix for nested stylesheets
+
+### 1.0.31 (2024-01-23)
+- string could be null
+
+### 1.0.30 (2024-01-22)
+- better script errors
+
+### 1.0.29 (2024-01-22)
+- remove a few errors
+
+### 1.0.28 (2024-01-22)
+- npm upgrade for error of undoservice
+
+### 1.0.27 (2024-01-22)
+- toast message on errors
+
+### 1.0.26 (2024-01-22)
+- npm package upgrades
+
+### 1.0.25 (2024-01-21)
+- use appendChild
+
+### 1.0.24 (2024-01-21)
+- fix later loaded scripts
+
+### 1.0.23 (2024-01-21)
+- twoway should only set first value
+- fix error with noParse
+
+### 1.0.22 (2024-01-20)
+- fix binding with unit
+- fix refactor service missing command
+
+### 1.0.21 (2024-01-19)
+- fix designer grid overlay
+- stecil ackage hacks
+
+### 1.0.20 (2024-01-18)
+- fix broken split view
+
+### 1.0.19 (2024-01-17)
+- simpler one way bindings with expressions
+
+### 1.0.18 (2024-01-17)
+- text selection selects in designer
+
+### 1.0.17 (2024-01-16)
+- fix opacity of D&D node
+
+### 1.0.16 (2024-01-16)
+- fix drag drop of tree nodes
+
+### 1.0.15 (2024-01-14)
+- support upper/lowercase and spaces in screens & controls
+
+### 1.0.13 (2024-01-14)
+- correct event name in lit bindings
+
+### 1.0.12 (2024-01-14)
+- upgrade baseCustomWebcomp for attribute binding
+
+### 1.0.11 (2024-01-14)
+- API for reading object lists
+
+### 1.0.10 (2024-01-14)
+- fix selected tool
+
+### 1.0.9 (2024-01-14)
+- bugfix controls editor
+
+### 1.0.8 (2024-01-14)
+- fix import/export
+
+### 1.0.7 (2024-01-14)
+- bigger formula editor when multiline
+
+### 1.0.6 (2024-01-14)
+- draw widgets when selected in tree
+
+### 1.0.5 (2024-01-14)
+- bind to iobroker objects (via $ prefix)
+
+### 1.0.4 (2024-01-14)
+- fix open screens in folders
+
+### 1.0.3 (2024-01-14)
+- only lowercase folders
+
+### 1.0.2 (2024-01-14)
+- variablen in convertern
+- configurable meta tags
+
+### 1.0.1 (2024-01-13)
+- fix issue with npm
+
+### 1.0.0 (2024-01-13)
+- new script command: CalculateSignalValue
+- javascript code completition
+- better types in code completition
+- fix writing of child nodes if content is bound at design time
+- use monaco editor in expressions
+- use custom var names in expressions
+- Screens & Controls can have subfolders
+- decl. shadow dom support in screen viewer
+- allow 'local_' as tag prefix for local vars
+
+### 0.23.3 (2024-01-04)
+- add local valueAsNumber property
+
+### 0.23.2 (2024-01-03)
+- again fix runtime was not initialized
+
+### 0.23.1 (2024-01-03)
+- fix runtime was not initialized
+
+### 0.23.0 (2024-01-03)
+- todo, support 2way bindings too custom properties
+- code completition for iobrokerHandler and runtime
+- simple scripts, access value of event
+
 ### 0.22.7 (2023-12-25)
 - and one more...
 
@@ -409,4 +547,4 @@ runtime.html?screenName=screen2
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2023 jogibear9988 <jochen.kuehner@gmx.de>
+Copyright (c) 2024 jogibear9988 <jochen.kuehner@gmx.de>
