@@ -247,7 +247,7 @@ This adapter accesses weather warnings of different weather services and outputs
 ## tractive-gps (06.12.2023) - new adapter
 https://github.com/iobroker-community-adapters/ioBroker.tractive-gps
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.tractive-gps/blob/main/admin/tractive-gps.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tractive-gps/main/admin/tractive-gps.png" width="100" height="100" />
 
 This adapter allows you to connect to the Tractive GPS service and retrieve the location of your pets.
 
@@ -259,46 +259,51 @@ It is possible to change menu colors in admin
 ## emporia (07.12.2023) - new adapter
 https://github.com/Chris-656/ioBroker.emporia
 
-<img src="https://github.com/Chris-656/ioBroker.emporia/blob/main/admin/emporia.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Chris-656/ioBroker.emporia/main/admin/emporia.png" width="100" height="100" />
 
 This adapter retrieves data from emporia engergy system.
 
 ## reolink (27.12.2023) - new adapter
 https://github.com/aendue/ioBroker.reolink
 
-<img src="https://github.com/aendue/ioBroker.reolink/blob/main/admin/reolink_logo.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/aendue/ioBroker.reolink/main/admin/reolink_logo.png" width="100" height="100" />
 
 Adapter for ioBroker Plattform to get Reolink camera information..
 
 ## vis-2 (08.01.2024) - new adapter
 https://github.com/ioBroker/ioBroker.vis-2
 
-vis-2 is now in stable repository. It is a new generation of vis. It is based on ReactJS and has many new features.
+vis-2 is now in a stable repository. It is a new generation of vis. It is based on ReactJS and has many new features.
 
 ## artnet-recorder (08.01.2024) - new adapter
 https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
-<img src="https://github.com/Bannsaenger/ioBroker.artnet-recorder/blob/master/admin/artnet-recorder.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/Bannsaenger/ioBroker.artnet-recorder/master/admin/artnet-recorder.png" width="100" height="100" />
 
 Record Art-Net data to a file for later playback
 
 ## energiefluss (25.01.2024) - new adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
-<img src="https://github.com/SKB-CGN/ioBroker.energiefluss/blob/main/admin/energiefluss.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
 
 It provides an animated energyflow of the current consumption for photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge and up to 10 possible elements (circle or rectangle).
 
 ## amtronwallbox (28.01.2024) - new adapter
 https://github.com/rg-engineering/ioBroker.amtronwallbox
 
-<img src="https://github.com/rg-engineering/ioBroker.amtronwallbox/blob/master/admin/amtronwallbox.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/rg-engineering/ioBroker.amtronwallbox/master/admin/amtronwallbox.png" width="100" height="100" />
 
 The adapter serves as an interface to various Amtron wallboxes. The data provided by the box is read out and made available as a state in the adapter. The data is only processed locally, a cloud connection is not necessary.
 
 ## zendure-solarflow (30.01.2024) - new adapter
 https://github.com/nograx/ioBroker.zendure-solarflow
 
-<img src="https://github.com/nograx/ioBroker.zendure-solarflow/blob/main/admin/zendure-solarflow.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/nograx/ioBroker.zendure-solarflow/main/admin/zendure-solarflow.png" width="100" height="100" />
 
 This project is an ioBroker Adapter to read data from the Zendure Solarflow Cloud API. It uses the official API provided by Zendure.
+
+# echarts (03.02.2024) - new feature
+Added "radar" chart type
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
