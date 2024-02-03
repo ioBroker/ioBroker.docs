@@ -307,3 +307,11 @@ This project is an ioBroker Adapter to read data from the Zendure Solarflow Clou
 Added "radar" chart type
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
+
+## soliscloud (3.2.2024) - new adapter
+https://github.com/Trixx34/ioBroker.soliscloud
+
+<img src="https://github.com/Trixx34/ioBroker.soliscloud/blob/main/admin/solis.png" width="100" height="100" />
+
+This adapter will read multiple values available from the soliscloud API and store them for use in ioBroker. 
+
