@@ -315,3 +315,10 @@ https://github.com/Trixx34/ioBroker.soliscloud
 
 This adapter will read multiple values available from the soliscloud API and store them for use in ioBroker. 
 
+## sun2000-modbus (8.2.2024) - new adapter
+https://github.com/daolis/ioBroker.sun2000-modbus
+
+<img src="https://github.com/daolis/ioBroker.sun2000-modbus/blob/main/admin/sun2000-modbus.png" width="100" height="100" />
+
+Read data from Huawei SUN2000 inverter and LUNA2000 Storage using Modbus TCP. 
+
