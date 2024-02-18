@@ -341,3 +341,11 @@ https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
 
 This adapter allows you to control Elgato Key Lights via ioBroker.
 
+## myuplink (18.2.2024) – new Adapter
+https://github.com/sebilm/ioBroker.myuplink
+
+<img src="https://github.com/sebilm/ioBroker.myuplink/blob/main/admin/myuplink.png" width="100" height="100" />
+
+This ioBroker adapter receives data from myUplink.com.
+
+
