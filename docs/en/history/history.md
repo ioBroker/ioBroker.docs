@@ -348,4 +348,11 @@ https://github.com/sebilm/ioBroker.myuplink
 
 This ioBroker adapter receives data from myUplink.com.
 
+## sun2000 (19.2.2024) – new Adapter
+https://github.com/bolliy/ioBroker.sun2000
+
+<img src="https://github.com/bolliy/ioBroker.sun2000/blob/main/admin/sun2000.png" width="100" height="100" />
+
+Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP.
+
 
