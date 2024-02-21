@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-工具
-hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
+hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 ---
 ![标识](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -24,6 +24,10 @@ hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
 
 ### 重要提示：您必须购买许可证才能使用此适配器。您可以在这里购买 -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
 ### Wichtig：Für die Nutzung dieses Adapters müssen Sie eine Lizenz erwerben。 Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### 自动发现
+有自动搜索功能来查找设备。也可以按计划执行。
+注意：如果您在 docker 容器中使用 ioBroker，则此功能将不起作用，具体取决于您的网络配置。
+
 ### Ping 配置的 IP 地址
 按定义的时间间隔 Ping 指定的 IP 地址并监控结果。 (alive, rps, time) 可以在设备级别指定 ping 间隔。
 
@@ -40,7 +44,7 @@ hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
 
 ---
 
-## 对于开发人员
+## 对于开发者
 #### 获取特定设备的 mac
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
 
@@ -60,7 +64,13 @@ hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.0.5 04.02.2024
+* (Jey Cee) remove discovery adapter as dependency
+* (Jey Cee) add possibility to choose the interface which will be used for ping operations
+* (Jey Cee) add possibility to enter IP range for device discovery
+* (Jey Cee) add auto search by configurable schedule
+* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
+* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
 
 ### 1.0.2 20.01.2024
 * (Jey Cee) bugfix require

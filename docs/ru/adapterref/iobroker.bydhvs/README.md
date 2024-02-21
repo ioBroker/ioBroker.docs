@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bydhvs/README.md
 title: без заголовка
-hash: OL9S1Ap4Zj5QNDN46dIOF2sG5imuC2EcpBtE87vW9vc=
+hash: XDgN8jFQAHHQEHMq7lcxT7JcSKDWP9ssqrlWB+z8oTc=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bydhvs/admin/bydhvs.png)
 
@@ -27,42 +27,46 @@ hash: OL9S1Ap4Zj5QNDN46dIOF2sG5imuC2EcpBtE87vW9vc=
 
 [Ссылка на ознакомительные сведения о родном немецком языке:](README-German.md)
 
+## **РАБОТА В ПРОЦЕССЕ**
+* первая версия с двумя башнями в НПМ
+
+### 1.5.1 (15 января 2024 г.)
+* Включите возможность получать информацию из двух башен.
+* СРОЧНОЕ ИЗМЕНЕНИЕ Структуры.
+
+### 1.5.0 (04.11.2023)
+* Критическое изменение: требуется минимум nodejs 16.
+* поправлены автоматические проверки и релиз-скрипт (спасибо mcm1957, он сделал всю работу)
+* больше ничего в коде не изменилось
+
+### 1.4.2 (28 сентября 2023 г.)
+* Удалена опечатка в номере версии.
+
+### 1.4.1 (24 сентября 2023 г.)
+* Совместимость с js.controller 5x.
+* Устранены некоторые ошибки при обнаружении инвертора.
+* Номер инвертора зарегистрирован, поэтому я могу легко добавить новые инверторы, если это необходимо. Просто пришлите мне глупый журнал, если инвертор неизвестен.
+
+### 1.4.0 (31 октября 2022 г.)
+* Обновление упомянутых модулей (в основном, связанных с тестированием)
+* улучшения, предоставленные Tapter (5 модулей, файл readme и более читаемый код)
+* Лучшее определение типа батареи и инвертора
+* SOC не только на основе нормальных данных, но и на основе диагностических данных. Там у нас на один десятичный знак больше
+* удалено ограничение частоты для подробных данных о батарее
+* увеличено максимальное количество измерений температуры для HVS до 64
+* поддержка до 5 модулей HVS
+
+### 1.3.0 (06.11.2021)
+* обновлено еще больше зависимостей
+* официальный релиз с новым состоянием SOH
+
+###
+
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### 1.5.1 (2024-01-15)
-* Enable the possibility to get informations from a two tower setup
-* BREAKING CHANGE of Structure.
-
-### 1.5.0 (2023-11-04)
-* Breaking change: nodejs 16 minimum required
-* automated checks and release-script repaired (thanks to mcm1957, he did the work)
-* nothing else changed in code
-
-### 1.4.2 (2023-09-28)
-* Typo in version number removed
-
-### 1.4.1 (2023-09-24)
-* Compatibility with js.controller 5x
-* Removed some bugs in detecting inverter
-* Inverternumber ist logged, so I can easily add new inverters if neccerary, just send me the silly-log if inverter is unknown.
-
-### 1.4.0 (2022-10-31)
-* Update of referred modules (mainly around testing)
-* improvmenets contributed by Tapter (5 modules, readme and better readable code)
-* Better detection of battery type and inverter
-* SOC not only from normal data but from diagnosis-data, too. There we have one decimal place more
-* removed frequency limit for battery detail data
-* increased max count of temperature measurements for HVS to 64
-* support for up to 5 HVS modules
-
-### 1.3.0 (2021-11-06)
-* updated even more dependencies
-* official release with new state SOH
-
-###
 
 ## License
 MIT License

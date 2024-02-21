@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: oj+ZivqsuDfqpQIbUGOHNxk2p//1nw8oNRh52pLGk0Y=
+hash: nKgstQmO8cx8mB+3/vlcJt8N5PBz/3YOjbJRy150twk=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -64,7 +64,7 @@ Dieser Adapter generiert Zertifikate mithilfe von ACME-Herausforderungen.
 ## Admin (01.09.2023)
 Kontextmenü:
 
-- z. B. einfache Erstellung von Aliasnamen
+- z. B. einfache Erstellung von Aliasen
 
   ![Bild 1](../../en/history/media/2023_09_26_admin_context.png)
 
@@ -170,7 +170,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
-Mit diesem Adapter können Heizungsanlagen verwaltet werden.
+Mit diesem Adapter können Heizsysteme verwaltet werden.
 Sie können zwischen Kühl- und Heizmodus wählen und für einen Raum Boost oder Pause aktivieren.
 Darüber hinaus können Sie die Solltemperatur für einen Raum überschreiben.
 
@@ -295,7 +295,7 @@ https://github.com/Bannsaenger/ioBroker.artnet-recorder
 
 Zeichnen Sie Art-Net-Daten zur späteren Wiedergabe in einer Datei auf
 
-## Energiefluss (25.01.2024) – neuer Adapter
+##energiefluss (25.01.2024) – neuer Adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss
 
 <img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss/main/admin/energiefluss.png" width="100" height="100" />
@@ -320,3 +320,53 @@ Bei diesem Projekt handelt es sich um einen ioBroker-Adapter zum Lesen von Daten
 Kartentyp „Radar“ hinzugefügt
 
 <img src="https://raw.githubusercontent.com/ioBroker/ioBroker.echarts/master/img/radar.png" width="300" height="230" />
+
+## Soliscloud (3.2.2024) – neuer Adapter
+https://github.com/Trixx34/ioBroker.soliscloud
+
+<img src="https://raw.githubusercontent.com/Trixx34/ioBroker.soliscloud/main/admin/solis.png" width="100" height="100" />
+
+Dieser Adapter liest mehrere über die Soliscloud-API verfügbare Werte und speichert sie zur Verwendung in ioBroker.
+
+## Sun2000-modbus (8.2.2024) – neuer Adapter
+https://github.com/daolis/ioBroker.sun2000-modbus
+
+<img src="https://raw.githubusercontent.com/daolis/ioBroker.sun2000-modbus/main/admin/sun2000-modbus.png" width="100" height="100" />
+
+Lesen Sie Daten vom Huawei SUN2000-Wechselrichter und dem LUNA2000-Speicher mithilfe von Modbus TCP.
+
+## Szenen (10.2.2024) – neue Funktion
+Es ist möglich, Kategorien in Szenen zu verwenden
+
+<img src="media/2024_02_16 scenes-enums.png" width="500" />
+
+## Solaredge (15.2.2024) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.solaredge
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/admin/solaredge.png" width="100" height="100" />
+
+Erhalten Sie Daten vom Solaredge-Überwachungsportal. Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuellen Leistungs- und Tages-/Monats-/Jahres-/Lebensenergiewerte abzurufen.
+
+## Elgato-key-light (18.2.2024) – neuer Adapter
+https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
+
+<img src="https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/admin/elgato-key-light.png" width="100" height="100" />
+
+Mit diesem Adapter können Sie Elgato Key Lights über ioBroker steuern.
+
+## Myuplink (18.2.2024) – neuer Adapter
+https://github.com/sebilm/ioBroker.myuplink
+
+<img src="https://github.com/sebilm/ioBroker.myuplink/blob/main/admin/myuplink.png" width="100" height="100" />
+
+Dieser ioBroker-Adapter empfängt Daten von myUplink.com.
+
+## Sun2000 (19.2.2024) – neuer Adapter
+https://github.com/bolliy/ioBroker.sun2000
+
+<img src="https://github.com/bolliy/ioBroker.sun2000/blob/main/admin/sun2000.png" width="100" height="100" />
+
+Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
+
+## Opcua (21.2.2024) – neue Funktion
+Der Adapter verfügt jetzt über eine kostenlose Lizenz.

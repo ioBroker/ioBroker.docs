@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
+hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 ---
 ![标识](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -19,9 +19,11 @@ hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
 ## IoBroker 的 bluelink 适配器
 用于控制现代或起亚车辆的适配器
 
-讨论：https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+[讨论](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-登录信息：https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+[登录信息](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+
+[维基百科](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 <!-- 下一个版本的占位符（在行的开头）：
 
@@ -32,6 +34,11 @@ https://github.com/AlCalzone/release-script#usage npm run 发行版主要 -- -p 
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 2.3.7 (2024-02-04)
+* (arteck) set default force_update to server
+
+### 2.3.6 (2023-08-05)
+* (arteck) corr crash
 
 ### 2.3.5 
 * (arteck) add force_login button
@@ -107,7 +114,7 @@ https://github.com/AlCalzone/release-script#usage npm run 发行版主要 -- -p 
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2024 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -66,6 +66,21 @@ An description about general usage of energy requests see [SMA docu](docu/SMA/SS
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.4.3 (2024-02-20)
+* (René) wallbox: unnecessary warn messages deactivated
+* (René) dependencies updated
+
+### 1.4.2 (2024-02-16)
+* (René) bug fix in create timeframes
+
+### 1.4.1 (2024-02-12)
+* (René) minor bug fix
+
+### 1.4.0 (2024-02-12)
+* (René) bug fix: see issue #206 - wallbox OID's selectable
+* (René) bug fix: see issue #207 - wallbox maximum charge time adjustable 
+* (René) see issue #208: timeframe can be disabled by user (optionally)
+
 ### 1.3.15 (2024-02-03)
 * (René) bug fix: wallbox counter and status are not handled
 

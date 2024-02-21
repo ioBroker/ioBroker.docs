@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 9VP/hOLchitmrYO88SMTks2QBxdaskBEvwaN9kTTRQg=
+hash: 3zdAYVO9z2O5PfXBD40rhpwxUdw5kaRqio9wN1QM51A=
 ---
 ![标识](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -51,7 +51,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 **配置**
 
 * 适配器安装完成后，将显示一个配置对话框，最多可配置两个 CAN 总线适配器（选项卡“CAN ADAPTER”）
-* 编辑适配器名称并至少选中外部适配器的“连接到适配器”复选框
+* 编辑适配器名称并至少为外部适配器选中“连接到适配器”复选框
 * 完成后，按“保存”按钮应用更改。此步骤是**强制**。该实例将重新启动并连接到 CAN 适配器。
 * 转到“UDS 设备列表”选项卡，然后按扫描按钮扫描总线上可用的设备。 **这将需要几秒钟。** 您可以通过查看适配器的日志记录信息来观看第二个浏览器选项卡中的活动。
 * 您可以更改第二列设备的命名。这些名称将用于将所有收集到的数据存储在 ioBoker 的对象树中。完成更改后再次按“保存”按钮。
@@ -83,8 +83,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 
 # 提示和限制
 ## 此 ioBroker 适配器正在开发和*测试阶段*
-* 请不要在生产环境中使用此适配器！
-* 数据结构和功能可能会发生变化
+* 未来版本中的数据结构和功能可能会发生变化。
 * 欢迎您在您的环境中测试适配器。请向我反馈您的经验和发现。
 
 ## 为什么要并行使用数据采集（仅监听）和UDsonCAN（ReadByDid）？
@@ -93,7 +92,7 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
 * 因此，从我的角度来看，两种方法的结合是最好的方法。
 
 ## 收集数据的限制
-* 目前，已知的通信协议仅适用于 Vitocal（CAN id 0x693 上的监听器）、Vitocharge VX3 和 Vitoair（两者都是 CAN id 0x451 上的监听器）。
+* 目前，已知的通信协议仅适用于 Vitocal（CAN id 0x693 上的侦听器）、Vitocharge VX3 和 Vitoair（两者都是 CAN id 0x451 上的侦听器）。
 
 ## 与 open3e 项目有什么不同？
 * 显然，主要区别在于直接集成到ioBroker。配置可以通过对话框完成，数据直接列在对象树中。
@@ -111,6 +110,15 @@ Viessmann E3系列设备（One Base）在CAN总线上进行大量的数据交换
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.19 (2024-02-19)
+* (MyHomeMyData) Check for changed structure of datapoints during startup
+* (MyHomeMyData) Update of list of datapoints to version 20240218
+* (MyHomeMyData) Bugfix to avoid warnings on very first start of adapter
+
+### 0.6.18 (2024-02-08)
+* (MyHomeMyData) Added versioning to list of datapoints and check for updates on start of adapter
+* (MyHomeMyData) Added optional description in configuration of UDS schedules
+
 ### 0.6.17 (2024-01-29)
 * (MyHomeMyData) Added/removed datapoints to/from list of writable dids
 * (MyHomeMyData) Preparations for device specific list of writable dids

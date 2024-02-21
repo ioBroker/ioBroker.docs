@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
+hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 ---
 ![标识](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -24,24 +24,30 @@ hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
 Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
 
 ## 支持的硬件
-* 华为逆变器（SUN2000系列）M1
-* 华为智能适配器-WLAN-FE / 分钟。软件版本：xxxSPC133 (SDongleA-05)
+* 华为逆变器SUN2000系列（M0、M1）
+* 华为智能适配器-WLAN-FE / 分钟。软件版本：V100R001C00SPC133（SDongleA-05）
 * 华为Luna2000电池
 * 华为智能功率传感器DTSU666-H或DDSU666-H
 
 [华为产品信息](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
 
 ## 功能列表
-* 最多可处理 5 个逆变器（主/从），每个逆变器配有一个电池模块（最大 30kWh）。
+* 最多可处理 5 个逆变器（主/从），每个逆变器配有一个电池模块（最大 15kWh）。
 * 以固定间隔读取输入功率、输出功率、充放电功率、电网消耗等实时值。
 * 仅针对来自逆变器的更改数据写入状态。这减轻了 iobroker 实例的负担。
 * 可以使用“已更新”触发元素来监视“收集”路径中的“inputPower”或“activePower”状态。因为这些状态总是在设定的时间间隔内写入的。
 
-＃＃ 设置
+## 主要设置
 * `address`: 逆变器IP地址
 * `port`：逆变器modbus端口（默认：502）
 * `modbusIds`：逆变器ID，以“,”分隔（默认：1，最多5个逆变器）
 * `updateInterval`: 快速更新间隔（默认：20秒，每个逆变器最小5秒）
+
+## Modbus 时序
+* `timeout`: modbus 连接超时(默认: 10000 ms)
+* `delay`: modbus 请求之间的延迟（默认值：0 ms）
+* `连接延迟`: modbus 连接后的延迟 (默认: 5000 ms)
+* `auto-adjust`: 自动调整modbus设置
 
 ## 配置逆变器
 为了使用Modbus连接，所有华为设备必须使用最新的固件功能。您可以直接在FusionSolar门户的“升级”下执行最新固件。
@@ -50,7 +56,7 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 
 要以 `installer` 身份登录应用程序，您通常需要密码：`00000a` 或 `0000000a` 您可能还需要密码才能连接到逆变器自己的 WLAN：`Changeme`
 
-登录逆变器后，转至 `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle-Parametereinstellungen) > `Modbus TCP` > 激活 `connection without restriction` ( Verbindung uneingeschränkt aktivieren)。您也可以输入Modbus通讯地址同时读出。
+登录逆变器后，转至 `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > 激活 `connection without restriction` ( Verbindung uneingeschränkt aktivieren)。您还可以输入Modbus通讯地址同时读出。
 如果您使用两个逆变器，则连接到第二个逆变器并读取那里的通信地址。
 
 [如何激活“Modbus TCP” - 来自华为论坛](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
@@ -64,6 +70,15 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2024-02-12)
+* state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
+
+### 0.3.0 (2024-02-10)
+* add battery unit information for example temperature #40
+* modbus timeout, connect delay and delay can be configured #34
+* device status as plain text `sun2000.0.inverter.x.derived.deviceStatus`
+* Introduction of a driver model. A separate driver can be created for each device #41
+
 ### 0.2.1 (2024-02-02)
 * Requirements from [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
 

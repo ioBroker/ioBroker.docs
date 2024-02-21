@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-Tools
-hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
+hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 ---
 ![Logo](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -24,11 +24,15 @@ Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 
 ### Wichtig: Sie müssen eine Lizenz erwerben, um diesen Adapter verwenden zu können. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
 ### Wichtig: Für die Nutzung dieses Adapters müssen Sie eine Lizenz erwerben. Sie können hier eine kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Automatische Erkennung
+Es gibt eine automatische Suchfunktion zum Auffinden von Geräten. Es ist auch möglich, es zeitgesteuert auszuführen.
+Hinweis: Wenn Sie ioBroker in einem Docker-Container verwenden, funktioniert diese Funktion abhängig von Ihrer Netzwerkkonfiguration nicht.
+
 ### Pingt konfigurierte IP-Adressen
 Pingt bestimmte IP-Adressen in definierten Intervallen an und überwacht die Ergebnisse. (Alive, Rps, Zeit) Das Ping-Intervall kann auf Geräteebene angegeben werden.
 
 ### Wake on LAN
-Setzen Sie das Wol-Objekt auf „true“ und 3 WOL-Pakete werden mit einer Pause von 750 ms an Ihr Gerät gesendet.
+Setzen Sie das Wol-Objekt auf „True“ und 3 WOL-Pakete werden mit einer Pause von 750 ms an Ihr Gerät gesendet.
 
 ### Port-Scan
 Sie können in der Konfiguration eine Liste von Ports oder einen Bereich eingeben, die standardmäßig gescannt werden sollen. Wenn dieses Feld leer ist, wird der Bereich 0-65535 als Standard verwendet.
@@ -60,7 +64,13 @@ Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.0.5 04.02.2024
+* (Jey Cee) remove discovery adapter as dependency
+* (Jey Cee) add possibility to choose the interface which will be used for ping operations
+* (Jey Cee) add possibility to enter IP range for device discovery
+* (Jey Cee) add auto search by configurable schedule
+* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
+* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
 
 ### 1.0.2 20.01.2024
 * (Jey Cee) bugfix require

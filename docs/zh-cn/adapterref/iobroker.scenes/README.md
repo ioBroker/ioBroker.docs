@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.scenes/README.md
 title: ioBroker场景适配器
-hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
+hash: ULwgcxTcnF4uHfoX+HrSuMEgoWMYDUP52Qb549uTuPU=
 ---
 ![标识](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -16,7 +16,7 @@ hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
 
 _场景适配器_可以创建场景并在ioBroker环境中执行它们。
 
-**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry-插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
 该适配器可以创建三种类型的场景：
 
@@ -66,7 +66,7 @@ _场景适配器_可以创建场景并在ioBroker环境中执行它们。
 每次你打开浴室的门时，所有带风扇的灯都会打开。
 
 ## 团体
-**群组**就像虚拟频道。您可以借助 **groups** 虚拟设备从多个执行器创建并一起控制它们，就像一台设备一样。
+**群组**就像虚拟频道。您可以借助 **groups** 虚拟设备从多个执行器创建并一起控制它们，就像一个设备一样。
 让我们用浴室的灯修改我们的样本。
 
 ```
@@ -130,11 +130,47 @@ sendTo(
 
 适配器将读取此场景中定义的 ID 的所有实际值并将其保存为配置的值。
 
+## 通过消息禁用或启用场景要禁用或启用某些场景，您可以向适配器发送消息：
+```
+// enable
+sendTo(
+    'scenes.0',
+    'enable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// disable
+sendTo(
+    'scenes.0',
+    'disable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// or
+sendTo(
+    'scenes.0',
+    'disable', // 'enable' to enable
+    {sceneId: 'scene.0.SCENE_ID'},
+    result => result.err && console.error(result.error) // optional
+);
+```
+
 <!-- 下一个版本的占位符（在行的开头）：
 
-### __正在进行中__ -->
+### **正在进行中** -->
 
 ## Changelog
+### 3.0.1 (2024-02-16)
+* (bluefox) Cleared cron tasks by re-init
+* (bluefox) CRON Editor dialog added
+* (bluefox) Implemented scene enabling/disabling via messages
+* (bluefox) Implemented the writing of the scene states with ack=true
+* (bluefox) Added description to the scene states
+* (bluefox) Added possibility to use categories/enumerations
+
+### 2.4.2 (2024-02-12)
+* (bluefox) Preserved empty folders by renaming and moving of scenes
+
 ### 2.4.0 (2022-12-23)
 * (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
@@ -144,7 +180,7 @@ sendTo(
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handles a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -155,7 +191,7 @@ sendTo(
 * (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
 
 ### 2.3.4 (2021-01-16)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
 
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
@@ -163,13 +199,13 @@ sendTo(
 * (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-M)
 
 ### 2.3.0 (2020-11-02)
 * (bluefox) Fixed GUI errors
 
 ### 2.1.7 (2020-10-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
 
 ### 2.1.6 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -247,9 +283,9 @@ sendTo(
 * (bluefox) try to fix error by renaming
 
 ### 0.1.1 (2015-08-10)
-* (bluefox) allow description for states in scene
+* (bluefox) allow description for states in a scene
 * (bluefox) check by rename if the scene with the same name yet exists
-* (bluefox) allow copy scene
+* (bluefox) allowed a coping of a scene
 * (bluefox) fix error with delay and stopAllDelays settings
 
 ### 0.1.0 (2015-08-09)
@@ -259,7 +295,7 @@ sendTo(
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
 * (bluefox) add cron
-* (bluefox) add burst interval
+* (bluefox) add a burst interval
 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
@@ -267,7 +303,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

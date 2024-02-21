@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.e3oncan/README.md
 title: ioBroker.e3oncan
-hash: 9VP/hOLchitmrYO88SMTks2QBxdaskBEvwaN9kTTRQg=
+hash: 3zdAYVO9z2O5PfXBD40rhpwxUdw5kaRqio9wN1QM51A=
 ---
 ![Logo](../../../en/adapterref/iobroker.e3oncan/admin/e3oncan_small.png)
 
@@ -40,7 +40,7 @@ Eine Python-basierte Implementierung eines reinen Listening-Ansatzes mit MQTT-Me
 # Erste Schritte
 **Voraussetzungen:**
 
-* Sie haben einen (USB-zu-)CAN-Bus-Adapter an den externen CAN-Bus des Viessmann E3-Geräts angeschlossen
+* Sie haben einen (USB-zu-)CAN-Bus-Adapter, der an den externen CAN-Bus des Viessmann E3-Geräts angeschlossen ist
 * Derzeit werden nur Linux-basierte Systeme unterstützt.
 * CAN-Adapter ist aktiv und im System sichtbar, z.B. als „can0“ (zur Überprüfung ifconfig verwenden).
 * Weitere Einzelheiten finden Sie im open3e-Projekt
@@ -57,7 +57,7 @@ Alle von diesem Adapter bereitgestellten Dienste basieren auf der Geräteliste I
 * Sie können die Benennung der Geräte in der 2. Spalte ändern. Diese Namen werden verwendet, um alle gesammelten Daten im Objektbaum von ioBoker zu speichern. Klicken Sie erneut auf die Schaltfläche „SPEICHERN“, wenn Sie Ihre Änderungen vorgenommen haben.
 * Die Instanz wird erneut neu gestartet und nach einigen Sekunden sind Sie bereit, einen Scan nach verfügbaren Datenpunkten durchzuführen. Gehen Sie zum Reiter „LISTE DER DATENPUNKTE“, drücken Sie die Schaltfläche „Scan starten ...“ und bestätigen Sie mit „OK“. **Bitte haben Sie etwas Geduld** – dies kann **bis zu 5 Minuten** dauern. Sie können den Fortschritt in einem zweiten Browser-Tab verfolgen, indem Sie sich die Protokollierungsinformationen des Adapters ansehen.
 
-Dieser Schritt ist nicht zwingend erforderlich, wird jedoch dringend empfohlen. Wenn Sie auf Datenpunkte schreiben möchten, müssen Sie zunächst einen Datenpunktscan durchführen.
+Dieser Schritt ist nicht obligatorisch, wird aber dringend empfohlen. Wenn Sie auf Datenpunkte schreiben möchten, müssen Sie zunächst einen Datenpunktscan durchführen.
 
 * Wenn der Datenpunktscan erfolgreich abgeschlossen wurde, sind die Datenpunkte im Objektbaum für jedes Gerät verfügbar. Sie können die Datenpunkte in der Konfiguration anzeigen, indem Sie ein Gerät auswählen und auf die Schaltfläche „Liste der Datenpunkte aktualisieren“ klicken. Drücken Sie das Filtersymbol und geben Sie ein Suchmuster ein, um nach Name und/oder Codec zu filtern. Dies dient nur Ihrer Information. Bitte deaktivieren Sie die Filterung, bevor Sie ein anderes Gerät auswählen, um Fehlermeldungen zu vermeiden.
 * Der letzte Schritt besteht darin, Zeitpläne für die Datenerfassung auf der Registerkarte „ZUWEISUNGEN ZUM EXTERNEN CAN-ADAPTER“ zu konfigurieren.
@@ -83,8 +83,7 @@ Sie können die Datenpunktinformationen auf der Registerkarte „LISTE DER DATEN
 
 # Hinweise und Einschränkungen
 ## Dieser ioBroker-Adapter befindet sich in der Entwicklung und im *Beta-Stadium*
-* Bitte verwenden Sie diesen Adapter nicht in einer produktiven Umgebung!
-* Datenstruktur und Funktionalität können sich ändern
+* Datenstruktur und Funktionalität können sich in zukünftigen Versionen ändern.
 * Gerne können Sie den Adapter in Ihrer Umgebung testen. Bitte geben Sie mir Feedback zu Ihren Erfahrungen und Erkenntnissen.
 
 ## Warum Datenerfassung (nur Zuhören) und UDSonCAN (ReadByDid) parallel verwenden?
@@ -96,7 +95,7 @@ Sie können die Datenpunktinformationen auf der Registerkarte „LISTE DER DATEN
 * Derzeit ist das Kommunikationsprotokoll nur für Vitocal (Lister auf CAN-ID 0x693), Vitocharge VX3 und Vitoair (beide Listener auf CAN-ID 0x451) bekannt.
 
 ## Was ist der Unterschied zum open3e-Projekt?
-* Offensichtlich ist der Hauptunterschied die direkte Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, die Daten werden direkt in Objektbäumen aufgelistet.
+* Der Hauptunterschied ist natürlich die direkte Integration in ioBroker. Die Konfiguration kann über Dialoge erfolgen, die Daten werden direkt in Objektbäumen aufgelistet.
 * Zusätzlich zu open3e wird die Echtzeiterfassung von Daten durch Abhören unterstützt.
 * Das Schreiben von Daten ist viel einfacher. Ändern Sie einfach die Daten im entsprechenden Status und klicken Sie auf die Schaltfläche „Speichern“.
 
@@ -111,6 +110,15 @@ Ja, das ist unter bestimmten Voraussetzungen möglich:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.19 (2024-02-19)
+* (MyHomeMyData) Check for changed structure of datapoints during startup
+* (MyHomeMyData) Update of list of datapoints to version 20240218
+* (MyHomeMyData) Bugfix to avoid warnings on very first start of adapter
+
+### 0.6.18 (2024-02-08)
+* (MyHomeMyData) Added versioning to list of datapoints and check for updates on start of adapter
+* (MyHomeMyData) Added optional description in configuration of UDS schedules
+
 ### 0.6.17 (2024-01-29)
 * (MyHomeMyData) Added/removed datapoints to/from list of writable dids
 * (MyHomeMyData) Preparations for device specific list of writable dids

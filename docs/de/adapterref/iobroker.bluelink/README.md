@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
+hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 ---
 ![Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -19,9 +19,11 @@ hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
 ## Bluelink-Adapter für ioBroker
 Adapter zur Steuerung von Hyundai- oder Kia-Fahrzeugen
 
-Diskussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+[Diskussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-Login-Informationen: https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+[Anmeldeinformationen](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+
+[Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
@@ -32,6 +34,11 @@ https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p io
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 2.3.7 (2024-02-04)
+* (arteck) set default force_update to server
+
+### 2.3.6 (2023-08-05)
+* (arteck) corr crash
 
 ### 2.3.5 
 * (arteck) add force_login button
@@ -107,7 +114,7 @@ https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p io
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2024 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

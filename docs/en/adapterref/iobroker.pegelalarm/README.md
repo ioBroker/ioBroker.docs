@@ -36,8 +36,12 @@ When the adapter crashes or an other Code error happens, this error message that
 
 ## Changelog
 <!--### __WORK IN PROGRESS__-->
-### __WORK IN PROGRESS__
+### 1.3.3 (2024-02-08)
 * (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+* (simatec) Translation updated
 
 ### 1.3.2 (2023-11-20)
 * (simatec) Dependencies updated

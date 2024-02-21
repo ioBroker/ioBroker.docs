@@ -3,20 +3,20 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
 title: Адаптер сцен ioBroker
-hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
+hash: ULwgcxTcnF4uHfoX+HrSuMEgoWMYDUP52Qb549uTuPU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
 ![Количество установок](http://iobroker.live/badges/scenes-stable.svg)
-![версия NPM](http://img.shields.io/npm/v/iobroker.scenes.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.scenes.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.scenes.svg)
 
 # Адаптер сцен ioBroker
-![Тестируйте и выпускайте](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-_scenes Adapter_ может создавать сцены и выполнять их в среде ioBroker.
+_scenes Adaptor_ может создавать сцены и выполнять их в среде ioBroker.
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения об исключениях и ошибках кода разработчикам.** Дополнительные сведения и информацию о том, как отключить отчеты об ошибках, см. в [Документация по плагину Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются, начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 Этот адаптер может создавать три типа сцен:
 
@@ -25,9 +25,9 @@ _scenes Adapter_ может создавать сцены и выполнять 
 - **виртуальные группы**
 
 ## Сцены
-**Сцены** будут созданы, если не используется настройка «установить на false».
+**Сцены** будут созданы, если не используется настройка «установлено на false».
 Каждую сцену можно настроить индивидуально, поэтому вы можете иметь **сцены** и **группы** в одном экземпляре адаптера.
-**сцена** — это просто список идентификаторов состояний и значений, которые эти состояния должны иметь при активации сцены. Например. мы создали на сцене `scene.allLightInBath`:
+**Сцена** — это просто список идентификаторов и значений состояний, которые эти состояния должны иметь при активации сцены. Например. мы создали на сцене `scene.allLightInBath`:
 
 ```
   scene.allLightInBath
@@ -35,11 +35,11 @@ _scenes Adapter_ может создавать сцены и выполнять 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Чтобы активировать сцену, мы должны установить `scene.allLightInBath` в значение true (например, через скрипт или визуализацию). Затем оба состояния будут установлены на желаемые значения, на `true`.
-Значение `scene.allLightInBath` также будет равно `true`. Если мы вручную переключимся на верхний свет, значение `scene.allLightInBath` изменится на `false`.
-И снова к `true`, если мы включим свет вручную.
+Чтобы активировать сцену, мы должны установить для `scene.allLightInBath` значение true (например, для сценария или визуализации). Тогда для обоих состояний будут установлены желаемые значения `true`.
+Значение `scene.allLightInBath` также будет `true`. Если мы вручную переключимся на верхний свет, значение `scene.allLightInBath` изменится на `false`.
+И снова к `true`, если мы будем включать свет вручную.
 
-Добавим к **сцене** веер:
+Давайте добавим в **сцену** вентилятор:
 
 ```
   scene.allLightInBath
@@ -50,10 +50,10 @@ _scenes Adapter_ может создавать сцены и выполнять 
 ```
 
 В этом случае вентилятор включится при активации **сцены** и выключится через одну минуту.
-После выключения вентилятора значение `scene.allLightInBath` изменится на `false`, так как не все состояния равны желаемым значениям.
-Состояния с запаздыванием в расчетах не участвуют.
+После выключения вентилятора значение `scene.allLightInBath` изменится на `false`, поскольку не все состояния соответствуют желаемым значениям.
+Состояния с задержкой в расчетах не участвуют.
 
-Вы можете протестировать сцену с помощью кнопки «play».
+Вы можете протестировать сцену с помощью кнопки «Play».
 Кроме того, вы можете напрямую связать эту **сцену** с другим идентификатором сцены. Например. если у вас есть датчик на двери, вы можете выбрать его в качестве триггера:
 
 ```
@@ -63,11 +63,11 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     true
 ```
 
-И каждый раз, когда вы открываете дверь в ванне, все освещение с вентилятором будет включаться.
+И каждый раз, когда вы открываете дверь в ванну, включается весь свет с вентилятором.
 
 ## Группы
-**Группы** похожи на виртуальные каналы. Вы можете создавать с помощью **групп** виртуальные устройства из нескольких приводов и управлять ими вместе, как одним устройством.
-Давайте изменим наш образец с помощью светильников для ванны.
+**Группы** – это виртуальные каналы. Вы можете создать с помощью **групп** виртуальное устройство из нескольких исполнительных устройств и управлять ими вместе, как одним устройством.
+Давайте модифицируем наш образец, добавив светильники для ванны.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -89,32 +89,32 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     false
 ```
 
-Каждый раз, когда вы открываете дверь, все освещение в ванной будет включаться. Значение `scene.allLightInBath` станет **true**.
-Если вы закроете дверь, свет будет выключен, а значение `scene.allLightInBath` станет **false**.
+Каждый раз, когда вы открываете дверь, в ванне включается весь свет. Значение `scene.allLightInBath` станет **true**.
+Если вы закроете дверь, свет выключится, а значение `scene.allLightInBath` станет **false**.
 
 Это бесполезно, но как пример хорошо.
 
-Если вы вручную включите один свет, значение `scene.allLightInBath` станет **неопределенным**.
+Если вы вручную включите один источник света, значение `scene.allLightInBath` станет **неопределенным**.
 
 Задержки можно использовать и в **группе**, но состояния с задержкой не участвуют в расчетах текущего значения **группы**.
 
 ## Виртуальные группы
-**Виртуальные группы** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и т. д.
-Вы можете создать виртуальную группу для управления всеми жалюзи в гостиной.
-Записав 40% в виртуальную группу, все жалюзи будут установлены на 40%.
+**Виртуальные группы** аналогичны виртуальным каналам и группам, но могут иметь любые значения: числа, строки и т. д.
+Вы можете создать виртуальную группу для управления всеми ставнями в гостиной.
+Если записать 40% в виртуальную группу, все жалюзи будут установлены на 40%.
 
-Кроме того, вы можете определить поведение, для которого значение должно быть принято для группы, если не все состояния группы имеют одинаковое значение.
+Дополнительно можно определить поведение, при котором значение должно приниматься для группы, если не все состояния группы имеют одинаковое значение.
 
-Вы можете предоставить следующие агрегации (доступно только в расширенном режиме):
+Вы можете предоставить следующие агрегаты (доступно только в расширенном режиме):
 
 - `uncertain` - (по умолчанию) - значение группы будет иметь текст `uncertain`.
 - `any` - первое ненулевое значение всех состояний в группе.
 - `min` - минимальное значение всех состояний в группе.
 - `max` - максимальное значение всех состояний в группе.
-- `avg` - среднее значение всех состояний в группе.
+- `avg` — среднее значение всех состояний в группе.
 
-## Сохранить актуальные состояния как сцену
-Чтобы сохранить актуальные состояния в какой-то сцене, можно отправить адаптеру сообщение:
+## Сохраняем фактические состояния как сцену
+Чтобы сохранить актуальные состояния в какой-то сцене, вы можете отправить адаптеру сообщение:
 
 ```
 sendTo(
@@ -130,11 +130,47 @@ sendTo(
 
 Адаптер прочитает все фактические значения идентификаторов, определенных в этой сцене, и сохранит их как настроенные.
 
-<!-- Заполнитель для следующей версии (в начале строки):
+## Отключить или включить сцену через сообщение Чтобы отключить или включить какую-либо сцену, вы можете отправить адаптеру сообщение:
+```
+// enable
+sendTo(
+    'scenes.0',
+    'enable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// disable
+sendTo(
+    'scenes.0',
+    'disable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// or
+sendTo(
+    'scenes.0',
+    'disable', // 'enable' to enable
+    {sceneId: 'scene.0.SCENE_ID'},
+    result => result.err && console.error(result.error) // optional
+);
+```
 
-### __РАБОТА ВЫПОЛНЯЕТСЯ__ -->
+<!-- Заполнитель следующей версии (в начале строки):
+
+### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 3.0.1 (2024-02-16)
+* (bluefox) Cleared cron tasks by re-init
+* (bluefox) CRON Editor dialog added
+* (bluefox) Implemented scene enabling/disabling via messages
+* (bluefox) Implemented the writing of the scene states with ack=true
+* (bluefox) Added description to the scene states
+* (bluefox) Added possibility to use categories/enumerations
+
+### 2.4.2 (2024-02-12)
+* (bluefox) Preserved empty folders by renaming and moving of scenes
+
 ### 2.4.0 (2022-12-23)
 * (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
@@ -144,7 +180,7 @@ sendTo(
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handles a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -155,7 +191,7 @@ sendTo(
 * (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
 
 ### 2.3.4 (2021-01-16)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
 
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
@@ -163,13 +199,13 @@ sendTo(
 * (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-M)
 
 ### 2.3.0 (2020-11-02)
 * (bluefox) Fixed GUI errors
 
 ### 2.1.7 (2020-10-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
 
 ### 2.1.6 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -247,9 +283,9 @@ sendTo(
 * (bluefox) try to fix error by renaming
 
 ### 0.1.1 (2015-08-10)
-* (bluefox) allow description for states in scene
+* (bluefox) allow description for states in a scene
 * (bluefox) check by rename if the scene with the same name yet exists
-* (bluefox) allow copy scene
+* (bluefox) allowed a coping of a scene
 * (bluefox) fix error with delay and stopAllDelays settings
 
 ### 0.1.0 (2015-08-09)
@@ -259,7 +295,7 @@ sendTo(
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
 * (bluefox) add cron
-* (bluefox) add burst interval
+* (bluefox) add a burst interval
 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
@@ -267,7 +303,7 @@ sendTo(
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

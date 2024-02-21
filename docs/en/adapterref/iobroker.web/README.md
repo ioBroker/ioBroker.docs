@@ -89,6 +89,10 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 -->
 
 ## Changelog
+### 6.2.4 (2024-02-17)
+* (klein0r) Extensions may block the web instance
+* (klein0r) Fixed directory listing
+
 ### 6.2.3 (2023-12-18)
 * (foxriver76) update websocket library to increase maximum file size from 100 MB to 500 MB
 
@@ -154,7 +158,7 @@ the path could be provided here (e.g. `/vis/`) so this path will be opened autom
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 Bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

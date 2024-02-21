@@ -36,11 +36,12 @@ You can create different groups with separate menus, and then assign users to th
 
 ### **WORK IN PROGRESS**
 
--	#104 HTTP Request
+-   Bug in copy card fixed
+-   #104 HTTP Request
 -   #111 status Value in dynamicSwitch
 -   #112 change value
 -   **_Change!!!_** menu:deleteAll removes automatic Request Ids which are older than 48h from list. The list is completely deleted once during the update
--   fixed menu:number with negativ Values, see the documentation
+-   Fixed menu:number with negativ Values, see the documentation
 
 ### 1.6.2 (2024-01-07)
 
@@ -48,11 +49,11 @@ You can create different groups with separate menus, and then assign users to th
 -   #106 **_Breaking Change!!!_** fixed change `{status:'id':'ID':true}` has now a new parameter, check docs
 -   #107 one line menu without workaround
 -   #103 scrollbar in Navigation and Action
--   small visual changes in actions for small screens
--   fixed checkbox send menu after restart in settings
--   #94 menu:number with Float Numbers fixed
+-   Small visual changes in actions for small screens
+-   Fixed checkbox send menu after restart in settings
+-   #94 Menu:number with Float Numbers fixed
 -   Trigger Info - Overview of all menus and users, only visual but without functions
--   remaining text reattached
+-   Remaining text reattached
 
 ### 1.6.1 (2023-12-27)
 

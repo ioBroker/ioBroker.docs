@@ -725,6 +725,10 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.1.0 (2024-02-17)
+* (theknut) Option to send state updates without notification sound has been added. [#793]
+* (mcm1957) Dependencies have been updated.
+
 ### 3.0.1 (2023-12-08)
 * (foxriver76) send the actual message too via notification-manager
 
@@ -739,15 +743,11 @@ Before sending it to `telegram.INSTANCE.communicate.responseJson you need to str
 * (boergegrunicke) Incorrect trailing zero in callback of sendTo() has been fixed. [#680]
 * (mcm1957) Dependencies have been updated.
 
-### 2.0.0 (2023-10-09)
-* (bluefox) Packets were updated.
-* (bluefox) BREAKING CHANGE: The minimal node.js version is 16
-* (boergegrunicke) BREAKING CHANGE: Return an object with chatId and messageId instead of the message count
-
 ## License
 
 The MIT License (MIT)
 
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2023, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

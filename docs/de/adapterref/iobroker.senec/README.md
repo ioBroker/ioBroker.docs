@@ -525,6 +525,9 @@ Existiert nicht mehr
 
 ## Changelog
 
+### 1.6.12 (NoBl)
+* Updated license
+
 ### 1.6.11 (NoBl)
 * Moving from Senec App API 3.12.0 to 4.3.3 (thanks to oakdesign@github for providing the new API!)
 * This WILL invalidate all current API datapoints in the Statistik branch. Easiest solution to this: Delete the Statistik branch.
@@ -570,22 +573,12 @@ Existiert nicht mehr
 * Added option to also poll SENEC App API. This requires user credentials for mein-senec.de
 * We are starting with just some information - more to follow. But with Dashboard we at least have current values and day statistics back.
 
-### 1.5.1 (NoBl)
-* Added more datapoints. If you experience messages in log - feel free to add them yourself to state_attr on github (pull request)
-* Autarky calculations will stopp working because SENEC removed STATISTICS branch.
-* If you experience issues with connecting to your appliance after it got updated, please activate https connection in settings.
-
-### 1.5.0 (NoBl)
-* Added configuration section to add datapoints to high priority polling. Please be aware of the possible issues this could cause (if too many datapoints added) and use at your own risk.
-* ALL Wallbox datapoints have been removed from high priority polling. Only some users even have a SENEC wallbox. Please reconfigure via the new config dialogue.
-* Possible Candidate for stable. Please report any findings!
-
 ### [Former Updates](CHANGELOG_old.md)
 
 ## License
 MIT License
 
-Copyright (c) 2023 Norbert Bluemle <github@bluemle.org>
+Copyright (c) 2024 Norbert Bluemle <github@bluemle.org>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

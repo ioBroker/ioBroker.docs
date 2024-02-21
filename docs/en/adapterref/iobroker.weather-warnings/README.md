@@ -146,7 +146,7 @@ Iconpage: https://icon-icons.com/de/symbol/Wetter-wind-cloud-Blitz-Regen/189105
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.6.7 (2024-02-19)
 * (ticaki) Reduce history data to 80 entries around 4000 lines, because of jerks in the admin
 
 ### 0.6.6 (2024-01-14)

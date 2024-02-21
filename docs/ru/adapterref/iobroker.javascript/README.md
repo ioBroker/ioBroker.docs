@@ -2687,6 +2687,7 @@ return 'your result';
 -->
 ### **WORK IN PROGRESS**
 
+* (klein0r) Added block to create new objects
 * (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
 * (klein0r) Raise warning if more than 100 triggers have been registered
 

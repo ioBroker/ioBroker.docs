@@ -16,9 +16,11 @@
 
 Adapter to control Hyundai or Kia vehicle
 
-Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+[Discussion](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-Login Infos : https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+[Login Infos](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
+
+[Wiki](https://github.com/Newan/ioBroker.bluelink/wiki)
 
 <!--
     Placeholder for the next version (at the beginning of the line):
@@ -33,6 +35,9 @@ Login Infos : https://developers.kia.com/web/v1/kia/specification/account/accoun
 
 
 ## Changelog
+### 2.3.7 (2024-02-04)
+* (arteck) set default force_update to server
+
 ### 2.3.6 (2023-08-05)
 * (arteck) corr crash
 
@@ -114,7 +119,7 @@ Login Infos : https://developers.kia.com/web/v1/kia/specification/account/accoun
 ## License
 MIT License
 
-Copyright (c) 2023 Newan <info@newan.de>
+Copyright (c) 2024 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

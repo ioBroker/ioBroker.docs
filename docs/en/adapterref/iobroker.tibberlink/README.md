@@ -59,7 +59,7 @@ If you're not currently a Tibber user, I would greatly appreciate it if you coul
     -   "Best cost": Utilizes the "TriggerPrice" state as input, producing a "YES" output every hour when the current Tibber energy cost is below the trigger price.
     -   "Best single hours": Generates a "YES" output during the least expensive hours, with the number defined in the "AmountHours" state.
     -   "Best hours block": Outputs "YES" during the most cost-effective block of hours, with the number of hours specified in the "AmountHours" state.  
-        Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also first and last hour of the block is written to "BlockStartTime" and "BlockEndTime" as a result of the calculation.
+        Additionally, the average total cost in the determined block is written to a state "AverageTotalCost" nearby the input states of this channel. Also start and end hour of the block is written to "BlockStartFullHour" and "BlockEndFullHour" as a result of the calculation.
     -   "Best cost LTF": "Best cost" within a Limited Time Frame (LTF).
     -   "Best single hours LTF": "Best single hours" within a Limited Time Frame (LTF).
     -   "Best hours block LTF": "Best hours block" within a Limited Time Frame (LTF).
@@ -96,12 +96,25 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 2.2.0 (2024-02-xx) - WORK in PROGRESS
+### 2.2.2 (2024-02-19)
+
+-   (HombachC) simplify internal state handling
+-   (HombachC) shorten home string in Calculator screen (#317)
+-   (HombachC) fix feedback loop trap (#321)
+-   (HombachC) add some tooltips to config screen (#317)
+
+### 2.2.1 (2024-02-08)
+
+-   (HombachC) fix edge case problems with defect feed data from Tibber server (#312)
+-   (HombachC) bump dependencies
+
+### 2.2.0 (2024-02-04)
 
 -   (HombachC) add data points for BestHoursBlock results - period and average cost (#240)
 -   (HombachC) fixed wrong error message texts
 -   (HombachC) fix some possible edge cases in internal support functions
 -   (HombachC) internal code docu optimization
+-   (HombachC) bump dependencies
 
 ### 2.1.1 (2024-01-27)
 

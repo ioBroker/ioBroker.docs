@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
+hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 ---
 ![Logo](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -24,24 +24,30 @@ Verfolgen Sie gerne die Diskussionen im deutschen [iobroker-Forum](https://forum
 Modbus-Schnittstellendefinition (Ausgabe 5, 16.02.2023): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
 
 ## Unterstützte Hardware
-* HUAWEI Wechselrichter (SUN2000 Serie) M1
-* HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: xxxSPC133 (SDongleA-05)
+* HUAWEI Wechselrichter SUN2000 Serie (M0,M1)
+* HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: V100R001C00SPC133 (SDongleA-05)
 * HUAWEI Luna2000-Akku
 * HUAWEI Smart Power Sensor DTSU666-H oder DDSU666-H
 
 [Huawei-Produktinformationen](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
 
 ## Funktionsliste
-* Es können maximal 5 Wechselrichter (Master/Slave) mit jeweils einem Batteriemodul (max. 30kWh) verarbeitet werden.
+* Es können maximal 5 Wechselrichter (Master/Slave) mit jeweils einem Batteriemodul (max. 15kWh) verarbeitet werden.
 * Echtzeitwerte wie Eingangsleistung, Ausgangsleistung, Lade-/Entladeleistung und der Netzverbrauch werden in einem festen Intervall ausgelesen.
 * Zustände werden nur für geänderte Daten vom Wechselrichter geschrieben. Dies entlastet die iobroker-Instanz.
 * Die Zustände „inputPower“ oder „activePower“ im „collected“-Pfad können mit einem „wurde aktualisiert“-Triggerelement überwacht werden. Denn diese Zustände werden immer innerhalb des eingestellten Intervalls geschrieben.
 
-## Einstellungen
+## Haupteinstellungen
 * „Adresse“: IP-Adresse des Wechselrichters
 * „Port“: Wechselrichter-Modbus-Port (Standard: 502)
 * „modbusIds“: Wechselrichter-IDs, getrennt durch „“, (Standard: 1, max. 5 Wechselrichter)
 * „updateInterval“: Schnelles Aktualisierungsintervall (Standard: 20 Sek., kleinste 5 Sekunden pro Wechselrichter)
+
+## Modbus-Timing
+* „timeout“: Modbus-Verbindungs-Timeout (Standard: 10000 ms)
+* „Verzögerung“: Verzögerung zwischen Modbus-Anfragen (Standard: 0 ms)
+* „Verbindungsverzögerung“: Verzögerung nach der Modbus-Verbindung (Standard: 5000 ms)
+* „Auto-Adjust“: automatische Anpassung der Modbus-Einstellungen
 
 ## Wechselrichter konfigurieren
 Um die Modbus-Verbindung nutzen zu können, müssen alle Huawei-Geräte die neueste Firmware-Funktion verwenden. Sie können die neueste Firmware direkt im FusionSolar-Portal unter „Upgrades“ durchführen.
@@ -50,7 +56,7 @@ Nach dem Klick auf `Me` (Ich) im Fußzeilenmenü > `Commission Device` („Inbet
 
 Um sich als `installer` in der App anzumelden, benötigen Sie in der Regel das Passwort: `00000a` oder `0000000a` Möglicherweise benötigen Sie auch ein Passwort, um sich mit dem wechselrichtereigenen WLAN zu verbinden: `Changeme`
 
-Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung fortsetzen aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
+Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung erneut aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
 Wenn Sie zwei Wechselrichter verwenden, schließen Sie den zweiten Wechselrichter an und lesen Sie auch dort die Kommunikationsadresse aus.
 
 [So aktivieren Sie „Modbus TCP“ – aus dem Huawei-Forum](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
@@ -64,6 +70,15 @@ Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread htt
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2024-02-12)
+* state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
+
+### 0.3.0 (2024-02-10)
+* add battery unit information for example temperature #40
+* modbus timeout, connect delay and delay can be configured #34
+* device status as plain text `sun2000.0.inverter.x.derived.deviceStatus`
+* Introduction of a driver model. A separate driver can be created for each device #41
+
 ### 0.2.1 (2024-02-02)
 * Requirements from [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
 

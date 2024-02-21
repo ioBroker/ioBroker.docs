@@ -4,7 +4,7 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.shuttercontrol.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.shuttercontrol.svg
 BADGE-Known Vulnerabilities: https://snyk.io/test/github/simatec/ioBroker.shuttercontrol/badge.svg
 BADGE-License: https://img.shields.io/github/license/simatec/ioBroker.shuttercontrol?style=flat
-BADGE-Donate: https://img.shields.io/badge/donate-paypal-blue?style=flat
+BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
 ![Logo](img/shuttercontrol.png)
@@ -786,9 +786,13 @@ _[Back to top](#start-of-content)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
-### __WORK IN PROGRESS__
+### 1.7.0 (2024-02-05)
 * (simatec) Dependencies updated
 * (simatec) @iobroker/adapter-dev added
+* (simatec) Design optimizations
+* (simatec) Gulp deleted
+* (simatec) Docu updated
+* (simatec) many small fixes
 
 ### 1.6.3 (2023-11-01)
 * (simatec) Saturday added as work week

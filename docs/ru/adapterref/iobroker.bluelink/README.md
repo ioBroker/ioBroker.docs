@@ -3,35 +3,42 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bluelink/README.md
 title: ioBroker.bluelink
-hash: z1l3H2dlLAIhSJIMG6J5WNO9qS8qfxuqGoU26EL9HNg=
+hash: TUQYn+HV04Qias4JVBYlU9ECzUd2ChHm6drsB+NqV3g=
 ---
 ![Логотип](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.bluelink.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.bluelink.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.bluelink.svg)
-![Количество установок (последние)](https://iobroker.live/badges/bluelink-installed.svg)
+![Количество установок (последних)](https://iobroker.live/badges/bluelink-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/bluelink-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.bluelink.png?downloads=true)
 
 # IoBroker.bluelink
-![Тестируйте и выпускайте](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+![Тестирование и выпуск](https://github.com/Newan/iobroker.bluelink/workflows/Test%20and%20Release/badge.svg) [![Статус перевода](https://weblate.iobroker.net/widgets/adapters/-/bluelink/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Bluelink адаптер для ioBroker
+## Адаптер bluelink для ioBroker
 Адаптер для управления автомобилем Hyundai или Kia
 
-Обсуждение: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
+[Обсуждение](https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo)
 
-Информация для входа: https://developers.kia.com/web/v1/kia/specification/account/account_authorize
+[Информация для входа](https://developers.kia.com/web/v1/kia/specification/account/account_authorize)
 
-<!-- Заполнитель для следующей версии (в начале строки):
+[Вики](https://github.com/Newan/ioBroker.bluelink/wiki)
 
-https://github.com/AlCalzone/release-script#usage npm run основной релиз -- -p iobroker license --all 0.9.8 -> 1.0.0 npm run второстепенный релиз -- -p iobroker license --all 0.9 .8 -> 0.10.0 npm run release patch -- -p iobroker license --all 0.9.8 -> 0.9.9 npm run release prerelease beta -- -p iobroker license --all v0.2.1 -> v0.2.2 -бета.0
+<!-- Заполнитель следующей версии (в начале строки):
 
-### **В РАБОТЕ** -->
+https://github.com/AlCalzone/release-script#usage npm run Release Major -- -p iobroker License --all 0.9.8 -> 1.0.0 npm Run Release Minor -- -p iobroker License --all 0.9 .8 -> 0.10.0 npm run Release patch -- -p iobroker License --all 0.9.8 -> 0.9.9 npm Run Release Prelease Beta -- -p iobroker License --all v0.2.1 -> v0.2.2 -бета.0
+
+### **РАБОТА В ПРОГРЕССЕ** -->
 ## Пожертвование
 [![](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)
 
 ## Changelog
+### 2.3.7 (2024-02-04)
+* (arteck) set default force_update to server
+
+### 2.3.6 (2023-08-05)
+* (arteck) corr crash
 
 ### 2.3.5 
 * (arteck) add force_login button
@@ -107,7 +114,7 @@ https://github.com/AlCalzone/release-script#usage npm run основной ре�
 ## License
 MIT License
 
-Copyright (c) 2022 Newan <info@newan.de>
+Copyright (c) 2024 Newan <info@newan.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

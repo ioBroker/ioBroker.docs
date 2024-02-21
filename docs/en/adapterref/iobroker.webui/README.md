@@ -129,6 +129,62 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.0.53 (2024-02-19)
+- fix lazy bound lit event name
+
+### 1.0.52 (2024-02-19)
+- fix captured local
+
+### 1.0.51 (2024-02-19)
+- fix lazy loaded lit elments
+- fix script url
+
+### 1.0.50 (2024-02-18)
+- again fix in class binding
+
+### 1.0.49 (2024-02-18)
+- class is attribute in bindings
+- fix error logging
+
+### 1.0.48 (2024-02-17)
+- fix wunderbaum error
+
+### 1.0.47 (2024-02-15)
+- designer fixes with property grid
+
+### 1.0.46 (2024-02-15)
+- designer updates
+
+### 1.0.45 (2024-02-12)
+- update designer with bugfixes
+
+### 1.0.44 (2024-02-11)
+- fix bindings in designer
+
+### 1.0.43 (2024-02-11)
+- refresh tree when controls deleted
+
+### 1.0.42 (2024-02-11)
+- fix grid resize
+- fix grid extension display
+
+### 1.0.41 (2024-02-10)
+- better element drawing (with undo)
+- better title extension
+
+### 1.0.40 (2024-02-10)
+- dblclick in solution should not change tool
+- designer update for performance fixes
+
+### 1.0.39 (2024-02-09)
+- upgrade designer package once more to fix some issues
+
+### 1.0.38 (2024-02-09)
+- fix blockly
+- add blockly templated string
+- work on adopted styles
+- update designer to fix snaplines
+
 ### 1.0.37 (2024-01-31)
 - designer fix for background
 

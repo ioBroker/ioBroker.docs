@@ -100,7 +100,7 @@ You can debug view charts locally with:
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.8.0 (2024-02-03)
 * (bluefox) Added the radar (polar) chart type
 
 ### 1.7.2 (2023-11-20)
@@ -300,10 +300,10 @@ You can debug view charts locally with:
 ## License
 ioBroker.echarts is available under the Apache License V2.
 
-Copyright (c) 2019-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2019-2024 bluefox <dogafox@gmail.com>
 
 Apache ECharts
-Copyright (c) 2017-2023 The Apache Software Foundation
+Copyright (c) 2017-2024 The Apache Software Foundation
 
 This product includes software developed at
 The Apache Software Foundation (https://www.apache.org/).

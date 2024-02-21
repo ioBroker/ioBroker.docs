@@ -57,8 +57,9 @@ Questions? Check the [FAQ](faq.md) section first!
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 6.8.0 (2024-02-17)
 
+* (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
 * (klein0r) Updated Shelly i3 number limits
 * (klein0r) Added screenshots to instance configuration
 
@@ -83,19 +84,11 @@ Questions? Check the [FAQ](faq.md) section first!
 * (klein0r) Added Shelly Bluetooth Low Energy Gateway
 * (theimo1221) More Shelly TRV Datapoints
 
-### 6.4.5 (2023-09-26)
-
-* (klein0r) Added Shelly Pro Dual Cover/Shutter PM
-* (klein0r) Added Shelly Pro 3 EM 400A
-* (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
-* (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
-* (D1gitaldad) Added support of Plus PM Mini
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2024 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

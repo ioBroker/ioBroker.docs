@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
+hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![Anzahl der Installationen (aktuell)](https://iobroker.live/badges/rct-installed.svg)
 ![Anzahl Installationen (stabil)](https://iobroker.live/badges/rct-stable.svg)
-![Libraries.io-Abhängigkeitsstatus für GitHub-Repo](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
+![Libraries.io-Abhängigkeitsstatus für GitHub-Repo](https://img.shields.io/librariesio/release/npm/ioBroker.rct)
 ![NPM](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
 [![Logo](admin/rct.png)](https://www.rct-power.com/de)
@@ -32,7 +32,7 @@ Diese Produktivversion hat sich als stabil erwiesen.
 Über das Feld „RCT Elements“ kann ausgewählt werden, welche Daten vom Stromrichter gelesen werden sollen.
 Wenn hier nichts eingegeben wird, wird die Standardeinstellung verwendet:
 
-"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state"
+"battery.bat_status,battery.soc,battery.soc_target,battery.soc_target_high,battery.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,fault[0].flt,fault[1] .flt,fault[2].flt,fault[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
 Weitere Elemente finden Sie im Code (Datei „rct/rc_core2.js“). Da dies nicht selbstbeschreibend ist, erfolgt die Verwendung auf eigene Gefahr!
 
@@ -55,19 +55,27 @@ Stoppen Sie in diesem Fall den Adapter und löschen Sie den Knoten „rct.0“ m
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2024-02-09)
+* (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
+
+### 1.2.3 (2024-02-09)
+* (Andreas Ruttkamp) prim_sm.state added
+* (Andreas Ruttkamp) states for battery added
+* (Andreas Ruttkamp) output of data points power_mng.soc_min and soc_min_island corrected
+
 ### 1.2.2 (2023-09-13)
 * (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
 * (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
 
 ### 1.2.1 (2023-09-13)
-* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+* (Andreas Ruttkamp) configured rct elements will now be used correctly ( in 1.2.0 only power_mng.bat_next_calib_date was read)
 
 ### 1.2.0 (2023-09-11)
-* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) connection state corrected when adapter is stopped
 * (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state corrected
+* (Andreas Ruttkamp) connection state corrected
 
 ### 1.1.6 (2023-08-23)
 * (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
@@ -142,4 +150,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2024 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/dev/adapterjsonconfig.md
 title: ioBroker JSON 配置
-hash: cp6HxXeplcm6obrd+pukn6nnehJQqQHJIo7aCxXQcnc=
+hash: pFgc/87KVy39aIJudHkNPEzNOTzwcA7/F7IUB3k0j1M=
 ---
 # IoBroker JSON 配置
 Admin（从版本 6 开始）支持适配器的 JSON 配置。
@@ -39,7 +39,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
   - `items` - 带有面板的对象 `{"tab1": {}, "tab2": {}...}`
   - `iconPosition` - `bottom`、`end`、`start` 或 `top`。仅适用于具有“icon”属性的面板。默认值：`开始`
 
-- `面板` - 包含项目的选项卡
+- `面板` - 带有项目的选项卡
   - `icon` - 选项卡可以有图标（base64，如 `data:image/svg+xml;base64,...`）或 `jpg/png` 图像（以 `.png` 结尾）
   - `label` - 选项卡的标签
   - `items` - 对象 `{"attr1": {}, "attr2": {}}...`
@@ -145,7 +145,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
 该字段类型仅在 UI 中起作用。
 密码和其他敏感数据应加密存储！为此，必须在 io-package.json 的 [本机加密](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) 下提供密钥。
-此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来保护此属性不被提供给除 `admin` 和 `cloud` 之外的其他适配器。
+此外，您可以通过将其添加到 `io-package.json` 文件中的 `protectedNative` 来防止此属性被提供给除 `admin` 和 `cloud` 之外的其他适配器。
 
     - `repeat` - 重复密码必须与密码进行比较
     - `visible` - 如果允许通过切换视图按钮查看密码，则为 true（仅适用于输入时的新密码）
@@ -167,11 +167,11 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 
   仅文本：实例正在运行，实例未运行
 
-    - `instance` - 检查实例是否存活。如果没有定义，它将使用当前实例。您可以在文本中使用“${data.number}”模式。
+    - `instance` - 检查实例是否存活。如果未定义，则将使用当前实例。您可以在文本中使用“${data.number}”模式。
     - `textAlive` - 默认文本是“实例 %s 处于活动状态”，其中 %s 将被替换为“ADAPTER.0”。
     - `textNotAlive` - 默认文本是`实例 %s 不活动`，其中 %s 将被替换为 `ADAPTER.0`。
 
-- `pattern` - 具有“https://${data.ip}:${data.port}”等模式的只读字段（不会保存在配置中）
+- `pattern` - 具有类似 'https://${data.ip}:${data.port}' 模式的只读字段（不会保存在配置中）
 
   带有只读标志的文本输入，显示模式。
 
@@ -242,7 +242,7 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
 - `jsonEditor` - json 编辑器
 
 - `语言` - 选择语言
-    - `system` - 默认允许使用 `system.config` 中的系统语言
+    - `system` - 默认允许使用 `system.config` 中的系统语言（如果选择，将具有空字符串值）
 
 - `证书`
     - `certType` - 位于：`public`、`private`、`chained`。但从 6.4.0 开始，您可以使用“证书”类型。
@@ -271,6 +271,16 @@ Admin（从版本 6 开始）支持适配器的 JSON 配置。
         - `https://URL/myComponent`：直接来自 URL
         - `./adapter/ADAPTER_NAME/custom/customComponent.js`：在这种情况下，文件将从 `/adapter/ADAPTER_NAME/custom/customComponents.js` 加载
     - `i18n` - 如果 `i18n/xx.json` 文件位于与组件或翻译对象 `{"text1": {"en": Text1"}}` 相同的目录中，则为 true
+
+- `datePicker` - 允许用户选择一个日期输入，UI 格式来自用户安装中配置的 `dateFormat`。这
+
+组件返回一个可解析的日期字符串。
+
+- `timePicker` - 允许用户选择一个日期输入，返回的字符串是可解析的日期字符串或格式为 `HH:mm:ss`
+    - `format` - 传递给日期选择器的格式默认为 `HH:mm:ss`
+    - `views` - 配置应向用户显示哪些视图。默认为 `['小时', '分钟', '秒']`
+    - `timeSteps` - 表示每个视图的可用时间步长。默认为“{小时：1，分钟：5，秒：5}”
+    - `returnFormat` - `fullDate` 或 `HH:mm:ss`。出于向后兼容性原因，默认为完整日期。
 
 - `分隔线` - 水平线
     - `height` - 可选高度
@@ -636,7 +646,7 @@ newData: {
 如果元素没有属性`type`，则假设它具有默认类型“面板”。
 
 ## 面板样式
-您也可以为面板提供样式。这是一个带有面板背景的示例：
+您也可以为面板提供样式。这是带有面板背景的示例：
 
 ```json
 {

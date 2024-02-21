@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
+hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -24,24 +24,30 @@ hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
 Определение интерфейса Modbus (выпуск 5, 16 февраля 2023 г.): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
 
 ## Поддерживаемое оборудование
-* Инвертор HUAWEI (серия SUN2000) M1
-* HUAWEI Smart Dongle-WLAN-FE / мин. Версия программного обеспечения: xxxSPC133 (SDongleA-05)
+* Инвертор HUAWEI серии SUN2000 (M0,M1)
+* HUAWEI Smart Dongle-WLAN-FE / мин. Версия программного обеспечения: V100R001C00SPC133 (SDongleA-05)
 * Аккумулятор HUAWEI Luna2000
 * Интеллектуальный датчик мощности HUAWEI DTSU666-H или DDSU666-H
 
 [Информация о продукте Huawei](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
 
 ## Список функций
-* Можно обработать максимум 5 инверторов (главный/подчиненный), каждый с аккумуляторным модулем (макс. 30 кВтч).
+* Можно обработать максимум 5 инверторов (главный/подчиненный), каждый с аккумуляторным модулем (макс. 15 кВтч).
 * Значения в реальном времени, такие как входная мощность, выходная мощность, мощность зарядки/разрядки и потребление сети, считываются через фиксированный интервал.
 * Состояния записываются только для измененных данных преобразователя. Это снижает нагрузку на экземпляр iobroker.
 * Состояния «inputPower» или «activePower» в «собранном» пути можно отслеживать с помощью триггерного элемента «было обновлено». Потому что эти состояния всегда записываются в заданном интервале.
 
-## Настройки
+## Основные настройки
 * `address`: IP-адрес инвертора.
 * `port`: порт Modbus инвертора (по умолчанию: 502).
 * `modbusIds`: идентификаторы инверторов, разделенные знаком "," (по умолчанию: 1, максимум 5 инверторов)
 * `updateInterval`: интервал быстрого обновления (по умолчанию: 20 секунд, минимум 5 секунд на инвертор)
+
+## Синхронизация Modbus
+* `timeout`: тайм-аут соединения Modbus (по умолчанию: 10000 мс)
+* `delay`: задержка между запросами Modbus (по умолчанию: 0 мс)
+* `connect Delay`: задержка после подключения Modbus (по умолчанию: 5000 мс)
+* `auto-adjust`: автоматическая настройка настроек Modbus.
 
 ## Настройка инверторов
 Чтобы использовать соединение Modbus, все устройства Huawei должны использовать последнюю версию прошивки. Вы можете выполнить последнюю версию прошивки непосредственно на портале FusionSolar в разделе «Обновления».
@@ -64,6 +70,15 @@ hash: vfes3Rb4ONJFIC7+u3FV9fSH/h3yZo26WYmIX4U5+II=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.3.1 (2024-02-12)
+* state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
+
+### 0.3.0 (2024-02-10)
+* add battery unit information for example temperature #40
+* modbus timeout, connect delay and delay can be configured #34
+* device status as plain text `sun2000.0.inverter.x.derived.deviceStatus`
+* Introduction of a driver model. A separate driver can be created for each device #41
+
 ### 0.2.1 (2024-02-02)
 * Requirements from [Add sun2000 to latest](https://github.com/ioBroker/ioBroker.repositories/pull/3219)
 

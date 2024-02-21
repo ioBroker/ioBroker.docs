@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rct/README.md
 title: ioBroker.rct
-hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
+hash: /FJxK40wsnYUSmjAQZ5tOicr+cJTX2Eux8jbnhDDMqo=
 ---
 ![NPM版本](https://img.shields.io/npm/v/iobroker.rct.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.rct.svg)
 ![安装数量（最新）](https://iobroker.live/badges/rct-installed.svg)
 ![安装数量（稳定）](https://iobroker.live/badges/rct-stable.svg)
-![GitHub 存储库的 Libraries.io 依赖关系状态](https://img.shields.io/librariesio/github/aruttkamp/ioBroker.rct)
+![GitHub 存储库的 Libraries.io 依赖关系状态](https://img.shields.io/librariesio/release/npm/ioBroker.rct)
 ![国家公共管理](https://nodei.co/npm/iobroker.rct.png?downloads=true)
 
 [![徽标](admin/rct.png)](https://www.rct-power.com/de)
@@ -32,7 +32,7 @@ hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
 通过使用“RCT元素”字段，可以选择应从功率转换器读取哪些数据。
 如果此处未输入任何内容，将使用默认值：
 
-"电池.bat_status,电池.soc,电池.soc_target,电池.soc_target_high,电池.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,故障[0].flt,故障[1] .flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag,prim_sm.state"
+"电池.bat_status,电池.soc,电池.soc_target,电池.soc_target_high,电池.soc_target_low,dc_conv.dc_conv_struct[0].p_dc_lp,dc_conv.dc_conv_struct[1].p_dc_lp,故障[0].flt,故障[1] .flt,故障[2].flt,故障[3].flt,g_sync.p_ac_grid_sum_lp,g_sync.p_ac_load_sum_lp,g_sync.p_ac_sum_lp,g_sync.p_acc_lp,g_sync.u_sg_avg[0],g_sync.u_sg_avg[1],io_board.s0_external_power ,power_mng.is_heiphoss,power_mng.state,power_mng.use_grid_power_enable,power_mng.u_acc_mix_lp,prim_sm.island_flag"
 
 其他元素可以在代码（文件“rct/rc_core2.js”）中找到。由于这不是自我描述，因此使用风险自负！
 
@@ -55,19 +55,27 @@ hash: Da5KGLtGkmrohfo6HCdjRifK6JBlys94A/6Du2kWsiA=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 1.2.4 (2024-02-09)
+* (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
+
+### 1.2.3 (2024-02-09)
+* (Andreas Ruttkamp) prim_sm.state added
+* (Andreas Ruttkamp) states for battery added
+* (Andreas Ruttkamp) output of data points power_mng.soc_min and soc_min_island corrected
+
 ### 1.2.2 (2023-09-13)
 * (Andreas Ruttkamp) data type for power_mng.bat_next_calib_date corrected
 * (Andreas Ruttkamp) data type for battery.stack_cycles[x] corrected
 
 ### 1.2.1 (2023-09-13)
-* (Andreas Ruttkamp) configured rct elements will now correctly used. ( in 1.2.0 only power_mng.bat_next_calib_date was read)
+* (Andreas Ruttkamp) configured rct elements will now be used correctly ( in 1.2.0 only power_mng.bat_next_calib_date was read)
 
 ### 1.2.0 (2023-09-11)
-* (Andreas Ruttkamp) Connection state on Stop from Adapter corrected
+* (Andreas Ruttkamp) connection state corrected when adapter is stopped
 * (Andreas Ruttkamp) dependancies updated
 
 ### 1.1.7 (2023-08-30)
-* (Andreas Ruttkamp) Connection state corrected
+* (Andreas Ruttkamp) connection state corrected
 
 ### 1.1.6 (2023-08-23)
 * (Andreas Ruttkamp) rct_core.js deleted (now rct_core2 is used)
@@ -142,4 +150,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) 2023 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>
+Copyright (c) 2024 Andreas Ruttkamp <ioBroker.rct@ruttkamp.com>

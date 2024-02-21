@@ -32,6 +32,9 @@ Copy and Paste does not work - the data is cut at the end. You will have to down
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+## **WORK IN PROGRESS**
+* first Version with two towers in NPM
+
 ### 1.5.1 (2024-01-15)
 * Enable the possibility to get informations from a two tower setup
 * BREAKING CHANGE of Structure.

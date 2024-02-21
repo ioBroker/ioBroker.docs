@@ -74,6 +74,18 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 1.3.2 (2024-02-14)
+* (simatec) Design Fix
+* (simatec) Source code cleaned up
+
+### 1.3.1 (2024-02-11)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) Translation added
+* (simatec) jsonConfig added
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+
 ### 1.3.0 (2024-01-07)
 * (simatec) Dependencies updated
 * (simatec) many smal Fix

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/dev/adapterjsonconfig.md
 title: ioBroker JSON-Konfiguration
-hash: cp6HxXeplcm6obrd+pukn6nnehJQqQHJIo7aCxXQcnc=
+hash: pFgc/87KVy39aIJudHkNPEzNOTzwcA7/F7IUB3k0j1M=
 ---
 # IoBroker JSON-Konfiguration
 Admin (ab Version 6) unterstützt die JSON-Konfiguration für Adapter.
@@ -23,7 +23,7 @@ Zusätzlich zur JSON-Datei müssen Sie im Abschnitt `io-package.json` in `common
 ...
 ```
 
-Dies bedeutet, dass der Adapter die JSON-Konfiguration unterstützt.
+um zu sagen, dass der Adapter die JSON-Konfiguration unterstützt.
 
 Sie können fast alle Komponenten in Aktion sehen, wenn Sie diesen Adapter testen: https://github.com/mcm4iob/ioBroker.jsonconfig-demo.
 Sie können es über das GitHub-Symbol im Admin installieren, indem Sie `iobroker.jsonconfig-demo` auf der Registerkarte „npm“ eingeben.
@@ -41,7 +41,7 @@ Mögliche Typen:
 
 - „Panel“ – Registerkarte mit Elementen
   - „Symbol“ – die Registerkarte kann ein Symbol (base64 wie „data:image/svg+xml;base64,...“) oder „jpg/png“-Bilder (endet mit „.png“) enthalten.
-  - `label` – Beschriftung der Registerkarte
+  - „label“ – Beschriftung der Registerkarte
   - `items` – Objekt `{"attr1": {}, "attr2": {}}...`
   - `collapsable` – nur möglich, wenn nicht Teil von tabs[jsonConfig.json](..%2F..%2F..%2F..%2F..%2FioBroker.ring%2Fadmin%2FjsonConfig.json)
   - „Farbe“ – Farbe des reduzierbaren Headers „primär“ oder „sekundär“ oder nichts
@@ -49,7 +49,7 @@ Mögliche Typen:
 - `text` – Textkomponente
   - „maxLength“ – maximale Länge des Texts im Feld
   - „readOnly“ – schreibgeschütztes Feld
-  - `trim` – Standard ist true. Setzen Sie dieses Attribut auf „false“, wenn eine Beschneidung nicht gewünscht ist.
+  - „trim“ – Standardwert ist wahr. Setzen Sie dieses Attribut auf „false“, wenn eine Beschneidung nicht gewünscht ist.
   - „minRows“ – Standardwert ist 1. Setzen Sie dieses Attribut auf „2“ oder mehr, wenn Sie einen Textbereich mit mehr als einer Zeile haben möchten.
   - „maxRows“ – maximale Anzahl an Textzeilen. Wird nur verwendet, wenn „minRows“ > 1.
 
@@ -136,14 +136,14 @@ Mögliche Typen:
        - `{type: 'channel'}` – nur Kanäle anzeigen
        - `{type: ['channel', 'device']}` – zeigt nur Kanäle und Geräte an
        - `{common: {type: 'number'}` – zeigt nur Zustände vom Typ 'number' an
-       - `{common: {type: ['number', 'string']}` – zeigt nur Zustände vom Typ 'Nummer und String' an
+       - `{common: {type: ['number', 'string']}` – zeigt nur Zustände vom Typ 'number und string' an
        - `{common: {role: 'switch']}` – zeigt nur Zustände mit Rollen ab switch an
        - „{common: {role: ['switch', 'button]}` – zeigt nur Zustände mit Rollen an, die mit „switch“ und „button“ beginnen
     - `filterFunc` – [optional] Kann nicht zusammen mit `type`-Einstellungen verwendet werden. Es handelt sich um eine Funktion, die für jedes Objekt aufgerufen wird und true oder false zurückgeben muss. Beispiel: `obj.common.type === 'number'`
 
 - „Passwort“ – Passwortfeld
 
-Dieser Feldtyp hat lediglich Auswirkungen auf die Benutzeroberfläche.
+Dieser Feldtyp hat nur Auswirkungen auf die Benutzeroberfläche.
 Passwörter und andere sensible Daten sollten verschlüsselt gespeichert werden! Dazu muss der Schlüssel in der io-package.json unter [nativeEncrypted](https://github.com/ioBroker/ioBroker.js-controller#automatically-encryptdecrypt-configuration-fields) bereitgestellt werden.
 Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter als `admin` und `cloud` bereitgestellt wird, indem Sie sie zu `protectedNative` in der Datei `io-package.json` hinzufügen.
 
@@ -165,7 +165,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 
 - „lebendig“ – zeigt nur an, ob die Instanz aktiv ist und kann in „versteckt“ und „deaktiviert“ verwendet werden (wird nicht in der Konfiguration gespeichert)
 
-  Nur Text: Instanz wird ausgeführt, Instanz wird nicht ausgeführt
+  Nur Text: Instanz läuft, Instanz läuft nicht
 
     - „Instanz“ – prüfen Sie, ob die Instanz aktiv ist. Wenn nicht definiert, wird die aktuelle Instanz verwendet. Sie können im Text das Muster „${data.number}“ verwenden.
     - „textAlive“ – Standardtext ist „Instance %s is alive“, wobei %s durch „ADAPTER.0“ ersetzt wird.
@@ -181,7 +181,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
 - „sendto“ – Schaltfläche, die eine Anfrage an die Instanz sendet (https://github.com/iobroker-community-adapters/ioBroker.email/blob/master/admin/index_m.html#L128)
     - „Befehl“ – (Standard: „Senden“)
     - `jsonData` - string - `"{\"subject1\": \"${data.subject}\", \"options1\": {\"host\": \"${data.host}\" }}"`. Sie können die speziellen Variablen „data._origin“ und „data._originIp“ verwenden, um die Aufrufer-URL an die Instanz zu senden, z. B. „http://127.0.0.1:8081/admin“.
-    - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides.
+    - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, jedoch nicht beides.
     - `result` - `{result1: {en: 'A'}, result2: {en: 'B'}}`
     - `error` - `{error1: {en: 'E'}, error2: {en: 'E2'}}`
     - „Variante“ – „enthalten“, „umrissen“ oder nichts
@@ -228,7 +228,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
     - „allowAddByFilter“ – wenn das Hinzufügen erlaubt ist, auch wenn der Filter gesetzt ist
     - „showSecondAddAt“ – Anzahl der Zeilen, ab denen die zweite Schaltfläche zum Hinzufügen am Ende der Tabelle angezeigt wird. Standard 5
     - „showFirstAddOnTop“ – Zeigt die erste Plus-Schaltfläche oben in der ersten Spalte und nicht links an.
-    - „Klonen“ – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn „true“, wird die Schaltfläche „Klonen“ angezeigt. Bei einem Attributnamen ist dieser Name eindeutig.
+    - „Klonen“ – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn „true“, wird die Schaltfläche „Klonen“ angezeigt. Wenn es sich um einen Attributnamen handelt, ist dieser Name eindeutig.
     - „export“ – [optional] – wenn die Schaltfläche „Exportieren“ angezeigt werden soll. Als CSV-Datei exportieren.
     - „importieren“ – [optional] – wenn die Schaltfläche „Importieren“ angezeigt werden soll. Aus CSV-Datei importieren.
     - „uniqueColumns“ – [optional] – Geben Sie ein Array von Spalten an, die eindeutige Einträge haben müssen
@@ -237,12 +237,12 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
     - `items` - `[{"type": siehe oben, "attr": "name", "default": ""}]` - Elemente können wie auf einem `Panel` platziert werden (xs, sm, md, lg und newLine)
     - `titleAttr` – Schlüssel der Elementliste, der als Name verwendet werden soll
     - „noDelete“ – boolescher Wert, wenn Löschen oder Hinzufügen deaktiviert ist. Wenn „noDelete“ falsch ist, sollten Hinzufügen, Löschen und Verschieben nach oben/unten funktionieren
-    - „Klonen“ – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn „true“, wird die Schaltfläche „Klonen“ angezeigt. Bei einem Attributnamen ist dieser Name eindeutig.
+    - „Klonen“ – [optional] – wenn die Schaltfläche „Klonen“ angezeigt werden soll. Wenn „true“, wird die Schaltfläche „Klonen“ angezeigt. Wenn es sich um einen Attributnamen handelt, ist dieser Name eindeutig.
 
 - „jsonEditor“ – JSON-Editor
 
 - „Sprache“ – Sprache auswählen
-    - „system“ – Ermöglicht standardmäßig die Verwendung der Systemsprache aus „system.config“.
+    - „system“ – Ermöglicht standardmäßig die Verwendung der Systemsprache aus „system.config“ (hat bei Auswahl einen leeren Zeichenfolgenwert).
 
 - „Zertifikat“.
     - „certType“ – einer von: „public“, „private“, „chained“. Aber ab 6.4.0 können Sie den Typ „Zertifikate“ verwenden.
@@ -271,6 +271,16 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
         - „https://URL/myComponent“: direkt von der URL
         - „./adapter/ADAPTER_NAME/custom/customComponent.js“: In diesem Fall werden die Dateien von „/adapter/ADAPTER_NAME/custom/customComponents.js“ geladen
     - „i18n“ – wahr, wenn sich die Dateien „i18n/xx.json“ im selben Verzeichnis wie die Komponente oder das Übersetzungsobjekt „{"text1": {"en": Text1"}}` befinden
+
+- „datePicker“ – ermöglicht dem Benutzer die Auswahl einer Datumseingabe. Das UI-Format stammt aus dem konfigurierten „dateFormat“ in der Installation des Benutzers. Der
+
+Die Komponente gibt eine analysierbare Datumszeichenfolge zurück.
+
+- „timePicker“ – ermöglicht dem Benutzer die Auswahl einer Datumseingabe. Die zurückgegebene Zeichenfolge ist eine analysierbare Datumszeichenfolge oder hat das Format „HH:mm:ss“.
+    - „Format“ – Das an die Datumsauswahl übergebene Format ist standardmäßig „HH:mm:ss“.
+    - „Ansichten“ – Konfigurieren Sie, welche Ansichten den Benutzern angezeigt werden sollen. Der Standardwert ist „[‘Stunden‘, ‚Minuten‘, ‚Sekunden‘]“.
+    - „timeSteps“ – Stellt die verfügbaren Zeitschritte für jede Ansicht dar. Standardmäßig ist „{ Stunden: 1, Minuten: 5, Sekunden: 5 }“.
+    - „returnFormat“ – „fullDate“ oder „HH:mm:ss“. Aus Gründen der Abwärtskompatibilität wird standardmäßig das vollständige Datum verwendet.
 
 - „Teiler“ – horizontale Linie
     - „Höhe“ – optionale Höhe
@@ -301,11 +311,11 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
   Eingabefeld mit Dateiauswahl
 
     - „disableEdit“ – wenn der Benutzer den Dateinamen manuell eingeben kann und nicht nur über den Auswahldialog
-    - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „Meta“ und folgenden Pfad beschränken (nicht obligatorisch)
+    - „limitPath“ – Auswahl auf ein bestimmtes Objekt vom Typ „meta“ und folgenden Pfad beschränken (nicht obligatorisch)
     - „filterFiles“ – wie „[‘png‘, ‚svg‘, ‚bmp‘, ‚jpg‘, ‚jpeg‘, ‚gif‘]“.
     - „filterByType“ – „Bilder, Code, TXT, Audio, Video“.
     - „allowUpload“ – erlaubtes Hochladen von Dateien
-    - „allowDownload“ – erlaubtes Herunterladen von Dateien (Standard: true)
+    - „allowDownload“ – erlaubter Download von Dateien (Standard: true)
     - „allowCreateFolder“ – erlaubt die Erstellung von Ordnern
     - „allowView“ – erlaubte Kachelansicht (Standard: true)
     - `showToolbar` – Symbolleiste anzeigen (Standard: true)
@@ -316,7 +326,7 @@ Darüber hinaus können Sie verhindern, dass diese Eigenschaft an andere Adapter
     - „Höhe“ – Höhe des QR-Codes in Pixel
     - „Befehl“ – sendTo-Befehl
     - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet
-    - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
+    - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, jedoch nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
 
   Beispielcode im Backend:
 
@@ -391,7 +401,7 @@ adapter.on('message', obj => {
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „maxLength“ – maximale Länge des Texts im Feld
 
-Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
+Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss ein Array in der Form `["value1", {"value": "value2", "label": "Value2"}, ...]` sein (Schlüssel müssen eindeutig sein). Siehe `selectSendTo` für ein Beispiel für einen Handler
 
 - `textSendTo`
 
@@ -402,7 +412,7 @@ Um diese Option zu verwenden, muss Ihr Adapter einen Nachrichtenhandler implemen
   - „alsoDependsOn“ – bei Änderung der Attribute muss der Befehl erneut gesendet werden
   - „Befehl“ – sendTo-Befehl
   - `jsonData` - string - `{"subject1": "${data.subject}", "options1": {"host": "${data.host}"}}`. Diese Daten werden an das Backend gesendet
-  - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, aber nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
+  - `data` – Objekt – `{"subject1": 1, "data": "static"}`. Sie können jsonData oder data angeben, jedoch nicht beides. Diese Daten werden an das Backend gesendet, wenn jsonData nicht definiert ist.
 
 Um diese Option nutzen zu können, muss Ihr Adapter einen Nachrichtenhandler implementieren: Das Ergebnis des Befehls muss eine Zeichenfolge sein.
 
@@ -511,15 +521,15 @@ Alle Typen könnten Folgendes haben:
   - „jsonData“ – statische Daten
   - Wenn keine „Daten“ und „jsonData“ definiert sind, werden die folgenden Informationen gesendet: „{“attr“: „<Attributname>“, „Wert“: „<aktueller Wert>“}“.
   - „Schaltfläche“ – Schaltflächenbezeichnung zum erneuten Auslösen einer Anfrage von der Instanz
-  - „buttonTooltip“ – Schaltflächen-Tooltip (Standard: „Daten nach Instanz anfordern“)
+  - „buttonTooltip“ – Button-Tooltip (Standard: „Daten nach Instanz anfordern“)
   - `buttonTooltipNoTranslation` – Schaltflächen-Tooltip nicht übersetzen
 - „Platzhalter“ – Platzhalter (zur Textsteuerung)
 - „noTranslation“ – Auswahlen oder andere Optionen nicht übersetzen (nicht für Hilfe, Beschriftung oder Platzhalter)
 - `onChange` – Struktur in Form `{"alsoDependsOn": ["attr1", "attr2"], "calculateFunc": "data.attr1 + data.attr2", "ignoreOwnChanges": true}`
 - „doNotSave“ – Dieses Attribut nicht speichern, da es nur für interne Berechnungen verwendet wird
-- „noMultiEdit“ – wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zum Bearbeiten ausgewählt hat.
+- „noMultiEdit“ – wenn dieses Flag auf „true“ gesetzt ist, wird dieses Feld nicht angezeigt, wenn der Benutzer mehr als ein Objekt zur Bearbeitung ausgewählt hat.
 - „Bestätigen“.
-  - „Bedingung“ – JS-Funktion: True, Bestätigungsdialog anzeigen
+  - „Bedingung“ – JS-Funktion: true, Bestätigungsdialog anzeigen
   - `text` – Text des Bestätigungsdialogs
   - `title` – Titel des Bestätigungsdialogs
   - „ok“ – Text für die Schaltfläche „OK“.
@@ -590,7 +600,7 @@ data: {
 ```
 
 In diesem Fall muss die Eingabe Text sein, sofern angezeigt `__different__`, mit der Option zur automatischen Vervollständigung von drei möglichen Werten.
-Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder einen eigenen neuen Wert eingeben, z. B. 500.
+Benutzer können aus der Dropdown-Liste 1000, 2000 oder 3000 auswählen oder ihren eigenen neuen Wert eingeben, z. B. 500.
 
 Boolescher Wert muss unbestimmt unterstützen, wenn der Wert [falsch, wahr] ist.
 
@@ -610,7 +620,7 @@ newData: {
 
 Der Wert `__different__` ist reserviert und kann von keiner Texteingabe vom Benutzer akzeptiert werden.
 
-Das Bauteil muss so aussehen
+Die Komponente muss so aussehen
 
 ```
 <SchemaEditor

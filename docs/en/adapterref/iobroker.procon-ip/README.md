@@ -83,8 +83,9 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
+* Update dependencies.
 
 ### 1.5.1 (2023-09-05)
 * Re-translate adapter config.

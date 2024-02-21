@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.opcua/README.md
 title: ioBroker OPC-UA-Adapter
-hash: BKj+somADFCvd28wBlB7BJ5lXctqBZBVCLEaAuOzM2g=
+hash: y4PCdUPcYt/qFqFflbq1u+qAO4EvRipOjtc0WO3g3pg=
 ---
 ![Logo](../../../en/adapterref/iobroker.opcua/admin/opcua.png)
 
@@ -15,20 +15,24 @@ hash: BKj+somADFCvd28wBlB7BJ5lXctqBZBVCLEaAuOzM2g=
 
 # IoBroker OPC-UA-Adapter
 ## Klient
-**Gerade ist nur Client implementiert.**
+**Eigentlich ist nur der Client implementiert.**
 
 ## Server
 Folgende Datentypen werden unterstützt:
 
 - Nummer
-- Saite
-- boolesch
+- Schnur
+- Boolescher Wert
 
-<!-- Platzhalter für die nächste Version (am Zeilenanfang):
+<!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __ARBEITEN IN PROGRESS__ -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 1.0.0 (2024-02-21)
+* (bluefox) License changes to the free license (MIT)
+* (bluefox) Minimum node.js version 16
+
 ### 0.4.5 (2021-11-13)
 * (bluefox) Implemented the writing of states in the client mode
 
@@ -57,10 +61,24 @@ Folgende Datentypen werden unterstützt:
 * (bluefox) support of server (actual no authentication)
 
 ## License
-Commercial license.
+The MIT License (MIT)
 
-Copyright (c) 2016-2021, Bluefox <dogafox@gmail.com>, ioBroker GmbH <info@iobroker.net>
+Copyright (c) 2024, Denis Haev (dogafox@gmail.com)
 
-All Rights Reserved.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The full text of the license could be found [here](LICENSE).
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

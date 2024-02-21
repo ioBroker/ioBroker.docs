@@ -75,8 +75,7 @@ You may use datapoints informations on tab "LIST OF DATAPOINTS" for reference (o
 # Hints and limitations
 
 ## This ioBroker adapter is under development and *beta stage*
-* Please don't use this adapter in productive environment!
-* Data structure and functionality is subject to change
+* Data structure and functionality may chenge in future versions.
 * You're welcome to test the adapter in your environment. Please give me feedback about your experience and findings.
 
 ## Why using data collection (listening only) and UDSonCAN (ReadByDid) in parallel?
@@ -102,6 +101,15 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.6.19 (2024-02-19)
+* (MyHomeMyData) Check for changed structure of datapoints during startup
+* (MyHomeMyData) Update of list of datapoints to version 20240218
+* (MyHomeMyData) Bugfix to avoid warnings on very first start of adapter
+
+### 0.6.18 (2024-02-08)
+* (MyHomeMyData) Added versioning to list of datapoints and check for updates on start of adapter
+* (MyHomeMyData) Added optional description in configuration of UDS schedules
+
 ### 0.6.17 (2024-01-29)
 * (MyHomeMyData) Added/removed datapoints to/from list of writable dids
 * (MyHomeMyData) Preparations for device specific list of writable dids

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: Tr0p2E//0Nakw+VgLJt20DY6J87OlwBeeHTrwx6j7Q4=
+hash: TAAEXEFGURIkciO6/f0ZpXmlVxCKTZ0L9E1gnhvBNR0=
 ---
 ![标识](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -198,7 +198,7 @@ Rule1 ON System#Boot do TCPStart 23 endon
 Rule1 1
 ```
 
-它之所以有效，是因为在端口 23 等端口上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
+它之所以有效，是因为在端口 23 上提供了透明 TCP 服务器。可以选择端口，例如，只需将 23 交换为 9000。
 **当然还要在 Gipos 和 RJ/DSUB 插头之间焊接 MAX2323!!!!**
 
 #### Linux 到网络
@@ -242,7 +242,7 @@ RFC 以下是上述配置的设置。设备端口为7000。
 #### RS232 至 ioBroker
 |通讯硬件|类型 |正在工作 |评论 |
 | ----------------------------------- | ------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|串口转USB |本地 |是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
+|串口转USB |本地|是的 |适配器有多种芯片可供选择。根据型号的不同，如果适配器没有序列号并且连接了多个适配器，则可能会出现识别问题。 Windows 已为每个 USB 插头分配一个 COM 端口。 |
 | LogiLink AU0034 |本地|是的| |
 | ESP-LINK |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。记得使用像 MAX | 这样的转换器。 |
 |塔斯莫塔 |网络|没有|在 ESP8266 上使用 Tasmota 时，块未按正确的顺序传输，导致对象和数据不正确。因此不推荐塔斯莫塔。 |
@@ -250,7 +250,7 @@ RFC 以下是上述配置的设置。设备端口为7000。
 | Waveshare RS232/485/422 转 POE ETH |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。使用 RS232 SUBD 端口。转换器可通过 POE 供电。如果 POE 可用，则电池附近不需要电源。 |
 |精灵 EW10A |网络|是的 |确保您的 WiFi 有足够的带宽和信号强度，以便连接稳定。检查传输速度 115200 8 N 1。 |
 |精灵 EW10A-0 |网络|是的 |确保您的 WiFi 有足够的带宽和信号强度，以便连接稳定。检查传输速度 115200 8 N 1。 |
-| Elfin EE10-A |网络|是的|为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。 |
+| Elfin EE10-A |网络|是的 |为设备分配网络中的 IP。检查传输速度 115200 8 N 1. 其他一切保持不变。 |
 
 #### 电池
 | Pylontech模型|型号|固件|正在工作 |评论 |
@@ -262,9 +262,10 @@ RFC 以下是上述配置的设置。设备端口为7000。
 | 2000 美元 (US2KBPL) |美国 | V2.8 21-04-29 |很好|温度仅增加一度 |
 |力 H2 |力| V1.5 21-06-18 |很好|注意：在某些 Force 手册中，连接器描述中仅列出了 RX 和 TX 连接。接地位于 PIN 8 上，也必须连接。 |
 
-|皮特斯模型 |型号|固件|正在工作 |评论 |
-| ----------- | ----- | ------------- | ---------- | -------------------------------------- |
+|皮特斯模型|型号|固件|正在工作 |评论 |
+| -------------- | ----- | -------------- | ---------- | -------------------------------------- |
 | E-BOX-4850P |美国 | V1.3 20-12-22 |很好|感谢 kletternaut 提供的测试数据 |
+| E-BOX-48100V-D |美国 | V1.10 23-10-13 |很好|适配器版本 >=0.0.8 |
 
 如果您使用硬件，请在论坛或 Github 上给我写信作为问题。我们很乐意继续这份清单。
 
@@ -350,7 +351,7 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 仅当在此处设置时，命令“time”才会写入控制台。
 
 ### 确定为模型 Force 读取哪些数据
-如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，所以我可能需要做出改进。
+如果由于适配器请求电池无法提供的数据而发生错误，则可以在此处停止请求。该适配器是在重新设计的基础上构建的，因此我可能需要做出改进。
 如果您的对象太多，您也可以减少此处的数据。
 
 #### 下载电池数据
@@ -453,35 +454,41 @@ ioBroker论坛：https://forum.iobroker.net/topic/68707
 #### 状态集
 如果为 true 且未写入 ack 来设置，则将当前时间发送到 Pylontech。当命令执行后，状态设置为 ack = true。
 
+＃＃ **工作正在进行中**
+- (PLCHome) 配置此适配器以使用发布脚本。
+
+## 0.0.8 (16.02.2024)
+- (PLCHome) 改进了 E-BOX-48100V-D 的电池组
+
+## 0.0.7 (01.11.2023)
+- (PLCHome) 问题“无法在解析器中读取未定义的属性（读取“修剪”）”已修复，因此 E-BOX-4850P 现在可以工作。
+
+## 0.0.6 (09.10.2023)
+- (PLCHome) 从响应中识别出发送的命令。现在命令被传递到解析器。
+
+## 0.0.5 (05.10.2023)
+- (PLCHome) 实施强制 H2。感谢radi对这个项目的支持！
+
+## 0.0.4 (04.10.2023)
+- (PLCHome) 删除了 RFC2217。
+- (PLCHome) 将间隔更改为 this.interval。
+- (PLCHome) 更改连接程序以捕获异常。
+
+## 0.0.3
+- (PLCHome) 初始版本
+
 ## Changelog
 
-### 0.0.7 (01.11.2023)
-
-- (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
-
-### 0.0.6 (09.10.2023)
-
-- (PLCHome) The sent command was recognized from the response. Now the command is passed to the parser.
-
-### 0.0.5 (05.10.2023)
-
-- (PLCHome) Implemenmt the force H2. Thanx to radi for suppoting this project!
-
-### 0.0.4 (04.10.2023)
-
-- (PLCHome) Removed RFC2217.
-- (PLCHome) Changed interval to this.interval.
-- (PLCHome) Change the connection procedure to catch the exception.
-
-### 0.0.3
-
-- (PLCHome) initial release
+<!--
+  Placeholder for the next version (at the beginning of the line):
+  ### **WORK IN PROGRESS**
+-->
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 PLCHome
+Copyright (c) 2024 PLCHome
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

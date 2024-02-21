@@ -601,6 +601,13 @@ _[Zurück zum Anfang](#start-of-content)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.10.11 (2024-02-14)
+* (simatec) Design Fix
+* (simatec) dependencies updated
+
+### 2.10.10 (2024-02-04)
+* (simatec) small Design Fix
+
 ### 2.10.9 (2024-02-01)
 * (simatec) Fix Translation
 

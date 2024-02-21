@@ -616,7 +616,7 @@ Wenn einer der 3 Datenpunkte gefüllt wird, wird das ausgewählt Programm in den
 
 ### 401 Remote Control thinq1
 
-![401_thinq1_folder.png](401_thinq1_folder.png)
+![401_thinq1_folder.png](../en/img/401_thinq1_folder.png)
 
 [Zusammenfassung](#zusammenfassung)
 

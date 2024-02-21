@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: 适用于 ioBroker 的科沃斯 Deebot 适配器
-hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
+hash: 713ZW7GDu30w1y02dO7S5QJvaboY7I2w0irmkat0788=
 ---
 ![标识](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -19,37 +19,37 @@ hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 该适配器使用[ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)库。
 
 ＃＃ 特征
-一些值得注意的功能是：
+### 基本特征
+* 清洁功能（例如自动、区域和自定义区域清洁）和各种其他基本功能（例如播放声音、重置耗材、重新定位）
+* 检索信息（例如电池电量、清洁日志、耗材状态、清洁和充电状态）以及各种其他扩展信息（例如充电位置、地图相关信息）
+* 设置吸尘器功率、水位和其他基本调整以及各种扩展设置（例如连续清洁、请勿打扰模式、音量、AIVI/TrueDetect 3D）
+* 检索地图信息，包括区域、虚拟边界和禁止拖地区域，以及清洁过程中的信息（例如当前位置和区域）
+* 加载当前地图图像
 
-* 基本清洁功能（例如自动清洁、定点区域、自定义区域）
-* 以及其他各种基本功能（例如播放声音、重置消耗品、重新定位位置）
-* 检索基本信息（例如电池电量、清洁日志、耗材、清洁和充电状态）
-* 以及各种扩展信息（如充电位置、地图相关信息、网络信息）
-* 检索清洁过程中的信息（例如当前位置和当前点区域）
-* 设置真空功率、水位等基本设置
-* 设置扩展设置（例如连续清洁、请勿打扰模式、音量、TrueDetect 3D）
+### 扩展功能（仅限 ioBroker 适配器）
+* 保存并重新创建全套虚拟边界和无拖把区
+* 有关每个区域最后出现的日期和时间的信息
+* 返回充电站或进入/离开区域时的一些功能
 * 保存上次使用的自定义区域并重新运行保存的区域
-* 检索地图信息，包括。点区域、虚拟边界和无拖地区域
-* 删除、保存和重新创建单个虚拟边界以及全套虚拟边界
-* 有关每个单点区域最后出现的日期和时间的信息
-* 返回充电站或进入/离开充电点区域时的一些功能
-* 加载当前地图图片的函数
-* 设置单独的现货区域名称（在ioBroker中）
-* 当前型号的静音接近功能
+* 静音清洁和定位功能
+* 设置单独的区域名称
 
-请注意：某些功能仅适用于某些型号，有些仍处于实验阶段
+＃＃＃ 重要笔记
+* 某些功能（例如“静音接近”）仅适用于某些型号（主要是当前型号）
+* 有些仍处于实验阶段（例如，“加载当前地图图像”、处理虚拟边界集）
+* 不保证所有型号的适配器的功能（见下文）
 
 ＃＃ 楷模
-### 完全支持的型号
-完全支持的模型是我自己拥有的模型：
+### 支持的型号
+以下模型是我自己拥有的，因此它们得到了广泛的支持：
 
 * 地宝 OZMO 920/950
 * 地宝 OZMO T8 AIVI
 * 地宝 X1 Turbo
 * 空中机器人Z1
 
-### 其他支持的型号
-这些模型应该可以正常工作或至少部分正常工作。
+### 其他型号
+以下模型应该可以正常工作或至少部分正常工作。
 它们要么已知可以工作，要么在技术上与这些模型相似。
 然而，功能可能会受到部分限制。
 
@@ -58,7 +58,6 @@ hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 
 #### 科沃斯 Deebot
 * 地宝N8系列
-* 地宝U2系列
 * 地宝T8系列
 * 地宝T9系列
 * 地宝T10系列
@@ -66,7 +65,7 @@ hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 * 地宝X1系列
 * 地宝X2系列
 
-#### Yeedi（自1.4.5版本起）
+#### 耶迪
 * 怡迪K650
 * 耶迪 2 混合动力车
 * Yeedi 真空混合动力
@@ -74,23 +73,12 @@ hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 * 耶迪真空吸尘器 2 专业版
 * Yeedi拖把站
 
-#### 旧型号（即将停产）
-这些模型使用 XML 进行数据传输，并且命令和事件的特征也与当前模型不同。
-我也不再使用 Slim 2、Deebot 901 和 OZMO 930。
+**注意**：所有这些列表可能并不完整
 
-**因此，对这些模型的支持迟早会停止**。
+### 旧型号（即将停产）
+使用 XML 进行数据传输的旧模型（例如 Deebot OZMO 930、Deebot 900/901）大多数仍在运行，但对这些模型的支持迟早会停止。
 
-* 地宝超薄2
-* 地宝N79系列
-* 地宝M88
-* 地宝500
-* 地宝600/601/605
-* 地宝 710/711
-* 地宝 900/901
-* 地宝 OZMO 610
-* 地宝 OZMO 900/905
-* 地宝 OZMO 930
-* 地宝 OZMO 超薄 10/11
+请查看[本自述文件](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued)了解更多信息。
 
 ＃＃ 安装
 ### 先决条件
@@ -128,17 +116,20 @@ npm install canvas --unsafe-perm=true
 有关各州的信息，请参见 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29)（英语）和 [这里](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29)（德语）
 
 ＃＃ 已知的问题
-* 地图图像的生成目前在32位系统上不稳定
-* “边缘”功能不适用于 Deebot U2（改为启动自动清洁）
-* 部分机型“移动”功能无法正常使用
-* 地宝X1系列无法正常生成地图图像
+* “移动”功能因型号而异，因此不通用
+* 地图图像的生成在32位系统上不稳定
+* 与地宝X1系列及其他当前型号仍无法正常工作
 
 ## 免责声明
 我与科沃斯机器人有限公司或亿迪科技有限公司没有任何关系。
 
 ## Changelog
 
-### 1.4.14 (alpha)
+### 1.4.15 (alpha)
+* Breaking change: Bump minimum required version of Node.js to 18.x
+* Improvements and optimizations
+
+### 1.4.14
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
 * Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
@@ -148,7 +139,7 @@ npm install canvas --unsafe-perm=true
 * Bumped some dependencies
 * Some further improvements and optimizations
 
-### 1.4.13
+### 1.4.13 (latest stable)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations
@@ -160,7 +151,7 @@ npm install canvas --unsafe-perm=true
   * Implemented "silentApproach" cleaning
 * Some further improvements and optimizations
 
-### 1.4.11 (latest stable)
+### 1.4.11
 * Bumped ecovacs-deebot.js to 0.9.2 (alpha)
 * Added channel for the auto empty station (incl. dust bag full)
 * Added state for changing the scrubbing pattern (OZMO Pro)

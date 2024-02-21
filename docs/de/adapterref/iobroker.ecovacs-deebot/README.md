@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: Ecovacs Deebot-Adapter für ioBroker
-hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
+hash: 713ZW7GDu30w1y02dO7S5QJvaboY7I2w0irmkat0788=
 ---
 ![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -19,37 +19,37 @@ hash: USfs/Y1Nxqt5rPLc3LBGd3RFlUnVXwadAgVMDa55w6I=
 Dieser Adapter verwendet die [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)-Bibliothek.
 
 ## Merkmale
-Einige bemerkenswerte Merkmale sind:
+### Grundfunktionen
+* Reinigungsfunktionen (z. B. automatische, Bereichs- und benutzerdefinierte Bereichsreinigung) und verschiedene andere Grundfunktionen (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, Position ändern)
+* Informationen abrufen (z. B. Akkustand, Reinigungsprotokoll, Verbrauchsmaterialstatus, Reinigungs- und Ladestatus) und verschiedene andere erweiterte Informationen (z. B. Ladeposition, kartenbezogene Informationen)
+* Stellen Sie die Saugleistung, den Wasserstand und andere grundlegende Einstellungen sowie verschiedene erweiterte Einstellungen ein (z. B. kontinuierliche Reinigung, Nicht-Stören-Modus, Lautstärke, AIVI/TrueDetect 3D).
+* Abrufen von Karteninformationen, einschließlich Flächen, virtuellen Grenzen und Wischverbotszonen, auch während des Reinigungsprozesses (z. B. aktuelle Position und Fläche)
+* Laden des aktuellen Kartenbildes
 
-* Grundlegende Reinigungsfunktionen (z. B. automatische Reinigung, Spot-Bereich, benutzerdefinierter Bereich)
-* und verschiedene andere Grundfunktionen (z. B. Ton abspielen, Verbrauchsmaterialien zurücksetzen, Position ändern)
-* Grundlegende Informationen abrufen (z. B. Akkustand, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* und verschiedene erweiterte Informationen (z. B. Ladeposition, kartenbezogene Informationen, Netzwerkinformationen)
-* Informationen während des Reinigungsprozesses abrufen (z. B. aktuelle Position und aktuelle Spotfläche)
-* Saugleistung, Wasserstand und andere Grundeinstellungen einstellen
-* Erweiterte Einstellungen festlegen (z. B. kontinuierliche Reinigung, Nicht-Stören-Modus, Lautstärke, TrueDetect 3D)
-* Speichern Sie den zuletzt verwendeten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Informationen zu den Karten abrufen inkl. Spot-Bereiche, virtuelle Grenzen und No-Mop-Zonen
-* Löschen, speichern und erstellen Sie einzelne virtuelle Grenzen sowie einen vollständigen Satz virtueller Grenzen
-* Informationen zu Datum und Uhrzeit der letzten Präsenz für jeden einzelnen Spotbereich
+### Erweiterte Funktionen (nur ioBroker-Adapter)
+* Speichern und erstellen Sie vollständige Sätze virtueller Grenzen und No-Mop-Zonen
+* Informationen zu Datum und Uhrzeit der letzten Präsenz für jeden einzelnen Bereich
 * Einige Funktionen beim Zurückkehren zur Ladestation oder beim Betreten/Verlassen des Bereichs
-* Funktion zum Laden des aktuellen Kartenbildes
-* Legen Sie individuelle Spot-Area-Namen fest (in ioBroker)
-* Silent Approach-Funktion für aktuelle Modelle
+* Speichern Sie den zuletzt verwendeten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
+* Leise Anfahrreinigungs- und Go-to-Position-Funktionen
+* Legen Sie individuelle Bereichsnamen fest
 
-Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar und andere sind noch experimentell
+### Wichtige Notizen
+* Einige Funktionen (z. B. „Silent Approach“) sind nur für einige Modelle verfügbar (meist aktuelle Modelle)
+* und einige sind noch experimentell (z. B. „Laden des aktuellen Kartenbildes“, Umgang mit Sätzen virtueller Grenzen)
+* Die Funktionalität des Adapters ist nicht für alle Modelle gewährleistet (siehe unten)
 
 ## Modelle
-### Vollständig unterstützte Modelle
-Die vollständig unterstützten Modelle sind diejenigen, die ich selbst besitze:
+### Unterstützte Modelle
+Die folgenden Modelle besitze ich selbst und werden daher sehr weithin unterstützt:
 
 * Deebot OZMO 920/950
 * Deebot OZMO T8 AIVI
 * Deebot X1 Turbo
 * Airbot Z1
 
-### Andere unterstützte Modelle
-Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
+### Andere Modelle
+Die folgenden Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren.
 Ihre Funktionsfähigkeit ist entweder bereits bekannt oder sie sind diesen Modellen technisch ähnlich.
 Dennoch kann die Funktionalität teilweise eingeschränkt sein.
 
@@ -58,7 +58,6 @@ Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 
 #### Ecovacs Deebot
 * Deebot N8-Serie
-* Deebot U2-Serie
 * Deebot T8-Serie
 * Deebot T9-Serie
 * Deebot T10-Serie
@@ -66,7 +65,7 @@ Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 * Deebot X1-Serie
 * Deebot X2-Serie
 
-#### Yeedi (seit Version 1.4.5)
+#### Yeedi
 * Yeedi k650
 * Yeedi 2 Hybrid
 * Yeedi-Vac-Hybrid
@@ -74,23 +73,12 @@ Ein Anspruch auf volle Funktionalität besteht selbstverständlich nicht.
 * Yeedi vac 2 pro
 * Yeedi Wischstation
 
-#### Legacy-Modelle (wird bald eingestellt)
-Diese Modelle nutzen XML für den Datentransport und haben zudem andere Eigenschaften für Befehle und Ereignisse als die aktuellen Modelle.
-Ich benutze auch meinen Slim 2, Deebot 901 und OZMO 930 nicht mehr.
+**Hinweis**: Alle diese Listen sind möglicherweise nicht vollständig
 
-**Der Support für diese Modelle wird daher früher oder später eingestellt**.
+### Legacy-Modelle (wird bald eingestellt)
+Ältere Modelle, die XML für den Datentransport nutzen (z. B. Deebot OZMO 930, Deebot 900/901), funktionieren größtenteils noch, der Support für diese Modelle wird jedoch früher oder später eingestellt.
 
-* Deebot Slim 2
-* Deebot N79-Serie
-* Deebot M88
-* Deebot 500
-* Deebot 600/601/605
-* Deebot 710/711
-* Deebot 900/901
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO 930
-* Deebot OZMO Slim 10/11
+Weitere Informationen finden Sie unter [diese Readme-Datei](https://github.com/mrbungle64/ecovacs-deebot.js#legacy-models-soon-to-be-discontinued).
 
 ## Installation
 ### Voraussetzungen
@@ -128,17 +116,20 @@ Informationen zur Verwendung dieses Adapters finden Sie unter [Hier](https://git
 Informationen zu den Bundesländern finden Sie unter [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [Hier](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (Deutsch).
 
 ## Bekannte Probleme
-* Die Generierung von Kartenbildern ist derzeit auf 32-Bit-Systemen nicht stabil
-* Die „Edge“-Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
-* Die „Verschieben“-Funktionen funktionieren bei einigen Modellen nicht richtig
-* Die Generierung von Kartenbildern funktioniert bei der Deebot X1-Serie nicht richtig
+* Die Funktion „Verschieben“ variiert von Modell zu Modell und ist daher nicht universell implementiert
+* Die Generierung von Kartenbildern ist auf 32-Bit-Systemen nicht stabil
+* und es funktioniert immer noch nicht richtig mit der Deebot X1-Serie und anderen aktuellen Modellen
 
 ## Haftungsausschluss
 Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technology Limited.
 
 ## Changelog
 
-### 1.4.14 (alpha)
+### 1.4.15 (alpha)
+* Breaking change: Bump minimum required version of Node.js to 18.x
+* Improvements and optimizations
+
+### 1.4.14
 * Breaking change: Bump minimum required version of Node.js to 16.x
 * Bumped ecovacs-deebot.js to 0.9.6 (alpha)
 * Many improvements for AIRBOT Z1 and Z1 Air Quality Monitor
@@ -148,7 +139,7 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
 * Bumped some dependencies
 * Some further improvements and optimizations
 
-### 1.4.13
+### 1.4.13 (latest stable)
 * Several improvements and optimizations for X1 series (e.g. for the cleaning station and mopping functions)
 * Added Air Freshener life span component
 * Some further improvements and optimizations
@@ -160,7 +151,7 @@ Ich stehe in keiner Verbindung zu Ecovacs Robotics Co., Ltd. oder yeedi Technolo
   * Implemented "silentApproach" cleaning
 * Some further improvements and optimizations
 
-### 1.4.11 (latest stable)
+### 1.4.11
 * Bumped ecovacs-deebot.js to 0.9.2 (alpha)
 * Added channel for the auto empty station (incl. dust bag full)
 * Added state for changing the scrubbing pattern (OZMO Pro)

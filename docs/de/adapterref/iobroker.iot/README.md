@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
 title: ioBroker IoT-Adapter
-hash: X6WngySwjCY/SKfHhMAZ1gSk9+xtBp6YQTLhXJAyFjQ=
+hash: F92Msc6FfpHuPuDUbKZC8Zcr4aXRGIWCYknHnzguwq0=
 ---
 ![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -65,7 +65,7 @@ Sie können das Verhalten des EIN-Befehls für den Nummernstatus auswählen. Der
 Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden soll. Z.B. *sayit.0.tts.text*.
 
 ### Farben
-Der Kanal benötigt 3-5 Staaten mit den folgenden Rollen:
+Der Kanal benötigt 3-5 Zustände mit den folgenden Rollen:
 
 - `level.color.saturation` – erforderlich für die Erkennung des Kanals,
 - `level.color.hue`,
@@ -212,7 +212,7 @@ Der Adapter stellt die Details in zwei Zuständen mit unterschiedlichem Detailli
   * „Wörter“ enthalten die empfangenen Wörter in einem Array
   * „Absicht“ enthält den Typ der Abfrage. Mögliche Werte sind derzeit:
     * v1-Skill: „askDevice“, „controlDevice“, „actionStart“, „actionEnd“, „askWhen“, „askWhere“, „askWho“.
-    * v2-Fähigkeit: „queryIntent“, wenn der vollständige Text erfasst wurde, „controlDevice“ für Fallback mit nur Teiltext
+    * v2-Skill: „queryIntent“, wenn der vollständige Text erfasst wurde, „controlDevice“ für den Fallback mit nur Teiltext
   * „deviceId“ enthält eine Geräte-ID, die das Gerät identifiziert, an das die Anfrage gesendet wurde. Wird von Amazon bereitgestellt und ist eine leere Zeichenfolge, wenn sie nicht angegeben wird
   * „deviceRoom“ enthält eine zugeordnete Raumkennung, die Sie in der IoT-Administrator-Benutzeroberfläche für gesammelte Geräte-IDs konfigurieren können
   * „sessionId“ enthält eine Sitzungs-ID der Skill-Sitzung, sollte identisch sein, wenn mehrere Befehle gesprochen wurden, wird von Amazon geliefert und ist eine leere Zeichenfolge, wenn nicht angegeben
@@ -233,7 +233,7 @@ Wenn der Text ein JSON-Objekt ist, können die folgenden Schlüssel verwendet we
 
 **Ergebnis über die Nachricht an die IoT-Instanz zurücksenden**
 
-Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das die Schlüssel `responseText` und `shouldEndSession` und `sessionId` enthalten kann, wie oben beschrieben.
+Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen „alexaCustomResponse“, die den Schlüssel „response“ enthält, mit einem Objekt, das wie oben beschrieben die Schlüssel `responseText` und `shouldEndSession` und `sessionId` enthalten kann.
 Es erfolgt keine Antwort der iot-Instanz auf die Nachricht!
 
 **Beispiel für ein Skript, das Texte verwendet**
@@ -268,7 +268,7 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 ```
 
 ### Private Wolke
-Wenn Sie für die Kommunikation mit `Alexa/Google Home/Алиса` private Skills/Aktionen/Nachrichten verwenden, haben Sie die Möglichkeit, die IoT-Instanz zur Verarbeitung der Anfragen von dieser zu verwenden.
+Wenn Sie für die Kommunikation mit `Alexa/Google Home/Алиса` private Skills/Aktionen/Nachrichten verwenden, haben Sie die Möglichkeit, die IoT-Instanz zu verwenden, um die Anfragen von ihr zu verarbeiten.
 
 Z.B. für `yandex alice`:
 
@@ -312,7 +312,7 @@ setState('iot.0.app.message', JSON.stringify({
 ```
 
 ## Machen
-- Smartnames müssen als Gruppen eine höhere Priorität haben
+- Intelligente Namen müssen als Gruppen eine höhere Priorität haben
 - Geräte sollten nach intelligentem Namen gruppiert werden
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
@@ -320,6 +320,14 @@ setState('iot.0.app.message', JSON.stringify({
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 3.1.0 (2024-02-05)
+* (bluefox) Updated packages
+* (bluefox) Disabled the state change report for alexa v3
+
+### 3.0.0 (2023-10-24)
+* (bluefox) Updated packages
+* (bluefox) The minimal supported node.js version is 16
+
 ### 2.0.11 (2023-06-20)
 * (bluefox) Added support for the state toggling (alexa 3)
 * (bluefox) Done small improvements for alexa 3
@@ -672,7 +680,7 @@ setState('iot.0.app.message', JSON.stringify({
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

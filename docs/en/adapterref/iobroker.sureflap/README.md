@@ -8,7 +8,6 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.sureflap.svg)](https://www.npmjs.com/package/iobroker.sureflap)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)](https://www.npmjs.com/package/iobroker.sureflap)
 ![Number of Installations (latest)](http://iobroker.live/badges/sureflap-installed.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap)
 ![Test and Release](https://github.com/Sickboy78/ioBroker.sureflap/workflows/Test%20and%20Release/badge.svg)
 
 [![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)](https://nodei.co/npm/iobroker.sureflap/)
@@ -147,6 +146,7 @@ adapter<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ├ movement<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_direction<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_flap<br>
+│ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_flap_id<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ last_time<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ ├ time_spent_outside_<br>
 │ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; │ └ times_outside<br>
@@ -167,6 +167,15 @@ SureFlap®, Sure Petcare® and Felaqua® are registered trademarks of [SureFlap 
 The pictures of the SureFlap® devices are provided free to use from [Sure Petcare®](https://www.surepetcare.com/en-us/press).
 
 ## Changelog
+
+### 2.1.0 (2024-02-20)
+* (Scrounger) option to enable history data
+* (Sickboy78) added number of history entries to configuration
+
+### 2.0.2 (2024-02-17)
+* (Sickboy78) added flap id to last movement
+* (Sickboy78) fixed a bug where hub was recognized as obsolete device because of same name as a device
+* (Sickboy78) fixed a bug where setting lockmode or curfew was not working because of flap having same name as the hub
 
 ### 2.0.1 (2024-01-24)
 * (Sickboy78) added last movement for pets

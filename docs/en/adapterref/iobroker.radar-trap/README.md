@@ -2,18 +2,10 @@
 
 # ioBroker.radar-trap
 
-[![NPM version](http://img.shields.io/npm/v/iobroker.radar-trap.svg)](https://www.npmjs.com/package/radar-trap)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.radar-trap.svg)](https://www.npmjs.com/package/iobroker.radar-trap)
-
-<!-- [![stable](http://iobroker.live/badges/radar-trap-stable.svg)](http://iobroker.live/badges/radar-trap-stable.svg) -->
-
-[![installed](http://iobroker.live/badges/radar-trap-installed.svg)](http://iobroker.live/badges/radar-trap-installed.svg)
-
-<!-- [![Known Vulnerabilities](https://snyk.io/test/github/steiger04/ioBroker.radar-trap/badge.svg)](https://snyk.io/test/github/steiger04/ioBroker.radar-trap) -->
-[![Test and Release](https://github.com/Steiger04/ioBroker.radar-trap/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Steiger04/ioBroker.radar-trap/actions/workflows/test-and-release.yml)
+![Number of Installations](http://iobroker.live/badges/radar-trap-installed.svg) ![Number of Installations](http://iobroker.live/badges/radar-trap-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.radar-trap.svg)](https://www.npmjs.com/package/iobroker.radar-trap)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.radar-trap.svg)](https://www.npmjs.com/package/iobroker.radar-trap) [![Test and Release](https://github.com/Steiger04/ioBroker.radar-trap/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/Steiger04/ioBroker.radar-trap/actions/workflows/test-and-release.yml)
 
 [![NPM](https://nodei.co/npm/iobroker.radar-trap.png?downloads=true)](https://nodei.co/npm/iobroker.radar-trap/)
-
 
 <h2 align="center">radar-trap for ioBroker</h2>
 
@@ -29,6 +21,16 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.3.1 (2024-02-10)
+* (Steiger04) bug fixes trapInfo for traps
+
+### 1.3.0 (2024-02-08)
+* Steiger04) new states for new and rejected traps
+
+### 1.2.0 (2024-02-04)
+* (Steiger04) added new state lastUpdated
+* (Steiger04) UI optimized
+
 ### 1.1.5 (2024-01-23)
 * (Steiger04) createTheme added
 

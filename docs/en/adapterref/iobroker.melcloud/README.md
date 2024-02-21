@@ -29,6 +29,11 @@ Documentation:
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
+### 1.3.7 (2024-02-09)
+* (Black-Thunder) Login procedure was refactored to reduce number of calls to the MELCloud servers
+* (Black-Thunder) Minimum polling interval was raised to 5 minutes
+* (Black-Thunder) Default polling interval was raised to 10 minutes
+
 ### 1.3.6 (2023-11-03)
 * (Black-Thunder) Minimum Node.js Version was raised to 16
 * (Black-Thunder) Dependencies were updated
@@ -203,7 +208,7 @@ Documentation:
 ## License
 MIT License
 
-Copyright (c) 2023 Black-Thunder <glwars@aol.de>
+Copyright (c) 2024 Black-Thunder <glwars@aol.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

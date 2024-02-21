@@ -18,6 +18,9 @@ Unter commands das commando auf klappen und den button neben start drücken wenn
 Remote sind vorgefertige Remote Befehle
 
 ## Changelog
+### 0.1.8 (2024-02-15)
+
+- improve code sending
 
 ### 0.1.6
 
@@ -30,22 +33,23 @@ Remote sind vorgefertige Remote Befehle
 ### 0.0.56
 
 - fix vehicle list while login
-  
+
 ### 0.0.55
 
 - fix refresh login
+
 ### 0.0.55
 
 - fix refresh login
-  
+
 ### 0.0.54
 
 - fix login
-  
+
 ### 0.0.52
 
 - fix js-controller 3.3 warnings
-  
+
 ### 0.0.51
 
 - improve handling of failing logins
@@ -53,11 +57,11 @@ Remote sind vorgefertige Remote Befehle
 ### 0.0.50
 
 - fix refresh token
-  
+
 ### 0.0.47
 
 - fix new login
-  
+
 ### 0.0.45
 
 - Small improvments
@@ -116,7 +120,7 @@ Remote sind vorgefertige Remote Befehle
 
 ### 0.0.15
 
-- fix soc history bug, add basic price and  adapter restart every 6h
+- fix soc history bug, add basic price and adapter restart every 6h
 
 ### 0.0.14
 
@@ -182,7 +186,7 @@ Remote sind vorgefertige Remote Befehle
 
 MIT License
 
-Copyright (c) 2022 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

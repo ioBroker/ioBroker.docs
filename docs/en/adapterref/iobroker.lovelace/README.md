@@ -473,8 +473,13 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 4.1.4 (2024-02-10)
+* (Garfonso) improved fix: lamp icons now turn gray on switch off.
+
+### 4.1.3 (2024-02-10)
 * (Garfonso) prevent warning for browser_mod/recall_id service call
+* (Garfonso) fix: lamp icons now turn gray on switch off.
+* (Garfonso) fix: notifications via sendTo work again.
 
 ### 4.1.2 (2024-01-09)
 * (Garfonso) fix: time in timestamp display
@@ -487,12 +492,6 @@ After that checkout modified version in `./build` folder. Then.
 
 ### 4.1.0 (2023-12-18)
 * (Garfons) add an option to show users on login screen (off by default)
-
-### 4.0.12 (2023-12-15)
-* (Garfonso) fix lint errors
-
-### 4.0.11 (2023-12-15)
-* (Garfonso) updated dependencies
 
 ## License
 

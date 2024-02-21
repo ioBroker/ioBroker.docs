@@ -27,6 +27,9 @@ BADGE-Installed: http://iobroker.live/badges/proxmox-installed.svg
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+* (jens-maus) fix ha and ceph object type
+
 ### 2.2.3 (2024-02-01)
 * (arteck) add icon status available for lxc and vm
 * (arteck) settings adjustment

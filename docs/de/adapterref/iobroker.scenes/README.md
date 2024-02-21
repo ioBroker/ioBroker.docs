@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.scenes/README.md
 title: ioBroker-Szenenadapter
-hash: BnJZ4ZRU5MON/Je8OYCa2JJ2gKHQMYMz7hFd1QRWpeE=
+hash: ULwgcxTcnF4uHfoX+HrSuMEgoWMYDUP52Qb549uTuPU=
 ---
 ![Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
@@ -107,7 +107,7 @@ Darüber hinaus können Sie das Verhalten definieren, bei dem der Wert für die 
 
 Sie können folgende Aggregationen bereitstellen (nur im erweiterten Modus verfügbar):
 
-- „unsicher“ – (Standard) – der Wert der Gruppe wird den Text „unsicher“ haben.
+- „unsicher“ – (Standard) – der Wert der Gruppe hat den Text „unsicher“.
 - „any“ – erster Nicht-Null-Wert aller Zustände in einer Gruppe.
 - „min“ – Minimalwert aller Zustände in einer Gruppe.
 - „max“ – Maximalwert aller Zustände in einer Gruppe.
@@ -130,11 +130,47 @@ sendTo(
 
 Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten IDs und speichert sie als konfigurierte Werte.
 
+## Szene per Nachricht deaktivieren oder aktivieren Um eine Szene zu deaktivieren oder zu aktivieren, können Sie eine Nachricht an den Adapter senden:
+```
+// enable
+sendTo(
+    'scenes.0',
+    'enable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// disable
+sendTo(
+    'scenes.0',
+    'disable',
+    'scene.0.SCENE_ID',
+    result => result.err && console.error(result.error) // optional
+);
+// or
+sendTo(
+    'scenes.0',
+    'disable', // 'enable' to enable
+    {sceneId: 'scene.0.SCENE_ID'},
+    result => result.err && console.error(result.error) // optional
+);
+```
+
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
-### __WORK IN PROGRESS__ -->
+### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 3.0.1 (2024-02-16)
+* (bluefox) Cleared cron tasks by re-init
+* (bluefox) CRON Editor dialog added
+* (bluefox) Implemented scene enabling/disabling via messages
+* (bluefox) Implemented the writing of the scene states with ack=true
+* (bluefox) Added description to the scene states
+* (bluefox) Added possibility to use categories/enumerations
+
+### 2.4.2 (2024-02-12)
+* (bluefox) Preserved empty folders by renaming and moving of scenes
+
 ### 2.4.0 (2022-12-23)
 * (Apollon77) prevent a crash case reported by Sentry
 * (bluefox) Updated some GUI libraries
@@ -144,7 +180,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) Updated releaser
 
 ### 2.3.8 (2021-08-31)
-* (Apollon77) Handle a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+* (Apollon77) Handles a case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
 * (TyrionWarMage) Added the aggregation mode for the virtual groups.
 * (bluefox) Sentry data will not be sent in front-end if the diagnostic or sentry is disabled
 
@@ -155,7 +191,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
 
 ### 2.3.4 (2021-01-16)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
 
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
@@ -163,13 +199,13 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) Possibility to use set point from another state
 
 ### 2.3.1 (2020-11-06)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-M)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-M)
 
 ### 2.3.0 (2020-11-02)
 * (bluefox) Fixed GUI errors
 
 ### 2.1.7 (2020-10-30)
-* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
+* (Apollon77) Prevent a crash case (Sentry IOBROKER-SCENES-E, IOBROKER-SCENES-G, IOBROKER-SCENES-A)
 
 ### 2.1.6 (2020-09-25)
 * (bluefox) Updated the select ID dialog.
@@ -247,9 +283,9 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 * (bluefox) try to fix error by renaming
 
 ### 0.1.1 (2015-08-10)
-* (bluefox) allow description for states in scene
+* (bluefox) allow description for states in a scene
 * (bluefox) check by rename if the scene with the same name yet exists
-* (bluefox) allow copy scene
+* (bluefox) allowed a coping of a scene
 * (bluefox) fix error with delay and stopAllDelays settings
 
 ### 0.1.0 (2015-08-09)
@@ -259,7 +295,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 ### 0.0.2 (2015-08-05)
 * (bluefox) change configuration schema
 * (bluefox) add cron
-* (bluefox) add burst interval
+* (bluefox) add a burst interval
 
 ### 0.0.1 (2015-07-29)
 * (bluefox) initial commit
@@ -267,7 +303,7 @@ Der Adapter liest alle tatsächlichen Werte für die in dieser Szene definierten
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2015-2023, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2024, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

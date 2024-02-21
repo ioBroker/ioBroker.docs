@@ -663,6 +663,11 @@ Standard ohne Zonen:
 ![img/array_nok.png](../en/img/array_nok.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Fixed Sentry messages
+
 ### 2.3.4 (2023-10-19)
 
 -   (Lucky-ESA) Fixed folder without raw

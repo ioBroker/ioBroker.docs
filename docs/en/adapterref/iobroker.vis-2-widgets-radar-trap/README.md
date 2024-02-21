@@ -28,6 +28,12 @@
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.1.1 (2024-02-14)
+- (steiger04) io-package changed
+
+### 1.1.0 (2024-02-14)
+- (steiger04) new features for widgets
+
 ### 1.0.7 (2023-12-15)
 - (steiger04) optimizations
 
@@ -56,7 +62,7 @@
 
 The MIT License (MIT)
 
-Copyright (c) 2023 Steiger04 <steiger04@posteo.de>
+Copyright (c) 2023-2024 Steiger04 <steiger04@posteo.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

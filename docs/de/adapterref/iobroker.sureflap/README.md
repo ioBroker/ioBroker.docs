@@ -3,13 +3,12 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: LqykhQgvi5/6KPSnXqA7K/A32fzmDVZvRnVF6/KOhfw=
+hash: qrqas78ZQfqc8aroZUC9C2td+Glv+F7fTvDnvSZIWXw=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sureflap.svg)
 ![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/sureflap-installed.svg)
-![Bekannte Schwachstellen](https://snyk.io/test/github/Sickboy78/ioBroker.sureflap/badge.svg)
 ![NPM](https://nodei.co/npm/iobroker.sureflap.png?downloads=true)
 
 <p align="center"> <img src="admin/sureflap.png" /> </p>
@@ -39,7 +38,7 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 |-------|-------------|----------------|
 | Haushaltsname.Hub_name.control.led_mode | Legt die Helligkeit der Hub-LEDs fest | **0** – aus<br> **1** – hoch<br> **4** - gedimmt |
 | Household_name.hub_name.flap_name.control.curfew | Aktiviert oder deaktiviert die konfigurierte Sperrstunde<br> (Sperrstunde muss per App konfiguriert werden) | **wahr** oder **falsch** |
-| Household_name.hub_name.flap_name.control.lockmode | legt den Sperrmodus fest | **0** – offen<br> **1** – einsperren<br> **2** – aussperren<br> **3** – geschlossen (ein- und aussperrbar) |
+| Household_name.hub_name.flap_name.control.lockmode | legt den Sperrmodus fest | **0** – offen<br> **1** – einsperren<br> **2** – aussperren<br> **3** – geschlossen (ein- und aussperren) |
 | Household_name.hub_name.flap_name.assigned_pets.pet_name.control.type | legt den Haustiertyp für das zugewiesene Haustier und die Klappe fest | **2** - Haustier im Freien<br> **3** - Haustier im Innenbereich |
 | Household_name.hub_name.feeder_name.control.close_delay | Legt die Schließverzögerung des Futterdeckels fest | **0** – schnell<br> **4** – normal<br> **20** - langsam |
 | Household_name.pets.pet_name.inside | Legt fest, ob Ihr Haustier drinnen ist | **wahr** oder **falsch** |
@@ -47,7 +46,7 @@ Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wir
 ### Struktur
 Der Adapter erstellt die folgende hierarchische Struktur:
 
-Adapter<br> ├ Haushaltsname<br> │ ├ Hub_Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ Feeder-Name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ drinnen<br> │ ├ Name<br> │ ├ seitdem<br> │ ├ Essen<br> │ │ ├ last_time_eaten<br> │ │ ├ verbrachte Zeit<br> │ │ ├ times_eaten<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ ├ Bewegung<br> │ │ ├ letzte_Richtung<br> │ │ ├ last_flap<br> │ │ ├ letztes_mal<br> │ │ ├ time_spent_outside_<br> │ │ └ times_outside<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ times_drunk<br> │ └ Gewicht<br> └Info<br> ├ all_devices_online<br> ├ Verbindung<br> └ last_update<br>
+Adapter<br> ├ Haushaltsname<br> │ ├ Hub_Name<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Kontrolle<br> │ │ │ └ led_mode<br> │ │ ├ felaqua_name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ └ Wasser<br> │ │ │ └ Gewicht<br> │ │ ├ Feeder-Name<br> │ │ │ ├ Batterie<br> │ │ │ ├ Batterieprozentsatz<br> │ │ │ ├ online<br> │ │ │ ├ Seriennummer<br> │ │ │ ├ Signal<br> │ │ │ │ ├ device_rssi<br> │ │ │ │ └ hub_rssi<br> │ │ │ ├ Version<br> │ │ │ │ ├ Firmware<br> │ │ │ │ └ Hardware<br> │ │ │ ├ zugewiesene_Haustiere<br> │ │ │ │ └ Haustiername<br> │ │ │ ├ Schüsseln<br> │ │ │ │ └ 0..1<br> │ │ │ │ ├ food_type<br> │ │ │ │ ├ Ziel<br> │ │ │ │ └ Gewicht<br> │ │ │ └ Kontrolle<br> │ │ │ └ close_delay<br> │ │ └ Klappenname<br> │ │ ├ Batterie<br> │ │ ├ Batterieprozentsatz<br> │ │ ├ Sperrstunde_aktiv<br> │ │ ├ online<br> │ │ ├ Seriennummer<br> │ │ ├ Kontrolle<br> │ │ │ ├ Ausgangssperre<br> │ │ │ └ Sperrmodus<br> │ │ ├ Signal<br> │ │ │ ├ device_rssi<br> │ │ │ └ hub_rssi<br> │ │ ├ Version<br> │ │ │ ├ Firmware<br> │ │ │ └ Hardware<br> │ │ ├ Ausgangssperre<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └unlock_time<br> │ │ ├ last_curfew<br> │ │ │ └ 0..i<br> │ │ │ ├ aktiviert<br> │ │ │ ├ Sperrzeit<br> │ │ │ └ unlock_time<br> │ │ └ zugewiesene_Haustiere<br> │ │ └ Haustiername<br> │ │ └ Kontrolle<br> │ │ └ Typ<br> │ ├ Geschichte<br> │ │ └ 0..24<br> │ │ └ ...<br> │ └ Haustiere<br> │ └ Haustiername<br> │ ├ drinnen<br> │ ├ Name<br> │ ├ seitdem<br> │ ├ Essen<br> │ │ ├ last_time_eaten<br> │ │ ├ verbrachte Zeit<br> │ │ ├ times_eaten<br> │ │ └ trocken..nass<br> │ │ └ Gewicht<br> │ ├ Bewegung<br> │ │ ├ letzte_Richtung<br> │ │ ├ last_flap<br> │ │ ├ last_flap_id<br> │ │ ├ letztes_mal<br> │ │ ├ time_spent_outside_<br> │ │ └ times_outside<br> │ └ Wasser<br> │ ├ last_time_drunk<br> │ ├ aufgewendete Zeit<br> │ ├ times_drunk<br> │ └ Gewicht<br> └Info<br> ├ all_devices_online<br> ├ Verbindung<br> └ last_update<br>
 
 ## Anmerkungen
 SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap Ltd.](https://www.surepetcare.com/)
@@ -55,6 +54,15 @@ SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap 
 Die Bilder der SureFlap®-Geräte werden ab [Klar, Petcare®](https://www.surepetcare.com/en-us/press) zur kostenlosen Nutzung bereitgestellt.
 
 ## Changelog
+
+### 2.1.0 (2024-02-20)
+* (Scrounger) option to enable history data
+* (Sickboy78) added number of history entries to configuration
+
+### 2.0.2 (2024-02-17)
+* (Sickboy78) added flap id to last movement
+* (Sickboy78) fixed a bug where hub was recognized as obsolete device because of same name as a device
+* (Sickboy78) fixed a bug where setting lockmode or curfew was not working because of flap having same name as the hub
 
 ### 2.0.1 (2024-01-24)
 * (Sickboy78) added last movement for pets

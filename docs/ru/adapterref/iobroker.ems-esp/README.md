@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: r4Xvby0it7js6RYm5F4gfMQb8Ffqie79977L1g6vXSc=
+hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -11,7 +11,6 @@ hash: r4Xvby0it7js6RYm5F4gfMQb8Ffqie79977L1g6vXSc=
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.ems-esp.svg)
 ![Количество установок (последних)](https://iobroker.live/badges/ems-esp-installed.svg)
 ![Количество установок (стабильно)](https://iobroker.live/badges/ems-esp-stable.svg)
-![Статус зависимости](https://img.shields.io/david/tp1de/iobroker.ems-esp.svg)
 ![НПМ](https://nodei.co/npm/iobroker.ems-esp.png?downloads=true)
 
 # IoBroker.ems-esp
@@ -26,31 +25,40 @@ hash: r4Xvby0it7js6RYm5F4gfMQb8Ffqie79977L1g6vXSc=
 
 * шлюз ems-esp (https://github.com/emsesp/EMS-ESP32) с последней версией для разработчиков (см. ниже) и чипом ESP32.
 
-  Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ!
+Старые шлюзы ESP8266 с API V2 БОЛЬШЕ НЕ ПОДДЕРЖИВАЮТСЯ! Адаптер протестирован для шлюза ems-esp с последней версией прошивки (> V3.6.0) ESP32.
 
-* Новые облачные шлюзы (MX300...) не поддерживаются!
+* Новые облачные шлюзы Bosch-Group (MX300 / EasyControl ...) не поддерживаются, поскольку они не поддерживают LAN API!
 
 Адаптер ioBroker ems-esp может считывать и записывать данные на оба шлюза для управления всеми компонентами отопления.
-Его можно использовать либо для исходных шлюзов группы Bosch, либо для ems-esp, либо для обоих параллельно.
+Его можно использовать либо для оригинальных шлюзов Bosch-Group, либо для ems-esp, либо для обоих параллельно.
+Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать подтверждение = false !!!
 
-## Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать Accepted = false !!!
-Адаптер протестирован для шлюза ems-esp с последней версией прошивки (V3.6.0) ESP32.
+## НОВОЕ в версии >= 3.0.0: объекты EMS+ (switchPrograms и HolidayModes) реализованы для шлюза EMS-ESP и при обнаружении создаются состояния.
+Прошивка шлюза ems-esp не поддерживает программы переключения и HolidayModes для термостатов EMS+ (RC310 / RC300 или аналогичных). Включение этой новой функции приведет к отправке необработанных телеграмм на шлюз ems-esp, а затем попытается прочитать ответ.
+Тестирование выполняется для программ переключения A и B для hc1 на hc4, ГВС (теплая вода) и циркуляционного насоса (cp) и режимов отпуска hm1-hm5.
+Найденные расширенные сущности сохраняются в настройках экземпляра. Поэтому после перезагрузки экземпляра адаптера произойдет перезагрузка.
+
+Затем после этих найденных состояний необработанный ответ декодируется и создаются состояния, аналогичные данным API шлюза KM200.
+Когда шлюз km200 включен, эта функция отключается, чтобы избежать двойного ввода одного и того же имени.
+Создаваемые состояния состоят из структур JSON, значений перечислений или массивов и доступны для записи. Будьте осторожны с правильным содержимым.
+Я рекомендую провести тестирование с помощью приложений Bosch/Buderus, чтобы определить правильный контент, особенно для HolidayModes.
+Опрос установлен каждые 2 минуты.
 
 ## НОВИНКА Для записей и статистики энергопотребления требуется активный экземпляр базы данных.
 Для записей требуется адаптер InfluxDB версии >= 4.0.2, который позволяет удалять записи базы данных. Период восстановления теперь считывается, и записи сохраняются только в течение периода хранения. Бета-статус InfluxDB v2 требует, чтобы период хранения был установлен на > 2 года для хранения. все исторические ценности.
 В V2 это глобальный параметр для всех состояний!
 
-## НОВОЕ: улучшен гистерезис потребности в тепле.
-Потребность в тепле для каждого термостата активна, когда фактическая температура ниже (заданная температура – дельта).
-Потребность в тепле неактивна, когда фактическая температура выше целевой температуры.
-Убедитесь, что дельта достаточно высока, чтобы избежать слишком частого запуска котла.
+## НОВИНКА: улучшен гистерезис потребности в тепле.
+Включайте запрос тепла, когда фактическая температура <= заданная температура - дельта. Выключайте, когда заданная температура < фактическая температура. Ничего не делайте между заданной температурой - дельта и заданной температурой. Убедитесь, что разница достаточно высока, чтобы избежать слишком большого количества запусков котла.
 
 ## НОВИНКА: параметры потребности в тепле можно изменить во время активного экземпляра.
-Параметры потребности в тепле (дельта/вес для каждого термостата) могут быть изменены внутри объектов во время активного экземпляра. Параметры потребности в тепле (вес вкл/вес для каждого контура отопления) могут быть изменены внутри объектов во время активного экземпляра.
+Параметры потребности в тепле (дельта/вес) для каждого термостата могут быть изменены внутри объектов во время активного экземпляра. Примечание. Обновленный вес используется только в том случае, если обнаружена новая потребность в тепле.
 
 Документация на немецком языке: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-ds.pdf.
 
 Английская документация: https://github.com/tp1de/ioBroker.ems-esp/blob/main/doc/ems-esp-es.pdf.
+
+Немецкий форум ioBroker: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-esp-f%C3%BCr-bosch-heizungen
 
 # Iobroker.ems-esp
 
@@ -59,25 +67,35 @@ hash: r4Xvby0it7js6RYm5F4gfMQb8Ffqie79977L1g6vXSc=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 3.0.0 (2024-02-17)
+* Node >= 18 required
+* update heatdemand weight changes to be effective during active instance
+* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
+* create writable objects / states for switchPrograms and holidayModes
+* this function is only active when no km200 gateway is selected - ems-esp gateway only
+* improve error messages for km200 (wrong ip / passwords)
+* small changes within PDF adapter documentation
+
+### 3.0.0-alpha.2 (2024-02-16)
+* Node >= 18 required
+* update heatdemand weight changes to be effective during active instance
+
+### 3.0.0-alpha.1 (2024-02-15)
+* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
+* create writable objects / states for switchPrograms and holidayModes
+* this function is only active when no km200 gateway is selected - ems-esp gateway only
+* improve error messages for km200 (wrong ip / passwords)
+* small changes within PDF adapter documentation
+
+### 3.0.0-alpha.0 (2024-02-05)
+* Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
+* Implement raw telegram search for EMS+ entities and create writable objects / states
+* The search is only active when no km200 gateway is selected
+
+### 2.8.0 (2024-02-04)
 * influxdb adapter version >= 4.0.2 required 
 * store km200 recordings only within defined retention period for influxdb
 * delay start of statistics by 5 minutes
-
-### 2.7.5 (2024-02-02)
-* allow only positive deltam in config for heat demand function
-
-### 2.7.4 (2024-02-01)
-* avoid sql errors on instance start
-
-### 2.7.3 (2024-01-31)
-* error correction for heat demand function
-
-### 2.7.2 (2024-01-31)
-* error correction for heat demand function
-
-### 2.7.1 (2024-01-30)
-* improve error processing for wrongly defined heat demand states
 
 ## License
 MIT License

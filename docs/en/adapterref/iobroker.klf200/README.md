@@ -4,11 +4,14 @@
 
 ![Number of Installations](https://iobroker.live/badges/klf200-installed.svg) ![Stable version](https://iobroker.live/badges/klf200-stable.svg)
 [![Known Vulnerabilities](https://snyk.io//test/github/MiSchroe/iobroker.klf200/badge.svg?targetFile=package.json)](https://snyk.io//test/github/MiSchroe/iobroker.klf200?targetFile=package.json)
-[![Build Status](https://dev.azure.com/michaelschroeder-github/GitHub%20projects/_apis/build/status%2FMiSchroe.ioBroker.klf200?branchName=master)](https://dev.azure.com/michaelschroeder-github/GitHub%20projects/_build/latest?definitionId=3&branchName=master)[![GitHub issues](https://img.shields.io/github/issues/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/issues)
+[![Test and Release](https://github.com/MiSchroe/ioBroker.klf200/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/MiSchroe/ioBroker.klf200/actions/workflows/test-and-release.yml)
+[![GitHub issues](https://img.shields.io/github/issues/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/issues)
 [![GitHub license](https://img.shields.io/github/license/MiSchroe/ioBroker.klf200.svg)](https://github.com/MiSchroe/ioBroker.klf200/blob/master/LICENSE)
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.klf200.svg)](https://www.npmjs.com/package/iobroker.klf200)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.klf200.svg)](https://www.npmjs.com/package/iobroker.klf200)
+
+[![Translation status](https://weblate.iobroker.net/widgets/adapters/-/klf200/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 [![gitlocalized ](https://gitlocalize.com/repo/1127/whole_project/badge.svg)](https://gitlocalize.com/repo/1127/whole_project?utm_source=badge)
 [![gitlocalized ](https://gitlocalize.com/repo/1127/de/badge.svg)](https://gitlocalize.com/repo/1127/de?utm_source=badge)
@@ -169,6 +172,10 @@ The following devices are defined:
     -   powerSaveMode - Kind of power save mode of the product.
     -   productType - Type of the product. The numbers are not documented, thus
         the adapter shows the raw numbers.
+    -   refreshProduct - Refreshes the status of a product by reading all values from the KLF-200.
+        In specific cases, e.g. if you control a product with a simple remote control the KLF-200
+        will not send a notification thus the adapter won't be informed about the change.
+        Set the refreshProduct state to true to re-read the current product state from the KLF-200.
     -   remainingTime - Remaining time of the current operation of the product in
         seconds. Currently, this is only updated at the beginning and at the end
         of a products movement.
@@ -182,13 +189,16 @@ The following devices are defined:
     -   subType - Depending on the category the sub type defines special kinds or
         capabilities, e.g. for a window a '1' means that the window has a rain sensor.
     -   targetFP1Raw - Setting this state to a value different to 54272 (0xD400) lets the product
-        include this functional parameter when setting a new target position. See below for further details.
+        include this functional parameter when setting a new target position. See [below](#functional-parameters) for further details.
     -   targetFP2Raw, targetFP3Raw, targetFP4Raw - Same as targetFP1Raw, but for the different
         functional parameters.
     -   targetPosition - Set this state to a value between 0% and 100% to move a
         window or to dim a light. This state is writable.
     -   targetPositionRaw - This state reflects the target position converted to a
-        raw value.
+        raw value. According to type of the actuator the values can be mapped
+        either from 0% to 100% or vice versa. See the table at [Functional parameters](#functional-parameters) for
+        details about how the values must be mapped.
+        This state is writable.
     -   timestamp - Timestamp of the last known position in local time.
     -   typeID - Type of the product, e.g. window, light, roller shutter.
     -   velocity - Velocity at which the product operates. The velocity depends on
@@ -210,15 +220,18 @@ The values of the state provide multiple manipulation modes:
 | Access method | Description | Range (Decimal) | Range (Hex) | Notes |
 |-|-|-|-|-|
 | Relative | 0% - 100% | 0 - 51200 | 0x0000 - 0xC800 | Each percent step equals 512. The product moves to that relative value, e.g. 50% open. |
-| +/- | -100% - +100% | 51456 - 53456 | ß0xC900 - 0xD0D0 | Each percent step equals 10. The product advances its position by the provided value, e.g. open the window for addition 10%. Not every product supports this method. |
+| +/- | -100% - +100% | 51456 - 53456 | ß0xC900 - 0xD0D0 | Each percent step equals 10. The product advances its position by the provided value, e.g. open the window for additional 10%. Not every product supports this method. |
 | Target | The target value for the parameter. | 53504 | 0xD100 | In case of an already running command the target value could be different to the current value. |
 | Current | The current value of the parameter. | 53760 | 0xD200 | You can use this value to stop a movement if applicable. |
 | Default | The default value for the parameter. | 54016 | 0xD300 | Sets the parameter to its default value. |
 | Ignore | The parameter won't be provided. | 54272 | 0xD400 | The parameter won't be set for the command. |
 
+> **Note:** This tables is valid for the targetPositionRaw, too.
+
 #### Scenes
 
 -   scenesFound - Number of scenes found in the interface
+-   refreshScenes - Set to true to read the list of scenes without restarting the adapter. After refreshing the state will be set back to false.
 -   0..n - Channel for each scene
     -   productsCount - Number of products that are controlled through this scene
     -   run - Set this state to true to run the scene. If a scene is running this state is set to true.
@@ -233,13 +246,16 @@ The values of the state provide multiple manipulation modes:
 	### __WORK IN PROGRESS__
 -->
 <!-- prettier-ignore -->
-### __WORK IN PROGRESS__
+### 1.2.0 (2024-02-09)
 
 -   (Michael Schroeder) [#126](https://github.com/MiSchroe/ioBroker.klf200/issues/126) Fixed Adapter-Checker warning.
 -   (Michael Schroeder) [#124](https://github.com/MiSchroe/ioBroker.klf200/issues/124) Added help message for password in configuration dialog.
 -   (Michael Schroeder) [#106](https://github.com/MiSchroe/ioBroker.klf200/issues/106) Fixed an unhandled rejection exception.
 -   (Michael Schroeder) [#135](https://github.com/MiSchroe/ioBroker.klf200/issues/135) Fixed warning for Admin settings.
 -   (Michael Schroeder) [#137](https://github.com/MiSchroe/ioBroker.klf200/issues/137) Fixed Github Workflows.
+-   (Michael Schroeder) [#40](https://github.com/MiSchroe/ioBroker.klf200/issues/40) The scene list can be refreshed.
+-   (Michael Schroeder) [#129](https://github.com/MiSchroe/ioBroker.klf200/issues/129) The state targetPositionRaw is writable to support additional scenarios.
+-   (Michael Schroeder) [#133](https://github.com/MiSchroe/ioBroker.klf200/issues/133) Added a refreshProduct state to manually refresh the state of a product.
 
 ### 1.1.2 (2023-10-19)
 
@@ -291,7 +307,7 @@ npm run release major|minor|patch|... [-- --dry]
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Michael Schroeder <klf200@gmx.de>
+Copyright (c) 2018-2024 Michael Schroeder <klf200@gmx.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

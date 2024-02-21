@@ -41,6 +41,27 @@ It can also be used to change data points that are not sent by the API.
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+
+-   Do not send empty objects (setData)
+-   The initial refresh interval was set to 5 minutes
+-   The code has been restructured internally
+
+### 0.7.1 (2024-02-10)
+
+-   Crash after 'unhandled promise rejection' fixed #15
+
+### 0.7.0 (2024-02-04)
+
+-   Forbidden characters are removed from the category
+-   An error when setting data has been fixed
+-   Performance has been improved
+
+### 0.6.1 (2024-02-03)
+
+-   Performance has been improved
+-   Dependencies have been updated
+
 ### 0.6.0 (2024-01-28)
 
 -   The setData object has been added

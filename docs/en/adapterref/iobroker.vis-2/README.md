@@ -263,6 +263,29 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### **WORK IN PROGRESS**
+* (foxriver76) fixed issue that last image is never shown in image8 widget
+* (foxriver76) make it possible to click through signal image if in front of widget
+
+### 2.9.32 (2024-02-16)
+* (foxriver76) implemented buttons to show or hide all views in views manager
+* (foxriver76) fixed issue with signals on RxWidgets
+* (foxriver76) allow to disable Sentry only for this instance
+
+### 2.9.31 (2024-02-06)
+* (foxriver76) apply default overflow correctly
+* (foxriver76) navigation style fixes (fix an icon background and allow to customize header text color)
+
+### 2.9.30 (2024-02-06)
+* (foxriver76) global css will no longer be deleted on adapter upload/update
+* (foxriver76) allowed modifying style of navigation
+
+### 2.9.29 (2024-02-05)
+* (foxriver76) fixed multiple problems with nested groups
+* (foxriver76) also made group/ungroup commands working in group view
+* (foxriver76) allowed selecting widgets in a group via click (previously only dropdown worked)
+* (foxriver76) fixed issue, that Basic Image 8 is not configurable for value 0
+
 ### 2.9.28 (2024-02-03)
 * (foxriver76) correctly determine the vis instance in all cases
 

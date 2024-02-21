@@ -60,6 +60,10 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 ### ioBroker sendTo
 
 ## Changelog
+### 5.2.0 (2024-02-17)
+
+- (klein0r) Added persistence of context data (filesystem)
+
 ### 5.1.0 (2023-12-27)
 
 - (klein0r) Allow custom themes
@@ -86,13 +90,9 @@ Flows will not be started, and you can edit the flows to fix some overload probl
 - (klein0r) Added option to select editor (monaco, ace)
 - (klein0r) Added table for custom env vars to instance configuration
 
-### 4.0.3 (2023-03-24)
-
-- (Apollon77) Optimized path handling
-
 ## License
 
-Copyright 2014-2023 bluefox <dogafox@gmail.com>.
+Copyright 2014-2024 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

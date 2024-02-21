@@ -77,11 +77,12 @@ after 5 minutes.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
--   (mcm1957) changed: Testing has been changed to support node 16, 18 and 20
--   (mcm1957) changed: Dependencies have been updated
-
-* (Apollon77) make sure reconnects work correctly
+### 1.3.1 (2024-02-15)
+- (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
+- (Black-Thunder) Crashes at startup of adapter have been fixed. [#271, #227 and #222]
+- (mcm1957) Testing has been changed to support node 18 and 20
+- (mcm1957) Dependencies have been updated
+- (Apollon77) make sure reconnects work correctly
 
 ### 1.2.1 (2022-06-16)
 * (Apollon77) register error handler for Yeelight instance
@@ -176,7 +177,8 @@ base from: adb backup https://github.com/cahek2202/ioBroker.yeelight
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2022 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
+Copyright (c) 2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2018-2024 MeisterTR <meistertr.smarthome@gmail.com>, cahek2202 <cahek2202@mail.ru>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

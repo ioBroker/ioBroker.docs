@@ -20,6 +20,11 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 ### Important: You have to buy a license to use this adapter. You can buy one here -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
 ### Wichtig: Für die Nutzung dieses Adapters müssen Sie eine Lizenz erwerben. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
 
+### Auto discovery
+
+There is automatic search feature to find devices. It is also possible to execute it scheduled.
+Note: If you are using ioBroker within a docker container this feature will not work depending on your network configuration.
+
 ### Pings configured IP addresses
 
 Pings specified IP addresses in defined interval and monitors the results. (alive, rps, time)
@@ -64,7 +69,13 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.0.5 04.02.2024
+* (Jey Cee) remove discovery adapter as dependency
+* (Jey Cee) add possibility to choose the interface which will be used for ping operations
+* (Jey Cee) add possibility to enter IP range for device discovery
+* (Jey Cee) add auto search by configurable schedule
+* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
+* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
 
 ### 1.0.2 20.01.2024
 * (Jey Cee) bugfix require

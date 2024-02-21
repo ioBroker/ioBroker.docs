@@ -100,9 +100,16 @@ If you would like to have other inverters integrated, you should make the data e
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### 0.9.6 (2024-02-05)
+* (simatec) small Design Fix
+
+### 0.9.5 (2024-02-04)
+* (simatec) Dependencies updated
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
 ### 0.9.4 (2024-01-22)
-* simatec) adapter-dev added
-* simatec) delete Gulp
+* (simatec) adapter-dev added
+* (simatec) delete Gulp
 * (Andre-0815-4711) Data for X1/X3-EVC Wallbox added
 
 ### 0.9.3 (2024-01-14)

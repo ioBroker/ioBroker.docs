@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tibberlink/README.md
 title: ioBroker.tibberlink
-hash: ED3GjjBJeou0pwxCdD01AuMWY1rrtMYPLzc6uZcLvQQ=
+hash: 7fN5FrABztCO5Y6BdXIVUph4eWcQ6o7gvfNwt8kBJC4=
 ---
 ![标识](../../../en/adapterref/iobroker.tibberlink/admin/tibberlink.png)
 
@@ -35,7 +35,7 @@ hash: ED3GjjBJeou0pwxCdD01AuMWY1rrtMYPLzc6uZcLvQQ=
 
 ## 标准配置
 - 首先创建适配器的新实例。
-- 您还需要 Tibber 的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
+- 您还需要 Tibber 提供的 API 令牌，您可以在此处获取：[Tibber Developer API](https://developer.tibber.com)。
 - 在标准设置中输入您的 Tibber API 令牌，并为实时源设置配置至少一行（选择“无可用”）。
 - 保存设置并退出配置以重新启动适配器；此步骤允许第一次从 Tibber 服务器查询您的家庭。
 - 返回配置屏幕并选择您希望使用 Tibber Pulse 从中获取实时数据的家庭。您还可以选择家庭并禁用源（注意：这仅在安装了硬件并且 Tibber 服务器已验证与 Pulse 的连接时才有效）。
@@ -59,9 +59,9 @@ hash: ED3GjjBJeou0pwxCdD01AuMWY1rrtMYPLzc6uZcLvQQ=
 - 输出：
     - “最佳成本”：利用“TriggerPrice”状态作为输入，当当前 Tibber 能源成本低于触发价格时，每小时生成“YES”输出。
     - “最佳单小时”：在最便宜的小时内生成“YES”输出，其数量在“AmountHours”状态中定义。
-    -“最佳时间段”：在最具成本效益的时间段内输出“YES”，其中“AmountHours”状态中指定了小时数。
+    - “最佳时间段”：在最具成本效益的时间段内输出“YES”，其中“AmountHours”状态中指定了小时数。
 
-        此外，确定的块中的平均总成本被写入该通道的输入状态附近的状态“AverageTotalCost”。此外，该块的第一个小时和最后一个小时也会作为计算结果写入“BlockStartTime”和“BlockEndTime”。
+        此外，确定的块中的平均总成本被写入该通道的输入状态附近的状态“AverageTotalCost”。另外，区块的开始时间和结束时间也将作为计算结果写入“BlockStartFullHour”和“BlockEndFullHour”中。
 
     - “最佳成本 LTF”：有限时间范围 (LTF) 内的“最佳成本”。
     - “最佳单小时 LTF”：有限时间范围 (LTF) 内的“最佳单小时”。
@@ -93,12 +93,25 @@ hash: ED3GjjBJeou0pwxCdD01AuMWY1rrtMYPLzc6uZcLvQQ=
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 2.2.0 (2024-02-xx) - WORK in PROGRESS
+### 2.2.2 (2024-02-19)
+
+-   (HombachC) simplify internal state handling
+-   (HombachC) shorten home string in Calculator screen (#317)
+-   (HombachC) fix feedback loop trap (#321)
+-   (HombachC) add some tooltips to config screen (#317)
+
+### 2.2.1 (2024-02-08)
+
+-   (HombachC) fix edge case problems with defect feed data from Tibber server (#312)
+-   (HombachC) bump dependencies
+
+### 2.2.0 (2024-02-04)
 
 -   (HombachC) add data points for BestHoursBlock results - period and average cost (#240)
 -   (HombachC) fixed wrong error message texts
 -   (HombachC) fix some possible edge cases in internal support functions
 -   (HombachC) internal code docu optimization
+-   (HombachC) bump dependencies
 
 ### 2.1.1 (2024-01-27)
 

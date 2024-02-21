@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
 title: ioBroker 物联网适配器
-hash: X6WngySwjCY/SKfHhMAZ1gSk9+xtBp6YQTLhXJAyFjQ=
+hash: F92Msc6FfpHuPuDUbKZC8Zcr4aXRGIWCYknHnzguwq0=
 ---
 ![标识](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -19,7 +19,7 @@ hash: X6WngySwjCY/SKfHhMAZ1gSk9+xtBp6YQTLhXJAyFjQ=
 
 **此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。** 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!从 js-controller 3.0 开始使用 Sentry 报告。
 
-## 设置
+＃＃ 设置
 要使用物联网适配器，您应首先在 ioBroker 云[https://iobroker.pro](https://iobroker.pro)上注册。
 
 [参考google API类型设置](https://developers.google.com/actions/smarthome/guides/)
@@ -216,7 +216,7 @@ sendTo('iot.0', 'getServiceEndpoint', {serviceName: 'custom_myService'}, result 
   * `deviceId` 包含一个 deviceId，用于标识请求发送到的设备，由 Amazon 提供，如果未提供，则为空字符串
   * `deviceRoom` 包含一个映射的房间标识符，您可以在物联网管理 UI 中为收集的 deviceIds 配置该标识符
   * `sessionId` 包含技能会话的 sessionId，如果说出多个命令，则应相同，由 Amazon 提供，如果未提供，将为空字符串
-  * `userId` 包含来自设备所有者（或者稍后与技能交互的用户）的用户 ID，由 Amazon 提供，如果未提供，则将为空字符串
+  * `userId` 包含来自设备所有者（或者稍后可能与技能交互的用户）的用户 ID，由 Amazon 提供，如果未提供，则将为空字符串
   * `userName` 包含映射的用户名，您可以在物联网管理 UI 中为收集的用户 ID 配置该用户名
 
  有关如何检测单词以及 Alexa 自定义技能区分什么类型的查询的更多详细信息，请查看 https://forum.iobroker.net/viewtopic.php?f=37&t=17452 。
@@ -320,6 +320,14 @@ setState('iot.0.app.message', JSON.stringify({
 ### **正在进行中** -->
 
 ## Changelog
+### 3.1.0 (2024-02-05)
+* (bluefox) Updated packages
+* (bluefox) Disabled the state change report for alexa v3
+
+### 3.0.0 (2023-10-24)
+* (bluefox) Updated packages
+* (bluefox) The minimal supported node.js version is 16
+
 ### 2.0.11 (2023-06-20)
 * (bluefox) Added support for the state toggling (alexa 3)
 * (bluefox) Done small improvements for alexa 3
@@ -672,7 +680,7 @@ setState('iot.0.app.message', JSON.stringify({
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

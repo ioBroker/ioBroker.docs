@@ -45,6 +45,11 @@ This adapter would not have been possible without the great work of @92lleo (htt
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.3.0 (2024-02-15)
+* (mcm1957) BREAKING: adapter requires node.js 18 or newer now.
+* (mcm1957) Adapter translations have been linked to weblate.
+* (mcm1957) Dependencies have been updated.
+
 ### 1.2.2 (2023-12-14)
 * (bluefox) Added random seconds to the schedule
 * (bluefox) Updated packages
@@ -86,7 +91,7 @@ This adapter would not have been possible without the great work of @92lleo (htt
 ## License
 MIT License
 
-Copyright (c) 2023 iobroker-community-adapters <mcm57@gmx.at>
+Copyright (c) 2023-2024 iobroker-community-adapters <iobroker-community-adapters@gmx.de>
 Copyright (c) 2019-2023 Leonhard Kuenzler <leonhard@kuenzler.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

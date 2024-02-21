@@ -959,6 +959,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.linktap/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.linux-control/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.logparser/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.loqed/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.lorawan/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.lovelace/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.lowpass-filter/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.loxone/README.md
@@ -1617,6 +1618,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.linktap/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.linux-control/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.logparser/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.loqed/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.lorawan/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.lovelace/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.lowpass-filter/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.loxone/README.md
@@ -2275,6 +2277,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.linktap/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.linux-control/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.logparser/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.loqed/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.lorawan/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.lovelace/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.lowpass-filter/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.loxone/README.md
@@ -2933,6 +2936,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.linktap/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.linux-control/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.logparser/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.loqed/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lorawan/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lovelace/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.lowpass-filter/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.loxone/README.md

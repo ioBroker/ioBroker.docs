@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-инструменты
-hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
+hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -23,7 +23,11 @@ hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
 Примечание. Эта функция ограничена подсетью хоста ioBroker.
 
 ### Важно: для использования этого адаптера необходимо приобрести лицензию. Вы можете купить его здесь -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
-### Wichtig: Для адаптеров Nutzung müssen Sie eine Lizenz erwerben. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Wichtig: Для адаптеров Nutzung dies müssen Sie eine Lizenz erwerben. Sie können eine hier kaufen -> https://www.all-smart.net/produkt/iobroker-net-tools-v1-lizenz/
+### Автоматическое обнаружение
+Существует функция автоматического поиска устройств. Также возможно выполнить его по расписанию.
+Примечание. Если вы используете ioBroker в Docker-контейнере, эта функция не будет работать в зависимости от конфигурации вашей сети.
+
 ### Проверяет настроенные IP-адреса
 Проверяет указанные IP-адреса через определенный интервал и отслеживает результаты. (активность, количество об/с, время) Интервал пинга можно указать на уровне устройства.
 
@@ -60,7 +64,13 @@ hash: PdF+efqVDFFjtfkSgCd1fGDLJ+tYzy/KEr85+dSNE9k=
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 1.0.5 04.02.2024
+* (Jey Cee) remove discovery adapter as dependency
+* (Jey Cee) add possibility to choose the interface which will be used for ping operations
+* (Jey Cee) add possibility to enter IP range for device discovery
+* (Jey Cee) add auto search by configurable schedule
+* (Jey Cee) fix/catch crash if device was deleted in objects and not in device management
+* (Jey Cee) fix ping rights on lxc containers which prevent to ping devices
 
 ### 1.0.2 20.01.2024
 * (Jey Cee) bugfix require

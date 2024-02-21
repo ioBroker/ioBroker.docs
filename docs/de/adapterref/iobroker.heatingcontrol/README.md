@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.heatingcontrol/README.md
 title: ioBroker.HeatingControl
-hash: epsKaYA+LklPc6yneSfpC0Izu+KC/oXA5wankdhVh8Y=
+hash: jm4d86iolNT81uYM7Gr9JRrk+50hyCY7kZPCO9Sw6mc=
 ---
 ![Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -14,7 +14,7 @@ hash: epsKaYA+LklPc6yneSfpC0Izu+KC/oXA5wankdhVh8Y=
 ![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
 ![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.heatingcontrol?style=flat-square)
 ![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.heatingcontrol?label=npm%20dependencies&style=flat-square)
-![GitHub](https://img.shields.io/github/license/iobroker-community-adapters/iobroker.statistics?style=flat-square)
+![GitHub](https://img.shields.io/github/license/rg-engineering/ioBroker.heatingcontrol?style=flat-square)
 ![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
 ![GitHub letzter Commit](https://img.shields.io/github/last-commit/rg-engineering/ioBroker.heatingcontrol?logo=github&style=flat-square)
@@ -102,14 +102,15 @@ Merkmale:
 ### Temperaturabsenkung / -erhöhung
 | DP-Name | Beschreibung | Zieltemperatur für relative Abnahme | Zieltemperatur für absolute Abnahme |
 |---------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| GästeGegenwart | Temperatur erhöhen, weil Gäste es wärmer haben möchten | Erhöhen Sie die aktuelle Profiltemperatur um Profiles.0.room.GuestIncrease | Ziel auf Profiles.0.room.absolute.GuestIncrease | setzen |
-| PartyNow | Temperatur senken, weil es heiß wird' | Aktuelle Profiltemperatur um Profiles.0.room.PartyDecrease | verringern Ziel auf Profiles.0.room.absolute.PartyDecrease | setzen |
-| Gegenwart | wir sind anwesend, wenn wir nicht anwesend sind, verringern Sie die Temperatur | Aktuelle Profiltemperatur um Profiles.0.room.AbsentDecrease | verringern Ziel auf Profiles.0.room.absolute.AbsentDecrease | setzen |
-| UrlaubAbsent | wir sind abwesend, daher auch am Wochenende abwesend | Aktuelle Profiltemperatur um Profiles.0.room.VacationAbsentDecrease | verringern Setzen Sie das Ziel auf Profiles.0.room.absolute.VacationAbsentDecrease |
-| FireplaceModeActive | Verringern Sie die Temperatur, weil Sie einen Kamin verwenden Aktuelle Profiltemperatur um Profiles.0.room.FireplaceModeDecrease | verringern Ziel auf Profiles.0.room.absolute.FireplaceModeDecrease | setzen |
+| GästeGegenwart | Temperatur erhöhen, weil Gäste es wärmer haben möchten | Erhöhen Sie die aktuelle Profiltemperatur um Profiles.0.room.relative.GuestIncrease | Ziel auf Profiles.0.room.absolute.GuestIncrease | setzen |
+| PartyNow | Temperatur senken, weil es heiß wird' | Aktuelle Profiltemperatur um Profiles.0.room.relative.PartyDecrease | verringern Ziel auf Profiles.0.room.absolute.PartyDecrease | setzen |
+| Gegenwart | wir sind anwesend, wenn wir nicht anwesend sind, verringern Sie die Temperatur | Aktuelle Profiltemperatur um Profiles.0.room.relative.AbsentDecrease | verringern Ziel auf Profiles.0.room.absolute.AbsentDecrease | setzen |
+| UrlaubAbsent | wir sind abwesend, daher auch am Wochenende abwesend | Aktuelle Profiltemperatur um Profiles.0.room.relative.VacationAbsentDecrease | verringern Setzen Sie das Ziel auf Profiles.0.room.absolute.VacationAbsentDecrease |
+| FireplaceModeActive | Verringern Sie die Temperatur, weil Sie einen Kamin verwenden Aktuelle Profiltemperatur um Profiles.0.room.relative.FireplaceModeDecrease | verringern Ziel auf Profiles.0.room.absolute.FireplaceModeDecrease | setzen |
 
 | | automatisch zu einstellbarer Zeit zurückgesetzt
 
+* Datenpunkte nur verfügbar, wenn „Allgemeine Profileinstellungen, Temperaturabsenkung“ eingestellt ist
 * in beiden Szenarien wird nur eine Tieferlegung verwendet (in der vorherigen Version des Adapters konnten mehr als eine Entfettung verwendet werden)
 * Im absoluten Entfettungsszenario werden nur Zielwerte ungleich 0°C verwendet. Wenn Sie für einen bestimmten Raum keine Absenkung benötigen, belassen Sie die Absenkwerte bei 0°C
 
@@ -146,14 +147,14 @@ optional kann eine Verzögerung verwendet werden. Wenn das Fenster nur für kurz
 Sie können Ihren Kalender oder einen anderen Datenpunkt verwenden, um Datenpunkte im Adapter zu ändern.
 Konfigurieren Sie einfach Ereignisse von ical oder anderen Datenpunkten im Admin. Unterstützt werden
 
-| Datenpunkt | Beschreibung |----------------------|---------- -------------------------------------------------- ---------------- |heatingcontrol.0.Present | Setzen Sie es auf true (im Falle eines booleschen Werts) oder auf eine Zahl höher als limit (im Falle einer Zahl) |heatingcontrol.0.HolidayPresent | Setzen Sie es auf „true“, wenn Sie im Urlaub zu Hause sind |heatingcontrol.0.VacationAbsent | Setzen Sie es auf „true“, wenn Sie im Urlaub nicht zu Hause sind |heatingcontrol.0.GuestsPresent | Setzen Sie es auf „true“ (im Falle eines booleschen Werts) oder auf eine Zahl höher als limit (im Falle einer Zahl) |heatingcontrol.0.PartyNow | Setzen Sie es auf true (im Falle eines booleschen Werts) oder auf eine Zahl, die höher als limit ist (im Falle einer Zahl).
+| Datenpunkt | Beschreibung |----------------------|---------- -------------------------------------------------- ---------------- |heatingcontrol.0.Present | Setzen Sie es auf true (im Falle eines booleschen Werts) oder auf eine Zahl höher als limit (im Falle einer Zahl) |heatingcontrol.0.HolidayPresent | Setzen Sie es auf „true“, wenn Sie im Urlaub zu Hause sind |heatingcontrol.0.VacationAbsent | Setzen Sie es auf „true“, wenn Sie im Urlaub nicht zu Hause sind |heatingcontrol.0.GuestsPresent | Setzen Sie es auf true (im Falle eines booleschen Werts) oder auf eine Zahl höher als limit (im Falle einer Zahl) |heatingcontrol.0.PartyNow | Setzen Sie es auf true (im Falle eines booleschen Werts) oder auf eine Zahl, die höher als limit ist (im Falle einer Zahl).
 
 Hinweis: Mit Zahlendatenpunkten könnten Sie zählen, wie viele Personen sich im Haus befinden, und dann entscheiden, z. Wir haben genug für eine Party...
 
 ## Änderungen vom Thermostat verwenden
 Viele Benutzer fragten nach einer Option, Änderungen vom Thermostat in den Adapter zu übernehmen. Nun sind vier Optionen implementiert:
 
-| Option | Beschreibung |------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Override | Änderungen vom Thermostat werden als Vorrang genommen; Die Override-Zeit muss im Voraus in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | eingestellt werden | Wenn die Override-Zeit nicht festgelegt ist, wird die Override-Zeit nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für den aktuellen Profilzeitraum übernommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen/Verringerungen werden ignoriert. In jedem Raum gibt es einen Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
+| Option | Beschreibung |------------|--------------------- -------------------------------------------------- ---------------- | nein | Änderungen vom Thermostat werden ignoriert | als Override | Änderungen vom Thermostat werden als Vorrang genommen; Die Override-Zeit muss im Voraus in Heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | festgelegt werden | Wenn die Override-Zeit nicht festgelegt ist, wird die Override-Zeit nicht ausgeführt | als neue Profileinstellung | Änderungen vom Thermostat werden als Zieltemperatur für den aktuellen Profilzeitraum übernommen | bis zum nächsten Profilpunkt | Änderungen vom Thermostat werden als Zieltemperatur bis zum nächsten Profilpunkt übernommen. Dies ist ein manueller Modus, daher werden nur Fenstersensoren verwendet. Alle anderen | | Erhöhungen/Verringerungen werden ignoriert. In jedem Raum gibt es einen Datenpunkt, um den manuellen Modus zu deaktivieren, bevor der nächste Profilpunkt erreicht wird.
 
 ## Override erweitern, wenn die Temperatur geändert wird
 Das Standardverhalten für Override ist, dass sich die Override-Zeit nicht ändert, wenn Sie die Temperatur ändern. Wenn Sie beispielsweise 20 Minuten lang mit 25 °C übersteuern und nach 15 Minuten auf 28 °C wechseln, wird 28 °C nur für die letzten 5 Minuten verwendet. Mit dieser Option starten Sie den Override neu, wenn Sie die Override-Temperatur ändern.
@@ -168,7 +169,7 @@ Dies ist die bekannte Funktion, die eine Temperatur und eine Dauer verwendet. Di
 
 * bis zum nächsten Profilpunkt
 
-Das ist eine neue Funktion. Hier können wir eine Temperaturüberschreibung bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, muss aber ungleich Null sein!
+das ist eine neue Funktion. Hier können wir eine Temperaturüberschreibung bis zum nächsten Profilpunkt verwenden. Die Dauer wird ignoriert, muss aber ungleich Null sein!
 
 ## Thermostat behandelt „Fenster ist offen“
 Einige Thermostate können selbständig mit der Meldung „Fenster ist offen“ umgehen. In diesen Fällen wird eine direkte Verbindung zwischen Fenstersensor und Thermostat konfiguriert und der Thermostat reduziert die Zieltemperatur automatisch, wenn ein Fenster geöffnet wird.
@@ -202,13 +203,13 @@ Umschalten zwischen linear und linear mit Hysterese
 
 Beschreiben Sie zwei neue Datenpunkte: Heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOffOffset und Heatingcontrol.0.Rooms.TestRaum.Regulator.HysteresisOnOffset
 
-## Erweitertes Aktuatorhandling
+## Erweiterte Aktuatorhandhabung
 Überprüft, ob der Wert richtig eingestellt wurde und die Bestätigung gesetzt ist, andernfalls wird es erneut versucht ...
 
 machen
 
 ## EVU Sperrzeit / PowerInterruption
-Bei Erreichen der EVU-Sperrzeit werden alle Aktoren ausgeschaltet und nach Ablauf der Sperrzeit wieder eingeschaltet.
+Bei Erreichen der EVU-Sperrzeit werden alle Aktoren abgeschaltet und nach Ablauf der Sperrzeit wieder eingeschaltet.
 Status geht auf „EVU Sperrzeit“ / „PowerInterruption“ Ziel: Elektrische Heizungen gezielt abschalten und wieder einschalten, um die Belastung der Schütze zu minimieren und Einschaltströme zu minimieren. Konfiguration: Start-/Endzeitpunkt der EVU-Sperrung Zeit können mehrere Zeiträume konfiguriert werden
 
 ## Probleme und Funktionswünsche
@@ -232,6 +233,18 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.12.4 (2024-02-11)
+* (René) dependencies updated
+* (Marc-Berg) update readme "temperature decrease / increase"
+* (René) in some cases undefined was sent in notification messages instead of actor name
+* (René) bug fix related to cron@3.x.x: show next cron job event in log
+
+### 2.12.3 (2024-01-12)
+* (René) dependencies updated
+
+### 2.12.2 (2023-12-16)
+* (René) see issue #491: bug fix in offset calculation (NaN)
+
 ### 2.12.1 (2023-11-25)
 * (René) issue #459: Show the number of objects that can be deleted in the log and indicate that they can be deleted in admin
 * (René) issue #376: notification messages customizable
@@ -652,7 +665,7 @@ Attention: some changes in datapoints!!
 ## License
 MIT License
 
-Copyright (c) 2019-2023 rg-engineering info@rg-engineering.eu
+Copyright (c) 2019-2024 René G. <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
