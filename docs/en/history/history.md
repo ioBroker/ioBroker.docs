@@ -327,32 +327,33 @@ It is possible to use categories in scenes
 
 <img src="media/2024_02_16 scenes-enums.png" width="500" />
 
-## solaredge (15.2.2024) – new Adapter
+## solaredge (15.2.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
 <img src="https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/admin/solaredge.png" width="100" height="100" />
 
 Get data from solaredge monitoring portal. Currently, only the /overview data point is used to get the current power and day/month/year/lifetime energy readings.
 
-## elgato-key-light (18.2.2024) – new Adapter
+## elgato-key-light (18.2.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
 
 <img src="https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/admin/elgato-key-light.png" width="100" height="100" />
 
 This adapter allows you to control Elgato Key Lights via ioBroker.
 
-## myuplink (18.2.2024) – new Adapter
+## myuplink (18.2.2024) – new adapter
 https://github.com/sebilm/ioBroker.myuplink
 
 <img src="https://github.com/sebilm/ioBroker.myuplink/blob/main/admin/myuplink.png" width="100" height="100" />
 
 This ioBroker adapter receives data from myUplink.com.
 
-## sun2000 (19.2.2024) – new Adapter
+## sun2000 (19.2.2024) – new adapter
 https://github.com/bolliy/ioBroker.sun2000
 
 <img src="https://github.com/bolliy/ioBroker.sun2000/blob/main/admin/sun2000.png" width="100" height="100" />
 
 Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP.
 
-
+## opcua (21.2.2024) – new feature
+The adapter has now free license.
