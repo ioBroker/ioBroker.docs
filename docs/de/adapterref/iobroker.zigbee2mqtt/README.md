@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zigbee2mqtt/README.md
 title: ioBroker.zigbee2mqtt
-hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
+hash: ljR/3om6JFDm5lkP46CzyT5GLcwPWMGEM7uJmZv/9xA=
 ---
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.zigbee2mqtt.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.zigbee2mqtt.svg)
@@ -20,7 +20,7 @@ hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
 Dieser Adapter ermöglicht die Steuerung der Datenpunkte der Geräte einer Zigbee2MQTT-Instanz in ioBroker.
 
 ## Adapterdokumentation
-[Adapterdokumentation](./docs/wiki.md)
+[Adapterdokumentation](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
 

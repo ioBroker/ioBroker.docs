@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zigbee2mqtt/README.md
 title: ioBroker.zigbee2mqtt
-hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
+hash: ljR/3om6JFDm5lkP46CzyT5GLcwPWMGEM7uJmZv/9xA=
 ---
 ![НПМ-версия](https://img.shields.io/npm/v/iobroker.zigbee2mqtt.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.zigbee2mqtt.svg)
@@ -20,7 +20,7 @@ hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
 Этот адаптер позволяет управлять точками данных устройств экземпляра Zigbee2MQTT в ioBroker.
 
 ## Документация по адаптеру
-[Документация адаптера](./docs/wiki.md)
+[Документация адаптера](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
 

@@ -17,16 +17,16 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.shelly/README.md
 title: ioBroker.shelly
-hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
+hash: 19niRJHfgJIH8WW0ozVZ9QImrj5R2m5bwQMvj3GKb6U=
 ---
 ![логотип](../../../de/admin/shelly.png)
 
 # IoBroker.shelly
-Это немецкая документация - [🇺🇸 Английская версия](../en/README.md).
+Это немецкая документация - [🇺🇸Немецкая версия](../en/README.md).
 
 ## Оглавление
 - [Протокол MQTT](protocol-mqtt.md)
-- [Протокол CoAP](protocol-coap.md)
+- [Протокол CoAP/CoIoT](protocol-coap.md)
 - [Ограниченный вход](restricted-login.md)
 - [Изменения состояния](state-changes.md)
 - [Отладка](debug.md)
@@ -40,14 +40,14 @@ hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
 ## Поколения устройств
 Дополнительную информацию см. в разделе *поддерживаемые устройства*.
 
-- **Gen1**: устройства ESP8266, [CoAP](protocol-coap.md) или [MQTT](protocol-mqtt.md)
+- **Gen1**: устройства ESP8266, [CoAP/CoIoT](protocol-coap.md) или [MQTT](protocol-mqtt.md).
 - **Gen2**: устройства ESP32, [MQTT](protocol-mqtt.md).
 
 ## В целом
 Адаптер может обмениваться данными с устройствами через MQTT (рекомендуется) или CoAP/CoIoT.
 
 - Режим адаптера по умолчанию — MQTT (дополнительную информацию см. в [Документации](protocol-mqtt.md)).
-- CoAP совместим только с устройствами Gen1!
+- CoAP/CoIoT совместим только с устройствами Gen1!
 - **Если необходимо интегрировать устройства Gen2, необходимо настроить MQTT!**
 
 Вопросы? Сначала взгляните на [Часто задаваемые вопросы](faq.md)!
@@ -60,44 +60,38 @@ hash: mTouPEjZV3y3rvMZ1AYVtuCTZIYtIQw0mQutGfb6fjI=
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
-### 6.4.3 (2023-09-25)
-* (klein0r) Added Shelly Pro Dual Cover/Shutter PM
-* (klein0r) Added Shelly Pro 3 EM 400A
-* (JuniperChris929) Added support of Shelly Plus 1 Mini + Shelly Plus 1 PM Mini
-* (BooosesThaSnipper) Added support of Shelly Plus AddOn for Gen2 Devices.
-* (D1gitaldad) Added support of Plus PM Mini
+### 6.8.0 (2024-02-17)
 
-### 6.4.1 (2023-04-23)
+* (klein0r) Updated BLE script to 0.2 (new shelly motion firmware)
+* (klein0r) Updated Shelly i3 number limits
+* (klein0r) Added screenshots to instance configuration
 
-* (viper4gh) Added Shelly Pro 3 EM energy data
-* (klein0r) Fixed IP handling in Docker containers
+### 6.7.0 (2023-12-22)
 
-### 6.4.0 (2023-02-09)
+* (klein0r) Updated handling of ble payloads
+* (D1gitaldad) Added Shelly Wall Display
 
-* (klein0r) Added Shelly Plus Plug S
-* (klein0r) Added Shelly Pro 3 EM
-* (klein0r) Reduced checks for firmware updates
-* (klein0r) Shelly TV profile is now changeable
+### 6.6.1 (2023-10-20)
 
-### 6.3.1 (2023-01-02)
+* (klein0r) Fixed stop reason for Shelly 2.5 / Shelly 2
+* (klein0r) Added humidity of Shelly Plus Addon
+* (klein0r) Not all devices have external power
 
-* (klein0r) Updated MQTT topic prefix handling
-* (klein0r) Added temperature for generation 2 devices in cover mode
-* (klein0r) Added boost start/stop for Shelly TRV
-* (klein0r) Added external power for Shelly H&T
+### 6.6.0 (2023-10-17)
 
-### 6.3.0 (2022-12-22)
+* (klein0r) Added BLE devices as states to `shelly.0.ble.*` (Shelly Scripting required)
 
-* (klein0r) Added more TRV features
-* (jlegen) Improved Shelly TRV integration
-* (klein0r) Updated knowledge base urls
-* (klein0r) Added Ukrainian language
+### 6.5.0 (2023-10-17)
+
+* (klein0r) Added Shelly Plus Smoke
+* (klein0r) Added Shelly Bluetooth Low Energy Gateway
+* (theimo1221) More Shelly TRV Datapoints
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2023 Thorsten Stueben <thorsten@stueben.de>,
+Copyright (c) 2018-2024 Thorsten Stueben <thorsten@stueben.de>,
                         Apollon77 <iobroker@fischer-ka.de> and
                         Matthias Kleine <info@haus-automatisierung.com>
 

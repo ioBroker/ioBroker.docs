@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.zigbee2mqtt/README.md
 title: ioBroker.zigbee2mqtt
-hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
+hash: ljR/3om6JFDm5lkP46CzyT5GLcwPWMGEM7uJmZv/9xA=
 ---
 ![NPM版本](https://img.shields.io/npm/v/iobroker.zigbee2mqtt.svg)
 ![下载](https://img.shields.io/npm/dm/iobroker.zigbee2mqtt.svg)
@@ -20,7 +20,7 @@ hash: NtD/icQESHI+u8fI0U+a2lLNOikq9rbNURqR8KnTyGY=
 该适配器允许控制 ioBroker 中 Zigbee2MQTT 实例的设备的数据点。
 
 ## 适配器文档
-[适配器文档](./docs/wiki.md)
+[适配器文档](https://github.com/arteck/ioBroker.zigbee2mqtt/blob/main/docs/wiki.md)
 
 ## Changelog
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
 title: ioBroker Discover-Adapter
-hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
+hash: 413E7lBQoylWDXshoHsaA+/vCUJOeQqEbZrNIM0psFQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -146,6 +146,12 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 4.3.0 (2024-02-21)
+* (bluefox) Replaced vis with vis-2
+
+### 4.2.0 (2023-10-09)
+* (pdbjjens) Changed detection of myvbus and resol
+
 ### 4.1.0 (2023-09-25)
 * (pdbjjens) Added detection of myvbus and resol
 
@@ -367,7 +373,7 @@ Sie können `sudo setcap cap_net_raw+p /bin/ping` ausführen, um fehlende Fähig
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

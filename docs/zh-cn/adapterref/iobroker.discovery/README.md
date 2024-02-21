@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
 title: ioBroker 发现适配器
-hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
+hash: 413E7lBQoylWDXshoHsaA+/vCUJOeQqEbZrNIM0psFQ=
 ---
 ![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -146,6 +146,12 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 ### **正在进行中** -->
 
 ## Changelog
+### 4.3.0 (2024-02-21)
+* (bluefox) Replaced vis with vis-2
+
+### 4.2.0 (2023-10-09)
+* (pdbjjens) Changed detection of myvbus and resol
+
 ### 4.1.0 (2023-09-25)
 * (pdbjjens) Added detection of myvbus and resol
 
@@ -367,7 +373,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,42 +1,273 @@
 ---
-BADGE-Number of Installations: http://iobroker.live/badges/zigbee-stable.svg
-BADGE-NPM version: http://img.shields.io/npm/v/iobroker.zigbee.svg
-BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.zigbee.svg
+translatedFrom: en
+translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
+editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zigbee/README.md
+title: ioBroker.zigbee
+hash: dYL4zxQ8xTlOFdeeQdpPdKTT+jaGpS+Ui5emTnZkPb4=
 ---
-# ioBroker Adapter für Zigbee-Geräte
-Mit Hilfe eines Koordinators für Zigbee-Netz, basierend auf Texas Instruments SoC cc253x (und anderen), wird ein eigenes Netz erschaffen, welchem sich andere Zigbee Geräte beitreten können. Dank der direkten Interaktion mit dem Koordinator, erlaubt der Zigbee Adapter die Steuerung der Geräte ohne jegliche Gateways/Bridges der Hersteller (Xiaomi/Tradfri/Hue). Über Funktionsweise der Zigbee-Netze kann man [hier nachlesen (Englisch)](https://github.com/Koenkk/zigbee2mqtt/wiki/ZigBee-network).
+![Logo](../../../en/adapterref/iobroker.zigbee/admin/zigbee.png)
 
-## Die Hardware
-Für die Umsetzung wird einer der aufgezählten Geräte/Sticks verwendet, welche mit spezieller ZNP-Firmware geflasht sind: [cc2530, cc2530, cc2530+RF.](https://github.com/Koenkk/zigbee2mqtt/wiki/Supported-sniffer-devices#zigbee-coordinator)
+![Anzahl der Installationen](http://iobroker.live/badges/zigbee-stable.svg)
+![NPM-Version](http://img.shields.io/npm/v/iobroker.zigbee.svg)
+![Downloads](https://img.shields.io/npm/dm/iobroker.zigbee.svg)
 
-![](img/CC2531.png)
-![](img/sku_429478_2.png)
-![](img/sku_429601_2.png)
-![](img/CC2591.png)
+# IoBroker.zigbee
+![Test und Freigabe](https://github.com/ioBroker/iobroker.zigbee/workflows/Test%20and%20Release/badge.svg) [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/zigbee/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Der benötigte Flasher/Programmer und der Prozess der Vorbereitung werden [hier (Englisch)](https://github.com/Koenkk/zigbee2mqtt/wiki/Getting-started) oder [hier (Russisch)](https://github.com/kirovilya/ioBroker.zigbee/wiki/%D0%9F%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0) beschrieben. 
+## IoBroker-Adapter für Zigbee-Geräte über TI cc2531/cc2530/cc26x2r/cc2538 und deCONZ ConBee/RaspBee.
+Mit dem Zigbee-Koordinator auf Basis von Texas Instruments SoC, deCONZ ConBee/RaspBee-Modulen, Silicon Labs EZSP v8 oder ZIGate USB-TTL entsteht ein eigenes Zigbee-Netzwerk, in das Zigbee-Geräte eingebunden werden. Durch die direkte Zusammenarbeit mit dem Koordinator ermöglicht Ihnen der Treiber die Verwaltung von Geräten ohne zusätzliche Anwendung/Gateways/Bridge von Geräteherstellern (Xiaomi/TRADFRI/Hue/Tuya). Über das Gerät Zigbee-Netzwerk kann [hier (auf Englisch)](https://www.zigbee2mqtt.io/information/zigbee_network.html) gelesen werden.
 
-Die mit dem Zigbee-Netz verbundenen Geräte übermitteln dem Koordinator ihren Zustand und benachrichtigen über Ereignisse (Knopfdruck, Bewegungserkennung, Temperaturänderung). Diese Infos werden im Adapter unter den jeweiligen Objekten angezeigt. Außerdem ist es möglich manche Ereignisse/Status zurück zum Zigbee-Gerät zusenden (Zustandsänderung Steckdosen und Lampen, Farb- und Helligkeitseinstellungen).
+## Hardware
+Für jede Zigbee-Adapterinstanz ist ein Koordinatorgerät erforderlich. Das Gerät muss mit der jeweiligen Koordinator-Firmware geflasht werden. Eine Liste der unterstützten Koordinatoren, die notwendige Ausrüstung für die Firmware und der Gerätevorbereitungsprozess für verschiedene Koordinatorgeräte werden beschrieben [hier auf Englisch](https://www.zigbee2mqtt.io/guide/adapters/) oder [smarthomescene.com ](https://smarthomescene.com/blog/best-zigbee-dongles-for-home-assistant-2023 /) oder [hier auf Russisch](https://myzigbee.ru/books/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B8/page/%D0%BF%D1%80%D0%BE%D1%88%D0%B8%D0%B2%D0%BA%D0%B0-cc2531cc2530)
 
-## Einstellungen und Pairing
-![](https://raw.githubusercontent.com/kirovilya/files/master/config.PNG)
+### Texas Instruments SoC
+Empfohlene Geräte basieren entweder auf dem CC2652- oder CC1352-Chip. Geräte, die auf cc253x-Chips basieren, werden weiterhin unterstützt, aber nicht mehr empfohlen.
+Nur CC26xx/cc1352/cc2538-Geräte unterstützen die Extraktion des NVRam-Backups, was den Austausch der Koordinator-Hardware ermöglichen sollte, ohne alle ZigBee-Geräte erneut mit dem Netzwerk verbinden zu müssen.
+Aktuelle Firmware-Dateien für diese Geräte finden Sie unter [auf GitHub](https://github.com/Koenkk/Z-Stack-firmware)
 
-Zu Beginn muss der USB-Port angegeben werden, an welchem der cc253x angeschlossen ist. Wie man diesen Erkennt ist [hier beschrieben (Russisch)](https://github.com/kirovilya/ioBroker.zigbee/wiki#%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%B0%D0%B4%D0%B0%D0%BF%D1%82%D0%B5%D1%80%D0%B0)
+<span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2531.png" width="100"></span> <span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2591.png" width="100"></span> <span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/sonoff.png" width="100"></span> <span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/CC2538_CC2592_PA.PNG" width="100"></span> <span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/de/img/cc26x2r.PNG" width="100"></span>
 
-Zum Verbinden der Geräte muss der Koordinator für Zigbee-Netz in den Pairingmodus versetzt werden, dazu auf den grünen Knopf im Adapter klicken. Pairingmodus ist ab jetzt für 60 Sekunden aktiv. Um die Geräte zu verbinden, reicht im Normallfall ein Betätigen des Knopfes auf dem zu verbindendem Gerät. Es gibt aber auch „besondere“ Geräte. Wie man diese verbindet ist [hier Englisch](https://github.com/Koenkk/zigbee2mqtt/wiki/Pairing-devices) [oder Russisch](https://github.com/kirovilya/ioBroker.zigbee/wiki#%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC%D1%8B%D0%B5-%D1%83%D1%81%D1%82%D1%80%D0%BE%D0%B9%D1%81%D1%82%D0%B2%D0%B0) beschrieben.
+Tutorial/zigbee.png
 
-Nach erfolgreichem Pairing, wird das Gerät im Adapter angezeigt. Sollte ein Gerät (aus der Liste) den Namen „undefined“ haben, dann versucht es zu löschen und nochmal zu pairen. Sollte es trotzdem nicht funktionieren, schreibt bitte ein Issue.
-Zigbee-Geräte die nicht in der Liste aufgeführt sind, können zwar gepairt werden, aber der Adapter kann mit diesen nicht kommunizieren.
+### Dresden Elektronik SoC <span><img src="https://raw.githubusercontent.com/ioBroker/ioBroker.zigbee/master/docs/en/img/deconz.png" width="180"></span>
+empfohlen:
 
-## Zusätzliche Informationen
-Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mit gleichen Funktionen und gleicher Technologie, welcher mit denselben Geräten über ein MQTT Protokoll kommuniziert. Wenn irgendwelche Verbesserungen oder neu unterstütze Geräte im Projekt Zigbee2MQTT eingefügt werden, können jene auch in dieses Projekt hinzugefügt werden. Solltet Ihr unterschiede merken, schreibt bitte ein Issue, wir kümmern uns darum
+- ConBee II
+- RaspBee II
+
+nicht mehr empfohlen:
+
+- ConBee I
+- RaspBee
+
+Während die Conbee/RaspBee-Unterstützung in den vom Zigbee-Adapter verwendeten Bibliotheken zigbee-herdsman und zigbee-herdsman-converters nicht mehr als experimentell gilt, kann die Verwendung dieser Geräte mit dem Adapter die Funktionalität einschränken. Bekannte Probleme sind:
+
+- Die Anzeige der Verbindungsqualität ist möglicherweise falsch
+- Gerätekartenmetriken sind möglicherweise falsch
+- NVRAM-Backup wird nicht unterstützt.
+
+### Silicon Labs SoC
+Unterstützung für [Silicon Lab Zigbee](https://www.silabs.com/wireless/zigbee) basierte Adapter sind experimentell. Die anfängliche Unterstützung für EZSP v8 gilt noch immer nicht als stabil und das Projekt benötigt weitere Entwickler, die sich freiwillig melden, um bei dieser Integration zu helfen. Bitte beachten Sie die entsprechende Dokumentation auf [dieser Seite](https://www.zigbee2mqtt.io/guide/adapters/) und [laufende Entwicklungsdiskussion](https://github.com/Koenkk/zigbee-herdsman/issues/319) im Hinblick auf den Stand der Implementierungsintegration des Silabs EmberZNet Serial Protocol (EZSP)-Adapters in die Bibliotheken zigbee-herdsman und zigbee-herdsman-converters, von denen es abhängt.
+
+### ZiGate SoC
+Unterstützung für [ZiGate](https://zigate.fr)-basierte Adapter sind experimentell. Die anfängliche Unterstützung für ZiGate gilt noch immer nicht als stabil und das Projekt benötigt weitere Entwickler, die sich freiwillig melden, um bei dieser Integration zu helfen. Bitte beachten Sie die entsprechende Dokumentation auf [dieser Seite](https://www.zigbee2mqtt.io/guide/adapters/) und [laufende Entwicklungsdiskussion](https://github.com/Koenkk/zigbee-herdsman/issues/242) im Hinblick auf den Status der ZiGate-Adapter-Implementierung in den Bibliotheken zigbee-herdsman und zigbee-herdsman-converters, von denen es abhängt.
+
+## Mit Adapter arbeiten
+![](../../../en/adapterref/iobroker.zigbee/docs/tutorial/zigbee.png)
+
+Um den Treiber zu starten, müssen Sie den Namen des Ports angeben, an dem das Zigbee-Modul (Stick) angeschlossen ist. Normalerweise ist dies der Port `/dev/ttyACM0` oder `/dev/ttyUSB0` für die UART-Verbindung. Oder Sie finden mit `ls -l /dev/serial/by-id` das Gerät direkt.
+
+öffne die Einstellungen und ändere den Port ![](../../../en/adapterref/iobroker.zigbee/docs/tutorial/settings.png)
+
+Für Windows ist dies die COM-Portnummer.
+
+Ab Version 1.0.0 können Sie auch eine *TCP-Verbindung* verwenden, wenn esp8266 (oder andere Mikrocontroller) als serielle Brücke verwendet wird. Zum Beispiel `tcp://192.168.1.46:8880`. Weitere Informationen finden Sie hier: https://www.zigbee2mqtt.io/information/connecting_cc2530#via-an-esp8266
+
+Um Geräte zu verbinden, müssen Sie den Zigbee-Koordinator durch Drücken der grünen Taste in den Pairing-Modus schalten. Der Countdown beginnt (60 Sekunden), bis die Geräteverbindung verfügbar ist.
+Um Zigbee-Geräte zu verbinden, genügt es in den meisten Fällen, die Pairing-Taste am Gerät selbst zu drücken. Für einige Geräte gibt es jedoch Funktionen. Weitere Informationen zum Koppeln mit Geräten finden Sie unter [hier (auf Englisch)](https://www.zigbee2mqtt.io/getting_started/pairing_devices.html)
+
+Nach erfolgreicher Kopplung erscheint das Gerät im Konfigurationsfenster. Wenn das Gerät im Konfigurationsfenster erscheint, aber den Typ „undefiniert“ hat, handelt es sich um ein unbekanntes Gerät, mit dem nicht gearbeitet werden kann. Wenn sich das Gerät in der Liste der verfügbaren Geräte befindet, aber als „undefiniert“ hinzugefügt wurde, versuchen Sie, das Gerät zu entfernen und erneut hinzuzufügen.
+
+Die mit dem Zigbee-Netzwerk verbundenen Geräte informieren den Koordinator über ihren Status und Ereignisse (Tastendrücke, Bewegungserkennung, Temperaturänderung). Diese Informationen spiegeln sich in den ioBroker-Objektzuständen wider. Einige ioBroker-Zustände verfügen über Rückmeldungen und senden Befehle an das ZigBee-Gerät, wenn sich der Wert ändert (Umschalten des Zustands der Steckdose oder Lampe, Ändern der Szene oder der Helligkeit der Lampe).
+
+### Gerätegruppen
+Sie können Gerätegruppen erstellen.
+
+![](../../../en/adapterref/iobroker.zigbee/docs/tutorial/groups-1.png)
+
+Es handelt sich um eine Zigbee-Funktion, die beispielsweise zum synchronisierten Schalten von Glühbirnen gedacht ist. Weisen Sie Gruppen über die Bearbeitungsschaltfläche der Geräteregisterkarten zu. Eine Gruppe wird in den Objekten als eigenes „Gerät“ angezeigt.
+
+![](../../../en/adapterref/iobroker.zigbee/docs/tutorial/groups-2.png)
+
+Hinweis: Nicht alle Geräte unterstützen Gruppen (wird von Endgeräten wie Sensoren nicht unterstützt).
+
+### Bindung
+https://www.zigbee2mqtt.io/information/binding
+
+### Registerkarte „Entwickler“.
+Dies ist ein Tool für fortgeschrittene Benutzer, um derzeit nicht unterstützte Geräte zu testen oder die Funktionalität dieses Adapters zu verbessern. Weitere Anweisungen finden Sie auf der Registerkarte.
+![](../../../en/adapterref/iobroker.zigbee/docs/tutorial/tab-dev-1.png)
+
+## Zusätzliche Information
+Es gibt einen [freundliches Projekt](https://github.com/koenkk/zigbee2mqtt) mit ähnlicher Funktionalität auf den gleichen Technologien, bei dem Sie mit den gleichen Geräten über das MQTT-Protokoll arbeiten können. Sollten daher im Zigbee2MQTT-Projekt Verbesserungen oder Unterstützung für neue Zigbee-Geräte auftreten, können wir die gleiche Funktionalität auf diesen Adapter übertragen und hinzufügen. Wenn Ihnen das auffällt, schreiben Sie uns das Problem – wir verschieben es.
+
+Es gibt Wissensdatenbanken, die für die Arbeit mit Zigbee-Geräten und -Geräten nützlich sein können:
+
+* auf Englisch https://www.zigbee2mqtt.io/
+* auf Russisch https://myzigbee.ru/
+
+## Unterstützte Geräte
+[Funktioniert mit Geräten aus dieser Liste](https://github.com/ioBroker/ioBroker.zigbee/wiki/Supported-devices)
+
+## Mehr Informationen
+[auf Deutsch](https://github.com/ioBroker/ioBroker.zigbee/blob/master/docs/de/readme.md)
+
+[auf Englisch](https://github.com/ioBroker/ioBroker.zigbee/blob/master/docs/en/readme.md)
+
+oder
+
+[Wiki](https://github.com/ioBroker/ioBroker.zigbee/wiki)
+
+## Spenden
+Über diese Links können Sie sich bei den Autoren bedanken:
+
+* an Arthur Rupp https://paypal.me/ArthurRupp
+
+-----------------------------------------------------------------------------------------------------
 
 ## Changelog
+### 1.10.2 (2024-01-25)
+* (arteck) dependency update
+
+### 1.10.1 (2024-01-21)
+* (arteck) Baudrate is now configurable. works ONLY with Deconz/Conbee( 38400 )
+* (arteck) add nvbackup.json delete button
+
+### 1.10.0 (2024-01-13)
+* (arteck) new zigbee-herdsman-converters 18.x
+* (arteck) configure message is now a warning
+
+### 1.9.7 (2024-01-05)
+* (arteck) corr configure for some devices
+
+### 1.9.6 (2024-01-01)
+* (arteck) corr ikea bug 
+* (crckmc) trv child lock works
+
+### 1.9.5 (2023-12-29)
+* (arteck) update dependency
+* (arteck) min node 18.x.
+
+### 1.9.4 (2023-12-29)
+* (arteck) typo
+
+### 1.9.3 (2023-12-26)
+* (arteck) last zhc Version 16.x
+* (arteck) corr reboot in statecontroller
+
+### 1.9.2 (2023-12-25)
+* (arteck) gen states from exposes as function
+* (arteck) rebuild dev_names.json with state cleanup button
+
+### 1.9.1 (2023-12-23)
+* (arteck) corr TypeError: Cannot read properties of undefined (reading 'state')
+
+### 1.9.0 (2023-12-22)
+* (arteck) up to new zhc
+* (arteck) update dependency
+
+### 1.8.27 (2023-12-22)
+* (arteck) update dependency
+
+### 1.8.26 (2023-12-22)
+* (arteck) corr toZigbee message
+* (arteck) add deviceManager
+
+### 1.8.25 (2023-12-17)
+* zhc 16.x 
+* (arteck) corr group from exclude dialog
+
+### 1.8.24 (2023-09-05)
+* (arteck) switch to exposes tab for some Aqara Devices [more infos](https://github.com/ioBroker/ioBroker.zigbee/wiki/Exposes-for-device-integration)
+
+### 1.8.23 (2023-08-10)
+* (arteck) query from xiaomi is now better
+
+### 1.8.22 (2023-08-05)
+* (arteck) crash when meta is empty
+
+### 1.8.21 (2023-07-31)
+* (arteck) no converter found
+
+### 1.8.20 (2023-07-31)
+* (arteck) add log
+
+### 1.8.19 (2023-07-31)
+* (arteck) fix occupancy_timeout
+* (arteck) fix battery percentage and voltage
+
+### 1.8.18 (2023-07-16)
+* (arteck) little fix sentry and error log
+
+### 1.8.17 (2023-07-15)
+* (arteck) sentry corr
+
+### 1.8.16 (2023-07-11)
+* (arteck) battery corr
+
+### 1.8.15 (2023-07-11)
+* (arteck) corr battery status
+
+### 1.8.13 (2023-07-09)
+* (arteck) ota corr
+* (arteck) devices are wrong with enum exposes
+* (arteck) select field for groups is larger 
+* (kirovilya) tuya.whitelabel corr
+
+### 1.8.12 (2023-06-30)
+* (arteck) new Documentation (thx Stefan)
+
+### 1.8.11 (2022-12-10)
+* (arteck) fix compsite exposes with list
+
+### 1.8.10 (2022-12-12)
+* (asgothian) fix group access
+* (asgothian) add option for pairing code:
+   A new icon allows to open the network after first entering a pairing code
+   listed on the device
+* (asgothian) easier use of external converters
+   - external converters can now be placed in the zigbee adapter data folder
+   - no absolite path is required to access them
+   - external converters posted on the github for zigbee-herdsman-converters
+     should work as they are - folders for libraries are rewritten to match
+     the expected location when 'required' from within the zigbee adapter
+   - Log entries will identify which files are entered as converters. Errors
+     in these files should not cause the adapter to crash - instead, use of
+     external converters may be unavailable.
+
+### 1.8.9 (2022-12-10)
+* (arteck) fix lidl plug
+
+### 1.8.7 (2022-12-01)
+* (arteck) fix exposes
+
+### 1.8.5 (2022-11-30)
+* (arteck) fix for new code
+
+### 1.8.3 (2022-11-30)
+* (arteck) back to old source
+
+### 1.8.1 (2022-11-28)
+* (bluefox) Packages updated
+* (bluefox) Added names of serial ports in configuration dialog
+
+### 1.7.7 (2022-11-24)
+* dep update
+
+### 1.7.6 (2022-07-23)
+* (kirovilya) fix selecting nodes in admin
+* (arteck) ikea fix
+
+### 1.7.5 (2022-06-01)
+* (arteck) error message for undefined devices or icons
+
+### 1.7.4 (2022-05-30)
+* (arteck) missing icons with multiple description
+
+### 1.7.2 (2022-05-28)
+* (arteck) download missing icons corr
+
+### 1.7.1 (2022-05-28)
+* (arteck) available status in admin is colored
+* (arteck) disable Backups checkbox in settings
+* (arteck) we keep last 10 backup files
+* (arteck) download missing icons automatically (manual upload needed)
+
 ### 1.6.18 (2022-04-21)
 * (arteck) fix pairing modus
 
 ### 1.6.17 (2022-04)
- rollback 
+ rollback
 
 ### 1.6.16 (2022-02-16)
 * (arteck) admin dep fix
@@ -44,7 +275,6 @@ Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mi
 
 ### 1.6.15 (2022-02-08)
 * (arteck) Battery status % calculation was changed for xiaomi devices
-
 
 ### 1.6.14 (2022-01)
 * (asgothian) OTA limitation
@@ -112,7 +342,7 @@ Es gibt noch ein [Freundschaftprojekt](https://github.com/koenkk/zigbee2mqtt) mi
 * (arteck) Setting to use exposes instead of internal device description
 
 ### 1.4.1 (2020-12)
-* (o0shojo0o) added a kelvin posibility into colortemp
+* (o0shojo0o) added a kelvin possibility into colortemp
 * (asgothian) Hue_calibration for exposed devices (Use requires PR on zigbee-herdsman-converters, PR is being worked on)
 * (asgothian) fix Tuya Thermostat: restore lost property "preset"
 * (asgothian) Change for Device Availability: Stagger initial ping by 200 ms to prevent network congestion due to a large number of ping requests
@@ -310,7 +540,7 @@ new Zigbee-herdsman features:
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2021 Kirov Ilya <kirovilya@gmail.com>
+Copyright (c) 2018-2024 Kirov Ilya <kirovilya@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

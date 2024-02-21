@@ -2,8 +2,8 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.discovery/README.md
-title: Адаптер Discover для ioBroker
-hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
+title: Адаптер ioBroker Discover
+hash: 413E7lBQoylWDXshoHsaA+/vCUJOeQqEbZrNIM0psFQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
@@ -17,7 +17,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 Это специальный адаптер, который пытается найти все возможные устройства, доступные с хоста iobroker.
 Просто сейчас умеет определять через пинг, UPnP (серийный планируется).
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ## Действительно поддерживается
 ### Обнаружено автоматически
@@ -38,7 +38,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 - энэт (Юнг)
 - Эпсон Стилус PX830
 - Факероку (гармония)
-- ФЭМ
+- ФЕМ
 - ФаерТВ
 - Фрицдект
 - Фрониус
@@ -58,7 +58,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 - Кеба КеКонтакт P30
 - Коди
 - Ландроид
-- LGTV
+- ЛГТВ
 - Осветлить
 - Локсон
 - Лупусек
@@ -69,7 +69,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 - Облачный сервис Miele
 - Умный дом Mi Home
 - Микротик
-- Мост MiLight (v6)
+- Мост МиЛайт (v6)
 - МПД
 - Музыкальная трансляция
 - мойДлинк
@@ -117,8 +117,8 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 - Вис
 - Интернет
 
-## Если адаптер не может найти IP...
-Адаптер пингует сеть IP текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
+## Если адаптер не может найти IP-адреса...
+Адаптер пингует сеть по IP текущего хоста (x.y.z.1..255). Кроме того, для обнаружения IP-адресов используются UPnP и mDNS.
 Если не все IP-адреса найдены, убедитесь, что пользователь iobroker может выполнить `/bin/ping`.
 Вы можете выполнить `sudo setcap cap_net_raw+p /bin/ping`, чтобы добавить недостающие возможности/разрешения.
 
@@ -127,8 +127,8 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 - Би-Контроль-Эм? (Блюфокс)
 - cul/maxcul (Bluefox)
 - Foobar200 (Инсталлятор)
-- фрицбокс (ruhr70)
-- км200 (откровенная шутка)
+- фрицбокс (70 руб.)
+- км200 (шутка)
 - мегаэсп (ausHaus)
 - Modbus (Bluefox)
 - mqtt/mqtt-клиент (Bluefox)
@@ -146,6 +146,12 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 4.3.0 (2024-02-21)
+* (bluefox) Replaced vis with vis-2
+
+### 4.2.0 (2023-10-09)
+* (pdbjjens) Changed detection of myvbus and resol
+
 ### 4.1.0 (2023-09-25)
 * (pdbjjens) Added detection of myvbus and resol
 
@@ -367,7 +373,7 @@ hash: FgMmp42sXA/jEgCl7o/bvaMHAhHe6fLWEhuF2CbLW54=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

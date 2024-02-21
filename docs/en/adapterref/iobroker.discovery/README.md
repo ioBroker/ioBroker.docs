@@ -117,7 +117,7 @@ For more details and for information how to disable the error reporting see [Sen
 - Vis
 - Web
 
-## If the adapter can not find IPs ...
+## If the adapter cannot find IPs ...
 
 The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally, UPnP and mDNS are used to detect IPs.  
 If not all IPs are found then please check that the iobroker user can execute `/bin/ping`. 
@@ -148,6 +148,9 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 	### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 4.3.0 (2024-02-21)
+* (bluefox) Replaced vis with vis-2
+
 ### 4.2.0 (2023-10-09)
 * (pdbjjens) Changed detection of myvbus and resol
 
@@ -372,7 +375,7 @@ You can execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilitie
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2023, Denis Haev ak Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2024, Denis Haev ak Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

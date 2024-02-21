@@ -802,6 +802,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.emby/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.emporia/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.ems-esp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.energiefluss/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.energiefluss-erweitert/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.energymanager/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.enigma2/README.md
@@ -1461,6 +1462,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.emby/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.emporia/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.ems-esp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.energiefluss/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.energiefluss-erweitert/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.energymanager/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.enigma2/README.md
@@ -2120,6 +2122,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.emby/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.emporia/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.ems-esp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.energiefluss/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.energiefluss-erweitert/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.energymanager/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.enigma2/README.md
@@ -2779,6 +2782,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.emby/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.emporia/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ems-esp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.energiefluss/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.energiefluss-erweitert/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.energymanager/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enet/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.enigma2/README.md
