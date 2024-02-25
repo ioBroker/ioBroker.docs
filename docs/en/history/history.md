@@ -357,3 +357,11 @@ Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbu
 
 ## opcua (21.2.2024) – new feature
 The adapter has now free license.
+
+## senec (25.2.2024) – new adapter
+https://github.com/nobl/ioBroker.senec
+
+<img src="https://github.com/nobl/ioBroker.senec/blob/master/admin/senec.png" width="100" height="100" />
+
+Initially targeted at the Senec Home V2.1 System. In the Senec.Home system, only selected values can be changed by the adapter. Senec currently also no longer provides a reliable way to influence peak shaving via the web interface. Whether other systems (e.g. V3) also work with it depends on whether they are also based on lala.cgi and provide the same JSON information.
+
