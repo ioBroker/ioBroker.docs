@@ -790,5 +790,40 @@
     "conditions": {
       "info": "installed"
     }
+  },
+  {
+    "title": {
+      "en": "URGENT: Update Meross to 1.17 because of Login changes by Meross!",
+      "de": "URGENT: Update Meross auf 1.17 wegen Login-Änderungen von Meross!",
+      "ru": "Обновление Meross до 1.17 из-за изменений входа Meross!",
+      "pt": "URGENT: Atualize Meross para 1.17 por causa de alterações de login por Meross!",
+      "nl": "URGENT: Update Meross naar 1.17 vanwege Login wijzigingen door Meross!",
+      "fr": "URGENT: Mettre à jour Meross à 1.17 en raison des modifications de Connexion par Meross!",
+      "it": "URGENT: Aggiorna Meross a 1.17 a causa dei cambiamenti di Login di Meross!",
+      "es": "URGENTE: Actualizar Meross a 1.17 debido a los cambios de Login por Meross!",
+      "pl": "Update Meross do 1.17 z powodu zmian logowania przez Meross!",
+      "uk": "URGENT: Update Meross до 1.17 через зміни ввімкнених Meross!",
+      "zh-cn": "由于Meross的登录更改,将Meross更新为1.17!"
+    },
+    "content": {
+      "en": "Because of Login changes by Meross beginning of January 2024 all Meross adapter versions <1.17 will no longer work and might produce high number of requests because the Login is no longer possible. Please update to 1.17.0 as fast as possible or turn the adapter off if no longer needed.",
+      "de": "Aufgrund von Login-Änderungen von Meross Anfang Januar 2024 werden alle Meross Adapter-Versionen <1.17 nicht mehr funktionieren und möglicherweise eine hohe Anzahl von Anfragen produzieren, da das Login nicht mehr möglich ist. Bitte aktualisieren Sie auf 1.17.0 so schnell wie möglich oder schalten Sie den Adapter aus, wenn nicht mehr erforderlich.",
+      "ru": "Из-за изменений входа Meross в начале января 2024 года все адаптеры Meross <1.17 больше не будут работать и могут производить большое количество запросов, потому что логин больше не возможен. Пожалуйста, обновите 1.17.0 как можно быстрее или выключите адаптер, если он больше не нужен.",
+      "pt": "Devido às mudanças de login por Meross a partir de janeiro de 2024, todas as versões do adaptador Meross <1.17 não funcionarão mais e podem produzir um alto número de pedidos porque o Login não é mais possível. Por favor, atualize para 1.17.0 o mais rápido possível ou desligue o adaptador se não precisar mais.",
+      "nl": "Vanwege Login wijzigingen door Meross begin januari 2024 zullen alle Meross-adapterversies <1.17 niet meer werken en zou het een groot aantal aanvragen kunnen opleveren omdat de Login niet langer mogelijk is. Update naar 1.17.0 zo snel mogelijk of zet de adapter uit als het niet meer nodig is.",
+      "fr": "En raison des changements de connexion par Meross début janvier 2024 toutes les versions de l'adaptateur Meross <1.17 ne fonctionneront plus et pourraient produire un grand nombre de demandes parce que l' Login n'est plus possible. Veuillez mettre à jour le 1.17.0 aussi rapidement que possible ou éteindre l'adaptateur si nécessaire.",
+      "it": "A causa delle modifiche di Login da Meross a partire dal gennaio 2024 tutte le versioni di adattatore Meross <1.17 non funzioneranno più e potrebbero produrre un elevato numero di richieste perché il Login non è più possibile. Si prega di aggiornare a 1.17.0 il più velocemente possibile o spegnere l'adattatore se non necessario.",
+      "es": "Debido a los cambios de Login por Meross a principios de enero de 2024 todas las versiones del adaptador de Meross no funcionarán y podrían producir un alto número de solicitudes porque el Login ya no es posible. Por favor, actualice a 1.17.0 lo más rápido posible o apague el adaptador si ya no es necesario.",
+      "pl": "Ze względu na zmiany Login przez Meross początek stycznia 2024 wszystkie wersje adaptera Meross < 1.17 nie będzie już działać i może spowodować dużą liczbę wniosków, ponieważ Login nie jest już możliwe. Prosimy o jak najszybszą aktualizację do wersji 1.17.0 lub wyłączenie adaptera w razie potrzeby.",
+      "uk": "У зв'язку з змінами ввімкнених Meross, починаючи з 2024 року, всі версії адаптера Meross <1.17 більше не буде працювати і може виготовляти високу кількість запитів, оскільки Логін не є можливим. Будь ласка, перейдемо до 1.17.0 якнайшвидше або вимкнути адаптер, якщо не потрібно.",
+      "zh-cn": "由于Meross于2024年1月开始的登录更改,所有Meross适配器版本<1.17”将停止工作,并可能会产生大量请求,因为登录已不再可能. 请尽快更新到1.17.0,如果不再需要,则关闭适配器."
+    },
+    "id": "merossloginchanges117",
+    "created": "2024-02-25T14:55:00.000Z",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "conditions": {
+      "meross": "smaller(1.17.0)"
+    }
   }
 ]
