@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
+hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ---
 ![Logo](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -16,12 +16,16 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 # IoBroker.sun2000
 **Tests:** ![Test und Freigabe](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
 
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.**\ Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Sentry-Berichterstattung wird ab js-controller verwendet 3,0.
+
 ## Sun2000-Adapter für ioBroker
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
 Verfolgen Sie gerne die Diskussionen im deutschen [iobroker-Forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-Modbus-Schnittstellendefinition (Ausgabe 5, 16.02.2023): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+Definition der Modbus-Schnittstelle des Wechselrichters (Ausgabe 5, 16.02.2023): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+
+SdongleA-Modbus-Schnittstellendefinition (Ausgabe 2, 20.04.2023): https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions
 
 ## Unterstützte Hardware
 * HUAWEI Wechselrichter SUN2000 Serie (M0,M1)
@@ -36,6 +40,7 @@ Modbus-Schnittstellendefinition (Ausgabe 5, 16.02.2023): https://forum.iobroker.
 * Echtzeitwerte wie Eingangsleistung, Ausgangsleistung, Lade-/Entladeleistung und der Netzverbrauch werden in einem festen Intervall ausgelesen.
 * Zustände werden nur für geänderte Daten vom Wechselrichter geschrieben. Dies entlastet die iobroker-Instanz.
 * Die Zustände „inputPower“ oder „activePower“ im „collected“-Pfad können mit einem „wurde aktualisiert“-Triggerelement überwacht werden. Denn diese Zustände werden immer innerhalb des eingestellten Intervalls geschrieben.
+* Modbus-Proxy: Drittgeräte wie Wallbox, Energiemanager etc. können Daten empfangen, auch wenn die Modbus-Schnittstelle des Wechselrichters bereits verwendet wird. Darüber hinaus können Sie die sun2000-Daten auf eine andere ioBroker-Instanz spiegeln.
 
 ## Haupteinstellungen
 * „Adresse“: IP-Adresse des Wechselrichters
@@ -44,10 +49,16 @@ Modbus-Schnittstellendefinition (Ausgabe 5, 16.02.2023): https://forum.iobroker.
 * „updateInterval“: Schnelles Aktualisierungsintervall (Standard: 20 Sek., kleinste 5 Sekunden pro Wechselrichter)
 
 ## Modbus-Timing
-* „timeout“: Modbus-Verbindungs-Timeout (Standard: 10000 ms)
+* `timeout`: Modbus-Verbindungs-Timeout (Standard: 10000 ms)
 * „Verzögerung“: Verzögerung zwischen Modbus-Anfragen (Standard: 0 ms)
 * „Verbindungsverzögerung“: Verzögerung nach der Modbus-Verbindung (Standard: 5000 ms)
 * „Auto-Adjust“: automatische Anpassung der Modbus-Einstellungen
+
+## Modbus-Proxy
+* „aktiv“: aktiviert den Mobus-Proxy-Dienst (Standard: false)
+* „IP-Adresse“: Modbus-Proxy-IP-Adresse (normalerweise: 0.0.0.0)
+* „TCP-Port“: Modbus-Proxy-TCP-Port (normalerweise: 502)
+* „SDongle-Modbus-ID“: Die SDongle-Modbus-ID (normalerweise: 100) ist für den virtuellen Zähler erforderlich
 
 ## Wechselrichter konfigurieren
 Um die Modbus-Verbindung nutzen zu können, müssen alle Huawei-Geräte die neueste Firmware-Funktion verwenden. Sie können die neueste Firmware direkt im FusionSolar-Portal unter „Upgrades“ durchführen.
@@ -56,7 +67,7 @@ Nach dem Klick auf `Me` (Ich) im Fußzeilenmenü > `Commission Device` („Inbet
 
 Um sich als `installer` in der App anzumelden, benötigen Sie in der Regel das Passwort: `00000a` oder `0000000a` Möglicherweise benötigen Sie auch ein Passwort, um sich mit dem wechselrichtereigenen WLAN zu verbinden: `Changeme`
 
-Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung erneut aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
+Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung fortsetzen aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
 Wenn Sie zwei Wechselrichter verwenden, schließen Sie den zweiten Wechselrichter an und lesen Sie auch dort die Kommunikationsadresse aus.
 
 [So aktivieren Sie „Modbus TCP“ – aus dem Huawei-Forum](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
@@ -70,6 +81,15 @@ Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread htt
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+**WORK IN PROGRESS**
+* detect standby mode of inverters (#34)
+* devices in standby often give incorrect values. These are assigned "0" (#40)
+* the modbus register and the length are stored in the description of the states
+* implemented modbus-proxy (read-only cache)
+* read register data from SDongleA 
+* register for 
+
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
 

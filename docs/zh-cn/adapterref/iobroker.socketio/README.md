@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.socketio/README.md
 title: ioBrokersocket.io
-hash: ktN1Y0ayr7SU7SvJzFhp9d5LF0yT8y6TQc/lpsl8Ozs=
+hash: g7QFpuLWYqWvpDY8UeOEbux9NHF0CLINux+EfEweE+s=
 ---
 ![标识](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -54,7 +54,7 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 与对象相比，状态本身的变化非常频繁。 （通常对象应该在创建时更改一次，仅此而已）
 
 ### 致谢
-每个状态都有属性“ack”。它显示了命令的方向。
+每个状态都有属性`ack`。它显示了命令的方向。
 
 - 如果 ack=false，则意味着其他适配器想要控制（写入）此变量，以便执行该命令（例如，灯将打开）。
 - 如果ack=true，则意味着设备通知新值。 （例如，手动打开灯或检测到运动）
@@ -84,6 +84,27 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 ### **正在进行中** -->
 
 ## Changelog
+### 6.6.1 (2024-02-22)
+* (bluefox) Just some packages were updated
+
+### 6.6.0 (2023-10-13)
+* (bluefox) Corrected adapter termination if the alias has no target
+
+### 6.5.7 (2023-10-08)
+* (foxriver76) upgrade socket-classes to fix error with vis subscriptions
+
+### 6.5.6 (2023-09-28)
+* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+
+### 6.5.5 (2023-09-14)
+* (foxriver76) upgrade socket-classes to fix crash cases
+
+### 6.5.3 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
+### 6.5.2 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 6.4.0 (2023-07-07)
 (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
@@ -104,7 +125,7 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 * (bluefox) Function `getObjects` for web was extended by devices, channels and enums
 
 ### 6.1.10 (2022-08-24)
-* (bluefox) Caught error by subscribe
+* (bluefox) Caught error by subscribing
 
 ### 6.1.8 (2022-07-08)
 * (bluefox) Corrected getAdapterInstances method
@@ -113,4 +134,4 @@ WEB 应用程序和适配器使用此适配器使用 websockets 和 socket.io �
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

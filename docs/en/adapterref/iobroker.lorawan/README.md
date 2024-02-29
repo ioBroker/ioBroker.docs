@@ -22,8 +22,35 @@ For now there is documentation in English here: http://www.hafenmeister.com/Lora
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (BenAhrdt) some more functions
+### 0.5.1 (2024-02-29)
+* (BenAhrdt) detecting of triggerwords changed
+
+### 0.5.0 (2024-02-28)
+* (BenAhrdt) trigger for devicetype implemented
+
+### 0.4.1 (2024-02-26)
+* (BenAhrdt) implement new deviceprofiles
+
+### 0.4.0 (2024-02-26)
+* (BenAhrdt) searchallgorythm improoved, defaultvalues changed, remove query for "all"
+
+### 0.3.10 (2024-02-25)
+* (BenAhrdt) change logging again if a device joined the network
+
+### 0.3.9 (2024-02-25)
+* (BenAhrdt) change logging if a device joined the network
+
+### 0.3.8 (2024-02-23)
+* (BenAhrdt) write def into state in case of type changes
+
+### 0.3.7 (2024-02-22)
+* (BenAhrdt) improove forbidden chars and implements join raw
+
+### 0.3.6 (2024-02-21)
+* (BenAhrdt) set attributs if undefined
+
+### 0.3.5 (2024-02-21)
+* (BenAhrdt) set tier to 2 and improove standard devices
 
 ### 0.3.4 (2024-02-20)
 * (BenAhrdt) put some debug and silly logging to code

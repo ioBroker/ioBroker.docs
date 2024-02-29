@@ -9,6 +9,8 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 ---
 ![Logo](img/shuttercontrol.png)
 
+# Documentation and instructions for Shuttercontrol
+
 ![Number of Installations](http://iobroker.live/badges/shuttercontrol-installed.svg) 
 ![Number of Installations](http://iobroker.live/badges/shuttercontrol-stable.svg)
 [![NPM version](http://img.shields.io/npm/v/iobroker.shuttercontrol.svg)](https://www.npmjs.com/package/iobroker.shuttercontrol)
@@ -20,7 +22,9 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 [![Donate](https://img.shields.io/badge/donate-paypal-blue?style=flat)](https://paypal.me/mk1676)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/simatec)
 
+---
 
+## Support adapter development
 **If you like the adapter, please consider making a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
@@ -29,7 +33,7 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 ---
 
 
-# Basics
+## Basics
 
 >:grey_exclamation: The manual is valid from version stable 1.6.2 :grey_exclamation:
 
@@ -66,43 +70,43 @@ be used.
 ---
 
 
-# Installation
+## Installation
 The adapter is located in the "stable" repository of ioBroker. In the "Adapter" tab 
 "shuttercontrol" is selected and an instance of the shuttercontrol adapter is created via (+).
 
-# Configuration
+## Configuration
 After the creation of the instance, the configuration window opens automatically with the 
 tabs MAIN SETTINGS, TIME SETTINGS and EXTRA SETTINGS.
 
->:point_right: The [Time Settings][] and [Extra Settings][] tabs should be edited first, 
+>:point_right: The [Time Settings](#time-settings) and [Extra Settings](#extra-settings) tabs should be edited first, 
 i.e. before shutters are added via the pencil in the MAIN SETTINGS.
 
 
 ---
 
 
-## MAIN SETTINGS
+### MAIN SETTINGS
 
 
 ![main](img/main.png)
 ---
 >:point_right: The documentation on github can be accessed via the question mark at the top right (7).
 
-### Save or upload adapter configuration
+#### Save or upload adapter configuration
 
 Click on the arrow pointing downwards (9) in the top right-hand corner to save the adapter configuration as a .json file.  
 Click on the up arrow (8) to upload an existing adapter configuration in .json format.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
 
-## TIME SETTINGS
-Basic time or Astro settings are made here, which are later used in the [Shutter settings][] for each shutter.
-the [Shutter settings][] for each shutter.
+### TIME SETTINGS
+Basic time or Astro settings are made here, which are later used in the [Shutter settings](#shutter-settings) for each shutter.
+the [Shutter settings](#shutter-settings) for each shutter.
 
 >:heavy_exclamation_mark: Shuttercontrol always closes shutters **Friday** at the set time of the **weekend**.  
 and **Sundays** always at the set time of the **working week** :heavy_exclamation_mark:
@@ -110,7 +114,7 @@ and **Sundays** always at the set time of the **working week** :heavy_exclamatio
 
 ![timeSettings](img/timeSettings.png)
 
-### Settings for the living area, sleeping area and children's area
+#### Settings for the living area, sleeping area and children's area
 The individual settings are opened via dropdown. The description is given as an example for the living area and applies analogously to all areas.
 for all areas.
 
@@ -151,16 +155,16 @@ has not yet passed a certain position, this time must be set to the latest
 time of this sun position (on 21.12.).
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-## EXTRA SETTINGS
+### EXTRA SETTINGS
 
 ![ConfigExtra](img/KonfigExtra.png)
 
-### Astro settings
+#### Astro settings
 
 ![extraSettingsAstro](img/ExtraSettingsAstro.png)
 
@@ -174,47 +178,47 @@ the shading by Shuttercontrol ends.
 can be taken into account here and end the automatic shading earlier.
 
 **Time delay for raising or lowering (minutes):** *A +/- offset can be entered here,  
-by which the shutter movements should be delayed from the type of automatic control selected in [Time settings][].
+by which the shutter movements should be delayed from the type of automatic control selected in [Time settings](#time-settings).
 
 **Time delay for staggered shutter movement (seconds):** *To prevent all shutters from moving at the same time,  
 a global time delay in seconds can be set here.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ---
 
-### Summer settings
+#### Summer settings
 
 ![extraSettingsSummer](img/ExtraSettingsSummer.png)
 
 **Start of summer** and **End of summer:** *Here the start or end of summer can be set according to your own wishes.
 
-Under [Shutter settings][] of the respective shutter, setting the checkbox at ``Do not close shutter in summer`` prevents this shutter from closing in summer.
+Under [Shutter settings](#shutter-settings) of the respective shutter, setting the checkbox at ``Do not close shutter in summer`` prevents this shutter from closing in summer.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Christmas settings
+#### Christmas settings
 
 ![extraSettingsChristmas](img/ExtraSettingsChristmas.png)
 
 **Start of the Christmas period** and **End of the Christmas period:** *Here, the start or end of the Christmas period can be set according to your own wishes.
 
-Under [Extra settings for roller shutters][] Christmas settings
+Under [Extra settings for roller shutters](#extra-settings-roller-shutter) Christmas settings
 the function desired at this time is switched on and
 the desired roller shutter position.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Holiday and public holiday settings
+#### Holiday and public holiday settings
 
 ![extraSettingsHolidays](img/ExtraSettingsHolidays.png)
 
@@ -227,18 +231,18 @@ _[Back to top](#start-of-content)_
 Here, for example, a data point from the iCal adapter can be used that returns the value ``true`` in the case of a holiday and thus allows the shutters to move at the weekend times.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Brightness Sensor Settings
+#### Brightness Sensor Settings
 
 ![extraSettingsBrightnesssensor](img/ExtraSettingsBrightnesssensor.png)
 
 If the shutters are to be moved automatically using a brightness sensor, this is configured here.
 
-Activation is then carried out individually for each shutter under [Main shutter settings][]. 
+Activation is then carried out individually for each shutter under [Main shutter settings](#main-shutter-settings). 
 under **Type of control for closing (or opening) the roller shutter** by selecting the entry "Brightness sensor".
 
 **Brightness value for closing with brightness sensor** *Brightness value from which the shutters are to be closed.
@@ -248,12 +252,12 @@ under **Type of control for closing (or opening) the roller shutter** by selecti
 **Object ID of brightness sensor** *The reference to the brightness sensor, e.g. from a weather station or from an outdoor motion sensor or separate brightness sensor.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### School Holidays Settings
+#### School Holidays Settings
 
 ![extraSettingsSchoolholidays](img/ExtraSettingsSchoolholidays.png)
 
@@ -262,12 +266,12 @@ The shutters then open during the holiday period at the set times for weekend dr
 Holiday mode can be activated individually for each area.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Special times
+#### Special times
 
 ![extraSettingsSonder](img/ExtraSettingsSonder.png)
 
@@ -278,7 +282,7 @@ window or door was still open at the normal time for closing, or if, for example
 is opened again after shutting down.  
 When the check mark is set, the setting **Time at which the configured roller shutters should close late** appears.
 
-> This function must be activated for each shutter in the [Shutter settings][] with the check mark
+> This function must be activated for each shutter in the [Shutter settings](#shutter-settings) with the check mark
 at **Close roller shutter late** for each roller shutter separately or deactivated if not desired.
 
 **Close all shutters completely in the intermediate position** *Time when all shutters are completely closed in the evening (e.g. 10:00 p.m.)*.
@@ -287,11 +291,11 @@ at **Close roller shutter late** for each roller shutter separately or deactivat
 set here has elapsed.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ---
 
-### Extra settings
+#### Extra settings
 
 ![extraSettingsExtra](img/ExtraSettingsExtra.png)
 
@@ -312,14 +316,14 @@ Here the position of the roller shutters can be rounded in steps of 5 or 10.
 **Object ID of the trigger for the children's area (Auto):** *This trigger activates the children's area's Auto mode.
 
 ---
-### Alarm settings
+#### Alarm settings
 
 ![extraSettingsAlarm](img/ExtraSettingsAlarm.png)
 
 >:point_right: For each alarm, a logical data point (true/false) is required for activation, 
 > which activates the **alarm** = status **true** or deactivates the **alarm** = status **false**.  
 >:point_right: Furthermore, the height (0-100%) to which the roller shutter moves in the event of an alarm must be defined for each alarm.  
->point_right: In the [Alarm setting][] of the respective shutter, it is then defined to which alarms the shutter should react. 
+>point_right: In the [Alarm setting](#alarm-setting) of the respective shutter, it is then defined to which alarms the shutter should react. 
 shutter should react.  
 
 
@@ -348,12 +352,12 @@ When deactivating the individual alarms, however, the following priority is obse
 The frost alarm only has a direct effect if the activated roller blinds are already closed (danger of the roller blind freezing). If the frost alarm is triggered when the roller shutter is still open, the roller shutter automatically only moves to the height set for frost alarm when it is closed. 
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-## Shutter settings
+### Shutter settings
 
 
 ![main1](img/main1.png)
@@ -393,18 +397,18 @@ and can then be changed according to your own wishes.
 
 
 After the roller shutters have been created, pressing the pencil (3) on the corresponding roller shutter with the tabs
-[MAIN SETTINGS for roller shutters][], [SUN PROTECTION SETTINGS][] and [EXTRA SETTINGS][]  
+[MAIN SETTINGS for roller shutters](#main-shutter-settings), [SUN PROTECTION SETTINGS](#sun-protection-settings) and [EXTRA SETTINGS](#extra-settings)  
 each shutter is further configured individually.
 
 ---
 
-### Main shutter settings
+#### Main shutter settings
 
 ![mainShutter.png](img/mainShutter.png)
 
 In the upper area, the times for opening or closing the shutter are selected
 are selected separately via a pull-down menu.
-> :point_right: These times have already been configured in [Time settings][].
+> :point_right: These times have already been configured in [Time settings](#time-settings).
 
 Selection options:
 * **Off:** *Do not use timers.
@@ -437,7 +441,7 @@ If this is set to false, the shutter will **not** be moved automatically.
 * Golden Hour:** * *The roller shutter closes at Golden Hour, which, depending on latitude and time of year, is approx. 1 hour before sunset or after sunrise.
 before sunset or after sunrise, depending on latitude and time of year.
 
-* Brightness sensor:** * *The roller shutter only moves according to the brightness sensor, which is set under [Brightness sensor settings][].
+* Brightness sensor:** * *The roller shutter only moves according to the brightness sensor, which is set under [Brightness sensor settings](#brightness-sensor-settings).
 
 * Manual operation only:** * *The roller shutter can only be moved manually in the selected direction.
 :point_right: No movement is possible via the buttons under ``shuttercontrol.0.control``.  
@@ -495,12 +499,12 @@ Use the (+) to select the sensor (state) that is to prevent a roller shutter mov
 
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Sun protection settings
+#### Sun protection settings
 ![sunProtect](img/mainSunprotect.png)
 
 **Type of sun protection control:**
@@ -572,27 +576,27 @@ Use the (+) to select the temperature sensor.
 If no indoor sensor is selected as a trigger, leave this field blank.
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-### Extra settings roller shutter
+#### Extra settings roller shutter
 
 ![mainExtra](img/mainExtra.png)
 
-### Roller shutter settings
+#### Roller shutter settings
 
 ![mainExtraShutterSettings](img/mainExtraShutterSettings.png)
 
 **Close roller shutters late**
 With this option the roller shutter is activated at a defined time (adjustable in the
-[Special times][]) is also shut down.
+[Special times](#special-times)) is also shut down.
 > :exclamation: The lock-out protection is not taken into account here and the roller shutter is lowered despite the window being open! (Danger of being locked out!!) :exclamation:
 
 **Do not close roller shutters in summer**
 Some roller shutters should not be closed in summer. The period will be summer
-in the [Summer Settings][].
+in the [Summer Settings](#summer-settings).
 
 **Driving after closing window**
 The roller shutter will be set to the last requested setting after the window/door is closed
@@ -601,7 +605,7 @@ Position driven.
 > :point_right: This only works if the lockout protection is not set to "Off"!
 
 
-### Christmas Settings
+#### Christmas Settings
 
 ![mainExtraChristmas](img/mainExtraChristmas.png)
 
@@ -612,7 +616,7 @@ driven to a level that can be set.
 > :point_right: **The roller shutter level at Christmas time** is only visible and adjustable if
 if the check mark for **The roller shutter level at Christmas time is used** is set.
 
-The period when this function should be activated is set under [Christmas Settings][]
+The period when this function should be activated is set under [Christmas Settings](#christmas-settings)
 set.
 > :point_right: If the roller shutters are to be completely closed later in the evening, this option can be used
 > **Close roller shutter late** or **Move to intermediate position and close completely later**
@@ -620,7 +624,7 @@ set.
 > :point_right: These two options can also be used independently of the Christmas settings.
 
 
-### Sun protection settings
+#### Sun protection settings
 
 ![mainExtraSun](img/mainExtraSun.png)
 
@@ -642,7 +646,7 @@ automatically, the automatic system stops!
 > :point_right: If the roller shutter is manually moved to the configured height for opening, closing or sun protection, the automatic function remains.
 
 
-### Extra settings
+#### Extra settings
 ![mainExtraExtra](img/mainExtraExtra.png)
 
 **Roller shutter delay when opening window (s)** *Parameter to delay opening of the roller shutter after the window/door has been opened (in seconds)*
@@ -651,19 +655,19 @@ automatically, the automatic system stops!
 
 **Move to intermediate position and later close completely** *When activated, **roller shutter height in the intermediate position** becomes visible. The roller shutter then moves to the set intermediate position when closing and later closes completely*
 
-### Alarm setting
+#### Alarm setting
 ![mainExtraAlarm](img/mainExtraAlarm.png)
 
-Here the alarms predefined for the current roller shutter via [Alarm Settings][] are activated or deactivated.
+Here the alarms predefined for the current roller shutter via [Alarm Settings](#alarm-setting) are activated or deactivated.
 
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
-# Data points
+## Data points
 Shuttercontrol creates various data points under the following folders:
 
 * shuttercontrol.x.control
@@ -675,7 +679,7 @@ Shuttercontrol creates various data points under the following folders:
 ---
 
 
-## shuttercontrol0control
+### shuttercontrol0control
 
 ![datapointscontrol](img/datapointscontrol.png)
 
@@ -741,26 +745,26 @@ Button to open **all** roller shutters in the living area
 *Button to move the roller shutters in the sleeping area to the sun protection position*
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
 
-## shuttercontrol0info
+### shuttercontrol0info
 Data points for displaying calculated values and checking configured ones
 Times:
 
 ![datapointsinfo](img/datapointsinfo.png)
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 
 ---
 
 
-## shuttercontrol0shutters
+### shuttercontrol0shutters
 ![datapointsshutters](img/datapointsshutters.png)
 
 * autoDown
@@ -782,10 +786,14 @@ or activated with ```true```.*
 or activated with ```true```.*
 
 
-_[Back to top](#start-of-content)_
+_[Back to top](#documentation-and-instructions-for-shuttercontrol)_
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) Docu updated
+
 ### 1.7.0 (2024-02-05)
 * (simatec) Dependencies updated
 * (simatec) @iobroker/adapter-dev added

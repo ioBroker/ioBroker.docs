@@ -280,10 +280,10 @@ What was tested:
 | US2000 (US2KBPL) | US    | V2.8 21-04-29 | fine       | Temperatures only in one degree increments                                                                                                                  |
 | Force H2         | Force | V1.5 21-06-18 | fine       | Attention: in some Force manuals only the RX and TX connections are listed in the connector description. The ground is on PIN 8 and must also be connected. |
 
-| Pytes model    | Model | Firmware       | Is working | Comment                                |
-| -------------- | ----- | -------------- | ---------- | -------------------------------------- |
-| E-BOX-4850P    | US    | V1.3 22-12-20  | fine       | Thanx to kletternaut for the test data |
-| E-BOX-48100V-D | US    | V1.10 23-10-13 | fine       | Adapter version >=0.0.8                |
+| Pytes model    | Model | Firmware       | Is working | Comment                                                                                                                                                                            |
+| -------------- | ----- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| E-BOX-4850P    | US    | V1.3 22-12-20  | fine       | Thanx to kletternaut for the test data                                                                                                                                             |
+| E-BOX-48100V-D | US    | V1.10 23-10-13 | fine       | Adapter version >=0.0.9 . "Download the battery cells state of health" and "Download the battery statistics data" should be switched off. (soh -n- and stst -n- are not supported) |
 
 If you use hardware, please write to me in the forum or in Github as an issue. We would be happy to continue this list.
 
@@ -535,6 +535,10 @@ If true without ack is written to set, the current time is sent to the Pylontech
 ## **WORK IN PROGRESS**
 
 - (PLCHome) Configure this adapter to use the release script.
+- (PLCHome) Improved bat n for E-BOX-48100V-D on 100%.
+- (PLCHome) Waiting time between commands of 20ms.
+- (PLCHome) If the timeout occurs, send the last command again.
+- (PLCHome) No further commands after a timeout.
 
 ## 0.0.8 (16.02.2024)
 

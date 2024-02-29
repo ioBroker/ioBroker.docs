@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: O869NPKJcRTO44Sz17Hz0dXrl3LKDNy0MQbUb7arwHs=
+hash: zKTgZVeQJsBGilNqWUYw/aKgx+wN0bIVIdvX7ciePq0=
 ---
 ![Logo](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -61,9 +61,9 @@ Jeder Staat hat das Attribut `ack`. Es zeigt die Befehlsrichtung an.
 **Beispiel**: Wir haben einen Hausautomationsadapter (HAA), an den eine Lampe unter der Adresse `haa.0.lamp1` angeschlossen ist.
 
 - Die Lampe kann manuell mit einem physischen Schalter oder über WLAN mit Hilfe von HAA eingeschaltet werden.
-- Wenn Vis die Lampe über WLAN einschalten möchte, sollte es den neuen Wert mit „{value: true, ack: false}“ setzen.
+- Wenn vis die Lampe über WLAN einschalten möchte, sollte es den neuen Wert mit „{value: true, ack: false}“ setzen.
 - Wenn die Lampe eingeschaltet wird, informiert sie HAA normalerweise über den neuen Status und der Wert sollte sofort mit „{value: true, ack: true}“ überschrieben werden.
-- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert sie HAA mit „{value: false, ack: true}“ über den neuen Status.
+- Wenn die Lampe manuell über einen physischen Schalter ausgeschaltet wird, informiert sie HAA über den neuen Status mit „{value: false, ack: true}“.
 
 ### Qualität
 Jeder Datenpunkt hat ein Attribut `q` - *Qualität*.
@@ -78,6 +78,30 @@ Es wird empfohlen, für die Kommunikation [Socket-Klasse](https://github.com/ioB
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.5.11 (2024-02-22)
+* (bluefox) Some packages were updated
+
+### 2.5.10 (2023-12-17)
+* (foxriver76) updated ws-server to increase the file limit to 500 MB
+
+### 2.5.9 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
+### 2.5.8 (2023-10-11)
+* (bluefox) Corrected adapter termination if the alias has no target
+
+### 2.5.7 (2023-10-07)
+* (foxriver76) upgraded socket-classes to fix vis problems
+
+### 2.5.6 (2023-09-28)
+* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+
+### 2.5.5 (2023-09-14)
+* (foxriver76) upgraded socket-classes to fix crash cases
+
+### 2.5.4 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
 ### 2.5.3 (2023-08-01)
 * (bluefox) Added the subscribing on the specific instance messages
 
@@ -102,4 +126,4 @@ Es wird empfohlen, für die Kommunikation [Socket-Klasse](https://github.com/ioB
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

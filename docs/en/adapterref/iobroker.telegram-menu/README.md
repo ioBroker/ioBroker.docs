@@ -33,11 +33,10 @@ You can create different groups with separate menus, and then assign users to th
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 1.6.3 (2024-02-27)
 
 -   Bug in copy card fixed
--   #104 HTTP Request
+-   #104 HTTP Request Beta
 -   #111 status Value in dynamicSwitch
 -   #112 change value
 -   **_Change!!!_** menu:deleteAll removes automatic Request Ids which are older than 48h from list. The list is completely deleted once during the update

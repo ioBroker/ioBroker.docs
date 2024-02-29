@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: EV66MfmeApEpbV7mwc4WMERUCxQOkFeRTdHBfQvUmbs=
+hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
 ---
 ![标识](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -98,6 +98,8 @@ camera_name 当前是否正在检测运动。预期值为 ON 和 OFF。注意：
 </video>
 ```
 
+人数：frigate.0.camera.person 人员事件：frigate.0.events.after.label = person
+
 ## 讨论和问题
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
 
@@ -107,6 +109,7 @@ camera_name 当前是否正在检测运动。预期值为 ON 和 OFF。注意：
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 1.0.2 (2024-01-29)
 
 - reduce memory usage for clip notifications

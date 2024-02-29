@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
+hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ---
 ![标识](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -16,12 +16,16 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 # IoBroker.sun2000
 **测试：** ![测试与发布](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
 
+**此适配器使用 Sentry 库自动向开发人员报告异常和代码错误。**\ 有关更多详细信息以及如何禁用错误报告的信息，请参阅[Sentry 插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Sentry 报告从 js-controller 开始使用3.0。
+
 ## IoBroker 的 sun2000 适配器
 使用Modbus TCP读取华为SUN2000逆变器和LUNA2000电池的寄存器数据。
 
 欢迎关注德语版的讨论[iobroker论坛](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+逆变器modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+
+SdongleA modbus接口定义（2023年4月20日第2期）：https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions
 
 ## 支持的硬件
 * 华为逆变器SUN2000系列（M0、M1）
@@ -36,6 +40,7 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 * 以固定间隔读取输入功率、输出功率、充放电功率、电网消耗等实时值。
 * 仅针对来自逆变器的更改数据写入状态。这减轻了 iobroker 实例的负担。
 * 可以使用“已更新”触发元素来监视“收集”路径中的“inputPower”或“activePower”状态。因为这些状态总是在设定的时间间隔内写入的。
+* modbus-proxy：即使逆变器的modbus接口已在使用中，第三方设备（例如wallbox、能源管理器等）也可以接收数据。此外，您还可以将 sun2000 数据镜像到另一个 ioBroker 实例。
 
 ## 主要设置
 * `address`: 逆变器IP地址
@@ -49,6 +54,12 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 * `连接延迟`: modbus 连接后的延迟 (默认: 5000 ms)
 * `auto-adjust`: 自动调整modbus设置
 
+## Modbus 代理
+* `active`: 激活mobus-proxy服务(默认: false)
+* `ip 地址`：Modbus 代理 IP 地址（通常：0.0.0.0）
+* `TCP 端口`: Modbus 代理 TCP 端口（通常：502）
+* `SDongle modbus ID`：虚拟电表需要SDongle modbus ID（通常：100）
+
 ## 配置逆变器
 为了使用Modbus连接，所有华为设备必须使用最新的固件功能。您可以直接在FusionSolar门户的“升级”下执行最新固件。
 在FusionSolar设置中，您仍然需要激活WLAN加密狗上的Modbus并设置访问授权。将FusionSolar-App下载到手机上，并使用它直接通过逆变器的WLAN热点连接。
@@ -57,7 +68,7 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 要以 `installer` 身份登录应用程序，您通常需要密码：`00000a` 或 `0000000a` 您可能还需要密码才能连接到逆变器自己的 WLAN：`Changeme`
 
 登录逆变器后，转至 `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > 激活 `connection without restriction` ( Verbindung uneingeschränkt aktivieren)。您还可以输入Modbus通讯地址同时读出。
-如果您使用两个逆变器，则连接到第二个逆变器并读取那里的通信地址。
+如果您使用两台逆变器，则连接到第二台逆变器并读取那里的通信地址。
 
 [如何激活“Modbus TCP” - 来自华为论坛](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
 
@@ -70,6 +81,15 @@ Modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/up
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+**WORK IN PROGRESS**
+* detect standby mode of inverters (#34)
+* devices in standby often give incorrect values. These are assigned "0" (#40)
+* the modbus register and the length are stored in the description of the states
+* implemented modbus-proxy (read-only cache)
+* read register data from SDongleA 
+* register for 
+
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
 

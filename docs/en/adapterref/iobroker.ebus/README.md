@@ -69,6 +69,10 @@ Attention: command in datapoint ebus.0.cmd is deleted after executing of command
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) remove cron dependency
+
 ### 3.2.6 (2024-02-11)
 * (René) see issue #245: support ebusd 23.3
 * (René) fixes reported by eslint

@@ -2,86 +2,97 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fronius-wattpilot/README.md
-title: ioBroker.fronius-wattpilot
-hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
+title: ioBroker.fronius-ваттпилот
+hash: unbugf5ftTb/BE8Q4uqsUfz2KGBUs9exwOd/mkoxahs=
 ---
 ![Логотип](../../../en/adapterref/iobroker.fronius-wattpilot/admin/fronius-wattpilot.png)
 
-![версия NPM](https://img.shields.io/npm/v/iobroker.fronius-wattpilot.svg)
+![НПМ-версия](https://img.shields.io/npm/v/iobroker.fronius-wattpilot.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.fronius-wattpilot.svg)
 ![Количество установок](https://iobroker.live/badges/fronius-wattpilot-installed.svg)
-![Текущая версия в стабильном репозитории](https://iobroker.live/badges/fronius-wattpilot-stable.svg)
+![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/fronius-wattpilot-stable.svg)
 ![Статус зависимости](https://img.shields.io/david/tim2zg/iobroker.fronius-wattpilot.svg)
 ![НПМ](https://nodei.co/npm/iobroker.fronius-wattpilot.png?downloads=true)
 
-# IoBroker.fronius-wattpilot
-**Тесты:** ![Тестируйте и выпускайте](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
+# IoBroker.fronius-attpilot
+**Тесты:** ![Тестирование и выпуск](https://github.com/tim2zg/ioBroker.fronius-wattpilot/workflows/Test%20and%20Release/badge.svg)
 
-Базовая реализация неофициального пилотного API Fronius Watt (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) . На основе https://github.com/joscha82/wattpilot.
+Базовая реализация неофициального пилотного проекта Fronius Watt (https://www.fronius.com/de-ch/switzerland/solarenergie/installateure-partner/technische-daten/alle-produkte/l%C3%B6sungen/fronius-wattpilot) API . На основе https://github.com/joscha82/wattpilot.
 
 ## Как установить:
-**Я не несу ответственности за ваше устройство. С помощью этого API вы можете получить прямой доступ к устройству, будьте осторожны.**
+**Я не несу ответственности за ваше устройство. С помощью этого API вы можете напрямую получить доступ к устройству, будьте осторожны.**
 
 ### **Требования**
 - Завершите обычную установку пилотного приложения Fronius Watt. Запомните пароль!
-- Перейдите на вкладку Интернет и подключите Pilot к сети Wi-Fi.
+- Перейдите на вкладку Интернет и подключите Pilot к Wi-Fi.
 - Узнайте IP-адрес вашего WattPilot.
-  - Вариант 1: через веб-интерфейс маршрутизатора.
-  - Вариант 2: через приложение Wattpilot: после установления соединения щелкните имя сети Wi-Fi.
+  - Вариант 1: через веб-интерфейс вашего маршрутизатора.
+  - Вариант 2: через приложение Wattpilot: после установки соединения нажмите на имя Wi-Fi.
 
-  Вы увидите страницу с дополнительной информацией о вашем Wi-Fi-соединении. Запишите IP-адрес вниз.
+  Вы увидите страницу с дополнительной информацией о вашем Wi-Fi-соединении. Запишите IP-адрес.
 
-### **Адаптер iobroker.fronuis-wattpilot**
+### **Адаптер iobroker.fronis-wattpilot**
 - Теперь вы можете регулярно устанавливать экземпляр iobroker.fronius-wattpilot через страницу «Адаптеры».
-- После создания экземпляра вам будет предложено ввести IP-адрес и пароль вашего WattPilot. Заполните значения, которые вы заметили ранее, и сохраните конфигурацию. Если вы все сделали правильно, через некоторое время адаптер станет зеленым, и вы сможете увидеть входящие данные во вкладке объектов.
+- После создания экземпляра вам будет предложено ввести IP-адрес и пароль вашего WattPilot. Заполните значения, которые вы заметили ранее, и сохраните конфигурацию. Если вы все сделали правильно, адаптер через некоторое время станет зеленым, и вы сможете увидеть входящие данные во вкладке объектов.
 
 **Настоятельно рекомендуется назначить статический IP-адрес вашему WattPilot.**
 
-## Как я могу использовать адаптер...
-Вы можете использовать точки данных этого адаптера, как и любую другую точку данных в вашем брокере.
+## Как мне использовать адаптер...
+Вы можете использовать точки данных этого адаптера, как и любые другие точки данных вашего брокера.
 Чтобы получить некоторые идеи, см. «Примеры».
 
-Существует [Блочный пример](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml), как вы можете измерить выходную мощность вашей солнечной сети и автоматически настроить Pilot на правильное значение тока (ампер), чтобы улучшить внутреннее потребление энергии.
-Вы можете просто импортировать его, скопировав содержимое примера и вставив его с помощью значка «Импорт блоков» в правом верхнем углу вашего Blockly-скрипта.
+Существует [Блочный пример](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml), как вы можете измерить выходную мощность солнечной сети и автоматически настроить пилот на правильное значение тока (Ампер), чтобы улучшить внутреннее потребление энергии.
+Вы можете просто импортировать его, скопировав содержимое примера и вставив его с помощью значка «Импортировать блоки» в правом верхнем углу вашего Blockly-скрипта.
 
 ## Что делает адаптер?
-Адаптер подключается к веб-сокету WattPilots и разделяет входящие данные на точки данных ioBroker, которые вы можете использовать достаточно удобно.
+Адаптер подключается к WattPilots WebSocket и разделяет входящие данные на точки данных ioBroker, которыми вы можете пользоваться вполне комфортно.
 
 ## Получить состояния
 По умолчанию адаптер записывает только ключевые точки Wattpilot. Если вам нужны все возможные значения, которые может предоставить API, снимите флажок в настройках экземпляра.
-Документация по точкам данных доступна здесь: https://github.com/joscha82/wattpilot/blob/main/API.md (спасибо joscha82)
+Документация по точкам данных доступна здесь: https://github.com/joscha82/attpilot/blob/main/API.md (спасибо joscha82).
 
 ## Установить состояния?
-Наиболее важные состояния, которые вы можете установить напрямую, это AccessState, amp, cableLock, cae и mode.
+Наиболее важные состояния, которые вы можете установить напрямую, это AccessState, amp, CableLock, cae и mode.
 
 **AccessState**: «Открыть» или «Подождать».
 
-**усилитель**: 6-16
+**амп**: 6–16
 
-**cableLock**: «Обычный», «Авторазблокировка» или «Всегда блокировка».
+**cableLock**: «Нормальный», «Авторазблокировка» или «AlwaysLock».
 
-**cae**: «true» или «false» (обратите внимание, что это отключает облачные функции вашего WattPilot, возможно, потребуется перезапуск)
+**cae**: «истина» или «ложь» (следите, это отключает облачные функции вашего WattPilot, возможно, потребуется перезагрузить)
 
-Да, просто напишите имя состояния, за которым следует точка с запятой, а затем значение в состоянии set_state.
+Да, просто напишите имя состояния, затем точку с запятой, а затем значение в состоянии set_state.
 Например:
 
-    ампер;6
+    усилитель;6
 
-**Вы можете управлять состояниями "amp" и "lmo" напрямую через состояния set_power и set_mode.**
+**Вы можете управлять состояниями «amp» и «lmo» напрямую через состояния set_power и set_mode.**
 
 ## Что означает этот беспорядок?
-Благодаря joscha82 мы знаем: https://github.com/joscha82/wattpilot/blob/main/API.md
+Благодаря joscha82 мы знаем: https://github.com/joscha82/attpilot/blob/main/API.md
 
 ## Разработчики
-- [Себастьян Ханц] (https://github.com/SebastianHanz)
-- [tim2zg] (https://github.com/tim2zg)
-- [derHaubi] (https://github.com/derHaubi)
+- [Себастьян Ханц](https://github.com/SebastianHanz)
+- [tim2zg](https://github.com/tim2zg)
+- [derHaubi](https://github.com/derHaubi)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 4.6.3 (2023-12-24)
+- Fixed a bug where the adapter would use a undefined variable
+- Fixed bug #44
+- Fixed bug #43
+
+### 4.6.2 (2023-08-15)
+- Thanks to Norb1204 for fixing a few bugs that I missed. More in Issue #40
+
+### 4.6.1 (2023-08-15)
+- Fixed Issue #39 (set_state not working)
+
 ### 4.6.0 (2023-07-15)
 - Fixed timeout issue in normal parser mode (#36), still exist in dynamic parser mode --> use no timeout (0)
 - Fixed a number of issues concerning the static parser mode
@@ -221,7 +232,7 @@ hash: VThBtaXu8zxIYDcu3tGJ7tXYDXlk1fBEOw3hRsEn3a0=
 ## License
 MIT License
 
-Copyright (c) 2023 tim2zg <tim2zg@protonmail.com>
+Copyright (c) 2024 tim2zg <tim2zg@protonmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

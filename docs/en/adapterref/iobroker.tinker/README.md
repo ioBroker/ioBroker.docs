@@ -74,6 +74,9 @@ On configuration page you can select following modules:
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
 ### 1.3.2 (2024-02-14)
 * (simatec) Design Fix
 * (simatec) Source code cleaned up

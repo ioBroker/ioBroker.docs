@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.pylontech/README.md
 title: ioBroker.pylontech
-hash: TAAEXEFGURIkciO6/f0ZpXmlVxCKTZ0L9E1gnhvBNR0=
+hash: 5/5cKE2yUE9zSrUsK59BXASceFI8xhkvM2eCMsU+3sA=
 ---
 ![Logo](../../../en/adapterref/iobroker.pylontech/media/logo.png)
 
@@ -21,7 +21,7 @@ hash: TAAEXEFGURIkciO6/f0ZpXmlVxCKTZ0L9E1gnhvBNR0=
 ## Pylontech- und Pytes-Adapter für ioBroker
 Fragen Sie über die Konsole die Zellspannungen und den Status von Pylontech- oder Pytes-Batterien ab. Ich bin nicht angeschlossen.
 
-**Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für eventuelle Schäden!**
+**Bitte beachten Sie, dass alles, was Sie bauen oder anschließen, immer in Ihrer Verantwortung liegt. Der Entwickler dieses Adapters übernimmt keine Haftung für etwaige Schäden!**
 
 ## Wie es funktioniert
 Dieser Adapter wird verwendet, um den Gesundheitszustand und die Funktionen eines Pylontech- oder Pytes-Arrays zu ermitteln, das aus einer oder bis zu fünfzehn Batterien bestehen kann.
@@ -47,7 +47,7 @@ Mit einem [konfigurierbarer Stecker](https://www.amazon.de/gp/product/B0C8JFWNR7
 
 ![Stecker](../../../en/adapterref/iobroker.pylontech/media/configurablePlug.jpg)
 
-Oder fertig konfektionierte Kabel im [Forum](https://forum.iobroker.net/topic/68707).
+Oder fertig konfektionierte Kabelkontakt in den [Forum](https://forum.iobroker.net/topic/68707).
 
 ![Kabel](../../../en/adapterref/iobroker.pylontech/media/Kabel.jpg)
 
@@ -61,7 +61,7 @@ Oder fertig konfektionierte Kabel im [Forum](https://forum.iobroker.net/topic/68
 ![RJ45](../../../en/adapterref/iobroker.pylontech/media/8p.jpg)
 
 #### RJ11 / RJ12
-Die RJ11- und RJ12-Anschlüsse sind gleich groß. Der RJ11 hat nur vier Kontakte, der RJ12 hat sechs Kontakte. Die Kontakte des RJ11 liegen in der Mitte des Steckers, weshalb sie unterschiedlich gezählt werden. Physisch befinden sich die Kontakte am selben Ort.
+Die RJ11- und RJ12-Stecker sind gleich groß. Der RJ11 hat nur vier Kontakte, der RJ12 hat sechs Kontakte. Die Kontakte des RJ11 liegen in der Mitte des Steckers, weshalb sie unterschiedlich gezählt werden. Physisch befinden sich die Kontakte am selben Ort.
 
 | RJ11 | RJ12 | Signal | DSUB | Signal |
 | ------ | ------ | ------ | ---- | ------ |
@@ -226,7 +226,7 @@ RFC Hier sind die Einstellungen der obigen Konfiguration. Der Geräteport ist 70
 Weitere Informationen finden Sie hier: https://gist.github.com/DraTeots/e0c669608466470baa6c
 
 #### Bereite Hardware
-Es gibt fertige Hardware, die über WLAN und/oder LAN verbunden werden kann. Solange ein transparenter TCP-Server verwendet wird, sollte es funktionieren.
+Es gibt fertige Hardware, die über WLAN und/oder LAN verbunden werden kann. Solange es einen transparenten TCP-Server verwendet, sollte es funktionieren.
 
 Beispiel:
 
@@ -263,11 +263,11 @@ Was wurde getestet:
 | Kraft H2 | Kraft | V1.5 21.06.18 | gut | Achtung: In einigen Force-Handbüchern sind in der Steckerbeschreibung nur die RX- und TX-Anschlüsse aufgeführt. Die Masse liegt auf PIN 8 und muss ebenfalls angeschlossen werden. |
 
 | Pytes-Modell | Modell | Firmware | Funktioniert | Kommentar |
-| -------------- | ----- | -------------- | ---------- | -------------------------------------- |
+| -------------- | ----- | -------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | E-BOX-4850P | USA | V1.3 22.12.20 | gut | Vielen Dank an kletternaut für die Testdaten |
-| E-BOX-48100V-D | USA | V1.10 23.10.13 | gut | Adapterversion >=0.0.8 |
+| E-BOX-48100V-D | USA | V1.10 23.10.13 | gut | Adapterversion >=0.0.9 . „Laden Sie den Gesundheitszustand der Batteriezellen herunter“ und „Laden Sie die Batteriestatistikdaten herunter“ sollten ausgeschaltet sein. (soh -n- und stst -n- werden nicht unterstützt) |
 
-Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste fort.
+Wenn Sie Hardware verwenden, schreiben Sie mir bitte im Forum oder in Github als Problem. Gerne führen wir diese Liste weiter.
 
 ioBroker-Forum: https://forum.iobroker.net/topic/68707
 
@@ -298,7 +298,7 @@ Optionen:
 Die folgenden Felder werden nur angezeigt, wenn bei Verbindung über Lokales Gerät ausgewählt wurde.
 
 #### Lokaler Gerätepfad
-Wenn „Lokales Gerät“ ausgewählt wurde, muss der Pfad bzw. Port eingestellt werden. NodeJs denkt in Linux, daher wird „Pfad nicht gefunden“ auch dann gemeldet, wenn das angegebene Windows-Gerät nicht gefunden wird. Die Standardgeräte werden vom Adapter gesucht und als Auswahlliste angeboten, dies funktioniert jedoch nur, wenn der Adapter läuft, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden nur Geräte angeboten, keine alternativen Gerätekennungen und keine Unicnames, diese können aber manuell eingegeben werden.
+Wurde „lokales Gerät“ ausgewählt, muss der Pfad bzw. Port eingestellt werden. NodeJs denkt in Linux, daher wird „Pfad nicht gefunden“ auch dann gemeldet, wenn das angegebene Windows-Gerät nicht gefunden wird. Die Standardgeräte werden vom Adapter gesucht und als Auswahlliste angeboten, dies funktioniert jedoch nur, wenn der Adapter läuft, da hierfür eine Kommunikation mit der Instanz erforderlich ist. Es werden nur Geräte angeboten, keine alternativen Gerätekennungen und keine Unicnames, diese können aber manuell eingegeben werden.
 Siehe den Abschnitt über lokale Schnittstellen.
 
 #### Übertragungsgeschwindigkeit
@@ -456,6 +456,10 @@ Wenn true ohne ack geschrieben wird, um zu setzen, wird die aktuelle Zeit an den
 
 ## **IN ARBEIT**
 - (PLCHome) Konfigurieren Sie diesen Adapter für die Verwendung des Release-Skripts.
+- (PLCHome) Verbesserte Batterie für E-BOX-48100V-D auf 100 %.
+- (PLCHome) Wartezeit zwischen Befehlen von 20ms.
+- (PLCHome) Wenn die Zeitüberschreitung auftritt, senden Sie den letzten Befehl erneut.
+- (PLCHome) Keine weiteren Befehle nach einem Timeout.
 
 ## 0.0.8 (16.02.2024)
 - (PLCHome) verbesserte Bat n für E-BOX-48100V-D

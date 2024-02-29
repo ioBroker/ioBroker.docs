@@ -129,6 +129,25 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.1.2 (2024-02-27)
+- fix broken designer package
+
+### 1.1.1 (2024-02-27)
+- designer and docking fixes
+
+### 1.1.0 (2024-02-26)
+- support undock to new browser window
+- preview fixes for position: static in styles
+
+### 1.0.56 (2024-02-26)
+- screenviewer - add also nodes from domparser head
+
+### 1.0.55 (2024-02-22)
+- more designer fixes
+
+### 1.0.54 (2024-02-22)
+- multiple designer fixes
+
 ### 1.0.53 (2024-02-19)
 - fix lazy bound lit event name
 

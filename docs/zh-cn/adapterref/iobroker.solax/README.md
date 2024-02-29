@@ -11,7 +11,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.solax/README.md
 title: ioBroker.solax
-hash: PZBWCCYqrussPVntASTvcL+sMYFxBv7kaeyiXPgj1qs=
+hash: RZW6F+kMWyyDPRGfkXmz1YZ5xP43u5qCgjakymep7ZI=
 ---
 ![标识](../../../en/admin/solax.png)
 
@@ -35,21 +35,21 @@ hash: PZBWCCYqrussPVntASTvcL+sMYFxBv7kaeyiXPgj1qs=
 
 ***
 
-#### Solax 云连接
+## Solax 云连接
 Solax逆变器API云连接
 
 该适配器将来自制造商 Solax 的逆变器数据调用到 iobroker 中。
 
 为此，您需要一个 Solax 帐户、您的令牌 ID 和 WiFi 模块的序列号。
 
-#### API 令牌
+## API 令牌
 <span><img src="../img/solax_api.png"></span>
 
-＃＃＃＃ 序列号
+＃＃ 序列号
 <span><img src="../img/wifi-stick.png"></span>
 
-#### 专家设置
-当前仅 Pocket Wifi 棒支持本地连接。 LAN 棒只能在云模式下运行。
+## 专家设置
+当前仅 Pocket Wifi 棒支持本地连接。 LAN 棒只能在云模式下操作。
 
 注意，如果您在专家设置中激活本地模式，您应该提前检查您的 Pocket Wifi Stick 的当前固件版本。<br>该棒安装的固件版本不得高于 2.30.20 (Wifi-Pocket V1/V2) 且小于 3.001 (Wifi-Pocket V3)，因为 Solax 会阻止更高版本的本地访问并导致 Wifi 棒崩溃。
 
@@ -93,9 +93,19 @@ Solax逆变器API云连接
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
+### 0.9.6 (2024-02-05)
+* (simatec) small Design Fix
+
+### 0.9.5 (2024-02-04)
+* (simatec) Dependencies updated
+* (simatec) Fix Data for X1/X3-EVC Wallbox
+
 ### 0.9.4 (2024-01-22)
-* simatec) adapter-dev added
-* simatec) delete Gulp
+* (simatec) adapter-dev added
+* (simatec) delete Gulp
 * (Andre-0815-4711) Data for X1/X3-EVC Wallbox added
 
 ### 0.9.3 (2024-01-14)

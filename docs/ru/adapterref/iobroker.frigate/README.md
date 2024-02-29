@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: EV66MfmeApEpbV7mwc4WMERUCxQOkFeRTdHBfQvUmbs=
+hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -45,7 +45,7 @@ mqtt:
 
 `frigate.0.events.history` История последних X событий
 
-В истории событий есть миниатюра события и URL-адрес снимка и клипа.
+Событие в истории содержит миниатюру события и URL-адрес снимка и клипа.
 
 ### Имя_камеры
 Статус и настройки камеры
@@ -98,6 +98,8 @@ mqtt:
 </video>
 ```
 
+Количество человек: frigate.0.camera.person Событие с человеком: frigate.0.events.after.label = person
+
 ## Обсуждение и вопросы
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
 
@@ -107,6 +109,7 @@ mqtt:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 1.0.2 (2024-01-29)
 
 - reduce memory usage for clip notifications

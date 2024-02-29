@@ -83,6 +83,16 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
+### 1.5.4 (2024-02-27)
+* Fix the last issues that were reported by the ioBroker adapter checker.  
+  (Includes a minor optimization in implementation.) 
+* Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the latest version.
+
+## Changelog
+### 1.5.3 (2024-02-27)
+* Update dependencies.
+
+## Changelog
 ### 1.5.2 (2024-02-13)
 * Add newline before descriptive text in adapter config.
 * Update dependencies.
@@ -221,4 +231,4 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2023 ylabonte <yannic.labonte@gmail.com>
+Copyright (c) 2019-2024 ylabonte <yannic.labonte@gmail.com>

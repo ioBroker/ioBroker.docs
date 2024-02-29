@@ -1153,6 +1153,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartgarden/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.smartthings/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.smoothed/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.snips/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.snmp/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.socketio/README.md
@@ -1229,6 +1230,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.valuetrackerovertime/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.vbus-gw/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vedirect/README.md
@@ -1813,6 +1815,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartgarden/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.smartthings/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.smoothed/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.snips/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.snmp/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.socketio/README.md
@@ -1889,6 +1892,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.valuetrackerovertime/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.vbus-gw/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vedirect/README.md
@@ -2473,6 +2477,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartcontrol/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartgarden/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smartthings/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.smoothed/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.snips/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.snmp/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.socketio/README.md
@@ -2549,6 +2554,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.uv-protect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.valuetrackerovertime/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vbus-gw/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vedirect/README.md
@@ -3133,6 +3139,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartcontrol/README
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartgarden/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartmeter/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smartthings/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.smoothed/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.snips/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.snmp/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.socketio/README.md
@@ -3209,6 +3216,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.uv-protect/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.valuetrackerovertime/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vbus-gw/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vedirect/README.md

@@ -47,7 +47,7 @@ State is the actual value of the data point and presented by javascript object:
 States change itself very frequently in compare to the objects. (Normally objects should be changed once by creation and that's all) 
 
 ### Acknowledgment
-Every state has the attribute "ack". It shows the direction of command. 
+Every state has the attribute `ack`. It shows the direction of command. 
 - If ack=false, it means some other adapter wants to control (write) this variable, so that command will be executed (e.g., light will be switched on).
 - If ack=true, it means that the device informs about new value. (e.g., light was switched on manually or motion was detected)
  
@@ -76,6 +76,9 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 -->
 
 ## Changelog
+### 6.6.1 (2024-02-22)
+* (bluefox) Just some packages were updated
+
 ### 6.6.0 (2023-10-13)
 * (bluefox) Corrected adapter termination if the alias has no target
 
@@ -114,7 +117,7 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 * (bluefox) Function `getObjects` for web was extended by devices, channels and enums
 
 ### 6.1.10 (2022-08-24)
-* (bluefox) Caught error by subscribe
+* (bluefox) Caught error by subscribing
 
 ### 6.1.8 (2022-07-08)
 * (bluefox) Corrected getAdapterInstances method
@@ -123,4 +126,4 @@ You can set the option *Force Web-Sockets* to force using only web-sockets trans
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

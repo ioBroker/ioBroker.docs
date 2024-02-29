@@ -60,8 +60,10 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ### **WORK IN PROGRESS**
 
 * (klein0r) Added block to create new objects
+* (klein0r) Added HTTP get and post function
 * (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
 * (klein0r) Raise warning if more than 100 triggers have been registered
+* (klein0r) Fixed astro state calculation (and display server time in dialog)
 
 ### 7.8.0 (2024-01-29)
 

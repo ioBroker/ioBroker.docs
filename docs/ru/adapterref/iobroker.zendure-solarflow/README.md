@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-солнечный поток
-hash: hHFeHU9GvNtSGFJipXgtZqVMDCH/HirY+dNH51/bxwg=
+hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -27,7 +27,7 @@ hash: hHFeHU9GvNtSGFJipXgtZqVMDCH/HirY+dNH51/bxwg=
 
 2. Ограничением вывода можно управлять с помощью состояния, созданного в подпапке productId/deviceKey/control. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе установить ограничение вывода невозможно!
 
-    ![Окно настроек Solarflow](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
+   ![Окно настроек Solarflow](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
 3. После входа в систему с помощью адаптера ioBroker вы выйдете из официального приложения iOS или Android. Это нормальное поведение. В качестве обходного пути вы можете создать вторую учетную запись Zendure с другим адресом электронной почты и предоставить этой учетной записи доступ к вашему Solarflow HUB. Затем используйте вторую учетную запись для ioBroker/адаптера Zendure Solarflow.
 
@@ -38,14 +38,27 @@ hash: hHFeHU9GvNtSGFJipXgtZqVMDCH/HirY+dNH51/bxwg=
 Если вы считаете адаптер полезным для себя и хотите поддержать мою работу, сделайте пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая отношения к проекту ioBroker!)<br />
 
 ## Changelog
+### 1.1.4 (2024-02-28)
+
+- Fix timeout issues
+
+### 1.1.0 (2024-02-27)
+
+- Switched solar input 1 und 2 to adjust the behavior like the offical app
+- Added Calculations folder, remaining charge and discharge time is now available as formatted time
+- Added a note in the settings that this adapter only works with the global server
+
 ### 1.0.7 (2024-01-16)
+
 - Add control for charge and discharge limit
 - Update Readme Screenshot
 
 ### 1.0.6 (2024-01-16)
+
 - Update Readme
 
 ### 1.0.5 (2024-01-15)
+
 - Added state for both Solarflow PV inputs
 
 ### 1.0.4 (2023-12-16)

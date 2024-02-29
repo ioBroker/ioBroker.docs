@@ -25,6 +25,8 @@ Choose your country, and afterwards the region you want the warnings for. If you
 
 ## Changelog
 
+### 3.0.0 (2024-02-26)
+* (jack-blackson) Breaking change: switch to locations instead of choosing geocodes to be able to also handle warnings coming with polygons (e.g. Switzerland)
 
 ### 2.3.8 (2023-08-06)
 * (jack-blackson) Bugfix alarm updates
@@ -195,7 +197,7 @@ Bell in icon designed by Freepik from www.flaticon.com
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2023 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2024 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

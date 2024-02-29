@@ -57,6 +57,12 @@ If this happens, stop the adapter and manually delete the node "rct.0".
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (Andreas Ruttkamp) misspelling in rct_core2 corrected
+* (Andreas Ruttkamp) Missing ack:true added ( issue:#89)
+
+
 ### 1.2.4 (2024-02-09)
 * (Andreas Ruttkamp) adapter not running in 1.2.3 - fixed
 

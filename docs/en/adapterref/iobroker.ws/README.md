@@ -51,9 +51,9 @@ Every state has the attribute `ack`. It shows the direction of command.
  
 **Example**: we have some home automation adapter (HAA) that has one lamp connected under address `haa.0.lamp1`. 
 - Lamp can be switched on manually with physical switch or via Wi-Fi with the help of HAA. 
-- If vis wants to switch the lamp on via Wi-Fi, it should set the new value with ```{value: true, ack: false}```. 
-- When the lamp is switched on it is normally informing HAA about new state and the value should be immediately overwritten with ```{value: true, ack: true}```.
-- If the lamp is switched off manually via physical switch it informs HAA about new state with ```{value: false, ack: true}```. 
+- If vis wants to switch the lamp on via Wi-Fi, it should set the new value with `{value: true, ack: false}`. 
+- When the lamp is switched on it is normally informing HAA about new state and the value should be immediately overwritten with `{value: true, ack: true}`.
+- If the lamp is switched off manually via physical switch it informs HAA about new state with `{value: false, ack: true}`. 
 
 ### Quality
 Every data point has an attribute `q` - *quality*. 
@@ -69,8 +69,11 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 -->
 
 ## Changelog
+### 2.5.11 (2024-02-22)
+* (bluefox) Some packages were updated
+
 ### 2.5.10 (2023-12-17)
-* (foxriver76) updated ws-server to increase file limit to 500 MB
+* (foxriver76) updated ws-server to increase the file limit to 500 MB
 
 ### 2.5.9 (2023-12-14)
 * (joltcoke) Corrected the crash if authentication is enabled
@@ -114,4 +117,4 @@ It is suggested to use [socket class](https://github.com/ioBroker/socket-client)
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

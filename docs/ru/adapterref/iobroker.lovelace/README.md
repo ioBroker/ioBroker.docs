@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 55saRZ2Pznyl6Hce1A+rcyddL4XcyTqh2QE8AeM2bSo=
+hash: jauHsiL93iAoVR1jApfIbb+5knn1hL0iz07N5kwQSxY=
 ---
 ![Логотип](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -99,8 +99,8 @@ common: {
 ```
 
 ### Выбор входа
-Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип объекта input_select.
-Список опций для выбора должен быть предоставлен в стандартном объекте commom.states:
+Это можно сделать вручную, если в пользовательском диалоговом окне выбран тип объекта `input_select`.
+Список опций для выбора должен быть предоставлен в стандартном объекте `common.states`:
 
 ```
 "common": {
@@ -119,7 +119,7 @@ common: {
     }
 ```
 
-другими словами, в IoB также должен быть выбран вход.
+другими словами, в IoB также должен быть вход выбора.
 
 ### Таймер
 Таймер можно смоделировать с помощью следующего скрипта:
@@ -206,16 +206,16 @@ createState(
 ```
 
 ### Погода
-Протестировано с помощью yr и daswetter. Для одного или нескольких из следующих объектов должны быть установлены `Function=Weather` и `Room=Any`, чтобы они были доступны в конфигурации:
+Протестировано с `yr` и `daswetter`. Для одного или нескольких из следующих объектов должны быть установлены `Function=Weather` и `Room=Any`, чтобы они были доступны в конфигурации:
 
-- daswetter.0.NextDays.Location_1
-- прогноз на 00.год.
+- `daswetter.0.NextDays.Location_1`
+- `Y.0.прогноз`
 
-Протестировано с драйвером AccuWeather версии 1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Протестировано с драйвером `AccuWeather` версии 1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
 Пользовательская карта Lovelace, созданная в поддержку прогноза погоды AccuWeather — https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Список покупок
-Список покупок записывает значения в форме:
+Список покупок записывает значения в виде:
 
 ```
 [
@@ -242,7 +242,7 @@ createState('location', '39.5681295;2.6432632', false, {
 });
 ```
 
-или это два объекта:
+или эти два объекта:
 
 ```
 createState('location.longitude', 2.6432632, false, {
@@ -264,7 +264,7 @@ createState('location.latitude', 39.5681295, false, {
 ```
 
 ### Объект изображения
-Вы можете использовать для этого статическое изображение или использовать любое состояние, которое предоставляет URL-адрес в качестве состояния.
+Вы можете использовать для этого статическое изображение или использовать любое состояние, которое доставляет URL-адрес в качестве состояния.
 Например.:
 
 ```
@@ -287,7 +287,7 @@ createState('location.latitude', 39.5681295, false, {
 ### Уценка
 Вы можете использовать привязки в уценке, как в [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
 
-Например. Текст `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` создаст текст `Admin adapter is alive` на панели уценки.
+Например, текст `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` создаст текст `Admin adapter is alive` на панели уценки.
 
 ## Пользовательские карты
 ### Загрузка пользовательских карточек
@@ -299,14 +299,14 @@ createState('location.latitude', 39.5681295, false, {
 
 Следующие пользовательские карты могут быть успешно протестированы:
 
-- карта bignumber: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-— простой-термостат: https://github.com/nervetattoo/simple-thermostat/releases (берём последний релиз)
-- термостат: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (требуются оба файла .js и .lib.js)
+- `bignumber-card`: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
+— `simple-thermostat`: https://github.com/nervetattoo/simple-thermostat/releases (берём последнюю версию)
+- `термостат`: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (требуются оба файла .js и .lib.js)
 
 Я нашел эту ссылку https://github.com/jimz011/homeassistant как интересный ресурс для пользовательских карточек.
 
-Часто пользовательские карты хранятся на github в качестве исходников и перед использованием их необходимо скомпилировать.
-Вам следует проверить меню `Releases` на github и попытаться найти там скомпилированные файлы.
+Часто пользовательские карточки хранятся на GitHub в качестве исходных кодов и перед использованием их необходимо скомпилировать.
+Вам следует проверить меню `Releases` на GitHub и попытаться найти там скомпилированные файлы.
 Например, этот: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (найдите файл `mini-graph-card-bundle.js`)
 
 ## Собственные изображения
@@ -318,7 +318,7 @@ createState('location.latitude', 39.5681295, false, {
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-в файле конфигурации ловеласа. Подробнее о фоне в ловеласе читайте [здесь](https://www.home-assistant.io/lovelace/views/#background).
+в файле конфигурации ловеласа. Подробнее о фоне в ловеласе [здесь](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Темы
 Темы можно определить в диалоговом окне конфигурации ioBroker.
@@ -395,7 +395,7 @@ midnight:
 взято из [здесь](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ## Иконки
-Используйте значки в формате `mdi:NAME`, например «mdi:play-network». Имена можно взять отсюда: https://materialdesignicons.com/
+Используйте значки в формате `mdi:NAME`, например `mdi:play-network`. Названия можно взять отсюда: https://materialdesignicons.com/
 
 ## Уведомления
 Вы можете добавлять уведомления с помощью функции `sendTo` или записывая состояние в `lovelace.X.notifications.add`:
@@ -429,10 +429,10 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Поиск неисправностей
 Если вы испортили код YAML и видите пустую страницу, но у вас все еще есть верхнее меню, вы можете включить режим редактирования (если он еще не включен) из меню, а затем снова открыть меню, чтобы получить доступ к «Редактору RAW Yaml», в котором вы увидеть полный код YAML и очистить его.
-Если это не поможет, вы можете открыть объект lovelace.*.configuration в raw-редакторе в ioBroker и посмотреть там.
+Если это не поможет, вы можете открыть объект `lovelace.*.configuration` в raw-редакторе в ioBroker и посмотреть там.
 Вы также можете восстановить этот объект из резервной копии. Он содержит полную конфигурацию вашей визуализации.
 
-##Первоисточники ловеласа
+## Первоисточники ловеласа
 Использованные источники находятся здесь https://github.com/ GermanBluefox/home-assistant-polymer.
 
 ## Делать
@@ -443,7 +443,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 Использованная версия home-assistant-frontend@20231208.2 Версия браузерного мода: 2.3.0
 
 ### Как собрать новую версию Лавлейса
-Прежде всего, фактический https://github.com/home-assistant/frontend (ветвь разработки) должен быть **вручную** объединен с https://github.com/DeutschBluefox/home-assistant-polymer.git (* **iob*** ветка!).
+Прежде всего, фактическую https://github.com/home-assistant/frontend (ветвь разработки) необходимо **вручную** объединить с https://github.com/DeutschBluefox/home-assistant-polymer.git ( ***иоб*** ветка!).
 
 Все изменения для ioBroker отмечены комментарием `// IoB`.
 На данный момент (20231208.2) были изменены следующие файлы:
@@ -453,17 +453,17 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 - `src/data/weather.ts` - добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/dialogs/more-info/const.ts` — удалить состояние погоды и историю
 - `src/dialogs/more-info/ha-more-info-dialog.ts` — удалить кнопку и вкладку настроек объекта.
-- `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку «показать больше» в истории
+- `src/dialogs/more-info/ha-more-info-history.ts` - удалить ссылку `показать больше` в истории
 - `src/dialogs/more-info/controls/more-info-weather.ts` — добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/dialogs/voice-command-dialog/ha-voice-command-dialog.ts` — отключить настройку голосовых помощников
 - `src/entrypoints/core.ts` — измененный процесс аутентификации
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` — добавлена поддержка отображения значка погоды по URL-адресу.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - добавлена поддержка отображения значка погоды по URL-адресу с авторизацией.
 - `src/panels/lovelace/hui-root.ts` - добавлены уведомления и голосовое управление
-- `src/util/documentation-url.ts` — для ссылки на справку iobroker вместо homeassistant.
+- `src/util/documentation-url.ts` — для ссылки на справку iobroker вместо домашнего помощника.
 - `.gitignore` - добавить `.idea` игнорировать
 - `.husky/pre-commit` — удалить крючки фиксации git.
-- `package.json` - удалить хаски-хук фиксации
+- `package.json` - удалить хаски-фиксатор фиксации
 
 После этого проверьте измененную версию в папке `./build`. Затем.
 
@@ -475,40 +475,37 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 6. `gulp build-app` для выпуска или `gulp development-iob` для отладочной версии. Чтобы собрать веб-сайт после изменений, вы можете вызвать «webpack-dev-app» для более быстрой сборки, но вам все равно придется вызывать «build-app» после того, как версия будет готова к использованию.
 7. скопируйте все файлы из `./build/home-assistant-polymer/hass_frontend` в `./hass_frontend` в этом репозитории.
 8. Запустите задачу `gulp rename` несколько раз (пока не произойдет никаких изменений).
-9. Обновите версию в Readme, а также в константе VERSION сервера.js.
+9. Обновите версию в `README.md`, а также в `server.js` константу `VERSION`.
 
 ## Changelog
 
 <!--
-	PLACEHOLDER for next version:
+	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
-* (Garfonso) fix: browser console errors
-* (Garfonso) fix: sane error message if authentication failed
-* (Garfonso) added: user images on login screen
+### 4.1.4 (2024-02-10)
+* (Garfonso) improved fix: lamp icons now turn gray on switch off.
 
-### 4.0.9 (2023-12-12)
-* (Garfonso) fixed: timestamp in legacy history data
+### 4.1.3 (2024-02-10)
+* (Garfonso) prevent warning for browser_mod/recall_id service call
+* (Garfonso) fix: lamp icons now turn gray on switch off.
+* (Garfonso) fix: notifications via sendTo work again.
 
-### 4.0.8 (2023-12-12)
-* (Garfonso) re-add legacy history for custom cards
+### 4.1.2 (2024-01-09)
+* (Garfonso) fix: time in timestamp display
 
-### 4.0.7 (2023-12-12)
-* (Garfonso) history should be working again.
+### 4.1.1 (2024-01-02)
+* (Garfonso) changed: determining user id
+* (Garfosno) changed: history attributes handling
+* (Garfonso) added: handle browser_mod/recall_id service call.
+* (Garfonso) changed: all states are strings (fixes #483)
 
-### 4.0.6 (2023-12-09)
-* (Garfonso) fixed: thermostat card for thermostats without mode / off state
-* (Garfonso) fixed: history and history graph missing for some stuff
-
-### 4.0.5 (2023-12-09)
-* (Garfonso) revert shopping list
-* (Garfonso) prevent invalid date error
+### 4.1.0 (2023-12-18)
+* (Garfons) add an option to show users on login screen (off by default)
 
 ## License
 
-Copyright 2019-2023, bluefox <dogafox@gmail.com>
+Copyright 2019-2024, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

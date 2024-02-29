@@ -73,6 +73,9 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.1 (2024-02-25)
+* change KM200 error messages for recordings
+
 ### 3.0.0 (2024-02-17)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
@@ -97,11 +100,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 * Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
 * Implement raw telegram search for EMS+ entities and create writable objects / states
 * The search is only active when no km200 gateway is selected
-
-### 2.8.0 (2024-02-04)
-* influxdb adapter version >= 4.0.2 required 
-* store km200 recordings only within defined retention period for influxdb
-* delay start of statistics by 5 minutes
 
 ## License
 MIT License

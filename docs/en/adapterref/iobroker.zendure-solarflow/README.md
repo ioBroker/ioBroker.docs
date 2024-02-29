@@ -17,11 +17,12 @@ This project is an ioBroker Adapter to read data from the Zendure Solarflow Clou
 You can read more about the API here: https://github.com/Zendure/developer-device-data-report
 
 Notes:
+
 1. You have to use the global Zendure Server!
 
 2. It is possible to control the Output limit with the state created in the productId/deviceKey/control subfolder. Please deactivate/uncheck all modes in the Zendure App, otherwise it is not possible to set the output limit!
 
-    ![Solarflow Setings Window](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
+   ![Solarflow Setings Window](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
 3. You will be logged out of the official iOS or Android App after logging in with the ioBroker adapter. This is a normal behavior. As a workaround you can create an second Zendure account with another e-mail and grant access to your Solarflow HUB to this account. Then use the second account for ioBroker / the Zendure Solarflow adapter.
 
@@ -37,14 +38,27 @@ If you find the adapter useful for you and want to support my work, feel free to
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.1.4 (2024-02-28)
+
+- Fix timeout issues
+
+### 1.1.0 (2024-02-27)
+
+- Switched solar input 1 und 2 to adjust the behavior like the offical app
+- Added Calculations folder, remaining charge and discharge time is now available as formatted time
+- Added a note in the settings that this adapter only works with the global server
+
 ### 1.0.7 (2024-01-16)
+
 - Add control for charge and discharge limit
 - Update Readme Screenshot
 
 ### 1.0.6 (2024-01-16)
+
 - Update Readme
 
 ### 1.0.5 (2024-01-15)
+
 - Added state for both Solarflow PV inputs
 
 ### 1.0.4 (2023-12-16)

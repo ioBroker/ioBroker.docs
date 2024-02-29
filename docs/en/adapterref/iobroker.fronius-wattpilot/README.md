@@ -33,7 +33,7 @@ You can use the datapoints of this adapter like every other datapoint in your br
 
 To get some ideas see "examples".
 
-There is a [Blockly-example](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/develop/examples/example-Blockly.xml) how you can measure your Solar Grid output and automatically adjusts the Pilot to the right current value (Amp) to improve your internal energy consumption.    
+There is a [Blockly-example](https://github.com/tim2zg/ioBroker.fronius-wattpilot/blob/main/examples/example-Blockly.xml) how you can measure your Solar Grid output and automatically adjusts the Pilot to the right current value (Amp) to improve your internal energy consumption.    
 You can simply import it by copying the content of the example and insert it via the "Import blocks"-icon in the upper right corner of your Blockly-script.
 
 

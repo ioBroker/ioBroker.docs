@@ -91,6 +91,8 @@ chapters: {"pages":{"en/adapterref/iobroker.javascript/README.md":{"title":{"en"
     - [onLogUnregister](#onlogunregister)
     - [wait](#wait)
     - [sleep](#sleep)
+    - [httpGet](#httpget)
+    - [httpPost](#httppost)
 
 - [Scripts activity](#scripts-activity)
 - [Changelog](#changelog)
@@ -1862,6 +1864,32 @@ onLogUnregister('warn');
 
 Unsubscribes from these logs.
 
+### httpGet
+
+```js
+httpGet('http://jsonplaceholder.typicode.com/posts', { timeout: 1000 }, (response) => {
+    if (!response.err) {
+        console.log(response.responseCode);
+        console.log(response.data);
+    } else {
+        console.error(response.err);
+    }
+});
+```
+
+### httpPost
+
+```js
+httpPost('http://jsonplaceholder.typicode.com/posts', { title: 'foo', body: 'bar', userId: 1 }, { timeout: 1000 }, (response) => {
+    if (!response.err) {
+        console.log(response.responseCode);
+        console.log(response.data);
+    } else {
+        console.error(response.err);
+    }
+});
+```
+
 ## Global script variables
 ### scriptName
 `scriptName` - The name of the script.
@@ -1911,8 +1939,10 @@ Scripts can be activated and deactivated by controlling this state with `ack=fal
 ### **WORK IN PROGRESS**
 
 * (klein0r) Added block to create new objects
+* (klein0r) Added HTTP get and post function
 * (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
 * (klein0r) Raise warning if more than 100 triggers have been registered
+* (klein0r) Fixed astro state calculation (and display server time in dialog)
 
 ### 7.8.0 (2024-01-29)
 

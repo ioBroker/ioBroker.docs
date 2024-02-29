@@ -9,7 +9,7 @@ BADGE-Donate: https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg
 BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86
 ---
 ![Logo](../../admin/solax.png)
-# ioBroker.solax
+ # ioBroker.solax
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.solax.svg)](https://www.npmjs.com/package/iobroker.solax)
@@ -32,11 +32,11 @@ BADGE-: https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=Gi
 
 **************************************************************************************************************
 
-### Solax Adapter for ioBroker
+## Solax Adapter for ioBroker
 
 **************************************************************************************************************
 
-#### Solax Cloud-Verbindung
+### Solax Cloud-Verbindung
 
 Solax Wechselrichter API-Cloud-Verbindung
 
@@ -44,16 +44,16 @@ Dieser Adapter ruft die Daten deines Wechselrichters vom Hersteller Solax für i
 
 Was dazu benötigt wird, ist ein Konto bei Solax, eine Token-ID und die Seriennummer des Pocket Wifi oder LAN Sticks.
 
-#### API-Token
+### API-Token
 
 <span><img src="../img/solax_api.png"></span>
 
-#### Seriennummer
+### Seriennummer
 
 <span><img src="../img/wifi-stick.png"></span>
 
 
-#### Experteneinstellungen
+### Experteneinstellungen
 
 Die lokale Verbindung wird aktuell nur von dem Pocket Wifi Sticks unterstützt. LAN-Sticks können nur im Cloud-Modus betrieben werden.
 
@@ -103,6 +103,9 @@ Wer gerne weitere Umrichter integriert haben möchte, sollte die Datenauswertung
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+
 ### 0.9.6 (2024-02-05)
 * (simatec) small Design Fix
 

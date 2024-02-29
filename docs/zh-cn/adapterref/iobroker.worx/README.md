@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: I/X+fm2wdWSZadXFUv0lNKAILvqqoUqdApI11pmqt0k=
+hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -78,9 +78,13 @@ hash: I/X+fm2wdWSZadXFUv0lNKAILvqqoUqdApI11pmqt0k=
     - `DF.OLMSwitch_FastHoming`：快速返回充电站 - true-on/false-off
 
 - ACS 模块（仅限有线）
+
     - `US.ACS`：启用或禁用 ACS - 1-开/0-关
 
-![模块 img/module.png](../../../en/adapterref/iobroker.worx/img/module.png)
+- EA 模块（仅限视觉）
+    - `EA.h`：割草机甲板的高度调整范围为 30-60，增量为 5 毫米
+
+![模块 img/module.png](img/module.png)![模块 img/module_ea.png](../../../en/adapterref/iobroker.worx/img/module_ea.png)
 
 ### 割草机（电线和视觉）
 - `AutoLock`：自动锁定真开/假关（电线和视觉/可更改）
@@ -651,6 +655,12 @@ hash: I/X+fm2wdWSZadXFUv0lNKAILvqqoUqdApI11pmqt0k=
 ![img/ok_direct.png](img/not_ok_direct.png) ![img/json_nok.png](img/json_nok.png) ![img/array_nok.png](../../../en/adapterref/iobroker.worx/img/array_nok.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Fixed Sentry messages
+-   (Lucky-ESA) Added for Vision lectric height adjustment
+
 ### 2.3.4 (2023-10-19)
 
 -   (Lucky-ESA) Fixed folder without raw

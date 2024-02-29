@@ -35,6 +35,9 @@ Adapter to control Hyundai or Kia vehicle
 
 
 ## Changelog
+### 2.3.8 (2024-02-25)
+* (arteck) corr steerWheelHeat
+
 ### 2.3.7 (2024-02-04)
 * (arteck) set default force_update to server
 

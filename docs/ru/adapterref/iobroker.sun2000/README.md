@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
+hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ---
 ![Логотип](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -16,12 +16,16 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 # IoBroker.sun2000
 **Тесты:** ![Тестирование и выпуск](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
 
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.**\ Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\ Отчеты Sentry используются, начиная с js-контроллера. 3.0.
+
 ## Адаптер sun2000 для ioBroker
 Считайте данные регистра инвертора Huawei SUN2000 и аккумулятора LUNA2000 с помощью Modbus TCP.
 
 Не стесняйтесь следить за обсуждениями на немецком языке [форум iobroker](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter).
 
-Определение интерфейса Modbus (выпуск 5, 16 февраля 2023 г.): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+Определение интерфейса Modbus инвертора (выпуск 5, 16 февраля 2023 г.): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+
+Определение интерфейса Modbus SdongleA (выпуск 2, 20 апреля 2023 г.): https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions
 
 ## Поддерживаемое оборудование
 * Инвертор HUAWEI серии SUN2000 (M0,M1)
@@ -36,6 +40,7 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 * Значения в реальном времени, такие как входная мощность, выходная мощность, мощность зарядки/разрядки и потребление сети, считываются через фиксированный интервал.
 * Состояния записываются только для измененных данных преобразователя. Это снижает нагрузку на экземпляр iobroker.
 * Состояния «inputPower» или «activePower» в «собранном» пути можно отслеживать с помощью триггерного элемента «было обновлено». Потому что эти состояния всегда записываются в заданном интервале.
+* modbus-proxy: Сторонние устройства, такие как настенная коробка, энергоменеджер и т. д., могут получать данные, даже если интерфейс Modbus инвертора уже используется. Кроме того, вы можете зеркально отразить данные sun2000 на другом экземпляре ioBroker.
 
 ## Основные настройки
 * `address`: IP-адрес инвертора.
@@ -48,6 +53,12 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 * `delay`: задержка между запросами Modbus (по умолчанию: 0 мс)
 * `connect Delay`: задержка после подключения Modbus (по умолчанию: 5000 мс)
 * `auto-adjust`: автоматическая настройка настроек Modbus.
+
+## Modbus-прокси
+* `active`: активировать службу mobus-proxy (по умолчанию: false)
+* `ip адрес`: IP-адрес Modbus-прокси (обычно: 0.0.0.0)
+* TCP-порт: TCP-порт Modbus-прокси (обычно: 502).
+* `SDongle modbus ID`: Идентификатор SDongle modbus (обычно: 100) требуется для виртуального счетчика.
 
 ## Настройка инверторов
 Чтобы использовать соединение Modbus, все устройства Huawei должны использовать последнюю версию прошивки. Вы можете выполнить последнюю версию прошивки непосредственно на портале FusionSolar в разделе «Обновления».
@@ -70,6 +81,15 @@ hash: RVmKGccUo9q5Qds+xUXuVjjDKjGCan0KwwdncCYwuKg=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+**WORK IN PROGRESS**
+* detect standby mode of inverters (#34)
+* devices in standby often give incorrect values. These are assigned "0" (#40)
+* the modbus register and the length are stored in the description of the states
+* implemented modbus-proxy (read-only cache)
+* read register data from SDongleA 
+* register for 
+
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ws/README.md
 title: ioBroker.ws
-hash: O869NPKJcRTO44Sz17Hz0dXrl3LKDNy0MQbUb7arwHs=
+hash: zKTgZVeQJsBGilNqWUYw/aKgx+wN0bIVIdvX7ciePq0=
 ---
 ![标识](../../../en/adapterref/iobroker.ws/admin/ws.png)
 
@@ -17,7 +17,7 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 
 它与`ioBroker.socketio`几乎相同，但不使用socket.io库，只是模拟它。
 
-**重要提示：自该适配器 v4.0 起，仅使用纯 Websockets！ Socket.io不再由socket.io库实现，而是通过纯WebSockets模拟！**
+**重要提示：自此适配器 v4.0 起，仅使用纯 Websockets！ Socket.io不再由socket.io库实现，而是通过纯WebSockets模拟！**
 
 用户可以使用此适配器通过网络套接字将其产品连接到 ioBroker。
 实际上，echarts、vis 和许多其他适配器都可以使用此适配器从 ioBroker 提取数据。
@@ -61,9 +61,9 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 **示例**：我们有一些家庭自动化适配器 (HAA)，它在地址 `haa.0.lamp1` 下连接了一盏灯。
 
 - 灯可以通过物理开关手动打开，也可以在 HAA 的帮助下通过 Wi-Fi 手动打开。
-- 如果 vis 想通过 Wi-Fi 打开灯，则应使用````{value: true, ack: false}``` 设置新值。
-- 当灯打开时，它通常会通知 HAA 有关新状态的信息，并且应立即用````{value: true, ack: true}``` 覆盖该值。
-- 如果通过物理开关手动关闭灯，它会通过 ```{value: false, ack: true}``` 通知 HAA 有关新状态的信息。
+- 如果 vis 想通过 Wi-Fi 打开灯，则应使用“{value: true, ack: false}”设置新值。
+- 当灯打开时，它通常会向 HAA 通知新状态，并且应立即用“{value: true, ack: true}”覆盖该值。
+- 如果通过物理开关手动关闭灯，它会通过“{value: false, ack: true}”通知 HAA 有关新状态的信息。
 
 ＃＃＃ 质量
 每个数据点都有一个属性`q` - *质量*。
@@ -78,6 +78,30 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.5.11 (2024-02-22)
+* (bluefox) Some packages were updated
+
+### 2.5.10 (2023-12-17)
+* (foxriver76) updated ws-server to increase the file limit to 500 MB
+
+### 2.5.9 (2023-12-14)
+* (joltcoke) Corrected the crash if authentication is enabled
+
+### 2.5.8 (2023-10-11)
+* (bluefox) Corrected adapter termination if the alias has no target
+
+### 2.5.7 (2023-10-07)
+* (foxriver76) upgraded socket-classes to fix vis problems
+
+### 2.5.6 (2023-09-28)
+* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+
+### 2.5.5 (2023-09-14)
+* (foxriver76) upgraded socket-classes to fix crash cases
+
+### 2.5.4 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
 ### 2.5.3 (2023-08-01)
 * (bluefox) Added the subscribing on the specific instance messages
 
@@ -102,4 +126,4 @@ WEB 应用程序和适配器使用此适配器使用 websocket 与 ioBroker 进�
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

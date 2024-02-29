@@ -53,6 +53,8 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 
 ### MQTT-Konfiguration
  * **Port**: Dieselbe Portnummer wie oben in den Fullybrowser MQTT-Einstellungen verwenden (z.B. `3000`).
+![Logo](../_img/mqtt_adapter.png)
+   
  * **Benutzername und Passwort nicht verifizieren**: Damit kann die Überprüfung von Benutzernamen und Passwort deaktiviert werden.
  * **Benutzername**: Optional
  * **Passwort**: Optional
@@ -72,6 +74,9 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.0.11 (2024-02-25)
+* (arteck) translate api-type
+
 ### 3.0.10 (2024-02-06)
 * (arteck) set batteryLevel to 0 when device is offline
 

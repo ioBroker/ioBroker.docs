@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: EV66MfmeApEpbV7mwc4WMERUCxQOkFeRTdHBfQvUmbs=
+hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
 ---
 ![Logo](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -98,6 +98,8 @@ Fügen Sie einen `HTML` als HTML hinzu:
 </video>
 ```
 
+Anzahl der Personen: frigate.0.camera.person Ereignis mit Person: frigate.0.events.after.label = Person
+
 ## Diskussion und Fragen
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
 
@@ -107,6 +109,7 @@ Fügen Sie einen `HTML` als HTML hinzu:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 1.0.2 (2024-01-29)
 
 - reduce memory usage for clip notifications

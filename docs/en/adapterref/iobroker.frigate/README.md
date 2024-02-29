@@ -104,6 +104,9 @@ Add a `HTML` add as HTML:
 </video>
 ```
 
+Number of persons: frigate.0.camera.person
+Event with Person: frigate.0.events.after.label = person
+
 ## Discussion and questions
 
 [https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker](https://forum.iobroker.net/topic/64928/frigate-adapter-für-iobroker)
@@ -114,6 +117,7 @@ Add a `HTML` add as HTML:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
 ### 1.0.2 (2024-01-29)
 
 - reduce memory usage for clip notifications

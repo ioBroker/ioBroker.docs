@@ -730,6 +730,12 @@ lg-thinq.0.xxx.area must be filled!
     ![weather.png](img/weather.png)
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+-   (Lucky-ESA) Changed airState.quality.odor max value
+-   (Lucky-ESA) Fixed sentry messages
+
 ### 0.3.3 (2024-01-14)
 
 -   (Lucky-ESA) Fixed thinq1 crash

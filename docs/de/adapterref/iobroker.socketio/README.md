@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.socketio/README.md
 title: ioBroker socket.io
-hash: ktN1Y0ayr7SU7SvJzFhp9d5LF0yT8y6TQc/lpsl8Ozs=
+hash: g7QFpuLWYqWvpDY8UeOEbux9NHF0CLINux+EfEweE+s=
 ---
 ![Logo](../../../en/adapterref/iobroker.socketio/admin/socketio.png)
 
@@ -54,7 +54,7 @@ Der Status ist der tatsächliche Wert des Datenpunkts und wird durch ein Javascr
 Zustände ändern sich im Vergleich zu den Objekten sehr häufig. (Normalerweise sollten Objekte bei der Erstellung einmal geändert werden und das ist alles)
 
 ### Wissen
-Jeder Zustand hat das Attribut „ack“. Es zeigt die Befehlsrichtung an.
+Jeder Staat hat das Attribut `ack`. Es zeigt die Befehlsrichtung an.
 
 – Wenn ack=false, bedeutet dies, dass ein anderer Adapter diese Variable steuern (schreiben) möchte, damit der Befehl ausgeführt wird (z. B. das Licht wird eingeschaltet).
 - Wenn ack=true, bedeutet dies, dass das Gerät über den neuen Wert informiert. (z. B. Licht wurde manuell eingeschaltet oder Bewegung wurde erkannt)
@@ -77,13 +77,34 @@ Es wird empfohlen, für die Kommunikation [Socket-Klasse](https://github.com/ioB
 ## Optimierung von Web-Sockets
 Bei einigen Web-Sockets-Clients gibt es ein Leistungsproblem bei der Kommunikation.
 Manchmal ist dieses Problem darauf zurückzuführen, dass die Kommunikation von socket.io auf einen langen Abfragemechanismus zurückgreift.
-Sie können die Option *Web-Sockets erzwingen* festlegen, um zu erzwingen, dass nur der Web-Sockets-Transport verwendet wird.
+Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur die Verwendung von Web-Sockets-Transport erzwungen wird.
 
 <!-- Platzhalter für die nächste Version (am Anfang der Zeile):
 
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 6.6.1 (2024-02-22)
+* (bluefox) Just some packages were updated
+
+### 6.6.0 (2023-10-13)
+* (bluefox) Corrected adapter termination if the alias has no target
+
+### 6.5.7 (2023-10-08)
+* (foxriver76) upgrade socket-classes to fix error with vis subscriptions
+
+### 6.5.6 (2023-09-28)
+* (bluefox) upgraded socket-classes to correct the error by unsubscribing on client disconnect
+
+### 6.5.5 (2023-09-14)
+* (foxriver76) upgrade socket-classes to fix crash cases
+
+### 6.5.3 (2023-09-05)
+* (mcm1957) added missing node16 requirement
+
+### 6.5.2 (2023-08-01)
+* (bluefox) Added the subscribing on the specific instance messages
+
 ### 6.4.0 (2023-07-07)
 (bluefox) extended the getObjects function with the possibility to read the list of IDs
 
@@ -104,7 +125,7 @@ Sie können die Option *Web-Sockets erzwingen* festlegen, um zu erzwingen, dass 
 * (bluefox) Function `getObjects` for web was extended by devices, channels and enums
 
 ### 6.1.10 (2022-08-24)
-* (bluefox) Caught error by subscribe
+* (bluefox) Caught error by subscribing
 
 ### 6.1.8 (2022-07-08)
 * (bluefox) Corrected getAdapterInstances method
@@ -113,4 +134,4 @@ Sie können die Option *Web-Sockets erzwingen* festlegen, um zu erzwingen, dass 
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>

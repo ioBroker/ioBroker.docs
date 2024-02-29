@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: nKgstQmO8cx8mB+3/vlcJt8N5PBz/3YOjbJRy150twk=
+hash: I/ZIX8KAUxPJ7osRisjQTk/6aWy6fQp6pfpd0p8Vgaw=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -170,7 +170,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
-Mit diesem Adapter können Heizsysteme verwaltet werden.
+Mit diesem Adapter können Heizungsanlagen verwaltet werden.
 Sie können zwischen Kühl- und Heizmodus wählen und für einen Raum Boost oder Pause aktivieren.
 Darüber hinaus können Sie die Solltemperatur für einen Raum überschreiben.
 
@@ -370,3 +370,10 @@ Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batte
 
 ## Opcua (21.2.2024) – neue Funktion
 Der Adapter verfügt jetzt über eine kostenlose Lizenz.
+
+## Senec (25.2.2024) – neuer Adapter
+https://github.com/nobl/ioBroker.senec
+
+<img src="https://github.com/nobl/ioBroker.senec/blob/master/admin/senec.png" width="100" height="100" />
+
+Ursprünglich auf das Senec Home V2.1-System ausgerichtet. Im Senec.Home-System können nur ausgewählte Werte durch den Adapter geändert werden. Senec bietet derzeit auch keine zuverlässige Möglichkeit mehr, das Peak Shaving über das Webinterface zu beeinflussen. Ob auch andere Systeme (z. B. V3) damit funktionieren, hängt davon ab, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON-Informationen bereitstellen.

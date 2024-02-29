@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
 title: ioBroker.lovelace
-hash: 55saRZ2Pznyl6Hce1A+rcyddL4XcyTqh2QE8AeM2bSo=
+hash: jauHsiL93iAoVR1jApfIbb+5knn1hL0iz07N5kwQSxY=
 ---
 ![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
@@ -38,7 +38,7 @@ Im Auto-Modus wird der ähnliche Vorgang wie für `google home` oder `material a
 Sie können benutzerfreundliche Namen definieren, die in Entitäten verwendet werden.
 
 ### Handbuch
-Die Objekte können manuell im Objektbaum wie SQL oder Historie definiert werden. Der Typ der Entität muss angegeben werden und optional der Name des Objekts.
+Die Objekte können manuell in einem Objektbaum wie SQL oder Historie definiert werden. Der Typ der Entität muss angegeben werden und optional der Name des Objekts.
 Mit dieser Methode können nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es darf nicht mehr als einen Status oder ein Attribut haben.
 
 ## Panels
@@ -82,8 +82,8 @@ oder Sie verwenden dafür einfach `lovelace.X.control.alarm (entity_id = alarm_c
 
 ### Zahleneingabe
 Dies kann manuell erfolgen, wenn der Entitätstyp „input_number“ im benutzerdefinierten Dialogfeld ausgewählt ist.
-Für diesen Typ waren die Werte `min` und `max` in `common` erforderlich und optional konnten `step` hinzugefügt werden.
-Wenn Sie die Auf- und Ab-Pfeile sehen möchten, sollten Sie in benutzerdefinierten `mode` auf „Nummer“ setzen:
+Für diesen Typ sind die Werte `min` und `max` in `common` erforderlich und optional können `step` hinzugefügt werden.
+Wenn Sie die Aufwärts- und Abwärtspfeile sehen möchten, sollten Sie in benutzerdefinierten `mode` auf „Nummer“ setzen:
 
 ```
 common: {
@@ -99,8 +99,8 @@ common: {
 ```
 
 ### Eingang auswählen
-Dies kann manuell erfolgen, wenn der Entitätstyp „input_select“ im benutzerdefinierten Dialogfeld ausgewählt ist.
-Die Liste der Optionen zur Auswahl sollte im Standardobjekt „comm.states“ bereitgestellt werden:
+Dies kann manuell erfolgen, wenn der Entitätstyp `input_select` im benutzerdefinierten Dialog ausgewählt ist.
+Die Liste der Optionen zur Auswahl sollte in einem Standardobjekt `common.states` bereitgestellt werden:
 
 ```
 "common": {
@@ -119,7 +119,7 @@ Die Liste der Optionen zur Auswahl sollte im Standardobjekt „comm.states“ be
     }
 ```
 
-Mit anderen Worten, in sollte auch die Eingabeauswahl in IoB erfolgen.
+Mit anderen Worten, es sollte auch eine ausgewählte Eingabe in IoB geben.
 
 ### Timer
 Der Timer könnte durch das folgende Skript simuliert werden:
@@ -206,12 +206,12 @@ createState(
 ```
 
 ### Wetter
-Getestet mit Jahr und Daswetter. Für eines oder mehrere der folgenden Objekte müssen `Function=Weather` und `Room=Any` festgelegt sein, damit sie in der Konfiguration verfügbar sind:
+Getestet mit `yr` und `daswetter`. Für eines oder mehrere der folgenden Objekte müssen `Function=Weather` und `Room=Any` festgelegt sein, damit sie in der Konfiguration verfügbar sind:
 
-- daswetter.0.NextDays.Location_1
-- Jahr 0.Prognose
+- `daswetter.0.NextDays.Location_1`
+- `yr.0.forecast`
 
-Getestet mit AccuWeather-Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Getestet mit `AccuWeather` Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
 Benutzerdefinierte Lovelace-Karte zur Unterstützung der Accuweather-Vorhersage – https://github.com/algar42/IoB.lovelace.accuweather-card
 
 ### Einkaufsliste
@@ -263,7 +263,7 @@ createState('location.latitude', 39.5681295, false, {
 });
 ```
 
-### Bildelement
+### Bildobjekt
 Sie können dafür ein statisches Bild verwenden oder einen beliebigen Staat verwenden, der eine URL als Staat liefert.
 Z.B.:
 
@@ -287,7 +287,7 @@ Oder setzen Sie den Entitätstyp einfach manuell auf `camera` und schreiben Sie 
 ### Abschlag
 Sie können Bindungen im Markdown wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwenden.
 
-Z.B. Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` erzeugt Text `Admin adapter is alive` im Markdown-Panel.
+Beispielsweise erzeugt Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` den Text `Admin adapter is alive` in einem Markdown-Panel.
 
 ## Benutzerdefinierte Karten
 ### Hochladen benutzerdefinierter Karten
@@ -295,22 +295,22 @@ Um die benutzerdefinierte Karte hochzuladen, schreiben Sie Folgendes:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
-Nach dem Neustart des Lovelace-Adapters werden alle Dateien aus dem `cards`-Verzeichnis automatisch eingebunden.
+Nach dem Neustart des Lovelace-Adapters werden alle Dateien aus dem Verzeichnis `cards` automatisch eingebunden.
 
-Folgende benutzerdefinierte Karten konnten erfolgreich getestet werden:
+Folgende Custom-Karten konnten erfolgreich getestet werden:
 
-- Bignumber-Karte: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- simple-thermostat: https://github.com/nervetattoo/simple-thermostat/releases (nehmen Sie die neueste Version)
-- Thermostat: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (beide Dateien .js und .lib.js sind erforderlich)
+- „bignumber-card“: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
+- „simple-thermostat“: https://github.com/nervetattoo/simple-thermostat/releases (nehmen Sie die neueste Version)
+- „Thermostat“: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (beide Dateien .js und .lib.js sind erforderlich)
 
 Ich habe diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten gefunden.
 
-Oft sind die benutzerdefinierten Karten als Quellen auf Github gespeichert und müssen vor der Verwendung kompiliert werden.
-Sie sollten das `Releases`-Menü auf Github überprüfen und versuchen, dort kompilierte Dateien zu finden.
+Oft sind die benutzerdefinierten Karten auf GitHub als Quellen gespeichert und müssen vor der Verwendung kompiliert werden.
+Sie sollten das Menü `Releases` auf GitHub überprüfen und versuchen, dort kompilierte Dateien zu finden.
 Wie dieser: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
 
 ## Eigene Bilder
-Die benutzerdefinierten Bilder (z. B. für den Hintergrund) können über denselben Konfigurationsdialog geladen werden wie die benutzerdefinierten Karten. Und verwenden Sie es so:
+Die benutzerdefinierten Bilder (z. B. für einen Hintergrund) können über denselben Konfigurationsdialog geladen werden wie die benutzerdefinierten Karten. Und verwenden Sie es so:
 
 `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
@@ -318,7 +318,7 @@ oder
 
 `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in Lovelace [Hier](https://www.home-assistant.io/lovelace/views/#background).
+in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über die Hintergründe in lovelace [Hier](https://www.home-assistant.io/lovelace/views/#background).
 
 ## Themen
 Die Themes können im Konfigurationsdialog von ioBroker definiert werden.
@@ -395,7 +395,7 @@ midnight:
 entnommen aus [Hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
 ## Symbole
-Verwenden Sie Symbole in der Form `mdi:NAME`, wie „mdi:play-network“. Namen können hier entnommen werden: https://materialdesignicons.com/
+Verwenden Sie Symbole in der Form `mdi:NAME`, wie `mdi:play-network`. Namen können hier entnommen werden: https://materialdesignicons.com/
 
 ## Benachrichtigungen
 Sie können Benachrichtigungen über die `sendTo`-Funktionalität hinzufügen oder indem Sie den Status in `lovelace.X.notifications.add` schreiben:
@@ -429,7 +429,7 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 
 ## Fehlerbehebung
 Wenn Sie den YAML-Code durcheinander gebracht haben und eine leere Seite sehen, aber immer noch das obere Menü haben, können Sie den Bearbeitungsmodus (falls nicht bereits aktiviert) über das Menü aktivieren und dann das Menü erneut öffnen, um auf den „RAW Yaml Editor“ zuzugreifen, in dem Sie sich befinden Sehen Sie sich den vollständigen YAML-Code an und können Sie ihn bereinigen.
-Wenn das nicht hilft, können Sie das Objekt lovelace.*.configuration im Raw-Editor in ioBroker öffnen und dort nachschauen.
+Wenn das nicht hilft, können Sie das Objekt `lovelace.*.configuration` im Raw-Editor in ioBroker öffnen und dort nachschauen.
 Sie können dieses Objekt auch aus einer Sicherung wiederherstellen. Es enthält die komplette Konfiguration Ihrer Visualisierung.
 
 ## Originalquellen für Lovelace
@@ -443,7 +443,7 @@ Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übern
 Verwendete Version von home-assistant-frontend@20231208.2 Version von Browser Mod: 2.3.0
 
 ### So erstellen Sie die neue Lovelace-Version
-Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden. **iob*** Zweig!).
+Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Dev-Zweig) **manuell** in https://github.com/GermanBluefox/home-assistant-polymer.git zusammengeführt werden ( ***iob*** Zweig!).
 
 Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
 Derzeit (20231208.2) wurden folgende Dateien geändert:
@@ -460,7 +460,7 @@ Derzeit (20231208.2) wurden folgende Dateien geändert:
 - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` – Unterstützung für die Anzeige des Wettersymbols aus der URL hinzufügen.
 - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` – Unterstützung für die Anzeige des Wettersymbols von der URL mit Authentifizierung hinzufügen.
 - `src/panels/lovelace/hui-root.ts` – Benachrichtigungen und Sprachsteuerung hinzugefügt
-- `src/util/documentation-url.ts` – für Link zur iobroker-Hilfe anstelle von homeassistant.
+- `src/util/documentation-url.ts` – für Link zur iobroker-Hilfe anstelle von Home Assistant.
 - „.gitignore“ – „.idea“ hinzufügen, ignorieren
 - „.husky/pre-commit“ – Git-Commit-Hooks entfernen.
 - „package.json“ – Husky-Commit-Hook entfernen
@@ -475,40 +475,37 @@ Danach die geänderte Version im Ordner `./build` auschecken. Dann.
 6. „gulp build-app“ für die Veröffentlichung oder „gulp Develop-iob“ für die Debug-Version. Um das Web nach Änderungen zu erstellen, können Sie „webpack-dev-app“ aufrufen, um die Erstellung zu beschleunigen. Sie müssen jedoch „build-app“ trotzdem aufrufen, nachdem die Version einsatzbereit ist.
 7. Kopieren Sie alle Dateien von „./build/home-assistant-polymer/hass_frontend“ nach „./hass_frontend“ in diesem Repo
 8. Führen Sie die Aufgabe „gulp rename“ mehrmals aus (bis keine Änderungen auftreten).
-9. Aktualisieren Sie die Version in der Readme-Datei und auch in der VERSION-Konstante von server.js.
+9. Aktualisieren Sie die Version in „README.md“ und auch in „server.js“ die Konstante „VERSION“.
 
 ## Changelog
 
 <!--
-	PLACEHOLDER for next version:
+	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (Garfonso) brought back shopping list. Now also supports shopping/todo lists from manual entities.
-* (Garfonso) fix: browser console errors
-* (Garfonso) fix: sane error message if authentication failed
-* (Garfonso) added: user images on login screen
+### 4.1.4 (2024-02-10)
+* (Garfonso) improved fix: lamp icons now turn gray on switch off.
 
-### 4.0.9 (2023-12-12)
-* (Garfonso) fixed: timestamp in legacy history data
+### 4.1.3 (2024-02-10)
+* (Garfonso) prevent warning for browser_mod/recall_id service call
+* (Garfonso) fix: lamp icons now turn gray on switch off.
+* (Garfonso) fix: notifications via sendTo work again.
 
-### 4.0.8 (2023-12-12)
-* (Garfonso) re-add legacy history for custom cards
+### 4.1.2 (2024-01-09)
+* (Garfonso) fix: time in timestamp display
 
-### 4.0.7 (2023-12-12)
-* (Garfonso) history should be working again.
+### 4.1.1 (2024-01-02)
+* (Garfonso) changed: determining user id
+* (Garfosno) changed: history attributes handling
+* (Garfonso) added: handle browser_mod/recall_id service call.
+* (Garfonso) changed: all states are strings (fixes #483)
 
-### 4.0.6 (2023-12-09)
-* (Garfonso) fixed: thermostat card for thermostats without mode / off state
-* (Garfonso) fixed: history and history graph missing for some stuff
-
-### 4.0.5 (2023-12-09)
-* (Garfonso) revert shopping list
-* (Garfonso) prevent invalid date error
+### 4.1.0 (2023-12-18)
+* (Garfons) add an option to show users on login screen (off by default)
 
 ## License
 
-Copyright 2019-2023, bluefox <dogafox@gmail.com>
+Copyright 2019-2024, bluefox <dogafox@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

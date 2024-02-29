@@ -10,14 +10,22 @@
 
 **Tests:** ![Test and Release](https://github.com/bolliy/ioBroker.sun2000/workflows/Test%20and%20Release/badge.svg)
 
+**This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**\
+For more details and for information how to disable the error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)!\
+Sentry reporting is used starting with js-controller 3.0.
+
 ## sun2000 adapter for ioBroker
 
 Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP. 
 
 Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-Modbus interface definition (Issue 5, 2023-02-16):
+inverter modbus interface definition (Issue 5, 2023-02-16):
 https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+
+SdongleA modbus interface definition (Issue 2, 2023-04-20):
+https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions 
+
 
 ## Supported hardware
 
@@ -34,8 +42,9 @@ https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-mod
 * Real-time values such as input power, output power, charging/discharging power and the grid consumption are read out at a fixed interval. 
 * States are only written for changed data from the inverter. This relieves the burden on the iobroker instance.
 * The states “inputPower” or “activePower” in the “collected” path can be monitored with a “was updated” trigger element. Because these states are always written within the set interval.
+* modbus-proxy: Third party device such as wallbox, energy manager etc. can receive data even if the modbus interface of inverter is already in use. In addition you can mirror the sun2000 data to another IoBroker instance.
 
-## Main Settings
+## Main settings
 * `address`: Inverter IP address
 * `port`: Inverter modbus port (default: 502)
 * `modbusIds`: inverter IDs, separated with "," (default: 1, max. 5 inverters)
@@ -45,6 +54,11 @@ https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-mod
 * `delay`: delay between modbus requests (default: 0 ms)
 * `connect delay`: delay after modbus connected (default: 5000 ms)
 * `auto-adjust`: automatic adjustment of the modbus settings
+## Modbus-proxy
+* `active`: activate the mobus-proxy service (default: false)
+* `ip address`: Modbus-proxy IP address (usually: 0.0.0.0)
+* `TCP port`: Modbus-proxy TCP port (usually: 502)
+* `SDongle modbus ID`: The SDongle modbus ID (usually: 100), is required for the virtual meter
 
 ## Configure inverters
 
@@ -72,6 +86,15 @@ The development of this adapter was inspired by discussions from the forum threa
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+**WORK IN PROGRESS**
+* detect standby mode of inverters (#34)
+* devices in standby often give incorrect values. These are assigned "0" (#40)
+* the modbus register and the length are stored in the description of the states
+* implemented modbus-proxy (read-only cache)
+* read register data from SDongleA 
+* register for 
+
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: hHFeHU9GvNtSGFJipXgtZqVMDCH/HirY+dNH51/bxwg=
+hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -27,7 +27,7 @@ Anmerkungen:
 
 2. Es ist möglich, das Ausgabelimit mit dem im Unterordner „productId/deviceKey/control“ erstellten Status zu steuern. Bitte alle Modi in der Zendure-App deaktivieren/deaktivieren, sonst ist es nicht möglich, das Ausgabelimit festzulegen!
 
-    ![Fenster „Solarflow-Einstellungen“.](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
+   ![Fenster „Solarflow-Einstellungen“.](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
 3. Nach der Anmeldung mit dem ioBroker-Adapter werden Sie von der offiziellen iOS- oder Android-App abgemeldet. Dies ist ein normales Verhalten. Als Workaround können Sie ein zweites Zendure-Konto mit einer anderen E-Mail-Adresse erstellen und diesem Konto Zugriff auf Ihren Solarflow HUB gewähren. Dann verwenden Sie das zweite Konto für ioBroker / den Zendure Solarflow-Adapter.
 
@@ -38,14 +38,27 @@ Der Dank geht an https://github.com/reinhard-brandstaedter/solarflow, was mir be
 Wenn Sie den Adapter nützlich für sich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Danke schön! (Dies ist ein persönlicher Spendenlink für Nograx, der in keiner Verbindung zum ioBroker-Projekt steht!)<br />
 
 ## Changelog
+### 1.1.4 (2024-02-28)
+
+- Fix timeout issues
+
+### 1.1.0 (2024-02-27)
+
+- Switched solar input 1 und 2 to adjust the behavior like the offical app
+- Added Calculations folder, remaining charge and discharge time is now available as formatted time
+- Added a note in the settings that this adapter only works with the global server
+
 ### 1.0.7 (2024-01-16)
+
 - Add control for charge and discharge limit
 - Update Readme Screenshot
 
 ### 1.0.6 (2024-01-16)
+
 - Update Readme
 
 ### 1.0.5 (2024-01-15)
+
 - Added state for both Solarflow PV inputs
 
 ### 1.0.4 (2023-12-16)

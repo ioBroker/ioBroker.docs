@@ -168,6 +168,9 @@ The pictures of the SureFlap® devices are provided free to use from [Sure Petca
 
 ## Changelog
 
+### 2.1.1 (2024-02-25)
+* (Sickboy78) bugfix for outside times not beeing shown
+
 ### 2.1.0 (2024-02-20)
 * (Scrounger) option to enable history data
 * (Sickboy78) added number of history entries to configuration

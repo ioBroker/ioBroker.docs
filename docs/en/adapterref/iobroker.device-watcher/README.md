@@ -28,10 +28,11 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 2.10.4 (2024-02-26)
 
 -   (ciddi89) Added: Option to set language for messages and tables
+-   (ciddi89) Fixed [#312](https://github.com/ciddi89/ioBroker.device-watcher/issues/312): Schedule messages were not emptied after they were sent
+-   (ciddi89) Fixed: Too many messages were sent about online / offline devices when an instance was started or ended
 
 ### 2.10.3 (2024-01-27)
 

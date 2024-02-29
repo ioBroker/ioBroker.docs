@@ -282,6 +282,12 @@ When the adapter crashes or an other Code error happens, this error message that
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* (René) see issue #492: cron jobs recalculation is necessary after reboot if VacationAtHome and PublicHoliday is active
+* (René) create cron job for PowerInterruption only if feature is active
+* (René) bug fix: with cron 3.x status log of cron jobs were wrong
+
 ### 2.12.4 (2024-02-11)
 * (René) dependencies updated
 * (Marc-Berg) update readme "temperature decrease / increase"
