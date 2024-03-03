@@ -18,16 +18,40 @@ lastChanged: "29.02.2024"
 
 
 
-## ioBroker - Automate your life
+## Mach Dein Leben leichter: Smart Home
 
-ioBroker ist eine Softwarelösung zur Automatisierung deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
-ioBroker Insellösungen bleiben würden, anzubinden und so übergreifend zu steuern.
+Wäre es nicht bequem, wenn man Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten zentral an einer Stelle ablesen könnte? 
+Wenn man nicht daran denken müsste, Geräte bei Erreichen bestimmter Bedingungen oder Zuständen ein- oder auszuschalten? 
 
-ioBroker ist daher **die** Integrationsplattform für das Internet der Dinge und ermöglicht die Einbindung von kommerziellen Produkten aus fast allen Lebensbereiche oder die Integration einer selbst erstellten Lösung.
+Diese Bequemlichkeit kann ein Smart Home - ein schlaues, intelligentes Haus - bieten. Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf all diese Dinge auch aus der Ferne zugreifen zu können.
 
-Das ioBroker-System ist modular aufgebaut und kann durch die Installation von einzelnen [Adaptern](https://www.iobroker.net/#de/adapters/adapters.md) um die individuellen Wünsche erweitert werden. 
+
+### Die Lösung: ioBroker
+
+**ioBroker** ist eine Softwarelösung zur Automatisierung Deines Heims. Es erlaubt verschiedenste Smarthome-Systeme, die ohne
+ioBroker Insellösungen bleiben würden, einzubinden und so übergreifend zu steuern.
+
+**ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten aus fast allen Lebensbereiche oder auch die Integration von selbst erstellten Lösungen.
+
+Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Adaptern um die individuellen Wünsche erweitert werden. 
 
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
+
+#### Was sind Adapter? 
+
+Adapter können Softwaremodule (kleine Programme) sein, welche für bestimmte Geräte, Gerätetypen oder Geräte bestimmter Hersteller programmiert wurden. Die Adapter stellen die Verbindung zwischen den physischen Geräten (z. B. Steckdosen mit Schaltfunktion, Relais, Fernthermometern, u.ä.) und dem zentralen ioBroker-System her. Sie können die von den Geräten gemessenen Werte auslesen und diese Geräte steuern. Oft geschieht das über WLAN im eigenen Heimnetz. 
+
+Andere Adapter dienen dazu, Messwerte (z. B. Temperatur, Leistung, Verbrauchswerte oder Schaltzustände) graphisch in Diagrammen darzustellen (zu visualisieren). Adapter zur Visualisierung bieten aber auch noch viele andere Möglichkeiten, wie das Einbinden von Bildern (z. B. von Überwachungskammeras), Wetterdaten und vielem mehr.
+
+Darüber hinaus gibt es noch Adpter, deren Aufgabe es ist, die Möglichkeit mathematischer Berechnungen oder logischer Operationen (Vergleiche) bereitzustellen. Sie können auch dazu dienen, kleine Programme zu erstellen und die für die Automatisierung erforderlichen Regeln zu definieren.
+
+**Tipp:**
+ [Übersicht verfügbaren Adapter](https://www.iobroker.net/#de/adapters/adapters.md) 
+
+
+
+
+
 
 
 ### ioBroker verbindet unterschiedlichste Smarthomesysteme
