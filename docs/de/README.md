@@ -35,7 +35,7 @@ ioBroker Insellösungen bleiben würden, einzubinden und so übergreifend zu ste
 
 Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, um die individuellen Wünsche erweitert werden. 
 
-Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
+Weit über 600 Adapter realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
 #### Was sind Adapter? 
 
