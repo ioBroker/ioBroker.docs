@@ -33,7 +33,7 @@ ioBroker Insellösungen bleiben würden, einzubinden und so übergreifend zu ste
 
 **ioBroker** ist daher **die** Integrationsplattform für das Internet der Dinge (IoT) und ermöglicht die Einbindung von freien und kommerziellen Produkten aus fast allen Lebensbereiche oder auch die Integration von selbst erstellten Lösungen.
 
-Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Adaptern um die individuellen Wünsche erweitert werden. 
+Das **ioBroker-System** ist modular aufgebaut und kann durch die Installation von einzelnen Plugins, bei uns Adaptern genannt, um die individuellen Wünsche erweitert werden. 
 
 Über 450 Adaptern realisieren die Einbindung von verschiedenen Plattformen, Systemen und Geräten von A wie Alexa bis Z wie Zigbee und viele weitere Möglichkeiten zur Automatisierung.
 
