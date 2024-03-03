@@ -20,7 +20,7 @@ lastChanged: "29.02.2024"
 
 ## Mach Dein Leben leichter: Smart Home
 
-Wäre es nicht bequem, wenn man Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten zentral an einer Stelle ablesen könnte? 
+Wäre es nicht bequem, wenn man Temperaturen, Verbrauchswerte oder Schaltzustände von Geräten verschiedenster Hersteller zentral an einer Stelle ablesen könnte? 
 Wenn man nicht daran denken müsste, Geräte bei Erreichen bestimmter Bedingungen oder Zuständen ein- oder auszuschalten? 
 
 Diese Bequemlichkeit kann ein Smart Home - ein schlaues, intelligentes Haus - bieten. Und es bietet auf Wunsch noch mehr: Automatisierung und die Möglichkeit, auf all diese Dinge auch aus der Ferne zugreifen zu können.
