@@ -58,9 +58,10 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 ## Stärken von ioBroker
 
 ### Plattformunabhängig
-ioBroker kann auf fast allen Hardwareplattformen (Einplatinencomputer wie ein Raspberry Pi, Server, NAS, Server mit Virtualisierungsumgebungen wie z.B. Proxmox, Desktopcomputer, ...) wo ein Linux, OSX, Windows, Docker läuft  installiert werden. 
 
-Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermögicht unter Linux eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
+ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als **Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit Virtualisierungsumgebungen (wie z.B. Proxmox, Desktopcomputer, o.ä.).
+
+Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
 
 
 ### Skalierbar
