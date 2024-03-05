@@ -61,7 +61,7 @@ Durch Nutzung der Logikbausteine (Adapter Logikprogrammierung) in ioBroker kann 
 
 ioBroker kann auf fast allen Hardwareplattformen installiert werden, auf denen als **Betriebssystem Linux, OSX, Windows oder Docker** läuft. Möglich sind somit Einplatinencomputer (wie der Raspberry Pi), Server, NAS oder Server mit Virtualisierungsumgebungen (wie z.B. Proxmox, Desktopcomputer, o.ä.).
 
-Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermöglicht unter Linux eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
+Eine einfache Installationsroutine aus einer einzigen Zeile (one-line installer) ermöglicht unter Linux und OSX eine anwenderfreundliche Installation und somit einen schnellen Einstieg in ioBroker.
 
 
 ### Skalierbar
