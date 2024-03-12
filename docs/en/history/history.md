@@ -365,3 +365,10 @@ https://github.com/nobl/ioBroker.senec
 
 Initially targeted at the Senec Home V2.1 System. In the Senec.Home system, only selected values can be changed by the adapter. Senec currently also no longer provides a reliable way to influence peak shaving via the web interface. Whether other systems (e.g. V3) also work with it depends on whether they are also based on lala.cgi and provide the same JSON information.
 
+## energiefluss-erweitert (11.3.2024) – new adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
+
+<img src="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/admin/energiefluss-erweitert.png" width="100" height="100" />
+
+Adapter provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
+
