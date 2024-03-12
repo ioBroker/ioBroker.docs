@@ -120,7 +120,9 @@ Im Anschluss wird das Passwort des root-Users eingegeben. Ebenso wird hier eine 
    
 </details>
 
-Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-Einstellungen. Hier ist eine statische IP-Adresse anzugeben (kein DHCP). Dazu zählt die IP-Adresse selbst (als CIDR-Notation), die Gateway-IP (normalerweise die IP-Adresse des Routers) und der zu verwendende DNS-Server (im privaten Umfeld meist auch die IP-Adresse des Routers). Proxmox erkennt meist das Netzwerk automatisch.
+Der nächste Schritt des Installers beschäftigt sich mit den Netzwerk-Einstellungen. Zur Auswahl steht die jeweilige Schnittstelle. Hostname kann frei gewählt werden, jedoch muss die DNS-Domane mit angegeben werden.
+Als Beispiel für Fritzbox User, wäre es `hostname.fritz.box`.
+Bei IP Adress ist vorzugsweise eine statische IP-Adresse anzugeben (kein DHCP). Dazu zählt die IP-Adresse selbst (als CIDR-Notation), die Gateway-IP (normalerweise die IP-Adresse des Routers) und der zu verwendende DNS-Server (im privaten Umfeld meist auch die IP-Adresse des Routers). Proxmox erkennt meist das Netzwerk automatisch.
 
 <details>
 <summary>Netzwerk</summary>
