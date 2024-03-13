@@ -11,7 +11,7 @@ Installationsschritte durchführt und evtl. noch erforderliche Softwarepakete na
 
 
 ## Voraussetzungen prüfen
-Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./#de/documentation/install/requirements.md) erfüllt.
 
 ## Wichtige Punkte die beachtet werden müssen
 
@@ -61,7 +61,7 @@ ioBroker kann nun über die angegebene IP im Webbrowser aufgerufen werden ``http
 
 # ioBroker Installation unter Docker
 ## Voraussetzungen prüfen
-Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./requirements.md) erfüllt.
+Vor der Installation prüfe bitte, ob das System alle notwendigen [Installationsvoraussetzungen](./#de/documentation/instal/requirements.md) erfüllt.
 
 
 ## Installation
