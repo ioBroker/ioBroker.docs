@@ -39,6 +39,8 @@ Anleitung zur Installation von ioBroker auf einem Raspberry Pi: https://forum.io
 * ioBroker mit dem Befehl ``curl -sLf https://iobroker.net/install.sh | bash -`` installieren.
 
   Es wird das Installationsskript ausgeführt. Je nach Hardware kann die Installation etwas Zeit in Anspruch nehmen.
+
+  Sollte ``curl`` fehlen, kann das Paket einfach nachinstalliert werden: ``sudo apt install curl``.
   
   Die Installation erfolgt in 4 Schritten welche in der Konsole zu sehen sind:
 
