@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
+hash: 1tLigQCuJjyIBYpbV4G2dctn1/paWoc04h7qHfJK/80=
 ---
 ![标识](../../../de/admin/awtrix-light.png)
 
@@ -26,12 +26,12 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 -nodejs 14.5（或更高版本）
 - js-controller 4.0.15（或更高版本）
 - 管理适配器 6.6.0（或更高版本）
-- 固件版本为 _0.94_（或更高版本）的 _Awtrix Light_ 设备 - 例如 Ulanzi TC001
+- 固件版本为 _0.96_（或更高版本）的 _Awtrix 3_ 设备 - 例如 Ulanzi TC001
 
 在此购买：[Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) 或这里：[ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001)（附属链接）
 
 ＃＃ 第一步
-1. 将固件刷新到设备并通过 WiFi 将其添加到本地网络 - 请参阅[文档](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. 将固件刷新到设备并通过 WiFi 将其添加到本地网络 - 请参阅[文档](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. 在ioBroker中安装awtrix-light适配器（并创建一个新实例）
 3.打开实例配置并存储设备在本地网络中的IP地址
 
@@ -46,15 +46,15 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 
 **如何切换到最新固件版本？**
 
-只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix-light/#/onscreen) 导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
+只需使用 [设备上的菜单](https://blueforcer.github.io/awtrix3/#/onscreen) 即可导航至点 `update`。然后手表会自行完成剩下的工作，无需再次使用网络刷新器（除非固件更新明确要求这样做）。
 
 **充电时设备会变热。**
 
-不幸的是，硬件设计并不是最佳的。建议使用可提供最大 1A 电流的最弱电源。
+不幸的是，硬件设计并不是最佳的。建议使用尽可能弱的电源，最大可提供 1A 的电流。
 
 **您可以从设备中取出电池吗？**
 
-是的，有这个选项。但该设备必须用热风干燥机才能打开，因为前窗是粘着的。您还需要 [焊料降压转换器](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765) 才能使一切正常工作。
+是的，有这个选项。但该设备必须用热风干燥机才能打开，因为前窗是粘着的。您还需要 [焊料降压转换器](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765) 才能使一切正常工作。
 
 **是否可以对设备上的应用程序进行不同的排序？**
 
@@ -80,14 +80,20 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 
 当使用 `hold: true` 选项发送通知时，显示屏上的文本将一直保留，直到通知被确认为止。这可以通过使用设备上的中间按钮或通过将状态`notification.dismiss`设置为`true`来实现。
 
+**某些状态更改不会立即显示。**
+
+如果状态更改非常频繁（例如每秒），则某些更改将被忽略并且不会传输，以保持设备上的负载较低。每个应用程序都有自己的“阻止时间”，可以在实例设置中全局配置。默认时间为 3 秒。不建议设置小于3的值。
+
 ## 多个设备上的相同应用程序
-如果要使用相同的应用程序控制多个 awtrix-light 设备，则必须为每个设备创建一个单独的实例。但是，您可以在其他设备的实例设置中指定应用程序应从另一个实例接管。
+如果要使用相同的应用程序控制多个 awtrix-light 设备，**必须为每个设备创建一个单独的实例。**但是，您可以在其他设备的实例设置中指定应接管应用程序来自另一个实例。
 
 例子
 
 1. 在`awtrix-light.0`实例中配置所有所需的应用程序
 2. 为第二个设备创建另一个实例 (`awtrix-light.1`)
 3. 在`awtrix-light.1`的实例设置中选择`awtrix-light.0`以在第二个设备上显示相同的应用程序
+
+自版本 0.15.0（及更高版本）以来，应用程序和专家应用程序的所有内容的可见性也会传输到复制应用程序设置的其他设备。例如，在上面的示例中，一旦主实例`awtrix-light.0`中的应用程序的可见性发生更改，实例`awtrix-light.1`的应用程序也会被隐藏。这同样适用于专家应用程序的所有内容。
 
 ## Blockly 和 JavaScript
 `sendTo` /消息框可用于
@@ -99,14 +105,14 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 向设备发送一次性通知：
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-消息对象支持固件中可用的所有选项。有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties)。
+消息对象支持固件中可用的所有选项。有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix3/#/api?id=json-properties)。
 
 *Blockly 块也可用于创建通知（此处并未提供所有可用选项）。*
 
@@ -114,21 +120,21 @@ sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repea
 要播放（之前创建的）声音文件：
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-消息对象支持固件中可用的所有选项。有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback)。
+消息对象支持固件中可用的所有选项。有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback)。
 
 *可以使用 Blockly 块来使此调用更易于使用。*
 
 要播放您自己的铃声：
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -178,37 +184,40 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 示例：[天气应用程序](weather-app.md)
 
 ## 隐藏本机应用程序
-要隐藏设备上的默认应用程序（例如温度或湿度）：使用设备本身上的菜单！有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix-light/#/onscreen)。
+要隐藏设备上的默认应用程序（例如温度或湿度）：使用设备本身上的菜单！有关详细信息，请参阅[文档](https://blueforcer.github.io/awtrix3/#/onscreen)。
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.13.1 (2024-01-25)
+### **WORK IN PROGRESS**
 
-* (klein0r) Fixed hold option in blockly
+Updated recommended firmware version to 0.96
 
-### 0.13.0 (2024-01-25)
+### 0.16.0 (2024-03-12)
 
-* (klein0r) Added state for text color and background color in expert apps
-* (klein0r) Avoid app refresh when no values have been changed
+Updated recommended firmware version to 0.95
 
-### 0.12.0 (2024-01-24)
+* (klein0r) Added notification for firmware update
+* (klein0r) Added setting state for volume
+* (klein0r) Rebranding Awtrix Light to Awtrix 3
 
-* (klein0r) Added hold option to blockly
-* (klein0r) Added state to dismiss notifications
+### 0.15.1 (2024-03-12)
 
-### 0.11.0 (2024-01-09)
+* (klein0r) Fixed default values of color states
 
-Updated recommended firmware version to 0.94
+### 0.15.0 (2024-03-06)
 
-* (klein0r) Added bar graph to history apps
-* (klein0r) Added aggregation for history apps
+* (klein0r) Keep apps contents in sync
 
-### 0.10.2 (2023-12-14)
+### 0.14.1 (2024-03-06)
 
-* (klein0r) Removed callbacks in blockly code to prevent timeouts
+* (klein0r) Fixed roles of calendar header, body and text (rgb)
+
+### 0.14.0 (2024-02-20)
+
+* (klein0r) Allow to round numbers dynamically (depends on length)
 
 ## License
 MIT License

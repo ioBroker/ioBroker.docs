@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
+hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 ---
 ![Logo](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -67,6 +67,15 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2024-03-09)
+* improve km200 data read to avoid errors
+
+### 3.0.2 (2024-03-02)
+* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+
+### 3.0.1 (2024-02-25)
+* change KM200 error messages for recordings
+
 ### 3.0.0 (2024-02-17)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
@@ -79,23 +88,6 @@ Deutsches ioBroker-Forum: https://forum.iobroker.net/topic/45862/neuer-adapter-e
 ### 3.0.0-alpha.2 (2024-02-16)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
-
-### 3.0.0-alpha.1 (2024-02-15)
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
-
-### 3.0.0-alpha.0 (2024-02-05)
-* Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* Implement raw telegram search for EMS+ entities and create writable objects / states
-* The search is only active when no km200 gateway is selected
-
-### 2.8.0 (2024-02-04)
-* influxdb adapter version >= 4.0.2 required 
-* store km200 recordings only within defined retention period for influxdb
-* delay start of statistics by 5 minutes
 
 ## License
 MIT License

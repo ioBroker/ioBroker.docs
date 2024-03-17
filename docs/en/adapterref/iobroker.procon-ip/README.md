@@ -8,19 +8,18 @@
 [![Test and Release](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml/badge.svg)](https://github.com/ylabonte/ioBroker.procon-ip/actions/workflows/test-and-release.yml)
 [![Known Vulnerabilities](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip/badge.svg)](https://snyk.io/test/github/ylabonte/ioBroker.procon-ip)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.procon-ip.svg)
-[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=flat)](https://www.buymeacoffee.com/ylabonte)
 
-ioBroker adapter for basic support of the ProCon.IP swimming pool control
-unit. It is intended for integration with your ioBroker home automation, eg.
-to build logic that involves other devices or simply to be paired with your
-favorite voice assistant(s):
+ioBroker adapter for the Pool Digital ProCon.IP swimming pool controller.
+It is intended for integration with your ioBroker home automation, eg.
+to build logic that involves other devices or to be paired with your favorite 
+voice assistant(s):
 * You can use the [_cloud_](https://github.com/ioBroker/ioBroker.cloud) or
   [_IoT_](https://github.com/ioBroker/ioBroker.iot) adapter for Alexa
   (and also Google Home, I think) and
-* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) as bridge to the
-  Apple HomeKit to be reached by Siri or
-* use the [_javascript_](https://github.com/ioBroker/ioBroker.javascript) to
-  build your own custom logic.
+* [_yahka_](https://github.com/jensweigele/ioBroker.yahka) adapter as bridge to
+  the Apple HomeKit to be reached by Siri or
+* use the [_javascript_](https://github.com/ioBroker/ioBroker.javascript) 
+  adapter to build your own custom logic.
 
 See the [wiki](https://github.com/ylabonte/ioBroker.procon-ip/wiki) for more
 information.
@@ -63,15 +62,12 @@ relays.
 
 ### Compatibility
 For now the adapter has been tested and developed in combination with the
-ProCon.IP firmware **revision 1.7.6.a**.
-
-## Roadmap
-There is nothing special on the plan. You can create an issue to suggest new
-features/functionality...
+ProCon.IP firmware **revision 1.7.6.a**. But it should work with any prior
+newer/upcoming firmware version.
 
 ## Development and participation
-Feel free to contact me, if you wish to participate in development or
-documentation of this adapter.
+Feel free to contact me, if you wish to participate in development, translation
+or documentation of this adapter.
 
 Useful links for the approach will be
 * the [TypeScript adapter template](https://github.com/ioBroker/ioBroker.template/tree/master/TypeScript)
@@ -79,14 +75,16 @@ Useful links for the approach will be
 * the [guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md).
 
 ## Donation
-Feel free. But if you're feeling really patronizing, you could... 😃  
+If you want to support this adapter or say thank you, you can:
+
 [<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 40px !important;width: 144px !important;" >](https://www.buymeacoffee.com/ylabonte)
 
 ## Changelog
 ### 1.5.4 (2024-02-27)
 * Fix the last issues that were reported by the ioBroker adapter checker.  
   (Includes a minor optimization in implementation.) 
-* Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the latest version.
+* Update [procon-ip package](https://github.com/ylabonte/procon-ip) to the 
+  latest version.
 
 ## Changelog
 ### 1.5.3 (2024-02-27)
@@ -165,9 +163,10 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 
 ### 1.0.1 (2020-08-16)
 * Fix Object State updates.
-  For some reason the two js objects used to compare the before and after values
-  of the GetState.csv calls became the same object (before was referencing the
-  new values). That caused the adapter to never update the object states.
+  For some reason the two js objects used to compare the before and after 
+  values of the GetState.csv calls became the same object (before was 
+  referencing the new values). That caused the adapter to never update the
+  object states.
 
 ### 1.0.0 (2020-08-15)
 * Official release in ioBroker adapter repository:  
@@ -226,7 +225,8 @@ Feel free. But if you're feeling really patronizing, you could... 😃
 ### 0.0.1 (2019-07-09)
 * All information from `GetState.csv` as readonly states.
 * Writable states for all relays to toggle auto/manual.
-* Writable states for relays not configured for dosage control to toggle on/off.
+* Writable states for relays not configured for dosage control to toggle 
+  on/off.
 
 ## License
 The MIT License (MIT)

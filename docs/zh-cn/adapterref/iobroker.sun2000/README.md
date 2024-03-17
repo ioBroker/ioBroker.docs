@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
+hash: ck6/uyq141if3CicgGBfW2NdEulsmg4uvfIMeUkOofg=
 ---
 ![标识](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -11,6 +11,7 @@ hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ![下载](https://img.shields.io/npm/dm/iobroker.sun2000.svg)
 ![安装数量](https://iobroker.live/badges/sun2000-installed.svg)
 ![稳定存储库中的当前版本](https://iobroker.live/badges/sun2000-stable.svg)
+![文档](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)
 ![国家公共管理](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)
 
 # IoBroker.sun2000
@@ -21,19 +22,19 @@ hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ## IoBroker 的 sun2000 适配器
 使用Modbus TCP读取华为SUN2000逆变器和LUNA2000电池的寄存器数据。
 
+[华为产品信息](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+
 欢迎关注德语版的讨论[iobroker论坛](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-逆变器modbus接口定义（2023-02-16第5期）：https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
-
-SdongleA modbus接口定义（2023年4月20日第2期）：https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions
+## 文档
+请参阅 [文档页](./docs/README.md) 或在 [维基百科](https://github.com/bolliy/ioBroker.sun2000/wiki) 中浏览
 
 ## 支持的硬件
-* 华为逆变器SUN2000系列（M0、M1）
+* 华为逆变器SUN2000系列（M0、M1、M2及更高版本）
 * 华为智能适配器-WLAN-FE / 分钟。软件版本：V100R001C00SPC133（SDongleA-05）
 * 华为Luna2000电池
 * 华为智能功率传感器DTSU666-H或DDSU666-H
-
-[华为产品信息](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+* 华为智能记录仪/分钟软件版本：V300R023C10SPC311
 
 ## 功能列表
 * 最多可处理 5 个逆变器（主/从），每个逆变器配有一个电池模块（最大 15kWh）。
@@ -41,39 +42,7 @@ SdongleA modbus接口定义（2023年4月20日第2期）：https://photomate.zen
 * 仅针对来自逆变器的更改数据写入状态。这减轻了 iobroker 实例的负担。
 * 可以使用“已更新”触发元素来监视“收集”路径中的“inputPower”或“activePower”状态。因为这些状态总是在设定的时间间隔内写入的。
 * modbus-proxy：即使逆变器的modbus接口已在使用中，第三方设备（例如wallbox、能源管理器等）也可以接收数据。此外，您还可以将 sun2000 数据镜像到另一个 ioBroker 实例。
-
-## 主要设置
-* `address`: 逆变器IP地址
-* `port`：逆变器modbus端口（默认：502）
-* `modbusIds`：逆变器ID，以“,”分隔（默认：1，最多5个逆变器）
-* `updateInterval`: 快速更新间隔（默认：20秒，每个逆变器最小5秒）
-
-## Modbus 时序
-* `timeout`: modbus 连接超时(默认: 10000 ms)
-* `delay`: modbus 请求之间的延迟（默认值：0 ms）
-* `连接延迟`: modbus 连接后的延迟 (默认: 5000 ms)
-* `auto-adjust`: 自动调整modbus设置
-
-## Modbus 代理
-* `active`: 激活mobus-proxy服务(默认: false)
-* `ip 地址`：Modbus 代理 IP 地址（通常：0.0.0.0）
-* `TCP 端口`: Modbus 代理 TCP 端口（通常：502）
-* `SDongle modbus ID`：虚拟电表需要SDongle modbus ID（通常：100）
-
-## 配置逆变器
-为了使用Modbus连接，所有华为设备必须使用最新的固件功能。您可以直接在FusionSolar门户的“升级”下执行最新固件。
-在FusionSolar设置中，您仍然需要激活WLAN加密狗上的Modbus并设置访问授权。将FusionSolar-App下载到手机上，并使用它直接通过逆变器的WLAN热点连接。
-单击页脚菜单中的 `Me` (Ich) > `Commission Device` (“Inbetriebnahme des Geräts”) > `log in` (am Wechselrichter anmelden)。
-
-要以 `installer` 身份登录应用程序，您通常需要密码：`00000a` 或 `0000000a` 您可能还需要密码才能连接到逆变器自己的 WLAN：`Changeme`
-
-登录逆变器后，转至 `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > 激活 `connection without restriction` ( Verbindung uneingeschränkt aktivieren)。您还可以输入Modbus通讯地址同时读出。
-如果您使用两台逆变器，则连接到第二台逆变器并读取那里的通信地址。
-
-[如何激活“Modbus TCP” - 来自华为论坛](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
-
-＃＃ 灵感
-该适配器的开发灵感来自于论坛帖子 https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert 和 iobroker javascript https://github 的讨论。 com/ChrisBCH/SunLuna2000_iobroker.
+* 华为SmartLogger集成：监控和管理光伏发电系统。适配器保存采集到的数据的方式与直接读取逆变器时相同。
 
 ## Changelog
 
@@ -81,14 +50,28 @@ SdongleA modbus接口定义（2023年4月20日第2期）：https://photomate.zen
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2024-03-11)
+* Config page restructured
+* read only the required string data
+* fix interval medium
 
-**WORK IN PROGRESS**
+### 0.5.0 (2024-03-07)
+* Integration of [Huawei SmartLogger](https://support.huawei.com/enterprise/de/doc/EDOC1100130069/d8a00460)
+* some meter states the unit was changed (for example sun2000.0.meter.activePowerL1) (#56)
+* sun2000 serie M2 or higher can also be processed
+
+### 0.4.1 (2024-03-03)
+* read PV string data slower (medium interval)
+
+### 0.4.0 (2024-03-01)
 * detect standby mode of inverters (#34)
 * devices in standby often give incorrect values. These are assigned "0" (#40)
 * the modbus register and the length are stored in the description of the states
 * implemented modbus-proxy (read-only cache)
 * read register data from SDongleA 
-* register for 
+* additional loop interval medium (SDongle data)
+* Integration of [NRGkick Wallbox](https://www.nrgkick.com)
+* read string data faster (high interval)
 
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47

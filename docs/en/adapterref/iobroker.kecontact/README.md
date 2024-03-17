@@ -106,6 +106,9 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 2.1.1 (2024-03-16)
+ * (fischmi) fix error when chanigig dynamic SoC parameter
+
 ### 2.1.0 (2024-01-06)
 * (Sneak-L8) multiple options for battery storage strategy
 * (Sneak-L8) added names for values of some states: state, plug, timeQ and batteryStorageStrategy
@@ -129,9 +132,6 @@ To charge your vehicle with a constant amperage of 6A regardless of surplus, set
 * (Sneak-L8) catch error when requesting firmware page (sentry IOBROKER-KECONTACT-1H)
 * (Sneak-L8) RFID tag and class where not updated in channel "statitics" when no charging sessions were obtained
 * (Sneak-L8) added new Keba model Company Car Wall Box MID (sentry IOBROKER-KECONTACT-1K)
-
-### 1.5.2 (2022-11-02)
-* (Sneak-L8) fix error in release script
 
 ## Legal
 

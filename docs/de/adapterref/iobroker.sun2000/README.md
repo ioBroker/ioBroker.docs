@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000/README.md
 title: ioBroker.sun2000
-hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
+hash: ck6/uyq141if3CicgGBfW2NdEulsmg4uvfIMeUkOofg=
 ---
 ![Logo](../../../en/adapterref/iobroker.sun2000/admin/sun2000.png)
 
@@ -11,6 +11,7 @@ hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000.svg)
 ![Anzahl der Installationen](https://iobroker.live/badges/sun2000-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/sun2000-stable.svg)
+![Dokumentation](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)
 ![NPM](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)
 
 # IoBroker.sun2000
@@ -21,19 +22,19 @@ hash: a3pmSgJgqCKwxvaD23HPvou7PLFe5lcGEv0u2dfoeSw=
 ## Sun2000-Adapter für ioBroker
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
+[Huawei-Produktinformationen](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+
 Verfolgen Sie gerne die Diskussionen im deutschen [iobroker-Forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-Definition der Modbus-Schnittstelle des Wechselrichters (Ausgabe 5, 16.02.2023): https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
-
-SdongleA-Modbus-Schnittstellendefinition (Ausgabe 2, 20.04.2023): https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions
+## Dokumentation
+Sehen Sie sich die [Dokumentationsseite](./docs/README.md) an oder stöbern Sie in den [Wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
 
 ## Unterstützte Hardware
-* HUAWEI Wechselrichter SUN2000 Serie (M0,M1)
+* HUAWEI Wechselrichter SUN2000 Serie (M0, M1, M2 und höher)
 * HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: V100R001C00SPC133 (SDongleA-05)
 * HUAWEI Luna2000-Akku
 * HUAWEI Smart Power Sensor DTSU666-H oder DDSU666-H
-
-[Huawei-Produktinformationen](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+* HUAWEI Smart Logger / min. Softwareversion: V300R023C10SPC311
 
 ## Funktionsliste
 * Es können maximal 5 Wechselrichter (Master/Slave) mit jeweils einem Batteriemodul (max. 15kWh) verarbeitet werden.
@@ -41,39 +42,7 @@ SdongleA-Modbus-Schnittstellendefinition (Ausgabe 2, 20.04.2023): https://photom
 * Zustände werden nur für geänderte Daten vom Wechselrichter geschrieben. Dies entlastet die iobroker-Instanz.
 * Die Zustände „inputPower“ oder „activePower“ im „collected“-Pfad können mit einem „wurde aktualisiert“-Triggerelement überwacht werden. Denn diese Zustände werden immer innerhalb des eingestellten Intervalls geschrieben.
 * Modbus-Proxy: Drittgeräte wie Wallbox, Energiemanager etc. können Daten empfangen, auch wenn die Modbus-Schnittstelle des Wechselrichters bereits verwendet wird. Darüber hinaus können Sie die sun2000-Daten auf eine andere ioBroker-Instanz spiegeln.
-
-## Haupteinstellungen
-* „Adresse“: IP-Adresse des Wechselrichters
-* „Port“: Wechselrichter-Modbus-Port (Standard: 502)
-* „modbusIds“: Wechselrichter-IDs, getrennt durch „“, (Standard: 1, max. 5 Wechselrichter)
-* „updateInterval“: Schnelles Aktualisierungsintervall (Standard: 20 Sek., kleinste 5 Sekunden pro Wechselrichter)
-
-## Modbus-Timing
-* `timeout`: Modbus-Verbindungs-Timeout (Standard: 10000 ms)
-* „Verzögerung“: Verzögerung zwischen Modbus-Anfragen (Standard: 0 ms)
-* „Verbindungsverzögerung“: Verzögerung nach der Modbus-Verbindung (Standard: 5000 ms)
-* „Auto-Adjust“: automatische Anpassung der Modbus-Einstellungen
-
-## Modbus-Proxy
-* „aktiv“: aktiviert den Mobus-Proxy-Dienst (Standard: false)
-* „IP-Adresse“: Modbus-Proxy-IP-Adresse (normalerweise: 0.0.0.0)
-* „TCP-Port“: Modbus-Proxy-TCP-Port (normalerweise: 502)
-* „SDongle-Modbus-ID“: Die SDongle-Modbus-ID (normalerweise: 100) ist für den virtuellen Zähler erforderlich
-
-## Wechselrichter konfigurieren
-Um die Modbus-Verbindung nutzen zu können, müssen alle Huawei-Geräte die neueste Firmware-Funktion verwenden. Sie können die neueste Firmware direkt im FusionSolar-Portal unter „Upgrades“ durchführen.
-Im FusionSolar-Setup müssen Sie noch den Modbus am WLAN-Dongle aktivieren und die Zugangsberechtigung einstellen. Laden Sie sich die FusionSolar-App auf Ihr Handy herunter und verbinden Sie sich damit direkt über den WLAN-Hotspot des Wechselrichters.
-Nach dem Klick auf `Me` (Ich) im Fußzeilenmenü > `Commission Device` („Inbetriebnahme des Geräts“) > `log in` (am Wechselrichter anmelden).
-
-Um sich als `installer` in der App anzumelden, benötigen Sie in der Regel das Passwort: `00000a` oder `0000000a` Möglicherweise benötigen Sie auch ein Passwort, um sich mit dem wechselrichtereigenen WLAN zu verbinden: `Changeme`
-
-Nach der Anmeldung am Wechselrichter gehen Sie zu `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Aktivieren Sie die `connection without restriction` ( Verbindung fortsetzen aktivieren). Sie können beim Auslesen auch die Modbus-Kommunikationsadresse eingeben.
-Wenn Sie zwei Wechselrichter verwenden, schließen Sie den zweiten Wechselrichter an und lesen Sie auch dort die Kommunikationsadresse aus.
-
-[So aktivieren Sie „Modbus TCP“ – aus dem Huawei-Forum](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
-
-## Inspiration
-Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert und dem iobroker-Javascript https://github inspiriert. com/ChrisBCH/SunLuna2000_iobroker.
+* Huawei SmartLogger-Integration: Überwacht und verwaltet das PV-Stromversorgungssystem. Der Adapter speichert die gesammelten Daten auf die gleiche Weise wie beim direkten Auslesen des Wechselrichters.
 
 ## Changelog
 
@@ -81,14 +50,28 @@ Die Entwicklung dieses Adapters wurde durch Diskussionen aus dem Forenthread htt
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2024-03-11)
+* Config page restructured
+* read only the required string data
+* fix interval medium
 
-**WORK IN PROGRESS**
+### 0.5.0 (2024-03-07)
+* Integration of [Huawei SmartLogger](https://support.huawei.com/enterprise/de/doc/EDOC1100130069/d8a00460)
+* some meter states the unit was changed (for example sun2000.0.meter.activePowerL1) (#56)
+* sun2000 serie M2 or higher can also be processed
+
+### 0.4.1 (2024-03-03)
+* read PV string data slower (medium interval)
+
+### 0.4.0 (2024-03-01)
 * detect standby mode of inverters (#34)
 * devices in standby often give incorrect values. These are assigned "0" (#40)
 * the modbus register and the length are stored in the description of the states
 * implemented modbus-proxy (read-only cache)
 * read register data from SDongleA 
-* register for 
+* additional loop interval medium (SDongle data)
+* Integration of [NRGkick Wallbox](https://www.nrgkick.com)
+* read string data faster (high interval)
 
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47

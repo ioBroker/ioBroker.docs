@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sun2000-modbus/README.md
 title: ioBroker.sun2000-modbus
-hash: jHsNUNxgiIry6iHJJFkCUeIpzfSdFnkXT97f9CgLB78=
+hash: 8yrcQc6l+uzMG8hBbB4bzkrUpIaEMC7/qfr8AAnOkHg=
 ---
 ![Logo](../../../en/adapterref/iobroker.sun2000-modbus/admin/sun2000-modbus.png)
 
@@ -23,15 +23,35 @@ Lesen Sie Daten vom Huawei SUN2000-Wechselrichter und dem LUNA2000-Speicher mith
 
 Huawei-Produktseite: [solar.huawei.com](https://solar.huawei.com/at/professionals/all-products)
 
-## Einstellungen
-* „Adresse“: IP-Adresse des Wechselrichters
-* „Port“: Wechselrichter-Modbus-Port (Standard: 502)
-* `modbusUnitId`: Modbus-Einheits-ID (Standard: 1)
-* „updateIntervalHigh“: Schnelles Aktualisierungsintervall (Standard: 5 Sek.)
-* „updateIntervalLow“: Langsameres Aktualisierungsintervall (Standard: 20 Sek.)
+## Dokumentation
+siehe [Dokumentationsseite](./docs/README.md)
 
 ## Changelog
+
 ### **WORK IN PROGRESS**
+
+* ...
+
+### 0.1.2 (2024-03-11)
+
+* Add update interval to state description
+* Update of  fixed 
+* Fixed battery temperature gain (Reg: 37022, 'storage.batteryTemperature')
+
+### 0.1.1 (2024-03-11)
+
+* Fixed setting connected flag
+
+### 0.1.0 (2024-03-10)
+
+* [#34](https://github.com/daolis/ioBroker.sun2000-modbus/issues/34) Added Battery registers: totalCharge, totalDischarge, batteryTemperature
+* [#32](https://github.com/daolis/ioBroker.sun2000-modbus/issues/32) Fixed: No data for ChargePower and CurrentDayChargeCapacity
+* [#20](https://github.com/daolis/ioBroker.sun2000-modbus/issues/20) Read alarm registers from inverter (alarms = bits, alarmsJSON = json array with alarms (name, id, level))
+* [#29](https://github.com/daolis/ioBroker.sun2000-modbus/issues/29) Added PVn Voltage and Current for available PV Strings 
+* Added initial documentation - WIP
+* [#26](https://github.com/daolis/ioBroker.sun2000-modbus/issues/26) Renamed stateOfCapacity to stateOfCharge\
+  Migration of historical data: see [Migration of historical data (on state name change)](docs/migration.md)
+* Blocked reading of registers - faster when fetching data from inverter
 
 ### 0.0.2 (2024-01-08)
 

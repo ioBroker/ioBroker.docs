@@ -5,6 +5,7 @@
 [![Downloads](https://img.shields.io/npm/dm/iobroker.sun2000.svg)](https://www.npmjs.com/package/iobroker.sun2000)
 ![Number of Installations](https://iobroker.live/badges/sun2000-installed.svg)
 ![Current version in stable repository](https://iobroker.live/badges/sun2000-stable.svg)
+[![Documentation](https://img.shields.io/badge/Documentation-2D963D?logo=read-the-docs&logoColor=white)](./docs/README.md)
 
 [![NPM](https://nodei.co/npm/iobroker.sun2000.png?downloads=true)](https://nodei.co/npm/iobroker.sun2000/)
 
@@ -18,23 +19,22 @@ Sentry reporting is used starting with js-controller 3.0.
 
 Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP. 
 
+[Huawei product information](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+
 Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
-inverter modbus interface definition (Issue 5, 2023-02-16):
-https://forum.iobroker.net/assets/uploads/files/1699119419919-solar-inverter-modbus-interface-definitions-v5.pdf
+## Documentation
 
-SdongleA modbus interface definition (Issue 2, 2023-04-20):
-https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-Interface-Definitions 
-
+See the [documentation page](./docs/README.md) or 
+browse in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki) 
 
 ## Supported hardware
 
-* HUAWEI Inverter SUN2000 Serie (M0,M1) 
+* HUAWEI Inverter SUN2000 Serie (M0,M1,M2 and higher) 
 * HUAWEI Smart Dongle-WLAN-FE / min. Softwareversion: V100R001C00SPC133 (SDongleA-05)
 * HUAWEI Luna2000 Battery
 * HUAWEI Smart Power Sensor DTSU666-H or DDSU666-H
-
-[Huawei product information](https://solar.huawei.com/en/professionals/all-products?residential-smart-pv)
+* HUAWEI Smart Logger / min. Softwareversion: V300R023C10SPC311
 
 ## Feature list
 
@@ -43,42 +43,7 @@ https://photomate.zendesk.com/hc/en-gb/articles/7275970817437-SDongleA-MODBUS-In
 * States are only written for changed data from the inverter. This relieves the burden on the iobroker instance.
 * The states “inputPower” or “activePower” in the “collected” path can be monitored with a “was updated” trigger element. Because these states are always written within the set interval.
 * modbus-proxy: Third party device such as wallbox, energy manager etc. can receive data even if the modbus interface of inverter is already in use. In addition you can mirror the sun2000 data to another IoBroker instance.
-
-## Main settings
-* `address`: Inverter IP address
-* `port`: Inverter modbus port (default: 502)
-* `modbusIds`: inverter IDs, separated with "," (default: 1, max. 5 inverters)
-* `updateInterval`: Fast update interval (default: 20 sec, smallest 5 seconds per inverter)
-## Modbus timing 
-* `timeout`: modbus connection timeout (default: 10000 ms)
-* `delay`: delay between modbus requests (default: 0 ms)
-* `connect delay`: delay after modbus connected (default: 5000 ms)
-* `auto-adjust`: automatic adjustment of the modbus settings
-## Modbus-proxy
-* `active`: activate the mobus-proxy service (default: false)
-* `ip address`: Modbus-proxy IP address (usually: 0.0.0.0)
-* `TCP port`: Modbus-proxy TCP port (usually: 502)
-* `SDongle modbus ID`: The SDongle modbus ID (usually: 100), is required for the virtual meter
-
-## Configure inverters
-
-In order to use the Modbus connection, all Huawei devices must use the latest firmware
-feature. You can perform latest firmware directly in the FusionSolar portal under “Upgrades”.
-In the FusionSolar setup you still have to activate the Modbus on the WLAN dongle and set the access authorization. Download the FusionSolar-App onto your cell phone and use it to connect via the inverter's WLAN hotspot directly.  
-After the click on `Me` (Ich) in the footer Menu> `Commission Device` ("Inbetriebnahme des Geräts“) > `log in` (am Wechselrichter anmelden).
-
-To log into the app as an `installer` you need usually the password:`00000a` or `0000000a` 
-You may also need a password to connect to the inverters own WLAN: `Changeme` 
-
-After login on the inverter go to `Settings` (Einstellungen) > `Communication configuration` (Kommunikationskonfiguration) > `Dongle parameter settings` (Dongle‐Parametereinstellungen) > `Modbus TCP` > Activate the `connection without restriction` (Verbindung uneingeschränkt aktivieren). You can also enter the Modbus comm address at the same time read out. 
-If you use two inverters, then connect to the second inverter and read the communication address there too. 
-
-[How activate 'Modbus TCP' - from huawei forum](https://forum.huawei.com/enterprise/en/modbus-tcp-guide/thread/789585-100027)
-
-## Inspiration
-
-The development of this adapter was inspired by discussions from the forum thread https://forum.iobroker.net/topic/53005/huawei-sun2000-iobroker-via-js-script-funktioniert and the iobroker javascript https://github.com/ChrisBCH/SunLuna2000_iobroker.
-
+* Huawei SmartLogger integration: Monitors and manages the PV power system. The adapter saves the collected data in the same way as it does when read out the inverter directly.
 
 ## Changelog
 
@@ -86,14 +51,28 @@ The development of this adapter was inspired by discussions from the forum threa
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.5.1 (2024-03-11)
+* Config page restructured
+* read only the required string data
+* fix interval medium
 
-**WORK IN PROGRESS**
+### 0.5.0 (2024-03-07)
+* Integration of [Huawei SmartLogger](https://support.huawei.com/enterprise/de/doc/EDOC1100130069/d8a00460)
+* some meter states the unit was changed (for example sun2000.0.meter.activePowerL1) (#56)
+* sun2000 serie M2 or higher can also be processed
+
+### 0.4.1 (2024-03-03)
+* read PV string data slower (medium interval)
+
+### 0.4.0 (2024-03-01)
 * detect standby mode of inverters (#34)
 * devices in standby often give incorrect values. These are assigned "0" (#40)
 * the modbus register and the length are stored in the description of the states
 * implemented modbus-proxy (read-only cache)
 * read register data from SDongleA 
-* register for 
+* additional loop interval medium (SDongle data)
+* Integration of [NRGkick Wallbox](https://www.nrgkick.com)
+* read string data faster (high interval)
 
 ### 0.3.1 (2024-02-12)
 * state `sun2000.0.collected.chargeDischargePowercharge` is not always refreshed #47

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sun2000-modbus/README.md
 title: ioBroker.sun2000-modbus
-hash: jHsNUNxgiIry6iHJJFkCUeIpzfSdFnkXT97f9CgLB78=
+hash: 8yrcQc6l+uzMG8hBbB4bzkrUpIaEMC7/qfr8AAnOkHg=
 ---
 ![标识](../../../en/adapterref/iobroker.sun2000-modbus/admin/sun2000-modbus.png)
 
@@ -23,15 +23,35 @@ hash: jHsNUNxgiIry6iHJJFkCUeIpzfSdFnkXT97f9CgLB78=
 
 华为产品页面：[华为太阳能网](https://solar.huawei.com/at/professionals/all-products)
 
-＃＃ 设置
-* `address`: 逆变器IP地址
-* `port`：逆变器modbus端口（默认：502）
-* `modbusUnitId`：Modbus 单元 ID（默认值：1）
-* `updateIntervalHigh`: 快速更新间隔（默认：5秒）
-* `updateIntervalLow`：较慢的更新间隔（默认值：20 秒）
+## 文档
+请参阅[文档页](./docs/README.md)
 
 ## Changelog
+
 ### **WORK IN PROGRESS**
+
+* ...
+
+### 0.1.2 (2024-03-11)
+
+* Add update interval to state description
+* Update of  fixed 
+* Fixed battery temperature gain (Reg: 37022, 'storage.batteryTemperature')
+
+### 0.1.1 (2024-03-11)
+
+* Fixed setting connected flag
+
+### 0.1.0 (2024-03-10)
+
+* [#34](https://github.com/daolis/ioBroker.sun2000-modbus/issues/34) Added Battery registers: totalCharge, totalDischarge, batteryTemperature
+* [#32](https://github.com/daolis/ioBroker.sun2000-modbus/issues/32) Fixed: No data for ChargePower and CurrentDayChargeCapacity
+* [#20](https://github.com/daolis/ioBroker.sun2000-modbus/issues/20) Read alarm registers from inverter (alarms = bits, alarmsJSON = json array with alarms (name, id, level))
+* [#29](https://github.com/daolis/ioBroker.sun2000-modbus/issues/29) Added PVn Voltage and Current for available PV Strings 
+* Added initial documentation - WIP
+* [#26](https://github.com/daolis/ioBroker.sun2000-modbus/issues/26) Renamed stateOfCapacity to stateOfCharge\
+  Migration of historical data: see [Migration of historical data (on state name change)](docs/migration.md)
+* Blocked reading of registers - faster when fetching data from inverter
 
 ### 0.0.2 (2024-01-08)
 

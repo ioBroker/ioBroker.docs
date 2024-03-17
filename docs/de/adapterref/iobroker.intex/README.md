@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: LzjlC+djKM5jR/Tz9XJnk3QJ1oO7kdofxCoROZ7nris=
+hash: NwQnuxNpFXZ5n4vtiRTbKM9JfyAWEb1zWbSw14lLVDU=
 ---
 ![Logo](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -50,48 +50,8 @@ Das Intervall kann hier auch auf 0,5 Minuten eingestellt werden.
 ## Steuerung der Funktionen des Spas
 „intex.0.-id-.control.-command-“ mit der Einstellung „true“ oder „false“ steuert den Status des Poolbefehls.
 
-# Diskussion und Fragen auf Deutsch
+## Diskussion und Fragen auf Deutsch
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
-
-## **IN ARBEIT**
-- (PLCHome) Konfigurieren Sie diesen Adapter für die Verwendung des Release-Skripts.
-
-## 0.1.5
-* (PLCHome) Rechtschreibfehler von Sanitzer zu Sanitizer im Status control.sanitizer und control.sanitizerTime korrigiert.
-
-## 0.1.4
-* (PLCHome) Nur-Lese-Objekte ändern, z.B. Temperatur verursacht keinen Absturz mehr.
-
-## 0.1.3
-* (PLCHome) Die verbleibende Zeit für den Filter wird auf die Desinfektionszeit korrigiert, falls diese länger ist
-
-## 0.1.2
-* (PLCHome) Die verbleibende Filterzeit beim Heizen wurde von 1 auf -1 für unendlich korrigiert
-
-## 0.1.1
-* (PLCHome) Verbleibende Zeit für die Zugabe von Filter und Desinfektionsmittel unter Kontrolle.
-* (PLCHome) Aktualisierung unter Steuerung hinzugefügt.
-* (PLCHome) Remote gelöscht, da Control es besser kann.
-
-## 0.1.0
-* (rbartl/PLCHome) Unterstützt lokale IP. Sowohl über die Cloud als auch nur lokal ohne Cloud. Danke an Österreich an Robert Bartl.
-* (PLCHome) Direkt nach dem Umschalten über Control bestätigen.
-
-## 0.0.7
-* (PLCHome) Das Umschalten per Remote funktioniert wieder.
-* (PLCHome) Nach der Umschaltung per Control kann der bisherige Verkehrsstatus aus der Cloud übermittelt werden. Dies kann zu einem Umschalten des Status führen.
-
-## 0.0.6
-* (PLCHome) Definierte Einstellung von Zuständen
-* (PLCHome) Ändern Sie Fahrenheit Celsius
-* (PLCHome) „control.temperature“, nur lesbar, Objekt aus 0.0.5 muss einmalig gelöscht werden.
-
-## 0,0,5
-* (PLCHome) Solltemperatur hinzugefügt, Objekt muss einmalig gelöscht werden.
-* (PLCHome) Dekodierung von Statusinformationen
-
-## 0.0.1
-* (TA2k) Erstveröffentlichung
 
 ## Changelog
 
@@ -99,6 +59,57 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (PLCHome) Configure this adapter to use the release script.
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+
+### 0.1.1
+
+* (PLCHome) Remaining time for filter and sanitizer added under control.
+* (PLCHome) Refresh added under Control.
+* (PLCHome) Remote deleted because Control can do it better.
+
+### 0.1.0
+
+* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+* (PLCHome) Confirm directly after switching via Control.
+
+### 0.0.7
+
+* (PLCHome) Switching via remote works again.
+* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
+
+### 0.0.6
+
+* (PLCHome) Defined setting of states
+* (PLCHome) Change Fahrenheit Celsius
+* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
+
+### 0.0.5
+
+* (PLCHome) Set temperature added, object must be deleted once.
+* (PLCHome) Decoding of status information
+
+### 0.0.1
+
+* (TA2k) initial release
 
 ## License
 

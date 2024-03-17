@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
+hash: TIq4HqXLvTWUXSkeAmmvZslfBw3HjbMyXxTo/QbfO9Y=
 ---
 ![标识](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -41,7 +41,7 @@ mqtt:
 `frigate.0.remote.pauseNotifications` 所有摄像头的暂停通知
 
 ### 活动
-最后一个事件，包含之前和之后的信息
+上次事件以及之前和之后的信息
 
 `frigate.0.events.history` 最近 X 事件的历史记录
 
@@ -66,6 +66,8 @@ camera_name 当前是否正在检测运动。预期值为 ON 和 OFF。注意：
 `frigate.0.camera_name.history`相机的事件历史记录
 
 `frigate.0.camera_name.remote.notificationText`相机的自定义通知文本`frigate.0.camera_name.remote.notificationMinScore`相机的自定义通知最低分数`frigate.0.camera_name.remote.pauseNotifications`相机的暂停通知
+
+`frigate.0.camera_name.remote.ptz`发送 ptz 命令 https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
 
 ## 通知
 该适配器可以将事件和对象检测的快照和剪辑发送到 telegram、pushover 和 signal-cbm 等实例
@@ -109,6 +111,10 @@ camera_name 当前是否正在检测运动。预期值为 ON 和 OFF。注意：
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-03-11)
+
+- fix deleting of notification files
+- add notification settings
 
 ### 1.0.2 (2024-01-29)
 

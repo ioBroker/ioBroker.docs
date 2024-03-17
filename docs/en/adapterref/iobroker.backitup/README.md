@@ -610,6 +610,9 @@ _[Back to top](#documentation-and-instructions-for-iobrokerbackitup)_
 
 ## Changelog
 <!-- ### **WORK IN PROGRESS** -->
+### 2.11.0 (2024-03-04)
+* (simatec) Fix Sqlite3 Path
+
 ### 2.10.11 (2024-02-14)
 * (simatec) Design Fix
 * (simatec) dependencies updated

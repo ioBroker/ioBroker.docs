@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.lorawan/README.md
 title: ioBroker.lorawan
-hash: mBAY+nBFksMkwrSN+wskFlL+vKx7miJ5PR5A7FluxOY=
+hash: CpoUaq5S6DpO4iHrlOu1f494RO6p77BZnhfEKeWfZUA=
 ---
 ![标识](../../../en/adapterref/iobroker.lorawan/admin/lorawan.png)
 
@@ -22,12 +22,12 @@ hash: mBAY+nBFksMkwrSN+wskFlL+vKx7miJ5PR5A7FluxOY=
 适配器是与 Joerg Froehner 合作创建的 LoraWan@hafenmeister.com
 
 对于文档，请使用 doc 文件夹。
-目前这里有英文文档：http://www.hafenmeister.com/LoraWan/Iobroker-Adapter.pdf
+目前这里有英文文档：https://wiki.hafenmeister.de
 
 ## 免责声明
 商标和公司名称的权利归其所有者所有，与此适配器无关。
 适配器运营商必须继续遵守公平使用政策。
-如果此存储库是分叉的，则必须将其引用为源。
+如果此存储库是分叉的，则必须将其引用为来源。
 
 LoRa® 是 Semtech Corporation 或其附属公司的注册商标或服务标志。
 
@@ -38,8 +38,68 @@ LoRaWAN® 是一个许可商标。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
-* (BenAhrdt) some more functions
+### 0.6.6 (2024-03-11)
+* (BenAhrdt) update Vicki device-config
+
+### 0.6.5 (2024-03-08)
+* (BenAhrdt) setObject changed into setObjectAsync
+
+### 0.6.4 (2024-03-07)
+* (BenAhrdt) Change writing of deviceinformations at Ttn
+
+### 0.6.3 (2024-03-05)
+* (BenAhrdt) def of deviceinformations changed
+
+### 0.6.2 (2024-03-05)
+* (BenAhrdt) seperate dp for deviceinformations
+
+### 0.6.1 (2024-03-02)
+* (BenAhrdt) better concept to write values and change setObjectNotExists to extendObject
+
+### 0.6.0 (2024-03-02)
+* (BenAhrdt) change concept of assigning roles, values and writecommands
+
+### 0.5.5 (2024-03-01)
+* (BenAhrdt) first step of handling with date
+
+### 0.5.4 (2024-03-01)
+* (BenAhrdt) implement ther approvedFolder conzept for writecommands from message
+
+### 0.5.3 (2024-02-29)
+* (BenAhrdt) change folder for writetriggers
+
+### 0.5.2 (2024-02-29)
+* (BenAhrdt) make writetrigger more flexible
+
+### 0.5.1 (2024-02-29)
+* (BenAhrdt) detecting of triggerwords changed
+
+### 0.5.0 (2024-02-28)
+* (BenAhrdt) trigger for devicetype implemented
+
+### 0.4.1 (2024-02-26)
+* (BenAhrdt) implement new deviceprofiles
+
+### 0.4.0 (2024-02-26)
+* (BenAhrdt) searchallgorythm improoved, defaultvalues changed, remove query for "all"
+
+### 0.3.10 (2024-02-25)
+* (BenAhrdt) change logging again if a device joined the network
+
+### 0.3.9 (2024-02-25)
+* (BenAhrdt) change logging if a device joined the network
+
+### 0.3.8 (2024-02-23)
+* (BenAhrdt) write def into state in case of type changes
+
+### 0.3.7 (2024-02-22)
+* (BenAhrdt) improove forbidden chars and implements join raw
+
+### 0.3.6 (2024-02-21)
+* (BenAhrdt) set attributs if undefined
+
+### 0.3.5 (2024-02-21)
+* (BenAhrdt) set tier to 2 and improove standard devices
 
 ### 0.3.4 (2024-02-20)
 * (BenAhrdt) put some debug and silly logging to code

@@ -17,7 +17,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.awtrix-light/README.md
 title: ioBroker.awtrix-light
-hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
+hash: 1tLigQCuJjyIBYpbV4G2dctn1/paWoc04h7qHfJK/80=
 ---
 ![логотип](../../../de/admin/awtrix-light.png)
 
@@ -26,12 +26,12 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 - nodejs 14.5 (или новее)
 - js-контроллер 4.0.15 (или новее)
 - Адаптер администратора 6.6.0 (или новее)
-- Устройство _Awtrix Light_ с версией прошивки _0.94_ (или новее) - например, Ulanzi TC001
+- Устройство _Awtrix 3_ с версией прошивки _0.96_ (или новее) - например, Ulanzi TC001
 
 Купить здесь: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) или здесь: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (партнерские ссылки)
 
 ## Первые шаги
-1. Прошейте прошивку на устройство и добавьте его в локальную сеть через WiFi - см. [Документацию](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. Прошейте прошивку на устройство и добавьте его в локальную сеть через WiFi - см. [Документация](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. Установите адаптер awtrix-light в ioBroker (и создайте новый экземпляр)
 3. Откройте конфигурацию экземпляра и сохраните IP-адрес устройства в локальной сети.
 
@@ -46,15 +46,15 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 
 **Как мне перейти на последнюю версию прошивки?**
 
-Просто используйте [Меню на устройстве](https://blueforcer.github.io/awtrix-light/#/onscreen), чтобы перейти к точке `update`. Далее часы сделают все остальное сами, нет необходимости повторно использовать веб-прошивальщик (если только обновление прошивки явно не требует этого).
+Просто используйте [Меню на устройстве](https://blueforcer.github.io/awtrix3/#/onscreen), чтобы перейти к точке `update`. Дальше часы сделают все остальное сами, нет необходимости снова использовать веб-прошивальщик (если только обновление прошивки явно не требует этого).
 
 **Устройство нагревается во время зарядки.**
 
-К сожалению, аппаратная конструкция не оптимальна. Рекомендуется использовать максимально слабый источник питания, способный выдавать максимум 1 А.
+К сожалению, аппаратная конструкция не оптимальна. Рекомендуется использовать самый слабый источник питания, который может выдавать максимум 1А.
 
 **Можно ли вынуть аккумулятор из устройства?**
 
-Да, есть такой вариант. Однако устройство необходимо открывать с помощью фена с горячим воздухом, поскольку переднее окно приклеено. Вам также понадобится [Припой понижающий преобразователь](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765), чтобы все работало.
+Да, есть такой вариант. Однако устройство необходимо открывать с помощью фена с горячим воздухом, поскольку переднее окно приклеено. Вам также понадобится [Паяный понижающий преобразователь](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765), чтобы все работало.
 
 **Можно ли по-другому отсортировать приложения на устройстве?**
 
@@ -80,14 +80,20 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 
 Когда уведомление отправляется с опцией `hold: true`, текст на дисплее остается до тех пор, пока уведомление не будет подтверждено. Это можно сделать либо с помощью средней кнопки на устройстве, либо установив состояние `notification.dismiss` на `true`.
 
+**Некоторые изменения состояния отображаются не сразу.**
+
+Если состояние меняется очень часто (например, каждую секунду), некоторые изменения будут игнорироваться и не передаваться, чтобы снизить нагрузку на устройство. У каждого приложения есть свое «время блокировки», которое можно настроить глобально в настройках экземпляра. Время по умолчанию составляет 3 секунды. Не рекомендуется устанавливать значение меньше 3.
+
 ## Идентичные приложения на нескольких устройствах
-Если с помощью одних и тех же приложений необходимо управлять несколькими устройствами awtrix-light, для каждого устройства необходимо создать отдельный экземпляр. Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть перенесены из другого экземпляра.
+Если необходимо управлять несколькими устройствами awtrix-light с помощью одних и тех же приложений, **для каждого устройства необходимо создать отдельный экземпляр.** Однако затем вы можете указать в настройках экземпляра других устройств, что приложения должны быть переданы под контроль. из другого экземпляра.
 
 Пример
 
 1. Настройте все нужные приложения в экземпляре awtrix-light.0.
-2. Создайте еще один экземпляр для второго устройства (awtrix-light.1).
+2. Создайте еще один экземпляр для второго устройства («awtrix-light.1»).
 3. Выберите «awtrix-light.0» в настройках экземпляра «awtrix-light.1», чтобы отобразить те же приложения на втором устройстве.
+
+Начиная с версии 0.15.0 (и более поздних) видимость приложений и всего содержимого экспертных приложений также переносится на другие устройства, которые копируют настройки приложения. Например, в приведенном выше примере приложения экземпляра `awtrix-light.1` также скрываются, как только изменяется видимость приложения в основном экземпляре `awtrix-light.0`. То же самое относится ко всему содержимому экспертных приложений.
 
 ## Блокли и JavaScript
 `sendTo` / ящик сообщений можно использовать для
@@ -99,14 +105,14 @@ hash: PMT0uA8jt8YcfkqHjs/e1bMSf7Oo/LnsEu20h4/jvGw=
 Отправьте одноразовое уведомление на устройство:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Объект сообщения поддерживает все параметры, доступные во встроенном ПО. Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties).
+Объект сообщения поддерживает все параметры, доступные во встроенном ПО. Подробности см. в [документация](https://blueforcer.github.io/awtrix3/#/api?id=json-properties).
 
 *Для создания уведомления также можно использовать блок Blockly (там предлагаются не все доступные варианты).*
 
@@ -114,21 +120,21 @@ sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repea
 Чтобы воспроизвести (ранее созданный) звуковой файл:
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Объект сообщения поддерживает все параметры, доступные во встроенном ПО. Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback).
+Объект сообщения поддерживает все параметры, доступные во встроенном ПО. Подробности см. в [документация](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback).
 
 *Блок Blockly можно использовать, чтобы сделать этот вызов еще проще.*
 
 Чтобы воспроизвести собственную мелодию звонка:
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -178,37 +184,40 @@ sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
 Пример: [Приложение погоды](weather-app.md)
 
 ## Скрыть родные приложения
-Чтобы скрыть на устройстве приложения по умолчанию (например, температуру или влажность): используйте меню на самом устройстве! Подробности см. в [документация](https://blueforcer.github.io/awtrix-light/#/onscreen).
+Чтобы скрыть на устройстве приложения по умолчанию (например, температуру или влажность): используйте меню на самом устройстве! Подробности см. в [документация](https://blueforcer.github.io/awtrix3/#/onscreen).
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### 0.13.1 (2024-01-25)
+### **WORK IN PROGRESS**
 
-* (klein0r) Fixed hold option in blockly
+Updated recommended firmware version to 0.96
 
-### 0.13.0 (2024-01-25)
+### 0.16.0 (2024-03-12)
 
-* (klein0r) Added state for text color and background color in expert apps
-* (klein0r) Avoid app refresh when no values have been changed
+Updated recommended firmware version to 0.95
 
-### 0.12.0 (2024-01-24)
+* (klein0r) Added notification for firmware update
+* (klein0r) Added setting state for volume
+* (klein0r) Rebranding Awtrix Light to Awtrix 3
 
-* (klein0r) Added hold option to blockly
-* (klein0r) Added state to dismiss notifications
+### 0.15.1 (2024-03-12)
 
-### 0.11.0 (2024-01-09)
+* (klein0r) Fixed default values of color states
 
-Updated recommended firmware version to 0.94
+### 0.15.0 (2024-03-06)
 
-* (klein0r) Added bar graph to history apps
-* (klein0r) Added aggregation for history apps
+* (klein0r) Keep apps contents in sync
 
-### 0.10.2 (2023-12-14)
+### 0.14.1 (2024-03-06)
 
-* (klein0r) Removed callbacks in blockly code to prevent timeouts
+* (klein0r) Fixed roles of calendar header, body and text (rgb)
+
+### 0.14.0 (2024-02-20)
+
+* (klein0r) Allow to round numbers dynamically (depends on length)
 
 ## License
 MIT License

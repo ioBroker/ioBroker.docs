@@ -59,6 +59,15 @@ Tested on comfoair CA350.
 
 ## Changelog
 
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### 1.1.9 (2024-03-08)
+
+-   (mcm1957) German title of adapter has been corrected
+-   (mcm1957) Dependencies have been updated
+
 ### 1.1.8
 
 -   boost-error fixed (sentry)
@@ -167,7 +176,7 @@ Tested on comfoair CA350.
 
 The MIT License (MIT)
 
-Copyright (c) 2023 forelleblau marceladam@gmx.ch
+Copyright (c) 2023-2024 forelleblau marceladam@gmx.ch
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

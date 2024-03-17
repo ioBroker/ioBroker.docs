@@ -325,33 +325,33 @@ Read data from Huawei SUN2000 inverter and LUNA2000 Storage using Modbus TCP.
 ## scenes (10.2.2024) - new feature
 It is possible to use categories in scenes
 
-<img src="media/2024_02_16 scenes-enums.png" width="500" />
+<img src="media/2024_02_16_scenes-enums.png" width="500" />
 
 ## solaredge (15.2.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/admin/solaredge.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
 Get data from solaredge monitoring portal. Currently, only the /overview data point is used to get the current power and day/month/year/lifetime energy readings.
 
 ## elgato-key-light (18.2.2024) – new adapter
 https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/admin/elgato-key-light.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.elgato-key-light/main/admin/elgato-key-light.png" width="100" height="100" />
 
 This adapter allows you to control Elgato Key Lights via ioBroker.
 
 ## myuplink (18.2.2024) – new adapter
 https://github.com/sebilm/ioBroker.myuplink
 
-<img src="https://github.com/sebilm/ioBroker.myuplink/blob/main/admin/myuplink.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/sebilm/ioBroker.myuplink/main/admin/myuplink.png" width="100" height="100" />
 
 This ioBroker adapter receives data from myUplink.com.
 
 ## sun2000 (19.2.2024) – new adapter
 https://github.com/bolliy/ioBroker.sun2000
 
-<img src="https://github.com/bolliy/ioBroker.sun2000/blob/main/admin/sun2000.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/bolliy/ioBroker.sun2000/main/admin/sun2000.png" width="100" height="100" />
 
 Read register data from Huawei SUN2000 inverter and LUNA2000 battery using Modbus TCP.
 
@@ -361,21 +361,23 @@ The adapter has now free license.
 ## senec (25.2.2024) – new adapter
 https://github.com/nobl/ioBroker.senec
 
-<img src="https://github.com/nobl/ioBroker.senec/blob/master/admin/senec.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.senec/master/admin/senec.png" width="100" height="100" />
 
 Initially targeted at the Senec Home V2.1 System. In the Senec.Home system, only selected values can be changed by the adapter. Senec currently also no longer provides a reliable way to influence peak shaving via the web interface. Whether other systems (e.g. V3) also work with it depends on whether they are also based on lala.cgi and provide the same JSON information.
 
 ## energiefluss-erweitert (11.3.2024) – new adapter
 https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
 
-<img src="https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert/blob/main/admin/energiefluss-erweitert.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png" width="100" height="100" />
 
 Adapter provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
 
 ## nmea (17.3.2024) – new adapter
 https://github.com/ioBroker/ioBroker.nmea
 
-<img src="https://github.com/ioBroker/ioBroker.nmea/blob/main/admin/nmea.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
 
 This adapter allows connecting ioBroker to NMEA-2000 yacht bus. You can read SOG, COG, GPS position, depth, wind, temperature, and many other data from the NMEA-2000 bus.
 And even control the Raymarine autopilot.
+
+![nmea](media/2024_03_17_nmea.png)

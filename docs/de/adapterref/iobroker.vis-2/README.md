@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-2/README.md
 title: Visualisierung der nächsten Generation für ioBroker: vis-2
-hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
+hash: lJNCeCb7Pcf1qz97+qEGzCr77SJsomNirWm2LDA8Th8=
 ---
 ![Logo](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -33,7 +33,7 @@ WEB-Visualisierung für die ioBroker-Plattform.
 
 ## Bindungen von Objekten
 Normalerweise verfügen die meisten Widgets über das ObjectID-Attribut und dieses Attribut kann mit einem bestimmten Wert der Objekt-ID verknüpft werden.
-Es gibt aber noch eine andere Möglichkeit, *beliebiges* Attribut eines Widgets an eine ObjectID zu binden.
+Aber es gibt noch eine andere Möglichkeit, *beliebiges* Attribut eines Widgets an eine ObjectID zu binden.
 
 Schreiben Sie einfach in das Attribut `{object.id}`, z.B. `{hm-rpc.0.OEQ1880105.4.ACTUAL_TEMPERATURE}` und es wird an den Wert dieses Objekts gebunden.
 Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Operationen durchführen, z. B. Multiplizieren oder Formatieren.
@@ -124,6 +124,7 @@ Es gibt verschiedene interne Bindungen, um zusätzliche Informationen in Ansicht
 * „Ansicht“ – Name der tatsächlichen Ansicht
 * „wname“ – Widget-Name
 * „Widget“ – ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, wie „{a:a;widget.data.name}“.
+* „widgetOid“ – verwenden Sie die OID des Widgets, um den Widgets-Wert im Zuweisungsabschnitt zuzuweisen, wie „{t:widgetOid.val;t}“.
 * „wid“ – Name des tatsächlichen Widgets
 * „Sprache“ – kann „de“, „en“ oder „ru“ sein.
 * „Instanz“ – Browserinstanz
@@ -145,7 +146,7 @@ dafür.
 ## Filter
 Um die gesamte Anzahl der Widgets in einer Ansicht anzuzeigen, können Sie Filter verwenden, um die Anzahl der gleichzeitig in der Ansicht angezeigten Widgets zu reduzieren.
 
-Jedes Widget hat ein Feld `filter`. Wenn Sie es auf einen Wert festlegen, z. `light`, sodass Sie über ein anderes Widget `(bars - filters, filter - dropdown)` steuern können, welcher Filter tatsächlich aktiv ist.
+Jedes Widget hat ein Feld `filter`. Wenn Sie ihn auf einen bestimmten Wert festlegen, z. `light`, sodass Sie über ein anderes Widget `(bars - filters, filter - dropdown)` steuern können, welcher Filter tatsächlich aktiv ist.
 
 ## Steuerschnittstelle
 Vis erstellt 3 Variablen:
@@ -201,7 +202,7 @@ Dies ist nur der visuelle Rahmen im Bearbeitungsmodus, um Ihnen die Bildschirmgr
 Zusätzlich können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden soll.
 
 Bei jedem Aufruf der `index.html` (ohne `#viewName`) wird also die für diese Auflösung am besten geeignete Ansicht geöffnet.
-Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig von der Bildschirmauflösung oder Ausrichtung geöffnet.
+Wenn nur eine Ansicht über das Flag „Standard“* verfügt, wird diese Ansicht unabhängig von der Bildschirmauflösung oder Ausrichtung geöffnet.
 
 Sie können beispielsweise zwei Ansichten „Querformat-Mobil“ und „Hochformat-Mobil“ erstellen und diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
 
@@ -262,6 +263,63 @@ Wenn es beispielsweise in einem Menü verwendet würde und das Menü rot ist, w�
 ### **ARBEIT IN ARBEIT** -->
 
 ## Changelog
+### 2.9.43 (2024-03-17)
+* (bluefox) Showed selected view in the view dialog
+* (bluefox) Added customization of loading screen
+* (bluefox) Respected the sentry disable flag in GUI
+
+### 2.9.42 (2024-03-09)
+* (bluefox) Allowed limiting the view size only on desktop
+* (bluefox) Change word "Filter" to "Search"
+
+### 2.9.40 (2024-03-05)
+* (bluefox) Migrated the filter widget to react
+* (bluefox) Migrated the basic link widget to react
+
+### 2.9.39 (2024-03-01)
+* (foxriver76) allow to use `widgetOid` in bindings
+* (foxriver76) fixed various problems with Date Picker widget
+* (foxriver76) made default option of Date Picker human readable and added option for full parseable date
+* (bluefox) Added the possibility to add suffix by navigation widgets
+* (bluefox) Improved the license manager
+
+### 2.9.37 (2024-02-28)
+* (foxriver76) TimePicker widget now saves the time instead of date by default, if you want old behavior use checkbox `asDate`
+
+### 2.9.36 (2024-02-27)
+* (foxriver76) fixed project-specific css not being applied
+
+### 2.9.35 (2024-02-27)
+* (foxriver76) user-specified css has now priority over widgets css
+* (foxriver76) fixed crash case for broken grouped widgets
+
+### 2.9.34 (2024-02-26)
+* (foxriver76) detect admin user correctly in project permissions dialog
+
+### 2.9.33 (2024-02-21)
+* (foxriver76) fixed issue that last image is never shown in image8 widget
+* (foxriver76) added possibility to define background and title color for jqui dialog
+* (foxriver76) make it possible to click through signal image if in front of widget
+
+### 2.9.32 (2024-02-16)
+* (foxriver76) implemented buttons to show or hide all views in views manager
+* (foxriver76) fixed issue with signals on RxWidgets
+* (foxriver76) allow to disable Sentry only for this instance
+
+### 2.9.31 (2024-02-06)
+* (foxriver76) apply default overflow correctly
+* (foxriver76) navigation style fixes (fix an icon background and allow to customize header text color)
+
+### 2.9.30 (2024-02-06)
+* (foxriver76) global css will no longer be deleted on adapter upload/update
+* (foxriver76) allowed modifying style of navigation
+
+### 2.9.29 (2024-02-05)
+* (foxriver76) fixed multiple problems with nested groups
+* (foxriver76) also made group/ungroup commands working in group view
+* (foxriver76) allowed selecting widgets in a group via click (previously only dropdown worked)
+* (foxriver76) fixed issue, that Basic Image 8 is not configurable for value 0
+
 ### 2.9.28 (2024-02-03)
 * (foxriver76) correctly determine the vis instance in all cases
 

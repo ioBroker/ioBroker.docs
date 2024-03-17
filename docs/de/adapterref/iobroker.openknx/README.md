@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.openknx/README.md
 title: ioBroker.openknx
-hash: NGEqe89x5JAXM5OLlsHew2bqs9/AaX/oQ+XHqewrvmk=
+hash: tIlHK4wNRrsZm2rmY8HOzVPHLUSN6zdOd2IOOVbvSOY=
 ---
 ![Logo](../../../en/adapterref/iobroker.openknx/admin/openknx.png)
 
@@ -54,8 +54,11 @@ Wenn Sie im Protokoll Verbindungsabbrüche von Ihrem KNX IP Gateway feststellen,
 ### Verwenden Sie common.type boolean für 1-Bit-Enumeration anstelle von Zahl
 Verwenden Sie im IOB-Objekt common.type boolean für 1-Bit-Enum anstelle von Number.
 
-### Werte von automatisch gelesenen IOB-Objekten beim Start auslesen
+### Auslesen von KNX-Werten beim Start von IOB-Objekten, die für Autoread konfiguriert sind
 Alle IOB-Objekte, die mit dem Autoread-Flag konfiguriert sind, werden auf dem Bus aufgefordert, mit IOB synchronisiert zu werden.
+
+### Keine Warnung bei unbekannten KNX-Gruppenadressen
+Erstellen Sie beim Empfang einer unbekannten GA keinen Warnprotokolleintrag im Protokoll.
 
 ### Vorhandene IOB-Objekte nicht überschreiben
 Wenn diese Option aktiviert ist, überspringt der Import das Überschreiben vorhandener Kommunikationsobjekte.
@@ -130,7 +133,7 @@ Zur Prüfung auf Ähnlichkeit wird der gesamte Name inklusive Pfad herangezogen.
 - Projekt importieren
 
 ## Skripte migrieren
-- Öffnen Sie Skripte
+- Skripte öffnen
 - 3 Punkte -> Alle Skripte exportieren
 - Öffnen Sie die Zip-Datei und öffnen Sie den Ordner in einem Editor
 - Suche Ersetzen Sie knx.0 durch openknx.0
@@ -141,7 +144,7 @@ Zur Prüfung auf Ähnlichkeit wird der gesamte Name inklusive Pfad herangezogen.
 ## Grafana migrieren
 - Gehen Sie alle Dashboards durch und wählen Sie „Teilen“ – „Exportieren“ – „In Datei speichern“.
 - Im Texteditor knx.0 ersetzen. mit openknx.0.
-- Um ein Dashboard zu importieren, klicken Sie auf das +-Symbol im Seitenmenü und dann auf Importieren.
+- Um ein Dashboard zu importieren, klicken Sie im Seitenmenü auf das Symbol „+“ und dann auf „Importieren“.
 - Von hier aus können Sie eine Dashboard-JSON-Datei hochladen
 - Wählen Sie „Importieren (Überschreiben)“
 
@@ -170,14 +173,14 @@ Erstellen Sie einen Funktionsknoten, der eine Verbindung zu einem ioBroker-Ausga
 msg.payload = {"priority":1 ,"data":0}; Rückgabenachricht;
 
 # Protokollebene
-Aktivieren Sie den Expertenmodus, um den Wechsel zwischen verschiedenen Protokollebenen zu ermöglichen. Der Standardprotokolllevel ist info.
+Aktivieren Sie den Expertenmodus, um den Wechsel zwischen verschiedenen Protokollierungsstufen zu ermöglichen. Der Standardprotokolllevel ist info.
 ![Loglevel](../../../en/adapterref/iobroker.openknx/docs/pictures/loglevel.png)
 
 # Beschreibung des IOBroker-Kommunikationsobjekts
 ioBroker definiert Objekte zum Speichern von Kommunikationsschnittstelleneinstellungen.
 Der GA-Import generiert eine Kommunikationsobjekt-Ordnerstruktur nach dem GA-Hauptgruppen-/Mittelgruppen-Schema. Jede Gruppenadresse ist ein Objekt mit folgenden automatisch generierten Daten.
 
-ioBroker-Statusrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige detailliertere Werte werden aus der DPT abgeleitet, beispielsweise Datum oder Schalter.
+ioBroker-Statusrollen (https://github.com/ioBroker/ioBroker/blob/master/doc/STATE_ROLES.md) haben standardmäßig den Wert „state“. Einige detailliertere Werte werden vom DPT abgeleitet, zum Beispiel Datum oder Schalter.
 
 Autoread wird auf „false“ gesetzt, wenn aus dem DPT klar hervorgeht, dass es sich um ein Triggersignal handelt. Dies gilt für Szenennummern.
 
@@ -265,19 +268,19 @@ Der Kommentar „GroupValue_Read“ funktioniert nicht für den Javascript-Adapt
 | DPT-237 | Objekt | {"address":0,"addresstype":0,"readresponse":0,"lampfailure":0,"ballastfailure":0,"convertorerror":0} | - | |
 | DPT-4 | Zeichenfolge | | ein Zeichen, das als 8-Bit-Zeichen gesendet wird | |
 | DPT-16 | Zeichenfolge | | ein Zeichen, gesendet als 16-stellige Zeichenfolge | |
-| DPT-5 | Nummer | | 8-Bit-Wert ohne Vorzeichen | |
+| DPT-5 | Zahl | | 8-Bit-Wert ohne Vorzeichen | |
 | DPT-5.001 | Nummer | | 0..100 [%] skaliert auf 1 Byte | |
-| DPT-5.003 | Nummer | | 0..360 [°] skaliert auf 1 Byte | |
-| DPT-6 | Nummer | | 8-Bit mit Vorzeichen -128..127 | |
-| DPT-7 | Nummer | | 16-Bit-Wert ohne Vorzeichen | |
-| DPT-8 | Nummer | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
-| DPT-9 | Nummer | | 2-Byte-Gleitkommawert | |
-| DPT-14 | Nummer | | 4-Byte-Gleitkommawert | |
-| DPT-12 | Nummer | | 4-Byte-Wert ohne Vorzeichen | |
-| DPT-13 | Nummer | | 4-Byte-Wert mit Vorzeichen | |
-| DPT-15 | Nummer | | 4 Byte | |
-| DPT-17 | Nummer | | 1 Byte | DPT_SceneNumber wird von Autoread | nicht gelesen |
-| DPT-20 | Nummer | | 1 Byte | |
+| DPT-5.003 | Zahl | | 0..360 [°] skaliert auf 1 Byte | |
+| DPT-6 | Zahl | | 8-Bit mit Vorzeichen -128..127 | |
+| DPT-7 | Zahl | | 16-Bit-Wert ohne Vorzeichen | |
+| DPT-8 | Zahl | | 2-Byte-Wert mit Vorzeichen -32768..32767 | |
+| DPT-9 | Zahl | | 2-Byte-Gleitkommawert | |
+| DPT-14 | Zahl | | 4-Byte-Gleitkommawert | |
+| DPT-12 | Zahl | | 4-Byte-Wert ohne Vorzeichen | |
+| DPT-13 | Zahl | | 4-Byte-Wert mit Vorzeichen | |
+| DPT-15 | Zahl | | 4 Byte | |
+| DPT-17 | Zahl | | 1 Byte | DPT_SceneNumber wird von Autoread | nicht gelesen |
+| DPT-20 | Zahl | | 1 Byte | |
 | DPT-238 | Nummer | | 1 Byte | |
 | DPT-10 | Nummer für Datumsobjekt | | - | |
 | DPT-11 | Nummer für Datumsobjekt | | - | |
@@ -291,7 +294,7 @@ Der Kommentar „GroupValue_Read“ funktioniert nicht für den Javascript-Adapt
 Mit KNX-zeitbasierten Datentypen werden nur Zeit- und Datumsinformationen ausgetauscht, z. B. DPT-19 verfügt über nicht unterstützte Felder für die Signalqualität.
 
 Die Sende- und Empfangswerte von Objekten sind vom Typ Boolescher Wert (DPT-1), Zahl (skaliert oder unskaliert) und Zeichenfolge.
-DPT-2 'erwartet ein Objekt {"priority":0,"data":1}' erhält ein strinifiziertes Objekt desselben Typs.
+DPT-2 'erwartet ein Objekt {"priority":0,"data":1}' beim Empfang wird ein strinifiziertes Objekt desselben Typs bereitgestellt.
 Andere gemeinsame DPTs haben eine ähnliche Objektnotation.
 DPT-19 erwartet eine Zahl von einem Datumsobjekt, Iobroker kann keine Objekte verarbeiten, Felder von KNX ko, die nicht vom Zeitstempel abgeleitet werden können, sind nicht implementiert, z. Qualitätsflaggen.
 
@@ -320,7 +323,7 @@ Es sind 6 verschiedene Objektflags definiert.
 | -------------------------- | ------------------------ | --------------------------------------- | ---------------------------------------------- |
 | C: das Kommunikationsflag | K: Kommunikations-Flagge | immer gesetzt | |
 | R: das Leseflag | L: Lese-Flag | Objekt native.answer_groupValueResponse | |
-| T: das Sendeflag | Ü: Übertragen-Flagge | Objekt common.write | |
+| T: das Sendeflag | Ü: Übertragen-Flag | Objekt common.write | |
 | W: das Schreibflag | S: Schreiben-Flag | Objekt common.read | Bus kann das Objekt | ändern |
 | U: das Update-Flag | A: Update-Flag | Objekt common.read | Objekt bei eingehenden GroupValue_Responses aktualisieren |
 | I: das Initialisierungsflag | I: Initialisierungs-Flag | Objekt native.autoread | |
@@ -350,7 +353,7 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
 - Nur IPv4 wird unterstützt
 
 # FAQ
-- Autoread löst bei Aktoren am Bus eine Reaktion aus
+- Autoread löst eine Reaktion der Aktoren am Bus aus
 
     Prüfen Sie in der ETS, ob Gruppenobjekte bestimmter Geräte, die mit dem verdächtigen GA verbunden sind, das R/L-Flag konfiguriert haben. Dies sollte nicht der Fall sein, wenn das Gerät ein Verbraucher des Signals ist. Wenn das Signal einen Ereignischarakter hat, würde ein „groupValueRead“ dieses Ereignis auslösen. Ändern Sie die Konfiguration in der ETS oder deaktivieren Sie Autoread für dieses Objekt.
 
@@ -366,13 +369,17 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release
   * npm run release major/minor/patch major.minor.patch
+  * update gui: iob upload openknx
 -->
+### 0.7.3 (2024-03-05)
 
-  ### **WORK IN PROGRESS**
+-   feature: one of the warnings is configurable in the dialog
+
 ### 0.7.2 (2024-01-09)
-- feature: handle network connection instability issesues
-- feature: generate more log messages
-- bugfix: telegram count
+
+-   feature: handle network connection instability issues
+-   feature: generate more log messages
+-   bugfix: telegram count
 
 ### 0.7.1 (2024-01-07)
 
@@ -549,7 +556,7 @@ Openknx schätzt im Objekt `info.busload` die aktuelle Buslast der KNX-Linie, mi
 
 ### 0.1.13 (2021-12-30)
 
--   bugfix: state.value of of type object must be serialized
+-   bugfix: state.value of type object must be serialized
 -   bugfix: alias algorithm error handling, takover more info to alias
 
 ### 0.1.12 (2021-12-30)

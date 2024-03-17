@@ -42,6 +42,142 @@ vaillant.0.id.systemControlState.controlState.zones01.setBackTemperature
 vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED
 vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
 
+## Remote Commands
+
+For Refresh and predefined
+`vaillant.0.id.remote`
+
+## Custom Command
+
+You can use custom Commmand remote for not predefined remotes
+`vaillant.0.id.remotes.customCommand`
+
+### Examples:
+
+```json
+{
+  "url": "zone/1/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/operation-mode",
+  "data": { "operationMode": "OFF" }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/temperature",
+  "data": { "setpoint": 55 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/set-back-temperature",
+  "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/quick-veto",
+  "data": { "desiredRoomTemperatureSetpoint": 11, "duration": 3 },
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "DELETE"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/circulation-pump/time-windows",
+  "data": {
+    "friday": [
+      {
+        "endTime": 540,
+        "startTime": 360
+      }
+    ],
+    "monday": [],
+    "saturday": [],
+    "sunday": [],
+    "thursday": [],
+    "tuesday": [],
+    "wednesday": []
+  }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/time-windows",
+  "data": {
+    "friday": [],
+    "monday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "saturday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "sunday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "thursday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "tuesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "wednesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ]
+  }
+}
+```
+
 ## Changelog
 
 ### 0.3.0

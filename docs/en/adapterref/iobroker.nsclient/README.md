@@ -123,6 +123,9 @@ IoBroker state bjects will be created after successful polling the target device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.2.3 (2024-03-12)
+* (mcm1957) Dependencies have been updated
+
 ### 0.2.2 (2023-12-10)
 * (mcm1957) Sentry has been activated.
 
@@ -145,7 +148,7 @@ IoBroker state bjects will be created after successful polling the target device
 ## License
 MIT License
 
-Copyright (c) 2022-2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2022-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

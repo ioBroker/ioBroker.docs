@@ -473,6 +473,17 @@ After that checkout modified version in `./build` folder. Then.
 	PLACEHOLDER for the next version:
 	### **WORK IN PROGRESS**
 -->
+### 4.1.8 (2024-03-11)
+* (Garfonso) prevent even more possible crashes
+* (smarthomejoey) fixed: tilt level and inversion
+
+### 4.1.6 (2024-03-07)
+* (Garfonso) remove exessive logging
+* (Garfonso) improve fix for crash again.
+
+### 4.1.5 (2024-03-05)
+* (Garfonso) fixed: possible crashes during startup
+
 ### 4.1.4 (2024-02-10)
 * (Garfonso) improved fix: lamp icons now turn gray on switch off.
 
@@ -480,18 +491,6 @@ After that checkout modified version in `./build` folder. Then.
 * (Garfonso) prevent warning for browser_mod/recall_id service call
 * (Garfonso) fix: lamp icons now turn gray on switch off.
 * (Garfonso) fix: notifications via sendTo work again.
-
-### 4.1.2 (2024-01-09)
-* (Garfonso) fix: time in timestamp display
-
-### 4.1.1 (2024-01-02)
-* (Garfonso) changed: determining user id
-* (Garfosno) changed: history attributes handling
-* (Garfonso) added: handle browser_mod/recall_id service call.
-* (Garfonso) changed: all states are strings (fixes #483)
-
-### 4.1.0 (2023-12-18)
-* (Garfons) add an option to show users on login screen (off by default)
 
 ## License
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.notification-manager/README.md
 title: ioBroker.notification-manager
-hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
+hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 ---
 ![Логотип](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -21,6 +21,15 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 
 ### Общее описание
 Этот адаптер позволяет перенаправить внутренний `Notifications` ioBroker на адаптеры обмена сообщениями, которые поддерживают `Notification System`. Если вам не хватает адаптера, откройте заявку на соответствующий адаптер.
+
+### Конфигурация
+Для каждого `category` вы можете настроить, должен ли `category` быть активным. Если категория не активна, `notification-manager` ничего не будет обрабатывать для этой конкретной `category`.
+
+Кроме того, вы можете настроить, должен ли `notification-manager` подавлять определенные `categories`. Если зарегистрирован `notification` для подавленного `category`, адаптер немедленно очистит этот `notification`, не отправляя вам никаких сообщений.
+
+Наконец, вы можете настроить поддерживаемые адаптеры обмена сообщениями. Всякий раз, когда генерируется новый `notification` для `active` (и `non-suppressed`) `category`, адаптер отправляет `notification` через первый сконфигурированный адаптер. Если отправка сообщения прошла успешно, `notification-manager` очистит `notification`. ЕСЛИ отправка не удалась, будет повторена попытка со вторым адаптером.
+
+Если категория имеет `active`, но еще не настроены какие-либо конкретные параметры, адаптер будет использовать настроенные резервные параметры. По умолчанию новые категории всегда имеют номер `active`, чтобы вы были уведомлены. Это означает, что всякий раз, когда какой-либо адаптер реализует новый `category`, будут применяться резервные настройки для данного `severity`.
 
 ### Регистрация уведомлений, ориентированных на пользователя
 Как пользователь, вы в лучшем случае знаете, когда хотите получать уведомления о конкретных ситуациях в вашей системе.
@@ -89,6 +98,11 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-03-16)
+* (foxriver76) added possibility to suppress messages
+* (foxriver76) fixed issue that bottom of settings page is shown behind toolbar
+* (foxriver76) fixed issue that all notifications are cleared instead of only the handled one
+
 ### 1.0.0 (2023-12-08)
 * (foxriver76) added possibility to send custom messages
 * (foxriver76) added UI indicators for each category
@@ -105,7 +119,7 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 ## License
 MIT License
 
-Copyright (c) 2023 foxriver76 <moritz.heusinger@gmail.com>
+Copyright (c) 2024 foxriver76 <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

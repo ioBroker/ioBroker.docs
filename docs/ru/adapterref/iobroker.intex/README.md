@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: LzjlC+djKM5jR/Tz9XJnk3QJ1oO7kdofxCoROZ7nris=
+hash: NwQnuxNpFXZ5n4vtiRTbKM9JfyAWEb1zWbSw14lLVDU=
 ---
 ![Логотип](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -41,7 +41,7 @@ IP-адрес и порт берутся из облака. Если IP-адре
 
 ### Местный
 #### Только локально
-В локальном режиме в настоящее время также предлагаются функции, которые пул не поддерживает. В поле «Адрес» необходимо указать либо DNS-имя пула на маршрутизаторе, либо IP-адрес пула.
+В локальном режиме в настоящее время также предлагаются функции, которые пул не поддерживает. В разделе «Адрес» необходимо указать либо DNS-имя пула на маршрутизаторе, либо IP-адрес пула.
 
 Здесь также можно установить интервал 0,5 минуты.
 
@@ -50,48 +50,8 @@ IP-адрес пула можно найти с помощью кнопки по
 ## Управление функциями спа
 Для параметра «intex.0.-id-.control.-command-», установленного в значение true или false, контролируется состояние команды пула.
 
-# Обсуждение и вопросы на немецком языке
+## Обсуждение и вопросы на немецком языке
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
-
-## **РАБОТА В ПРОЦЕССЕ**
-- (PLCHome) Настройте этот адаптер для использования сценария выпуска.
-
-## 0.1.5
-* (PLCHome) исправлена орфографическая ошибка sanitzer на sanitizer в статусах control.sanitizer и control.sanitizerTime.
-
-## 0.1.4
-* (PLCHome) Изменение объектов, доступных только для чтения, например. температура, больше не вызывает сбой.
-
-## 0.1.3
-* (PLCHome) Оставшееся время работы фильтра корректируется на время дезинфекции, если оно больше.
-
-## 0.1.2
-* (PLCHome) Исправлено оставшееся время фильтра при нагреве от 1 до -1 на бесконечность.
-
-## 0.1.1
-* (PLCHome) Оставшееся время для добавления фильтра и дезинфицирующего средства под контролем.
-* (PLCHome) Обновление добавлено в раздел «Контроль».
-* (PLCHome) Пульт удален, потому что Control может сделать это лучше.
-
-## 0.1.0
-* (rbartl/PLCHome) Поддержка локального IP. Как через облако, так и только локально без облака. Спасибо Австрии Роберту Бартлу.
-* (PLCHome) Подтвердите непосредственно после переключения через Control.
-
-## 0.0.7
-* (PLCHome) Переключение через пульт снова работает.
-* (PLCHome) После переключения через Control предыдущий статус трафика можно передать из облака. Это может привести к переключению статуса.
-
-## 0.0.6
-* (PLCHome) Определенная настройка состояний
-* (PLCHome) Изменение Фаренгейта по Цельсию
-* (PLCHome) «control.temperature», только чтение, объект из 0.0.5 необходимо удалить один раз.
-
-## 0.0.5
-* (PLCHome) Добавлена установка температуры, объект необходимо удалить один раз.
-* (PLCHome) Расшифровка информации о состоянии
-
-## 0.0.1
-* (TA2k) первоначальный выпуск
 
 ## Changelog
 
@@ -99,6 +59,57 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (PLCHome) Configure this adapter to use the release script.
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+
+### 0.1.1
+
+* (PLCHome) Remaining time for filter and sanitizer added under control.
+* (PLCHome) Refresh added under Control.
+* (PLCHome) Remote deleted because Control can do it better.
+
+### 0.1.0
+
+* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+* (PLCHome) Confirm directly after switching via Control.
+
+### 0.0.7
+
+* (PLCHome) Switching via remote works again.
+* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
+
+### 0.0.6
+
+* (PLCHome) Defined setting of states
+* (PLCHome) Change Fahrenheit Celsius
+* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
+
+### 0.0.5
+
+* (PLCHome) Set temperature added, object must be deleted once.
+* (PLCHome) Decoding of status information
+
+### 0.0.1
+
+* (TA2k) initial release
 
 ## License
 

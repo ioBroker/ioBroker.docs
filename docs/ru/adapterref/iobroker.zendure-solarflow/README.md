@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-солнечный поток
-hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
+hash: LksJ3XoR/hq1ue0Dqkmx1LAmrMtF0rtklzo3Ch1lFLo=
 ---
 ![Логотип](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -12,7 +12,7 @@ hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 ![Количество установок](https://iobroker.live/badges/zendure-solarflow-installed.svg)
 ![Текущая версия в стабильном репозитории.](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![НПМ](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
-![Пожертвовать](https://img.shields.io/badge/Donate-PayPal-green.svg)
+![Пожертвовать](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # IoBroker.zendure-solarflow
 **Тесты:** ![Тестирование и выпуск](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
@@ -23,7 +23,7 @@ hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 
 Примечания:
 
-1. Вам необходимо использовать глобальный сервер Zendure!
+1. В настоящее время работает только с устройствами SolarFlow (на данный момент проверено только с HUB1200). AIO не поддерживается (поскольку у меня нет такого устройства..)
 
 2. Ограничением вывода можно управлять с помощью состояния, созданного в подпапке productId/deviceKey/control. Пожалуйста, деактивируйте/снимите флажки со всех режимов в приложении Zendure, иначе установить ограничение вывода невозможно!
 
@@ -38,6 +38,76 @@ hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 Если вы считаете адаптер полезным для себя и хотите поддержать мою работу, сделайте пожертвование через Paypal. Спасибо! (это персональная ссылка для пожертвований для Nograx, не имеющая отношения к проекту ioBroker!)<br />
 
 ## Changelog
+### 1.2.3 (2024-03-15)
+
+- Fix ACK on onStateChange
+- Update Readme
+
+### 1.2.2 (2024-03-14)
+
+- Fix issue that renamed devices could not be found.
+- Add states for name, product name, serial ID and configured server.
+- Make "energyWhMax" State writable, so you can adjust the max Value.
+- Sent a warning if a device is configured for a server not in use.
+
+### 1.2.1 (2024-03-13)
+
+- Fix calculation of soc: Set energyMaxWh to current energyWh if Zendures SOC is 100%
+- Round SOC to max 1 digit after comma.
+
+### 1.2.0 (2024-03-13)
+
+- EU server is working now.
+- Fix calculation errors in log when calculation is not used
+- More Debug Output
+- Filter SolarFlow devices, so no other devices (e.g. SmartPlugs) will be added.
+- Clear password when settings loaded, as encrypted password is loaded into input and leads to a wrong password.
+
+### 1.1.23 (2024-03-11)
+
+- Fix calculation of "energy in batteries"
+- Try to implement EU server - untested -
+
+### 1.1.22 (2024-03-09)
+
+- Try to fix reset values at midnight
+
+### 1.1.21 (2024-03-08)
+
+- Fix calculation timeframe
+
+### 1.1.17 (2024-03-08)
+
+- Improve calculations
+- No autocomplete on settings
+
+### 1.1.15 (2024-03-06)
+
+- Calculations improved
+- Stop energy input on low voltage is now an option in settings
+
+### 1.1.14 (2024-03-04)
+
+- Reorganize Code
+- Calculations are now optional and have to be enabled in settings
+- Calculation of SOC from voltage and energy go in and out of batteries
+- Stop energy feed if voltage drops under limit
+
+### 1.1.11 (2024-03-01)
+
+- Fix Solar Input 1 and 2 from the new Zendure firmware
+- Fix remaining charging time
+- Fix calculations overwritten when data with 0 value comes in.
+
+### 1.1.8 (2024-02-29)
+
+- Fix calculation error
+
+### 1.1.7 (2024-02-29)
+
+- Add energy calculations for 'today'
+- Fix minutes display bug for remaining charge and discharge time
+
 ### 1.1.4 (2024-02-28)
 
 - Fix timeout issues
@@ -76,7 +146,7 @@ hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 
 ### 1.0.1 (2023-11-03)
 
-- Fix translations
+- Fix translationscd so
 - Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
 - First official release version
 

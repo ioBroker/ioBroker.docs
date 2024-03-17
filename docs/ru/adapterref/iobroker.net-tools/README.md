@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-инструменты
-hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
+hash: aywaAn2IRpd3JJOaTlGfgxStQY9zTrvOOPPb/jdf4TQ=
 ---
 ![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -44,6 +44,12 @@ hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 
 ---
 
+### Айфон
+iPhone пытаются защитить пользователей от отслеживания при смене Mac-адреса.
+Узнайте больше об этом и о том, как отключить частные сети: https://support.apple.com/en-us/102509.
+
+---
+
 ## Для разработчиков
 #### Получите Mac для конкретного устройства
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
@@ -63,6 +69,9 @@ hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.0.6 04.03.2024
+* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 
 ### 1.0.5 04.02.2024
 * (Jey Cee) remove discovery adapter as dependency

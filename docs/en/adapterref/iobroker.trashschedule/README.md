@@ -63,6 +63,10 @@ chapters: {"pages":{"en/adapterref/iobroker.trashschedule/README.md":{"title":{"
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+* (klein0r) Improved error reporting / log messages
+
 ### 3.2.0 (2024-01-22)
 
 * (klein0r) Added more providers

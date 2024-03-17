@@ -74,6 +74,9 @@ Fully-Browser-Gerät(e), also die Tablets, auf denen der Fully-Browser läuft, e
 * [fully-kiosk.com MQTT Integration](https://www.fully-kiosk.com/en/#mqtt)
 
 ## Changelog
+### 3.0.12 (2024-03-05)
+* (arteck) set batteryLevel to 0 if tablet is offline is configurable
+
 ### 3.0.11 (2024-02-25)
 * (arteck) translate api-type
 

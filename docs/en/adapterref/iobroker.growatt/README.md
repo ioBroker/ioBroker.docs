@@ -357,53 +357,53 @@ Therefore, the description has also been removed.
 
 -\*-
 
-# Changelog
+## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
 
-## **WORK IN PROGRESS**
+### **WORK IN PROGRESS**
 
 - (PLCHome) Configure this adapter to use the release script.
 
-## 3.2.3 (27.01.2024)
+### 3.2.3 (27.01.2024)
 
 - (PLCHome) In Multiple Backflow the objects in Total Data and Status Data were swapped. Please delete the objects below Total Data and Status Data and restart the adapter after the update.
 
-## 3.2.2 (27.01.2024)
+### 3.2.2 (27.01.2024)
 
 - (PLCHome) Catching of the fault log messages is now possible (Thanx to ZioCain for the code)
 - (PLCHome) Setting active power for MAX inverter (Thanx to sefina for testing)
 
-## 3.2.1 (08.09.2023)
+### 3.2.1 (08.09.2023)
 
 - (PLCHome) Additionally query the status information via the Plant List.
 
-## 3.2.0 (01.09.2023)
+### 3.2.0 (01.09.2023)
 
 - (PLCHome) Added inverter typ singleBackflow and multipleBackflow
 
-## 3.1.2 (16.08.2023)
+### 3.1.2 (16.08.2023)
 
 - (PLCHome) sendTo now also possible with objects as message data
 - (PLCHome) Added message getHistory
 
-## 3.1.1 (03.07.2023)
+### 3.1.1 (03.07.2023)
 
 - (PLCHome) Added support for Growatt page when Plant is a C&I Plant page with indexbC or plantDo in Path of the Growatt web interface. Thanks to Denn281
 
-## 3.0.4 (03.07.2023)
+### 3.0.4 (03.07.2023)
 
 - (PLCHome) No retrieval of the other parameters value possible after parameter error
 - (PLCHome) Grid first and Battery first setting on MIX may not work
 
-## 3.0.3 (27.06.2023)
+### 3.0.3 (27.06.2023)
 
 - (PLCHome) setting for tlx/tlxh time improved
 
-## 3.0.2 (08.06.2023)
+### 3.0.2 (08.06.2023)
 
 - (PLCHome) Write inverter settings, it can be activated via the config
 
@@ -422,64 +422,64 @@ Therefore, the description has also been removed.
     - Time
     - PV active power rate
 
-## 2.1.1 (17.04.2023)
+### 2.1.1 (17.04.2023)
 
 - (PLCHome) Calendar structure was not always changed to timestamp
 - (PLCHome) Improvement in the internal handling of objects without considering their case.
 
-## 2.1.0 (14.04.2023)
+### 2.1.0 (14.04.2023)
 
 - (PLCHome) Status data now also from TLX/TLXH
 - (PLCHome) TLX Hybrid is now working
 - (PLCHome) If there are different inverters, these are now shown
 
-## 2.0.0 (06.10.2022)
+### 2.0.0 (06.10.2022)
 
 - (PLCHome) Data logger settings can be called up and changed.
 - (PLCHome) The server url can be changed.
 
-## 1.2.1 (21.09.2022)
+### 1.2.1 (21.09.2022)
 
 - (PLCHome) Added an offset to numeric values. My inverter reset te total quantity by itself. Now the total quantity can be corrected.
 
-## 1.1.19 (30.08.2022)
+### 1.1.19 (30.08.2022)
 
 - (PLCHome) HTML Header
 
-## 1.1.17 (10.08.2022)
+### 1.1.17 (10.08.2022)
 
 - (PLCHome) JSON Loopkiller
 
-## 1.1.16 (10.08.2022)
+### 1.1.16 (10.08.2022)
 
 - (PLCHome) https rejectUnauthorized false
 
-## 1.1.15 (28.04.2022)
+### 1.1.15 (28.04.2022)
 
 - (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values are empty
 
-## 1.1.14 (26.04.2022)
+### 1.1.14 (26.04.2022)
 
 - (PLCHome) Restart loop when exception
 
-## 1.1.13 (08.04.2022)
+### 1.1.13 (08.04.2022)
 
 - (PLCHome) total data and history data missing for type inv
 
-## 1.1.12 (06.04.2022)
+### 1.1.12 (06.04.2022)
 
 - (PLCHome) api maintance
 
-## 1.1.11 (02.04.2022)
+### 1.1.11 (02.04.2022)
 
 - (PLCHome) fixed readme
 - (PLCHome) fixed version
 
-## 1.1.10 (02.04.2022)
+### 1.1.10 (02.04.2022)
 
 - (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
 
-## 1.1.9 (27.03.2022)
+### 1.1.9 (27.03.2022)
 
 - (PLCHome) Make the source a little prettier
 - (PLCHome) Make the readme prettier
@@ -488,19 +488,19 @@ Therefore, the description has also been removed.
 - (PLCHome) Improvement triggered by "Sentry" issues: undefined object
 - (PLCHome) Improvement: no disconnect to "Sentry"
 
-## 1.1.8 (16.03.2022)
+### 1.1.8 (16.03.2022)
 
 - (PLCHome) Improvement triggered by "Sentry" issues
 
-## 1.1.7 (13.02.2022)
+### 1.1.7 (13.02.2022)
 
 - (PLCHome) "Sentry" was added
 
-## 1.1.6 (12.02.2022)
+### 1.1.6 (12.02.2022)
 
 - (PLCHome) Read me
 
-## 1.1.2 (12.02.2022)
+### 1.1.2 (12.02.2022)
 
 - (PLCHome) Timeouts made maintainable and adjusted. Request timout is now 60 second like chrome
 - (PLCHome) Server request improved and additionally secured against dying
@@ -510,28 +510,28 @@ Therefore, the description has also been removed.
 - (PLCHome) Improved debugging
 - (PLCHome) Update the includes
 
-## 1.1.1 (27.05.2021)
+### 1.1.1 (27.05.2021)
 
 - (PLCHome) The web request timeout was increased due to login issues
 
-## 1.1.0 (24.05.2021)
+### 1.1.0 (24.05.2021)
 
 - (PLCHome) Improvement of the connection via Axios Session
 
-## 1.0.1 (05.03.2021)
+### 1.0.1 (05.03.2021)
 
 - (PLCHome) Duplicate keys are transmitted, I try to filter them out.
 
-## 1.0.0 (24.02.2021)
+### 1.0.0 (24.02.2021)
 
 - (PLCHome) Read me
 - (PLCHome) fix: Create a date from the time or calendar structure for last history data for all devices sometimes not working
 
-## 0.0.20 (09.02.2021)
+### 0.0.20 (09.02.2021)
 
 - (PLCHome) Create a date from the time or calendar structure for last history data for all devices
 
-## 0.0.19 (05.02.2021)
+### 0.0.19 (05.02.2021)
 
 - (PLCHome) The data from the chart is removed. These were only available in a 5-minute grid. The performance can now be queried via the history.
 - (PLCHome) Objects of unselected data areas are now deleted.
@@ -539,70 +539,70 @@ Therefore, the description has also been removed.
 - (PLCHome) A link to the Growatt page was added, so the adapter now also appears in the overview.
 - (PLCHome) Recently, Growatt has changed the spelling of values, which letters are uppercase and lowercase. For this reason, the objects are now handled internally Case Insensively. If a warning is written in the log after the update when starting, you have to delete one of the two objects. If a warning is written in the log after the update when starting, you have to delete one of the two objects. And then restart the adapter so that it definitely uses the remaining object to store the value.
 
-## 0.0.18 (23.01.2021)
+### 0.0.18 (23.01.2021)
 
 - (PLCHome) wrong version info.
 
-## 0.0.17 (21.01.2021)
+### 0.0.17 (21.01.2021)
 
 - (PLCHome) fixes a date issue on inverter history data.
 
-## 0.0.16 (20.01.2021)
+### 0.0.16 (20.01.2021)
 
 - (PLCHome) npm package version update
 - (PLCHome) add last history for all plants. Special thanks to magix for the key, so i can test the inverter history function.
 
-## 0.0.15 (04.12.2020)
+### 0.0.15 (04.12.2020)
 
 - (PLCHome) npm package version update
 
-## 0.0.14 (01.12.2020)
+### 0.0.14 (01.12.2020)
 
 - (PLCHome) improvement for objects not returned from Growatt website
 
-## 0.0.12 (27.11.2020)
+### 0.0.12 (27.11.2020)
 
 - (PLCHome) wrong initialization for shared key: string instead of boolean
 
-## 0.0.11 (27.11.2020)
+### 0.0.11 (27.11.2020)
 
 - (PLCHome) Read me
 
-## 0.0.10 (26.11.2020)
+### 0.0.10 (26.11.2020)
 
 - (PLCHome) Shared key login
 - (PLCHome) Last value of the graph if there are no live data.
 - (PLCHome) Change of the polling interval
 
-## 0.0.9 (05.10.2020)
+### 0.0.9 (05.10.2020)
 
 - (PLCHome) fix no feature 'ADAPTER_AUTO_DECRYPT_NATIVE'
 
-## 0.0.8 (05.10.2020)
+### 0.0.8 (05.10.2020)
 
 - (PLCHome) fix io-package
 
-## 0.0.7 (05.10.2020)
+### 0.0.7 (05.10.2020)
 
 - (PLCHome) with "@iobroker/adapter-core": "^2.4.0", the js-controller dep needs to be >=2.0.0!
 - (PLCHome) io-package native defined 5 values, admin sets 7
 - (PLCHome) store password encrypted
 
-## 0.0.6 (31.08.2020)
+### 0.0.6 (31.08.2020)
 
 - (PLCHome) translation with ioBroker tool.
 
-## 0.0.5
+### 0.0.5
 
 - (PLCHome) initial release.
 
-## 0.0.1
+### 0.0.1
 
 - (PLCHome) initial release.
 
 -\*-
 
-# License
+## License
 
 The MIT License (MIT)
 

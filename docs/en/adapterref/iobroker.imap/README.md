@@ -8,8 +8,9 @@ BADGE-GitHub commit activity: https://img.shields.io/github/commit-activity/m/Lu
 BADGE-GitHub commits since latest release: https://img.shields.io/github/commits-since/Lucky-ESA/ioBroker.imap/latest
 BADGE-GitHub last commit: https://img.shields.io/github/last-commit/Lucky-ESA/ioBroker.imap
 BADGE-GitHub issues: https://img.shields.io/github/issues/Lucky-ESA/ioBroker.imap
-BADGE-Beta: https://img.shields.io/npm/v/iobroker.imap.svg?color=red&label=beta
+BADGE-Current version in stable repository: https://iobroker.live/badges/imap-stable.svg
 BADGE-NPM: https://nodei.co/npm/iobroker.imap.png?downloads=true
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/Lucky-ESA/ioBroker.imap/badge.svg
 ---
 ![Logo](../../admin/imap.png)
 
@@ -605,10 +606,11 @@ UNSEEN - Messages that do not have the Seen flag set.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.1.3 (2024-03-06)
 
 -   (Lucky-ESA) Fixed setFlag
+-   (Lucky-ESA) Fixed sendTo error during instance deletion ([#57](https://github.com/Lucky-ESA/ioBroker.imap/issues/57))
+-   (Lucky-ESA) Mass email shift intercepted
 
 ### 0.1.2 (2024-01-24)
 

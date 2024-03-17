@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: qrqas78ZQfqc8aroZUC9C2td+Glv+F7fTvDnvSZIWXw=
+hash: 5jIpLT/ix1AlAVGorCSvgZ1yepwQ5XC/sEgSEKZ2Vw4=
 ---
 ![Stabile Version](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM-Version](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -31,6 +31,8 @@ Außerdem wird der Standort Ihrer Haustiere sowie deren Futter- und Wasserverbra
 
 Damit können Sie den Sperrmodus und die Sperrstunde Ihrer Klappe steuern und den Standort Ihrer Haustiere festlegen.
 
+Der Adapter erfordert Knoten 18 oder höher.
+
 ### Veränderbare Werte
 Die folgenden Zustände können geändert werden und werden auf Ihrem Gerät wirksam bzw. werden in Ihrer Sure Petcare®-App widergespiegelt.
 
@@ -54,6 +56,9 @@ SureFlap®, Sure Petcare® und Felaqua® sind eingetragene Marken von [SureFlap 
 Die Bilder der SureFlap®-Geräte werden ab [Klar, Petcare®](https://www.surepetcare.com/en-us/press) zur kostenlosen Nutzung bereitgestellt.
 
 ## Changelog
+
+### 2.1.1 (2024-02-25)
+* (Sickboy78) bugfix for outside times not beeing shown
 
 ### 2.1.0 (2024-02-20)
 * (Scrounger) option to enable history data

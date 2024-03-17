@@ -23,13 +23,13 @@ chapters: {"pages":{"en/adapterref/iobroker.awtrix-light/README.md":{"title":{"e
 - nodejs 14.5 (or later)
 - js-controller 4.0.15 (or later)
 - Admin Adapter 6.6.0 (or later)
-- _Awtrix Light_ device with firmware _0.94_ (or later) - e.g. Ulanzi TC001
+- _Awtrix 3_ device with firmware _0.96_ (or later) - e.g. Ulanzi TC001
 
 Buy here: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) or here: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Getting started
 
-1. Flash the firmware on your device and add it to your WiFi network - see [documentation](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. Flash the firmware on your device and add it to your WiFi network - see [documentation](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. Install the awtrix-light adapter in ioBroker (and add a new instance)
 3. Open the instance configuration and enter the IP address of the device in your local network
 
@@ -45,7 +45,7 @@ Just create an alias in `alias.0` of type `string` and convert your `boolean` va
 
 **How can I update to the latest firmware version?**
 
-Just use the [onscreen menu](https://blueforcer.github.io/awtrix-light/#/onscreen) and navigate to `update`. No need to use the web flasher again.
+Just use the [onscreen menu](https://blueforcer.github.io/awtrix3/#/onscreen) and navigate to `update`. No need to use the web flasher again.
 
 **The device is getting hot while charging.**
 
@@ -53,7 +53,7 @@ The hardware design is not the best. Please use a power supply which deliveres m
 
 **Is it possible to remove the battery from the device?**
 
-Yes, but you have to open the case with a heat gun (since the front glued to the case) and [modify the PCB with a step down converter](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765).
+Yes, but you have to open the case with a heat gun (since the front glued to the case) and [modify the PCB with a step down converter](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765).
 
 **Is it possible to re-order apps?**
 
@@ -79,15 +79,21 @@ Yes, since firware version 0.82 it is possible to configure a user name and a pa
 
 When sending a notification with `hold: true`, the text will stay on the display until the notification will be confirmed. This can either happen with a press on the middle button of the device, or by setting the state `notification.dismiss` to `true`.
 
+**Some state changes are not displayed immediately.**
+
+If your states changes very often (like every second), some changes will be ignored to prevent frequent requests to the device. Each app has a global "block time" which is configurable in the instance configuration. The default block time is 3 seconds. It is not recommended to set a lower value than 3.
+
 ## Same apps on multiple devices
 
-If you have multiple awtrix-light devices, it is required to create a new instance for each device. But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
+If you have multiple awtrix-light devices, **it is required to create a new instance for each device.** But it is possible to copy all app settings of another instance if you want to display the same information on all devices. Just select the other instance in the app configuration tab.
 
 Example:
 
 1. Configure all apps in instance `awtrix-light.0`
 2. Create a new instance for the second device (`awtrix-light.1`)
 3. Choose `awtrix-light.0` in the instance configuration of `awtrix-light.1` to use the same apps on the second device
+
+Since version 0.15.0 (and later) the app visibility and contents of expert apps are also applied to other devices (when app settings are copied). In the example above the apps of `awtrix-light.1` will be hidden automatically if the visibility state of an app in instance `awtrix-light.0` changes.
 
 ## Blockly and JavaScript
 
@@ -101,14 +107,14 @@ Example:
 Send a "one time" notification to your device:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties) for details.
+The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=json-properties) for details.
 
 *You can also use a Blockly block to send a notification (doesn't provide all available options).*
 
@@ -117,21 +123,21 @@ The message object supports all available options of the firmware. See [document
 To play a (previously created) sound file:
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'example' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'example' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback) for details.
+The message object supports all available options of the firmware. See [documentation](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback) for details.
 
 *You can also use a Blockly block to play a sound.*
 
 To play a custom ringtone:
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -186,37 +192,40 @@ Example: [Weather App](weather-app.md)
 
 ## Hide native apps
 
-If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix-light/#/onscreen) for details.
+If you want to disable/hide a native app (like battery, temperature or humidity): Use the on screen menu on the device! See [documentation](https://blueforcer.github.io/awtrix3/#/onscreen) for details.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+Updated recommended firmware version to 0.96
+
+### 0.16.0 (2024-03-12)
+
+Updated recommended firmware version to 0.95
+
+* (klein0r) Added notification for firmware update
+* (klein0r) Added setting state for volume
+* (klein0r) Rebranding Awtrix Light to Awtrix 3
+
+### 0.15.1 (2024-03-12)
+
+* (klein0r) Fixed default values of color states
+
+### 0.15.0 (2024-03-06)
+
+* (klein0r) Keep apps contents in sync
+
+### 0.14.1 (2024-03-06)
+
+* (klein0r) Fixed roles of calendar header, body and text (rgb)
+
 ### 0.14.0 (2024-02-20)
 
 * (klein0r) Allow to round numbers dynamically (depends on length)
-
-### 0.13.1 (2024-01-25)
-
-* (klein0r) Fixed hold option in blockly
-
-### 0.13.0 (2024-01-25)
-
-* (klein0r) Added state for text color and background color in expert apps
-* (klein0r) Avoid app refresh when no values have been changed
-
-### 0.12.0 (2024-01-24)
-
-* (klein0r) Added hold option to blockly
-* (klein0r) Added state to dismiss notifications
-
-### 0.11.0 (2024-01-09)
-
-Updated recommended firmware version to 0.94
-
-* (klein0r) Added bar graph to history apps
-* (klein0r) Added aggregation for history apps
 
 ## License
 MIT License

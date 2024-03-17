@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: IdtHu+rNO99e42ZGyYxUdQmk3BpECpzjWpmZj00PX3g=
+hash: Q9knqwUkXz52JAd6LLPc3lUKOZIzIs0eFoa1OKhRA2w=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -20,17 +20,148 @@ hash: IdtHu+rNO99e42ZGyYxUdQmk3BpECpzjWpmZj00PX3g=
 Адаптер Vaillant multiMatic и myVaillant
 
 ### Начиная
-В этом месте можно использовать мгновенную почту и пароль для multimatic/senso или приложения myVaillant.
+В этом месте можно мгновенно выбрать почту и пароль для multimatic/senso или приложения myVaillant.
 
 Конфигурация может быть изменена в соответствии с конфигурацией Unterpunkt. Первая конфигурация включается при использовании режима ON или MANUAL, а не AUTO или TIME_CONTROLLED.
 
 ## **Beispiel Mutlimatic:**
-**Теплая вода**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung**: Сначала в РУЧНОМ vaillant.0.serialnumber.systemcontrol/tli.zones03.heating.configuration.operation_mode РУЧНОЙ Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende Operation_mode auf TIME_CONTROLLED
+**Теплая вода**: vaillant.0.serialnummer.systemcontrol/tli.dhw.hotwater.configuration.hotwater_temperature_setpoint **Heizung: Сначала в РУЧНОМ vaillant.0.serialnumber.systemcontrol/tli.zones03.heating.configuration.operation_mode РУЧНОЙ Dann die Temperatur vaillant.0.serial.systemcontrol/tli.zones03.heating.configuration.manual_mode_temperature_setpoint Und am Ende Operation_mode auf TIME_CONTROLLED
 
-Параметр können über den Punkt ПараметрValue angepasst werden dabei Beachten welche Werte im Object Definition erlaubt sind.
+Параметр können über den PunktparameterValue angepasst werden dabei Beachten welche Werte im Objekt Definition erlaubt sind.
 
 ## **Добавление myVaillant:**
-vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost или установка true/false в режиме Boost для активации или деактивации vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint для температуры RaumTemperatur для установки vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost или true/false setzen um den Boost для активации или деактивации vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint для RaumTemperatur для установки vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUAL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+
+## Удаленные команды
+Для обновления и предопределенных `vaillant.0.id.remote`
+
+## Пользовательская команда
+Вы можете использовать собственный командный пульт для непредопределенных пультов `vaillant.0.id.remotes.customCommand`
+
+### Примеры:
+```json
+{
+  "url": "zone/1/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/operation-mode",
+  "data": { "operationMode": "OFF" }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/temperature",
+  "data": { "setpoint": 55 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/set-back-temperature",
+  "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/quick-veto",
+  "data": { "desiredRoomTemperatureSetpoint": 11, "duration": 3 },
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "DELETE"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/circulation-pump/time-windows",
+  "data": {
+    "friday": [
+      {
+        "endTime": 540,
+        "startTime": 360
+      }
+    ],
+    "monday": [],
+    "saturday": [],
+    "sunday": [],
+    "thursday": [],
+    "tuesday": [],
+    "wednesday": []
+  }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/time-windows",
+  "data": {
+    "friday": [],
+    "monday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "saturday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "sunday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "thursday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "tuesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "wednesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ]
+  }
+}
+```
 
 ## Changelog
 

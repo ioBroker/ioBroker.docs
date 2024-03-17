@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
+hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 ---
 ![标识](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -67,6 +67,15 @@ ems-esp 网关固件不支持 EMS+ 恒温器（RC310 / RC300 或类似）的 swi
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2024-03-09)
+* improve km200 data read to avoid errors
+
+### 3.0.2 (2024-03-02)
+* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+
+### 3.0.1 (2024-02-25)
+* change KM200 error messages for recordings
+
 ### 3.0.0 (2024-02-17)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
@@ -79,23 +88,6 @@ ems-esp 网关固件不支持 EMS+ 恒温器（RC310 / RC300 或类似）的 swi
 ### 3.0.0-alpha.2 (2024-02-16)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
-
-### 3.0.0-alpha.1 (2024-02-15)
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
-
-### 3.0.0-alpha.0 (2024-02-05)
-* Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* Implement raw telegram search for EMS+ entities and create writable objects / states
-* The search is only active when no km200 gateway is selected
-
-### 2.8.0 (2024-02-04)
-* influxdb adapter version >= 4.0.2 required 
-* store km200 recordings only within defined retention period for influxdb
-* delay start of statistics by 5 minutes
 
 ## License
 MIT License

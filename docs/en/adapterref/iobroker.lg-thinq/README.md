@@ -735,6 +735,7 @@ lg-thinq.0.xxx.area must be filled!
 
 -   (Lucky-ESA) Changed airState.quality.odor max value
 -   (Lucky-ESA) Fixed sentry messages
+-   (Lucky-ESA) Added jet & airclean for device 401
 
 ### 0.3.3 (2024-01-14)
 

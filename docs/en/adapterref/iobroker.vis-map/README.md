@@ -27,6 +27,9 @@ You can bind longitude and latitude apart or just place into **longitude** the O
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.0 (2024-03-07)
+- (bluefox) Removed dependency to `iobroker.vis`. Only show the message if vis is not installed
+
 ### 1.0.5 (2024-01-14)
 - (bluefox) Added vis-2 to the restart by installation
 

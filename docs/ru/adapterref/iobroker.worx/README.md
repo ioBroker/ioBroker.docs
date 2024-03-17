@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.worx/README.md
 title: Адаптер ioBroker.worx
-hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
+hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 ---
 ![Логотип](../../../en/admin/worx.png)
 
@@ -32,7 +32,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 - `activityLog`: журнал вашей активности (возможен контроль)
 - `области`: Области (возможно управление)
 - `календарь`: расписание (возможно управление)
-- `Модули`: Ваши модули (возможно управление)
+- `Модули`: Ваш модуль(и) (возможно управление)
 - `косилка`: Ваша косилка (возможно управление)
 - `product`: все свойства ваших устройств (только чтение).
 - `rawMqtt`: все данные из облака (только чтение).
@@ -51,14 +51,14 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 - `actualAreaIndicator`: начало следующей зоны массива.
 - `area_0`: начало зоны 1 в метрах (массив=0) (изменяемо)
 - `area_1`: начало зоны 2 в метрах (массив=1) (изменяемо)
-- `area_2`: начало зоны 3 в метрах (массив=2) (изменяемо)
-- `area_3`: Начало зоны 4 в метрах (массив=3) (изменяемо)
-- `startSequence`: начало зоны массива (события 0-9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
+- `area_2`: Начало зоны 3 в метрах (массив=2) (изменяемо)
+- `area_3`: начало зоны 4 в метрах (массив=3) (изменяемо)
+- `startSequence`: начало зоны массива (события 0–9), например. Запуск только в зоне 3 [2,2,2,2,2,2,2,2,2,2] (изменяемо)
 - `zoneKeeper`: Безопасное вождение в узких зонах пересечения (Области должны быть созданы) (начиная с прошивки 3.30) (изменяемо)
 
 ![Площадь img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
-### Календарь (Wire и Vision)
+###календарь (Проводной)
 - Например. установка времени на среду
 
     - `wednesday.borderCut`: с обрезанием рамки или без него (изменить значение без задержки) (изменяемо)
@@ -66,10 +66,45 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
     - `wednesday.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
     - `calJson_sendto`: если все точки данных установлены, нажмите кнопку для отправки (с задержкой 1,1 секунды). Теперь газонокосилка будет косить в течение 30 минут (можно изменить).
     - `calJson_tosend`: эти данные отправляются в Mqtt (оба графика кошения устанавливаются автоматически). Вы также можете создать этот JSON самостоятельно. (Сменный)
-    - `calendar.calJson`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически - только для проволоки) (изменяемый)
+    - `calendar.calJson`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 1/устанавливается автоматически – только для проволоки) (изменяемый)
     - `calendar.calJson2`: массив для еженедельного плана кошения. Вы также можете создать этот МАССИВ самостоятельно. (график кошения 2/устанавливается автоматически – только для проволоки) (изменяемый)
 
 ![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
+
+###календарь (видение)
+- Например. установка времени на пятницу
+- Стандартно создаются 2 временных интервала. Если в приложении созданы 3 слота, 3 также будут созданы в ioBroker. Если его снова уменьшить до 2, эти слоты будут удалены в ioBroker. День с наибольшим количеством слотов используется в качестве эталона для всех дней.
+
+    - `friday.time_0.borderCut`: с обрезанием границы или без него (изменить значение без задержки) (изменяемо)
+    - `friday.time_0.startTime`: время начала чч:мм (0-23/0-59), например. 09:00 (Изменить значение без задержки) (изменяемо)
+    - `friday.time_0.workTime`: рабочее время в минутах (180 минут = 3 часа), например 30 = Конец 09:30 (Изменить значение без задержки) (изменяемо)
+    - `friday.time_0.enabled_time`: активировать или деактивировать время. При деактивации временной интервал удаляется (устанавливается без задержки) (можно изменить)
+    - `friday.time_0.zones`: к каким зонам следует приближаться, например Пример [1,2,3] (устанавливается без задержки) (можно изменить)
+    - `calJson_sendto`: если все точки данных установлены, установите для этой кнопки значение true (с задержкой 1,1). Теперь газонокосилка будет косить 30 минут! (Сменный)
+    - `calJson_tosend`: этот JSON автоматически заполняется, а затем отправляется в Mqtt. Конечно, вы также можете создать его самостоятельно. (Сменный)
+    - `add_timeslot`: добавляется дополнительный временной интервал. Неиспользуемые временные интервалы удаляются после перезагрузки. (Сменный)
+
+![Папка img/calendar.png](img/calendar_vision.png) ![Папка img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
+
+### Пример временного интервала (Vision)
+- `calJson_tosend` Этот JSON будет введен 1 раз в воскресенье и удалит все остальные дни. Вся неделя всегда должна быть представлена.
+
+```json
+[
+    {
+        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
+        "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
+        "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
+        "cfg": {
+            "cut": {
+                "b": 1, // 0=without BorderCut/1=with BorderCut
+                "z": [1] // Which zones [1,2,6]
+            }
+        }
+    }
+]
+```
 
 ### Модулей (Wire и Vision)
 - Модуль Off Limit (провод и зрение)
@@ -95,7 +130,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 - `batteryTemperature`: температура батареи в градусах Цельсия (проводное и Vision/только чтение)
 - `batteryVoltage`: напряжение батареи в Вольтах (проводное и Vision/только чтение)
 - `direction`: направление в градусах (провод и видение/только чтение)
-- `edgecut`: запустить EdgeCut (проволока и Vision/сменный)
+- `edgecut`: запуск EdgeCut (проволока и Vision/сменный)
 - `error`: сообщение об ошибке от газонокосилки (провод и Vision/только чтение)
 
 ```json
@@ -132,7 +167,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 - `firmware`: текущая установленная прошивка (проводное и Vision/только чтение).
 - `firmware_available`: доступная прошивка (проводное и Vision/только чтение)
-- `firmware_available_all`: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
+- «firmware_available_all»: последняя доступная прошивка в формате JSON. Этот JSON будет обновляться при появлении нового обновления (проводное и Vision/только чтение).
 
 ```json
 {
@@ -147,10 +182,10 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 ```
 
 - `firmware_available_date`: дата доступной прошивки - Dummy 1970-01-01, когда адаптер переустановлен и обновление недоступно (проводное и Vision/только чтение)
-- `firmware_update_start`: запустить обновление прошивки в 2 этапа (проводное и Vision/сменное)
-- «firmware_update_start_approved»: начать обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
+- «firmware_update_start»: запустить обновление прошивки в 2 этапа (проводное и Vision/сменное)
+- «firmware_update_start_approved»: запустить обновление прошивки. Для параметра «firmware_update_start» должно быть установлено значение «истина» (проводное и Vision/изменяемое)
 - `gradient`: градиент в градусах (проводное и Vision/только чтение)
-- `inclination`: наклон в градусах (проводное и Vision/только чтение)
+- `inclination`: наклон в градусах (провод и видение/только чтение)
 - `last_command`: последний запрос от iobroker или приложения в виде таблицы JSON (проводное и Vision/только чтение)
 - `mowTimeExtend`: увеличение времени кошения в %. Диапазон: -100%->100% (проводной/изменяемый).
 - `mowerActive`: приостановить план кошения (проводной/изменяемый)
@@ -320,7 +355,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 ### Info_mqtt (Wire и Vision)
 - `incompleteOperationCount`: общее количество операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
-- `incompleteOperationSize`: общий размер пакетов операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
+- `incompleteOperationSize`: общий размер пакета операций, отправленных на соединение, которые еще не завершены. Неподдерживаемые операции являются подмножеством этого.
 - `unackedOperationCount`: общее количество операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
 - `unackedOperationSize`: общий размер пакетов операций, которые были отправлены на сервер и ожидают соответствующего подтверждения, прежде чем они могут быть завершены.
 - `last_update`: последнее обновление токена.
@@ -659,7 +694,9 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 ### **WORK IN PROGRESS**
 
 -   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Added for Vision lectric height adjustment
+-   (Lucky-ESA) Catch publish crash
+-   (Lucky-ESA) Added for Vision electric height adjustment
+-   (Lucky-ESA) Added for Vision new calendar
 
 ### 2.3.4 (2023-10-19)
 
@@ -792,11 +829,11 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 ### 1.4.0 (2021-07-05)
 
--   update testing
--   add gps coordinates
--   add new status states
--   add new Autolock states
--   add new OffLinits states
+-   (TA2k) update testing
+-   (TA2k) add gps coordinates
+-   (TA2k) add new status states
+-   (TA2k) add new Autolock states
+-   (TA2k) add new OffLinits states
 
 ### 1.3.7 (03.06.2021)
 
@@ -856,7 +893,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

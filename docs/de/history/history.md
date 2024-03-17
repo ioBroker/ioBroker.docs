@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: I/ZIX8KAUxPJ7osRisjQTk/6aWy6fQp6pfpd0p8Vgaw=
+hash: H+7ptRYXXgZvGDvI3JnfVU0fomoL8oh8sJPSaBcqJdQ=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -170,7 +170,7 @@ https://github.com/jbeenenga/ioBroker.heizungssteuerung
 
 <img src="https://raw.githubusercontent.com/jbeenenga/ioBroker.heizungssteuerung/master/admin/heizungssteuerung.png" width="100" height="100" />
 
-Mit diesem Adapter können Heizungsanlagen verwaltet werden.
+Mit diesem Adapter können Heizsysteme verwaltet werden.
 Sie können zwischen Kühl- und Heizmodus wählen und für einen Raum Boost oder Pause aktivieren.
 Darüber hinaus können Sie die Solltemperatur für einen Raum überschreiben.
 
@@ -343,28 +343,28 @@ Es ist möglich, Kategorien in Szenen zu verwenden
 ## Solaredge (15.2.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/admin/solaredge.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/ioBroker.solaredge/master/admin/solaredge.png" width="100" height="100" />
 
 Erhalten Sie Daten vom Solaredge-Überwachungsportal. Derzeit wird nur der Datenpunkt /overview verwendet, um die aktuellen Leistungs- und Tages-/Monats-/Jahres-/Lebensenergiewerte abzurufen.
 
 ## Elgato-key-light (18.2.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light
 
-<img src="https://github.com/iobroker-community-adapters/ioBroker.elgato-key-light/blob/main/admin/elgato-key-light.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.elgato-key-light/main/admin/elgato-key-light.png" width="100" height="100" />
 
 Mit diesem Adapter können Sie Elgato Key Lights über ioBroker steuern.
 
 ## Myuplink (18.2.2024) – neuer Adapter
 https://github.com/sebilm/ioBroker.myuplink
 
-<img src="https://github.com/sebilm/ioBroker.myuplink/blob/main/admin/myuplink.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/sebilm/ioBroker.myuplink/main/admin/myuplink.png" width="100" height="100" />
 
 Dieser ioBroker-Adapter empfängt Daten von myUplink.com.
 
 ## Sun2000 (19.2.2024) – neuer Adapter
 https://github.com/bolliy/ioBroker.sun2000
 
-<img src="https://github.com/bolliy/ioBroker.sun2000/blob/main/admin/sun2000.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/bolliy/ioBroker.sun2000/main/admin/sun2000.png" width="100" height="100" />
 
 Lesen Sie Registerdaten vom Huawei SUN2000-Wechselrichter und der LUNA2000-Batterie mithilfe von Modbus TCP.
 
@@ -374,6 +374,21 @@ Der Adapter verfügt jetzt über eine kostenlose Lizenz.
 ## Senec (25.2.2024) – neuer Adapter
 https://github.com/nobl/ioBroker.senec
 
-<img src="https://github.com/nobl/ioBroker.senec/blob/master/admin/senec.png" width="100" height="100" />
+<img src="https://raw.githubusercontent.com/nobl/ioBroker.senec/master/admin/senec.png" width="100" height="100" />
 
 Ursprünglich auf das Senec Home V2.1-System ausgerichtet. Im Senec.Home-System können nur ausgewählte Werte durch den Adapter geändert werden. Senec bietet derzeit auch keine zuverlässige Möglichkeit mehr, das Peak Shaving über das Webinterface zu beeinflussen. Ob auch andere Systeme (z. B. V3) damit funktionieren, hängt davon ab, ob diese ebenfalls auf lala.cgi basieren und die gleichen JSON-Informationen bereitstellen.
+
+## Energiefluss-erweitert (11.3.2024) – neuer Adapter
+https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
+
+<img src="https://raw.githubusercontent.com/SKB-CGN/ioBroker.energiefluss-erweitert/main/admin/energiefluss-erweitert.png" width="100" height="100" />
+
+Adapter bietet einen animierten Energiefluss für alle Elemente, fügen Sie hinzu. Dies können sein: Photovoltaik, Batterie, Hausverbrauch, Netzeinspeisung (Netzverbrauch), Autoladung usw.
+
+## Nmea (17.3.2024) – neuer Adapter
+https://github.com/ioBroker/ioBroker.nmea
+
+<img src="https://raw.githubusercontent.com/ioBroker/ioBroker.nmea/main/admin/nmea.png" width="100" height="100" />
+
+Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können SOG, COG, GPS-Position, Tiefe, Wind, Temperatur und viele andere Daten über den NMEA-2000-Bus ablesen.
+Und steuern Sie sogar den Raymarine-Autopiloten.

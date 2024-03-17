@@ -25,6 +25,9 @@ This adapter has vis2 widget.
 -->
 
 ## Changelog
+### 1.1.12 (2024-03-13)
+* (bluefox) Packages updated
+
 ### 1.1.10 (2023-10-19)
 * (bluefox) Packages updated
 
@@ -53,7 +56,7 @@ This adapter has vis2 widget.
 * (bluefox) Corrected the problem with `socket.io`
 
 ### 1.0.1 (2022-06-20)
-* (bluefox) Allowed to work behind reverse proxy
+* (bluefox) Allowed working behind reverse proxy
 
 ### 1.0.0 (2022-03-22)
 * (bluefox) GUI migrated to material@5
@@ -73,7 +76,7 @@ This adapter has vis2 widget.
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2021-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2021-2024 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

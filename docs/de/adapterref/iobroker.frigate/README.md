@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
+hash: TIq4HqXLvTWUXSkeAmmvZslfBw3HjbMyXxTo/QbfO9Y=
 ---
 ![Logo](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -41,7 +41,7 @@ Allgemeine Informationen zum System und zu den Kameras
 `frigate.0.remote.pauseNotifications` Benachrichtigung für alle Kameras pausieren
 
 ### Veranstaltungen
-Letzte Veranstaltung mit Vorher- und Nachher-Informationen
+Letzte Veranstaltung mit Vorher-Nachher-Informationen
 
 `frigate.0.events.history` Verlauf der letzten X Ereignisse
 
@@ -66,6 +66,8 @@ Die Höhe und der Zuschnitt von Schnappschüssen können in der Konfiguration ko
 `frigate.0.camera_name.history` Ereignisverlauf der Kamera
 
 `frigate.0.camera_name.remote.notificationText` benutzerdefinierter Benachrichtigungstext für die Kamera `frigate.0.camera_name.remote.notificationMinScore` benutzerdefinierter Benachrichtigungs-Mindestwert für die Kamera `frigate.0.camera_name.remote.pauseNotifications`Pause-Benachrichtigung für die Kamera
+
+`frigate.0.camera_name.remote.ptz`PTZ-Befehle senden https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
 
 ## Benachrichtigungen
 Der Adapter kann Schnappschüsse und Clips von Ereignissen und Objekterkennung an Instanzen wie Telegram, Pushover und Signal-CBM senden
@@ -109,6 +111,10 @@ Anzahl der Personen: frigate.0.camera.person Ereignis mit Person: frigate.0.even
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-03-11)
+
+- fix deleting of notification files
+- add notification settings
 
 ### 1.0.2 (2024-01-29)
 

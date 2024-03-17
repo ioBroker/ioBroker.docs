@@ -18,7 +18,7 @@
 UV-Protect from openUV-API
 
 **************************************************************************************************************
-
+## Support adapter development
 **If you like it, please consider a donation:**
   
 [![paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)

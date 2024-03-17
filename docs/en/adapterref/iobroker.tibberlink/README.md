@@ -96,10 +96,19 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 2.3.0 (2024-03-xx) WORK in PROGRESS
+### 2.3.2 (2024-03-xx) WORK in PROGRESS
 
--   (HombachC) WiP (#325)
--   (HombachC) switch jsonConfig to use json5
+-   (HombachC) code optimizations
+-   (HombachC) fix undefined force mode (#349)
+-   (HombachC) fix poll of not existing current price state (#348)
+-   (HombachC) fix current price poll when configured as not to poll (#350)
+
+### 2.3.1 (2024-03-10)
+
+-   (HombachC) BREAKING: Calculator channels of type 'smart battery buffer' will now switch outputs to 'OFF' only once, directly after setting the channel to Active=false (#332)
+-   (HombachC) Fixed error in jsonConfig.json (#329)
+-   (HombachC) deleted feed disconnect debug-message, cause warn message already exists
+-   (HombachC) bump typescript-eslint to gen 7
 -   (HombachC) bump dependencies
 
 ### 2.2.2 (2024-02-19)

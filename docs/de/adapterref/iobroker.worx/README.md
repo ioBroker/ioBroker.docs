@@ -59,7 +59,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Area img/areas.png](../en/img/areas.png)
 
-### calendar (Draht und Vision)
+### calendar (Draht)
 
 -   Beispiel Zeiteinstellung Mittwoch
 
@@ -72,6 +72,44 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
     -   `calendar.calJson2`: Array für den Wochenmähplan 2 (wird automatisch gesetzt - nur Draht) (änderbar)
 
 ![Folder img/calendar.png](../en/img/calendar.png)
+
+### calendar (Vision)
+
+-   Beispiel Zeiteinstellung Mittwoch
+-   Als Standard werden 2 Timeslots angelegt. Werden 3 Slots in der APP angelegt werden auch 3 in ioBroker erstellt. Wird wieder auf 2 reduziert, dann wird in ioBroker diese Slots gelöscht. Der Tag mit den meisten Slots wird als Referenz für alle Tage verwendet.
+
+    -   `friday.time_0.borderCut`: Mit oder ohne Kantenschnitt (ohne Verzögerung setzen) (änderbar)
+    -   `friday.time_0.startTime`: Startzeit als Format hh:mm (0-23/0-59) Bsp.: 09:00 (ohne Verzögerung setzen) (änderbar)
+    -   `friday.time_0.workTime`: Arbeitszeit in Minuten (180 min = 3h) Bsp.: 30 = Endzeit 09:30 (ohne Verzögerung setzen) (änderbar)
+    -   `friday.time_0.enabled_time`: Zeit aktivieren oder deaktivieren. Bei Deaktivierung wird der Timeslot gelöscht (ohne Verzögerung setzen) (änderbar)
+    -   `friday.time_0.zones`: Welche Zonen sollen angefahren werden z. Bsp. [1,2,3] (ohne Verzögerung setzen) (änderbar)
+    -   `calJson_sendto`: Sind alle Datenpunkte gesetzt dann diesen Button auf true setzen (mit einer Verzögerung von 1,1). Der Mäher mäht nun für 30 Minuten! (änderbar)
+    -   `calJson_tosend`: Dieser JSON wird automatisch gefüllt und dann an Mqtt versendet. Kann natürlich auch selber erstellt werden. (änderbar)
+    -   `add_timeslot`: Es wird ein zusätzlicher Timeslot hinzugefügt. Nicht genutzte Timeslots werden nach einem Neustart entfernt. (änderbar)
+
+![Folder img/calendar.png](img/calendar_vision.png)
+![Folder img/calendar.png](img/calendar_slot_vision.png)
+
+### Beispiel Timeslot (Vision)
+
+-   `calJson_tosend` Dieser JSON würde 1 Zeit am Sonntag eintragen und alle anderen Tage löschen. Es muss immer die gesamte Woche übermittelt werden.
+
+```json
+[
+    {
+        "e": 1, // 0=deaktiviert/1=aktiviert - Bei 0 wird der Slot gelöscht
+        "d": 0, // Tage 0=Sonntag, 1=Montag, 2=Dienstag, 3=Mittwoch, 4=Donnerstag, 5=Freitag, 6=Samstag
+        "s": 360, // Startzeit in Minuten 06:00 (360/60) - (320/60 = 5 Stunden und 20 Minuten)
+        "t": 180, // Laufzeit in Minuten = Endzeit 09:00 (180/60) - (200/60 = 3 Stunden und 20 Minuten)
+        "cfg": {
+            "cut": {
+                "b": 1, // 0=ohne Kantenschnitt/1=Mit Kantenschnitt
+                "z": [1] // In welchen Zonen [1,2,6]
+            }
+        }
+    }
+]
+```
 
 ### modules (Draht und Vision)
 
@@ -672,7 +710,9 @@ Standard ohne Zonen:
 ### **WORK IN PROGRESS**
 
 -   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Added for Vision lectric height adjustment
+-   (Lucky-ESA) Catch publish crash
+-   (Lucky-ESA) Added for Vision electric height adjustment
+-   (Lucky-ESA) Added for Vision new calendar
 
 ### 2.3.4 (2023-10-19)
 
@@ -805,11 +845,11 @@ Standard ohne Zonen:
 
 ### 1.4.0 (2021-07-05)
 
--   update testing
--   add gps coordinates
--   add new status states
--   add new Autolock states
--   add new OffLinits states
+-   (TA2k) update testing
+-   (TA2k) add gps coordinates
+-   (TA2k) add new status states
+-   (TA2k) add new Autolock states
+-   (TA2k) add new OffLinits states
 
 ### 1.3.7 (03.06.2021)
 
@@ -869,7 +909,7 @@ Standard ohne Zonen:
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

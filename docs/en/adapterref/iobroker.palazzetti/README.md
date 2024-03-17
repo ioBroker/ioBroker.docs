@@ -22,6 +22,9 @@ __Object Channels:__
 
 ## Changelog
 
+### 0.0.7
+* (inapsis) fix set state error with invalid json
+
 ### 0.0.6
 * (inapsis) fix fan level state text
 

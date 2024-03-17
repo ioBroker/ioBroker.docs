@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.notification-manager/README.md
 title: ioBroker.通知管理器
-hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
+hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 ---
 ![标识](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -21,6 +21,15 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 
 ### 一般说明
 该适配器允许将 ioBroker 内部`Notifications` 重定向到支持`Notification System` 的信使适配器。如果您缺少适配器，请在相应的适配器上开票。
+
+＃＃＃ 配置
+对于每个`category`，您可以配置`category`是否应处于活动状态。如果类别未激活，则`notification-manager` 将不会处理此特定`category` 的任何内容。
+
+此外，您还可以配置`notification-manager`是否应抑制某些`categories`。如果已注册用于抑制的 `category` 的 `notification`，适配器将立即清除此 `notification`，而不向您发送任何消息。
+
+最后，您可以配置支持的消息传递适配器。每当为 `active`（和 `non-suppressed`）`category` 生成新的 `notification` 时，适配器将通过第一个配置的适配器发送 `notification`。如果消息发送成功，`notification-manager` 将清除`notification`。如果发送不成功，它将使用第二个适配器重试。
+
+每当类别为`active`但尚未配置任何特定设置时，适配器将使用配置的后备设置。默认情况下，新类别始终为`active`，以确保您收到通知。这意味着每当某个适配器实现新的`category`时，就会应用给定`severity`的回退设置。
 
 ### 注册以用户为中心的通知
 作为用户，您最了解的是何时需要收到有关系统中特定情况的通知。
@@ -89,6 +98,11 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-03-16)
+* (foxriver76) added possibility to suppress messages
+* (foxriver76) fixed issue that bottom of settings page is shown behind toolbar
+* (foxriver76) fixed issue that all notifications are cleared instead of only the handled one
+
 ### 1.0.0 (2023-12-08)
 * (foxriver76) added possibility to send custom messages
 * (foxriver76) added UI indicators for each category
@@ -105,7 +119,7 @@ hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
 ## License
 MIT License
 
-Copyright (c) 2023 foxriver76 <moritz.heusinger@gmail.com>
+Copyright (c) 2024 foxriver76 <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

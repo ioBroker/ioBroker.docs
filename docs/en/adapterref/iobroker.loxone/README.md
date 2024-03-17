@@ -540,7 +540,7 @@ Basic read only functionality only.
 
 -   `active` (ro) true if the Miniserver is sending the commands for switching the modes or power on
 -   `mode` (ro) the key for the current mode or 0 if no mode selected ("All Off")"
--   `timeout` (ro)  the timeout in milliseconds
+-   `timeout` (ro) the timeout in milliseconds
 
 ### Slider
 
@@ -727,6 +727,11 @@ Native value from ioBroker &gt; Objects
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   (raintonr) Set correct min/max target on IRCv2 when in override (#528)
+
 ### 3.0.1 (2023-03-30)
 
 -   (raintonr) Added info statistics (#364)

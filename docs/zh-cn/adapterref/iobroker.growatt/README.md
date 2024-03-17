@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.growatt/README.md
 title: 无题
-hash: vWjDtyP1CgPk43nFs0lzDip6hiUJB3n0/TiGkjPZNZc=
+hash: yeK+7qjG/tFGYwYR2fP9xAxycdFZPprsP44FK5e2mZ8=
 ---
 ![标识](../../../en/adapterref/iobroker.growatt/admin/glogo.png)
 
@@ -72,7 +72,7 @@ ioBroker Growatt 适配器，用于与 Growatt Shine 服务器通信。
 
 如果可以读取参数值，则使用 ACK=true 写入它们。使用 ack 成功读取时，“read”设置为 true。如果读取失败，则“Read”设置为 false ack=true。在没有 ACK 的情况下从“true”写入“Read”会触发读取操作。如果建立了与云的新连接，也会读出设置。
 
-要写入设置，必须首先设置参数。然后将“write”设置为 true 且 ack=false。
+要写入设置，必须首先设置参数。然后“write”设置为true，ack=false。
 如果数据写入成功，“write”设置为“true”ack=true，如果逆变器报错，“write”设置为“false”ack=true。另外，将变频器的返回信息写入“msg”状态。
 
 如果写入成功，会自动触发读取。
@@ -168,7 +168,7 @@ _使用 GROTT 时，必须启用更改 INI 中的设置。_如果出现您不期
 | SN |字符串|逆变器的序列号可以在对象路径“growatt.-instance-.-nr-.devices.-sn-”中找到。 |
 |开始日期 |日期 |艺术 |
 |结束日期 |日期 |结束必须比开始更美好 |
-|开始 |整数 | 0 是调用的起始页，最新数据在前 |
+|开始 |整数| 0 是调用的起始页，最新数据在前 |
 
 调用示例：
 
@@ -316,202 +316,250 @@ Growatt 已从固件中删除了该网站。
 
 -\*-
 
-＃＃ **工作正在进行中**
-- (PLCHome) 配置此适配器以使用发布脚本。
-
-## 3.2.3 (2024 年 1 月 27 日)
-- (PLCHome) 在多重回流中，总数据和状态数据中的对象已交换。请删除“总数据”和“状态数据”下面的对象，并在更新后重新启动适配器。
-
-## 3.2.2 (2024 年 1 月 27 日)
-- (PLCHome) 现在可以捕获故障日志消息（感谢 ZioCain 提供代码）
-- (PLCHome) 设置MAX逆变器的有功功率（感谢sefina测试）
-
-## 3.2.1 (08.09.2023)
-- (PLCHome) 通过工厂列表另外查询状态信息。
-
-## 3.2.0 (01.09.2023)
-- (PLCHome) 添加了逆变器类型 singleBackflow 和 multipleBackflow
-
-## 3.1.2 (2023 年 8 月 16 日)
-- (PLCHome) sendTo 现在也可以使用对象作为消息数据
-- (PLCHome) 添加消息 getHistory
-
-## 3.1.1 (03.07.2023)
-- (PLCHome) 当工厂是 C&I 工厂页面且古瑞瓦特 Web 界面路径中带有 indexbC 或 plantDo 时，添加了对古瑞瓦特页面的支持。感谢 Denn281
-
-## 3.0.4 (03.07.2023)
-- (PLCHome) 参数错误后无法检索其他参数值
-- (PLCHome) MIX 上的电网优先和电池优先设置可能不起作用
-
-## 3.0.3 (2023 年 6 月 27 日)
-- 改进了 (PLCHome) tlx/tlxh 时间设置
-
-## 3.0.2 (08.06.2023)
-- (PLCHome)写入逆变器设置，可以通过配置激活
-
-  - 混合
-    - 时间
-    - 网格优先
-    - 电池优先
-    - 逆变器开/关
-    - 加载优先
-    - 故障保护
-    - 光伏有功功率率
-    - 回流设置
-      - 回流设定功率
-    - 爱普生
-  - TLX/TLXH
-    - 时间
-    - 光伏有功功率率
-
-## 2.1.1 (2023 年 4 月 17 日)
-- (PLCHome) 日历结构并不总是更改为时间戳
-- (PLCHome) 改进了对象的内部处理，无需考虑其大小。
-
-## 2.1.0 (2023 年 4 月 14 日)
-- (PLCHome) 状态数据现在也来自 TLX/TLXH
-- (PLCHome) TLX Hybrid 现已投入使用
-- (PLCHome) 如果有不同的逆变器，现在会显示
-
-## 2.0.0 (06.10.2022)
-- (PLCHome) 可以调用和更改数据记录器设置。
-- (PLCHome) 服务器 URL 可以更改。
-
-## 1.2.1 (21.09.2022)
-- (PLCHome) 为数值添加了偏移量。我的逆变器自行重置了总量。现在可以更正总数量。
-
-## 1.1.19 (30.08.2022)
-- (PLCHome) HTML 标头
-
-## 1.1.17 (10.08.2022)
-- (PLCHome) JSON Loopkiller
-
-## 1.1.16 (10.08.2022)
-- (PLCHome) https 拒绝未经授权 false
-
-## 15 年 1 月 1 日（2022 年 4 月 28 日）
-- (PLCHome) Apple 设备无法使用 Safari 打开适配器的配置页面，所有值均为空
-
-## 14 年 1 月 1 日（2022 年 4 月 26 日）
-- (PLCHome) 异常时重新启动循环
-
-## 1.1.13 (08.04.2022)
-- (PLCHome) 类型 inv 缺少总数据和历史数据
-
-## 1.1.12 (06.04.2022)
-- (PLCHome) api维护
-
-## 11.1.1 (2022.04.02)
-- (PLCHome) 修复自述文件
-- (PLCHome) 固定版本
-
-## 10 年 1 月 1 日 (2022 年 4 月 2 日)
-- (PLCHome) 首次抑制警告：/error.do?errorMess=errorNoLogin
-
-## 1.1.9 (2022 年 3 月 27 日)
-- (PLCHome) 让源代码更漂亮一点
-- (PLCHome) 让自述文件更漂亮
-- (PLCHome) 增加测试和发布
-- (PLCHome) 改进：在内循环和外循环中使用 i
-- (PLCHome) 由“Sentry”问题触发的改进：未定义的对象
-- (PLCHome) 改进：无需断开与“Sentry”的连接
-
-## 1.1.8 (16.03.2022)
-- (PLCHome) 由“Sentry”问题引发的改进
-
-## 1.1.7 (13.02.2022)
-- (PLCHome) 添加了“哨兵”
-
-## 1.1.6 (12.02.2022)
-- (PLCHome) 请读我
-
-## 1.1.2 (12.02.2022)
-- (PLCHome) 超时变得可维护和调整。请求超时现在像 Chrome 一样为 60 秒
-- (PLCHome) 服务器请求得到改进，并进一步防止死机
-- (PLCHome) 计算睡眠到下一个请求以保持周期。最短睡眠时间为 100 毫秒
-- (PLCHome) 错误输出：如果密钥已过期，则将使用错误代码转发请求，该代码现在位于日志中
-- (PLCHome) 改进的错误处理
-- (PLCHome) 改进了调试
-- (PLCHome) 更新包括
-
-## 1.1.1 (2021 年 5 月 27 日)
-- (PLCHome) 由于登录问题，网络请求超时增加
-
-## 1.1.0 (2021 年 5 月 24 日)
-- (PLCHome) 通过 Axios Session 改进连接
-
-## 1.0.1 (05.03.2021)
-- (PLCHome) 传输了重复的密钥，我尝试将它们过滤掉。
-
-## 1.0.0 (2021 年 2 月 24 日)
-- (PLCHome) 请读我
-- (PLCHome) 修复：根据时间或日历结构为所有设备的最后历史数据创建日期，有时无法正常工作
-
-## 0.0.20 (09.02.2021)
-- (PLCHome) 根据时间或日历结构为所有设备的最后历史数据创建日期
-
-## 0.0.19 (05.02.2021)
-- (PLCHome) 图表中的数据被删除。这些仅在 5 分钟内提供。现在可以通过历史记录查询性能。
-- (PLCHome) 未选择的数据区域的对象现在被删除。
-- (PLCHome) 您可以选择要忽略或删除的对象。
-- (PLCHome) 添加了指向 Growatt 页面的链接，因此适配器现在也出现在概述中。
-- (PLCHome) 最近，古瑞瓦特改变了数值的拼写，字母大小写。因此，现在在内部处理对象时不区分大小写。如果更新后启动时在日志中写入警告，则必须删除这两个对象之一。如果更新后启动时在日志中写入警告，则必须删除这两个对象之一。然后重新启动适配器，以便它肯定使用剩余的对象来存储该值。
-
-## 0.0.18 (23.01.2021)
-- (PLCHome) 版本信息错误。
-
-## 0.0.17 (21.01.2021)
-- (PLCHome) 修复了逆变器历史数据的日期问题。
-
-## 0.0.16 (20.01.2021)
-- (PLCHome) npm 包版本更新
-- (PLCHome) 添加所有工厂的最新历史记录。特别感谢magix提供的密钥，让我可以测试逆变器历史功能。
-
-## 0.0.15 (04.12.2020)
-- (PLCHome) npm 包版本更新
-
-## 0.0.14 (01.12.2020)
-- (PLCHome) 改进了古瑞瓦特网站未返回的对象
-
-## 0.0.12 (27.11.2020)
-- (PLCHome) 共享密钥初始化错误：字符串而不是布尔值
-
-## 0.0.11 (27.11.2020)
-- (PLCHome) 请读我
-
-## 0.0.10 (26.11.2020)
-- (PLCHome) 共享密钥登录
-- (PLCHome) 如果没有实时数据，则为图表的最后一个值。
-- (PLCHome) 更改轮询间隔
-
-## 0.0.9 (05.10.2020)
-- (PLCHome) 修复没有功能“ADAPTER_AUTO_DECRYPT_NATIVE”
-
-## 0.0.8 (05.10.2020)
-- (PLCHome) 修复 io 包
-
-## 0.0.7 (05.10.2020)
-- (PLCHome) with "@iobroker/adapter-core": "^2.4.0"，js-controller dep 需要 >=2.0.0！
-- (PLCHome) io-package 本机定义 5 个值，管理设置 7 个值
-- (PLCHome) 存储密码加密
-
-## 0.0.6 (2020 年 8 月 31 日)
-- (PLCHome) 使用 ioBroker 工具进行翻译。
-
-## 0.0.5
-- (PLCHome) 初始版本。
-
-## 0.0.1
-- (PLCHome) 初始版本。
-
--\*-
-
 ## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (PLCHome) Configure this adapter to use the release script.
+
+### 3.2.3 (27.01.2024)
+
+- (PLCHome) In Multiple Backflow the objects in Total Data and Status Data were swapped. Please delete the objects below Total Data and Status Data and restart the adapter after the update.
+
+### 3.2.2 (27.01.2024)
+
+- (PLCHome) Catching of the fault log messages is now possible (Thanx to ZioCain for the code)
+- (PLCHome) Setting active power for MAX inverter (Thanx to sefina for testing)
+
+### 3.2.1 (08.09.2023)
+
+- (PLCHome) Additionally query the status information via the Plant List.
+
+### 3.2.0 (01.09.2023)
+
+- (PLCHome) Added inverter typ singleBackflow and multipleBackflow
+
+### 3.1.2 (16.08.2023)
+
+- (PLCHome) sendTo now also possible with objects as message data
+- (PLCHome) Added message getHistory
+
+### 3.1.1 (03.07.2023)
+
+- (PLCHome) Added support for Growatt page when Plant is a C&I Plant page with indexbC or plantDo in Path of the Growatt web interface. Thanks to Denn281
+
+### 3.0.4 (03.07.2023)
+
+- (PLCHome) No retrieval of the other parameters value possible after parameter error
+- (PLCHome) Grid first and Battery first setting on MIX may not work
+
+### 3.0.3 (27.06.2023)
+
+- (PLCHome) setting for tlx/tlxh time improved
+
+### 3.0.2 (08.06.2023)
+
+- (PLCHome) Write inverter settings, it can be activated via the config
+
+  - mix
+    - Time
+    - Grid first
+    - Battery first
+    - Inverter On/Off
+    - LoadFirst
+    - Failsafe
+    - PV active power rate
+    - Backflow setting
+      - Backflow setting power
+    - EPSOn
+  - tlx/tlxh
+    - Time
+    - PV active power rate
+
+### 2.1.1 (17.04.2023)
+
+- (PLCHome) Calendar structure was not always changed to timestamp
+- (PLCHome) Improvement in the internal handling of objects without considering their case.
+
+### 2.1.0 (14.04.2023)
+
+- (PLCHome) Status data now also from TLX/TLXH
+- (PLCHome) TLX Hybrid is now working
+- (PLCHome) If there are different inverters, these are now shown
+
+### 2.0.0 (06.10.2022)
+
+- (PLCHome) Data logger settings can be called up and changed.
+- (PLCHome) The server url can be changed.
+
+### 1.2.1 (21.09.2022)
+
+- (PLCHome) Added an offset to numeric values. My inverter reset te total quantity by itself. Now the total quantity can be corrected.
+
+### 1.1.19 (30.08.2022)
+
+- (PLCHome) HTML Header
+
+### 1.1.17 (10.08.2022)
+
+- (PLCHome) JSON Loopkiller
+
+### 1.1.16 (10.08.2022)
+
+- (PLCHome) https rejectUnauthorized false
+
+### 1.1.15 (28.04.2022)
+
+- (PLCHome) Apple devices cannot open the adapter's config page with Safari, all values are empty
+
+### 1.1.14 (26.04.2022)
+
+- (PLCHome) Restart loop when exception
+
+### 1.1.13 (08.04.2022)
+
+- (PLCHome) total data and history data missing for type inv
+
+### 1.1.12 (06.04.2022)
+
+- (PLCHome) api maintance
+
+### 1.1.11 (02.04.2022)
+
+- (PLCHome) fixed readme
+- (PLCHome) fixed version
+
+### 1.1.10 (02.04.2022)
+
+- (PLCHome) suppressed the warning for the Firsttime: /error.do?errorMess=errorNoLogin
+
+### 1.1.9 (27.03.2022)
+
+- (PLCHome) Make the source a little prettier
+- (PLCHome) Make the readme prettier
+- (PLCHome) Added Test and Release
+- (PLCHome) Improvement: used i in inner and outer loop
+- (PLCHome) Improvement triggered by "Sentry" issues: undefined object
+- (PLCHome) Improvement: no disconnect to "Sentry"
+
+### 1.1.8 (16.03.2022)
+
+- (PLCHome) Improvement triggered by "Sentry" issues
+
+### 1.1.7 (13.02.2022)
+
+- (PLCHome) "Sentry" was added
+
+### 1.1.6 (12.02.2022)
+
+- (PLCHome) Read me
+
+### 1.1.2 (12.02.2022)
+
+- (PLCHome) Timeouts made maintainable and adjusted. Request timout is now 60 second like chrome
+- (PLCHome) Server request improved and additionally secured against dying
+- (PLCHome) Calculate sleep to next request to keep cycle. Minimum sleep is 100ms
+- (PLCHome) Error output: if the key has expired, requests are forwarded with an error code, which is now in the log
+- (PLCHome) Improved error handling
+- (PLCHome) Improved debugging
+- (PLCHome) Update the includes
+
+### 1.1.1 (27.05.2021)
+
+- (PLCHome) The web request timeout was increased due to login issues
+
+### 1.1.0 (24.05.2021)
+
+- (PLCHome) Improvement of the connection via Axios Session
+
+### 1.0.1 (05.03.2021)
+
+- (PLCHome) Duplicate keys are transmitted, I try to filter them out.
+
+### 1.0.0 (24.02.2021)
+
+- (PLCHome) Read me
+- (PLCHome) fix: Create a date from the time or calendar structure for last history data for all devices sometimes not working
+
+### 0.0.20 (09.02.2021)
+
+- (PLCHome) Create a date from the time or calendar structure for last history data for all devices
+
+### 0.0.19 (05.02.2021)
+
+- (PLCHome) The data from the chart is removed. These were only available in a 5-minute grid. The performance can now be queried via the history.
+- (PLCHome) Objects of unselected data areas are now deleted.
+- (PLCHome) You can choose objects to be ignored or deleted.
+- (PLCHome) A link to the Growatt page was added, so the adapter now also appears in the overview.
+- (PLCHome) Recently, Growatt has changed the spelling of values, which letters are uppercase and lowercase. For this reason, the objects are now handled internally Case Insensively. If a warning is written in the log after the update when starting, you have to delete one of the two objects. If a warning is written in the log after the update when starting, you have to delete one of the two objects. And then restart the adapter so that it definitely uses the remaining object to store the value.
+
+### 0.0.18 (23.01.2021)
+
+- (PLCHome) wrong version info.
+
+### 0.0.17 (21.01.2021)
+
+- (PLCHome) fixes a date issue on inverter history data.
+
+### 0.0.16 (20.01.2021)
+
+- (PLCHome) npm package version update
+- (PLCHome) add last history for all plants. Special thanks to magix for the key, so i can test the inverter history function.
+
+### 0.0.15 (04.12.2020)
+
+- (PLCHome) npm package version update
+
+### 0.0.14 (01.12.2020)
+
+- (PLCHome) improvement for objects not returned from Growatt website
+
+### 0.0.12 (27.11.2020)
+
+- (PLCHome) wrong initialization for shared key: string instead of boolean
+
+### 0.0.11 (27.11.2020)
+
+- (PLCHome) Read me
+
+### 0.0.10 (26.11.2020)
+
+- (PLCHome) Shared key login
+- (PLCHome) Last value of the graph if there are no live data.
+- (PLCHome) Change of the polling interval
+
+### 0.0.9 (05.10.2020)
+
+- (PLCHome) fix no feature 'ADAPTER_AUTO_DECRYPT_NATIVE'
+
+### 0.0.8 (05.10.2020)
+
+- (PLCHome) fix io-package
+
+### 0.0.7 (05.10.2020)
+
+- (PLCHome) with "@iobroker/adapter-core": "^2.4.0", the js-controller dep needs to be >=2.0.0!
+- (PLCHome) io-package native defined 5 values, admin sets 7
+- (PLCHome) store password encrypted
+
+### 0.0.6 (31.08.2020)
+
+- (PLCHome) translation with ioBroker tool.
+
+### 0.0.5
+
+- (PLCHome) initial release.
+
+### 0.0.1
+
+- (PLCHome) initial release.
+
+-\*-
 
 ## License
 

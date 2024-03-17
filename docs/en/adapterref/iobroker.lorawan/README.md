@@ -15,13 +15,46 @@ The adapter communicates bidirectionally with LoraWan devices via LoRaWAN Networ
 Adapter was created in collaboration with Joerg Froehner LoraWan@hafenmeister.com
 
 For Documentation use the doc folder.
-For now there is documentation in English here: http://www.hafenmeister.com/LoraWan/Iobroker-Adapter.pdf
+For now there is documentation in English here: https://wiki.hafenmeister.de
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 0.6.6 (2024-03-11)
+* (BenAhrdt) update Vicki device-config
+
+### 0.6.5 (2024-03-08)
+* (BenAhrdt) setObject changed into setObjectAsync
+
+### 0.6.4 (2024-03-07)
+* (BenAhrdt) Change writing of deviceinformations at Ttn
+
+### 0.6.3 (2024-03-05)
+* (BenAhrdt) def of deviceinformations changed
+
+### 0.6.2 (2024-03-05)
+* (BenAhrdt) seperate dp for deviceinformations
+
+### 0.6.1 (2024-03-02)
+* (BenAhrdt) better concept to write values and change setObjectNotExists to extendObject
+
+### 0.6.0 (2024-03-02)
+* (BenAhrdt) change concept of assigning roles, values and writecommands
+
+### 0.5.5 (2024-03-01)
+* (BenAhrdt) first step of handling with date
+
+### 0.5.4 (2024-03-01)
+* (BenAhrdt) implement ther approvedFolder conzept for writecommands from message
+
+### 0.5.3 (2024-02-29)
+* (BenAhrdt) change folder for writetriggers
+
+### 0.5.2 (2024-02-29)
+* (BenAhrdt) make writetrigger more flexible
+
 ### 0.5.1 (2024-02-29)
 * (BenAhrdt) detecting of triggerwords changed
 

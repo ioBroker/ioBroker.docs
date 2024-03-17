@@ -127,6 +127,7 @@ There are a number of different internal bindings to provide additional informat
 * `view` - name of actual view
 * `wname` - widget name
 * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
+* `widgetOid` - use the oid of the widget to assign the widgets value in the assignment section, like `{t:widgetOid.val;t}`
 * `wid` - name of actual widget
 * `language` - can be `de`, `en` or `ru`.
 * `instance` - browser instance
@@ -263,6 +264,26 @@ E.g., if it was used in a menu and the menu is red, the circle would be red.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 2.9.43 (2024-03-17)
+* (bluefox) Showed selected view in the view dialog
+* (bluefox) Added customization of loading screen
+* (bluefox) Respected the sentry disable flag in GUI
+
+### 2.9.42 (2024-03-09)
+* (bluefox) Allowed limiting the view size only on desktop
+* (bluefox) Change word "Filter" to "Search"
+
+### 2.9.40 (2024-03-05)
+* (bluefox) Migrated the filter widget to react
+* (bluefox) Migrated the basic link widget to react
+
+### 2.9.39 (2024-03-01)
+* (foxriver76) allow to use `widgetOid` in bindings
+* (foxriver76) fixed various problems with Date Picker widget
+* (foxriver76) made default option of Date Picker human readable and added option for full parseable date
+* (bluefox) Added the possibility to add suffix by navigation widgets
+* (bluefox) Improved the license manager
+
 ### 2.9.37 (2024-02-28)
 * (foxriver76) TimePicker widget now saves the time instead of date by default, if you want old behavior use checkbox `asDate`
 

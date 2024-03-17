@@ -525,48 +525,51 @@ The time read from the inverter is stored here. On the US3000 it is called RTC a
 
 If true without ack is written to set, the current time is sent to the Pylontech. When the command has been executed, the status is set to ack = true.
 
-# Changelog
+## Changelog
 
 <!--
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+### 0.0.10 (2024-03-01)
 
-## **WORK IN PROGRESS**
+- (PLCHome) Hex numbers are also recognized as such if text follows them.
+
+### 0.0.9 (2024-02-29)
 
 - (PLCHome) Configure this adapter to use the release script.
-- (PLCHome) Improved bat n for E-BOX-48100V-D on 100%.
+- (PLCHome) Improved "bat n" for E-BOX-48100V-D on 100%.
 - (PLCHome) Waiting time between commands of 20ms.
 - (PLCHome) If the timeout occurs, send the last command again.
 - (PLCHome) No further commands after a timeout.
 
-## 0.0.8 (16.02.2024)
+### 0.0.8 (16.02.2024)
 
-- (PLCHome) improved bat n for E-BOX-48100V-D
+- (PLCHome) improved "bat n" for E-BOX-48100V-D
 
-## 0.0.7 (01.11.2023)
+### 0.0.7 (01.11.2023)
 
 - (PLCHome) issue "Cannot read properties of undefined (reading 'trim') at Parser" fixed, so E-BOX-4850P works now.
 
-## 0.0.6 (09.10.2023)
+### 0.0.6 (09.10.2023)
 
 - (PLCHome) The sent command was recognized from the response. Now the command is passed to the parser.
 
-## 0.0.5 (05.10.2023)
+### 0.0.5 (05.10.2023)
 
 - (PLCHome) Implemenmt the force H2. Thanx to radi for suppoting this project!
 
-## 0.0.4 (04.10.2023)
+### 0.0.4 (04.10.2023)
 
 - (PLCHome) Removed RFC2217.
 - (PLCHome) Changed interval to this.interval.
 - (PLCHome) Change the connection procedure to catch the exception.
 
-## 0.0.3
+### 0.0.3
 
 - (PLCHome) initial release
 
-# License
+## License
 
 MIT License
 

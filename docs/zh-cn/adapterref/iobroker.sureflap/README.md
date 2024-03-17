@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sureflap/README.md
 title: ioBroker.sureflap
-hash: qrqas78ZQfqc8aroZUC9C2td+Glv+F7fTvDnvSZIWXw=
+hash: 5jIpLT/ix1AlAVGorCSvgZ1yepwQ5XC/sEgSEKZ2Vw4=
 ---
 ![稳定版](http://iobroker.live/badges/sureflap-stable.svg)
 ![NPM版本](http://img.shields.io/npm/v/iobroker.sureflap.svg)
@@ -31,12 +31,14 @@ hash: qrqas78ZQfqc8aroZUC9C2td+Glv+F7fTvDnvSZIWXw=
 
 它可以让您控制襟翼的锁定模式和宵禁并设置宠物的位置。
 
+该适配器需要 Node 18 或更高版本。
+
 ### 可变值
 以下状态可以更改，并将在您的设备上生效，并分别反映在您的 Sure Petcare® 应用程序中。
 
 |状态|描述 |允许值 |
 |-------|-------------|----------------|
-| | 家庭名称.集线器名称.控制.led_模式 |设置集线器 LED 的亮度 | **0** - 关闭<br>**1** - 高<br>**4** - 变暗 |
+| | 家庭名称.集线器名称.控制.led_模式 |设置集线器 LED 的亮度 | **0** - 关闭<br>**1** - 高<br>**4** - 变暗|
 |家庭名称.集线器名称.襟翼名称.控制.宵禁 |启用或禁用配置的宵禁<br>（宵禁必须通过应用程序配置）| **真**或**假** |
 | | 家庭名称.集线器名称.襟翼名称.控制.lockmode |设置锁定模式 | **0** - 打开<br>**1** - 锁定<br>**2** - 锁定<br>**3** - 关闭（上锁和上锁）|
 | | 家庭名称.集线器名称.襟翼名称.指定宠物.宠物名称.控制类型 |设置指定宠物和襟翼的宠物类型 | **2** - 户外宠物<br>**3** - 室内宠物|
@@ -54,6 +56,9 @@ SureFlap®、Sure Petcare® 和 Felaqua® 是 [苏尔弗拉普有限公司](http
 SureFlap® 设备的图片可从 [确定宠物护理®](https://www.surepetcare.com/en-us/press) 开始免费使用。
 
 ## Changelog
+
+### 2.1.1 (2024-02-25)
+* (Sickboy78) bugfix for outside times not beeing shown
 
 ### 2.1.0 (2024-02-20)
 * (Scrounger) option to enable history data

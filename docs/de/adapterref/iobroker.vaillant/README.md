@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: IdtHu+rNO99e42ZGyYxUdQmk3BpECpzjWpmZj00PX3g=
+hash: Q9knqwUkXz52JAd6LLPc3lUKOZIzIs0eFoa1OKhRA2w=
 ---
 ![Logo](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -31,6 +31,137 @@ Parameter können über den Punkt parameterValue angepasst werden und dabei beac
 
 ## **Beispiel myVaillant:**
 vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode OFF MANUELL TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode OFF MANUAL TIME_CONTROLLED
+
+## Fernbefehle
+Für Refresh und vordefinierte `vaillant.0.id.remote`
+
+## Benutzerdefinierter Befehl
+Sie können die benutzerdefinierte Befehlsfernbedienung für nicht vordefinierte Fernbedienungen verwenden `vaillant.0.id.remotes.customCommand`
+
+### Beispiele:
+```json
+{
+  "url": "zone/1/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/operation-mode",
+  "data": { "operationMode": "OFF" }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/temperature",
+  "data": { "setpoint": 55 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/set-back-temperature",
+  "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/quick-veto",
+  "data": { "desiredRoomTemperatureSetpoint": 11, "duration": 3 },
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "DELETE"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/circulation-pump/time-windows",
+  "data": {
+    "friday": [
+      {
+        "endTime": 540,
+        "startTime": 360
+      }
+    ],
+    "monday": [],
+    "saturday": [],
+    "sunday": [],
+    "thursday": [],
+    "tuesday": [],
+    "wednesday": []
+  }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/time-windows",
+  "data": {
+    "friday": [],
+    "monday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "saturday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "sunday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "thursday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "tuesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "wednesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ]
+  }
+}
+```
 
 ## Changelog
 

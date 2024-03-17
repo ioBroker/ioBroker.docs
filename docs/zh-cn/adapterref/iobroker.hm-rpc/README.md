@@ -139,6 +139,9 @@ CCU / Homematic支持不同的设备类型（有线，无线，HMIP，CUxD）。
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 1.16.1 (2024-03-05)
+* (bluefox) Improved the configuration layout
+
 ### 1.16.0 (2023-12-25)
 * (JeyCee) Added support for the device manager
 * (bluefox) Added JSON config
@@ -391,7 +394,7 @@ of this approach (more requests to CCU on first setup)
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2023 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2024 bluefox <dogafox@gmail.com>
 
 Copyright (c) 2014 hobbyquaker
 

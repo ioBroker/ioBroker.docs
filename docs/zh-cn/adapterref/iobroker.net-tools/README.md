@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-工具
-hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
+hash: aywaAn2IRpd3JJOaTlGfgxStQY9zTrvOOPPb/jdf4TQ=
 ---
 ![标识](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -44,6 +44,12 @@ hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 
 ---
 
+＃＃＃ iPhone
+iPhone 试图在更改 Mac 地址时保护用户免遭跟踪。
+了解有关它以及如何禁用专用网络的更多信息：https://support.apple.com/en-us/102509
+
+---
+
 ## 对于开发者
 #### 获取特定设备的 mac
 `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
@@ -63,6 +69,9 @@ hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.0.6 04.03.2024
+* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 
 ### 1.0.5 04.02.2024
 * (Jey Cee) remove discovery adapter as dependency

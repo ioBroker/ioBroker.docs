@@ -3,13 +3,13 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tinker/README.md
 title: ioBroker.tinker
-hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
+hash: FVYgJOVkaP4PpmIQU+OGbj9kvGDUNUe53IPDLmChaLI=
 ---
 ![Логотип](../../../en/adapterref/iobroker.tinker/admin/tinker.png)
 
-![версия NPM](http://img.shields.io/npm/v/iobroker.tinker.svg)
+![НПМ-версия](http://img.shields.io/npm/v/iobroker.tinker.svg)
 ![Загрузки](https://img.shields.io/npm/dm/iobroker.tinker.svg)
-![Количество установок (последние)](http://iobroker.live/badges/tinker-installed.svg)
+![Количество установок (последних)](http://iobroker.live/badges/tinker-installed.svg)
 ![Количество установок (стабильно)](http://iobroker.live/badges/tinker-stable.svg)
 ![Известные уязвимости](https://snyk.io/test/github/simatec/ioBroker.tinker/badge.svg)
 ![Лицензия](https://img.shields.io/github/license/simatec/ioBroker.tinker?style=flat)
@@ -17,67 +17,98 @@ hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
 ![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)
 
 # IoBroker.tinker
-===================
+---
 
-![Тестируйте и выпускайте](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
+![Тестирование и выпуск](https://github.com/simatec/ioBroker.tinker/workflows/Test%20and%20Release/badge.svg)
 
 Адаптер Tinker Board Monitor — это модифицированная версия адаптера Raspberry PI Monitor и адаптера OrangePi Monitor для ioBroker.
 
-**Если вам это нравится, рассмотрите пожертвование:**
+## Поддержка разработки адаптеров
+**Если вам это нравится, рассмотрите возможность пожертвования:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
+[![PayPal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://paypal.me/mk1676)
 
-### Важная информация
+---
+
+## Важная информация
 протестированное оборудование: Asus Tinker Board
 
-### Следующие объекты доступны после выбора:
-## *ПРОЦЕССОР*
-- частота_процессора
-- загрузка1
-- груз5
-- нагрузка15
+## Следующие объекты доступны после выбора:
+### ПРОЦЕССОР
+* частота_процессора
+* нагрузка1
+* нагрузка5
+* нагрузка15
 
-## *Объем памяти*
-- память_доступна
-- memory_free
-- memory_total
+### Объем памяти
+* память_доступна
+* память_свободно
+* память_всего
 
-## *Сеть (eth0)*
-- net_received
-- net_send
+### Сеть (eth0)
+* net_received
+* net_send
 
-## *SD Card*
-- sdcard_root_total
-- sdcard_root_used
+### SD Card
+* sdcard_root_total
+* sdcard_root_used
 
-## *Менять*
-- swap_total
-- swap_used
+### Менять
+* swap_total
+* swap_used
 
-## *Температура*
-- соц_темп
+### Температура
+* soc_temp
 
-## *Время работы*
-- время безотказной работы
+### Время работы
+* время безотказной работы
 
-## *Беспроводная сеть*
-- wifi_received
-- wifi_send
+### WLAN
+* wifi_received
+* wifi_send
+
+---
 
 ## Конфигурация
 На странице конфигурации вы можете выбрать следующие модули:
 
-- ПРОЦЕССОР
-- Объем памяти
-- Сеть
-- SD Card
-- Менять
-- Температура
-- Время безотказной работы
-- беспроводная сеть
+* ПРОЦЕССОР
+* Объем памяти
+* Сеть
+* SD Card
+* Менять
+* Температура
+* Время безотказной работы
+* WLAN
+
+---
 
 ## Changelog
 <!-- ### __WORK IN PROGRESS__ -->
+### __WORK IN PROGRESS__
+* (simatec) Dependencies updated
+* (simatec) Docu updated
+
+### 1.3.2 (2024-02-14)
+* (simatec) Design Fix
+* (simatec) Source code cleaned up
+
+### 1.3.1 (2024-02-11)
+* (simatec) Dependencies updated
+* (simatec) Design Fix
+* (simatec) Translation added
+* (simatec) jsonConfig added
+* (simatec) gulp deleted
+* (simatec) adapter-dev added
+
+### 1.3.0 (2024-01-07)
+* (simatec) Dependencies updated
+* (simatec) many smal Fix
+* (simatec) Translation added
+
+### 1.2.1 (2023-11-20)
+* (simatec) Dependencies updated
+
 ### 1.2.0 (2023-03-18)
 * (simatec) Dependencies updated
 * (simatec) test and release updated
@@ -111,7 +142,7 @@ hash: AUPXL9BxNG45UFrTKkEbjPt6irP0fpPFrXNNC5pO9lk=
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2023 simatec
+Copyright (c) 2018 - 2024 simatec
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -34,6 +34,12 @@ And then use `javascript.0.rss` object in this widget.
     ### **WORK IN PROGRESS**
 -->
 ## Changelog
+### 1.1.19 (2024-03-12)
+* (bluefox) Allowed changing the palette for every widget
+
+### 1.1.15 (2024-03-06)
+* (bluefox) Improved dimmer widget
+
 ### 1.1.14 (2024-02-21)
 * (bluefox) Added top info in the mobile view
 

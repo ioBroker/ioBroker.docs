@@ -58,9 +58,13 @@ If you experience disconnects from your KNX IP Gateway in the log then increase 
 
 Use in IOB Object common.type boolean for 1 bit enum instead of number.
 
-### readout values of autoread iob objects on startup
+### readout KNX values on startup of iob objects that are configured for autoread
 
 All IOB objects that are configured with the autoread flag are requested on the bus to be synchronized with IOB.
+
+### do not warn on unknown KNX group adresses
+
+Do not create a warn log entry in the protocol on receiving an unknown ga.
 
 ### do not overwrite existing IOB objects
 
@@ -401,13 +405,17 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
   * .... -> this is used by script to generate a new entry, copy after a new release
   * npm run release
   * npm run release major/minor/patch major.minor.patch
+  * update gui: iob upload openknx
 -->
+### 0.7.3 (2024-03-05)
 
-  ### **WORK IN PROGRESS**
+-   feature: one of the warnings is configurable in the dialog
+
 ### 0.7.2 (2024-01-09)
-- feature: handle network connection instability issesues
-- feature: generate more log messages
-- bugfix: telegram count
+
+-   feature: handle network connection instability issues
+-   feature: generate more log messages
+-   bugfix: telegram count
 
 ### 0.7.1 (2024-01-07)
 
@@ -584,7 +592,7 @@ Openknx estimates the current bus load of the KNX line it is connected to in obj
 
 ### 0.1.13 (2021-12-30)
 
--   bugfix: state.value of of type object must be serialized
+-   bugfix: state.value of type object must be serialized
 -   bugfix: alias algorithm error handling, takover more info to alias
 
 ### 0.1.12 (2021-12-30)

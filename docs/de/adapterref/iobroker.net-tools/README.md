@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.net-tools/README.md
 title: ioBroker.net-Tools
-hash: a9/z+eBvAd6z4PEN0W92nKyCqPwjtuTjyKpgadkh0Lo=
+hash: aywaAn2IRpd3JJOaTlGfgxStQY9zTrvOOPPb/jdf4TQ=
 ---
 ![Logo](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
@@ -29,10 +29,10 @@ Es gibt eine automatische Suchfunktion zum Auffinden von Geräten. Es ist auch m
 Hinweis: Wenn Sie ioBroker in einem Docker-Container verwenden, funktioniert diese Funktion abhängig von Ihrer Netzwerkkonfiguration nicht.
 
 ### Pingt konfigurierte IP-Adressen
-Pingt bestimmte IP-Adressen in definierten Intervallen an und überwacht die Ergebnisse. (Alive, Rps, Zeit) Das Ping-Intervall kann auf Geräteebene angegeben werden.
+Pingt bestimmte IP-Adressen in definierten Intervallen an und überwacht die Ergebnisse. (Alive, RPS, Zeit) Das Ping-Intervall kann auf Geräteebene angegeben werden.
 
 ### Wake on LAN
-Setzen Sie das Wol-Objekt auf „True“ und 3 WOL-Pakete werden mit einer Pause von 750 ms an Ihr Gerät gesendet.
+Setzen Sie das Wol-Objekt auf „true“ und 3 WOL-Pakete werden mit einer Pause von 750 ms an Ihr Gerät gesendet.
 
 ### Port-Scan
 Sie können in der Konfiguration eine Liste von Ports oder einen Bereich eingeben, die standardmäßig gescannt werden sollen. Wenn dieses Feld leer ist, wird der Bereich 0-65535 als Standard verwendet.
@@ -41,6 +41,12 @@ Es ist auch möglich, für jedes Gerät eine Liste oder einen Bereich anzugeben,
 Geben Sie bei Bedarf eine Liste oder einen Bereich von Ports in das Objekt portList ein. Dadurch wird die Einstellung in der Konfiguration überschrieben.
 Setzen Sie „scan“ auf „true“. Dadurch wird nach allen offenen Ports im Bereich von 0-65535 oder dem, was in portList definiert ist, gesucht. Dieser Vorgang dauert eine Weile.
 Das Ergebnis wird auf Objektports geschrieben.
+
+---
+
+### IPhone
+iPhones versuchen, Benutzer beim Ändern der Mac-Adresse vor Tracking zu schützen.
+Lesen Sie mehr darüber und wie Sie es für private Netzwerke deaktivieren können: https://support.apple.com/en-us/102509
 
 ---
 
@@ -63,6 +69,9 @@ Anmerkung: Diese Funktion ist auf das Subnetz des ioBroker-Hosts beschränkt.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.0.6 04.03.2024
+* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 
 ### 1.0.5 04.02.2024
 * (Jey Cee) remove discovery adapter as dependency

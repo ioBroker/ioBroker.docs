@@ -4,13 +4,13 @@ lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/install/linux.md
-hash: VPXuAMPtGpNimHlseI/ZZaKXGqL68UdsFDhXZh179nQ=
+hash: 2xmu9mKiW1SUwp64fE7C7to9UpCt4bn7nFN/0dAXYfk=
 ---
 # Linux 下和 Raspberry Pi 上的 ioBroker 安装
 ioBroker 使用脚本进行安装，该脚本执行必要的安装步骤并重新加载可能需要的任何软件包。
 
 ## 检查要求
-安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
+安装之前，请检查系统是否满足所有必要的[安装要求](./#de/documentation/install/requirements.md)。
 
 ## 重要注意事项
 - 无需以 **root** 用户身份安装 ioBroker！执行安装脚本**必须**以普通用户身份完成，
@@ -39,6 +39,8 @@ ioBroker 使用脚本进行安装，该脚本执行必要的安装步骤并重�
 
   执行安装脚本。根据硬件的不同，安装可能需要一些时间。
 
+  应为“`curl`` fehlen, kann das Paket einfach nachinstalliert werden: ``sudo apt install curl`”。
+
   安装分 4 个步骤进行，可以在控制台中看到：
 
   ``Installing prerequisites (1/4)``
@@ -59,7 +61,7 @@ ioBroker 使用脚本进行安装，该脚本执行必要的安装步骤并重�
 
 # Docker下ioBroker安装
 ## 检查要求
-安装之前，请检查系统是否满足所有必要的[安装要求](./requirements.md)。
+安装之前，请检查系统是否满足所有必要的[安装要求](./#de/documentation/install/requirements.md)。
 
 ＃＃ 安装
 在此页面上，您可以找到在 Docker 上安装 ioBroker 的官方文档：https://docs.buanet.de/de/iobroker-docker-image/

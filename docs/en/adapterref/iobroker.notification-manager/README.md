@@ -17,6 +17,22 @@ Manage ioBroker notifications, e.g. by sending them as messages
 This adapter allows to redirect the ioBroker internal `Notifications` to messenger adapters which support 
 the `Notification System`. If you are missing an adapter, please open a ticket on the corresponding adapter.
 
+### Configuration
+For each `category` you are able to configure if the `category` should be active. If the category is not active,
+the `notification-manager` will not handle anything for this specific `category`. 
+
+Additionally, you can configure 
+if the `notification-manager` should suppress certain `categories`. If a `notification` for a suppressed 
+`category` is registered, the adapter will immediately clear this `notification` without sending you any messages.
+
+Finally, you can configure supported messaging adapters. Whenever a new `notification` for an `active` (and `non-suppressed`) 
+`category` is generated, the adapter will send the `notification` via the first configured adapter. If sending the message was
+successful, the `notification-manager` will clear the `notification`. IF sending was not successful it will re-try with the second adapter.
+
+Whenever a category is `active` but has not configured any specific settings yet, then the adapter will use the configured 
+fallback settings. New categories are always `active` by default to ensure you will be notified. This means whenever a new `category`
+is implemented by some adapter, the fallback settings for the given `severity` will be applied.
+
 ### Registering user-centric notifications
 As a user you at best know, when you want to be notified about specific situations in your system. 
 Thus, the `notification-manager` provides you with an interface to register your own notifications inside
@@ -87,6 +103,11 @@ if the messaging adapter was able to deliver the notification, else it should re
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-03-16)
+* (foxriver76) added possibility to suppress messages
+* (foxriver76) fixed issue that bottom of settings page is shown behind toolbar
+* (foxriver76) fixed issue that all notifications are cleared instead of only the handled one
+
 ### 1.0.0 (2023-12-08)
 * (foxriver76) added possibility to send custom messages
 * (foxriver76) added UI indicators for each category
@@ -103,7 +124,7 @@ if the messaging adapter was able to deliver the notification, else it should re
 ## License
 MIT License
 
-Copyright (c) 2023 foxriver76 <moritz.heusinger@gmail.com>
+Copyright (c) 2024 foxriver76 <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

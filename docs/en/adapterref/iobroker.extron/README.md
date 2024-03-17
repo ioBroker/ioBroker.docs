@@ -48,6 +48,15 @@ If you are a non commercial organisation or use it for private use you can get a
 * (Bannsaenger) updated to adapter-dev and release script
 * (Bannsaenger) updated dependencies
 
+### 0.2.5
+* (mschlgl) added SMD202 preset list handling
+
+### 0.2.4
+* (mschlgl) corrected typo in object_templates
+
+### 0.2.3
+* (mschlgl) fixed DMP120 file handling
+
 ### 0.2.2
 * (mschlgl) fixed SMD202 loopmode command
 

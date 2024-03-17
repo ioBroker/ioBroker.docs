@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-2/README.md
 title: Визуализация нового поколения для ioBroker: vis-2
-hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
+hash: lJNCeCb7Pcf1qz97+qEGzCr77SJsomNirWm2LDA8Th8=
 ---
 ![Логотип](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -73,7 +73,7 @@ value = await (async function () {
 
 Поддерживаются следующие операции:
 
-- `*` - умножение. Аргумент должен быть в квадратных скобках, например «*(4)». В этом примере мы умножаем значение на 4.
+- `*` - умножение. Аргумент должен быть в скобках, например «*(4)». В этом примере мы умножаем значение на 4.
 - `+` - доп. Аргумент должен быть в скобках, например «+(4.5)». В этом примере мы добавляем значение 4,5.
 - `-` - вычесть. Аргумент должен быть в скобках, например «-(-674,5)». В этом примере мы вычитаем из значения -674,5.
 - `/` - деление. Аргумент должен быть в скобках, например «/(0,5)». В этом примере мы делим значение на 0,5.
@@ -83,7 +83,7 @@ value = await (async function () {
 - `hex` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре.
 - `hex2` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре. Если значение меньше 16, будет добавлен ведущий ноль.
 - `HEX` - то же, что и шестнадцатеричное, но в верхнем регистре.
-- `HEX2` - то же, что hex2, но в верхнем регистре.
+- `HEX2` — то же, что hex2, но в верхнем регистре.
 - `date` - форматировать дату в соответствии с заданным форматом. Формат такой же, как в [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
 - `min(N)` - если значение меньше N, взять N, иначе значение
 - `max(M)` - если значение больше M, взять M, иначе значение
@@ -124,10 +124,11 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `view` - имя фактического просмотра
 * `wname` — имя виджета
 * `widget` - объект со всеми данными виджета. Может использоваться только в части JS, например `{a:a;widget.data.name}`
+* `widgetOid` — используйте oid виджета для присвоения значения виджетам в разделе назначения, например `{t:widgetOid.val;t}`
 * `wid` - имя актуального виджета
 * `язык` - может быть `de`, `en` или `ru`.
 * `instance` — экземпляр браузера
-* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода из системы)
+* `login` - требуется ли вход в систему (например, чтобы показать/скрыть кнопку выхода)
 * `local_*` - если имя состояния начинается с `local_`, об этом не будет сообщено ioBroker, но будут обновлены все виджеты, которые зависят от этого состояния. (Локальная переменная для текущего сеанса браузера)
 
 Примечание. Чтобы использовать «:» в вычислениях (например, в строковых формулах), используйте вместо этого «::».
@@ -164,7 +165,7 @@ Vis создает 3 переменные:
 
     - `статический - HTML - Диалог`,
     - `статический - Значок - Диалог`,
-    - `контейнер - HTML - просмотр в диалоге jqui`,
+    - `контейнер - HTML - просмотр в диалоговом окне jqui`,
     - `контейнер - ext cmd - просмотр в диалоге jqui`,
     - `контейнер - Значок - просмотр в диалоге jqui`,
     - `контейнер - Кнопка - просмотр в диалоге jqui`.
@@ -200,8 +201,8 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 
 Кроме того, вы можете определить, должно ли это представление использоваться по умолчанию для этого разрешения.
 
-Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), будет открываться наиболее подходящее для данного разрешения представление.
-Если только одно представление имеет флаг *"По умолчанию"*, то это представление будет открываться независимо от разрешения или ориентации экрана.
+Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), будет открываться наиболее подходящий для данного разрешения вид.
+Если только один вид имеет флаг *"По умолчанию"*, то этот вид будет открыт независимо от разрешения или ориентации экрана.
 
 Например, вы можете создать два вида «Альбомный-мобильный» и «Портрет-мобильный», и эти два вида будут автоматически переключаться при изменении ориентации или размера экрана.
 
@@ -262,6 +263,63 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 ### **РАБОТА В ПРОГРЕССЕ** -->
 
 ## Changelog
+### 2.9.43 (2024-03-17)
+* (bluefox) Showed selected view in the view dialog
+* (bluefox) Added customization of loading screen
+* (bluefox) Respected the sentry disable flag in GUI
+
+### 2.9.42 (2024-03-09)
+* (bluefox) Allowed limiting the view size only on desktop
+* (bluefox) Change word "Filter" to "Search"
+
+### 2.9.40 (2024-03-05)
+* (bluefox) Migrated the filter widget to react
+* (bluefox) Migrated the basic link widget to react
+
+### 2.9.39 (2024-03-01)
+* (foxriver76) allow to use `widgetOid` in bindings
+* (foxriver76) fixed various problems with Date Picker widget
+* (foxriver76) made default option of Date Picker human readable and added option for full parseable date
+* (bluefox) Added the possibility to add suffix by navigation widgets
+* (bluefox) Improved the license manager
+
+### 2.9.37 (2024-02-28)
+* (foxriver76) TimePicker widget now saves the time instead of date by default, if you want old behavior use checkbox `asDate`
+
+### 2.9.36 (2024-02-27)
+* (foxriver76) fixed project-specific css not being applied
+
+### 2.9.35 (2024-02-27)
+* (foxriver76) user-specified css has now priority over widgets css
+* (foxriver76) fixed crash case for broken grouped widgets
+
+### 2.9.34 (2024-02-26)
+* (foxriver76) detect admin user correctly in project permissions dialog
+
+### 2.9.33 (2024-02-21)
+* (foxriver76) fixed issue that last image is never shown in image8 widget
+* (foxriver76) added possibility to define background and title color for jqui dialog
+* (foxriver76) make it possible to click through signal image if in front of widget
+
+### 2.9.32 (2024-02-16)
+* (foxriver76) implemented buttons to show or hide all views in views manager
+* (foxriver76) fixed issue with signals on RxWidgets
+* (foxriver76) allow to disable Sentry only for this instance
+
+### 2.9.31 (2024-02-06)
+* (foxriver76) apply default overflow correctly
+* (foxriver76) navigation style fixes (fix an icon background and allow to customize header text color)
+
+### 2.9.30 (2024-02-06)
+* (foxriver76) global css will no longer be deleted on adapter upload/update
+* (foxriver76) allowed modifying style of navigation
+
+### 2.9.29 (2024-02-05)
+* (foxriver76) fixed multiple problems with nested groups
+* (foxriver76) also made group/ungroup commands working in group view
+* (foxriver76) allowed selecting widgets in a group via click (previously only dropdown worked)
+* (foxriver76) fixed issue, that Basic Image 8 is not configurable for value 0
+
 ### 2.9.28 (2024-02-03)
 * (foxriver76) correctly determine the vis instance in all cases
 

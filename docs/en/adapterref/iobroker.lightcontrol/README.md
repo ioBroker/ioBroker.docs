@@ -4,9 +4,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)](https://www.npmjs.com/package/iobroker.lightcontrol)
-![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lightcontrol?label=npm%20vulnerabilities&style=flat-square)
 ![node-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
-![Libraries.io dependency status for latest release](https://img.shields.io/librariesio/release/npm/iobroker.lightcontrol?label=npm%20dependencies&style=flat-square)
 [![Translation status](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
@@ -33,7 +31,7 @@
 
 ## Installation
 
-Please use the "adapter list" & Beta Repository in ioBroker to install a beta version of this adapter. You can also use the CLI to install this adapter:
+Please use the "adapter list" & Stable Repository in ioBroker to install a version of this adapter. You can also use the CLI to install this adapter:
 
 ```
 iobroker add lightcontrol
@@ -57,10 +55,11 @@ iobroker add lightcontrol
 	### **WORK IN PROGRESS**
 -->
 
-### **WORK IN PROGRESS**
+### 0.5.0 (2024-03-01)
 
 -   (Schmakus) update dependencies
--       (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
+-   (Schmakus) update license year
+-   (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
 
 ### 0.4.0 (2023-08-16)
 
@@ -88,16 +87,11 @@ iobroker add lightcontrol
 -   (Schmakus) Fix error by set Ct, Color,... if no lights or groups defined
 -   (Schmakus) Some code improvements
 
-### 0.2.16 (2023-05-10)
-
--   (Schmakus) Fix AdaptiveCt - StartYoureDay Interpolated
--   (Schmakus) Update docs
-
 ## License
 
 MIT License
 
-Copyright (c) 2023 Schmakus <schmakus@gmail.com>
+Copyright (c) 2024 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

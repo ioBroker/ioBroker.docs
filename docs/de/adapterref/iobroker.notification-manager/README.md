@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.notification-manager/README.md
 title: ioBroker.notification-manager
-hash: nuVZ03xa2X4kRvBRhNsVG7snbnNz28FjCAwXj+iqvgM=
+hash: b4457z24tgENpbNVk220BGJ4XYobb+tLlXt85Uid504=
 ---
 ![Logo](../../../en/adapterref/iobroker.notification-manager/admin/notification-manager.png)
 
@@ -21,6 +21,15 @@ Verwalten Sie ioBroker-Benachrichtigungen, z. indem Sie sie als Nachrichten send
 
 ### Allgemeine Beschreibung
 Dieser Adapter ermöglicht die Umleitung der ioBroker-internen `Notifications` auf Messenger-Adapter, die die `Notification System` unterstützen. Sollte Ihnen ein Adapter fehlen, eröffnen Sie bitte ein Ticket für den entsprechenden Adapter.
+
+### Aufbau
+Für jeden `category` können Sie konfigurieren, ob der `category` aktiv sein soll. Wenn die Kategorie nicht aktiv ist, verarbeitet der `notification-manager` nichts für diesen spezifischen `category`.
+
+Zusätzlich können Sie konfigurieren, ob die `notification-manager` bestimmte `categories` unterdrücken sollen. Wenn ein `notification` für einen unterdrückten `category` registriert ist, löscht der Adapter diesen `notification` sofort, ohne Ihnen Nachrichten zu senden.
+
+Schließlich können Sie unterstützte Messaging-Adapter konfigurieren. Immer wenn ein neuer `notification` für einen `active` (und `non-suppressed`) `category` generiert wird, sendet der Adapter den `notification` über den ersten konfigurierten Adapter. Wenn das Senden der Nachricht erfolgreich war, löscht der `notification-manager` den `notification`. Wenn das Senden nicht erfolgreich war, wird es mit dem zweiten Adapter erneut versucht.
+
+Wenn eine Kategorie `active` ist, aber noch keine spezifischen Einstellungen konfiguriert wurden, verwendet der Adapter die konfigurierten Fallback-Einstellungen. Neue Kategorien sind standardmäßig immer `active`, um sicherzustellen, dass Sie benachrichtigt werden. Dies bedeutet, dass immer dann, wenn ein neuer `category` von einem Adapter implementiert wird, die Fallback-Einstellungen für den angegebenen `severity` angewendet werden.
 
 ### Registrieren benutzerzentrierter Benachrichtigungen
 Als Benutzer wissen Sie im besten Fall, wann Sie über bestimmte Situationen in Ihrem System benachrichtigt werden möchten.
@@ -89,6 +98,11 @@ Nach dem Absenden der Benachrichtigung erwartet der `notification-manager` eine 
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.1 (2024-03-16)
+* (foxriver76) added possibility to suppress messages
+* (foxriver76) fixed issue that bottom of settings page is shown behind toolbar
+* (foxriver76) fixed issue that all notifications are cleared instead of only the handled one
+
 ### 1.0.0 (2023-12-08)
 * (foxriver76) added possibility to send custom messages
 * (foxriver76) added UI indicators for each category
@@ -105,7 +119,7 @@ Nach dem Absenden der Benachrichtigung erwartet der `notification-manager` eine 
 ## License
 MIT License
 
-Copyright (c) 2023 foxriver76 <moritz.heusinger@gmail.com>
+Copyright (c) 2024 foxriver76 <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

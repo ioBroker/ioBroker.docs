@@ -41,6 +41,9 @@ You can set climatisaton temperature in
 ```
 
 ## Changelog
+### 0.5.4 (2024-03-17)
+
+- fix door window states
 
 ### 0.4.1
 
@@ -175,7 +178,7 @@ You can set climatisaton temperature in
 
 MIT License
 
-Copyright (c) 2019 ta2k <tombox2020@gmail.com>
+Copyright (c) 2019-2030 ta2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

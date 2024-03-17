@@ -3,15 +3,13 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lightcontrol/README.md
 title: ioBroker.lightcontrol
-hash: CPObGREJi73n5LEg9poj2MtvRIXsUwSF3sU1frznGas=
+hash: 2C8lox7QJJk3YWndhJjKQTbbN03SjxFzwB2yH3gvwgI=
 ---
 ![Logo](../../../en/adapterref/iobroker.lightcontrol/admin/lightcontrol.png)
 
 ![NPM-Version](https://img.shields.io/npm/v/iobroker.lightcontrol.svg)
 ![Downloads](https://img.shields.io/npm/dm/iobroker.lightcontrol.svg)
-![Snyk-Schwachstellen für das npm-Paket](https://img.shields.io/snyk/vulnerabilities/npm/iobroker.lightcontrol?label=npm%20vulnerabilities&style=flat-square)
 ![Knoten-lts](https://img.shields.io/node/v-lts/iobroker.lightcontrol?style=flat-square)
-![Libraries.io-Abhängigkeitsstatus für die neueste Version](https://img.shields.io/librariesio/release/npm/iobroker.lightcontrol?label=npm%20dependencies&style=flat-square)
 ![GitHub](https://img.shields.io/github/license/schmakus/iobroker.lightcontrol?style=flat-square)
 ![GitHub-Repo-Größe](https://img.shields.io/github/repo-size/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
 ![GitHub-Commit-Aktivität](https://img.shields.io/github/commit-activity/m/schmakus/iobroker.lightcontrol?logo=github&style=flat-square)
@@ -26,14 +24,14 @@ hash: CPObGREJi73n5LEg9poj2MtvRIXsUwSF3sU1frznGas=
 # IoBroker.lightcontrol
 [![Übersetzungsstatus](https://weblate.iobroker.net/widgets/adapters/-/lightcontrol/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-![Testen und freigeben](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
+![Test und Freigabe](https://github.com/Schmakus/ioBroker.lightcontrol/workflows/Test%20and%20Release/badge.svg)
 
 ## Versionen
-**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry-Berichte werden ab js-controller 3.0 verwendet.
+**Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden.** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
 
-## Wenn dir meine Arbeit gefällt:
+## Wenn Ihnen meine Arbeit gefällt:
 ## Installation
-Bitte verwenden Sie die "Adapterliste" und das Beta-Repository in ioBroker, um eine Beta-Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
+Bitte verwenden Sie die „Adapterliste“ und das Stable Repository in ioBroker, um eine Version dieses Adapters zu installieren. Sie können diesen Adapter auch über die CLI installieren:
 
 ```
 iobroker add lightcontrol
@@ -45,8 +43,8 @@ iobroker add lightcontrol
 [🇩🇪 Dokumentation](./docs/de/lightcontrol.md)
 
 ## Machen
-- Mehr als eine LightGroup für eine Objekt-ID auswählen (Bug mit jsonCustom Select multible)
-- Bereitschaftsanzeige mit geringerer Helligkeit und definierten Sekunden vor AutoOff
+- Wählen Sie mehr als eine LightGroup für eine Objekt-ID (Fehler bei jsonCustom Select multible)
+- Verfügbarkeit für Benachrichtigungen mit geringerer Helligkeit und definierten Sekunden vor AutoOff
 
 ## Changelog
 
@@ -54,80 +52,44 @@ iobroker add lightcontrol
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
-### 0.2.0 (2023-02-20)
 
--   (Schmakus) Availability to switch on/off lights only with level/brightness state and without switch state
--   (Schmakus) Availability to set Ct, Sat and Color directly to the lamp, also if it's switched off.
--   (Schmakus) Added new Modus for AdaptiveCt: StartYourDay interplated. It's a sinus half curve from morning time to sunset.
--   (Schmakus) Update adaptername translations in io-package.json
--   (Schmakus) Some little bugfixes and corrections for logging
--   (Schmakus) Fix AdaptiveCt, because there was a problem with date object.
+### 0.5.0 (2024-03-01)
 
-### 0.1.3 (2023-01-17)
+-   (Schmakus) update dependencies
+-   (Schmakus) update license year
+-   (Schmakus) fixed AutoOnLux (Cannot read properties of undefined (reading 'minLux'))
 
--   (Schmakus) Added AdaptiveCt functionality. Was not implemented in older versions.
+### 0.4.0 (2023-08-16)
 
-### 0.1.2 (2023-01-14)
+-   (Schmakus) Node >=16 and NPM >=7 necessary!
+-   (Schmakus) fixed rampOff.time
+-   (Schmakus) update dependencies
 
--   (Schmakus) Some different small bugfixes and code cleaning
--   (Schmakus) Fix: Update for ioBroker Beta-Repo
--   (Schmakus) Fix: Adaptive Color-Temperature (failure by reading settings minCt and maxCt)
+### 0.3.0 (2023-07-17)
 
-### 0.1.1 (2023-01-04)
+-   (Schmakus) (thoml95) Changed conversion of color-temperature (edit of ct-states required)
+-   (Schmakus) (thoml95) fixed some bugs related to powerCleaningLight
+-   (Schmakus) Some code improvements
+-   (Schmakus) Update Docu
 
--   (Schmakus) Availability to switch on/off lights only with level/brightness state and without switch state
--   (Schmakus) Add Sentry Plugin
--   (Schmakus) Fix issue [#80](https://github.com/Schmakus/ioBroker.lightcontrol/issues/80)
--   (Schmakus) general translation updates and translation of states
+### 0.2.18 (2023-07-08)
 
-### 0.1.0 (2023-01-02)
+-   (Schmakus) Fixed CtReverse [#149]
+-   (Schmakus) Fixed translation for light [#136]
+-   (Schmakus) Fixed warning min/max of ct-state [#148]
+-   (Schmakus) Fixed Set Color-Temperature (set null value)
 
--   (Schmakus) Latest Release
+### 0.2.17 (2023-05-17)
 
-### 0.0.8 (2023-01-02)
-
--   (Schmakus) Ability to remove unused lights and sensors when deleting the light group
--   (Schmakus) Some code cleaning and update debug logs
--   (Schmakus) Update dependencies
--   (Schmakus) Update translations
-
-### 0.0.6 (2022-12-29)
-
--   (Schmakus) New: [#61](https://github.com/Schmakus/ioBroker.lightcontrol/issues/61) Added infinite blinking. Please read the documentation.
--   (Schmakus) Fix: some little things.
-
-### 0.0.5 (2022-12-27)
-
--   (Schmakus) Fix: [#66](https://github.com/Schmakus/ioBroker.lightcontrol/issues/66) Adding more than one lamp to group
--   (Schmakus) Fix: CustomConfig Color definitions
--   (Schmakus) Deleting hole light from group if it contains no states
--   (Schmakus) Updating CreateState Function for extended debugging
-
-### 0.0.4 (2022-12-23)
-
--   (Schmakus) Fix: Warning by adding motion sensor to group
--   (Schmakus) New: Add Default Values for WarmWhite and DayLight at Color-State
--   (Schmakus) updating translations
-
-### 0.0.3 (2022-12-22)
-
--   (Schmakus) Fix: Moving sensors and lights to other group
--   (Schmakus) Fix: Adding sensor to groups
--   (Schmakus) Update German Docu
-
-### 0.0.2 (2022-12-20)
-
--   (Schmakus) first Alpha Release
-
-### 0.0.1 (2022-12-01)
-
--   (Schmakus) Initial Release
+-   (Schmakus) Fix error by init of customConfig, if no light description is available
+-   (Schmakus) Fix error by set Ct, Color,... if no lights or groups defined
+-   (Schmakus) Some code improvements
 
 ## License
 
 MIT License
 
-Copyright (c) 2023 Schmakus <schmakus@gmail.com>
+Copyright (c) 2024 Schmakus <schmakus@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -27,6 +27,14 @@ Use id.remote.\* to control the mower
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.2 (2024-03-14)
+
+- Fix Map location
+
+### 1.1.1 (2024-03-03)
+
+- fix Login
+
 ### 1.1.0 (2023-12-01)
 
 - fix login flow
@@ -51,7 +59,7 @@ Use id.remote.\* to control the mower
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

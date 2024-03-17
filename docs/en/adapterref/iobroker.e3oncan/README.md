@@ -101,6 +101,19 @@ Yes, that is possible under certain conditions:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.7.1 (2024-03-15)
+* (MyHomeMyData) Bugfix for datapoint 1190: Scaling changed back to 10.0
+* (MyHomeMyData) Update of list of datapoints to version 20240314
+
+### 0.7.0 (2024-03-13)
+* (MyHomeMyData) Store numbers in states of channel "tree" with type "Number" instead of "String"
+* (MyHomeMyData) IMPORTANT: This may affect handling of tree states, e.g. in scripts, vis and history
+* (MyHomeMyData) Bugfix for Energy Meter E380 datapoint id 0x25C
+* (MyHomeMyData) Update of list of datapoints to version 20240309
+* (MyHomeMyData) Bugfix for update of changed datapoint structure during start of adapter
+* (MyHomeMyData) Changed default values for CAN adapters to can0 and can1
+* (MyHomeMyData) Increased value for collect timeout to 2000 ms
+
 ### 0.6.19 (2024-02-19)
 * (MyHomeMyData) Check for changed structure of datapoints during startup
 * (MyHomeMyData) Update of list of datapoints to version 20240218

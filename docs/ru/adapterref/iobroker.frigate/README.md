@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.frigate/README.md
 title: ioBroker.frigate
-hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
+hash: TIq4HqXLvTWUXSkeAmmvZslfBw3HjbMyXxTo/QbfO9Y=
 ---
 ![Логотип](../../../en/adapterref/iobroker.frigate/admin/frigate.png)
 
@@ -16,7 +16,7 @@ hash: yrYp+wFaMRLuha6zwUgUYfqSZPba5zNPbl5p78X4LYI=
 # IoBroker.frigate
 **Тесты:** ![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.frigate/workflows/Test%20and%20Release/badge.svg)
 
-**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Более подробную информацию и информацию о том, как отключить отчеты об ошибках, см. в [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
+**Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода.** Для получения более подробной информации и информации о том, как отключить отчеты об ошибках, см. [Документация плагина Sentry](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Отчеты Sentry используются начиная с js-controller 3.0.
 
 ##адаптер фрегата для ioBroker
 Адаптер для инструмента Фрегат [Видео Фрегата](https://frigate.video/)
@@ -50,7 +50,7 @@ mqtt:
 ### Имя_камеры
 Статус и настройки камеры
 
-Изменение состояния. Состояние для изменения настроек камеры.
+Изменение состояния Состояние для изменения настроек камеры
 
 [Подробная информация обо всех штатах](https://docs.frigate.video/integrations/mqtt/)
 
@@ -66,6 +66,8 @@ mqtt:
 `frigate.0.camera_name.history` История событий камеры
 
 `frigate.0.camera_name.remote.notificationText` пользовательский текст уведомления для камеры `frigate.0.camera_name.remote.notificationMinScore` минимальный балл пользовательского уведомления для камеры `frigate.0.camera_name.remote.pauseNotifications`уведомление о паузе для камеры
+
+`frigate.0.camera_name.remote.ptz`отправить команды ptz https://docs.frigate.video/integrations/mqtt/#frigatecamera_nameptz
 
 ## Уведомления
 Адаптер может отправлять снимки и клипы событий и обнаружения объектов в такие экземпляры, как Telegram, Pushover и signal-cbm.
@@ -91,7 +93,7 @@ mqtt:
 
 Клипы:
 
-Добавьте `HTML` в формате HTML:
+Добавьте элемент `HTML` в формате HTML:
 
 ```
 <video width="100%" height="auto" src="{frigate.0.events.history.01.webclip}" autoplay muted>
@@ -109,6 +111,10 @@ mqtt:
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.0 (2024-03-11)
+
+- fix deleting of notification files
+- add notification settings
 
 ### 1.0.2 (2024-01-29)
 

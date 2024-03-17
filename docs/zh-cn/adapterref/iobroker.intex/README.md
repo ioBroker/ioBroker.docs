@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.intex/README.md
 title: ioBroker.intex
-hash: LzjlC+djKM5jR/Tz9XJnk3QJ1oO7kdofxCoROZ7nris=
+hash: NwQnuxNpFXZ5n4vtiRTbKM9JfyAWEb1zWbSw14lLVDU=
 ---
 ![标识](../../../en/adapterref/iobroker.intex/admin/intex.png)
 
@@ -50,48 +50,8 @@ IP地址和端口来自云端。如果IP地址相同，则必须在应用程序�
 ## 控制水疗中心的功能
 “intex.0.-id-.control.-command-”设置为 true 或 false 控制池命令的状态。
 
-# 用德语进行讨论和提问
+## 德语讨论和提问
 https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
-
-＃＃ **工作正在进行中**
-- (PLCHome) 配置此适配器以使用发布脚本。
-
-## 0.1.5
-* (PLCHome) 已更正状态 control.sanitizer 和 control.sanitizerTime 上的 sanitzer 到 sanitizer 的拼写错误。
-
-## 0.1.4
-* (PLCHome) 更改只读对象，例如温度，不再导致崩溃。
-
-## 0.1.3
-* (PLCHome) 如果过滤器的剩余时间较长，则将其修正为消毒时间
-
-## 0.1.2
-* (PLCHome) 固定过滤器加热剩余时间从 1 到 -1 无限大
-
-## 0.1.1
-* (PLCHome) 过滤器和消毒剂添加的剩余时间受到控制。
-* (PLCHome) 在控制下添加了刷新。
-* (PLCHome) 删除了远程，因为控制可以做得更好。
-
-## 0.1.0
-* (rbartl/PLCHome) 支持本地IP。既可以通过云，也可以仅在本地而不通过云。感谢奥地利罗伯特·巴特尔。
-* (PLCHome) 通过控制切换后直接确认。
-
-## 0.0.7
-* (PLCHome) 通过远程切换再次起作用。
-* (PLCHome) 通过Control切换后，可以从云端传输之前的流量状态。这可能会导致状态切换。
-
-## 0.0.6
-* (PLCHome) 定义的状态设置
-* (PLCHome) 更改华氏温度
-* (PLCHome)“control.温度”，只读，0.0.5 开始的对象必须删除一次。
-
-## 0.0.5
-* (PLCHome) 添加设定温度，对象必须删除一次。
-* (PLCHome)状态信息解码
-
-## 0.0.1
-* (TA2k) 初始版本
 
 ## Changelog
 
@@ -99,6 +59,57 @@ https://forum.iobroker.net/topic/47932/test-intext-app-v0-0-x
   Placeholder for the next version (at the beginning of the line):
   ### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+- (PLCHome) Configure this adapter to use the release script.
+
+### 0.1.5
+
+* (PLCHome) spelling mistake sanitzer to sanitizer on status control.sanitizer and control.sanitizerTime corrected.
+
+### 0.1.4
+
+* (PLCHome) Changing read-only objects, e.g. temperature, no longer causes a crash.
+
+### 0.1.3
+
+* (PLCHome) The remaining time for the filter is corrected to the disinfection time if it is longer
+
+### 0.1.2
+
+* (PLCHome) Fixed filter remaining time on heating from 1 to -1 for infinity
+
+### 0.1.1
+
+* (PLCHome) Remaining time for filter and sanitizer added under control.
+* (PLCHome) Refresh added under Control.
+* (PLCHome) Remote deleted because Control can do it better.
+
+### 0.1.0
+
+* (rbartl/PLCHome) Support local IP. Both via cloud and only locally without cloud. Thanks to Austria to Robert Bartl.
+* (PLCHome) Confirm directly after switching via Control.
+
+### 0.0.7
+
+* (PLCHome) Switching via remote works again.
+* (PLCHome) After switching via Control, the previous traffic status can be transmitted from the cloud. This can lead to a toggling of the status.
+
+### 0.0.6
+
+* (PLCHome) Defined setting of states
+* (PLCHome) Change Fahrenheit Celsius
+* (PLCHome) "control.temperature", read only, object from 0.0.5 must be deleted once.
+
+### 0.0.5
+
+* (PLCHome) Set temperature added, object must be deleted once.
+* (PLCHome) Decoding of status information
+
+### 0.0.1
+
+* (TA2k) initial release
 
 ## License
 

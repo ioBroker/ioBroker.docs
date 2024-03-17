@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ems-esp/README.md
 title: ioBroker.ems-esp
-hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
+hash: 3bOvnWEL8AyBYUbkbPBMOHU0REczZsEAXxM8b9g23Ro=
 ---
 ![Логотип](../../../en/adapterref/iobroker.ems-esp/admin/ems-esp.png)
 
@@ -34,7 +34,7 @@ hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
 Все измененные состояния из собственных скриптов или браузера объектов должны устанавливать подтверждение = false !!!
 
 ## НОВОЕ в версии >= 3.0.0: объекты EMS+ (switchPrograms и HolidayModes) реализованы для шлюза EMS-ESP и при обнаружении создаются состояния.
-Прошивка шлюза ems-esp не поддерживает программы переключения и HolidayModes для термостатов EMS+ (RC310 / RC300 или аналогичных). Включение этой новой функции приведет к отправке необработанных телеграмм на шлюз ems-esp, а затем попытается прочитать ответ.
+Прошивка шлюза ems-esp не поддерживает программы переключения и HolidayModes для термостатов EMS+ (RC310 / RC300 или аналогичных). Включение этой новой функции приведет к отправке необработанных телеграмм шлюзу ems-esp, а затем попытается прочитать ответ.
 Тестирование выполняется для программ переключения A и B для hc1 на hc4, ГВС (теплая вода) и циркуляционного насоса (cp) и режимов отпуска hm1-hm5.
 Найденные расширенные сущности сохраняются в настройках экземпляра. Поэтому после перезагрузки экземпляра адаптера произойдет перезагрузка.
 
@@ -67,6 +67,15 @@ hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2024-03-09)
+* improve km200 data read to avoid errors
+
+### 3.0.2 (2024-03-02)
+* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+
+### 3.0.1 (2024-02-25)
+* change KM200 error messages for recordings
+
 ### 3.0.0 (2024-02-17)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
@@ -79,23 +88,6 @@ hash: XF2+hzQprkPB7OkEUB7SQOH3vJ57Zhk0PRtGLVgy1As=
 ### 3.0.0-alpha.2 (2024-02-16)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
-
-### 3.0.0-alpha.1 (2024-02-15)
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
-
-### 3.0.0-alpha.0 (2024-02-05)
-* Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* Implement raw telegram search for EMS+ entities and create writable objects / states
-* The search is only active when no km200 gateway is selected
-
-### 2.8.0 (2024-02-04)
-* influxdb adapter version >= 4.0.2 required 
-* store km200 recordings only within defined retention period for influxdb
-* delay start of statistics by 5 minutes
 
 ## License
 MIT License

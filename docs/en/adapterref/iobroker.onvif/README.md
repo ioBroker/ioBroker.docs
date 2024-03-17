@@ -298,6 +298,10 @@ on("onvif.0.192_168_178_100_80.events.RuleEngine/CellMotionDetector/Motion", (ob
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.1.3 (2024-03-15)
+
+- Allow non number PTZ presets
+
 ### 1.1.2 (2023-12-29)
 
 - (TA2k) Catch callback error

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vaillant/README.md
 title: ioBroker.vaillant
-hash: IdtHu+rNO99e42ZGyYxUdQmk3BpECpzjWpmZj00PX3g=
+hash: Q9knqwUkXz52JAd6LLPc3lUKOZIzIs0eFoa1OKhRA2w=
 ---
 ![标识](../../../en/adapterref/iobroker.vaillant/admin/vaillant.png)
 
@@ -31,6 +31,137 @@ Vaillant multiMatic 和 myVaillant 适配器
 
 ## **Beispiel myVaillant：**
 vaillant.0.id.systemControlState.controlState.domesticHotWater01.boost auf true/false setzen um den Boost zu aktivieren oder deaktivieren vaillant.0.id.systemControlState.controlState.zones01.desiredRoomTemperatureSetpoint um die RaumTemperatur zu setzen vaillant.0.id.systemControlState .controlState.zones01.setBackTemperature vaillant.0.id.systemControlState.controlState.zones01.heatingOperationMode 关闭手动 TIME_CONTROLLED vaillant.0.id.systemControlState.controlState.domesticHotWater01.operationMode 关闭手动 TIME_CONTROLLED
+
+## 远程命令
+用于刷新和预定义`vaillant.0.id.remote`
+
+## 自定义命令
+您可以将自定义命令遥控器用于未预定义的遥控器`vaillant.0.id.remotes.customCommand`
+
+＃＃＃ 例子：
+```json
+{
+  "url": "zone/1/heating/comfort-room-temperature",
+  "data": { "comfortRoomTemperature": 10.5 }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/operation-mode",
+  "data": { "operationMode": "OFF" }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/temperature",
+  "data": { "setpoint": 55 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/operation-mode",
+  "data": { "operationMode": "DAY" }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/set-back-temperature",
+  "data": { "setBackTemperature": 20 }
+}
+```
+
+```json
+{
+  "url": "zone/1/heating/quick-veto",
+  "data": { "desiredRoomTemperatureSetpoint": 11, "duration": 3 },
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "POST"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/boost",
+  "data": {},
+  "method": "DELETE"
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/circulation-pump/time-windows",
+  "data": {
+    "friday": [
+      {
+        "endTime": 540,
+        "startTime": 360
+      }
+    ],
+    "monday": [],
+    "saturday": [],
+    "sunday": [],
+    "thursday": [],
+    "tuesday": [],
+    "wednesday": []
+  }
+}
+```
+
+```json
+{
+  "url": "domestic-hot-water/255/time-windows",
+  "data": {
+    "friday": [],
+    "monday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "saturday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "sunday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "thursday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "tuesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ],
+    "wednesday": [
+      {
+        "endTime": 1320,
+        "startTime": 330
+      }
+    ]
+  }
+}
+```
 
 ## Changelog
 

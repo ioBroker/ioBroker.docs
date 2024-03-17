@@ -28,6 +28,10 @@ BADGE-Known Vulnerabilities: https://snyk.io/test/github/ciddi89/ioBroker.device
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 2.10.5 (2024-02-29)
+
+-   (ciddi89) Fixed [#262](https://github.com/ciddi89/ioBroker.device-watcher/issues/262) & [#292](https://github.com/ciddi89/ioBroker.device-watcher/issues/292): Phantom Messages
+
 ### 2.10.4 (2024-02-26)
 
 -   (ciddi89) Added: Option to set language for messages and tables

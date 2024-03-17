@@ -23,13 +23,13 @@ chapters: {"pages":{"de/adapterref/iobroker.awtrix-light/README.md":{"title":{"d
 - nodejs 14.5 (oder neuer)
 - js-controller 4.0.15 (oder neuer)
 - Admin Adapter 6.6.0 (oder neuer)
-- _Awtrix Light_ Gerät mit Firmware-Version _0.94_ (oder neuer) - z.B. Ulanzi TC001
+- _Awtrix 3_ Gerät mit Firmware-Version _0.96_ (oder neuer) - z.B. Ulanzi TC001
 
 Hier kaufen: [Aliexpress.com](https://haus-auto.com/p/ali/UlanziTC001) oder hier: [ulanzi.de](https://haus-auto.com/p/ula/UlanziTC001) (Affiliate-Links)
 
 ## Erste Schritte
 
-1. Flashe die Firmware auf das Gerät und füge es zu deinem lokalen Netzwerk per WLAN hinzu - siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/quickstart)
+1. Flashe die Firmware auf das Gerät und füge es zu deinem lokalen Netzwerk per WLAN hinzu - siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/quickstart)
 2. Installiere den awtrix-light Adapter im ioBroker (und erstelle eine neue Instanz)
 3. Öffne die Instanz-Konfiguration und hinterlege die IP-Adresse des Gerätes im lokalen Netzwerk
 
@@ -45,7 +45,7 @@ Erstelle dafür einfach einen Alias in `alias.0` vom Typ `string` (Zeichenkette)
 
 **Wie kann ich zur aktuellsten Firmware-Version wechseln?**
 
-Nutze einfach das [Menu auf dem Gerät](https://blueforcer.github.io/awtrix-light/#/onscreen) um zum Punkt `update` zu navigieren. Den Rest erledigt die Uhr dann selbst. Es ist nicht nötig, den Web-Flasher erneut zu verwenden (außer, ein Firware-Update erfordert dies explizit).
+Nutze einfach das [Menu auf dem Gerät](https://blueforcer.github.io/awtrix3/#/onscreen) um zum Punkt `update` zu navigieren. Den Rest erledigt die Uhr dann selbst. Es ist nicht nötig, den Web-Flasher erneut zu verwenden (außer, ein Firware-Update erfordert dies explizit).
 
 **Das Gerät wird heiß während es geladen wird.**
 
@@ -53,7 +53,7 @@ Das Hardware-Design ist leider nicht optimal. Es wird empfohlen, ein möglichst 
 
 **Kann man den Akku aus dem Gerät entfernen?**
 
-Ja, es gibt diese Möglichkeit. Allerdings muss das Gerät dazu mit einem Heißluftföhn geöffnet werden, da die Frontscheibe verklebt ist. Außerdem ist es nötig einen [Step-Down-Converter zu verlöten](https://github.com/Blueforcer/awtrix-light/issues/67#issuecomment-1595418765), damit alles funktioniert.
+Ja, es gibt diese Möglichkeit. Allerdings muss das Gerät dazu mit einem Heißluftföhn geöffnet werden, da die Frontscheibe verklebt ist. Außerdem ist es nötig einen [Step-Down-Converter zu verlöten](https://github.com/Blueforcer/awtrix3/issues/67#issuecomment-1595418765), damit alles funktioniert.
 
 **Kann man die Apps auf dem Gerät anders sortieren?**
 
@@ -79,15 +79,21 @@ Ja, seit Firware-Version 0.82 kann der Zugriff mit einem Benutzernamen und Passw
 
 Wenn eine Benachrichtigung mit der Option `hold: true` gesendet wird, bleibt der Text auf dem Display so lange stehen, bis die Benachrichtigung bestätigt wird. Das kann entweder über den mittleren Taster auf dem Gerät passieren, oder indem der Zustand `notification.dismiss` auf `true` gesetzt wird.
 
+**Einige Zustandsänderungen werden nich sofort dargestellt.**
+
+Falls ein Zustand sehr oft geändert wird (z.B. jede Sekunde), werden einige Änderungen ignoriert und nicht übertragen, damit die Last auf dem Gerät gering gehalten wird. Dafür hat jede App eine eigene "Block-Zeit", welche global in den Instanz-Einstellungen konfiguriert werden kann. Die Standard-Zeit ist 3 Sekunden. Es ist nicht empfohlen, ein Wert kleiner als 3 zu setzen.
+
 ## Identische Apps auf mehreren Geräten
 
-Falls mehrere awtrix-light Geräte mit den gleichen Apps angesteuert werden sollen, muss eine eigene Instanz für jedes Gerät angelegt werden. Allerdings kann in den Instanzeinstellungen der weiteren Geräte dann festgelegt werden, dass die Apps aus einer anderen Instanz übernommen werden sollen.
+Falls mehrere awtrix-light Geräte mit den gleichen Apps angesteuert werden sollen, **muss eine eigene Instanz für jedes Gerät angelegt werden.** Allerdings kann in den Instanzeinstellungen der weiteren Geräte dann festgelegt werden, dass die Apps aus einer anderen Instanz übernommen werden sollen.
 
 Beispiel
 
 1. Konfiguriere alle gewünschten Apps in der Instanz `awtrix-light.0`
 2. Lege eine weitere Instanz für das zweite Gerät an (`awtrix-light.1`)
 3. Wähle `awtrix-light.0` in den Instanz-Einstellungen von `awtrix-light.1` um die gleichen Apps auf dem zweiten Gerät darzustellen
+
+Seit Version 0.15.0 (und neuer) wird die Sichtbarkeit von Apps und alle Inhalte der Experten-Apps auch auf andere Geräte übertragen, welche die App-Einstellungen kopieren. Im Beispiel oben werden z.B. die Apps der Instanz `awtrix-light.1` ebenfalls versteckt, sobald die Sichtbarkeit der App in der Hauptinstanz `awtrix-light.0` geändert wird. Das gleiche gilt für alle Inhalte der Experten-Apps.
 
 ## Blockly und JavaScript
 
@@ -101,14 +107,14 @@ Beispiel
 Sende eine einmalige Benachrichtigung an das Gerät:
 
 ```javascript
-sendTo('awtrix-light', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
+sendTo('awtrix-light.0', 'notification', { text: 'haus-automatisierung.com', repeat: 1, stack: true, wakeup: true, hold: false }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/api?id=json-properties) für Details.
+Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=json-properties) für Details.
 
 *Außerdem kann ein Blockly-Block verwendet werden um die Benachrichtigung zu erstellen (dort werden nicht alle verfügbaren Optionen angeboten).*
 
@@ -117,21 +123,21 @@ Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware 
 Um eine (vorher angelegte) Ton-Datei abzuspielen:
 
 ```javascript
-sendTo('awtrix-light', 'sound', { sound: 'beispiel' }, (res) => {
+sendTo('awtrix-light.0', 'sound', { sound: 'beispiel' }, (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
 });
 ```
 
-Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/api?id=sound-playback) für Details.
+Das Nachrichten-Objekt unterstützt dabei alle Optionen, welche in der Firmware verfügbar sind. Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/api?id=sound-playback) für Details.
 
 *Es kann ein Blockly-Block verwendet werden, um diesen Aufruf noch einfacher zu verwenden.*
 
 Um einen eigenen Klingelton abzuspielen:
 
 ```javascript
-sendTo('awtrix-light', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
+sendTo('awtrix-light.0', 'rtttl', 'Beep: d=32,o=7,b=120: a,P,c#', (res) => {
     if (res && res.error) {
         console.error(res.error);
     }
@@ -186,37 +192,40 @@ Beispiel: [Wetter-App](weather-app.md)
 
 ## Native Apps verstecken
 
-Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix-light/#/onscreen) für Details.
+Um die Standard-Apps auf dem Gerät zu verstecken (wie die Temperatur oder die Luftfeuchtigkeit): Nutze das Menu auf dem Gerät selbst! Siehe [Dokumentation](https://blueforcer.github.io/awtrix3/#/onscreen) für Details.
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
+Updated recommended firmware version to 0.96
+
+### 0.16.0 (2024-03-12)
+
+Updated recommended firmware version to 0.95
+
+* (klein0r) Added notification for firmware update
+* (klein0r) Added setting state for volume
+* (klein0r) Rebranding Awtrix Light to Awtrix 3
+
+### 0.15.1 (2024-03-12)
+
+* (klein0r) Fixed default values of color states
+
+### 0.15.0 (2024-03-06)
+
+* (klein0r) Keep apps contents in sync
+
+### 0.14.1 (2024-03-06)
+
+* (klein0r) Fixed roles of calendar header, body and text (rgb)
+
 ### 0.14.0 (2024-02-20)
 
 * (klein0r) Allow to round numbers dynamically (depends on length)
-
-### 0.13.1 (2024-01-25)
-
-* (klein0r) Fixed hold option in blockly
-
-### 0.13.0 (2024-01-25)
-
-* (klein0r) Added state for text color and background color in expert apps
-* (klein0r) Avoid app refresh when no values have been changed
-
-### 0.12.0 (2024-01-24)
-
-* (klein0r) Added hold option to blockly
-* (klein0r) Added state to dismiss notifications
-
-### 0.11.0 (2024-01-09)
-
-Updated recommended firmware version to 0.94
-
-* (klein0r) Added bar graph to history apps
-* (klein0r) Added aggregation for history apps
 
 ## License
 MIT License

@@ -62,6 +62,15 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 1.0.0 (2024-03-11)
+
+-   (mcm1957) BREAKING: Adapter requires node.js 18 or newer now
+-   (mcm1957) BREAKING: Adapter requires js-controller 5.x.x and admin 6.x.x or newer now
+-   (mcm1957) Parameter offset was non functional. This has been fixed. [#105]
+-   (mcm1957) Incorrect error message whenever no controllers have been defied has been removed. [#68]
+-   (mcm1957) State roles have been reviewed and adapted. [#88]
+-   (mcm1957) Dependencies have been updated.
+
 ### 0.0.8 (2023-07-13)
 
 -   (mcm1957) changed: Overall stability during state updates has been increased
@@ -129,7 +138,7 @@ Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column
 
 MIT License
 
-Copyright (c) 2023 mcm1957 <mcm57@gmx.at>
+Copyright (c) 2023-2024 mcm1957 <mcm57@gmx.at>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

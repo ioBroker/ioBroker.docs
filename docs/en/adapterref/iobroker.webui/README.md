@@ -129,6 +129,26 @@ runtime.html?screenName=screen2
 	Placeholder for next versions:
 	### __WORK IN PROGRESS__
 -->
+### 1.2.2 (2024-03-11)
+- fix broken signals selector in scripts
+
+### 1.2.1 (2024-03-11)
+- build broken after refactoring
+
+### 1.2.0 (2024-03-11)
+- extracted some code for usability
+- better text edit
+- better split view (selection matches now)
+- round pixel values
+
+### 1.1.4 (2024-03-02)
+- designer-update: mathML support, svg foreignObject support
+- better text edit support
+
+### 1.1.3 (2024-02-29)
+- text edit now workin
+- package updates
+
 ### 1.1.2 (2024-02-27)
 - fix broken designer package
 

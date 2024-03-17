@@ -27,9 +27,9 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
     Placeholder for the next version (at the beginning of the line):
     ### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 0.1.6 (2024-03-17)
 * (HGlab01) fix issue in debug-mode: Cannot read properties of null (reading 'data')
-* (HGlab01) bump axios to 1.6.7
+* (HGlab01) bump axios to 1.6.8
 
 ### 0.1.5 (2024-01-20)
 * (HGlab01) Add fee, grid costs and tax calculation
@@ -43,9 +43,6 @@ This adapter provides the peak-times for the Austrian Power Grid, where power co
 ### 0.1.2 (2023-12-22)
 * (HGlab01) Fix issue 'no marketprice found' when price is 0.00
 * (HGlab01) Bump json-explorer to 0.1.15
-
-### 0.1.1 (2023-12-14)
-* (HGlab01) support Exxa10.15 auction as forecast
 
 ## License
 MIT License

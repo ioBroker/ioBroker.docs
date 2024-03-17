@@ -57,12 +57,18 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 <!--
 	### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 7.9.1 (2024-03-15)
+
+* (klein0r) Configurable trigger warning limit (default: 100 per script)
+* (klein0r) Allow to use objects in create state blocks for common
+* (klein0r) Added warning if latitude or longitude is not configured correctly
+
+### 7.9.0 (2024-03-13)
 
 * (klein0r) Added block to create new objects
 * (klein0r) Added HTTP get and post function
 * (klein0r) Droped support of coffeescript (deprecated since version 6.0.0)
-* (klein0r) Raise warning if more than 100 triggers have been registered
+* (klein0r) Raise warning if more than 100 triggers have been registered (per script)
 * (klein0r) Fixed astro state calculation (and display server time in dialog)
 
 ### 7.8.0 (2024-01-29)
@@ -78,17 +84,6 @@ Sollte im Skript ein schwerwiegender Fehler sein, beendet sich nur diese zusätz
 ### 7.6.3 (2024-01-11)
 
 * (klein0r) Fixed bug in formatTimeDiff Blockly
-
-### 7.6.2 (2024-01-02)
-
-* (klein0r) Added missing console.info()
-* (klein0r) Added missing type hints
-* (klein0r) Creation of astro states is now optional
-* (klein0r) Fixed logging of objects/sets
-
-### 7.6.0 (2023-12-26)
-
-* (klein0r) Added schedules by state value (scheduleById)
 
 ## License
 The MIT License (MIT)

@@ -45,6 +45,13 @@ The result will be written to object ports.
 
 ---
 
+### iPhone 
+
+iPhones try to protect users against tracking while changing the mac address. 
+Read more about it and how to disable for private networks: https://support.apple.com/en-us/102509
+
+---
+
 ## For Developers
 
 #### Get mac for specific device
@@ -68,6 +75,9 @@ Remark: This feature is limited to the subnet of the ioBroker host.
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 1.0.6 04.03.2024
+* (Jey Cee) Reduce system load during discovery process to prevent adapter crash
 
 ### 1.0.5 04.02.2024
 * (Jey Cee) remove discovery adapter as dependency

@@ -55,7 +55,7 @@ All changed states from own scripts or the object browser does have to set ackno
 	Do nothing between settemp - delta and settemp
 	Make sure that delta is high enough to avoid too many boiler starts.
 
-## NEW: Heat Demand paramters can be changed during active instance
+## NEW: Heat Demand parameters can be changed during active instance
 	Heat demand parameters delta / weight for each thermostat can be changed within objects during active instance
 	Remark: Updated weight is only used wen a new Heat Demand is found
 	Heat demand parameters weighton / weightoff for each heating circuit can be changed within objects during active instance
@@ -73,6 +73,12 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### 3.0.3 (2024-03-09)
+* improve km200 data read to avoid errors
+
+### 3.0.2 (2024-03-02)
+* improve km200 data read to avoid errors - try http get up to 3 times now - especially for recordings
+
 ### 3.0.1 (2024-02-25)
 * change KM200 error messages for recordings
 
@@ -88,18 +94,6 @@ German ioBroker forum: https://forum.iobroker.net/topic/45862/neuer-adapter-ems-
 ### 3.0.0-alpha.2 (2024-02-16)
 * Node >= 18 required
 * update heatdemand weight changes to be effective during active instance
-
-### 3.0.0-alpha.1 (2024-02-15)
-* ems-esp gateway: Raw telegram search for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* create writable objects / states for switchPrograms and holidayModes
-* this function is only active when no km200 gateway is selected - ems-esp gateway only
-* improve error messages for km200 (wrong ip / passwords)
-* small changes within PDF adapter documentation
-
-### 3.0.0-alpha.0 (2024-02-05)
-* Search for ems-esp states for EMS+ thermostats: switchPrograms and holidayModes (RC310/RC300)
-* Implement raw telegram search for EMS+ entities and create writable objects / states
-* The search is only active when no km200 gateway is selected
 
 ## License
 MIT License

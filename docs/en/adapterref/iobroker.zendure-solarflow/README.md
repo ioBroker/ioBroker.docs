@@ -18,7 +18,7 @@ You can read more about the API here: https://github.com/Zendure/developer-devic
 
 Notes:
 
-1. You have to use the global Zendure Server!
+1. Currently only working with SolarFlow devices (currently tested only with HUB1200). AIO is not supported (as I don't have such a device..)
 
 2. It is possible to control the Output limit with the state created in the productId/deviceKey/control subfolder. Please deactivate/uncheck all modes in the Zendure App, otherwise it is not possible to set the output limit!
 
@@ -35,9 +35,79 @@ Credits goes to https://github.com/reinhard-brandstaedter/solarflow which helped
 If you find the adapter useful for you and want to support my work, feel free to donate by Paypal. Thank You!
 (this is an personal Donate link for Nograx, in no relation to the ioBroker Project!)<br />
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/PeterFrommert)
+[![Donate](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://www.paypal.com/paypalme/PeterFrommert)
 
 ## Changelog
+### 1.2.3 (2024-03-15)
+
+- Fix ACK on onStateChange
+- Update Readme
+
+### 1.2.2 (2024-03-14)
+
+- Fix issue that renamed devices could not be found.
+- Add states for name, product name, serial ID and configured server.
+- Make "energyWhMax" State writable, so you can adjust the max Value.
+- Sent a warning if a device is configured for a server not in use.
+
+### 1.2.1 (2024-03-13)
+
+- Fix calculation of soc: Set energyMaxWh to current energyWh if Zendures SOC is 100%
+- Round SOC to max 1 digit after comma.
+
+### 1.2.0 (2024-03-13)
+
+- EU server is working now.
+- Fix calculation errors in log when calculation is not used
+- More Debug Output
+- Filter SolarFlow devices, so no other devices (e.g. SmartPlugs) will be added.
+- Clear password when settings loaded, as encrypted password is loaded into input and leads to a wrong password.
+
+### 1.1.23 (2024-03-11)
+
+- Fix calculation of "energy in batteries"
+- Try to implement EU server - untested -
+
+### 1.1.22 (2024-03-09)
+
+- Try to fix reset values at midnight
+
+### 1.1.21 (2024-03-08)
+
+- Fix calculation timeframe
+
+### 1.1.17 (2024-03-08)
+
+- Improve calculations
+- No autocomplete on settings
+
+### 1.1.15 (2024-03-06)
+
+- Calculations improved
+- Stop energy input on low voltage is now an option in settings
+
+### 1.1.14 (2024-03-04)
+
+- Reorganize Code
+- Calculations are now optional and have to be enabled in settings
+- Calculation of SOC from voltage and energy go in and out of batteries
+- Stop energy feed if voltage drops under limit
+
+### 1.1.11 (2024-03-01)
+
+- Fix Solar Input 1 and 2 from the new Zendure firmware
+- Fix remaining charging time
+- Fix calculations overwritten when data with 0 value comes in.
+
+### 1.1.8 (2024-02-29)
+
+- Fix calculation error
+
+### 1.1.7 (2024-02-29)
+
+- Add energy calculations for 'today'
+- Fix minutes display bug for remaining charge and discharge time
+
 ### 1.1.4 (2024-02-28)
 
 - Fix timeout issues
@@ -76,7 +146,7 @@ If you find the adapter useful for you and want to support my work, feel free to
 
 ### 1.0.1 (2023-11-03)
 
-- Fix translations
+- Fix translationscd so
 - Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
 - First official release version
 

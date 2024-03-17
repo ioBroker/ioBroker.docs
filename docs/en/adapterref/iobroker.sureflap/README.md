@@ -35,6 +35,8 @@ It also shows the location of your pets and their food and water consumption (wi
 
 It lets you control the lockmode and curfew of your flap and set the location of your pets.
 
+The adapter requires Node 18 or newer.
+
 ### Changeable Values
 
 The following states can be changed and will take effect on your device respectively will be reflected in your Sure Petcare® app.

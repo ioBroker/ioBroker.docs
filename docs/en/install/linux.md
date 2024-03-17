@@ -4,13 +4,13 @@ lastChanged: 23.10.2022
 translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/install/linux.md
-hash: VPXuAMPtGpNimHlseI/ZZaKXGqL68UdsFDhXZh179nQ=
+hash: 2xmu9mKiW1SUwp64fE7C7to9UpCt4bn7nFN/0dAXYfk=
 ---
 # IoBroker installation under Linux & on a Raspberry Pi
 ioBroker is installed using a script that carries out the necessary installation steps and reloads any software packages that may be required.
 
 ## Check requirements
-Before installing, please check whether the system meets all the necessary [Installation requirements](./requirements.md).
+Before installing, please check whether the system meets all the necessary [Installation requirements](./#de/documentation/install/requirements.md).
 
 ## Important points to note
 - NO installation of ioBroker as **root** user! Executing the installation script **must** be done as a normal user,
@@ -39,6 +39,8 @@ Instructions for installing ioBroker on a Raspberry Pi: https://forum.iobroker.n
 
   The installation script is executed. Depending on the hardware, the installation may take some time.
 
+  Should be ``curl`` fehlen, kann das Paket einfach nachinstalliert werden: ``sudo apt install curl``.
+
   The installation takes place in 4 steps which can be seen in the console:
 
   ``Installing prerequisites (1/4)``
@@ -59,7 +61,7 @@ ioBroker can now be accessed via the specified IP in the web browser ``http://<I
 
 # IoBroker installation under Docker
 ## Check requirements
-Before installing, please check whether the system meets all the necessary [Installation requirements](./requirements.md).
+Before installing, please check whether the system meets all the necessary [Installation requirements](./#de/documentation/install/requirements.md).
 
 ## Installation
 On this page you can find the official documentation to install ioBroker on Docker: https://docs.buanet.de/de/iobroker-docker-image/

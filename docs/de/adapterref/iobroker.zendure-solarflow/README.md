@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.zendure-solarflow/README.md
 title: ioBroker.zendure-solarflow
-hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
+hash: LksJ3XoR/hq1ue0Dqkmx1LAmrMtF0rtklzo3Ch1lFLo=
 ---
 ![Logo](../../../en/adapterref/iobroker.zendure-solarflow/admin/zendure-solarflow.png)
 
@@ -12,7 +12,7 @@ hash: QcuyOrQ5FKmuYBqRjKELMk3WJ99VoW6xB2dgaBAKpzU=
 ![Anzahl der Installationen](https://iobroker.live/badges/zendure-solarflow-installed.svg)
 ![Aktuelle Version im stabilen Repository](https://iobroker.live/badges/zendure-solarflow-stable.svg)
 ![NPM](https://nodei.co/npm/iobroker.zendure-solarflow.png?downloads=true)
-![Spenden](https://img.shields.io/badge/Donate-PayPal-green.svg)
+![Spenden](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)
 
 # IoBroker.zendure-solarflow
 **Tests:** ![Test und Freigabe](https://github.com/nograx/ioBroker.zendure-solarflow/workflows/Test%20and%20Release/badge.svg)
@@ -23,9 +23,9 @@ Weitere Informationen zur API finden Sie hier: https://github.com/Zendure/develo
 
 Anmerkungen:
 
-1. Sie müssen den globalen Zendure Server verwenden!
+1. Funktioniert derzeit nur mit SolarFlow-Geräten (derzeit nur mit HUB1200 getestet). AIO wird nicht unterstützt (da ich kein solches Gerät habe..)
 
-2. Es ist möglich, das Ausgabelimit mit dem im Unterordner „productId/deviceKey/control“ erstellten Status zu steuern. Bitte alle Modi in der Zendure-App deaktivieren/deaktivieren, sonst ist es nicht möglich, das Ausgabelimit festzulegen!
+2. Es ist möglich, das Ausgabelimit mit dem im Unterordner „productId/deviceKey/control“ erstellten Status zu steuern. Bitte deaktivieren/deaktivieren Sie alle Modi in der Zendure-App, sonst ist es nicht möglich, das Ausgabelimit festzulegen!
 
    ![Fenster „Solarflow-Einstellungen“.](https://raw.github.com/nograx/ioBroker.zendure-solarflow/master/Screenshots/ZendureSolarflowSettings.png)
 
@@ -38,6 +38,76 @@ Der Dank geht an https://github.com/reinhard-brandstaedter/solarflow, was mir be
 Wenn Sie den Adapter nützlich für sich finden und meine Arbeit unterstützen möchten, können Sie gerne per Paypal spenden. Danke schön! (Dies ist ein persönlicher Spendenlink für Nograx, der in keiner Verbindung zum ioBroker-Projekt steht!)<br />
 
 ## Changelog
+### 1.2.3 (2024-03-15)
+
+- Fix ACK on onStateChange
+- Update Readme
+
+### 1.2.2 (2024-03-14)
+
+- Fix issue that renamed devices could not be found.
+- Add states for name, product name, serial ID and configured server.
+- Make "energyWhMax" State writable, so you can adjust the max Value.
+- Sent a warning if a device is configured for a server not in use.
+
+### 1.2.1 (2024-03-13)
+
+- Fix calculation of soc: Set energyMaxWh to current energyWh if Zendures SOC is 100%
+- Round SOC to max 1 digit after comma.
+
+### 1.2.0 (2024-03-13)
+
+- EU server is working now.
+- Fix calculation errors in log when calculation is not used
+- More Debug Output
+- Filter SolarFlow devices, so no other devices (e.g. SmartPlugs) will be added.
+- Clear password when settings loaded, as encrypted password is loaded into input and leads to a wrong password.
+
+### 1.1.23 (2024-03-11)
+
+- Fix calculation of "energy in batteries"
+- Try to implement EU server - untested -
+
+### 1.1.22 (2024-03-09)
+
+- Try to fix reset values at midnight
+
+### 1.1.21 (2024-03-08)
+
+- Fix calculation timeframe
+
+### 1.1.17 (2024-03-08)
+
+- Improve calculations
+- No autocomplete on settings
+
+### 1.1.15 (2024-03-06)
+
+- Calculations improved
+- Stop energy input on low voltage is now an option in settings
+
+### 1.1.14 (2024-03-04)
+
+- Reorganize Code
+- Calculations are now optional and have to be enabled in settings
+- Calculation of SOC from voltage and energy go in and out of batteries
+- Stop energy feed if voltage drops under limit
+
+### 1.1.11 (2024-03-01)
+
+- Fix Solar Input 1 and 2 from the new Zendure firmware
+- Fix remaining charging time
+- Fix calculations overwritten when data with 0 value comes in.
+
+### 1.1.8 (2024-02-29)
+
+- Fix calculation error
+
+### 1.1.7 (2024-02-29)
+
+- Add energy calculations for 'today'
+- Fix minutes display bug for remaining charge and discharge time
+
 ### 1.1.4 (2024-02-28)
 
 - Fix timeout issues
@@ -76,7 +146,7 @@ Wenn Sie den Adapter nützlich für sich finden und meine Arbeit unterstützen m
 
 ### 1.0.1 (2023-11-03)
 
-- Fix translations
+- Fix translationscd so
 - Use 'extendObjectAsync' instead of 'setObjectNotExistsAsync'
 - First official release version
 

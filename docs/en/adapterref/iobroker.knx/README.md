@@ -244,6 +244,10 @@ relation.
 -->
 
 ## Changelog
+### 2.0.25 (03.03.2024)
+* updated the adapter import schema for ETS 6.2.0
+* small bug-fixes
+
 ### 2.0.24 (24.11.2023)
 * updated the adapter import schema for ETS 6.1.1
 

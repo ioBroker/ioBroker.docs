@@ -59,7 +59,7 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
 
 ![Area img/areas.png](img/areas.png)
 
-### calendar (Wire and Vision)
+### calendar (Wire)
 
 -   E.g. time setting for wednesday
 
@@ -72,6 +72,44 @@ BADGE-NPM: https://nodei.co/npm/iobroker.worx.png?downloads=true
     -   `calendar.calJson2`: Array for the weekly mowing plan. You can also create this ARRAY yourself. (mowing schedule 2/is set automatically - for wire only) (changeable)
 
 ![Folder img/calendar.png](img/calendar.png)
+
+### calendar (Vision)
+
+-   E.g. time setting for friday
+-   As standard, 2 timeslots are created. If 3 slots are created in the APP, 3 will also be created in ioBroker. If it is reduced again to 2, these slots will be deleted in ioBroker. The day with the most slots is used as a reference for all days.
+
+    -   `friday.time_0.borderCut`: With or without bordercut (Change value without delay) (changeable)
+    -   `friday.time_0.startTime`: Starttime hh:mm (0-23/0-59) e.g. 09:00 (Change value without delay) (changeable)
+    -   `friday.time_0.workTime`: Working time in minutes (180 min = 3h) e.g. 30 = Endzeit 09:30 (Change value without delay) (changeable)
+    -   `friday.time_0.enabled_time`: Activate or deactivate time. When deactivated, the timeslot is deleted (set without delay) (can be changed)
+    -   `friday.time_0.zones`: Which zones should be approached, e.g. Example [1,2,3] (set without delay) (can be changed)
+    -   `calJson_sendto`: If all data points are set then set this button to true (with a delay of 1.1). The mower will now mow for 30 minutes! (changeable)
+    -   `calJson_tosend`: This JSON is automatically filled and then sent to Mqtt. Of course you can also create it yourself. (changeable)
+    -   `add_timeslot`: An additional timeslot is added. Unused timeslots are removed after a restart. (changeable)
+
+![Folder img/calendar.png](img/calendar_vision.png)
+![Folder img/calendar.png](img/calendar_slot_vision.png)
+
+### Example Timeslot (Vision)
+
+-   `calJson_tosend` This JSON would enter 1 time on Sunday and delete all other days. The entire week must always be submitted.
+
+```json
+[
+    {
+        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
+        "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
+        "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
+        "cfg": {
+            "cut": {
+                "b": 1, // 0=without BorderCut/1=with BorderCut
+                "z": [1] // Which zones [1,2,6]
+            }
+        }
+    }
+]
+```
 
 ### modules (Wire and Vision)
 
@@ -672,7 +710,9 @@ Default without zone:
 ### **WORK IN PROGRESS**
 
 -   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Added for Vision lectric height adjustment
+-   (Lucky-ESA) Catch publish crash
+-   (Lucky-ESA) Added for Vision electric height adjustment
+-   (Lucky-ESA) Added for Vision new calendar
 
 ### 2.3.4 (2023-10-19)
 
@@ -805,11 +845,11 @@ Default without zone:
 
 ### 1.4.0 (2021-07-05)
 
--   update testing
--   add gps coordinates
--   add new status states
--   add new Autolock states
--   add new OffLinits states
+-   (TA2k) update testing
+-   (TA2k) add gps coordinates
+-   (TA2k) add new status states
+-   (TA2k) add new Autolock states
+-   (TA2k) add new OffLinits states
 
 ### 1.3.7 (03.06.2021)
 
@@ -869,7 +909,7 @@ Default without zone:
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
