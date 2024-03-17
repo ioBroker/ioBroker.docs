@@ -8,7 +8,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.worx/README.md
 title: ioBroker.worx 适配器
-hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
+hash: bT0OUig5NJpPZAwLzEyg+KfeDZxhF2tvGM650oO7INU=
 ---
 ![标识](../../../en/admin/worx.png)
 
@@ -58,7 +58,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 ![区域 img/areas.png](../../../en/adapterref/iobroker.worx/img/areas.png)
 
-### 日历（Wire 和 Vision）
+### 日历（线）
 - 例如星期三的时间设置
 
     - `wednesday.borderCut`：有或没有边界剪切（立即更改值）（可更改）
@@ -70,6 +70,41 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
     - `calendar.calJson2`：每周割草计划的数组。您也可以自己创建此数组。 （割草时间表 2/自动设置 - 仅适用于钢丝）（可更改）
 
 ![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar.png)
+
+###日历（愿景）
+- 例如周五的时间设置
+- 按照标准，创建 2 个时隙。如果APP中创建了3个槽位，那么ioBroker中也会创建3个槽位。如果再次减少到2个，这些槽位将在ioBroker中删除。时段最多的那一天将作为所有日期的参考。
+
+    - `friday.time_0.borderCut`：有或没有边界剪切（立即更改值）（可更改）
+    - `friday.time_0.startTime`：开始时间 hh:mm (0-23/0-59) 例如09:00（立即更改值）（可更改）
+    - `friday.time_0.workTime`：工作时间以分钟为单位（180 分钟 = 3 小时），例如30 = Endzeit 09:30（立即更改值）（可更改）
+    - `friday.time_0.enabled_time`：激活或停用时间。停用时，时隙被删除（无延迟设置）（可以更改）
+    - `friday.time_0.zones`：应该接近哪些区域，例如示例[1,2,3]（无延迟设置）（可以更改）
+    - `calJson_sendto`：如果所有数据点均已设置，则将此按钮设置为 true（延迟 1.1）。割草机现在将割草 30 分钟！ （多变）
+    - `calJson_tosend`：此 JSON 会自动填充，然后发送到 Mqtt。当然你也可以自己创建。 （多变）
+    - `add_timeslot`：添加额外的时隙。重新启动后，未使用的时隙将被删除。 （多变）
+
+![文件夹 img/calendar.png](img/calendar_vision.png)![文件夹 img/calendar.png](../../../en/adapterref/iobroker.worx/img/calendar_slot_vision.png)
+
+### 时间段示例（愿景）
+- `calJson_tosend` 此 JSON 将在星期日输入 1 次并删除所有其他日期。必须始终提交整周的数据。
+
+```json
+[
+    {
+        "e": 1, // 0=deactivated/1=activated - With 0 the slot is deleted
+        "d": 0, // Days 0=sunday, 1=monday, 2=tuesday, 3=wednesday, 4=thursday, 5=friday, 6=saturday
+        "s": 360, // Start time in minutes 06:00 (360/60) - (320/60 = 5 hours and 20 minutes)
+        "t": 180, // Mowing time in minutes = End time 09:00 (180/60) - (200/60 = 3 hours and 20 minutes)
+        "cfg": {
+            "cut": {
+                "b": 1, // 0=without BorderCut/1=with BorderCut
+                "z": [1] // Which zones [1,2,6]
+            }
+        }
+    }
+]
+```
 
 ### 模块（有线和视觉）
 - 限制模块（有线和视觉）
@@ -146,7 +181,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 }
 ```
 
-- `firmware_available_date`：可用固件的日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
+- `firmware_available_date`：可用固件日期 - 重新安装适配器且没有可用更新时的虚拟 1970-01-01（wire & Vision/只读）
 - `firmware_update_start`：分两步开始固件更新（wire & Vision/changeable）
 - `firmware_update_start_approved`：开始固件更新 - `firmware_update_start` 必须设置为 true（wire & Vision/changeable）
 - `gradient`：grad 中的梯度（wire & Vision/只读）
@@ -659,7 +694,9 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 ### **WORK IN PROGRESS**
 
 -   (Lucky-ESA) Fixed Sentry messages
--   (Lucky-ESA) Added for Vision lectric height adjustment
+-   (Lucky-ESA) Catch publish crash
+-   (Lucky-ESA) Added for Vision electric height adjustment
+-   (Lucky-ESA) Added for Vision new calendar
 
 ### 2.3.4 (2023-10-19)
 
@@ -792,11 +829,11 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 ### 1.4.0 (2021-07-05)
 
--   update testing
--   add gps coordinates
--   add new status states
--   add new Autolock states
--   add new OffLinits states
+-   (TA2k) update testing
+-   (TA2k) add gps coordinates
+-   (TA2k) add new status states
+-   (TA2k) add new Autolock states
+-   (TA2k) add new OffLinits states
 
 ### 1.3.7 (03.06.2021)
 
@@ -856,7 +893,7 @@ hash: g+yds4GDeydyG52Y0kqSe5BEZNWGQjEkS9IPGFH5JNY=
 
 MIT License
 
-Copyright (c) 2023 TA2k <tombox2020@gmail.com>
+Copyright (c) 2023-2024 TA2k <tombox2020@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

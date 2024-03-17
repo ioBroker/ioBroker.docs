@@ -696,6 +696,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-states.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-system.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.aio/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.airconwithme/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.alarm/README.md
@@ -1049,6 +1050,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.openweathermap/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.operating-hours/README.md
@@ -1231,7 +1233,6 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.valuetrackerovertime/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vbus-gw/README.md
-https://www.iobroker.net/#de/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.vedirect/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.velux/README.md
@@ -1358,6 +1359,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-states.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-system.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.aio/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.airconwithme/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.alarm/README.md
@@ -1711,6 +1713,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.openweathermap/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.operating-hours/README.md
@@ -1893,7 +1896,6 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.valuetrackerovertime/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vbus-gw/README.md
-https://www.iobroker.net/#en/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.vedirect/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.velux/README.md
@@ -2020,6 +2022,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-states.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-system.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.aio/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.airconwithme/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.alarm/README.md
@@ -2373,6 +2376,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.openweathermap/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.operating-hours/README.md
@@ -2555,7 +2559,6 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.valuetrackerovertime/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vbus-gw/README.md
-https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.vedirect/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.velux/README.md
@@ -2682,6 +2685,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-states.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-system.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.admin/tab-users.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.aio/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.air-q/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airconwithme/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.airzone/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.alarm/README.md
@@ -3035,6 +3039,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opendtu/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openhab/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openknx/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openligadb/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opensmartcity/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.opentherm/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.openweathermap/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.operating-hours/README.md
@@ -3217,7 +3222,6 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vaillant/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.valloxmv/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.valuetrackerovertime/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vbus-gw/README.md
-https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vcard/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vds2465-server/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.vedirect/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.velux/README.md

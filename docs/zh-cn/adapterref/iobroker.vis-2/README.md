@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-2/README.md
 title: ioBroker 的下一代可视化：vis-2
-hash: hUnYD82c/jVO3ooCwphNKOHkw1PydaDHmQ+E+GjH1g8=
+hash: lJNCeCb7Pcf1qz97+qEGzCr77SJsomNirWm2LDA8Th8=
 ---
 ![标识](../../../en/adapterref/iobroker.vis-2/admin/vis-2.png)
 
@@ -124,6 +124,7 @@ Last change: {objectRed.lc;date(hh:mm)}
 * `view` - 实际视图的名称
 * `wname` - 小部件名称
 * `widget` - 是一个包含小部件所有数据的对象。只能在 JS 部分使用，如 `{a:a;widget.data.name}`
+* `widgetOid` - 使用小部件的 oid 在赋值部分分配小部件值，如 `{t:widgetOid.val;t}`
 * `wid` - 实际小部件的名称
 * `language` - 可以是 `de`、`en` 或 `ru`。
 * `instance` - 浏览器实例
@@ -156,7 +157,7 @@ Vis 创建了 3 个变量：
 
 命令：
 
-* `alert` - 在 vis-2 中显示警报窗口。 “control.data”具有以下格式“message;title;jquery-icon”。标题和 jquery-icon 是可选的。图标名称可以在[此处](http://jqueryui.com/themeroller/)找到。要显示图标“ui-icon-info”，请写入“Message;;info”。
+* `alert` - 在 vis-2 中显示警报窗口。 “control.data”具有以下格式“message;title;jquery-icon”。标题和 jquery-icon 是可选的。图标名称可以在[此处](http://jqueryui.com/themeroller/)找到。要显示图标“ui-icon-info”，请写入`Message;;info`。
 * `changeView` - 切换到所需的视图。 “control.data”必须具有视图名称。您也可以将项目名称指定为“project/view”。默认项目是“main”。
 * `refresh` - 重新加载 vis-2，例如在项目更改为在所有浏览器上重新加载之后。
 * `reload` - 与刷新相同。
@@ -184,7 +185,7 @@ Vis 创建了 3 个变量：
 - `control.data`：项目和视图名称，格式为`project/view`，例如`main/view` （和 `ack=true`）
 - `control.command`: `changedView` 和 `ack=true`
 
-您可以将 JSON 字符串或对象写入`control.command`，如`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
+您可以将 JSON 字符串或对象写入 `control.command` 作为`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`。在这种情况下，实例和数据将从 JSON 对象中获取。
 
 JavaScript 适配器示例：
 
@@ -198,7 +199,7 @@ setState('vis-2.0.control.command', { instance: '*', command: 'refresh', data: '
 您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。
 这只是编辑模式下的视觉边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框之外的所有小部件都将可见。
 
-此外，您可以定义是否必须将此视图用作此分辨率的默认视图。
+此外，您还可以定义是否必须将此视图用作此分辨率的默认视图。
 
 因此，每次调用`index.html`（没有`#viewName`）时，都会打开最适合该分辨率的视图。
 如果只有一个视图具有“默认”标志，则该视图将独立于屏幕分辨率或方向打开。
@@ -262,6 +263,63 @@ CSS 中的 currentColor 关键字允许元素从其父元素继承当前文本�
 ### **正在进行中** -->
 
 ## Changelog
+### 2.9.43 (2024-03-17)
+* (bluefox) Showed selected view in the view dialog
+* (bluefox) Added customization of loading screen
+* (bluefox) Respected the sentry disable flag in GUI
+
+### 2.9.42 (2024-03-09)
+* (bluefox) Allowed limiting the view size only on desktop
+* (bluefox) Change word "Filter" to "Search"
+
+### 2.9.40 (2024-03-05)
+* (bluefox) Migrated the filter widget to react
+* (bluefox) Migrated the basic link widget to react
+
+### 2.9.39 (2024-03-01)
+* (foxriver76) allow to use `widgetOid` in bindings
+* (foxriver76) fixed various problems with Date Picker widget
+* (foxriver76) made default option of Date Picker human readable and added option for full parseable date
+* (bluefox) Added the possibility to add suffix by navigation widgets
+* (bluefox) Improved the license manager
+
+### 2.9.37 (2024-02-28)
+* (foxriver76) TimePicker widget now saves the time instead of date by default, if you want old behavior use checkbox `asDate`
+
+### 2.9.36 (2024-02-27)
+* (foxriver76) fixed project-specific css not being applied
+
+### 2.9.35 (2024-02-27)
+* (foxriver76) user-specified css has now priority over widgets css
+* (foxriver76) fixed crash case for broken grouped widgets
+
+### 2.9.34 (2024-02-26)
+* (foxriver76) detect admin user correctly in project permissions dialog
+
+### 2.9.33 (2024-02-21)
+* (foxriver76) fixed issue that last image is never shown in image8 widget
+* (foxriver76) added possibility to define background and title color for jqui dialog
+* (foxriver76) make it possible to click through signal image if in front of widget
+
+### 2.9.32 (2024-02-16)
+* (foxriver76) implemented buttons to show or hide all views in views manager
+* (foxriver76) fixed issue with signals on RxWidgets
+* (foxriver76) allow to disable Sentry only for this instance
+
+### 2.9.31 (2024-02-06)
+* (foxriver76) apply default overflow correctly
+* (foxriver76) navigation style fixes (fix an icon background and allow to customize header text color)
+
+### 2.9.30 (2024-02-06)
+* (foxriver76) global css will no longer be deleted on adapter upload/update
+* (foxriver76) allowed modifying style of navigation
+
+### 2.9.29 (2024-02-05)
+* (foxriver76) fixed multiple problems with nested groups
+* (foxriver76) also made group/ungroup commands working in group view
+* (foxriver76) allowed selecting widgets in a group via click (previously only dropdown worked)
+* (foxriver76) fixed issue, that Basic Image 8 is not configurable for value 0
+
 ### 2.9.28 (2024-02-03)
 * (foxriver76) correctly determine the vis instance in all cases
 

@@ -3,8 +3,8 @@
     "Welcome": {
       "title": {
         "en": "Welcome",
-        "de": "Willkommen",
-        "ru": "Добро пожаловать",
+        "de": "ioBroker Dokumentation",
+        "ru": "Документация ioBroker",
         "zh-cn": "欢迎"
       },
       "content": "README.md",
@@ -403,7 +403,7 @@
           "title": {
             "en": "IoT",
             "de": "IoT Cloud",
-            "ru": "Облако Интернета вещей",
+            "ru": "Интернет вещей облако",
             "zh-cn": "物联网云"
           },
           "content": "cloud/iot.md"
