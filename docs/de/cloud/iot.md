@@ -112,4 +112,5 @@ Falls das Passwort von ioBroker.pro in Alexa skill nicht passt, bitte prüfen:
 - das Passwort hat kein `#` Zeichen,
 - Falls das alles nicht hilft, bitte diesen Knopf drücken:
   ![Recreate](media/iot_passwort.png)
- Danach sollte sich ioBroker.iot selbst neu starten und dann noch mal probieren ioBroker.iot Skill zu aktivieren.
+
+Danach sollte sich ioBroker.iot selbst neu starten und dann noch mal probieren ioBroker.iot Skill zu aktivieren.
