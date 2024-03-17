@@ -372,3 +372,10 @@ https://github.com/SKB-CGN/ioBroker.energiefluss-erweitert
 
 Adapter provides an animated energyflow for all elements, you add. This could be: photovoltaics, battery, house-consumption, grid-feed-in (grid-consumption), car charge etc.
 
+## nmea (17.3.2024) – new adapter
+https://github.com/ioBroker/ioBroker.nmea
+
+<img src="https://github.com/ioBroker/ioBroker.nmea/blob/main/admin/nmea.png" width="100" height="100" />
+
+This adapter allows connecting ioBroker to NMEA-2000 yacht bus. You can read SOG, COG, GPS position, depth, wind, temperature, and many other data from the NMEA-2000 bus.
+And even control the Raymarine autopilot.
