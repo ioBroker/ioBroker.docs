@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/history/history.md
 title: Was ist neu
-hash: H+7ptRYXXgZvGDvI3JnfVU0fomoL8oh8sJPSaBcqJdQ=
+hash: 9NzIRawUa4eC76158t4K5+Cj+66+yEjIuhrqrR1VCR0=
 ---
 # Was ist neu
 ## Anleitung für Autoren
@@ -338,7 +338,7 @@ Lesen Sie Daten vom Huawei SUN2000-Wechselrichter und dem LUNA2000-Speicher mith
 ## Szenen (10.2.2024) – neue Funktion
 Es ist möglich, Kategorien in Szenen zu verwenden
 
-<img src="media/2024_02_16 scenes-enums.png" width="500" />
+<img src="media/2024_02_16_scenes-enums.png" width="500" />
 
 ## Solaredge (15.2.2024) – neuer Adapter
 https://github.com/iobroker-community-adapters/ioBroker.solaredge
@@ -392,3 +392,5 @@ https://github.com/ioBroker/ioBroker.nmea
 
 Dieser Adapter ermöglicht den Anschluss von ioBroker an den NMEA-2000-Yachtbus. Sie können SOG, COG, GPS-Position, Tiefe, Wind, Temperatur und viele andere Daten über den NMEA-2000-Bus ablesen.
 Und steuern Sie sogar den Raymarine-Autopiloten.
+
+![nmea](../../en/history/media/2024_03_17_nmea.png)

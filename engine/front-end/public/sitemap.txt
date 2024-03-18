@@ -1029,6 +1029,7 @@ https://www.iobroker.net/#de/adapters/adapterref/iobroker.nibeuplink/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nina/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.nissan/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.niu/README.md
+https://www.iobroker.net/#de/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#de/adapters/adapterref/iobroker.notification-manager/README.md
@@ -1692,6 +1693,7 @@ https://www.iobroker.net/#en/adapters/adapterref/iobroker.nibeuplink/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nina/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.nissan/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.niu/README.md
+https://www.iobroker.net/#en/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#en/adapters/adapterref/iobroker.notification-manager/README.md
@@ -2355,6 +2357,7 @@ https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nibeuplink/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nina/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nissan/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.niu/README.md
+https://www.iobroker.net/#ru/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#ru/adapters/adapterref/iobroker.notification-manager/README.md
@@ -3018,6 +3021,7 @@ https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nibeuplink/README.m
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nina/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nissan/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.niu/README.md
+https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.nmea/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.node-red/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.noolitef/README.md
 https://www.iobroker.net/#zh-cn/adapters/adapterref/iobroker.notification-manager/README.md

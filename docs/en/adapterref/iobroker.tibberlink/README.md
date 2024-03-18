@@ -96,12 +96,13 @@ If you enjoyed this project — or just feeling generous, consider buying me a b
 
 ! Note that missing version entries are typically dependency updates for improved security.
 
-### 2.3.2 (2024-03-xx) WORK in PROGRESS
+### 2.3.2 (2024-03-17)
 
 -   (HombachC) code optimizations
 -   (HombachC) fix undefined force mode (#349)
 -   (HombachC) fix poll of not existing current price state (#348)
 -   (HombachC) fix current price poll when configured as not to poll (#350)
+-   (HombachC) bump dependencies
 
 ### 2.3.1 (2024-03-10)
 

@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: If you want to edit this document please delete "translatedFrom" field, elsewise this document will be translated automatically again
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/en/cloud/iot.md
 title: IoT Cloud
-hash: uM6sWWml61ohadte22HnjLLLfcK93X5FAGFxGt+TOgk=
+hash: 39gwckkg8oPueDiaSUbyJCKZj+VE8QzffR6gs1nBDiQ=
 ---
 # IoT Cloud
 Origin: https://forum.iobroker.net/topic/17834/ank%C3%BCndigung-weihnachtsaktion-assisten-service-iobroker-iot-reloaded-alexa-und-services
@@ -12,7 +12,7 @@ Controlling your devices via Alexa will be easier than ever.
 Learn how to use the cloud adapter to seamlessly connect with Alexa to make your home smarter. Unfortunately, it has become clear that existing solutions cannot always keep up with the growing number of users.
 That's why we introduce you to the IoT service, a future-proof solution specifically designed for smooth integration with Alexa and other assistants.
 
-To ensure that the setup of the IoT instance and the connection to it works, the new assistant license package can only be purchased once a connection has been successfully created, the link is successful and the control of at least one device has also worked.
+In order to ensure that the setup of the IoT instance and the connection to it works, the new assistant license package can only be purchased once a connection has been successfully created, the link is successful and the control of at least one device has also worked.
 So don't be surprised that nothing is available in the Pro Cloud account.
 
 Therefore, please follow the updated instructions first:
@@ -49,7 +49,7 @@ If that doesn't work and the adapter is yellow, for example, then please check t
 Restarting the instance can also help.
 Most of the time it's simple things like incorrect login details (note: also pay attention to upper and lower case letters!)! The error messages in the log have been improved and should now better explain what the problem is.
 
-If you have previously used the cloud adapter and only Alexa control is necessary, it is best to deactivate the cloud adapter as it is no longer needed!
+If you have previously used the cloud adapter and only need Alexa control, it is best to deactivate the cloud adapter as it is no longer needed!
 
 4. After the first connection, an Alexa account will be automatically created with the same password as ioBroker.pro.
 
@@ -89,7 +89,7 @@ Good reviews (real ones of course, this is not a call to fake reviews!) and thus
 
 You now have to decide whether you want to buy the assistant package as part of the Christmas campaign or whether the 20 requests per day might even be enough for you.
 If you want to buy the package, please go to https://iobroker.pro in your browser and log in there with your Pro Cloud access data.
-If you don't see a menu, click on the avatar icon at the top right and then select "Remote Access" in the menu.
+If you don't see a menu, click on the avatar icon in the top right and then select "Remote Access" in the menu.
 
 Remote access to admin and the editors does not work with this license!
 
@@ -103,7 +103,7 @@ You can find an overview of the licenses and functions in the following image:
 
 The Smart Assistant license costs €15.99 for 6 months (€2.67 per month) and €23.99 (€1.99 per month) for one year.
 
-Prices may still change (in both directions), depending on how the exact operating costs for the necessary infrastructure develop!
+It may be that the prices will change (in both directions), depending on how the exact operating costs for the necessary infrastructure develop!
 
 ## Problem search
 If the password from ioBroker.pro does not fit in Alexa skill, please check:
@@ -113,4 +113,6 @@ If the password from ioBroker.pro does not fit in Alexa skill, please check:
 - the password does not have a `#` character,
 - If none of this helps, please press this button:
 
-![Recreate](../../de/cloud/media/iot_passwort.png) After that, ioBroker.iot should restart itself and then try to activate the ioBroker.iot skill again.
+  ![Recreate](../../de/cloud/media/iot_passwort.png)
+
+Afterwards, ioBroker.iot should restart itself and then try to activate the ioBroker.iot skill again.

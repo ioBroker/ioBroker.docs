@@ -3,7 +3,7 @@ translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/cloud/iot.md
 title: 物联网云
-hash: uM6sWWml61ohadte22HnjLLLfcK93X5FAGFxGt+TOgk=
+hash: 39gwckkg8oPueDiaSUbyJCKZj+VE8QzffR6gs1nBDiQ=
 ---
 # 物联网云
 来源：https://forum.iobroker.net/topic/17834/ank%C3%BCndigung-weihnachtsaktion-assisten-service-iobroker-iot-reloaded-alexa-und-services
@@ -113,4 +113,6 @@ Smart Assistant 许可证的费用为 15.99 欧元/6 个月（每月 2.67 欧元
 - 密码没有“#”字符，
 - 如果这些都没有帮助，请按此按钮：
 
-![重新创造](../../de/cloud/media/iot_passwort.png) 之后，ioBroker.iot 应自行重新启动，然后再次尝试激活 ioBroker.iot 技能。
+  ![重新创造](../../de/cloud/media/iot_passwort.png)
+
+之后，ioBroker.iot 应自行重新启动，然后再次尝试激活 ioBroker.iot 技能。
