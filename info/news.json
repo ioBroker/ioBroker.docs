@@ -825,5 +825,40 @@
     "conditions": {
       "meross": "smaller(1.17.0)"
     }
+  },
+  {
+    "title": {
+      "en": "Adapter ioBroker.apple-find-me is deprecated now",
+      "de": "Adapter ioBroker.apple-find-me wird abgekündigt",
+      "ru": "Adapter ioBroker.apple-find-me теперь депрецирован",
+      "pt": "Adapter ioBroker.apple-find-me is deprecated now",
+      "nl": "Adapter ioBroker.apple-find-me is nu verouderd",
+      "fr": "Adapter ioBroker.apple-find-me est déprécié",
+      "it": "Adattatore ioBroker.apple-find-me è deprecato ora",
+      "es": "Adaptador ioBroker.apple-find-me está deprecado ahora",
+      "pl": "Adapter iOBroker.apple-find-me jest teraz zdeprecjonowany",
+      "uk": "Адаптер ioBroker.apple-find-me відхилений зараз"
+      "zh-cn": "适配器 ioBroker. apple-find-me 现在已经贬值了"
+    },
+    "content": {
+      "en": "Adapter ioBroker.apple-find-me is defunctional since some time and a fix is not to be expected at the near future. The adapter has been removed from repositories and will be readded if a working release gets available.",
+      "de": "Adapter ioBroker.apple-find-me ist defunktional seit einiger Zeit und ein Fix ist nicht zu erwarten in der nahen Zukunft. Der Adapter wurde aus Repositories entfernt und wird dann wieder hinzugefügt, wenn eine Arbeitsfreigabe verfügbar ist.",
+      "ru": "Адаптер ioBroker.apple-find-me является дефункциональным с некоторого времени и исправления не ожидается в ближайшем будущем. Адаптер был удален из репозиториев и будет прочитан, если появится рабочий релиз».",
+      "pt": "Adaptador ioBroker.apple-find-me é defuncional desde algum tempo e uma correção não deve ser esperada no futuro próximo. O adaptador foi removido de repositórios e será acolchoado se uma liberação de trabalho estiver disponível.",
+      "nl": "Adapter ioBroker.apple-find-me is defunctioneel sinds enige tijd en een fix is niet te verwachten in de nabije toekomst. De adapter is verwijderd uit repositories en zal worden toegevoegd als een werkversie beschikbaar komt.",
+      "fr": "Adapter ioBroker.apple-find-me est défonctionnel depuis un certain temps et une correction ne doit pas être attendue dans un avenir proche. L'adaptateur a été retiré des dépôts et sera rechargé si une version de travail est disponible.",
+      "it": "Adattatore ioBroker.apple-find-me è disfunzionale da qualche tempo e una correzione non deve essere prevista nel prossimo futuro. L'adattatore è stato rimosso dai repository e sarà letto se un rilascio di lavoro viene disponibile.",
+      "es": "Adaptador ioBroker.apple-find-me es desfuncional ya que algún tiempo y una solución no se espera en el futuro cercano. El adaptador ha sido eliminado de los repositorios y será leído si se dispone de un comunicado de trabajo.",
+      "pl": "Adapter jOBroker.apple- find- me jest defunkcjonalny od pewnego czasu i fix nie jest spodziewany w najbliższej przyszłości. Adapter został usunięty z repozytoriów i będzie odczytywany, jeśli zostanie udostępnione wydanie robocze ",
+      "uk": "Адаптер ioBroker.apple-find-me є дефункційним, оскільки деякий час і фіксація не буде очікувана найближчим часом. Перехідник був видалений з репозиторіїв і буде прочитано, якщо робочий реліз доступний.",
+      "zh-cn": "适配器 ioBroker.apple-find-me 已失去功能,因为一段时间,预计在不久的将来不会有固定. 适配器已经从寄存器中移除,如果工作释放可用,将重新添加."
+    },
+    "id": "apple-find-me-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-03-22T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
   }
 ]
