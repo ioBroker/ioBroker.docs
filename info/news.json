@@ -860,5 +860,41 @@
     "conditions": {
       "info": "installed"
     }
+  },
+    {
+    "title": {
+      "en": "Adapter ioBroker.gigaset-elements will stop to work as gigaset shuts down cloud service",
+      "de": "Adapter ioBroker.gigaset-elements wird seine Funktion einstellen, da Gigaset das Cloud-Service abschaltet",
+      "ru": "Адаптер ioBroker.gigaset-элементы перестанут работать по мере закрытия облачного сервиса",
+      "pt": "Adaptador ioBroker.gigaset-elements vai parar para trabalhar como gigaset desliga o serviço de nuvem",
+      "nl": "Adapter ioBroker.gigaset-elementen zullen stoppen om te werken als gigaset cloudservice sluit",
+      "fr": "Adapter ioBroker.gigaset-elements s'arrêtera pour fonctionner comme le gigaset ferme le service de cloud",
+      "it": "Adattatore ioBroker.gigaset-elements si fermerà per lavorare come gigaset spegne il servizio cloud",
+      "es": "Adaptador ioBroker.gigaset-elements se detendrá a trabajar como gigaset cierra el servicio de nube",
+      "pl": "Adapter jOBroker.gigaset- elementy zatrzymają się do pracy jako gigaset zamyka usługi w chmurze",
+      "uk": "Адаптер ioBroker.gigaset-elements зупиниться на роботі як gigaset закриває хмарний сервіс",
+      "zh-cn": "适配器ioBroker.gigaset-elements将停止工作,因为千兆塞关闭了云服务"
+    },
+    "content": {
+      "en": "The adapter ioBroker.gigaset-elements will stop working at 29.3.204 as the company gigaet announced to shut down the required cloudservice at 29.3.2024. See https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. The hardware will no longer be usaeable. The adapter will be removed from repositories in the near future.",
+      "de": "Der Adapter ioBroker.gigaset-elements wird mit 29.3.204 seine Funktion einstellen, da die Firma Gigaet angekündigt hat, den erforderlichen Cloud-Service am 29.3.2024 abzuschalten. Vgl. https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. Die Hardware ist nicht mehr nutzbar. Der Adapter wird in naher Zukunft aus Repositories entfernt.",
+      "ru": "Адаптер ioBroker.gigaset-elements прекратит работу в 29.3.204, когда компания объявила о закрытии требуемого облачного сервиса в 29.3.2024. См. https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. Оборудование больше не будет использоваться. Адаптер будет удален из хранилищ в ближайшем будущем.",
+      "pt": "O adaptador ioBroker.gigaset-elements parará de trabalhar em 29.3.204 como o gigaet da empresa anunciou para desligar o serviço de nuvem necessário em 29.3.2024. Ver https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. O hardware não será mais usado. O adaptador será removido de repositórios no futuro próximo.",
+      "nl": "De adapter ioBroker.gigaset-elementen zullen stoppen met werken op 29.3.204 als het bedrijf gigaet aangekondigd om de vereiste cloudservice te sluiten op 29.3.2024. Zie De Commissie is van mening dat er geen sprake is van staatssteun. De hardware zal niet langer bruikbaar zijn. De adapter zal in de nabije toekomst uit repositories verwijderd worden.",
+      "fr": "L'adaptateur ioBroker.gigaset-elements cessera de fonctionner à 29.3.204 alors que la société gigaet a annoncé de fermer le service cloud requis à 29.3.2024. Voir https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. Le matériel ne sera plus utilisable. L'adaptateur sera retiré des dépôts dans un proche avenir.",
+      "it": "L'adattatore ioBroker.gigaset-elements smetterà di funzionare al 29.3.204 come il gigaet aziendale ha annunciato di spegnere il cloudservice richiesto al 29.3.2024. Vedi https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. L'hardware non sarà più utilizzabile. L'adattatore verrà rimosso dai repository nel prossimo futuro.",
+      "es": "El adaptador ioBroker.gigaset-elements dejará de funcionar en 29.3.204, ya que el gigaet de la compañía anunció que cerrar el servicio de nube requerido en 29.3.2024. See https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. El hardware ya no será usable. El adaptador será eliminado de los repositorios en un futuro próximo.",
+      "pl": "Adapter joBroker.gigaset- elementy przestaną pracować na 29.3.204, jak firma gigaet ogłosił, aby wyłączyć wymagane cloudservice na 29.3.2024. Patrz https: / / service.gigaset.com / de / support / solutions / articles / 75000121636-deaktivierung- smart- home- care- dienste. Sprzęt nie będzie już do użytku. Adapter zostanie usunięty z repozytoriów w najbliższej przyszłości.",
+      "uk": "Адаптер ioBroker.gigaset-elements зупиниться на 29.3.204 як компанія gigaet оголосила про закриття необхідного хмарного сервісу на 29.3.2024. Про нас https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. Пристрій більше не буде корисною. Адаптер буде видалено з репозицій найближчим часом.",
+      "zh-cn": "适配器ioBroker.gigaset-elements将于29.3.204停止工作,因为Gigaet公司宣布于29.3.2024关闭所需的云服务. 见 https://service.gigaset.com/de/support/solutions/articles/75000121636-deaktivierung-smart-home-care-dienste. 互联网档案馆的存檔,存档日期2014-09-02. 硬件将不再可用。 适配器将在不久的将来从寄存器中移除."
+    },
+    "id": "gigaset-elements-deprecation",
+    "class": "warning",
+    "fa-icon": "exclamation-circle",
+    "created": "2024-03-26T00:00:00.000Z",
+    "conditions": {
+      "info": "installed"
+    }
   }
+
 ]
