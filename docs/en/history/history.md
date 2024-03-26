@@ -381,3 +381,13 @@ This adapter allows connecting ioBroker to NMEA-2000 yacht bus. You can read SOG
 And even control the Raymarine autopilot.
 
 ![nmea](media/2024_03_17_nmea.png)
+
+## vis-homekittiles (25.3.2024) – new adapter
+https://github.com/Standarduser/ioBroker.vis-homekittiles
+
+<img src="https://github.com/Standarduser/ioBroker.vis-homekittiles/blob/main/admin/vis-homekittiles.png" width="100" height="100" />
+
+Homekit Tiles is a widget set based on the design of Apple HomeKit. The special feature of the widgets is that they do not contain any fixed style elements, but everything is formatted using CSS. As a result, there are no separate settings in the VIS editor for the position and/or size of the icons, labels, etc. The design is adjusted by changing the CSS code. For this purpose, the CSS code from the file /widgets/homekittiles/css/style.css can be used as a template. The code is inserted into the CSS tab in the VIS editor and can be customized as desired. It is also possible to add your own CSS classes via the VIS editor in the "General" section of the widgets.
+
+The widgets are designed for VIS 1.x.
+
