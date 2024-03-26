@@ -123,42 +123,223 @@ io-package.json is used by js-controller to show information about adapter and t
 io-package.json will be read by "admin" to find out the online version of adapter.
 ### Common fields
 
-Most important fields in common are:
+#### Mandatory Fields
 
-* `name`: mandatory. Name of adapter without "ioBroker.", like adapterName and not "ioBroker.adapterName"
-* `version`: mandatory. Must be same as in package.json.
-* `title`: mandatory. Short name of adapter, like "Adapter name"
-* `desc`: mandatory. Description of adapter. It can be a string like, "This adapter does this and that" or can be an object like:
+##### `adminUI`
+* **Description**: Type of the admin UI for config, tab and custom. Custom means the part that is shown on object level, like for history settings. 
+* **Type**: object
+* **Possible values**:  
+  - config: `html`, `json`, `materialize`, `none`
+  - tab: `html`, `materialize`
+  - custom: `json`
+* **Example**: `"adminUI": {"config": "json", "tab": "html", "custom": "json"}`
 
-```
-{
-   "en": "This adapter does this and that",
-   "de": "Dieser Aadpter macht dies und jenes",
-   "ru": "Этот драйвер делает то и это"
-}
-```
+##### `dataSource`
+* **Description**: Specifies the method by which the adapter receives data from devices or services. This field is crucial for understanding the interaction pattern between the adapter and its data sources, ensuring that the adapter is configured to handle data input correctly.
+* **Type**: string
+* **Possible values**:
+  - `none`: The adapter does not receive data from devices or external services directly.
+  - `poll`: The adapter periodically requests data from devices or services. This is typical for scenarios where the adapter must actively query an API or device to retrieve the latest data.
+  - `push`: Devices or services send data to the adapter proactively. This pattern is common in event-driven architectures where the device or service notifies the adapter of changes or updates without the adapter needing to request it.
+  - `assumption`: The adapter makes assumptions about the state of devices or services based on predefined logic or patterns without receiving actual data from the devices. This might be used in scenarios where direct communication with the device is not possible or practical, and the adapter must infer the state based on other information.
+* **Example**: `"dataSource": "poll"`
 
-If no entry exists for the current language, the description in english will be shown.
+##### `desc`
+* **Description**: A multilingual description of what the adapter does.
+* **Type**: object
+* **Possible values**: Object with language codes as keys and descriptions as values
+* **Example**: `"desc": {"en": "This adapter allows...", "de": "Dieser Adapter ermöglicht..."}`
 
-* `platform`: mandatory. Actually only `Javascript/Node.js` is supported.
-* `mode`: mandatory. The mode how the adapter will be started.
-* `enabled`: optional. When set to true, the instance will be activated after addition.
-* `license`: license name under what the adapter is licensed;
-* `loglevel`: initial log level that will be set after creation of instance. Can be `debug`, `info`, `warn` or `error`
-* `readme`: link to readme page in internet. Used by admin adapter to show the link if "?" button clicked.
-* `icon`: icon name (not the path) of adapter icon. This icon must be in admin directory of adapter.
-* `extIcon`: icon path in internet to show the icon for adapter if the adapter is not yet installed.
-* `keywords`: key words as array to enable search in admin adapter.
-* `localLink`: link to adapter "www" files (or adapter server). "http://192.168.0.100"
-* `type`: following types are possible: `hardware, social, storage, visual, api, scripting, weather, other, connection`.
-* `messagebox`: optional. Must be set to true if adapter should receive system messages.
+##### `keywords`
+* **Description**: An array of keywords to help find the adapter in searches.
+* **Type**: array
+* **Possible values**: Every word that is related to the adapter.
+* **Example**: `"keywords": [ "EnOcean", "Love" ] `
 
-Note: localLink can have special keys, that will be replaced by real values.
+##### `license`
+* **Description**: DEPRECATED with JS-controller version 5.0.19, do not use this field anymore.
 
-* `%ip%`: will be replaced with IP address defined in first "web" instance.
-* `%field%`, where field is attribute from `native` part of configuration of adapter instance.
+##### `licenseInformation`
+* **Description**: Information about the adapter's licensing, including type and, if applicable, a link to the full license text.
+* **Type**: object
+* **Possible values**: Object with license, type, and optionally link.
+  - type: Use 'paid' for adapters which do not work without a paid license. Use 'commercial' for adapters which require a license for commercial use only. Use 'limited' if some functionalities are not available without a paid license.
+* **Example**: `"licenseInformation": {"license": "MIT", "type": "free", "link": "https://opensource.org/licenses/MIT"}`
 
-E.g. `http://%ip%:%port%` will be shown as "http://192.168.0.1:8080", where "192.168.0.1" is IP address from "web" adapter and 8080 is value from `system.adapter.adapterName.X => native.port`.
+##### `loglevel`
+* **Description**: Specifies the initial log level for the adapter instance.
+* **Type**: string
+* **Possible values**: `silly`, `debug`, `info`, `warn`, `error`
+
+##### `mode`
+* **Description**: Defines how the adapter is started.
+* **Type**: string
+* **Possible values**: `none`, `daemon`, `subscribe`, `schedule`, `once`, `extension`
+
+##### `name`
+* **Description**: The adapter's unique name without the "ioBroker." prefix. Not "ioBroker.adapterName".
+* **Type**: String
+* **Possible values**: Any valid string that uniquely identifies the adapter
+
+##### `news`
+* **Description**: Short changelog descriptions in all supported languages for the admin UI.
+* **Type**: object
+* **Possible values**:  Object with version numbers as keys and multilingual descriptions as values
+* **Example**: `"news": {"1.0.0": {"en": "Initial release", "de": "Erstveröffentlichung"}}`
+
+##### `platform`
+* **Description**: Specifies the platform the adapter runs on. Currently, only Javascript/Node.js is supported.
+* **Type**: string
+* **Possible values**: `Javascript/Node.js`
+
+##### `readme`
+* **Description**: URL to the README page for the adapter. Used by admin adapter to show the link if "?" button clicked.
+* **Type**: string
+* **Possible values**: Any valid URL
+* **Example**: `"readme": "https://github.com/ioBroker/ioBroker.adapterName#readme"`
+
+##### `titleLang`
+* **Description**: The adapter's name in all supported languages.
+* **Type**: object
+* **Possible values**: Object with language codes as keys and names as values
+* **Example**: `"titleLang": {"en": "Adapter", "de": "Adapter"}`
+
+##### `version`
+* **Description**: The current version of the adapter, which must be the same as specified in package.json.
+* **Type**: string
+* **Possible values**: Semantic versioning format, https://semver.org/
+* **Example**: `"version": "2.1.3"`
+
+#### Optional Fields
+
+##### `dependencies`
+* **Description**: Defines the ioBroker modules and their specific versions that are required for the adapter to function correctly on the same host. This ensures that the adapter has all the necessary dependencies met within its operating environment, preventing runtime errors due to missing or incompatible modules.
+* **Type**: array
+* **Possible values**: An array containing strings or objects. Strings simply specify the names of required ioBroker modules without version constraints. Objects specify both the module names and their required version ranges, offering precise control over the versions of dependencies that the adapter needs to operate successfully.
+* **Example**:  
+`"dependencies": ["web"]`  
+or  
+`"dependencies": [ {"js-controller": ">=2.0.0"}, {"admin": ">=4.0.0"} ]`
+
+##### `enabled`
+* **Description**: If set to true, the adapter instance is activated upon addition.
+* **Type**: boolean
+* **Possible values**: `true`, `false`
+
+##### `eraseOnUpload`
+* **Description**: Specifies whether all existing data in the target directory should be erased before uploading new data. This is particularly relevant for adapters that manage or deploy files to a specific directory and need to ensure that only the latest version of their data or configuration is present, avoiding potential conflicts or outdated information.
+* **Type**: boolean
+* **Possible values**:
+  - `true` (default): Before uploading new data, the adapter will clear the target directory of any existing files or data. This ensures that only the most recent upload is stored in the directory.
+  - `false`: The adapter will upload new data without erasing existing files in the directory. This could be useful if the adapter needs to maintain a history of files or when existing data should not be removed.
+* **Example**: `"eraseOnUpload": { "eraseOnUpload": true }`
+
+##### `extIcon`
+* **Description**:  URL to an external icon for the adapter, useful when the adapter is not yet installed.
+* **Type**: string
+* **Possible values**: Any valid URL
+* **Example:**: `"extIcon": "https://example.com/icon.png"`
+
+##### `getHistory`
+* **Description**: Indicates whether the adapter supports the getHistory message, allowing it to retrieve historical data. This capability is essential for adapters that need to access past states or events. Starting from controller version 5, it is recommended to use the common.supportedMessages.getHistory field instead to specify this support more explicitly within the context of supported messages.
+* **Type**: boolean
+* **Possible values**: 
+  - `true`: The adapter is capable of handling getHistory messages, meaning it can process requests for historical data.
+  - `false`: The adapter does not support handling getHistory messages and cannot retrieve historical data upon request.
+* **Example**: `"getHistory": true`
+
+
+##### `globalDependencies`
+* **Description**: Specifies the ioBroker modules that are required for the adapter to function properly, but unlike dependencies, these are needed on any host within a multi-host ioBroker setup. This ensures that necessary modules are available globally across the ioBroker installation, facilitating the adapter's operations that may depend on services or functionalities provided by these modules.
+* **Type**: array
+* **Possible values**: An array of strings or objects specifying the module names and their required versions. The version specification follows semantic versioning rules, allowing for precise control over the module versions that the adapter is compatible with.
+* **Example**:  
+`"globalDependencies": ["admin"]`  
+or  
+`"globalDependencies": [ {"admin": ">=2.0.0"}, {"web": ">=3.0.0"} ]`
+
+
+##### `icon`
+* **Description**: The filename of the adapter's icon within the admin directory.
+* **Type**: string
+* **Possible values**:  Any valid filename
+* **Example**: `"icon": "icon.png"`
+
+##### `localLinks`
+* **Description**: Provides a way to define links to the web service of the adapter, which can be used to create buttons or links in the admin UI. This allows for easy access to the adapter's web interface or specific functionalities directly from the ioBroker admin panel. The _default key can be used to specify a default link, while other keys can define additional, context-specific links.
+* **Type**: object
+* **Possible values**:
+    - A simple URL string for default usage: `{"_default": "http://localhost:5984/_utils"}`
+    - An object specifying detailed properties for the link, including:
+      - **link**: The URL to the web service or interface.
+      - **color**: (Optional) A string value to specify the color of the link button or icon in the admin UI.
+      - **pro**: (Optional) A boolean indicating whether the link is a pro feature.
+      - **icon**: (Optional) The name or path of an icon to represent the link visually in the admin UI.
+* **Note**: localLink can have special keys, that will be replaced by real values.
+  - `%ip%`: will be replaced with IP address defined in first "web" instance.
+  - `%field%`, where field is attribute from `native` part of configuration of adapter instance.
+* **Example**:  
+`"localLinks": {\"_default\": \"http://localhost:5984/_utils\"}`  
+or  
+`"localLinks":  {
+  "configuration": {
+  "link": "http://localhost:5984/_utils/config",
+  "color": "blue",
+  "pro": false,
+  "icon": "config-icon.png"
+  }
+  }
+  `  
+or  
+  `"localLinks": {\"_default\": \"http://%ip%:%port%/_utils\"}`
+
+##### `logTransporter`
+* **Description**: Indicates whether the adapter is designed to receive and possibly store or process log messages from other hosts and adapters within the ioBroker system. This functionality is essential for centralized logging solutions or adapters that perform log analysis, aggregation, or forwarding to external systems.
+* **Type**: boolean
+* **Possible values**:
+  - `true`: The adapter can receive log messages from other hosts and adapters, making it responsible for handling such data according to its logic, whether it be storage, analysis, or forwarding.
+  - `false`: The adapter does not have the capability to receive log messages from other parts of the ioBroker system and is not intended to be used as a log aggregator or processor.
+* **Example**: `"logTransporter": true`
+
+##### `messagebox`
+* **Description**: Indicates if the adapter can receive system messages.
+* **Type**: boolean
+* **Possible values**: `true`, `false`
+
+##### `notifications`
+* **Description**: Defines notifications for the built-in notification system, allowing adapters to inform users about specific events or states.
+* **Type**: array
+* **Possible values**: scope, name, description, categories, severity, regex, limit
+* **Example**:  
+  `"notifications": [
+  {
+  "scope": "system",
+  "name": {"en": "Low disk space", "de": "Wenig Speicherplatz"},
+  "description": {"en": "The disk space is running low.", "de": "Der Speicherplatz wird knapp."},
+  "categories": [
+  {
+  "category": "disk",
+  "name": {"en": "Disk space warning", "de": "Warnung Speicherplatz"},
+  "severity": "alert",
+  "description": {"en": "Disk space on device is below 10%", "de": "Speicherplatz auf dem Gerät ist unter 10%"},
+  "regex": ["Disk space below 10%"],
+  "limit": 5
+  }
+  ]
+  }
+  ]`
+
+
+##### `supportedMessages`
+* **Description**: Object which defines, if the adapter supports receiving messages via sendTo. Additionally, it defines if specific messages are supported.
+* **Type**: object
+* **Possible values**: 
+  - custom: `true`, `false`
+  - deviceManager: `true`, `false`
+  - notifications: `true`, `false`
+* **Example**: `{ "supportedMessages": { "custom": true, "deviceManager": true } }`
+
+    
 ### Object fields
 
 objects - static objects for all instances of adapter (xxx.object) By installation of adapter (not the instance creation) some predefined objects (normally that describe something) can be created automatically. These objects must not depend on some specific instance and are common for all instances of this adapter. For example hm-rpc adapter has the structure description of all HomeMatic devices.
