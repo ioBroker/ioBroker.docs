@@ -7,15 +7,15 @@
   },
   "dependencies": {
     "body-parser": "^1.20.2",
-    "express": "^4.18.2",
+    "express": "^4.19.1",
     "express-brute": "^1.0.1",
-    "minisearch": "^6.1.0",
+    "minisearch": "^6.3.0",
     "cors": "^2.8.5"
   },
   "devDependencies": {
-    "@google-cloud/translate": "^8.0.2",
+    "@google-cloud/translate": "^8.1.0",
     "gulp": "^4.0.2",
-    "axios": "^1.5.1"
+    "axios": "^1.6.8"
   },
   "scripts": {
     "start": "node main",

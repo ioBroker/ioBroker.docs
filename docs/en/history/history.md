@@ -391,3 +391,5 @@ Homekit Tiles is a widget set based on the design of Apple HomeKit. The special 
 
 The widgets are designed for VIS 1.x.
 
+## scheduler (05.4.2024) – new feature
+Scheduler supports now holidays and custom types.
